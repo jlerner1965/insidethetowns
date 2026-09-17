@@ -23,5 +23,10 @@ export default defineConfig({
   integrations: [townRoutes(site), sitemap()],
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      // Never inline scripts: the CSP in vercel.json allows script-src 'self' only,
+      // so the filter script must ship as a file, however small it is.
+      assetsInlineLimit: 0,
+    },
   },
 });

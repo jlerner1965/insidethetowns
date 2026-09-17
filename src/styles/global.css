@@ -15,7 +15,7 @@
   --color-paper: var(--town-neutral-bg);
   --color-ink: #17181a;
   --color-ink-muted: #5d5f64;
-  --color-ink-faint: #9b9da3;
+  --color-ink-faint: #63666c; /* 5:1 on paper; the lightest text the sites use */
   --color-line: color-mix(in oklab, var(--town-neutral-bg) 70%, #17181a 30%);
   --color-line-soft: color-mix(in oklab, var(--town-neutral-bg) 88%, #17181a 12%);
 
