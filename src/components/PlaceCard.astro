@@ -1,4 +1,9 @@
 ---
+/**
+ * A place as a photo-led card with no box: image, eyebrow, serif title,
+ * two-line summary. Places without a photo get a typographic tile in the
+ * town's accent so the grid never shows a broken hole.
+ */
 import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
 import { PLACE_TYPE_LABELS } from '@/content/schemas';
@@ -11,19 +16,29 @@ const { place } = Astro.props;
 const { data, slug } = place;
 const href = `/places/${slug}/`;
 ---
-<article class="flex flex-col overflow-hidden rounded-lg border border-line bg-white transition hover:border-accent" data-filter-item data-category={data.type}>
-  <a href={href} class="block aspect-[4/3] bg-neutral-bg">
+<article class="group relative flex flex-col" data-filter-item data-category={data.type}>
+  <div class="aspect-[4/3] overflow-hidden rounded-lg bg-accent-soft">
     {data.image ? (
-      <Image src={data.image} alt={data.imageAlt ?? ''} width={640} height={480} class="h-full w-full object-cover" />
+      <Image
+        src={data.image}
+        alt={data.imageAlt ?? ''}
+        width={720}
+        height={540}
+        class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+      />
     ) : (
-      <div class="flex h-full items-center justify-center text-sm text-ink-muted">Photo coming</div>
+      <div class="flex h-full items-end p-5" aria-hidden="true">
+        <span class="display text-7xl text-accent-dark/30">{data.title.charAt(0)}</span>
+      </div>
     )}
-  </a>
-  <div class="flex flex-1 flex-col p-4">
-    <p class="text-xs font-semibold uppercase tracking-wide text-accent-dark">
-      {PLACE_TYPE_LABELS[data.type]}{data.priceRange && <span class="ml-2 text-ink-muted">{data.priceRange}</span>}
+  </div>
+  <div class="mt-4">
+    <p class="eyebrow">
+      {PLACE_TYPE_LABELS[data.type]}{data.priceRange && <span class="ml-2 text-ink-faint">{data.priceRange}</span>}
     </p>
-    <h3 class="mt-1 text-lg font-bold leading-snug"><a href={href} class="hover:underline">{data.title}</a></h3>
-    <p class="mt-2 text-sm text-ink-muted">{data.summary}</p>
+    <h3 class="mt-1.5 text-[1.375rem] font-medium leading-tight">
+      <a href={href} class="stretch no-underline group-hover:text-accent-dark">{data.title}</a>
+    </h3>
+    <p class="mt-2 line-clamp-2 text-[0.9375rem] leading-relaxed text-ink-muted">{data.summary}</p>
   </div>
 </article>

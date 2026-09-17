@@ -17,11 +17,11 @@ const options = types.map((t) => ({ value: t, label: PLACE_TYPE_LABELS[t] }));
 <div data-filter-root>
   {filterable && <FilterBar options={options} label="Filter places" />}
   {places.length === 0 ? (
-    <p class="rounded-lg border border-dashed border-line p-6 text-center text-ink-muted">{emptyMessage}</p>
+    <p class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">{emptyMessage}</p>
   ) : (
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-12">
       {places.map((place) => <PlaceCard place={place} />)}
     </div>
   )}
-  <p data-filter-empty hidden class="rounded-lg border border-dashed border-line p-6 text-center text-ink-muted">Nothing in this category yet.</p>
+  <p data-filter-empty hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">Nothing in this category yet.</p>
 </div>

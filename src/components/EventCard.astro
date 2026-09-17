@@ -1,4 +1,8 @@
 ---
+/**
+ * An event as an editorial row: date (or time) in the left column, category
+ * eyebrow, serif title, meta line. The whole row is the link.
+ */
 import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
 import { formatTimeRange, monthDay, toIsoLocal } from '@/lib/dates';
@@ -6,7 +10,7 @@ import { CATEGORY_LABELS } from '@/content/schemas';
 
 interface Props {
   event: TownEntry<'events'>;
-  /** Hide the date badge when the card sits under a day heading. */
+  /** Show the calendar date in the left column; off when under a day heading. */
   showDate?: boolean;
 }
 
@@ -14,31 +18,36 @@ const { event, showDate = true } = Astro.props;
 const { data, slug } = event;
 const badge = monthDay(data.start);
 const href = `/events/${slug}/`;
+const time = formatTimeRange(data.start, data.end, data.allDay);
 ---
 <article
-  class="flex gap-4 rounded-lg border border-line bg-white p-4 transition hover:border-accent"
+  class="group relative grid grid-cols-[4.25rem_1fr] gap-x-4 border-t border-line-soft py-5 md:grid-cols-[4.5rem_1fr_auto] md:gap-x-7 md:py-6"
   data-filter-item
   data-category={data.category}
 >
-  {showDate && (
-    <time datetime={toIsoLocal(data.start)} class="flex w-14 shrink-0 flex-col items-center rounded-md bg-neutral-bg py-2 text-center">
-      <span class="text-xs font-semibold uppercase tracking-wide text-accent-dark">{badge.month}</span>
-      <span class="text-2xl font-bold leading-none">{badge.day}</span>
-      <span class="text-xs text-ink-muted">{badge.weekday}</span>
+  {showDate ? (
+    <time datetime={toIsoLocal(data.start)} class="flex flex-col pt-0.5">
+      <span class="eyebrow">{badge.weekday}</span>
+      <span class="font-heading text-[2.25rem] font-medium leading-none tabular-nums md:text-[2.5rem]">{badge.day}</span>
+      <span class="text-xs font-medium uppercase tracking-[0.1em] text-ink-muted">{badge.month}</span>
+    </time>
+  ) : (
+    <time datetime={toIsoLocal(data.start)} class="whitespace-nowrap pt-1 text-sm font-semibold tabular-nums leading-snug text-ink-muted">
+      {time.split(' – ')[0]}
+      {data.end && !data.allDay && <span class="block text-ink-faint">to {time.split(' – ')[1]}</span>}
     </time>
   )}
-  {data.image && (
-    <Image src={data.image} alt={data.imageAlt ?? ''} width={160} height={120} class="hidden h-24 w-32 shrink-0 rounded-md object-cover sm:block" />
-  )}
-  <div class="min-w-0 flex-1">
-    <p class="text-xs font-semibold uppercase tracking-wide text-accent-dark">{CATEGORY_LABELS[data.category]}</p>
-    <h3 class="mt-1 text-lg font-bold leading-snug">
-      <a href={href} class="hover:underline">{data.title}</a>
+  <div class="min-w-0">
+    <p class="eyebrow">{CATEGORY_LABELS[data.category]}</p>
+    <h3 class="mt-1.5 text-xl font-medium leading-tight md:text-2xl">
+      <a href={href} class="stretch no-underline group-hover:text-accent-dark">{data.title}</a>
     </h3>
-    <p class="mt-1 text-sm text-ink-muted">
-      {formatTimeRange(data.start, data.end, data.allDay)} · {data.venue}
-      {data.cost && <span> · {data.cost}</span>}
+    <p class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">
+      {showDate && <span>{time} · </span>}{data.venue}{data.cost && <span> · {data.cost}</span>}
     </p>
-    {data.recurring && <p class="mt-1 text-xs text-ink-muted">{data.recurring}</p>}
+    {data.recurring && <p class="mt-1 text-sm text-ink-faint">{data.recurring}</p>}
   </div>
+  {data.image && (
+    <Image src={data.image} alt={data.imageAlt ?? ''} width={224} height={168} class="hidden aspect-[4/3] w-28 rounded-md object-cover md:block" />
+  )}
 </article>

@@ -9,16 +9,14 @@ interface Props {
 }
 
 const { options, label = 'Filter' } = Astro.props;
+const pill =
+  'rounded-full border border-line bg-transparent px-4 py-1.5 text-sm font-medium text-ink-muted transition-colors hover:border-ink hover:text-ink aria-pressed:border-accent-dark aria-pressed:bg-accent-dark aria-pressed:text-white';
 ---
 {options.length > 1 && (
-  <div class="mb-6 flex flex-wrap items-center gap-2" role="group" aria-label={label} data-filter-bar>
-    <button type="button" data-filter="all" aria-pressed="true" class="rounded-full border border-line bg-white px-3 py-1 text-sm aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-white">
-      All
-    </button>
+  <div class="mb-8 flex flex-wrap items-center gap-2 md:mb-10" role="group" aria-label={label} data-filter-bar>
+    <button type="button" data-filter="all" aria-pressed="true" class={pill}>All</button>
     {options.map((o) => (
-      <button type="button" data-filter={o.value} aria-pressed="false" class="rounded-full border border-line bg-white px-3 py-1 text-sm aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-white">
-        {o.label}
-      </button>
+      <button type="button" data-filter={o.value} aria-pressed="false" class={pill}>{o.label}</button>
     ))}
   </div>
 )}

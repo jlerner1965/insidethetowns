@@ -1,27 +1,46 @@
 ---
+/**
+ * Article teaser. `feature` lays the image beside the text for the home page.
+ */
 import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
 import { formatDate, toIsoLocal } from '@/lib/dates';
 
 interface Props {
   article: TownEntry<'articles'>;
+  feature?: boolean;
 }
 
-const { article } = Astro.props;
+const { article, feature = false } = Astro.props;
 const { data, slug } = article;
 const href = `/articles/${slug}/`;
 ---
-<article class="flex flex-col overflow-hidden rounded-lg border border-line bg-white transition hover:border-accent">
-  {data.image && (
-    <a href={href} class="block aspect-[16/9]">
-      <Image src={data.image} alt={data.imageAlt ?? ''} width={800} height={450} class="h-full w-full object-cover" />
-    </a>
+<article class:list={['group relative', feature && 'grid gap-6 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-10']}>
+  {data.image ? (
+    <div class:list={['overflow-hidden rounded-lg bg-accent-soft', feature ? 'aspect-[4/3]' : 'aspect-[16/10]']}>
+      <Image
+        src={data.image}
+        alt={data.imageAlt ?? ''}
+        width={feature ? 1200 : 800}
+        height={feature ? 900 : 500}
+        class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+      />
+    </div>
+  ) : (
+    feature && (
+      <div class="flex aspect-[4/3] items-end rounded-lg bg-accent-soft p-6" aria-hidden="true">
+        <span class="display text-8xl text-accent-dark/30">{data.title.charAt(0)}</span>
+      </div>
+    )
   )}
-  <div class="p-4">
-    <p class="text-xs font-semibold uppercase tracking-wide text-accent-dark">
-      {data.category} · <time datetime={toIsoLocal(data.date)}>{formatDate(data.date)}</time>
+  <div class:list={[!feature && 'mt-4']}>
+    <p class="eyebrow">
+      {data.category} <span class="text-ink-faint">·</span> <time datetime={toIsoLocal(data.date)} class="text-ink-muted">{formatDate(data.date)}</time>
     </p>
-    <h3 class="mt-1 text-xl font-bold leading-snug"><a href={href} class="hover:underline">{data.title}</a></h3>
-    <p class="mt-2 text-sm text-ink-muted">{data.excerpt}</p>
+    <h3 class:list={['mt-2 font-medium leading-tight', feature ? 'display text-3xl md:text-5xl' : 'text-2xl']}>
+      <a href={href} class="stretch no-underline group-hover:text-accent-dark">{data.title}</a>
+    </h3>
+    <p class:list={['mt-3 leading-relaxed text-ink-muted', feature ? 'text-lg' : 'text-[0.9375rem] line-clamp-3']}>{data.excerpt}</p>
+    {feature && <p class="mt-5 text-[0.9375rem] font-semibold text-accent-dark">Read the story →</p>}
   </div>
 </article>

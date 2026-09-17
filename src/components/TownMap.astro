@@ -12,39 +12,40 @@ interface Props {
 
 const { towns } = Astro.props;
 const W = 640;
-const H = 480;
-const pad = 48;
+const H = 520;
+const pad = 56;
 const lngs = towns.map((t) => t.lng);
 const lats = towns.map((t) => t.lat);
-const minLng = Math.min(...lngs) - 0.08;
-const maxLng = Math.max(...lngs) + 0.08;
-const minLat = Math.min(...lats) - 0.06;
-const maxLat = Math.max(...lats) + 0.06;
+const minLng = Math.min(...lngs) - 0.1;
+const maxLng = Math.max(...lngs) + 0.1;
+const minLat = Math.min(...lats) - 0.08;
+const maxLat = Math.max(...lats) + 0.08;
 const x = (lng: number) => pad + ((lng - minLng) / (maxLng - minLng)) * (W - pad * 2);
 const y = (lat: number) => H - pad - ((lat - minLat) / (maxLat - minLat)) * (H - pad * 2);
 const pins = towns.map((t) => ({ t, cx: x(t.lng), cy: y(t.lat), live: LIVE_TOWNS.includes(t.slug) }));
 ---
-<figure class="overflow-hidden rounded-lg border border-line bg-white">
-  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="town-map-title" class="h-auto w-full">
+<figure class="overflow-hidden rounded-lg bg-white ring-1 ring-line-soft">
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="town-map-title" class="h-auto w-full font-body">
     <title id="town-map-title">Map of the towns in the network</title>
-    <rect width={W} height={H} fill="#f6f5f1"></rect>
-    <text x={pad} y={H - 16} font-size="12" fill="#5c5c5c">Northern Front Range, Colorado · foothills to the west</text>
-    <path d={`M 0 0 L ${pad * 0.9} ${H * 0.15} L ${pad * 0.5} ${H * 0.55} L ${pad * 1.1} ${H} L 0 ${H} Z`} fill="#e6e2d8"></path>
+    <rect width={W} height={H} fill="#ffffff"></rect>
+    <path d={`M 0 0 L ${pad * 1.2} ${H * 0.12} L ${pad * 0.6} ${H * 0.5} L ${pad * 1.4} ${H} L 0 ${H} Z`} fill="var(--color-accent-soft)"></path>
+    <text x={pad * 0.35} y={H * 0.5} font-size="11" fill="var(--color-ink-faint)" transform={`rotate(-90 ${pad * 0.35} ${H * 0.5})`} text-anchor="middle" letter-spacing="2">FOOTHILLS</text>
     {pins.map(({ t, cx, cy, live }) => (
       <g>
         {live ? (
           <a href={`https://${t.domain}/`}>
-            <circle cx={cx} cy={cy} r="9" fill={t.colors.accent}></circle>
-            <circle cx={cx} cy={cy} r="14" fill="none" stroke={t.colors.accent} stroke-opacity="0.35"></circle>
-            <text x={cx + 16} y={cy + 5} font-size="14" font-weight="600" fill="#1b1b1b">{t.name}</text>
+            <circle cx={cx} cy={cy} r="20" fill={t.colors.accent} fill-opacity="0.15"></circle>
+            <circle cx={cx} cy={cy} r="8" fill={t.colors.accent}></circle>
+            <text x={cx + 18} y={cy + 5} font-size="15" font-weight="600" fill="var(--color-ink)">{t.name}</text>
           </a>
         ) : (
-          <g opacity="0.55">
-            <circle cx={cx} cy={cy} r="7" fill="none" stroke="#5c5c5c" stroke-width="2"></circle>
-            <text x={cx + 14} y={cy + 5} font-size="13" fill="#5c5c5c">{t.name} · soon</text>
+          <g>
+            <circle cx={cx} cy={cy} r="6" fill="none" stroke="var(--color-ink-faint)" stroke-width="2"></circle>
+            <text x={cx + 16} y={cy + 5} font-size="14" fill="var(--color-ink-muted)">{t.name}</text>
           </g>
         )}
       </g>
     ))}
+    <text x={W - pad * 0.4} y={H - 18} font-size="11" fill="var(--color-ink-faint)" text-anchor="end" letter-spacing="2">NORTHERN FRONT RANGE · COLORADO</text>
   </svg>
 </figure>

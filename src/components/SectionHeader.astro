@@ -1,0 +1,23 @@
+---
+/**
+ * Eyebrow + heading + optional "All events →" link, used for every home-page
+ * section so they share one rhythm.
+ */
+interface Props {
+  eyebrow?: string;
+  title: string;
+  href?: string;
+  linkLabel?: string;
+}
+
+const { eyebrow, title, href, linkLabel = 'See all' } = Astro.props;
+---
+<div class="mb-8 flex flex-wrap items-end justify-between gap-x-8 gap-y-3 border-b border-line-soft pb-5 md:mb-10">
+  <div>
+    {eyebrow && <p class="eyebrow mb-2">{eyebrow}</p>}
+    <h2 class="display-md text-4xl md:text-5xl">{title}</h2>
+  </div>
+  {href && (
+    <a href={href} class="text-[0.9375rem] font-semibold text-accent-dark no-underline hover:underline">{linkLabel} →</a>
+  )}
+</div>
