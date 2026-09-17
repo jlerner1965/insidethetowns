@@ -1,7 +1,8 @@
 ---
 /**
- * Thin "Part of Inside the Towns" strip. Lists the hub and every live sibling
- * site; never the current site or towns that are not live yet.
+ * Thin "Part of Inside the Towns" strip at the very bottom of every site.
+ * Lists the hub and every live sibling site; never the current site or towns
+ * that are not live yet.
  */
 import { getNetworkHub, getSite, liveTowns } from '@/config';
 
@@ -9,21 +10,21 @@ const site = getSite();
 const hub = getNetworkHub();
 const siblings = liveTowns().filter((t) => t.slug !== site.slug);
 ---
-<div class="border-t border-line bg-white/60 text-sm text-ink-muted">
-  <div class="container-page flex flex-wrap items-center gap-x-4 gap-y-1 py-3">
+<div class="border-t border-white/10 bg-black/25 text-[0.8125rem] text-white/60">
+  <div class="container-page flex flex-wrap items-center gap-x-5 gap-y-1 py-3.5">
     <span>
       Part of
       {site.kind === 'hub' ? (
-        <strong class="text-ink">{hub.siteTitle}</strong>
+        <strong class="font-semibold text-white/85">{hub.siteTitle}</strong>
       ) : (
-        <a href={`https://${hub.domain}/`} class="font-semibold text-ink hover:underline">{hub.siteTitle}</a>
+        <a href={`https://${hub.domain}/`} class="font-semibold text-white/85 no-underline hover:underline">{hub.siteTitle}</a>
       )}
     </span>
     {siblings.length > 0 && (
-      <ul class="flex flex-wrap gap-x-3 gap-y-1">
+      <ul class="flex flex-wrap gap-x-4 gap-y-1">
         {siblings.map((t) => (
           <li>
-            <a href={`https://${t.domain}/`} class="hover:underline">{t.siteTitle}</a>
+            <a href={`https://${t.domain}/`} class="no-underline hover:text-white hover:underline">{t.siteTitle}</a>
           </li>
         ))}
       </ul>
