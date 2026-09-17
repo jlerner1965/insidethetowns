@@ -1,0 +1,32 @@
+---
+import { getImage, Image } from 'astro:assets';
+import { render } from 'astro:content';
+import Page from '@/layouts/Page.astro';
+import { getTownEntries, type TownEntry } from '@/lib/content';
+import { formatDate, toIsoLocal } from '@/lib/dates';
+
+export async function getStaticPaths() {
+  const articles = await getTownEntries('articles');
+  return articles.map((article) => ({ params: { slug: article.slug }, props: { article } }));
+}
+
+interface Props {
+  article: TownEntry<'articles'>;
+}
+
+const { article } = Astro.props;
+const { data } = article;
+const { Content } = await render(article);
+const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
+---
+<Page title={data.title} description={data.excerpt} image={shareImage} imageAlt={data.imageAlt} type="article" narrow>
+  <p slot="after-header" class="-mt-4 mb-8 text-sm text-ink-muted">
+    <span class="font-semibold uppercase tracking-wide text-accent-dark">{data.category}</span> ·
+    <time datetime={toIsoLocal(data.date)}>{formatDate(data.date)}</time>
+    {data.updated && <span> · Updated {formatDate(data.updated)}</span>}
+  </p>
+  {data.image && <Image src={data.image} alt={data.imageAlt ?? ''} width={960} height={540} class="mb-8 rounded-lg" />}
+  <div class="prose">
+    <Content />
+  </div>
+</Page>

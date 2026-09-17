@@ -1,0 +1,73 @@
+---
+import { getImage, Image } from 'astro:assets';
+import { render } from 'astro:content';
+import Page from '@/layouts/Page.astro';
+import { getTown } from '@/config';
+import { getTownEntries, type TownEntry } from '@/lib/content';
+import { localBusinessJsonLd } from '@/lib/seo';
+import { EAT_DRINK_TYPES, PLACE_TYPE_LABELS } from '@/content/schemas';
+
+export async function getStaticPaths() {
+  const places = await getTownEntries('places');
+  return places.map((place) => ({ params: { slug: place.slug }, props: { place } }));
+}
+
+interface Props {
+  place: TownEntry<'places'>;
+}
+
+const town = getTown();
+const { place } = Astro.props;
+const { data } = place;
+const { Content } = await render(place);
+const url = new URL(Astro.url.pathname, Astro.site).toString();
+const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
+const back = EAT_DRINK_TYPES.includes(data.type) ? { href: '/eat-drink/', label: 'Eat & drink' } : { href: '/things-to-do/', label: 'Things to do' };
+---
+<Page
+  title={data.title}
+  description={data.summary}
+  image={shareImage}
+  imageAlt={data.imageAlt}
+  jsonLd={localBusinessJsonLd(town, place, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined)}
+  narrow
+>
+  <p slot="after-header" class="-mt-4 mb-8 text-sm font-semibold uppercase tracking-wide text-accent-dark">
+    {PLACE_TYPE_LABELS[data.type]}{data.priceRange && <span class="ml-2 text-ink-muted">{data.priceRange}</span>}
+  </p>
+  {data.image && <Image src={data.image} alt={data.imageAlt ?? ''} width={960} height={640} class="mb-8 rounded-lg" />}
+  <dl class="mb-8 grid gap-x-8 gap-y-3 rounded-lg border border-line bg-white p-6 sm:grid-cols-2">
+    <div>
+      <dt class="text-xs font-semibold uppercase tracking-wide text-ink-muted">Address</dt>
+      <dd class="mt-1 font-medium">{data.address}</dd>
+    </div>
+    {data.hours && (
+      <div>
+        <dt class="text-xs font-semibold uppercase tracking-wide text-ink-muted">Hours</dt>
+        <dd class="mt-1 font-medium">{data.hours}</dd>
+      </div>
+    )}
+    {data.phone && (
+      <div>
+        <dt class="text-xs font-semibold uppercase tracking-wide text-ink-muted">Phone</dt>
+        <dd class="mt-1 font-medium"><a href={`tel:${data.phone.replace(/[^\d+]/g, '')}`}>{data.phone}</a></dd>
+      </div>
+    )}
+    {data.url && (
+      <div>
+        <dt class="text-xs font-semibold uppercase tracking-wide text-ink-muted">Website</dt>
+        <dd class="mt-1 font-medium"><a href={data.url} rel="noopener" class="text-accent-dark underline">{new URL(data.url).hostname}</a></dd>
+      </div>
+    )}
+  </dl>
+  <p class="mb-6 text-lg">{data.summary}</p>
+  <div class="prose">
+    <Content />
+  </div>
+  {data.tags.length > 0 && (
+    <ul class="mt-8 flex flex-wrap gap-2 text-xs">
+      {data.tags.map((tag) => <li class="rounded-full bg-white px-3 py-1 text-ink-muted">{tag}</li>)}
+    </ul>
+  )}
+  <p class="mt-10 text-sm"><a href={back.href} class="text-accent-dark underline">← {back.label}</a></p>
+</Page>

@@ -1,0 +1,14 @@
+---
+import Page from '@/layouts/Page.astro';
+import PlaceGrid from '@/components/PlaceGrid.astro';
+import { getTown } from '@/config';
+import { getTownEntries } from '@/lib/content';
+import { EAT_DRINK_TYPES } from '@/content/schemas';
+
+const town = getTown();
+const places = (await getTownEntries('places')).filter((p) => EAT_DRINK_TYPES.includes(p.data.type));
+places.sort((a, b) => Number(b.data.featured) - Number(a.data.featured) || a.data.title.localeCompare(b.data.title));
+---
+<Page title="Eat & Drink" description={`Restaurants, bars and coffee in ${town.name}, ${town.state}.`} intro={`Where to eat, drink and linger in ${town.name}.`}>
+  <PlaceGrid places={places} filterable emptyMessage="No places listed yet." />
+</Page>

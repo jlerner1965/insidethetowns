@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import type { TownEntry } from '@/lib/content';
+import { formatDate, toIsoLocal } from '@/lib/dates';
+
+interface Props {
+  article: TownEntry<'articles'>;
+}
+
+const { article } = Astro.props;
+const { data, slug } = article;
+const href = `/articles/${slug}/`;
+---
+<article class="flex flex-col overflow-hidden rounded-lg border border-line bg-white transition hover:border-accent">
+  {data.image && (
+    <a href={href} class="block aspect-[16/9]">
+      <Image src={data.image} alt={data.imageAlt ?? ''} width={800} height={450} class="h-full w-full object-cover" />
+    </a>
+  )}
+  <div class="p-4">
+    <p class="text-xs font-semibold uppercase tracking-wide text-accent-dark">
+      {data.category} · <time datetime={toIsoLocal(data.date)}>{formatDate(data.date)}</time>
+    </p>
+    <h3 class="mt-1 text-xl font-bold leading-snug"><a href={href} class="hover:underline">{data.title}</a></h3>
+    <p class="mt-2 text-sm text-ink-muted">{data.excerpt}</p>
+  </div>
+</article>

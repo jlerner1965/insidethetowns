@@ -1,0 +1,49 @@
+---
+import Base from '@/layouts/Base.astro';
+import Hero from '@/components/Hero.astro';
+import TownMap from '@/components/TownMap.astro';
+import { getHub, LIVE_TOWNS } from '@/config';
+import { websiteJsonLd } from '@/lib/seo';
+
+const hub = getHub();
+const live = hub.towns.filter((t) => LIVE_TOWNS.includes(t.slug));
+const soon = hub.towns.filter((t) => !LIVE_TOWNS.includes(t.slug));
+---
+<Base jsonLd={websiteJsonLd(hub)}>
+  <Hero />
+
+  <section id="towns" class="container-page py-12">
+    <h2 class="mb-6 text-3xl font-bold">The towns</h2>
+    <div class="grid gap-8 lg:grid-cols-[3fr_2fr]">
+      <TownMap towns={hub.towns} />
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+        {live.map((t) => (
+          <a href={`https://${t.domain}/`} class="block rounded-lg border border-line bg-white p-5 transition hover:border-accent" style={`--town-accent:${t.colors.accent};--town-accent-dark:${t.colors.accentDark}`}>
+            <p class="text-xs font-semibold uppercase tracking-wide" style={`color:${t.colors.accentDark}`}>{t.county} County</p>
+            <h3 class="mt-1 text-2xl font-bold">{t.siteTitle}</h3>
+            <p class="mt-2 text-sm text-ink-muted">{t.tagline}</p>
+            <p class="mt-3 text-sm font-semibold" style={`color:${t.colors.accentDark}`}>{t.domain} →</p>
+          </a>
+        ))}
+        {soon.length > 0 && (
+          <div class="rounded-lg border border-dashed border-line p-5 text-sm text-ink-muted">
+            <p class="font-semibold text-ink">Coming next</p>
+            <p class="mt-1">{soon.map((t) => t.name).join(' · ')}</p>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="container-page py-12">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl font-bold">One guide per town, made the same careful way</h2>
+      <p class="mt-4 text-lg text-ink-muted">
+        Each Inside the Towns site is an independent guide: the week’s events, where to eat and drink, the trails
+        and parks, and a straight account of what it’s like to live there. Never the town government, always
+        linking to it.
+      </p>
+      <p class="mt-4"><a href="/about/" class="font-semibold text-accent-dark underline">About the network</a></p>
+    </div>
+  </section>
+</Base>

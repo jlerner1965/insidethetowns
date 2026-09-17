@@ -1,0 +1,38 @@
+---
+import { render } from 'astro:content';
+import Page from '@/layouts/Page.astro';
+import { getTown } from '@/config';
+import { getTownEntry } from '@/lib/content';
+
+const town = getTown();
+const page = await getTownEntry('pages', 'moving-here');
+const Content = page ? (await render(page)).Content : null;
+const { listingsLinks, schoolDistrict, commuteNotes } = town.movingHere;
+---
+<Page
+  title={page?.data.title ?? `Moving to ${town.name}`}
+  description={page?.data.description ?? `Schools, commutes, housing and what to expect when you move to ${town.name}, ${town.state}.`}
+  narrow
+>
+  <div class="mb-10 grid gap-6 sm:grid-cols-2">
+    <div class="rounded-lg border border-line bg-white p-6">
+      <h2 class="text-lg font-bold">Homes for sale</h2>
+      <ul class="mt-3 space-y-2">
+        {listingsLinks.map((l) => (
+          <li><a href={l.url} rel="noopener nofollow" class="text-accent-dark underline">{l.label} →</a></li>
+        ))}
+      </ul>
+    </div>
+    <div class="rounded-lg border border-line bg-white p-6">
+      <h2 class="text-lg font-bold">Schools &amp; commute</h2>
+      {schoolDistrict && <p class="mt-3 text-sm"><strong>Schools:</strong> {schoolDistrict}</p>}
+      {commuteNotes && <p class="mt-2 text-sm"><strong>Commute:</strong> {commuteNotes}</p>}
+      {town.population && <p class="mt-2 text-sm"><strong>Population:</strong> about {town.population.toLocaleString('en-US')}</p>}
+    </div>
+  </div>
+  {Content ? (
+    <div class="prose"><Content /></div>
+  ) : (
+    <p class="text-ink-muted">Guide coming soon.</p>
+  )}
+</Page>

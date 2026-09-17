@@ -1,0 +1,45 @@
+---
+/**
+ * Category buttons that show/hide [data-filter-item] elements inside the
+ * nearest [data-filter-root]. The only client-side JS on town sites.
+ */
+interface Props {
+  options: Array<{ value: string; label: string }>;
+  label?: string;
+}
+
+const { options, label = 'Filter' } = Astro.props;
+---
+{options.length > 1 && (
+  <div class="mb-6 flex flex-wrap items-center gap-2" role="group" aria-label={label} data-filter-bar>
+    <button type="button" data-filter="all" aria-pressed="true" class="rounded-full border border-line bg-white px-3 py-1 text-sm aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-white">
+      All
+    </button>
+    {options.map((o) => (
+      <button type="button" data-filter={o.value} aria-pressed="false" class="rounded-full border border-line bg-white px-3 py-1 text-sm aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-white">
+        {o.label}
+      </button>
+    ))}
+  </div>
+)}
+
+<script>
+  const bars = document.querySelectorAll<HTMLElement>('[data-filter-bar]');
+  for (const bar of bars) {
+    const root = bar.closest<HTMLElement>('[data-filter-root]') ?? document.body;
+    const buttons = bar.querySelectorAll<HTMLButtonElement>('[data-filter]');
+    const apply = (value: string) => {
+      for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.filter === value));
+      const items = root.querySelectorAll<HTMLElement>('[data-filter-item]');
+      for (const item of items) {
+        item.hidden = value !== 'all' && item.dataset.category !== value;
+      }
+      for (const group of root.querySelectorAll<HTMLElement>('[data-filter-group]')) {
+        group.hidden = !group.querySelector('[data-filter-item]:not([hidden])');
+      }
+      const empty = root.querySelector<HTMLElement>('[data-filter-empty]');
+      if (empty) empty.hidden = !!root.querySelector('[data-filter-item]:not([hidden])');
+    };
+    for (const b of buttons) b.addEventListener('click', () => apply(b.dataset.filter ?? 'all'));
+  }
+</script>

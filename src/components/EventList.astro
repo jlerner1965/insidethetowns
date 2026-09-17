@@ -1,0 +1,32 @@
+---
+/**
+ * Events grouped under day headings. Works with FilterBar: each day section
+ * is hidden by the filter script when none of its events match.
+ */
+import type { TownEntry } from '@/lib/content';
+import { groupByDay } from '@/lib/events';
+import { formatDayLong } from '@/lib/dates';
+import EventCard from './EventCard.astro';
+
+interface Props {
+  events: TownEntry<'events'>[];
+  emptyMessage?: string;
+}
+
+const { events, emptyMessage = 'No events listed yet. Check back soon.' } = Astro.props;
+const days = groupByDay(events);
+---
+{days.length === 0 ? (
+  <p class="rounded-lg border border-dashed border-line p-6 text-center text-ink-muted">{emptyMessage}</p>
+) : (
+  <div class="space-y-10">
+    {days.map((day) => (
+      <section data-filter-group>
+        <h2 class="mb-4 border-b border-line pb-2 text-xl font-bold">{formatDayLong(day.date)}</h2>
+        <div class="space-y-3">
+          {day.events.map((event) => <EventCard event={event} />)}
+        </div>
+      </section>
+    ))}
+  </div>
+)}

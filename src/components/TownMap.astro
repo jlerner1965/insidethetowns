@@ -1,0 +1,50 @@
+---
+/**
+ * Hub only. A static SVG of the northern Front Range with a pin per town.
+ * Lat/lng come from each town's config; the projection is a plain linear
+ * fit over the bounding box, which is fine at this scale.
+ */
+import { LIVE_TOWNS, type TownConfig } from '@/config';
+
+interface Props {
+  towns: TownConfig[];
+}
+
+const { towns } = Astro.props;
+const W = 640;
+const H = 480;
+const pad = 48;
+const lngs = towns.map((t) => t.lng);
+const lats = towns.map((t) => t.lat);
+const minLng = Math.min(...lngs) - 0.08;
+const maxLng = Math.max(...lngs) + 0.08;
+const minLat = Math.min(...lats) - 0.06;
+const maxLat = Math.max(...lats) + 0.06;
+const x = (lng: number) => pad + ((lng - minLng) / (maxLng - minLng)) * (W - pad * 2);
+const y = (lat: number) => H - pad - ((lat - minLat) / (maxLat - minLat)) * (H - pad * 2);
+const pins = towns.map((t) => ({ t, cx: x(t.lng), cy: y(t.lat), live: LIVE_TOWNS.includes(t.slug) }));
+---
+<figure class="overflow-hidden rounded-lg border border-line bg-white">
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="town-map-title" class="h-auto w-full">
+    <title id="town-map-title">Map of the towns in the network</title>
+    <rect width={W} height={H} fill="#f6f5f1"></rect>
+    <text x={pad} y={H - 16} font-size="12" fill="#5c5c5c">Northern Front Range, Colorado · foothills to the west</text>
+    <path d={`M 0 0 L ${pad * 0.9} ${H * 0.15} L ${pad * 0.5} ${H * 0.55} L ${pad * 1.1} ${H} L 0 ${H} Z`} fill="#e6e2d8"></path>
+    {pins.map(({ t, cx, cy, live }) => (
+      <g>
+        {live ? (
+          <a href={`https://${t.domain}/`}>
+            <circle cx={cx} cy={cy} r="9" fill={t.colors.accent}></circle>
+            <circle cx={cx} cy={cy} r="14" fill="none" stroke={t.colors.accent} stroke-opacity="0.35"></circle>
+            <text x={cx + 16} y={cy + 5} font-size="14" font-weight="600" fill="#1b1b1b">{t.name}</text>
+          </a>
+        ) : (
+          <g opacity="0.55">
+            <circle cx={cx} cy={cy} r="7" fill="none" stroke="#5c5c5c" stroke-width="2"></circle>
+            <text x={cx + 14} y={cy + 5} font-size="13" fill="#5c5c5c">{t.name} · soon</text>
+          </g>
+        )}
+      </g>
+    ))}
+  </svg>
+</figure>

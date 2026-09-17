@@ -1,0 +1,58 @@
+---
+import Page from '@/layouts/Page.astro';
+import { getSite, liveTowns } from '@/config';
+
+const site = getSite();
+const live = liveTowns();
+---
+{site.kind === 'town' ? (
+  <Page title={`About ${site.siteTitle}`} description={`What ${site.siteTitle} is, who runs it, and what it is not.`} narrow>
+    <div class="prose">
+      <p>
+        {site.siteTitle} is an independent community and visitor guide to {site.name}, {site.state}: what’s on this week,
+        where to eat and drink, where to walk, and what it’s like to live here.
+      </p>
+      <h2>Independent, not official</h2>
+      <p>
+        This site is not the town government, a chamber of commerce, or any public body, and it does not speak for them.
+        For official notices, permits, meetings and services, go to
+        <a href={site.officialLinks.townSite} rel="noopener">{site.officialLinks.townSiteLabel ?? `the official ${site.name} site`}</a>.
+        {site.officialLinks.policeNonEmergency && (
+          <span> Police non-emergency: <a href={site.officialLinks.policeNonEmergency} rel="noopener">{site.officialLinks.policeNonEmergency}</a>.</span>
+        )}
+      </p>
+      <h2>Part of a network</h2>
+      <p>
+        {site.siteTitle} is one of the Inside the Towns guides to the small towns of Colorado’s Front Range.
+        {live.length > 1 && <span> Sister sites: {live.filter((t) => t.slug !== site.slug).map((t) => t.siteTitle).join(', ')}.</span>}
+      </p>
+      <h2>Corrections and listings</h2>
+      <p>
+        Spotted something wrong, or run a business or event here that should be listed?
+        <a href="/contact/">Get in touch</a>. Listings are free and editorial; we don’t sell placement in the guides.
+      </p>
+    </div>
+  </Page>
+) : (
+  <Page title="About the network" description="What Inside the Towns is and how the guides are made." narrow>
+    <div class="prose">
+      <p>
+        Inside the Towns publishes independent community guides for the small towns of Colorado’s northern Front Range:
+        one site per town, each with the week’s events, places to eat and drink, things to do outdoors, and a plain
+        account of what it’s like to move there.
+      </p>
+      <h2>Independent</h2>
+      <p>
+        None of the guides is a government site or a chamber of commerce. Each one links to the official town or county
+        site for anything civic, and says so on every page.
+      </p>
+      <h2>Live guides</h2>
+      <ul>
+        {live.map((t) => (
+          <li><a href={`https://${t.domain}/`}>{t.siteTitle}</a> — {t.tagline}</li>
+        ))}
+      </ul>
+      <p>More towns are on the way. <a href="/contact/">Suggest one</a>.</p>
+    </div>
+  </Page>
+)}

@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import type { TownEntry } from '@/lib/content';
+import { PLACE_TYPE_LABELS } from '@/content/schemas';
+
+interface Props {
+  place: TownEntry<'places'>;
+}
+
+const { place } = Astro.props;
+const { data, slug } = place;
+const href = `/places/${slug}/`;
+---
+<article class="flex flex-col overflow-hidden rounded-lg border border-line bg-white transition hover:border-accent" data-filter-item data-category={data.type}>
+  <a href={href} class="block aspect-[4/3] bg-neutral-bg">
+    {data.image ? (
+      <Image src={data.image} alt={data.imageAlt ?? ''} width={640} height={480} class="h-full w-full object-cover" />
+    ) : (
+      <div class="flex h-full items-center justify-center text-sm text-ink-muted">Photo coming</div>
+    )}
+  </a>
+  <div class="flex flex-1 flex-col p-4">
+    <p class="text-xs font-semibold uppercase tracking-wide text-accent-dark">
+      {PLACE_TYPE_LABELS[data.type]}{data.priceRange && <span class="ml-2 text-ink-muted">{data.priceRange}</span>}
+    </p>
+    <h3 class="mt-1 text-lg font-bold leading-snug"><a href={href} class="hover:underline">{data.title}</a></h3>
+    <p class="mt-2 text-sm text-ink-muted">{data.summary}</p>
+  </div>
+</article>

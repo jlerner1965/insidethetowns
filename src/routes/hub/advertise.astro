@@ -1,0 +1,24 @@
+---
+import Page from '@/layouts/Page.astro';
+import { getHub, liveTowns } from '@/config';
+
+const hub = getHub();
+const live = liveTowns();
+---
+<Page title="Advertise & partner" description="Reach residents and visitors of Colorado Front Range towns through Inside the Towns." narrow>
+  <div class="prose">
+    <p>
+      Inside the Towns reaches people who live in, visit, or are about to move to the small towns of the northern
+      Front Range. Placements are clearly labelled and never mixed into editorial listings.
+    </p>
+    <h2>What’s available</h2>
+    <ul>
+      <li>Sponsored “presented by” slots on a town’s events page</li>
+      <li>Featured placement for local businesses in Eat &amp; Drink and Things to Do</li>
+      <li>Relocation partners on Moving Here pages (agents, lenders, movers)</li>
+      <li>Network-wide sponsorship across {live.length === 1 ? 'the live guide' : `all ${live.length} live guides`}</li>
+    </ul>
+    <p>Rates and audience numbers are available on request. Placeholder copy; final terms to follow.</p>
+    <p><a href={`mailto:${hub.social.email}?subject=${encodeURIComponent('Advertising enquiry')}`}>Email {hub.social.email}</a></p>
+  </div>
+</Page>

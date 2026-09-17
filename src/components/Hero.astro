@@ -1,0 +1,35 @@
+---
+/**
+ * Full-bleed town photo with name and tagline. Phase 2 gives this real design
+ * attention; for now it establishes the structure and the image pipeline.
+ */
+import { Image } from 'astro:assets';
+import { getSite } from '@/config';
+import { resolveSiteImage } from '@/lib/images';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const site = getSite();
+const { title = site.siteTitle, subtitle = site.tagline } = Astro.props;
+const hero = resolveSiteImage(site.slug, site.hero.image);
+---
+<section class="relative isolate overflow-hidden bg-accent-dark text-white">
+  <Image
+    src={hero}
+    alt={site.hero.alt}
+    widths={[640, 960, 1280, 1920]}
+    sizes="100vw"
+    layout="full-width"
+    priority
+    class="absolute inset-0 -z-10 h-full w-full object-cover opacity-80"
+  />
+  <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+  <div class="container-page flex min-h-[60vh] flex-col justify-end py-12 md:min-h-[70vh]">
+    <h1 class="text-5xl font-bold drop-shadow md:text-7xl">{title}</h1>
+    <p class="mt-3 max-w-xl text-lg text-white/90 md:text-xl">{subtitle}</p>
+    {site.hero.credit && <p class="mt-6 text-xs text-white/60">Photo: {site.hero.credit}</p>}
+  </div>
+</section>

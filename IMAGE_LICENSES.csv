@@ -1,0 +1,4 @@
+path,source_url,license,credit_required (y/n),town
+scripts/templates/placeholder-hero.jpg,generated in-repo,CC0 placeholder — never ship on a live site,n,all
+content/hub/images/hero.jpg,generated (scripts/templates/placeholder-hero.jpg),CC0 placeholder — replace before launch,n,hub
+content/niwot/images/hero.jpg,https://github.com/jlerner1965/townofniwot.com (src/assets/photos/valley-haystack-foothills.jpg),client-supplied; licensed for townofniwot.com — confirm the licence extends to insideniwot.com,n,niwot
