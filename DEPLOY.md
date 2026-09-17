@@ -59,8 +59,9 @@ git push -u origin main
 
 ## Redirecting the old site
 
-`townofniwot.com` is a separate Vercel project on the
-[townofniwot.com repository](https://github.com/jlerner1965/townofniwot.com). The
+`townofniwot.com` is served by the Vercel project `cityofniwot-com`, which deploys
+the [cityofniwot.com repository](https://github.com/jlerner1965/cityofniwot.com)
+(not the older `townofniwot.com` repository, whose Vercel project has no domain). The
 branch `claude/inside-towns-build-plan-7dupte` there replaces its `vercel.json`
 with 301 redirects: every old section URL maps to its new page and everything else
 to `https://insideniwot.com/:path*`. Merge that branch **only after** insideniwot.com
