@@ -1,0 +1,64 @@
+# Every push and pull request validates the content and builds every live
+# site, so a broken frontmatter field or a bad import is caught before Vercel
+# tries to deploy it. Deploys themselves are Vercel's Git integration: one
+# project per domain, each rebuilding on every push to the production branch
+# (see DEPLOY.md).
+name: CI
+
+on:
+  push:
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sites:
+    name: List live sites
+    runs-on: ubuntu-latest
+    outputs:
+      sites: ${{ steps.list.outputs.sites }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: list
+        run: echo "sites=$(node scripts/live-towns.ts --json)" >> "$GITHUB_OUTPUT"
+
+  validate:
+    name: Validate content and types
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run validate
+      - run: npx astro check
+        env:
+          TOWN: niwot
+
+  build:
+    name: Build ${{ matrix.town }}
+    needs: [sites, validate]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        town: ${{ fromJson(needs.sites.outputs.sites) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          TOWN: ${{ matrix.town }}
+      - name: Page count
+        run: find dist -name index.html | wc -l
