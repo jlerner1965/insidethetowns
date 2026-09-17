@@ -1,0 +1,58 @@
+---
+/**
+ * Every <head> tag that search engines and social cards care about.
+ * Title pattern: "[Page] | Inside [Town]"; the home page passes no title.
+ */
+import { getImage } from 'astro:assets';
+import { getSite } from '@/config';
+import { resolveSiteImage } from '@/lib/images';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Absolute or site-relative URL of the share image. Falls back to the hero. */
+  image?: string;
+  imageAlt?: string;
+  type?: 'website' | 'article';
+  jsonLd?: object | object[];
+  noindex?: boolean;
+}
+
+const site = getSite();
+const { title, description = site.tagline, type = 'website', jsonLd, noindex = false } = Astro.props;
+const fullTitle = title ? `${title} | ${site.siteTitle}` : `${site.siteTitle} — ${site.tagline}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+let ogImage = Astro.props.image;
+let ogAlt = Astro.props.imageAlt;
+if (!ogImage) {
+  const hero = resolveSiteImage(site.slug, site.hero.image);
+  const generated = await getImage({ src: hero, width: 1200, height: 630, format: 'jpg' });
+  ogImage = generated.src;
+  ogAlt = site.hero.alt;
+}
+const ogImageUrl = new URL(ogImage, Astro.site).toString();
+const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+---
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex" />}
+
+<meta property="og:site_name" content={site.siteTitle} />
+<meta property="og:type" content={type} />
+<meta property="og:title" content={title ?? site.siteTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+{ogAlt && <meta property="og:image:alt" content={ogAlt} />}
+<meta property="og:locale" content="en_US" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title ?? site.siteTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
+
+{jsonLdList.map((item) => <script type="application/ld+json" set:html={JSON.stringify(item)}></script>)}

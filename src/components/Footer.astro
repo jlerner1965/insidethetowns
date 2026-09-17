@@ -1,0 +1,44 @@
+---
+import { getSite } from '@/config';
+import NetworkBar from './NetworkBar.astro';
+
+const site = getSite();
+const year = new Date().getFullYear();
+const submitSubject = encodeURIComponent(`Event submission for ${site.siteTitle}`);
+---
+<footer class="mt-auto border-t border-line bg-white">
+  <div class="container-page grid gap-8 py-10 md:grid-cols-3">
+    <div>
+      <p class="font-heading text-xl font-bold text-accent-dark">{site.siteTitle}</p>
+      <p class="mt-2 max-w-xs text-sm text-ink-muted">{site.tagline}</p>
+    </div>
+    <div class="text-sm">
+      <p class="font-semibold">Get in touch</p>
+      <ul class="mt-2 space-y-1">
+        <li><a href="/contact/" class="hover:underline">Contact</a></li>
+        {site.kind === 'town' && (
+          <li>
+            <a href={`mailto:${site.social.email}?subject=${submitSubject}`} class="hover:underline">Submit an event</a>
+          </li>
+        )}
+        {site.social.instagram && <li><a href={site.social.instagram} rel="noopener" class="hover:underline">Instagram</a></li>}
+        {site.social.facebook && <li><a href={site.social.facebook} rel="noopener" class="hover:underline">Facebook</a></li>}
+      </ul>
+    </div>
+    <div class="text-sm text-ink-muted">
+      {site.kind === 'town' ? (
+        <p>
+          {site.siteTitle} is an independent community guide. It is not affiliated with any government body.
+          For official information see
+          <a href={site.officialLinks.townSite} rel="noopener" class="underline">{site.officialLinks.townSiteLabel ?? `the official ${site.name} site`}</a>.
+        </p>
+      ) : (
+        <p>
+          {site.siteTitle} publishes independent community guides. None of its sites is affiliated with a town government.
+        </p>
+      )}
+      <p class="mt-3">© {year} {site.siteTitle}</p>
+    </div>
+  </div>
+  <NetworkBar />
+</footer>

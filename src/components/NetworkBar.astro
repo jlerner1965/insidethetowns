@@ -1,0 +1,32 @@
+---
+/**
+ * Thin "Part of Inside the Towns" strip. Lists the hub and every live sibling
+ * site; never the current site or towns that are not live yet.
+ */
+import { getNetworkHub, getSite, liveTowns } from '@/config';
+
+const site = getSite();
+const hub = getNetworkHub();
+const siblings = liveTowns().filter((t) => t.slug !== site.slug);
+---
+<div class="border-t border-line bg-white/60 text-sm text-ink-muted">
+  <div class="container-page flex flex-wrap items-center gap-x-4 gap-y-1 py-3">
+    <span>
+      Part of
+      {site.kind === 'hub' ? (
+        <strong class="text-ink">{hub.siteTitle}</strong>
+      ) : (
+        <a href={`https://${hub.domain}/`} class="font-semibold text-ink hover:underline">{hub.siteTitle}</a>
+      )}
+    </span>
+    {siblings.length > 0 && (
+      <ul class="flex flex-wrap gap-x-3 gap-y-1">
+        {siblings.map((t) => (
+          <li>
+            <a href={`https://${t.domain}/`} class="hover:underline">{t.siteTitle}</a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</div>
