@@ -5,7 +5,51 @@
 import type { CollectionEntry } from 'astro:content';
 import { addDays, dayKey, startOfDay } from './dates';
 
-type EventLike = { data: CollectionEntry<'events'>['data'] };
+type EventLike = { data: CollectionEntry<'events'>['data']; slug?: string; id?: string };
+
+const WEEK = 7 * 86_400_000;
+
+/**
+ * Expand weekly repeats into one entry per occurrence, up to `horizonDays`
+ * ahead of `now`. Non-repeating events pass through untouched. Occurrences
+ * share the source entry's slug, so they all link to the same page.
+ */
+export function occurrences<T extends EventLike>(
+  events: T[],
+  { now = new Date(), horizonDays = 120 }: { now?: Date; horizonDays?: number } = {},
+): T[] {
+  const horizon = addDays(startOfDay(now), horizonDays).getTime();
+  const out: T[] = [];
+  for (const event of events) {
+    const { repeat, until, start, end } = event.data;
+    if (repeat !== 'weekly' || !until) {
+      out.push(event);
+      continue;
+    }
+    const duration = end ? end.getTime() - start.getTime() : 0;
+    for (let t = start.getTime(); t <= until.getTime() && t <= horizon; t += WEEK) {
+      const occStart = new Date(t);
+      out.push({ ...event, data: { ...event.data, start: occStart, end: end ? new Date(t + duration) : undefined } });
+    }
+  }
+  return sortByStart(out);
+}
+
+/** Keep the first entry per slug (or id), preserving order. */
+export function uniqueByEvent<T extends EventLike>(events: T[]): T[] {
+  const seen = new Set<string>();
+  return events.filter((e) => {
+    const key = e.slug ?? e.id ?? e.data.title;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+/** The soonest occurrence that is not past, for a single event. */
+export function nextOccurrence<T extends EventLike>(event: T, now = new Date()): T {
+  return upcoming(occurrences([event], { now, horizonDays: 400 }), { now, limit: 1 })[0] ?? event;
+}
 
 export function eventEnd(event: EventLike): Date {
   const { start, end, allDay } = event.data;

@@ -4,7 +4,8 @@ import { render } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
-import { formatDayLong, formatTimeRange, toIsoLocal } from '@/lib/dates';
+import { formatDate, formatDayLong, formatTimeRange, formatWeekday, toIsoLocal } from '@/lib/dates';
+import { nextOccurrence } from '@/lib/events';
 import { eventJsonLd } from '@/lib/seo';
 import { CATEGORY_LABELS } from '@/content/schemas';
 
@@ -21,11 +22,17 @@ const town = getTown();
 const { event } = Astro.props;
 const { data } = event;
 const { Content } = await render(event);
+const next = nextOccurrence(event);
+const when = next.data;
+const repeatNote =
+  data.recurring ??
+  (data.repeat === 'weekly' && data.until ? `Every ${formatWeekday(data.start)} through ${formatDate(data.until)}` : undefined);
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
-const description = `${formatDayLong(data.start)}, ${formatTimeRange(data.start, data.end, data.allDay)} at ${data.venue}, ${town.name}.`;
+const timeText = data.timeNote ?? formatTimeRange(when.start, when.end, data.allDay);
+const description = `${formatDayLong(when.start)}, ${timeText} at ${data.venue}, ${town.name}.`;
 const facts = [
-  { label: 'When', value: [formatDayLong(data.start), formatTimeRange(data.start, data.end, data.allDay), data.recurring].filter(Boolean) },
+  { label: repeatNote ? 'Next' : 'When', value: [formatDayLong(when.start), timeText, repeatNote].filter(Boolean) },
   { label: 'Where', value: [data.venue, data.address].filter(Boolean) },
   { label: 'Cost', value: [data.cost ?? 'See organizer'] },
 ];
@@ -36,7 +43,7 @@ const facts = [
   description={description}
   image={shareImage}
   imageAlt={data.imageAlt}
-  jsonLd={eventJsonLd(town, event, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined)}
+  jsonLd={eventJsonLd(town, next, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined)}
 >
   <div class="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
     <div>
@@ -54,7 +61,7 @@ const facts = [
             <dd class="mt-1.5 leading-snug">
               {f.value.map((line, i) => (
                 <span class:list={['block', i > 0 && 'text-[0.9375rem] text-ink-muted']}>
-                  {i === 0 && f.label === 'When' ? <time datetime={toIsoLocal(data.start)}>{line}</time> : line}
+                  {i === 0 && (f.label === 'When' || f.label === 'Next') ? <time datetime={toIsoLocal(when.start)}>{line}</time> : line}
                 </span>
               ))}
             </dd>
@@ -62,6 +69,11 @@ const facts = [
         ))}
       </dl>
       {data.url && <a href={data.url} rel="noopener" class="btn btn-primary mt-6">Organizer’s page →</a>}
+      {(data.verified || data.source) && (
+        <p class="mt-6 text-xs leading-relaxed text-ink-faint">
+          {data.verified && <span>Checked {formatDate(data.verified)}</span>}{data.verified && data.source && <span> against </span>}{data.source && <a href={data.source} rel="noopener" class="underline">{new URL(data.source).hostname.replace(/^www\./, '')}</a>}. Times can change; the organizer’s page is the record.
+        </p>
+      )}
     </aside>
   </div>
 </Page>

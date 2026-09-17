@@ -6,9 +6,18 @@ import { getTownEntries } from '@/lib/content';
 import { EAT_DRINK_TYPES } from '@/content/schemas';
 
 const town = getTown();
-const places = (await getTownEntries('places')).filter((p) => EAT_DRINK_TYPES.includes(p.data.type));
-places.sort((a, b) => Number(b.data.featured) - Number(a.data.featured) || a.data.title.localeCompare(b.data.title));
+const byFeatured = (a: { data: { featured: boolean; title: string } }, b: { data: { featured: boolean; title: string } }) =>
+  Number(b.data.featured) - Number(a.data.featured) || a.data.title.localeCompare(b.data.title);
+const all = await getTownEntries('places');
+const places = all.filter((p) => EAT_DRINK_TYPES.includes(p.data.type)).sort(byFeatured);
+const shops = all.filter((p) => p.data.type === 'shop').sort(byFeatured);
 ---
-<Page title="Eat & Drink" eyebrow={town.name} description={`Restaurants, bars and coffee in ${town.name}, ${town.state}.`} intro={`Where to eat, drink and linger in ${town.name}. Listings are editorial; nobody pays to be here.`}>
+<Page title="Eat & Drink" eyebrow={town.name} description={`Restaurants, bars, coffee and shops in ${town.name}, ${town.state}.`} intro={`Where to eat, drink, browse and linger in ${town.name}. Listings are editorial; nobody pays to be here.`}>
   <PlaceGrid places={places} filterable emptyMessage="No places listed yet." />
+  {shops.length > 0 && (
+    <section class="mt-20">
+      <p class="eyebrow mb-8 border-b border-line-soft pb-4">Shops</p>
+      <PlaceGrid places={shops} />
+    </section>
+  )}
 </Page>

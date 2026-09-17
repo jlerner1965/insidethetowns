@@ -7,11 +7,11 @@ import PlaceCard from '@/components/PlaceCard.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { upcoming } from '@/lib/events';
+import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { websiteJsonLd } from '@/lib/seo';
 
 const town = getTown();
-const events = upcoming(await getTownEntries('events'), { limit: 4 });
+const events = uniqueByEvent(upcoming(occurrences(await getTownEntries('events')))).slice(0, 4);
 const places = await getTownEntries('places');
 const featuredPlaces = [...places.filter((p) => p.data.featured), ...places.filter((p) => !p.data.featured)].slice(0, 6);
 const articles = (await getTownEntries('articles')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 2);

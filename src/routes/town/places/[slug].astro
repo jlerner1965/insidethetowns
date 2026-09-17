@@ -6,6 +6,7 @@ import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { localBusinessJsonLd } from '@/lib/seo';
 import { EAT_DRINK_TYPES, PLACE_TYPE_LABELS } from '@/content/schemas';
+import { formatDate } from '@/lib/dates';
 
 export async function getStaticPaths() {
   const places = await getTownEntries('places');
@@ -22,10 +23,10 @@ const { data } = place;
 const { Content } = await render(place);
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
-const back = EAT_DRINK_TYPES.includes(data.type) ? { href: '/eat-drink/', label: 'Eat & drink' } : { href: '/things-to-do/', label: 'Things to do' };
+const back = EAT_DRINK_TYPES.includes(data.type) || data.type === 'shop' ? { href: '/eat-drink/', label: 'Eat & drink' } : { href: '/things-to-do/', label: 'Things to do' };
 const eyebrow = `${PLACE_TYPE_LABELS[data.type]}${data.priceRange ? ` · ${data.priceRange}` : ''}`;
 const facts = [
-  { label: 'Address', value: data.address },
+  { label: 'Address', value: data.area ? `${data.address} · ${data.area}` : data.address },
   { label: 'Hours', value: data.hours },
   { label: 'Phone', value: data.phone, href: data.phone ? `tel:${data.phone.replace(/[^\d+]/g, '')}` : undefined },
   { label: 'Website', value: data.url ? new URL(data.url).hostname.replace(/^www\./, '') : undefined, href: data.url },
@@ -64,6 +65,11 @@ const facts = [
           </div>
         ))}
       </dl>
+      {(data.verified || data.source) && (
+        <p class="mt-6 text-xs leading-relaxed text-ink-faint">
+          {data.verified && <span>Checked {formatDate(data.verified)}</span>}{data.verified && data.source && <span> against </span>}{data.source && <a href={data.source} rel="noopener" class="underline">{new URL(data.source).hostname.replace(/^www\./, '')}</a>}. Hours and phone numbers change fastest, so the business’s own page is the record.
+        </p>
+      )}
     </aside>
   </div>
 </Page>

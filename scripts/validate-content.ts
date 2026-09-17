@@ -54,8 +54,8 @@ function validateFile(collection: CollectionName, file: string) {
     warnings.push(`${rel}: body is empty`);
   }
   if (collection === 'events') {
-    const data = result.data as { start: Date; end?: Date; title: string };
-    const end = data.end ?? data.start;
+    const data = result.data as { start: Date; end?: Date; until?: Date; title: string };
+    const end = data.until ?? data.end ?? data.start;
     if (end.getTime() < Date.now() - 86_400_000) {
       warnings.push(`${rel}: event is in the past (${end.toISOString().slice(0, 10)}); it will be hidden. Delete or update it.`);
     }

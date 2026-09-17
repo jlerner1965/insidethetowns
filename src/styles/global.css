@@ -167,6 +167,10 @@
   color: var(--color-ink-muted);
 }
 .prose img { border-radius: 0.5rem; }
+.prose table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+.prose th, .prose td { padding: 0.6em 1em 0.6em 0; border-bottom: 1px solid var(--color-line-soft); vertical-align: top; text-align: left; }
+.prose thead:empty, .prose th:empty { display: none; }
+.prose td:last-child { white-space: nowrap; font-variant-numeric: tabular-nums; }
 .prose hr { border: 0; border-top: 1px solid var(--color-line-soft); margin-block: 2.5em; }
 .prose strong { font-weight: 600; }
 .prose code { font-size: 0.9em; background: color-mix(in oklab, var(--color-ink) 6%, transparent); padding: 0.1em 0.35em; border-radius: 0.25rem; }

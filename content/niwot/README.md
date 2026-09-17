@@ -55,10 +55,18 @@ category: festival                # music|market|festival|outdoors|family|food|a
 image: ../images/parade.jpg       # optional
 imageAlt: "…"                     # required with image
 recurring: "Every Saturday through October"  # optional, display only
+repeat: weekly                    # optional: one file covers every week on start's weekday…
+until: "2026-12-15"               # …through this date (inclusive). Cards say "Every Tuesday through December 15".
+timeNote: "Time to be confirmed"  # optional, shown instead of the time range
+source: "https://organizer.example/calendar"  # optional, where the listing was read
+verified: "2026-09-17"            # optional, the day it was checked
 featured: false                   # optional
 ---
 Description in Markdown.
 ```
+
+A weekly regular (trivia, a market, a class) is one file with `repeat: weekly` and `until`.
+The events page shows every date for the next two weeks and one date after that.
 
 ## Place
 
@@ -67,7 +75,10 @@ Description in Markdown.
 title: "Niwot Tavern"
 type: restaurant                  # restaurant|bar|coffee|shop|trail|park|venue|lodging|service
 address: "7960 Niwot Rd"
+area: "Cottonwood Square"         # optional district or landmark, shown on the card
 url: "https://…"                  # optional
+source: "https://…"               # optional, where the listing was checked
+verified: "2026-09-09"            # optional
 phone: "303-555-0100"             # optional
 hours: "Tue–Sun 11am–9pm"         # optional
 priceRange: "$$"                  # optional: $ $$ $$$ $$$$

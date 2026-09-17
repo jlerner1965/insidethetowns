@@ -125,6 +125,11 @@ export function monthDay(date: Date): { month: string; day: string; weekday: str
   };
 }
 
+/** "Tuesday" */
+export function formatWeekday(date: Date): string {
+  return fmt({ weekday: 'long' }).format(date);
+}
+
 /** "10 am", "6:30 pm" */
 export function formatTime(date: Date): string {
   const s = fmt({ hour: 'numeric', minute: '2-digit' }).format(date);

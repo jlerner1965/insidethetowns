@@ -21,9 +21,9 @@ const days = groupByDay(events);
 ) : (
   <div class="space-y-12 md:space-y-16">
     {days.map((day) => (
-      <section data-filter-group class="md:grid md:grid-cols-[12rem_1fr] md:gap-10">
+      <section data-filter-group class="md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
         <h2 class="mb-2 md:mb-0 md:pt-6">
-          <time datetime={toIsoLocal(day.date)} class="display-md block text-3xl md:text-4xl">
+          <time datetime={toIsoLocal(day.date)} class="display-md block text-3xl md:text-[2.25rem]">
             {formatDayLong(day.date).split(', ').map((part, i) => (
               <span class:list={[i === 0 ? 'eyebrow block mb-2' : 'block']}>{part}</span>
             ))}

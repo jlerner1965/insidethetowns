@@ -58,7 +58,7 @@ export const CATEGORY_LABELS: Record<EventCategory, string> = {
 export const PLACE_TYPE_LABELS: Record<PlaceType, string> = {
   restaurant: 'Restaurant',
   bar: 'Bar',
-  coffee: 'Coffee',
+  coffee: 'Coffee & Sweets',
   shop: 'Shop',
   trail: 'Trail',
   park: 'Park',
@@ -100,13 +100,26 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
       category: z.enum(EVENT_CATEGORIES),
       image: image().optional(),
       imageAlt: z.string().optional(),
-      /** Human note such as "Every Saturday through October". Display only. */
+      /** Human note such as "Every Saturday through October". Display only; computed from repeat/until when absent. */
       recurring: z.string().optional(),
+      /** The event happens every week on start's weekday, through `until` (inclusive). */
+      repeat: z.enum(['weekly']).optional(),
+      until: localDate.optional(),
+      /** Replaces the computed time range on cards, e.g. "Time to be confirmed" or "Doors 6 pm, music 7 pm". */
+      timeNote: z.string().optional(),
+      /** The organizer's page or calendar the listing was read from. */
+      source: httpUrl.optional(),
+      /** The day the listing was checked against its source. */
+      verified: localDate.optional(),
       featured: z.boolean().default(false),
     })
     .refine((e) => !e.end || e.end.getTime() >= e.start.getTime(), {
       message: 'end must be at or after start',
       path: ['end'],
+    })
+    .refine((e) => !e.until || (e.repeat && e.until.getTime() >= e.start.getTime()), {
+      message: 'until requires repeat and must be at or after start',
+      path: ['until'],
     })
     .refine((e) => !e.image || !!e.imageAlt, {
       message: 'imageAlt is required when image is set',
@@ -121,6 +134,11 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
       slug,
       type: z.enum(PLACE_TYPES),
       address: z.string().min(1),
+      /** District or landmark: "Old Town, Second Avenue", "Cottonwood Square". */
+      area: z.string().optional(),
+      /** Where the listing was checked: the business's own site, a directory, or a dated news report. */
+      source: httpUrl.optional(),
+      verified: localDate.optional(),
       url: httpUrl.optional(),
       phone: z.string().optional(),
       hours: z.string().optional(),

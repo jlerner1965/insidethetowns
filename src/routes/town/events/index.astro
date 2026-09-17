@@ -4,13 +4,14 @@ import EventList from '@/components/EventList.astro';
 import FilterBar from '@/components/FilterBar.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { categoriesIn, upcoming } from '@/lib/events';
+import { categoriesIn, occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { CATEGORY_LABELS, EVENT_CATEGORIES, type EventCategory } from '@/content/schemas';
 
 const town = getTown();
-const all = await getTownEntries('events');
+const all = occurrences(await getTownEntries('events'), { horizonDays: 400 });
 const nextTwoWeeks = upcoming(all, { days: 14 });
-const later = upcoming(all).filter((e) => !nextTwoWeeks.includes(e));
+// Beyond two weeks a weekly event appears once, on its next date, not every week.
+const later = uniqueByEvent(upcoming(all).filter((e) => !nextTwoWeeks.includes(e)));
 const shown = [...nextTwoWeeks, ...later];
 const options = categoriesIn(shown, EVENT_CATEGORIES).map((c) => ({ value: c, label: CATEGORY_LABELS[c as EventCategory] }));
 ---
@@ -18,7 +19,7 @@ const options = categoriesIn(shown, EVENT_CATEGORIES).map((c) => ({ value: c, la
   title="Events"
   eyebrow={`What’s on in ${town.name}`}
   description={`What’s on in ${town.name} this week and next: markets, music, festivals, trails and more.`}
-  intro="The next two weeks first, then everything further out. Past events drop off on their own."
+  intro="The next two weeks first, then everything further out. Weekly regulars show every date for two weeks, then once. Past events drop off on their own."
 >
   <p slot="after-header" class="mt-5 text-[0.9375rem] text-ink-muted">
     Know of something missing? <a href="/contact/#submit-event" class="font-semibold text-accent-dark">Submit an event</a>.

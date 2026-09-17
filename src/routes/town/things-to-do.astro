@@ -7,14 +7,23 @@ import { getTownEntries } from '@/lib/content';
 import { THINGS_TO_DO_TYPES } from '@/content/schemas';
 
 const town = getTown();
-const places = (await getTownEntries('places')).filter((p) => THINGS_TO_DO_TYPES.includes(p.data.type));
-places.sort((a, b) => Number(b.data.featured) - Number(a.data.featured) || a.data.title.localeCompare(b.data.title));
+const all = await getTownEntries('places');
+const byFeatured = (a: { data: { featured: boolean; title: string } }, b: { data: { featured: boolean; title: string } }) =>
+  Number(b.data.featured) - Number(a.data.featured) || a.data.title.localeCompare(b.data.title);
+const places = all.filter((p) => THINGS_TO_DO_TYPES.includes(p.data.type)).sort(byFeatured);
+const lodging = all.filter((p) => p.data.type === 'lodging').sort(byFeatured);
 const outdoors = (await getTownEntries('articles')).filter(
   (a) => a.data.tags.includes('outdoors') || a.data.category.toLowerCase() === 'outdoors',
 );
 ---
 <Page title="Things to Do" eyebrow={town.name} description={`Trails, parks and venues in and around ${town.name}, ${town.state}.`} intro={`Trails, parks and places worth an afternoon in and around ${town.name}.`}>
   <PlaceGrid places={places} filterable emptyMessage="No trails, parks or venues listed yet." />
+  {lodging.length > 0 && (
+    <section class="mt-20">
+      <p class="eyebrow mb-8 border-b border-line-soft pb-4">Stay the night</p>
+      <PlaceGrid places={lodging} />
+    </section>
+  )}
   {outdoors.length > 0 && (
     <section class="mt-20">
       <p class="eyebrow mb-8 border-b border-line-soft pb-4">Outdoors, in depth</p>
