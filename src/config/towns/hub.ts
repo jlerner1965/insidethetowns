@@ -1,5 +1,5 @@
-import type { HubConfig } from './types';
-import { towns } from './registry';
+import type { HubConfig } from './types.ts';
+import { towns } from './registry.ts';
 
 export const hub: HubConfig = {
   kind: 'hub',

@@ -47,7 +47,7 @@ const hash = [...slug].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
 const [accent, accentDark] = palette[hash % palette.length]!;
 const ident = slug.replace(/-([a-z0-9])/g, (_, c: string) => c.toUpperCase());
 
-const configSource = `import { DEFAULT_TOWN_NAV, type TownConfig } from './types';
+const configSource = `import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
 
 // TODO: fill in the real values (lat/lng, county, population, links) before launch.
 export const ${ident}: TownConfig = {
@@ -188,7 +188,7 @@ if (!registry.includes('// new-town:imports') || !registry.includes('// new-town
 writeFileSync(
   registryFile,
   registry
-    .replace('// new-town:imports', `import { ${ident} } from './${slug}';\n// new-town:imports`)
+    .replace('// new-town:imports', `import { ${ident} } from './${slug}.ts';\n// new-town:imports`)
     .replace('  // new-town:entries', `  ${ident},\n  // new-town:entries`),
 );
 

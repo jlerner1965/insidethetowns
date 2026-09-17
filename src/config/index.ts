@@ -6,11 +6,11 @@
  *
  * Nothing in the codebase may hard-code a town. Components read from here.
  */
-import type { HubConfig, SiteConfig, TownConfig } from './towns/types';
-import { towns } from './towns/registry';
-import { hub } from './towns/hub';
+import type { HubConfig, SiteConfig, TownConfig } from './towns/types.ts';
+import { towns } from './towns/registry.ts';
+import { hub } from './towns/hub.ts';
 
-export type { HubConfig, SiteConfig, TownConfig, NavItem } from './towns/types';
+export type { HubConfig, SiteConfig, TownConfig, NavItem } from './towns/types.ts';
 
 /**
  * Towns that are deployed and public. The hub only links to these, and the

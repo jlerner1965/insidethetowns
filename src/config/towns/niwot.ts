@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types';
+import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
 
 export const niwot: TownConfig = {
   kind: 'town',
