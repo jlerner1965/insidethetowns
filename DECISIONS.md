@@ -88,3 +88,46 @@ Choices not covered by PLAN.md, with the reasoning. Newest first.
   all titled "(sample)", plus the six client-supplied photographs from townofniwot.com,
   so the grids and lists could be designed against realistic density. Phase 3 replaces
   the samples with the real listings; the photographs stay.
+
+## Phase 3
+
+- **No invented events.** Every event has a `source` (the organizer's page or calendar it
+  was read from) and a `verified` date, carried over from the old site's discipline.
+  Where an organizer's listing had a gap (a time not on the poster, two dates for one
+  wine walk) the entry says so rather than guessing. The plan's target of 15 events in
+  60 days was not reachable from organizer-published dates on September 17; the calendar
+  has 13 distinct dated events in that window plus two weekly regulars, and everything
+  the organizers have published through July 2027.
+- **Weekly repeats are one file.** `repeat: weekly` + `until` on an event expands at
+  build time into one occurrence per week; the events page shows every date for the
+  next two weeks and one date after that, and the home page never lists the same event
+  twice. An event page shows the next occurrence. This is what keeps trivia night and a
+  dance class from needing a weekly content edit.
+- **`timeNote`** on events replaces the computed time on cards ("Time to be confirmed",
+  "Ballots must be received by 7 pm") for the cases where a clock time would mislead.
+- **Places carry `area`, `source` and `verified`.** Area ("Cottonwood Square", "Old Town,
+  Second Avenue") shows on the card; the source and check date show on the place page,
+  and the page says the business's own site is the record for hours and phone numbers,
+  which the old site deliberately did not reproduce and this one does not either.
+- **Shops live on Eat & Drink; lodging on Things to Do.** The plan's page set has no
+  home for `shop` or `lodging` places, and Old Town is mostly shops, so Eat & Drink gets
+  a "Shops" grid under the food and drink, and Things to Do a "Stay the night" section.
+  URLs and nav labels are unchanged. Services (dentists, lawyers, salons) from the old
+  directory were not ported: they are not visitor-guide material and would be orphaned.
+- **The `coffee` type is labelled "Coffee & Sweets"** so the ice cream shop fits without
+  widening the enum.
+- **Articles replace the old site's standalone pages.** Our Story → "How Niwot got here";
+  Explore + Plan a Visit → "Explore Niwot: four places in walking order" (tagged
+  `outdoors`, so it appears on Things to Do); Community → "Who runs what in Niwot"; the
+  election page → "The 2026 Niwot incorporation election, plainly", held to the old
+  page's standard: measures described as filed, campaigns labelled as advocacy, the
+  commission never presented as an advocate, and a note that the summary predates the
+  commission's printer's-proof review and must be re-checked against the certified text.
+- **Redirects live in the old repo.** `vercel.json` on the `townofniwot.com` repository's
+  `claude/inside-towns-build-plan-7dupte` branch maps every old URL to its new home and
+  everything else to `insideniwot.com/:path*`. It must not be merged until insideniwot.com
+  is live with HTTPS (Phase 4).
+- **Photographs.** The six client-supplied photos are reused where they show the place
+  they show (tavern, Cimmini's patio, the caboose, the Tribune building, the gateway, the
+  trail at sunset). Thirty-odd places have no photo yet and show a typographic tile; a
+  photo pass is the most valuable content work left for Niwot.

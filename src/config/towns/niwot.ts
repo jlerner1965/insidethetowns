@@ -11,7 +11,7 @@ export const niwot: TownConfig = {
   state: 'CO',
   lat: 40.1039,
   lng: -105.1708,
-  population: 4000,
+  population: 4306, // 2020 census, Niwot CDP
   colors: {
     // Evergreen for the cottonwood-and-foothills valley; the old townofniwot.com wordmark was an evergreen ground too.
     accent: '#2E6B4E',
@@ -20,7 +20,7 @@ export const niwot: TownConfig = {
   },
   hero: {
     image: 'hero.jpg',
-    alt: 'Hay bales in the Left Hand Valley below the foothills west of Niwot',
+    alt: 'The valley floor below Niwot with a conical butte in the middle distance and the foothills of the Front Range behind it',
   },
   social: {
     email: 'hello@insideniwot.com',
@@ -32,14 +32,14 @@ export const niwot: TownConfig = {
       { label: 'Homes for sale on Redfin', url: 'https://www.redfin.com/zipcode/80503' },
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Niwot_CO' },
     ],
-    schoolDistrict: 'St. Vrain Valley School District (Niwot Elementary, Sunset Middle, Niwot High).',
+    schoolDistrict: 'St. Vrain Valley School District: Niwot Elementary, Sunset Middle (Longmont), Niwot High.',
     commuteNotes:
-      'About 15 minutes to Boulder and 10 to Longmont on the Diagonal Highway (CO-119); roughly 50 minutes to Denver and 45 to DIA.',
+      'About 20 minutes to Boulder or Longmont on the Diagonal Highway (CO 119); 45–50 to Denver, about 45 to DIA. RTD’s BOLT bus stops at Niwot Road.',
   },
   officialLinks: {
     // Niwot is unincorporated; Boulder County is the local government.
     townSite: 'https://bouldercounty.gov/',
     townSiteLabel: 'Boulder County',
-    policeNonEmergency: 'https://www.bouldercounty.gov/departments/sheriff/',
+    policeNonEmergency: 'https://bouldercounty.gov/safety/sheriff/',
   },
 };
