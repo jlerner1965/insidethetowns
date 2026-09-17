@@ -9,9 +9,9 @@ export const hub: HubConfig = {
   siteTitle: 'Inside the Towns',
   tagline: 'Independent community guides to the small towns of Colorado’s Front Range.',
   colors: {
-    accent: '#1E3A5F',
-    accentDark: '#14263F',
-    neutralBg: '#F6F5F1',
+    accent: '#2B4C7E',
+    accentDark: '#1B3155',
+    neutralBg: '#F4F3EF',
   },
   hero: {
     image: 'hero.jpg',

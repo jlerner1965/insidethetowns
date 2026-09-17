@@ -3,6 +3,9 @@
  * The document shell for every page on every site. Design tokens from the
  * town config are set as CSS variables on <html>; see styles/global.css.
  */
+import '@fontsource-variable/fraunces/opsz.css';
+import '@fontsource-variable/instrument-sans/index.css';
+import '@fontsource-variable/instrument-sans/wght-italic.css';
 import '@/styles/global.css';
 import { getSite } from '@/config';
 import Header from '@/components/Header.astro';
@@ -24,24 +27,21 @@ const cssVars = [
   `--town-accent:${site.colors.accent}`,
   `--town-accent-dark:${site.colors.accentDark}`,
   `--town-neutral-bg:${site.colors.neutralBg}`,
-  site.fonts?.heading ? `--town-font-heading:${site.fonts.heading}` : '',
-  site.fonts?.body ? `--town-font-body:${site.fonts.body}` : '',
-]
-  .filter(Boolean)
-  .join(';');
+].join(';');
 ---
 <!doctype html>
 <html lang="en" style={cssVars}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
     <SEO {...Astro.props} />
     <link rel="icon" href={`/favicons/${site.slug}/favicon.svg`} type="image/svg+xml" />
-    <meta name="theme-color" content={site.colors.accent} />
+    <meta name="theme-color" content={site.colors.accentDark} />
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body>
-    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-white focus:px-3 focus:py-2">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-white focus:px-4 focus:py-2">
       Skip to content
     </a>
     <Header />

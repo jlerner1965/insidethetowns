@@ -13,10 +13,10 @@ export const niwot: TownConfig = {
   lng: -105.1708,
   population: 4000,
   colors: {
-    // Provisional; Phase 3 sets the final Niwot palette alongside the hero.
-    accent: '#2F6B5E',
-    accentDark: '#1F4A41',
-    neutralBg: '#F7F5F0',
+    // Evergreen for the cottonwood-and-foothills valley; the old townofniwot.com wordmark was an evergreen ground too.
+    accent: '#2E6B4E',
+    accentDark: '#1C4634',
+    neutralBg: '#F5F2EA',
   },
   hero: {
     image: 'hero.jpg',
