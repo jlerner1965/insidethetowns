@@ -131,3 +131,22 @@ Choices not covered by PLAN.md, with the reasoning. Newest first.
   they show (tavern, Cimmini's patio, the caboose, the Tribune building, the gateway, the
   trail at sunset). Thirty-odd places have no photo yet and show a typographic tile; a
   photo pass is the most valuable content work left for Niwot.
+
+## Phase 4
+
+- **Vercel's Git integration does the deploys; GitHub Actions is the gate.** The plan
+  allows either for "every push to main rebuilds all live towns". Vercel's integration
+  already rebuilds every linked project on every push, so the Actions workflow is not a
+  deployer: it validates content, type-checks, and builds every site in `LIVE_TOWNS`
+  plus the hub, and fails the push before Vercel would. `scripts/live-towns.ts` is the
+  single list both read.
+- **`buildCommand` is `npm run build`, not `TOWN=$TOWN astro build`.** Same result (the
+  env var is read either way), but `npm run build` runs `validate-content` first, so a
+  broken event fails the Vercel build with a readable message instead of a stack trace.
+- **Security headers are copied from the old site**, minus Google Fonts (fonts are
+  self-hosted now) and plus `form-action https://formspree.io` for the optional contact
+  form. `style-src 'unsafe-inline'` stays because Astro inlines small stylesheets and the
+  town tokens are a `style` attribute on `<html>`.
+- **The production branch is `main`, which does not exist yet.** The repository was empty
+  when this work started, so the working branch became GitHub's default. DEPLOY.md's
+  first step is to create `main` from it; this session does not push to other branches.
