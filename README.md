@@ -8,6 +8,7 @@ TOWN=niwot npm run dev        # or: npm run dev -- --town=niwot
 TOWN=hub   npm run build      # insidethetowns.com
 npm run validate              # check every town's content
 npm run new-town lyons "Lyons"
+scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
 ```
 
 - `PLAN.md` — the build plan, phase by phase

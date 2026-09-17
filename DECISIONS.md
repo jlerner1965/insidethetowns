@@ -49,3 +49,42 @@ Choices not covered by PLAN.md, with the reasoning. Newest first.
 - **Niwot has no town government.** It is unincorporated Boulder County (an incorporation
   election is on the 2026 ballot). `officialLinks.townSite` points at Boulder County with
   a `townSiteLabel` so the footer wording stays truthful.
+
+## Phase 2
+
+- **Typography is network-wide, not per-town.** Fraunces (variable, with its optical-size
+  axis) for headings and Instrument Sans (variable) for body, self-hosted via
+  `@fontsource-variable/*` and imported in `Base.astro`. Town identity comes from colour
+  and photography; a shared typographic voice is what makes the sites read as one
+  family. `TownConfig.fonts` stays in the type for a future override but is not wired.
+- **Tokens live in `src/styles/global.css` under `@theme inline`.** Per-town CSS variables
+  (`--town-accent`, `--town-accent-dark`, `--town-neutral-bg`) are set on `<html>` by
+  `Base.astro`; derived tints (`accent-soft`, `line`, `line-soft`) are `color-mix()`ed
+  from them so a new town only ever supplies three hex values.
+- **Wordmark.** `Wordmark.astro` sets "Inside" light-italic and the town name semibold.
+  A site title without that shape renders plainly, so the component stays generic.
+- **Editorial rows, not boxed cards.** Events are rows separated by hairlines with the
+  date (or, under a day heading, the time) in a narrow left column. Places and articles
+  are photo-led cards with no border. A place without a photo gets a tinted tile with
+  its initial so the grid never shows a hole.
+- **Two display optical sizes.** `.display` (opsz 144, hairline serifs) is reserved for
+  the hero and the hub statement; `.display-md` (opsz 72) is used for page titles,
+  section titles and day headings where the strokes must survive 2–4rem.
+- **Hub home is typographic.** The hub has no real photograph yet, so its home opens with
+  a statement in Fraunces and lets the map and town cards be the picture. `Hero.astro`
+  still works for the hub whenever a photo is chosen. The hub hero image is only used
+  for the OpenGraph fallback.
+- **Desktop nav from `lg`.** At 768px the five uppercase items plus the wordmark do not
+  fit on one line, so tablets get the same horizontal-scroll nav as phones. No hamburger
+  and no JavaScript.
+- **Hero image height.** Astro's responsive-image styles force `height: auto` on
+  `layout="full-width"` images; the hero overrides with `h-full!` so the photo always
+  fills the box.
+- **`scripts/screenshot.sh`** captures a built site at 375, 768 and 1280px with the
+  Playwright-installed Chromium headless shell and Python's static server. The regular
+  Chromium binary's new headless mode enforces a minimum window width and silently lays
+  out a 375px capture at ~450px, which made phone layouts look broken when they were not.
+- **Sample content.** Phase 2 added six sample events and five sample places for Niwot,
+  all titled "(sample)", plus the six client-supplied photographs from townofniwot.com,
+  so the grids and lists could be designed against realistic density. Phase 3 replaces
+  the samples with the real listings; the photographs stay.
