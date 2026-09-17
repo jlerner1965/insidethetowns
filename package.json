@@ -1,0 +1,33 @@
+{
+  "name": "inside-the-towns",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "One codebase, many Front Range town guides. Select the site with the TOWN env var.",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "dev": "node scripts/run.ts dev",
+    "build": "node scripts/run.ts build",
+    "preview": "node scripts/run.ts preview",
+    "check": "astro check",
+    "validate": "node scripts/validate-content.ts",
+    "new-town": "node scripts/new-town.ts",
+    "dev:niwot": "TOWN=niwot astro dev",
+    "dev:hub": "TOWN=hub astro dev",
+    "build:niwot": "TOWN=niwot node scripts/run.ts build",
+    "build:hub": "TOWN=hub node scripts/run.ts build",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^6.0.3"
+  }
+}
