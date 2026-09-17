@@ -1,7 +1,11 @@
 ---
+/**
+ * The hub home opens typographically rather than with a photo: the map and
+ * the town cards are the picture. Each card borrows its town's accent.
+ */
 import Base from '@/layouts/Base.astro';
-import Hero from '@/components/Hero.astro';
 import TownMap from '@/components/TownMap.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
 import { getHub, LIVE_TOWNS } from '@/config';
 import { websiteJsonLd } from '@/lib/seo';
 
@@ -10,40 +14,58 @@ const live = hub.towns.filter((t) => LIVE_TOWNS.includes(t.slug));
 const soon = hub.towns.filter((t) => !LIVE_TOWNS.includes(t.slug));
 ---
 <Base jsonLd={websiteJsonLd(hub)}>
-  <Hero />
+  <section class="container-page pb-6 pt-16 md:pt-28">
+    <p class="eyebrow">Colorado’s northern Front Range</p>
+    <h1 class="display mt-5 max-w-4xl text-[3.25rem] sm:text-7xl lg:text-8xl">
+      Independent guides to the small towns worth knowing.
+    </h1>
+    <p class="mt-7 max-w-2xl text-lg leading-relaxed text-ink-muted md:text-2xl md:leading-relaxed">
+      {hub.tagline} One site per town: the week’s events, where to eat and drink, the trails, and a straight
+      account of what it’s like to live there.
+    </p>
+  </section>
 
-  <section id="towns" class="container-page py-12">
-    <h2 class="mb-6 text-3xl font-bold">The towns</h2>
-    <div class="grid gap-8 lg:grid-cols-[3fr_2fr]">
+  <section id="towns" class="container-page pt-16 md:pt-24">
+    <SectionHeader eyebrow="The network" title="The towns" />
+    <div class="grid gap-10 lg:grid-cols-[3fr_2fr] lg:gap-14">
       <TownMap towns={hub.towns} />
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+      <div class="grid content-start gap-5 sm:grid-cols-2 lg:grid-cols-1">
         {live.map((t) => (
-          <a href={`https://${t.domain}/`} class="block rounded-lg border border-line bg-white p-5 transition hover:border-accent" style={`--town-accent:${t.colors.accent};--town-accent-dark:${t.colors.accentDark}`}>
-            <p class="text-xs font-semibold uppercase tracking-wide" style={`color:${t.colors.accentDark}`}>{t.county} County</p>
-            <h3 class="mt-1 text-2xl font-bold">{t.siteTitle}</h3>
-            <p class="mt-2 text-sm text-ink-muted">{t.tagline}</p>
-            <p class="mt-3 text-sm font-semibold" style={`color:${t.colors.accentDark}`}>{t.domain} →</p>
+          <a
+            href={`https://${t.domain}/`}
+            class="group block rounded-lg border-l-4 bg-white p-6 no-underline ring-1 ring-line-soft transition hover:ring-line"
+            style={`border-color:${t.colors.accent}`}
+          >
+            <p class="eyebrow" style={`color:${t.colors.accentDark}`}>{t.county} County</p>
+            <h3 class="mt-2 text-3xl font-medium leading-none">
+              <span class="font-light italic">Inside</span> <span class="font-semibold">{t.name}</span>
+            </h3>
+            <p class="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">{t.tagline}</p>
+            <p class="mt-4 text-sm font-semibold group-hover:underline" style={`color:${t.colors.accentDark}`}>{t.domain} →</p>
           </a>
         ))}
         {soon.length > 0 && (
-          <div class="rounded-lg border border-dashed border-line p-5 text-sm text-ink-muted">
-            <p class="font-semibold text-ink">Coming next</p>
-            <p class="mt-1">{soon.map((t) => t.name).join(' · ')}</p>
+          <div class="rounded-lg border border-dashed border-line p-6">
+            <p class="eyebrow text-ink-faint">Coming next</p>
+            <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">{soon.map((t) => t.name).join(' · ')}</p>
           </div>
         )}
       </div>
     </div>
   </section>
 
-  <section class="container-page py-12">
-    <div class="max-w-2xl">
-      <h2 class="text-3xl font-bold">One guide per town, made the same careful way</h2>
-      <p class="mt-4 text-lg text-ink-muted">
-        Each Inside the Towns site is an independent guide: the week’s events, where to eat and drink, the trails
-        and parks, and a straight account of what it’s like to live there. Never the town government, always
-        linking to it.
-      </p>
-      <p class="mt-4"><a href="/about/" class="font-semibold text-accent-dark underline">About the network</a></p>
+  <section class="mt-16 bg-accent-dark text-white md:mt-24">
+    <div class="container-page grid gap-8 py-16 md:grid-cols-[3fr_2fr] md:items-end md:py-24">
+      <div>
+        <p class="eyebrow text-white/60">How it’s made</p>
+        <h2 class="display-md mt-4 text-4xl lg:text-6xl">One guide per town, made the same careful way.</h2>
+      </div>
+      <div>
+        <p class="text-lg leading-relaxed text-white/85">
+          Never the town government, always linking to it. Editorial listings, not paid placement.
+        </p>
+        <a href="/about/" class="btn btn-light mt-6">About the network</a>
+      </div>
     </div>
   </section>
 </Base>

@@ -11,28 +11,38 @@ const { listingsLinks, schoolDistrict, commuteNotes } = town.movingHere;
 ---
 <Page
   title={page?.data.title ?? `Moving to ${town.name}`}
+  eyebrow="Moving here"
+  intro={page?.data.description}
   description={page?.data.description ?? `Schools, commutes, housing and what to expect when you move to ${town.name}, ${town.state}.`}
-  narrow
 >
-  <div class="mb-10 grid gap-6 sm:grid-cols-2">
-    <div class="rounded-lg border border-line bg-white p-6">
-      <h2 class="text-lg font-bold">Homes for sale</h2>
-      <ul class="mt-3 space-y-2">
-        {listingsLinks.map((l) => (
-          <li><a href={l.url} rel="noopener nofollow" class="text-accent-dark underline">{l.label} →</a></li>
-        ))}
-      </ul>
+  <div class="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
+    <div>
+      {Content ? (
+        <div class="prose"><Content /></div>
+      ) : (
+        <p class="text-ink-muted">Guide coming soon.</p>
+      )}
     </div>
-    <div class="rounded-lg border border-line bg-white p-6">
-      <h2 class="text-lg font-bold">Schools &amp; commute</h2>
-      {schoolDistrict && <p class="mt-3 text-sm"><strong>Schools:</strong> {schoolDistrict}</p>}
-      {commuteNotes && <p class="mt-2 text-sm"><strong>Commute:</strong> {commuteNotes}</p>}
-      {town.population && <p class="mt-2 text-sm"><strong>Population:</strong> about {town.population.toLocaleString('en-US')}</p>}
-    </div>
+    <aside class="space-y-8 lg:pt-1">
+      <div>
+        <p class="eyebrow border-b border-line-soft pb-3">Homes for sale</p>
+        <ul class="mt-3 space-y-2.5 text-[0.9375rem]">
+          {listingsLinks.map((l) => (
+            <li><a href={l.url} rel="noopener nofollow" class="font-semibold text-accent-dark no-underline hover:underline">{l.label} →</a></li>
+          ))}
+        </ul>
+      </div>
+      <dl class="divide-y divide-line-soft border-y border-line-soft text-[0.9375rem]">
+        {schoolDistrict && (
+          <div class="py-4"><dt class="eyebrow">Schools</dt><dd class="mt-1.5 leading-snug">{schoolDistrict}</dd></div>
+        )}
+        {commuteNotes && (
+          <div class="py-4"><dt class="eyebrow">Commute</dt><dd class="mt-1.5 leading-snug">{commuteNotes}</dd></div>
+        )}
+        {town.population && (
+          <div class="py-4"><dt class="eyebrow">Population</dt><dd class="mt-1.5 leading-snug">About {town.population.toLocaleString('en-US')}</dd></div>
+        )}
+      </dl>
+    </aside>
   </div>
-  {Content ? (
-    <div class="prose"><Content /></div>
-  ) : (
-    <p class="text-ink-muted">Guide coming soon.</p>
-  )}
 </Page>

@@ -6,7 +6,7 @@ const site = getSite();
 const live = liveTowns();
 ---
 {site.kind === 'town' ? (
-  <Page title={`About ${site.siteTitle}`} description={`What ${site.siteTitle} is, who runs it, and what it is not.`} narrow>
+  <Page title={`About ${site.siteTitle}`} eyebrow="Independent, local" description={`What ${site.siteTitle} is, who runs it, and what it is not.`} narrow>
     <div class="prose">
       <p>
         {site.siteTitle} is an independent community and visitor guide to {site.name}, {site.state}: what’s on this week,
@@ -34,7 +34,7 @@ const live = liveTowns();
     </div>
   </Page>
 ) : (
-  <Page title="About the network" description="What Inside the Towns is and how the guides are made." narrow>
+  <Page title="About the network" eyebrow="Inside the Towns" description="What Inside the Towns is and how the guides are made." narrow>
     <div class="prose">
       <p>
         Inside the Towns publishes independent community guides for the small towns of Colorado’s northern Front Range:

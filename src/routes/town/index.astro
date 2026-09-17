@@ -1,6 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
 import Hero from '@/components/Hero.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
 import EventCard from '@/components/EventCard.astro';
 import PlaceCard from '@/components/PlaceCard.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
@@ -14,50 +15,57 @@ const events = upcoming(await getTownEntries('events'), { limit: 4 });
 const places = await getTownEntries('places');
 const featuredPlaces = [...places.filter((p) => p.data.featured), ...places.filter((p) => !p.data.featured)].slice(0, 6);
 const articles = (await getTownEntries('articles')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 2);
+const [lead, second] = articles;
 ---
 <Base jsonLd={websiteJsonLd(town)}>
   <Hero />
 
-  <section class="container-page py-12">
-    <div class="mb-6 flex items-baseline justify-between gap-4">
-      <h2 class="text-3xl font-bold">This week in {town.name}</h2>
-      <a href="/events/" class="text-sm font-semibold text-accent-dark hover:underline">All events →</a>
-    </div>
+  <section class="container-page pt-16 md:pt-24">
+    <SectionHeader eyebrow={`This week in ${town.name}`} title="What’s on" href="/events/" linkLabel="All events" />
     {events.length === 0 ? (
-      <p class="text-ink-muted">No upcoming events listed yet. <a href="/contact/#submit-event" class="underline">Submit one.</a></p>
+      <p class="text-ink-muted">No upcoming events listed yet. <a href="/contact/#submit-event" class="text-accent-dark underline">Submit one.</a></p>
     ) : (
-      <div class="grid gap-4 md:grid-cols-2">
+      <div class="grid border-b border-line-soft md:grid-cols-2 md:gap-x-12">
         {events.map((event) => <EventCard event={event} />)}
       </div>
     )}
   </section>
 
-  <section class="container-page py-12">
-    <div class="mb-6 flex items-baseline justify-between gap-4">
-      <h2 class="text-3xl font-bold">Where to go</h2>
-      <a href="/eat-drink/" class="text-sm font-semibold text-accent-dark hover:underline">Eat &amp; drink →</a>
-    </div>
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {featuredPlaces.map((place) => <PlaceCard place={place} />)}
-    </div>
+  <section class="container-page pt-16 md:pt-24">
+    <SectionHeader eyebrow="Eat, drink, wander" title="Where to go" href="/eat-drink/" linkLabel="Eat & drink" />
+    {featuredPlaces.length === 0 ? (
+      <p class="text-ink-muted">Places are on their way.</p>
+    ) : (
+      <div class="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
+        {featuredPlaces.map((place) => <PlaceCard place={place} />)}
+      </div>
+    )}
   </section>
 
-  {articles.length > 0 && (
-    <section class="container-page py-12">
-      <h2 class="mb-6 text-3xl font-bold">Latest</h2>
-      <div class="grid gap-6 md:grid-cols-2">
-        {articles.map((article) => <ArticleCard article={article} />)}
-      </div>
+  {lead && (
+    <section class="container-page pt-16 md:pt-24">
+      <SectionHeader eyebrow="Latest" title="From the guide" />
+      <ArticleCard article={lead} feature />
+      {second && (
+        <div class="mt-12 max-w-xl border-t border-line-soft pt-8">
+          <ArticleCard article={second} />
+        </div>
+      )}
     </section>
   )}
 
-  <section class="container-page py-12">
-    <div class="rounded-lg bg-accent-dark p-8 text-white md:p-12">
-      <h2 class="text-3xl font-bold">Thinking of moving to {town.name}?</h2>
-      <p class="mt-3 max-w-xl text-white/85">
-        Schools, commutes, what the housing market looks like, and what nobody tells you until you live here.
-      </p>
-      <a href="/moving-here/" class="mt-6 inline-block rounded-md bg-white px-4 py-2 font-semibold text-accent-dark hover:bg-neutral-bg">Read the guide</a>
+  <section class="mt-16 bg-accent-dark text-white md:mt-24">
+    <div class="container-page grid gap-8 py-16 md:grid-cols-[3fr_2fr] md:items-end md:py-24">
+      <div>
+        <p class="eyebrow text-white/60">Moving here</p>
+        <h2 class="display-md mt-4 text-4xl lg:text-6xl">Thinking of making {town.name} home?</h2>
+      </div>
+      <div>
+        <p class="text-lg leading-relaxed text-white/85">
+          Schools, commutes, what the housing market looks like, and what nobody tells you until you live here.
+        </p>
+        <a href="/moving-here/" class="btn btn-light mt-6">Read the guide</a>
+      </div>
     </div>
   </section>
 </Base>

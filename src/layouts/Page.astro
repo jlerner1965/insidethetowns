@@ -1,11 +1,12 @@
 ---
 /**
- * A standard interior page: title block, optional intro, then content.
+ * A standard interior page: eyebrow, title, optional intro, then content.
  */
 import Base from './Base.astro';
 
 interface Props {
   title: string;
+  eyebrow?: string;
   description?: string;
   intro?: string;
   image?: string;
@@ -17,16 +18,19 @@ interface Props {
   narrow?: boolean;
 }
 
-const { title, intro, narrow = false, ...seo } = Astro.props;
+const { title, eyebrow, intro, narrow = false, ...seo } = Astro.props;
 ---
 <Base title={title} {...seo}>
-  <div class="container-page py-10 md:py-14">
-    <header class:list={['mb-8', narrow && 'max-w-2xl']}>
-      <h1 class="text-4xl font-bold md:text-5xl">{title}</h1>
-      {intro && <p class="mt-3 text-lg text-ink-muted">{intro}</p>}
+  <div class="container-page pb-8 pt-10 md:pt-16">
+    <header class="border-b border-line-soft pb-8 md:pb-10">
+      <div class="max-w-3xl">
+        {eyebrow && <p class="eyebrow mb-3">{eyebrow}</p>}
+        <h1 class="display-md text-[2.75rem] md:text-6xl">{title}</h1>
+        {intro && <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted md:text-xl">{intro}</p>}
+        <slot name="after-header" />
+      </div>
     </header>
-    <slot name="after-header" />
-    <div class:list={[narrow && 'max-w-2xl']}>
+    <div class:list={['pt-10', narrow && 'max-w-2xl']}>
       <slot />
     </div>
   </div>

@@ -9,6 +9,6 @@ const town = getTown();
 const places = (await getTownEntries('places')).filter((p) => EAT_DRINK_TYPES.includes(p.data.type));
 places.sort((a, b) => Number(b.data.featured) - Number(a.data.featured) || a.data.title.localeCompare(b.data.title));
 ---
-<Page title="Eat & Drink" description={`Restaurants, bars and coffee in ${town.name}, ${town.state}.`} intro={`Where to eat, drink and linger in ${town.name}.`}>
+<Page title="Eat & Drink" eyebrow={town.name} description={`Restaurants, bars and coffee in ${town.name}, ${town.state}.`} intro={`Where to eat, drink and linger in ${town.name}. Listings are editorial; nobody pays to be here.`}>
   <PlaceGrid places={places} filterable emptyMessage="No places listed yet." />
 </Page>

@@ -13,12 +13,12 @@ const outdoors = (await getTownEntries('articles')).filter(
   (a) => a.data.tags.includes('outdoors') || a.data.category.toLowerCase() === 'outdoors',
 );
 ---
-<Page title="Things to Do" description={`Trails, parks and venues in and around ${town.name}, ${town.state}.`} intro={`Trails, parks and places worth an afternoon in ${town.name}.`}>
+<Page title="Things to Do" eyebrow={town.name} description={`Trails, parks and venues in and around ${town.name}, ${town.state}.`} intro={`Trails, parks and places worth an afternoon in and around ${town.name}.`}>
   <PlaceGrid places={places} filterable emptyMessage="No trails, parks or venues listed yet." />
   {outdoors.length > 0 && (
-    <section class="mt-14">
-      <h2 class="mb-6 text-2xl font-bold">Outdoors, in depth</h2>
-      <div class="grid gap-6 md:grid-cols-2">
+    <section class="mt-20">
+      <p class="eyebrow mb-8 border-b border-line-soft pb-4">Outdoors, in depth</p>
+      <div class="grid gap-x-8 gap-y-10 md:grid-cols-2">
         {outdoors.map((article) => <ArticleCard article={article} />)}
       </div>
     </section>

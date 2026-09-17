@@ -24,45 +24,44 @@ const { Content } = await render(event);
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
 const description = `${formatDayLong(data.start)}, ${formatTimeRange(data.start, data.end, data.allDay)} at ${data.venue}, ${town.name}.`;
+const facts = [
+  { label: 'When', value: [formatDayLong(data.start), formatTimeRange(data.start, data.end, data.allDay), data.recurring].filter(Boolean) },
+  { label: 'Where', value: [data.venue, data.address].filter(Boolean) },
+  { label: 'Cost', value: [data.cost ?? 'See organizer'] },
+];
 ---
 <Page
   title={data.title}
+  eyebrow={CATEGORY_LABELS[data.category]}
   description={description}
   image={shareImage}
   imageAlt={data.imageAlt}
   jsonLd={eventJsonLd(town, event, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined)}
-  narrow
 >
-  <dl class="mb-8 grid gap-x-8 gap-y-3 rounded-lg border border-line bg-white p-6 sm:grid-cols-2">
+  <div class="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
     <div>
-      <dt class="text-xs font-semibold uppercase tracking-wide text-ink-muted">When</dt>
-      <dd class="mt-1 font-medium">
-        <time datetime={toIsoLocal(data.start)}>{formatDayLong(data.start)}</time><br />
-        {formatTimeRange(data.start, data.end, data.allDay)}
-        {data.recurring && <span class="block text-sm text-ink-muted">{data.recurring}</span>}
-      </dd>
-    </div>
-    <div>
-      <dt class="text-xs font-semibold uppercase tracking-wide text-ink-muted">Where</dt>
-      <dd class="mt-1 font-medium">{data.venue}{data.address && <span class="block text-sm text-ink-muted">{data.address}</span>}</dd>
-    </div>
-    <div>
-      <dt class="text-xs font-semibold uppercase tracking-wide text-ink-muted">Cost</dt>
-      <dd class="mt-1 font-medium">{data.cost ?? 'See organizer'}</dd>
-    </div>
-    <div>
-      <dt class="text-xs font-semibold uppercase tracking-wide text-ink-muted">Category</dt>
-      <dd class="mt-1 font-medium">{CATEGORY_LABELS[data.category]}</dd>
-    </div>
-    {data.url && (
-      <div class="sm:col-span-2">
-        <a href={data.url} rel="noopener" class="inline-block rounded-md bg-accent px-4 py-2 font-semibold text-white hover:bg-accent-dark">Organizer’s page →</a>
+      {data.image && <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="mb-10 rounded-lg" />}
+      <div class="prose">
+        <Content />
       </div>
-    )}
-  </dl>
-  {data.image && <Image src={data.image} alt={data.imageAlt ?? ''} width={960} height={640} class="mb-8 rounded-lg" />}
-  <div class="prose">
-    <Content />
+      <p class="mt-12 text-[0.9375rem]"><a href="/events/" class="font-semibold text-accent-dark no-underline hover:underline">← All events</a></p>
+    </div>
+    <aside class="lg:pt-1">
+      <dl class="divide-y divide-line-soft border-y border-line-soft">
+        {facts.map((f) => (
+          <div class="py-4">
+            <dt class="eyebrow">{f.label}</dt>
+            <dd class="mt-1.5 leading-snug">
+              {f.value.map((line, i) => (
+                <span class:list={['block', i > 0 && 'text-[0.9375rem] text-ink-muted']}>
+                  {i === 0 && f.label === 'When' ? <time datetime={toIsoLocal(data.start)}>{line}</time> : line}
+                </span>
+              ))}
+            </dd>
+          </div>
+        ))}
+      </dl>
+      {data.url && <a href={data.url} rel="noopener" class="btn btn-primary mt-6">Organizer’s page →</a>}
+    </aside>
   </div>
-  <p class="mt-10 text-sm"><a href="/events/" class="text-accent-dark underline">← All events</a></p>
 </Page>

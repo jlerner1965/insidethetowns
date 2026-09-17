@@ -14,20 +14,25 @@ const later = upcoming(all).filter((e) => !nextTwoWeeks.includes(e));
 const shown = [...nextTwoWeeks, ...later];
 const options = categoriesIn(shown, EVENT_CATEGORIES).map((c) => ({ value: c, label: CATEGORY_LABELS[c as EventCategory] }));
 ---
-<Page title="Events" description={`What’s on in ${town.name} this week and next: markets, music, festivals, trails and more.`} intro={`What’s on in ${town.name}. Past events drop off automatically.`}>
-  <div slot="after-header" class="mb-8 text-sm text-ink-muted">
-    Know of something missing? <a href="/contact/#submit-event" class="font-semibold text-accent-dark underline">Submit an event</a>.
-  </div>
+<Page
+  title="Events"
+  eyebrow={`What’s on in ${town.name}`}
+  description={`What’s on in ${town.name} this week and next: markets, music, festivals, trails and more.`}
+  intro="The next two weeks first, then everything further out. Past events drop off on their own."
+>
+  <p slot="after-header" class="mt-5 text-[0.9375rem] text-ink-muted">
+    Know of something missing? <a href="/contact/#submit-event" class="font-semibold text-accent-dark">Submit an event</a>.
+  </p>
   <div data-filter-root>
     <FilterBar options={options} label="Filter events by category" />
     <h2 class="sr-only">Next 14 days</h2>
     <EventList events={nextTwoWeeks} emptyMessage="Nothing listed for the next two weeks yet." />
     {later.length > 0 && (
-      <div class="mt-14">
-        <h2 class="mb-6 text-2xl font-bold text-ink-muted">Further out</h2>
+      <div class="mt-16 md:mt-24">
+        <p class="eyebrow mb-8 border-b border-line-soft pb-4">Further out</p>
         <EventList events={later} />
       </div>
     )}
-    <p data-filter-empty hidden class="rounded-lg border border-dashed border-line p-6 text-center text-ink-muted">Nothing in this category coming up.</p>
+    <p data-filter-empty hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">Nothing in this category coming up.</p>
   </div>
 </Page>
