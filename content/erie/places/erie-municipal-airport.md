@@ -5,6 +5,8 @@ address: "395 Airport Rd"
 area: "Colorado 7, south edge"
 url: "https://www.erieco.gov/"
 phone: "(303) 664-0633"
+image: ../images/municipal-airport.jpg
+imageAlt: "Light aircraft parked along the runway at Erie Municipal Airport"
 tags: [airport, planes]
 summary: "The Town's general-aviation airport on Colorado 7 with a 4,700-foot runway, an airpark neighborhood, and a fence to watch the small planes from."
 source: "https://en.wikipedia.org/wiki/Erie,_Colorado"

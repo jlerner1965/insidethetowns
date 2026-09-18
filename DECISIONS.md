@@ -396,3 +396,43 @@ across the network went from 245 upcoming to 577.
   own calendar lists no monthly tournament after March 2026. The Recorder rows
   are published; the conflict is worth a phone call to the shop before the
   October date.
+
+## Photographs for the places that had none
+
+Ten of the 212 imageless places now have a photograph. The other 202 cannot be
+filled from free sources, and it is worth recording why so nobody repeats the
+search.
+
+- **What was added.** Casey Jones Park and the Stampede arena in Elizabeth, the
+  Erie Municipal Airport, Anderson Farms' red barn in Erie, Buc-ee's in
+  Johnstown, the Eagle Catcher sculpture in Niwot, Button Rock Preserve above
+  Lyons, and the Presbyterian church, Poudre River Trail and Arapaho Bend for
+  Timnath. Every one is logged in `IMAGE_LICENSES.csv` with its licence and
+  author.
+- **Only licences that permit commercial use and derivatives were considered**:
+  CC0, Public Domain Mark, CC BY and CC BY-SA. The network is commercial and
+  every image is resized, so `-NC` and `-ND` photographs are unusable however
+  well they match. That single rule removes most of what a naive search returns:
+  Button Rock alone has 127 Creative Commons photographs and only 6 of them
+  qualify.
+- **Wikimedia Commons was already mined in Phases 5 to 7.** Its category for
+  each town holds between 7 and 35 files, and most are locator maps, scanned
+  archive documents, 2013 flood photographs and welcome signs. What remained
+  genuinely unused is what went in above.
+- **A search across all 212 places found nothing else.** Commons search had to
+  be restricted with `filetype:bitmap` or it matched OCR text inside scanned
+  PDFs and returned soil surveys for "Berthoud Pet Supply". Once restricted, and
+  once Openverse was queried with the licence filter, the only matches left were
+  same-named places elsewhere in the world: Pioneer Park in Bunbury and
+  Fairbanks, Roberts Lake in British Columbia, Evans Park in Ohio, and Queen
+  Elizabeth II for anything containing "Elizabeth".
+- **The 140 restaurants, cafes, bars, shops and lodgings will never be
+  covered this way.** Nobody has published a freely licensed photograph of
+  Cowgirlz Coffee or Wishful Living, and using a business's own marketing
+  photographs would breach their copyright, which is exactly what the
+  `IMAGE_LICENSES.csv` rule exists to prevent. These need original photography,
+  or written permission from each owner.
+- **A practical route for the rest**: an afternoon on each Main Street with a
+  phone would cover most of a town's shops and restaurants in one pass, and the
+  town parks departments will often grant permission to use their photographs if
+  asked. Both produce images the network owns outright.

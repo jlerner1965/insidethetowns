@@ -4,6 +4,8 @@ type: park
 address: "Around Old Town; see the Association’s map"
 area: "Old Town"
 url: "https://niwotarts.org/"
+image: ../images/eagle-catcher.jpg
+imageAlt: "A carved wooden sculpture of a young man catching an eagle, on display in Old Town Niwot"
 tags: [public-art, sculpture, walk]
 summary: "An outdoor sculpture collection around Old Town, run by the Cultural Arts Association since 2018: owned pieces alongside works lent by artists for a year at a time."
 source: "https://niwotarts.org/"

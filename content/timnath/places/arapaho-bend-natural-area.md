@@ -4,6 +4,8 @@ type: trail
 address: "4109 E Horsetooth Rd, Fort Collins"
 area: "Horsetooth Road at I-25, Fort Collins side"
 url: "https://fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Arapaho-Bend-Natural-Area"
+image: ../images/arapaho-bend.jpg
+imageAlt: "A pond and cottonwoods at Arapaho Bend Natural Area beside the Poudre"
 tags: [fishing, birding, trails]
 summary: "Fort Collins natural area on the Poudre just across I-25 from Timnath: four miles of trail around old gravel ponds and Rigden Reservoir, fishing, 80 bird species and the Strauss Cabin ruins."
 source: "https://fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Arapaho-Bend-Natural-Area"

@@ -5,6 +5,8 @@ address: "4189 Highway 86"
 area: "Casey Jones Park, Highway 86"
 url: "https://www.elizabethstampede.com/"
 phone: "(303) 646-0308"
+image: ../images/stampede-arena.jpg
+imageAlt: "The announcer's booth and arena at Casey Jones Park, home of the Elizabeth Stampede rodeo"
 tags: [rodeo, parade, concert, june]
 featured: true
 summary: "The arena at Casey Jones Park where the Elizabeth Stampede runs its PRCA rodeo, parade and concert the first weekend of June."
