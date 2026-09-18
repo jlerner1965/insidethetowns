@@ -15,6 +15,8 @@ export const johnstown: TownConfig = {
   elevationFt: 4994,
   incorporated: 1907, // platted 1902
   driveToDenver: 'About 50 min',
+  population2010: 9887, // 2010 census, for census-to-census growth
+  character: 'Sugar-beet town at the I-25 interchange, filling the gap between Loveland and Greeley.',
   colors: {
     // Sugar-beet burgundy on a sugar-white paper, for the Great Western factory town.
     accent: '#BE3762',

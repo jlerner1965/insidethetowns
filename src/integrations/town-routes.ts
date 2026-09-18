@@ -27,7 +27,8 @@ const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
 const HUB_ROUTES: Array<[pattern: string, file: string]> = [
   ['/', 'index.astro'],
   ['/this-weekend', 'this-weekend.astro'],
-  ['/compare', 'compare.astro'],
+  ['/moving', 'moving.astro'],
+  ['/moving/[pair]', 'moving/[pair].astro'],
   ['/events.rss', 'events.rss.ts'],
   ['/advertise', 'advertise.astro'],
 ];

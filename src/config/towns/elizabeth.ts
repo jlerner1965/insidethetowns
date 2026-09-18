@@ -16,6 +16,8 @@ export const elizabeth = {
   elevationFt: 6477,
   incorporated: 1890,
   driveToDenver: '45 min to the Tech Center',
+  population2010: 1358, // 2010 census, for census-to-census growth
+  character: 'Prairie and ponderosa on the Palmer Divide, an hour out and sold five acres at a time.',
   colors: { accent: "#B26E2A", accentDark: "#78491A", neutralBg: "#FAF7F2" },
   hero: {
     image: "hero.jpg",

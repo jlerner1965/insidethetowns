@@ -15,6 +15,8 @@ export const erie: TownConfig = {
   elevationFt: 5072,
   incorporated: 1874, // 16 November 1874
   driveToDenver: 'About 35 min',
+  population2010: 18135, // 2010 census, for census-to-census growth
+  character: 'A coal town that became a commuter town, with a downtown that caught up.',
   colors: {
     // Coal-seam indigo on a warm grey paper: the town was Colorado's coal capital for
     // eighty years. Distinct from Niwot's evergreen, Lyons' sandstone and Berthoud's lake blue.

@@ -612,7 +612,7 @@ Driven in a real browser rather than eyeballed: the panel's top edge lands on
 the header's bottom edge to the pixel, the rows measure 61px, and every one of
 those behaviours is asserted.
 
-## Compare the towns
+## Which Front Range town? (/moving/)
 
 The parent site's first page that answers something people type: "best small
 town near Boulder", "which Front Range town should I move to". Nobody owns
@@ -719,3 +719,34 @@ nobody would notice. A revoked hook fails the same way.
 
 Three weeks of listings is 188 events and 232 KB of HTML, which is 17 KB over
 the wire. That is the trade: a page that survives a three-week outage.
+
+### What /moving/ could and could not be filled with
+
+- **Growth is census-to-census, 2010 to 2020, and labelled as such.** The brief
+  asked for five-year growth. The Colorado State Demography Office publishes
+  annual municipal estimates, which is the right source for that, but it serves
+  them from interactive lookup apps rather than a file, so there was no way to
+  get a consistent figure for seven towns. Decennial census is authoritative,
+  identical in basis across all seven, and already cross-checks three things
+  written on the sites: Erie's "grew 66 percent", Elizabeth's "up 23 percent",
+  Timnath's "grew tenfold".
+- **It turned out to be the most useful column on the page.** It splits the
+  seven cleanly: Timnath +938%, Berthoud +102%, Johnstown +75%, Erie +66%
+  against Elizabeth +23%, Lyons +9%, Niwot +7%. That is the actual decision
+  someone is making.
+- **Median home price ships as a column that is not drawn.** The fields are on
+  the town config and `/moving/` renders the column the moment every live town
+  has a price, a date and a named source — all three or none. A price with a
+  gap invites the reader to read the gap as "cheap", and an undated one looks
+  authoritative for two years after it stops being true.
+- **Commute is one column, not three.** The brief asked for Boulder, Denver and
+  Fort Collins. Denver is sourced for all seven from their own guides; Boulder
+  and Fort Collins for three each. Filling in the other eight would have meant
+  inventing them, so the table carries Denver and each town's paragraph carries
+  the full picture in prose, which is where the useful detail was anyway.
+- **Twenty-one pair pages were not generated.** Seven towns make twenty-one
+  combinations and twenty-one pages built from one table with no argument in
+  them is thin content — the same failure as the 329 event pages, and a search
+  engine that decides it about one tends to decide it about the set. A pair
+  gets a page when somebody has written it; `src/content/comparisons.ts` is the
+  list and Erie vs Johnstown is the first.

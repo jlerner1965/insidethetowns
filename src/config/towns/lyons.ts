@@ -15,6 +15,8 @@ export const lyons: TownConfig = {
   elevationFt: 5341,
   incorporated: 1891, // platted 1881
   driveToDenver: 'About 1 hr',
+  population2010: 2033, // 2010 census, for census-to-census growth
+  character: 'The canyon mouth: sandstone, the river, the music, and a town that rebuilt after 2013.',
   colors: {
     // Lyons Formation sandstone, on a sandstone-dust paper. The old explorelyons.com
     // palette used the same rock; this is its red-rock accent, lifted a step for links.

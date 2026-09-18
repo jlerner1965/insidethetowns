@@ -1,0 +1,102 @@
+---
+/**
+ * /moving/<a>-vs-<b>/ — one town against another.
+ *
+ * Generated only for pairs that have writing behind them. Seven towns make
+ * twenty-one pairs, and twenty-one pages built from the same table with no
+ * argument in them is thin content; a search engine that decides so about one
+ * tends to decide it about the set. src/content/comparisons.ts is the list,
+ * and adding a pair there is all it takes to publish one.
+ */
+import Page from '@/layouts/Page.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { findTown, getHub } from '@/config';
+import { COMPARISONS, comparisonSlug, type Comparison } from '@/content/comparisons';
+import { breadcrumbJsonLd } from '@/lib/seo';
+
+export function getStaticPaths() {
+  return COMPARISONS.map((comparison) => ({
+    params: { pair: comparisonSlug(comparison) },
+    props: { comparison },
+  }));
+}
+
+interface Props {
+  comparison: Comparison;
+}
+
+const hub = getHub();
+const { comparison } = Astro.props;
+const a = findTown(comparison.a)!;
+const b = findTown(comparison.b)!;
+const pair = [a, b];
+const num = (n?: number) => (n ? n.toLocaleString('en-US') : '—');
+const growth = (t: typeof a) =>
+  t.population && t.population2010 ? `+${Math.round((t.population / t.population2010 - 1) * 100)}%` : '—';
+const rows = [
+  { label: 'County', get: (t: typeof a) => `${t.county} County` },
+  { label: 'Population', get: (t: typeof a) => num(t.population) },
+  { label: 'Growth 2010–20', get: growth },
+  { label: 'To Denver', get: (t: typeof a) => t.driveToDenver ?? '—' },
+  { label: 'Schools', get: (t: typeof a) => (t.movingHere.schoolDistrict?.split(/[:(]/)[0] ?? '—').trim() },
+];
+---
+<Page
+  title={`${a.name} or ${b.name}?`}
+  seoTitle={`${a.name} vs ${b.name}: which Front Range town to move to`}
+  eyebrow="Moving here"
+  description={`${a.name} and ${b.name} compared on growth, commute, schools and what each town is actually like to live in.`}
+  intro={comparison.question}
+  jsonLd={breadcrumbJsonLd(hub, [
+    { name: 'Which Front Range town?', path: '/moving/' },
+    { name: `${a.name} or ${b.name}?`, path: `/moving/${comparisonSlug(comparison)}/` },
+  ])}
+>
+  <div class="compare">
+    <table>
+      <caption class="sr-only">{a.name} and {b.name} compared</caption>
+      <thead>
+        <tr>
+          <th scope="col">&nbsp;</th>
+          {pair.map((t) => <th scope="col">{t.name}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr>
+            <th scope="row">{row.label}</th>
+            {pair.map((t) => <td data-label={t.name}><span>{row.get(t)}</span></td>)}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose mt-14">
+    {comparison.body.map((paragraph) => <p>{paragraph}</p>)}
+    <h2>The short answer</h2>
+    <p>{comparison.verdict}</p>
+  </div>
+
+  <div class="mt-14 grid gap-5 sm:grid-cols-2">
+    {pair.map((t) => (
+      <a
+        href={`https://${t.domain}/moving-here/`}
+        class="group block rounded-lg border-l-4 bg-raised p-6 no-underline ring-1 ring-line-soft transition hover:ring-line"
+        style={`border-color:${t.colors.accent}`}
+      >
+        <p class="eyebrow" style={`color:${t.colors.accentDark}`}>{t.county} County</p>
+        <h2 class="mt-2 text-2xl font-medium leading-tight">Moving to {t.name}</h2>
+        <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">{t.character}</p>
+        <p class="mt-4 text-sm font-semibold group-hover:underline" style={`color:${t.colors.accentDark}`}>{t.domain} →</p>
+      </a>
+    ))}
+  </div>
+
+  <CtaBand
+    eyebrow="Still deciding"
+    title="See all seven side by side"
+    body="Population, growth, schools and the commute for every town in the network, then a straight answer on who each one suits."
+    links={[{ label: 'Compare the towns', href: '/moving/', primary: true }, { label: 'This weekend', href: '/this-weekend/' }]}
+  />
+</Page>

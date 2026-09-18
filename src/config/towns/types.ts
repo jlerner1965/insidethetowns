@@ -57,6 +57,19 @@ export interface TownConfig {
   incorporated?: number | null;
   /** Off-peak, from the town's own Moving Here guide. Short enough for a cell. */
   driveToDenver?: string;
+  /** The previous decennial census, so growth is census-to-census and comparable. */
+  population2010?: number;
+  /**
+   * Median home price, with the date and source it was read from. All three or
+   * none: an unsourced, undated price is the kind of number that looks
+   * authoritative for two years after it stopped being true. /moving/ only
+   * draws the column when every live town has one.
+   */
+  medianHomePrice?: number;
+  medianHomePriceAsOf?: string;
+  medianHomePriceSource?: string;
+  /** One line on what the town actually is, for the comparison table. */
+  character?: string;
   colors: TownColors;
   fonts?: { heading?: string; body?: string };
   hero: HeroConfig;

@@ -15,6 +15,8 @@ export const niwot: TownConfig = {
   elevationFt: 5168,
   incorporated: null, // unincorporated; a CDP under Boulder County
   driveToDenver: '45–50 min',
+  population2010: 4006, // 2010 census, for census-to-census growth
+  character: 'Deliberately small and still unincorporated — no town hall, and a vote on that in 2026.',
   colors: {
     // Evergreen for the cottonwood-and-foothills valley; the old townofniwot.com wordmark was an evergreen ground too.
     accent: '#108452',

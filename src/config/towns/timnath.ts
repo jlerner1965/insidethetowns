@@ -15,6 +15,8 @@ export const timnath: TownConfig = {
   elevationFt: 4869,
   incorporated: 1920,
   driveToDenver: 'About 1 hr',
+  population2010: 625, // 2010 census, for census-to-census growth
+  character: 'A farm village of 600 that became a town of 6,000, mostly since the Costco.',
   colors: {
     // Harvest gold on a wheat-white paper: potatoes, alfalfa and sugar beets were the
     // town's business for a century. Distinct from the five other accents.

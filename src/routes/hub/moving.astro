@@ -1,0 +1,190 @@
+---
+/**
+ * The seven towns side by side, for someone deciding which one to move to.
+ *
+ * The parent site's first page that answers something people actually type:
+ * "best small town near Boulder", "which Front Range town should I move to".
+ * Nobody owns those searches because the answer is scattered across seven
+ * chamber sites.
+ *
+ * Every column is a fact this network can source and keep current, and every
+ * one comes off the town configs, so the table is a loop rather than a grid
+ * somebody has to remember to update. Median home price is deliberately not
+ * here: it is quarterly work with a licensing question attached, and a column
+ * that cannot be filled for all seven is worse than a column that is absent.
+ */
+import Page from '@/layouts/Page.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { getHub, liveTowns } from '@/config';
+import { COMPARISONS, comparisonSlug } from '@/content/comparisons';
+
+const hub = getHub();
+// Biggest first: it is the ordering a reader can hold in their head, and the
+// range from 30,000 to 1,700 is the first thing worth knowing about the seven.
+const towns = [...liveTowns()].sort((a, b) => (b.population ?? 0) - (a.population ?? 0));
+
+/** "Thompson School District R2-J: Berthoud Elementary, …" -> the district. */
+const district = (full?: string) => (full ? (full.split(/[:(]/)[0] ?? full).trim() : '—');
+const num = (n?: number) => (n ? n.toLocaleString('en-US') : '—');
+const growth = (t: (typeof towns)[number]) =>
+  t.population && t.population2010 ? `+${Math.round((t.population / t.population2010 - 1) * 100)}%` : '—';
+
+// All seven or none. A price column with gaps in it invites the reader to
+// assume the gaps mean "cheap", and an unsourced one is worse than absent.
+const pricesReady = towns.every((t) => t.medianHomePrice && t.medianHomePriceAsOf && t.medianHomePriceSource);
+
+const columns = [
+  { key: 'county', label: 'County', get: (t: (typeof towns)[number]) => `${t.county} County` },
+  { key: 'population', label: 'Population', get: (t: (typeof towns)[number]) => num(t.population) },
+  { key: 'growth', label: 'Growth 2010–20', get: growth },
+  ...(pricesReady
+    ? [
+        {
+          key: 'price',
+          label: 'Median home',
+          get: (t: (typeof towns)[number]) => `$${num(t.medianHomePrice)}`,
+        },
+      ]
+    : []),
+  { key: 'denver', label: 'To Denver', get: (t: (typeof towns)[number]) => t.driveToDenver ?? '—' },
+  { key: 'schools', label: 'Schools', get: (t: (typeof towns)[number]) => district(t.movingHere.schoolDistrict) },
+  { key: 'character', label: 'In a line', get: (t: (typeof towns)[number]) => t.character ?? '—' },
+];
+
+const SUITS: Record<string, string> = {
+  "erie": "Suits people working in or near Boulder who will not pay Boulder prices, and who want a downtown they can walk to on a Friday. The catch is that most of Erie is subdivisions built since 2000 and only the old grid around Briggs Street is walkable, so where you buy decides whether you get the town or the commute. Ask which county, which school district and which metro district before you fall for a house: all three change from one street to the next.",
+  "johnstown": "Suits northern Colorado commuters. The US 34 interchange is on the west edge, which puts Loveland at ten minutes, Greeley at fifteen, Fort Collins at twenty-five and Denver at fifty. One school district throughout, which is one fewer thing to check than Erie. The trade is that the shopping has moved out to the interstate and Parish Avenue is quiet.",
+  "berthoud": "Suits people who want a Main Street that is genuinely a main street, and the lakes, at Larimer County prices that stop short of Fort Collins. Fifteen minutes to Loveland or Longmont, twenty-five to Fort Collins, and the FLEX bus actually runs — the only town here where a commute without a car is a real option. It doubled in a decade, so a good deal of it is new.",
+  "timnath": "Suits people who want to be minutes from Fort Collins without paying for Fort Collins. It went from 625 people to 6,487 in ten years, which is the largest proportional change of any town here by a wide margin, and it shows: Old Town Main Street is a couple of blocks and everything else was built this decade around the Harmony Road retail. Come for the reservoir and the river trail, not for an old town centre.",
+  "niwot": "Suits people who want small and mean it. It is unincorporated — no town council, no municipal tax, county services, and an incorporation question on the 2026 ballot that is worth reading before you buy. Seven per cent growth in a decade, which in this company is a rounding error. Twenty minutes to Boulder or Longmont on the Diagonal, and the BOLT bus stops at Niwot Road.",
+  "lyons": "Suits people who want the mountains to start at the end of the street. It is the canyon mouth: sandstone, the St. Vrain, Planet Bluegrass, and a town that rebuilt itself after the 2013 flood and talks about it. Twenty minutes to Boulder, an hour to Denver, no transit at all. It has barely grown, which means it is expensive, and the river is both the reason to live there and the thing to ask a surveyor about.",
+  "elizabeth": "Suits people who want acreage and sky and will trade an hour of driving for it. It is on the Palmer Divide at 6,477 feet — the highest town here by over a thousand feet, with the weather that implies. Inside town you get water and sewer; outside it you own a well and a septic system, and you should have both inspected and the well's yield documented before you buy. Forty-five minutes to the Tech Center, and Denver is not really the point."
+};
+
+const itemList = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `The ${towns.length} towns of ${hub.siteTitle}, compared`,
+  itemListElement: towns.map((t, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: `https://${t.domain}/`,
+    name: t.name,
+  })),
+};
+---
+<Page
+  title="Which Front Range town?"
+  seoTitle={`Moving to Colorado’s Front Range: ${towns.length} small towns compared`}
+  eyebrow="Moving here"
+  description={`${towns.map((t) => t.name).join(', ')}: population, growth, schools, the commute and what each one is actually like.`}
+  intro={`All ${towns.length} towns side by side, then a straight answer on who each one suits. Every name links to its own guide.`}
+  jsonLd={itemList}
+>
+  {/* Wide: one row per town. Narrow: one card per town, same markup, because
+     relocation research happens on a phone and a seven-column table at 375px
+     is a horizontal scroll nobody performs. */}
+  <div class="compare">
+    <table>
+      <caption class="sr-only">The {towns.length} towns compared by county, population, elevation, incorporation, drive to Denver and school district</caption>
+      <thead>
+        <tr>
+          <th scope="col">Town</th>
+          {columns.map((c) => <th scope="col">{c.label}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {towns.map((t) => (
+          <tr>
+            <th scope="row">
+              <a href={`https://${t.domain}/`} class="no-underline hover:text-accent-text hover:underline">{t.name}</a>
+              <span class="compare-domain">{t.domain}</span>
+            </th>
+            {columns.map((c) => (
+              <td data-label={c.label}><span>{c.get(t)}</span></td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <section class="mt-20 md:mt-24">
+    <h2 class="display-md mb-2 text-4xl">Who each one suits</h2>
+    <p class="mb-10 max-w-2xl text-lg leading-relaxed text-ink-muted">
+      The table is the easy half. This is the part a table cannot do.
+    </p>
+    <div class="space-y-12">
+      {towns.map((t) => (
+        <article class="grid gap-x-10 gap-y-3 md:grid-cols-[14rem_minmax(0,1fr)]">
+          <h3 class="display-md text-[1.75rem]">
+            <a href={`https://${t.domain}/`} class="no-underline hover:text-accent-text hover:underline">{t.name}</a>
+            <span class="mt-1 block font-body text-[0.8125rem] font-normal tracking-normal text-ink-faint">
+              {t.county} County · {num(t.population)} · {growth(t)}
+            </span>
+          </h3>
+          <div>
+            <p class="max-w-[62ch] leading-relaxed text-ink-muted">{SUITS[t.slug]}</p>
+            <p class="mt-3 text-[0.9375rem]">
+              <a href={`https://${t.domain}/moving-here/`} class="font-semibold text-accent-text no-underline hover:underline">
+                Moving to {t.name} →
+              </a>
+            </p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  {COMPARISONS.length > 0 && (
+    <section class="mt-20 md:mt-24">
+      <h2 class="display-md mb-6 text-4xl">Head to head</h2>
+      <ul class="border-t border-line-soft">
+        {COMPARISONS.map((c) => {
+          const a = towns.find((t) => t.slug === c.a);
+          const b = towns.find((t) => t.slug === c.b);
+          return (
+            <li class="border-b border-line-soft py-5">
+              <a href={`/moving/${comparisonSlug(c)}/`} class="text-[1.25rem] font-medium no-underline hover:text-accent-text hover:underline">
+                {a?.name} or {b?.name}?
+              </a>
+              <p class="mt-1.5 max-w-[68ch] text-[0.9375rem] leading-relaxed text-ink-muted">{c.verdict}</p>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  )}
+
+  <div class="prose mt-20 md:mt-24">
+    <h2>Where the figures come from</h2>
+    <p>
+      Population is the 2020 census. Several of these towns have grown a long way since — Timnath and Johnstown
+      especially — and each guide's Moving Here page carries the later estimate and the source for it. Elevation and
+      incorporation dates are the published figures for each town. Drive times are off-peak estimates from each town's
+      own guide, not a promise about the Boulder Turnpike at half past five.
+    </p>
+    <p>
+      There is no median-home-price column. Getting it right means a named source and a quarterly re-check, and a
+      figure that is eighteen months stale is worse than no figure at all. The listings links on each town's
+      Moving Here page show what is actually on the market today.
+    </p>
+    <h2>One of these is not like the others</h2>
+    <p>
+      Niwot has no incorporation date because it has never incorporated. It is a census-designated place under Boulder
+      County, which means county services, no town council and no municipal tax — and an incorporation question that
+      is <a href="https://insideniwot.com/articles/2026-incorporation-election/">on the ballot in 2026</a>. If you are
+      comparing towns on how they are governed, that is the one real difference on this page.
+    </p>
+  </div>
+
+  <CtaBand
+    eyebrow="Across the network"
+    title="See what’s on before you visit"
+    body="The surest way to judge a town is to turn up on a Saturday. Every event across all seven guides is on one page."
+    links={[
+      { label: 'This weekend', href: '/this-weekend/', primary: true },
+      { label: 'All the guides', href: '/#towns' },
+    ]}
+  />
+</Page>
