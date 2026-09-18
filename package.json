@@ -14,6 +14,8 @@
     "check": "astro check",
     "validate": "node scripts/validate-content.ts",
     "new-town": "node scripts/new-town.ts",
+    "weekly": "node scripts/weekly.ts",
+    "import-events": "node scripts/import-events.ts",
     "dev:niwot": "TOWN=niwot astro dev",
     "dev:hub": "TOWN=hub astro dev",
     "build:niwot": "TOWN=niwot node scripts/run.ts build",
