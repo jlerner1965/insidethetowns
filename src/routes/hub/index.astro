@@ -7,14 +7,18 @@ import Base from '@/layouts/Base.astro';
 import TownMap from '@/components/TownMap.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import FactStrip from '@/components/FactStrip.astro';
+import NetworkEventCard from '@/components/NetworkEventCard.astro';
+import { getNetworkEntries } from '@/lib/content';
+import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { getHub, LIVE_TOWNS } from '@/config';
-import { websiteJsonLd } from '@/lib/seo';
 
 const hub = getHub();
 const live = hub.towns.filter((t) => LIVE_TOWNS.includes(t.slug));
 const soon = hub.towns.filter((t) => !LIVE_TOWNS.includes(t.slug));
+// Without these the hub is a signpost. With them it is a publication.
+const next = uniqueByEvent(upcoming(occurrences(await getNetworkEntries('events'), { horizonDays: 21 }))).slice(0, 5);
 ---
-<Base jsonLd={websiteJsonLd(hub)}>
+<Base>
   <section class="container-page pb-14 pt-16 md:pt-28">
     <p class="eyebrow">Colorado’s northern Front Range</p>
     <h1 class="display mt-5 max-w-4xl text-[3.25rem] sm:text-7xl lg:text-8xl">
@@ -67,6 +71,22 @@ const soon = hub.towns.filter((t) => !LIVE_TOWNS.includes(t.slug));
     </div>
     </div>
   </section>
+
+  {next.length > 0 && (
+    <section class="band band-tint">
+      <div class="container-page">
+        <SectionHeader
+          eyebrow="Across the network"
+          title="What’s on next"
+          href="/this-weekend/"
+          linkLabel="This weekend"
+        />
+        <div class="rounded-lg bg-white px-5 ring-1 ring-line-soft sm:px-7">
+          {next.map((event) => <NetworkEventCard event={event} />)}
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="on-dark bg-accent-dark text-white">
     <div class="container-page grid gap-8 py-16 md:grid-cols-[3fr_2fr] md:items-end md:py-24">

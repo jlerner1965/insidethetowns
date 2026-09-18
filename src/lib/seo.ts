@@ -2,16 +2,71 @@
  * JSON-LD builders. Keep these pure so they are easy to eyeball in tests.
  */
 import type { CollectionEntry } from 'astro:content';
-import type { SiteConfig, TownConfig } from '@/config';
+import { getNetworkHub, liveTowns, type SiteConfig, type TownConfig } from '@/config';
 import { toIsoLocal } from './dates';
 
-export function websiteJsonLd(site: SiteConfig) {
+/**
+ * The publisher graph: who runs this site, and how the eight domains relate.
+ *
+ * Seven separate domains look to a search engine like seven strangers. The
+ * towns declare the hub as their `parentOrganization` and the hub declares
+ * them as its `subOrganization`, and that reciprocal pair is what says one
+ * publisher rather than a ring of sites linking to each other.
+ *
+ * No `logo`: the only mark that exists is an SVG favicon, and pointing at
+ * something that may not validate is worse than leaving the property out.
+ */
+export function siteJsonLd(site: SiteConfig) {
+  const url = `https://${site.domain}/`;
+  const hubUrl = `https://${getNetworkHub().domain}/`;
+  const organization =
+    site.kind === 'hub'
+      ? {
+          '@type': 'Organization',
+          '@id': `${url}#org`,
+          name: site.siteTitle,
+          url,
+          description: site.tagline,
+          subOrganization: liveTowns().map((t) => ({
+            '@type': 'Organization',
+            '@id': `https://${t.domain}/#org`,
+            name: t.siteTitle,
+            url: `https://${t.domain}/`,
+          })),
+        }
+      : {
+          '@type': 'Organization',
+          '@id': `${url}#org`,
+          name: site.siteTitle,
+          url,
+          description: site.tagline,
+          parentOrganization: {
+            '@type': 'Organization',
+            '@id': `${hubUrl}#org`,
+            name: getNetworkHub().siteTitle,
+            url: hubUrl,
+          },
+          areaServed: {
+            '@type': 'City',
+            name: site.name,
+            addressRegion: site.state,
+            addressCountry: 'US',
+          },
+        };
   return {
     '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: site.siteTitle,
-    url: `https://${site.domain}/`,
-    description: site.tagline,
+    '@graph': [
+      organization,
+      {
+        '@type': 'WebSite',
+        '@id': `${url}#website`,
+        url,
+        name: site.siteTitle,
+        description: site.tagline,
+        publisher: { '@id': `${url}#org` },
+        inLanguage: 'en-US',
+      },
+    ],
   };
 }
 
@@ -81,8 +136,8 @@ export function articleJsonLd(
     ...(data.updated ? { dateModified: toIsoLocal(data.updated) } : {}),
     ...(imageUrl ? { image: [imageUrl] } : {}),
     articleSection: data.category,
-    author: { '@type': 'Organization', name: site.siteTitle, url: `https://${site.domain}/` },
-    publisher: { '@type': 'Organization', name: site.siteTitle, url: `https://${site.domain}/` },
+    author: { '@id': `https://${site.domain}/#org` },
+    publisher: { '@id': `https://${site.domain}/#org` },
     mainEntityOfPage: url,
     url,
   };

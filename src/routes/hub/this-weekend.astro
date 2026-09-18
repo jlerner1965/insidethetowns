@@ -1,0 +1,90 @@
+---
+/**
+ * Every event across every live guide, for the weekend and the week around it.
+ *
+ * This is the hub's reason to be visited more than once. Nobody planning a
+ * Saturday cares which municipal boundary a farmers market sits inside, and no
+ * single town site can answer "what's on near me" — only this page can.
+ *
+ * Because every town lives in this repository, the page reads their content
+ * directly at build time: no per-town JSON feed, no cross-domain fetch, and no
+ * scheduled rebuild to keep it from going stale.
+ */
+import Page from '@/layouts/Page.astro';
+import FilterBar from '@/components/FilterBar.astro';
+import NetworkDayList from '@/components/NetworkDayList.astro';
+import { getHub, liveTowns } from '@/config';
+import { getNetworkEntries } from '@/lib/content';
+import { occurrences, upcoming } from '@/lib/events';
+import { TIME_ZONE, addDays, formatDate, startOfDay } from '@/lib/dates';
+
+const hub = getHub();
+const towns = liveTowns();
+
+// The weekend that is running now or coming next. On a Saturday that means
+// today and tomorrow, not next Friday, which is the case a naive "days until
+// Friday" gets wrong.
+const today = startOfDay();
+const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const dow = DAYS.indexOf(new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, weekday: 'short' }).format(today));
+const sunday = addDays(today, dow === 0 ? 0 : 7 - dow);
+const weekendStart = dow === 0 || dow >= 5 ? today : addDays(sunday, -2);
+const weekendEnd = addDays(sunday, 1); // exclusive
+
+const all = upcoming(occurrences(await getNetworkEntries('events'), { horizonDays: 21 }));
+const weekend = all.filter((e) => e.data.start >= weekendStart && e.data.start < weekendEnd);
+const rest = all.filter((e) => e.data.start >= weekendEnd && e.data.start < addDays(sunday, 8));
+
+const options = towns
+  .filter((t) => [...weekend, ...rest].some((e) => e.town.slug === t.slug))
+  .map((t) => ({ value: t.slug, label: t.name }));
+
+const weekendLabel =
+  weekendStart.getTime() === sunday.getTime()
+    ? formatDate(sunday)
+    : `${formatDate(weekendStart)} – ${formatDate(sunday)}`;
+
+/**
+ * An ItemList of the listings, each pointing at the town page that owns it.
+ * The Event markup itself stays on those pages; this says only that the hub
+ * collects them, which is what it does.
+ */
+const itemList = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `What’s on across ${hub.siteTitle}`,
+  numberOfItems: weekend.length + rest.length,
+  itemListElement: [...weekend, ...rest].slice(0, 60).map((e, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: `https://${e.town.domain}/events/${e.slug}/`,
+    name: `${e.data.title} — ${e.town.name}`,
+  })),
+};
+---
+<Page
+  title="This weekend on the Front Range"
+  seoTitle={`This weekend on Colorado’s Front Range — ${weekendLabel}`}
+  eyebrow="Across the network"
+  description={`Every event across ${towns.length} Front Range town guides this weekend: markets, music, festivals and trails in ${towns.map((t) => t.name).join(', ')}.`}
+  intro={`Everything on across all ${towns.length} guides, ${weekendLabel}, and then the week after. Each listing opens on that town’s own site.`}
+  jsonLd={itemList}
+>
+  <div data-filter-root>
+    <FilterBar options={options} label="Filter by town" />
+
+    <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">The weekend · {weekendLabel}</h2>
+    <NetworkDayList events={weekend} emptyMessage="Nothing listed across the network for this weekend yet." />
+
+    {rest.length > 0 && (
+      <div class="mt-20 md:mt-24">
+        <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">The week after</h2>
+        <NetworkDayList events={rest} emptyMessage="Nothing listed yet." />
+      </div>
+    )}
+
+    <p data-filter-empty hidden class="mt-6 rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
+      Nothing coming up in that town.
+    </p>
+  </div>
+</Page>

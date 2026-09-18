@@ -11,6 +11,7 @@ import { getSite } from '@/config';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import SEO from '@/components/SEO.astro';
+import { siteJsonLd } from '@/lib/seo';
 
 interface Props {
   title?: string;
@@ -23,6 +24,9 @@ interface Props {
 }
 
 const site = getSite();
+const { jsonLd, ...seo } = Astro.props;
+// The publisher graph belongs on every page; pages add their own on top.
+const structured = [siteJsonLd(site), ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
 const cssVars = [
   `--town-accent:${site.colors.accent}`,
   `--town-accent-dark:${site.colors.accentDark}`,
@@ -35,7 +39,7 @@ const cssVars = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
-    <SEO {...Astro.props} />
+    <SEO {...seo} jsonLd={structured} />
     <link rel="icon" href={`/favicons/${site.slug}/favicon.svg`} type="image/svg+xml" />
     <meta name="theme-color" content={site.colors.accentDark} />
     <link rel="sitemap" href="/sitemap-index.xml" />

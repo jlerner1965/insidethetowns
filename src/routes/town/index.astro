@@ -10,7 +10,6 @@ import ArticleCard from '@/components/ArticleCard.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
-import { websiteJsonLd } from '@/lib/seo';
 
 const town = getTown();
 const events = uniqueByEvent(upcoming(occurrences(await getTownEntries('events')))).slice(0, 4);
@@ -28,7 +27,7 @@ const placeIndex = pickedFirst(places.filter((p) => !carded.has(p.slug))).slice(
 const articles = (await getTownEntries('articles')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 2);
 const [lead, second] = articles;
 ---
-<Base jsonLd={websiteJsonLd(town)}>
+<Base>
   <Hero />
 
   {/* The page is a run of coloured bands: white, then the accent at 9%, then

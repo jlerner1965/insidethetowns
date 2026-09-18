@@ -1,0 +1,87 @@
+---
+/**
+ * How the listings are made, and what it would take to change one.
+ *
+ * This is the page local news sites, libraries and community groups link to,
+ * and it is the thing that separates a guide from a scraped directory. It is
+ * also the page to point at when a business asks why it cannot buy its way up
+ * the list.
+ */
+import Page from '@/layouts/Page.astro';
+import { getSite, liveTowns } from '@/config';
+
+const site = getSite();
+const what = site.kind === 'town' ? site.siteTitle : 'Every guide in the network';
+const live = liveTowns();
+---
+<Page
+  title="Editorial policy"
+  eyebrow={site.kind === 'town' ? site.name : 'Inside the Towns'}
+  description={`How listings on ${site.siteTitle} are researched, checked and corrected, and why nothing on it can be bought.`}
+  intro="What goes on these pages, where it comes from, how often it is checked, and what to do when it is wrong."
+  narrow
+>
+  <div class="prose">
+    <h2>Nothing here is paid for</h2>
+    <p>
+      Listings are free and editorial. No business pays to be listed, and no business can pay to be higher up a page
+      or to be marked as a pick. If sponsorship ever appears on these sites it will be labelled as sponsorship and it
+      will sit beside the listings, never inside them.
+    </p>
+
+    <h2>Where the facts come from</h2>
+    <p>
+      {what} takes its facts from the operator’s own page first: a restaurant’s own site for its hours, a town’s own
+      calendar for a council meeting, an organiser’s own listing for a festival. Where a business has no site, or a
+      site with no hours, the listing simply has none. A guess that looks like a fact is worse than a gap.
+    </p>
+    <p>
+      Review sites and business-listing directories are not used as sources. Their hours are user-editable and
+      frequently stale, and their photographs are not ours to publish.
+    </p>
+
+    <h2>Everything carries its date</h2>
+    <p>
+      Every place and every event records the source it was read from and the day it was last checked against that
+      source, and both are shown on the listing. A weekly report flags anything that has gone ninety days without a
+      re-check. Hours go stale faster than anything else on these sites, so the operator’s own page is always the
+      record and the listing is a pointer to it.
+    </p>
+
+    <h2>Events</h2>
+    <p>
+      No event is listed without a source. Dates are checked against the weekday they claim to fall on, which is what
+      catches a page that is quietly last year’s. A recurring event is stored as one entry per occurrence, so what you
+      see is the date it actually happens rather than a rule you have to apply yourself. Past events drop off on their
+      own.
+    </p>
+
+    <h2>Photographs</h2>
+    <p>
+      Every photograph on these sites is either public domain or openly licensed, and every one is recorded with its
+      source, its licence and whether credit is required. Credit is shown where the licence asks for it. Businesses’
+      own marketing photographs, and photographs from review sites, are not used.
+    </p>
+
+    <h2>Independence</h2>
+    <p>
+      {site.kind === 'town' ? `${site.siteTitle} is` : 'None of these guides is'} a government site, a chamber of
+      commerce or any public body, and {site.kind === 'town' ? 'it does' : 'they do'} not speak for one. Anything
+      civic links out to the official source rather than being paraphrased here.
+    </p>
+
+    <h2>Corrections</h2>
+    <p>
+      If something here is wrong, <a href="/contact/">tell us</a> and it will be fixed, usually within a day or two.
+      Corrections are made quietly to listings, because a wrong phone number does not need a public notice; a
+      correction to an article is noted on the article. There is no appeal process for being left out and no payment
+      that changes it — if a place belongs in a guide, say so and it goes in.
+    </p>
+
+    {site.kind === 'hub' && (
+      <p>
+        This policy applies to all {live.length} guides: {live.map((t) => t.siteTitle).join(', ')}.
+      </p>
+    )}
+  </div>
+</Page>

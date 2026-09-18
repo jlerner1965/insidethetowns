@@ -22,6 +22,7 @@ export const hub: HubConfig = {
     email: 'hello@insidethetowns.com',
   },
   nav: [
+    { label: 'This Weekend', href: '/this-weekend/' },
     { label: 'Towns', href: '/#towns' },
     { label: 'About', href: '/about/' },
     { label: 'Advertise', href: '/advertise/' },

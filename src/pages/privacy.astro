@@ -1,0 +1,82 @@
+---
+/**
+ * What this site collects, which today is nothing.
+ *
+ * Written to derive from the config rather than to assert: the analytics and
+ * form paragraphs appear only when this site actually has `ga4Id` or
+ * `formspreeId` set. Otherwise the page would become untrue the day one of
+ * them is switched on, which is exactly how privacy pages go wrong.
+ */
+import Page from '@/layouts/Page.astro';
+import { getSite } from '@/config';
+
+const site = getSite();
+const analytics = Boolean(site.ga4Id);
+const forms = Boolean(site.formspreeId);
+const quiet = !analytics && !forms;
+---
+<Page
+  title="Privacy"
+  eyebrow={site.kind === 'town' ? site.name : 'Inside the Towns'}
+  description={`What ${site.siteTitle} collects about the people who read it.`}
+  intro={quiet ? 'Short version: nothing. The longer version is below.' : 'What this site collects, why, and how to be rid of it.'}
+  narrow
+>
+  <div class="prose">
+    {quiet ? (
+      <p>
+        {site.siteTitle} sets no cookies, runs no analytics, embeds no trackers and has no forms. Nothing you do here
+        is recorded by us, because there is nothing here doing the recording.
+      </p>
+    ) : (
+      <p>{site.siteTitle} collects as little as it can, and this page says exactly what that is.</p>
+    )}
+
+    <h2>Server logs</h2>
+    <p>
+      The site is static files served by Vercel, which keeps standard request logs — IP address, the page requested,
+      the time, the browser’s user-agent string — for a short period, as any web server does. We do not read them to
+      build a picture of you and they are not linked to anything else.
+    </p>
+
+    {analytics && (
+      <Fragment>
+        <h2>Analytics</h2>
+        <p>
+          The site records aggregate page views so we know which guides are read. This is counting, not profiling: it
+          is not used to identify anyone and it is not shared or sold.
+        </p>
+      </Fragment>
+    )}
+
+    {forms && (
+      <Fragment>
+        <h2>When you write to us</h2>
+        <p>
+          If you use a form on this site, what you type in it reaches us by email through a form service, and we keep
+          it only as long as it takes to act on it. If you submit an event, the event details go on the site; your
+          email address does not.
+        </p>
+      </Fragment>
+    )}
+
+    <h2>What we never do</h2>
+    <ul>
+      <li>Sell, rent or share an email address. Ever, to anyone, for any amount.</li>
+      <li>Run advertising trackers, retargeting pixels or social widgets.</li>
+      <li>Ask you to accept cookies, because there are none to accept.</li>
+    </ul>
+
+    <h2>Links out</h2>
+    <p>
+      These guides link out constantly — to restaurants, town halls, organisers, Zillow, Wikimedia. Once you follow a
+      link you are on someone else’s site under someone else’s policy, and we have no say in what they collect.
+    </p>
+
+    <h2>Questions</h2>
+    <p>
+      <a href="/contact/">Write to us</a> and ask. If this page ever stops being accurate, that is a bug and we want to
+      know about it.
+    </p>
+  </div>
+</Page>
