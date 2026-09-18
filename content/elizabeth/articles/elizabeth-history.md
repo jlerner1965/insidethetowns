@@ -6,6 +6,7 @@ category: "History"
 tags: [history]
 image: ../images/huber-carlson.jpg
 imageAlt: "The Huber-Carlson Building on South Main Street in Elizabeth, a two-storey brick commercial building"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 ---
 
 Elizabeth starts with timber. The ponderosa forest along the Palmer Divide was the nearest standing sawtimber to a Denver that was building itself out of wood, and by the 1860s there were sawmill camps working the hills where the town now stands. The settlement took the name Elizabeth from a relative of John Evans, the second territorial governor of Colorado, whose Denver and New Orleans Railroad would later run its track past the mills.

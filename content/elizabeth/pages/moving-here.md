@@ -3,6 +3,7 @@ title: "Moving to Elizabeth"
 description: "What it is like to move to a sawmill town of 1,675 that has nearly doubled since the last census: housing on Main Street and on acreage, the C-1 schools, the Parker Road commute, who sends which bill, and what the water situation is."
 image: ../images/town-hall.jpg
 imageAlt: "Elizabeth Town Hall, a low brick building on South Banner Street"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 updated: "2026-09-18"
 ---
 

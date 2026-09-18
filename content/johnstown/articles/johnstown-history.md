@@ -6,6 +6,7 @@ category: "History"
 tags: [history]
 image: ../images/oil-well.jpg
 imageAlt: "A pumpjack in a bare spring field outside Johnstown, with the plains behind it"
+imageCredit: "Maarten Heerlien, Wikimedia Commons, CC BY 2.0"
 ---
 
 Johnstown exists because Harvey J. Parish read a railroad map. In 1902, knowing the Great Western Railway meant to build through the Little Thompson valley, Parish bought land at eleven dollars an acre and platted a town on it. His seven-year-old son John was in hospital recovering from a ruptured appendix, and by the family's account Parish declared, "It will be my son's town. Let's call it John's Town." Fairbairn & Parish Hardware & Lumber opened that October as the first business; the town incorporated in 1907; and John Parish grew up to serve as mayor from 1929 to 1934. The main street, first called Greeley Avenue Public Road, is Parish Avenue now, and the Craftsman bungalow Harvey and Mary Parish built on Charlotte Street in 1914 is the [Historical Society's museum](/places/parish-house-museum/).

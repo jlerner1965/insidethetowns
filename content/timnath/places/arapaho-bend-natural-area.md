@@ -7,6 +7,7 @@ url: "https://fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Ar
 hours: "Daily 5 am–11 pm"
 image: ../images/arapaho-bend.jpg
 imageAlt: "A pond and cottonwoods at Arapaho Bend Natural Area beside the Poudre"
+imageCredit: "sethant, Flickr, CC BY-SA 2.0"
 tags: [fishing, birding, trails]
 summary: "Fort Collins natural area on the Poudre just across I-25 from Timnath: four miles of trail around old gravel ponds and Rigden Reservoir, fishing, 80 bird species and the Strauss Cabin ruins."
 source: "https://fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Arapaho-Bend-Natural-Area"

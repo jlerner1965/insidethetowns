@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://www.lyonscolorado.com/"
 image: ../images/downtown.jpg
 imageAlt: "Main Street in Lyons looking west, with the stone drug-store building on the right and the red sandstone hogback behind"
+imageCredit: "Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0"
 tags: [historic, walk, architecture]
 featured: true
 summary: "Six blocks of locally quarried red sandstone buildings from the 1870s to 1917, fifteen of them on the National Register, and most still in everyday use."

@@ -6,6 +6,7 @@ area: "West Main, on the river"
 url: "https://bluegrass.com/"
 image: ../images/planet-bluegrass-cliff.jpg
 imageAlt: "A red sandstone cliff rising straight out of the St. Vrain at the Planet Bluegrass ranch"
+imageCredit: "Tobyotter, Flickr, CC BY 2.0"
 tags: [festivals, bluegrass, concerts]
 featured: true
 summary: "The 20-acre riverside ranch that hosts RockyGrass and the Rocky Mountain Folks Festival, plus the Wildflower Pavilion concerts through the year."

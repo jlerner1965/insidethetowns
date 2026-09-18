@@ -6,6 +6,7 @@ area: "Historic Main Street"
 url: "https://www.elizabethmainstreet.org/"
 image: ../images/hero.jpg
 imageAlt: "Main Street in Elizabeth with the 1907 First National Bank building on the right"
+imageCredit: "ERoss99, Wikimedia Commons, CC BY-SA 3.0"
 tags: [walk, history, shops]
 featured: true
 summary: "Three blocks of 1880s and 1890s storefronts, a Colorado Main Street community with interpretive plaques, the 1907 bank, the 1890 Huber-Carlson Building and the 1882 railroad section house."

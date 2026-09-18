@@ -8,6 +8,7 @@ phone: "(888) 861-7323"
 hours: "Mon–Thu 9–8, Fri–Sat 10–5, Sun 1–5"
 image: ../images/library.jpg
 imageAlt: "The timber-and-glass entrance of the Erie Community Library"
+imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 tags: [library, kids, programs]
 summary: "The High Plains Library District's Erie branch on Powers Street, open seven days, with storytimes, programs and a community room."
 source: "https://www.mylibrary.us/locations-and-hours/"

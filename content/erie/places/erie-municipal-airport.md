@@ -8,6 +8,7 @@ phone: "(303) 664-0633"
 hours: "Runway open 24/7; FBO 8 am–5 pm daily"
 image: ../images/municipal-airport.jpg
 imageAlt: "Light aircraft parked along the runway at Erie Municipal Airport"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 tags: [airport, planes]
 summary: "The Town's general-aviation airport on Colorado 7 with a 4,700-foot runway, an airpark neighborhood, and a fence to watch the small planes from."
 source: "https://www.erieco.gov/Faq.aspx?QID=128"

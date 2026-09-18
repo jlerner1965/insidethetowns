@@ -3,6 +3,7 @@ title: "Moving to Johnstown"
 description: "What it is like to move to a sugar-factory town of 17,000 (22,000 by the latest estimate) that is one of the ten fastest-growing in the country: housing, two counties and two school districts, the I-25 commute, who sends which bill, and where the parks are."
 image: ../images/town-hall.jpg
 imageAlt: "Johnstown Town Hall at 450 South Parish Avenue"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 updated: "2026-09-18"
 ---
 

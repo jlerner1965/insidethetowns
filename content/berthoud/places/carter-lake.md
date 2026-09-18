@@ -6,6 +6,7 @@ area: "County Road 31, northwest of town"
 url: "https://www.larimer.gov/naturalresources/parks/carter-lake"
 image: ../images/carter-lake.jpg
 imageAlt: "Carter Lake from its wooded eastern shore, with the hogback ridges across the water"
+imageCredit: "KimonBerlin, Wikimedia Commons, CC BY-SA 2.0"
 tags: [lake, boating, camping, swimming]
 featured: true
 summary: "The 1,100-acre Larimer County reservoir ten minutes northwest of town: boating, sailing, a swim beach, camping, fishing and shoreline trails. Entrance permit required."

@@ -3,6 +3,7 @@ title: "Moving to Timnath"
 description: "What it is like to move to a farm town of 625 that became a town of 11,000 in fifteen years: housing in the master-planned neighborhoods, Poudre schools, the Harmony Road commute, who sends which bill, and where the water is."
 image: ../images/sunrise.jpg
 imageAlt: "Sunrise through bare cottonwoods over a frozen pond in Timnath"
+imageCredit: "USFWS Mountain-Prairie, Wikimedia Commons, CC BY 2.0"
 updated: "2026-09-18"
 ---
 

@@ -8,6 +8,7 @@ phone: "(303) 828-5210"
 hours: "Fall festival Sep 23–Oct 31; closed Tue"
 image: ../images/anderson-farms.jpg
 imageAlt: "The red barn at Anderson Farms, where the corn maze and pumpkin patch run each autumn"
+imageCredit: "designsbykari, Flickr, CC BY 2.0"
 tags: [farm, corn maze, pumpkins, kids]
 summary: "The working farm east of town whose Fall Festival runs late September to Halloween: corn maze, pumpkin patch, barrel trains, and Terror in the Corn after dark."
 source: "https://tickets.andersonfarms.com/p/fall-festival"

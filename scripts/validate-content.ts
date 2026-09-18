@@ -122,6 +122,68 @@ function checkFormActions() {
 checkFormActions();
 
 /**
+ * Attribution is a licence term, not a courtesy. Every CC BY / CC BY-SA image
+ * here legally requires it, and Boulder County asked for it in writing. The
+ * editorial page tells readers "credit is shown where the licence asks for
+ * it", so the only way that stays true is if a missing credit fails the build.
+ *
+ * IMAGE_LICENSES.csv is the register; this checks the content against it.
+ */
+function checkImageCredits() {
+  const csvPath = join(root, 'IMAGE_LICENSES.csv');
+  if (!existsSync(csvPath)) return;
+  const needsCredit = new Set<string>();
+  const lines = readFileSync(csvPath, 'utf8').split('\n').slice(1);
+  for (const line of lines) {
+    if (!line.trim()) continue;
+    // Fields may be quoted and contain commas; only the first and fourth matter.
+    const cells: string[] = [];
+    let cur = '';
+    let quoted = false;
+    for (const ch of line) {
+      if (ch === '"') quoted = !quoted;
+      else if (ch === ',' && !quoted) { cells.push(cur); cur = ''; }
+      else cur += ch;
+    }
+    cells.push(cur);
+    if (cells[3]?.trim().toLowerCase() === 'y') {
+      needsCredit.add(cells[0].trim().split('/').pop()!);
+    }
+  }
+  for (const file of collectContentFiles()) {
+    const text = readFileSync(file, 'utf8');
+    const image = /^image:\s*\.\.\/images\/(\S+)\s*$/m.exec(text);
+    if (!image || !needsCredit.has(image[1])) continue;
+    if (!/^imageCredit:\s*\S/m.test(text)) {
+      errors.push(
+        `${relative(root, file)}: uses ${image[1]}, whose licence requires attribution, ` +
+          'but has no imageCredit',
+      );
+    }
+  }
+}
+
+function collectContentFiles(): string[] {
+  const out: string[] = [];
+  if (!existsSync(contentDir)) return out;
+  for (const town of readdirSync(contentDir)) {
+    const townDir = join(contentDir, town);
+    if (!statSync(townDir).isDirectory()) continue;
+    for (const collection of COLLECTIONS) {
+      const dir = join(townDir, collection);
+      if (!existsSync(dir)) continue;
+      for (const name of readdirSync(dir)) {
+        if (name.endsWith('.md') && !name.startsWith('_')) out.push(join(dir, name));
+      }
+    }
+  }
+  return out;
+}
+
+checkImageCredits();
+
+
+/**
  * Things that are deliberately dark, surfaced once per build so they are a
  * decision rather than an oversight. Warnings, not errors: the sites are
  * correct without them, they are just earning less than they could.

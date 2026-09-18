@@ -8,6 +8,7 @@ phone: "(303) 646-4166"
 hours: "Mon–Fri, office hours"
 image: ../images/town-hall.jpg
 imageAlt: "Elizabeth Town Hall, a low civic building at 151 South Banner Street"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 tags: [government, meetings, police]
 summary: "Town Hall and the police department on Banner Street: Board of Trustees on the second and fourth Tuesdays, Planning Commission on the first and third."
 source: "https://www.townofelizabeth.org/bt"

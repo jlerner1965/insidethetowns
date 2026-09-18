@@ -7,6 +7,7 @@ url: "https://www.elizabethpr.com/casey-jones-park"
 phone: "(303) 646-3599"
 image: ../images/casey-jones-park.jpg
 imageAlt: "Spectators in the grandstand at the Elizabeth Stampede rodeo, Casey Jones Park"
+imageCredit: "Elizabethstampede, Wikimedia Commons, CC BY 3.0"
 tags: [ball fields, dog park, trail, rodeo arena, pickleball]
 featured: true
 summary: "The Park & Rec District's 103-acre park east of town: lighted ball fields, a turf field, four pickleball courts, a playground, the rodeo arena, a dog park and a 1.5-mile soft-surface trail."

@@ -7,6 +7,7 @@ url: "https://fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Fo
 hours: "Open daily, dawn to dusk"
 image: ../images/fossil-creek-hawk.jpg
 imageAlt: "A hawk perched on a bare sapling above winter grass at Fossil Creek Reservoir, foothills behind"
+imageCredit: "KimonBerlin, Wikimedia Commons, CC BY-SA 2.0"
 tags: [birding, eagles, hiking, no dogs]
 featured: true
 summary: "1,400 acres of prairie, wetland and reservoir southwest of town between Timnath and Fort Collins, an Audubon Important Bird Area with bald eagles in winter, bird blinds and short trails. Hikers only; no dogs or bikes."

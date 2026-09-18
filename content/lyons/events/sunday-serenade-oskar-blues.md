@@ -11,6 +11,7 @@ cost: "No cover"
 category: music
 image: ../images/oskar-blues-pints.jpg
 imageAlt: "Pints on a table at Oskar Blues"
+imageCredit: "ShanMcG213, Flickr, CC BY-SA 2.0"
 source: "https://lyonsrecorder.org/events/"
 verified: "2026-09-18"
 ---

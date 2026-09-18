@@ -6,6 +6,7 @@ category: "History"
 tags: [history]
 image: ../images/town-limits.jpg
 imageAlt: "The Berthoud town-limits sign on the road in from the east, with the plains behind it"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0"
 ---
 
 Berthoud exists because of a river crossing. Settlers came into the Little Thompson valley in the early 1860s in the wake of the Colorado gold rush, and in 1872 Lewis Cross, a Central City miner turned rancher, took the first homestead at the spot where the Colorado Central Railroad meant to cross Little Thompson Creek. When the tracks came through in 1877 the railroad put in a depot, a section house and a water tank, and the settlement that grew around them was called Little Thompson. It was renamed for Edward L. Berthoud, the engineer who surveyed the line, and the post office opened under that name on April 4, 1878.

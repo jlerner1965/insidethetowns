@@ -8,6 +8,7 @@ phone: "(303) 926-2700"
 hours: "Mon–Fri 8–5"
 image: ../images/town-hall.jpg
 imageAlt: "Erie Town Hall in the red-brick 1906 Lincoln School, with its bell tower"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 tags: [government, history, memorial]
 summary: "The 1906 Lincoln School, a school until 1966 and Town Hall since 1998, with the Coal Miners' Memorial on its lawn."
 source: "https://www.historycolorado.org/location/lincoln-school-erie-town-hall"

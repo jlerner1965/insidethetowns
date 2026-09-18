@@ -8,6 +8,7 @@ cost: "Free; donations welcome"
 category: music
 image: ../images/church.jpg
 imageAlt: "Lyons Community Church, a red sandstone church with a white steeple"
+imageCredit: "Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0"
 source: "https://lyonsrecorder.org/2026/09/17/things-happening-in-lyons-9-17-26/"
 verified: "2026-09-18"
 ---

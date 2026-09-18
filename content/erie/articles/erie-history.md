@@ -6,6 +6,7 @@ category: "History"
 tags: [history]
 image: ../images/miner-memorial.jpg
 imageAlt: "The bronze coal miner of the Erie Coal Miners' Memorial, with the names of more than 500 miners on black granite behind him"
+imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 ---
 
 Erie exists because of coal. Settlers came to the Coal Creek valley after the gold rush, and coal was found in the seams under the prairie in the mid-1860s. Richard Van Valkenburg, one of the early arrivals, named the settlement for his former home of Erie, Pennsylvania. The Denver Pacific spur reached it in 1870, the Denver & Boulder Valley Railroad in 1871, and the town incorporated on November 16, 1874. The first official underground mine opened in 1876 under Ira Austin, and by 1895 Briggs Street had eleven saloons.

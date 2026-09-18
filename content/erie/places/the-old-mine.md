@@ -8,6 +8,7 @@ phone: "(303) 905-0620"
 hours: "Tue–Thu 4–9, Fri–Sun 11–9; closed Mon"
 image: ../images/old-mine-1889.jpg
 imageAlt: "The Old Mine in the two-storey 1889 Davis building on Briggs Street, with Sweets Ice Cream next door"
+imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 tags: [cider, pizza, live music, trivia]
 featured: true
 summary: "Hard cidery and artisan pizza pub in the 1889 Davis building on Briggs Street, with trivia on Tuesdays, live music Wednesdays and Sundays and a monthly bluegrass jam."

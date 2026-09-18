@@ -3,6 +3,7 @@ title: "Moving to Erie"
 description: "What it is like to move to a coal town of 30,000 that grew two-thirds in a decade, split across two counties and two school districts: housing, the commute, who sends which bill, and where the trails are."
 image: ../images/community-center.jpg
 imageAlt: "The west entrance of the Erie Community Center on Powers Street"
+imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 updated: "2026-09-18"
 ---
 

@@ -48,24 +48,41 @@ Her offer to dig out unpublished photographs covers these.
 
 ## Boulder County Parks & Open Space — trail photographs
 
-**Granted** 18 September 2026 by Boulder County Parks & Open Space, covering
-the photographs published on the county's own galleries for these three
-properties.
+**Granted** 18 September 2026 by Boulder County Parks & Open Space, by email,
+in reply to a request about the Heil Valley Ranch, Ron Stewart Preserve and
+Niwot Trails photo galleries.
 
-> **The exact wording of this grant has not been recorded yet.** Paste the
-> reply verbatim here, with the sender's name, their role and the date, and
-> delete this note. Until that is done this section is an assertion rather
-> than a record, which is the thing the rest of this file exists to avoid.
+Their wording, in full:
+
+> Thanks for reaching out. I just checked, and you are free to use the images
+> on those three webpages (Heil, Ron Stewart Preserve, and Niwot Trails) in
+> your community guide. Please attribute Boulder County.
+>
+> Most of the images on our website can be used with attribution, but
+> sometimes we have images on our website that do not belong to us, and we
+> use with attribution (like historic photos from the Carnegie Library for
+> Local History).
+>
+> I hope that helps. Let me know if you have any other questions. Permission
+> granted
 
 | | |
 |---|---|
-| **Scope** | Photographs on the three galleries below |
-| **Sources** | `bouldercountyopenspace.org/photos/rsp/` (Rabbit Mountain), `/photos/heil/` (Heil Valley Ranch), `/photos/niwot/` (Niwot Trails) |
-| **Credit** | Unknown until the wording is recorded. We credit "Boulder County Parks & Open Space" meanwhile |
+| **Scope** | The images on the three named gallery pages |
+| **Credit** | **Required.** "Please attribute Boulder County." We credit "Boulder County Parks & Open Space" |
+| **Standing** | Not stated. Treat it as covering these three pages only |
+| **Sources** | `bouldercountyopenspace.org/photos/rsp/`, `/photos/heil/`, `/photos/niwot/` |
 | **Contact** | posinfo@bouldercounty.gov, 303-678-6200 |
 
+Read the second paragraph before reusing anything else of theirs. Their site
+carries images the county does not own and republishes under someone else's
+attribution — the Carnegie Library for Local History historic photographs are
+the example they give. "Most of the images on our website can be used with
+attribution" is not the same as all of them, and the grant above names three
+pages, not the site. Anything from a fourth page needs its own ask.
+
 These photographs carried EXIF, which Erie's did not. It is dropped on import,
-as it is for every image on the network — camera metadata can carry GPS and a
+as for every image on the network: camera metadata can carry GPS and a
 photographer's name, and neither belongs in a file we republish.
 
 Boulder County's galleries are largely accessibility documentation — restrooms,

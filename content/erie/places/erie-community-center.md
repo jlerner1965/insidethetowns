@@ -8,6 +8,7 @@ phone: "(303) 926-2550"
 hours: "Mon–Thu 5 am–9 pm, Fri 5–7, Sat 7–7, Sun 8–5"
 image: ../images/community-center.jpg
 imageAlt: "The west entrance of the Erie Community Center, with the playground beyond"
+imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 tags: [pool, climbing wall, gym, classes]
 summary: "The Town's recreation center: indoor pool with a lazy river and hot tub, a climbing wall, a gym, an indoor track, racquetball, fitness classes and the senior lounge. Day passes for anyone."
 source: "https://www.erieco.gov/172/Erie-Community-Center"

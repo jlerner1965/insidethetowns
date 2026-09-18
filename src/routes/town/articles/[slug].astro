@@ -39,7 +39,14 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
     <time datetime={toIsoLocal(data.date)}>{formatDate(data.date)}</time>
     {data.updated && <span> · Updated {formatDate(data.updated)}</span>}
   </p>
-  {data.image && <Image src={data.image} alt={data.imageAlt ?? ''} width={1600} height={900} class="mb-12 w-full rounded-lg" />}
+  {data.image && (
+    <figure class="mb-12">
+      <Image src={data.image} alt={data.imageAlt ?? ''} width={1600} height={900} class="w-full rounded-lg" />
+      {data.imageCredit && (
+        <figcaption class="mt-2 text-[0.8125rem] text-ink-faint">Photo: {data.imageCredit}</figcaption>
+      )}
+    </figure>
+  )}
   <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
     <div class="prose">
       <Content />

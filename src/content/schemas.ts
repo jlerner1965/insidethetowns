@@ -113,6 +113,8 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
       category: z.enum(EVENT_CATEGORIES),
       image: image().optional(),
       imageAlt: z.string().optional(),
+      /** Shown under the image. Required when the licence asks for attribution. */
+      imageCredit: z.string().optional(),
       /** Human note such as "Every Saturday through October". Display only; computed from repeat/until when absent. */
       recurring: z.string().optional(),
       /** The event happens every week on start's weekday, through `until` (inclusive). */
@@ -158,6 +160,8 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
       priceRange: z.enum(['$', '$$', '$$$', '$$$$']).optional(),
       image: image().optional(),
       imageAlt: z.string().optional(),
+      /** Shown under the image. Required when the licence asks for attribution. */
+      imageCredit: z.string().optional(),
       tags: z.array(z.string()).default([]),
       featured: z.boolean().default(false),
       /** One or two sentences, shown on cards. */
@@ -178,6 +182,8 @@ export function articleSchema<I extends z.ZodType>(image: () => I) {
       updated: localDate.optional(),
       image: image().optional(),
       imageAlt: z.string().optional(),
+      /** Shown under the image. Required when the licence asks for attribution. */
+      imageCredit: z.string().optional(),
       excerpt: z.string().min(1).max(320),
       category: z.string().min(1),
       tags: z.array(z.string()).default([]),
@@ -200,6 +206,8 @@ export function issueSchema<I extends z.ZodType>(image: () => I) {
     excerpt: z.string().min(1).max(320),
     image: image().optional(),
     imageAlt: z.string().optional(),
+    /** Shown under the image. Required when the licence asks for attribution. */
+    imageCredit: z.string().optional(),
     /** Town slugs this issue went to. Empty means the whole network. */
     towns: z.array(z.string()).default([]),
   });
@@ -212,6 +220,8 @@ export function pageSchema<I extends z.ZodType>(image: () => I) {
     description: z.string().optional(),
     image: image().optional(),
     imageAlt: z.string().optional(),
+    /** Shown under the image. Required when the licence asks for attribution. */
+    imageCredit: z.string().optional(),
     updated: localDate.optional(),
   });
 }

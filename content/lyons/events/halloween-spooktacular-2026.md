@@ -9,6 +9,7 @@ cost: "Free"
 category: festival
 image: ../images/downtown.jpg
 imageAlt: "Main Street in Lyons looking west toward the sandstone hogback"
+imageCredit: "Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0"
 featured: true
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6673"
 verified: "2026-09-18"

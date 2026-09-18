@@ -7,6 +7,7 @@ url: "https://www.lyonscolorado.com/311/Parks-and-Recreation"
 hours: "Daily 8 am–dusk"
 image: ../images/st-vrain-canyon.jpg
 imageAlt: "The North St. Vrain pouring white between red boulders in the canyon above Lyons"
+imageCredit: "Max and Dee, Flickr, CC BY 2.0"
 tags: [whitewater, tubing, playground, camping]
 featured: true
 summary: "The park under the cliffs: the whitewater park, a splash pad, playgrounds, the Town campground and, in a cold January, an outdoor ice rink."

@@ -6,6 +6,7 @@ area: "119th Street"
 url: "https://erieco.gov/2295/32276/Thomas-Reservoir"
 image: ../images/thomas-reservoir.jpg
 imageAlt: "Afternoon sun off the water at Thomas Reservoir, seen from the fishing pier"
+imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [loop, easy, fishing, birds]
 summary: "Flat 0.8-mile loop of concrete and crusher fines around a 10-acre stocked reservoir in the middle of town; bank fishing, benches and birds."

@@ -6,6 +6,7 @@ area: "Historic downtown, Briggs Street"
 url: "https://www.downtownerie.biz/"
 image: ../images/old-city-hall.jpg
 imageAlt: "The 1930 Erie City Hall, a small brick building with a bell tower, now a downtown storefront"
+imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 tags: [walk, history, free]
 summary: "Self-guided walk past more than a dozen historic sites in the old coal-town downtown: the 1889 Davis building, the 1930 City Hall, the Lincoln School and the miners' memorial."
 source: "https://www.downtownerie.biz/"

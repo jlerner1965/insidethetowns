@@ -70,7 +70,14 @@ const facts = [
 >
   <div class="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
     <div>
-      {data.image && <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="mb-10 rounded-lg" />}
+      {data.image && (
+        <figure class="mb-10">
+          <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
+          {data.imageCredit && (
+            <figcaption class="mt-2 text-[0.8125rem] text-ink-faint">Photo: {data.imageCredit}</figcaption>
+          )}
+        </figure>
+      )}
       <div class="prose">
         <Content />
       </div>
