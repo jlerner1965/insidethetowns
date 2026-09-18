@@ -1,4 +1,13 @@
 ---
+/**
+ * The masthead: wordmark, and the navigation.
+ *
+ * The list is rendered once. Below the large breakpoint it becomes a panel
+ * that drops from under the header on a button; at and above it, it is a row.
+ * Rendering it twice — a desktop copy and a mobile copy, one hidden — is the
+ * usual way to do this and it puts every link in the page twice, which is
+ * duplicate anchor text on four hundred pages and two things to keep in step.
+ */
 import { getSite } from '@/config';
 import Wordmark from './Wordmark.astro';
 
@@ -9,42 +18,78 @@ const isActive = (href: string) => {
   if (clean === '/' || clean === '') return path === '/';
   return path.startsWith(clean);
 };
-const linkClass = (href: string) =>
-  [
-    'block whitespace-nowrap py-1 text-[0.8125rem] font-semibold uppercase tracking-[0.1em] no-underline transition-colors',
-    isActive(href) ? 'text-accent-text' : 'text-ink-muted hover:text-ink',
-  ].join(' ');
 ---
 {/* The first thing on every page is a band of the town's colour. It costs
    six pixels and it is what stops the site opening on plain tan. */}
 <div class="h-1.5 bg-gradient-to-r from-accent-dark via-accent to-highlight"></div>
-<header class="bg-paper">
+<header class="relative bg-paper">
   <div class="container-page">
-    <div class="flex items-center justify-between gap-8 py-5 md:py-7">
+    <div class="flex items-center justify-between gap-6 py-5 md:py-7">
       <Wordmark class="whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" />
-      <nav aria-label="Primary" class="hidden lg:block">
-        <ul class="flex gap-7">
+
+      <button
+        type="button"
+        class="nav-toggle -mr-2 lg:hidden"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Menu"
+        data-nav-toggle
+      >
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <ul class="site-nav-list container-page lg:gap-7 lg:px-0">
           {site.nav.map((item) => (
             <li>
-              <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined} class={linkClass(item.href)}>
-                {item.label}
-              </a>
+              <a
+                href={item.href}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+                class:list={[
+                  'site-nav-link block whitespace-nowrap text-[0.8125rem] font-semibold uppercase tracking-[0.1em] no-underline transition-colors',
+                  isActive(item.href) ? 'text-accent-text' : 'text-ink-muted hover:text-ink',
+                ]}
+              >{item.label}</a>
             </li>
           ))}
         </ul>
       </nav>
     </div>
-    <nav aria-label="Primary" class="-mx-5 overflow-x-auto border-t border-line-soft px-5 [scrollbar-width:none] sm:-mx-8 sm:px-8 lg:hidden">
-      <ul class="flex gap-6 py-3">
-        {site.nav.map((item) => (
-          <li>
-            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined} class={linkClass(item.href)}>
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
   </div>
   <div class="h-px bg-line-soft"></div>
 </header>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+  const nav = document.getElementById('site-nav');
+  if (button && nav) {
+    const open = () => button.getAttribute('aria-expanded') === 'true';
+    const set = (next: boolean) => {
+      button.setAttribute('aria-expanded', String(next));
+      // The lock lives on <html> so the panel's own rules and the scroll lock
+      // are one state, not two that can disagree.
+      document.documentElement.classList.toggle('nav-open', next);
+    };
+    button.addEventListener('click', () => {
+      const next = !open();
+      set(next);
+      if (next) nav.querySelector<HTMLAnchorElement>('a')?.focus();
+    });
+    // Following a link closes it; so does Escape, which puts focus back where
+    // it came from rather than at the top of the document.
+    nav.addEventListener('click', (event) => {
+      if ((event.target as HTMLElement).closest('a')) set(false);
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && open()) {
+        set(false);
+        button.focus();
+      }
+    });
+    // Rotating to a width that shows the row must not leave the page locked.
+    const wide = window.matchMedia('(min-width: 64rem)');
+    wide.addEventListener('change', (event) => {
+      if (event.matches) set(false);
+    });
+  }
+</script>

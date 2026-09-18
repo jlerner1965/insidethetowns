@@ -2,7 +2,6 @@
 # Screenshots a built site (dist/) at phone / tablet / desktop widths for design review.
 #
 #   TOWN=niwot npm run build && scripts/screenshot.sh /path/out [ / /events/ /eat-drink/ ... ]
-#   SCHEME=dark scripts/screenshot.sh /path/out /events/      # the dark scheme
 #
 # Uses the Chromium "headless shell" that Playwright installs, because the
 # regular Chromium binary's new headless mode enforces a minimum window width
@@ -11,11 +10,6 @@ set -euo pipefail
 OUT="${1:-screenshots}"; shift || true
 PAGES=("${@:-/}")
 DIST="${DIST:-dist}"
-# --force-dark-mode is Chromium's own auto-darkening and does not touch the
-# media query. preferredColorScheme=0 is the one that makes the page think the
-# operating system is in dark mode.
-SCHEME_ARGS=""
-[ "${SCHEME:-light}" = "dark" ] && SCHEME_ARGS="--blink-settings=preferredColorScheme=0"
 PORT="${PORT:-4399}"
 SHELL_BIN="${CHROME_HEADLESS_SHELL:-$(ls -d "${PLAYWRIGHT_BROWSERS_PATH:-/opt/pw-browsers}"/chromium_headless_shell-*/chrome-linux/headless_shell 2>/dev/null | tail -1 || true)}"
 [ -x "$SHELL_BIN" ] || { echo "headless_shell not found; set CHROME_HEADLESS_SHELL"; exit 1; }
@@ -35,7 +29,7 @@ for page in "${PAGES[@]}"; do
     # Without a virtual time budget the shot fires before lazily-loaded images
     # below the fold have decoded, and every one of them reviews as a blank box.
     "$SHELL_BIN" --no-sandbox --disable-gpu --hide-scrollbars --proxy-server="direct://" --proxy-bypass-list="*" \
-      --virtual-time-budget=8000 --run-all-compositor-stages-before-draw $SCHEME_ARGS \
+      --virtual-time-budget=8000 --run-all-compositor-stages-before-draw \
       --window-size="$w,2400" --screenshot="$OUT/$name-$w.png" "http://127.0.0.1:$PORT$page" >/dev/null 2>&1
   done
   echo "shot $page"

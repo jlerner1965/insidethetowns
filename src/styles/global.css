@@ -14,10 +14,12 @@
      accent-dark stays the fill of the dark bands in both schemes, because a
      band is a band whichever way round the page is.
 
-     Everything that has to change between light and dark goes through a --t-*
-     variable, defined once below and redefined under prefers-color-scheme.
-     scripts/check-colors.ts proves every resulting pair clears AA in both
-     schemes, and CI runs it. */
+     The split is worth keeping even though the sites are light-only: naming
+     the fill and the text separately is what stops the next change from
+     quietly using one where it means the other.
+
+     scripts/check-colors.ts proves every resulting pair clears AA, and CI
+     runs it. */
   --color-accent: var(--town-accent);
   --color-accent-dark: var(--town-accent-dark);
   --color-accent-text: var(--t-accent-text);
@@ -59,31 +61,6 @@
   --t-accent-line: color-mix(in srgb, var(--town-accent) 32%, #ffffff);
 }
 
-/*
- * Dark. The surfaces are shared rather than tinted per town, so every pair in
- * them is an exact known colour the contrast check can verify; the town's
- * colour still carries the bands, the rules, the labels and the top strip.
- *
- * accent-text is the one that has to invert: accent-dark is dark enough to
- * hold white text, which makes it unreadable as text on a dark page.
- */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --t-surface: #14151a;
-    --t-raised: #1d1f26;
-    --t-ink: #eae8e3;
-    --t-ink-muted: #b0b2b9;
-    --t-ink-faint: #9a9ca3;
-    --t-line: #3b3e46;
-    --t-line-soft: #292c33;
-    --t-accent-text: color-mix(in srgb, var(--town-accent) 62%, #ffffff);
-    --t-accent-tint: color-mix(in srgb, var(--town-accent) 16%, #14151a);
-    --t-accent-soft: color-mix(in srgb, var(--town-accent) 24%, #14151a);
-    /* Toward white, not toward the page: a rule mixed into a near-black
-       surface is not a rule, it is nothing. */
-    --t-accent-line: color-mix(in srgb, var(--town-accent) 80%, #ffffff);
-  }
-}
 
 
 @layer base {
@@ -188,6 +165,86 @@
   font-variation-settings: "opsz" 72;
   letter-spacing: -0.025em;
   line-height: 1;
+}
+
+/*
+ * The navigation, one list in two shapes.
+ *
+ * Below 64rem it is a panel that drops from under the header, hidden with
+ * `display: none` rather than opacity so its links are not tabbable while it
+ * is shut, and positioned against the header rather than at a fixed offset so
+ * it cannot land in the wrong place when the header changes height.
+ */
+@layer components {
+  .nav-toggle {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    inline-size: 44px; /* the tap target, not the icon */
+    block-size: 44px;
+    color: var(--color-ink);
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+  .nav-toggle-bars,
+  .nav-toggle-bars::before,
+  .nav-toggle-bars::after {
+    display: block;
+    inline-size: 22px;
+    block-size: 2px;
+    border-radius: 1px;
+    background: currentColor;
+    transition: transform 160ms ease, background-color 120ms ease;
+  }
+  .nav-toggle-bars::before,
+  .nav-toggle-bars::after {
+    content: "";
+    position: absolute;
+  }
+  .nav-toggle-bars::before { transform: translateY(-7px); }
+  .nav-toggle-bars::after { transform: translateY(7px); }
+  [aria-expanded="true"] .nav-toggle-bars { background: transparent; }
+  [aria-expanded="true"] .nav-toggle-bars::before { transform: rotate(45deg); }
+  [aria-expanded="true"] .nav-toggle-bars::after { transform: rotate(-45deg); }
+
+  .site-nav-list {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (width < 64rem) {
+  .site-nav {
+    position: absolute;
+    inset-block-start: 100%;
+    inset-inline: 0;
+    z-index: 40;
+    display: none;
+    max-block-size: calc(100dvh - 100%);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: var(--color-paper);
+    border-block-end: 1px solid var(--color-line);
+    box-shadow: 0 20px 34px -26px rgb(0 0 0 / 0.5);
+  }
+  .nav-open .site-nav { display: block; }
+  .nav-open body { overflow: hidden; }
+  .site-nav-list {
+    display: block;
+    padding-block: 0.25rem 1rem;
+  }
+  /* Full-width rows, comfortably over the 44px minimum, and set at reading
+     size rather than as the small caps that suit a row across the top. */
+  .site-nav-link {
+    padding-block: 0.95rem;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: normal;
+    border-block-start: 1px solid var(--color-line-soft);
+  }
+  .site-nav li:first-child .site-nav-link { border-block-start: 0; }
 }
 
 @layer components {

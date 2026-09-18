@@ -39,13 +39,12 @@ const cssVars = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="color-scheme" content="light" />
     <SEO {...seo} jsonLd={structured} />
     <link rel="icon" href={`/favicons/${site.slug}/favicon.svg`} type="image/svg+xml" />
-    <meta name="theme-color" content={site.colors.accentDark} media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#14151a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content={site.colors.accentDark} />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    {/* One definition of the category hues, in both schemes, from src/config/palette.ts. */}
+    {/* One definition of the category hues, from src/config/palette.ts. */}
     <style is:inline set:html={categoryCss()}></style>
   </head>
   <body>
