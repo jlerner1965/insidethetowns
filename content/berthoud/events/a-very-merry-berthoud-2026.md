@@ -4,11 +4,11 @@ start: "2026-12-05"
 allDay: true
 venue: "Downtown Berthoud"
 address: "Mountain Ave"
-url: "https://berthoud.org/1605/A-Very-Merry-Berthoud"
+url: "https://berthoudmainstreet.org/averymerryberthoud/"
 cost: "Free"
 category: festival
 featured: true
-source: "https://berthoud.org/1605/A-Very-Merry-Berthoud"
+source: "https://berthoudmainstreet.org/averymerryberthoud/"
 verified: "2026-09-18"
 ---
 

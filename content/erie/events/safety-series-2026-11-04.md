@@ -7,7 +7,7 @@ address: "1000 Telleen Ave"
 url: "https://www.erieco.gov/calendar.aspx"
 cost: "Free"
 category: civic
-recurring: "Monthly, first or second Wednesday"
+recurring: "Monthly"
 source: "https://www.erieco.gov/calendar.aspx"
 verified: "2026-09-18"
 ---

@@ -7,9 +7,9 @@ address: "1000 Telleen Ave"
 url: "https://www.erieco.gov/calendar.aspx"
 cost: "Free"
 category: civic
-recurring: "Monthly, first or second Wednesday"
+recurring: "Monthly"
 source: "https://www.erieco.gov/calendar.aspx"
 verified: "2026-09-18"
 ---
 
-The Erie Police Department's monthly hour-long community talk at the station on Telleen Avenue. This month: prevention and signs of elder abuse. Free; no registration.
+The Erie Police Department's monthly hour-long community talk at the station on Telleen Avenue. This month: prevention and signs of elder abuse. The December session falls on the third Wednesday rather than the first. Free; no registration.

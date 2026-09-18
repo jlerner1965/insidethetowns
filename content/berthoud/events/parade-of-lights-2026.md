@@ -6,8 +6,8 @@ address: "Mountain Ave"
 url: "https://berthoudparadeoflights.com/"
 cost: "Free"
 category: festival
-source: "https://berthoud.org/1605/A-Very-Merry-Berthoud"
+source: "https://berthoudparadeoflights.com/"
 verified: "2026-09-18"
 ---
 
-The lighted parade steps off from 2nd Street at 5 pm and follows Mountain Avenue through downtown to 8th Street, with the tree lighting ceremony and caroling afterwards. The finale of A Very Merry Berthoud; dress warmly and arrive early for a curb.
+The lighted parade steps off from 2nd Street at 5 pm and follows Mountain Avenue through downtown to 8th Street, with carols and the tree lighting ceremony at 5:45. The finale of A Very Merry Berthoud; dress warmly and arrive early for a curb.
