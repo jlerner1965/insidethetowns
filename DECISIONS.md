@@ -178,3 +178,33 @@ Choices not covered by PLAN.md, with the reasoning. Newest first.
 - **CC BY-SA photographs.** Several photos are share-alike licensed. Their use here is
   credited on each image's licence row and, for the hero, in the visible credit line; a
   visible per-photo credits page is not built yet and should be before a wider photo pass.
+
+## Phase 6
+
+- **Berthoud is written from sources, not ported.** There was no earlier Berthoud site, so
+  the 49 places come from Berthoud Main Street's dine/drink and shop directories, the
+  Town's facilities pages, Larimer County Natural Resources (Carter Lake), the Historical
+  Society and the library's own pages; each carries its `source` and a September 2026
+  `verified` date. Descriptions stick to what those pages say. Businesses without a
+  reachable website are listed with the directory as source and no `url`.
+- **Events come from five calendars:** the Town calendar and Upcoming Events page (market,
+  Rec Center events, Board and commission meetings), Berthoud Main Street / the Chamber
+  (Oktoberfest, Trick or Treat Street, Small Business Saturday, A Very Merry Berthoud),
+  the library's events page (weekly storytimes and groups as `repeat: weekly`), and City
+  Star Brewing's calendar (weekly trivia and run, dated releases and music). Second-and-
+  fourth meetings are dated files, as in Lyons. Oktoberfest's start time differs between
+  the Chamber (11 am) and the Historical Society (8 am); the entry uses the Chamber's and
+  says so.
+- **Hero and photographs are Wikimedia Commons.** Carter Lake (CC BY-SA 2.0, KimonBerlin)
+  is the hero: the lake is the landscape people associate with Berthoud and Commons has
+  no usable Mountain Avenue photograph. The Bimson Blacksmith Shop, the Swanson farm and
+  the town-limits sign (CC BY-SA 3.0, Jeffrey Beall) and a CC0 welcome sign illustrate
+  the museum, the article and Moving Here. Commons rate-limits original downloads; the
+  `Special:FilePath?width=` thumbnails at 2000–2560px are used instead.
+- **Palette.** Carter Lake blue (`#2A5D78` / `#1B3F52`) on wheat paper for the Garden
+  Spot, distinct from Niwot's evergreen and Lyons' sandstone; 7:1 contrast on white.
+- **Config facts.** Larimer County (261 of the 10,332 residents are in Weld, per the 2020
+  census); the Larimer County Sheriff's Berthoud Squad is the police link; Thompson
+  School District R2-J.
+- **Sample content from `new-town` was deleted**, not edited, so the town folder holds
+  only sourced entries.
