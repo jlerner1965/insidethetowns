@@ -1,8 +1,12 @@
 ---
 /**
- * Thin "Part of Inside the Towns" strip at the very bottom of every site.
+ * Thin strip at the very bottom of every site listing the rest of the network.
  * Lists the hub and every live sibling site; never the current site or towns
  * that are not live yet.
+ *
+ * On the hub the label is "The guides", not "Part of": the parent site saying
+ * it is part of itself, and listing itself among its own guides, was the one
+ * place the shared component gave itself away.
  */
 import { getNetworkHub, getSite, liveTowns } from '@/config';
 
@@ -13,11 +17,13 @@ const siblings = liveTowns().filter((t) => t.slug !== site.slug);
 <div class="border-t border-white/15 bg-black/30 text-[0.8125rem] text-white/70">
   <div class="container-page flex flex-wrap items-center gap-x-5 gap-y-1 py-3.5">
     <span>
-      Part of
       {site.kind === 'hub' ? (
-        <strong class="font-semibold text-highlight">{hub.siteTitle}</strong>
+        <strong class="font-semibold text-highlight">The guides</strong>
       ) : (
-        <a href={`https://${hub.domain}/`} class="font-semibold text-highlight no-underline hover:underline">{hub.siteTitle}</a>
+        <Fragment>
+          Part of
+          <a href={`https://${hub.domain}/`} class="ml-1 font-semibold text-highlight no-underline hover:underline">{hub.siteTitle}</a>
+        </Fragment>
       )}
     </span>
     {siblings.length > 0 && (
