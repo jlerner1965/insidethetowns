@@ -19,8 +19,8 @@ export const niwot: TownConfig = {
     neutralBg: '#F5F2EA',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'The valley floor below Niwot with a conical butte in the middle distance and the foothills of the Front Range behind it',
+    image: 'front-range-from-the-fields.jpg',
+    alt: 'Open grassland under a wide Colorado sky near Niwot, the Front Range running along the western horizon',
   },
   social: {
     email: 'hello@insideniwot.com',

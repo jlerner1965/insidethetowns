@@ -1,7 +1,5 @@
 path,source_url,license,credit_required (y/n),town
 scripts/templates/placeholder-hero.jpg,generated in-repo,CC0 placeholder — never ship on a live site,n,all
-content/hub/images/hero.jpg,generated (scripts/templates/placeholder-hero.jpg),CC0 placeholder — replace before launch,n,hub
-content/niwot/images/hero.jpg,https://github.com/jlerner1965/townofniwot.com (src/assets/photos/valley-haystack-foothills.jpg),client-supplied; licensed for townofniwot.com — confirm the licence extends to insideniwot.com,n,niwot
 content/niwot/images/niwot-tavern-patios.jpg,https://github.com/jlerner1965/townofniwot.com (src/assets/photos/niwot-tavern-patios.jpg),client-supplied; licensed for townofniwot.com — confirm the licence extends to insideniwot.com,n,niwot
 content/niwot/images/second-avenue-patios.jpg,https://github.com/jlerner1965/townofniwot.com (src/assets/photos/second-avenue-patios.jpg),client-supplied; licensed for townofniwot.com — confirm the licence extends to insideniwot.com,n,niwot
 content/niwot/images/whistle-stop-caboose.jpg,https://github.com/jlerner1965/townofniwot.com (src/assets/photos/whistle-stop-caboose.jpg),client-supplied; licensed for townofniwot.com — confirm the licence extends to insideniwot.com,n,niwot
@@ -73,3 +71,5 @@ content/timnath/images/poudre-river-trail.jpg,https://www.flickr.com/photos/gree
 content/timnath/images/arapaho-bend.jpg,https://www.flickr.com/photos/sethant/4889644880,"CC BY-SA 2.0 (sethant, Flickr); resized to 500px",y,timnath
 content/erie/images/anderson-farms.jpg,https://www.flickr.com/photos/43726999@N06/5047259609,"CC BY 2.0 (designsbykari, Flickr); resized to 1024px",y,erie
 content/elizabeth/images/stampede-arena.jpg,https://commons.wikimedia.org/wiki/File%3ACasey_Jones_Park_Announcer.jpg,CC BY 3.0 (Elizabethstampede); resized to 1024px,y,elizabeth
+content/hub/images/front-range-aerial.jpg,photographed by the site owner,"owned by the publisher; all rights reserved. EXIF stripped on import",n,hub
+content/niwot/images/front-range-from-the-fields.jpg,photographed by the site owner,"owned by the publisher; all rights reserved. EXIF stripped on import",n,niwot

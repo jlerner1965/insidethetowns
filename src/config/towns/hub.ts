@@ -15,8 +15,8 @@ export const hub: HubConfig = {
     neutralBg: '#F4F3EF',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'Foothills of the Colorado Front Range under a clear sky',
+    image: 'front-range-aerial.jpg',
+    alt: 'The Colorado Front Range from the air: tilted sandstone slabs and forested foothills dropping away to the towns on the plains',
   },
   social: {
     email: 'hello@insidethetowns.com',
