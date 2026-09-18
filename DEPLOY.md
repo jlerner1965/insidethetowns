@@ -8,6 +8,7 @@ insidethetowns.com   TOWN=hub
 insideniwot.com      TOWN=niwot
 insidelyons.com      TOWN=lyons
 insideberthoud.com   TOWN=berthoud
+insideerie.com       TOWN=erie
 …
 ```
 
