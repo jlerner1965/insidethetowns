@@ -4,10 +4,11 @@ type: park
 address: "575 Kattell St"
 area: "Downtown, Kattell Street"
 url: "https://www.erieco.gov/2274/Coal-Creek-Park"
+hours: "Open daily, sunrise to sunset"
 tags: [playground, splash pad, ice rink, events]
 featured: true
 summary: "The downtown park on Kattell Street: Maddie's butterfly playground, a splash pad in summer, an ice rink in winter, and the site of Brewfest and the Parade of Lights."
-source: "https://www.erieco.gov/2274/Coal-Creek-Park"
+source: "https://www.erieco.gov/parks"
 verified: "2026-09-18"
 ---
 

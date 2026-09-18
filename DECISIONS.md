@@ -455,3 +455,33 @@ the grid read as unfinished on every town but Lyons.
 - **`PlaceGrid` is deleted**, since nothing uses it now.
 - **This does not reduce the value of photographs.** They still lead both pages
   and fill the place's own page. It changes what the absence of one looks like.
+
+## Opening hours
+
+Hours coverage across the network went from 67 of 240 places to 180 of 240.
+113 listings gained hours, each read off the operator's own page.
+
+- **Only the operator's own page counts.** Google Business and Maps hours are
+  user-editable and frequently stale, so they were not used. Where a business
+  had no site, or a site with no hours, the listing simply has none: 60 places
+  still do, and that is the honest state rather than a guess.
+- **Parks and trails carry the hours the town actually posts**, and those
+  differ more than expected. Erie posts sunrise to sunset for every park except
+  Erie Community Park at 6 am to 10 pm. Johnstown posts 5 am to 10 pm for all
+  eight of its parks, on the Parks page rather than on any individual park's
+  page. Fort Collins posts 5 am to 11 pm for Arapaho Bend but dawn to dusk for
+  Fossil Creek. Berthoud posts nothing at all for any of its eight parks, so
+  they have no hours.
+- **Lyons publishes three conflicting park-hours statements** on its own site:
+  dawn to dusk, 8 am to dusk, and, on Bohn Park's own page, 8 am to 8 pm until
+  further notice. Each park cites the most specific page for itself.
+- **Lodging carries check-in and check-out** rather than opening hours, because
+  that is what those operators publish and it is what a reader needs.
+- **Two addresses were wrong and are now fixed.** Cocina & Cantina is at 400
+  Mountain Avenue, not 316, which is Glass of Art. Joyful Brews is a drive-thru
+  on Meadowlark Drive by the Kwik Korner, not a counter at 3rd and Mountain
+  sharing a corner with Cornerstone Cafe; its whole entry was rewritten.
+- **Hours go stale faster than anything else on these sites.** The weekly report
+  already lists entries not re-checked in 90 days, which is the mechanism for
+  catching them. Two known to expire: the Redstone Museum's season ends on 30
+  September, and WeeCasa has announced it closes for good on 31 October.

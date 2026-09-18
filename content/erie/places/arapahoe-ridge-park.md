@@ -3,9 +3,10 @@ title: "Arapahoe Ridge Park"
 type: park
 address: "1750 Powell St"
 area: "Arapahoe Ridge, south side"
+hours: "Open daily, sunrise to sunset"
 tags: [playground, shade, picnic]
 summary: "Shady park on the south side with a nautical-themed playground and picnic areas."
-source: "https://slidesandsunshine.com/10-best-parks-in-erie/"
+source: "https://www.erieco.gov/parks"
 verified: "2026-09-18"
 ---
 

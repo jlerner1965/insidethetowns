@@ -4,6 +4,7 @@ type: shop
 address: "33 N Parish Ave"
 area: "Old Town, Parish Avenue"
 url: "https://nicoleswarehouse.com/"
+hours: "Wed–Sat 10–5; closed Sun–Tue"
 tags: [antiques, vintage]
 summary: "Multi-booth antique market at the north end of Old Town, in business for more than fifteen years."
 source: "https://nicoleswarehouse.com/"

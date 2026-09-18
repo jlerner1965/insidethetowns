@@ -1,12 +1,13 @@
 ---
 title: "Cocina & Cantina"
 type: restaurant
-address: "316 Mountain Ave"
+address: "400 Mountain Ave"
 area: "Downtown, Mountain Avenue"
+hours: "Mon–Fri 6 am–9 pm, Sat 7–9, Sun 7–8:30"
 priceRange: "$$"
 tags: [mexican, breakfast, cantina]
 summary: "Breakfast, lunch and dinner with a Mexican slant on the main block; the downtown Saturday-breakfast spot."
-source: "https://berthoudmainstreet.org/dine-drink-berthoud/"
+source: "https://berthoud.cocinaandcantina.com/"
 verified: "2026-09-18"
 ---
 

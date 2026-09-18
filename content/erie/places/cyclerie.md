@@ -4,9 +4,10 @@ type: shop
 address: "515 Briggs St, Suite D"
 area: "Historic downtown, Briggs Street"
 url: "https://store.cyclerie.net/"
+hours: "Tue–Sat 10–6, Sun 11–3; closed Mon"
 tags: [bikes, e-bikes, service]
 summary: "Erie's community bike shop on Briggs Street, specialising in e-bikes, with test rides and service."
-source: "https://members.eriechamber.org/list/member/cyclerie-llc-16035057.htm"
+source: "https://store.cyclerie.net/"
 verified: "2026-09-18"
 ---
 

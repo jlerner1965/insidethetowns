@@ -3,9 +3,10 @@ title: "Habitat for Humanity ReStore"
 type: shop
 address: "157 Mountain Ave"
 area: "East Mountain Avenue"
+hours: "Tue–Sat 10–5; closed Sun–Mon"
 tags: [thrift, furniture, nonprofit]
 summary: "Thrift store for furniture, building materials and home goods at the east end of Mountain Avenue; proceeds build homes."
-source: "https://berthoudmainstreet.org/shop-antiques-berthoud/"
+source: "https://www.berthoudhabitat.org/restore/restore.html"
 verified: "2026-09-18"
 ---
 

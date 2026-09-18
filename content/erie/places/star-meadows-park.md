@@ -3,9 +3,10 @@ title: "Star Meadows Park"
 type: park
 address: "Flatiron Meadows Blvd"
 area: "Flatiron Meadows"
+hours: "Open daily, sunrise to sunset"
 tags: [playground, kids]
 summary: "Space-themed park in Flatiron Meadows with a climbable moon, a human sundial and a mister button for hot days."
-source: "https://slidesandsunshine.com/10-best-parks-in-erie/"
+source: "https://www.erieco.gov/parks"
 verified: "2026-09-18"
 ---
 

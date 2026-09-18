@@ -5,6 +5,7 @@ address: "165 Settler Way"
 area: "Settler Way, north of Old Town"
 url: "https://www.ymcanoco.org/membership/locations/johnstown-ymca"
 phone: "(720) 797-2020"
+hours: "Mon–Fri 5 am–9 pm, Sat 7–7, Sun 8–7"
 tags: [pool, gym, classes, kids]
 summary: "The YMCA of Northern Colorado's Johnstown branch: lap and leisure pools with slides and diving boards, a gym, an indoor track, fitness classes, a preschool and fields."
 source: "https://www.ymcanoco.org/membership/locations/johnstown-ymca"

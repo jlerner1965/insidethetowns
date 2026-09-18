@@ -5,6 +5,7 @@ address: "645 7th St"
 area: "7th Street, near Town Park"
 url: "https://www.berthoudhistoricalsociety.org/"
 phone: "(970) 532-2147"
+hours: "By appointment only"
 tags: [museum, history]
 summary: "The 1916 McCarty family home on 7th Street, a Denver Square with the doctor's office intact, kept as a museum by the Historical Society and open by appointment."
 source: "https://www.berthoudhistoricalsociety.org/"

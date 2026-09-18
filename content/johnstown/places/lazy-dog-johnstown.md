@@ -4,6 +4,7 @@ type: restaurant
 address: "4801 Thompson Pkwy"
 area: "Johnstown Plaza at 2534, I-25 and US 34"
 url: "https://www.thelazydog.com/loc-johnstown"
+hours: "Mon–Thu 11–8, Fri 11–9, Sat 10–9, Sun 10–8"
 priceRange: "$$"
 tags: [pub, patio, sports]
 summary: "Locally owned bar and grill at Johnstown Plaza with a big patio, pub food and a long beer list."

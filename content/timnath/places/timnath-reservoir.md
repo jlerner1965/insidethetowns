@@ -4,6 +4,7 @@ type: trail
 address: "5824 County Rd 40"
 area: "County Road 40, east of town"
 url: "https://timnath.org/timnath-reservoir/"
+hours: "Daily 7 am–7 pm or dusk; 6 am–8:30 pm summer"
 tags: [lake, boating, fishing, swimming]
 featured: true
 summary: "The Town's 600-acre reservoir east of town with a six-mile shoreline and mountain views: fishing, swimming, paddling and motorized boating by permit. Residents' shore permits are free."

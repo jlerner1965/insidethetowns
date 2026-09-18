@@ -4,6 +4,7 @@ type: park
 address: "5500 Summerfields Pkwy"
 area: "Summerfields Parkway"
 url: "https://timnath.org/timnath-community-park/"
+hours: "Open daily, dawn to dusk"
 tags: [splash pad, pickleball, playground, dog park]
 featured: true
 summary: "The 25-acre park on Summerfields Parkway: splash pad, playgrounds, six pickleball and two tennis courts, an amphitheater, a dog park and fields; host of the Holiday Festival."

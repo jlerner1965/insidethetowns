@@ -5,11 +5,12 @@ address: "6728 County Rd 3¼"
 area: "County Road 3¼, east of town"
 url: "https://andersonfarms.com/"
 phone: "(303) 828-5210"
+hours: "Fall festival Sep 23–Oct 31; closed Tue"
 image: ../images/anderson-farms.jpg
 imageAlt: "The red barn at Anderson Farms, where the corn maze and pumpkin patch run each autumn"
 tags: [farm, corn maze, pumpkins, kids]
 summary: "The working farm east of town whose Fall Festival runs late September to Halloween: corn maze, pumpkin patch, barrel trains, and Terror in the Corn after dark."
-source: "https://andersonfarms.com/pricing-and-hours/"
+source: "https://tickets.andersonfarms.com/p/fall-festival"
 verified: "2026-09-18"
 ---
 

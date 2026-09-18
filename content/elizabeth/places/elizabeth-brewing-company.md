@@ -5,12 +5,13 @@ address: "239 S Main St"
 area: "Historic Main Street"
 url: "https://brewelizabeth.com/"
 phone: "(720) 335-6011"
+hours: "Mon–Fri 4–10, Sat 12–10, Sun 12–8"
 image: ../images/huber-carlson.jpg
 imageAlt: "The two-storey Huber-Carlson Building on Main Street, home of the Elizabeth Brewing Company"
 tags: [brewery, taproom, historic, patio]
 featured: true
 summary: "The town's brewery, in the 1882 Huber-Carlson Building on Main Street: a five-barrel brewhouse on the ground floor, a taproom upstairs, a beer garden and patio behind."
-source: "https://brewelizabeth.com/about-the-building"
+source: "https://brewelizabeth.com/"
 verified: "2026-09-18"
 ---
 

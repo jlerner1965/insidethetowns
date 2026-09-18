@@ -3,11 +3,12 @@ title: "Kofe House"
 type: coffee
 address: "434 Mountain Ave"
 area: "Downtown, Mountain Avenue"
+hours: "Mon–Sat 7:30–2:30, Sun 8–2:30"
 priceRange: "$"
 tags: [coffee, espresso, pastries]
 featured: true
 summary: "The downtown coffee house on Mountain Avenue: espresso, pastries, and the second stop on a Berthoud Saturday."
-source: "https://berthoudmainstreet.org/dine-drink-berthoud/"
+source: "https://kofe-house.com/"
 verified: "2026-09-18"
 ---
 

@@ -3,9 +3,10 @@ title: "Homestead Fine Art Gallery"
 type: shop
 address: "344 Mountain Ave"
 area: "Downtown, Mountain Avenue"
+hours: "Tue–Sat 12–5, Sun 11–4; closed Mon"
 tags: [gallery, art]
 summary: "Gallery on Mountain Avenue showing original paintings, prints, photography, sculpture and glass by regional artists."
-source: "https://berthoudmainstreet.org/shop-antiques-berthoud/"
+source: "https://berthoudart.com/hours"
 verified: "2026-09-18"
 ---
 

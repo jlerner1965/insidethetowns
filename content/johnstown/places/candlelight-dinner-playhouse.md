@@ -5,10 +5,11 @@ address: "4747 Marketplace Dr"
 area: "Johnstown Plaza at 2534, I-25 and US 34"
 url: "https://coloradocandlelight.com/"
 phone: "(970) 744-3747"
+hours: "Box office Tue–Fri 10–5, Sat 12–5; closed Sun–Mon"
 tags: [theatre, musicals, dinner]
 featured: true
 summary: "Colorado's largest professional dinner theatre, a 350-seat house at the 2534 interchange doing Broadway musicals with dinner service; Les Misérables through mid-November, Holiday Inn from late November."
-source: "https://www.broadwayworld.com/denver/regional/Les-Miserables-4388718"
+source: "https://coloradocandlelight.com/contact/"
 verified: "2026-09-18"
 ---
 

@@ -3,9 +3,10 @@ title: "Lehigh Park"
 type: park
 address: "751 Eichhorn Dr"
 area: "Eichhorn Drive"
+hours: "Open daily, sunrise to sunset"
 tags: [splash pad, playground, trail access]
 summary: "Neighborhood park with a splash pad, an accessible playground with ramps and a climbing boulder, and access to the Coal Creek Open Space."
-source: "https://slidesandsunshine.com/10-best-parks-in-erie/"
+source: "https://www.erieco.gov/parks"
 verified: "2026-09-18"
 ---
 

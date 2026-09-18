@@ -4,6 +4,7 @@ type: coffee
 address: "502 Briggs St"
 area: "Historic downtown, Briggs Street"
 url: "https://www.sweetsicecream.com/"
+hours: "Mon–Thu 3–8, Fri–Sat 12–9, Sun 12–8"
 priceRange: "$"
 tags: [ice cream, kids]
 summary: "Small-town ice cream shop next to the Old Mine, scooping Little Man and Glacier ice cream since 2015."

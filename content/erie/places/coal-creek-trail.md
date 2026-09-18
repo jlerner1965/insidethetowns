@@ -4,6 +4,7 @@ type: trail
 address: "900 Weld County Rd 1.5 (north trailhead)"
 area: "Coal Creek corridor, north to south"
 url: "https://www.erieco.gov/2368/Coal-Creek-Open-Space"
+hours: "Open daily, sunrise to sunset"
 tags: [regional trail, walking, cycling, open space]
 featured: true
 summary: "The regional trail along Coal Creek through 400 acres of Town open space, about 10 miles of concrete, soft-surface and crusher-fine trail from Reliance Park south to the Boulder County trail toward Lafayette, Louisville and Superior."

@@ -3,10 +3,11 @@ title: "La Casita"
 type: restaurant
 address: "405 5th St"
 area: "5th Street, downtown"
+hours: "Mon–Fri 7:30 am–8 pm, Sat 7–2; closed Sun"
 priceRange: "$$"
 tags: [mexican, tacos, family]
 summary: "Family-run Mexican restaurant on 5th Street, a block off Mountain Avenue, for street tacos, combination plates and margaritas."
-source: "https://berthoudmainstreet.org/dine-drink-berthoud/"
+source: "https://fromtherestaurant.com/la-casita-mexican-cuisine/menu/405-5th-St/"
 verified: "2026-09-18"
 ---
 

@@ -4,6 +4,7 @@ type: trail
 address: "3340 Carpenter Rd, Fort Collins"
 area: "Carpenter Road, southwest edge"
 url: "https://fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Fossil-Creek-Reservoir-Natural-Area"
+hours: "Open daily, dawn to dusk"
 image: ../images/fossil-creek-hawk.jpg
 imageAlt: "A hawk perched on a bare sapling above winter grass at Fossil Creek Reservoir, foothills behind"
 tags: [birding, eagles, hiking, no dogs]

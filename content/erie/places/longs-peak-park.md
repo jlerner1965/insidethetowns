@@ -3,9 +3,10 @@ title: "Longs Peak Park"
 type: park
 address: "311 Wheat Berry Dr"
 area: "Vista Ridge"
+hours: "Open daily, sunrise to sunset"
 tags: [fields, playground, views]
 summary: "Sports fields, a playground with an accessible chair swing, a scavenger-hunt panel, and the view of its namesake peak."
-source: "https://slidesandsunshine.com/10-best-parks-in-erie/"
+source: "https://www.erieco.gov/parks"
 verified: "2026-09-18"
 ---
 

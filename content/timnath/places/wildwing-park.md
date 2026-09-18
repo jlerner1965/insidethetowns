@@ -4,6 +4,7 @@ type: park
 address: "2221 S Larimer County Rd 1"
 area: "County Road 1, WildWing"
 url: "https://timnath.org/wildwing-park/"
+hours: "Open daily, dawn to dusk"
 tags: [fields, pickleball, dog park, playground]
 summary: "The Town's newest community park, opened in 2025 on County Road 1: big multi-use fields, pickleball, a dog park, a playground, a basketball court, a community garden and trails."
 source: "https://timnath.org/wildwing-park/"

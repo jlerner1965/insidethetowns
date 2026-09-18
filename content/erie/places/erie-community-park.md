@@ -4,10 +4,11 @@ type: park
 address: "450 Powers St"
 area: "Powers Street, by the Community Center"
 url: "https://erieco.gov/2314/Erie-Community-Park"
+hours: "Open daily 6 am–10 pm"
 tags: [playground, pump track, skate park, fields]
 featured: true
 summary: "The 49-acre park beside the Community Center: ballfields, three playgrounds, the Revolution pump track, a skate park, a sledding hill and a walking loop."
-source: "https://erieco.gov/2314/Erie-Community-Park"
+source: "https://www.erieco.gov/parks"
 verified: "2026-09-18"
 ---
 

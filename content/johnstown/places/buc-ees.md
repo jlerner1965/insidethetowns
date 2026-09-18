@@ -4,11 +4,12 @@ type: shop
 address: "5201 Nugget Rd"
 area: "I-25 and County Road 48"
 url: "https://buc-ees.com/"
+hours: "Open 24 hours"
 image: ../images/buc-ees.jpg
 imageAlt: "The Buc-ee's travel centre and its fuel canopy beside Interstate 25"
 tags: [travel center, 24 hours, landmark]
 summary: "Colorado's only Buc-ee's, 74,000 square feet at I-25 and County Road 48, open 24 hours with 116 fuel pumps, the jerky counter and the beaver nuggets."
-source: "https://www.cpr.org/2024/03/18/first-colorado-buc-ees-location-is-now-open-in-johnstown-on-i25/"
+source: "https://buc-ees.com/about/frequently-asked-questions/"
 verified: "2026-09-18"
 ---
 

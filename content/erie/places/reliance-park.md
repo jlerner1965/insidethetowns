@@ -4,9 +4,10 @@ type: park
 address: "900 Weld County Rd 1.5"
 area: "North Briggs Street"
 url: "https://erieco.gov/2317/Reliance-Park"
+hours: "Open daily, sunrise to sunset"
 tags: [dog park, trailhead, ballfield]
 summary: "Park on the north edge of town with a ballfield, a playground, trails, and the Boneyard, a 7.9-acre fenced dog park with separate large- and small-dog areas."
-source: "https://erieco.gov/2317/Reliance-Park"
+source: "https://www.erieco.gov/parks"
 verified: "2026-09-18"
 ---
 

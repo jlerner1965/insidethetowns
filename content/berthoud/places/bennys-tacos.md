@@ -3,10 +3,11 @@ title: "Benny's Tacos"
 type: restaurant
 address: "535 Third St"
 area: "Third Street"
+hours: "Mon–Sat 6 am–9 pm, Sun 7 am–8 pm"
 priceRange: "$"
 tags: [tacos, mexican, takeout]
 summary: "Taqueria on Third Street with street tacos, burritos and tortas, quick and inexpensive."
-source: "https://berthoudmainstreet.org/dine-drink-berthoud/"
+source: "https://berthoudbennystacos.com/"
 verified: "2026-09-18"
 ---
 

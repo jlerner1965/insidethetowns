@@ -4,9 +4,10 @@ type: trail
 address: "N 111th St & US 287"
 area: "Southwest edge, off US 287"
 url: "https://www.erieco.gov/2294/Erie-Lake"
+hours: "Open daily, sunrise to sunset"
 tags: [loop, fishing, birds]
 summary: "Walking loop and ADA fishing access around the Town's drinking-water reservoir on the southwest edge of town. No swimming, boats or dogs in the water."
-source: "https://www.erieco.gov/2294/Erie-Lake"
+source: "https://www.erieco.gov/parks"
 verified: "2026-09-18"
 ---
 
