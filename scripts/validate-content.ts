@@ -15,6 +15,8 @@ import { fileURLToPath } from 'node:url';
 import { z } from 'astro/zod';
 import { COLLECTIONS, schemaFor, type CollectionName } from '../src/content/schemas.ts';
 import { liveTowns } from '../src/config/index.ts';
+// Imported directly, not via getHub(): the validator runs without TOWN set.
+import { hub } from '../src/config/towns/hub.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -72,6 +74,52 @@ for (const town of liveTowns()) {
     errors.push(`src/config/towns/${town.slug}.ts: live town has no population; the network total on the hub would undercount`);
   }
 }
+
+/**
+ * A form posting to a host the CSP does not list is blocked by the browser,
+ * silently, on the reader's machine — nothing in the build or the markup says
+ * so. The two are coupled, so check them against each other rather than trust
+ * anyone to remember.
+ */
+function checkFormActions() {
+  const vercelJson = join(root, 'vercel.json');
+  if (!existsSync(vercelJson)) return;
+  const csp = readFileSync(vercelJson, 'utf8');
+  const directive = /form-action ([^;"]*)/.exec(csp);
+  if (!directive) {
+    errors.push('vercel.json: Content-Security-Policy has no form-action directive');
+    return;
+  }
+  const allowed = new Set(directive[1].trim().split(/\s+/));
+  const posts: { where: string; url: string }[] = [];
+  const action = hub.newsletter?.action;
+  if (action) posts.push({ where: 'src/config/towns/hub.ts: newsletter.action', url: action });
+  for (const town of liveTowns()) {
+    if (town.formspreeId) {
+      posts.push({
+        where: `src/config/towns/${town.slug}.ts: formspreeId`,
+        url: `https://formspree.io/f/${town.formspreeId}`,
+      });
+    }
+  }
+  for (const { where, url } of posts) {
+    let origin;
+    try {
+      origin = new URL(url).origin;
+    } catch {
+      errors.push(`${where}: "${url}" is not an absolute URL`);
+      continue;
+    }
+    if (!allowed.has(origin)) {
+      errors.push(
+        `${where} posts to ${origin}, which the CSP would block. ` +
+          `Add ${origin} to form-action in vercel.json.`,
+      );
+    }
+  }
+}
+
+checkFormActions();
 
 if (!existsSync(contentDir)) {
   errors.push('content/ directory does not exist');

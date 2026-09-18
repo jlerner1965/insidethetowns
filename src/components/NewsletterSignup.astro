@@ -1,0 +1,98 @@
+---
+/**
+ * The weekly email signup.
+ *
+ * For this model the email is the product: a brewery will pay for nine hundred
+ * verified Erie inboxes long before it pays for an unknown number of
+ * pageviews, and it is the number that goes on the media kit. Every visit
+ * without it is a cold acquisition.
+ *
+ * Inline, never a modal. A popup on a community guide reads as spam and costs
+ * the trust the independence framing buys — which is the whole asset.
+ *
+ * Dark until `newsletter` is set on the hub config, so nothing here is a
+ * half-built promise while the provider account is being sorted.
+ */
+import { getNetworkHub, liveTowns, type TownConfig } from '@/config';
+
+interface Props {
+  /** On a town site: pre-select that town and write the copy about it. */
+  town?: TownConfig;
+  /** A quieter version for the foot of a page. */
+  compact?: boolean;
+}
+
+const { town, compact = false } = Astro.props;
+const hub = getNetworkHub();
+const config = hub.newsletter;
+const towns = liveTowns();
+const day = config?.sendDay ?? 'Thursday';
+const emailField = config?.emailField ?? 'email';
+const tagField = config?.tagField ?? 'tag';
+const where = town ? town.name : 'the Front Range';
+// Two of these can sit on one page (an issue page shows the compact one), and
+// two inputs sharing an id is a broken label, not a cosmetic slip.
+const inputId = `newsletter-email-${compact ? 'compact' : 'main'}-${town?.slug ?? 'network'}`;
+const field =
+  'mt-1.5 block w-full rounded-md border border-line bg-raised px-3 py-2.5 text-[1.0625rem] font-normal';
+---
+{config && (
+  <section class:list={['rounded-lg bg-accent-tint p-6 md:p-8', !compact && 'ring-1 ring-accent-line']}>
+    {/*
+      A new tab keeps the reader on the page they were reading. No rel="noopener":
+      Astro's FormHTMLAttributes does not carry it, and the only host this can
+      ever post to is one the CSP form-action allowlist names, which
+      validate-content.ts checks against the config on every build.
+    */}
+    <form action={config.action} method="POST" target="_blank" class="max-w-xl">
+      <h2 class="display-md text-[1.75rem] leading-tight">What’s on in {where}, every {day}</h2>
+      <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">
+        One email a week: the weekend’s events, new places, nothing else.
+      </p>
+
+      {town ? (
+        <input type="hidden" name={tagField} value={town.slug} />
+      ) : (
+        <fieldset class="mt-5">
+          <legend class="eyebrow">Which towns?</legend>
+          <p class="mt-1 text-[0.875rem] text-ink-muted">Pick as many as you like, or take the lot.</p>
+          <div class="mt-3 flex flex-wrap gap-x-5 gap-y-2.5">
+            {towns.map((t) => (
+              <label class="flex items-center gap-2 text-[0.9375rem]">
+                <input type="checkbox" name={tagField} value={t.slug} class="size-4 rounded border-line" />
+                {t.name}
+              </label>
+            ))}
+            {config.allTag && (
+              <label class="flex items-center gap-2 text-[0.9375rem] font-semibold">
+                <input type="checkbox" name={tagField} value={config.allTag} class="size-4 rounded border-line" />
+                All of them
+              </label>
+            )}
+          </div>
+        </fieldset>
+      )}
+
+      <div class="mt-5 sm:flex sm:items-end sm:gap-3">
+        <div class="sm:flex-1">
+          <label for={inputId} class="block text-sm font-semibold">Your email</label>
+          <input
+            id={inputId}
+            type="email"
+            name={emailField}
+            required
+            autocomplete="email"
+            placeholder="you@example.com"
+            class={field}
+          />
+        </div>
+        <button type="submit" class="btn btn-primary mt-3 w-full justify-center sm:mt-0 sm:w-auto">Sign up</button>
+      </div>
+
+      <p class="mt-3 text-[0.8125rem] leading-relaxed text-ink-faint">
+        No spam, unsubscribe any time. We never sell your address — see the
+        <a href={`https://${hub.domain}/privacy/`} class="text-accent-text">privacy page</a>.
+      </p>
+    </form>
+  </section>
+)}

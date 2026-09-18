@@ -58,3 +58,19 @@ export async function getNetworkEntries<C extends CollectionKey>(collection: C):
     return Object.assign(entry, { slug: data.slug ?? slugOf(entry.id, townSlug), town }) as NetworkEntry<C>;
   });
 }
+
+/**
+ * The hub's own entries. Towns use getTownEntries and the hub uses this; the
+ * split is what stops either from reaching the other's content by accident.
+ */
+export async function getHubEntries<C extends CollectionKey>(collection: C): Promise<TownEntry<C>[]> {
+  const site = getSite();
+  if (site.kind !== 'hub') {
+    throw new Error(`getHubEntries() was called while building ${site.domain}. Town pages must use getTownEntries().`);
+  }
+  const entries = await getCollection(collection, (entry) => entry.id.startsWith('hub/'));
+  return entries.map((entry) => {
+    const data = entry.data as { slug?: string };
+    return Object.assign(entry, { slug: data.slug ?? slugOf(entry.id, 'hub') }) as TownEntry<C>;
+  });
+}

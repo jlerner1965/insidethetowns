@@ -1,0 +1,93 @@
+---
+/**
+ * The weekly email: what it is, how to get it, and everything already sent.
+ *
+ * The archive is the part that earns the page its links. A signup form on its
+ * own asks for trust it has not shown; back issues are the evidence, and they
+ * are indexable pages of local events in their own right.
+ */
+import Page from '@/layouts/Page.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { getHub, liveTowns } from '@/config';
+import { getHubEntries } from '@/lib/content';
+import { formatDate, toIsoLocal } from '@/lib/dates';
+
+const hub = getHub();
+const towns = liveTowns();
+const config = hub.newsletter;
+// Nothing can have been sent before there is something to send it with, and
+// reading an empty collection warns on every build of every site — the kind of
+// warning people learn to scroll past.
+const issues = config
+  ? (await getHubEntries('issues')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  : [];
+const day = config?.sendDay ?? 'Thursday';
+---
+<Page
+  title="The weekly email"
+  seoTitle={`What’s on across Colorado’s Front Range, every ${day}`}
+  eyebrow="Inside the Towns"
+  description={`One email a week: what’s on in ${towns.map((t) => t.name).join(', ')}. Pick your towns or take all ${towns.length}.`}
+  intro={`The week’s events in whichever of the ${towns.length} towns you care about, in one email, on a ${day}. Nothing else.`}
+>
+  {config ? (
+    <NewsletterSignup />
+  ) : (
+    <div class="prose">
+      <p>
+        The weekly email is not open for signups yet. It goes out on a {day}: the weekend’s events in whichever towns
+        you pick, new places worth knowing about, and nothing else.
+      </p>
+      <p>
+        Want telling when it starts? <a href="/contact/">Drop us a line</a> and you will be on the first one.
+      </p>
+    </div>
+  )}
+
+  <div class="prose mt-14">
+    <h2>What is actually in it</h2>
+    <ul>
+      <li>The weekend, town by town — markets, music, festivals, whatever is on.</li>
+      <li>New listings: places that opened, places that closed, things that changed.</li>
+      <li>Occasionally one piece of writing, when there is one worth your time.</li>
+    </ul>
+    <p>
+      No sponsored placements inside the listings, because the
+      <a href="/editorial/">editorial policy</a> says nobody can buy their way into them and that applies to the email
+      too. If a sponsor ever appears it will be labelled and it will sit beside the listings, not in them.
+    </p>
+  </div>
+
+  {issues.length > 0 && (
+    <section class="mt-20 md:mt-24">
+      <h2 class="display-md mb-6 text-4xl">Past issues</h2>
+      <ul class="border-t border-line-soft">
+        {issues.map((issue) => (
+          <li class="group relative border-b border-line-soft py-5">
+            <p class="eyebrow">
+              <time datetime={toIsoLocal(issue.data.date)}>{formatDate(issue.data.date)}</time>
+              {issue.data.number && <span class="ml-2 text-ink-faint">No. {issue.data.number}</span>}
+            </p>
+            <h3 class="mt-1.5 text-[1.25rem] font-medium leading-tight">
+              <a href={`/newsletter/${issue.slug}/`} class="stretch no-underline group-hover:text-accent-text">
+                {issue.data.title}
+              </a>
+            </h3>
+            <p class="mt-1.5 max-w-[68ch] text-[0.9375rem] leading-relaxed text-ink-muted">{issue.data.excerpt}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <CtaBand
+    eyebrow="Not ready to subscribe"
+    title="Everything on, without the email"
+    body="The same listings, on the web, updated as the towns tell us things. No address required."
+    links={[
+      { label: 'This weekend', href: '/this-weekend/', primary: true },
+      { label: 'Subscribe by RSS', href: '/events.rss' },
+    ]}
+  />
+</Page>

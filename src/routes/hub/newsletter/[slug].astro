@@ -1,0 +1,66 @@
+---
+/**
+ * One sent issue, as its own page.
+ *
+ * An archive that is only a list of subject lines is worth nothing to anyone;
+ * these are indexable pages about a specific weekend in specific towns, and
+ * they are what a reader checks before deciding whether to hand over an
+ * address.
+ */
+import { render } from 'astro:content';
+import Page from '@/layouts/Page.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
+import { findTown, getHub } from '@/config';
+import { getHubEntries, type TownEntry } from '@/lib/content';
+import { formatDate, toIsoLocal } from '@/lib/dates';
+import { articleJsonLd, breadcrumbJsonLd } from '@/lib/seo';
+
+export async function getStaticPaths() {
+  // No provider, no sent issues, and no reason to read an empty collection.
+  if (!getHub().newsletter) return [];
+  const issues = await getHubEntries('issues');
+  return issues.map((issue) => ({ params: { slug: issue.slug }, props: { issue } }));
+}
+
+interface Props {
+  issue: TownEntry<'issues'>;
+}
+
+const hub = getHub();
+const { issue } = Astro.props;
+const { data } = issue;
+const { Content } = await render(issue);
+const url = new URL(Astro.url.pathname, Astro.site).toString();
+const towns = data.towns.map((slug) => findTown(slug)).filter(Boolean);
+---
+<Page
+  title={data.title}
+  eyebrow={`The weekly email · ${formatDate(data.date)}`}
+  intro={data.excerpt}
+  description={data.excerpt}
+  type="article"
+  jsonLd={[
+    articleJsonLd(hub, issue as never, url),
+    breadcrumbJsonLd(hub, [
+      { name: 'The weekly email', path: '/newsletter/' },
+      { name: data.title, path: `/newsletter/${issue.slug}/` },
+    ]),
+  ]}
+>
+  <p slot="after-header" class="mt-5 text-sm text-ink-muted">
+    <time datetime={toIsoLocal(data.date)}>{formatDate(data.date)}</time>
+    {data.number && <span> · Issue {data.number}</span>}
+    {towns.length > 0 && <span> · {towns.map((t) => t!.name).join(', ')}</span>}
+  </p>
+
+  <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
+    <div class="prose"><Content /></div>
+    <aside class="lg:sticky lg:top-24 lg:self-start">
+      <NewsletterSignup compact />
+      <p class="mt-5 text-[0.875rem] leading-relaxed text-ink-faint">
+        This one has already gone out. Everything in it was checked against its
+        source at the time; the dates have since passed.
+      </p>
+    </aside>
+  </div>
+</Page>

@@ -750,3 +750,47 @@ the wire. That is the trade: a page that survives a three-week outage.
   engine that decides it about one tends to decide it about the set. A pair
   gets a page when somebody has written it; `src/content/comparisons.ts` is the
   list and Erie vs Johnstown is the first.
+
+### The newsletter ships dark
+
+`NewsletterSignup.astro` renders nothing at all until `newsletter` is set on
+the hub config. Not a disabled form, not a "coming soon" input — nothing. A
+form that takes an address and drops it is worse than no form, and the
+provider account is the one part of this that cannot be written in the repo.
+
+What that buys is that the choice of provider is a five-line config change and
+nothing else. The component writes `action`, the email field name and the tag
+field name from config, so Buttondown and Kit are the same code. The one thing
+they do not share is tags: Buttondown accepts repeated `tag` fields, so the
+hub's town checkboxes work as-is; Kit's `fields[town]` takes one value, so a
+Kit setup wants either one list per town or a single combined tag.
+
+`/newsletter/` itself is not gated, because it is the page that says what the
+email is and carries the archive. While the config is unset it says signups
+are not open and points at `/contact/`, which is true rather than coy.
+
+### The CSP and the form actions are checked against each other
+
+A form posting to a host the Content-Security-Policy does not list is blocked
+by the browser. Not at build time, not in the markup — on the reader's machine,
+silently, after they have typed their address. This is exactly the bug that was
+sitting in this branch: `form-action 'self' https://formspree.io` with a
+newsletter form pointed at a provider.
+
+`validate-content.ts` now reads `form-action` out of `vercel.json` and every
+form action out of the configs, and fails the build if one is not in the other.
+It caught this one. The message names the origin to add, so the failure tells
+you the fix.
+
+The form keeps `target="_blank"` and does not carry `rel="noopener"` — Astro's
+`FormHTMLAttributes` has no `rel`, and the only host the form can post to is
+one the allowlist already names.
+
+### The empty-collection warning was a wrong diagnosis
+
+`issues` logs "No files found matching" until the first issue exists, which is
+accurate and self-resolving. It was worth checking rather than explaining away:
+the first fixture written to test it went into `src/content/hub/issues/` and
+also produced no match, because `base: './content'` resolves from the project
+root, not from `src/content.config.ts`. Put in `content/hub/issues/` the
+collection loads, the archive renders and `/newsletter/<slug>/` builds.

@@ -24,6 +24,7 @@ export const hub: HubConfig = {
   nav: [
     { label: 'This Weekend', href: '/this-weekend/' },
     { label: 'Moving Here', href: '/moving/' },
+    { label: 'Newsletter', href: '/newsletter/' },
     { label: 'Towns', href: '/#towns' },
     { label: 'About', href: '/about/' },
     { label: 'Advertise', href: '/advertise/' },

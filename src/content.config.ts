@@ -6,7 +6,7 @@
  */
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { articleSchema, eventSchema, pageSchema, placeSchema } from './content/schemas';
+import { articleSchema, eventSchema, issueSchema, pageSchema, placeSchema } from './content/schemas';
 
 const base = './content';
 
@@ -36,4 +36,18 @@ const pages = defineCollection({
   schema: ({ image }) => pageSchema(image),
 });
 
-export const collections = { events, places, articles, pages };
+/**
+ * Sent issues of the weekly email. Hub-owned: content/hub/issues/.
+ *
+ * Until the first one is sent this logs "No files found matching" on every
+ * build, which is accurate and self-resolving. The alternatives were worse:
+ * registering the collection conditionally breaks the generated types that
+ * `astro check` relies on, and writing a placeholder issue would put an email
+ * in the archive that was never sent to anyone.
+ */
+const issues = defineCollection({
+  loader: glob({ pattern: '*/issues/[^_]*.md', base, generateId }),
+  schema: ({ image }) => issueSchema(image),
+});
+
+export const collections = { events, places, articles, pages, issues };

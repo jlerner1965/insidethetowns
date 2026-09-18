@@ -114,6 +114,34 @@ export interface HubConfig {
   towns: TownConfig[];
   formspreeId?: string;
   ga4Id?: string;
+  /**
+   * The weekly email. Absent until a provider is set up, and every signup
+   * block on every site stays dark until it appears — the same shape as
+   * formspreeId, so nothing has to be half-built waiting for an account.
+   */
+  newsletter?: NewsletterConfig;
+}
+
+/**
+ * Provider-agnostic on purpose. Buttondown and Kit both take a plain POST with
+ * an email field and repeated tag fields; only the names differ, so they live
+ * here rather than in the markup.
+ */
+export interface NewsletterConfig {
+  /** Where the form posts. The provider's embed endpoint. */
+  action: string;
+  /** Field name for the address. Buttondown "email", Kit "email_address". */
+  emailField?: string;
+  /**
+   * Field name for a town tag, repeated once per chosen town. Buttondown uses
+   * "tag"; Kit uses "fields[town]" and takes one value, so a Kit setup wants
+   * one list per town or a single combined tag.
+   */
+  tagField?: string;
+  /** What a subscriber is tagged with when they want everything. */
+  allTag?: string;
+  /** The day it goes out, for the copy. */
+  sendDay?: string;
 }
 
 export type SiteConfig = TownConfig | HubConfig;

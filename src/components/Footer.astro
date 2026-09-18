@@ -1,9 +1,10 @@
 ---
-import { getSite } from '@/config';
+import { getNetworkHub, getSite } from '@/config';
 import NetworkBar from './NetworkBar.astro';
 import Wordmark from './Wordmark.astro';
 
 const site = getSite();
+const hub = getNetworkHub();
 const year = new Date().getFullYear();
 const linkClass = 'no-underline text-white/75 hover:text-white hover:underline';
 ---
@@ -19,6 +20,9 @@ const linkClass = 'no-underline text-white/75 hover:text-white hover:underline';
         <li><a href="/contact/" class={linkClass}>Contact</a></li>
         {site.kind === 'town' && (
           <li><a href="/submit-event/" class={linkClass}>Submit an event</a></li>
+        )}
+        {hub.newsletter && (
+          <li><a href={`https://${hub.domain}/newsletter/`} class={linkClass}>Weekly email</a></li>
         )}
         <li><a href="/about/" class={linkClass}>About</a></li>
         <li><a href="/editorial/" class={linkClass}>Editorial policy</a></li>

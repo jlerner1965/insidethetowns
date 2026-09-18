@@ -112,3 +112,31 @@ Note that GitHub disables scheduled workflows in a repository with no activity
 for sixty days. The pages are built not to depend on the schedule (see
 DECISIONS.md, "Staying current without a server"), but if the Actions tab shows
 no recent runs, that is why.
+
+## Turning the newsletter on
+
+Nothing about the weekly email renders until `newsletter` is set on
+`src/config/towns/hub.ts`. Two steps, in this order:
+
+1. **Add the provider's origin to the CSP.** In `vercel.json`, append it to
+   `form-action` in the `Content-Security-Policy` header, e.g.
+   `form-action 'self' https://formspree.io https://buttondown.com`.
+2. **Set the config.** Buttondown:
+
+   ```ts
+   newsletter: {
+     action: 'https://buttondown.com/api/emails/embed-subscribe/<username>',
+     emailField: 'email',
+     tagField: 'tag',
+     allTag: 'all-towns',
+     sendDay: 'Thursday',
+   },
+   ```
+
+   Kit's `fields[town]` takes one value rather than repeating, so a Kit setup
+   wants one form per town or a single combined tag — set `tagField` to
+   `'fields[town]'` and leave `allTag` unset.
+
+Do them the other way round and `npm run validate` fails with the origin to
+add, which is the point. Past issues go in `content/hub/issues/` as markdown
+and appear at `/newsletter/<slug>/` and in the archive.

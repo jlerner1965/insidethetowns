@@ -188,6 +188,23 @@ export function articleSchema<I extends z.ZodType>(image: () => I) {
     });
 }
 
+/** A sent issue of the weekly email, archived as its own page. */
+export function issueSchema<I extends z.ZodType>(image: () => I) {
+  return z.object({
+    title: z.string().min(1),
+    slug,
+    /** The day it went out. */
+    date: localDate,
+    /** Issue number, for the archive listing. */
+    number: z.number().int().positive().optional(),
+    excerpt: z.string().min(1).max(320),
+    image: image().optional(),
+    imageAlt: z.string().optional(),
+    /** Town slugs this issue went to. Empty means the whole network. */
+    towns: z.array(z.string()).default([]),
+  });
+}
+
 /** Free-form pages such as moving-here.md. */
 export function pageSchema<I extends z.ZodType>(image: () => I) {
   return z.object({
@@ -199,7 +216,7 @@ export function pageSchema<I extends z.ZodType>(image: () => I) {
   });
 }
 
-export const COLLECTIONS = ['events', 'places', 'articles', 'pages'] as const;
+export const COLLECTIONS = ['events', 'places', 'articles', 'pages', 'issues'] as const;
 export type CollectionName = (typeof COLLECTIONS)[number];
 
 export const schemaFor: Record<CollectionName, (image: ImageSchema) => z.ZodType> = {
@@ -207,4 +224,5 @@ export const schemaFor: Record<CollectionName, (image: ImageSchema) => z.ZodType
   places: placeSchema,
   articles: articleSchema,
   pages: pageSchema,
+  issues: issueSchema,
 };

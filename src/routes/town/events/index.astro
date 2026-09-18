@@ -2,6 +2,7 @@
 import Page from '@/layouts/Page.astro';
 import EventList from '@/components/EventList.astro';
 import FilterBar from '@/components/FilterBar.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { categoriesIn, occurrences, uniqueByEvent, upcoming } from '@/lib/events';
@@ -25,6 +26,10 @@ const options = categoriesIn(shown, EVENT_CATEGORIES).map((c) => ({ value: c, la
     Know of something missing? <a href="/submit-event/" class="font-semibold text-accent-text">Submit an event</a>.
     Or <a href="/events/calendar.ics" class="font-semibold text-accent-text">subscribe to the calendar</a> in your calendar app.
   </p>
+  <div class="mb-12">
+    <NewsletterSignup town={town} />
+  </div>
+
   <div data-filter-root>
     <FilterBar options={options} label="Filter events by category" />
     <h2 class="sr-only">Next 14 days</h2>
