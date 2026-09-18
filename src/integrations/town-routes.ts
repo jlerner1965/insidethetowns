@@ -11,6 +11,7 @@ import type { SiteConfig } from '../config/towns/types';
 const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
   ['/', 'index.astro'],
   ['/events', 'events/index.astro'],
+  ['/events/calendar.ics', 'events/calendar.ics.ts'],
   ['/events/[slug]', 'events/[slug].astro'],
   ['/places/[slug]', 'places/[slug].astro'],
   ['/articles/[slug]', 'articles/[slug].astro'],
