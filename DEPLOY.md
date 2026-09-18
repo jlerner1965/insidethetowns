@@ -11,6 +11,7 @@ insideberthoud.com   TOWN=berthoud
 insideerie.com       TOWN=erie
 insidejohnstown.com  TOWN=johnstown
 insidetimnath.com    TOWN=timnath
+insideelizabeth.com  TOWN=elizabeth  (when it goes into LIVE_TOWNS)
 …
 ```
 

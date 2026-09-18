@@ -14,7 +14,8 @@ Parent hub: insidethetowns.com. Town sites (wave order):
 4. insideerie.com
 5. insidejohnstown.com
 6. insidetimnath.com
-7. carbonvalleyguide.com (later — Frederick/Firestone/Dacono)
+7. insideelizabeth.com
+8. carbonvalleyguide.com (later — Frederick/Firestone/Dacono)
 
 ## Non-negotiables
 
@@ -51,6 +52,7 @@ inside-the-towns/
         erie.ts
         johnstown.ts
         timnath.ts
+        elizabeth.ts
         hub.ts            # insidethetowns.com
       index.ts            # exports getTown() from TOWN env var
     layouts/
@@ -264,6 +266,14 @@ Same as Phase 5, one town at a time. Do not start Erie until Berthoud is live an
 ### Phase 7 — Johnstown, then Timnath
 
 Same process.
+
+### Phase 7b — Elizabeth
+
+Same process, after Timnath. Elizabeth (Elbert County, insideelizabeth.com) is the
+network's first town south of Denver. Scaffold it with `npm run new-town elizabeth
+"Elizabeth"`, keep it out of `LIVE_TOWNS` until its content is populated and the
+domain is live, then deploy it like the others (Vercel project with
+`TOWN=elizabeth`, see DEPLOY.md).
 
 ### Phase 8 — Operations tooling
 
