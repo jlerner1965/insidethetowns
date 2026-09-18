@@ -4,6 +4,8 @@ type: park
 address: "450 Powers St"
 area: "Powers Street, by the Community Center"
 url: "https://erieco.gov/2314/Erie-Community-Park"
+image: ../images/erie-community-park.jpg
+imageAlt: "The picnic shelter at Erie Community Park, with ballfield lights behind it and open grass under a wide sky"
 hours: "Open daily 6 am–10 pm"
 tags: [playground, pump track, skate park, fields]
 featured: true

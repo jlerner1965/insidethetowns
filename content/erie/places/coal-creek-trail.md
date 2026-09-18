@@ -4,6 +4,8 @@ type: trail
 address: "900 Weld County Rd 1.5 (north trailhead)"
 area: "Coal Creek corridor, north to south"
 url: "https://www.erieco.gov/2368/Coal-Creek-Open-Space"
+image: ../images/coal-creek-trail.jpg
+imageAlt: "The footbridge where the paved Coal Creek Trail crosses the creek, bare cottonwoods on the far bank"
 hours: "Open daily, sunrise to sunset"
 tags: [regional trail, walking, cycling, open space]
 featured: true

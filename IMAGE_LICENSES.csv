@@ -6,17 +6,17 @@ content/niwot/images/whistle-stop-caboose.jpg,https://github.com/jlerner1965/tow
 content/niwot/images/niwot-gateway-sculpture.jpg,https://github.com/jlerner1965/townofniwot.com (src/assets/photos/niwot-gateway-sculpture.jpg),client-supplied; licensed for townofniwot.com — confirm the licence extends to insideniwot.com,n,niwot
 content/niwot/images/niwot-tribune-storefront.jpg,https://github.com/jlerner1965/townofniwot.com (src/assets/photos/niwot-tribune-storefront.jpg),client-supplied; licensed for townofniwot.com — confirm the licence extends to insideniwot.com,n,niwot
 content/niwot/images/front-range-sunset-trail.jpg,https://github.com/jlerner1965/townofniwot.com (src/assets/photos/front-range-sunset-trail.jpg),client-supplied; licensed for townofniwot.com — confirm the licence extends to insideniwot.com,n,niwot
-content/lyons/images/hero.jpg,https://commons.wikimedia.org/wiki/File:CO_SH_7_St_Vrain.jpg,CC BY-SA 3.0 (Footwarrior, 2012); resized to 2000px,y,lyons
-content/lyons/images/downtown.jpg,https://commons.wikimedia.org/wiki/File:Downtown_Lyons,_CO_IMG_5242.JPG,CC BY-SA 3.0 (Billy Hathorn, 2010),y,lyons
-content/lyons/images/redstone-museum.jpg,https://commons.wikimedia.org/wiki/File:Lyons,_CO,_Redstone_Museum_IMG_5247.JPG,CC BY-SA 3.0 (Billy Hathorn, 2010),y,lyons
-content/lyons/images/church.jpg,https://commons.wikimedia.org/wiki/File:Lyons,_CO,_Community_Church_IMG_5241.JPG,CC BY-SA 3.0 (Billy Hathorn, 2010),y,lyons
-content/lyons/images/outlaw-saloon.jpg,https://commons.wikimedia.org/wiki/File:The_Outlaw_Saloon,_Lyons,_CO_IMG_5238.JPG,CC BY-SA 3.0 (Billy Hathorn, 2010),y,lyons
-content/lyons/images/depot.jpg,https://commons.wikimedia.org/wiki/File:Lyons_Depot_Library.jpg,Public domain (Nyttend, 2009),n,lyons
-content/lyons/images/intersection.jpg,https://commons.wikimedia.org/wiki/File:Lyons_Intersection.jpg,Public domain (Nyttend, 2006),n,lyons
+content/lyons/images/hero.jpg,https://commons.wikimedia.org/wiki/File:CO_SH_7_St_Vrain.jpg,"CC BY-SA 3.0 (Footwarrior, 2012); resized to 2000px",y,lyons
+content/lyons/images/downtown.jpg,"https://commons.wikimedia.org/wiki/File:Downtown_Lyons,_CO_IMG_5242.JPG","CC BY-SA 3.0 (Billy Hathorn, 2010)",y,lyons
+content/lyons/images/redstone-museum.jpg,"https://commons.wikimedia.org/wiki/File:Lyons,_CO,_Redstone_Museum_IMG_5247.JPG","CC BY-SA 3.0 (Billy Hathorn, 2010)",y,lyons
+content/lyons/images/church.jpg,"https://commons.wikimedia.org/wiki/File:Lyons,_CO,_Community_Church_IMG_5241.JPG","CC BY-SA 3.0 (Billy Hathorn, 2010)",y,lyons
+content/lyons/images/outlaw-saloon.jpg,"https://commons.wikimedia.org/wiki/File:The_Outlaw_Saloon,_Lyons,_CO_IMG_5238.JPG","CC BY-SA 3.0 (Billy Hathorn, 2010)",y,lyons
+content/lyons/images/depot.jpg,https://commons.wikimedia.org/wiki/File:Lyons_Depot_Library.jpg,"Public domain (Nyttend, 2009)",n,lyons
+content/lyons/images/intersection.jpg,https://commons.wikimedia.org/wiki/File:Lyons_Intersection.jpg,"Public domain (Nyttend, 2006)",n,lyons
 content/lyons/images/old-stone-church.jpg,https://commons.wikimedia.org/wiki/File:First_Congregational_Church_of_Lyons.jpg,Public domain (Nyttend),n,lyons
-content/lyons/images/highway-7-canyon.jpg,https://commons.wikimedia.org/wiki/File:CO_SH_7_St_Vrain.jpg,CC BY-SA 3.0 (Footwarrior, 2012),y,lyons
-content/lyons/images/lyons-elementary.jpg,https://commons.wikimedia.org/wiki/File:Lyons,_CO,_Elementary_School_IMG_5244.JPG,CC BY-SA 3.0 (Billy Hathorn, 2010),y,lyons
-content/lyons/images/rogers-hall.jpg,https://commons.wikimedia.org/wiki/File:Rogers_Hall,_Lyons.jpg,Public domain (Nyttend),n,lyons
+content/lyons/images/highway-7-canyon.jpg,https://commons.wikimedia.org/wiki/File:CO_SH_7_St_Vrain.jpg,"CC BY-SA 3.0 (Footwarrior, 2012)",y,lyons
+content/lyons/images/lyons-elementary.jpg,"https://commons.wikimedia.org/wiki/File:Lyons,_CO,_Elementary_School_IMG_5244.JPG","CC BY-SA 3.0 (Billy Hathorn, 2010)",y,lyons
+content/lyons/images/rogers-hall.jpg,"https://commons.wikimedia.org/wiki/File:Rogers_Hall,_Lyons.jpg",Public domain (Nyttend),n,lyons
 content/lyons/images/apple-valley-bridge.jpg,https://www.flickr.com/photos/37387065@N05/7769190806,CC BY-SA 2.0 (Dave Dugdale),y,lyons
 content/lyons/images/redrock-sky.jpg,https://www.flickr.com/photos/35557234@N07/6314970941,CC BY 2.0 (Zach Dischner),y,lyons
 content/lyons/images/flood-2013-guard.jpg,https://www.flickr.com/photos/28650594@N03/9777948044,CC BY 2.0 (DVIDSHUB),y,lyons
@@ -67,8 +67,14 @@ content/timnath/images/poudre-river-trail.jpg,https://www.flickr.com/photos/gree
 content/timnath/images/arapaho-bend.jpg,https://www.flickr.com/photos/sethant/4889644880,"CC BY-SA 2.0 (sethant, Flickr); resized to 500px",y,timnath
 content/erie/images/anderson-farms.jpg,https://www.flickr.com/photos/43726999@N06/5047259609,"CC BY 2.0 (designsbykari, Flickr); resized to 1024px",y,erie
 content/elizabeth/images/stampede-arena.jpg,https://commons.wikimedia.org/wiki/File%3ACasey_Jones_Park_Announcer.jpg,CC BY 3.0 (Elizabethstampede); resized to 1024px,y,elizabeth
-content/hub/images/front-range-aerial.jpg,photographed by the site owner,"owned by the publisher; all rights reserved. EXIF stripped on import",n,hub
-content/niwot/images/front-range-from-the-fields.jpg,photographed by the site owner,"owned by the publisher; all rights reserved. EXIF stripped on import",n,niwot
-content/lyons/images/button-rock-dam.jpg,photographed by the site owner,"owned by the publisher; all rights reserved. EXIF stripped on import",n,lyons
-content/lyons/images/button-rock-dam-trail.jpg,photographed by the site owner,"owned by the publisher; all rights reserved. EXIF stripped on import",n,lyons
-content/lyons/images/hall-ranch-butte.jpg,photographed by the site owner,"owned by the publisher; all rights reserved. EXIF stripped on import",n,lyons
+content/hub/images/front-range-aerial.jpg,photographed by the site owner,owned by the publisher; all rights reserved. EXIF stripped on import,n,hub
+content/niwot/images/front-range-from-the-fields.jpg,photographed by the site owner,owned by the publisher; all rights reserved. EXIF stripped on import,n,niwot
+content/lyons/images/button-rock-dam.jpg,photographed by the site owner,owned by the publisher; all rights reserved. EXIF stripped on import,n,lyons
+content/lyons/images/button-rock-dam-trail.jpg,photographed by the site owner,owned by the publisher; all rights reserved. EXIF stripped on import,n,lyons
+content/lyons/images/hall-ranch-butte.jpg,photographed by the site owner,owned by the publisher; all rights reserved. EXIF stripped on import,n,lyons
+content/erie/images/erie-community-park.jpg,https://erieco.gov/2314/Erie-Community-Park,"Town of Erie staff photograph; permission 2026-09-18 — see PERMISSIONS.md, section: Town of Erie — parks and open space",n,erie
+content/erie/images/coal-creek-park.jpg,https://www.erieco.gov/2274/Coal-Creek-Park,"Town of Erie staff photograph; permission 2026-09-18 — see PERMISSIONS.md, section: Town of Erie — parks and open space",n,erie
+content/erie/images/coal-creek-trail.jpg,https://www.erieco.gov/2368/Coal-Creek-Open-Space,"Town of Erie staff photograph; permission 2026-09-18 — see PERMISSIONS.md, section: Town of Erie — parks and open space",n,erie
+content/erie/images/erie-lake.jpg,https://www.erieco.gov/2294/Erie-Lake,"Town of Erie staff photograph; permission 2026-09-18 — see PERMISSIONS.md, section: Town of Erie — parks and open space",n,erie
+content/erie/images/reliance-park-boneyard.jpg,https://erieco.gov/2317/Reliance-Park,"Town of Erie staff photograph; permission 2026-09-18 — see PERMISSIONS.md, section: Town of Erie — parks and open space",n,erie
+content/erie/images/thomas-reservoir.jpg,https://erieco.gov/2295/32276/Thomas-Reservoir,"Town of Erie staff photograph; permission 2026-09-18 — see PERMISSIONS.md, section: Town of Erie — parks and open space",n,erie

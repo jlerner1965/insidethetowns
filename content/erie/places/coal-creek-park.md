@@ -4,6 +4,8 @@ type: park
 address: "575 Kattell St"
 area: "Downtown, Kattell Street"
 url: "https://www.erieco.gov/2274/Coal-Creek-Park"
+image: ../images/coal-creek-park.jpg
+imageAlt: "The rope-and-timber climbing structure on the playground at Coal Creek Park"
 hours: "Open daily, sunrise to sunset"
 tags: [playground, splash pad, ice rink, events]
 featured: true
