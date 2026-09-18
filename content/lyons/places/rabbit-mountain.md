@@ -4,6 +4,8 @@ type: trail
 address: "N. 53rd Street, 2.8 miles north of CO 66"
 area: "Boulder County open space"
 url: "https://bouldercounty.gov/open-space/parks-and-trails/ron-stewart-preserve-rabbit-mountain/"
+image: ../images/rabbit-mountain.jpg
+imageAlt: "Two walkers on the trail at Rabbit Mountain, dry grass either side and snow on the peaks along the horizon"
 hours: "Open daily, sunrise to sunset"
 tags: [hiking, dogs, views, early-season]
 summary: "The low, dry, early-season option north-east of town, with the big view back to Longs Peak. Leashed dogs welcome."

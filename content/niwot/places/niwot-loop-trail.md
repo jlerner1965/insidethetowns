@@ -4,6 +4,8 @@ type: trail
 address: "Access from Whistle Stop Park and the LoBo Trail"
 area: "Trail network"
 url: "https://bouldercounty.gov/open-space/parks-and-trails/"
+image: ../images/niwot-loop-trail.jpg
+imageAlt: "The gravel path leading away from the Niwot trailhead, flat and open between the fields"
 hours: "Open daily, sunrise to sunset"
 tags: [walking, running, dogs, easy]
 summary: "The flat county loop around town that the Niwot Trot runs every October, joined to the LoBo Trail and Left Hand Creek."

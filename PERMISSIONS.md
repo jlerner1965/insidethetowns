@@ -43,3 +43,31 @@ Five Erie parks still have no photograph because none is published on
 erieco.gov: Arapahoe Ridge, Lehigh, Longs Peak, Serene and Star Meadows, plus
 the Erie Singletrack at Sunset Open Space, whose page carries only trail maps.
 Her offer to dig out unpublished photographs covers these.
+
+---
+
+## Boulder County Parks & Open Space — trail photographs
+
+**Granted** 18 September 2026 by Boulder County Parks & Open Space, covering
+the photographs published on the county's own galleries for these three
+properties.
+
+> **The exact wording of this grant has not been recorded yet.** Paste the
+> reply verbatim here, with the sender's name, their role and the date, and
+> delete this note. Until that is done this section is an assertion rather
+> than a record, which is the thing the rest of this file exists to avoid.
+
+| | |
+|---|---|
+| **Scope** | Photographs on the three galleries below |
+| **Sources** | `bouldercountyopenspace.org/photos/rsp/` (Rabbit Mountain), `/photos/heil/` (Heil Valley Ranch), `/photos/niwot/` (Niwot Trails) |
+| **Credit** | Unknown until the wording is recorded. We credit "Boulder County Parks & Open Space" meanwhile |
+| **Contact** | posinfo@bouldercounty.gov, 303-678-6200 |
+
+These photographs carried EXIF, which Erie's did not. It is dropped on import,
+as it is for every image on the network — camera metadata can carry GPS and a
+photographer's name, and neither belongs in a file we republish.
+
+Boulder County's galleries are largely accessibility documentation — restrooms,
+ADA parking, trailhead surfaces — which is useful to the county and not to a
+guide. The three chosen are the scenic frames among them.

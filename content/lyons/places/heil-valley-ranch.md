@@ -4,6 +4,8 @@ type: trail
 address: "Picture Rock trailhead, Red Gulch Road off US 36 south of town"
 area: "Boulder County open space"
 url: "https://bouldercounty.gov/open-space/parks-and-trails/heil-valley-ranch/"
+image: ../images/heil-valley-ranch.jpg
+imageAlt: "A ponderosa leaning over the Picture Rock Trail at Heil Valley Ranch, a forested peak rising beyond the valley"
 hours: "Open daily, sunrise to sunset"
 tags: [mountain-biking, hiking, no-dogs]
 summary: "Nineteen miles of trail south of town; the Picture Rock trail runs from the Lyons side up to the ranch and links to Wild Turkey and Wapiti for a long loop."
