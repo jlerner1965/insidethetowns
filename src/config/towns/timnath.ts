@@ -15,8 +15,8 @@ export const timnath: TownConfig = {
   colors: {
     // Harvest gold on a wheat-white paper: potatoes, alfalfa and sugar beets were the
     // town's business for a century. Distinct from the five other accents.
-    accent: '#7D5E17',
-    accentDark: '#55400F',
+    accent: '#A67A14',
+    accentDark: '#6C4F0C',
     neutralBg: '#F7F4EC',
   },
   hero: {

@@ -1,6 +1,11 @@
 ---
 /**
- * A standard interior page: eyebrow, title, optional intro, then content.
+ * A standard interior page: a coloured masthead band carrying eyebrow, title
+ * and intro, then the content on paper.
+ *
+ * The band is what keeps the site from opening on plain tan on all four
+ * hundred interior pages. It is the town's accent at 9%, under a rule in the
+ * accent itself.
  */
 import Base from './Base.astro';
 
@@ -23,16 +28,18 @@ interface Props {
 const { title, seoTitle, eyebrow, intro, narrow = false, ...seo } = Astro.props;
 ---
 <Base title={seoTitle ?? title} {...seo}>
-  <div class="container-page pb-8 pt-10 md:pt-16">
-    <header class="border-b border-line-soft pb-8 md:pb-10">
+  <header class="border-b-2 border-accent bg-accent-tint">
+    <div class="container-page py-10 md:py-14">
       <div class="max-w-3xl">
         {eyebrow && <p class="eyebrow mb-3">{eyebrow}</p>}
         <h1 class="display-md text-[2.75rem] md:text-6xl">{title}</h1>
         {intro && <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted md:text-xl">{intro}</p>}
         <slot name="after-header" />
       </div>
-    </header>
-    <div class:list={['pt-10', narrow && 'max-w-2xl']}>
+    </div>
+  </header>
+  <div class="container-page pb-8 pt-10 md:pt-14">
+    <div class:list={[narrow && 'max-w-2xl']}>
       <slot />
     </div>
   </div>

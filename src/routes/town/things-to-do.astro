@@ -20,13 +20,13 @@ const outdoors = (await getTownEntries('articles')).filter(
   <PlaceDirectory places={places} heading="Trails, parks and venues" filterable emptyMessage="No trails, parks or venues listed yet." />
   {lodging.length > 0 && (
     <section class="mt-20">
-      <h2 class="eyebrow mb-8 border-b border-line-soft pb-4">Stay the night</h2>
+      <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">Stay the night</h2>
       <PlaceDirectory places={lodging} lead={2} />
     </section>
   )}
   {outdoors.length > 0 && (
     <section class="mt-20">
-      <h2 class="eyebrow mb-8 border-b border-line-soft pb-4">Outdoors, in depth</h2>
+      <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">Outdoors, in depth</h2>
       <div class="grid gap-x-8 gap-y-10 md:grid-cols-2">
         {outdoors.map((article) => <ArticleCard article={article} />)}
       </div>

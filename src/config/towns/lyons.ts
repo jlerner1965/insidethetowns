@@ -15,8 +15,8 @@ export const lyons: TownConfig = {
   colors: {
     // Lyons Formation sandstone, on a sandstone-dust paper. The old explorelyons.com
     // palette used the same rock; this is its red-rock accent, lifted a step for links.
-    accent: '#9A4130',
-    accentDark: '#6B2F23',
+    accent: '#CE4A2C',
+    accentDark: '#8A2D19',
     neutralBg: '#F5EDE0',
   },
   hero: {

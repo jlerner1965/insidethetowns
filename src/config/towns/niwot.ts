@@ -14,8 +14,8 @@ export const niwot: TownConfig = {
   population: 4306, // 2020 census, Niwot CDP
   colors: {
     // Evergreen for the cottonwood-and-foothills valley; the old townofniwot.com wordmark was an evergreen ground too.
-    accent: '#2E6B4E',
-    accentDark: '#1C4634',
+    accent: '#108452',
+    accentDark: '#0C5B39',
     neutralBg: '#F5F2EA',
   },
   hero: {

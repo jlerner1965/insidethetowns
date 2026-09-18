@@ -1,25 +1,32 @@
 ---
 /**
  * "Inside Niwot" set as a two-weight wordmark: a light italic "Inside" and a
- * medium town name. Any site title without that shape renders plainly.
+ * medium town name in the town's own colour. Any site title without that shape
+ * renders plainly.
+ *
+ * `tone` is "ink" on light grounds and "light" inside the footer, where the
+ * accent would be unreadable on the accent-dark fill.
  */
 import { getSite } from '@/config';
 
 interface Props {
   class?: string;
+  tone?: 'ink' | 'light';
 }
 
 const site = getSite();
-const { class: className = '' } = Astro.props;
+const { class: className = '', tone = 'ink' } = Astro.props;
+const first = tone === 'light' ? 'text-white/70' : 'text-ink';
+const second = tone === 'light' ? 'text-white' : 'text-accent-dark';
 const match = /^(Inside)\s+(.+)$/.exec(site.siteTitle);
 ---
 <a href="/" class:list={['font-heading tracking-tight no-underline', className]} aria-label={`${site.siteTitle} home`}>
   {match ? (
     <Fragment>
-      <span class="font-light italic">{match[1]}</span>{' '}
-      <span class="font-semibold">{match[2]}</span>
+      <span class:list={['font-light italic', first]}>{match[1]}</span>{' '}
+      <span class:list={['font-semibold', second]}>{match[2]}</span>
     </Fragment>
   ) : (
-    <span class="font-semibold">{site.siteTitle}</span>
+    <span class:list={['font-semibold', second]}>{site.siteTitle}</span>
   )}
 </a>

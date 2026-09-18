@@ -7,6 +7,7 @@ Front Range towns, one deployment per domain, selected by the `TOWN` env var.
 TOWN=niwot npm run dev        # or: npm run dev -- --town=niwot
 TOWN=hub   npm run build      # insidethetowns.com
 npm run validate              # check every town's content
+npm run check-colors          # prove the palette passes WCAG AA on every site
 npm run new-town lyons "Lyons"
 npm run weekly                # the weekly content report (see below)
 npm run import-events -- events.csv --dry-run   # CSV → event files

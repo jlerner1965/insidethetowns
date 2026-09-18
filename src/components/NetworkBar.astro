@@ -10,14 +10,14 @@ const site = getSite();
 const hub = getNetworkHub();
 const siblings = liveTowns().filter((t) => t.slug !== site.slug);
 ---
-<div class="border-t border-white/10 bg-black/25 text-[0.8125rem] text-white/60">
+<div class="border-t border-white/15 bg-black/30 text-[0.8125rem] text-white/70">
   <div class="container-page flex flex-wrap items-center gap-x-5 gap-y-1 py-3.5">
     <span>
       Part of
       {site.kind === 'hub' ? (
-        <strong class="font-semibold text-white/85">{hub.siteTitle}</strong>
+        <strong class="font-semibold text-highlight">{hub.siteTitle}</strong>
       ) : (
-        <a href={`https://${hub.domain}/`} class="font-semibold text-white/85 no-underline hover:underline">{hub.siteTitle}</a>
+        <a href={`https://${hub.domain}/`} class="font-semibold text-highlight no-underline hover:underline">{hub.siteTitle}</a>
       )}
     </span>
     {siblings.length > 0 && (

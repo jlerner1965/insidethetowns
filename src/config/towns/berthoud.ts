@@ -15,8 +15,8 @@ export const berthoud: TownConfig = {
   colors: {
     // Carter Lake water under a Front Range sky, on wheat-coloured paper for the
     // "Garden Spot of Colorado". Distinct from Niwot's evergreen and Lyons' sandstone.
-    accent: '#2A5D78',
-    accentDark: '#1B3F52',
+    accent: '#1587B4',
+    accentDark: '#0D5170',
     neutralBg: '#F6F3EC',
   },
   hero: {

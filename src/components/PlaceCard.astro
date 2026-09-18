@@ -12,6 +12,7 @@
 import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
 import { PLACE_TYPE_LABELS } from '@/content/schemas';
+import { PLACE_TYPE_COLORS } from '@/config/palette';
 
 interface Props {
   place: TownEntry<'places'>;
@@ -20,6 +21,7 @@ interface Props {
 const { place } = Astro.props;
 const { data, slug } = place;
 const href = `/places/${slug}/`;
+const hue = PLACE_TYPE_COLORS[data.type];
 ---
 <article class="group relative flex flex-col" data-filter-item data-category={data.type}>
   {data.image && (
@@ -34,7 +36,7 @@ const href = `/places/${slug}/`;
     </div>
   )}
   <div class:list={[data.image && 'mt-4']}>
-    <p class="eyebrow">
+    <p class="eyebrow" style={`color:${hue.ink}`}>
       {PLACE_TYPE_LABELS[data.type]}{data.priceRange && <span class="ml-2 text-ink-faint">{data.priceRange}</span>}{data.area && <span class="ml-2 font-medium normal-case tracking-normal text-ink-faint">{data.area}</span>}
     </p>
     <h3 class="mt-1.5 text-[1.375rem] font-medium leading-tight">

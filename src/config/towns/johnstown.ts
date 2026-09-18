@@ -14,8 +14,8 @@ export const johnstown: TownConfig = {
   population: 17303, // 2020 census; 2025 estimate 22,433
   colors: {
     // Sugar-beet burgundy on a sugar-white paper, for the Great Western factory town.
-    accent: '#7A2E4A',
-    accentDark: '#521E32',
+    accent: '#BE3762',
+    accentDark: '#7B1F3C',
     neutralBg: '#F5F1EE',
   },
   hero: {

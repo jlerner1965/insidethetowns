@@ -9,9 +9,23 @@
  * rhythm, different colour and photography.
  */
 @theme inline {
+  /* Two town colours doing different jobs: accent is the bright one and only
+     ever a fill, a rule or a mark; accent-dark is the one words are set in,
+     and is also the fill of the dark bands. scripts/check-colors.ts proves
+     both clear AA on every town's paper, and CI runs it. */
   --color-accent: var(--town-accent);
   --color-accent-dark: var(--town-accent-dark);
-  --color-accent-soft: color-mix(in oklab, var(--town-accent) 10%, white);
+  /* Mixed into the paper, not into white: a warm town's tint has to be a step
+     away from its own warm background, and 9% of ochre in white was not. */
+  --color-accent-tint: color-mix(in oklab, var(--town-accent) 14%, var(--town-neutral-bg));
+  --color-accent-soft: color-mix(in oklab, var(--town-accent) 16%, white);
+  --color-accent-line: color-mix(in oklab, var(--town-accent) 32%, white);
+
+  /* One warm amber across the whole network, so the seven sites read as a
+     family and not seven unrelated colour schemes. A fill, never text. */
+  --color-highlight: #f0a62e;
+  --color-highlight-soft: #fdf0d8;
+
   --color-paper: var(--town-neutral-bg);
   --color-ink: #17181a;
   --color-ink-muted: #5d5f64;
@@ -88,6 +102,19 @@
   padding-inline: 1.25rem;
   @media (width >= 40rem) { padding-inline: 2rem; }
   @media (width >= 64rem) { padding-inline: 2.5rem; }
+}
+
+/* A full-width horizontal band. Long pages are built from these so a page is
+   a sequence of coloured areas rather than one flat sheet of paper. */
+@utility band {
+  padding-block: 4rem;
+  @media (width >= 48rem) { padding-block: 6rem; }
+}
+@utility band-white { background-color: #fff; }
+@utility band-tint { background-color: var(--color-accent-tint); }
+@utility band-dark {
+  background-color: var(--color-accent-dark);
+  color: #fff;
 }
 
 /* Small caps-style label above headings: "This week in Niwot", "Market". */

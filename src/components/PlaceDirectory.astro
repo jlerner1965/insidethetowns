@@ -11,6 +11,7 @@
  */
 import type { TownEntry } from '@/lib/content';
 import { PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, PLACE_TYPES, type PlaceType } from '@/content/schemas';
+import { PLACE_TYPE_COLORS } from '@/config/palette';
 import FilterBar from './FilterBar.astro';
 import PlaceCard from './PlaceCard.astro';
 import PlaceFeature from './PlaceFeature.astro';
@@ -37,6 +38,7 @@ const grouped = types.length > 1;
 const groups = grouped
   ? types.map((type) => ({ type, label: PLACE_TYPE_PLURALS[type], items: places.filter((p) => p.data.type === type) }))
   : [{ type: types[0], label: '', items: places }];
+const hueOf = (type: PlaceType | undefined) => (type ? PLACE_TYPE_COLORS[type] : undefined);
 ---
 <div data-filter-root>
   {heading && <h2 class="sr-only">{heading}</h2>}
@@ -53,12 +55,17 @@ const groups = grouped
     groups.map((group) => (
       <section class="mt-10 first:mt-0" data-filter-group>
         {group.label && (
-          <h3 class="flex items-baseline justify-between gap-4 border-b border-ink pb-2.5 text-[1.5rem] font-medium">
+          <h3
+            class="flex items-baseline justify-between gap-4 border-b-2 pb-2.5 text-[1.5rem] font-medium"
+            style={`color:${hueOf(group.type)?.ink};border-color:${hueOf(group.type)?.dot}`}
+          >
             {group.label}
-            <span class="text-[0.875rem] font-semibold tabular-nums text-ink-faint">{group.items.length}</span>
+            <span class="rounded-full px-2.5 py-0.5 text-[0.8125rem] font-semibold tabular-nums text-white" style={`background:${hueOf(group.type)?.dot}`}>
+              {group.items.length}
+            </span>
           </h3>
         )}
-        <ul>
+        <ul class="mt-4 rounded-lg bg-white px-5 ring-1 ring-line-soft sm:px-7">
           {group.items.map((place) => <PlaceRow place={place} level={group.label ? 4 : 3} />)}
         </ul>
       </section>

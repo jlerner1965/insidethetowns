@@ -8,6 +8,7 @@
  */
 import type { TownEntry } from '@/lib/content';
 import { PLACE_TYPE_LABELS } from '@/content/schemas';
+import { PLACE_TYPE_COLORS } from '@/config/palette';
 
 interface Props {
   places: TownEntry<'places'>[];
@@ -19,8 +20,14 @@ const { places } = Astro.props;
   <ul class="grid gap-x-12 sm:grid-cols-2">
     {places.map((place) => (
       <li class="group flex items-baseline justify-between gap-4 border-b border-line-soft py-3.5">
-        <a href={`/places/${place.slug}/`} class="text-[1.0625rem] font-medium no-underline group-hover:text-accent-dark">{place.data.title}</a>
-        <span class="eyebrow shrink-0 text-ink-faint">{PLACE_TYPE_LABELS[place.data.type]}</span>
+        <a href={`/places/${place.slug}/`} class="flex items-baseline gap-2.5 text-[1.0625rem] font-medium no-underline group-hover:text-accent-dark">
+          <span
+            class="inline-block size-2 shrink-0 translate-y-[-0.15em] rounded-full"
+            style={`background:${PLACE_TYPE_COLORS[place.data.type].dot}`}
+            aria-hidden="true"></span>
+          {place.data.title}
+        </a>
+        <span class="eyebrow shrink-0" style={`color:${PLACE_TYPE_COLORS[place.data.type].ink}`}>{PLACE_TYPE_LABELS[place.data.type]}</span>
       </li>
     ))}
   </ul>

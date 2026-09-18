@@ -7,6 +7,7 @@ import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
 import { formatDate, formatTimeRange, formatWeekday, monthDay, toIsoLocal } from '@/lib/dates';
 import { CATEGORY_LABELS } from '@/content/schemas';
+import { CATEGORY_COLORS } from '@/config/palette';
 
 interface Props {
   event: TownEntry<'events'>;
@@ -19,19 +20,20 @@ const { data, slug } = event;
 const badge = monthDay(data.start);
 const href = `/events/${slug}/`;
 const time = data.timeNote ?? formatTimeRange(data.start, data.end, data.allDay);
+const hue = CATEGORY_COLORS[data.category];
 const note =
   data.recurring ??
   (data.repeat === 'weekly' && data.until ? `Every ${formatWeekday(data.start)} through ${formatDate(data.until)}` : undefined);
 ---
 <article
-  class="group relative grid grid-cols-[4.25rem_1fr] gap-x-4 border-t border-line-soft py-5 md:grid-cols-[4.5rem_1fr_auto] md:gap-x-7 md:py-6"
+  class="group relative grid grid-cols-[4.25rem_1fr] gap-x-4 border-t border-line-soft py-5 first:border-t-0 md:grid-cols-[4.5rem_1fr_auto] md:gap-x-7 md:py-6"
   data-filter-item
   data-category={data.category}
 >
   {showDate ? (
     <time datetime={toIsoLocal(data.start)} class="flex flex-col pt-0.5">
       <span class="eyebrow">{badge.weekday}</span>
-      <span class="font-heading text-[2.25rem] font-medium leading-none tabular-nums md:text-[2.5rem]">{badge.day}</span>
+      <span class="font-heading text-[2.25rem] font-medium leading-none tabular-nums text-accent-dark md:text-[2.5rem]">{badge.day}</span>
       <span class="text-xs font-medium uppercase tracking-[0.1em] text-ink-muted">{badge.month}</span>
     </time>
   ) : (
@@ -44,7 +46,10 @@ const note =
     </time>
   )}
   <div class="min-w-0">
-    <p class="eyebrow">{CATEGORY_LABELS[data.category]}</p>
+    <p class="eyebrow flex items-center gap-2" style={`color:${hue.ink}`}>
+      <span class="inline-block size-2 shrink-0 rounded-full" style={`background:${hue.dot}`} aria-hidden="true"></span>
+      {CATEGORY_LABELS[data.category]}
+    </p>
     <h3 class="mt-1.5 text-xl font-medium leading-tight md:text-2xl">
       <a href={href} class="stretch no-underline group-hover:text-accent-dark">{data.title}</a>
     </h3>

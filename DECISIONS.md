@@ -526,3 +526,38 @@ fixes are all structural rather than decorative.
 - **The map labels flip side when crowded.** Berthoud and Johnstown are nine
   miles apart on the same latitude and their labels overlapped; a label whose
   pin has company within 170px to its right is now drawn to the left.
+
+## Colour
+
+The sites were black text on tan with one deep accent used sparingly, which
+read as sober rather than as anything. Colour is now structural.
+
+- **Two town colours, doing different jobs.** `accent` is the bright one and is
+  only ever a fill, a rule or a mark; `accentDark` is the one words are set in,
+  and is also the fill of the dark bands. Splitting them is what let the
+  accents get brighter: `accentDark` still has to clear 4.5:1 on paper *and*
+  4.5:1 under white, which caps how light it can be, but nothing constrains
+  `accent` beyond staying visible. Every town's accent moved up in saturation,
+  most of them a long way.
+- **One amber for the whole network.** `#F0A62E`, in the top rule of every
+  page, the footer eyebrows, the "Our pick" marks. Seven sites with seven
+  unrelated colour schemes do not read as a network; one shared colour in the
+  same places on all of them does. It is a fill and never text: anything
+  written on it is ink, which clears 8.6:1.
+- **A hue per event category and place type**, so a list of twenty things reads
+  as twenty kinds of thing. Each carries a bright `dot` for marks and a dark
+  `ink` for the label as words; place types borrow the event hues by what the
+  place is for, rather than inventing nine more. `src/config/palette.ts` is the
+  one definition, and components read it rather than restating hex codes.
+- **`npm run check-colors` proves all of it**, reading the real town configs and
+  the real palette module so it cannot drift from what renders: accent 3:1 on
+  its own paper, accentDark 4.5:1 both ways, amber 3:1 on every band, every
+  category dot 3:1 and every category ink 4.5:1 against all eight papers and
+  white. CI runs it. It is what made brightening the palette safe to do at all
+  — the first pass put Timnath's ochre at 2.60:1 and the script caught it.
+- **Pages are bands, not one sheet.** Interior pages open on a masthead in the
+  accent at 14%, mixed into the town's own paper rather than into white: 9% of
+  ochre in white was invisible against Timnath's cream. Listings sit on white
+  cards inside the paper. The home page runs white, tint, white, then a full
+  band of the accent itself, and the footer is the town's colour rather than
+  near-black.

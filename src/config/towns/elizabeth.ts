@@ -11,7 +11,7 @@ export const elizabeth = {
   county: "Elbert",
   state: "CO",
   lat: 39.3603, lng: -104.5969,
-  colors: { accent: "#8B5E34", accentDark: "#5C3D1F", neutralBg: "#FAF7F2" },
+  colors: { accent: "#B26E2A", accentDark: "#78491A", neutralBg: "#FAF7F2" },
   hero: {
     image: "hero.jpg",
     alt: "Main Street in Elizabeth, Colorado",

@@ -31,7 +31,10 @@ const [lead, second] = articles;
 <Base jsonLd={websiteJsonLd(town)}>
   <Hero />
 
-  <section class="container-page pt-16 md:pt-24">
+  {/* The page is a run of coloured bands: white, then the accent at 9%, then
+     the accent itself. Without them the whole site is one sheet of tan. */}
+  <section class="band band-white">
+    <div class="container-page">
     <SectionHeader eyebrow={`This week in ${town.name}`} title="What’s on" href="/events/" linkLabel="All events" />
     {events.length === 0 ? (
       <p class="text-ink-muted">No upcoming events listed yet. <a href="/contact/#submit-event" class="text-accent-dark underline">Submit one.</a></p>
@@ -40,9 +43,11 @@ const [lead, second] = articles;
         {events.map((event) => <EventCard event={event} />)}
       </div>
     )}
+    </div>
   </section>
 
-  <section class="container-page pt-16 md:pt-24">
+  <section class="band band-tint">
+    <div class="container-page">
     <SectionHeader eyebrow="Eat, drink, wander" title="Where to go" href="/eat-drink/" linkLabel="Eat & drink" />
     {places.length === 0 ? (
       <p class="text-ink-muted">Places are on their way.</p>
@@ -61,10 +66,12 @@ const [lead, second] = articles;
         )}
       </>
     )}
+    </div>
   </section>
 
   {lead && (
-    <section class="container-page pt-16 md:pt-24">
+    <section class="band band-white">
+      <div class="container-page">
       <SectionHeader eyebrow="Latest" title="From the guide" />
       <ArticleCard article={lead} feature />
       {second && (
@@ -72,13 +79,14 @@ const [lead, second] = articles;
           <ArticleCard article={second} />
         </div>
       )}
+      </div>
     </section>
   )}
 
-  <section class="mt-16 bg-accent-dark text-white md:mt-24">
+  <section class="on-dark bg-accent-dark text-white">
     <div class="container-page grid gap-8 py-16 md:grid-cols-[3fr_2fr] md:items-end md:py-24">
       <div>
-        <p class="eyebrow text-white/60">Moving here</p>
+        <p class="eyebrow text-highlight">Moving here</p>
         <h2 class="display-md mt-4 text-4xl lg:text-6xl">Thinking of making {town.name} home?</h2>
       </div>
       <div>

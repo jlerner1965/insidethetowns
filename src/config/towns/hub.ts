@@ -10,8 +10,8 @@ export const hub: HubConfig = {
   tagline: 'Independent community guides to the small towns of Colorado’s Front Range.',
   seoTagline: 'Guides to Colorado’s Front Range towns',
   colors: {
-    accent: '#2B4C7E',
-    accentDark: '#1B3155',
+    accent: '#2C74CC',
+    accentDark: '#1B4A86',
     neutralBg: '#F4F3EF',
   },
   hero: {

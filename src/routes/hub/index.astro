@@ -15,7 +15,7 @@ const live = hub.towns.filter((t) => LIVE_TOWNS.includes(t.slug));
 const soon = hub.towns.filter((t) => !LIVE_TOWNS.includes(t.slug));
 ---
 <Base jsonLd={websiteJsonLd(hub)}>
-  <section class="container-page pb-6 pt-16 md:pt-28">
+  <section class="container-page pb-14 pt-16 md:pt-28">
     <p class="eyebrow">Colorado’s northern Front Range</p>
     <h1 class="display mt-5 max-w-4xl text-[3.25rem] sm:text-7xl lg:text-8xl">
       Independent guides to the small towns worth knowing.
@@ -36,7 +36,8 @@ const soon = hub.towns.filter((t) => !LIVE_TOWNS.includes(t.slug));
     </div>
   </section>
 
-  <section id="towns" class="container-page pt-16 md:pt-24">
+  <section id="towns" class="band band-white">
+    <div class="container-page">
     <SectionHeader eyebrow="The network" title="The towns" />
     <div class="grid items-start gap-10 lg:grid-cols-[3fr_2fr] lg:gap-14">
       <TownMap towns={hub.towns} />
@@ -56,19 +57,20 @@ const soon = hub.towns.filter((t) => !LIVE_TOWNS.includes(t.slug));
           </a>
         ))}
         {soon.length > 0 && (
-          <div class="rounded-lg border border-dashed border-line p-6">
-            <p class="eyebrow text-ink-faint">Coming next</p>
+          <div class="rounded-lg border border-dashed border-accent-line bg-accent-tint p-6">
+            <p class="eyebrow">Coming next</p>
             <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">{soon.map((t) => t.name).join(' · ')}</p>
           </div>
         )}
       </div>
     </div>
+    </div>
   </section>
 
-  <section class="mt-16 bg-accent-dark text-white md:mt-24">
+  <section class="on-dark bg-accent-dark text-white">
     <div class="container-page grid gap-8 py-16 md:grid-cols-[3fr_2fr] md:items-end md:py-24">
       <div>
-        <p class="eyebrow text-white/60">How it’s made</p>
+        <p class="eyebrow text-highlight">How it’s made</p>
         <h2 class="display-md mt-4 text-4xl lg:text-6xl">One guide per town, made the same careful way.</h2>
       </div>
       <div>

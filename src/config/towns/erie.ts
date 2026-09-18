@@ -15,8 +15,8 @@ export const erie: TownConfig = {
   colors: {
     // Coal-seam indigo on a warm grey paper: the town was Colorado's coal capital for
     // eighty years. Distinct from Niwot's evergreen, Lyons' sandstone and Berthoud's lake blue.
-    accent: '#3D3A5C',
-    accentDark: '#26243D',
+    accent: '#6257C0',
+    accentDark: '#3B3480',
     neutralBg: '#F3F1EC',
   },
   hero: {

@@ -15,10 +15,13 @@ const linkClass = (href: string) =>
     isActive(href) ? 'text-accent-dark' : 'text-ink-muted hover:text-ink',
   ].join(' ');
 ---
+{/* The first thing on every page is a band of the town's colour. It costs
+   six pixels and it is what stops the site opening on plain tan. */}
+<div class="h-1.5 bg-gradient-to-r from-accent-dark via-accent to-highlight"></div>
 <header class="bg-paper">
   <div class="container-page">
     <div class="flex items-center justify-between gap-8 py-5 md:py-7">
-      <Wordmark class="whitespace-nowrap text-[1.75rem] leading-none text-ink md:text-[2rem]" />
+      <Wordmark class="whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" />
       <nav aria-label="Primary" class="hidden lg:block">
         <ul class="flex gap-7">
           {site.nav.map((item) => (
