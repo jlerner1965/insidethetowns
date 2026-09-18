@@ -35,7 +35,10 @@ const note =
       <span class="text-xs font-medium uppercase tracking-[0.1em] text-ink-muted">{badge.month}</span>
     </time>
   ) : (
-    <time datetime={toIsoLocal(data.start)} class="whitespace-nowrap pt-1 text-sm font-semibold tabular-nums leading-snug text-ink-muted">
+    <time
+      datetime={toIsoLocal(data.start)}
+      class:list={['pt-1 text-sm font-semibold tabular-nums leading-snug text-ink-muted', data.timeNote ? 'break-words' : 'whitespace-nowrap']}
+    >
       {time.split(' – ')[0]}
       {data.end && !data.allDay && !data.timeNote && <span class="block text-ink-faint">to {time.split(' – ')[1]}</span>}
     </time>
