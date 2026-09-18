@@ -436,3 +436,22 @@ search.
   phone would cover most of a town's shops and restaurants in one pass, and the
   town parks departments will often grant permission to use their photographs if
   asked. Both produce images the network owns outright.
+
+## Places are a directory, not a photo grid
+
+Eat & Drink and Things to Do were a grid of photo-led cards. With 202 of 240
+places unphotographed, and no lawful way to photograph most of them quickly,
+the grid read as unfinished on every town but Lyons.
+
+- **The pages are now a directory**, in the shape townofniwot.com already uses:
+  the places that have been photographed lead the page as cards, then every
+  place is listed as a text row with its name, type, summary, address, area,
+  hours and a link out. A directory row does not want a photograph, so a town
+  whose shops have not been shot does not look half-built. The filter still
+  works across the whole list.
+- **`PlaceCard` keeps a fallback tile** for the lead strip: the initial as a
+  watermark over the place's tags and price band. It is only reached when a
+  featured place has no photograph.
+- **`PlaceGrid` is deleted**, since nothing uses it now.
+- **This does not reduce the value of photographs.** They still lead both pages
+  and fill the place's own page. It changes what the absence of one looks like.

@@ -1,8 +1,12 @@
 ---
 /**
  * A place as a photo-led card with no box: image, eyebrow, serif title,
- * two-line summary. Places without a photo get a typographic tile in the
- * town's accent so the grid never shows a broken hole.
+ * two-line summary.
+ *
+ * Places without a photo do not get an empty photo frame, which reads as a
+ * missing image. They get a panel in the town's accent carrying what a photo
+ * cannot: what kind of place it is, and its hours or price band. Every place
+ * has tags, so the panel is never empty.
  */
 import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
@@ -15,6 +19,7 @@ interface Props {
 const { place } = Astro.props;
 const { data, slug } = place;
 const href = `/places/${slug}/`;
+const facts = [data.priceRange, data.hours].filter(Boolean).join(' · ');
 ---
 <article class="group relative flex flex-col" data-filter-item data-category={data.type}>
   <div class="aspect-[4/3] overflow-hidden rounded-lg bg-accent-soft">
@@ -27,8 +32,25 @@ const href = `/places/${slug}/`;
         class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
       />
     ) : (
-      <div class="flex h-full items-end p-5" aria-hidden="true">
-        <span class="display text-7xl text-accent-dark/30">{data.title.charAt(0)}</span>
+      <div class="flex h-full flex-col p-5">
+        <span
+          class="display flex flex-1 items-center justify-center text-[5.5rem] leading-none text-accent-dark/25"
+          aria-hidden="true"
+        >
+          {data.title.charAt(0)}
+        </span>
+        <div class="space-y-1.5">
+          {data.tags.length > 0 && (
+            <ul class="flex flex-wrap gap-1.5">
+              {data.tags.slice(0, 3).map((tag) => (
+                <li class="rounded-full bg-white/70 px-2.5 py-1 text-[0.6875rem] font-medium uppercase tracking-wide text-accent-dark">
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          )}
+          {facts && <p class="line-clamp-2 text-[0.8125rem] leading-snug text-ink-muted">{facts}</p>}
+        </div>
       </div>
     )}
   </div>

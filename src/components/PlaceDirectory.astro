@@ -1,0 +1,45 @@
+---
+/**
+ * The places on a page, as a directory.
+ *
+ * Any places that have been photographed lead the page as cards, because a
+ * photograph is the best thing on it. Everything, photographed or not, is then
+ * listed as text rows. This is the shape a directory wants: no listing needs a
+ * photograph of its own, so a town whose shops have not been shot yet does not
+ * read as unfinished, and the filter still works across the whole list.
+ */
+import type { TownEntry } from '@/lib/content';
+import { PLACE_TYPE_LABELS, type PlaceType } from '@/content/schemas';
+import FilterBar from './FilterBar.astro';
+import PlaceCard from './PlaceCard.astro';
+import PlaceRow from './PlaceRow.astro';
+
+interface Props {
+  places: TownEntry<'places'>[];
+  filterable?: boolean;
+  emptyMessage?: string;
+  /** Show up to this many photographed places as cards above the list. */
+  lead?: number;
+}
+
+const { places, filterable = false, emptyMessage = 'Nothing listed yet.', lead = 3 } = Astro.props;
+const types = [...new Set(places.map((p) => p.data.type))] as PlaceType[];
+const options = types.map((t) => ({ value: t, label: PLACE_TYPE_LABELS[t] }));
+const withPhoto = places.filter((p) => p.data.image).slice(0, lead);
+---
+<div data-filter-root>
+  {withPhoto.length > 0 && (
+    <div class="mb-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
+      {withPhoto.map((place) => <PlaceCard place={place} />)}
+    </div>
+  )}
+  {filterable && <FilterBar options={options} label="Filter places" />}
+  {places.length === 0 ? (
+    <p class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">{emptyMessage}</p>
+  ) : (
+    <ul class="mt-2 border-t border-line-soft">
+      {places.map((place) => <PlaceRow place={place} />)}
+    </ul>
+  )}
+  <p data-filter-empty hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">Nothing in this category yet.</p>
+</div>

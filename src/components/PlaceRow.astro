@@ -1,0 +1,46 @@
+---
+/**
+ * A place as a directory row: name, type and summary on the left, the hard
+ * facts on the right, a hairline underneath.
+ *
+ * A directory does not need a photograph of every listing the way a card grid
+ * does, so a town whose shops have not been photographed still reads as
+ * finished. Photographs lead the page above the directory instead.
+ */
+import type { TownEntry } from '@/lib/content';
+import { PLACE_TYPE_LABELS } from '@/content/schemas';
+
+interface Props {
+  place: TownEntry<'places'>;
+}
+
+const { place } = Astro.props;
+const { data, slug } = place;
+const href = `/places/${slug}/`;
+---
+<li
+  class="grid gap-x-10 gap-y-3 border-b border-line-soft py-6 sm:grid-cols-[minmax(0,1fr)_minmax(8rem,15rem)]"
+  data-filter-item
+  data-category={data.type}
+>
+  <div>
+    <h3 class="text-[1.25rem] font-medium leading-tight">
+      <a href={href} class="no-underline hover:text-accent-dark">{data.title}</a>
+    </h3>
+    <p class="eyebrow mt-1.5">
+      {PLACE_TYPE_LABELS[data.type]}{data.priceRange && <span class="ml-2 text-ink-faint">{data.priceRange}</span>}
+    </p>
+    <p class="mt-2 max-w-[58ch] text-[0.9375rem] leading-relaxed text-ink-muted">{data.summary}</p>
+  </div>
+  <div class="grid content-start gap-1.5 text-[0.875rem] leading-snug text-ink-muted">
+    {data.address && <p class="text-ink">{data.address}</p>}
+    {data.area && <p>{data.area}</p>}
+    {data.hours && <p>{data.hours}</p>}
+    {data.phone && <p>{data.phone}</p>}
+    {data.url && (
+      <a href={data.url} rel="noopener" class="justify-self-start text-[0.875rem]">
+        Website <span aria-hidden="true">&#8599;</span>
+      </a>
+    )}
+  </div>
+</li>

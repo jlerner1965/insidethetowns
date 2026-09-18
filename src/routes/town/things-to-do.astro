@@ -1,6 +1,6 @@
 ---
 import Page from '@/layouts/Page.astro';
-import PlaceGrid from '@/components/PlaceGrid.astro';
+import PlaceDirectory from '@/components/PlaceDirectory.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
@@ -17,11 +17,11 @@ const outdoors = (await getTownEntries('articles')).filter(
 );
 ---
 <Page title="Things to Do" eyebrow={town.name} description={`Trails, parks and venues in and around ${town.name}, ${town.state}.`} intro={`Trails, parks and places worth an afternoon in and around ${town.name}.`}>
-  <PlaceGrid places={places} filterable emptyMessage="No trails, parks or venues listed yet." />
+  <PlaceDirectory places={places} filterable emptyMessage="No trails, parks or venues listed yet." />
   {lodging.length > 0 && (
     <section class="mt-20">
       <p class="eyebrow mb-8 border-b border-line-soft pb-4">Stay the night</p>
-      <PlaceGrid places={lodging} />
+      <PlaceDirectory places={lodging} lead={2} />
     </section>
   )}
   {outdoors.length > 0 && (

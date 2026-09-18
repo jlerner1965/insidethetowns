@@ -1,6 +1,6 @@
 ---
 import Page from '@/layouts/Page.astro';
-import PlaceGrid from '@/components/PlaceGrid.astro';
+import PlaceDirectory from '@/components/PlaceDirectory.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { EAT_DRINK_TYPES } from '@/content/schemas';
@@ -13,11 +13,11 @@ const places = all.filter((p) => EAT_DRINK_TYPES.includes(p.data.type)).sort(byF
 const shops = all.filter((p) => p.data.type === 'shop').sort(byFeatured);
 ---
 <Page title="Eat & Drink" eyebrow={town.name} description={`Restaurants, bars, coffee and shops in ${town.name}, ${town.state}.`} intro={`Where to eat, drink, browse and linger in ${town.name}. Listings are editorial; nobody pays to be here.`}>
-  <PlaceGrid places={places} filterable emptyMessage="No places listed yet." />
+  <PlaceDirectory places={places} filterable emptyMessage="No places listed yet." />
   {shops.length > 0 && (
     <section class="mt-20">
       <p class="eyebrow mb-8 border-b border-line-soft pb-4">Shops</p>
-      <PlaceGrid places={shops} />
+      <PlaceDirectory places={shops} />
     </section>
   )}
 </Page>
