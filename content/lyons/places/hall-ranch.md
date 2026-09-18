@@ -5,8 +5,8 @@ address: "Colorado 7, one mile west of town"
 area: "Boulder County open space"
 url: "https://bouldercounty.gov/open-space/parks-and-trails/hall-ranch/"
 hours: "Open daily, sunrise to sunset"
-image: ../images/hall-ranch-view.jpg
-imageAlt: "Ponderosa pines above a rocky slope at Hall Ranch, looking east over the hogback to the plains"
+image: ../images/hall-ranch-butte.jpg
+imageAlt: "The flat-topped red sandstone butte at Hall Ranch under a breaking storm, grass and scrub on the slope below it"
 tags: [mountain-biking, hiking, no-dogs, views]
 featured: true
 summary: "The Front Range’s best-known mountain-bike climb and a fine hike: the Bitterbrush trail gains about 1,500 feet to the Nelson Loop through ponderosa meadows."

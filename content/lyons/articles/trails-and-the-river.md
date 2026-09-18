@@ -4,8 +4,8 @@ date: "2026-09-18"
 excerpt: "Two creeks, one whitewater park, and five trail areas within fifteen minutes of Main Street. Start with the river gauge: the number decides what kind of day it is."
 category: "Outdoors"
 tags: [outdoors, trails, river]
-image: ../images/hall-ranch-trail.jpg
-imageAlt: "A hiker on the red-dirt Bitterbrush trail at Hall Ranch, sandstone ridge behind"
+image: ../images/button-rock-dam-trail.jpg
+imageAlt: "Button Rock reservoir seen through ponderosa pines from the dam trail, snow on the high peaks along the skyline"
 ---
 
 The North and South St. Vrain join in the middle of town, and the state gauge just below the confluence (station SVCLYOCO, on the [Colorado Division of Water Resources site](https://dwr.state.co.us/Tools/Stations/SVCLYOCO)) reports the flow every fifteen minutes. Read it before you plan anything on the water.

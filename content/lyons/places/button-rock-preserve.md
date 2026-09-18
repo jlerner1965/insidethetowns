@@ -5,8 +5,8 @@ address: "End of County Road 80, seven miles west of town"
 area: "City of Longmont watershed"
 url: "https://longmontcolorado.gov/facility/button-rock-preserve/"
 hours: "Daily, 1 hr before sunrise–1 hr after sunset"
-image: ../images/button-rock.jpg
-imageAlt: "The reservoir and sandstone walls of Button Rock Preserve above Lyons"
+image: ../images/button-rock-dam.jpg
+imageAlt: "The dam and reservoir at Button Rock Preserve above Lyons, forested hills on either side and snow still on the peaks beyond"
 tags: [hiking, river, no-dogs, fishing]
 summary: "A gentle two-mile walk along the North St. Vrain to Longmont’s reservoir dam, with the Sleepy Lion trail above it for a loop."
 source: "https://longmontcolorado.gov/parks-and-natural-resources/rules-and-regulations/"
