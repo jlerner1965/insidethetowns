@@ -227,3 +227,26 @@ Choices not covered by PLAN.md, with the reasoning. Newest first.
   are; the Boulder County side is explained on Moving Here and in the article.
 - **Restaurants marked closed on review sites (Injoy, Industrial Revolution Brewing)
   were left out** even though the 2023 magazine list includes them.
+
+## Phase 7
+
+- **Johnstown follows the Berthoud and Erie method.** 29 places and 26 event files from the
+  Town calendar and park pages, the Downtown Development Authority, the Historical
+  Society, the library's programme list, the businesses' own sites and dated press. Two
+  chains at the interchange (Urban Egg, Bad Daddy's, Lazy Dog, Duck Donuts) are listed
+  because they are most of what there is to eat at 2534; three restaurants from a 2023
+  magazine list turned out to be in Loveland, Greeley and Fort Collins and are omitted.
+  Johnson's Corner is listed with its January 2025 closure and Black Bear Diner
+  conversion stated plainly rather than pretending it is unchanged. 21 North Brewery is
+  omitted: two directories disagree about whether it is open.
+- **Beware the other Johnstowns.** discoverjohnstown.org, Central Park, the Zombie Crawl
+  and the Christmas Village are Johnstown, Pennsylvania; search results mix them in
+  freely. Only sources that name Colorado, Weld County or an 80534 address were used.
+- **Hero is a county road west of town** (CC BY 2.0, Maarten Heerlien, geotagged in
+  Johnstown), the only Commons landscape of the town; Jeffrey Beall's Town Hall
+  (CC BY-SA 3.0) and a Flickr Scheels exterior (CC BY 2.0) illustrate those places, and the
+  same Flickr set's pumpjack heads the history article.
+- **Palette is sugar-beet burgundy** (`#7A2E4A` / `#521E32`) on a sugar-white paper for the
+  Great Western factory town; 9:1 on white and unlike the other four accents.
+- **Config county is Weld**, where Old Town, Town Hall and most residents are; the
+  Larimer corner and the two school districts are explained on Moving Here.
