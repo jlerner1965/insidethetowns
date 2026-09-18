@@ -7,8 +7,19 @@
  * single town site can answer "what's on near me" — only this page can.
  *
  * Because every town lives in this repository, the page reads their content
- * directly at build time: no per-town JSON feed, no cross-domain fetch, and no
- * scheduled rebuild to keep it from going stale.
+ * directly at build time: no per-town JSON feed and no cross-domain fetch.
+ *
+ * "This weekend" is decided when the page is built, which on a static site is
+ * a promise it cannot keep on its own. A scheduled rebuild keeps it true
+ * (.github/workflows/scheduled-rebuild.yml) but a rebuild can fail, and GitHub
+ * turns scheduled workflows off by itself after sixty days without a push.
+ *
+ * So the page does not rely on it. It bakes three weeks of listings and works
+ * out in the reader's browser which of them is this weekend, which means a
+ * build days or weeks old still shows the right ones. The server renders the
+ * partition for its own build date, so a crawler and a reader without
+ * JavaScript get a coherent page too. Only when the whole baked window has
+ * been used up does it say so, and by then it is telling the truth.
  */
 import Page from '@/layouts/Page.astro';
 import FilterBar from '@/components/FilterBar.astro';
@@ -31,13 +42,18 @@ const sunday = addDays(today, dow === 0 ? 0 : 7 - dow);
 const weekendStart = dow === 0 || dow >= 5 ? today : addDays(sunday, -2);
 const weekendEnd = addDays(sunday, 1); // exclusive
 
-const all = upcoming(occurrences(await getNetworkEntries('events'), { horizonDays: 21 }));
+// Three weeks, so the page survives a long gap between deploys rather than
+// only the days until the next one.
+const all = upcoming(occurrences(await getNetworkEntries('events'), { horizonDays: 30 }));
 const weekend = all.filter((e) => e.data.start >= weekendStart && e.data.start < weekendEnd);
-const rest = all.filter((e) => e.data.start >= weekendEnd && e.data.start < addDays(sunday, 8));
+const rest = all.filter((e) => e.data.start >= weekendEnd && e.data.start < addDays(sunday, 15));
 
 const options = towns
   .filter((t) => [...weekend, ...rest].some((e) => e.town.slug === t.slug))
   .map((t) => ({ value: t.slug, label: t.name }));
+
+// When this build was made, which the foot of the page states plainly.
+const builtOn = formatDate(today);
 
 const weekendLabel =
   weekendStart.getTime() === sunday.getTime()
@@ -70,21 +86,101 @@ const itemList = {
   intro={`Everything on across all ${towns.length} guides, ${weekendLabel}, and then the week after. Each listing opens on that town’s own site.`}
   jsonLd={itemList}
 >
+  <p
+    class="mb-8 hidden rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink"
+    data-stale-notice
+  >
+    <strong class="font-semibold">Nothing here is current.</strong> This page was last refreshed on {builtOn} and
+    everything it was carrying has now happened. That is a fault at our end, not a quiet weekend. Each town's guide
+    keeps its own calendar — they are linked from <a href="/#towns" class="text-accent-text">the map</a>.
+  </p>
+
   <div data-filter-root>
     <FilterBar options={options} label="Filter by town" />
 
-    <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">The weekend · {weekendLabel}</h2>
-    <NetworkDayList events={weekend} emptyMessage="Nothing listed across the network for this weekend yet." />
+    <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4" data-weekend-heading>The weekend · {weekendLabel}</h2>
+    <div data-weekend-list>
+      <NetworkDayList events={weekend} emptyMessage="Nothing listed across the network for this weekend yet." />
+    </div>
 
-    {rest.length > 0 && (
-      <div class="mt-20 md:mt-24">
-        <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">The week after</h2>
+    <div class="mt-20 md:mt-24" data-later-section>
+      <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">After the weekend</h2>
+      <div data-later-list>
         <NetworkDayList events={rest} emptyMessage="Nothing listed yet." />
       </div>
-    )}
+    </div>
 
     <p data-filter-empty hidden class="mt-6 rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
       Nothing coming up in that town.
     </p>
   </div>
+
+  <p class="mt-14 text-[0.875rem] text-ink-faint">
+    Listings refreshed {builtOn}. Every event links to the town guide that keeps it.
+  </p>
 </Page>
+
+<script>
+  /*
+   * Re-decide which of the baked days is "this weekend", from the reader's
+   * clock rather than the build's.
+   *
+   * It does its own removal of past days rather than depending on having run
+   * after Freshness.astro: module scripts have no ordering guarantee worth
+   * relying on, and both operations are idempotent.
+   */
+  const TZ = 'America/Denver';
+  const key = (date: Date) => date.toISOString().slice(0, 10);
+  const todayKey = new Date().toLocaleDateString('en-CA', { timeZone: TZ });
+
+  // Noon UTC stands in for a Denver calendar day: far enough from either
+  // midnight that no offset can push it onto the wrong date.
+  const noon = (k: string) => new Date(`${k}T12:00:00Z`);
+  const shift = (from: Date, days: number) => {
+    const out = new Date(from);
+    out.setUTCDate(out.getUTCDate() + days);
+    return out;
+  };
+
+  const today = noon(todayKey);
+  const dow = today.getUTCDay(); // 0 Sunday … 6 Saturday
+  const sunday = shift(today, dow === 0 ? 0 : 7 - dow);
+  const start = dow === 0 || dow >= 5 ? today : shift(sunday, -2);
+
+  const weekendList = document.querySelector<HTMLElement>('[data-weekend-list] > *');
+  const laterList = document.querySelector<HTMLElement>('[data-later-list] > *');
+
+  if (weekendList && laterList) {
+    for (const day of document.querySelectorAll<HTMLElement>('[data-day]')) {
+      const when = day.dataset.day!;
+      if (when < todayKey) {
+        day.remove();
+        continue;
+      }
+      const target = when >= key(start) && when <= key(sunday) ? weekendList : laterList;
+      if (day.parentElement !== target) target.append(day);
+    }
+
+    // Days arrive in whatever order they were moved; put them back in date order.
+    for (const list of [weekendList, laterList]) {
+      const days = [...list.querySelectorAll<HTMLElement>('[data-day]')];
+      days.sort((a, b) => a.dataset.day!.localeCompare(b.dataset.day!));
+      for (const day of days) list.append(day);
+    }
+
+    const label = (date: Date) =>
+      date.toLocaleDateString('en-US', { timeZone: 'UTC', month: 'long', day: 'numeric', year: 'numeric' });
+    const heading = document.querySelector<HTMLElement>('[data-weekend-heading]');
+    if (heading) {
+      const range = key(start) === key(sunday) ? label(sunday) : `${label(start)} – ${label(sunday)}`;
+      heading.textContent = `The weekend · ${range}`;
+    }
+
+    const later = document.querySelector<HTMLElement>('[data-later-section]');
+    if (later) later.hidden = !laterList.querySelector('[data-day]');
+
+    // Only now, with everything re-sorted, is "there is nothing left" true.
+    const notice = document.querySelector<HTMLElement>('[data-stale-notice]');
+    if (notice && !document.querySelector('[data-day]')) notice.classList.remove('hidden');
+  }
+</script>

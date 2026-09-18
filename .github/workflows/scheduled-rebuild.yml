@@ -1,0 +1,60 @@
+# Rebuilds every live site on a schedule.
+#
+# These are static sites, so every date-relative thing on them — "upcoming"
+# events, the weekend on the hub's /this-weekend/, the "past events drop off on
+# their own" promise on each town's events page — is decided at build time. A
+# site that has not been rebuilt for a week is a site quietly showing last
+# week's listings. Content pushes are irregular; the calendar is not.
+#
+# Setup, once: create a Deploy Hook on each Vercel project (Settings → Git →
+# Deploy Hooks, on the production branch), then put all of them in one repo
+# secret named VERCEL_DEPLOY_HOOKS, one URL per line. Adding a town later means
+# adding its line to that secret and nothing else.
+name: Scheduled rebuild
+
+on:
+  schedule:
+    # 09:10 UTC daily — 03:10 Mountain, so the day's listings are right before
+    # anyone is awake to read them. Minute 10 rather than 00 because GitHub
+    # delays schedules that land on the hour under load.
+    - cron: '10 9 * * *'
+    # 20:10 UTC Thursday — 14:10 Mountain, so the weekend view is fresh at the
+    # point in the week people actually start looking at it.
+    - cron: '10 20 * * 4'
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    name: Trigger a deploy of every live site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fire each deploy hook
+        env:
+          HOOKS: ${{ secrets.VERCEL_DEPLOY_HOOKS }}
+        run: |
+          if [ -z "$HOOKS" ]; then
+            echo "::error::VERCEL_DEPLOY_HOOKS is not set. Every site is now only as fresh as its last push."
+            exit 1
+          fi
+          failed=0
+          count=0
+          while IFS= read -r hook; do
+            hook="$(echo "$hook" | tr -d '[:space:]')"
+            [ -z "$hook" ] && continue
+            count=$((count + 1))
+            # The hook URL is a credential: print the project, never the URL.
+            name="$(echo "$hook" | sed -E 's#.*/([^/?]+).*#\1#' | cut -c1-8)"
+            status="$(curl -s -o /dev/null -w '%{http_code}' -X POST "$hook")"
+            if [ "$status" = "200" ] || [ "$status" = "201" ]; then
+              echo "hook $count (…$name): $status"
+            else
+              echo "::error::hook $count (…$name) returned $status"
+              failed=1
+            fi
+          done <<< "$HOOKS"
+          echo "fired $count hook(s)"
+          if [ "$count" -eq 0 ]; then
+            echo "::error::VERCEL_DEPLOY_HOOKS is set but contained no URLs."
+            exit 1
+          fi
+          exit $failed

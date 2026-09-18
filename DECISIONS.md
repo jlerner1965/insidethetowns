@@ -686,3 +686,36 @@ those searches because the answer is spread across seven chamber sites.
 - **A stale `.astro` cache will lie to you about a config change.** Verifying
   the no-id branch appeared to fail until a clean build; the check had been
   reading the previous config.
+
+## Staying current without a server
+
+Everything on these sites that says "upcoming" is decided when the page is
+built. That is fine on the day of a deploy and quietly wrong a week later: a
+stale build shows past events under a page promising they drop off on their
+own, and the hub's /this-weekend/ goes on naming the weekend it was built in.
+Three layers, because each covers the others' failure mode.
+
+- **A scheduled rebuild** fires a Vercel deploy hook per project, daily at
+  03:10 Mountain and again on Thursday afternoon when people start looking at
+  the weekend. One repo secret holds every hook URL, one per line, so adding a
+  town is a line rather than a workflow edit. It logs eight characters of each
+  hook and never the URL, and fails loudly on a missing secret rather than
+  reporting a green run that did nothing.
+- **Every event carries the day it falls on**, and anything past is removed in
+  the reader's browser. A stale build then shows fewer events rather than wrong
+  ones, which is the difference between a stale page and a lying one. Removed
+  rather than hidden, because FilterBar already drives `hidden` and two
+  mechanisms toggling one property would fight.
+- **/this-weekend/ bakes three weeks and picks the weekend from the reader's
+  clock**, moving day groups between its two sections and rewriting the
+  heading. The server still renders the partition for its own build date, so a
+  crawler and a reader without JavaScript get a coherent page. Only when all
+  three weeks are used up does the page say so, and by then it is true.
+
+The second and third layers exist because the first one has a specific failure
+mode worth designing around: GitHub disables scheduled workflows by itself
+after sixty days without a push — silently, in exactly the quiet winter when
+nobody would notice. A revoked hook fails the same way.
+
+Three weeks of listings is 188 events and 232 KB of HTML, which is 17 KB over
+the wire. That is the trade: a page that survives a three-week outage.

@@ -30,9 +30,11 @@
   /* One warm amber across the whole network, so the seven sites read as a
      family and not seven unrelated colour schemes. A fill, never text. */
   --color-highlight: #f0a62e;
+  /* The amber at wash strength, for a notice that has to be read, not just seen. */
+  --color-highlight-soft: #fdf0d8;
 
   --color-paper: var(--t-surface);
-  /* Cards and panels: white on paper, a step up from the page in the dark. */
+  /* Cards and panels: white against the paper. */
   --color-raised: var(--t-raised);
   --color-ink: var(--t-ink);
   --color-ink-muted: var(--t-ink-muted);

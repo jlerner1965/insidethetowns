@@ -90,3 +90,25 @@ not been measured on a real deployment yet.
 
 `npm run new-town <slug> "<Name>"`, fill in the config and content, push, then
 repeat "Creating a project" above with the new slug. Under an hour.
+
+## Scheduled rebuilds
+
+The sites are static, so "upcoming" is decided at build time. A daily rebuild
+keeps that honest. Once, per Vercel project:
+
+1. Settings → Git → Deploy Hooks → create a hook on the production branch.
+2. Collect all eight URLs.
+3. In the `insidethetowns` repo: Settings → Secrets and variables → Actions →
+   new secret `VERCEL_DEPLOY_HOOKS`, one URL per line.
+
+`.github/workflows/scheduled-rebuild.yml` then fires them daily at 09:10 UTC
+and again 20:10 UTC on Thursdays, and can be run by hand from the Actions tab.
+Adding a town later means adding its hook URL to that secret; nothing else.
+
+A hook URL is a credential — anyone holding one can trigger deploys. The
+workflow prints only the first eight characters of the project segment.
+
+Note that GitHub disables scheduled workflows in a repository with no activity
+for sixty days. The pages are built not to depend on the schedule (see
+DECISIONS.md, "Staying current without a server"), but if the Actions tab shows
+no recent runs, that is why.

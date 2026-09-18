@@ -1,0 +1,38 @@
+---
+/**
+ * Makes date-filtered pages correct themselves in the reader's browser.
+ *
+ * Everything on these sites that says "upcoming" is decided when the page is
+ * built. A scheduled rebuild keeps that honest (see
+ * .github/workflows/scheduled-rebuild.yml) but a rebuild can fail, and GitHub
+ * switches scheduled workflows off by itself after sixty days without a push —
+ * silently, in exactly the quiet winter when nobody would notice.
+ *
+ * So the pages do not depend on it. Every event carries the day it falls on,
+ * and anything already past is removed on load. A build that is a week old
+ * then shows fewer events rather than wrong ones, which is the difference
+ * between a stale page and a lying one.
+ *
+ * Removed rather than hidden, because FilterBar drives `hidden` and two
+ * mechanisms toggling one property would fight; a node that is gone is gone
+ * for both, and the filter recounts what is left.
+ */
+---
+<script>
+  // The sites keep their dates as Denver wall-clock days, so ask for the date
+  // in Denver rather than wherever the reader happens to be.
+  const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Denver' });
+
+  for (const event of document.querySelectorAll<HTMLElement>('[data-event-day]')) {
+    if ((event.dataset.eventDay ?? today) < today) event.remove();
+  }
+  // A day heading with nothing left under it is worse than no heading.
+  for (const day of document.querySelectorAll<HTMLElement>('[data-day]')) {
+    if (!day.querySelector('[data-event-day]')) day.remove();
+  }
+  // Say so when a list has emptied out, rather than leaving a blank.
+  for (const empty of document.querySelectorAll<HTMLElement>('[data-events-empty]')) {
+    const scope = empty.closest<HTMLElement>('[data-events-scope]') ?? document.body;
+    if (!scope.querySelector('[data-event-day]')) empty.hidden = false;
+  }
+</script>

@@ -8,7 +8,7 @@
  * glance that the farmers market you want is in Lyons and not in Erie.
  */
 import type { NetworkEntry } from '@/lib/content';
-import { formatTimeRange, toIsoLocal } from '@/lib/dates';
+import { dayKey, formatTimeRange, toIsoLocal } from '@/lib/dates';
 import { CATEGORY_LABELS } from '@/content/schemas';
 
 interface Props {
@@ -24,6 +24,7 @@ const time = data.timeNote ?? formatTimeRange(data.start, data.end, data.allDay)
   class="group relative grid grid-cols-1 gap-x-7 border-t border-line-soft py-5 first:border-t-0 sm:grid-cols-[7rem_1fr] md:py-6"
   data-filter-item
   data-category={town.slug}
+  data-event-day={dayKey(data.start)}
 >
   <p class="mb-1.5 sm:mb-0 sm:pt-1">
     <span

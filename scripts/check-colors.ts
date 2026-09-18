@@ -18,6 +18,7 @@ import { CATEGORY_COLORS, HIGHLIGHT, PLACE_TYPE_COLORS } from '../src/config/pal
 
 
 const INK = '#17181A';
+const HIGHLIGHT_SOFT = '#fdf0d8';
 
 function channel(value: number): number {
   const c = value / 255;
@@ -66,6 +67,8 @@ for (const site of allSites) {
 }
 
 want('ink on highlight', ratio(INK, HIGHLIGHT), 4.5);
+want('ink on the highlight wash', ratio(INK, HIGHLIGHT_SOFT), 4.5);
+want('the highlight wash is visible against white', ratio(HIGHLIGHT_SOFT, '#ffffff'), 1.05);
 
 // The masthead band carries body ink, and it is the one surface on the page
 // that is neither the paper nor white.

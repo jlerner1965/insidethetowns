@@ -10,6 +10,7 @@ import '@/styles/global.css';
 import { getSite } from '@/config';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
+import Freshness from '@/components/Freshness.astro';
 import SEO from '@/components/SEO.astro';
 import { siteJsonLd } from '@/lib/seo';
 import { categoryCss } from '@/config/palette';
@@ -61,5 +62,6 @@ const cssVars = [
       <slot />
     </main>
     <Footer />
+    <Freshness />
   </body>
 </html>
