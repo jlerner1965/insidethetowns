@@ -8,7 +8,7 @@ address: "4747 Marketplace Dr"
 url: "https://coloradocandlelight.com/shows/"
 cost: "Ticketed; dinner included"
 category: arts
-timeNote: "Dinner-and-show performances Nov 27 to Jan 17; see box office for days and times"
+timeNote: "Nov 27 to Jan 17; see box office for times"
 source: "https://coloradocandlelight.com/season-tickets-season-19/"
 verified: "2026-09-18"
 ---

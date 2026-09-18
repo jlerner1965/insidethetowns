@@ -8,7 +8,7 @@ address: "4747 Marketplace Dr"
 url: "https://coloradocandlelight.com/show/les-miserables-johnstown-colorado/"
 cost: "Ticketed; dinner included"
 category: arts
-timeNote: "Dinner-and-show performances through Nov 15; see box office for days and times"
+timeNote: "Through Nov 15; see box office for times"
 featured: true
 source: "https://www.broadwayworld.com/denver/regional/Les-Miserables-4388718"
 verified: "2026-09-18"
