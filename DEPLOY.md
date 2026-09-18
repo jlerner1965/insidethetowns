@@ -10,6 +10,7 @@ insidelyons.com      TOWN=lyons
 insideberthoud.com   TOWN=berthoud
 insideerie.com       TOWN=erie
 insidejohnstown.com  TOWN=johnstown
+insidetimnath.com    TOWN=timnath
 …
 ```
 
