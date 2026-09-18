@@ -286,3 +286,52 @@ Choices not covered by PLAN.md, with the reasoning. Newest first.
   the feed carries a VTIMEZONE for America/Denver and all-day events as DATE values.
   Its UID is `<slug>-<date>@<domain>`, stable across rebuilds. The route is injected
   like the other town routes and is not in the sitemap.
+
+## Phase 7b — Elizabeth
+
+- **Elizabeth is scaffolded and complete but deliberately not in `LIVE_TOWNS`**, per the
+  instruction that added it. Nothing in the network links to it, CI does not build it,
+  and no Vercel project exists yet. Adding the string to `src/config/index.ts` is the
+  only step between here and live.
+- **One line was added to the supplied config**: `hero.credit`. The hero photograph is
+  CC BY-SA 3.0, which requires attribution, so the credit renders under the hero and
+  matches the row in `IMAGE_LICENSES.csv`. `kind: 'town'` and the `TownConfig` import
+  were also added because the type and the registry require them, and `nav` uses
+  `DEFAULT_TOWN_NAV` rather than an empty array so the town gets the standard menu.
+- **`townofelizabeth.org` is behind Cloudflare** and returns 403 to every fetch, so no
+  fact here was read off the Town's own site directly. The Board of Trustees and
+  Planning Commission schedules (second and fourth Tuesdays at 7, first and third at
+  6:30, Town Hall at 151 S Banner) come from search results quoting those pages, and the
+  events still link to `/bt` and `/pc` because that is where a reader gets the agenda.
+  Everything else was read from elizabethmainstreet.org, elizabethpr.com,
+  pplibraries.org, burbio.com, marketspread.com, historicelizabethco.org,
+  brewelizabeth.com, elizabethstampede.com, History Colorado and Wikipedia.
+- **Search engines conflate Elizabeth, Colorado with Elizabeth, Illinois and Elizabeth
+  City, North Carolina.** Only sources naming Colorado, Elbert County or an 80107
+  address were used. The same rule caught Johnstown, Pennsylvania in Phase 7.
+- **The Mayor's Tree Lighting has no event file.** A search result gave "December 3rd"
+  from a past year's page; December 3, 2026 is a Thursday, not the Wednesday the page
+  implied, and no 2026 date is published anywhere readable. It is described in the
+  Moving Here guide as an early-December Main Street event instead of being invented as
+  a dated listing.
+- **Library programmes are written from their stated recurrence.** Burbio lists Story
+  Time as Mondays and Wednesdays 10–11, Yarning for All as Thursdays 11–1, Heritage Crew
+  as the first Saturday and Joy Seekers as the first Friday, so those generate through
+  mid-December; Book Club is listed only as "monthly" with two confirmed dates (Sep 21,
+  Oct 19, both third Mondays), so only the October date is written and `recurring` says
+  "Monthly". The `until` dates stop before the holiday weeks because no source covers
+  them.
+- **Elizabeth's palette is saddle brown** (`#8B5E34` / `#5C3D1F`) on warm paper
+  `#FAF7F2`, supplied with the config. It is the seventh distinct hue in the network and
+  suits a rodeo town.
+- **Three Commons photographs**: the hero is ERoss99's Main Street looking at the 1907
+  First National Bank (CC BY-SA 3.0, resized to 1920px), plus Jeffrey Beall's Town Hall
+  and Huber-Carlson Building (both CC BY 4.0, 1280px). Twenty-five of the twenty-eight
+  places have no photograph and fall back to the letter tile; the businesses on Main
+  Street are the ones worth shooting first.
+- **Casey Jones Park has two addresses.** The Park & Recreation District gives 34201
+  County Road 17 and the Marketplace gives 4189 S Highway 86 for the pavilion. Each
+  listing uses the address its own source publishes rather than picking one.
+- **The pickleball tournament is an all-day entry** because the district publishes the
+  date and the $60 team fee but no start time. Writing a plausible time would have been
+  invention.

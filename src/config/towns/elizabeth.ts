@@ -12,7 +12,12 @@ export const elizabeth = {
   state: "CO",
   lat: 39.3603, lng: -104.5969,
   colors: { accent: "#8B5E34", accentDark: "#5C3D1F", neutralBg: "#FAF7F2" },
-  hero: { image: "hero.jpg", alt: "Main Street in Elizabeth, Colorado" },
+  hero: {
+    image: "hero.jpg",
+    alt: "Main Street in Elizabeth, Colorado",
+    // Attribution required by the photograph's CC BY-SA licence; see IMAGE_LICENSES.csv.
+    credit: "ERoss99, Wikimedia Commons, CC BY-SA 3.0",
+  },
   social: { email: "hello@insideelizabeth.com" },
   nav: DEFAULT_TOWN_NAV, // uses defaults
   movingHere: {
