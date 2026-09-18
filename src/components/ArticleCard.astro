@@ -1,6 +1,10 @@
 ---
 /**
  * Article teaser. `feature` lays the image beside the text for the home page.
+ *
+ * A feature with no photograph is set as text across the full width, under a
+ * heavy rule, rather than beside a tinted rectangle standing in for the
+ * picture that does not exist.
  */
 import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
@@ -14,9 +18,10 @@ interface Props {
 const { article, feature = false } = Astro.props;
 const { data, slug } = article;
 const href = `/articles/${slug}/`;
+const twoUp = feature && !!data.image;
 ---
-<article class:list={['group relative', feature && 'grid gap-6 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-10']}>
-  {data.image ? (
+<article class:list={['group relative', twoUp && 'grid gap-6 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-10']}>
+  {data.image && (
     <div class:list={['overflow-hidden rounded-lg bg-accent-soft', feature ? 'aspect-[4/3]' : 'aspect-[16/10]']}>
       <Image
         src={data.image}
@@ -26,14 +31,8 @@ const href = `/articles/${slug}/`;
         class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
       />
     </div>
-  ) : (
-    feature && (
-      <div class="flex aspect-[4/3] items-end rounded-lg bg-accent-soft p-6" aria-hidden="true">
-        <span class="display text-8xl text-accent-dark/30">{data.title.charAt(0)}</span>
-      </div>
-    )
   )}
-  <div class:list={[!feature && 'mt-4']}>
+  <div class:list={[!feature && data.image && 'mt-4', feature && !data.image && 'max-w-3xl border-t-2 border-ink pt-7']}>
     <p class="eyebrow">
       {data.category} <span class="text-ink-faint">·</span> <time datetime={toIsoLocal(data.date)} class="text-ink-muted">{formatDate(data.date)}</time>
     </p>

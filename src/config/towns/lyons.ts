@@ -42,5 +42,6 @@ export const lyons: TownConfig = {
     townSite: 'https://www.lyonscolorado.com/',
     townSiteLabel: 'the Town of Lyons',
     policeNonEmergency: 'https://bouldercounty.gov/safety/sheriff/',
+    policeNonEmergencyLabel: 'Boulder County Sheriff',
   },
 };

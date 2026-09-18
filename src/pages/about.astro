@@ -1,58 +1,155 @@
 ---
 import Page from '@/layouts/Page.astro';
+import FactStrip from '@/components/FactStrip.astro';
 import { getSite, liveTowns } from '@/config';
+import CtaBand from '@/components/CtaBand.astro';
+import { getTownEntries } from '@/lib/content';
+import { occurrences, upcoming } from '@/lib/events';
+import { monthDay } from '@/lib/dates';
 
 const site = getSite();
 const live = liveTowns();
+const siblings = live.filter((t) => t.slug !== site.slug);
+
+// What the guide actually holds, which is the one thing an About page can say
+// that no other site's About page can.
+const places = await getTownEntries('places');
+const allEvents = await getTownEntries('events');
+const events = upcoming(occurrences(allEvents));
+// The most recent check on any listing: the one number that says the guide is
+// being kept rather than published once and left.
+const checks = [...places, ...allEvents].map((e) => e.data.verified).filter((d): d is Date => !!d);
+const lastChecked = checks.length > 0 ? new Date(Math.max(...checks.map((d) => d.getTime()))) : null;
+const panel = 'rounded-lg bg-white p-6 ring-1 ring-line-soft';
+const panelTitle = 'eyebrow border-b border-line-soft pb-3';
 ---
 {site.kind === 'town' ? (
-  <Page title={`About ${site.siteTitle}`} eyebrow="Independent, local" description={`What ${site.siteTitle} is, who runs it, and what it is not.`} narrow>
-    <div class="prose">
-      <p>
-        {site.siteTitle} is an independent community and visitor guide to {site.name}, {site.state}: what’s on this week,
-        where to eat and drink, where to walk, and what it’s like to live here.
-      </p>
-      <h2>Independent, not official</h2>
-      <p>
-        This site is not the town government, a chamber of commerce, or any public body, and it does not speak for them.
-        For official notices, permits, meetings and services, go to
-        <a href={site.officialLinks.townSite} rel="noopener">{site.officialLinks.townSiteLabel ?? `the official ${site.name} site`}</a>.
-        {site.officialLinks.policeNonEmergency && (
-          <span> Police non-emergency: <a href={site.officialLinks.policeNonEmergency} rel="noopener">{site.officialLinks.policeNonEmergency}</a>.</span>
+  <Page title={`About ${site.siteTitle}`} eyebrow="Independent, local" description={`What ${site.siteTitle} is, who runs it, and what it is not.`}>
+    <FactStrip
+      size="number"
+      facts={[
+        { label: 'Places listed', value: String(places.length) },
+        { label: 'Upcoming events', value: String(events.length) },
+        { label: 'Sister towns', value: String(siblings.length) },
+        ...(lastChecked ? [{ label: 'Last checked', value: `${monthDay(lastChecked).month} ${monthDay(lastChecked).day}` }] : []),
+      ]}
+    />
+    <div class="mt-14 grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
+      <div class="prose">
+        <p>
+          {site.siteTitle} is an independent community and visitor guide to {site.name}, {site.state}: what’s on this
+          week, where to eat and drink, where to walk, and what it’s like to live here.
+        </p>
+        <h2>Independent, not official</h2>
+        <p>
+          This site is not the town government, a chamber of commerce, or any public body, and it does not speak for
+          them. Anything civic — notices, permits, meetings, services — belongs to the official sources listed
+          alongside, and every page here links out to them rather than paraphrasing them.
+        </p>
+        <h2>How the listings are made</h2>
+        <p>
+          Every place and every event is checked against the operator’s own page or a public calendar before it goes
+          up, and carries the date it was last checked. Nothing is copied from a review site. Listings are free and
+          editorial: nobody pays to be here, and nobody can pay to be higher up.
+        </p>
+        <h2>Corrections and listings</h2>
+        <p>
+          Spotted something wrong, or run a business or event here that should be listed?
+          <a href="/contact/">Get in touch</a> — a correction takes a day or two.
+        </p>
+      </div>
+      <aside class="space-y-8 lg:sticky lg:top-24 lg:self-start">
+        <div class={panel}>
+          <p class={panelTitle}>Official sources</p>
+          <ul class="mt-4 space-y-3 text-[0.9375rem] leading-snug">
+            <li>
+              <a href={site.officialLinks.townSite} rel="noopener" class="font-semibold text-accent-dark no-underline hover:underline">
+                {site.officialLinks.townSiteLabel ?? `The official ${site.name} site`} →
+              </a>
+            </li>
+            {site.officialLinks.policeNonEmergency && (
+              <li>
+                <a href={site.officialLinks.policeNonEmergency} rel="noopener" class="font-semibold text-accent-dark no-underline hover:underline">
+                  {site.officialLinks.policeNonEmergencyLabel ?? `${site.name} police`} →
+                </a>
+                <span class="block text-ink-muted">Non-emergency contact. In an emergency, call 911.</span>
+              </li>
+            )}
+          </ul>
+        </div>
+        {siblings.length > 0 && (
+          <div class={panel}>
+            <p class={panelTitle}>The rest of the network</p>
+            <ul class="mt-4 space-y-2.5 text-[0.9375rem]">
+              {siblings.map((t) => (
+                <li>
+                  <a href={`https://${t.domain}/`} class="font-semibold no-underline hover:text-accent-dark hover:underline">{t.siteTitle}</a>
+                  <span class="block text-ink-muted">{t.county} County</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
-      </p>
-      <h2>Part of a network</h2>
-      <p>
-        {site.siteTitle} is one of the Inside the Towns guides to the small towns of Colorado’s Front Range.
-        {live.length > 1 && <span> Sister sites: {live.filter((t) => t.slug !== site.slug).map((t) => t.siteTitle).join(', ')}.</span>}
-      </p>
-      <h2>Corrections and listings</h2>
-      <p>
-        Spotted something wrong, or run a business or event here that should be listed?
-        <a href="/contact/">Get in touch</a>. Listings are free and editorial; we don’t sell placement in the guides.
-      </p>
+      </aside>
     </div>
+    <CtaBand
+      eyebrow={`This week in ${site.name}`}
+      title="Start with what’s on"
+      body={`${events.length} events are listed in ${site.name} right now, from markets and live music to town meetings.`}
+      links={[
+        { label: 'See the events', href: '/events/', primary: true },
+        { label: 'Eat & drink', href: '/eat-drink/' },
+      ]}
+    />
   </Page>
 ) : (
-  <Page title="About the network" eyebrow="Inside the Towns" description="What Inside the Towns is and how the guides are made." narrow>
-    <div class="prose">
-      <p>
-        Inside the Towns publishes independent community guides for the small towns of Colorado’s northern Front Range:
-        one site per town, each with the week’s events, places to eat and drink, things to do outdoors, and a plain
-        account of what it’s like to move there.
-      </p>
-      <h2>Independent</h2>
-      <p>
-        None of the guides is a government site or a chamber of commerce. Each one links to the official town or county
-        site for anything civic, and says so on every page.
-      </p>
-      <h2>Live guides</h2>
-      <ul>
-        {live.map((t) => (
-          <li><a href={`https://${t.domain}/`}>{t.siteTitle}</a> — {t.tagline}</li>
-        ))}
-      </ul>
-      <p>More towns are on the way. <a href="/contact/">Suggest one</a>.</p>
+  <Page title="About the network" eyebrow="Inside the Towns" description="What Inside the Towns is and how the guides are made.">
+    <FactStrip
+      size="number"
+      facts={[
+        { label: 'Guides live', value: String(live.length) },
+        { label: 'Counties', value: String(new Set(live.map((t) => t.county)).size) },
+        { label: 'People covered', value: live.reduce((n, t) => n + (t.population ?? 0), 0).toLocaleString('en-US') },
+      ]}
+    />
+    <div class="mt-14 grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
+      <div class="prose">
+        <p>
+          Inside the Towns publishes independent community guides for the small towns of Colorado’s northern Front
+          Range: one site per town, each with the week’s events, places to eat and drink, things to do outdoors, and a
+          plain account of what it’s like to move there.
+        </p>
+        <h2>Independent</h2>
+        <p>
+          None of the guides is a government site or a chamber of commerce. Each one links to the official town or
+          county site for anything civic, and says so on every page.
+        </p>
+        <h2>How the listings are made</h2>
+        <p>
+          Every place and every event is checked against the operator’s own page or a public calendar before it goes
+          up, and carries the date it was last checked. Listings are free and editorial; we don’t sell placement.
+        </p>
+        <p>More towns are on the way. <a href="/contact/">Suggest one</a>.</p>
+      </div>
+      <aside class="lg:sticky lg:top-24 lg:self-start">
+        <div class={panel}>
+          <p class={panelTitle}>Live guides</p>
+          <ul class="mt-4 space-y-2.5 text-[0.9375rem]">
+            {live.map((t) => (
+              <li>
+                <a href={`https://${t.domain}/`} class="font-semibold no-underline hover:text-accent-dark hover:underline">{t.siteTitle}</a>
+                <span class="block text-ink-muted">{t.county} County</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </aside>
     </div>
+    <CtaBand
+      eyebrow="Inside the Towns"
+      title="Find your town"
+      body="Each guide is written for the people who live there, with the week’s events, the places worth your time, and what it is really like to move in."
+      links={[{ label: 'All the guides', href: '/', primary: true }, { label: 'Suggest a town', href: '/contact/' }]}
+    />
   </Page>
 )}

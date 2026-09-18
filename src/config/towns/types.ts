@@ -65,6 +65,8 @@ export interface TownConfig {
     /** Label for the townSite link, e.g. "Boulder County" for unincorporated towns. */
     townSiteLabel?: string;
     policeNonEmergency?: string;
+    /** What to call the policeNonEmergency link. Without it the raw URL would be the link text. */
+    policeNonEmergencyLabel?: string;
   };
   /** Formspree form id for the contact form. Without it the contact page falls back to mailto. */
   formspreeId?: string;

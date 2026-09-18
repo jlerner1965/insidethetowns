@@ -6,7 +6,12 @@ import { getTownEntry } from '@/lib/content';
 
 const town = getTown();
 const page = await getTownEntry('pages', 'moving-here');
-const Content = page ? (await render(page)).Content : null;
+const rendered = page ? await render(page) : null;
+const Content = rendered?.Content ?? null;
+// The guide runs to a couple of thousand words, so its own section headings
+// double as the contents list. It also gives the column beside the text
+// something to hold all the way down, instead of a page-length empty margin.
+const contents = (rendered?.headings ?? []).filter((h) => h.depth === 2);
 const { listingsLinks, schoolDistrict, commuteNotes } = town.movingHere;
 ---
 <Page
@@ -15,7 +20,7 @@ const { listingsLinks, schoolDistrict, commuteNotes } = town.movingHere;
   intro={page?.data.description}
   description={page?.data.description ?? `Schools, commutes, housing and what to expect when you move to ${town.name}, ${town.state}.`}
 >
-  <div class="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
+  <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
     <div>
       {Content ? (
         <div class="prose"><Content /></div>
@@ -23,15 +28,30 @@ const { listingsLinks, schoolDistrict, commuteNotes } = town.movingHere;
         <p class="text-ink-muted">Guide coming soon.</p>
       )}
     </div>
-    <aside class="space-y-8 lg:pt-1">
-      <div>
-        <p class="eyebrow border-b border-line-soft pb-3">Homes for sale</p>
-        <ul class="mt-3 space-y-2.5 text-[0.9375rem]">
-          {listingsLinks.map((l) => (
-            <li><a href={l.url} rel="noopener nofollow" class="font-semibold text-accent-dark no-underline hover:underline">{l.label} →</a></li>
-          ))}
-        </ul>
-      </div>
+    <aside class="space-y-8 lg:sticky lg:top-24 lg:self-start">
+      {contents.length > 2 && (
+        <nav aria-labelledby="contents-heading">
+          <p class="eyebrow border-b border-line-soft pb-3" id="contents-heading">In this guide</p>
+          <ol class="mt-3 space-y-2 text-[0.9375rem] leading-snug">
+            {contents.map((h, i) => (
+              <li class="flex gap-3">
+                <span class="tabular-nums text-ink-faint">{String(i + 1).padStart(2, '0')}</span>
+                <a href={`#${h.slug}`} class="no-underline hover:text-accent-dark hover:underline">{h.text}</a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )}
+      {listingsLinks.length > 0 && (
+        <div>
+          <p class="eyebrow border-b border-line-soft pb-3">Homes for sale</p>
+          <ul class="mt-3 space-y-2.5 text-[0.9375rem]">
+            {listingsLinks.map((l) => (
+              <li><a href={l.url} rel="noopener nofollow" class="font-semibold text-accent-dark no-underline hover:underline">{l.label} →</a></li>
+            ))}
+          </ul>
+        </div>
+      )}
       <dl class="divide-y divide-line-soft border-y border-line-soft text-[0.9375rem]">
         {schoolDistrict && (
           <div class="py-4"><dt class="eyebrow">Schools</dt><dd class="mt-1.5 leading-snug">{schoolDistrict}</dd></div>

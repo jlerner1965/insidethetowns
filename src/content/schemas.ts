@@ -55,6 +55,19 @@ export const CATEGORY_LABELS: Record<EventCategory, string> = {
   other: 'Other',
 };
 
+/** Headings over a group of places: "Restaurants", not "Restaurant". */
+export const PLACE_TYPE_PLURALS: Record<PlaceType, string> = {
+  restaurant: 'Restaurants',
+  bar: 'Bars & breweries',
+  coffee: 'Coffee & sweets',
+  shop: 'Shops',
+  trail: 'Trails',
+  park: 'Parks & open space',
+  venue: 'Venues',
+  lodging: 'Places to stay',
+  service: 'Services',
+};
+
 export const PLACE_TYPE_LABELS: Record<PlaceType, string> = {
   restaurant: 'Restaurant',
   bar: 'Bar',

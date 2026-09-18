@@ -43,5 +43,6 @@ export const timnath: TownConfig = {
     townSite: 'https://timnath.org/',
     townSiteLabel: 'the Town of Timnath',
     policeNonEmergency: 'https://timnath.org/public-safety/',
+    policeNonEmergencyLabel: 'Timnath public safety',
   },
 };

@@ -1,0 +1,34 @@
+---
+/**
+ * A closing panel in the town's accent: a heading, a line, and somewhere to go
+ * next.
+ *
+ * The short pages — about, contact — ran out of content halfway down the
+ * screen and ended in a page-height gap above the footer. This gives them a
+ * foot, and an onward link instead of a dead end.
+ */
+interface Props {
+  eyebrow?: string;
+  title: string;
+  body?: string;
+  links: Array<{ label: string; href: string; primary?: boolean }>;
+}
+
+const { eyebrow, title, body, links } = Astro.props;
+---
+<section class="on-dark mt-20 rounded-lg bg-accent-dark px-6 py-12 text-white md:mt-24 md:px-12 md:py-16">
+  <div class="grid gap-8 md:grid-cols-[3fr_2fr] md:items-end">
+    <div>
+      {eyebrow && <p class="eyebrow text-white/60">{eyebrow}</p>}
+      <h2 class="display-md mt-3 text-[2.25rem] lg:text-5xl">{title}</h2>
+    </div>
+    <div>
+      {body && <p class="leading-relaxed text-white/85">{body}</p>}
+      <div class="mt-6 flex flex-wrap gap-3">
+        {links.map((l) => (
+          <a href={l.href} class:list={['btn', l.primary ? 'btn-light' : 'btn-outline text-white']}>{l.label}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

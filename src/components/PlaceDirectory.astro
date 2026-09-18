@@ -2,37 +2,47 @@
 /**
  * The places on a page, as a directory.
  *
- * Any places that have been photographed lead the page as cards, because a
- * photograph is the best thing on it. Everything, photographed or not, is then
- * listed as text rows. This is the shape a directory wants: no listing needs a
- * photograph of its own, so a town whose shops have not been shot yet does not
- * read as unfinished, and the filter still works across the whole list.
+ * Any places that have been photographed lead the page, because a photograph
+ * is the best thing on it, and the lead changes shape with how many there are
+ * so it always fills the width. Everything, photographed or not, is then
+ * listed as text rows, grouped by what kind of place it is: one flat run of
+ * thirty-five rows is a wall, and the category headings give it a rhythm and
+ * tell you how many of each the town has.
  */
 import type { TownEntry } from '@/lib/content';
-import { PLACE_TYPE_LABELS, type PlaceType } from '@/content/schemas';
+import { PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, PLACE_TYPES, type PlaceType } from '@/content/schemas';
 import FilterBar from './FilterBar.astro';
 import PlaceCard from './PlaceCard.astro';
+import PlaceFeature from './PlaceFeature.astro';
 import PlaceRow from './PlaceRow.astro';
 
 interface Props {
   places: TownEntry<'places'>[];
   filterable?: boolean;
   emptyMessage?: string;
-  /** Show up to this many photographed places as cards above the list. */
+  /** Show up to this many photographed places above the list. */
   lead?: number;
   /** Names the list for screen readers, so the page does not jump h1 to h3. */
   heading?: string;
 }
 
 const { places, filterable = false, emptyMessage = 'Nothing listed yet.', lead = 3, heading } = Astro.props;
-const types = [...new Set(places.map((p) => p.data.type))] as PlaceType[];
+
+// PLACE_TYPES order, not the order the files happen to load in, so every town
+// lists restaurants before bars before coffee.
+const types = PLACE_TYPES.filter((t) => places.some((p) => p.data.type === t)) as PlaceType[];
 const options = types.map((t) => ({ value: t, label: PLACE_TYPE_LABELS[t] }));
 const withPhoto = places.filter((p) => p.data.image).slice(0, lead);
+const grouped = types.length > 1;
+const groups = grouped
+  ? types.map((type) => ({ type, label: PLACE_TYPE_PLURALS[type], items: places.filter((p) => p.data.type === type) }))
+  : [{ type: types[0], label: '', items: places }];
 ---
 <div data-filter-root>
   {heading && <h2 class="sr-only">{heading}</h2>}
-  {withPhoto.length > 0 && (
-    <div class="mb-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
+  {withPhoto.length === 1 && <div class="mb-12"><PlaceFeature place={withPhoto[0]} /></div>}
+  {withPhoto.length > 1 && (
+    <div class:list={['mb-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:gap-x-8', withPhoto.length > 2 && 'lg:grid-cols-3']}>
       {withPhoto.map((place) => <PlaceCard place={place} />)}
     </div>
   )}
@@ -40,9 +50,19 @@ const withPhoto = places.filter((p) => p.data.image).slice(0, lead);
   {places.length === 0 ? (
     <p class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">{emptyMessage}</p>
   ) : (
-    <ul class="mt-2 border-t border-line-soft">
-      {places.map((place) => <PlaceRow place={place} />)}
-    </ul>
+    groups.map((group) => (
+      <section class="mt-10 first:mt-0" data-filter-group>
+        {group.label && (
+          <h3 class="flex items-baseline justify-between gap-4 border-b border-ink pb-2.5 text-[1.5rem] font-medium">
+            {group.label}
+            <span class="text-[0.875rem] font-semibold tabular-nums text-ink-faint">{group.items.length}</span>
+          </h3>
+        )}
+        <ul>
+          {group.items.map((place) => <PlaceRow place={place} level={group.label ? 4 : 3} />)}
+        </ul>
+      </section>
+    ))
   )}
-  <p data-filter-empty hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">Nothing in this category yet.</p>
+  <p data-filter-empty hidden class="mt-6 rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">Nothing in this category yet.</p>
 </div>

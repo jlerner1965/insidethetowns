@@ -43,5 +43,6 @@ export const erie: TownConfig = {
     townSite: 'https://www.erieco.gov/',
     townSiteLabel: 'the Town of Erie',
     policeNonEmergency: 'https://www.erieco.gov/246/Police-Department',
+    policeNonEmergencyLabel: 'Erie Police Department',
   },
 };

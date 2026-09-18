@@ -1,0 +1,27 @@
+---
+/**
+ * A short list of places as names and types, two to a row.
+ *
+ * Used where a card grid would be wrong: under the photographed places on the
+ * home page, and at the foot of a place's own page, which otherwise ends
+ * halfway down the screen with nowhere to go next.
+ */
+import type { TownEntry } from '@/lib/content';
+import { PLACE_TYPE_LABELS } from '@/content/schemas';
+
+interface Props {
+  places: TownEntry<'places'>[];
+}
+
+const { places } = Astro.props;
+---
+{places.length > 0 && (
+  <ul class="grid gap-x-12 sm:grid-cols-2">
+    {places.map((place) => (
+      <li class="group flex items-baseline justify-between gap-4 border-b border-line-soft py-3.5">
+        <a href={`/places/${place.slug}/`} class="text-[1.0625rem] font-medium no-underline group-hover:text-accent-dark">{place.data.title}</a>
+        <span class="eyebrow shrink-0 text-ink-faint">{PLACE_TYPE_LABELS[place.data.type]}</span>
+      </li>
+    ))}
+  </ul>
+)}

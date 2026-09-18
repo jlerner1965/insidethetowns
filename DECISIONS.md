@@ -485,3 +485,44 @@ Hours coverage across the network went from 67 of 240 places to 180 of 240.
   already lists entries not re-checked in 90 days, which is the mechanism for
   catching them. Two known to expire: the Redstone Museum's season ends on 30
   September, and WeeCasa has announced it closes for good on 31 October.
+
+## Design pass: blank frames, wordiness, and the empty right column
+
+Five things on the live sites read as unfinished rather than plain, and the
+fixes are all structural rather than decorative.
+
+- **A card is the shape a photograph goes in, so a card without one is not
+  drawn.** The home page fed the first six places into `PlaceCard` whether or
+  not they had an image, and `PlaceCard` filled the empty frame with a tinted
+  panel and a large initial. Six towns have fewer than ten licensed
+  photographs between thirty and fifty places, so that grid was mostly grey
+  rectangles. Cards are now built from photographed places only; the rest of
+  the section is `PlaceIndex`, a two-column list of names and types. The same
+  rule now applies to `ArticleCard`: a feature with no photograph is set as
+  text across the full width under a heavy rule.
+- **The lead adapts to how many photographs exist.** Three or more is the card
+  grid, two is a two-column grid, one is `PlaceFeature` across the full width,
+  and none is no lead at all. A single card in a three-column grid was the
+  worst of the lot: two empty thirds read as a page that failed to load.
+- **Directory rows are grouped by type, with counts.** Thirty-five identical
+  rows in one run is a wall; `Restaurants 6`, `Bars 4`, `Coffee & sweets 3`
+  gives it a rhythm and says what the town has. The rows also lost their `area`
+  and `phone` lines, which mostly restated the address — that is what the
+  listing's own page is for.
+- **The column beside long prose holds a contents rail.** Moving Here and the
+  articles ran a 40rem measure down a 76rem page, leaving a page-height empty
+  margin. Both now carry a numbered contents list built from the markdown's own
+  `h2`s, and the aside is sticky, so the column has something in it the whole
+  way down.
+- **Short pages end in a band, not a gap.** About and the place listings
+  stopped a third of the way down the screen. Place pages now close with what
+  is on at that venue and the other places of its kind; About closes with a
+  `CtaBand`. About and the hub also open with a `FactStrip` of what the guide
+  actually holds, which is the one thing an About page can say that no other
+  site's can.
+- **The hero is capped as well as proportional.** `78svh` on a tall desktop
+  monitor is over a thousand pixels of sky before the page starts, so it is now
+  `min(78svh, 760px)`.
+- **The map labels flip side when crowded.** Berthoud and Johnstown are nine
+  miles apart on the same latitude and their labels overlapped; a label whose
+  pin has company within 170px to its right is now drawn to the left.

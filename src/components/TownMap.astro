@@ -1,8 +1,16 @@
 ---
 /**
- * Hub only. A static SVG of the northern Front Range with a pin per town.
- * Lat/lng come from each town's config; the projection is a plain linear
- * fit over the bounding box, which is fine at this scale.
+ * Hub only. A static SVG map of where the towns are.
+ *
+ * The projection is a plain linear fit, but longitude is scaled by cos(lat) so
+ * a degree east reads as the shorter distance it really is, and the viewBox is
+ * sized to the data rather than to a fixed rectangle. Without both, the towns
+ * span more than twice as much latitude as longitude and the map draws a thin
+ * strip of pins down one side of a wide empty box.
+ *
+ * The reference cities and the interstate are what make the space between the
+ * towns mean something: six of them sit north-west of Denver and Elizabeth sits
+ * south-east of it, which is a fact about the network, not a hole in the map.
  */
 import { LIVE_TOWNS, type TownConfig } from '@/config';
 
@@ -11,43 +19,141 @@ interface Props {
 }
 
 const { towns } = Astro.props;
-const W = 640;
-const H = 520;
-const pad = 56;
-const lngs = towns.map((t) => t.lng);
-const lats = towns.map((t) => t.lat);
-const minLng = Math.min(...lngs) - 0.1;
-const maxLng = Math.max(...lngs) + 0.1;
-const minLat = Math.min(...lats) - 0.08;
-const maxLat = Math.max(...lats) + 0.08;
-const x = (lng: number) => pad + ((lng - minLng) / (maxLng - minLng)) * (W - pad * 2);
-const y = (lat: number) => H - pad - ((lat - minLat) / (maxLat - minLat)) * (H - pad * 2);
-const pins = towns.map((t) => ({ t, cx: x(t.lng), cy: y(t.lat), live: LIVE_TOWNS.includes(t.slug) }));
+
+/** Cities with no guide of their own, drawn faintly so the towns have somewhere to be. */
+const CONTEXT = [
+  // Timnath sits just east of Fort Collins, so its label has to go west.
+  { name: 'Fort Collins', lat: 40.5853, lng: -105.0844, side: 'right' },
+  { name: 'Boulder', lat: 40.015, lng: -105.2705, side: 'right' },
+  { name: 'Longmont', lat: 40.1672, lng: -105.1019, side: 'left' },
+  { name: 'Denver', lat: 39.7392, lng: -104.9903, side: 'left' },
+  { name: 'Castle Rock', lat: 39.3722, lng: -104.8561, side: 'right' },
+];
+
+/** I-25, the road that ties the whole thing together, as a rough polyline. */
+const I25 = [
+  { lat: 40.64, lng: -104.99 },
+  { lat: 40.4, lng: -104.99 },
+  { lat: 40.17, lng: -104.98 },
+  { lat: 39.87, lng: -104.98 },
+  { lat: 39.74, lng: -104.99 },
+  { lat: 39.56, lng: -104.88 },
+  { lat: 39.31, lng: -104.86 },
+];
+
+const all = [...towns, ...CONTEXT, ...I25];
+const minLat = Math.min(...all.map((p) => p.lat)) - 0.05;
+const maxLat = Math.max(...all.map((p) => p.lat)) + 0.05;
+const minLng = Math.min(...all.map((p) => p.lng)) - 0.05;
+const maxLng = Math.max(...all.map((p) => p.lng)) + 0.05;
+
+// A degree of longitude covers less ground than a degree of latitude up here.
+const shrink = Math.cos(((minLat + maxLat) / 2) * (Math.PI / 180));
+const spanLat = maxLat - minLat;
+const spanLng = (maxLng - minLng) * shrink;
+
+// The foothills band needs the left edge, the longest label needs the right,
+// and the caption needs a strip at the foot. Without the left margin the
+// westernmost pin is drawn half outside the frame.
+const marginL = 78;
+const marginR = 132;
+const footer = 30;
+const PLOT_H = 540;
+const scale = PLOT_H / spanLat;
+const W = Math.round(spanLng * scale + marginL + marginR);
+const H = PLOT_H + footer;
+
+const x = (lng: number) => marginL + (lng - minLng) * shrink * scale;
+const y = (lat: number) => (maxLat - lat) * scale;
+
+const context = CONTEXT.map((c) => ({ ...c, cx: x(c.lng), cy: y(c.lat) }));
+
+// Berthoud and Johnstown are nine miles apart on the same line of latitude, so
+// a label always drawn to the right of its pin lands on top of its neighbour.
+// Anything with company close to its right gets its label on the other side.
+const placed = [...towns.map((t) => ({ cx: x(t.lng), cy: y(t.lat) })), ...context];
+const pins = towns.map((t) => {
+  const cx = x(t.lng);
+  const cy = y(t.lat);
+  const crowded = placed.some((p) => p.cx - cx > 1 && p.cx - cx < 170 && Math.abs(p.cy - cy) < 22);
+  return { t, cx, cy, left: crowded, live: LIVE_TOWNS.includes(t.slug) };
+});
+const road = I25.map((p) => `${x(p.lng).toFixed(1)},${y(p.lat).toFixed(1)}`).join(' ');
 ---
 <figure class="overflow-hidden rounded-lg bg-white ring-1 ring-line-soft">
   {/* No role="img": that prunes descendants from the accessibility tree,
-     which would leave the seven town links focusable but unnamed. */}
+     which would leave the town links focusable but unnamed. */}
   <svg viewBox={`0 0 ${W} ${H}`} aria-labelledby="town-map-title" class="h-auto w-full font-body">
-    <title id="town-map-title">Map of the towns in the network</title>
+    <title id="town-map-title">
+      Map of Colorado's Front Range showing the {towns.length} towns in the network, with Denver,
+      Boulder, Fort Collins and Interstate 25 for reference
+    </title>
     <rect width={W} height={H} fill="#ffffff"></rect>
-    <path d={`M 0 0 L ${pad * 1.2} ${H * 0.12} L ${pad * 0.6} ${H * 0.5} L ${pad * 1.4} ${H} L 0 ${H} Z`} fill="var(--color-accent-soft)"></path>
-    <text x={pad * 0.35} y={H * 0.5} font-size="11" fill="var(--color-ink-faint)" transform={`rotate(-90 ${pad * 0.35} ${H * 0.5})`} text-anchor="middle" letter-spacing="2">FOOTHILLS</text>
-    {pins.map(({ t, cx, cy, live }) => (
+
+    {/* The mountains are the western edge of everything here. */}
+    <path
+      d={`M 0 0 L 24 ${H * 0.16} L 11 ${H * 0.4} L 27 ${H * 0.62} L 14 ${H * 0.82} L 26 ${H} L 0 ${H} Z`}
+      fill="var(--color-accent-soft)"
+    ></path>
+    <text
+      x="12"
+      y={H * 0.5}
+      font-size="10"
+      fill="var(--color-ink-faint)"
+      transform={`rotate(-90 12 ${H * 0.5})`}
+      text-anchor="middle"
+      letter-spacing="2">FOOTHILLS</text>
+
+    <polyline
+      points={road}
+      fill="none"
+      stroke="var(--color-ink-faint)"
+      stroke-width="2"
+      stroke-dasharray="1 5"
+      stroke-linecap="round"
+      opacity="0.7"></polyline>
+    <text x={x(-104.98) + 9} y={y(39.98)} font-size="10" fill="var(--color-ink-faint)" letter-spacing="1.5">I-25</text>
+
+    {context.map((c) => (
+      <g>
+        <circle cx={c.cx} cy={c.cy} r="3" fill="var(--color-ink-faint)"></circle>
+        <text
+          x={c.cx + (c.side === 'right' ? -9 : 9)}
+          y={c.cy + 4}
+          font-size="12"
+          fill="var(--color-ink-faint)"
+          text-anchor={c.side === 'right' ? 'end' : 'start'}>{c.name}</text>
+      </g>
+    ))}
+
+    {pins.map(({ t, cx, cy, left, live }) => (
       <g>
         {live ? (
           <a href={`https://${t.domain}/`} aria-label={`${t.name} — ${t.domain}`}>
-            <circle cx={cx} cy={cy} r="20" fill={t.colors.accent} fill-opacity="0.15"></circle>
-            <circle cx={cx} cy={cy} r="8" fill={t.colors.accent}></circle>
-            <text x={cx + 18} y={cy + 5} font-size="15" font-weight="600" fill="var(--color-ink)">{t.name}</text>
+            <circle cx={cx} cy={cy} r="17" fill={t.colors.accent} fill-opacity="0.14"></circle>
+            <circle cx={cx} cy={cy} r="7" fill={t.colors.accent}></circle>
+            <text
+              x={cx + (left ? -15 : 15)}
+              y={cy + 5}
+              font-size="15"
+              font-weight="600"
+              fill="var(--color-ink)"
+              text-anchor={left ? 'end' : 'start'}>{t.name}</text>
           </a>
         ) : (
           <g>
-            <circle cx={cx} cy={cy} r="6" fill="none" stroke="var(--color-ink-faint)" stroke-width="2"></circle>
-            <text x={cx + 16} y={cy + 5} font-size="14" fill="var(--color-ink-muted)">{t.name}</text>
+            <circle cx={cx} cy={cy} r="5.5" fill="none" stroke="var(--color-ink-faint)" stroke-width="2"></circle>
+            <text
+              x={cx + (left ? -14 : 14)}
+              y={cy + 5}
+              font-size="14"
+              fill="var(--color-ink-muted)"
+              text-anchor={left ? 'end' : 'start'}>{t.name}</text>
           </g>
         )}
       </g>
     ))}
-    <text x={W - pad * 0.4} y={H - 18} font-size="11" fill="var(--color-ink-faint)" text-anchor="end" letter-spacing="2">NORTHERN FRONT RANGE · COLORADO</text>
+
+    <text x={W - 10} y={H - 11} font-size="11" fill="var(--color-ink-faint)" text-anchor="end" letter-spacing="2">COLORADO’S FRONT RANGE</text>
   </svg>
 </figure>

@@ -3,10 +3,11 @@
  * A place as a photo-led card with no box: image, eyebrow, serif title,
  * two-line summary.
  *
- * Places without a photo do not get an empty photo frame, which reads as a
- * missing image. They get a panel in the town's accent carrying what a photo
- * cannot: what kind of place it is, and its hours or price band. Every place
- * has tags, so the panel is never empty.
+ * A card is the shape a photograph goes in. Without one there is nothing to
+ * put in the frame, and a tinted rectangle where a photograph should be reads
+ * as a page that failed to load, so the frame is simply not drawn. Pages lead
+ * with the places they have photographs of and list the rest as directory
+ * rows.
  */
 import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
@@ -19,11 +20,10 @@ interface Props {
 const { place } = Astro.props;
 const { data, slug } = place;
 const href = `/places/${slug}/`;
-const facts = [data.priceRange, data.hours].filter(Boolean).join(' · ');
 ---
 <article class="group relative flex flex-col" data-filter-item data-category={data.type}>
-  <div class="aspect-[4/3] overflow-hidden rounded-lg bg-accent-soft">
-    {data.image ? (
+  {data.image && (
+    <div class="aspect-[4/3] overflow-hidden rounded-lg bg-accent-soft">
       <Image
         src={data.image}
         alt={data.imageAlt ?? ''}
@@ -31,30 +31,9 @@ const facts = [data.priceRange, data.hours].filter(Boolean).join(' · ');
         height={540}
         class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
       />
-    ) : (
-      <div class="flex h-full flex-col p-5">
-        <span
-          class="display flex flex-1 items-center justify-center text-[5.5rem] leading-none text-accent-dark/25"
-          aria-hidden="true"
-        >
-          {data.title.charAt(0)}
-        </span>
-        <div class="space-y-1.5">
-          {data.tags.length > 0 && (
-            <ul class="flex flex-wrap gap-1.5">
-              {data.tags.slice(0, 3).map((tag) => (
-                <li class="rounded-full bg-white/70 px-2.5 py-1 text-[0.6875rem] font-medium uppercase tracking-wide text-accent-dark">
-                  {tag}
-                </li>
-              ))}
-            </ul>
-          )}
-          {facts && <p class="line-clamp-2 text-[0.8125rem] leading-snug text-ink-muted">{facts}</p>}
-        </div>
-      </div>
-    )}
-  </div>
-  <div class="mt-4">
+    </div>
+  )}
+  <div class:list={[data.image && 'mt-4']}>
     <p class="eyebrow">
       {PLACE_TYPE_LABELS[data.type]}{data.priceRange && <span class="ml-2 text-ink-faint">{data.priceRange}</span>}{data.area && <span class="ml-2 font-medium normal-case tracking-normal text-ink-faint">{data.area}</span>}
     </p>

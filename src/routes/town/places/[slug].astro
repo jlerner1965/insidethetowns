@@ -3,9 +3,13 @@ import { getImage, Image } from 'astro:assets';
 import { render } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import { getTown } from '@/config';
+import EventCard from '@/components/EventCard.astro';
+import PlaceIndex from '@/components/PlaceIndex.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
 import { getTownEntries, type TownEntry } from '@/lib/content';
+import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { breadcrumbJsonLd, localBusinessJsonLd } from '@/lib/seo';
-import { EAT_DRINK_TYPES, PLACE_TYPE_LABELS } from '@/content/schemas';
+import { EAT_DRINK_TYPES, PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, THINGS_TO_DO_TYPES } from '@/content/schemas';
 import { formatDate } from '@/lib/dates';
 
 export async function getStaticPaths() {
@@ -25,6 +29,22 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
 const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
 const back = EAT_DRINK_TYPES.includes(data.type) || data.type === 'shop' ? { href: '/eat-drink/', label: 'Eat & drink' } : { href: '/things-to-do/', label: 'Things to do' };
 const eyebrow = `${PLACE_TYPE_LABELS[data.type]}${data.priceRange ? ` · ${data.priceRange}` : ''}`;
+// A listing is a short page. Without somewhere to go next it ends a third of
+// the way down the screen, and the other places of its kind are the obvious
+// next thing — as is anything on at this venue.
+const family: readonly string[] = EAT_DRINK_TYPES.includes(data.type)
+  ? [...EAT_DRINK_TYPES, 'shop']
+  : THINGS_TO_DO_TYPES.includes(data.type)
+    ? [...THINGS_TO_DO_TYPES, 'lodging']
+    : [data.type];
+const others = (await getTownEntries('places')).filter((p) => p.slug !== place.slug);
+const sameType = others.filter((p) => p.data.type === data.type);
+const nearby = (sameType.length >= 3 ? sameType : others.filter((p) => family.includes(p.data.type)))
+  .sort((a, b) => Number(b.data.featured) - Number(a.data.featured) || a.data.title.localeCompare(b.data.title))
+  .slice(0, 6);
+const here = uniqueByEvent(upcoming(occurrences(await getTownEntries('events'))))
+  .filter((e) => e.data.venue === data.title)
+  .slice(0, 3);
 const facts = [
   { label: 'Address', value: data.area ? `${data.address} · ${data.area}` : data.address },
   { label: 'Hours', value: data.hours },
@@ -79,4 +99,25 @@ const facts = [
       )}
     </aside>
   </div>
+
+  {here.length > 0 && (
+    <section class="mt-20 md:mt-24">
+      <SectionHeader eyebrow={`On at ${data.title}`} title="What’s coming up" href="/events/" linkLabel="All events" />
+      <div class="border-b border-line-soft">
+        {here.map((event) => <EventCard event={event} />)}
+      </div>
+    </section>
+  )}
+
+  {nearby.length > 0 && (
+    <section class="mt-20 md:mt-24">
+      <SectionHeader
+        eyebrow={`More in ${town.name}`}
+        title={nearby.every((p) => p.data.type === data.type) ? PLACE_TYPE_PLURALS[data.type] : back.label}
+        href={back.href}
+        linkLabel={`All ${back.label.toLowerCase()}`}
+      />
+      <PlaceIndex places={nearby} />
+    </section>
+  )}
 </Page>

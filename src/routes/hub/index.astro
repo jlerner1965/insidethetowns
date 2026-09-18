@@ -6,6 +6,7 @@
 import Base from '@/layouts/Base.astro';
 import TownMap from '@/components/TownMap.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
+import FactStrip from '@/components/FactStrip.astro';
 import { getHub, LIVE_TOWNS } from '@/config';
 import { websiteJsonLd } from '@/lib/seo';
 
@@ -23,11 +24,21 @@ const soon = hub.towns.filter((t) => !LIVE_TOWNS.includes(t.slug));
       {hub.tagline} One site per town: the week’s events, where to eat and drink, the trails, and a straight
       account of what it’s like to live there.
     </p>
+    <div class="mt-12 max-w-4xl">
+      <FactStrip
+        size="number"
+        facts={[
+          { label: 'Guides live', value: String(live.length) },
+          { label: 'Counties', value: String(new Set(live.map((t) => t.county)).size) },
+          { label: 'People covered', value: live.reduce((n, t) => n + (t.population ?? 0), 0).toLocaleString('en-US') },
+        ]}
+      />
+    </div>
   </section>
 
   <section id="towns" class="container-page pt-16 md:pt-24">
     <SectionHeader eyebrow="The network" title="The towns" />
-    <div class="grid gap-10 lg:grid-cols-[3fr_2fr] lg:gap-14">
+    <div class="grid items-start gap-10 lg:grid-cols-[3fr_2fr] lg:gap-14">
       <TownMap towns={hub.towns} />
       <div class="grid content-start gap-5 sm:grid-cols-2 lg:grid-cols-1">
         {live.map((t) => (

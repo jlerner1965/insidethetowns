@@ -26,7 +26,10 @@ for i in $(seq 1 40); do curl -sf "http://127.0.0.1:$PORT/" >/dev/null && { up=1
 for page in "${PAGES[@]}"; do
   name=$(echo "$page" | sed 's#^/##; s#/$##; s#/#-#g'); name=${name:-home}
   for w in 375 768 1280; do
+    # Without a virtual time budget the shot fires before lazily-loaded images
+    # below the fold have decoded, and every one of them reviews as a blank box.
     "$SHELL_BIN" --no-sandbox --disable-gpu --hide-scrollbars --proxy-server="direct://" --proxy-bypass-list="*" \
+      --virtual-time-budget=8000 --run-all-compositor-stages-before-draw \
       --window-size="$w,2400" --screenshot="$OUT/$name-$w.png" "http://127.0.0.1:$PORT$page" >/dev/null 2>&1
   done
   echo "shot $page"

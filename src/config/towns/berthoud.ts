@@ -43,5 +43,6 @@ export const berthoud: TownConfig = {
     townSite: 'https://www.berthoud.org/',
     townSiteLabel: 'the Town of Berthoud',
     policeNonEmergency: 'https://www.larimer.gov/sheriff/patrol/berthoud-squad',
+    policeNonEmergencyLabel: 'the Larimer County Sheriff’s Berthoud squad',
   },
 };

@@ -19,11 +19,14 @@ interface Props {
 const town = getTown();
 const { article } = Astro.props;
 const { data } = article;
-const { Content } = await render(article);
+const { Content, headings } = await render(article);
+// Long reads get a contents rail, which is also what stops the column beside
+// the text from being a page-length empty margin.
+const contents = headings.filter((h) => h.depth === 2);
 const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 ---
-<Page title={data.title} eyebrow={data.category} intro={data.excerpt} description={data.excerpt} image={shareImage} imageAlt={data.imageAlt} type="article" narrow
+<Page title={data.title} eyebrow={data.category} intro={data.excerpt} description={data.excerpt} image={shareImage} imageAlt={data.imageAlt} type="article"
   jsonLd={[
     articleJsonLd(town, article, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined),
     breadcrumbJsonLd(town, [
@@ -36,8 +39,25 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
     <time datetime={toIsoLocal(data.date)}>{formatDate(data.date)}</time>
     {data.updated && <span> · Updated {formatDate(data.updated)}</span>}
   </p>
-  {data.image && <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={675} class="mb-10 rounded-lg" />}
-  <div class="prose">
-    <Content />
+  {data.image && <Image src={data.image} alt={data.imageAlt ?? ''} width={1600} height={900} class="mb-12 w-full rounded-lg" />}
+  <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
+    <div class="prose">
+      <Content />
+    </div>
+    {contents.length > 2 && (
+      <aside class="lg:sticky lg:top-24 lg:self-start">
+        <nav aria-labelledby="contents-heading">
+          <p class="eyebrow border-b border-line-soft pb-3" id="contents-heading">In this article</p>
+          <ol class="mt-3 space-y-2 text-[0.9375rem] leading-snug">
+            {contents.map((h, i) => (
+              <li class="flex gap-3">
+                <span class="tabular-nums text-ink-faint">{String(i + 1).padStart(2, '0')}</span>
+                <a href={`#${h.slug}`} class="no-underline hover:text-accent-dark hover:underline">{h.text}</a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </aside>
+    )}
   </div>
 </Page>

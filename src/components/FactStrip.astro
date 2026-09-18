@@ -1,0 +1,37 @@
+---
+/**
+ * A row of labelled facts: population, county, what the guide holds.
+ *
+ * Pages that are nothing but prose read as unfinished no matter how good the
+ * prose is, because there is no shape to look at before you start reading.
+ * This gives one, out of numbers the site already knows, and fills the width
+ * that a single column of text leaves empty.
+ */
+interface Props {
+  facts: Array<{ label: string; value: string; href?: string }>;
+  /** Numbers get the display face at size; sentences stay at reading size. */
+  size?: 'number' | 'text';
+}
+
+const { facts, size = 'text' } = Astro.props;
+const value = size === 'number' ? 'display-md mt-2 text-[2rem]' : 'mt-2 text-[1.0625rem] leading-snug';
+// Written out rather than interpolated so Tailwind can see the class names.
+const columns: Record<number, string> = {
+  1: 'sm:grid-cols-1',
+  2: 'sm:grid-cols-2',
+  3: 'sm:grid-cols-2 lg:grid-cols-3',
+  4: 'sm:grid-cols-2 lg:grid-cols-4',
+};
+---
+{facts.length > 0 && (
+  <dl class:list={['grid gap-px overflow-hidden rounded-lg bg-line-soft', columns[Math.min(facts.length, 4)]]}>
+    {facts.map((f) => (
+      <div class="bg-paper px-5 py-5">
+        <dt class="eyebrow">{f.label}</dt>
+        <dd class={value}>
+          {f.href ? <a href={f.href} rel="noopener" class="text-accent-dark no-underline hover:underline">{f.value}</a> : f.value}
+        </dd>
+      </div>
+    ))}
+  </dl>
+)}

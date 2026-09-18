@@ -4,6 +4,8 @@ import Hero from '@/components/Hero.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import EventCard from '@/components/EventCard.astro';
 import PlaceCard from '@/components/PlaceCard.astro';
+import PlaceFeature from '@/components/PlaceFeature.astro';
+import PlaceIndex from '@/components/PlaceIndex.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
@@ -13,7 +15,16 @@ import { websiteJsonLd } from '@/lib/seo';
 const town = getTown();
 const events = uniqueByEvent(upcoming(occurrences(await getTownEntries('events')))).slice(0, 4);
 const places = await getTownEntries('places');
-const featuredPlaces = [...places.filter((p) => p.data.featured), ...places.filter((p) => !p.data.featured)].slice(0, 6);
+// Cards are for photographs. A card with no photograph is an empty grey box,
+// and most of these towns have only a handful of licensed images, so the rest
+// of the section is an index of names instead of a grid of placeholders.
+const pickedFirst = <T extends { data: { featured: boolean } }>(list: T[]) => [
+  ...list.filter((p) => p.data.featured),
+  ...list.filter((p) => !p.data.featured),
+];
+const placeCards = pickedFirst(places.filter((p) => p.data.image)).slice(0, 3);
+const carded = new Set(placeCards.map((p) => p.slug));
+const placeIndex = pickedFirst(places.filter((p) => !carded.has(p.slug))).slice(0, 8);
 const articles = (await getTownEntries('articles')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 2);
 const [lead, second] = articles;
 ---
@@ -33,12 +44,22 @@ const [lead, second] = articles;
 
   <section class="container-page pt-16 md:pt-24">
     <SectionHeader eyebrow="Eat, drink, wander" title="Where to go" href="/eat-drink/" linkLabel="Eat & drink" />
-    {featuredPlaces.length === 0 ? (
+    {places.length === 0 ? (
       <p class="text-ink-muted">Places are on their way.</p>
     ) : (
-      <div class="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
-        {featuredPlaces.map((place) => <PlaceCard place={place} />)}
-      </div>
+      <>
+        {placeCards.length === 1 && <PlaceFeature place={placeCards[0]} />}
+        {placeCards.length > 1 && (
+          <div class:list={['grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:gap-x-8', placeCards.length > 2 && 'lg:grid-cols-3']}>
+            {placeCards.map((place) => <PlaceCard place={place} />)}
+          </div>
+        )}
+        {placeIndex.length > 0 && (
+          <div class:list={[placeCards.length > 0 && 'mt-12 border-t border-line-soft pt-2']}>
+            <PlaceIndex places={placeIndex} />
+          </div>
+        )}
+      </>
     )}
   </section>
 

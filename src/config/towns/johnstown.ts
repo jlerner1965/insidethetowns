@@ -42,5 +42,6 @@ export const johnstown: TownConfig = {
     townSite: 'https://johnstownco.gov/',
     townSiteLabel: 'the Town of Johnstown',
     policeNonEmergency: 'https://johnstownpolice.org/',
+    policeNonEmergencyLabel: 'Johnstown Police Department',
   },
 };
