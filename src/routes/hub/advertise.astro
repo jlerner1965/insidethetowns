@@ -1,32 +1,139 @@
 ---
+/**
+ * The rate card, or the honest absence of one.
+ *
+ * `hub.rates` is unset until there are numbers worth standing behind, and
+ * until then this page says rates are on request rather than printing a table
+ * with blanks in it. A buyer reading "$TBD" learns that the seller has not
+ * worked it out, which is a worse first impression than a short page.
+ *
+ * Audience figures are the same bet in reverse: they appear when the network
+ * measures them. Quoting a number nobody counted is how a media kit stops
+ * being believed, and this whole model runs on being believed.
+ */
 import Page from '@/layouts/Page.astro';
+import CtaBand from '@/components/CtaBand.astro';
 import { getHub, liveTowns } from '@/config';
 
 const hub = getHub();
 const live = liveTowns();
+const rates = hub.rates ?? [];
+const measured = Boolean(hub.ga4Id);
+const mailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Advertising enquiry')}`;
+const money = (n: number) => `$${n.toLocaleString('en-US')}`;
 ---
-<Page title="Advertise & partner" eyebrow="Work with us" description="Reach residents and visitors of Colorado Front Range towns through Inside the Towns." narrow>
+<Page
+  title="Advertise & partner"
+  eyebrow="Work with us"
+  description={`Reach residents and visitors across ${live.length} Colorado Front Range towns through Inside the Towns.`}
+  intro={`Guides to ${live.length} towns that people read when they are deciding where to go this weekend, or whether to move here at all.`}
+  narrow
+>
   <div class="prose">
     <p>
       Inside the Towns reaches people who live in, visit, or are about to move to the small towns of the northern
-      Front Range. Placements are clearly labelled and never mixed into editorial listings.
+      Front Range. Placements are clearly labelled and never mixed into the editorial listings.
     </p>
+
+    <h2>What isn’t for sale</h2>
+    <p>
+      A place in the listings. Every guide tells its readers that nobody pays to be listed and nobody can pay to be
+      ranked higher, and that promise is worth more to both of us than a featured slot would be — it is the reason
+      anyone believes the listings in the first place. Sponsorship sits beside the editorial, labelled, never inside
+      it. This is not a policy we will quietly change later; it is written into the
+      <a href="/editorial/">editorial policy</a>.
+    </p>
+  </div>
+
+  {rates.length > 0 ? (
+    <section class="mt-14">
+      <h2 class="display-md mb-6 text-3xl">What a placement costs</h2>
+      <div class="overflow-x-auto">
+        <table class="compare w-full text-left">
+          <caption class="sr-only">Advertising rates</caption>
+          <thead>
+            <tr>
+              <th scope="col">Placement</th>
+              <th scope="col">Where it appears</th>
+              <th scope="col">Price</th>
+              <th scope="col">How many</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rates.map((rate) => (
+              <tr>
+                <th scope="row" data-label="Placement">{rate.name}</th>
+                <td data-label="Where it appears">
+                  {rate.placement}
+                  {rate.note && <span class="mt-1 block text-sm text-ink-muted">{rate.note}</span>}
+                </td>
+                <td data-label="Price" class="whitespace-nowrap tabular-nums">
+                  {money(rate.price)} <span class="text-ink-faint">/ {rate.period}</span>
+                </td>
+                <td data-label="How many">{rate.slots ? `${rate.slots} per town` : 'Ask'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-5 max-w-[68ch] text-[0.9375rem] leading-relaxed text-ink-muted">
+        We keep placements to a small number per town so they do not compete with each other, which is also why the
+        right-hand column is a real limit rather than a sales line.
+      </p>
+    </section>
+  ) : (
+    <div class="prose mt-14">
+      <h2>What it costs</h2>
+      <p>
+        Rates are on request while we are still setting them. Ask and you will get a straight number and what it buys,
+        not a deck — and you will be told how many other placements exist in that town, because a slot nobody else
+        wants is not worth what a scarce one is.
+      </p>
+    </div>
+  )}
+
+  <div class="prose mt-14">
     <h2>What’s available</h2>
     <ul>
-      <li>A labelled “presented by” slot on a town’s events page</li>
-      <li>A sponsor block on a town’s Moving Here page — agents, lenders, movers</li>
-      <li>Network-wide sponsorship across {live.length === 1 ? 'the live guide' : `all ${live.length} live guides`}</li>
+      <li>A labelled “presented by” slot on a town’s events page — the page people come back to weekly.</li>
+      <li>A sponsor block on a town’s Moving Here page, which is where agents, lenders and movers are looked for.</li>
+      <li>
+        Network-wide sponsorship across {live.length === 1 ? 'the live guide' : `all ${live.length} live guides`}, for
+        anyone serving the whole corridor rather than one town.
+      </li>
+      {hub.newsletter && <li>A labelled slot in the weekly email, beside the listings and never inside them.</li>}
     </ul>
-    <h2>What isn’t</h2>
+
+    <h2>Audience</h2>
+    {measured ? (
+      <p>
+        Current figures are in the media kit, sent on request: readers per town, email subscribers, and what people
+        actually open. The numbers are what we measured, not what we hope.
+      </p>
+    ) : (
+      <p>
+        We are not going to quote an audience number we have not measured. Traffic reporting is being set up now, and
+        the moment there are real figures they go here and in the media kit — per town, dated, and honest about which
+        towns are small. If you would rather wait for numbers before talking, that is the right instinct, and we will
+        come to you when they exist.
+      </p>
+    )}
+
+    <h2>Getting in touch</h2>
     <p>
-      Placement in the listings. Every guide tells its readers that nobody pays to be listed and nobody can pay to be
-      higher up, and that is worth more to both of us than a featured slot would be. Sponsorship sits beside the
-      editorial, labelled as sponsorship, and never inside it.
+      <a href={mailto}>Email {hub.social.email}</a> and say which town or towns you care about. What suits a business
+      serving the whole corridor is different from what suits one café, and knowing which you are saves us both a
+      round of email.
     </p>
-    <p>
-      Rates, audience numbers and a current media kit are available on request. We keep placements to a small number
-      per town so they don’t compete with each other.
-    </p>
-    <p><a href={`mailto:${hub.social.email}?subject=${encodeURIComponent('Advertising enquiry')}`}>Email {hub.social.email}</a></p>
   </div>
+
+  <CtaBand
+    eyebrow="Before you spend anything"
+    title="Look at what you would be next to"
+    body="The guides are the pitch. Read a town's events page and its Moving Here page, and decide whether the company is one you want to keep."
+    links={[
+      { label: 'This weekend', href: '/this-weekend/', primary: true },
+      { label: 'Moving here', href: '/moving/' },
+    ]}
+  />
 </Page>

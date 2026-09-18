@@ -121,6 +121,20 @@ function checkFormActions() {
 
 checkFormActions();
 
+/**
+ * Things that are deliberately dark, surfaced once per build so they are a
+ * decision rather than an oversight. Warnings, not errors: the sites are
+ * correct without them, they are just earning less than they could.
+ */
+const pending: string[] = [];
+if (!hub.rates?.length) pending.push('/advertise/ has no rate card (hub.rates) — it says "rates on request"');
+if (!hub.newsletter) pending.push('the weekly email is dark (hub.newsletter) — no signup renders anywhere');
+if (!liveTowns().some((t) => t.ga4Id) && !hub.ga4Id) {
+  pending.push('no site measures traffic (ga4Id) — /advertise/ cannot quote an audience');
+}
+for (const item of pending) warnings.push(`not set yet: ${item}`);
+
+
 if (!existsSync(contentDir)) {
   errors.push('content/ directory does not exist');
 } else {

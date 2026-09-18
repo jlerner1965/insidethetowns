@@ -24,6 +24,11 @@ const linkClass = 'no-underline text-white/75 hover:text-white hover:underline';
         {hub.newsletter && (
           <li><a href={`https://${hub.domain}/newsletter/`} class={linkClass}>Weekly email</a></li>
         )}
+        <li>
+          <a href={site.kind === 'hub' ? '/advertise/' : `https://${hub.domain}/advertise/`} class={linkClass}>
+            Advertise
+          </a>
+        </li>
         <li><a href="/about/" class={linkClass}>About</a></li>
         <li><a href="/editorial/" class={linkClass}>Editorial policy</a></li>
         <li><a href="/privacy/" class={linkClass}>Privacy</a></li>

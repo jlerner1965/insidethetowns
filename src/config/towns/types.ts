@@ -120,6 +120,29 @@ export interface HubConfig {
    * formspreeId, so nothing has to be half-built waiting for an account.
    */
   newsletter?: NewsletterConfig;
+  /**
+   * What a placement costs. Absent until there are numbers to stand behind,
+   * and /advertise/ says "rates on request" until then. A published rate card
+   * with blanks in it is worse than no rate card: it tells a buyer you have
+   * not worked it out.
+   */
+  rates?: AdRate[];
+}
+
+/** One line on the rate card. */
+export interface AdRate {
+  /** What it is called on the invoice. */
+  name: string;
+  /** Where it appears, in the reader's terms. */
+  placement: string;
+  /** Whole dollars. */
+  price: number;
+  /** What the price buys: 'month', 'quarter', 'issue'. */
+  period: string;
+  /** How many exist, so scarcity is stated rather than implied. */
+  slots?: number;
+  /** Anything a buyer would otherwise have to ask. */
+  note?: string;
 }
 
 /**

@@ -2,17 +2,24 @@
 /**
  * What this site collects, which today is nothing.
  *
- * Written to derive from the config rather than to assert: the analytics and
- * form paragraphs appear only when this site actually has `ga4Id` or
- * `formspreeId` set. Otherwise the page would become untrue the day one of
- * them is switched on, which is exactly how privacy pages go wrong.
+ * Written to derive from the config rather than to assert: each section
+ * appears only when this site actually has the thing it describes. Otherwise
+ * the page becomes untrue the day one of them is switched on, which is
+ * exactly how privacy pages go wrong.
+ *
+ * Every switch that puts a form on a page has to be counted here. The
+ * newsletter is one: it lives on the hub config but renders a signup on every
+ * town's events page, so a town with no formspreeId would otherwise go on
+ * claiming it has no forms while showing one.
  */
 import Page from '@/layouts/Page.astro';
-import { getSite } from '@/config';
+import { getNetworkHub, getSite } from '@/config';
 
 const site = getSite();
 const analytics = Boolean(site.ga4Id);
-const forms = Boolean(site.formspreeId);
+const submitForm = Boolean(site.formspreeId);
+const newsletter = Boolean(getNetworkHub().newsletter);
+const forms = submitForm || newsletter;
 const quiet = !analytics && !forms;
 ---
 <Page
@@ -49,7 +56,7 @@ const quiet = !analytics && !forms;
       </Fragment>
     )}
 
-    {forms && (
+    {submitForm && (
       <Fragment>
         <h2>When you write to us</h2>
         <p>
@@ -57,6 +64,22 @@ const quiet = !analytics && !forms;
           it only as long as it takes to act on it. If you submit an event, the event details go on the site; your
           email address does not.
         </p>
+      </Fragment>
+    )}
+
+    {newsletter && (
+      <Fragment>
+        <h2>If you sign up for the weekly email</h2>
+        <p>
+          Your address goes to the company that sends the email for us, along with whichever towns you picked. They
+          hold it so they can send you the thing you asked for, and for nothing else. We do not sell it, rent it or
+          hand it to anyone, and every email has an unsubscribe link that works immediately and for good.
+        </p>
+        {!submitForm && (
+          <p>
+            Signing up is the only thing on this site that asks for your address, and you never have to.
+          </p>
+        )}
       </Fragment>
     )}
 

@@ -1,0 +1,65 @@
+---
+/**
+ * Event submission from the hub, routed to the right town.
+ *
+ * Someone who lands on insidethetowns.com with an event to tell us about
+ * should not have to work out which of seven sites owns it. But each town
+ * posts to its own endpoint, so the form has to know where to send a
+ * submission before it sends one.
+ *
+ * Rather than keep a second copy of the town form in sync, this page is a
+ * chooser: pick the town, go to that town's form. One form to maintain, and
+ * no way for a hub submission to land in the wrong town's inbox — which is
+ * the failure a duplicated form invites and nobody would notice for weeks.
+ *
+ * The picker is a plain link list, so it works without JavaScript. The select
+ * above it is a convenience for long lists, not the mechanism.
+ */
+import Page from '@/layouts/Page.astro';
+import { getHub, liveTowns } from '@/config';
+
+const hub = getHub();
+const towns = liveTowns();
+const mailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Event submission')}`;
+---
+<Page
+  title="Submit an event"
+  eyebrow="Inside the Towns"
+  description="Tell us about an event in any of the towns we cover. Listings are free."
+  intro={`Anything open to the public in ${towns.length} Front Range towns. Listings are free — nobody pays to be listed and nobody can pay to be higher up.`}
+  narrow
+>
+  <p class="text-[1.0625rem] leading-relaxed">
+    Which town is it in? Each guide has its own form, so this takes you to the right one.
+  </p>
+
+  <ul class="mt-7 grid gap-3 sm:grid-cols-2" data-town-picker>
+    {towns.map((town) => (
+      <li>
+        <a
+          href={`https://${town.domain}/submit-event/`}
+          class="group flex items-baseline justify-between gap-3 rounded-lg bg-raised px-5 py-4 no-underline ring-1 ring-line-soft transition hover:ring-accent-line"
+        >
+          <span class="font-medium group-hover:text-accent-text">{town.name}</span>
+          <span class="text-sm text-ink-faint">{town.county} County</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <div class="prose mt-14">
+    <h2>Not one of those towns?</h2>
+    <p>
+      We cover {towns.length} so far and add more when there is somebody to keep a guide current. If your event is
+      somewhere else on the northern Front Range, <a href={mailto}>send it to us anyway</a> — it tells us where to go
+      next, which is worth knowing.
+    </p>
+
+    <h2>What happens to it</h2>
+    <p>
+      Every submission is checked against the organiser’s own page before it goes up, usually within a couple of days.
+      That is why the form asks for a link. Nothing is published that we could not verify, and nothing is charged for
+      — see the <a href="/editorial/">editorial policy</a> for why that matters.
+    </p>
+  </div>
+</Page>
