@@ -4,9 +4,11 @@
  */
 import type { TownConfig } from './types.ts';
 import { niwot } from './niwot.ts';
+import { lyons } from './lyons.ts';
 // new-town:imports
 
 export const towns: TownConfig[] = [
   niwot,
+  lyons,
   // new-town:entries
 ];
