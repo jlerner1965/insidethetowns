@@ -7,6 +7,7 @@ import { niwot } from './niwot.ts';
 import { lyons } from './lyons.ts';
 import { berthoud } from './berthoud.ts';
 import { erie } from './erie.ts';
+import { johnstown } from './johnstown.ts';
 // new-town:imports
 
 export const towns: TownConfig[] = [
@@ -14,5 +15,6 @@ export const towns: TownConfig[] = [
   lyons,
   berthoud,
   erie,
+  johnstown,
   // new-town:entries
 ];
