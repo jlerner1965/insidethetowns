@@ -5,8 +5,9 @@ integrity, links, build, SEO and structured data, accessibility, and live
 infrastructure. Everything found and fixed is below, then what is knowingly
 left, then what only the owner can do.
 
-**Result: no blockers remain.** One serious issue is outside this repository
-and needs an action in another one.
+**Result: no blockers remain.** The one serious issue, the half-live
+`townofniwot.com` redirect, was outside this repository and has since been
+fixed and verified.
 
 ## Fixed in this pass
 
@@ -108,15 +109,21 @@ and needs an action in another one.
   page has no `<form>` at all. The form's accessibility is untested because
   there is nothing to test.
 
+## Fixed after the audit
+
+**The `townofniwot.com` redirect is now complete.** The apex and every unknown
+path return 308 to insideniwot.com; the named paths still land on their
+specific new pages. The catch-all had never fired because `trailingSlash: true`
+normalises every request to end in a slash before matching, and the catch-all
+rule was the only one without `{/}?`. The domain is served from
+`jlerner1965/cityofniwot.com`, not from `townofniwot.com`, which is why the
+first fix had no effect; both repositories now carry the corrected rules.
+
+Verified live: `/`, `/about/`, `/news/`, `/parks/` and an unknown path all
+308 to `https://insideniwot.com/`, `/eat-shop/` to `/eat-drink/`, `/events/`
+to `/events/`, and www and plain HTTP still 308 to the apex first.
+
 ## For the owner
 
-**The `townofniwot.com` redirect is only half-live, and this is the one serious
-finding left.** The apex returns 200 and still serves the old homepage with its
-own canonical, competing with insideniwot.com in search. Named paths such as
-`/events/` and `/explore/` redirect correctly, but the catch-all is not firing:
-`/about/`, `/news/`, `/parks/` and any unknown path return 404 instead of
-redirecting, so the link equity `DEPLOY.md` says those redirects exist to
-preserve is being dropped. The catch-all rule sits in `cityofniwot.com`'s
-`vercel.json` on an unmerged branch, and that repository's `main` has no
-insideniwot redirects at all, so the live state matches neither branch. Worth
-confirming which Vercel project actually serves the domain before merging.
+Nothing outstanding. `HSTS preload`, a contact form and the `/favicons/` cache
+rule under **Knowingly left** are all decisions rather than defects.
