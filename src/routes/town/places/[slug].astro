@@ -4,7 +4,7 @@ import { render } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
-import { localBusinessJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, localBusinessJsonLd } from '@/lib/seo';
 import { EAT_DRINK_TYPES, PLACE_TYPE_LABELS } from '@/content/schemas';
 import { formatDate } from '@/lib/dates';
 
@@ -39,7 +39,14 @@ const facts = [
   description={data.summary}
   image={shareImage}
   imageAlt={data.imageAlt}
-  jsonLd={localBusinessJsonLd(town, place, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined)}
+  jsonLd={[
+    localBusinessJsonLd(town, place, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined),
+    breadcrumbJsonLd(town, [
+      { name: town.name, path: '/' },
+      { name: back.label, path: back.href },
+      { name: place.data.title, path: `/places/${place.slug}/` },
+    ]),
+  ]}
 >
   <div class="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
     <div>

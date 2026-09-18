@@ -6,20 +6,35 @@ import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { formatDate, formatDayLong, formatTimeRange, formatWeekday, toIsoLocal } from '@/lib/dates';
 import { nextOccurrence } from '@/lib/events';
-import { eventJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, eventJsonLd } from '@/lib/seo';
 import { CATEGORY_LABELS } from '@/content/schemas';
 
 export async function getStaticPaths() {
   const events = await getTownEntries('events');
-  return events.map((event) => ({ params: { slug: event.slug }, props: { event } }));
+  /**
+   * A recurring series is stored as one file per occurrence, so a council
+   * meeting can be twelve pages that differ only in the date. Index the
+   * soonest occurrence of each series and mark the rest noindex, so the
+   * series is searchable once rather than competing with itself.
+   */
+  const soonest = new Map<string, string>();
+  for (const e of [...events].sort((a, b) => a.data.start.getTime() - b.data.start.getTime())) {
+    const key = `${e.data.title}|${e.data.venue}`;
+    if (!soonest.has(key)) soonest.set(key, e.slug);
+  }
+  return events.map((event) => ({
+    params: { slug: event.slug },
+    props: { event, canonicalOccurrence: soonest.get(`${event.data.title}|${event.data.venue}`) === event.slug },
+  }));
 }
 
 interface Props {
   event: TownEntry<'events'>;
+  canonicalOccurrence: boolean;
 }
 
 const town = getTown();
-const { event } = Astro.props;
+const { event, canonicalOccurrence } = Astro.props;
 const { data } = event;
 const { Content } = await render(event);
 const next = nextOccurrence(event);
@@ -30,7 +45,15 @@ const repeatNote =
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
 const timeText = data.timeNote ?? formatTimeRange(when.start, when.end, data.allDay);
-const description = `${formatDayLong(when.start)}, ${timeText} at ${data.venue}, ${town.name}.`;
+/**
+ * Date, time and venue alone say nothing about the event and collide with
+ * every other listing at the same place. Lead with the particulars, which are
+ * what a searcher needs, then the body's first sentence. SEO.astro clamps the
+ * result, so the sentence is what gets shortened, not the specifics.
+ */
+const firstSentence = (event.body ?? '').trim().split(/(?<=[.!?])\s+/)[0]?.trim() ?? '';
+const particulars = `${formatDayLong(when.start)}, ${timeText} at ${data.venue}, ${town.name}.`;
+const description = firstSentence.length > 30 ? `${particulars} ${firstSentence}` : particulars;
 const facts = [
   { label: repeatNote ? 'Next' : 'When', value: [formatDayLong(when.start), timeText, repeatNote].filter(Boolean) },
   { label: 'Where', value: [data.venue, data.address].filter(Boolean) },
@@ -39,11 +62,20 @@ const facts = [
 ---
 <Page
   title={data.title}
+  seoTitle={`${data.title} — ${formatDate(when.start)}`}
   eyebrow={CATEGORY_LABELS[data.category]}
   description={description}
   image={shareImage}
   imageAlt={data.imageAlt}
-  jsonLd={eventJsonLd(town, next, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined)}
+  noindex={!canonicalOccurrence}
+  jsonLd={[
+    eventJsonLd(town, next, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined),
+    breadcrumbJsonLd(town, [
+      { name: town.name, path: '/' },
+      { name: 'Events', path: '/events/' },
+      { name: data.title, path: `/events/${event.slug}/` },
+    ]),
+  ]}
 >
   <div class="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
     <div>

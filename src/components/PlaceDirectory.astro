@@ -20,14 +20,17 @@ interface Props {
   emptyMessage?: string;
   /** Show up to this many photographed places as cards above the list. */
   lead?: number;
+  /** Names the list for screen readers, so the page does not jump h1 to h3. */
+  heading?: string;
 }
 
-const { places, filterable = false, emptyMessage = 'Nothing listed yet.', lead = 3 } = Astro.props;
+const { places, filterable = false, emptyMessage = 'Nothing listed yet.', lead = 3, heading } = Astro.props;
 const types = [...new Set(places.map((p) => p.data.type))] as PlaceType[];
 const options = types.map((t) => ({ value: t, label: PLACE_TYPE_LABELS[t] }));
 const withPhoto = places.filter((p) => p.data.image).slice(0, lead);
 ---
 <div data-filter-root>
+  {heading && <h2 class="sr-only">{heading}</h2>}
   {withPhoto.length > 0 && (
     <div class="mb-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
       {withPhoto.map((place) => <PlaceCard place={place} />)}

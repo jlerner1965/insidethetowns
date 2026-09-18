@@ -20,7 +20,39 @@ interface Props {
 
 const site = getSite();
 const { title, description = site.tagline, type = 'website', jsonLd, noindex = false } = Astro.props;
-const fullTitle = title ? `${title} | ${site.siteTitle}` : `${site.siteTitle} — ${site.tagline}`;
+/**
+ * Search results cut a title around 60 characters, and several taglines are a
+ * full sentence. On the home page, trim the tagline at a clause or word
+ * boundary so the town's name and the gist both survive the cut.
+ */
+function homeTitle(): string {
+  const line = site.seoTagline ?? site.tagline;
+  const full = `${site.siteTitle} — ${line}`;
+  if (full.length <= 65) return full;
+  const room = 65 - site.siteTitle.length - 3;
+  let tail = line.slice(0, room);
+  const cut = Math.max(tail.lastIndexOf(','), tail.lastIndexOf(';'));
+  tail = cut > room * 0.5 ? tail.slice(0, cut) : tail.slice(0, tail.lastIndexOf(' '));
+  // A cut that lands on a stop word reads as a sentence chopped in half.
+  const stop = /\s+(a|an|the|to|of|and|in|on|for|with|from|at|by|that|its)$/i;
+  while (stop.test(tail)) tail = tail.replace(stop, '');
+  return `${site.siteTitle} — ${tail.replace(/[.,;:\s]+$/, '')}`;
+}
+const fullTitle = title ? `${title} | ${site.siteTitle}` : homeTitle();
+
+/**
+ * Search results cut a description around 155 characters. Page copy is written
+ * for the page, not for the snippet, so clamp here at a word boundary rather
+ * than shortening the copy itself.
+ */
+function clamp(text: string, limit = 155): string {
+  const flat = text.replace(/\s+/g, ' ').trim();
+  if (flat.length <= limit) return flat;
+  const cut = flat.slice(0, limit - 1);
+  const space = cut.lastIndexOf(' ');
+  return `${(space > limit * 0.6 ? cut.slice(0, space) : cut).replace(/[\s,;:.]+$/, '')}…`;
+}
+const metaDescription = clamp(description);
 const canonical = new URL(Astro.url.pathname, Astro.site);
 
 let ogImage = Astro.props.image;
@@ -35,14 +67,14 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
 const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 ---
 <title>{fullTitle}</title>
-<meta name="description" content={description} />
+<meta name="description" content={metaDescription} />
 <link rel="canonical" href={canonical} />
 {noindex && <meta name="robots" content="noindex" />}
 
 <meta property="og:site_name" content={site.siteTitle} />
 <meta property="og:type" content={type} />
 <meta property="og:title" content={title ?? site.siteTitle} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={metaDescription} />
 <meta property="og:url" content={canonical} />
 <meta property="og:image" content={ogImageUrl} />
 <meta property="og:image:width" content="1200" />
@@ -52,7 +84,7 @@ const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title ?? site.siteTitle} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:description" content={metaDescription} />
 <meta name="twitter:image" content={ogImageUrl} />
 
 {jsonLdList.map((item) => <script type="application/ld+json" set:html={JSON.stringify(item)}></script>)}

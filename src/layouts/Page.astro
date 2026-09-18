@@ -6,6 +6,8 @@ import Base from './Base.astro';
 
 interface Props {
   title: string;
+  /** Title for <title> and social cards when the h1 alone would be ambiguous. */
+  seoTitle?: string;
   eyebrow?: string;
   description?: string;
   intro?: string;
@@ -18,9 +20,9 @@ interface Props {
   narrow?: boolean;
 }
 
-const { title, eyebrow, intro, narrow = false, ...seo } = Astro.props;
+const { title, seoTitle, eyebrow, intro, narrow = false, ...seo } = Astro.props;
 ---
-<Base title={title} {...seo}>
+<Base title={seoTitle ?? title} {...seo}>
   <div class="container-page pb-8 pt-10 md:pt-16">
     <header class="border-b border-line-soft pb-8 md:pb-10">
       <div class="max-w-3xl">

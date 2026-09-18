@@ -40,6 +40,8 @@ export interface TownConfig {
   siteTitle: string;
   /** One sentence. Shown in the hero and meta description. */
   tagline: string;
+  /** Used in <title> when the full tagline would be truncated mid-phrase. */
+  seoTagline?: string;
   county: string;
   state: 'CO';
   lat: number;
@@ -76,6 +78,8 @@ export interface HubConfig {
   domain: string;
   siteTitle: string;
   tagline: string;
+  /** Used in <title> when the full tagline would be truncated mid-phrase. */
+  seoTagline?: string;
   colors: TownColors;
   fonts?: { heading?: string; body?: string };
   hero: HeroConfig;

@@ -8,6 +8,7 @@ export const hub: HubConfig = {
   domain: 'insidethetowns.com',
   siteTitle: 'Inside the Towns',
   tagline: 'Independent community guides to the small towns of Colorado’s Front Range.',
+  seoTagline: 'Guides to Colorado’s Front Range towns',
   colors: {
     accent: '#2B4C7E',
     accentDark: '#1B3155',

@@ -52,6 +52,42 @@ export function eventJsonLd(
   };
 }
 
+export function breadcrumbJsonLd(site: SiteConfig, trail: Array<{ name: string; path: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: trail.map((step, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: step.name,
+      item: `https://${site.domain}${step.path}`,
+    })),
+  };
+}
+
+export function articleJsonLd(
+  site: SiteConfig,
+  article: CollectionEntry<'articles'>,
+  url: string,
+  imageUrl?: string,
+) {
+  const { data } = article;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: data.title,
+    description: data.excerpt,
+    datePublished: toIsoLocal(data.date),
+    ...(data.updated ? { dateModified: toIsoLocal(data.updated) } : {}),
+    ...(imageUrl ? { image: [imageUrl] } : {}),
+    articleSection: data.category,
+    author: { '@type': 'Organization', name: site.siteTitle, url: `https://${site.domain}/` },
+    publisher: { '@type': 'Organization', name: site.siteTitle, url: `https://${site.domain}/` },
+    mainEntityOfPage: url,
+    url,
+  };
+}
+
 export function localBusinessJsonLd(
   town: TownConfig,
   place: CollectionEntry<'places'>,

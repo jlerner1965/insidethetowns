@@ -35,6 +35,10 @@ const hero = resolveSiteImage(site.slug, site.hero.image);
     widths={[640, 960, 1280, 1920]}
     sizes="100vw"
     layout="full-width"
+    {/* The hero sits under a heavy black gradient, so a lower quality is
+        invisible here and saves about a fifth of the largest asset a
+        desktop visitor downloads. */}
+    quality={72}
     priority
     class="absolute inset-0 -z-20 h-full! w-full object-cover"
   />

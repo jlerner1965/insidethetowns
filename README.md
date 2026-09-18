@@ -42,5 +42,6 @@ events page, so readers can subscribe in a calendar app.
 - `docs/PHOTOS.md` — how to get the missing photographs, and what has been ruled out
 - `docs/PHOTO-CONTACTS.csv` — the 139 businesses without one, with phone and website
 - `docs/PARK-PHOTO-EMAILS.md` — ten ready-to-send requests covering 41 parks and trails
+- `docs/LAUNCH-AUDIT.md` — the launch audit: what was fixed, what is left, what needs the owner
 
 Requires Node 22.18+ (scripts use Node's built-in TypeScript support).

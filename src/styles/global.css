@@ -56,9 +56,21 @@
     text-underline-offset: 0.18em;
     text-decoration-thickness: from-font;
   }
+  /* A single-colour ring in the town accent measured as low as 1.66:1 against
+     the footer, the network bar and the accent-dark bands. Pairing the accent
+     outline with a white box-shadow immediately inside it keeps the ring
+     visible on every ground the site uses, light or dark. */
   :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 3px;
+    box-shadow: 0 0 0 3px #fff;
+    border-radius: 2px;
+  }
+  /* On dark grounds the roles swap, so the bright edge is the outline. */
+  .on-dark :focus-visible,
+  footer :focus-visible {
+    outline-color: #fff;
+    box-shadow: 0 0 0 3px rgb(0 0 0 / 0.6);
   }
   ::selection {
     background: var(--color-accent-soft);

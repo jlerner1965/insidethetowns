@@ -4,6 +4,8 @@ import { render } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { formatDate, toIsoLocal } from '@/lib/dates';
+import { getTown } from '@/config';
+import { articleJsonLd, breadcrumbJsonLd } from '@/lib/seo';
 
 export async function getStaticPaths() {
   const articles = await getTownEntries('articles');
@@ -14,12 +16,22 @@ interface Props {
   article: TownEntry<'articles'>;
 }
 
+const town = getTown();
 const { article } = Astro.props;
 const { data } = article;
 const { Content } = await render(article);
 const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
+const url = new URL(Astro.url.pathname, Astro.site).toString();
 ---
-<Page title={data.title} eyebrow={data.category} intro={data.excerpt} description={data.excerpt} image={shareImage} imageAlt={data.imageAlt} type="article" narrow>
+<Page title={data.title} eyebrow={data.category} intro={data.excerpt} description={data.excerpt} image={shareImage} imageAlt={data.imageAlt} type="article" narrow
+  jsonLd={[
+    articleJsonLd(town, article, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined),
+    breadcrumbJsonLd(town, [
+      { name: town.name, path: '/' },
+      { name: 'Things to Do', path: '/things-to-do/' },
+      { name: data.title, path: `/articles/${article.slug}/` },
+    ]),
+  ]}>
   <p slot="after-header" class="mt-5 text-sm text-ink-muted">
     <time datetime={toIsoLocal(data.date)}>{formatDate(data.date)}</time>
     {data.updated && <span> · Updated {formatDate(data.updated)}</span>}

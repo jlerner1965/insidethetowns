@@ -25,7 +25,9 @@ const y = (lat: number) => H - pad - ((lat - minLat) / (maxLat - minLat)) * (H -
 const pins = towns.map((t) => ({ t, cx: x(t.lng), cy: y(t.lat), live: LIVE_TOWNS.includes(t.slug) }));
 ---
 <figure class="overflow-hidden rounded-lg bg-white ring-1 ring-line-soft">
-  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="town-map-title" class="h-auto w-full font-body">
+  {/* No role="img": that prunes descendants from the accessibility tree,
+     which would leave the seven town links focusable but unnamed. */}
+  <svg viewBox={`0 0 ${W} ${H}`} aria-labelledby="town-map-title" class="h-auto w-full font-body">
     <title id="town-map-title">Map of the towns in the network</title>
     <rect width={W} height={H} fill="#ffffff"></rect>
     <path d={`M 0 0 L ${pad * 1.2} ${H * 0.12} L ${pad * 0.6} ${H * 0.5} L ${pad * 1.4} ${H} L 0 ${H} Z`} fill="var(--color-accent-soft)"></path>
@@ -33,7 +35,7 @@ const pins = towns.map((t) => ({ t, cx: x(t.lng), cy: y(t.lat), live: LIVE_TOWNS
     {pins.map(({ t, cx, cy, live }) => (
       <g>
         {live ? (
-          <a href={`https://${t.domain}/`}>
+          <a href={`https://${t.domain}/`} aria-label={`${t.name} — ${t.domain}`}>
             <circle cx={cx} cy={cy} r="20" fill={t.colors.accent} fill-opacity="0.15"></circle>
             <circle cx={cx} cy={cy} r="8" fill={t.colors.accent}></circle>
             <text x={cx + 18} y={cy + 5} font-size="15" font-weight="600" fill="var(--color-ink)">{t.name}</text>
