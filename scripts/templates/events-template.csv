@@ -1,0 +1,4 @@
+title,start,end,venue,url,category,town,address,cost,description,source,repeat,until,recurring,allDay,timeNote,verified,slug
+"Farmers market","2026-10-03T09:00","2026-10-03T13:00","Town Park","https://example.org/market","market","berthoud","200 7th St","Free","Fresh produce and music on the lawn.","https://example.org/market",,,,,,,
+"Trivia night","2026-10-06T18:00","2026-10-06T20:00","City Star Brewing","https://example.org/trivia","other","berthoud","321 Mountain Ave","Free","Pub trivia every Tuesday.","https://example.org/trivia","weekly","2026-12-15","Tuesdays at 6",,,,
+"Holiday parade","2026-12-05","","Mountain Avenue","https://example.org/parade","festival","berthoud","Mountain Ave","Free","The lighted parade.","https://example.org/parade",,,,true,"Parade at 5 pm",,
