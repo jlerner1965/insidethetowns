@@ -250,3 +250,19 @@ Choices not covered by PLAN.md, with the reasoning. Newest first.
   Great Western factory town; 9:1 on white and unlike the other four accents.
 - **Config county is Weld**, where Old Town, Town Hall and most residents are; the
   Larimer corner and the two school districts are explained on Moving Here.
+- **Timnath is thin on sources and it shows.** 20 places and 15 event files, the plan's
+  minimums, from the Town's park, reservoir and event pages, the downtown and farmers
+  market sites, the businesses' own pages and the chamber directory. The Town's event
+  calendar is a PDF poster and downtowntimnath.com's calendar is empty for autumn, so the
+  weekly regulars are the brewery's run club and food trucks and the season's last
+  markets. Restaurants that review sites list "in Timnath" but that sit across I-25 in
+  Fort Collins (Kujira, Jing Dumpling, Genesis) or in Severance and Windsor were left
+  out; two Fort Collins natural areas that border the town are included as trails
+  because they are where Timnath walks.
+- **Timnath's Commons photographs are small.** The only in-town images are public-domain
+  snapshots of 400–700px and a 960px USFWS sunrise. The hero is Fossil Creek Reservoir
+  (CC BY-SA 2.0, KimonBerlin, 4362px original), the reservoir between Timnath and Fort
+  Collins, labelled as such; the small Old Town and Town Square snapshots are used at
+  their native size on cards. A real Main Street photograph should replace them.
+- **Timnath palette is harvest gold** (`#7D5E17` / `#55400F`) on wheat paper for the
+  potato-and-beet farm town, the last distinct hue of the six.

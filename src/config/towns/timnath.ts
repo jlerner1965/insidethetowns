@@ -21,7 +21,7 @@ export const timnath: TownConfig = {
   },
   hero: {
     image: 'hero.jpg',
-    alt: 'Geese over Fossil Creek Reservoir on Timnath’s western edge, bare cottonwoods and houses along the far shore',
+    alt: 'Geese over Fossil Creek Reservoir southwest of Timnath, bare cottonwoods and houses along the far shore',
     credit: 'KimonBerlin, Wikimedia Commons, CC BY-SA 2.0',
   },
   social: {
