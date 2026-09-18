@@ -1,0 +1,14 @@
+---
+title: "Erie Municipal Airport"
+type: venue
+address: "395 Airport Rd"
+area: "Colorado 7, south edge"
+url: "https://www.erieco.gov/"
+phone: "(303) 664-0633"
+tags: [airport, planes]
+summary: "The Town's general-aviation airport on Colorado 7 with a 4,700-foot runway, an airpark neighborhood, and a fence to watch the small planes from."
+source: "https://en.wikipedia.org/wiki/Erie,_Colorado"
+verified: "2026-09-18"
+---
+
+Erie's municipal airport (EIK) sits on Colorado 7 at the south edge of town, with a 4,700-foot concrete runway, and an airpark of homes with their own hangars alongside it. A quiet place to watch small planes take off against the mountains.

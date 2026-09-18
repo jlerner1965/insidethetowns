@@ -208,3 +208,22 @@ Choices not covered by PLAN.md, with the reasoning. Newest first.
   School District R2-J.
 - **Sample content from `new-town` was deleted**, not edited, so the town folder holds
   only sourced entries.
+- **Erie (second half of the phase) follows the Berthoud method.** 35 places from the Town's
+  Downtown Erie and parks pages, the Chamber's restaurant directory, the businesses' own
+  sites and a dated local guide; 34 event files from the Town calendar and event pages,
+  the Chamber (Brewfest, Parade of Lights), Anderson Farms and the Old Mine's weekly
+  calendar. The High Plains Library District's calendar is JavaScript-only and could not
+  be read, so the library is a place with hours but no dated programs yet; the Erie
+  Chamber's networking events are omitted as members-facing.
+- **Erie hero is Colorado 7 looking west to the Front Range** from Airport Road (CC BY 4.0,
+  Jeffrey Beall): Commons has no good Briggs Street streetscape, and the 1889 Davis
+  building photo (CC BY-SA 4.0, Erie Bard) illustrates the Old Mine instead. Same
+  contributor's photos of the library, Community Center, Town Hall, the 1930 City Hall
+  and the miners' memorial illustrate those entries and the history article.
+- **Erie palette** is a coal-seam indigo (`#3D3A5C` / `#26243D`) on warm grey paper,
+  10:1 on white, chosen so the four town accents read as four different colours in the
+  network bar.
+- **County for Erie is Weld**, where Town Hall, downtown and 58 percent of residents
+  are; the Boulder County side is explained on Moving Here and in the article.
+- **Restaurants marked closed on review sites (Injoy, Industrial Revolution Brewing)
+  were left out** even though the 2023 magazine list includes them.
