@@ -16,7 +16,7 @@ export type { HubConfig, SiteConfig, TownConfig, NavItem } from './towns/types.t
  * Towns that are deployed and public. The hub only links to these, and the
  * NetworkBar only lists these. Add a slug here when its domain is live.
  */
-export const LIVE_TOWNS: string[] = ['niwot', 'lyons'];
+export const LIVE_TOWNS: string[] = ['niwot', 'lyons', 'berthoud'];
 
 /** All configured towns, wave order (live or not). */
 export const allTowns: TownConfig[] = towns;

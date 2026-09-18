@@ -6,7 +6,8 @@ code; the `TOWN` environment variable decides which site it produces.
 ```
 insidethetowns.com   TOWN=hub
 insideniwot.com      TOWN=niwot
-insidelyons.com      TOWN=lyons     (when it goes into LIVE_TOWNS)
+insidelyons.com      TOWN=lyons
+insideberthoud.com   TOWN=berthoud
 …
 ```
 
