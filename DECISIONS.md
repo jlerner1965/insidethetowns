@@ -335,3 +335,64 @@ Choices not covered by PLAN.md, with the reasoning. Newest first.
 - **The pickleball tournament is an all-day entry** because the district publishes the
   date and the $60 team fee but no start time. Writing a plausible time would have been
   invention.
+
+## Weekly session, 18 September 2026
+
+The first run of the process in README's "The weekly content session". Events
+across the network went from 245 upcoming to 577.
+
+- **Most of the 32 "expiring" listings needed nothing.** The report flags every
+  file whose last date falls inside the window, but nine of them were single
+  instances of a series whose later dates already exist as separate files
+  (Timnath and Elizabeth council meetings, Erie and Berthoud town boards, Lyons
+  trustees, Berthoud cribbage and tree advisory, Johnstown council, Lyons third-
+  Friday comedy). Another thirteen were genuine one-offs that will drop off by
+  themselves. Only the rest were real gaps.
+- **Two series could not be extended and were replaced or left short.** The
+  Niwot Election Commission publishes nothing past 18 September, so the civic
+  gap is filled with the Local Improvement District advisory committee, whose
+  dates Boulder County lists individually. The Berthoud Market has no winter or
+  indoor successor: the season simply ends on 26 September and the holiday
+  shopping is the Winter Craft Fair and A Very Merry Berthoud, both already
+  listed.
+- **Stale listings were caught by checking the weekday against the date.** A
+  Niwot holiday parade on "Saturday November 29" (a Sunday in 2026), Niwot
+  holiday markets on 7 and 14 December (Mondays), a Lyons Parade of Lights on
+  "Saturday December 7" (a Monday), a Berthoud Cocoa with Claus on "Sunday
+  December 2" (a Wednesday), an Erie Halloween Safety Stop on "Friday October
+  31" (a Saturday), and a Berthoud market running "through September 27" (a
+  Sunday) were all previous years' pages and were rejected. Every one of them
+  would have published a wrong date.
+- **Johnstown, Pennsylvania was kept out again**, as in Phase 7. Two stale
+  entries on the Colorado town's own calendar, a 2025 Fall Fest and a 2024
+  Trick-or-Treat Street, were also rejected.
+- **A weekday audit of the whole network** compared every `recurring` note that
+  names a weekday against its own start date, across 141 events. One real
+  mismatch: the Erie police safety series said "first or second Wednesday" but
+  its December session is the third. The date is confirmed on the Town's
+  calendar, so the note now reads "Monthly" and the December entry says the
+  session moved.
+- **A link check of all 292 source and url values** found two dead: A Very Merry
+  Berthoud had moved off berthoud.org (the id that now answers is a page about
+  winter watering, so the Main Street program's page is used instead) and Moxie
+  Bread Co's own mercantile page 404s. Everything else that returned 403 is bot
+  blocking on Yelp, TripAdvisor, AllTrails and Cloudflare-fronted town sites,
+  which a browser gets through.
+- **`timeNote` is not a notes field.** It replaces the time range on a card, so
+  three imported rows that put a whole sentence in it wrapped into a tall column
+  and pushed the layout around. Anything longer than a few words now goes in the
+  body. Worth remembering when writing import CSVs.
+- **Two corrections to already-published entries.** Erie's 24 November council
+  meeting is marked cancelled on the Town calendar and was deleted. Timnath's
+  reservoir listing claimed a last motorized weekend of 29 October; the Town's
+  page puts the motorized season at April 1 to October 1, so the entry is now
+  the season's end on October 1 with the actual rule.
+- **Judgement calls on what is not an event.** Dropped: a divorce support
+  programme, a twelve-day polling location, weekly business-advising
+  appointments, library tech-help desks, office closures and bin days. They are
+  services or courses, not things to turn up to.
+- **One flagged uncertainty.** The Lyons women's pinball tournament is listed on
+  the Lyons Recorder as a third-Saturday series with dated pages, but the venue's
+  own calendar lists no monthly tournament after March 2026. The Recorder rows
+  are published; the conflict is worth a phone call to the shop before the
+  October date.
