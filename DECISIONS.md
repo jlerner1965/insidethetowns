@@ -150,3 +150,31 @@ Choices not covered by PLAN.md, with the reasoning. Newest first.
 - **The production branch is `main`, which does not exist yet.** The repository was empty
   when this work started, so the working branch became GitHub's default. DEPLOY.md's
   first step is to create `main` from it; this session does not push to other branches.
+
+## Phase 5
+
+- **Lyons was ported from explorelyons.com, not written from scratch.** The account had an
+  earlier Lyons guide (`jlerner1965/explorelyons`, a Python static build) with 29 checked
+  listings, trail and river pages, a sourced history and 30 Creative Commons photographs
+  with credits. Everything usable came across; the listings keep their September 2026
+  check dates as `verified`.
+- **Events come from the Lyons Recorder's community calendar** (lyonsrecorder.org), the
+  library's calendar, the Town calendar, Planet Bluegrass's Wildflower series and the
+  venues' own pages. The Recorder is the fullest single source and each entry links to it
+  or to the organizer. Weekly regulars (six taproom and library fixtures) are one file
+  each with `repeat: weekly`; first-and-third-Monday Board meetings are dated files
+  because the repeat model is weekly only.
+- **Hero.** The Commons photograph of Colorado 7 in the South St. Vrain canyon (CC BY-SA
+  3.0, Footwarrior) at 2000px, credited in the hero and in `IMAGE_LICENSES.csv`. The old
+  repo's copies of its photos top out at 700px, fine for cards but not a hero; the
+  original was fetched from Commons.
+- **Palette.** Lyons Formation sandstone red (`#9A4130` / `#6B2F23`) on a sandstone-dust
+  paper, distinct from Niwot's evergreen. The old guide's own palette used the same rock.
+- **Two articles, not one.** The plan asks for one; the history and the trails-and-river
+  guide were both ready-made from the old site and both earn their place, the second
+  tagged `outdoors` so it appears on Things to Do.
+- **Tubing and the river path are `trail` places** so they appear on Things to Do with the
+  open-space areas; the river gauge thresholds live in the trails article.
+- **CC BY-SA photographs.** Several photos are share-alike licensed. Their use here is
+  credited on each image's licence row and, for the hero, in the visible credit line; a
+  visible per-photo credits page is not built yet and should be before a wider photo pass.
