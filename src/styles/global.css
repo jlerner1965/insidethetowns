@@ -247,6 +247,91 @@
   .site-nav li:first-child .site-nav-link { border-block-start: 0; }
 }
 
+/*
+ * The comparison, one markup in two shapes.
+ *
+ * Wide: an ordinary table. Narrow: each row becomes a card and each cell
+ * carries its own label from data-label, because a seven-column table at
+ * 375px is a horizontal scroll nobody performs. The table semantics stay
+ * intact either way, so a screen reader still gets headers and rows.
+ */
+.compare table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+.compare thead th {
+  padding: 0 1rem 0.75rem 0;
+  font-family: var(--font-body);
+  font-size: var(--text-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+  text-align: left;
+  border-block-end: 2px solid var(--color-accent);
+  white-space: nowrap;
+}
+.compare tbody th,
+.compare tbody td {
+  padding: 1rem 1rem 1rem 0;
+  border-block-end: 1px solid var(--color-line-soft);
+  vertical-align: baseline;
+  text-align: left;
+}
+.compare tbody th {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.compare tbody td { font-variant-numeric: tabular-nums; }
+.compare-domain {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  font-variant-numeric: normal;
+  color: var(--color-ink-faint);
+}
+
+@media (width < 52rem) {
+  .compare thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .compare tbody tr {
+    display: block;
+    margin-block-end: 1.25rem;
+    border-radius: 0.5rem;
+    background: var(--color-raised);
+    box-shadow: 0 0 0 1px var(--color-line-soft);
+    overflow: hidden;
+  }
+  .compare tbody th {
+    display: block;
+    padding: 1rem 1.25rem;
+    background: var(--color-accent-tint);
+    border-block-end: 1px solid var(--color-line-soft);
+    white-space: normal;
+  }
+  .compare tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 0.7rem 1.25rem;
+  }
+  .compare tbody td:last-child { border-block-end: 0; }
+  .compare tbody td::before {
+    content: attr(data-label);
+    font-size: var(--text-eyebrow);
+    font-weight: 600;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-ink-faint);
+    font-variant-numeric: normal;
+  }
+  .compare tbody td > span { text-align: right; }
+}
+
 @layer components {
   .btn {
     display: inline-flex;

@@ -12,6 +12,9 @@ export const berthoud: TownConfig = {
   lat: 40.3122,
   lng: -105.0611,
   population: 10332, // 2020 census
+  elevationFt: 5033,
+  incorporated: 1888,
+  driveToDenver: 'About 50 min',
   colors: {
     // Carter Lake water under a Front Range sky, on wheat-coloured paper for the
     // "Garden Spot of Colorado". Distinct from Niwot's evergreen and Lyons' sandstone.

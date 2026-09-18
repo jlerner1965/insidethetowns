@@ -12,6 +12,9 @@ export const timnath: TownConfig = {
   lat: 40.5333,
   lng: -104.9644,
   population: 6487, // 2020 census; 2025 estimate about 11,600
+  elevationFt: 4869,
+  incorporated: 1920,
+  driveToDenver: 'About 1 hr',
   colors: {
     // Harvest gold on a wheat-white paper: potatoes, alfalfa and sugar beets were the
     // town's business for a century. Distinct from the five other accents.

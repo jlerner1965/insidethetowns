@@ -47,6 +47,16 @@ export interface TownConfig {
   lat: number;
   lng: number;
   population?: number;
+  /** Feet above sea level. Wikipedia's infobox, which carries the GNIS figure. */
+  elevationFt?: number;
+  /**
+   * Year the town incorporated, or null where it never did. Niwot's null is
+   * the single most useful cell in the comparison: no town government, county
+   * services, and an incorporation election on the 2026 ballot.
+   */
+  incorporated?: number | null;
+  /** Off-peak, from the town's own Moving Here guide. Short enough for a cell. */
+  driveToDenver?: string;
   colors: TownColors;
   fonts?: { heading?: string; body?: string };
   hero: HeroConfig;

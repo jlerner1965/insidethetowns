@@ -23,6 +23,7 @@ export const hub: HubConfig = {
   },
   nav: [
     { label: 'This Weekend', href: '/this-weekend/' },
+    { label: 'Compare', href: '/compare/' },
     { label: 'Towns', href: '/#towns' },
     { label: 'About', href: '/about/' },
     { label: 'Advertise', href: '/advertise/' },

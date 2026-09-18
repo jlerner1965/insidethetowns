@@ -13,6 +13,9 @@ export const elizabeth = {
   state: "CO",
   lat: 39.3603, lng: -104.5969,
   population: 1675, // 2020 census; 2026 estimates put it nearer 3,100
+  elevationFt: 6477,
+  incorporated: 1890,
+  driveToDenver: '45 min to the Tech Center',
   colors: { accent: "#B26E2A", accentDark: "#78491A", neutralBg: "#FAF7F2" },
   hero: {
     image: "hero.jpg",

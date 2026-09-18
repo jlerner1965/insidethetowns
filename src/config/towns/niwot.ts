@@ -12,6 +12,9 @@ export const niwot: TownConfig = {
   lat: 40.1039,
   lng: -105.1708,
   population: 4306, // 2020 census, Niwot CDP
+  elevationFt: 5168,
+  incorporated: null, // unincorporated; a CDP under Boulder County
+  driveToDenver: '45–50 min',
   colors: {
     // Evergreen for the cottonwood-and-foothills valley; the old townofniwot.com wordmark was an evergreen ground too.
     accent: '#108452',

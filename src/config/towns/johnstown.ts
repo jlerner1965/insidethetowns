@@ -12,6 +12,9 @@ export const johnstown: TownConfig = {
   lat: 40.3369,
   lng: -104.9119,
   population: 17303, // 2020 census; 2025 estimate 22,433
+  elevationFt: 4994,
+  incorporated: 1907, // platted 1902
+  driveToDenver: 'About 50 min',
   colors: {
     // Sugar-beet burgundy on a sugar-white paper, for the Great Western factory town.
     accent: '#BE3762',

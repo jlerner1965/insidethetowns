@@ -1,0 +1,121 @@
+---
+/**
+ * The seven towns side by side.
+ *
+ * The parent site's first page that answers something people actually type:
+ * "best small town near Boulder", "which Front Range town should I move to".
+ * Nobody owns those searches because the answer is scattered across seven
+ * chamber sites.
+ *
+ * Every column is a fact this network can source and keep current, and every
+ * one comes off the town configs, so the table is a loop rather than a grid
+ * somebody has to remember to update. Median home price is deliberately not
+ * here: it is quarterly work with a licensing question attached, and a column
+ * that cannot be filled for all seven is worse than a column that is absent.
+ */
+import Page from '@/layouts/Page.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { getHub, liveTowns } from '@/config';
+
+const hub = getHub();
+// Biggest first: it is the ordering a reader can hold in their head, and the
+// range from 30,000 to 1,700 is the first thing worth knowing about the seven.
+const towns = [...liveTowns()].sort((a, b) => (b.population ?? 0) - (a.population ?? 0));
+
+/** "Thompson School District R2-J: Berthoud Elementary, …" -> the district. */
+const district = (full?: string) => (full ? (full.split(/[:(]/)[0] ?? full).trim() : '—');
+const num = (n?: number) => (n ? n.toLocaleString('en-US') : '—');
+
+const columns = [
+  { key: 'county', label: 'County', get: (t: (typeof towns)[number]) => `${t.county} County` },
+  { key: 'population', label: 'Population', get: (t: (typeof towns)[number]) => num(t.population) },
+  { key: 'elevation', label: 'Elevation', get: (t: (typeof towns)[number]) => `${num(t.elevationFt)} ft` },
+  {
+    key: 'incorporated',
+    label: 'Incorporated',
+    get: (t: (typeof towns)[number]) => (t.incorporated ? String(t.incorporated) : 'Unincorporated'),
+  },
+  { key: 'denver', label: 'To Denver', get: (t: (typeof towns)[number]) => t.driveToDenver ?? '—' },
+  { key: 'schools', label: 'Schools', get: (t: (typeof towns)[number]) => district(t.movingHere.schoolDistrict) },
+];
+
+const itemList = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `The ${towns.length} towns of ${hub.siteTitle}, compared`,
+  itemListElement: towns.map((t, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: `https://${t.domain}/`,
+    name: t.name,
+  })),
+};
+---
+<Page
+  title="Compare the towns"
+  seoTitle={`Compare ${towns.length} small towns on Colorado’s Front Range`}
+  eyebrow="Moving to the Front Range"
+  description={`${towns.map((t) => t.name).join(', ')}: population, elevation, school district and the drive to Denver, side by side.`}
+  intro={`Population, elevation, schools and the commute for all ${towns.length} towns in one place. Each name links to its own guide.`}
+  jsonLd={itemList}
+>
+  {/* Wide: one row per town. Narrow: one card per town, same markup, because
+     relocation research happens on a phone and a seven-column table at 375px
+     is a horizontal scroll nobody performs. */}
+  <div class="compare">
+    <table>
+      <caption class="sr-only">The {towns.length} towns compared by county, population, elevation, incorporation, drive to Denver and school district</caption>
+      <thead>
+        <tr>
+          <th scope="col">Town</th>
+          {columns.map((c) => <th scope="col">{c.label}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {towns.map((t) => (
+          <tr>
+            <th scope="row">
+              <a href={`https://${t.domain}/`} class="no-underline hover:text-accent-text hover:underline">{t.name}</a>
+              <span class="compare-domain">{t.domain}</span>
+            </th>
+            {columns.map((c) => (
+              <td data-label={c.label}><span>{c.get(t)}</span></td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose mt-14">
+    <h2>Where the figures come from</h2>
+    <p>
+      Population is the 2020 census. Several of these towns have grown a long way since — Timnath and Johnstown
+      especially — and each guide's Moving Here page carries the later estimate and the source for it. Elevation and
+      incorporation dates are the published figures for each town. Drive times are off-peak estimates from each town's
+      own guide, not a promise about the Boulder Turnpike at half past five.
+    </p>
+    <p>
+      There is no median-home-price column. Getting it right means a named source and a quarterly re-check, and a
+      figure that is eighteen months stale is worse than no figure at all. The listings links on each town's
+      Moving Here page show what is actually on the market today.
+    </p>
+    <h2>One of these is not like the others</h2>
+    <p>
+      Niwot has no incorporation date because it has never incorporated. It is a census-designated place under Boulder
+      County, which means county services, no town council and no municipal tax — and an incorporation question that
+      is <a href="https://insideniwot.com/articles/2026-incorporation-election/">on the ballot in 2026</a>. If you are
+      comparing towns on how they are governed, that is the one real difference on this page.
+    </p>
+  </div>
+
+  <CtaBand
+    eyebrow="Across the network"
+    title="See what’s on before you visit"
+    body="The surest way to judge a town is to turn up on a Saturday. Every event across all seven guides is on one page."
+    links={[
+      { label: 'This weekend', href: '/this-weekend/', primary: true },
+      { label: 'All the guides', href: '/#towns' },
+    ]}
+  />
+</Page>

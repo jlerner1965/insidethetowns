@@ -12,6 +12,9 @@ export const erie: TownConfig = {
   lat: 40.0503,
   lng: -105.05,
   population: 30038, // 2020 census
+  elevationFt: 5072,
+  incorporated: 1874, // 16 November 1874
+  driveToDenver: 'About 35 min',
   colors: {
     // Coal-seam indigo on a warm grey paper: the town was Colorado's coal capital for
     // eighty years. Distinct from Niwot's evergreen, Lyons' sandstone and Berthoud's lake blue.

@@ -12,6 +12,9 @@ export const lyons: TownConfig = {
   lat: 40.2247,
   lng: -105.2714,
   population: 2209, // 2020 census
+  elevationFt: 5341,
+  incorporated: 1891, // platted 1881
+  driveToDenver: 'About 1 hr',
   colors: {
     // Lyons Formation sandstone, on a sandstone-dust paper. The old explorelyons.com
     // palette used the same rock; this is its red-rock accent, lifted a step for links.

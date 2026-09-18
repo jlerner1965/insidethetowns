@@ -611,3 +611,42 @@ above it, the row. The details that decide whether this feels right:
 Driven in a real browser rather than eyeballed: the panel's top edge lands on
 the header's bottom edge to the pixel, the rows measure 61px, and every one of
 those behaviours is asserted.
+
+## Compare the towns
+
+The parent site's first page that answers something people type: "best small
+town near Boulder", "which Front Range town should I move to". Nobody owns
+those searches because the answer is spread across seven chamber sites.
+
+- **Every column is a loop over the town configs**, so the table cannot drift
+  from the guides and an eighth town appears in it without anyone editing a
+  grid. Three facts were missing and were researched rather than estimated:
+  elevation and incorporation date for all seven, from the published figures.
+  Two of them cross-check against writing already on the sites — Erie's 16
+  November 1874 and Elizabeth's 6,477 feet were both already in their own
+  content, arrived at independently.
+- **There is no median-home-price column**, which the plan that prompted this
+  page wanted. It needs a named source and a quarterly re-check, and a figure
+  eighteen months stale is worse than no figure. The listings links on each
+  Moving Here page show what is actually on the market. A column that cannot be
+  filled for all seven is worse than a column that is absent.
+- **Drive times are the ones already in each town's guide**, off-peak, and the
+  page says so rather than implying a promise about the Diagonal at half five.
+  Elizabeth's cell reads "45 min to the Tech Center" instead of a Denver
+  figure, because the Tech Center is what its guide actually sources. A precise
+  different fact beats a comparable invented one. Elizabeth's own site returns
+  403 to an automated fetch, so no better figure was available to confirm.
+- **Niwot's empty incorporation cell is the most useful thing on the page.** It
+  has never incorporated: county services, no council, no municipal tax, and
+  the question on the 2026 ballot. The page says so in its own section rather
+  than leaving a reader to wonder whether the cell is a gap in the data.
+- **One markup, two shapes.** A seven-column table at 375px is a horizontal
+  scroll nobody performs, so below 52rem each row becomes a card and each cell
+  takes its label from `data-label`. The table semantics survive, so a screen
+  reader still gets headers and rows. Verified: no element overflows the
+  viewport at 320, 375 or 412.
+- **The loop back matters more than the page.** Each town's Moving Here page
+  links to `/compare/`, and `/compare/` links to all seven. That reciprocal
+  pair is the strongest internal signal this network can build for itself,
+  given seven separate domains that a search engine otherwise reads as
+  strangers.
