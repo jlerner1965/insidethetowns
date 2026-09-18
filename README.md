@@ -39,5 +39,7 @@ events page, so readers can subscribe in a calendar app.
 - `src/config/towns/` — one file per town; `index.ts` exports `getSite()` / `getTown()`
 - `content/<town>/` — events, places, articles, pages, images (see the README in each)
 - `IMAGE_LICENSES.csv` — every image, its source and licence
+- `docs/PHOTOS.md` — how to get the missing photographs, and what has been ruled out
+- `docs/PHOTO-CONTACTS.csv` — the 139 businesses without one, with phone and website
 
 Requires Node 22.18+ (scripts use Node's built-in TypeScript support).
