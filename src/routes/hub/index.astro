@@ -32,6 +32,7 @@ const soon = hub.towns.filter((t) => !LIVE_TOWNS.includes(t.slug));
           { label: 'Counties', value: String(new Set(live.map((t) => t.county)).size) },
           { label: 'People covered', value: live.reduce((n, t) => n + (t.population ?? 0), 0).toLocaleString('en-US') },
         ]}
+        note="Population at the 2020 census, summed across the live guides. Several of these towns have grown a long way since."
       />
     </div>
   </section>

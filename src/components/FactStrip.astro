@@ -11,9 +11,11 @@ interface Props {
   facts: Array<{ label: string; value: string; href?: string }>;
   /** Numbers get the display face at size; sentences stay at reading size. */
   size?: 'number' | 'text';
+  /** Where the figures come from. A sourced number beats an asserted one. */
+  note?: string;
 }
 
-const { facts, size = 'text' } = Astro.props;
+const { facts, size = 'text', note } = Astro.props;
 const value = size === 'number' ? 'display-md mt-2 text-[2rem] text-accent-dark' : 'mt-2 text-[1.0625rem] leading-snug';
 // Written out rather than interpolated so Tailwind can see the class names.
 const columns: Record<number, string> = {
@@ -24,6 +26,7 @@ const columns: Record<number, string> = {
 };
 ---
 {facts.length > 0 && (
+  <div>
   <dl class:list={['grid gap-px overflow-hidden rounded-lg bg-accent-line ring-1 ring-accent-line', columns[Math.min(facts.length, 4)]]}>
     {facts.map((f) => (
       <div class="bg-white px-5 py-5">
@@ -34,4 +37,6 @@ const columns: Record<number, string> = {
       </div>
     ))}
   </dl>
+  {note && <p class="mt-3 text-[0.8125rem] text-ink-faint">{note}</p>}
+  </div>
 )}

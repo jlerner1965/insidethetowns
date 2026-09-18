@@ -14,6 +14,7 @@ import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'astro/zod';
 import { COLLECTIONS, schemaFor, type CollectionName } from '../src/content/schemas.ts';
+import { liveTowns } from '../src/config/index.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -59,6 +60,16 @@ function validateFile(collection: CollectionName, file: string) {
     if (end.getTime() < Date.now() - 86_400_000) {
       warnings.push(`${rel}: event is in the past (${end.toISOString().slice(0, 10)}); it will be hidden. Delete or update it.`);
     }
+  }
+}
+
+// The hub publishes "People covered" as the sum across every live guide, so a
+// live town with no figure does not just leave a gap — it quietly makes the
+// headline number wrong. Elizabeth did exactly that: seven guides, six
+// populations, a total that was 1,675 short and looked authoritative.
+for (const town of liveTowns()) {
+  if (!town.population) {
+    errors.push(`src/config/towns/${town.slug}.ts: live town has no population; the network total on the hub would undercount`);
   }
 }
 
