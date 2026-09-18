@@ -561,3 +561,41 @@ read as sober rather than as anything. Colour is now structural.
   cards inside the paper. The home page runs white, tint, white, then a full
   band of the accent itself, and the footer is the town's colour rather than
   near-black.
+
+## Dark mode
+
+Every page declared `color-scheme: light`, which on a phone at night is a wall
+of white. The colour system made this tractable; it also made it exacting.
+
+- **The tokens that have to change go through `--t-*`**, defined once on
+  `:root` and redefined under `prefers-color-scheme: dark`. Tailwind's
+  `@theme inline` maps `--color-*` to those, so every utility in the codebase
+  follows the scheme without a single `dark:` variant in the markup.
+- **`accent-dark` was doing two jobs and only one of them inverts.** It is both
+  the colour words are set in on a light page and the fill of the dark bands.
+  Those pull in opposite directions when the page flips, so text in the town's
+  colour is now its own token, `accent-text`: `accentDark` in light, a
+  lightened accent in dark. `accent-dark` stays put, because a band is a band
+  whichever way round the page is.
+- **The dark surfaces are shared, not tinted per town.** `#14151A` for the page
+  and `#1D1F26` for cards. A per-town tint would have been prettier and would
+  have made every pair in the dark scheme a computed colour the check could not
+  verify exactly. The town's colour still carries the bands, the rules, the
+  labels and the top strip, which is where it was doing the work anyway.
+- **The derived tokens mix in `srgb`, not `oklab`**, for the same reason: a
+  plain channel interpolation is one `check-colors` can reproduce exactly. A
+  marginally nicer gradient is not worth an unverifiable colour.
+- **The category hues became CSS variables.** They were inline hex from the
+  palette module, which cannot respond to a media query. `categoryCss()` emits
+  both schemes' values from that same module into the document head, and
+  components reference `var(--cat-<name>-ink)`. One definition still, and the
+  checker reads it.
+- **The check now covers both schemes** — ink, muted and faint on both dark
+  surfaces, the lightened accent as text on all three grounds, every category
+  dot and label in the dark, and the masthead band's ink in both. It caught the
+  dark accent rule immediately: mixed 38% into a near-black surface it measured
+  1.45:1, which is not a rule, it is nothing. It mixes toward white now.
+- **Screenshots can see it.** `--force-dark-mode` is Chromium's own
+  auto-darkening and does not touch the media query; `SCHEME=dark` on the
+  screenshot script passes `--blink-settings=preferredColorScheme=0`, which
+  does.

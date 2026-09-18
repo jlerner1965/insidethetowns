@@ -36,7 +36,7 @@ const [lead, second] = articles;
     <div class="container-page">
     <SectionHeader eyebrow={`This week in ${town.name}`} title="What’s on" href="/events/" linkLabel="All events" />
     {events.length === 0 ? (
-      <p class="text-ink-muted">No upcoming events listed yet. <a href="/contact/#submit-event" class="text-accent-dark underline">Submit one.</a></p>
+      <p class="text-ink-muted">No upcoming events listed yet. <a href="/contact/#submit-event" class="text-accent-text underline">Submit one.</a></p>
     ) : (
       <div class="grid border-b border-line-soft md:grid-cols-2 md:gap-x-12">
         {events.map((event) => <EventCard event={event} />)}

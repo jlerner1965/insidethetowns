@@ -26,7 +26,7 @@ const formAction = site.formspreeId ? `https://formspree.io/f/${site.formspreeId
     <p><a href={subject('Listing or correction')}>Email a listing or correction</a></p>
 
     {formAction && (
-      <form action={formAction} method="POST" class="mt-10 space-y-5 rounded-lg bg-white p-6 ring-1 ring-line-soft md:p-8">
+      <form action={formAction} method="POST" class="mt-10 space-y-5 rounded-lg bg-raised p-6 ring-1 ring-line-soft md:p-8">
         <h2 class="mt-0">Or send a message</h2>
         <label class="block text-sm font-medium">
           Your email

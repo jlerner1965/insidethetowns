@@ -37,9 +37,9 @@ const twoUp = feature && !!data.image;
       {data.category} <span class="text-ink-faint">·</span> <time datetime={toIsoLocal(data.date)} class="text-ink-muted">{formatDate(data.date)}</time>
     </p>
     <h3 class:list={['mt-2 font-medium leading-tight', feature ? 'display text-3xl md:text-5xl' : 'text-2xl']}>
-      <a href={href} class="stretch no-underline group-hover:text-accent-dark">{data.title}</a>
+      <a href={href} class="stretch no-underline group-hover:text-accent-text">{data.title}</a>
     </h3>
     <p class:list={['mt-3 leading-relaxed text-ink-muted', feature ? 'text-lg' : 'text-[0.9375rem] line-clamp-3']}>{data.excerpt}</p>
-    {feature && <p class="mt-5 text-[0.9375rem] font-semibold text-accent-dark">Read the story →</p>}
+    {feature && <p class="mt-5 text-[0.9375rem] font-semibold text-accent-text">Read the story →</p>}
   </div>
 </article>

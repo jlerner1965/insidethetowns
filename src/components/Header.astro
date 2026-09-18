@@ -12,7 +12,7 @@ const isActive = (href: string) => {
 const linkClass = (href: string) =>
   [
     'block whitespace-nowrap py-1 text-[0.8125rem] font-semibold uppercase tracking-[0.1em] no-underline transition-colors',
-    isActive(href) ? 'text-accent-dark' : 'text-ink-muted hover:text-ink',
+    isActive(href) ? 'text-accent-text' : 'text-ink-muted hover:text-ink',
   ].join(' ');
 ---
 {/* The first thing on every page is a band of the town's colour. It costs

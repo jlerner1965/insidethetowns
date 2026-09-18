@@ -80,7 +80,7 @@ const pins = towns.map((t) => {
 });
 const road = I25.map((p) => `${x(p.lng).toFixed(1)},${y(p.lat).toFixed(1)}`).join(' ');
 ---
-<figure class="overflow-hidden rounded-lg bg-white ring-1 ring-line-soft">
+<figure class="overflow-hidden rounded-lg bg-raised ring-1 ring-line-soft">
   {/* No role="img": that prunes descendants from the accessibility tree,
      which would leave the town links focusable but unnamed. */}
   <svg viewBox={`0 0 ${W} ${H}`} aria-labelledby="town-map-title" class="h-auto w-full font-body">
@@ -88,7 +88,7 @@ const road = I25.map((p) => `${x(p.lng).toFixed(1)},${y(p.lat).toFixed(1)}`).joi
       Map of Colorado's Front Range showing the {towns.length} towns in the network, with Denver,
       Boulder, Fort Collins and Interstate 25 for reference
     </title>
-    <rect width={W} height={H} fill="#ffffff"></rect>
+    <rect width={W} height={H} fill="var(--color-raised)"></rect>
 
     {/* The mountains are the western edge of everything here. */}
     <path

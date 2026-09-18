@@ -17,7 +17,7 @@ interface Props {
 const site = getSite();
 const { class: className = '', tone = 'ink' } = Astro.props;
 const first = tone === 'light' ? 'text-white/70' : 'text-ink';
-const second = tone === 'light' ? 'text-white' : 'text-accent-dark';
+const second = tone === 'light' ? 'text-white' : 'text-accent-text';
 const match = /^(Inside)\s+(.+)$/.exec(site.siteTitle);
 ---
 <a href="/" class:list={['font-heading tracking-tight no-underline', className]} aria-label={`${site.siteTitle} home`}>

@@ -7,7 +7,6 @@ import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
 import { formatDate, formatTimeRange, formatWeekday, monthDay, toIsoLocal } from '@/lib/dates';
 import { CATEGORY_LABELS } from '@/content/schemas';
-import { CATEGORY_COLORS } from '@/config/palette';
 
 interface Props {
   event: TownEntry<'events'>;
@@ -20,7 +19,6 @@ const { data, slug } = event;
 const badge = monthDay(data.start);
 const href = `/events/${slug}/`;
 const time = data.timeNote ?? formatTimeRange(data.start, data.end, data.allDay);
-const hue = CATEGORY_COLORS[data.category];
 const note =
   data.recurring ??
   (data.repeat === 'weekly' && data.until ? `Every ${formatWeekday(data.start)} through ${formatDate(data.until)}` : undefined);
@@ -33,7 +31,7 @@ const note =
   {showDate ? (
     <time datetime={toIsoLocal(data.start)} class="flex flex-col pt-0.5">
       <span class="eyebrow">{badge.weekday}</span>
-      <span class="font-heading text-[2.25rem] font-medium leading-none tabular-nums text-accent-dark md:text-[2.5rem]">{badge.day}</span>
+      <span class="font-heading text-[2.25rem] font-medium leading-none tabular-nums text-accent-text md:text-[2.5rem]">{badge.day}</span>
       <span class="text-xs font-medium uppercase tracking-[0.1em] text-ink-muted">{badge.month}</span>
     </time>
   ) : (
@@ -46,12 +44,12 @@ const note =
     </time>
   )}
   <div class="min-w-0">
-    <p class="eyebrow flex items-center gap-2" style={`color:${hue.ink}`}>
-      <span class="inline-block size-2 shrink-0 rounded-full" style={`background:${hue.dot}`} aria-hidden="true"></span>
+    <p class="eyebrow flex items-center gap-2" style={`color:var(--cat-${data.category}-ink)`}>
+      <span class="inline-block size-2 shrink-0 rounded-full" style={`background:var(--cat-${data.category}-dot)`} aria-hidden="true"></span>
       {CATEGORY_LABELS[data.category]}
     </p>
     <h3 class="mt-1.5 text-xl font-medium leading-tight md:text-2xl">
-      <a href={href} class="stretch no-underline group-hover:text-accent-dark">{data.title}</a>
+      <a href={href} class="stretch no-underline group-hover:text-accent-text">{data.title}</a>
     </h3>
     <p class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">
       {showDate && <span>{time} · </span>}{data.venue}{data.cost && <span> · {data.cost}</span>}

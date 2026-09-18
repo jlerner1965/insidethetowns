@@ -10,28 +10,33 @@
  */
 @theme inline {
   /* Two town colours doing different jobs: accent is the bright one and only
-     ever a fill, a rule or a mark; accent-dark is the one words are set in,
-     and is also the fill of the dark bands. scripts/check-colors.ts proves
-     both clear AA on every town's paper, and CI runs it. */
+     ever a fill, a rule or a mark; accent-text is the one words are set in.
+     accent-dark stays the fill of the dark bands in both schemes, because a
+     band is a band whichever way round the page is.
+
+     Everything that has to change between light and dark goes through a --t-*
+     variable, defined once below and redefined under prefers-color-scheme.
+     scripts/check-colors.ts proves every resulting pair clears AA in both
+     schemes, and CI runs it. */
   --color-accent: var(--town-accent);
   --color-accent-dark: var(--town-accent-dark);
-  /* Mixed into the paper, not into white: a warm town's tint has to be a step
-     away from its own warm background, and 9% of ochre in white was not. */
-  --color-accent-tint: color-mix(in oklab, var(--town-accent) 14%, var(--town-neutral-bg));
-  --color-accent-soft: color-mix(in oklab, var(--town-accent) 16%, white);
-  --color-accent-line: color-mix(in oklab, var(--town-accent) 32%, white);
+  --color-accent-text: var(--t-accent-text);
+  --color-accent-tint: var(--t-accent-tint);
+  --color-accent-soft: var(--t-accent-soft);
+  --color-accent-line: var(--t-accent-line);
 
   /* One warm amber across the whole network, so the seven sites read as a
      family and not seven unrelated colour schemes. A fill, never text. */
   --color-highlight: #f0a62e;
-  --color-highlight-soft: #fdf0d8;
 
-  --color-paper: var(--town-neutral-bg);
-  --color-ink: #17181a;
-  --color-ink-muted: #5d5f64;
-  --color-ink-faint: #63666c; /* 5:1 on paper; the lightest text the sites use */
-  --color-line: color-mix(in oklab, var(--town-neutral-bg) 70%, #17181a 30%);
-  --color-line-soft: color-mix(in oklab, var(--town-neutral-bg) 88%, #17181a 12%);
+  --color-paper: var(--t-surface);
+  /* Cards and panels: white on paper, a step up from the page in the dark. */
+  --color-raised: var(--t-raised);
+  --color-ink: var(--t-ink);
+  --color-ink-muted: var(--t-ink-muted);
+  --color-ink-faint: var(--t-ink-faint);
+  --color-line: var(--t-line);
+  --color-line-soft: var(--t-line-soft);
 
   --font-heading: "Fraunces Variable", Georgia, "Times New Roman", serif;
   --font-body: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
@@ -39,6 +44,47 @@
   --text-eyebrow: 0.75rem;
   --tracking-eyebrow: 0.14em;
 }
+
+:root {
+  --t-surface: var(--town-neutral-bg);
+  --t-raised: #ffffff;
+  --t-ink: #17181a;
+  --t-ink-muted: #5d5f64;
+  --t-ink-faint: #63666c; /* 5:1 on paper; the lightest text the sites use */
+  --t-line: color-mix(in srgb, var(--town-neutral-bg) 70%, #17181a 30%);
+  --t-line-soft: color-mix(in srgb, var(--town-neutral-bg) 88%, #17181a 12%);
+  --t-accent-text: var(--town-accent-dark);
+  --t-accent-tint: color-mix(in srgb, var(--town-accent) 14%, var(--town-neutral-bg));
+  --t-accent-soft: color-mix(in srgb, var(--town-accent) 16%, #ffffff);
+  --t-accent-line: color-mix(in srgb, var(--town-accent) 32%, #ffffff);
+}
+
+/*
+ * Dark. The surfaces are shared rather than tinted per town, so every pair in
+ * them is an exact known colour the contrast check can verify; the town's
+ * colour still carries the bands, the rules, the labels and the top strip.
+ *
+ * accent-text is the one that has to invert: accent-dark is dark enough to
+ * hold white text, which makes it unreadable as text on a dark page.
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --t-surface: #14151a;
+    --t-raised: #1d1f26;
+    --t-ink: #eae8e3;
+    --t-ink-muted: #b0b2b9;
+    --t-ink-faint: #9a9ca3;
+    --t-line: #3b3e46;
+    --t-line-soft: #292c33;
+    --t-accent-text: color-mix(in srgb, var(--town-accent) 62%, #ffffff);
+    --t-accent-tint: color-mix(in srgb, var(--town-accent) 16%, #14151a);
+    --t-accent-soft: color-mix(in srgb, var(--town-accent) 24%, #14151a);
+    /* Toward white, not toward the page: a rule mixed into a near-black
+       surface is not a rule, it is nothing. */
+    --t-accent-line: color-mix(in srgb, var(--town-accent) 80%, #ffffff);
+  }
+}
+
 
 @layer base {
   html {
@@ -77,7 +123,7 @@
   :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 3px;
-    box-shadow: 0 0 0 3px #fff;
+    box-shadow: 0 0 0 3px var(--color-paper);
     border-radius: 2px;
   }
   /* On dark grounds the roles swap, so the bright edge is the outline. */
@@ -110,10 +156,10 @@
   padding-block: 4rem;
   @media (width >= 48rem) { padding-block: 6rem; }
 }
-@utility band-white { background-color: #fff; }
+@utility band-white { background-color: var(--color-raised); }
 @utility band-tint { background-color: var(--color-accent-tint); }
 @utility band-dark {
-  background-color: var(--color-accent-dark);
+  background-color: var(--color-accent-text);
   color: #fff;
 }
 
@@ -123,7 +169,7 @@
   font-weight: 600;
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
-  color: var(--color-accent-dark);
+  color: var(--color-accent-text);
   font-variant-numeric: tabular-nums;
 }
 
@@ -160,8 +206,8 @@
   .btn:active { transform: translateY(1px); }
   .btn-primary { background: var(--color-accent-dark); color: #fff; }
   .btn-primary:hover { background: var(--color-accent); }
-  .btn-light { background: #fff; color: var(--color-ink); }
-  .btn-light:hover { background: var(--color-paper); }
+  .btn-light { background: #fff; color: #17181a; }
+  .btn-light:hover { background: #e9e7e2; }
   .btn-outline { border: 1px solid currentColor; }
   .btn-outline:hover { background: color-mix(in oklab, currentColor 8%, transparent); }
 
@@ -195,7 +241,7 @@
 .prose h3 { font-size: 1.3rem; line-height: 1.3; margin-top: 1.8em; }
 .prose h2 + *, .prose h3 + * { margin-top: 0.6em; }
 .prose a {
-  color: var(--color-accent-dark);
+  color: var(--color-accent-text);
   text-decoration: underline;
   text-decoration-color: color-mix(in oklab, var(--color-accent) 45%, transparent);
   text-underline-offset: 0.2em;

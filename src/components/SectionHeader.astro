@@ -18,6 +18,6 @@ const { eyebrow, title, href, linkLabel = 'See all' } = Astro.props;
     <h2 class="display-md text-4xl md:text-5xl">{title}</h2>
   </div>
   {href && (
-    <a href={href} class="text-[0.9375rem] font-semibold text-accent-dark no-underline hover:underline">{linkLabel} →</a>
+    <a href={href} class="text-[0.9375rem] font-semibold text-accent-text no-underline hover:underline">{linkLabel} →</a>
   )}
 </div>

@@ -50,7 +50,7 @@ const next = uniqueByEvent(upcoming(occurrences(await getNetworkEntries('events'
         {live.map((t) => (
           <a
             href={`https://${t.domain}/`}
-            class="group block rounded-lg border-l-4 bg-white p-6 no-underline ring-1 ring-line-soft transition hover:ring-line"
+            class="group block rounded-lg border-l-4 bg-raised p-6 no-underline ring-1 ring-line-soft transition hover:ring-line"
             style={`border-color:${t.colors.accent}`}
           >
             <p class="eyebrow" style={`color:${t.colors.accentDark}`}>{t.county} County</p>
@@ -81,7 +81,7 @@ const next = uniqueByEvent(upcoming(occurrences(await getNetworkEntries('events'
           href="/this-weekend/"
           linkLabel="This weekend"
         />
-        <div class="rounded-lg bg-white px-5 ring-1 ring-line-soft sm:px-7">
+        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
           {next.map((event) => <NetworkEventCard event={event} />)}
         </div>
       </div>

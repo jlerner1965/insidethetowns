@@ -79,7 +79,7 @@ const facts = [
           {data.tags.map((tag) => <li class="rounded-full border border-line px-3 py-1 text-xs font-medium text-ink-muted">{tag}</li>)}
         </ul>
       )}
-      <p class="mt-12 text-[0.9375rem]"><a href={back.href} class="font-semibold text-accent-dark no-underline hover:underline">← {back.label}</a></p>
+      <p class="mt-12 text-[0.9375rem]"><a href={back.href} class="font-semibold text-accent-text no-underline hover:underline">← {back.label}</a></p>
     </div>
     <aside class="lg:pt-1">
       <dl class="divide-y divide-line-soft border-y border-line-soft">
@@ -87,7 +87,7 @@ const facts = [
           <div class="py-4">
             <dt class="eyebrow">{f.label}</dt>
             <dd class="mt-1.5 leading-snug">
-              {f.href ? <a href={f.href} rel={f.href.startsWith('http') ? 'noopener' : undefined} class="text-accent-dark">{f.value}</a> : f.value}
+              {f.href ? <a href={f.href} rel={f.href.startsWith('http') ? 'noopener' : undefined} class="text-accent-text">{f.value}</a> : f.value}
             </dd>
           </div>
         ))}

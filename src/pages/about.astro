@@ -20,7 +20,7 @@ const events = upcoming(occurrences(allEvents));
 // being kept rather than published once and left.
 const checks = [...places, ...allEvents].map((e) => e.data.verified).filter((d): d is Date => !!d);
 const lastChecked = checks.length > 0 ? new Date(Math.max(...checks.map((d) => d.getTime()))) : null;
-const panel = 'rounded-lg bg-white p-6 ring-1 ring-line-soft';
+const panel = 'rounded-lg bg-raised p-6 ring-1 ring-line-soft';
 const panelTitle = 'eyebrow border-b border-line-soft pb-3';
 ---
 {site.kind === 'town' ? (
@@ -64,13 +64,13 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
           <p class={panelTitle}>Official sources</p>
           <ul class="mt-4 space-y-3 text-[0.9375rem] leading-snug">
             <li>
-              <a href={site.officialLinks.townSite} rel="noopener" class="font-semibold text-accent-dark no-underline hover:underline">
+              <a href={site.officialLinks.townSite} rel="noopener" class="font-semibold text-accent-text no-underline hover:underline">
                 {site.officialLinks.townSiteLabel ?? `The official ${site.name} site`} →
               </a>
             </li>
             {site.officialLinks.policeNonEmergency && (
               <li>
-                <a href={site.officialLinks.policeNonEmergency} rel="noopener" class="font-semibold text-accent-dark no-underline hover:underline">
+                <a href={site.officialLinks.policeNonEmergency} rel="noopener" class="font-semibold text-accent-text no-underline hover:underline">
                   {site.officialLinks.policeNonEmergencyLabel ?? `${site.name} police`} →
                 </a>
                 <span class="block text-ink-muted">Non-emergency contact. In an emergency, call 911.</span>
@@ -84,7 +84,7 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
             <ul class="mt-4 space-y-2.5 text-[0.9375rem]">
               {siblings.map((t) => (
                 <li>
-                  <a href={`https://${t.domain}/`} class="font-semibold no-underline hover:text-accent-dark hover:underline">{t.siteTitle}</a>
+                  <a href={`https://${t.domain}/`} class="font-semibold no-underline hover:text-accent-text hover:underline">{t.siteTitle}</a>
                   <span class="block text-ink-muted">{t.county} County</span>
                 </li>
               ))}
@@ -139,7 +139,7 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
           <ul class="mt-4 space-y-2.5 text-[0.9375rem]">
             {live.map((t) => (
               <li>
-                <a href={`https://${t.domain}/`} class="font-semibold no-underline hover:text-accent-dark hover:underline">{t.siteTitle}</a>
+                <a href={`https://${t.domain}/`} class="font-semibold no-underline hover:text-accent-text hover:underline">{t.siteTitle}</a>
                 <span class="block text-ink-muted">{t.county} County</span>
               </li>
             ))}

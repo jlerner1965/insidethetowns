@@ -11,7 +11,7 @@
 import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
 import { PLACE_TYPE_LABELS } from '@/content/schemas';
-import { PLACE_TYPE_COLORS } from '@/config/palette';
+import { PLACE_HUE } from '@/config/palette';
 
 interface Props {
   place: TownEntry<'places'>;
@@ -21,9 +21,9 @@ const { place } = Astro.props;
 const { data, slug } = place;
 const href = `/places/${slug}/`;
 const facts = [data.priceRange, data.address, data.hours].filter(Boolean);
-const hue = PLACE_TYPE_COLORS[data.type];
+const hue = PLACE_HUE[data.type];
 ---
-<article class="group relative grid gap-6 overflow-hidden rounded-lg bg-white ring-1 ring-line-soft md:grid-cols-[5fr_4fr] md:gap-0">
+<article class="group relative grid gap-6 overflow-hidden rounded-lg bg-raised ring-1 ring-line-soft md:grid-cols-[5fr_4fr] md:gap-0">
   {data.image && (
     <Image
       src={data.image}
@@ -34,11 +34,11 @@ const hue = PLACE_TYPE_COLORS[data.type];
     />
   )}
   <div class="flex flex-col justify-center px-6 pb-7 md:px-9 md:py-9">
-    <p class="eyebrow" style={`color:${hue.ink}`}>
+    <p class="eyebrow" style={`color:var(--cat-${hue}-ink)`}>
       {PLACE_TYPE_LABELS[data.type]}{data.area && <span class="ml-2 font-medium normal-case tracking-normal text-ink-faint">{data.area}</span>}
     </p>
     <h3 class="display-md mt-2 text-[2rem]">
-      <a href={href} class="stretch no-underline group-hover:text-accent-dark">{data.title}</a>
+      <a href={href} class="stretch no-underline group-hover:text-accent-text">{data.title}</a>
     </h3>
     <p class="mt-3 max-w-[46ch] leading-relaxed text-ink-muted">{data.summary}</p>
     {facts.length > 0 && (

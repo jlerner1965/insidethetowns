@@ -16,7 +16,7 @@ interface Props {
 }
 
 const { facts, size = 'text', note } = Astro.props;
-const value = size === 'number' ? 'display-md mt-2 text-[2rem] text-accent-dark' : 'mt-2 text-[1.0625rem] leading-snug';
+const value = size === 'number' ? 'display-md mt-2 text-[2rem] text-accent-text' : 'mt-2 text-[1.0625rem] leading-snug';
 // Written out rather than interpolated so Tailwind can see the class names.
 const columns: Record<number, string> = {
   1: 'sm:grid-cols-1',
@@ -29,10 +29,10 @@ const columns: Record<number, string> = {
   <div>
   <dl class:list={['grid gap-px overflow-hidden rounded-lg bg-accent-line ring-1 ring-accent-line', columns[Math.min(facts.length, 4)]]}>
     {facts.map((f) => (
-      <div class="bg-white px-5 py-5">
+      <div class="bg-raised px-5 py-5">
         <dt class="eyebrow">{f.label}</dt>
         <dd class={value}>
-          {f.href ? <a href={f.href} rel="noopener" class="text-accent-dark no-underline hover:underline">{f.value}</a> : f.value}
+          {f.href ? <a href={f.href} rel="noopener" class="text-accent-text no-underline hover:underline">{f.value}</a> : f.value}
         </dd>
       </div>
     ))}

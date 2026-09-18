@@ -13,7 +13,7 @@
  */
 import type { TownEntry } from '@/lib/content';
 import { PLACE_TYPE_LABELS } from '@/content/schemas';
-import { PLACE_TYPE_COLORS } from '@/config/palette';
+import { PLACE_HUE } from '@/config/palette';
 
 interface Props {
   place: TownEntry<'places'>;
@@ -25,7 +25,7 @@ const { place, level = 3 } = Astro.props;
 const { data, slug } = place;
 const href = `/places/${slug}/`;
 const Heading = `h${level}` as 'h3' | 'h4';
-const hue = PLACE_TYPE_COLORS[data.type];
+const hue = PLACE_HUE[data.type];
 ---
 <li
   class="group relative grid gap-x-10 gap-y-2 border-b border-line-soft py-6 last:border-b-0 sm:grid-cols-[minmax(0,1fr)_minmax(8rem,14rem)]"
@@ -35,7 +35,7 @@ const hue = PLACE_TYPE_COLORS[data.type];
   <div>
     <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
       <Heading class="text-[1.25rem] font-medium leading-tight">
-        <a href={href} class="stretch no-underline group-hover:text-accent-dark">{data.title}</a>
+        <a href={href} class="stretch no-underline group-hover:text-accent-text">{data.title}</a>
       </Heading>
       {data.featured && (
         <span class="rounded-full bg-highlight px-2.5 py-0.5 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-ink">
@@ -43,8 +43,8 @@ const hue = PLACE_TYPE_COLORS[data.type];
         </span>
       )}
     </div>
-    <p class="eyebrow mt-1.5 flex items-center gap-2" style={`color:${hue.ink}`}>
-      <span class="inline-block size-2 shrink-0 rounded-full" style={`background:${hue.dot}`} aria-hidden="true"></span>
+    <p class="eyebrow mt-1.5 flex items-center gap-2" style={`color:var(--cat-${hue}-ink)`}>
+      <span class="inline-block size-2 shrink-0 rounded-full" style={`background:var(--cat-${hue}-dot)`} aria-hidden="true"></span>
       {PLACE_TYPE_LABELS[data.type]}{data.priceRange && <span class="ml-1 text-ink-faint">{data.priceRange}</span>}
     </p>
     <p class="mt-2 max-w-[58ch] text-[0.9375rem] leading-relaxed text-ink-muted">{data.summary}</p>
