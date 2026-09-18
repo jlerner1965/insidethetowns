@@ -12,18 +12,23 @@ const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
   ['/', 'index.astro'],
   ['/events', 'events/index.astro'],
   ['/events/calendar.ics', 'events/calendar.ics.ts'],
+  ['/rss.xml', 'rss.xml.ts'],
+  ['/events.rss', 'events.rss.ts'],
   ['/events/[slug]', 'events/[slug].astro'],
   ['/places/[slug]', 'places/[slug].astro'],
   ['/articles/[slug]', 'articles/[slug].astro'],
   ['/eat-drink', 'eat-drink.astro'],
   ['/things-to-do', 'things-to-do.astro'],
   ['/moving-here', 'moving-here.astro'],
+  ['/submit-event', 'submit-event.astro'],
+  ['/thanks', 'thanks.astro'],
 ];
 
 const HUB_ROUTES: Array<[pattern: string, file: string]> = [
   ['/', 'index.astro'],
   ['/this-weekend', 'this-weekend.astro'],
   ['/compare', 'compare.astro'],
+  ['/events.rss', 'events.rss.ts'],
   ['/advertise', 'advertise.astro'],
 ];
 

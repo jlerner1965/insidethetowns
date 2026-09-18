@@ -1,7 +1,8 @@
 ---
 /**
  * No backend: a Formspree form when `formspreeId` is configured, otherwise
- * mailto links. "Submit an event" from the events page lands on #submit-event.
+ * mailto links. Events have their own form at /submit-event/, because its ten
+ * fields are the ones the event schema needs and a general message box is not.
  */
 import Page from '@/layouts/Page.astro';
 import { getSite } from '@/config';
@@ -16,11 +17,20 @@ const formAction = site.formspreeId ? `https://formspree.io/f/${site.formspreeId
     <p>Email <a href={`mailto:${email}`}>{email}</a>, or use the shortcuts below.</p>
 
     <h2 id="submit-event">Submit an event</h2>
-    <p>
-      Send the event name, date and time, venue, cost, and a link to the organizer’s page.
-      Free and open-to-the-public events in {site.kind === 'town' ? site.name : 'any of our towns'} are always welcome.
-    </p>
-    <p><a href={subject("Event submission")} class="btn btn-primary">Email an event</a></p>
+    {site.kind === 'town' ? (
+      <Fragment>
+        <p>
+          Anything open to the public in and around {site.name} is welcome, and there is a form for it with the
+          fields we need.
+        </p>
+        <p><a href="/submit-event/" class="btn btn-primary no-underline">Submit an event</a></p>
+      </Fragment>
+    ) : (
+      <p>
+        Events belong on their town’s own guide — each one has a form for it. Not sure which?
+        <a href={subject('Event submission')}>Email it here</a> and we’ll put it where it goes.
+      </p>
+    )}
 
     <h2>Suggest a place or a correction</h2>
     <p><a href={subject('Listing or correction')}>Email a listing or correction</a></p>

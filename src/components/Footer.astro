@@ -5,7 +5,6 @@ import Wordmark from './Wordmark.astro';
 
 const site = getSite();
 const year = new Date().getFullYear();
-const submitSubject = encodeURIComponent(`Event submission for ${site.siteTitle}`);
 const linkClass = 'no-underline text-white/75 hover:text-white hover:underline';
 ---
 <footer class="on-dark mt-24 bg-accent-dark text-white/80">
@@ -19,7 +18,7 @@ const linkClass = 'no-underline text-white/75 hover:text-white hover:underline';
       <ul class="mt-4 space-y-2 text-[0.9375rem]">
         <li><a href="/contact/" class={linkClass}>Contact</a></li>
         {site.kind === 'town' && (
-          <li><a href={`mailto:${site.social.email}?subject=${submitSubject}`} class={linkClass}>Submit an event</a></li>
+          <li><a href="/submit-event/" class={linkClass}>Submit an event</a></li>
         )}
         <li><a href="/about/" class={linkClass}>About</a></li>
         <li><a href="/editorial/" class={linkClass}>Editorial policy</a></li>

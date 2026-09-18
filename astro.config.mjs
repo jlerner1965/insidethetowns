@@ -13,8 +13,13 @@ const site = getSite();
 // Repeat occurrences of a recurring event are marked noindex on the page, so
 // they have no business in the sitemap either.
 const repeats = site.kind === 'town' ? repeatOccurrenceSlugs(site.slug) : new Set();
-const notARepeatOccurrence = (/** @type {string} */ url) => {
-  const m = new URL(url).pathname.match(/^\/events\/([^/]+)\/$/);
+/** Pages that carry noindex must not be listed in the sitemap either. */
+const NOINDEX = new Set(['/thanks/']);
+
+const indexable = (/** @type {string} */ url) => {
+  const { pathname } = new URL(url);
+  if (NOINDEX.has(pathname)) return false;
+  const m = pathname.match(/^\/events\/([^/]+)\/$/);
   return !m || !repeats.has(m[1]);
 };
 
@@ -29,7 +34,7 @@ export default defineConfig({
     layout: 'constrained',
     responsiveStyles: true,
   },
-  integrations: [townRoutes(site), sitemap({ filter: notARepeatOccurrence })],
+  integrations: [townRoutes(site), sitemap({ filter: indexable })],
   vite: {
     plugins: [tailwindcss()],
     build: {

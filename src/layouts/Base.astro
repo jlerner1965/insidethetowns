@@ -44,6 +44,11 @@ const cssVars = [
     <link rel="icon" href={`/favicons/${site.slug}/favicon.svg`} type="image/svg+xml" />
     <meta name="theme-color" content={site.colors.accentDark} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    {/* Discovery: an aggregator that lands on any page finds the feeds. */}
+    <link rel="alternate" type="application/rss+xml" title={`${site.siteTitle} — what’s on`} href="/events.rss" />
+    {site.kind === 'town' && (
+      <link rel="alternate" type="application/rss+xml" title={`${site.siteTitle} — guides`} href="/rss.xml" />
+    )}
     {/* One definition of the category hues, from src/config/palette.ts. */}
     <style is:inline set:html={categoryCss()}></style>
   </head>

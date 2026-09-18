@@ -650,3 +650,39 @@ those searches because the answer is spread across seven chamber sites.
   pair is the strongest internal signal this network can build for itself,
   given seven separate domains that a search engine otherwise reads as
   strangers.
+
+## Feeds, and the event form
+
+- **RSS is hand-built, with no dependency.** A feed is a few hundred bytes of
+  XML with two rules that matter: escape the text, and format the dates as
+  RFC 822. `src/lib/rss.ts` does both, the way `src/lib/ics.ts` already does
+  for the calendar. Verified by parsing the output rather than by reading it:
+  "Tails & Ales" survives as `Tails &amp; Ales` and parses back to an
+  ampersand.
+- **`pubDate` is the day the listing was checked, not the day the event is.**
+  That is what the element means, and a feed full of future pubDates is one
+  some readers quietly suppress. Every event carries `verified`, so there is a
+  real publication date to use; the event's own date is in the title and the
+  description, where a reader sees it.
+- **Fifty items.** A feed is a notification, not an archive. Ninety days of
+  Front Range events ran to 218.
+- **The hub publishes a feed no town site can.** Everything upcoming across all
+  seven guides, each item linking to the town that owns it. Local groups and
+  regional aggregators pull feeds, an events feed is more use to them than an
+  articles feed, and almost nobody publishes one.
+- **The event form asks for ten things, and the organiser's link is one of
+  them.** The editorial policy says every listing is checked against its source
+  before it goes up; without a link there is nothing to check it against, so it
+  is required rather than optional.
+- **No CAPTCHA.** It costs submissions from exactly the people most likely to
+  know about the church supper nobody else has listed. Formspree's own `_gotcha`
+  honeypot is visible only to something filling in every field.
+- **The page works before the form does.** Without `formspreeId` it renders the
+  email route and says what to include; the day an id is set it becomes the
+  form. `form-action` in the CSP already allowed formspree.io.
+- **`/thanks/` is noindex and out of the sitemap**, and says what happens to a
+  submission rather than only thanking you, because the usual worry after
+  sending something into a form is whether it went anywhere.
+- **A stale `.astro` cache will lie to you about a config change.** Verifying
+  the no-id branch appeared to fail until a clean build; the check had been
+  reading the previous config.

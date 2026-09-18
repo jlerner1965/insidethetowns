@@ -1,0 +1,60 @@
+---
+/**
+ * Where a submission lands. Noindex: it is a confirmation, not a page anyone
+ * should arrive at from a search.
+ *
+ * It says what happens next, because the most common worry after sending
+ * something into a form is whether it went anywhere, and it offers somewhere
+ * to go, because this is the highest-intent moment on the site — the person
+ * just gave us something.
+ */
+import Page from '@/layouts/Page.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { getTown } from '@/config';
+import { getTownEntries } from '@/lib/content';
+import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
+
+const town = getTown();
+const upcomingCount = uniqueByEvent(upcoming(occurrences(await getTownEntries('events')))).length;
+---
+<Page
+  title="Thank you — that’s with us"
+  seoTitle="Submission received"
+  eyebrow={town.name}
+  description="Your submission has been received."
+  intro="It has arrived. Here is what happens to it next."
+  noindex
+  narrow
+>
+  <div class="prose">
+    <ol>
+      <li>Someone reads it, usually within a day or two.</li>
+      <li>
+        We check it against the organiser’s own page — the link you sent. That is the step that decides whether it
+        goes up, and it is why the link is the one field we insist on.
+      </li>
+      <li>
+        If it checks out it goes on the events page and into the calendar feed, with the date it was checked shown on
+        the listing.
+      </li>
+    </ol>
+    <p>
+      If something does not look right, we will email you at the address you gave rather than guess. If we do not,
+      assume it went up — have a look in a couple of days.
+    </p>
+    <p>
+      Nothing here is paid for and nothing can be. The <a href="/editorial/">editorial policy</a> sets out how
+      listings are made and corrected.
+    </p>
+  </div>
+
+  <CtaBand
+    eyebrow={`This week in ${town.name}`}
+    title="While you’re here"
+    body={`${upcomingCount} events are listed in ${town.name} right now. Yours may be about to join them.`}
+    links={[
+      { label: 'See what’s on', href: '/events/', primary: true },
+      { label: 'Subscribe to the calendar', href: '/events/calendar.ics' },
+    ]}
+  />
+</Page>

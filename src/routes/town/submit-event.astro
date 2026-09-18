@@ -1,0 +1,125 @@
+---
+/**
+ * The event submission form.
+ *
+ * Every route into this network was a mailto:, which converts badly on a phone
+ * — it opens an app most people have never configured — and returns freeform
+ * prose somebody then has to parse by hand. These fields are the ones the
+ * event schema needs, so a submission lands almost straight in the collection.
+ *
+ * The organizer's link is required rather than optional, because the editorial
+ * policy says every listing is checked against its source before it goes up.
+ * Without a link there is nothing to check it against.
+ *
+ * There is no CAPTCHA. It would cost submissions from exactly the people most
+ * likely to know about the church supper nobody else has listed. `_gotcha` is
+ * Formspree's own honeypot: visible only to something filling every field.
+ */
+import Page from '@/layouts/Page.astro';
+import { getTown } from '@/config';
+
+const town = getTown();
+const action = town.formspreeId ? `https://formspree.io/f/${town.formspreeId}` : undefined;
+const mailto = `mailto:${town.social.email}?subject=${encodeURIComponent(`Event submission — ${town.siteTitle}`)}`;
+const field = 'mt-1.5 block w-full rounded-md border border-line bg-raised px-3 py-2.5 text-[1.0625rem] font-normal';
+const label = 'block text-sm font-semibold';
+const group = 'space-y-5 rounded-lg bg-raised p-6 ring-1 ring-line-soft md:p-8';
+---
+<Page
+  title="Submit an event"
+  eyebrow={town.name}
+  description={`Tell us about an event in ${town.name} and we’ll check it and put it up.`}
+  intro={`Anything open to the public in and around ${town.name}. Listings are free — we don’t charge to be here and never will.`}
+  narrow
+>
+  {action ? (
+    <form action={action} method="POST" class="space-y-8">
+      <input type="hidden" name="_subject" value={`Event submission — ${town.siteTitle}`} />
+      <input type="hidden" name="town" value={town.slug} />
+      <input type="hidden" name="_next" value={`https://${town.domain}/thanks/`} />
+      <p class="hidden" aria-hidden="true">
+        <label>Leave this blank <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+      </p>
+
+      <fieldset class={group}>
+        <legend class="eyebrow px-2">1 · What and when</legend>
+        <label class={label}>
+          Event name
+          <input type="text" name="title" required autocomplete="off" class={field} />
+        </label>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <label class={label}>
+            Date
+            <input type="date" name="date" required class={field} />
+          </label>
+          <label class={label}>
+            Start time
+            <input type="time" name="start" required class={field} />
+          </label>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <label class={label}>
+            End time <span class="font-normal text-ink-faint">— optional</span>
+            <input type="time" name="end" class={field} />
+          </label>
+          <label class={label}>
+            Cost <span class="font-normal text-ink-faint">— optional</span>
+            <input type="text" name="cost" placeholder="Free, or $12 adults" class={field} />
+          </label>
+        </div>
+        <p class="text-sm text-ink-muted">
+          Happens every week or every month? Put that in the description and we’ll set it up as a repeat.
+        </p>
+      </fieldset>
+
+      <fieldset class={group}>
+        <legend class="eyebrow px-2">2 · Where and who</legend>
+        <label class={label}>
+          Venue
+          <input type="text" name="venue" required autocomplete="off" class={field} />
+        </label>
+        <label class={label}>
+          Address
+          <input type="text" name="address" required autocomplete="street-address" class={field} />
+        </label>
+        <label class={label}>
+          Link to the organiser’s page
+          <input type="url" name="url" required inputmode="url" placeholder="https://" class={field} />
+          <span class="mt-1.5 block text-sm font-normal text-ink-muted">
+            Required: we check every listing against the organiser’s own page before it goes up. A Facebook event or a
+            venue’s own calendar is fine.
+          </span>
+        </label>
+        <label class={label}>
+          What is it, in a sentence or two
+          <textarea name="description" rows="4" required class={field}></textarea>
+        </label>
+        <label class={label}>
+          Your email
+          <input type="email" name="email" required autocomplete="email" class={field} />
+          <span class="mt-1.5 block text-sm font-normal text-ink-muted">
+            Only so we can come back to you with a question. It is never published and never passed on.
+          </span>
+        </label>
+      </fieldset>
+
+      <div class="space-y-4">
+        <button type="submit" class="btn btn-primary w-full justify-center sm:w-auto">Send it in</button>
+        <p class="text-sm leading-relaxed text-ink-muted">
+          We check every submission against the organiser’s own page before it goes up, usually within a couple of
+          days. If something is wrong once it is live, <a href="/contact/" class="text-accent-text">tell us</a> and it
+          gets fixed.
+        </p>
+      </div>
+    </form>
+  ) : (
+    <div class="prose">
+      <p>
+        The form here isn’t switched on yet, so email it instead — it reaches the same place and gets the same
+        treatment.
+      </p>
+      <p><a href={mailto} class="btn btn-primary no-underline">Email an event</a></p>
+      <p>Include the event name, the date and time, the venue and its address, the cost, and a link to the organiser’s own page. That last one matters: every listing is checked against its source before it goes up.</p>
+    </div>
+  )}
+</Page>
