@@ -266,3 +266,23 @@ Choices not covered by PLAN.md, with the reasoning. Newest first.
   their native size on cards. A real Main Street photograph should replace them.
 - **Timnath palette is harvest gold** (`#7D5E17` / `#55400F`) on wheat paper for the
   potato-and-beet farm town, the last distinct hue of the six.
+
+## Phase 8
+
+- **`scripts/weekly.ts` reads content directly**, through the same frontmatter parser
+  and Zod schemas as the validator, rather than the Astro content layer, so it runs in
+  a second with no build. It re-implements the weekly-repeat expansion in a dozen lines
+  instead of importing `src/lib/events.ts`, whose extensionless imports and
+  `astro:content` types do not load under plain Node. Beyond the plan's three checks it
+  also lists events already past and listings not re-checked in 90 days, because both
+  are the first things a weekly session should clear.
+- **`scripts/import-events.ts` refuses to write anything if any row fails the schema**,
+  and never overwrites an existing file without `--force`, so a bad CSV cannot half-
+  update a town. File names are `<title-slug>-<start-date>.md` unless the CSV gives a
+  `slug`, which is how a weekly regular is updated in place. It has its own small
+  RFC 4180 parser rather than a dependency.
+- **The `.ics` feed expands weekly repeats into occurrences** instead of emitting
+  RRULEs, so calendar apps show exactly the dates the site shows (including `until`);
+  the feed carries a VTIMEZONE for America/Denver and all-day events as DATE values.
+  Its UID is `<slug>-<date>@<domain>`, stable across rebuilds. The route is injected
+  like the other town routes and is not in the sitemap.
