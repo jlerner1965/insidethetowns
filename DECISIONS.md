@@ -823,3 +823,28 @@ It identifies itself honestly rather than impersonating Chrome. That costs a
 few more challenges, which are reported as challenges, so it costs nearly
 nothing — and a publisher that lies about who is knocking should not be
 lecturing anyone about credibility.
+
+### explorelyons.com is redirected, not paused
+
+The account ran an earlier 13-page Lyons guide, and insidelyons.com was ported
+from it. Leaving both up meant two sites owned by one person competing for the
+same searches with the same material, while the 217-page one was still trying
+to get indexed. Nothing rebuilt the old one either, so its events calendar was
+going to start showing past events as upcoming — the failure the new guide
+exists to avoid.
+
+Pausing it would have thrown away the rankings and broken every inbound link.
+A 301 hands both over, which is why townofniwot.com was handled the same way.
+
+Sections are mapped individually rather than swept to the homepage: Google
+reads a blanket homepage redirect as a soft 404 and passes far less. Twelve of
+the thirteen pages had a real counterpart. `/civic/` did not, so its content
+was ported to `/articles/who-governs-lyons/` and the redirect repointed at it
+once that page was live — a redirect to a page that does not exist yet is worse
+than the approximation it replaces.
+
+The names in that article were re-verified against the Town's own election page
+rather than carried across on trust, and two claims the old page made that the
+Town's page does not support — a 2028 election date and two-year terms — were
+dropped rather than inherited. Porting content is not a reason to stop checking
+it.

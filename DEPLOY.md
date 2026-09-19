@@ -62,7 +62,39 @@ git push -u origin main
 - Preview deployments are created for every branch and pull request on every
   project, each with its own `TOWN`.
 
-## Redirecting the old site
+## Redirecting the old sites
+
+Two predecessors have been folded into the network. Both keep their Vercel
+project and their domain: the redirects are what preserve the old site's search
+rankings, and a paused or deleted domain hands over nothing.
+
+### explorelyons.com → insidelyons.com
+
+Retired 19 September 2026. `vercel.json` in the
+[explorelyons repository](https://github.com/jlerner1965/explorelyons) carries
+the redirects on `main`, on the repo's default branch and on
+`claude/redirect-to-insidelyons`, all at the same commit, because which branch
+that Vercel project treats as production was not verifiable from here.
+
+The redirects were **added to** that file, not written over it. It carries
+`buildCommand: python3 build.py`, `outputDirectory`, `cleanUrls`,
+`trailingSlash` and three header blocks; drop those and the build fails, and a
+failed build means the redirects never deploy at all.
+
+Two gotchas worth keeping, both found by testing the live domain rather than
+reading the config:
+
+- The apex 308s to `www` first. Checking only the first hop shows a redirect
+  that looks right and proves nothing — follow the whole chain.
+- With `trailingSlash: true` the incoming path keeps its slash, so a bare
+  `/:path*` never matches `/anything/`, **including `/`**. Every rule needs
+  `{/}?`, or a `/:path*/` variant, or the homepage quietly goes on serving the
+  old site while the named pages all redirect correctly.
+
+`/civic/` had no counterpart here until its content was ported to
+`/articles/who-governs-lyons/`; the redirect points there now.
+
+### townofniwot.com → insideniwot.com
 
 `townofniwot.com` is served by the Vercel project `cityofniwot-com`, which deploys
 the [cityofniwot.com repository](https://github.com/jlerner1965/cityofniwot.com)
