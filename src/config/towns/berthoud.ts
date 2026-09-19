@@ -18,7 +18,7 @@ export const berthoud: TownConfig = {
   population2010: 5105, // 2010 census, for census-to-census growth
   character: 'The Garden Spot: a real Main Street and the lakes, at Larimer prices short of Fort Collins.',
   colors: {
-    // Carter Lake water under a Front Range sky, on wheat-coloured paper for the
+    // Carter Lake water under a Front Range sky, on wheat-colored paper for the
     // "Garden Spot of Colorado". Distinct from Niwot's evergreen and Lyons' sandstone.
     accent: '#1587B4',
     accentDark: '#0D5170',

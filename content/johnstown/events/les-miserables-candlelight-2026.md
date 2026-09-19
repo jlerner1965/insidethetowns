@@ -14,4 +14,4 @@ source: "https://www.broadwayworld.com/denver/regional/Les-Miserables-4388718"
 verified: "2026-09-18"
 ---
 
-Colorado's largest professional dinner theatre stages Les Misérables through November 15, with dinner served before the show in the 350-seat house at 2534. Performance days, times and dinner-and-show pricing on the box office site.
+Colorado's largest professional dinner theater stages Les Misérables through November 15, with dinner served before the show in the 350-seat house at 2534. Performance days, times and dinner-and-show pricing on the box office site.

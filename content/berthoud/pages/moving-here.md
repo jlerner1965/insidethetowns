@@ -8,7 +8,7 @@ updated: "2026-09-18"
 
 ## What you are moving to
 
-Berthoud is a statutory town of about 10,300 people (2020 census) on the Larimer–Weld county line, 21 miles south of Fort Collins and 43 north of Denver, on the bluff above the Little Thompson River. It calls itself the Garden Spot of Colorado, a name earned by the irrigated farms around it, and until recently it was a farm town of five thousand with a five-block Main Street. It has roughly doubled since 2010: new subdivisions on every side, a $32 million recreation center opened in 2021, a bike park in 2023, a reservoir park in 2020, and the [downtown](/places/downtown-mural-walk/) filling up with breweries, galleries and antique malls. The old grid of brick storefronts and converted houses along Mountain Avenue is still the centre of it.
+Berthoud is a statutory town of about 10,300 people (2020 census) on the Larimer–Weld county line, 21 miles south of Fort Collins and 43 north of Denver, on the bluff above the Little Thompson River. It calls itself the Garden Spot of Colorado, a name earned by the irrigated farms around it, and until recently it was a farm town of five thousand with a five-block Main Street. It has roughly doubled since 2010: new subdivisions on every side, a $32 million recreation center opened in 2021, a bike park in 2023, a reservoir park in 2020, and the [downtown](/places/downtown-mural-walk/) filling up with breweries, galleries and antique malls. The old grid of brick storefronts and converted houses along Mountain Avenue is still the center of it.
 
 ## Housing
 

@@ -10,4 +10,4 @@ source: "https://highplains.libcal.com/event/17515058"
 verified: "2026-09-18"
 ---
 
-A poetry workshop led by Crisosto Apache, the 11th Poet Laureate of Colorado, on poetry as a narrative medium beyond rhyme and metre.
+A poetry workshop led by Crisosto Apache, the 11th Poet Laureate of Colorado, on poetry as a narrative medium beyond rhyme and meter.

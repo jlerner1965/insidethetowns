@@ -10,4 +10,4 @@ source: "https://johnstownco.gov/Calendar.aspx"
 verified: "2026-09-18"
 ---
 
-Regular meeting of the Planning and Zoning Commission at Town Hall, second and fourth Wednesdays at 6 pm, on subdivisions, annexations and development applications. Meetings are sometimes cancelled when there is no business; check the Town calendar.
+Regular meeting of the Planning and Zoning Commission at Town Hall, second and fourth Wednesdays at 6 pm, on subdivisions, annexations and development applications. Meetings are sometimes canceled when there is no business; check the Town calendar.

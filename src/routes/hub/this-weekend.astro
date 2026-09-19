@@ -24,9 +24,10 @@
 import Page from '@/layouts/Page.astro';
 import FilterBar from '@/components/FilterBar.astro';
 import NetworkDayList from '@/components/NetworkDayList.astro';
+import NetworkEventCard from '@/components/NetworkEventCard.astro';
 import { getHub, liveTowns } from '@/config';
 import { getNetworkEntries } from '@/lib/content';
-import { occurrences, upcoming } from '@/lib/events';
+import { eventEnd, occurrences, upcoming } from '@/lib/events';
 import { TIME_ZONE, addDays, formatDate, startOfDay } from '@/lib/dates';
 
 const hub = getHub();
@@ -45,11 +46,23 @@ const weekendEnd = addDays(sunday, 1); // exclusive
 // Three weeks, so the page survives a long gap between deploys rather than
 // only the days until the next one.
 const all = upcoming(occurrences(await getNetworkEntries('events'), { horizonDays: 30 }));
+
+/**
+ * A run that began before the weekend is still on during it. Partitioning on
+ * the start date alone dropped those from the page entirely -- Les Misérables
+ * runs ten weeks at Candlelight and appeared on the homepage's "what's on
+ * next" while being absent from the page the button underneath it leads to.
+ *
+ * They get their own section rather than a faked start date, because a
+ * ten-week run filed under Saturday would be its own kind of wrong.
+ */
+const horizonEnd = addDays(sunday, 15);
+const running = all.filter((e) => e.data.start < weekendStart && eventEnd(e) >= weekendStart);
 const weekend = all.filter((e) => e.data.start >= weekendStart && e.data.start < weekendEnd);
-const rest = all.filter((e) => e.data.start >= weekendEnd && e.data.start < addDays(sunday, 15));
+const rest = all.filter((e) => e.data.start >= weekendEnd && e.data.start < horizonEnd);
 
 const options = towns
-  .filter((t) => [...weekend, ...rest].some((e) => e.town.slug === t.slug))
+  .filter((t) => [...running, ...weekend, ...rest].some((e) => e.town.slug === t.slug))
   .map((t) => ({ value: t.slug, label: t.name }));
 
 // When this build was made, which the foot of the page states plainly.
@@ -69,8 +82,8 @@ const itemList = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: `What’s on across ${hub.siteTitle}`,
-  numberOfItems: weekend.length + rest.length,
-  itemListElement: [...weekend, ...rest].slice(0, 60).map((e, i) => ({
+  numberOfItems: running.length + weekend.length + rest.length,
+  itemListElement: [...running, ...weekend, ...rest].slice(0, 60).map((e, i) => ({
     '@type': 'ListItem',
     position: i + 1,
     url: `https://${e.town.domain}/events/${e.slug}/`,
@@ -97,6 +110,18 @@ const itemList = {
 
   <div data-filter-root>
     <FilterBar options={options} label="Filter by town" />
+
+    {running.length > 0 && (
+      <section class="mb-20 md:mb-24" data-running-section>
+        <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">Already running</h2>
+        <div data-filter-group class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+          {running.map((event) => <NetworkEventCard event={event} />)}
+        </div>
+        <p class="mt-4 text-[0.875rem] text-ink-faint">
+          Runs and exhibitions that started earlier and are on through the weekend.
+        </p>
+      </section>
+    )}
 
     <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4" data-weekend-heading>The weekend · {weekendLabel}</h2>
     <div data-weekend-list>

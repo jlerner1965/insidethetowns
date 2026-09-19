@@ -23,7 +23,7 @@ A rule of thumb from the outfitters and the tubing regulars, not a rule. Cubic f
 | 700 to 1,200 | High. Not for tubes. Kayakers and rafters only. Peak runoff, late May to mid-June. |
 | Over 1,200 | Flood watch. The Town posts advisories at this level; stay off the water and away from cut banks. |
 
-[Tubing the St. Vrain](/places/tubing-the-st-vrain/) has the put-ins. Anglers work both forks, best in the low, clear water of late summer and fall; [Bohn Park](/places/bohn-park/) has an accessible fishing platform, and Ralph Price Reservoir in Button Rock needs a City of Longmont permit on top of the Colorado licence.
+[Tubing the St. Vrain](/places/tubing-the-st-vrain/) has the put-ins. Anglers work both forks, best in the low, clear water of late summer and fall; [Bohn Park](/places/bohn-park/) has an accessible fishing platform, and Ralph Price Reservoir in Button Rock needs a City of Longmont permit on top of the Colorado license.
 
 ## The trails
 

@@ -27,7 +27,7 @@ const note =
   class="group relative grid grid-cols-[4.25rem_1fr] gap-x-4 border-t border-line-soft py-5 first:border-t-0 md:grid-cols-[4.5rem_1fr_auto] md:gap-x-7 md:py-6"
   data-filter-item
   data-category={data.category}
-  data-event-day={dayKey(data.start)}
+  data-event-day={dayKey(data.end ?? data.start)}
 >
   {showDate ? (
     <time datetime={toIsoLocal(data.start)} class="flex flex-col pt-0.5">

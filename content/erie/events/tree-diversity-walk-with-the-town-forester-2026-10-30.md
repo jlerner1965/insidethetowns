@@ -11,4 +11,4 @@ source: "https://www.erieco.gov/Calendar.aspx?EID=5482"
 verified: "2026-09-18"
 ---
 
-The final tree walk of the year with Town Forester Tom Read and members of the Erie Tree Board. Meet at the flagpole to see autumn colour and learn which species thrive in Erie.
+The final tree walk of the year with Town Forester Tom Read and members of the Erie Tree Board. Meet at the flagpole to see autumn color and learn which species thrive in Erie.

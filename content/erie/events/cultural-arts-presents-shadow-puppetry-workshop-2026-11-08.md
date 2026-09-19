@@ -11,4 +11,4 @@ source: "https://www.erieco.gov/Calendar.aspx?EID=5249"
 verified: "2026-09-18"
 ---
 
-Ages 6 and up. Betsy Tobin of Now Or Never Theatre gives a short history and demonstration of shadow puppetry, then participants design their own puppets and present short skits.
+Ages 6 and up. Betsy Tobin of Now Or Never Theater gives a short history and demonstration of shadow puppetry, then participants design their own puppets and present short skits.

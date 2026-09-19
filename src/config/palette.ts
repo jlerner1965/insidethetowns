@@ -1,7 +1,7 @@
 /**
- * The network's colour system.
+ * The network's color system.
  *
- * Town accents live in each town's config; these are the colours shared by
+ * Town accents live in each town's config; these are the colors shared by
  * every site: one warm highlight, and a hue per event category and place type
  * so a list of twenty things reads as twenty different kinds of thing rather
  * than twenty grey rows.
@@ -38,7 +38,7 @@ export const CATEGORY_COLORS: Record<EventCategory, CategoryColor> = {
 };
 
 /**
- * The colours as CSS custom properties. Components reference
+ * The colors as CSS custom properties. Components reference
  * var(--cat-<name>-ink) rather than an inline hex, so this module stays the
  * single definition and scripts/check-colors.ts reads the same values.
  */

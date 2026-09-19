@@ -22,7 +22,7 @@ export const elizabeth = {
   hero: {
     image: "hero.jpg",
     alt: "Main Street in Elizabeth, Colorado",
-    // Attribution required by the photograph's CC BY-SA licence; see IMAGE_LICENSES.csv.
+    // Attribution required by the photograph's CC BY-SA license; see IMAGE_LICENSES.csv.
     credit: "ERoss99, Wikimedia Commons, CC BY-SA 3.0",
   },
   social: { email: "hello@insideelizabeth.com" },

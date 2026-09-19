@@ -9,4 +9,4 @@ source: "https://www.elizabethmainstreet.org/calendar/"
 verified: "2026-09-18"
 ---
 
-The Friends of the Library sell withdrawn and donated books at the Elizabeth branch on Saturday afternoon. Cash goes back into library programmes.
+The Friends of the Library sell withdrawn and donated books at the Elizabeth branch on Saturday afternoon. Cash goes back into library programs.

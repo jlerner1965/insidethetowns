@@ -10,4 +10,4 @@ source: "https://highplains.libcal.com/event/15984758"
 verified: "2026-09-18"
 ---
 
-A screening of the Manhattan Short Film Festival finalists, with the audience voting on the winners. The same programme is also shown at other High Plains libraries.
+A screening of the Manhattan Short Film Festival finalists, with the audience voting on the winners. The same program is also shown at other High Plains libraries.

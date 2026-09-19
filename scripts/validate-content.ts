@@ -10,7 +10,7 @@
  * Runs automatically before every `npm run build`.
  */
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
-import { dirname, join, relative, resolve } from 'node:path';
+import { dirname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'astro/zod';
 import { COLLECTIONS, schemaFor, type CollectionName } from '../src/content/schemas.ts';
@@ -181,6 +181,31 @@ function collectContentFiles(): string[] {
 }
 
 checkImageCredits();
+
+/**
+ * A repeating event is one entry with a repeat rule, expanded at render, so
+ * every occurrence links to the same page. That page is correct -- it states
+ * the schedule -- but if its slug carries the first occurrence's date, an
+ * October listing links to a URL ending in September, which reads like a bug
+ * to anyone who looks at the address bar.
+ */
+function checkRepeatSlugs() {
+  for (const file of collectContentFiles()) {
+    if (!file.includes(`${sep}events${sep}`)) continue;
+    const text = readFileSync(file, 'utf8');
+    if (!/^repeat:\s*\S/m.test(text)) continue;
+    const name = file.split(sep).pop()!.replace(/\.md$/, '');
+    if (/-\d{4}-\d{2}-\d{2}$/.test(name)) {
+      errors.push(
+        `${relative(root, file)}: a repeating event should not carry a date in its slug — ` +
+          'every occurrence links to this one page, so the date is wrong for all but the first',
+      );
+    }
+  }
+}
+
+checkRepeatSlugs();
+
 
 
 /**

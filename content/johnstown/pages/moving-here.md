@@ -9,7 +9,7 @@ updated: "2026-09-18"
 
 ## What you are moving to
 
-Johnstown is a home-rule town on the Weld–Larimer county line, nine miles from Loveland and ten from Greeley, at the I-25 and US 34 interchange that the developers call 2534. The 2020 census counted 17,303 people, up from 9,887 in 2010, and the Census Bureau's 2025 estimate is 22,433, which made Johnstown the tenth fastest-growing community in the United States among those with 20,000 or more residents that year. It began as Harvey Parish's railroad and sugar-beet town of 1902 and the five-block Old Town on Parish Avenue is still there, with the Parish House museum, the library and Town Hall at its south end; everything else, from Scheels and the dinner theatre at 2534 to Buc-ee's at County Road 48, is new.
+Johnstown is a home-rule town on the Weld–Larimer county line, nine miles from Loveland and ten from Greeley, at the I-25 and US 34 interchange that the developers call 2534. The 2020 census counted 17,303 people, up from 9,887 in 2010, and the Census Bureau's 2025 estimate is 22,433, which made Johnstown the tenth fastest-growing community in the United States among those with 20,000 or more residents that year. It began as Harvey Parish's railroad and sugar-beet town of 1902 and the five-block Old Town on Parish Avenue is still there, with the Parish House museum, the library and Town Hall at its south end; everything else, from Scheels and the dinner theater at 2534 to Buc-ee's at County Road 48, is new.
 
 ## Housing
 

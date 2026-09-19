@@ -10,4 +10,4 @@ source: "https://highplains.libcal.com/event/15492019"
 verified: "2026-09-18"
 ---
 
-Christine Rohde of Revel Dance teaches the basic steps to Thriller, ending with a performance at the Erie rec centre. Ages 9 and up; wear trainers, costumes optional.
+Christine Rohde of Revel Dance teaches the basic steps to Thriller, ending with a performance at the Erie rec center. Ages 9 and up; wear trainers, costumes optional.

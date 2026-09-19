@@ -10,4 +10,4 @@ source: "https://www.antelopealpacas.com/find-us.html"
 verified: "2026-09-18"
 ---
 
-A fibre arts centre on Main Street selling alpaca yarn, roving and finished goods, and teaching classes in spinning, weaving and knitting.
+A fibre arts center on Main Street selling alpaca yarn, roving and finished goods, and teaching classes in spinning, weaving and knitting.

@@ -6,7 +6,7 @@ category: "Civic"
 tags: [civic, election]
 ---
 
-This guide describes the measures as filed, without commentary on whether they are advisable. The certified ballot language published by the [Niwot Election Commission](https://niwotelection.org/ballot) controls; everything here is a plain-language summary of it, read on September 10, 2026, and it is provisional until the commission posts its reviewed printer’s proof. Campaign material is labelled as advocacy wherever it appears, and the commission is never presented as an advocate.
+This guide describes the measures as filed, without commentary on whether they are advisable. The certified ballot language published by the [Niwot Election Commission](https://niwotelection.org/ballot) controls; everything here is a plain-language summary of it, read on September 10, 2026, and it is provisional until the commission posts its reviewed printer’s proof. Campaign material is labeled as advocacy wherever it appears, and the commission is never presented as an advocate.
 
 ## What you can do now
 
@@ -71,7 +71,7 @@ The proposed boundary is not the same as the Niwot census designated place. The 
 
 ## Campaign material
 
-Every registered campaign committee, listed together and labelled identically. None is an election authority and none is presented as one.
+Every registered campaign committee, listed together and labeled identically. None is an election authority and none is presented as one.
 
 - [Niwot Incorporation Committee](https://www.niwot.town/) — campaign material
 - [Niwot Together](https://niwottogether.org/) — campaign material
