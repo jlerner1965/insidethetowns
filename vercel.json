@@ -58,6 +58,11 @@
       "source": "/compare{/}?",
       "destination": "/moving/",
       "permanent": true
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml",
+      "permanent": false
     }
   ]
 }
