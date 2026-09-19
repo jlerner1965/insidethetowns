@@ -87,14 +87,20 @@ and lets `/privacy/` and `/advertise/` say so; it does not enable collection.
 **Decline the Web Analytics Plus add-on.** It is $10/month per team and buys a
 24-month reporting window instead of 12, UTM parameters, and eight properties
 on custom events instead of two. A network that started counting in September
-2026 cannot use a 24-month window for two years. Plain Pro collects events at
-$0.03 per 1,000, against Pro's included monthly usage credit — 100,000 page
-views across the whole network is $3. Turn the add-on on later if UTM tracking
-ever earns it, and off again after.
+2026 cannot use a 24-month window for two years. Turn it on later if UTM
+tracking ever earns it, and off again after.
 
-Set up **Spend Management** in the same Billing screen while you are there. It
-caps on-demand usage and can notify or pause at a threshold. That, not the
-plan, is what stops a surprise bill.
+Enabling costs nothing on top of the plan. The $20/month Pro platform fee
+includes $20 of monthly usage credit, events bill against that credit at $0.03
+per 1,000, and the credit expires unused at the end of each month. Analytics
+would have to collect about 666,000 page views in one month across all eight
+sites to spend it. Bandwidth does not compete for it either: Pro includes the
+lowest Flat Rate CDN tier, 1 million requests and 1 TB of transfer, separately.
+
+Set up **Spend Management** in the same Billing screen while you are there.
+Vercel's default notification threshold is $200 per billing cycle, which this
+network should never approach — set it to $5, so an alert means something is
+wrong rather than something is busy.
 
 ## Redirecting the old sites
 
