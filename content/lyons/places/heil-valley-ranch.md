@@ -4,6 +4,7 @@ type: trail
 address: "Picture Rock trailhead, Red Gulch Road off US 36 south of town"
 area: "Boulder County open space"
 url: "https://bouldercounty.gov/open-space/parks-and-trails/heil-valley-ranch/"
+mapUrl: "https://assets.bouldercounty.gov/wp-content/uploads/2022/10/heil-valley-ranch-map.pdf"
 image: ../images/heil-valley-ranch.jpg
 imageAlt: "A ponderosa leaning over the Picture Rock Trail at Heil Valley Ranch, a forested peak rising beyond the valley"
 imageCredit: "Boulder County Parks & Open Space"

@@ -4,6 +4,7 @@ type: trail
 address: "N. 53rd Street, 2.8 miles north of CO 66"
 area: "Boulder County open space"
 url: "https://bouldercounty.gov/open-space/parks-and-trails/ron-stewart-preserve-rabbit-mountain/"
+mapUrl: "https://assets.bouldercounty.gov/wp-content/uploads/2017/03/rabbit-mountain-map.pdf"
 image: ../images/rabbit-mountain.jpg
 imageAlt: "Two walkers on the trail at Rabbit Mountain, dry grass either side and snow on the peaks along the horizon"
 imageCredit: "Boulder County Parks & Open Space"

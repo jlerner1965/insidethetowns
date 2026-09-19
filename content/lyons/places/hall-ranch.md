@@ -4,6 +4,7 @@ type: trail
 address: "Colorado 7, one mile west of town"
 area: "Boulder County open space"
 url: "https://bouldercounty.gov/open-space/parks-and-trails/hall-ranch/"
+mapUrl: "https://assets.bouldercounty.gov/wp-content/uploads/2017/03/hall-ranch-map.pdf"
 hours: "Open daily, sunrise to sunset"
 image: ../images/hall-ranch-butte.jpg
 imageAlt: "The flat-topped red sandstone butte at Hall Ranch under a breaking storm, grass and scrub on the slope below it"

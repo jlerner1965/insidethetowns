@@ -4,6 +4,7 @@ type: trail
 address: "Bayou Gulch Rd, Parker"
 area: "Bayou Gulch Road, west of town"
 url: "https://www.douglasco.gov/open-space-natural-resources/properties/two-bridges-trail/"
+mapUrl: "https://www.douglasco.gov/documents/two-bridges-trail.pdf"
 hours: "Open daily, 1 hr before sunrise to 1 hr after sunset"
 tags: [hiking, mountain bike, horses]
 summary: "Douglas County open space fifteen minutes west of Elizabeth: a 3.4-mile short loop or an 8.8-mile circuit, open to hikers, horses and mountain bikes, with connections toward the Cherry Creek Trail."

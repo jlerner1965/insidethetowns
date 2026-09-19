@@ -157,6 +157,13 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
       url: httpUrl.optional(),
       phone: z.string().optional(),
       hours: z.string().optional(),
+      /**
+       * A trail map the land manager publishes, linked rather than copied.
+       * Theirs stays current when a trail is rerouted or closed; a copy here
+       * would freeze on the day it was taken, on pages that promise to be
+       * checked against the source.
+       */
+      mapUrl: httpUrl.optional(),
       priceRange: z.enum(['$', '$$', '$$$', '$$$$']).optional(),
       image: image().optional(),
       imageAlt: z.string().optional(),
