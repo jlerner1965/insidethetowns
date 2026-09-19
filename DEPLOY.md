@@ -78,6 +78,24 @@ The build also writes `_headers` and `_redirects` into the output
 ignores both files; Cloudflare Pages and Netlify read them. That is the exit,
 kept working so it stays cheap — see DECISIONS.md for when it is worth taking.
 
+## Web Analytics
+
+Switch it on per project: **Project → Analytics → Enable**, eight times. The
+`analytics` flag in `src/config/towns/hub.ts` only puts the script on the page
+and lets `/privacy/` and `/advertise/` say so; it does not enable collection.
+
+**Decline the Web Analytics Plus add-on.** It is $10/month per team and buys a
+24-month reporting window instead of 12, UTM parameters, and eight properties
+on custom events instead of two. A network that started counting in September
+2026 cannot use a 24-month window for two years. Plain Pro collects events at
+$0.03 per 1,000, against Pro's included monthly usage credit — 100,000 page
+views across the whole network is $3. Turn the add-on on later if UTM tracking
+ever earns it, and off again after.
+
+Set up **Spend Management** in the same Billing screen while you are there. It
+caps on-demand usage and can notify or pause at a threshold. That, not the
+plan, is what stops a surprise bill.
+
 ## Redirecting the old sites
 
 Two predecessors have been folded into the network. Both keep their Vercel
