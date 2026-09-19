@@ -19,6 +19,12 @@ export const hub: HubConfig = {
     alt: 'The Colorado Front Range from the air: tilted sandstone slabs and forested foothills dropping away to the towns on the plains',
   },
   /**
+   * Vercel Web Analytics, network-wide. Still has to be enabled per project
+   * in the Vercel dashboard — this only puts the script on the page and lets
+   * /privacy/ and /advertise/ say so.
+   */
+  analytics: true,
+  /**
    * Buttondown. emailField and tagField are left at their defaults ("email",
    * "tag"), which is what the account's own embed snippet uses. Town choice
    * rides as repeated `tag` fields, so a subscriber carries one tag per town

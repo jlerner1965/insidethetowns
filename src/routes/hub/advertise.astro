@@ -18,7 +18,7 @@ import { getHub, liveTowns } from '@/config';
 const hub = getHub();
 const live = liveTowns();
 const rates = hub.rates ?? [];
-const measured = Boolean(hub.ga4Id);
+const measured = Boolean(hub.ga4Id) || hub.analytics === true;
 const mailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Advertising enquiry')}`;
 const money = (n: number) => `$${n.toLocaleString('en-US')}`;
 ---

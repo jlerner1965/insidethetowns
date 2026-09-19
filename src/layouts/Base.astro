@@ -7,7 +7,8 @@ import '@fontsource-variable/fraunces/opsz.css';
 import '@fontsource-variable/instrument-sans/index.css';
 import '@fontsource-variable/instrument-sans/wght-italic.css';
 import '@/styles/global.css';
-import { getSite } from '@/config';
+import Analytics from '@vercel/analytics/astro';
+import { getNetworkHub, getSite } from '@/config';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import Freshness from '@/components/Freshness.astro';
@@ -26,6 +27,7 @@ interface Props {
 }
 
 const site = getSite();
+const analytics = getNetworkHub().analytics === true;
 const { jsonLd, ...seo } = Astro.props;
 // The publisher graph belongs on every page; pages add their own on top.
 const structured = [siteJsonLd(site), ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
@@ -63,5 +65,6 @@ const cssVars = [
     </main>
     <Footer />
     <Freshness />
+    {analytics && <Analytics />}
   </body>
 </html>

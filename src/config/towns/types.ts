@@ -121,6 +121,20 @@ export interface HubConfig {
    */
   newsletter?: NewsletterConfig;
   /**
+   * Vercel Web Analytics on every site in the network.
+   *
+   * Chosen over GA4 because the privacy page can stay true: it sets no
+   * cookies (visitors are identified by a hash of the request, discarded
+   * after 24 hours), and in v2 the script and its endpoints are same-origin
+   * relative paths, so `script-src 'self'` already covers it and the CSP
+   * does not have to be widened for a third party.
+   *
+   * It still has to be switched on per project in the Vercel dashboard; this
+   * flag only controls whether the script is on the page and whether the
+   * privacy page says so.
+   */
+  analytics?: boolean;
+  /**
    * What a placement costs. Absent until there are numbers to stand behind,
    * and /advertise/ says "rates on request" until then. A published rate card
    * with blanks in it is worse than no rate card: it tells a buyer you have

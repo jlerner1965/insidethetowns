@@ -16,9 +16,10 @@ import Page from '@/layouts/Page.astro';
 import { getNetworkHub, getSite } from '@/config';
 
 const site = getSite();
-const analytics = Boolean(site.ga4Id);
+const hub = getNetworkHub();
+const analytics = Boolean(site.ga4Id) || hub.analytics === true;
 const submitForm = Boolean(site.formspreeId);
-const newsletter = Boolean(getNetworkHub().newsletter);
+const newsletter = Boolean(hub.newsletter);
 const forms = submitForm || newsletter;
 const quiet = !analytics && !forms;
 ---
@@ -32,7 +33,7 @@ const quiet = !analytics && !forms;
   <div class="prose">
     {quiet ? (
       <p>
-        {site.siteTitle} sets no cookies, runs no analytics, embeds no trackers and has no forms. Nothing you do here
+        {site.siteTitle} sets no cookies, counts nothing, embeds no trackers and has no forms. Nothing you do here
         is recorded by us, because there is nothing here doing the recording.
       </p>
     ) : (
@@ -48,10 +49,20 @@ const quiet = !analytics && !forms;
 
     {analytics && (
       <Fragment>
-        <h2>Analytics</h2>
+        <h2>Counting page views</h2>
         <p>
-          The site records aggregate page views so we know which guides are read. This is counting, not profiling: it
-          is not used to identify anyone and it is not shared or sold.
+          We count page views, so we know which guides people actually read. This is counting, not profiling. It is
+          not used to identify you, it is not shared and it is not sold.
+        </p>
+        <p>
+          It runs on Vercel Web Analytics, which is why there is still no cookie banner on this site: it sets no
+          cookies and stores nothing in your browser. Visitors are told apart by a hash Vercel derives from the
+          request itself, and that is discarded after 24 hours, so there is nothing that follows you between visits or
+          between sites.
+        </p>
+        <p>
+          What gets recorded is the page, where you came from, roughly where you are (country, region, city), and what
+          browser and device you used. No names, no addresses, nothing tied to a person.
         </p>
       </Fragment>
     )}
