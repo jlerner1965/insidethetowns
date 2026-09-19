@@ -13,6 +13,7 @@
     "preview": "node scripts/run.ts preview",
     "check": "astro check",
     "validate": "node scripts/validate-content.ts",
+    "check-links": "node scripts/check-links.ts",
     "new-town": "node scripts/new-town.ts",
     "weekly": "node scripts/weekly.ts",
     "import-events": "node scripts/import-events.ts",

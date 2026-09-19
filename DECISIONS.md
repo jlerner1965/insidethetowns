@@ -794,3 +794,32 @@ the first fixture written to test it went into `src/content/hub/issues/` and
 also produced no match, because `base: './content'` resolves from the project
 root, not from `src/content.config.ts`. Put in `content/hub/issues/` the
 collection loads, the archive renders and `/newsletter/<slug>/` builds.
+
+### Link rot gets its own check, and it is deliberately hard to trigger
+
+A guide is a promise that the links work, and nothing in a static build can
+see when one stops working: the HTML is still valid the day the café's domain
+lapses. Asking the other end is the only way to find out, so `check-links.ts`
+does, across every outbound URL in the content and the town configs.
+
+It is not wired into the build or the validator. Those stay offline, fast and
+deterministic, and this one is none of the three — it depends on several
+hundred servers nobody here controls, and it puts a request on every small
+business in the network, which is fine monthly and rude on every deploy.
+
+The classification is the part that matters. A first pass over the network
+found 32 links answering 403, and every one of them carried
+`cf-mitigated: challenge` — Cloudflare turning away a datacenter IP, not a
+dead page. A browser user agent did not change the result, because it is the
+address being refused, not the name. So 403, 429 and 503 are reported as
+refusals and do not fail the run, and neither does a timeout, which is more
+often this end than theirs. Only 404, 410 and a URL that will not parse fail.
+
+Of 655 links, exactly one was genuinely dead. A checker tuned to fail on all
+33 would have been switched off within a week, and the one real 404 would have
+gone with it.
+
+It identifies itself honestly rather than impersonating Chrome. That costs a
+few more challenges, which are reported as challenges, so it costs nearly
+nothing — and a publisher that lies about who is knocking should not be
+lecturing anyone about credibility.
