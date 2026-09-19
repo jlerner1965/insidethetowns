@@ -18,6 +18,17 @@ export const hub: HubConfig = {
     image: 'front-range-aerial.jpg',
     alt: 'The Colorado Front Range from the air: tilted sandstone slabs and forested foothills dropping away to the towns on the plains',
   },
+  /**
+   * Buttondown. emailField and tagField are left at their defaults ("email",
+   * "tag"), which is what the account's own embed snippet uses. Town choice
+   * rides as repeated `tag` fields, so a subscriber carries one tag per town
+   * they picked, or `all-towns` if they wanted the lot.
+   */
+  newsletter: {
+    action: 'https://buttondown.com/api/emails/embed-subscribe/jlerner1965',
+    allTag: 'all-towns',
+    sendDay: 'Thursday',
+  },
   social: {
     email: 'hello@insidethetowns.com',
   },
