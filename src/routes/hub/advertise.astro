@@ -7,18 +7,47 @@
  * with blanks in it. A buyer reading "$TBD" learns that the seller has not
  * worked it out, which is a worse first impression than a short page.
  *
- * Audience figures are the same bet in reverse: they appear when the network
- * measures them. Quoting a number nobody counted is how a media kit stops
- * being believed, and this whole model runs on being believed.
+ * Audience figures are the same bet in reverse, in three states rather than
+ * two: nothing counted, counting but too new to mean anything, and enough
+ * weeks to quote. The middle state exists because switching analytics on
+ * does not hand you an audience, and a page that starts advertising one the
+ * same afternoon is making a claim it cannot support. Quoting a number
+ * nobody counted is how a media kit stops being believed, and this whole
+ * model runs on being believed.
  */
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import { getHub, liveTowns } from '@/config';
+import { formatDate, parseLocal, startOfDay } from '@/lib/dates';
+
+/**
+ * Thirty days before the page will talk about an audience at all. A week of
+ * traffic is weather, not a number a buyer can plan against, and the first
+ * days after launch are mostly us reloading our own pages.
+ */
+const MIN_DAYS = 30;
 
 const hub = getHub();
 const live = liveTowns();
 const rates = hub.rates ?? [];
-const measured = Boolean(hub.ga4Id) || hub.analytics === true;
+// The start date is part of what makes this claim true, not decoration: with
+// a counter but no date, the page falls back to saying nothing is measured
+// yet, which is the one wording that cannot be wrong. The validator errors on
+// that combination so it does not survive a build unnoticed.
+const since = hub.analyticsSince ? parseLocal(hub.analyticsSince) : null;
+const counting = (Boolean(hub.ga4Id) || hub.analytics === true) && since !== null;
+// Both ends are Denver midnights, so the gap is a whole number of days give
+// or take the hour a DST change moves; rounding lands on the right day.
+const days = since ? Math.round((startOfDay().getTime() - since.getTime()) / 86_400_000) : 0;
+const measured = counting && days >= MIN_DAYS;
+// "0 days ago" is the sort of sentence that tells a reader nobody is looking
+// at this page.
+const started =
+  days <= 0
+    ? 'We started counting today'
+    : days === 1
+      ? 'We started counting yesterday'
+      : `We started counting on ${formatDate(since!)}, ${days} days ago`;
 const mailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Advertising enquiry')}`;
 const money = (n: number) => `$${n.toLocaleString('en-US')}`;
 ---
@@ -108,7 +137,14 @@ const money = (n: number) => `$${n.toLocaleString('en-US')}`;
     {measured ? (
       <p>
         Current figures are in the media kit, sent on request: readers per town, email subscribers, and what people
-        actually open. The numbers are what we measured, not what we hope.
+        actually open, counted since {formatDate(since!)}. The numbers are what we measured, not what we hope.
+      </p>
+    ) : counting ? (
+      <p>
+        {started} — not long enough to tell you anything you should act on. Ask and you will get exactly what the
+        counter says, with that start date attached, and you can decide for yourself whether it is worth anything
+        yet. What you will not get is a projection. We would rather you came back in a month than bought on a number
+        we had to squint at.
       </p>
     ) : (
       <p>

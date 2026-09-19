@@ -24,6 +24,7 @@ export const hub: HubConfig = {
    * /privacy/ and /advertise/ say so.
    */
   analytics: true,
+  analyticsSince: '2026-09-19',
   /**
    * Buttondown. emailField and tagField are left at their defaults ("email",
    * "tag"), which is what the account's own embed snippet uses. Town choice

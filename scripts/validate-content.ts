@@ -219,6 +219,12 @@ if (!hub.newsletter) pending.push('the weekly email is dark (hub.newsletter) —
 if (!liveTowns().some((t) => t.ga4Id) && !hub.ga4Id && hub.analytics !== true) {
   pending.push('no site measures traffic — /advertise/ cannot quote an audience');
 }
+// An error, not a warning: without a start date /advertise/ has no way to know
+// whether the counter has a day behind it or a year, so it would quote an
+// audience on the strength of a flag being true.
+if ((hub.analytics === true || hub.ga4Id) && !hub.analyticsSince) {
+  errors.push('traffic is counted but hub.analyticsSince is unset — set the day counting started (YYYY-MM-DD)');
+}
 for (const item of pending) warnings.push(`not set yet: ${item}`);
 
 

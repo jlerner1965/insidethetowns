@@ -135,6 +135,16 @@ export interface HubConfig {
    */
   analytics?: boolean;
   /**
+   * The day counting started, `YYYY-MM-DD`.
+   *
+   * Switching analytics on does not give you an audience; it gives you an
+   * empty chart. /advertise/ uses this to tell a buyer how long the counter
+   * has been running, and keeps quiet about audience figures until there are
+   * enough weeks behind them to mean anything. The sites rebuild daily, so
+   * the page moves through those states on its own.
+   */
+  analyticsSince?: string;
+  /**
    * What a placement costs. Absent until there are numbers to stand behind,
    * and /advertise/ says "rates on request" until then. A published rate card
    * with blanks in it is worse than no rate card: it tells a buyer you have
