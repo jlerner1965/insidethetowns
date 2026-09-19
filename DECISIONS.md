@@ -848,3 +848,39 @@ rather than carried across on trust, and two claims the old page made that the
 Town's page does not support — a 2028 election date and two-year terms — were
 dropped rather than inherited. Porting content is not a reason to stop checking
 it.
+
+### The network runs on Vercel Pro, and Hobby was never an option for it
+
+Vercel's fair use guidelines define commercial usage as any deployment
+"used for the purpose of financial gain of anyone involved in any part of the
+production of the project", and list "advertising the sale of a product or
+service" as an example. `/advertise/` does exactly that. The network is
+commercial by their definition from the day that page went up, before any
+money changes hands, and Hobby is "non-commercial personal use only".
+
+So the choice was never Vercel against Cloudflare on price. It was $20 a
+month, or a migration. Running a commercial network on Hobby is the third
+option and it is not one: a policy violation takes all eight sites down at
+once, without warning, and nothing about the sites themselves would explain
+why.
+
+Pro is per seat, not per project — one seat covers all eight guides, the hub
+and both retired predecessors. $240 a year, against a rate card that has not
+been printed yet. If the network cannot clear $240 a year the rate card is the
+problem, not the host.
+
+Cloudflare Pages is the free alternative and its free tier permits commercial
+use: 500 builds a month against the 272 the schedule spends, and 20,000 files
+a site against the 519 the largest one has. The reason not to move now is
+timing, not fitness — the sites are mid-indexing and the explorelyons Change
+of Address is in flight, and DNS is the one change that can break all eight
+simultaneously.
+
+That decision is cheap to revisit because the build emits `_headers` and
+`_redirects` (see `src/integrations/host-files.ts`), so moving is a dashboard
+exercise. Worth reconsidering if sponsorship has not materialised in six
+months. Anything that would make the move harder — a Vercel-only runtime
+feature, an edge function, image optimisation through their pipeline — should
+be weighed against that, and `@vercel/analytics` is already one such thread:
+`/privacy/` names Vercel Web Analytics on every site, so a move means changing
+the package and the privacy copy on the same day.

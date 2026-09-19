@@ -62,6 +62,22 @@ git push -u origin main
 - Preview deployments are created for every branch and pull request on every
   project, each with its own `TOWN`.
 
+## The plan this runs on
+
+**Vercel Pro, one seat.** Not a preference — Vercel's fair use guidelines
+restrict Hobby to non-commercial personal use, and list "advertising the sale
+of a product or service" as commercial. `/advertise/` is that. A commercial
+network on a Hobby account risks being paused, which takes all eight sites
+down at once.
+
+One seat covers every project: the eight guides plus the two retired
+predecessors serving redirects. Pro is billed per user, not per project.
+
+The build also writes `_headers` and `_redirects` into the output
+(`src/integrations/host-files.ts`), generated from `vercel.json`. Vercel
+ignores both files; Cloudflare Pages and Netlify read them. That is the exit,
+kept working so it stays cheap — see DECISIONS.md for when it is worth taking.
+
 ## Redirecting the old sites
 
 Two predecessors have been folded into the network. Both keep their Vercel
