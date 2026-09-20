@@ -7,7 +7,7 @@ export const berthoud: TownConfig = {
   domain: 'insideberthoud.com',
   siteTitle: 'Inside Berthoud',
   tagline: 'An independent guide to Berthoud, Colorado: the Garden Spot, its Main Street, the lakes, and what it’s like to move here.',
-  seoTagline: 'Events, Main Street and the lakes, Berthoud CO',
+  seoTagline: 'Main Street, the lakes and events in Berthoud, CO',
   // 2020 census: about 97 per cent of the town's population in Larimer, 3 per cent in Weld.
   counties: ['Larimer', 'Weld'],
   countySplit: {
