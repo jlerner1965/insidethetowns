@@ -74,6 +74,11 @@ content/<town>/images/<file>.jpg,<their website>,Used with permission of the own
 
 Keep the email. Permission that cannot be produced later is not permission.
 
+Note that 47 of the 139 have neither a website nor a phone on file, so a third
+of them can only be reached by walking in. `VENUE-PHOTO-EMAILS.md` Part 2 has a
+per-town route through the Main Street and chamber organisations, which reaches
+many of the rest in one email each.
+
 ### 3. Ask the town and the county for the parks
 
 Parks departments and county open space offices usually have a photograph
@@ -81,6 +86,10 @@ library and will often grant use for a local guide. Worth one email each to
 Berthoud Parks, Erie Parks and Open Space, Johnstown Parks, the Elizabeth Park
 and Recreation District, and Boulder County Parks and Open Space. That covers the
 26 parks and 7 trails still without a photograph in a handful of messages.
+
+The messages are written. `PARK-PHOTO-EMAILS.md` has ten of them, naming the
+exact sites; `VENUE-PHOTO-EMAILS.md` has fourteen more for the 21 venues, six of
+which turn out to need no permission at all.
 
 ## The rule that governs all of this
 
