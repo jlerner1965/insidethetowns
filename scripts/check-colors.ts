@@ -77,6 +77,33 @@ for (const site of allSites) {
   want(`${site.slug} ink on its masthead tint`, ratio(INK, tint), 4.5);
 }
 
+/**
+ * The secondary inks. These were checked against the paper only, which is the
+ * lightest surface they sit on; on the masthead tint they were failing on six
+ * of the eight sites, and Lighthouse found it on Erie's place cards before
+ * this check existed. White is included because the cards sit on it.
+ */
+const INK_MUTED = '#55585d';
+const INK_FAINT = '#5d5f64';
+// Muted is the darker of the two, so it must have the higher contrast on white.
+want('ink-muted is darker than ink-faint', ratio(INK_MUTED, '#ffffff') / ratio(INK_FAINT, '#ffffff'), 1);
+for (const [name, ink] of [['ink-muted', INK_MUTED], ['ink-faint', INK_FAINT]] as const) {
+  want(`${name} on white`, ratio(ink, '#ffffff'), 4.5);
+  for (const site of allSites) {
+    want(`${name} on ${site.slug} paper`, ratio(ink, site.colors.neutralBg), 4.5);
+    want(`${name} on ${site.slug} masthead tint`, ratio(ink, mix(site.colors.accent, 0.14, site.colors.neutralBg)), 4.5);
+  }
+}
+
+/**
+ * White at reduced opacity on a dark band — the footer's copyright line and
+ * the hero's photo credit. Both are real text, and the credit is a licence
+ * condition, so neither may be decorative-grade.
+ */
+for (const site of allSites) {
+  want(`${site.slug} white/70 on accentDark`, ratio(mix('#ffffff', 0.7, site.colors.accentDark), site.colors.accentDark), 4.5);
+}
+
 const swatches = [
   ...Object.entries(CATEGORY_COLORS).map(([name, c]) => [`category ${name}`, c] as const),
   ...Object.entries(PLACE_TYPE_COLORS).map(([name, c]) => [`place ${name}`, c] as const),

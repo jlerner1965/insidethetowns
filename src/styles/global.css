@@ -53,8 +53,12 @@
   --t-surface: var(--town-neutral-bg);
   --t-raised: #ffffff;
   --t-ink: #17181a;
-  --t-ink-muted: #5d5f64;
-  --t-ink-faint: #63666c; /* 5:1 on paper; the lightest text the sites use */
+  --t-ink-muted: #55585d;
+  /* The lightest text the sites use. Checked against the masthead tint, not
+     just the paper: the tint is darker, and at 14% accent it was taking the
+     old #63666c down to 4.15:1 on Lyons. scripts/check-colors.ts holds both
+     of these to 4.5:1 on paper, on every town's tint, and on white. */
+  --t-ink-faint: #5d5f64;
   --t-line: color-mix(in srgb, var(--town-neutral-bg) 70%, #17181a 30%);
   --t-line-soft: color-mix(in srgb, var(--town-neutral-bg) 88%, #17181a 12%);
   --t-accent-text: var(--town-accent-dark);
