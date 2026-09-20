@@ -1,7 +1,8 @@
 # Getting the missing photographs
 
-202 of 240 places have no photograph. 139 of those are restaurants, cafes, bars,
-shops and lodgings. This is how to fix that, and what has already been ruled out.
+193 of 240 places have no photograph. 139 of those are restaurants, cafes, bars,
+shops and lodgings. (Recounted 20 September 2026; the figure was 202 when this
+was written.) This is how to fix that, and what has already been ruled out.
 
 `PHOTO-CONTACTS.csv` in this folder is the working list: every unphotographed
 business with its address, area, phone, website and hours, sorted so a town's
@@ -78,8 +79,8 @@ Keep the email. Permission that cannot be produced later is not permission.
 Parks departments and county open space offices usually have a photograph
 library and will often grant use for a local guide. Worth one email each to
 Berthoud Parks, Erie Parks and Open Space, Johnstown Parks, the Elizabeth Park
-and Recreation District, and Boulder County Parks and Open Space. That covers 34
-parks and 21 trails in a handful of messages.
+and Recreation District, and Boulder County Parks and Open Space. That covers the
+26 parks and 7 trails still without a photograph in a handful of messages.
 
 ## The rule that governs all of this
 
