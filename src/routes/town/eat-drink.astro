@@ -3,6 +3,7 @@ import Page from '@/layouts/Page.astro';
 import PlaceDirectory from '@/components/PlaceDirectory.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import { EAT_DRINK_TYPES } from '@/content/schemas';
 
 const town = getTown();
@@ -11,8 +12,21 @@ const byFeatured = (a: { data: { featured: boolean; title: string } }, b: { data
 const all = await getTownEntries('places');
 const places = all.filter((p) => EAT_DRINK_TYPES.includes(p.data.type)).sort(byFeatured);
 const shops = all.filter((p) => p.data.type === 'shop').sort(byFeatured);
+const listing = [...places, ...shops].map((p) => ({ name: p.data.title, path: `/places/${p.slug}/` }));
+const structured = [
+  collectionPageJsonLd(town, {
+    name: `Where to eat & drink in ${town.name}, Colorado`,
+    description: `Restaurants, bars, coffee and shops in ${town.name}, ${town.state}.`,
+    path: '/eat-drink/',
+    items: listing,
+  }),
+  breadcrumbJsonLd(town, [
+    { name: town.name, path: '/' },
+    { name: 'Eat & Drink', path: '/eat-drink/' },
+  ]),
+];
 ---
-<Page title="Eat & Drink" seoTitle={`Where to eat & drink in ${town.name}, Colorado`} eyebrow={town.name} description={`Restaurants, bars, coffee and shops in ${town.name}, ${town.state}.`} intro={`Where to eat, drink, browse and linger in ${town.name}. Listings are editorial; nobody pays to be here.`}>
+<Page title="Eat & Drink" jsonLd={structured} seoTitle={`Where to eat & drink in ${town.name}, Colorado`} eyebrow={town.name} description={`Restaurants, bars, coffee and shops in ${town.name}, ${town.state}.`} intro={`Where to eat, drink, browse and linger in ${town.name}. Listings are editorial; nobody pays to be here.`}>
   <PlaceDirectory places={places} heading="Places to eat and drink" filterable emptyMessage="No places listed yet." />
   {shops.length > 0 && (
     <section class="mt-20">

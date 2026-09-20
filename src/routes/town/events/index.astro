@@ -5,6 +5,7 @@ import FilterBar from '@/components/FilterBar.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import { categoriesIn, occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { CATEGORY_LABELS, EVENT_CATEGORIES, type EventCategory } from '@/content/schemas';
 
@@ -15,10 +16,23 @@ const nextTwoWeeks = upcoming(all, { days: 14 });
 const later = uniqueByEvent(upcoming(all).filter((e) => !nextTwoWeeks.includes(e)));
 const shown = [...nextTwoWeeks, ...later];
 const options = categoriesIn(shown, EVENT_CATEGORIES).map((c) => ({ value: c, label: CATEGORY_LABELS[c as EventCategory] }));
+const structured = [
+  collectionPageJsonLd(town, {
+    name: `${town.name}, Colorado events`,
+    description: `What’s on in ${town.name} this week and next: markets, music, festivals, trails and more.`,
+    path: '/events/',
+    items: uniqueByEvent(shown).map((e) => ({ name: e.data.title, path: `/events/${e.slug}/` })),
+  }),
+  breadcrumbJsonLd(town, [
+    { name: town.name, path: '/' },
+    { name: 'Events', path: '/events/' },
+  ]),
+];
 ---
 <Page
   title="Events"
   seoTitle={`${town.name}, Colorado events this week`}
+  jsonLd={structured}
   eyebrow={`What’s on in ${town.name}`}
   description={`What’s on in ${town.name} this week and next: markets, music, festivals, trails and more.`}
   intro="The next two weeks first, then everything further out. Weekly regulars show every date for two weeks, then once. Past events drop off on their own."

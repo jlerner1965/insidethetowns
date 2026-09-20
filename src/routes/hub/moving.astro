@@ -16,6 +16,7 @@
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import { countyLabel, countyShort, getHub, liveTowns } from '@/config';
+import { collectionPageJsonLd } from '@/lib/seo';
 import { COMPARISONS, comparisonSlug } from '@/content/comparisons';
 
 const hub = getHub();
@@ -61,17 +62,12 @@ const SUITS: Record<string, string> = {
   "elizabeth": "Suits people who want acreage and sky and will trade an hour of driving for it. It is on the Palmer Divide at 6,477 feet — the highest town here by over a thousand feet, with the weather that implies. Inside town you get water and sewer; outside it you own a well and a septic system, and you should have both inspected and the well's yield documented before you buy. Forty-five minutes to the Tech Center, and Denver is not really the point."
 };
 
-const itemList = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
+const structured = collectionPageJsonLd(hub, {
   name: `The ${towns.length} towns of ${hub.siteTitle}, compared`,
-  itemListElement: towns.map((t, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    url: `https://${t.domain}/`,
-    name: t.name,
-  })),
-};
+  description: `${towns.map((t) => t.name).join(', ')}: population, growth, schools, the commute and what each one is actually like.`,
+  path: '/moving/',
+  items: towns.map((t) => ({ name: t.name, url: `https://${t.domain}/` })),
+});
 ---
 <Page
   title="Which Front Range town?"
@@ -79,7 +75,7 @@ const itemList = {
   eyebrow="Moving here"
   description={`${towns.map((t) => t.name).join(', ')}: population, growth, schools, the commute and what each one is actually like.`}
   intro={`All ${towns.length} towns side by side, then a straight answer on who each one suits. Every name links to its own guide.`}
-  jsonLd={itemList}
+  jsonLd={structured}
 >
   {/* Wide: one row per town. Narrow: one card per town, same markup, because
      relocation research happens on a phone and a seven-column table at 375px
