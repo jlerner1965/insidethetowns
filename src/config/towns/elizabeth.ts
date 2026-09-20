@@ -8,7 +8,7 @@ export const elizabeth = {
   domain: "insideelizabeth.com",
   siteTitle: "Inside Elizabeth",
   tagline: "An independent guide to Elizabeth, Colorado: Main Street, the Stampede, the Palmer Divide, and what it’s like to live an hour from Denver on the prairie.",
-  seoTagline: "Main Street, the Stampede, the Palmer Divide",
+  seoTagline: 'Events and things to do in Elizabeth, Colorado',
   counties: ['Elbert'],
   state: "CO",
   lat: 39.3603, lng: -104.5969,

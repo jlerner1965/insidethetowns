@@ -82,3 +82,20 @@ test('every live town is configured and every config is complete enough to build
     assert.ok(t.counties.length >= 1, `${slug}: at least one county`);
   }
 });
+
+test('every town home title names the state and survives the search-result cut', () => {
+  // Erie, Johnstown and Elizabeth share their names with much larger places in
+  // Pennsylvania and New Jersey. A title that says only "Inside Erie" is
+  // competing for the wrong town.
+  for (const t of towns) {
+    const title = `${t.siteTitle} — ${t.seoTagline ?? t.tagline}`;
+    assert.ok(title.length <= 68, `${t.slug}: home title is ${title.length} chars and will be cut`);
+    assert.match(title, /,\s*(Colorado|CO)\b/, `${t.slug}: home title names no state`);
+  }
+});
+
+test('the three most ambiguous names spell Colorado out rather than abbreviating', () => {
+  for (const slug of ['erie', 'johnstown', 'elizabeth']) {
+    assert.match(by(slug).seoTagline ?? '', /Colorado/, `${slug}: "CO" is too weak a signal for this name`);
+  }
+});

@@ -7,6 +7,7 @@ export const johnstown: TownConfig = {
   domain: 'insidejohnstown.com',
   siteTitle: 'Inside Johnstown',
   tagline: 'An independent guide to Johnstown, Colorado: Parish Avenue, the parks, the sugar-town history, and what it’s like to move to one of the fastest-growing towns in the country.',
+  seoTagline: 'Events and things to do in Johnstown, Colorado',
   // 2020 census: about 73 per cent of the town's population in Weld, 27 per cent in Larimer.
   counties: ['Weld', 'Larimer'],
   countySplit: {
