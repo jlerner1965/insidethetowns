@@ -10,6 +10,8 @@ import assert from 'node:assert/strict';
 import { towns } from '../src/config/towns/registry.ts';
 import { countiesCovered, countyLabel, countyShort } from '../src/config/towns/types.ts';
 import { LIVE_TOWNS } from '../src/config/index.ts';
+import { hub } from '../src/config/towns/hub.ts';
+import { homeTitle } from '../src/lib/titles.ts';
 
 const by = (slug: string) => {
   const t = towns.find((x) => x.slug === slug);
@@ -83,15 +85,28 @@ test('every live town is configured and every config is complete enough to build
   }
 });
 
-test('every town home title names the state and survives the search-result cut', () => {
-  // Erie, Johnstown and Elizabeth share their names with much larger places in
-  // Pennsylvania and New Jersey. A title that says only "Inside Erie" is
-  // competing for the wrong town.
-  for (const t of towns) {
-    const title = `${t.siteTitle} — ${t.seoTagline ?? t.tagline}`;
-    assert.ok(title.length <= 68, `${t.slug}: home title is ${title.length} chars and will be cut`);
-    assert.match(title, /,\s*(Colorado|CO)\b/, `${t.slug}: home title names no state`);
+test('every town home title names the state after the search-result trim', () => {
+  // Asserting the trimmed output, not the raw tagline: the trim is the thing
+  // that used to eat ", Colorado", so a test on the untrimmed string proves
+  // nothing. Berthoud's first fix passed that way and still shipped truncated.
+  for (const t of [...towns, hub]) {
+    const title = homeTitle(t);
+    assert.ok(title.length <= 65, `${t.slug}: home title is ${title.length} chars`);
+    assert.match(title, /Colorado|,\s*CO\b/, `${t.slug}: trimmed home title names no state — "${title}"`);
   }
+});
+
+test('a tagline whose comma sits before the state is not cut at that comma', () => {
+  // The original Erie failure, kept as a case of its own.
+  const cut = homeTitle({
+    siteTitle: 'Inside Erie',
+    tagline: 'An independent guide to Erie, Colorado: Briggs Street, the trails, the coal-town history, and what it is like to move to a town that doubled.',
+  });
+  assert.ok(cut.length <= 65);
+  // With no seoTagline there is genuinely no room for the state, which is
+  // exactly why every town sets one; the guard above is what enforces that.
+  assert.equal(homeTitle({ siteTitle: 'Inside Erie', tagline: 'x', seoTagline: 'Briggs Street, trails and events in Erie, Colorado' }),
+    'Inside Erie \u2014 Briggs Street, trails and events in Erie, Colorado');
 });
 
 test('the three most ambiguous names spell Colorado out rather than abbreviating', () => {
