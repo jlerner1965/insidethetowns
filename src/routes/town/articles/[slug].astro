@@ -2,8 +2,9 @@
 import { getImage, Image } from 'astro:assets';
 import { render } from 'astro:content';
 import Page from '@/layouts/Page.astro';
+import DatedNotice from '@/components/DatedNotice.astro';
 import { getTownEntries, type TownEntry } from '@/lib/content';
-import { formatDate, toIsoLocal } from '@/lib/dates';
+import { dayKey, formatDate, toIsoLocal } from '@/lib/dates';
 import { getTown } from '@/config';
 import { articleJsonLd, breadcrumbJsonLd } from '@/lib/seo';
 
@@ -39,6 +40,17 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
     <time datetime={toIsoLocal(data.date)}>{formatDate(data.date)}</time>
     {data.updated && <span> · Updated {formatDate(data.updated)}</span>}
   </p>
+  {data.supersededAfter && data.supersededNote && (
+    <DatedNotice from={dayKey(data.supersededAfter)}>
+      <strong class="font-semibold">This was written beforehand.</strong>{' '}
+      {data.supersededNote}
+      {data.supersededSource && (
+        <Fragment>
+          {' '}<a href={data.supersededSource} class="text-accent-text" rel="nofollow">{data.supersededSourceLabel}</a>.
+        </Fragment>
+      )}
+    </DatedNotice>
+  )}
   {data.image && (
     <figure class="mb-12">
       <Image src={data.image} alt={data.imageAlt ?? ''} width={1600} height={900} class="w-full rounded-lg" />

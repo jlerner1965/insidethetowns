@@ -1,12 +1,12 @@
 ---
 title: "Moving to Niwot"
-description: "What it is like to live in an unincorporated town of four thousand between Boulder and Longmont: housing, schools, the commute, who provides the water and the fire trucks, and the vote that could change all of it."
+description: "What it is like to live in an unincorporated town of four thousand between Boulder and Longmont: housing, schools, the commute, who provides the water and the fire trucks, and the November 2026 vote that could change all of it."
 updated: "2026-09-17"
 ---
 
 ## What you are moving to
 
-Niwot is a census-designated place of about 4,300 people in Boulder County, off the Diagonal Highway roughly halfway between Boulder and Longmont. Two blocks of railroad-era brick storefronts on Second Avenue, a second cluster of shops at Cottonwood Square, neighborhoods of mostly single-family homes around them, and open space and farmland where the sidewalks stop. It has no town government, no mayor and no town hall; Boulder County and a set of special districts provide the services, and volunteer groups run the calendar. That may change: on November 3, 2026 voters inside a proposed boundary decide whether to incorporate. [The election guide](/articles/2026-incorporation-election/) explains what is on the ballot without taking a side.
+Niwot is a census-designated place of about 4,300 people in Boulder County, off the Diagonal Highway roughly halfway between Boulder and Longmont. Two blocks of railroad-era brick storefronts on Second Avenue, a second cluster of shops at Cottonwood Square, neighborhoods of mostly single-family homes around them, and open space and farmland where the sidewalks stop. It has no town government, no mayor and no town hall; Boulder County and a set of special districts provide the services, and volunteer groups run the calendar. That is subject to the incorporation vote of November 3, 2026 among electors inside a proposed boundary. [The election guide](/articles/2026-incorporation-election/) sets out each question without taking a side, and links the official result.
 
 ## Housing
 
