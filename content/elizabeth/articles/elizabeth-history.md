@@ -1,5 +1,5 @@
 ---
-title: "Elizabeth history: a sawmill camp, a railroad, and two buildings that were nearly lost"
+title: "Elizabeth history: sawmills and Main Street"
 date: "2026-09-18"
 excerpt: "A timber camp on the Palmer Divide named for a governor's relative, a post office in 1882, incorporation in 1890, a bank that closed in the Depression and waited a century for the National Register, and a sculptor who saved the oldest building on Main Street."
 category: "History"

@@ -891,3 +891,150 @@ feature, an edge function, image optimisation through their pipeline — should
 be weighed against that, and `@vercel/analytics` is already one such thread:
 `/privacy/` names Vercel Web Analytics on every site, so a move means changing
 the package and the privacy copy on the same day.
+
+## The Berthoud hero, and what the overlay was doing to all eight
+
+The Berthoud home page opened on what read as a flat navy panel. Three things
+were doing it, and only one of them was Berthoud's.
+
+### The photograph had no sky in it
+
+`hero.jpg` was KimonBerlin's tighter Carter Lake frame: a horizon in the top
+eighth, then water, then a dense bank of scrub filling the bottom half. A hero
+box is about 2:1 and the file is 3:2, so `object-cover` takes a centre band and
+drops the top and bottom — which on that frame means dropping most of what
+little sky there was and keeping water and brush. Every other town's hero is a
+wide sky over a horizon; Berthoud's was the one frame with no bright area
+anywhere in the crop, so the whole box came out one value.
+
+The same photographer shot the wider frame from the same spot on the same day,
+and it was already in the repository as `carter-lake.jpg` on the Carter Lake
+place page. The two have swapped: the hero is now the wide frame at 2000px
+(sky, the hogback across the water, pines on the near shore), and the place
+page has the tighter one at 1600px. Both licence rows already existed in
+`IMAGE_LICENSES.csv` and only needed their source URLs exchanged; the credit
+line is the same either way, so nothing about attribution changes.
+
+It is also a third lighter to download, which was not the point but is not an
+accident either: a sky is smooth and a bank of scrub is not, so at the same
+quality the wide frame costs 421 KB against 650 KB at 1920w, and 204 KB against
+310 KB at 1280w. The launch audit had the hero down as the largest asset a
+desktop visitor fetches; on Berthoud it no longer is.
+
+### The wash was repainting the photograph
+
+`Hero.astro` laid two things over the picture: a black scrim, and the town's
+`accentDark` at 35% with `mix-blend-multiply`. Multiply at that strength pulls
+every hue in a frame toward one colour — which is the navy. On a photograph
+with a bright sky it reads as a tint; on one without, it is the whole picture.
+It is 20% now.
+
+The scrim was not simply lightened to match, because the scrim is what makes
+the type legible. Its stops were chosen against a constraint that can be
+checked rather than eyeballed: `(1 − scrim) × wash` must not be greater at any
+height the type reaches than it was before. The type block is bottom-anchored
+and its topmost line, the eyebrow, lands about three quarters of the way up, so
+the constraint runs from the bottom edge to 74%:
+
+    linear-gradient(to top, rgba(0,0,0,.88) 0%, rgba(0,0,0,.5) 50%,
+                    rgba(0,0,0,.36) 74%, transparent 100%)
+
+Checked per channel against all seven town accents, the closest that comes to
+violating it is 0.003, at the very bottom edge. Above 74% it clears completely,
+which is where the visible change is: the top of the frame now passes through
+at 0.82–0.89 of the photograph's own brightness, against 0.65–0.76 before.
+
+### The eyebrow was failing AA on six of the seven towns
+
+Measuring this properly meant rendering each home page three times — as built,
+with the hero type hidden, and with each line of type painted a flat marker
+colour — so that a full-coverage glyph pixel could be told from an antialiased
+edge, and the background under each glyph read off the render that has no type
+in it. Antialiasing is why this is worth the trouble: an edge pixel of opaque
+white type is indistinguishable, by colour alone, from the middle of a stroke
+of `text-white/70`, and counting those edges makes every translucent treatment
+look like a failure when it is not.
+
+What that shows, at 1280 and 375, with the new wash and scrim in place:
+
+| line | measured | bar |
+| --- | --- | --- |
+| `h1`, white, 68–144px | 4.42–15.47 | 3 |
+| tagline, white/85 | 5.18–10.03 | 3 wide, 4.5 phone |
+| photo credit, white/70, 12px | 8.61–9.71 | 4.5 |
+| button label, white, 14px | 11.89–19.35 | 4.5 |
+| eyebrow, amber, 12.75px | **2.88–10.18** | 4.5 |
+
+Everything the scrim protects is fine. The eyebrow was not: it is the line that
+sits highest, where the scrim is weakest, and in amber it failed on six of the
+seven towns. Elizabeth was the only one clear at both widths; Lyons, at 10.18
+on a wide screen, dropped to 3.68 on a phone.
+
+It failed on the same six before any of this, between 2.34:1 and 4.04:1, so it
+is not something the lighter wash introduced — the new stops lifted every one
+of those numbers except Berthoud's, which moved for the other reason, its
+photograph having changed under it. `check-colors` had not caught any of it
+because what that script proves is that `highlight-ink` clears 4.5:1 on
+`accentDark`, which it does; the hero is the one place the amber sits on a
+photograph instead of on that flat fill.
+
+Amber cannot be rescued by a darker scrim without giving back everything the
+lighter wash just won: the worst case needs the background at 0.76 of its
+current value, which is 13 points more black across the middle of every hero.
+Nor by going darker — against a background that light, even pure black reaches
+only 4.43:1. So the hero eyebrow is white, and re-measured the same way it runs
+4.69:1 to 16.57:1, every town and both widths. Every other eyebrow on every
+other dark band keeps the amber, which is provably safe there.
+
+
+## Titles that outran the search result, descriptions that said nothing
+
+Two metadata faults, found by reading the built HTML of all eight sites rather
+than the source: `<title>` and `<meta name="description">` for every page, with
+the event pages set aside because the launch audit knowingly made those long to
+keep them unique.
+
+### The history articles
+
+`pageTitle()` appends `| Inside <Town>`, which is 15 to 19 characters that a
+long headline pushes out of the result entirely. Five history articles were
+over the 70-character line the launch audit set:
+
+| | before | after |
+| --- | --- | --- |
+| Elizabeth | 105 | 62 |
+| Timnath | 97 | 64 |
+| Niwot | 78 | 62 |
+| Berthoud | 74 | 62 |
+| Johnstown | 71 | 61 |
+
+Shortened in the frontmatter rather than hidden behind a `seoTitle`, because in
+each case the long version was a subtitle doing the excerpt's job — "a sawmill
+camp, a railroad, and two buildings that were nearly lost" is the excerpt's
+first clause, and the excerpt is on the page, in the card and in the snippet.
+Nothing was dropped that the reader cannot see one line down. Slugs are
+untouched, so no URL moves and nothing needs redirecting.
+
+Six non-event titles still run over 70: four on the hub, where the length comes
+from a date or a pair of town names being interpolated into a template
+(`/this-weekend/`, `/moving/`, `/moving/erie-vs-johnstown/`, `/newsletter/`),
+and two articles whose titles are lists that do not shorten cleanly
+(`two-counties-two-fire-districts`, `who-governs-lyons`). Those are copy
+decisions for the editor rather than defects to fix in passing.
+
+### The two collection pages
+
+`/eat-drink/` and `/things-to-do/` carried "Restaurants, bars, coffee and shops
+in Erie, CO." — 48 to 53 characters, which is the page title with a full stop
+after it. A snippet is the one chance to say what a page holds that its title
+does not, so both now run 125 to 146 characters and say it. The string is also
+the `CollectionPage` description in the JSON-LD, and it was written out twice in
+each file; it is one `const` now, so the two cannot drift apart.
+
+### The hub home page
+
+`SEO.astro` falls back to `site.tagline`, and the hub's is 74 characters:
+accurate about what the network is, silent about what is on a guide, which is
+what someone deciding whether to click wants to know. The hub home now passes
+its own 151-character description. The tagline stays short because it is also
+the hero line and the `Organization` description in the publisher graph.

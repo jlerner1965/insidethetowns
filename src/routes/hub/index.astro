@@ -17,8 +17,16 @@ const live = hub.towns.filter((t) => LIVE_TOWNS.includes(t.slug));
 const soon = hub.towns.filter((t) => !LIVE_TOWNS.includes(t.slug));
 // Without these the hub is a signpost. With them it is a publication.
 const next = uniqueByEvent(upcoming(occurrences(await getNetworkEntries('events'), { horizonDays: 21 }))).slice(0, 5);
+/**
+ * The hub's own snippet. Without it the page falls back to `hub.tagline`,
+ * which is 74 characters and says what the network is but not what is on a
+ * town guide — the thing a searcher is deciding whether to click. The tagline
+ * stays short because it is also the hero line and the Organization
+ * description; this is written for the search result.
+ */
+const description = `Independent guides to ${live.length} small towns on Colorado’s Front Range: the week’s events, where to eat and drink, the trails, and what it’s like to live there.`;
 ---
-<Base>
+<Base {description}>
   <section class="container-page pb-14 pt-16 md:pt-28">
     <p class="eyebrow">Colorado’s northern Front Range</p>
     <h1 class="display mt-5 max-w-4xl text-[3.25rem] sm:text-7xl lg:text-8xl">

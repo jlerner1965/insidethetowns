@@ -1,5 +1,5 @@
 ---
-title: "Berthoud history: a railroad stop that moved up the hill"
+title: "Berthoud history: the town that moved uphill"
 date: "2026-09-18"
 excerpt: "A homestead where the railroad would cross the Little Thompson, a town dragged a mile uphill on wheels, sugar beets, a highway that left, and a farm town that doubled. The short history of Berthoud, with each claim resting on a source."
 category: "History"

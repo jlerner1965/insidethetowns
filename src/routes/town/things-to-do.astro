@@ -17,10 +17,12 @@ const outdoors = (await getTownEntries('articles')).filter(
   (a) => a.data.tags.includes('outdoors') || a.data.category.toLowerCase() === 'outdoors',
 );
 const listing = [...places, ...lodging].map((p) => ({ name: p.data.title, path: `/places/${p.slug}/` }));
+/** One line for the meta description and the CollectionPage markup; see /eat-drink/. */
+const description = `Trails, parks and venues in and around ${town.name}, ${town.state}: where to go for an afternoon outdoors, what is there and who looks after it.`;
 const structured = [
   collectionPageJsonLd(town, {
     name: `Things to do in ${town.name}, Colorado`,
-    description: `Trails, parks and venues in and around ${town.name}, ${town.state}.`,
+    description,
     path: '/things-to-do/',
     items: listing,
   }),
@@ -30,7 +32,7 @@ const structured = [
   ]),
 ];
 ---
-<Page title="Things to Do" jsonLd={structured} seoTitle={`Things to do in ${town.name}, Colorado`} eyebrow={town.name} description={`Trails, parks and venues in and around ${town.name}, ${town.state}.`} intro={`Trails, parks and places worth an afternoon in and around ${town.name}.`}>
+<Page title="Things to Do" jsonLd={structured} seoTitle={`Things to do in ${town.name}, Colorado`} eyebrow={town.name} {description} intro={`Trails, parks and places worth an afternoon in and around ${town.name}.`}>
   <PlaceDirectory places={places} heading="Trails, parks and venues" filterable emptyMessage="No trails, parks or venues listed yet." />
   {lodging.length > 0 && (
     <section class="mt-20">
