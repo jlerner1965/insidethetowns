@@ -4,8 +4,9 @@ import { render } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
-import { formatDate, formatDayLong, formatTimeRange, formatWeekday, toIsoLocal } from '@/lib/dates';
+import { dayKey, formatDate, formatDayLong, formatTimeRange, formatWeekday, toIsoLocal } from '@/lib/dates';
 import { nextOccurrence } from '@/lib/events';
+import { pickCanonical } from '@/lib/series';
 import { breadcrumbJsonLd, eventJsonLd } from '@/lib/seo';
 import { CATEGORY_LABELS } from '@/content/schemas';
 
@@ -13,18 +14,20 @@ export async function getStaticPaths() {
   const events = await getTownEntries('events');
   /**
    * A recurring series is stored as one file per occurrence, so a council
-   * meeting can be twelve pages that differ only in the date. Index the
-   * soonest occurrence of each series and mark the rest noindex, so the
-   * series is searchable once rather than competing with itself.
+   * meeting can be twelve pages that differ only in the date. Index the one a
+   * reader could still attend and mark the rest noindex, so the series is
+   * searchable once rather than competing with itself.
+   *
+   * The same rule decides the sitemap, from src/lib/series.ts, so the page's
+   * noindex and its absence from the sitemap cannot drift apart.
    */
-  const soonest = new Map<string, string>();
-  for (const e of [...events].sort((a, b) => a.data.start.getTime() - b.data.start.getTime())) {
-    const key = `${e.data.title}|${e.data.venue}`;
-    if (!soonest.has(key)) soonest.set(key, e.slug);
-  }
+  const canonical = pickCanonical(
+    events.map((e) => ({ slug: e.slug, key: `${e.data.title}|${e.data.venue}`, startDay: dayKey(e.data.start) })),
+    dayKey(new Date()),
+  );
   return events.map((event) => ({
     params: { slug: event.slug },
-    props: { event, canonicalOccurrence: soonest.get(`${event.data.title}|${event.data.venue}`) === event.slug },
+    props: { event, canonicalOccurrence: canonical.get(`${event.data.title}|${event.data.venue}`) === event.slug },
   }));
 }
 
