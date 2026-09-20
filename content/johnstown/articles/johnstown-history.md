@@ -1,5 +1,5 @@
 ---
-title: "Johnstown history: John's town, sugar town, boomtown"
+title: "Johnstown history: John's town to boomtown"
 date: "2026-09-18"
 excerpt: "A rancher who bought land at eleven dollars an acre ahead of the railroad and named the town for his sick son, a sugar factory that ran 75 years, a meteorite that interrupted a funeral, and a farm town that doubled in a decade. The short history of Johnstown, with each claim resting on a source."
 category: "History"

@@ -5,7 +5,7 @@ address: "4011 S County Rd 31, Loveland"
 area: "County Road 31, northwest of town"
 url: "https://www.larimer.gov/naturalresources/parks/carter-lake"
 image: ../images/carter-lake.jpg
-imageAlt: "Carter Lake from its wooded eastern shore, with the hogback ridges across the water"
+imageAlt: "Carter Lake from the scrub and pines of its eastern shore, a fallen pine in the foreground"
 imageCredit: "KimonBerlin, Wikimedia Commons, CC BY-SA 2.0"
 tags: [lake, boating, camping, swimming]
 featured: true

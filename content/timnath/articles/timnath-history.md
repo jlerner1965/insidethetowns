@@ -1,5 +1,5 @@
 ---
-title: "Timnath history: from Sherwood Station to the fastest-growing town in the county"
+title: "Timnath history: a stage stop that grew tenfold"
 date: "2026-09-18"
 excerpt: "An Overland Trail stage stop, a schoolhouse called Fairview, a railroad in 1882, a name from the Book of Judges, a church that is still the only one in town, and a farm town of 625 that grew tenfold in a decade. The short history of Timnath, with each claim resting on a source."
 category: "History"

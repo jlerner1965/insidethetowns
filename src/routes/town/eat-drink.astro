@@ -13,10 +13,17 @@ const all = await getTownEntries('places');
 const places = all.filter((p) => EAT_DRINK_TYPES.includes(p.data.type)).sort(byFeatured);
 const shops = all.filter((p) => p.data.type === 'shop').sort(byFeatured);
 const listing = [...places, ...shops].map((p) => ({ name: p.data.title, path: `/places/${p.slug}/` }));
+/**
+ * Written once and used for both the meta description and the CollectionPage
+ * markup, which have to agree. The old line ran to 48 characters on Erie and
+ * told a searcher nothing the title had not already said; a snippet is the
+ * one chance to say what the page holds, so it says it.
+ */
+const description = `Restaurants, bars, coffee shops and stores in ${town.name}, ${town.state}: what each one is, where to find it and what it is known for. Nobody pays to be listed.`;
 const structured = [
   collectionPageJsonLd(town, {
     name: `Where to eat & drink in ${town.name}, Colorado`,
-    description: `Restaurants, bars, coffee and shops in ${town.name}, ${town.state}.`,
+    description,
     path: '/eat-drink/',
     items: listing,
   }),
@@ -26,7 +33,7 @@ const structured = [
   ]),
 ];
 ---
-<Page title="Eat & Drink" jsonLd={structured} seoTitle={`Where to eat & drink in ${town.name}, Colorado`} eyebrow={town.name} description={`Restaurants, bars, coffee and shops in ${town.name}, ${town.state}.`} intro={`Where to eat, drink, browse and linger in ${town.name}. Listings are editorial; nobody pays to be here.`}>
+<Page title="Eat & Drink" jsonLd={structured} seoTitle={`Where to eat & drink in ${town.name}, Colorado`} eyebrow={town.name} {description} intro={`Where to eat, drink, browse and linger in ${town.name}. Listings are editorial; nobody pays to be here.`}>
   <PlaceDirectory places={places} heading="Places to eat and drink" filterable emptyMessage="No places listed yet." />
   {shops.length > 0 && (
     <section class="mt-20">

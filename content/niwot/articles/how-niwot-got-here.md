@@ -1,5 +1,5 @@
 ---
-title: "How Niwot got here: a railroad, an angled grid and no town hall"
+title: "How Niwot got here: a railroad and no town hall"
 date: "2026-09-17"
 excerpt: "A rail line, an 1875 plat, a preserved main street, and a century and a half without a municipal government. The short history, with each claim resting on a source you can open."
 category: "History"
