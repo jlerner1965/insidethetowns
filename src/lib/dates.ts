@@ -94,8 +94,33 @@ export function startOfDay(now = new Date(), tz = TIME_ZONE): Date {
   return fromWallClock(y!, m!, d!, 0, 0, 0, tz);
 }
 
-export function addDays(date: Date, days: number): Date {
-  return new Date(date.getTime() + days * 86_400_000);
+/** The wall-clock fields `date` shows in `tz`. */
+function wallParts(date: Date, tz: string) {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: tz,
+    hourCycle: 'h23',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  }).formatToParts(date);
+  const get = (type: string) => Number(parts.find((p) => p.type === type)?.value ?? '0');
+  return { year: get('year'), month: get('month'), day: get('day'), hour: get('hour'), minute: get('minute'), second: get('second') };
+}
+
+/**
+ * Move by whole calendar days in Denver, keeping the time of day.
+ *
+ * Adding 24 hours is not the same as adding a day twice a year: the Sunday the
+ * clocks go back is 25 hours long, so a fixed-millisecond step landed the
+ * weekend's exclusive end at 11pm rather than midnight, and pushed a late
+ * Sunday listing into the following week.
+ */
+export function addDays(date: Date, days: number, tz = TIME_ZONE): Date {
+  const { year, month, day, hour, minute, second } = wallParts(date, tz);
+  return fromWallClock(year, month, day + days, hour, minute, second, tz);
 }
 
 const fmt = (opts: Intl.DateTimeFormatOptions) =>
