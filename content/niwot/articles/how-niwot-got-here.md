@@ -30,7 +30,7 @@ Residential development spread around the original plat while the historic comme
 
 ## Today: about four thousand people, still unincorporated
 
-The census designated place recorded a population of 4,306 in 2020. Niwot remains unincorporated, with county and district services, and in November 2026 voters inside a proposed boundary decide whether it should become a municipality. *Source: U.S. Census Bureau, 2020 Census, Niwot CDP.*
+The census designated place recorded a population of 4,306 in 2020. Niwot remains unincorporated, with county and district services, subject to the incorporation vote of November 3, 2026 among electors inside a proposed boundary. *Source: U.S. Census Bureau, 2020 Census, Niwot CDP.*
 
 ## Still visible today
 

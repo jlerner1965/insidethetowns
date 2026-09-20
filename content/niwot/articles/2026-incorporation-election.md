@@ -1,9 +1,16 @@
 ---
 title: "The 2026 Niwot incorporation election, plainly"
 date: "2026-09-17"
-excerpt: "On November 3, voters inside a proposed boundary decide whether Niwot becomes a town, whether to elect a charter commission, and five fiscal measures that would fund it. What each question does, without an argument for or against."
+excerpt: "The November 3, 2026 ballot inside the proposed boundary: whether Niwot becomes a town, whether to elect a nine-member charter commission, and five fiscal measures that would fund it. What each question does, without an argument for or against."
 category: "Civic"
 tags: [civic, election]
+# Ballots are due by 7pm on the 3rd, so the guidance below is live through
+# election day and stale the morning after. From the 4th the page says so at
+# the top, whether or not a rebuild happened that night.
+supersededAfter: "2026-11-04"
+supersededNote: "The vote it describes was held on November 3, 2026. Everything below is the ballot as it stood beforehand, and none of it is a result."
+supersededSource: "https://bouldercounty.gov/elections/"
+supersededSourceLabel: "Boulder County Elections publishes the official count"
 ---
 
 This guide describes the measures as filed, without commentary on whether they are advisable. The certified ballot language published by the [Niwot Election Commission](https://niwotelection.org/ballot) controls; everything here is a plain-language summary of it, read on September 10, 2026, and it is provisional until the commission posts its reviewed printer’s proof. Campaign material is labeled as advocacy wherever it appears, and the commission is never presented as an advocate.

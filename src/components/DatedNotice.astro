@@ -1,0 +1,51 @@
+---
+/**
+ * A notice that becomes true on a date, and says so whether or not the site
+ * was rebuilt that morning.
+ *
+ * Some writing has a shelf life that is known in advance. A guide to an
+ * election is the clearest case: every word of it is accurate until the
+ * polls close and misleading the morning after, and the date it turns is on
+ * the calendar months ahead.
+ *
+ * The build decides whether to show it, and the reader's browser decides
+ * again — the same arrangement Freshness.astro uses on event listings, and
+ * for the same reason. A scheduled rebuild keeps the built answer honest,
+ * but GitHub switches scheduled workflows off by itself after sixty days,
+ * and "the rebuild failed" must not become "the site told you the vote is
+ * still to come". The element ships in both states; only its `hidden`
+ * attribute is in question, and the reader settles it.
+ *
+ * `from` is a Denver calendar day, inclusive: the notice is showing when
+ * that day starts.
+ */
+interface Props {
+  /** Denver day the notice becomes true, "2026-11-04". */
+  from: string;
+}
+
+const { from } = Astro.props;
+if (!/^\d{4}-\d{2}-\d{2}$/.test(from)) {
+  throw new Error(`DatedNotice "from" must be a plain Denver date, got "${from}".`);
+}
+// Compared as day strings so the build agrees with the browser, which has
+// only the reader's calendar day to work from.
+const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Denver' });
+---
+<aside
+  data-dated-notice
+  data-from={from}
+  hidden={today < from}
+  class="mb-10 rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink"
+>
+  <slot />
+</aside>
+
+<script>
+  // Re-decide from the reader's clock rather than the build's.
+  const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Denver' });
+  for (const notice of document.querySelectorAll<HTMLElement>('[data-dated-notice]')) {
+    const from = notice.dataset.from;
+    if (from) notice.hidden = today < from;
+  }
+</script>

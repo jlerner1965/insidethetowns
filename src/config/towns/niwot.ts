@@ -14,7 +14,10 @@ export const niwot: TownConfig = {
   lng: -105.1708,
   population: 4306, // 2020 census, Niwot CDP
   elevationFt: 5168,
-  incorporated: null, // unincorporated; a CDP under Boulder County
+  // Unincorporated; a CDP under Boulder County. Incorporation went to a vote
+  // on 3 November 2026 — if it passed, this becomes the year of incorporation
+  // and /articles/2026-incorporation-election/ needs rewriting with the result.
+  incorporated: null,
   driveToDenver: '45–50 min',
   population2010: 4006, // 2010 census, for census-to-census growth
   character: 'Deliberately small and still unincorporated — no town hall, and a vote on that in 2026.',

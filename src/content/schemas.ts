@@ -194,10 +194,39 @@ export function articleSchema<I extends z.ZodType>(image: () => I) {
       excerpt: z.string().min(1).max(320),
       category: z.string().min(1),
       tags: z.array(z.string()).default([]),
+      /**
+       * A Denver day on which this article's framing stops being current —
+       * an election held, a season closed, a deadline passed. From that day
+       * the page carries `supersededNote` at the top, decided by the build
+       * and again by the reader's browser, so the article does not go on
+       * describing a future that has happened.
+       *
+       * It does not hide or noindex the article. A careful account of what
+       * was on a ballot is worth keeping after the vote; what it must stop
+       * doing is presenting itself as advice for something still to come.
+       */
+      supersededAfter: localDate.optional(),
+      /** What to say from that day. Plain sentences; no markup. */
+      supersededNote: z.string().optional(),
+      /** Where the current answer lives — an official source, not our own page. */
+      supersededSource: httpUrl.optional(),
+      supersededSourceLabel: z.string().optional(),
     })
     .refine((a) => !a.image || !!a.imageAlt, {
       message: 'imageAlt is required when image is set',
       path: ['imageAlt'],
+    })
+    .refine((a) => !a.supersededAfter || !!a.supersededNote, {
+      message: 'supersededAfter needs a supersededNote saying what changed',
+      path: ['supersededNote'],
+    })
+    .refine((a) => !a.supersededSource || !!a.supersededSourceLabel, {
+      message: 'supersededSource needs a supersededSourceLabel; a bare URL is not a link text',
+      path: ['supersededSourceLabel'],
+    })
+    .refine((a) => !a.supersededNote || !!a.supersededAfter, {
+      message: 'supersededNote needs a supersededAfter date saying when it starts being true',
+      path: ['supersededAfter'],
     });
 }
 
