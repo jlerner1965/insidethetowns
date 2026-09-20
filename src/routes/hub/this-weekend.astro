@@ -32,8 +32,9 @@ import NetworkDayList from '@/components/NetworkDayList.astro';
 import NetworkEventCard from '@/components/NetworkEventCard.astro';
 import { getHub, liveTowns } from '@/config';
 import { getNetworkEntries } from '@/lib/content';
-import { occurrences, sectionCount, weekendSections, weekendWindow } from '@/lib/events';
+import { occurrences, weekendSections, weekendWindow } from '@/lib/events';
 import { formatDate, formatTime } from '@/lib/dates';
+import { collectionPageJsonLd } from '@/lib/seo';
 
 const hub = getHub();
 const towns = liveTowns();
@@ -49,7 +50,6 @@ const sections = weekendSections(
   { now: refreshedAt, horizonDays: 15 },
 );
 const { now, weekend, continuing, next } = sections;
-const total = sectionCount(sections);
 const everything = [...now, ...weekend, ...continuing, ...next];
 
 const options = towns
@@ -63,22 +63,18 @@ const weekendLabel =
     : `${formatDate(weekendStart)} – ${formatDate(sunday)}`;
 
 /**
- * An ItemList of the listings, each pointing at the town page that owns it.
- * The Event markup itself stays on those pages; this says only that the hub
- * collects them, which is what it does.
+ * The page as a CollectionPage, carrying the listings it shows.
+ *
+ * The Event markup itself stays on the town pages that own each listing; this
+ * says only that the hub collects them, which is what it does. `isPartOf` ties
+ * the page to the hub's own WebSite node.
  */
-const itemList = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
+const structured = collectionPageJsonLd(hub, {
   name: `What’s on across ${hub.siteTitle}`,
-  numberOfItems: total,
-  itemListElement: everything.slice(0, 60).map((e, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    url: `https://${e.town.domain}/events/${e.slug}/`,
-    name: `${e.data.title} — ${e.town.name}`,
-  })),
-};
+  description: `Every event across ${towns.length} Front Range town guides this weekend.`,
+  path: '/this-weekend/',
+  items: everything.map((e) => ({ name: `${e.data.title} — ${e.town.name}`, url: `https://${e.town.domain}/events/${e.slug}/` })),
+});
 ---
 <Page
   title="This weekend on the Front Range"
@@ -86,7 +82,7 @@ const itemList = {
   eyebrow="Across the network"
   description={`Every event across ${towns.length} Front Range town guides this weekend: markets, music, festivals and trails in ${towns.map((t) => t.name).join(', ')}.`}
   intro={`Everything on across all ${towns.length} guides, ${weekendLabel}, and then the week after. Each listing opens on that town’s own site.`}
-  jsonLd={itemList}
+  jsonLd={structured}
 >
   <p
     class="mb-8 hidden rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink"

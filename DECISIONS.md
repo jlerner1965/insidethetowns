@@ -29,6 +29,13 @@ Choices not covered by PLAN.md, with the reasoning. Newest first.
   `getSite()` returns either; `getTown()` narrows and throws on the hub.
 - **`LIVE_TOWNS` added in Phase 1** rather than Phase 4 because `NetworkBar` and the hub
   need it to exist from the first build.
+- **`sharp` is declared, not added.** `src/lib/icons.ts` rasterises each site's
+  favicon SVG into `/favicon.ico` and `/apple-touch-icon.png`, which browsers ask
+  for by name whether or not the page links them. It uses `sharp`, which was
+  already in the tree as Astro's image backend — the same reasoning as using
+  Astro's bundled Zod. It is listed in `devDependencies` rather than left
+  transitive so that an Astro release changing its image backend fails the
+  install rather than the build, and it ships nothing to the browser.
 - **No new runtime dependencies.** Scripts run on Node 22's built-in TypeScript support
   and use Astro's bundled Zod (`astro/zod`). Frontmatter for the validator is parsed by
   a small in-repo YAML-subset parser (`scripts/lib/frontmatter.ts`) rather than adding

@@ -61,6 +61,9 @@ const cssVars = [
     <link rel="preload" as="font" type="font/woff2" href={instrumentLatin} crossorigin />
     <SEO {...seo} jsonLd={structured} />
     <link rel="icon" href={`/favicons/${site.slug}/favicon.svg`} type="image/svg+xml" />
+    {/* Asked for by name regardless of what the page links; see src/lib/icons.ts. */}
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content={site.colors.accentDark} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     {/* Discovery: an aggregator that lands on any page finds the feeds. */}

@@ -5,7 +5,7 @@ import Page from '@/layouts/Page.astro';
 import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { dayKey, formatDate, formatDayLong, formatTimeRange, formatWeekday, toIsoLocal } from '@/lib/dates';
-import { nextOccurrence } from '@/lib/events';
+import { isPast, nextOccurrence } from '@/lib/events';
 import { pickCanonical } from '@/lib/series';
 import { breadcrumbJsonLd, eventJsonLd } from '@/lib/seo';
 import { CATEGORY_LABELS } from '@/content/schemas';
@@ -70,7 +70,11 @@ const facts = [
   description={description}
   image={shareImage}
   imageAlt={data.imageAlt}
-  noindex={!canonicalOccurrence}
+  {/* Not indexed if it is a repeat of a series, and not if it is simply over:
+     a finished one-day listing is a thin page about something nobody can
+     attend. It stays reachable, because a URL that was live should not start
+     404ing, but it is kept out of search and out of the sitemap. */}
+  noindex={!canonicalOccurrence || isPast(event)}
   jsonLd={[
     eventJsonLd(town, next, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined),
     breadcrumbJsonLd(town, [

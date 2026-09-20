@@ -2,7 +2,9 @@
  * JSON-LD builders. Keep these pure so they are easy to eyeball in tests.
  */
 import type { CollectionEntry } from 'astro:content';
-import { getNetworkHub, liveTowns, type SiteConfig, type TownConfig } from '@/config';
+// Relative rather than the '@/…' alias so the module loads in plain Node and
+// its builders can be unit-tested; Vite resolves both the same way.
+import { getNetworkHub, liveTowns, type SiteConfig, type TownConfig } from '../config/index.ts';
 import { toIsoLocal } from './dates.ts';
 
 /**
@@ -104,6 +106,60 @@ export function eventJsonLd(
           },
         }
       : {}),
+  };
+}
+
+/**
+ * A listing page — what is on, where to eat, what to do — as a CollectionPage.
+ *
+ * These pages had no markup of their own at all: they inherited the site's
+ * Organization and WebSite from the layout and said nothing about themselves.
+ * CollectionPage is what they actually are, and `isPartOf` pointing at the
+ * site's WebSite node is the property that ties a page to its publication —
+ * which is the relationship the network needs stated, town by town.
+ *
+ * `mainEntity` carries the list itself, capped, so the markup describes what
+ * is on the page rather than asserting a catalogue that is not there. Pass
+ * nothing and the property is left off rather than declaring an empty list.
+ */
+/** Enough to describe the page without shipping a kilobyte of markup. */
+const LIST_CAP = 50;
+
+export function collectionPageJsonLd(
+  site: SiteConfig,
+  page: {
+    name: string;
+    description: string;
+    path: string;
+    /** `path` is relative to this site; `url` is absolute, for the hub linking across domains. */
+    items?: Array<{ name: string; path?: string; url?: string }>;
+  },
+) {
+  const url = `https://${site.domain}/`;
+  const items = page.items ?? [];
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${url}${page.path.replace(/^\//, '')}#page`,
+    url: `${url}${page.path.replace(/^\//, '')}`,
+    name: page.name,
+    description: page.description,
+    isPartOf: { '@id': `${url}#website` },
+    inLanguage: 'en-US',
+    ...(items.length > 0 && {
+      mainEntity: {
+        '@type': 'ItemList',
+        // What the list actually enumerates, not what the page holds: claiming
+        // 169 items and shipping 50 is a catalogue that is not there.
+        numberOfItems: Math.min(items.length, LIST_CAP),
+        itemListElement: items.slice(0, LIST_CAP).map((item, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: item.name,
+          url: item.url ?? `https://${site.domain}${item.path}`,
+        })),
+      },
+    }),
   };
 }
 
