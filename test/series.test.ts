@@ -7,7 +7,11 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { pickCanonical, readOccurrences, repeatOccurrenceSlugs, type Occurrence } from '../src/lib/series.ts';
+import { lastDayOf, pastEventSlugs, pickCanonical, readOccurrences, repeatOccurrenceSlugs, type Occurrence } from '../src/lib/series.ts';
+import { lastDay } from '../src/lib/events.ts';
+import { parseLocal } from '../src/lib/dates.ts';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
 const o = (slug: string, key: string, startDay: string): Occurrence => ({ slug, key, startDay });
 
@@ -75,4 +79,53 @@ test('no town indexes a past occurrence while hiding an upcoming one', () => {
       assert.equal(stillToCome.length, 0, `${town}: indexes past ${slug} while ${stillToCome.length} upcoming are hidden`);
     }
   }
+});
+
+test('the sitemap and the page agree on what "over" means, for every real event', () => {
+  // Two implementations, deliberately: the sitemap filter runs while Astro's
+  // config is loading and can only read raw markdown, while the page has
+  // parsed Dates. They decide the same thing — whether to index a listing —
+  // so a disagreement is a page carrying noindex while sitting in the sitemap.
+  for (const town of ['niwot', 'lyons', 'berthoud', 'erie', 'johnstown', 'timnath', 'elizabeth']) {
+    for (const o of readOccurrences(town)) {
+      const raw = readFileSync(join('content', town, 'events', `${o.slug}.md`), 'utf8');
+      const fm = raw.match(/^---\n([\s\S]*?)\n---/)![1]!;
+      const get = (n: string) => (fm.match(new RegExp(`^${n}:\\s*"?([^"\\n]+)"?\\s*$`, 'm'))?.[1] ?? '').trim();
+      const allDay = get('allDay') === 'true';
+      const end = get('end');
+      const start = get('start');
+
+      // The parsed-Date answer, from lib/events.ts.
+      const parsed = lastDay({
+        data: {
+          title: o.slug,
+          start: parseLocal(start),
+          end: end ? parseLocal(end) : undefined,
+          allDay,
+        },
+      } as never);
+
+      assert.equal(o.lastDay, parsed, `${town}/${o.slug}: markdown says ${o.lastDay}, parsed says ${parsed}`);
+    }
+  }
+});
+
+test('expired events are excluded, and nothing upcoming is', () => {
+  const now = new Date('2026-09-20T18:00:00Z');
+  for (const town of ['niwot', 'lyons', 'berthoud', 'erie', 'johnstown', 'timnath', 'elizabeth']) {
+    const all = readOccurrences(town);
+    const expired = pastEventSlugs(town, 'content', now);
+    for (const o of all) {
+      const isOver = o.lastDay < '2026-09-20';
+      assert.equal(expired.has(o.slug), isOver, `${town}/${o.slug} (last day ${o.lastDay})`);
+    }
+  }
+});
+
+test('lastDayOf reads the conventions the content actually uses', () => {
+  assert.equal(lastDayOf('2026-09-20', '', true), '2026-09-20', 'one-day all-day');
+  assert.equal(lastDayOf('2026-10-17', '2026-10-31', true), '2026-10-31', 'all-day run, end is the last day on');
+  assert.equal(lastDayOf('2026-09-20T19:00', '2026-09-20T22:00', false), '2026-09-20', 'timed');
+  assert.equal(lastDayOf('2026-09-20T18:00', '', false), '2026-09-20', 'timed, no end');
+  assert.equal(lastDayOf('2026-09-20T21:00', '2026-09-21T00:00', false), '2026-09-20', 'ends at midnight');
 });
