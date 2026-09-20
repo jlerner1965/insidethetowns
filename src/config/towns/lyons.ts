@@ -7,7 +7,7 @@ export const lyons: TownConfig = {
   domain: 'insidelyons.com',
   siteTitle: 'Inside Lyons',
   tagline: 'An independent guide to Lyons, Colorado: the river, the trails, the music, and what it’s like to live at the canyon mouth.',
-  county: 'Boulder',
+  counties: ['Boulder'],
   state: 'CO',
   lat: 40.2247,
   lng: -105.2714,

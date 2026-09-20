@@ -4,7 +4,7 @@
  * The photo is the town's identity; the type stays the same across sites.
  */
 import { Image } from 'astro:assets';
-import { getSite } from '@/config';
+import { countyLabel, getSite } from '@/config';
 import { resolveSiteImage } from '@/lib/images';
 
 interface Props {
@@ -16,7 +16,7 @@ interface Props {
 
 const site = getSite();
 const {
-  eyebrow = site.kind === 'town' ? `${site.county} County, Colorado` : 'Colorado’s northern Front Range',
+  eyebrow = site.kind === 'town' ? `${countyLabel(site)}, Colorado` : 'Colorado’s northern Front Range',
   title = site.name,
   subtitle = site.tagline,
   links = site.kind === 'town'

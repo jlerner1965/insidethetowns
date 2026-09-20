@@ -7,7 +7,7 @@ export const niwot: TownConfig = {
   domain: 'insideniwot.com',
   siteTitle: 'Inside Niwot',
   tagline: 'An independent guide to Niwot, Colorado: what’s on, where to eat, where to walk, and what it’s like to live here.',
-  county: 'Boulder',
+  counties: ['Boulder'],
   state: 'CO',
   lat: 40.1039,
   lng: -105.1708,

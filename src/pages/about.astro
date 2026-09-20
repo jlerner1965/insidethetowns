@@ -1,7 +1,7 @@
 ---
 import Page from '@/layouts/Page.astro';
 import FactStrip from '@/components/FactStrip.astro';
-import { getSite, liveTowns } from '@/config';
+import { countiesCovered, countyLabel, getSite, liveTowns } from '@/config';
 import CtaBand from '@/components/CtaBand.astro';
 import { getTownEntries } from '@/lib/content';
 import { occurrences, upcoming } from '@/lib/events';
@@ -85,7 +85,7 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
               {siblings.map((t) => (
                 <li>
                   <a href={`https://${t.domain}/`} class="font-semibold no-underline hover:text-accent-text hover:underline">{t.siteTitle}</a>
-                  <span class="block text-ink-muted">{t.county} County</span>
+                  <span class="block text-ink-muted">{countyLabel(t)}</span>
                 </li>
               ))}
             </ul>
@@ -109,7 +109,7 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
       size="number"
       facts={[
         { label: 'Guides live', value: String(live.length) },
-        { label: 'Counties', value: String(new Set(live.map((t) => t.county)).size) },
+        { label: 'Counties', value: String(countiesCovered(live).length) },
         { label: 'People covered', value: live.reduce((n, t) => n + (t.population ?? 0), 0).toLocaleString('en-US') },
       ]}
     />
@@ -140,7 +140,7 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
             {live.map((t) => (
               <li>
                 <a href={`https://${t.domain}/`} class="font-semibold no-underline hover:text-accent-text hover:underline">{t.siteTitle}</a>
-                <span class="block text-ink-muted">{t.county} County</span>
+                <span class="block text-ink-muted">{countyLabel(t)}</span>
               </li>
             ))}
           </ul>

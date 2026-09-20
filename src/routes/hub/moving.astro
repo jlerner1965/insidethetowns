@@ -15,7 +15,7 @@
  */
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
-import { getHub, liveTowns } from '@/config';
+import { countyLabel, countyShort, getHub, liveTowns } from '@/config';
 import { COMPARISONS, comparisonSlug } from '@/content/comparisons';
 
 const hub = getHub();
@@ -34,7 +34,7 @@ const growth = (t: (typeof towns)[number]) =>
 const pricesReady = towns.every((t) => t.medianHomePrice && t.medianHomePriceAsOf && t.medianHomePriceSource);
 
 const columns = [
-  { key: 'county', label: 'County', get: (t: (typeof towns)[number]) => `${t.county} County` },
+  { key: 'county', label: 'County', get: (t: (typeof towns)[number]) => countyShort(t) },
   { key: 'population', label: 'Population', get: (t: (typeof towns)[number]) => num(t.population) },
   { key: 'growth', label: 'Growth 2010–20', get: growth },
   ...(pricesReady
@@ -53,7 +53,7 @@ const columns = [
 
 const SUITS: Record<string, string> = {
   "erie": "Suits people working in or near Boulder who will not pay Boulder prices, and who want a downtown they can walk to on a Friday. The catch is that most of Erie is subdivisions built since 2000 and only the old grid around Briggs Street is walkable, so where you buy decides whether you get the town or the commute. Ask which county, which school district and which metro district before you fall for a house: all three change from one street to the next.",
-  "johnstown": "Suits northern Colorado commuters. The US 34 interchange is on the west edge, which puts Loveland at ten minutes, Greeley at fifteen, Fort Collins at twenty-five and Denver at fifty. One school district throughout, which is one fewer thing to check than Erie. The trade is that the shopping has moved out to the interstate and Parish Avenue is quiet.",
+  "johnstown": "Suits northern Colorado commuters. The US 34 interchange is on the west edge, which puts Loveland at ten minutes, Greeley at fifteen, Fort Collins at twenty-five and Denver at fifty. Two school districts, as in Erie: most of town is Weld RE-5J, the north-west corner is Thompson. The trade is that the shopping has moved out to the interstate and Parish Avenue is quiet.",
   "berthoud": "Suits people who want a Main Street that is genuinely a main street, and the lakes, at Larimer County prices that stop short of Fort Collins. Fifteen minutes to Loveland or Longmont, twenty-five to Fort Collins, and the FLEX bus actually runs — the only town here where a commute without a car is a real option. It doubled in a decade, so a good deal of it is new.",
   "timnath": "Suits people who want to be minutes from Fort Collins without paying for Fort Collins. It went from 625 people to 6,487 in ten years, which is the largest proportional change of any town here by a wide margin, and it shows: Old Town Main Street is a couple of blocks and everything else was built this decade around the Harmony Road retail. Come for the reservoir and the river trail, not for an old town center.",
   "niwot": "Suits people who want small and mean it. It is unincorporated — no town council, no municipal tax, county services, and an incorporation question on the 2026 ballot that is worth reading before you buy. Seven per cent growth in a decade, which in this company is a rounding error. Twenty minutes to Boulder or Longmont on the Diagonal, and the BOLT bus stops at Niwot Road.",
@@ -120,7 +120,7 @@ const itemList = {
           <h3 class="display-md text-[1.75rem]">
             <a href={`https://${t.domain}/`} class="no-underline hover:text-accent-text hover:underline">{t.name}</a>
             <span class="mt-1 block font-body text-[0.8125rem] font-normal tracking-normal text-ink-faint">
-              {t.county} County · {num(t.population)} · {growth(t)}
+              {countyLabel(t)} · {num(t.population)} · {growth(t)}
             </span>
           </h3>
           <div>
