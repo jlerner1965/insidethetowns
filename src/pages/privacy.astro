@@ -21,6 +21,25 @@ const analytics = Boolean(site.ga4Id) || hub.analytics === true;
 const submitForm = Boolean(site.formspreeId);
 const newsletter = Boolean(hub.newsletter);
 const forms = submitForm || newsletter;
+/**
+ * Name the processors rather than calling them "a form service".
+ *
+ * The page already names Vercel, and naming one while describing another in
+ * the abstract is the kind of half-disclosure that reads as evasive on a site
+ * whose whole pitch is that it tells you things straight. Derived from the
+ * config that actually sends the data, so switching provider updates the page
+ * instead of quietly making it wrong.
+ */
+const hostOf = (url?: string) => {
+  if (!url) return undefined;
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return undefined;
+  }
+};
+const newsletterHost = hostOf(hub.newsletter?.action);
+const formHost = site.formspreeId ? 'formspree.io' : undefined;
 const quiet = !analytics && !forms;
 ---
 <Page
@@ -71,9 +90,10 @@ const quiet = !analytics && !forms;
       <Fragment>
         <h2>When you write to us</h2>
         <p>
-          If you use a form on this site, what you type in it reaches us by email through a form service, and we keep
-          it only as long as it takes to act on it. If you submit an event, the event details go on the site; your
-          email address does not.
+          If you use a form on this site, what you type in it reaches us by email through
+          {formHost ? <Fragment> <strong>{formHost}</strong>, a form service,</Fragment> : ' a form service,'} and we
+          keep it only as long as it takes to act on it. If you submit an event, the event details go on the site;
+          your email address does not.
         </p>
       </Fragment>
     )}
@@ -82,9 +102,11 @@ const quiet = !analytics && !forms;
       <Fragment>
         <h2>If you sign up for the weekly email</h2>
         <p>
-          Your address goes to the company that sends the email for us, along with whichever towns you picked. They
-          hold it so they can send you the thing you asked for, and for nothing else. We do not sell it, rent it or
-          hand it to anyone, and every email has an unsubscribe link that works immediately and for good.
+          Your address goes to
+          {newsletterHost ? <Fragment> <strong>{newsletterHost}</strong>, which sends the email for us,</Fragment> : ' the company that sends the email for us,'}
+          along with whichever towns you picked. They hold it so they can send you the thing you asked for, and for
+          nothing else. We do not sell it, rent it or hand it to anyone, and every email has an unsubscribe link that
+          works immediately and for good.
         </p>
         {!submitForm && (
           <p>
