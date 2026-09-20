@@ -28,7 +28,7 @@ const guides = site.kind === 'hub' ? liveTowns() : [];
   <div class="container-page flex flex-wrap items-center gap-x-5 gap-y-1 py-3.5">
     {site.kind === 'hub' ? (
       <Fragment>
-        <span><strong class="font-semibold text-highlight">The guides</strong></span>
+        <span><strong class="font-semibold text-highlight-ink">The guides</strong></span>
         <ul class="flex flex-wrap gap-x-4 gap-y-1">
           {guides.map((t) => (
             <li>
@@ -40,7 +40,7 @@ const guides = site.kind === 'hub' ? liveTowns() : [];
     ) : (
       <p>
         Part of
-        <a href={`https://${hub.domain}/`} class="ml-1 font-semibold text-highlight no-underline hover:underline"
+        <a href={`https://${hub.domain}/`} class="ml-1 font-semibold text-highlight-ink no-underline hover:underline"
           >{hub.siteTitle}</a
         >, an independent network of guides to {liveTowns().length} Front Range towns.
       </p>

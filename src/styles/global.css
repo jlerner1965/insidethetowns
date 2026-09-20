@@ -30,6 +30,12 @@
   /* One warm amber across the whole network, so the seven sites read as a
      family and not seven unrelated colour schemes. A fill, never text. */
   --color-highlight: #f0a62e;
+  /* The same amber, lightened for the one job the brand value cannot do:
+     eyebrow text on a town's dark band. At 12.75px that needs 4.5:1, and
+     #f0a62e manages it on only two of the eight bands — 3.69:1 on Elizabeth
+     and Timnath. The brand value stays for fills, rules and badges, where
+     3:1 is the bar and dark ink sits on top of it. */
+  --color-highlight-ink: #f8c265;
   /* The amber at wash strength, for a notice that has to be read, not just seen. */
   --color-highlight-soft: #fdf0d8;
 

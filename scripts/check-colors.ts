@@ -19,6 +19,7 @@ import { CATEGORY_COLORS, HIGHLIGHT, PLACE_TYPE_COLORS } from '../src/config/pal
 
 const INK = '#17181A';
 const HIGHLIGHT_SOFT = '#fdf0d8';
+const HIGHLIGHT_INK = '#f8c265';
 
 function channel(value: number): number {
   const c = value / 255;
@@ -63,7 +64,10 @@ for (const site of allSites) {
   want(`${site.slug} accent on paper`, ratio(accent, neutralBg), 3);
   want(`${site.slug} accentDark on paper`, ratio(accentDark, neutralBg), 4.5);
   want(`${site.slug} white on accentDark`, ratio('#ffffff', accentDark), 4.5);
-  want(`${site.slug} highlight on accentDark`, ratio(HIGHLIGHT, accentDark), 3);
+  // The amber as a mark: a rule or a badge only has to be visible.
+  want(`${site.slug} highlight mark on accentDark`, ratio(HIGHLIGHT, accentDark), 3);
+  // The amber as eyebrow text on the same band, which is 12.75px and needs AA.
+  want(`${site.slug} highlight-ink text on accentDark`, ratio(HIGHLIGHT_INK, accentDark), 4.5);
 }
 
 want('ink on highlight', ratio(INK, HIGHLIGHT), 4.5);
