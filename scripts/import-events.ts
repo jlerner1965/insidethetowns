@@ -8,7 +8,8 @@
  *
  * Required columns: title, start, end, venue, url, category, town
  *   (end and url may be empty). Optional columns: address, cost, description,
- *   source, repeat, until, recurring, allDay, timeNote, verified, slug, image, imageAlt, featured.
+ *   source, organizer, organizerUrl, repeat, until, recurring, allDay, timeNote,
+ *   verified, slug, image, imageAlt, featured.
  * Dates are Denver wall-clock: "2026-10-03T10:00" or "2026-10-03".
  * `source` defaults to `url`; `verified` defaults to today. Each row is checked
  * against the event schema before anything is written, and a row whose file
@@ -69,7 +70,7 @@ function parseCsv(text: string): string[][] {
 }
 
 const REQUIRED = ['title', 'start', 'end', 'venue', 'url', 'category', 'town'];
-const OPTIONAL = ['address', 'cost', 'description', 'source', 'repeat', 'until', 'recurring', 'allDay', 'timeNote', 'verified', 'slug', 'image', 'imageAlt', 'featured'];
+const OPTIONAL = ['address', 'cost', 'description', 'source', 'organizer', 'organizerUrl', 'repeat', 'until', 'recurring', 'allDay', 'timeNote', 'verified', 'slug', 'image', 'imageAlt', 'featured'];
 const BOOL = new Set(['allDay', 'featured']);
 
 function slugify(text: string): string {
@@ -142,7 +143,9 @@ rows.forEach((cells, index) => {
     errors.push(`row ${line}: cannot derive a slug from the title`);
     return;
   }
-  const order = ['title', 'start', 'end', 'allDay', 'repeat', 'until', 'venue', 'address', 'url', 'cost', 'category', 'image', 'imageAlt', 'recurring', 'timeNote', 'featured', 'source', 'verified'];
+  // Also the write allowlist: a field validated but missing from here is
+  // silently dropped, so anything added to the schema belongs in both.
+  const order = ['title', 'start', 'end', 'allDay', 'repeat', 'until', 'venue', 'address', 'organizer', 'organizerUrl', 'url', 'cost', 'category', 'image', 'imageAlt', 'recurring', 'timeNote', 'featured', 'source', 'verified'];
   const lines = ['---'];
   for (const key of order) {
     const v = fm[key];

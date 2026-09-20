@@ -95,6 +95,18 @@ export function eventJsonLd(
         : { address: { '@type': 'PostalAddress', addressLocality: town.name, addressRegion: town.state } }),
     },
     ...(imageUrl ? { image: [imageUrl] } : {}),
+    // Only when the listing records who is running it. The venue is not
+    // evidence of the organiser, so an unset field emits nothing rather than
+    // a guess dressed as structured data.
+    ...(data.organizer
+      ? {
+          organizer: {
+            '@type': 'Organization',
+            name: data.organizer,
+            ...(data.organizerUrl ? { url: data.organizerUrl } : {}),
+          },
+        }
+      : {}),
     description: event.body?.slice(0, 300),
     url,
     ...(data.cost
@@ -183,6 +195,7 @@ export function articleJsonLd(
   imageUrl?: string,
 ) {
   const { data } = article;
+  const editor = getNetworkHub().editor;
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -192,7 +205,16 @@ export function articleJsonLd(
     ...(data.updated ? { dateModified: toIsoLocal(data.updated) } : {}),
     ...(imageUrl ? { image: [imageUrl] } : {}),
     articleSection: data.category,
-    author: { '@id': `https://${site.domain}/#org` },
+    /*
+     * A named person when the network has one configured, the publication
+     * itself otherwise. Both are valid; the difference is that a reader and a
+     * search engine can see who stands behind the piece. Never invented — if
+     * no editor is set, this stays with the organisation rather than
+     * attributing the work to a name nobody chose.
+     */
+    author: editor
+      ? { '@type': 'Person', name: editor.name, ...(editor.url ? { url: editor.url } : {}) }
+      : { '@id': `https://${site.domain}/#org` },
     publisher: { '@id': `https://${site.domain}/#org` },
     mainEntityOfPage: url,
     url,
