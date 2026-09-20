@@ -40,11 +40,66 @@ since before anybody asked for anything back.
 Two entries read zero: the Berthoud and Elizabeth chambers. Everywhere else the
 citations arrived organically, because those organisations' calendars are among
 the sources events are taken from — Erie's 23 are almost all `source:` fields on
-imported events and places. A zero therefore means something more useful than a
-missing link: **those two chamber calendars have never been used as an event
-source.** Elizabeth in particular has the second-thinnest calendar in the
-network, so its chamber is worth adding as a source on the merits, before any
-question of outreach. That is a separate piece of work and is not done here.
+imported events and places. So a zero means those two chamber calendars have
+never been used as an event source.
+
+**An earlier draft of this document said Elizabeth's chamber was therefore
+"worth adding as a source on the merits". That was wrong on both halves, and the
+research is recorded here so nobody repeats it.**
+
+### Berthoud's chamber has opted out of AI crawling — do not automate against it
+
+`www.berthoudcolorado.com/robots.txt` names **74 AI and scraper user-agents**,
+`ClaudeBot`, `Claude-Web` and `anthropic-ai` among them, and gives every one of
+them `Disallow: /`. Everything else gets `Allow: /` with only the member portal
+excluded. That is a deliberate, maintained opt-out, not a CMS default.
+
+Automated collection from their calendar is exactly what they have asked not to
+happen, so it is not done and should not be. Nothing stops a person reading
+their public events page and entering an event by hand, or — better — asking the
+chamber directly whether they would like their events carried. That is a
+conversation, not a crawler.
+
+### Elizabeth's chamber publishes nothing to import
+
+Checked 20 September 2026:
+
+- `/events` is a placeholder — two headings and "Check back here often", no
+  listings of any kind.
+- No events plugin. There is no `tribe_events` post type, `/events/?ical=1`
+  returns the HTML page rather than an iCal feed, and `wp-sitemap.xml` has no
+  events section.
+- The named event pages — `/elizabash/`, `/harvest-festival/`,
+  `/annual-chamber-events/`, `/banquet/` — are **broken**. Divi shortcodes
+  render as literal `[et_pb_section …]` text, and the images date from 2015 to
+  2018. `/annual-chamber-events/` contains nothing but the broken shortcode.
+- Their event portal, `business.elizabethchamber.org/events/`, returns
+  **HTTP 410 Gone** — the server declaring it permanently retired.
+
+The chamber is real and its front page is live, so it stays on the target list
+as an outreach contact. As an event source it does not exist.
+
+### And neither calendar is short
+
+Occurrence counts are not runway, and runway is what a reader feels. Measured
+20 September 2026:
+
+| Town | Occurrences, next 90 days | Runway |
+|---|---|---|
+| Erie | 213 | 100 days |
+| Lyons | 254 | 98 |
+| Berthoud | 186 | 97 |
+| Timnath | 77 | 97 |
+| Elizabeth | 74 | 93 |
+| Johnstown | 67 | **81** |
+| Niwot | 54 | 287 |
+
+Elizabeth is mid-pack by runway and has twelve days more than Johnstown, which
+is the tightest in the network. `scripts/weekly.ts` warns under 45 days and
+nothing is near it. Ranking towns by raw occurrence count — which is what
+produced the "second-thinnest" claim — sorts a weekly series with fourteen
+evenings above a single festival and says nothing about when a calendar runs
+dry.
 
 ### Niwot — insideniwot.com
 
@@ -97,8 +152,12 @@ organisation, two domains. Do not write to it twice.
 
 The chamber's site is client-rendered and returns an empty document to anything
 that does not run JavaScript, which is why it is easy to miss; its member
-directory at `business.berthoudcolorado.com` is server-rendered and confirms the
-organisation.
+directory at `business.berthoudcolorado.com` runs on ChamberMate and confirms
+the organisation.
+
+**Their `robots.txt` disallows 74 named AI and scraper user-agents outright,
+including this one.** Write to them as a person; do not point anything automated
+at their site. See *The two zeroes* above.
 
 ### Erie — insideerie.com
 
@@ -170,6 +229,10 @@ person. Same warning as Timnath: a link checker will flag 31 good links.
 Elizabeth is the only town in the network in Elbert County, which makes the
 county site a cheap disambiguation signal — no other Elizabeth in the United
 States is in Elbert County, Colorado.
+
+The chamber is an outreach contact only. Its site publishes no events, its event
+pages are broken and its event portal is gone — see *The two zeroes* above
+before spending any time looking for a calendar there.
 
 ## Do not link to these
 
