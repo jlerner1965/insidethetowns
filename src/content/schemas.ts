@@ -122,6 +122,18 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
       until: localDate.optional(),
       /** Replaces the computed time range on cards, e.g. "Time to be confirmed" or "Doors 6 pm, music 7 pm". */
       timeNote: z.string().optional(),
+      /**
+       * Who is putting the event on, where that is known and is not simply
+       * the venue.
+       *
+       * Left empty rather than guessed: a talk at the library may be run by
+       * the library, a book group, or a visiting society, and the venue is
+       * not evidence of which. schema.org's `organizer` is only worth
+       * emitting when it is a fact, so an unset field emits nothing.
+       */
+      organizer: z.string().min(1).optional(),
+      /** The organizer's own site, when they have one distinct from `url`. */
+      organizerUrl: httpUrl.optional(),
       /** The organizer's page or calendar the listing was read from. */
       source: httpUrl.optional(),
       /** The day the listing was checked against its source. */
@@ -139,6 +151,10 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
     .refine((e) => !e.image || !!e.imageAlt, {
       message: 'imageAlt is required when image is set',
       path: ['imageAlt'],
+    })
+    .refine((e) => !e.organizerUrl || !!e.organizer, {
+      message: 'organizerUrl needs an organizer to belong to',
+      path: ['organizer'],
     });
 }
 

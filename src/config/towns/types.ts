@@ -112,6 +112,29 @@ export interface TownConfig {
   ga4Id?: string;
 }
 
+/**
+ * The person responsible for what the network publishes.
+ *
+ * Optional, and everything that would name someone stays dark until it is
+ * set — the masthead on /about/, the byline on an article, the author in an
+ * article's structured data. That is deliberate: "independent" is the claim
+ * this network rests on, and an invented editor would make it a lie, so the
+ * slot is built and left empty rather than filled with a plausible name.
+ *
+ * `bio` should be the editor's own words. Nothing here is generated.
+ */
+export interface EditorConfig {
+  name: string;
+  /** A few sentences: enough for a reader to judge why this person would know. */
+  bio: string;
+  /** "Editor", "Editor and founder". Defaults to "Editor". */
+  role?: string;
+  /** Where corrections should go, if not the site's general address. */
+  email?: string;
+  /** A personal or professional page, where one exists. */
+  url?: string;
+}
+
 export interface HubConfig {
   kind: 'hub';
   slug: 'hub';
@@ -130,6 +153,11 @@ export interface HubConfig {
   towns: TownConfig[];
   formspreeId?: string;
   ga4Id?: string;
+  /**
+   * Who runs it. Absent until a real name and a real biography exist; see
+   * EditorConfig for why this is left empty rather than filled in.
+   */
+  editor?: EditorConfig;
   /**
    * The weekly email. Absent until a provider is set up, and every signup
    * block on every site stays dark until it appears — the same shape as
