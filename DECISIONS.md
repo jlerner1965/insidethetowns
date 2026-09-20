@@ -1038,3 +1038,40 @@ accurate about what the network is, silent about what is on a guide, which is
 what someone deciding whether to click wants to know. The hub home now passes
 its own 151-character description. The tagline stays short because it is also
 the hero line and the `Organization` description in the publisher graph.
+
+## The Niwot favicon was still the scaffold's plum
+
+`scripts/new-town.ts` gives a new town a starter accent picked by hashing its
+slug, and draws the favicon from that same value, so the two agree on the day
+the town is created. Nothing re-checks them afterwards. Niwot's accent was
+changed to evergreen `#108452` long before launch — the comment on it in
+`src/config/towns/niwot.ts` even says the old townofniwot.com wordmark was an
+evergreen ground — while the favicon stayed on the scaffold's plum `#7A4E8A`.
+Niwot has been shipping a purple N for a green town ever since: in the tab, and
+more visibly in the Google result for townofniwot.com, which 301s here and so
+carries this site's icon next to the old domain's name.
+
+The fix is not a green square. The `townofniwot.com` repository still holds the
+mark that domain shipped, in `src/assets/favicon.svg`: an evergreen `#24483A`
+ground, a caboose-red `#B64F3A` rule along the foot, and an off-white serif N —
+the old site's three brand colours, its header wordmark reduced. Since the 301
+is what preserves that domain's rankings, the icon people half-recognise beside
+those results should be the one they already know. It is Niwot's favicon here
+now, scaled from the old 32px square to the network's 64px box, with two
+changes: the corner is rounded to `rx="12"` like the other seven, so a row of
+tabs reads as one network rather than seven siblings and a stranger, and the
+red rule is clipped to that corner instead of overhanging it.
+
+The ground is deeper than the town's `accent` rather than equal to it, which is
+the shape the two hand-drawn icons already had — the hub is `#1E3A5F` against a
+`#2C74CC` accent, Lyons `#9A4130` against `#CE4A2C`. A favicon is sixteen
+pixels of ground behind one glyph and wants the contrast: `#24483A` puts the N
+at 9.6:1, where the accent itself would give 4.5:1. `check-colors` does not
+cover icons, so this is reasoning rather than a proof, but it is the same
+direction that script enforces everywhere else.
+
+Berthoud, Elizabeth, Erie, Johnstown and Timnath still carry their scaffold
+grounds, and three of them share `#8A6A1F` — distinct only by their letter.
+Nothing catches that today. A test tying each favicon's ground to its own
+town's accent would, and is worth writing when those five get marks of their
+own rather than before, since it would fail on all five as they stand.
