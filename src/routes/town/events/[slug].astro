@@ -60,6 +60,9 @@ const description = firstSentence.length > 30 ? `${particulars} ${firstSentence}
 const facts = [
   { label: repeatNote ? 'Next' : 'When', value: [formatDayLong(when.start), timeText, repeatNote].filter(Boolean) },
   { label: 'Where', value: [data.venue, data.address].filter(Boolean) },
+  // Only when the listing records it. "See organizer" below is a pointer to
+  // whoever runs the thing, which is not always who owns the room.
+  ...(data.organizer ? [{ label: 'Who', value: [data.organizer] }] : []),
   { label: 'Cost', value: [data.cost ?? 'See organizer'] },
 ];
 ---

@@ -10,7 +10,7 @@ import type { HubConfig, SiteConfig, TownConfig } from './towns/types.ts';
 import { towns } from './towns/registry.ts';
 import { hub } from './towns/hub.ts';
 
-export type { HubConfig, SiteConfig, TownConfig, NavItem } from './towns/types.ts';
+export type { EditorConfig, HubConfig, SiteConfig, TownConfig, NavItem } from './towns/types.ts';
 export { countiesCovered, countyLabel, countyShort } from './towns/types.ts';
 
 /**

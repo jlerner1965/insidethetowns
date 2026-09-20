@@ -54,3 +54,31 @@ test('relative paths resolve against the site; absolute urls are left alone', ()
   assert.equal(d.mainEntity.itemListElement[0]!.position, 1);
   assert.equal(d.mainEntity.itemListElement[1]!.position, 2);
 });
+
+test('an event names its organiser only when the listing records one', async () => {
+  const { eventJsonLd } = await import('../src/lib/seo.ts');
+  const town = { kind: 'town', name: 'Erie', state: 'CO', domain: 'insideerie.com' } as never;
+  const base = {
+    title: 'Talk', start: new Date('2026-12-30T18:00:00Z'), venue: 'Erie Community Library',
+    category: 'civic', allDay: false, featured: false, tags: [],
+  };
+
+  const without = eventJsonLd(town, { data: base, body: '' } as never, 'https://insideerie.com/events/talk/');
+  assert.equal('organizer' in without, false, 'no organiser recorded, so none claimed');
+
+  const withOrg = eventJsonLd(
+    town,
+    { data: { ...base, organizer: 'Erie Historical Society', organizerUrl: 'https://example.org/s' }, body: '' } as never,
+    'https://insideerie.com/events/talk/',
+  ) as never as { organizer: { '@type': string; name: string; url?: string } };
+  assert.equal(withOrg.organizer['@type'], 'Organization');
+  assert.equal(withOrg.organizer.name, 'Erie Historical Society');
+  assert.equal(withOrg.organizer.url, 'https://example.org/s');
+
+  const noUrl = eventJsonLd(
+    town,
+    { data: { ...base, organizer: 'Erie Historical Society' }, body: '' } as never,
+    'https://insideerie.com/events/talk/',
+  ) as never as { organizer: Record<string, unknown> };
+  assert.equal('url' in noUrl.organizer, false, 'no url recorded, so none invented');
+});

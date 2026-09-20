@@ -1,7 +1,7 @@
 ---
 import Page from '@/layouts/Page.astro';
 import FactStrip from '@/components/FactStrip.astro';
-import { countiesCovered, countyLabel, getSite, liveTowns } from '@/config';
+import { countiesCovered, countyLabel, getNetworkHub, getSite, liveTowns } from '@/config';
 import CtaBand from '@/components/CtaBand.astro';
 import { getTownEntries } from '@/lib/content';
 import { occurrences, upcoming } from '@/lib/events';
@@ -9,6 +9,9 @@ import { monthDay } from '@/lib/dates';
 
 const site = getSite();
 const live = liveTowns();
+// Who runs it. Dark until an editor is configured; see EditorConfig for why
+// the slot exists unfilled rather than carrying a plausible name.
+const editor = getNetworkHub().editor;
 const siblings = live.filter((t) => t.slug !== site.slug);
 
 // What the guide actually holds, which is the one thing an About page can say
@@ -46,6 +49,21 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
           them. Anything civic — notices, permits, meetings, services — belongs to the official sources listed
           alongside, and every page here links out to them rather than paraphrasing them.
         </p>
+        {editor && (
+          <Fragment>
+            <h2>Who runs it</h2>
+            <p>
+              <strong>{editor.name}</strong>{editor.role ? `, ${editor.role}` : ', Editor'}.
+              {' '}{editor.bio}
+            </p>
+            {(editor.email || editor.url) && (
+              <p>
+                {editor.email && <Fragment>Corrections and questions: <a href={`mailto:${editor.email}`}>{editor.email}</a>. </Fragment>}
+                {editor.url && <Fragment><a href={editor.url} rel="me">More about {editor.name.split(' ')[0]}</a>.</Fragment>}
+              </p>
+            )}
+          </Fragment>
+        )}
         <h2>How the listings are made</h2>
         <p>
           Every place and every event is checked against the operator’s own page or a public calendar before it goes
@@ -131,6 +149,21 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
           up, and carries the date it was last checked. Listings are free and editorial; we don’t sell placement.
           The <a href="/editorial/">editorial policy</a> sets out the whole of it.
         </p>
+        {editor && (
+          <Fragment>
+            <h2>Who runs it</h2>
+            <p>
+              <strong>{editor.name}</strong>{editor.role ? `, ${editor.role}` : ', Editor'}.
+              {' '}{editor.bio}
+            </p>
+            {(editor.email || editor.url) && (
+              <p>
+                {editor.email && <Fragment>Corrections and questions: <a href={`mailto:${editor.email}`}>{editor.email}</a>. </Fragment>}
+                {editor.url && <Fragment><a href={editor.url} rel="me">More about {editor.name.split(' ')[0]}</a>.</Fragment>}
+              </p>
+            )}
+          </Fragment>
+        )}
         <p>More towns are on the way. <a href="/contact/">Suggest one</a>.</p>
       </div>
       <aside class="lg:sticky lg:top-24 lg:self-start">
