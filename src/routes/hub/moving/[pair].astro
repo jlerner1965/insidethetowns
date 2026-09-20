@@ -10,7 +10,7 @@
  */
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
-import { findTown, getHub } from '@/config';
+import { countyLabel, findTown, getHub } from '@/config';
 import { COMPARISONS, comparisonSlug, type Comparison } from '@/content/comparisons';
 import { breadcrumbJsonLd } from '@/lib/seo';
 
@@ -34,7 +34,7 @@ const num = (n?: number) => (n ? n.toLocaleString('en-US') : '—');
 const growth = (t: typeof a) =>
   t.population && t.population2010 ? `+${Math.round((t.population / t.population2010 - 1) * 100)}%` : '—';
 const rows = [
-  { label: 'County', get: (t: typeof a) => `${t.county} County` },
+  { label: 'County', get: (t: typeof a) => countyLabel(t) },
   { label: 'Population', get: (t: typeof a) => num(t.population) },
   { label: 'Growth 2010–20', get: growth },
   { label: 'To Denver', get: (t: typeof a) => t.driveToDenver ?? '—' },
@@ -85,7 +85,7 @@ const rows = [
         class="group block rounded-lg border-l-4 bg-raised p-6 no-underline ring-1 ring-line-soft transition hover:ring-line"
         style={`border-color:${t.colors.accent}`}
       >
-        <p class="eyebrow" style={`color:${t.colors.accentDark}`}>{t.county} County</p>
+        <p class="eyebrow" style={`color:${t.colors.accentDark}`}>{countyLabel(t)}</p>
         <h2 class="mt-2 text-2xl font-medium leading-tight">Moving to {t.name}</h2>
         <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">{t.character}</p>
         <p class="mt-4 text-sm font-semibold group-hover:underline" style={`color:${t.colors.accentDark}`}>{t.domain} →</p>

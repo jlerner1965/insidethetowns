@@ -42,7 +42,23 @@ export interface TownConfig {
   tagline: string;
   /** Used in <title> when the full tagline would be truncated mid-phrase. */
   seoTagline?: string;
-  county: string;
+  /**
+   * Every county the municipal boundary falls in, the one holding most of the
+   * population first.
+   *
+   * Three of these towns straddle a county line, which a single-county field
+   * quietly hid: Erie is 58% Weld and 42% Boulder, Johnstown 73% Weld and 27%
+   * Larimer, Berthoud 97% Larimer and 3% Weld. Which side of the line a house
+   * sits on decides its school district, its sheriff and its ballot, so the
+   * guides name both rather than round to one.
+   */
+  counties: readonly [string, ...string[]];
+  /**
+   * What the county line actually means on the ground, where the town spans
+   * one. Carries its own source and check date, like every other material
+   * claim in this file.
+   */
+  countySplit?: { note: string; source: string; verified: string };
   state: 'CO';
   lat: number;
   lng: number;
@@ -201,3 +217,23 @@ export const DEFAULT_TOWN_NAV: NavItem[] = [
   { label: 'Moving Here', href: '/moving-here/' },
   { label: 'About', href: '/about/' },
 ];
+
+/**
+ * "Boulder County", or "Weld and Boulder counties" where the town spans two.
+ * Lower-case "counties" is correct once it is no longer part of a proper name.
+ */
+export function countyLabel(town: Pick<TownConfig, 'counties'>): string {
+  const [first, ...rest] = town.counties;
+  if (rest.length === 0) return `${first} County`;
+  return `${[...town.counties].slice(0, -1).join(', ')} and ${town.counties[town.counties.length - 1]} counties`;
+}
+
+/** "Boulder" or "Weld & Boulder", for table cells where the full phrase will not fit. */
+export function countyShort(town: Pick<TownConfig, 'counties'>): string {
+  return town.counties.join(' & ');
+}
+
+/** Every distinct county the network covers. */
+export function countiesCovered(towns: ReadonlyArray<Pick<TownConfig, 'counties'>>): string[] {
+  return [...new Set(towns.flatMap((t) => [...t.counties]))];
+}

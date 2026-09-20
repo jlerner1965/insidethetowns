@@ -7,7 +7,14 @@ export const johnstown: TownConfig = {
   domain: 'insidejohnstown.com',
   siteTitle: 'Inside Johnstown',
   tagline: 'An independent guide to Johnstown, Colorado: Parish Avenue, the parks, the sugar-town history, and what it’s like to move to one of the fastest-growing towns in the country.',
-  county: 'Weld',
+  seoTagline: 'Events and things to do in Johnstown, Colorado',
+  // 2020 census: about 73 per cent of the town's population in Weld, 27 per cent in Larimer.
+  counties: ['Weld', 'Larimer'],
+  countySplit: {
+    note: 'Most of Johnstown is in Weld County, but the town has annexed west and north-west across the Larimer line, which is why the north-west corner is in a different school district from the rest of town.',
+    source: 'https://johnstownco.gov/',
+    verified: '2026-09-20',
+  },
   state: 'CO',
   lat: 40.3369,
   lng: -104.9119,
@@ -39,7 +46,7 @@ export const johnstown: TownConfig = {
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Johnstown_CO' },
     ],
     schoolDistrict:
-      'Weld County School District RE-5J (Elwell, Letford and Pioneer Ridge elementaries, Roosevelt Middle and Roosevelt High, all in town); the northwest corner is in Thompson R2-J.',
+      'Mostly Weld County School District RE-5J (Elwell, Letford and Pioneer Ridge elementaries, Roosevelt Middle and Roosevelt High, all in town); the north-west corner, on the Larimer County side, is Thompson R2-J. The town lists both.',
     commuteNotes:
       'I-25 at the US 34 interchange is on the west edge of town: about 10 minutes to Loveland, 15 to Greeley on US 34, 25 to Fort Collins, and 50 to Denver. Most commutes are by car.',
   },

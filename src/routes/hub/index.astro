@@ -10,7 +10,7 @@ import FactStrip from '@/components/FactStrip.astro';
 import NetworkEventCard from '@/components/NetworkEventCard.astro';
 import { getNetworkEntries } from '@/lib/content';
 import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
-import { getHub, LIVE_TOWNS } from '@/config';
+import { LIVE_TOWNS, countiesCovered, countyLabel, getHub } from '@/config';
 
 const hub = getHub();
 const live = hub.towns.filter((t) => LIVE_TOWNS.includes(t.slug));
@@ -33,7 +33,7 @@ const next = uniqueByEvent(upcoming(occurrences(await getNetworkEntries('events'
         size="number"
         facts={[
           { label: 'Guides live', value: String(live.length) },
-          { label: 'Counties', value: String(new Set(live.map((t) => t.county)).size) },
+          { label: 'Counties', value: String(countiesCovered(live).length) },
           { label: 'People covered', value: live.reduce((n, t) => n + (t.population ?? 0), 0).toLocaleString('en-US') },
         ]}
         note="Population at the 2020 census, summed across the live guides. Several of these towns have grown a long way since."
@@ -53,7 +53,7 @@ const next = uniqueByEvent(upcoming(occurrences(await getNetworkEntries('events'
             class="group block rounded-lg border-l-4 bg-raised p-6 no-underline ring-1 ring-line-soft transition hover:ring-line"
             style={`border-color:${t.colors.accent}`}
           >
-            <p class="eyebrow" style={`color:${t.colors.accentDark}`}>{t.county} County</p>
+            <p class="eyebrow" style={`color:${t.colors.accentDark}`}>{countyLabel(t)}</p>
             <h3 class="mt-2 text-3xl font-medium leading-none">
               <span class="font-light italic">Inside</span> <span class="font-semibold">{t.name}</span>
             </h3>
@@ -91,7 +91,7 @@ const next = uniqueByEvent(upcoming(occurrences(await getNetworkEntries('events'
   <section class="on-dark bg-accent-dark text-white">
     <div class="container-page grid gap-8 py-16 md:grid-cols-[3fr_2fr] md:items-end md:py-24">
       <div>
-        <p class="eyebrow text-highlight">How it’s made</p>
+        <p class="eyebrow text-highlight-ink">How it’s made</p>
         <h2 class="display-md mt-4 text-4xl lg:text-6xl">One guide per town, made the same careful way.</h2>
       </div>
       <div>

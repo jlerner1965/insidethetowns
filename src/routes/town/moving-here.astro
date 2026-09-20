@@ -1,7 +1,8 @@
 ---
 import { render } from 'astro:content';
 import Page from '@/layouts/Page.astro';
-import { getNetworkHub, getTown, liveTowns } from '@/config';
+import { countyLabel, getNetworkHub, getTown, liveTowns } from '@/config';
+import { formatDate, parseLocal } from '@/lib/dates';
 import { getTownEntry } from '@/lib/content';
 
 const town = getTown();
@@ -13,11 +14,13 @@ const Content = rendered?.Content ?? null;
 // something to hold all the way down, instead of a page-length empty margin.
 const contents = (rendered?.headings ?? []).filter((h) => h.depth === 2);
 const { listingsLinks, schoolDistrict, commuteNotes } = town.movingHere;
+const { countySplit } = town;
 const hub = getNetworkHub();
 const others = liveTowns().length - 1;
 ---
 <Page
   title={page?.data.title ?? `Moving to ${town.name}`}
+  seoTitle={`Moving to ${town.name}, Colorado`}
   eyebrow="Moving here"
   intro={page?.data.description}
   description={page?.data.description ?? `Schools, commutes, housing and what to expect when you move to ${town.name}, ${town.state}.`}
@@ -68,6 +71,22 @@ const others = liveTowns().length - 1;
         </div>
       )}
       <dl class="divide-y divide-line-soft border-y border-line-soft text-[0.9375rem]">
+        <div class="py-4">
+          <dt class="eyebrow">County</dt>
+          <dd class="mt-1.5 leading-snug">
+            {countyLabel(town)}
+            {countySplit && (
+              <>
+                <span class="mt-1.5 block text-ink-muted">{countySplit.note}</span>
+                <span class="mt-1.5 block text-[0.8125rem] text-ink-faint">
+                  <a href={countySplit.source} class="text-accent-text" rel="nofollow">Source</a>
+                  {' · checked '}
+                  <time datetime={countySplit.verified}>{formatDate(parseLocal(countySplit.verified))}</time>
+                </span>
+              </>
+            )}
+          </dd>
+        </div>
         {schoolDistrict && (
           <div class="py-4"><dt class="eyebrow">Schools</dt><dd class="mt-1.5 leading-snug">{schoolDistrict}</dd></div>
         )}

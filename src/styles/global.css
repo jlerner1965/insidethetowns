@@ -30,6 +30,12 @@
   /* One warm amber across the whole network, so the seven sites read as a
      family and not seven unrelated colour schemes. A fill, never text. */
   --color-highlight: #f0a62e;
+  /* The same amber, lightened for the one job the brand value cannot do:
+     eyebrow text on a town's dark band. At 12.75px that needs 4.5:1, and
+     #f0a62e manages it on only two of the eight bands — 3.69:1 on Elizabeth
+     and Timnath. The brand value stays for fills, rules and badges, where
+     3:1 is the bar and dark ink sits on top of it. */
+  --color-highlight-ink: #f8c265;
   /* The amber at wash strength, for a notice that has to be read, not just seen. */
   --color-highlight-soft: #fdf0d8;
 
@@ -53,8 +59,12 @@
   --t-surface: var(--town-neutral-bg);
   --t-raised: #ffffff;
   --t-ink: #17181a;
-  --t-ink-muted: #5d5f64;
-  --t-ink-faint: #63666c; /* 5:1 on paper; the lightest text the sites use */
+  --t-ink-muted: #55585d;
+  /* The lightest text the sites use. Checked against the masthead tint, not
+     just the paper: the tint is darker, and at 14% accent it was taking the
+     old #63666c down to 4.15:1 on Lyons. scripts/check-colors.ts holds both
+     of these to 4.5:1 on paper, on every town's tint, and on white. */
+  --t-ink-faint: #5d5f64;
   --t-line: color-mix(in srgb, var(--town-neutral-bg) 70%, #17181a 30%);
   --t-line-soft: color-mix(in srgb, var(--town-neutral-bg) 88%, #17181a 12%);
   --t-accent-text: var(--town-accent-dark);

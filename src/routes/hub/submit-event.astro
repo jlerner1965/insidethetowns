@@ -16,7 +16,7 @@
  * above it is a convenience for long lists, not the mechanism.
  */
 import Page from '@/layouts/Page.astro';
-import { getHub, liveTowns } from '@/config';
+import { countyLabel, getHub, liveTowns } from '@/config';
 
 const hub = getHub();
 const towns = liveTowns();
@@ -41,7 +41,7 @@ const mailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Event s
           class="group flex items-baseline justify-between gap-3 rounded-lg bg-raised px-5 py-4 no-underline ring-1 ring-line-soft transition hover:ring-accent-line"
         >
           <span class="font-medium group-hover:text-accent-text">{town.name}</span>
-          <span class="text-sm text-ink-faint">{town.county} County</span>
+          <span class="text-sm text-ink-faint">{countyLabel(town)}</span>
         </a>
       </li>
     ))}

@@ -7,7 +7,14 @@ export const erie: TownConfig = {
   domain: 'insideerie.com',
   siteTitle: 'Inside Erie',
   tagline: 'An independent guide to Erie, Colorado: Briggs Street, the trails, the coal-town history, and what it’s like to move to a town that doubled.',
-  county: 'Weld',
+  seoTagline: 'Briggs Street, trails and events in Erie, Colorado',
+  // 2020 census: 17,387 residents (58 per cent) in Weld, 12,651 (42 per cent) in Boulder.
+  counties: ['Weld', 'Boulder'],
+  countySplit: {
+    note: 'County Line Road is the boundary: streets west of it are in Boulder County, streets east of it in Weld. It decides your school district, your sheriff and which county you file with — check the address, not the town.',
+    source: 'https://erieco.gov/2505/Regional-Partners',
+    verified: '2026-09-20',
+  },
   state: 'CO',
   lat: 40.0503,
   lng: -105.05,

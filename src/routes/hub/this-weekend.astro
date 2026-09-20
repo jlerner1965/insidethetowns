@@ -18,8 +18,13 @@
  * out in the reader's browser which of them is this weekend, which means a
  * build days or weeks old still shows the right ones. The server renders the
  * partition for its own build date, so a crawler and a reader without
- * JavaScript get a coherent page too. Only when the whole baked window has
- * been used up does it say so, and by then it is telling the truth.
+ * JavaScript get a coherent page too.
+ *
+ * The emptiness notice is decided from the listings that are left on the page,
+ * across all four sections — not from the dated ones alone. Reading only the
+ * day groups is what produced the fault this page was rebuilt to fix: a ten-week
+ * theatre run sat in "still running" while the notice above it announced that
+ * everything had already happened.
  */
 import Page from '@/layouts/Page.astro';
 import FilterBar from '@/components/FilterBar.astro';
@@ -27,47 +32,31 @@ import NetworkDayList from '@/components/NetworkDayList.astro';
 import NetworkEventCard from '@/components/NetworkEventCard.astro';
 import { getHub, liveTowns } from '@/config';
 import { getNetworkEntries } from '@/lib/content';
-import { eventEnd, occurrences, upcoming } from '@/lib/events';
-import { TIME_ZONE, addDays, formatDate, startOfDay } from '@/lib/dates';
+import { occurrences, sectionCount, weekendSections, weekendWindow } from '@/lib/events';
+import { formatDate, formatTime } from '@/lib/dates';
 
 const hub = getHub();
 const towns = liveTowns();
 
-// The weekend that is running now or coming next. On a Saturday that means
-// today and tomorrow, not next Friday, which is the case a naive "days until
-// Friday" gets wrong.
-const today = startOfDay();
-const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const dow = DAYS.indexOf(new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, weekday: 'short' }).format(today));
-const sunday = addDays(today, dow === 0 ? 0 : 7 - dow);
-const weekendStart = dow === 0 || dow >= 5 ? today : addDays(sunday, -2);
-const weekendEnd = addDays(sunday, 1); // exclusive
+// The moment the data behind this page was last read, which the foot of the
+// page states plainly. Not "today" — the actual refresh.
+const refreshedAt = new Date();
 
 // Three weeks, so the page survives a long gap between deploys rather than
 // only the days until the next one.
-const all = upcoming(occurrences(await getNetworkEntries('events'), { horizonDays: 30 }));
-
-/**
- * A run that began before the weekend is still on during it. Partitioning on
- * the start date alone dropped those from the page entirely -- Les Misérables
- * runs ten weeks at Candlelight and appeared on the homepage's "what's on
- * next" while being absent from the page the button underneath it leads to.
- *
- * They get their own section rather than a faked start date, because a
- * ten-week run filed under Saturday would be its own kind of wrong.
- */
-const horizonEnd = addDays(sunday, 15);
-const running = all.filter((e) => e.data.start < weekendStart && eventEnd(e) >= weekendStart);
-const weekend = all.filter((e) => e.data.start >= weekendStart && e.data.start < weekendEnd);
-const rest = all.filter((e) => e.data.start >= weekendEnd && e.data.start < horizonEnd);
+const sections = weekendSections(
+  occurrences(await getNetworkEntries('events'), { now: refreshedAt, horizonDays: 30 }),
+  { now: refreshedAt, horizonDays: 15 },
+);
+const { now, weekend, continuing, next } = sections;
+const total = sectionCount(sections);
+const everything = [...now, ...weekend, ...continuing, ...next];
 
 const options = towns
-  .filter((t) => [...running, ...weekend, ...rest].some((e) => e.town.slug === t.slug))
+  .filter((t) => everything.some((e) => e.town.slug === t.slug))
   .map((t) => ({ value: t.slug, label: t.name }));
 
-// When this build was made, which the foot of the page states plainly.
-const builtOn = formatDate(today);
-
+const { start: weekendStart, sunday } = weekendWindow(refreshedAt);
 const weekendLabel =
   weekendStart.getTime() === sunday.getTime()
     ? formatDate(sunday)
@@ -82,8 +71,8 @@ const itemList = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: `What’s on across ${hub.siteTitle}`,
-  numberOfItems: running.length + weekend.length + rest.length,
-  itemListElement: [...running, ...weekend, ...rest].slice(0, 60).map((e, i) => ({
+  numberOfItems: total,
+  itemListElement: everything.slice(0, 60).map((e, i) => ({
     '@type': 'ListItem',
     position: i + 1,
     url: `https://${e.town.domain}/events/${e.slug}/`,
@@ -103,7 +92,7 @@ const itemList = {
     class="mb-8 hidden rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink"
     data-stale-notice
   >
-    <strong class="font-semibold">Nothing here is current.</strong> This page was last refreshed on {builtOn} and
+    <strong class="font-semibold">Nothing here is current.</strong> This page was last refreshed on {formatDate(refreshedAt)} and
     everything it was carrying has now happened. That is a fault at our end, not a quiet weekend. Each town's guide
     keeps its own calendar — they are linked from <a href="/#towns" class="text-accent-text">the map</a>.
   </p>
@@ -111,29 +100,37 @@ const itemList = {
   <div data-filter-root>
     <FilterBar options={options} label="Filter by town" />
 
-    {running.length > 0 && (
-      <section class="mb-20 md:mb-24" data-running-section>
-        <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">Already running</h2>
-        <div data-filter-group class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-          {running.map((event) => <NetworkEventCard event={event} />)}
-        </div>
-        <p class="mt-4 text-[0.875rem] text-ink-faint">
-          Runs and exhibitions that started earlier and are on through the weekend.
-        </p>
-      </section>
-    )}
-
-    <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4" data-weekend-heading>The weekend · {weekendLabel}</h2>
-    <div data-weekend-list>
-      <NetworkDayList events={weekend} emptyMessage="Nothing listed across the network for this weekend yet." />
-    </div>
-
-    <div class="mt-20 md:mt-24" data-later-section>
-      <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">After the weekend</h2>
-      <div data-later-list>
-        <NetworkDayList events={rest} emptyMessage="Nothing listed yet." />
+    <section class="mb-20 md:mb-24" data-section="now" hidden={now.length === 0}>
+      <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">Happening now</h2>
+      <div data-filter-group class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-section-body>
+        {now.map((event) => <NetworkEventCard event={event} />)}
       </div>
-    </div>
+      <p class="mt-4 text-[0.875rem] text-ink-faint">Under way as this page loaded.</p>
+    </section>
+
+    <section data-section="weekend">
+      <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4" data-weekend-heading>The weekend · {weekendLabel}</h2>
+      <div data-weekend-list data-section-body>
+        <NetworkDayList events={weekend} emptyMessage="Nothing listed across the network for this weekend yet." />
+      </div>
+    </section>
+
+    <section class="mt-20 md:mt-24" data-section="continuing" hidden={continuing.length === 0}>
+      <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">Still running</h2>
+      <div data-filter-group class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-section-body>
+        {continuing.map((event) => <NetworkEventCard event={event} />)}
+      </div>
+      <p class="mt-4 text-[0.875rem] text-ink-faint">
+        Runs and exhibitions that started earlier and are on through the weekend.
+      </p>
+    </section>
+
+    <section class="mt-20 md:mt-24" data-section="next">
+      <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">Coming next week</h2>
+      <div data-later-list data-section-body>
+        <NetworkDayList events={next} emptyMessage="Nothing listed yet." />
+      </div>
+    </section>
 
     <p data-filter-empty hidden class="mt-6 rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
       Nothing coming up in that town.
@@ -141,25 +138,27 @@ const itemList = {
   </div>
 
   <p class="mt-14 text-[0.875rem] text-ink-faint">
-    Listings refreshed {builtOn}. Every event links to the town guide that keeps it.
+    Listings refreshed <time datetime={refreshedAt.toISOString()}>{formatDate(refreshedAt)} at {formatTime(refreshedAt)}</time>.
+    Every event links to the town guide that keeps it.
   </p>
 </Page>
 
 <script>
   /*
-   * Re-decide which of the baked days is "this weekend", from the reader's
-   * clock rather than the build's.
+   * Re-decide, from the reader's clock rather than the build's, which listings
+   * are still on and which of the baked days is "this weekend".
    *
-   * It does its own removal of past days rather than depending on having run
-   * after Freshness.astro: module scripts have no ordering guarantee worth
-   * relying on, and both operations are idempotent.
+   * It does its own removal of finished listings rather than depending on
+   * having run after Freshness.astro: module scripts have no ordering
+   * guarantee worth relying on, and both operations are idempotent.
    */
   const TZ = 'America/Denver';
-  const key = (date: Date) => date.toISOString().slice(0, 10);
   const todayKey = new Date().toLocaleDateString('en-CA', { timeZone: TZ });
+  const nowMs = Date.now();
 
   // Noon UTC stands in for a Denver calendar day: far enough from either
   // midnight that no offset can push it onto the wrong date.
+  const key = (date: Date) => date.toISOString().slice(0, 10);
   const noon = (k: string) => new Date(`${k}T12:00:00Z`);
   const shift = (from: Date, days: number) => {
     const out = new Date(from);
@@ -172,20 +171,29 @@ const itemList = {
   const sunday = shift(today, dow === 0 ? 0 : 7 - dow);
   const start = dow === 0 || dow >= 5 ? today : shift(sunday, -2);
 
+  // 1. Anything that has finished goes, whether or not its day has turned over.
+  //    `data-end` is the exclusive end as an instant, so this catches a run
+  //    that ended two hours ago as well as one that ended last month.
+  for (const card of document.querySelectorAll<HTMLElement>('[data-filter-item][data-end]')) {
+    const ends = Date.parse(card.dataset.end!);
+    const lastDay = card.dataset.eventDay;
+    if ((!Number.isNaN(ends) && ends <= nowMs) || (lastDay && lastDay < todayKey)) card.remove();
+  }
+
+  // 2. A day heading with nothing left under it is worse than no heading.
+  for (const day of document.querySelectorAll<HTMLElement>('[data-day]')) {
+    if (!day.querySelector('[data-filter-item]')) day.remove();
+  }
+
+  // 3. Move the surviving days into the section the reader's clock puts them in.
   const weekendList = document.querySelector<HTMLElement>('[data-weekend-list] > *');
   const laterList = document.querySelector<HTMLElement>('[data-later-list] > *');
-
   if (weekendList && laterList) {
     for (const day of document.querySelectorAll<HTMLElement>('[data-day]')) {
       const when = day.dataset.day!;
-      if (when < todayKey) {
-        day.remove();
-        continue;
-      }
       const target = when >= key(start) && when <= key(sunday) ? weekendList : laterList;
       if (day.parentElement !== target) target.append(day);
     }
-
     // Days arrive in whatever order they were moved; put them back in date order.
     for (const list of [weekendList, laterList]) {
       const days = [...list.querySelectorAll<HTMLElement>('[data-day]')];
@@ -200,12 +208,21 @@ const itemList = {
       const range = key(start) === key(sunday) ? label(sunday) : `${label(start)} – ${label(sunday)}`;
       heading.textContent = `The weekend · ${range}`;
     }
+  }
 
-    const later = document.querySelector<HTMLElement>('[data-later-section]');
-    if (later) later.hidden = !laterList.querySelector('[data-day]');
+  // 4. Hide any section that has emptied out. The two dated sections keep their
+  //    "nothing listed" line, so they are only hidden when the whole page is.
+  for (const section of document.querySelectorAll<HTMLElement>('[data-section="now"], [data-section="continuing"]')) {
+    section.hidden = !section.querySelector('[data-filter-item]');
+  }
 
-    // Only now, with everything re-sorted, is "there is nothing left" true.
-    const notice = document.querySelector<HTMLElement>('[data-stale-notice]');
-    if (notice && !document.querySelector('[data-day]')) notice.classList.remove('hidden');
+  // 5. Only now, with everything removed and re-sorted, is "there is nothing
+  //    left" a thing the page can truthfully say — and it is true only when no
+  //    listing survives in ANY section, dated or running.
+  const remaining = document.querySelectorAll('[data-filter-item]').length;
+  const notice = document.querySelector<HTMLElement>('[data-stale-notice]');
+  if (notice && remaining === 0) notice.classList.remove('hidden');
+  for (const section of document.querySelectorAll<HTMLElement>('[data-section="weekend"], [data-section="next"]')) {
+    if (remaining === 0) section.hidden = true;
   }
 </script>

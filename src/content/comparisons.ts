@@ -24,14 +24,14 @@ export const COMPARISONS: Comparison[] = [
     a: 'erie',
     b: 'johnstown',
     question:
-      'Two Weld County towns that both roughly doubled in a decade, twenty minutes apart. The difference is which way you drive and what you get to walk to.',
+      'Two towns that both roughly doubled in a decade, twenty minutes apart, and both straddle a county line. The difference is which way you drive and what you get to walk to.',
     body: [
       'Erie points at Boulder, Johnstown points at I-25. That is the whole comparison, and almost everything else follows from it. Erie sits on the plateau between Coal Creek and the interstate, twenty minutes from Boulder on Arapahoe Road and thirty-five from Denver; the people moving there are largely working in or near Boulder and declining to pay Boulder prices. Johnstown sits on the US 34 interchange itself, ten minutes from Loveland, fifteen from Greeley, twenty-five from Fort Collins and fifty from Denver. It is the better base if your work is in northern Colorado and the worse one if it is in Boulder.',
       'The other real difference is the downtown. Erie has an old coal-town grid on Briggs Street that filled up in the last decade — a cidery in the 1889 Davis building, a Creole café, tapas, a brewery in the old fire station — and it is walkable if you live near it, which most of Erie does not. Johnstown’s Parish Avenue is quieter and its commercial center of gravity has moved out to the interchange, where the shopping is. If you want to walk to a pint on a Friday, Erie is more likely to deliver it; if you want to be five minutes from a big-box run, Johnstown is.',
-      'Schools split them too, and not simply. Most of Erie is St. Vrain Valley, based in Longmont, with the Boulder County side in Boulder Valley — so the district you get depends on which street you buy on. Johnstown is Weld RE-5J throughout, which is one fewer thing to check. Neither is a reason to choose a town on its own, but the Erie split is a reason to ask before you make an offer.',
+      'Schools split them both, and neither split is simple. Most of Erie is St. Vrain Valley, based in Longmont, with the Boulder County side in Boulder Valley. Most of Johnstown is Weld RE-5J, with the north-west of town — the Larimer County side — in Thompson, which is Loveland’s district; the town’s own schools page lists both. In both towns the district you get depends on which street you buy on, not which town you buy in. Neither is a reason to choose a town on its own, and in both it is a question to ask before you make an offer, against the district’s own boundary lookup rather than a listing.',
     ],
     verdict:
-      'Boulder commute and a walkable old downtown: Erie. Northern Colorado commute, simpler schools and the interstate at the end of the road: Johnstown.',
+      'Boulder commute and a walkable old downtown: Erie. Northern Colorado commute and the interstate at the end of the road: Johnstown. Check the school district on the address either way.',
   },
 ];
 

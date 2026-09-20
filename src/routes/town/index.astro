@@ -7,6 +7,7 @@ import PlaceCard from '@/components/PlaceCard.astro';
 import PlaceFeature from '@/components/PlaceFeature.astro';
 import PlaceIndex from '@/components/PlaceIndex.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
@@ -82,10 +83,24 @@ const [lead, second] = articles;
     </section>
   )}
 
+  {/*
+    The signup sat only on /events/ and on the hub. The home page is the page
+    most readers see and the only one some of them see, so the offer belongs
+    here too — inline, at the foot, after the reader has had the events and
+    the places and can tell whether the weekly note is worth having. Not a
+    modal: a popup on a community guide reads as spam and costs exactly the
+    trust the rest of the site is built on.
+  */}
+  <section class="band band-white">
+    <div class="container-page max-w-2xl">
+      <NewsletterSignup town={town} compact />
+    </div>
+  </section>
+
   <section class="on-dark bg-accent-dark text-white">
     <div class="container-page grid gap-8 py-16 md:grid-cols-[3fr_2fr] md:items-end md:py-24">
       <div>
-        <p class="eyebrow text-highlight">Moving here</p>
+        <p class="eyebrow text-highlight-ink">Moving here</p>
         <h2 class="display-md mt-4 text-4xl lg:text-6xl">Thinking of making {town.name} home?</h2>
       </div>
       <div>

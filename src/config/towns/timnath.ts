@@ -7,7 +7,10 @@ export const timnath: TownConfig = {
   domain: 'insidetimnath.com',
   siteTitle: 'Inside Timnath',
   tagline: 'An independent guide to Timnath, Colorado: Old Town Main Street, the reservoir and the river trail, and what it’s like to move to a farm town that grew tenfold.',
-  county: 'Larimer',
+  seoTagline: 'Events, the reservoir and trails in Timnath, CO',
+  // 99.9 per cent of the town's population is in Larimer; a sliver of annexed
+  // land east of the county line is in Weld, too small to name as a second county.
+  counties: ['Larimer'],
   state: 'CO',
   lat: 40.5333,
   lng: -104.9644,

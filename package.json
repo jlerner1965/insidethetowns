@@ -11,6 +11,7 @@
     "dev": "node scripts/run.ts dev",
     "build": "node scripts/run.ts build",
     "preview": "node scripts/run.ts preview",
+    "test": "node --test \"test/**/*.test.ts\"",
     "check": "astro check",
     "validate": "node scripts/validate-content.ts",
     "check-links": "node scripts/check-links.ts",

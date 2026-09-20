@@ -4,7 +4,7 @@
  * The photo is the town's identity; the type stays the same across sites.
  */
 import { Image } from 'astro:assets';
-import { getSite } from '@/config';
+import { countyLabel, getSite } from '@/config';
 import { resolveSiteImage } from '@/lib/images';
 
 interface Props {
@@ -16,7 +16,7 @@ interface Props {
 
 const site = getSite();
 const {
-  eyebrow = site.kind === 'town' ? `${site.county} County, Colorado` : 'Colorado’s northern Front Range',
+  eyebrow = site.kind === 'town' ? `${countyLabel(site)}, Colorado` : 'Colorado’s northern Front Range',
   title = site.name,
   subtitle = site.tagline,
   links = site.kind === 'town'
@@ -49,7 +49,7 @@ const hero = resolveSiteImage(site.slug, site.hero.image);
   {/* Capped as well as proportional: on a tall desktop monitor 78svh is well
       over a thousand pixels of sky before the page starts. */}
   <div class="container-page relative flex min-h-[min(70svh,600px)] flex-col justify-end pb-10 pt-40 md:min-h-[min(78svh,760px)] md:pb-16">
-    <p class="eyebrow text-highlight">{eyebrow}</p>
+    <p class="eyebrow text-highlight-ink">{eyebrow}</p>
     <h1 class="display mt-4 text-[4.25rem] sm:text-8xl lg:text-[9rem]">{title}</h1>
     <p class="mt-5 max-w-xl text-lg leading-snug text-white/85 md:mt-7 md:text-2xl">{subtitle}</p>
     {links.length > 0 && (
@@ -59,6 +59,6 @@ const hero = resolveSiteImage(site.slug, site.hero.image);
         ))}
       </div>
     )}
-    {site.hero.credit && <p class="mt-8 text-xs text-white/50">Photo: {site.hero.credit}</p>}
+    {site.hero.credit && <p class="mt-8 text-xs text-white/70">Photo: {site.hero.credit}</p>}
   </div>
 </section>

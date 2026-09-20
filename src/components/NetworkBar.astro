@@ -1,39 +1,49 @@
 ---
 /**
- * Thin strip at the very bottom of every site listing the rest of the network.
- * Lists the hub and every live sibling site; never the current site or towns
- * that are not live yet.
+ * Thin strip at the very bottom of every site, saying where this guide sits.
  *
- * On the hub the label is "The guides", not "Part of": the parent site saying
- * it is part of itself, and listing itself among its own guides, was the one
- * place the shared component gave itself away.
+ * A town site carries one link: back to the hub. It used to carry seven — the
+ * hub and all six siblings — on all two hundred of its pages, which across the
+ * network came to some nine thousand cross-domain links whose only reason for
+ * existing was that the other domains existed. That is the shape of a link
+ * network rather than a publication, and a reader standing in Erie has no use
+ * for a permanent list of six towns they did not ask about.
+ *
+ * The towns are still one link away, on the hub, which is what the hub is for.
+ * Cross-town links are kept for the places they help someone: the weekend page,
+ * the town comparisons, and anywhere a piece of writing genuinely points at a
+ * neighbour.
+ *
+ * On the hub the strip is the directory, listing every guide — the parent site
+ * saying it is "part of" itself was the one place the shared component gave
+ * itself away.
  */
 import { getNetworkHub, getSite, liveTowns } from '@/config';
 
 const site = getSite();
 const hub = getNetworkHub();
-const siblings = liveTowns().filter((t) => t.slug !== site.slug);
+const guides = site.kind === 'hub' ? liveTowns() : [];
 ---
 <div class="border-t border-white/15 bg-black/30 text-[0.8125rem] text-white/70">
   <div class="container-page flex flex-wrap items-center gap-x-5 gap-y-1 py-3.5">
-    <span>
-      {site.kind === 'hub' ? (
-        <strong class="font-semibold text-highlight">The guides</strong>
-      ) : (
-        <Fragment>
-          Part of
-          <a href={`https://${hub.domain}/`} class="ml-1 font-semibold text-highlight no-underline hover:underline">{hub.siteTitle}</a>
-        </Fragment>
-      )}
-    </span>
-    {siblings.length > 0 && (
-      <ul class="flex flex-wrap gap-x-4 gap-y-1">
-        {siblings.map((t) => (
-          <li>
-            <a href={`https://${t.domain}/`} class="no-underline hover:text-white hover:underline">{t.siteTitle}</a>
-          </li>
-        ))}
-      </ul>
+    {site.kind === 'hub' ? (
+      <Fragment>
+        <span><strong class="font-semibold text-highlight-ink">The guides</strong></span>
+        <ul class="flex flex-wrap gap-x-4 gap-y-1">
+          {guides.map((t) => (
+            <li>
+              <a href={`https://${t.domain}/`} class="no-underline hover:text-white hover:underline">{t.siteTitle}</a>
+            </li>
+          ))}
+        </ul>
+      </Fragment>
+    ) : (
+      <p>
+        Part of
+        <a href={`https://${hub.domain}/`} class="ml-1 font-semibold text-highlight-ink no-underline hover:underline"
+          >{hub.siteTitle}</a
+        >, an independent network of guides to {liveTowns().length} Front Range towns.
+      </p>
     )}
   </div>
 </div>

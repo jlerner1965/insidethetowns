@@ -3,7 +3,7 @@
  */
 import type { CollectionEntry } from 'astro:content';
 import { getNetworkHub, liveTowns, type SiteConfig, type TownConfig } from '@/config';
-import { toIsoLocal } from './dates';
+import { toIsoLocal } from './dates.ts';
 
 /**
  * The publisher graph: who runs this site, and how the eight domains relate.

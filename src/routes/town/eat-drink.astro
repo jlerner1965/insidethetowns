@@ -12,7 +12,7 @@ const all = await getTownEntries('places');
 const places = all.filter((p) => EAT_DRINK_TYPES.includes(p.data.type)).sort(byFeatured);
 const shops = all.filter((p) => p.data.type === 'shop').sort(byFeatured);
 ---
-<Page title="Eat & Drink" eyebrow={town.name} description={`Restaurants, bars, coffee and shops in ${town.name}, ${town.state}.`} intro={`Where to eat, drink, browse and linger in ${town.name}. Listings are editorial; nobody pays to be here.`}>
+<Page title="Eat & Drink" seoTitle={`Where to eat & drink in ${town.name}, Colorado`} eyebrow={town.name} description={`Restaurants, bars, coffee and shops in ${town.name}, ${town.state}.`} intro={`Where to eat, drink, browse and linger in ${town.name}. Listings are editorial; nobody pays to be here.`}>
   <PlaceDirectory places={places} heading="Places to eat and drink" filterable emptyMessage="No places listed yet." />
   {shops.length > 0 && (
     <section class="mt-20">

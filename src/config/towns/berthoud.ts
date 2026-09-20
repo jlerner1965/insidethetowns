@@ -7,7 +7,14 @@ export const berthoud: TownConfig = {
   domain: 'insideberthoud.com',
   siteTitle: 'Inside Berthoud',
   tagline: 'An independent guide to Berthoud, Colorado: the Garden Spot, its Main Street, the lakes, and what it’s like to move here.',
-  county: 'Larimer',
+  seoTagline: 'Main Street, the lakes, Berthoud, Colorado',
+  // 2020 census: about 97 per cent of the town's population in Larimer, 3 per cent in Weld.
+  counties: ['Larimer', 'Weld'],
+  countySplit: {
+    note: 'Berthoud is overwhelmingly a Larimer County town, but annexations east of the county line put a small part of it in Weld. Worth checking on a specific address rather than assuming.',
+    source: 'https://www.berthoud.org/',
+    verified: '2026-09-20',
+  },
   state: 'CO',
   lat: 40.3122,
   lng: -105.0611,
@@ -40,7 +47,7 @@ export const berthoud: TownConfig = {
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Berthoud_CO' },
     ],
     schoolDistrict:
-      'Thompson School District R2-J: Berthoud Elementary, Ivy Stockwell Elementary, Turner Middle and Berthoud High, all in town.',
+      'Mostly Thompson School District R2-J: Berthoud Elementary, Ivy Stockwell Elementary, Turner Middle and Berthoud High, all in town. Weld RE-5J serves a small part of Berthoud on the Weld County side, so check the district against the address rather than the town.',
     commuteNotes:
       'About 15 minutes to Loveland or Longmont on US 287, 25 to Fort Collins, and about 50 minutes to Denver by I-25. The FLEX bus runs between Fort Collins, Loveland, Berthoud, Longmont and Boulder.',
   },

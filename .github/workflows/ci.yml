@@ -37,6 +37,9 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # The date logic decides what the network claims is still on, so it is
+      # tested before anything is built.
+      - run: npm test
       - run: npm run validate
       # Colour is structural now, so a contrast failure is a build failure.
       - run: npm run check-colors

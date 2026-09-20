@@ -7,6 +7,20 @@ import '@fontsource-variable/fraunces/opsz.css';
 import '@fontsource-variable/instrument-sans/index.css';
 import '@fontsource-variable/instrument-sans/wght-italic.css';
 import '@/styles/global.css';
+/*
+ * The two Latin faces the top of every page is set in, as URLs so they can be
+ * preloaded. Fontsource's stylesheet declares them with font-display: swap, so
+ * without this the browser only discovers the files after the CSS has parsed,
+ * paints the page in a fallback and then reflows when they arrive — worth
+ * 0.14 of cumulative layout shift on a town home page, most of it under the
+ * large date numerals in the events list.
+ *
+ * Only these two subsets: latin-ext, Vietnamese and the italic are real files
+ * too, but nothing above the fold uses them, and preloading a font that is not
+ * needed costs exactly what preloading one that is saves.
+ */
+import frauncesLatin from '@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2?url';
+import instrumentLatin from '@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2?url';
 import Analytics from '@vercel/analytics/astro';
 import { getNetworkHub, getSite } from '@/config';
 import Header from '@/components/Header.astro';
@@ -43,6 +57,8 @@ const cssVars = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
+    <link rel="preload" as="font" type="font/woff2" href={frauncesLatin} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={instrumentLatin} crossorigin />
     <SEO {...seo} jsonLd={structured} />
     <link rel="icon" href={`/favicons/${site.slug}/favicon.svg`} type="image/svg+xml" />
     <meta name="theme-color" content={site.colors.accentDark} />
