@@ -122,13 +122,47 @@ to `/events/`, and www and plain HTTP still 308 to the apex first.
 
 ## For the owner
 
-Nothing outstanding. `HSTS preload` and the `/favicons/` cache rule under
+### One blocker, found 21 September: no domain can receive email
+
+**None of the eight domains has an MX record.** Checked against Cloudflare and
+Google resolvers on 21 September 2026; both return NOERROR with no answer, which
+is an absence rather than a lookup failure. There is no SPF and no DMARC either
+— the only TXT record on each domain is a Google Search Console token, so mail
+was never configured on any of them.
+
+With no MX, a sending server falls back to the A record under RFC 5321. That is
+`76.76.21.21`, Vercel's edge, which runs no SMTP service. Mail sits in the
+sender's queue and bounces a day or two later.
+
+`hello@inside<town>.com` is published as a live `mailto:` in two places on every
+`/contact/` page — "Email hello@…" and "Email a listing or correction" — and it
+is the reply address in all twelve outreach messages in `INDUSTRY-EMAILS.md`,
+including the newsletter blurb seven organisations were asked to print. Every
+one of those routes currently bounces.
+
+DNS for all eight is on Cloudflare (`donna.ns.cloudflare.com`), so Cloudflare
+Email Routing is the cheap fix: free, about ten minutes, forwards `hello@*` to a
+real inbox. Add SPF and DMARC in the same sitting. **Do it before any chamber
+newsletter runs** — a bounce from a guide that has just told a chamber it is
+real costs more than the photograph was worth.
+
+The contact form is unaffected and is the only working inbound path until this
+is fixed: Formspree delivers to the inbox configured in the Formspree account,
+which does not depend on these domains' DNS.
+
+### Otherwise nothing outstanding
+
+`HSTS preload` and the `/favicons/` cache rule under
 **Knowingly left** are decisions rather than defects.
 
 The contact form, listed under **Knowingly left** at the time of the audit
 because `formspreeId` was set on no site, has since been switched on: all eight
 sites now carry a Formspree id, so `/contact/` renders a form and `/submit-event/`
-posts rather than falling back to `mailto:`. The accessibility the audit could
+posts rather than falling back to `mailto:`. Verified live on 21 September on all
+eight: `/contact/` renders a real `<form>` posting to `formspree.io` and carrying
+the `_gotcha` honeypot; `/message-sent/` returns 200, carries `noindex` and is
+absent from all eight sitemaps (668 indexable URLs in total); and the six
+security headers are still 6/6 everywhere. The accessibility the audit could
 not test now checks out — every visible control is wrapped in its own `<label>`,
 the honeypot sits inside a `display: none` wrapper so nothing focusable is
 hidden from assistive technology, and the submit is a real `<button>`.
