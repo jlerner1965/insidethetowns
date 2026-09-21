@@ -1110,3 +1110,74 @@ own `<label>`, so each is implicitly associated without an `id` to collide
 with anything; the honeypot is inside a `display: none` wrapper, so it is not
 focusable and its `aria-hidden` cannot hide a focusable node; and the submit
 is a real `<button type="submit">`.
+
+## Writing to the trade bodies, and the address that does not exist
+
+`docs/INDUSTRY-EMAILS.md` is the batch route out of the photo problem: twelve
+messages — eight emails and four contact forms — to the Main Street programmes,
+chambers, downtown associations and two local papers, each asking one
+organisation to carry a request that would otherwise be 145 cold emails. `VENUE-PHOTO-EMAILS.md` Part 2 had sketched this
+as a table of URLs. What it could not give was somewhere to send anything.
+
+**Three of the seven towns publish no email address at all.** This was
+established rather than assumed: `berthoudmainstreet.org` was crawled across
+all 46 pages in its sitemap and `niwot.com` across 61, and neither carries an
+address anywhere — the only two on niwot.com belong to a pizzeria and a
+tree-carving project. `elizabethmainstreet.org` runs a Locable form widget and
+prints a phone number. For those three the deliverable is the same body text
+with a subject line to paste into the form, not a fabricated address.
+
+**The addresses that do exist were read from page source, not from a rendered
+summary, and one of them proves why.** `timnath.org` protects its addresses
+with Cloudflare email obfuscation: the page renders the literal words
+"[email protected]" and keeps the real address XOR-encoded in a `data-cfemail`
+attribute. Read the rendered text and you get nothing; ask a summarising model
+to read it and you get `timnath.mainstreet@timnath.org`, which is exactly what
+the address ought to be and is not an address. Decoding the attribute gives
+**`lgraves@timnathgov.com`** — a different domain from the website, which is
+the part no amount of guessing would have reached. Logan Graves is the
+Principal Planner who staffs the Main Street programme. The same decode gives
+`sbieber@timnathgov.com` and `aadams@timnathgov.com` elsewhere on the site.
+
+Two of the other organisations, Downtown Erie and the Johnstown DDA, are Wix
+sites whose contact blocks are rendered client-side, so `curl` alone returns
+only Wix's telemetry addresses; both were confirmed against the rendered page
+and then against the tokens in the source. The rule that came out of this: an
+address goes in the document only if it was seen in the page's own bytes or
+confirmed twice by different means.
+
+**The Berthoud chamber was not looked up at all.** Their `robots.txt` disallows
+74 named AI and scraper user-agents, this one included, and that opt-out covers
+fetching their contact page as much as their calendar. The document carries a
+row for them that says to open the site in a browser, as a person, and read the
+address off it. Berthoud Main Street is the better route for downtown
+businesses anyway, because the downtown programme is theirs.
+
+### What the emails ask for, beyond photographs
+
+Photographs are the headline gap — 139 of 145 business listings have none — but
+they are not the only thing these organisations can fix, and an email that asks
+for one thing wastes the other two:
+
+- **28 listings have no opening hours** and **53 have no website**, almost all
+  of them in Berthoud and Elizabeth, which hold 42 of the 48 listings that have
+  no contact detail of any kind. Those two towns cannot be emailed into
+  completeness; the Main Street walk is the only route to most of them, and the
+  introduction email is what makes the walk expected rather than strange.
+- **Six of the seven calendars stop within a fortnight of each other**, between
+  17 and 31 December. Niwot, which runs to July 2027, is the exception. Nothing
+  is near the 45-day floor `scripts/weekly.ts` warns at, so this is not urgent —
+  but the organisations being written to are the ones who already know the 2027
+  dates, and asking costs one sentence.
+
+### One stale website, found on the way
+
+`docs/PHOTO-CONTACTS.csv` carried `westernstarsgallery.com` for Western Stars
+Gallery & Studio in Lyons. The domain resolves and answers, but 301s to
+`caulleycorner.com`, which is NXDOMAIN — a live redirect to a dead target,
+which returns a clean failure only if you follow it. The place file had never
+had the URL, which is how the discrepancy surfaced: the CSV and the frontmatter
+disagreed by exactly one row. The CSV's website column is now empty for that
+row, and the "cannot be emailed at all" count moves from 47 to 48 in
+`PHOTOS.md` and `VENUE-PHOTO-EMAILS.md`. The listing itself is unaffected; it
+never carried the link.

@@ -74,10 +74,11 @@ content/<town>/images/<file>.jpg,<their website>,Used with permission of the own
 
 Keep the email. Permission that cannot be produced later is not permission.
 
-Note that 47 of the 139 have neither a website nor a phone on file, so a third
-of them can only be reached by walking in. `VENUE-PHOTO-EMAILS.md` Part 2 has a
-per-town route through the Main Street and chamber organisations, which reaches
-many of the rest in one email each.
+Note that 48 of the 139 have neither a website nor a phone on file, so a third
+of them can only be reached by walking in. `INDUSTRY-EMAILS.md` has that route written
+out: twelve messages to the Main Street programmes, chambers and downtown
+associations, each with a verified address or form, a subject line and the
+town's own numbers in the body. One per town reaches the rest.
 
 ### 3. Ask the town and the county for the parks
 

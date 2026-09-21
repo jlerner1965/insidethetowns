@@ -3,12 +3,13 @@
 Fourteen emails covering the 21 venues that have no photograph, plus a batch
 route to the 139 businesses that `PHOTO-CONTACTS.csv` lists one by one.
 
-This is the third and last part of the photo work. The other two:
+This is the third part of the photo work. The other three:
 
 | Document | Covers |
 |---|---|
 | `PHOTOS.md` | The method, what has already failed, the shot list, the licence rule |
 | `PARK-PHOTO-EMAILS.md` | 10 emails, 41 parks, trails and open spaces |
+| `INDUSTRY-EMAILS.md` | 12 messages to the trade bodies, with the addresses to send them to |
 | **this file** | **14 emails, 21 venues — and how to reach 139 businesses without writing 139 emails** |
 
 Contacts below were fetched and confirmed on **20 September 2026**. Send from a
@@ -387,11 +388,11 @@ gives you is a way to avoid sending 139 separate emails.
 
 | Businesses without a photograph | 139 |
 |---|---|
-| With a website in the CSV | 87 |
+| With a website in the CSV | 86 |
 | With a phone in the CSV | 18 |
-| **With neither** | **47** |
+| **With neither** | **48** |
 
-**A third of them cannot be emailed at all.** For those 47 the Main Street walk
+**A third of them cannot be emailed at all.** For those 48 the Main Street walk
 in `PHOTOS.md` §1 is not the fast option, it is the only one. Plan the walk
 first and treat the emails as what you do for the businesses you missed.
 
@@ -400,6 +401,10 @@ first and treat the emails as what you do for the businesses you missed.
 Rather than writing to each business cold, write once to the organisation that
 already has their attention and ask it to carry the request in a newsletter.
 One email can reach a whole Main Street.
+
+**`INDUSTRY-EMAILS.md` writes all of these out**, with a verified address for
+each and the per-town numbers filled in. The table below is the summary; that
+document is what you send.
 
 | Town | Businesses | Ask this organisation |
 |---|---|---|
