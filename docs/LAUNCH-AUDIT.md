@@ -128,4 +128,7 @@ Nothing outstanding. `HSTS preload` and the `/favicons/` cache rule under
 The contact form, listed under **Knowingly left** at the time of the audit
 because `formspreeId` was set on no site, has since been switched on: all eight
 sites now carry a Formspree id, so `/contact/` renders a form and `/submit-event/`
-posts rather than falling back to `mailto:`.
+posts rather than falling back to `mailto:`. The accessibility the audit could
+not test now checks out — every visible control is wrapped in its own `<label>`,
+the honeypot sits inside a `display: none` wrapper so nothing focusable is
+hidden from assistive technology, and the submit is a real `<button>`.

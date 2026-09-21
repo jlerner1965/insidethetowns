@@ -1063,7 +1063,7 @@ against nothing for the whole of the site's life — the loop over
 The audit line "No contact form ships" in `docs/LAUNCH-AUDIT.md` is no longer
 true and has been moved out of **Knowingly left**.
 
-### The contact form's two missing pieces
+### The contact form's three missing pieces
 
 Switching the ids on made `/contact/` render a `<form>` for the first time,
 and it went up with neither of the things the event form had worked out a
@@ -1096,3 +1096,17 @@ what becomes of the address you gave — which is the same promise `/privacy/`
 makes, at the moment someone is actually wondering. It is `noindex` and listed
 in `NOINDEX` in `astro.config.mjs`, so the sitemap matches the page, as
 `/thanks/` already did.
+
+**A subject line that says which of eight.** `_subject` shipped blank, so the
+preview line in the inbox was the sender's own first words — which is the
+wrong thing to read when the only question at that moment is which site the
+message came from. It now defaults to `Message — <siteTitle>`. It stays a
+visible field rather than becoming a hidden one, so anyone with a better
+subject can overwrite it, which is the whole point of asking.
+
+The audit's note that "the form's accessibility is untested because there is
+nothing to test" is now answerable: every visible control is wrapped in its
+own `<label>`, so each is implicitly associated without an `id` to collide
+with anything; the honeypot is inside a `display: none` wrapper, so it is not
+focusable and its `aria-hidden` cannot hide a focusable node; and the submit
+is a real `<button type="submit">`.

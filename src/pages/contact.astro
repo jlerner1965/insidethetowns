@@ -9,6 +9,12 @@
  * at the one moment someone has just trusted us with something. `_gotcha` is
  * Formspree's honeypot, as on the event form: no CAPTCHA, because a CAPTCHA
  * costs messages from exactly the readers least likely to send a second one.
+ *
+ * `_subject` carries a default rather than shipping blank. Eight sites post
+ * to eight Formspree inboxes, and a blank subject leaves the sender's own
+ * words in the preview line — which is the wrong thing to see when the
+ * question is only which of the eight this one is. It is a visible field, so
+ * anyone with a better subject can overwrite it.
  */
 import Page from '@/layouts/Page.astro';
 import { getSite } from '@/config';
@@ -54,7 +60,7 @@ const formAction = site.formspreeId ? `https://formspree.io/f/${site.formspreeId
         </label>
         <label class="block text-sm font-medium">
           Subject
-          <input type="text" name="_subject" class="mt-1.5 block w-full rounded-md border border-line bg-paper px-3 py-2.5 font-normal" />
+          <input type="text" name="_subject" value={`Message — ${site.siteTitle}`} class="mt-1.5 block w-full rounded-md border border-line bg-paper px-3 py-2.5 font-normal" />
         </label>
         <label class="block text-sm font-medium">
           Message
