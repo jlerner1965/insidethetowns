@@ -53,4 +53,5 @@ export const timnath: TownConfig = {
     policeNonEmergency: 'https://timnath.org/public-safety/',
     policeNonEmergencyLabel: 'Timnath public safety',
   },
+  formspreeId: 'xzezegre',
 };

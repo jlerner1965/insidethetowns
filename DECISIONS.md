@@ -1038,3 +1038,27 @@ accurate about what the network is, silent about what is on a guide, which is
 what someone deciding whether to click wants to know. The hub home now passes
 its own 151-character description. The tagline stays short because it is also
 the hero line and the `Organization` description in the publisher graph.
+
+## The forms are switched on
+
+Eight Formspree endpoints, one per site: seven towns and the hub. Every form
+in the codebase was built behind `formspreeId` and had been shipping its
+fallback since launch — `/contact/` rendered no `<form>` at all, and
+`/submit-event/` showed the "isn't switched on yet, email it instead" branch.
+Setting the id is the whole change; no page needed touching.
+
+One id per site rather than one shared endpoint. A submission carries which
+town it came from in the form itself (`submit-event` posts a hidden `town`
+field), so a single endpoint would have worked — but Formspree's own inbox,
+filters and spam handling are per form, and the sites are meant to be separable.
+A town that later moves to its own account, or gets handed to someone else,
+takes its endpoint with it instead of needing an inbox untangled first.
+
+`validate-content.ts` already checked every posting host against the
+`form-action` directive in `vercel.json`, and that check has been running
+against nothing for the whole of the site's life — the loop over
+`liveTowns()` had no town with a `formspreeId` to test. It now has eight, and
+`https://formspree.io` was already in the CSP, so it passes for real.
+
+The audit line "No contact form ships" in `docs/LAUNCH-AUDIT.md` is no longer
+true and has been moved out of **Knowingly left**.

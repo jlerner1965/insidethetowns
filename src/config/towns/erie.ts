@@ -57,4 +57,5 @@ export const erie: TownConfig = {
     policeNonEmergency: 'https://www.erieco.gov/246/Police-Department',
     policeNonEmergencyLabel: 'Erie Police Department',
   },
+  formspreeId: 'maenejow',
 };

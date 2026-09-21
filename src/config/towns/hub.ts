@@ -49,4 +49,5 @@ export const hub: HubConfig = {
     { label: 'Contact', href: '/contact/' },
   ],
   towns,
+  formspreeId: 'xeaoakgg',
 };

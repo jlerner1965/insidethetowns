@@ -56,4 +56,5 @@ export const johnstown: TownConfig = {
     policeNonEmergency: 'https://johnstownpolice.org/',
     policeNonEmergencyLabel: 'Johnstown Police Department',
   },
+  formspreeId: 'xljdjnbd',
 };

@@ -35,7 +35,8 @@ export const elizabeth = {
     schoolDistrict: "Elizabeth School District C-1",
     commuteNotes: "About 45 minutes to the Denver Tech Center via Parker Road."
   },
-  officialLinks: { townSite: "https://www.townofelizabeth.org" }
+  officialLinks: { townSite: "https://www.townofelizabeth.org" },
+  formspreeId: "xyezejwk",
 } satisfies TownConfig;
 
 export default elizabeth;

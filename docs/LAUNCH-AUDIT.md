@@ -105,9 +105,6 @@ fixed and verified.
   default.
 - **A 404 under `/favicons/` is cached for a week** by the path rule in
   `vercel.json`. Latent only: all eight real favicons return 200.
-- **No contact form ships.** `formspreeId` is set on no site, so the contact
-  page has no `<form>` at all. The form's accessibility is untested because
-  there is nothing to test.
 
 ## Fixed after the audit
 
@@ -125,5 +122,10 @@ to `/events/`, and www and plain HTTP still 308 to the apex first.
 
 ## For the owner
 
-Nothing outstanding. `HSTS preload`, a contact form and the `/favicons/` cache
-rule under **Knowingly left** are all decisions rather than defects.
+Nothing outstanding. `HSTS preload` and the `/favicons/` cache rule under
+**Knowingly left** are decisions rather than defects.
+
+The contact form, listed under **Knowingly left** at the time of the audit
+because `formspreeId` was set on no site, has since been switched on: all eight
+sites now carry a Formspree id, so `/contact/` renders a form and `/submit-event/`
+posts rather than falling back to `mailto:`.
