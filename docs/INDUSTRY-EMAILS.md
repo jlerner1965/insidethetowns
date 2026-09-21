@@ -20,8 +20,23 @@ the foot of this document. Three of the seven towns publish no address at all;
 those have a contact form and the same text to paste into it.
 
 Send each one from that town's own address — `hello@insideberthoud.com`,
-`hello@insidelyons.com` and so on. All eight are live. A request from the site
-being asked about is answered far more often than one from a generic address.
+`hello@insidelyons.com` and so on. A request from the site being asked about is
+answered far more often than one from a generic address.
+
+> **Before sending: those addresses cannot receive mail yet.** Checked 21
+> September 2026 — none of the eight domains has an MX record, and neither SPF
+> nor DMARC is set. A sender falls back to the A record, `76.76.21.21`, which is
+> Vercel's edge and runs no SMTP, so anything sent to `hello@inside<town>.com`
+> bounces after a day or two. That address appears in every message below and in
+> the newsletter blurb each organisation is asked to print, so a member who
+> follows it gets a bounce from a guide that has just told their chamber it is
+> real.
+>
+> DNS for all eight is on Cloudflare, so Cloudflare Email Routing fixes it free
+> in about ten minutes. Until then, put a working reply address in the body in
+> place of `hello@inside<town>.com`. The sites' contact forms are unaffected —
+> Formspree delivers independently of these domains' DNS — so `/contact/` is a
+> usable fallback to point people at.
 
 ---
 

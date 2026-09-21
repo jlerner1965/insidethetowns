@@ -1181,3 +1181,59 @@ disagreed by exactly one row. The CSV's website column is now empty for that
 row, and the "cannot be emailed at all" count moves from 47 to 48 in
 `PHOTOS.md` and `VENUE-PHOTO-EMAILS.md`. The listing itself is unaffected; it
 never carried the link.
+
+## The reply address that could not receive a reply
+
+The twelve trade-body messages went out asking seven organisations to tell their
+members to send photographs to `hello@inside<town>.com`. Checking the network
+afterwards for anything the 18 September launch audit had not covered turned up
+the thing that would have made all twelve pointless: **none of the eight domains
+has an MX record.**
+
+Confirmed against Cloudflare and Google resolvers, both returning NOERROR with an
+empty answer section and only an SOA in authority — an absence, not a failed
+lookup. No SPF and no DMARC either; the only TXT record on each domain is a
+Google Search Console verification token. Mail was never set up on any of them.
+
+Without MX, RFC 5321 has the sender fall back to the A record. That is
+`76.76.21.21` — Vercel's anycast edge, which listens on 80 and 443 and not on
+25. The message does not fail fast; it sits in the sender's queue through the
+retry schedule and bounces a day or two later, which is the worst shape for this
+particular failure, because the bounce arrives long after the chamber has
+already printed the address.
+
+The address is not hypothetical. Every `/contact/` page publishes it as a live
+`mailto:` twice over — "Email hello@…" and "Email a listing or correction" — so
+it has been failing for site visitors since launch, silently, with no way for
+anyone to report that it fails except by using the form beside it.
+
+The contact form is the exception and now the only working inbound path:
+Formspree posts to its own endpoint and delivers to the inbox configured in the
+Formspree account, which has nothing to do with these domains' DNS. That is why
+the fault survived the launch audit — the audit checked that the form posts, the
+CSP allows the host and the confirmation page is `noindex`, all of which pass. It
+never checked whether the address printed next to the form could receive
+anything, because nothing in the repository says it should be able to.
+
+DNS for all eight is on Cloudflare, so Cloudflare Email Routing is the fix: free,
+about ten minutes, `hello@*` forwarded to a real inbox, with SPF and DMARC added
+in the same sitting. Recorded as the one open item in `LAUNCH-AUDIT.md` under
+*For the owner*, which until now read "Nothing outstanding".
+
+### What the audit had left, and what it had not
+
+The same pass verified live, on all eight, the things that shipped after the
+audit and so had never been tested against production: `/contact/` renders a real
+`<form>` posting to `formspree.io` with the `_gotcha` honeypot; `/message-sent/`
+returns 200, carries `noindex`, and is absent from every sitemap (668 indexable
+URLs across the network); and the six security headers are still 6/6 everywhere.
+Those were the audit's known gaps, and they are closed.
+
+One thing was deliberately **not** recorded as a fault. Roughly one request in
+twelve to the live sites failed from the session container — `SSL_ERROR_SYSCALL`,
+and two 25-second timeouts. The container's own egress proxy logs
+`ws_closed_mid_exchange` against `insideniwot.com:443`, describing its own tunnel
+closing, and control domains over the same proxy were clean across a small
+sample. Origin and proxy cannot be separated from inside that container, so it
+goes in the record as unconfirmed and worth one look from a normal machine,
+rather than as a finding about the sites.
