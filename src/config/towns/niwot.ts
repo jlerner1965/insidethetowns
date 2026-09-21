@@ -52,4 +52,5 @@ export const niwot: TownConfig = {
     policeNonEmergency: 'https://bouldercounty.gov/safety/sheriff/',
     policeNonEmergencyLabel: 'Boulder County Sheriff',
   },
+  formspreeId: 'xbglgygb',
 };

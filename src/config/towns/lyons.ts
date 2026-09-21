@@ -50,4 +50,5 @@ export const lyons: TownConfig = {
     policeNonEmergency: 'https://bouldercounty.gov/safety/sheriff/',
     policeNonEmergencyLabel: 'Boulder County Sheriff',
   },
+  formspreeId: 'moevewdw',
 };
