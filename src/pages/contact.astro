@@ -3,6 +3,12 @@
  * No backend: a Formspree form when `formspreeId` is configured, otherwise
  * mailto links. Events have their own form at /submit-event/, because its ten
  * fields are the ones the event schema needs and a general message box is not.
+ *
+ * `_next` sends a sender to our own /message-sent/ rather than Formspree's
+ * default confirmation, which is a stranger's page with a stranger's branding
+ * at the one moment someone has just trusted us with something. `_gotcha` is
+ * Formspree's honeypot, as on the event form: no CAPTCHA, because a CAPTCHA
+ * costs messages from exactly the readers least likely to send a second one.
  */
 import Page from '@/layouts/Page.astro';
 import { getSite } from '@/config';
@@ -37,6 +43,10 @@ const formAction = site.formspreeId ? `https://formspree.io/f/${site.formspreeId
 
     {formAction && (
       <form action={formAction} method="POST" class="mt-10 space-y-5 rounded-lg bg-raised p-6 ring-1 ring-line-soft md:p-8">
+        <input type="hidden" name="_next" value={`https://${site.domain}/message-sent/`} />
+        <p class="hidden" aria-hidden="true">
+          <label>Leave this blank <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+        </p>
         <h2 class="mt-0">Or send a message</h2>
         <label class="block text-sm font-medium">
           Your email

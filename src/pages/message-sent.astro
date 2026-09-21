@@ -1,0 +1,74 @@
+---
+/**
+ * Where a message from /contact/ lands.
+ *
+ * The event form has its own confirmation at /thanks/, and that page is
+ * written entirely about events — it promises we will check the submission
+ * against the organizer's page, which is nonsense in reply to "your opening
+ * hours are wrong". So the two confirmations are separate rather than one
+ * page hedging about which kind of thing arrived.
+ *
+ * Unlike /thanks/ this lives in src/pages/, because the hub has a contact
+ * form too and had nowhere to send anyone.
+ *
+ * Noindex: it is a confirmation, not a page anyone should reach from a search.
+ * `NOINDEX` in astro.config.mjs keeps it out of the sitemap to match.
+ */
+import Page from '@/layouts/Page.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { getSite } from '@/config';
+
+const site = getSite();
+const town = site.kind === 'town';
+---
+<Page
+  title="Thanks — that’s with us"
+  seoTitle="Message received"
+  eyebrow={town ? site.name : 'Inside the Towns'}
+  description="Your message has been received."
+  intro="It has arrived. Here is what happens to it next."
+  noindex
+  narrow
+>
+  <div class="prose">
+    <p>
+      Someone reads it, usually within a day or two. There is no queue and no ticket number — it goes to a person.
+    </p>
+    <p>
+      If it needs an answer you will get one, at the address you gave. If it does not need one you may hear nothing
+      back, and that is not it being ignored: a correction that was right and has been made does not need a reply to
+      prove it.
+    </p>
+    <p>
+      If you told us something was wrong, it gets fixed. Listings are corrected quietly, because a wrong phone number
+      does not need a public notice; a correction to an article is noted on the article. The
+      <a href="/editorial/">editorial policy</a> sets out how that works.
+    </p>
+    <p>
+      Your email address is only used to reply to you. It is never published, never added to the newsletter without
+      you asking, and never passed on.
+    </p>
+  </div>
+
+  {town ? (
+    <CtaBand
+      eyebrow="While you’re here"
+      title={`What’s on in ${site.name}`}
+      body="Events are listed free, and anyone can send one in — including you, if you know about something we have missed."
+      links={[
+        { label: 'See what’s on', href: '/events/', primary: true },
+        { label: 'Submit an event', href: '/submit-event/' },
+      ]}
+    />
+  ) : (
+    <CtaBand
+      eyebrow="While you’re here"
+      title="Somewhere to go next"
+      body="What is on across the network this weekend, and one email on a Thursday if you would rather it came to you."
+      links={[
+        { label: 'This weekend', href: '/this-weekend/', primary: true },
+        { label: 'The newsletter', href: '/newsletter/' },
+      ]}
+    />
+  )}
+</Page>

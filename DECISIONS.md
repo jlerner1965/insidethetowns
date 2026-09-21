@@ -1062,3 +1062,37 @@ against nothing for the whole of the site's life — the loop over
 
 The audit line "No contact form ships" in `docs/LAUNCH-AUDIT.md` is no longer
 true and has been moved out of **Knowingly left**.
+
+### The contact form's two missing pieces
+
+Switching the ids on made `/contact/` render a `<form>` for the first time,
+and it went up with neither of the things the event form had worked out a
+year earlier.
+
+**A honeypot, not a CAPTCHA.** `/submit-event/` carries `_gotcha` and a
+comment explaining why there is no CAPTCHA: it would cost submissions from
+exactly the people most likely to know about the church supper nobody else has
+listed. The same argument holds for a correction to a phone number, so the
+contact form now carries the same hidden field. It is one line, and without it
+the inbox fills with the sort of mail that makes an editor stop opening it —
+which costs the real corrections too, just more slowly.
+
+**Somewhere of our own to land.** Formspree's default confirmation is a
+stranger's page with a stranger's branding, shown at the one moment a reader
+has just trusted us with something. `/submit-event/` had always set `_next` to
+the town's `/thanks/`; the contact form now sets it to `/message-sent/`.
+
+A second confirmation page rather than one page hedging. `/thanks/` is written
+entirely about events — it promises we will check the submission against the
+organizer's own page, which is nonsense in reply to "your opening hours are
+wrong". And `/thanks/` lives in `src/routes/town/`, so the hub, which has a
+contact form too, had nowhere to send anyone at all. `/message-sent/` is in
+`src/pages/` and so ships on all eight sites, branching only on the closing
+panel: events and the event form on a town, this weekend and the newsletter on
+the hub.
+
+It says what happens next, that silence is not the message being ignored, and
+what becomes of the address you gave — which is the same promise `/privacy/`
+makes, at the moment someone is actually wondering. It is `noindex` and listed
+in `NOINDEX` in `astro.config.mjs`, so the sitemap matches the page, as
+`/thanks/` already did.

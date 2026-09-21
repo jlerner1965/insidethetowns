@@ -18,7 +18,7 @@ const site = getSite();
 const repeats = site.kind === 'town' ? repeatOccurrenceSlugs(site.slug) : new Set();
 const expired = site.kind === 'town' ? pastEventSlugs(site.slug) : new Set();
 /** Pages that carry noindex must not be listed in the sitemap either. */
-const NOINDEX = new Set(['/thanks/']);
+const NOINDEX = new Set(['/thanks/', '/message-sent/']);
 
 const indexable = (/** @type {string} */ url) => {
   const { pathname } = new URL(url);
