@@ -109,6 +109,31 @@ imageAlt: "…"
 Body in Markdown.
 ```
 
+Ordinary editorial articles need no additional fields. If an article was paid
+for or supplied by someone outside the publication, identify it in frontmatter
+so the page cannot publish without a visible disclosure:
+
+```yaml
+contribution:
+  type: sponsored                    # sponsored|contributed
+  name: "Organization name"
+  url: "https://organization.example" # optional
+  note: "The sponsor reviewed product details but did not rank listings." # optional
+```
+
+For a material factual correction, update `updated` and add a public record.
+Typographic fixes do not need an entry:
+
+```yaml
+updated: "2026-09-22"
+corrections:
+  - date: "2026-09-22"
+    note: "Corrected the council meeting date from October 5 to October 6."
+```
+
+The build rejects a correction without an `updated` date, a correction dated
+before the article, or a sponsored/contributed article with no named party.
+
 ## Checking your work
 
 ```
