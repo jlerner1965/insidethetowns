@@ -211,6 +211,35 @@ export function articleSchema<I extends z.ZodType>(image: () => I) {
       category: z.string().min(1),
       tags: z.array(z.string()).default([]),
       /**
+       * Paid and outside-authored work must identify itself in data, rather
+       * than relying on an editor to remember to type a label into the body.
+       * The article template turns this into a prominent disclosure above the
+       * article. Ordinary staff work leaves this unset.
+       */
+      contribution: z
+        .object({
+          type: z.enum(['sponsored', 'contributed']),
+          /** The sponsor or contributor readers should be able to identify. */
+          name: z.string().min(1),
+          url: httpUrl.optional(),
+          /** Extra context such as who selected the topic or reviewed the copy. */
+          note: z.string().min(1).optional(),
+        })
+        .optional(),
+      /**
+       * Material corrections only. Typographic fixes do not need a public
+       * ledger; a changed factual claim does. The template prints this list
+       * below the article in chronological order.
+       */
+      corrections: z
+        .array(
+          z.object({
+            date: localDate,
+            note: z.string().min(1),
+          }),
+        )
+        .default([]),
+      /**
        * A Denver day on which this article's framing stops being current —
        * an election held, a season closed, a deadline passed. From that day
        * the page carries `supersededNote` at the top, decided by the build
@@ -243,6 +272,18 @@ export function articleSchema<I extends z.ZodType>(image: () => I) {
     .refine((a) => !a.supersededNote || !!a.supersededAfter, {
       message: 'supersededNote needs a supersededAfter date saying when it starts being true',
       path: ['supersededAfter'],
+    })
+    .refine((a) => a.corrections.length === 0 || !!a.updated, {
+      message: 'a corrected article needs an updated date',
+      path: ['updated'],
+    })
+    .refine((a) => a.corrections.every((correction) => correction.date.getTime() >= a.date.getTime()), {
+      message: 'a correction cannot predate the article',
+      path: ['corrections'],
+    })
+    .refine((a) => !a.updated || a.corrections.every((correction) => correction.date.getTime() <= a.updated!.getTime()), {
+      message: 'updated must be on or after every correction date',
+      path: ['updated'],
     });
 }
 
