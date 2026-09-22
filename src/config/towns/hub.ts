@@ -45,7 +45,6 @@ export const hub: HubConfig = {
     { label: 'Newsletter', href: '/newsletter/' },
     { label: 'Towns', href: '/#towns' },
     { label: 'About', href: '/about/' },
-    { label: 'Advertise', href: '/advertise/' },
     { label: 'Contact', href: '/contact/' },
   ],
   towns,

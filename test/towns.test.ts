@@ -85,6 +85,10 @@ test('every live town is configured and every config is complete enough to build
   }
 });
 
+test('advertising stays out of the reader-focused primary navigation', () => {
+  assert.equal(hub.nav.some((item) => item.href === '/advertise/'), false);
+});
+
 test('every town home title names the state after the search-result trim', () => {
   // Asserting the trimmed output, not the raw tagline: the trim is the thing
   // that used to eat ", Colorado", so a test on the untrimmed string proves

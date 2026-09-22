@@ -190,9 +190,9 @@ export interface HubConfig {
   analyticsSince?: string;
   /**
    * What a placement costs. Absent until there are numbers to stand behind,
-   * and /advertise/ says "rates on request" until then. A published rate card
-   * with blanks in it is worse than no rate card: it tells a buyer you have
-   * not worked it out.
+   * and /advertise/ invites a founding-partnership conversation until then.
+   * A published rate card with blanks in it is worse than no rate card: it
+   * tells a buyer you have not worked it out.
    */
   rates?: AdRate[];
 }
