@@ -16,11 +16,10 @@
  * above it is a convenience for long lists, not the mechanism.
  */
 import Page from '@/layouts/Page.astro';
-import { countyLabel, getHub, liveTowns } from '@/config';
+import { countyLabel, liveTowns } from '@/config';
 
-const hub = getHub();
 const towns = liveTowns();
-const mailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Event submission')}`;
+const contactHref = `/contact/?subject=${encodeURIComponent('Event outside the listed towns')}#send-message`;
 ---
 <Page
   title="Submit an event"
@@ -51,7 +50,7 @@ const mailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Event s
     <h2>Not one of those towns?</h2>
     <p>
       We cover {towns.length} so far and add more when there is somebody to keep a guide current. If your event is
-      somewhere else on the northern Front Range, <a href={mailto}>send it to us anyway</a> — it tells us where to go
+      somewhere else on the northern Front Range, <a href={contactHref}>send it to us anyway</a> — it tells us where to go
       next, which is worth knowing.
     </p>
 

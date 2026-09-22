@@ -47,7 +47,7 @@ const started =
     : days === 1
       ? 'We started counting yesterday'
       : `We started counting on ${formatDate(since!)}, ${days} days ago`;
-const mailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Advertising enquiry')}`;
+const contactHref = `/contact/?subject=${encodeURIComponent('Partnership enquiry')}#send-message`;
 const money = (n: number) => `$${n.toLocaleString('en-US')}`;
 ---
 <Page
@@ -113,7 +113,7 @@ const money = (n: number) => `$${n.toLocaleString('en-US')}`;
     <div class="prose mt-14">
       <h2>Discuss a founding partnership</h2>
       <p>
-        Interested in reaching local residents? <a href={mailto}>Contact us to discuss a founding partnership.</a>
+        Interested in reaching local residents? <a href={contactHref}>Contact us to discuss a founding partnership.</a>
       </p>
     </div>
   )}
@@ -154,7 +154,7 @@ const money = (n: number) => `$${n.toLocaleString('en-US')}`;
 
     <h2>Getting in touch</h2>
     <p>
-      <a href={mailto}>Email {hub.social.email}</a> and say which town or towns you care about. What suits a business
+      <a href={contactHref}>Send a partnership enquiry</a> and say which town or towns you care about. What suits a business
       serving the whole corridor is different from what suits one café, and knowing which you are saves us both a
       round of email.
     </p>
