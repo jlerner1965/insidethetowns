@@ -2,10 +2,9 @@
 /**
  * The rate card, or the honest absence of one.
  *
- * `hub.rates` is unset until there are numbers worth standing behind, and
- * until then this page says rates are on request rather than printing a table
- * with blanks in it. A buyer reading "$TBD" learns that the seller has not
- * worked it out, which is a worse first impression than a short page.
+ * `hub.rates` is unset until there are numbers worth standing behind. Until
+ * then, the page invites a founding-partnership conversation instead of
+ * publishing a provisional price or a table with blanks in it.
  *
  * Audience figures are the same bet in reverse, in three states rather than
  * two: nothing counted, counting but too new to mean anything, and enough
@@ -112,11 +111,9 @@ const money = (n: number) => `$${n.toLocaleString('en-US')}`;
     </section>
   ) : (
     <div class="prose mt-14">
-      <h2>What it costs</h2>
+      <h2>Discuss a founding partnership</h2>
       <p>
-        Rates are on request while we are still setting them. Ask and you will get a straight number and what it buys,
-        not a deck — and you will be told how many other placements exist in that town, because a slot nobody else
-        wants is not worth what a scarce one is.
+        Interested in reaching local residents? <a href={mailto}>Contact us to discuss a founding partnership.</a>
       </p>
     </div>
   )}
@@ -166,7 +163,7 @@ const money = (n: number) => `$${n.toLocaleString('en-US')}`;
   <CtaBand
     eyebrow="Before you spend anything"
     title="Look at what you would be next to"
-    body="The guides are the pitch. Read a town's events page and its Moving Here page, and decide whether the company is one you want to keep."
+    body="The guides are the pitch. Read a town's events page and its Moving Here pae, and decide whether the company is one you want to keep."
     links={[
       { label: 'This weekend', href: '/this-weekend/', primary: true },
       { label: 'Moving here', href: '/moving/' },
