@@ -13,20 +13,33 @@ import { getSite, liveTowns } from '@/config';
 const site = getSite();
 const what = site.kind === 'town' ? site.siteTitle : 'Every guide in the network';
 const live = liveTowns();
+const correctionsHref = `/contact/?subject=${encodeURIComponent('Correction')}#send-message`;
 ---
 <Page
-  title="Editorial policy"
+  title="Editorial standards and corrections"
   eyebrow={site.kind === 'town' ? site.name : 'Inside the Towns'}
-  description={`How listings on ${site.siteTitle} are researched, checked and corrected, and why nothing on it can be bought.`}
+  description={`How ${site.siteTitle} researches, dates, labels and corrects its local coverage.`}
   intro="What goes on these pages, where it comes from, how often it is checked, and what to do when it is wrong."
   narrow
 >
   <div class="prose">
-    <h2>Nothing here is paid for</h2>
+    <h2>Listings cannot be bought</h2>
     <p>
       Listings are free and editorial. No business pays to be listed, and no business can pay to be higher up a page
-      or to be marked as a pick. If sponsorship ever appears on these sites it will be labeled as sponsorship and it
-      will sit beside the listings, never inside them.
+      or to be marked as a pick.
+    </p>
+
+    <h2>Bylines, dates and disclosures</h2>
+    <p>
+      Every article identifies the person or publication responsible for it and shows when it was published. A
+      meaningful revision adds an updated date. Material corrections are dated and recorded at the end of the
+      article rather than silently replacing the original claim.
+    </p>
+    <p>
+      Advertising does not determine which businesses, places or events appear in the guides. Paid articles are
+      labeled <strong>Sponsored content</strong> before the article body and identify who paid for them.
+      Outside submissions are labeled <strong>Contributed article</strong>. Neither label is used for ordinary
+      editorial coverage.
     </p>
 
     <h2>Where the facts come from</h2>
@@ -72,9 +85,18 @@ const live = liveTowns();
       civic links out to the official source rather than being paraphrased here.
     </p>
 
+    <h2>Use of AI and other software</h2>
+    <p>
+      Software may help organize research, edit wording, format data or identify facts that need checking. It is not
+      treated as a source. Names, dates, locations, quotations and material claims must be checked against the linked
+      primary source before publication. Generated quotations, invented firsthand experience and synthetic images
+      presented as documentary photographs are not acceptable.
+    </p>
+
     <h2>Corrections</h2>
     <p>
-      If something here is wrong, <a href="/contact/">tell us</a> and it will be fixed, usually within a day or two.
+      If something here is wrong, <a href={correctionsHref}>report the correction</a> and include the page, the claim
+      that appears wrong and a supporting source where possible. It will be reviewed, usually within a day or two.
       Corrections are made quietly to listings, because a wrong phone number does not need a public notice; a
       correction to an article is noted on the article. There is no appeal process for being left out and no payment
       that changes it — if a place belongs in a guide, say so and it goes in.

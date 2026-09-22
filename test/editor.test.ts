@@ -10,6 +10,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { hub } from '../src/config/towns/hub.ts';
 import { articleJsonLd } from '../src/lib/seo.ts';
+import { articleSchema } from '../src/content/schemas.ts';
+import { z } from 'astro/zod';
 
 const site = { kind: 'town', domain: 'insideniwot.com', siteTitle: 'Inside Niwot' } as never;
 const article = {
@@ -61,4 +63,31 @@ test('the publisher stays the publication either way', () => {
     publisher: unknown;
   };
   assert.deepEqual(set.publisher, org);
+});
+
+const schema = articleSchema(() => z.string());
+const baseArticle = {
+  title: 'A piece',
+  date: '2026-09-20',
+  excerpt: 'A summary.',
+  category: 'Community',
+};
+
+test('sponsored and contributed articles require an identified party', () => {
+  assert.equal(schema.safeParse({ ...baseArticle, contribution: { type: 'sponsored' } }).success, false);
+  assert.equal(
+    schema.safeParse({ ...baseArticle, contribution: { type: 'sponsored', name: 'Local Sponsor' } }).success,
+    true,
+  );
+  assert.equal(
+    schema.safeParse({ ...baseArticle, contribution: { type: 'contributed', name: 'Community Group' } }).success,
+    true,
+  );
+});
+
+test('a material correction requires a matching updated date', () => {
+  const correction = { date: '2026-09-21', note: 'Corrected the meeting date.' };
+  assert.equal(schema.safeParse({ ...baseArticle, corrections: [correction] }).success, false);
+  assert.equal(schema.safeParse({ ...baseArticle, updated: '2026-09-21', corrections: [correction] }).success, true);
+  assert.equal(schema.safeParse({ ...baseArticle, updated: '2026-09-20', corrections: [correction] }).success, false);
 });
