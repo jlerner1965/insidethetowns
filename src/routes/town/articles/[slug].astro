@@ -5,7 +5,7 @@ import Page from '@/layouts/Page.astro';
 import DatedNotice from '@/components/DatedNotice.astro';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { dayKey, formatDate, toIsoLocal } from '@/lib/dates';
-import { getTown } from '@/config';
+import { getNetworkHub, getTown } from '@/config';
 import { articleJsonLd, breadcrumbJsonLd } from '@/lib/seo';
 
 export async function getStaticPaths() {
@@ -18,6 +18,7 @@ interface Props {
 }
 
 const town = getTown();
+const editor = getNetworkHub().editor;
 const { article } = Astro.props;
 const { data } = article;
 const { Content, headings } = await render(article);
@@ -26,6 +27,11 @@ const { Content, headings } = await render(article);
 const contents = headings.filter((h) => h.depth === 2);
 const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
 const url = new URL(Astro.url.pathname, Astro.site).toString();
+const byline = editor?.name ?? town.siteTitle;
+const bylineUrl = editor?.url ?? '/about/';
+const correctionHref = `/contact/?subject=${encodeURIComponent('Correction')}&article=${encodeURIComponent(url)}#send-message`;
+const contributionLabel = data.contribution?.type === 'sponsored' ? 'Sponsored content' : 'Contributed article';
+const corrections = [...data.corrections].sort((a, b) => a.date.getTime() - b.date.getTime());
 ---
 <Page title={data.title} eyebrow={data.category} intro={data.excerpt} description={data.excerpt} image={shareImage} imageAlt={data.imageAlt} type="article"
   jsonLd={[
@@ -36,10 +42,30 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
       { name: data.title, path: `/articles/${article.slug}/` },
     ]),
   ]}>
-  <p slot="after-header" class="mt-5 text-sm text-ink-muted">
-    <time datetime={toIsoLocal(data.date)}>{formatDate(data.date)}</time>
+  <p slot="after-header" class="mt-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink-muted">
+    <span>By <a href={bylineUrl} rel="author" class="font-semibold text-ink underline decoration-line underline-offset-4 hover:text-accent-text">{byline}</a></span>
+    <span aria-hidden="true">·</span>
+    <span>Published <time datetime={toIsoLocal(data.date)}>{formatDate(data.date)}</time></span>
     {data.updated && <span> · Updated {formatDate(data.updated)}</span>}
   </p>
+  {data.contribution && (
+    <aside class="mb-8 rounded-lg border-l-4 border-accent bg-accent-tint p-5" aria-label={contributionLabel}>
+      <p class="eyebrow">{contributionLabel}</p>
+      <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">
+        {data.contribution.type === 'sponsored' ? 'Paid for by ' : 'Submitted by '}
+        {data.contribution.url ? (
+          <a
+            href={data.contribution.url}
+            rel={data.contribution.type === 'sponsored' ? 'sponsored noopener' : 'noopener'}
+            class="font-semibold text-accent-text"
+          >{data.contribution.name}</a>
+        ) : (
+          <strong class="font-semibold text-ink">{data.contribution.name}</strong>
+        )}.
+        {data.contribution.note && <Fragment> {data.contribution.note}</Fragment>}
+      </p>
+    </aside>
+  )}
   {data.supersededAfter && data.supersededNote && (
     <DatedNotice from={dayKey(data.supersededAfter)}>
       <strong class="font-semibold">This was written beforehand.</strong>{' '}
@@ -60,8 +86,28 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
     </figure>
   )}
   <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
-    <div class="prose">
-      <Content />
+    <div>
+      <div class="prose">
+        <Content />
+      </div>
+      {corrections.length > 0 && (
+        <section class="mt-12 border-t border-line pt-8" aria-labelledby="corrections-heading">
+          <h2 id="corrections-heading" class="font-display text-2xl font-semibold">Corrections</h2>
+          <ul class="mt-4 space-y-3 text-[0.9375rem] leading-relaxed text-ink-muted">
+            {corrections.map((correction) => (
+              <li>
+                <time datetime={toIsoLocal(correction.date)} class="font-semibold text-ink">{formatDate(correction.date)}</time>
+                {' — '}{correction.note}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+      <footer class="mt-12 rounded-lg bg-raised p-5 text-[0.9375rem] leading-relaxed text-ink-muted ring-1 ring-line-soft">
+        <strong class="font-semibold text-ink">See an error?</strong>{' '}
+        <a href={correctionHref} class="font-semibold text-accent-text">Report a correction about this article</a>.
+        Material corrections are dated and listed on the page.
+      </footer>
     </div>
     {contents.length > 2 && (
       <aside class="lg:sticky lg:top-24 lg:self-start">
