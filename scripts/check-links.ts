@@ -21,6 +21,12 @@
  * usually our end, so both are reported and neither fails the run — a check
  * that cries wolf gets ignored, and then the real 404 gets ignored with it.
  *
+ * Each site's robots.txt is read before the first link there, and a link it
+ * asks automated clients not to fetch is not fetched. It is listed for a
+ * person to check in a browser instead. A link check is not a crawl, but it
+ * is still a machine knocking, and DECISIONS.md settled with the Berthoud
+ * chamber that an opt-out covers us.
+ *
  * Uses curl rather than fetch: it honours HTTPS_PROXY, system CA bundles and
  * redirect quirks identically everywhere this might run.
  */
@@ -31,6 +37,7 @@ import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
 import { allTowns, LIVE_TOWNS } from '../src/config/index.ts';
 import { hub } from '../src/config/towns/hub.ts';
+import { isAllowed, NO_RULES, parseRobots, STAY_OUT, type RobotsRules } from './lib/robots.ts';
 
 const run = promisify(execFile);
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -43,6 +50,8 @@ const only = process.argv.slice(2).filter((a) => !a.startsWith('-'));
  * no business lecturing anyone about credibility.
  */
 const UA = 'InsideTheTowns-linkcheck/1.0 (+https://insidethetowns.com/editorial/)';
+/** The product token in UA: the name a robots.txt group would address us by. */
+const TOKEN = UA.split('/')[0]!;
 const TIMEOUT = 25;
 const CONCURRENCY = 8;
 /**
@@ -131,7 +140,7 @@ async function curl(url: string, method: 'HEAD' | 'GET'): Promise<{ code: string
   }
 }
 
-type Verdict = 'ok' | 'gone' | 'blocked' | 'unreachable';
+type Verdict = 'ok' | 'gone' | 'blocked' | 'unreachable' | 'skipped';
 
 async function check(url: string): Promise<{ verdict: Verdict; code: string; note: string }> {
   // HEAD first — cheaper for them and for us. Plenty of servers refuse it, so
@@ -148,6 +157,42 @@ async function check(url: string): Promise<{ verdict: Verdict; code: string; not
   }
   if (code === '000') return { verdict: 'unreachable', code, note: 'no response — DNS, TLS or timeout' };
   return { verdict: 'blocked', code, note: 'unexpected status' };
+}
+
+/**
+ * One robots.txt per origin, read before the first link there. RFC 9309 on a
+ * robots.txt that cannot be read: a 4xx means there are no rules, a 5xx means
+ * stay out. No response at all is read as no rules, departing from the RFC on
+ * purpose: the check that follows costs a dead server nothing, and a domain
+ * that has stopped answering is exactly what this script exists to find.
+ */
+const robots = new Map<string, Promise<RobotsRules>>();
+
+function robotsFor(origin: string): Promise<RobotsRules> {
+  if (!robots.has(origin)) robots.set(origin, readRobots(origin));
+  return robots.get(origin)!;
+}
+
+async function readRobots(origin: string): Promise<RobotsRules> {
+  const args = ['-sS', '-L', '--max-time', String(TIMEOUT), '-A', UA, '-w', '\n%{http_code}', `${origin}/robots.txt`];
+  let code = '000';
+  let body = '';
+  // A 5xx or no response gets one more try: either can be a blip at our end.
+  for (let attempt = 0; attempt < 2 && (code === '000' || /^5/.test(code)); attempt++) {
+    try {
+      const { stdout } = await run('curl', args, { maxBuffer: 8 << 20 });
+      const nl = stdout.lastIndexOf('\n');
+      [code, body] = [stdout.slice(nl + 1).trim(), stdout.slice(0, nl)];
+    } catch {
+      code = '000';
+    }
+  }
+  if (/^2/.test(code)) return parseRobots(body, TOKEN);
+  if (/^5/.test(code)) {
+    process.stderr.write(`  ${origin}/robots.txt answered ${code}, which RFC 9309 reads as stay out\n`);
+    return STAY_OUT;
+  }
+  return NO_RULES;
 }
 
 /**
@@ -187,7 +232,14 @@ async function main() {
     Array.from({ length: Math.min(CONCURRENCY, queue.length) }, async () => {
       for (let group = queue.pop(); group; group = queue.pop()) {
         for (const hit of group) {
-          results.set(hit.url, await check(hit.url));
+          const { origin, pathname, search } = new URL(hit.url);
+          const rules = await robotsFor(origin);
+          results.set(
+            hit.url,
+            isAllowed(rules, pathname + search)
+              ? await check(hit.url)
+              : { verdict: 'skipped', code: '', note: 'robots.txt asks automated clients not to fetch it' },
+          );
           done += 1;
           if (done % 50 === 0) process.stderr.write(`  ${done}/${hits.length}\n`);
         }
@@ -199,6 +251,7 @@ async function main() {
   const gone = of('gone');
   const unreachable = of('unreachable');
   const blocked = of('blocked');
+  const skipped = of('skipped');
 
   const list = (label: string, group: Hit[]) => {
     if (!group.length) return;
@@ -214,20 +267,25 @@ async function main() {
   list('MALFORMED — these are not valid URLs', malformed);
   list('DEAD — fix or remove these', gone);
   list('No response — check by hand', unreachable);
-  if (blocked.length) {
-    console.log(`Refused an automated request (${blocked.length}) — almost always a bot challenge, not a dead page:`);
+
+  const tally = (label: string, why: string, group: Hit[]) => {
+    if (!group.length) return;
+    console.log(`${label} (${group.length}) — ${why}:`);
     const hosts = new Map<string, number>();
-    for (const hit of blocked) {
+    for (const hit of group) {
       const host = hostOf(hit.url) ?? hit.url;
       hosts.set(host, (hosts.get(host) ?? 0) + 1);
     }
     for (const [host, n] of [...hosts].sort((a, b) => b[1] - a[1])) console.log(`  ${host} (${n})`);
     console.log('');
-  }
+  };
+
+  tally('Refused an automated request', 'almost always a bot challenge, not a dead page', blocked);
+  tally('Not fetched', 'the site’s robots.txt asks automated clients to stay out, so check these in a browser', skipped);
 
   console.log(
     `check-links: ${of('ok').length} ok, ${gone.length} dead, ${unreachable.length} no response, ` +
-      `${blocked.length} refused${malformed.length ? `, ${malformed.length} malformed` : ''}`,
+      `${blocked.length} refused, ${skipped.length} not fetched${malformed.length ? `, ${malformed.length} malformed` : ''}`,
   );
   if (gone.length || malformed.length) {
     console.log('\nThe editorial policy tells readers every claim has a source they can follow. Dead links break that.');

@@ -1237,3 +1237,45 @@ closing, and control domains over the same proxy were clean across a small
 sample. Origin and proxy cannot be separated from inside that container, so it
 goes in the record as unconfirmed and worth one look from a normal machine,
 rather than as a finding about the sites.
+
+## The link check that could not see a moved meeting, and the site it should not have asked
+
+A network check on 24 September ran `check-links` again. It found eight dead
+links, all on event listings. Three were settled from the organisers' own pages:
+
+- The Niwot Trot's race page had moved.
+- The Johnstown library had dropped its 10 October D&D session.
+- The Town of Lyons had moved its Historic Preservation Commission from
+  24 November to 1 December and dropped 22 December.
+
+The Lyons one is worth remembering. The November listing's source still answered
+200; it had simply started saying December. No link check can see that. The 404
+on its December neighbour is the only reason anyone looked.
+
+The other five dead links point at the Lyons Recorder. Its robots.txt reads
+`User-agent: *` / `Disallow: /`, and 65 of Lyons' 163 event files cite it. So
+every run of the checker had been putting some twenty requests on a site that asks
+every automated client to stay out. The Berthoud chamber entry above already
+settled that an opt-out covers this project. The checker was the one place that
+had not caught up.
+
+It now reads each origin's robots.txt before the first link there
+(`scripts/lib/robots.ts`, RFC 9309):
+
+- It uses its own group if one names it, and otherwise `*`.
+- The longest matching rule wins, and allow wins a tie.
+- A 4xx robots.txt means no rules; a 5xx means stay out.
+- A robots.txt that does not answer at all is read as no rules. This departs
+  from the RFC on purpose: the check that follows costs a dead server nothing,
+  and a domain that has stopped answering is exactly what the checker is for.
+
+What it will not fetch it lists by host, for a person to check in a browser.
+
+The same opt-out applies to the weekly session. The five Recorder listings were
+left for a phone call rather than researched: Spirit Hound's comedy and trivia,
+the Oskar Blues and MainStage bluegrass picks, and the third-Saturday women's
+pinball. The venues' own pages are fair game. MainStage's page for its bluegrass
+night, MainGrass, reads "Oct - May: Friday Nights @ Gunbarrel / May - September:
+Thursday Nights @ Lyons", against listings here that run in Lyons on Thursdays
+to the end of December. The pinball venue's calendar lists no third-Saturday
+women's tournament this autumn, though it does run women's events.
