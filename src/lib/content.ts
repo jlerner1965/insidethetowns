@@ -74,3 +74,26 @@ export async function getHubEntries<C extends CollectionKey>(collection: C): Pro
     return Object.assign(entry, { slug: data.slug ?? slugOf(entry.id, 'hub') }) as TownEntry<C>;
   });
 }
+
+/**
+ * The entries of a town's neighbors, for the one place a town site looks over
+ * the fence on purpose: the "nearby this weekend" block on /events/.
+ *
+ * getTownEntries stays strict, so no town page can reach another town's
+ * content by accident. This is the deliberate case, and it is deliberate
+ * twice over: the caller names the towns it wants, and every entry comes back
+ * carrying its town, so it cannot be rendered as if it were ours.
+ */
+export async function getNeighborEntries<C extends CollectionKey>(
+  collection: C,
+  neighbors: readonly TownConfig[],
+): Promise<NetworkEntry<C>[]> {
+  const towns = new Map(neighbors.map((t) => [t.slug, t]));
+  if (towns.size === 0) return [];
+  const entries = await getCollection(collection, (entry) => towns.has(entry.id.split('/')[0]!));
+  return entries.map((entry) => {
+    const townSlug = entry.id.split('/')[0]!;
+    const data = entry.data as { slug?: string };
+    return Object.assign(entry, { slug: data.slug ?? slugOf(entry.id, townSlug), town: towns.get(townSlug)! }) as NetworkEntry<C>;
+  });
+}

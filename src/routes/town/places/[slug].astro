@@ -45,8 +45,21 @@ const nearby = (sameType.length >= 3 ? sameType : others.filter((p) => family.in
 const here = uniqueByEvent(upcoming(occurrences(await getTownEntries('events'))))
   .filter((e) => e.data.venue === data.title)
   .slice(0, 3);
+/**
+ * Directions without a map. Google's universal directions URL opens the app
+ * on a phone that has one and the site on one that does not, and costs the
+ * page no script and no third-party embed, which the CSP would refuse anyway.
+ * The town and state are appended unless the address already carries a
+ * state; looking for the town's name would not do, since Niwot Road runs
+ * through Niwot and "7960 Niwot Road" is not a full address.
+ */
+const destination = /,\s*CO\b/.test(data.address) ? data.address : `${data.address}, ${town.name}, CO`;
+const directions = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
+// A park or a trail has no one to write in as its owner; everything else does.
+const hasOperator = !['park', 'trail'].includes(data.type);
 const facts = [
   { label: 'Address', value: data.area ? `${data.address} · ${data.area}` : data.address },
+  { label: 'Directions', value: 'Open in Google Maps', href: directions },
   { label: 'Hours', value: data.hours },
   { label: 'Phone', value: data.phone, href: data.phone ? `tel:${data.phone.replace(/[^\d+]/g, '')}` : undefined },
   { label: 'Website', value: data.url ? new URL(data.url).hostname.replace(/^www\./, '') : undefined, href: data.url },
@@ -105,6 +118,20 @@ const facts = [
           {data.verified && <span>Checked {formatDate(data.verified)}</span>}{data.verified && data.source && <span> against </span>}{data.source && <a href={data.source} rel="noopener" class="underline">{new URL(data.source).hostname.replace(/^www\./, '')}</a>}. Hours and phone numbers change fastest, so the business’s own page is the record.
         </p>
       )}
+      {/*
+        Most of these listings have no photograph and many have no hours, and
+        those gaps close fastest when the people who know are asked on the page
+        where the gap shows. The link lands on the contact form with the
+        place's name already in the subject line.
+      */}
+      <p class="mt-6 border-t border-line-soft pt-6 text-[0.9375rem] leading-snug">
+        <a href={`/contact/?about=${encodeURIComponent(data.title)}#message-form`} class="font-semibold text-accent-text no-underline hover:underline">
+          {hasOperator ? `Own or run ${data.title}?` : `Know ${data.title} well?`}
+        </a>
+        <span class="mt-1 block text-[0.875rem] leading-relaxed text-ink-muted">
+          Send a photo, new hours or a correction. Listings are editorial and free; nobody pays to be here.
+        </span>
+      </p>
     </aside>
   </div>
 

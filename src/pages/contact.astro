@@ -48,7 +48,13 @@ const formAction = site.formspreeId ? `https://formspree.io/f/${site.formspreeId
     <p><a href={subject('Listing or correction')}>Email a listing or correction</a></p>
 
     {formAction && (
-      <form action={formAction} method="POST" class="mt-10 space-y-5 rounded-lg bg-raised p-6 ring-1 ring-line-soft md:p-8">
+      <form
+        id="message-form"
+        action={formAction}
+        method="POST"
+        data-site={site.siteTitle}
+        class="mt-10 space-y-5 rounded-lg bg-raised p-6 ring-1 ring-line-soft md:p-8"
+      >
         <input type="hidden" name="_next" value={`https://${site.domain}/message-sent/`} />
         <p class="hidden" aria-hidden="true">
           <label>Leave this blank <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
@@ -71,3 +77,21 @@ const formAction = site.formspreeId ? `https://formspree.io/f/${site.formspreeId
     )}
   </div>
 </Page>
+
+<script>
+  /*
+   * A place page links here with ?about=<its name> and #message-form, so the
+   * sender lands on the form with the name already where they would otherwise
+   * have to type it: the subject, and the first line of the message. Both
+   * stay editable. The values are set as text, never as markup, so nothing
+   * in the query string can put anything on the page.
+   */
+  const about = new URLSearchParams(location.search).get('about');
+  const form = document.querySelector<HTMLFormElement>('form#message-form');
+  if (about && form) {
+    const subject = form.querySelector<HTMLInputElement>('input[name="_subject"]');
+    const message = form.querySelector<HTMLTextAreaElement>('textarea[name="message"]');
+    if (subject) subject.value = [about, form.dataset.site].filter(Boolean).join(' — ');
+    if (message && !message.value) message.value = `About ${about}:\n\n`;
+  }
+</script>

@@ -6,6 +6,7 @@ import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { dayKey, formatDate, formatDayLong, formatTimeRange, formatWeekday, toIsoLocal } from '@/lib/dates';
 import { isPast, nextOccurrence } from '@/lib/events';
+import { googleCalendarUrl } from '@/lib/ics';
 import { pickCanonical } from '@/lib/series';
 import { breadcrumbJsonLd, eventJsonLd } from '@/lib/seo';
 import { CATEGORY_LABELS } from '@/content/schemas';
@@ -57,6 +58,20 @@ const timeText = data.timeNote ?? formatTimeRange(when.start, when.end, data.all
 const firstSentence = (event.body ?? '').trim().split(/(?<=[.!?])\s+/)[0]?.trim() ?? '';
 const particulars = `${formatDayLong(when.start)}, ${timeText} at ${data.venue}, ${town.name}.`;
 const description = firstSentence.length > 30 ? `${particulars} ${firstSentence}` : particulars;
+/**
+ * Two ways into a reader's own calendar, neither needing a script: the
+ * single-event .ics that Apple and Outlook open, and Google's template link.
+ * Both carry the next occurrence, which is the one a reader can still attend.
+ */
+const googleUrl = googleCalendarUrl({
+  title: data.title,
+  start: when.start,
+  end: when.end,
+  allDay: data.allDay,
+  location: [data.venue, data.address, `${town.name}, CO`].filter(Boolean).join(', '),
+  description: firstSentence,
+  url,
+});
 const facts = [
   { label: repeatNote ? 'Next' : 'When', value: [formatDayLong(when.start), timeText, repeatNote].filter(Boolean) },
   { label: 'Where', value: [data.venue, data.address].filter(Boolean) },
@@ -111,6 +126,12 @@ const facts = [
         ))}
       </dl>
       {data.url && <a href={data.url} rel="noopener" class="btn btn-primary mt-6">Organizer’s page →</a>}
+      <p class="mt-6 text-[0.9375rem] leading-snug">
+        <span class="eyebrow block">Add to calendar</span>
+        <a href={`/events/${event.slug}.ics`} class="mt-1.5 inline-block font-semibold text-accent-text no-underline hover:underline">Apple, Outlook (.ics)</a>
+        <span class="text-ink-faint"> · </span>
+        <a href={googleUrl} rel="noopener" class="font-semibold text-accent-text no-underline hover:underline">Google</a>
+      </p>
       {(data.verified || data.source) && (
         <p class="mt-6 text-xs leading-relaxed text-ink-faint">
           {data.verified && <span>Checked {formatDate(data.verified)}</span>}{data.verified && data.source && <span> against </span>}{data.source && <a href={data.source} rel="noopener" class="underline">{new URL(data.source).hostname.replace(/^www\./, '')}</a>}. Times can change; the organizer’s page is the record.

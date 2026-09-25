@@ -2,20 +2,43 @@
 import Page from '@/layouts/Page.astro';
 import EventList from '@/components/EventList.astro';
 import FilterBar from '@/components/FilterBar.astro';
+import NetworkEventCard from '@/components/NetworkEventCard.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
-import { getTown } from '@/config';
-import { getTownEntries } from '@/lib/content';
+import { getNetworkHub, getTown, liveTowns } from '@/config';
+import { getNeighborEntries, getTownEntries } from '@/lib/content';
+import { formatDayRange } from '@/lib/dates';
+import { nearestTowns } from '@/lib/geo';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
-import { categoriesIn, occurrences, uniqueByEvent, upcoming } from '@/lib/events';
+import { categoriesIn, highlights, occurrences, oneOffs, uniqueByEvent, upcoming, weekendSections, weekendWindow } from '@/lib/events';
 import { CATEGORY_LABELS, EVENT_CATEGORIES, type EventCategory } from '@/content/schemas';
 
 const town = getTown();
+const hub = getNetworkHub();
 const all = occurrences(await getTownEntries('events'), { horizonDays: 400 });
 const nextTwoWeeks = upcoming(all, { days: 14 });
 // Beyond two weeks a weekly event appears once, on its next date, not every week.
 const later = uniqueByEvent(upcoming(all).filter((e) => !nextTwoWeeks.includes(e)));
 const shown = [...nextTwoWeeks, ...later];
 const options = categoriesIn(shown, EVENT_CATEGORIES).map((c) => ({ value: c, label: CATEGORY_LABELS[c as EventCategory] }));
+
+/**
+ * A few picks from the towns next door, for the weekend. Nobody planning a
+ * Saturday cares which side of a town line the market sits on, and Berthoud
+ * and Johnstown are eight miles apart. The block is built from the neighbors'
+ * own listings, on purpose (see getNeighborEntries), and every card crosses
+ * to the town that owns it. Elizabeth's nearest guide is fifty-three miles
+ * off, so there the block renders nothing at all. One-offs only: a neighbor's
+ * weekly storytime is not a reason to drive sixteen miles.
+ */
+const near = nearestTowns(town, liveTowns());
+const aroundAll = occurrences(await getNeighborEntries('events', near.map((n) => n.town)), { horizonDays: 30 });
+const around = weekendSections(aroundAll);
+const nearby = highlights(oneOffs([...around.now, ...around.weekend], aroundAll), { limit: 5 });
+const { start: weekendStart, sunday } = weekendWindow();
+const named = near.map((n) => `${n.town.name} (${Math.round(n.miles)} mi)`);
+const nearbyFrom = named.length > 1 ? `${named.slice(0, -1).join(', ')} and ${named[named.length - 1]}` : named.join('');
+const everythingHref = `https://${hub.domain}/this-weekend/`;
+
 const structured = [
   collectionPageJsonLd(town, {
     name: `${town.name}, Colorado events`,
@@ -41,14 +64,22 @@ const structured = [
     Know of something missing? <a href="/submit-event/" class="font-semibold text-accent-text">Submit an event</a>.
     Or <a href="/events/calendar.ics" class="font-semibold text-accent-text">subscribe to the calendar</a> in your calendar app.
   </p>
-  <div class="mb-12">
-    <NewsletterSignup town={town} />
-  </div>
 
   <div data-filter-root>
     <FilterBar options={options} label="Filter events by category" />
     <h2 class="sr-only">Next 14 days</h2>
     <EventList events={nextTwoWeeks} emptyMessage="Nothing listed for the next two weeks yet." />
+    {/*
+      The signup used to sit above the listings, which on a phone put the first
+      event some 1,200 pixels down — a whole screen and more — on the one page
+      a reader opens to see what is on. It follows the fortnight now, for the
+      reason the home page gives for its copy: the offer lands once the reader
+      has had the listings and can tell whether a weekly note of them is worth
+      an address.
+    */}
+    <div class="mt-12 md:mt-16">
+      <NewsletterSignup town={town} />
+    </div>
     {later.length > 0 && (
       <div class="mt-16 md:mt-24">
         <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">Further out</h2>
@@ -57,4 +88,20 @@ const structured = [
     )}
     <p data-filter-empty hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">Nothing in this category coming up.</p>
   </div>
+
+  {nearby.length > 0 && (
+    <section class="mt-20 md:mt-24" data-events-scope>
+      <h2 class="eyebrow border-b-2 border-accent pb-4">Nearby this weekend · {formatDayRange(weekendStart, sunday)}</h2>
+      <p class="mb-8 mt-4 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">
+        A few picks from {nearbyFrom}. Each opens on that town’s own guide, and
+        <a href={everythingHref} class="font-semibold text-accent-text">everything on across all {liveTowns().length} towns</a> is on {hub.siteTitle}.
+      </p>
+      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {nearby.map((event) => <NetworkEventCard event={event} />)}
+      </div>
+      <p data-events-empty hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
+        That weekend has been and gone. <a href={everythingHref} class="font-semibold text-accent-text">See what’s on next across the towns.</a>
+      </p>
+    </section>
+  )}
 </Page>

@@ -1279,3 +1279,139 @@ night, MainGrass, reads "Oct - May: Friday Nights @ Gunbarrel / May - September:
 Thursday Nights @ Lyons", against listings here that run in Lyons on Thursdays
 to the end of December. The pinball venue's calendar lists no third-Saturday
 women's tournament this autumn, though it does run women's events.
+
+## Making the pages more useful on a phone, and letting the towns lean on each other
+
+A pass over the live sites with a phone in mind, after the 24 September check.
+Nothing here changes what the sites are; each item is a place where a reader
+had to work harder than they should, or where the network had something and
+the page did not show it.
+
+### The home page led with whatever was soonest
+
+"What's on" took the next four listings by date. On a Thursday evening in
+Berthoud that was a Planning Commission meeting, a social run and two library
+sessions on Friday morning, with the weekend's Oktoberfest and market nowhere
+on the page. Date order is the right order to *show* things in and the wrong
+order to *choose* them in. `highlights()` ranks before it cuts — featured, then
+the coming weekend, then the rest; at each step one-offs before regulars and a
+civic meeting last — and puts the chosen six back into date order. The hub's
+front page and the new cross-town blocks rank the same way, so the network has
+one idea of what leads.
+
+A regular is a weekly repeat, a listing with a "Third Fridays" note, or one of
+a series stored as a file per date, which nothing in its own frontmatter
+admits to. Those are recognised the way `series.ts` recognises them: another
+listing with the same title at the same venue. Without that rule the first
+build still led Berthoud with three Friday library sessions, because Friday
+comes before Saturday and a date-sorted weekend tier is a Friday tier. Even
+with it, Friday filled the weekend's slots whenever it had three one-offs of
+its own, so within a tier the picks are taken one from each day in turn:
+Saturday's first thing ranks with Friday's first, not after Friday's fourth.
+
+What the rule cannot see is a series stored as a single dated file with no
+note and no later dates — Berthoud's knitting drop-in, at the time of writing.
+To the data that is a one-off, and it leads as one. The fix is in the content:
+a `recurring` note, or the later dates, either of which the weekly session
+would add anyway.
+
+### The signup box was the first thing on the events page
+
+On a 390-pixel phone the first event was some 1,200 pixels down, past a whole
+screen and more, on the one page a reader opens to see what is on. The box
+follows the fortnight's listings now, for the reason the home page already
+gave for its own copy: the offer lands once the reader has had the listings
+and can tell whether a weekly note of them is worth an address. It is the
+email that is the product, so this is a bet that a signup box read after the
+events converts better than one scrolled past to reach them.
+
+### Directions, and a way into a reader's own calendar
+
+Every place page carries a Directions row: Google's universal directions URL,
+which opens the maps app on a phone that has one and the site on one that
+does not. No map embed — the CSP refuses third-party scripts and that is not
+changing for a map — and no coordinates in the content, since the address is
+what the reader has too. The town and state are appended unless the address
+already carries a state. The first version looked for the town's name instead,
+and left "7960 Niwot Road, Suite B5" as it was: Niwot Road runs through Niwot,
+and that is not a full address.
+
+Every event page offers the event as a single `.ics` (Apple, Outlook) and as
+a Google Calendar link, beside the whole-calendar subscription the events
+page already had. Both carry the next occurrence, with the feed's UID for it,
+so a reader who has both does not get the event twice. Google insists on an
+end time; a listing without one is given an hour, the least presumptuous
+guess for a talk or a meeting.
+
+### "Nearby this weekend": the one deliberate look over the fence
+
+On 20 September every town page stopped linking to every other town, because
+nine thousand cross-domain links whose only reason was that the other domains
+existed is the footprint of a link network, not a publication. That decision
+stands. What it left out is the case where a reader in Berthoud genuinely
+wants Johnstown's Saturday, eight miles away.
+
+Each town's events page now ends with a few weekend picks from its nearest
+guides — the nearest three within twenty-five miles, by the coordinates in
+the configs — each card badged with its town and crossing to that town's own
+page. It is one block on one page per town, contextual in the way the hub's
+weekend page and the comparisons are, and it adds a few dozen links across
+the network rather than thousands. Elizabeth's nearest guide is fifty-three
+miles away, so there the block does not render at all, rather than suggest an
+hour each way.
+
+One-offs only. The first build of it led Niwot's block with Berthoud's Friday
+toddler storytime, because the weekend tier ranks by date and storytime is at
+half past ten. A weekly regular is for the people who live there, and a
+council meeting is for its residents; neither is a reason to drive sixteen
+miles. `oneOffs()` drops both, and the hub's front page uses the same rule
+unless a weekend is so quiet that regulars are nearly all there is.
+
+`getTownEntries` stays strict: no town page can reach another town's content
+by accident. The block uses a new accessor that has to be handed the towns it
+wants and returns every entry carrying its town, so it cannot be rendered as
+if it were ours. Deliberate, twice over.
+
+### The hub led with its own numbers
+
+"7 guides, 4 counties, 72,350 people" is a publisher's fact strip, and it sat
+where a reader looks first. The front page now leads with the weekend across
+the network, ranked as above, falling back to the week ahead when the weekend
+is empty and saying which it is showing. The numbers moved down under the
+map, where they read as context rather than as the point.
+
+### A way for the people who know to tell us
+
+Most of the 240 places have no photograph and a quarter have no hours, and the
+trade-body emails of 21 September are the batch route to fixing that. The
+retail route is the page itself: every place page now ends with "Own or run
+X?" — "Know X well?" for a park or a trail — leading to the contact form with
+the place already in the subject line and the first line of the message. The
+form reads that from the query string as text, never as markup, and leaves
+both fields editable.
+
+### A button nobody could read
+
+Found on the way, in a phone capture of `/contact/`: the "Submit an event"
+button was a blank pill on every site. `.prose a` sets link text in the
+town's accent, and it outranks `.btn-primary`, so a button set inside prose
+was accent text on an accent-dark fill. One rule restores the button's own
+colours inside prose. The same fault sat latent on the event form's mailto
+fallback, which no live site renders since the forms were switched on.
+
+### The email that had never been drafted
+
+Every site carried a signup box promising a Thursday email, and nothing in
+the repository could produce one. `scripts/newsletter.ts` drafts it from the
+listings: for each town, the weekend by day, anything still running, the week
+after up to the next issue's reach, places added since the last issue (from
+the git history, which a shallow checkout does not have, and the script says
+so rather than report a quiet week) and articles published that week; and one
+issue for the whole network with a few picks per town. Each draft is Markdown
+under a frontmatter block in the shape of `content/hub/issues/`, so a sent
+issue is a file move away from being its own archive page.
+
+It drafts and does not send. The listings are laid out the way the sites lay
+them out; any words beyond them are for a person, and an issue nobody read
+before it went out is the quickest way to lose the trust the signup box asks
+for.

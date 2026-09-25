@@ -11,6 +11,7 @@ npm run check-links           # ask the live web whether our outbound links stil
 npm run check-colors          # prove the palette passes WCAG AA on every site
 npm run new-town lyons "Lyons"
 npm run weekly                # the weekly content report (see below)
+npm run newsletter            # draft Thursday's email from the listings (see below)
 npm run import-events -- events.csv --dry-run   # CSV → event files
 scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
 ```
@@ -31,6 +32,15 @@ scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
    is left alone unless `--force` is given. `source` defaults to `url` and `verified`
    to today, so every imported event carries both.
 4. `npm run validate`, commit, push. Vercel rebuilds every live site.
+5. On the send day, `npm run newsletter -- --number=N` drafts one issue per town and
+   one for the whole network from the listings: the weekend by day, anything still
+   running, the week after, places added since the last issue (from the git history,
+   so not in a shallow checkout) and articles published that week. Each draft is
+   Markdown under a frontmatter block in the shape of `content/hub/issues/`. Read it,
+   paste the body into Buttondown, send; then drop the file into `content/hub/issues/`
+   and it becomes the archive page. `--town=lyons`, `--date=2026-10-01` and
+   `--out=drafts` narrow it, move it, or write files instead of printing. It drafts;
+   it never sends.
 
 ## Link rot
 

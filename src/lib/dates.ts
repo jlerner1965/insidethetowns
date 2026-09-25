@@ -179,3 +179,14 @@ export function toIsoLocal(date: Date, tz = TIME_ZONE): string {
   const local = new Date(date.getTime() + offsetMin * 60_000);
   return `${local.toISOString().slice(0, 19)}${sign}${hh}:${mm}`;
 }
+
+/** "September 26–27", "October 31 – November 1", or "September 27" for one day. */
+export function formatDayRange(start: Date, end: Date): string {
+  const monthDay = fmt({ month: 'long', day: 'numeric' });
+  if (dayKey(start) === dayKey(end)) return monthDay.format(start);
+  const month = fmt({ month: 'long' });
+  if (month.format(start) === month.format(end)) {
+    return `${monthDay.format(start)}–${fmt({ day: 'numeric' }).format(end)}`;
+  }
+  return `${monthDay.format(start)} – ${monthDay.format(end)}`;
+}

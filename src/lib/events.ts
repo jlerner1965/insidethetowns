@@ -190,3 +190,71 @@ export function weekendSections<T extends EventLike>(
 export function sectionCount<T>(sections: WeekendSections<T>): number {
   return sections.now.length + sections.weekend.length + sections.continuing.length + sections.next.length;
 }
+
+/**
+ * The few listings a page should lead with, when it has room for a few.
+ *
+ * Date order alone leads with whatever is soonest, which on a Thursday evening
+ * is Friday morning's storytime and knitting circle, with the weekend the
+ * reader is actually planning pushed off the end. So this ranks before it
+ * cuts: featured listings, then the coming weekend, then the rest by date. At
+ * each step the one-offs come before the regulars — a release beats the
+ * weekly trivia night — and a civic meeting comes after everything else,
+ * because a council agenda is worth listing and is never the reason someone
+ * opened the page. Within a tier it takes one listing from each day in turn,
+ * so a Thursday build shows the weekend and not only Friday, which is what a
+ * date-sorted tier comes to. The chosen few go back into date order, since a
+ * list of dates that is not in date order reads as a mistake.
+ */
+export function highlights<T extends EventLike>(
+  events: T[],
+  { now = new Date(), limit = 6 }: { now?: Date; limit?: number } = {},
+): T[] {
+  const { start, end } = weekendWindow(now);
+  const isRegular = regularTest(events);
+  const rank = (e: T) => {
+    const t = e.data.start.getTime();
+    const weekend = t >= start.getTime() && t < end.getTime();
+    return (e.data.featured ? 0 : weekend ? 4 : 8) + (isRegular(e) ? 2 : 0) + (e.data.category === 'civic' ? 1 : 0);
+  };
+  const live = uniqueByEvent(upcoming(events, { now })).map((e, i) => ({ e, rank: rank(e), i, turn: 0 }));
+  // `turn` is a listing's place among its tier's listings on its own day: the
+  // first thing on Saturday ranks with the first thing on Friday, not after
+  // the fourth.
+  const seen = new Map<string, number>();
+  for (const x of live) {
+    const key = `${x.rank}|${dayKey(x.e.data.start)}`;
+    x.turn = seen.get(key) ?? 0;
+    seen.set(key, x.turn + 1);
+  }
+  live.sort((a, b) => a.rank - b.rank || a.turn - b.turn || a.i - b.i);
+  return sortByStart(live.slice(0, limit).map((x) => x.e));
+}
+
+/**
+ * Whether a listing is a regular: a weekly repeat, one carrying a "Third
+ * Fridays" note, or one of a series stored as a file per date — which shows
+ * up as another listing with the same title at the same venue, the way
+ * src/lib/series.ts recognises a series too.
+ */
+function regularTest<T extends EventLike>(all: readonly T[]): (event: T) => boolean {
+  const slugsByKey = new Map<string, Set<string>>();
+  for (const e of all) {
+    const key = `${e.data.title}|${e.data.venue}`;
+    slugsByKey.set(key, (slugsByKey.get(key) ?? new Set()).add(e.slug ?? e.id ?? e.data.title));
+  }
+  return (e) => Boolean(e.data.repeat || e.data.recurring) || (slugsByKey.get(`${e.data.title}|${e.data.venue}`)?.size ?? 0) > 1;
+}
+
+/**
+ * The listings a visitor would drive for. A regular — the library's
+ * storytime, the brewery's trivia night — is for the people who live there,
+ * and a council meeting is for its residents, so neither is a pick to send a
+ * reader across a town line for. What is left is the one-offs: the festival,
+ * the release, the race. `all` is the full list a series would show up in,
+ * when `events` is only the weekend's slice of it.
+ */
+export function oneOffs<T extends EventLike>(events: T[], all: readonly T[] = events): T[] {
+  const isRegular = regularTest(all);
+  return events.filter((e) => !isRegular(e) && e.data.category !== 'civic');
+}
