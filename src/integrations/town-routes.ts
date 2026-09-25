@@ -12,6 +12,7 @@ const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
   ['/', 'index.astro'],
   ['/events', 'events/index.astro'],
   ['/events/calendar.ics', 'events/calendar.ics.ts'],
+  ['/events/[slug].ics', 'events/[slug].ics.ts'],
   ['/rss.xml', 'rss.xml.ts'],
   ['/events.rss', 'events.rss.ts'],
   ['/events/[slug]', 'events/[slug].astro'],

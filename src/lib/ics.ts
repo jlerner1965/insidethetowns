@@ -4,7 +4,7 @@
  * (matching what the site shows) rather than emitted as RRULEs, so calendar
  * apps and the pages agree on the dates.
  */
-import { TIME_ZONE, dayKey, addDays, startOfDay } from './dates';
+import { TIME_ZONE, dayKey, addDays, startOfDay } from './dates.ts';
 
 export type IcsEvent = {
   uid: string;
@@ -128,4 +128,25 @@ export function buildIcs(
   }
   lines.push('END:VCALENDAR');
   return lines.map(fold).join('\r\n') + '\r\n';
+}
+
+/**
+ * A "save to Google Calendar" link for one event. No script and no widget:
+ * Google's template URL takes the same fields the .ics carries, as Denver
+ * wall-clock times with `ctz` naming the zone.
+ *
+ * Google insists on an end. A listing with none is given an hour, the least
+ * presumptuous guess for a talk or a meeting. The site itself treats such a
+ * listing as over once it has started, but a calendar entry of no length is
+ * one most apps will not show at all.
+ */
+export function googleCalendarUrl(e: Omit<IcsEvent, 'uid'>): string {
+  const dates = e.allDay
+    ? `${icsDate(e.start)}/${icsDate(addDays(startOfDay(e.end ?? e.start), 1))}`
+    : `${icsLocal(e.start)}/${icsLocal(e.end ?? new Date(e.start.getTime() + 3_600_000))}`;
+  const params = new URLSearchParams({ action: 'TEMPLATE', text: e.title, dates, ctz: TIME_ZONE });
+  if (e.location) params.set('location', e.location);
+  const details = [e.description, e.url].filter(Boolean).join('\n');
+  if (details) params.set('details', details);
+  return `https://calendar.google.com/calendar/render?${params}`;
 }
