@@ -49,6 +49,11 @@ small-business sites that way — and a timeout is usually our end, so both are
 reported and neither fails the run. A check that cries wolf gets ignored, and the
 real 404 gets ignored along with it.
 
+It reads each site's robots.txt first and does not fetch a link the site asks
+automated clients to leave alone. Those are listed by host as "not fetched", for a
+person to check in a browser. The Lyons Recorder, the source of many Lyons events,
+is one of them.
+
 `npm run check-links -- niwot` narrows it to one town.
 
 Each town also publishes its upcoming events as an iCalendar feed at
