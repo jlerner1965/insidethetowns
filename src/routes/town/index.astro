@@ -10,10 +10,12 @@ import ArticleCard from '@/components/ArticleCard.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
+import { highlights, occurrences } from '@/lib/events';
 
 const town = getTown();
-const events = uniqueByEvent(upcoming(occurrences(await getTownEntries('events')))).slice(0, 4);
+// Six, ranked rather than simply soonest (see highlights), so a Thursday
+// visitor sees the weekend and not only Friday morning's library sessions.
+const events = highlights(occurrences(await getTownEntries('events')), { limit: 6 });
 const places = await getTownEntries('places');
 // Cards are for photographs. A card with no photograph is an empty grey box,
 // and most of these towns have only a handful of licensed images, so the rest
@@ -39,8 +41,15 @@ const [lead, second] = articles;
     {events.length === 0 ? (
       <p class="text-ink-muted">No upcoming events listed yet. <a href="/submit-event/" class="text-accent-text underline">Submit one.</a></p>
     ) : (
-      <div class="grid border-b border-line-soft md:grid-cols-2 md:gap-x-12">
-        {events.map((event) => <EventCard event={event} />)}
+      <div data-events-scope>
+        <div class="grid border-b border-line-soft md:grid-cols-2 md:gap-x-12">
+          {events.map((event) => <EventCard event={event} />)}
+        </div>
+        {/* A build from before the weekend, read after it: the browser has
+           removed what has passed, and this says so rather than leave a gap. */}
+        <p data-events-empty hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
+          Everything listed here has now happened. <a href="/events/" class="font-semibold text-accent-text">See what’s next.</a>
+        </p>
       </div>
     )}
     </div>
