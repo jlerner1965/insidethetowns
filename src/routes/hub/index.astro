@@ -2,6 +2,12 @@
 /**
  * The hub home opens typographically rather than with a photo: the map and
  * the town cards are the picture. Each card borrows its town's accent.
+ *
+ * It leads with the weekend. The network's numbers — guides, counties, people
+ * — are a publisher's facts, and they used to sit where a reader looks first.
+ * What a reader wants from the front page of a network of event guides is
+ * what is on, so that comes straight after the headline and the numbers move
+ * down under the map.
  */
 import Base from '@/layouts/Base.astro';
 import TownMap from '@/components/TownMap.astro';
@@ -9,14 +15,32 @@ import SectionHeader from '@/components/SectionHeader.astro';
 import FactStrip from '@/components/FactStrip.astro';
 import NetworkEventCard from '@/components/NetworkEventCard.astro';
 import { getNetworkEntries } from '@/lib/content';
-import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
+import { formatDayRange } from '@/lib/dates';
+import { highlights, occurrences, oneOffs, weekendSections, weekendWindow } from '@/lib/events';
 import { LIVE_TOWNS, countiesCovered, countyLabel, getHub } from '@/config';
 
 const hub = getHub();
 const live = hub.towns.filter((t) => LIVE_TOWNS.includes(t.slug));
 const soon = hub.towns.filter((t) => !LIVE_TOWNS.includes(t.slug));
-// Without these the hub is a signpost. With them it is a publication.
-const next = uniqueByEvent(upcoming(occurrences(await getNetworkEntries('events'), { horizonDays: 21 }))).slice(0, 5);
+/**
+ * The weekend across every guide, ranked the way a town's own home page ranks
+ * its listings (highlights). On a Sunday night, or in a quiet week, the
+ * weekend can be empty, and an empty band under the headline is worse than
+ * none, so the block falls back to the week ahead and says which it is.
+ *
+ * One-offs lead: a festival is a reason to cross a county line and a weekly
+ * trivia night is not. Only when the weekend is so quiet that regulars are
+ * nearly all there is do they fill the block.
+ */
+const now = new Date();
+const network = occurrences(await getNetworkEntries('events'), { now, horizonDays: 30 });
+const sections = weekendSections(network, { now, horizonDays: 15 });
+const onThisWeekend = [...sections.now, ...sections.weekend];
+const picks = highlights(oneOffs(onThisWeekend, network), { now, limit: 6 });
+const weekend = picks.length >= 3 ? picks : highlights(onThisWeekend, { now, limit: 6 });
+const leadIsWeekend = weekend.length > 0;
+const lead = leadIsWeekend ? weekend : highlights(sections.next, { now, limit: 6 });
+const { start: weekendStart, sunday } = weekendWindow(now);
 /**
  * The hub's own snippet. Without it the page falls back to `hub.tagline`,
  * which is 74 characters and says what the network is but not what is on a
@@ -36,20 +60,28 @@ const description = `Independent guides to ${live.length} small towns on Colorad
       {hub.tagline} One site per town: the week’s events, where to eat and drink, the trails, and a straight
       account of what it’s like to live there.
     </p>
-    <div class="mt-12 max-w-4xl">
-      <FactStrip
-        size="number"
-        facts={[
-          { label: 'Guides live', value: String(live.length) },
-          { label: 'Counties', value: String(countiesCovered(live).length) },
-          { label: 'People covered', value: live.reduce((n, t) => n + (t.population ?? 0), 0).toLocaleString('en-US') },
-        ]}
-        note="Population at the 2020 census, summed across the live guides. Several of these towns have grown a long way since."
-      />
-    </div>
   </section>
 
-  <section id="towns" class="band band-white">
+  {lead.length > 0 && (
+    <section class="band band-white">
+      <div class="container-page" data-events-scope>
+        <SectionHeader
+          eyebrow={leadIsWeekend ? `Across the towns · ${formatDayRange(weekendStart, sunday)}` : 'Across the towns'}
+          title={leadIsWeekend ? 'This weekend' : 'What’s on next'}
+          href="/this-weekend/"
+          linkLabel="Everything on"
+        />
+        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+          {lead.map((event) => <NetworkEventCard event={event} />)}
+        </div>
+        <p data-events-empty hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
+          Those dates have passed. <a href="/this-weekend/" class="font-semibold text-accent-text">See what’s on now.</a>
+        </p>
+      </div>
+    </section>
+  )}
+
+  <section id="towns" class="band band-tint">
     <div class="container-page">
     <SectionHeader eyebrow="The network" title="The towns" />
     <div class="grid items-start gap-10 lg:grid-cols-[3fr_2fr] lg:gap-14">
@@ -80,21 +112,21 @@ const description = `Independent guides to ${live.length} small towns on Colorad
     </div>
   </section>
 
-  {next.length > 0 && (
-    <section class="band band-tint">
-      <div class="container-page">
-        <SectionHeader
-          eyebrow="Across the network"
-          title="What’s on next"
-          href="/this-weekend/"
-          linkLabel="This weekend"
+  <section class="band band-white">
+    <div class="container-page">
+      <div class="max-w-4xl">
+        <FactStrip
+          size="number"
+          facts={[
+            { label: 'Guides live', value: String(live.length) },
+            { label: 'Counties', value: String(countiesCovered(live).length) },
+            { label: 'People covered', value: live.reduce((n, t) => n + (t.population ?? 0), 0).toLocaleString('en-US') },
+          ]}
+          note="Population at the 2020 census, summed across the live guides. Several of these towns have grown a long way since."
         />
-        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-          {next.map((event) => <NetworkEventCard event={event} />)}
-        </div>
       </div>
-    </section>
-  )}
+    </div>
+  </section>
 
   <section class="on-dark bg-accent-dark text-white">
     <div class="container-page grid gap-8 py-16 md:grid-cols-[3fr_2fr] md:items-end md:py-24">
