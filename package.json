@@ -17,6 +17,7 @@
     "check-links": "node scripts/check-links.ts",
     "new-town": "node scripts/new-town.ts",
     "weekly": "node scripts/weekly.ts",
+    "newsletter": "node scripts/newsletter.ts",
     "import-events": "node scripts/import-events.ts",
     "dev:niwot": "TOWN=niwot astro dev",
     "dev:hub": "TOWN=hub astro dev",
