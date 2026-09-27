@@ -18,6 +18,7 @@ import { liveTowns } from '../src/config/index.ts';
 // Imported directly, not via getHub(): the validator runs without TOWN set.
 import { hub } from '../src/config/towns/hub.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
+import { parseHoursText } from '../src/lib/hours.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'content');
@@ -25,6 +26,8 @@ const townsDir = join(root, 'src/config/towns');
 
 const errors: string[] = [];
 const warnings: string[] = [];
+/** Reported as one line each, after the warnings; there are dozens and they are all the same kind. */
+const unparsedHours: string[] = [];
 let checked = 0;
 
 function imageSchemaFor(file: string) {
@@ -55,6 +58,15 @@ function validateFile(collection: CollectionName, file: string) {
   }
   if (collection !== 'pages' && parsed.body.trim() === '') {
     warnings.push(`${rel}: body is empty`);
+  }
+  if (collection === 'places') {
+    const data = result.data as { hours?: string; openingHours?: string[] };
+    // Not an error: the text still shows. But the page makes no open-or-closed
+    // claim for this listing, and the line is worth a look — often a stray
+    // word, sometimes hours that genuinely cannot be said in one line.
+    if (data.hours && !data.openingHours && !parseHoursText(data.hours)) {
+      unparsedHours.push(`${rel}: hours not read as a schedule ("${data.hours}"); no open-now status. Reword, or set openingHours.`);
+    }
   }
   if (collection === 'events') {
     const data = result.data as { start: Date; end?: Date; until?: Date; title: string };
@@ -255,6 +267,8 @@ if (!existsSync(contentDir)) {
 }
 
 for (const w of warnings) console.warn(`warn  ${w}`);
+if (unparsedHours.length > 0 && process.argv.includes('--hours')) for (const w of unparsedHours) console.warn(`hours ${w}`);
+else if (unparsedHours.length > 0) console.warn(`hours ${unparsedHours.length} listings have an hours line the site cannot read as a schedule (run with --hours to list them)`);
 for (const e of errors) console.error(`error ${e}`);
 console.log(`\nvalidate-content: ${checked} entries checked, ${errors.length} errors, ${warnings.length} warnings`);
 if (errors.length > 0) process.exit(1);

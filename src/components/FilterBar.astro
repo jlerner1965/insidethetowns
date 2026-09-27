@@ -6,18 +6,29 @@
 interface Props {
   options: Array<{ value: string; label: string }>;
   label?: string;
+  /**
+   * Offer an "Open now" toggle. It appears only once OpenStatus.astro has
+   * worked out which listings are open, so a page without JavaScript never
+   * shows a button that does nothing.
+   */
+  openNow?: boolean;
 }
 
-const { options, label = 'Filter' } = Astro.props;
+const { options, label = 'Filter', openNow = false } = Astro.props;
 const pill =
   'rounded-full border border-accent-line bg-raised px-4 py-1.5 text-sm font-medium text-ink-muted transition-colors hover:border-accent hover:text-accent-text aria-pressed:border-accent-dark aria-pressed:bg-accent-dark aria-pressed:text-white';
 ---
-{options.length > 1 && (
+{(options.length > 1 || openNow) && (
   <div class="mb-8 flex flex-wrap items-center gap-2 md:mb-10" role="group" aria-label={label} data-filter-bar>
-    <button type="button" data-filter="all" aria-pressed="true" class={pill}>All</button>
-    {options.map((o) => (
+    {options.length > 1 && <button type="button" data-filter="all" aria-pressed="true" class={pill}>All</button>}
+    {options.length > 1 && options.map((o) => (
       <button type="button" data-filter={o.value} aria-pressed="false" class={pill}>{o.label}</button>
     ))}
+    {openNow && (
+      <button type="button" data-filter-open aria-pressed="false" hidden class:list={[pill, 'ml-1 border-dashed']}>
+        <span class="mr-1.5 inline-block size-2 rounded-full bg-[#2f9e5b] align-middle" aria-hidden="true"></span>Open now
+      </button>
+    )}
     <p class="sr-only" role="status" data-filter-status></p>
   </div>
 )}
@@ -27,11 +38,15 @@ const pill =
   for (const bar of bars) {
     const root = bar.closest<HTMLElement>('[data-filter-root]') ?? document.body;
     const buttons = bar.querySelectorAll<HTMLButtonElement>('[data-filter]');
-    const apply = (value: string) => {
+    const openToggle = bar.querySelector<HTMLButtonElement>('[data-filter-open]');
+    let value = 'all';
+    let openOnly = false;
+    const apply = () => {
       for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.filter === value));
+      openToggle?.setAttribute('aria-pressed', String(openOnly));
       const items = root.querySelectorAll<HTMLElement>('[data-filter-item]');
       for (const item of items) {
-        item.hidden = value !== 'all' && item.dataset.category !== value;
+        item.hidden = (value !== 'all' && item.dataset.category !== value) || (openOnly && item.dataset.open !== 'true');
       }
       for (const group of root.querySelectorAll<HTMLElement>('[data-filter-group]')) {
         group.hidden = !group.querySelector('[data-filter-item]:not([hidden])');
@@ -43,9 +58,27 @@ const pill =
       if (status) {
         const shown = root.querySelectorAll('[data-filter-item]:not([hidden])').length;
         const label = value === 'all' ? 'all categories' : value;
-        status.textContent = `${shown} ${shown === 1 ? 'result' : 'results'} in ${label}`;
+        status.textContent = `${shown} ${shown === 1 ? 'result' : 'results'} in ${label}${openOnly ? ', open now' : ''}`;
       }
     };
-    for (const b of buttons) b.addEventListener('click', () => apply(b.dataset.filter ?? 'all'));
+    for (const b of buttons) {
+      b.addEventListener('click', () => {
+        value = b.dataset.filter ?? 'all';
+        apply();
+      });
+    }
+    if (openToggle) {
+      openToggle.addEventListener('click', () => {
+        openOnly = !openOnly;
+        apply();
+      });
+      // Shown once something on the page has hours to be open by; a page of
+      // parks and trails has none, and the button stays away.
+      const reveal = () => {
+        if (root.querySelector('[data-filter-item][data-open]')) openToggle.hidden = false;
+      };
+      document.addEventListener('hours:ready', reveal);
+      reveal();
+    }
   }
 </script>

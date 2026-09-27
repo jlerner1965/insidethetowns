@@ -27,6 +27,18 @@ const isActive = (href: string) => {
     <div class="flex items-center justify-between gap-6 py-5 md:py-7">
       <Wordmark class="whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" />
 
+      <div class="flex items-center gap-1 lg:order-last lg:gap-2">
+        <a
+          href="/search/"
+          aria-label="Search"
+          aria-current={path.startsWith('/search') ? 'page' : undefined}
+          class="site-search-link flex size-11 items-center justify-center rounded-full text-ink-muted no-underline hover:bg-accent-tint hover:text-accent-text"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m20 20-3.5-3.5"></path>
+          </svg>
+        </a>
       <button
         type="button"
         class="nav-toggle -mr-2 lg:hidden"
@@ -37,6 +49,7 @@ const isActive = (href: string) => {
       >
         <span class="nav-toggle-bars" aria-hidden="true"></span>
       </button>
+      </div>
 
       <nav id="site-nav" class="site-nav" aria-label="Primary">
         <ul class="site-nav-list container-page lg:gap-7 lg:px-0">

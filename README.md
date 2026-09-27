@@ -6,7 +6,7 @@ Front Range towns, one deployment per domain, selected by the `TOWN` env var.
 ```
 TOWN=niwot npm run dev        # or: npm run dev -- --town=niwot
 TOWN=hub   npm run build      # insidethetowns.com
-npm run validate              # check every town's content
+npm run validate              # check every town's content (--hours lists hours lines it cannot read)
 npm run check-links           # ask the live web whether our outbound links still work
 npm run check-colors          # prove the palette passes WCAG AA on every site
 npm run new-town lyons "Lyons"
@@ -69,6 +69,38 @@ is one of them.
 Each town also publishes its upcoming events as an iCalendar feed at
 `/events/calendar.ics` (weekly repeats expanded 120 days out), linked from the
 events page, so readers can subscribe in a calendar app.
+
+## Finding things
+
+- `/search/` on every site: Pagefind indexes `dist/` at the end of `npm run build`
+  (`scripts/run.ts`) and the page loads the static index from `/pagefind/`. In
+  `astro dev` there is no index and the page says so.
+- `/events/` filters by when (today, this weekend, next 7 days, free) and by
+  category, keeps the choice in the URL (`?when=weekend&category=music`), and
+  has a day strip that jumps down the fortnight. `/this-weekend/` is the weekend
+  as its own page.
+- `/directory/` is every place by kind, with an "Open now" pill and a name search.
+- `/guides/` is every article by subject. Articles take `sources` (a list of
+  `{ label, url }`) and `verified`, shown at the foot.
+
+## Hours
+
+A place's `hours` is one line of text, and the build reads it into schema.org
+`openingHours` (`src/lib/hours.ts`) for the open-or-closed status on every row
+and page, the "Open now" filter, and the listing's structured data. Write it the
+way the existing listings do — `Tue–Sat 10–5; closed Sun–Mon`, `Daily 7 am–2 pm`,
+`Wed–Fri 11–2 & 4–8` — and it will be read. Dawn to dusk, by appointment and
+seasonal notes are shown as text and make no open-now claim. `npm run validate --
+--hours` lists the lines the parser could not read; reword them, or set
+`openingHours` (`["Tu-Sa 10:00-17:00"]`) on the listing and keep the text for
+display.
+
+## Sponsors
+
+`sponsors` on a town config (`events`, `movingHere`, `email`) and on the hub
+(`email`) switch on the labeled placements /advertise/ describes. Every slot
+renders nothing until set. `/for-businesses/` on each town explains listings
+and placements to a business owner.
 
 - `PLAN.md` — the build plan, phase by phase
 - `DECISIONS.md` — choices made along the way

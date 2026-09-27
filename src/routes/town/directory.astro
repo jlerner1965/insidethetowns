@@ -1,0 +1,102 @@
+---
+/**
+ * Every place in the town on one page, by kind.
+ *
+ * Eat & Drink and Things to Do are the two ways most readers browse, and
+ * between them they filed the shops under one and the places to stay under
+ * the other, where a reader looking for the hardware store or a room for
+ * visiting parents would not think to look. This is the third way in: the
+ * whole list, grouped and counted, filterable by kind and by whether it is
+ * open at this moment, with a name search that needs no index because the
+ * names are already on the page.
+ */
+import Page from '@/layouts/Page.astro';
+import PlaceDirectory from '@/components/PlaceDirectory.astro';
+import { getTown } from '@/config';
+import { getTownEntries } from '@/lib/content';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+import { PLACE_TYPE_PLURALS, PLACE_TYPES } from '@/content/schemas';
+
+const town = getTown();
+const places = (await getTownEntries('places')).sort(
+  (a, b) => Number(b.data.featured) - Number(a.data.featured) || a.data.title.localeCompare(b.data.title),
+);
+const kinds = PLACE_TYPES.filter((t) => places.some((p) => p.data.type === t)).map((t) => PLACE_TYPE_PLURALS[t].toLowerCase());
+const kindList = kinds.length > 1 ? `${kinds.slice(0, -1).join(', ')} and ${kinds[kinds.length - 1]}` : kinds.join('');
+const description = `Every ${kindList.length > 0 ? kindList.replace(/ and /, ', ') : 'place'} in ${town.name}, ${town.state}, in one list: ${places.length} places with addresses and hours. Nobody pays to be listed.`;
+const structured = [
+  collectionPageJsonLd(town, {
+    name: `${town.name}, Colorado directory`,
+    description,
+    path: '/directory/',
+    items: places.map((p) => ({ name: p.data.title, path: `/places/${p.slug}/` })),
+  }),
+  breadcrumbJsonLd(town, [
+    { name: town.name, path: '/' },
+    { name: 'Directory', path: '/directory/' },
+  ]),
+];
+---
+<Page
+  title="Directory"
+  seoTitle={`${town.name}, Colorado directory: every place we list`}
+  eyebrow={town.name}
+  {description}
+  intro={`All ${places.length} places in ${town.name} we list — ${kindList} — with where they are and when they are open. Listings are editorial; nobody pays to be here.`}
+  jsonLd={structured}
+>
+  <div slot="after-header" class="mt-6 max-w-md">
+    <label for="directory-search" class="eyebrow mb-2 block">Find by name</label>
+    <input
+      id="directory-search"
+      type="search"
+      autocomplete="off"
+      placeholder="Start typing a name…"
+      class="w-full rounded-md border border-line bg-raised px-4 py-2.5 text-[1rem] text-ink placeholder:text-ink-faint focus:border-accent"
+      data-directory-search
+    />
+  </div>
+  <div data-directory>
+    <PlaceDirectory places={places} heading="Every place, by kind" filterable lead={0} emptyMessage="Nothing listed yet." />
+    <p data-directory-empty hidden class="mt-6 rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
+      No place by that name. <a href="/contact/" class="font-semibold text-accent-text">Tell us what is missing.</a>
+    </p>
+  </div>
+</Page>
+
+<script>
+  /*
+   * The name search narrows the rows already on the page. It sets its own
+   * attribute rather than `hidden`, which FilterBar owns; the CSS below hides
+   * a row when either says so, and FilterBar's counts stay honest because a
+   * name-hidden row is still not [hidden].
+   */
+  const input = document.querySelector<HTMLInputElement>('[data-directory-search]');
+  const root = document.querySelector<HTMLElement>('[data-directory]');
+  if (input && root) {
+    const rows = [...root.querySelectorAll<HTMLElement>('[data-filter-item]')].map((row) => ({
+      row,
+      text: (row.querySelector('h3, h4')?.textContent ?? '').toLowerCase(),
+    }));
+    const groups = root.querySelectorAll<HTMLElement>('[data-filter-group]');
+    const empty = root.querySelector<HTMLElement>('[data-directory-empty]');
+    const apply = () => {
+      const q = input.value.trim().toLowerCase();
+      for (const { row, text } of rows) row.toggleAttribute('data-name-miss', q !== '' && !text.includes(q));
+      for (const group of groups) {
+        group.toggleAttribute('data-name-miss', !group.querySelector('[data-filter-item]:not([data-name-miss]):not([hidden])'));
+      }
+      if (empty) empty.hidden = q === '' || !!root.querySelector('[data-filter-item]:not([data-name-miss]):not([hidden])');
+    };
+    input.addEventListener('input', apply);
+    const q = new URLSearchParams(location.search).get('q');
+    if (q) {
+      input.value = q;
+      apply();
+    }
+  }
+</script>
+
+<style>
+  [data-name-miss] { display: none; }
+</style>

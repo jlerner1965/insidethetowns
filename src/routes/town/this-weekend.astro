@@ -1,0 +1,115 @@
+---
+/**
+ * This weekend in one town: the page a reader shares on a Thursday.
+ *
+ * /events/ carries a fortnight and can be filtered down to the weekend, but a
+ * filter is not a link. This is the weekend as its own URL — the one the
+ * weekly email points at, the one that gets texted to a friend — with the
+ * hub's whole-network version a click away for anyone willing to drive.
+ *
+ * Like the hub's page it bakes more than the weekend and lets the reader's
+ * browser drop what has passed (see Freshness.astro), so a build days old
+ * still shows the right days. The server renders the partition for its own
+ * build date, so a crawler gets a coherent page too.
+ */
+import Page from '@/layouts/Page.astro';
+import SponsorLine from '@/components/SponsorLine.astro';
+import EventCard from '@/components/EventCard.astro';
+import EventList from '@/components/EventList.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
+import { getNetworkHub, getTown } from '@/config';
+import { getTownEntries } from '@/lib/content';
+import { formatDayRange } from '@/lib/dates';
+import { occurrences, sectionCount, weekendSections, weekendWindow } from '@/lib/events';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+
+const town = getTown();
+const hub = getNetworkHub();
+const refreshedAt = new Date();
+const sections = weekendSections(occurrences(await getTownEntries('events'), { now: refreshedAt, horizonDays: 30 }), {
+  now: refreshedAt,
+  horizonDays: 8,
+});
+const { now, weekend, continuing, next } = sections;
+const { start: weekendStart, sunday } = weekendWindow(refreshedAt);
+const range = formatDayRange(weekendStart, sunday);
+const everything = [...now, ...weekend, ...continuing, ...next];
+const description = `What’s on in ${town.name}, Colorado this weekend, ${range}: markets, music, trails, family things and what is still running.`;
+const structured = [
+  collectionPageJsonLd(town, {
+    name: `This weekend in ${town.name}, Colorado`,
+    description,
+    path: '/this-weekend/',
+    items: everything.map((e) => ({ name: e.data.title, path: `/events/${e.slug}/` })),
+  }),
+  breadcrumbJsonLd(town, [
+    { name: town.name, path: '/' },
+    { name: 'Events', path: '/events/' },
+    { name: 'This weekend', path: '/this-weekend/' },
+  ]),
+];
+---
+<Page
+  title={`This weekend in ${town.name}`}
+  seoTitle={`This weekend in ${town.name}, Colorado`}
+  eyebrow={range}
+  {description}
+  intro={`Everything on in ${town.name} from Friday to Sunday, then what’s still running and the week after. Past dates drop off on their own.`}
+  jsonLd={structured}
+>
+  <p slot="after-header" class="mt-5 text-[0.9375rem] text-ink-muted">
+    <a href="/events/" class="font-semibold text-accent-text">All events</a> ·
+    <a href={`https://${hub.domain}/this-weekend/`} class="font-semibold text-accent-text">This weekend across all the towns</a>
+  </p>
+  <SponsorLine slot="after-header" sponsor={town.sponsors?.events} />
+
+  <div data-events-scope>
+    {sectionCount(sections) === 0 && (
+      <p class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
+        Nothing listed for this weekend yet. <a href="/submit-event/" class="font-semibold text-accent-text">Know of something?</a>
+      </p>
+    )}
+
+    {now.length > 0 && (
+      <section class="mb-16 md:mb-20">
+        <h2 class="eyebrow mb-6 border-b-2 border-accent pb-4">On right now</h2>
+        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+          {now.map((event) => <EventCard event={event} />)}
+        </div>
+      </section>
+    )}
+
+    {weekend.length > 0 && (
+      <section class="mb-16 md:mb-20">
+        <h2 class="sr-only">The weekend, by day</h2>
+        <EventList events={weekend} />
+      </section>
+    )}
+
+    {continuing.length > 0 && (
+      <section class="mb-16 md:mb-20">
+        <h2 class="eyebrow mb-6 border-b-2 border-accent pb-4">Still running</h2>
+        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+          {continuing.map((event) => <EventCard event={event} />)}
+        </div>
+      </section>
+    )}
+
+    {next.length > 0 && (
+      <section class="mb-16 md:mb-20">
+        <h2 class="eyebrow mb-6 border-b-2 border-accent pb-4">The week after</h2>
+        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+          {next.map((event) => <EventCard event={event} />)}
+        </div>
+      </section>
+    )}
+
+    <p data-events-empty hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
+      That weekend has been and gone. <a href="/events/" class="font-semibold text-accent-text">See what’s next.</a>
+    </p>
+  </div>
+
+  <div class="mt-12 max-w-2xl md:mt-16">
+    <NewsletterSignup town={town} compact />
+  </div>
+</Page>

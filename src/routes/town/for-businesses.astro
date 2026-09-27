@@ -1,0 +1,91 @@
+---
+/**
+ * What a business gets from the guide, and what it can buy.
+ *
+ * Every place page ends with "Own or run X?", and the answer to the question
+ * that follows — "so what does that get me, and what does it cost?" — lived
+ * nowhere. This is the page: a free listing is editorial and stays that
+ * way; the things for sale sit beside the editorial and are labeled; and
+ * here is how to claim, correct, or sponsor. Written for the owner of a
+ * café, not for a media buyer, who has /advertise/ on the hub.
+ */
+import Page from '@/layouts/Page.astro';
+import { getNetworkHub, getTown } from '@/config';
+import { getTownEntries } from '@/lib/content';
+import { breadcrumbJsonLd } from '@/lib/seo';
+
+const town = getTown();
+const hub = getNetworkHub();
+const places = await getTownEntries('places');
+const businesses = places.filter((p) => !['park', 'trail'].includes(p.data.type)).length;
+const claim = `/contact/?about=${encodeURIComponent('My business')}#message-form`;
+const partner = `mailto:${hub.social.email}?subject=${encodeURIComponent(`Partnership — ${town.siteTitle}`)}`;
+const description = `How ${town.siteTitle} lists businesses in ${town.name}, ${town.state}: listings are free and editorial; sponsorship is labeled and sits beside them. How to claim or correct a listing.`;
+---
+<Page
+  title="For businesses"
+  seoTitle={`For businesses in ${town.name}: listings, corrections and sponsorship`}
+  eyebrow={town.siteTitle}
+  {description}
+  intro={`If you run something in ${town.name}, this is how the guide works for you: what a listing is, how to fix one, and what is for sale.`}
+  jsonLd={breadcrumbJsonLd(town, [
+    { name: town.name, path: '/' },
+    { name: 'For businesses', path: '/for-businesses/' },
+  ])}
+  narrow
+>
+  <div class="prose">
+    <h2>A listing is free, and it is ours</h2>
+    <p>
+      {town.siteTitle} lists {businesses} businesses and venues in {town.name} because they are here, not because
+      anyone paid. Nobody can buy a listing, buy a better position, or buy their way out of one. Each entry is
+      checked against a source — usually your own website — and says when it was last checked. That is what makes
+      readers trust the page you are on, and that trust is the whole point of being on it.
+    </p>
+    <p>
+      A listing carries your name, what you are, where you are, when you are open, your phone number and your
+      website, a sentence or two on what you are known for, and a photograph if we have one we are allowed to use.
+      It also shows whether you are open right now, worked out from the hours on the page, and it appears in the
+      <a href="/directory/">directory</a>, in the <a href="/search/">site search</a>, and beside any event held at
+      your address.
+    </p>
+
+    <h2>Claim it, correct it, add to it</h2>
+    <p>
+      The fastest way to improve your listing is to <a href={claim}>write to us from it</a>. Every place page has an
+      “Own or run this?” link at the foot of its details, which opens the form with your name already filled in.
+      Things that are always welcome:
+    </p>
+    <ul>
+      <li><strong>Hours.</strong> One line, in your words: “Tue–Sat 10–5; closed Sun–Mon.” We keep it in that shape so the site can tell readers when you are open.</li>
+      <li><strong>A photograph</strong> you own or have the right to give us, with who to credit. Most listings have none, and a listing with one is read more.</li>
+      <li><strong>A correction.</strong> A phone number, an address, a closed location, a change of name.</li>
+      <li><strong>An event.</strong> Anything open to the public — a tasting, a class, a market day — goes on the events page for nothing. <a href="/submit-event/">Submit it here</a>.</li>
+    </ul>
+    <p>Not listed at all? Say so on the same form. If you are in {town.name} and open to the public, you belong here.</p>
+
+    <h2>What is for sale</h2>
+    <p>
+      Sponsorship, labeled as such, beside the editorial and never inside it. A sponsor’s name appears on a
+      page or in the weekly email as “presented by”, with a link. It does not change a listing, the order of a
+      list, or what we write. The placements on this guide are:
+    </p>
+    <ul>
+      <li>A “presented by” line on the <a href="/events/">events page</a> and the <a href="/this-weekend/">weekend page</a> — the pages readers come back to every week.</li>
+      <li>A labeled block on <a href="/moving-here/">Moving Here</a>, which is where people about to move to {town.name} look for an agent, a lender, a mover.</li>
+      {hub.newsletter && <li>A line at the top of the weekly {town.siteTitle} email.</li>}
+    </ul>
+    <p>
+      One sponsor per placement, so a sponsor is not competing with three others on the same page. Prices and
+      audience figures are on the network’s <a href={`https://${hub.domain}/advertise/`}>advertising page</a>, which
+      only quotes numbers it has actually measured. To talk about a placement, <a href={partner}>email us</a>.
+    </p>
+
+    <h2>What we will not do</h2>
+    <p>
+      Write a listing you dictate, take a listing down because a competitor asked, call a sponsor “our pick”, or
+      put an advertisement where a reader would take it for a recommendation. The <a href="/editorial/">editorial
+      policy</a> says the same at more length, and it applies to us as much as to you.
+    </p>
+  </div>
+</Page>

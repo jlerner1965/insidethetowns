@@ -1415,3 +1415,122 @@ It drafts and does not send. The listings are laid out the way the sites lay
 them out; any words beyond them are for a person, and an issue nobody read
 before it went out is the quickest way to lose the trust the signup box asks
 for.
+
+## Search, open-now, a directory, guides, and the slots for a sponsor
+
+The site had listings a reader could trust and no fast way through them. A
+reader who wanted pizza browsed; one who wanted "is it open" read a line of
+text and did the arithmetic; one who wanted the hardware store looked under
+Eat & Drink and did not find it; one who wanted the playgrounds got the
+railroad. This pass is about finding things, and about the foundation for
+the day someone asks to sponsor a page.
+
+### The events page asks "when" before "what"
+
+The filters were categories: Music, Arts, Civic. The questions readers arrive
+with are tonight, this weekend, something free. The first row of pills is now
+Anytime, Today, This weekend, Next 7 days and Free, the second is the
+category, and the two combine. Today and the weekend are decided in the
+reader's browser from the Denver date, for the reason Freshness.astro gives:
+the build is a snapshot and the page has to stay right after it. The chosen
+filters go into the URL, so "free things this weekend" can be bookmarked,
+shared and linked from the email, and survive a reload. A strip of day chips
+under the filters jumps down the fortnight, and on a phone the day heading
+sticks to the top while its listings scroll under it.
+
+The "nothing matches" line is a reset, not an apology: on a Sunday evening
+"This weekend" is empty, correctly, and a dead end there would read as a
+broken page.
+
+### Search, static
+
+Pagefind indexes `dist/` after every build and writes a static index under
+`/pagefind/` that the browser loads in pieces as it searches, so there is no
+search server, no third party and no request that leaves our host. Two
+dependencies were the rule and this is a third, the first added since the
+plan; it earns its place by being the one feature every other friction on
+the list is partly solved by. The CSP gains `'wasm-unsafe-eval'` for the
+WebAssembly it runs on and nothing else. The result list is our own markup
+rather than Pagefind's bundled UI, in the site's type, with each page's kind
+(Event, Place, Guide) from a `data-pagefind-meta` set in Base.astro. Only
+pages that are not noindex are indexed, which keeps past events, the
+thank-you pages and the search page itself out of the results.
+
+### Hours as a line of text, read as a schedule
+
+Hours stay the one free-text line the weekly session edits; nothing new to
+maintain. `src/lib/hours.ts` reads that line into schema.org `openingHours`
+at build time and the same code runs in the browser to say "Open · closes
+7 pm" or "Closed · opens tomorrow 10 am" on every place row and place page,
+and to drive an "Open now" pill on Eat & Drink and the directory. The
+structure also goes into the listing's LocalBusiness markup.
+
+It parses only what it is sure of. Of 146 distinct hours lines, 122 read as
+a schedule. The rest — dawn to dusk, by appointment, seasonal, an office and
+a service on one line — show the text and make no open-now claim, because a
+confident wrong "Open now" on a shop that shut at five is worse than no
+badge. The heuristics for a line with no am or pm are written down in the
+parser: 6 to 11 opens in the morning, 1 to 5 in the afternoon unless that
+would run the place overnight or the same line opens earlier with an
+explicit am; a close is evening unless it is 12, which is noon before an
+eleven o'clock opening and midnight after. The validator reports the lines
+it cannot read (`npm run validate -- --hours` lists them) so they can be
+reworded, and a listing can set `openingHours` explicitly for the odd case.
+One line was found genuinely ambiguous and left as it was: the Dugout's
+"Fri 9 am–12", which reads as noon and is probably midnight; that is for the
+content, not the parser.
+
+### A directory, and the nav that goes with it
+
+Shops were filed under Eat & Drink and lodging under Things to Do, which is
+where the code found it convenient, not where a reader looks. `/directory/`
+is every place in the town by kind, counted, with the kind filter, the
+open-now pill and a name search that needs no index because the names are on
+the page. It went into the primary navigation, as did Guides. To keep the
+row to six, About moved out of it: it is in the footer of every page and on
+the hub's own nav, and the row is for the things a reader came to do.
+
+### Guides, and where they live
+
+Articles were reachable from the home page while they were one of the two
+newest and from Things to Do if they were about the outdoors, and otherwise
+from nowhere. `/guides/` lists them by subject, practical subjects first and
+history last. Articles gained `sources` and `verified`, shown at the foot,
+because a guide to the playgrounds is only worth reading if a reader can see
+what it rests on; the validator's frontmatter parser learned an inline map
+in a list for it, which is the smallest YAML that carries a label and a URL.
+
+Ten guides went up with this, one "with kids" per town and a food guide for
+the three towns with enough breakfast places to fill one. They are assembled
+from the listings, which are checked against their sources, and say nothing
+the listings do not. Trash day, where to vote and snow routes are the next
+subjects and need the official pages read, which is a content session, not a
+build.
+
+### A weekend page for each town
+
+The hub has had `/this-weekend/`; each town now has its own. A filter is
+not a link: this is the URL the email points at and the one that gets texted
+to a friend.
+
+### The slots for a sponsor, built and empty
+
+/advertise/ described three placements. Now they exist in the markup and
+render nothing: `sponsors.events` is a labeled "Presented by" line under the
+header of the events and weekend pages, `sponsors.movingHere` a labeled
+block in the Moving Here sidebar, `sponsors.email` a line at the top of the
+weekly draft; the hub has `sponsors.email` for the network issue. Same shape
+as the editor and the rate card: the slot is in the config, dark until set,
+and appears the day it is sold with no template work. Text only, linked with
+`rel="sponsored"`, never inside a listing. `/for-businesses/` on each town
+says what a free listing is, how to claim or correct one, and what is for
+sale, for the owner of a café rather than a media buyer; the place page's
+"Own or run this?" line links to it.
+
+### What this pass did not do
+
+Photographs: fifty of 240 places and six of 575 events have one, and the
+route to fixing that is the outreach in docs/, not code. Series pages for
+recurring events wait for the first sponsor conversation to show whether
+anyone wants to buy one. Phone numbers are on 44 places; tap-to-call is only
+as good as that number.

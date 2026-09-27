@@ -187,6 +187,12 @@ function readWeek(town: TownConfig): TownWeek {
   };
 }
 
+/** "_Sponsor · This week's email is presented by [X](url)._", or nothing. */
+function sponsorLine(sponsor: { name: string; url: string; line?: string } | undefined): string[] {
+  if (!sponsor) return [];
+  return [`_Sponsor · This week’s email is presented by [${sponsor.name}](${sponsor.url})${sponsor.line ? ` · ${sponsor.line}` : ''}._`, ''];
+}
+
 function townIssue(week: TownWeek): string {
   const { town, weekend, running, next, newPlaces, articles } = week;
   const n = weekend.length;
@@ -199,6 +205,8 @@ function townIssue(week: TownWeek): string {
     ...frontmatter(`${town.siteTitle}, the weekend of ${range}`, excerpt, [town.slug]),
     `**${town.siteTitle}** · ${formatDate(send)}`,
     '',
+    // The email's sponsor, labeled, above the listings and never among them.
+    ...sponsorLine(town.sponsors?.email),
     `## This weekend, ${range}`,
     '',
     ...(n ? byDay(weekend, town) : [`Nothing listed for the weekend yet. Know of something? [Send it in](https://${town.domain}/submit-event/).`, '']),
@@ -233,6 +241,7 @@ function networkIssue(weeks: TownWeek[]): string {
   const excerpt = `${total} things on across ${weeks.length} Front Range towns this weekend, ${range}, with the most in ${busiest.join(', ')}.`;
   const lines = [
     ...frontmatter(`Across the towns, the weekend of ${range}`, excerpt, []),
+    ...sponsorLine(hub.sponsors?.email),
     `**${hub.siteTitle}** · ${formatDate(send)}`,
     '',
     `${total} things on across ${weeks.length} towns this weekend, ${range}. A few from each; every link opens on that town’s own guide.`,
