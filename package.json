@@ -24,7 +24,8 @@
     "build:niwot": "TOWN=niwot node scripts/run.ts build",
     "build:hub": "TOWN=hub node scripts/run.ts build",
     "astro": "astro",
-    "check-colors": "node scripts/check-colors.ts"
+    "check-colors": "node scripts/check-colors.ts",
+    "email-routing": "node scripts/email-routing.ts"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

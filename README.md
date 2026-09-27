@@ -9,6 +9,7 @@ TOWN=hub   npm run build      # insidethetowns.com
 npm run validate              # check every town's content (--hours lists hours lines it cannot read)
 npm run check-links           # ask the live web whether our outbound links still work
 npm run check-colors          # prove the palette passes WCAG AA on every site
+npm run email-routing -- --check   # does hello@ on every domain deliver? (see docs/EMAIL.md)
 npm run new-town lyons "Lyons"
 npm run weekly                # the weekly content report (see below)
 npm run newsletter            # draft Thursday's email from the listings (see below)
@@ -112,6 +113,7 @@ and placements to a business owner.
 - `docs/PARK-PHOTO-EMAILS.md` — ten ready-to-send requests covering 41 parks and trails
 - `docs/VENUE-PHOTO-EMAILS.md` — fourteen more covering the 21 venues, and how to reach the 139 businesses at once
 - `docs/BACKLINKS.md` — verified local link targets per town, and the two domains not to touch
+- `docs/EMAIL.md` — making hello@ on every domain deliver, in one command or in the dashboard
 - `docs/LAUNCH-AUDIT.md` — the launch audit: what was fixed, what is left, what needs the owner
 
 Requires Node 22.18+ (scripts use Node's built-in TypeScript support).

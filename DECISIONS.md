@@ -1534,3 +1534,20 @@ route to fixing that is the outreach in docs/, not code. Series pages for
 recurring events wait for the first sponsor conversation to show whether
 anyone wants to buy one. Phone numbers are on 44 places; tap-to-call is only
 as good as that number.
+
+### hello@ still bounces, and the script that will fix it
+
+Re-checked 27 September 2026 from the sandbox, over DNS-over-HTTPS since it
+has no resolver: all eight zones are on Cloudflare, none has an MX record,
+none has SPF or DMARC. Every photo request and every trade-body message prints
+hello@inside<town>.com, so this is the first thing to fix before any of them
+is sent. The environment holds a Resend key, scoped to sending only, and no
+Cloudflare token, so it could not be fixed from here.
+
+`scripts/email-routing.ts` does it the moment a token exists: `--check`
+reports each domain's MX, SPF and DMARC and exits 1 while any bounces, and
+with `CLOUDFLARE_API_TOKEN` and `EMAIL_DESTINATION` set it enables Email
+Routing per zone, registers the destination inbox, forwards hello@ (and, with
+`--catch-all`, everything else) to it, and adds DMARC at p=none. Idempotent.
+The one step no script can do is clicking the verification link Cloudflare
+sends the destination inbox. docs/EMAIL.md has the dashboard route too.
