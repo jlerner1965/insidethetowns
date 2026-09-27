@@ -111,6 +111,8 @@ and placements to a business owner.
 - `docs/PHOTO-CONTACTS.csv` — the 139 businesses without one, with phone and website
 - `docs/PARK-PHOTO-EMAILS.md` — ten ready-to-send requests covering 41 parks and trails
 - `docs/VENUE-PHOTO-EMAILS.md` — fourteen more covering the 21 venues, and how to reach the 139 businesses at once
+- `docs/INDUSTRY-EMAILS.md` — twelve messages to the trade bodies that reach those 139 businesses, with verified addresses
+- `docs/ALL-PHOTO-EMAILS.md` — all 36 of those messages in one file, in the order to send them, with one tracking table
 - `docs/BACKLINKS.md` — verified local link targets per town, and the two domains not to touch
 - `docs/LAUNCH-AUDIT.md` — the launch audit: what was fixed, what is left, what needs the owner
 
