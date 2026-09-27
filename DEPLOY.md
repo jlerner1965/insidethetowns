@@ -158,10 +158,49 @@ Lighthouse (Chrome DevTools or PageSpeed Insights) on `/` and `/events/` should
 score 95+ on Performance, Accessibility and SEO; that is the plan's bar and it has
 not been measured on a real deployment yet.
 
+## Email
+
+Every town config publishes one address, `hello@<domain>`, and all eight domains
+receive it through **Cloudflare Email Routing**, which forwards it to the owner's
+inbox. There is no mailbox anywhere: Cloudflare accepts the message and passes it
+on. Set up on 27 September 2026.
+
+On each domain (Cloudflare → the domain → Email → Email Routing):
+
+- **Routing on.** Cloudflare adds three MX records (`route1`, `route2` and
+  `route3.mx.cloudflare.net`) and a DKIM key at `cf2024-1._domainkey`, both locked
+  while routing is on, and the SPF record `v=spf1 include:_spf.mx.cloudflare.net ~all`.
+- **One rule:** `hello@<domain>` forwards to the owner's inbox. No catch-all; see
+  DECISIONS.md.
+- **DMARC**, a TXT record at `_dmarc` added by hand: `v=DMARC1; p=none`.
+
+The inbox is a *destination address*, set once for the Cloudflare account and
+verified by a link Cloudflare mails to it; all eight rules share it. Changing
+inboxes means adding and verifying the new one, then pointing the eight rules at it.
+
+To check a domain:
+
+```
+dig +short MX insideniwot.com           # the three route*.mx.cloudflare.net
+dig +short TXT _dmarc.insideniwot.com   # "v=DMARC1; p=none"
+```
+
+then send a message to `hello@` **from an account other than the inbox it forwards
+to**. Gmail recognises its own sent message coming back and does not show it in
+the inbox again, which looks exactly like a failure.
+
+**This only receives.** Sending *as* `hello@` needs an outgoing server that signs
+mail for the domain, and Email Routing is not one. When one is added, it brings its
+own DKIM record; if it also asks for an SPF entry on the domain itself, add its
+`include:` to the existing record — two `v=spf1` records on one name make SPF fail
+outright. Once everything sent as `hello@` is signed, raise DMARC to `p=quarantine`.
+
 ## Adding a town later
 
 `npm run new-town <slug> "<Name>"`, fill in the config and content, push, then
-repeat "Creating a project" above with the new slug. Under an hour.
+repeat "Creating a project" above with the new slug. Under an hour. Then turn on
+email for the new domain as under *Email* above: `new-town` writes `hello@` into the
+config, and that address bounces until the domain has routing and its rule.
 
 ## Scheduled rebuilds
 

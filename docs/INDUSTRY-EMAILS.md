@@ -23,20 +23,18 @@ Send each one from that town's own address — `hello@insideberthoud.com`,
 `hello@insidelyons.com` and so on. A request from the site being asked about is
 answered far more often than one from a generic address.
 
-> **Before sending: those addresses cannot receive mail yet.** Checked 21
-> September 2026 — none of the eight domains has an MX record, and neither SPF
-> nor DMARC is set. A sender falls back to the A record, `76.76.21.21`, which is
-> Vercel's edge and runs no SMTP, so anything sent to `hello@inside<town>.com`
-> bounces after a day or two. That address appears in every message below and in
-> the newsletter blurb each organisation is asked to print, so a member who
-> follows it gets a bounce from a guide that has just told their chamber it is
-> real.
+> **Those addresses now forward to the owner's inbox; sending from them is not
+> set up.** Since 27
+> September 2026 every domain forwards `hello@` to the owner's inbox through
+> Cloudflare Email Routing (`DEPLOY.md`, *Email*), so the address in every
+> message below, and in the newsletter blurb each organisation is asked to
+> print, reaches a person. Before that date it bounced: none of the eight
+> domains had an MX record.
 >
-> DNS for all eight is on Cloudflare, so Cloudflare Email Routing fixes it free
-> in about ten minutes. Until then, put a working reply address in the body in
-> place of `hello@inside<town>.com`. The sites' contact forms are unaffected —
-> Formspree delivers independently of these domains' DNS — so `/contact/` is a
-> usable fallback to point people at.
+> Email Routing only receives, though. Sending *as* `hello@inside<town>.com`
+> needs an outgoing server that signs mail for the domain, and none is set up.
+> Until one is, send from your own address; the `hello@` address in the text
+> reaches you either way.
 
 ---
 

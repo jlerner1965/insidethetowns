@@ -1534,3 +1534,37 @@ route to fixing that is the outreach in docs/, not code. Series pages for
 recurring events wait for the first sponsor conversation to show whether
 anyone wants to buy one. Phone numbers are on 44 places; tap-to-call is only
 as good as that number.
+
+## The reply address receives mail
+
+The open item from "The reply address that could not receive a reply" is
+closed. On 27 September all eight domains went onto Cloudflare Email Routing
+with one rule each, `hello@<domain>` forwarded to the owner's inbox, and a
+DMARC record added by hand. Turning routing on wrote the rest: three MX
+records, the SPF record and a DKIM key, the MX and DKIM locked by Cloudflare
+while routing is on. Checked the same day on Google's and Cloudflare's public
+resolvers — MX, SPF, DKIM and DMARC on all eight domains — and Cloudflare reports
+routing enabled, ready and synced on each. What is set, and how to check it, is
+under *Email* in DEPLOY.md.
+
+- **One rule, no catch-all.** `hello@` is the only address the network
+  publishes. A catch-all turns every guessed address into a forward:
+  dictionary spam into the owner's inbox, through the same forwarding path
+  whose standing with Gmail is what gets the real mail delivered.
+- **DMARC at `p=none`.** The usual advice for a domain that sends no mail is
+  `p=reject`. These are meant to send — the outreach documents ask for mail to go out from
+  `hello@` — but nothing signs outgoing mail for them yet, so anything sent as
+  `hello@`, through Gmail or anything else, fails DMARC, and a strict policy
+  would have it junked or refused. `p=none` publishes a policy without
+  enforcing it. Raise it to `p=quarantine` once outgoing mail is signed for
+  the domain.
+- **No reporting address.** An `rua` tag brings a daily XML report from every
+  large mailbox provider, per domain: eight streams of attachments into a
+  personal inbox about domains that send nothing yet. Add one, pointed at a
+  service that reads them, when there is outgoing mail to watch.
+- **The eight, and nothing else.** The Cloudflare account holds twenty zones,
+  the two retired predecessors among them. Only the network's eight domains
+  were changed.
+
+Delivery was not tested end to end from the session that set this up: its
+container cannot open port 25, so the first real message is the test.

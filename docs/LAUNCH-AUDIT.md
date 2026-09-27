@@ -120,35 +120,31 @@ Verified live: `/`, `/about/`, `/news/`, `/parks/` and an unknown path all
 308 to `https://insideniwot.com/`, `/eat-shop/` to `/eat-drink/`, `/events/`
 to `/events/`, and www and plain HTTP still 308 to the apex first.
 
+**Every domain is now set up to receive email.** Found 21 September: none of the eight
+domains had an MX record, so `hello@inside<town>.com` — a live `mailto:` twice
+on every `/contact/` page, and the reply address in all twelve outreach messages
+in `INDUSTRY-EMAILS.md` — bounced a day or two after anyone used it. On 27
+September all eight went onto Cloudflare Email Routing, with `hello@` forwarded
+to the owner's inbox, SPF, Cloudflare's DKIM key and a `p=none` DMARC record.
+Verified the same day on Google's and Cloudflare's public resolvers on all
+eight, and Cloudflare reports routing ready on each. What is set, and how to
+check it, is under *Email* in `DEPLOY.md`.
+
 ## For the owner
 
-### One blocker, found 21 September: no domain can receive email
+### Two things on email
 
-**None of the eight domains has an MX record.** Checked against Cloudflare and
-Google resolvers on 21 September 2026; both return NOERROR with no answer, which
-is an absence rather than a lookup failure. There is no SPF and no DMARC either
-— the only TXT record on each domain is a Google Search Console token, so mail
-was never configured on any of them.
+**Send one test message.** Delivery could not be tested end to end from the
+session that set routing up — its container cannot open port 25. Send something
+to `hello@` on any of the eight from an account other than the inbox it forwards
+to: Gmail recognises its own sent message coming back and does not show it in
+the inbox again, which looks exactly like a failure.
 
-With no MX, a sending server falls back to the A record under RFC 5321. That is
-`76.76.21.21`, Vercel's edge, which runs no SMTP service. Mail sits in the
-sender's queue and bounces a day or two later.
-
-`hello@inside<town>.com` is published as a live `mailto:` in two places on every
-`/contact/` page — "Email hello@…" and "Email a listing or correction" — and it
-is the reply address in all twelve outreach messages in `INDUSTRY-EMAILS.md`,
-including the newsletter blurb seven organisations were asked to print. Every
-one of those routes currently bounces.
-
-DNS for all eight is on Cloudflare (`donna.ns.cloudflare.com`), so Cloudflare
-Email Routing is the cheap fix: free, about ten minutes, forwards `hello@*` to a
-real inbox. Add SPF and DMARC in the same sitting. **Do it before any chamber
-newsletter runs** — a bounce from a guide that has just told a chamber it is
-real costs more than the photograph was worth.
-
-The contact form is unaffected and is the only working inbound path until this
-is fixed: Formspree delivers to the inbox configured in the Formspree account,
-which does not depend on these domains' DNS.
+**Sending as `hello@` is not set up.** Email Routing only receives. The outreach
+documents suggest sending from the town's own address; that needs an outgoing
+server that signs mail for the domain, and until there is one, send from your
+own. When there is, raise DMARC from `p=none` to `p=quarantine` — see
+`DECISIONS.md`, "The reply address receives mail".
 
 ### Otherwise nothing outstanding
 

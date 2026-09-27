@@ -208,4 +208,5 @@ Next:
   TOWN=${slug} npm run dev
   Add the slug to LIVE_TOWNS in src/config/index.ts when the domain is live.
   Create the Vercel project with TOWN=${slug} (see DEPLOY.md).
+  Turn on Cloudflare Email Routing for the domain, or its hello@ address bounces (DEPLOY.md, "Email").
 `);
