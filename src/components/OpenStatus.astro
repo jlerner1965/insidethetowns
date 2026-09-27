@@ -1,0 +1,39 @@
+---
+/**
+ * Fills in "Open · closes 7 pm" wherever a page carries a listing's hours.
+ *
+ * Include once on a page. Every element with data-hours (a JSON array of
+ * schema.org openingHours strings) gets its status written into the
+ * [data-open-status] inside it, and the nearest [data-filter-item] is marked
+ * data-open so a filter can offer "Open now". The clock is Denver's, not the
+ * reader's, because the hours are.
+ *
+ * Decided in the browser, never at build: a static page cannot know what
+ * time it is read. Without JavaScript the text hours stand on their own,
+ * which is what they did before this existed.
+ */
+---
+<script>
+  import { openingStatus } from '@/lib/hours';
+
+  const now = new Date();
+  for (const el of document.querySelectorAll<HTMLElement>('[data-hours]')) {
+    let spec: string[] = [];
+    try {
+      spec = JSON.parse(el.dataset.hours ?? '[]');
+    } catch {
+      continue;
+    }
+    const status = openingStatus(spec, now);
+    if (!status) continue;
+    const slot = el.querySelector<HTMLElement>('[data-open-status]');
+    if (slot) {
+      slot.textContent = status.label;
+      slot.dataset.open = String(status.open);
+      slot.hidden = false;
+    }
+    const item = el.closest<HTMLElement>('[data-filter-item]');
+    if (item) item.dataset.open = String(status.open);
+  }
+  document.dispatchEvent(new CustomEvent('hours:ready'));
+</script>

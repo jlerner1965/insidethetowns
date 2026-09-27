@@ -23,6 +23,8 @@ interface Props {
   noindex?: boolean;
   /** Constrain the body to prose width. */
   narrow?: boolean;
+  /** What the page is, for search results: "Event", "Place", "Guide". */
+  kind?: string;
 }
 
 const { title, seoTitle, eyebrow, intro, narrow = false, ...seo } = Astro.props;

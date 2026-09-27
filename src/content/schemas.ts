@@ -8,6 +8,7 @@
  */
 import { z } from 'astro/zod';
 import { parseLocal } from '../lib/dates.ts';
+import { OPENING_HOURS_RE } from '../lib/hours.ts';
 
 /** Astro passes its image() helper (typed to ImageMetadata); the validator passes a plain string check. */
 export type ImageSchema = () => z.ZodType;
@@ -172,7 +173,22 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
       verified: localDate.optional(),
       url: httpUrl.optional(),
       phone: z.string().optional(),
+      /**
+       * The hours as a reader reads them: "Tue–Sat 10–5; closed Sun–Mon".
+       * The build parses this line into `openingHours` (see src/lib/hours.ts)
+       * for the open-or-closed status and the structured data, so it is the
+       * one field to edit when hours change.
+       */
       hours: z.string().optional(),
+      /**
+       * schema.org openingHours, "Tu-Sa 10:00-17:00", one string per run.
+       * Only for a listing whose `hours` line the parser will not read —
+       * seasonal hours, an odd split — where the text stays for display and
+       * this carries the structure. Left unset, it is derived from `hours`.
+       */
+      openingHours: z
+        .array(z.string().regex(OPENING_HOURS_RE, 'expected "Mo-Fr 09:00-17:00" (day codes Mo Tu We Th Fr Sa Su, 24-hour times)'))
+        .optional(),
       /**
        * A trail map the land manager publishes, linked rather than copied.
        * Theirs stays current when a trail is rerouted or closed; a copy here
@@ -210,6 +226,14 @@ export function articleSchema<I extends z.ZodType>(image: () => I) {
       excerpt: z.string().min(1).max(320),
       category: z.string().min(1),
       tags: z.array(z.string()).default([]),
+      /**
+       * Where the facts came from, listed at the foot of the article. A
+       * practical guide — where the playgrounds are, which day the market
+       * runs — is only worth reading if a reader can see what it rests on.
+       */
+      sources: z.array(z.object({ label: z.string().min(1), url: httpUrl })).default([]),
+      /** The day the guide's facts were last checked, shown beside the date. */
+      verified: localDate.optional(),
       /**
        * A Denver day on which this article's framing stops being current —
        * an election held, a season closed, a deadline passed. From that day

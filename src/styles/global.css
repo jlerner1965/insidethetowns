@@ -365,6 +365,11 @@
   .btn-outline { border: 1px solid currentColor; }
   .btn-outline:hover { background: color-mix(in oklab, currentColor 8%, transparent); }
 
+  /* "Open · closes 7 pm" in green, "Closed · opens 10 am" in the muted ink;
+     the colour is a hint and the words carry the meaning. */
+  .open-status[data-open="true"] { color: #1f7a45; }
+  .open-status[data-open="false"] { color: var(--color-ink-muted); }
+
   /* Whole-card link: the <a> gets .stretch, the card gets `relative`. */
   .stretch::after {
     content: "";

@@ -7,6 +7,7 @@
  *   key: [a, b, "c d"]    inline lists
  *   key:                  block lists
  *     - item
+ *     - { label: "a", url: "b" }   an inline map as a list item
  *   # comments
  *
  * Astro parses the same files with full YAML; everything this accepts, YAML
@@ -36,7 +37,7 @@ function scalar(raw: string): unknown {
   return text;
 }
 
-function inlineList(raw: string): unknown[] {
+function inlineList(raw: string, keepRaw = false): unknown[] {
   const inner = raw.trim().slice(1, -1).trim();
   if (inner === '') return [];
   const items: string[] = [];
@@ -57,7 +58,20 @@ function inlineList(raw: string): unknown[] {
     }
   }
   items.push(current);
-  return items.map(scalar);
+  return keepRaw ? items : items.map(scalar);
+}
+
+/** `{ label: "a", url: "b" }` → { label: "a", url: "b" }. Values are scalars; no nesting. */
+function inlineMap(raw: string): Record<string, unknown> {
+  const inner = raw.trim().slice(1, -1);
+  const out: Record<string, unknown> = {};
+  // Reuse the list splitter, which respects quotes, then split each pair at its first colon.
+  for (const pair of inlineList(`[${inner}]`, true).map(String)) {
+    const at = pair.indexOf(':');
+    if (at === -1) throw new Error(`cannot parse map entry "${pair}"`);
+    out[pair.slice(0, at).trim()] = scalar(pair.slice(at + 1));
+  }
+  return out;
 }
 
 export function parseFrontmatter(source: string): ParsedFile {
@@ -75,7 +89,8 @@ export function parseFrontmatter(source: string): ParsedFile {
     if (line.trim() === '' || line.trim().startsWith('#')) continue;
     const listItem = /^\s+-\s*(.*)$/.exec(line);
     if (listItem && listKey) {
-      (data[listKey] as unknown[]).push(scalar(listItem[1] ?? ''));
+      const item = (listItem[1] ?? '').trim();
+      (data[listKey] as unknown[]).push(item.startsWith('{') && item.endsWith('}') ? inlineMap(item) : scalar(item));
       continue;
     }
     const kv = /^([A-Za-z_][\w-]*):(.*)$/.exec(line);

@@ -21,8 +21,12 @@ const days = groupByDay(events);
 ) : (
   <div class="space-y-12 md:space-y-16">
     {days.map((day) => (
-      <section data-filter-group data-day={dayKey(day.date)} class="md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
-        <h2 class="mb-2 md:mb-0 md:pt-6">
+      <section id={`day-${dayKey(day.date)}`} data-filter-group data-day={dayKey(day.date)} class="scroll-mt-4 md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
+        {/* On a phone the day heading sticks to the top while its listings
+           scroll under it, so a reader halfway down a long Saturday still
+           knows it is Saturday. On wide screens it sits in its own column and
+           there is nothing to stick to. */}
+        <h2 class="sticky top-0 z-10 -mx-4 mb-2 bg-paper px-4 py-2 md:static md:m-0 md:bg-transparent md:p-0 md:pt-6">
           <time datetime={toIsoLocal(day.date)} class="display-md block text-3xl text-accent-text md:text-[2.25rem]">
             {formatDayLong(day.date).split(', ').map((part, i) => (
               <span class:list={[i === 0 ? 'eyebrow block mb-2' : 'block']}>{part}</span>

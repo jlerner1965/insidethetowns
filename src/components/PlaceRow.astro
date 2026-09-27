@@ -14,6 +14,7 @@
 import type { TownEntry } from '@/lib/content';
 import { PLACE_TYPE_LABELS } from '@/content/schemas';
 import { PLACE_HUE } from '@/config/palette';
+import { openingHoursOf } from '@/lib/hours';
 
 interface Props {
   place: TownEntry<'places'>;
@@ -26,6 +27,7 @@ const { data, slug } = place;
 const href = `/places/${slug}/`;
 const Heading = `h${level}` as 'h3' | 'h4';
 const hue = PLACE_HUE[data.type];
+const hours = openingHoursOf(data);
 ---
 <li
   class="group relative grid gap-x-10 gap-y-2 border-b border-line-soft py-6 last:border-b-0 sm:grid-cols-[minmax(0,1fr)_minmax(8rem,14rem)]"
@@ -49,8 +51,9 @@ const hue = PLACE_HUE[data.type];
     </p>
     <p class="mt-2 max-w-[58ch] text-[0.9375rem] leading-relaxed text-ink-muted">{data.summary}</p>
   </div>
-  <div class="grid content-start gap-1 text-[0.875rem] leading-snug text-ink-muted">
+  <div class="grid content-start gap-1 text-[0.875rem] leading-snug text-ink-muted" data-hours={hours ? JSON.stringify(hours) : undefined}>
     {data.address && <p class="text-ink">{data.address}</p>}
     {data.hours && <p>{data.hours}</p>}
+    {hours && <p class="open-status font-semibold" data-open-status hidden></p>}
   </div>
 </li>

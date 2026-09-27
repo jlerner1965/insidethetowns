@@ -1,0 +1,160 @@
+---
+/**
+ * The events page's filters: when, then what.
+ *
+ * Readers arrive with a time in mind — tonight, this weekend, something free —
+ * and a category second, if at all. The first row is "when" (plus Free, which
+ * is the other question a reader asks before the category), the second is the
+ * category. The two combine: Music this weekend is a real thing to ask for.
+ *
+ * "Today" and "This weekend" are decided in the reader's browser from the
+ * Denver date, not at build time, for the reason Freshness.astro gives: a
+ * build is a snapshot and the page must stay right after it. The server
+ * renders every pill unpressed, so a crawler and a reader without JavaScript
+ * see the whole list.
+ *
+ * The chosen filters live in the URL (?when=weekend&category=music), so a
+ * reader can bookmark "free things this weekend", share it, and find it still
+ * applied after a reload — and the weekly email can link straight to it.
+ *
+ * Works with EventList's markup: [data-filter-item] rows carrying
+ * data-category, data-start-day, data-event-day and data-free, grouped in
+ * [data-filter-group] sections inside the nearest [data-filter-root].
+ */
+interface Props {
+  categories: Array<{ value: string; label: string }>;
+}
+
+const { categories } = Astro.props;
+const when = [
+  { value: 'today', label: 'Today' },
+  { value: 'weekend', label: 'This weekend' },
+  { value: 'week', label: 'Next 7 days' },
+  { value: 'free', label: 'Free' },
+];
+const pill =
+  'rounded-full border border-accent-line bg-raised px-4 py-1.5 text-sm font-medium text-ink-muted transition-colors hover:border-accent hover:text-accent-text aria-pressed:border-accent-dark aria-pressed:bg-accent-dark aria-pressed:text-white';
+---
+<div class="mb-8 space-y-3 md:mb-10" data-event-filters>
+  <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter events by time">
+    <span class="eyebrow mr-1 text-ink-faint">When</span>
+    <button type="button" data-when="any" aria-pressed="true" class={pill}>Anytime</button>
+    {when.map((o) => (
+      <button type="button" data-when={o.value} aria-pressed="false" class={pill}>{o.label}</button>
+    ))}
+  </div>
+  {categories.length > 1 && (
+    <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter events by category">
+      <span class="eyebrow mr-1 text-ink-faint">What</span>
+      <button type="button" data-category="all" aria-pressed="true" class={pill}>All</button>
+      {categories.map((o) => (
+        <button type="button" data-category={o.value} aria-pressed="false" class={pill}>{o.label}</button>
+      ))}
+    </div>
+  )}
+  <p class="sr-only" role="status" data-filter-status></p>
+</div>
+
+<script>
+  import { dayKey, addDays, startOfDay } from '@/lib/dates';
+  import { weekendWindow } from '@/lib/events';
+
+  const bar = document.querySelector<HTMLElement>('[data-event-filters]');
+  if (bar) {
+    const root = bar.closest<HTMLElement>('[data-filter-root]') ?? document.body;
+    const whenButtons = bar.querySelectorAll<HTMLButtonElement>('[data-when]');
+    const catButtons = bar.querySelectorAll<HTMLButtonElement>('[data-category]');
+    const status = bar.querySelector<HTMLElement>('[data-filter-status]');
+
+    const WHEN = new Set([...whenButtons].map((b) => b.dataset.when));
+    const CATS = new Set([...catButtons].map((b) => b.dataset.category));
+
+    // Denver days, as the listings store them. `now` is read once per apply so
+    // a page left open overnight recomputes on the next click.
+    const windowFor = (when: string) => {
+      const now = new Date();
+      const today = dayKey(startOfDay(now));
+      if (when === 'today') return { from: today, to: today };
+      if (when === 'week') return { from: today, to: dayKey(addDays(startOfDay(now), 6)) };
+      if (when === 'weekend') {
+        const { start, sunday } = weekendWindow(now);
+        return { from: dayKey(start), to: dayKey(sunday) };
+      }
+      return null;
+    };
+
+    const matches = (item: HTMLElement, when: string, category: string) => {
+      if (category !== 'all' && item.dataset.category !== category) return false;
+      if (when === 'free') return item.dataset.free === 'true';
+      const window = windowFor(when);
+      if (!window) return true;
+      // An event overlaps the window when it starts no later than the window
+      // ends and is still on when the window begins — so a ten-day run shows
+      // under Today, and Saturday's fair shows under This weekend.
+      const start = item.dataset.startDay ?? '';
+      const last = item.dataset.eventDay ?? start;
+      return start <= window.to && last >= window.from;
+    };
+
+    const apply = (when: string, category: string, push: boolean) => {
+      for (const b of whenButtons) b.setAttribute('aria-pressed', String(b.dataset.when === when));
+      for (const b of catButtons) b.setAttribute('aria-pressed', String(b.dataset.category === category));
+      const items = root.querySelectorAll<HTMLElement>('[data-filter-item]');
+      for (const item of items) item.hidden = !matches(item, when, category);
+      for (const group of root.querySelectorAll<HTMLElement>('[data-filter-group]')) {
+        group.hidden = !group.querySelector('[data-filter-item]:not([hidden])');
+      }
+      // A whole section (the fortnight, "further out") with nothing left says
+      // so once, rather than leaving a heading over nothing.
+      for (const section of root.querySelectorAll<HTMLElement>('[data-filter-section]')) {
+        section.hidden = !section.querySelector('[data-filter-item]:not([hidden])');
+      }
+      const empty = root.querySelector<HTMLElement>('[data-filter-empty]');
+      if (empty) empty.hidden = !!root.querySelector('[data-filter-item]:not([hidden])');
+      if (status) {
+        const shown = root.querySelectorAll('[data-filter-item]:not([hidden])').length;
+        const whenLabel = bar.querySelector(`[data-when="${when}"]`)?.textContent?.trim().toLowerCase() ?? '';
+        const catLabel = category === 'all' ? 'all categories' : category;
+        status.textContent = `${shown} ${shown === 1 ? 'event' : 'events'}, ${whenLabel}, ${catLabel}`;
+      }
+      if (push) {
+        const url = new URL(location.href);
+        if (when === 'any') url.searchParams.delete('when');
+        else url.searchParams.set('when', when);
+        if (category === 'all') url.searchParams.delete('category');
+        else url.searchParams.set('category', category);
+        history.replaceState(null, '', url);
+      }
+    };
+
+    let when = 'any';
+    let category = 'all';
+    for (const b of whenButtons) {
+      b.addEventListener('click', () => {
+        when = b.dataset.when ?? 'any';
+        apply(when, category, true);
+      });
+    }
+    for (const b of catButtons) {
+      b.addEventListener('click', () => {
+        category = b.dataset.category ?? 'all';
+        apply(when, category, true);
+      });
+    }
+
+    root.querySelector<HTMLButtonElement>('[data-filter-reset]')?.addEventListener('click', () => {
+      when = 'any';
+      category = 'all';
+      apply(when, category, true);
+    });
+
+    // A shared or bookmarked link. Unknown values fall back to the defaults
+    // rather than pressing nothing.
+    const params = new URLSearchParams(location.search);
+    const w = params.get('when');
+    const c = params.get('category');
+    if (w && WHEN.has(w)) when = w;
+    if (c && CATS.has(c)) category = c;
+    if (when !== 'any' || category !== 'all') apply(when, category, false);
+  }
+</script>

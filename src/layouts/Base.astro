@@ -38,11 +38,17 @@ interface Props {
   type?: 'website' | 'article';
   jsonLd?: object | object[];
   noindex?: boolean;
+  /** What the page is, for the site search's result list: "Event", "Place", "Guide". */
+  kind?: string;
 }
 
 const site = getSite();
 const analytics = getNetworkHub().analytics === true;
-const { jsonLd, ...seo } = Astro.props;
+const { jsonLd, kind, ...seo } = Astro.props;
+// Site search (src/pages/search.astro) indexes what is inside <main> on every
+// page that is not noindex; the header, footer and signup box are the same
+// on every page and would match every query.
+const searchable = !seo.noindex;
 // The publisher graph belongs on every page; pages add their own on top.
 const structured = [siteJsonLd(site), ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
 const cssVars = [
@@ -79,7 +85,7 @@ const cssVars = [
       Skip to content
     </a>
     <Header />
-    <main id="main" class="flex-1">
+    <main id="main" class="flex-1" data-pagefind-body={searchable ? '' : undefined} data-pagefind-meta={searchable && kind ? `kind:${kind}` : undefined}>
       <slot />
     </main>
     <Footer />

@@ -1,0 +1,53 @@
+---
+/**
+ * Every guide the town has, by subject.
+ *
+ * Until this page existed an article was reachable from the home page while
+ * it was one of the two newest, from Things to Do if it was about the
+ * outdoors, and otherwise from nowhere. A guide to the playgrounds is worth
+ * more in its third year than its first week, and this is where it lives.
+ */
+import Page from '@/layouts/Page.astro';
+import ArticleCard from '@/components/ArticleCard.astro';
+import { getTown } from '@/config';
+import { getTownEntries } from '@/lib/content';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+
+const town = getTown();
+const articles = (await getTownEntries('articles')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+// The practical subjects first, the history last: a reader looking for the
+// splash pad should not scroll past the railroad to find it.
+const ORDER = ['Families', 'Food & drink', 'Outdoors', 'Moving here', 'Community', 'Civic', 'History'];
+const categories = [...new Set(articles.map((a) => a.data.category))].sort((a, b) => {
+  const ia = ORDER.indexOf(a);
+  const ib = ORDER.indexOf(b);
+  return (ia < 0 ? ORDER.length : ia) - (ib < 0 ? ORDER.length : ib) || a.localeCompare(b);
+});
+const description = `Guides to ${town.name}, ${town.state}: with kids, where to eat, the outdoors, moving here, and how the town came to be. ${articles.length} so far, each with its sources.`;
+const structured = [
+  collectionPageJsonLd(town, {
+    name: `Guides to ${town.name}, Colorado`,
+    description,
+    path: '/guides/',
+    items: articles.map((a) => ({ name: a.data.title, path: `/articles/${a.slug}/` })),
+  }),
+  breadcrumbJsonLd(town, [
+    { name: town.name, path: '/' },
+    { name: 'Guides', path: '/guides/' },
+  ]),
+];
+---
+<Page title="Guides" seoTitle={`Guides to ${town.name}, Colorado`} eyebrow={town.name} {description} intro={`The longer reads: ${town.name} with kids, where to eat, the outdoors, what moving here is like, and how the town got this way. Each says where its facts came from.`} jsonLd={structured}>
+  {articles.length === 0 ? (
+    <p class="text-ink-muted">Guides are on their way.</p>
+  ) : (
+    categories.map((category) => (
+      <section class="mt-14 first:mt-0">
+        <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">{category}</h2>
+        <div class="grid gap-x-8 gap-y-10 md:grid-cols-2">
+          {articles.filter((a) => a.data.category === category).map((article) => <ArticleCard article={article} />)}
+        </div>
+      </section>
+    ))
+  )}
+</Page>

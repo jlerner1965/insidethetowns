@@ -1,0 +1,46 @@
+---
+/**
+ * A row of day chips that jump down the events page.
+ *
+ * Two weeks of listings grouped by day is a long page on a phone, and a
+ * reader who wants Saturday should not have to scroll past Thursday and
+ * Friday to reach it. Each chip is a plain anchor to its day's section, so it
+ * works without a script; the Freshness script removes the chip for any day
+ * that has already passed, alongside the section it pointed to.
+ *
+ * Horizontal scroll on narrow screens, one row on wide ones.
+ */
+import type { DayGroup } from '@/lib/events';
+import { dayKey, monthDay } from '@/lib/dates';
+
+interface Props {
+  days: DayGroup<unknown>[];
+  /** Extra anchors after the days: "Further out", "Nearby". */
+  more?: Array<{ href: string; label: string }>;
+}
+
+const { days, more = [] } = Astro.props;
+const chip =
+  'inline-flex shrink-0 items-baseline gap-1.5 rounded-md border border-line-soft bg-raised px-3 py-1.5 text-sm no-underline transition-colors hover:border-accent hover:text-accent-text';
+---
+{(days.length > 0 || more.length > 0) && (
+  <nav aria-label="Jump to a day" class="-mx-4 mb-8 overflow-x-auto px-4 sm:mx-0 sm:px-0 md:mb-10">
+    <ul class="flex gap-2 pb-1">
+      <li class="eyebrow mr-1 self-center whitespace-nowrap text-ink-faint">Jump to</li>
+      {days.map((day) => {
+        const d = monthDay(day.date);
+        return (
+          <li data-day-link={dayKey(day.date)}>
+            <a href={`#day-${dayKey(day.date)}`} class={chip}>
+              <span class="font-semibold">{d.weekday}</span>
+              <span class="text-ink-muted tabular-nums">{d.month} {d.day}</span>
+            </a>
+          </li>
+        );
+      })}
+      {more.map((m) => (
+        <li><a href={m.href} class={chip}><span class="font-semibold">{m.label}</span></a></li>
+      ))}
+    </ul>
+  </nav>
+)}

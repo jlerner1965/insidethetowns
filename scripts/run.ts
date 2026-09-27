@@ -32,4 +32,12 @@ if (command === 'build') {
 }
 
 const result = spawnSync('astro', [command, ...args], { stdio: 'inherit', env, shell: true });
-process.exit(result.status ?? 1);
+if (result.status !== 0) process.exit(result.status ?? 1);
+
+// The site search's index, written into dist/pagefind/ from the pages just
+// built. Part of the build, not the deploy, so a preview has search too.
+if (command === 'build') {
+  const p = spawnSync('pagefind', ['--site', 'dist', '--quiet'], { stdio: 'inherit', env, shell: true });
+  if (p.status !== 0) process.exit(p.status ?? 1);
+}
+process.exit(0);

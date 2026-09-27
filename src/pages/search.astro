@@ -1,0 +1,153 @@
+---
+/**
+ * Site search, over the built pages.
+ *
+ * Pagefind indexes `dist/` after every build (see scripts/run.ts) and writes a
+ * static index under /pagefind/ that the browser loads in pieces as it
+ * searches, so there is no search server and no third party: a query for
+ * "pizza" fetches a few kilobytes from our own host. The CSP allows the WebAssembly
+ * it runs on and nothing else new.
+ *
+ * The page is a box and a list, in the site's own type, rather than
+ * Pagefind's bundled UI. Only pages that mark a [data-pagefind-body] are
+ * indexed — every ordinary page does, through Base.astro — so past events,
+ * the thank-you pages and this one stay out of the results.
+ *
+ * In `astro dev` there is no index yet, and the page says so.
+ */
+import Page from '@/layouts/Page.astro';
+import { getSite } from '@/config';
+
+const site = getSite();
+---
+<Page
+  title="Search"
+  seoTitle={`Search ${site.siteTitle}`}
+  eyebrow={site.name}
+  description={`Search every event, place and guide on ${site.siteTitle}.`}
+  intro={site.kind === 'town' ? `Every event, place and guide on ${site.siteTitle}.` : `Everything on ${site.siteTitle}.`}
+  noindex
+  narrow
+>
+  <form role="search" action="/search/" method="get" class="mb-10" data-search-form>
+    <label for="q" class="eyebrow mb-2 block">What are you looking for?</label>
+    <div class="flex gap-3">
+      <input
+        id="q"
+        name="q"
+        type="search"
+        autocomplete="off"
+        autofocus
+        placeholder="pizza, trail, farmers market, storytime…"
+        class="min-w-0 flex-1 rounded-md border border-line bg-raised px-4 py-3 text-[1.0625rem] text-ink placeholder:text-ink-faint focus:border-accent"
+      />
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </form>
+
+  <p data-search-status class="text-ink-muted" aria-live="polite"></p>
+  <ol data-search-results class="mt-6 divide-y divide-line-soft border-y border-line-soft empty:border-0"></ol>
+  <p data-search-more hidden class="mt-8">
+    <button type="button" class="btn btn-outline text-accent-text">Show more</button>
+  </p>
+</Page>
+
+<script>
+  type Result = { url: string; meta: { title?: string; kind?: string }; excerpt: string };
+  type Pagefind = {
+    init: () => Promise<void>;
+    search: (q: string) => Promise<{ results: Array<{ data: () => Promise<Result> }> }>;
+  };
+
+  const form = document.querySelector<HTMLFormElement>('[data-search-form]')!;
+  const input = form.querySelector<HTMLInputElement>('input[name="q"]')!;
+  const status = document.querySelector<HTMLElement>('[data-search-status]')!;
+  const list = document.querySelector<HTMLOListElement>('[data-search-results]')!;
+  const more = document.querySelector<HTMLElement>('[data-search-more]')!;
+  const moreButton = more.querySelector('button')!;
+  const PAGE = 12;
+
+  let pagefind: Pagefind | null = null;
+  let pending: Array<{ data: () => Promise<Result> }> = [];
+
+  async function load(): Promise<Pagefind | null> {
+    if (pagefind) return pagefind;
+    try {
+      // A variable, not a literal, so neither Vite nor the type checker tries
+      // to resolve a file that exists only after the build.
+      const indexUrl = '/pagefind/pagefind.js';
+      const mod = (await import(/* @vite-ignore */ indexUrl)) as Pagefind;
+      await mod.init();
+      pagefind = mod;
+      return mod;
+    } catch {
+      status.textContent = 'Search runs on the published site; the index is built with it.';
+      return null;
+    }
+  }
+
+  function item(r: Result): HTMLLIElement {
+    const li = document.createElement('li');
+    li.className = 'py-5';
+    const kind = r.meta.kind ? `<p class="eyebrow mb-1">${r.meta.kind}</p>` : '';
+    const title = document.createElement('a');
+    title.href = r.url;
+    title.className = 'text-xl font-medium leading-tight no-underline hover:text-accent-text';
+    title.textContent = r.meta.title ?? r.url;
+    const excerpt = document.createElement('p');
+    excerpt.className = 'mt-2 text-[0.9375rem] leading-relaxed text-ink-muted';
+    // Pagefind's excerpt carries <mark> around the matched words and nothing else.
+    excerpt.innerHTML = r.excerpt;
+    li.innerHTML = kind;
+    li.append(title, excerpt);
+    return li;
+  }
+
+  async function showMore() {
+    const batch = pending.slice(0, PAGE);
+    pending = pending.slice(PAGE);
+    const data = await Promise.all(batch.map((r) => r.data()));
+    for (const r of data) list.append(item(r));
+    more.hidden = pending.length === 0;
+  }
+
+  async function run(q: string) {
+    list.replaceChildren();
+    more.hidden = true;
+    if (!q.trim()) {
+      status.textContent = '';
+      return;
+    }
+    const pf = await load();
+    if (!pf) return;
+    status.textContent = 'Searching…';
+    const { results } = await pf.search(q);
+    pending = results;
+    status.textContent = results.length === 0 ? `Nothing found for “${q}”.` : `${results.length} ${results.length === 1 ? 'result' : 'results'} for “${q}”`;
+    await showMore();
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const q = input.value;
+    const url = new URL(location.href);
+    if (q.trim()) url.searchParams.set('q', q);
+    else url.searchParams.delete('q');
+    history.replaceState(null, '', url);
+    void run(q);
+  });
+  let timer = 0;
+  input.addEventListener('input', () => {
+    clearTimeout(timer);
+    timer = window.setTimeout(() => form.requestSubmit(), 250);
+  });
+  moreButton.addEventListener('click', () => void showMore());
+
+  const initial = new URLSearchParams(location.search).get('q');
+  if (initial) {
+    input.value = initial;
+    void run(initial);
+  } else {
+    void load();
+  }
+</script>

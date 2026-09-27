@@ -7,6 +7,7 @@ import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
 import { formatDate, formatTimeRange, formatWeekday, monthDay, toIsoLocal } from '@/lib/dates';
 import { lastDay } from '@/lib/events';
+import { dayKey } from '@/lib/dates';
 import { CATEGORY_LABELS } from '@/content/schemas';
 
 interface Props {
@@ -28,7 +29,9 @@ const note =
   class="group relative grid grid-cols-[4.25rem_1fr] gap-x-4 border-t border-line-soft py-5 first:border-t-0 md:grid-cols-[4.5rem_1fr_auto] md:gap-x-7 md:py-6"
   data-filter-item
   data-category={data.category}
+  data-start-day={dayKey(data.start)}
   data-event-day={lastDay(event)}
+  data-free={/^free\b/i.test(data.cost ?? '') ? 'true' : undefined}
 >
   {showDate ? (
     <time datetime={toIsoLocal(data.start)} class="flex flex-col pt-0.5">

@@ -1,0 +1,29 @@
+---
+/**
+ * "Presented by X" — a sponsor's line beside a page's editorial.
+ *
+ * Renders nothing until a sponsor is set in the town's config, so the slot
+ * exists on the page before anyone has bought it and appears the day they
+ * do, with no template work. Labeled as what it is, linked with
+ * rel="sponsored", and placed under the page's own header rather than
+ * inside its listings; the editorial policy says sponsorship never goes
+ * inside them, and this is where that promise is kept in markup.
+ */
+import type { Sponsor } from '@/config/towns/types';
+
+interface Props {
+  sponsor?: Sponsor;
+  /** "Presented by", "Moving Here is supported by". */
+  label?: string;
+}
+
+const { sponsor, label = 'Presented by' } = Astro.props;
+---
+{sponsor && (
+  <p class="mt-5 flex flex-wrap items-baseline gap-x-2 text-[0.9375rem] text-ink-muted" data-sponsor>
+    <span class="eyebrow text-ink-faint">Sponsor</span>
+    <span>
+      {label} <a href={sponsor.url} rel="sponsored noopener" class="font-semibold text-accent-text">{sponsor.name}</a>{sponsor.line && <span> · {sponsor.line}</span>}
+    </span>
+  </p>
+)}

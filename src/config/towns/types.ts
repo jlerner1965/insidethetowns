@@ -110,6 +110,33 @@ export interface TownConfig {
   /** Formspree form id for the contact form. Without it the contact page falls back to mailto. */
   formspreeId?: string;
   ga4Id?: string;
+  /**
+   * The town's sponsors, one per placement, each a labeled line beside the
+   * editorial and never inside it — the placements /advertise/ describes.
+   * Absent until someone has actually bought one; every slot stays dark
+   * until then, the way the editor and the rate card do. Nothing here can
+   * put a business into a listing or move one up.
+   */
+  sponsors?: TownSponsors;
+}
+
+/** The placements a town sells. Each renders only when set. */
+export interface TownSponsors {
+  /** "Presented by" on /events/ and /this-weekend/. */
+  events?: Sponsor;
+  /** A labeled block on /moving-here/. */
+  movingHere?: Sponsor;
+  /** A line at the top of the town's weekly email. */
+  email?: Sponsor;
+}
+
+/** One sponsor. Text only: a logo would need a licence row and a design pass. */
+export interface Sponsor {
+  name: string;
+  /** Where the name links. Marked rel="sponsored", as search engines ask. */
+  url: string;
+  /** One short line in the sponsor's words, shown after the name. Optional. */
+  line?: string;
 }
 
 /**
@@ -195,6 +222,11 @@ export interface HubConfig {
    * tells a buyer you have not worked it out.
    */
   rates?: AdRate[];
+  /**
+   * The network-wide email's sponsor, at the top of the whole-network issue.
+   * Same rule as a town's sponsors: absent until sold, dark until then.
+   */
+  sponsors?: { email?: Sponsor };
 }
 
 /** One line on the rate card. */
@@ -242,8 +274,9 @@ export const DEFAULT_TOWN_NAV: NavItem[] = [
   { label: 'Events', href: '/events/' },
   { label: 'Eat & Drink', href: '/eat-drink/' },
   { label: 'Things to Do', href: '/things-to-do/' },
+  { label: 'Directory', href: '/directory/' },
+  { label: 'Guides', href: '/guides/' },
   { label: 'Moving Here', href: '/moving-here/' },
-  { label: 'About', href: '/about/' },
 ];
 
 /**

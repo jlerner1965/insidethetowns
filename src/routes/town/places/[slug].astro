@@ -11,6 +11,8 @@ import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { breadcrumbJsonLd, localBusinessJsonLd } from '@/lib/seo';
 import { EAT_DRINK_TYPES, PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, THINGS_TO_DO_TYPES } from '@/content/schemas';
 import { formatDate } from '@/lib/dates';
+import { openingHoursOf } from '@/lib/hours';
+import OpenStatus from '@/components/OpenStatus.astro';
 
 export async function getStaticPaths() {
   const places = await getTownEntries('places');
@@ -57,10 +59,11 @@ const destination = /,\s*CO\b/.test(data.address) ? data.address : `${data.addre
 const directions = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
 // A park or a trail has no one to write in as its owner; everything else does.
 const hasOperator = !['park', 'trail'].includes(data.type);
+const hours = openingHoursOf(data);
 const facts = [
   { label: 'Address', value: data.area ? `${data.address} · ${data.area}` : data.address },
   { label: 'Directions', value: 'Open in Google Maps', href: directions },
-  { label: 'Hours', value: data.hours },
+  { label: 'Hours', value: data.hours, hours: hours ?? undefined },
   { label: 'Phone', value: data.phone, href: data.phone ? `tel:${data.phone.replace(/[^\d+]/g, '')}` : undefined },
   { label: 'Website', value: data.url ? new URL(data.url).hostname.replace(/^www\./, '') : undefined, href: data.url },
   { label: 'Trail map', value: data.mapUrl ? 'PDF, from the land manager' : undefined, href: data.mapUrl },
@@ -68,6 +71,7 @@ const facts = [
 ---
 <Page
   title={data.title}
+  kind="Place"
   eyebrow={eyebrow}
   intro={data.summary}
   description={data.summary}
@@ -105,14 +109,16 @@ const facts = [
     <aside class="lg:pt-1">
       <dl class="divide-y divide-line-soft border-y border-line-soft">
         {facts.map((f) => (
-          <div class="py-4">
+          <div class="py-4" data-hours={f.hours ? JSON.stringify(f.hours) : undefined}>
             <dt class="eyebrow">{f.label}</dt>
             <dd class="mt-1.5 leading-snug">
               {f.href ? <a href={f.href} rel={f.href.startsWith('http') ? 'noopener' : undefined} class="text-accent-text">{f.value}</a> : f.value}
+              {f.hours && <span class="open-status mt-1 block text-[0.9375rem] font-semibold" data-open-status hidden></span>}
             </dd>
           </div>
         ))}
       </dl>
+      <OpenStatus />
       {(data.verified || data.source) && (
         <p class="mt-6 text-xs leading-relaxed text-ink-faint">
           {data.verified && <span>Checked {formatDate(data.verified)}</span>}{data.verified && data.source && <span> against </span>}{data.source && <a href={data.source} rel="noopener" class="underline">{new URL(data.source).hostname.replace(/^www\./, '')}</a>}. Hours and phone numbers change fastest, so the business’s own page is the record.
@@ -130,6 +136,7 @@ const facts = [
         </a>
         <span class="mt-1 block text-[0.875rem] leading-relaxed text-ink-muted">
           Send a photo, new hours or a correction. Listings are editorial and free; nobody pays to be here.
+          {hasOperator && <a href="/for-businesses/" class="text-accent-text underline">How listings work.</a>}
         </span>
       </p>
     </aside>

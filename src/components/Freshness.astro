@@ -30,6 +30,10 @@
   for (const day of document.querySelectorAll<HTMLElement>('[data-day]')) {
     if (!day.querySelector('[data-event-day]')) day.remove();
   }
+  // And a jump link to a day that is gone.
+  for (const link of document.querySelectorAll<HTMLElement>('[data-day-link]')) {
+    if ((link.dataset.dayLink ?? today) < today) link.remove();
+  }
   // Say so when a list has emptied out, rather than leaving a blank.
   for (const empty of document.querySelectorAll<HTMLElement>('[data-events-empty]')) {
     const scope = empty.closest<HTMLElement>('[data-events-scope]') ?? document.body;

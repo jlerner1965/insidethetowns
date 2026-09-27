@@ -1,6 +1,7 @@
 /**
  * JSON-LD builders. Keep these pure so they are easy to eyeball in tests.
  */
+import { openingHoursOf } from './hours.ts';
 import type { CollectionEntry } from 'astro:content';
 // Relative rather than the '@/…' alias so the module loads in plain Node and
 // its builders can be unit-tested; Vite resolves both the same way.
@@ -228,6 +229,7 @@ export function localBusinessJsonLd(
   imageUrl?: string,
 ) {
   const { data } = place;
+  const hours = openingHoursOf(data);
   const typeMap: Record<string, string> = {
     restaurant: 'Restaurant',
     bar: 'BarOrPub',
@@ -253,6 +255,7 @@ export function localBusinessJsonLd(
     ...(data.url ? { sameAs: data.url } : {}),
     ...(data.phone ? { telephone: data.phone } : {}),
     ...(data.priceRange ? { priceRange: data.priceRange } : {}),
+    ...(hours ? { openingHours: hours } : {}),
     ...(imageUrl ? { image: imageUrl } : {}),
     url,
   };
