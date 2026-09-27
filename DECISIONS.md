@@ -1566,5 +1566,6 @@ under *Email* in DEPLOY.md.
   the two retired predecessors among them. Only the network's eight domains
   were changed.
 
-Delivery was not tested end to end from the session that set this up: its
-container cannot open port 25, so the first real message is the test.
+The session that set this up could not test delivery — its container cannot
+open port 25 — so the owner did, the same day: a message sent to `hello@` from
+a separate account arrived in the owner's inbox.
