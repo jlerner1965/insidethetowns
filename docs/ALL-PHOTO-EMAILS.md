@@ -1,30 +1,39 @@
 # Every photo email, in one place
 
 Thirty-six messages, ready to copy and paste, drawn from the three documents in
-`docs/` (`INDUSTRY-EMAILS.md`, `PARK-PHOTO-EMAILS.md`, `VENUE-PHOTO-EMAILS.md`).
-Nothing here is new; this is the send list in one file, in the order to send it.
+`docs/` (`INDUSTRY-EMAILS.md`, `PARK-PHOTO-EMAILS.md`, `VENUE-PHOTO-EMAILS.md`),
+with the one-to-one ask from `PHOTOS.md`. Nothing here is new; this is the send
+list in one file, in the order to send it. The messages are copied word for
+word, so a change to one belongs in its source as well.
 
 ## Before you send anything
 
-1. **`hello@inside<town>.com` bounces.** Checked 21 September 2026: none of the
-   eight domains has an MX record, so mail to those addresses fails after a day
-   or two. Every message below names that address in the newsletter blurb it
-   asks the recipient to print. Either set up Cloudflare Email Routing first
-   (the DNS is already on Cloudflare; about ten minutes, free), or replace the
-   address in each message with one that works before sending.
-2. **Send from the town's own address** where you have one. A request from the
-   site being asked about is answered far more often than one from a generic
-   address.
+1. **`hello@inside<town>.com` reaches you.** Since 27 September 2026 all eight
+   domains forward `hello@` to your inbox through Cloudflare Email Routing
+   (`DEPLOY.md`, *Email*), and a test message has arrived. All twelve trade-body
+   messages name that address, most of them in the newsletter blurb they ask
+   the recipient to print, so leave it as it is. Before that date it bounced:
+   none of the domains had an MX record.
+2. **Send from your own address for now.** Email Routing only receives: sending
+   *as* `hello@inside<town>.com` needs an outgoing server that signs mail for
+   the domain, and none is set up. The `hello@` address in the text reaches you
+   either way. Switch once sending is set up — a request from the site being
+   asked about is answered far more often than one from a generic address.
 3. **Sign each one.** Every message ends with `<name>`.
 4. **Space the overlapping pairs a week apart:** Downtown Erie and the Erie
    Chamber; Timnath Main Street and the Timnath Chamber; the Niwot Business
-   Association and the Left Hand Valley Courier.
+   Association and the Left Hand Valley Courier. The batches overlap too: Kim
+   Mitchell at the Town of Lyons gets A5 and B7, and the Town of Berthoud gets
+   A1, B1 and C2 (Stephanie Horvath is on the first two,
+   `information@berthoud.org` on the last two). Space those the same way.
+5. **Skip C4 once A2 has gone.** A2 already asks Berthoud Main Street both of
+   C4's questions, through the same contact form.
 
 ## Send order
 
 | Batch | Messages | Why first |
 |---|---|---|
-| A. Trade bodies (12) | one per town, reaches 139 businesses | one email each replaces dozens |
+| A. Trade bodies (12) | across the seven towns, reaches 139 businesses | one email each replaces dozens |
 | B. Parks (10) | town and county parks departments, 41 sites | they hold libraries and answer |
 | C. Venues (14) | libraries, museums, the Y, the theatre, 21 sites | one site each |
 
@@ -51,6 +60,16 @@ the reply. Permission that cannot be produced later is not permission.
 ```
 content/<town>/images/<file>.jpg,<their site or the email>,Used with permission of <name> (<date>),y,<town>
 ```
+
+A photograph of your own from the walk takes this row instead:
+
+```
+content/<town>/images/<file>.jpg,own photograph,All rights reserved (Inside the Towns),n,<town>
+```
+
+When a reply brings facts rather than a photograph — corrected hours, a
+website, a 2027 date — edit the place or event file, with `source:` set to the
+reply and `verified:` set to the day it arrived.
 
 ---
 
@@ -820,10 +839,14 @@ Call 303-646-4166 and ask for Public Works, or use the contact route on townofel
 
 # Batch C. The fourteen venue requests
 
-Six of the 21 venues need no permission (listed at the top of this file). These
-cover the fifteen that do. Three have no email address and are phone calls:
-the Johnstown-Milliken library, the Johnstown YMCA and the Candlelight Dinner
-Playhouse.
+Six of the 21 venues need no permission (listed at the top of this file). Of
+the fifteen that do, thirteen have a contact and are covered below; number 4,
+on the murals, is an optional extra, and the two with no contact at all are
+listed at the end of the batch. Three are phone calls: the Johnstown-Milliken
+library, the Johnstown YMCA and the Candlelight Dinner Playhouse. Four more
+have no email address on file and go through a form or the venue's own site:
+Berthoud Main Street, the Wildfire Arts Center, Osmosis Gallery and Lyons
+Classic Pinball.
 
 
 ## 1. Berthoud Community Library District — 1 site
@@ -1216,20 +1239,20 @@ can be said.
 | A10 | Trade | Johnstown Downtown Development Association | email | | | |
 | A11 | Trade | Timnath Main Street | email | | | |
 | A12 | Trade | Timnath Chamber of Commerce | email, a week after A11 | | | |
-| B1 | Parks | Town of Berthoud Parks and Recreation (8 sites) | email | | | |
+| B1 | Parks | Town of Berthoud Parks and Recreation (8 sites) | email, a week after A1 | | | |
 | B2 | Parks | Town of Erie Parks and Open Space (12) | email | | | |
 | B3 | Parks | Town of Johnstown Parks and Recreation (8) | email | | | |
 | B4 | Parks | Town of Timnath Parks (4) | email or form | | | |
 | B5 | Parks | Elizabeth Park and Recreation District (2) | email | | | |
 | B6 | Parks | Town of Elizabeth Public Works (1) | phone | | | |
-| B7 | Parks | Town of Lyons Parks and Recreation (1) | email | | | |
+| B7 | Parks | Town of Lyons Parks and Recreation (1) | email, a week after A5 | | | |
 | B8 | Parks | Boulder County Parks and Open Space (3) | email, optional | | | |
 | B9 | Parks | Douglas County Open Space (1) | email | | | |
 | B10 | Parks | Niwot Cultural Arts Association (1) | form | | | |
 | C1 | Venues | Berthoud Community Library District | email | | | |
-| C2 | Venues | Town of Berthoud (Recreation Center) | email | | | |
+| C2 | Venues | Town of Berthoud (Recreation Center) | email, a week after B1 | | | |
 | C3 | Venues | Berthoud Historical Society | email | | | |
-| C4 | Venues | Berthoud Main Street (murals), optional | form | | | |
+| C4 | Venues | Berthoud Main Street (murals), optional | form; skip once A2 has gone | | | |
 | C5 | Venues | Wildfire Arts Center | form or phone | | | |
 | C6 | Venues | Pines & Plains Libraries | email | | | |
 | C7 | Venues | Erie Historical Society | email | | | |
