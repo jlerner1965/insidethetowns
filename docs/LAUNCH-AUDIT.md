@@ -120,31 +120,26 @@ Verified live: `/`, `/about/`, `/news/`, `/parks/` and an unknown path all
 308 to `https://insideniwot.com/`, `/eat-shop/` to `/eat-drink/`, `/events/`
 to `/events/`, and www and plain HTTP still 308 to the apex first.
 
-**Every domain is now set up to receive email.** Found 21 September: none of the eight
+**Every domain now receives email.** Found 21 September: none of the eight
 domains had an MX record, so `hello@inside<town>.com` — a live `mailto:` twice
 on every `/contact/` page, and the reply address in all twelve outreach messages
 in `INDUSTRY-EMAILS.md` — bounced a day or two after anyone used it. On 27
 September all eight went onto Cloudflare Email Routing, with `hello@` forwarded
 to the owner's inbox, SPF, Cloudflare's DKIM key and a `p=none` DMARC record.
-Verified the same day on Google's and Cloudflare's public resolvers on all
-eight, and Cloudflare reports routing ready on each. What is set, and how to
-check it, is under *Email* in `DEPLOY.md`.
+Verified the same day: the records on Google's and Cloudflare's public
+resolvers on all eight, routing ready on each in Cloudflare, and a test message
+to `hello@` from a separate account arriving in the owner's inbox. What is set,
+and how to check it, is under *Email* in `DEPLOY.md`.
 
 ## For the owner
 
-### Two things on email
+### Sending as `hello@` is not set up
 
-**Send one test message.** Delivery could not be tested end to end from the
-session that set routing up — its container cannot open port 25. Send something
-to `hello@` on any of the eight from an account other than the inbox it forwards
-to: Gmail recognises its own sent message coming back and does not show it in
-the inbox again, which looks exactly like a failure.
-
-**Sending as `hello@` is not set up.** Email Routing only receives. The outreach
-documents suggest sending from the town's own address; that needs an outgoing
-server that signs mail for the domain, and until there is one, send from your
-own. When there is, raise DMARC from `p=none` to `p=quarantine` — see
-`DECISIONS.md`, "The reply address receives mail".
+Email Routing only receives. The outreach documents suggest sending from the
+town's own address; that needs an outgoing server that signs mail for the
+domain, and until there is one, send from your own. When there is, raise DMARC
+from `p=none` to `p=quarantine` — see `DECISIONS.md`, "The reply address
+receives mail".
 
 ### Otherwise nothing outstanding
 
