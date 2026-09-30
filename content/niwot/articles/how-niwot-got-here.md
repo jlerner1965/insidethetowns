@@ -6,6 +6,7 @@ category: "History"
 tags: [history]
 image: ../images/niwot-tribune-storefront.jpg
 imageAlt: "The Niwot Tribune false-front building on Second Avenue, a survivor of the railroad period"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 4.0"
 ---
 
 Niwot exists because a rail line was built through the Left Hand valley in the 1870s. The town plat was recorded in 1875, and the street grid still follows the tracks rather than the county roads that came later. The brick block on Second Avenue is what remains of that decision.

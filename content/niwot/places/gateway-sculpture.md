@@ -6,6 +6,7 @@ area: "Highway edge"
 url: "https://niwotarts.org/"
 image: ../images/niwot-gateway-sculpture.jpg
 imageAlt: "The steel gateway sculpture at the highway edge of Niwot: an oval sign held inside two curving rails"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 tags: [public-art, landmark]
 summary: "The steel gateway at the highway edge of town, an oval sign held inside two curving rails. The landmark you arrive at, and the meeting point for most walks."
 source: "https://niwotarts.org/"
