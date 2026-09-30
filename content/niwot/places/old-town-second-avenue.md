@@ -6,6 +6,7 @@ area: "Old Town"
 url: "https://niwot.com/"
 image: ../images/niwot-tribune-storefront.jpg
 imageAlt: "The Niwot Tribune false-front building on Second Avenue with a grand piano on the sidewalk"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 4.0"
 tags: [historic, shops, walk]
 featured: true
 summary: "The brick and false-front commercial block from the railroad period, walkable end to end in about ten minutes, and still where the community gathers."

@@ -3,6 +3,9 @@ title: "Historic Parish House & Museum"
 type: venue
 address: "701 Charlotte St"
 area: "Old Town, Charlotte Street"
+image: ../images/parish-house.jpg
+imageAlt: "The 1914 Craftsman bungalow at 701 Charlotte Street behind its iron fence, with the Historic Parish House and Museum sign in the front garden"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0"
 url: "https://jhsco.org/visit/"
 phone: "(970) 587-0278"
 hours: "Tue, Wed, Sat 9–12; Mon, Thu, Fri by appointment"
