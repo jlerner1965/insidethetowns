@@ -1635,3 +1635,79 @@ Commons record (author, licence, coordinates, categories) and against
   01.jpg` (Erie Bard, CC BY-SA 4.0), meant as the hero of *Which side of
   County Line Road*, was never downloaded or seen, and is left for a later
   session.
+
+## Phase 9 — Windsor and Fort Collins
+
+The plan is `docs/EXPANSION-WINDSOR-FORT-COLLINS.md`; these are the choices made
+while carrying it out, on 1 October 2026.
+
+- **Both towns are scaffolded in one session, not one after the other.** The
+  plan's rule stands for the launch — each goes into `LIVE_TOWNS` only when its
+  domain serves — but the code changes are shared (the tests, the map, the hub
+  copy) and were made once for both, and the content was researched in
+  parallel. The registry is not the gate; `LIVE_TOWNS` is.
+- **The Fort Collins domain is insidefortcollins.com**, which the owner holds.
+  The first draft of the plan read "ft collins" literally, found
+  insideftcollins.com unregistered and proposed buying it; the owner
+  confirmed the other the same day. Nothing was bought. Slugs are `windsor`
+  and `fortcollins`: one token each, like every slug before them, and the
+  "co" in Windsor's domain belongs to the domain and not to the folder.
+- **Lake teal for Windsor, navy for Fort Collins.** Teal was the one hue family
+  none of the eight accents used. CSU's green was the obvious Fort Collins
+  choice and would have sat beside Niwot's; nothing else in the network is a
+  blue this dark, and the hub's and Berthoud's both read lighter. `npm run
+  check-colors` passes at ten sites.
+- **"Small towns" is gone from the hub; "towns" stays.** Fort Collins is a city
+  of 169,810 and the hub's tagline is also the Organization description in the
+  publisher graph, where a false line is the wrong thing to put. The network
+  is named Inside the Towns and that cannot change. The about page says which
+  member is a city, read off the configs (any live town over 100,000), so the
+  component names no town and the sentence stays dark until the city is live.
+- **Fort Collins leaves the map's reference cities, and the label rule learns
+  to look both ways.** Windsor's pin lands fifteen pixels right of and
+  twenty-one below Timnath's, which tripped the crowding rule and sent
+  Timnath's label left, straight across the Fort Collins pin five pixels off
+  its line on the other side. A label now goes to whichever side has more
+  room, measured off its own line; nothing else on the map moved.
+- **The tests read the registry.** Four loops in the series tests and the
+  dated-content test listed the seven slugs by hand, so every new town began
+  by failing tests that had nothing to say about it. They take the slugs from
+  `registry.ts` now, live or not. `new-town.ts` still wrote `county`, the field
+  renamed to `counties` when the split towns started naming both; a fresh
+  scaffold did not type-check. Fixed.
+- **A scaffolded town fails `npm run validate` until it has a real hero.** The
+  credits parser rejects any licence row containing "placeholder", by design,
+  and the scaffold writes one. That is the right gate for a live site and an
+  abrupt one for a town an hour old; it is noted here rather than softened.
+- **Fort Collins incorporated in 1873, per the City.** Wikipedia's lead says
+  the Town of Fort Collins was incorporated on 12 February 1883; the City's
+  own history page says it was incorporated as a town on 3 February 1873. The
+  City is the primary source and the comparison table follows it.
+- **Windsor's county split rests on the Town's own School Districts page**,
+  which lists three districts inside the town limits and does not say which
+  county each serves. The counties are the districts' own: Weld RE-4 is the
+  Windsor-Severance district in Weld; Poudre and Thompson are Larimer County
+  districts. The config says so and the test holds the school line to
+  "Mostly".
+- **Wikimedia rate-limited the session again.** The Commons API returned 429
+  for every category and search query after the first few; the file
+  description pages and `Special:FilePath` downloads worked with a backoff of
+  a few seconds per attempt, and the hero download that landed as an HTML
+  error page was caught by the build rather than shipped.
+- **Heroes.** Windsor is Jared Winkler's 2018 photograph of the frozen lake
+  with the town along the far shore (CC BY-SA 4.0, 5,999px original). Fort
+  Collins is the Northern Hotel on College Avenue (Xnatedawgx, 2020, CC BY-SA
+  4.0); the alternative, a 2012 phone photograph of the city from Rotary Park,
+  was downloaded, looked at, and rejected for its haze and the road across
+  its foreground. Old Town Square and Horsetooth Reservoir come with card
+  photographs; the 2012 Windsor Mill under reconstruction illustrates the
+  history article and not a listing.
+- **A comparison stays dark until both its towns are live.** The pair pages
+  were built for every entry in the list, so one written ahead of a launch
+  would have linked to a domain that does not serve. `liveComparisons()`
+  filters by `LIVE_TOWNS`; Timnath–Windsor is written and waits.
+- **Two things the session could not do.** The Vercel connector was refused
+  project creation (403) and the Cloudflare token in the environment was
+  rejected as invalid, so the two Vercel projects and the DNS and Email
+  Routing on the two zones were left to the owner, with the exact steps in
+  DEPLOY.md and a zone-mirroring script ready for a valid token.
