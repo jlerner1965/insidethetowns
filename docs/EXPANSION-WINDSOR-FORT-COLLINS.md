@@ -1,28 +1,33 @@
 # Adding Windsor and Fort Collins
 
-Plan, written 1 October 2026. Nothing is scaffolded yet. This is the order of
-work, what has to change outside the scaffold, the facts the two configs need
-(checked where it says so), and the three questions only the owner can settle.
-The method is Timnath's and Elizabeth's (DECISIONS.md, Phases 7 and 7b); what
-is new is that one of the two is a city.
+Plan, written 1 October 2026, decisions taken the same day. Nothing is
+scaffolded yet. This is the decisions, the order of work, what has to change
+outside the scaffold, and the facts the two configs need (checked where it
+says so). The method is Timnath's and Elizabeth's (DECISIONS.md, Phases 7 and
+7b); what is new is that one of the two is a city.
 
 ## The two guides
 
 | | Windsor | Fort Collins |
 |---|---|---|
-| Domain | insidewindsorco.com | insideftcollins.com or insidefortcollins.com — see below |
+| Domain | insidewindsorco.com | insideftcollins.com (to register: decision 1) |
 | Slug (content folder, `TOWN`, favicon folder, newsletter tag) | `windsor` | `fortcollins` |
 | Site title | Inside Windsor | Inside Fort Collins |
-| Contact address | hello@insidewindsorco.com | hello@ the domain above |
+| Contact address | hello@insidewindsorco.com | hello@insideftcollins.com |
 
 Both sit beside Timnath: Windsor 4.8 miles to its south-east and Fort Collins
 5.4 miles to its north-west, by the configs' own great-circle formula. That is
 the network's first real cluster, three guides inside a ten-minute drive, and
 several things written for towns an hour apart move because of it.
 
-## Settle these first
+## Decisions
 
-### 1. Which Fort Collins domain
+Taken on 1 October 2026 so the work can start without a round trip. Each
+picks the simpler option, as PLAN.md's conventions ask. Any of them can be
+reversed before its town goes into `LIVE_TOWNS`; none can be reversed cheaply
+after.
+
+### 1. The Fort Collins domain is insideftcollins.com
 
 Vercel's registrar, asked on 1 October 2026:
 
@@ -33,66 +38,73 @@ Vercel's registrar, asked on 1 October 2026:
 | insidefortcollins.com | registered |
 | insideftcollins.com | **available: nobody owns it** |
 
-So "inside ft collins.com" is one of two things: insidefortcollins.com is yours
-and was written short, or insideftcollins.com was the intention and has not
-been bought yet. The config's `domain` is the canonical URL on every page, the
-sitemap, the JSON-LD `@id`, the `hello@` address and the `www` redirect, so it
-is the one value that cannot change after launch without a migration. Confirm
-or register it before the config file is written. If neither is yours yet,
-insideftcollins.com is the one to buy: "ft" is how the city's own visitor
-bureau writes it (visitftcollins.com), and the other is gone.
+The request named "ft collins", the "ft" spelling is the only one of the two
+that can still be had, and it is how the city's own visitor bureau writes it
+(visitftcollins.com). So the config says `insideftcollins.com`, and
+**registering it is step 0 of the order below.** The domain is the canonical
+URL on every page, the sitemap, the JSON-LD `@id`, the `hello@` address and
+the `www` redirect, so it has to exist before the config is written and
+cannot change after launch without a migration. If insidefortcollins.com
+turns out to be yours already, say so before step 5 and the config takes
+that instead; nothing else here changes. (`test/towns.test.ts` requires
+`^inside[a-z]+\.com$`; both pass.)
 
-`test/towns.test.ts` requires every live domain to match `^inside[a-z]+\.com$`.
-Both candidates pass.
-
-### 2. "Small towns"
+### 2. Drop "small"; keep "towns"
 
 Fort Collins had 169,810 people at the 2020 census, the fourth-largest city in
 Colorado, and it is the city that Timnath's, Berthoud's and Johnstown's guides
 measure themselves against ("minutes from Fort Collins without paying for Fort
-Collins"). The network calls itself a guide to small towns in four places:
+Collins"). "Small towns" becomes untrue of the network's largest member, and
+the hub's tagline is also the Organization description in the publisher graph
+(`src/lib/seo.ts`), where a false description is the wrong thing to put.
+"Towns" stays: the network is named Inside the Towns and that cannot change,
+and a reader forgives "towns" for a city sooner than a search engine forgives
+a description that is false. Four edits, made in the Fort Collins code step:
 
-- `src/config/towns/hub.ts`, the tagline: "Independent community guides to the
-  small towns of Colorado's Front Range."
-- `src/routes/hub/index.astro`: the h1, "Independent guides to the small towns
-  worth knowing.", and the meta description.
-- `src/pages/about.astro`: "independent community guides for the small towns
-  of Colorado's northern Front Range".
-- `src/routes/hub/moving.astro`: the `seoTitle`, "… N small towns compared".
+- `src/config/towns/hub.ts`, the tagline: "Independent community guides to
+  the towns of Colorado's northern Front Range."
+- `src/routes/hub/index.astro`: the h1 becomes "Independent guides to the
+  towns worth knowing."; the meta description drops "small".
+- `src/pages/about.astro`: "for the towns of Colorado's northern Front
+  Range", plus one sentence saying that one of them, Fort Collins, is a city
+  of 170,000 and is here because it is the city the rest look to.
+- `src/routes/hub/moving.astro`: the `seoTitle` becomes "… N Front Range
+  towns compared".
 
-Two ways out. (a) Reword: the network is a guide to the northern Front Range,
-its towns and the city they look to. (b) Keep "small towns" and let Fort
-Collins be the stated exception. Recommendation: (a). The hub's tagline is also
-the Organization description in the publisher graph (`src/lib/seo.ts`), and a
-description that is untrue of the largest member is the wrong thing to put
-there. Suggested tagline: "Independent community guides to Colorado's northern
-Front Range: the towns, and the city they look to." The owner's words beat
-these; whatever is chosen, `test/towns.test.ts` checks that the hub's home
-title still names the state after the search-result trim.
+The hub's `seoTagline` ("Guides to Colorado's Front Range towns") is already
+right and is what the home title uses; `test/towns.test.ts` checks it still
+names the state after the search-result trim. Everything else that counts
+towns counts them: the fact strips, the map title, the comparison caption and
+the network bar all read `live.length`, so nine appears on its own. "Seven"
+and "eight" survive only in code comments (`moving.astro`, `geo.ts`,
+`seo.ts`, `contact.astro`, `NetworkEventCard.astro`, `TownMap.astro`) and in
+DEPLOY.md. The comments are tidied in the same commits; DEPLOY.md must be.
 
-Everything else that counts towns counts them: the fact strips, the map title,
-the comparison caption and the network bar all read `live.length`, so nine
-appears on its own. "Seven" and "eight" survive only in code comments
-(`moving.astro`, `geo.ts`, `seo.ts`, `contact.astro`, `NetworkEventCard.astro`,
-`TownMap.astro`) and in DEPLOY.md. The comments can be tidied in the same
-commit; DEPLOY.md must be.
-
-### 3. How big the Fort Collins guide is
+### 3. Fort Collins is a curated guide of about sixty places
 
 PLAN.md's minimum of 20 places and 15 events covers Timnath. It does not cover
-a city with more restaurants on one block of Old Town than Timnath has places.
-The pages are built for a town: the directory lists every place by kind on one
-page, the home page features four to six, and `/eat-drink/` is one grid. Sixty
-places is where that still works; two hundred is where it stops.
+a city with more restaurants on one block of Old Town than Timnath has places,
+and the pages are built for a town: the directory lists every place by kind
+on one page, the home page features four to six, and `/eat-drink/` is one
+grid. Sixty places is where that still works; two hundred is where it stops.
 
-Recommendation: a curated guide, said out loud. Launch at about 60 places and
-50 to 60 event files, concentrated on Old Town, the Poudre and the natural
-areas, with the `/about/` copy saying it is a selection and `/for-businesses/`
-saying how to get in. Put the place `area` field on every Fort Collins listing
-(Old Town, Midtown, Campus West, North College, Harmony, the foothills). It is
-optional in the schema and most towns skip it, but a city reader navigates by
-neighborhood, and if the directory later needs grouping by area that is one
-component change made once.
+So: launch at about 60 places and 50 to 60 event files, concentrated on Old
+Town, the Poudre and the natural areas. The `/about/` copy says it is a
+selection and `/for-businesses/` says how to get in. Every Fort Collins
+listing carries the place `area` field (Old Town, Midtown, Campus West, North
+College, Harmony, the foothills): optional in the schema and skipped by most
+towns, but a city reader navigates by neighborhood. That rule is written into
+`content/fortcollins/README.md`, not into the validator. If the directory
+later needs grouping by area, that is one component change made once.
+
+Windsor is a town and gets the town treatment: 30 places and 25 event files,
+with the plan's 20 and 15 as the floor.
+
+### 4. Slugs, colours, order
+
+`windsor` and `fortcollins`; lake teal and navy, as under Colours; Windsor
+first, Fort Collins only once Windsor is live and populated. Reasons under
+each heading.
 
 ## Scaffold
 
@@ -104,8 +116,7 @@ npm run new-town fortcollins "Fort Collins"
 Then in each new config, by hand:
 
 - **`domain` and `social.email`.** The script derives `inside<slug>.com`, which
-  is wrong for both. Set `insidewindsorco.com` and the Fort Collins domain
-  from question 1.
+  is wrong for both. Set `insidewindsorco.com` and `insideftcollins.com`.
 - **`fortcollins`, not `fort-collins`.** The script handles hyphens, but every
   slug so far is one token, and the slug is also the `TOWN` value, the favicon
   folder and the Buttondown tag. `windsor` rather than `windsorco` for the
@@ -216,7 +227,7 @@ by count, and three of them are tests that fail the moment a town is added.
    should say who should simply live in the city rather than in one of its
    towns, because that is the question the page exists for. The `seoTitle`
    loses "small".
-6. **Hub copy**, per question 2.
+6. **Hub copy**: the four edits of decision 2, in the Fort Collins step.
 7. **`src/content/comparisons.ts`.** "Timnath vs Windsor" is a real search and
    so is "Windsor vs Fort Collins"; write at least the first. The comparison
    pages and `/moving/` are the strongest internal link the network has
@@ -255,7 +266,7 @@ floor.
   or Larimer County, or an 80550 address.
 
 **Fort Collins.** Target 60 places and 50 to 60 event files, curated as in
-question 3.
+decision 3.
 
 - fcgov.com (robots: blocks only Ahrefs, Baidu and Siteimprove): the events
   calendar, Parks, Natural Areas, the Lincoln Center, the Gardens on Spring
@@ -310,13 +321,53 @@ the plan's included credit. The cost is two domain registrations.
 
 ## Order of work
 
-1. The test refactor (code item 3), on its own, so the tests describe the
-   network rather than list it.
-2. Windsor: scaffold, config, the map and geo changes, content, deploy. It is
-   the smaller of the two, and it carries every code change once.
-3. Fort Collins: scaffold, config, the "small towns" copy, content at the
-   larger scope, deploy. By then it is content, plus question 2.
-4. The Timnath–Windsor comparison, once both are live.
+Each numbered item is one commit or one owner action, and the build, the
+tests, `npm run validate` and `npm run check-colors` pass at every one.
 
-PLAN.md's rule stands: do not start Fort Collins until Windsor is live and
-populated. Keep each out of `LIVE_TOWNS` until its domain serves over HTTPS.
+0. **Owner, today.** Register insideftcollins.com. Add both domains as
+   Cloudflare zones and move their nameservers now, so propagation and Email
+   Routing run while the content is being written; Email Routing needs the
+   zone at Cloudflare.
+1. **The tests describe the network instead of listing it.**
+   `test/series.test.ts` and `test/dated-content.test.ts` take their slugs
+   from the registry. One commit, no behaviour change, so the two scaffolds
+   that follow fail nothing they should not.
+2. **Windsor, the code.** `npm run new-town windsor "Windsor"`; the domain,
+   facts, colours and `countySplit` from the sections above; `test/towns.test.ts`
+   and `test/geo.test.ts` updated to the Windsor assertions; the `geo.ts`
+   comment; the `SUITS` paragraph; DEPLOY.md's table row. And the map:
+   Windsor's pin lands about fifteen pixels right of and twenty below
+   Timnath's, which trips the crowding rule and flips Timnath's label to the
+   left, straight across the Fort Collins reference dot. Fix the label
+   placement here, not in step 5, with `TOWN=hub npm run build` and a look at
+   the SVG. Not in `LIVE_TOWNS` yet.
+3. **Windsor, the content.** The sources under Content: 30 places, 25 event
+   files, two articles, the moving-here page, a hero with its licence row.
+   `npm run validate` and `npm run weekly -- --town=windsor` before each push.
+   Several commits.
+4. **Windsor, live.** Deploying, steps 2 to 7: the Vercel project, the hook
+   line in the secret, Formspree, the Buttondown tag, then `LIVE_TOWNS` and the
+   launch checks. Timnath's events page now ends with Windsor's weekend, and
+   Windsor's with Timnath's and Johnstown's.
+5. **Fort Collins, the code.** `npm run new-town fortcollins "Fort Collins"`;
+   the domain, facts and colours; Fort Collins out of the map's `CONTEXT`
+   list; the four edits of decision 2 and the `/about/` sentence;
+   `test/geo.test.ts` to the final neighbours; the `SUITS` paragraph;
+   DEPLOY.md. Not in `LIVE_TOWNS` yet.
+6. **Fort Collins, the content.** Curated per decision 3, the `area` field on
+   every listing, the natural-areas permit rule, the annuals only from their
+   own 2026 or 2027 pages. The largest block of work in the plan: budget three
+   to four Timnaths.
+7. **Fort Collins, live.** As step 4.
+8. **The comparisons.** Timnath vs Windsor first, then Windsor vs Fort
+   Collins, in `src/content/comparisons.ts`.
+9. **The follow-on documents.** Sections in docs/BACKLINKS.md, rows in
+   docs/PHOTO-CONTACTS.csv, and a launch audit refreshed for ten sites.
+
+Why Windsor first: it is the smaller guide, its code step carries every
+structural change once (the tests, the map, the geo assertions), and it leaves
+the Fort Collins step nothing but content and copy. Why not both scaffolds at
+once: PLAN.md's rule, and a half-populated city guide sitting in the registry
+is a `SUITS` paragraph, a map pin and a comparison row waiting to be
+forgotten. Steps 1 to 3 can run while step 0's nameservers propagate, and
+step 5 can start the day step 4 ships.

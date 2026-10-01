@@ -284,15 +284,17 @@ domain is live, then deploy it like the others (Vercel project with
 ### Phase 9 — Windsor, then Fort Collins
 
 Two northern neighbours of Timnath: insidewindsorco.com (Windsor, Weld and
-Larimer counties, 32,716 people) and Inside Fort Collins (domain to confirm,
-Larimer County, 169,810 people — the network's first city). The working plan is
-`docs/EXPANSION-WINDSOR-FORT-COLLINS.md`: three questions for the owner first
-(the Fort Collins domain, the hub's "small towns" wording, the scope of a city
-guide), the nine files beyond the scaffold that know the towns by name or
-count, the config facts as read on 1 October 2026, the sources and their
-robots files, and the deploy checklist. Same process as Phase 7b otherwise:
-`npm run new-town`, keep each out of `LIVE_TOWNS` until its domain serves,
-Windsor first and Fort Collins only once Windsor is live and populated.
+Larimer counties, 32,716 people) and insideftcollins.com (Fort Collins, Larimer
+County, 169,810 people — the network's first city; the domain is unregistered
+as of 1 October 2026 and is step 0). The working plan is
+`docs/EXPANSION-WINDSOR-FORT-COLLINS.md`: the decisions taken (the domain, the
+hub drops "small" and keeps "towns", Fort Collins is a curated guide of about
+sixty places), the nine files beyond the scaffold that know the towns by name
+or count, the config facts as read on 1 October 2026, the sources and their
+robots files, the deploy checklist, and a ten-step order. Same process as
+Phase 7b otherwise: `npm run new-town`, keep each out of `LIVE_TOWNS` until its
+domain serves, Windsor first and Fort Collins only once Windsor is live and
+populated.
 
 ## Conventions Claude Code must follow
 
