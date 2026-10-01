@@ -1711,3 +1711,46 @@ while carrying it out, on 1 October 2026.
   rejected as invalid, so the two Vercel projects and the DNS and Email
   Routing on the two zones were left to the owner, with the exact steps in
   DEPLOY.md and a zone-mirroring script ready for a valid token.
+- **Fort Collins is sixty places by selection, and the selection is recorded.**
+  Thirty of them eat, drink and shop (twenty in Old Town, the rest spread
+  across Midtown, Harmony, Campus West, North College and the south), thirty
+  are parks, trails, natural areas, venues, three hotels and two services.
+  What is not there, and why, so nobody repeats the search: the Lyric, whose
+  site is a script shell with no readable text; Rio Grande, whose page is
+  longer than a fetch will return before the hours; five Squarespace sites
+  whose robots.txt names ClaudeBot and anthropic-ai with `Disallow: /`
+  (Little Bird Bakeshop, the Food Co-op, Trimble Court Artisans, Purpose and
+  Gilded Goat), left alone on the same rule as the Berthoud chamber; five
+  sites that answered 403, three that answered 503 three times, three that
+  render only in a browser (Maxline, Outpost Sunsport, Wolverine Farm), and
+  three with no site of their own. So the guide has no food co-op, one
+  outfitter and no Midtown brewery, and says nothing it did not read.
+- **Old Firehouse Books is the one listing not read from its own site.** Its
+  robots.txt asks AI crawlers to stay out, so the listing rests on the
+  Downtown Fort Collins Business Association's page: address and phone, no
+  hours. A person can read the shop's own hours and add them.
+- **csurams.com sits behind an Incapsula challenge**, so Canvas Stadium is
+  written from CSU's building and commencement pages, with the 36,000 figure
+  labelled as commencement seating rather than football capacity, and no
+  street address because none of those pages gives one.
+- **Hours that would have lied were written as text.** The recycling center
+  changes hours on 1 November; the reservoir's County page gives only the
+  information center's; the Gardens label theirs "summer". None of the three
+  makes an open-now claim.
+- **The Fort Collins history follows the City where the City and Wikipedia
+  disagree**, and the article says so: incorporation 3 February 1873, not
+  1883. The breweries' own founding years (Odell 1989, New Belgium 1991) win
+  over the City timeline's 1990 and 1992. Where the City's own pages disagree
+  with each other — the trolley's last year, the 1954 charter election's
+  weekday, the 1900 population, the sugar factory's closing year, which
+  cavalry unit founded Camp Collins — the article rounds to what both
+  support or names neither. Harper Goff and the Disneyland Main Street claim
+  are kept to what Wikipedia and Visit Fort Collins actually say.
+- **The moving-here page sources each neighborhood to the City's own corridor
+  plan** (Midtown 2013, West Central 2015, North College 2007, Harmony 2006)
+  and the market to the March 2021 Housing Strategic Plan, dated in the text,
+  because the City publishes no fresher figure as a plan. Two plan PDFs were
+  past the fetch limit and were read with pdftotext. Poudre Fire Authority's
+  own site refuses automated reads, so the page states the City's figures for
+  it and links it; Xcel's gas service and Bustang's fares had no readable
+  page and are not claimed.
