@@ -281,6 +281,19 @@ domain is live, then deploy it like the others (Vercel project with
 2. `scripts/import-events.ts`: accepts a CSV (title, start, end, venue, url, category, town) and writes markdown event files. This is the weekly update path.
 3. Optional: an `.ics` export per town at `/events/calendar.ics`.
 
+### Phase 9 — Windsor, then Fort Collins
+
+Two northern neighbours of Timnath: insidewindsorco.com (Windsor, Weld and
+Larimer counties, 32,716 people) and Inside Fort Collins (domain to confirm,
+Larimer County, 169,810 people — the network's first city). The working plan is
+`docs/EXPANSION-WINDSOR-FORT-COLLINS.md`: three questions for the owner first
+(the Fort Collins domain, the hub's "small towns" wording, the scope of a city
+guide), the nine files beyond the scaffold that know the towns by name or
+count, the config facts as read on 1 October 2026, the sources and their
+robots files, and the deploy checklist. Same process as Phase 7b otherwise:
+`npm run new-town`, keep each out of `LIVE_TOWNS` until its domain serves,
+Windsor first and Fort Collins only once Windsor is live and populated.
+
 ## Conventions Claude Code must follow
 
 * Never hard-code a town name, color, or domain in a component. Read from config.

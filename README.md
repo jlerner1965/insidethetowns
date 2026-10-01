@@ -115,5 +115,6 @@ and placements to a business owner.
 - `docs/ALL-PHOTO-EMAILS.md` — all 36 of those messages in one file, in the order to send them, with one tracking table
 - `docs/BACKLINKS.md` — verified local link targets per town, and the two domains not to touch
 - `docs/LAUNCH-AUDIT.md` — the launch audit: what was fixed, what is left, what needs the owner
+- `docs/EXPANSION-WINDSOR-FORT-COLLINS.md` — the plan for the two northern guides: what to settle first, what changes beyond the scaffold, the sources checked
 
 Requires Node 22.18+ (scripts use Node's built-in TypeScript support).
