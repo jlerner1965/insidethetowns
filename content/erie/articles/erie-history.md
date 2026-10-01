@@ -15,6 +15,10 @@ Erie exists because of coal. Settlers came to the Coal Creek valley after the go
 
 For the next eighty years Erie was, in its own description, the greatest coal mining town in Colorado, the center of the Northern Coalfield that ran from Marshall to Frederick. The mines and the camps around them (Puritan Camp, whose miners' homes were photographed for the federal government, was one) drew miners from across Europe and Mexico, and their names are on the black granite of the [Coal Miners' Memorial](/places/erie-town-hall/) outside Town Hall, dedicated on April 29, 2000, with a bronze miner standing over more than 500 of them. The town's civic buildings are from the mining years: the two-storey 1889 Davis building on Briggs Street that now holds [the Old Mine](/places/the-old-mine/), the 1906 Lincoln School on Holbrook Street, the 1930 City Hall with its fire bell tower. Most of the mines closed by 1960; the last, the Eagle Mine, shut in 1978.
 
+![A miner's frame house with a hipped roof and brick chimney at Puritan Camp in 1946, a vegetable garden planted in front](../images/puritan-camp-1946.jpg)
+
+*A miner's home at Puritan Camp, 28 June 1946. Photo: Russell Lee for the federal Coal Mines Administration survey; public domain, National Archives.*
+
 ## The farm town
 
 With the coal gone, Erie was a farm town of a few thousand people for the next generation, and its oldest houses tell that story too. Oliver and Adaline Wise came from Wisconsin in 1869, patented their homestead on Jasper Road in 1870 and built the Western Victorian farmhouse that the Erie Historical Society opened as the [Wise Homestead Museum](/places/wise-homestead-museum/) in 2007, one of the oldest frame houses in Boulder County. Coal Creek, which floods, got a dike after 1972. The Lincoln School taught the town's children until 1966 and sat empty until the Town renovated it as [Town Hall](/places/erie-town-hall/) in 1998.
@@ -28,5 +32,6 @@ The 2020 census counted 30,038 people in Erie, up 66 percent from 2010, spread a
 - [Erie, Colorado](https://en.wikipedia.org/wiki/Erie,_Colorado) on Wikipedia: settlement, the name, the railroads, incorporation, the 1876 mine, the eleven saloons, the mine closures, the 2020 census and county split.
 - [Lincoln School / Erie Town Hall](https://www.historycolorado.org/location/lincoln-school-erie-town-hall), History Colorado: the 1906 school, its closure in 1966 and renovation in 1998.
 - [Erie Historical Society](https://www.eriehistoricalsociety.org/erie-wise-homestead-museum/): the Wise homestead and the museum's opening.
+- [Russell Lee's 1946 photographs of Puritan Camp](https://commons.wikimedia.org/wiki/File:Home_of_miner._Puritan_Camp,_Erie,_Colorado._-_NARA_-_540361.jpg) for the Coal Mines Administration medical survey, National Archives via Wikimedia Commons.
 - Wikimedia Commons descriptions of the [Coal Miners' Memorial](https://commons.wikimedia.org/wiki/File:Erie_Colorado_Miner_Memorial.jpg), the [1889 Davis building](https://commons.wikimedia.org/wiki/File:Erie_Colorado_1889_Brick_Building.jpg) and the [1930 City Hall](https://commons.wikimedia.org/wiki/File:Old_Erie_Colorado_City_Hall.jpg).
 - [5280, January 2023](https://5280.com/erie-colorado-restaurants/): Echo Brewing in the former fire station since 2014.
