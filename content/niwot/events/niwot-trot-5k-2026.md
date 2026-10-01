@@ -6,8 +6,6 @@ address: "Murray Street and First Avenue"
 url: "https://www.niwotptac.com/niwottrot-146424.html"
 cost: "Registration fee; see the PTAC site"
 category: sports
-image: ../images/front-range-sunset-trail.jpg
-imageAlt: "A gravel trail heading west toward the foothills at sunset"
 featured: true
 source: "https://www.lhvc.com/story/2026/09/16/education/niwot-elementary-ptac-to-host-21st-annual-niwot-trot-5k-oct-4/12521.html"
 verified: "2026-09-24"

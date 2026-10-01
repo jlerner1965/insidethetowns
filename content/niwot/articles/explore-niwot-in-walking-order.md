@@ -4,8 +4,9 @@ date: "2026-09-17"
 excerpt: "Old Town first, then Cottonwood Square, then whatever the weather allows. The whole loop is under two miles, and you only park once."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-image: ../images/front-range-sunset-trail.jpg
-imageAlt: "The trail at the edge of the grassland east of Niwot, looking west toward the foothills at sunset"
+image: ../images/old-fire-house-museum.jpg
+imageAlt: "The small 1910 fire house on Second Avenue in Old Town, the first stop on the walk, with its red-wheeled chemical fire cart in front"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 4.0"
 ---
 
 Niwot sits off the Diagonal Highway between Boulder and Longmont, about twenty minutes from either. Leave the car on or near Second Avenue: the two commercial blocks are within a fifteen-minute walk of each other, and the park and the trail are at their edges.
