@@ -294,7 +294,7 @@ or count, the config facts as read on 1 October 2026, the sources and their
 robots files, the deploy checklist, and a ten-step order. Same process as
 Phase 7b otherwise: `npm run new-town`, keep each out of `LIVE_TOWNS` until its
 domain serves, Windsor first and Fort Collins only once Windsor is live and
-populated.
+populated. Both went live on 1 October 2026.
 
 ## Conventions Claude Code must follow
 

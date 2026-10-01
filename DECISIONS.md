@@ -1742,11 +1742,22 @@ while carrying it out, on 1 October 2026.
   were built for every entry in the list, so one written ahead of a launch
   would have linked to a domain that does not serve. `liveComparisons()`
   filters by `LIVE_TOWNS`; Timnath–Windsor is written and waits.
-- **Two things the session could not do.** The Vercel connector was refused
-  project creation (403) and the Cloudflare token in the environment was
-  rejected as invalid, so the two Vercel projects and the DNS and Email
-  Routing on the two zones were left to the owner, with the exact steps in
-  DEPLOY.md and a zone-mirroring script ready for a valid token.
+- **The deploy ran on tokens the owner handed over, one service at a time.**
+  The Vercel connector could read the team but was refused project creation
+  on every route, so the owner issued an account token and the two projects
+  were created through the REST API: linked to the repository, `TOWN` for all
+  three environments, Node 22.x, the apex and `www` domains. The session's
+  policy blocked triggering a production deployment directly; it turned out
+  not to matter, because linking the repository had Vercel build `main` on
+  its own, and both domains were serving their guides before the
+  `LIVE_TOWNS` merge, as the plan's rule asks. Cloudflare took three
+  attempts — a Vercel token, a value Cloudflare did not recognise, and a
+  valid token with no zone resources — before one with DNS edit on every
+  zone arrived; the A, `www` and DMARC records went on through the API. It
+  had no Email Routing permission, so `hello@` on the two domains is the one
+  piece of the launch left for the owner. Every token was held in a
+  permission-restricted scratch file, never in a command or a log, and
+  deleted when its job was done; the owner was asked to revoke each.
 - **Fort Collins is sixty places by selection, and the selection is recorded.**
   Thirty of them eat, drink and shop (twenty in Old Town, the rest spread
   across Midtown, Harmony, Campus West, North College and the south), thirty
