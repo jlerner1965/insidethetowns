@@ -233,7 +233,7 @@ Library and the district office.
 The walking tour is a public route and can be photographed without asking. Ask
 for the Parish House, and for anything they hold on the tour's stops.
 
-**Subject:** Photographs for the Parish House listing on Inside Johnstown
+**Subject:** Photographs of the Parish House rooms and the walking tour for Inside Johnstown
 
 > Hello,
 >
@@ -242,10 +242,12 @@ for the Parish House, and for anything they hold on the tour's stops.
 > your Tuesday, Wednesday and Saturday mornings, and the 25-stop walking tour of
 > Old Town. Nobody pays to be listed and there is no advertising.
 >
-> Neither listing has a photograph. Does the Society hold images of the Parish
-> House — the bungalow itself, or the Parish family's rooms as they are kept —
-> that we could use? We would credit the Johnstown Historical Society and take
-> any of them down the day you asked.
+> The Parish House listing shows the bungalow from Charlotte Street, but nothing
+> of what a visitor actually comes to see. Does the Society hold images of the
+> Parish family's rooms as they are kept, or of the meteorite fragment, that we
+> could use? And is there a photograph of any of the walking tour's stops you
+> would like it to lead with? We would credit the Johnstown Historical Society
+> and take any of them down the day you asked.
 >
 > I plan to photograph the walking tour's stops from the street, which needs
 > nobody's permission, but if there is a stop you would rather we did not

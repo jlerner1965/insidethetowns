@@ -1,10 +1,12 @@
 # Every photo email, in one place
 
-Thirty-six messages, ready to copy and paste, drawn from the three documents in
+Thirty-eight messages, ready to copy and paste, drawn from the three documents in
 `docs/` (`INDUSTRY-EMAILS.md`, `PARK-PHOTO-EMAILS.md`, `VENUE-PHOTO-EMAILS.md`),
-with the one-to-one ask from `PHOTOS.md`. Nothing here is new; this is the send
-list in one file, in the order to send it. The messages are copied word for
-word, so a change to one belongs in its source as well.
+with the one-to-one ask from `PHOTOS.md`, plus Batch D: two follow-ups, added
+1 October 2026, to the councils that said yes in September. Batches A to C are
+the send list in one file, in the order to send it, copied word for word, so a
+change to one belongs in its source as well. The tracking table at the end
+records what has already been answered.
 
 ## Before you send anything
 
@@ -45,7 +47,6 @@ Photograph these on the walk. Public exteriors and public art on public streets.
 |---|---|
 | Downtown mural and public art walk | Berthoud |
 | Berthoud Town Hall | Berthoud |
-| First National Bank building (exterior) | Elizabeth |
 | Historic walking tour of Old Town | Johnstown |
 | Niwot Hall | Niwot |
 | Timnath Town Center | Timnath |
@@ -1022,10 +1023,11 @@ Library and the district office.
 **Phone:** (970) 587-0278 · 701 Charlotte St · Tue, Wed, Sat 9–12
 **Sites:** Historic Parish House & Museum, Historic walking tour of Old Town
 
-The walking tour is a public route and can be photographed without asking. Ask
-for the Parish House, and for anything they hold on the tour's stops.
+The Parish House listing has carried an exterior photograph since 1 October
+2026 (Jeffrey Beall, Wikimedia Commons). Ask for the rooms inside and for the
+walking tour's stops, which still have nothing.
 
-**Subject:** Photographs for the Parish House listing on Inside Johnstown
+**Subject:** Photographs of the Parish House rooms and the walking tour for Inside Johnstown
 
 > Hello,
 >
@@ -1034,10 +1036,12 @@ for the Parish House, and for anything they hold on the tour's stops.
 > your Tuesday, Wednesday and Saturday mornings, and the 25-stop walking tour of
 > Old Town. Nobody pays to be listed and there is no advertising.
 >
-> Neither listing has a photograph. Does the Society hold images of the Parish
-> House — the bungalow itself, or the Parish family's rooms as they are kept —
-> that we could use? We would credit the Johnstown Historical Society and take
-> any of them down the day you asked.
+> The Parish House listing shows the bungalow from Charlotte Street, but nothing
+> of what a visitor actually comes to see. Does the Society hold images of the
+> Parish family's rooms as they are kept, or of the meteorite fragment, that we
+> could use? And is there a photograph of any of the walking tour's stops you
+> would like it to lead with? We would credit the Johnstown Historical Society
+> and take any of them down the day you asked.
 >
 > I plan to photograph the walking tour's stops from the street, which needs
 > nobody's permission, but if there is a stop you would rather we did not
@@ -1152,7 +1156,7 @@ inside, because the work on the walls is not theirs to license.
 > open hours and take one of the floor? Nobody recognisable would be in the
 > frame. We would credit it to you and take it down the moment you asked.
 
-## Three with no contact at all
+## Two with no contact at all
 
 These have no website and no phone in the repository, so they need a walk or a
 look-up before anything can be sent:
@@ -1161,12 +1165,76 @@ look-up before anything can be sent:
 |---|---|---|
 | B-Rad's Arcade | Berthoud | 154 Mountain Ave |
 | Elbert County Artists Guild | Elizabeth | 338 S Main St |
-| First National Bank building | Elizabeth | 188 S Main St |
 
-The bank building is closed and on the National Register; its exterior is
-photographable from the pavement with nobody's permission, so it is already in
-the list at the top. The other two are storefronts on the two Main Streets you
-would be walking anyway.
+Both are storefronts on the two Main Streets you would be walking anyway. (The
+First National Bank building in Elizabeth was on this list; it has carried a
+Commons photograph since 1 October 2026.)
+
+
+---
+
+# Batch D. Follow-ups to the two who said yes
+
+Both replied in September and offered more. These ask for exactly what is
+still missing.
+
+## 1. Town of Berthoud — the six parks still without a photograph
+
+**To:** SHorvath@Berthoud.org (Stephanie Horvath, Community Engagement Manager)
+**Cc:** skouns@berthoud.org (Parks Supervisor)
+
+She sent four photographs on 21 September: the Recreation Center, two of Town
+Park and Waggener Farm Park. Six of the eight parks in B1 still have none.
+
+**Subject:** Thank you — and six Berthoud parks still without a photograph
+
+> Hello Stephanie,
+>
+> Thank you again for the photographs of the Recreation Center, Town Park and
+> Waggener Farm Park. They are on Inside Berthoud now and they have made those
+> listings far better than anything I could have written.
+>
+> Six of the park listings still have no photograph:
+>
+> Ellen Bunyan Bein Park, Berthoud Bike Park, the Berthoud Reservoir Loop,
+> Fickel Park, Pioneer Park and Roberts Lake.
+>
+> If the Town has photographs of any of these, I would be glad to use them on
+> the same terms as before. If not, is it fine for me to photograph them
+> myself for the guide?
+>
+> Thank you,
+> <name>
+
+## 2. Town of Erie — the five parks not on erieco.gov
+
+**To:** communications@erieco.gov (for Ashley Burger, Communications & Marketing Manager)
+**Phone:** 303-926-2541
+
+Her grant of 18 September covered the photographs on erieco.gov and offered
+more: "If you are looking for particular photos of our parks that aren't on
+the website, please reach out, I likely already have them." Five parks and the
+Singletrack have none on the website (PERMISSIONS.md).
+
+**Subject:** Taking you up on your offer — five Erie parks without a photograph
+
+> Hello Ashley,
+>
+> Thank you for letting Inside Erie use the Town's park photographs. Six of
+> them are on the guide now, credited to the Town.
+>
+> You kindly offered to look for photographs that are not on the website, so
+> I am taking you up on it. These listings still have none, because erieco.gov
+> has none to use:
+>
+> Arapahoe Ridge Park, Lehigh Park, Longs Peak Park, Serene Park, Star Meadows
+> Park, and the Erie Singletrack at Sunset Open Space (the Town's page for it
+> carries only trail maps).
+>
+> Any of them would be welcome, on the same terms as before.
+>
+> Thank you,
+> <name>
 
 
 ---
@@ -1239,18 +1307,18 @@ can be said.
 | A10 | Trade | Johnstown Downtown Development Association | email | | | |
 | A11 | Trade | Timnath Main Street | email | | | |
 | A12 | Trade | Timnath Chamber of Commerce | email, a week after A11 | | | |
-| B1 | Parks | Town of Berthoud Parks and Recreation (8 sites) | email, a week after A1 | | | |
-| B2 | Parks | Town of Erie Parks and Open Space (12) | email | | | |
+| B1 | Parks | Town of Berthoud Parks and Recreation (8 sites) | email, a week after A1 | yes | 2026-09-21 | 4 photographs: Recreation Center, Town Park ×2, Waggener Farm Park. Six parks remain → D1 |
+| B2 | Parks | Town of Erie Parks and Open Space (12) | email | yes | 2026-09-18 | Granted, standing (PERMISSIONS.md). Six used; five parks and the Singletrack remain → D2 |
 | B3 | Parks | Town of Johnstown Parks and Recreation (8) | email | | | |
 | B4 | Parks | Town of Timnath Parks (4) | email or form | | | |
 | B5 | Parks | Elizabeth Park and Recreation District (2) | email | | | |
 | B6 | Parks | Town of Elizabeth Public Works (1) | phone | | | |
 | B7 | Parks | Town of Lyons Parks and Recreation (1) | email, a week after A5 | | | |
-| B8 | Parks | Boulder County Parks and Open Space (3) | email, optional | | | |
+| B8 | Parks | Boulder County Parks and Open Space (3) | email, optional | yes | 2026-09-18 | Granted for the three gallery pages (PERMISSIONS.md). Done |
 | B9 | Parks | Douglas County Open Space (1) | email | | | |
 | B10 | Parks | Niwot Cultural Arts Association (1) | form | | | |
 | C1 | Venues | Berthoud Community Library District | email | | | |
-| C2 | Venues | Town of Berthoud (Recreation Center) | email, a week after B1 | | | |
+| C2 | Venues | Town of Berthoud (Recreation Center) | email, a week after B1 | — | — | Not needed: the Recreation Center came with B1. Done |
 | C3 | Venues | Berthoud Historical Society | email | | | |
 | C4 | Venues | Berthoud Main Street (murals), optional | form; skip once A2 has gone | | | |
 | C5 | Venues | Wildfire Arts Center | form or phone | | | |
@@ -1263,3 +1331,5 @@ can be said.
 | C12 | Venues | Lyons Regional Library District | email | | | |
 | C13 | Venues | Osmosis Gallery | site contact | | | |
 | C14 | Venues | Lyons Classic Pinball | site contact | | | |
+| D1 | Follow-up | Town of Berthoud — six parks | email | | | |
+| D2 | Follow-up | Town of Erie — five parks and the Singletrack | email | | | |
