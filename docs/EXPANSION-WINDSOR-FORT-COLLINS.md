@@ -6,6 +6,38 @@ outside the scaffold, and the facts the two configs need (checked where it
 says so). The method is Timnath's and Elizabeth's (DECISIONS.md, Phases 7 and
 7b); what is new is that one of the two is a city.
 
+## Status, 1 October 2026
+
+Everything in the repository is done and on the branch; the launch waits on
+two things only the owner can do.
+
+**Done.** Both configs with verified facts, colours and Commons heroes; the
+tests reading the registry; the map, geo and county tests; the hub copy; the
+comparison pages kept dark until both towns are live; Windsor at 30 places,
+38 events, two articles and a moving-here page; Fort Collins at 60 places, 60
+events, two articles and a moving-here page; every entry sourced and dated;
+the Timnath–Windsor and Windsor–Fort Collins comparisons written; DEPLOY.md
+and DECISIONS.md updated. Tests, validator, contrast check, type check and
+all three builds pass.
+
+**Waiting on the owner.**
+
+1. **Vercel.** The connector is refused project creation (403), so create
+   `insidewindsorco` and `insidefortcollins` in the dashboard per "Creating a
+   project" in DEPLOY.md: import this repo, Astro preset, `TOWN=windsor` or
+   `TOWN=fortcollins` for Production, Preview and Development, Node 22.x,
+   then the domain and its `www`. Production builds fail until this branch is
+   merged to `main`, which is expected.
+2. **Cloudflare.** The `CLOUDFLARE_API_TOKEN` in the session environment is
+   rejected by Cloudflare as invalid. With a working token (DNS edit and
+   Email Routing edit on the two zones), the A and `www` records, Email
+   Routing and DMARC are one command per domain from the mirroring script
+   written for it; or do them by hand per "Domains" and "Email" in DEPLOY.md.
+3. **Then:** `windsor` and `fortcollins` into `LIVE_TOWNS` once each domain
+   serves over HTTPS, and push. Formspree forms, the two deploy-hook lines
+   in the GitHub secret, Analytics per project and the Buttondown tags
+   follow as DEPLOY.md describes; none blocks launch.
+
 ## The two guides
 
 | | Windsor | Fort Collins |

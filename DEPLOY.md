@@ -166,7 +166,8 @@ not been measured on a real deployment yet.
 Every town config publishes one address, `hello@<domain>`, and all ten domains
 receive it through **Cloudflare Email Routing**, which forwards it to the owner's
 inbox. There is no mailbox anywhere: Cloudflare accepts the message and passes it
-on. Set up on 27 September 2026.
+on. Set up on 27 September 2026 for the first eight domains; insidewindsorco.com
+and insidefortcollins.com still need theirs.
 
 On each domain (Cloudflare → the domain → Email → Email Routing):
 

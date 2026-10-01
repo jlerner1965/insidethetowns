@@ -48,6 +48,19 @@ export const COMPARISONS: Comparison[] = [
     verdict:
       'The Fort Collins commute and a simple answer on schools: Timnath. A real town with a lake and a Main Street in the middle of northern Colorado: Windsor, and check the school district on the address.',
   },
+  {
+    a: 'windsor',
+    b: 'fortcollins',
+    question:
+      'A town of 32,000 and the city of 170,000 it sits twenty minutes east of. Nearly everyone who looks at Windsor is also looking at Fort Collins, and the question is whether the difference is worth the drive.',
+    body: [
+      'Fort Collins is the destination and Windsor is the commute to it, and that is the honest shape of the choice. Fort Collins has Old Town, the university, the Poudre and Horsetooth inside its limits, Transfort and the MAX line, Bustang to Denver, and most of northern Colorado’s jobs. Windsor has a lake, a Main Street, a recreation center, a library district and one weekday commuter bus, and it is twenty minutes from Fort Collins along Harmony Road and twenty from Greeley and Loveland the other way. If you will be in Fort Collins for work, for dinner and for the weekend anyway, you are paying for Windsor’s house and Fort Collins’ life, and only the house is cheaper.',
+      'Growth tells the rest. Fort Collins went from 143,986 people in 2010 to 169,810 in 2020, eighteen per cent, and the neighborhoods within reach of Old Town cost what a university city’s do; most of what is new is on the south and east edges. Windsor went from 18,644 to 32,716, seventy-five per cent, nearly all of it in master-planned neighborhoods with metro districts, east and south of the old town, and the Town’s own count has kept climbing since. Windsor is where the new house is. Fort Collins is where the old one is, at a price.',
+      'Schools are simpler in the city. Fort Collins is Poudre School District, with four comprehensive high schools and school choice across them. Windsor has three districts inside its limits — most of town is Weld RE-4, the Windsor-Severance district, and the Larimer County side is Poudre or Thompson — so which district a house is in depends on which side of the county line it stands, and so does the county, the sheriff and the ballot. In Windsor that is a question to settle against the districts’ boundary maps before an offer; in Fort Collins it is a question of which school within one district.',
+    ],
+    verdict:
+      'The city, its downtown, its transit and one school district: Fort Collins. A new house with a lake and a Main Street, twenty minutes from everything in northern Colorado: Windsor, and check the school district on the address.',
+  },
 ];
 
 export const comparisonSlug = (c: Comparison) => `${c.a}-vs-${c.b}`;
