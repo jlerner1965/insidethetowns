@@ -1569,3 +1569,67 @@ under *Email* in DEPLOY.md.
 The session that set this up could not test delivery — its container cannot
 open port 25 — so the owner did, the same day: a message sent to `hello@` from
 a separate account arrived in the owner's inbox.
+
+## Four image catalogs, a credits page, and three captions that were wrong
+
+*30 September–1 October 2026.* The owner supplied four catalogs of Wikimedia
+Commons photographs, about 430 entries in all, and a brief asking for a
+crawler script and a credits page. Each file was checked against its live
+Commons record (author, licence, coordinates, categories) and against
+`IMAGE_LICENSES.csv`, and looked at before it went in.
+
+- **Two "client-supplied" Niwot photographs were Commons photographs.** The
+  Tribune storefront and the gateway sculpture are crops of Jeffrey Beall's
+  `Niwot, Colorado.JPG` (CC BY-SA 4.0) and `Niwot, Colorado sign.JPG`
+  (CC BY 4.0), and were live without the credit both licences require. Now
+  credited. The other four townofniwot.com photographs are not on Commons;
+  whether their licence extends to insideniwot.com is still the owner's to
+  confirm.
+- **Added:** the Old Fire House Museum as a Niwot place (its sources disagree
+  on what happened on 26 October 1999, a 99-year lease or the landmarking, so
+  the page gives no date); photographs for Johnstown's Parish House and
+  Elizabeth's 1907 bank, both exact address matches; Russell Lee's 1946
+  Puritan Camp house in Erie's history, which already said the camp had been
+  photographed for the federal government.
+- **The two National Register barns went into Johnstown's history, not the
+  places list.** The Brush barn (1865) and the Anderson barn (1913) are on
+  private, working farms, and a place listing tells readers to go there. The
+  section says they are not open to visitors. Facts are from the two
+  nominations.
+- **Traps in the catalogs**, for whoever reviews the next one:
+  `Historic Briggs Building - panoramio.jpg` is in Raleigh, North Carolina,
+  not on Briggs Street; the Buc-ee's file titled Berthoud is the Johnstown
+  store; `Niwot, Colorado.JPG` is the Tribune building, not a town view;
+  Peaceful Valley's chapel, Lion Gulch and Homestead Meadows are filed under
+  Lyons but are miles outside it; the 1937 AIL aerial frames are filed by
+  county and cannot be tied to a townsite.
+- **Not used, on purpose:** photographs whose subject is identifiable people
+  (the RockyGrass performers and jams; the Puritan Camp frames of named
+  children inside their homes); the 73 SparkFun headquarters photographs, a
+  company's offices rather than a place to visit; and the brief's Unsplash
+  and Pexels fillers, which would break the rule that every photograph shows
+  the actual place.
+- **No crawler script.** Commons had been gone through four times by then;
+  the script would write manifests to folders the site does not read, and
+  treats a town's whole category as approved, which is exactly what lets
+  locator maps, scanned documents and same-named places in.
+- **`/credits/` on every site**, linked from the footer and the editorial
+  policy. Captions credit a photograph where it is shown in full; the same
+  photograph also appears on cards and in link previews with no caption, and
+  CC BY and BY-SA still require credit there. The page lists only photographs
+  the site actually shows (Lyons keeps 18 unused files; it lists 14, not 32),
+  each with author, linked licence, the original, what was changed and where
+  it is used. It is built from the register through `src/lib/credits.ts`,
+  which turns internal notes into a reader's credit and throws on a row it
+  cannot read.
+- **The validator now checks captions against the register.** Its first run
+  found three wrong ones: Erie Town Hall credited Jeffrey Beall, CC BY 4.0,
+  for Erie Bard's CC BY-SA 4.0 photograph, and Johnstown Town Hall said
+  CC BY 4.0, on two pages, for a CC BY-SA 3.0 one. Both confirmed on Commons
+  and fixed. It also now covers inline images and town heroes, and fails on
+  an image with no row.
+- **Wikimedia rate-limits the cloud sessions' shared address.** Downloads, and
+  later the API itself, returned 429 for over an hour. `E County Line Road
+  01.jpg` (Erie Bard, CC BY-SA 4.0), meant as the hero of *Which side of
+  County Line Road*, was never downloaded or seen, and is left for a later
+  session.

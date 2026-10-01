@@ -1,7 +1,7 @@
 # Getting the missing photographs
 
-193 of 240 places have no photograph. 139 of those are restaurants, cafes, bars,
-shops and lodgings. (Recounted 20 September 2026; the figure was 202 when this
+188 of 241 places have no photograph. 139 of those are restaurants, cafes, bars,
+shops and lodgings. (Recounted 1 October 2026; the figure was 202 when this
 was written.) This is how to fix that, and what has already been ruled out.
 
 `PHOTO-CONTACTS.csv` in this folder is the working list: every unphotographed
@@ -19,6 +19,14 @@ Do not repeat these. The searches are recorded in `DECISIONS.md`.
   unphotographed places. The matches were same-named places elsewhere: Pioneer
   Park in Bunbury and Fairbanks, Roberts Lake in British Columbia, Evans Park in
   Ohio, Queen Elizabeth II for anything containing "Elizabeth".
+- **Supplied Commons catalogs, four of them (30 September–1 October 2026).**
+  About 430 entries across the seven towns, checked file by file against the
+  live Commons record and against `IMAGE_LICENSES.csv`. Most were already
+  here. Six were added; the rest were alternates of photographs already used,
+  2005 Timnath snapshots under 700px, 1937 aerial frames that cannot be tied to
+  a town, SparkFun's headquarters, places with no page, or the wrong place
+  entirely. The rejections, and the traps among them, are in `DECISIONS.md`
+  under *Four image catalogs*. Do not re-review them.
 - **KartaView street-level imagery.** Four frames near Elizabeth's Main Street,
   all windshield dashcam shots of roadway with dashboard glare. No storefronts.
 - **Mapillary.** Requires an API token this project does not have.
@@ -98,3 +106,10 @@ Every image in the repository has a row in `IMAGE_LICENSES.csv` naming where it
 came from and under what terms. No image goes in without one. A photograph whose
 licence cannot be stated is not usable, however good it is and however much the
 page wants one.
+
+`npm run validate` enforces it: a file with no row fails, a row that cannot be
+read as a public credit fails, and a caption that names a different licence
+from the row fails. The row's licence field must start with the licence name
+and the author in brackets, e.g. `CC BY-SA 4.0 (Erie Bard; 2019); resized to
+1600px`, because `/credits/` is built from it; a written permission needs its
+grant added to `GRANTS` in `src/lib/credits.ts`.
