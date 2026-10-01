@@ -7,7 +7,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { findTown, liveTowns } from '../src/config/index.ts';
+import { allTowns, findTown, liveTowns } from '../src/config/index.ts';
 import { milesBetween, nearestTowns } from '../src/lib/geo.ts';
 
 const town = (slug: string) => findTown(slug)!;
@@ -25,11 +25,27 @@ test('a town is never its own neighbor and the nearest comes first', () => {
   assert.ok(near.length <= 3);
 });
 
-test('Timnath reaches only Johnstown and Berthoud within twenty-five miles', () => {
+test('Timnath has Windsor and Fort Collins at its door, then Johnstown', () => {
+  // Against every configured town rather than the live ones: the geometry is
+  // true before a town launches, and this is what the block will show once
+  // both are live. 4.8, 5.4 and 13.8 miles.
   assert.deepEqual(
-    nearestTowns(town('timnath'), liveTowns()).map((n) => n.town.slug),
-    ['johnstown', 'berthoud'],
+    nearestTowns(town('timnath'), allTowns).map((n) => n.town.slug),
+    ['windsor', 'fortcollins', 'johnstown'],
   );
+});
+
+test('the northern cluster: each of the three is the nearest guide to the others', () => {
+  assert.deepEqual(
+    nearestTowns(town('windsor'), allTowns).map((n) => n.town.slug),
+    ['timnath', 'fortcollins', 'johnstown'],
+  );
+  assert.deepEqual(
+    nearestTowns(town('fortcollins'), allTowns).map((n) => n.town.slug),
+    ['timnath', 'windsor', 'berthoud'],
+  );
+  // Berthoud picks Windsor up as its third, at under fourteen miles.
+  assert.equal(nearestTowns(town('berthoud'), allTowns)[2]!.town.slug, 'windsor');
 });
 
 test('Elizabeth has no neighbor, so the block built on this shows nothing there', () => {

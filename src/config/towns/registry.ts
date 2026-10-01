@@ -10,6 +10,8 @@ import { erie } from './erie.ts';
 import { johnstown } from './johnstown.ts';
 import { timnath } from './timnath.ts';
 import { elizabeth } from './elizabeth.ts';
+import { windsor } from './windsor.ts';
+import { fortcollins } from './fortcollins.ts';
 // new-town:imports
 
 export const towns: TownConfig[] = [
@@ -20,5 +22,7 @@ export const towns: TownConfig[] = [
   johnstown,
   timnath,
   elizabeth,
+  windsor,
+  fortcollins,
   // new-town:entries
 ];

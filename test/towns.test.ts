@@ -19,12 +19,14 @@ const by = (slug: string) => {
   return t;
 };
 
-test('the three towns that straddle a county line name both counties', () => {
+test('the four towns that straddle a county line name both counties', () => {
   // Verified 2026-09-20 against the Town of Erie's own Regional Partners page
-  // and the census municipality-by-county split.
+  // and the census municipality-by-county split; Windsor 2026-10-01 against
+  // the Town's own School Districts page, which lists three districts.
   assert.deepEqual([...by('erie').counties], ['Weld', 'Boulder']);
   assert.deepEqual([...by('johnstown').counties], ['Weld', 'Larimer']);
   assert.deepEqual([...by('berthoud').counties], ['Larimer', 'Weld']);
+  assert.deepEqual([...by('windsor').counties], ['Weld', 'Larimer']);
 });
 
 test('single-county towns are unchanged', () => {
@@ -32,10 +34,11 @@ test('single-county towns are unchanged', () => {
   assert.deepEqual([...by('lyons').counties], ['Boulder']);
   assert.deepEqual([...by('elizabeth').counties], ['Elbert']);
   assert.deepEqual([...by('timnath').counties], ['Larimer']);
+  assert.deepEqual([...by('fortcollins').counties], ['Larimer']);
 });
 
 test('a split town carries a sourced, dated explanation of the split', () => {
-  for (const slug of ['erie', 'johnstown', 'berthoud']) {
+  for (const slug of ['erie', 'johnstown', 'berthoud', 'windsor']) {
     const { countySplit } = by(slug);
     assert.ok(countySplit, `${slug} spans two counties and must explain how`);
     assert.match(countySplit.source, /^https:\/\//, `${slug}: split needs a real source`);
@@ -60,7 +63,7 @@ test('county labels read as English in both shapes', () => {
 
 test('the network counts every county it covers, not every town', () => {
   const live = towns.filter((t) => LIVE_TOWNS.includes(t.slug));
-  // Boulder, Weld, Larimer, Elbert.
+  // Boulder, Weld, Larimer, Elbert. Windsor and Fort Collins add no county.
   assert.deepEqual(countiesCovered(live).sort(), ['Boulder', 'Elbert', 'Larimer', 'Weld']);
 });
 
@@ -113,8 +116,9 @@ test('a tagline whose comma sits before the state is not cut at that comma', () 
     'Inside Erie \u2014 Briggs Street, trails and events in Erie, Colorado');
 });
 
-test('the three most ambiguous names spell Colorado out rather than abbreviating', () => {
-  for (const slug of ['erie', 'johnstown', 'elizabeth']) {
+test('the four most ambiguous names spell Colorado out rather than abbreviating', () => {
+  // Windsor is the worst of them: Ontario, Berkshire, California, Connecticut, Vermont.
+  for (const slug of ['erie', 'johnstown', 'elizabeth', 'windsor']) {
     assert.match(by(slug).seoTagline ?? '', /Colorado/, `${slug}: "CO" is too weak a signal for this name`);
   }
 });

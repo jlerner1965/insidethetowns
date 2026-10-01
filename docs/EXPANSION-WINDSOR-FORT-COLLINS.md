@@ -10,10 +10,10 @@ says so). The method is Timnath's and Elizabeth's (DECISIONS.md, Phases 7 and
 
 | | Windsor | Fort Collins |
 |---|---|---|
-| Domain | insidewindsorco.com | insideftcollins.com (to register: decision 1) |
+| Domain | insidewindsorco.com | insidefortcollins.com |
 | Slug (content folder, `TOWN`, favicon folder, newsletter tag) | `windsor` | `fortcollins` |
 | Site title | Inside Windsor | Inside Fort Collins |
-| Contact address | hello@insidewindsorco.com | hello@insideftcollins.com |
+| Contact address | hello@insidewindsorco.com | hello@insidefortcollins.com |
 
 Both sit beside Timnath: Windsor 4.8 miles to its south-east and Fort Collins
 5.4 miles to its north-west, by the configs' own great-circle formula. That is
@@ -27,27 +27,17 @@ picks the simpler option, as PLAN.md's conventions ask. Any of them can be
 reversed before its town goes into `LIVE_TOWNS`; none can be reversed cheaply
 after.
 
-### 1. The Fort Collins domain is insideftcollins.com
+### 1. The Fort Collins domain is insidefortcollins.com
 
-Vercel's registrar, asked on 1 October 2026:
-
-| Domain | |
-|---|---|
-| insidewindsorco.com | registered |
-| insidewindsor.com | registered — presumably by someone else, hence the "co" |
-| insidefortcollins.com | registered |
-| insideftcollins.com | **available: nobody owns it** |
-
-The request named "ft collins", the "ft" spelling is the only one of the two
-that can still be had, and it is how the city's own visitor bureau writes it
-(visitftcollins.com). So the config says `insideftcollins.com`, and
-**registering it is step 0 of the order below.** The domain is the canonical
-URL on every page, the sitemap, the JSON-LD `@id`, the `hello@` address and
-the `www` redirect, so it has to exist before the config is written and
-cannot change after launch without a migration. If insidefortcollins.com
-turns out to be yours already, say so before step 5 and the config takes
-that instead; nothing else here changes. (`test/towns.test.ts` requires
-`^inside[a-z]+\.com$`; both pass.)
+Vercel's registrar, asked on 1 October 2026, showed insidefortcollins.com,
+insidewindsorco.com and insidewindsor.com registered and insideftcollins.com
+free, and the first draft of this plan read "ft collins" literally and
+proposed buying the free one. The owner then confirmed the same day that
+insidefortcollins.com and insidewindsorco.com are both theirs, both already
+zones on Cloudflare. So the config says `insidefortcollins.com`, there is
+nothing to register, and the two zones are where the DNS records and Email
+Routing go. (`test/towns.test.ts` requires `^inside[a-z]+\.com$`; both
+pass.)
 
 ### 2. Drop "small"; keep "towns"
 
@@ -116,7 +106,7 @@ npm run new-town fortcollins "Fort Collins"
 Then in each new config, by hand:
 
 - **`domain` and `social.email`.** The script derives `inside<slug>.com`, which
-  is wrong for both. Set `insidewindsorco.com` and `insideftcollins.com`.
+  is right for Fort Collins and wrong for Windsor. Set `insidewindsorco.com`.
 - **`fortcollins`, not `fort-collins`.** The script handles hyphens, but every
   slug so far is one token, and the slug is also the `TOWN` value, the favicon
   folder and the Buttondown tag. `windsor` rather than `windsorco` for the
@@ -324,10 +314,9 @@ the plan's included credit. The cost is two domain registrations.
 Each numbered item is one commit or one owner action, and the build, the
 tests, `npm run validate` and `npm run check-colors` pass at every one.
 
-0. **Owner, today.** Register insideftcollins.com. Add both domains as
-   Cloudflare zones and move their nameservers now, so propagation and Email
-   Routing run while the content is being written; Email Routing needs the
-   zone at Cloudflare.
+0. **Done by the owner.** Both domains are zones on Cloudflare, and the
+   environment carries a Cloudflare API token, so the DNS records and Email
+   Routing in step 4 and step 7 are done from here.
 1. **The tests describe the network instead of listing it.**
    `test/series.test.ts` and `test/dated-content.test.ts` take their slugs
    from the registry. One commit, no behaviour change, so the two scaffolds
