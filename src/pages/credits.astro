@@ -1,0 +1,73 @@
+---
+/**
+ * Every photograph this site shows, with who took it and on what terms.
+ *
+ * Captions credit a photograph where it appears at full size, but the same
+ * photograph also turns up as a card on listing pages and as the picture in a
+ * shared link, where there is no room for a caption. This page is where those
+ * uses are credited, and where anyone can check that a picture is ours to use.
+ * It is built from IMAGE_LICENSES.csv, so it cannot drift from the register.
+ */
+import { Image } from 'astro:assets';
+import Page from '@/layouts/Page.astro';
+import { getSite } from '@/config';
+import { getCreditedPhotos } from '@/lib/photo-credits';
+
+const site = getSite();
+const photos = (await getCreditedPhotos()).sort((a, b) => {
+  // The home page photograph first, then by photographer so one person's work sits together.
+  if (a.usedOn[0]?.href === '/') return -1;
+  if (b.usedOn[0]?.href === '/') return 1;
+  return (a.credit.author ?? '~').localeCompare(b.credit.author ?? '~') || a.file.localeCompare(b.file);
+});
+const linkClass = 'underline decoration-ink-faint underline-offset-2 hover:text-accent-text';
+---
+<Page
+  title="Photo credits"
+  eyebrow={site.kind === 'town' ? site.name : 'Inside the Towns'}
+  description={`Who took each photograph on ${site.siteTitle}, and the licence or permission it is used under.`}
+  intro={`Every photograph on ${site.siteTitle}, who took it, and the licence or permission it is used under. Captions credit a photograph where it appears in full; this page also covers the cards and link previews where it appears without one.`}
+>
+  <div class="prose max-w-3xl">
+    <p>
+      Openly licensed photographs are used under the licence linked beside them. Where a licence asks for changes to
+      be noted, the note says what we did; resizing for the web is the usual one. A photograph marked
+      “used with permission” is published with the owner’s written consent, and one marked “all rights reserved” is
+      ours. How photographs are chosen is set out in the <a href="/editorial/">editorial policy</a>. If one of these is
+      yours and the credit is wrong, <a href="/contact/">tell us</a>.
+    </p>
+  </div>
+
+  <ul class="mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3" role="list">
+    {photos.map(({ image, alt, credit, usedOn }) => (
+      <li class="flex flex-col">
+        <div class="aspect-[4/3] overflow-hidden rounded-lg bg-accent-soft">
+          <Image src={image} alt={alt} width={480} height={360} class="h-full w-full object-cover" />
+        </div>
+        <p class="mt-4 text-[1.0625rem] font-medium leading-snug">
+          {credit.author ?? 'Uncredited'}
+        </p>
+        <p class="mt-1 text-[0.9375rem] leading-relaxed text-ink-muted">
+          {credit.licenseUrl ? (
+            <a href={credit.licenseUrl} rel="license noopener" class={linkClass}>{credit.license}</a>
+          ) : (
+            credit.license
+          )}
+          {credit.sourceUrl && (
+            <>
+              {' · '}
+              <a href={credit.sourceUrl} rel="noopener" class={linkClass}>original</a>
+            </>
+          )}
+          {credit.changes && <>{' · '}{credit.changes}</>}
+        </p>
+        <p class="mt-2 text-[0.875rem] leading-relaxed text-ink-faint">
+          Used on{' '}
+          {usedOn.map((u, i) => (
+            <>{i > 0 && (i === usedOn.length - 1 ? ' and ' : ', ')}<a href={u.href} class={linkClass}>{u.title}</a></>
+          ))}
+        </p>
+      </li>
+    ))}
+  </ul>
+</Page>

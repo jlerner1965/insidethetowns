@@ -14,11 +14,12 @@ import { dirname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'astro/zod';
 import { COLLECTIONS, schemaFor, type CollectionName } from '../src/content/schemas.ts';
-import { liveTowns } from '../src/config/index.ts';
+import { allSites, liveTowns } from '../src/config/index.ts';
 // Imported directly, not via getHub(): the validator runs without TOWN set.
 import { hub } from '../src/config/towns/hub.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
 import { parseHoursText } from '../src/lib/hours.ts';
+import { licenseName, parseLedger, publicCredit, type LedgerRow } from '../src/lib/credits.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'content');
@@ -145,39 +146,71 @@ checkFormActions();
  * editorial page tells readers "credit is shown where the licence asks for
  * it", so the only way that stays true is if a missing credit fails the build.
  *
- * IMAGE_LICENSES.csv is the register; this checks the content against it.
+ * IMAGE_LICENSES.csv is the register; this checks the content against it:
+ * every image has a row, every row reads as a public credit for /credits/,
+ * and every caption that credits a licensed photo names the licence the
+ * register records. That last one is not pedantry — three captions once said
+ * CC BY 4.0 for photographs that are CC BY-SA, and one named the wrong
+ * photographer.
  */
 function checkImageCredits() {
   const csvPath = join(root, 'IMAGE_LICENSES.csv');
   if (!existsSync(csvPath)) return;
-  const needsCredit = new Set<string>();
-  const lines = readFileSync(csvPath, 'utf8').split('\n').slice(1);
-  for (const line of lines) {
-    if (!line.trim()) continue;
-    // Fields may be quoted and contain commas; only the first and fourth matter.
-    const cells: string[] = [];
-    let cur = '';
-    let quoted = false;
-    for (const ch of line) {
-      if (ch === '"') quoted = !quoted;
-      else if (ch === ',' && !quoted) { cells.push(cur); cur = ''; }
-      else cur += ch;
-    }
-    cells.push(cur);
-    if (cells[3]?.trim().toLowerCase() === 'y') {
-      needsCredit.add(cells[0].trim().split('/').pop()!);
+  const ledger = new Map<string, LedgerRow>();
+  for (const row of parseLedger(readFileSync(csvPath, 'utf8'))) {
+    ledger.set(row.path, row);
+    if (!row.path.startsWith('content/')) continue;
+    try {
+      publicCredit(row);
+    } catch (err) {
+      errors.push((err as Error).message);
     }
   }
+
+  // "No image goes in without a row" (docs/PHOTOS.md).
+  if (existsSync(contentDir)) {
+    for (const town of readdirSync(contentDir)) {
+      const dir = join(contentDir, town, 'images');
+      if (!existsSync(dir)) continue;
+      for (const name of readdirSync(dir)) {
+        const path = `content/${town}/images/${name}`;
+        if (!ledger.has(path)) errors.push(`${path}: no row in IMAGE_LICENSES.csv`);
+      }
+    }
+  }
+
+  /** A caption must exist when the licence asks for one, and must name that licence. */
+  const checkCaption = (where: string, path: string, caption: string | undefined) => {
+    const row = ledger.get(path);
+    if (!row) return;
+    const file = row.file;
+    if (row.creditRequired && !caption) {
+      errors.push(`${where}: uses ${file}, whose licence requires attribution, but has no credit`);
+      return;
+    }
+    const name = licenseName(row);
+    if (caption && name && !caption.includes(name)) {
+      errors.push(`${where}: credits ${file} as "${caption}", but IMAGE_LICENSES.csv records ${name}`);
+    }
+  };
+
   for (const file of collectContentFiles()) {
+    const rel = relative(root, file);
+    const town = relative(contentDir, file).split(sep)[0]!;
     const text = readFileSync(file, 'utf8');
     const image = /^image:\s*\.\.\/images\/(\S+)\s*$/m.exec(text);
-    if (!image || !needsCredit.has(image[1])) continue;
-    if (!/^imageCredit:\s*\S/m.test(text)) {
-      errors.push(
-        `${relative(root, file)}: uses ${image[1]}, whose licence requires attribution, ` +
-          'but has no imageCredit',
-      );
+    if (image) {
+      const credit = /^imageCredit:\s*"?(.*?)"?\s*$/m.exec(text)?.[1] || undefined;
+      checkCaption(rel, `content/${town}/images/${image[1]}`, credit);
     }
+    // Inline images carry their credit in the italic line that follows them.
+    for (const m of text.matchAll(/!\[[^\]]*\]\(\.\.\/images\/([^)\s]+)\)[ \t]*\n(?:[ \t]*\n)?(?:\*([^*\n]+)\*)?/g)) {
+      checkCaption(rel, `content/${town}/images/${m[1]}`, m[2]);
+    }
+  }
+
+  for (const site of allSites) {
+    checkCaption(`src/config/towns/${site.slug}.ts (hero)`, `content/${site.slug}/images/${site.hero.image}`, site.hero.credit);
   }
 }
 
