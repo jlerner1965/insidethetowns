@@ -13,4 +13,4 @@ source: "https://www.recreationliveshere.com/314/Veterans-Day"
 verified: "2026-10-01"
 ---
 
-Volunteers of all ages place American flags at the graves of veterans in the Town's cemetery at Highways 392 and 257, 10 to 11 on Veterans Day. The Town's page gives the morning without a year; the same page lists its December wreath-laying on a date that falls on a Saturday only in 2026.
+Volunteers of all ages place American flags at the graves of veterans in the Town's cemetery at Highways 392 and 257, 10 to 11 on Veterans Day. The Town's page gives the date and hour without a year; Veterans Day is fixed, and the Town's companion page for the December wreath-laying gives December 19, which is a Saturday in 2026.

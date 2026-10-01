@@ -1754,3 +1754,36 @@ while carrying it out, on 1 October 2026.
   own site refuses automated reads, so the page states the City's figures for
   it and links it; Xcel's gas service and Bustang's fares had no readable
   page and are not claimed.
+- **Fort Collins has sixty event files and four annuals with none.** FoCoMX
+  publishes only its April 2026 dates; the Colorado Brewers' Festival's
+  domain no longer resolves and the one directory that mentions it says
+  cancelled; Bohemian Nights at NewWestFest was discontinued in 2021; Tour de
+  Fat's page gives 29 August 2026 and nothing after. None of the four has a
+  file, on the rule that stopped the Elizabeth tree lighting. The holiday
+  lighting on 6 November is on the City's own page and is featured. The
+  First Friday Art Walk and the Foodie Walk are generated from the stated
+  monthly recurrence on the DDA's pages, as the Elizabeth library programmes
+  were. The Winter Farmers Market publishes no end date, so its repeat stops
+  at 19 December and the body says why.
+- **csurams.com answers every automated read with a bot challenge**, so the
+  three football home games rest on the Denver Gazette's dated schedule
+  report cross-checked against Wikipedia, with the athletics site as the
+  link and the bodies saying so; basketball and volleyball, which no dated
+  press covered, are left out. The 24 October kickoff is "to be confirmed"
+  because the Gazette and Wikipedia disagree.
+- **Windsor's thirty places come from the Town's recreation site and the
+  businesses' own pages**, with the same gaps reported the same way: Mash
+  Lab's site refuses reads, so its listing rests on the chamber's member page
+  with no hours and the body says so; Pizza Vino's robots.txt names ClaudeBot
+  and Memory Lane Antiques' carries `Content-Signal: ai-input=no`, both
+  treated as opt-outs; SpringHill Suites' site blocks reads, so the town has
+  one lodging listing; Chimney Park Restaurant is listed as closed after its
+  2025 kitchen fire, with its own site's reopening estimate, rather than
+  dropped — the Johnson's Corner precedent. Highland Ridge Open Space was
+  written and then dropped when its Town page vanished between reads. The
+  Art & Heritage Center's hours differ between two of the Town's own pages;
+  the listing uses the facility page and says so.
+- **The Town's recreation site re-numbers its facility pages.** IDs above
+  about sixty pointed at different parks on successive reads; the six
+  facility URLs kept were re-fetched and confirmed before the files were
+  finished, and the link check should be read with that in mind.
