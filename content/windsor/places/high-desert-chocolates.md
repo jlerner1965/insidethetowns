@@ -14,4 +14,4 @@ summary: "Coffee shop and chocolatier in one on the corner of 5th and Main: espr
 
 The downtown coffee stop that is also a chocolate maker. The counter does artisan coffee and espresso drinks; the cases hold hand-painted, small-batch chocolates and truffles; and the freezer holds Walrus Ice Cream for nachos and banana splits. The shop's line is "Coffee. Chocolate. Community." and it means the last part: a back room seating 14 to 22 can be reserved free for community gatherings, and "Give Back Sundays" send proceeds to local causes.
 
-Custom confections, logo cookies, dessert towers and event catering are the other side of the business. Open from 7:30 on weekdays and Saturdays, 8:30 on Sunday, and until 8 or 9 at night, which makes it the latest coffee on Main Street.
+Custom confections, logo cookies, dessert towers and event catering are the other side of the business. Open from 7:30 on weekdays and Saturdays, 8:30 on Sunday, and until 8 or 9 at night, later than most of Main Street.

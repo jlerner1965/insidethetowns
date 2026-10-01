@@ -12,4 +12,4 @@ tags: [pizza, late-night, wings, grinders]
 summary: "Campus West pizza joint on West Elizabeth open every day from 10:30 am to midnight: pizzas, grinders and wings, with a second Fort Collins shop on South Timberline."
 ---
 
-The late-night pizza of the student side of town, a block from campus on West Elizabeth: pizzas, grinders and wings until midnight seven days a week. The Timberline shop at 2620 S Timberline Rd (970-223-8600) keeps the same hours, and there is a third in Loveland.
+The late-night pizza of the student side of town, on the Campus West strip of West Elizabeth: pizzas, grinders and wings until midnight seven days a week. The Timberline shop at 2620 S Timberline Rd (970-223-8600) keeps the same hours, and there is a third in Loveland.

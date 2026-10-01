@@ -11,6 +11,6 @@ tags: [brewery, restaurant]
 summary: "Brewery with a full kitchen on Highland Meadows Parkway on the west side of Windsor, one of the town's three breweries; its own website blocks automated reading, so hours are not listed here."
 ---
 
-A brewery and restaurant in Highland Meadows, the neighborhood on the Larimer County side of Windsor west of I-25's Harmony Road exit, and the third of Windsor's breweries alongside Peculier Ales downtown and Mighty River on Fairgrounds Avenue. The Windsor Area Chamber lists it as "Brewery and Restaurant" at this address and phone number.
+A brewery and restaurant in Highland Meadows, the neighborhood on the Larimer County side of west Windsor, and the third of Windsor's breweries alongside Peculier Ales downtown and Mighty River on Fairgrounds Avenue. The Windsor Area Chamber lists it as "Brewery and Restaurant" at this address and phone number.
 
 Its website could not be read when this listing was checked, so hours, the tap list and the menu are not given here; call or check the site before driving out.
