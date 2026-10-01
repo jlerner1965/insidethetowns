@@ -1787,3 +1787,32 @@ while carrying it out, on 1 October 2026.
   about sixty pointed at different parks on successive reads; the six
   facility URLs kept were re-fetched and confirmed before the files were
   finished, and the link check should be read with that in mind.
+- **Windsor has thirty-eight event files, four of them on a judgment call the
+  files explain.** Thirty-five one-offs and three weekly regulars from the
+  Town calendar, the Parks site, the chamber calendar, the breweries and the
+  library. Four Parks pages give a date without a year (the Floral Alchemy
+  reception, Veterans Day flag placing, Windsor Wonderland on 5 December,
+  Wreaths Across America on 19 December); they were written because the same
+  pages carry 2026 weekdays and a 2026 health fair, so the site had been
+  refreshed for the year, and each body says so. The library's weekly
+  storytimes were not rolled forward: the only readable listings stop in
+  September, so the kids article describes them and links the calendar. The
+  farmers market, the Harvest Festival and the summer series are named in the
+  articles and the moving-here page and have no files, having no 2027 date.
+- **Windsor has a bus after all.** The config said there was no fixed-route
+  transit; the moving-here research found the Poudre Express, a weekday
+  commuter route between Greeley and Fort Collins with two stops in Windsor,
+  on Greeley's own transit page. The config now says that, and that there is
+  no network inside the town.
+- **The sugar factory's closing year is given as both.** The Town's history
+  page says 1966 and Wikipedia's Great Western list says 1968; the article
+  gives both with their sources rather than pick.
+- **Windsor's history rests on the NPS record and Colorado Preservation
+  where History Colorado would have been the source**: historycolorado.org
+  renders only in a browser and returned nothing readable, twice.
+- **The Town's news alerts answered 429 three times**, so the 2025 Windsor
+  Wonderland and cone-tree notices are not cited; the Town calendar for
+  November onward renders no events to an automated read and the RSS feed
+  carries October only, which is why the later Town Board dates come from the
+  Board page's stated schedule and the files say they are not yet on the
+  calendar.

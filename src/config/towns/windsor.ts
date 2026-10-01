@@ -55,7 +55,7 @@ export const windsor: TownConfig = {
     schoolDistrict:
       'Mostly Weld RE-4 (Windsor-Severance): Windsor High, Severance High, three middle schools and seven elementaries; the Larimer County side of town is in Poudre or Thompson, so check the address, not the town.',
     commuteNotes:
-      'By car. Harmony Road runs west into Fort Collins, about twenty minutes to Old Town; Colorado 392 reaches I-25 in ten minutes and Greeley in twenty; Loveland is twenty minutes down County Road 17; Denver is about an hour on I-25. There is no fixed-route transit in town.',
+      'By car. Harmony Road runs west into Fort Collins, about twenty minutes to Old Town; Colorado 392 reaches I-25 in ten minutes and Greeley in twenty; Loveland is twenty minutes down County Road 17; Denver is about an hour on I-25. The Poudre Express, a weekday commuter bus between Greeley and Fort Collins, stops twice in Windsor; there is no bus network inside the town.',
   },
   officialLinks: {
     townSite: 'https://www.windsorco.gov/',
