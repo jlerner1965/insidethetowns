@@ -1,27 +1,28 @@
 ---
 /**
- * The seven towns side by side, for someone deciding which one to move to.
+ * The live towns side by side, for someone deciding which one to move to.
  *
  * The parent site's first page that answers something people actually type:
  * "best small town near Boulder", "which Front Range town should I move to".
- * Nobody owns those searches because the answer is scattered across seven
- * chamber sites.
+ * Nobody owns those searches because the answer is scattered across a
+ * chamber site per town.
  *
  * Every column is a fact this network can source and keep current, and every
  * one comes off the town configs, so the table is a loop rather than a grid
  * somebody has to remember to update. Median home price is deliberately not
  * here: it is quarterly work with a licensing question attached, and a column
- * that cannot be filled for all seven is worse than a column that is absent.
+ * that cannot be filled for all of them is worse than a column that is absent.
  */
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import { countyLabel, countyShort, getHub, liveTowns } from '@/config';
 import { collectionPageJsonLd } from '@/lib/seo';
-import { COMPARISONS, comparisonSlug } from '@/content/comparisons';
+import { comparisonSlug, liveComparisons } from '@/content/comparisons';
 
 const hub = getHub();
+const comparisons = liveComparisons();
 // Biggest first: it is the ordering a reader can hold in their head, and the
-// range from 30,000 to 1,700 is the first thing worth knowing about the seven.
+// range from 170,000 to 1,700 is the first thing worth knowing about them.
 const towns = [...liveTowns()].sort((a, b) => (b.population ?? 0) - (a.population ?? 0));
 
 /** "Thompson School District R2-J: Berthoud Elementary, …" -> the district. */
@@ -30,7 +31,7 @@ const num = (n?: number) => (n ? n.toLocaleString('en-US') : '—');
 const growth = (t: (typeof towns)[number]) =>
   t.population && t.population2010 ? `+${Math.round((t.population / t.population2010 - 1) * 100)}%` : '—';
 
-// All seven or none. A price column with gaps in it invites the reader to
+// All or none. A price column with gaps in it invites the reader to
 // assume the gaps mean "cheap", and an unsourced one is worse than absent.
 const pricesReady = towns.every((t) => t.medianHomePrice && t.medianHomePriceAsOf && t.medianHomePriceSource);
 
@@ -59,7 +60,9 @@ const SUITS: Record<string, string> = {
   "timnath": "Suits people who want to be minutes from Fort Collins without paying for Fort Collins. It went from 625 people to 6,487 in ten years, which is the largest proportional change of any town here by a wide margin, and it shows: Old Town Main Street is a couple of blocks and everything else was built this decade around the Harmony Road retail. Come for the reservoir and the river trail, not for an old town center.",
   "niwot": "Suits people who want small and mean it. It is unincorporated — no town council, no municipal tax, county services, and an incorporation question on the November 3, 2026 ballot whose outcome is worth checking before you buy. Seven per cent growth in a decade, which in this company is a rounding error. Twenty minutes to Boulder or Longmont on the Diagonal, and the BOLT bus stops at Niwot Road.",
   "lyons": "Suits people who want the mountains to start at the end of the street. It is the canyon mouth: sandstone, the St. Vrain, Planet Bluegrass, and a town that rebuilt itself after the 2013 flood and talks about it. Twenty minutes to Boulder, an hour to Denver, no transit at all. It has barely grown, which means it is expensive, and the river is both the reason to live there and the thing to ask a surveyor about.",
-  "elizabeth": "Suits people who want acreage and sky and will trade an hour of driving for it. It is on the Palmer Divide at 6,477 feet — the highest town here by over a thousand feet, with the weather that implies. Inside town you get water and sewer; outside it you own a well and a septic system, and you should have both inspected and the well's yield documented before you buy. Forty-five minutes to the Tech Center, and Denver is not really the point."
+  "elizabeth": "Suits people who want acreage and sky and will trade an hour of driving for it. It is on the Palmer Divide at 6,477 feet — the highest town here by over a thousand feet, with the weather that implies. Inside town you get water and sewer; outside it you own a well and a septic system, and you should have both inspected and the well's yield documented before you buy. Forty-five minutes to the Tech Center, and Denver is not really the point.",
+  "windsor": "Suits people who work anywhere in northern Colorado and want to be in the middle of it: Fort Collins, Loveland and Greeley are each about twenty minutes, and Harmony Road puts I-25 at ten. It went from 18,644 people to 32,716 in a decade and most of the housing is new, in metro districts east and south of the old sugar-beet town; the lake, Boardwalk Park and Main Street are the old center and the reason to live near it. Two counties and three school districts inside the town limits — Weld RE-4 for most of it, Poudre or Thompson on the Larimer County side — so check the address, not the town.",
+  "fortcollins": "Suits people who want the city rather than a town near it: a downtown that is genuinely one, a university, the Poudre and Horsetooth inside the city limits, Transfort buses and Bustang to Denver, and the jobs the other towns commute to. The trade is price and scale. It is 170,000 people, the fourth-largest city in Colorado, and it grew eighteen per cent in a decade, so the neighborhoods within walking distance of Old Town cost what that implies and most of what is new is south and east. If you are choosing between Fort Collins and one of its towns, the question is whether you would drive in for everything anyway. If so, live here."
 };
 
 const structured = collectionPageJsonLd(hub, {
@@ -71,7 +74,7 @@ const structured = collectionPageJsonLd(hub, {
 ---
 <Page
   title="Which Front Range town?"
-  seoTitle={`Moving to Colorado’s Front Range: ${towns.length} small towns compared`}
+  seoTitle={`Moving to Colorado’s Front Range: ${towns.length} towns compared`}
   eyebrow="Moving here"
   description={`${towns.map((t) => t.name).join(', ')}: population, growth, schools, the commute and what each one is actually like.`}
   intro={`All ${towns.length} towns side by side, then a straight answer on who each one suits. Every name links to its own guide.`}
@@ -132,11 +135,11 @@ const structured = collectionPageJsonLd(hub, {
     </div>
   </section>
 
-  {COMPARISONS.length > 0 && (
+  {comparisons.length > 0 && (
     <section class="mt-20 md:mt-24">
       <h2 class="display-md mb-6 text-4xl">Head to head</h2>
       <ul class="border-t border-line-soft">
-        {COMPARISONS.map((c) => {
+        {comparisons.map((c) => {
           const a = towns.find((t) => t.slug === c.a);
           const b = towns.find((t) => t.slug === c.b);
           return (
@@ -177,7 +180,7 @@ const structured = collectionPageJsonLd(hub, {
   <CtaBand
     eyebrow="Across the network"
     title="See what’s on before you visit"
-    body="The surest way to judge a town is to turn up on a Saturday. Every event across all seven guides is on one page."
+    body={`The surest way to judge a town is to turn up on a Saturday. Every event across all ${towns.length} guides is on one page.`}
     links={[
       { label: 'This weekend', href: '/this-weekend/', primary: true },
       { label: 'All the guides', href: '/#towns' },

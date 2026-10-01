@@ -12,6 +12,10 @@ import { lastDay } from '../src/lib/events.ts';
 import { parseLocal } from '../src/lib/dates.ts';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { towns } from '../src/config/towns/registry.ts';
+
+/** Every configured town, live or not: a town's series rules hold before it launches. */
+const TOWN_SLUGS = towns.map((t) => t.slug);
 
 const o = (slug: string, key: string, startDay: string): Occurrence => ({ slug, key, startDay });
 
@@ -58,7 +62,7 @@ test('the choice is stable when two occurrences share a day', () => {
 
 test('everything that is not canonical is a repeat, and nothing is both', () => {
   const now = new Date('2026-09-20T18:00:00Z');
-  for (const town of ['niwot', 'lyons', 'berthoud', 'erie', 'johnstown', 'timnath', 'elizabeth']) {
+  for (const town of TOWN_SLUGS) {
     const all = readOccurrences(town);
     const repeats = repeatOccurrenceSlugs(town, 'content', now);
     const canonical = new Set(pickCanonical(all, '2026-09-20').values());
@@ -69,7 +73,7 @@ test('everything that is not canonical is a repeat, and nothing is both', () => 
 
 test('no town indexes a past occurrence while hiding an upcoming one', () => {
   const today = '2026-09-20';
-  for (const town of ['niwot', 'lyons', 'berthoud', 'erie', 'johnstown', 'timnath', 'elizabeth']) {
+  for (const town of TOWN_SLUGS) {
     const all = readOccurrences(town);
     const canonical = pickCanonical(all, today);
     for (const [key, slug] of canonical) {
@@ -86,7 +90,7 @@ test('the sitemap and the page agree on what "over" means, for every real event'
   // config is loading and can only read raw markdown, while the page has
   // parsed Dates. They decide the same thing — whether to index a listing —
   // so a disagreement is a page carrying noindex while sitting in the sitemap.
-  for (const town of ['niwot', 'lyons', 'berthoud', 'erie', 'johnstown', 'timnath', 'elizabeth']) {
+  for (const town of TOWN_SLUGS) {
     for (const o of readOccurrences(town)) {
       const raw = readFileSync(join('content', town, 'events', `${o.slug}.md`), 'utf8');
       const fm = raw.match(/^---\n([\s\S]*?)\n---/)![1]!;
@@ -112,7 +116,7 @@ test('the sitemap and the page agree on what "over" means, for every real event'
 
 test('expired events are excluded, and nothing upcoming is', () => {
   const now = new Date('2026-09-20T18:00:00Z');
-  for (const town of ['niwot', 'lyons', 'berthoud', 'erie', 'johnstown', 'timnath', 'elizabeth']) {
+  for (const town of TOWN_SLUGS) {
     const all = readOccurrences(town);
     const expired = pastEventSlugs(town, 'content', now);
     for (const o of all) {

@@ -1,8 +1,8 @@
 # Getting the missing photographs
 
-188 of 241 places have no photograph. 139 of those are restaurants, cafes, bars,
-shops and lodgings. (Recounted 1 October 2026; the figure was 202 when this
-was written.) This is how to fix that, and what has already been ruled out.
+274 of 331 places have no photograph. 187 of those are restaurants, cafes, bars,
+shops and lodgings. (Recounted 1 October 2026, after Windsor and Fort Collins
+were added; the figure was 202 when this was written.) This is how to fix that, and what has already been ruled out.
 
 `PHOTO-CONTACTS.csv` in this folder is the working list: every unphotographed
 business with its address, area, phone, website and hours, sorted so a town's

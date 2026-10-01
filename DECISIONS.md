@@ -1671,3 +1671,184 @@ events in future.
   confirm them by email. Her address is on her 1 October submission in the
   Niwot Formspree inbox and is not written here. Future tree carving events
   are checked with her before they go in.
+
+## Phase 9 — Windsor and Fort Collins
+
+The plan is `docs/EXPANSION-WINDSOR-FORT-COLLINS.md`; these are the choices made
+while carrying it out, on 1 October 2026.
+
+- **Both towns are scaffolded in one session, not one after the other.** The
+  plan's rule stands for the launch — each goes into `LIVE_TOWNS` only when its
+  domain serves — but the code changes are shared (the tests, the map, the hub
+  copy) and were made once for both, and the content was researched in
+  parallel. The registry is not the gate; `LIVE_TOWNS` is.
+- **The Fort Collins domain is insidefortcollins.com**, which the owner holds.
+  The first draft of the plan read "ft collins" literally, found
+  insideftcollins.com unregistered and proposed buying it; the owner
+  confirmed the other the same day. Nothing was bought. Slugs are `windsor`
+  and `fortcollins`: one token each, like every slug before them, and the
+  "co" in Windsor's domain belongs to the domain and not to the folder.
+- **Lake teal for Windsor, navy for Fort Collins.** Teal was the one hue family
+  none of the eight accents used. CSU's green was the obvious Fort Collins
+  choice and would have sat beside Niwot's; nothing else in the network is a
+  blue this dark, and the hub's and Berthoud's both read lighter. `npm run
+  check-colors` passes at ten sites.
+- **"Small towns" is gone from the hub; "towns" stays.** Fort Collins is a city
+  of 169,810 and the hub's tagline is also the Organization description in the
+  publisher graph, where a false line is the wrong thing to put. The network
+  is named Inside the Towns and that cannot change. The about page says which
+  member is a city, read off the configs (any live town over 100,000), so the
+  component names no town and the sentence stays dark until the city is live.
+- **Fort Collins leaves the map's reference cities, and the label rule learns
+  to look both ways.** Windsor's pin lands fifteen pixels right of and
+  twenty-one below Timnath's, which tripped the crowding rule and sent
+  Timnath's label left, straight across the Fort Collins pin five pixels off
+  its line on the other side. A label now goes to whichever side has more
+  room, measured off its own line; nothing else on the map moved.
+- **The tests read the registry.** Four loops in the series tests and the
+  dated-content test listed the seven slugs by hand, so every new town began
+  by failing tests that had nothing to say about it. They take the slugs from
+  `registry.ts` now, live or not. `new-town.ts` still wrote `county`, the field
+  renamed to `counties` when the split towns started naming both; a fresh
+  scaffold did not type-check. Fixed.
+- **A scaffolded town fails `npm run validate` until it has a real hero.** The
+  credits parser rejects any licence row containing "placeholder", by design,
+  and the scaffold writes one. That is the right gate for a live site and an
+  abrupt one for a town an hour old; it is noted here rather than softened.
+- **Fort Collins incorporated in 1873, per the City.** Wikipedia's lead says
+  the Town of Fort Collins was incorporated on 12 February 1883; the City's
+  own history page says it was incorporated as a town on 3 February 1873. The
+  City is the primary source and the comparison table follows it.
+- **Windsor's county split rests on the Town's own School Districts page**,
+  which lists three districts inside the town limits and does not say which
+  county each serves. The counties are the districts' own: Weld RE-4 is the
+  Windsor-Severance district in Weld; Poudre and Thompson are Larimer County
+  districts. The config says so and the test holds the school line to
+  "Mostly".
+- **Wikimedia rate-limited the session again.** The Commons API returned 429
+  for every category and search query after the first few; the file
+  description pages and `Special:FilePath` downloads worked with a backoff of
+  a few seconds per attempt, and the hero download that landed as an HTML
+  error page was caught by the build rather than shipped.
+- **Heroes.** Windsor is Jared Winkler's 2018 photograph of the frozen lake
+  with the town along the far shore (CC BY-SA 4.0, 5,999px original). Fort
+  Collins is the Northern Hotel on College Avenue (Xnatedawgx, 2020, CC BY-SA
+  4.0); the alternative, a 2012 phone photograph of the city from Rotary Park,
+  was downloaded, looked at, and rejected for its haze and the road across
+  its foreground. Old Town Square and Horsetooth Reservoir come with card
+  photographs; the 2012 Windsor Mill under reconstruction illustrates the
+  history article and not a listing.
+- **A comparison stays dark until both its towns are live.** The pair pages
+  were built for every entry in the list, so one written ahead of a launch
+  would have linked to a domain that does not serve. `liveComparisons()`
+  filters by `LIVE_TOWNS`; Timnath–Windsor is written and waits.
+- **Two things the session could not do.** The Vercel connector was refused
+  project creation (403) and the Cloudflare token in the environment was
+  rejected as invalid, so the two Vercel projects and the DNS and Email
+  Routing on the two zones were left to the owner, with the exact steps in
+  DEPLOY.md and a zone-mirroring script ready for a valid token.
+- **Fort Collins is sixty places by selection, and the selection is recorded.**
+  Thirty of them eat, drink and shop (twenty in Old Town, the rest spread
+  across Midtown, Harmony, Campus West, North College and the south), thirty
+  are parks, trails, natural areas, venues, three hotels and two services.
+  What is not there, and why, so nobody repeats the search: the Lyric, whose
+  site is a script shell with no readable text; Rio Grande, whose page is
+  longer than a fetch will return before the hours; five Squarespace sites
+  whose robots.txt names ClaudeBot and anthropic-ai with `Disallow: /`
+  (Little Bird Bakeshop, the Food Co-op, Trimble Court Artisans, Purpose and
+  Gilded Goat), left alone on the same rule as the Berthoud chamber; five
+  sites that answered 403, three that answered 503 three times, three that
+  render only in a browser (Maxline, Outpost Sunsport, Wolverine Farm), and
+  three with no site of their own. So the guide has no food co-op, one
+  outfitter and no Midtown brewery, and says nothing it did not read.
+- **Old Firehouse Books is the one listing not read from its own site.** Its
+  robots.txt asks AI crawlers to stay out, so the listing rests on the
+  Downtown Fort Collins Business Association's page: address and phone, no
+  hours. A person can read the shop's own hours and add them.
+- **csurams.com sits behind an Incapsula challenge**, so Canvas Stadium is
+  written from CSU's building and commencement pages, with the 36,000 figure
+  labelled as commencement seating rather than football capacity, and no
+  street address because none of those pages gives one.
+- **Hours that would have lied were written as text.** The recycling center
+  changes hours on 1 November; the reservoir's County page gives only the
+  information center's; the Gardens label theirs "summer". None of the three
+  makes an open-now claim.
+- **The Fort Collins history follows the City where the City and Wikipedia
+  disagree**, and the article says so: incorporation 3 February 1873, not
+  1883. The breweries' own founding years (Odell 1989, New Belgium 1991) win
+  over the City timeline's 1990 and 1992. Where the City's own pages disagree
+  with each other — the trolley's last year, the 1954 charter election's
+  weekday, the 1900 population, the sugar factory's closing year, which
+  cavalry unit founded Camp Collins — the article rounds to what both
+  support or names neither. Harper Goff and the Disneyland Main Street claim
+  are kept to what Wikipedia and Visit Fort Collins actually say.
+- **The moving-here page sources each neighborhood to the City's own corridor
+  plan** (Midtown 2013, West Central 2015, North College 2007, Harmony 2006)
+  and the market to the March 2021 Housing Strategic Plan, dated in the text,
+  because the City publishes no fresher figure as a plan. Two plan PDFs were
+  past the fetch limit and were read with pdftotext. Poudre Fire Authority's
+  own site refuses automated reads, so the page states the City's figures for
+  it and links it; Xcel's gas service and Bustang's fares had no readable
+  page and are not claimed.
+- **Fort Collins has sixty event files and four annuals with none.** FoCoMX
+  publishes only its April 2026 dates; the Colorado Brewers' Festival's
+  domain no longer resolves and the one directory that mentions it says
+  cancelled; Bohemian Nights at NewWestFest was discontinued in 2021; Tour de
+  Fat's page gives 29 August 2026 and nothing after. None of the four has a
+  file, on the rule that stopped the Elizabeth tree lighting. The holiday
+  lighting on 6 November is on the City's own page and is featured. The
+  First Friday Art Walk and the Foodie Walk are generated from the stated
+  monthly recurrence on the DDA's pages, as the Elizabeth library programmes
+  were. The Winter Farmers Market publishes no end date, so its repeat stops
+  at 19 December and the body says why.
+- **csurams.com answers every automated read with a bot challenge**, so the
+  three football home games rest on the Denver Gazette's dated schedule
+  report cross-checked against Wikipedia, with the athletics site as the
+  link and the bodies saying so; basketball and volleyball, which no dated
+  press covered, are left out. The 24 October kickoff is "to be confirmed"
+  because the Gazette and Wikipedia disagree.
+- **Windsor's thirty places come from the Town's recreation site and the
+  businesses' own pages**, with the same gaps reported the same way: Mash
+  Lab's site refuses reads, so its listing rests on the chamber's member page
+  with no hours and the body says so; Pizza Vino's robots.txt names ClaudeBot
+  and Memory Lane Antiques' carries `Content-Signal: ai-input=no`, both
+  treated as opt-outs; SpringHill Suites' site blocks reads, so the town has
+  one lodging listing; Chimney Park Restaurant is listed as closed after its
+  2025 kitchen fire, with its own site's reopening estimate, rather than
+  dropped — the Johnson's Corner precedent. Highland Ridge Open Space was
+  written and then dropped when its Town page vanished between reads. The
+  Art & Heritage Center's hours differ between two of the Town's own pages;
+  the listing uses the facility page and says so.
+- **The Town's recreation site re-numbers its facility pages.** IDs above
+  about sixty pointed at different parks on successive reads; the six
+  facility URLs kept were re-fetched and confirmed before the files were
+  finished, and the link check should be read with that in mind.
+- **Windsor has thirty-eight event files, four of them on a judgment call the
+  files explain.** Thirty-five one-offs and three weekly regulars from the
+  Town calendar, the Parks site, the chamber calendar, the breweries and the
+  library. Four Parks pages give a date without a year (the Floral Alchemy
+  reception, Veterans Day flag placing, Windsor Wonderland on 5 December,
+  Wreaths Across America on 19 December); they were written because the same
+  pages carry 2026 weekdays and a 2026 health fair, so the site had been
+  refreshed for the year, and each body says so. The library's weekly
+  storytimes were not rolled forward: the only readable listings stop in
+  September, so the kids article describes them and links the calendar. The
+  farmers market, the Harvest Festival and the summer series are named in the
+  articles and the moving-here page and have no files, having no 2027 date.
+- **Windsor has a bus after all.** The config said there was no fixed-route
+  transit; the moving-here research found the Poudre Express, a weekday
+  commuter route between Greeley and Fort Collins with two stops in Windsor,
+  on Greeley's own transit page. The config now says that, and that there is
+  no network inside the town.
+- **The sugar factory's closing year is given as both.** The Town's history
+  page says 1966 and Wikipedia's Great Western list says 1968; the article
+  gives both with their sources rather than pick.
+- **Windsor's history rests on the NPS record and Colorado Preservation
+  where History Colorado would have been the source**: historycolorado.org
+  renders only in a browser and returned nothing readable, twice.
+- **The Town's news alerts answered 429 three times**, so the 2025 Windsor
+  Wonderland and cone-tree notices are not cited; the Town calendar for
+  November onward renders no events to an automated read and the RSS feed
+  carries October only, which is why the later Town Board dates come from the
+  Board page's stated schedule and the files say they are not yet on the
+  calendar.

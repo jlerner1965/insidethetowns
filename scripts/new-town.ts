@@ -49,7 +49,7 @@ const ident = slug.replace(/-([a-z0-9])/g, (_, c: string) => c.toUpperCase());
 
 const configSource = `import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
 
-// TODO: fill in the real values (lat/lng, county, population, links) before launch.
+// TODO: fill in the real values (lat/lng, counties, population, links) before launch.
 export const ${ident}: TownConfig = {
   kind: 'town',
   slug: '${slug}',
@@ -57,7 +57,7 @@ export const ${ident}: TownConfig = {
   domain: 'inside${slug.replace(/-/g, '')}.com',
   siteTitle: 'Inside ${name}',
   tagline: 'An independent guide to ${name}, Colorado: events, food, trails and moving here.',
-  county: 'TODO',
+  counties: ['TODO'],
   state: 'CO',
   lat: 40.0,
   lng: -105.0,

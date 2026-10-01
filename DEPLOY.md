@@ -12,6 +12,8 @@ insideerie.com       TOWN=erie
 insidejohnstown.com  TOWN=johnstown
 insidetimnath.com    TOWN=timnath
 insideelizabeth.com  TOWN=elizabeth
+insidewindsorco.com  TOWN=windsor
+insidefortcollins.com TOWN=fortcollins
 …
 ```
 
@@ -32,8 +34,9 @@ git push -u origin main
 ## Creating a project (about five minutes per town)
 
 1. **Vercel → Add New → Project → Import** `jlerner1965/insidethetowns`.
-2. **Project name:** the domain without the dot, e.g. `insideniwot-com`. The name
-   only affects the `*.vercel.app` preview hostname.
+2. **Project name:** the domain without its `.com`, e.g. `insideniwot`, which is
+   how the existing projects are named. The name only affects the `*.vercel.app`
+   preview hostname.
 3. **Framework preset:** Astro. **Build command, output directory** and the security
    headers come from `vercel.json`; leave the overrides off.
 4. **Environment variables:** add `TOWN` = the slug (`niwot`, `hub`, …) for
@@ -67,10 +70,10 @@ git push -u origin main
 **Vercel Pro, one seat.** Not a preference — Vercel's fair use guidelines
 restrict Hobby to non-commercial personal use, and list "advertising the sale
 of a product or service" as commercial. `/advertise/` is that. A commercial
-network on a Hobby account risks being paused, which takes all eight sites
+network on a Hobby account risks being paused, which takes every site
 down at once.
 
-One seat covers every project: the eight guides plus the two retired
+One seat covers every project: the ten guides plus the two retired
 predecessors serving redirects. Pro is billed per user, not per project.
 
 The build also writes `_headers` and `_redirects` into the output
@@ -80,7 +83,7 @@ kept working so it stays cheap — see DECISIONS.md for when it is worth taking.
 
 ## Web Analytics
 
-Switch it on per project: **Project → Analytics → Enable**, eight times. The
+Switch it on per project: **Project → Analytics → Enable**, once per project. The
 `analytics` flag in `src/config/towns/hub.ts` only puts the script on the page
 and lets `/privacy/` and `/advertise/` say so; it does not enable collection.
 
@@ -93,7 +96,7 @@ tracking ever earns it, and off again after.
 Enabling costs nothing on top of the plan. The $20/month Pro platform fee
 includes $20 of monthly usage credit, events bill against that credit at $0.03
 per 1,000, and the credit expires unused at the end of each month. Analytics
-would have to collect about 666,000 page views in one month across all eight
+would have to collect about 666,000 page views in one month across all ten
 sites to spend it. Bandwidth does not compete for it either: Pro includes the
 lowest Flat Rate CDN tier, 1 million requests and 1 TB of transfer, separately.
 
@@ -160,10 +163,11 @@ not been measured on a real deployment yet.
 
 ## Email
 
-Every town config publishes one address, `hello@<domain>`, and all eight domains
+Every town config publishes one address, `hello@<domain>`, and all ten domains
 receive it through **Cloudflare Email Routing**, which forwards it to the owner's
 inbox. There is no mailbox anywhere: Cloudflare accepts the message and passes it
-on. Set up on 27 September 2026.
+on. Set up on 27 September 2026 for the first eight domains; insidewindsorco.com
+and insidefortcollins.com still need theirs.
 
 On each domain (Cloudflare → the domain → Email → Email Routing):
 
@@ -175,8 +179,8 @@ On each domain (Cloudflare → the domain → Email → Email Routing):
 - **DMARC**, a TXT record at `_dmarc` added by hand: `v=DMARC1; p=none`.
 
 The inbox is a *destination address*, set once for the Cloudflare account and
-verified by a link Cloudflare mails to it; all eight rules share it. Changing
-inboxes means adding and verifying the new one, then pointing the eight rules at it.
+verified by a link Cloudflare mails to it; all ten rules share it. Changing
+inboxes means adding and verifying the new one, then pointing the ten rules at it.
 
 To check a domain:
 
@@ -208,7 +212,7 @@ The sites are static, so "upcoming" is decided at build time. A daily rebuild
 keeps that honest. Once, per Vercel project:
 
 1. Settings → Git → Deploy Hooks → create a hook on the production branch.
-2. Collect all eight URLs.
+2. Collect all ten URLs.
 3. In the `insidethetowns` repo: Settings → Secrets and variables → Actions →
    new secret `VERCEL_DEPLOY_HOOKS`, one URL per line.
 

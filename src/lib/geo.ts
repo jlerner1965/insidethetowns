@@ -29,9 +29,10 @@ export interface Neighbor<T> {
  * nearest few, nearest first, and none beyond `maxMiles`.
  *
  * Twenty-five miles is about where "over the hill" becomes "a trip". Berthoud
- * to Johnstown is eight, Niwot to Erie seven; Timnath reaches only Johnstown
- * and Berthoud; and Elizabeth's nearest guide is fifty-three miles away, so a
- * block built on this shows nothing there rather than suggest an hour each way.
+ * to Johnstown is eight, Niwot to Erie seven; Timnath, Windsor and Fort
+ * Collins are each within six miles of Timnath; and Elizabeth's nearest guide
+ * is fifty-three miles away, so a block built on this shows nothing there
+ * rather than suggest an hour each way.
  */
 export function nearestTowns<T extends Point & { slug: string }>(
   town: T,

@@ -10,21 +10,22 @@ pretend otherwise. It exists so the owner does not have to redo the research.
 
 ## Why this matters more for some towns than others
 
-Five of the eight names are ambiguous nationally. There is an Erie in
-Pennsylvania, a Johnstown in Pennsylvania and New York, an Elizabeth in New
-Jersey, a Lyons in Kansas and New York, a Berthoud that is unambiguous but
-small. Titles now carry "Colorado" or "CO" (see `src/lib/titles.ts`), which
+Six of the ten names are ambiguous nationally. There is a Windsor in Ontario,
+Berkshire, California, Connecticut and Vermont, an Erie in Pennsylvania, a
+Johnstown in Pennsylvania and New York, an Elizabeth in New Jersey, a Lyons in
+Kansas and New York, a Berthoud that is unambiguous but small. Titles now carry "Colorado" or "CO" (see `src/lib/titles.ts`), which
 tells a search engine what the page is about, but it does not tell it which
 place the *site* belongs to. Links from organisations that are unmistakably in
 Colorado do that, and nothing else on the page can.
 
 So the order of effort is:
 
-1. **Erie, Johnstown, Elizabeth** — heaviest ambiguity, smallest local link
-   footprint. These three gain the most per link.
+1. **Windsor, Erie, Johnstown, Elizabeth** — heaviest ambiguity, smallest
+   local link footprint. These four gain the most per link, and Windsor most
+   of all.
 2. **Lyons, Timnath** — ambiguous or new enough to be worth the effort.
-3. **Niwot, Berthoud** — names are effectively unique; links help, but they are
-   not solving a disambiguation problem.
+3. **Niwot, Berthoud, Fort Collins** — names are effectively unique; links
+   help, but they are not solving a disambiguation problem.
 
 Within a town, a link from the library or the town government is worth more
 than a link from a business directory, because those domains are old, local and
@@ -233,6 +234,72 @@ States is in Elbert County, Colorado.
 The chamber is an outreach contact only. Its site publishes no events, its event
 pages are broken and its event portal is gone — see *The two zeroes* above
 before spending any time looking for a calendar there.
+
+### Windsor — insidewindsorco.com
+
+| Organisation | URL | Cited |
+|---|---|---|
+| Town of Windsor | https://www.windsorco.gov/ | 41 |
+| Windsor Parks, Recreation & Culture (the Town's second site) | https://www.recreationliveshere.com/ | 97 |
+| Windsor Area Chamber of Commerce | https://www.windsorchamber.net/ | 19 |
+| Clearview Library District | https://www.clearviewlibrary.org/ | 11 |
+| Poudre River Trail Corridor | https://poudretrail.org/ | 7 |
+| Larimer County | https://www.larimer.gov/ | 4 |
+| Weld RE-4 School District | https://www.weldre4.org/ | 1 |
+| Weld County | https://www.weld.gov/ | — |
+
+Windsor is the most ambiguous name the network has: Ontario, Berkshire,
+California, Connecticut and Vermont all outrank Colorado in a search, and
+"First Town Downtown" and "Windsor Center" are Connecticut. The domain carries
+"co" and every title spells Colorado out; a link from the Town, the chamber or
+the library is what says which Windsor the *site* is.
+
+`windsorco.gov/937` redirects to `recreationliveshere.com`, the Parks,
+Recreation & Culture site, which is why the Town is cited on two domains. That
+site re-numbers its facility pages: IDs above about sixty pointed at different
+parks on successive reads during research, so a link check that flags one
+should be read against the page, not trusted. The Town's news alerts answered
+429 to repeated reads.
+
+Do not automate against `pizzavinonoco.com` (robots.txt names ClaudeBot) or
+`memlaneantiques.com` (`Content-Signal: ai-input=no`); neither is listed for
+that reason, and both can be entered by a person. `mashlabbrewing.com` returns
+403 to every automated client and loads normally for a person.
+
+### Fort Collins — insidefortcollins.com
+
+| Organisation | URL | Cited |
+|---|---|---|
+| City of Fort Collins | https://www.fortcollins.gov/ | 104 |
+| Fort Collins History Connection (the City's and the Museum's archive) | https://history.fcgov.com/ | 39 |
+| The Gardens on Spring Creek | https://gardens.fortcollins.gov/ | 20 |
+| Lincoln Center | https://www.lctix.com/ | 26 |
+| Larimer County | https://www.larimer.gov/ | 19 |
+| Downtown Fort Collins Business Association | https://downtownfortcollins.com/ | 17 |
+| Poudre River Public Library District | https://www.poudrelibraries.org/ | 17 |
+| Fort Collins Museum of Discovery | https://fcmod.org/ | 9 |
+| Transfort | https://ridetransfort.com/ | 7 |
+| Colorado State University | https://www.colostate.edu/ | 6 |
+| Visit Fort Collins | https://www.visitftcollins.com/ | 5 |
+| Poudre School District | https://www.psdschools.org/ | 3 |
+
+Fort Collins is not an ambiguous name, so the links here solve a different
+problem: a city of 170,000 has a dozen sites that already own "Fort Collins
+events", and a new guide needs the City, the DDA and the library to say it is
+part of the place. The citations above arrived the same way they did
+everywhere else — those organisations' pages are where the listings were
+read from — and the City is cited over a hundred times before anyone has
+asked it for anything.
+
+`fcgov.com` now redirects to `fortcollins.gov`; the content links the new
+domain and the old one still resolves. `csurams.com` answers every automated
+read with a bot challenge, so the football home games rest on dated press
+and link the athletics site; `larimer.gov` returns 403 to the link checker
+and loads for a person. Do not automate against `oldfirehousebooks.com`,
+`littlebirdbakeshop.com`, `fcfood.coop`, `trimblecourt.com`,
+`purposebrewing.com` or `gildedgoatbrewing.com`, whose robots.txt name AI
+crawlers with `Disallow: /`; the bookshop is listed from the DDA's page
+without hours, and the other five are not listed. A person can.
 
 ## Do not link to these
 

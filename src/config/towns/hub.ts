@@ -7,7 +7,9 @@ export const hub: HubConfig = {
   name: 'Inside the Towns',
   domain: 'insidethetowns.com',
   siteTitle: 'Inside the Towns',
-  tagline: 'Independent community guides to the small towns of Colorado’s Front Range.',
+  // Not "small towns": Fort Collins is a city of 170,000, and this line is also
+  // the Organization description in the publisher graph (src/lib/seo.ts).
+  tagline: 'Independent community guides to the towns of Colorado’s northern Front Range.',
   seoTagline: 'Guides to Colorado’s Front Range towns',
   colors: {
     accent: '#2C74CC',
