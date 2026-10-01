@@ -88,3 +88,30 @@ photographer's name, and neither belongs in a file we republish.
 Boulder County's galleries are largely accessibility documentation — restrooms,
 ADA parking, trailhead surfaces — which is useful to the county and not to a
 guide. The three chosen are the scenic frames among them.
+
+---
+
+## townofniwot.com — the client's photographs, on insideniwot.com
+
+**Confirmed** 1 October 2026 by the site owner, in a working session, in
+answer to the open question in `IMAGE_LICENSES.csv` ("confirm the licence
+extends to insideniwot.com"). insideniwot.com replaced townofniwot.com, which
+now redirects to it.
+
+The owner's wording, in full:
+
+> it was permmisoon and allowsd
+
+That is: the photographs were supplied with permission, and their use on
+insideniwot.com is allowed.
+
+| | |
+|---|---|
+| **Scope** | The four photographs that came over from the townofniwot.com repository: `niwot-tavern-patios.jpg`, `second-avenue-patios.jpg`, `whistle-stop-caboose.jpg`, `front-range-sunset-trail.jpg` |
+| **Credit** | Not required. `/credits/` shows "townofniwot.com, used with permission" |
+| **Standing** | These four only |
+
+Two more photographs from the same repository, the Tribune storefront and the
+gateway sculpture, turned out to be Jeffrey Beall's Commons photographs and
+are used under their CC licences instead; this grant does not cover them, and
+they do not need it.

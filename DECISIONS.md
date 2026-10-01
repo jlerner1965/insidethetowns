@@ -1583,8 +1583,10 @@ Commons record (author, licence, coordinates, categories) and against
   `Niwot, Colorado.JPG` (CC BY-SA 4.0) and `Niwot, Colorado sign.JPG`
   (CC BY 4.0), and were live without the credit both licences require. Now
   credited. The other four townofniwot.com photographs are not on Commons;
-  whether their licence extends to insideniwot.com is still the owner's to
-  confirm.
+  the owner confirmed on 1 October that they were supplied with permission
+  and may be used on insideniwot.com (PERMISSIONS.md). The sunset trail photo
+  among them was on three entries at once, so it showed twice on the home page
+  and on nine pages in all; it now belongs to the LoBo Regional Trail only.
 - **Added:** the Old Fire House Museum as a Niwot place (its sources disagree
   on what happened on 26 October 1999, a 99-year lease or the landmarking, so
   the page gives no date); photographs for Johnstown's Parish House and

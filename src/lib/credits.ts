@@ -120,8 +120,8 @@ export function publicCredit(row: LedgerRow): PublicCredit {
   if (/^owned by the publisher/i.test(license)) {
     return { author: 'Inside the Towns', license: 'All rights reserved' };
   }
-  if (/^client-supplied; licensed for townofniwot\.com/i.test(license)) {
-    return { author: 'townofniwot.com', license: 'Supplied by the client' };
+  if (/^client-supplied for townofniwot\.com; use on insideniwot\.com confirmed/i.test(license)) {
+    return { author: 'townofniwot.com', license: 'Used with permission' };
   }
   throw new Error(
     `IMAGE_LICENSES.csv: cannot turn the licence for ${row.path} into a public credit: "${license}". ` +
