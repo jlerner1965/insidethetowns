@@ -23,6 +23,8 @@ The plains around the town were dry until farmers diverted the Big and Little Th
 
 ![The gated walk to the Gustav and Annie Swanson farmhouse, a 1918 farmstead outside Berthoud](../images/swanson-farm.jpg)
 
+*Photo: Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0*
+
 ## The highway that left
 
 US 287 was Mountain Avenue's through-traffic for eighty years after it joined the paved state system in the 1920s. In 2007 the highway was rerouted north and west of town, bypassing downtown. The bypass took the trucks off Mountain Avenue and, for a while, some of the customers; what came back a decade later was a Main Street of breweries, galleries, antique malls and murals, and the [downtown association](https://berthoudmainstreet.org/) that now runs the calendar.
