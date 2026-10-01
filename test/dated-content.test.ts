@@ -12,7 +12,10 @@ import assert from 'node:assert/strict';
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
-const TOWNS = ['niwot', 'lyons', 'berthoud', 'erie', 'johnstown', 'timnath', 'elizabeth'];
+import { towns } from '../src/config/towns/registry.ts';
+
+/** Every configured town, live or not. */
+const TOWNS = towns.map((t) => t.slug);
 
 function frontmatter(file: string): Record<string, string> {
   const m = readFileSync(file, 'utf8').match(/^---\n([\s\S]*?)\n---/);
