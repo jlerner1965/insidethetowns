@@ -17,9 +17,10 @@ import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import { countyLabel, countyShort, getHub, liveTowns } from '@/config';
 import { collectionPageJsonLd } from '@/lib/seo';
-import { COMPARISONS, comparisonSlug } from '@/content/comparisons';
+import { comparisonSlug, liveComparisons } from '@/content/comparisons';
 
 const hub = getHub();
+const comparisons = liveComparisons();
 // Biggest first: it is the ordering a reader can hold in their head, and the
 // range from 170,000 to 1,700 is the first thing worth knowing about them.
 const towns = [...liveTowns()].sort((a, b) => (b.population ?? 0) - (a.population ?? 0));
@@ -134,11 +135,11 @@ const structured = collectionPageJsonLd(hub, {
     </div>
   </section>
 
-  {COMPARISONS.length > 0 && (
+  {comparisons.length > 0 && (
     <section class="mt-20 md:mt-24">
       <h2 class="display-md mb-6 text-4xl">Head to head</h2>
       <ul class="border-t border-line-soft">
-        {COMPARISONS.map((c) => {
+        {comparisons.map((c) => {
           const a = towns.find((t) => t.slug === c.a);
           const b = towns.find((t) => t.slug === c.b);
           return (
@@ -179,7 +180,7 @@ const structured = collectionPageJsonLd(hub, {
   <CtaBand
     eyebrow="Across the network"
     title="See what’s on before you visit"
-    body="The surest way to judge a town is to turn up on a Saturday. Every event across all seven guides is on one page."
+    body={`The surest way to judge a town is to turn up on a Saturday. Every event across all ${towns.length} guides is on one page.`}
     links={[
       { label: 'This weekend', href: '/this-weekend/', primary: true },
       { label: 'All the guides', href: '/#towns' },

@@ -9,9 +9,9 @@ import { getNetworkHub, liveTowns, type SiteConfig, type TownConfig } from '../c
 import { toIsoLocal } from './dates.ts';
 
 /**
- * The publisher graph: who runs this site, and how the eight domains relate.
+ * The publisher graph: who runs this site, and how the domains relate.
  *
- * Seven separate domains look to a search engine like seven strangers. The
+ * Separate domains look to a search engine like strangers. The
  * towns declare the hub as their `parentOrganization` and the hub declares
  * them as its `subOrganization`, and that reciprocal pair is what says one
  * publisher rather than a ring of sites linking to each other.

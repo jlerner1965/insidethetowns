@@ -11,11 +11,11 @@
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import { countyLabel, findTown, getHub } from '@/config';
-import { COMPARISONS, comparisonSlug, type Comparison } from '@/content/comparisons';
+import { comparisonSlug, liveComparisons, type Comparison } from '@/content/comparisons';
 import { breadcrumbJsonLd } from '@/lib/seo';
 
 export function getStaticPaths() {
-  return COMPARISONS.map((comparison) => ({
+  return liveComparisons().map((comparison) => ({
     params: { pair: comparisonSlug(comparison) },
     props: { comparison },
   }));

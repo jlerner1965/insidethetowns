@@ -10,10 +10,10 @@
  * Formspree's honeypot, as on the event form: no CAPTCHA, because a CAPTCHA
  * costs messages from exactly the readers least likely to send a second one.
  *
- * `_subject` carries a default rather than shipping blank. Eight sites post
- * to eight Formspree inboxes, and a blank subject leaves the sender's own
+ * `_subject` carries a default rather than shipping blank. Every site posts
+ * to its own Formspree inbox, and a blank subject leaves the sender's own
  * words in the preview line — which is the wrong thing to see when the
- * question is only which of the eight this one is. It is a visible field, so
+ * question is only which site this one came from. It is a visible field, so
  * anyone with a better subject can overwrite it.
  */
 import Page from '@/layouts/Page.astro';
