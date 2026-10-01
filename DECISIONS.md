@@ -1636,6 +1636,42 @@ Commons record (author, licence, coordinates, categories) and against
   County Line Road*, was never downloaded or seen, and is left for a later
   session.
 
+## A correction from Niwot: last year's open house, at someone's home
+
+*1 October 2026.* Kathy Trauner wrote through the Niwot contact form: there
+is no open house this Sunday, the information is from 2025, and the address
+printed, 9700 Niwot Road, is private property, which put its owners in a
+difficult position. She offered her email for confirming Niwot tree carving
+events in future.
+
+- **What was published.** `tree-sculptures-open-house-2026-10-04.md`: an
+  open house in support of the restoration of Eddie Running Wolf's tree
+  carvings, Sunday 4 October 2026, 2 to 5 pm, at 9700 Niwot Road, sourced to
+  niwotarts.org and marked verified on 17 September. The file is deleted. The
+  address appeared nowhere else in the content, and the event was in no
+  newsletter issue.
+- **How it got in.** On 1 October 2026 the Association's home page still
+  carries the flyer, with no year on it: "Open House, Saturday Oct 4, 2–5 pm,
+  9700 Niwot Road". 4 October is a Saturday in 2025 and a Sunday in 2026. The
+  weekday check that caught six previous-year pages in the 18 September
+  session (above) would have caught this one too; the weekday was dropped on
+  the way into the file and the listing went out as a Sunday. A flyer that
+  names a weekday has told you its year. And `verified` records the day a
+  page was read, not that the page was current.
+- **The address.** 9700 Niwot Road is a house. The Association's own project
+  page puts the carvings in Left Hand Valley Grange Park, at 83rd Street and
+  Niwot Road, on a site leased from Boulder County; the open house address
+  was not the project's, and had no venue or business name attached. A flyer
+  does not make an address public. The rule that comes out of this: a bare
+  house number on a road, with no venue name, is a home until shown
+  otherwise, and a home is not printed. If an organiser holds something at a
+  home, the listing names the organiser and links to its page, and the
+  address is left to them.
+- **Confirming Niwot tree carving events.** Kathy Trauner has offered to
+  confirm them by email. Her address is on her 1 October submission in the
+  Niwot Formspree inbox and is not written here. Future tree carving events
+  are checked with her before they go in.
+
 ## Phase 9 — Windsor and Fort Collins
 
 The plan is `docs/EXPANSION-WINDSOR-FORT-COLLINS.md`; these are the choices made
