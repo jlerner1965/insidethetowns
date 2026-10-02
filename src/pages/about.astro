@@ -4,7 +4,8 @@ import FactStrip from '@/components/FactStrip.astro';
 import { countiesCovered, countyLabel, getNetworkHub, getSite, liveTowns } from '@/config';
 import CtaBand from '@/components/CtaBand.astro';
 import { getTownEntries } from '@/lib/content';
-import { occurrences, upcoming } from '@/lib/events';
+import { isCanceled, occurrences, uniqueByEvent, upcoming } from '@/lib/events';
+import { isOpen } from '@/lib/places';
 import { monthDay } from '@/lib/dates';
 
 const site = getSite();
@@ -21,12 +22,19 @@ const siblings = live.filter((t) => t.slug !== site.slug);
 
 // What the guide actually holds, which is the one thing an About page can say
 // that no other site's About page can.
-const places = await getTownEntries('places');
+const allPlaces = await getTownEntries('places');
+const places = allPlaces.filter(isOpen);
 const allEvents = await getTownEntries('events');
-const events = upcoming(occurrences(allEvents));
+/**
+ * Events, not occurrences. Expanding the weekly regulars gave Lyons "238
+ * upcoming events" against the 165 or so its events page shows: a trivia
+ * night counted seventeen times. One listing is one event, however many
+ * weeks it runs, and a canceled one is not an event a reader can go to.
+ */
+const events = uniqueByEvent(upcoming(occurrences(allEvents))).filter((e) => !isCanceled(e));
 // The most recent check on any listing: the one number that says the guide is
 // being kept rather than published once and left.
-const checks = [...places, ...allEvents].map((e) => e.data.verified).filter((d): d is Date => !!d);
+const checks = [...allPlaces, ...allEvents].map((e) => e.data.verified).filter((d): d is Date => !!d);
 const lastChecked = checks.length > 0 ? new Date(Math.max(...checks.map((d) => d.getTime()))) : null;
 const panel = 'rounded-lg bg-raised p-6 ring-1 ring-line-soft';
 const panelTitle = 'eyebrow border-b border-line-soft pb-3';
@@ -139,14 +147,14 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
     <div class="mt-14 grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
       <div class="prose">
         <p>
-          Inside the Towns publishes independent community guides for the towns of Colorado’s northern Front
+          Inside the Towns publishes independent community guides for the towns of Colorado’s Front
           Range: one site per town, each with the week’s events, places to eat and drink, things to do outdoors, and a
           plain account of what it’s like to move there.
         </p>
         {city && (
           <p>
             One of them, {city.name}, is a city of {(Math.round((city.population ?? 0) / 10_000) * 10_000).toLocaleString('en-US')} rather than a
-            town. It is here because it is the city the rest look to, and a guide to the northern Front Range that
+            town. It is here because it is the city the rest look to, and a guide to the Front Range that
             left it out would have a hole in the middle.
           </p>
         )}

@@ -15,6 +15,8 @@ export type IcsEvent = {
   location?: string;
   description?: string;
   url?: string;
+  /** Emitted as STATUS:CANCELLED, which calendar apps show struck through. */
+  cancelled?: boolean;
 };
 
 function pad(n: number): string {
@@ -121,6 +123,7 @@ export function buildIcs(
       if (e.end) lines.push(`DTEND;TZID=${TIME_ZONE}:${icsLocal(e.end)}`);
     }
     lines.push(`SUMMARY:${escapeText(e.title)}`);
+    if (e.cancelled) lines.push('STATUS:CANCELLED');
     if (e.location) lines.push(`LOCATION:${escapeText(e.location)}`);
     if (e.description) lines.push(`DESCRIPTION:${escapeText(e.description)}`);
     if (e.url) lines.push(`URL:${e.url}`);

@@ -11,18 +11,28 @@ import { getNeighborEntries, getTownEntries } from '@/lib/content';
 import { formatDayRange } from '@/lib/dates';
 import { nearestTowns } from '@/lib/geo';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
-import { categoriesIn, groupByDay, highlights, occurrences, oneOffs, uniqueByEvent, upcoming, weekendSections, weekendWindow } from '@/lib/events';
+import { categoriesIn, groupByDay, highlights, occurrences, oneOffs, regularTest, uniqueByEvent, upcoming, weekendSections, weekendWindow } from '@/lib/events';
 import { CATEGORY_LABELS, EVENT_CATEGORIES, type EventCategory } from '@/content/schemas';
 
 const town = getTown();
 const hub = getNetworkHub();
-const all = occurrences(await getTownEntries('events'), { horizonDays: 400 });
+const entries = await getTownEntries('events');
+const all = occurrences(entries, { horizonDays: 400 });
 const nextTwoWeeks = upcoming(all, { days: 14 });
 // Beyond two weeks a weekly event appears once, on its next date, not every week.
 const later = uniqueByEvent(upcoming(all).filter((e) => !nextTwoWeeks.includes(e)));
 const shown = [...nextTwoWeeks, ...later];
 const options = categoriesIn(shown, EVENT_CATEGORIES).map((c) => ({ value: c, label: CATEGORY_LABELS[c as EventCategory] }));
 const fortnightDays = groupByDay(nextTwoWeeks);
+/**
+ * Which rows are regulars — the weekly storytime, the trivia night, a council
+ * series — decided over the whole list, as the home page decides it. The page
+ * opens on the one-offs: on Erie the full list ran to two hundred rows, most
+ * of them library clubs and board meetings, and Brewfest was somewhere in the
+ * middle. Everything is still there, one pill away (see EventFilters).
+ */
+const isRegular = regularTest(entries);
+const hasRegulars = shown.some((e) => isRegular(e) || e.data.category === 'civic');
 
 /**
  * A few picks from the towns next door, for the weekend. Nobody planning a
@@ -57,11 +67,15 @@ const structured = [
 ---
 <Page
   title="Events"
-  seoTitle={`${town.name}, Colorado events this week`}
+  seoTitle={`${town.name}, Colorado events`}
   jsonLd={structured}
   eyebrow={`What’s on in ${town.name}`}
   description={`What’s on in ${town.name} this week and next: markets, music, festivals, trails and more.`}
-  intro="The next two weeks first, then everything further out. Weekly regulars show every date for two weeks, then once. Past events drop off on their own."
+  intro={
+    hasRegulars
+      ? 'The next two weeks first, then everything further out. The page opens on the one-offs; switch to everything for the weekly regulars and the town meetings. Past events drop off on their own.'
+      : 'The next two weeks first, then everything further out. Weekly regulars show every date for two weeks, then once. Past events drop off on their own.'
+  }
 >
   <p slot="after-header" class="mt-5 text-[0.9375rem] text-ink-muted">
     Just the weekend? <a href="/this-weekend/" class="font-semibold text-accent-text">This weekend in {town.name}</a>.
@@ -71,11 +85,11 @@ const structured = [
   <SponsorLine slot="after-header" sponsor={town.sponsors?.events} />
 
   <div data-filter-root>
-    <EventFilters categories={options} />
+    <EventFilters categories={options} views={hasRegulars} />
     <DayStrip days={fortnightDays} more={later.length > 0 ? [{ href: '#further-out', label: 'Further out' }] : []} />
     <div data-filter-section>
       <h2 class="sr-only">Next 14 days</h2>
-      <EventList events={nextTwoWeeks} emptyMessage="Nothing listed for the next two weeks yet." />
+      <EventList events={nextTwoWeeks} emptyMessage="Nothing listed for the next two weeks yet." isRegular={isRegular} />
     </div>
     {/*
       The signup used to sit above the listings, which on a phone put the first
@@ -91,7 +105,7 @@ const structured = [
     {later.length > 0 && (
       <div id="further-out" class="mt-16 scroll-mt-4 md:mt-24" data-filter-section>
         <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">Further out</h2>
-        <EventList events={later} />
+        <EventList events={later} isRegular={isRegular} />
       </div>
     )}
     <p data-filter-empty hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">Nothing listed that matches. Try <button type="button" class="font-semibold text-accent-text underline" data-filter-reset>everything, any time</button>.</p>

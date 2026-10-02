@@ -180,6 +180,11 @@ export function toIsoLocal(date: Date, tz = TIME_ZONE): string {
   return `${local.toISOString().slice(0, 19)}${sign}${hh}:${mm}`;
 }
 
+/** "October 31" */
+export function formatMonthDay(date: Date): string {
+  return fmt({ month: 'long', day: 'numeric' }).format(date);
+}
+
 /** "September 26–27", "October 31 – November 1", or "September 27" for one day. */
 export function formatDayRange(start: Date, end: Date): string {
   const monthDay = fmt({ month: 'long', day: 'numeric' });

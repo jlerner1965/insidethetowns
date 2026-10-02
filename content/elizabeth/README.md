@@ -93,6 +93,30 @@ Longer description in Markdown.
 
 `restaurant`, `bar` and `coffee` appear under Eat & Drink; `trail`, `park` and `venue` under Things to Do.
 
+## Closed places and canceled events
+
+A listing that cannot say "closed" lies the day the business does. Both
+collections carry a `status`, and anything but the default needs a note saying
+what happened and how you know:
+
+```yaml
+# a place
+status: closed                    # open (default) | temporarily-closed | closed
+statusNote: "Reported closed on February 21, 2026, ahead of the sale of the building (Retro 102.5)."
+statusSource: "https://…"         # optional, the report or notice
+
+# an event
+status: canceled                  # scheduled (default) | postponed | canceled
+statusNote: "The Town's meeting page lists this meeting as canceled."
+statusSource: "https://…"         # optional
+```
+
+A closed place keeps its page and its directory row, labeled, with the hours and
+the open-now badge gone and no place on the home page or in the picks. A canceled
+event stays on the calendar, struck through, for the reader who planned to go, and
+leaves the picks, the feeds and the weekly email. Delete a file only when the
+listing was never right; otherwise mark it, so the URL keeps answering.
+
 ## Article
 
 ```yaml

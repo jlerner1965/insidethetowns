@@ -8,9 +8,9 @@
  * glance that the farmers market you want is in Lyons and not in Erie.
  */
 import type { NetworkEntry } from '@/lib/content';
-import { formatTimeRange, toIsoLocal } from '@/lib/dates';
-import { eventEnd, lastDay } from '@/lib/events';
-import { CATEGORY_LABELS } from '@/content/schemas';
+import { dayKey, formatDayRange, formatMonthDay, formatTimeRange, toIsoLocal } from '@/lib/dates';
+import { eventEnd, isCanceled, isInProgress, lastDay } from '@/lib/events';
+import { CATEGORY_LABELS, EVENT_STATUS_LABELS } from '@/content/schemas';
 
 interface Props {
   event: NetworkEntry<'events'>;
@@ -19,7 +19,19 @@ interface Props {
 const { event } = Astro.props;
 const { data, slug, town } = event;
 const href = `https://${town.domain}/events/${slug}/`;
-const time = data.timeNote ?? formatTimeRange(data.start, data.end, data.allDay);
+const canceled = isCanceled(event);
+const statusLabel = data.status !== 'scheduled' ? EVENT_STATUS_LABELS[data.status] : undefined;
+// The same reading of a run of days as EventCard: "Now through October 31"
+// while it is on, the range before it starts.
+const multiDay = !!data.end && dayKey(data.start) !== dayKey(data.end);
+const running = multiDay && !canceled && isInProgress(event);
+const time =
+  data.timeNote ??
+  (running
+    ? `Now through ${formatMonthDay(data.end!)}`
+    : multiDay && data.allDay
+      ? formatDayRange(data.start, data.end!)
+      : formatTimeRange(data.start, data.end, data.allDay));
 ---
 <article
   class="group relative grid grid-cols-1 gap-x-7 border-t border-line-soft py-5 first:border-t-0 sm:grid-cols-[7rem_1fr] md:py-6"
@@ -36,15 +48,19 @@ const time = data.timeNote ?? formatTimeRange(data.start, data.end, data.allDay)
     >{town.name}</span>
   </p>
   <div class="min-w-0">
-    <p class="eyebrow flex items-center gap-2" style={`color:var(--cat-${data.category}-ink)`}>
+    <p class="eyebrow flex flex-wrap items-center gap-2" style={`color:var(--cat-${data.category}-ink)`}>
       <span class="inline-block size-2 shrink-0 rounded-full" style={`background:var(--cat-${data.category}-dot)`} aria-hidden="true"></span>
       {CATEGORY_LABELS[data.category]}
+      {statusLabel && (
+        <span class="rounded-full bg-ink px-2 py-0.5 text-[0.625rem] font-semibold uppercase tracking-[0.1em] text-raised">{statusLabel}</span>
+      )}
     </p>
     <h3 class="mt-1.5 text-xl font-medium leading-tight md:text-2xl">
-      <a href={href} class="stretch no-underline group-hover:text-accent-text">{data.title}</a>
+      <a href={href} class:list={['stretch no-underline group-hover:text-accent-text', canceled && 'line-through decoration-ink-faint decoration-2']}>{data.title}</a>
     </h3>
     <p class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">
       <time datetime={toIsoLocal(data.start)}>{time}</time> · {data.venue}{data.cost && <span> · {data.cost}</span>}
     </p>
+    {statusLabel && data.statusNote && <p class="mt-1 text-sm text-ink">{data.statusNote}</p>}
   </div>
 </article>

@@ -10,6 +10,15 @@ type EventLike = { data: CollectionEntry<'events'>['data']; slug?: string; id?: 
 const WEEK = 7 * 86_400_000;
 
 /**
+ * True when the organizer has called it off or pulled the date. The listing
+ * stays on the calendar, marked, for the reader who planned around it; it is
+ * kept out of everything that recommends — the picks, the feeds, the email.
+ */
+export function isCanceled(event: { data: { status?: string } }): boolean {
+  return event.data.status === 'canceled' || event.data.status === 'postponed';
+}
+
+/**
  * Expand weekly repeats into one entry per occurrence, up to `horizonDays`
  * ahead of `now`. Non-repeating events pass through untouched. Occurrences
  * share the source entry's slug, so they all link to the same page.
@@ -217,7 +226,9 @@ export function highlights<T extends EventLike>(
     const weekend = t >= start.getTime() && t < end.getTime();
     return (e.data.featured ? 0 : weekend ? 4 : 8) + (isRegular(e) ? 2 : 0) + (e.data.category === 'civic' ? 1 : 0);
   };
-  const live = uniqueByEvent(upcoming(events, { now })).map((e, i) => ({ e, rank: rank(e), i, turn: 0 }));
+  const live = uniqueByEvent(upcoming(events, { now }))
+    .filter((e) => !isCanceled(e))
+    .map((e, i) => ({ e, rank: rank(e), i, turn: 0 }));
   // `turn` is a listing's place among its tier's listings on its own day: the
   // first thing on Saturday ranks with the first thing on Friday, not after
   // the fourth.
@@ -236,8 +247,12 @@ export function highlights<T extends EventLike>(
  * Fridays" note, or one of a series stored as a file per date — which shows
  * up as another listing with the same title at the same venue, the way
  * src/lib/series.ts recognises a series too.
+ *
+ * Exported for the events page, which marks each row so the default view can
+ * lead with the one-offs and put the storytimes and the trivia nights behind
+ * a switch (see EventFilters.astro).
  */
-function regularTest<T extends EventLike>(all: readonly T[]): (event: T) => boolean {
+export function regularTest<T extends EventLike>(all: readonly T[]): (event: T) => boolean {
   const slugsByKey = new Map<string, Set<string>>();
   for (const e of all) {
     const key = `${e.data.title}|${e.data.venue}`;
@@ -256,5 +271,5 @@ function regularTest<T extends EventLike>(all: readonly T[]): (event: T) => bool
  */
 export function oneOffs<T extends EventLike>(events: T[], all: readonly T[] = events): T[] {
   const isRegular = regularTest(all);
-  return events.filter((e) => !isRegular(e) && e.data.category !== 'civic');
+  return events.filter((e) => !isRegular(e) && e.data.category !== 'civic' && !isCanceled(e));
 }

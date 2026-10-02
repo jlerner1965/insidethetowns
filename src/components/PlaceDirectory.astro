@@ -12,6 +12,7 @@
 import type { TownEntry } from '@/lib/content';
 import { PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, PLACE_TYPES, type PlaceType } from '@/content/schemas';
 import { PLACE_HUE } from '@/config/palette';
+import { isOpen } from '@/lib/places';
 import FilterBar from './FilterBar.astro';
 import PlaceCard from './PlaceCard.astro';
 import PlaceFeature from './PlaceFeature.astro';
@@ -34,7 +35,8 @@ const { places, filterable = false, emptyMessage = 'Nothing listed yet.', lead =
 // lists restaurants before bars before coffee.
 const types = PLACE_TYPES.filter((t) => places.some((p) => p.data.type === t)) as PlaceType[];
 const options = types.map((t) => ({ value: t, label: PLACE_TYPE_LABELS[t] }));
-const withPhoto = places.filter((p) => p.data.image).slice(0, lead);
+// The lead is the page's recommendation, and a closed place is not one.
+const withPhoto = places.filter((p) => p.data.image && isOpen(p)).slice(0, lead);
 const grouped = types.length > 1;
 const groups = grouped
   ? types.map((type) => ({ type, label: PLACE_TYPE_PLURALS[type], items: places.filter((p) => p.data.type === type) }))

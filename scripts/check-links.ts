@@ -16,10 +16,11 @@
  * every small business in the network, which is fine occasionally and rude
  * daily.
  *
- * Exit code is 1 only for links that are definitely gone (404/410). A 403 is
- * almost always a bot challenge rather than a dead page, and a timeout is
- * usually our end, so both are reported and neither fails the run — a check
- * that cries wolf gets ignored, and then the real 404 gets ignored with it.
+ * Exit code is 1 only for links that are definitely gone (404/410) or that now
+ * land on a different site, which a 200 alone would hide. A 403 is almost
+ * always a bot challenge rather than a dead page, and a timeout is usually our
+ * end, so both are reported and neither fails the run — a check that cries
+ * wolf gets ignored, and then the real 404 gets ignored with it.
  *
  * Each site's robots.txt is read before the first link there, and a link it
  * asks automated clients not to fetch is not fetched. It is listed for a
@@ -123,33 +124,50 @@ function hostOf(url: string): string | null {
   }
 }
 
-async function curl(url: string, method: 'HEAD' | 'GET'): Promise<{ code: string; headers: string }> {
+async function curl(url: string, method: 'HEAD' | 'GET'): Promise<{ code: string; headers: string; landed: string }> {
   const args = [
     '-sS', '-L', '--max-time', String(TIMEOUT), '-A', UA,
     '-H', 'Accept: text/html,application/xhtml+xml,*/*',
     '-o', '/dev/null',
-    '-D', '-', '-w', '\n%{http_code}', url,
+    '-D', '-', '-w', '\n%{http_code} %{url_effective}', url,
   ];
   if (method === 'HEAD') args.unshift('-I');
   try {
     const { stdout } = await run('curl', args, { maxBuffer: 8 << 20 });
     const nl = stdout.lastIndexOf('\n');
-    return { code: stdout.slice(nl + 1).trim(), headers: stdout.slice(0, nl) };
+    const [code = '000', landed = url] = stdout.slice(nl + 1).trim().split(' ', 2);
+    return { code, headers: stdout.slice(0, nl), landed };
   } catch {
-    return { code: '000', headers: '' };
+    return { code: '000', headers: '', landed: url };
   }
 }
 
-type Verdict = 'ok' | 'gone' | 'blocked' | 'unreachable' | 'skipped';
+type Verdict = 'ok' | 'moved' | 'gone' | 'blocked' | 'unreachable' | 'skipped';
+
+/**
+ * A 200 from a different site is not a working link. A restaurant's lapsed
+ * domain was bought by an online casino, and for weeks the guide linked to it
+ * twice as the business's own page, with every check reporting it fine
+ * because the casino answered 200. The host the link lands on is compared
+ * with the host it names; a redirect within a site (http to https, a moved
+ * page) is still ok, and a change of host is reported for a person to look
+ * at, since it is sometimes a rebrand and sometimes a hijack.
+ */
+function hostChanged(from: string, to: string): boolean {
+  const a = hostOf(from)?.replace(/^www\./, '');
+  const b = hostOf(to)?.replace(/^www\./, '');
+  return !!a && !!b && a !== b;
+}
 
 async function check(url: string): Promise<{ verdict: Verdict; code: string; note: string }> {
   // HEAD first — cheaper for them and for us. Plenty of servers refuse it, so
   // anything that is not a clean 2xx gets a real GET before we believe it.
-  let { code, headers } = await curl(url, 'HEAD');
-  if (!/^2/.test(code)) ({ code, headers } = await curl(url, 'GET'));
-  if (code === '000') ({ code, headers } = await curl(url, 'GET'));
+  let { code, headers, landed } = await curl(url, 'HEAD');
+  if (!/^2/.test(code)) ({ code, headers, landed } = await curl(url, 'GET'));
+  if (code === '000') ({ code, headers, landed } = await curl(url, 'GET'));
 
   const challenged = /cf-mitigated:/i.test(headers);
+  if (/^2/.test(code) && hostChanged(url, landed)) return { verdict: 'moved', code, note: `now lands on ${hostOf(landed)}` };
   if (/^2/.test(code)) return { verdict: 'ok', code, note: '' };
   if (code === '404' || code === '410') return { verdict: 'gone', code, note: '' };
   if (code === '403' || code === '429' || code === '503') {
@@ -249,6 +267,7 @@ async function main() {
 
   const of = (v: Verdict) => hits.filter((h) => results.get(h.url)!.verdict === v);
   const gone = of('gone');
+  const moved = of('moved');
   const unreachable = of('unreachable');
   const blocked = of('blocked');
   const skipped = of('skipped');
@@ -266,6 +285,7 @@ async function main() {
 
   list('MALFORMED — these are not valid URLs', malformed);
   list('DEAD — fix or remove these', gone);
+  list('MOVED TO ANOTHER SITE — a rebrand or a hijacked domain; look before trusting it', moved);
   list('No response — check by hand', unreachable);
 
   const tally = (label: string, why: string, group: Hit[]) => {
@@ -284,11 +304,11 @@ async function main() {
   tally('Not fetched', 'the site’s robots.txt asks automated clients to stay out, so check these in a browser', skipped);
 
   console.log(
-    `check-links: ${of('ok').length} ok, ${gone.length} dead, ${unreachable.length} no response, ` +
+    `check-links: ${of('ok').length} ok, ${gone.length} dead, ${moved.length} moved to another site, ${unreachable.length} no response, ` +
       `${blocked.length} refused, ${skipped.length} not fetched${malformed.length ? `, ${malformed.length} malformed` : ''}`,
   );
-  if (gone.length || malformed.length) {
-    console.log('\nThe editorial policy tells readers every claim has a source they can follow. Dead links break that.');
+  if (gone.length || moved.length || malformed.length) {
+    console.log('\nThe editorial policy tells readers every claim has a source they can follow. Dead links break that, and a link to the wrong site is worse.');
     process.exit(1);
   }
 }

@@ -32,6 +32,8 @@ export interface Occurrence {
   startDay: string;
   /** Last Denver day it is on, inclusive. Equal to startDay for a one-day event. */
   lastDay: string;
+  /** Called off or postponed: not the occurrence to send a searcher to. */
+  canceled?: boolean;
 }
 
 /**
@@ -42,7 +44,7 @@ export interface Occurrence {
  */
 /** Only the three fields the choice actually turns on, so callers that have
  *  parsed entries rather than raw markdown need not synthesise the rest. */
-type Candidate = Pick<Occurrence, 'slug' | 'key' | 'startDay'>;
+type Candidate = Pick<Occurrence, 'slug' | 'key' | 'startDay'> & Partial<Pick<Occurrence, 'canceled'>>;
 
 export function pickCanonical(occurrences: Iterable<Candidate>, todayKey: string): Map<string, string> {
   const series = new Map<string, Candidate[]>();
@@ -56,7 +58,10 @@ export function pickCanonical(occurrences: Iterable<Candidate>, todayKey: string
   for (const [key, list] of series) {
     // Ties broken on slug so the choice is stable between builds.
     list.sort((a, b) => a.startDay.localeCompare(b.startDay) || a.slug.localeCompare(b.slug));
-    const next = list.find((o) => o.startDay >= todayKey);
+    // The soonest a reader could attend: a canceled meeting is skipped for
+    // the one after it, and is the indexed page only when nothing else is.
+    const next =
+      list.find((o) => o.startDay >= todayKey && !o.canceled) ?? list.find((o) => o.startDay >= todayKey);
     canonical.set(key, (next ?? list[list.length - 1]!).slug);
   }
   return canonical;
@@ -108,11 +113,13 @@ export function readOccurrences(town: string, contentRoot = 'content'): Occurren
     if (!title || !start) continue;
     const end = field(fm[1], 'end');
     const allDay = field(fm[1], 'allDay') === 'true';
+    const status = field(fm[1], 'status');
     all.push({
       slug: file.slice(0, -3),
       key: `${title}|${venue}`,
       startDay: start.slice(0, 10),
       lastDay: lastDayOf(start, end, allDay),
+      canceled: status === 'canceled' || status === 'postponed',
     });
   }
   return all;

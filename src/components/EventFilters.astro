@@ -1,31 +1,41 @@
 ---
 /**
- * The events page's filters: when, then what.
+ * The events page's filters: what kind of list, when, then what.
  *
  * Readers arrive with a time in mind — tonight, this weekend, something free —
  * and a category second, if at all. The first row is "when" (plus Free, which
  * is the other question a reader asks before the category), the second is the
  * category. The two combine: Music this weekend is a real thing to ask for.
  *
+ * Above both, where the page has them, is the choice between the one-offs and
+ * everything. The full list on a busy guide is two hundred rows, most of them
+ * weekly storytimes and board meetings, and the festival a visitor came for
+ * was buried in it. The page opens on the one-offs; "Everything" brings back
+ * the regulars and the civic calendar. Choosing a category shows all of that
+ * category either way — a reader who picks Civic wants the meetings — so the
+ * switch only bites on the unfiltered list.
+ *
  * "Today" and "This weekend" are decided in the reader's browser from the
  * Denver date, not at build time, for the reason Freshness.astro gives: a
  * build is a snapshot and the page must stay right after it. The server
- * renders every pill unpressed, so a crawler and a reader without JavaScript
- * see the whole list.
+ * renders every pill unpressed and every row visible, so a crawler and a
+ * reader without JavaScript see the whole list.
  *
- * The chosen filters live in the URL (?when=weekend&category=music), so a
- * reader can bookmark "free things this weekend", share it, and find it still
- * applied after a reload — and the weekly email can link straight to it.
+ * The chosen filters live in the URL (?when=weekend&category=music&view=all),
+ * so a reader can bookmark "free things this weekend", share it, and find it
+ * still applied after a reload — and the weekly email can link straight to it.
  *
  * Works with EventList's markup: [data-filter-item] rows carrying
- * data-category, data-start-day, data-event-day and data-free, grouped in
- * [data-filter-group] sections inside the nearest [data-filter-root].
+ * data-category, data-start-day, data-event-day, data-free and data-regular,
+ * grouped in [data-filter-group] sections inside the nearest [data-filter-root].
  */
 interface Props {
   categories: Array<{ value: string; label: string }>;
+  /** Offer the one-offs / everything switch. Off when the list has no regulars to hide. */
+  views?: boolean;
 }
 
-const { categories } = Astro.props;
+const { categories, views = false } = Astro.props;
 const when = [
   { value: 'today', label: 'Today' },
   { value: 'weekend', label: 'This weekend' },
@@ -35,7 +45,14 @@ const when = [
 const pill =
   'rounded-full border border-accent-line bg-raised px-4 py-1.5 text-sm font-medium text-ink-muted transition-colors hover:border-accent hover:text-accent-text aria-pressed:border-accent-dark aria-pressed:bg-accent-dark aria-pressed:text-white';
 ---
-<div class="mb-8 space-y-3 md:mb-10" data-event-filters>
+<div class="mb-8 space-y-3 md:mb-10" data-event-filters data-views={views ? 'true' : undefined}>
+  {views && (
+    <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Which events to show">
+      <span class="eyebrow mr-1 text-ink-faint">Show</span>
+      <button type="button" data-view="highlights" aria-pressed="true" class={pill}>One-offs</button>
+      <button type="button" data-view="all" aria-pressed="false" class={pill}>Everything, with the regulars and meetings</button>
+    </div>
+  )}
   <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter events by time">
     <span class="eyebrow mr-1 text-ink-faint">When</span>
     <button type="button" data-when="any" aria-pressed="true" class={pill}>Anytime</button>
@@ -62,9 +79,13 @@ const pill =
   const bar = document.querySelector<HTMLElement>('[data-event-filters]');
   if (bar) {
     const root = bar.closest<HTMLElement>('[data-filter-root]') ?? document.body;
+    const viewButtons = bar.querySelectorAll<HTMLButtonElement>('[data-view]');
     const whenButtons = bar.querySelectorAll<HTMLButtonElement>('[data-when]');
     const catButtons = bar.querySelectorAll<HTMLButtonElement>('[data-category]');
     const status = bar.querySelector<HTMLElement>('[data-filter-status]');
+    // Without the switch on the page there is nothing to hide, and the
+    // default is the whole list, as it always was.
+    const hasViews = bar.dataset.views === 'true';
 
     const WHEN = new Set([...whenButtons].map((b) => b.dataset.when));
     const CATS = new Set([...catButtons].map((b) => b.dataset.category));
@@ -83,8 +104,13 @@ const pill =
       return null;
     };
 
-    const matches = (item: HTMLElement, when: string, category: string) => {
+    const matches = (item: HTMLElement, view: string, when: string, category: string) => {
       if (category !== 'all' && item.dataset.category !== category) return false;
+      // The one-offs view hides the regulars and the civic calendar, but only
+      // on the unfiltered list: a chosen category is shown whole.
+      if (view === 'highlights' && category === 'all' && (item.dataset.regular === 'true' || item.dataset.category === 'civic')) {
+        return false;
+      }
       if (when === 'free') return item.dataset.free === 'true';
       const window = windowFor(when);
       if (!window) return true;
@@ -96,11 +122,12 @@ const pill =
       return start <= window.to && last >= window.from;
     };
 
-    const apply = (when: string, category: string, push: boolean) => {
+    const apply = (view: string, when: string, category: string, push: boolean) => {
+      for (const b of viewButtons) b.setAttribute('aria-pressed', String(b.dataset.view === view));
       for (const b of whenButtons) b.setAttribute('aria-pressed', String(b.dataset.when === when));
       for (const b of catButtons) b.setAttribute('aria-pressed', String(b.dataset.category === category));
       const items = root.querySelectorAll<HTMLElement>('[data-filter-item]');
-      for (const item of items) item.hidden = !matches(item, when, category);
+      for (const item of items) item.hidden = !matches(item, view, when, category);
       for (const group of root.querySelectorAll<HTMLElement>('[data-filter-group]')) {
         group.hidden = !group.querySelector('[data-filter-item]:not([hidden])');
       }
@@ -109,16 +136,24 @@ const pill =
       for (const section of root.querySelectorAll<HTMLElement>('[data-filter-section]')) {
         section.hidden = !section.querySelector('[data-filter-item]:not([hidden])');
       }
+      // A day in the strip whose listings are all hidden would scroll to nothing.
+      for (const link of root.querySelectorAll<HTMLElement>('[data-day-link]')) {
+        const day = root.querySelector<HTMLElement>(`[data-filter-group][data-day="${link.dataset.dayLink}"]`);
+        link.hidden = !!day && day.hidden;
+      }
       const empty = root.querySelector<HTMLElement>('[data-filter-empty]');
       if (empty) empty.hidden = !!root.querySelector('[data-filter-item]:not([hidden])');
       if (status) {
         const shown = root.querySelectorAll('[data-filter-item]:not([hidden])').length;
         const whenLabel = bar.querySelector(`[data-when="${when}"]`)?.textContent?.trim().toLowerCase() ?? '';
         const catLabel = category === 'all' ? 'all categories' : category;
-        status.textContent = `${shown} ${shown === 1 ? 'event' : 'events'}, ${whenLabel}, ${catLabel}`;
+        const viewLabel = hasViews ? (view === 'all' ? ', everything' : ', one-offs only') : '';
+        status.textContent = `${shown} ${shown === 1 ? 'event' : 'events'}, ${whenLabel}, ${catLabel}${viewLabel}`;
       }
       if (push) {
         const url = new URL(location.href);
+        if (view === 'highlights' || !hasViews) url.searchParams.delete('view');
+        else url.searchParams.set('view', view);
         if (when === 'any') url.searchParams.delete('when');
         else url.searchParams.set('when', when);
         if (category === 'all') url.searchParams.delete('category');
@@ -127,34 +162,45 @@ const pill =
       }
     };
 
+    let view = hasViews ? 'highlights' : 'all';
     let when = 'any';
     let category = 'all';
+    for (const b of viewButtons) {
+      b.addEventListener('click', () => {
+        view = b.dataset.view ?? 'all';
+        apply(view, when, category, true);
+      });
+    }
     for (const b of whenButtons) {
       b.addEventListener('click', () => {
         when = b.dataset.when ?? 'any';
-        apply(when, category, true);
+        apply(view, when, category, true);
       });
     }
     for (const b of catButtons) {
       b.addEventListener('click', () => {
         category = b.dataset.category ?? 'all';
-        apply(when, category, true);
+        apply(view, when, category, true);
       });
     }
 
+    // "Everything, any time" means exactly that.
     root.querySelector<HTMLButtonElement>('[data-filter-reset]')?.addEventListener('click', () => {
+      view = 'all';
       when = 'any';
       category = 'all';
-      apply(when, category, true);
+      apply(view, when, category, true);
     });
 
     // A shared or bookmarked link. Unknown values fall back to the defaults
     // rather than pressing nothing.
     const params = new URLSearchParams(location.search);
+    const v = params.get('view');
     const w = params.get('when');
     const c = params.get('category');
+    if (hasViews && v === 'all') view = 'all';
     if (w && WHEN.has(w)) when = w;
     if (c && CATS.has(c)) category = c;
-    if (when !== 'any' || category !== 'all') apply(when, category, false);
+    apply(view, when, category, false);
   }
 </script>

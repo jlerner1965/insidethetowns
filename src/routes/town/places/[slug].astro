@@ -9,9 +9,10 @@ import SectionHeader from '@/components/SectionHeader.astro';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { breadcrumbJsonLd, localBusinessJsonLd } from '@/lib/seo';
-import { EAT_DRINK_TYPES, PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, THINGS_TO_DO_TYPES } from '@/content/schemas';
+import { EAT_DRINK_TYPES, PLACE_STATUS_LABELS, PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, THINGS_TO_DO_TYPES } from '@/content/schemas';
 import { formatDate } from '@/lib/dates';
 import { openingHoursOf } from '@/lib/hours';
+import { byProminence, isOpen } from '@/lib/places';
 import OpenStatus from '@/components/OpenStatus.astro';
 
 export async function getStaticPaths() {
@@ -30,7 +31,11 @@ const { Content } = await render(place);
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
 const back = EAT_DRINK_TYPES.includes(data.type) || data.type === 'shop' ? { href: '/eat-drink/', label: 'Eat & drink' } : { href: '/things-to-do/', label: 'Things to do' };
-const eyebrow = `${PLACE_TYPE_LABELS[data.type]}${data.priceRange ? ` · ${data.priceRange}` : ''}`;
+// Closed, for good or for now: said first, in the eyebrow, the description
+// and a notice above the body, so no part of the page reads as an invitation.
+const open = isOpen(place);
+const statusLabel = open ? undefined : PLACE_STATUS_LABELS[data.status];
+const eyebrow = `${statusLabel ? `${statusLabel} · ` : ''}${PLACE_TYPE_LABELS[data.type]}${data.priceRange ? ` · ${data.priceRange}` : ''}`;
 // A listing is a short page. Without somewhere to go next it ends a third of
 // the way down the screen, and the other places of its kind are the obvious
 // next thing — as is anything on at this venue.
@@ -39,10 +44,11 @@ const family: readonly string[] = EAT_DRINK_TYPES.includes(data.type)
   : THINGS_TO_DO_TYPES.includes(data.type)
     ? [...THINGS_TO_DO_TYPES, 'lodging']
     : [data.type];
-const others = (await getTownEntries('places')).filter((p) => p.slug !== place.slug);
+// Somewhere to go next, so only places a reader can go.
+const others = (await getTownEntries('places')).filter((p) => p.slug !== place.slug && isOpen(p));
 const sameType = others.filter((p) => p.data.type === data.type);
 const nearby = (sameType.length >= 3 ? sameType : others.filter((p) => family.includes(p.data.type)))
-  .sort((a, b) => Number(b.data.featured) - Number(a.data.featured) || a.data.title.localeCompare(b.data.title))
+  .sort(byProminence)
   .slice(0, 6);
 const here = uniqueByEvent(upcoming(occurrences(await getTownEntries('events'))))
   .filter((e) => e.data.venue === data.title)
@@ -63,7 +69,8 @@ const hours = openingHoursOf(data);
 const facts = [
   { label: 'Address', value: data.area ? `${data.address} · ${data.area}` : data.address },
   { label: 'Directions', value: 'Open in Google Maps', href: directions },
-  { label: 'Hours', value: data.hours, hours: hours ?? undefined },
+  // The old hours of a closed place are the one fact here a reader must not act on.
+  { label: 'Hours', value: open ? data.hours : undefined, hours: hours ?? undefined },
   { label: 'Phone', value: data.phone, href: data.phone ? `tel:${data.phone.replace(/[^\d+]/g, '')}` : undefined },
   { label: 'Website', value: data.url ? new URL(data.url).hostname.replace(/^www\./, '') : undefined, href: data.url },
   { label: 'Trail map', value: data.mapUrl ? 'PDF, from the land manager' : undefined, href: data.mapUrl },
@@ -74,7 +81,7 @@ const facts = [
   kind="Place"
   eyebrow={eyebrow}
   intro={data.summary}
-  description={data.summary}
+  description={statusLabel ? `${statusLabel}. ${data.summary}` : data.summary}
   image={shareImage}
   imageAlt={data.imageAlt}
   jsonLd={[
@@ -88,6 +95,22 @@ const facts = [
 >
   <div class="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
     <div>
+      {statusLabel && (
+        <div class="mb-10 rounded-lg border-l-4 border-ink bg-raised p-5 ring-1 ring-line-soft" role="note">
+          <p class="eyebrow">{statusLabel}</p>
+          <p class="mt-2 leading-relaxed">
+            {data.statusNote}
+            {data.statusSource && (
+              <Fragment>
+                {' '}<a href={data.statusSource} rel="noopener" class="text-accent-text">Source →</a>
+              </Fragment>
+            )}
+          </p>
+          <p class="mt-2 text-[0.875rem] leading-relaxed text-ink-muted">
+            Know different? <a href={`/contact/?about=${encodeURIComponent(data.title)}#message-form`} class="text-accent-text underline">Tell us</a> and the listing is corrected.
+          </p>
+        </div>
+      )}
       {data.image && (
         <figure class="mb-10">
           <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
