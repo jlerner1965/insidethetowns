@@ -63,4 +63,5 @@ export const fortcollins: TownConfig = {
     policeNonEmergency: 'https://www.fcgov.com/police/',
     policeNonEmergencyLabel: 'Fort Collins Police Services',
   },
+  formspreeId: 'mgavbjyp',
 };

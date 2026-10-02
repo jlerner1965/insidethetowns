@@ -63,4 +63,5 @@ export const windsor: TownConfig = {
     policeNonEmergency: 'https://www.windsorco.gov/89/Police',
     policeNonEmergencyLabel: 'Windsor Police Department',
   },
+  formspreeId: 'mvkgnjrd',
 };
