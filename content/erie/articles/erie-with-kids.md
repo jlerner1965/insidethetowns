@@ -1,7 +1,7 @@
 ---
 title: "Erie with kids: nine playgrounds, a lazy river, a pump track and the library that never stops"
 date: "2026-09-27"
-excerpt: "Erie has more playgrounds than any town in this network and a library with a programme most days. Where to go with children, by age and by weather."
+excerpt: "Erie has more playgrounds than any town in this network and a library with a program most days. Where to go with children, by age and by weather."
 category: "Families"
 tags: [families, kids, playgrounds, guide]
 verified: "2026-09-27"
@@ -15,7 +15,7 @@ sources:
   - { label: "Sweets Ice Cream", url: "https://www.sweetsicecream.com/" }
 ---
 
-Erie built its parks for families and it shows: themed playgrounds in every neighbourhood, a splash pad downtown, a pump track that has hosted a world championship. This is how to use them.
+Erie built its parks for families and it shows: themed playgrounds in every neighborhood, a splash pad downtown, a pump track that has hosted a world championship. This is how to use them.
 
 ## Downtown: Coal Creek Park
 
@@ -29,9 +29,9 @@ The [Erie Community Center](/places/erie-community-center/) on the same site has
 
 ## The library
 
-The [Erie Community Library](/places/erie-community-library/), between the Community Center and the park, is open seven days and runs a programme most of them: a Saturday family storytime and an adaptive storytime on first Saturdays, baby open play, a chess club and a Book Dragons club for grades 3 to 5, Code Club on first Thursdays, a family LEGO club on third Sundays, Pokémon hangouts, science explorers for K to 2, and Tales 2 Tails on first and third Tuesdays, where children read to a dog. The [events page](/events/?category=family) has the dates.
+The [Erie Community Library](/places/erie-community-library/), between the Community Center and the park, is open seven days and runs a program most of them: a Saturday family storytime and an adaptive storytime on first Saturdays, baby open play, a chess club and a Book Dragons club for grades 3 to 5, Code Club on first Thursdays, a family LEGO club on third Sundays, Pokémon hangouts, science explorers for K to 2, and Tales 2 Tails on first and third Tuesdays, where children read to a dog. The [events page](/events/?category=family) has the dates.
 
-## The neighbourhood playgrounds
+## The neighborhood playgrounds
 
 Each has a theme, which matters to a four-year-old. [Star Meadows Park](/places/star-meadows-park/) in Flatiron Meadows has a climbable moon, a human sundial and a mister button for hot days. [Serene Park](/places/serene-park/) on Colliers Boulevard has a treehouse structure with a hillside slide. [Lehigh Park](/places/lehigh-park/) on Eichhorn Drive has a second splash pad and a fully accessible playground with ramps and a climbing boulder. [Arapahoe Ridge Park](/places/arapahoe-ridge-park/) is the shady one, with a nautical playground. [Longs Peak Park](/places/longs-peak-park/) in Vista Ridge has an accessible chair swing, a scavenger-hunt panel and, on a clear day, its namesake on the horizon. All sunrise to sunset.
 

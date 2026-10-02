@@ -22,7 +22,7 @@ That is not trivia. At the 2020 census 58 per cent of Erie's residents lived on 
 
 ## The school boundary is a separate line
 
-Most of Erie is [St. Vrain Valley Schools](https://www.svvsd.org/), based in Longmont — Erie, Red Hawk and Black Rock elementaries, Soaring Heights PK-8, Erie Middle and Erie High. The Boulder County side is [Boulder Valley](https://bvsd.org/), where Meadowlark PK-8 is the neighbourhood school.
+Most of Erie is [St. Vrain Valley Schools](https://www.svvsd.org/), based in Longmont — Erie, Red Hawk and Black Rock elementaries, Soaring Heights PK-8, Erie Middle and Erie High. The Boulder County side is [Boulder Valley](https://bvsd.org/), where Meadowlark PK-8 is the neighborhood school.
 
 The important part: the school boundary and the county line are drawn by different authorities and are not the same line. "I am in Boulder County" is not by itself an answer about schools. Ask the district to confirm a specific address. A listing is not a source, and neither is this page.
 

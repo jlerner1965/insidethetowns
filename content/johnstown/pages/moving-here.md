@@ -4,7 +4,7 @@ description: "What it is like to move to a sugar-factory town of 17,000 (22,000 
 image: ../images/town-hall.jpg
 imageAlt: "Johnstown Town Hall at 450 South Parish Avenue"
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0"
-updated: "2026-09-18"
+updated: "2026-10-02"
 ---
 
 ## What you are moving to
@@ -13,11 +13,11 @@ Johnstown is a home-rule town on the Weld–Larimer county line, nine miles from
 
 ## Housing
 
-Almost entirely single-family homes in master-planned neighborhoods on former farmland: Thompson River Ranch, Pioneer Ridge, Rolling Hills Ranch, Clearview, Johnstown Center, Mountain View and the newer subdivisions along Colorado 60 and County Road 48, most with metropolitan districts and homeowners' associations. Old Town has the small 1900s houses on the original grid. The 2020 census put median household income at about $69,900. The listings sites in the sidebar show what is for sale; ask which county, which school district and which metro district a house is in, because all three change within the town.
+Almost entirely single-family homes in master-planned neighborhoods on former farmland: Thompson River Ranch, Pioneer Ridge, Rolling Hills Ranch, Clearview, Johnstown Center, Mountain View and the newer subdivisions along Colorado 60 and County Road 48, most with metropolitan districts and homeowners' associations. Old Town has the small 1900s houses on the original grid. The Census Bureau’s latest estimate puts median household income at about $129,000; the $69,900 figure still quoted in places is from 2010. The listings sites in the sidebar show what is for sale; ask which county, which school district and which metro district a house is in, because all three change within the town.
 
 ## Schools
 
-Most of Johnstown is in [Weld County School District RE-5J](https://www.weldre5j.org/), the Johnstown-Milliken district: Elwell Elementary and the early-childhood center on Silverbell Drive, Letford Elementary on Jay Avenue, Pioneer Ridge Elementary on Cinnamon Teal Avenue, Roosevelt Middle School (renamed from Milliken Middle in 2024) on North 2nd Street and Roosevelt High School on Roosevelt Parkway, all in town. The northwest corner of town is in the [Thompson School District](https://www.tsd.org/), based in Loveland. The Town's [schools page](https://johnstownco.gov/409/Schools) has the map.
+Most of Johnstown is in [Weld County School District RE-5J](https://www.weldre5j.org/), the Johnstown-Milliken district: the new Elwell Elementary and the early-childhood center on Silverbell Drive (which replaced Letford Elementary on Jay Avenue), Pioneer Ridge Elementary on Cinnamon Teal Avenue, Roosevelt Middle School (renamed from Milliken Middle in 2024) on North 2nd Street and Roosevelt High School on Roosevelt Parkway, all in town. The northwest corner of town is in the [Thompson School District](https://www.tsd.org/), based in Loveland. The Town's [schools page](https://johnstownco.gov/409/Schools) has the map.
 
 ## Getting around
 

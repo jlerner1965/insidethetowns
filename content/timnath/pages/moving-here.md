@@ -4,7 +4,7 @@ description: "What it is like to move to a farm town of 625 that became a town o
 image: ../images/sunrise.jpg
 imageAlt: "Sunrise through bare cottonwoods over a frozen pond in Timnath"
 imageCredit: "USFWS Mountain-Prairie, Wikimedia Commons, CC BY 2.0"
-updated: "2026-09-18"
+updated: "2026-10-02"
 ---
 
 ## What you are moving to
@@ -30,7 +30,7 @@ By car. Harmony Road is the spine: west over I-25 into Fort Collins (about ten m
 - **Electricity** is Xcel Energy or Poudre Valley REA, depending on the address.
 - **Natural gas** is Xcel Energy.
 - **Trash and recycling** are private; most neighborhoods contract a hauler through the HOA or metro district, and Waste Management and others serve the town. Check your covenants before signing up on your own.
-- **Police** is the [Timnath Police Department](https://timnath.org/public-safety/), in its first purpose-built station at 4800 Goodman Street beside the Town Center; 970-224-3211.
+- **Police** is the [Timnath Police Department](https://timnath.org/public-safety/), in its first purpose-built station at 5601 E Harmony Road, opened in December 2022; 970-224-3211.
 - **Fire and emergency medical** response is the [Poudre Fire Authority](https://www.poudre-fire.org/), from Station 8 at 4800 Signal Tree Drive.
 - **Library.** There is no branch in town; Timnath is served by the [Poudre River Public Library District](https://www.poudrelibraries.org/), whose nearest branch is Council Tree in south Fort Collins.
 

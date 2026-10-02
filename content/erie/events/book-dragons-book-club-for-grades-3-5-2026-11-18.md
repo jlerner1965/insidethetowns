@@ -6,9 +6,9 @@ venue: "Erie Community Library"
 address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/17380772"
 category: family
-recurring: "Monthly, second Wednesdays"
+recurring: "Monthly, usually second Wednesdays; November’s is the third"
 source: "https://highplains.libcal.com/event/17380772"
-verified: "2026-09-18"
+verified: "2026-10-02"
 ---
 
 Book club for children in grades 3 to 5, with discussion and activities. Copies of the month’s book can be collected at the library. Registration required.

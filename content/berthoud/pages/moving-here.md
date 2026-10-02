@@ -3,7 +3,7 @@ title: "Moving to Berthoud"
 description: "What it is like to live in a farm town of ten thousand that doubled in a decade: housing, Thompson schools, the US 287 and I-25 commutes, a Town that runs its own water, and the lakes ten minutes up the road."
 image: ../images/welcome-sign.jpg
 imageAlt: "The Town of Berthoud welcome sign, 'The Garden Spot of Colorado', on a grey winter day"
-updated: "2026-09-18"
+updated: "2026-10-02"
 ---
 
 ## What you are moving to
@@ -34,7 +34,7 @@ US 287 skirts the west side of town since the 2007 bypass, which is why downtown
 
 ## Government
 
-A mayor and six trustees, elected at large, make up the Board of Trustees, which meets on the [second and fourth Tuesdays](/events/) at 6:30 pm at Town Hall. A Planning Commission, a Parks, Open Space, Recreation and Trails committee, a Tree Advisory Committee, a Historic Preservation Commission and a Youth Advisory Board are filled by application. Berthoud is the only Colorado municipality to ban the retail sale of puppy-mill dogs, since 2019.
+A mayor and six trustees, elected at large, make up the Board of Trustees, which meets on the [second and fourth Tuesdays](/events/) at 6:30 pm at Town Hall. A Planning Commission, a Parks, Open Space, Recreation and Trails committee, a Tree Advisory Committee, a Historic Preservation Commission and a Youth Advisory Board are filled by application. Berthoud was the first Colorado municipality to ban the retail sale of puppy-mill dogs, in 2019.
 
 ## Living here
 

@@ -23,7 +23,7 @@ In an emergency none of this matters: call 911 and the right engine is dispatche
 
 ## Two school districts
 
-Most of Johnstown is [Weld County School District RE-5J](https://www.weldre5j.org/) — Elwell, Letford and Pioneer Ridge elementaries, Roosevelt Middle and Roosevelt High, all in town. The north-west corner, on the Larimer side, is [Thompson School District R2-J](https://www.thompsonschools.org/), which is Loveland's district. The town [lists both](https://johnstownco.gov/409/Schools).
+Most of Johnstown is [Weld County School District RE-5J](https://www.weldre5j.org/) — Elwell and Pioneer Ridge elementaries, Roosevelt Middle and Roosevelt High, all in town. The north-west corner, on the Larimer side, is [Thompson School District R2-J](https://www.thompsonschools.org/), which is Loveland's district. The town [lists both](https://johnstownco.gov/409/Schools).
 
 "Johnstown schools" is therefore not one answer. Confirm an address with the district itself before you commit.
 

@@ -33,7 +33,7 @@ export const erie: TownConfig = {
   },
   hero: {
     image: 'hero.jpg',
-    alt: 'Colorado 7 running west out of Erie toward the snow-covered Front Range on a December morning',
+    alt: 'Baseline Road, Colorado 7, running west toward the snow-covered Front Range on a December morning',
     credit: 'Jeffrey Beall, Wikimedia Commons, CC BY 4.0',
   },
   social: {

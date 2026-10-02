@@ -1,5 +1,5 @@
 ---
-title: "Windsor history: a halfway house, a sugar factory, a tornado and a town that doubled"
+title: "Windsor history: a halfway house, a sugar factory, a tornado and a town that kept growing"
 date: "2026-10-01"
 excerpt: "A stage stop halfway between Greeley and Fort Collins, a railroad in 1882, a beet factory that ran 60 years, Kodak on the same ground, the costliest tornado in Colorado's history, a mill burned and rebuilt, and a town of 18,644 that became 32,716 in a decade. The short history of Windsor, Colorado, with sources."
 category: "History"
@@ -41,7 +41,7 @@ At 11:26 on the morning of May 22, 2008, a tornado touched down south-east of Wi
 
 The mill's story did not end with the tornado. Listed on the National Register of Historic Places and named one of Colorado's Most Endangered Places in 2002, it was sold in 2015 to owners who put more than $3 million into rehabilitating it, with the Town offering up to $3 million in incentives, before an early-morning fire in August 2017 all but destroyed it. The cause was found to be arson. The owners rebuilt it as a mixed-use project in the shape of the old one, keeping what could be kept, and today 301 Main Street holds the taproom of Peculier Ales and an event center. The photograph above shows the elevator and the brick mill in August 2012, between the tornado and the sale.
 
-## The town that doubled
+## The town that kept growing
 
 Windsor's old town hall became the Art & Heritage Center, with two free galleries, after the police and the fire department moved out, and the town around it kept growing: the Town's own history calls the growth since 2000 unprecedented. The census counted 18,644 people in 2010 and 32,716 in 2020, and the Town's 2026 community profile puts the figure at 48,302 across about 27 square miles, which stretch over the Larimer County line on the west. The Community Recreation Center on 11th Street marked its tenth birthday in October 2026; a weekday commuter bus, the Poudre Express, links the town to Greeley and Fort Collins; and in June 2026 the last gap in the 45-mile Poudre River Trail, between Timnath and Windsor, was closed. The lake in the middle of town, the beet shack and the depot in the park, and the mill on Main Street are the sugar town's remaining furniture.
 

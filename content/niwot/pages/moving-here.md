@@ -1,7 +1,7 @@
 ---
 title: "Moving to Niwot"
 description: "What it is like to live in an unincorporated town of four thousand between Boulder and Longmont: housing, schools, the commute, who provides the water and the fire trucks, and the November 2026 vote that could change all of it."
-updated: "2026-09-17"
+updated: "2026-10-02"
 ---
 
 ## What you are moving to
@@ -14,7 +14,7 @@ Most of Niwot is detached single-family homes on lots larger than you will find 
 
 ## Schools
 
-Niwot is in the [St. Vrain Valley School District](https://www.svvsd.org/). The neighborhood schools are Niwot Elementary on Niwot Road, Sunset Middle School in Longmont, and Niwot High School, whose campus is just south of town on 79th Street. The district’s site has boundaries, enrollment and transportation; open enrollment across the district is common, so check the current rules rather than assuming an address decides everything.
+Niwot is in the [St. Vrain Valley School District](https://www.svvsd.org/). The neighborhood schools are Niwot Elementary at 8778 Morton Road, Sunset Middle School in Longmont, and Niwot High School at 8989 East Niwot Road, east of town. The district’s site has boundaries, enrollment and transportation; open enrollment across the district is common, so check the current rules rather than assuming an address decides everything.
 
 ## Getting around
 

@@ -1,15 +1,15 @@
 ---
 title: "Moving to Windsor"
-description: "Moving to Windsor, Colorado: the sugar-beet town that doubled, its lake, housing, three school districts, the Harmony Road commute and who sends which bill."
+description: "Moving to Windsor, Colorado: the sugar-beet town that grew by three-quarters in a decade, its lake, housing, three school districts, the Harmony Road commute and who sends which bill."
 image: ../images/main-park.jpg
 imageAlt: "Main Park in Windsor in autumn: lawn under cottonwoods and maples turning color, with a playground and a shelter among the trees"
 imageCredit: "Ssullivan1564, Wikimedia Commons, CC BY-SA 4.0"
-updated: "2026-10-01"
+updated: "2026-10-02"
 ---
 
 ## What you are moving to
 
-Windsor is a [home-rule town](https://en.wikipedia.org/wiki/Windsor,_Colorado) that straddles the Weld and Larimer county line between Fort Collins, Loveland and Greeley, with a lake in the middle of it. It was a stage stop halfway between Greeley and Fort Collins in 1873, a railroad town from 1882 and an incorporated one from 1890, and for sixty years it was a [sugar-beet factory town](https://www.windsorco.gov/537/Windsor-History); Kodak took the factory's ground in the late 1960s, and the 2008 tornado took a swathe of the east side. Then it doubled. The census counted 18,644 people in 2010 and 32,716 in 2020, and the Town's own [2026 community profile](https://www.windsorco.gov/1217/Demographics) puts it at 48,302 across about 27 square miles, with a median age of 40, a median household income of $121,758 and 17,781 homes, 78 percent of them owner-occupied. Main Street, Town Hall, the lake and Boardwalk Park are in Weld County; the neighborhoods west of the county line, toward I-25, are in Larimer, which matters for schools and water below.
+Windsor is a [home-rule town](https://en.wikipedia.org/wiki/Windsor,_Colorado) that straddles the Weld and Larimer county line between Fort Collins, Loveland and Greeley, with a lake in the middle of it. It was a stage stop halfway between Greeley and Fort Collins in 1873, a railroad town from 1882 and an incorporated one from 1890, and for sixty years it was a [sugar-beet factory town](https://www.windsorco.gov/537/Windsor-History); Kodak took the factory's ground in the late 1960s, and the 2008 tornado took a swathe of the east side. Then it grew, by three-quarters between the censuses: 18,644 people in 2010 and 32,716 in 2020, and the Town's own [2026 community profile](https://www.windsorco.gov/1217/Demographics) puts it at 48,302 across about 27 square miles, with a median age of 40, a median household income of $121,758 and 17,781 homes, 78 percent of them owner-occupied. Main Street, Town Hall, the lake and Boardwalk Park are in Weld County; the neighborhoods west of the county line, toward I-25, are in Larimer, which matters for schools and water below.
 
 ## Housing
 

@@ -32,7 +32,7 @@ export const johnstown: TownConfig = {
   },
   hero: {
     image: 'hero.jpg',
-    alt: 'A county road running west out of Johnstown toward the snow-covered Front Range in April',
+    alt: 'A county road on the northern Colorado plains running west toward the snow-covered Front Range in April',
     credit: 'Maarten Heerlien, Wikimedia Commons, CC BY 2.0',
   },
   social: {
@@ -46,7 +46,7 @@ export const johnstown: TownConfig = {
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Johnstown_CO' },
     ],
     schoolDistrict:
-      'Mostly Weld County School District RE-5J (Elwell, Letford and Pioneer Ridge elementaries, Roosevelt Middle and Roosevelt High, all in town); the north-west corner, on the Larimer County side, is Thompson R2-J. The town lists both.',
+      'Mostly Weld County School District RE-5J (Elwell and Pioneer Ridge elementaries, Roosevelt Middle and Roosevelt High, all in town); the north-west corner, on the Larimer County side, is Thompson R2-J. The town lists both.',
     commuteNotes:
       'I-25 at the US 34 interchange is on the west edge of town: about 10 minutes to Loveland, 15 to Greeley on US 34, 25 to Fort Collins, and 50 to Denver. Most commutes are by car.',
   },

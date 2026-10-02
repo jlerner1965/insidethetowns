@@ -8,7 +8,7 @@ hours: "Tue–Fri 10–6, Sat 10–4; closed Sun–Mon"
 tags: [herbs, apothecary]
 summary: "Herbal apothecary, in Niwot since November 2025 after decades in Boulder. Next door to WiNot Coffee."
 source: "https://www.hannasherbshop.com/pages/contact-us"
-verified: "2026-09-18"
+verified: "2026-10-02"
 ---
 
-The Boulder herbal apothecary moved to Cottonwood Square in November 2025 after decades on the Hill. Bulk herbs, tinctures and the advice that goes with them, next door to WiNot Coffee.
+The Boulder herbal apothecary moved to Cottonwood Square in November 2025 after decades on Valmont Road in Boulder. Bulk herbs, tinctures and the advice that goes with them, next door to WiNot Coffee.

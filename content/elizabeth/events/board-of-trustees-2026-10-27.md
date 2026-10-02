@@ -7,7 +7,10 @@ url: "https://www.townofelizabeth.org/bt"
 category: civic
 recurring: "Second and fourth Tuesdays"
 source: "https://www.townofelizabeth.org/bt"
-verified: "2026-09-18"
+verified: "2026-10-02"
+status: canceled
+statusNote: "The Town's meeting page lists this meeting as canceled."
+statusSource: "https://www.townofelizabeth.org/bt"
 ---
 
 The regular meeting of the Elizabeth Board of Trustees at Town Hall on South Banner Street, second and fourth Tuesdays at 7 pm. Public comment is taken near the top of the agenda; the packet is posted to the Town's website the week before. Land use, water and the Main Street budget are the standing subjects in a town growing this fast.
