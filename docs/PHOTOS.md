@@ -15,6 +15,11 @@ Do not repeat these. The searches are recorded in `DECISIONS.md`.
 - **Wikimedia Commons.** Each town's category holds 7 to 35 files, mostly
   locator maps, scanned archive documents, 2013 flood photographs and welcome
   signs. Everything usable was taken in Phases 5 to 7 and in the photo pass.
+  Check a town's subcategories as well as its category: Windsor's lake
+  photographs sit under "Windsor Lake (Weld County, Colorado)", not under
+  the town. And fetch the file through `commons.wikimedia.org/w/thumb.php?f=<File>&w=1920`
+  rather than `upload.wikimedia.org`, which rate-limits datacenter addresses
+  with a ten-minute retry that never clears.
 - **Openverse and Flickr under Creative Commons.** Searched across all 212
   unphotographed places. The matches were same-named places elsewhere: Pioneer
   Park in Bunbury and Fairbanks, Roberts Lake in British Columbia, Evans Park in
