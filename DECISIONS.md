@@ -1964,3 +1964,40 @@ changes that were not simply corrections.
   page, the hub home page: each a design pass. Required phone, website and
   hours: would fail the build on some 180 existing listings, so it is an entry
   rule for new ones until the rotation has filled the old.
+
+## The Johnstown Historical Society answers
+
+*2 October 2026.* Billie, for the museum director, answered C8 (the Parish
+House rooms, the meteorite, the walking tour). Four things came out of it.
+
+- **"You can use the photos" is read as the walking tour page's.** The
+  sentence names no photographs, but it sits in the paragraph answering the
+  walking tour question, about a page whose pictures are the Society's and
+  which says "contact us for licensing" under them. The grant is recorded
+  verbatim in `PERMISSIONS.md` with that reading stated, and the reply names
+  the three photographs used, so the reading is hers to correct. Three rather
+  than the whole set: the listing is a card and a page, not a gallery, and
+  the Society's page is where the set belongs. The lead is the Charlotte
+  Street sidewalk at the Parish House sign, where the walk starts; the two
+  inline are a now and a then, the Masonic Temple and the McCormick
+  Mercantile in the early 1900s. The attendee photographs on the two event
+  pages were not asked for and are not covered.
+- **The credit line is hers, "Ltd" included.** Captions say "Courtesy of the
+  Johnstown Historical Society, Ltd" verbatim, because that is what was asked
+  and because the Ltd is what tells this society from the Pennsylvania one
+  the site has had to keep out before ("Beware the other Johnstowns",
+  above). On `/credits/` the Society is the rights holder and the licence is
+  "used with permission", as for Erie and Berthoud; a `GRANTS` line in
+  `src/lib/credits.ts` reads the row.
+- **Landscape, for the photographs still to come.** She asked portrait or
+  landscape. Every slot a listing photograph fills is landscape: 3:2 on the
+  page, 4:3 on cards and the credits grid, 16:10 on article cards. The reply
+  says landscape, the largest file she has, and that a portrait would be
+  cropped to its middle.
+- **The Cemetery Crawl got its times.** Her note that registration had
+  opened was checked against the Society's event page, updated the day
+  before: tours at 10 am and 12 pm, the same content, about an hour. The
+  listing carries the times, links the event page rather than the events
+  index, and takes the practical notes (cap per tour, parking inside the
+  cemetery, most stops passable with a mobility aid). The Holiday Open House
+  page still says "Time: TBA"; its listing is unchanged, re-verified.

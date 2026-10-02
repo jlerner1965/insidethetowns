@@ -61,7 +61,14 @@ test('internal notes never reach the reader', () => {
   assert.deepEqual([berthoud.author, berthoud.sourceUrl], ['Town of Berthoud', undefined]);
   const own = publicCredit(row('owned by the publisher; all rights reserved. EXIF stripped on import', 'photographed by the site owner'));
   assert.deepEqual(own, { author: 'Inside the Towns', license: 'All rights reserved' });
-  for (const c of [erie, berthoud, own]) assert.doesNotMatch(JSON.stringify(c), /PERMISSIONS|EXIF|confirm/);
+  const johnstown = publicCredit(
+    row('Courtesy of the Johnstown Historical Society, Ltd — permission by email 2026-10-02, see PERMISSIONS.md, section: x; resized to 1600px', 'https://jhsco.org/historicwalkingtour/'),
+  );
+  assert.deepEqual(
+    [johnstown.author, johnstown.license, johnstown.sourceUrl, johnstown.changes],
+    ['Johnstown Historical Society, Ltd', 'Used with permission', 'https://jhsco.org/historicwalkingtour/', 'resized'],
+  );
+  for (const c of [erie, berthoud, own, johnstown]) assert.doesNotMatch(JSON.stringify(c), /PERMISSIONS|EXIF|confirm/);
 });
 
 test('a row it cannot read is an error, not a blank credit', () => {

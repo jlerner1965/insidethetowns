@@ -1324,7 +1324,7 @@ can be said.
 | C5 | Venues | Wildfire Arts Center | form or phone | | | |
 | C6 | Venues | Pines & Plains Libraries | email | | | |
 | C7 | Venues | Erie Historical Society | email | | | |
-| C8 | Venues | Johnstown Historical Society | email | | | |
+| C8 | Venues | Johnstown Historical Society | email | yes | 2026-10-02 | Granted: the walking tour page's photographs, credit "Courtesy of the Johnstown Historical Society, Ltd" (PERMISSIONS.md); three used on the walking tour listing. Parish House interior and meteorite photographs promised; asked portrait or landscape, answered landscape. Also: Cemetery Crawl registration open, listing updated |
 | C9 | Venues | Johnstown-Milliken Public Libraries | phone | | | |
 | C10 | Venues | YMCA of Northern Colorado | phone | | | |
 | C11 | Venues | Candlelight Dinner Playhouse | phone | | | |

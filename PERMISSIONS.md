@@ -115,3 +115,45 @@ Two more photographs from the same repository, the Tribune storefront and the
 gateway sculpture, turned out to be Jeffrey Beall's Commons photographs and
 are used under their CC licences instead; this grant does not cover them, and
 they do not need it.
+
+---
+
+## Johnstown Historical Society, Ltd — walking tour photographs; Parish House photographs to come
+
+**Granted** 2 October 2026 by **Billie, for the museum director**, Johnstown
+Historical Society, Ltd (jhscomuseum@gmail.com), by email, in reply to the
+request in `docs/ALL-PHOTO-EMAILS.md` (C8) for photographs of the Parish House
+rooms, the meteorite fragment and the walking tour's stops.
+
+Her wording, in full, on the walking tour:
+
+> For the Walking Tour, I don't have a preference... It's all relevant. You
+> can use the photos, but please credit: Courtesy of the Johnstown Historical
+> Society, Ltd (there are several other Johnstown Historical Societies in the
+> US and people often think they're interacting with their local society,
+> when they are not).
+
+And on the Parish House:
+
+> I can send you a photo or two of something inside the Parish House and the
+> meteorite - I'll see what we have. Do you prefer portrait or landscape, or
+> does it matter?
+
+| | |
+|---|---|
+| **Scope** | The photographs on the Society's walking tour page, `jhsco.org/historicwalkingtour/`. The page marks them copyright, viewing only, "contact us for information about licensing"; this reply is that licence. The Parish House interior and meteorite photographs are promised, not yet received, and carry the same credit line when they arrive |
+| **Credit** | **Required**, in these words: "Courtesy of the Johnstown Historical Society, Ltd". The "Ltd" is deliberate: other Johnstown Historical Societies exist in the US and readers confuse them. Captions carry the line verbatim; `/credits/` names the Society as the rights holder, "used with permission", linked to the page |
+| **Standing** | The walking tour page's photographs, and the Parish House photographs she sends. Anything else of theirs needs its own ask |
+| **Used** | `old-town-walk-charlotte-street.jpg`, `masonic-temple.jpg`, `mccormick-mercantile-1900s.jpg`, all on the walking tour listing |
+| **Contact** | jhscomuseum@gmail.com, (970) 587-0278 |
+
+"You can use the photos" names no photographs. It answers the question about
+the walking tour's stops, in the paragraph about the walking tour, about a
+page whose photographs are the Society's and which asks for exactly this
+contact, so it is read as those photographs. The reply to Billie names the
+three used, so the reading is hers to correct; if she does, they come down
+the day she says so, as the request promised.
+
+Not asked and not granted: the photographs on the Cemetery Crawl and Holiday
+Open House event pages ("Frightful Flashbacks", past open houses), which show
+attendees.
