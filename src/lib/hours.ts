@@ -242,7 +242,10 @@ export function parseHoursText(text: string | undefined): string[] | null {
 }
 
 /** A listing's structured hours: the explicit field, else what its text line parses to. */
-export function openingHoursOf(data: { hours?: string; openingHours?: string[] }): string[] | null {
+export function openingHoursOf(data: { hours?: string; openingHours?: string[]; status?: string }): string[] | null {
+  // A closed place has no opening hours, whatever its file still says: the
+  // text is kept for the day it reopens, but nothing may say "Open now".
+  if (data.status && data.status !== 'open') return null;
   return data.openingHours ?? parseHoursText(data.hours);
 }
 

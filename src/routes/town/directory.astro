@@ -15,15 +15,16 @@ import PlaceDirectory from '@/components/PlaceDirectory.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+import { byProminence } from '@/lib/places';
 import { PLACE_TYPE_PLURALS, PLACE_TYPES } from '@/content/schemas';
 
 const town = getTown();
-const places = (await getTownEntries('places')).sort(
-  (a, b) => Number(b.data.featured) - Number(a.data.featured) || a.data.title.localeCompare(b.data.title),
-);
+const places = (await getTownEntries('places')).sort(byProminence);
 const kinds = PLACE_TYPES.filter((t) => places.some((p) => p.data.type === t)).map((t) => PLACE_TYPE_PLURALS[t].toLowerCase());
 const kindList = kinds.length > 1 ? `${kinds.slice(0, -1).join(', ')} and ${kinds[kinds.length - 1]}` : kinds.join('');
-const description = `Every ${kindList.length > 0 ? kindList.replace(/ and /, ', ') : 'place'} in ${town.name}, ${town.state}, in one list: ${places.length} places with addresses and hours. Nobody pays to be listed.`;
+// "Every restaurants, bars…" was on every guide: a singular quantifier over a
+// list of plurals. The list is plural, so the sentence is built around it.
+const description = `${places.length} places in ${town.name}, ${town.state}, in one list — ${kindList.length > 0 ? kindList.replace(/ and /, ', ') : 'every place we list'} — with addresses and hours. Nobody pays to be listed.`;
 const structured = [
   collectionPageJsonLd(town, {
     name: `${town.name}, Colorado directory`,

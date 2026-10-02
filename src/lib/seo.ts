@@ -86,7 +86,12 @@ export function eventJsonLd(
     name: data.title,
     startDate: toIsoLocal(data.start),
     ...(data.end ? { endDate: toIsoLocal(data.end) } : {}),
-    eventStatus: 'https://schema.org/EventScheduled',
+    eventStatus:
+      data.status === 'canceled'
+        ? 'https://schema.org/EventCancelled'
+        : data.status === 'postponed'
+          ? 'https://schema.org/EventPostponed'
+          : 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
       '@type': 'Place',

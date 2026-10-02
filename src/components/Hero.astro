@@ -16,7 +16,7 @@ interface Props {
 
 const site = getSite();
 const {
-  eyebrow = site.kind === 'town' ? `${countyLabel(site)}, Colorado` : 'Colorado’s northern Front Range',
+  eyebrow = site.kind === 'town' ? `${countyLabel(site)}, Colorado` : 'Colorado’s Front Range',
   title = site.name,
   subtitle = site.tagline,
   links = site.kind === 'town'

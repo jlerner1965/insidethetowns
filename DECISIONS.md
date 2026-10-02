@@ -1863,3 +1863,98 @@ while carrying it out, on 1 October 2026.
   carries October only, which is why the later Town Board dates come from the
   Board page's stated schedule and the files say they are not yet on the
   calendar.
+
+## The October audit, and what the build learned from it
+
+`docs/AUDIT-2026-10-02.md` is the record of the audit itself: every finding,
+what was done with it, the phone list. These are the decisions behind the
+changes that were not simply corrections.
+
+- **Listings carry a status, and a closed one stays.** The audit found a
+  restaurant closed since February and a sports complex shut since 2025 in the
+  standard open template, with hours and an open-now badge, because nothing
+  in the schema could say otherwise. `status` on places (`open`,
+  `temporarily-closed`, `closed`) and events (`scheduled`, `postponed`,
+  `canceled`) is the fix, and the choice that mattered was what a closed
+  listing does. It is not deleted: a URL that was live should keep answering,
+  and the reader who searches for the place deserves the answer rather than a
+  404. So the page and the directory row stay, labeled, with the hours and the
+  badge gone and the place off the home page and out of the picks. A canceled
+  event likewise stays on the calendar, struck through, for whoever had the
+  date in their diary, and leaves everything that recommends: the picks, the
+  feeds, the email, and the indexed page of its series. A bare "canceled" with
+  nothing behind it is the kind of claim the network avoids, so the note
+  saying who says so is required by the schema, not asked for in a README.
+- **The events page opens on the one-offs.** Erie's list ran to two hundred
+  rows and Brewfest was in the middle of them. The audit's answer is to take
+  the storytimes, clubs, trivia and meetings off the calendar altogether, and
+  its standard for what counts as an event is adopted in the README; but
+  removing three hundred listings is a judgment per listing, made with the
+  organizer's calendar open, not a script. The build's part is a default view
+  that hides the regulars and the civic calendar behind one pill, decided the
+  same way the home page already decides its picks. The server renders every
+  row, so a crawler and a reader without JavaScript see the whole list, and a
+  chosen category shows all of itself, since a reader who picks Civic wants
+  the meetings.
+- **The counts were right; the deployments were not.** "Sister towns" read 6,
+  7 and 9 across the network because three sites had been deployed on three
+  different days, each computing the number correctly for the day it was
+  built. The hub's advertising page served placeholder copy for the same
+  reason. The one real fault was the About page counting weekly occurrences
+  as events. Nothing here is typed by hand; the lesson is that a change to a
+  shared number is a change to every site, and the scheduled rebuild is what
+  carries it.
+- **The rebuild fires twice overnight.** The schedule was fine and the runs
+  were green; they were also five to eight hours late, every day, which
+  GitHub's documentation allows for and which nothing had checked. A 09:10
+  UTC fire landing at 16:00 UTC is a 10 am rebuild in Denver, after the
+  morning reader has seen Thursday's events on Friday's calendar. A second
+  fire at 07:10 UTC, the earliest that is past midnight Mountain in both
+  halves of the year, costs ten deploys a day and roughly halves the odds of
+  a late morning. The browser-side removal of past rows stays as the layer
+  under both.
+- **A link that lands on another site fails the check.** Cassidy's old domain
+  was bought by an online casino and answered 200, so the link checker called
+  it fine for weeks and the guide linked to a casino twice as the business's
+  own page. The check now compares the host a link names with the host it
+  lands on, reports the difference as moved, and fails the run on it, since
+  it is sometimes a rebrand and more often a hijack and a person has to look
+  either way.
+- **Thirty days, not ninety.** Hours had drifted at five of sixteen Erie
+  businesses in the fortnight after they were checked. A ninety-day flag is a
+  quarter of a year of being wrong on the thing that changes fastest. Thirty
+  days across some 330 places is nine a town a week, which is a rotation one
+  person can keep.
+- **Review-site hours came off rather than the policy changing.** The policy
+  says review sites and directories are not used, and four listings cited
+  Yelp or Restaurantji for hours because the businesses have no site. The
+  audit offered a choice: re-source them or change the policy to say what is
+  true. The policy is the right one, so the hours came off and the summaries
+  say the business publishes none, which is true, and the phone list has the
+  four names. A guide that says "we don't use Yelp" and does is worse than one
+  with four blank hours.
+- **Misplaced photographs came off rather than being swapped.** Five
+  photographs showed somewhere other than the place they were on: a creek in
+  the canyon on the park page, the trail twenty miles away in Greeley, a
+  carving removed in 2023 and described as on display. There is no licensed
+  photograph of any of the five to put in their place, and a wrong picture is
+  worse than a typographic tile. The hero captions that placed a reservoir,
+  a lake and two roads in towns the source files do not support now describe
+  what the photograph shows; the photographs stay, because replacing a hero
+  is a photo pass, not a caption.
+- **"Doubled" became "grew by three-quarters".** Windsor's tagline said the
+  town doubled; the hub's own table shows 18,644 to 32,716 between the
+  censuses, which is 75 percent. The 2026 estimate of 48,302 would make
+  "doubled" true over sixteen years, but the sentence sat next to the decade's
+  figures and read as the decade's claim. The hub's tagline lost "northern"
+  for the same reason: Elizabeth is on the Palmer Divide, south-east of
+  Denver, and a line that puts every guide north of the city is wrong on one.
+- **What was declined, and why.** "This Weekend" in the main navigation:
+  seven items do not fit the header at tablet width, where six already scroll,
+  and the events page links it in its first line. Shops and Stay as their own
+  pages, and Parks, Lakes, Trails, Landmarks and Civic in place of Venue and
+  Trail: a schema and URL change across 330 listings, worth doing as its own
+  pass with redirects. Getting-here pages, schools sections, a share image per
+  page, the hub home page: each a design pass. Required phone, website and
+  hours: would fail the build on some 180 existing listings, so it is an entry
+  rule for new ones until the rotation has filled the old.

@@ -9,7 +9,7 @@ cost: "Free"
 category: arts
 recurring: "First Wednesdays"
 source: "https://lyonsrecorder.org/events/"
-verified: "2026-09-18"
+verified: "2026-10-02"
 ---
 
-The monthly writing group for all genres and levels, facilitated by Dr. Kayann Short, at the library. Free; first Wednesdays.
+The monthly writing group for all genres and levels, facilitated by Dr. Kayann Short. Free; first Wednesdays. The library lists this month’s session as online rather than in the building; the link is on its calendar.

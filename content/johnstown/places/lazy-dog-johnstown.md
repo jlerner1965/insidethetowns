@@ -9,7 +9,7 @@ priceRange: "$$"
 tags: [pub, patio, sports]
 summary: "Locally owned bar and grill at Johnstown Plaza with a big patio, pub food and a long beer list."
 source: "https://www.thelazydog.com/loc-johnstown"
-verified: "2026-09-18"
+verified: "2026-10-02"
 ---
 
-The Boulder-born, locally owned Lazy Dog's Johnstown Plaza location: burgers, sandwiches, wings and salads, a full bar with a long tap list, a patio, and the games on.
+The locally owned Lazy Dog, with locations in Johnstown and Erie, at its's Johnstown Plaza location: burgers, sandwiches, wings and salads, a full bar with a long tap list, a patio, and the games on.

@@ -38,4 +38,4 @@ The [Elizabeth Library](/places/elizabeth-library/) on Beverly Street is the Pin
 
 ## A first hike
 
-[Two Bridges Trail](/places/two-bridges-trail/) at Bayou Gulch, fifteen minutes west on Bayou Gulch Road, is Douglas County open space through gulches and ponderosa. The short loop is about 3.4 miles and takes an easy hour; there is an 8.8-mile circuit for older children. Open an hour before sunrise to an hour after sunset.
+[Two Bridges Trail](/places/two-bridges-trail/) at Bayou Gulch, fifteen minutes west on Bayou Gulch Road, is Douglas County open space through gulches and ponderosa. There are 10.4 miles of trail, so a short loop for small legs and a long circuit for older children are both there; the county’s map shows the junctions. Open an hour before sunrise to an hour after sunset.

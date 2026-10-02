@@ -8,7 +8,7 @@
 import type { APIRoute } from 'astro';
 import { getHub } from '@/config';
 import { getNetworkEntries } from '@/lib/content';
-import { occurrences, upcoming } from '@/lib/events';
+import { isCanceled, occurrences, upcoming } from '@/lib/events';
 import { formatDate, formatTimeRange, dayKey } from '@/lib/dates';
 import { buildRss, rssResponse, type FeedItem } from '@/lib/rss';
 
@@ -25,7 +25,9 @@ const LIMIT = 50;
 
 export const GET: APIRoute = async ({ site }) => {
   const hub = getHub();
-  const events = upcoming(occurrences(await getNetworkEntries('events'), { horizonDays: 60 })).slice(0, LIMIT);
+  const events = upcoming(occurrences(await getNetworkEntries('events'), { horizonDays: 60 }))
+    .filter((e) => !isCanceled(e))
+    .slice(0, LIMIT);
   const items: FeedItem[] = events.map((event) => {
     const { data, town } = event;
     const when = `${formatDate(data.start)}, ${data.timeNote ?? formatTimeRange(data.start, data.end, data.allDay)}`;

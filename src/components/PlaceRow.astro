@@ -12,9 +12,10 @@
  * page; repeating them here turned every row into six lines of grey text.
  */
 import type { TownEntry } from '@/lib/content';
-import { PLACE_TYPE_LABELS } from '@/content/schemas';
+import { PLACE_STATUS_LABELS, PLACE_TYPE_LABELS } from '@/content/schemas';
 import { PLACE_HUE } from '@/config/palette';
 import { openingHoursOf } from '@/lib/hours';
+import { isOpen } from '@/lib/places';
 
 interface Props {
   place: TownEntry<'places'>;
@@ -27,6 +28,7 @@ const { data, slug } = place;
 const href = `/places/${slug}/`;
 const Heading = `h${level}` as 'h3' | 'h4';
 const hue = PLACE_HUE[data.type];
+const open = isOpen(place);
 const hours = openingHoursOf(data);
 ---
 <li
@@ -39,9 +41,14 @@ const hours = openingHoursOf(data);
       <Heading class="text-[1.25rem] font-medium leading-tight">
         <a href={href} class="stretch no-underline group-hover:text-accent-text">{data.title}</a>
       </Heading>
-      {data.featured && (
+      {data.featured && open && (
         <span class="rounded-full bg-highlight px-2.5 py-0.5 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-ink">
           Our pick
+        </span>
+      )}
+      {!open && (
+        <span class="rounded-full bg-ink px-2.5 py-0.5 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-raised">
+          {PLACE_STATUS_LABELS[data.status]}
         </span>
       )}
     </div>
@@ -53,7 +60,8 @@ const hours = openingHoursOf(data);
   </div>
   <div class="grid content-start gap-1 text-[0.875rem] leading-snug text-ink-muted" data-hours={hours ? JSON.stringify(hours) : undefined}>
     {data.address && <p class="text-ink">{data.address}</p>}
-    {data.hours && <p>{data.hours}</p>}
+    {/* A closed place's old hours are the one thing a reader must not act on. */}
+    {open ? data.hours && <p>{data.hours}</p> : <p class="text-ink">{data.statusNote}</p>}
     {hours && <p class="open-status font-semibold" data-open-status hidden></p>}
   </div>
 </li>

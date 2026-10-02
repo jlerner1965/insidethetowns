@@ -1,12 +1,12 @@
 ---
 title: "Moving to Lyons"
 description: "What it is like to live in a stone town of 2,200 at the mouth of the St. Vrain canyons: housing, schools, the commute, a Town that runs its own utilities, and a river that floods once a century."
-updated: "2026-09-18"
+updated: "2026-10-02"
 ---
 
 ## What you are moving to
 
-Lyons is an incorporated statutory town of about 2,200 people in 1.36 square miles, where US 36 and Colorado 7 leave the plains for the St. Vrain canyons, twenty minutes north of Boulder. Six blocks of red sandstone storefronts on Main Street, a river running through the middle, four open-space trail areas within fifteen minutes, and two music festivals a summer that bring several thousand visitors to a town that has no hotel. It is the last town before Estes Park, and it feels like it: through-traffic on summer weekends, quiet the rest of the year.
+Lyons is an incorporated statutory town of about 2,200 people in 1.36 square miles, where US 36 and Colorado 7 leave the plains for the St. Vrain canyons, twenty minutes north of Boulder. Six blocks of red sandstone storefronts on Main Street, a river running through the middle, four open-space trail areas within fifteen minutes, and two music festivals a summer that bring several thousand visitors to a town with two small lodges and no hotel. It is the last town before Estes Park, and it feels like it: through-traffic on summer weekends, quiet the rest of the year.
 
 ## Housing
 
@@ -18,7 +18,7 @@ Lyons is in the [St. Vrain Valley School District](https://www.svvsd.org/). Both
 
 ## Getting around
 
-US 36 is Main Street, and it is the road to Estes Park, so summer weekend afternoons are slow in both directions. About twenty minutes to Boulder on US 36, fifteen to Longmont on Colorado 66, an hour to Denver either way, and about an hour and a quarter to Denver International Airport by E-470 or I-25. There is no transit; RTD serves Boulder and Longmont, and the Estes Park shuttle does not stop here. Within town, most of it is walkable, and the [river path](/places/st-vrain-river-path/) links the parks without crossing the highway.
+US 36 is Main Street, and it is the road to Estes Park, so summer weekend afternoons are slow in both directions. About twenty minutes to Boulder on US 36, fifteen to Longmont on Colorado 66, an hour to Denver either way, and about an hour and a quarter to Denver International Airport by E-470 or I-25. There is one bus: the free [Lyons Flyer](https://bouldercounty.gov/transportation/multimodal/lyons-flyer/), run by Boulder County with the Town, RTD and Via, makes four weekday trips each way between Fourth Avenue and Broadway and Boulder along US 36, no fare or pass needed; RTD's own routes start at Boulder and Longmont, and the Estes Park shuttle does not stop here. Within town, most of it is walkable, and the [river path](/places/st-vrain-river-path/) links the parks without crossing the highway.
 
 ## Utilities, trash, fire, police
 

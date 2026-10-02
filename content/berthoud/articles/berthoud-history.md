@@ -31,7 +31,7 @@ US 287 was Mountain Avenue's through-traffic for eighty years after it joined th
 
 ## The town that doubled
 
-Berthoud had about 5,000 people in 2010 and 10,332 in the 2020 census (10,071 of them in Larimer County, 261 in Weld). Sales tax from that growth built the [Recreation Center](/places/berthoud-recreation-center/) at Waggener Farm Park, opened in November 2021, and the [bike park](/places/berthoud-bike-park/) that followed in 2023; the Town opened [Berthoud Reservoir](/places/berthoud-reservoir-loop/) to walkers and paddlers in 2020. In 2019 the Board made Berthoud the only municipality in Colorado to ban the retail sale of dogs from puppy mills.
+Berthoud had about 5,000 people in 2010 and 10,332 in the 2020 census (10,071 of them in Larimer County, 261 in Weld). Sales tax from that growth built the [Recreation Center](/places/berthoud-recreation-center/) at Waggener Farm Park, opened in November 2021, and the [bike park](/places/berthoud-bike-park/) that followed in 2023; the Town opened [Berthoud Reservoir](/places/berthoud-reservoir-loop/) to walkers and paddlers in 2020. In 2019 the Board made Berthoud the first municipality in Colorado to ban the retail sale of dogs from puppy mills; Fort Collins followed with a ban of its own in 2024.
 
 ## Sources
 

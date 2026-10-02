@@ -9,7 +9,10 @@ export const hub: HubConfig = {
   siteTitle: 'Inside the Towns',
   // Not "small towns": Fort Collins is a city of 170,000, and this line is also
   // the Organization description in the publisher graph (src/lib/seo.ts).
-  tagline: 'Independent community guides to the towns of Colorado’s northern Front Range.',
+  // Not "northern" either: Elizabeth is on the Palmer Divide, south-east of
+  // Denver, and a tagline that puts every guide north of the city is wrong
+  // on one of them.
+  tagline: 'Independent community guides to the towns of Colorado’s Front Range.',
   seoTagline: 'Guides to Colorado’s Front Range towns',
   colors: {
     accent: '#2C74CC',

@@ -38,7 +38,8 @@ import {
   parseLocal,
   startOfDay,
 } from '../src/lib/dates.ts';
-import { groupByDay, highlights, occurrences, weekendSections, weekendWindow } from '../src/lib/events.ts';
+import { groupByDay, highlights, isCanceled, occurrences, weekendSections, weekendWindow } from '../src/lib/events.ts';
+import { isOpen } from '../src/lib/places.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -170,7 +171,9 @@ interface TownWeek {
 }
 
 function readWeek(town: TownConfig): TownWeek {
-  const rows = readCollection<EventData>(town.slug, 'events', eventSchema(plainImage));
+  // The email recommends, so a canceled listing is left out of it; the site
+  // keeps it, marked, for whoever already had the date in their diary.
+  const rows = readCollection<EventData>(town.slug, 'events', eventSchema(plainImage)).filter((r) => !isCanceled(r));
   const listings = occurrences(rows as unknown as Listing[], { now: send, horizonDays: 14 });
   // `next` runs to the Thursday after the weekend: the days the following issue will not reach back to.
   const parts = weekendSections(listings, { now: send, horizonDays: 5 });
@@ -180,7 +183,7 @@ function readWeek(town: TownConfig): TownWeek {
     weekend: parts.weekend,
     running: [...parts.now, ...parts.continuing],
     next: parts.next,
-    newPlaces: readCollection<PlaceData>(town.slug, 'places', placeSchema(plainImage)).filter((p) => added.has(p.file)),
+    newPlaces: readCollection<PlaceData>(town.slug, 'places', placeSchema(plainImage)).filter((p) => added.has(p.file) && isOpen(p)),
     articles: readCollection<ArticleData>(town.slug, 'articles', articleSchema(plainImage)).filter(
       (a) => a.data.date.getTime() >= since.getTime() && a.data.date.getTime() <= addDays(send, 1).getTime(),
     ),

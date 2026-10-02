@@ -4,13 +4,15 @@ type: venue
 address: "950 Owlz Way"
 area: "Diamond Valley"
 url: "https://futurelegendscomplex.com/"
-source: "https://www.futurelegendscomplex.com/our-facility"
-verified: "2026-10-01"
-phone: "970-460-4071"
-tags: [sports, stadium, tournaments, soccer, baseball, pickleball]
-summary: "The 118-acre sports complex on Windsor's east side: a stadium that is home to Northern Colorado Hailstorm FC and the Owlz, an indoor dome, baseball diamonds, turf fields, volleyball courts and a Miracle Field, built for tournaments and leagues."
+source: "https://www.kunc.org/news/2026-08-17/future-legends-lender-alleges-delay-tactics-with-bankruptcy-filing"
+verified: "2026-10-02"
+tags: [sports, stadium, tournaments]
+summary: "The 118-acre sports complex on Windsor's east side, closed to the public since the spring of 2025 and in the hands of a receiver and the bankruptcy court."
+status: closed
+statusNote: "Closed to the public since the spring of 2025. A Weld County judge placed the complex under a receiver, and its owners filed for Chapter 11 bankruptcy protection in July 2026 (KUNC, BizWest). Nothing here is open to visitors."
+statusSource: "https://www.kunc.org/news/2026-08-17/future-legends-lender-alleges-delay-tactics-with-bankruptcy-filing"
 ---
 
-Future Legends is the sports campus at Diamond Valley on the east side of Windsor: an indoor multipurpose dome, two indoor and eight outdoor diamond fields, ten multipurpose turf fields, sixteen volleyball courts, a Miracle Field for athletes with disabilities, and a synthetic-turf stadium that is home to Northern Colorado Hailstorm FC and Northern Colorado Rain FC in soccer and the Northern Colorado Owlz in baseball. The complex describes itself as "where legends are made" and runs tournaments, leagues, camps and events for every age and level; field time and events are booked through its site.
+Future Legends was built as a sports campus at Diamond Valley on the east side of Windsor: an indoor multipurpose dome, diamond fields, turf fields, volleyball courts, a Miracle Field for athletes with disabilities, and a synthetic-turf stadium that was home to Northern Colorado Hailstorm FC in soccer and the Northern Colorado Owlz in baseball. Its own site still describes two on-site hotels, dining and retail.
 
-Its facility page lists two on-site hotels of about 260 rooms and on-site dining and retail among the campus's components, while its visitor page sends travelers to the SpringHill Suites on Crossroads Boulevard and to Windsor and Loveland restaurants, so check what is actually open before relying on it. Pets are not allowed on the complex.
+None of it is open. The complex closed to the public in the spring of 2025 amid unpaid contractors and lenders, a Weld County court put it under a receiver, and in July 2026 the owners filed for Chapter 11 bankruptcy protection, listing more than $100 million in liabilities. The listing stays so that a reader who finds the stadium on a map, or the site's own promises, has the answer: do not plan a visit around it until the court case resolves and something reopens.

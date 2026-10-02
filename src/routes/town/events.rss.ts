@@ -9,7 +9,7 @@
 import type { APIRoute } from 'astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { occurrences, upcoming } from '@/lib/events';
+import { isCanceled, occurrences, upcoming } from '@/lib/events';
 import { formatDate, formatTimeRange, dayKey } from '@/lib/dates';
 import { CATEGORY_LABELS } from '@/content/schemas';
 import { buildRss, rssResponse, type FeedItem } from '@/lib/rss';
@@ -27,7 +27,10 @@ const LIMIT = 50;
 
 export const GET: APIRoute = async ({ site }) => {
   const town = getTown();
-  const events = upcoming(occurrences(await getTownEntries('events'), { horizonDays: 90 })).slice(0, LIMIT);
+  // A feed announces; a canceled listing is not news of something to attend.
+  const events = upcoming(occurrences(await getTownEntries('events'), { horizonDays: 90 }))
+    .filter((e) => !isCanceled(e))
+    .slice(0, LIMIT);
   const items: FeedItem[] = events.map((event) => {
     const { data } = event;
     const when = `${formatDate(data.start)}, ${data.timeNote ?? formatTimeRange(data.start, data.end, data.allDay)}`;

@@ -4,10 +4,10 @@ type: shop
 address: "244 S Main St"
 area: "Historic Main Street"
 hours: "Tue–Fri 10–5, Sat 10–3; closed Sun–Mon"
-tags: [clothing]
-summary: "Clothing shop on the Main Street block."
+tags: [embroidery, custom]
+summary: "Custom embroidery on the Main Street block: logos, names and designs on shirts, caps and bags."
 source: "https://icthreads.com/"
-verified: "2026-09-18"
+verified: "2026-10-02"
 ---
 
-A small clothing shop on Main Street.
+A custom embroidery business on Main Street, stitching logos, names and designs onto shirts, caps and bags to order rather than selling clothing off the rack.

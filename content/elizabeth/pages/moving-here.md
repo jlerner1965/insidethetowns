@@ -4,7 +4,7 @@ description: "What it is like to move to a sawmill town of 1,675 that has nearly
 image: ../images/town-hall.jpg
 imageAlt: "Elizabeth Town Hall, a low brick building on South Banner Street"
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
-updated: "2026-09-18"
+updated: "2026-10-02"
 ---
 
 ## What you are moving to
@@ -21,13 +21,16 @@ The distinction matters for your bills. Inside town you get Town water and sewer
 
 ## Schools
 
-Elizabeth is served by [Elizabeth School District C-1](https://www.elizabethschooldistrict.org/), about 2,666 students across five schools:
+Elizabeth is served by [Elizabeth School District C-1](https://www.elizabethschooldistrict.org/), about 2,666 students, in four district-run schools and two charter schools:
 
 - **Running Creek Elementary**, 900 S Elbert St, in town.
 - **Singing Hills Elementary**, in the district's western end toward Parker.
 - **Elizabeth Middle School**, 34427 County Road 13.
 - **Elizabeth High School**, 34500 County Road 13, home of the Cardinals.
-- **Frontier High School**, 589 S Banner St, the district's alternative high school.
+- **Legacy Academy**, 1975 Legacy Circle, a K–8 charter school chartered by the district.
+- **Independence Classical Academy**, a new tuition-free K–5 charter school growing a grade a year to K–8, which opened for the 2026–27 school year in the former Frontier High School building at 589 S Banner St.
+
+Frontier High School, the district's alternative high school at 589 S Banner St, closed in 2023; the district has used the building for its preschool since, and it is now the charter's home.
 
 The middle and high schools share a campus east of town on County Road 13, which is also where Friday-night football happens. The [Elizabeth Park & Recreation District](https://www.elizabethpr.com/) is a separate entity from the school district and the town, and runs the youth sports, day camps on school inservice days and fall break, and the programs at Casey Jones Park.
 

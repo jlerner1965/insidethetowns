@@ -61,12 +61,18 @@ function validateFile(collection: CollectionName, file: string) {
     warnings.push(`${rel}: body is empty`);
   }
   if (collection === 'places') {
-    const data = result.data as { hours?: string; openingHours?: string[] };
+    const data = result.data as { hours?: string; openingHours?: string[]; status: string; featured: boolean; title: string };
     // Not an error: the text still shows. But the page makes no open-or-closed
     // claim for this listing, and the line is worth a look — often a stray
-    // word, sometimes hours that genuinely cannot be said in one line.
-    if (data.hours && !data.openingHours && !parseHoursText(data.hours)) {
+    // word, sometimes hours that genuinely cannot be said in one line. A
+    // closed place's hours are not read at all, so they are not reported.
+    if (data.status === 'open' && data.hours && !data.openingHours && !parseHoursText(data.hours)) {
       unparsedHours.push(`${rel}: hours not read as a schedule ("${data.hours}"); no open-now status. Reword, or set openingHours.`);
+    }
+    // The pages already ignore it, but a pick that has closed is a listing
+    // somebody meant to come back to.
+    if (data.status !== 'open' && data.featured) {
+      warnings.push(`${rel}: ${data.title} is ${data.status} and still marked featured; the pages will not treat it as a pick`);
     }
   }
   if (collection === 'events') {

@@ -14,9 +14,15 @@ name: Scheduled rebuild
 
 on:
   schedule:
-    # 09:10 UTC daily — 03:10 Mountain, so the day's listings are right before
-    # anyone is awake to read them. Minute 10 rather than 00 because GitHub
-    # delays schedules that land on the hour under load.
+    # Two overnight fires, because one was not landing in the night. The
+    # schedule is a request, not an appointment: through September 2026 the
+    # 09:10 UTC fire ran between 13:42 and 17:36 UTC, five to eight hours late,
+    # every day — mid-morning Mountain, by which time a reader had already seen
+    # Thursday's events at the top of Friday's calendar. (The browser removes
+    # them, see Freshness.astro; a crawler does not run that script.) The 07:10
+    # fire is the earliest that is past midnight Mountain in both halves of
+    # the year, and two chances of landing early beat one.
+    - cron: '10 7 * * *'
     - cron: '10 9 * * *'
     # 20:10 UTC Thursday — 14:10 Mountain, so the weekend view is fresh at the
     # point in the week people actually start looking at it.

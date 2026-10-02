@@ -18,15 +18,26 @@ scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
 
 ## The weekly content session
 
+The standing routine is `docs/AUDIT-2026-10-02.md`'s: one town at a time on a
+fixed day, every event in the next 14 days confirmed against the organizer's
+own page, and every listing re-checked within 30 days (about nine a town a
+week, against the business's own site, by phone when the site is unclear).
+Mark, don't delete: a place that has closed gets `status: closed` and a note
+saying how you know, a meeting the Town has called off gets `status:
+canceled`, and the pages do the rest (see any content README).
+
 1. `npm run weekly` prints, per town: events whose last date falls within the next
    7 days (add the next dates or delete the file), events already past, towns with
    fewer than 5 upcoming events, places without a photo, and listings not re-checked
-   in 90 days. `--town=lyons`, `--days=14` and `--json` narrow or reshape it.
+   in 30 days — that week's share of the rotation. `--town=lyons`, `--days=14` and
+   `--json` narrow or reshape it.
 2. Collect the week's events in a CSV with the columns in
    `scripts/templates/events-template.csv` (title, start, end, venue, url, category,
    town are required; address, cost, description, source, repeat, until, recurring,
    allDay, timeNote, verified, slug, image, imageAlt, featured are optional). Dates
-   are Denver wall-clock, `2026-10-03T10:00` or `2026-10-03`.
+   are Denver wall-clock, `2026-10-03T10:00` or `2026-10-03`. A series goes in as
+   dated rows only when each date is on the organizer's calendar; a rule ("every
+   Thursday") that nobody has checked against the calendar is not a listing.
 3. `npm run import-events -- week.csv --dry-run`, read the output, then run it without
    `--dry-run`. Every row is checked against the event schema first; an existing file
    is left alone unless `--force` is given. `source` defaults to `url` and `verified`
@@ -40,7 +51,12 @@ scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
    paste the body into Buttondown, send; then drop the file into `content/hub/issues/`
    and it becomes the archive page. `--town=lyons`, `--date=2026-10-01` and
    `--out=drafts` narrow it, move it, or write files instead of printing. It drafts;
-   it never sends.
+   it never sends. Canceled events and closed places are left out of it.
+
+Rules at entry, the same on all nine guides: no listing publishes without a phone, a
+website and hours taken from the business itself (a business with no site gets no
+hours rather than a review site's); hours are written with am and pm; every listing
+and event carries a status; a review site or an aggregator is never the source.
 
 ## Link rot
 
@@ -53,7 +69,9 @@ It is not part of `npm run build` or the validator, which stay offline and fast,
 it puts a request on every small business in the network, which is fine monthly and
 rude daily. Run it before a push that touches sources, and roughly monthly otherwise.
 
-It fails (exit 1) only on a 404, a 410 or a URL that will not parse. A 403 is nearly
+It fails (exit 1) on a 404, a 410, a URL that will not parse, or a link that now lands
+on a different site — a 200 from the wrong host, which is what a lapsed domain bought
+by a casino looks like, and which a status code alone would call fine. A 403 is nearly
 always a bot challenge rather than a dead page — Cloudflare answers most town and
 small-business sites that way — and a timeout is usually our end, so both are
 reported and neither fails the run. A check that cries wolf gets ignored, and the
@@ -115,6 +133,7 @@ and placements to a business owner.
 - `docs/ALL-PHOTO-EMAILS.md` — all 36 of those messages in one file, in the order to send them, with one tracking table
 - `docs/BACKLINKS.md` — verified local link targets per town, and the two domains not to touch
 - `docs/LAUNCH-AUDIT.md` — the launch audit: what was fixed, what is left, what needs the owner
+- `docs/AUDIT-2026-10-02.md` — the October site audit: every finding and what was done with it, the phone list, and the weekly routine and event standard the guides are held to
 - `docs/EXPANSION-WINDSOR-FORT-COLLINS.md` — the plan for the two northern guides: what to settle first, what changes beyond the scaffold, the sources checked
 
 Requires Node 22.18+ (scripts use Node's built-in TypeScript support).

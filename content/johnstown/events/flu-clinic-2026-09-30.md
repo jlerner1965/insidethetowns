@@ -7,7 +7,7 @@ address: "400 S. Parish Ave, Johnstown, CO 80534"
 url: "https://johnstownmillikenpubliclibraries.us/event/flu-clinic/"
 category: other
 source: "https://johnstownmillikenpubliclibraries.us/event/flu-clinic/"
-verified: "2026-09-18"
+verified: "2026-10-02"
 ---
 
-Walk-in vaccination clinic at the Johnstown library for ages 3 and up; bring an insurance card. Other vaccines may be available including COVID, RSV, shingles, pneumonia, hepatitis B, tetanus and MMR. Patients must pre-register to choose vaccines and reserve a spot.
+Vaccination clinic at the Johnstown library for ages 3 and up; bring an insurance card. Not walk-in: the library asks patients to pre-register. Other vaccines may be available including COVID, RSV, shingles, pneumonia, hepatitis B, tetanus and MMR. Patients must pre-register to choose vaccines and reserve a spot.

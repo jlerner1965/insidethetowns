@@ -5,14 +5,13 @@ import ArticleCard from '@/components/ArticleCard.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+import { byProminence } from '@/lib/places';
 import { THINGS_TO_DO_TYPES } from '@/content/schemas';
 
 const town = getTown();
 const all = await getTownEntries('places');
-const byFeatured = (a: { data: { featured: boolean; title: string } }, b: { data: { featured: boolean; title: string } }) =>
-  Number(b.data.featured) - Number(a.data.featured) || a.data.title.localeCompare(b.data.title);
-const places = all.filter((p) => THINGS_TO_DO_TYPES.includes(p.data.type)).sort(byFeatured);
-const lodging = all.filter((p) => p.data.type === 'lodging').sort(byFeatured);
+const places = all.filter((p) => THINGS_TO_DO_TYPES.includes(p.data.type)).sort(byProminence);
+const lodging = all.filter((p) => p.data.type === 'lodging').sort(byProminence);
 const outdoors = (await getTownEntries('articles')).filter(
   (a) => a.data.tags.includes('outdoors') || a.data.category.toLowerCase() === 'outdoors',
 );

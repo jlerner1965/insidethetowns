@@ -10,7 +10,7 @@ url: "https://pplibraries.org/01b-elizabeth-library/"
 cost: "Free"
 category: arts
 recurring: "Thursdays, 11 to 1"
-source: "https://www.burbio.com/states/Colorado/Elizabeth/elizabeth-branch-library"
+source: "https://pplibraries.org/01b-elizabeth-library/"
 verified: "2026-09-18"
 ---
 

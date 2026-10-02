@@ -4,14 +4,13 @@ import PlaceDirectory from '@/components/PlaceDirectory.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+import { byProminence } from '@/lib/places';
 import { EAT_DRINK_TYPES } from '@/content/schemas';
 
 const town = getTown();
-const byFeatured = (a: { data: { featured: boolean; title: string } }, b: { data: { featured: boolean; title: string } }) =>
-  Number(b.data.featured) - Number(a.data.featured) || a.data.title.localeCompare(b.data.title);
 const all = await getTownEntries('places');
-const places = all.filter((p) => EAT_DRINK_TYPES.includes(p.data.type)).sort(byFeatured);
-const shops = all.filter((p) => p.data.type === 'shop').sort(byFeatured);
+const places = all.filter((p) => EAT_DRINK_TYPES.includes(p.data.type)).sort(byProminence);
+const shops = all.filter((p) => p.data.type === 'shop').sort(byProminence);
 const listing = [...places, ...shops].map((p) => ({ name: p.data.title, path: `/places/${p.slug}/` }));
 /**
  * Written once and used for both the meta description and the CollectionPage

@@ -5,7 +5,7 @@
 import type { APIRoute } from 'astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { occurrences, upcoming } from '@/lib/events';
+import { isCanceled, occurrences, upcoming } from '@/lib/events';
 import { buildIcs, type IcsEvent } from '@/lib/ics';
 import { dayKey } from '@/lib/dates';
 
@@ -24,8 +24,11 @@ export const GET: APIRoute = async ({ site }) => {
       end: e.data.end,
       allDay: e.data.allDay,
       location,
-      description: parts.join('\n'),
+      description: [e.data.statusNote, ...parts].filter(Boolean).join('\n'),
       url: e.data.url ?? pageUrl,
+      // A subscriber's calendar already holds the date; a cancellation has
+      // to reach it as a cancellation, not as a quiet disappearance.
+      cancelled: isCanceled(e),
     };
   });
   const body = buildIcs(events, { name: `${town.siteTitle} events`, domain: town.domain });

@@ -11,12 +11,14 @@ import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { highlights, occurrences } from '@/lib/events';
+import { isOpen } from '@/lib/places';
 
 const town = getTown();
 // Six, ranked rather than simply soonest (see highlights), so a Thursday
 // visitor sees the weekend and not only Friday morning's library sessions.
 const events = highlights(occurrences(await getTownEntries('events')), { limit: 6 });
-const places = await getTownEntries('places');
+// The home page recommends; a place that has closed is listed, not recommended.
+const places = (await getTownEntries('places')).filter(isOpen);
 // Cards are for photographs. A card with no photograph is an empty grey box,
 // and most of these towns have only a handful of licensed images, so the rest
 // of the section is an index of names instead of a grid of placeholders.

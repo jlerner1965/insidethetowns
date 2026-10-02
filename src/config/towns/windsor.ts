@@ -8,7 +8,7 @@ export const windsor: TownConfig = {
   domain: 'insidewindsorco.com',
   siteTitle: 'Inside Windsor',
   tagline:
-    'An independent guide to Windsor, Colorado: the lake and Boardwalk Park, Main Street, the Poudre River Trail, and what it’s like to move to a sugar-beet town that doubled.',
+    'An independent guide to Windsor, Colorado: the lake and Boardwalk Park, Main Street, the Poudre River Trail, and what it’s like to move to a sugar-beet town that grew by three-quarters in a decade.',
   // "Colorado" spelled out: Windsor is the most ambiguous name in the network
   // (Ontario, Berkshire, California, Connecticut, Vermont), and "CO" is too
   // weak a signal. test/towns.test.ts holds this name to it.
@@ -27,7 +27,7 @@ export const windsor: TownConfig = {
   incorporated: 1890, // 2 April 1890
   driveToDenver: 'About 1 hr',
   population2010: 18644, // 2010 census, for census-to-census growth
-  character: 'A sugar-beet town between Fort Collins and Greeley that doubled in a decade, with a lake in the middle.',
+  character: 'A sugar-beet town between Fort Collins and Greeley that grew by three-quarters in a decade, with a lake in the middle.',
   colors: {
     // Lake teal on a cool white paper: Windsor Lake and the Poudre. The one
     // hue family none of the other eight accents uses.

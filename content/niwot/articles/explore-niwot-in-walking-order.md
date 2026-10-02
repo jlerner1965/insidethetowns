@@ -13,7 +13,7 @@ Niwot sits off the Diagonal Highway between Boulder and Longmont, about twenty m
 
 ## 01 · Old Town
 
-The brick and false-front commercial block on [Second Avenue](/places/old-town-second-avenue/) is the reason the rest of this page exists. It dates from the railroad period and it is still where the community gathers. Walk it end to end in about ten minutes; the cross streets are short and the sidewalks continuous.
+The brick and false-front commercial block on [Second Avenue](/places/old-town-second-avenue/) is the reason the rest of this page exists. It dates from the railroad period and it is still where the community gathers. Walk it end to end in about ten minutes; the cross streets are short and the sidewalks continuous. Beside Niwot Hall at 195 Second Avenue is the [Old Fire House Museum](/places/old-fire-house-museum/), the 1910 fire shed in the photograph above, with its chemical fire cart out front.
 
 *Getting there:* street parking along Second Avenue and the adjacent lots. *Best for:* coffee, browsing, and the historic building fronts. [Who is on the block](/eat-drink/).
 

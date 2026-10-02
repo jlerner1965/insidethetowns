@@ -1,18 +1,18 @@
 ---
 title: "Breakfast in Erie: beignets, burritos, brunch and the 6 am window"
 date: "2026-09-27"
-excerpt: "Five places for breakfast or brunch in Erie, from the Creole cafe with the famous weekend line to the drive-through that opens at six."
+excerpt: "Four places for breakfast or brunch in Erie, from the Creole cafe with the famous weekend line to the drive-through that opens at six."
 category: "Food & drink"
 tags: [breakfast, brunch, coffee, guide]
-verified: "2026-09-27"
+verified: "2026-10-02"
+updated: "2026-10-02"
 sources:
   - { label: "Lucile's Creole Cafe, Erie", url: "https://www.luciles.com/erie-location-menu/" }
   - { label: "FOX•DOG Coffee", url: "https://www.foxdogcoffee.com/" }
-  - { label: "The Dugout Grill & Bar", url: "https://www.dugoutgrillandbarerie.com/" }
   - { label: "Erie Chamber of Commerce: restaurants", url: "https://members.eriechamber.org/list/ql/restaurants-food-beverages-22" }
 ---
 
-Downtown Erie is a breakfast town, and the line outside Lucile's on a Saturday is the proof. Five places, and when to go to each.
+Downtown Erie is a breakfast town, and the line outside Lucile's on a Saturday is the proof. Four places, and when to go to each.
 
 ## The famous one: Lucile's Creole Cafe
 
@@ -20,15 +20,11 @@ Downtown Erie is a breakfast town, and the line outside Lucile's on a Saturday i
 
 ## The room where downtown works: FOX•DOG Coffee
 
-[FOX•DOG](/places/fox-dog-coffee/), the family-owned independent on the corner of Briggs and Moffat, does espresso drinks, vegetarian and vegan burritos, quiche and pastries, with enough seating to open a laptop. Monday to Saturday 7 to 4, Sunday 7 to 1.
+[FOX•DOG](/places/fox-dog-coffee/), the family-owned independent on the corner of Briggs and Moffat, does espresso drinks, vegetarian and vegan burritos, quiche and pastries, with enough seating to open a laptop. 7 to 4 every day.
 
 ## Brunch with cocktails: 24 Carrot Bistro
 
 [24 Carrot Bistro](/places/24-carrot-bistro/) is the downtown dinner place, but on Saturday and Sunday it opens at 9 for brunch, with a seasonal New American menu and a cocktail list built on housemade syrups. Closed Mondays.
-
-## Breakfast and the game: The Dugout
-
-[The Dugout Grill & Bar](/places/the-dugout-grill-and-bar/) at the south end of Briggs is a sports bar that does breakfast on Friday, Saturday and Sunday mornings, from 9 on Friday and 8 at the weekend, with the games on the screens.
 
 ## From 6: Ziggi's
 

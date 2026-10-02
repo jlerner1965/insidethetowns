@@ -43,6 +43,42 @@ export type PlaceType = (typeof PLACE_TYPES)[number];
 export const EAT_DRINK_TYPES: readonly PlaceType[] = ['restaurant', 'bar', 'coffee'];
 export const THINGS_TO_DO_TYPES: readonly PlaceType[] = ['trail', 'park', 'venue'];
 
+/**
+ * Whether a place can be visited. Everything was `open` by construction until
+ * the October 2026 audit found a restaurant that had closed in February, a
+ * sports complex shut since May 2025 and a diner that had reopened under a
+ * new name, all sitting in the standard open template with hours and an
+ * "Open now" badge. A listing that cannot say "closed" is one that lies the
+ * day the business does.
+ *
+ * `closed` is for good; `temporarily-closed` for a season, a rebuild or a
+ * fire. Both keep the page (a URL that was live should not 404, and a reader
+ * searching for the place deserves the answer) but drop the hours, the open
+ * status and the place from the home page and the picks.
+ */
+export const PLACE_STATUSES = ['open', 'temporarily-closed', 'closed'] as const;
+export type PlaceStatus = (typeof PLACE_STATUSES)[number];
+export const PLACE_STATUS_LABELS: Record<PlaceStatus, string> = {
+  open: 'Open',
+  'temporarily-closed': 'Temporarily closed',
+  closed: 'Closed',
+};
+
+/**
+ * Whether an event is still happening as listed. A canceled meeting stays on
+ * the calendar, marked, because the reader who planned to go is exactly who
+ * needs to see it; it leaves the picks, the feeds and the email, which are
+ * for things a reader can still attend. `postponed` is for a date the
+ * organizer has withdrawn without naming a new one.
+ */
+export const EVENT_STATUSES = ['scheduled', 'postponed', 'canceled'] as const;
+export type EventStatus = (typeof EVENT_STATUSES)[number];
+export const EVENT_STATUS_LABELS: Record<EventStatus, string> = {
+  scheduled: 'Scheduled',
+  postponed: 'Postponed',
+  canceled: 'Canceled',
+};
+
 export const CATEGORY_LABELS: Record<EventCategory, string> = {
   music: 'Music',
   market: 'Market',
@@ -140,6 +176,20 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
       /** The day the listing was checked against its source. */
       verified: localDate.optional(),
       featured: z.boolean().default(false),
+      /** Still on as listed, or not. See EVENT_STATUSES. */
+      status: z.enum(EVENT_STATUSES).default('scheduled'),
+      /**
+       * Who says so and since when, in a sentence: "The Town lists this
+       * meeting as canceled." Required with any status but `scheduled`,
+       * because a bare "Canceled" is a claim with nothing behind it.
+       */
+      statusNote: z.string().min(1).optional(),
+      /** The page that says so, when there is one to link. */
+      statusSource: httpUrl.optional(),
+    })
+    .refine((e) => e.status === 'scheduled' || !!e.statusNote, {
+      message: 'a status other than scheduled needs a statusNote saying who says so',
+      path: ['statusNote'],
     })
     .refine((e) => !e.end || e.end.getTime() >= e.start.getTime(), {
       message: 'end must be at or after start',
@@ -205,10 +255,25 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
       featured: z.boolean().default(false),
       /** One or two sentences, shown on cards. */
       summary: z.string().min(1).max(280),
+      /** Whether it can be visited. See PLACE_STATUSES. */
+      status: z.enum(PLACE_STATUSES).default('open'),
+      /**
+       * What happened and how we know, in a sentence or two: "Reported
+       * closed on February 21, 2026, ahead of the sale of the building
+       * (Retro 102.5); not yet confirmed with the owners." Required with any
+       * status but `open`.
+       */
+      statusNote: z.string().min(1).optional(),
+      /** The report or notice that says so, when there is one to link. */
+      statusSource: httpUrl.optional(),
     })
     .refine((p) => !p.image || !!p.imageAlt, {
       message: 'imageAlt is required when image is set',
       path: ['imageAlt'],
+    })
+    .refine((p) => p.status === 'open' || !!p.statusNote, {
+      message: 'a status other than open needs a statusNote saying what happened and how we know',
+      path: ['statusNote'],
     });
 }
 

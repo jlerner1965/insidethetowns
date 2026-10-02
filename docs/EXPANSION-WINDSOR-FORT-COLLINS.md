@@ -186,7 +186,7 @@ Draft `character` lines, for the comparison table, to be rewritten by whoever
 writes the guides and checked against the Art & Heritage Center or Wikipedia
 first (the sugar factory and the Kodak plant are from memory, not from a
 source read for this plan): Windsor, "A sugar-beet and Kodak town that
-doubled on the Fort Collins–Greeley road, with a lake in the middle." Fort
+grew by three-quarters in a decade on the Fort Collins–Greeley road, with a lake in the middle." Fort
 Collins, "The city the other towns measure against: Old Town, the Poudre, CSU
 and 170,000 people."
 

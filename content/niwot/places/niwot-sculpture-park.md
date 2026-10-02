@@ -1,16 +1,13 @@
 ---
 title: "Niwot Sculpture Park"
 type: park
-address: "Around Old Town; see the Association’s map"
-area: "Old Town"
+address: "79th Street and Niwot Road"
+area: "East end of Old Town"
 url: "https://niwotarts.org/"
-image: ../images/eagle-catcher.jpg
-imageAlt: "A carved wooden sculpture of a young man catching an eagle, on display in Old Town Niwot"
-imageCredit: "Ecosse54, Wikimedia Commons, CC BY-SA 4.0"
 tags: [public-art, sculpture, walk]
-summary: "An outdoor sculpture collection around Old Town, run by the Cultural Arts Association since 2018: owned pieces alongside works lent by artists for a year at a time."
+summary: "The Cultural Arts Association’s outdoor sculpture park at 79th Street and Niwot Road, running since 2018: owned pieces alongside works lent by artists for a year at a time."
 source: "https://niwotarts.org/"
-verified: "2026-09-09"
+verified: "2026-10-02"
 ---
 
-Since 2018 the Niwot Cultural Arts Association has placed sculptures around the commercial blocks: pieces it has bought or been given, and works artists lend for a year at a time, chosen by the park’s committee. The current pieces and their locations are on the Association’s site; it makes a natural loop with the gateway sculpture and Whistle Stop Park.
+Since 2018 the Niwot Cultural Arts Association has kept a sculpture park on one site at the corner of 79th Street and Niwot Road, at the east end of Old Town: pieces it has bought or been given, and works artists lend for a year at a time, chosen by the park’s committee. The current pieces are on the Association’s site; it makes a natural loop with the gateway sculpture and Whistle Stop Park.

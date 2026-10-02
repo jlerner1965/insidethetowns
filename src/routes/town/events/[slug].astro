@@ -5,11 +5,11 @@ import Page from '@/layouts/Page.astro';
 import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { dayKey, formatDate, formatDayLong, formatTimeRange, formatWeekday, toIsoLocal } from '@/lib/dates';
-import { isPast, nextOccurrence } from '@/lib/events';
+import { isCanceled, isPast, nextOccurrence } from '@/lib/events';
 import { googleCalendarUrl } from '@/lib/ics';
 import { pickCanonical } from '@/lib/series';
 import { breadcrumbJsonLd, eventJsonLd } from '@/lib/seo';
-import { CATEGORY_LABELS } from '@/content/schemas';
+import { CATEGORY_LABELS, EVENT_STATUS_LABELS } from '@/content/schemas';
 
 export async function getStaticPaths() {
   const events = await getTownEntries('events');
@@ -23,7 +23,7 @@ export async function getStaticPaths() {
    * noindex and its absence from the sitemap cannot drift apart.
    */
   const canonical = pickCanonical(
-    events.map((e) => ({ slug: e.slug, key: `${e.data.title}|${e.data.venue}`, startDay: dayKey(e.data.start) })),
+    events.map((e) => ({ slug: e.slug, key: `${e.data.title}|${e.data.venue}`, startDay: dayKey(e.data.start), canceled: isCanceled(e) })),
     dayKey(new Date()),
   );
   return events.map((event) => ({
@@ -43,6 +43,9 @@ const { data } = event;
 const { Content } = await render(event);
 const next = nextOccurrence(event);
 const when = next.data;
+// Called off or postponed: said in the eyebrow, the title tag and a notice
+// above the body, so the page cannot be skimmed as an invitation.
+const statusLabel = data.status !== 'scheduled' ? EVENT_STATUS_LABELS[data.status] : undefined;
 const repeatNote =
   data.recurring ??
   (data.repeat === 'weekly' && data.until ? `Every ${formatWeekday(data.start)} through ${formatDate(data.until)}` : undefined);
@@ -56,7 +59,7 @@ const timeText = data.timeNote ?? formatTimeRange(when.start, when.end, data.all
  * result, so the sentence is what gets shortened, not the specifics.
  */
 const firstSentence = (event.body ?? '').trim().split(/(?<=[.!?])\s+/)[0]?.trim() ?? '';
-const particulars = `${formatDayLong(when.start)}, ${timeText} at ${data.venue}, ${town.name}.`;
+const particulars = `${statusLabel ? `${statusLabel}. ` : ''}${formatDayLong(when.start)}, ${timeText} at ${data.venue}, ${town.name}.`;
 const description = firstSentence.length > 30 ? `${particulars} ${firstSentence}` : particulars;
 /**
  * Two ways into a reader's own calendar, neither needing a script: the
@@ -84,8 +87,8 @@ const facts = [
 <Page
   kind="Event"
   title={data.title}
-  seoTitle={`${data.title} — ${formatDate(when.start)}`}
-  eyebrow={CATEGORY_LABELS[data.category]}
+  seoTitle={`${statusLabel ? `${statusLabel}: ` : ''}${data.title} — ${formatDate(when.start)}`}
+  eyebrow={statusLabel ? `${statusLabel} · ${CATEGORY_LABELS[data.category]}` : CATEGORY_LABELS[data.category]}
   description={description}
   image={shareImage}
   imageAlt={data.imageAlt}
@@ -105,6 +108,19 @@ const facts = [
 >
   <div class="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
     <div>
+      {statusLabel && (
+        <div class="mb-10 rounded-lg border-l-4 border-ink bg-raised p-5 ring-1 ring-line-soft" role="note">
+          <p class="eyebrow">{statusLabel}</p>
+          <p class="mt-2 leading-relaxed">
+            {data.statusNote}
+            {data.statusSource && (
+              <Fragment>
+                {' '}<a href={data.statusSource} rel="noopener" class="text-accent-text">Source →</a>
+              </Fragment>
+            )}
+          </p>
+        </div>
+      )}
       {data.image && <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="mb-10 rounded-lg" />}
       <div class="prose">
         <Content />

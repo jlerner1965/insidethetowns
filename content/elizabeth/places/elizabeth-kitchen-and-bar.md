@@ -3,13 +3,12 @@ title: "Elizabeth Kitchen & Bar"
 type: restaurant
 address: "240 S Elizabeth St, Unit 110"
 area: "Elizabeth Street, downtown"
-phone: "(303) 646-8695"
 hours: "Mon–Thu 11–10, Fri 11 am–1 am, Sat 10 am–1 am, Sun 10–9"
 priceRange: "$$"
 tags: [breakfast, brunch, bar]
 summary: "Breakfast, brunch and a bar on Elizabeth Street, a block from Main."
 source: "https://elizabethkbar.com/contact"
-verified: "2026-09-18"
+verified: "2026-10-02"
 ---
 
 A kitchen and bar on Elizabeth Street serving breakfast and brunch into the afternoon, with a full bar.

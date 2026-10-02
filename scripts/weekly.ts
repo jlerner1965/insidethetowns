@@ -18,7 +18,11 @@
  *     worth a bookmark;
  *   - towns with fewer than 5 upcoming events;
  *   - places without an image;
- *   - listings whose `verified` date is more than 90 days old.
+ *   - listings whose `verified` date is more than 30 days old. The October
+ *     2026 audit found hours drifted at five of sixteen Erie businesses in
+ *     the fortnight after they were checked; ninety days was a quarter of a
+ *     year of being wrong. Thirty days across some 330 places is about nine
+ *     a town a week, which is the rotation.
  *
  * Exit code is 0 either way; the report is for a person, not CI.
  */
@@ -45,7 +49,7 @@ const MIN_UPCOMING = 5;
  * about to run dry, whatever the headline count says.
  */
 const MIN_RUNWAY_DAYS = 45;
-const STALE_DAYS = 90;
+const STALE_DAYS = 30;
 
 const now = new Date();
 const today = startOfDay(now);

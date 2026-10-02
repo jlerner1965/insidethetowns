@@ -23,7 +23,23 @@ const categories = [...new Set(articles.map((a) => a.data.category))].sort((a, b
   const ib = ORDER.indexOf(b);
   return (ia < 0 ? ORDER.length : ia) - (ib < 0 ? ORDER.length : ib) || a.localeCompare(b);
 });
-const description = `Guides to ${town.name}, ${town.state}: with kids, where to eat, the outdoors, moving here, and how the town came to be. ${articles.length} so far, each with its sources.`;
+/**
+ * The intro names what the page holds, not what it hopes to. Four guides
+ * promised "where to eat" and "the outdoors" over two or three articles on
+ * history and moving here, so the subjects are read off the articles.
+ */
+const SUBJECT: Record<string, string> = {
+  Families: `${town.name} with kids`,
+  'Food & drink': 'where to eat',
+  Outdoors: 'the outdoors',
+  'Moving here': 'what moving here is like',
+  Community: 'who runs what',
+  Civic: 'the civic side of town',
+  History: 'how the town got this way',
+};
+const subjects = categories.map((c) => SUBJECT[c] ?? c.toLowerCase());
+const subjectList = subjects.length > 1 ? `${subjects.slice(0, -1).join(', ')}, and ${subjects[subjects.length - 1]}` : subjects.join('');
+const description = `Guides to ${town.name}, ${town.state}: ${subjectList}. ${articles.length} so far, each with its sources.`;
 const structured = [
   collectionPageJsonLd(town, {
     name: `Guides to ${town.name}, Colorado`,
@@ -37,7 +53,7 @@ const structured = [
   ]),
 ];
 ---
-<Page title="Guides" seoTitle={`Guides to ${town.name}, Colorado`} eyebrow={town.name} {description} intro={`The longer reads: ${town.name} with kids, where to eat, the outdoors, what moving here is like, and how the town got this way. Each says where its facts came from.`} jsonLd={structured}>
+<Page title="Guides" seoTitle={`Guides to ${town.name}, Colorado`} eyebrow={town.name} {description} intro={articles.length > 0 ? `The longer reads: ${subjectList}. Each says where its facts came from.` : 'The longer reads, as they are written. Each will say where its facts came from.'} jsonLd={structured}>
   {articles.length === 0 ? (
     <p class="text-ink-muted">Guides are on their way.</p>
   ) : (
