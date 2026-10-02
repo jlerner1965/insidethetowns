@@ -61,7 +61,18 @@ test('internal notes never reach the reader', () => {
   assert.deepEqual([berthoud.author, berthoud.sourceUrl], ['Town of Berthoud', undefined]);
   const own = publicCredit(row('owned by the publisher; all rights reserved. EXIF stripped on import', 'photographed by the site owner'));
   assert.deepEqual(own, { author: 'Inside the Towns', license: 'All rights reserved' });
-  for (const c of [erie, berthoud, own]) assert.doesNotMatch(JSON.stringify(c), /PERMISSIONS|EXIF|confirm/);
+  const johnstown = publicCredit(
+    row('Courtesy of the Johnstown Historical Society, Ltd — permission by email 2026-10-02, see PERMISSIONS.md, section: x; resized to 1600px', 'https://jhsco.org/historicwalkingtour/'),
+  );
+  assert.deepEqual(
+    [johnstown.author, johnstown.license, johnstown.sourceUrl, johnstown.changes],
+    ['Johnstown Historical Society, Ltd', 'Used with permission', 'https://jhsco.org/historicwalkingtour/', 'resized'],
+  );
+  const johnstownTown = publicCredit(
+    row('Town of Johnstown photograph; sent in reply to the photo request 2026-10-02 — see PERMISSIONS.md, section: x; EXIF stripped on import', 'provided directly by the Town of Johnstown, 2026-10-02'),
+  );
+  assert.deepEqual([johnstownTown.author, johnstownTown.license, johnstownTown.sourceUrl], ['Town of Johnstown', 'Used with permission', undefined]);
+  for (const c of [erie, berthoud, own, johnstown, johnstownTown]) assert.doesNotMatch(JSON.stringify(c), /PERMISSIONS|EXIF|confirm/);
 });
 
 test('a row it cannot read is an error, not a blank credit', () => {

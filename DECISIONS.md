@@ -1964,3 +1964,72 @@ changes that were not simply corrections.
   page, the hub home page: each a design pass. Required phone, website and
   hours: would fail the build on some 180 existing listings, so it is an entry
   rule for new ones until the rotation has filled the old.
+
+## The Johnstown Historical Society answers
+
+*2 October 2026.* Billie, for the museum director, answered C8 (the Parish
+House rooms, the meteorite, the walking tour). Four things came out of it.
+
+- **"You can use the photos" is read as the walking tour page's.** The
+  sentence names no photographs, but it sits in the paragraph answering the
+  walking tour question, about a page whose pictures are the Society's and
+  which says "contact us for licensing" under them. The grant is recorded
+  verbatim in `PERMISSIONS.md` with that reading stated, and the reply names
+  the three photographs used, so the reading is hers to correct. Three rather
+  than the whole set: the listing is a card and a page, not a gallery, and
+  the Society's page is where the set belongs. The lead is the Charlotte
+  Street sidewalk at the Parish House sign, where the walk starts; the two
+  inline are a now and a then, the Masonic Temple and the McCormick
+  Mercantile in the early 1900s. The attendee photographs on the two event
+  pages were not asked for and are not covered.
+- **The credit line is hers, "Ltd" included.** Captions say "Courtesy of the
+  Johnstown Historical Society, Ltd" verbatim, because that is what was asked
+  and because the Ltd is what tells this society from the Pennsylvania one
+  the site has had to keep out before ("Beware the other Johnstowns",
+  above). On `/credits/` the Society is the rights holder and the licence is
+  "used with permission", as for Erie and Berthoud; a `GRANTS` line in
+  `src/lib/credits.ts` reads the row.
+- **Landscape, for the photographs still to come.** She asked portrait or
+  landscape. Every slot a listing photograph fills is landscape: 3:2 on the
+  page, 4:3 on cards and the credits grid, 16:10 on article cards. The reply
+  says landscape, the largest file she has, and that a portrait would be
+  cropped to its middle.
+- **The Cemetery Crawl got its times.** Her note that registration had
+  opened was checked against the Society's event page, updated the day
+  before: tours at 10 am and 12 pm, the same content, about an hour. The
+  listing carries the times, links the event page rather than the events
+  index, and takes the practical notes (cap per tour, parking inside the
+  cemetery, most stops passable with a mobility aid). The Holiday Open House
+  page still says "Time: TBA"; its listing is unchanged, re-verified.
+
+## The Town of Johnstown answers on parks
+
+*2 October 2026.* Tim Hoos, Public Works Director, answered B3, copied to
+Samantha Knowlton; a second reply said they were looking through their
+files, and a playground photograph followed.
+
+- **No permit, and no park users without their permission.** The Town holds
+  no current park photographs, so the eight parks are a walk, which needs no
+  permit. His one condition becomes the rule for the walk, in Johnstown and
+  as the default everywhere: no one in a park photograph unless they have
+  said yes, which means empty playgrounds and paths, shot early. Boulder
+  County's rule (fewer than 25 people, open hours) was about permits; this
+  one is about the people in the frame, and it is the stricter of the two.
+- **The photograph is on Sunrise Park, as an inference, with the reply
+  asking.** It names no park. The Town's own aerial of Sunrise Park shows the
+  same rail fence along the same fields; the Council awarded a playground
+  equipment contract for Sunrise Park on 1 June 2026 (The Johnstown Breeze,
+  2 June 2026); and the Town's pages for Clearview and Rolling Hills Ranch,
+  the parks with recent photographs, show different playgrounds. Three signs
+  and no statement, so the listing carries it, `PERMISSIONS.md` says why, and
+  the reply asks which park it is. If the answer is another park, the
+  photograph moves and Sunrise keeps its sentence about the 2026 playground,
+  which rests on the contract, not the picture.
+- **Permission is implicit, and recorded as such.** A photograph sent in
+  reply to a request that said the use and the credit is permission for that
+  use with that credit, but it is a thinner grant than a sentence, so the
+  reply names both. Credit "Town of Johnstown", as the request promised; a
+  `GRANTS` line reads the row.
+- **"Several have new playgrounds."** Which ones is the question the reply
+  asks, with the seven parks still without a photograph named, so the walk
+  can start with the playgrounds they want seen.
