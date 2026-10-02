@@ -1,5 +1,5 @@
 ---
-title: "Makerspace open studio"
+title: "Monday Makerspace"
 start: "2026-11-09T15:00"
 end: "2026-11-09T17:00"
 venue: "Lyons Regional Library"
