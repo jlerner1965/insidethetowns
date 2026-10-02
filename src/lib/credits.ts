@@ -104,6 +104,7 @@ const GRANTS: Array<[RegExp, string]> = [
   [/^Boulder County Parks & Open Space/, 'Boulder County Parks & Open Space'],
   [/^Use authorized by Town of Berthoud/, 'Town of Berthoud'],
   [/^Courtesy of the Johnstown Historical Society, Ltd/, 'Johnstown Historical Society, Ltd'],
+  [/^Town of Johnstown photograph/, 'Town of Johnstown'],
 ];
 
 export function publicCredit(row: LedgerRow): PublicCredit {

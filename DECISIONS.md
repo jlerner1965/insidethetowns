@@ -2001,3 +2001,35 @@ House rooms, the meteorite, the walking tour). Four things came out of it.
   index, and takes the practical notes (cap per tour, parking inside the
   cemetery, most stops passable with a mobility aid). The Holiday Open House
   page still says "Time: TBA"; its listing is unchanged, re-verified.
+
+## The Town of Johnstown answers on parks
+
+*2 October 2026.* Tim Hoos, Public Works Director, answered B3, copied to
+Samantha Knowlton; a second reply said they were looking through their
+files, and a playground photograph followed.
+
+- **No permit, and no park users without their permission.** The Town holds
+  no current park photographs, so the eight parks are a walk, which needs no
+  permit. His one condition becomes the rule for the walk, in Johnstown and
+  as the default everywhere: no one in a park photograph unless they have
+  said yes, which means empty playgrounds and paths, shot early. Boulder
+  County's rule (fewer than 25 people, open hours) was about permits; this
+  one is about the people in the frame, and it is the stricter of the two.
+- **The photograph is on Sunrise Park, as an inference, with the reply
+  asking.** It names no park. The Town's own aerial of Sunrise Park shows the
+  same rail fence along the same fields; the Council awarded a playground
+  equipment contract for Sunrise Park on 1 June 2026 (The Johnstown Breeze,
+  2 June 2026); and the Town's pages for Clearview and Rolling Hills Ranch,
+  the parks with recent photographs, show different playgrounds. Three signs
+  and no statement, so the listing carries it, `PERMISSIONS.md` says why, and
+  the reply asks which park it is. If the answer is another park, the
+  photograph moves and Sunrise keeps its sentence about the 2026 playground,
+  which rests on the contract, not the picture.
+- **Permission is implicit, and recorded as such.** A photograph sent in
+  reply to a request that said the use and the credit is permission for that
+  use with that credit, but it is a thinner grant than a sentence, so the
+  reply names both. Credit "Town of Johnstown", as the request promised; a
+  `GRANTS` line reads the row.
+- **"Several have new playgrounds."** Which ones is the question the reply
+  asks, with the seven parks still without a photograph named, so the walk
+  can start with the playgrounds they want seen.

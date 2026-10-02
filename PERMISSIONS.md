@@ -157,3 +157,54 @@ the day she says so, as the request promised.
 Not asked and not granted: the photographs on the Cemetery Crawl and Holiday
 Open House event pages ("Frightful Flashbacks", past open houses), which show
 attendees.
+
+---
+
+## Town of Johnstown — parks
+
+**Answered** 2 October 2026 by **Tim Hoos, Public Works Director**, Town of
+Johnstown (thoos@johnstownco.gov), by email, copied to Samantha Knowlton,
+Communications Manager, in reply to the request in `docs/ALL-PHOTO-EMAILS.md`
+(B3) for photographs of the eight Town parks, and whether a permit is needed
+to take our own.
+
+His wording, in full:
+
+> This guide is great and I am glad to hear you are looking to add photos of
+> the parks for reference. Several have new playgrounds that we would love to
+> promote to the residents. I am not aware of any current photos we have of
+> the parks that we could provide.
+>
+> There is also no permit required to photograph the parks if you would like.
+> We just ask that you not include any park users in the photos without their
+> permission.
+
+A second reply in the same thread, the same day:
+
+> We are having a look through our files to see if we can get you some.
+
+followed by one photograph, attached: a newly built playground, an orange
+climbing dome and a slide tower on a black rubber surface, a rail fence and
+farm fields behind, houses to the right.
+
+| | |
+|---|---|
+| **Scope** | Photographs the Town sends in this thread. One so far: `sunrise-park-playground.jpg` |
+| **Credit** | Not stated by them. The request promised "We would credit the Town on every one", so every one is credited "Town of Johnstown" |
+| **Standing** | What they send in reply to this request. The permit answer stands for the Town's parks generally |
+| **Our own photographs** | No permit. The one condition is theirs and is kept: no park user appears in a photograph without their permission, which for a guide means empty playgrounds and paths, shot early |
+| **Contact** | thoos@johnstownco.gov, sknowlton@johnstownco.gov, (970) 587-4664 |
+
+Permission for the attached photograph is implicit: it was sent in answer to
+a request that said what it would be used for and how it would be credited,
+and the sending is the answer. That is thinner than Erie's or Boulder
+County's sentence, so the reply thanks them for it and names the use and the
+credit, which gives them the chance to say otherwise.
+
+Which park the photograph shows was not said. It is on the Sunrise Park
+listing because the Town's own aerial of Sunrise Park shows the same rail
+fence along the same fields; because the Town Council awarded a playground
+equipment contract for Sunrise Park on 1 June 2026 (The Johnstown Breeze,
+2 June 2026); and because the Town's pages for Clearview and Rolling Hills
+Ranch, the parks with recent photographs, show different playgrounds. The
+reply asks them to confirm. If it is another park, the photograph moves.
