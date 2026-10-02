@@ -36,7 +36,7 @@ export const windsor: TownConfig = {
     neutralBg: '#F3F7F5',
   },
   hero: {
-    image: 'hero.jpg',
+    image: 'windsor-lake-winter.jpg',
     alt: 'Windsor Lake frozen and snow-covered in winter, red sandstone riprap on the near shore and the town’s houses, bare trees and grain elevator along the far one',
     credit: 'Jared Winkler, Wikimedia Commons, CC BY-SA 4.0',
   },
