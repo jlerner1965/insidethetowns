@@ -36,9 +36,11 @@ export const windsor: TownConfig = {
     neutralBg: '#F3F7F5',
   },
   hero: {
-    image: 'windsor-lake-winter.jpg',
-    alt: 'Windsor Lake frozen and snow-covered in winter, red sandstone riprap on the near shore and the town’s houses, bare trees and grain elevator along the far one',
-    credit: 'Jared Winkler, Wikimedia Commons, CC BY-SA 4.0',
+    image: 'windsor-lake-aerial.jpg',
+    // A June aerial, in place of the frozen lake that fronted the site in
+    // October. The winter view now illustrates the lake trail.
+    alt: 'Windsor Lake from the air in June: the lake trail and houses along the near shore, downtown Windsor among its trees on the far one, and the Front Range along the horizon',
+    credit: 'Ssullivan1564, Wikimedia Commons, CC BY-SA 4.0',
   },
   social: {
     email: 'hello@insidewindsorco.com',

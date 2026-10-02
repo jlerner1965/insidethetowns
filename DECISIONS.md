@@ -1941,7 +1941,13 @@ changes that were not simply corrections.
   worse than a typographic tile. The hero captions that placed a reservoir,
   a lake and two roads in towns the source files do not support now describe
   what the photograph shows; the photographs stay, because replacing a hero
-  is a photo pass, not a caption.
+  is a photo pass, not a caption. Windsor's was the exception: the
+  Commons subcategory for Windsor Lake, which the town's own category does
+  not surface, holds a June 2017 drone photograph of the lake with downtown
+  on the far shore and the Front Range behind, by the same contributor as
+  the Main Park and Poudre River photographs. It is the hero now, and the
+  frozen lake illustrates the lake trail, where a winter walk along the
+  shore is what the picture shows.
 - **"Doubled" became "grew by three-quarters".** Windsor's tagline said the
   town doubled; the hub's own table shows 18,644 to 32,716 between the
   censuses, which is 75 percent. The 2026 estimate of 48,302 would make
