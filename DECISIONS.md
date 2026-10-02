@@ -2015,16 +2015,15 @@ files, and a playground photograph followed.
   said yes, which means empty playgrounds and paths, shot early. Boulder
   County's rule (fewer than 25 people, open hours) was about permits; this
   one is about the people in the frame, and it is the stricter of the two.
-- **The photograph is on Sunrise Park, as an inference, with the reply
-  asking.** It names no park. The Town's own aerial of Sunrise Park shows the
-  same rail fence along the same fields; the Council awarded a playground
-  equipment contract for Sunrise Park on 1 June 2026 (The Johnstown Breeze,
-  2 June 2026); and the Town's pages for Clearview and Rolling Hills Ranch,
-  the parks with recent photographs, show different playgrounds. Three signs
-  and no statement, so the listing carries it, `PERMISSIONS.md` says why, and
-  the reply asks which park it is. If the answer is another park, the
-  photograph moves and Sunrise keeps its sentence about the 2026 playground,
-  which rests on the contract, not the picture.
+- **The photograph is the north playground at Sunrise Park.** The email
+  names no park. Three signs pointed to Sunrise: the Town's own aerial of
+  the park's north side shows the same rail fence along the same fields;
+  the Council awarded a playground equipment contract for Sunrise Park on
+  1 June 2026 (The Johnstown Breeze, 2 June 2026); and the Town's pages for
+  Clearview and Rolling Hills Ranch, the parks with recent photographs,
+  show different playgrounds. The listing went up on that inference, and
+  the owner confirmed it the same day ("its north sunrise park"), so the
+  listing now says the north side and the reply no longer asks.
 - **Permission is implicit, and recorded as such.** A photograph sent in
   reply to a request that said the use and the credit is permission for that
   use with that credit, but it is a thinner grant than a sentence, so the

@@ -1310,7 +1310,7 @@ can be said.
 | A12 | Trade | Timnath Chamber of Commerce | email, a week after A11 | | | |
 | B1 | Parks | Town of Berthoud Parks and Recreation (8 sites) | email, a week after A1 | yes | 2026-09-21 | 4 photographs: Recreation Center, Town Park ×2, Waggener Farm Park. Six parks remain → D1 |
 | B2 | Parks | Town of Erie Parks and Open Space (12) | email | yes | 2026-09-18 | Granted, standing (PERMISSIONS.md). Six used; five parks and the Singletrack remain → D2 |
-| B3 | Parks | Town of Johnstown Parks and Recreation (8) | email | yes | 2026-10-02 | No library. No permit to photograph the parks; no park users without their permission (PERMISSIONS.md). One playground photograph sent from their files, on Sunrise Park pending their word on which park. Seven parks remain: the walk |
+| B3 | Parks | Town of Johnstown Parks and Recreation (8) | email | yes | 2026-10-02 | No library. No permit to photograph the parks; no park users without their permission (PERMISSIONS.md). One playground photograph sent from their files, the north playground at Sunrise Park (confirmed by the owner). Seven parks remain: the walk |
 | B4 | Parks | Town of Timnath Parks (4) | email or form | | | |
 | B5 | Parks | Elizabeth Park and Recreation District (2) | email | | | |
 | B6 | Parks | Town of Elizabeth Public Works (1) | phone | | | |

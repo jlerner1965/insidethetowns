@@ -201,10 +201,13 @@ and the sending is the answer. That is thinner than Erie's or Boulder
 County's sentence, so the reply thanks them for it and names the use and the
 credit, which gives them the chance to say otherwise.
 
-Which park the photograph shows was not said. It is on the Sunrise Park
-listing because the Town's own aerial of Sunrise Park shows the same rail
-fence along the same fields; because the Town Council awarded a playground
-equipment contract for Sunrise Park on 1 June 2026 (The Johnstown Breeze,
-2 June 2026); and because the Town's pages for Clearview and Rolling Hills
-Ranch, the parks with recent photographs, show different playgrounds. The
-reply asks them to confirm. If it is another park, the photograph moves.
+Which park the photograph shows was not said in the email. **Confirmed** the
+same day by the site owner, in a working session:
+
+> its north sunrise park
+
+That is the playground on the north side of Sunrise Park, which is what
+the Town's own aerial of that side shows (the same rail fence along the
+same fields), and what the playground equipment contract the Town Council
+awarded for Sunrise Park on 1 June 2026 (The Johnstown Breeze, 2 June 2026)
+would produce.
