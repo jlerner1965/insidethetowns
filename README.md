@@ -134,6 +134,7 @@ and placements to a business owner.
 - `docs/BACKLINKS.md` — verified local link targets per town, and the two domains not to touch
 - `docs/LAUNCH-AUDIT.md` — the launch audit: what was fixed, what is left, what needs the owner
 - `docs/AUDIT-2026-10-02.md` — the October site audit: every finding and what was done with it, the phone list, and the weekly routine and event standard the guides are held to
+- `docs/ACCURACY-SYSTEM.md` — the accuracy brief's phase 1: what the repo already enforces, the gaps, and the proposal for staging, freshness gates, a source registry, ingest and the review CLI
 - `docs/EXPANSION-WINDSOR-FORT-COLLINS.md` — the plan for the two northern guides: what to settle first, what changes beyond the scaffold, the sources checked
 
 Requires Node 22.18+ (scripts use Node's built-in TypeScript support).
