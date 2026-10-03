@@ -15,7 +15,7 @@ export const fortcollins: TownConfig = {
   domain: 'insidefortcollins.com',
   siteTitle: 'Inside Fort Collins',
   tagline:
-    'An independent guide to Fort Collins, Colorado: Old Town, the Poudre, Horsetooth, the breweries, and what it’s like to live in the city the northern Front Range looks to.',
+    'An independent guide to Fort Collins, Colorado: Old Town, the Colorado State campus, the Poudre, Horsetooth, the breweries, and what it’s like to live in the city the northern Front Range looks to.',
   seoTagline: 'Events and places in Fort Collins, Colorado',
   counties: ['Larimer'],
   state: 'CO',
