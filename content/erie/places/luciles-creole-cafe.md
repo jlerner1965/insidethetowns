@@ -4,6 +4,7 @@ type: restaurant
 address: "544 Briggs St"
 area: "Historic downtown, Briggs Street"
 url: "https://www.luciles.com/erie-location-menu/"
+phone: "(720) 484-5469"
 hours: "Mon–Fri 7–2, Sat–Sun 8–2"
 priceRange: "$$"
 tags: [breakfast, creole, brunch]
