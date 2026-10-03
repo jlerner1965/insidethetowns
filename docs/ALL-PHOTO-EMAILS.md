@@ -1,6 +1,6 @@
 # Every photo email, in one place
 
-Thirty-eight messages, ready to copy and paste, drawn from the three documents in
+Forty-one messages, ready to copy and paste, drawn from the three documents in
 `docs/` (`INDUSTRY-EMAILS.md`, `PARK-PHOTO-EMAILS.md`, `VENUE-PHOTO-EMAILS.md`),
 with the one-to-one ask from `PHOTOS.md`, plus Batch D: two follow-ups, added
 1 October 2026, to the councils that said yes in September. Batches A to C are
@@ -1292,6 +1292,109 @@ can be said.
 
 ---
 
+# Batch E. Fort Collins — the two libraries the photo search could not reach
+
+Added 3 October 2026, after the open-licence search (`PHOTO-SEARCH-2026-10-03.md`)
+put photographs on fifteen Fort Collins listings and found nothing for the rest.
+The City holds photographs of every park, trail and natural area; the university
+holds the campus. Neither has been asked. Three messages, one per office.
+
+## 1. City of Fort Collins, Natural Areas — three natural areas
+
+**To:** naturalareas@fortcollins.gov
+**Phone:** 970-416-2815 · 1745 Hoffman Mill Road · Mon–Fri 8–5
+
+Cathy Fromme Prairie, Maxwell and Riverbend Ponds now carry Flickr photographs
+under Creative Commons licences; Gateway, Pineridge and Reservoir Ridge have
+none, and nothing openly licensed shows them.
+
+**Subject:** Photographs of three natural areas for a free Fort Collins guide
+
+> Hello,
+>
+> I publish Inside Fort Collins (insidefortcollins.com), a free guide to the
+> city. It lists the City's natural areas with their hours and rules, linked
+> to your pages. It is editorial: nobody pays to be listed and there is no
+> advertising.
+>
+> Three of the natural area listings have no photograph, because none exists
+> under an open licence: Gateway, Pineridge and Reservoir Ridge.
+>
+> Two questions:
+>
+> 1. Does the department hold photographs of these three that we could use?
+>    We would credit the City of Fort Collins Natural Areas on every one and
+>    take any of them down the day you asked.
+> 2. If not, is there anything we should know before photographing them
+>    ourselves for the guide, beyond staying on the trails and out of the
+>    closures?
+>
+> Thank you,
+> <name>
+
+## 2. City of Fort Collins, Parks — six parks and two trails
+
+**To:** parkshop@fortcollins.gov
+**Phone:** 970-221-6660 · 413 S Bryan Ave · Mon–Fri 8–5
+
+**Subject:** Photographs of six parks and two trails for a free Fort Collins guide
+
+> Hello,
+>
+> I publish Inside Fort Collins (insidefortcollins.com), a free guide to the
+> city. It lists the City's parks and trails with their hours and what is in
+> them, linked to your pages. It is editorial: nobody pays to be listed and
+> there is no advertising.
+>
+> Eight of those listings have no photograph:
+>
+> City Park, Edora Park, Lee Martinez Park and The Farm, Rolland Moore Park,
+> Spring Canyon Community Park, the Gardens on Spring Creek, the Poudre River
+> Trail and the Spring Creek Trail.
+>
+> Two questions:
+>
+> 1. Does the department hold photographs of any of these that we could use?
+>    We would credit the City of Fort Collins on every one and take any of
+>    them down the day you asked.
+> 2. If not, do we need a permit to photograph in the parks ourselves for the
+>    guide? We would keep park users out of the frame.
+>
+> Thank you,
+> <name>
+
+## 3. CSU Photography — three campus listings
+
+**To:** csuphoto@colostate.edu
+**Phone:** (970) 491-5471 · First Floor, Hartshorn
+
+Their own page says they supply photographs of campus to off-campus editorial
+media doing stories on Colorado State at no charge; that is this.
+
+**Subject:** Photographs of three campus places for a free Fort Collins guide
+
+> Hello,
+>
+> I publish Inside Fort Collins (insidefortcollins.com), a free guide to the
+> city, which now has a Campus section: Moby Arena, Canvas Stadium, the
+> University Center for the Arts and its two museums, the Flower Trial
+> Garden, the Lory Student Center, and a visitor's guide to the campus. It is
+> editorial: nobody pays to be listed and there is no advertising.
+>
+> Three of those listings have no photograph: the Lory Student Center, the
+> Flower Trial Garden and the Avenir Museum of Design and Merchandising. A
+> view of the Oval would also help the visitor's guide.
+>
+> Your page says CSU Photography supplies photographs to off-campus editorial
+> media at no charge. Could we use one of each from the Media Library? We
+> would credit them as you specify and take any of them down the day you
+> asked.
+>
+> Thank you,
+> <name>
+
+---
+
 # Tracking
 
 | # | Batch | Recipient | Route | Sent | Reply | Outcome |
@@ -1334,3 +1437,6 @@ can be said.
 | C14 | Venues | Lyons Classic Pinball | site contact | | | |
 | D1 | Follow-up | Town of Berthoud — six parks | email | | | |
 | D2 | Follow-up | Town of Erie — five parks and the Singletrack | email | 2026-10-01 | 2026-10-02 | The five park pages now carry photographs (one used from each); five Singletrack photographs supplied by Drive folder, three used (PERMISSIONS.md). Erie is complete |
+| E1 | Fort Collins | City of Fort Collins, Natural Areas (3) | email | | | |
+| E2 | Fort Collins | City of Fort Collins, Parks (8) | email | | | |
+| E3 | Fort Collins | CSU Photography (3) | email | | | |
