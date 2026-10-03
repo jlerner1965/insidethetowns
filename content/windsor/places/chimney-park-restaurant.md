@@ -5,9 +5,12 @@ address: "406 Main St"
 area: "Main Street, downtown"
 url: "https://www.chimneypark.com/"
 source: "https://www.chimneypark.com/"
-verified: "2026-10-01"
+verified: "2026-10-03"
 phone: "970-686-1477"
-tags: [fine-dining, wine-list, closed-for-rebuild]
+tags: [fine-dining, wine-list]
+status: temporarily-closed
+statusNote: "Closed since a kitchen fire in summer 2025. As of October 2026 its own site says it \"remains closed following our kitchen fire this past summer\", with a reopening it estimates but has not dated."
+statusSource: "https://www.chimneypark.com/"
 summary: "Windsor's fine-dining restaurant since 2007, in an 1895 building on Main Street. Closed since a kitchen fire in summer 2025; its own site still says so, with reopening promised but not yet dated."
 ---
 

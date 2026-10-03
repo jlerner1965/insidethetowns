@@ -2067,3 +2067,26 @@ by Google Drive folder ahead of the Town's own page.
   rather than stretching the published-on-the-site wording to cover them.
 - **Erie is complete.** Every Town of Erie park and open space listing has a
   photograph. Tracking rows B2 and D2 say so.
+
+## The re-check, and a third fire
+
+*3 October 2026.* The audit's own re-check, a day on, was checked against
+main (`docs/AUDIT-2026-10-02.md`, last section). Two decisions came out of
+it.
+
+- **A rebuild fire sized to the lateness, not the schedule.** The two
+  overnight fires are five to eight hours late every day, and on 2 October
+  landed at 7:49 and 9:42 am Mountain, so a reader without JavaScript saw
+  Thursday's events on Friday morning, as the re-check says. A 04:10 UTC
+  fire lands between 2 and 5 am Mountain at that lateness. If GitHub ever
+  runs it on time it is a 10 pm rebuild the evening before, which changes
+  nothing and costs ten deploys, and the 07:10 fire still covers the night;
+  either way the morning is fresh. Thirty deploys a day on a hundred-a-day
+  allowance leaves room for pushes.
+- **Two sources, two numbers, no ordinal.** The Niwot Trot is "21st annual"
+  in the Courier's headline and "17th Annual" on the organizer's own page.
+  The organizer is the source the policy prefers, but a PTAC page can carry
+  last year's template as easily as a newspaper can miscount, and the
+  ordinal is decoration. The listing says "the annual Niwot Trot" and cites
+  both.
+
