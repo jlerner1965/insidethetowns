@@ -44,7 +44,10 @@ interface Props {
 
 const site = getSite();
 const analytics = getNetworkHub().analytics === true;
-const { jsonLd, kind, ...seo } = Astro.props;
+const { jsonLd, kind, ...props } = Astro.props;
+// A town that has not launched serves a holding page; nothing on it, nor the
+// shared pages around it, should be indexed before the guide exists.
+const seo = site.kind === 'town' && site.status !== 'live' ? { ...props, noindex: true } : props;
 // Site search (src/pages/search.astro) indexes what is inside <main> on every
 // page that is not noindex; the header, footer and signup box are the same
 // on every page and would match every query.

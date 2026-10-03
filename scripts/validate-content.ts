@@ -9,10 +9,13 @@
  *   npm run validate -- --build # what `npm run build` runs: an invalid event
  *                               # or place is reported as excluded, not fatal
  *
- * Runs automatically before every `npm run build`. In `--build` mode an event
- * or place that fails its schema is a warning, because the collection
- * excludes it the same way (src/content.config.ts, `lenient`) and a failed
- * build would leave a stale deployment up; everything else still fails.
+ * Runs automatically before every `npm run build`. In `--build` mode nothing
+ * here fails the build: an event or place that fails its schema is reported
+ * the way the collection will treat it (excluded; src/content.config.ts,
+ * `lenient`), and every other error is printed and the build goes on,
+ * because a failed build on Vercel leaves the previous, stale deployment
+ * serving. The same errors fail `npm run validate` in CI, where red is
+ * visible and costs nothing.
  *
  * Beyond the schema, this reports what the build will hold back: entries
  * without a source or a check date, listings past their freshness window,
@@ -27,6 +30,7 @@ import { z } from 'astro/zod';
 import { COLLECTIONS, STAGED_COLLECTIONS, schemaFor, type CollectionName } from '../src/content/schemas.ts';
 import { allSites, findTown, liveTowns } from '../src/config/index.ts';
 import { describeExclusion, eventExclusion, placeExclusion } from '../src/lib/freshness.ts';
+import { describeCounts, launchCounts } from './lib/launch.ts';
 // Imported directly, not via getHub(): the validator runs without TOWN set.
 import { hub } from '../src/config/towns/hub.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
@@ -41,7 +45,12 @@ const buildMode = process.argv.includes('--build');
 const errors: string[] = [];
 const warnings: string[] = [];
 /** Per town: what publishes, what the build holds back and why, what waits in staging. */
-type TownTally = { published: Record<string, number>; excluded: string[]; staged: Record<string, number> };
+type TownTally = {
+  published: Record<string, number>;
+  excluded: string[];
+  staged: Record<string, number>;
+  launch?: ReturnType<typeof launchCounts>;
+};
 const tallies = new Map<string, TownTally>();
 const tallyFor = (town: string): TownTally => {
   let t = tallies.get(town);
@@ -395,18 +404,60 @@ if (process.argv.includes('--hours')) {
 } else if (unparsedHours.length > 0) {
   console.warn(`hours ${unparsedHours.length} listings have an hours line the site cannot read as a schedule (run with --hours to list them); ${hoursByDesign.length} more are text by design`);
 }
-for (const e of errors) console.error(`error ${e}`);
+/**
+ * The launch threshold. A live town under it is a warning here and in the
+ * weekly report, never a failed build (its verified content still publishes,
+ * and a failed build would serve last week's). A town that has not launched
+ * is told whether it is ready; its site is a holding page until `status` says
+ * `live` whatever the count.
+ */
+for (const town of allSites) {
+  if (town.kind !== 'town') continue;
+  const counts = launchCounts(town);
+  const t = tallyFor(town.slug);
+  t.launch = counts;
+  if (town.status === 'live' && !counts.meets) {
+    warnings.push(`${town.slug} is live and under its launch threshold: ${describeCounts(counts)}`);
+  }
+}
+
+// GitHub turns these into annotations on the run, so a warning is seen
+// without opening the log. Plain `warn` lines everywhere else.
+const annotate = (level: 'warning' | 'error', message: string) =>
+  process.env.GITHUB_ACTIONS ? console.log(`::${level}::${message}`) : undefined;
+for (const w of warnings) if (/launch threshold|excluded from the build/.test(w)) annotate('warning', w);
+
+for (const e of errors) {
+  console.error(`error ${e}`);
+  annotate('error', e);
+}
 
 // The per-town summary: what publishes, what is held back, what waits.
 // "0 excluded" on every line is the normal state and worth seeing.
 console.log('\nPer town (events / places): published · excluded by the build · in staging');
 for (const [town, t] of [...tallies.entries()].sort(([a], [b]) => a.localeCompare(b))) {
   if (town === 'hub') continue;
-  const live = findTown(town)?.status === 'live' ? '' : '  (not live)';
+  const config = findTown(town);
+  const note = !config
+    ? ''
+    : config.status !== 'live'
+      ? `  (${config.status}: holding page${t.launch?.meets ? ', ready to launch' : ''})`
+      : t.launch && !t.launch.meets
+        ? `  ⚠ under launch threshold (${describeCounts(t.launch)})`
+        : '';
   console.log(
     `  ${town.padEnd(12)} ${String(t.published.events).padStart(4)} / ${String(t.published.places).padStart(3)} published · ` +
-      `${String(t.excluded.length).padStart(2)} excluded · ${t.staged.events} / ${t.staged.places} staged${live}`,
+      `${String(t.excluded.length).padStart(2)} excluded · ${t.staged.events} / ${t.staged.places} staged${note}`,
   );
 }
 console.log(`\nvalidate-content: ${checked} entries checked, ${errors.length} errors, ${warnings.length} warnings`);
-if (errors.length > 0) process.exit(1);
+if (errors.length > 0) {
+  if (buildMode) {
+    console.error(
+      `\nvalidate-content: ${errors.length} error(s) reported, not blocking this build. ` +
+        'A failed build would leave the previous deployment serving stale listings; CI (npm run validate) is red for these instead.',
+    );
+  } else {
+    process.exit(1);
+  }
+}

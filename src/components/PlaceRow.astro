@@ -16,6 +16,7 @@ import { PLACE_STATUS_LABELS, PLACE_TYPE_LABELS } from '@/content/schemas';
 import { PLACE_HUE } from '@/config/palette';
 import { openingHoursOf } from '@/lib/hours';
 import { isOpen } from '@/lib/places';
+import Provenance from './Provenance.astro';
 
 interface Props {
   place: TownEntry<'places'>;
@@ -62,6 +63,8 @@ const hours = openingHoursOf(data);
     {data.address && <p class="text-ink">{data.address}</p>}
     {/* A closed place's old hours are the one thing a reader must not act on. */}
     {open ? data.hours && <p>{data.hours}</p> : <p class="text-ink">{data.statusNote}</p>}
+    {open && place.hoursHidden === 'stale' && <p class="text-ink-faint">Hours not recently checked; call ahead</p>}
     {hours && <p class="open-status font-semibold" data-open-status hidden></p>}
+    <p class="text-[0.75rem]"><Provenance compact verified={data.verified} item={`place/${slug}`} title={data.title} /></p>
   </div>
 </li>

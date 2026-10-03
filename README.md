@@ -55,8 +55,10 @@ canceled`, and the pages do the rest (see any content README).
 
 Rules at entry, the same on all nine guides, and now enforced by the build: nothing
 publishes without a `source` and a `verified` date, an open listing is hidden once
-its check is older than its freshness window, and anything not ready waits in
-`content/<town>/staging/` with a line saying why. No listing publishes without a phone, a
+its check is older than its freshness window (its hours go first), a permanently
+closed place keeps only its page, every item links to `/correct/`, and anything not
+ready waits in `content/<town>/staging/` with a line saying why. A town's site is a
+holding page until its config says `status: 'live'`. No listing publishes without a phone, a
 website and hours taken from the business itself (a business with no site gets no
 hours rather than a review site's); hours are written with am and pm; every listing
 and event carries a status; a review site or an aggregator is never the source.
@@ -127,7 +129,8 @@ and placements to a business owner.
 - `DECISIONS.md` — choices made along the way
 - `src/config/towns/` — one file per town; `index.ts` exports `getSite()` / `getTown()`
 - `content/<town>/` — events, places, articles, pages, images, and `staging/` for what is not yet publishable (see the README in each)
-- `src/config/freshness.ts` — how long a checked fact stays publishable; `src/lib/freshness.ts` applies it
+- `src/config/freshness.ts` — how long a checked fact stays publishable; `src/lib/freshness.ts` decides, `src/lib/content.ts` applies, on every page
+- `docs/ACCURACY-SYSTEM.md` — the accuracy brief: what the build enforces and why, phase by phase
 - `IMAGE_LICENSES.csv` — every image, its source and licence
 - `docs/PHOTOS.md` — how to get the missing photographs, and what has been ruled out
 - `docs/PHOTO-CONTACTS.csv` — the 187 businesses without one, with phone and website
@@ -138,7 +141,6 @@ and placements to a business owner.
 - `docs/BACKLINKS.md` — verified local link targets per town, and the two domains not to touch
 - `docs/LAUNCH-AUDIT.md` — the launch audit: what was fixed, what is left, what needs the owner
 - `docs/AUDIT-2026-10-02.md` — the October site audit: every finding and what was done with it, the phone list, and the weekly routine and event standard the guides are held to
-- `docs/ACCURACY-SYSTEM.md` — the accuracy brief's phase 1: what the repo already enforces, the gaps, and the proposal for staging, freshness gates, a source registry, ingest and the review CLI
 - `docs/EXPANSION-WINDSOR-FORT-COLLINS.md` — the plan for the two northern guides: what to settle first, what changes beyond the scaffold, the sources checked
 
 Requires Node 22.18+ (scripts use Node's built-in TypeScript support).

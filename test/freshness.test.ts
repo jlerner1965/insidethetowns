@@ -17,6 +17,7 @@ import {
   eventExclusion,
   hoursFresh,
   placeExclusion,
+  presentation,
 } from '../src/lib/freshness.ts';
 import { eventSchema, isExcluded, lenient, placeSchema } from '../src/content/schemas.ts';
 import { parseLocal } from '../src/lib/dates.ts';
@@ -169,4 +170,27 @@ test('mountain fields: seasonal hours on any place, access notes only on a trail
     seasonal: { season: 'Memorial Day to mid-October', hours: 'Daily 8–8', closedMonths: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr'] },
   });
   assert.equal(seasonal.seasonal?.closedMonths.length, 6);
+});
+
+test('what a published listing may still show: closed, temporarily closed, stale hours', () => {
+  assert.deepEqual(presentation(place({ status: 'closed', verified: verifiedDaysAgo(2) }), 'front-range', now), {
+    hideHours: true,
+    hoursHidden: 'closed',
+    hidePhone: true,
+    delist: true,
+  });
+  assert.deepEqual(presentation(place({ status: 'temporarily-closed' }), 'front-range', now), {
+    hideHours: true,
+    hoursHidden: 'closed',
+    hidePhone: false,
+    delist: false,
+  });
+  assert.deepEqual(presentation(place({ verified: verifiedDaysAgo(61) }), 'front-range', now), {
+    hideHours: true,
+    hoursHidden: 'stale',
+    hidePhone: false,
+    delist: false,
+  });
+  assert.deepEqual(presentation(place({ verified: verifiedDaysAgo(60) }), 'front-range', now), { hideHours: false, hidePhone: false, delist: false });
+  assert.deepEqual(presentation(place({ verified: verifiedDaysAgo(31) }), 'mountain', now).hoursHidden, 'stale');
 });

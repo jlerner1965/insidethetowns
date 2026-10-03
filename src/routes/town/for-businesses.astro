@@ -16,7 +16,7 @@ import { breadcrumbJsonLd } from '@/lib/seo';
 
 const town = getTown();
 const hub = getNetworkHub();
-const places = await getTownEntries('places');
+const places = (await getTownEntries('places')).filter((p) => !p.delisted);
 const businesses = places.filter((p) => !['park', 'trail'].includes(p.data.type)).length;
 const claim = `/contact/?about=${encodeURIComponent('My business')}#message-form`;
 const partner = `mailto:${hub.social.email}?subject=${encodeURIComponent(`Partnership — ${town.siteTitle}`)}`;

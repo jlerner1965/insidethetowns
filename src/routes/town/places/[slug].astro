@@ -10,10 +10,11 @@ import { getTownEntries, type TownEntry } from '@/lib/content';
 import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { breadcrumbJsonLd, localBusinessJsonLd } from '@/lib/seo';
 import { EAT_DRINK_TYPES, PLACE_STATUS_LABELS, PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, THINGS_TO_DO_TYPES } from '@/content/schemas';
-import { formatDate } from '@/lib/dates';
 import { openingHoursOf } from '@/lib/hours';
 import { byProminence, isOpen } from '@/lib/places';
 import OpenStatus from '@/components/OpenStatus.astro';
+import Provenance from '@/components/Provenance.astro';
+import { ageDays } from '@/lib/freshness';
 
 export async function getStaticPaths() {
   const places = await getTownEntries('places');
@@ -66,11 +67,21 @@ const directions = `https://www.google.com/maps/dir/?api=1&destination=${encodeU
 // A park or a trail has no one to write in as its owner; everything else does.
 const hasOperator = !['park', 'trail'].includes(data.type);
 const hours = openingHoursOf(data);
+// The gate (src/lib/content.ts) has already stripped the hours of a closed
+// place and of one whose check is older than the hours window; here the page
+// says so rather than leaving the row out, because "no hours" reads as "we
+// never had them" and the truth is "we are not sure they still hold".
+const hoursValue =
+  place.hoursHidden === 'stale' && data.verified
+    ? `Not shown: last checked ${ageDays(data.verified)} days ago. Call to confirm.`
+    : open
+      ? data.hours
+      : undefined;
+const correct = `/correct/?item=${encodeURIComponent(`place/${place.slug}`)}&title=${encodeURIComponent(data.title)}`;
 const facts = [
   { label: 'Address', value: data.area ? `${data.address} · ${data.area}` : data.address },
   { label: 'Directions', value: 'Open in Google Maps', href: directions },
-  // The old hours of a closed place are the one fact here a reader must not act on.
-  { label: 'Hours', value: open ? data.hours : undefined, hours: hours ?? undefined },
+  { label: 'Hours', value: hoursValue, hours: hours ?? undefined },
   { label: 'Phone', value: data.phone, href: data.phone ? `tel:${data.phone.replace(/[^\d+]/g, '')}` : undefined },
   { label: 'Website', value: data.url ? new URL(data.url).hostname.replace(/^www\./, '') : undefined, href: data.url },
   { label: 'Trail map', value: data.mapUrl ? 'PDF, from the land manager' : undefined, href: data.mapUrl },
@@ -82,6 +93,7 @@ const facts = [
   eyebrow={eyebrow}
   intro={data.summary}
   description={statusLabel ? `${statusLabel}. ${data.summary}` : data.summary}
+  noindex={place.delisted}
   image={shareImage}
   imageAlt={data.imageAlt}
   jsonLd={[
@@ -107,7 +119,7 @@ const facts = [
             )}
           </p>
           <p class="mt-2 text-[0.875rem] leading-relaxed text-ink-muted">
-            Know different? <a href={`/contact/?about=${encodeURIComponent(data.title)}#message-form`} class="text-accent-text underline">Tell us</a> and the listing is corrected.
+            Know different? <a href={correct} class="text-accent-text underline">Tell us</a> and the listing is corrected.
           </p>
         </div>
       )}
@@ -142,11 +154,13 @@ const facts = [
         ))}
       </dl>
       <OpenStatus />
-      {(data.verified || data.source) && (
-        <p class="mt-6 text-xs leading-relaxed text-ink-faint">
-          {data.verified && <span>Checked {formatDate(data.verified)}</span>}{data.verified && data.source && <span> against </span>}{data.source && <a href={data.source} rel="noopener" class="underline">{new URL(data.source).hostname.replace(/^www\./, '')}</a>}. Hours and phone numbers change fastest, so the business’s own page is the record.
-        </p>
-      )}
+      <Provenance
+        verified={data.verified}
+        source={data.source}
+        item={`place/${place.slug}`}
+        title={data.title}
+        note="Hours and phone numbers change fastest, so the business’s own page is the record."
+      />
       {/*
         Most of these listings have no photograph and many have no hours, and
         those gaps close fastest when the people who know are asked on the page
@@ -154,7 +168,7 @@ const facts = [
         place's name already in the subject line.
       */}
       <p class="mt-6 border-t border-line-soft pt-6 text-[0.9375rem] leading-snug">
-        <a href={`/contact/?about=${encodeURIComponent(data.title)}#message-form`} class="font-semibold text-accent-text no-underline hover:underline">
+        <a href={correct} class="font-semibold text-accent-text no-underline hover:underline">
           {hasOperator ? `Own or run ${data.title}?` : `Know ${data.title} well?`}
         </a>
         <span class="mt-1 block text-[0.875rem] leading-relaxed text-ink-muted">

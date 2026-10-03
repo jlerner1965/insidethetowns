@@ -225,6 +225,13 @@ export interface HubConfig {
    */
   newsletter?: NewsletterConfig;
   /**
+   * Where a reader's correction goes. /correct/ on every town posts to that
+   * town's Formspree form, whose destination is set in Formspree's dashboard;
+   * this address is the `mailto:` fallback where no form is configured, and
+   * what the pages name. Set on 3 October 2026 at the owner's direction.
+   */
+  correctionsEmail?: string;
+  /**
    * Vercel Web Analytics on every site in the network.
    *
    * Chosen over GA4 because the privacy page can stay true: it sets no

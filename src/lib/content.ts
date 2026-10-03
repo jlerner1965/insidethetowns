@@ -6,9 +6,19 @@
 import { getCollection, type CollectionEntry, type CollectionKey } from 'astro:content';
 import { getSite, liveTowns, type TownConfig } from '@/config';
 import { isExcluded } from '@/content/schemas';
-import { eventExclusion, placeExclusion, type Exclusion } from '@/lib/freshness';
+import { eventExclusion, placeExclusion, presentation, type Exclusion } from '@/lib/freshness';
 
-export type TownEntry<C extends CollectionKey> = CollectionEntry<C> & { slug: string };
+export type TownEntry<C extends CollectionKey> = CollectionEntry<C> & {
+  slug: string;
+  /**
+   * Set by the gate on a place whose hours it stripped: `stale` when the
+   * check is older than the hours window, `closed` when the place is. The
+   * page says which, instead of leaving a gap that reads as "no hours".
+   */
+  hoursHidden?: 'closed' | 'stale';
+  /** Set by the gate on a closed place: the page stays, every list and the search index drop it. */
+  delisted?: boolean;
+};
 /** A town's entry seen from the hub, which needs to know whose it is. */
 export type NetworkEntry<C extends CollectionKey> = TownEntry<C> & { town: TownConfig };
 
@@ -34,7 +44,10 @@ function publishable<C extends CollectionKey>(collection: C, entries: Collection
     const variant = towns.get(townSlug)?.variant ?? 'front-range';
     const why: Exclusion | null =
       collection === 'places' ? placeExclusion(entry.data, variant, now) : eventExclusion(entry.data);
-    if (!why) return true;
+    if (!why) {
+      if (collection === 'places') shape(entry as CollectionEntry<'places'>, variant, now);
+      return true;
+    }
     if (!reported.has(entry.id)) {
       reported.add(entry.id);
       const name = isExcluded(entry.data) ? entry.data.title : (entry.data as { title?: string }).title ?? entry.id;
@@ -42,6 +55,23 @@ function publishable<C extends CollectionKey>(collection: C, entries: Collection
     }
     return false;
   });
+}
+
+/**
+ * What a published listing may still show, applied to the data every page
+ * and the structured data read, so a stripped phone number cannot come back
+ * through a component that forgot. The decision is `presentation` in
+ * src/lib/freshness.ts.
+ */
+function shape(entry: CollectionEntry<'places'>, variant: TownConfig['variant'], now: Date) {
+  const p = presentation(entry.data, variant, now);
+  const data = { ...entry.data };
+  if (p.hideHours) {
+    data.hours = undefined;
+    data.openingHours = undefined;
+  }
+  if (p.hidePhone) data.phone = undefined;
+  Object.assign(entry, { data, hoursHidden: p.hoursHidden, delisted: p.delist });
 }
 
 /** All entries of a collection for the site being built. Empty for the hub. */

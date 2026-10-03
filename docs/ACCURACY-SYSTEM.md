@@ -454,3 +454,61 @@ Not in phase 2, and next: hours hidden at 60 days on the page, the
 "Permanently closed" notice and the directory and search exclusions, the
 holding page and CI warning for the threshold, the provenance line on cards,
 the correction form (all phase 3).
+
+## 10. Before phase 3, 3 October 2026
+
+James's three conditions, and what was found:
+
+1. **The daily rebuild exists and runs.** `.github/workflows/scheduled-rebuild.yml`
+   fires every live project's Vercel deploy hook at 04:10, 07:10 and 09:10
+   UTC and on Thursday afternoons; all 21 runs to date succeeded, the latest
+   three on 3 October. GitHub runs the schedule late (five to eight hours in
+   September), which is why there are three overnight fires rather than one,
+   and `Freshness.astro` removes finished events in the browser as the
+   backstop. Nothing to add; `DEPLOY.md` has the setup.
+2. **The strict validator cannot block a deploy.** Vercel's Git integration
+   deploys on push without waiting for GitHub Actions, so a red `npm run
+   validate` in CI never holds a deployment. The only validator in Vercel's
+   path is the one `npm run build` runs, and in `--build` mode it now exits 0
+   whatever it finds: entry errors are excluded, repo-level errors are
+   printed with a line saying they are not blocking, and CI stays red for
+   both. (The Vercel projects were not visible to this session's connector,
+   so the Git settings were read from `DEPLOY.md` rather than the dashboard.)
+3. **Phases 2 and 3 ship together.** Nothing from this branch is merged
+   until the closed notice, the hours hiding and the holding page are in.
+
+## 11. Phase 3, built 3 October 2026
+
+- **Hours hide before the listing does.** The gate strips `hours` and
+  `openingHours` from a listing checked more than 60 days ago (30 on a
+  mountain guide), so the row, the page, the open-now badge and the
+  structured data all lose them at once; the page says "Not shown: last
+  checked N days ago. Call to confirm" and the row "Hours not recently
+  checked; call ahead". `presentation()` in `src/lib/freshness.ts` decides,
+  `shape()` in `src/lib/content.ts` applies.
+- **A permanently closed place** keeps its page, now headed "Permanently
+  closed", loses its hours and phone, carries noindex, and leaves the
+  directory, Eat & Drink, Things to Do, the business count, the site search
+  and the sitemap. A temporarily closed place keeps its row, labeled, with
+  hours gone and phone kept. Checked on Berthoud: Bradford's page builds
+  with the notice and appears in none of the lists or the sitemap.
+- **Provenance on every item.** `Provenance.astro` puts "Checked 3 October
+  2026 against niwothall.org. Report a correction" on every event and place
+  page and "Checked October 3" on every event row and directory row.
+- **`/correct/`** on every town: what is wrong, an optional reply address,
+  Formspree's honeypot, the town's existing Formspree form, and hidden
+  fields for the town, the item and the page, with the subject `[Correction]
+  Lyons · event/farmers-market` filled from the link. Falls back to a
+  `mailto:` to `hub.correctionsEmail` (hello@insidethetowns.com) where a town
+  has no form id. Formspree's destination is set in its dashboard, per form.
+- **The launch threshold** is counted from what the build would publish
+  (`scripts/lib/launch.ts`). A live town under it is a warning in the
+  validator, a GitHub annotation in CI and a line in the weekly report; its
+  verified content still publishes. A town whose status is not `live` builds
+  one holding page, noindex, with robots.txt disallowing everything and an
+  empty sitemap, whatever its count; the validator says when it is ready.
+  Checked by building Timnath as `wave1`.
+- **The validator never fails a build.** See section 10.
+
+Not in phase 3: the sources registry (phase 4), ingest (5), the review CLI
+(6), the report proper (7), the Firestone redirect (8), mountain pages (9).

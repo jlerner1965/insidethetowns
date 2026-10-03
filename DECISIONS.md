@@ -2349,3 +2349,36 @@ The eight listings that had no source went to staging, each with the
 question the call list already asks. One article linked one of them and
 repeated its hours; the link and the hours came out. Field names are the
 repo's, mapped to the brief's in `docs/ACCURACY-SYSTEM.md` section 8.
+
+## The accuracy system, phase 3: what a stale or closed listing may still show
+
+*3 October 2026.* The build gates and the reader-facing side of the brief,
+on three conditions from the owner first: the daily rebuild is in place and
+running (21 of 21 scheduled runs green), a red validator in CI cannot hold
+a Vercel deploy and the validator in the build path now exits 0 whatever it
+finds, and phases 2 and 3 go to production together.
+
+- **Stripping, not hiding.** A listing past its hours window loses `hours`
+  and `openingHours` in the gate, before any component sees it, rather than
+  each component deciding whether to show them. Four places render hours
+  (the row, the feature card, the page, the structured data); one of them
+  forgetting is exactly how an "Open now" badge outlives the hours behind
+  it. The page and the row then say the hours are not shown and why, since
+  a blank reads as "never had any".
+- **Permanently closed is said in those words.** "Closed" beside a café
+  reads as closed for the day. The page stays for the reader who went
+  looking, noindex and out of every list and the search index, with hours
+  and phone gone; a temporarily closed place keeps its row and its phone,
+  because it means to reopen and someone may ring to ask when.
+- **Corrections ride the forms that exist.** Each town already has a
+  Formspree form with the CSP, the honeypot and the privacy page written
+  for it; `/correct/` posts to the same one with the item in the subject, so
+  nothing new has to be set up or explained. The destination stays a
+  dashboard setting on Formspree; the config names the address only for the
+  `mailto:` fallback.
+- **The threshold warns; the status gates.** Counting verified content
+  cannot be allowed to fail a build, so it does not: a live town under its
+  threshold publishes what it has and is flagged three ways. Whether a site
+  is a guide or a holding page is `status` alone, so a project created early
+  serves one noindex page and a robots.txt that says wait, and flipping to
+  `live` is one word in one file.

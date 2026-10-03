@@ -136,11 +136,13 @@ statusNote: "The Town's meeting page lists this meeting as canceled."
 statusSource: "https://…"         # optional
 ```
 
-A closed place keeps its page and its directory row, labeled, with the hours and
-the open-now badge gone and no place on the home page or in the picks. A canceled
-event stays on the calendar, struck through, for the reader who planned to go, and
-leaves the picks, the feeds and the weekly email. Delete a file only when the
-listing was never right; otherwise mark it, so the URL keeps answering.
+A permanently closed place keeps its page, headed "Permanently closed" with the
+note, and loses everything else: its hours, its phone, its directory row, its place
+in the site search and the sitemap. A temporarily closed place keeps its row,
+labeled, with the hours gone. A canceled event stays on the calendar, struck
+through, for the reader who planned to go, and leaves the picks, the feeds and the
+weekly email. Delete a file only when the listing was never right; otherwise mark
+it, so the URL keeps answering.
 
 ## Article
 

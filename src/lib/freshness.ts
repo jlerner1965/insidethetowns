@@ -97,6 +97,31 @@ export function dueForRecheck(data: Provenanced, now: Date = new Date()): boolea
   return ageDays(data.verified, now) > FRESHNESS.recheckDays;
 }
 
+/**
+ * What a published listing may still show. A closed place keeps its page
+ * (James, 3 October: with a clear notice, no hours or phone, and out of the
+ * directory and the search index); a listing whose hours have passed their
+ * window keeps everything but the hours, and the page says they are not
+ * shown rather than leaving a gap that reads as "no hours".
+ */
+export interface Presentation {
+  /** Strip `hours` and `openingHours`: closed, or hours past their window. */
+  hideHours: boolean;
+  /** Why, for the page to say so: `closed` says nothing extra; `stale` says "not recently checked". */
+  hoursHidden?: 'closed' | 'stale';
+  /** Strip `phone`: a closed place's number is not one to ring. */
+  hidePhone: boolean;
+  /** Out of lists, search and the sitemap; the page itself stays. */
+  delist: boolean;
+}
+
+export function presentation(data: PlaceLike, variant: TownVariant, now: Date = new Date()): Presentation {
+  if (data.status === 'closed') return { hideHours: true, hoursHidden: 'closed', hidePhone: true, delist: true };
+  if (data.status === 'temporarily-closed') return { hideHours: true, hoursHidden: 'closed', hidePhone: false, delist: false };
+  if (!hoursFresh(data, variant, now)) return { hideHours: true, hoursHidden: 'stale', hidePhone: false, delist: false };
+  return { hideHours: false, hidePhone: false, delist: false };
+}
+
 function provenanceExclusion(data: unknown): Exclusion | null {
   if (isExcluded(data)) return { reason: 'invalid', detail: data.issues.join('; ') };
   const entry = data as Provenanced;

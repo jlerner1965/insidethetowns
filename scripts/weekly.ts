@@ -35,6 +35,7 @@ import { addDays, dayKey, startOfDay } from '../src/lib/dates.ts';
 import { LIVE_TOWNS, allTowns } from '../src/config/index.ts';
 import { FRESHNESS } from '../src/config/freshness.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
+import { describeCounts, launchCounts } from './lib/launch.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'content');
@@ -138,6 +139,8 @@ type TownReport = {
   placesWithoutImage: Array<{ file: string; title: string }>;
   stale: Array<{ file: string; title: string; verified: string }>;
   broken: string[];
+  /** Verified, publishable counts against the launch threshold. */
+  launch: ReturnType<typeof launchCounts>;
 };
 
 const reports: TownReport[] = [];
@@ -160,6 +163,7 @@ for (const town of allTowns) {
     placesWithoutImage: [],
     stale: [],
     broken: [],
+    launch: launchCounts(town, contentDir, now),
   };
   const upcomingTitles = new Set<string>();
   for (const { file, data } of events) {
@@ -217,6 +221,9 @@ for (const r of reports) {
     r.upcoming < MIN_UPCOMING ? `  ⚠ fewer than ${MIN_UPCOMING}` : ''
   }`);
   line('-'.repeat(72));
+  if (!r.launch.meets) {
+    line(`  ⚠ Under the launch threshold: ${describeCounts(r.launch)}${r.live ? ' — live, publishing what is verified' : ' — not live; holding page'}`);
+  }
   line(
     `  Calendar: ${r.next30} in 30 days, ${r.next60} in 60, ${r.next90} in 90 — ` +
       (r.lastDate ? `runs to ${r.lastDate} (${r.runwayDays} days)` : 'nothing on') +

@@ -44,6 +44,7 @@ export const hub: HubConfig = {
   social: {
     email: 'hello@insidethetowns.com',
   },
+  correctionsEmail: 'hello@insidethetowns.com',
   nav: [
     { label: 'This Weekend', href: '/this-weekend/' },
     { label: 'Moving Here', href: '/moving/' },

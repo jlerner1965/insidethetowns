@@ -51,10 +51,25 @@ git push -u origin main
    registrar: an `A` record for the apex (`76.76.21.21`) and a `CNAME` for `www`
    (`cname.vercel-dns.com`), or Vercel's nameservers. HTTPS certificates are issued
    automatically once DNS resolves, usually within minutes.
-8. When the domain serves, add the slug to `LIVE_TOWNS` in `src/config/index.ts`
-   and push. The hub and the network bar pick it up on their next build.
+8. When the domain serves and the validator says the town is ready (its verified
+   counts clear the launch threshold), set `status: 'live'` in
+   `src/config/towns/<slug>.ts` and push. The hub, the network bar and CI pick it
+   up on their next build.
 
 ## What happens on every push
+
+A failed Vercel build leaves the previous deployment serving, with last week's
+events and whatever was stale then, so the build is written not to fail over
+content: `npm run build` runs the validator in `--build` mode, which reports
+every problem and exits 0, and an event or place that fails its schema is
+excluded from the build with a line in the log rather than failing it. GitHub
+Actions runs the same validator strictly and goes red; Vercel does not wait
+for Actions, so red CI never holds a deploy. Fix what CI says; the site is
+never stale because of it.
+
+A town whose config is not `status: 'live'` builds one holding page, noindex,
+with a robots.txt that disallows everything, so a project can be created and
+its domain attached before the guide is ready. Flip the status and push.
 
 - **GitHub Actions** (`.github/workflows/ci.yml`) validates every town's content,
   type-checks, and builds every live site. A push with broken content fails here.

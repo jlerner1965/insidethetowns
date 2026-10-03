@@ -70,7 +70,10 @@ export type PlaceStatus = (typeof PLACE_STATUSES)[number];
 export const PLACE_STATUS_LABELS: Record<PlaceStatus, string> = {
   open: 'Open',
   'temporarily-closed': 'Temporarily closed',
-  closed: 'Closed',
+  // "Permanently", because a bare "Closed" beside a café reads as closed for
+  // the day. The page for a closed place exists for the reader who went
+  // looking; it is out of every list and the search index (src/lib/content.ts).
+  closed: 'Permanently closed',
 };
 
 /**

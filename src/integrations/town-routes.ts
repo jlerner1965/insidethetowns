@@ -26,8 +26,18 @@ const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
   ['/for-businesses', 'for-businesses.astro'],
   ['/moving-here', 'moving-here.astro'],
   ['/submit-event', 'submit-event.astro'],
+  ['/correct', 'correct.astro'],
   ['/thanks', 'thanks.astro'],
 ];
+
+/**
+ * A town that has not launched. Its Vercel project may exist before its
+ * content does; until the config says `status: 'live'` the site is one
+ * holding page, noindex, and nothing of the guide is served. The routes in
+ * src/pages/ (about, contact, privacy) still build and are noindex too
+ * (src/layouts/Base.astro), and robots.txt asks crawlers to stay out.
+ */
+const HOLDING_ROUTES: Array<[pattern: string, file: string]> = [['/', 'coming-soon.astro']];
 
 const HUB_ROUTES: Array<[pattern: string, file: string]> = [
   ['/', 'index.astro'],
@@ -46,7 +56,7 @@ export function townRoutes(site: SiteConfig): AstroIntegration {
     name: 'inside-the-towns:routes',
     hooks: {
       'astro:config:setup': ({ config, injectRoute, logger }) => {
-        const routes = site.kind === 'hub' ? HUB_ROUTES : TOWN_ROUTES;
+        const routes = site.kind === 'hub' ? HUB_ROUTES : site.status === 'live' ? TOWN_ROUTES : HOLDING_ROUTES;
         for (const [pattern, file] of routes) {
           injectRoute({
             pattern,
@@ -54,7 +64,10 @@ export function townRoutes(site: SiteConfig): AstroIntegration {
             prerender: true,
           });
         }
-        logger.info(`Site: ${site.siteTitle} (${site.domain}) — ${routes.length} ${site.kind} routes injected`);
+        logger.info(
+          `Site: ${site.siteTitle} (${site.domain}) — ${routes.length} ${site.kind} routes injected` +
+            (site.kind === 'town' && site.status !== 'live' ? ` (status ${site.status}: holding page only)` : ''),
+        );
       },
     },
   };
