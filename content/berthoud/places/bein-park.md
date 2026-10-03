@@ -3,11 +3,11 @@ title: "Ellen Bunyan Bein Park"
 type: park
 address: "Spartan Ave & 10th St"
 area: "South side, by Berthoud High"
-url: "https://www.berthoud.org/facilities"
-tags: [playground, dog park, ball fields]
-summary: "Park beside Berthoud High with a log-cabin-themed playground, a fitness trail, ball fields and two dog parks."
-source: "https://slidesandsunshine.com/playgrounds-in-berthoud/"
-verified: "2026-09-18"
+url: "https://www.berthoud.org/Facilities/Facility/Details/Bein-Park-3"
+tags: [playground, ball fields, trail]
+summary: "The town's soccer park beside Berthoud High, with a fitness trail around the fields, a renovated playground and the Bein baseball complex."
+source: "https://www.berthoud.org/Facilities/Facility/Details/Bein-Park-3"
+verified: "2026-10-03"
 ---
 
-The park next to Berthoud High School on the south side, with a log-cabin-themed playground, a fitness obstacle trail, baseball, softball and soccer fields at the Bein complex, and two fenced dog parks. The playground is fenced from the street.
+Berthoud's soccer fields, at Spartan Avenue and 10th Street beside Berthoud High School, with a walking and running trail around them and fitness stations along the way. The renovated playground is on the northwest side, the Bein baseball and softball complex is part of the park, and there are permanent restrooms. The Town's fenced dog park, with separate sections for small and large dogs, is also on 10th Street.

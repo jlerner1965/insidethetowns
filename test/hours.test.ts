@@ -8,7 +8,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { clockLabel, openingStatus, parseHoursText, parseOpeningHours } from '../src/lib/hours.ts';
+import { clockLabel, hoursTextByDesign, openingStatus, parseHoursText, parseOpeningHours } from '../src/lib/hours.ts';
 
 test('a plain range with am and pm stated', () => {
   assert.deepEqual(parseHoursText('Mon–Sat 6 am–9 pm, Sun 7 am–8 pm'), ['Mo-Sa 06:00-21:00', 'Su 07:00-20:00']);
@@ -63,6 +63,36 @@ test('what it will not read: daylight, seasons, offices, exceptions', () => {
     assert.equal(parseHoursText(text), null, text);
   }
   assert.equal(parseHoursText(undefined), null);
+});
+
+test('text by design: daylight, check-in, appointment, a season, a box office; not a vague or an unread schedule', () => {
+  for (const text of [
+    'Open daily, dawn to dusk',
+    'Open daily, sunrise to sunset',
+    'Daily 8 am–dusk',
+    'Open daily, daylight hours',
+    'Check-in 3 pm, check-out 11 am',
+    'By appointment only',
+    'Sat 10–2, May–Sep; by appointment',
+    'Jun–Sep: Mon–Sat 9:30–4:30, Sun 12:30–4:30',
+    'Cart out Saturdays, April to October',
+    'Fall festival Sep 23–Oct 31; closed Tue by day',
+    'Box office Tue–Fri 10–5, Sat 12–5; closed Sun–Mon',
+    'Sun worship 10 am; office Tue–Thu 9–2',
+    'Runway open 24/7; FBO 8 am–5 pm daily',
+  ]) {
+    assert.equal(hoursTextByDesign(text), true, text);
+  }
+  for (const text of [
+    'Mon–Fri, office hours',
+    'Closed Mondays and Tuesdays',
+    'Daily 7 am–8 pm, except Tue 7 am–2 pm',
+    'Closed Tuesdays; check the ordering page for the day’s closing time',
+    'Tue–Sat 10–5; closed Sun–Mon',
+    'Hours may vary',
+  ]) {
+    assert.equal(hoursTextByDesign(text), false, text);
+  }
 });
 
 test('spans read back, including a close past midnight', () => {

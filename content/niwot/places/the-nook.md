@@ -4,6 +4,7 @@ type: shop
 address: "7980 Niwot Road"
 area: "Inside Niwot Market"
 url: "https://niwotmarket.com/the-nook"
+phone: "(303) 652-0919"
 hours: "Daily 7 am–8 pm"
 tags: [home, gifts]
 summary: "Home decor and gifts tucked into the market, run by the same owner since 2019."

@@ -12,7 +12,7 @@ imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0"
 tags: [government, meetings]
 summary: "The Town's offices and Council Chambers at the south end of Parish Avenue; fishing permits, utility billing and the first-and-third-Monday Council meetings."
 source: "https://johnstownco.gov/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 The Town of Johnstown's hall at the south end of Parish Avenue, where the Town Council meets on the first and third Mondays at 7 pm, the Planning and Zoning Commission on the second and fourth Wednesdays, and residents pay water bills, pull permits and buy Lake Park fishing permits on weekdays.

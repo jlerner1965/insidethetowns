@@ -1,12 +1,13 @@
 ---
 title: "Pioneer Park"
 type: park
-address: "115 E Indiana Ave"
+address: "Indiana Ave & E 2nd St"
 area: "Indiana Avenue"
-tags: [playground, skating, basketball]
-summary: "Neighborhood park with a spaceship play structure, a basketball court, a pavilion and an outdoor skating rink in winter."
-source: "https://slidesandsunshine.com/playgrounds-in-berthoud/"
-verified: "2026-09-18"
+url: "https://www.berthoud.org/Facilities/Facility/Details/Pioneer-Park-9"
+tags: [playground, basketball, fishing, picnic]
+summary: "Neighborhood park on Indiana Avenue with a playground, a basketball court, a roller hockey rink, a fishing pond and three large picnic pavilions."
+source: "https://www.berthoud.org/Facilities/Facility/Details/Pioneer-Park-9"
+verified: "2026-10-03"
 ---
 
-A neighborhood park on Indiana Avenue with a spaceship-shaped play structure, a rock wall, a basketball court, a picnic pavilion and an outdoor skating rink in winter.
+A neighborhood park at Indiana Avenue and 2nd Street with a playground, a basketball court, an outdoor roller hockey rink, a bocce court and horseshoe pits (bring your own equipment), a pond with a fountain where people fish, and three large pavilions with picnic tables and electrical hookups, which the Town suggests for birthday parties and family reunions. Permanent restrooms.

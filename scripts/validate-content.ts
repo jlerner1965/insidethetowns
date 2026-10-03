@@ -18,7 +18,7 @@ import { allSites, liveTowns } from '../src/config/index.ts';
 // Imported directly, not via getHub(): the validator runs without TOWN set.
 import { hub } from '../src/config/towns/hub.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
-import { parseHoursText } from '../src/lib/hours.ts';
+import { hoursTextByDesign, parseHoursText } from '../src/lib/hours.ts';
 import { licenseName, parseLedger, publicCredit, type LedgerRow } from '../src/lib/credits.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -29,6 +29,8 @@ const errors: string[] = [];
 const warnings: string[] = [];
 /** Reported as one line each, after the warnings; there are dozens and they are all the same kind. */
 const unparsedHours: string[] = [];
+/** Lines that are text on purpose (see hoursTextByDesign): counted, not flagged. */
+const hoursByDesign: string[] = [];
 let checked = 0;
 
 function imageSchemaFor(file: string) {
@@ -67,7 +69,8 @@ function validateFile(collection: CollectionName, file: string) {
     // word, sometimes hours that genuinely cannot be said in one line. A
     // closed place's hours are not read at all, so they are not reported.
     if (data.status === 'open' && data.hours && !data.openingHours && !parseHoursText(data.hours)) {
-      unparsedHours.push(`${rel}: hours not read as a schedule ("${data.hours}"); no open-now status. Reword, or set openingHours.`);
+      if (hoursTextByDesign(data.hours)) hoursByDesign.push(`${rel}: "${data.hours}"`);
+      else unparsedHours.push(`${rel}: hours not read as a schedule ("${data.hours}"); no open-now status. Reword, or set openingHours.`);
     }
     // The pages already ignore it, but a pick that has closed is a listing
     // somebody meant to come back to.
@@ -306,8 +309,12 @@ if (!existsSync(contentDir)) {
 }
 
 for (const w of warnings) console.warn(`warn  ${w}`);
-if (unparsedHours.length > 0 && process.argv.includes('--hours')) for (const w of unparsedHours) console.warn(`hours ${w}`);
-else if (unparsedHours.length > 0) console.warn(`hours ${unparsedHours.length} listings have an hours line the site cannot read as a schedule (run with --hours to list them)`);
+if (process.argv.includes('--hours')) {
+  for (const w of unparsedHours) console.warn(`hours ${w}`);
+  for (const w of hoursByDesign) console.log(`hours (text by design) ${w}`);
+} else if (unparsedHours.length > 0) {
+  console.warn(`hours ${unparsedHours.length} listings have an hours line the site cannot read as a schedule (run with --hours to list them); ${hoursByDesign.length} more are text by design`);
+}
 for (const e of errors) console.error(`error ${e}`);
 console.log(`\nvalidate-content: ${checked} entries checked, ${errors.length} errors, ${warnings.length} warnings`);
 if (errors.length > 0) process.exit(1);
