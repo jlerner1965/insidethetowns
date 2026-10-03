@@ -7,7 +7,7 @@ address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/17002118"
 category: family
 source: "https://highplains.libcal.com/event/17002118"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 A taster campaign for ages 12 to 15, playing through the Lost Mine of Phandelver. Bring a character or use a premade one; light snacks provided.

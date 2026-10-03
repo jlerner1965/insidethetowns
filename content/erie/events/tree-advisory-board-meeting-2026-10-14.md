@@ -7,7 +7,7 @@ url: "https://www.erieco.gov/Calendar.aspx?EID=5330"
 category: civic
 recurring: "Second Wednesdays"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5330"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Regular in-person meeting of the Town of Erie Tree Advisory Board. Open to the public.

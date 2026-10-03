@@ -11,7 +11,7 @@ cost: "Free"
 category: music
 recurring: "Sundays at 6"
 source: "https://www.theoldmine.com/events"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Sunday-evening live music at the Old Mine, 6 to 8. No cover.

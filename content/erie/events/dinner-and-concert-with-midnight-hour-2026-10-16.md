@@ -8,7 +8,7 @@ url: "https://www.erieco.gov/Calendar.aspx?EID=5445"
 cost: "Standard $25 / Resident $20"
 category: music
 source: "https://www.erieco.gov/Calendar.aspx?EID=5445"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
-Age 21 and over. A catered dinner with cash bar followed by the band Midnight Hour playing Motown, soul, disco, classic rock and country. The dinner is chicken piccata with an eggplant vegetarian option.
+Age 21 and over. A catered dinner with cash bar followed by the band Midnight Hour playing Motown, soul, disco, classic rock and country. The dinner is chicken piccata with an eggplant vegetarian option. Register online by October 11.

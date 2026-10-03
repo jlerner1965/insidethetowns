@@ -6,9 +6,9 @@ venue: "Erie Community Library"
 address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/15672135"
 category: family
-recurring: "Monthly, first Saturdays"
+recurring: "Monthly, usually first Saturdays; October’s is the second"
 source: "https://highplains.libcal.com/event/15672135"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 A small-group storytime for neurodivergent children and others who benefit from a multisensory approach, using movement, music, stories and sensory play at a preschool level.

@@ -7,7 +7,7 @@ url: "https://www.erieco.gov/Calendar.aspx?EID=5307"
 category: civic
 recurring: "First Wednesdays"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5307"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Regular in-person meeting of the Town of Erie Sustainability Advisory Board. Open to the public.

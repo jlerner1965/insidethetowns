@@ -7,7 +7,7 @@ address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/17512443"
 category: family
 source: "https://highplains.libcal.com/event/17512443"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Mountain View Fire Protection District firefighters read a book about fire safety and run hands-on activities with children.

@@ -7,7 +7,7 @@ address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/17423650"
 category: arts
 source: "https://highplains.libcal.com/event/17423650"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 An intermediate sewing class on measuring, pinning, cutting and machine sewing to resize an oversized shirt. XL shirts are provided, or bring your own.

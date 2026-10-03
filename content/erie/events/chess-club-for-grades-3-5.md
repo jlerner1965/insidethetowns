@@ -10,7 +10,7 @@ url: "https://highplains.libcal.com/event/14991644"
 category: family
 recurring: "Mondays"
 source: "https://highplains.libcal.com/event/14991644"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
-A seven-week Monday chess club for children in grades 3 to 5, with no experience needed. Runs through September and October.
+A seven-week Monday chess club for children in grades 3 to 5, with no experience needed. Runs through September and October; the library lists every Monday to October 26. Registration is full, with a waiting list.

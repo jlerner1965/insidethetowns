@@ -7,7 +7,7 @@ address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/17242358"
 category: other
 source: "https://highplains.libcal.com/event/17242358"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Cameron Randolph explains the history of the Lamb Spring Archaeological Preserve and the Columbian mammoth bones found there. Aimed at adults; all ages welcome.

@@ -9,7 +9,7 @@ cost: "Free"
 category: music
 recurring: "Second Thursdays"
 source: "https://www.theoldmine.com/events"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 The Old Mine's monthly bluegrass jam on the second Thursday, 5 to 7: bring an instrument and join the circle, or just listen.

@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/15852475"
 category: arts
 recurring: "Monthly, first Mondays"
 source: "https://highplains.libcal.com/event/15852475"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 In-person evening book group discussing fiction and non-fiction titles.
