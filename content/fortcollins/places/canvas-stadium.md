@@ -3,6 +3,9 @@ title: "Canvas Stadium"
 type: venue
 address: "Between Pitkin and Lake streets, south side of the CSU campus"
 area: "Campus"
+image: ../images/canvas-stadium.jpg
+imageAlt: "The west press box of Canvas Stadium bearing the canvas stadium sign and retired Rams numbers, with rows of green seats below."
+imageCredit: "Tony Webster, Wikimedia Commons, CC BY 2.0"
 url: "https://building.colostate.edu/project/stadium/"
 phone: "(800) 491-7267"
 tags: [football, stadium, university, events]

@@ -3,6 +3,9 @@ title: "Casey Jones Park"
 type: park
 address: "34201 County Rd 17"
 area: "County Road 17, east of town"
+image: ../images/elizabeth-casey-jones-park.jpg
+imageAlt: "The dirt rodeo arena at Casey Jones Park in Elizabeth with the Elizabeth Stampede announcer's booth, a scoreboard and tall ponderosa pines behind it, and a single rider on horseback in the arena."
+imageCredit: "Elizabethstampede, Wikimedia Commons, CC BY 3.0"
 url: "https://www.elizabethpr.com/casey-jones-park"
 phone: "(303) 646-3599"
 tags: [ball fields, dog park, trail, rodeo arena, pickleball]

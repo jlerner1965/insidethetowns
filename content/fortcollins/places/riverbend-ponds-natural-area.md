@@ -3,6 +3,9 @@ title: "Riverbend Ponds Natural Area"
 type: trail
 address: "2856 E Prospect Rd"
 area: "The Poudre"
+image: ../images/riverbend-ponds-natural-area.jpg
+imageAlt: "One of the Riverbend Ponds under a sky of cumulus clouds, its still water reflecting the cottonwoods on the far bank with the foothills on the horizon."
+imageCredit: "Kimon Berlin, Flickr, CC BY-SA 2.0"
 url: "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Riverbend-Ponds-Natural-Area"
 mapUrl: "https://www.fortcollins.gov/files/sharedassets/city/v/3/community-services/natural-areas/natural-areas-pdfs/brochures-maps/bilingual-natural-areas-map-utd-7-2026.pdf"
 hours: "Daily 5 am–11 pm"

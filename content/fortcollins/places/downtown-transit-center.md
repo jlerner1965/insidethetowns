@@ -3,6 +3,9 @@ title: "Downtown Transit Center (Transfort)"
 type: service
 address: "250 N Mason St"
 area: "Old Town"
+image: ../images/downtown-transit-center.jpg
+imageAlt: "The red-brick former Colorado and Southern freight depot that houses the Downtown Transit Center, seen from its southeast corner under a clear blue sky."
+imageCredit: "Xnatedawgx, Wikimedia Commons, CC BY-SA 4.0"
 url: "https://ridetransfort.com/"
 phone: "970-221-6620"
 hours: "Mon–Fri 8 am–5 pm"

@@ -3,6 +3,9 @@ title: "Fort Collins Museum of Discovery"
 type: venue
 address: "408 Mason Ct"
 area: "Old Town"
+image: ../images/fort-collins-museum-of-discovery.jpg
+imageAlt: "The Fort Collins Museum of Discovery at dusk, its curved metal-clad upper storey and glowing lobby windows rising behind a circular drive."
+imageCredit: "Zerdnog, Wikimedia Commons, CC BY-SA 3.0"
 url: "https://fcmod.org/"
 phone: "970-221-6738"
 hours: "Tue–Sun 9 am–5 pm; closed Mon"

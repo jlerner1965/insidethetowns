@@ -3,6 +3,9 @@ title: "Horsetooth Mountain Open Space"
 type: trail
 address: "West of Horsetooth Reservoir, 4 miles from Fort Collins"
 area: "The foothills"
+image: ../images/horsetooth-mountain-open-space.jpg
+imageAlt: "The notched granite summit of Horsetooth Rock rising above pine-covered slopes under a clear blue sky."
+imageCredit: "Lvaughn7, Wikimedia Commons, CC BY-SA 4.0"
 url: "https://www.larimer.gov/naturalresources/parks/horsetooth-mountain"
 mapUrl: "https://larimer.gov/sites/default/files/2024-11/horsetooth_mountain_english_final_2023.pdf"
 hours: "Daily 4 am–11 pm (main trailhead); Soderberg Trailhead sunrise to sunset"

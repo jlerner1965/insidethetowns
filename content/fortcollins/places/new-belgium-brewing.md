@@ -3,6 +3,9 @@ title: "New Belgium Brewing"
 type: bar
 address: "500 Linden St"
 area: "Old Town"
+image: ../images/new-belgium-brewing.jpg
+imageAlt: "The timber-and-glass front entrance of New Belgium Brewing's taproom building in Fort Collins, with bicycles parked outside under a blue sky."
+imageCredit: "M. Doxtad, Wikimedia Commons, CC BY 2.5"
 url: "https://www.newbelgium.com/"
 source: "https://www.newbelgium.com/visit/fort-collins/"
 verified: "2026-10-01"

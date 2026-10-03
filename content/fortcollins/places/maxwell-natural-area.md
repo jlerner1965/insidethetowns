@@ -3,6 +3,9 @@ title: "Maxwell Natural Area"
 type: trail
 address: "3502 County Road 42C"
 area: "The foothills"
+image: ../images/maxwell-natural-area.jpg
+imageAlt: "A rocky dirt trail drops down the foothill slope of Maxwell Natural Area past a lone ponderosa pine, with Fort Collins spread across the plains below."
+imageCredit: "Vic Dillahay, Flickr, CC BY 2.0"
 url: "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Maxwell-Natural-Area"
 mapUrl: "https://www.fortcollins.gov/files/sharedassets/city/v/3/community-services/natural-areas/natural-areas-pdfs/brochures-maps/bilingual-natural-areas-map-utd-7-2026.pdf"
 hours: "Daily 5 am–11 pm"

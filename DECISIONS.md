@@ -2129,3 +2129,32 @@ shopping district on West Elizabeth.
 - **No photographs yet.** Commons has Oval, Moby and stadium photographs
   worth a look; that is a licensing pass of its own.
 
+## The open-licence photo search, and what it could not find
+
+*3 October 2026.* Every listing without a photograph was searched against
+Commons and Flickr's Creative Commons corner (`docs/PHOTO-SEARCH-2026-10-03.md`).
+Sixteen photographs went in, fifteen of them on Fort Collins; the rest of
+the network's 257 came back empty.
+
+- **The matching rule was the audit's, applied by eye.** A photograph had
+  to show the listed place itself, viewed before choosing and again before
+  going in. Nineteen candidates the matchers rated plausible were rejected
+  on the second look, most for the reasons the audit gave for the five
+  misplaced photographs it found: a previous tenant's sign, an unplaced
+  stretch of river, a neighbour's building, a duplicate. The guide would
+  rather show a typographic tile than any of those.
+- **Why Fort Collins and nobody else.** Commons' coverage follows
+  photographers, and Fort Collins has had several: the NRHP houses, the
+  campus, the museums and the natural areas are there; the small towns have
+  one contributor each, from around 2010 to 2017, who shot the landmarks the
+  guide already uses. Flickr's open corner adds natural areas and breweries.
+  No source adds a storefront with its present sign, in any town.
+- **The remaining 257 are a walk and asks, not a search.** The one large
+  unasked library is the City of Fort Collins (parks, trails, natural
+  areas, 14 listings); the second is CSU Photography (3). Both are added to
+  the ask list in spirit; the emails are the next session's.
+- **Commons throttles.** Four matchers reading thumbnails at once, plus the
+  pool build, drew HTTP 429 from Commons for about an hour. The thumbnail
+  endpoint answered when the file endpoint did not, and downloads were
+  spaced; a future run should read one town at a time.
+

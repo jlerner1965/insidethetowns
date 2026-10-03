@@ -3,6 +3,9 @@ title: "Jax Fish House & Oyster Bar"
 type: restaurant
 address: "123 N College Ave"
 area: "Old Town"
+image: ../images/jax-fish-house.jpg
+imageAlt: "The three-storey brick Opera House Block on North College Avenue in Old Town Fort Collins, with the blue neon Jax sign over the Jax Fish House storefront."
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 url: "https://www.jaxfishhouse.com/fort-collins/"
 source: "https://www.jaxfishhouse.com/fort-collins/"
 verified: "2026-10-01"

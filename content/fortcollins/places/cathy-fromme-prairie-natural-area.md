@@ -3,6 +3,9 @@ title: "Cathy Fromme Prairie Natural Area"
 type: trail
 address: "1999 Fromme Prairie Way"
 area: "South Fort Collins"
+image: ../images/cathy-fromme-prairie-natural-area.jpg
+imageAlt: "The paved Fossil Creek Trail curves across the snow-patched winter grassland of Cathy Fromme Prairie toward the foothills west of Fort Collins."
+imageCredit: "Sean Gillies, Flickr, CC BY-SA 2.0"
 url: "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Cathy-Fromme-Prairie-Natural-Area"
 mapUrl: "https://www.fortcollins.gov/files/sharedassets/city/v/3/community-services/natural-areas/natural-areas-pdfs/brochures-maps/bilingual-natural-areas-map-utd-7-2026.pdf"
 hours: "Daily 5 am–11 pm"
