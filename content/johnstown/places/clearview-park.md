@@ -7,8 +7,8 @@ url: "https://johnstownco.gov/618/Clearview-Park"
 hours: "Daily 5 am–10 pm"
 tags: [playground, shelter]
 summary: "Neighborhood park in the Clearview subdivision with a playground and a reservable shelter with electricity."
-source: "https://www.johnstownco.gov/240/Parks"
-verified: "2026-09-18"
+source: "https://www.johnstownco.gov/618/Clearview-Park"
+verified: "2026-10-03"
 ---
 
 A neighborhood park on Silverbell Drive near Elwell Elementary, with playground equipment and a shelter with electricity that can be reserved for gatherings.
