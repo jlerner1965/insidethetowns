@@ -2090,3 +2090,42 @@ it.
   ordinal is decoration. The listing says "the annual Niwot Trot" and cites
   both.
 
+## Colorado State, as a Campus area
+
+*3 October 2026.* The audit's one structural recommendation that was taken
+up: the university is the largest thing in Fort Collins and the guide had
+one listing and three football games for it, with the stadium filed under
+"Campus West", which the guide's own Moving Here page defines as the
+shopping district on West Elizabeth.
+
+- **An area, not a menu item.** "Campus" joins Old Town, Midtown and the
+  rest as an `area`, with six listings, an article and the events that pass
+  the four-part test. The shared navigation stays shared; a Colorado State
+  page can be promoted to it once it holds enough, as the audit said. The
+  guide's promise becomes "Old Town and Campus", in the tagline.
+- **Six listings, not seven.** The Oval has no page of its own on the
+  university's visitor site, so it is in the article and the Moving Here
+  entry rather than a thin listing; the rest come from the institutions'
+  own pages, with hours and phones. The Lory Student Center publishes only
+  its summer hours as of October; the listing carries them and says so.
+- **Venue names match, so venue pages list their events.** The place page
+  lists events whose `venue` equals its title, so Canvas Stadium's title lost
+  "and the CSU campus", the football events name "Canvas Stadium", the
+  basketball events name "Moby Arena" and the shows name "University Center
+  for the Arts". The audit's "Canvas Stadium links to none of its games" is
+  fixed by that rather than by code.
+- **What was held.** Men's basketball: eight home dates on the Rams' page,
+  none with a time, so none is listed. Volleyball: the Rams' schedule page
+  refused every automated read (the basketball and football pages answered
+  on retry), so the seven home matches the audit saw are not listed until
+  the page can be read. The All-Choral Holiday Concert is off campus, at
+  First United Methodist, and is listed with that venue.
+- **The shows chosen by the test, not the calendar.** The UCA's October and
+  November calendar runs to forty rows. Listed: the University Symphony, the
+  free *Peter and the Wolf*, the Menotti one-acts, the Halloween Organ
+  Extravaganza, *Alice by Heart*, the Fall Dance Concert and the holiday
+  choral concert. Studio recitals, area recitals and ensemble showcases are
+  on the UCA's own calendar, which the listing links.
+- **No photographs yet.** Commons has Oval, Moby and stadium photographs
+  worth a look; that is a licensing pass of its own.
+
