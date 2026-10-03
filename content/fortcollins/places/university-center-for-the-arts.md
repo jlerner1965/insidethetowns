@@ -3,6 +3,9 @@ title: "University Center for the Arts"
 type: venue
 address: "1400 Remington St"
 area: "Campus"
+image: ../images/university-center-for-the-arts.jpg
+imageAlt: "The columned, cupola-topped former Fort Collins High School on Remington Street, now CSU's University Center for the Arts, behind beds of summer flowers."
+imageCredit: "Spilly816, Wikimedia Commons, CC BY-SA 3.0"
 url: "https://uca.colostate.edu/"
 phone: "(970) 491-2787"
 tags: [concerts, theatre, museums, campus]

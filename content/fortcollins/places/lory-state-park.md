@@ -3,6 +3,9 @@ title: "Lory State Park"
 type: park
 address: "708 Lodgepole Dr, Bellvue"
 area: "The foothills"
+image: ../images/lory-state-park.jpg
+imageAlt: "Golden autumn grassland in Lory State Park with Arthur's Rock on the left skyline and the red sandstone of Ingleside Ridge to the right."
+imageCredit: "Lvaughn7, Wikimedia Commons, CC BY-SA 4.0"
 url: "https://cpw.state.co.us/placestogo/parks/Lory"
 phone: "970-493-1623"
 tags: [hiking, mountain-biking, horses, camping, dogs-on-leash]

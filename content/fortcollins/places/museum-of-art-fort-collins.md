@@ -3,6 +3,9 @@ title: "Museum of Art Fort Collins"
 type: venue
 address: "201 S College Ave, Suite 100-101"
 area: "Old Town"
+image: ../images/museum-of-art-fort-collins.jpg
+imageAlt: "The carved stone entrance of the 1912 Fort Collins Post Office at 201 South College Avenue, home of the Museum of Art Fort Collins, flanked by iron lanterns."
+imageCredit: "Charles Willgren, Wikimedia Commons, CC BY 2.0"
 url: "https://moafc.org/"
 phone: "970-482-2787"
 hours: "Wed–Thu 10–5, Fri 10–7, Sat 10–5, Sun 12–5; closed Mon–Tue"

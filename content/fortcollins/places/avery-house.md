@@ -3,6 +3,9 @@ title: "The Avery House"
 type: venue
 address: "328 W Mountain Ave"
 area: "Old Town"
+image: ../images/avery-house.jpg
+imageAlt: "The sandstone Avery House with its steep gables, green trim and front porch, seen across the lawn with a small fountain in the foreground."
+imageCredit: "Gribeco, Wikimedia Commons, CC BY-SA 3.0"
 url: "https://www.poudrelandmarks.org/avery-house"
 phone: "970-221-0533"
 hours: "Sat 11–2, Sun 1–4"

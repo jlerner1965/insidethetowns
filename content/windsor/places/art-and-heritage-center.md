@@ -3,6 +3,9 @@ title: "Art & Heritage Center"
 type: venue
 address: "116 5th St"
 area: "5th Street, downtown"
+image: ../images/windsor-art-and-heritage-center.jpg
+imageAlt: "The tan-brick 1909 former Windsor City Hall on 5th Street, now the Art & Heritage Center, with CITY HALL lettered above its columned facade and pickup trucks parked out front."
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0"
 url: "https://www.recreationliveshere.com/183/Art-Heritage-Center"
 source: "https://www.recreationliveshere.com/Facilities/Facility/Details/Art-Heritage-Center-37"
 verified: "2026-10-02"
