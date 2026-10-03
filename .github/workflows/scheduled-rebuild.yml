@@ -22,6 +22,13 @@ on:
     # them, see Freshness.astro; a crawler does not run that script.) The 07:10
     # fire is the earliest that is past midnight Mountain in both halves of
     # the year, and two chances of landing early beat one.
+    # 2 October 2026, measured: the 07:10 fire ran at 13:49 UTC and the 09:10
+    # fire at 15:42, six and a half hours late each, so a reader without
+    # JavaScript saw Thursday's events on Friday morning anyway. A 04:10 fire
+    # lands between 2 and 5 am Mountain at that lateness; if GitHub ever runs
+    # it on time it is a 10 pm rebuild the evening before, which changes
+    # nothing and costs ten deploys, and the 07:10 fire still covers the night.
+    - cron: '10 4 * * *'
     - cron: '10 7 * * *'
     - cron: '10 9 * * *'
     # 20:10 UTC Thursday — 14:10 Mountain, so the weekend view is fresh at the
