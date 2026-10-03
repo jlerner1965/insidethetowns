@@ -7,10 +7,10 @@ address: "417 W Magnolia St, Fort Collins, CO 80521"
 url: "https://www.lctix.com/shows-tickets/the-legend-of-sleepy-hollow/"
 cost: "$15"
 category: arts
-timeNote: "Nine shows Oct 9–24: Fri 7 pm; Sat 7 pm, plus 1 pm on Oct 17 and 24; Sun Oct 11 at 1 pm"
+timeNote: "Nine shows Oct 9–24: Fri 7 pm; Sat 7 pm, plus 1 pm on Oct 17 and 24; Sun Oct 11 at 1 pm. Opening night sold out"
 organizer: "Debut Theatre Company"
 source: "https://www.lctix.com/shows-tickets/the-legend-of-sleepy-hollow/"
-verified: "2026-10-01"
+verified: "2026-10-03"
 ---
 
-Debut Theatre Company's family staging of Washington Irving's tale of Ichabod Crane and the Headless Horseman in the Magnolia Theatre, recommended for ages 5 and up. Performances October 9, 10 and 11, 16 and 17, and 23 and 24; all seats $15.
+Debut Theatre Company's family staging of Washington Irving's tale of Ichabod Crane and the Headless Horseman in the Magnolia Theatre, recommended for ages 5 and up. Performances October 9, 10 and 11, 16 and 17, and 23 and 24; all seats $15. The Lincoln Center lists opening night, Friday, October 9, as sold out.

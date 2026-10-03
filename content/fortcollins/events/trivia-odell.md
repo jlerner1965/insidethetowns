@@ -9,7 +9,7 @@ url: "https://www.eventbrite.com/e/trivia-night-odell-foco-tickets-1985287766151
 category: other
 recurring: "Mondays at 6"
 source: "https://www.eventbrite.com/e/trivia-night-odell-foco-tickets-1985287766151"
-verified: "2026-10-01"
+verified: "2026-10-03"
 ---
 
 Pub trivia in the Odell taproom every Monday at 6 pm. Odell lists it as a weekly series with no end date; this listing stops in mid-December.

@@ -11,7 +11,7 @@ category: sports
 recurring: "Tuesdays at 5:45"
 timeNote: "Gather 5:45 pm, run at 6"
 source: "https://www.eventbrite.com/e/run-club-odell-foco-tickets-1985835655904"
-verified: "2026-10-01"
+verified: "2026-10-03"
 ---
 
 Every Tuesday from the Odell taproom on East Lincoln: gather at 5:45, run at 6, on routes of three to five miles, with $5 pints at the end. Odell lists it as every Tuesday with no end date; this listing stops in mid-December.

@@ -8,7 +8,7 @@ cost: "Free"
 category: food
 recurring: "Third Fridays, 5–8 pm"
 source: "https://downtownfortcollins.com/play/fort-collins-foodie-walk"
-verified: "2026-10-01"
+verified: "2026-10-03"
 ---
 
 A free, self-guided walking tour of downtown's food and drink businesses on the third Friday of every month, 5 to 8 pm.

@@ -8,7 +8,7 @@ url: "https://gardens.fortcollins.gov/Events-and-Classes/Bonsai-Show"
 cost: "Included with Gardens admission"
 category: arts
 source: "https://gardens.fortcollins.gov/Events-and-Classes/Bonsai-Show"
-verified: "2026-10-01"
+verified: "2026-10-03"
 ---
 
 A one-day show of bonsai from Northern Colorado growers at the Gardens on Spring Creek, 10 am to 4 pm, included with regular admission.

@@ -8,7 +8,7 @@ url: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q4/City-Council-
 category: civic
 recurring: "First and third Tuesdays at 6"
 source: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q4/City-Council-Meetings/Oct.-6-City-Council-Meeting"
-verified: "2026-10-01"
+verified: "2026-10-03"
 ---
 
 Regular meeting of the Fort Collins City Council in the Council Chambers at City Hall, 6 pm, listed to run until 10. Attend in person or by Zoom, or watch on FCTV; agendas are posted on the City's agendas page. Work sessions, which the public watches but does not take part in, are on the second and fourth Tuesdays.
