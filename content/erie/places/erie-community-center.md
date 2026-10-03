@@ -12,7 +12,7 @@ imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 tags: [pool, climbing wall, gym, classes]
 summary: "The Town's recreation center: indoor pool with a lazy river and hot tub, a climbing wall, a gym, an indoor track, racquetball, fitness classes and the senior lounge. Day passes for anyone."
 source: "https://www.erieco.gov/172/Erie-Community-Center"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 The Town's recreation center on Powers Street, next to the library and Erie Community Park: an indoor pool with a lazy river and hot tub, a full-court gymnasium, an indoor running track, a climbing tower with auto-belays (free if you are belay-certified), racquetball courts, a fitness floor, meeting rooms and the Columbine Lounge for seniors. Open to everyone regardless of residency; day passes and memberships at the desk. Hosts the Veterans Day Celebration and the dinner concerts.
