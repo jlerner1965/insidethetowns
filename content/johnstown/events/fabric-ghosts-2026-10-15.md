@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/fabric-ghost/"
 cost: "Free"
 category: arts
 source: "https://johnstownmillikenpubliclibraries.us/event/fabric-ghost/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Craft session for tweens making a fabric ghost and a spider. Materials are provided.

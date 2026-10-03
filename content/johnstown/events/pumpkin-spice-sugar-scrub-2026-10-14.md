@@ -9,7 +9,7 @@ cost: "Free"
 category: other
 timeNote: "Two sessions: 5:30-6:15 pm and 6:30-7:15 pm"
 source: "https://johnstownmillikenpubliclibraries.us/event/10138/2026-10-14/1/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Adults' workshop with Kimberly Gonzales of pür Evergreen on making pumpkin spice sugar scrub. Two identical sessions are offered the same evening.

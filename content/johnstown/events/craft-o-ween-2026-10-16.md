@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/craft-o-ween-2/"
 cost: "Free"
 category: family
 source: "https://johnstownmillikenpubliclibraries.us/event/craft-o-ween-2/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Halloween drop-in afternoon at the Johnstown library with a scavenger hunt and crafts. The Milliken library runs a companion morning session from 10 am to noon the same day.

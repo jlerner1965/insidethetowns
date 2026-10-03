@@ -11,7 +11,7 @@ cost: "Free"
 category: family
 recurring: "Thursdays at 11"
 source: "https://johnstownmillikenpubliclibraries.us/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 The perfect first library adventure: songs, bounces and board books for babies and their grown-ups, Thursday mornings at the Johnstown library.

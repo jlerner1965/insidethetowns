@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/spooky-flowers/"
 cost: "Free"
 category: family
 source: "https://johnstownmillikenpubliclibraries.us/event/spooky-flowers/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Children's craft session making a Halloween-themed bouquet. Materials are provided.

@@ -10,7 +10,7 @@ cost: "Free"
 category: family
 recurring: "Mondays at 10"
 source: "https://johnstownmillikenpubliclibraries.us/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Songs, movement and a story for young children every Monday morning at the Johnstown library, with a second session some weeks at 1 pm. No registration.

@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/crafty-crew-halloween-ma
 cost: "Free"
 category: family
 source: "https://johnstownmillikenpubliclibraries.us/event/crafty-crew-halloween-magnets/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 All-ages family craft hour making Halloween fridge magnets. Materials are provided.

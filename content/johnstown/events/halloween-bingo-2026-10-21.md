@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/halloween-bingo/"
 cost: "Free"
 category: other
 source: "https://johnstownmillikenpubliclibraries.us/event/halloween-bingo/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Evening of Halloween-themed bingo for adults, with prizes.
