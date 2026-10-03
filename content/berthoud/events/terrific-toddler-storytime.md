@@ -8,9 +8,9 @@ address: "236 Welch Ave"
 url: "https://www.berthoudcommunitylibrary.org/events-classes"
 cost: "Free"
 category: family
-recurring: "Fridays at 10:30"
+recurring: "Fridays at 10:30; no storytime November 27 (library closed)"
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 A fast-paced storytime with books, songs and dancing for toddlers, every Friday morning at the library. No registration.

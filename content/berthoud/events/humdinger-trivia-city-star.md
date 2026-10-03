@@ -10,8 +10,8 @@ url: "https://www.citystarbrewing.com/events"
 cost: "Free"
 category: other
 recurring: "Tuesdays at 6"
-source: "https://www.citystarbrewing.com/events"
-verified: "2026-10-02"
+source: "https://citystarbrewing.com/events/"
+verified: "2026-10-03"
 ---
 
 Pub trivia every Tuesday evening in the City Star taproom. Free to play; the winning team takes $30 in City Star beer. A food truck parks out front from 4.

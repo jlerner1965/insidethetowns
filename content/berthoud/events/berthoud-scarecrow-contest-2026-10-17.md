@@ -9,7 +9,7 @@ url: "https://berthoudmainstreet.org/fall-for-berthoud/"
 cost: "Free"
 category: family
 source: "https://berthoudmainstreet.org/fall-for-berthoud/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Businesses and organizations around Berthoud put up scarecrows and visitors follow the Scarecrow Map to find them. Online voting runs October 17 to 30 and the People's Choice winner is announced October 31.

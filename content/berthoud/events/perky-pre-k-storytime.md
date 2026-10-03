@@ -8,9 +8,9 @@ address: "236 Welch Ave"
 url: "https://www.berthoudcommunitylibrary.org/events-classes"
 cost: "Free"
 category: family
-recurring: "Wednesdays at 10:30"
+recurring: "Wednesdays at 10:30; no storytime November 11 (library closed)"
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Stories, songs, movement and a craft for preschoolers, every Wednesday morning at the library. No registration.

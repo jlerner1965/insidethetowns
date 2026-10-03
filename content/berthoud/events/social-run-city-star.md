@@ -10,8 +10,8 @@ url: "https://www.citystarbrewing.com/events"
 cost: "Free; $3 post-run beer"
 category: sports
 recurring: "Thursdays at 6"
-source: "https://www.citystarbrewing.com/events"
-verified: "2026-10-02"
+source: "https://citystarbrewing.com/events/"
+verified: "2026-10-03"
 ---
 
 A weekly group run from the brewery on Thursday evenings, two distance options, every pace welcome, with a $3 post-run beer waiting at the end.

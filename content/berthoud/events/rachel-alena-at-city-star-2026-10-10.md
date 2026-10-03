@@ -7,7 +7,7 @@ address: "321 Mountain Ave, Berthoud, CO 80513"
 url: "https://citystarbrewing.com/event/rachel-alena-duo/2026-10-10/"
 category: music
 source: "https://citystarbrewing.com/event/rachel-alena-duo/2026-10-10/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Rachel Alena grew up around working musicians and trained at the Dick Grove School of Music in Los Angeles before working as a session singer. She plays an evening set in the taproom.

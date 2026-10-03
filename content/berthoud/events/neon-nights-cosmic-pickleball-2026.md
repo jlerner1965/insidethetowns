@@ -7,7 +7,8 @@ address: "1000 N Berthoud Pkwy"
 url: "https://www.berthoud.org/1530/Upcoming-Events"
 category: sports
 source: "https://www.berthoud.org/1530/Upcoming-Events"
-verified: "2026-09-18"
+cost: "$45 per team"
+verified: "2026-10-03"
 ---
 
 Night two of Neon Nights at the Recreation Center: a cosmic pickleball party under blacklight, glow gear encouraged. Ages 16 and up; register through Berthoud Recreation.

@@ -9,7 +9,7 @@ cost: "Free"
 category: other
 recurring: "Monthly on a Tuesday, September through November"
 source: "https://www.berthoud.org/DocumentCenter/View/7680/Berthoud-Parks--Recreation-Fall-Activity-Guide-2026"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
-The Berthoud Historical Society brings in a speaker each month to talk about a historical topic tied to Berthoud and the Little Thompson Valley. Held in the community room at the recreation center.
+The Berthoud Historical Society brings in a speaker each month to talk about a historical topic tied to Berthoud and the Little Thompson Valley. Held in the community room at the recreation center. The Town's fall activity guide lists this date; the Historical Society's own page describes the series as third Tuesdays and had not posted its fall dates when checked, so confirm before going.

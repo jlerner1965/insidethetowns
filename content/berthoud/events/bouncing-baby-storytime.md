@@ -10,7 +10,7 @@ cost: "Free"
 category: family
 recurring: "Tuesdays at 10:30"
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Songs, bounces and finger and foot play for babies under two and their grown-ups, every Tuesday morning at the library. No registration.
