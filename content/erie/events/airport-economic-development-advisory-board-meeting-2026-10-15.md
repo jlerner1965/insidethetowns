@@ -7,7 +7,7 @@ url: "https://www.erieco.gov/Calendar.aspx?EID=5354"
 category: civic
 recurring: "Third Thursdays"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5354"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Regular in-person meeting of the advisory board for Erie Municipal Airport economic development. Open to the public.

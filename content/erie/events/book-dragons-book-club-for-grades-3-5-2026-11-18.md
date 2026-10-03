@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/17380772"
 category: family
 recurring: "Monthly, usually second Wednesdays; November’s is the third"
 source: "https://highplains.libcal.com/event/17380772"
-verified: "2026-10-02"
+verified: "2026-10-03"
 ---
 
 Book club for children in grades 3 to 5, with discussion and activities. Copies of the month’s book can be collected at the library. Registration required.

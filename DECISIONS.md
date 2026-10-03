@@ -2158,3 +2158,50 @@ the network's 257 came back empty.
   endpoint answered when the file endpoint did not, and downloads were
   spaced; a future run should read one town at a time.
 
+
+## The first weekly pass across all nine towns
+
+*3 October 2026.* The weekly routine (`npm run weekly`, then the organizers'
+own pages) ran for every town in one day, Johnstown first and the other
+eight in parallel, one worker a town, each confined to its town's events
+folder and each handing back a report. Across the eight: a hundred past
+one-offs deleted, sixty-five events added, some 130 files corrected or
+re-sourced, 327 organizer pages read and 36 found unreachable. Johnstown's
+pass, earlier the same day, added fourteen library events and deleted
+eleven.
+
+- **The organizer's page is the source, not the aggregator.** Most
+  corrections were re-sourcing: a listing that cited a library's "upcoming"
+  index or the Lyons Recorder now cites the event's own page, and the
+  `verified` date says when it was read. Where the organizer's page and an
+  aggregator disagreed, the organizer won: the Lyons ukulele group moved to
+  the library's dates (13 October, 10 November, 8 December), and the three
+  "Afternoon Art" files went, because the library lists no such programme,
+  only Monday Makerspace in the same slot.
+- **Series end where the calendar ends.** The barre3 class at New Belgium
+  was a weekly file implying a date the brewery does not list; it is three
+  dated files now. The Niwot Rotary's series runs to 15 October, where the
+  club's own calendar stops, with the November mornings in a second file.
+  The Lyons storytimes stop at the library's last listed date and resume in
+  a November file, because the library skips four Tuesdays.
+- **Members-only goes nowhere, as the audit said.** Erie's six Business
+  Connections mornings were listed as "open to Chamber members"; the Chamber
+  page says you must be a member to join. They are gone.
+- **Unreadable pages are left alone, not guessed at.** Spirit Hound and
+  MainStage in Lyons render their calendars in scripts; Washington's in Fort
+  Collins answers with a captcha; Oskar Blues and csurams.com refuse
+  automated reads. Those listings keep their earlier `verified` dates and
+  the reports name them, 32 listings in all.
+- **The Beerwerks feed is in Eastern time.** Timnath Beerwerks' Squarespace
+  calendar can be read as JSON (`?format=json`), and its epoch times are two
+  hours ahead of Denver: a truck the brewery's page puts at 12 to 8 reads as
+  10 to 6. The audit's "correction" of the Cousins Maine Lobster truck on
+  31 October was made from the feed and was wrong; the Timnath worker put
+  the brewery's 12 to 8 back and the audit note now says so. Read the
+  brewery's event pages for times; use the feed only for which days.
+- **What a parallel pass costs.** Eight workers read some 330 pages in
+  about twenty minutes each. The trade is review: every report was checked
+  for weekday against date, venue against the place titles the venue pages
+  match on, and source against the organizer, before its town was committed.
+  The Lyons and Niwot workers each flagged their own doubtful calls, which
+  is the behaviour to keep.

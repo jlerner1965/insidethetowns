@@ -6,7 +6,7 @@ address: "4700 Prospect Road, Timnath, CO 80547"
 url: "https://www.maxpreps.com/co/timnath/timnath-cubs/soccer/schedule/"
 category: sports
 source: "https://www.maxpreps.com/co/timnath/timnath-cubs/soccer/schedule/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Varsity boys soccer home league match against Thompson Valley at 6 p.m.

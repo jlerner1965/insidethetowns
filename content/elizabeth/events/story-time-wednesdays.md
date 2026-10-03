@@ -10,8 +10,8 @@ url: "https://pplibraries.org/01b-elizabeth-library/"
 cost: "Free"
 category: family
 recurring: "Mondays and Wednesdays at 10"
-source: "https://pplibraries.org/01b-elizabeth-library/"
-verified: "2026-09-18"
+source: "https://pplibraries.org/03a-activities-calendar/"
+verified: "2026-10-03"
 ---
 
 The Wednesday half of the Elizabeth Library's twice-weekly story time: books, songs and movement for babies through preschoolers in the children's room on Beverly Street. Free, no registration.

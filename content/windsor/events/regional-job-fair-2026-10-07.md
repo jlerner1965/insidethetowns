@@ -10,7 +10,7 @@ category: other
 organizer: "Windsor Area Chamber of Commerce"
 organizerUrl: "https://www.windsorchamber.net/"
 source: "https://business.windsorchamber.net/events/details/regional-job-fair-16899"
-verified: "2026-10-01"
+verified: "2026-10-03"
 ---
 
 Windsor-area employers hiring for part-time, seasonal and full-time work, at the Aims Community College campus on Southgate Drive, 4 to 6:30 on a Wednesday afternoon. Free for job-seekers; businesses that want a table register with the Chamber at no cost.

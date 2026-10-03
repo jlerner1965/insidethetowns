@@ -12,7 +12,7 @@ category: other
 recurring: "Tuesdays at 6 and 7"
 timeNote: "Games at 6 pm and 7 pm"
 source: "https://www.theoldmine.com/events"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Sporcle-hosted pub trivia in the Old Mine's cider pub every Tuesday, with a 6 pm and a 7 pm game. Free to play.

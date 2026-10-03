@@ -11,7 +11,7 @@ category: family
 recurring: "Fridays at 10 and 11 through October 30"
 timeNote: "Sessions at 10 and 11 am"
 source: "https://poudrelibraries.librarycalendar.com/event/old-town-outdoor-mindful-movement-storytime-38327"
-verified: "2026-10-01"
+verified: "2026-10-03"
 ---
 
 Stories, music and movement under the Storytime Tree in Library Park, for babies to preschoolers and their grown-ups, with a short playtime at the end. Sessions at 10 and 11 every Friday through October 30; it moves indoors in bad weather.

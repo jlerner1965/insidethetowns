@@ -9,7 +9,7 @@ category: festival
 timeNote: "Daily hours not yet published"
 organizer: "Team Player Productions"
 source: "https://www.focofallfest.com/"
-verified: "2026-10-01"
+verified: "2026-10-03"
 featured: true
 ---
 

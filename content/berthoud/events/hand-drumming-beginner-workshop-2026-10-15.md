@@ -4,11 +4,11 @@ start: "2026-10-15T18:45"
 end: "2026-10-15T19:45"
 venue: "Wildfire Arts Center"
 address: "425 Massachusetts Ave, Berthoud, CO 80513"
-url: "https://tockify.com/wildfire/agenda"
+url: "https://tockify.com/wildfire/detail/654/1792111500000"
 cost: "$20"
 category: music
-source: "https://tockify.com/wildfire/agenda"
-verified: "2026-09-18"
+source: "https://tockify.com/wildfire/detail/654/1792111500000"
+verified: "2026-10-03"
 ---
 
 A one-hour introduction to hand drumming for adults and children age 9 and up, teaching basic strikes and three- and four-part rhythms. Drums are provided or bring your own. Led by certified drum facilitator Nancy Brauhn-Curnes; minimum 4, maximum 12 participants.

@@ -9,7 +9,7 @@ cost: "Free"
 category: festival
 featured: true
 source: "https://timnath.org/holidayfestival/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 The Town's holiday afternoon at Community Park: photos with Santa, performances from local bands and choirs, ice sculptures, artisan vendors and food trucks, from noon to 2. Park in the Community Park lot or on nearby streets; volunteer golf-cart shuttles run from two pickup points.

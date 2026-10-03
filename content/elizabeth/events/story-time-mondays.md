@@ -10,8 +10,8 @@ url: "https://pplibraries.org/01b-elizabeth-library/"
 cost: "Free"
 category: family
 recurring: "Mondays and Wednesdays at 10"
-source: "https://pplibraries.org/01b-elizabeth-library/"
-verified: "2026-09-18"
+source: "https://pplibraries.org/03a-activities-calendar/"
+verified: "2026-10-03"
 ---
 
 Story time in the children's room at the Elizabeth branch of Pines & Plains Libraries, Mondays and Wednesdays at 10: books, songs and movement for babies through preschoolers, with a craft most weeks. Free and drop-in. Holiday weeks vary, so check the library's calendar in late December.

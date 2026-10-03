@@ -9,7 +9,7 @@ cost: "Free; registration required"
 category: outdoors
 organizer: "City of Fort Collins Natural Areas"
 source: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q3/Natural-Areas/Black-Footed-Ferret-Exploration"
-verified: "2026-10-01"
+verified: "2026-10-03"
 ---
 
 An evening looking for North America's rarest mammal: a presentation at the museum's ferret exhibit, then the hour's drive together to Soapstone Natural Area to hike out and search the prairie-dog colonies where black-footed ferrets have been reintroduced. Register through the City's Engage calendar.

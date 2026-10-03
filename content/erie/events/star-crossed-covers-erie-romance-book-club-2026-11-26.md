@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/15947127"
 category: arts
 recurring: "Monthly, fourth Thursdays"
 source: "https://highplains.libcal.com/event/15947127"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
-In-person book club for readers of romance fiction.
+In-person book club for readers of romance fiction. Registration required. The library's calendar lists this date, which is Thanksgiving Day, and still shows seats open; check the library's page before going.

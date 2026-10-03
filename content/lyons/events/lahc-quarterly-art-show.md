@@ -1,12 +1,13 @@
 ---
 title: "Arts & Humanities Commission quarterly art show"
-start: "2026-10-21T17:30"
+start: "2026-10-21T17:00"
+end: "2026-10-21T19:00"
 venue: "Lyons Regional Library"
 address: "451 4th Ave"
-url: "https://lyonsrecorder.org/2026/09/17/things-happening-in-lyons-9-17-26/"
+url: "https://www.townoflyons.com/Calendar.aspx?EID=6661"
 category: arts
-source: "https://lyonsrecorder.org/2026/09/17/things-happening-in-lyons-9-17-26/"
-verified: "2026-09-18"
+source: "https://www.townoflyons.com/Calendar.aspx?EID=6661"
+verified: "2026-10-03"
 ---
 
-The fourth-quarter show of the Lyons Arts & Humanities Commission opens at the library.
+The fourth-quarter show of the Lyons Arts & Humanities Commission opens with a reception at the library, 5 to 7. This round's theme is SHUDDER.

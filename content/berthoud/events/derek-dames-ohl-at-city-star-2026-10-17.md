@@ -7,7 +7,7 @@ address: "321 Mountain Ave, Berthoud, CO 80513"
 url: "https://citystarbrewing.com/event/derek-dames-ohl/"
 category: music
 source: "https://citystarbrewing.com/event/derek-dames-ohl/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Derek Dames Ohl is a travelling roots musician whose sets move between country, blues and honky-tonk. Free to attend in the taproom.

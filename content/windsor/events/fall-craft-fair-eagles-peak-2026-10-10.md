@@ -8,7 +8,7 @@ url: "https://business.windsorchamber.net/events/details/fall-craft-fair-by-eagl
 cost: "Free"
 category: market
 source: "https://business.windsorchamber.net/events/details/fall-craft-fair-by-eagle-s-peak-16898"
-verified: "2026-10-01"
+verified: "2026-10-03"
 ---
 
 A Saturday craft market of handmade goods, metal art, glassware and jewelry among them, at Eagle's Peak on Apex Drive, 10 to 4. Free to browse, and listed on the Windsor Chamber's community calendar.

@@ -9,7 +9,7 @@ category: festival
 timeNote: "9 am registration, 10 am costume contest, noon parade; ends 2 pm"
 organizer: "Tour De Corgi L.L.C."
 source: "https://tourdecorgi.org/event-info/"
-verified: "2026-10-01"
+verified: "2026-10-03"
 featured: true
 ---
 

@@ -6,9 +6,9 @@ venue: "Erie Community Library"
 address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/16890324"
 category: family
-recurring: "Monthly, third Sundays"
+recurring: "Monthly, usually third Sundays; December’s is the second"
 source: "https://highplains.libcal.com/event/16890324"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Drop-in building session with LEGO bricks provided. An adult must stay and supervise; bricks may be a choking hazard for under-3s.

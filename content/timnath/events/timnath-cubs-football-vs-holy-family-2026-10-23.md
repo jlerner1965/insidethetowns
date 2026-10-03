@@ -6,7 +6,7 @@ address: "4700 Prospect Road, Timnath, CO 80547"
 url: "https://www.maxpreps.com/co/timnath/timnath-cubs/football/schedule/"
 category: sports
 source: "https://www.maxpreps.com/co/timnath/timnath-cubs/football/schedule/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Last scheduled home football game of the regular season, a league matchup with Holy Family at 6:30 p.m.

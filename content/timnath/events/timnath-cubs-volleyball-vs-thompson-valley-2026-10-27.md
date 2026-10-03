@@ -6,7 +6,7 @@ address: "4700 Prospect Road, Timnath, CO 80547"
 url: "https://www.maxpreps.com/co/timnath/timnath-cubs/volleyball/schedule/"
 category: sports
 source: "https://www.maxpreps.com/co/timnath/timnath-cubs/volleyball/schedule/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
-Final home match of the volleyball regular season, against Thompson Valley at 6:30 p.m.
+Final home match of the volleyball regular season, against Thompson Valley at 6:30 p.m., and Senior Night.

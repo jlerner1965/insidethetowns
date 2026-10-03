@@ -7,7 +7,7 @@ address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/15650251"
 category: arts
 source: "https://highplains.libcal.com/event/15650251"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 A guided sewing session making quilted pumpkin coasters and a pot holder. Basic machine sewing experience required; all materials and equipment provided.

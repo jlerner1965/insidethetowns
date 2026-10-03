@@ -6,9 +6,9 @@ venue: "Erie Community Library"
 address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/15672192"
 category: family
-recurring: "Monthly, first Saturdays"
+recurring: "Monthly, usually first Saturdays; October’s is the second"
 source: "https://highplains.libcal.com/event/15672192"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Weekend storytime with songs and stories for children aged 5 and under and their families. First come, first seated.

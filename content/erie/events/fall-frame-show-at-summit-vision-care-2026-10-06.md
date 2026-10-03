@@ -8,7 +8,7 @@ url: "https://members.eriechamber.org/events/details/fall-frame-show-854243"
 cost: "Free"
 category: other
 source: "https://members.eriechamber.org/events/details/fall-frame-show-854243"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Annual autumn eyewear frame show with refreshments, extra stock on display and discounts on frames.

@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/13372941"
 category: arts
 recurring: "Monthly, second Mondays"
 source: "https://highplains.libcal.com/event/13372941"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 In-person afternoon book group discussing fiction and non-fiction titles.

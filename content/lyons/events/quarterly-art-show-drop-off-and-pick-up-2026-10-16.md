@@ -6,7 +6,7 @@ venue: "Lyons Town Hall Board Room"
 address: "432 5th Ave, Lyons, CO 80540"
 category: arts
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6660"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Artists bring three to five ready-to-hang pieces for the Arts and Humanities Commission's quarterly show. The theme for this round is SHUDDER.

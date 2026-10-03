@@ -8,7 +8,7 @@ url: "https://events.humanitix.com/community-cue-2026"
 cost: "Free entry; samples $5"
 category: food
 source: "https://events.humanitix.com/community-cue-2026"
-verified: "2026-10-01"
+verified: "2026-10-03"
 ---
 
 The finals of a barbecue competition that pairs a local professional chef with an amateur backyard grill-master on each team, put on by New Belgium with FN Butcher and Old Town Spice Shop. Entry is free, samples from the competing teams are $5 each, and KRFC provides live music on the brewery lawn.

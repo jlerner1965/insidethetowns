@@ -11,7 +11,7 @@ cost: "Free"
 category: music
 recurring: "Wednesdays at 6"
 source: "https://www.theoldmine.com/events"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Live music in the Old Mine every Wednesday evening, 6 to 8, with the cider list and the pizza oven going. No cover.

@@ -6,8 +6,8 @@ venue: "Lyons Regional Library"
 address: "451 4th Ave"
 url: "https://lyons.librarycalendar.com/events/upcoming"
 category: other
-source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-09-18"
+source: "https://lyons.librarycalendar.com/event/declaration-book-club-12019"
+verified: "2026-10-03"
 ---
 
 A three-part series at the library on the history and legacy of the Declaration of Independence; this is the first session.

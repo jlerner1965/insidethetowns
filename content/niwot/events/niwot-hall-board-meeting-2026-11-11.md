@@ -7,8 +7,8 @@ address: "195 2nd Avenue, Niwot, CO 80544"
 url: "https://niwothall.org/events/niwot-hall-meeting/"
 category: civic
 recurring: "second Wednesday of the month"
-source: "https://niwothall.org/events/niwot-hall-meeting/"
-verified: "2026-09-18"
+source: "https://niwothall.org/events/"
+verified: "2026-10-03"
 ---
 
-Monthly business meeting for Niwot Hall. Date generated from the hall's stated second-Wednesday schedule.
+Monthly business meeting for Niwot Hall, the community building formerly known as Left Hand Grange No. 9, covering bookings, the rebuilding project and hall operations. The November 11 date is on the hall's calendar.

@@ -10,7 +10,7 @@ cost: "Free"
 category: family
 recurring: "Mondays at 4"
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 A music program designed for preschool children, Monday afternoons at the library. No registration needed.

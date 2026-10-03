@@ -8,7 +8,7 @@ address: "339 Main St, Lyons, CO 80540"
 cost: "$115"
 category: sports
 source: "https://www.lyonsclassicpinball.com/events"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Three days of IFPA-sanctioned women's pinball competition hosted at Lyons Classic Pinball. The venue is closed to the public for the weekend and open to registered competitors.

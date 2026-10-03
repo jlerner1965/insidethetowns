@@ -7,7 +7,7 @@ venue: "Lyons Classic Pinball"
 address: "339 Main St, Lyons, CO 80540"
 category: sports
 source: "https://www.lyonsclassicpinball.com/events"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Weeks three to nine and the finals of Lyons Classic Pinball's Season 49 league, running Thursday evenings through 19 November. Weeks one and two have already been played.

@@ -7,8 +7,8 @@ address: "432 5th Ave"
 url: "https://www.lyonscolorado.com/AgendaCenter"
 category: civic
 recurring: "First and third Mondays"
-source: "https://www.lyonscolorado.com/AgendaCenter"
-verified: "2026-09-18"
+source: "https://www.townoflyons.com/Calendar.aspx?EID=6676"
+verified: "2026-10-03"
 ---
 
 Regular meeting of the Town Board in the Shirley F. Johnson Council Chamber, hybrid with a livestream and remote public comment. Agendas post to the Town's Agenda Center the week before; public comment on items not on the agenda is taken near the start.

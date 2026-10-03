@@ -10,8 +10,8 @@ url: "https://pplibraries.org/01b-elizabeth-library/"
 cost: "Free"
 category: arts
 recurring: "Thursdays, 11 to 1"
-source: "https://pplibraries.org/01b-elizabeth-library/"
-verified: "2026-09-18"
+source: "https://pplibraries.org/03a-activities-calendar/"
+verified: "2026-10-03"
 ---
 
 The library's Thursday-morning knitting and crochet circle, 11 to 1. Bring whatever you are working on; beginners are talked through a first project. Free and drop-in.

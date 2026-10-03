@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/16010111"
 category: family
 recurring: "First and third Tuesdays"
 source: "https://highplains.libcal.com/event/16010111"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Elementary-aged independent readers practise reading aloud to a trained Caring Canines therapy dog.
