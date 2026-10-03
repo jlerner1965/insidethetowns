@@ -39,10 +39,30 @@ municipal works are not automatically public domain the way federal works are,
 so what permits publication here is this grant from an officer authorised to
 give it — which is why the sentence is recorded rather than summarised.
 
-Five Erie parks still have no photograph because none is published on
-erieco.gov: Arapahoe Ridge, Lehigh, Longs Peak, Serene and Star Meadows, plus
-the Erie Singletrack at Sunset Open Space, whose page carries only trail maps.
-Her offer to dig out unpublished photographs covers these.
+**Update, 2 October 2026.** Asked about the five parks and the Singletrack
+that had no photograph on erieco.gov (`docs/ALL-PHOTO-EMAILS.md`, D2), she
+replied the same morning with direct links to the five park pages, each of
+which now carries a photograph, and a Google Drive folder of five Singletrack
+photographs that are not on the site yet:
+
+> Each of these locations also has photos on our website, here are direct
+> links to those specific park pages: [the five pages]
+>
+> I do change out/add photos to these pages periodically. The easiest way to
+> find them all is to use this link: https://erieco.gov/2271/Parks and click
+> through each park property using the individual photo buttons.
+>
+> Here is a Google Drive link to a handful of Singletrack photos: [folder
+> link]. These will also be on our website at some point; I'm working on
+> reformatting that page as we have time.
+
+The five park photographs are on erieco.gov and fall under the grant as
+written. The Singletrack photographs are not, yet; they were supplied
+directly, in answer to a request that asked for them "on the same terms as
+before", under her offer to look for photographs not on the website, and are
+used on those terms. All six listings now have a photograph: one from each
+park page, and for the Singletrack the shelter, a summer trail shot and the
+trailhead kiosk from the folder. Nothing of the Town's remains unphotographed.
 
 ---
 
