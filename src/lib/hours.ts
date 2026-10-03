@@ -241,6 +241,27 @@ export function parseHoursText(text: string | undefined): string[] | null {
   return out.length > 0 ? out : null;
 }
 
+/**
+ * Whether an hours line is text on purpose: daylight hours for a park or a
+ * trail, a lodging's check-in, by appointment, a season, a box office, a
+ * service time or a runway. `parseHoursText` returns null for all of these,
+ * rightly; a schedule would put "Open now" on a theatre whose box office
+ * keeps the afternoon, or on a park after dark in December. The validator
+ * counts them apart, so its warning names only the lines that could be a
+ * schedule and are not.
+ */
+export function hoursTextByDesign(text: string): boolean {
+  const s = text.toLowerCase();
+  return (
+    /\b(?:sunrise|sunset|dawn|dusk|daylight)\b/.test(s) ||
+    /\bcheck-?(?:in|out)\b/.test(s) ||
+    /\bappointment\b/.test(s) ||
+    /\b(?:box office|worship|runway)\b/.test(s) ||
+    // A season: "May–Sep", "Sep 23–Oct 31", "April to October".
+    /\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s*(?:[-–—]|to\b|through\b|\d)/.test(s)
+  );
+}
+
 /** A listing's structured hours: the explicit field, else what its text line parses to. */
 export function openingHoursOf(data: { hours?: string; openingHours?: string[]; status?: string }): string[] | null {
   // A closed place has no opening hours, whatever its file still says: the

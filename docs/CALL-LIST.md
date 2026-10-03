@@ -9,6 +9,7 @@ phone call or a visit; what to ask is in the last column. Checked on
 |---|---|---|---|
 | Berthoud | Berthoud Inn, (970) 532-4566 | berthoudinn.com is a parked "domain for sale" page | Still open? Hours, website |
 | Berthoud | Cornerstone Cafe, (970) 344-5139 | Site gives phone and address, no days or times | Days and hours |
+| Berthoud | Happy Eating, 506 Welch Ave | Its ordering page carries two hours tables that disagree: one closed Tuesdays and open to 9:30 or 10:30, the other closed Mondays with lunch and dinner Tue–Sat to 8:30 | Which days, and closing time |
 | Elizabeth | Coffee House on Main | No site; directory only, at 341 S Main | Hours, phone, website |
 | Elizabeth | Cowgirlz Coffee | No site; not in the Main Street directory | Still open? Hours, phone |
 | Elizabeth | 86 & Main | No site; a 2025 report describes the building (122 S Main) as under renovation for a bar and event space, nothing open | Is there a shop at all? |
@@ -34,6 +35,6 @@ phone call or a visit; what to ask is in the last column. Checked on
 | Lyons | Uniquely Lyons | Its own domain no longer resolves; Town directory only | Still open? Hours, phone |
 | Lyons | Gatherings of a Lifetime | No site; Town directory only | Hours, phone |
 
-Twenty-six listings. The ones marked "Still open?" come first: a parked or
+Twenty-seven listings. The ones marked "Still open?" come first: a parked or
 hijacked domain is often how a small business's closing shows up online
 before anyone writes it down.

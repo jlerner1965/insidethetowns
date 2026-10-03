@@ -3,7 +3,7 @@ title: "Grandpa's Cafe"
 type: restaurant
 address: "903 Mountain Ave"
 area: "West Mountain Avenue, near Town Hall"
-hours: "Daily 7 am–8 pm, except Tue 7 am–2 pm"
+hours: "Mon & Wed–Sun 7 am–8 pm, Tue 7 am–2 pm"
 priceRange: "$"
 tags: [breakfast, lunch, dinner, home cooking, bar]
 summary: "Home-style cooking at the west end of Mountain Avenue, near Town Hall: big breakfasts, lunch and dinner to 8 pm, with a full bar."
