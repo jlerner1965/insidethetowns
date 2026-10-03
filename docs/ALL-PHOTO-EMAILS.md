@@ -1309,7 +1309,7 @@ can be said.
 | A11 | Trade | Timnath Main Street | email | | | |
 | A12 | Trade | Timnath Chamber of Commerce | email, a week after A11 | | | |
 | B1 | Parks | Town of Berthoud Parks and Recreation (8 sites) | email, a week after A1 | yes | 2026-09-21 | 4 photographs: Recreation Center, Town Park ×2, Waggener Farm Park. Six parks remain → D1 |
-| B2 | Parks | Town of Erie Parks and Open Space (12) | email | yes | 2026-09-18 | Granted, standing (PERMISSIONS.md). Six used; five parks and the Singletrack remain → D2 |
+| B2 | Parks | Town of Erie Parks and Open Space (12) | email | yes | 2026-09-18 | Granted, standing (PERMISSIONS.md). Six used; the remaining five parks and the Singletrack came with D2 |
 | B3 | Parks | Town of Johnstown Parks and Recreation (8) | email | yes | 2026-10-02 | No library. No permit to photograph the parks; no park users without their permission (PERMISSIONS.md). One playground photograph sent from their files, the north playground at Sunrise Park (confirmed by the owner). Seven parks remain: the walk |
 | B4 | Parks | Town of Timnath Parks (4) | email or form | | | |
 | B5 | Parks | Elizabeth Park and Recreation District (2) | email | | | |
@@ -1333,4 +1333,4 @@ can be said.
 | C13 | Venues | Osmosis Gallery | site contact | | | |
 | C14 | Venues | Lyons Classic Pinball | site contact | | | |
 | D1 | Follow-up | Town of Berthoud — six parks | email | | | |
-| D2 | Follow-up | Town of Erie — five parks and the Singletrack | email | | | |
+| D2 | Follow-up | Town of Erie — five parks and the Singletrack | email | 2026-10-01 | 2026-10-02 | The five park pages now carry photographs (one used from each); five Singletrack photographs supplied by Drive folder, three used (PERMISSIONS.md). Erie is complete |

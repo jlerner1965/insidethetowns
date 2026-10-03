@@ -2032,3 +2032,38 @@ files, and a playground photograph followed.
 - **"Several have new playgrounds."** Which ones is the question the reply
   asks, with the seven parks still without a photograph named, so the walk
   can start with the playgrounds they want seen.
+
+## Erie's last five parks, and the Singletrack
+
+*2 October 2026.* Ashley Burger answered D2 the morning after it was sent:
+the five parks now have photographs on their own erieco.gov pages, which the
+18 September grant covers as written, and five Singletrack photographs came
+by Google Drive folder ahead of the Town's own page.
+
+- **One photograph from each park page, chosen by what the listing says.**
+  Arapahoe Ridge's tables under its shade trees; Lehigh's playground; Longs
+  Peak's playground with the scavenger-hunt panel the listing mentions;
+  Serene's wooden treehouse with the Flatirons behind it; Star Meadows'
+  shelter at dusk with the moon-phase sundial. Each listing also gained its
+  Town page as `url` and `source`, which the earlier Erie park listings
+  already had, and Star Meadows gained its street number, 777, from that
+  page. She changes the pages' photographs periodically; the ledger records
+  which page each came from, not which photograph the page shows today.
+- **The Singletrack leads with the shelter, with the trail and the kiosk
+  inline.** The shelter photograph is the largest and shows what the place
+  is: the open space, the town below, the Front Range, and a rider. The rider
+  wears a full-face helmet and the Town chose to share the photograph; this
+  is not Johnstown's park-users condition, which binds our own photographs.
+  The summer trail shot is the only one of the five that shows the
+  singletrack itself, so it goes inline at its 960px, square; the kiosk
+  photograph goes inline because its map is the one on the Town's page,
+  readable. The fall sunrise shot is portrait, and the small rider shot is
+  640px; neither is used.
+- **Drive photographs are recorded as supplied, not as published.** The
+  grant's scope is "published on erieco.gov", and these are not yet. They
+  were supplied in answer to a request made "on the same terms as before"
+  under her own offer to find unpublished photographs, so the ledger says
+  "supplied by Ashley Burger by email" and PERMISSIONS.md says the same,
+  rather than stretching the published-on-the-site wording to cover them.
+- **Erie is complete.** Every Town of Erie park and open space listing has a
+  photograph. Tracking rows B2 and D2 say so.
