@@ -2242,3 +2242,64 @@ check against, 10 behind a captcha or bot check.
   Cloudflare, Vercel, Toast). Those listings keep their September date and
   a line in the report; a browser session or a phone call is the only way
   through, and the rotation should not pretend otherwise.
+
+## Hours that are text on purpose
+
+*3 October 2026.* The validator's warning about hours lines the site cannot
+read as a schedule had stood at 43 for a week, and a warning that never
+moves stops being read. Thirty-nine of the 43 were never going to be a
+schedule: daylight hours for parks and trails, a lodging's check-in, by
+appointment, a season ("May–Sep", "April to October"), a box office, a
+church's worship and office, an airport's runway. The parser refuses those
+on purpose; a schedule would put "Open now" on the Candlelight while its
+box office keeps the afternoon and the show runs at night, or on a park
+after dark in December.
+
+- **Counted, not flagged.** `hoursTextByDesign` in `src/lib/hours.ts`
+  recognises those lines, and the validator reports them as a count beside
+  the warning, so the warning names only the lines that could be a
+  schedule and are not. `--hours` lists both. Tests pin the cases the
+  content has, and the ones that must stay flagged: a town hall's
+  "Mon–Fri, office hours", a restaurant's "Closed Mondays and Tuesdays".
+- **Three remain, and each has a reason.** Elizabeth Town Hall's line is
+  vague and its check is in this week's rotation. Sachi Sushi's and Happy
+  Eating's are on the call list: Sachi's page no longer gives days, and
+  Happy Eating's ordering page carries two hours tables that disagree.
+- **One reworded.** Grandpa's Cafe's "Daily 7 am–8 pm, except Tue
+  7 am–2 pm" is now "Mon & Wed–Sun 7 am–8 pm, Tue 7 am–2 pm", the same
+  facts in a form the parser reads, so the page shows whether it is open.
+
+## The rotation's second batch: the public places, and what the blogs had added
+
+*3 October 2026.* The other 93 listings verified in mid-September went the
+same way as the first 99: the owner's own page, one worker a town. Most
+were parks, trails, town halls, libraries and museums, where the owner is
+a Town, a County or a District, and the rest were Main Street shops.
+Thirty-eight were confirmed as they stood, 40 corrected, and 15 could not
+be checked online and went on the call list, which now has 42 rows in
+three groups: still open, call for hours, and sites that only need a
+browser. Forty listings still carry a September date; nearly all of them
+are rows on that list.
+
+- **A third party's details do not survive the owner's page.** Pioneer
+  Park in Berthoud had a spaceship play structure, a rock wall and a
+  winter rink, all from a playground blog; the Town's page lists a pond,
+  roller hockey, bocce and three pavilions, and the listing now says
+  those. Bein Park's "two dog parks" were the Town's separate dog park on
+  10th Street. Lake Park in Johnstown was at the Public Works office's
+  address in Old Town, copied from the Town's parks index; it is on the
+  reservoir off Highway 60, at the address the Town's own Lake Park page
+  gives. Each park now cites its own page, not the index.
+- **The owner's current notice beats the listing's season.** Erie Lake's
+  listing advertised fishing; the Town asks anglers to wait until the lake
+  refills after the dam repair, and the Highway 287 entrance is closed for
+  good. Rabbit Mountain's hunting closures ended with the County's hunting
+  program. The Town of Lyons opens its parks dawn to dusk, so Bohn,
+  Sandstone and LaVern M. Johnson parks say so; Bohn's "8 to 8" was a 2022
+  notice the Town has since hidden in its page's code.
+- **A source must support the body, not just the hours.** Where a
+  listing's source changed from a news story or a blog to the owner's
+  page, sentences only the old source supported were cut: the month the
+  Elizabeth bank building was listed on the National Register, Pioneer
+  Park's play structure. The page footer says "Checked against" the
+  source, and every sentence above it should be on that page.

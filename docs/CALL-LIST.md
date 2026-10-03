@@ -20,6 +20,8 @@ A parked, hijacked or lapsed domain, or a different business at the address, is 
 | Elizabeth | Cowgirlz Coffee | No site; not in the Main Street directory | Still open? Hours, phone |
 | Elizabeth | 86 & Main | No site; a 2025 report describes the building (122 S Main) as under renovation for a bar and event space, nothing open | Is there a shop at all? |
 | Elizabeth | Elbert County Artists Guild | Its own domain fails over https and shows a parked redirect over http | Still meeting? Where and when |
+| Niwot | Fly Away Home, 7960 Niwot Rd, Unit B-1, (303) 887-8064 | A Left Hand Valley Courier story of April 2025 says a fly shop took the Cottonwood Square space that previously housed it; its own site gives Unit B-1 and Tue–Sat hours but also offers Colorado Springs pickup | Still in Niwot? Which unit |
+| Niwot | Belle Terre Floral, (303) 652-0419 | Its own site now presents only a wedding and event studio, with no walk-in shop or hours | Is there still a walk-in shop? Hours |
 | Lyons | Julie's Thai Kitchen, 138 Main St | Its domain now serves gambling spam; no other site | Still open? Hours, phone, website |
 | Lyons | Lyons Dairy Bar, 138 Main St | Its domain redirects to lottery spam; shares an address with Julie's | Still open? Which business is at 138 Main |
 | Lyons | Oskar Blues Grill & Brew | Site behind Cloudflare; the parent site lists only Longmont and Brevard | Still open? Hours |
@@ -45,6 +47,8 @@ The business has no website of its own, or its site gives no days or times, or t
 | Niwot | Niwot Liquor | No site; directory only | Hours, phone |
 | Niwot | WiNot Coffee Company | No site; directory only | Hours, phone |
 | Niwot | Sachi Sushi, (303) 652-0919 | Its page no longer gives days; listing says closed Mon–Tue | Days and hours |
+| Niwot | The Nook, inside Niwot Market | Its page on the market's site gives no hours of its own; the market now closes at 8:30, the listing says 8 | Hours |
+| Niwot | Little Bird | No site of its own; Instagram behind a login | Hours, phone |
 | Timnath | Chelo's Modern Mexican | No site; directories give (970) 413-7713 and Mon–Thu 11–9, Fri–Sat 11–10, Sun 11–8 | Phone, hours |
 | Timnath | The Hidden Stem | Facebook and Instagram only | Hours, phone |
 
@@ -66,4 +70,4 @@ The site exists and has the answer, but it refuses automated reading (a captcha,
 | Niwot | Fan's Chinese Cuisine | Site behind a bot check; listing's url is the niwot.com directory | Hours, website |
 | Niwot | The Garden Gate Cafe | Site behind a Cloudflare challenge | Hours, phone |
 
-38 listings in all.
+42 listings in all.
