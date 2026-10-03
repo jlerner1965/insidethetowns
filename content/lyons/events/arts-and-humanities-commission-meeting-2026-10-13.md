@@ -6,8 +6,8 @@ venue: "Lyons Regional Library, Effie Banta Room"
 address: "451 4th Ave, Lyons, CO 80540"
 category: civic
 recurring: "Second Tuesdays"
-source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-09-18"
+source: "https://www.townoflyons.com/Calendar.aspx?EID=6198"
+verified: "2026-10-03"
 ---
 
 Monthly meeting of the Lyons Arts and Humanities Commission (LAHC) in the library's Effie Banta Meeting Room.

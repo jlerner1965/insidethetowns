@@ -8,7 +8,7 @@ cost: "Ticketed"
 category: music
 timeNote: "Evening; time on the ticket page"
 source: "https://bluegrass.com/wildflower"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 LVDY with Sway Wild at Planet Bluegrass's Wildflower Pavilion. Ticketed.

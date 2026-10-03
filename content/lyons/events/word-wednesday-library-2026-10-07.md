@@ -1,13 +1,13 @@
 ---
 title: "Word Wednesday writing group"
 start: "2026-10-07T18:30"
-end: "2026-10-07T20:30"
+end: "2026-10-07T20:00"
 venue: "Online, via the Lyons Regional Library"
 url: "https://lyons.librarycalendar.com/events/upcoming"
 cost: "Free"
 category: arts
 recurring: "First Wednesdays"
-source: "https://lyonsrecorder.org/events/"
+source: "https://lyons.librarycalendar.com/event/word-wednesday-writing-group-10260"
 verified: "2026-10-03"
 ---
 

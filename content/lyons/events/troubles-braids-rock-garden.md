@@ -7,7 +7,7 @@ address: "338 W Main St"
 url: "https://rockgardenlyons.com/events"
 category: music
 source: "https://rockgardenlyons.com/events"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Friday-evening band in the garden on the river.

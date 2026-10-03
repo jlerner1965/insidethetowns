@@ -7,7 +7,7 @@ address: "432 5th Ave, Lyons, CO 80540"
 category: civic
 recurring: "Third Thursdays"
 source: "https://www.townoflyons.com/Calendar.aspx?EID=5541"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Regular meeting of the Lyons Urban Renewal Authority in the Town Hall board room. Open to the public.

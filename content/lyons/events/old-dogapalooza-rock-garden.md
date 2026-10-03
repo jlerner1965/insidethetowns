@@ -8,7 +8,7 @@ url: "https://rockgardenlyons.com/events"
 category: other
 featured: true
 source: "https://rockgardenlyons.com/events"
-verified: "2026-10-02"
+verified: "2026-10-03"
 ---
 
 An afternoon and evening for old dogs and their people in the garden on the river, with a tenth of the day's drink sales going to Old Dogs New Digs. Adults only: the Rock Garden checks ID at the gate, so bring the dog and leave the children at home.
