@@ -5,6 +5,8 @@
  */
 import { getCollection, type CollectionEntry, type CollectionKey } from 'astro:content';
 import { getSite, liveTowns, type TownConfig } from '@/config';
+import { isExcluded } from '@/content/schemas';
+import { eventExclusion, placeExclusion, type Exclusion } from '@/lib/freshness';
 
 export type TownEntry<C extends CollectionKey> = CollectionEntry<C> & { slug: string };
 /** A town's entry seen from the hub, which needs to know whose it is. */
@@ -14,12 +16,40 @@ function slugOf(id: string, townSlug: string): string {
   return id.startsWith(`${townSlug}/`) ? id.slice(townSlug.length + 1) : id;
 }
 
+/** Noted once per entry per build, so a page that lists places twice does not say it twice. */
+const reported = new Set<string>();
+
+/**
+ * The gate every page reads through. An entry that failed its schema, has
+ * no source or check date, or (a place) has passed its freshness window is
+ * dropped here, with one line on the build log saying which and why. The
+ * decision lives in src/lib/freshness.ts; this is the one place it is
+ * applied, so no page can forget it.
+ */
+function publishable<C extends CollectionKey>(collection: C, entries: CollectionEntry<C>[], towns: Map<string, TownConfig>): CollectionEntry<C>[] {
+  if (collection !== 'events' && collection !== 'places') return entries;
+  const now = new Date();
+  return entries.filter((entry) => {
+    const townSlug = entry.id.split('/')[0]!;
+    const variant = towns.get(townSlug)?.variant ?? 'front-range';
+    const why: Exclusion | null =
+      collection === 'places' ? placeExclusion(entry.data, variant, now) : eventExclusion(entry.data);
+    if (!why) return true;
+    if (!reported.has(entry.id)) {
+      reported.add(entry.id);
+      const name = isExcluded(entry.data) ? entry.data.title : (entry.data as { title?: string }).title ?? entry.id;
+      console.warn(`excluded ${collection}/${entry.id} (${name}): ${why.detail}`);
+    }
+    return false;
+  });
+}
+
 /** All entries of a collection for the site being built. Empty for the hub. */
 export async function getTownEntries<C extends CollectionKey>(collection: C): Promise<TownEntry<C>[]> {
   const site = getSite();
   if (site.kind === 'hub') return [];
   const prefix = `${site.slug}/`;
-  const entries = await getCollection(collection, (entry) => entry.id.startsWith(prefix));
+  const entries = publishable(collection, await getCollection(collection, (entry) => entry.id.startsWith(prefix)), new Map([[site.slug, site]]));
   return entries.map((entry) => {
     const data = entry.data as { slug?: string };
     const slug = data.slug ?? slugOf(entry.id, site.slug);
@@ -50,7 +80,7 @@ export async function getNetworkEntries<C extends CollectionKey>(collection: C):
     throw new Error(`getNetworkEntries() was called while building ${site.domain}. Town pages must use getTownEntries().`);
   }
   const towns = new Map(liveTowns().map((t) => [t.slug, t]));
-  const entries = await getCollection(collection, (entry) => towns.has(entry.id.split('/')[0]!));
+  const entries = publishable(collection, await getCollection(collection, (entry) => towns.has(entry.id.split('/')[0]!)), towns);
   return entries.map((entry) => {
     const townSlug = entry.id.split('/')[0]!;
     const town = towns.get(townSlug)!;
@@ -90,7 +120,7 @@ export async function getNeighborEntries<C extends CollectionKey>(
 ): Promise<NetworkEntry<C>[]> {
   const towns = new Map(neighbors.map((t) => [t.slug, t]));
   if (towns.size === 0) return [];
-  const entries = await getCollection(collection, (entry) => towns.has(entry.id.split('/')[0]!));
+  const entries = publishable(collection, await getCollection(collection, (entry) => towns.has(entry.id.split('/')[0]!)), towns);
   return entries.map((entry) => {
     const townSlug = entry.id.split('/')[0]!;
     const data = entry.data as { slug?: string };

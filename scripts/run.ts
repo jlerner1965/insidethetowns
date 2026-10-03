@@ -26,8 +26,13 @@ if (!town) {
 }
 const env = { ...process.env, TOWN: town };
 
+// `--build`: an entry that fails its schema is reported and excluded rather
+// than failing the build, because a failed build on Vercel leaves the previous
+// deployment serving stale events. Anything repo-wide (a CSP mismatch, a
+// missing licence row) still fails here. `npm run validate` on its own, and
+// in CI, is strict about both.
 if (command === 'build') {
-  const v = spawnSync(process.execPath, ['scripts/validate-content.ts'], { stdio: 'inherit', env });
+  const v = spawnSync(process.execPath, ['scripts/validate-content.ts', '--build'], { stdio: 'inherit', env });
   if (v.status !== 0) process.exit(v.status ?? 1);
 }
 

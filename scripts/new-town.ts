@@ -52,6 +52,9 @@ const configSource = `import { DEFAULT_TOWN_NAV, type TownConfig } from './types
 // TODO: fill in the real values (lat/lng, counties, population, links) before launch.
 export const ${ident}: TownConfig = {
   kind: 'town',
+  // 'live' when the domain serves; until then the hub lists the town as coming soon.
+  status: 'wave1',
+  variant: 'front-range', // or 'mountain': shorter freshness windows, seasonal hours, access notes
   slug: '${slug}',
   name: '${name}',
   domain: 'inside${slug.replace(/-/g, '')}.com',
@@ -206,7 +209,7 @@ Created Inside ${name}:
 
 Next:
   TOWN=${slug} npm run dev
-  Add the slug to LIVE_TOWNS in src/config/index.ts when the domain is live.
+  Set status: 'live' in src/config/towns/${slug}.ts when the domain is live.
   Create the Vercel project with TOWN=${slug} (see DEPLOY.md).
   Turn on Cloudflare Email Routing for the domain, or its hello@ address bounces (DEPLOY.md, "Email").
 `);

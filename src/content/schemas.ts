@@ -5,6 +5,15 @@
  *
  * `image` is injected: Astro passes its image() helper (which resolves and
  * validates the file), the validator passes a plain string check.
+ *
+ * Field names are the repo's, not the accuracy brief's (`source` here is the
+ * brief's `sourceUrl`, `verified` its `verifiedAt`, and so on). The mapping
+ * is written out once, in docs/ACCURACY-SYSTEM.md, "Field names".
+ *
+ * Two layers decide what publishes. This file says what a *valid* entry is,
+ * and an invalid one is excluded from the build with a warning rather than
+ * failing it (see `lenient` below). src/lib/freshness.ts says what a
+ * *publishable* entry is: sourced, dated, and inside its freshness window.
  */
 import { z } from 'astro/zod';
 import { parseLocal } from '../lib/dates.ts';
@@ -134,10 +143,53 @@ const slug = z
 
 const httpUrl = z.url({ protocol: /^https?$/ });
 
+/** Who ingested or submitted an item, where it is still in staging. */
+export const REVIEW_ORIGINS = ['migration', 'ingest', 'submission', 'manual'] as const;
+
+/**
+ * Why an item is in `content/<town>/staging/` and not on the site. Required
+ * there, forbidden in the published folders; the validator enforces both.
+ * Approval (the review CLI, or a hand edit) removes this block, stamps
+ * `verified` and `verifiedBy`, and moves the file.
+ */
+export const reviewSchema = z.object({
+  /** What has to be settled before it can publish, in a sentence. */
+  reason: z.string().min(1),
+  /** The day it went into staging. */
+  since: localDate,
+  /** How it got there. */
+  from: z.enum(REVIEW_ORIGINS).optional(),
+});
+
+/**
+ * The provenance an item carries beyond `source` and `verified`, which stay
+ * where they were. None is required of existing content; the tooling stamps
+ * them from here on.
+ */
+const provenance = {
+  /** Who checked it: a name, or the tool and the person who approved. Stamped at approval; never backfilled. */
+  verifiedBy: z.string().min(1).optional(),
+  /** Key of the entry in the town's source registry that this was read from. */
+  sourceId: z.string().min(1).optional(),
+  /** The feed's own identifier for the item (iCal UID, RSS guid), so a re-ingest finds it again. */
+  sourceUid: z.string().min(1).optional(),
+  /** Fingerprint of the fields as last read from the source, so a re-ingest can see what changed. */
+  sourceHash: z.string().min(1).optional(),
+  /** Set by ingest when the source changed an approved item; cleared at the next approval. */
+  changeFlag: z.boolean().default(false),
+  /** What changed, in a sentence: "Start moved from 6 pm to 7 pm (source, 3 October)". */
+  changeNote: z.string().min(1).optional(),
+  /** Present only in staging. See reviewSchema. */
+  review: reviewSchema.optional(),
+};
+
 export function eventSchema<I extends z.ZodType>(image: () => I) {
   return z
     .object({
+      ...provenance,
       title: z.string().min(1),
+      /** On a multi-town guide, which town this is in. One of the config's `subTowns`. */
+      subTown: z.string().min(1).optional(),
       slug,
       start: localDate,
       end: localDate.optional(),
@@ -206,13 +258,59 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
     .refine((e) => !e.organizerUrl || !!e.organizer, {
       message: 'organizerUrl needs an organizer to belong to',
       path: ['organizer'],
+    })
+    .refine((e) => !e.changeFlag || !!e.changeNote, {
+      message: 'a changeFlag needs a changeNote saying what the source changed',
+      path: ['changeNote'],
     });
 }
+
+/**
+ * Hours that follow the season, for the mountain variant. A listing with a
+ * `seasonal` block shows these instead of `hours` during `season`, and the
+ * freshness window for the whole listing is the mountain one.
+ */
+export const seasonalSchema = z.object({
+  /** When these hours apply, as a reader reads it: "Memorial Day to mid-October". */
+  season: z.string().min(1),
+  /** Hours during the season, same form as `hours`. */
+  hours: z.string().min(1).optional(),
+  /** Months the place is shut: ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr"]. */
+  closedMonths: z.array(z.string().min(1)).default([]),
+});
+
+/**
+ * Getting there, for a trail or a park in the mountain variant. Each line
+ * is a fact that goes stale fast, so the block carries its own source and
+ * check date and the shortest freshness window (FRESHNESS.accessDays). It
+ * links the land manager's live notice rather than restating conditions.
+ */
+export const accessSchema = z.object({
+  /** "Lot holds about 30 cars; full by 8 am at weekends" */
+  parking: z.string().min(1).optional(),
+  /** "Timed-entry permit May 22 to October 12" */
+  permit: z.string().min(1).optional(),
+  /** "The road closes for the season after the first heavy snow" */
+  closures: z.string().min(1).optional(),
+  /** The land manager's conditions page: the park, CDOT, the Forest Service. */
+  conditionsUrl: httpUrl.optional(),
+  conditionsLabel: z.string().min(1).optional(),
+  source: httpUrl,
+  verified: localDate,
+});
 
 export function placeSchema<I extends z.ZodType>(image: () => I) {
   return z
     .object({
+      ...provenance,
       title: z.string().min(1),
+      /**
+       * On a guide that covers several towns (Carbon Valley), which one this
+       * is in. One of the town config's `subTowns`; the validator checks.
+       */
+      subTown: z.string().min(1).optional(),
+      seasonal: seasonalSchema.optional(),
+      access: accessSchema.optional(),
       slug,
       type: z.enum(PLACE_TYPES),
       address: z.string().min(1),
@@ -274,6 +372,14 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
     .refine((p) => p.status === 'open' || !!p.statusNote, {
       message: 'a status other than open needs a statusNote saying what happened and how we know',
       path: ['statusNote'],
+    })
+    .refine((p) => !p.changeFlag || !!p.changeNote, {
+      message: 'a changeFlag needs a changeNote saying what the source changed',
+      path: ['changeNote'],
+    })
+    .refine((p) => !p.access || ['trail', 'park'].includes(p.type), {
+      message: 'access notes belong on a trail or a park',
+      path: ['access'],
     });
 }
 
@@ -370,6 +476,9 @@ export function pageSchema<I extends z.ZodType>(image: () => I) {
 export const COLLECTIONS = ['events', 'places', 'articles', 'pages', 'issues'] as const;
 export type CollectionName = (typeof COLLECTIONS)[number];
 
+/** The collections that have a staging folder: content/<town>/staging/<collection>/. */
+export const STAGED_COLLECTIONS = ['events', 'places'] as const satisfies readonly CollectionName[];
+
 export const schemaFor: Record<CollectionName, (image: ImageSchema) => z.ZodType> = {
   events: eventSchema,
   places: placeSchema,
@@ -377,3 +486,39 @@ export const schemaFor: Record<CollectionName, (image: ImageSchema) => z.ZodType
   pages: pageSchema,
   issues: issueSchema,
 };
+
+/**
+ * What an entry that failed its schema becomes inside the build.
+ *
+ * A content collection fails the whole build on one bad frontmatter field,
+ * in any town, because every town loads into the same collection. A failed
+ * build on Vercel leaves the previous deployment serving, with last week's
+ * events and whatever was stale then, which is the one outcome the freshness
+ * work exists to prevent. So the build-time schema catches the failure and
+ * keeps the entry as this marker instead; src/lib/content.ts drops every
+ * marker before a page sees it and says which, and `npm run validate` (CI,
+ * and before every build) reports the same file with the same issues. The
+ * site is never stale and the error is never silent.
+ */
+export interface ExcludedData {
+  excluded: true;
+  title: string;
+  issues: string[];
+}
+
+export function isExcluded(data: unknown): data is ExcludedData {
+  return typeof data === 'object' && data !== null && (data as { excluded?: unknown }).excluded === true;
+}
+
+/** `schema`, with failures turned into an ExcludedData marker instead of an error. */
+export function lenient<T extends z.ZodTypeAny>(schema: T) {
+  return schema.catch((ctx) => {
+    const input = (ctx.input ?? {}) as { title?: unknown };
+    const marker: ExcludedData = {
+      excluded: true,
+      title: typeof input.title === 'string' ? input.title : '(untitled)',
+      issues: ctx.error.issues.map((i) => `${i.path.length ? i.path.join('.') : '(root)'}: ${i.message}`),
+    };
+    return marker as unknown as z.output<T>;
+  });
+}

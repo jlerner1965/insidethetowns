@@ -2,6 +2,8 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
 
 export const lyons: TownConfig = {
   kind: 'town',
+  status: 'live',
+  variant: 'front-range',
   slug: 'lyons',
   name: 'Lyons',
   domain: 'insidelyons.com',

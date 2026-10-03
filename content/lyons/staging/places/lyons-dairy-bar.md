@@ -1,5 +1,6 @@
 ---
 title: "Lyons Dairy Bar"
+review: { reason: "No source: its domain redirects to lottery spam, and it shares 138 Main with Julie's Thai Kitchen. Still open, and which business is at 138 Main?", since: "2026-10-03", from: migration }
 type: restaurant
 address: "138 Main St"
 area: "East Main"

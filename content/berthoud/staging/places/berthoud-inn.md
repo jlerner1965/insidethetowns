@@ -1,5 +1,6 @@
 ---
 title: "Berthoud Inn & Events"
+review: { reason: "No source: berthoudinn.com is a parked domain for sale, and the TripAdvisor page it used to cite is ruled out by the entry rule. Call (970) 532-4566: still open? Hours and website.", since: "2026-10-03", from: migration }
 type: lodging
 address: "444 1st St"
 area: "1st Street"

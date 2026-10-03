@@ -2,6 +2,8 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
 
 export const windsor: TownConfig = {
   kind: 'town',
+  status: 'live',
+  variant: 'front-range',
   slug: 'windsor',
   name: 'Windsor',
   // insidewindsor.com belongs to someone else; the "co" is the domain's, not the slug's.

@@ -26,7 +26,7 @@ Across the river, [Bohn Park](/places/bohn-park/) on the south bank has the ball
 
 ## After the water: the Dairy Bar
 
-The [Lyons Dairy Bar](/places/lyons-dairy-bar/) is the walk-up window at the east end of Main: burgers, sandwiches and soft-serve, eaten at picnic tables in wet shoes after a float. Daily 11 to 7. [Smokin Dave's](/places/smokin-daves-bbq-taphouse/) mid-block on Main is the answer for a hungry group, and [Oskar Blues](/places/oskar-blues-grill-brew/) has been feeding families on Main Street since 1997.
+The Lyons Dairy Bar is the walk-up window at the east end of Main: burgers, sandwiches and soft-serve, eaten at picnic tables in wet shoes after a float. [Smokin Dave's](/places/smokin-daves-bbq-taphouse/) mid-block on Main is the answer for a hungry group, and [Oskar Blues](/places/oskar-blues-grill-brew/) has been feeding families on Main Street since 1997.
 
 ## Any season: the library
 

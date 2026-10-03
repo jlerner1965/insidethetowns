@@ -1,5 +1,6 @@
 ---
 title: "Julie’s Thai Kitchen"
+review: { reason: "No source: its domain now serves gambling spam and there is no other site. Still open at 138 Main? Hours, phone, website.", since: "2026-10-03", from: migration }
 type: restaurant
 address: "138 Main St"
 area: "East Main"

@@ -2,6 +2,8 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
 
 export const johnstown: TownConfig = {
   kind: 'town',
+  status: 'live',
+  variant: 'front-range',
   slug: 'johnstown',
   name: 'Johnstown',
   domain: 'insidejohnstown.com',

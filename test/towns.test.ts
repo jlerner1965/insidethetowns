@@ -88,6 +88,18 @@ test('every live town is configured and every config is complete enough to build
   }
 });
 
+test('what is live is decided by status, nowhere else', () => {
+  // LIVE_TOWNS used to be a second list kept by hand; now it is derived, and
+  // every town says which chassis it runs on.
+  assert.deepEqual(LIVE_TOWNS, towns.filter((t) => t.status === 'live').map((t) => t.slug));
+  assert.ok(LIVE_TOWNS.length >= 9, 'nine guides were live on 1 October 2026');
+  for (const t of towns) {
+    assert.ok(['live', 'wave1', 'wave2', 'wave3', 'wave4', 'redirect'].includes(t.status), `${t.slug}: status`);
+    assert.ok(['front-range', 'mountain'].includes(t.variant), `${t.slug}: variant`);
+    if (t.subTowns) assert.ok(t.subTowns.length >= 2, `${t.slug}: subTowns is for a guide covering several places`);
+  }
+});
+
 test('advertising stays out of the reader-focused primary navigation', () => {
   assert.equal(hub.nav.some((item) => item.href === '/advertise/'), false);
 });

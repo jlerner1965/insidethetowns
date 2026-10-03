@@ -10,6 +10,8 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  */
 export const fortcollins: TownConfig = {
   kind: 'town',
+  status: 'live',
+  variant: 'front-range',
   slug: 'fortcollins',
   name: 'Fort Collins',
   domain: 'insidefortcollins.com',

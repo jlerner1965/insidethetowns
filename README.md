@@ -6,7 +6,7 @@ Front Range towns, one deployment per domain, selected by the `TOWN` env var.
 ```
 TOWN=niwot npm run dev        # or: npm run dev -- --town=niwot
 TOWN=hub   npm run build      # insidethetowns.com
-npm run validate              # check every town's content (--hours lists hours lines it cannot read)
+npm run validate              # check every town's content (--hours lists hours lines it cannot read; --build is what a build runs)
 npm run check-links           # ask the live web whether our outbound links still work
 npm run check-colors          # prove the palette passes WCAG AA on every site
 npm run new-town lyons "Lyons"
@@ -53,7 +53,10 @@ canceled`, and the pages do the rest (see any content README).
    `--out=drafts` narrow it, move it, or write files instead of printing. It drafts;
    it never sends. Canceled events and closed places are left out of it.
 
-Rules at entry, the same on all nine guides: no listing publishes without a phone, a
+Rules at entry, the same on all nine guides, and now enforced by the build: nothing
+publishes without a `source` and a `verified` date, an open listing is hidden once
+its check is older than its freshness window, and anything not ready waits in
+`content/<town>/staging/` with a line saying why. No listing publishes without a phone, a
 website and hours taken from the business itself (a business with no site gets no
 hours rather than a review site's); hours are written with am and pm; every listing
 and event carries a status; a review site or an aggregator is never the source.
@@ -123,7 +126,8 @@ and placements to a business owner.
 - `PLAN.md` — the build plan, phase by phase
 - `DECISIONS.md` — choices made along the way
 - `src/config/towns/` — one file per town; `index.ts` exports `getSite()` / `getTown()`
-- `content/<town>/` — events, places, articles, pages, images (see the README in each)
+- `content/<town>/` — events, places, articles, pages, images, and `staging/` for what is not yet publishable (see the README in each)
+- `src/config/freshness.ts` — how long a checked fact stays publishable; `src/lib/freshness.ts` applies it
 - `IMAGE_LICENSES.csv` — every image, its source and licence
 - `docs/PHOTOS.md` — how to get the missing photographs, and what has been ruled out
 - `docs/PHOTO-CONTACTS.csv` — the 187 businesses without one, with phone and website

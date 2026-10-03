@@ -2303,3 +2303,49 @@ are rows on that list.
   Elizabeth bank building was listed on the National Register, Pioneer
   Park's play structure. The page footer says "Checked against" the
   source, and every sentence above it should be on that page.
+
+## The accuracy system, phase 2: a gate, a staging folder, and a build that does not fail
+
+*3 October 2026.* The accuracy brief's second phase, on the answers in
+`docs/ACCURACY-SYSTEM.md` section 7. Five choices worth recording.
+
+- **The build excludes a bad entry rather than failing.** Every town loads
+  into one collection, so one bad frontmatter field in Erie used to fail the
+  Niwot build, and a failed build on Vercel leaves the previous deployment
+  serving, with last week's events and whatever was stale then. That is the
+  one outcome the freshness work exists to prevent, so events and places now
+  load through a schema that turns a failure into a marker, the content
+  helper drops the marker with a line saying which file and why, and
+  `npm run build` runs the validator in a mode that reports the same thing
+  as a warning. `npm run validate` on its own, and in CI, still fails on it,
+  so the error is red where someone is looking and never a stale site.
+  Articles, pages and issues are unchanged: they carry no dates that expire,
+  and a broken one is rare and hand-written.
+- **Publishable is decided in one function, applied in one place.** A
+  source, a check date, and for an open listing a check inside its window
+  (`src/lib/freshness.ts`). The one place is `src/lib/content.ts`, which is
+  already the only door to the collections, so the rule cannot be forgotten
+  by a new page. Events do not go stale; they end, and `src/lib/events.ts`
+  already decides that.
+- **Staging is a folder, not a field.** `content/<town>/staging/` is
+  outside the collection globs by construction (`*` is one path segment), so
+  the build cannot see it however a file is written, which beats a `status:
+  staged` that one filter somewhere forgets to check. Approval is a move
+  plus two stamped fields, which git records. A staged file carries a
+  `review` line saying why it is waiting; the validator requires it there and
+  rejects it in the published folders, so a half-finished review cannot
+  publish by accident.
+- **A closed listing does not go stale.** Its claim is that the place is
+  shut, which ninety days do not make less true, and the page exists for the
+  reader who goes looking. It still needs its source and date. What a closed
+  page shows, and that it leaves the directory and the search index, is
+  phase 3.
+- **`LIVE_TOWNS` is derived.** Each town config now says `status: 'live'`
+  (or its wave), and the list is computed from that, so there is one place
+  that says what is live and `new-town` writes it. The variant lives beside
+  it; all nine are `front-range`.
+
+The eight listings that had no source went to staging, each with the
+question the call list already asks. One article linked one of them and
+repeated its hours; the link and the hours came out. Field names are the
+repo's, mapped to the brief's in `docs/ACCURACY-SYSTEM.md` section 8.

@@ -1,5 +1,6 @@
 ---
 title: "Cowgirlz Coffee Company"
+review: { reason: "No source: no site of its own, and the hours it carried were a review site's, removed in the October audit. Call: still open? Hours and phone.", since: "2026-10-03", from: migration }
 type: coffee
 address: "2733 N Highway 86"
 area: "Highway 86, north edge"

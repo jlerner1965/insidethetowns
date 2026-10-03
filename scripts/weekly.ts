@@ -33,6 +33,7 @@ import { z } from 'astro/zod';
 import { eventSchema, placeSchema } from '../src/content/schemas.ts';
 import { addDays, dayKey, startOfDay } from '../src/lib/dates.ts';
 import { LIVE_TOWNS, allTowns } from '../src/config/index.ts';
+import { FRESHNESS } from '../src/config/freshness.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -49,7 +50,7 @@ const MIN_UPCOMING = 5;
  * about to run dry, whatever the headline count says.
  */
 const MIN_RUNWAY_DAYS = 45;
-const STALE_DAYS = 30;
+const STALE_DAYS = FRESHNESS.recheckDays;
 
 const now = new Date();
 const today = startOfDay(now);

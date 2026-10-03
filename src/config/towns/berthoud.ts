@@ -2,6 +2,8 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
 
 export const berthoud: TownConfig = {
   kind: 'town',
+  status: 'live',
+  variant: 'front-range',
   slug: 'berthoud',
   name: 'Berthoud',
   domain: 'insideberthoud.com',

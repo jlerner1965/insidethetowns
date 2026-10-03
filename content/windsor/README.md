@@ -7,6 +7,7 @@ Markdown, commit, push; the site rebuilds. No code changes needed.
 content/windsor/
   events/       one .md per event          → /events/<file-name>/
   places/       one .md per place          → /places/<file-name>/
+  staging/      events/ and places/ waiting for a source or a check; never built
   articles/     one .md per article        → /articles/<file-name>/
   pages/        moving-here.md             → /moving-here/
   images/       photos referenced above, plus hero.jpg
@@ -58,8 +59,8 @@ recurring: "Every Saturday through October"  # optional, display only
 repeat: weekly                    # optional: one file covers every week on start's weekday…
 until: "2026-12-15"               # …through this date (inclusive). Cards say "Every Tuesday through December 15".
 timeNote: "Time to be confirmed"  # optional, shown instead of the time range
-source: "https://organizer.example/calendar"  # optional, where the listing was read
-verified: "2026-09-17"            # optional, the day it was checked
+source: "https://organizer.example/calendar"  # where the listing was read; without it the build holds the event back
+verified: "2026-09-17"            # the day it was checked; same
 featured: false                   # optional
 ---
 Description in Markdown.
@@ -77,8 +78,8 @@ type: restaurant                  # restaurant|bar|coffee|shop|trail|park|venue|
 address: "7960 Niwot Rd"
 area: "Cottonwood Square"         # optional district or landmark, shown on the card
 url: "https://…"                  # optional
-source: "https://…"               # optional, where the listing was checked
-verified: "2026-09-09"            # optional
+source: "https://…"               # where the listing was checked; without it the build holds the listing back
+verified: "2026-09-09"            # the day it was checked; same
 phone: "303-555-0100"             # optional
 hours: "Tue–Sun 11am–9pm"         # optional
 priceRange: "$$"                  # optional: $ $$ $$$ $$$$
@@ -92,6 +93,30 @@ Longer description in Markdown.
 ```
 
 `restaurant`, `bar` and `coffee` appear under Eat & Drink; `trail`, `park` and `venue` under Things to Do.
+
+## Sources, check dates, and staging
+
+Nothing publishes without a `source` (the organizer's or the business's own page,
+never a review site or an aggregator) and a `verified` date. An event or a place
+in the published folders that lacks either is left out of the build, with a line
+on the build log and in `npm run validate` saying so; the file is not deleted.
+A listing that claims to be open is also left out once its `verified` date is
+older than its freshness window (90 days on a Front Range guide, 30 on a mountain
+one; `src/config/freshness.ts`), and its hours go first (60 and 30 days). The
+weekly report lists what is due for a re-check well before that.
+
+Anything not ready to publish goes in `staging/events/` or `staging/places/`,
+same frontmatter plus one line saying why it is waiting:
+
+```yaml
+review: { reason: "No site of its own; call for hours and phone.", since: "2026-10-03", from: manual }
+```
+
+`from` is `migration`, `ingest`, `submission` or `manual`. The build never reads
+`staging/`. To publish, settle the question, set `source` and `verified`, remove
+the `review` line and move the file up a level (the review CLI does these in one
+step). A published file still carrying `review` fails validation, as does a staged
+file without one.
 
 ## Closed places and canceled events
 

@@ -1,5 +1,6 @@
 ---
 title: "The Coffee House on Main Street"
+review: { reason: "No source: no site of its own, and the hours it carried were Yelp's, removed in the October audit. Call for hours, phone and website.", since: "2026-10-03", from: migration }
 type: coffee
 address: "341 S Main St"
 area: "Historic Main Street"

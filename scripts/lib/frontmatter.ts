@@ -8,6 +8,7 @@
  *   key:                  block lists
  *     - item
  *     - { label: "a", url: "b" }   an inline map as a list item
+ *   key: { a: 1, b: [x, y] }       an inline map, one level of lists inside
  *   # comments
  *
  * Astro parses the same files with full YAML; everything this accepts, YAML
@@ -43,6 +44,9 @@ function inlineList(raw: string, keepRaw = false): unknown[] {
   const items: string[] = [];
   let current = '';
   let quote: string | null = null;
+  // Brackets nest one level: `{ season: "May–Oct", closedMonths: [Nov, Dec] }`
+  // must not be split at the comma inside the list.
+  let depth = 0;
   for (const ch of inner) {
     if (quote) {
       current += ch;
@@ -50,7 +54,13 @@ function inlineList(raw: string, keepRaw = false): unknown[] {
     } else if (ch === '"' || ch === "'") {
       quote = ch;
       current += ch;
-    } else if (ch === ',') {
+    } else if (ch === '[' || ch === '{') {
+      depth++;
+      current += ch;
+    } else if (ch === ']' || ch === '}') {
+      depth--;
+      current += ch;
+    } else if (ch === ',' && depth === 0) {
       items.push(current);
       current = '';
     } else {
@@ -58,18 +68,27 @@ function inlineList(raw: string, keepRaw = false): unknown[] {
     }
   }
   items.push(current);
-  return keepRaw ? items : items.map(scalar);
+  return keepRaw ? items : items.map(value);
 }
 
-/** `{ label: "a", url: "b" }` → { label: "a", url: "b" }. Values are scalars; no nesting. */
+/** A scalar, or an inline list or map where one is written. */
+function value(raw: string): unknown {
+  const text = raw.trim();
+  if (text.startsWith('[') && text.endsWith(']')) return inlineList(text);
+  if (text.startsWith('{') && text.endsWith('}')) return inlineMap(text);
+  return scalar(text);
+}
+
+/** `{ label: "a", url: "b" }` → { label: "a", url: "b" }. Values are scalars, or one inline list or map. */
 function inlineMap(raw: string): Record<string, unknown> {
   const inner = raw.trim().slice(1, -1);
+  if (inner.trim() === '') return {};
   const out: Record<string, unknown> = {};
-  // Reuse the list splitter, which respects quotes, then split each pair at its first colon.
+  // Reuse the list splitter, which respects quotes and brackets, then split each pair at its first colon.
   for (const pair of inlineList(`[${inner}]`, true).map(String)) {
     const at = pair.indexOf(':');
     if (at === -1) throw new Error(`cannot parse map entry "${pair}"`);
-    out[pair.slice(0, at).trim()] = scalar(pair.slice(at + 1));
+    out[pair.slice(0, at).trim()] = value(pair.slice(at + 1));
   }
   return out;
 }
@@ -101,10 +120,8 @@ export function parseFrontmatter(source: string): ParsedFile {
     if (rest === '') {
       data[key] = [];
       listKey = key;
-    } else if (rest.startsWith('[') && rest.endsWith(']')) {
-      data[key] = inlineList(rest);
     } else {
-      data[key] = scalar(rest);
+      data[key] = value(rest);
     }
   }
   return { data, body: lines.slice(end + 1).join('\n'), line: 1 };

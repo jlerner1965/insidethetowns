@@ -320,3 +320,137 @@ page rather than restating conditions. Built when Wave 3 is scaffolded.
 With a yes to each, phase 2 starts from `src/content/schemas.ts`,
 `src/config/freshness.ts` and the eight moves, and every step keeps
 `npm run validate` and `npm test` green.
+
+## 7. Decided, 3 October 2026
+
+James's answers to section 6, which phase 2 is built on:
+
+1. Existing field names stay; the brief's new fields are added. The mapping
+   is section 8, the one place it is written out.
+2. Flag at 30 days, hide at 90 on a Front Range guide; a mountain guide hides
+   at 30. A `closed` page may stay up only with a clear "Permanently closed"
+   notice, no hours or phone, and out of the directory lists and the site's
+   search (the notice and the directory and search exclusions are phase 3).
+3. Corrections go to hello@insidethetowns.com through Formspree, with the
+   honeypot field (phase 3).
+4. RSS is parsed in the repo. iCal uses an established package (ical.js or
+   node-ical), as a dev dependency used only at ingest: recurrence, time
+   zones and exceptions are where a hand-written parser gets dates wrong, and
+   accuracy outranks the dependency rule.
+5. The launch threshold never fails a build, because a failed build leaves
+   the previous, stale deployment up. A not-yet-launched town under threshold
+   builds a noindex holding page. A live town that drops under it still
+   builds and publishes its verified content, and is flagged as a CI warning
+   and in the weekly report. Bad individual items are excluded with a
+   warning, not build-breaking.
+6. The eight unsourced listings move to staging now.
+
+## 8. Field names: the brief's terms and the repo's
+
+The repo's names predate the brief and sit in about a thousand files, five
+scripts and the tests, so they stay. Where the brief names something the repo
+had no field for, the field is added under the brief's name. Where the brief
+names a state the build computes, no field exists and the row says what
+computes it.
+
+### Town config (`src/config/towns/<slug>.ts`)
+
+| Brief | Repo | Note |
+|---|---|---|
+| `slug`, `name`, `domain` | same | |
+| `status` | `status` | added: `live`, `wave1`..`wave4`, `redirect`. `LIVE_TOWNS` is now derived from it |
+| `variant` | `variant` | added: `front-range`, `mountain` |
+| `subTowns[]` | `subTowns` | added; items on such a guide carry `subTown` |
+| `launchThreshold` | `launchThreshold` | added; default `DEFAULT_LAUNCH_THRESHOLD` in `src/config/freshness.ts` |
+| `palette` | `colors` | |
+
+### Event (`content/<town>/events/<slug>.md`)
+
+| Brief | Repo | Note |
+|---|---|---|
+| `id` | the file name | also the URL slug; `slug` overrides |
+| `town` | the folder | `content/<town>/` |
+| `subTown` | `subTown` | added |
+| `title` | `title` | |
+| `startDateTime`, `endDateTime` | `start`, `end` | Denver wall clock, no suffix |
+| `timezone` | none | always `America/Denver`; `src/lib/dates.ts` |
+| `venueName`, `address`, `cost` | `venue`, `address`, `cost` | |
+| `description` | the Markdown body | own words |
+| `sourceUrl` | `source` | |
+| `sourceId` | `sourceId` | added; a key in the town's source registry (phase 4) |
+| `status: staged` | the `staging/` folder | plus a `review` block saying why |
+| `status: approved` | the published folder | `source` and `verified` present |
+| `status: rejected` | deleted | git history keeps it |
+| `status: expired` | computed | `isPast` in `src/lib/events.ts`, from `end`/`until` |
+| | `status` | the repo's own field is the event's fate: `scheduled`, `postponed`, `canceled`, with `statusNote`/`statusSource`. Not the brief's editorial state |
+| `verifiedAt` | `verified` | |
+| `verifiedBy` | `verifiedBy` | added; stamped from now on, not backfilled |
+| `lastChangedAt` | git history | and `changeNote` says what changed |
+| `changeFlag` | `changeFlag` | added, with `changeNote`; also `sourceUid` and `sourceHash` for the re-ingest to match on |
+| `recurring` | `repeat` + `until`, or `recurring` (display text) | |
+
+### Listing (`content/<town>/places/<slug>.md`)
+
+| Brief | Repo | Note |
+|---|---|---|
+| `name` | `title` | |
+| `category` | `type` | `restaurant`, `bar`, `coffee`, `shop`, `trail`, `park`, `venue`, `lodging`, `service` |
+| `address`, `phone`, `hours` | same | `openingHours` carries the structured form when the text cannot be read |
+| `website` | `url` | |
+| `seasonal { season, hours, closedMonths[] }` | `seasonal` | added |
+| `sourceUrl` | `source` | |
+| `status: staged` | the `staging/` folder | with `review` |
+| `status: approved` | the published folder | |
+| `status: stale` | computed | `placeExclusion` in `src/lib/freshness.ts`, from `verified` and the town's variant |
+| `status: closed` | `status: closed` | the repo's field: `open`, `temporarily-closed`, `closed`, with `statusNote`/`statusSource` |
+| `verifiedAt`, `verifiedBy` | `verified`, `verifiedBy` | |
+| `notes` | `statusNote`, or the body | |
+| mountain extras (trailheads, parking, permits, closures) | `access` on a `trail` or `park` | added; its own `source` and `verified`, 30-day window, links the land manager's live page |
+
+### Elsewhere
+
+| Brief | Repo |
+|---|---|
+| freshness rules, one config file | `src/config/freshness.ts` |
+| the gate the build applies | `src/lib/freshness.ts`, applied in `src/lib/content.ts` |
+| `CORRECTIONS_EMAIL` | `correctionsEmail` on the hub config (phase 3) |
+| source registry | `content/<town>/sources.yml` (phase 4), fields as in the brief |
+
+## 9. Phase 2, built 3 October 2026
+
+- **Freshness config**: `src/config/freshness.ts`, every window in one
+  object, tested at each boundary (`test/freshness.test.ts`).
+- **The gate**: `src/lib/freshness.ts`. An event or place publishes only
+  with a `source` and a `verified`; an open listing only inside its window.
+  Applied once, in `src/lib/content.ts`, which every page reads through, so
+  no page can skip it. Each exclusion is one line on the build log.
+- **A build that does not fail on one bad file.** Events and places load
+  through `lenient()` (`src/content/schemas.ts`): an entry that fails its
+  schema becomes a marker the gate drops, instead of a failed build that
+  leaves the previous deployment serving stale events. `npm run build` runs
+  the validator in `--build` mode, which reports the same file the same way;
+  `npm run validate` alone, and in CI, is still strict. Tested by building
+  Lyons with a deliberately broken event: one warning, 147 events, build
+  green.
+- **Staging**: `content/<town>/staging/{events,places}/`, invisible to the
+  collection globs by construction, each file carrying `review: { reason,
+  since, from }`. The validator requires the block there and rejects it in
+  the published folders. The eight unsourced listings are there now, each
+  with the question a phone call has to answer. The Lyons kids' article no
+  longer links the Dairy Bar or repeats its hours.
+- **Schema additions**: `verifiedBy`, `sourceId`, `sourceUid`, `sourceHash`,
+  `changeFlag` + `changeNote`, `subTown`, `review`, `seasonal`, `access`.
+  Nothing existing is required to change.
+- **Town config**: `status`, `variant`, `subTowns`, `launchThreshold`.
+  `LIVE_TOWNS` is derived from `status: 'live'`; the hand-kept list is gone
+  and `new-town` writes the new fields.
+- **The scripts' frontmatter reader** now reads an inline map
+  (`review: { … }`) and a list inside one (`closedMonths: [ … ]`).
+- **The per-town summary** the brief asks every build to print comes from
+  the validator, which every build runs: published, excluded by the build,
+  in staging, per town.
+
+Not in phase 2, and next: hours hidden at 60 days on the page, the
+"Permanently closed" notice and the directory and search exclusions, the
+holding page and CI warning for the threshold, the provenance line on cards,
+the correction form (all phase 3).

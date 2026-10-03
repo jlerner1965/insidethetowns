@@ -10,24 +10,16 @@ import type { HubConfig, SiteConfig, TownConfig } from './towns/types.ts';
 import { towns } from './towns/registry.ts';
 import { hub } from './towns/hub.ts';
 
-export type { EditorConfig, HubConfig, SiteConfig, TownConfig, NavItem } from './towns/types.ts';
+export type { EditorConfig, HubConfig, SiteConfig, TownConfig, TownStatus, TownVariant, NavItem } from './towns/types.ts';
 export { countiesCovered, countyLabel, countyShort } from './towns/types.ts';
 
 /**
- * Towns that are deployed and public. The hub only links to these, and the
- * NetworkBar only lists these. Add a slug here when its domain is live.
+ * Towns that are deployed and public: every config whose `status` is `live`.
+ * The hub only links to these, the NetworkBar only lists these, CI builds
+ * only these. Set `status: 'live'` on the town's config when its domain
+ * serves; there is no second list to keep in step.
  */
-export const LIVE_TOWNS: string[] = [
-  'niwot',
-  'lyons',
-  'berthoud',
-  'erie',
-  'johnstown',
-  'timnath',
-  'elizabeth',
-  'windsor',
-  'fortcollins',
-];
+export const LIVE_TOWNS: string[] = towns.filter((t) => t.status === 'live').map((t) => t.slug);
 
 /** All configured towns, wave order (live or not). */
 export const allTowns: TownConfig[] = towns;
