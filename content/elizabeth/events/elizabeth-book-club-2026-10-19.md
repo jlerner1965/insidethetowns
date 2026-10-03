@@ -8,8 +8,8 @@ url: "https://pplibraries.org/01b-elizabeth-library/"
 cost: "Free"
 category: arts
 recurring: "Monthly"
-source: "https://www.elizabethmainstreet.org/calendar/"
-verified: "2026-09-18"
+source: "https://pplibraries.org/03a-activities-calendar/"
+verified: "2026-10-03"
 ---
 
 The library's monthly book club meets late morning in the meeting room on Beverly Street; recent meetings have fallen on the third Monday at 11:30. Copies of the month's title are held at the desk. Free.
