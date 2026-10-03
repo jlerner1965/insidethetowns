@@ -9,7 +9,7 @@ cost: "Free"
 category: civic
 recurring: "first Tuesday of the month"
 source: "https://bouldercounty.gov/series/niwot-local-improvement-district-advisory-committee-nlidac-meeting/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Monthly meeting of the advisory committee that oversees the Niwot Local Improvement District, the taxing district funding downtown improvements and events. Boulder County staff contact is Mark Ruzzin. The public is invited to attend; check the Commissioners' two-week advance agenda to confirm the meeting is on.

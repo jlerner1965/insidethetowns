@@ -7,10 +7,10 @@ url: "https://www.niwotptac.com/niwottrot-146424.html"
 cost: "Registration fee; see the PTAC site"
 category: sports
 featured: true
-source: "https://www.lhvc.com/story/2026/09/16/education/niwot-elementary-ptac-to-host-21st-annual-niwot-trot-5k-oct-4/12521.html"
+source: "https://www.niwotptac.com/niwottrot-146424.html"
 verified: "2026-10-03"
 ---
 
-The annual Niwot Trot, the family 5K run and walk that funds the Niwot Elementary Parent-Teacher Advisory Council. The 3.1-mile loop starts and finishes at Whistle Stop Park and runs the county trails around town, including the Niwot Loop Trail. It is professionally timed.
+The annual Niwot Trot, the family 5K run and walk that funds the Niwot Elementary Parent-Teacher Advisory Council. The PTAC's page gives Sunday, October 4 at 9 am from Whistle Stop Park: a fast, flat 3.1-mile loop on the back roads and gravel paths of downtown Niwot, professionally timed, open to anyone who wants to run, walk, stroll or trot.
 
-Race-day registration opens at Whistle Stop Park at 8 am; the race starts at 9. Every youth finisher gets a medal, with prizes for the fastest boy and girl in each grade. Food trucks and local businesses, Emory Jane’s Coffee among them, meet runners at the finish. Details and online registration are on the PTAC site.
+Every youth finisher gets a medal, with awards for the overall male and female winners and the fastest boy and girl in each grade, then a raffle. Free coffee before and after, and free ice cream sandwiches at the finish. Parking is very limited and there is none on Murray Street between First and Second or on First Avenue, so walk, bike or carpool. Details and online registration are on the PTAC site.

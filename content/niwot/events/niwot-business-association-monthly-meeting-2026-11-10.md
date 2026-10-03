@@ -7,8 +7,8 @@ address: "195 2nd Avenue, Niwot, CO 80544"
 url: "https://niwothall.org/events/nba-monthly-meeting/"
 category: civic
 recurring: "second Tuesday of the month"
-source: "https://niwothall.org/events/nba-monthly-meeting/"
-verified: "2026-10-02"
+source: "https://niwothall.org/events/"
+verified: "2026-10-03"
 ---
 
-Monthly morning meeting of the Niwot Business Association, the merchants' group behind the First Friday Art Walk, the Great Pumpkin Party and the holiday events, from 8:30 to 10 am at Niwot Hall. The date follows the association's second-Tuesday schedule; confirm with the hall before you go.
+Monthly morning meeting of the Niwot Business Association, the merchants' group behind the First Friday Art Walk, the Great Pumpkin Party and the holiday events, from 8:30 to 10 am at Niwot Hall. The November 10 date is on the hall's calendar.

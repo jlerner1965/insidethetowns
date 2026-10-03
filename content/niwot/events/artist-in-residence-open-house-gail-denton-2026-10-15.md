@@ -1,13 +1,13 @@
 ---
-title: "Artist-in-residence open house: Gail Denton"
+title: "Artist-in-residence: Painters in the Hall with Gail Denton"
 start: "2026-10-15T08:30"
 end: "2026-10-15T12:00"
 venue: "Niwot Hall"
 address: "195 2nd Avenue, Niwot, CO 80544"
-url: "https://niwothall.org/events/"
+url: "https://niwothall.org/events/artists-in-the-hall-3/"
 category: arts
-source: "https://www.lhvc.com/story/2026/09/16/features/happenings-at-the-hall/12508.html"
-verified: "2026-09-18"
+source: "https://niwothall.org/events/artists-in-the-hall-3/"
+verified: "2026-10-03"
 ---
 
-Painter Gail Denton exhibits plein air and studio work at Niwot Hall as artist in residence. This morning session includes an artist demonstration.
+Watch a variety of painters at work inside and outside Niwot Hall during the residency of Gail Denton, whose plein air and studio paintings hang in the hall through October. The hall's calendar blocks Thursday, October 15 from 8:30 am to noon, and its listing invites the public to stop by between 10 am and noon, so the later window is the safer one. Denton's open houses follow on [Friday](/events/artist-in-residence-open-house-gail-denton-2026-10-16/) and [Saturday](/events/artist-in-residence-open-house-gail-denton-2026-10-17/).
