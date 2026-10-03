@@ -3,6 +3,7 @@ title: "Cornerstone Cafe"
 type: restaurant
 address: "250 Mountain Ave"
 area: "Downtown, Mountain Avenue"
+phone: "(970) 344-5139"
 hours: "Tue–Sat 7 am–2 pm"
 priceRange: "$"
 tags: [breakfast, diner, lunch]

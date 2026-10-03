@@ -10,7 +10,7 @@ priceRange: "$$"
 tags: [asian, noodles, takeout]
 summary: "Asian-fusion noodles, rice bowls and small plates on Signal Tree Drive by the Town Center. Closed Sundays."
 source: "https://www.themeinhouse.com/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 An Asian-fusion restaurant in the Signal Tree Drive center by the Town Center: noodle dishes, rice bowls, dumplings and small plates, dine in or takeout, Monday to Saturday.

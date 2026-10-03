@@ -11,7 +11,7 @@ tags: [coffee, crepes, breakfast]
 featured: true
 summary: "Old Town's coffee house: sweet and savory crepes, espresso, a rotating craft-beer tap and local makers' goods on the shelves. 7 to 2 on weekdays."
 source: "https://www.blacksheepjohnstown.com/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 The gathering place on Parish Avenue: a family-friendly creperie and coffee shop with sweet and savory crepes, espresso drinks, a rotating selection of craft beer, and shelves of local artisans' jewelry, hats and goods. Breakfast and lunch hours only; sip-and-shop evenings a few times a year.

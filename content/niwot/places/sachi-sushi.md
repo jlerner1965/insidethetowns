@@ -4,6 +4,7 @@ type: restaurant
 address: "7980 Niwot Road"
 area: "Inside Niwot Market"
 url: "https://niwotmarket.com/sachi-sushi-1"
+phone: "(303) 652-0919"
 hours: "Closed Mondays and Tuesdays"
 tags: [sushi, ramen, counter]
 summary: "Japanese kitchen at the back of Niwot Market: sushi through the week and ramen on Sundays."

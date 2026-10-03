@@ -13,7 +13,7 @@ tags: [cider, pizza, live music, trivia]
 featured: true
 summary: "Hard cidery and artisan pizza pub in the 1889 Davis building on Briggs Street, with trivia on Tuesdays, live music Wednesdays and Sundays and a monthly bluegrass jam."
 source: "https://www.theoldmine.com/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Cider and pizza in the two-story 1889 brick building at the heart of the block: house-made hard ciders and beer, artisan pizzas and smoked wings, a happy hour from 3 to 5 with a dollar off drafts, and a calendar of weekly events, from Sporcle trivia on Tuesday evenings and live music on Wednesdays and Sundays to a second-Thursday bluegrass jam and a fourth-Thursday open mic. Closed Mondays.

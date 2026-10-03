@@ -2205,3 +2205,40 @@ eleven.
   match on, and source against the organizer, before its town was committed.
   The Lyons and Niwot workers each flagged their own doubtful calls, which
   is the behaviour to keep.
+
+## The first listings rotation, and what a business's own site turns out to say
+
+*3 October 2026.* The other half of the weekly routine ran for the first
+time: 99 listings across seven towns, the ones verified on or before
+18 September, checked for hours, phone, website and address against the
+business's own site, one worker a town. Windsor and Fort Collins were
+checked at entry this week and wait their turn. Of the 99: 21
+confirmed as they stood, 53 corrected, 15 with no site of their own to
+check against, 10 behind a captcha or bot check.
+
+- **Phones were the gap, not hours.** Most corrections were a phone number
+  the business publishes and the listing lacked; 110 of 337 listings had
+  one at the start of the day. Hours drifted at a handful: Berthoud
+  Brewing's taproom was wrong on every day, Duck Donuts closes at noon on
+  weekdays, Piripi opens Mondays at 11, Cellar West had no hours at all.
+  Four listings cited a magazine listicle or a Chamber directory for a
+  restaurant's hours; they cite the restaurant now.
+- **A directory is where to find the site, never the fact.** The Main
+  Street, Chamber and niwot.com directories were used to find a business's
+  own page and for nothing else. Where the only web presence is such a
+  directory, or Facebook, the listing is unchanged and goes on the call
+  list (`docs/CALL-LIST.md`): 26 businesses whose hours only a phone
+  call or a visit can confirm. The audit's rule for new listings, that
+  nothing publishes without hours from the business itself, was not
+  applied backwards to these; that is a decision for the publisher, listing
+  by listing, with the call list in hand.
+- **Stale is not confirmed.** Briggs Street Books posts hours only as an
+  image headed "Spring/Summer", uploaded in April; in October those are
+  not printed. Powder River's own site gives 211 Main St while the 2026
+  Main Street directory gives 232; the listing follows the site, and the
+  question is on the call list.
+- **Bot checks are the new unreadable.** Seven sites answered curl and
+  WebFetch alike with a captcha or a security checkpoint (SiteGround,
+  Cloudflare, Vercel, Toast). Those listings keep their September date and
+  a line in the report; a browser session or a phone call is the only way
+  through, and the rotation should not pretend otherwise.
