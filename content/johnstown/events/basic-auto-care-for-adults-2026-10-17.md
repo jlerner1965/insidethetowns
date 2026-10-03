@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/basic-auto-care-for-adul
 cost: "Free"
 category: other
 source: "https://johnstownmillikenpubliclibraries.us/event/basic-auto-care-for-adults/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Practical class for adults covering basic vehicle maintenance and upkeep.

@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/"
 cost: "Free"
 category: family
 source: "https://johnstownmillikenpubliclibraries.us/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 A half-hour puppet show with popcorn for all ages at the Johnstown library.

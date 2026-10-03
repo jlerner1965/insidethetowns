@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/build-a-cryptid/"
 cost: "Free"
 category: arts
 source: "https://johnstownmillikenpubliclibraries.us/event/build-a-cryptid/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Drop-in session in the Johnstown library Makerspace to design and build your own cryptid. Open to all ages.

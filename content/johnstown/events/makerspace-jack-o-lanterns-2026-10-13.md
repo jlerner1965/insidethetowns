@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/makerspace-jack-o-lanter
 cost: "Free"
 category: family
 source: "https://johnstownmillikenpubliclibraries.us/event/makerspace-jack-o-lanterns/"
-verified: "2026-09-18"
+verified: "2026-10-03"
 ---
 
 Drop-in session in the Johnstown library Makerspace to customise your own jack-o'-lantern. Open to all ages.
