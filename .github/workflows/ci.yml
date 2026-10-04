@@ -1,8 +1,10 @@
 # Every push and pull request validates the content and builds every live
 # site, so a broken frontmatter field or a bad import is caught before Vercel
 # tries to deploy it. Deploys themselves are Vercel's Git integration: one
-# project per domain, each rebuilding on every push to the production branch
-# (see DEPLOY.md).
+# project per domain, each building a push to the production branch only when
+# it touches that site (scripts/vercel-ignore.sh; see DEPLOY.md). CI builds
+# every site regardless, which is what keeps a branch honest now that only
+# Lyons gets preview deployments.
 name: CI
 
 on:

@@ -18,26 +18,14 @@ name: Scheduled rebuild
 
 on:
   schedule:
-    # Two overnight fires, because one was not landing in the night. The
-    # schedule is a request, not an appointment: through September 2026 the
-    # 09:10 UTC fire ran between 13:42 and 17:36 UTC, five to eight hours late,
-    # every day — mid-morning Mountain, by which time a reader had already seen
-    # Thursday's events at the top of Friday's calendar. (The browser removes
-    # them, see Freshness.astro; a crawler does not run that script.) The 07:10
-    # fire is the earliest that is past midnight Mountain in both halves of
-    # the year, and two chances of landing early beat one.
-    # 2 October 2026, measured: the 07:10 fire ran at 13:49 UTC and the 09:10
-    # fire at 15:42, six and a half hours late each, so a reader without
-    # JavaScript saw Thursday's events on Friday morning anyway. A 04:10 fire
-    # lands between 2 and 5 am Mountain at that lateness; if GitHub ever runs
-    # it on time it is a 10 pm rebuild the evening before, which changes
-    # nothing and costs ten deploys, and the 07:10 fire still covers the night.
-    - cron: '10 4 * * *'
+    # Once a night, at 07:10 UTC: 1:10 am in Denver in summer (MDT) and
+    # 12:10 am in winter (MST), past midnight in both, so the date has turned
+    # over before the rebuild. One fire, by the owner's call (4 October 2026):
+    # the three overnight fires and the Thursday one each rebuilt all ten
+    # sites. GitHub starts scheduled runs late — through early October they
+    # began 5½ to 6½ hours after the cron time — and drops some altogether;
+    # the pages are written not to depend on the hour (Freshness.astro).
     - cron: '10 7 * * *'
-    - cron: '10 9 * * *'
-    # 20:10 UTC Thursday — 14:10 Mountain, so the weekend view is fresh at the
-    # point in the week people actually start looking at it.
-    - cron: '10 20 * * 4'
   workflow_dispatch:
 
 jobs:
@@ -51,6 +39,21 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      # Every project skips a push that does not touch it (scripts/vercel-ignore.sh),
+      # and Vercel runs that check on a deploy hook's build too. The script tells a
+      # rebuild from a push by the age of the commit: under 30 minutes old is a
+      # push. So wait until main's tip is older than that, or a merge just before
+      # 1 am would let a town skip its nightly rebuild.
+      - name: Wait until main's tip is over 30 minutes old
+        run: |
+          for i in $(seq 1 120); do
+            git fetch --quiet --depth=1 origin main
+            age=$(( $(date +%s) - $(git log -1 --format=%ct FETCH_HEAD) ))
+            [ "$age" -ge 1920 ] && { echo "main's tip is $((age / 60)) minutes old"; exit 0; }
+            echo "main's tip is $((age / 60)) minutes old; waiting"
+            sleep 60
+          done
+          echo "::warning::main kept moving for two hours; firing anyway. A town whose last push skipped it may not rebuild tonight."
       - name: Fire each deploy hook
         env:
           HOOKS: ${{ secrets.VERCEL_DEPLOY_HOOKS }}

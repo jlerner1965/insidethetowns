@@ -73,12 +73,23 @@ its domain attached before the guide is ready. Flip the status and push.
 
 - **GitHub Actions** (`.github/workflows/ci.yml`) validates every town's content,
   type-checks, and builds every live site. A push with broken content fails here.
-- **Vercel** rebuilds every project from the production branch. Content lives in
-  one repo, so a Niwot event edit also triggers a hub build; builds are static and
-  take about a minute, which is fine at this scale. If build minutes ever matter,
-  Vercel's *Ignored Build Step* can compare `git diff` against `content/<town>/`.
-- Preview deployments are created for every branch and pull request on every
-  project, each with its own `TOWN`.
+- **Vercel** starts a deployment on every project for every push to `main`, and
+  each project's **Ignored Build Step** (Settings → Build and Deployment) runs
+  `bash scripts/vercel-ignore.sh <slug>` to decide whether that site actually
+  builds. It builds when the push changes `content/<slug>/`,
+  `src/config/towns/<slug>.ts`, shared code (the rest of `src/`, `public/`,
+  `package.json`, `package-lock.json`, `astro.config.mjs`, `tsconfig.json`,
+  `vercel.json`, `scripts/run.ts`) or the site's rows in `IMAGE_LICENSES.csv`,
+  and skips otherwise: a Niwot event edit builds Niwot and nothing else. The
+  hub's network events and each town's "nearby" block read other towns, so they
+  catch up at the nightly rebuild. A skipped deployment shows as Canceled.
+  Anything the script cannot work out builds, and a rebuild (the nightly deploy
+  hook, the dashboard's Redeploy) always builds: see the script's header for how
+  it tells a rebuild from a push.
+- **Preview deployments** are off on every project except `insidelyons`
+  (Settings → Git → "Preview deployments" disabled), so a branch push builds one
+  Lyons preview, subject to the same Ignored Build Step. Branches are checked by
+  CI, which builds every live site.
 
 ## The plan this runs on
 
@@ -234,9 +245,12 @@ keeps that honest. Once, per Vercel project:
    `niwot https://…`, and so on. (A bare URL still fires, but the run can
    then only count hooks against live sites, not name the one that is missing.)
 
-`.github/workflows/scheduled-rebuild.yml` then fires them three times
-overnight and again on Thursday afternoons, and can be run by hand from the
-Actions tab. Adding a town later means adding its line to that secret;
+`.github/workflows/scheduled-rebuild.yml` then fires them once a night at
+07:10 UTC (1:10 am Denver in summer, 12:10 am in winter), and can be run by
+hand from the Actions tab. GitHub starts scheduled runs late, five to six
+hours late through early October 2026, and sometimes not at all. Before it
+fires, the run waits until `main`'s latest commit is over 30 minutes old,
+because that age is how the Ignored Build Step tells a rebuild from a push. Adding a town later means adding its line to that secret;
 nothing else. **The run fails until that line exists**: it reads the live
 sites from the configs (`node scripts/live-towns.ts`) and reports any live
 town without a hook as an error, because a live town that is never rebuilt
