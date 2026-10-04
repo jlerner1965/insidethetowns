@@ -96,6 +96,7 @@ function seed() {
         priority: isCore(category, cites) ? 'core' : 'other',
         status: 'proposed',
         checkFrequency: 'weekly',
+        robots: 'honor',
         cites: { events: cites.events, places: cites.places },
         notes: `Seeded ${today} from the sources the content cites. Category guessed from the host name; type html until a feed is found.`,
       };

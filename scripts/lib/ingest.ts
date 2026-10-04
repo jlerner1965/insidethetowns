@@ -153,7 +153,7 @@ export function fingerprint(item: FeedEvent, venue: string | undefined): string 
 }
 
 /** Feed item -> the file it would become in staging. */
-export function toStaged(item: FeedEvent, source: Source, town: string, today: string): StagedEvent {
+export function toStaged(item: FeedEvent, source: Source, _town: string, today: string): StagedEvent {
   const guesses: string[] = [];
   const { venue, address, guessed: venueGuessed } = venueFrom(item.location, source);
   const { category, guessed: categoryGuessed } = guessCategory(item);

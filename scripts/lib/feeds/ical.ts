@@ -70,7 +70,7 @@ export function readIcal(ics: string, horizon: Horizon): FeedEvent[] {
   const calendar = new ICAL.Component(jcal);
   for (const tz of calendar.getAllSubcomponents('vtimezone')) {
     const zone = new ICAL.Timezone(tz);
-    if (zone.tzid && !ICAL.TimezoneService.has(zone.tzid)) ICAL.TimezoneService.register(zone.tzid, zone);
+    if (zone.tzid && !ICAL.TimezoneService.has(zone.tzid)) ICAL.TimezoneService.register(zone);
   }
 
   const masters = new Map<string, ICAL.Event>();
