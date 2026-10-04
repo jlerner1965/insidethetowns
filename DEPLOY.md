@@ -99,8 +99,8 @@ of a product or service" as commercial. `/advertise/` is that. A commercial
 network on a Hobby account risks being paused, which takes every site
 down at once.
 
-One seat covers every project: the ten guides plus the two retired
-predecessors serving redirects. Pro is billed per user, not per project.
+One seat covers every project: the ten guides plus the retired
+predecessors' projects. Pro is billed per user, not per project.
 
 The build also writes `_headers` and `_redirects` into the output
 (`src/integrations/host-files.ts`), generated from `vercel.json`. Vercel
@@ -133,43 +133,34 @@ wrong rather than something is busy.
 
 ## Redirecting the old sites
 
-Two predecessors have been folded into the network. Both keep their Vercel
-project and their domain: the redirects are what preserve the old site's search
-rankings, and a paused or deleted domain hands over nothing.
+Two predecessors have been folded into the network. Both domains stay with
+Vercel and keep redirecting: the redirects are what preserve the old site's
+search rankings, and a paused or deleted domain hands over nothing.
 
 ### explorelyons.com → insidelyons.com
 
-Retired 19 September 2026. `vercel.json` in the
-[explorelyons repository](https://github.com/jlerner1965/explorelyons) carries
-the redirects on `main`, on the repo's default branch and on
-`claude/redirect-to-insidelyons`, all at the same commit, because which branch
-that Vercel project treats as production was not verifiable from here.
-
-The redirects were **added to** that file, not written over it. It carries
-`buildCommand: python3 build.py`, `outputDirectory`, `cleanUrls`,
-`trailingSlash` and three header blocks; drop those and the build fails, and a
-failed build means the redirects never deploy at all.
-
-Two gotchas worth keeping, both found by testing the live domain rather than
-reading the config:
-
-- The apex 308s to `www` first. Checking only the first hop shows a redirect
-  that looks right and proves nothing — follow the whole chain.
-- With `trailingSlash: true` the incoming path keeps its slash, so a bare
-  `/:path*` never matches `/anything/`, **including `/`**. Every rule needs
-  `{/}?`, or a `/:path*/` variant, or the homepage quietly goes on serving the
-  old site while the named pages all redirect correctly.
-
-`/civic/` had no counterpart here until its content was ported to
-`/articles/who-governs-lyons/`; the redirect points there now.
-
-insidelyons.com answers the nine old paths that changed name (`/explore/`,
+Retired 19 September 2026. Since 4 October 2026 `explorelyons.com` and
+`www.explorelyons.com` are domains on the **insidelyons** project, each a 308
+redirect to `insidelyons.com` that keeps the path: one hop, no project of its
+own. insidelyons.com answers the nine old paths that changed name (`/explore/`,
 `/eat-shop/`, `/stay/`, `/outdoors/`, `/itineraries/`, `/plan-a-visit/`,
 `/our-story/`, `/civic/`, `/community/`) itself, from `vercel.json`, scoped to
-the `insidelyons.com` host so no other town gets them. That lets
-explorelyons.com be a plain domain redirect to insidelyons.com that keeps the
-path, with no project of its own: `/civic/` goes to insidelyons.com/civic/
-and on to the article.
+the `insidelyons.com` host so no other town gets them. So `/civic/` goes to
+insidelyons.com/civic/ and on to `/articles/who-governs-lyons/`; everything
+else lands on the same path. All 16 of the old site's redirects were checked
+on both hostnames when the domains moved.
+
+The old projects (`explorelyons-com`, `explorelyons`, `explorelyons-site`,
+`explorelyons-preview`) serve nothing now. The first three are disconnected
+from the [explorelyons repository](https://github.com/jlerner1965/explorelyons)
+and set never to build; none has been deleted. The `vercel.json` redirects in
+that repository are no longer what serves the domain.
+
+To check, follow the whole chain, not the first hop:
+
+```
+curl -sS -o /dev/null -L -w '%{http_code} %{url_effective}\n' https://explorelyons.com/civic/
+```
 
 ### townofniwot.com → insideniwot.com
 
