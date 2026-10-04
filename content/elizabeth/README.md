@@ -8,6 +8,7 @@ content/elizabeth/
   events/       one .md per event          → /events/<file-name>/
   places/       one .md per place          → /places/<file-name>/
   staging/      events/ and places/ waiting for a source or a check; never built
+  sources.json  the places the editor checks each week (see below); never built
   articles/     one .md per article        → /articles/<file-name>/
   pages/        moving-here.md             → /moving-here/
   images/       photos referenced above, plus hero.jpg
@@ -117,6 +118,19 @@ review: { reason: "No site of its own; call for hours and phone.", since: "2026-
 the `review` line and move the file up a level (the review CLI does these in one
 step). A published file still carrying `review` fails validation, as does a staged
 file without one.
+
+## The source registry
+
+`sources.json` lists the places checked each week for this town: the town
+calendar, the chamber, the library, the parks department, the venues the
+calendar leans on, and the rest. Each entry has an `id`, a `url`, a `type`
+(`ical`, `rss` or `json` with a `feedUrl`; `html` or `manual` otherwise), a
+`category` and a `status`. `npm run sources -- --town=elizabeth` lists what is
+still `proposed`, core entries first; `npm run sources -- confirm elizabeth <id>`
+confirms one. Only a confirmed feed is ever read by ingest. The status has no
+effect on what publishes: an event or place publishes on its own `source` and
+`verified`, whatever the registry says about that host. An item may name its
+registry entry with `sourceId`; the validator checks the id exists.
 
 ## Closed places and canceled events
 

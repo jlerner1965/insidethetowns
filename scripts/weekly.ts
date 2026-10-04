@@ -36,6 +36,7 @@ import { LIVE_TOWNS, allTowns } from '../src/config/index.ts';
 import { FRESHNESS } from '../src/config/freshness.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
 import { describeCounts, launchCounts } from './lib/launch.ts';
+import { readRegistry } from '../src/lib/sources.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'content');
@@ -141,6 +142,10 @@ type TownReport = {
   broken: string[];
   /** Verified, publishable counts against the launch threshold. */
   launch: ReturnType<typeof launchCounts>;
+  /** Confirmed sources whose last check did not come back ok. */
+  sourcesDown: Array<{ id: string; status: string; note?: string; checked: string }>;
+  /** Core sources still waiting to be confirmed before ingest may use them. */
+  sourcesWaiting: number;
 };
 
 const reports: TownReport[] = [];
@@ -164,7 +169,18 @@ for (const town of allTowns) {
     stale: [],
     broken: [],
     launch: launchCounts(town, contentDir, now),
+    sourcesDown: [],
+    sourcesWaiting: 0,
   };
+  try {
+    const registry = readRegistry(town.slug, contentDir);
+    report.sourcesWaiting = registry.sources.filter((s) => s.status === 'proposed' && s.priority === 'core').length;
+    report.sourcesDown = registry.sources
+      .filter((s) => s.status === 'confirmed' && s.lastStatus && s.lastStatus !== 'ok')
+      .map((s) => ({ id: s.id, status: s.lastStatus!, note: s.lastNote, checked: s.lastChecked ? dayKey(s.lastChecked) : '' }));
+  } catch (err) {
+    report.broken.push(`content/${town.slug}/sources.json: ${(err as Error).message}`);
+  }
   const upcomingTitles = new Set<string>();
   for (const { file, data } of events) {
     if (!data) {
@@ -245,11 +261,18 @@ for (const r of reports) {
     line(`  Not re-checked in ${STALE_DAYS}+ days (${r.stale.length}):`);
     for (const s of r.stale) line(`    ${s.verified}  ${s.title}  —  ${s.file}`);
   }
+  if (r.sourcesDown.length) {
+    line(`  Sources not answering as they should (${r.sourcesDown.length}):`);
+    for (const s of r.sourcesDown) line(`    ${s.checked}  ${s.id}: ${s.status}${s.note ? ` — ${s.note}` : ''}`);
+  }
+  if (r.sourcesWaiting) {
+    line(`  Core sources waiting to be confirmed: ${r.sourcesWaiting}  (npm run sources -- --town=${r.town})`);
+  }
   if (r.broken.length) {
     line(`  Files that fail validation (run npm run validate):`);
     for (const b of r.broken) line(`    ${b}`);
   }
-  if (!r.expiring.length && !r.past.length && !r.placesWithoutImage.length && !r.stale.length && !r.broken.length) {
+  if (!r.expiring.length && !r.past.length && !r.placesWithoutImage.length && !r.stale.length && !r.broken.length && !r.sourcesDown.length && !r.sourcesWaiting) {
     line('  Nothing to do.');
   }
 }

@@ -2382,3 +2382,33 @@ finds, and phases 2 and 3 go to production together.
   is a guide or a holding page is `status` alone, so a project created early
   serves one noindex page and a robots.txt that says wait, and flipping to
   `live` is one word in one file.
+
+## The accuracy system, phase 4: a source registry that proposes and never decides
+
+*4 October 2026.* One JSON file per town naming the places checked each
+week, seeded from what the content already cites.
+
+- **Status is about fetching, not publishing.** A `proposed` source means
+  ingest may not read it yet; it says nothing about the events and places
+  that already cite the host, which publish on their own `source` and
+  `verified`. The gate does not import the registry and a test fails if it
+  ever does. Confirming is therefore never urgent for the sites, only for
+  ingest, which is what lets the editor confirm a few at a time.
+- **84, not 260.** The content cites 260 hosts, but most are a business's
+  own site cited once by its own listing, which the thirty-day rotation
+  covers. The registry is for the calendars and institutions: a host cited
+  by any event, or by two or more places. Within that, the civic and
+  institutional categories and the venues the calendar leans on are `core`
+  and come first; the rest are listed as able to wait.
+- **Seeded entries are facts, not guesses, except where they say so.** The
+  name is the host, the sample page is one the content cited, the counts
+  are counted. The category is a guess from the host name and the entry's
+  note says so; the type is `html` until someone finds a feed. No feed URL
+  is proposed that was not seen.
+- **JSON, written by one module.** Hand-editable, no parser to maintain,
+  and `writeRegistry` sorts and strips defaults so that confirming a source
+  is a one-line diff.
+- **The rebuild workflow names the missing hook.** The secret's lines take
+  a slug, the live sites come from the configs, and a live town with no
+  hook fails the run with its name, so a town cannot be flipped live and
+  quietly never rebuilt.

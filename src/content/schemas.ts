@@ -476,6 +476,74 @@ export function pageSchema<I extends z.ZodType>(image: () => I) {
   });
 }
 
+/*
+ * The source registry: content/<town>/sources.json, the places the editor
+ * checks each week. Not a content collection (nothing public renders it);
+ * src/lib/sources.ts reads and writes it, the validator checks it, and
+ * `npm run sources` lists, confirms and probes it.
+ *
+ * `status` governs ingestion only. A `proposed` source is never fetched by
+ * ingest until the editor confirms it; content that already cites the source
+ * by URL publishes regardless, because publishing turns on an item's own
+ * `source` and `verified`, never on the registry.
+ */
+export const SOURCE_TYPES = ['ical', 'rss', 'json', 'html', 'manual'] as const;
+export type SourceType = (typeof SOURCE_TYPES)[number];
+export const SOURCE_CATEGORIES = ['city-calendar', 'chamber', 'library', 'parks', 'venue', 'news', 'other'] as const;
+export type SourceCategory = (typeof SOURCE_CATEGORIES)[number];
+/** The order the editor confirms them in: the civic and institutional calendars first. */
+export const CORE_CATEGORIES: readonly SourceCategory[] = ['city-calendar', 'chamber', 'library', 'parks'];
+export const SOURCE_STATUSES = ['proposed', 'confirmed', 'retired'] as const;
+export type SourceStatus = (typeof SOURCE_STATUSES)[number];
+export const SOURCE_CHECK_RESULTS = ['ok', 'broken', 'changed', 'blocked', 'unreachable', 'skipped'] as const;
+
+export const sourceSchema = z
+  .object({
+    /** Stable key, lowercase with hyphens; what an item's `sourceId` names. */
+    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'id must be lowercase letters, numbers and hyphens'),
+    /** On a multi-town guide, which town it covers. */
+    subTown: z.string().min(1).optional(),
+    /** What the editor calls it. Seeded as the host name; never invented. */
+    name: z.string().min(1),
+    /** The page a person opens to check it. */
+    url: httpUrl,
+    /** The machine-readable feed ingest reads, where there is one. Required for ical, rss and json. */
+    feedUrl: httpUrl.optional(),
+    /** One page the content actually cited, for whoever confirms the source. */
+    sampleUrl: httpUrl.optional(),
+    type: z.enum(SOURCE_TYPES),
+    category: z.enum(SOURCE_CATEGORIES),
+    /** `core` sources are confirmed first; the rest wait until they are needed. */
+    priority: z.enum(['core', 'other']).default('other'),
+    status: z.enum(SOURCE_STATUSES).default('proposed'),
+    checkFrequency: z.enum(['weekly', 'monthly']).default('weekly'),
+    lastChecked: localDate.optional(),
+    lastStatus: z.enum(SOURCE_CHECK_RESULTS).optional(),
+    /** What the last check saw, in a few words. */
+    lastNote: z.string().optional(),
+    /** How many published items cite a URL on this host, at the last seeding. */
+    cites: z.object({ events: z.number().int().nonnegative(), places: z.number().int().nonnegative() }).optional(),
+    notes: z.string().optional(),
+  })
+  .refine((s) => !['ical', 'rss', 'json'].includes(s.type) || !!s.feedUrl, {
+    message: 'a feed source needs its feedUrl',
+    path: ['feedUrl'],
+  });
+
+export type Source = z.infer<typeof sourceSchema>;
+
+export const sourceRegistrySchema = z
+  .object({
+    town: z.string().min(1),
+    sources: z.array(sourceSchema),
+  })
+  .refine((r) => new Set(r.sources.map((s) => s.id)).size === r.sources.length, {
+    message: 'source ids must be unique within a town',
+    path: ['sources'],
+  });
+
+export type SourceRegistry = z.infer<typeof sourceRegistrySchema>;
+
 export const COLLECTIONS = ['events', 'places', 'articles', 'pages', 'issues'] as const;
 export type CollectionName = (typeof COLLECTIONS)[number];
 

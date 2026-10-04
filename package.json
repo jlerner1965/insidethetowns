@@ -19,6 +19,7 @@
     "weekly": "node scripts/weekly.ts",
     "newsletter": "node scripts/newsletter.ts",
     "import-events": "node scripts/import-events.ts",
+    "sources": "node scripts/sources.ts",
     "dev:niwot": "TOWN=niwot astro dev",
     "dev:hub": "TOWN=hub astro dev",
     "build:niwot": "TOWN=niwot node scripts/run.ts build",

@@ -1,0 +1,92 @@
+{
+  "town": "elizabeth",
+  "sources": [
+    {
+      "id": "townofelizabeth-org",
+      "name": "townofelizabeth.org",
+      "url": "https://townofelizabeth.org/",
+      "sampleUrl": "https://www.townofelizabeth.org/bt",
+      "type": "html",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 12,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "elizabethmainstreet-org",
+      "name": "elizabethmainstreet.org",
+      "url": "https://elizabethmainstreet.org/",
+      "sampleUrl": "https://www.elizabethmainstreet.org/events/",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 9,
+        "places": 4
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "pplibraries-org",
+      "name": "pplibraries.org",
+      "url": "https://pplibraries.org/",
+      "sampleUrl": "https://pplibraries.org/03a-activities-calendar/",
+      "type": "html",
+      "category": "library",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 15,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "elizabethpr-com",
+      "name": "elizabethpr.com",
+      "url": "https://elizabethpr.com/",
+      "sampleUrl": "https://www.elizabethpr.com/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 2,
+        "places": 3
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "historicelizabethco-org",
+      "name": "historicelizabethco.org",
+      "url": "https://historicelizabethco.org/",
+      "sampleUrl": "https://www.historicelizabethco.org/about",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 0,
+        "places": 2
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "marketspread-com",
+      "name": "marketspread.com",
+      "url": "https://marketspread.com/",
+      "sampleUrl": "https://marketspread.com/market/21488/elbert-county-marketplace/",
+      "type": "html",
+      "category": "other",
+      "status": "proposed",
+      "cites": {
+        "events": 8,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    }
+  ]
+}

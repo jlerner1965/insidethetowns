@@ -1,0 +1,122 @@
+{
+  "town": "lyons",
+  "sources": [
+    {
+      "id": "bouldercounty-gov",
+      "name": "bouldercounty.gov",
+      "url": "https://bouldercounty.gov/",
+      "sampleUrl": "https://bouldercounty.gov/open-space/parks-and-trails/hall-ranch/",
+      "type": "html",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 0,
+        "places": 3
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "lyonscolorado-com",
+      "name": "lyonscolorado.com",
+      "url": "https://lyonscolorado.com/",
+      "sampleUrl": "https://www.lyonscolorado.com/AgendaCenter",
+      "type": "html",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 3,
+        "places": 11
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "townoflyons-com",
+      "name": "townoflyons.com",
+      "url": "https://townoflyons.com/",
+      "sampleUrl": "https://www.townoflyons.com/Calendar.aspx?EID=6198",
+      "type": "html",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 14,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "lyons-librarycalendar-com",
+      "name": "lyons.librarycalendar.com",
+      "url": "https://lyons.librarycalendar.com/",
+      "sampleUrl": "https://lyons.librarycalendar.com/events/upcoming",
+      "type": "html",
+      "category": "library",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 74,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "rockgardenlyons-com",
+      "name": "rockgardenlyons.com",
+      "url": "https://rockgardenlyons.com/",
+      "sampleUrl": "https://rockgardenlyons.com/events",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 5,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "bluegrass-com",
+      "name": "bluegrass.com",
+      "url": "https://bluegrass.com/",
+      "sampleUrl": "https://bluegrass.com/wildflower",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 3,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "lyonsclassicpinball-com",
+      "name": "lyonsclassicpinball.com",
+      "url": "https://lyonsclassicpinball.com/",
+      "sampleUrl": "https://www.lyonsclassicpinball.com/events",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 4,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "lyonsrecorder-org",
+      "name": "lyonsrecorder.org",
+      "url": "https://lyonsrecorder.org/",
+      "sampleUrl": "https://lyonsrecorder.org/2026/09/17/things-happening-in-lyons-9-17-26/",
+      "type": "html",
+      "category": "news",
+      "status": "proposed",
+      "cites": {
+        "events": 44,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    }
+  ]
+}

@@ -13,6 +13,7 @@ npm run new-town lyons "Lyons"
 npm run weekly                # the weekly content report (see below)
 npm run newsletter            # draft Thursday's email from the listings (see below)
 npm run import-events -- events.csv --dry-run   # CSV → event files
+npm run sources               # the source registry: what waits to be confirmed, core first (see below)
 scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
 ```
 
@@ -62,6 +63,18 @@ holding page until its config says `status: 'live'`. No listing publishes withou
 website and hours taken from the business itself (a business with no site gets no
 hours rather than a review site's); hours are written with am and pm; every listing
 and event carries a status; a review site or an aggregator is never the source.
+
+## The source registry
+
+`content/<town>/sources.json` is the list of places checked each week for that
+town. `npm run sources` prints what is still proposed, core entries (the town
+calendar, the chamber, the library, the parks department, the venues the
+calendar leans on) first; `npm run sources -- confirm lyons townoflyons-com`
+confirms one; `npm run sources -- check` asks each confirmed source whether it
+still answers, robots.txt honoured, and records the result for the weekly
+report; `npm run sources -- seed` proposes entries for any host the content
+cites that the registry does not yet know. A proposed source is never read by
+ingest; it has no effect on what publishes.
 
 ## Link rot
 

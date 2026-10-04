@@ -1,0 +1,107 @@
+{
+  "town": "erie",
+  "sources": [
+    {
+      "id": "erieco-gov",
+      "name": "erieco.gov",
+      "url": "https://erieco.gov/",
+      "sampleUrl": "https://www.erieco.gov/Calendar.aspx?EID=5354",
+      "type": "html",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 47,
+        "places": 14
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "members-eriechamber-org",
+      "name": "members.eriechamber.org",
+      "url": "https://members.eriechamber.org/",
+      "sampleUrl": "https://members.eriechamber.org/events/details/13th-annual-erie-brewfest-853656",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 5,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "highplains-libcal-com",
+      "name": "highplains.libcal.com",
+      "url": "https://highplains.libcal.com/",
+      "sampleUrl": "https://highplains.libcal.com/event/16923053",
+      "type": "html",
+      "category": "library",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 86,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "theoldmine-com",
+      "name": "theoldmine.com",
+      "url": "https://theoldmine.com/",
+      "sampleUrl": "https://www.theoldmine.com/events",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 7,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "andersonfarms-com",
+      "name": "andersonfarms.com",
+      "url": "https://andersonfarms.com/",
+      "sampleUrl": "https://andersonfarms.com/pricing-and-hours/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "erieoptimists-org",
+      "name": "erieoptimists.org",
+      "url": "https://erieoptimists.org/",
+      "sampleUrl": "https://erieoptimists.org/eerie-erie/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "tickets-andersonfarms-com",
+      "name": "tickets.andersonfarms.com",
+      "url": "https://tickets.andersonfarms.com/",
+      "sampleUrl": "https://tickets.andersonfarms.com/p/terror-in-the-corn",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    }
+  ]
+}

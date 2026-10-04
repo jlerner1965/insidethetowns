@@ -229,11 +229,18 @@ keeps that honest. Once, per Vercel project:
 1. Settings → Git → Deploy Hooks → create a hook on the production branch.
 2. Collect all ten URLs.
 3. In the `insidethetowns` repo: Settings → Secrets and variables → Actions →
-   new secret `VERCEL_DEPLOY_HOOKS`, one URL per line.
+   new secret `VERCEL_DEPLOY_HOOKS`, one line per site in the form
+   `<slug> <url>`: `hub https://api.vercel.com/v1/integrations/deploy/…`,
+   `niwot https://…`, and so on. (A bare URL still fires, but the run can
+   then only count hooks against live sites, not name the one that is missing.)
 
-`.github/workflows/scheduled-rebuild.yml` then fires them daily at 09:10 UTC
-and again 20:10 UTC on Thursdays, and can be run by hand from the Actions tab.
-Adding a town later means adding its hook URL to that secret; nothing else.
+`.github/workflows/scheduled-rebuild.yml` then fires them three times
+overnight and again on Thursday afternoons, and can be run by hand from the
+Actions tab. Adding a town later means adding its line to that secret;
+nothing else. **The run fails until that line exists**: it reads the live
+sites from the configs (`node scripts/live-towns.ts`) and reports any live
+town without a hook as an error, because a live town that is never rebuilt
+is a site whose past events never drop off.
 
 A hook URL is a credential — anyone holding one can trigger deploys. The
 workflow prints only the first eight characters of the project segment.

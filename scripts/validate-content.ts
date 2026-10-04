@@ -31,6 +31,7 @@ import { COLLECTIONS, STAGED_COLLECTIONS, schemaFor, type CollectionName } from 
 import { allSites, findTown, liveTowns } from '../src/config/index.ts';
 import { describeExclusion, eventExclusion, placeExclusion } from '../src/lib/freshness.ts';
 import { describeCounts, launchCounts } from './lib/launch.ts';
+import { readRegistry, registryIssues } from '../src/lib/sources.ts';
 // Imported directly, not via getHub(): the validator runs without TOWN set.
 import { hub } from '../src/config/towns/hub.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
@@ -73,6 +74,20 @@ function imageSchemaFor(file: string) {
     });
 }
 
+const registryIdCache = new Map<string, Set<string>>();
+function registryIds(town: string): Set<string> {
+  let ids = registryIdCache.get(town);
+  if (!ids) {
+    try {
+      ids = new Set(readRegistry(town, contentDir).sources.map((s) => s.id));
+    } catch {
+      ids = new Set();
+    }
+    registryIdCache.set(town, ids);
+  }
+  return ids;
+}
+
 function validateFile(collection: CollectionName, file: string, town: string, staged = false) {
   const rel = relative(root, file);
   const gated = collection === 'events' || collection === 'places';
@@ -106,6 +121,15 @@ function validateFile(collection: CollectionName, file: string, town: string, st
     errors.push(`${rel}: a file in staging/ needs a review block (reason, since) saying why it is not published`);
   } else if (!staged && data.review) {
     errors.push(`${rel}: carries a review block but is in the published folder; move it to staging/ or finish the review and remove the block`);
+  }
+  // An item may name the registry entry it came from; the entry must exist.
+  // Its status does not matter here: publishing turns on `source` and
+  // `verified`, and a proposed registry entry blocks ingestion only.
+  if (typeof data.sourceId === 'string') {
+    const ids = registryIds(town);
+    if (!ids.has(data.sourceId)) {
+      errors.push(`${rel}: sourceId "${data.sourceId}" is not in content/${town}/sources.json`);
+    }
   }
   if (typeof data.subTown === 'string') {
     const config = findTown(town);
@@ -383,6 +407,21 @@ if (!existsSync(contentDir)) {
       for (const name of readdirSync(dir)) {
         if (!name.endsWith('.md') || name.startsWith('_')) continue;
         validateFile(collection, join(dir, name), town, true);
+      }
+    }
+    // The source registry, where the town has one.
+    for (const issue of registryIssues(town, contentDir)) errors.push(`content/${town}/sources.json: ${issue}`);
+    if (town !== 'hub' && existsSync(join(townDir, 'sources.json'))) {
+      try {
+        const registry = readRegistry(town, contentDir);
+        const config = findTown(town);
+        for (const source of registry.sources) {
+          if (source.subTown && !config?.subTowns?.includes(source.subTown)) {
+            errors.push(`content/${town}/sources.json: ${source.id}: subTown "${source.subTown}" is not one of ${town}'s subTowns`);
+          }
+        }
+      } catch {
+        // reported above
       }
     }
     // A staging folder for anything else is a file put in the wrong place.

@@ -512,3 +512,40 @@ James's three conditions, and what was found:
 
 Not in phase 3: the sources registry (phase 4), ingest (5), the review CLI
 (6), the report proper (7), the Firestone redirect (8), mountain pages (9).
+
+## 12. Phase 4, built 4 October 2026
+
+Steered first: the "Checked" date comes off event rows and stays on event
+pages and directory rows; the rebuild workflow now fails, naming the town,
+when a live town has no deploy hook (the secret takes `<slug> <url>` lines;
+bare URLs still fire and are counted against the live sites instead).
+
+- **The registry** is `content/<town>/sources.json`, one file per town,
+  schema in `src/content/schemas.ts`, read and written only through
+  `src/lib/sources.ts` so it always comes back in the same order. Fields as
+  in the brief, plus `feedUrl` (what ingest reads; required for `ical`,
+  `rss` and `json`), `sampleUrl` (one page the content actually cited),
+  `priority` (`core` or `other`) and `cites`.
+- **`proposed` blocks ingestion only.** Confirmed: what publishes is decided
+  by an item's own `source` and `verified` in `src/lib/freshness.ts`, which
+  does not import the registry, and a test keeps it that way. Content that
+  cites a proposed host stays up. `sourceId` on an item is optional and the
+  validator only checks that it exists.
+- **Seeding proposed 84 entries, not 260.** Only hosts cited by an event, or
+  by two or more places, are places the editor checks weekly; a business
+  cited once by its own listing is that listing's source. Each entry is
+  named by its host, carries the page the content cited and how many items
+  cite it, and says its category was guessed and its type is `html` until a
+  feed is found. Nothing existing is overwritten on a re-seed.
+- **Core first.** `npm run sources` lists per town what is proposed, core
+  first: `city-calendar`, `chamber`, `library`, `parks`, and a `venue` cited
+  by five or more events. 38 of the 84 are core; ticketing platforms such as Tockify and MaxPreps are never core, and a Town's own site is recognised from its config whatever its domain ends in. The rest wait, listed under
+  "these can wait until they are needed".
+- **`npm run sources -- check`** probes each confirmed source's page (or
+  feed) with the link checker's robots-aware fetch, now shared in
+  `scripts/lib/probe.ts`, and records `lastChecked`, `lastStatus` and a note.
+  The weekly report lists confirmed sources not answering as they should,
+  and how many core sources still wait.
+
+Still proposed, by design: everything. Confirming is the editor's, with the
+list above.
