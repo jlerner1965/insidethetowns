@@ -2590,3 +2590,60 @@ outdoors); no new phases or features.
   Loveland's Tockify calendar serves its feed from a path Tockify's robots.txt
   disallows to everyone. So every Loveland source is `html` or `manual`; the
   registry says which and why, entry by entry.
+
+### Content, 4 October 2026
+
+The owner confirmed every core source in both registries, that Loveland's
+events come from its confirmed sources read by hand (it has no readable
+feed), and the DNS and email changes; the DNS could not be made (below).
+
+- **Longmont's events are the feeds', and wait for the review.** Ingest staged
+  65; nothing it writes publishes, as designed. Before staging, the event
+  standard (docs/AUDIT-2026-10-02.md) was applied through each source's
+  `excludeTitles`: storytimes, clubs, drop-ins, classes, pre-sessions, the
+  museum's Discovery Days, the recreation centre's preschool playtime and
+  fitness, club horse shows and gymkhanas, the Agricultural Heritage Center's
+  ordinary open days. Each exclusion is listed in the source's notes so it can
+  be undone. Every staged description is rewritten in the guide's words, and
+  each review note says what is left to check (the fairgrounds' renters give
+  the County no description; three prices are not in the feed).
+- **An ingest matching flaw, worked around, not fixed.** "Council at Longmont
+  Farmers Market" and the market itself share a Saturday and most of a title,
+  so ingest treated the second as a refresh of the first and overwrote it. The
+  file is renamed for the market and the council title excluded. Same-day
+  matching on 60% of the words will do this again wherever a civic item is
+  named after the event it attends; the fix belongs to ingest and is the
+  owner's call, since no new features were asked for.
+- **Loveland's sourced events publish; the doubtful ones wait.** Hand-checked
+  events with a source and a check date go into the published folder, as every
+  hand-written file in the repo does; the town is a holding page until the
+  owner flips it. The Rialto's own shows are read off each show's ticket page.
+  Its rental shows are dated only by the July brochure, which is already wrong
+  once (it has Midnight Hour Band on 14 November; the ticketing system now has
+  Petty Nicks that night and Midnight Hour in May 2027), so they are staged.
+  Downtown Loveland's dated events live in a Tockify calendar whose feed path
+  Tockify's robots.txt disallows, and its signature-events page carries last
+  year's Small Business Saturday, so none is listed.
+- **Places were researched in parallel and written by one script.** Six
+  research passes, three a town, each held to a written rulebook (the
+  business's own site only, the repo's robots-aware fetch, verbatim evidence
+  for address, phone and hours), returned records rather than files; a sample
+  of every batch was re-read before anything was written, and one listing
+  whose hours exist only in hidden Squarespace settings (Loveland Aleworks)
+  was moved to staging. Two phones read from a business's own embedded site
+  data (Grimm Brothers, Dark Heart) stand.
+- **Loveland's City parks wait.** lovgov.org answers every automated request
+  with 403, so Benson Sculpture Garden, North Lake Park, the Recreation Trail,
+  Viestenz-Smith and the Loveland Museum are staged for a person with a
+  browser. Boyd Lake State Park (Colorado Parks and Wildlife) and the High
+  Plains Environmental Center are the published outdoors.
+- **"InsideLongmont" is the City's.** The City of Longmont's site footer links
+  an "InsideLongmont" site (insidelongmont.longmontcolorado.gov, closed to
+  robots, most likely its staff intranet). Inside Longmont at
+  insidelongmontco.com is a different thing with nearly the same name; the
+  network's rule is never to look like the official source, so this is for the
+  owner to weigh before launch.
+- **DNS and email were not changed.** The environment's Cloudflare token is
+  revoked and the one offered in the session was rejected by Cloudflare as
+  invalid on every endpoint; the copy was deleted. The records are listed in
+  the hand-off for the owner to add.
