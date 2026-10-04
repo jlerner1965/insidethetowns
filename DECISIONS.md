@@ -2651,7 +2651,10 @@ feed), and the DNS and email changes; the DNS could not be made (below).
   hostnames configured, both domains serve the holding page over HTTPS with
   the network's headers, and `www` redirects to the apex. A working token
   the owner supplied later the same day added the `_dmarc` record
-  (`v=DMARC1; p=none`, as on insideniwot.com) to both zones. It carries no
-  Email Routing permission (every routing endpoint answered "Authentication
-  error", as at the Windsor and Fort Collins launch), so `hello@` on both
-  domains still needs routing switched on and its one rule, in the dashboard.
+  (`v=DMARC1; p=none`, as on insideniwot.com) to both zones; it carried no
+  Email Routing permission, and a third token that did switched routing on for
+  both (Cloudflare's three MX records, SPF and the `cf2024-1` DKIM key) and
+  added the one rule, `hello@<domain>` forwarded to the same verified inbox as
+  insideniwot.com's, with the catch-all left off as it is there. Each token
+  was held in a permission-restricted scratch file and deleted after use.
+  Windsor's and Fort Collins' domains still have no MX records.
