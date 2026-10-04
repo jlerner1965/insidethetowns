@@ -14,8 +14,18 @@
         "events": 21,
         "places": 10
       },
-      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (37 items on 4 October).",
-      "feedUrl": "https://www.berthoud.org/RSSFeed.aspx?ModID=58&CID=All-calendar.xml"
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (37 items on 4 October). Recurring drop-ins and classes are excluded by title at the editor's direction (4 October 2026); the recreation centre's listing links the Town's drop-in calendar instead. One-time and seasonal events at the centre still come through.",
+      "feedUrl": "https://www.berthoud.org/RSSFeed.aspx?ModID=58&CID=All-calendar.xml",
+      "excludeTitles": [
+        "Lap Swim",
+        "Family Swim",
+        "Open Swim",
+        "Open Gym",
+        "Forever Fit",
+        "Silver Sneakers",
+        "Pick-up Basketball",
+        "Bootcamp"
+      ]
     },
     {
       "id": "berthoudmainstreet-org",
