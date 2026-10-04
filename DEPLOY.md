@@ -150,11 +150,11 @@ insidelyons.com/civic/ and on to `/articles/who-governs-lyons/`; everything
 else lands on the same path. All 16 of the old site's redirects were checked
 on both hostnames when the domains moved.
 
-The old projects (`explorelyons-com`, `explorelyons`, `explorelyons-site`,
-`explorelyons-preview`) serve nothing now. The first three are disconnected
-from the [explorelyons repository](https://github.com/jlerner1965/explorelyons)
-and set never to build; none has been deleted. The `vercel.json` redirects in
-that repository are no longer what serves the domain.
+The four old Vercel projects (`explorelyons-com`, `explorelyons`,
+`explorelyons-site`, `explorelyons-preview`) were deleted the same day, once
+the domains had moved and none held anything live. The `vercel.json` redirects
+in the [explorelyons repository](https://github.com/jlerner1965/explorelyons)
+are history: nothing deploys that repository now.
 
 To check, follow the whole chain, not the first hop:
 
