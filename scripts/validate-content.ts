@@ -36,7 +36,7 @@ import { readRegistry, registryIssues } from '../src/lib/sources.ts';
 import { hub } from '../src/config/towns/hub.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
 import { hoursTextByDesign, parseHoursText } from '../src/lib/hours.ts';
-import { licenseName, parseLedger, publicCredit, type LedgerRow } from '../src/lib/credits.ts';
+import { licenseName, parseLedger, publicCredit, sourcePhoto, type LedgerRow } from '../src/lib/credits.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'content');
@@ -339,6 +339,43 @@ function collectContentFiles(): string[] {
 }
 
 checkImageCredits();
+
+/**
+ * One photograph, one listing. Directory cards sit side by side and the
+ * featured ones sit under the hero, so a picture on two of them reads as a
+ * mistake. Elizabeth's park and Stampede arena once showed the same Commons
+ * file saved under two names, so a repeat is caught by the register's
+ * source as well as by the path.
+ */
+function checkRepeatedPhotos() {
+  const csvPath = join(root, 'IMAGE_LICENSES.csv');
+  const photoOf = new Map<string, string>();
+  if (existsSync(csvPath)) {
+    for (const row of parseLedger(readFileSync(csvPath, 'utf8'))) {
+      const key = sourcePhoto(row.source);
+      if (key) photoOf.set(row.path, key);
+    }
+  }
+  const users = new Map<string, string[]>();
+  // Per town: a trail two towns share may fairly carry one picture on both sites.
+  const use = (town: string, where: string, file: string) => {
+    const path = `content/${town}/images/${file}`;
+    const key = `${town} ${photoOf.get(path) ?? path}`;
+    users.set(key, [...(users.get(key) ?? []), `${where} (${file})`]);
+  };
+  for (const site of allSites) use(site.slug, `src/config/towns/${site.slug}.ts (hero)`, site.hero.image);
+  for (const file of collectContentFiles()) {
+    const [town, collection] = relative(contentDir, file).split(sep);
+    if (collection !== 'places') continue;
+    const image = /^image:\s*\.\.\/images\/(\S+)\s*$/m.exec(readFileSync(file, 'utf8'));
+    if (image) use(town!, relative(root, file), image[1]!);
+  }
+  for (const where of users.values()) {
+    if (where.length > 1) errors.push(`the same photograph is on ${where.join(' and ')}; give it to one of them`);
+  }
+}
+
+checkRepeatedPhotos();
 
 /**
  * A repeating event is one entry with a repeat rule, expanded at render, so

@@ -6,7 +6,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { licenseName, parseLedger, publicCredit, type LedgerRow } from '../src/lib/credits.ts';
+import { licenseName, parseLedger, publicCredit, sourcePhoto, type LedgerRow } from '../src/lib/credits.ts';
 
 const row = (license: string, source = 'https://commons.wikimedia.org/wiki/File:X.jpg'): LedgerRow => ({
   path: 'content/erie/images/x.jpg',
@@ -94,4 +94,19 @@ test('every row in the real register reads as a public credit', () => {
     assert.ok(c.license, r.path);
     if (r.creditRequired && licenseName(r)) assert.ok(c.author, `${r.path} needs an author to credit`);
   }
+});
+
+test('sourcePhoto knows one picture saved under two names', () => {
+  // The Stampede arena photograph, once on two Elizabeth listings.
+  assert.equal(
+    sourcePhoto('https://commons.wikimedia.org/wiki/File%3ACasey_Jones_Park_Announcer.jpg'),
+    sourcePhoto('https://commons.wikimedia.org/wiki/File:Casey%20Jones%20Park%20Announcer.jpg'),
+  );
+  assert.equal(sourcePhoto('https://www.flickr.com/photos/37387065@N05/7769190806/'), 'flickr:7769190806');
+  assert.notEqual(
+    sourcePhoto('https://commons.wikimedia.org/wiki/File:Casey_Jones_Park_Crowd.jpg'),
+    sourcePhoto('https://commons.wikimedia.org/wiki/File:Casey_Jones_Park_Announcer.jpg'),
+  );
+  assert.equal(sourcePhoto('https://jhsco.org/historicwalkingtour/'), undefined);
+  assert.equal(sourcePhoto('provided directly by Town of Berthoud, 2026-09-21'), undefined);
 });

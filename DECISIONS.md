@@ -2489,3 +2489,29 @@ end of the What row, where it combines with both.
 - **Nothing is hidden by script any more.** The old view hid rows in the
   browser; a crawler and a reader without JavaScript saw all two hundred.
   The split is made at build, so every reader sees the same page.
+
+## One photograph, one listing
+
+*4 October 2026.* The owner saw Casey Jones Park and the Elizabeth Stampede
+rodeo grounds side by side on Elizabeth's home page with the same picture.
+The photo search of 3 October had given the park
+`elizabeth-casey-jones-park.jpg`, which is the Commons file
+`Casey_Jones_Park_Announcer.jpg` that the arena already carried as
+`stampede-arena.jpg`, saved again under a new name at a different size. It
+also undid the audit's call of 2 October, which had taken the rodeo
+photograph off the park and left the arena its own.
+
+- **The park has no photograph again**, as the audit left it, and the copy
+  and its register row are gone. The arena keeps the picture: it shows the
+  arena, not the ball fields, trail and dog park the park listing describes.
+- **Historic Main Street gives up the hero.** It used `hero.jpg`, so the home
+  page showed the same street under the masthead and again in the first row
+  of cards. The hero keeps it; the listing falls back to its letter tile.
+- **`npm run validate` now refuses a repeat.** Within a town, no two places,
+  and no place and the hero, may show the same photograph. "The same" is the
+  same file, or two files whose `IMAGE_LICENSES.csv` source names the same
+  Commons file or Flickr photo (`sourcePhoto` in `src/lib/credits.ts`), which
+  is how this one got past a path check. A perceptual hash of all 127 images
+  found no other repeats on a listing; the only other pair is Lyons'
+  `highway-7-canyon.jpg`, an unused copy of its hero. Articles and events may
+  still borrow a place's photograph: they sit on their own pages.
