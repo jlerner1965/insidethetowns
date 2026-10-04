@@ -22,15 +22,9 @@ interface Props {
   event: TownEntry<'events'>;
   /** Show the calendar date in the left column; off when under a day heading. */
   showDate?: boolean;
-  /**
-   * A weekly regular or one of a series, as the events page works out across
-   * its whole list. Marked on the row so the default view can lead with the
-   * one-offs; see EventFilters.astro.
-   */
-  regular?: boolean;
 }
 
-const { event, showDate = true, regular = false } = Astro.props;
+const { event, showDate = true } = Astro.props;
 const { data, slug } = event;
 const href = `/events/${slug}/`;
 const canceled = isCanceled(event);
@@ -59,7 +53,6 @@ const note =
   data-start-day={dayKey(data.start)}
   data-event-day={lastDay(event)}
   data-free={/^free\b/i.test(data.cost ?? '') ? 'true' : undefined}
-  data-regular={regular ? 'true' : undefined}
   data-status={statusLabel ? data.status : undefined}
 >
   {showDate ? (

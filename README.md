@@ -150,10 +150,12 @@ events page, so readers can subscribe in a calendar app.
 - `/search/` on every site: Pagefind indexes `dist/` at the end of `npm run build`
   (`scripts/run.ts`) and the page loads the static index from `/pagefind/`. In
   `astro dev` there is no index and the page says so.
-- `/events/` filters by when (today, this weekend, next 7 days, free) and by
-  category, keeps the choice in the URL (`?when=weekend&category=music`), and
-  has a day strip that jumps down the fortnight. `/this-weekend/` is the weekend
-  as its own page.
+- `/events/` is two lists: the one-time events and the town meetings by date
+  (filter by when: today, this weekend, next 7 days; by category, with Free at
+  the end of the row; the choice stays in the URL, `?when=weekend&category=music&free=1`,
+  and a day strip jumps down the fortnight), then "Every week in [Town]", the
+  weekly regulars once each with day, time and venue. `/this-weekend/` is the
+  weekend as its own page.
 - `/directory/` is every place by kind, with an "Open now" pill and a name search.
 - `/guides/` is every article by subject. Articles take `sources` (a list of
   `{ label, url }`) and `verified`, shown at the foot.

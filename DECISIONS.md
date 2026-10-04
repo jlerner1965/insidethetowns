@@ -2469,3 +2469,23 @@ fields for all of it exist; nothing further is built without asking.
 - **The second question before deleting a listing that was once live.** The
   eight places moved to staging in phase 2 are real businesses; `r` on one
   asks again, because the alternative was a key pressed one too many times.
+
+## The events page: two lists instead of a switch
+
+*4 October 2026.* The owner's call. The "Show" row that switched between the
+one-offs and everything is gone. The date list holds the one-time events and
+the town meetings, each on its date, with the meetings under Civic; the
+weekly regulars are a fact about the town's week rather than a date, and sit
+once each in "Every week in [Town]" below the list, by weekday, with time
+and venue, each linking to its page. "Free" moves from the When row to the
+end of the What row, where it combines with both.
+
+- **Weekly is narrower than regular.** `weeklyTest` takes a `repeat: weekly`
+  rule, a `recurring` note, or a series stored as dated files with three or
+  more dates on one Denver weekday. Two dates on a Thursday stay in the date
+  list as a pair; a three-day residency stays as three days; a council
+  series is civic and stays by date whatever its rhythm. On Erie the date
+  list went from about two hundred rows to 88, 42 of them meetings.
+- **Nothing is hidden by script any more.** The old view hid rows in the
+  browser; a crawler and a reader without JavaScript saw all two hundred.
+  The split is made at build, so every reader sees the same page.
