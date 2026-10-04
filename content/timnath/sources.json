@@ -24,12 +24,12 @@
       "type": "html",
       "category": "city-calendar",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 7,
         "places": 6
       },
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Checked 4 October 2026: a WordPress site whose events page redirects to sponsorships; the news RSS carries no events. Meetings and festivals are read from its pages by hand."
     },
     {
       "id": "timnathbeerwerks-com",

@@ -6,15 +6,16 @@
       "name": "erieco.gov",
       "url": "https://erieco.gov/",
       "sampleUrl": "https://www.erieco.gov/Calendar.aspx?EID=5354",
-      "type": "html",
+      "type": "rss",
       "category": "city-calendar",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 47,
         "places": 14
       },
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (14 items on 4 October).",
+      "feedUrl": "https://www.erieco.gov/RSSFeed.aspx?ModID=58&CID=All-calendar.xml"
     },
     {
       "id": "members-eriechamber-org",
@@ -39,12 +40,13 @@
       "type": "html",
       "category": "library",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 86,
         "places": 0
       },
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Checked 4 October 2026: LibCal's public iCal (ical_subscribe.php?src=p&cid=8181) returns 500 events for the whole district beginning about a month back, so it never reaches the coming weeks, and no branch or date parameter changed that (cm, campus, lid, l, d tried); the RSS carries four items. Erie's events are read from the calendar by hand until a usable feed is found.",
+      "defaultVenue": "Erie Community Library"
     },
     {
       "id": "theoldmine-com",

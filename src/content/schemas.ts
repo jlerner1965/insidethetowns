@@ -489,10 +489,10 @@ export function pageSchema<I extends z.ZodType>(image: () => I) {
  */
 export const SOURCE_TYPES = ['ical', 'rss', 'json', 'html', 'manual'] as const;
 export type SourceType = (typeof SOURCE_TYPES)[number];
-export const SOURCE_CATEGORIES = ['city-calendar', 'chamber', 'library', 'parks', 'venue', 'news', 'other'] as const;
+export const SOURCE_CATEGORIES = ['city-calendar', 'county', 'chamber', 'library', 'parks', 'venue', 'news', 'other'] as const;
 export type SourceCategory = (typeof SOURCE_CATEGORIES)[number];
 /** The order the editor confirms them in: the civic and institutional calendars first. */
-export const CORE_CATEGORIES: readonly SourceCategory[] = ['city-calendar', 'chamber', 'library', 'parks'];
+export const CORE_CATEGORIES: readonly SourceCategory[] = ['city-calendar', 'county', 'chamber', 'library', 'parks'];
 export const SOURCE_STATUSES = ['proposed', 'confirmed', 'retired'] as const;
 export type SourceStatus = (typeof SOURCE_STATUSES)[number];
 export const SOURCE_CHECK_RESULTS = ['ok', 'broken', 'changed', 'blocked', 'unreachable', 'skipped'] as const;
@@ -523,6 +523,31 @@ export const sourceSchema = z
     lastNote: z.string().optional(),
     /** How many published items cite a URL on this host, at the last seeding. */
     cites: z.object({ events: z.number().int().nonnegative(), places: z.number().int().nonnegative() }).optional(),
+    /**
+     * `honor` (the default): the feed is fetched only where the site's
+     * robots.txt allows our user agent, like every other request these
+     * scripts make. `subscribe`: the feed is one the owner publishes for
+     * calendar subscriptions (a library's "add to your calendar" link) and the
+     * editor has decided a weekly read is within that; set by the editor
+     * only, never by seeding. Ingest says which rule it applied.
+     */
+    robots: z.enum(['honor', 'subscribe']).default('honor'),
+    /**
+     * Keep only feed items whose location matches one of these (case-
+     * insensitive substrings). A district-wide library feed or a county
+     * calendar carries every branch; the guide wants its town's.
+     */
+    locationFilter: z.array(z.string().min(1)).optional(),
+    /**
+     * Feed items whose title matches one of these (case-insensitive) are not
+     * staged. A recreation centre's calendar lists lap swim and open gym every
+     * day; the guide's event standard does not list them. Set by the editor.
+     */
+    excludeTitles: z.array(z.string().min(1)).optional(),
+    /** Feed venue text -> the name the guide uses: { "Johnstown Location": "Glenn A. Jones, M.D. Memorial Library" }. */
+    venueAliases: z.record(z.string(), z.string().min(1)).optional(),
+    /** The venue when the feed names a room or an address but not the place: a library's own calendar. */
+    defaultVenue: z.string().min(1).optional(),
     notes: z.string().optional(),
   })
   .refine((s) => !['ical', 'rss', 'json'].includes(s.type) || !!s.feedUrl, {
@@ -543,6 +568,26 @@ export const sourceRegistrySchema = z
   });
 
 export type SourceRegistry = z.infer<typeof sourceRegistrySchema>;
+
+/**
+ * A change the source made to an already-approved event, written by ingest
+ * to content/<town>/staging/changes/<slug>.json and settled in review. The
+ * published file is left as it was (with `changeFlag` set) until the editor
+ * rules; a cancellation is the one change that goes to the top of the queue.
+ */
+export const changeSchema = z.object({
+  /** The published event's slug. */
+  slug: z.string().min(1),
+  sourceId: z.string().min(1),
+  sourceUid: z.string().min(1).optional(),
+  /** The feed item or page the change was read from. */
+  sourceUrl: httpUrl,
+  detected: localDate,
+  /** The source now marks the event canceled. */
+  cancel: z.boolean().default(false),
+  changes: z.array(z.object({ field: z.string().min(1), was: z.string(), now: z.string() })),
+});
+export type Change = z.infer<typeof changeSchema>;
 
 export const COLLECTIONS = ['events', 'places', 'articles', 'pages', 'issues'] as const;
 export type CollectionName = (typeof COLLECTIONS)[number];

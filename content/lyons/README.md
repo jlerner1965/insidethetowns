@@ -113,7 +113,11 @@ same frontmatter plus one line saying why it is waiting:
 review: { reason: "No site of its own; call for hours and phone.", since: "2026-10-03", from: manual }
 ```
 
-`from` is `migration`, `ingest`, `submission` or `manual`. The build never reads
+`from` is `migration`, `ingest`, `submission` or `manual`. `npm run ingest` fills
+`staging/events/` from the confirmed feeds in `sources.json` (each file says which
+source and what was guessed), and writes any change a feed makes to an already
+published event to `staging/changes/<slug>.json`, setting `changeFlag` on the
+published file and touching nothing else there. The build never reads
 `staging/`. To publish, settle the question, set `source` and `verified`, remove
 the `review` line and move the file up a level (the review CLI does these in one
 step). A published file still carrying `review` fails validation, as does a staged

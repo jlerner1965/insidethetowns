@@ -27,7 +27,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'astro/zod';
-import { COLLECTIONS, STAGED_COLLECTIONS, schemaFor, type CollectionName } from '../src/content/schemas.ts';
+import { COLLECTIONS, STAGED_COLLECTIONS, changeSchema, schemaFor, type CollectionName } from '../src/content/schemas.ts';
 import { allSites, findTown, liveTowns } from '../src/config/index.ts';
 import { describeExclusion, eventExclusion, placeExclusion } from '../src/lib/freshness.ts';
 import { describeCounts, launchCounts } from './lib/launch.ts';
@@ -51,6 +51,8 @@ type TownTally = {
   excluded: string[];
   staged: Record<string, number>;
   launch?: ReturnType<typeof launchCounts>;
+  /** Changes ingest found to published events, waiting for the review. */
+  changes?: number;
 };
 const tallies = new Map<string, TownTally>();
 const tallyFor = (town: string): TownTally => {
@@ -424,10 +426,31 @@ if (!existsSync(contentDir)) {
         // reported above
       }
     }
+    // Changes ingest found to published events, waiting for the review.
+    const changesDir = join(townDir, 'staging', 'changes');
+    if (existsSync(changesDir)) {
+      for (const name of readdirSync(changesDir)) {
+        if (!name.endsWith('.json')) continue;
+        const rel = `content/${town}/staging/changes/${name}`;
+        try {
+          const parsed = changeSchema.safeParse(JSON.parse(readFileSync(join(changesDir, name), 'utf8')));
+          if (!parsed.success) {
+            for (const issue of parsed.error.issues) errors.push(`${rel}: ${issue.path.join('.') || '(root)'}: ${issue.message}`);
+          } else if (!existsSync(join(townDir, 'events', `${parsed.data.slug}.md`))) {
+            warnings.push(`${rel}: names an event that is no longer published (${parsed.data.slug}); delete the change file`);
+          } else {
+            tallyFor(town).changes = (tallyFor(town).changes ?? 0) + 1;
+          }
+        } catch (err) {
+          errors.push(`${rel}: ${(err as Error).message}`);
+        }
+      }
+    }
     // A staging folder for anything else is a file put in the wrong place.
     const stagingDir = join(townDir, 'staging');
     if (existsSync(stagingDir)) {
       for (const name of readdirSync(stagingDir)) {
+        if (name === 'changes') continue;
         if (!(STAGED_COLLECTIONS as readonly string[]).includes(name)) {
           errors.push(`content/${town}/staging/${name}: only ${STAGED_COLLECTIONS.join(' and ')} have a staging folder`);
         }
@@ -486,7 +509,7 @@ for (const [town, t] of [...tallies.entries()].sort(([a], [b]) => a.localeCompar
         : '';
   console.log(
     `  ${town.padEnd(12)} ${String(t.published.events).padStart(4)} / ${String(t.published.places).padStart(3)} published · ` +
-      `${String(t.excluded.length).padStart(2)} excluded · ${t.staged.events} / ${t.staged.places} staged${note}`,
+      `${String(t.excluded.length).padStart(2)} excluded · ${t.staged.events} / ${t.staged.places} staged${t.changes ? ` · ${t.changes} flagged` : ''}${note}`,
   );
 }
 console.log(`\nvalidate-content: ${checked} entries checked, ${errors.length} errors, ${warnings.length} warnings`);

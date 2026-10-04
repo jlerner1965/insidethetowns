@@ -6,15 +6,16 @@
       "name": "johnstownco.gov",
       "url": "https://johnstownco.gov/",
       "sampleUrl": "https://johnstownco.gov/Calendar.aspx",
-      "type": "html",
+      "type": "rss",
       "category": "city-calendar",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 12,
         "places": 9
       },
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (6 items on 4 October).",
+      "feedUrl": "https://johnstownco.gov/RSSFeed.aspx?ModID=58&CID=All-calendar.xml"
     },
     {
       "id": "visitdowntownjohnstown-com",
@@ -36,15 +37,22 @@
       "name": "johnstownmillikenpubliclibraries.us",
       "url": "https://johnstownmillikenpubliclibraries.us/",
       "sampleUrl": "https://johnstownmillikenpubliclibraries.us/event/acrylic-sugar-skulls/",
-      "type": "html",
+      "type": "json",
       "category": "library",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 28,
         "places": 1
       },
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. The Events Calendar REST API (its iCal export answered 502 twice). Both branches are in the feed; only the Johnstown branch is taken, and the feed's 'Johnstown Location' is the name the guide already uses for it.",
+      "feedUrl": "https://johnstownmillikenpubliclibraries.us/wp-json/tribe/events/v1/events",
+      "locationFilter": [
+        "Johnstown"
+      ],
+      "venueAliases": {
+        "Johnstown Location": "Glenn A. Jones, M.D. Memorial Library"
+      }
     },
     {
       "id": "coloradocandlelight-com",

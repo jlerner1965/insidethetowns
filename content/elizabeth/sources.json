@@ -6,15 +6,15 @@
       "name": "townofelizabeth.org",
       "url": "https://townofelizabeth.org/",
       "sampleUrl": "https://www.townofelizabeth.org/bt",
-      "type": "html",
+      "type": "manual",
       "category": "city-calendar",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 12,
         "places": 1
       },
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Checked 4 October 2026: the site answers automated requests with 403, so there is nothing to read; checked by hand in a browser."
     },
     {
       "id": "elizabethmainstreet-org",
@@ -36,15 +36,17 @@
       "name": "pplibraries.org",
       "url": "https://pplibraries.org/",
       "sampleUrl": "https://pplibraries.org/03a-activities-calendar/",
-      "type": "html",
+      "type": "ical",
       "category": "library",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 15,
         "places": 1
       },
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "The library's activities page embeds five public Google calendars; this is the one named 'Elizabeth Events' (647 events, 177 recurring, America/Denver). calendar.google.com's robots.txt disallows everything for agents it does not list, so ingest will not read it until the editor sets robots: subscribe; the library publishes the calendars for exactly this kind of subscription. Found 4 October 2026.",
+      "feedUrl": "https://calendar.google.com/calendar/ical/a683dnsqgd0lmnqsase3860vu4%40group.calendar.google.com/public/basic.ics",
+      "defaultVenue": "Elizabeth Library"
     },
     {
       "id": "elizabethpr-com",
@@ -87,6 +89,21 @@
         "places": 0
       },
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "pplibraries-org-district",
+      "name": "pplibraries.org (District Happenings)",
+      "url": "https://pplibraries.org/03a-activities-calendar/",
+      "feedUrl": "https://calendar.google.com/calendar/ical/4rh8of3qdppmt8454as8gs7iek%40group.calendar.google.com/public/basic.ics",
+      "type": "ical",
+      "category": "library",
+      "priority": "core",
+      "status": "proposed",
+      "locationFilter": [
+        "Elizabeth"
+      ],
+      "defaultVenue": "Elizabeth Library",
+      "notes": "The second of the library's embedded Google calendars, 'District Happenings' (182 events across the branches); only items at Elizabeth would be taken. Same robots.txt position as pplibraries-org. Proposed 4 October 2026."
     }
   ]
 }

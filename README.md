@@ -14,6 +14,7 @@ npm run weekly                # the weekly content report (see below)
 npm run newsletter            # draft Thursday's email from the listings (see below)
 npm run import-events -- events.csv --dry-run   # CSV → event files
 npm run sources               # the source registry: what waits to be confirmed, core first (see below)
+npm run ingest -- --dry-run   # read the confirmed feeds into staging; changes to published events go to review
 scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
 ```
 
@@ -75,6 +76,23 @@ still answers, robots.txt honoured, and records the result for the weekly
 report; `npm run sources -- seed` proposes entries for any host the content
 cites that the registry does not yet know. A proposed source is never read by
 ingest; it has no effect on what publishes.
+
+## Ingest
+
+`npm run ingest` reads every confirmed feed source (`ical`, `rss` or `json` with
+a `feedUrl` in `content/<town>/sources.json`), honouring each site's robots.txt
+unless the editor has set `robots: subscribe` on the source, and writes what it
+finds into `content/<town>/staging/events/`, one file per occurrence, with a
+`review` line naming the source and every guess (venue, category). An item the
+guide already has, found by the feed's id or by the same day and nearly the same
+title, is compared instead: a moved time, a confirmed venue change or a
+cancellation is written to `staging/changes/<slug>.json` and the published file
+gets `changeFlag: true` and a `changeNote`, and nothing else about it changes.
+Cancellations sort first in the weekly report. `--town=erie`, `--source=<id>` and
+`--dry-run` narrow it or hold it. iCalendar is read with ical.js (recurrence,
+exceptions and time zones are where a hand-written parser gets dates wrong);
+RSS (CivicPlus calendars) and The Events Calendar's REST format are read here.
+Nothing ingest writes is published: approval is the review's.
 
 ## Link rot
 

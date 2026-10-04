@@ -84,6 +84,7 @@ export function guessCategory(host: string, officialHost?: string): SourceCatego
   if (/librar|libcal|libnet/.test(h)) return 'library';
   if (/parks|recreation|openspace|gardens|recreationliveshere/.test(h)) return 'parks';
   if (/chamber|mainstreet|main-street|downtown|visit[a-z]/.test(h)) return 'chamber';
+  if (/county\.gov$|^[a-z]+county\./.test(h)) return 'county';
   if (/\.gov$|^townof|^cityof|\.co\.us$/.test(h)) return 'city-calendar';
   if (/recorder|courier|news|times|gazette|press|kunc|broadwayworld|coloradoan/.test(h)) return 'news';
   return 'venue';

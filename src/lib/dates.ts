@@ -170,6 +170,15 @@ export function formatTimeRange(start: Date, end?: Date, allDay = false): string
 }
 
 /** ISO 8601 with the Denver offset, for JSON-LD and <time datetime>. */
+/**
+ * The form the content files write dates in: "2026-10-03T10:00", or
+ * "2026-10-03" alone for midnight. The inverse of parseLocal.
+ */
+export function toWallClock(date: Date, tz = TIME_ZONE): string {
+  const iso = toIsoLocal(date, tz).slice(0, 16);
+  return iso.endsWith('T00:00') ? iso.slice(0, 10) : iso;
+}
+
 export function toIsoLocal(date: Date, tz = TIME_ZONE): string {
   const offsetMin = tzOffsetMs(date, tz) / 60_000;
   const sign = offsetMin >= 0 ? '+' : '-';

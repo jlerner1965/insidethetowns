@@ -6,15 +6,16 @@
       "name": "berthoud.org",
       "url": "https://berthoud.org/",
       "sampleUrl": "https://www.berthoud.org/DocumentCenter/View/7680/Berthoud-Parks--Recreation-Fall-Activity-Guide-2026",
-      "type": "html",
+      "type": "rss",
       "category": "city-calendar",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 21,
         "places": 10
       },
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (37 items on 4 October).",
+      "feedUrl": "https://www.berthoud.org/RSSFeed.aspx?ModID=58&CID=All-calendar.xml"
     },
     {
       "id": "berthoudmainstreet-org",
@@ -54,12 +55,12 @@
       "type": "html",
       "category": "library",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 8,
         "places": 1
       },
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Checked 4 October 2026: a Wix site with an events page and no calendar feed or embed found; checked by hand."
     },
     {
       "id": "citystarbrewing-com",

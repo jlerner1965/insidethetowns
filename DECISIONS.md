@@ -2412,3 +2412,38 @@ week, seeded from what the content already cites.
   a slug, the live sites come from the configs, and a live town with no
   hook fails the run with its name, so a town cannot be flipped live and
   quietly never rebuilt.
+
+## The accuracy system, phase 5: feeds in, staging out, nothing published
+
+*4 October 2026.* Ingest for the confirmed feed sources.
+
+- **ical.js for iCalendar, the rest in the repo.** The plan's rule is to ask
+  before a dependency; the owner's answer was that recurrence, time zones and
+  exceptions are exactly where a hand-written parser produces wrong dates,
+  and accuracy outranks the rule. ical.js parses and expands; it ships no
+  time zone table, so every occurrence's wall clock is converted by the
+  repo's own Denver date code, which is what every other date here goes
+  through. RSS (CivicPlus's structured calendar items) and The Events
+  Calendar's REST JSON are small and plain and are read here.
+- **robots.txt is honoured for feeds too, by default.** Two of the best
+  feeds, the Lyons library's iCal and Pines & Plains' Google calendars, sit
+  behind a robots.txt that disallows unlisted agents, though both are
+  offered to readers as subscriptions. The rule that settled the Berthoud
+  chamber and the Lyons Recorder applies until the editor says otherwise,
+  per source, with `robots: subscribe`; ingest prints which rule it applied.
+- **A guessed venue is never a change.** The first dry run flagged five Erie
+  meetings as moved because the feed named the room and the address where
+  the guide names the building. A venue counts as changed only when the feed
+  names it through the editor's own alias or default venue.
+- **Alone on its day, a moved time is the same event.** Two storytimes with
+  one title on one day are told apart by time; one listing with that title
+  on that day is that event, whatever time the feed now gives, which is how
+  a moved meeting is caught instead of staged as a second one.
+- **Cancellations are not applied automatically.** The brief's first rule is
+  that nothing publishes without a person; a cancellation read from a feed
+  goes to the top of the review with the feed as its source. The switch to
+  apply them on the night they are read exists (`INGEST.autoApplyCancellations`)
+  and is off.
+- **LibCal's public iCal was not usable.** Five hundred district-wide events
+  from a month back, under every parameter tried. The finding is in the
+  source's note so nobody tries again without a new idea.

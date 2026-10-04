@@ -2,21 +2,6 @@
   "town": "lyons",
   "sources": [
     {
-      "id": "bouldercounty-gov",
-      "name": "bouldercounty.gov",
-      "url": "https://bouldercounty.gov/",
-      "sampleUrl": "https://bouldercounty.gov/open-space/parks-and-trails/hall-ranch/",
-      "type": "html",
-      "category": "city-calendar",
-      "priority": "core",
-      "status": "proposed",
-      "cites": {
-        "events": 0,
-        "places": 3
-      },
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
-    },
-    {
       "id": "lyonscolorado-com",
       "name": "lyonscolorado.com",
       "url": "https://lyonscolorado.com/",
@@ -36,30 +21,52 @@
       "name": "townoflyons.com",
       "url": "https://townoflyons.com/",
       "sampleUrl": "https://www.townoflyons.com/Calendar.aspx?EID=6198",
-      "type": "html",
+      "type": "rss",
       "category": "city-calendar",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 14,
         "places": 0
       },
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location; lists the next few weeks (13 items on 4 October).",
+      "feedUrl": "https://www.townoflyons.com/RSSFeed.aspx?ModID=58&CID=All-calendar.xml"
+    },
+    {
+      "id": "bouldercounty-gov",
+      "name": "bouldercounty.gov",
+      "url": "https://bouldercounty.gov/",
+      "sampleUrl": "https://bouldercounty.gov/open-space/parks-and-trails/hall-ranch/",
+      "type": "ical",
+      "category": "county",
+      "priority": "core",
+      "status": "confirmed",
+      "cites": {
+        "events": 0,
+        "places": 3
+      },
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. County-wide feed (The Events Calendar; 30 upcoming items on 4 October); only items whose location names Lyons are taken.",
+      "feedUrl": "https://bouldercounty.gov/events/?ical=1",
+      "locationFilter": [
+        "Lyons"
+      ]
     },
     {
       "id": "lyons-librarycalendar-com",
       "name": "lyons.librarycalendar.com",
       "url": "https://lyons.librarycalendar.com/",
       "sampleUrl": "https://lyons.librarycalendar.com/events/upcoming",
-      "type": "html",
+      "type": "ical",
       "category": "library",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 74,
         "places": 0
       },
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. The site's robots.txt disallows every path for agents it does not list, this one included, so ingest will not read the feed until the editor sets robots: subscribe. The feed is the one the library offers readers under 'subscribe'. Times are UTC; 109 events on 4 October.",
+      "feedUrl": "https://lyons.librarycalendar.com/events/feed/ical",
+      "defaultVenue": "Lyons Regional Library"
     },
     {
       "id": "rockgardenlyons-com",

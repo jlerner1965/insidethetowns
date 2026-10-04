@@ -29,3 +29,8 @@ test('a list inside an inline map is not split at its commas', () => {
   assert.deepEqual(parse('empty: {}').empty, {});
   assert.deepEqual(parse('empty: []').empty, []);
 });
+
+test('an escaped quote inside a quoted value of an inline map does not end the value', () => {
+  const d = parse(`review: { reason: "venue read from \\"Council Chambers, 645 Holbrook Street\\". category guessed", since: "2026-10-04", from: ingest }`);
+  assert.deepEqual(d.review, { reason: 'venue read from "Council Chambers, 645 Holbrook Street". category guessed', since: '2026-10-04', from: 'ingest' });
+});

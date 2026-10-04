@@ -37,6 +37,7 @@ import { FRESHNESS } from '../src/config/freshness.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
 import { describeCounts, launchCounts } from './lib/launch.ts';
 import { readRegistry } from '../src/lib/sources.ts';
+import { changeSchema } from '../src/content/schemas.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'content');
@@ -146,6 +147,10 @@ type TownReport = {
   sourcesDown: Array<{ id: string; status: string; note?: string; checked: string }>;
   /** Core sources still waiting to be confirmed before ingest may use them. */
   sourcesWaiting: number;
+  /** Events and places in staging, waiting for the review. */
+  awaitingReview: { events: number; places: number };
+  /** Changes ingest found to published events; cancellations first. */
+  flagged: Array<{ slug: string; cancel: boolean; summary: string; detected: string }>;
 };
 
 const reports: TownReport[] = [];
@@ -171,7 +176,24 @@ for (const town of allTowns) {
     launch: launchCounts(town, contentDir, now),
     sourcesDown: [],
     sourcesWaiting: 0,
+    awaitingReview: { events: 0, places: 0 },
+    flagged: [],
   };
+  for (const c of ['events', 'places'] as const) {
+    const dir = join(contentDir, town.slug, 'staging', c);
+    if (existsSync(dir)) report.awaitingReview[c] = readdirSync(dir).filter((f) => f.endsWith('.md') && !f.startsWith('_')).length;
+  }
+  const changesDir = join(contentDir, town.slug, 'staging', 'changes');
+  if (existsSync(changesDir)) {
+    for (const name of readdirSync(changesDir)) {
+      if (!name.endsWith('.json')) continue;
+      const parsed = changeSchema.safeParse(JSON.parse(readFileSync(join(changesDir, name), 'utf8')));
+      if (!parsed.success) continue;
+      const c = parsed.data;
+      report.flagged.push({ slug: c.slug, cancel: c.cancel, detected: dayKey(c.detected), summary: c.changes.map((x) => `${x.field} ${x.was} → ${x.now}`).join('; ') });
+    }
+    report.flagged.sort((a, b) => Number(b.cancel) - Number(a.cancel) || a.slug.localeCompare(b.slug));
+  }
   try {
     const registry = readRegistry(town.slug, contentDir);
     report.sourcesWaiting = registry.sources.filter((s) => s.status === 'proposed' && s.priority === 'core').length;
@@ -261,6 +283,13 @@ for (const r of reports) {
     line(`  Not re-checked in ${STALE_DAYS}+ days (${r.stale.length}):`);
     for (const s of r.stale) line(`    ${s.verified}  ${s.title}  —  ${s.file}`);
   }
+  if (r.flagged.length) {
+    line(`  Changes the sources made to published events (${r.flagged.length}; cancellations first):`);
+    for (const f of r.flagged) line(`    ${f.cancel ? 'CANCELED ' : '         '}${f.detected}  ${f.slug}: ${f.summary}`);
+  }
+  if (r.awaitingReview.events || r.awaitingReview.places) {
+    line(`  Awaiting review in staging: ${r.awaitingReview.events} events, ${r.awaitingReview.places} places  (npm run review -- --town=${r.town})`);
+  }
   if (r.sourcesDown.length) {
     line(`  Sources not answering as they should (${r.sourcesDown.length}):`);
     for (const s of r.sourcesDown) line(`    ${s.checked}  ${s.id}: ${s.status}${s.note ? ` — ${s.note}` : ''}`);
@@ -272,7 +301,7 @@ for (const r of reports) {
     line(`  Files that fail validation (run npm run validate):`);
     for (const b of r.broken) line(`    ${b}`);
   }
-  if (!r.expiring.length && !r.past.length && !r.placesWithoutImage.length && !r.stale.length && !r.broken.length && !r.sourcesDown.length && !r.sourcesWaiting) {
+  if (!r.expiring.length && !r.past.length && !r.placesWithoutImage.length && !r.stale.length && !r.broken.length && !r.sourcesDown.length && !r.sourcesWaiting && !r.flagged.length && !r.awaitingReview.events && !r.awaitingReview.places) {
     line('  Nothing to do.');
   }
 }

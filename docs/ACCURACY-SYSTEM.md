@@ -549,3 +549,57 @@ bare URLs still fire and are counted against the live sites instead).
 
 Still proposed, by design: everything. Confirming is the editor's, with the
 list above.
+
+## 13. Phase 5, built 4 October 2026
+
+Confirmed first, at the owner's direction: the five library and six town
+calendars named on 4 October, and Boulder County as `county` (a new
+category, core) for Niwot and Lyons. Everything else stays proposed.
+
+- **Feeds found** by fetching each confirmed source's page and the links it
+  advertises, then reading each candidate once: Lyons library (iCal), Boulder
+  County (iCal, The Events Calendar), the four CivicPlus town sites (calendar
+  RSS with structured dates, times and location), the Johnstown Milliken
+  libraries (The Events Calendar's REST API; its iCal answered 502), and Pines
+  & Plains (five public Google calendars embedded on its activities page; the
+  one named "Elizabeth Events" is set, "District Happenings" proposed). Not
+  found: High Plains LibCal's public iCal is 500 district-wide events
+  starting a month back and never reaches the coming weeks under any
+  parameter tried; Timnath's site has no events feed; the Berthoud library is
+  a Wix site with no feed; Elizabeth's town site answers automated requests
+  with 403. Those four stay `html` or `manual`, each with the finding in its
+  note.
+- **Two feeds wait on a robots decision.** lyons.librarycalendar.com and
+  calendar.google.com both disallow every path for agents they do not list.
+  Both feeds are the ones the libraries offer readers under "subscribe". The
+  repo's rule has been to honour robots.txt, so ingest does not read them and
+  says so each run. The registry has a per-source `robots: subscribe` the
+  editor can set; nothing sets it automatically.
+- **Readers.** iCalendar through ical.js (a dev dependency, used only here):
+  it parses and expands recurrence in the rule's own wall-clock time, so a
+  weekly storytime stays at 10:30 across the November clock change; each
+  occurrence is then converted to an instant by the repo's own Denver date
+  code. RSS and the REST format are read in the repo. Tests pin a weekly rule
+  with EXDATE and a moved instance across the clock change, UTC stamps, all-
+  day dates, the CivicPlus English dates and 12-hour clocks, and the day-long
+  "12:00 AM to 11:59 PM".
+- **Matching and change detection** (`scripts/lib/ingest.ts`): the feed's
+  own id first; else the same Denver day and a title sharing 60% of its
+  words. When the feed has two items with one title on one day, the time
+  tells them apart; when it has one, a different time is a moved event. A
+  change is a moved start or end, a cancellation, or a venue named with the
+  editor's own alias; a feed that says "Council Chambers, 645 Holbrook
+  Street" where the guide says "Erie Town Hall" is naming the room, not
+  moving the meeting, and is not a change.
+- **Per-source editorial knobs**, all optional, none set by seeding:
+  `locationFilter` (a county or district feed carries every branch),
+  `venueAliases` and `defaultVenue` (the feed's "Johnstown Location" is the
+  guide's "Glenn A. Jones, M.D. Memorial Library"), `excludeTitles` (a rec
+  centre's daily lap swim), `robots`.
+- **What ingest writes**: `staging/events/<slug>.md` with `review` naming the
+  source and each guess, the feed's text in the body under a line saying to
+  rewrite it, `sourceId`, `sourceUid`, `sourceHash`, and no `verified`;
+  `staging/changes/<slug>.json` plus `changeFlag` and `changeNote` on the
+  published file, whose facts it never edits. `INGEST.autoApplyCancellations`
+  is off: a cancellation goes to the top of the review, not into the file.
+- **First real run, 4 October**: see the commit. The review CLI is phase 6.

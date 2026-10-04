@@ -47,10 +47,14 @@ function inlineList(raw: string, keepRaw = false): unknown[] {
   // Brackets nest one level: `{ season: "May–Oct", closedMonths: [Nov, Dec] }`
   // must not be split at the comma inside the list.
   let depth = 0;
+  let escaped = false;
   for (const ch of inner) {
     if (quote) {
       current += ch;
-      if (ch === quote) quote = null;
+      // A backslash-escaped quote inside a double-quoted string does not close it.
+      if (escaped) escaped = false;
+      else if (ch === '\\' && quote === '"') escaped = true;
+      else if (ch === quote) quote = null;
     } else if (ch === '"' || ch === "'") {
       quote = ch;
       current += ch;

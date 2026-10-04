@@ -6,15 +6,19 @@
       "name": "bouldercounty.gov",
       "url": "https://bouldercounty.gov/",
       "sampleUrl": "https://bouldercounty.gov/series/niwot-local-improvement-district-advisory-committee-nlidac-meeting/",
-      "type": "html",
-      "category": "city-calendar",
+      "type": "ical",
+      "category": "county",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 3,
         "places": 2
       },
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. County-wide feed (The Events Calendar; 30 upcoming items on 4 October); only items whose location names Niwot are taken.",
+      "feedUrl": "https://bouldercounty.gov/events/?ical=1",
+      "locationFilter": [
+        "Niwot"
+      ]
     },
     {
       "id": "niwot-com",
