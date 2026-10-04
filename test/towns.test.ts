@@ -137,9 +137,10 @@ test('a tagline whose comma sits before the state is not cut at that comma', () 
     'Inside Erie \u2014 Briggs Street, trails and events in Erie, Colorado');
 });
 
-test('the four most ambiguous names spell Colorado out rather than abbreviating', () => {
-  // Windsor is the worst of them: Ontario, Berkshire, California, Connecticut, Vermont.
-  for (const slug of ['erie', 'johnstown', 'elizabeth', 'windsor']) {
+test('the most ambiguous names spell Colorado out rather than abbreviating', () => {
+  // Windsor is the worst of them: Ontario, Berkshire, California, Connecticut,
+  // Vermont. Loveland has Ohio, whose museum holds lovelandmuseum.org.
+  for (const slug of ['erie', 'johnstown', 'elizabeth', 'windsor', 'loveland']) {
     assert.match(by(slug).seoTagline ?? '', /Colorado/, `${slug}: "CO" is too weak a signal for this name`);
   }
 });

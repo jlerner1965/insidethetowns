@@ -2560,3 +2560,33 @@ outdoors); no new phases or features.
 - **The samples are gone.** The scaffold's sample event, place, article and
   moving-here copy were deleted, not edited: nothing in the guide is written
   until there is a source for it.
+- **Loveland's domain is insidelovelandco.com, slug `loveland`.** The brief
+  named insideloveland.com; that domain has been held at Directnic since 2021,
+  is on client hold, does not resolve and is not on the owner's Cloudflare.
+  insidelovelandco.com was registered at Cloudflare on 1 October 2026 on the
+  owner's nameserver pair, and the owner confirmed it on 4 October.
+- **Plum for Loveland** (`#8A3D86` / `#5F2A5C` on `#F8F5F7`): between Erie's
+  blue-violet and Johnstown's burgundy, further from each than either is from
+  its neighbour. Rose, the obvious Sweetheart City choice, sat on top of
+  Johnstown. `npm run check-colors` passes at twelve sites.
+- **Loveland joins the ambiguous names.** There is a Loveland in Ohio, whose
+  museum holds lovelandmuseum.org (it nearly went into the registry), and a
+  Loveland Pass a hundred miles away; the test that holds Erie, Johnstown,
+  Elizabeth and Windsor to "Colorado" in their search tagline now holds it.
+- **Loveland moves three neighbours.** Among configured towns it is
+  Berthoud's nearest (5.5 miles) and Timnath's and Fort Collins' third; the
+  geo tests follow. The map's crowding rule puts its label on the left, clear
+  of Berthoud and Fort Collins, with no change to the component.
+- **The hero is Lake Loveland at sunset**, Paul Dineen, imported to Commons
+  from 500px, CC BY 3.0, 2,048px original. The 4th Street photograph was
+  mostly parked cars and a van. Wikimedia's media host rate-limited the
+  session for a stretch after one non-standard thumbnail size, which its
+  robot policy forbids; previews since are at its standard sizes.
+- **Loveland has no readable feed.** The City's site (lovgov.org) and the
+  library's answer every automated request, robots.txt included, with an
+  Akamai 403; Larimer County's site answered with a Cloudflare challenge on
+  the day. The Chamber's and the Rialto's WordPress iCal feeds answer empty
+  (their events live in ChamberMaster and a ticketing system), and Downtown
+  Loveland's Tockify calendar serves its feed from a path Tockify's robots.txt
+  disallows to everyone. So every Loveland source is `html` or `manual`; the
+  registry says which and why, entry by entry.

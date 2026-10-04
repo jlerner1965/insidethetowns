@@ -13,6 +13,7 @@ import { elizabeth } from './elizabeth.ts';
 import { windsor } from './windsor.ts';
 import { fortcollins } from './fortcollins.ts';
 import { longmont } from './longmont.ts';
+import { loveland } from './loveland.ts';
 // new-town:imports
 
 export const towns: TownConfig[] = [
@@ -26,5 +27,6 @@ export const towns: TownConfig[] = [
   windsor,
   fortcollins,
   longmont,
+  loveland,
   // new-town:entries
 ];
