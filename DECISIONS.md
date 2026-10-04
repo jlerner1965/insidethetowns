@@ -2447,3 +2447,25 @@ week, seeded from what the content already cites.
 - **LibCal's public iCal was not usable.** Five hundred district-wide events
   from a month back, under every parameter tried. The finding is in the
   source's note so nobody tries again without a new idea.
+
+## The accuracy system, phase 6: the review, and where it stops
+
+*4 October 2026.* The owner's call: phase 6 is the last. The review CLI's
+summary stands in for the weekly report the brief planned as phase 7, the
+redirects are a record rather than code (two are live elsewhere, one has no
+domain yet), and the mountain pages wait for a mountain town. The schema
+fields for all of it exist; nothing further is built without asking.
+
+- **One prompt, one line at a time.** The review edits a file by replacing
+  or removing single frontmatter lines and never rewrites the file, because
+  these files are also written by hand and a rewrite would reorder and
+  requote them. Approval is three lines (`review` out, `verified` and
+  `verifiedBy` in) and a move; a change applied is the changed fields plus
+  the same three; a dismissal is two lines out.
+- **Approval validates what will be published, not what was staged.** The
+  stamped text is parsed with the published schema before the move, and a
+  missing `source` refuses, so the one door to the published folder is also
+  the one place the rule cannot be stepped around.
+- **The second question before deleting a listing that was once live.** The
+  eight places moved to staging in phase 2 are real businesses; `r` on one
+  asks again, because the alternative was a key pressed one too many times.

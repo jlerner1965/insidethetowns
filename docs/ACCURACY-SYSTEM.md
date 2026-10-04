@@ -603,3 +603,65 @@ category, core) for Niwot and Lyons. Everything else stays proposed.
   published file, whose facts it never edits. `INGEST.autoApplyCancellations`
   is off: a cancellation goes to the top of the review, not into the file.
 - **First real run, 4 October**: see the commit. The review CLI is phase 6.
+
+## 14. Phase 6, built 4 October 2026, and where the brief stops
+
+The owner's decision on 4 October: phase 6 is the last phase. The review
+CLI carries a short summary at its top (items waiting, listings going stale
+in 14 days, sources not answering), which replaces phase 7's separate
+report; the three redirects are recorded in `docs/REDIRECTS.md` in one small
+commit, two being live from the old repos and one waiting for Carbon Valley;
+phase 9 (mountain fields on pages) waits until a mountain town launches, the
+schema fields being in place already. No new phases without asking.
+
+- **`npm run review`** (`scripts/review.ts`, transforms in
+  `scripts/lib/review.ts`): the summary, then the queue in the order
+  cancellations, other changes, staged places, staged events by date. Keys:
+  approve, edit, reject, open, skip, approve the rest, quit. Approval of a
+  staged file validates it as it will be published, refuses without a
+  `source`, stamps `verified` and `verifiedBy`, drops `review` and moves the
+  file; approval of a change writes the source's new facts into the
+  published file and clears the flag; rejection deletes a staged file (with
+  a second question for the eight listings that were published before) or
+  dismisses a change and leaves the listing. Every edit is one frontmatter
+  line; the body and every other line are untouched, and tests pin that.
+- **The brief's acceptance criteria, as they stand:**
+  1. An event with no `source` cannot be published: the gate excludes it
+     with a message, the review refuses to approve it. ✔
+  2. A past event disappears on the next build with no manual step. ✔ (and
+     the rebuild runs three times a night.)
+  3. A listing verified 91+ days ago does not render as current on a Front
+     Range site: hidden, hours gone at 61. ✔
+  4. A source changing an approved event's time puts it back in review and
+     shows in the report: `staging/changes/`, `changeFlag`, the summary. ✔
+  5. A town below its launch threshold does not go live: a non-live town is
+     a holding page; a live one that drops under is warned three ways and
+     keeps publishing what is verified, at the owner's direction. ✔
+  6. One command across all towns: `npm run review` (and `npm run weekly`). ✔
+  7. No placeholder or invented data in approved content: nothing here
+     writes a published file without a person; seeded registry entries are
+     named by host and say what was guessed. ✔
+- **Not built, by decision:** `npm run add` (hand-written files and the CSV
+  importer cover manual entry), a separate weekly report beyond `weekly.ts`,
+  mountain pages, the Firestone redirect.
+
+## 15. Merge checklist, 4 October 2026
+
+1. **Test correction sent.** One POST to the Niwot form the `/correct/`
+   page uses, subject `[Correction] Niwot · test/merge-checklist`; Formspree
+   answered `ok`. Whether it arrived at hello@insidethetowns.com is a look in
+   the inbox.
+2. **Formspree destinations.** Not checkable from here: the destination of
+   each form is a dashboard setting and Formspree's API needs a key the repo
+   does not have. Ten forms to check, one per site.
+3. **Vercel.** Read through the API: all ten projects build from `main` with
+   no ignored-build step, no password or SSO on production, and a deploy
+   hook on `main` each. Vercel's Git integration has no setting that waits on
+   GitHub checks, and none is set.
+4. **Deploy-hook secret.** The ten `<slug> <url>` lines, read from the
+   projects, are in the session's scratchpad file `VERCEL_DEPLOY_HOOKS.txt`
+   for pasting into the GitHub secret; not committed anywhere.
+5. **Pages.** Bradford's on Berthoud renders "Permanently closed", no hours
+   or phone, out of the lists; a listing aged to 76 days renders "Not shown:
+   last checked 76 days ago. Call to confirm." with the provenance line and
+   the correction link. Screenshots in the scratchpad.

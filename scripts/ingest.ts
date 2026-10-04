@@ -315,5 +315,5 @@ for (const town of towns) {
 console.log(
   `\ningest${dryRun ? ' (dry run, nothing written)' : ''}: ${totals.sources} source${totals.sources === 1 ? '' : 's'}, ${totals.items} items; ` +
     `${totals.staged} staged, ${totals.updated} refreshed, ${totals.unchanged} unchanged, ${totals.changes} changes to published events (${totals.cancellations} cancellations). ` +
-    (totals.staged || totals.changes ? 'Next: the review (content/<town>/staging/; npm run review once phase 6 lands).' : ''),
+    (totals.staged || totals.changes ? 'Next: npm run review.' : ''),
 );

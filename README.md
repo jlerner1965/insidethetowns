@@ -15,6 +15,7 @@ npm run newsletter            # draft Thursday's email from the listings (see be
 npm run import-events -- events.csv --dry-run   # CSV → event files
 npm run sources               # the source registry: what waits to be confirmed, core first (see below)
 npm run ingest -- --dry-run   # read the confirmed feeds into staging; changes to published events go to review
+npm run review                # the summary, then everything in staging: approve, edit, reject (see below)
 scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
 ```
 
@@ -28,11 +29,14 @@ Mark, don't delete: a place that has closed gets `status: closed` and a note
 saying how you know, a meeting the Town has called off gets `status:
 canceled`, and the pages do the rest (see any content README).
 
-1. `npm run weekly` prints, per town: events whose last date falls within the next
-   7 days (add the next dates or delete the file), events already past, towns with
-   fewer than 5 upcoming events, places without a photo, and listings not re-checked
-   in 30 days — that week's share of the rotation. `--town=lyons`, `--days=14` and
-   `--json` narrow or reshape it.
+1. `npm run ingest`, then `npm run review`: the feeds' new items and changes land in
+   staging and the review walks them (see *Review* below), with the summary at the
+   top: what is waiting, listings going stale in 14 days, sources not answering.
+   `npm run weekly` still prints the longer report, per town: events whose last date
+   falls within the next 7 days (add the next dates or delete the file), events
+   already past, towns with fewer than 5 upcoming events, places without a photo,
+   and listings not re-checked in 30 days — that week's share of the rotation.
+   `--town=lyons`, `--days=14` and `--json` narrow or reshape it.
 2. Collect the week's events in a CSV with the columns in
    `scripts/templates/events-template.csv` (title, start, end, venue, url, category,
    town are required; address, cost, description, source, repeat, until, recurring,
@@ -93,6 +97,23 @@ Cancellations sort first in the weekly report. `--town=erie`, `--source=<id>` an
 exceptions and time zones are where a hand-written parser gets dates wrong);
 RSS (CivicPlus calendars) and The Events Calendar's REST format are read here.
 Nothing ingest writes is published: approval is the review's.
+
+## Review
+
+`npm run review` is the weekly session's front door. It prints the summary
+first, per town: what is waiting in staging, listings whose check crosses the
+freshness window in the next fortnight, and confirmed sources whose last check
+failed. Then it walks the queue, cancellations first, then other changes the
+sources made to published events, then staged places, then staged events by
+date, and at each one takes `a` (approve: stamp `verified` and `verifiedBy`,
+drop the `review` block, move the file into the published folder; for a change,
+write the source's new facts into the published file and clear the flag), `e`
+(open the file in `$EDITOR`, validate, ask again), `r` (reject: delete a staged
+file, or dismiss a change and keep the listing), `o` (open the source URL), `s`
+(skip), `A` (approve the rest of the town's queue) or `q`. Nothing is approved
+without a `source`. `--town=lyons` narrows it, `--summary` prints only the
+summary, `--by="Name"` says who approved (else `REVIEWER`, else git's
+user.name). Then `npm run validate`, commit, push.
 
 ## Link rot
 

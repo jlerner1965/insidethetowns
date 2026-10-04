@@ -21,6 +21,7 @@
     "import-events": "node scripts/import-events.ts",
     "sources": "node scripts/sources.ts",
     "ingest": "node scripts/ingest.ts",
+    "review": "node scripts/review.ts",
     "dev:niwot": "TOWN=niwot astro dev",
     "dev:hub": "TOWN=hub astro dev",
     "build:niwot": "TOWN=niwot node scripts/run.ts build",
