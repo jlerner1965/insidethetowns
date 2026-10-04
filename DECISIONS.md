@@ -2643,7 +2643,11 @@ feed), and the DNS and email changes; the DNS could not be made (below).
   insidelongmontco.com is a different thing with nearly the same name; the
   network's rule is never to look like the official source, so this is for the
   owner to weigh before launch.
-- **DNS and email were not changed.** The environment's Cloudflare token is
-  revoked and the one offered in the session was rejected by Cloudflare as
-  invalid on every endpoint; the copy was deleted. The records are listed in
-  the hand-off for the owner to add.
+- **DNS was added by the owner; email waits.** The environment's Cloudflare
+  token, and the one offered in the session, were rejected by Cloudflare as
+  invalid on every endpoint (the session's copy was deleted), so the owner
+  added the apex A records (76.76.21.21) and the `www` CNAMEs to Vercel's
+  per-project targets in the dashboard on 4 October. Vercel reports all four
+  hostnames configured, both domains serve the holding page over HTTPS with
+  the network's headers, and `www` redirects to the apex. Email Routing for
+  `hello@` and the `_dmarc` record are not yet on either domain.
