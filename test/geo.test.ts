@@ -25,13 +25,14 @@ test('a town is never its own neighbor and the nearest comes first', () => {
   assert.ok(near.length <= 3);
 });
 
-test('Timnath has Windsor and Fort Collins at its door, then Johnstown', () => {
+test('Timnath has Windsor and Fort Collins at its door, then Loveland', () => {
   // Against every configured town rather than the live ones: the geometry is
   // true before a town launches, and this is what the block will show once
-  // both are live. 4.8, 5.4 and 13.8 miles.
+  // all three are live. 4.8, 5.4 and 11.4 miles; Johnstown, at 13.8, is
+  // fourth since Loveland was configured.
   assert.deepEqual(
     nearestTowns(town('timnath'), allTowns).map((n) => n.town.slug),
-    ['windsor', 'fortcollins', 'johnstown'],
+    ['windsor', 'fortcollins', 'loveland'],
   );
 });
 
@@ -42,10 +43,32 @@ test('the northern cluster: each of the three is the nearest guide to the others
   );
   assert.deepEqual(
     nearestTowns(town('fortcollins'), allTowns).map((n) => n.town.slug),
-    ['timnath', 'windsor', 'berthoud'],
+    ['timnath', 'windsor', 'loveland'],
   );
-  // Berthoud picks Windsor up as its third, at under fourteen miles.
-  assert.equal(nearestTowns(town('berthoud'), allTowns)[2]!.town.slug, 'windsor');
+  // Berthoud's three are Loveland at five and a half miles, Johnstown and
+  // Longmont at ten and a half.
+  assert.deepEqual(
+    nearestTowns(town('berthoud'), allTowns).map((n) => n.town.slug),
+    ['loveland', 'johnstown', 'longmont'],
+  );
+});
+
+test('Longmont sits between Niwot, Erie and Berthoud', () => {
+  // 6.1, 7.9 and 10.5 miles. It is Niwot's, Erie's and Lyons' nearest or
+  // next-nearest too, so their nearby blocks will lead with it once it is live.
+  assert.deepEqual(
+    nearestTowns(town('longmont'), allTowns).map((n) => n.town.slug),
+    ['niwot', 'erie', 'berthoud'],
+  );
+});
+
+test('Loveland sits between Berthoud, Johnstown and Windsor', () => {
+  // 5.5, 9.2 and 10.3 miles; Fort Collins is 10.8. Berthoud's and
+  // Johnstown's nearby blocks will lead with it once it is live.
+  assert.deepEqual(
+    nearestTowns(town('loveland'), allTowns).map((n) => n.town.slug),
+    ['berthoud', 'johnstown', 'windsor'],
+  );
 });
 
 test('Elizabeth has no neighbor, so the block built on this shows nothing there', () => {

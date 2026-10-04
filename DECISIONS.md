@@ -2515,3 +2515,135 @@ photograph off the park and left the arena its own.
   found no other repeats on a listing; the only other pair is Lyons'
   `highway-7-canyon.jpg`, an unused copy of its hero. Articles and events may
   still borrow a place's photograph: they sit on their own pages.
+
+## Longmont and Loveland
+
+*4 October 2026.* The owner's brief: two new guides, Longmont first, each
+scaffolded with `new-town`, not live (the holding page), `front-range`, its
+own palette, and a launch threshold of 25 upcoming events and 30 listings
+because both are large; a curated scope (the confirmed feeds' events, and
+places on Main Street and downtown, food and drink, breweries, parks and
+outdoors); no new phases or features.
+
+- **Longmont's domain is insidelongmontco.com, slug `longmont`.** Registered
+  at Cloudflare on 30 September 2026 and delegated to the same Cloudflare
+  nameserver pair as every other guide, so it is the owner's. The "co" is the
+  domain's, as with Windsor.
+- **Status `wave1`, the scaffold's default.** The brief's wave for each town
+  is not written down in the repo, and any non-live status builds the same
+  holding page; the hub lists the town under "Coming next" and the map draws
+  an outlined pin, as it was built to.
+- **Olive for Longmont** (`#6B7A1E` / `#4A5514` on `#F6F6EF`): the one hue
+  family between Timnath's gold and Niwot's green that no guide uses.
+  `npm run check-colors` passes at eleven sites.
+- **The facts follow the repo's sources.** Population, 2010 population,
+  elevation and coordinates from the Wikipedia infobox (census and GNIS);
+  incorporation 15 November 1885, per the State Archives list Wikipedia cites,
+  with the City's 1871 as the founding; the county split from the City's own
+  pages. The Census API now wants a key, so the split note gives no share
+  figure, as Berthoud's and Johnstown's do not. No drive time to Denver: the
+  City gives miles, not minutes, and the field waits for a source.
+- **One district across two counties.** The test that holds every
+  two-county town's school line to "Mostly" assumes the county line splits
+  the schools. St. Vrain Valley takes in parts of both Boulder and Weld and
+  lists Longmont among its communities, and nothing read puts any of the city
+  in another district, so Longmont's line names the one district and the
+  test carries a named exception rather than a hedge with nothing behind it.
+- **Longmont leaves the map's reference cities**, as Fort Collins did, or the
+  hub would draw two. Berthoud's three nearest configured towns become
+  Johnstown, Longmont and Lyons; the live pages read live towns only, so no
+  nearby block changes until Longmont launches.
+- **The hero is McIntosh Lake at sunset**, Tyler Cipriani, 2017, CC BY-SA
+  4.0, 6,030px original, resized to 1920. The Unsplash files in the Commons
+  category are close-ups of leaves and bark. Commons' robots.txt disallows
+  `/w/api.php`, so the category and file pages were read under `/wiki/`.
+- **The samples are gone.** The scaffold's sample event, place, article and
+  moving-here copy were deleted, not edited: nothing in the guide is written
+  until there is a source for it.
+- **Loveland's domain is insidelovelandco.com, slug `loveland`.** The brief
+  named insideloveland.com; that domain has been held at Directnic since 2021,
+  is on client hold, does not resolve and is not on the owner's Cloudflare.
+  insidelovelandco.com was registered at Cloudflare on 1 October 2026 on the
+  owner's nameserver pair, and the owner confirmed it on 4 October.
+- **Plum for Loveland** (`#8A3D86` / `#5F2A5C` on `#F8F5F7`): between Erie's
+  blue-violet and Johnstown's burgundy, further from each than either is from
+  its neighbour. Rose, the obvious Sweetheart City choice, sat on top of
+  Johnstown. `npm run check-colors` passes at twelve sites.
+- **Loveland joins the ambiguous names.** There is a Loveland in Ohio, whose
+  museum holds lovelandmuseum.org (it nearly went into the registry), and a
+  Loveland Pass a hundred miles away; the test that holds Erie, Johnstown,
+  Elizabeth and Windsor to "Colorado" in their search tagline now holds it.
+- **Loveland moves three neighbours.** Among configured towns it is
+  Berthoud's nearest (5.5 miles) and Timnath's and Fort Collins' third; the
+  geo tests follow. The map's crowding rule puts its label on the left, clear
+  of Berthoud and Fort Collins, with no change to the component.
+- **The hero is Lake Loveland at sunset**, Paul Dineen, imported to Commons
+  from 500px, CC BY 3.0, 2,048px original. The 4th Street photograph was
+  mostly parked cars and a van. Wikimedia's media host rate-limited the
+  session for a stretch after one non-standard thumbnail size, which its
+  robot policy forbids; previews since are at its standard sizes.
+- **Loveland has no readable feed.** The City's site (lovgov.org) and the
+  library's answer every automated request, robots.txt included, with an
+  Akamai 403; Larimer County's site answered with a Cloudflare challenge on
+  the day. The Chamber's and the Rialto's WordPress iCal feeds answer empty
+  (their events live in ChamberMaster and a ticketing system), and Downtown
+  Loveland's Tockify calendar serves its feed from a path Tockify's robots.txt
+  disallows to everyone. So every Loveland source is `html` or `manual`; the
+  registry says which and why, entry by entry.
+
+### Content, 4 October 2026
+
+The owner confirmed every core source in both registries, that Loveland's
+events come from its confirmed sources read by hand (it has no readable
+feed), and the DNS and email changes; the DNS could not be made (below).
+
+- **Longmont's events are the feeds', and wait for the review.** Ingest staged
+  65; nothing it writes publishes, as designed. Before staging, the event
+  standard (docs/AUDIT-2026-10-02.md) was applied through each source's
+  `excludeTitles`: storytimes, clubs, drop-ins, classes, pre-sessions, the
+  museum's Discovery Days, the recreation centre's preschool playtime and
+  fitness, club horse shows and gymkhanas, the Agricultural Heritage Center's
+  ordinary open days. Each exclusion is listed in the source's notes so it can
+  be undone. Every staged description is rewritten in the guide's words, and
+  each review note says what is left to check (the fairgrounds' renters give
+  the County no description; three prices are not in the feed).
+- **An ingest matching flaw, worked around, not fixed.** "Council at Longmont
+  Farmers Market" and the market itself share a Saturday and most of a title,
+  so ingest treated the second as a refresh of the first and overwrote it. The
+  file is renamed for the market and the council title excluded. Same-day
+  matching on 60% of the words will do this again wherever a civic item is
+  named after the event it attends; the fix belongs to ingest and is the
+  owner's call, since no new features were asked for.
+- **Loveland's sourced events publish; the doubtful ones wait.** Hand-checked
+  events with a source and a check date go into the published folder, as every
+  hand-written file in the repo does; the town is a holding page until the
+  owner flips it. The Rialto's own shows are read off each show's ticket page.
+  Its rental shows are dated only by the July brochure, which is already wrong
+  once (it has Midnight Hour Band on 14 November; the ticketing system now has
+  Petty Nicks that night and Midnight Hour in May 2027), so they are staged.
+  Downtown Loveland's dated events live in a Tockify calendar whose feed path
+  Tockify's robots.txt disallows, and its signature-events page carries last
+  year's Small Business Saturday, so none is listed.
+- **Places were researched in parallel and written by one script.** Six
+  research passes, three a town, each held to a written rulebook (the
+  business's own site only, the repo's robots-aware fetch, verbatim evidence
+  for address, phone and hours), returned records rather than files; a sample
+  of every batch was re-read before anything was written, and one listing
+  whose hours exist only in hidden Squarespace settings (Loveland Aleworks)
+  was moved to staging. Two phones read from a business's own embedded site
+  data (Grimm Brothers, Dark Heart) stand.
+- **Loveland's City parks wait.** lovgov.org answers every automated request
+  with 403, so Benson Sculpture Garden, North Lake Park, the Recreation Trail,
+  Viestenz-Smith and the Loveland Museum are staged for a person with a
+  browser. Boyd Lake State Park (Colorado Parks and Wildlife) and the High
+  Plains Environmental Center are the published outdoors.
+- **"InsideLongmont" is the City's.** The City of Longmont's site footer links
+  an "InsideLongmont" site (insidelongmont.longmontcolorado.gov, closed to
+  robots, most likely its staff intranet). Inside Longmont at
+  insidelongmontco.com is a different thing with nearly the same name; the
+  network's rule is never to look like the official source, so this is for the
+  owner to weigh before launch.
+- **DNS and email were not changed.** The environment's Cloudflare token is
+  revoked and the one offered in the session was rejected by Cloudflare as
+  invalid on every endpoint; the copy was deleted. The records are listed in
+  the hand-off for the owner to add.

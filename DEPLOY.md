@@ -14,6 +14,8 @@ insidetimnath.com    TOWN=timnath
 insideelizabeth.com  TOWN=elizabeth
 insidewindsorco.com  TOWN=windsor
 insidefortcollins.com TOWN=fortcollins
+insidelongmontco.com TOWN=longmont   (not live: holding page)
+insidelovelandco.com TOWN=loveland   (not live: holding page)
 …
 ```
 

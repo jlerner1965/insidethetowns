@@ -71,8 +71,17 @@ test('no guide claims a single school district for a town that has two', () => {
   // The comparison table truncates this field at the first ":" or "(", so a
   // split town has to say so before that point or the short form lies.
   const short = (full?: string) => (full ? (full.split(/[:(]/)[0] ?? full).trim() : '');
+  // Two counties, one district: St. Vrain Valley Schools lists Longmont among
+  // its communities and takes in parts of both Boulder and Weld
+  // (svvsd.org/about/district-overview/, read 2026-10-04), and no source read
+  // puts any of the city in another district, so a "Mostly" would be a hedge
+  // with nothing behind it. Its line names the one district instead.
+  const ONE_DISTRICT = new Map([['longmont', /^St\. Vrain Valley Schools,/]]);
   for (const t of towns) {
-    if (t.counties.length > 1) {
+    const one = ONE_DISTRICT.get(t.slug);
+    if (one) {
+      assert.match(t.movingHere.schoolDistrict ?? '', one, `${t.slug}: names its one district`);
+    } else if (t.counties.length > 1) {
       assert.match(short(t.movingHere.schoolDistrict), /^Mostly /,
         `${t.slug}: spans counties, so its short school line must be hedged`);
     }
@@ -128,9 +137,10 @@ test('a tagline whose comma sits before the state is not cut at that comma', () 
     'Inside Erie \u2014 Briggs Street, trails and events in Erie, Colorado');
 });
 
-test('the four most ambiguous names spell Colorado out rather than abbreviating', () => {
-  // Windsor is the worst of them: Ontario, Berkshire, California, Connecticut, Vermont.
-  for (const slug of ['erie', 'johnstown', 'elizabeth', 'windsor']) {
+test('the most ambiguous names spell Colorado out rather than abbreviating', () => {
+  // Windsor is the worst of them: Ontario, Berkshire, California, Connecticut,
+  // Vermont. Loveland has Ohio, whose museum holds lovelandmuseum.org.
+  for (const slug of ['erie', 'johnstown', 'elizabeth', 'windsor', 'loveland']) {
     assert.match(by(slug).seoTagline ?? '', /Colorado/, `${slug}: "CO" is too weak a signal for this name`);
   }
 });

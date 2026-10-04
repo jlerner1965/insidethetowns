@@ -1,0 +1,126 @@
+{
+  "town": "loveland",
+  "sources": [
+    {
+      "id": "lovgov-org",
+      "name": "City of Loveland",
+      "url": "https://www.lovgov.org/",
+      "type": "manual",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "notes": "Checked 4 October 2026: the site sits behind Akamai, which answers every automated request with 403 Access Denied, robots.txt included, so nothing could be read and no feed could be looked for. The City's calendar, City Council, Cultural Services (the Loveland Museum, 503 N. Lincoln Ave.) and Parks & Recreation are all on this site. Checked by hand in a browser, as Elizabeth's town site is, until the City answers or allows a reader."
+    },
+    {
+      "id": "larimer-gov",
+      "name": "Larimer County",
+      "url": "https://www.larimer.gov/events",
+      "type": "manual",
+      "category": "county",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "notes": "Checked 4 October 2026: robots.txt allows us, but every page answered with Cloudflare's \"Just a moment\" challenge, so the events listing could not be read and no feed was found. Fort Collins' registry proposes the same host. The County runs the natural areas around Loveland (Devil's Backbone) and The Ranch, proposed separately. Try again before relying on it; otherwise check in a browser."
+    },
+    {
+      "id": "loveland-org",
+      "name": "Loveland Chamber of Commerce",
+      "url": "https://business.loveland.org/events",
+      "sampleUrl": "https://business.loveland.org/events/calendar/2026-10-04",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "notes": "Checked 4 October 2026: the calendar is ChamberMaster at business.loveland.org and reads as plain HTML. The iCal feed the WordPress site advertises (loveland.org/events/?ical=1) answers with an empty body, its events calendar being unused, and ChamberMaster's /events/rss is 404. The Chamber describes its calendar as covering Loveland and the surrounding communities, so each item's location needs checking. Read by hand."
+    },
+    {
+      "id": "downtownloveland-org",
+      "name": "Loveland Downtown Partnership",
+      "url": "https://www.downtownloveland.org/calendar",
+      "sampleUrl": "https://www.downtownloveland.org/signature-events",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "notes": "Checked 4 October 2026: Squarespace, and the calendar page embeds a Tockify calendar named \"lovelanddowntown\". Tockify's robots.txt disallows /api/, where its iCal feeds are served, for every agent, so no feed was read or is proposed; the signature-events page reads as plain HTML. Read by hand, or in a browser for the embedded calendar."
+    },
+    {
+      "id": "lovelandpubliclibrary-org",
+      "name": "Loveland Public Library",
+      "url": "https://www.lovelandpubliclibrary.org/",
+      "type": "manual",
+      "category": "library",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "notes": "Checked 4 October 2026: the site sits behind Akamai, which answers every automated request with 403 Access Denied, robots.txt included, so nothing could be read and no feed could be looked for. Same wall as the City's own site (the library is a City department, 300 N. Adams Ave.). Checked by hand in a browser."
+    },
+    {
+      "id": "lovgov-org-parks",
+      "name": "Loveland Parks & Recreation",
+      "url": "https://www.lovgov.org/ParksRecreation",
+      "type": "manual",
+      "category": "parks",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "notes": "Checked 4 October 2026: the site sits behind Akamai, which answers every automated request with 403 Access Denied, robots.txt included, so nothing could be read and no feed could be looked for. The short address is the one the City's own publications give; it was not opened from here. The source for park, trail and recreation-center listings (Chilson Recreation & Senior Center, the 31-mile Recreation Trail) and the department's events. Checked by hand in a browser."
+    },
+    {
+      "id": "rialtotheatercenter-org",
+      "name": "Rialto Theater Center",
+      "url": "https://www.rialtotheatercenter.org/",
+      "sampleUrl": "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=162",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "notes": "Checked 4 October 2026: the City's Cultural Services venue at 228 E. 4th St. The WordPress site advertises an iCal feed (/events/?ical=1) that answers empty; shows are sold on tickets.rialtotheatercenter.org, whose list fills in by script, but each show's page is plain HTML with date, time and price (Lee Rocker on 24 October, The Drifters on 13 November, both on the home page). Read by hand."
+    },
+    {
+      "id": "treventscomplex-com",
+      "name": "The Ranch Events Complex (Blue Arena)",
+      "url": "https://www.treventscomplex.com/events",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "notes": "Checked 4 October 2026: Larimer County's events complex at I-25, home of Blue Arena and the Colorado Eagles. The upcoming-events list reads as plain HTML (Jon Pardi on 8 October, Eagles home games); tickets are sold through AXS. No feed found. Read by hand."
+    },
+    {
+      "id": "reporterherald-com",
+      "name": "Loveland Reporter-Herald",
+      "url": "https://www.reporterherald.com/",
+      "type": "manual",
+      "category": "news",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Checked 4 October 2026: robots.txt disallows ClaudeBot and anthropic-ai, which this repo treats as an opt-out, so nothing was read and nothing should be. A person can read it."
+    },
+    {
+      "id": "sculptureinthepark-org",
+      "name": "Sculpture in the Park",
+      "url": "https://www.sculptureinthepark.org/",
+      "type": "html",
+      "category": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Checked 4 October 2026: Squarespace, robots.txt allows us and the home page reads as plain HTML. The annual sculpture show in Benson Sculpture Garden; dates from its own pages only."
+    },
+    {
+      "id": "visitlovelandco-org",
+      "name": "Visit Loveland",
+      "url": "https://www.visitlovelandco.org/",
+      "type": "manual",
+      "category": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Checked 4 October 2026: SiteGround's bot challenge (sgcaptcha) answers every automated request. A visitor-bureau calendar aggregates other organizers' events in any case, so it is never the source of an item."
+    }
+  ]
+}

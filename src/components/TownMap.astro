@@ -22,9 +22,8 @@ const { towns } = Astro.props;
 
 /** Cities with no guide of their own, drawn faintly so the towns have somewhere to be. */
 const CONTEXT = [
-  // Fort Collins used to be here; it has a guide of its own now.
+  // Fort Collins and Longmont used to be here; each has a guide of its own now.
   { name: 'Boulder', lat: 40.015, lng: -105.2705, side: 'right' },
-  { name: 'Longmont', lat: 40.1672, lng: -105.1019, side: 'left' },
   { name: 'Denver', lat: 39.7392, lng: -104.9903, side: 'left' },
   { name: 'Castle Rock', lat: 39.3722, lng: -104.8561, side: 'right' },
 ];
@@ -99,7 +98,7 @@ const road = I25.map((p) => `${x(p.lng).toFixed(1)},${y(p.lat).toFixed(1)}`).joi
   <svg viewBox={`0 0 ${W} ${H}`} aria-labelledby="town-map-title" class="h-auto w-full font-body">
     <title id="town-map-title">
       Map of Colorado's Front Range showing the {towns.length} towns in the network, with Denver,
-      Boulder, Longmont, Castle Rock and Interstate 25 for reference
+      Boulder, Castle Rock and Interstate 25 for reference
     </title>
     <rect width={W} height={H} fill="var(--color-raised)"></rect>
 
