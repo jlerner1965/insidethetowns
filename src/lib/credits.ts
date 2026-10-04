@@ -98,6 +98,28 @@ function sourceUrlFrom(source: string): string | undefined {
   return /^https?:\/\/\S+/.exec(source)?.[0];
 }
 
+/**
+ * The one photograph a ledger source names, when it names one: a Commons file
+ * page or a Flickr photo page. Two files with the same key are the same
+ * picture saved twice, whatever their names and sizes. Sources that name a
+ * folder, a website or a person ("provided directly by the Town") have none.
+ */
+export function sourcePhoto(source: string): string | undefined {
+  const url = sourceUrlFrom(source);
+  if (!url) return undefined;
+  let decoded: string;
+  try {
+    decoded = decodeURIComponent(url);
+  } catch {
+    decoded = url;
+  }
+  const commons = /commons\.wikimedia\.org\/wiki\/(File:[^?#]+)/i.exec(decoded);
+  if (commons) return `commons:${commons[1]!.replace(/ /g, '_')}`;
+  const flickr = /flickr\.com\/photos\/[^/]+\/(\d+)/i.exec(decoded);
+  if (flickr) return `flickr:${flickr[1]}`;
+  return undefined;
+}
+
 /** The rights holders who granted written permission, as PERMISSIONS.md names them. */
 const GRANTS: Array<[RegExp, string]> = [
   [/^Town of Erie staff photograph/, 'Town of Erie'],

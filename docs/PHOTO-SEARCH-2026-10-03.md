@@ -39,7 +39,10 @@ looked at a second time before it went in.
 ## What was added (16)
 
 - **Elizabeth:** Casey Jones Park, the Stampede arena (Elizabeth Stampede,
-  2012, CC BY 3.0; 1089 px, the only photograph of the park).
+  2012, CC BY 3.0; 1089 px, the only photograph of the park). *Withdrawn 4
+  October: it is the same Commons file the Stampede grounds listing already
+  carried, so the two cards sat side by side with one picture. See
+  DECISIONS.md, "One photograph, one listing".*
 - **Fort Collins (15):** the Avery House, Canvas Stadium, the Museum of
   Discovery, Horsetooth Rock for Horsetooth Mountain Open Space, Arthur's
   Rock for Lory State Park, Moby Arena, the old high school for the
