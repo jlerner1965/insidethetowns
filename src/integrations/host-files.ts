@@ -27,6 +27,7 @@ interface VercelRedirect {
   source: string;
   destination: string;
   permanent?: boolean;
+  has?: Array<{ type: string; value?: string }>;
 }
 interface VercelConfig {
   headers?: VercelHeader[];
@@ -59,7 +60,23 @@ function toPath(source: string): string {
   return path;
 }
 
-export function hostFiles(config: VercelConfig): AstroIntegration {
+/**
+ * vercel.json is shared by every site, so a redirect meant for one site says
+ * so with a `host` condition, which Vercel applies per request. The exported
+ * file belongs to one site, so it takes that site's redirects and no other's.
+ * Any other kind of condition has no equivalent here and stops the build.
+ */
+function forSite(redirect: VercelRedirect, domain: string): boolean {
+  for (const condition of redirect.has ?? []) {
+    if (condition.type !== 'host') {
+      throw new Error(`host-files: cannot translate a "${condition.type}" condition on "${redirect.source}".`);
+    }
+    if (condition.value !== domain) return false;
+  }
+  return true;
+}
+
+export function hostFiles(config: VercelConfig, domain: string): AstroIntegration {
   return {
     name: 'inside-the-towns:host-files',
     hooks: {
@@ -73,7 +90,7 @@ export function hostFiles(config: VercelConfig): AstroIntegration {
 
         // 301 and 308 both mean "moved permanently, keep the rankings"; 302 is
         // the temporary one. Vercel spells the distinction `permanent`.
-        const redirectLines = (config.redirects ?? []).map(
+        const redirectLines = (config.redirects ?? []).filter((r) => forSite(r, domain)).map(
           (r) => `${toPath(r.source)}  ${r.destination}  ${r.permanent === false ? 302 : 301}`,
         );
         writeFileSync(join(out, '_redirects'), redirectLines.join('\n') + '\n', 'utf8');

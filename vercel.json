@@ -63,6 +63,105 @@
       "source": "/sitemap.xml",
       "destination": "/sitemap-index.xml",
       "permanent": false
+    },
+    {
+      "source": "/explore{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/things-to-do/",
+      "permanent": true
+    },
+    {
+      "source": "/eat-shop{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/eat-drink/",
+      "permanent": true
+    },
+    {
+      "source": "/stay{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/things-to-do/",
+      "permanent": true
+    },
+    {
+      "source": "/outdoors{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/articles/trails-and-the-river/",
+      "permanent": true
+    },
+    {
+      "source": "/itineraries{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/things-to-do/",
+      "permanent": true
+    },
+    {
+      "source": "/plan-a-visit{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/things-to-do/",
+      "permanent": true
+    },
+    {
+      "source": "/our-story{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/articles/lyons-history-sandstone-railroad-river/",
+      "permanent": true
+    },
+    {
+      "source": "/civic{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/articles/who-governs-lyons/",
+      "permanent": true
+    },
+    {
+      "source": "/community{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/moving-here/",
+      "permanent": true
     }
   ]
 }
