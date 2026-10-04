@@ -2643,7 +2643,7 @@ feed), and the DNS and email changes; the DNS could not be made (below).
   insidelongmontco.com is a different thing with nearly the same name; the
   network's rule is never to look like the official source, so this is for the
   owner to weigh before launch.
-- **DNS was added by the owner; email waits.** The environment's Cloudflare
+- **DNS was added by the owner; email followed.** The environment's Cloudflare
   token, and the one offered in the session, were rejected by Cloudflare as
   invalid on every endpoint (the session's copy was deleted), so the owner
   added the apex A records (76.76.21.21) and the `www` CNAMEs to Vercel's
@@ -2657,4 +2657,8 @@ feed), and the DNS and email changes; the DNS could not be made (below).
   added the one rule, `hello@<domain>` forwarded to the same verified inbox as
   insideniwot.com's, with the catch-all left off as it is there. Each token
   was held in a permission-restricted scratch file and deleted after use.
-  Windsor's and Fort Collins' domains still have no MX records.
+  Windsor's and Fort Collins' domains had had no MX records since they were
+  added; the third token, supplied again that evening, switched routing on for
+  both and added the same `hello@` rule, catch-all off. Both already carried
+  the `_dmarc` record, so routing's own MX, SPF and DKIM records were the only
+  change to their DNS.
