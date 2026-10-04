@@ -44,8 +44,21 @@ test('the northern cluster: each of the three is the nearest guide to the others
     nearestTowns(town('fortcollins'), allTowns).map((n) => n.town.slug),
     ['timnath', 'windsor', 'berthoud'],
   );
-  // Berthoud picks Windsor up as its third, at under fourteen miles.
-  assert.equal(nearestTowns(town('berthoud'), allTowns)[2]!.town.slug, 'windsor');
+  // Berthoud's three are Johnstown, Longmont at ten and a half miles and
+  // Lyons; Windsor, at under fourteen, is fourth.
+  assert.deepEqual(
+    nearestTowns(town('berthoud'), allTowns).map((n) => n.town.slug),
+    ['johnstown', 'longmont', 'lyons'],
+  );
+});
+
+test('Longmont sits between Niwot, Erie and Berthoud', () => {
+  // 6.1, 7.9 and 10.5 miles. It is Niwot's, Erie's and Lyons' nearest or
+  // next-nearest too, so their nearby blocks will lead with it once it is live.
+  assert.deepEqual(
+    nearestTowns(town('longmont'), allTowns).map((n) => n.town.slug),
+    ['niwot', 'erie', 'berthoud'],
+  );
 });
 
 test('Elizabeth has no neighbor, so the block built on this shows nothing there', () => {

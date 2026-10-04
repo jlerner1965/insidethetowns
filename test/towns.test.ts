@@ -71,8 +71,17 @@ test('no guide claims a single school district for a town that has two', () => {
   // The comparison table truncates this field at the first ":" or "(", so a
   // split town has to say so before that point or the short form lies.
   const short = (full?: string) => (full ? (full.split(/[:(]/)[0] ?? full).trim() : '');
+  // Two counties, one district: St. Vrain Valley Schools lists Longmont among
+  // its communities and takes in parts of both Boulder and Weld
+  // (svvsd.org/about/district-overview/, read 2026-10-04), and no source read
+  // puts any of the city in another district, so a "Mostly" would be a hedge
+  // with nothing behind it. Its line names the one district instead.
+  const ONE_DISTRICT = new Map([['longmont', /^St\. Vrain Valley Schools,/]]);
   for (const t of towns) {
-    if (t.counties.length > 1) {
+    const one = ONE_DISTRICT.get(t.slug);
+    if (one) {
+      assert.match(t.movingHere.schoolDistrict ?? '', one, `${t.slug}: names its one district`);
+    } else if (t.counties.length > 1) {
       assert.match(short(t.movingHere.schoolDistrict), /^Mostly /,
         `${t.slug}: spans counties, so its short school line must be hedged`);
     }

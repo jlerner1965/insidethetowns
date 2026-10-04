@@ -12,6 +12,7 @@ import { timnath } from './timnath.ts';
 import { elizabeth } from './elizabeth.ts';
 import { windsor } from './windsor.ts';
 import { fortcollins } from './fortcollins.ts';
+import { longmont } from './longmont.ts';
 // new-town:imports
 
 export const towns: TownConfig[] = [
@@ -24,5 +25,6 @@ export const towns: TownConfig[] = [
   elizabeth,
   windsor,
   fortcollins,
+  longmont,
   // new-town:entries
 ];

@@ -2515,3 +2515,48 @@ photograph off the park and left the arena its own.
   found no other repeats on a listing; the only other pair is Lyons'
   `highway-7-canyon.jpg`, an unused copy of its hero. Articles and events may
   still borrow a place's photograph: they sit on their own pages.
+
+## Longmont and Loveland
+
+*4 October 2026.* The owner's brief: two new guides, Longmont first, each
+scaffolded with `new-town`, not live (the holding page), `front-range`, its
+own palette, and a launch threshold of 25 upcoming events and 30 listings
+because both are large; a curated scope (the confirmed feeds' events, and
+places on Main Street and downtown, food and drink, breweries, parks and
+outdoors); no new phases or features.
+
+- **Longmont's domain is insidelongmontco.com, slug `longmont`.** Registered
+  at Cloudflare on 30 September 2026 and delegated to the same Cloudflare
+  nameserver pair as every other guide, so it is the owner's. The "co" is the
+  domain's, as with Windsor.
+- **Status `wave1`, the scaffold's default.** The brief's wave for each town
+  is not written down in the repo, and any non-live status builds the same
+  holding page; the hub lists the town under "Coming next" and the map draws
+  an outlined pin, as it was built to.
+- **Olive for Longmont** (`#6B7A1E` / `#4A5514` on `#F6F6EF`): the one hue
+  family between Timnath's gold and Niwot's green that no guide uses.
+  `npm run check-colors` passes at eleven sites.
+- **The facts follow the repo's sources.** Population, 2010 population,
+  elevation and coordinates from the Wikipedia infobox (census and GNIS);
+  incorporation 15 November 1885, per the State Archives list Wikipedia cites,
+  with the City's 1871 as the founding; the county split from the City's own
+  pages. The Census API now wants a key, so the split note gives no share
+  figure, as Berthoud's and Johnstown's do not. No drive time to Denver: the
+  City gives miles, not minutes, and the field waits for a source.
+- **One district across two counties.** The test that holds every
+  two-county town's school line to "Mostly" assumes the county line splits
+  the schools. St. Vrain Valley takes in parts of both Boulder and Weld and
+  lists Longmont among its communities, and nothing read puts any of the city
+  in another district, so Longmont's line names the one district and the
+  test carries a named exception rather than a hedge with nothing behind it.
+- **Longmont leaves the map's reference cities**, as Fort Collins did, or the
+  hub would draw two. Berthoud's three nearest configured towns become
+  Johnstown, Longmont and Lyons; the live pages read live towns only, so no
+  nearby block changes until Longmont launches.
+- **The hero is McIntosh Lake at sunset**, Tyler Cipriani, 2017, CC BY-SA
+  4.0, 6,030px original, resized to 1920. The Unsplash files in the Commons
+  category are close-ups of leaves and bark. Commons' robots.txt disallows
+  `/w/api.php`, so the category and file pages were read under `/wiki/`.
+- **The samples are gone.** The scaffold's sample event, place, article and
+  moving-here copy were deleted, not edited: nothing in the guide is written
+  until there is a source for it.
