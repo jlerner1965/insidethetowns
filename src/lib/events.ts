@@ -262,6 +262,57 @@ export function regularTest<T extends EventLike>(all: readonly T[]): (event: T) 
 }
 
 /**
+ * Whether a listing happens every week: a weekly repeat, one carrying a
+ * "Third Fridays" note, or a series stored as a file per date with three or
+ * more dates on one weekday. Two dates on a Thursday is a pair of listings;
+ * a council meeting twice a month is civic and listed by date either way.
+ *
+ * This is what the events page's "Every week in [Town]" section holds, once
+ * each, and what its date list leaves out. Narrower than `regularTest` on
+ * purpose: a three-day residency is a series but not a regular.
+ */
+export function weeklyTest<T extends EventLike>(all: readonly T[]): (event: T) => boolean {
+  const weekdaysByKey = new Map<string, Map<string, Set<string>>>();
+  for (const e of all) {
+    const key = `${e.data.title}|${e.data.venue}`;
+    // The Denver weekday, not UTC's: a 6 pm Thursday is already Friday in UTC.
+    const dow = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, weekday: 'short' }).format(e.data.start);
+    const slugs = weekdaysByKey.get(key) ?? new Map<string, Set<string>>();
+    slugs.set(dow, (slugs.get(dow) ?? new Set()).add(e.slug ?? e.id ?? e.data.title));
+    weekdaysByKey.set(key, slugs);
+  }
+  return (e) => {
+    if (e.data.category === 'civic') return false;
+    if (e.data.repeat === 'weekly') return true;
+    // A date range with a note ("Thursday to Sunday nights through October
+    // 31") is a seasonal run, shown by date as "Now through…", not a regular.
+    const multiDay = !!e.data.end && dayKey(e.data.end) !== dayKey(e.data.start);
+    if (e.data.recurring && !multiDay) return true;
+    const byDow = weekdaysByKey.get(`${e.data.title}|${e.data.venue}`);
+    return !!byDow && [...byDow.values()].some((slugs) => slugs.size >= 3);
+  };
+}
+
+/**
+ * The weekly regulars, once each, as the next occurrence that has not
+ * passed, so the day and time shown are the next one a reader can go to.
+ * Sorted by weekday from today, then by time.
+ */
+export function weeklyRegulars<T extends EventLike>(entries: readonly T[], now = new Date()): T[] {
+  const isWeekly = weeklyTest(entries);
+  const seen = new Set<string>();
+  const out: T[] = [];
+  for (const e of sortByStart(upcoming(occurrences([...entries], { now, horizonDays: 400 }), { now }))) {
+    if (!isWeekly(e) || isCanceled(e)) continue;
+    const key = `${e.data.title}|${e.data.venue}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(e);
+  }
+  return out;
+}
+
+/**
  * The listings a visitor would drive for. A regular — the library's
  * storytime, the brewery's trivia night — is for the people who live there,
  * and a council meeting is for its residents, so neither is a pick to send a

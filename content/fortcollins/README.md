@@ -68,7 +68,10 @@ Description in Markdown.
 ```
 
 A weekly regular (trivia, a market, a class) is one file with `repeat: weekly` and `until`.
-The events page shows every date for the next two weeks and one date after that.
+The events page lists it once, with its day, time and venue, under "Every week in
+the town"; the date list above holds the one-time events and the town meetings
+(under Civic). A series stored as one file per date counts as weekly once it has
+three dates on the same weekday.
 
 ## Place
 

@@ -11,11 +11,9 @@ import EventCard from './EventCard.astro';
 interface Props {
   events: TownEntry<'events'>[];
   emptyMessage?: string;
-  /** Which rows are weekly regulars or part of a series; see EventCard. */
-  isRegular?: (event: TownEntry<'events'>) => boolean;
 }
 
-const { events, emptyMessage = 'No events listed yet. Check back soon.', isRegular } = Astro.props;
+const { events, emptyMessage = 'No events listed yet. Check back soon.' } = Astro.props;
 const days = groupByDay(events);
 ---
 {days.length === 0 ? (
@@ -38,7 +36,7 @@ const days = groupByDay(events);
         {/* White under the listings, paper around them: the day's events read
            as one block instead of dissolving into the page. */}
         <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-          {day.events.map((event) => <EventCard event={event} showDate={false} regular={isRegular?.(event)} />)}
+          {day.events.map((event) => <EventCard event={event} showDate={false} />)}
         </div>
       </section>
     ))}

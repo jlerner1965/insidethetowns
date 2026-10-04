@@ -1,0 +1,65 @@
+---
+/**
+ * "Every week in [Town]": the regulars, once each, by weekday.
+ *
+ * A weekly storytime or trivia night is a fact about the town's week, not a
+ * dated event, and listing it on every date it falls on buried the one-offs
+ * under two hundred rows. Here it appears once, under the day it happens,
+ * with its time and venue, linking to its page. The date list above holds
+ * the one-time events and the town meetings. Decided by `weeklyTest` in
+ * src/lib/events.ts.
+ */
+import type { TownEntry } from '@/lib/content';
+import { formatDate, formatTimeRange, formatWeekday } from '@/lib/dates';
+import { CATEGORY_LABELS } from '@/content/schemas';
+
+interface Props {
+  events: TownEntry<'events'>[];
+  townName: string;
+}
+
+const { events, townName } = Astro.props;
+const ORDER = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const byDay = new Map<string, TownEntry<'events'>[]>();
+for (const e of events) {
+  const day = formatWeekday(e.data.start);
+  byDay.set(day, [...(byDay.get(day) ?? []), e]);
+}
+const days = ORDER.filter((d) => byDay.has(d)).map((d) => ({ day: d, events: byDay.get(d)! }));
+const through = (e: TownEntry<'events'>) => (e.data.until ? `through ${formatDate(e.data.until)}` : e.data.recurring);
+---
+{days.length > 0 && (
+  <section id="every-week" class="mt-16 scroll-mt-4 md:mt-24" aria-labelledby="every-week-heading">
+    <h2 id="every-week-heading" class="eyebrow border-b-2 border-accent pb-4">Every week in {townName}</h2>
+    <p class="mb-8 mt-4 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">
+      The regulars, once each: storytimes, trivia, markets, classes. Each links to its page, with the next date and the
+      organizer’s own listing.
+    </p>
+    <div class="space-y-8">
+      {days.map(({ day, events: list }) => (
+        <section class="md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
+          <h3 class="eyebrow mb-3 text-accent-text md:mb-0 md:pt-5">{day}s</h3>
+          <ul class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+            {list.map((e) => (
+              <li class="group relative grid gap-x-6 gap-y-1 border-b border-line-soft py-4 last:border-b-0 sm:grid-cols-[minmax(7rem,9rem)_1fr]">
+                <p class="text-sm font-semibold tabular-nums text-ink-muted sm:pt-0.5">{e.data.timeNote ?? formatTimeRange(e.data.start, e.data.end, e.data.allDay)}</p>
+                <div class="min-w-0">
+                  <p class="eyebrow flex items-center gap-2" style={`color:var(--cat-${e.data.category}-ink)`}>
+                    <span class="inline-block size-2 shrink-0 rounded-full" style={`background:var(--cat-${e.data.category}-dot)`} aria-hidden="true"></span>
+                    {CATEGORY_LABELS[e.data.category]}
+                  </p>
+                  <h4 class="mt-1 text-lg font-medium leading-tight">
+                    <a href={`/events/${e.slug}/`} class="stretch no-underline group-hover:text-accent-text">{e.data.title}</a>
+                  </h4>
+                  <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">
+                    {e.data.venue}{e.data.cost && <span> · {e.data.cost}</span>}{through(e) && <span class="text-ink-faint"> · {through(e)}</span>}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </section>
+)}
