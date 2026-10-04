@@ -47,7 +47,7 @@ export default defineConfig({
     layout: 'constrained',
     responsiveStyles: true,
   },
-  integrations: [townRoutes(site), sitemap({ filter: indexable }), hostFiles(vercelConfig)],
+  integrations: [townRoutes(site), sitemap({ filter: indexable }), hostFiles(vercelConfig, site.domain)],
   vite: {
     plugins: [tailwindcss()],
     build: {

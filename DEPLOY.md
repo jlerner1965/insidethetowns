@@ -163,6 +163,14 @@ reading the config:
 `/civic/` had no counterpart here until its content was ported to
 `/articles/who-governs-lyons/`; the redirect points there now.
 
+insidelyons.com answers the nine old paths that changed name (`/explore/`,
+`/eat-shop/`, `/stay/`, `/outdoors/`, `/itineraries/`, `/plan-a-visit/`,
+`/our-story/`, `/civic/`, `/community/`) itself, from `vercel.json`, scoped to
+the `insidelyons.com` host so no other town gets them. That lets
+explorelyons.com be a plain domain redirect to insidelyons.com that keeps the
+path, with no project of its own: `/civic/` goes to insidelyons.com/civic/
+and on to the article.
+
 ### townofniwot.com → insideniwot.com
 
 `townofniwot.com` is served by the Vercel project `cityofniwot-com`, which deploys
