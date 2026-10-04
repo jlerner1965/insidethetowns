@@ -2303,3 +2303,169 @@ are rows on that list.
   Elizabeth bank building was listed on the National Register, Pioneer
   Park's play structure. The page footer says "Checked against" the
   source, and every sentence above it should be on that page.
+
+## The accuracy system, phase 2: a gate, a staging folder, and a build that does not fail
+
+*3 October 2026.* The accuracy brief's second phase, on the answers in
+`docs/ACCURACY-SYSTEM.md` section 7. Five choices worth recording.
+
+- **The build excludes a bad entry rather than failing.** Every town loads
+  into one collection, so one bad frontmatter field in Erie used to fail the
+  Niwot build, and a failed build on Vercel leaves the previous deployment
+  serving, with last week's events and whatever was stale then. That is the
+  one outcome the freshness work exists to prevent, so events and places now
+  load through a schema that turns a failure into a marker, the content
+  helper drops the marker with a line saying which file and why, and
+  `npm run build` runs the validator in a mode that reports the same thing
+  as a warning. `npm run validate` on its own, and in CI, still fails on it,
+  so the error is red where someone is looking and never a stale site.
+  Articles, pages and issues are unchanged: they carry no dates that expire,
+  and a broken one is rare and hand-written.
+- **Publishable is decided in one function, applied in one place.** A
+  source, a check date, and for an open listing a check inside its window
+  (`src/lib/freshness.ts`). The one place is `src/lib/content.ts`, which is
+  already the only door to the collections, so the rule cannot be forgotten
+  by a new page. Events do not go stale; they end, and `src/lib/events.ts`
+  already decides that.
+- **Staging is a folder, not a field.** `content/<town>/staging/` is
+  outside the collection globs by construction (`*` is one path segment), so
+  the build cannot see it however a file is written, which beats a `status:
+  staged` that one filter somewhere forgets to check. Approval is a move
+  plus two stamped fields, which git records. A staged file carries a
+  `review` line saying why it is waiting; the validator requires it there and
+  rejects it in the published folders, so a half-finished review cannot
+  publish by accident.
+- **A closed listing does not go stale.** Its claim is that the place is
+  shut, which ninety days do not make less true, and the page exists for the
+  reader who goes looking. It still needs its source and date. What a closed
+  page shows, and that it leaves the directory and the search index, is
+  phase 3.
+- **`LIVE_TOWNS` is derived.** Each town config now says `status: 'live'`
+  (or its wave), and the list is computed from that, so there is one place
+  that says what is live and `new-town` writes it. The variant lives beside
+  it; all nine are `front-range`.
+
+The eight listings that had no source went to staging, each with the
+question the call list already asks. One article linked one of them and
+repeated its hours; the link and the hours came out. Field names are the
+repo's, mapped to the brief's in `docs/ACCURACY-SYSTEM.md` section 8.
+
+## The accuracy system, phase 3: what a stale or closed listing may still show
+
+*3 October 2026.* The build gates and the reader-facing side of the brief,
+on three conditions from the owner first: the daily rebuild is in place and
+running (21 of 21 scheduled runs green), a red validator in CI cannot hold
+a Vercel deploy and the validator in the build path now exits 0 whatever it
+finds, and phases 2 and 3 go to production together.
+
+- **Stripping, not hiding.** A listing past its hours window loses `hours`
+  and `openingHours` in the gate, before any component sees it, rather than
+  each component deciding whether to show them. Four places render hours
+  (the row, the feature card, the page, the structured data); one of them
+  forgetting is exactly how an "Open now" badge outlives the hours behind
+  it. The page and the row then say the hours are not shown and why, since
+  a blank reads as "never had any".
+- **Permanently closed is said in those words.** "Closed" beside a café
+  reads as closed for the day. The page stays for the reader who went
+  looking, noindex and out of every list and the search index, with hours
+  and phone gone; a temporarily closed place keeps its row and its phone,
+  because it means to reopen and someone may ring to ask when.
+- **Corrections ride the forms that exist.** Each town already has a
+  Formspree form with the CSP, the honeypot and the privacy page written
+  for it; `/correct/` posts to the same one with the item in the subject, so
+  nothing new has to be set up or explained. The destination stays a
+  dashboard setting on Formspree; the config names the address only for the
+  `mailto:` fallback.
+- **The threshold warns; the status gates.** Counting verified content
+  cannot be allowed to fail a build, so it does not: a live town under its
+  threshold publishes what it has and is flagged three ways. Whether a site
+  is a guide or a holding page is `status` alone, so a project created early
+  serves one noindex page and a robots.txt that says wait, and flipping to
+  `live` is one word in one file.
+
+## The accuracy system, phase 4: a source registry that proposes and never decides
+
+*4 October 2026.* One JSON file per town naming the places checked each
+week, seeded from what the content already cites.
+
+- **Status is about fetching, not publishing.** A `proposed` source means
+  ingest may not read it yet; it says nothing about the events and places
+  that already cite the host, which publish on their own `source` and
+  `verified`. The gate does not import the registry and a test fails if it
+  ever does. Confirming is therefore never urgent for the sites, only for
+  ingest, which is what lets the editor confirm a few at a time.
+- **84, not 260.** The content cites 260 hosts, but most are a business's
+  own site cited once by its own listing, which the thirty-day rotation
+  covers. The registry is for the calendars and institutions: a host cited
+  by any event, or by two or more places. Within that, the civic and
+  institutional categories and the venues the calendar leans on are `core`
+  and come first; the rest are listed as able to wait.
+- **Seeded entries are facts, not guesses, except where they say so.** The
+  name is the host, the sample page is one the content cited, the counts
+  are counted. The category is a guess from the host name and the entry's
+  note says so; the type is `html` until someone finds a feed. No feed URL
+  is proposed that was not seen.
+- **JSON, written by one module.** Hand-editable, no parser to maintain,
+  and `writeRegistry` sorts and strips defaults so that confirming a source
+  is a one-line diff.
+- **The rebuild workflow names the missing hook.** The secret's lines take
+  a slug, the live sites come from the configs, and a live town with no
+  hook fails the run with its name, so a town cannot be flipped live and
+  quietly never rebuilt.
+
+## The accuracy system, phase 5: feeds in, staging out, nothing published
+
+*4 October 2026.* Ingest for the confirmed feed sources.
+
+- **ical.js for iCalendar, the rest in the repo.** The plan's rule is to ask
+  before a dependency; the owner's answer was that recurrence, time zones and
+  exceptions are exactly where a hand-written parser produces wrong dates,
+  and accuracy outranks the rule. ical.js parses and expands; it ships no
+  time zone table, so every occurrence's wall clock is converted by the
+  repo's own Denver date code, which is what every other date here goes
+  through. RSS (CivicPlus's structured calendar items) and The Events
+  Calendar's REST JSON are small and plain and are read here.
+- **robots.txt is honoured for feeds too, by default.** Two of the best
+  feeds, the Lyons library's iCal and Pines & Plains' Google calendars, sit
+  behind a robots.txt that disallows unlisted agents, though both are
+  offered to readers as subscriptions. The rule that settled the Berthoud
+  chamber and the Lyons Recorder applies until the editor says otherwise,
+  per source, with `robots: subscribe`; ingest prints which rule it applied.
+- **A guessed venue is never a change.** The first dry run flagged five Erie
+  meetings as moved because the feed named the room and the address where
+  the guide names the building. A venue counts as changed only when the feed
+  names it through the editor's own alias or default venue.
+- **Alone on its day, a moved time is the same event.** Two storytimes with
+  one title on one day are told apart by time; one listing with that title
+  on that day is that event, whatever time the feed now gives, which is how
+  a moved meeting is caught instead of staged as a second one.
+- **Cancellations are not applied automatically.** The brief's first rule is
+  that nothing publishes without a person; a cancellation read from a feed
+  goes to the top of the review with the feed as its source. The switch to
+  apply them on the night they are read exists (`INGEST.autoApplyCancellations`)
+  and is off.
+- **LibCal's public iCal was not usable.** Five hundred district-wide events
+  from a month back, under every parameter tried. The finding is in the
+  source's note so nobody tries again without a new idea.
+
+## The accuracy system, phase 6: the review, and where it stops
+
+*4 October 2026.* The owner's call: phase 6 is the last. The review CLI's
+summary stands in for the weekly report the brief planned as phase 7, the
+redirects are a record rather than code (two are live elsewhere, one has no
+domain yet), and the mountain pages wait for a mountain town. The schema
+fields for all of it exist; nothing further is built without asking.
+
+- **One prompt, one line at a time.** The review edits a file by replacing
+  or removing single frontmatter lines and never rewrites the file, because
+  these files are also written by hand and a rewrite would reorder and
+  requote them. Approval is three lines (`review` out, `verified` and
+  `verifiedBy` in) and a move; a change applied is the changed fields plus
+  the same three; a dismissal is two lines out.
+- **Approval validates what will be published, not what was staged.** The
+  stamped text is parsed with the published schema before the move, and a
+  missing `source` refuses, so the one door to the published folder is also
+  the one place the rule cannot be stepped around.
+- **The second question before deleting a listing that was once live.** The
+  eight places moved to staging in phase 2 are real businesses; `r` on one
+  asks again, because the alternative was a key pressed one too many times.

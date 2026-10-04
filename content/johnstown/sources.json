@@ -1,0 +1,100 @@
+{
+  "town": "johnstown",
+  "sources": [
+    {
+      "id": "johnstownco-gov",
+      "name": "johnstownco.gov",
+      "url": "https://johnstownco.gov/",
+      "sampleUrl": "https://johnstownco.gov/Calendar.aspx",
+      "type": "rss",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "confirmed",
+      "cites": {
+        "events": 12,
+        "places": 9
+      },
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (6 items on 4 October).",
+      "feedUrl": "https://johnstownco.gov/RSSFeed.aspx?ModID=58&CID=All-calendar.xml"
+    },
+    {
+      "id": "visitdowntownjohnstown-com",
+      "name": "visitdowntownjohnstown.com",
+      "url": "https://visitdowntownjohnstown.com/",
+      "sampleUrl": "https://www.visitdowntownjohnstown.com/johnstownjingle",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 2,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "johnstownmillikenpubliclibraries-us",
+      "name": "johnstownmillikenpubliclibraries.us",
+      "url": "https://johnstownmillikenpubliclibraries.us/",
+      "sampleUrl": "https://johnstownmillikenpubliclibraries.us/event/acrylic-sugar-skulls/",
+      "type": "json",
+      "category": "library",
+      "priority": "core",
+      "status": "confirmed",
+      "cites": {
+        "events": 28,
+        "places": 1
+      },
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. The Events Calendar REST API (its iCal export answered 502 twice). Both branches are in the feed; only the Johnstown branch is taken, and the feed's 'Johnstown Location' is the name the guide already uses for it.",
+      "feedUrl": "https://johnstownmillikenpubliclibraries.us/wp-json/tribe/events/v1/events",
+      "locationFilter": [
+        "Johnstown"
+      ],
+      "venueAliases": {
+        "Johnstown Location": "Glenn A. Jones, M.D. Memorial Library"
+      }
+    },
+    {
+      "id": "coloradocandlelight-com",
+      "name": "coloradocandlelight.com",
+      "url": "https://coloradocandlelight.com/",
+      "sampleUrl": "https://coloradocandlelight.com/season-tickets-season-19/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "jhsco-org",
+      "name": "jhsco.org",
+      "url": "https://jhsco.org/",
+      "sampleUrl": "https://jhsco.org/events/2026-cemetery-crawl/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 2,
+        "places": 2
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "broadwayworld-com",
+      "name": "broadwayworld.com",
+      "url": "https://broadwayworld.com/",
+      "sampleUrl": "https://www.broadwayworld.com/denver/regional/Les-Miserables-4388718",
+      "type": "html",
+      "category": "other",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    }
+  ]
+}

@@ -33,7 +33,11 @@ import { z } from 'astro/zod';
 import { eventSchema, placeSchema } from '../src/content/schemas.ts';
 import { addDays, dayKey, startOfDay } from '../src/lib/dates.ts';
 import { LIVE_TOWNS, allTowns } from '../src/config/index.ts';
+import { FRESHNESS } from '../src/config/freshness.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
+import { describeCounts, launchCounts } from './lib/launch.ts';
+import { readRegistry } from '../src/lib/sources.ts';
+import { changeSchema } from '../src/content/schemas.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'content');
@@ -49,7 +53,7 @@ const MIN_UPCOMING = 5;
  * about to run dry, whatever the headline count says.
  */
 const MIN_RUNWAY_DAYS = 45;
-const STALE_DAYS = 30;
+const STALE_DAYS = FRESHNESS.recheckDays;
 
 const now = new Date();
 const today = startOfDay(now);
@@ -137,6 +141,16 @@ type TownReport = {
   placesWithoutImage: Array<{ file: string; title: string }>;
   stale: Array<{ file: string; title: string; verified: string }>;
   broken: string[];
+  /** Verified, publishable counts against the launch threshold. */
+  launch: ReturnType<typeof launchCounts>;
+  /** Confirmed sources whose last check did not come back ok. */
+  sourcesDown: Array<{ id: string; status: string; note?: string; checked: string }>;
+  /** Core sources still waiting to be confirmed before ingest may use them. */
+  sourcesWaiting: number;
+  /** Events and places in staging, waiting for the review. */
+  awaitingReview: { events: number; places: number };
+  /** Changes ingest found to published events; cancellations first. */
+  flagged: Array<{ slug: string; cancel: boolean; summary: string; detected: string }>;
 };
 
 const reports: TownReport[] = [];
@@ -159,7 +173,36 @@ for (const town of allTowns) {
     placesWithoutImage: [],
     stale: [],
     broken: [],
+    launch: launchCounts(town, contentDir, now),
+    sourcesDown: [],
+    sourcesWaiting: 0,
+    awaitingReview: { events: 0, places: 0 },
+    flagged: [],
   };
+  for (const c of ['events', 'places'] as const) {
+    const dir = join(contentDir, town.slug, 'staging', c);
+    if (existsSync(dir)) report.awaitingReview[c] = readdirSync(dir).filter((f) => f.endsWith('.md') && !f.startsWith('_')).length;
+  }
+  const changesDir = join(contentDir, town.slug, 'staging', 'changes');
+  if (existsSync(changesDir)) {
+    for (const name of readdirSync(changesDir)) {
+      if (!name.endsWith('.json')) continue;
+      const parsed = changeSchema.safeParse(JSON.parse(readFileSync(join(changesDir, name), 'utf8')));
+      if (!parsed.success) continue;
+      const c = parsed.data;
+      report.flagged.push({ slug: c.slug, cancel: c.cancel, detected: dayKey(c.detected), summary: c.changes.map((x) => `${x.field} ${x.was} → ${x.now}`).join('; ') });
+    }
+    report.flagged.sort((a, b) => Number(b.cancel) - Number(a.cancel) || a.slug.localeCompare(b.slug));
+  }
+  try {
+    const registry = readRegistry(town.slug, contentDir);
+    report.sourcesWaiting = registry.sources.filter((s) => s.status === 'proposed' && s.priority === 'core').length;
+    report.sourcesDown = registry.sources
+      .filter((s) => s.status === 'confirmed' && s.lastStatus && s.lastStatus !== 'ok')
+      .map((s) => ({ id: s.id, status: s.lastStatus!, note: s.lastNote, checked: s.lastChecked ? dayKey(s.lastChecked) : '' }));
+  } catch (err) {
+    report.broken.push(`content/${town.slug}/sources.json: ${(err as Error).message}`);
+  }
   const upcomingTitles = new Set<string>();
   for (const { file, data } of events) {
     if (!data) {
@@ -216,6 +259,9 @@ for (const r of reports) {
     r.upcoming < MIN_UPCOMING ? `  ⚠ fewer than ${MIN_UPCOMING}` : ''
   }`);
   line('-'.repeat(72));
+  if (!r.launch.meets) {
+    line(`  ⚠ Under the launch threshold: ${describeCounts(r.launch)}${r.live ? ' — live, publishing what is verified' : ' — not live; holding page'}`);
+  }
   line(
     `  Calendar: ${r.next30} in 30 days, ${r.next60} in 60, ${r.next90} in 90 — ` +
       (r.lastDate ? `runs to ${r.lastDate} (${r.runwayDays} days)` : 'nothing on') +
@@ -237,11 +283,25 @@ for (const r of reports) {
     line(`  Not re-checked in ${STALE_DAYS}+ days (${r.stale.length}):`);
     for (const s of r.stale) line(`    ${s.verified}  ${s.title}  —  ${s.file}`);
   }
+  if (r.flagged.length) {
+    line(`  Changes the sources made to published events (${r.flagged.length}; cancellations first):`);
+    for (const f of r.flagged) line(`    ${f.cancel ? 'CANCELED ' : '         '}${f.detected}  ${f.slug}: ${f.summary}`);
+  }
+  if (r.awaitingReview.events || r.awaitingReview.places) {
+    line(`  Awaiting review in staging: ${r.awaitingReview.events} events, ${r.awaitingReview.places} places  (npm run review -- --town=${r.town})`);
+  }
+  if (r.sourcesDown.length) {
+    line(`  Sources not answering as they should (${r.sourcesDown.length}):`);
+    for (const s of r.sourcesDown) line(`    ${s.checked}  ${s.id}: ${s.status}${s.note ? ` — ${s.note}` : ''}`);
+  }
+  if (r.sourcesWaiting) {
+    line(`  Core sources waiting to be confirmed: ${r.sourcesWaiting}  (npm run sources -- --town=${r.town})`);
+  }
   if (r.broken.length) {
     line(`  Files that fail validation (run npm run validate):`);
     for (const b of r.broken) line(`    ${b}`);
   }
-  if (!r.expiring.length && !r.past.length && !r.placesWithoutImage.length && !r.stale.length && !r.broken.length) {
+  if (!r.expiring.length && !r.past.length && !r.placesWithoutImage.length && !r.stale.length && !r.broken.length && !r.sourcesDown.length && !r.sourcesWaiting && !r.flagged.length && !r.awaitingReview.events && !r.awaitingReview.places) {
     line('  Nothing to do.');
   }
 }

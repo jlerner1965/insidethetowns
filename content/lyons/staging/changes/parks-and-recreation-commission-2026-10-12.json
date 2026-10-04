@@ -1,0 +1,15 @@
+{
+  "slug": "parks-and-recreation-commission-2026-10-12",
+  "sourceId": "townoflyons-com",
+  "sourceUid": "EID=6121",
+  "sourceUrl": "https://www.townoflyons.com/Calendar.aspx?EID=6121",
+  "detected": "2026-10-04",
+  "cancel": false,
+  "changes": [
+    {
+      "field": "end",
+      "was": "2026-10-12T19:45",
+      "now": "2026-10-12T20:00"
+    }
+  ]
+}

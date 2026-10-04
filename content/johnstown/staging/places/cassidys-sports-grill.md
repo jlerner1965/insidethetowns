@@ -1,5 +1,6 @@
 ---
 title: "Cassidy's Sports Grill"
+review: { reason: "No source: the domain it used to publish now redirects to a gambling site, so the hours are as they stood on 18 September 2026. Call (970) 587-7744: still open? Hours.", since: "2026-10-03", from: migration }
 type: restaurant
 address: "15 S Parish Ave"
 area: "Old Town, Parish Avenue"

@@ -2,6 +2,8 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
 
 export const timnath: TownConfig = {
   kind: 'town',
+  status: 'live',
+  variant: 'front-range',
   slug: 'timnath',
   name: 'Timnath',
   domain: 'insidetimnath.com',

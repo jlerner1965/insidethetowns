@@ -19,7 +19,8 @@ import { byProminence } from '@/lib/places';
 import { PLACE_TYPE_PLURALS, PLACE_TYPES } from '@/content/schemas';
 
 const town = getTown();
-const places = (await getTownEntries('places')).sort(byProminence);
+// A closed place keeps its page and leaves every list (src/lib/content.ts sets `delisted`).
+const places = (await getTownEntries('places')).filter((p) => !p.delisted).sort(byProminence);
 const kinds = PLACE_TYPES.filter((t) => places.some((p) => p.data.type === t)).map((t) => PLACE_TYPE_PLURALS[t].toLowerCase());
 const kindList = kinds.length > 1 ? `${kinds.slice(0, -1).join(', ')} and ${kinds[kinds.length - 1]}` : kinds.join('');
 // "Every restaurants, bars…" was on every guide: a singular quantifier over a

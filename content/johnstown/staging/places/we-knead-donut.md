@@ -1,5 +1,6 @@
 ---
 title: "We Knead Donut"
+review: { reason: "No source: no site of its own, and the hours it carried were a review site's, removed in the October audit. Call for hours and phone.", since: "2026-10-03", from: migration }
 type: coffee
 address: "13 S Parish Ave"
 area: "Old Town, Parish Avenue"

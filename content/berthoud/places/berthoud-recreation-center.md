@@ -16,3 +16,5 @@ verified: "2026-09-21"
 ---
 
 Opened in November 2021 at Waggener Farm Park, the Town's first recreation center has a gymnasium, a fitness center, a climbing wall, and an aquatics area with a three-lane lap pool and a two-story water slide, plus a schedule of classes, lap swim and open gym that runs every day. Day passes and memberships; SilverSneakers and similar plans accepted. It closes for a maintenance week each September and hosts the Father Daughter Dance, Neon Nights and the December craft fair.
+
+**Drop-in schedule:** the Town posts open gym, open swim and water-walking times day by day on [its calendar](https://www.berthoud.org/calendar.aspx?CID=31,29,33); the guide links it rather than listing each session.

@@ -1,0 +1,161 @@
+{
+  "town": "berthoud",
+  "sources": [
+    {
+      "id": "berthoud-org",
+      "name": "berthoud.org",
+      "url": "https://berthoud.org/",
+      "sampleUrl": "https://www.berthoud.org/DocumentCenter/View/7680/Berthoud-Parks--Recreation-Fall-Activity-Guide-2026",
+      "type": "rss",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "confirmed",
+      "cites": {
+        "events": 21,
+        "places": 10
+      },
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (37 items on 4 October). Recurring drop-ins and classes are excluded by title at the editor's direction (4 October 2026); the recreation centre's listing links the Town's drop-in calendar instead. One-time and seasonal events at the centre still come through.",
+      "feedUrl": "https://www.berthoud.org/RSSFeed.aspx?ModID=58&CID=All-calendar.xml",
+      "excludeTitles": [
+        "Lap Swim",
+        "Family Swim",
+        "Open Swim",
+        "Open Gym",
+        "Forever Fit",
+        "Silver Sneakers",
+        "Pick-up Basketball",
+        "Bootcamp"
+      ]
+    },
+    {
+      "id": "berthoudmainstreet-org",
+      "name": "berthoudmainstreet.org",
+      "url": "https://berthoudmainstreet.org/",
+      "sampleUrl": "https://berthoudmainstreet.org/averymerryberthoud/",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 3,
+        "places": 9
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "downtownberthoud-org",
+      "name": "downtownberthoud.org",
+      "url": "https://downtownberthoud.org/",
+      "sampleUrl": "https://downtownberthoud.org/downtown-berthoud-events/",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "berthoudcommunitylibrary-org",
+      "name": "berthoudcommunitylibrary.org",
+      "url": "https://berthoudcommunitylibrary.org/",
+      "sampleUrl": "https://www.berthoudcommunitylibrary.org/events-classes",
+      "type": "html",
+      "category": "library",
+      "priority": "core",
+      "status": "confirmed",
+      "cites": {
+        "events": 8,
+        "places": 1
+      },
+      "notes": "Checked 4 October 2026: a Wix site with an events page and no calendar feed or embed found; checked by hand."
+    },
+    {
+      "id": "citystarbrewing-com",
+      "name": "citystarbrewing.com",
+      "url": "https://citystarbrewing.com/",
+      "sampleUrl": "https://citystarbrewing.com/event/blind-date-with-a-book-2/",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 27,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "berthoudhistoricalsociety-org",
+      "name": "berthoudhistoricalsociety.org",
+      "url": "https://berthoudhistoricalsociety.org/",
+      "sampleUrl": "https://www.berthoudhistoricalsociety.org/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 0,
+        "places": 2
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "berthoudparadeoflights-com",
+      "name": "berthoudparadeoflights.com",
+      "url": "https://berthoudparadeoflights.com/",
+      "sampleUrl": "https://berthoudparadeoflights.com/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "bhs-tsd-org",
+      "name": "bhs.tsd.org",
+      "url": "https://bhs.tsd.org/",
+      "sampleUrl": "https://bhs.tsd.org/family/calendar",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "festivalnet-com",
+      "name": "festivalnet.com",
+      "url": "https://festivalnet.com/",
+      "sampleUrl": "https://festivalnet.com/100802/Berthoud-Colorado/Festivals/Oktoberfest-Berthoud-Colorado",
+      "type": "html",
+      "category": "other",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "tockify-com",
+      "name": "tockify.com",
+      "url": "https://tockify.com/",
+      "sampleUrl": "https://tockify.com/wildfire/detail/658/1791937800000",
+      "type": "html",
+      "category": "other",
+      "status": "proposed",
+      "cites": {
+        "events": 6,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    }
+  ]
+}

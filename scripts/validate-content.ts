@@ -5,16 +5,33 @@
  * exist, or a date will not parse. Warns about events that are already past
  * so they can be pruned, and about towns without a config file.
  *
- *   npm run validate
+ *   npm run validate            # strict: any invalid entry fails
+ *   npm run validate -- --build # what `npm run build` runs: an invalid event
+ *                               # or place is reported as excluded, not fatal
  *
- * Runs automatically before every `npm run build`.
+ * Runs automatically before every `npm run build`. In `--build` mode nothing
+ * here fails the build: an event or place that fails its schema is reported
+ * the way the collection will treat it (excluded; src/content.config.ts,
+ * `lenient`), and every other error is printed and the build goes on,
+ * because a failed build on Vercel leaves the previous, stale deployment
+ * serving. The same errors fail `npm run validate` in CI, where red is
+ * visible and costs nothing.
+ *
+ * Beyond the schema, this reports what the build will hold back: entries
+ * without a source or a check date, listings past their freshness window,
+ * and everything in content/<town>/staging/, which must carry a `review`
+ * block saying why it is there. The decision is src/lib/freshness.ts's; the
+ * per-town summary at the end is the one the brief asks every build to print.
  */
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'astro/zod';
-import { COLLECTIONS, schemaFor, type CollectionName } from '../src/content/schemas.ts';
-import { allSites, liveTowns } from '../src/config/index.ts';
+import { COLLECTIONS, STAGED_COLLECTIONS, changeSchema, schemaFor, type CollectionName } from '../src/content/schemas.ts';
+import { allSites, findTown, liveTowns } from '../src/config/index.ts';
+import { describeExclusion, eventExclusion, placeExclusion } from '../src/lib/freshness.ts';
+import { describeCounts, launchCounts } from './lib/launch.ts';
+import { readRegistry, registryIssues } from '../src/lib/sources.ts';
 // Imported directly, not via getHub(): the validator runs without TOWN set.
 import { hub } from '../src/config/towns/hub.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
@@ -25,8 +42,27 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'content');
 const townsDir = join(root, 'src/config/towns');
 
+const buildMode = process.argv.includes('--build');
 const errors: string[] = [];
 const warnings: string[] = [];
+/** Per town: what publishes, what the build holds back and why, what waits in staging. */
+type TownTally = {
+  published: Record<string, number>;
+  excluded: string[];
+  staged: Record<string, number>;
+  launch?: ReturnType<typeof launchCounts>;
+  /** Changes ingest found to published events, waiting for the review. */
+  changes?: number;
+};
+const tallies = new Map<string, TownTally>();
+const tallyFor = (town: string): TownTally => {
+  let t = tallies.get(town);
+  if (!t) {
+    t = { published: { events: 0, places: 0 }, excluded: [], staged: { events: 0, places: 0 } };
+    tallies.set(town, t);
+  }
+  return t;
+};
 /** Reported as one line each, after the warnings; there are dozens and they are all the same kind. */
 const unparsedHours: string[] = [];
 /** Lines that are text on purpose (see hoursTextByDesign): counted, not flagged. */
@@ -40,8 +76,24 @@ function imageSchemaFor(file: string) {
     });
 }
 
-function validateFile(collection: CollectionName, file: string) {
+const registryIdCache = new Map<string, Set<string>>();
+function registryIds(town: string): Set<string> {
+  let ids = registryIdCache.get(town);
+  if (!ids) {
+    try {
+      ids = new Set(readRegistry(town, contentDir).sources.map((s) => s.id));
+    } catch {
+      ids = new Set();
+    }
+    registryIdCache.set(town, ids);
+  }
+  return ids;
+}
+
+function validateFile(collection: CollectionName, file: string, town: string, staged = false) {
   const rel = relative(root, file);
+  const gated = collection === 'events' || collection === 'places';
+  const tally = tallyFor(town);
   let parsed;
   try {
     parsed = parseFrontmatter(readFileSync(file, 'utf8'));
@@ -53,12 +105,55 @@ function validateFile(collection: CollectionName, file: string) {
   const result = schema.safeParse(parsed.data);
   checked++;
   if (!result.success) {
-    for (const issue of result.error.issues) {
-      const path = issue.path.length ? issue.path.join('.') : '(root)';
-      errors.push(`${rel}: ${path}: ${issue.message}`);
+    const issues = result.error.issues.map((issue) => `${issue.path.length ? issue.path.join('.') : '(root)'}: ${issue.message}`);
+    // In build mode an invalid event or place is what the collection will
+    // exclude, so it is reported the way the build will treat it.
+    if (buildMode && gated && !staged) {
+      tally.excluded.push(`${rel}: invalid (${issues.join('; ')})`);
+      warnings.push(`${rel}: excluded from the build, invalid: ${issues.join('; ')}`);
+    } else {
+      for (const issue of issues) errors.push(`${rel}: ${issue}`);
     }
     return;
   }
+  const data = result.data as Record<string, unknown>;
+  // A staged entry must say why it is waiting; a published one must not
+  // still be carrying that note.
+  if (staged && !data.review) {
+    errors.push(`${rel}: a file in staging/ needs a review block (reason, since) saying why it is not published`);
+  } else if (!staged && data.review) {
+    errors.push(`${rel}: carries a review block but is in the published folder; move it to staging/ or finish the review and remove the block`);
+  }
+  // An item may name the registry entry it came from; the entry must exist.
+  // Its status does not matter here: publishing turns on `source` and
+  // `verified`, and a proposed registry entry blocks ingestion only.
+  if (typeof data.sourceId === 'string') {
+    const ids = registryIds(town);
+    if (!ids.has(data.sourceId)) {
+      errors.push(`${rel}: sourceId "${data.sourceId}" is not in content/${town}/sources.json`);
+    }
+  }
+  if (typeof data.subTown === 'string') {
+    const config = findTown(town);
+    if (!config?.subTowns?.includes(data.subTown)) {
+      errors.push(`${rel}: subTown "${data.subTown}" is not one of ${town}'s subTowns${config?.subTowns ? ` (${config.subTowns.join(', ')})` : ' (none configured)'}`);
+    }
+  }
+  if (gated) {
+    if (staged) {
+      tally.staged[collection] = (tally.staged[collection] ?? 0) + 1;
+    } else {
+      const variant = findTown(town)?.variant ?? 'front-range';
+      const why = collection === 'places' ? placeExclusion(data, variant) : eventExclusion(data);
+      if (why) {
+        tally.excluded.push(`${rel}: ${describeExclusion(why)}`);
+        warnings.push(`${rel}: excluded from the build, ${describeExclusion(why)}`);
+      } else {
+        tally.published[collection] = (tally.published[collection] ?? 0) + 1;
+      }
+    }
+  }
+  if (staged) return;
   if (collection !== 'pages' && parsed.body.trim() === '') {
     warnings.push(`${rel}: body is empty`);
   }
@@ -229,8 +324,11 @@ function collectContentFiles(): string[] {
   for (const town of readdirSync(contentDir)) {
     const townDir = join(contentDir, town);
     if (!statSync(townDir).isDirectory()) continue;
-    for (const collection of COLLECTIONS) {
-      const dir = join(townDir, collection);
+    const dirs = [
+      ...COLLECTIONS.map((c) => join(townDir, c)),
+      ...STAGED_COLLECTIONS.map((c) => join(townDir, 'staging', c)),
+    ];
+    for (const dir of dirs) {
       if (!existsSync(dir)) continue;
       for (const name of readdirSync(dir)) {
         if (name.endsWith('.md') && !name.startsWith('_')) out.push(join(dir, name));
@@ -302,7 +400,60 @@ if (!existsSync(contentDir)) {
       if (!existsSync(dir)) continue;
       for (const name of readdirSync(dir)) {
         if (!name.endsWith('.md') || name.startsWith('_')) continue;
-        validateFile(collection, join(dir, name));
+        validateFile(collection, join(dir, name), town);
+      }
+    }
+    for (const collection of STAGED_COLLECTIONS) {
+      const dir = join(townDir, 'staging', collection);
+      if (!existsSync(dir)) continue;
+      for (const name of readdirSync(dir)) {
+        if (!name.endsWith('.md') || name.startsWith('_')) continue;
+        validateFile(collection, join(dir, name), town, true);
+      }
+    }
+    // The source registry, where the town has one.
+    for (const issue of registryIssues(town, contentDir)) errors.push(`content/${town}/sources.json: ${issue}`);
+    if (town !== 'hub' && existsSync(join(townDir, 'sources.json'))) {
+      try {
+        const registry = readRegistry(town, contentDir);
+        const config = findTown(town);
+        for (const source of registry.sources) {
+          if (source.subTown && !config?.subTowns?.includes(source.subTown)) {
+            errors.push(`content/${town}/sources.json: ${source.id}: subTown "${source.subTown}" is not one of ${town}'s subTowns`);
+          }
+        }
+      } catch {
+        // reported above
+      }
+    }
+    // Changes ingest found to published events, waiting for the review.
+    const changesDir = join(townDir, 'staging', 'changes');
+    if (existsSync(changesDir)) {
+      for (const name of readdirSync(changesDir)) {
+        if (!name.endsWith('.json')) continue;
+        const rel = `content/${town}/staging/changes/${name}`;
+        try {
+          const parsed = changeSchema.safeParse(JSON.parse(readFileSync(join(changesDir, name), 'utf8')));
+          if (!parsed.success) {
+            for (const issue of parsed.error.issues) errors.push(`${rel}: ${issue.path.join('.') || '(root)'}: ${issue.message}`);
+          } else if (!existsSync(join(townDir, 'events', `${parsed.data.slug}.md`))) {
+            warnings.push(`${rel}: names an event that is no longer published (${parsed.data.slug}); delete the change file`);
+          } else {
+            tallyFor(town).changes = (tallyFor(town).changes ?? 0) + 1;
+          }
+        } catch (err) {
+          errors.push(`${rel}: ${(err as Error).message}`);
+        }
+      }
+    }
+    // A staging folder for anything else is a file put in the wrong place.
+    const stagingDir = join(townDir, 'staging');
+    if (existsSync(stagingDir)) {
+      for (const name of readdirSync(stagingDir)) {
+        if (name === 'changes') continue;
+        if (!(STAGED_COLLECTIONS as readonly string[]).includes(name)) {
+          errors.push(`content/${town}/staging/${name}: only ${STAGED_COLLECTIONS.join(' and ')} have a staging folder`);
+        }
       }
     }
   }
@@ -315,6 +466,60 @@ if (process.argv.includes('--hours')) {
 } else if (unparsedHours.length > 0) {
   console.warn(`hours ${unparsedHours.length} listings have an hours line the site cannot read as a schedule (run with --hours to list them); ${hoursByDesign.length} more are text by design`);
 }
-for (const e of errors) console.error(`error ${e}`);
+/**
+ * The launch threshold. A live town under it is a warning here and in the
+ * weekly report, never a failed build (its verified content still publishes,
+ * and a failed build would serve last week's). A town that has not launched
+ * is told whether it is ready; its site is a holding page until `status` says
+ * `live` whatever the count.
+ */
+for (const town of allSites) {
+  if (town.kind !== 'town') continue;
+  const counts = launchCounts(town);
+  const t = tallyFor(town.slug);
+  t.launch = counts;
+  if (town.status === 'live' && !counts.meets) {
+    warnings.push(`${town.slug} is live and under its launch threshold: ${describeCounts(counts)}`);
+  }
+}
+
+// GitHub turns these into annotations on the run, so a warning is seen
+// without opening the log. Plain `warn` lines everywhere else.
+const annotate = (level: 'warning' | 'error', message: string) =>
+  process.env.GITHUB_ACTIONS ? console.log(`::${level}::${message}`) : undefined;
+for (const w of warnings) if (/launch threshold|excluded from the build/.test(w)) annotate('warning', w);
+
+for (const e of errors) {
+  console.error(`error ${e}`);
+  annotate('error', e);
+}
+
+// The per-town summary: what publishes, what is held back, what waits.
+// "0 excluded" on every line is the normal state and worth seeing.
+console.log('\nPer town (events / places): published · excluded by the build · in staging');
+for (const [town, t] of [...tallies.entries()].sort(([a], [b]) => a.localeCompare(b))) {
+  if (town === 'hub') continue;
+  const config = findTown(town);
+  const note = !config
+    ? ''
+    : config.status !== 'live'
+      ? `  (${config.status}: holding page${t.launch?.meets ? ', ready to launch' : ''})`
+      : t.launch && !t.launch.meets
+        ? `  ⚠ under launch threshold (${describeCounts(t.launch)})`
+        : '';
+  console.log(
+    `  ${town.padEnd(12)} ${String(t.published.events).padStart(4)} / ${String(t.published.places).padStart(3)} published · ` +
+      `${String(t.excluded.length).padStart(2)} excluded · ${t.staged.events} / ${t.staged.places} staged${t.changes ? ` · ${t.changes} flagged` : ''}${note}`,
+  );
+}
 console.log(`\nvalidate-content: ${checked} entries checked, ${errors.length} errors, ${warnings.length} warnings`);
-if (errors.length > 0) process.exit(1);
+if (errors.length > 0) {
+  if (buildMode) {
+    console.error(
+      `\nvalidate-content: ${errors.length} error(s) reported, not blocking this build. ` +
+        'A failed build would leave the previous deployment serving stale listings; CI (npm run validate) is red for these instead.',
+    );
+  } else {
+    process.exit(1);
+  }
+}

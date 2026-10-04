@@ -28,10 +28,43 @@ export interface SocialLinks {
   email: string;
 }
 
+/**
+ * Where a town is on the way to being a site. `live` is the only status that
+ * deploys a guide; it replaces the old hand-kept LIVE_TOWNS list. The waves
+ * are the launch order in the accuracy brief, `redirect` is a domain that
+ * only forwards (insidefirestone.com to the Carbon Valley guide).
+ */
+export const TOWN_STATUSES = ['live', 'wave1', 'wave2', 'wave3', 'wave4', 'redirect'] as const;
+export type TownStatus = (typeof TOWN_STATUSES)[number];
+
+/**
+ * Which chassis a town runs on. The variant picks the freshness windows
+ * (src/config/freshness.ts) and, for `mountain`, switches on the seasonal
+ * and access fields a town at altitude needs. Nothing else differs.
+ */
+export const TOWN_VARIANTS = ['front-range', 'mountain'] as const;
+export type TownVariant = (typeof TOWN_VARIANTS)[number];
+
 export interface TownConfig {
   kind: 'town';
   /** URL-safe identifier, also the content folder name: "lyons" */
   slug: string;
+  /** See TownStatus. Only `live` builds a guide. */
+  status: TownStatus;
+  /** See TownVariant. */
+  variant: TownVariant;
+  /**
+   * The places a multi-town guide covers, as slugs: Carbon Valley's
+   * frederick, firestone and dacono. Every item on such a guide is tagged
+   * with one of these. Absent on a single-town guide.
+   */
+  subTowns?: readonly string[];
+  /**
+   * What must be verified and upcoming before the guide goes live; the
+   * default is DEFAULT_LAUNCH_THRESHOLD in src/config/freshness.ts. A large
+   * town launching with a curated scope sets its own.
+   */
+  launchThreshold?: { events: number; listings: number };
   /** Display name: "Lyons" */
   name: string;
   /** Production domain without protocol: "insidelyons.com" */
@@ -176,7 +209,7 @@ export interface HubConfig {
   hero: HeroConfig;
   social: SocialLinks;
   nav: NavItem[];
-  /** Every town in the network, live or not. The hub filters by LIVE_TOWNS. */
+  /** Every town in the network, live or not. The hub shows those with status `live`. */
   towns: TownConfig[];
   formspreeId?: string;
   ga4Id?: string;
@@ -191,6 +224,13 @@ export interface HubConfig {
    * formspreeId, so nothing has to be half-built waiting for an account.
    */
   newsletter?: NewsletterConfig;
+  /**
+   * Where a reader's correction goes. /correct/ on every town posts to that
+   * town's Formspree form, whose destination is set in Formspree's dashboard;
+   * this address is the `mailto:` fallback where no form is configured, and
+   * what the pages name. Set on 3 October 2026 at the owner's direction.
+   */
+  correctionsEmail?: string;
   /**
    * Vercel Web Analytics on every site in the network.
    *

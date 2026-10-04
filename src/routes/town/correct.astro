@@ -1,0 +1,102 @@
+---
+/**
+ * Report a correction.
+ *
+ * Every event and place page links here with the item in the query string,
+ * so the message arrives saying which listing it is about: the subject is
+ * "[Correction] Lyons · event/farmers-market", and the town, the item and
+ * the page it was reported from ride along as hidden fields. The reader
+ * types only what is wrong.
+ *
+ * It posts to the town's Formspree form, the one /contact/ and
+ * /submit-event/ already use, whose destination is set in Formspree's
+ * dashboard; the honeypot is Formspree's own `_gotcha`. Without a form id it
+ * falls back to a `mailto:` to the network's corrections address with the
+ * same subject. Noindex: a form, not a page to arrive at from a search.
+ *
+ * The fields are filled from the query string by a small script, because
+ * the page is static and the item is not known until the link is followed.
+ * Without the script the form still sends, with a general subject.
+ */
+import Page from '@/layouts/Page.astro';
+import { getNetworkHub, getTown } from '@/config';
+
+const town = getTown();
+const hub = getNetworkHub();
+const action = town.formspreeId ? `https://formspree.io/f/${town.formspreeId}` : undefined;
+const subject = `[Correction] ${town.name}`;
+const mailto = hub.correctionsEmail ? `mailto:${hub.correctionsEmail}?subject=${encodeURIComponent(subject)}` : undefined;
+const field = 'mt-1.5 block w-full rounded-md border border-line bg-raised px-3 py-2.5 text-[1.0625rem] font-normal';
+const label = 'block text-sm font-semibold';
+---
+<Page
+  title="Report a correction"
+  eyebrow={town.name}
+  description={`Tell ${town.siteTitle} what is wrong with a listing and it is checked and fixed.`}
+  intro="Wrong hours, a moved event, a place that has closed: say what you know and it is checked against the source and corrected. Listings are editorial and free."
+  noindex
+  narrow
+>
+  {action ? (
+    <form action={action} method="POST" class="space-y-5 rounded-lg bg-raised p-6 ring-1 ring-line-soft md:p-8" data-correction-form data-town={town.name}>
+      <input type="hidden" name="_subject" value={subject} data-subject />
+      <input type="hidden" name="town" value={town.slug} />
+      <input type="hidden" name="item" value="" data-item />
+      <input type="hidden" name="page" value="" data-page />
+      <input type="hidden" name="_next" value={`https://${town.domain}/message-sent/`} />
+      <p class="hidden" aria-hidden="true">
+        <label>Leave this blank <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <p class="text-[0.9375rem] text-ink-muted" data-about hidden>About: <strong class="text-ink" data-about-title></strong></p>
+      <label class={label}>
+        What’s wrong?
+        <textarea name="message" rows="6" required class={field} placeholder="The hours, the date, the address, that it has closed — whatever you know, and how you know it."></textarea>
+      </label>
+      <label class={label}>
+        Your email <span class="font-normal text-ink-muted">(optional, if a reply would help)</span>
+        <input type="email" name="_replyto" autocomplete="email" class={field} />
+      </label>
+      <button type="submit" class="btn btn-primary">Send the correction</button>
+    </form>
+  ) : (
+    <div class="prose">
+      <p>
+        {mailto ? (
+          <a href={mailto} class="btn btn-primary no-underline">Email a correction</a>
+        ) : (
+          <Fragment>Email <a href={`mailto:${town.social.email}`}>{town.social.email}</a> with the listing and what is wrong.</Fragment>
+        )}
+      </p>
+    </div>
+  )}
+  <p class="mt-8 text-[0.9375rem] leading-relaxed text-ink-muted">
+    Every listing on this site says when it was last checked and against what. A correction is checked the same way before
+    the page changes.
+  </p>
+</Page>
+
+<script>
+  // Fill the hidden fields from the link that brought the reader here.
+  const form = document.querySelector<HTMLFormElement>('[data-correction-form]');
+  if (form) {
+    const params = new URLSearchParams(location.search);
+    const item = params.get('item') ?? '';
+    const title = params.get('title') ?? '';
+    const town = form.dataset.town ?? '';
+    const safe = /^(event|place)\/[a-z0-9-]+$/.test(item) ? item : '';
+    const subjectField = form.querySelector<HTMLInputElement>('[data-subject]');
+    const itemField = form.querySelector<HTMLInputElement>('[data-item]');
+    const pageField = form.querySelector<HTMLInputElement>('[data-page]');
+    if (safe) {
+      if (subjectField) subjectField.value = `[Correction] ${town} · ${safe}`;
+      if (itemField) itemField.value = safe;
+      if (pageField) pageField.value = `${location.origin}/${safe.replace(/^(event|place)\//, '$1s/')}/`;
+      const about = form.querySelector<HTMLElement>('[data-about]');
+      const aboutTitle = form.querySelector<HTMLElement>('[data-about-title]');
+      if (about && aboutTitle) {
+        aboutTitle.textContent = title || safe;
+        about.hidden = false;
+      }
+    }
+  }
+</script>

@@ -1,0 +1,121 @@
+{
+  "town": "windsor",
+  "sources": [
+    {
+      "id": "windsorco-gov",
+      "name": "windsorco.gov",
+      "url": "https://windsorco.gov/",
+      "sampleUrl": "https://www.windsorco.gov/Calendar.aspx?EID=7632",
+      "type": "html",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 8,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "business-windsorchamber-net",
+      "name": "business.windsorchamber.net",
+      "url": "https://business.windsorchamber.net/",
+      "sampleUrl": "https://business.windsorchamber.net/events/details/fall-craft-fair-by-eagle-s-peak-16898",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 7,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "clearview-libnet-info",
+      "name": "clearview.libnet.info",
+      "url": "https://clearview.libnet.info/",
+      "sampleUrl": "https://clearview.libnet.info/event/17227086",
+      "type": "html",
+      "category": "library",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 4,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "recreationliveshere-com",
+      "name": "recreationliveshere.com",
+      "url": "https://recreationliveshere.com/",
+      "sampleUrl": "https://www.recreationliveshere.com/Calendar.aspx?EID=1335",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 16,
+        "places": 10
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "highhopsbrewery-com",
+      "name": "highhopsbrewery.com",
+      "url": "https://highhopsbrewery.com/",
+      "sampleUrl": "https://www.highhopsbrewery.com/events-2",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 2,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "peculierales-com",
+      "name": "peculierales.com",
+      "url": "https://peculierales.com/",
+      "sampleUrl": "https://peculierales.com/events/bingo/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 3,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "runsignup-com",
+      "name": "runsignup.com",
+      "url": "https://runsignup.com/",
+      "sampleUrl": "https://runsignup.com/Race/WindsorColoradoRace/Page/EventDetails",
+      "type": "html",
+      "category": "other",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "tockify-com",
+      "name": "tockify.com",
+      "url": "https://tockify.com/",
+      "sampleUrl": "https://tockify.com/api/feeds/ics/mighty.river.brewing",
+      "type": "html",
+      "category": "other",
+      "status": "proposed",
+      "cites": {
+        "events": 7,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    }
+  ]
+}

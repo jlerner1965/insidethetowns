@@ -6,6 +6,7 @@ import { getSite } from './src/config/index.ts';
 import { townRoutes } from './src/integrations/town-routes.ts';
 import { hostFiles } from './src/integrations/host-files.ts';
 import { pastEventSlugs, repeatOccurrenceSlugs } from './src/lib/series.ts';
+import { closedPlaceSlugs } from './src/lib/raw-places.ts';
 import vercelConfig from './vercel.json' with { type: 'json' };
 
 // Which site to build is decided by the TOWN env var (see src/config/index.ts).
@@ -17,12 +18,19 @@ const site = getSite();
 // decides the same two things from src/lib/series.ts and src/lib/events.ts.
 const repeats = site.kind === 'town' ? repeatOccurrenceSlugs(site.slug) : new Set();
 const expired = site.kind === 'town' ? pastEventSlugs(site.slug) : new Set();
+// A permanently closed place keeps its page, noindex, out of the sitemap.
+const closed = site.kind === 'town' ? closedPlaceSlugs(site.slug) : new Set();
+// A town that has not launched is a holding page: nothing of it is indexable.
+const live = site.kind === 'hub' || site.status === 'live';
 /** Pages that carry noindex must not be listed in the sitemap either. */
-const NOINDEX = new Set(['/thanks/', '/message-sent/']);
+const NOINDEX = new Set(['/thanks/', '/message-sent/', '/correct/']);
 
 const indexable = (/** @type {string} */ url) => {
+  if (!live) return false;
   const { pathname } = new URL(url);
   if (NOINDEX.has(pathname)) return false;
+  const place = pathname.match(/^\/places\/([^/]+)\/$/);
+  if (place) return !closed.has(place[1]);
   const m = pathname.match(/^\/events\/([^/]+)\/$/);
   if (!m) return true;
   return !repeats.has(m[1]) && !expired.has(m[1]);

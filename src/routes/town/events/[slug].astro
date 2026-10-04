@@ -10,6 +10,7 @@ import { googleCalendarUrl } from '@/lib/ics';
 import { pickCanonical } from '@/lib/series';
 import { breadcrumbJsonLd, eventJsonLd } from '@/lib/seo';
 import { CATEGORY_LABELS, EVENT_STATUS_LABELS } from '@/content/schemas';
+import Provenance from '@/components/Provenance.astro';
 
 export async function getStaticPaths() {
   const events = await getTownEntries('events');
@@ -149,11 +150,13 @@ const facts = [
         <span class="text-ink-faint"> · </span>
         <a href={googleUrl} rel="noopener" class="font-semibold text-accent-text no-underline hover:underline">Google</a>
       </p>
-      {(data.verified || data.source) && (
-        <p class="mt-6 text-xs leading-relaxed text-ink-faint">
-          {data.verified && <span>Checked {formatDate(data.verified)}</span>}{data.verified && data.source && <span> against </span>}{data.source && <a href={data.source} rel="noopener" class="underline">{new URL(data.source).hostname.replace(/^www\./, '')}</a>}. Times can change; the organizer’s page is the record.
-        </p>
-      )}
+      <Provenance
+        verified={data.verified}
+        source={data.source}
+        item={`event/${event.slug}`}
+        title={data.title}
+        note="Times can change; the organizer’s page is the record."
+      />
     </aside>
   </div>
 </Page>

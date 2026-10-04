@@ -6,7 +6,7 @@
  */
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { articleSchema, eventSchema, issueSchema, pageSchema, placeSchema } from './content/schemas';
+import { articleSchema, eventSchema, issueSchema, lenient, pageSchema, placeSchema } from './content/schemas';
 
 const base = './content';
 
@@ -16,14 +16,20 @@ const generateId = ({ entry }: { entry: string }) => {
   return `${town}/${rest.join('/')}`;
 };
 
+// Events and places are the two collections that carry the network's
+// time-sensitive claims, so they are the two the build must never fail over.
+// `lenient` turns a bad entry into a marker that src/lib/content.ts drops with
+// a warning, instead of a failed build that leaves last week's deployment up.
+// Staging folders (content/<town>/staging/) are not matched: `*` is one path
+// segment, so `*/events/` is only ever the published folder.
 const events = defineCollection({
   loader: glob({ pattern: '*/events/[^_]*.md', base, generateId }),
-  schema: ({ image }) => eventSchema(image),
+  schema: ({ image }) => lenient(eventSchema(image)),
 });
 
 const places = defineCollection({
   loader: glob({ pattern: '*/places/[^_]*.md', base, generateId }),
-  schema: ({ image }) => placeSchema(image),
+  schema: ({ image }) => lenient(placeSchema(image)),
 });
 
 const articles = defineCollection({

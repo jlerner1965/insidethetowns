@@ -19,6 +19,9 @@
     "weekly": "node scripts/weekly.ts",
     "newsletter": "node scripts/newsletter.ts",
     "import-events": "node scripts/import-events.ts",
+    "sources": "node scripts/sources.ts",
+    "ingest": "node scripts/ingest.ts",
+    "review": "node scripts/review.ts",
     "dev:niwot": "TOWN=niwot astro dev",
     "dev:hub": "TOWN=hub astro dev",
     "build:niwot": "TOWN=niwot node scripts/run.ts build",
@@ -37,6 +40,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "ical.js": "^2.2.1",
     "pagefind": "^1.5.2",
     "sharp": "^0.35.4",
     "typescript": "^6.0.3"

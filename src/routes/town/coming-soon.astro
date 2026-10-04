@@ -1,0 +1,37 @@
+---
+/**
+ * The holding page a town serves until its config says `status: 'live'`.
+ *
+ * A Vercel project can exist before the guide does, and a guide should not
+ * open with three events and a dozen listings. So a town that has not
+ * launched builds this one page, noindex, with robots.txt asking crawlers to
+ * wait, and nothing of the guide behind it. The build succeeds either way:
+ * a failed build would leave whatever deployed before.
+ */
+import Page from '@/layouts/Page.astro';
+import { getNetworkHub, getTown } from '@/config';
+
+const town = getTown();
+const hub = getNetworkHub();
+---
+<Page
+  title={`${town.siteTitle} is on its way`}
+  seoTitle={`${town.siteTitle} — coming soon`}
+  eyebrow={town.name}
+  description={`An independent guide to ${town.name}, Colorado, is being prepared.`}
+  intro={`We are checking every event and listing against its source before this guide opens. Nothing goes up here that has not been verified.`}
+  noindex
+  narrow
+>
+  <div class="prose">
+    <p>
+      {town.siteTitle} will be part of <a href={`https://${hub.domain}/`}>{hub.siteTitle}</a>, an independent network of
+      community guides to Colorado’s Front Range towns: the week’s events, where to eat and drink, the trails, and what it
+      is like to live there. The guides already open are listed there.
+    </p>
+    <p>
+      Run something in {town.name}, or know it well? <a href={`mailto:${town.social.email}`}>{town.social.email}</a> reaches
+      the editor.
+    </p>
+  </div>
+</Page>

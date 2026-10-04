@@ -3,6 +3,8 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
 
 export const elizabeth = {
   kind: 'town',
+  status: 'live',
+  variant: 'front-range',
   slug: "elizabeth",
   name: "Elizabeth",
   domain: "insideelizabeth.com",

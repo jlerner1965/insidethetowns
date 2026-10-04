@@ -1,0 +1,35 @@
+---
+/**
+ * What an item rests on: the day it was checked, the page it was checked
+ * against, and the way to say it is wrong. On every event and place page,
+ * and in a short form on rows and cards.
+ *
+ * The correction link lands on /correct/ with the item named, so the message
+ * arrives saying which listing it is about without the reader typing it.
+ */
+import { formatDate, formatMonthDay } from '@/lib/dates';
+
+interface Props {
+  verified?: Date;
+  source?: string;
+  /** "event/farmers-market" or "place/niwot-tavern": the item id the correction names. */
+  item: string;
+  title: string;
+  /** One line on what changes fastest, for the full form. */
+  note?: string;
+  /** Rows and cards: the check date alone, small. */
+  compact?: boolean;
+}
+
+const { verified, source, item, title, note, compact = false } = Astro.props;
+const host = source ? new URL(source).hostname.replace(/^www\./, '') : undefined;
+const correct = `/correct/?item=${encodeURIComponent(item)}&title=${encodeURIComponent(title)}`;
+---
+{compact ? (
+  verified && <span class="text-ink-faint">Checked {formatMonthDay(verified)}</span>
+) : (
+  <p class="mt-6 text-xs leading-relaxed text-ink-faint">
+    {verified && <span>Checked {formatDate(verified)}</span>}{verified && source && <span> against </span>}{source && <a href={source} rel="noopener" class="underline">{host}</a>}{(verified || source) && '. '}{note && <span>{note} </span>}
+    <a href={correct} class="underline">Report a correction</a>
+  </p>
+)}

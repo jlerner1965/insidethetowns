@@ -8,8 +8,12 @@
 #
 # Setup, once: create a Deploy Hook on each Vercel project (Settings → Git →
 # Deploy Hooks, on the production branch), then put all of them in one repo
-# secret named VERCEL_DEPLOY_HOOKS, one URL per line. Adding a town later means
-# adding its line to that secret and nothing else.
+# secret named VERCEL_DEPLOY_HOOKS, one per line, each line "<slug> <url>"
+# (hub, niwot, lyons, …; a bare URL still works but cannot be matched to a
+# site). Adding a town later means adding its line to that secret and nothing
+# else, and the run fails loudly until that line exists: a live town with no
+# hook is a site whose past events never drop off, which is the one promise
+# these guides make about dates.
 name: Scheduled rebuild
 
 on:
@@ -41,6 +45,12 @@ jobs:
     name: Trigger a deploy of every live site
     runs-on: ubuntu-latest
     steps:
+      # The list of sites that must have a hook comes from the configs, so a
+      # town flipped to `status: 'live'` is counted from its first night.
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - name: Fire each deploy hook
         env:
           HOOKS: ${{ secrets.VERCEL_DEPLOY_HOOKS }}
@@ -49,25 +59,45 @@ jobs:
             echo "::error::VERCEL_DEPLOY_HOOKS is not set. Every site is now only as fresh as its last push."
             exit 1
           fi
+          sites="$(node scripts/live-towns.ts)"
           failed=0
           count=0
-          while IFS= read -r hook; do
-            hook="$(echo "$hook" | tr -d '[:space:]')"
-            [ -z "$hook" ] && continue
+          labeled=""
+          while IFS= read -r line; do
+            line="$(echo "$line" | sed -E 's/^[[:space:]]+|[[:space:]]+$//g')"
+            [ -z "$line" ] && continue
+            # "<slug> <url>" names the site; a bare URL is fired but cannot be matched.
+            slug="$(echo "$line" | awk 'NF == 2 { print $1 }')"
+            hook="$(echo "$line" | awk '{ print $NF }')"
             count=$((count + 1))
             # The hook URL is a credential: print the project, never the URL.
             name="$(echo "$hook" | sed -E 's#.*/([^/?]+).*#\1#' | cut -c1-8)"
+            label="${slug:-hook $count} (…$name)"
             status="$(curl -s -o /dev/null -w '%{http_code}' -X POST "$hook")"
             if [ "$status" = "200" ] || [ "$status" = "201" ]; then
-              echo "hook $count (…$name): $status"
+              echo "$label: $status"
             else
-              echo "::error::hook $count (…$name) returned $status"
+              echo "::error::$label returned $status"
               failed=1
             fi
+            [ -n "$slug" ] && labeled="$labeled $slug"
           done <<< "$HOOKS"
           echo "fired $count hook(s)"
           if [ "$count" -eq 0 ]; then
             echo "::error::VERCEL_DEPLOY_HOOKS is set but contained no URLs."
             exit 1
+          fi
+          # Every live site needs a hook, or its past events stay up until someone pushes.
+          expected="$(echo "$sites" | wc -l | tr -d ' ')"
+          if [ -n "$labeled" ]; then
+            for site in $sites; do
+              case " $labeled " in
+                *" $site "*) ;;
+                *) echo "::error::$site is live and has no deploy hook in VERCEL_DEPLOY_HOOKS. Its site is not being rebuilt: past events will not drop off. Add a line \"$site <hook url>\" to the secret (DEPLOY.md, Scheduled rebuilds)."; failed=1 ;;
+              esac
+            done
+          elif [ "$count" -lt "$expected" ]; then
+            echo "::error::$expected live sites, $count deploy hooks. At least one live town is not being rebuilt; label each line \"<slug> <url>\" in VERCEL_DEPLOY_HOOKS to see which (DEPLOY.md, Scheduled rebuilds)."
+            failed=1
           fi
           exit $failed

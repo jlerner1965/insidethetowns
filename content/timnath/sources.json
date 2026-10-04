@@ -1,0 +1,92 @@
+{
+  "town": "timnath",
+  "sources": [
+    {
+      "id": "fortcollins-gov",
+      "name": "fortcollins.gov",
+      "url": "https://fortcollins.gov/",
+      "sampleUrl": "https://fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Arapaho-Bend-Natural-Area",
+      "type": "html",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 0,
+        "places": 2
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "timnath-org",
+      "name": "timnath.org",
+      "url": "https://timnath.org/",
+      "sampleUrl": "https://timnath.org/holidayfestival/",
+      "type": "html",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "confirmed",
+      "cites": {
+        "events": 7,
+        "places": 6
+      },
+      "notes": "Checked 4 October 2026: a WordPress site whose events page redirects to sponsorships; the news RSS carries no events. Meetings and festivals are read from its pages by hand."
+    },
+    {
+      "id": "timnathbeerwerks-com",
+      "name": "timnathbeerwerks.com",
+      "url": "https://timnathbeerwerks.com/",
+      "sampleUrl": "https://www.timnathbeerwerks.com/new-events/2026/1/3/food-truck-cousins-maine-lobster-y2tas-egydz-4cbp7-kcn9j-dynyw-64p5l-escy2",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 7,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "hoppeningsco-com",
+      "name": "hoppeningsco.com",
+      "url": "https://hoppeningsco.com/",
+      "sampleUrl": "https://hoppeningsco.com/events/run-club-with-the-snowballaz-timnath-beerwerks-east-2026-09-21",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "timnathfarmersmarket-org",
+      "name": "timnathfarmersmarket.org",
+      "url": "https://timnathfarmersmarket.org/",
+      "sampleUrl": "https://timnathfarmersmarket.org/about/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 3,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "maxpreps-com",
+      "name": "maxpreps.com",
+      "url": "https://maxpreps.com/",
+      "sampleUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/soccer/schedule/",
+      "type": "html",
+      "category": "other",
+      "status": "proposed",
+      "cites": {
+        "events": 9,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    }
+  ]
+}

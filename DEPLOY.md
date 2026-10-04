@@ -51,10 +51,25 @@ git push -u origin main
    registrar: an `A` record for the apex (`76.76.21.21`) and a `CNAME` for `www`
    (`cname.vercel-dns.com`), or Vercel's nameservers. HTTPS certificates are issued
    automatically once DNS resolves, usually within minutes.
-8. When the domain serves, add the slug to `LIVE_TOWNS` in `src/config/index.ts`
-   and push. The hub and the network bar pick it up on their next build.
+8. When the domain serves and the validator says the town is ready (its verified
+   counts clear the launch threshold), set `status: 'live'` in
+   `src/config/towns/<slug>.ts` and push. The hub, the network bar and CI pick it
+   up on their next build.
 
 ## What happens on every push
+
+A failed Vercel build leaves the previous deployment serving, with last week's
+events and whatever was stale then, so the build is written not to fail over
+content: `npm run build` runs the validator in `--build` mode, which reports
+every problem and exits 0, and an event or place that fails its schema is
+excluded from the build with a line in the log rather than failing it. GitHub
+Actions runs the same validator strictly and goes red; Vercel does not wait
+for Actions, so red CI never holds a deploy. Fix what CI says; the site is
+never stale because of it.
+
+A town whose config is not `status: 'live'` builds one holding page, noindex,
+with a robots.txt that disallows everything, so a project can be created and
+its domain attached before the guide is ready. Flip the status and push.
 
 - **GitHub Actions** (`.github/workflows/ci.yml`) validates every town's content,
   type-checks, and builds every live site. A push with broken content fails here.
@@ -214,11 +229,18 @@ keeps that honest. Once, per Vercel project:
 1. Settings → Git → Deploy Hooks → create a hook on the production branch.
 2. Collect all ten URLs.
 3. In the `insidethetowns` repo: Settings → Secrets and variables → Actions →
-   new secret `VERCEL_DEPLOY_HOOKS`, one URL per line.
+   new secret `VERCEL_DEPLOY_HOOKS`, one line per site in the form
+   `<slug> <url>`: `hub https://api.vercel.com/v1/integrations/deploy/…`,
+   `niwot https://…`, and so on. (A bare URL still fires, but the run can
+   then only count hooks against live sites, not name the one that is missing.)
 
-`.github/workflows/scheduled-rebuild.yml` then fires them daily at 09:10 UTC
-and again 20:10 UTC on Thursdays, and can be run by hand from the Actions tab.
-Adding a town later means adding its hook URL to that secret; nothing else.
+`.github/workflows/scheduled-rebuild.yml` then fires them three times
+overnight and again on Thursday afternoons, and can be run by hand from the
+Actions tab. Adding a town later means adding its line to that secret;
+nothing else. **The run fails until that line exists**: it reads the live
+sites from the configs (`node scripts/live-towns.ts`) and reports any live
+town without a hook as an error, because a live town that is never rebuilt
+is a site whose past events never drop off.
 
 A hook URL is a credential — anyone holding one can trigger deploys. The
 workflow prints only the first eight characters of the project segment.

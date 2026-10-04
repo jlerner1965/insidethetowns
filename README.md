@@ -6,13 +6,16 @@ Front Range towns, one deployment per domain, selected by the `TOWN` env var.
 ```
 TOWN=niwot npm run dev        # or: npm run dev -- --town=niwot
 TOWN=hub   npm run build      # insidethetowns.com
-npm run validate              # check every town's content (--hours lists hours lines it cannot read)
+npm run validate              # check every town's content (--hours lists hours lines it cannot read; --build is what a build runs)
 npm run check-links           # ask the live web whether our outbound links still work
 npm run check-colors          # prove the palette passes WCAG AA on every site
 npm run new-town lyons "Lyons"
 npm run weekly                # the weekly content report (see below)
 npm run newsletter            # draft Thursday's email from the listings (see below)
 npm run import-events -- events.csv --dry-run   # CSV → event files
+npm run sources               # the source registry: what waits to be confirmed, core first (see below)
+npm run ingest -- --dry-run   # read the confirmed feeds into staging; changes to published events go to review
+npm run review                # the summary, then everything in staging: approve, edit, reject (see below)
 scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
 ```
 
@@ -26,11 +29,14 @@ Mark, don't delete: a place that has closed gets `status: closed` and a note
 saying how you know, a meeting the Town has called off gets `status:
 canceled`, and the pages do the rest (see any content README).
 
-1. `npm run weekly` prints, per town: events whose last date falls within the next
-   7 days (add the next dates or delete the file), events already past, towns with
-   fewer than 5 upcoming events, places without a photo, and listings not re-checked
-   in 30 days — that week's share of the rotation. `--town=lyons`, `--days=14` and
-   `--json` narrow or reshape it.
+1. `npm run ingest`, then `npm run review`: the feeds' new items and changes land in
+   staging and the review walks them (see *Review* below), with the summary at the
+   top: what is waiting, listings going stale in 14 days, sources not answering.
+   `npm run weekly` still prints the longer report, per town: events whose last date
+   falls within the next 7 days (add the next dates or delete the file), events
+   already past, towns with fewer than 5 upcoming events, places without a photo,
+   and listings not re-checked in 30 days — that week's share of the rotation.
+   `--town=lyons`, `--days=14` and `--json` narrow or reshape it.
 2. Collect the week's events in a CSV with the columns in
    `scripts/templates/events-template.csv` (title, start, end, venue, url, category,
    town are required; address, cost, description, source, repeat, until, recurring,
@@ -53,10 +59,61 @@ canceled`, and the pages do the rest (see any content README).
    `--out=drafts` narrow it, move it, or write files instead of printing. It drafts;
    it never sends. Canceled events and closed places are left out of it.
 
-Rules at entry, the same on all nine guides: no listing publishes without a phone, a
+Rules at entry, the same on all nine guides, and now enforced by the build: nothing
+publishes without a `source` and a `verified` date, an open listing is hidden once
+its check is older than its freshness window (its hours go first), a permanently
+closed place keeps only its page, every item links to `/correct/`, and anything not
+ready waits in `content/<town>/staging/` with a line saying why. A town's site is a
+holding page until its config says `status: 'live'`. No listing publishes without a phone, a
 website and hours taken from the business itself (a business with no site gets no
 hours rather than a review site's); hours are written with am and pm; every listing
 and event carries a status; a review site or an aggregator is never the source.
+
+## The source registry
+
+`content/<town>/sources.json` is the list of places checked each week for that
+town. `npm run sources` prints what is still proposed, core entries (the town
+calendar, the chamber, the library, the parks department, the venues the
+calendar leans on) first; `npm run sources -- confirm lyons townoflyons-com`
+confirms one; `npm run sources -- check` asks each confirmed source whether it
+still answers, robots.txt honoured, and records the result for the weekly
+report; `npm run sources -- seed` proposes entries for any host the content
+cites that the registry does not yet know. A proposed source is never read by
+ingest; it has no effect on what publishes.
+
+## Ingest
+
+`npm run ingest` reads every confirmed feed source (`ical`, `rss` or `json` with
+a `feedUrl` in `content/<town>/sources.json`), honouring each site's robots.txt
+unless the editor has set `robots: subscribe` on the source, and writes what it
+finds into `content/<town>/staging/events/`, one file per occurrence, with a
+`review` line naming the source and every guess (venue, category). An item the
+guide already has, found by the feed's id or by the same day and nearly the same
+title, is compared instead: a moved time, a confirmed venue change or a
+cancellation is written to `staging/changes/<slug>.json` and the published file
+gets `changeFlag: true` and a `changeNote`, and nothing else about it changes.
+Cancellations sort first in the weekly report. `--town=erie`, `--source=<id>` and
+`--dry-run` narrow it or hold it. iCalendar is read with ical.js (recurrence,
+exceptions and time zones are where a hand-written parser gets dates wrong);
+RSS (CivicPlus calendars) and The Events Calendar's REST format are read here.
+Nothing ingest writes is published: approval is the review's.
+
+## Review
+
+`npm run review` is the weekly session's front door. It prints the summary
+first, per town: what is waiting in staging, listings whose check crosses the
+freshness window in the next fortnight, and confirmed sources whose last check
+failed. Then it walks the queue, cancellations first, then other changes the
+sources made to published events, then staged places, then staged events by
+date, and at each one takes `a` (approve: stamp `verified` and `verifiedBy`,
+drop the `review` block, move the file into the published folder; for a change,
+write the source's new facts into the published file and clear the flag), `e`
+(open the file in `$EDITOR`, validate, ask again), `r` (reject: delete a staged
+file, or dismiss a change and keep the listing), `o` (open the source URL), `s`
+(skip), `A` (approve the rest of the town's queue) or `q`. Nothing is approved
+without a `source`. `--town=lyons` narrows it, `--summary` prints only the
+summary, `--by="Name"` says who approved (else `REVIEWER`, else git's
+user.name). Then `npm run validate`, commit, push.
 
 ## Link rot
 
@@ -123,7 +180,9 @@ and placements to a business owner.
 - `PLAN.md` — the build plan, phase by phase
 - `DECISIONS.md` — choices made along the way
 - `src/config/towns/` — one file per town; `index.ts` exports `getSite()` / `getTown()`
-- `content/<town>/` — events, places, articles, pages, images (see the README in each)
+- `content/<town>/` — events, places, articles, pages, images, and `staging/` for what is not yet publishable (see the README in each)
+- `src/config/freshness.ts` — how long a checked fact stays publishable; `src/lib/freshness.ts` decides, `src/lib/content.ts` applies, on every page
+- `docs/ACCURACY-SYSTEM.md` — the accuracy brief: what the build enforces and why, phase by phase
 - `IMAGE_LICENSES.csv` — every image, its source and licence
 - `docs/PHOTOS.md` — how to get the missing photographs, and what has been ruled out
 - `docs/PHOTO-CONTACTS.csv` — the 187 businesses without one, with phone and website

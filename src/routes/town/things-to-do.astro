@@ -9,7 +9,7 @@ import { byProminence } from '@/lib/places';
 import { THINGS_TO_DO_TYPES } from '@/content/schemas';
 
 const town = getTown();
-const all = await getTownEntries('places');
+const all = (await getTownEntries('places')).filter((p) => !p.delisted);
 const places = all.filter((p) => THINGS_TO_DO_TYPES.includes(p.data.type)).sort(byProminence);
 const lodging = all.filter((p) => p.data.type === 'lodging').sort(byProminence);
 const outdoors = (await getTownEntries('articles')).filter(

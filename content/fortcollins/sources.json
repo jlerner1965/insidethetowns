@@ -1,0 +1,335 @@
+{
+  "town": "fortcollins",
+  "sources": [
+    {
+      "id": "fortcollins-gov",
+      "name": "fortcollins.gov",
+      "url": "https://fortcollins.gov/",
+      "sampleUrl": "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q3/Natural-Areas/Black-Footed-Ferret-Exploration",
+      "type": "html",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 13,
+        "places": 14
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "larimer-gov",
+      "name": "larimer.gov",
+      "url": "https://larimer.gov/",
+      "sampleUrl": "https://www.larimer.gov/extension/larimer-county-farmers-market",
+      "type": "html",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 2
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "downtownfortcollins-com",
+      "name": "downtownfortcollins.com",
+      "url": "https://downtownfortcollins.com/",
+      "sampleUrl": "https://downtownfortcollins.com/play/first-friday-art-walk",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 6,
+        "places": 2
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "poudrelibraries-librarycalendar-com",
+      "name": "poudrelibraries.librarycalendar.com",
+      "url": "https://poudrelibraries.librarycalendar.com/",
+      "sampleUrl": "https://poudrelibraries.librarycalendar.com/event/harmony-all-ages-storytime-24119",
+      "type": "html",
+      "category": "library",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 2,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "gardens-fortcollins-gov",
+      "name": "gardens.fortcollins.gov",
+      "url": "https://gardens.fortcollins.gov/",
+      "sampleUrl": "https://gardens.fortcollins.gov/Events-and-Classes/D%C3%ADa-de-Muertos",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 4,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "aggietheatre-com",
+      "name": "aggietheatre.com",
+      "url": "https://aggietheatre.com/",
+      "sampleUrl": "https://www.aggietheatre.com/",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 6,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "csurams-com",
+      "name": "csurams.com",
+      "url": "https://csurams.com/",
+      "sampleUrl": "https://csurams.com/sports/football/schedule/2026",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 11,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "music-colostate-edu",
+      "name": "music.colostate.edu",
+      "url": "https://music.colostate.edu/",
+      "sampleUrl": "https://music.colostate.edu/events/all-choral-holiday-concert-5/",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "cites": {
+        "events": 5,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "bathgardencenter-com",
+      "name": "bathgardencenter.com",
+      "url": "https://bathgardencenter.com/",
+      "sampleUrl": "https://www.bathgardencenter.com/event-details/holiday-makers-market-2026",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "bohemianlivemusic-org",
+      "name": "bohemianlivemusic.org",
+      "url": "https://bohemianlivemusic.org/",
+      "sampleUrl": "https://bohemianlivemusic.org/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 3,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "dance-colostate-edu",
+      "name": "dance.colostate.edu",
+      "url": "https://dance.colostate.edu/",
+      "sampleUrl": "https://dance.colostate.edu/events/2026-fall-dance-concert/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "focofallfest-com",
+      "name": "focofallfest.com",
+      "url": "https://focofallfest.com/",
+      "sampleUrl": "https://www.focofallfest.com/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "fortcollinsnursery-com",
+      "name": "fortcollinsnursery.com",
+      "url": "https://fortcollinsnursery.com/",
+      "sampleUrl": "https://fortcollinsnursery.com/event/fort-collins-nurserys-giant-pumpkin-weigh-off-fall-jamboree-3/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "harbingercoffee-com",
+      "name": "harbingercoffee.com",
+      "url": "https://harbingercoffee.com/",
+      "sampleUrl": "https://harbingercoffee.com/pages/harmony-lady-moon",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 0,
+        "places": 2
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "newbelgium-com",
+      "name": "newbelgium.com",
+      "url": "https://newbelgium.com/",
+      "sampleUrl": "https://www.newbelgium.com/visit/fort-collins/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 3,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "theatre-colostate-edu",
+      "name": "theatre.colostate.edu",
+      "url": "https://theatre.colostate.edu/",
+      "sampleUrl": "https://theatre.colostate.edu/events/alice-by-heart-music-by-duncan-sheik-lyrics-by-steven-sater-and-book-by-steven-sater-and-jessie-nelson-2026-11-06-2026-11-07-2026-11-08-2026-11-09-2026-11-10-2026-11-11/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "tourdecorgi-org",
+      "name": "tourdecorgi.org",
+      "url": "https://tourdecorgi.org/",
+      "sampleUrl": "https://tourdecorgi.org/event-info/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "wildcraftmarkets-com",
+      "name": "wildcraftmarkets.com",
+      "url": "https://wildcraftmarkets.com/",
+      "sampleUrl": "https://www.wildcraftmarkets.com/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 2,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "z2ent-com",
+      "name": "z2ent.com",
+      "url": "https://z2ent.com/",
+      "sampleUrl": "https://www.z2ent.com/venues-we-book/aggie-theatre",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "eventbrite-com",
+      "name": "eventbrite.com",
+      "url": "https://eventbrite.com/",
+      "sampleUrl": "https://www.eventbrite.com/e/run-club-odell-foco-tickets-1985835655904",
+      "type": "html",
+      "category": "other",
+      "status": "proposed",
+      "cites": {
+        "events": 2,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "events-humanitix-com",
+      "name": "events.humanitix.com",
+      "url": "https://events.humanitix.com/",
+      "sampleUrl": "https://events.humanitix.com/community-cue-2026",
+      "type": "html",
+      "category": "other",
+      "status": "proposed",
+      "cites": {
+        "events": 4,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "lctix-com",
+      "name": "lctix.com",
+      "url": "https://lctix.com/",
+      "sampleUrl": "https://www.lctix.com/shows-tickets/aoife-odonovan-chris-thile/",
+      "type": "html",
+      "category": "other",
+      "status": "proposed",
+      "cites": {
+        "events": 18,
+        "places": 1
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    },
+    {
+      "id": "runsignup-com",
+      "name": "runsignup.com",
+      "url": "https://runsignup.com/",
+      "sampleUrl": "https://runsignup.com/Race/CO/FortCollins/FortCollinsThanksgivingDayRun",
+      "type": "html",
+      "category": "other",
+      "status": "proposed",
+      "cites": {
+        "events": 1,
+        "places": 0
+      },
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+    }
+  ]
+}
