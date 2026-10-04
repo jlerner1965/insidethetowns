@@ -56,7 +56,7 @@
       "name": "lyons.librarycalendar.com",
       "url": "https://lyons.librarycalendar.com/",
       "sampleUrl": "https://lyons.librarycalendar.com/events/upcoming",
-      "type": "ical",
+      "type": "manual",
       "category": "library",
       "priority": "core",
       "status": "confirmed",
@@ -64,7 +64,7 @@
         "events": 74,
         "places": 0
       },
-      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. The site's robots.txt disallows every path for agents it does not list, this one included, so ingest will not read the feed until the editor sets robots: subscribe. The feed is the one the library offers readers under 'subscribe'. Times are UTC; 109 events on 4 October.",
+      "notes": "Manual until the library answers: its iCal feed (feedUrl, kept here) is offered to readers under 'subscribe', but the site's robots.txt disallows every path for agents it does not list, and the editor is asking the library for permission before ingest reads it (docs/SOURCE-PERMISSION-EMAILS.md). Set type back to ical and robots to subscribe when it comes. Found 4 October 2026; 109 events, UTC times.",
       "feedUrl": "https://lyons.librarycalendar.com/events/feed/ical",
       "defaultVenue": "Lyons Regional Library"
     },

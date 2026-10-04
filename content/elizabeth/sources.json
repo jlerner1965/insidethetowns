@@ -36,7 +36,7 @@
       "name": "pplibraries.org",
       "url": "https://pplibraries.org/",
       "sampleUrl": "https://pplibraries.org/03a-activities-calendar/",
-      "type": "ical",
+      "type": "manual",
       "category": "library",
       "priority": "core",
       "status": "confirmed",
@@ -44,7 +44,7 @@
         "events": 15,
         "places": 1
       },
-      "notes": "The library's activities page embeds five public Google calendars; this is the one named 'Elizabeth Events' (647 events, 177 recurring, America/Denver). calendar.google.com's robots.txt disallows everything for agents it does not list, so ingest will not read it until the editor sets robots: subscribe; the library publishes the calendars for exactly this kind of subscription. Found 4 October 2026.",
+      "notes": "Manual until the library answers: the activities page embeds five public Google calendars and this feedUrl is the one named 'Elizabeth Events' (647 events, 177 recurring, America/Denver), but calendar.google.com's robots.txt disallows unlisted agents, and the editor is asking the library for permission before ingest reads it (docs/SOURCE-PERMISSION-EMAILS.md). Set type back to ical and robots to subscribe when it comes. Found 4 October 2026.",
       "feedUrl": "https://calendar.google.com/calendar/ical/a683dnsqgd0lmnqsase3860vu4%40group.calendar.google.com/public/basic.ics",
       "defaultVenue": "Elizabeth Library"
     },
