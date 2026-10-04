@@ -2649,5 +2649,9 @@ feed), and the DNS and email changes; the DNS could not be made (below).
   added the apex A records (76.76.21.21) and the `www` CNAMEs to Vercel's
   per-project targets in the dashboard on 4 October. Vercel reports all four
   hostnames configured, both domains serve the holding page over HTTPS with
-  the network's headers, and `www` redirects to the apex. Email Routing for
-  `hello@` and the `_dmarc` record are not yet on either domain.
+  the network's headers, and `www` redirects to the apex. A working token
+  the owner supplied later the same day added the `_dmarc` record
+  (`v=DMARC1; p=none`, as on insideniwot.com) to both zones. It carries no
+  Email Routing permission (every routing endpoint answered "Authentication
+  error", as at the Windsor and Fort Collins launch), so `hello@` on both
+  domains still needs routing switched on and its one rule, in the dashboard.
