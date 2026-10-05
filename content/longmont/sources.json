@@ -15,9 +15,12 @@
       "excludeTitles": [
         "Pre-Session",
         "Canceled:",
-        "Council at Longmont Farmers Market"
+        "Council at Longmont Farmers Market",
+        "City Council Meeting",
+        "Study Session",
+        "Joint Meeting"
       ],
-      "notes": "Found and read once on 4 October 2026. The City's calendar is The Events Calendar on WordPress. Its robots.txt disallows /wp-json/, so the REST API is not read; the iCal exports under /events/ are allowed, but each stops at 30 items, which on the all-events export is two to four days, nearly all library drop-ins. So the City's calendar is proposed as one feed per department category, each reaching further. This one is the City Council category: 18 items to 29 December on 4 October (council meetings, pre-sessions, study sessions, Coffee with Council, Council at the farmers market, a fire station open house). The City marks a called-off meeting by prefixing \"Canceled:\" to the title rather than with STATUS:CANCELLED, so ingest will stage those as new items; three in December were marked so. America/Denver times. Exclusions set 4 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again. \"Council at Longmont Farmers Market\" is excluded too: ingest matched it to the market itself on the same Saturday and overwrote one with the other."
+      "notes": "Found and read once on 4 October 2026. The City's calendar is The Events Calendar on WordPress. Its robots.txt disallows /wp-json/, so the REST API is not read; the iCal exports under /events/ are allowed, but each stops at 30 items, which on the all-events export is two to four days, nearly all library drop-ins. So the City's calendar is proposed as one feed per department category, each reaching further. This one is the City Council category: 18 items to 29 December on 4 October (council meetings, pre-sessions, study sessions, Coffee with Council, Council at the farmers market, a fire station open house). The City marks a called-off meeting by prefixing \"Canceled:\" to the title rather than with STATUS:CANCELLED, so ingest will stage those as new items; three in December were marked so. America/Denver times. Exclusions set 4 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again. \"Council at Longmont Farmers Market\" is excluded too: ingest matched it to the market itself on the same Saturday and overwrote one with the other. Regular council meetings, study sessions and joint meetings excluded on 4 October 2026 at the review, where the owner rejected the eight staged (routine meetings, per the event standard); Coffee with Council and the fire station open house stay."
     },
     {
       "id": "bouldercounty-gov",
@@ -170,10 +173,11 @@
         "Discovery Days",
         "Studio Series",
         "Craft & Create Club",
-        "Advisory Board"
+        "Advisory Board",
+        "Art & Sip"
       ],
       "defaultVenue": "Longmont Museum",
-      "notes": "Found and read once on 4 October 2026. The museum, 400 Quail Rd., is a City department; its Stewart Auditorium programme (Friday afternoon concerts, films co-presented with the Sundance Film Festival, talks) and its classes are on the City's calendar. 30 items reached 22 October, including the Grand Reopening Celebration on 17 October. Like the council calendar it marks changes in the title (\"Postponed: ...\"). Daily Discovery Days sessions are regulars. Exclusions set 4 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again."
+      "notes": "Found and read once on 4 October 2026. The museum, 400 Quail Rd., is a City department; its Stewart Auditorium programme (Friday afternoon concerts, films co-presented with the Sundance Film Festival, talks) and its classes are on the City's calendar. 30 items reached 22 October, including the Grand Reopening Celebration on 17 October. Like the council calendar it marks changes in the title (\"Postponed: ...\"). Daily Discovery Days sessions are regulars. Exclusions set 4 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again. Art & Sip excluded on 4 October 2026 at the review, where the owner rejected the three staged: ticketed craft classes, which the event standard leaves out."
     },
     {
       "id": "longmontsymphony-org",
