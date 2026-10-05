@@ -197,12 +197,12 @@ not been measured on a real deployment yet.
 
 ## Email
 
-Every town config publishes one address, `hello@<domain>`, and all twelve domains
+Every town config publishes one address, `hello@<domain>`, and all thirteen domains
 receive it through **Cloudflare Email Routing**, which forwards it to the owner's
 inbox. There is no mailbox anywhere: Cloudflare accepts the message and passes it
-on. Set up on 27 September 2026 for the first eight domains and on 4 October
-for the other four: insidewindsorco.com, insidefortcollins.com,
-insidelongmontco.com and insidelovelandco.com.
+on. Set up on 27 September 2026 for the first eight domains, on 4 October
+for insidewindsorco.com, insidefortcollins.com, insidelongmontco.com and
+insidelovelandco.com, and on 5 October for carbonvalleyguide.com.
 
 On each domain (Cloudflare → the domain → Email → Email Routing):
 
@@ -214,8 +214,8 @@ On each domain (Cloudflare → the domain → Email → Email Routing):
 - **DMARC**, a TXT record at `_dmarc` added by hand: `v=DMARC1; p=none`.
 
 The inbox is a *destination address*, set once for the Cloudflare account and
-verified by a link Cloudflare mails to it; all ten rules share it. Changing
-inboxes means adding and verifying the new one, then pointing the ten rules at it.
+verified by a link Cloudflare mails to it; every domain's rule shares it. Changing
+inboxes means adding and verifying the new one, then pointing every rule at it.
 
 To check a domain:
 

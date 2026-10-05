@@ -47,3 +47,16 @@ test('the real vercel.json gives Lyons the old explorelyons paths and Niwot none
   }
   assert.doesNotMatch(redirectsFor('insideniwot.com', real), /eat-shop|our-story|civic/);
 });
+
+test('a catch-all redirect also matches the trailing-slash URLs every page has', () => {
+  // With trailingSlash on, every page URL ends in "/", and Vercel's
+  // "/:path*" does not match one: on 5 October insidefirestone.com/about/
+  // served Carbon Valley's page and /anything/ a 404 instead of redirecting.
+  // "/(.*)" matches either form, and exports as "/*".
+  const real = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8'));
+  for (const r of real.redirects as Array<{ source: string }>) {
+    assert.doesNotMatch(r.source, /:[A-Za-z_]\w*\*$/, `${r.source}: use "/(.*)" so a trailing slash still matches`);
+  }
+  const firestone = redirectsFor('insidefirestone.com', real);
+  assert.match(firestone, /^\/\* {2}https:\/\/carbonvalleyguide\.com\/firestone\/ {2}301$/m);
+});
