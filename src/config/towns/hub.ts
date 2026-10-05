@@ -55,4 +55,6 @@ export const hub: HubConfig = {
   ],
   towns,
   formspreeId: 'xeaoakgg',
+  // Who built the sites, set on 5 October 2026 at the owner's direction.
+  credit: { label: 'Lerner Works', url: 'https://lernerworks.com' },
 };

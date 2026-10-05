@@ -3,7 +3,7 @@
  * they can be unit-tested without Astro.
  */
 import type { CollectionEntry } from 'astro:content';
-import { TIME_ZONE, addDays, dayKey, startOfDay } from './dates.ts';
+import { TIME_ZONE, addDays, dayKey, formatDayRange, formatMonthDay, formatTimeRange, startOfDay } from './dates.ts';
 
 type EventLike = { data: CollectionEntry<'events'>['data']; slug?: string; id?: string };
 
@@ -103,6 +103,44 @@ export function isInProgress(event: EventLike, now = new Date()): boolean {
   return event.data.start.getTime() <= t && eventEnd(event).getTime() > t;
 }
 
+/** True when a listing is on for more than one Denver day: a festival weekend, a six-week run. */
+export function isMultiDay(event: EventLike): boolean {
+  return lastDay(event) !== dayKey(event.data.start);
+}
+
+/**
+ * The time line for a listing outside a day heading, as the email and the
+ * sample issue print it: the organizer's own note if there is one, "Now
+ * through October 31" for a run under way, the range for a run of whole days
+ * not yet started, and otherwise the clock times.
+ */
+export function timeText(event: EventLike, now = new Date()): string {
+  const { timeNote, start, end, allDay } = event.data;
+  if (timeNote) return timeNote;
+  if (end && isMultiDay(event)) {
+    if (isInProgress(event, now)) return `Now through ${formatMonthDay(end)}`;
+    if (allDay) return formatDayRange(start, end);
+  }
+  return formatTimeRange(start, end, allDay);
+}
+
+/**
+ * Splits a list into the runs already under way, which began on an earlier
+ * day and are still on, and everything else.
+ *
+ * A list grouped under day headings files each listing under the day it
+ * starts, which put a corn maze that opened on September 23 under a
+ * "Wednesday, September 23" heading for five weeks. The runs go in a group
+ * of their own instead, each row saying "Now through October 31".
+ */
+export function splitOngoing<T extends EventLike>(events: T[], now = new Date()): { ongoing: T[]; dated: T[] } {
+  const today = dayKey(now);
+  const ongoing: T[] = [];
+  const dated: T[] = [];
+  for (const e of events) (dayKey(e.data.start) < today && !isPast(e, now) ? ongoing : dated).push(e);
+  return { ongoing, dated };
+}
+
 export function sortByStart<T extends EventLike>(events: T[]): T[] {
   return [...events].sort((a, b) => a.data.start.getTime() - b.data.start.getTime());
 }
@@ -165,16 +203,27 @@ export interface WeekendSections<T> {
   now: T[];
   /** Starting inside the weekend window. */
   weekend: T[];
-  /** Runs that began earlier and are still on, but are not under way right now. */
+  /** Multi-day runs starting before the weekend, not under way yet, and still on on its Friday. */
   continuing: T[];
   /** Starting after the weekend, inside the horizon. */
   next: T[];
+  /**
+   * One-day listings between now and the weekend: Tuesday's council meeting.
+   * No weekend page shows them, and they are not counted by sectionCount.
+   */
+  before: T[];
 }
 
 /**
- * Split events into the four sections the weekend page shows. Every event that
- * is not past lands in exactly one of them, so "there is nothing on" can be
- * decided by counting the sections rather than by looking at one of them.
+ * Split events into the sections the weekend page shows, plus `before`, which
+ * it does not. Every event that is not past lands in exactly one of them, so
+ * "there is nothing on" can be decided by counting the shown sections rather
+ * than by looking at one of them.
+ *
+ * "Still running" is for a run that lasts into the weekend. Anything else
+ * that started before Friday used to land there too, which put Niwot's
+ * one-off meetings of October 6 to 8 under "Still running" on its weekend
+ * page; a one-day listing before the weekend is `before` now.
  */
 export function weekendSections<T extends EventLike>(
   events: T[],
@@ -184,18 +233,20 @@ export function weekendSections<T extends EventLike>(
   const horizon = addDays(sunday, horizonDays).getTime();
   const live = upcoming(events, { now });
 
-  const sections: WeekendSections<T> = { now: [], weekend: [], continuing: [], next: [] };
+  const friday = dayKey(weekendStart);
+  const sections: WeekendSections<T> = { now: [], weekend: [], continuing: [], next: [], before: [] };
   for (const event of live) {
     const startsAt = event.data.start.getTime();
     if (isInProgress(event, now)) sections.now.push(event);
-    else if (startsAt < weekendStart.getTime()) sections.continuing.push(event);
-    else if (startsAt < weekendEnd.getTime()) sections.weekend.push(event);
+    else if (startsAt < weekendStart.getTime()) {
+      (isMultiDay(event) && lastDay(event) >= friday ? sections.continuing : sections.before).push(event);
+    } else if (startsAt < weekendEnd.getTime()) sections.weekend.push(event);
     else if (startsAt < horizon) sections.next.push(event);
   }
   return sections;
 }
 
-/** How many events a partition is carrying in total. */
+/** How many events a partition is carrying in the sections a weekend page shows. */
 export function sectionCount<T>(sections: WeekendSections<T>): number {
   return sections.now.length + sections.weekend.length + sections.continuing.length + sections.next.length;
 }
@@ -323,4 +374,71 @@ export function weeklyRegulars<T extends EventLike>(entries: readonly T[], now =
 export function oneOffs<T extends EventLike>(events: T[], all: readonly T[] = events): T[] {
   const isRegular = regularTest(all);
   return events.filter((e) => !isRegular(e) && e.data.category !== 'civic' && !isCanceled(e));
+}
+
+/**
+ * The categories that make someone plan a day around a listing: festivals,
+ * markets, concerts, races, shows. The rest (family, food, outdoors, other)
+ * still qualify for a neighbour's block, after these.
+ */
+const PLAN_YOUR_DAY: ReadonlySet<string> = new Set(['festival', 'market', 'music', 'sports', 'arts']);
+
+/**
+ * The picks for a town's "Nearby this weekend" block, from its neighbours'
+ * listings: what is on between Friday and Sunday, one-offs only.
+ *
+ * Left out: anything canceled or past, civic meetings, and the weekly
+ * regulars (`weeklyTest`: the storytime, the trivia night), because a
+ * neighbour's storytime is not a reason to cross a town line. A series of a
+ * few dates is not a regular: Loveland's three nights of Die Fledermaus and
+ * two Eagles home games stay in, once each, at the next date. A run that
+ * started earlier counts if it is still on on the Friday; the card shows it
+ * as "Now through".
+ *
+ * At most `perTown` from any one neighbour, so Longmont's calendar cannot
+ * crowd out Lyons'. Every neighbour with something on gets its best pick
+ * before any gets a second, and "best" is a plan-your-day category (or the
+ * editor's featured flag) first, then something starting this weekend over
+ * a run already going, then the earlier start. The picks come back in date
+ * order.
+ *
+ * `all` is the neighbours' whole calendar, expanded with `occurrences`, so a
+ * series shows up as one; `order` is the neighbours' slugs in the town's
+ * config order, which breaks ties.
+ */
+export function nearbyPicks<T extends EventLike & { town: { slug: string } }>(
+  all: readonly T[],
+  order: readonly string[],
+  { now = new Date(), limit = 6, perTown = 2 }: { now?: Date; limit?: number; perTown?: number } = {},
+): T[] {
+  const { start, end } = weekendWindow(now);
+  const friday = dayKey(start);
+  const isWeekly = weeklyTest(all);
+  const onThisWeekend = (e: T) => {
+    const t = e.data.start.getTime();
+    if (t >= start.getTime() && t < end.getTime()) return true;
+    return t < start.getTime() && isMultiDay(e) && lastDay(e) >= friday;
+  };
+  const seen = new Set<string>();
+  const candidates = sortByStart([...all]).filter((e) => {
+    if (isPast(e, now) || isCanceled(e) || e.data.category === 'civic' || isWeekly(e) || !onThisWeekend(e)) return false;
+    // One card per series: the same title at the same venue is the same thing on another date.
+    const key = `${e.town.slug}|${e.data.title}|${e.data.venue}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+  const rank = (e: T) =>
+    (e.data.featured || PLAN_YOUR_DAY.has(e.data.category) ? 0 : 2) + (e.data.start.getTime() >= start.getTime() ? 0 : 1);
+  const byTown = new Map<string, T[]>();
+  for (const e of candidates) byTown.set(e.town.slug, [...(byTown.get(e.town.slug) ?? []), e]);
+  for (const list of byTown.values()) list.sort((a, b) => rank(a) - rank(b) || a.data.start.getTime() - b.data.start.getTime());
+  const place = (slug: string) => (order.indexOf(slug) + 1 || order.length + 1);
+  const picks: T[] = [];
+  for (let round = 0; round < perTown && picks.length < limit; round++) {
+    const pool = [...byTown.values()].map((list) => list[round]).filter((e): e is T => !!e);
+    pool.sort((a, b) => rank(a) - rank(b) || place(a.town.slug) - place(b.town.slug) || a.data.start.getTime() - b.data.start.getTime());
+    picks.push(...pool.slice(0, limit - picks.length));
+  }
+  return sortByStart(picks);
 }

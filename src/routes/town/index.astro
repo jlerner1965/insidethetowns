@@ -8,6 +8,7 @@ import PlaceFeature from '@/components/PlaceFeature.astro';
 import PlaceIndex from '@/components/PlaceIndex.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
+import NearbyWeekend from '@/components/NearbyWeekend.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { highlights, occurrences } from '@/lib/events';
@@ -54,6 +55,7 @@ const [lead, second] = articles;
         </p>
       </div>
     )}
+    <NearbyWeekend town={town} class="mt-16 md:mt-20" />
     </div>
   </section>
 

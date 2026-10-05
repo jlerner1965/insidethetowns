@@ -1,0 +1,130 @@
+---
+/**
+ * What this week's email would say, as a web page: a sample for anyone
+ * deciding whether to sign up, linked from /newsletter/.
+ *
+ * Generated at build time from the same listings and the same rules as the
+ * whole-network issue that scripts/newsletter.ts drafts: the weekend town by
+ * town, a few picks each, then the places new or closed since the last issue.
+ * Not a word of it is written by hand, and it says plainly that it is a
+ * sample, not a sent issue. Out of the search index and the sitemap: it is
+ * a different page every week and the listings themselves are indexed where
+ * they live.
+ *
+ * New and closed places come from the git history (src/lib/newsletter.ts).
+ * A build from a shallow clone has none, and those two sections are left out
+ * rather than shown as an empty week.
+ */
+import Page from '@/layouts/Page.astro';
+import { getHub, liveTowns } from '@/config';
+import { getNetworkEntries } from '@/lib/content';
+import { addDays, formatDate, formatDayLong, formatDayRange } from '@/lib/dates';
+import { highlights, isCanceled, occurrences, timeText, weekendSections, weekendWindow } from '@/lib/events';
+import { listingChanges, nextSendDay } from '@/lib/newsletter';
+import { isOpen } from '@/lib/places';
+
+const hub = getHub();
+const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
+const send = nextSendDay(new Date(), sendDay);
+const { start, sunday } = weekendWindow(send);
+const range = formatDayRange(start, sunday);
+const since = addDays(send, -7);
+const sponsor = hub.sponsors?.email ?? hub.sponsors?.network;
+
+const listings = occurrences((await getNetworkEntries('events')).filter((e) => !isCanceled(e)), { now: send, horizonDays: 14 });
+const weekend = weekendSections(listings, { now: send, horizonDays: 5 }).weekend;
+const weeks = liveTowns().map((town) => {
+  const own = weekend.filter((e) => e.town.slug === town.slug);
+  return { town, count: own.length, picks: highlights(own, { now: send, limit: 4 }) };
+});
+const total = weeks.reduce((n, w) => n + w.count, 0);
+
+const changes = listingChanges(process.cwd(), 'content', since, addDays(send, 1));
+const places = changes ? await getNetworkEntries('places') : [];
+const opened = places.filter((p) => !!p.filePath && changes!.added.has(p.filePath) && isOpen(p));
+const shut = places.filter((p) => !!p.filePath && changes!.closed.has(p.filePath) && p.data.status !== 'open');
+const closedNote = (p: (typeof shut)[number]) =>
+  p.data.statusNote ?? (p.data.status === 'closed' ? 'Permanently closed.' : 'Temporarily closed.');
+const builtAt = new Date();
+---
+<Page
+  title="A sample issue"
+  eyebrow="The weekly email"
+  description={`What the ${sendDay} email would contain this week, built from the listings.`}
+  intro={`What the email would say if it went out on ${sendDay}, ${formatDate(send)}: the weekend town by town, from the same listings the guides show.`}
+  noindex
+  narrow
+>
+  <p class="mb-10 rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink">
+    <strong class="font-semibold">This is a sample, not a sent issue.</strong> It is generated from the listings each time
+    the site is built, last on {formatDate(builtAt)}, so it changes through the week.
+    <a href="/newsletter/" class="font-semibold text-accent-text">Sign up for the real one</a>.
+  </p>
+
+  <article class="prose">
+    {sponsor && (
+      <p class="text-[0.9375rem] text-ink-muted">
+        <em>Sponsor · This week’s email is presented by <a href={sponsor.url} rel="sponsored noopener">{sponsor.name}</a>{sponsor.line && ` · ${sponsor.line}`}.</em>
+      </p>
+    )}
+    <p><strong>{hub.siteTitle}</strong> · {formatDate(send)}</p>
+    <p>
+      {total} {total === 1 ? 'thing' : 'things'} on across {weeks.length} towns this weekend, {range}. A few from each; every
+      link opens on that town’s own guide.
+    </p>
+
+    {weeks.map(({ town, count, picks }) => (
+      <Fragment>
+        <h2>{town.name}</h2>
+        {picks.length === 0 ? (
+          <p>Nothing listed for the weekend yet — <a href={`https://${town.domain}/events/`}>what’s on next</a>.</p>
+        ) : (
+          <ul>
+            {picks.map((e) => (
+              <li>
+                <strong>{formatDayLong(e.data.start).split(',')[0]}</strong> <strong>{timeText(e, send)}</strong>{' '}
+                <a href={`https://${town.domain}/events/${e.slug}/`}>{e.data.title}</a>
+                {' · '}{[e.data.venue, e.data.cost].filter(Boolean).join(' · ')}
+              </li>
+            ))}
+            <li>
+              {count > picks.length ? (
+                <Fragment>…and {count - picks.length} more on <a href={`https://${town.domain}/events/`}>{town.domain}/events</a></Fragment>
+              ) : (
+                <Fragment>Everything on: <a href={`https://${town.domain}/events/`}>{town.domain}/events</a></Fragment>
+              )}
+            </li>
+          </ul>
+        )}
+      </Fragment>
+    ))}
+
+    {opened.length > 0 && (
+      <Fragment>
+        <h2>New on the guides</h2>
+        <ul>
+          {opened.map((p) => (
+            <li><strong>{p.town.name}</strong> <a href={`https://${p.town.domain}/places/${p.slug}/`}>{p.data.title}</a> — {p.data.summary}</li>
+          ))}
+        </ul>
+      </Fragment>
+    )}
+    {shut.length > 0 && (
+      <Fragment>
+        <h2>Closed</h2>
+        <ul>
+          {shut.map((p) => (
+            <li><strong>{p.town.name}</strong> <a href={`https://${p.town.domain}/places/${p.slug}/`}>{p.data.title}</a> — {closedNote(p)}</li>
+          ))}
+        </ul>
+      </Fragment>
+    )}
+
+    <hr />
+    <p>Everything on, town by town: <a href={`/this-weekend/`}>{hub.domain}/this-weekend</a></p>
+    <p>
+      <em>The weekly email from {hub.siteTitle}, independent guides to {weeks.length} Front Range towns. Listings are
+      editorial; nobody pays to be in them.</em>
+    </p>
+  </article>
+</Page>

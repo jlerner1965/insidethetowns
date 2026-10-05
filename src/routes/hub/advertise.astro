@@ -3,8 +3,10 @@
  * The rate card, or the honest absence of one.
  *
  * `hub.rates` is unset until there are numbers worth standing behind. Until
- * then, the page invites a founding-partnership conversation instead of
- * publishing a provisional price or a table with blanks in it.
+ * then, the page makes one concrete founding offer, the network sponsor slot
+ * (`hub.sponsors.network`), with its terms but without a price: the owner
+ * has not set one (5 October 2026), and a provisional price or a table with
+ * blanks in it would be worse than asking.
  *
  * Audience figures are the same bet in reverse, in three states rather than
  * two: nothing counted, counting but too new to mean anything, and enough
@@ -48,6 +50,8 @@ const started =
       ? 'We started counting yesterday'
       : `We started counting on ${formatDate(since!)}, ${days} days ago`;
 const mailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Advertising enquiry')}`;
+const foundingMailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Founding network sponsor')}`;
+const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
 const money = (n: number) => `$${n.toLocaleString('en-US')}`;
 ---
 <Page
@@ -111,9 +115,22 @@ const money = (n: number) => `$${n.toLocaleString('en-US')}`;
     </section>
   ) : (
     <div class="prose mt-14">
-      <h2>Discuss a founding partnership</h2>
+      <h2>Founding network sponsor</h2>
       <p>
-        Interested in reaching local residents? <a href={mailto}>Contact us to discuss a founding partnership.</a>
+        One labeled sponsor line across the whole network, for a business that serves the corridor rather than one
+        town. A three-month minimum, and open to the first three sponsors only.
+      </p>
+      <ul>
+        <li>
+          “Nearby this weekend, presented by” your name, on that block on
+          {live.length === 1 ? ' the live guide' : ` all ${live.length} guides`}.
+        </li>
+        <li>The same line on every This Weekend page, each guide’s and the network’s.</li>
+        {hub.newsletter && <li>A labeled sponsor line in the {sendDay} email.</li>}
+      </ul>
+      <p>
+        Each line sits beside the listings, labeled, never inside them, and buys nothing in them. The founding rate is
+        not published yet: <a href={foundingMailto}>email {hub.social.email}</a> and ask for it.
       </p>
     </div>
   )}

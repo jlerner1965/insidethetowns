@@ -6,6 +6,7 @@ export const elizabeth = {
   status: 'live',
   variant: 'front-range',
   region: 'South & east of Denver',
+  neighbors: [],
   slug: "elizabeth",
   name: "Elizabeth",
   domain: "insideelizabeth.com",

@@ -4,21 +4,18 @@ import SponsorLine from '@/components/SponsorLine.astro';
 import EventList from '@/components/EventList.astro';
 import EventFilters from '@/components/EventFilters.astro';
 import DayStrip from '@/components/DayStrip.astro';
-import NetworkEventCard from '@/components/NetworkEventCard.astro';
+import NearbyWeekend from '@/components/NearbyWeekend.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import WeeklyRegulars from '@/components/WeeklyRegulars.astro';
 import SubTownLinks from '@/components/SubTownLinks.astro';
-import { getNetworkHub, getTown, liveTowns } from '@/config';
-import { getNeighborEntries, getTownEntries } from '@/lib/content';
-import { formatDayRange } from '@/lib/dates';
-import { nearestTowns } from '@/lib/geo';
+import { getTown } from '@/config';
+import { getTownEntries } from '@/lib/content';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
-import { categoriesIn, groupByDay, highlights, occurrences, oneOffs, uniqueByEvent, upcoming, weeklyRegulars, weeklyTest, weekendSections, weekendWindow } from '@/lib/events';
+import { categoriesIn, groupByDay, occurrences, splitOngoing, uniqueByEvent, upcoming, weeklyRegulars, weeklyTest } from '@/lib/events';
 import { CATEGORY_LABELS, EVENT_CATEGORIES, type EventCategory } from '@/content/schemas';
 import { subTownsOf } from '@/lib/sub-towns';
 
 const town = getTown();
-const hub = getNetworkHub();
 const entries = await getTownEntries('events');
 /**
  * Two lists. The date list is the one-time events and the town meetings,
@@ -36,27 +33,10 @@ const later = uniqueByEvent(upcoming(all).filter((e) => !nextTwoWeeks.includes(e
 const shown = [...nextTwoWeeks, ...later];
 const weekly = weeklyRegulars(entries);
 const options = categoriesIn(shown, EVENT_CATEGORIES).map((c) => ({ value: c, label: CATEGORY_LABELS[c as EventCategory] }));
-const fortnightDays = groupByDay(nextTwoWeeks);
+const fortnightDays = groupByDay(splitOngoing(nextTwoWeeks).dated);
 // Carbon Valley: a "Where" row on the filters, one pill per town.
 const subTowns = subTownsOf(town);
 
-/**
- * A few picks from the towns next door, for the weekend. Nobody planning a
- * Saturday cares which side of a town line the market sits on, and Berthoud
- * and Johnstown are eight miles apart. The block is built from the neighbors'
- * own listings, on purpose (see getNeighborEntries), and every card crosses
- * to the town that owns it. Elizabeth's nearest guide is fifty-three miles
- * off, so there the block renders nothing at all. One-offs only: a neighbor's
- * weekly storytime is not a reason to drive sixteen miles.
- */
-const near = nearestTowns(town, liveTowns());
-const aroundAll = occurrences(await getNeighborEntries('events', near.map((n) => n.town)), { horizonDays: 30 });
-const around = weekendSections(aroundAll);
-const nearby = highlights(oneOffs([...around.now, ...around.weekend], aroundAll), { limit: 5 });
-const { start: weekendStart, sunday } = weekendWindow();
-const named = near.map((n) => `${n.town.name} (${Math.round(n.miles)} mi)`);
-const nearbyFrom = named.length > 1 ? `${named.slice(0, -1).join(', ')} and ${named[named.length - 1]}` : named.join('');
-const everythingHref = `https://${hub.domain}/this-weekend/`;
 
 const structured = [
   collectionPageJsonLd(town, {
@@ -126,19 +106,5 @@ const structured = [
 
   <WeeklyRegulars events={weekly} townName={town.name} />
 
-  {nearby.length > 0 && (
-    <section class="mt-20 md:mt-24" data-events-scope>
-      <h2 class="eyebrow border-b-2 border-accent pb-4">Nearby this weekend · {formatDayRange(weekendStart, sunday)}</h2>
-      <p class="mb-8 mt-4 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">
-        A few picks from {nearbyFrom}. Each opens on that town’s own guide, and
-        <a href={everythingHref} class="font-semibold text-accent-text">everything on across all {liveTowns().length} towns</a> is on {hub.siteTitle}.
-      </p>
-      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-        {nearby.map((event) => <NetworkEventCard event={event} />)}
-      </div>
-      <p data-events-empty hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
-        That weekend has been and gone. <a href={everythingHref} class="font-semibold text-accent-text">See what’s on next across the towns.</a>
-      </p>
-    </section>
-  )}
+  <NearbyWeekend town={town} class="mt-20 md:mt-24" />
 </Page>

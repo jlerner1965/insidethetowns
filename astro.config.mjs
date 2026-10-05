@@ -23,7 +23,7 @@ const closed = site.kind === 'town' ? closedPlaceSlugs(site.slug) : new Set();
 // A town that has not launched is a holding page: nothing of it is indexable.
 const live = site.kind === 'hub' || site.status === 'live';
 /** Pages that carry noindex must not be listed in the sitemap either. */
-const NOINDEX = new Set(['/thanks/', '/message-sent/', '/correct/']);
+const NOINDEX = new Set(['/thanks/', '/message-sent/', '/correct/', '/newsletter/sample/']);
 
 const indexable = (/** @type {string} */ url) => {
   if (!live) return false;

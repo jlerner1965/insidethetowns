@@ -5,6 +5,7 @@ export const berthoud: TownConfig = {
   status: 'live',
   variant: 'front-range',
   region: 'Northern Colorado',
+  neighbors: ['loveland', 'longmont', 'johnstown'],
   slug: 'berthoud',
   name: 'Berthoud',
   domain: 'insideberthoud.com',

@@ -5,6 +5,7 @@ export const erie: TownConfig = {
   status: 'live',
   variant: 'front-range',
   region: 'Boulder County & St. Vrain',
+  neighbors: ['longmont', 'carbon-valley', 'niwot'],
   slug: 'erie',
   name: 'Erie',
   domain: 'insideerie.com',

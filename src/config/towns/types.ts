@@ -66,6 +66,13 @@ export interface TownConfig {
   /** See TownRegion. */
   region: TownRegion;
   /**
+   * The guides a reader here would drive to for a Saturday, as slugs, nearest
+   * or most-visited first. The "Nearby this weekend" block reads its listings
+   * from these and nowhere else, so the list is the owner's call, not a
+   * radius: Elizabeth's is empty because every other guide is an hour away.
+   */
+  neighbors: readonly string[];
+  /**
    * The places a multi-town guide covers, as slugs: Carbon Valley's
    * frederick, firestone and dacono. Every item on such a guide is tagged
    * with one of these. Absent on a single-town guide.
@@ -275,10 +282,20 @@ export interface HubConfig {
    */
   rates?: AdRate[];
   /**
-   * The network-wide email's sponsor, at the top of the whole-network issue.
-   * Same rule as a town's sponsors: absent until sold, dark until then.
+   * Network-wide sponsors. Same rule as a town's: absent until sold, dark
+   * until then, and never inside the listings.
+   *
+   * `email` is the line at the top of the whole-network issue. `network` is
+   * the founding network sponsor: "Nearby this weekend, presented by…" on
+   * that block on every guide, and "This weekend, presented by…" on every
+   * /this-weekend/ page, the hub's included. /advertise/ describes it.
    */
-  sponsors?: { email?: Sponsor };
+  sponsors?: { email?: Sponsor; network?: Sponsor };
+  /**
+   * The small "Site by…" credit in every site's footer strip, kept apart
+   * from the editorial. Absent, it renders nothing.
+   */
+  credit?: { label: string; url: string };
 }
 
 /** One line on the rate card. */
@@ -324,6 +341,7 @@ export type SiteConfig = TownConfig | HubConfig;
 /** Default navigation for a town site. Towns can override `nav` in their config. */
 export const DEFAULT_TOWN_NAV: NavItem[] = [
   { label: 'Events', href: '/events/' },
+  { label: 'This Weekend', href: '/this-weekend/' },
   { label: 'Eat & Drink', href: '/eat-drink/' },
   { label: 'Things to Do', href: '/things-to-do/' },
   { label: 'Directory', href: '/directory/' },

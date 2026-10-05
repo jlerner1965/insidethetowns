@@ -13,6 +13,7 @@ export const loveland: TownConfig = {
   status: 'live',
   variant: 'front-range',
   region: 'Northern Colorado',
+  neighbors: ['berthoud', 'johnstown', 'fortcollins'],
   launchThreshold: { events: 25, listings: 30 },
   slug: 'loveland',
   name: 'Loveland',

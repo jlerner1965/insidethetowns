@@ -3082,3 +3082,57 @@ phone came from one of the first two places; the last two are tablets.
   sideways between 832 and 906px. Below 60rem it is the cards it already
   is on a phone; above, if it ever outgrows the page, it scrolls in its own
   box.
+
+## Tying the network together
+
+Owner's brief, 5 October 2026: make the guides work as one network, give it
+an owner and a sellable sponsor slot, and close the open display fixes.
+
+- **Nearby this weekend is one block, from a list.** Each town config now has
+  `neighbors`, the owner's list, and `NearbyWeekend.astro` reads the
+  neighbours' Friday-to-Sunday listings from it. It sits on each guide's home
+  page, its /this-weekend/ page and, replacing the old distance-based block,
+  its /events/ page, so a guide never shows two "nearby" blocks with
+  different towns. `src/lib/geo.ts` went with the old block. The picks
+  (`nearbyPicks`) are one-offs only, at most two per neighbour, every
+  neighbour's best before anyone's second, plan-your-day categories first.
+  "Regular" here means `weeklyTest`, not `regularTest`: Loveland's three
+  nights of Die Fledermaus, stored a file per date, count once instead of
+  being dropped as a series. No neighbours or nothing on, and the block is
+  not there at all.
+- **One network sponsor value** (`hub.sponsors.network`) drives "Nearby this
+  weekend, presented by" on that block, "This weekend, presented by" on
+  every /this-weekend/ page, the hub's included, and the email's sponsor
+  line where no email sponsor is set. Unset, all three render nothing.
+  /advertise/ makes the founding offer on it, with no price: the owner has
+  not set one.
+- **"Still running" is runs.** `weekendSections` used to file anything that
+  started before Friday there, so Niwot's one-off meetings of October 6 to 8
+  sat under it. A multi-day event lasting into the weekend is `continuing`;
+  a one-day listing before the weekend is `before`, which no weekend page
+  shows.
+- **Runs under way show their range everywhere.** Day-grouped lists put them
+  in a "Now on" group instead of under the day they opened, the event page's
+  When line says "Now through October 31", and the email draft does too.
+- **The publisher is unnamed on purpose.** The owner asked not to be named;
+  the About page says the network is independently owned and gives the
+  corrections address, and invents nothing. The footer strip carries "Site
+  by Lerner Works" from `hub.credit`.
+- **Sister guides** are listed in every guide's footer strip, reversing the
+  earlier one-link strip at the owner's direction. "This Weekend" is in every
+  guide's navigation; at 1280px the row now needs a tighter gap (restored
+  from 1536px) to fit Inside Carbon Valley.
+- **/newsletter/sample/** renders this week's network issue from the
+  listings, labeled as a sample and out of the index. New and closed places
+  come from the git history, shared with the email script
+  (`src/lib/newsletter.ts`); a shallow clone has none, and those sections
+  are left out rather than shown as a quiet week.
+- **Cache-Control on HTML** is now explicit in vercel.json. Vercel already
+  sent `public, max-age=0, must-revalidate` on HTML, so it changes nothing
+  there. The stale "9 guides" was more likely the hub not rebuilding: the
+  Ignored Build Step skips a site when only another town's config changes,
+  and a town goes live by changing its config. That step is unchanged here.
+- **Content checks.** Berthoud's Neon Nights dodgeball (October 23) and
+  cosmic pickleball (October 24) are on the Town's Upcoming Events page and
+  stay. The Lazy Dog's own site is behind a bot challenge, as it was for the
+  October audit, so its title is unchanged rather than guessed.

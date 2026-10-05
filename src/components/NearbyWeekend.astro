@@ -1,0 +1,62 @@
+---
+/**
+ * "Nearby this weekend": a few picks from the towns next door, for the coming
+ * Friday to Sunday. Nobody planning a Saturday cares which side of a town line
+ * the market sits on.
+ *
+ * The neighbours are the town's own `neighbors` list, not a radius, and the
+ * listings are theirs, read on purpose through getNeighborEntries: every card
+ * says whose it is and opens on that town's own domain. The picks are
+ * `nearbyPicks` (src/lib/events.ts): one-offs only, at most two per town.
+ *
+ * With no neighbours (Elizabeth) or nothing on, the block renders nothing at
+ * all, not an empty state. Built days before it is read, the browser drops
+ * what has passed (Freshness.astro), and removes the block too once nothing
+ * is left in it.
+ *
+ * The sponsor slot at the top is the network sponsor, one value in the hub
+ * config; unset, it is not there. A page that already carries the network
+ * sponsor's line, /this-weekend/, passes `sponsor={false}` so it is not said
+ * twice.
+ */
+import NetworkEventCard from './NetworkEventCard.astro';
+import SponsorLine from './SponsorLine.astro';
+import { getNetworkHub, neighborsOf, type TownConfig } from '@/config';
+import { getNeighborEntries } from '@/lib/content';
+import { formatDayRange } from '@/lib/dates';
+import { nearbyPicks, occurrences, weekendWindow } from '@/lib/events';
+
+interface Props {
+  town: TownConfig;
+  /** Show the network sponsor's line at the top. */
+  sponsor?: boolean;
+  class?: string;
+}
+
+const { town, sponsor = true, class: className } = Astro.props;
+const hub = getNetworkHub();
+const neighbors = neighborsOf(town);
+const now = new Date();
+const all = occurrences(await getNeighborEntries('events', neighbors), { now, horizonDays: 30 });
+const picks = nearbyPicks(all, neighbors.map((t) => t.slug), { now });
+const { start, sunday } = weekendWindow(now);
+const sponsorLine = sponsor ? hub.sponsors?.network : undefined;
+// The signup preselects the towns named in `towns` (src/routes/hub/newsletter.astro).
+const signup = hub.newsletter
+  ? `https://${hub.domain}/newsletter/?towns=${[town.slug, ...neighbors.map((t) => t.slug)].join(',')}`
+  : undefined;
+---
+{picks.length > 0 && (
+  <section class={className} data-hide-when-empty aria-labelledby="nearby-weekend">
+    <SponsorLine sponsor={sponsorLine} label="Nearby this weekend, presented by" />
+    <h2 id="nearby-weekend" class:list={['eyebrow border-b-2 border-accent pb-4', sponsorLine && 'mt-5']}>Nearby this weekend · {formatDayRange(start, sunday)}</h2>
+    <div class="mt-6 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+      {picks.map((event) => <NetworkEventCard event={event} showDay />)}
+    </div>
+    {signup && (
+      <p class="mt-4 text-[0.9375rem]">
+        <a href={signup} class="font-semibold text-accent-text no-underline hover:underline">Get your nearby towns every {hub.newsletter?.sendDay ?? 'Thursday'} →</a>
+      </p>
+    )}
+  </section>
+)}

@@ -34,6 +34,11 @@
   for (const link of document.querySelectorAll<HTMLElement>('[data-day-link]')) {
     if ((link.dataset.dayLink ?? today) < today) link.remove();
   }
+  // A block that has no empty state, such as "Nearby this weekend", goes
+  // altogether once nothing is left in it.
+  for (const box of document.querySelectorAll<HTMLElement>('[data-hide-when-empty]')) {
+    if (!box.querySelector('[data-event-day]')) box.remove();
+  }
   // Say so when a list has emptied out, rather than leaving a blank.
   for (const empty of document.querySelectorAll<HTMLElement>('[data-events-empty]')) {
     const scope = empty.closest<HTMLElement>('[data-events-scope]') ?? document.body;

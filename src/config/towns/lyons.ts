@@ -5,6 +5,7 @@ export const lyons: TownConfig = {
   status: 'live',
   variant: 'front-range',
   region: 'Boulder County & St. Vrain',
+  neighbors: ['longmont', 'niwot'],
   slug: 'lyons',
   name: 'Lyons',
   domain: 'insidelyons.com',
