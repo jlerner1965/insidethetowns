@@ -18,6 +18,8 @@ import PlaceCard from './PlaceCard.astro';
 import PlaceFeature from './PlaceFeature.astro';
 import PlaceRow from './PlaceRow.astro';
 import OpenStatus from './OpenStatus.astro';
+import { getSite } from '@/config';
+import { subTownsOf } from '@/lib/sub-towns';
 
 interface Props {
   places: TownEntry<'places'>[];
@@ -42,6 +44,8 @@ const groups = grouped
   ? types.map((type) => ({ type, label: PLACE_TYPE_PLURALS[type], items: places.filter((p) => p.data.type === type) }))
   : [{ type: types[0], label: '', items: places }];
 const hueOf = (type: PlaceType | undefined) => (type ? PLACE_HUE[type] : undefined);
+// On a multi-town guide the filter bar gets a second row, one pill per town.
+const subTowns = subTownsOf(getSite());
 ---
 <div data-filter-root>
   {heading && <h2 class="sr-only">{heading}</h2>}
@@ -51,7 +55,7 @@ const hueOf = (type: PlaceType | undefined) => (type ? PLACE_HUE[type] : undefin
       {withPhoto.map((place) => <PlaceCard place={place} />)}
     </div>
   )}
-  {filterable && <FilterBar options={options} label="Filter places" openNow />}
+  {filterable && <FilterBar options={options} label="Filter places" openNow subTowns={subTowns} />}
   <OpenStatus />
   {places.length === 0 ? (
     <p class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">{emptyMessage}</p>

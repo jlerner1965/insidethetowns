@@ -31,6 +31,8 @@ test('the four towns that straddle a county line name both counties', () => {
 
 test('single-county towns are unchanged', () => {
   assert.deepEqual([...by('niwot').counties], ['Boulder']);
+  // Frederick, Firestone and Dacono are all Weld County municipalities.
+  assert.deepEqual([...by('carbon-valley').counties], ['Weld']);
   assert.deepEqual([...by('lyons').counties], ['Boulder']);
   assert.deepEqual([...by('elizabeth').counties], ['Elbert']);
   assert.deepEqual([...by('timnath').counties], ['Larimer']);
@@ -89,9 +91,13 @@ test('no guide claims a single school district for a town that has two', () => {
 });
 
 test('every live town is configured and every config is complete enough to build', () => {
+  // One guide is not an "Inside": carbonvalleyguide.com covers three towns
+  // under a name of its own, and its masthead names the network instead.
+  const OWN_NAME = new Map([['carbon-valley', 'carbonvalleyguide.com']]);
   for (const slug of LIVE_TOWNS) {
     const t = by(slug);
-    assert.match(t.domain, /^inside[a-z]+\.com$/, `${slug}: domain`);
+    if (OWN_NAME.has(slug)) assert.equal(t.domain, OWN_NAME.get(slug), `${slug}: domain`);
+    else assert.match(t.domain, /^inside[a-z]+\.com$/, `${slug}: domain`);
     assert.equal(t.state, 'CO');
     assert.ok(t.counties.length >= 1, `${slug}: at least one county`);
   }

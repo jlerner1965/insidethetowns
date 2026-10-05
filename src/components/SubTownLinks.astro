@@ -1,0 +1,30 @@
+---
+/**
+ * "By town: Frederick · Firestone · Dacono", the line a multi-town guide's
+ * list pages carry under their intro, each name linking to that town's
+ * section page. Renders nothing on a single-town guide, so every page can
+ * include it without asking first.
+ */
+import { getSite } from '@/config';
+import { subTownsOf } from '@/lib/sub-towns';
+
+interface Props {
+  /** The section page is the default; `/events/` and `/directory/` link their own filtered view. */
+  hrefFor?: (slug: string) => string;
+  class?: string;
+}
+
+const { hrefFor = (slug: string) => `/${slug}/`, class: className = '' } = Astro.props;
+const subTowns = subTownsOf(getSite());
+---
+{subTowns.length > 1 && (
+  <p class:list={['text-[0.9375rem] text-ink-muted', className]}>
+    <span class="eyebrow mr-2 text-ink-faint">By town</span>
+    {subTowns.map((t, i) => (
+      <Fragment>
+        {i > 0 && <span aria-hidden="true"> · </span>}
+        <a href={hrefFor(t.slug)} class="font-semibold text-accent-text">{t.label}</a>
+      </Fragment>
+    ))}
+  </p>
+)}

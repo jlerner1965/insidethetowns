@@ -54,12 +54,18 @@ test('the northern cluster: each of the three is the nearest guide to the others
   );
 });
 
-test('Longmont sits between Niwot, Erie and Berthoud', () => {
-  // 6.1, 7.9 and 10.5 miles. In the nearby blocks it comes first for Niwot
-  // and second for Erie and Lyons.
+test('Longmont sits between Carbon Valley, Niwot and Erie', () => {
+  // 5.1, 6.1 and 7.9 miles; Berthoud is 10.5. Carbon Valley (measured from
+  // Frederick's Town Hall) is Longmont's and Erie's nearest configured guide
+  // and Niwot's third; the live pages read live towns only, so no nearby
+  // block changes until it launches.
   assert.deepEqual(
     nearestTowns(town('longmont'), allTowns).map((n) => n.town.slug),
-    ['niwot', 'erie', 'berthoud'],
+    ['carbon-valley', 'niwot', 'erie'],
+  );
+  assert.deepEqual(
+    nearestTowns(town('carbon-valley'), allTowns).map((n) => n.town.slug),
+    ['erie', 'longmont', 'niwot'],
   );
 });
 

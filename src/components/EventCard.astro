@@ -17,6 +17,7 @@ import type { TownEntry } from '@/lib/content';
 import { dayKey, formatDate, formatDayRange, formatMonthDay, formatTime, formatTimeRange, formatWeekday, monthDay, toIsoLocal } from '@/lib/dates';
 import { isCanceled, isInProgress, lastDay } from '@/lib/events';
 import { CATEGORY_LABELS, EVENT_STATUS_LABELS } from '@/content/schemas';
+import { subTownLabel } from '@/lib/sub-towns';
 
 interface Props {
   event: TownEntry<'events'>;
@@ -70,6 +71,7 @@ const note =
   data-event-day={lastDay(event)}
   data-free={/^free\b/i.test(data.cost ?? '') ? 'true' : undefined}
   data-status={statusLabel ? data.status : undefined}
+  data-sub-town={data.subTown}
 >
   {showDate ? (
     <time datetime={toIsoLocal(data.start)} class="flex flex-col pt-0.5">
@@ -98,7 +100,7 @@ const note =
       <a href={href} class:list={['stretch no-underline group-hover:text-accent-text', canceled && 'line-through decoration-ink-faint decoration-2']}>{data.title}</a>
     </h3>
     <p class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">
-      {showDate && <span>{time} · </span>}{data.venue}{data.cost && <span> · {data.cost}</span>}
+      {showDate && <span>{time} · </span>}{data.venue}{data.subTown && <span>, {subTownLabel(data.subTown)}</span>}{data.cost && <span> · {data.cost}</span>}
     </p>
     {statusLabel && data.statusNote && <p class="mt-1 text-sm text-ink">{data.statusNote}</p>}
     {note && !canceled && <p class="mt-1 text-sm text-ink-faint">{note}</p>}

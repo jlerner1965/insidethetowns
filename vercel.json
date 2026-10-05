@@ -162,6 +162,39 @@
       ],
       "destination": "/moving-here/",
       "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefirestone.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/firestone/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefirestone.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/events/?where=firestone",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefirestone.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/firestone/",
+      "permanent": true
     }
   ]
 }

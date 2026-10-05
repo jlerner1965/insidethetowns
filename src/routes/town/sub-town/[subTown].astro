@@ -1,0 +1,87 @@
+---
+/**
+ * One town of a multi-town guide: /firestone/ on Carbon Valley.
+ *
+ * The guide covers three municipalities under one domain, and a reader in
+ * Firestone wants Firestone: the events coming up there, the regulars, and
+ * the places, with the whole guide one click away. Every item on such a
+ * guide carries `subTown` (the validator insists), so this page is a filter
+ * over the same collections the rest of the site reads, not a second copy.
+ * The retired insidefirestone.com points here (docs/REDIRECTS.md).
+ *
+ * Injected only for a site whose config lists `subTowns`
+ * (src/integrations/town-routes.ts).
+ */
+import Page from '@/layouts/Page.astro';
+import EventList from '@/components/EventList.astro';
+import PlaceDirectory from '@/components/PlaceDirectory.astro';
+import WeeklyRegulars from '@/components/WeeklyRegulars.astro';
+import { getTown } from '@/config';
+import { getTownEntries } from '@/lib/content';
+import { occurrences, uniqueByEvent, upcoming, weeklyRegulars, weeklyTest } from '@/lib/events';
+import { byProminence } from '@/lib/places';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+import { subTownLabel, subTownList, subTownsOf } from '@/lib/sub-towns';
+
+export function getStaticPaths() {
+  return subTownsOf(getTown()).map((t) => ({ params: { subTown: t.slug } }));
+}
+
+const town = getTown();
+const { subTown } = Astro.params;
+const label = subTownLabel(subTown!);
+const siblings = subTownsOf(town).filter((t) => t.slug !== subTown);
+
+const allEvents = await getTownEntries('events');
+const mine = allEvents.filter((e) => e.data.subTown === subTown);
+const isWeekly = weeklyTest(allEvents);
+const dated = mine.filter((e) => !isWeekly(e));
+const comingUp = upcoming(occurrences(dated, { horizonDays: 60 }), { days: 60 });
+const weekly = weeklyRegulars(mine);
+const places = (await getTownEntries('places')).filter((p) => !p.delisted && p.data.subTown === subTown).sort(byProminence);
+
+const description = `Events and places in ${label}, Colorado, on ${town.siteTitle}: what’s coming up, the weekly regulars, and where to eat, drink and get outdoors.`;
+const structured = [
+  collectionPageJsonLd(town, {
+    name: `${label}, Colorado`,
+    description,
+    path: `/${subTown}/`,
+    items: [
+      ...uniqueByEvent(comingUp).map((e) => ({ name: e.data.title, path: `/events/${e.slug}/` })),
+      ...places.map((p) => ({ name: p.data.title, path: `/places/${p.slug}/` })),
+    ],
+  }),
+  breadcrumbJsonLd(town, [
+    { name: town.name, path: '/' },
+    { name: label, path: `/${subTown}/` },
+  ]),
+];
+---
+<Page
+  title={label}
+  seoTitle={`${label}, Colorado: events and places`}
+  eyebrow={town.siteTitle}
+  {description}
+  intro={`${label} is one of the three towns this guide covers, with ${subTownList({ subTowns: siblings.map((t) => t.slug) })}. What’s on here, then the places. Every listing is checked against its own source.`}
+  jsonLd={structured}
+>
+  <p slot="after-header" class="mt-5 text-[0.9375rem] text-ink-muted">
+    <a href={`/events/?where=${subTown}`} class="font-semibold text-accent-text">All {label} events</a> ·
+    <a href={`/directory/?where=${subTown}`} class="font-semibold text-accent-text">Every {label} place</a> ·
+    {siblings.map((t, i) => (
+      <Fragment>{i > 0 && ' · '}<a href={`/${t.slug}/`} class="font-semibold text-accent-text">{t.label}</a></Fragment>
+    ))}
+  </p>
+
+  <section data-filter-root>
+    <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">Coming up in {label}</h2>
+    <EventList events={comingUp} emptyMessage={`Nothing listed in ${label} for the next two months yet.`} />
+  </section>
+
+  <WeeklyRegulars events={weekly} townName={label} />
+
+  <section class="mt-16 md:mt-24">
+    <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">Places in {label}</h2>
+    <PlaceDirectory places={places} heading={`Places in ${label}`} filterable emptyMessage={`No ${label} places listed yet.`} />
+  </section>
+</Page>

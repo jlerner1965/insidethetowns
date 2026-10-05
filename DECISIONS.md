@@ -2743,3 +2743,92 @@ feed), and the DNS and email changes; the DNS could not be made (below).
   print no phone, and Loveland Aleworks shows no hours (the hours its site
   holds sit only in hidden settings, so the listing says to call ahead
   instead). Big Thompson's address is the one its own footer map shows.
+
+## Carbon Valley
+
+*5 October 2026.* The owner's brief: one guide for Frederick, Firestone and
+Dacono at carbonvalleyguide.com, scaffolded with `new-town`, not live, `front-range`,
+its own palette, sub-towns on every item with a filter and a section page each,
+a launch threshold of 15 upcoming events and 20 listings, the Vercel project,
+the insidefirestone.com redirect per docs/REDIRECTS.md, and the source registry
+seeded and stopped at "confirm these"; no new phases or features.
+
+- **Slug `carbon-valley`, domain carbonvalleyguide.com, title "Carbon Valley
+  Guide".** The one guide whose name is not "Inside <Town>", so the masthead
+  carries "An Inside the Towns guide" under the wordmark on every page, linking
+  the hub, and the holding page says whose guide it is in its first line. The
+  towns test that holds every live domain to `inside*.com` carries this one
+  domain as its named exception.
+- **The three are in Weld County only**, so no county split; the schools line
+  is hedged "Mostly" because Dacono is in two districts (St. Vrain Valley and
+  Weld RE-8, per the City's own Education page). The config's one number for
+  each of population, 2010 population, elevation and incorporation is the
+  three summed or Frederick's, each saying which in its comment; Frederick's
+  Town Hall is the coordinate. The GNIS figures follow the Wikipedia infobox as
+  every other town's do; the Town of Frederick's own page gives 4,972 feet
+  where GNIS says 4,938, and the City of Dacono's history page says 23 January
+  1908 where the State Archives say 23 September, so the config says "1908".
+- **Coal-seam slate** (`#4A6A8C` / `#2F4660` on `#F4F5F3`): a grey-blue no
+  guide uses, between Berthoud's lake blue and Fort Collins' navy and greyer
+  than both. `npm run check-colors` passes at thirteen sites.
+- **The hero is St. Vrain State Park's Bald Eagle Pond**, Jeffrey Beall,
+  2017, CC BY 4.0, the one scenic photograph Commons holds for the three
+  towns; the park is inside Firestone's limits. Taken at Commons' own 1920px
+  rendition, because its media host answers a direct request for the original
+  with an error page. The other Commons files are a Frederick street corner,
+  the two town halls and the library.
+- **The samples are gone**, as for Longmont: nothing is written until it has
+  a source.
+- **`subTown` is required, not optional, on a multi-town guide.** The schema
+  field already existed; the validator now refuses an event or place on a
+  guide with `subTowns` that lacks one, in the published folders and in
+  staging, and ingest stamps a source's `subTown` on what it stages. The
+  events page's filters gain a "Where" row (`?where=firestone` in the URL)
+  and the places filter bar the same, with each row and card carrying
+  `data-sub-town`; the list pages carry a "By town" line; and `/frederick/`,
+  `/firestone/` and `/dacono/` are one injected route (only on a site with
+  `subTowns`) that filters the same collections: the next two months of
+  dated events, the weekly regulars and the places of that town. Checked by
+  building the guide as live with three fixture files, then removing them.
+- **Carbon Valley is now Longmont's and Erie's nearest configured guide**
+  (5.1 and 4.9 miles) and Niwot's third; the geo test follows. The live
+  pages read live towns only, so no nearby block changes until it launches.
+- **The Vercel project** is `carbonvalleyguide`, made through the REST API
+  (the MCP connector's token may not create projects): Astro, Node 22,
+  `TOWN=carbon-valley` on every target, the Ignored Build Step
+  `bash scripts/vercel-ignore.sh carbon-valley`, preview deployments off,
+  carbonvalleyguide.com and `www` attached (both reported verified, `www`
+  a 308 to the apex), and a deploy hook on `main` whose line goes into the
+  `VERCEL_DEPLOY_HOOKS` secret. DNS at the registrar was not touched. Its
+  first build on `main` fails until this branch merges, because the config
+  does not exist there yet; a failed build deploys nothing.
+- **The Firestone redirect is written, not switched on.** Three rules in
+  `vercel.json` scoped to the `insidefirestone.com` host: `/` and any
+  unknown path to `/firestone/`, `/events/` to `/events/?where=firestone`.
+  They apply the day insidefirestone.com is attached to the
+  `carbonvalleyguide` project, which with its DNS is the owner's call and was
+  not done. The section page is the one Firestone page that exists, so it is
+  the "home page" the rule sends an unmatched path to.
+- **Sources: seventeen proposed, thirteen core, found by reading each site
+  once.** All three town sites are CivicPlus and publish iCal (Frederick's
+  events and meetings calendars; Firestone's main and special-events
+  calendars; Dacono's main calendar and a two-item police one), each read
+  once and described in its notes with what it held on 5 October. The
+  calendars are mostly meetings; the towns' signature events (Miners Day,
+  Frederick in Flight, 4th at Firestone, Halloween Safe Night, Boot Scoot'n
+  Bash, the Fall Fiesta, the Carbon Valley Holiday Festival that all three
+  hold on 5 December at three venues) live on pages under each site's events
+  hub and reach the calendars late or not at all, so the hubs are proposed
+  as `html` sources beside the feeds. The shared institutions have no
+  readable feed: the library's LibCal iCal is the same stale 500-item export
+  Windsor's and Johnstown's registries record, and its RSS does carry the
+  fortnight but with the dates inside each item's description, which the
+  repo's RSS reader does not read (a LibCal reader would be a new feature);
+  the chamber's site answers every request, robots.txt included, with a
+  captcha; the parks district's Streamline site has no events module; Weld
+  County's OpenCities listing filters by town only through a form post. The
+  Times-Call's main feed answers 403 and its robots.txt forbids text and data
+  mining, so it is link-only. Nothing is confirmed: that list is the owner's.
+- **Not done, by the brief's order:** content. Events wait for the confirmed
+  feeds; places (food and drink, parks and outdoors, each town's main street)
+  are the next step after confirmation.

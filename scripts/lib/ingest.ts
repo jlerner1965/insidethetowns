@@ -169,6 +169,9 @@ export function toStaged(item: FeedEvent, source: Source, _town: string, today: 
   const reason = [`Ingested from ${source.name}; check against the organizer's page`, ...guesses, 'description is the feed\'s text: rewrite'].join('. ');
   const frontmatter: Record<string, unknown> = {
     title: item.title,
+    // On a multi-town guide the feed's registry entry says which town it is
+    // for; a shared feed (the chamber's) leaves it for the review to set.
+    subTown: source.subTown,
     review: { reason, since: today, from: 'ingest' },
     start: item.start,
     end: item.end,
