@@ -3038,3 +3038,47 @@ behind six events and the map. Home page only.
   Freshness script can still remove a past event and let the next one move
   up.
 - Page height at 375px went from 8,884px to 5,186px.
+
+## Sideways scroll on phones and tablets
+
+Found while checking the hub home page, 5 October 2026. Every case on a
+phone came from one of the first two places; the last two are tablets.
+
+- **The masthead.** The wordmark sits on one line beside the search and menu
+  buttons, at 1.75rem whatever the title. "Inside Carbon Valley" was wider
+  than a 375px screen leaves, so the page scrolled 36px sideways and the
+  menu button sat entirely off-screen. Fort Collins was 3px over at 375px,
+  and ten of the thirteen sites were over at 320–360px. Below 40rem the
+  wordmark is now sized to the room it has: 1.75rem where it fits, smaller
+  where it does not. The width is estimated from the title's length (half
+  an em a character, just over the widest measured), so a new town needs
+  nothing. At 375px Carbon Valley's wordmark is 22.6px and Fort Collins'
+  23.8px; the other eleven are 28px or more. From 640px up the masthead is
+  unchanged.
+- **Tables in articles.** `.prose td:last-child` was `nowrap`, for a date
+  or a price. Three of the four tables in the content put sentences there
+  (the Lyons river flows, Johnstown's electricity providers, the Lyons
+  trustees), and one page scrolled up to 778px sideways. Cells now wrap.
+  Who Governs Lyons has three columns of long words and is still wider
+  than a phone, so below 40rem a table scrolls in its own box. That is
+  `display: block` on the table, the same change of display the comparison
+  on /moving/ makes. The cost is that Niwot's election dates wrap onto two
+  lines on a phone ("October 2, / 2026").
+- Astro 7's default Markdown processor (Sätteri) ignores
+  `markdown.rehypePlugins`, so wrapping each table in a scrolling `div` at
+  build time would need Sätteri's own plugin API and a direct dependency.
+  The CSS above does the same job.
+- **The nav row waits for 1280px.** At 1024px (iPad landscape) the row,
+  with a long title beside it, was wider than the screen on ten sites and
+  pushed the search button off the edge; Inside Carbon Valley's needs about
+  1,150px. The owner chose the menu button up to 1280px over a tighter row,
+  which would only just have fitted Carbon Valley and broken on the next
+  long name. Everything that knew the old breakpoint moved with it: the
+  `xl:` classes, the panel's media query and the script's `matchMedia`.
+- **The /moving/ comparison becomes a table at 960px, not 832px.** A media
+  query's rem is the browser's 16px, not the page's 17, so `52rem` was
+  832px, and the table cannot be narrower than about 875px, since its
+  headers and town names do not wrap. It pushed the page up to 75px
+  sideways between 832 and 906px. Below 60rem it is the cards it already
+  is on a phone; above, if it ever outgrows the page, it scrolls in its own
+  box.

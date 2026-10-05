@@ -2,8 +2,11 @@
 /**
  * The masthead: wordmark, and the navigation.
  *
- * The list is rendered once. Below the large breakpoint it becomes a panel
- * that drops from under the header on a button; at and above it, it is a row.
+ * The list is rendered once. Below the xl breakpoint (80rem) it becomes a
+ * panel that drops from under the header on a button; at and above it, it is
+ * a row. Not lg: at 1024px the row, with the longer titles beside it, was
+ * wider than the screen on ten of the thirteen sites and pushed the search
+ * button off the edge. Inside Carbon Valley's needs about 1,150px.
  * Rendering it twice — a desktop copy and a mobile copy, one hidden — is the
  * usual way to do this and it puts every link in the page twice, which is
  * duplicate anchor text on four hundred pages and two things to keep in step.
@@ -18,16 +21,23 @@ const isActive = (href: string) => {
   if (clean === '/' || clean === '') return path === '/';
   return path.startsWith(clean);
 };
+/**
+ * Roughly how wide the site title is, in em, at the wordmark's weights. Half
+ * an em a character is just over the widest any title measures (Inside
+ * Longmont, 0.499). The phone rule for .site-wordmark in global.css divides
+ * the room beside the buttons by it.
+ */
+const wordmarkEm = (site.siteTitle.length * 0.5).toFixed(1);
 ---
 {/* The first thing on every page is a band of the town's color. It costs
    six pixels and it is what stops the site opening on plain tan. */}
 <div class="h-1.5 bg-gradient-to-r from-accent-dark via-accent to-highlight"></div>
 <header class="relative bg-paper">
   <div class="container-page">
-    <div class="flex items-center justify-between gap-6 py-5 md:py-7">
-      <Wordmark class="whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" />
+    <div class="flex items-center justify-between gap-4 py-5 sm:gap-6 md:py-7" style={`--wordmark-em:${wordmarkEm}`}>
+      <Wordmark class="site-wordmark whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" />
 
-      <div class="flex items-center gap-1 lg:order-last lg:gap-2">
+      <div class="flex items-center gap-1 xl:order-last xl:gap-2">
         <a
           href="/search/"
           aria-label="Search"
@@ -41,7 +51,7 @@ const isActive = (href: string) => {
         </a>
       <button
         type="button"
-        class="nav-toggle -mr-2 lg:hidden"
+        class="nav-toggle -mr-2 xl:hidden"
         aria-expanded="false"
         aria-controls="site-nav"
         aria-label="Menu"
@@ -52,7 +62,7 @@ const isActive = (href: string) => {
       </div>
 
       <nav id="site-nav" class="site-nav" aria-label="Primary">
-        <ul class="site-nav-list container-page lg:gap-7 lg:px-0">
+        <ul class="site-nav-list container-page xl:gap-7 xl:px-0">
           {site.nav.map((item) => (
             <li>
               <a
@@ -100,7 +110,7 @@ const isActive = (href: string) => {
       }
     });
     // Rotating to a width that shows the row must not leave the page locked.
-    const wide = window.matchMedia('(min-width: 64rem)');
+    const wide = window.matchMedia('(min-width: 80rem)');
     wide.addEventListener('change', (event) => {
       if (event.matches) set(false);
     });
