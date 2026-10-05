@@ -2686,3 +2686,36 @@ feed), and the DNS and email changes; the DNS could not be made (below).
   which is what the card shows.
 - **Berthoud's nearest guide is now Loveland**, five and a half miles off,
   not Johnstown; the geo test says so.
+
+### Completed, 5 October 2026
+
+- **No placeholder left.** Both guides went live with "Guide coming soon."
+  on Moving here and "Guides are on their way." on Guides, which the owner
+  rightly called unfinished. Each now has a Moving here page and two guides
+  (history, and with kids), modelled on Windsor's and Fort Collins', every
+  fact from a page read that day and linked to it. A built-site search finds
+  no placeholder text; the home pages now show "From the guide".
+- **Where the City cannot be read, the page says less.** The City of
+  Loveland's and its library's sites refuse automated reads, so Loveland's
+  pages state City facts only where another readable source supports them
+  (Platte River for power, Pulse for fiber, the fire authority for fire),
+  attribute the council's officers to Wikipedia, and point to the City's
+  site for trash, police and meeting times rather than guessing.
+- **Dated passages to refresh.** Longmont's Moving here describes the City's
+  questions on the 3 November 2026 ballot, the October council calendar, the
+  museum's 17 October reopening and the farmers market season; Loveland's
+  gives the fire authority's October meetings and an interim chief. Each is
+  dated in the text; the weekly session should update them as they pass.
+- **No photographs centred on sculpture.** The US has no freedom-of-panorama
+  exception for sculpture, so a photograph of a modern work by a living
+  artist carries that artist's copyright as well as the photographer's
+  licence. Two Commons views of the Benson Sculpture Garden and a 4th Street
+  scene centred on a bronze were left out for that reason; the arts council
+  is the one to ask for photographs of the garden. A 2017 view of the First
+  National Bank building was left out too: taken mid-renovation, before
+  Sandos moved in.
+- **Commons is thin for these two.** Five places in all have photographs
+  (Sandstone Ranch, McIntosh Lake, the Rialto, Boyd Lake, Henry's Pub).
+  Commons has nothing usable for the other parks, the businesses' current
+  frontages, or the Longmont Museum since its expansion; the photo walk and
+  permission requests in docs/PHOTOS.md are the way to more.
