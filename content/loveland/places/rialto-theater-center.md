@@ -10,6 +10,9 @@ phone: "970-962-2120"
 hours: "Box office (fall): Tue & Thu 12:30 pm–5:30 pm; Fri 3 pm–5:30 pm; also opens 60 minutes before ticketed events"
 tags: [theater, performing-arts, historic, events]
 summary: "A 4th Street theater that opened as a silent movie house in 1920 and now hosts touring musicians, comedians and performers alongside local performing arts groups."
+image: ../images/rialto-theater.jpg
+imageAlt: "The cream-colored facade of the Rialto Theater on 4th Street, with RIALTO lettered in the tall arched window over its row of glass entrance doors and the street number 228 on the side door, under a clear winter sky."
+imageCredit: "Hustvedt, Wikimedia Commons, CC BY-SA 3.0"
 ---
 
 The Rialto opened as a silent movie theater in 1920 and is run by the City of Loveland's Cultural Services Department, with a program of touring acts, local performing arts groups, films and educational events. The vintage theater seats 478, and the Devereaux/Hach Rooms and a small conference room can be rented for meetings and events. The box office also opens 60 minutes before each ticketed event, selling tickets for that event only.

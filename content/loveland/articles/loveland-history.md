@@ -4,6 +4,9 @@ date: "2026-10-05"
 excerpt: "Mariano Medina's trading post on the Overland Trail, a town platted in a wheat field beside the Colorado Central in 1877, Great Western's first sugar factory, the cherry orchards, the Rialto, the valentines, two floods, the sculptors and a city of 76,378. The short history of Loveland, Colorado, with sources."
 category: "History"
 tags: [history]
+image: ../images/colorado-southern-depot.jpg
+imageAlt: "The 1902 Colorado and Southern Railway depot on Railroad Avenue, a long tan-brick building with a hipped roof, green trim and a LOVELAND nameboard, now used by local businesses, on a sunny September morning."
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0"
 verified: "2026-10-05"
 sources:
   - { label: "Loveland, Colorado on Wikipedia", url: "https://en.wikipedia.org/wiki/Loveland,_Colorado" }
