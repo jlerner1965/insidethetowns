@@ -12,6 +12,7 @@ export const loveland: TownConfig = {
   // Live on 5 October 2026, on the owner's word after the first review.
   status: 'live',
   variant: 'front-range',
+  region: 'Northern Colorado',
   launchThreshold: { events: 25, listings: 30 },
   slug: 'loveland',
   name: 'Loveland',

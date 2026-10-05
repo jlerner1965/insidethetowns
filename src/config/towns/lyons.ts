@@ -4,6 +4,7 @@ export const lyons: TownConfig = {
   kind: 'town',
   status: 'live',
   variant: 'front-range',
+  region: 'Boulder County & St. Vrain',
   slug: 'lyons',
   name: 'Lyons',
   domain: 'insidelyons.com',

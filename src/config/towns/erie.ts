@@ -4,6 +4,7 @@ export const erie: TownConfig = {
   kind: 'town',
   status: 'live',
   variant: 'front-range',
+  region: 'Boulder County & St. Vrain',
   slug: 'erie',
   name: 'Erie',
   domain: 'insideerie.com',

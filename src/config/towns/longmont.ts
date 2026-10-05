@@ -12,6 +12,7 @@ export const longmont: TownConfig = {
   // Live on 5 October 2026, on the owner's word after the first review.
   status: 'live',
   variant: 'front-range',
+  region: 'Boulder County & St. Vrain',
   launchThreshold: { events: 25, listings: 30 },
   slug: 'longmont',
   name: 'Longmont',

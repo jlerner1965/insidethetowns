@@ -4,6 +4,7 @@ export const timnath: TownConfig = {
   kind: 'town',
   status: 'live',
   variant: 'front-range',
+  region: 'Northern Colorado',
   slug: 'timnath',
   name: 'Timnath',
   domain: 'insidetimnath.com',

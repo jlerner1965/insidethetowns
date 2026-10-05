@@ -4,6 +4,7 @@ export const berthoud: TownConfig = {
   kind: 'town',
   status: 'live',
   variant: 'front-range',
+  region: 'Northern Colorado',
   slug: 'berthoud',
   name: 'Berthoud',
   domain: 'insideberthoud.com',
