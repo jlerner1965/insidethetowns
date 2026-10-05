@@ -1,6 +1,6 @@
 ---
 title: "Firehouse Art Center"
-review: { reason: "firehouseart.org answers automated reads with a bot challenge (sgcaptcha redirect, HTTP 202, 169-byte page), so address, phone and hours are unverified; check them on the site in a browser.", since: "2026-10-04", from: manual }
+review: { reason: "Still needs: https://firehouseart.org/ still answers HTTP 202 with a 169-byte SiteGround sgcaptcha redirect (rechecked 5 October 2026). A person should open https://firehouseart.org/ in a browser and read the address, phone and gallery hours (footer or visit page).", since: "2026-10-04", from: manual }
 type: venue
 address: "Address to be confirmed"
 area: "Downtown"

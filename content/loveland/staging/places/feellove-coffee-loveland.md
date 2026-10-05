@@ -1,6 +1,6 @@
 ---
 title: "FeelLove Coffee"
-review: { reason: "The site's robots.txt disallows ClaudeBot and anthropic-ai (Content-Signal ai-train=no), so it was not fetched; a person should confirm address (the downtown directory lists 210 E 4th St), phone and hours at feellovecoffee.com/lovelandco/ in a browser.", since: "2026-10-04", from: manual }
+review: { reason: "Still needs: feellovecoffee.com's robots.txt still disallows ClaudeBot and anthropic-ai (Content-Signal: search=yes,ai-train=no,use=reference; rechecked 5 October 2026), so it was not fetched. A person should open https://feellovecoffee.com/lovelandco/ in a browser and read the address (the downtown directory lists 210 E 4th St), phone and hours.", since: "2026-10-04", from: manual }
 type: coffee
 address: "Address to be confirmed"
 area: "Downtown"

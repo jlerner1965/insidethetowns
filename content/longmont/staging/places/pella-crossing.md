@@ -1,6 +1,6 @@
 ---
 title: "Pella Crossing"
-review: { reason: "Boulder County's Pella Crossing page gives no trailhead street address or town (only the county office at 5201 St. Vrain Road), so the Longmont location is unverified; confirm the trailhead address on the county's interactive map before listing.", since: "2026-10-04", from: manual }
+review: { reason: "Still needs: a street address, and a decision on the town. The County's own trail map https://assets.bouldercounty.gov/wp-content/uploads/2017/04/pella-crossing-map.pdf (read 5 October 2026) gives the location only as \"Approximately one mile south of Hygiene on the east side of North 75th\" Street, with no street number, and the park page https://bouldercounty.gov/open-space/parks-and-trails/pella-crossing/ gives only the county office (5201 St. Vrain Road); so the operator's own description places the trailhead near Hygiene rather than in Longmont. A person should read the trailhead address off the interactive map on that park page in a browser and decide whether to list it as a near-Longmont park (for example \"N 75th St, about 1 mile south of Hygiene\") or drop it.", since: "2026-10-04", from: manual }
 type: park
 address: "Address to be confirmed"
 url: "https://bouldercounty.gov/open-space/parks-and-trails/pella-crossing/"

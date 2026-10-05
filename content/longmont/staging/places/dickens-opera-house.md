@@ -1,6 +1,6 @@
 ---
 title: "Dickens Opera House"
-review: { reason: "dickensoperahouse.com answers automated reads with a Cloudflare 403 'Attention Required' block, so address, phone and hours are unverified; check them on the site in a browser.", since: "2026-10-04", from: manual }
+review: { reason: "Still needs: https://www.dickensoperahouse.com/ still answers 403 with a Cloudflare \"Attention Required!\" block (rechecked 5 October 2026). A person should open https://www.dickensoperahouse.com/ in a browser and read the street address, phone and box-office or door hours (footer and contact/visit page).", since: "2026-10-04", from: manual }
 type: venue
 address: "Address to be confirmed"
 area: "Downtown"

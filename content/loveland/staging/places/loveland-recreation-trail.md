@@ -1,6 +1,6 @@
 ---
 title: "Loveland Recreation Trail"
-review: { reason: "City of Loveland site answers automated requests with 403; read hours and phone from lovgov.org in a browser", since: "2026-10-04", from: manual }
+review: { reason: "Still needs: the City's trail pages still answer 403 (Akamai \"Access Denied\", rechecked 5 October 2026; cityofloveland.org/trails forwards to lovgov.org and is blocked too), and no City page on another host turned up. A person should open https://www.lovgov.org/services/parks-recreation/trail-info in a browser and read the trail's length, sections and trailheads, hours (see https://www.lovgov.org/services/parks-recreation/rules-regulations), the Parks & Recreation phone, and the Rec Trail & Bikeways Map PDF linked there.", since: "2026-10-04", from: manual }
 type: trail
 address: "Address to be confirmed"
 url: "https://www.lovgov.org/"

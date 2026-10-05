@@ -1,6 +1,6 @@
 ---
 title: "MeCo Coffee Collective"
-review: { reason: "The site's robots.txt disallows our crawler and AI agents, so the site was not read and must not be fetched by tools; the Downtown Longmont directory lists it at 627 Main St. A person should check address, phone and hours in a browser.", since: "2026-10-04", from: manual }
+review: { reason: "Still needs: https://www.mecolongmont.com/robots.txt still disallows our crawler and the Claude agents (rechecked 5 October 2026), so the site must not be fetched by tools. A person should open https://www.mecolongmont.com/ in a browser and read the address (the Downtown Longmont directory lists 627 Main St), phone and hours.", since: "2026-10-04", from: manual }
 type: coffee
 address: "Address to be confirmed"
 url: "https://www.mecolongmont.com/"

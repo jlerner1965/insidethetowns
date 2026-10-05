@@ -1,6 +1,6 @@
 ---
 title: "PILAR Boutique"
-review: { reason: "The site places the shop in downtown Loveland but its footer lists only the Fort Collins store's address (217 Linden St.) and hours; confirm the Loveland street address and hours in a browser or by phone (the site says to leave a message).", since: "2026-10-04", from: manual }
+review: { reason: "Still needs: the Loveland street address and hours. Rechecked 5 October 2026: https://pilarboutique.com/pages/contact is 404, and the site footer still gives only \"217 LINDEN ST. FORT COLLINS, CO 80524\" with \"Monday - Saturday 10-6pm / Sunday 11-5pm\" (the Fort Collins store; the home page read 4 October is titled \"Pilar Boutique | Women’s Clothing Boutique in Fort Collins, CO\"); the about page says only that it opened in Downtown Loveland in 2018. A person should call 970-657-2063 (the site says to leave a message) or check in person whether the Loveland shop is still open (directories list 136 E 4th St) and get its hours.", since: "2026-10-04", from: manual }
 type: shop
 address: "Address to be confirmed"
 area: "Downtown"

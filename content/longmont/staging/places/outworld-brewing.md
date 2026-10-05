@@ -1,6 +1,6 @@
 ---
 title: "Outworld Brewing"
-review: { reason: "Site gives address and phone but no hours on the home or contact page, and directories describe it as temporarily closed for an overhaul; call to confirm it is open and get hours.", since: "2026-10-04", from: manual }
+review: { reason: "Still needs: hours and confirmation it is open. The site (rechecked 5 October 2026) still gives address and phone but no hours: the page data has \"hours\":\"\", and https://outworldbrewing.com/longmont-longmont-firestone-fredrick-erie-outworld-brewing-happy-hours-specials says only \"We are updating our specials. Please stay tuned\"; the site posts no closing notice, so the \"temporarily closed\" note comes only from directories. A person should call 720-545-2337 to confirm it is open and get the hours.", since: "2026-10-04", from: manual }
 type: bar
 address: "1725 Vista View Dr, Longmont, CO 80504"
 url: "https://outworldbrewing.com/"

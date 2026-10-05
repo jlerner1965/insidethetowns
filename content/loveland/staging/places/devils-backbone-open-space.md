@@ -1,6 +1,6 @@
 ---
 title: "Devil's Backbone Open Space"
-review: { reason: "larimer.gov answered our automated request with a Cloudflare \"Just a moment...\" challenge (403); read the address, hours and phone from the county's Devil's Backbone page in a browser.", since: "2026-10-04", from: manual }
+review: { reason: "Still needs: https://www.larimer.gov/naturalresources/parks/devils-backbone still answers 403 with a Cloudflare \"Just a moment...\" challenge (rechecked 5 October 2026), and no page the County publishes on another host turned up (search found only larimer.gov pages and third-party birding and photo sites). A person should open that page in a browser and read the trailhead address (Hidden Valley Dr off US 34 west of Loveland, by search results), hours, fees, phone and dog rules, and check the trailhead is in Loveland rather than unincorporated Larimer County.", since: "2026-10-04", from: manual }
 type: park
 address: "Address to be confirmed"
 url: "https://www.larimer.gov/naturalresources/parks/devils-backbone"
