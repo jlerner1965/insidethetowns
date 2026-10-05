@@ -1,6 +1,6 @@
 ---
 title: "Collision Brewing Company"
-review: { reason: "Site answers 403 with a Cloudflare 'Just a moment' challenge to automated reads; confirm it is open and check address (reported as 1436 Skyway Dr), phone and hours in a browser.", since: "2026-10-04", from: manual }
+review: { reason: "Still needs: https://www.collisionbrewco.com/ still answers 403 with a Cloudflare \"Just a moment...\" challenge (rechecked 5 October 2026), and no other site of its own turned up. A person should open https://www.collisionbrewco.com/ in a browser, confirm it is open and read the address (reported as 1436 Skyway Dr), phone and hours, usually in the footer or on a visit/contact page.", since: "2026-10-04", from: manual }
 type: bar
 address: "Address to be confirmed"
 url: "https://www.collisionbrewco.com/"

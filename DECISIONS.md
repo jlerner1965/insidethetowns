@@ -2719,3 +2719,15 @@ feed), and the DNS and email changes; the DNS could not be made (below).
   Commons has nothing usable for the other parks, the businesses' current
   frontages, or the Longmont Museum since its expansion; the photo walk and
   permission requests in docs/PHOTOS.md are the way to more.
+- **The ingest matching flaw is fixed, and a venue one with it.** Ingest now
+  reads every confirmed feed before matching any item, and a file whose own
+  feed id is still in the run cannot be taken by another item's similar
+  title: the council's visit to the market and the market itself stay two
+  files. Ids that have left the feed (the County's change when a time moves)
+  still match by title, which is how a moved event is noticed. Separately, a
+  department feed's `defaultVenue` no longer overrides a location that names
+  another place: the library's film at the museum read, with confidence, as
+  a move to the library. Both have tests; a dry run of every town's feeds
+  shows the same results as before apart from those two cases.
+  "Council at Longmont Farmers Market" is no longer excluded: it stages for
+  the editor to judge on the event standard, as anything else does.

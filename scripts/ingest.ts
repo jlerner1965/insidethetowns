@@ -196,15 +196,21 @@ const totals = { sources: 0, items: 0, staged: 0, updated: 0, unchanged: 0, chan
 
 for (const town of towns) {
   const registry = readRegistry(town.slug, contentDir);
-  const sources = registry.sources.filter(
-    (s) => s.status === 'confirmed' && ['ical', 'rss', 'json'].includes(s.type) && s.feedUrl && (!onlySource || s.id === onlySource),
-  );
+  const feedSources = registry.sources.filter((s) => s.status === 'confirmed' && ['ical', 'rss', 'json'].includes(s.type) && s.feedUrl);
+  const sources = feedSources.filter((s) => !onlySource || s.id === onlySource);
   if (sources.length === 0) continue;
   console.log(`\n${town.name.toUpperCase()}`);
   const existing = existingEvents(town.slug);
-  for (const source of sources) {
+  // Every confirmed feed is read before any is matched, so that the ids they
+  // carry this run are known: a file one item owns by id is never taken by
+  // another item's similar title (lib/ingest.ts, matchExisting). With
+  // --source the others are read for their ids only.
+  const feeds: Array<[Source, Awaited<ReturnType<typeof readFeed>>]> = [];
+  for (const source of feedSources) feeds.push([source, await readFeed(source)]);
+  const claimed = new Set<string>();
+  for (const [, result] of feeds) if (!('error' in result)) for (const item of result.items) claimed.add(item.uid);
+  for (const [source, result] of feeds.filter(([s]) => sources.includes(s))) {
     totals.sources++;
-    const result = await readFeed(source);
     if ('error' in result) {
       console.log(`  ${source.id}: not read — ${result.error}`);
       continue;
@@ -228,7 +234,7 @@ for (const town of towns) {
     const thisRun = new Set<ExistingEvent>();
     for (const item of inScope) {
       totals.items++;
-      const match = matchExisting(item, existing, siblings.get(item));
+      const match = matchExisting(item, existing, siblings.get(item), claimed);
       const prepared = toStaged(item, source, town.slug, today);
       if (match.kind === 'staged' && thisRun.has(match.existing)) {
         // The feed carries the same event twice (two rooms, two listings):

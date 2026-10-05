@@ -1,6 +1,6 @@
 ---
 title: "Jefes Tacos and Tequila"
-review: { reason: "Site answers with a SiteGround bot challenge (sgcaptcha) to automated reads, so nothing was verified; the Downtown Longmont directory lists it at 246 Main St. Check address, phone and hours in a browser.", since: "2026-10-04", from: manual }
+review: { reason: "Still needs: https://www.jefeslongmont.com/ still answers HTTP 202 with a SiteGround sgcaptcha redirect (rechecked 5 October 2026). A person should open https://www.jefeslongmont.com/ in a browser and read the address (the Downtown Longmont directory lists 246 Main St), phone and hours.", since: "2026-10-04", from: manual }
 type: restaurant
 address: "Address to be confirmed"
 url: "https://www.jefeslongmont.com/"

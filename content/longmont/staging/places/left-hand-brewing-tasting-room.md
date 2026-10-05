@@ -1,6 +1,6 @@
 ---
 title: "Left Hand Brewing Tasting Room"
-review: { reason: "No phone number appears on the tasting room, contact, FAQ or tours pages, so the phone needs checking by a person (also note the FAQ gives Fri–Sat closing as 9 pm while the Tasting Room page says 10 pm).", since: "2026-10-04", from: manual }
+review: { reason: "Still needs: a phone number. On 5 October 2026 the brewery's other pages were read too, and none prints a phone: https://lefthandbrewing.com/privacy-policy (\"CONTACTING US\" gives no number), /media-room, /longmont-beer-garden, /contact/large-group-or-private-events and /brewery/event-spaces, after the tasting room, contact, FAQ and tours pages on 4 October. A person should call or ask the tasting room (1265 Boston Ave) for the number to list, or approve without a phone if the owner accepts that; also confirm the Fri–Sat closing time, since the FAQ says 9 pm and https://lefthandbrewing.com/brewery/tasting-room says 10 pm.", since: "2026-10-04", from: manual }
 type: bar
 address: "1265 Boston Ave, Longmont, CO 80501"
 url: "https://lefthandbrewing.com/"

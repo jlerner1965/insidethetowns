@@ -1,6 +1,6 @@
 ---
 title: "Loveland Aleworks"
-review: { reason: "Address and phone are on the brewery's own site, but its hours appear only in the site's hidden Squarespace settings, not on any page a reader sees (Sun–Thu 12 pm–11 pm, Fri–Sat 12 pm–12 am there). Confirm the taproom hours, then approve.", since: "2026-10-04", from: manual }
+review: { reason: "Still needs: taproom hours a reader can see. Rechecked 5 October 2026: https://www.lovelandaleworks.com/taproom, /our-beer and /happy-hour show no opening hours (the happy-hour page gives only \"Monday, Tuesday, Thursday, and Friday: 3-6 PM\" and \"All Day Long on Wednesday: 12-8 PM\", and the jobs text says \"open 7 days per week\"); the Sun–Thu 12 pm–11 pm, Fri–Sat 12 pm–12 am in this file come from hidden Squarespace settings. A person should confirm the hours with the taproom (or in a browser if a visible hours block appears on https://www.lovelandaleworks.com/home), then approve.", since: "2026-10-04", from: manual }
 type: bar
 address: "118 W 4th St, Loveland, CO 80537"
 area: "Downtown"

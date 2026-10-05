@@ -1,6 +1,6 @@
 ---
 title: "Santa Visit at Callahan House"
-review: { reason: "Ingested from Longmont Recreation Services (City of Longmont calendar) on 4 October 2026; description rewritten in the guide's words from the organizer's text the same day. The City has not published details yet; check again in November before approving. Check date, time and venue against the source, then approve.", since: "2026-10-04", from: ingest }
+review: { reason: "Still needs: re-checked 5 October, the City's event page https://longmontcolorado.gov/event/santa-visit-at-callahan-house/ and its Callahan House Special Events page https://longmontcolorado.gov/recreation-services/locations/callahan-house-garden/callahan-house-special-events/ still give only \"Thursday, December 10, 2026, from 3:30pm – 7:30pm\", \"Registration Required! Space is limited.\" and \"More details to come. Registration opens November 2026.\" (the Callahan House page adds nothing); check both again once registration opens in November for cost, how to register and what the visit involves, then approve.", since: "2026-10-04", from: ingest }
 start: "2026-12-10T15:30"
 end: "2026-12-10T19:30"
 venue: "Callahan House"

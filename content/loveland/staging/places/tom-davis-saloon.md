@@ -1,6 +1,6 @@
 ---
 title: "Tom Davis Saloon"
-review: { reason: "The site answers 403 with a Cloudflare \"Just a moment\" bot challenge, so nothing could be read; a person should check address (the downtown directory lists 450 N Cleveland Ave), phone and hours at tomdavissaloon.com in a browser.", since: "2026-10-04", from: manual }
+review: { reason: "Still needs: https://www.tomdavissaloon.com/ still answers 403 with a Cloudflare \"Just a moment...\" challenge (rechecked 5 October 2026). A person should open it in a browser and read the address (the downtown directory lists 450 N Cleveland Ave), phone and hours.", since: "2026-10-04", from: manual }
 type: bar
 address: "Address to be confirmed"
 area: "Downtown"
