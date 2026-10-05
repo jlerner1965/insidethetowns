@@ -1,6 +1,6 @@
 ---
 title: "Mountainfilm on Tour"
-review: { reason: "Dated only by the Rialto's Fall–Winter 2026 brochure (July 2026); this rental show's ticket page loads its dates by script and could not be read. The brochure is already wrong once (it gives Midnight Hour Band on November 14, which the ticketing system now has as Petty Nicks, with Midnight Hour moved to May 2027). Confirm date, time and price on the ticket page, then approve.", since: "2026-10-04", from: manual }
+review: { reason: "Still needs: the Rialto box office does not list it, neither in its full public performance list (60 performances from October 9, 2026 to May 16, 2027, read through the performancelist.asp feed of tickets.rialtotheatercenter.org) nor in a search for Mountainfilm; Mountainfilm's own upcoming tour schedule (https://www.mountainfilm.org/tour/schedule/, through February 20, 2027) has no Loveland stop, its last being February 6, 2026; rialtotheatercenter.org/events/ shows 0 events; and the City's page https://www.lovgov.org/services/parks-recreation/events/mountainfilm-on-tour-loveland refuses automated readers (403), so a person must check that page or the box office (970-962-2120) for the January 21, 22 and 23 dates, times and prices before this runs (read 2026-10-05).", since: "2026-10-04", from: manual }
 start: "2027-01-21"
 allDay: true
 venue: "Rialto Theater"

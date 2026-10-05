@@ -1,6 +1,6 @@
 ---
 title: "Swan Lake: Symphony of Lights"
-review: { reason: "Dated only by the Rialto's Fall–Winter 2026 brochure (July 2026); this rental show's ticket page loads its dates by script and could not be read. The brochure is already wrong once (it gives Midnight Hour Band on November 14, which the ticketing system now has as Petty Nicks, with Midnight Hour moved to May 2027). Confirm date, time and price on the ticket page, then approve.", since: "2026-10-04", from: manual }
+review: { reason: "Ready to approve: the Rialto box office's performance list for eventperformances.asp?evt=149 (read through its performancelist.asp feed) gives Sunday, November 8, 2026, 4:00 pm MST at The Rialto Theater, and the seat page orderticketsvenue.asp?p=238 lists $33 Balcony Back, $43 Main Back, $43 Balcony Front and $53 Main Front (read 2026-10-05).", since: "2026-10-04", from: manual }
 start: "2026-11-08T16:00"
 venue: "Rialto Theater"
 address: "228 E. 4th St., Loveland, CO 80537"
@@ -11,4 +11,4 @@ source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=149"
 sourceId: "rialtotheatercenter-org"
 ---
 
-Swan Lake: Symphony of Lights, a touring production at the Rialto.
+Swan Lake: Symphony of Lights, a new production of Tchaikovsky's ballet told through light design, illuminated costumes and dancers from around the world, at the Rialto.

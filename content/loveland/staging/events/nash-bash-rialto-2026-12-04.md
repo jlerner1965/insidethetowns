@@ -1,11 +1,11 @@
 ---
 title: "Nash Bash"
-review: { reason: "Dated only by the Rialto's Fall–Winter 2026 brochure (July 2026); this rental show's ticket page loads its dates by script and could not be read. The brochure is already wrong once (it gives Midnight Hour Band on November 14, which the ticketing system now has as Petty Nicks, with Midnight Hour moved to May 2027). Confirm date, time and price on the ticket page, then approve.", since: "2026-10-04", from: manual }
+review: { reason: "Ready to approve: the Rialto box office's performance list for eventperformances.asp?evt=143 (read through its performancelist.asp feed) gives Friday, December 4, 2026, 6:00 pm MST at The Rialto Theater, and orderticketsarea.asp?p=229&a=28 shows GENERAL ADMISSION $34.00 (read 2026-10-05).", since: "2026-10-04", from: manual }
 start: "2026-12-04T18:00"
 venue: "Rialto Theater"
 address: "228 E. 4th St., Loveland, CO 80537"
 url: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=143"
-cost: "$34"
+cost: "$34, general admission"
 category: music
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=143"
 sourceId: "rialtotheatercenter-org"

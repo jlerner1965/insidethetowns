@@ -1,6 +1,6 @@
 ---
 title: "EBCA Autumn Artist Market"
-review: { reason: "Ingested from Boulder County Fairgrounds on 4 October 2026; description rewritten in the guide's words from the organizer's text the same day. The County's listing gives only the date, time, place and an organizer contact, no description; check the organizer's own page before approving. Check date, time and venue against the source, then approve.", since: "2026-10-04", from: ingest }
+review: { reason: "Still needs: the organizer's page, https://ebcacolorado.org/autumn-artist-market (East Boulder County Artists), is closed to us (its robots.txt disallows ClaudeBot and anthropic-ai, so the helper printed SKIP and it was not fetched), and searches on 5 October found no other page EBCA runs, only the Boulder County Arts Alliance, Visit Longmont and What's Happenin' listings, which do not count; a person must open that page in a browser and confirm Sunday 8 November 10 am to 4 pm in Barn A, admission (search snippets say free) and what the market is, then rewrite the body from it.", since: "2026-10-04", from: ingest }
 start: "2026-11-08T10:00"
 end: "2026-11-08T16:00"
 venue: "Barn A"
