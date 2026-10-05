@@ -226,6 +226,21 @@
   }
 }
 
+/*
+ * The wordmark on a phone. It sits on one line beside two 44px buttons, and
+ * at 1.75rem a long title is wider than the room they leave: "Inside Carbon
+ * Valley" pushed a 375px page 36px sideways, and most titles did at 320px.
+ * Below 40rem it is sized to that room instead, 1.75rem where it fits and
+ * smaller where it does not. 8.75rem is the gutters, the two buttons and the
+ * gap beside them, with a few pixels spare; --wordmark-em is the title's
+ * estimated width, set in Header.astro.
+ */
+@media (width < 40rem) {
+  .site-wordmark {
+    font-size: min(1.75rem, calc((100vw - 8.75rem) / var(--wordmark-em, 10)));
+  }
+}
+
 @media (width < 64rem) {
   .site-nav {
     position: absolute;
@@ -429,7 +444,20 @@
 .prose table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
 .prose th, .prose td { padding: 0.6em 1em 0.6em 0; border-bottom: 1px solid var(--color-line-soft); vertical-align: top; text-align: left; }
 .prose thead:empty, .prose th:empty { display: none; }
-.prose td:last-child { white-space: nowrap; font-variant-numeric: tabular-nums; }
+/* The last column used to be nowrap, for a date or a price. Three of the four
+   tables in the content put sentences there, which pushed the page sideways
+   by up to 778px on a phone, so cells wrap like the prose around them. */
+.prose td:last-child { font-variant-numeric: tabular-nums; }
+/* A table cannot be narrower than its longest words, and Who Governs Lyons has
+   three columns of them: at 375px it is still wider than the screen. On a
+   phone a table scrolls in its own box instead of moving the page, the same
+   change of display the comparison on /moving/ already makes on a phone.
+   min-width: 0 lets that box be narrower than the table where .prose is a
+   grid item, as it is on an article page. */
+.prose { min-width: 0; }
+@media (width < 40rem) {
+  .prose table { display: block; overflow-x: auto; }
+}
 .prose hr { border: 0; border-top: 1px solid var(--color-line-soft); margin-block: 2.5em; }
 .prose strong { font-weight: 600; }
 .prose code { font-size: 0.9em; background: color-mix(in oklab, var(--color-ink) 6%, transparent); padding: 0.1em 0.35em; border-radius: 0.25rem; }

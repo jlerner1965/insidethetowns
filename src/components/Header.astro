@@ -18,14 +18,21 @@ const isActive = (href: string) => {
   if (clean === '/' || clean === '') return path === '/';
   return path.startsWith(clean);
 };
+/**
+ * Roughly how wide the site title is, in em, at the wordmark's weights. Half
+ * an em a character is just over the widest any title measures (Inside
+ * Longmont, 0.499). The phone rule for .site-wordmark in global.css divides
+ * the room beside the buttons by it.
+ */
+const wordmarkEm = (site.siteTitle.length * 0.5).toFixed(1);
 ---
 {/* The first thing on every page is a band of the town's color. It costs
    six pixels and it is what stops the site opening on plain tan. */}
 <div class="h-1.5 bg-gradient-to-r from-accent-dark via-accent to-highlight"></div>
 <header class="relative bg-paper">
   <div class="container-page">
-    <div class="flex items-center justify-between gap-6 py-5 md:py-7">
-      <Wordmark class="whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" />
+    <div class="flex items-center justify-between gap-4 py-5 sm:gap-6 md:py-7" style={`--wordmark-em:${wordmarkEm}`}>
+      <Wordmark class="site-wordmark whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" />
 
       <div class="flex items-center gap-1 lg:order-last lg:gap-2">
         <a
