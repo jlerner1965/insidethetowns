@@ -2731,3 +2731,15 @@ feed), and the DNS and email changes; the DNS could not be made (below).
   shows the same results as before apart from those two cases.
   "Council at Longmont Farmers Market" is no longer excluded: it stages for
   the editor to judge on the event standard, as anything else does.
+- **Places whose sites block tools are dropped, not chased.** The owner
+  checked the first round by hand in a browser and found it too slow to
+  repeat. Fifteen places were then dropped on 5 October: twelve whose sites
+  (or the City of Loveland's and Larimer County's) answer automated readers
+  with a bot challenge, one whose robots.txt opts out of Claude, and two
+  with no website. Each would also need checking by hand at every
+  freshness check. Both guides were already over target without them. Three
+  were published on the owner's word with a gap the README rule would
+  otherwise hold back: Left Hand's tasting room and Big Thompson Brewery
+  print no phone, and Loveland Aleworks shows no hours (the hours its site
+  holds sit only in hidden settings, so the listing says to call ahead
+  instead). Big Thompson's address is the one its own footer map shows.
