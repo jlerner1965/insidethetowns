@@ -4,6 +4,9 @@ date: "2026-10-05"
 excerpt: "A stage stop called Burlington, a Chicago colony's square-mile town of 1871, a pea cannery and a sugar factory, a city that built its own power plant in 1912, a Klan council voted out, IBM, the 2013 flood, a fiber network and a city of 98,885. The short history of Longmont, Colorado, with sources."
 category: "History"
 tags: [history]
+image: ../images/main-street-at-third-avenue.jpg
+imageAlt: "Main Street at 3rd Avenue in downtown Longmont on a late-winter day, the 1881 Dickens Opera House on the right corner and a three-storey red-brick block across the street, looking north up the 300 block under bare trees."
+imageCredit: "David Shankbone, Wikimedia Commons, CC BY 3.0"
 verified: "2026-10-05"
 sources:
   - { label: "City of Longmont: History of Longmont", url: "https://longmontcolorado.gov/information/about-longmont/history-of-longmont/" }

@@ -1,6 +1,9 @@
 ---
 title: "Moving to Longmont"
 description: "Moving to Longmont, Colorado: the Boulder County city that reaches into Weld, its housing market, St. Vrain Valley Schools, the free local buses, the City's own power, fiber, water and trash, and the council on Kimbark Street."
+image: ../images/main-street-near-fifth-avenue.jpg
+imageAlt: "Main Street in downtown Longmont near 5th Avenue on a sunny September day, brick shopfronts under leafy street trees behind a planted median."
+imageCredit: "Jayostrom, Wikimedia Commons, CC BY-SA 4.0"
 updated: "2026-10-05"
 ---
 
