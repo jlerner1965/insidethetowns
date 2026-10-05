@@ -32,7 +32,7 @@ export const carbonValley: TownConfig = {
   slug: 'carbon-valley',
   name: 'Carbon Valley',
   domain: 'carbonvalleyguide.com',
-  siteTitle: 'Carbon Valley Guide',
+  siteTitle: 'Inside Carbon Valley',
   tagline:
     'An independent guide to Frederick, Firestone and Dacono, Colorado: what’s on in the three towns, Fifth Street, the Firestone Trail and St. Vrain State Park, and what it’s like to live in the coal towns that became the Front Range’s fastest-growing corner.',
   seoTagline: 'Frederick, Firestone and Dacono, Colorado',
