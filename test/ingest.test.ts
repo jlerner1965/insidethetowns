@@ -438,6 +438,11 @@ test('a staged file round-trips through the frontmatter reader and the event sch
   assert.match(data.review?.reason ?? '', /rewrite/);
   assert.equal(data.verified, undefined, 'approval stamps verified, not ingest');
   assert.match(parsed.body, /Rewrite in the guide/);
+  // A multi-town guide's source carries its town onto every file it stages.
+  const firestone = toStaged(item, source({ subTown: 'firestone' }), 'carbon-valley', '2026-10-04');
+  const firestoneText = eventFile(firestone.frontmatter, firestone.body);
+  assert.match(firestoneText, /^title: .*\nsubTown: firestone\n/m);
+  assert.equal(eventSchema(() => z.string()).parse(parseFrontmatter(firestoneText).data).subTown, 'firestone');
   assert.equal(slugify('Baby Storytime & Stay-and-Play'), 'baby-storytime-and-stay-and-play');
   // A cancelled item arrives already marked, with the feed as its source.
   const canceled = toStaged({ ...item, status: 'cancelled' }, source(), 'elizabeth', '2026-10-04');
