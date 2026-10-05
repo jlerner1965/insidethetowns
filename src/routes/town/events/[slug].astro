@@ -4,8 +4,8 @@ import { render } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
-import { dayKey, formatDate, formatDayLong, formatTimeRange, formatWeekday, toIsoLocal } from '@/lib/dates';
-import { isCanceled, isPast, nextOccurrence } from '@/lib/events';
+import { dayKey, formatDate, formatDayLong, formatDayRange, formatMonthDay, formatTimeRange, formatWeekday, toIsoLocal } from '@/lib/dates';
+import { isCanceled, isInProgress, isMultiDay, isPast, nextOccurrence } from '@/lib/events';
 import { googleCalendarUrl } from '@/lib/ics';
 import { pickCanonical } from '@/lib/series';
 import { breadcrumbJsonLd, eventJsonLd } from '@/lib/seo';
@@ -53,6 +53,12 @@ const repeatNote =
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
 const timeText = data.timeNote ?? formatTimeRange(when.start, when.end, data.allDay);
+// A run of days leads with its range, or "Now through…" while it is on, not
+// with the day it opened: Les Misérables said "Thursday, September 10" into
+// October.
+const dayText = isMultiDay(next)
+  ? isInProgress(next) ? `Now through ${formatMonthDay(when.end!)}` : formatDayRange(when.start, when.end!)
+  : formatDayLong(when.start);
 /**
  * Date, time and venue alone say nothing about the event and collide with
  * every other listing at the same place. Lead with the particulars, which are
@@ -60,7 +66,7 @@ const timeText = data.timeNote ?? formatTimeRange(when.start, when.end, data.all
  * result, so the sentence is what gets shortened, not the specifics.
  */
 const firstSentence = (event.body ?? '').trim().split(/(?<=[.!?])\s+/)[0]?.trim() ?? '';
-const particulars = `${statusLabel ? `${statusLabel}. ` : ''}${formatDayLong(when.start)}, ${timeText} at ${data.venue}, ${town.name}.`;
+const particulars = `${statusLabel ? `${statusLabel}. ` : ''}${dayText}, ${timeText} at ${data.venue}, ${town.name}.`;
 const description = firstSentence.length > 30 ? `${particulars} ${firstSentence}` : particulars;
 /**
  * Two ways into a reader's own calendar, neither needing a script: the
@@ -77,7 +83,7 @@ const googleUrl = googleCalendarUrl({
   url,
 });
 const facts = [
-  { label: repeatNote ? 'Next' : 'When', value: [formatDayLong(when.start), timeText, repeatNote].filter(Boolean) },
+  { label: repeatNote ? 'Next' : 'When', value: [dayText, timeText, repeatNote].filter(Boolean) },
   { label: 'Where', value: [data.venue, data.address].filter(Boolean) },
   // Only when the listing records it. "See organizer" below is a pointer to
   // whoever runs the thing, which is not always who owns the room.

@@ -5,6 +5,7 @@ export const johnstown: TownConfig = {
   status: 'live',
   variant: 'front-range',
   region: 'Northern Colorado',
+  neighbors: ['loveland', 'windsor', 'berthoud'],
   slug: 'johnstown',
   name: 'Johnstown',
   domain: 'insidejohnstown.com',

@@ -30,6 +30,7 @@ import Page from '@/layouts/Page.astro';
 import FilterBar from '@/components/FilterBar.astro';
 import NetworkDayList from '@/components/NetworkDayList.astro';
 import NetworkEventCard from '@/components/NetworkEventCard.astro';
+import SponsorLine from '@/components/SponsorLine.astro';
 import { getHub, liveTowns } from '@/config';
 import { getNetworkEntries } from '@/lib/content';
 import { occurrences, weekendSections, weekendWindow } from '@/lib/events';
@@ -84,6 +85,7 @@ const structured = collectionPageJsonLd(hub, {
   intro={`Everything on across all ${towns.length} guides, ${weekendLabel}, and then the week after. Each listing opens on that town’s own site.`}
   jsonLd={structured}
 >
+  <SponsorLine slot="after-header" sponsor={hub.sponsors?.network} label="This weekend, presented by" />
   <p
     class="mb-8 hidden rounded-lg border border-highlight bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-relaxed text-ink"
     data-stale-notice

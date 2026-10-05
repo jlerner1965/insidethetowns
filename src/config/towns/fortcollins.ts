@@ -13,6 +13,7 @@ export const fortcollins: TownConfig = {
   status: 'live',
   variant: 'front-range',
   region: 'Northern Colorado',
+  neighbors: ['timnath', 'windsor', 'loveland'],
   slug: 'fortcollins',
   name: 'Fort Collins',
   domain: 'insidefortcollins.com',

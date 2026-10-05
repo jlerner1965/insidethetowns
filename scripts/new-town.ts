@@ -49,13 +49,14 @@ const ident = slug.replace(/-([a-z0-9])/g, (_, c: string) => c.toUpperCase());
 
 const configSource = `import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
 
-// TODO: fill in the real values (lat/lng, counties, region, population, links) before launch.
+// TODO: fill in the real values (lat/lng, counties, region, neighbors, population, links) before launch.
 export const ${ident}: TownConfig = {
   kind: 'town',
   // 'live' when the domain serves; until then the hub lists the town as coming soon.
   status: 'wave1',
   variant: 'front-range', // or 'mountain': shorter freshness windows, seasonal hours, access notes
   region: 'Northern Colorado', // one of TOWN_REGIONS in types.ts: where the hub's home page lists it
+  neighbors: [], // slugs of the guides a reader here would drive to for a Saturday; feeds "Nearby this weekend"
   slug: '${slug}',
   name: '${name}',
   domain: 'inside${slug.replace(/-/g, '')}.com',

@@ -32,7 +32,12 @@ const day = config?.sendDay ?? 'Thursday';
   intro={`The week’s events in whichever of the ${towns.length} towns you care about, in one email, on a ${day}. Nothing else.`}
 >
   {config ? (
-    <NewsletterSignup />
+    <Fragment>
+      <NewsletterSignup />
+      <p class="mt-5 text-[0.9375rem]">
+        <a href="/newsletter/sample/" class="font-semibold text-accent-text">See a sample issue</a>, built from this week’s listings.
+      </p>
+    </Fragment>
   ) : (
     <div class="prose">
       <p>
@@ -91,3 +96,13 @@ const day = config?.sendDay ?? 'Thursday';
     ]}
   />
 </Page>
+
+<script>
+  // A guide's "Get your nearby towns" link arrives as ?towns=niwot,longmont,
+  // and those towns start ticked. Without the script, nothing is ticked and
+  // the form works the same.
+  const wanted = new URLSearchParams(location.search).get('towns')?.split(',') ?? [];
+  for (const box of document.querySelectorAll<HTMLInputElement>('form input[type="checkbox"]')) {
+    if (wanted.includes(box.value)) box.checked = true;
+  }
+</script>

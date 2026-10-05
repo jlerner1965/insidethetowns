@@ -5,6 +5,7 @@ export const niwot: TownConfig = {
   status: 'live',
   variant: 'front-range',
   region: 'Boulder County & St. Vrain',
+  neighbors: ['longmont', 'lyons', 'erie'],
   slug: 'niwot',
   name: 'Niwot',
   domain: 'insideniwot.com',

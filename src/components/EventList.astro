@@ -2,9 +2,14 @@
 /**
  * Events grouped under day headings. Works with FilterBar: each day section
  * is hidden by the filter script when none of its events match.
+ *
+ * A run that began on an earlier day and is still on goes in a "Now on" group
+ * first rather than under the day it started (see splitOngoing), each row
+ * saying "Now through…". Under its start day, Erie's corn maze led the events
+ * page as "Wednesday, September 23" for five weeks.
  */
 import type { TownEntry } from '@/lib/content';
-import { groupByDay } from '@/lib/events';
+import { groupByDay, splitOngoing } from '@/lib/events';
 import { dayKey, formatDayLong, toIsoLocal } from '@/lib/dates';
 import EventCard from './EventCard.astro';
 
@@ -14,12 +19,26 @@ interface Props {
 }
 
 const { events, emptyMessage = 'No events listed yet. Check back soon.' } = Astro.props;
-const days = groupByDay(events);
+const { ongoing, dated } = splitOngoing(events);
+const days = groupByDay(dated);
 ---
-{days.length === 0 ? (
+{days.length === 0 && ongoing.length === 0 ? (
   <p class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">{emptyMessage}</p>
 ) : (
   <div class="space-y-12 md:space-y-16">
+    {ongoing.length > 0 && (
+      <section id="now-on" data-filter-group data-hide-when-empty class="scroll-mt-4 md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
+        <h2 class="sticky top-0 z-10 -mx-4 mb-2 bg-paper px-4 py-2 md:static md:m-0 md:bg-transparent md:p-0 md:pt-6">
+          <span class="display-md block text-3xl text-accent-text md:text-[2.25rem]">
+            <span class="eyebrow mb-2 block">Under way</span>
+            <span class="block">Now on</span>
+          </span>
+        </h2>
+        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+          {ongoing.map((event) => <EventCard event={event} showDate={false} />)}
+        </div>
+      </section>
+    )}
     {days.map((day) => (
       <section id={`day-${dayKey(day.date)}`} data-filter-group data-day={dayKey(day.date)} class="scroll-mt-4 md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
         {/* On a phone the day heading sticks to the top while its listings

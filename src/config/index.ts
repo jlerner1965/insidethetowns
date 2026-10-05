@@ -37,6 +37,15 @@ export function liveTowns(): TownConfig[] {
 }
 
 /**
+ * A town's neighbours that have a guide to send a reader to, in the order its
+ * config lists them. One that has not launched is left out: its domain does
+ * not serve a guide yet.
+ */
+export function neighborsOf(town: Pick<TownConfig, 'neighbors'>): TownConfig[] {
+  return town.neighbors.map((slug) => findTown(slug)).filter((t): t is TownConfig => !!t && LIVE_TOWNS.includes(t.slug));
+}
+
+/**
  * The site being built. Reads process.env.TOWN and fails loudly if it is
  * unset or unknown, because a build with the wrong town is worse than no build.
  */

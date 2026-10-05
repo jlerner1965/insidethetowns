@@ -30,7 +30,7 @@ const area = covers ? `${covers}, Colorado` : `${town.name}, Colorado`;
   <div class="prose">
     <p>
       {town.siteTitle} is the <a href={`https://${hub.domain}/`}>{hub.siteTitle}</a> guide to {area}
-      {covers && ' — the three towns of the Carbon Valley, on one site'}. {hub.siteTitle} is an independent network of
+      {covers && ` — the towns of ${town.name}, on one site`}. {hub.siteTitle} is an independent network of
       community guides to Colorado’s Front Range towns: the week’s events, where to eat and drink, the trails, and what it
       is like to live there. The guides already open are listed there.
     </p>

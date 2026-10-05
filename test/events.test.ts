@@ -15,6 +15,7 @@ import {
   isPast,
   lastDay,
   sectionCount,
+  splitOngoing,
   upcoming,
   weekendSections,
   weekendWindow,
@@ -189,6 +190,33 @@ test('sections hold across midnight on the Friday of the weekend', () => {
   assert.deepEqual(titles(after.weekend), ['Friday market'], 'still the weekend once Friday starts');
   const during = weekendSections(list, { now: at('2026-09-25T17:00') });
   assert.deepEqual(titles(during.now), ['Friday market'], 'under way, so it is happening now');
+});
+
+test('a one-off before the weekend is not "still running"', () => {
+  // Niwot's weekend page carried the one-off meetings of October 6 to 8 under
+  // "Still running". Built on Monday the 5th, the weekend is the 9th to 11th.
+  const list = [
+    ev('Tuesday meeting', '2026-10-06T18:00', '2026-10-06T20:00'),
+    ev('Wednesday lecture', '2026-10-07T19:00'),
+    ev('Thursday trivia', '2026-10-08T19:00', '2026-10-08T21:00'),
+    ev('Wed–Sat festival', '2026-10-07', '2026-10-10', true),
+    ev('Tue–Thu workshop', '2026-10-06', '2026-10-08', true),
+  ];
+  const s = weekendSections(list, { now: at('2026-10-05T12:00') });
+  assert.deepEqual(titles(s.continuing), ['Wed–Sat festival'], 'only a multi-day run lasting into Friday');
+  assert.deepEqual(titles(s.before), ['Tue–Thu workshop', 'Tuesday meeting', 'Wednesday lecture', 'Thursday trivia']);
+  assert.equal(sectionCount(s), 1, 'what no weekend page shows is not counted as on');
+});
+
+test('a run already under way gets a group of its own, not its start day', () => {
+  const list = [
+    ev('Corn maze', '2026-09-23', '2026-10-31', true),
+    ev('Opened this morning', '2026-10-05T09:00', '2026-10-12T17:00'),
+    ev('Saturday market', '2026-10-10T09:00', '2026-10-10T13:00'),
+  ];
+  const { ongoing, dated } = splitOngoing(list, at('2026-10-05T12:00'));
+  assert.deepEqual(titles(ongoing), ['Corn maze']);
+  assert.deepEqual(titles(dated), ['Opened this morning', 'Saturday market'], 'today is its own day heading');
 });
 
 test('lastDay is the final day a listing is on, for the browser expiry pass', () => {

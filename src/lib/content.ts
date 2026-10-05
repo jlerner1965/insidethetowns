@@ -137,7 +137,7 @@ export async function getHubEntries<C extends CollectionKey>(collection: C): Pro
 
 /**
  * The entries of a town's neighbors, for the one place a town site looks over
- * the fence on purpose: the "nearby this weekend" block on /events/.
+ * the fence on purpose: the "Nearby this weekend" block (NearbyWeekend.astro).
  *
  * getTownEntries stays strict, so no town page can reach another town's
  * content by accident. This is the deliberate case, and it is deliberate

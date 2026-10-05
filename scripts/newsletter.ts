@@ -19,7 +19,6 @@
  * beyond them are for a person to write. An issue nobody read before it went
  * out is the quickest way to lose the trust the signup box asks for.
  */
-import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -33,12 +32,11 @@ import {
   formatDate,
   formatDayLong,
   formatDayRange,
-  formatTimeRange,
-  formatWeekday,
   parseLocal,
   startOfDay,
 } from '../src/lib/dates.ts';
-import { groupByDay, highlights, isCanceled, occurrences, weekendSections, weekendWindow } from '../src/lib/events.ts';
+import { groupByDay, highlights, isCanceled, occurrences, timeText, weekendSections, weekendWindow } from '../src/lib/events.ts';
+import { listingChanges, nextSendDay } from '../src/lib/newsletter.ts';
 import { isOpen } from '../src/lib/places.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
 
@@ -52,15 +50,8 @@ const outDir = opt('out');
 const issueNumber = opt('number') ? Number(opt('number')) : undefined;
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
 
-/** The next send day on or after `from`, as a Denver day. */
-function nextSendDay(from: Date): Date {
-  let day = startOfDay(from);
-  for (let i = 0; i < 7 && formatWeekday(day) !== sendDay; i++) day = addDays(day, 1);
-  return day;
-}
-
 const dateArg = opt('date');
-const send = dateArg ? startOfDay(parseLocal(dateArg)) : nextSendDay(new Date());
+const send = dateArg ? startOfDay(parseLocal(dateArg)) : nextSendDay(new Date(), sendDay);
 const { start: weekendStart, sunday } = weekendWindow(send);
 const range = formatDayRange(weekendStart, sunday);
 // "New this week" means since the previous issue.
@@ -99,35 +90,13 @@ function readCollection<T>(town: string, collection: string, schema: z.ZodType):
   return out;
 }
 
-function git(command: string[]): string {
-  try {
-    return execFileSync('git', command, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
-  } catch {
-    return '';
-  }
-}
-
 /**
- * Listings added since the last issue, from the history rather than from a
- * field, because nothing in a place's frontmatter says when it arrived. A
- * shallow checkout — CI's, or a fresh clone with a depth — has no history to
- * ask, and says so rather than report a quiet week.
+ * Places added, and places that closed, since the last issue, from the history
+ * (src/lib/newsletter.ts). `null` in a shallow checkout, which has no history
+ * to ask, and says so rather than report a quiet week.
  */
-const shallow = git(['rev-parse', '--is-shallow-repository']) === 'true';
-function addedSince(dir: string): Set<string> {
-  if (shallow) return new Set();
-  const out = git([
-    'log',
-    '--diff-filter=A',
-    `--since=${since.toISOString()}`,
-    `--until=${addDays(send, 1).toISOString()}`,
-    '--name-only',
-    '--format=',
-    '--',
-    dir,
-  ]);
-  return new Set(out.split('\n').filter(Boolean));
-}
+const changes = listingChanges(root, 'content', since, addDays(send, 1));
+const shallow = changes === null;
 
 /** Cut at a word so the archive's excerpt stays inside its schema. */
 function clamp(text: string, max: number): string {
@@ -137,7 +106,8 @@ function clamp(text: string, max: number): string {
 }
 
 function line(e: Listing, town: TownConfig): string {
-  const time = e.data.timeNote ?? formatTimeRange(e.data.start, e.data.end, e.data.allDay);
+  // A run under way says "Now through October 31", not "All day".
+  const time = timeText(e, send);
   const meta = [e.data.venue, e.data.cost].filter(Boolean).join(' · ');
   return `- **${time}** [${e.data.title}](https://${town.domain}/events/${e.slug}/) · ${meta}`;
 }
@@ -167,6 +137,7 @@ interface TownWeek {
   running: Listing[];
   next: Listing[];
   newPlaces: Row<PlaceData>[];
+  closedPlaces: Row<PlaceData>[];
   articles: Row<ArticleData>[];
 }
 
@@ -177,27 +148,32 @@ function readWeek(town: TownConfig): TownWeek {
   const listings = occurrences(rows as unknown as Listing[], { now: send, horizonDays: 14 });
   // `next` runs to the Thursday after the weekend: the days the following issue will not reach back to.
   const parts = weekendSections(listings, { now: send, horizonDays: 5 });
-  const added = addedSince(`content/${town.slug}/places`);
+  const places = readCollection<PlaceData>(town.slug, 'places', placeSchema(plainImage));
   return {
     town,
     weekend: parts.weekend,
     running: [...parts.now, ...parts.continuing],
     next: parts.next,
-    newPlaces: readCollection<PlaceData>(town.slug, 'places', placeSchema(plainImage)).filter((p) => added.has(p.file) && isOpen(p)),
+    newPlaces: places.filter((p) => !!changes?.added.has(p.file) && isOpen(p)),
+    closedPlaces: places.filter((p) => !!changes?.closed.has(p.file) && p.data.status !== 'open'),
     articles: readCollection<ArticleData>(town.slug, 'articles', articleSchema(plainImage)).filter(
       (a) => a.data.date.getTime() >= since.getTime() && a.data.date.getTime() <= addDays(send, 1).getTime(),
     ),
   };
 }
 
-/** "_Sponsor · This week's email is presented by [X](url)._", or nothing. */
+/**
+ * "_Sponsor · This week's email is presented by [X](url)._", or nothing. The
+ * network sponsor (hub.sponsors.network) fills the line in every issue that
+ * has no email sponsor of its own: the founding offer on /advertise/ includes it.
+ */
 function sponsorLine(sponsor: { name: string; url: string; line?: string } | undefined): string[] {
   if (!sponsor) return [];
   return [`_Sponsor · This week’s email is presented by [${sponsor.name}](${sponsor.url})${sponsor.line ? ` · ${sponsor.line}` : ''}._`, ''];
 }
 
 function townIssue(week: TownWeek): string {
-  const { town, weekend, running, next, newPlaces, articles } = week;
+  const { town, weekend, running, next, newPlaces, closedPlaces, articles } = week;
   const n = weekend.length;
   const picks = highlights(weekend, { now: send, limit: 3 }).map((e) => e.data.title);
   const excerpt =
@@ -209,7 +185,7 @@ function townIssue(week: TownWeek): string {
     `**${town.siteTitle}** · ${formatDate(send)}`,
     '',
     // The email's sponsor, labeled, above the listings and never among them.
-    ...sponsorLine(town.sponsors?.email),
+    ...sponsorLine(town.sponsors?.email ?? hub.sponsors?.network),
     `## This weekend, ${range}`,
     '',
     ...(n ? byDay(weekend, town) : [`Nothing listed for the weekend yet. Know of something? [Send it in](https://${town.domain}/submit-event/).`, '']),
@@ -219,6 +195,11 @@ function townIssue(week: TownWeek): string {
   if (newPlaces.length) {
     lines.push('## New on the guide', '');
     for (const p of newPlaces) lines.push(`- [${p.data.title}](https://${town.domain}/places/${p.slug}/) — ${p.data.summary}`);
+    lines.push('');
+  }
+  if (closedPlaces.length) {
+    lines.push('## Closed', '');
+    for (const p of closedPlaces) lines.push(`- [${p.data.title}](https://${town.domain}/places/${p.slug}/) — ${p.data.statusNote ?? (p.data.status === 'closed' ? 'Permanently closed.' : 'Temporarily closed.')}`);
     lines.push('');
   }
   if (articles.length) {
@@ -244,7 +225,7 @@ function networkIssue(weeks: TownWeek[]): string {
   const excerpt = `${total} things on across ${weeks.length} Front Range towns this weekend, ${range}, with the most in ${busiest.join(', ')}.`;
   const lines = [
     ...frontmatter(`Across the towns, the weekend of ${range}`, excerpt, []),
-    ...sponsorLine(hub.sponsors?.email),
+    ...sponsorLine(hub.sponsors?.email ?? hub.sponsors?.network),
     `**${hub.siteTitle}** · ${formatDate(send)}`,
     '',
     `${total} things on across ${weeks.length} towns this weekend, ${range}. A few from each; every link opens on that town’s own guide.`,
@@ -265,6 +246,18 @@ function networkIssue(weeks: TownWeek[]): string {
         : `- Everything on: [${town.domain}/events](https://${town.domain}/events/)`,
       '',
     );
+  }
+  const opened = weeks.flatMap((w) => w.newPlaces.map((p) => ({ p, town: w.town })));
+  const shut = weeks.flatMap((w) => w.closedPlaces.map((p) => ({ p, town: w.town })));
+  if (opened.length) {
+    lines.push('## New on the guides', '');
+    for (const { p, town } of opened) lines.push(`- **${town.name}** [${p.data.title}](https://${town.domain}/places/${p.slug}/) — ${p.data.summary}`);
+    lines.push('');
+  }
+  if (shut.length) {
+    lines.push('## Closed', '');
+    for (const { p, town } of shut) lines.push(`- **${town.name}** [${p.data.title}](https://${town.domain}/places/${p.slug}/) — ${p.data.statusNote ?? (p.data.status === 'closed' ? 'Permanently closed.' : 'Temporarily closed.')}`);
+    lines.push('');
   }
   lines.push(
     '---',
@@ -296,5 +289,5 @@ if (outDir) {
   console.error(`newsletter: ${drafts.length} draft${drafts.length === 1 ? '' : 's'} for ${formatDate(send)}, the weekend of ${range}`);
 }
 if (shallow) {
-  console.error('newsletter: this checkout has no history (shallow clone), so "New on the guide" could not be filled in.');
+  console.error('newsletter: this checkout has no history (shallow clone), so "New on the guide" and "Closed" could not be filled in.');
 }

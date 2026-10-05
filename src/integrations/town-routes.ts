@@ -53,6 +53,7 @@ const HUB_ROUTES: Array<[pattern: string, file: string]> = [
   ['/moving', 'moving.astro'],
   ['/moving/[pair]', 'moving/[pair].astro'],
   ['/newsletter', 'newsletter.astro'],
+  ['/newsletter/sample', 'newsletter/sample.astro'],
   ['/newsletter/[slug]', 'newsletter/[slug].astro'],
   ['/submit-event', 'submit-event.astro'],
   ['/events.rss', 'events.rss.ts'],

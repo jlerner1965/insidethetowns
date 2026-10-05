@@ -8,15 +8,20 @@
  * glance that the farmers market you want is in Lyons and not in Erie.
  */
 import type { NetworkEntry } from '@/lib/content';
-import { dayKey, formatDayRange, formatMonthDay, formatTimeRange, toIsoLocal } from '@/lib/dates';
+import { dayKey, formatDayRange, formatDayShort, formatMonthDay, formatTimeRange, toIsoLocal } from '@/lib/dates';
 import { eventEnd, isCanceled, isInProgress, lastDay } from '@/lib/events';
 import { CATEGORY_LABELS, EVENT_STATUS_LABELS } from '@/content/schemas';
 
 interface Props {
   event: NetworkEntry<'events'>;
+  /**
+   * Say which day, for a list that is not under day headings: "Sat, Oct 10 ·
+   * 10 am – 2 pm". A run already on still says "Now through…".
+   */
+  showDay?: boolean;
 }
 
-const { event } = Astro.props;
+const { event, showDay = false } = Astro.props;
 const { data, slug, town } = event;
 const href = `https://${town.domain}/events/${slug}/`;
 const canceled = isCanceled(event);
@@ -25,13 +30,15 @@ const statusLabel = data.status !== 'scheduled' ? EVENT_STATUS_LABELS[data.statu
 // while it is on, the range before it starts.
 const multiDay = !!data.end && dayKey(data.start) !== dayKey(data.end);
 const running = multiDay && !canceled && isInProgress(event);
-const time =
+const when =
   data.timeNote ??
   (running
     ? `Now through ${formatMonthDay(data.end!)}`
     : multiDay && data.allDay
       ? formatDayRange(data.start, data.end!)
       : formatTimeRange(data.start, data.end, data.allDay));
+// A multi-day time range already names its days, and a run says "Now through".
+const time = showDay && !running && !multiDay ? `${formatDayShort(data.start)} · ${when}` : when;
 ---
 <article
   class="group relative grid grid-cols-1 gap-x-7 border-t border-line-soft py-5 first:border-t-0 sm:grid-cols-[7rem_1fr] md:py-6"
