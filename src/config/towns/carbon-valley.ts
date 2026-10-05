@@ -6,8 +6,9 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  * their own pages call the Tri-Towns or the Carbon Valley
  * (firestoneco.gov/281/History-of-Firestone). They share a library (the
  * Carbon Valley Regional Library, High Plains Library District), a parks
- * district (CVPRD), a chamber, a fire district and a holiday festival, and
- * none is large enough for a guide of its own, so every event and place here
+ * district (CVPRD), a chamber and a holiday festival (Frederick and
+ * Firestone share a fire district too; Dacono's is Mountain View Fire
+ * Rescue), and none is large enough for a guide of its own, so every event and place here
  * carries a `subTown` and the site has a section page per town.
  *
  * The name does not follow the "Inside <Town>" pattern: carbonvalleyguide.com
