@@ -2987,3 +2987,25 @@ choice above:
   Valley.
 - The towns test now holds every live guide's title to `Inside <name>`,
   whatever its domain.
+
+### Mail and the Firestone domain, 5 October 2026
+
+The owner did the Cloudflare side in the dashboard, since the session's
+token was invalid and a token pasted into chat is not one the session may
+use:
+
+- **Email Routing on carbonvalleyguide.com.** It is on, with Cloudflare's
+  three MX records, its SPF record and its DKIM key all public. The one rule
+  forwards `hello@` to the inbox every other guide forwards to. The
+  network's `_dmarc` record (`v=DMARC1; p=none`) was not there when this was
+  written; it is one TXT record for the owner to add.
+- **insidefirestone.com DNS.** The apex `A` record is `216.150.1.1` and
+  `www` is a CNAME to Vercel, both DNS only. The certificate was issued
+  within minutes.
+- **The catch-all redirect was fixed on its first day.** `/`, `/events/`
+  and `www` went where they should, but `/:path*` does not match a URL
+  ending in `/`, and with `trailingSlash` on every page URL does. So
+  insidefirestone.com/about/ served Carbon Valley's About page on the
+  Firestone domain, and other paths 404ed. The source is now `/(.*)`, which
+  exports to `_redirects` as `/*`. A host-files test now fails any redirect
+  whose source ends in a bare `:param*`.
