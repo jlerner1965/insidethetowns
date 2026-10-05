@@ -87,8 +87,8 @@ export function passesLocationFilter(item: FeedEvent, source: Pick<Source, 'loca
 /** Whether the editor has excluded this title from the source. */
 export function excludedTitle(item: Pick<FeedEvent, 'title'>, source: Pick<Source, 'excludeTitles'>): boolean {
   if (!source.excludeTitles?.length) return false;
-  const title = item.title.toLowerCase();
-  return source.excludeTitles.some((t) => title.includes(t.toLowerCase()));
+  const title = item.title.replace(/\s+/g, ' ').toLowerCase();
+  return source.excludeTitles.some((t) => title.includes(t.replace(/\s+/g, ' ').toLowerCase()));
 }
 
 /**

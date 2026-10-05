@@ -1,7 +1,7 @@
 ---
 title: "Eyes of Freedom Encounter"
 subTown: frederick
-review: { reason: "The district’s special-events schedule (read 5 October 2026) gives only the date and a one-line description behind a \"Read more\" link that was not followed; time, venue and cost are unknown. Open the page, then approve with the facts filled in or reject.", since: "2026-10-05", from: manual }
+review: { reason: "Re-checked 5 October: the district’s special-events page lists 28 October and a one-line description with no time, place or link to more. Publish when the district posts the details.", since: "2026-10-05", from: manual }
 start: "2026-10-28"
 allDay: true
 venue: "Carbon Valley Parks and Recreation District"

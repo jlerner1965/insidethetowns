@@ -21,8 +21,9 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  */
 export const carbonValley: TownConfig = {
   kind: 'town',
-  // A holding page until the owner flips it, after the first review.
-  status: 'wave1',
+  // Live on 5 October 2026, at the owner's direction, after the first review
+  // (16 of 15 upcoming events, 27 of 20 listings).
+  status: 'live',
   variant: 'front-range',
   subTowns: ['frederick', 'firestone', 'dacono'],
   // Three towns' worth of content before it opens; set with the brief.

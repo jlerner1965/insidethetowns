@@ -19,7 +19,7 @@ test('Carbon Valley covers Frederick, Firestone and Dacono, in that order', () =
   assert.deepEqual([...cv.subTowns!], ['frederick', 'firestone', 'dacono']);
   assert.equal(subTownList(cv), 'Frederick, Firestone and Dacono');
   assert.deepEqual(cv.launchThreshold, { events: 15, listings: 20 });
-  assert.notEqual(cv.status, 'live', 'Carbon Valley is a holding page until the owner flips it');
+  assert.equal(cv.domain, 'carbonvalleyguide.com');
 });
 
 test('every sub-town slug is URL-safe and distinct from a route the guide already has', () => {

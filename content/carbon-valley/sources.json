@@ -26,7 +26,6 @@
       "priority": "core",
       "status": "confirmed",
       "robots": "honor",
-      "notes": "Found and read once on 5 October 2026. CivicPlus; cityofdacono.com now redirects here. The main calendar (CID 14): 122 items from 7 October 2026 to December 2030, nearly all meetings (Planning and Zoning 83 under two spellings, City Council 28, with \"- canceled\" appended to a called-off one rather than STATUS:CANCELLED, as Longmont does) at City Hall, 512 Cherry Avenue, Building C. The rest: the Veterans Wall of Honor Ceremony (8 November, no venue in the feed), the Carbon Valley Holiday Festival (5 December; the City's page says 4 to 6 pm at City Hall), Election Day and the office closures. The City's community events (Boot Scoot'n Bash in June at Centennial Field, the Fall Fiesta in early October at Clem DuFour Park, National Night Out on the first Tuesday in August, the Citywide Garage Sale in June, the Music & Spirits Festival, whose own calendar CID 32 is empty and whose 2027 date is not yet published) live on pages under /1012/Events-Fun, not on the calendar, so that hub is read by hand (daconoco-gov-events). The server reset the connection three times in forty fetches; each retry answered. robots.txt disallows /rss.aspx, which this does not read. America/Denver times. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Exclusions set 5 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (routine meetings, the court and office closures are not events), at the owner's direction that the sources be settled on the editor's judgment; remove any to have it staged again. What remains after the exclusions on 5 October: the Veterans Wall of Honor Ceremony and the Carbon Valley Holiday Festival.",
       "excludeTitles": [
         "Planning and Zoning Commission",
         "Planning & Zoning Commission",
@@ -35,7 +34,8 @@
         "Police Advisory Board",
         "City offices closed",
         "Election Day"
-      ]
+      ],
+      "notes": "Found and read once on 5 October 2026. CivicPlus; cityofdacono.com now redirects here. The main calendar (CID 14): 122 items from 7 October 2026 to December 2030, nearly all meetings (Planning and Zoning 83 under two spellings, City Council 28, with \"- canceled\" appended to a called-off one rather than STATUS:CANCELLED, as Longmont does) at City Hall, 512 Cherry Avenue, Building C. The rest: the Veterans Wall of Honor Ceremony (8 November, no venue in the feed), the Carbon Valley Holiday Festival (5 December; the City's page says 4 to 6 pm at City Hall), Election Day and the office closures. The City's community events (Boot Scoot'n Bash in June at Centennial Field, the Fall Fiesta in early October at Clem DuFour Park, National Night Out on the first Tuesday in August, the Citywide Garage Sale in June, the Music & Spirits Festival, whose own calendar CID 32 is empty and whose 2027 date is not yet published) live on pages under /1012/Events-Fun, not on the calendar, so that hub is read by hand (daconoco-gov-events). The server reset the connection three times in forty fetches; each retry answered. robots.txt disallows /rss.aspx, which this does not read. America/Denver times. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Exclusions set 5 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (routine meetings, the court and office closures are not events), at the owner's direction that the sources be settled on the editor's judgment; remove any to have it staged again. What remains after the exclusions on 5 October: the Veterans Wall of Honor Ceremony and the Carbon Valley Holiday Festival."
     },
     {
       "id": "firestoneco-gov-special-events",
@@ -63,13 +63,14 @@
       "priority": "core",
       "status": "confirmed",
       "robots": "honor",
-      "notes": "Found and read once on 5 October 2026. CivicPlus. The Town's main calendar (CID 33, \"Town of Firestone\"): 45 items from 7 October 2026 to August 2027, a superset of the Special Events calendar below. Most are meetings and the court (Planning & Zoning 20, Municipal Court 6, Board of Trustees 5) and office closures; the rest are the Town's own events: National Coffee with a Cop Day (7 October), Chat with a Trustee (7 October, 4 November, at the Police Department, 9900 Park Avenue), Free Tree Limb Drop-Off (10 October, 7500 County Road 20), Drug Take Back Day, and the three special events. Meetings carry no LOCATION; a few locations hold pasted HTML, which ingest's venue guess will flag. Under the event standard the regular meetings and the court are not events; the editor may exclude their titles as Longmont's registry does. The 2026 special-events lineup (/132/Programs-Events) lists fourteen dates, most of them past: 4th at Firestone (parade down First Street, 4 July), Picnic in the Park (21 August, Peninsula Park), Carbon Valley Kids Day (6 June, Stoneridge Park), the Art & Music Show (17 September to 22 October at the library), Arbor Day, Clean Up Day, the monthly tree-limb drop-offs. robots.txt disallows /RSS.aspx and /CurrentEvents*.aspx, neither of which this reads. America/Denver times. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Exclusions set 5 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (routine meetings, the court and office closures are not events), at the owner's direction that the sources be settled on the editor's judgment; remove any to have it staged again. Confirmed instead of the Special Events calendar because it carries the same three events plus the Town's smaller ones (Coffee with a Cop, Chat with a Trustee, the tree-limb drop-off, Drug Take Back Day).",
       "excludeTitles": [
         "Planning & Zoning Commission",
         "Municipal Court",
         "Board of Trustees",
-        "Town Offices Closed"
-      ]
+        "Town Offices Closed",
+        "Tree Limb"
+      ],
+      "notes": "Found and read once on 5 October 2026. CivicPlus. The Town's main calendar (CID 33, \"Town of Firestone\"): 45 items from 7 October 2026 to August 2027, a superset of the Special Events calendar below. Most are meetings and the court (Planning & Zoning 20, Municipal Court 6, Board of Trustees 5) and office closures; the rest are the Town's own events: National Coffee with a Cop Day (7 October), Chat with a Trustee (7 October, 4 November, at the Police Department, 9900 Park Avenue), Free Tree Limb Drop-Off (10 October, 7500 County Road 20), Drug Take Back Day, and the three special events. Meetings carry no LOCATION; a few locations hold pasted HTML, which ingest's venue guess will flag. Under the event standard the regular meetings and the court are not events; the editor may exclude their titles as Longmont's registry does. The 2026 special-events lineup (/132/Programs-Events) lists fourteen dates, most of them past: 4th at Firestone (parade down First Street, 4 July), Picnic in the Park (21 August, Peninsula Park), Carbon Valley Kids Day (6 June, Stoneridge Park), the Art & Music Show (17 September to 22 October at the library), Arbor Day, Clean Up Day, the monthly tree-limb drop-offs. robots.txt disallows /RSS.aspx and /CurrentEvents*.aspx, neither of which this reads. America/Denver times. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Exclusions set 5 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (routine meetings, the court and office closures are not events), at the owner's direction that the sources be settled on the editor's judgment; remove any to have it staged again. Confirmed instead of the Special Events calendar because it carries the same three events plus the Town's smaller ones (Coffee with a Cop, Chat with a Trustee, the tree-limb drop-off, Drug Take Back Day). \"Tree Limb\" excluded on 5 October 2026 at the review: the drop-off days are a Town service for residents, not an event."
     },
     {
       "id": "frederickco-gov",
@@ -128,8 +129,10 @@
     },
     {
       "id": "highplains-libcal-com",
+      "subTown": "firestone",
       "name": "Carbon Valley Regional Library (High Plains Library District), LibCal",
       "url": "https://highplains.libcal.com/calendar/hpld?cid=8181&t=d&d=0000-00-00&cal=8181&cm=4554&inc=0",
+      "feedUrl": "https://highplains.libcal.com/rss.php?iid=4057&m=month&cid=8181",
       "sampleUrl": "https://www.mylibrary.us/cvrl/",
       "type": "rss",
       "category": "library",
@@ -139,9 +142,6 @@
       "locationFilter": [
         "Carbon Valley"
       ],
-      "notes": "Found and read once on 5 October 2026. One branch serves all three towns: 7 Park Avenue, Firestone (Mon to Thu 9 am to 8 pm, Fri and Sat 10 am to 5 pm, Sun 1 to 5 pm, per mylibrary.us/locations-and-hours/). The district's LibCal is the same one the Windsor and Johnstown work found: its public iCal (ical_subscribe.php?src=p&cid=8181) is the district's 500 oldest items, 4 August to 25 September 2026 on 5 October, and no parameter (cal, cm, inc, d, t) narrows it to the branch or moves it forward, re-tested three ways. The district-wide RSS (rss.php?iid=4057&m=month&cid=8181; m=upcoming answers \"invalid mode\") does carry the coming fortnight, 300 items on 5 October of which 19 were at the Carbon Valley Regional Library (Drop-in Chess, English Class, Tween Craft Club, Sketch Club, Page Turner's Book Club), but its dates, times and building are inside each item's description, which the repo's RSS reader does not read (it reads CivicPlus's calendarEvent elements), so ingest would stage nothing from it: reading LibCal RSS would be a new feed reader, which is a feature to ask about. Until then the branch's calendar page, linked above with the building preselected, is read in a browser. robots.txt names a 10-second crawl delay for everyone and disallows the /process_ endpoints the page loads events from, so the page cannot be read by script either. The locationFilter is set for the day a reader exists. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Read as RSS from 5 October 2026: scripts/lib/feeds/rss.ts now reads LibCal's own libcal:date, libcal:time, libcal:location and libcal:campus elements (the district-wide feed covers the coming fortnight or so, 300 items on 5 October), and the locationFilter keeps the branch's. Exclusions set 5 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (routine meetings, the court and office closures are not events), at the owner's direction that the sources be settled on the editor's judgment; remove any to have it staged again. Storytimes, clubs, drop-ins, the English class and the advisory board are excluded; what remains is the one-off programs (a science afternoon, a teen improv session, an adult D&D one-shot, a 3D-modelling class). The feed marks a called-off session by prefixing \"Cancelled:\" to the title, as Longmont's does. The branch is in Firestone, so staged items carry subTown firestone.",
-      "feedUrl": "https://highplains.libcal.com/rss.php?iid=4057&m=month&cid=8181",
-      "defaultVenue": "Carbon Valley Regional Library",
       "excludeTitles": [
         "Storytime",
         "Tales for Tots",
@@ -152,9 +152,13 @@
         "English Class",
         "Teen Advisory Board",
         "Silent Reading Hour",
-        "Ageless Grace"
+        "Ageless Grace",
+        "Let’s Draw",
+        "Let's Draw",
+        "Science Fun"
       ],
-      "subTown": "firestone"
+      "defaultVenue": "Carbon Valley Regional Library",
+      "notes": "Found and read once on 5 October 2026. One branch serves all three towns: 7 Park Avenue, Firestone (Mon to Thu 9 am to 8 pm, Fri and Sat 10 am to 5 pm, Sun 1 to 5 pm, per mylibrary.us/locations-and-hours/). The district's LibCal is the same one the Windsor and Johnstown work found: its public iCal (ical_subscribe.php?src=p&cid=8181) is the district's 500 oldest items, 4 August to 25 September 2026 on 5 October, and no parameter (cal, cm, inc, d, t) narrows it to the branch or moves it forward, re-tested three ways. The district-wide RSS (rss.php?iid=4057&m=month&cid=8181; m=upcoming answers \"invalid mode\") does carry the coming fortnight, 300 items on 5 October of which 19 were at the Carbon Valley Regional Library (Drop-in Chess, English Class, Tween Craft Club, Sketch Club, Page Turner's Book Club), but its dates, times and building are inside each item's description, which the repo's RSS reader does not read (it reads CivicPlus's calendarEvent elements), so ingest would stage nothing from it: reading LibCal RSS would be a new feed reader, which is a feature to ask about. Until then the branch's calendar page, linked above with the building preselected, is read in a browser. robots.txt names a 10-second crawl delay for everyone and disallows the /process_ endpoints the page loads events from, so the page cannot be read by script either. The locationFilter is set for the day a reader exists. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Read as RSS from 5 October 2026: scripts/lib/feeds/rss.ts now reads LibCal's own libcal:date, libcal:time, libcal:location and libcal:campus elements (the district-wide feed covers the coming fortnight or so, 300 items on 5 October), and the locationFilter keeps the branch's. Exclusions set 5 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (routine meetings, the court and office closures are not events), at the owner's direction that the sources be settled on the editor's judgment; remove any to have it staged again. Storytimes, clubs, drop-ins, the English class and the advisory board are excluded; what remains is the one-off programs (a science afternoon, a teen improv session, an adult D&D one-shot, a 3D-modelling class). The feed marks a called-off session by prefixing \"Cancelled:\" to the title, as Longmont's does. The branch is in Firestone, so staged items carry subTown firestone. Excluded on 5 October 2026 at the review: \"Let’s Draw!\" and \"Science Fun\", monthly after-school sessions for elementary pupils (a class in all but name, under the event standard). \"Ageless Grace\" was already excluded; its cancelled session reached staging because the feed wrote a non-breaking space in the title, which the readers now treat as a space."
     },
     {
       "id": "cvprd-com",

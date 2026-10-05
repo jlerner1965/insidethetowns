@@ -62,6 +62,10 @@ function decode(text: string): string {
 
 function strip(html: string): string {
   return html
+    // A literal non-breaking space (U+00A0) is a space to every reader and
+    // to the title exclusions: LibCal writes "Ageless\u00a0Grace", and an
+    // excluded title must not slip through on the byte.
+    .replace(/\u00a0/g, ' ')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<\/(p|div|li|h[1-6])>/gi, '\n')
     .replace(/<[^>]+>/g, '')

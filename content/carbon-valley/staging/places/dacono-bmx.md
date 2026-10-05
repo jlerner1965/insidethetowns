@@ -1,7 +1,7 @@
 ---
 title: "Dacono BMX"
 subTown: dacono
-review: { reason: "The City’s page (read 5 October 2026) gives an email and no phone, hours or season dates, and the track operators (BMX of the Rockies) have no site of their own that could be found; the location inside Clem DuFour Park is from the City’s 2008 parks plan. Confirm the season and race nights with the operators before publishing.", since: "2026-10-05", from: manual }
+review: { reason: "Re-checked 5 October: the City’s page gives an email (daconobmxtrack@gmail.com) and no phone, season or race nights, and the operators have no site of their own. Publish when the operators give a season and a contact number.", since: "2026-10-05", from: manual }
 type: venue
 address: "Clem DuFour Park, Glen Creighton Dr at Glen Ayre St, Dacono, CO 80514"
 url: "https://www.daconoco.gov/873/BMX-Track"

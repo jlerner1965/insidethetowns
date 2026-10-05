@@ -1,7 +1,7 @@
 ---
 title: "Veterans Wall of Honor Ceremony"
 subTown: dacono
-review: { reason: "The City's calendar entry (EID=2223, read 5 October) gives Sunday 8 November at 10 am and no venue beyond Dacono; the City's Our Community page names the Carbon Valley Veterans Wall of Honor as a Dacono landmark. Confirm the location (and that it is the wall) with the City before approving; the feed's end time (11:59 pm) is a placeholder and is not kept.", since: "2026-10-04", from: ingest }
+review: { reason: "Re-checked 5 October: the City’s calendar gives Sunday 8 November at 10 am with no venue, and its Wall of Honor page (/977) still describes the 2025 ceremony. Publish once the City names the place (James Lewis, Community Relations & Event Coordinator, 303-833-2317).", since: "2026-10-05", from: manual }
 start: "2026-11-08T10:00"
 venue: "Dacono, venue to be confirmed"
 url: "https://www.daconoco.gov/calendar.aspx?EID=2223"
