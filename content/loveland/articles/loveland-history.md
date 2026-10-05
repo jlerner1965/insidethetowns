@@ -1,0 +1,80 @@
+---
+title: "Loveland history: a trading post, a town in a wheat field, sugar and cherries, the valentines, two floods and the sculptors"
+date: "2026-10-05"
+excerpt: "Mariano Medina's trading post on the Overland Trail, a town platted in a wheat field beside the Colorado Central in 1877, Great Western's first sugar factory, the cherry orchards, the Rialto, the valentines, two floods, the sculptors and a city of 76,378. The short history of Loveland, Colorado, with sources."
+category: "History"
+tags: [history]
+image: ../images/colorado-southern-depot.jpg
+imageAlt: "The 1902 Colorado and Southern Railway depot on Railroad Avenue, a long tan-brick building with a hipped roof, green trim and a LOVELAND nameboard, now used by local businesses, on a sunny September morning."
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0"
+verified: "2026-10-05"
+sources:
+  - { label: "Loveland, Colorado on Wikipedia", url: "https://en.wikipedia.org/wiki/Loveland,_Colorado" }
+  - { label: "Fort Namaqua on Wikipedia", url: "https://en.wikipedia.org/wiki/Fort_Namaqua" }
+  - { label: "Loveland Chamber of Commerce: History of Loveland", url: "https://loveland.org/explore-loveland/loveland/facts-history/history-of-loveland/" }
+  - { label: "Great Western Sugar Company on Wikipedia", url: "https://en.wikipedia.org/wiki/Great_Western_Sugar_Company" }
+  - { label: "Loveland Chamber of Commerce: Valentine Re-Mailing Program", url: "https://loveland.org/programs/valentine-re-mailing-program/" }
+  - { label: "5280, February 2020: The sweetheart couple behind Loveland's Valentine Remailing Program", url: "https://www.5280.com/2020/02/the-sweetheart-couple-behind-lovelands-valentine-remailing-program/" }
+  - { label: "KUNC, September 13, 2021: Loveland, Colorado splinters over racist sundown town past and increasingly diverse future", url: "https://www.kunc.org/2021-09-13/loveland-colorado-splinters-over-racist-sundown-town-past-and-increasingly-diverse-future" }
+  - { label: "Rialto Theater Center: History of the Rialto Theater", url: "https://www.rialtotheatercenter.org/history/" }
+  - { label: "National Park Service: Rialto Theater, National Register nomination", url: "https://npgallery.nps.gov/NRHP/GetAsset/NRHP/87002213_text" }
+  - { label: "National Register of Historic Places listings in Larimer County, Colorado on Wikipedia", url: "https://en.wikipedia.org/wiki/National_Register_of_Historic_Places_listings_in_Larimer_County,_Colorado" }
+  - { label: "U.S. Geological Survey Fact Sheet 2006-3095: 1976 Big Thompson Flood, Colorado, Thirty Years Later", url: "https://pubs.usgs.gov/fs/2006/3095/" }
+  - { label: "Big Thompson River on Wikipedia", url: "https://en.wikipedia.org/wiki/Big_Thompson_River" }
+  - { label: "National Weather Service Boulder: the September 2013 floods", url: "https://www.weather.gov/bou/Number1September2013Floods" }
+  - { label: "Loveland High Plains Arts Council: our history", url: "https://www.sculptureinthepark.org/history" }
+  - { label: "Loveland High Plains Arts Council: Benson Sculpture Garden", url: "https://www.sculptureinthepark.org/about-benson" }
+  - { label: "BizWest, October 28, 2005: Sculpture", url: "https://bizwest.com/2005/10/28/sculpture/" }
+---
+
+Loveland begins at a river crossing. In 1858 the mountain man Mariano Medina, born in Taos and once a trapper for the American Fur Company and an Army scout, brought his family to the Big Thompson and opened a trading post where the Overland Trail crossed the river. He built a toll bridge, his settlement, Namaqua, had a school, a church and a post office, and in 1862 [Fort Namaqua](https://en.wikipedia.org/wiki/Fort_Namaqua) became a stage station for the Holladay Overland Stage company. The Medinas were the first permanent settlers in what is now Loveland. Medina died in 1878; his grave was moved to Namaqua Park in 1960, and his cabin was restored at the Loveland Museum.
+
+## The town in the wheat field
+
+A mile downstream of the future town, a second settlement grew around Andrew Douty's flour mill and took its name from his flour bags, printed "St. Louis." Between the two, David Barnes, a mill owner from Golden, farmed 320 acres, and his friend William A. H. Loveland, president of the Colorado Central Railroad, told him the line from Denver would be extended to Fort Collins and Cheyenne. Barnes platted 80 acres beside the surveyed line through his wheat field, in 1877 gave the railroad its right-of-way, and had a depot by [December 1877](https://loveland.org/explore-loveland/loveland/facts-history/history-of-loveland/). Loveland was officially founded that year, on the new line near its crossing of the Big Thompson. The residents wanted Barnesville; Barnes named the town for Loveland. Building began in the spring of 1878, and the merchants of St. Louis moved a mile upstream, buildings and all.
+
+The town was incorporated in 1881: the Colorado State Archives' list, as [Wikipedia](https://en.wikipedia.org/wiki/Loveland,_Colorado) cites it, gives April 30, and the [Chamber of Commerce's history](https://loveland.org/explore-loveland/loveland/facts-history/history-of-loveland/) says the residents voted on May 11. The railroad made it a shipping point for farmers and ranchers; the census counted 236 people in 1880 and 1,091 in 1900. The depot was rebuilt in 1902; as the Colorado and Southern Railway Depot it has been on the National Register since [1982](https://en.wikipedia.org/wiki/National_Register_of_Historic_Places_listings_in_Larimer_County,_Colorado), at 405 Railroad Avenue.
+
+## Sugar and cherries
+
+For the first half of the 20th century the town lived on sugar beets and sour cherries. The Great Western Sugar Company opened its first factory at Loveland on [November 21, 1901](https://en.wikipedia.org/wiki/Great_Western_Sugar_Company); the first campaign failed, but by 1919 the plant could slice 1,950 tons of beets a day. The company brought in German-Russian families, Japanese men and Mexican workers for the beet fields; when Great Western cut its contract prices, the farmers answered with the Loveland Resolutions. The census counted 3,651 people in 1910. The factory closed in 1985 by the Chamber's history and Wikipedia's account of Great Western; Wikipedia's Loveland article says 1977.
+
+In the late 1920s the Spring Glade Orchard was the largest cherry orchard west of the Mississippi, and the orchards produced more than $1 million worth of cherries a year. Drought, blight, competition from other states and finally a killing freeze ended the industry; the Chamber dates the end to 1960, Wikipedia to the late 1960s.
+
+## The Sweetheart City
+
+In 1947 the postmaster, Elmer Ivers, who had been sent about 30 valentines by people wanting a Loveland postmark, and Ted Thompson began re-mailing valentines, and the Chamber of Commerce agreed to promote the service. Thompson, who had come to Loveland in 1935 to manage the Rialto, designed the first cachet, "A Valentine Greeting from Sweetheart Town, Loveland, Colorado," used it twice, then began changing it every year; the cowboy Cupid was his idea. He and his wife, Mabel, co-chaired the program for [42 years](https://www.5280.com/2020/02/the-sweetheart-couple-behind-lovelands-valentine-remailing-program/) and in 1962 started the Miss Loveland Valentine contest. Each valentine is still hand-stamped with that year's cachet, verse and cancellation in what the [Chamber](https://loveland.org/programs/valentine-re-mailing-program/) calls the largest program of its kind in the nation, run with the Postal Service; Wikipedia's figure is more than 160,000 cards on average. February 2027 brings the 81st.
+
+The sweetheart town had a harder side. Loveland is known as a former sundown town, one of thousands of American communities that excluded racial and ethnic groups, often with signs at the town limits telling them to leave by sundown. The local historian Olivia Lowe pieced the history together for the Reporter-Herald in 2016, largely from oral accounts; residents recall a visiting basketball team made to sleep elsewhere, homeowners' association rules barring Black residents, housing discrimination and a strong Ku Klux Klan presence. Before 1960 the welcome sign read "Nationally Famous Sweetheart Town," and a smaller handmade one read "We observe the Jim Crow Laws here." The subject returned to [City Council](https://www.kunc.org/2021-09-13/loveland-colorado-splinters-over-racist-sundown-town-past-and-increasingly-diverse-future) in 2020, when the majority declined to pass a non-binding resolution acknowledging systemic racism, and in 2021, when crowds turned out against diversity and equity measures.
+
+## The Rialto
+
+The theater Thompson came to manage, the [Rialto](/places/rialto-theater-center/) on 4th Street, was built for the banker and merchant William C. Vorreiter by the Loveland contractor A. Danielson, who finished it hours before it opened on [May 26, 1920](https://npgallery.nps.gov/NRHP/GetAsset/NRHP/87002213_text), with 1,014 seats behind a Classical Revival front of terra cotta, at a reported cost of $100,000. Gibraltar Enterprises took it over in 1935, brought in the talkies and hired Thompson to run it. The last film, Disney's The Rescuers, played in [1977](https://www.rialtotheatercenter.org/history/), and the building was gutted for a retail mall that failed. The Downtown Development Authority bought it in February 1987, it went on the National Register on February 17, 1988, and volunteers spent fourteen months from 1989 stripping it out, uncovering the 1920 murals. The City Council put up $500,000 to buy it in January 1995, and the City has run it since June 1998.
+
+## Two floods
+
+The Big Thompson leaves its canyon just west of town, and US 34, Loveland's road to Estes Park, follows it up. In the early evening of Saturday, July 31, 1976, during Colorado's centennial celebrations, a stationary thunderstorm dropped as much as 7.5 inches of rain in about an hour on the middle of the basin. The flash flood that came down the narrow canyon killed 144 people, two of them law officers trying to get others out, injured 250, caused more than $35 million in damage, in 1977 dollars, to 418 homes and businesses and 438 cars, and washed out most of the highway; more than 800 people were lifted out by helicopter the [next morning](https://pubs.usgs.gov/fs/2006/3095/).
+
+In September 2013 the river rose again. Rain fell in torrents from the evening of September 11 through most of the 12th, as much as 18 inches between central Boulder County and the Estes Park area, and the Big Thompson ran [well above flood stage](https://www.weather.gov/bou/Number1September2013Floods). Sections of US 34 collapsed, the river flooded parts of Loveland, and two people died in Larimer County. In the canyon the City's hydroelectric plant, rebuilt after 1976, filled with water and silt, and the Idylwilde Dam broke free of the bedrock and was [demolished](https://en.wikipedia.org/wiki/Big_Thompson_River) rather than relicensed.
+
+## The sculptors
+
+In 1984 five Loveland sculptors, George Lundeen, Dan Ostermiller, George Walbye, Fritz White and Hollis Williford, with the City, the Chamber and a few citizens, proposed a sculpture show and sale in Benson Park to pay for a sculpture garden. The first Sculpture in the Park that year had fifty local artists; two thousand people came and bought [$50,000](https://www.sculptureinthepark.org/history) worth of work. The garden opened in 1985, the year Loveland became the first Colorado city to pass an [Art in Public Places ordinance](https://bizwest.com/2005/10/28/sculpture/), designating 1 percent of city capital construction projects of $50,000 or more. The Loveland High Plains Arts Council still runs the August show, which it calls the largest outdoor juried sculpture show in the country, and spends the proceeds on [Benson Sculpture Garden](/places/benson-sculpture-garden/), which holds [188 permanent pieces](https://www.sculptureinthepark.org/about-benson) on 10 acres at 2908 Aspen Drive. Wikipedia counts three foundries in town and 475 works in the City's public art collection, and the Lundeens' [studio and gallery](/places/lundeen-sculpture-studios/) is on East 4th Street.
+
+## The city on the interstate
+
+In the second half of the century Loveland courted Hewlett-Packard, which built a large plant in the southwest of the city; Teledyne and Hach came too, and the population went from 9,734 in 1960 to 30,215 in 1980. The city has since annexed east to the I-25 and US 34 interchange, which it shares with Johnstown, and Centerra, as the area is known, has become a commercial hub for northern Colorado, with shopping centers, the [Blue Arena](/places/the-ranch-events-complex-blue-arena/), a medical center and an Embassy Suites hotel. The census counted 66,859 people in 2010 and 76,378 in 2020, making Loveland the second city of Larimer County and the 14th in Colorado; the Census Bureau's 2025 estimate is 81,387. The older town is still there: the Downtown Loveland Historic District, between Railroad and Jefferson avenues on either side of 4th Street, went on the National Register in 2015.
+
+## Sources
+
+- [Loveland, Colorado](https://en.wikipedia.org/wiki/Loveland,_Colorado) on Wikipedia: the 1877 founding, the April 30, 1881 incorporation, the 1977 factory date, the cherries, the valentines, the pre-1960 signs, the 2013 flood in Loveland, the foundries and public art, HP, Teledyne and Hach, Centerra and the censuses.
+- [Fort Namaqua](https://en.wikipedia.org/wiki/Fort_Namaqua) on Wikipedia: Mariano Medina, the trading post, Namaqua, the stage station, the grave and the cabin.
+- [History of Loveland](https://loveland.org/explore-loveland/loveland/facts-history/history-of-loveland/), Loveland Chamber of Commerce: St. Louis, David Barnes, the depot, the May 11, 1881 vote, the 1985 factory closure, the cherries, Hewlett-Packard and Centerra.
+- [Great Western Sugar Company](https://en.wikipedia.org/wiki/Great_Western_Sugar_Company) on Wikipedia: the 1901 factory, its capacity, the beet labor, the Loveland Resolutions and the 1985 closure.
+- [Valentine Re-Mailing Program](https://loveland.org/programs/valentine-re-mailing-program/), Loveland Chamber of Commerce, and [5280](https://www.5280.com/2020/02/the-sweetheart-couple-behind-lovelands-valentine-remailing-program/): the program's size, partners and 81st year; Ted and Mabel Thompson, the Rialto, the cowboy Cupid and Miss Loveland Valentine.
+- [KUNC, September 13, 2021](https://www.kunc.org/2021-09-13/loveland-colorado-splinters-over-racist-sundown-town-past-and-increasingly-diverse-future): the sundown-town history, residents' accounts and the council debates.
+- [History of the Rialto Theater](https://www.rialtotheatercenter.org/history/), Rialto Theater Center, and the National Park Service's [National Register nomination](https://npgallery.nps.gov/NRHP/GetAsset/NRHP/87002213_text): the builder, opening, seats, cost and facade, Gibraltar and Thompson, the closing, the mall and the restoration.
+- [National Register listings in Larimer County](https://en.wikipedia.org/wiki/National_Register_of_Historic_Places_listings_in_Larimer_County,_Colorado) on Wikipedia: the depot, the Rialto and the downtown district.
+- [1976 Big Thompson Flood, Colorado, Thirty Years Later](https://pubs.usgs.gov/fs/2006/3095/), U.S. Geological Survey, and [Big Thompson River](https://en.wikipedia.org/wiki/Big_Thompson_River) on Wikipedia: the 1976 storm and its toll; the centennial, the highway and the 2013 damage to the City's hydro plant and dam.
+- [The September 2013 floods](https://www.weather.gov/bou/Number1September2013Floods), National Weather Service Boulder: the dates and rainfall.
+- [Our history](https://www.sculptureinthepark.org/history) and [Benson Sculpture Garden](https://www.sculptureinthepark.org/about-benson), Loveland High Plains Arts Council, and [BizWest, October 28, 2005](https://bizwest.com/2005/10/28/sculpture/): the founders, the first show, the garden and its collection; the 1985 ordinance.
