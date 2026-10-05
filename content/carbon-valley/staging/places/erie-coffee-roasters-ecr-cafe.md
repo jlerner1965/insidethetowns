@@ -1,7 +1,7 @@
 ---
 title: "Erie Coffee Roasters: ECR Cafe"
 subTown: frederick
-review: { reason: "The business’s own site states no phone number on its home, cafe or contact pages (read 5 October 2026); the README rule holds a listing back until a phone from the business itself is found. Confirm by phone or email (the site invites enquiries) and publish.", since: "2026-10-05", from: manual }
+review: { reason: "Re-checked 5 October: no phone on the home, cafe or contact-us pages of the business’s own site. Publish with a phone from the business (the site invites enquiries).", since: "2026-10-05", from: manual }
 type: coffee
 address: "4030 Bruin Blvd, Suite A, Frederick, CO 80504"
 url: "https://www.eriecoffeeroasters.com/"

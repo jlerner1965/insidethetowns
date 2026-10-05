@@ -1,7 +1,7 @@
 ---
 title: "School’s Out-Standing: Paint the Plows"
 subTown: firestone
-review: { reason: "The Town's School's Out-Standing page (/725, read 5 October) says Friday 16 October, 12 to 2 pm at Mountain Shadows Park; the Town's calendar feed says 2 to 5 pm. The feed's hours are kept in start and end so ingest does not flag them weekly, and the conflict is carried in timeNote: confirm with the Town before approving. All materials provided; cost not stated.", since: "2026-10-04", from: ingest }
+review: { reason: "Re-checked 5 October: the Town’s School’s Out-Standing page still says noon to 2 pm and its calendar entry (EID=2689, edited 27 July) still says 2 to 5 pm, both at Mountain Shadows Park. Publish once the Town confirms the hours (Kaycee Lott, Events Manager, 303-531-6284).", since: "2026-10-05", from: manual }
 start: "2026-10-16T14:00"
 end: "2026-10-16T17:00"
 venue: "Mountain Shadows Park"

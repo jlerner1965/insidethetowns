@@ -6,8 +6,9 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  * their own pages call the Tri-Towns or the Carbon Valley
  * (firestoneco.gov/281/History-of-Firestone). They share a library (the
  * Carbon Valley Regional Library, High Plains Library District), a parks
- * district (CVPRD), a chamber, a fire district and a holiday festival, and
- * none is large enough for a guide of its own, so every event and place here
+ * district (CVPRD), a chamber and a holiday festival (Frederick and
+ * Firestone share a fire district too; Dacono's is Mountain View Fire
+ * Rescue), and none is large enough for a guide of its own, so every event and place here
  * carries a `subTown` and the site has a section page per town.
  *
  * The name does not follow the "Inside <Town>" pattern: carbonvalleyguide.com
@@ -21,8 +22,9 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  */
 export const carbonValley: TownConfig = {
   kind: 'town',
-  // A holding page until the owner flips it, after the first review.
-  status: 'wave1',
+  // Live on 5 October 2026, at the owner's direction, after the first review
+  // (16 of 15 upcoming events, 27 of 20 listings).
+  status: 'live',
   variant: 'front-range',
   subTowns: ['frederick', 'firestone', 'dacono'],
   // Three towns' worth of content before it opens; set with the brief.
@@ -37,9 +39,10 @@ export const carbonValley: TownConfig = {
   // All three are Weld County municipalities; no county line runs through them.
   counties: ['Weld'],
   state: 'CO',
-  // Frederick's Town Hall, the middle of the three: GNIS via the Wikipedia
-  // infobox, 40°06′50″N 105°00′40″W. Firestone is three miles north, Dacono
-  // three miles south.
+  // Frederick's GNIS point via the Wikipedia infobox, 40°06′50″N 105°00′40″W,
+  // the middle of the three by the network's usual method. It falls west of
+  // I-25; the three old centres (the town halls, OpenStreetMap) are about
+  // four miles east of it, on the far side of the interstate.
   lat: 40.1139,
   lng: -105.0111,
   // 2020 census, the three summed: Frederick 14,513 + Firestone 16,381 + Dacono 6,297.
@@ -85,7 +88,7 @@ export const carbonValley: TownConfig = {
     schoolDistrict:
       'Mostly St. Vrain Valley Schools: Frederick and Firestone entirely, with Frederick High the comprehensive high school; part of Dacono is in Weld RE-8 (Kenneth Homyak PK-8), so check the address.',
     commuteNotes:
-      'I-25 runs along the east side of all three towns. Frederick puts itself twenty miles north of Denver; Firestone calls itself midway between Denver and Fort Collins. Colorado 52 reaches Boulder to the west, and Longmont is ten minutes up Colorado 119. Everyone drives.',
+      'I-25 runs a couple of miles west of the three old centers, with Colorado 52 toward Boulder and Colorado 119 (Exit 240) toward Longmont. Frederick counts the airport 28 minutes away and Boulder 22 miles; Firestone calls itself midway between Denver and Fort Collins. Bustang stops at Exit 240; otherwise everyone drives.',
   },
   officialLinks: {
     // Frederick's, the middle town's; the section pages link each town's own.

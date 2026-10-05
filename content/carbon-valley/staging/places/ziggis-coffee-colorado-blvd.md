@@ -1,7 +1,7 @@
 ---
 title: "Ziggi’s Coffee"
 subTown: firestone
-review: { reason: "The location page on the chain’s own site gives the address and phone but no hours (read 5 October 2026); the README rule wants hours from the business itself. Check the app or call, then publish.", since: "2026-10-05", from: manual }
+review: { reason: "Re-checked 5 October: the location page on the chain’s site gives no hours, in text or structured data. Publish with hours from the business.", since: "2026-10-05", from: manual }
 type: coffee
 address: "10905 Colorado Blvd, Firestone, CO 80504"
 url: "https://ziggiscoffee.com/locations/10905-colorado-blvd-firestone-co/"

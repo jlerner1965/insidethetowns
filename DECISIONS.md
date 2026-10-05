@@ -2916,3 +2916,57 @@ the editor's, to be made as well as possible. What was decided, and done:
   staged; Firestone 1 and 11, 15 and 2; Dacono 0 and 6, 2 and 2. The
   guide clears the listings threshold now and the events threshold once the
   review approves a dozen of the staged ones.
+
+### Live, 5 October 2026
+
+The owner's direction was "you do all of these": run the review, set the
+guide live, attach insidefirestone.com, and set up mail for
+hello@carbonvalleyguide.com. What was done:
+
+- **The review.** Every staged item's source page was read again on the
+  day. Thirteen events passed in the first round and five library events in
+  a second, once the feed was narrowed. Four events were rejected under the
+  event standard, and so were two places whose sites refuse readers, as
+  Loveland's were. Eight items stay staged, each with the fact it still
+  needs: Paint the Plows (the Town's page and calendar give different hours),
+  two events with no venue yet, two the district has not detailed, and three
+  places. Approvals carry `verifiedBy: "Claude Code, delegated by James
+  Lerner"`, so the record shows who decided and on whose authority.
+- **The library feed narrowed to its branch.** High Plains' RSS takes a
+  building filter (`cam=4554`). With it, the registry entry carries only
+  Carbon Valley's events, rather than the district's with a location filter
+  on top.
+- **Two ingest fixes, each with a test:**
+  - Feed text now treats a non-breaking space as a space. LibCal's "Ageless
+    Grace" had slipped past its exclusion on the byte.
+  - The event writer now keeps `subTown`, which its key list had dropped. On
+    a multi-town guide every staged library event came out without its town,
+    and the validator caught all five at approval.
+- **Live.** `status: 'live'` at 21 of 15 upcoming events and 27 of 20
+  listings. By town, events are Firestone 16, Frederick 4 and Dacono 1;
+  places are Firestone 11, Frederick 9 and Dacono 7. Firestone leads on
+  events because the library is there. Frederick's and Dacono's calendars
+  carry mostly meetings, which the event standard keeps out. Live means the
+  guide's own pages are written:
+  - Moving here, from a research pass on the three towns' own pages.
+  - A history.
+  - A with-kids guide.
+- **Corrections found in writing them:**
+  - Dacono's fire service is Mountain View Fire Rescue, not the
+    Frederick-Firestone district.
+  - I-25 runs along the west side of the three old centers, not the east;
+    the commute note had it backwards. OpenStreetMap puts the three town
+    halls about four miles east of the GNIS point the config uses.
+  - St. Vrain State Park is on Firestone's northwest edge, just west of
+    I-25, not its east edge.
+  - British spellings in five Carbon Valley files are now American, per the
+    2 October audit.
+- **insidefirestone.com attached.** With the owner's go-ahead the apex and
+  www were added to the `carbonvalleyguide` project; www redirects to the
+  apex, where the `vercel.json` host rules send it to `/firestone/`. The
+  domain's nameservers are Cloudflare's, but it has no A or CNAME record
+  yet, so nothing resolves.
+- **Cloudflare not done.** The Email Routing rule for hello@ and the two
+  DNS records for insidefirestone.com need Cloudflare, and the
+  environment's `CLOUDFLARE_API_TOKEN` is rejected as invalid. Both wait
+  for the owner, in the dashboard or with a working token.

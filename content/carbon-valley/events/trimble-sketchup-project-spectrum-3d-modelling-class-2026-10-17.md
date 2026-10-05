@@ -1,7 +1,6 @@
 ---
 title: "SketchUp Project Spectrum: 3D Modelling Class"
 subTown: firestone
-review: { reason: "Read from the library's own feed text on 5 October; the event page was not opened separately (the site asks for ten seconds between requests). Check the page for cost and the registration link before approving. Presented by Trimble's Casey Grothus; for middle and high school students, transition-age learners and adults, designed with autistic participants in mind.", since: "2026-10-04", from: ingest }
 start: "2026-10-17T13:30"
 end: "2026-10-17T15:00"
 venue: "Carbon Valley Regional Library"
@@ -13,6 +12,8 @@ source: "https://highplains.libcal.com/event/17473439"
 sourceId: "highplains-libcal-com"
 sourceUid: "libcal:17473439"
 sourceHash: "cd51aef8c0b2"
+verified: "2026-10-05"
+verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 
 Learn SketchUp, the 3D modelling software behind architecture, interior design, game levels and 3D-printable designs, in a class presented by Trimble's Casey Grothus. It starts with the basics and then lets each participant build a project from their own interests, with group teaching and one-to-one help. Project Spectrum is designed with autistic participants in mind and welcomes anyone neurodivergent, from middle school to adult; you need to be comfortable with a computer and mouse, nothing more.

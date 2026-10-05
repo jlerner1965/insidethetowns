@@ -223,6 +223,11 @@ test("LibCal RSS: the libcal elements carry the facts; a room and its branch mak
   assert.equal(passesLocationFilter(hunt, { locationFilter: ['Carbon Valley'] }), false);
 });
 
+test('a non-breaking space is a space: in feed text and in the title exclusions', () => {
+  assert.equal(plainText('Ageless\u00a0Grace&nbsp;®'), 'Ageless Grace ®');
+  assert.equal(excludedTitle({ title: 'Ageless\u00a0Grace®' }, { excludeTitles: ['Ageless Grace'] }), true, 'even a title that reached the matcher unconverted');
+});
+
 test("a site's ids are its own: a file read from another site with the same id is not that event", () => {
   const item: FeedEvent = { uid: '2690', title: 'Halloween Safe Night', start: parseLocal('2026-10-23T17:00'), allDay: false, categories: [], status: 'confirmed', url: 'https://www.firestoneco.gov/calendar.aspx?EID=2690' };
   const theirs: ExistingEvent = { file: 'x', slug: 'x', staged: false, title: 'City Council Meeting', start: parseLocal('2026-10-12T18:00'), venue: 'Dacono City Hall', sourceUid: '2690', sourceHost: 'daconoco.gov' };
@@ -433,6 +438,11 @@ test('a staged file round-trips through the frontmatter reader and the event sch
   assert.match(data.review?.reason ?? '', /rewrite/);
   assert.equal(data.verified, undefined, 'approval stamps verified, not ingest');
   assert.match(parsed.body, /Rewrite in the guide/);
+  // A multi-town guide's source carries its town onto every file it stages.
+  const firestone = toStaged(item, source({ subTown: 'firestone' }), 'carbon-valley', '2026-10-04');
+  const firestoneText = eventFile(firestone.frontmatter, firestone.body);
+  assert.match(firestoneText, /^title: .*\nsubTown: firestone\n/m);
+  assert.equal(eventSchema(() => z.string()).parse(parseFrontmatter(firestoneText).data).subTown, 'firestone');
   assert.equal(slugify('Baby Storytime & Stay-and-Play'), 'baby-storytime-and-stay-and-play');
   // A cancelled item arrives already marked, with the feed as its source.
   const canceled = toStaged({ ...item, status: 'cancelled' }, source(), 'elizabeth', '2026-10-04');

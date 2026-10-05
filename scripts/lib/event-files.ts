@@ -25,6 +25,7 @@ export function yamlString(value: string): string {
 /** The keys an event file carries, in the order a reader expects them. Also the write allowlist. */
 export const EVENT_KEY_ORDER = [
   'title',
+  'subTown',
   'review',
   'changeFlag',
   'changeNote',
@@ -56,7 +57,7 @@ export const EVENT_KEY_ORDER = [
   'verifiedBy',
 ] as const;
 
-const BARE = new Set(['category', 'repeat', 'image', 'status']);
+const BARE = new Set(['subTown', 'category', 'repeat', 'image', 'status']);
 
 
 function inlineMap(value: Record<string, unknown>): string {

@@ -1,7 +1,7 @@
 ---
 title: "Zumba Glow Party"
 subTown: frederick
-review: { reason: "The district’s fitness page (read 5 October 2026) gives Friday 16 October, 6:30 to 8 pm and the fee, but says the location is \"Coming soon!\"; the district has three buildings in Frederick. Check the page or call 303-833-3660 for the venue before approving.", since: "2026-10-05", from: manual }
+review: { reason: "Re-checked 5 October: the district’s fitness page still says \"Location: Coming soon!\" for Friday 16 October, 6:30 to 8 pm. Publish when it names the building.", since: "2026-10-05", from: manual }
 start: "2026-10-16T18:30"
 end: "2026-10-16T20:00"
 venue: "Carbon Valley Parks and Recreation District (venue to be announced)"
