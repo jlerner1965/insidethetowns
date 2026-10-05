@@ -1,8 +1,8 @@
 ---
 title: "Chapungu Sculpture Park at Centerra"
-review: { reason: "The park's site gives its location only as \"just east of the Promenade Shops at Centerra off Hwy. 34 and Centerra Parkway\", with no street address; confirm a street address in a browser.", since: "2026-10-04", from: manual }
+review: { reason: "The park gives no street address; its own site places it just east of the Promenade Shops at Centerra off Hwy. 34 and Centerra Parkway, which is what the address line now says. Phone from its contact page, hours and admission from its home page (both read 5 October 2026). Ready to approve.", since: "2026-10-04", from: manual }
 type: park
-address: "Address to be confirmed"
+address: "Off US 34 and Centerra Parkway, just east of the Promenade Shops at Centerra, Loveland, CO"
 url: "https://chapunguatcenterra.com/"
 source: "https://chapunguatcenterra.com/"
 phone: "970-962-9990"
