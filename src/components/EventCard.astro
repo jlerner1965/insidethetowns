@@ -14,7 +14,7 @@
  */
 import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
-import { dayKey, formatDate, formatDayRange, formatMonthDay, formatTimeRange, formatWeekday, monthDay, toIsoLocal } from '@/lib/dates';
+import { dayKey, formatDate, formatDayRange, formatMonthDay, formatTime, formatTimeRange, formatWeekday, monthDay, toIsoLocal } from '@/lib/dates';
 import { isCanceled, isInProgress, lastDay } from '@/lib/events';
 import { CATEGORY_LABELS, EVENT_STATUS_LABELS } from '@/content/schemas';
 
@@ -42,6 +42,22 @@ const time =
     : multiDay && data.allDay
       ? formatDayRange(data.start, data.end!)
       : formatTimeRange(data.start, data.end, data.allDay));
+// Under a day heading the time sits in a 4.5rem column. "7 pm" and "to 9 pm"
+// fit it; "Now through October 31" did not, and as one unbreakable line it ran
+// over the category. A run of days is given there as short words that wrap
+// ("Now through" / "Oct 31"), with the first day left to the heading above.
+const shortDay = (d: Date) => `${monthDay(d).month} ${monthDay(d).day}`;
+const [cellTime, cellTo] = data.timeNote
+  ? [data.timeNote]
+  : running
+    ? ['Now through', shortDay(data.end!)]
+    : multiDay && data.allDay
+      ? ['Through', shortDay(data.end!)]
+      : multiDay
+        ? [formatTime(data.start), `to ${monthDay(data.end!).weekday} ${formatTime(data.end!)}`]
+        : data.end && !data.allDay
+          ? [formatTime(data.start), `to ${formatTime(data.end)}`]
+          : [time];
 const note =
   data.recurring ??
   (data.repeat === 'weekly' && data.until ? `Every ${formatWeekday(data.start)} through ${formatDate(data.until)}` : undefined);
@@ -64,10 +80,10 @@ const note =
   ) : (
     <time
       datetime={toIsoLocal(data.start)}
-      class:list={['pt-1 text-sm font-semibold tabular-nums leading-snug text-ink-muted', data.timeNote ? 'break-words' : 'whitespace-nowrap']}
+      class:list={['pt-1 text-sm font-semibold tabular-nums leading-snug text-ink-muted', data.timeNote || multiDay ? 'break-words' : 'whitespace-nowrap']}
     >
-      {time.split(' – ')[0]}
-      {data.end && !data.allDay && !data.timeNote && <span class="block text-ink-faint">to {time.split(' – ')[1]}</span>}
+      {cellTime}
+      {cellTo && <span class="block text-ink-faint">{cellTo}</span>}
     </time>
   )}
   <div class="min-w-0">
