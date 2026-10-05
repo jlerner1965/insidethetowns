@@ -14,8 +14,8 @@ insidetimnath.com    TOWN=timnath
 insideelizabeth.com  TOWN=elizabeth
 insidewindsorco.com  TOWN=windsor
 insidefortcollins.com TOWN=fortcollins
-insidelongmontco.com TOWN=longmont   (not live: holding page)
-insidelovelandco.com TOWN=loveland   (not live: holding page)
+insidelongmontco.com TOWN=longmont
+insidelovelandco.com TOWN=loveland
 …
 ```
 
@@ -101,8 +101,8 @@ of a product or service" as commercial. `/advertise/` is that. A commercial
 network on a Hobby account risks being paused, which takes every site
 down at once.
 
-One seat covers every project: the ten guides plus the retired
-predecessors' projects. Pro is billed per user, not per project.
+One seat covers every project: the hub and the eleven guides, plus the
+retired predecessors' projects. Pro is billed per user, not per project.
 
 The build also writes `_headers` and `_redirects` into the output
 (`src/integrations/host-files.ts`), generated from `vercel.json`. Vercel
@@ -190,11 +190,12 @@ not been measured on a real deployment yet.
 
 ## Email
 
-Every town config publishes one address, `hello@<domain>`, and all ten domains
+Every town config publishes one address, `hello@<domain>`, and all twelve domains
 receive it through **Cloudflare Email Routing**, which forwards it to the owner's
 inbox. There is no mailbox anywhere: Cloudflare accepts the message and passes it
-on. Set up on 27 September 2026 for the first eight domains; insidewindsorco.com
-and insidefortcollins.com still need theirs.
+on. Set up on 27 September 2026 for the first eight domains and on 4 October
+for the other four: insidewindsorco.com, insidefortcollins.com,
+insidelongmontco.com and insidelovelandco.com.
 
 On each domain (Cloudflare → the domain → Email → Email Routing):
 
