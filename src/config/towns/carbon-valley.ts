@@ -39,9 +39,10 @@ export const carbonValley: TownConfig = {
   // All three are Weld County municipalities; no county line runs through them.
   counties: ['Weld'],
   state: 'CO',
-  // Frederick's Town Hall, the middle of the three: GNIS via the Wikipedia
-  // infobox, 40°06′50″N 105°00′40″W. Firestone is three miles north, Dacono
-  // three miles south.
+  // Frederick's GNIS point via the Wikipedia infobox, 40°06′50″N 105°00′40″W,
+  // the middle of the three by the network's usual method. It falls west of
+  // I-25; the three old centres (the town halls, OpenStreetMap) are about
+  // four miles east of it, on the far side of the interstate.
   lat: 40.1139,
   lng: -105.0111,
   // 2020 census, the three summed: Frederick 14,513 + Firestone 16,381 + Dacono 6,297.
@@ -87,7 +88,7 @@ export const carbonValley: TownConfig = {
     schoolDistrict:
       'Mostly St. Vrain Valley Schools: Frederick and Firestone entirely, with Frederick High the comprehensive high school; part of Dacono is in Weld RE-8 (Kenneth Homyak PK-8), so check the address.',
     commuteNotes:
-      'I-25 runs along the east side of all three towns. Frederick puts itself twenty miles north of Denver; Firestone calls itself midway between Denver and Fort Collins. Colorado 52 reaches Boulder to the west, and Longmont is ten minutes up Colorado 119. Everyone drives.',
+      'I-25 runs a couple of miles west of the three old centers, with Colorado 52 toward Boulder and Colorado 119 (Exit 240) toward Longmont. Frederick counts the airport 28 minutes away and Boulder 22 miles; Firestone calls itself midway between Denver and Fort Collins. Bustang stops at Exit 240; otherwise everyone drives.',
   },
   officialLinks: {
     // Frederick's, the middle town's; the section pages link each town's own.

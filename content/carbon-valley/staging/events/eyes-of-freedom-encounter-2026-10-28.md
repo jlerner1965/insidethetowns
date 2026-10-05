@@ -13,4 +13,4 @@ source: "https://www.cvprd.com/special-events"
 sourceId: "cvprd-com"
 ---
 
-The Eyes of Freedom is a travelling memorial to those who have served; the district’s special-events page lists an encounter with the exhibit and its stories on Wednesday 28 October.
+The Eyes of Freedom is a traveling memorial to those who have served; the district’s special-events page lists an encounter with the exhibit and its stories on Wednesday 28 October.
