@@ -17,11 +17,21 @@ import NetworkEventCard from '@/components/NetworkEventCard.astro';
 import { getNetworkEntries } from '@/lib/content';
 import { formatDayRange } from '@/lib/dates';
 import { highlights, occurrences, oneOffs, weekendSections, weekendWindow } from '@/lib/events';
-import { LIVE_TOWNS, countiesCovered, countyLabel, getHub } from '@/config';
+import { LIVE_TOWNS, TOWN_REGIONS, countiesCovered, countyLabel, getHub } from '@/config';
 
 const hub = getHub();
 const live = hub.towns.filter((t) => LIVE_TOWNS.includes(t.slug));
 const soon = hub.towns.filter((t) => !LIVE_TOWNS.includes(t.slug));
+/**
+ * Most visitors came for one town. On a phone the cards were two screens of
+ * events and a map away, so the hero ends in a row of names, A to Z, drawn
+ * from the same live list as the cards so the two cannot disagree.
+ */
+const atoz = [...live].sort((a, b) => a.name.localeCompare(b.name, 'en'));
+/** The cards, one group per region in TOWN_REGIONS order, A to Z within each. */
+const regions = TOWN_REGIONS.map((region) => ({ region, towns: atoz.filter((t) => t.region === region) })).filter(
+  (g) => g.towns.length > 0,
+);
 /**
  * The weekend across every guide, ranked the way a town's own home page ranks
  * its listings (highlights). On a Sunday night, or in a quiet week, the
@@ -51,32 +61,51 @@ const { start: weekendStart, sunday } = weekendWindow(now);
 const description = `Independent guides to ${live.length} towns on Colorado’s Front Range: the week’s events, where to eat and drink, the trails, and what it’s like to live there.`;
 ---
 <Base {description}>
-  <section class="container-page pb-14 pt-16 md:pt-28">
+  {/* Set a little tighter below 640px so the whole picker fits on a phone's
+     first screen; from sm up it is the hero it always was. */}
+  <section class="container-page pb-14 pt-10 sm:pt-16 md:pt-28">
     <p class="eyebrow">Colorado’s Front Range</p>
-    <h1 class="display mt-5 max-w-4xl text-[3.25rem] sm:text-7xl lg:text-8xl">
+    <h1 class="display mt-4 max-w-4xl text-[2.75rem] sm:mt-5 sm:text-7xl lg:text-8xl">
       Independent guides to the towns worth knowing.
     </h1>
-    <p class="mt-7 max-w-2xl text-lg leading-relaxed text-ink-muted md:text-2xl md:leading-relaxed">
+    <p class="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted sm:mt-7 sm:text-lg md:text-2xl md:leading-relaxed">
       {hub.tagline} One site per town: the week’s events, where to eat and drink, the trails, and a straight
       account of what it’s like to live there.
     </p>
+    <nav aria-labelledby="town-picker" class="mt-8 sm:mt-10 md:mt-14">
+      <p id="town-picker" class="eyebrow">Pick your town</p>
+      <ul class="mt-3 grid max-w-4xl grid-cols-3 gap-2 sm:grid-cols-4 lg:grid-cols-6">
+        {atoz.map((t) => (
+          <li class="flex">
+            <a
+              href={`https://${t.domain}/`}
+              class="flex min-h-11 w-full items-center justify-center rounded-full bg-raised px-1 text-center text-[0.8125rem] font-semibold leading-tight text-ink no-underline ring-1 ring-line-soft transition hover:text-accent-text hover:ring-line sm:px-3 sm:text-sm md:text-[0.9375rem]"
+            >{t.name}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   </section>
 
   {lead.length > 0 && (
     <section class="band band-white">
-      <div class="container-page" data-events-scope>
+      {/* Below 640px: the first three, then "Everything on" after them rather
+         than in the header. Hidden, not dropped, so Freshness can still remove
+         a past event and the next one moves up into the three. */}
+      <div class="container-page max-sm:[&>:first-child>a]:hidden" data-events-scope>
         <SectionHeader
           eyebrow={leadIsWeekend ? `Across the towns · ${formatDayRange(weekendStart, sunday)}` : 'Across the towns'}
           title={leadIsWeekend ? 'This weekend' : 'What’s on next'}
           href="/this-weekend/"
           linkLabel="Everything on"
         />
-        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7 max-sm:[&>:nth-child(n+4)]:hidden">
           {lead.map((event) => <NetworkEventCard event={event} />)}
         </div>
         <p data-events-empty hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
           Those dates have passed. <a href="/this-weekend/" class="font-semibold text-accent-text">See what’s on now.</a>
         </p>
+        <a href="/this-weekend/" class="mt-3 inline-flex min-h-11 items-center text-[0.9375rem] font-semibold text-accent-text no-underline hover:underline sm:hidden">Everything on →</a>
       </div>
     </section>
   )}
@@ -85,21 +114,33 @@ const description = `Independent guides to ${live.length} towns on Colorado’s 
     <div class="container-page">
     <SectionHeader eyebrow="The network" title="The towns" />
     <div class="grid items-start gap-10 lg:grid-cols-[3fr_2fr] lg:gap-14">
-      <TownMap towns={hub.towns} />
-      <div class="grid content-start gap-5 sm:grid-cols-2 lg:grid-cols-1">
-        {live.map((t) => (
-          <a
-            href={`https://${t.domain}/`}
-            class="group block rounded-lg border-l-4 bg-raised p-6 no-underline ring-1 ring-line-soft transition hover:ring-line"
-            style={`border-color:${t.colors.accent}`}
-          >
-            <p class="eyebrow" style={`color:${t.colors.accentDark}`}>{countyLabel(t)}</p>
-            <h3 class="mt-2 text-3xl font-medium leading-none">
-              <span class="font-light italic">Inside</span> <span class="font-semibold">{t.name}</span>
-            </h3>
-            <p class="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">{t.tagline}</p>
-            <p class="mt-4 text-sm font-semibold group-hover:underline" style={`color:${t.colors.accentDark}`}>{t.domain} →</p>
-          </a>
+      {/* Not on a phone: at 375px its labels are too small to read or tap. */}
+      <div class="hidden sm:block">
+        <TownMap towns={hub.towns} />
+      </div>
+      <div class="grid content-start gap-8 sm:gap-10">
+        {regions.map(({ region, towns }) => (
+          <div>
+            <h3 class="mb-4 text-xl sm:mb-5 sm:text-2xl">{region}</h3>
+            {/* A phone gets name and county only, two across, the names level along
+               each row however the county line wraps; the card is still the link. */}
+            <div class="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-1">
+              {towns.map((t) => (
+                <a
+                  href={`https://${t.domain}/`}
+                  class="group flex flex-col rounded-lg border-l-4 bg-raised p-4 no-underline ring-1 ring-line-soft transition hover:ring-line sm:block sm:p-6"
+                  style={`border-color:${t.colors.accent}`}
+                >
+                  <p class="eyebrow" style={`color:${t.colors.accentDark}`}>{countyLabel(t)}</p>
+                  <h4 class="mt-auto pt-1.5 text-xl font-medium leading-none sm:mt-2 sm:pt-0 sm:text-3xl">
+                    <span class="hidden font-light italic sm:inline">Inside</span> <span class="font-semibold">{t.name}</span>
+                  </h4>
+                  <p class="mt-3 hidden text-[0.9375rem] leading-relaxed text-ink-muted sm:block">{t.tagline}</p>
+                  <p class="mt-4 hidden text-sm font-semibold group-hover:underline sm:block" style={`color:${t.colors.accentDark}`}>{t.domain} →</p>
+                </a>
+              ))}
+            </div>
+          </div>
         ))}
         {soon.length > 0 && (
           <div class="rounded-lg border border-dashed border-accent-line bg-accent-tint p-6">

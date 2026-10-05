@@ -12,6 +12,7 @@ export const fortcollins: TownConfig = {
   kind: 'town',
   status: 'live',
   variant: 'front-range',
+  region: 'Northern Colorado',
   slug: 'fortcollins',
   name: 'Fort Collins',
   domain: 'insidefortcollins.com',

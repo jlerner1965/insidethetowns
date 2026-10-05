@@ -8,7 +8,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { towns } from '../src/config/towns/registry.ts';
-import { countiesCovered, countyLabel, countyShort } from '../src/config/towns/types.ts';
+import { TOWN_REGIONS, countiesCovered, countyLabel, countyShort } from '../src/config/towns/types.ts';
 import { LIVE_TOWNS } from '../src/config/index.ts';
 import { hub } from '../src/config/towns/hub.ts';
 import { homeTitle } from '../src/lib/titles.ts';
@@ -103,6 +103,21 @@ test('every live town is configured and every config is complete enough to build
     assert.equal(t.state, 'CO');
     assert.ok(t.counties.length >= 1, `${slug}: at least one county`);
   }
+});
+
+test('the hub groups every guide under the region the owner set', () => {
+  // The owner's grouping for the hub home page, 5 October 2026. A reader's
+  // grouping, not a county one: Erie and Carbon Valley are mostly Weld.
+  const REGIONS: Record<string, string[]> = {
+    'Northern Colorado': ['berthoud', 'fortcollins', 'johnstown', 'loveland', 'timnath', 'windsor'],
+    'Boulder County & St. Vrain': ['carbon-valley', 'erie', 'longmont', 'lyons', 'niwot'],
+    'South & east of Denver': ['elizabeth'],
+  };
+  assert.deepEqual(Object.keys(REGIONS), [...TOWN_REGIONS], 'regions, in the order the hub lists them');
+  for (const [region, slugs] of Object.entries(REGIONS)) {
+    for (const slug of slugs) assert.equal(by(slug).region, region, `${slug}: region`);
+  }
+  for (const t of towns) assert.ok((TOWN_REGIONS as readonly string[]).includes(t.region), `${t.slug}: region`);
 });
 
 test('what is live is decided by status, nowhere else', () => {

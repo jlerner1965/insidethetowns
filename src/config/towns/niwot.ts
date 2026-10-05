@@ -4,6 +4,7 @@ export const niwot: TownConfig = {
   kind: 'town',
   status: 'live',
   variant: 'front-range',
+  region: 'Boulder County & St. Vrain',
   slug: 'niwot',
   name: 'Niwot',
   domain: 'insideniwot.com',

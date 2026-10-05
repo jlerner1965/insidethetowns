@@ -45,6 +45,16 @@ export type TownStatus = (typeof TOWN_STATUSES)[number];
 export const TOWN_VARIANTS = ['front-range', 'mountain'] as const;
 export type TownVariant = (typeof TOWN_VARIANTS)[number];
 
+/**
+ * Where the hub's home page lists a town. A reader looks for their own
+ * corner of the Front Range before their town, so "The towns" is grouped by
+ * these, in this order. It is a reader's grouping, not a county one: Erie
+ * and Carbon Valley are mostly Weld but sit with Boulder County & St. Vrain,
+ * and each card still names its counties.
+ */
+export const TOWN_REGIONS = ['Northern Colorado', 'Boulder County & St. Vrain', 'South & east of Denver'] as const;
+export type TownRegion = (typeof TOWN_REGIONS)[number];
+
 export interface TownConfig {
   kind: 'town';
   /** URL-safe identifier, also the content folder name: "lyons" */
@@ -53,6 +63,8 @@ export interface TownConfig {
   status: TownStatus;
   /** See TownVariant. */
   variant: TownVariant;
+  /** See TownRegion. */
+  region: TownRegion;
   /**
    * The places a multi-town guide covers, as slugs: Carbon Valley's
    * frederick, firestone and dacono. Every item on such a guide is tagged

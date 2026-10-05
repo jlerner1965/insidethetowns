@@ -26,6 +26,7 @@ export const carbonValley: TownConfig = {
   // (16 of 15 upcoming events, 27 of 20 listings).
   status: 'live',
   variant: 'front-range',
+  region: 'Boulder County & St. Vrain',
   subTowns: ['frederick', 'firestone', 'dacono'],
   // Three towns' worth of content before it opens; set with the brief.
   launchThreshold: { events: 15, listings: 20 },

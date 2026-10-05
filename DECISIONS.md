@@ -3009,3 +3009,32 @@ use:
   Firestone domain, and other paths 404ed. The source is now `/(.*)`, which
   exports to `_redirects` as `/*`. A host-files test now fails any redirect
   whose source ends in a bare `:param*`.
+
+## The hub home page on a phone
+
+Owner's brief, 5 October 2026: help a visitor reach their town faster,
+especially on a phone, where the first town card sat about 2,570px down,
+behind six events and the map. Home page only.
+
+- **A town picker ends the hero.** Every live guide by its short name, A to
+  Z, drawn from the same list as the cards. Three across below 640px, four
+  from 640px, six (two rows, the headline's width) from 1024px. Every chip
+  is at least 44px tall.
+- **The hero is set a little tighter below 640px** (top padding, headline
+  2.75rem rather than 3.25rem, intro at body size). This was the one change
+  the brief did not list. Without it the picker's last row ended at 921px,
+  below a 375×812 screen. Now it ends at 749px. From 640px up the hero
+  measures exactly as before.
+- **"The towns" is grouped by `region`,** a new required field on every
+  town config (`TOWN_REGIONS` in `types.ts`), A to Z within each group. It
+  is a reader's grouping, not a county one: Erie and Carbon Valley are
+  mostly Weld but sit under Boulder County & St. Vrain. The county line on
+  each card is unchanged. `new-town` writes a placeholder region, and the
+  towns test holds every guide to the owner's grouping.
+- **Below 640px** the cards show only the county and the town's name, two
+  across, with no map. The "This weekend" block shows three events and then
+  "Everything on", which moves from the header to the end of the list. The
+  other three events are hidden with CSS, not dropped from the HTML, so the
+  Freshness script can still remove a past event and let the next one move
+  up.
+- Page height at 375px went from 8,884px to 5,186px.

@@ -4,6 +4,7 @@ export const windsor: TownConfig = {
   kind: 'town',
   status: 'live',
   variant: 'front-range',
+  region: 'Northern Colorado',
   slug: 'windsor',
   name: 'Windsor',
   // insidewindsor.com belongs to someone else; the "co" is the domain's, not the slug's.
