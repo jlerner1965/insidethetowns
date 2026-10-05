@@ -3039,10 +3039,10 @@ behind six events and the map. Home page only.
   up.
 - Page height at 375px went from 8,884px to 5,186px.
 
-## Sideways scroll on phones
+## Sideways scroll on phones and tablets
 
 Found while checking the hub home page, 5 October 2026. Every case on a
-phone came from one of two places.
+phone came from one of the first two places; the last two are tablets.
 
 - **The masthead.** The wordmark sits on one line beside the search and menu
   buttons, at 1.75rem whatever the title. "Inside Carbon Valley" was wider
@@ -3068,8 +3068,17 @@ phone came from one of two places.
   `markdown.rehypePlugins`, so wrapping each table in a scrolling `div` at
   build time would need Sätteri's own plugin API and a direct dependency.
   The CSS above does the same job.
-- **Not changed: 1024px.** At 1024–1150px the nav row is wider than the
-  screen on ten sites and pushes the search icon off the right edge. That
-  is tablet landscape, not a phone, and fixing it means choosing between
-  keeping the menu button up to 1280px and tightening the row, so it is
-  left for the owner.
+- **The nav row waits for 1280px.** At 1024px (iPad landscape) the row,
+  with a long title beside it, was wider than the screen on ten sites and
+  pushed the search button off the edge; Inside Carbon Valley's needs about
+  1,150px. The owner chose the menu button up to 1280px over a tighter row,
+  which would only just have fitted Carbon Valley and broken on the next
+  long name. Everything that knew the old breakpoint moved with it: the
+  `xl:` classes, the panel's media query and the script's `matchMedia`.
+- **The /moving/ comparison becomes a table at 960px, not 832px.** A media
+  query's rem is the browser's 16px, not the page's 17, so `52rem` was
+  832px, and the table cannot be narrower than about 875px, since its
+  headers and town names do not wrap. It pushed the page up to 75px
+  sideways between 832 and 906px. Below 60rem it is the cards it already
+  is on a phone; above, if it ever outgrows the page, it scrolls in its own
+  box.

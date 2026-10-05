@@ -182,7 +182,7 @@
 /*
  * The navigation, one list in two shapes.
  *
- * Below 64rem it is a panel that drops from under the header, hidden with
+ * Below 80rem it is a panel that drops from under the header, hidden with
  * `display: none` rather than opacity so its links are not tabbable while it
  * is shut, and positioned against the header rather than at a fixed offset so
  * it cannot land in the wrong place when the header changes height.
@@ -241,7 +241,7 @@
   }
 }
 
-@media (width < 64rem) {
+@media (width < 80rem) {
   .site-nav {
     position: absolute;
     inset-block-start: 100%;
@@ -281,7 +281,16 @@
  * carries its own label from data-label, because a seven-column table at
  * 375px is a horizontal scroll nobody performs. The table semantics stay
  * intact either way, so a screen reader still gets headers and rows.
+ *
+ * The switch is at 60rem (960px: a media query's rem is the browser's 16px,
+ * not the page's 17). The table cannot be narrower than about 875px, since
+ * its headers and town names do not wrap, and at the old 52rem (832px) it
+ * pushed the page up to 75px sideways. If it ever outgrows even that, it
+ * scrolls in its own box rather than moving the page.
  */
+@media (width >= 60rem) {
+  .compare { overflow-x: auto; }
+}
 .compare table {
   inline-size: 100%;
   border-collapse: collapse;
@@ -322,7 +331,7 @@
   color: var(--color-ink-faint);
 }
 
-@media (width < 52rem) {
+@media (width < 60rem) {
   .compare thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
   .compare tbody tr {
     display: block;
