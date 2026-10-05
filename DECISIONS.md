@@ -2970,3 +2970,20 @@ hello@carbonvalleyguide.com. What was done:
   DNS records for insidefirestone.com need Cloudflare, and the
   environment's `CLOUDFLARE_API_TOKEN` is rejected as invalid. Both wait
   for the owner, in the dashboard or with a working token.
+
+### The name, 5 October 2026
+
+The owner's direction, once the guide was live: the domain is different, but
+the guide is still titled "Inside Carbon Valley". That reverses the first
+choice above:
+
+- `siteTitle` is "Inside Carbon Valley". The wordmark, page titles, footer,
+  feeds and structured data all read it from the config.
+- The domain stays carbonvalleyguide.com, and stays the towns test's one
+  named exception to `inside*.com`.
+- The masthead's "An Inside the Towns guide" line existed only because this
+  guide's name did not begin with "Inside". The wordmark now says it, as on
+  every other guide, so the header is back to what it was before Carbon
+  Valley.
+- The towns test now holds every live guide's title to `Inside <name>`,
+  whatever its domain.

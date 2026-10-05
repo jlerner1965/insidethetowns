@@ -1,4 +1,4 @@
-# Content for Carbon Valley Guide
+# Content for Inside Carbon Valley
 
 Everything on carbonvalleyguide.com that is not layout lives in this folder. Edit
 Markdown, commit, push; the site rebuilds. No code changes needed.

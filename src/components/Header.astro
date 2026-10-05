@@ -8,17 +8,10 @@
  * usual way to do this and it puts every link in the page twice, which is
  * duplicate anchor text on four hundred pages and two things to keep in step.
  */
-import { getNetworkHub, getSite } from '@/config';
+import { getSite } from '@/config';
 import Wordmark from './Wordmark.astro';
 
 const site = getSite();
-const hub = getNetworkHub();
-/*
- * Every guide but one is "Inside <Town>", and the wordmark alone says which
- * network it belongs to. Carbon Valley Guide does not, so under its wordmark
- * the masthead names the network, linking the hub, on every page.
- */
-const networkLine = site.kind === 'town' && !/^Inside\s/.test(site.siteTitle);
 const path = Astro.url.pathname;
 const isActive = (href: string) => {
   const clean = href.split('#')[0] ?? href;
@@ -32,14 +25,7 @@ const isActive = (href: string) => {
 <header class="relative bg-paper">
   <div class="container-page">
     <div class="flex items-center justify-between gap-6 py-5 md:py-7">
-      <div class="min-w-0">
-        <Wordmark class="whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" />
-        {networkLine && (
-          <p class="mt-1.5 whitespace-nowrap text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-ink-muted">
-            An <a href={`https://${hub.domain}/`} class="text-accent-text no-underline hover:underline">{hub.siteTitle}</a> guide
-          </p>
-        )}
-      </div>
+      <Wordmark class="whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" />
 
       <div class="flex items-center gap-1 lg:order-last lg:gap-2">
         <a

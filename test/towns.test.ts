@@ -91,13 +91,15 @@ test('no guide claims a single school district for a town that has two', () => {
 });
 
 test('every live town is configured and every config is complete enough to build', () => {
-  // One guide is not an "Inside": carbonvalleyguide.com covers three towns
-  // under a name of its own, and its masthead names the network instead.
-  const OWN_NAME = new Map([['carbon-valley', 'carbonvalleyguide.com']]);
+  // One guide's domain is not an "inside" one: Carbon Valley covers three
+  // towns at carbonvalleyguide.com. Its title is still "Inside Carbon
+  // Valley", as every guide's is, whatever the domain (owner, 5 October 2026).
+  const OWN_DOMAIN = new Map([['carbon-valley', 'carbonvalleyguide.com']]);
   for (const slug of LIVE_TOWNS) {
     const t = by(slug);
-    if (OWN_NAME.has(slug)) assert.equal(t.domain, OWN_NAME.get(slug), `${slug}: domain`);
+    if (OWN_DOMAIN.has(slug)) assert.equal(t.domain, OWN_DOMAIN.get(slug), `${slug}: domain`);
     else assert.match(t.domain, /^inside[a-z]+\.com$/, `${slug}: domain`);
+    assert.equal(t.siteTitle, `Inside ${t.name}`, `${slug}: title`);
     assert.equal(t.state, 'CO');
     assert.ok(t.counties.length >= 1, `${slug}: at least one county`);
   }
