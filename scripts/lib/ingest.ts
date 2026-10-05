@@ -26,6 +26,18 @@ export interface ExistingEvent {
   status?: string;
   sourceUid?: string;
   sourceHash?: string;
+  /** The host of the page the file was read from, without "www.": the site whose ids `sourceUid` belongs to. */
+  sourceHost?: string;
+}
+
+/** "https://www.firestoneco.gov/calendar.aspx?EID=2690" -> "firestoneco.gov". */
+export function hostOf(url: string | undefined): string | undefined {
+  if (!url) return undefined;
+  try {
+    return new URL(url).hostname.replace(/^www\./, '').toLowerCase();
+  } catch {
+    return undefined;
+  }
 }
 
 /** The frontmatter and body a feed item becomes. */
@@ -217,8 +229,13 @@ export type Match =
  * change. Two or more (a morning and an afternoon storytime) means the time
  * is what tells them apart, and only the nearest within half an hour matches.
  */
-export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblings = 1, claimed?: ReadonlySet<string>): Match {
-  const byUid = existing.find((e) => e.sourceUid && e.sourceUid === item.uid);
+export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblings = 1, claimed?: ReadonlySet<string>, host?: string): Match {
+  // A site's ids are its own: CivicPlus numbers its events from 1 on every
+  // site, so Firestone's 2690 and Dacono's 2690 are two events on one guide.
+  // The site, not the registry entry, is the scope: Longmont's council and
+  // library feeds are one site and share ids, and an item in both is one
+  // event. A file whose host is unknown still matches any id, as before.
+  const byUid = existing.find((e) => e.sourceUid && e.sourceUid === item.uid && (!host || !e.sourceHost || e.sourceHost === host));
   if (byUid) return { kind: byUid.staged ? 'staged' : 'published', existing: byUid };
   const day = dayKey(item.start);
   const sameDay = existing.filter((e) => dayKey(e.start) === day);

@@ -46,6 +46,17 @@ function decode(text: string): string {
     .replace(/&#8211;/g, '–')
     .replace(/&#8212;/g, '—')
     .replace(/&#(\d+);/g, (_, n: string) => String.fromCodePoint(Number(n)))
+    // LibCal writes its HTML with hex entities ("&#x3C;p&#x3E;") and the
+    // usual named ones inside them.
+    .replace(/&#x([0-9a-f]+);/gi, (_, n: string) => String.fromCodePoint(parseInt(n, 16)))
+    .replace(/&ndash;/g, '–')
+    .replace(/&mdash;/g, '—')
+    .replace(/&rsquo;/g, '’')
+    .replace(/&lsquo;/g, '‘')
+    .replace(/&ldquo;/g, '“')
+    .replace(/&rdquo;/g, '”')
+    .replace(/&hellip;/g, '…')
+    .replace(/&reg;/g, '®')
     .replace(/&amp;/g, '&');
 }
 

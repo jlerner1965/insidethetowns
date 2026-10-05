@@ -48,7 +48,7 @@ import { readIcal } from './lib/feeds/ical.ts';
 import { readRss } from './lib/feeds/rss.ts';
 import { readTribePage, tribeFirstPage, type TribePage } from './lib/feeds/tribe.ts';
 import type { FeedEvent, Horizon } from './lib/feeds/types.ts';
-import { detectChanges, excludedTitle, matchExisting, passesLocationFilter, siblingCounts, toStaged, venueFrom, type ExistingEvent } from './lib/ingest.ts';
+import { detectChanges, excludedTitle, hostOf, matchExisting, passesLocationFilter, siblingCounts, toStaged, venueFrom, type ExistingEvent } from './lib/ingest.ts';
 import { isAllowed } from './lib/robots.ts';
 import { robotsFor, TIMEOUT, UA } from './lib/probe.ts';
 
@@ -124,6 +124,7 @@ function existingEvents(town: string): ExistingEvent[] {
           status: d.status,
           sourceUid: d.sourceUid,
           sourceHash: d.sourceHash,
+          sourceHost: hostOf(d.source ?? d.url),
         });
       }
     }
@@ -234,7 +235,7 @@ for (const town of towns) {
     const thisRun = new Set<ExistingEvent>();
     for (const item of inScope) {
       totals.items++;
-      const match = matchExisting(item, existing, siblings.get(item), claimed);
+      const match = matchExisting(item, existing, siblings.get(item), claimed, hostOf(item.url ?? source.feedUrl ?? source.url));
       const prepared = toStaged(item, source, town.slug, today);
       if (match.kind === 'staged' && thisRun.has(match.existing)) {
         // The feed carries the same event twice (two rooms, two listings):
@@ -253,7 +254,7 @@ for (const town of towns) {
         } else {
           write(file, eventFile(prepared.frontmatter, prepared.body));
         }
-        const created: ExistingEvent = { file, slug: prepared.slug, staged: true, title: item.title, start: item.start, end: item.end, venue: String(prepared.frontmatter.venue), sourceUid: item.uid };
+        const created: ExistingEvent = { file, slug: prepared.slug, staged: true, title: item.title, start: item.start, end: item.end, venue: String(prepared.frontmatter.venue), sourceUid: item.uid, sourceHost: hostOf(item.url ?? source.feedUrl ?? source.url) };
         existing.push(created);
         thisRun.add(created);
         staged++;

@@ -2832,3 +2832,87 @@ seeded and stopped at "confirm these"; no new phases or features.
 - **Not done, by the brief's order:** content. Events wait for the confirmed
   feeds; places (food and drink, parks and outdoors, each town's main street)
   are the next step after confirmation.
+
+### Content, 5 October 2026
+
+The owner's answer to the three questions above was that the choices were
+the editor's, to be made as well as possible. What was decided, and done:
+
+- **Eleven sources confirmed, six left proposed.** Confirmed: each town's
+  events calendar (Frederick's events calendar; Firestone's main calendar,
+  which carries the special events and the Town's smaller days; Dacono's
+  main calendar), each town's events hub and parks pages, the library, the
+  parks district, the chamber (manual, so it sits on the weekly check and
+  reports blocked until the site admits readers) and the county. Left
+  proposed, each saying why: Frederick's meetings calendar (meetings only),
+  Firestone's special-events calendar (its three items are in the main one),
+  Dacono's police calendar, the state park and the two papers. The event
+  standard is applied through `excludeTitles` on the three town feeds
+  (routine meetings, the court, office closures, election day) and the
+  library's (storytimes, clubs, drop-ins, the English class), each listed
+  in the source's notes so it can be undone.
+- **A LibCal reader, after all.** The brief said no new features and the
+  question was asked; the answer handed the call back. The library is the
+  one institution the three towns share and the steadiest source of dated
+  events they have, and its RSS carries LibCal's own elements per item
+  (`libcal:date`, `start`, `end`, `location`, `campus`, `eventid`), so
+  `scripts/lib/feeds/rss.ts` reads them in about fifty lines beside the
+  CivicPlus branch, with a test. Erie's library is in the same district, so
+  Erie's registry can use it too. "Cancelled:" on a title is read as a
+  cancellation, as it should have been for CivicPlus.
+- **Three CivicPlus iCal quirks fixed in the reader**, each found on the
+  first Carbon Valley run and each with a test: the URL property is a
+  relative path to the feed, while the event's page is in the description
+  (promoted, and taken out of the text); a one-day entry's DTEND is the
+  start day, which the exclusive-end rule turned into the day before (now no
+  end); and LOCATION is "Name - 170 Grant Ave.   Firestone CO 80520",
+  sometimes with pasted HTML, now split into the comma form the venue guess
+  reads. A dry run of every other town's feeds showed the same results as
+  before.
+- **A site's ids are its own.** CivicPlus numbers events from 1 on every
+  site, so Firestone's 2690 and Dacono's 2690 are two events on one guide,
+  and the matcher took them for one. Ids now match within the site the file
+  was read from (its `source` host); a first version scoped them to the
+  registry entry and broke the merge of an item Longmont's council and
+  library feeds share, which the Longmont dry run caught.
+- **Ingest staged nineteen, each rewritten from the organizer's page.** The
+  feed's dates and hours stay in `start` and `end` so the weekly run does
+  not flag the editor's own edits; where the Town's page disagrees with its
+  calendar (Paint the Plows is noon to 2 on the page and 2 to 5 in the feed;
+  Halloween Safe Night is at the Sports Complex on the page and Miners Park
+  in the feed) the review note says so and `timeNote` or the venue carries
+  the page's version. The Carbon Valley Holiday Festival is three listings
+  on one day, one per town, as the three towns stage it. Nothing ingest
+  wrote was published; the review is the owner's.
+- **Places: 26 published, 6 staged, from three research passes** held to the
+  rulebook used for Longmont and Loveland (the business's or the Town's own
+  page, verbatim evidence for address, phone and hours; a sample of each
+  batch re-read). Frederick: Georgia Boys, Gabe's, Bella Rosa, the rec
+  centre, the Recreation Area, the museum, Bulrush, Centennial and Crist
+  parks. Firestone: St. Vrain State Park, Saddleback, the library, Marco's,
+  the Firestone Trail, Miners, Hart and Settlers parks, the sports complex,
+  the bike park, the disc golf course. Dacono: the Speedway, IMI, Blitz,
+  Wing Shack, Clem DuFour Park, Centennial Field. Town parks whose town
+  publishes no hours are listed without hours, as twenty-nine parks across
+  the network already are, with the parks department's phone and a line
+  saying the Town posts none. Staged, each with its question: a cafe whose
+  site states no phone, a drive-through with no hours on its page, a brewery
+  and a grill whose sites block readers, a trail with no address, a BMX
+  track with no phone, all to be checked by a person.
+- **What was not listed, and why.** Fifth Street's other restaurants, a
+  bakery and the salons, Dacono's old-town Mexican restaurants and its bar,
+  and Firestone's sports grille have no sites of their own; the rule is a
+  listing stands on the business's own page, and the Loveland decision was
+  to drop rather than chase such places. The Home Depot has a page and was
+  left out as not the kind of place the guides list.
+- **insidefirestone.com was not attached.** The owner handed the choice over,
+  the attach was attempted, and the session's permission rules refused a
+  domain change; the rules in `vercel.json` wait for the owner to add the
+  domain to the `carbonvalleyguide` project in the dashboard.
+- **Counts at the end of the day**, against 15 upcoming events and 20
+  listings: 3 events published (an art show running to 22 October, a
+  painting party, the holiday market) and 22 in staging for the review; 26
+  listings published. Frederick 2 events and 9 places published, 5 and 2
+  staged; Firestone 1 and 11, 15 and 2; Dacono 0 and 6, 2 and 2. The
+  guide clears the listings threshold now and the events threshold once the
+  review approves a dozen of the staged ones.

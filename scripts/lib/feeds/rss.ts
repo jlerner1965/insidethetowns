@@ -9,6 +9,16 @@
  * Location`. Those are the facts; the `<description>` repeats them in HTML.
  * An item without an event date is news, not an event, and is dropped with a
  * count rather than guessed at.
+ *
+ * Springshare's LibCal (the High Plains Library District, whose branches
+ * serve Erie and the Carbon Valley) publishes its calendar as RSS with its
+ * own elements per item: `libcal:date` (2026-10-04), `libcal:start` and
+ * `libcal:end` (13:30:00; 00:00:00 to 23:59:59 is a day-long entry),
+ * `libcal:location` (the room), `libcal:campus` (the branch),
+ * `libcal:eventid` and `libcal:description`. Those are read here too; the
+ * district's iCal export is its 500 oldest items and never reaches the
+ * coming weeks, so the RSS is the one feed that does. A called-off session
+ * is written as "Cancelled: <title>"; it is read as the title, cancelled.
  */
 import { TIME_ZONE, fromWallClock } from '../../../src/lib/dates.ts';
 import { plainText, type FeedEvent, type Horizon } from './types.ts';
@@ -54,6 +64,13 @@ export function readRss(xml: string, horizon: Horizon): RssReadResult {
   for (const item of items) {
     const title = plainText(element(item, 'title') ?? '');
     const link = element(item, 'link');
+    const libcalDate = element(item, 'libcal:date');
+    if (libcalDate) {
+      const event = readLibCalItem(item, title, link, libcalDate, horizon);
+      if (event === 'skip') skipped++;
+      else if (event) events.push(event);
+      continue;
+    }
     const dates = element(item, 'calendarEvent:EventDates');
     const times = element(item, 'calendarEvent:EventTimes');
     const location = element(item, 'calendarEvent:Location');
@@ -108,4 +125,47 @@ export function readRss(xml: string, horizon: Horizon): RssReadResult {
     });
   }
   return { events, skipped };
+}
+
+/** "13:30:00" -> [13, 30]. */
+function parseClock24(text: string | undefined): [number, number] | null {
+  const m = text?.trim().match(/^(\d{1,2}):(\d{2})(?::(\d{2}))?$/);
+  return m ? [Number(m[1]), Number(m[2])] : null;
+}
+
+/** One LibCal item, or null when outside the horizon, or 'skip' when it cannot be read. */
+function readLibCalItem(item: string, rawTitle: string, link: string | undefined, date: string, horizon: Horizon): FeedEvent | null | 'skip' {
+  const day = date.trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!day || !rawTitle) return 'skip';
+  const [y, mo, d] = [Number(day[1]), Number(day[2]), Number(day[3])];
+  let startClock = parseClock24(element(item, 'libcal:start'));
+  let endClock = parseClock24(element(item, 'libcal:end'));
+  const allDay = !startClock || (startClock[0] === 0 && startClock[1] === 0 && !!endClock && endClock[0] === 23 && endClock[1] === 59);
+  if (allDay) {
+    startClock = null;
+    endClock = null;
+  }
+  const start = fromWallClock(y, mo, d, startClock?.[0] ?? 0, startClock?.[1] ?? 0, 0, TIME_ZONE);
+  const end = endClock ? fromWallClock(y, mo, d, endClock[0], endClock[1], 0, TIME_ZONE) : undefined;
+  if (start.getTime() >= horizon.to.getTime() || (end ?? start).getTime() < horizon.from.getTime()) return null;
+  const cancelled = /^cancell?ed:\s*/i.test(rawTitle);
+  const title = rawTitle.replace(/^cancell?ed:\s*/i, '').trim();
+  const room = plainText(element(item, 'libcal:location') ?? '');
+  const campus = plainText(element(item, 'libcal:campus') ?? '');
+  const location = [room, campus].filter(Boolean).join(', ') || undefined;
+  const id = element(item, 'libcal:eventid') ?? element(item, 'guid') ?? link ?? title;
+  const description = element(item, 'libcal:description');
+  const categories = [...item.matchAll(/<category>([\s\S]*?)<\/category>/gi)].map((m) => plainText(m[1]!)).filter(Boolean);
+  return {
+    uid: `libcal:${id}`,
+    title,
+    start,
+    end,
+    allDay,
+    location,
+    url: link,
+    description: description ? plainText(description) : undefined,
+    categories,
+    status: cancelled ? 'cancelled' : 'confirmed',
+  };
 }
