@@ -138,6 +138,10 @@ function validateFile(collection: CollectionName, file: string, town: string, st
     if (!config?.subTowns?.includes(data.subTown)) {
       errors.push(`${rel}: subTown "${data.subTown}" is not one of ${town}'s subTowns${config?.subTowns ? ` (${config.subTowns.join(', ')})` : ' (none configured)'}`);
     }
+  } else if (gated && findTown(town)?.subTowns) {
+    // A guide covering several places (Carbon Valley) files every event and
+    // place under one of them; the filters and the section pages read it.
+    errors.push(`${rel}: a ${collection === 'events' ? 'event' : 'place'} on a multi-town guide needs a subTown (${findTown(town)!.subTowns!.join(', ')})`);
   }
   if (gated) {
     if (staged) {

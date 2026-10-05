@@ -12,22 +12,35 @@ interface Props {
    * shows a button that does nothing.
    */
   openNow?: boolean;
+  /** On a multi-town guide, a second row narrowing to one of its towns; rows carry data-sub-town. */
+  subTowns?: Array<{ slug: string; label: string }>;
 }
 
-const { options, label = 'Filter', openNow = false } = Astro.props;
+const { options, label = 'Filter', openNow = false, subTowns = [] } = Astro.props;
 const pill =
   'rounded-full border border-accent-line bg-raised px-4 py-1.5 text-sm font-medium text-ink-muted transition-colors hover:border-accent hover:text-accent-text aria-pressed:border-accent-dark aria-pressed:bg-accent-dark aria-pressed:text-white';
 ---
-{(options.length > 1 || openNow) && (
-  <div class="mb-8 flex flex-wrap items-center gap-2 md:mb-10" role="group" aria-label={label} data-filter-bar>
-    {options.length > 1 && <button type="button" data-filter="all" aria-pressed="true" class={pill}>All</button>}
-    {options.length > 1 && options.map((o) => (
-      <button type="button" data-filter={o.value} aria-pressed="false" class={pill}>{o.label}</button>
-    ))}
-    {openNow && (
-      <button type="button" data-filter-open aria-pressed="false" hidden class:list={[pill, 'ml-1 border-dashed']}>
-        <span class="mr-1.5 inline-block size-2 rounded-full bg-[#2f9e5b] align-middle" aria-hidden="true"></span>Open now
-      </button>
+{(options.length > 1 || openNow || subTowns.length > 1) && (
+  <div class="mb-8 space-y-3 md:mb-10" data-filter-bar>
+    <div class="flex flex-wrap items-center gap-2" role="group" aria-label={label}>
+      {options.length > 1 && <button type="button" data-filter="all" aria-pressed="true" class={pill}>All</button>}
+      {options.length > 1 && options.map((o) => (
+        <button type="button" data-filter={o.value} aria-pressed="false" class={pill}>{o.label}</button>
+      ))}
+      {openNow && (
+        <button type="button" data-filter-open aria-pressed="false" hidden class:list={[pill, 'ml-1 border-dashed']}>
+          <span class="mr-1.5 inline-block size-2 rounded-full bg-[#2f9e5b] align-middle" aria-hidden="true"></span>Open now
+        </button>
+      )}
+    </div>
+    {subTowns.length > 1 && (
+      <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter by town">
+        <span class="eyebrow mr-1 text-ink-faint">Where</span>
+        <button type="button" data-where="all" aria-pressed="true" class={pill}>All three</button>
+        {subTowns.map((t) => (
+          <button type="button" data-where={t.slug} aria-pressed="false" class={pill}>{t.label}</button>
+        ))}
+      </div>
     )}
     <p class="sr-only" role="status" data-filter-status></p>
   </div>
@@ -39,14 +52,21 @@ const pill =
     const root = bar.closest<HTMLElement>('[data-filter-root]') ?? document.body;
     const buttons = bar.querySelectorAll<HTMLButtonElement>('[data-filter]');
     const openToggle = bar.querySelector<HTMLButtonElement>('[data-filter-open]');
+    const whereButtons = bar.querySelectorAll<HTMLButtonElement>('[data-where]');
     let value = 'all';
     let openOnly = false;
+    // Which of a multi-town guide's towns; 'all' everywhere else.
+    let where = 'all';
     const apply = () => {
       for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.filter === value));
       openToggle?.setAttribute('aria-pressed', String(openOnly));
+      for (const b of whereButtons) b.setAttribute('aria-pressed', String(b.dataset.where === where));
       const items = root.querySelectorAll<HTMLElement>('[data-filter-item]');
       for (const item of items) {
-        item.hidden = (value !== 'all' && item.dataset.category !== value) || (openOnly && item.dataset.open !== 'true');
+        item.hidden =
+          (value !== 'all' && item.dataset.category !== value) ||
+          (openOnly && item.dataset.open !== 'true') ||
+          (where !== 'all' && item.dataset.subTown !== where);
       }
       for (const group of root.querySelectorAll<HTMLElement>('[data-filter-group]')) {
         group.hidden = !group.querySelector('[data-filter-item]:not([hidden])');
@@ -58,7 +78,8 @@ const pill =
       if (status) {
         const shown = root.querySelectorAll('[data-filter-item]:not([hidden])').length;
         const label = value === 'all' ? 'all categories' : value;
-        status.textContent = `${shown} ${shown === 1 ? 'result' : 'results'} in ${label}${openOnly ? ', open now' : ''}`;
+        const whereLabel = where === 'all' ? '' : `, in ${bar.querySelector(`[data-where="${where}"]`)?.textContent?.trim() ?? where}`;
+        status.textContent = `${shown} ${shown === 1 ? 'result' : 'results'} in ${label}${openOnly ? ', open now' : ''}${whereLabel}`;
       }
     };
     for (const b of buttons) {
@@ -67,6 +88,20 @@ const pill =
         apply();
       });
     }
+    for (const b of whereButtons) {
+      b.addEventListener('click', () => {
+        where = b.dataset.where ?? 'all';
+        const url = new URL(location.href);
+        if (where === 'all') url.searchParams.delete('where');
+        else url.searchParams.set('where', where);
+        history.replaceState(null, '', url);
+        apply();
+      });
+    }
+    // A section page links here with ?where=firestone; a value the bar does
+    // not offer is ignored rather than pressing nothing.
+    const wanted = new URLSearchParams(location.search).get('where');
+    if (wanted && [...whereButtons].some((b) => b.dataset.where === wanted)) where = wanted;
     if (openToggle) {
       openToggle.addEventListener('click', () => {
         openOnly = !openOnly;
@@ -80,5 +115,6 @@ const pill =
       document.addEventListener('hours:ready', reveal);
       reveal();
     }
+    if (where !== 'all') apply();
   }
 </script>

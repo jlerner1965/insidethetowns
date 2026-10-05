@@ -19,7 +19,11 @@
  * renders every pill unpressed and every row visible, so a crawler and a
  * reader without JavaScript see the whole list.
  *
- * The chosen filters live in the URL (?when=weekend&category=music&free=1),
+ * On a guide that covers several towns (Carbon Valley) a third row, "Where",
+ * narrows to one of them; EventCard carries data-sub-town for it.
+ *
+ * The chosen filters live in the URL (?when=weekend&category=music&free=1,
+ * and &where=firestone on a multi-town guide),
  * so a reader can bookmark "free things this weekend", share it, and find it
  * still applied after a reload — and the weekly email can link straight to it.
  * The older ?when=free is still read.
@@ -30,9 +34,11 @@
  */
 interface Props {
   categories: Array<{ value: string; label: string }>;
+  /** On a multi-town guide, the places a reader can narrow to: a third row, "Where". */
+  subTowns?: Array<{ slug: string; label: string }>;
 }
 
-const { categories } = Astro.props;
+const { categories, subTowns = [] } = Astro.props;
 const when = [
   { value: 'today', label: 'Today' },
   { value: 'weekend', label: 'This weekend' },
@@ -58,6 +64,15 @@ const pill =
       ))}
     <button type="button" data-free aria-pressed="false" class:list={[pill, 'ml-1 border-dashed']}>Free</button>
   </div>
+  {subTowns.length > 1 && (
+    <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter events by town">
+      <span class="eyebrow mr-1 text-ink-faint">Where</span>
+      <button type="button" data-where="all" aria-pressed="true" class={pill}>All three</button>
+      {subTowns.map((t) => (
+        <button type="button" data-where={t.slug} aria-pressed="false" class={pill}>{t.label}</button>
+      ))}
+    </div>
+  )}
   <p class="sr-only" role="status" data-filter-status></p>
 </div>
 
@@ -71,10 +86,12 @@ const pill =
     const whenButtons = bar.querySelectorAll<HTMLButtonElement>('[data-when]');
     const catButtons = bar.querySelectorAll<HTMLButtonElement>('[data-category]');
     const freeButton = bar.querySelector<HTMLButtonElement>('[data-free]');
+    const whereButtons = bar.querySelectorAll<HTMLButtonElement>('[data-where]');
     const status = bar.querySelector<HTMLElement>('[data-filter-status]');
 
     const WHEN = new Set([...whenButtons].map((b) => b.dataset.when));
     const CATS = new Set([...catButtons].map((b) => b.dataset.category));
+    const WHERE = new Set([...whereButtons].map((b) => b.dataset.where));
 
     // Denver days, as the listings store them. `now` is read once per apply so
     // a page left open overnight recomputes on the next click.
@@ -90,9 +107,10 @@ const pill =
       return null;
     };
 
-    const matches = (item: HTMLElement, when: string, category: string, free: boolean) => {
+    const matches = (item: HTMLElement, when: string, category: string, free: boolean, where: string) => {
       if (category !== 'all' && item.dataset.category !== category) return false;
       if (free && item.dataset.free !== 'true') return false;
+      if (where !== 'all' && item.dataset.subTown !== where) return false;
       const window = windowFor(when);
       if (!window) return true;
       // An event overlaps the window when it starts no later than the window
@@ -103,12 +121,13 @@ const pill =
       return start <= window.to && last >= window.from;
     };
 
-    const apply = (when: string, category: string, free: boolean, push: boolean) => {
+    const apply = (when: string, category: string, free: boolean, where: string, push: boolean) => {
       for (const b of whenButtons) b.setAttribute('aria-pressed', String(b.dataset.when === when));
       for (const b of catButtons) b.setAttribute('aria-pressed', String(b.dataset.category === category));
       freeButton?.setAttribute('aria-pressed', String(free));
+      for (const b of whereButtons) b.setAttribute('aria-pressed', String(b.dataset.where === where));
       const items = root.querySelectorAll<HTMLElement>('[data-filter-item]');
-      for (const item of items) item.hidden = !matches(item, when, category, free);
+      for (const item of items) item.hidden = !matches(item, when, category, free, where);
       for (const group of root.querySelectorAll<HTMLElement>('[data-filter-group]')) {
         group.hidden = !group.querySelector('[data-filter-item]:not([hidden])');
       }
@@ -128,7 +147,8 @@ const pill =
         const shown = root.querySelectorAll('[data-filter-item]:not([hidden])').length;
         const whenLabel = bar.querySelector(`[data-when="${when}"]`)?.textContent?.trim().toLowerCase() ?? '';
         const catLabel = category === 'all' ? 'all categories' : category;
-        status.textContent = `${shown} ${shown === 1 ? 'event' : 'events'}, ${whenLabel}, ${catLabel}${free ? ', free' : ''}`;
+        const whereLabel = where === 'all' ? '' : `, in ${bar.querySelector(`[data-where="${where}"]`)?.textContent?.trim() ?? where}`;
+        status.textContent = `${shown} ${shown === 1 ? 'event' : 'events'}, ${whenLabel}, ${catLabel}${free ? ', free' : ''}${whereLabel}`;
       }
       if (push) {
         const url = new URL(location.href);
@@ -138,6 +158,8 @@ const pill =
         else url.searchParams.set('category', category);
         if (free) url.searchParams.set('free', '1');
         else url.searchParams.delete('free');
+        if (where === 'all') url.searchParams.delete('where');
+        else url.searchParams.set('where', where);
         history.replaceState(null, '', url);
       }
     };
@@ -145,39 +167,51 @@ const pill =
     let when = 'any';
     let category = 'all';
     let free = false;
+    // Which of a multi-town guide's towns; 'all' on every other guide.
+    let where = 'all';
     for (const b of whenButtons) {
       b.addEventListener('click', () => {
         when = b.dataset.when ?? 'any';
-        apply(when, category, free, true);
+        apply(when, category, free, where, true);
       });
     }
     for (const b of catButtons) {
       b.addEventListener('click', () => {
         category = b.dataset.category ?? 'all';
-        apply(when, category, free, true);
+        apply(when, category, free, where, true);
       });
     }
     freeButton?.addEventListener('click', () => {
       free = !free;
-      apply(when, category, free, true);
+      apply(when, category, free, where, true);
     });
+    for (const b of whereButtons) {
+      b.addEventListener('click', () => {
+        where = b.dataset.where ?? 'all';
+        apply(when, category, free, where, true);
+      });
+    }
 
     // "Everything, any time" means exactly that.
     root.querySelector<HTMLButtonElement>('[data-filter-reset]')?.addEventListener('click', () => {
       when = 'any';
       category = 'all';
       free = false;
-      apply(when, category, free, true);
+      where = 'all';
+      apply(when, category, free, where, true);
     });
 
     // A shared or bookmarked link. Unknown values fall back to the defaults
-    // rather than pressing nothing. ?when=free is the old spelling of ?free=1.
+    // rather than pressing nothing. ?when=free is the old spelling of ?free=1;
+    // ?where=firestone is a sub-town on a multi-town guide.
     const params = new URLSearchParams(location.search);
     const w = params.get('when');
     const c = params.get('category');
+    const sub = params.get('where');
     if (w && WHEN.has(w)) when = w;
     if (w === 'free' || params.get('free') === '1') free = true;
     if (c && CATS.has(c)) category = c;
-    apply(when, category, free, false);
+    if (sub && WHERE.has(sub)) where = sub;
+    apply(when, category, free, where, false);
   }
 </script>

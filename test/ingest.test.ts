@@ -9,11 +9,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { z } from 'astro/zod';
-import { readIcal } from '../scripts/lib/feeds/ical.ts';
+import { civicPlusLocation, readIcal, urlAndDescription } from '../scripts/lib/feeds/ical.ts';
 import { parseClock, parseLongDate, readRss } from '../scripts/lib/feeds/rss.ts';
 import { readTribePage, tribeFirstPage } from '../scripts/lib/feeds/tribe.ts';
 import { plainText } from '../scripts/lib/feeds/types.ts';
-import { detectChanges, excludedTitle, fingerprint, guessCategory, matchExisting, passesLocationFilter, siblingCounts, titleSimilarity, toStaged, venueFrom } from '../scripts/lib/ingest.ts';
+import { detectChanges, excludedTitle, fingerprint, guessCategory, hostOf, matchExisting, passesLocationFilter, siblingCounts, titleSimilarity, toStaged, venueFrom } from '../scripts/lib/ingest.ts';
 import { eventFile, slugify } from '../scripts/lib/event-files.ts';
 import { parseFrontmatter } from '../scripts/lib/frontmatter.ts';
 import { eventSchema, sourceSchema } from '../src/content/schemas.ts';
@@ -176,6 +176,103 @@ test('CivicPlus calendar RSS: English dates and 12-hour times become Denver inst
   assert.equal(toWallClock(week.start), '2026-10-05');
   assert.equal(toWallClock(week.end!), '2026-10-10');
   assert.equal(week.location, 'Council Chambers, 645 Holbrook Street, P.O. Box 750, Erie, CO 80516', 'the escaped <br> is a line break, and the city gets its own part');
+});
+
+const LIBCAL = `<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:libcal="https://libcal.com/rss_xmlns.php"><channel>
+<item><title>Science Fun</title><link>https://highplains.libcal.com/event/17000001</link>
+<description>&lt;strong&gt;Date:&lt;/strong&gt; Wednesday, October 7, 2026&lt;br/&gt;</description>
+<category>Science</category><category>Kids</category>
+<guid>https://highplains.libcal.com/event/17000001</guid>
+<libcal:eventid>17000001</libcal:eventid><libcal:date>2026-10-07</libcal:date><libcal:start>16:00:00</libcal:start><libcal:end>17:00:00</libcal:end>
+<libcal:description>&#x3C;p&gt;Hands-on experiments for ages 6&#x26;ndash;11.&#x3C;/p&gt;</libcal:description>
+<libcal:campus>Carbon Valley Regional Library</libcal:campus><libcal:location>Carbon Valley Storytime Room</libcal:location></item>
+<item><title>Cancelled: Ageless Grace®</title><link>https://highplains.libcal.com/event/17000002</link>
+<guid>https://highplains.libcal.com/event/17000002</guid>
+<libcal:eventid>17000002</libcal:eventid><libcal:date>2026-10-12</libcal:date><libcal:start>14:00:00</libcal:start><libcal:end>15:00:00</libcal:end>
+<libcal:campus>Carbon Valley Regional Library</libcal:campus><libcal:location></libcal:location></item>
+<item><title>Image Hunt</title><link>https://highplains.libcal.com/event/17000003</link>
+<guid>https://highplains.libcal.com/event/17000003</guid>
+<libcal:eventid>17000003</libcal:eventid><libcal:date>2026-10-06</libcal:date><libcal:start>00:00:00</libcal:start><libcal:end>23:59:59</libcal:end>
+<libcal:campus>Kersey Library</libcal:campus><libcal:location></libcal:location></item>
+<item><title>Long gone</title><link>https://highplains.libcal.com/event/1</link>
+<libcal:eventid>1</libcal:eventid><libcal:date>2026-08-04</libcal:date><libcal:start>10:00:00</libcal:start><libcal:end>11:00:00</libcal:end>
+<libcal:campus>Erie Community Library</libcal:campus></item>
+</channel></rss>`;
+
+test("LibCal RSS: the libcal elements carry the facts; a room and its branch make the location; 'Cancelled:' is a status", () => {
+  const { events, skipped } = readRss(LIBCAL, horizon);
+  assert.equal(skipped, 0);
+  assert.equal(events.length, 3, 'the August item is outside the horizon');
+  const science = events[0]!;
+  assert.equal(science.uid, 'libcal:17000001');
+  assert.equal(toWallClock(science.start), '2026-10-07T16:00');
+  assert.equal(toWallClock(science.end!), '2026-10-07T17:00');
+  assert.equal(science.location, 'Carbon Valley Storytime Room, Carbon Valley Regional Library');
+  assert.equal(science.description, 'Hands-on experiments for ages 6–11.');
+  assert.deepEqual(science.categories, ['Science', 'Kids']);
+  assert.equal(science.status, 'confirmed');
+  const grace = events[1]!;
+  assert.equal(grace.title, 'Ageless Grace®', 'the prefix comes off the title');
+  assert.equal(grace.status, 'cancelled');
+  assert.equal(grace.location, 'Carbon Valley Regional Library', 'no room, so the branch alone');
+  const hunt = events[2]!;
+  assert.equal(hunt.allDay, true, '00:00:00 to 23:59:59 is a day-long entry');
+  assert.equal(toWallClock(hunt.start), '2026-10-06');
+  // The district-wide feed is narrowed to a branch by the registry's locationFilter.
+  assert.equal(passesLocationFilter(science, { locationFilter: ['Carbon Valley'] }), true);
+  assert.equal(passesLocationFilter(hunt, { locationFilter: ['Carbon Valley'] }), false);
+});
+
+test("a site's ids are its own: a file read from another site with the same id is not that event", () => {
+  const item: FeedEvent = { uid: '2690', title: 'Halloween Safe Night', start: parseLocal('2026-10-23T17:00'), allDay: false, categories: [], status: 'confirmed', url: 'https://www.firestoneco.gov/calendar.aspx?EID=2690' };
+  const theirs: ExistingEvent = { file: 'x', slug: 'x', staged: false, title: 'City Council Meeting', start: parseLocal('2026-10-12T18:00'), venue: 'Dacono City Hall', sourceUid: '2690', sourceHost: 'daconoco.gov' };
+  assert.equal(hostOf(item.url), 'firestoneco.gov', 'without the www');
+  assert.equal(matchExisting(item, [theirs], 1, undefined, hostOf(item.url)).kind, 'none', "Dacono's 2690 is not Firestone's");
+  assert.equal(matchExisting(item, [theirs], 1, undefined, 'daconoco.gov').kind, 'published', 'the same site, the same event, whichever of its feeds it came by');
+  assert.equal(matchExisting(item, [{ ...theirs, sourceHost: undefined }], 1, undefined, 'firestoneco.gov').kind, 'published', 'a file whose host is unknown still matches by id, as before');
+});
+
+const CIVICPLUS_ICS = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:iCalendar-Ruby
+BEGIN:VEVENT
+DESCRIPTION: https://www.firestoneco.gov/calendar.aspx?EID=2690
+DTEND;TZID=America/Denver:20261023T200000
+DTSTART;TZID=America/Denver:20261023T170000
+LOCATION:Miners Park - 170 Grant Ave.   Firestone CO 80520
+SUMMARY:Halloween Safe Night
+UID:2690
+URL:/common/modules/iCalendar/iCalendar.aspx?feed=calendar&catID=33
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION: https://www.frederickco.gov/calendar.aspx?EID=4287
+DTEND;VALUE=DATE:20261205
+DTSTART;VALUE=DATE:20261205
+LOCATION: - 105 Fifth Street  Frederick CO 80530
+SUMMARY:Festival of Lights
+UID:4287
+URL:/common/modules/iCalendar/iCalendar.aspx?feed=calendar&catID=34
+END:VEVENT
+END:VCALENDAR`;
+
+test('CivicPlus iCal: the event page comes out of the description, a same-day all-day end is no end, and the location is split for venueFrom', () => {
+  const events = readIcal(CIVICPLUS_ICS, horizon);
+  assert.equal(events.length, 2);
+  const night = events[0]!;
+  assert.equal(night.url, 'https://www.firestoneco.gov/calendar.aspx?EID=2690', 'the relative URL property is dropped for the page in the text');
+  assert.equal(night.description, undefined, 'and the text was only that address');
+  assert.equal(night.location, 'Miners Park, 170 Grant Ave., Firestone CO 80520');
+  assert.deepEqual(venueFrom(night.location, {}), { venue: 'Miners Park', address: '170 Grant Ave., Firestone CO 80520', guessed: true });
+  const lights = events[1]!;
+  assert.equal(lights.allDay, true);
+  assert.equal(lights.end, undefined, 'DTEND on the start day would be the day before');
+  assert.equal(lights.location, '105 Fifth Street, Frederick CO 80530', 'an empty name leaves the address');
+  assert.equal(venueFrom(lights.location, {}).venue, undefined, 'no venue to guess, only an address');
+  assert.equal(civicPlusLocation('<p><span style="x">Chick-fil-A in Firestone</span></p> - 4405 Firestone Blvd.  Firestone CO 80504'), 'Chick-fil-A in Firestone, 4405 Firestone Blvd., Firestone CO 80504', 'pasted HTML comes off');
+  assert.equal(civicPlusLocation(' -   Dacono CO 80514'), 'Dacono CO 80514');
+  assert.equal(civicPlusLocation('Council Chambers, 645 Holbrook Street'), 'Council Chambers, 645 Holbrook Street', 'anything else passes through');
+  assert.deepEqual(urlAndDescription('https://a.example/x', 'text'), { url: 'https://a.example/x', description: 'text' });
+  assert.deepEqual(urlAndDescription(undefined, 'Join us. https://a.example/p?EID=1'), { url: 'https://a.example/p?EID=1', description: 'Join us.' });
 });
 
 test('The Events Calendar REST: UTC pair preferred, venue assembled, pagination URL built', () => {

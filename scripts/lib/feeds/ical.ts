@@ -14,7 +14,7 @@
  */
 import ICAL from 'ical.js';
 import { TIME_ZONE, fromWallClock } from '../../../src/lib/dates.ts';
-import type { FeedEvent, Horizon } from './types.ts';
+import { plainText, type FeedEvent, type Horizon } from './types.ts';
 
 /** Windows and other non-IANA zone names that turn up in feeds. */
 const ZONE_ALIASES: Record<string, string> = {
@@ -101,16 +101,21 @@ export function readIcal(ics: string, horizon: Horizon): FeedEvent[] {
     if ((endAt ?? startAt).getTime() < horizon.from.getTime()) return;
     const status = (text(component, 'status') ?? 'CONFIRMED').toUpperCase();
     const lastModified = component.getFirstPropertyValue('last-modified');
+    // An all-day DTEND is the day after the last day; the schema wants the
+    // last day. CivicPlus writes a one-day entry with DTEND on the same day,
+    // which would land before the start: no end at all is what that means.
+    let lastDay = endAt && start.isDate ? new Date(endAt.getTime() - 86_400_000) : endAt;
+    if (lastDay && lastDay.getTime() < startAt.getTime()) lastDay = undefined;
+    const { url, description } = urlAndDescription(text(component, 'url'), item.description?.trim() || undefined);
     out.push({
       uid: `${item.uid}${uidSuffix}`,
       title: item.summary?.trim() || '(untitled)',
       start: startAt,
-      // An all-day DTEND is the day after the last day; the schema wants the last day.
-      end: endAt && start.isDate ? new Date(endAt.getTime() - 86_400_000) : endAt,
+      end: lastDay,
       allDay: start.isDate,
-      location: item.location?.trim() || undefined,
-      url: text(component, 'url'),
-      description: item.description?.trim() || undefined,
+      location: civicPlusLocation(item.location?.trim() || undefined),
+      url,
+      description,
       categories: categories(component),
       status: status === 'CANCELLED' ? 'cancelled' : 'confirmed',
       lastModified: lastModified instanceof ICAL.Time ? lastModified.toJSDate() : undefined,
@@ -133,4 +138,40 @@ export function readIcal(ics: string, horizon: Horizon): FeedEvent[] {
     }
   }
   return out;
+}
+
+/**
+ * CivicPlus's iCal (Frederick, Firestone, Dacono) writes LOCATION as
+ * "Name - 170 Grant Ave.   Firestone CO 80520", with the name sometimes empty
+ * (" - 105 Fifth Street  Frederick CO 80530") and sometimes pasted HTML. It
+ * is turned into the comma-separated form venueFrom reads: the name, the
+ * street, the town. Any other LOCATION passes through as plain text.
+ */
+export function civicPlusLocation(location: string | undefined): string | undefined {
+  if (!location) return undefined;
+  const clean = plainText(location).replace(/\s+/g, ' ').trim();
+  const m = clean.match(/^(.*?)\s*-\s+(\d.*|[A-Z][A-Za-z .]+ CO \d{5}.*)$/);
+  if (!m) return clean || undefined;
+  const name = m[1]!.trim();
+  // "170 Grant Ave. Firestone CO 80520": the town is the one word before "CO"
+  // (a two-word town would lend its first word to the street, harmlessly).
+  const rest = m[2]!.trim();
+  const town = rest.match(/^(.*)\s+([A-Z][A-Za-z.]+) CO (\d{5})\s*$/);
+  const parts = town ? [name, town[1], `${town[2]} CO ${town[3]}`] : [name, rest];
+  return parts.map((p) => p?.trim()).filter(Boolean).join(', ');
+}
+
+/**
+ * The item's own page. CivicPlus's URL property is a relative path to the
+ * feed itself, no use to anyone, while its DESCRIPTION is the event page's
+ * absolute address, sometimes after the text; a relative URL is dropped and
+ * an absolute one in the description is promoted, and taken out of the text.
+ */
+export function urlAndDescription(url: string | undefined, description: string | undefined): { url?: string; description?: string } {
+  const absolute = url && /^https?:\/\//i.test(url) ? url : undefined;
+  const inText = description?.match(/https?:\/\/\S+/i)?.[0];
+  if (absolute) return { url: absolute, description };
+  if (!inText) return { url: undefined, description };
+  const rest = description!.replace(inText, '').trim();
+  return { url: inText.replace(/[.,)]+$/, ''), description: rest || undefined };
 }

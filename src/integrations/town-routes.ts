@@ -39,6 +39,14 @@ const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
  */
 const HOLDING_ROUTES: Array<[pattern: string, file: string]> = [['/', 'coming-soon.astro']];
 
+/**
+ * A guide covering several places (Carbon Valley: Frederick, Firestone and
+ * Dacono) gets one section page per place, at the place's slug. Only such a
+ * guide: on every other town the pattern would match nothing and Astro would
+ * still try to build it.
+ */
+const SUB_TOWN_ROUTES: Array<[pattern: string, file: string]> = [['/[subTown]', 'sub-town/[subTown].astro']];
+
 const HUB_ROUTES: Array<[pattern: string, file: string]> = [
   ['/', 'index.astro'],
   ['/this-weekend', 'this-weekend.astro'],
@@ -56,7 +64,12 @@ export function townRoutes(site: SiteConfig): AstroIntegration {
     name: 'inside-the-towns:routes',
     hooks: {
       'astro:config:setup': ({ config, injectRoute, logger }) => {
-        const routes = site.kind === 'hub' ? HUB_ROUTES : site.status === 'live' ? TOWN_ROUTES : HOLDING_ROUTES;
+        const routes =
+          site.kind === 'hub'
+            ? HUB_ROUTES
+            : site.status === 'live'
+              ? [...TOWN_ROUTES, ...(site.subTowns?.length ? SUB_TOWN_ROUTES : [])]
+              : HOLDING_ROUTES;
         for (const [pattern, file] of routes) {
           injectRoute({
             pattern,

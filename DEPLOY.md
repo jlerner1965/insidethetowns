@@ -16,6 +16,7 @@ insidewindsorco.com  TOWN=windsor
 insidefortcollins.com TOWN=fortcollins
 insidelongmontco.com TOWN=longmont
 insidelovelandco.com TOWN=loveland
+carbonvalleyguide.com TOWN=carbon-valley   (project `carbonvalleyguide`; Frederick, Firestone and Dacono on one site)
 …
 ```
 
@@ -38,7 +39,13 @@ git push -u origin main
 1. **Vercel → Add New → Project → Import** `jlerner1965/insidethetowns`.
 2. **Project name:** the domain without its `.com`, e.g. `insideniwot`, which is
    how the existing projects are named. The name only affects the `*.vercel.app`
-   preview hostname.
+   preview hostname. (The Vercel REST API does the same in one call, which is
+   how `carbonvalleyguide` was made on 5 October 2026: `POST /v11/projects`
+   with the framework, the repository, the `TOWN` variable, the Ignored Build
+   Step and `previewDeploymentsDisabled`, then `PATCH` for Node 22.x, two
+   `POST /domains` for the apex and `www`, and `POST /deploy-hooks` for the
+   nightly hook. The MCP connector's token could not create projects; the
+   environment's `VERCEL_API_TOKEN` could.)
 3. **Framework preset:** Astro. **Build command, output directory** and the security
    headers come from `vercel.json`; leave the overrides off.
 4. **Environment variables:** add `TOWN` = the slug (`niwot`, `hub`, …) for
