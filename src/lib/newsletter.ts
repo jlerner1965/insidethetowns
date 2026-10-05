@@ -4,11 +4,16 @@
  *
  * Nothing in a place's frontmatter says when it arrived or when it closed, so
  * both come from the git history: a file added in the window is new, and a
- * file whose `status:` line became closed in the window has closed. A shallow
- * checkout (CI's, Vercel's) has no history to ask, and `listingChanges` says
- * so with `null` rather than report a quiet week.
+ * file whose `status:` line became closed in the window has closed.
+ *
+ * A shallow checkout is fine if its history reaches back past the window
+ * (scripts/run.ts deepens the hub's build checkout by date for this). If it
+ * does not, its oldest commit appears to add every file in the repository,
+ * so `listingChanges` returns `null` rather than call every place new.
  */
 import { execFileSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { addDays, formatWeekday, startOfDay } from './dates.ts';
 
 /** The next send day on or after `from`, as a Denver day. */
@@ -28,7 +33,8 @@ export interface ListingChanges {
 /**
  * Places added, and places marked closed, between `since` and `until`, under
  * `dir` (a path relative to `root`, such as "content"). `null` when there is
- * no history to read: not a git checkout, git missing, or a shallow clone.
+ * not enough history to read: not a git checkout, git missing, or a shallow
+ * clone whose oldest commit is not older than `since`.
  */
 export function listingChanges(root: string, dir: string, since: Date, until: Date): ListingChanges | null {
   const git = (args: string[]) => {
@@ -39,7 +45,13 @@ export function listingChanges(root: string, dir: string, since: Date, until: Da
     }
   };
   const shallow = git(['rev-parse', '--is-shallow-repository']);
-  if (shallow === null || shallow === 'true') return null;
+  if (shallow === null) return null;
+  if (shallow === 'true') {
+    const file = git(['rev-parse', '--git-path', 'shallow']);
+    const boundary = file ? (git(['show', '-s', '--format=%ct', ...readFileSync(resolve(root, file), 'utf8').split('\n').filter(Boolean)]) ?? '') : '';
+    const times = boundary.split('\n').filter(Boolean).map(Number);
+    if (times.length === 0 || times.some((t) => t * 1000 >= since.getTime())) return null;
+  }
   const range = [`--since=${since.toISOString()}`, `--until=${until.toISOString()}`];
   const isPlace = (path: string) => /\/places\/[^/_][^/]*\.md$/.test(path);
   const added = new Set((git(['log', '--diff-filter=A', ...range, '--name-only', '--format=', '--', dir]) ?? '').split('\n').filter(isPlace));

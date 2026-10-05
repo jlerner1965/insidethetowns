@@ -10,7 +10,7 @@
 # A push builds a site only when it changes something the site is made of:
 #
 #   content/<slug>/                      the site's own content
-#   src/config/towns/<slug>.ts           its config
+#   src/config/towns/*.ts                any town's config: every site builds
 #   the rest of src/, public/,           shared: every site builds
 #     package.json, package-lock.json,
 #     astro.config.mjs, tsconfig.json,
@@ -18,10 +18,17 @@
 #   IMAGE_LICENSES.csv rows for          its /credits/ page
 #     content/<slug>/
 #
+# Every site shows something from every town's config: the hub lists the
+# guides and counts them, each guide's footer lists its sister guides and the
+# count, and the Nearby block names its neighbours. A town going live is a
+# change to its config, and when that built only the town itself the hub went
+# on saying "9 guides" after the tenth opened. So any town config builds all.
+#
 # Docs, tests, workflows, the offline scripts (ingest, review, weekly, ...)
-# and other towns' content and configs change nothing this site serves. Two
-# pages do read other towns: the hub's network events and each town's
-# "nearby" block on /events/. Those catch up at the nightly rebuild.
+# and other towns' content change nothing this site's pages are made of.
+# Two kinds of page read other towns' listings: the hub's network events and
+# each guide's Nearby this weekend block. Those catch up at the nightly
+# rebuild.
 #
 # Rebuilds always build. The nightly deploy hook and the dashboard's Redeploy
 # run this step too, and Vercel tells it nothing about what started the
@@ -60,11 +67,7 @@ while IFS= read -r path; do
     "content/$slug/"*)
       build "$path" ;;
     src/config/towns/*.ts)
-      name="${path#src/config/towns/}"
-      name="${name%.ts}"
-      [ "$name" != "$slug" ] || build "$path"
-      # Another town's config is that town's; registry.ts and types.ts are everyone's.
-      [ -d "content/$name" ] || build "$path (shared)" ;;
+      build "$path (every site reads every town's config)" ;;
     src/* | public/* | package.json | package-lock.json | astro.config.mjs | tsconfig.json | vercel.json | scripts/run.ts)
       build "$path (shared)" ;;
   esac
