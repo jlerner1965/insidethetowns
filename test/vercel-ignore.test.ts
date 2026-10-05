@@ -64,15 +64,20 @@ const decide = (slug: string, head: string, prev: string | undefined, ageSeconds
   return r.status === 1 ? 'build' : 'skip';
 };
 
-test("a town builds for its own content and its own config, and skips another town's", () => {
+test("a town builds for its own content and skips another town's", () => {
   const event = commit({ 'content/niwot/events/a.md': 'a2' });
   assert.equal(decide('niwot', event, base), 'build');
   assert.equal(decide('lyons', event, base), 'skip');
   assert.equal(decide('hub', event, base), 'skip');
+});
 
-  const config = commit({ 'src/config/towns/niwot.ts': 'n2' });
-  assert.equal(decide('niwot', config, event), 'build');
-  assert.equal(decide('lyons', config, event), 'skip');
+test("any town's config builds every site", () => {
+  // A town goes live by changing its config, and the hub's count of guides,
+  // every footer's sister guides and the neighbours' blocks all read it. When
+  // only the town itself rebuilt, the hub said "9 guides" after the tenth.
+  const prev = git('rev-parse', 'HEAD');
+  const config = commit({ 'src/config/towns/niwot.ts': String(clock) });
+  for (const slug of ['niwot', 'lyons', 'hub']) assert.equal(decide(slug, config, prev), 'build', slug);
 });
 
 test('shared code builds every site, including the hub', () => {

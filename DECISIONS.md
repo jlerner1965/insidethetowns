@@ -3125,13 +3125,19 @@ an owner and a sellable sponsor slot, and close the open display fixes.
 - **/newsletter/sample/** renders this week's network issue from the
   listings, labeled as a sample and out of the index. New and closed places
   come from the git history, shared with the email script
-  (`src/lib/newsletter.ts`); a shallow clone has none, and those sections
-  are left out rather than shown as a quiet week.
+  (`src/lib/newsletter.ts`). Vercel and CI build from a shallow clone, so
+  `scripts/run.ts` deepens the hub's checkout to the last three weeks first
+  (about two seconds). A shallow history is trusted only when its oldest
+  commit predates the week, because that commit looks as if it added every
+  file; otherwise, or if the fetch fails, the two sections are left out
+  rather than shown wrong. Chosen over `added` and `closed` dates on every
+  place, which would have meant 436 files and the tooling to stamp them.
 - **Cache-Control on HTML** is now explicit in vercel.json. Vercel already
   sent `public, max-age=0, must-revalidate` on HTML, so it changes nothing
-  there. The stale "9 guides" was more likely the hub not rebuilding: the
-  Ignored Build Step skips a site when only another town's config changes,
-  and a town goes live by changing its config. That step is unchanged here.
+  there. The stale "9 guides" was the hub not rebuilding: the Ignored Build
+  Step skipped a site when only another town's config changed, and a town
+  goes live by changing its config. Any town config now builds every site,
+  since every site shows something from every town's config.
 - **Content checks.** Berthoud's Neon Nights dodgeball (October 23) and
   cosmic pickleball (October 24) are on the Town's Upcoming Events page and
   stay. The Lazy Dog's own site is behind a bot challenge, as it was for the
