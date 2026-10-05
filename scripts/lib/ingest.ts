@@ -99,10 +99,6 @@ export function venueFrom(location: string | undefined, source: Pick<Source, 've
     if (hit) return { venue: hit, address: addressIn(parts), guessed: false };
   }
   if (location && alias[location]) return { venue: alias[location], guessed: false };
-  if (source.defaultVenue) {
-    const named = parts.find((p) => p.toLowerCase().includes(source.defaultVenue!.toLowerCase()));
-    return { venue: named ? source.defaultVenue : source.defaultVenue, address: addressIn(parts), guessed: false };
-  }
   const isRoom = (p: string) => /\b(room|hall|suite|offsite|online|virtual|zoom|chambers|library living room)\b/i.test(p) && !/library|center|centre|park|church|school|hall$/i.test(p);
   const isAddress = (p: string) => /^\d/.test(p);
   const isRegion = (p: string, i: number) =>
@@ -112,6 +108,15 @@ export function venueFrom(location: string | undefined, source: Pick<Source, 've
     /^CO\s+\d{5}/.test(p) ||
     // "Berthoud" followed by "CO 80513" is the town, not a venue.
     /^(CO|Colorado)\b/.test(parts[i + 1] ?? '');
+  if (source.defaultVenue) {
+    const named = parts.some((p) => p.toLowerCase().includes(source.defaultVenue!.toLowerCase()));
+    // A department's feed is at its own building unless the location names
+    // another place: the library's film at the museum ("Longmont Museum,
+    // 400 Quail Rd.") is at the museum, and saying the library, with
+    // confidence, flagged a move that never happened.
+    const elsewhere = !named && parts.some((p, i) => !isRoom(p) && !isAddress(p) && !isRegion(p, i));
+    if (!elsewhere) return { venue: source.defaultVenue, address: addressIn(parts), guessed: false };
+  }
   const candidates = parts.filter((p, i) => !isRoom(p) && !isAddress(p) && !isRegion(p, i));
   const venue = candidates[0] ?? parts.find((p, i) => !isAddress(p) && !isRegion(p, i));
   return { venue: venue || undefined, address: addressIn(parts), guessed: true };
@@ -200,19 +205,28 @@ export type Match =
  * (two storytimes) are told apart by their start time.
  */
 /**
+ * `claimed`: every feed id in this run, so that a file another current item
+ * owns by id is never taken over by title.
+ *
  * `siblings`: how many items in the same feed share this item's title and
  * day. One (the usual case) means a listing with that title on that day is
  * this event, whatever time it says, so a moved time is detected as a
  * change. Two or more (a morning and an afternoon storytime) means the time
  * is what tells them apart, and only the nearest within half an hour matches.
  */
-export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblings = 1): Match {
+export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblings = 1, claimed?: ReadonlySet<string>): Match {
   const byUid = existing.find((e) => e.sourceUid && e.sourceUid === item.uid);
   if (byUid) return { kind: byUid.staged ? 'staged' : 'published', existing: byUid };
   const day = dayKey(item.start);
   const sameDay = existing.filter((e) => dayKey(e.start) === day);
   let best: { e: ExistingEvent; score: number } | undefined;
   for (const e of sameDay) {
+    // A file whose own feed id is still in this run belongs to that item.
+    // "Council at Longmont Farmers Market" shares most of its words with the
+    // market itself, and once took over the market's file; an id that has
+    // gone from the feed (the County's change when a time moves) can still
+    // be found by its title, which is how a moved event is noticed.
+    if (claimed && e.sourceUid && e.sourceUid !== item.uid && claimed.has(e.sourceUid)) continue;
     const score = titleSimilarity(item.title, e.title);
     if (score < INGEST.titleMatch) continue;
     if (siblings > 1 && !item.allDay && Math.abs(e.start.getTime() - item.start.getTime()) > 30 * 60_000) continue;

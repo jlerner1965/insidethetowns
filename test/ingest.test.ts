@@ -232,6 +232,13 @@ test('venue from a feed location: the editor\'s alias or default wins, then the 
     address: '451 4th Ave, Lyons, CO, 80540',
     guessed: false,
   });
+  // A department's default covers its own building, rooms and bare
+  // addresses, not another place the location names: the library's film at
+  // the museum is at the museum, and only a guess, so it flags no move.
+  const elsewhere = venueFrom('Longmont Museum, 400 Quail Rd., Longmont, CO, 80501, United States', source({ defaultVenue: 'Longmont Public Library' }));
+  assert.equal(elsewhere.venue, 'Longmont Museum');
+  assert.equal(elsewhere.guessed, true);
+  assert.equal(venueFrom('Longmont Public Library, 355 Emery St., Longmont, CO, 80501, United States', source({ defaultVenue: 'Longmont Public Library' })).guessed, false);
   assert.equal(venueFrom('Berthoud, CO 80513', source()).venue, undefined);
   assert.equal(venueFrom(undefined, source()).venue, undefined);
 });
@@ -265,6 +272,22 @@ test('matching: the feed id first, then the same day and nearly the same title, 
   assert.ok(titleSimilarity('Board of Trustees', 'Planning Commission') < 0.2);
   const two = [item, { ...item, uid: 'y', start: parseLocal('2026-10-06T14:00') }];
   assert.deepEqual([...siblingCounts(two).values()], [2, 2]);
+});
+
+test('a file another item owns by id this run is never taken by a similar title', () => {
+  // The Longmont case of 4 October 2026: the council's visit to the market
+  // was staged first, and the market itself, from another feed the same
+  // morning, matched it by title and overwrote it.
+  const existing = [
+    { file: 'c.md', slug: 'council-at-longmont-farmers-market-2026-10-24', staged: true, title: 'Council at Longmont Farmers Market', start: parseLocal('2026-10-24T09:00'), venue: 'Boulder County Fairgrounds', sourceUid: 'council-1' },
+  ];
+  const market = { uid: 'market-1', title: 'Longmont Farmers Market', start: parseLocal('2026-10-24T08:00'), allDay: false, categories: [], status: 'confirmed' as const };
+  assert.ok(titleSimilarity(market.title, existing[0]!.title) >= 0.6, 'similar enough that the title alone matches');
+  assert.equal(matchExisting(market, existing, 1, new Set(['council-1', 'market-1'])).kind, 'none', 'the council item is in this run, so its file is its own');
+  // An id that has left the feed (the County's id changes when a time
+  // moves) leaves its file free to be found by title, as a change.
+  assert.equal(matchExisting({ ...market, title: 'Council at Longmont Farmers Market', uid: 'council-2' }, existing, 1, new Set(['council-2', 'market-1'])).kind, 'staged');
+  assert.equal(matchExisting(market, existing).kind, 'staged', 'without the run\'s ids, the old rule');
 });
 
 test('a change is a moved time, a moved venue or a cancellation, and nothing else', () => {
