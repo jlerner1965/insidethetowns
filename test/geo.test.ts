@@ -18,8 +18,9 @@ test('Niwot to Erie is about seven miles', () => {
 });
 
 test('a town is never its own neighbor and the nearest comes first', () => {
+  // Loveland, five and a half miles off, since it went live on 5 October.
   const near = nearestTowns(town('berthoud'), liveTowns());
-  assert.equal(near[0]!.town.slug, 'johnstown');
+  assert.equal(near[0]!.town.slug, 'loveland');
   assert.ok(near.every((n) => n.town.slug !== 'berthoud'));
   assert.ok(near.every((n) => n.miles <= 25));
   assert.ok(near.length <= 3);
@@ -54,8 +55,8 @@ test('the northern cluster: each of the three is the nearest guide to the others
 });
 
 test('Longmont sits between Niwot, Erie and Berthoud', () => {
-  // 6.1, 7.9 and 10.5 miles. It is Niwot's, Erie's and Lyons' nearest or
-  // next-nearest too, so their nearby blocks will lead with it once it is live.
+  // 6.1, 7.9 and 10.5 miles. In the nearby blocks it comes first for Niwot
+  // and second for Erie and Lyons.
   assert.deepEqual(
     nearestTowns(town('longmont'), allTowns).map((n) => n.town.slug),
     ['niwot', 'erie', 'berthoud'],
@@ -63,8 +64,9 @@ test('Longmont sits between Niwot, Erie and Berthoud', () => {
 });
 
 test('Loveland sits between Berthoud, Johnstown and Windsor', () => {
-  // 5.5, 9.2 and 10.3 miles; Fort Collins is 10.8. Berthoud's and
-  // Johnstown's nearby blocks will lead with it once it is live.
+  // 5.5, 9.2 and 10.3 miles; Fort Collins is 10.8. In the nearby blocks it
+  // comes first for Berthoud, second for Johnstown and third for Fort Collins
+  // and Timnath.
   assert.deepEqual(
     nearestTowns(town('loveland'), allTowns).map((n) => n.town.slug),
     ['berthoud', 'johnstown', 'windsor'],

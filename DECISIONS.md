@@ -2662,3 +2662,27 @@ feed), and the DNS and email changes; the DNS could not be made (below).
   both and added the same `hello@` rule, catch-all off. Both already carried
   the `_dmarc` record, so routing's own MX, SPF and DKIM records were the only
   change to their DNS.
+
+### Live, 5 October 2026
+
+- **Both guides are live, on the owner's word.** The first review was worked
+  through item by item with the owner in the session and applied with the
+  review script, every approval stamped with the owner's name. Longmont
+  published 41 events and 34 listings against 25 and 30; Loveland 34 and 36.
+  The owner rejected Longmont's eight routine council meetings and three Art
+  & Sip classes under the event standard, and both are now in their feeds'
+  `excludeTitles`. Three businesses reported closed or moved were rejected.
+  The 58 items left in staging need a check in a browser: sites that block
+  automated reads, and the Rialto's rental shows, dated only by a brochure.
+- **Fairground shows keep one file per day.** Ingest matches a feed item by
+  its UID, or by title on the same day, so merging a multi-day show into its
+  first day's file would restage the other days at every run. Each day is on
+  the County's calendar, which is what the event standard asks of a series.
+- **A start time ingest would undo is kept as the feed's.** Niwot Auction
+  gives 11 am for its 1 November sale; the County books the barn from 9 to
+  6. Ingest compares start times on every run, so 11 am in `start` would be
+  flagged weekly, and approving that flag would publish the wrong time. The
+  file keeps the County's times and says "Auction at 11 am" in `timeNote`,
+  which is what the card shows.
+- **Berthoud's nearest guide is now Loveland**, five and a half miles off,
+  not Johnstown; the geo test says so.

@@ -14,8 +14,8 @@ insidetimnath.com    TOWN=timnath
 insideelizabeth.com  TOWN=elizabeth
 insidewindsorco.com  TOWN=windsor
 insidefortcollins.com TOWN=fortcollins
-insidelongmontco.com TOWN=longmont   (not live: holding page)
-insidelovelandco.com TOWN=loveland   (not live: holding page)
+insidelongmontco.com TOWN=longmont
+insidelovelandco.com TOWN=loveland
 …
 ```
 
@@ -101,8 +101,8 @@ of a product or service" as commercial. `/advertise/` is that. A commercial
 network on a Hobby account risks being paused, which takes every site
 down at once.
 
-One seat covers every project: the ten guides plus the retired
-predecessors' projects. Pro is billed per user, not per project.
+One seat covers every project: the hub and the eleven guides, plus the
+retired predecessors' projects. Pro is billed per user, not per project.
 
 The build also writes `_headers` and `_redirects` into the output
 (`src/integrations/host-files.ts`), generated from `vercel.json`. Vercel

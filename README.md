@@ -59,7 +59,7 @@ canceled`, and the pages do the rest (see any content README).
    `--out=drafts` narrow it, move it, or write files instead of printing. It drafts;
    it never sends. Canceled events and closed places are left out of it.
 
-Rules at entry, the same on all nine guides, and now enforced by the build: nothing
+Rules at entry, the same on every guide, and now enforced by the build: nothing
 publishes without a `source` and a `verified` date, an open listing is hidden once
 its check is older than its freshness window (its hours go first), a permanently
 closed place keeps only its page, every item links to `/correct/`, and anything not

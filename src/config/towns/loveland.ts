@@ -6,14 +6,11 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  * events from the sources the editor confirms, and places downtown, food and
  * drink, the breweries, and the parks and open space. The launch threshold is
  * higher than a small town's for that reason.
- *
- * Not live: until `status` says so the domain serves the holding page.
  */
 export const loveland: TownConfig = {
   kind: 'town',
-  // 'live' when the guide is ready and the owner says so; until then the
-  // domain builds the noindex holding page and the hub lists it as coming.
-  status: 'wave1',
+  // Live on 5 October 2026, on the owner's word after the first review.
+  status: 'live',
   variant: 'front-range',
   launchThreshold: { events: 25, listings: 30 },
   slug: 'loveland',
