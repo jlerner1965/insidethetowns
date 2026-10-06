@@ -18,6 +18,8 @@ import {
   eventExclusion,
   hoursFresh,
   inSeason,
+  seasonDated,
+  seasonalHoursApply,
   placeExclusion,
   presentation,
 } from '../src/lib/freshness.ts';
@@ -255,4 +257,22 @@ test('access notes need a source and a check date, hide at their window, and are
   assert.equal(accessFresh({ verified: verifiedDaysAgo(FRESHNESS.accessDays + 1) }, now), false);
   assert.equal(daysUntilAccessStale({ verified: verifiedDaysAgo(20) }, now), FRESHNESS.accessDays - 20);
   assert.equal(daysUntilAccessStale(undefined, now), null);
+});
+
+test('season hours replace the regular hours only in a season that has dates', () => {
+  const summer = new Date('2026-07-15T18:00:00Z');
+  const winter = new Date('2026-01-15T18:00:00Z');
+  const dated = { hours: 'Daily 9 am–9 pm', opens: new Date('2026-05-23T06:00:00Z'), closes: new Date('2026-10-12T06:00:00Z') };
+  assert.equal(seasonalHoursApply(dated, summer), true);
+  assert.equal(seasonalHoursApply(dated, winter), false);
+  const months = { hours: 'Daily 9 am–9 pm', closedMonths: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar'] };
+  assert.equal(seasonalHoursApply(months, summer), true);
+  assert.equal(seasonalHoursApply(months, winter), false);
+  // A season with no dates says nothing about today: a place open all year
+  // with a summer schedule keeps its regular hours in January and in July.
+  const undated = { hours: 'Daily 9 am–9 pm', closedMonths: [] };
+  assert.equal(seasonalHoursApply(undated, summer), false);
+  assert.equal(seasonalHoursApply(undated, winter), false);
+  assert.equal(seasonDated(undated), false);
+  assert.equal(seasonalHoursApply({ closedMonths: ['Jan'] }, summer), false, 'no season hours, nothing to apply');
 });

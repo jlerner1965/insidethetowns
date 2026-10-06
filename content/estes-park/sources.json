@@ -77,10 +77,29 @@
       "excludeTitles": [
         "Library Closed",
         "Fall Sign",
-        "Makerspace Guide"
+        "Makerspace Guide",
+        "Storytime",
+        "Book Club",
+        "Books & Beverages",
+        "Books & Boba",
+        "Books and Boba",
+        "Dungeons & Dragons",
+        "Dragon Slayers",
+        "D&D Crafts",
+        "Young Chautauqua Club",
+        "Writing Group",
+        "Teen Maker Mornings",
+        "Kids Club",
+        "Tiny Tots Crafts",
+        "Homeschool Hangout",
+        "Board of Trustees",
+        "Board Meeting",
+        "Advisory Council",
+        "Philosophy Group",
+        "Test - Jamie"
       ],
       "defaultVenue": "Estes Valley Library",
-      "notes": "Fetched 6 October 2026. estesvalleylibrary.org is WordPress (hours on the home page: Monday-Thursday 10 AM-8 PM, Friday and Saturday 10 AM-6 PM, Sunday 1 PM-5 PM); its events run on Springshare LibCal at calendar.estesvalleylibrary.org. The LibCal page offers 'subscribe to this calendar' (ical_subscribe.php?src=p, cid 19315 taken from the page's RSS link) and the iCal was read once: text/calendar, 225 VEVENT, 0 RRULE, dates 2026-09-05 to 2027-09-06; sample titles 'Teen Maker Mornings - Button/Magnet Making', 'Baby Storytime at Cubz Den Recreation Center', 'Saturday Science Kids Club', 'Teen Dungeons & Dragons', 'Writing the Nightmare ... with Daniel Kraus', 'Tween Dragon Slayers'; locations 'Makerspace', 'Estes Valley Community Center', 'Alteatude', 'Library-wide'. Not meetings. Some items are closures or display notes ('Library Closed - Labor Day', 'Fall Sign', 'Makerspace Guide'), hence excludeTitles. Time zone handling was not shown by the helper's summary; check DTSTART/TZID on first ingest. The month RSS https://calendar.estesvalleylibrary.org/rss.php?iid=6313&m=month&cid=19315 was also read once (62 items) and is an alternative. Storytimes are held off-site at the Cubz Den / Estes Valley Community Center (EVRPD), so the defaultVenue should only apply when LOCATION is empty. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+      "notes": "Fetched 6 October 2026. estesvalleylibrary.org is WordPress (hours on the home page: Monday-Thursday 10 AM-8 PM, Friday and Saturday 10 AM-6 PM, Sunday 1 PM-5 PM); its events run on Springshare LibCal at calendar.estesvalleylibrary.org. The LibCal page offers 'subscribe to this calendar' (ical_subscribe.php?src=p, cid 19315 taken from the page's RSS link) and the iCal was read once: text/calendar, 225 VEVENT, 0 RRULE, dates 2026-09-05 to 2027-09-06; sample titles 'Teen Maker Mornings - Button/Magnet Making', 'Baby Storytime at Cubz Den Recreation Center', 'Saturday Science Kids Club', 'Teen Dungeons & Dragons', 'Writing the Nightmare ... with Daniel Kraus', 'Tween Dragon Slayers'; locations 'Makerspace', 'Estes Valley Community Center', 'Alteatude', 'Library-wide'. Not meetings. Some items are closures or display notes ('Library Closed - Labor Day', 'Fall Sign', 'Makerspace Guide'), hence excludeTitles. Time zone handling was not shown by the helper's summary; check DTSTART/TZID on first ingest. The month RSS https://calendar.estesvalleylibrary.org/rss.php?iid=6313&m=month&cid=19315 was also read once (62 items) and is an alternative. Storytimes are held off-site at the Cubz Den / Estes Valley Community Center (EVRPD), so the defaultVenue should only apply when LOCATION is empty. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Title exclusions added 6 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, regular classes and open hours go on the venue’s listing as a Regulars line; routine meetings are not events); remove any to have it staged again."
     },
     {
       "id": "evrpd-com",

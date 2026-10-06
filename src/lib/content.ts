@@ -6,7 +6,7 @@
 import { getCollection, type CollectionEntry, type CollectionKey } from 'astro:content';
 import { getSite, liveTowns, type TownConfig } from '@/config';
 import { isExcluded } from '@/content/schemas';
-import { eventExclusion, placeExclusion, presentation, type Exclusion } from '@/lib/freshness';
+import { eventExclusion, placeExclusion, presentation, seasonalHoursApply, type Exclusion } from '@/lib/freshness';
 
 export type TownEntry<C extends CollectionKey> = CollectionEntry<C> & {
   slug: string;
@@ -70,11 +70,12 @@ function shape(entry: CollectionEntry<'places'>, variant: TownConfig['variant'],
     data.hours = undefined;
     data.openingHours = undefined;
     if (data.seasonal) data.seasonal = { ...data.seasonal, hours: undefined };
-  } else if (data.seasonal?.hours) {
-    // In season, the season's hours are the hours: one line every row, page,
-    // open-now badge and structured-data block reads, so none can disagree.
-    // `openingHours` is dropped with them; the text parser reads the line or
-    // nothing claims "Open now".
+  } else if (data.seasonal?.hours && seasonalHoursApply(data.seasonal, now)) {
+    // In a dated season, the season's hours are the hours: one line every
+    // row, page, open-now badge and structured-data block reads, so none can
+    // disagree. `openingHours` is dropped with them; the text parser reads
+    // the line or nothing claims "Open now". An undated season's hours stay
+    // text on the place page's Season line (seasonalHoursApply says why).
     data.hours = data.seasonal.hours;
     data.openingHours = undefined;
   }
