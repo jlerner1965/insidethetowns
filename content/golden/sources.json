@@ -31,10 +31,13 @@
       "priority": "core",
       "status": "confirmed",
       "robots": "honor",
-      "notes": "Read 2026-10-06. jeffco.us is CivicPlus. The all-calendars RSS read once: 20 items, mostly facility notices ('Open for Visitors', 'Wedding Site Tours', 'Closed for Private Event', dated mid-September 2026) plus one Jeffco Wildfire Commission Meeting and 'Grounded Conversations @ East Simpson Coffee Co.'; low value for a Golden events list, useful mainly for county meetings. The feed index page /RSS.aspx is disallowed by robots.txt for our agent, so other per-calendar RSS ids were not enumerated; the Open Space calendar (CID 26) is registered separately below. The sampleUrl is a Calendar.aspx event id linked from the Open Space page, not opened. locationFilter set to Golden on confirmation, 6 October 2026: the feed is county-wide and Golden is the county seat. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own).",
       "locationFilter": [
         "Golden"
-      ]
+      ],
+      "excludeTitles": [
+        "Meeting"
+      ],
+      "notes": "Read 2026-10-06. jeffco.us is CivicPlus. The all-calendars RSS read once: 20 items, mostly facility notices ('Open for Visitors', 'Wedding Site Tours', 'Closed for Private Event', dated mid-September 2026) plus one Jeffco Wildfire Commission Meeting and 'Grounded Conversations @ East Simpson Coffee Co.'; low value for a Golden events list, useful mainly for county meetings. The feed index page /RSS.aspx is disallowed by robots.txt for our agent, so other per-calendar RSS ids were not enumerated; the Open Space calendar (CID 26) is registered separately below. The sampleUrl is a Calendar.aspx event id linked from the Open Space page, not opened. locationFilter set to Golden on confirmation, 6 October 2026: the feed is county-wide and Golden is the county seat. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Title exclusions added 6 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, regular classes and open hours go on the venue’s listing as a Regulars line; routine meetings are not events); remove any to have it staged again."
     },
     {
       "id": "goldenchamber-org",
@@ -64,9 +67,8 @@
       "id": "jeffcolibrary-bibliocommons-com",
       "name": "Jefferson County Public Library - Events (Golden Library)",
       "url": "https://jeffcolibrary.bibliocommons.com/v2/events",
-      "feedUrl": "https://jeffcolibrary.bibliocommons.com/events/rss/all",
       "sampleUrl": "https://jeffcolibrary.bibliocommons.com/events/search/index",
-      "type": "rss",
+      "type": "html",
       "category": "library",
       "priority": "core",
       "status": "confirmed",
@@ -74,7 +76,7 @@
       "locationFilter": [
         "Golden"
       ],
-      "notes": "Read 2026-10-06. jeffcolibrary.org (200) is a BiblioCommons site; events live at jeffcolibrary.bibliocommons.com (BiblioEvents), not LibCal. The system-wide RSS /events/rss/all read once: 5.8 MB, 2000 items (helper cap), titles such as Baby Time, Toddler Time, Preschool Time, Paws for Reading, ESL class, Intercambio Spanish Conversation Table; the helper did not parse per-item dates, and the body was not dumped, so the Golden share is unknown. Filter on location 'Golden Library' (locationFilter). BiblioEvents search supports branch filters (fq=branch_location_id:...) but the Golden id was not found. jeffcolibrary.org/locations/golden/ returned 404 (the pattern came from a /locations/elwa/ link), so the branch page URL is unconfirmed; jeffcolibrary.org/events-activities/ is linked from the 404 page but was not opened. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+      "notes": "Read 2026-10-06. jeffcolibrary.org (200) is a BiblioCommons site; events live at jeffcolibrary.bibliocommons.com (BiblioEvents), not LibCal. The system-wide RSS /events/rss/all read once: 5.8 MB, 2000 items (helper cap), titles such as Baby Time, Toddler Time, Preschool Time, Paws for Reading, ESL class, Intercambio Spanish Conversation Table; the helper did not parse per-item dates, and the body was not dumped, so the Golden share is unknown. Filter on location 'Golden Library' (locationFilter). BiblioEvents search supports branch filters (fq=branch_location_id:...) but the Golden id was not found. jeffcolibrary.org/locations/golden/ returned 404 (the pattern came from a /locations/elwa/ link), so the branch page URL is unconfirmed; jeffcolibrary.org/events-activities/ is linked from the 404 page but was not opened. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Set to html on 6 October 2026: ingest read the feed (https://jeffcolibrary.bibliocommons.com/events/rss/all) and found 2,000 items with no event date it can read (BiblioCommons puts the event date in fields the RSS reader does not parse). Reading them would need a new reader, which the owner ruled out for Golden’s city calendar the same day, so the library’s events page is read by hand."
     },
     {
       "id": "cityofgolden-gov-parks",
@@ -111,14 +113,14 @@
       "priority": "core",
       "status": "confirmed",
       "robots": "honor",
-      "notes": "Read 2026-10-06. Land agency for North Table Mountain, Lookout Mountain Preserve and Nature Center, Clear Creek Canyon Park, Windy Saddle, Apex, Centennial Cone and (since 2025) Rooney Road; category parks. The Open Space page (200, CivicPlus) links its own calendar (calendar.aspx?CID=26) and /1531/Alerts-Closures. The CivicPlus iCal for CID 26 read once: 10 VEVENT, 2 RRULE, 2024-11-03 to 2026-10-27, TZID America/Denver, locations as HTML fragments (Lookout Mountain Preserve and Nature Center 910 Colorow Rd; Jefferson County Fairgrounds; Alderfer/Three Sisters; Lakewood Library); titles Full Moon Night Hike, Yoga With a Ranger, Boo-Logical Adaptations Night Hike, Night at the Observatory, Preschool Nature Nuts, open houses; programs not meetings, county-wide, so filter on Lookout Mountain / North Table / Clear Creek Canyon locations. The Alerts & Closures page (200) is the live closures page to link from the town config: current notices (Meyer Ranch closure from 10/19, Deer Creek Canyon Meadowlark Trail, South Valley Prairie Falcon Trail, Tiers of Zion) and seasonal closures including Clear Creek Canyon Park near MM 270 uphill of US 6 closed Feb 1-Jul 31 for nesting eagles and Centennial Cone Elk Range Trail Feb 1-mid June; also /AlertCenter.aspx?CID=25 (Notify Me). The feed index /RSS.aspx is robots-disallowed. locationFilter set on confirmation, 6 October 2026, to the parks around Golden named above. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own).",
       "locationFilter": [
         "Lookout Mountain",
         "North Table",
         "Clear Creek Canyon",
         "Windy Saddle",
         "Golden"
-      ]
+      ],
+      "notes": "Read 2026-10-06. Land agency for North Table Mountain, Lookout Mountain Preserve and Nature Center, Clear Creek Canyon Park, Windy Saddle, Apex, Centennial Cone and (since 2025) Rooney Road; category parks. The Open Space page (200, CivicPlus) links its own calendar (calendar.aspx?CID=26) and /1531/Alerts-Closures. The CivicPlus iCal for CID 26 read once: 10 VEVENT, 2 RRULE, 2024-11-03 to 2026-10-27, TZID America/Denver, locations as HTML fragments (Lookout Mountain Preserve and Nature Center 910 Colorow Rd; Jefferson County Fairgrounds; Alderfer/Three Sisters; Lakewood Library); titles Full Moon Night Hike, Yoga With a Ranger, Boo-Logical Adaptations Night Hike, Night at the Observatory, Preschool Nature Nuts, open houses; programs not meetings, county-wide, so filter on Lookout Mountain / North Table / Clear Creek Canyon locations. The Alerts & Closures page (200) is the live closures page to link from the town config: current notices (Meyer Ranch closure from 10/19, Deer Creek Canyon Meadowlark Trail, South Valley Prairie Falcon Trail, Tiers of Zion) and seasonal closures including Clear Creek Canyon Park near MM 270 uphill of US 6 closed Feb 1-Jul 31 for nesting eagles and Centennial Cone Elk Range Trail Feb 1-mid June; also /AlertCenter.aspx?CID=25 (Notify Me). The feed index /RSS.aspx is robots-disallowed. locationFilter set on confirmation, 6 October 2026, to the parks around Golden named above. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "buffalobill-org",

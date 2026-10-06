@@ -49,7 +49,12 @@
       "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Fort Lupton Public & School Library",
-      "notes": "Found and read once on 6 October 2026. The library is a City of Fort Lupton department on the same CivicPlus host (370 S Rollie Ave, 303-339-4089; nav also links High Plains Library District). Its calendar 32 (Library All Events) iCal returned 54 VEVENT, 2 RRULE, dates to 29 December 2026, America/Denver, with structured locations such as 'Library > Both Community Room 1 & 2 - 370 S. Rollie Ave. Fort Lupton CO 80621' and 'Library > Makerspace'. Sample titles: Dance & Play, Makerspace Open Studio, Storytime Explorers, SBDC Network Power Hour. Sub-calendars exist for Adults (42), Babies & PK (38), Elementary (39), Teens (40), Library Business (36) and Library Closures (41) but were not read; use 32 and exclude Closures/Business titles if they appear. The library page also posts program news (Level Up!, Spooktacular October, Loteria Mexicana, Cereal, Centers & Stories, StoryWalk at Community Center Park). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+      "notes": "Found and read once on 6 October 2026. The library is a City of Fort Lupton department on the same CivicPlus host (370 S Rollie Ave, 303-339-4089; nav also links High Plains Library District). Its calendar 32 (Library All Events) iCal returned 54 VEVENT, 2 RRULE, dates to 29 December 2026, America/Denver, with structured locations such as 'Library > Both Community Room 1 & 2 - 370 S. Rollie Ave. Fort Lupton CO 80621' and 'Library > Makerspace'. Sample titles: Dance & Play, Makerspace Open Studio, Storytime Explorers, SBDC Network Power Hour. Sub-calendars exist for Adults (42), Babies & PK (38), Elementary (39), Teens (40), Library Business (36) and Library Closures (41) but were not read; use 32 and exclude Closures/Business titles if they appear. The library page also posts program news (Level Up!, Spooktacular October, Loteria Mexicana, Cereal, Centers & Stories, StoryWalk at Community Center Park). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Title exclusions added 6 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, regular classes and open hours go on the venue’s listing as a Regulars line; routine meetings are not events); remove any to have it staged again.",
+      "excludeTitles": [
+        "Makerspace Open Studio",
+        "Dance & Play",
+        "Storytime"
+      ]
     },
     {
       "id": "fortluptonco-gov-parks",
