@@ -3178,9 +3178,13 @@ earlier briefs.
   here" without a car. Horsetooth Reservoir is "just west" of Fort Collins,
   as Larimer County describes it, not "inside its limits". The Windsor and
   Timnath price conclusions ("only the house is cheaper", "without paying for
-  Fort Collins") had nothing behind them and went; Erie's "Boulder prices"
-  and Berthoud's "short of Fort Collins" are the same kind of claim and are
-  still there. The CSU visitor article no longer says Old Town restaurants
+  Fort Collins") had nothing behind them and went. So, after the owner
+  agreed, did the rest of the same kind: Erie's "Boulder prices" (on /moving/
+  and the Erie–Johnstown page), Berthoud's "short of Fort Collins" (its
+  one-line description and /moving/), Lyons's "which means it is expensive",
+  and the Elizabeth history's "cheaper than anything comparable closer in".
+  Each now says something its own guide supports: a drive time, the size of
+  the market, the parcel sizes. The CSU visitor article no longer says Old Town restaurants
   "take no walk-ins at seven".
 - **Longmont, Loveland and Carbon Valley** now have "Who each one suits"
   paragraphs, drawn only from what their own Moving Here guides source, and
