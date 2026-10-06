@@ -15,7 +15,7 @@ import { openingHoursOf } from '@/lib/hours';
 import { byProminence, isOpen } from '@/lib/places';
 import OpenStatus from '@/components/OpenStatus.astro';
 import Provenance from '@/components/Provenance.astro';
-import { accessFresh, ageDays } from '@/lib/freshness';
+import { accessFresh, ageDays, seasonalHoursApply } from '@/lib/freshness';
 
 export async function getStaticPaths() {
   const places = await getTownEntries('places');
@@ -82,13 +82,16 @@ const hoursValue =
         : undefined;
 /**
  * The mountain variant's season, as one row: the operator's own words for
- * when it runs, then the dates where the page gives them. The hours row
- * above already shows the season's hours (the gate swaps them in) or says
- * the place is closed for the season, so this row never repeats hours.
+ * when it runs, then the dates where the page gives them. In a dated season
+ * the hours row above already shows the season's hours (the gate swaps them
+ * in) or says the place is closed for the season; an undated season's hours
+ * cannot claim today, so they are shown here as text instead.
  */
 const seasonValue = data.seasonal
   ? [
       data.seasonal.season,
+      // Hours the gate did not swap in (an undated season) are shown here as text.
+      data.seasonal.hours && !seasonalHoursApply(data.seasonal) ? data.seasonal.hours : undefined,
       data.seasonal.opens && data.seasonal.closes
         ? `opens ${formatDate(data.seasonal.opens)}, closes ${formatDate(data.seasonal.closes)}`
         : data.seasonal.opens

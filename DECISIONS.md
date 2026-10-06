@@ -3287,3 +3287,45 @@ flips it.
 - **Sources were seeded, all proposed, from a robots-honouring read of each
   site**, core first, with the visitor center and the land agencies as core
   on the mountain guides; nothing is ingested until the owner confirms them.
+
+## The seven new towns, step 6: sources, events and places
+
+*6 October 2026.* The owner's answers, and what was built on them.
+
+- **Sources.** Every core source was confirmed except one whose feed is a
+  listings site: Visit Estes Park's RSS (the local marketing district's
+  calendar, which takes business submissions). Every other feed is the
+  town's, the county's, the library's, a venue's or a land agency's own. Two
+  library feeds are hosted by the library's software vendor (BiblioCommons,
+  LibCal, Communico); they are the library's own calendars, not
+  aggregators, and were confirmed. Golden's city calendar is read by hand
+  (the owner: no new reader for its Revize JSON), and so, for the same
+  reason, are the Jefferson County Public Library's BiblioCommons feeds,
+  whose items carry no date the RSS reader can read.
+- **Events: feeds only, the event standard applied.** Ingest staged 387
+  items. Title exclusions from the event standard (storytimes, clubs,
+  regular classes and open hours, routine meetings, a Town service day)
+  took 236 back out; 151 wait in staging for the owner's review. Each
+  source's note lists its exclusions and how to undo them. No event is
+  published: approval is the owner's (`npm run review`).
+- **Places: own pages only, three judgment calls reversed.** Researchers
+  wrote listings only from the business's or the agency's own pages, and
+  staged what they could not settle. Three published listings were moved
+  back to staging because their sources were unclear: the Great Western
+  Trail (the Authority's map and home page disagree on a closed segment),
+  Bentgate Mountaineering (its page says closed on Saturdays; a call
+  settles it), and Brownfield's year-round hours line was removed (its own
+  page says the shop is seasonal and gives no dates).
+- **Season hours apply only to a season with dates.** The first cut swapped
+  a place's season hours in whenever the season could not be placed on the
+  calendar, which would have shown a year-round shop's summer schedule in
+  January. `seasonalHoursApply` in `src/lib/freshness.ts` now requires
+  dates or closed months; an undated season's hours show as text on the
+  place page's Season line. Tested.
+- **Castle Rock's Town site refuses automated reads,** so every Town-run
+  park waits in staging, and seven of its 32 published places are county
+  and state land addressed in Larkspur or Franktown.
+- **A placeholder hero cannot go live.** A render-test build of Estes Park
+  as live (not committed) built all 65 pages once a real licence line
+  stood in for the placeholder's, and failed at `/credits/` without one,
+  as designed. Each town needs its hero photograph before it is flipped.

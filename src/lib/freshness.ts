@@ -134,6 +134,23 @@ export function inSeason(seasonal: SeasonLike | undefined, now: Date = new Date(
   return true;
 }
 
+/** Whether a season can be placed on the calendar: dates, or the months it is shut. */
+export function seasonDated(seasonal: SeasonLike | undefined): boolean {
+  if (!seasonal) return false;
+  return (!!seasonal.opens && !!seasonal.closes) || (seasonal.closedMonths?.length ?? 0) > 0;
+}
+
+/**
+ * Whether a place's season hours stand in for its `hours` today. Only a
+ * season with dates (or closed months) can say it is running; one without
+ * says nothing about today, so its hours stay text on the Season line and
+ * the year-round `hours` stand. Otherwise a place open all year with a
+ * summer schedule would show the summer hours in January.
+ */
+export function seasonalHoursApply(seasonal: (SeasonLike & { hours?: string }) | undefined, now: Date = new Date()): boolean {
+  return !!seasonal?.hours && seasonDated(seasonal) && inSeason(seasonal, now);
+}
+
 /**
  * What a published listing may still show. A closed place keeps its page
  * (James, 3 October: with a clear notice, no hours or phone, and out of the
