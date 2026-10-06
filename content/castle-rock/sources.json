@@ -8,9 +8,9 @@
       "type": "manual",
       "category": "city-calendar",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Checked 6 October 2026: the Town's site is CivicPlus behind Cloudflare and answered 403 ('Sorry, you have been blocked', civicplus.io) to the home page, to the standard CivicPlus feed /RSSFeed.aspx?ModID=58&CID=All-calendar.xml, and to /ParksandRec. The same 403 was reported for an earlier automated request, so this repeats; recorded and not tried another way. Search results show the Town has a CivicPlus /Calendar.aspx with categories (calendar.aspx?CID=18 appeared in results) and an America 250 events page, but none of it was readable from here. Manual until the Town answers or an editor checks it by hand in a browser."
+      "notes": "Checked 6 October 2026: the Town's site is CivicPlus behind Cloudflare and answered 403 ('Sorry, you have been blocked', civicplus.io) to the home page, to the standard CivicPlus feed /RSSFeed.aspx?ModID=58&CID=All-calendar.xml, and to /ParksandRec. The same 403 was reported for an earlier automated request, so this repeats; recorded and not tried another way. Search results show the Town has a CivicPlus /Calendar.aspx with categories (calendar.aspx?CID=18 appeared in results) and an America 250 events page, but none of it was readable from here. Manual until the Town answers or an editor checks it by hand in a browser. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "douglasco-gov",
@@ -21,7 +21,7 @@
       "type": "json",
       "category": "county",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "locationFilter": [
         "Castle Rock"
@@ -39,7 +39,7 @@
         "Historic Preservation Board",
         "Offices Closed"
       ],
-      "notes": "Checked 6 October 2026: WordPress with The Events Calendar; douglas.co.us redirects/canonicalises to douglasco.gov. The Tribe REST feed read successfully: 40 upcoming events, 2026-10-09 to 2027-01-18, all America/Denver, with structured venue (id, city) and categories. Sample titles: Rueter-Hess Advisory Board, Stargazing Party at Sandstone Ranch, Baby Cafe, Douglas County Fair Board meeting, Planning Commission, Business Meeting, Veterans Day (Offices Closed). Venues: Philip S. Miller Building, Castle Rock (18 of 40), BoCC Hearing Room, Castle Rock (5), Douglas County Fairgrounds, Castle Rock (1), the rest in Parker, Highlands Ranch, Englewood, Larkspur. Mostly public meetings and office closures, so the exclude list and a Castle Rock location filter are needed; the useful public categories are 'Open Space Events' (89 all-time), 'Senior Events' (64), 'Fairgrounds' (5), 'Older Adult Roadshows' (14). The categories endpoint /wp-json/tribe/events/v1/categories was also read. The iCal export https://www.douglas.co.us/events/?ical=1 answered with only 14 VEVENTs (list-view window), so JSON is the better feed."
+      "notes": "Checked 6 October 2026: WordPress with The Events Calendar; douglas.co.us redirects/canonicalises to douglasco.gov. The Tribe REST feed read successfully: 40 upcoming events, 2026-10-09 to 2027-01-18, all America/Denver, with structured venue (id, city) and categories. Sample titles: Rueter-Hess Advisory Board, Stargazing Party at Sandstone Ranch, Baby Cafe, Douglas County Fair Board meeting, Planning Commission, Business Meeting, Veterans Day (Offices Closed). Venues: Philip S. Miller Building, Castle Rock (18 of 40), BoCC Hearing Room, Castle Rock (5), Douglas County Fairgrounds, Castle Rock (1), the rest in Parker, Highlands Ranch, Englewood, Larkspur. Mostly public meetings and office closures, so the exclude list and a Castle Rock location filter are needed; the useful public categories are 'Open Space Events' (89 all-time), 'Senior Events' (64), 'Fairgrounds' (5), 'Older Adult Roadshows' (14). The categories endpoint /wp-json/tribe/events/v1/categories was also read. The iCal export https://www.douglas.co.us/events/?ical=1 answered with only 14 VEVENTs (list-view window), so JSON is the better feed. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "castlerock-org",
@@ -49,9 +49,9 @@
       "type": "html",
       "category": "chamber",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Checked 6 October 2026: castlerock.org (WordPress/Avada) links its 'Chamber Calendar' to a ChamberMaster/GrowthZone site at business.castlerock.org/events ('Event List | Castle Rock Chamber of Commerce'). The page carried about ten October 2026 items: Breakfast Club Leads Group, Leads Referral Group, Power Partners Leads Group, Rock Solid Leads Group, Chamber 101, Business Unwind at FirstTier Bank, Ribbon Cutting at Equity Title of Colorado, Women of Influence Luncheon. The HTML contains the comment 'link for rss not inserted' and /events/rss answered 404, so no feed; html scrape of /events or /events/calendar/<date>. Mostly member networking; the Chamber's public signature events (Artfest at Festival Park in September, Starlighting, Sip and Savor, Douglas County Fair Parade) are listed on castlerock.org menu pages. Phone (303) 688-4597."
+      "notes": "Checked 6 October 2026: castlerock.org (WordPress/Avada) links its 'Chamber Calendar' to a ChamberMaster/GrowthZone site at business.castlerock.org/events ('Event List | Castle Rock Chamber of Commerce'). The page carried about ten October 2026 items: Breakfast Club Leads Group, Leads Referral Group, Power Partners Leads Group, Rock Solid Leads Group, Chamber 101, Business Unwind at FirstTier Bank, Ribbon Cutting at Equity Title of Colorado, Women of Influence Luncheon. The HTML contains the comment 'link for rss not inserted' and /events/rss answered 404, so no feed; html scrape of /events or /events/calendar/<date>. Mostly member networking; the Chamber's public signature events (Artfest at Festival Park in September, Starlighting, Sip and Savor, Douglas County Fair Parade) are listed on castlerock.org menu pages. Phone (303) 688-4597. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "downtowncastlerock-com",
@@ -61,10 +61,10 @@
       "type": "html",
       "category": "chamber",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Downtown Castle Rock",
-      "notes": "Checked 6 October 2026: Wix site of the Castle Rock Downtown Alliance (the DMA and the Downtown Development Authority combined), 18 South Wilcox Street #202, 303-688-7488. The 2026 Events page lists the DMA's free events: Summer Kickoff Concert (May 16), Car Show weekend (June 19-20), Boots and Brews (July 25), Oktoberfest (Sept 19), Restaurant Week (Oct 2-11), Fangtastic Festival (Oct 30), plus recurring Jazz in the Park and free summer trolley rides (Wednesdays June-August), winter trolley rides and ticketed carriage rides (Nov 22 2026 to Jan 3 2027). The /dtcrcalendar page is a Wix Events calendar (wix-events-web) with no public feed found. /dma-events-2026 is 404; the real path is /2026events. Annual, hand-maintained list, so html with a yearly refresh."
+      "notes": "Checked 6 October 2026: Wix site of the Castle Rock Downtown Alliance (the DMA and the Downtown Development Authority combined), 18 South Wilcox Street #202, 303-688-7488. The 2026 Events page lists the DMA's free events: Summer Kickoff Concert (May 16), Car Show weekend (June 19-20), Boots and Brews (July 25), Oktoberfest (Sept 19), Restaurant Week (Oct 2-11), Fangtastic Festival (Oct 30), plus recurring Jazz in the Park and free summer trolley rides (Wednesdays June-August), winter trolley rides and ticketed carriage rides (Nov 22 2026 to Jan 3 2027). The /dtcrcalendar page is a Wix Events calendar (wix-events-web) with no public feed found. /dma-events-2026 is 404; the real path is /2026events. Annual, hand-maintained list, so html with a yearly refresh. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "dcl-org",
@@ -75,7 +75,7 @@
       "type": "ical",
       "category": "library",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "excludeTitles": [
         "Storytime",
@@ -83,7 +83,7 @@
         "Play & Connect"
       ],
       "defaultVenue": "Douglas County Libraries - Castle Rock (Philip S. Miller)",
-      "notes": "Checked 6 October 2026: DCL's event calendar is Communico (go.dcl.org; dcl.org/events/ is 404). The listing script exposes RSS and iCal feeds at /feeds?data=<base64 JSON of {feedType, filters}>; the branch page dcl.org/castle-rock/ gives the Castle Rock location id 3829 (widget location=3829). The iCal feed built with location 3829 read successfully: 500 VEVENTs (appears capped), 2 RRULE, dates 2026-03-08 to 2027-11-09, every LOCATION 'Castle Rock - <room> - Castle Rock' (Kids Corner, Event Hall A). Sample titles: Coffee Chat, Baby/Toddler/Preschool Storytime, Play & Connect, Embark on Your Ancestral Journey. The 'days' filter seems ignored. Heavy on weekly storytimes, hence the exclude list for a curated guide. The branch is at 100 S. Wilcox Street, Castle Rock, (303) 791-7323. Change feedType to 'rss' in the JSON for an RSS version."
+      "notes": "Checked 6 October 2026: DCL's event calendar is Communico (go.dcl.org; dcl.org/events/ is 404). The listing script exposes RSS and iCal feeds at /feeds?data=<base64 JSON of {feedType, filters}>; the branch page dcl.org/castle-rock/ gives the Castle Rock location id 3829 (widget location=3829). The iCal feed built with location 3829 read successfully: 500 VEVENTs (appears capped), 2 RRULE, dates 2026-03-08 to 2027-11-09, every LOCATION 'Castle Rock - <room> - Castle Rock' (Kids Corner, Event Hall A). Sample titles: Coffee Chat, Baby/Toddler/Preschool Storytime, Play & Connect, Embark on Your Ancestral Journey. The 'days' filter seems ignored. Heavy on weekly storytimes, hence the exclude list for a curated guide. The branch is at 100 S. Wilcox Street, Castle Rock, (303) 791-7323. Change feedType to 'rss' in the JSON for an RSS version. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "crgov-com-parks",
@@ -92,10 +92,10 @@
       "type": "manual",
       "category": "parks",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Philip S. Miller Park",
-      "notes": "Checked 6 October 2026: Parks and Recreation is a Town department on the same CivicPlus site; /ParksandRec answered 403 from Cloudflare like the rest of crgov.com. Search results name crgov.com/2049/Miller-Activity-Complex-MAC and crgov.com/recreation as the MAC and recreation pages (MAC at 1375 W. Plum Creek Parkway inside the 300-acre Philip S. Miller Park, 720-733-2222, per snippets, unverified here). No alternative host for the Town's recreation calendar was found. Manual until the Town replies."
+      "notes": "Checked 6 October 2026: Parks and Recreation is a Town department on the same CivicPlus site; /ParksandRec answered 403 from Cloudflare like the rest of crgov.com. Search results name crgov.com/2049/Miller-Activity-Complex-MAC and crgov.com/recreation as the MAC and recreation pages (MAC at 1375 W. Plum Creek Parkway inside the 300-acre Philip S. Miller Park, 720-733-2222, per snippets, unverified here). No alternative host for the Town's recreation calendar was found. Manual until the Town replies. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "105westbrewing-com",
@@ -104,10 +104,10 @@
       "type": "html",
       "category": "venue",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "105 West Brewing Company",
-      "notes": "Checked 6 October 2026: Webflow site ('105 West Brewing | Veteran-Owned Craft Brewery Colorado', 1043 Park Street, downtown). The home page links to /events but that path answered 404, so the events listing was not found; no feed. Search snippets describe Saturday live music and food trucks. Keep as a downtown venue to check by hand until the real events URL is known."
+      "notes": "Checked 6 October 2026: Webflow site ('105 West Brewing | Veteran-Owned Craft Brewery Colorado', 1043 Park Street, downtown). The home page links to /events but that path answered 404, so the events listing was not found; no feed. Search snippets describe Saturday live music and food trucks. Keep as a downtown venue to check by hand until the real events URL is known. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "douglasco-gov-fairgrounds",
@@ -117,10 +117,10 @@
       "type": "html",
       "category": "venue",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Douglas County Fairgrounds & Events Center",
-      "notes": "Checked 6 October 2026: the fairgrounds (500 Fairgrounds Drive, Castle Rock) are a county facility; both the Fairground Events page and the Tribe venue page were read but their text body is mostly site navigation, and only one upcoming fairgrounds item (Douglas County Fair Board meeting, Oct 15) sat in the county feed. In the county Tribe JSON the venue id is 60152 and the category slug is 'fairgrounds' (5 all-time), so this venue can be served from the douglasco-gov feed filtered by venue rather than scraped. The Fair & Rodeo (August) has its own site, not fetched."
+      "notes": "Checked 6 October 2026: the fairgrounds (500 Fairgrounds Drive, Castle Rock) are a county facility; both the Fairground Events page and the Tribe venue page were read but their text body is mostly site navigation, and only one upcoming fairgrounds item (Douglas County Fair Board meeting, Oct 15) sat in the county feed. In the county Tribe JSON the venue id is 60152 and the category slug is 'fairgrounds' (5 all-time), so this venue can be served from the douglasco-gov feed filtered by venue rather than scraped. The Fair & Rodeo (August) has its own site, not fetched. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "outletsatcastlerock-com",
@@ -130,10 +130,10 @@
       "type": "html",
       "category": "venue",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Outlets at Castle Rock",
-      "notes": "Checked 6 October 2026: events page read; a short promotional list (Boo Bash, Saturday 24 October 11am-2pm; HOKA coming soon; military discounts), no feed, no dates in a machine-readable form. A few family events a year (Boo Bash, holiday lighting); html with a monthly look."
+      "notes": "Checked 6 October 2026: events page read; a short promotional list (Boo Bash, Saturday 24 October 11am-2pm; HOKA coming soon; military discounts), no feed, no dates in a machine-readable form. A few family events a year (Boo Bash, holiday lighting); html with a monthly look. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "visitcastlerock-org",

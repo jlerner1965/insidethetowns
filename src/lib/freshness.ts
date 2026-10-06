@@ -93,6 +93,17 @@ export function daysUntilStale(data: PlaceLike, variant: TownVariant, now: Date 
   return windowsFor(variant).listingDays - ageDays(data.verified, now);
 }
 
+/**
+ * Days until a trail's, trailhead's or park's access notes cross their own
+ * window (FRESHNESS.accessDays), for the same forward look the listings get;
+ * negative once they have. Null where there are none. The notes carry their
+ * own check date, so re-checking a listing's hours does not renew them.
+ */
+export function daysUntilAccessStale(access: { verified: Date } | undefined, now: Date = new Date()): number | null {
+  if (!access) return null;
+  return FRESHNESS.accessDays - ageDays(access.verified, now);
+}
+
 /** Due for the rotation: not re-checked in `recheckDays`. */
 export function dueForRecheck(data: Provenanced, now: Date = new Date()): boolean {
   if (!data.verified) return true;

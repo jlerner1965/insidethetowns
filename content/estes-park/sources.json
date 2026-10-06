@@ -9,10 +9,10 @@
       "type": "manual",
       "category": "city-calendar",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Estes Park Events Complex, 1125 Rooftop Way",
-      "notes": "Fetched 6 October 2026. estesparkeventscomplex.com is the Town's events site (footer: 'Town of Estes Park Events Division', 1125 Rooftop Way, 970-577-3900, events@estes.org); its canonical host is eventsinestes.com (WordPress/Elementor, Jetpack). The home page lists the Town's signature events by month (First Peoples Festival in January, Wine & Chocolate Festival in February, Whiskey Warm Up in March, and so on). The /calendar/ page is an embedded Google Calendar, id estes.org_crkjvme9sv81j4b73v1ctelmfs@group.calendar.google.com, time zone America/Denver; calendar.google.com's robots.txt disallows agents, so the id is recorded and not read. Dead ends: /events/?ical=1 returned the HTML events page, not iCal (The Events Calendar is not installed); /wp-json/tribe/events/v1/events returned 404. The site's WordPress post feed https://eventsinestes.com/feed/ was read once: RSS, 10 items, all posts dated 3 February 2026 describing fiber-arts classes (Scandinavian Skinnfells, Botanical Printing, Spin the Yarn You Need), so it is a stale class listing, not an events feed. Manual until the Town shares an iCal of the Google calendar or the owner approves a Google Calendar read."
+      "notes": "Fetched 6 October 2026. estesparkeventscomplex.com is the Town's events site (footer: 'Town of Estes Park Events Division', 1125 Rooftop Way, 970-577-3900, events@estes.org); its canonical host is eventsinestes.com (WordPress/Elementor, Jetpack). The home page lists the Town's signature events by month (First Peoples Festival in January, Wine & Chocolate Festival in February, Whiskey Warm Up in March, and so on). The /calendar/ page is an embedded Google Calendar, id estes.org_crkjvme9sv81j4b73v1ctelmfs@group.calendar.google.com, time zone America/Denver; calendar.google.com's robots.txt disallows agents, so the id is recorded and not read. Dead ends: /events/?ical=1 returned the HTML events page, not iCal (The Events Calendar is not installed); /wp-json/tribe/events/v1/events returned 404. The site's WordPress post feed https://eventsinestes.com/feed/ was read once: RSS, 10 items, all posts dated 3 February 2026 describing fiber-arts classes (Scandinavian Skinnfells, Botanical Printing, Spin the Yarn You Need), so it is a stale class listing, not an events feed. Manual until the Town shares an iCal of the Google calendar or the owner approves a Google Calendar read. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "estespark-colorado-gov",
@@ -22,9 +22,9 @@
       "type": "manual",
       "category": "city-calendar",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Fetched 6 October 2026: HTTP 403 from CloudFront ('Request blocked'), repeating the 403 an earlier automated request got. No page on this host could be read, so no calendar, feed, police or Performance Park page was verified. Links to it seen on eventsinestes.com's navigation (not fetched): /visitorservices, /parking, /subscribe. Keep manual; the editor should open it in a browser each week until the Town answers about automated access."
+      "notes": "Fetched 6 October 2026: HTTP 403 from CloudFront ('Request blocked'), repeating the 403 an earlier automated request got. No page on this host could be read, so no calendar, feed, police or Performance Park page was verified. Links to it seen on eventsinestes.com's navigation (not fetched): /visitorservices, /parking, /subscribe. Keep manual; the editor should open it in a browser each week until the Town answers about automated access. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "visitestespark-com",
@@ -37,7 +37,7 @@
       "priority": "core",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Fetched 6 October 2026. Simpleview CMS destination site (the local marketing district, not the Town). /events/ redirects to /events-calendar/, with sub-listings /this-weekend/, /by-month/, /community-events/, /events-calendar/live-music/, seasonal pages (/winter-events/, /estes-park-skijor/, /frozen-dead-guy-days/) and /submit-event/. The RSS feed /event/rss/ was read once: application/rss+xml, 30 items; sample titles 'Pots and Paint', 'Bella Metz', 'Board Game Night at The Legion', 'Chocolate Bar Making Experience', 'Clay Class: Coil or Pebble Bowls', 'Intro to Stained Glass Workshop', 'Mini Clay Wheel Workshop', 'Morning Yoga'; item dates were all 'Mon, 05 Oct 2026 23:59:59 -0600' (Mountain time, apparently the event day rather than a publish time), so the feed looks like a rolling window of the next days' events, heavy on paid classes and recurring activities; locations were not shown by the helper's summary and need checking on first ingest. Not meetings."
+      "notes": "Fetched 6 October 2026. Simpleview CMS destination site (the local marketing district, not the Town). /events/ redirects to /events-calendar/, with sub-listings /this-weekend/, /by-month/, /community-events/, /events-calendar/live-music/, seasonal pages (/winter-events/, /estes-park-skijor/, /frozen-dead-guy-days/) and /submit-event/. The RSS feed /event/rss/ was read once: application/rss+xml, 30 items; sample titles 'Pots and Paint', 'Bella Metz', 'Board Game Night at The Legion', 'Chocolate Bar Making Experience', 'Clay Class: Coil or Pebble Bowls', 'Intro to Stained Glass Workshop', 'Mini Clay Wheel Workshop', 'Morning Yoga'; item dates were all 'Mon, 05 Oct 2026 23:59:59 -0600' (Mountain time, apparently the event day rather than a publish time), so the feed looks like a rolling window of the next days' events, heavy on paid classes and recurring activities; locations were not shown by the helper's summary and need checking on first ingest. Not meetings. Not confirmed, 6 October 2026: the feed is the local marketing district’s listings calendar, which takes event submissions from businesses (/submit-event/), not an organizer’s own calendar. The official sources it would stand in for are the Town’s Events Division (eventsinestes-com, read by hand), the library (estesvalleylibrary-org) and the venues themselves."
     },
     {
       "id": "esteschamber-org",
@@ -47,9 +47,9 @@
       "type": "html",
       "category": "chamber",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Fetched 6 October 2026. esteschamber.org is a GrowthZone-hosted chamber site; the member directory and calendar live on business.esteschamber.org (GrowthZone). https://business.esteschamber.org/events read fine (HTML, 307 KB) and lists community as well as member events: 'Book Club: Move the Body, Heal the Mind', 'Business After Hours - Snowy Peaks Winery', 'EDWC Latino Alliance / Estes Arts District National Hispanic Heritage Month', 'Food Truck Rally', 'Lending Expo', 'Open Mic at Avant Garde Aleworks 10-07-2026', 'Pots and Paints', 'Sidewalk Sale October 10-11 2026', 'Xtreme Bar Bingo 10-06-2026', with a month view at /events/calendar/2026-10-05. No RSS or iCal link was present in the page HTML (only the WordPress post feed https://esteschamber.org/feed/, not read), so the entry stays html until GrowthZone's feed URL is confirmed with the chamber. Also hosts 'Red Ribbon Cuttings', the Ready Set Grow conference and Women of Impact awards, and the economic development pages."
+      "notes": "Fetched 6 October 2026. esteschamber.org is a GrowthZone-hosted chamber site; the member directory and calendar live on business.esteschamber.org (GrowthZone). https://business.esteschamber.org/events read fine (HTML, 307 KB) and lists community as well as member events: 'Book Club: Move the Body, Heal the Mind', 'Business After Hours - Snowy Peaks Winery', 'EDWC Latino Alliance / Estes Arts District National Hispanic Heritage Month', 'Food Truck Rally', 'Lending Expo', 'Open Mic at Avant Garde Aleworks 10-07-2026', 'Pots and Paints', 'Sidewalk Sale October 10-11 2026', 'Xtreme Bar Bingo 10-06-2026', with a month view at /events/calendar/2026-10-05. No RSS or iCal link was present in the page HTML (only the WordPress post feed https://esteschamber.org/feed/, not read), so the entry stays html until GrowthZone's feed URL is confirmed with the chamber. Also hosts 'Red Ribbon Cuttings', the Ready Set Grow conference and Women of Impact awards, and the economic development pages. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "visitestespark-com-visitor-centers",
@@ -59,9 +59,9 @@
       "type": "html",
       "category": "chamber",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Fetched 6 October 2026 (HTTP 200, 367 KB; only the navigation text was captured, so the address and hours still need to be read by a person). Filed under chamber because the registry has no visitor-center category. The Town itself runs the Estes Park Visitor Center (linked from eventsinestes.com as https://estespark.colorado.gov/visitorservices, which returned 403 here); Visit Estes Park is the destination marketing organization whose site also carries RMNP visitor information, the visitor guide, free shuttle and parking pages, web cams, 'Fire Info' and 'Construction Updates' pages, and the RMNP Timed Entry Permit page. Reference source for lodging, visitor-center and getting-around facts rather than events (events come from the visitestespark-com entry)."
+      "notes": "Fetched 6 October 2026 (HTTP 200, 367 KB; only the navigation text was captured, so the address and hours still need to be read by a person). Filed under chamber because the registry has no visitor-center category. The Town itself runs the Estes Park Visitor Center (linked from eventsinestes.com as https://estespark.colorado.gov/visitorservices, which returned 403 here); Visit Estes Park is the destination marketing organization whose site also carries RMNP visitor information, the visitor guide, free shuttle and parking pages, web cams, 'Fire Info' and 'Construction Updates' pages, and the RMNP Timed Entry Permit page. Reference source for lodging, visitor-center and getting-around facts rather than events (events come from the visitestespark-com entry). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "estesvalleylibrary-org",
@@ -72,7 +72,7 @@
       "type": "ical",
       "category": "library",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "excludeTitles": [
         "Library Closed",
@@ -80,7 +80,7 @@
         "Makerspace Guide"
       ],
       "defaultVenue": "Estes Valley Library",
-      "notes": "Fetched 6 October 2026. estesvalleylibrary.org is WordPress (hours on the home page: Monday-Thursday 10 AM-8 PM, Friday and Saturday 10 AM-6 PM, Sunday 1 PM-5 PM); its events run on Springshare LibCal at calendar.estesvalleylibrary.org. The LibCal page offers 'subscribe to this calendar' (ical_subscribe.php?src=p, cid 19315 taken from the page's RSS link) and the iCal was read once: text/calendar, 225 VEVENT, 0 RRULE, dates 2026-09-05 to 2027-09-06; sample titles 'Teen Maker Mornings - Button/Magnet Making', 'Baby Storytime at Cubz Den Recreation Center', 'Saturday Science Kids Club', 'Teen Dungeons & Dragons', 'Writing the Nightmare ... with Daniel Kraus', 'Tween Dragon Slayers'; locations 'Makerspace', 'Estes Valley Community Center', 'Alteatude', 'Library-wide'. Not meetings. Some items are closures or display notes ('Library Closed - Labor Day', 'Fall Sign', 'Makerspace Guide'), hence excludeTitles. Time zone handling was not shown by the helper's summary; check DTSTART/TZID on first ingest. The month RSS https://calendar.estesvalleylibrary.org/rss.php?iid=6313&m=month&cid=19315 was also read once (62 items) and is an alternative. Storytimes are held off-site at the Cubz Den / Estes Valley Community Center (EVRPD), so the defaultVenue should only apply when LOCATION is empty."
+      "notes": "Fetched 6 October 2026. estesvalleylibrary.org is WordPress (hours on the home page: Monday-Thursday 10 AM-8 PM, Friday and Saturday 10 AM-6 PM, Sunday 1 PM-5 PM); its events run on Springshare LibCal at calendar.estesvalleylibrary.org. The LibCal page offers 'subscribe to this calendar' (ical_subscribe.php?src=p, cid 19315 taken from the page's RSS link) and the iCal was read once: text/calendar, 225 VEVENT, 0 RRULE, dates 2026-09-05 to 2027-09-06; sample titles 'Teen Maker Mornings - Button/Magnet Making', 'Baby Storytime at Cubz Den Recreation Center', 'Saturday Science Kids Club', 'Teen Dungeons & Dragons', 'Writing the Nightmare ... with Daniel Kraus', 'Tween Dragon Slayers'; locations 'Makerspace', 'Estes Valley Community Center', 'Alteatude', 'Library-wide'. Not meetings. Some items are closures or display notes ('Library Closed - Labor Day', 'Fall Sign', 'Makerspace Guide'), hence excludeTitles. Time zone handling was not shown by the helper's summary; check DTSTART/TZID on first ingest. The month RSS https://calendar.estesvalleylibrary.org/rss.php?iid=6313&m=month&cid=19315 was also read once (62 items) and is an alternative. Storytimes are held off-site at the Cubz Den / Estes Valley Community Center (EVRPD), so the defaultVenue should only apply when LOCATION is empty. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "evrpd-com",
@@ -90,9 +90,9 @@
       "type": "manual",
       "category": "parks",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Fetched 6 October 2026 three times (evrpd.com twice, www.evrpd.com once): HTTP 200, text/html, 38 KB, but the body arrived gzip-compressed (starts with the 1f 8b magic bytes) and the fetch helper does not decode it, so the page is unreadable from here. No calendar URL or feed could be found; nothing on this host was read. The library's iCal places storytimes at the 'Estes Valley Community Center', which is EVRPD's; EVRPD also manages Lake Estes recreation (Bureau of Reclamation water), the marina and golf courses as background knowledge, none of it read from this host. Try again with a browser or after the helper learns to send Accept-Encoding."
+      "notes": "Fetched 6 October 2026 three times (evrpd.com twice, www.evrpd.com once): HTTP 200, text/html, 38 KB, but the body arrived gzip-compressed (starts with the 1f 8b magic bytes) and the fetch helper does not decode it, so the page is unreadable from here. No calendar URL or feed could be found; nothing on this host was read. The library's iCal places storytimes at the 'Estes Valley Community Center', which is EVRPD's; EVRPD also manages Lake Estes recreation (Bureau of Reclamation water), the marina and golf courses as background knowledge, none of it read from this host. Try again with a browser or after the helper learns to send Accept-Encoding. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "larimer-gov-hermit-park",
@@ -102,9 +102,9 @@
       "type": "manual",
       "category": "parks",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Fetched 6 October 2026: HTTP 403 with a Cloudflare 'Just a moment... Enable JavaScript and cookies' challenge. Nothing on larimer.gov could be read. Hermit Park Open Space is the county's open space just southeast of Estes Park (background knowledge; its trails, cabins, campground and winter closure dates were not read here); a person should read the page for season dates and permit rules until automated access is sorted out."
+      "notes": "Fetched 6 October 2026: HTTP 403 with a Cloudflare 'Just a moment... Enable JavaScript and cookies' challenge. Nothing on larimer.gov could be read. Hermit Park Open Space is the county's open space just southeast of Estes Park (background knowledge; its trails, cabins, campground and winter closure dates were not read here); a person should read the page for season dates and permit rules until automated access is sorted out. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "nps-gov-romo",
@@ -114,10 +114,10 @@
       "type": "html",
       "category": "parks",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Rocky Mountain National Park",
-      "notes": "Fetched 6 October 2026. Land agency, filed under parks. The calendar page /romo/planyourvisit/calendar.htm (HTTP 200, 36 KB) is rendered client-side by the NPS 'nps-calendar' widget and exposes no RSS or iCal link; ranger programs would have to come from the NPS Events API at developer.nps.gov, which needs an API key (recorded, not called). Conditions page /romo/planyourvisit/conditions.htm (HTTP 200) links to Park Roads /romo/planyourvisit/road_status.htm, Trail Conditions /romo/planyourvisit/trail_conditions.htm, Area Closures /romo/planyourvisit/area_closures.htm and /romo/raptor-closures.htm. The Park Roads page (HTTP 200) is where Trail Ridge Road status is published; on 6 October it read 'Trail Ridge Road (U.S. Highway 34 inside Rocky Mountain National Park) is Open to Through Travel', 'Timed Entry Reservations are required for Trail Ridge Road from 9 am to 2 pm', recorded status line 970-586-1222, and Bear Lake Road open year-round. Dead end: /romo/planyourvisit/trail_ridge_road_status.htm returned 404, so link road_status.htm instead."
+      "notes": "Fetched 6 October 2026. Land agency, filed under parks. The calendar page /romo/planyourvisit/calendar.htm (HTTP 200, 36 KB) is rendered client-side by the NPS 'nps-calendar' widget and exposes no RSS or iCal link; ranger programs would have to come from the NPS Events API at developer.nps.gov, which needs an API key (recorded, not called). Conditions page /romo/planyourvisit/conditions.htm (HTTP 200) links to Park Roads /romo/planyourvisit/road_status.htm, Trail Conditions /romo/planyourvisit/trail_conditions.htm, Area Closures /romo/planyourvisit/area_closures.htm and /romo/raptor-closures.htm. The Park Roads page (HTTP 200) is where Trail Ridge Road status is published; on 6 October it read 'Trail Ridge Road (U.S. Highway 34 inside Rocky Mountain National Park) is Open to Through Travel', 'Timed Entry Reservations are required for Trail Ridge Road from 9 am to 2 pm', recorded status line 970-586-1222, and Bear Lake Road open year-round. Dead end: /romo/planyourvisit/trail_ridge_road_status.htm returned 404, so link road_status.htm instead. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "fs-usda-gov-arp",
@@ -127,9 +127,9 @@
       "type": "html",
       "category": "parks",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Fetched 6 October 2026. Land agency, filed under parks. The forest home page (HTTP 200, 224 KB) links to /r02/arp/alerts (read, HTTP 200: Cameron Peak fire road closures, East Troublesome fire motorized recreation impacts, fire restrictions, Williams Fork), /r02/arp/conditions, /r02/arp/newsroom/releases (recent: Stage 2 fire restrictions, Poudre headwaters recreation closures) and an 'Events' section in the navigation (not fetched). /r02/arp/offices (read) lists the Canyon Lakes Ranger District among the forest's districts; it is the district covering the Roosevelt National Forest around Estes Park (background knowledge, office details not read here). No RSS or iCal link found in the pages read. Use for fire restrictions, trail and road closures on forest land around the Estes Valley rather than events."
+      "notes": "Fetched 6 October 2026. Land agency, filed under parks. The forest home page (HTTP 200, 224 KB) links to /r02/arp/alerts (read, HTTP 200: Cameron Peak fire road closures, East Troublesome fire motorized recreation impacts, fire restrictions, Williams Fork), /r02/arp/conditions, /r02/arp/newsroom/releases (recent: Stage 2 fire restrictions, Poudre headwaters recreation closures) and an 'Events' section in the navigation (not fetched). /r02/arp/offices (read) lists the Canyon Lakes Ranger District among the forest's districts; it is the district covering the Roosevelt National Forest around Estes Park (background knowledge, office details not read here). No RSS or iCal link found in the pages read. Use for fire restrictions, trail and road closures on forest land around the Estes Valley rather than events. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "visitestespark-com-performance-park",
@@ -139,10 +139,10 @@
       "type": "manual",
       "category": "venue",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Performance Park",
-      "notes": "Fetched 6 October 2026 (HTTP 200, 380 KB; only navigation text captured, details still to be read by a person). Performance Park is the Town's outdoor amphitheater at the west end of downtown used for the summer concert series (background knowledge, not read from a page); the Town's own page sits on estespark.colorado.gov, which answers 403 to the helper, so the Visit Estes Park attraction page is the only page read. Summer concerts there should surface through the Visit Estes Park 'Live Music' listing and the Town's Google calendar (eventsinestes-com). Seasonal: summer only."
+      "notes": "Fetched 6 October 2026 (HTTP 200, 380 KB; only navigation text captured, details still to be read by a person). Performance Park is the Town's outdoor amphitheater at the west end of downtown used for the summer concert series (background knowledge, not read from a page); the Town's own page sits on estespark.colorado.gov, which answers 403 to the helper, so the Visit Estes Park attraction page is the only page read. Summer concerts there should surface through the Visit Estes Park 'Live Music' listing and the Town's Google calendar (eventsinestes-com). Seasonal: summer only. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "rockcutbrewing-com",
@@ -152,10 +152,10 @@
       "type": "manual",
       "category": "venue",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Rock Cut Brewing Company",
-      "notes": "Fetched 6 October 2026. WordPress (Twenty Seventeen theme, WooCommerce). The 'Events Calendar' page /events-2/ says 'Trivia Every Tuesday 7-9pm' and embeds a Google Calendar in week view, id 9obsj06n1e1vtcbm6ccjikhrg0@group.calendar.google.com, time zone America/Denver; calendar.google.com's robots.txt disallows agents, so the id is recorded and not read. Manual until the brewery shares the iCal address. Alternative brewery venue seen in the chamber calendar: Avant Garde Aleworks hosts an open mic (not fetched)."
+      "notes": "Fetched 6 October 2026. WordPress (Twenty Seventeen theme, WooCommerce). The 'Events Calendar' page /events-2/ says 'Trivia Every Tuesday 7-9pm' and embeds a Google Calendar in week view, id 9obsj06n1e1vtcbm6ccjikhrg0@group.calendar.google.com, time zone America/Denver; calendar.google.com's robots.txt disallows agents, so the id is recorded and not read. Manual until the brewery shares the iCal address. Alternative brewery venue seen in the chamber calendar: Avant Garde Aleworks hosts an open mic (not fetched). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "stanleyhotel-com",
@@ -165,10 +165,10 @@
       "type": "html",
       "category": "venue",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "The Stanley Hotel",
-      "notes": "Fetched 6 October 2026. /events returned 404; the events listing is /stanley-live/ (HTTP 200, 168 KB), a filterable list (Ball, Ballet, Comedy, Live Music, Spirited) with dates: Adam Carolla Live 10/03/2026, Amy Bruni: Walking with Ghosts 10/15/2026, Serial Killers with Dr. Scott Bonn 10/17/2026, Shining Ball 2026 10/24/2026, DeVotchKa 10/30-10/31/2026, Buckethead 11/06/2026, Magic City Hippies 11/13/2026, Reverend Horton Heat 12/11/2026, Boulder Ballet presents The Nutcracker Suite 12/12/2026, Crystal Ball 12/31/2026, Dead Pioneers 01/08/2027, Fire in the Mountains 01/15/2027, Budos Band 01/29/2027, Hawthorne Heights 02/05-02/07/2027, Squirrel Nut Zippers 02/12/2027, Judy Collins 02/26/2027. Ticketed concerts and themed balls; no RSS or iCal link found. Daily tours are on /tours/."
+      "notes": "Fetched 6 October 2026. /events returned 404; the events listing is /stanley-live/ (HTTP 200, 168 KB), a filterable list (Ball, Ballet, Comedy, Live Music, Spirited) with dates: Adam Carolla Live 10/03/2026, Amy Bruni: Walking with Ghosts 10/15/2026, Serial Killers with Dr. Scott Bonn 10/17/2026, Shining Ball 2026 10/24/2026, DeVotchKa 10/30-10/31/2026, Buckethead 11/06/2026, Magic City Hippies 11/13/2026, Reverend Horton Heat 12/11/2026, Boulder Ballet presents The Nutcracker Suite 12/12/2026, Crystal Ball 12/31/2026, Dead Pioneers 01/08/2027, Fire in the Mountains 01/15/2027, Budos Band 01/29/2027, Hawthorne Heights 02/05-02/07/2027, Squirrel Nut Zippers 02/12/2027, Judy Collins 02/26/2027. Ticketed concerts and themed balls; no RSS or iCal link found. Daily tours are on /tours/. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "ymcarockies-org",
@@ -178,10 +178,10 @@
       "type": "manual",
       "category": "venue",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "YMCA of the Rockies - Estes Park Center",
-      "notes": "Fetched 6 October 2026: https://ymcarockies.org/events returned HTTP 403 (4.5 KB block page). Nothing on this host was read; no feed verified. The owner should confirm the public-events page URL in a browser and ask the YMCA whether automated reads are welcome."
+      "notes": "Fetched 6 October 2026: https://ymcarockies.org/events returned HTTP 403 (4.5 KB block page). Nothing on this host was read; no feed verified. The owner should confirm the public-events page URL in a browser and ask the YMCA whether automated reads are welcome. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "larimer-gov",

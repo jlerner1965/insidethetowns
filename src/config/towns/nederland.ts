@@ -87,9 +87,11 @@ export const nederland: TownConfig = {
   officialLinks: {
     townSite: 'https://nederlandco.org/',
     townSiteLabel: 'the Town of Nederland',
-    // The Town contracts with the Boulder County Sheriff, per the Town's
-    // legacy colorado.gov page, which answered automated requests with 403
-    // on 6 October 2026; the link and number are set at launch once a person
-    // has read them.
+    // The Town contracts with the Boulder County Sheriff's Office for law
+    // enforcement: the Town's Law Enforcement page, read 6 October 2026
+    // (non-emergency 303-441-4444; office at 20 Lakeview Drive). Confirmed
+    // by the owner the same day.
+    policeNonEmergency: 'https://www.nederlandco.gov/1451/Law-Enforcement',
+    policeNonEmergencyLabel: 'Boulder County Sheriff’s Office, under contract to the Town (non-emergency 303-441-4444)',
   },
 };

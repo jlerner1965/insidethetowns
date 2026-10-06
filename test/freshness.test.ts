@@ -12,6 +12,7 @@ import { FRESHNESS, windowsFor } from '../src/config/freshness.ts';
 import {
   accessFresh,
   ageDays,
+  daysUntilAccessStale,
   daysUntilStale,
   dueForRecheck,
   eventExclusion,
@@ -241,4 +242,17 @@ test('the seasonal schema takes open and close dates in order, and access notes 
     () => schema.parse({ title: 'x', type: 'coffee', address: '1', summary: 's', added: '2026-10-06', seasonal: { season: 'summer', opens: '2026-10-12', closes: '2026-05-22' } }),
     /closes on or after/,
   );
+});
+
+test('access notes need a source and a check date, hide at their window, and are flagged before it', () => {
+  // The owner's condition for the schema, 6 October 2026: "Before you go"
+  // notes are held to the same rules as every other item.
+  const schema = placeSchema(plainImage);
+  const base = { title: 'Lily Lake', type: 'trailhead', address: 'CO 7', summary: 's', added: '2026-10-06' };
+  assert.throws(() => schema.parse({ ...base, access: { parking: 'x', verified: '2026-10-06' } }), /source/);
+  assert.throws(() => schema.parse({ ...base, access: { parking: 'x', source: 'https://www.nps.gov/romo/' } }), /verified/);
+  assert.equal(accessFresh({ verified: verifiedDaysAgo(FRESHNESS.accessDays) }, now), true);
+  assert.equal(accessFresh({ verified: verifiedDaysAgo(FRESHNESS.accessDays + 1) }, now), false);
+  assert.equal(daysUntilAccessStale({ verified: verifiedDaysAgo(20) }, now), FRESHNESS.accessDays - 20);
+  assert.equal(daysUntilAccessStale(undefined, now), null);
 });

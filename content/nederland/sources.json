@@ -9,9 +9,9 @@
       "type": "html",
       "category": "city-calendar",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Read 6 October 2026. A static page under Community > Explore Nederland > Events listing the Town's recurring annual events without dates: Nederland Farmer's Market (every other Sunday, May to October), Town Cleanup Day (first Saturday in June), Ned Gravel bike race, Carousel of Happiness Summer Circus at Chipeta Park, Ned Jazz & Wine Festival (Nederland Area Seniors), Ned*Ned half marathon through old town, and the Holiday Mountain Market craft fair. It points organisers to the Special Event & Public Rental page (/1214/Public-Space-Rentals, linked, not fetched). The Explore Nederland hub (/1441/Explore-Nederland) also links /1442/Events (not fetched), /1434/Nederland-Visitors-Center, /1444/History and /1446/Trails-Open-Spaces. No feed; a seasonal checklist for the editor rather than a weekly source."
+      "notes": "Read 6 October 2026. A static page under Community > Explore Nederland > Events listing the Town's recurring annual events without dates: Nederland Farmer's Market (every other Sunday, May to October), Town Cleanup Day (first Saturday in June), Ned Gravel bike race, Carousel of Happiness Summer Circus at Chipeta Park, Ned Jazz & Wine Festival (Nederland Area Seniors), Ned*Ned half marathon through old town, and the Holiday Mountain Market craft fair. It points organisers to the Special Event & Public Rental page (/1214/Public-Space-Rentals, linked, not fetched). The Explore Nederland hub (/1441/Explore-Nederland) also links /1442/Events (not fetched), /1434/Nederland-Visitors-Center, /1444/History and /1446/Trails-Open-Spaces. No feed; a seasonal checklist for the editor rather than a weekly source. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "nederlandco-org",
@@ -22,7 +22,7 @@
       "type": "rss",
       "category": "city-calendar",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "excludeTitles": [
         "Board of Trustees Meeting",
@@ -36,7 +36,7 @@
         "Independence Day"
       ],
       "defaultVenue": "Nederland Community Center, 750 Highway 72 North",
-      "notes": "Read 6 October 2026. nederlandco.org is a CivicPlus (CivicEngage) site titled 'Nederland, CO | Official Website'; www.nederlandco.gov serves the same site (a guessed /community-center path returned the CivicPlus custom 404 there). Calendar.aspx offers only three calendars: Federal Holidays, Public Space Rentals and Town Board Meetings. October 2026 shows six items, all under Town Board Meetings: Board of Trustees 6 and 20 Oct 7-10 pm, Downtown Development Authority 14 Oct 6-8 pm, Parks, Recreation & Open Space Advisory Board 15 Oct 5:30-7 pm, Sustainability Advisory Board 22 Oct 7-10 pm (Multipurpose Room of the Nederland Community Center) and Planning Commission 28 Oct 6-9 pm; every location is 750 Highway 72 North, Nederland CO 80466. The home-page widget said 'There are no published events in current month'. The CivicPlus calendar RSS (feedUrl) failed with a connection error on the first attempt and read successfully on the retry: 3 items (Board of Trustees Meeting, Downtown Development Authority, Parks Recreation & Open Space Advisory Board Meeting), pubDates 18 Aug 2026 -0700, structured event dates and the 750 Highway 72 North location. The CivicPlus iCalendar endpoint with catID=14 (/common/modules/iCalendar/iCalendar.aspx?catID=14&feed=calendar) returned the Federal Holidays calendar: 47 VEVENT, 2 RRULE, 2024-11-03 to 2035-11-11, TZ America/Denver, with CivicPlus placeholder locations 'Manhattan KS 66502'; other catIDs were not probed. So the Town feed is essentially civic meetings and holidays; it is useful for the meetings section and as a Community Center venue reference, not for community events. The Town's older Colorado.gov site (townofnederland.colorado.gov/explore-nederland/event-calendar) still ranks in search but answered CloudFront 403 'Request blocked' on 6 October."
+      "notes": "Read 6 October 2026. nederlandco.org is a CivicPlus (CivicEngage) site titled 'Nederland, CO | Official Website'; www.nederlandco.gov serves the same site (a guessed /community-center path returned the CivicPlus custom 404 there). Calendar.aspx offers only three calendars: Federal Holidays, Public Space Rentals and Town Board Meetings. October 2026 shows six items, all under Town Board Meetings: Board of Trustees 6 and 20 Oct 7-10 pm, Downtown Development Authority 14 Oct 6-8 pm, Parks, Recreation & Open Space Advisory Board 15 Oct 5:30-7 pm, Sustainability Advisory Board 22 Oct 7-10 pm (Multipurpose Room of the Nederland Community Center) and Planning Commission 28 Oct 6-9 pm; every location is 750 Highway 72 North, Nederland CO 80466. The home-page widget said 'There are no published events in current month'. The CivicPlus calendar RSS (feedUrl) failed with a connection error on the first attempt and read successfully on the retry: 3 items (Board of Trustees Meeting, Downtown Development Authority, Parks Recreation & Open Space Advisory Board Meeting), pubDates 18 Aug 2026 -0700, structured event dates and the 750 Highway 72 North location. The CivicPlus iCalendar endpoint with catID=14 (/common/modules/iCalendar/iCalendar.aspx?catID=14&feed=calendar) returned the Federal Holidays calendar: 47 VEVENT, 2 RRULE, 2024-11-03 to 2035-11-11, TZ America/Denver, with CivicPlus placeholder locations 'Manhattan KS 66502'; other catIDs were not probed. So the Town feed is essentially civic meetings and holidays; it is useful for the meetings section and as a Community Center venue reference, not for community events. The Town's older Colorado.gov site (townofnederland.colorado.gov/explore-nederland/event-calendar) still ranks in search but answered CloudFront 403 'Request blocked' on 6 October. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "bouldercounty-gov",
@@ -47,12 +47,12 @@
       "type": "ical",
       "category": "county",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "locationFilter": [
         "Nederland"
       ],
-      "notes": "The HTML events page (bouldercounty.gov/events/) was not fetched in this pass, so url is the feed itself. Feed read once on 6 October 2026 (the same The Events Calendar feed Niwot and Lyons already use): 30 VEVENT, 0 RRULE, DTSTARTs from 2025-03-09 to 2027-11-07 (one stale item, the rest upcoming). Sample titles: 'No commissioners' hearings or meetings are scheduled this week', County Commissioners' Business Meeting (Hybrid), Get Strategic About Your Job Search, Las Barracas Tour, Election Champion Workshop, Niwot Local Improvement District Advisory Committee Meeting, Board of Adjustment Public Meeting, Evening at the Museum: Switzerland Trail Railroad, Interview Preparation, AHC Open, Astronomy: The Ringed Giant at Its Best. Sample locations: Commissioners' Hearing Room, 1325 Pearl Street, Boulder; Virtual via Zoom; Near Longmont; Niwot Inn Conference Room; a bare 'CO'; one geo: URI. Mostly county meetings and workforce workshops, with Parks & Open Space museum and nature programmes mixed in; none of the sampled locations named Nederland, so expect few hits for the locationFilter. Search results show an events category for the Nederland Mining Museum at bouldercounty.gov/events/category/parks-open-space/nederland-mining-museum (not fetched) which may be a better filter than a location string."
+      "notes": "The HTML events page (bouldercounty.gov/events/) was not fetched in this pass, so url is the feed itself. Feed read once on 6 October 2026 (the same The Events Calendar feed Niwot and Lyons already use): 30 VEVENT, 0 RRULE, DTSTARTs from 2025-03-09 to 2027-11-07 (one stale item, the rest upcoming). Sample titles: 'No commissioners' hearings or meetings are scheduled this week', County Commissioners' Business Meeting (Hybrid), Get Strategic About Your Job Search, Las Barracas Tour, Election Champion Workshop, Niwot Local Improvement District Advisory Committee Meeting, Board of Adjustment Public Meeting, Evening at the Museum: Switzerland Trail Railroad, Interview Preparation, AHC Open, Astronomy: The Ringed Giant at Its Best. Sample locations: Commissioners' Hearing Room, 1325 Pearl Street, Boulder; Virtual via Zoom; Near Longmont; Niwot Inn Conference Room; a bare 'CO'; one geo: URI. Mostly county meetings and workforce workshops, with Parks & Open Space museum and nature programmes mixed in; none of the sampled locations named Nederland, so expect few hits for the locationFilter. Search results show an events category for the Nederland Mining Museum at bouldercounty.gov/events/category/parks-open-space/nederland-mining-museum (not fetched) which may be a better filter than a location string. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "nederlandchamber-org",
@@ -61,9 +61,9 @@
       "type": "manual",
       "category": "chamber",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Dead end on 6 October 2026: https://nederlandchamber.org/ answered 200 but redirected to https://restaurantsnear-me.com/, an unrelated 'Restaurants Near Me' page, so the chamber's domain appears to have lapsed or been taken over. The US Chamber directory (uschamber.com/co/chambers/colorado/nederland, from web search) still lists the Nederland Area Chamber of Commerce at PO Box 635, Nederland CO 80466-0635, phone 303-258-3936, website www.nederlandchamber.org; a second search found no replacement domain. Do not link the domain until the owner confirms a live site. No Visit Nederland site was found; the visitor center is run by the Town (see nederlandco-org-visitors-center)."
+      "notes": "Dead end on 6 October 2026: https://nederlandchamber.org/ answered 200 but redirected to https://restaurantsnear-me.com/, an unrelated 'Restaurants Near Me' page, so the chamber's domain appears to have lapsed or been taken over. The US Chamber directory (uschamber.com/co/chambers/colorado/nederland, from web search) still lists the Nederland Area Chamber of Commerce at PO Box 635, Nederland CO 80466-0635, phone 303-258-3936, website www.nederlandchamber.org; a second search found no replacement domain. Do not link the domain until the owner confirms a live site. No Visit Nederland site was found; the visitor center is run by the Town (see nederlandco-org-visitors-center). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "nederlandco-org-visitors-center",
@@ -73,9 +73,9 @@
       "type": "html",
       "category": "chamber",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Read 6 October 2026. Filed under chamber because the registry has no visitor-center category; the center is operated by the Town of Nederland, not the chamber. The page offers camping and parking information, maps, gifts and souvenirs; phone 303-258-3266 ext. 6020; hours Wednesday through Monday 11 am to 5 pm. Sub-pages in its nav: About Nederland, Directions, Local Attractions, Slideshow, Maps, Shop Online (none fetched). No street address on the page and no events listing or feed; a reference link for the guide's visitor block. The legacy page townofnederland.colorado.gov/explore-nederland/nederland-visitors-center returned CloudFront 403."
+      "notes": "Read 6 October 2026. Filed under chamber because the registry has no visitor-center category; the center is operated by the Town of Nederland, not the chamber. The page offers camping and parking information, maps, gifts and souvenirs; phone 303-258-3266 ext. 6020; hours Wednesday through Monday 11 am to 5 pm. Sub-pages in its nav: About Nederland, Directions, Local Attractions, Slideshow, Maps, Shop Online (none fetched). No street address on the page and no events listing or feed; a reference link for the guide's visitor block. The legacy page townofnederland.colorado.gov/explore-nederland/nederland-visitors-center returned CloudFront 403. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "nederlandlibrary-org",
@@ -84,9 +84,9 @@
       "type": "manual",
       "category": "library",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Unreachable from here on 6 October 2026: two attempts to fetch https://nederlandlibrary.org/ both failed with a curl connection error before any HTTP status (likely the proxy or the host refusing the connection), so robots.txt and the calendar vendor (LibCal, LibraryCalendar, Communico or other) could not be checked. Web search snippets (townofnederland.colorado.gov press releases) place the library at 200 CO-72 (Highway 72 North), Nederland CO 80466, next to the Community Center, and mention a Summer Reading Program kickoff and a Reading Garden ribbon cutting in 2024. Keep manual until the site can be reached and a feed confirmed."
+      "notes": "Unreachable from here on 6 October 2026: two attempts to fetch https://nederlandlibrary.org/ both failed with a curl connection error before any HTTP status (likely the proxy or the host refusing the connection), so robots.txt and the calendar vendor (LibCal, LibraryCalendar, Communico or other) could not be checked. Web search snippets (townofnederland.colorado.gov press releases) place the library at 200 CO-72 (Highway 72 North), Nederland CO 80466, next to the Community Center, and mention a Summer Reading Program kickoff and a Reading Garden ribbon cutting in 2024. Keep manual until the site can be reached and a feed confirmed. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "bouldercounty-gov-open-space",
@@ -96,9 +96,9 @@
       "type": "html",
       "category": "parks",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Read 6 October 2026. Land agency filed under parks. The closures page is titled 'Trail Closures, Notices, and Alerts' (200); a text grep of it for Mud Lake, Caribou Ranch, Nederland, Eldora or Brainard found no matches, so either no Nederland-area closure was posted or the list is loaded dynamically; it links Stage 1 fire-restriction news and the county's road page /transportation/closures-and-construction/ (not fetched). The Mud Lake (/open-space/parks-and-trails/mud-lake/) and Caribou Ranch (/open-space/parks-and-trails/caribou-ranch/) property pages both returned 200; their body text (including Caribou Ranch's seasonal wildlife closure dates) was not extracted because the fetch window was filled by county navigation. A guessed /open-space/parks-and-trails/closures/ URL 404'd. The /open-space/ hub also links the Nederland Mining Museum page. County programmes at these properties arrive through the county iCal (bouldercounty-gov)."
+      "notes": "Read 6 October 2026. Land agency filed under parks. The closures page is titled 'Trail Closures, Notices, and Alerts' (200); a text grep of it for Mud Lake, Caribou Ranch, Nederland, Eldora or Brainard found no matches, so either no Nederland-area closure was posted or the list is loaded dynamically; it links Stage 1 fire-restriction news and the county's road page /transportation/closures-and-construction/ (not fetched). The Mud Lake (/open-space/parks-and-trails/mud-lake/) and Caribou Ranch (/open-space/parks-and-trails/caribou-ranch/) property pages both returned 200; their body text (including Caribou Ranch's seasonal wildlife closure dates) was not extracted because the fetch window was filled by county navigation. A guessed /open-space/parks-and-trails/closures/ URL 404'd. The /open-space/ hub also links the Nederland Mining Museum page. County programmes at these properties arrive through the county iCal (bouldercounty-gov). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "nederlandco-org-trails",
@@ -108,10 +108,10 @@
       "type": "html",
       "category": "parks",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Nederland Community Center, 750 Highway 72 North",
-      "notes": "Read 6 October 2026. The Town has no separate recreation department site; parks and trails within Town limits are maintained by Public Works under the Parks, Recreation and Open Space Advisory Board (PROSAB, which meets at the Community Center, 15 Oct per the calendar). The page lists Angel Park (620 W Spruce St), Barker Meadows Reservoir (East St and Boulder Canyon Dr: parking, picnic, fishing, trails), Chipeta Park (254 Lakeview Dr: shelter, play equipment, children's pond), Flarty Park, Guercio Memorial Park (ball field, East St by Barker Reservoir), Joe Smith Park (Upper Sundown Trail), Mud Lake Open Space (2034 County Road 126, listed here though it is Boulder County open space), Nathan Lazarus Skatepark (155 East 1st St) and NedRink ice rink and tennis courts (500 Indian Peaks Dr, truncated in the fetch). The Nederland Community Center at 750 Highway 72 North hosts every Town board meeting; a dedicated Community Center page was not found (www.nederlandco.gov/community-center 404). Public Space Rentals is at /1214/Public-Space-Rentals (linked, not fetched). No feed."
+      "notes": "Read 6 October 2026. The Town has no separate recreation department site; parks and trails within Town limits are maintained by Public Works under the Parks, Recreation and Open Space Advisory Board (PROSAB, which meets at the Community Center, 15 Oct per the calendar). The page lists Angel Park (620 W Spruce St), Barker Meadows Reservoir (East St and Boulder Canyon Dr: parking, picnic, fishing, trails), Chipeta Park (254 Lakeview Dr: shelter, play equipment, children's pond), Flarty Park, Guercio Memorial Park (ball field, East St by Barker Reservoir), Joe Smith Park (Upper Sundown Trail), Mud Lake Open Space (2034 County Road 126, listed here though it is Boulder County open space), Nathan Lazarus Skatepark (155 East 1st St) and NedRink ice rink and tennis courts (500 Indian Peaks Dr, truncated in the fetch). The Nederland Community Center at 750 Highway 72 North hosts every Town board meeting; a dedicated Community Center page was not found (www.nederlandco.gov/community-center 404). Public Space Rentals is at /1214/Public-Space-Rentals (linked, not fetched). No feed. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "fs-usda-gov-arp",
@@ -121,9 +121,9 @@
       "type": "html",
       "category": "parks",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Read 6 October 2026. Land agency filed under parks. The forest alerts index (https://www.fs.usda.gov/r02/arp/alerts; the older https://www.fs.usda.gov/alerts/arp/alerts-notices serves the same page) lists every current order for the Arapaho and Roosevelt National Forests and Pawnee National Grassland with a fire-danger status per district (Boulder Ranger District: Moderate on 6 Oct). Boulder-district items seen: Brainard Lake Recreation Area (/r02/arp/alerts/brainard-lake-recreation-area, a standing 'Prohibitions within Brainard Lake Recreation Area' order 10-01-2013-01 from 29 March 2013, end date N/A, not the seasonal timed-entry notice), Indian Peaks Wilderness Restrictions (/r02/arp/alerts/indian-peaks-wilderness-restrictions), Caribou Road closure order (NFSR 505.1, unsafe road conditions), a raptor nesting area closure on the Boulder Ranger District, and forest-wide fire restrictions. The district offices page (/r02/arp/offices) is linked but was not fetched, and the Brainard Lake recreation-area page, its summer timed-entry reservations (recreation.gov) and the winter gate closure were not verified in this pass. Plain HTML, no RSS or iCal; link the alerts index and the Brainard alert."
+      "notes": "Read 6 October 2026. Land agency filed under parks. The forest alerts index (https://www.fs.usda.gov/r02/arp/alerts; the older https://www.fs.usda.gov/alerts/arp/alerts-notices serves the same page) lists every current order for the Arapaho and Roosevelt National Forests and Pawnee National Grassland with a fire-danger status per district (Boulder Ranger District: Moderate on 6 Oct). Boulder-district items seen: Brainard Lake Recreation Area (/r02/arp/alerts/brainard-lake-recreation-area, a standing 'Prohibitions within Brainard Lake Recreation Area' order 10-01-2013-01 from 29 March 2013, end date N/A, not the seasonal timed-entry notice), Indian Peaks Wilderness Restrictions (/r02/arp/alerts/indian-peaks-wilderness-restrictions), Caribou Road closure order (NFSR 505.1, unsafe road conditions), a raptor nesting area closure on the Boulder Ranger District, and forest-wide fire restrictions. The district offices page (/r02/arp/offices) is linked but was not fetched, and the Brainard Lake recreation-area page, its summer timed-entry reservations (recreation.gov) and the winter gate closure were not verified in this pass. Plain HTML, no RSS or iCal; link the alerts index and the Brainard alert. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "carouselofhappiness-org",
@@ -132,10 +132,10 @@
       "type": "html",
       "category": "venue",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Carousel of Happiness",
-      "notes": "Read 6 October 2026. WordPress/WooCommerce site for the 501(c)(3) nonprofit running the restored 1910 Looff carousel with 56 hand-carved animals and a 1913 Wurlitzer band organ. Nav shows Visit the Carousel, Parties & Venue Rentals, Group Visits, Area Activities/Resources and a Special Events section advertising 'Animals After Dark, November 7' (the annual gala). The Events Calendar REST route /wp-json/tribe/events/v1/events returned 404 'rest_no_route', so no The Events Calendar feed; the Special Events page itself was not fetched. Phone 303-258-3457 per the site title in search results. The Town's Community Events page names its Summer Circus fundraiser at Chipeta Park."
+      "notes": "Read 6 October 2026. WordPress/WooCommerce site for the 501(c)(3) nonprofit running the restored 1910 Looff carousel with 56 hand-carved animals and a 1913 Wurlitzer band organ. Nav shows Visit the Carousel, Parties & Venue Rentals, Group Visits, Area Activities/Resources and a Special Events section advertising 'Animals After Dark, November 7' (the annual gala). The Events Calendar REST route /wp-json/tribe/events/v1/events returned 404 'rest_no_route', so no The Events Calendar feed; the Special Events page itself was not fetched. Phone 303-258-3457 per the site title in search results. The Town's Community Events page names its Summer Circus fundraiser at Chipeta Park. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "eldora-com",
@@ -144,10 +144,10 @@
       "type": "html",
       "category": "venue",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Eldora Mountain Resort",
-      "notes": "Read 6 October 2026. Home page (200, 540 KB, JS-rendered nav) titled 'Eldora Mountain | Colorado Ski Resort'; nav sections include Events, Nordic Center, Uphill Access, Alerts and Current Conditions. Hrefs seen in the HTML but not fetched: /the-mountain/current-conditions/snow-report-weather/, /the-mountain/current-conditions/trail-lift-status/, /the-mountain/current-conditions/webcams/; no events href could be extracted from the markup. Treat as a seasonal venue (ski season plus summer events) with a conditions link; no feed found. Note the Town home page carries 'Eldora FAQ' news items about an Eldora transaction involving the Town (Mayor Nichole Sterling and the Board of Trustees), which the owner may want to track."
+      "notes": "Read 6 October 2026. Home page (200, 540 KB, JS-rendered nav) titled 'Eldora Mountain | Colorado Ski Resort'; nav sections include Events, Nordic Center, Uphill Access, Alerts and Current Conditions. Hrefs seen in the HTML but not fetched: /the-mountain/current-conditions/snow-report-weather/, /the-mountain/current-conditions/trail-lift-status/, /the-mountain/current-conditions/webcams/; no events href could be extracted from the markup. Treat as a seasonal venue (ski season plus summer events) with a conditions link; no feed found. Note the Town home page carries 'Eldora FAQ' news items about an Eldora transaction involving the Town (Mayor Nichole Sterling and the Board of Trustees), which the owner may want to track. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "bouldercounty-gov-mining-museum",
@@ -156,10 +156,10 @@
       "type": "html",
       "category": "venue",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Nederland Mining Museum, 200 N. Bridge Street",
-      "notes": "Page fetched 6 October 2026 (200; the first 1,400 characters of extracted text were county navigation so details below come from the search snippet of this same page): 200 N. Bridge Street, Nederland CO 80466, open June 1 to October 31, Friday-Sunday 11 am-5 pm, free admission, 303-258-7332 during museum hours; exhibits of trams, ore carts, engines, photographs and claim maps. Run by Boulder County Parks & Open Space, so its programmes should appear in the county events feed (bouldercounty-gov) under the parks-open-space/nederland-mining-museum category. Seasonal: closed November to May."
+      "notes": "Page fetched 6 October 2026 (200; the first 1,400 characters of extracted text were county navigation so details below come from the search snippet of this same page): 200 N. Bridge Street, Nederland CO 80466, open June 1 to October 31, Friday-Sunday 11 am-5 pm, free admission, 303-258-7332 during museum hours; exhibits of trams, ore carts, engines, photographs and claim maps. Run by Boulder County Parks & Open Space, so its programmes should appear in the county events feed (bouldercounty-gov) under the parks-open-space/nederland-mining-museum category. Seasonal: closed November to May. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "thecaribouroom-com",
@@ -169,10 +169,10 @@
       "type": "html",
       "category": "venue",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "The Caribou Room",
-      "notes": "Read 6 October 2026. Squarespace site; the /calendar page (200, 330 KB) lists upcoming shows with structured dates and per-event 'Google Calendar' and 'ICS' links for readers: Ladies Night feat. Matt Flaherty Band Sat 10 Oct 7 pm (doors and dinner 7, show 8, gents GA $10), Since JulEYE & MIDIcinal w/ Revital Sat 17 Oct ($20, balcony $28, VIP $500), Masquerade Ball feat. Banshee Tree Sat 31 Oct. The Caribou Kitchen is open 7-10 pm on show nights. The Squarespace collection feed /calendar?format=ical is disallowed by the site's robots.txt for our agent, so the page stays html. The home page has a stray Squarespace template block ('Aviator, 332 W 29th Street New York') that is not venue information. Street address not shown in the fetched text."
+      "notes": "Read 6 October 2026. Squarespace site; the /calendar page (200, 330 KB) lists upcoming shows with structured dates and per-event 'Google Calendar' and 'ICS' links for readers: Ladies Night feat. Matt Flaherty Band Sat 10 Oct 7 pm (doors and dinner 7, show 8, gents GA $10), Since JulEYE & MIDIcinal w/ Revital Sat 17 Oct ($20, balcony $28, VIP $500), Masquerade Ball feat. Banshee Tree Sat 31 Oct. The Caribou Kitchen is open 7-10 pm on show nights. The Squarespace collection feed /calendar?format=ical is disallowed by the site's robots.txt for our agent, so the page stays html. The home page has a stray Squarespace template block ('Aviator, 332 W 29th Street New York') that is not venue information. Street address not shown in the fetched text. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "verynicebrewing-com",
@@ -182,10 +182,10 @@
       "type": "html",
       "category": "venue",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Very Nice Brewing Company, 26 S. Hwy 119, Unit 7 (upstairs)",
-      "notes": "Read 6 October 2026. Wix site with Wix Events; the Nederland events page (200, 890 KB, JS-heavy) lists upcoming events in plain text: Live Music with The Ohms Fri 9 Oct, Concrete Feedback Sat 10 Oct, Live Celtic with The Gael Again Thu 15 Oct, Trivia Night (both tap rooms) Fri 16 Oct, Spanish classical with Tony Crank Sat 17 Oct, Beyond Comprehension Fri 23 Oct, Felonius Smith Sat 24 Oct; times are not in the list text. Nederland taproom at 26 S. Hwy 119, Unit 7 (upstairs), Nederland CO 80466; hours Mon, Wed, Thu 12-8, Fri-Sat 12-9, Sun 12-7, closed Tuesday. The brewery also runs a Gilpin taproom (180 Jankowski Drive, Black Hawk) with its own /gilpin-events page; take only the Nederland page. No iCal or RSS found."
+      "notes": "Read 6 October 2026. Wix site with Wix Events; the Nederland events page (200, 890 KB, JS-heavy) lists upcoming events in plain text: Live Music with The Ohms Fri 9 Oct, Concrete Feedback Sat 10 Oct, Live Celtic with The Gael Again Thu 15 Oct, Trivia Night (both tap rooms) Fri 16 Oct, Spanish classical with Tony Crank Sat 17 Oct, Beyond Comprehension Fri 23 Oct, Felonius Smith Sat 24 Oct; times are not in the list text. Nederland taproom at 26 S. Hwy 119, Unit 7 (upstairs), Nederland CO 80466; hours Mon, Wed, Thu 12-8, Fri-Sat 12-9, Sun 12-7, closed Tuesday. The brewery also runs a Gilpin taproom (180 Jankowski Drive, Black Hawk) with its own /gilpin-events page; take only the Nederland page. No iCal or RSS found. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "cotrip-org",
@@ -194,9 +194,9 @@
       "type": "html",
       "category": "other",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Fetched 6 October 2026: 200, 12 KB, a JavaScript application ('COtrip Traveler Information Loading') with no server-rendered content, so there is nothing to parse; link only, for Boulder Canyon (CO 119), the Peak to Peak Highway (CO 72 and CO 119) and Eldora/Magnolia road conditions. Robots permitted the fetch. No feed recorded."
+      "notes": "Fetched 6 October 2026: 200, 12 KB, a JavaScript application ('COtrip Traveler Information Loading') with no server-rendered content, so there is nothing to parse; link only, for Boulder Canyon (CO 119), the Peak to Peak Highway (CO 72 and CO 119) and Eldora/Magnolia road conditions. Robots permitted the fetch. No feed recorded. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
       "id": "pioneerinnnederland-com",

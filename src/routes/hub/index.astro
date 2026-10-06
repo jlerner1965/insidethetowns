@@ -17,7 +17,8 @@ import NetworkEventCard from '@/components/NetworkEventCard.astro';
 import { getNetworkEntries } from '@/lib/content';
 import { formatDayRange } from '@/lib/dates';
 import { highlights, occurrences, oneOffs, weekendSections, weekendWindow } from '@/lib/events';
-import { LIVE_TOWNS, TOWN_REGIONS, countiesCovered, countyLabel, getHub } from '@/config';
+import { LIVE_TOWNS, countiesCovered, countyLabel, getHub } from '@/config';
+import { groupByRegion } from '@/lib/regions';
 
 const hub = getHub();
 /**
@@ -33,10 +34,8 @@ const live = hub.towns.filter((t) => LIVE_TOWNS.includes(t.slug));
  * from the same live list as the cards so the two cannot disagree.
  */
 const atoz = [...live].sort((a, b) => a.name.localeCompare(b.name, 'en'));
-/** The cards, one group per region in TOWN_REGIONS order, A to Z within each. */
-const regions = TOWN_REGIONS.map((region) => ({ region, towns: atoz.filter((t) => t.region === region) })).filter(
-  (g) => g.towns.length > 0,
-);
+/** The cards, one group per region in TOWN_REGIONS order, A to Z within each; an empty region is not drawn. */
+const regions = groupByRegion(live);
 /**
  * The weekend across every guide, ranked the way a town's own home page ranks
  * its listings (highlights). On a Sunday night, or in a quiet week, the

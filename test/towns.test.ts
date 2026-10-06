@@ -12,6 +12,7 @@ import { TOWN_REGIONS, countiesCovered, countyLabel, countyShort } from '../src/
 import { LIVE_TOWNS } from '../src/config/index.ts';
 import { hub } from '../src/config/towns/hub.ts';
 import { homeTitle } from '../src/lib/titles.ts';
+import { groupByRegion } from '../src/lib/regions.ts';
 
 const by = (slug: string) => {
   const t = towns.find((x) => x.slug === slug);
@@ -168,4 +169,25 @@ test('the most ambiguous names spell Colorado out rather than abbreviating', () 
   for (const slug of ['erie', 'johnstown', 'elizabeth', 'windsor', 'loveland']) {
     assert.match(by(slug).seoTagline ?? '', /Colorado/, `${slug}: "CO" is too weak a signal for this name`);
   }
+});
+
+test('the hub draws a region only when it has a live town, from the region field alone', () => {
+  const live = towns.filter((t) => LIVE_TOWNS.includes(t.slug));
+  const groups = groupByRegion(live);
+  for (const g of groups) assert.ok(g.towns.length > 0, `${g.region} is drawn empty`);
+  // Every live town appears once, under its own region, and nothing else does.
+  assert.deepEqual(groups.flatMap((g) => g.towns.map((t) => t.slug)).sort(), [...LIVE_TOWNS].sort());
+  for (const g of groups) for (const t of g.towns) assert.equal(t.region, g.region, t.slug);
+  // Order follows TOWN_REGIONS, A to Z within each.
+  const order = groups.map((g) => TOWN_REGIONS.indexOf(g.region));
+  assert.deepEqual(order, [...order].sort((a, b) => a - b));
+  for (const g of groups) assert.deepEqual(g.towns.map((t) => t.name), [...g.towns.map((t) => t.name)].sort((a, b) => a.localeCompare(b, 'en')));
+  // A region whose towns are all unlaunched disappears: with only the four
+  // mountain towns' region emptied of live guides, it is not drawn.
+  const regionsDrawn = new Set(groups.map((g) => g.region));
+  for (const region of TOWN_REGIONS) {
+    const anyLive = live.some((t) => t.region === region);
+    assert.equal(regionsDrawn.has(region), anyLive, region);
+  }
+  assert.deepEqual(groupByRegion([]), []);
 });
