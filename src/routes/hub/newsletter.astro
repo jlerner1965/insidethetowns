@@ -29,7 +29,7 @@ const day = config?.sendDay ?? 'Thursday';
   seoTitle={`What’s on across Colorado’s Front Range, every ${day}`}
   eyebrow="Inside the Towns"
   description={`One email a week: what’s on in ${towns.map((t) => t.name).join(', ')}. Pick your towns or take all ${towns.length}.`}
-  intro={`The weekend’s events in whichever of the ${towns.length} towns you care about, the places that opened or closed, and a new article when there is one. One email, every ${day}.`}
+  intro={`The weekend’s events in whichever of the ${towns.length} towns you care about, places new to the guides or closed, and a new article when there is one. One email, every ${day}.`}
 >
   {config ? (
     <Fragment>
@@ -42,7 +42,7 @@ const day = config?.sendDay ?? 'Thursday';
     <div class="prose">
       <p>
         The weekly email is not open for signups yet. It goes out on a {day}: the weekend’s events in whichever towns
-        you pick, the places that opened or closed, and a new article when there is one.
+        you pick, places new to the guides or closed, and a new article when there is one.
       </p>
       <p>
         Want telling when it starts? <a href="/contact/">Drop us a line</a> and you will be on the first one.
@@ -54,7 +54,7 @@ const day = config?.sendDay ?? 'Thursday';
     <h2>What is actually in it</h2>
     <ul>
       <li>The weekend, town by town — markets, music, festivals, whatever is on.</li>
-      <li>Places that opened and places that closed since the last one.</li>
+      <li>Places added to the guides since the last one, and places that closed.</li>
       <li>A new article from the guides, when there is one.</li>
     </ul>
     <p>

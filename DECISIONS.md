@@ -3169,8 +3169,9 @@ earlier briefs.
   promise elevation and incorporation again, and the population column says
   2020.
 - **The newsletter** is described the same way everywhere: the weekend's
-  events, the places that opened or closed, and a new article when there is
-  one — which is what the drafting script produces. "Nothing else" went.
+  events, places new to the guides or closed, and a new article when there
+  is one — which is what the drafting script produces. "New" means new to
+  the guide, not newly opened, and the copy says so. "Nothing else" went.
 - **Facts.** Lyons has a bus: the free Lyons Flyer, four weekday trips each
   way to Boulder (Boulder County's and the Town's schedule pages); the hub and
   the Lyons config said "no transit". Berthoud is no longer "the only town
