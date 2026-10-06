@@ -58,12 +58,16 @@ export const severance: TownConfig = {
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Severance,-CO_rb/' },
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Severance_CO' },
     ],
-    // schoolDistrict and commuteNotes are written at launch, from the district's
-    // and the town's own pages, with the rest of the Moving Here guide.
+    // Weld RE-4 (Windsor-Severance), based in Windsor (weldre4.org, read
+    // 6 October 2026). commuteNotes are written at launch.
+    schoolDistrict: 'Weld RE-4 School District (Windsor-Severance), based in Windsor; Severance High and Severance Middle are in town.',
   },
   officialLinks: {
     townSite: 'https://www.townofseverance.org/',
     townSiteLabel: 'the Town of Severance',
-    // policeNonEmergency is set at launch from the department's own page.
+    // Read 6 October 2026 from the department's page: office 970-685-9708,
+    // after-hours non-emergency dispatch 970-350-9600.
+    policeNonEmergency: 'https://www.townofseverance.org/200/Police',
+    policeNonEmergencyLabel: 'Severance Police Department (non-emergency dispatch 970-350-9600)',
   },
 };
