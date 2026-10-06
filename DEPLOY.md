@@ -30,12 +30,9 @@ insidenederland.com  TOWN=nederland       (not live; holding page; mountain vari
 The seven projects after `carbonvalleyguide` were created on 6 October 2026
 by the REST API with the same settings (framework, repository, `TOWN`, the
 Ignored Build Step, Node 22.x, preview deployments off, one deploy hook on
-`main`), **without their domains**: attaching a production domain is the
-owner's call, so each project still needs its apex and `www` added under
-Settings → Domains (step 7 below) once the owner says so. Until the config
-is merged to `main`, each project's first production build fails with
-"Unknown TOWN", which is harmless; the next push to `main` builds the
-holding page.
+`main`). Their apex and `www` domains (`www` a 308 to the apex) were
+attached later the same day, once the owner said so; DNS at Cloudflare is
+the owner's. Each builds its holding page from `main`.
 
 `node scripts/live-towns.ts` prints the list of sites that must have a project.
 

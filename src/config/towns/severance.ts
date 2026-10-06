@@ -20,7 +20,9 @@ export const severance: TownConfig = {
   region: 'Northern Colorado',
   neighbors: ['windsor', 'timnath', 'fortcollins'],
   // Set with the brief, 6 October 2026: upcoming events / open listings.
-  launchThreshold: { events: 10, listings: 15 },
+  // Listings lowered from 15 to 12 by the owner on 6 October 2026: the Town's parks
+  // have no published addresses and its businesses mostly no sites of their own.
+  launchThreshold: { events: 10, listings: 12 },
   slug: 'severance',
   name: 'Severance',
   domain: 'insideseverance.com',

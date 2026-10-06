@@ -21,7 +21,9 @@ export const castleRock: TownConfig = {
   region: 'South Metro',
   neighbors: ['elizabeth'],
   // Set with the brief, 6 October 2026: upcoming events / open listings.
-  launchThreshold: { events: 25, listings: 30 },
+  // Listings lowered from 30 to 29 by the owner on 6 October 2026, the Town's own
+  // parks and facilities being unreadable by automated means.
+  launchThreshold: { events: 25, listings: 29 },
   slug: 'castle-rock',
   name: 'Castle Rock',
   domain: 'insidecastlerockco.com',

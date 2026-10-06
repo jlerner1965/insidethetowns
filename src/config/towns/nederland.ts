@@ -35,8 +35,13 @@ export const nederland: TownConfig = {
   lng: -105.5014,
   population: 1471, // 2020 census
   elevationFt: 8235, // GNIS, via Wikipedia
-  // 15 November 1885, per the Wikipedia infobox.
-  incorporated: 1885,
+  // 1874: the State Demography Office's historical census file gives
+  // Nederland's incorporation year as 1874, and the Town's own History page
+  // (nederlandco.org/1444) says the name was chosen in 1874 "when the town was
+  // incorporated". The Wikipedia infobox's 15 November 1885 (citing the State
+  // Archives) is the odd one out; two official sources agree, so 1874 it is
+  // (6 October 2026).
+  incorporated: 1874,
   population2010: 1445, // 2010 census, for census-to-census growth
   /**
    * Where a reader checks the roads before setting out. Official pages,

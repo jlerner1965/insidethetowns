@@ -158,7 +158,10 @@
       "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Colorado Railroad Museum",
-      "notes": "Read 2026-10-06. WordPress with The Events Calendar Pro 7.8.3 (homepage 200). The iCal read once: 30 VEVENT, 0 RRULE, 2025-03-09 to 2027-11-07, LOCATION empty on every item (hence defaultVenue); titles The Friday Tour, Saturday Train Rides, Sunday Goose Rides, Harvest Haunt, Colorado Rails & Cocktails, Boulder County Free Admission Day. Many items are weekly rides, so treat as a weekly regular. The street address was not read from a page; confirm before use. The /wp-json/tribe/events/v1/events endpoint was not tried. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+      "notes": "Read 2026-10-06. WordPress with The Events Calendar Pro 7.8.3 (homepage 200). The iCal read once: 30 VEVENT, 0 RRULE, 2025-03-09 to 2027-11-07, LOCATION empty on every item (hence defaultVenue); titles The Friday Tour, Saturday Train Rides, Sunday Goose Rides, Harvest Haunt, Colorado Rails & Cocktails, Boulder County Free Admission Day. Many items are weekly rides, so treat as a weekly regular. The street address was not read from a page; confirm before use. The /wp-json/tribe/events/v1/events endpoint was not tried. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). \"POLAR EXPRESS\" excluded 6 October 2026: the feed lists the run as one item per evening (16 in 2026); the guide carries it as one staged event with its date range (staging/events/the-polar-express-train-ride-2026.md), at the owner’s direction, so the evenings are not re-staged. Remove the exclusion to have them staged singly again.",
+      "excludeTitles": [
+        "POLAR EXPRESS"
+      ]
     },
     {
       "id": "calendar-mines-edu",
