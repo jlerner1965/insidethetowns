@@ -94,3 +94,6 @@ All fetched with the robots-aware helper from /home/user/insidethetowns on 6 Oct
 - https://nederlandco.org/1397/Weather: redirects to forecast7.com (third-party widget), not used.
 - https://nederlandco.org/1270/Comprehensive-Plan-2013: PDF, unreadable with the helper.
 - No robots.txt refusals or captchas were encountered.
+
+
+Editor's change (6 October 2026, owner's rule): one population figure per town, the 2020 Census count labelled as such (https://storage.googleapis.com/co-publicdata/historical-census.csv); any demographer or city estimate labelled as an estimate with its year; no two figures under one label. Earlier decennial figures removed from the page.

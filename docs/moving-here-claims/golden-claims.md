@@ -78,3 +78,6 @@ All pages fetched with the robots-aware helper on 6 October 2026.
 
 
 Editor's cut (6 October 2026): Visit Golden's elevation of 5,675 ft was removed from the page because it conflicts with the GNIS figure (5,784 ft) in the town config; two official-looking sources disagree, so neither is stated.
+
+
+Editor's change (6 October 2026, owner's rule): one population figure per town, the 2020 Census count labelled as such (https://storage.googleapis.com/co-publicdata/historical-census.csv); any demographer or city estimate labelled as an estimate with its year; no two figures under one label. Earlier decennial figures removed from the page.

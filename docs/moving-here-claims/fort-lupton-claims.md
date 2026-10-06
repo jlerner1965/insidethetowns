@@ -64,3 +64,6 @@
 - https://www.weldre8.org/: timed out; https://www.weld8.org/ answered and was used.
 - https://www.fortluptonco.gov/DocumentCenter/View/21972/2026-Fort-Lupton-Housing-Needs-Assessment: response exceeded the helper's 32 MB buffer.
 - https://www.fortluptonco.gov/1398/Police-Department (department homepage): fetched, but carries only news and links; the Contact Us and About Us subpages were used.
+
+
+Editor's change (6 October 2026, owner's rule): one population figure per town, the 2020 Census count labelled as such (https://storage.googleapis.com/co-publicdata/historical-census.csv); the City's figure labelled as its 2025 estimate.

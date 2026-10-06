@@ -35,7 +35,9 @@ export const fortLupton: TownConfig = {
   lng: -104.8292,
   population: 7955, // 2020 census
   elevationFt: 4915, // GNIS, via Wikipedia
-  // The Wikipedia infobox gives no incorporation date; left unset rather than guessed.
+  // 1890, per the State Demography Office's historical census file (the
+  // Wikipedia infobox gives no date); read 6 October 2026.
+  incorporated: 1890,
   population2010: 7377, // 2010 census, for census-to-census growth
   colors: {
     // Fort timber: a saddle brown for the 1836 trading post the city is named for, darker and less orange than Elizabeth's amber. `npm run check-colors` is the gate.

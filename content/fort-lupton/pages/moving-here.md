@@ -1,12 +1,12 @@
 ---
 title: "Moving to Fort Lupton"
-description: "Fort Lupton, Colorado: a Weld County statutory city of about 10,600 at US 85 and Colorado 52. Housing, Weld Re-8 schools, utilities, fire and police."
+description: "Fort Lupton, Colorado: a Weld County statutory city of 7,955 at the 2020 Census (about 10,600 by the City’s 2025 estimate), at US 85 and Colorado 52. Housing, Weld Re-8 schools, utilities, fire and police."
 updated: "2026-10-06"
 ---
 
 ## Who lives here
 
-Fort Lupton is a statutory city in Weld County, run under the Colorado Revised Statutes and its own Municipal Code in an administrator form of government. The Mayor is elected at large and six council members, two from each of three wards; the [City Council](https://www.fortluptonco.gov/133/City-Council) meets on the first and third Tuesday of the month at 6 pm at City Hall, 130 South McKinley Avenue, and holds an open Town Hall meeting the Tuesday before each council meeting. The City's economic development office puts the 2025 population at 10,566, in 3,551 households, with a median age of 36 and a median household income of $82,647, and projects 11,565 people by 2030 ([Fort Lupton by the Numbers](https://www.fortluptonco.gov/1409/Fort-Lupton-by-the-Numbers), citing ESRI 2025).
+Fort Lupton is a statutory city in Weld County, run under the Colorado Revised Statutes and its own Municipal Code in an administrator form of government. The Mayor is elected at large and six council members, two from each of three wards; the [City Council](https://www.fortluptonco.gov/133/City-Council) meets on the first and third Tuesday of the month at 6 pm at City Hall, 130 South McKinley Avenue, and holds an open Town Hall meeting the Tuesday before each council meeting. The 2020 Census counted 7,955 people ([2020 Census, in the State Demography Office's census file](https://storage.googleapis.com/co-publicdata/historical-census.csv)). The City's economic development office's 2025 estimate is 10,566, in 3,551 households, with a median age of 36 and a median household income of $82,647, and projects 11,565 people by 2030 ([Fort Lupton by the Numbers](https://www.fortluptonco.gov/1409/Fort-Lupton-by-the-Numbers), citing ESRI 2025).
 
 The City describes itself as sitting "at the intersection of Highway 85 and Highway 52" with "origins as an 1830s trading post" ([Choose Fort Lupton](https://www.fortluptonco.gov/1407/CHOOSE-FORT-LUPTON)). A new City Hall is going up at the southeast corner of 9th Street and College Avenue: the City broke ground on 16 September 2025, the building is 18,655 square feet, and the City's [construction updates](https://engage.fortluptonco.gov/new-city-hall-update) on 23 September 2026 said it was nearing completion, on schedule for mid-October.
 

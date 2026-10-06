@@ -72,3 +72,6 @@ All pages fetched with the robots-aware helper from /home/user/insidethetowns. c
 - https://dola.colorado.gov/lgis/municipalities.jsf — 404.
 - https://www.douglasco.gov/documents/douglas-county-2020-census-profile.pdf/, .../wildfire-resiliency-code/ (PDF), .../documents/tax-authority-contact-list.pdf/ — PDFs; the helper returns them as text and pdftotext cannot parse the result, so they were not read.
 - DOLA lookup apps (demography.dola.colorado.gov/assets/html/population.html, .../lookups/ctymuni_pop_lookup.html) are JavaScript apps with no readable content; the CSV downloads linked from sdodata.html were used instead.
+
+
+Editor's change (6 October 2026, owner's rule): one population figure per town, the 2020 Census count labelled as such (https://storage.googleapis.com/co-publicdata/historical-census.csv); any demographer or city estimate labelled as an estimate with its year; no two figures under one label. Earlier decennial figures removed from the page.

@@ -64,3 +64,6 @@
 - https://dola.colorado.gov/lgis (DOLA LGIS): reachable, but gated by a terms checkbox and reCAPTCHA; not worked around.
 - https://www.nps.gov/romo/planyourvisit/weather.htm, .../learn/nature/weather.htm, .../planyourvisit/shuttle_buses.htm: 404.
 - https://www.codot.gov/projects/archived-project-sites/us-34-big-thompson-canyon-1 and the flood-related-projects variant: 404 (the 2018 news release was used instead).
+
+
+Editor's change (6 October 2026, owner's rule): one population figure per town, the 2020 Census count labelled as such (https://storage.googleapis.com/co-publicdata/historical-census.csv); any demographer or city estimate labelled as an estimate with its year; no two figures under one label. Earlier decennial figures removed from the page.

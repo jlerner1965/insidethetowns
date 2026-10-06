@@ -69,3 +69,6 @@
 - https://drive.google.com/uc?export=download&id=1-2TMYuZsJIudKxcgnXz-zLBbtg-vJf5G (DOLA "Municipalities within County Estimates" spreadsheet) — Google Drive robots.txt disallows; not fetched. The DOLA lookup API was used instead.
 - https://gis.dola.colorado.gov/lookups/countymuni?...&year=2025 — API rejects 2025 (estimates still draft per https://gis.dola.colorado.gov/apps/ctf_estimates_final/), so 2024 is the latest estimate cited.
 - townofseverance.org pages timed out intermittently (curl --max-time 25) and succeeded on retry; nothing was lost.
+
+
+Editor's change (6 October 2026, owner's rule): one population figure per town, the 2020 Census count labelled as such (https://storage.googleapis.com/co-publicdata/historical-census.csv); any demographer or city estimate labelled as an estimate with its year; no two figures under one label. Earlier decennial figures removed from the page.
