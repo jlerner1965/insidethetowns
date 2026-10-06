@@ -1,0 +1,270 @@
+{
+  "town": "evergreen",
+  "sources": [
+    {
+      "id": "evergreenchamber-org-calendar",
+      "name": "Evergreen Area Chamber of Commerce – Community Events Calendar",
+      "url": "https://members.evergreenchamber.org/events/calendar",
+      "sampleUrl": "https://members.evergreenchamber.org/events/details/all-hallows-eve-celebration-10-17-2026-108576",
+      "type": "html",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Thirsty Thursday",
+        "FREE BINGO EVERY THURSDAY",
+        "Bingo Night",
+        "Dart & Pool Tournament",
+        "Open Mic",
+        "Caregiver Support Group",
+        "Ribbon Cutting"
+      ],
+      "notes": "Evergreen has no town government, so the Chamber's public calendar stands in as the community events calendar (category city-calendar). Fetched 6 October 2026: www.evergreenchamber.org/events/ is a WordPress page (theme wp-evergreen, no events plugin) that links to the real calendar at members.evergreenchamber.org/events/calendar, a ChamberMaster/GrowthZone (MicroNet) site. It showed 106 results for October 2026 with category filters (Chamber Hosted, Community Events, Featured, Member Hosted, Ribbon Cutting) and location filters (Central Evergreen, Downtown Historic District, El Rancho Area, North Evergreen). Sample titles: Preschool Adventures at Evergreen Nature Center, All Hallows Eve Celebration (10/17), Aspen Hollow Trunk or Treat (10/31), Boo-gie Bash, Double Trouble: the Dark Side of the Evergreen Chorale, Dracula: A Comedy of Terrors presented by Evergreen Players (many dates), Artful Pairings culinary series; also weekly bar nights (Thirsty Thursday's @ Blackbird Cafe, bingo, dart and pool tournament, open mic) which are proposed for excludeTitles. Event detail pages follow /events/details/<slug>-<id>. No RSS or iCal link appears on the page (only a print view, ?moduleversion=3&rendermode=print); the usual ChamberMaster path members.evergreenchamber.org/events/rss returned 404. So type is html until a feed is found; the owner could ask the Chamber whether GrowthZone's event RSS is enabled. Events are submitted by the public via evergreenchamber.org/events-public-submission-template/ (link seen, not fetched)."
+    },
+    {
+      "id": "evergreenrecreation-com-events",
+      "name": "Evergreen Park & Recreation District – Events",
+      "url": "https://www.evergreenrecreation.com/events",
+      "sampleUrl": "https://www.evergreenrecreation.com/events",
+      "type": "html",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Buchanan Park Recreation Center, 1521 Bergen Parkway, Evergreen",
+      "notes": "Second stand-in for a town calendar (no town government): the recreation district's special-events listing. Fetched 6 October 2026. The site is built on Streamline (getstreamline.com; also served at eprdco.specialdistrict.org). The /events page is a plain list with date, title and a 'Read more' link, no filters: Evergreen Oktoberfest 2026 (Sep 19), Trick or Treat Trail (Oct 30, Buchanan Park ball fields), Summer Concert Series, 2026 Movies in the Park, Nightmare at 1520 Haunted House (Oct 2-31, thirteen dates). The nav also lists Witches & Warlocks on the Lake, Fall Wedding Showcase, FROSTIVAL, Pond Hockey Championship 2027 and the Evergreen Trail Race Series. No RSS/iCal link in the HTML; a guess at /events.ics returned the HTML page. Program registration runs through a separate 'Register' system (not inspected; recreation districts typically use CivicRec/ActiveNet, which has no feed). Footer: 1521 Bergen Parkway, Evergreen CO 80439, (720) 880-1100. Treat as a weekly manual check of one page."
+    },
+    {
+      "id": "jeffco-us",
+      "name": "Jefferson County, CO – Calendar",
+      "url": "https://www.jeffco.us/Calendar.aspx",
+      "feedUrl": "https://www.jeffco.us/RSSFeed.aspx?ModID=58&CID=All-calendar.xml",
+      "sampleUrl": "https://www.jeffco.us/iCalendar.aspx",
+      "type": "rss",
+      "category": "county",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "locationFilter": [
+        "Evergreen",
+        "Hiwan",
+        "Alderfer",
+        "Elk Meadow",
+        "Flying J",
+        "Bergen Park",
+        "Kittredge",
+        "Conifer"
+      ],
+      "excludeTitles": [
+        "Open for Visitors",
+        "Wedding Site Tours",
+        "Closed for Private Event",
+        "NODs Mailed to Taxpayers"
+      ],
+      "notes": "Jefferson County is Evergreen's local government (unincorporated community). CivicPlus/CivicEngage site. Fetched 6 October 2026: Calendar.aspx lists ~50 sub-calendars, almost all board and commission meetings. The all-calendars RSS (ModID=58&CID=All-calendar.xml) was read once: 20 items, pubDates 15-23 September 2026, dominated by Boettcher Mansion 'Open for Visitors' and 'Wedding Site Tours' entries plus one Jeffco Wildfire Commission Meeting; it is mostly meetings and Golden-area venue hours, so a locationFilter on Evergreen-area names is proposed. The iCalendar.aspx page lists one feed per calendar in the form /common/modules/iCalendar/iCalendar.aspx?catID=<N>&feed=calendar; the Evergreen-relevant one (catID=26, Open Space Master Calendar) is recorded under jeffco-us-open-space. There is no dedicated 'Evergreen' page on jeffco.us; the Evergreen-relevant county pages are the Open Space park pages (Hiwan Heritage Park /1251, Alderfer/Three Sisters /980) and the home page's land-use news for 'unincorporated Jeffco'. County home page: https://www.jeffco.us/ (fetched)."
+    },
+    {
+      "id": "downtownevergreen-com",
+      "name": "Downtown Evergreen (Evergreen Downtown Business Association)",
+      "url": "https://downtownevergreen.com/",
+      "sampleUrl": "https://downtownevergreen.com/events/calendar",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Fetched 6 October 2026. Site title 'Evergreen Downtown Business Association | Downtown Evergreen, CO', powered by Citylight CMS (images on img.ctykit.com/cdn/co-evergreen). Events nav: Calendar, Second Saturdays, Dam Ducky Derby, Halloween Walk, Holiday Walk, Sponsor Events, Volunteer, Submit An Event; Explore nav: Evergreen Lake, Trails, Golf, Sculpture Walk, Hiwan Homestead, History. The /events/calendar page is JavaScript-rendered ('Evergreen Events Calendar', submission form) with no event markup, no RSS/iCal link and no embedded Google Calendar id in the HTML, so the signature events must be read from their own pages (/events/second-saturdays, /events/dam-ducky-derby, /events/halloween-walk, /events/holiday-walk; links seen, not fetched). Type html/manual."
+    },
+    {
+      "id": "evergreenchamber-org",
+      "name": "Evergreen Area Chamber of Commerce (and visitor information)",
+      "url": "https://www.evergreenchamber.org/",
+      "sampleUrl": "https://www.evergreenchamber.org/events/",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Chamber home page fetched 6 October 2026 (WordPress). Nav: Business Directory (500+ members), Ribbon Cuttings, News Releases, Events (Taste of Evergreen, Women in Business Luncheon, A Night With Our Stars), Locals Guide, Emergency Info, Downtown Evergreen Shopping, and a Visitors section (Visitors Guide, Top 10 Things to Do, Maps & Guides, Weddings; 'Come Visit Us!'). The Chamber is the de facto visitor-information body for Evergreen; the site advertises an 'Explore Evergreen' publication and a Visitors Guide page (evergreenchamber.org/visitors-guide-copy/, link seen, not fetched). Whether it staffs a physical visitor center was not confirmed from the pages read; recorded here under chamber (there is no separate visitor-center organisation found). Chamber-hosted events live in the ChamberMaster calendar recorded as evergreenchamber-org-calendar. No feed on this host."
+    },
+    {
+      "id": "jeffcolibrary-org",
+      "name": "Jefferson County Public Library – Evergreen Library events",
+      "url": "https://www.jeffcolibrary.org/events",
+      "feedUrl": "https://gateway.bibliocommons.com/v2/libraries/jeffcolibrary/rss/events?locations=EV",
+      "sampleUrl": "https://gateway.bibliocommons.com/v2/libraries/jeffcolibrary/rss/events",
+      "type": "rss",
+      "category": "library",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "locationFilter": [
+        "Evergreen"
+      ],
+      "defaultVenue": "Evergreen Library, 5000 County Road 73, Evergreen",
+      "notes": "JCPL's events run on BiblioCommons (BiblioEvents), not LibCal: www.jeffcolibrary.org/events (fetched 6 October 2026, 'Events | Jefferson County Public Library | BiblioCommons') links event pages at jeffcolibrary.bibliocommons.com/v2/events/<id>, and the location facet lists 'Evergreen Library (271)' with facet id EV. The page also carried a notice that Evergreen Library roof construction began May 11 and runs into October, library open throughout. Feeds: the BiblioCommons RSS gateway https://gateway.bibliocommons.com/v2/libraries/jeffcolibrary/rss/events was read once (200, text/xml, 25 items, system-wide: Baby Time, Toddler Time, Preschool Time, Microsoft Word 1, Spice of the Season ...). The same URL with ?locations=EV was read once (200, 25 items) and returned a different set of titles (Baby Time, Toddler Time, U-Bass: Do U Bass?, Teen Advisory Board, Middlemarch: A Year-Long Reading Journey, Parenting 101, Drop In & Play, Special Family Story Time: Firefighters, Exploring Blues Music with the Colorado Blues Society, Cuentacuentos en Espanol), which suggests the location filter is applied, but the item bodies were not inspected so the branch should be confirmed on first use; keep locationFilter Evergreen as a guard. Items carry no pubDate in the summary; recurring story times dominate, so consider excludeTitles for Baby Time / Toddler Time / Preschool Time if they crowd the week."
+    },
+    {
+      "id": "denvergov-org-mountain-parks",
+      "name": "Denver Mountain Parks (Dedisse Park / Evergreen Lake, Bergen Park)",
+      "url": "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Mountain-Parks/Mountain-Park-Descriptions",
+      "sampleUrl": "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Mountain-Parks/Mountain-Park-Descriptions",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Land agency (recorded under parks). The City and County of Denver owns Dedisse Park (Evergreen Lake, Evergreen Golf Course) and Bergen Park as part of Denver Mountain Parks. The 'About Denver Mountain Parks' descriptions page was fetched 6 October 2026 (200; a large OpenCities page whose first screen is the language selector, so the park text was not inspected in the summary). No events feed expected; day-to-day lake programming is EPRD's (see evergreenrecreation-com). Useful as the official link for who owns the lake and for park rules; check occasionally rather than weekly."
+    },
+    {
+      "id": "evergreenrecreation-com",
+      "name": "Evergreen Park & Recreation District (Evergreen Lake House, Buchanan Park Rec Center, Wulf Rec Center)",
+      "url": "https://www.evergreenrecreation.com/",
+      "sampleUrl": "https://www.evergreenrecreation.com/events",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "The district that runs Evergreen's parks, recreation centres and the Evergreen Lake programme (the lake and Lake House sit in Denver's Dedisse Park but are operated by EPRD). Home page fetched 6 October 2026 (Streamline CMS). Nav shows Evergreen Lake (Lake House Rental, boat rentals, fishing, public ice skating, Pond Hockey Championship 2027, Lake House Yoga & SUP Yoga), parks (Alderfer/Three Sisters Barn Site, Arrowhead, Buchanan, Evergreen Lake & Trail, Graham Field, Kittredge, Marshdale, Stagecoach, Wulf), Buchanan Park and Rec Center Improvements, Board Meetings, Courtesy Updates (closures). Relevant paths seen in the HTML but not fetched: /lake-house-rental, /lake-house-yoga-sup-yoga, /buchanan-park, /buchanan-park-and-recreation-center-improvements. No feed; the special-events list is recorded separately as evergreenrecreation-com-events. Address 1521 Bergen Parkway, Evergreen CO 80439, (720) 880-1100."
+    },
+    {
+      "id": "jeffco-us-open-space",
+      "name": "Jeffco Open Space – Open Space Master Calendar, parks and alerts",
+      "url": "https://www.jeffco.us/980/Alderfer-Three-Sisters-Park",
+      "feedUrl": "https://www.jeffco.us/common/modules/iCalendar/iCalendar.aspx?catID=26&feed=calendar",
+      "sampleUrl": "https://www.jeffco.us/AlertCenter.aspx?CID=25",
+      "type": "ical",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "locationFilter": [
+        "Evergreen",
+        "Alderfer",
+        "Three Sisters",
+        "Elk Meadow",
+        "Flying J",
+        "Hiwan",
+        "Bergen"
+      ],
+      "notes": "Land agency (recorded under parks): Jefferson County Open Space manages Alderfer/Three Sisters, Elk Meadow, Flying J Ranch and Hiwan Heritage Park around Evergreen. Fetched 6 October 2026. The Alderfer/Three Sisters page (/980) reports the West Trailhead now open after parking, restroom and trail improvements, with shelters Gooseberry/Kinnikinnick first-come and Foxtail/Poppy to be reservable through EPRD. The Open Space Master Calendar iCal (catID=26, listed on /iCalendar.aspx) was read once: text/calendar, 10 VEVENT, 2 RRULE, DTSTART range 2024-11-03 to 2026-10-27, TZID America/Denver; titles: Full Moon Night Hike, Yoga With a Ranger, Boo-Logical Adaptations Night Hike, Night at the Observatory, Preschool Nature Nuts: Life in a Ponderosa Pine Forest (groups 1-2), and four 'Open House: Jefferson County Seeks Input on Community Gathering Spaces'; locations include Alderfer/Three Sisters Park West Trailhead, Lookout Mountain Preserve and Nature Center, Jefferson County Fairgrounds, Wulf Recreation Center, Lakewood Library (LOCATION fields contain HTML). Nature programmes, not meetings, but county-wide, so filter by Evergreen-area park names. Alerts: the county Alert Center (/AlertCenter.aspx?CID=25, 'Open Space Alerts') had 5 alerts on 6 October: Meyer Ranch Park fully closed from 10/19 through spring 2027 for forest health work; Meadowlark Trail at Deer Creek Canyon closed weekdays from 9/28; Prairie Falcon Trail at South Valley closed; upper Tiers of Zion closed mid-August to mid-October; a reminder on designated-use parks. It offers Notify Me/RSS subscription via /list.aspx?Mode=Subscribe (feed URL not read). Hiwan Heritage Park & Museum page /1251 is recorded separately as a venue."
+    },
+    {
+      "id": "fs-usda-gov-clear-creek",
+      "name": "USDA Forest Service – Clear Creek Ranger District, Arapaho National Forest (Mount Blue Sky)",
+      "url": "https://www.fs.usda.gov/r02/arp/recreation/clear-creek-ranger-district",
+      "sampleUrl": "https://www.fs.usda.gov/r02/arp/alerts",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Land agency (recorded under parks). Fetched 6 October 2026, all 200 on the new fs.usda.gov site for the Arapaho and Roosevelt National Forests & Pawnee National Grassland (r02/arp): the Clear Creek Ranger District recreation page (Idaho Springs; manages Mount Blue Sky, Echo Lake, Guanella Pass side), the forest-wide Alerts page https://www.fs.usda.gov/r02/arp/alerts (nav: Alerts, Current Conditions, Events, Passes, Permits), and the Mount Blue Sky Summit page https://www.fs.usda.gov/r02/arp/recreation/mount-blue-sky-summit (highest paved road in North America; Crest House ruins). Pages are heavy templated HTML; no RSS/iCal links were seen in the summaries. Link the district page and the alerts page for Mount Blue Sky Scenic Byway seasonal status and timed-entry notices; CDOT's COtrip (cotrip-org) covers CO 5 / CO 103 road status."
+    },
+    {
+      "id": "evergreenarts-org",
+      "name": "Center for the Arts Evergreen",
+      "url": "https://evergreenarts.org/events/",
+      "sampleUrl": "https://evergreenarts.org/calendar/",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Center for the Arts Evergreen, 31880 Rocky Village Dr, Evergreen",
+      "notes": "WordPress (Elementor) using Modern Events Calendar Lite, not The Events Calendar. Fetched 6 October 2026: /events/ ('EVENTS CALENDAR') and a /calendar/ page; nav lists exhibitions (Main, Auxiliary and Satellite galleries), Sculpture, Artist in Residence, classes (Ceramics, Adult Art/Art Bars, Youth Art), festivals (The BIG Create, Summerfest, Winterfest, Literary Festival), Concerts, Film Series and free programmes (Creativity, Coffee & Conversations; Share the Moment; Veterans Studio; CAE Book Chat; Sculpture Tours). Feed attempts: /events/?ical=1 returned the HTML page (so not The Events Calendar); the MEC REST route /wp-json/mec/v1/events returned 200 with an empty JSON array []; standard WordPress /feed/ (posts, not events) is linked but was not read. So type html: read the /events/ listing weekly. Address not confirmed on the pages read (31880 Rocky Village Dr from the search snippet; verify)."
+    },
+    {
+      "id": "evergreenaudubon-org",
+      "name": "Evergreen Audubon / Evergreen Nature Center",
+      "url": "https://evergreenaudubon.org/programs-and-events/cal/",
+      "type": "manual",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Evergreen Audubon runs the Evergreen Nature Center at Evergreen Lake. ROBOTS: on 6 October 2026 evergreenaudubon.org/robots.txt disallowed both /programs-and-events/cal/ and /programs-and-events/cal/?ical=1 for our user agent, so neither the calendar page nor its iCal was fetched and nothing else on the host was tried. The calendar URL comes from web search (The Events Calendar-style categories: Adult Programs, Chapter Meetings, Community Science, Family Programs, Kids Camps, Special Events). Type manual: the owner may open the page in a browser or ask the organisation for a feed; its Preschool Adventures programme also appears on the Chamber calendar."
+    },
+    {
+      "id": "evergreenplayers-org",
+      "name": "Evergreen Players",
+      "url": "https://evergreenplayers.org/",
+      "sampleUrl": "https://evergreenplayers.org/shows-tickets/",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Community theatre founded 1950. Fetched 6 October 2026: WordPress (Gravity Forms, Facebook feed plugins; no events plugin). Shows are custom pages under /shows/ (currently /shows/dracula/ and /shows/a-christmas-carol-2026/) linked from /shows-tickets/, with /show-category/past-shows/ for the archive. No RSS/iCal for shows; wp-json root exists but was not read. Their performances also appear on the Chamber calendar (Dracula: A Comedy of Terrors, 10-25 October 2026). Type html: check /shows-tickets/ when a new season is announced."
+    },
+    {
+      "id": "jeffco-us-hiwan",
+      "name": "Hiwan Heritage Park & Museum (Jeffco Open Space)",
+      "url": "https://www.jeffco.us/1251/Hiwan-Heritage-Park",
+      "sampleUrl": "https://www.jeffco.us/1251/Hiwan-Heritage-Park",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Hiwan Heritage Park & Museum, 28473 Meadow Drive, Evergreen",
+      "notes": "Fetched 6 October 2026. Park at 28473 Meadow Drive, Evergreen CO 80439, open daily; museum 720-497-7650, open Thursday-Sunday noon to 4:30 p.m., closed Monday-Wednesday and Christmas and New Year's weekends; free 45-minute guided tours. The page announced Hiwan Halloween on October 24, 1-4 p.m. (storytelling, crafts, games, prizes; English, Spanish and sensory-friendly). States 'Jeffco Non-Emergency Number: 303-980-7300'. Exhibits sponsored by the Evergreen Mountain Area Historical Society (EMAHS, emahs.org, not fetched). Programmes may also appear in the Open Space Master Calendar iCal (jeffco-us-open-space). A CivicPlus page; no feed of its own."
+    },
+    {
+      "id": "littlebearsaloon-com",
+      "name": "Little Bear Saloon",
+      "url": "https://www.littlebearsaloon.com/",
+      "type": "manual",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Live-music venue at 28075 Hwy 74 in downtown Evergreen (address from search). Unreachable from here: on 6 October 2026 the helper's curl failed on connection (no HTTP status) twice, so the site was not read and the robots.txt could not be checked beyond the helper's attempt. Type manual until the owner confirms the site and whether it has a show calendar with a feed."
+    },
+    {
+      "id": "cotrip-org",
+      "name": "CDOT COtrip – road conditions and closures",
+      "url": "https://www.cotrip.org/",
+      "sampleUrl": "https://www.cotrip.org/",
+      "type": "manual",
+      "category": "other",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Colorado Department of Transportation traveller information. Fetched 6 October 2026: 200 but the page is a JavaScript application (body is 'COtrip Traveler Information Loading'), so nothing can be read server-side. Link only, for I-70, US 285, CO 74 (Evergreen Parkway / Bear Creek canyon), CO 73 and CO 103/CO 5 (Mount Blue Sky) status. Not an events source."
+    },
+    {
+      "id": "canyoncourier-com",
+      "name": "Canyon Courier",
+      "url": "https://canyoncourier.com/",
+      "sampleUrl": "https://canyoncourier.com/local-events",
+      "type": "html",
+      "category": "news",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Evergreen's weekly newspaper (Colorado Community Media). Fetched 6 October 2026: a TownNews/BLOX site. The HTML carries an RSS search URL for top stories (http://www.canyoncourier.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc&k[]=%23topstory) which was not read, and a /local-events page powered by an Evvnt calendar widget (publisher 4951, 'Promote your event', partner COLORADOCOMMUNITYMEDIA), which is an aggregator and so not used as a source. Non-core: for context and date-checking, not for event ingestion."
+    },
+    {
+      "id": "evergreenfirerescue-com",
+      "name": "Evergreen Fire/Rescue (Evergreen Fire Protection District)",
+      "url": "https://www.evergreenfirerescue.com/",
+      "type": "html",
+      "category": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "The fire district, recorded for the town config rather than as an events source. Fetched 6 October 2026: 'Welcome to Evergreen Fire Protection District, CO'; 1802 Bergen Pkwy, Evergreen CO 80439; 303/674-3145; Info@evergreenfirerescue.com. Nav includes Wildfire Education, Lookout Alert notifications sign-up (Jefferson and Clear Creek County), Community Connect, chipping, and a 2026 ballot issue 7B notice. Occasional community events (CPR classes, open houses) could be checked manually."
+    },
+    {
+      "id": "jeffcosheriffco-gov",
+      "name": "Jefferson County Sheriff's Office",
+      "url": "https://www.jeffcosheriffco.gov/about/contact",
+      "type": "html",
+      "category": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Law enforcement for unincorporated Evergreen (there is no town police department). Contact page fetched 6 October 2026 (200, official .gov site; nav: Report a Crime, Animal Control, Patrol Division, Wildland Fire Management, Emergency Management). The non-emergency number 303-980-7300 was read on the county's Hiwan page (jeffco.us/1251) and matches the search snippet for this contact page. Config fact, not an events source."
+    }
+  ]
+}

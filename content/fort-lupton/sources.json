@@ -1,0 +1,140 @@
+{
+  "town": "fort-lupton",
+  "sources": [
+    {
+      "id": "fortluptonco-gov",
+      "name": "City of Fort Lupton: Community Calendar",
+      "url": "https://www.fortluptonco.gov/Calendar.aspx",
+      "feedUrl": "https://www.fortluptonco.gov/RSSFeed.aspx?ModID=58&CID=All-calendar.xml",
+      "sampleUrl": "https://www.fortluptonco.gov/Calendar.aspx?EID=27205",
+      "type": "rss",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "City Council Meeting",
+        "Planning Commission Meeting",
+        "Town Hall Meeting",
+        "Water Bills Sent",
+        "Water Bills Due",
+        "Water Meters Read",
+        "Late Fees Assessed",
+        "Late Notices Sent",
+        "Court"
+      ],
+      "notes": "Found and read once on 6 October 2026. CivicPlus. The all-calendar RSS returned 13 items (Dance & Play, Makerspace Open Studio, City Council Meeting, Water Bills Sent, Storytime Explorers, Planning Commission Meeting, Pumpkinfest & Hayrides, Town Hall Meeting ...); RSS pubDates are publish dates (Dec 2025), the event dates are in the item bodies. The Calendar.aspx page lists 17 calendars: 14 City Business, 22 Recreation Center Business, 23 Court Schedule, 27 Utility Billing, 28 Community Events, 31 Coyote Creek Golf Course, 32 Library All Events, 33 Fitness, 34 Public Works, 35 Recreation Center Events, 36 Library Business, 38-40 and 42 Library Programs (Babies & PK, Elementary, Teens, Adults), 41 Library Closures, 47 Events & Programs. iCal feeds at /common/modules/iCalendar/iCalendar.aspx?catID=N&feed=calendar were read for 14 (30 VEVENT to 29 Dec 2026, America/Denver, almost all council/planning/utility-billing items at 130 S McKinley Ave plus Winterfest featuring Cookies & Cocoa with Santa), 31 and 35 (both 0 VEVENT), 32 and 47 (see the library entries). The Community Events iCal (catID=28) errored twice from here and was not read; its items (Pumpkinfest & Hayrides) do appear in the all-calendar RSS. The RSS mixes library programs, meetings and utility-billing reminders, so the excludeTitles list is needed; library items duplicate the library feed."
+    },
+    {
+      "id": "fortluptonchamber-org",
+      "name": "Fort Lupton Chamber of Commerce: Events",
+      "url": "https://business.fortluptonchamber.org/events",
+      "sampleUrl": "https://business.fortluptonchamber.org/events/Details/2026-october-luncheon-1850985?sourceTypeId=Website",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read once on 6 October 2026. The public site www.fortluptonchamber.org is WordPress (GrowthZone-built; it exposes a WordPress /feed/ for posts, not read) and links to a GrowthZone hub at business.fortluptonchamber.org with two listings: /events (chamber events) and /communityevents. The /events page listed October Luncheon (14 Oct 2026, Weld RE-8 District Office, 200 S. Fulton Avenue), Trick or Treat Street 2026, November Non-Profit Luncheon, Ambassadors meetings, Power Hour (City of Fort Lupton), Women in Business Lunch and Learn, and a 2026 Chamber Vendor Market; the /communityevents page showed a handful of the same items (Trick or Treat Street, Power Hour). No iCal, RSS or JSON link was found in either page's source, so type is html. Phone (303) 857-4474, PO Box 501. The chamber handles Trapper Days parade registration per search results (not verified on a fetched page)."
+    },
+    {
+      "id": "fortluptonco-gov-library",
+      "name": "Fort Lupton Public & School Library: All Events",
+      "url": "https://www.fortluptonco.gov/1397/Public-School-Library",
+      "feedUrl": "https://www.fortluptonco.gov/common/modules/iCalendar/iCalendar.aspx?catID=32&feed=calendar",
+      "sampleUrl": "https://www.fortluptonco.gov/Calendar.aspx?EID=27205",
+      "type": "ical",
+      "category": "library",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Fort Lupton Public & School Library",
+      "notes": "Found and read once on 6 October 2026. The library is a City of Fort Lupton department on the same CivicPlus host (370 S Rollie Ave, 303-339-4089; nav also links High Plains Library District). Its calendar 32 (Library All Events) iCal returned 54 VEVENT, 2 RRULE, dates to 29 December 2026, America/Denver, with structured locations such as 'Library > Both Community Room 1 & 2 - 370 S. Rollie Ave. Fort Lupton CO 80621' and 'Library > Makerspace'. Sample titles: Dance & Play, Makerspace Open Studio, Storytime Explorers, SBDC Network Power Hour. Sub-calendars exist for Adults (42), Babies & PK (38), Elementary (39), Teens (40), Library Business (36) and Library Closures (41) but were not read; use 32 and exclude Closures/Business titles if they appear. The library page also posts program news (Level Up!, Spooktacular October, Loteria Mexicana, Cereal, Centers & Stories, StoryWalk at Community Center Park)."
+    },
+    {
+      "id": "fortluptonco-gov-parks",
+      "name": "City of Fort Lupton: Parks & Recreation / Recreation Center",
+      "url": "https://www.fortluptonco.gov/1012/Parks-Recreation",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Fort Lupton Recreation Center",
+      "notes": "Found and read once on 6 October 2026 (first attempt errored, second succeeded). CivicPlus department page with sections About Us, Parks, Active Adults, Aquatics, Sports, Fitness, Special Interests, Online Registration, Activity Guide, Rentals, Fitness Schedule, Events; it embeds the same General/City Business/Community Events calendar widgets as the home page. The Recreation Center Events iCal (catID=35) and Coyote Creek Golf Course iCal (catID=31) both returned 0 VEVENT, and Recreation Center Business (22) and Fitness (33) were not read, so there is no usable rec feed today; recreation events (Coffee with a Cop in the Recreation Center Multi-Purpose room, Pumpkinfest at the Fort, Fix It Fort Lupton day of service) surface through city news and the all-calendar RSS instead. Parks named on city pages: Sam Koshio Memorial Park (First Street and McKinley, under renovation) and Community Center Park."
+    },
+    {
+      "id": "fortluptonco-gov-museum",
+      "name": "Fort Lupton City Museum",
+      "url": "https://www.fortluptonco.gov/157/Museum",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Fort Lupton City Museum",
+      "notes": "Found and read once on 6 October 2026. City-run museum in the 1929 former library building; the page has General Information, Exhibits & Special Events and Free Resources sections and a 'View our Upcoming Events Here!' link to the city calendar, so its programs would arrive through the city calendar rather than a separate feed. Search results (not verified on a fetched page) give 453 1st St, 303-857-1634, Wed-Fri 10-3, and recurring Sip and Chat Tea Time (4th Thursday) and Cuentitos Spanish storytime (3rd Thursday, with the library)."
+    },
+    {
+      "id": "saltandacres-com",
+      "name": "Salt & Acres: Calendar & Events",
+      "url": "https://saltandacres.com/pages/calendar",
+      "sampleUrl": "https://saltandacres.com/blogs/events-at-the-acres",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Salt & Acres",
+      "notes": "Found and read once on 6 October 2026. Shopify site for a winery/tasting room and event venue outside Fort Lupton (search results give 9490 County Road 25; not verified on a fetched page). The calendar page listed Adam Doleac concert (17 Oct 2026, Colorado Paradise Concert Series, ticketed via Universe), Secret Supper No. 5, and the Annual Harvest Fest/Harvest Market 2-4 Oct 2026 (Eventbrite), and embeds a Google Calendar, id c_32a40da05611b4d1516d9328f051adbdb41a0b83802e416273a99b801eaaefd6@group.calendar.google.com (America/Denver); calendar.google.com not fetched (robots disallows agents). No Shopify RSS for events was found (the /blogs/events-at-the-acres blog would have an .atom feed by Shopify convention but it was not read). Mostly ticketed and private events; useful for the handful of public concerts and markets."
+    },
+    {
+      "id": "spvhs-org",
+      "name": "South Platte Valley Historical Society: Historic Park calendar",
+      "url": "https://www.spvhs.org/calendar.html",
+      "sampleUrl": "https://spvhs.org/",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "South Platte Valley Historic Park",
+      "notes": "Found and read once on 6 October 2026. Weebly site for the society that rebuilt Lupton's Fort at the South Platte Valley Historic Park (north side of Fort Lupton; open first and third weekends May-October 2026, 10-4). Annual events listed in the nav: Teas, Frozen Toes Rendezvous, Heritage Fair, Lancaster Rendezvous & Mountain Man University, Trapper Days Rendezvous (weekend after Labor Day, alongside the city's Trapper Days), Hunter Widow's Rendezvous, Colonial Encampment, TRT Camp Outs, Special Events. The calendar page embeds a Google Calendar, id spvhs.org_k06rja30j23skfe5kkbu9vr32k@group.calendar.google.com (ctz America/Denver); calendar.google.com was not fetched because its robots.txt disallows agents, so type stays html and the embed id is recorded for the owner. The city's 'Pumpkinfest at the Fort' (10 Oct 2026) likely uses this park but that was not confirmed on a fetched page."
+    },
+    {
+      "id": "fortluptonco-gov-events-programs",
+      "name": "City of Fort Lupton: Events & Programs calendar",
+      "url": "https://www.fortluptonco.gov/Calendar.aspx",
+      "feedUrl": "https://www.fortluptonco.gov/common/modules/iCalendar/iCalendar.aspx?catID=47&feed=calendar",
+      "type": "ical",
+      "category": "city-calendar",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read once on 6 October 2026. CivicPlus iCal for calendar 47 (Events & Programs): 27 VEVENT, 2 RRULE, dates to 29 December 2026, America/Denver. Nearly all items are the library's Makerspace Open Studio (Library > Makerspace, 370 S. Rollie Ave.) plus Winterfest featuring Cookies & Cocoa with Santa, so it overlaps the library feed and adds little; kept as a non-core backup for city-run programs."
+    },
+    {
+      "id": "weld-gov",
+      "name": "Weld County: Events listing",
+      "url": "https://www.weld.gov/Events-directory",
+      "type": "html",
+      "category": "county",
+      "status": "proposed",
+      "robots": "honor",
+      "locationFilter": [
+        "Fort Lupton"
+      ],
+      "notes": "Found and read once on 6 October 2026 (also read https://weld.gov/Government/County-Information). OpenCities site; the Events-directory page carried no RSS, iCal or .ics link in its source, so no feed was read. Listings are overwhelmingly in Greeley (county seat); the only Fort Lupton item seen was a program at the Fort Lupton Public & School Library - Public Branch, 370 S Rollie Ave. Treat as a low-yield page to skim with a Fort Lupton location filter, not a weekly feed."
+    },
+    {
+      "id": "ftluptonpress-com",
+      "name": "Fort Lupton Press",
+      "url": "https://www.ftluptonpress.com/",
+      "feedUrl": "https://www.ftluptonpress.com/search/?f=rss&t=article&l=20&s=start_time&sd=desc",
+      "type": "rss",
+      "category": "news",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read once on 6 October 2026. BLOX/TownNews site of the weekly Fort Lupton Press (Colorado Trust for Local News), with sections including Noticias en Espanol, Local Government, Things To Do, Live Music and a Local Events calendar fed by Evvnt (an aggregator, not proposed). The article RSS returned 20 items dated 1-5 October 2026 (e.g. Fort Lupton celebrates 85 years of mobile library; Singing, cheering Fort Lupton fans march in parade; State panel recommends partial Fort Lupton High reboot; Fort Lupton boys soccer snags 4-0 win). The paper also runs 'The Fort Report', a weekly beehiiv newsletter (fort-lupton.beehiiv.com, not fetched)."
+    }
+  ]
+}

@@ -54,6 +54,7 @@ export const PLACE_HUE: Record<PlaceType, EventCategory> = {
   coffee: 'arts',
   shop: 'music',
   trail: 'outdoors',
+  trailhead: 'outdoors',
   park: 'market',
   venue: 'sports',
   lodging: 'civic',

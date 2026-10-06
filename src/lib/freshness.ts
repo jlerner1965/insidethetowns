@@ -24,7 +24,9 @@ export function ageDays(verified: Date, now: Date = new Date()): number {
 }
 
 type Provenanced = { source?: string; verified?: Date };
-type PlaceLike = Provenanced & { status?: string; hours?: string; seasonal?: unknown };
+/** The part of a `seasonal` block the gate reads; see seasonalSchema. */
+export type SeasonLike = { opens?: Date; closes?: Date; closedMonths?: readonly string[] };
+type PlaceLike = Provenanced & { status?: string; hours?: string; seasonal?: SeasonLike };
 
 /** Why an entry may not publish, or null when it may. */
 export type Exclusion =
@@ -97,6 +99,30 @@ export function dueForRecheck(data: Provenanced, now: Date = new Date()): boolea
   return ageDays(data.verified, now) > FRESHNESS.recheckDays;
 }
 
+const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+
+/**
+ * Whether a seasonal place is open for the season today, in Denver.
+ *
+ * `opens` and `closes` decide when both are set: the season runs from the
+ * start of the first day to the end of the last. Otherwise `closedMonths`
+ * decides, matched on the first three letters so "Nov", "November" and
+ * "nov" all read the same. A block with neither says nothing about today
+ * and the place is treated as in season; its `season` text still shows.
+ */
+export function inSeason(seasonal: SeasonLike | undefined, now: Date = new Date()): boolean {
+  if (!seasonal) return true;
+  const today = startOfDay(now);
+  if (seasonal.opens && seasonal.closes) {
+    return today.getTime() >= startOfDay(seasonal.opens).getTime() && today.getTime() <= startOfDay(seasonal.closes).getTime();
+  }
+  if (seasonal.closedMonths && seasonal.closedMonths.length > 0) {
+    const month = MONTHS[Number(dayKey(now).slice(5, 7)) - 1]!;
+    return !seasonal.closedMonths.some((m) => m.trim().slice(0, 3).toLowerCase() === month);
+  }
+  return true;
+}
+
 /**
  * What a published listing may still show. A closed place keeps its page
  * (James, 3 October: with a clear notice, no hours or phone, and out of the
@@ -107,8 +133,8 @@ export function dueForRecheck(data: Provenanced, now: Date = new Date()): boolea
 export interface Presentation {
   /** Strip `hours` and `openingHours`: closed, or hours past their window. */
   hideHours: boolean;
-  /** Why, for the page to say so: `closed` says nothing extra; `stale` says "not recently checked". */
-  hoursHidden?: 'closed' | 'stale';
+  /** Why, for the page to say so: `closed` says nothing extra; `stale` says "not recently checked"; `season` says "closed for the season". */
+  hoursHidden?: 'closed' | 'stale' | 'season';
   /** Strip `phone`: a closed place's number is not one to ring. */
   hidePhone: boolean;
   /** Out of lists, search and the sitemap; the page itself stays. */
@@ -118,6 +144,9 @@ export interface Presentation {
 export function presentation(data: PlaceLike, variant: TownVariant, now: Date = new Date()): Presentation {
   if (data.status === 'closed') return { hideHours: true, hoursHidden: 'closed', hidePhone: true, delist: true };
   if (data.status === 'temporarily-closed') return { hideHours: true, hoursHidden: 'closed', hidePhone: false, delist: false };
+  // Out of season comes before stale: "closed for the season" is the answer a
+  // reader needs, and the listing itself is hidden at the mountain window anyway.
+  if (!inSeason(data.seasonal, now)) return { hideHours: true, hoursHidden: 'season', hidePhone: false, delist: false };
   if (!hoursFresh(data, variant, now)) return { hideHours: true, hoursHidden: 'stale', hidePhone: false, delist: false };
   return { hideHours: false, hidePhone: false, delist: false };
 }

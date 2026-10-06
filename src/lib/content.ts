@@ -15,7 +15,7 @@ export type TownEntry<C extends CollectionKey> = CollectionEntry<C> & {
    * check is older than the hours window, `closed` when the place is. The
    * page says which, instead of leaving a gap that reads as "no hours".
    */
-  hoursHidden?: 'closed' | 'stale';
+  hoursHidden?: 'closed' | 'stale' | 'season';
   /** Set by the gate on a closed place: the page stays, every list and the search index drop it. */
   delisted?: boolean;
 };
@@ -68,6 +68,14 @@ function shape(entry: CollectionEntry<'places'>, variant: TownConfig['variant'],
   const data = { ...entry.data };
   if (p.hideHours) {
     data.hours = undefined;
+    data.openingHours = undefined;
+    if (data.seasonal) data.seasonal = { ...data.seasonal, hours: undefined };
+  } else if (data.seasonal?.hours) {
+    // In season, the season's hours are the hours: one line every row, page,
+    // open-now badge and structured-data block reads, so none can disagree.
+    // `openingHours` is dropped with them; the text parser reads the line or
+    // nothing claims "Open now".
+    data.hours = data.seasonal.hours;
     data.openingHours = undefined;
   }
   if (p.hidePhone) data.phone = undefined;

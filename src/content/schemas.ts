@@ -42,6 +42,7 @@ export const PLACE_TYPES = [
   'coffee',
   'shop',
   'trail',
+  'trailhead',
   'park',
   'venue',
   'lodging',
@@ -50,7 +51,12 @@ export const PLACE_TYPES = [
 export type PlaceType = (typeof PLACE_TYPES)[number];
 
 export const EAT_DRINK_TYPES: readonly PlaceType[] = ['restaurant', 'bar', 'coffee'];
-export const THINGS_TO_DO_TYPES: readonly PlaceType[] = ['trail', 'park', 'venue'];
+export const THINGS_TO_DO_TYPES: readonly PlaceType[] = ['trail', 'trailhead', 'park', 'venue'];
+/**
+ * Public land rather than a business: nobody to write in as the owner, and
+ * the mountain variant's `access` notes belong here and nowhere else.
+ */
+export const LAND_TYPES: readonly PlaceType[] = ['trail', 'trailhead', 'park'];
 
 /**
  * Whether a place can be visited. Everything was `open` by construction until
@@ -111,6 +117,11 @@ export const PLACE_TYPE_PLURALS: Record<PlaceType, string> = {
   coffee: 'Coffee & sweets',
   shop: 'Shops',
   trail: 'Trails',
+  // A trailhead is the lot, the sign and the start of several trails: the
+  // place a mountain-town reader drives to. The trails from it are their own
+  // listings where they are worth one; Estes Park, Golden, Evergreen and
+  // Nederland each have more trailheads than a Front Range town has parks.
+  trailhead: 'Trailheads',
   park: 'Parks & open space',
   venue: 'Venues',
   lodging: 'Places to stay',
@@ -123,6 +134,7 @@ export const PLACE_TYPE_LABELS: Record<PlaceType, string> = {
   coffee: 'Coffee & Sweets',
   shop: 'Shop',
   trail: 'Trail',
+  trailhead: 'Trailhead',
   park: 'Park',
   venue: 'Venue',
   lodging: 'Lodging',
@@ -272,15 +284,32 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
  * Hours that follow the season, for the mountain variant. A listing with a
  * `seasonal` block shows these instead of `hours` during `season`, and the
  * freshness window for the whole listing is the mountain one.
+ *
+ * `opens` and `closes` are the dates of the current season, read off the
+ * operator's own page like every other fact here: a seasonal café, a lake
+ * road, a visitor center. Between `closes` and the next `opens` the gate
+ * (src/lib/content.ts) strips the hours and the page says "Closed for the
+ * season", so a January reader is not told a lodge is open until 8. The
+ * dates follow the listing's `verified` and its town's freshness window;
+ * they carry no window of their own.
  */
-export const seasonalSchema = z.object({
-  /** When these hours apply, as a reader reads it: "Memorial Day to mid-October". */
-  season: z.string().min(1),
-  /** Hours during the season, same form as `hours`. */
-  hours: z.string().min(1).optional(),
-  /** Months the place is shut: ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr"]. */
-  closedMonths: z.array(z.string().min(1)).default([]),
-});
+export const seasonalSchema = z
+  .object({
+    /** When these hours apply, as a reader reads it: "Memorial Day to mid-October". */
+    season: z.string().min(1),
+    /** Hours during the season, same form as `hours`. */
+    hours: z.string().min(1).optional(),
+    /** The day the current season opens, "YYYY-MM-DD", from the operator's page. */
+    opens: localDate.optional(),
+    /** The day the current season closes, "YYYY-MM-DD" (inclusive), from the operator's page. */
+    closes: localDate.optional(),
+    /** Months the place is shut: ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr"]. */
+    closedMonths: z.array(z.string().min(1)).default([]),
+  })
+  .refine((s) => !s.opens || !s.closes || s.closes.getTime() >= s.opens.getTime(), {
+    message: 'a season closes on or after the day it opens',
+    path: ['closes'],
+  });
 
 /**
  * Getting there, for a trail or a park in the mountain variant. Each line
@@ -403,8 +432,8 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
       message: 'a changeFlag needs a changeNote saying what the source changed',
       path: ['changeNote'],
     })
-    .refine((p) => !p.access || ['trail', 'park'].includes(p.type), {
-      message: 'access notes belong on a trail or a park',
+    .refine((p) => !p.access || LAND_TYPES.includes(p.type), {
+      message: 'access notes belong on a trail, a trailhead or a park',
       path: ['access'],
     });
 }

@@ -268,6 +268,12 @@ function checkImageCredits() {
   for (const row of parseLedger(readFileSync(csvPath, 'utf8'))) {
     ledger.set(row.path, row);
     if (!row.path.startsWith('content/')) continue;
+    // `new-town` copies the stand-in hero and writes a row that says so. A
+    // placeholder may never ship, and publicCredit refuses it; a town whose
+    // status is not `live` ships nothing but a holding page, so its row is
+    // tolerated until the photograph arrives. The day the town is flipped
+    // with the placeholder still there, this is an error again.
+    if (/placeholder/i.test(row.license) && findTown(row.town)?.status && findTown(row.town)!.status !== 'live') continue;
     try {
       publicCredit(row);
     } catch (err) {

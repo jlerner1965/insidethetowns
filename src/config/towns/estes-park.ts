@@ -1,0 +1,101 @@
+import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+
+/**
+ * The network's first mountain guide. A Larimer County statutory town of
+ * 5,904 at the 2020 census at the east entrance to Rocky Mountain National
+ * Park, 7,743 feet up, where a season closes roads and kitchens: the
+ * mountain chassis, with its 30-day freshness windows, seasonal hours and
+ * access notes (docs/ACCURACY-SYSTEM.md, phase 9). The road and closure
+ * links below are the official pages, linked rather than restated.
+ *
+ * Figures are from the Wikipedia infobox (census and GNIS), read 6 October
+ * 2026, as for every other town; the comments say which. The domain is the
+ * one on the owner's Cloudflare nameservers (the same pair as the other
+ * thirteen), confirmed 6 October 2026.
+ */
+export const estesPark: TownConfig = {
+  kind: 'town',
+  // Not live: the domain serves a noindex holding page until the owner flips
+  // this after the first review (docs/ACCURACY-SYSTEM.md, launch threshold).
+  status: 'wave3',
+  variant: 'mountain',
+  region: 'Mountains & Foothills',
+  neighbors: ['lyons', 'loveland'],
+  // Set with the brief, 6 October 2026: upcoming events / open listings.
+  launchThreshold: { events: 20, listings: 30 },
+  slug: 'estes-park',
+  name: 'Estes Park',
+  domain: 'insideestespark.com',
+  siteTitle: 'Inside Estes Park',
+  tagline:
+    'An independent guide to Estes Park, Colorado: the gateway town to Rocky Mountain National Park, Elkhorn Avenue, the trailheads, the elk, and what it’s like to live at 7,500 feet.',
+  seoTagline: 'Events and trails in Estes Park, Colorado',
+  counties: ['Larimer'],
+  state: 'CO',
+  // GNIS, via the Wikipedia infobox: 40°22′51″N 105°31′20″W.
+  lat: 40.3808,
+  lng: -105.5222,
+  population: 5904, // 2020 census
+  elevationFt: 7743, // GNIS, via Wikipedia
+  // 17 April 1917, per the Colorado State Archives' list of municipal incorporations as the Wikipedia infobox cites it (settled 1859).
+  incorporated: 1917,
+  population2010: 5858, // 2010 census, for census-to-census growth
+  /**
+   * Where a reader checks the roads before setting out. Official pages,
+   * linked live on Things to Do and every trail, trailhead and park page;
+   * the guide never restates what they say. Each URL answered 200 to a
+   * request on 6 October 2026.
+   */
+  conditionsLinks: [
+    {
+      label: 'CDOT road conditions (COtrip)',
+      url: 'https://www.cotrip.org/',
+      note: 'Live state highway conditions and closures, including US 34 and US 36.',
+    },
+    {
+      label: 'Rocky Mountain National Park: current conditions',
+      url: 'https://www.nps.gov/romo/planyourvisit/conditions.htm',
+      note: 'The park’s own page for road status, timed entry and trail closures.',
+    },
+    {
+      label: 'Trail Ridge Road and park roads status',
+      url: 'https://www.nps.gov/romo/planyourvisit/road_status.htm',
+      note: 'Whether Trail Ridge Road (US 34 through the park) is open, and the timed-entry hours; recorded line 970-586-1222.',
+    },
+    {
+      label: 'Arapaho and Roosevelt National Forests: alerts',
+      url: 'https://www.fs.usda.gov/r02/arp/alerts',
+      note: 'The Forest Service’s fire restrictions and closures on the national forest around the park.',
+    },
+  ],
+  colors: {
+    // Alpine lake: a petrol blue-green for Bear Lake and Lake Estes, darker and greener than Berthoud's cerulean, bluer than Windsor's teal. `npm run check-colors` is the gate.
+    accent: '#1E6E7E',
+    accentDark: '#144B57',
+    neutralBg: '#F2F6F7',
+  },
+  hero: {
+    // The placeholder new-town writes; replace before launch and update IMAGE_LICENSES.csv.
+    image: 'hero.jpg',
+    alt: 'Placeholder image; a photograph of Estes Park replaces it before launch',
+  },
+  social: {
+    email: 'hello@insideestespark.com',
+  },
+  nav: DEFAULT_TOWN_NAV,
+  movingHere: {
+    listingsLinks: [
+      { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Estes-Park,-CO_rb/' },
+      { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Estes-Park_CO' },
+    ],
+    // Estes Park School District (estesschools.org, read 6 October 2026; the
+    // R-3 suffix was not on the page read). commuteNotes are written at launch.
+    schoolDistrict: 'Estes Park School District, the one district for the Estes Valley.',
+  },
+  officialLinks: {
+    townSite: 'https://estespark.colorado.gov/',
+    townSiteLabel: 'the Town of Estes Park',
+    // The Town's site answered automated requests with 403 on 6 October 2026;
+    // the police page and number are set at launch once a person has read them.
+  },
+};

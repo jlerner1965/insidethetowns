@@ -5,7 +5,7 @@ export const timnath: TownConfig = {
   status: 'live',
   variant: 'front-range',
   region: 'Northern Colorado',
-  neighbors: ['fortcollins', 'windsor'],
+  neighbors: ['fortcollins', 'windsor', 'severance'],
   slug: 'timnath',
   name: 'Timnath',
   domain: 'insidetimnath.com',

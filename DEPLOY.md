@@ -17,8 +17,25 @@ insidefortcollins.com TOWN=fortcollins
 insidelongmontco.com TOWN=longmont
 insidelovelandco.com TOWN=loveland
 carbonvalleyguide.com TOWN=carbon-valley   (project `carbonvalleyguide`; Frederick, Firestone and Dacono on one site)
+insideseverance.com  TOWN=severance       (not live; holding page)
+insidefortlupton.com TOWN=fort-lupton     (not live; holding page)
+insidecastlerockco.com TOWN=castle-rock   (not live; holding page; insidecastlerock.com is someone else's)
+insideestespark.com  TOWN=estes-park      (not live; holding page; mountain variant)
+insidegolden.com     TOWN=golden          (not live; holding page; mountain variant)
+insideevergreenco.com TOWN=evergreen      (not live; holding page; mountain variant; insideevergreen.com is someone else's)
+insidenederland.com  TOWN=nederland       (not live; holding page; mountain variant)
 …
 ```
+
+The seven projects after `carbonvalleyguide` were created on 6 October 2026
+by the REST API with the same settings (framework, repository, `TOWN`, the
+Ignored Build Step, Node 22.x, preview deployments off, one deploy hook on
+`main`), **without their domains**: attaching a production domain is the
+owner's call, so each project still needs its apex and `www` added under
+Settings → Domains (step 7 below) once the owner says so. Until the config
+is merged to `main`, each project's first production build fails with
+"Unknown TOWN", which is harmless; the next push to `main` builds the
+holding page.
 
 `node scripts/live-towns.ts` prints the list of sites that must have a project.
 

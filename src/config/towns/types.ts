@@ -48,12 +48,33 @@ export type TownVariant = (typeof TOWN_VARIANTS)[number];
 /**
  * Where the hub's home page lists a town. A reader looks for their own
  * corner of the Front Range before their town, so "The towns" is grouped by
- * these, in this order. It is a reader's grouping, not a county one: Erie
- * and Carbon Valley are mostly Weld but sit with Boulder County & St. Vrain,
- * and each card still names its counties.
+ * these, in this order, A to Z within each. It is a reader's grouping, not a
+ * county one: Erie is mostly Weld but sits under Boulder County, and each
+ * card still names its counties. The owner's grouping, 6 October 2026; the
+ * hub reads the field and never a list of towns.
  */
-export const TOWN_REGIONS = ['Northern Colorado', 'Boulder County & St. Vrain', 'South & east of Denver'] as const;
+export const TOWN_REGIONS = [
+  'Boulder County',
+  'Northern Colorado',
+  'Carbon Valley & I-25',
+  'Mountains & Foothills',
+  'South Metro',
+] as const;
 export type TownRegion = (typeof TOWN_REGIONS)[number];
+
+/**
+ * Where a reader checks the roads before setting out, on a mountain guide:
+ * CDOT's live map for every one, the park's conditions page for Estes Park.
+ * The guide links these and never restates what they say; a closure copied
+ * onto a static page is wrong by the time it is read.
+ */
+export interface ConditionsLink {
+  /** "CDOT road conditions (COtrip)" */
+  label: string;
+  url: string;
+  /** One short line on what the page is for, where the label is not enough. */
+  note?: string;
+}
 
 export interface TownConfig {
   kind: 'town';
@@ -63,6 +84,12 @@ export interface TownConfig {
   status: TownStatus;
   /** See TownVariant. */
   variant: TownVariant;
+  /**
+   * The official road and closure pages a reader should check before driving
+   * up, for the `mountain` variant: shown on Things to Do and on every trail,
+   * trailhead and park page. See ConditionsLink. Absent on a Front Range guide.
+   */
+  conditionsLinks?: readonly ConditionsLink[];
   /** See TownRegion. */
   region: TownRegion;
   /**

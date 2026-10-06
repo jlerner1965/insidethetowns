@@ -106,12 +106,14 @@ test('every live town is configured and every config is complete enough to build
 });
 
 test('the hub groups every guide under the region the owner set', () => {
-  // The owner's grouping for the hub home page, 5 October 2026. A reader's
-  // grouping, not a county one: Erie and Carbon Valley are mostly Weld.
+  // The owner's grouping for the hub home page, 6 October 2026, five regions
+  // in this order. A reader's grouping, not a county one: Erie is mostly Weld.
   const REGIONS: Record<string, string[]> = {
-    'Northern Colorado': ['berthoud', 'fortcollins', 'johnstown', 'loveland', 'timnath', 'windsor'],
-    'Boulder County & St. Vrain': ['carbon-valley', 'erie', 'longmont', 'lyons', 'niwot'],
-    'South & east of Denver': ['elizabeth'],
+    'Boulder County': ['niwot', 'lyons', 'erie', 'longmont'],
+    'Northern Colorado': ['fortcollins', 'windsor', 'timnath', 'loveland', 'berthoud', 'johnstown', 'severance'],
+    'Carbon Valley & I-25': ['carbon-valley', 'fort-lupton'],
+    'Mountains & Foothills': ['estes-park', 'golden', 'evergreen', 'nederland'],
+    'South Metro': ['castle-rock', 'elizabeth'],
   };
   assert.deepEqual(Object.keys(REGIONS), [...TOWN_REGIONS], 'regions, in the order the hub lists them');
   for (const [region, slugs] of Object.entries(REGIONS)) {

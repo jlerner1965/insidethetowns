@@ -15,6 +15,13 @@ import { fortcollins } from './fortcollins.ts';
 import { longmont } from './longmont.ts';
 import { loveland } from './loveland.ts';
 import { carbonValley } from './carbon-valley.ts';
+import { severance } from './severance.ts';
+import { fortLupton } from './fort-lupton.ts';
+import { castleRock } from './castle-rock.ts';
+import { estesPark } from './estes-park.ts';
+import { golden } from './golden.ts';
+import { evergreen } from './evergreen.ts';
+import { nederland } from './nederland.ts';
 // new-town:imports
 
 export const towns: TownConfig[] = [
@@ -30,5 +37,12 @@ export const towns: TownConfig[] = [
   longmont,
   loveland,
   carbonValley,
+  severance,
+  fortLupton,
+  castleRock,
+  estesPark,
+  golden,
+  evergreen,
+  nederland,
   // new-town:entries
 ];

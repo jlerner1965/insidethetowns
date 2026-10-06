@@ -20,8 +20,13 @@ import { highlights, occurrences, oneOffs, weekendSections, weekendWindow } from
 import { LIVE_TOWNS, TOWN_REGIONS, countiesCovered, countyLabel, getHub } from '@/config';
 
 const hub = getHub();
+/**
+ * Only live guides reach this page: the picker, the cards, the map and the
+ * counts all read `live`. A town whose status is not `live` is not named
+ * here at all until the owner flips it (6 October 2026); its domain serves a
+ * holding page and the hub does not point at it.
+ */
 const live = hub.towns.filter((t) => LIVE_TOWNS.includes(t.slug));
-const soon = hub.towns.filter((t) => !LIVE_TOWNS.includes(t.slug));
 /**
  * Most visitors came for one town. On a phone the cards were two screens of
  * events and a map away, so the hero ends in a row of names, A to Z, drawn
@@ -116,7 +121,7 @@ const description = `Independent guides to ${live.length} towns on Colorado’s 
     <div class="grid items-start gap-10 lg:grid-cols-[3fr_2fr] lg:gap-14">
       {/* Not on a phone: at 375px its labels are too small to read or tap. */}
       <div class="hidden sm:block">
-        <TownMap towns={hub.towns} />
+        <TownMap towns={live} />
       </div>
       <div class="grid content-start gap-8 sm:gap-10">
         {regions.map(({ region, towns }) => (
@@ -142,12 +147,6 @@ const description = `Independent guides to ${live.length} towns on Colorado’s 
             </div>
           </div>
         ))}
-        {soon.length > 0 && (
-          <div class="rounded-lg border border-dashed border-accent-line bg-accent-tint p-6">
-            <p class="eyebrow">Coming next</p>
-            <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">{soon.map((t) => t.name).join(' · ')}</p>
-          </div>
-        )}
       </div>
     </div>
     </div>

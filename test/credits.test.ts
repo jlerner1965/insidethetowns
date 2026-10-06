@@ -6,6 +6,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { towns } from '../src/config/towns/registry.ts';
 import { licenseName, parseLedger, publicCredit, sourcePhoto, type LedgerRow } from '../src/lib/credits.ts';
 
 const row = (license: string, source = 'https://commons.wikimedia.org/wiki/File:X.jpg'): LedgerRow => ({
@@ -89,7 +90,10 @@ test('licenseName is what a caption must contain', () => {
 test('every row in the real register reads as a public credit', () => {
   const rows = parseLedger(readFileSync(new URL('../IMAGE_LICENSES.csv', import.meta.url), 'utf8'));
   assert.ok(rows.length > 50);
-  for (const r of rows.filter((r) => r.path.startsWith('content/'))) {
+  // The scaffold's placeholder hero is tolerated only on a town that is not
+  // live (its site is a holding page); see checkImageCredits in the validator.
+  const holding = new Set(towns.filter((t) => t.status !== 'live').map((t) => t.slug));
+  for (const r of rows.filter((r) => r.path.startsWith('content/') && !(/placeholder/i.test(r.license) && holding.has(r.town)))) {
     const c = publicCredit(r);
     assert.ok(c.license, r.path);
     if (r.creditRequired && licenseName(r)) assert.ok(c.author, `${r.path} needs an author to credit`);

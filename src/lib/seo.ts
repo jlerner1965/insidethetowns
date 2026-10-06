@@ -243,6 +243,7 @@ export function localBusinessJsonLd(
     lodging: 'LodgingBusiness',
     park: 'Park',
     trail: 'TouristAttraction',
+    trailhead: 'TouristAttraction',
     venue: 'EventVenue',
     service: 'LocalBusiness',
   };
