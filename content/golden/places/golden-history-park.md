@@ -8,7 +8,7 @@ source: "https://www.goldenhistory.org/visit/history-park/"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
-hours: "Daily 5 am–11 pm (grounds)"
+hours: "Daily 5 am–11 pm"
 tags: [history, free, kids, creek]
 summary: "Free outdoor history park along Clear Creek in downtown Golden: 1800s cabins and outbuildings moved from the Pearce Ranch, an 1876 schoolhouse and a Native American Arbor. Buildings open on event days."
 ---

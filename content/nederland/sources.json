@@ -80,13 +80,13 @@
     {
       "id": "nederlandlibrary-org",
       "name": "Nederland Community Library",
-      "url": "https://nederlandlibrary.org/",
+      "url": "https://nederland.colibraries.org/",
       "type": "manual",
       "category": "library",
       "priority": "core",
       "status": "confirmed",
       "robots": "honor",
-      "notes": "Unreachable from here on 6 October 2026: two attempts to fetch https://nederlandlibrary.org/ both failed with a curl connection error before any HTTP status (likely the proxy or the host refusing the connection), so robots.txt and the calendar vendor (LibCal, LibraryCalendar, Communico or other) could not be checked. Web search snippets (townofnederland.colorado.gov press releases) place the library at 200 CO-72 (Highway 72 North), Nederland CO 80466, next to the Community Center, and mention a Summer Reading Program kickoff and a Reading Garden ribbon cutting in 2024. Keep manual until the site can be reached and a feed confirmed. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+      "notes": "Unreachable from here on 6 October 2026: two attempts to fetch https://nederlandlibrary.org/ both failed with a curl connection error before any HTTP status (likely the proxy or the host refusing the connection), so robots.txt and the calendar vendor (LibCal, LibraryCalendar, Communico or other) could not be checked. Web search snippets (townofnederland.colorado.gov press releases) place the library at 200 CO-72 (Highway 72 North), Nederland CO 80466, next to the Community Center, and mention a Summer Reading Program kickoff and a Reading Garden ribbon cutting in 2024. Keep manual until the site can be reached and a feed confirmed. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Corrected 6 October 2026: nederlandlibrary.org does not answer; the library’s live site is https://nederland.colibraries.org/, which the Town’s directory links. The id is kept so nothing that names it breaks."
     },
     {
       "id": "bouldercounty-gov-open-space",
