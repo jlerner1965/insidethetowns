@@ -1,82 +1,131 @@
 ---
 /**
- * The hub home opens typographically rather than with a photo: the map and
- * the town cards are the picture. Each card borrows its town's accent.
+ * The hub home, in the owner's order (6 October 2026):
  *
- * It leads with the weekend. The network's numbers — guides, counties, people
- * — are a publisher's facts, and they used to sit where a reader looks first.
- * What a reader wants from the front page of a network of event guides is
- * what is on, so that comes straight after the headline and the numbers move
- * down under the map.
+ *   1. a compact introduction ending in the town picker
+ *   2. this weekend across the towns (four to six picks)
+ *   3. one featured story
+ *   4. the latest guides, as a compact grid
+ *   5. new around the towns: places added to the guides or closed
+ *   6. the newsletter signup beside what this week's issue would hold
+ *   7. the towns: map and directory
+ *
+ * The point is that the hub has something of its own to read and a reason to
+ * come back, rather than being a list of links to the guides. Everything on it
+ * is drawn from the towns' own listings at build time; nothing is written for
+ * the hub by hand, so it cannot disagree with the guides.
+ *
+ * The census-population strip and the "How it's made" band are gone: the
+ * population is the geography covered, not readers, and the independence line
+ * now sits in the introduction.
  */
 import Base from '@/layouts/Base.astro';
 import TownMap from '@/components/TownMap.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
-import FactStrip from '@/components/FactStrip.astro';
 import NetworkEventCard from '@/components/NetworkEventCard.astro';
+import ArticleCard from '@/components/ArticleCard.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { getNetworkEntries } from '@/lib/content';
-import { formatDayRange } from '@/lib/dates';
-import { highlights, occurrences, oneOffs, weekendSections, weekendWindow } from '@/lib/events';
-import { LIVE_TOWNS, countiesCovered, countyLabel, getHub } from '@/config';
+import { addDays, formatDate, formatDayRange, startOfDay } from '@/lib/dates';
+import { highlights, isCanceled, occurrences, oneOffs, weekendSections, weekendWindow } from '@/lib/events';
+import { isNewlyClosed, isNewPlace, nextSendDay, openingDay } from '@/lib/newsletter';
+import { isOpen } from '@/lib/places';
+import { LIVE_TOWNS, countyLabel, getHub } from '@/config';
 import { groupByRegion } from '@/lib/regions';
 
 const hub = getHub();
 /**
- * Only live guides reach this page: the picker, the cards, the map and the
- * counts all read `live`. A town whose status is not `live` is not named
- * here at all until the owner flips it (6 October 2026); its domain serves a
- * holding page and the hub does not point at it.
+ * Only live guides reach this page: the picker, the cards, the map and every
+ * block read `live`. A town whose status is not `live` is not named here at
+ * all until the owner flips it (6 October 2026).
  */
 const live = hub.towns.filter((t) => LIVE_TOWNS.includes(t.slug));
-/**
- * Most visitors came for one town. On a phone the cards were two screens of
- * events and a map away, so the hero ends in a row of names, A to Z, drawn
- * from the same live list as the cards so the two cannot disagree.
- */
 const atoz = [...live].sort((a, b) => a.name.localeCompare(b.name, 'en'));
-/** The cards, one group per region in TOWN_REGIONS order, A to Z within each; an empty region is not drawn. */
 const regions = groupByRegion(live);
-/**
- * The weekend across every guide, ranked the way a town's own home page ranks
- * its listings (highlights). On a Sunday night, or in a quiet week, the
- * weekend can be empty, and an empty band under the headline is worse than
- * none, so the block falls back to the week ahead and says which it is.
- *
- * One-offs lead: a festival is a reason to cross a county line and a weekly
- * trivia night is not. Only when the weekend is so quiet that regulars are
- * nearly all there is do they fill the block.
- */
 const now = new Date();
-const network = occurrences(await getNetworkEntries('events'), { now, horizonDays: 30 });
+
+/**
+ * 2. The weekend across every guide, ranked the way a town's home page ranks
+ * its listings. One-offs lead; regulars fill in only when the weekend is
+ * quiet. An empty weekend (a Sunday night) falls back to the week ahead and
+ * says which it is.
+ */
+const events = await getNetworkEntries('events');
+const network = occurrences(events, { now, horizonDays: 30 });
 const sections = weekendSections(network, { now, horizonDays: 15 });
 const onThisWeekend = [...sections.now, ...sections.weekend];
 const picks = highlights(oneOffs(onThisWeekend, network), { now, limit: 6 });
-const weekend = picks.length >= 3 ? picks : highlights(onThisWeekend, { now, limit: 6 });
+const weekend = picks.length >= 4 ? picks : highlights(onThisWeekend, { now, limit: 6 });
 const leadIsWeekend = weekend.length > 0;
 const lead = leadIsWeekend ? weekend : highlights(sections.next, { now, limit: 6 });
 const { start: weekendStart, sunday } = weekendWindow(now);
+
 /**
- * The hub's own snippet. Without it the page falls back to `hub.tagline`,
- * which is 74 characters and says what the network is but not what is on a
- * town guide — the thing a searcher is deciding whether to click. The tagline
- * stays short because it is also the hero line and the Organization
- * description; this is written for the search result.
+ * 3 and 4. Articles across the network, newest first. The featured story is
+ * the newest one with a photograph, because the block exists to show a real
+ * picture of a real place; the grid is the next six. An article without a
+ * photograph still appears in the grid as text.
  */
+const articles = (await getNetworkEntries('articles')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime() || a.town.name.localeCompare(b.town.name, 'en'),
+);
+const featured = articles.find((a) => a.data.image) ?? articles[0];
+const latest = articles.filter((a) => a !== featured).slice(0, 6);
+
+/**
+ * 5. New around the towns: the last 30 days of places added to a guide or
+ * recorded as closed, from the same `added` and `closed` dates the weekly
+ * email reads. A guide's opening-day places are the guide itself, not news,
+ * so they are left out (src/lib/newsletter.ts). "Added to the guide" is what
+ * the date records, so that is what the page says: it is not an opening date.
+ */
+const RECENT_DAYS = 30;
+const since = addDays(startOfDay(now), -RECENT_DAYS);
+const places = await getNetworkEntries('places');
+const openings = new Map(live.map((t) => [t.slug, openingDay(places.filter((p) => p.town.slug === t.slug))]));
+const added = places
+  .filter((p) => {
+    const opened = openings.get(p.town.slug);
+    if (!isOpen(p) || p.delisted || !p.data.added) return false;
+    if (opened && p.data.added.getTime() <= opened.getTime()) return false;
+    return p.data.added.getTime() >= since.getTime();
+  })
+  .sort((a, b) => b.data.added!.getTime() - a.data.added!.getTime())
+  .slice(0, 6);
+const closed = places
+  .filter((p) => !isOpen(p) && !!p.data.closed && p.data.closed.getTime() >= since.getTime())
+  .sort((a, b) => b.data.closed!.getTime() - a.data.closed!.getTime())
+  .slice(0, 4);
+const closedNote = (p: (typeof closed)[number]) =>
+  p.data.statusNote ?? (p.data.status === 'closed' ? 'Permanently closed.' : 'Temporarily closed.');
+
+/**
+ * 6. What the next issue would hold, counted with the same rules as the
+ * sample issue (/newsletter/sample/), so the preview and the sample agree.
+ */
+const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
+const send = nextSendDay(now, sendDay);
+const issueListings = occurrences(events.filter((e) => !isCanceled(e)), { now: send, horizonDays: 14 });
+const issueWeekend = weekendSections(issueListings, { now: send, horizonDays: 5 }).weekend;
+const issueTowns = new Set(issueWeekend.map((e) => e.town.slug)).size;
+const issueNew = places.filter((p) => isNewPlace(p, send, openings.get(p.town.slug))).length;
+const issueClosed = places.filter((p) => isNewlyClosed(p, send)).length;
+const { start: issueStart, sunday: issueSunday } = weekendWindow(send);
+const plural = (n: number, one: string, many: string) => `${n} ${n === 1 ? one : many}`;
+
 const description = `Independent guides to ${live.length} towns on Colorado’s Front Range: the week’s events, where to eat and drink, the trails, and what it’s like to live there.`;
 ---
 <Base {description}>
-  {/* Set a little tighter below 640px so the whole picker fits on a phone's
-     first screen; from sm up it is the hero it always was. */}
-  <section class="container-page pb-14 pt-10 sm:pt-16 md:pt-28">
+  {/* 1. Compact introduction and town selector. */}
+  <section class="container-page pb-10 pt-8 sm:pb-12 sm:pt-12 md:pt-16">
     <p class="eyebrow">Colorado’s Front Range</p>
-    <h1 class="display mt-4 max-w-4xl text-[2.75rem] sm:mt-5 sm:text-7xl lg:text-8xl">
+    <h1 class="display mt-3 max-w-3xl text-[2.5rem] sm:text-5xl lg:text-6xl">
       Independent guides to the towns worth knowing.
     </h1>
-    <p class="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted sm:mt-7 sm:text-lg md:text-2xl md:leading-relaxed">
-      {hub.tagline} One site per town: the week’s events, where to eat and drink, the trails, and a straight
-      account of what it’s like to live there.
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-ink-muted sm:text-lg">
+      What’s on this weekend, where to go, and what’s changing, one guide per town. Listings are editorial; nobody pays to be in them.
     </p>
-    <nav aria-labelledby="town-picker" class="mt-8 sm:mt-10 md:mt-14">
+    <nav aria-labelledby="town-picker" class="mt-7 sm:mt-8">
       <p id="town-picker" class="eyebrow">Pick your town</p>
       <ul class="mt-3 grid max-w-4xl grid-cols-3 gap-2 sm:grid-cols-4 lg:grid-cols-6">
         {atoz.map((t) => (
@@ -91,11 +140,11 @@ const description = `Independent guides to ${live.length} towns on Colorado’s 
     </nav>
   </section>
 
+  {/* 2. This weekend. */}
   {lead.length > 0 && (
-    <section class="band band-white">
-      {/* Below 640px: the first three, then "Everything on" after them rather
-         than in the header. Hidden, not dropped, so Freshness can still remove
-         a past event and the next one moves up into the three. */}
+    <section class="band-white py-12 md:py-16">
+      {/* Below 640px: the first three, then "Everything on" after them. Hidden,
+         not dropped, so Freshness can remove a past event and the next moves up. */}
       <div class="container-page max-sm:[&>:first-child>a]:hidden" data-events-scope>
         <SectionHeader
           eyebrow={leadIsWeekend ? `Across the towns · ${formatDayRange(weekendStart, sunday)}` : 'Across the towns'}
@@ -114,7 +163,106 @@ const description = `Independent guides to ${live.length} towns on Colorado’s 
     </section>
   )}
 
-  <section id="towns" class="band band-tint">
+  {/* 3. Featured story, then 4. the latest guides. */}
+  {featured && (
+    <section class="band-tint py-12 md:py-16">
+      <div class="container-page">
+        <SectionHeader eyebrow="From the guides" title="Featured story" />
+        <ArticleCard article={featured} town={featured.town} feature />
+
+        {latest.length > 0 && (
+          <div class="mt-14 md:mt-20">
+            <h2 class="display-md border-b border-line pb-4 text-3xl md:text-4xl">Latest guides</h2>
+            <div class="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+              {latest.map((article) => <ArticleCard article={article} town={article.town} compact />)}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
+  {/* 5. New around the towns. Not drawn when there is nothing to report. */}
+  {(added.length > 0 || closed.length > 0) && (
+    <section class="band-white py-12 md:py-16">
+      <div class="container-page">
+        <SectionHeader eyebrow={`The last ${RECENT_DAYS} days`} title="New around the towns" />
+        <div class:list={['grid gap-10', added.length > 0 && closed.length > 0 && 'lg:grid-cols-[3fr_2fr] lg:gap-14']}>
+          {added.length > 0 && (
+            <div>
+              <h3 class="text-xl">Added to the guides</h3>
+              <ul class="mt-4 divide-y divide-line-soft border-y border-line-soft">
+                {added.map((p) => (
+                  <li class="py-4">
+                    <p class="eyebrow" style={`color:${p.town.colors.accentDark}`}>
+                      {p.town.name} <span class="text-ink-faint">·</span> <span class="text-ink-muted">{formatDate(p.data.added!)}</span>
+                    </p>
+                    <a href={`https://${p.town.domain}/places/${p.slug}/`} class="mt-1 block text-lg font-semibold text-ink no-underline hover:text-accent-text">{p.data.title}</a>
+                    <p class="mt-1 text-[0.9375rem] leading-relaxed text-ink-muted line-clamp-2">{p.data.summary}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {closed.length > 0 && (
+            <div>
+              <h3 class="text-xl">Closed</h3>
+              <ul class="mt-4 divide-y divide-line-soft border-y border-line-soft">
+                {closed.map((p) => (
+                  <li class="py-4">
+                    <p class="eyebrow" style={`color:${p.town.colors.accentDark}`}>
+                      {p.town.name} <span class="text-ink-faint">·</span> <span class="text-ink-muted">{formatDate(p.data.closed!)}</span>
+                    </p>
+                    <a href={`https://${p.town.domain}/places/${p.slug}/`} class="mt-1 block text-lg font-semibold text-ink no-underline hover:text-accent-text">{p.data.title}</a>
+                    <p class="mt-1 text-[0.9375rem] leading-relaxed text-ink-muted">{closedNote(p)}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {/* 6. The newsletter, beside what this week's issue would hold. */}
+  <section class="band-tint py-12 md:py-16">
+    <div class="container-page grid items-start gap-8 lg:grid-cols-[3fr_2fr] lg:gap-12">
+      <NewsletterSignup />
+      <aside class="rounded-lg bg-raised p-6 ring-1 ring-line-soft md:p-8" aria-labelledby="issue-preview">
+        <p class="eyebrow">What subscribers get</p>
+        <h2 id="issue-preview" class="display-md mt-2 text-2xl leading-tight">
+          {sendDay}’s issue, {formatDate(send)}
+        </h2>
+        <ul class="mt-5 divide-y divide-line-soft border-y border-line-soft text-[0.9375rem]">
+          <li class="py-3">
+            <strong class="font-semibold">The weekend, {formatDayRange(issueStart, issueSunday)}</strong>
+            <span class="block text-ink-muted">
+              {issueWeekend.length > 0
+                ? `${plural(issueWeekend.length, 'listing', 'listings')} across ${plural(issueTowns, 'town', 'towns')}, a few picks from each`
+                : 'Picks town by town as the listings fill in'}
+            </span>
+          </li>
+          <li class="py-3">
+            <strong class="font-semibold">New on the guides and closed</strong>
+            <span class="block text-ink-muted">
+              {issueNew + issueClosed > 0
+                ? `${plural(issueNew, 'place', 'places')} added, ${plural(issueClosed, 'closure', 'closures')} so far this week`
+                : 'Places added or closed since the last issue, when there are any'}
+            </span>
+          </li>
+          <li class="py-3">
+            <strong class="font-semibold">A new article</strong>
+            <span class="block text-ink-muted">When there is one</span>
+          </li>
+        </ul>
+        <a href="/newsletter/sample/" class="mt-5 inline-flex min-h-11 items-center text-[0.9375rem] font-semibold text-accent-text no-underline hover:underline">Read this week’s sample issue →</a>
+      </aside>
+    </div>
+  </section>
+
+  {/* 7. The towns: map and directory. */}
+  <section id="towns" class="band band-white">
     <div class="container-page">
     <SectionHeader eyebrow="The network" title="The towns" />
     <div class="grid items-start gap-10 lg:grid-cols-[3fr_2fr] lg:gap-14">
@@ -126,8 +274,6 @@ const description = `Independent guides to ${live.length} towns on Colorado’s 
         {regions.map(({ region, towns }) => (
           <div>
             <h3 class="mb-4 text-xl sm:mb-5 sm:text-2xl">{region}</h3>
-            {/* A phone gets name and county only, two across, the names level along
-               each row however the county line wraps; the card is still the link. */}
             <div class="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-1">
               {towns.map((t) => (
                 <a
@@ -148,37 +294,6 @@ const description = `Independent guides to ${live.length} towns on Colorado’s 
         ))}
       </div>
     </div>
-    </div>
-  </section>
-
-  <section class="band band-white">
-    <div class="container-page">
-      <div class="max-w-4xl">
-        <FactStrip
-          size="number"
-          facts={[
-            { label: 'Guides live', value: String(live.length) },
-            { label: 'Counties', value: String(countiesCovered(live).length) },
-            { label: 'People covered', value: live.reduce((n, t) => n + (t.population ?? 0), 0).toLocaleString('en-US') },
-          ]}
-          note="Population at the 2020 census, summed across the live guides. Several of these towns have grown a long way since."
-        />
-      </div>
-    </div>
-  </section>
-
-  <section class="on-dark bg-accent-dark text-white">
-    <div class="container-page grid gap-8 py-16 md:grid-cols-[3fr_2fr] md:items-end md:py-24">
-      <div>
-        <p class="eyebrow text-highlight-ink">How it’s made</p>
-        <h2 class="display-md mt-4 text-4xl lg:text-6xl">One guide per town, made the same careful way.</h2>
-      </div>
-      <div>
-        <p class="text-lg leading-relaxed text-white/85">
-          Never the town government, always linking to it. Editorial listings, not paid placement.
-        </p>
-        <a href="/about/" class="btn btn-light mt-6">About the network</a>
-      </div>
     </div>
   </section>
 </Base>

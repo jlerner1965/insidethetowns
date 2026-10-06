@@ -3287,3 +3287,29 @@ flips it.
 - **Sources were seeded, all proposed, from a robots-honouring read of each
   site**, core first, with the visitor center and the land agencies as core
   on the mountain guides; nothing is ingested until the owner confirms them.
+
+## The hub home page, reordered
+
+Owner's brief, 6 October 2026: give the hub content of its own and a reason
+to come back, in this order: compact introduction and town picker; this
+weekend; one featured story; the latest guides; new around the towns; the
+newsletter with an example of what subscribers get; the map and directory.
+
+- **The introduction is compact.** One headline (2.5rem on a phone, 3.75rem
+  at its widest, down from 6rem), one sentence, the picker. The sentence now
+  carries the independence line the "How it's made" band used to.
+- **The featured story is the newest article with a photograph**, picked at
+  build time from every live guide; the grid under it is the next six, newest
+  first, each linking to its town's own domain. `ArticleCard` takes `town`
+  (absolute link, town name in the eyebrow) and `compact` for that grid.
+- **"New around the towns" reads `added` and `closed`**, the same dates the
+  email reads, over the last 30 days, with each guide's opening-day places
+  left out. It says "Added to the guides" because that is what `added`
+  records; it is not an opening date. The block is not drawn when both lists
+  are empty.
+- **The newsletter preview counts with the sample issue's rules**, so the
+  two agree, and links to /newsletter/sample/.
+- **The census-population strip is gone.** Population is the geography
+  covered, not readers, and it read like an audience figure.
+- **The weekend block wants four one-off picks** before it falls back to
+  regulars (was three).

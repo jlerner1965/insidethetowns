@@ -5,19 +5,26 @@
  * A feature with no photograph is set as text across the full width, under a
  * heavy rule, rather than beside a tinted rectangle standing in for the
  * picture that does not exist.
+ *
+ * On the hub an article lives on its town's domain, so `town` makes the link
+ * absolute and puts the town's name in the eyebrow; `compact` is the smaller
+ * card for the hub's "Latest guides" grid.
  */
 import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
+import type { TownConfig } from '@/config';
 import { formatDate, toIsoLocal } from '@/lib/dates';
 
 interface Props {
   article: TownEntry<'articles'>;
   feature?: boolean;
+  town?: TownConfig;
+  compact?: boolean;
 }
 
-const { article, feature = false } = Astro.props;
+const { article, feature = false, town, compact = false } = Astro.props;
 const { data, slug } = article;
-const href = `/articles/${slug}/`;
+const href = town ? `https://${town.domain}/articles/${slug}/` : `/articles/${slug}/`;
 const twoUp = feature && !!data.image;
 ---
 <article class:list={['group relative', twoUp && 'grid gap-6 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-10']}>
@@ -34,12 +41,12 @@ const twoUp = feature && !!data.image;
   )}
   <div class:list={[!feature && data.image && 'mt-4', feature && !data.image && 'max-w-3xl border-t-2 border-ink pt-7']}>
     <p class="eyebrow">
-      {data.category} <span class="text-ink-faint">·</span> <time datetime={toIsoLocal(data.date)} class="text-ink-muted">{formatDate(data.date)}</time>
+      {town && <Fragment><span style={`color:${town.colors.accentDark}`}>{town.name}</span> <span class="text-ink-faint">·</span> </Fragment>}{data.category} <span class="text-ink-faint">·</span> <time datetime={toIsoLocal(data.date)} class="text-ink-muted">{formatDate(data.date)}</time>
     </p>
-    <h3 class:list={['mt-2 font-medium leading-tight', feature ? 'display text-3xl md:text-5xl' : 'text-2xl']}>
+    <h3 class:list={['mt-2 font-medium leading-tight', feature ? 'display text-3xl md:text-5xl' : compact ? 'text-xl' : 'text-2xl']}>
       <a href={href} class="stretch no-underline group-hover:text-accent-text">{data.title}</a>
     </h3>
-    <p class:list={['mt-3 leading-relaxed text-ink-muted', feature ? 'text-lg' : 'text-[0.9375rem] line-clamp-3']}>{data.excerpt}</p>
+    <p class:list={['mt-3 leading-relaxed text-ink-muted', feature ? 'text-lg' : compact ? 'text-[0.9375rem] line-clamp-2' : 'text-[0.9375rem] line-clamp-3']}>{data.excerpt}</p>
     {feature && <p class="mt-5 text-[0.9375rem] font-semibold text-accent-text">Read the story →</p>}
   </div>
 </article>
