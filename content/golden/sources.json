@@ -1,0 +1,212 @@
+{
+  "town": "golden",
+  "sources": [
+    {
+      "id": "cityofgolden-gov",
+      "name": "City of Golden - City Calendar",
+      "url": "https://www.cityofgolden.gov/calendar.php",
+      "feedUrl": "https://www.cityofgolden.gov/_assets_/plugins/revizeCalendar/calendar_data_handler.php?webspace=goldenco&relative_revize_url=//cms3.revize.com&protocol=https:",
+      "sampleUrl": "https://www.cityofgolden.gov/calendar.php",
+      "type": "json",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Executive Session",
+        "Holiday Service - Delayed",
+        "Content Editing Training",
+        "Coffee with The Town",
+        "Coffee with The Manager"
+      ],
+      "notes": "Read 2026-10-06. cityofgolden.net now redirects to cityofgolden.gov (base href on the homepage); the site is Revize and the calendar is the Revize calendar plugin (FullCalendar) at /calendar.php. There is no server-side iCal or RSS: the page's 'ics' button builds a file in the browser (ics.min.js), and no RSS link exists on calendar.php or newslist.php. The plugin loads one JSON document from calendar_data_handler.php (the feedUrl; the three query parameters are what the page's own script sends). Read once: 499 items, starts 2024-04-04 to 2027-09-09, naive local times with no zone (Mountain time), fields title/primary_calendar_name/calendar_displays/start/end/location/url/desc(URL-encoded HTML)/rrule. 57 items carry an RRULE (recurring board meetings, the Golden Farmers Market), so expansion is needed. Mostly meetings: Boards & Commissions 163, Community Engagement 99, City Council 33, Trash/Recycling 29, Community Center 21, Events 144, Golden History Museum & Park 1, plus 4 'Revize Training' test items (the excludeTitles above). 27 dated one-off items fall after today, e.g. Golden Beverage Tasting & Chili Cook-Off (Parfet Park, 2026-10-17), Trick or Treat Street (Washington Ave, 2026-10-30), Candlelight Walk (2026-12-04), Olde Golden Holiday Parade (2026-12-12), Jingle on the Avenue (2026-12-19), Coffee with Councilors. Locations are free text ('Council Chambers, 911 10th St.', 'Golden Community Center', 'Parfet Park, 719 10th Street'). Calendar ids on the page: City Council 7, Boards & Commissions 2, Events 8, Community Engagement 9, Trash 11, Community Center 14, Golden History Museum & Park 15, Featured 16, Neighborhood Meetings 17; filter on primary_calendar_name 'Events' and 'Community Center' for the guide, keep City Council for Civic. The Downtown Development Authority has no site of its own (web search found only city pages); its meetings would be in the Boards & Commissions calendar."
+    },
+    {
+      "id": "jeffco-us",
+      "name": "Jefferson County - County Calendar",
+      "url": "https://www.jeffco.us/calendar.aspx",
+      "feedUrl": "https://www.jeffco.us/RSSFeed.aspx?ModID=58&CID=All-calendar.xml",
+      "sampleUrl": "https://www.jeffco.us/Calendar.aspx?EID=15691",
+      "type": "rss",
+      "category": "county",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 2026-10-06. jeffco.us is CivicPlus. The all-calendars RSS read once: 20 items, mostly facility notices ('Open for Visitors', 'Wedding Site Tours', 'Closed for Private Event', dated mid-September 2026) plus one Jeffco Wildfire Commission Meeting and 'Grounded Conversations @ East Simpson Coffee Co.'; low value for a Golden events list, useful mainly for county meetings. The feed index page /RSS.aspx is disallowed by robots.txt for our agent, so other per-calendar RSS ids were not enumerated; the Open Space calendar (CID 26) is registered separately below. The sampleUrl is a Calendar.aspx event id linked from the Open Space page, not opened."
+    },
+    {
+      "id": "goldenchamber-org",
+      "name": "Greater Golden Chamber of Commerce - Events Calendar",
+      "url": "https://business.goldenchamber.org/events/calendar",
+      "sampleUrl": "https://business.goldenchamber.org/events/search?from=10/1/2026&to=11/30/2026",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 2026-10-06. goldenchamber.org (200) links to a ChamberMaster/GrowthZone calendar at business.goldenchamber.org/events/calendar (200, 'Greater Golden Chamber of Commerce'), showing 61 results for October-November 2026 with categories (Arts & Culture, Business After Hours, Festivals & Celebrations, Ribbon Cuttings, Recreation & Sports...); first visible item 'Sovrn's Run Club'. No iCal or RSS link on the page, only a print view and a date-range search, so type html. Member-hosted items mix with chamber networking events."
+    },
+    {
+      "id": "visitgolden-com",
+      "name": "Visit Golden / Golden Welcome Center",
+      "url": "https://www.visitgolden.com/events/",
+      "sampleUrl": "https://www.visitgolden.com/",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 2026-10-06. Category chamber because this is the destination marketing body and runs the Golden Welcome Center (nav: Plan Your Visit > Golden Welcome Center; also 'Road Construction Updates' and 'Information and Alerts' pages, not opened). WordPress; the homepage (200) has an Events section (Holiday Events, Candlelight Walk, Holiday Parades, Jingle on the Avenue, Buffalo Bill Days, Goldens in Golden, Colorado Cowboy Gathering, Live Music, Submit an Event). The city calendar links event pages at visitgolden.com/event/..., so it is The Events Calendar, but /events/?ical=1 returned 403 (bot block), so no feed; the /events/ page itself was not opened within the fetch budget."
+    },
+    {
+      "id": "jeffcolibrary-bibliocommons-com",
+      "name": "Jefferson County Public Library - Events (Golden Library)",
+      "url": "https://jeffcolibrary.bibliocommons.com/v2/events",
+      "feedUrl": "https://jeffcolibrary.bibliocommons.com/events/rss/all",
+      "sampleUrl": "https://jeffcolibrary.bibliocommons.com/events/search/index",
+      "type": "rss",
+      "category": "library",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "locationFilter": [
+        "Golden"
+      ],
+      "notes": "Read 2026-10-06. jeffcolibrary.org (200) is a BiblioCommons site; events live at jeffcolibrary.bibliocommons.com (BiblioEvents), not LibCal. The system-wide RSS /events/rss/all read once: 5.8 MB, 2000 items (helper cap), titles such as Baby Time, Toddler Time, Preschool Time, Paws for Reading, ESL class, Intercambio Spanish Conversation Table; the helper did not parse per-item dates, and the body was not dumped, so the Golden share is unknown. Filter on location 'Golden Library' (locationFilter). BiblioEvents search supports branch filters (fq=branch_location_id:...) but the Golden id was not found. jeffcolibrary.org/locations/golden/ returned 404 (the pattern came from a /locations/elwa/ link), so the branch page URL is unconfirmed; jeffcolibrary.org/events-activities/ is linked from the 404 page but was not opened."
+    },
+    {
+      "id": "cityofgolden-gov-parks",
+      "name": "City of Golden - Parks & Trails / Golden Community Center",
+      "url": "https://www.cityofgolden.gov/community/parks_trails/index.php",
+      "sampleUrl": "https://www.cityofgolden.gov/community/golden_community_center/index.php",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 2026-10-06. The Parks & Trails page (200) is an A-Z list of city parks with amenities and no calendar; it records that Rooney Road Sports Complex was turned over to Jefferson County Open Space on 1/1/2025. No separate city open-space page or trail-conditions page was found in the site nav (nav items: Parks & Trails, Park Rules, City Tree Map, Clear Creek RV Park, Fossil Trace Golf Club, Splash). Recreation registration is a Vermont Systems WebTrac at web2.myvscloud.com (linked from the homepage, not a feed). Community Center programs appear in the city JSON feed under primary_calendar_name 'Community Center' (e.g. Friends of the Front Porch), so this entry is for places and the Movies & Music in the Park page (community/movies_music_park.php, linked, not opened). The sampleUrl was linked from the homepage, not opened."
+    },
+    {
+      "id": "denvergov-org-mountain-parks",
+      "name": "Denver Mountain Parks (Lookout Mountain Park)",
+      "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Urban-Parks/Mountain-Parks",
+      "sampleUrl": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Parks/Mountain-Parks",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 2026-10-06. Both denvergov.org URLs returned 200 with the same Mountain Parks page: 'Lookout Mountain Park & Pahaska Tepee', 'home to the popular Buffalo Bill Museum and Grave ... 12 miles west of downtown Denver', Genesee bison herd, Chief Hosa Campground, forest-health work. Informational page with no calendar or feed; land agency for Lookout Mountain Park above Golden, category parks. Buffalo Bill Museum & Grave is registered as a venue below."
+    },
+    {
+      "id": "jeffco-us-open-space",
+      "name": "Jeffco Open Space - Programs, Alerts & Closures",
+      "url": "https://www.jeffco.us/open-space",
+      "feedUrl": "https://www.jeffco.us/common/modules/iCalendar/iCalendar.aspx?catID=26&feed=calendar",
+      "sampleUrl": "https://www.jeffco.us/1531/Alerts-Closures",
+      "type": "ical",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 2026-10-06. Land agency for North Table Mountain, Lookout Mountain Preserve and Nature Center, Clear Creek Canyon Park, Windy Saddle, Apex, Centennial Cone and (since 2025) Rooney Road; category parks. The Open Space page (200, CivicPlus) links its own calendar (calendar.aspx?CID=26) and /1531/Alerts-Closures. The CivicPlus iCal for CID 26 read once: 10 VEVENT, 2 RRULE, 2024-11-03 to 2026-10-27, TZID America/Denver, locations as HTML fragments (Lookout Mountain Preserve and Nature Center 910 Colorow Rd; Jefferson County Fairgrounds; Alderfer/Three Sisters; Lakewood Library); titles Full Moon Night Hike, Yoga With a Ranger, Boo-Logical Adaptations Night Hike, Night at the Observatory, Preschool Nature Nuts, open houses; programs not meetings, county-wide, so filter on Lookout Mountain / North Table / Clear Creek Canyon locations. The Alerts & Closures page (200) is the live closures page to link from the town config: current notices (Meyer Ranch closure from 10/19, Deer Creek Canyon Meadowlark Trail, South Valley Prairie Falcon Trail, Tiers of Zion) and seasonal closures including Clear Creek Canyon Park near MM 270 uphill of US 6 closed Feb 1-Jul 31 for nesting eagles and Centennial Cone Elk Range Trail Feb 1-mid June; also /AlertCenter.aspx?CID=25 (Notify Me). The feed index /RSS.aspx is robots-disallowed."
+    },
+    {
+      "id": "buffalobill-org",
+      "name": "Buffalo Bill Museum & Grave (Lookout Mountain)",
+      "url": "https://buffalobill.org/events-public-programs/",
+      "sampleUrl": "https://www.buffalobill.org/",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Buffalo Bill Museum & Grave, 987 1/2 Lookout Mountain Rd, Golden",
+      "notes": "Read 2026-10-06. Run by Denver Parks & Recreation (site footer, donation link to denvergov.org); 987 1/2 Lookout Mountain Road, Golden, CO 80401, (720) 865-2160. Homepage 200 (WordPress). The Events and Public Programs page (200) had no event listings in its body on this date and no event feed; /feed/ is the blog RSS (linked, not read). Banner: museum closed Monday, October 5. Type html; check the page by hand."
+    },
+    {
+      "id": "buffalorose-net",
+      "name": "Buffalo Rose",
+      "url": "https://www.buffalorose.net/",
+      "type": "manual",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 2026-10-06. Two attempts ended in a connection error from the helper (curl failed with no HTTP status), so the site is unreachable from here; no page or feed was read. Confirm the domain and the show calendar by hand."
+    },
+    {
+      "id": "coloradorailroadmuseum-org",
+      "name": "Colorado Railroad Museum",
+      "url": "https://coloradorailroadmuseum.org/events",
+      "feedUrl": "https://coloradorailroadmuseum.org/events/?ical=1",
+      "sampleUrl": "https://coloradorailroadmuseum.org/event/saturday-train-rides-21/",
+      "type": "ical",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Colorado Railroad Museum",
+      "notes": "Read 2026-10-06. WordPress with The Events Calendar Pro 7.8.3 (homepage 200). The iCal read once: 30 VEVENT, 0 RRULE, 2025-03-09 to 2027-11-07, LOCATION empty on every item (hence defaultVenue); titles The Friday Tour, Saturday Train Rides, Sunday Goose Rides, Harvest Haunt, Colorado Rails & Cocktails, Boulder County Free Admission Day. Many items are weekly rides, so treat as a weekly regular. The street address was not read from a page; confirm before use. The /wp-json/tribe/events/v1/events endpoint was not tried."
+    },
+    {
+      "id": "calendar-mines-edu",
+      "name": "Colorado School of Mines - Calendar",
+      "url": "https://calendar.mines.edu/",
+      "sampleUrl": "https://www.mines.edu/events/",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 2026-10-06. mines.edu/events/ returned 404 but links calendar.mines.edu (200, WordPress/Divi, 1500 Illinois St., Golden, CO 80401, 303-273-3000). The page body is 'Featured Events' with no visible items in the fetched HTML and no .ics, RSS or API link; one All-in-One Event Calendar CSS reference, but the ai1ec export URL on calendar.mines.edu returned the HTML page, not a feed. Public events (lectures, Geology Museum, athletics) need a manual look; type html."
+    },
+    {
+      "id": "goldenhistory-org",
+      "name": "Golden History Museum & Park",
+      "url": "https://www.goldenhistory.org/learn-do/events/",
+      "feedUrl": "https://www.goldenhistory.org/?plugin=all-in-one-event-calendar&controller=ai1ec_exporter_controller&action=export_events",
+      "sampleUrl": "https://www.goldenhistory.org/event/monster-mash/",
+      "type": "ical",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Golden History Museum, 923 10th St, Golden",
+      "notes": "Read 2026-10-06. City-run museum, 923 10th St., open Tue-Sat 10-4:30, free admission, 303-278-3557 (homepage). WordPress with the All-in-One Event Calendar plugin at /learn-do/events/ (200); /events/?ical=1 returned the HTML homepage, not a feed. The ai1ec export URL read once: 17 VEVENT, 0 RRULE, 2026-02-12 to 2026-12-19, TZID America/Denver, locations 'Golden History Museum @ 923 10th St, Golden', 'Golden History Park', 'Golden Cemetery @ 755 Ulysses St'; titles Golden Cemetery Tour 2026, Blacksmithing in the Park, Pearce Cabin Open House, Outdoor Story Time at the Park, Welcome Home Exhibit Opening, Autumn Fest 2026. Includes past events, so filter by date. The sampleUrl is the Monster Mash page linked from the city feed, not opened."
+    },
+    {
+      "id": "minersalley-com",
+      "name": "Miners Alley Performing Arts Center",
+      "url": "https://minersalley.com/",
+      "type": "manual",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 2026-10-06. The homepage returned 202 with a SiteGround captcha challenge (meta refresh to /.well-known/sgcaptcha/), so nothing could be read and no feed was found. Not retried by other means. Season listings must be checked by hand."
+    },
+    {
+      "id": "cotrip-org",
+      "name": "CDOT COtrip - road conditions and closures",
+      "url": "https://www.cotrip.org/",
+      "type": "html",
+      "category": "other",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 2026-10-06. Returned 200 but is a JavaScript app ('COtrip Traveler Information Loading'); nothing to ingest. Link only, from the town config, for US 6 / Clear Creek Canyon, US 40 / Lookout Mountain and I-70 conditions. The City's own Road Closures link is an ArcGIS web app (cityofgolden.maps.arcgis.com/apps/webappviewer/index.html?id=122dee1893c7494fb39afdadbe23eb0e, seen on the homepage, not opened)."
+    },
+    {
+      "id": "coloradocommunitymedia-com-golden-transcript",
+      "name": "Golden Transcript (Colorado Community Media)",
+      "url": "https://coloradocommunitymedia.com/golden-transcript/",
+      "sampleUrl": "https://goldentranscript.net/",
+      "type": "html",
+      "category": "news",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 2026-10-06. goldentranscript.net answered 429 and redirects to coloradocommunitymedia.com/golden-transcript/, which returned 200 (brand 'thegoldentranscript.com'; sections Local Government, Things To Do, Live Music, Arts). No RSS link was found in the page's hrefs. Non-core news source for context and status notes, not for event ingest."
+    }
+  ]
+}

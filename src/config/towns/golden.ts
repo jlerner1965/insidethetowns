@@ -51,6 +51,11 @@ export const golden: TownConfig = {
       url: 'https://www.cotrip.org/',
       note: 'Live state highway conditions and closures, including US 6 through Clear Creek Canyon and I-70.',
     },
+    {
+      label: 'Jeffco Open Space: alerts and closures',
+      url: 'https://www.jeffco.us/1531/Alerts-Closures',
+      note: 'Trail closures at North Table Mountain, Lookout Mountain, Clear Creek Canyon Park and the county’s other parks, the seasonal wildlife closures included.',
+    },
   ],
   colors: {
     // Table Mountain basalt: a near-neutral charcoal, so the network's shared amber highlight reads as the gold in the name. No other guide uses a neutral accent. `npm run check-colors` is the gate.
@@ -72,12 +77,17 @@ export const golden: TownConfig = {
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Golden,-CO_rb/' },
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Golden_CO' },
     ],
-    // schoolDistrict and commuteNotes are written at launch, from the district's
-    // and the town's own pages, with the rest of the Moving Here guide.
+    // Jeffco Public Schools (jeffcopublicschools.org, read 6 October 2026).
+    // commuteNotes are written at launch with the rest of the Moving Here guide.
+    schoolDistrict: 'Jeffco Public Schools, the county-wide district.',
   },
   officialLinks: {
-    townSite: 'https://www.cityofgolden.net/',
+    // cityofgolden.net redirects here (read 6 October 2026).
+    townSite: 'https://www.cityofgolden.gov/',
     townSiteLabel: 'the City of Golden',
-    // policeNonEmergency is set at launch from the department's own page.
+    // Read 6 October 2026 from the department's contact page: non-emergency
+    // dispatch through Jeffcom, 303-980-7300; the department itself 303-384-8045.
+    policeNonEmergency: 'https://www.cityofgolden.gov/police/contact_us.php',
+    policeNonEmergencyLabel: 'Golden Police Department (non-emergency dispatch 303-980-7300)',
   },
 };
