@@ -40,7 +40,7 @@ const [lead, second] = articles;
      the accent itself. Without them the whole site is one sheet of tan. */}
   <section class="band band-white">
     <div class="container-page">
-    <SectionHeader eyebrow={`This week in ${town.name}`} title="What’s on" href="/events/" linkLabel="All events" />
+    <SectionHeader eyebrow={`Coming up in ${town.name}`} title="What’s on" href="/events/" linkLabel="All events" />
     {events.length === 0 ? (
       <p class="text-ink-muted">No upcoming events listed yet. <a href="/submit-event/" class="text-accent-text underline">Submit one.</a></p>
     ) : (

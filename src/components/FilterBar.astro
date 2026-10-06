@@ -81,6 +81,8 @@ const pill =
         const whereLabel = where === 'all' ? '' : `, in ${bar.querySelector(`[data-where="${where}"]`)?.textContent?.trim() ?? where}`;
         status.textContent = `${shown} ${shown === 1 ? 'result' : 'results'} in ${label}${openOnly ? ', open now' : ''}${whereLabel}`;
       }
+      // For a page whose sections need more than their groups hidden.
+      root.dispatchEvent(new CustomEvent('filter:change', { detail: { value } }));
     };
     for (const b of buttons) {
       b.addEventListener('click', () => {

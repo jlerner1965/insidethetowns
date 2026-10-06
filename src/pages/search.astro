@@ -69,6 +69,10 @@ const site = getSite();
 
   let pagefind: Pagefind | null = null;
   let pending: Array<{ data: () => Promise<Result> }> = [];
+  // Typing searches after a pause and Enter searches at once, so two searches
+  // can be in flight together. Each takes a number; one that a later search
+  // has overtaken drops its results rather than adding them to the list.
+  let latest = 0;
 
   async function load(): Promise<Pagefind | null> {
     if (pagefind) return pagefind;
@@ -103,15 +107,17 @@ const site = getSite();
     return li;
   }
 
-  async function showMore() {
+  async function showMore(search = latest) {
     const batch = pending.slice(0, PAGE);
     pending = pending.slice(PAGE);
     const data = await Promise.all(batch.map((r) => r.data()));
+    if (search !== latest) return;
     for (const r of data) list.append(item(r));
     more.hidden = pending.length === 0;
   }
 
   async function run(q: string) {
+    const search = ++latest;
     list.replaceChildren();
     more.hidden = true;
     if (!q.trim()) {
@@ -119,16 +125,19 @@ const site = getSite();
       return;
     }
     const pf = await load();
-    if (!pf) return;
+    if (!pf || search !== latest) return;
     status.textContent = 'Searching…';
     const { results } = await pf.search(q);
+    if (search !== latest) return;
     pending = results;
     status.textContent = results.length === 0 ? `Nothing found for “${q}”.` : `${results.length} ${results.length === 1 ? 'result' : 'results'} for “${q}”`;
-    await showMore();
+    await showMore(search);
   }
 
+  let timer = 0;
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+    clearTimeout(timer);
     const q = input.value;
     const url = new URL(location.href);
     if (q.trim()) url.searchParams.set('q', q);
@@ -136,7 +145,6 @@ const site = getSite();
     history.replaceState(null, '', url);
     void run(q);
   });
-  let timer = 0;
   input.addEventListener('input', () => {
     clearTimeout(timer);
     timer = window.setTimeout(() => form.requestSubmit(), 250);

@@ -36,6 +36,8 @@ export const loveland: TownConfig = {
   // incorporations as Wikipedia cites it. The Colorado Central Railroad
   // founded the town in 1877; that is the founding, not the incorporation.
   incorporated: 1881,
+  // The State Capitol is 46 miles; the guide's Getting around has the estimate.
+  driveToDenver: 'About 55 min',
   population2010: 66859, // 2010 census, for census-to-census growth
   character:
     'The Sweetheart City, founded by the railroad on the Big Thompson in 1877: a sculpture garden, a lake in town, and the Centerra interchange on I-25.',

@@ -46,7 +46,7 @@ export const lyons: TownConfig = {
     ],
     schoolDistrict: 'St. Vrain Valley School District: Lyons Elementary and Lyons Middle/Senior High, both in town.',
     commuteNotes:
-      'About 20 minutes to Boulder on US 36 and 15 to Longmont on CO 66; about an hour to Denver and 1¼ hours to DIA. No transit; the nearest RTD service is in Boulder and Longmont.',
+      'About 20 minutes to Boulder on US 36 and 15 to Longmont on CO 66; about an hour to Denver and 1¼ hours to DIA. The free Lyons Flyer makes four weekday trips each way between Fourth and Broadway and Boulder; RTD’s own routes start in Boulder and Longmont.',
   },
   officialLinks: {
     townSite: 'https://www.lyonscolorado.com/',

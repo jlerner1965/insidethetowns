@@ -1,5 +1,5 @@
 /**
- * /events.rss — everything coming up across all seven guides.
+ * /events.rss — everything coming up across every live guide.
  *
  * The one feed in this network that no single town site can publish, and the
  * one an aggregator covering the northern Front Range would actually want.

@@ -55,6 +55,9 @@ export const carbonValley: TownConfig = {
   // State Archives say 23 September, the City's own page 23 January); the
   // earliest, so the comparison reads "since 1907".
   incorporated: 1907,
+  // The Town of Frederick's own figure (frederickco.gov/699). The three
+  // centres are within four miles of each other, so one origin stands for all.
+  driveToDenver: 'About 35 min from Frederick',
   // 2010 census, summed: Frederick 8,679 + Firestone 10,147 + Dacono 4,152.
   population2010: 22978,
   character:
