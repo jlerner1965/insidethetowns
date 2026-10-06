@@ -35,7 +35,7 @@ That is why two blocks of brick storefronts survive in a town that is otherwise 
 
 ## The growth
 
-The 2020 census counted 1,675 people in Elizabeth, an increase of 23.34 percent over 2010. Estimates for 2026 put the town closer to 3,100, which has repeatedly placed Elizabeth among the fastest-growing municipalities in the country by percentage. The pressure comes from the north and west: Parker, Castle Rock and the Douglas County commute are all inside forty-five minutes, and five-acre parcels on the divide are cheaper than anything comparable closer in.
+The 2020 census counted 1,675 people in Elizabeth, an increase of 23.34 percent over 2010. Estimates for 2026 put the town closer to 3,100, which has repeatedly placed Elizabeth among the fastest-growing municipalities in the country by percentage. The pressure comes from the north and west: Parker, Castle Rock and the Douglas County commute are all inside forty-five minutes, and outside the town limits Elbert County is still five- and thirty-five-acre parcels.
 
 The consequence, argued at most [Board of Trustees meetings](/events/), is water. Elizabeth sits on the Denver Basin aquifers with no river to speak of, and every annexation is finally a question about how much water the town has and for how long. It is the oldest subject in this part of Colorado and the one that will decide what Elizabeth looks like in thirty years.
 

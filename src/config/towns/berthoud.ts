@@ -27,7 +27,7 @@ export const berthoud: TownConfig = {
   incorporated: 1888,
   driveToDenver: 'About 50 min',
   population2010: 5105, // 2010 census, for census-to-census growth
-  character: 'The Garden Spot: a real Main Street and the lakes, at Larimer prices short of Fort Collins.',
+  character: 'The Garden Spot: a real Main Street and the lakes, fifteen minutes from Loveland and Longmont.',
   colors: {
     // Carter Lake water under a Front Range sky, on wheat-colored paper for the
     // "Garden Spot of Colorado". Distinct from Niwot's evergreen and Lyons' sandstone.
