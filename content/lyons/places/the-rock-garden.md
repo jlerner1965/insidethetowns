@@ -11,6 +11,7 @@ featured: true
 summary: "Riverside bar and food garden at the west edge of town: craft beer, local spirits, a Monday open mic and a lot of outdoor seating."
 source: "https://www.rockgardenlyons.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The outdoor bar on the river at the A-Lodge, at the west end of Main. Craft beer and local spirits, food trucks on the calendar, a Monday open mic while the weather holds, and bands on Friday and Saturday evenings through the fall. The best seat in town for a river sunset with a drink.

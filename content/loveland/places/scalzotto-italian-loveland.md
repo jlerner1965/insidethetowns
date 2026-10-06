@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://scalzottoitalianrestaurant.com/loveland"
 source: "https://scalzottoitalianrestaurant.com/loveland"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-541-4747"
 hours: "Tue–Sun 4 pm–9 pm; closed Mon"
 tags: [italian, dinner, private-dining, catering]

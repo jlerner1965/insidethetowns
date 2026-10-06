@@ -11,6 +11,7 @@ featured: true
 summary: "Deli, bakery and grocery: sandwiches and picnic supplies before the trail, staples after."
 source: "https://www.stvrainmarket.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The market at the west end of Main: a deli counter for trail sandwiches, a bakery, and the groceries that mean you do not have to drive to Longmont.

@@ -6,6 +6,7 @@ area: "Main Street, downtown"
 url: "https://www.blackbirdsco.com/"
 source: "https://www.blackbirdsco.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-460-0010"
 hours: "Mon–Sat 10–6"
 tags: [gifts, jewelry, home-decor, handmade]

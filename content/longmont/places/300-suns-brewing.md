@@ -5,6 +5,7 @@ address: "335 1st Ave, Unit C, Longmont, CO 80501"
 url: "https://300sunsbrewing.com/"
 source: "https://300sunsbrewing.com/directions-and-hours/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "720-442-8292"
 hours: "Mon 4 pm–9 pm; Tue–Thu 11 am–9 pm; Fri–Sat 11 am–10 pm; Sun 11 am–8 pm"
 tags: [brewery, brewpub, patio, dog-friendly, kid-friendly]

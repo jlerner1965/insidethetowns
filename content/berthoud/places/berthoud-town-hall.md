@@ -10,6 +10,7 @@ tags: [government, meetings]
 summary: "Town Hall at the west end of Mountain Avenue: Board meetings, Planning Commission, utility billing and permits."
 source: "https://www.berthoud.org/facilities/facility/details/Berthoud-Town-Hall-15"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The Town of Berthoud's offices at the west end of Mountain Avenue, where the Board of Trustees meets on the second and fourth Tuesdays, the Planning Commission on the second and fourth Thursdays, and residents pay water bills and pull permits.

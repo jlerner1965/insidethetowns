@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://blacksteerrestaurant.com/"
 source: "https://blacksteerrestaurant.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-667-6679"
 hours: "Mon–Sat 4 pm–9 pm; Sun 4 pm–8 pm"
 tags: [steakhouse, seafood, historic, reservations]

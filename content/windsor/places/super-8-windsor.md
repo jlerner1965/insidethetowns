@@ -6,6 +6,7 @@ area: "west Main Street"
 url: "https://www.wyndhamhotels.com/super-8/windsor-colorado/super-8-windsor/overview"
 source: "https://www.wyndhamhotels.com/super-8/windsor-colorado/super-8-windsor/overview"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-686-5996"
 tags: [motel, budget, free-breakfast, rv-parking]
 summary: "The budget motel on the west end of Main Street and the only hotel inside the old town: free light breakfast, fridge and microwave in every room, free parking for trucks and RVs, and a small meeting room."

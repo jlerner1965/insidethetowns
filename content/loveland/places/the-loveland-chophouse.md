@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://www.lovelandchophouse.com/"
 source: "https://www.lovelandchophouse.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-613-8287"
 hours: "Mon–Thu 5 pm–8:30 pm; Fri–Sat 5 pm–9 pm; Sun 4:30 pm–8:30 pm (last seating at the listed closing time)"
 tags: [steakhouse, seafood, wine, reservations]

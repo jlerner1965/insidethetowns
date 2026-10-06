@@ -9,6 +9,7 @@ imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0"
 url: "https://www.recreationliveshere.com/183/Art-Heritage-Center"
 source: "https://www.recreationliveshere.com/Facilities/Facility/Details/Art-Heritage-Center-37"
 verified: "2026-10-02"
+added: "2026-10-01"
 phone: "970-674-3502"
 hours: "Thu 3–7 pm, Fri–Sun 12–4 pm; closed Mon–Wed"
 tags: [art, history, exhibitions, free]

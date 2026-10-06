@@ -10,6 +10,7 @@ tags: [home, gifts]
 summary: "Home decor, cozy knits, accessories and gifts."
 source: "https://www.flyawayhomedecor.com/about-us"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 Home decor and gifts on the square: knits, accessories, the things you buy for someone else and keep.

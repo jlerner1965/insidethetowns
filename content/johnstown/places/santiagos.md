@@ -11,6 +11,7 @@ tags: [mexican, breakfast burritos, green chile]
 summary: "The Colorado breakfast-burrito chain's Old Town branch, open from 6 am Monday to Saturday for burritos, green chile and combination plates."
 source: "https://eatatsantiagos.com/Johnstown"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 Santiago's on Parish Avenue does what every Santiago's does: breakfast burritos smothered in green chile from six in the morning, plus tacos, enchiladas and combination plates through dinner. Closed Sundays.

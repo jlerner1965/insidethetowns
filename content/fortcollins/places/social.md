@@ -6,6 +6,7 @@ area: "Old Town"
 url: "https://www.socialfortcollins.com/"
 source: "https://www.socialfortcollins.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-449-5606"
 tags: [cocktails, speakeasy, wine, small-plates]
 summary: "Prohibition-styled cocktail bar beneath Old Town Square, open daily from 4 pm: a seasonally rewritten list of 34 cocktails, punch bowls, wine and small plates; no reservations and limited seating."

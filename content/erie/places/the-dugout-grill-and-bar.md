@@ -10,6 +10,7 @@ tags: [sports bar, burgers, late]
 summary: "Sports bar with a gourmet slant on South Briggs Street: burgers, wings, crafted drinks and every game on, from 10 in the morning every day."
 source: "https://www.dugoutgrillandbarerie.com/"
 verified: "2026-10-02"
+added: "2026-09-17"
 ---
 
 A sports bar at the south end of Briggs Street that calls itself a different spin on the genre: burgers, wings, bigger plates, crafted drinks, and the games on the screens. It opens at 10 every morning, which makes it the place for an early kickoff, and stays open to midnight on Fridays. It does not serve breakfast.

@@ -6,6 +6,7 @@ area: "Highland Meadows, west Windsor"
 url: "https://www.recreationliveshere.com/Facilities/Facility/Details/Windsor-Highlands-Park-21"
 source: "https://www.recreationliveshere.com/Facilities/Facility/Details/Windsor-Highlands-Park-21"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-674-3500"
 tags: [playground, sand-volleyball, basketball, shelters, trails]
 summary: "The neighborhood park for Highland Meadows on the west side of Windsor: playgrounds including a dragon play feature, a sand volleyball court, basketball, a ball-field backstop, two shelters and a gazebo, and trails through a small nature area."

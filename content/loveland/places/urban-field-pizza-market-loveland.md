@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://www.urbanfieldpizza.com/"
 source: "https://www.urbanfieldpizza.com/location/urban-field-pizza-market/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-744-4067"
 hours: "Tue–Thu 11:30 am–8 pm; Fri–Sat 11:30 am–9 pm; Sun 11:30 am–8 pm; closed Mon"
 tags: [pizza, market, catering]

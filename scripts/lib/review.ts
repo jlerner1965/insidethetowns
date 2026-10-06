@@ -4,7 +4,7 @@
  *
  * Every edit is a line in the frontmatter set, replaced or removed; the body
  * and every other line stay byte for byte. Approval stamps `verified` and
- * `verifiedBy` and drops the `review` block; applying a change rewrites the
+ * `verifiedBy` (and, on a place, `added`) and drops the `review` block; applying a change rewrites the
  * fields the source changed and clears the flag; dismissing a change clears
  * the flag and leaves the listing as it was.
  */
@@ -46,11 +46,17 @@ export function getField(text: string, key: string): string | undefined {
   return m ? m[1]!.trim() : undefined;
 }
 
-/** A staged file made publishable: review block gone, check date and checker stamped. */
-export function approveText(text: string, today: string, by: string): string {
+/**
+ * A staged file made publishable: review block gone, check date and checker
+ * stamped. A place also gets `added`, the day it goes on the guide, which the
+ * weekly email's "New on the guide" reads; one that already carries it (it
+ * was published before and sent back to staging) keeps its date.
+ */
+export function approveText(text: string, today: string, by: string, kind: 'event' | 'place' = 'event'): string {
   let out = removeField(text, 'review');
   out = setField(out, 'verified', yamlString(today));
   out = setField(out, 'verifiedBy', yamlString(by));
+  if (kind === 'place' && getField(out, 'added') === undefined) out = setField(out, 'added', yamlString(today));
   return out;
 }
 

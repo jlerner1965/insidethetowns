@@ -9,6 +9,7 @@ tags: [clothing, jewelry, gifts]
 summary: "Women’s clothing, handmade jewelry, locally made body care and art."
 source: "https://niwot.com/listing/little-bird/"
 verified: "2026-09-18"
+added: "2026-09-17"
 ---
 
 A small boutique at the west end of Second Avenue: women’s clothing, handmade jewelry, body care made nearby, and art.

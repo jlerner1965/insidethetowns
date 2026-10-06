@@ -101,6 +101,7 @@ area: "Cottonwood Square"         # optional district or landmark, shown on the 
 url: "https://…"                  # optional
 source: "https://…"               # where the listing was checked; without it the build holds the listing back
 verified: "2026-09-09"            # the day it was checked; same
+added: "2026-09-09"               # the day it went on the guide: required, and `npm run review` stamps it
 phone: "303-555-0100"             # optional
 hours: "Tue–Sun 11am–9pm"         # optional
 priceRange: "$$"                  # optional: $ $$ $$$ $$$$
@@ -165,6 +166,7 @@ what happened and how you know:
 ```yaml
 # a place
 status: closed                    # open (default) | temporarily-closed | closed
+closed: "2026-10-02"              # the day the guide recorded it: required with any status but open, removed on reopening
 statusNote: "Reported closed on February 21, 2026, ahead of the sale of the building (Retro 102.5)."
 statusSource: "https://…"         # optional, the report or notice
 

@@ -6,6 +6,7 @@ area: "Midtown"
 url: "https://fortcollinsbazaar.com/"
 source: "https://fortcollinsbazaar.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-566-4814"
 hours: "Daily 10–7"
 tags: [records, used-books, comics, vintage]

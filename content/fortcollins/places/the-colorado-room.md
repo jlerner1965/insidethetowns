@@ -6,6 +6,7 @@ area: "Old Town"
 url: "https://www.thecoloradoroom.com/"
 source: "https://www.thecoloradoroom.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-682-1163"
 hours: "Daily 11–10"
 tags: [sliders, poutine, local-beer, local-art]

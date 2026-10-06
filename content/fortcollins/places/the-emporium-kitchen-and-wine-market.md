@@ -6,6 +6,7 @@ area: "Old Town"
 url: "https://emporiumftcollins.com/"
 source: "https://emporiumftcollins.com/menus"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-493-0024"
 priceRange: "$$$"
 tags: [brasserie, wine, breakfast, happy-hour, cocktails]

@@ -12,6 +12,7 @@ featured: true
 summary: "The twelve-mile Longmont-to-Boulder trail runs through Niwot and joins the local trail network. The eastern fields at sunset are the reason to come."
 source: "https://bouldercounty.gov/open-space/parks-and-trails/lobo-trail/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The Longmont-to-Boulder (LoBo) Regional Trail covers about twelve miles between the two cities through Gunbarrel and Niwot, mostly on crushed gravel, and connects to the local loops around town. From Old Town it is a short walk to the open-space edge, and the stretch through the eastern fields is the one to save for late afternoon, with the Indian Peaks the whole way west.

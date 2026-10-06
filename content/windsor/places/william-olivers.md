@@ -6,6 +6,7 @@ area: "Main Street, downtown"
 url: "https://williamolivers.com/locations/windsor/"
 source: "https://williamolivers.com/locations/windsor/"
 verified: "2026-10-01"
+added: "2026-10-01"
 tags: [whiskey, pub, biergarten, dog-friendly]
 summary: "A whiskey-and-bacon pub on Main Street with no TVs, no reservations and no phone: a long whiskey list, Colorado-made spirits and beer, a snug for small groups and a rear biergarten where dogs are welcome."
 ---

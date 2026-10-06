@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://rosaleespizzeria.com/"
 source: "https://rosaleespizzeria.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-485-5020"
 hours: "Tue–Sat 11 am–8 pm (or until the dough sells out)"
 tags: [pizza, pinball, happy-hour, takeout]

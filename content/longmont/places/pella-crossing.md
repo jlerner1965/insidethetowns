@@ -10,6 +10,7 @@ area: "Near Hygiene"
 tags: [fishing, ponds, trail]
 summary: "Boulder County open space of fishing ponds and easy trails on a reclaimed gravel mine where the old Overland Trail crossed St. Vrain Creek."
 verified: "2026-10-04"
+added: "2026-10-04"
 verifiedBy: "James Lerner"
 ---
 

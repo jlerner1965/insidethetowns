@@ -6,6 +6,7 @@ area: "Campus West"
 url: "https://limacoffeeroasters.com/"
 source: "https://limacoffeeroasters.com/pages/foothills-coffee-bar"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-893-4993"
 hours: "Daily 7 am–5 pm"
 tags: [coffee, roaster, espresso]

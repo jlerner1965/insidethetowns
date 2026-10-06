@@ -6,6 +6,7 @@ area: "3rd Street, downtown"
 url: "https://www.clearviewlibrary.org/"
 source: "https://www.clearviewlibrary.org/about-us/learn-more/hours-locations"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-686-5603"
 hours: "Mon–Thu 9–7, Fri–Sat 9–5, Sun 1–5"
 tags: [library, meeting-rooms, kids, 3d-printing, free]

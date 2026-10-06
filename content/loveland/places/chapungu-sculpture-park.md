@@ -9,6 +9,7 @@ hours: "Daily 6 am–10 pm"
 tags: [sculpture, walking, free, accessible]
 summary: "A free 26-acre sculpture park beside the Promenade Shops at Centerra, with 82 monumental stone sculptures by Zimbabwean artists set along walking trails and gardens."
 verified: "2026-10-04"
+added: "2026-10-04"
 verifiedBy: "James Lerner"
 ---
 

@@ -6,6 +6,7 @@ area: "Old Town"
 url: "https://www.oldfirehousebooks.com/"
 source: "https://downtownfortcollins.com/go/old-firehouse-books"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-484-7898"
 tags: [books, used-books, author-events]
 featured: true

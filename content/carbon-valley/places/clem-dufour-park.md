@@ -6,6 +6,7 @@ address: "99 Glen Creighton Dr, Dacono, CO 80514"
 url: "https://www.daconoco.gov/1100/Splash-Pad"
 source: "https://www.daconoco.gov/1100/Splash-Pad"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "303-833-2317"
 hours: "Splash pad daily 9 am–8 pm, late May to early September; park hours not posted"
 tags: [splash-pad, playground, pavilion, ball-fields, bmx]

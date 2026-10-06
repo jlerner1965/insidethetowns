@@ -5,6 +5,7 @@ address: "1111 Neon Forest Circle, Longmont, CO 80501"
 url: "https://www.johnsonsstation.com/"
 source: "https://www.johnsonsstation.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "720-442-8487"
 hours: "Tue–Fri 3 pm–9 pm (food from 3:30 pm); Sat–Sun 10:30 am–9 pm (Sun brunch 10:30 am–2 pm); closed Mon"
 tags: [burgers, cocktails, live-music, brunch, family-friendly]

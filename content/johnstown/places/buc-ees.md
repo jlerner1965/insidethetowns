@@ -12,6 +12,7 @@ tags: [travel center, 24 hours, landmark]
 summary: "Colorado's only Buc-ee's, 74,000 square feet at I-25 and County Road 48, open 24 hours with 116 fuel pumps, the jerky counter and the beaver nuggets."
 source: "https://buc-ees.com/about/frequently-asked-questions/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The Texas travel-center chain's first Colorado store opened at the southwest corner of I-25 and County Road 48 on March 18, 2024: 74,000 square feet, 116 fuel pumps, a dozen EV chargers, a 20-foot beef jerky counter, brisket sandwiches, beaver nuggets and the famous restrooms, open around the clock every day. Its arrival is the story national outlets tell about Johnstown's growth.

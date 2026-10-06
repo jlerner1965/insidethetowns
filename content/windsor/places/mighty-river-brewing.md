@@ -6,6 +6,7 @@ area: "Fairgrounds Avenue, west Windsor"
 url: "https://mightyriverbrewing.com/"
 source: "https://www.mightyriverbrewing.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-966-7955"
 hours: "Mon 3–8 pm, Tue–Thu 3–10 pm, Fri–Sat 12–10 pm, Sun 11 am–9 pm"
 tags: [brewery, dog-friendly, food-trucks, live-music]

@@ -6,6 +6,7 @@ area: "Midtown"
 url: "https://bindlecoffee.com/"
 source: "https://bindlecoffee.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 hours: "Mon–Fri 7–5, Sat 8–5; closed Sun"
 tags: [coffee, roaster, pastries]
 summary: "Fort Collins roaster's cafe at Jessup Farm on the east side, weekdays 7 to 5 and Saturdays 8 to 5; its roastery and bakehouse on East Harmony adds scratch-made pastries and brunch."

@@ -10,6 +10,7 @@ tags: [thrift, furniture, nonprofit]
 summary: "Thrift store for furniture, building materials and home goods at the east end of Mountain Avenue; proceeds build homes."
 source: "https://www.berthoudhabitat.org/restore/restore.html"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The Habitat for Humanity thrift store at the east end of Mountain Avenue: furniture, appliances, doors, tile, tools and home goods, donated and resold to fund the nonprofit's home building.

@@ -5,6 +5,7 @@ address: "1640 S Sunset St, Longmont, CO 80501"
 url: "https://oskarblues.com/location/longmont/"
 source: "https://oskarblues.com/location/longmont/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-776-1914"
 hours: "Mon–Thu 2 pm–9 pm; Fri–Sun 12 pm–9 pm"
 tags: [brewery, patio, dog-friendly, food-truck, trivia]

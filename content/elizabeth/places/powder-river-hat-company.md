@@ -11,6 +11,7 @@ summary: "Custom cowboy hats made by hand on Main Street, shaped and fitted to t
 url: "http://www.powderriverhats.com/"
 source: "http://www.powderriverhats.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A hat maker's shop on Main Street where custom cowboy hats are built start to finish by hand, from beaver-felt hat bodies, shaped and fitted in the room. Worth the look even if you are not buying.

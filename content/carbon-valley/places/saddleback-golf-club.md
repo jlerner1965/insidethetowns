@@ -6,6 +6,7 @@ address: "8631 Frontier St, Firestone, CO 80504"
 url: "https://saddlebackgolf.com/"
 source: "https://saddlebackgolf.com/contact/"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "303-833-5000"
 hours: "Mon–Thu 6:30 am–8:30 pm; Fri 6 am–8:30 pm; Sat–Sun 6 am–9 pm"
 tags: [golf, public-course, tavern, events, leagues]

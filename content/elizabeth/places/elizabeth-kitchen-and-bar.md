@@ -9,6 +9,7 @@ tags: [breakfast, brunch, bar]
 summary: "Breakfast, brunch and a bar on Elizabeth Street, a block from Main."
 source: "https://elizabethkbar.com/contact"
 verified: "2026-10-02"
+added: "2026-09-17"
 ---
 
 A kitchen and bar on Elizabeth Street serving breakfast and brunch into the afternoon, with a full bar.

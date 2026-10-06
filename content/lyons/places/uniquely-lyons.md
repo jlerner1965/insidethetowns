@@ -9,6 +9,7 @@ tags: [gifts, souvenirs]
 summary: "Lyons-branded gifts, shirts and souvenirs; part of every sale supports the town."
 source: "https://www.lyonscolorado.com/"
 verified: "2026-09-17"
+added: "2026-09-17"
 ---
 
 The town's own gift shop: Lyons shirts, hats and souvenirs, with a share of every sale going back to the town.

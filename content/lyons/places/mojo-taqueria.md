@@ -10,6 +10,7 @@ tags: [tacos, bar]
 summary: "Regional Mexican flavors, tacos and a busy bar; dinner most nights, lunch on weekends."
 source: "https://mojotaqueria.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 Tacos with a regional bent and a bar that gets busy; dinner Tuesday to Thursday, lunch and dinner Friday to Sunday.

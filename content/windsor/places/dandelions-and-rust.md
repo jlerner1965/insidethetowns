@@ -6,6 +6,7 @@ area: "Main Street, downtown"
 url: "https://dandelionsandrust.com/"
 source: "https://dandelionsandrust.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-505-9452"
 tags: [vintage, thrift, artisan, furniture]
 summary: "Vintage clothing, upcycled decor and local artisan goods in a shop at 5th and Main, the Windsor sister of the Old Town Fort Collins store."

@@ -6,6 +6,7 @@ area: "Old Town"
 url: "https://www.equinoxbrewing.com/"
 source: "https://www.equinoxbrewing.com/contact"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-484-1368"
 hours: "Mon–Wed 2–8, Thu–Sat 12–10, Sun 12–8"
 tags: [brewery, beer-garden, patio, trivia, pizza]

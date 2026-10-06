@@ -10,6 +10,7 @@ hours: "Mon–Sat 6 am–6 pm; Sun 6 am–5 pm"
 tags: [coffee, breakfast, wifi]
 summary: "The Main Street café of the Ziggi's Coffee specialty coffee and drive-thru franchise, serving handcrafted drinks and locally made breakfast, lunch and snacks."
 verified: "2026-10-04"
+added: "2026-10-04"
 verifiedBy: "James Lerner"
 ---
 

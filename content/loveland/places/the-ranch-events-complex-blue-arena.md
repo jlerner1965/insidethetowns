@@ -5,6 +5,7 @@ address: "5280 Arena Circle, Loveland, CO 80538"
 url: "https://www.treventscomplex.com/"
 source: "https://www.treventscomplex.com/plan-your-visit/faqs"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-619-4111"
 hours: "Box office (inside Blue Arena): Mon–Fri 10 am–5 pm; event times vary"
 tags: [arena, concerts, hockey, rodeo, events]

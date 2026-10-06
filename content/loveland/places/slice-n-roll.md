@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://slicenroll.com/"
 source: "https://slicenroll.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-776-9141"
 hours: "Tue–Thu 11:30 am–9 pm; Fri–Sat 11:30 am–12 am; Sun 11:30 am–9 pm; closed Mon"
 tags: [pizza, by-the-slice, cocktails, late-night]

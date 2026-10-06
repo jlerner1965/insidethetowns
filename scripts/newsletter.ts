@@ -36,8 +36,7 @@ import {
   startOfDay,
 } from '../src/lib/dates.ts';
 import { groupByDay, highlights, isCanceled, occurrences, timeText, weekendSections, weekendWindow } from '../src/lib/events.ts';
-import { listingChanges, nextSendDay } from '../src/lib/newsletter.ts';
-import { isOpen } from '../src/lib/places.ts';
+import { isNewlyClosed, isNewPlace, nextSendDay, openingDay } from '../src/lib/newsletter.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -89,14 +88,6 @@ function readCollection<T>(town: string, collection: string, schema: z.ZodType):
   }
   return out;
 }
-
-/**
- * Places added, and places that closed, since the last issue, from the history
- * (src/lib/newsletter.ts). `null` in a shallow checkout, which has no history
- * to ask, and says so rather than report a quiet week.
- */
-const changes = listingChanges(root, 'content', since, addDays(send, 1));
-const shallow = changes === null;
 
 /** Cut at a word so the archive's excerpt stays inside its schema. */
 function clamp(text: string, max: number): string {
@@ -154,8 +145,10 @@ function readWeek(town: TownConfig): TownWeek {
     weekend: parts.weekend,
     running: [...parts.now, ...parts.continuing],
     next: parts.next,
-    newPlaces: places.filter((p) => !!changes?.added.has(p.file) && isOpen(p)),
-    closedPlaces: places.filter((p) => !!changes?.closed.has(p.file) && p.data.status !== 'open'),
+    // Each place's own `added` and `closed` dates (src/lib/newsletter.ts);
+    // the places the guide opened with are not new places.
+    newPlaces: places.filter((p) => isNewPlace(p, send, openingDay(places))),
+    closedPlaces: places.filter((p) => isNewlyClosed(p, send)),
     articles: readCollection<ArticleData>(town.slug, 'articles', articleSchema(plainImage)).filter(
       (a) => a.data.date.getTime() >= since.getTime() && a.data.date.getTime() <= addDays(send, 1).getTime(),
     ),
@@ -287,7 +280,4 @@ if (outDir) {
 } else {
   console.log(drafts.map((d) => `<!-- ${d.name} -->\n\n${d.text}`).join('\n\n'));
   console.error(`newsletter: ${drafts.length} draft${drafts.length === 1 ? '' : 's'} for ${formatDate(send)}, the weekend of ${range}`);
-}
-if (shallow) {
-  console.error('newsletter: this checkout has no history (shallow clone), so "New on the guide" and "Closed" could not be filled in.');
 }

@@ -6,6 +6,7 @@ area: "East Chestnut Street"
 url: "https://www.recreationliveshere.com/166/Chimney-Park-Pool"
 source: "https://www.recreationliveshere.com/Facilities/Facility/Details/Chimney-Park-6"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-674-3533"
 tags: [pool, ball-fields, playground, shelters, summer]
 summary: "The park on the east side of downtown with the Town's outdoor pool (lap lanes, a kiddie pool, a water slide coming in 2027), three ball fields including a new turf field, playgrounds, shelters and restrooms."

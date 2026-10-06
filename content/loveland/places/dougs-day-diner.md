@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://dougsinloveland.com/"
 source: "https://dougsinloveland.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-667-7124"
 hours: "Daily 7 am–2 pm"
 tags: [breakfast, lunch, diner, scratch-made]

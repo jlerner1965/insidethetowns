@@ -12,6 +12,7 @@ tags: [walking, running, dogs, easy]
 summary: "The flat county loop around town that the Niwot Trot runs every October, joined to the LoBo Trail and Left Hand Creek."
 source: "https://bouldercounty.gov/open-space/parks-and-trails/niwot-trails/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A flat, easy loop on Boulder County trails around the edge of town, the course the Niwot Trot 5K uses each October from Whistle Stop Park. It links to the LoBo Regional Trail and crosses the fields where Left Hand Creek runs east of the built-up blocks. The county’s Niwot trails map shows the connections; dog and closure rules are the county’s.

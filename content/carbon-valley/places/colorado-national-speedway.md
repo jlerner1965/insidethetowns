@@ -6,6 +6,7 @@ address: "4281 Speedway Blvd, Dacono, CO 80514"
 url: "https://www.coloradospeedway.com/"
 source: "https://www.coloradospeedway.com/track-information"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "303-828-0116"
 hours: "Race nights Saturdays, April–September; gates 1 pm, racing from 6:30 pm"
 tags: [racing, nascar, family, saturday-nights, motorsports]

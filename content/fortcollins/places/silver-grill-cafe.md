@@ -6,6 +6,7 @@ area: "Old Town"
 url: "https://silvergrill.com/"
 source: "https://silvergrill.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-484-4656"
 hours: "Daily 7 am–2 pm"
 tags: [breakfast, diner, cinnamon-rolls, lunch]

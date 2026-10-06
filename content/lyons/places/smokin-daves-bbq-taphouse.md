@@ -10,6 +10,7 @@ tags: [barbecue, beer, families]
 summary: "Slow-smoked barbecue and a long tap list, mid-block on Main."
 source: "https://lyons.smokindavesbbq.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 Barbecue smoked low and slow, with a tap list that runs to the local breweries. Mid-block on Main, and the easy answer to feeding a group after a day on the trails.

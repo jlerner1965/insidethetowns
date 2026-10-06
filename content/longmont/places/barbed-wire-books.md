@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://www.barbedwirebooks.org/"
 source: "https://www.barbedwirebooks.org/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-827-3620"
 hours: "Daily 10 am–6 pm; closed New Year's Day, Easter Sunday, Memorial Day, July 4, Labor Day, Thanksgiving and Christmas"
 tags: [bookstore, used-books, colorado, maps]

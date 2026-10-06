@@ -10,6 +10,7 @@ tags: [pizza, by-the-slice, families]
 summary: "New York-style pizza by the slice or the pie, from the Boulder original that started in 1977."
 source: "https://abospizza.com/locations/niwot/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The Niwot branch of the Boulder slice shop that has been folding New York-style pizza since 1977. By the slice at lunch, whole pies for the table.

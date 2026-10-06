@@ -5,6 +5,7 @@ address: "1929 Harvard St., Longmont, CO 80503"
 url: "https://longmontcolorado.gov/facilities/mcintosh-lake-nature-area/"
 source: "https://longmontcolorado.gov/facilities/mcintosh-lake-nature-area/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-651-8416"
 hours: "Daily, 1 hour before sunrise to 1 hour after sunset"
 tags: [lake, trail, fishing, paddling]

@@ -14,6 +14,7 @@ featured: true
 summary: "The six-and-a-half-mile lake in the hogbacks west of town, run by Larimer County: boating, fishing, two swim beaches, more than 150 campsites and a $10 daily vehicle permit."
 source: "https://www.larimer.gov/naturalresources/parks/horsetooth-reservoir"
 verified: "2026-10-01"
+added: "2026-10-01"
 ---
 
 Six and a half miles of water behind the hogbacks, with 1,900 acres of public land around it, open year-round and run by Larimer County. Fishing (walleye, bass, trout and panfish, each with its own limit), boating from the South Shore ramp and the Inlet Bay Marina, camping at the South Bay and Inlet Bay campgrounds (more than 150 sites and five camper cabins, reserved through larimercamping.com), picnicking, scuba diving, rock climbing and water-skiing. Horsetooth Swim Beach and Sunrise Swim Beach are open from Memorial Day weekend through October 1.

@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://longmont.smokindavesbbq.com/"
 source: "https://longmont.smokindavesbbq.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-923-7427"
 hours: "Daily 11 am–8 pm"
 tags: [bbq, draft-beer, catering, reservations]

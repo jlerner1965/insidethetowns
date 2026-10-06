@@ -9,6 +9,7 @@ tags: [gallery, art]
 summary: "Gallery on Mountain Avenue showing original paintings, prints, photography, sculpture and glass by regional artists."
 source: "https://berthoudart.com/hours"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A fine-art gallery on the main block: original paintings, prints, photography, sculpture and glass art from regional artists, with openings that coincide with downtown events.

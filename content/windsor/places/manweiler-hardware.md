@@ -6,6 +6,7 @@ area: "Main Street, downtown"
 url: "https://www.manweilerhardware.com/"
 source: "https://www.manweilerhardware.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-686-9934"
 hours: "Mon–Fri 9–5:30, Sat 9–4; closed Sun"
 tags: [hardware, paint, keys, grills]

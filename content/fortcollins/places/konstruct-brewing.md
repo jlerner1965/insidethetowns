@@ -6,6 +6,7 @@ area: "Harmony"
 url: "https://konstructbrewing.com/"
 source: "https://konstructbrewing.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-658-2606"
 hours: "Mon–Thu 2–9, Fri–Sun 11–9"
 tags: [brewery, patio, dog-friendly, live-music, cocktails]

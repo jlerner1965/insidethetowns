@@ -10,6 +10,7 @@ tags: [liquor]
 summary: "Neighborhood beer, wine and spirits store in Timnath Ranch with tastings and monthly specials."
 source: "https://timnathbeverage.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A neighborhood liquor store on Innovate Place in the Timnath Ranch business park, with local and national beer, wine and spirits, tastings and monthly specials.

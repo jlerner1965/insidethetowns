@@ -7,6 +7,7 @@ area: "Fifth Street"
 url: "https://www.georgiaboys.com/"
 source: "https://www.georgiaboys.com/location/the-smokehouse/"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "303-833-3140"
 hours: "Tue–Thu 11 am–8 pm; Fri–Sat 11 am–9 pm; Sun 11 am–8 pm; closed Mon"
 tags: [bbq, smokehouse, patio, full-bar, catering]

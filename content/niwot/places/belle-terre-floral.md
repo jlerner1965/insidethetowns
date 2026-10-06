@@ -10,6 +10,7 @@ tags: [florist]
 summary: "The florist, with a second counter inside the market."
 source: "https://niwot.com/listing/belle-terre-floral/"
 verified: "2026-09-18"
+added: "2026-09-17"
 ---
 
 Niwot’s florist, on the square with a second counter inside Niwot Market.

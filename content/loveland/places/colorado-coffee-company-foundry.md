@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://coloradocoffeecompany.com/"
 source: "https://coloradocoffeecompany.com/home"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-685-4194"
 hours: "Mon–Sat 6 am–3 pm; Sun 8 am–1 pm"
 tags: [coffee, roastery, pastries]

@@ -322,6 +322,14 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
       /** Where the listing was checked: the business's own site, a directory, or a dated news report. */
       source: httpUrl.optional(),
       verified: localDate.optional(),
+      /**
+       * The day the listing was published on the guide: stamped at approval
+       * (scripts/review.ts), or written by whoever adds a place by hand. Not
+       * the day the business opened. The weekly email's "New on the guide"
+       * reads it. Required on every published place; a staged one gets it
+       * when it is approved.
+       */
+      added: localDate.optional(),
       url: httpUrl.optional(),
       phone: z.string().optional(),
       /**
@@ -359,6 +367,13 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
       /** Whether it can be visited. See PLACE_STATUSES. */
       status: z.enum(PLACE_STATUSES).default('open'),
       /**
+       * The day the guide recorded the status that is not `open`, set when
+       * the status is changed. The email's "Closed" section reads it; when
+       * the business actually closed belongs in `statusNote`. Required with
+       * any status but `open`, and removed when a place reopens.
+       */
+      closed: localDate.optional(),
+      /**
        * What happened and how we know, in a sentence or two: "Reported
        * closed on February 21, 2026, ahead of the sale of the building
        * (Retro 102.5); not yet confirmed with the owners." Required with any
@@ -375,6 +390,14 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
     .refine((p) => p.status === 'open' || !!p.statusNote, {
       message: 'a status other than open needs a statusNote saying what happened and how we know',
       path: ['statusNote'],
+    })
+    .refine((p) => !!p.review || !!p.added, {
+      message: 'a published place needs `added`: the day it went on the guide, as "YYYY-MM-DD"',
+      path: ['added'],
+    })
+    .refine((p) => (p.status === 'open') === !p.closed, {
+      message: 'a status other than open needs `closed`, the day it was recorded ("YYYY-MM-DD"); an open place has none',
+      path: ['closed'],
     })
     .refine((p) => !p.changeFlag || !!p.changeNote, {
       message: 'a changeFlag needs a changeNote saying what the source changed',

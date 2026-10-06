@@ -11,6 +11,7 @@ featured: true
 summary: "Neighborhood bar and taproom with a back patio and live music. Opened September 2020; its own kitchen opened in February 2026."
 source: "https://www.niwotwheelhouse.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The bar at the west end of Second Avenue: a taproom with a back patio, musicians on stage most nights of the week, and Tuesday trivia. It opened in September 2020 and added its own kitchen in February 2026. The address is the one the bar publishes; the Business Association’s listing shows 124 Second Avenue, so look for the corner building.

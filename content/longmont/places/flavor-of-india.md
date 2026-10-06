@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://flavorofindiacolorado.com/"
 source: "https://flavorofindiacolorado.com/visit"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-682-9010"
 hours: "Tue–Fri & Sun 11 am–2:30 pm, 5 pm–9 pm; Sat 12 pm–3 pm, 5 pm–9 pm; closed Mon (the site notes winter hours may vary)"
 tags: [indian, punjabi, full-bar, lunch]

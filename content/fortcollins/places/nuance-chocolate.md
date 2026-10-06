@@ -6,6 +6,7 @@ area: "Old Town"
 url: "https://www.nuancechocolate.com/"
 source: "https://www.nuancechocolate.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 priceRange: "$$"
 tags: [chocolate, bean-to-bar, drinking-chocolate, truffles]
 summary: "Bean-to-bar chocolate maker on Pine Street: single-origin bars from about $10.50, whiskey-infused spirit bars, hand-made truffles and French-style drinking chocolate, all roasted and ground in Fort Collins."

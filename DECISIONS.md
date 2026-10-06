@@ -3192,3 +3192,35 @@ earlier briefs.
   gave.
   Elizabeth's cell gives downtown (an hour, as its guide says) and the Tech
   Center, so every row has the same destination.
+
+## Dates on places
+
+The sample issue's "New on the guides" and "Closed" never appeared on the
+live hub. They read the git history, Vercel builds from a shallow clone, and
+the fetch that `scripts/run.ts` added to deepen it evidently fails there: the
+hub rebuilt after #66 and the two sections still did not appear. So the history approach chosen under "Tying the network together" is
+reversed: each place now carries its own dates, and nothing reads git at
+build time.
+
+- **`added`** is the day the place went on the guide. Required on every
+  published place; `npm run review` stamps it when a staged place is
+  approved, and keeps one a returning place already has. A place written by
+  hand needs it, and `npm run validate` says so. It is not the day the
+  business opened, and the email's copy says "new to the guide".
+- **`closed`** is the day the guide recorded a status other than open.
+  Required with any such status and dropped when the place reopens; when the
+  business actually closed belongs in `statusNote`, as before.
+- **Backfill.** All 436 places got `added` from the main line's history
+  (`git log --first-parent`): the day the merge that first put the file in a
+  `places/` folder landed, counting an approval out of staging as the day it
+  went on. The three places that are not open got `closed` from the merge
+  that introduced their current status. Dates are Denver days.
+- **A guide's opening day is not news about places.** Longmont and Loveland
+  opened with about forty places each this week; listing all of them as new
+  would bury the six Fort Collins added after its launch. The places a town
+  has on its first `added` day are left out of "New".
+- **The week** an issue reports on is the six days after the previous send
+  day and the send day itself, so consecutive issues tile and nothing is new
+  twice.
+- `scripts/run.ts` no longer fetches history before the hub build, and
+  `listingChanges` is gone with it.

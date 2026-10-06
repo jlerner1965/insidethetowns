@@ -7,6 +7,7 @@ tags: [gifts, handmade, jewelry]
 summary: "Handcrafted jewelry, woodcraft and gifts made by local artisans, on east Mountain Avenue."
 source: "https://berthoudmainstreet.org/shop-antiques-berthoud/"
 verified: "2026-09-18"
+added: "2026-09-17"
 ---
 
 Handmade goods from local artisans in an east Mountain Avenue storefront: jewelry, woodcrafts, textiles and gifts.

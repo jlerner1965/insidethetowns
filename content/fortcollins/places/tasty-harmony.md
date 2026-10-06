@@ -6,6 +6,7 @@ area: "Old Town"
 url: "https://www.tastyharmony.com/"
 source: "https://www.tastyharmony.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-689-3234"
 hours: "Tue–Thu & Sun 11–8, Fri–Sat 11–9; closed Mon"
 tags: [vegetarian, vegan, plant-based]

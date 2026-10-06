@@ -9,6 +9,7 @@ summary: "Antiques, gifts and vendor stalls at the south end of Main Street, sha
 url: "https://thecarriageshoppes.com/"
 source: "https://thecarriageshoppes.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A multi-vendor shop of antiques, gifts and collectibles at the south end of Main Street, with the Carriage Shoppes Tea Room in the same building.

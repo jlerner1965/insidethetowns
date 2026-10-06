@@ -11,6 +11,7 @@ featured: true
 summary: "Specialty coffee, house-made baked goods and panini, seven days a week on Second Avenue."
 source: "https://www.theoldoakcoffeehouse.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The Old Town coffeehouse, open every day, with baked goods made in-house and panini at lunch. It also puts on live music on the avenue in summer.

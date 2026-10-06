@@ -11,6 +11,7 @@ featured: true
 summary: "Colorado's largest professional dinner theater, a 350-seat house at the 2534 interchange doing Broadway musicals with dinner service; Les Misérables through mid-November, Holiday Inn from late November."
 source: "https://coloradocandlelight.com/about/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A purpose-built 350-seat dinner theater with a Broadway-sized proscenium stage on Marketplace Drive at 2534, staging a season of big musicals with a full dinner served before the show. The 2026 season runs Les Misérables from September 10 to November 15 and Irving Berlin's Holiday Inn from November 27 to January 17. Box office Tuesday to Saturday.

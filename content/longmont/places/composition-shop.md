@@ -10,6 +10,7 @@ hours: "Daily 10 am–6 pm"
 tags: [bookstore, books, book-clubs]
 summary: "Independent bookstore on Main Street in downtown Longmont, open daily, with events, six book clubs and an online shop for books and audiobooks."
 verified: "2026-10-04"
+added: "2026-10-04"
 verifiedBy: "James Lerner"
 ---
 

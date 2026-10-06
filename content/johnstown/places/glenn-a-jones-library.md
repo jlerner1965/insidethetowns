@@ -10,6 +10,7 @@ tags: [library, kids, classes]
 summary: "The Johnstown-Milliken library district's Johnstown branch on South Parish Avenue: storytimes, classes, a makerspace and a library of things. Open six days."
 source: "https://johnstownmillikenpubliclibraries.us/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The Johnstown branch of the Johnstown Milliken Public Libraries, on South Parish Avenue next to Town Hall: Monday storytimes, Thursday babytime, kids' and teen programs, adult classes from sourdough to genealogy, a makerspace, a Library of Things and meeting rooms. Late until 8 on Tuesday to Thursday; closed Sundays.

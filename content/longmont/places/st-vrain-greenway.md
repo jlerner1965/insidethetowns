@@ -5,6 +5,7 @@ address: "2651 3rd Avenue, Longmont, CO 80503 (western trailhead at Golden Ponds
 url: "https://longmontcolorado.gov/facilities/st-vrain-greenway/"
 source: "https://longmontcolorado.gov/facilities/st-vrain-greenway/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-651-8416"
 hours: "Trail open 24 hours with continuous movement; trailheads and greenway lands 1 hour before sunrise to 1 hour after sunset"
 tags: [trail, biking, walking, creek]

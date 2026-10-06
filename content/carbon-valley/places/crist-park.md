@@ -7,6 +7,7 @@ area: "Fifth Street"
 url: "https://www.frederickco.gov/Facilities/Facility/Details/7"
 source: "https://www.frederickco.gov/Facilities/Facility/Details/7"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "720-382-5805"
 tags: [park, splash-pad, playground, gazebo, downtown]
 summary: "The park at the entrance to downtown Frederick, with a playground, a summer splash pad, a gazebo, bocce courts, a sports field and the Miners Memorial Museum; the Festival of Lights and Music in the Park are held here."

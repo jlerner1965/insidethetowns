@@ -5,6 +5,7 @@ address: "1480 Cascade Ave, Loveland, CO 80538"
 url: "https://berthoudbrewing.com/"
 source: "https://berthoudbrewing.com/loveland-west-loveland-berthoud-brewing-co-locations"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-775-2235"
 hours: "Sun–Thu 11:30 am–9 pm; Fri–Sat 11:30 am–10 pm"
 tags: [brewery, pizza, patio, sports, reservations]

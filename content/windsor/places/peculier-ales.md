@@ -6,6 +6,7 @@ area: "Windsor Mill, Main Street"
 url: "https://peculierales.com/"
 source: "https://www.peculierales.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-460-2224"
 hours: "Mon 11 am–8 pm, Tue–Thu 11 am–9 pm, Fri–Sat 11 am–10 pm, Sun 11 am–8 pm"
 tags: [brewery, patio, family-friendly, kitchen]

@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://cometchicken.com/"
 source: "https://cometchicken.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-775-6900"
 hours: "Sun–Thu 11 am–9 pm; Fri–Sat 11 am–10 pm"
 tags: [chicken, sandwiches, happy-hour, catering]

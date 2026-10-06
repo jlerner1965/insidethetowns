@@ -5,6 +5,7 @@ address: "1025 Delaware Ave, Longmont, CO 80501"
 url: "https://grossenbart.com/"
 source: "https://grossenbart.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "720-438-2060"
 hours: "Mon–Thu 3 pm–9 pm; Fri–Sat 1 pm–10 pm; Sun 1 pm–9 pm"
 tags: [brewery, taproom, beer-to-go]

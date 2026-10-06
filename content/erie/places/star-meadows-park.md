@@ -12,6 +12,7 @@ tags: [playground, kids]
 summary: "Space-themed park in Flatiron Meadows with a climbable moon, a human sundial and a mister button for hot days."
 source: "https://erieco.gov/2319/Star-Meadows-Park"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A nature-and-space-themed park in Flatiron Meadows: a climbable moon structure, a moon-phase learning area, a human sundial, nature-themed play equipment and a mister button for cooling off.

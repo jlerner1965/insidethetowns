@@ -13,6 +13,7 @@ featured: true
 summary: "The Front Range’s best-known mountain-bike climb and a fine hike: the Bitterbrush trail gains about 1,500 feet to the Nelson Loop through ponderosa meadows."
 source: "https://bouldercounty.gov/open-space/parks-and-trails/hall-ranch/"
 verified: "2026-10-02"
+added: "2026-09-17"
 ---
 
 Thirteen and a half miles of trail a mile west of Main Street. Bitterbrush (3.7 miles, difficult) climbs the rocky front to the Nelson Loop (2.2 miles) through ponderosa meadows and the Nelson house ruins; Nighthawk (4.7 miles, hikers and horses) is the quieter way up; Antelope is the short one. Elk in winter, wildflowers in June, and a lot full by nine on summer weekends. Bikes yes on Bitterbrush, Nelson and Antelope; dogs no. The county may close trails on prescribed-burn days in winter and spring; its page says when.

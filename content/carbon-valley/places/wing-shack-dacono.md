@@ -7,6 +7,7 @@ area: "Old Town"
 url: "https://wingshackwings.com/"
 source: "https://wingshackwings.com/locations/"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "720-710-9474"
 hours: "Daily 10:30 am–10 pm"
 tags: [wings, fast-casual, takeout, colorado-chain]

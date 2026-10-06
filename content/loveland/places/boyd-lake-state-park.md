@@ -5,6 +5,7 @@ address: "3720 N County Road 11-C, Loveland, CO 80538"
 url: "https://cpw.state.co.us/state-parks/boyd-lake-state-park"
 source: "https://cpw.state.co.us/state-parks/boyd-lake-state-park"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-669-1739"
 hours: "Park daily 5 am–10 pm; visitor center Wed–Sun 9 am–4 pm (closed Mon–Tue and holidays)"
 tags: [state-park, lake, camping, fishing, paddling]

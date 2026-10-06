@@ -11,6 +11,7 @@ summary: "Mexican restaurant on East Kiowa Avenue, the highway through town."
 url: "https://www.pinitofamilyrestaurant.com/"
 source: "https://www.pinitofamilyrestaurant.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A Mexican restaurant on East Kiowa Avenue (Highway 86) at the east end of town: combination plates, tacos, enchiladas and breakfast.

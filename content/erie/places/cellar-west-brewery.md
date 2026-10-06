@@ -11,6 +11,7 @@ tags: [brewery, biergarten, sandwiches]
 summary: "The Lafayette brewery's Erie public house on Briggs Street: a kitchen, a shaded biergarten, and a Weedhart Pies sandwich counter Thursday to Sunday."
 source: "https://www.cellarwest.com/portfolio-1"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 Cellar West's Erie public house, in a renovated century-old house at the south end of the block, has a kitchen, a shaded biergarten and patio seating. Weedhart Pies runs a pop-up sandwich counter inside Thursday to Sunday.

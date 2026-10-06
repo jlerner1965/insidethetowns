@@ -11,6 +11,7 @@ tags: [tacos, ramen, patio]
 summary: "Tacos, ramen and rum drinks in a mural-covered room built around a tree, with an expanded patio on Briggs Street. Closed Mondays."
 source: "https://www.eatatbirdhouse.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 Comfort-food fusion on the Briggs Street block: crispy pork carnitas tacos, a 48-hour tonkotsu ramen, rum-based drinks, and a dining room built around a tree and covered in murals. The patio was recently expanded. Evenings only on weekdays; closed Mondays.

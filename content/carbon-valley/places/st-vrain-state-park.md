@@ -6,6 +6,7 @@ address: "3785 Weld County Road 24 1/2, Firestone, CO 80504"
 url: "https://cpw.state.co.us/state-parks/st-vrain-state-park"
 source: "https://cpw.state.co.us/state-parks/st-vrain-state-park"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "303-678-9402"
 hours: "Daily 5 am–10 pm"
 tags: [state-park, fishing, camping, ponds, birding, trails]

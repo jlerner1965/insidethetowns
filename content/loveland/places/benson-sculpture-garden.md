@@ -8,6 +8,7 @@ hours: "Open year-round, any time of day; part of the park closes for setup of t
 tags: [sculpture, public-art, free]
 summary: "A free 10-acre sculpture park with 188 permanently installed works, home since 1985 to the Loveland High Plains Arts Council's Sculpture in the Park show each August."
 verified: "2026-10-04"
+added: "2026-10-04"
 verifiedBy: "James Lerner"
 ---
 

@@ -5,6 +5,7 @@ address: "461 County Road 26, Longmont, CO 80504"
 url: "https://longmontcolorado.gov/facilities/union-reservoir-nature-area/"
 source: "https://longmontcolorado.gov/union-reservoir-nature-area/fees-and-hours-at-union/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-772-1265"
 hours: "Mar 1–May 31 6 am–8 pm; Jun 1–Aug 31 6 am–9 pm; Sep 1–Oct 31 6 am–8 pm; Nov 1–Feb 28 7 am–6 pm; closed Thanksgiving, the day after, Dec 24–25 and Jan 1"
 tags: [lake, boating, fishing, dog-beach]

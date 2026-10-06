@@ -14,6 +14,7 @@ featured: true
 summary: "The town's brewery, in the 1890 Huber-Carlson Building on Main Street: a five-barrel brewhouse on the ground floor, a taproom upstairs, a beer garden and patio behind."
 source: "https://brewelizabeth.com/"
 verified: "2026-10-02"
+added: "2026-09-17"
 ---
 
 Elizabeth's brewery took over the Huber-Carlson Building in 2017 and put a five-barrel brewhouse on the ground floor, with the taproom upstairs and a beer garden and patio behind. The building is the only one in town on the Colorado State Register of Historic Properties; the bar top was cut from its floor joists and the taproom tables from its original flooring. There is a ramp to the garden and rear parking, since the historic staircase is steep.

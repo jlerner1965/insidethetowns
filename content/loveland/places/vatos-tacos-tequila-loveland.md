@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://loveland.vatostacosandtequila.com/"
 source: "https://loveland.vatostacosandtequila.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-775-2502"
 hours: "Mon–Thu 7 am–9 pm; Fri 7 am–10 pm; Sat 8 am–10 pm; Sun 8 am–9 pm"
 tags: [mexican, tacos, tequila, catering]

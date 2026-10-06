@@ -11,6 +11,7 @@ tags: [barbecue, takeout, catering]
 summary: "Slow-smoked barbecue on Welch Avenue across from the library: brisket, pulled pork, ribs and sides by the pound."
 source: "https://turnerspitbbq.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 Barbecue on Welch Avenue, across from the library: brisket, pulled pork, ribs, smoked chicken and the sides, by the plate or by the pound for a crowd.

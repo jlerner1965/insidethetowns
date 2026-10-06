@@ -6,6 +6,7 @@ area: "Old Town"
 url: "https://www.themayorofoldtown.com/"
 source: "https://www.themayorofoldtown.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-682-2410"
 hours: "Sun–Thu 12–10, Fri–Sat 12–11"
 tags: [beer-bar, taps, patio, pub-food]

@@ -5,6 +5,7 @@ address: "220 Hover St., Longmont, CO 80503"
 url: "https://longmontcolorado.gov/facilities/rogers-grove-nature-area-fairgrounds-lake/"
 source: "https://longmontcolorado.gov/facilities/rogers-grove-nature-area-fairgrounds-lake/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-651-8416"
 hours: "Daily, 1 hour before sunrise to 1 hour after sunset"
 tags: [lake, fishing, gardens, trail]

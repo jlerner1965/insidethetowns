@@ -6,6 +6,7 @@ area: "Windsor Lake"
 url: "https://www.recreationliveshere.com/206/Windsor-Lake"
 source: "https://www.recreationliveshere.com/206/Windsor-Lake"
 verified: "2026-10-01"
+added: "2026-10-01"
 image: ../images/windsor-lake-winter.jpg
 imageAlt: "Windsor Lake frozen and snow-covered in winter from the trail on the near shore, red sandstone riprap at the water’s edge and the town’s houses, bare trees and grain elevator along the far one"
 imageCredit: "Jared Winkler, Wikimedia Commons, CC BY-SA 4.0"

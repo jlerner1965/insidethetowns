@@ -6,6 +6,7 @@ address: "6670 Sable Ave, Firestone, CO 80504"
 url: "https://www.firestoneco.gov/Facilities/Facility/Details/x-34"
 source: "https://www.firestoneco.gov/Facilities/Facility/Details/x-34"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "720-508-4131"
 tags: [disc-golf, dog-park, open-space, central-park]
 summary: "A disc golf course and an off-leash dog park on Sable Avenue inside the Town’s 252-acre Central Park site, which also holds Town Hall, the police building and the regional library."

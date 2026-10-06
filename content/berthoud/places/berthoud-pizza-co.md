@@ -9,6 +9,7 @@ tags: [pizza, takeout, delivery]
 summary: "Neighborhood pizza and wings on North 4th Street, mostly takeout and delivery."
 source: "http://www.berthoudpizzacompany.com/"
 verified: "2026-10-02"
+added: "2026-09-17"
 ---
 
 Pizza, wings and sub sandwiches from a small shop on North 4th Street, a few blocks north of downtown. Mostly takeout and delivery, with a few tables.

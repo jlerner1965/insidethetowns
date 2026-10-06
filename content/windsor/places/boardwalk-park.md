@@ -6,6 +6,7 @@ area: "Windsor Lake"
 url: "https://www.recreationliveshere.com/206/Windsor-Lake"
 source: "https://www.recreationliveshere.com/Facilities/Facility/Details/Boardwalk-Community-Park-4"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-674-3500"
 tags: [lake, swim-beach, boating, fishing, playground, dog-park, stage]
 featured: true

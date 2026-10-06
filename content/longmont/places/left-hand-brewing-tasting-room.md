@@ -8,6 +8,7 @@ hours: "Mon–Thu 12 pm–9 pm; Fri–Sat 11 am–10 pm; Sun 11 am–9 pm"
 tags: [brewery, food-truck, trivia, patio, beer-garden]
 summary: "Left Hand's Longmont tasting room has poured beer on Boston Avenue since 1993, with more than 30 taps of Milk Stout Nitro, Sawtooth Amber, limited releases, cask beers and pilot brews."
 verified: "2026-10-04"
+added: "2026-10-04"
 verifiedBy: "James Lerner"
 ---
 

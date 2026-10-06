@@ -6,6 +6,7 @@ area: "Old Town"
 url: "https://acegilletts.com/"
 source: "https://acegilletts.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-449-4797"
 hours: "Wed–Thu & Sun 5–11 pm, Fri–Sat 5 pm–midnight; closed Mon–Tue"
 tags: [cocktails, lounge, hotel-bar]

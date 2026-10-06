@@ -7,6 +7,7 @@ area: "Old Town"
 url: "https://www.firestoneco.gov/Facilities/Facility/Details/x-3"
 source: "https://www.firestoneco.gov/281/History-of-Firestone"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "720-508-4131"
 mapUrl: "https://www.firestoneco.gov/DocumentCenter/View/9117"
 tags: [trail, rail-trail, walking, cycling, history]

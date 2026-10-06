@@ -11,6 +11,7 @@ tags: [hiking, river, no-dogs, fishing]
 summary: "A gentle two-mile walk along the North St. Vrain to Longmont’s reservoir dam, with the Sleepy Lion trail above it for a loop."
 source: "https://longmontcolorado.gov/parks-and-natural-resources/rules-and-regulations/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 Longmont's watershed around Ralph Price Reservoir, up County Road 80 west of town. The gated dam road is a gentle two-mile walk along the North St. Vrain; the Sleepy Lion trail climbs above it and makes a 5.4-mile loop with the road. Foot travel only, no dogs, and fishing in the reservoir by a City of Longmont permit sold from April. The dirt lot at the road end is small and fills early on weekends.

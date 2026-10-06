@@ -6,6 +6,7 @@ area: "Campus West"
 url: "https://www.krazykarlspizza.com/"
 source: "https://www.krazykarlspizza.com/contact/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-224-2000"
 hours: "Daily 10:30 am–midnight"
 tags: [pizza, late-night, wings, grinders]

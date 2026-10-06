@@ -13,6 +13,7 @@ tags: [government, meetings, police]
 summary: "Town Hall and the police department on Banner Street: Board of Trustees on the second and fourth Tuesdays, Planning Commission on the first and third."
 source: "https://www.townofelizabeth.org/bt"
 verified: "2026-09-18"
+added: "2026-09-17"
 ---
 
 The Town of Elizabeth's hall on South Banner Street, a block off Main, which also houses the Elizabeth Police Department. The Board of Trustees meets here on the second and fourth Tuesdays at 7 pm with five minutes of public comment, and the Planning Commission on the first and third Tuesdays at 6:30 with three minutes.

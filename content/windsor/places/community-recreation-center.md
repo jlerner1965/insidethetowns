@@ -6,6 +6,7 @@ area: "11th Street"
 url: "https://www.recreationliveshere.com/167/Community-Recreation-Center"
 source: "https://www.recreationliveshere.com/167/Community-Recreation-Center"
 verified: "2026-10-02"
+added: "2026-10-01"
 phone: "970-674-3500"
 hours: "Mon–Fri 5 am–9 pm, Sat 8 am–6:45 pm, Sun 12–6:35 pm"
 tags: [pool, gym, fitness, track, classes, day-passes]

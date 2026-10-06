@@ -7,6 +7,7 @@ area: "Old Town"
 url: "https://www.firestoneco.gov/Facilities/Facility/Details/x-7"
 source: "https://www.firestoneco.gov/Facilities/Facility/Details/x-7"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "720-508-4131"
 tags: [park, picnic, horseshoes, old-town, festivals]
 summary: "A small park on Grant Avenue in Firestone’s original townsite, with picnic shelters and tables, horseshoe pits and a water fountain; the Town’s Carbon Valley Holiday Festival is held here each December."

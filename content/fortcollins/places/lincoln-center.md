@@ -9,6 +9,7 @@ tags: [theater, concerts, gallery, broadway]
 summary: "The City's performing arts center at Mulberry and Meldrum: a Performance Hall and the smaller Magnolia Theatre, an art gallery and sculpture garden, and the LC LIVE season of touring Broadway and concerts. Box office Tue–Sat 1–6 pm."
 source: "https://www.lctix.com/directions-hours/"
 verified: "2026-10-01"
+added: "2026-10-01"
 ---
 
 The civic performing arts center, run by the City on the northwest corner of Mulberry and Meldrum. A large Performance Hall, the smaller Magnolia Theatre, an art gallery and an outdoor sculpture garden, plus five rental spaces including two ballrooms, a terrace and a rooftop deck. LC LIVE brings touring Broadway productions and internationally known artists and musicians through the season.

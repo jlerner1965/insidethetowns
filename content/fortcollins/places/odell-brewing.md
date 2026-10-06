@@ -6,6 +6,7 @@ area: "Old Town"
 url: "https://www.odellbrewing.com/"
 source: "https://www.odellbrewing.com/locations/fort-collins/"
 verified: "2026-10-02"
+added: "2026-10-01"
 phone: "970-498-9070"
 hours: "Mon–Thu 12–9, Fri–Sat 11–9, Sun 11–8"
 tags: [brewery, patio, tours, food-trucks, dog-friendly]

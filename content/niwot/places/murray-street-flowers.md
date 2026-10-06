@@ -9,6 +9,7 @@ tags: [flowers, self-serve, seasonal]
 summary: "A small flower grower with a self-serve cart at First Avenue and Murray Street, across from the Children’s Park."
 source: "https://www.murraystreetflowers.com/get-in-touch"
 verified: "2026-10-02"
+added: "2026-09-17"
 ---
 
 A backyard-scale flower grower whose self-serve cart stands at the corner of First Avenue and Murray Street, across from the Children’s Park, on Saturdays from April to October. Take a bunch, leave the money.

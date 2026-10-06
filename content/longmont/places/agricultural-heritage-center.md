@@ -5,6 +5,7 @@ address: "8348 Ute Hwy, Longmont, CO 80503"
 url: "https://bouldercounty.gov/open-space/education/museums/agricultural-heritage-center/"
 source: "https://bouldercounty.gov/open-space/education/museums/agricultural-heritage-center/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-776-8688"
 hours: "Apr 1–Oct 31: Fri–Sun 10 am–5 pm; Nov 1–Mar 31: first Saturday of the month 10 am–5 pm"
 tags: [museum, farm, history, kids]

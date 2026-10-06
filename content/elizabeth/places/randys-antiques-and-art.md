@@ -7,6 +7,7 @@ tags: [antiques, art]
 summary: "Antiques and art on the main block."
 source: "https://www.elizabethmainstreet.org/directory/"
 verified: "2026-09-18"
+added: "2026-09-17"
 ---
 
 An antique and art shop on Main Street: furniture, western pieces, glass and paintings.

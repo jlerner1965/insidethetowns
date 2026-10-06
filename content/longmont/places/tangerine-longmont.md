@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://tangerineeats.com/"
 source: "https://tangerineeats.com/breakfast-brunch-in-downtown-longmont-co/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "720-815-2888"
 hours: "Mon–Fri 7:30 am–1:30 pm; Sat–Sun 7:30 am–2 pm"
 tags: [breakfast, brunch, vegetarian-friendly, full-bar]

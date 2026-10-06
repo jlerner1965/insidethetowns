@@ -13,6 +13,7 @@ tags: [museum, history, free]
 summary: "Local history in the 1881 sandstone schoolhouse, run by the Lyons Historical Society since 1979. Free; open in the summer season."
 source: "https://www.lyonsredstonemuseum.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The 1881 town school, a two-storey block of rusticated sandstone on High Street, has been the town museum since 1979. Inside are the quarry days, the railroad, the floods and the families, a research library and a gift shop. Admission is free; it opens for the summer season and closes at the end of September.

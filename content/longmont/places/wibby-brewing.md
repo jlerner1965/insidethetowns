@@ -5,6 +5,7 @@ address: "209 Emery St, Longmont, CO 80501"
 url: "https://www.wibbybrewing.com/"
 source: "https://www.wibbybrewing.com/contact"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-776-4594"
 hours: "Mon–Thu 3 pm–10 pm; Fri–Sun 12 pm–11 pm"
 tags: [brewery, lager, live-music]

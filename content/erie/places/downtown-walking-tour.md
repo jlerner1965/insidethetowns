@@ -11,6 +11,7 @@ tags: [walk, history, free]
 summary: "Self-guided walk past more than a dozen historic sites in the old coal-town downtown: the 1889 Davis building, the 1930 City Hall, the Lincoln School and the miners' memorial."
 source: "https://www.downtownerie.biz/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 Historic downtown Erie is the compact grid along Briggs Street between Cheesman and Moffat, west to Holbrook: brick storefronts from the coal years, the 1889 Davis building that now holds the Old Mine, the 1930 City Hall with its bell tower, and the Lincoln School. Downtown Erie's self-guided tour on the PocketSights app covers more than a dozen sites; start at the miners' memorial at Town Hall.

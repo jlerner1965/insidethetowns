@@ -10,6 +10,7 @@ tags: [mexican, tacos, family]
 summary: "Family-run Mexican restaurant on 5th Street, a block off Mountain Avenue, for street tacos, combination plates and margaritas."
 source: "https://fromtherestaurant.com/la-casita-mexican-cuisine/menu/405-5th-St/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A family-run Mexican restaurant a block south of Mountain Avenue on 5th Street: tacos, enchiladas, combination plates, margaritas, and quick service.

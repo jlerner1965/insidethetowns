@@ -6,6 +6,7 @@ area: "Harmony"
 url: "https://harbingercoffee.com/"
 source: "https://harbingercoffee.com/pages/harmony-lady-moon"
 verified: "2026-10-01"
+added: "2026-10-01"
 hours: "Daily 7 am–4 pm"
 tags: [coffee, roastery, espresso]
 summary: "Harbinger's south shop at Harmony and Lady Moon, home of the roaster and the roasting team, open every day 7 to 4."

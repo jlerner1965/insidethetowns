@@ -9,6 +9,7 @@ tags: [farm, playground, river-trail, families]
 summary: "The community park on the Poudre just north of Old Town, with The Farm, the City's working farm of 40 to 60 animals open Wednesday to Sunday, an accessible nature playground with a chair zipline, sport courts and a direct link to the Poudre River Trail."
 source: "https://www.fortcollins.gov/Venues/The-Farm-at-Lee-Martinez-Park"
 verified: "2026-10-01"
+added: "2026-10-01"
 ---
 
 Lee Martinez Community Park sits on the river at the north edge of Old Town and joins the Poudre River Trail directly. The nature-inspired playground has a chair zipline and poured-in-place surfacing, and there are ball fields, basketball, tennis, horseshoe pits, a fitness course, picnic tables and a 50-person reservable shelter west of the tennis courts. Pickleball on the basketball court if you bring a net. Open 5 am to 11 pm.

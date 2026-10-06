@@ -10,6 +10,7 @@ featured: true
 summary: "Breakfast and lunch daily: benedicts, farmhouse plates and Southwest specials."
 source: "https://niwot.com/listing/the-garden-gate-cafe/"
 verified: "2026-09-18"
+added: "2026-09-17"
 ---
 
 The breakfast place. Benedicts, farmhouse plates and green-chile-leaning Southwest specials, every day until early afternoon, in Cottonwood Square.
