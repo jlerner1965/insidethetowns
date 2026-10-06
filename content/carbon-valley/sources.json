@@ -47,9 +47,9 @@
       "type": "ical",
       "category": "city-calendar",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Found and read once on 5 October 2026. The Town's second calendar (CID 26, \"Town of Firestone Special Events\"): 3 items on 5 October, each with a venue and times: School's Out-Standing: Paint the Plows (16 October, 2 to 5 pm, Mountain Shadows Park, 11267 Carbondale Street), Halloween Safe Night (23 October, 5 to 8 pm; the feed says Miners Park, 170 Grant Avenue, the event page /138 says the Firestone Regional Sports Complex, 6850 Tilbury Avenue: check before publishing) and the Carbon Valley Holiday Festival (5 December, noon to 4 pm, Miners Park; a Firestone, Frederick and Dacono collaboration that each town's calendar carries at its own venue and time, so ingest will stage it three times). Its RSS (RSSFeed.aspx?ModID=58&CID=26) was empty. The items also appear in the main calendar above; ingest merges by UID within one feed only, so confirming both means two staged copies of each: confirm this one for the events and the main one only if the meetings are wanted. Left proposed 5 October 2026: its three items are also in the main calendar, which is confirmed; confirming both would stage each twice."
+      "notes": "Found and read once on 5 October 2026. The Town's second calendar (CID 26, \"Town of Firestone Special Events\"): 3 items on 5 October, each with a venue and times: School's Out-Standing: Paint the Plows (16 October, 2 to 5 pm, Mountain Shadows Park, 11267 Carbondale Street), Halloween Safe Night (23 October, 5 to 8 pm; the feed says Miners Park, 170 Grant Avenue, the event page /138 says the Firestone Regional Sports Complex, 6850 Tilbury Avenue: check before publishing) and the Carbon Valley Holiday Festival (5 December, noon to 4 pm, Miners Park; a Firestone, Frederick and Dacono collaboration that each town's calendar carries at its own venue and time, so ingest will stage it three times). Its RSS (RSSFeed.aspx?ModID=58&CID=26) was empty. The items also appear in the main calendar above; ingest merges by UID within one feed only, so confirming both means two staged copies of each: confirm this one for the events and the main one only if the meetings are wanted. Left proposed 5 October 2026: its three items are also in the main calendar, which is confirmed; confirming both would stage each twice. Confirmed 6 October 2026 at the owner’s direction (an official Town calendar). Its items also appear in the Town’s main calendar, which is confirmed; ingest matches a staged item from another feed by the same day and a near-identical title, and the dry run after confirmation says how many came through twice."
     },
     {
       "id": "firestoneco-gov",
@@ -96,13 +96,20 @@
       "type": "ical",
       "category": "city-calendar",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
       "excludeTitles": [
         "One Time Event",
-        "Parking Lot for Agenda Items"
+        "Parking Lot for Agenda Items",
+        "Board of Trustees",
+        "Planning Commission",
+        "Parks, Recreation, Open Space",
+        "Historic Preservation",
+        "Arts Committee",
+        "Youth Commission",
+        "Urban Renewal"
       ],
-      "notes": "Found and read once on 5 October 2026. The Town's second public calendar (CID 38): 77 items to December 2030 on 5 October, every one a board or commission meeting (Board of Trustees regular and work sessions, Planning Commission, Parks, Recreation, Open Space & Trails Commission, Historic Preservation Committee, Frederick Arts Committee, Youth Commission, Urban Renewal Authority), with no LOCATION. The two titles excluded are the calendar's own placeholders (\"One Time Event\" on 31 December 2030, \"Parking Lot for Agenda Items\" on 30 December 2027), not meetings. Under the event standard (docs/AUDIT-2026-10-02.md) routine meetings are not events; whether to confirm this feed at all, or exclude the regular sessions as Longmont's registry does, is the editor's call. The Town's nine other iCal categories (Centennial Park, Crist Park, Frederick Recreation Area, Downtown Activities, each board on its own) were each read once and are empty. Left proposed 5 October 2026: every item is a routine meeting, which the event standard excludes; confirm it only to have the meetings staged."
+      "notes": "Found and read once on 5 October 2026. The Town's second public calendar (CID 38): 77 items to December 2030 on 5 October, every one a board or commission meeting (Board of Trustees regular and work sessions, Planning Commission, Parks, Recreation, Open Space & Trails Commission, Historic Preservation Committee, Frederick Arts Committee, Youth Commission, Urban Renewal Authority), with no LOCATION. The two titles excluded are the calendar's own placeholders (\"One Time Event\" on 31 December 2030, \"Parking Lot for Agenda Items\" on 30 December 2027), not meetings. Under the event standard (docs/AUDIT-2026-10-02.md) routine meetings are not events; whether to confirm this feed at all, or exclude the regular sessions as Longmont's registry does, is the editor's call. The Town's nine other iCal categories (Centennial Park, Crist Park, Frederick Recreation Area, Downtown Activities, each board on its own) were each read once and are empty. Left proposed 5 October 2026: every item is a routine meeting, which the event standard excludes; confirm it only to have the meetings staged. Confirmed 6 October 2026 at the owner’s direction (an official Town calendar). Its routine board and commission meetings are excluded by title under the event standard, as Firestone’s and Dacono’s are, so it stages only what is not a regular meeting; remove an exclusion to have that body’s meetings staged."
     },
     {
       "id": "weld-gov",

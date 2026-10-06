@@ -95,7 +95,10 @@ export const estesPark: TownConfig = {
   officialLinks: {
     townSite: 'https://estespark.colorado.gov/',
     townSiteLabel: 'the Town of Estes Park',
-    // The Town's site answered automated requests with 403 on 6 October 2026;
-    // the police page and number are set at launch once a person has read them.
+    // The Town's police page, given by the owner on 6 October 2026 (the
+    // Town's site answers automated requests with 403, so the number is not
+    // read here; the page carries it).
+    policeNonEmergency: 'https://estespark.colorado.gov/pd',
+    policeNonEmergencyLabel: 'Estes Park Police Department',
   },
 };
