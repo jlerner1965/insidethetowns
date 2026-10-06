@@ -30,15 +30,20 @@ const pickedFirst = <T extends { data: { featured: boolean } }>(list: T[]) => [
 const placeCards = pickedFirst(places.filter((p) => p.data.image)).slice(0, 3);
 const carded = new Set(placeCards.map((p) => p.slug));
 const placeIndex = pickedFirst(places.filter((p) => !carded.has(p.slug))).slice(0, 8);
-const articles = (await getTownEntries('articles')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 2);
-const [lead, second] = articles;
+// The lead is the newest article with a photograph; the next three sit under
+// it as matching compact cards, the same card the guides page and the hub use.
+const articles = (await getTownEntries('articles')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const lead = articles.find((a) => a.data.image) ?? articles[0];
+const more = articles.filter((a) => a !== lead).slice(0, 3);
 ---
 <Base>
   <Hero />
 
   {/* The page is a run of colored bands: white, then the accent at 9%, then
-     the accent itself. Without them the whole site is one sheet of tan. */}
-  <section class="band band-white">
+     the accent itself. Without them the whole site is one sheet of tan. Set
+     tighter than the shared .band (6 October 2026) so the home page reads as
+     a front page rather than a run of posters. */}
+  <section class="band-white py-12 md:py-16">
     <div class="container-page">
     <SectionHeader eyebrow={`Coming up in ${town.name}`} title="What’s on" href="/events/" linkLabel="All events" />
     {events.length === 0 ? (
@@ -59,7 +64,7 @@ const [lead, second] = articles;
     </div>
   </section>
 
-  <section class="band band-tint">
+  <section class="band-tint py-12 md:py-16">
     <div class="container-page">
     <SectionHeader eyebrow="Eat, drink, wander" title="Where to go" href="/eat-drink/" linkLabel="Eat & drink" />
     {places.length === 0 ? (
@@ -83,13 +88,13 @@ const [lead, second] = articles;
   </section>
 
   {lead && (
-    <section class="band band-white">
+    <section class="band-white py-12 md:py-16">
       <div class="container-page">
       <SectionHeader eyebrow="Latest" title="From the guide" href="/guides/" linkLabel="All guides" />
       <ArticleCard article={lead} feature />
-      {second && (
-        <div class="mt-12 max-w-xl border-t border-line-soft pt-8">
-          <ArticleCard article={second} />
+      {more.length > 0 && (
+        <div class="mt-12 grid gap-x-8 gap-y-10 border-t border-line-soft pt-10 sm:grid-cols-2 lg:grid-cols-3">
+          {more.map((article) => <ArticleCard article={article} compact />)}
         </div>
       )}
       </div>
@@ -104,7 +109,7 @@ const [lead, second] = articles;
     modal: a popup on a community guide reads as spam and costs exactly the
     trust the rest of the site is built on.
   */}
-  <section class="band band-white">
+  <section class="band-white py-12 md:py-16">
     <div class="container-page max-w-2xl">
       <NewsletterSignup town={town} compact />
     </div>

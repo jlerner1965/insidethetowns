@@ -3313,3 +3313,27 @@ newsletter with an example of what subscribers get; the map and directory.
   covered, not readers, and it read like an audience figure.
 - **The weekend block wants four one-off picks** before it falls back to
   regulars (was three).
+
+## The town template, tightened
+
+Owner's brief, 6 October 2026, reviewed on Niwot and shared by every guide:
+reduce the hero, bring current content up, simplify the navigation, and
+replace the spacious guide sections with consistent article cards. Type and
+town colours unchanged.
+
+- **The hero is about half its old height**: min(44svh, 380px) on a phone
+  and min(50svh, 460px) from 768px, was min(70svh, 600px) and min(78svh,
+  760px). The town name tops out at 6rem, was 9rem. The events band now
+  starts inside the first screen.
+- **Five navigation items, was seven**: Events, Eat & Drink, Things to Do,
+  Guides, Moving Here. This Weekend and Directory moved to a new "In the
+  guide" list in the footer, beside All events, Guides and Moving here.
+- **The home page's bands are 3–4rem tall, not 4–6rem**, on the town home
+  only; other pages keep the shared `.band`.
+- **"From the guide" is the newest article with a photograph, then three
+  compact cards**, was one feature and one card.
+- **The guides page is one grid, newest first**, every article on the same
+  compact card with its subject in the eyebrow. It used to give each subject
+  a titled section, which on most towns meant six sections of one article.
+  A compact card with no photograph gets an accent rule on top so it still
+  reads as a card.

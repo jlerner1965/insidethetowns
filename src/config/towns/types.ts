@@ -366,12 +366,16 @@ export interface NewsletterConfig {
 export type SiteConfig = TownConfig | HubConfig;
 
 /** Default navigation for a town site. Towns can override `nav` in their config. */
+/**
+ * Five, by what a reader came to do (6 October 2026). This Weekend and the
+ * Directory moved to the footer's "In the guide" list: the weekend is the top
+ * of the Events page, and the directory is every place the other sections
+ * already lead to.
+ */
 export const DEFAULT_TOWN_NAV: NavItem[] = [
   { label: 'Events', href: '/events/' },
-  { label: 'This Weekend', href: '/this-weekend/' },
   { label: 'Eat & Drink', href: '/eat-drink/' },
   { label: 'Things to Do', href: '/things-to-do/' },
-  { label: 'Directory', href: '/directory/' },
   { label: 'Guides', href: '/guides/' },
   { label: 'Moving Here', href: '/moving-here/' },
 ];

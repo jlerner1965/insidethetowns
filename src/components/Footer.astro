@@ -9,11 +9,23 @@ const year = new Date().getFullYear();
 const linkClass = 'no-underline text-white/75 hover:text-white hover:underline';
 ---
 <footer class="on-dark mt-24 bg-accent-dark text-white/80">
-  <div class="container-page grid gap-10 py-14 md:grid-cols-[1.6fr_1fr_1fr] md:gap-12 md:py-20">
+  <div class:list={['container-page grid gap-10 py-14 md:gap-12 md:py-20', site.kind === 'town' ? 'sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]' : 'md:grid-cols-[1.6fr_1fr_1fr]']}>
     <div>
       <Wordmark class="text-3xl leading-none" tone="light" />
       <p class="mt-4 max-w-sm text-[0.9375rem] leading-relaxed">{site.tagline}</p>
     </div>
+    {site.kind === 'town' && (
+      <div>
+        <p class="eyebrow text-highlight-ink">In the guide</p>
+        <ul class="mt-4 space-y-2 text-[0.9375rem]">
+          <li><a href="/this-weekend/" class={linkClass}>This weekend</a></li>
+          <li><a href="/events/" class={linkClass}>All events</a></li>
+          <li><a href="/directory/" class={linkClass}>Directory</a></li>
+          <li><a href="/guides/" class={linkClass}>Guides</a></li>
+          <li><a href="/moving-here/" class={linkClass}>Moving here</a></li>
+        </ul>
+      </div>
+    )}
     <div>
       <p class="eyebrow text-highlight-ink">Get in touch</p>
       <ul class="mt-4 space-y-2 text-[0.9375rem]">

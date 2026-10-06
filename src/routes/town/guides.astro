@@ -1,6 +1,6 @@
 ---
 /**
- * Every guide the town has, by subject.
+ * Every guide the town has, newest first, on one grid of matching cards.
  *
  * Until this page existed an article was reachable from the home page while
  * it was one of the two newest, from Things to Do if it was about the
@@ -57,13 +57,16 @@ const structured = [
   {articles.length === 0 ? (
     <p class="text-ink-muted">Guides are on their way.</p>
   ) : (
-    categories.map((category) => (
-      <section class="mt-14 first:mt-0">
-        <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">{category}</h2>
-        <div class="grid gap-x-8 gap-y-10 md:grid-cols-2">
-          {articles.filter((a) => a.data.category === category).map((article) => <ArticleCard article={article} />)}
-        </div>
-      </section>
-    ))
+    <Fragment>
+      {/*
+        One grid, newest first, every guide on the same compact card with its
+        subject in the eyebrow (6 October 2026). The page used to give each
+        subject its own titled section, which on most towns meant six large
+        sections holding one article each.
+      */}
+      <div class="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        {articles.map((article) => <ArticleCard article={article} compact />)}
+      </div>
+    </Fragment>
   )}
 </Page>

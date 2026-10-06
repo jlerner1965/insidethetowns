@@ -39,7 +39,7 @@ const twoUp = feature && !!data.image;
       />
     </div>
   )}
-  <div class:list={[!feature && data.image && 'mt-4', feature && !data.image && 'max-w-3xl border-t-2 border-ink pt-7']}>
+  <div class:list={[!feature && data.image && 'mt-4', feature && !data.image && 'max-w-3xl border-t-2 border-ink pt-7', compact && !data.image && 'border-t-2 border-accent pt-4']}>
     <p class="eyebrow">
       {town && <Fragment><span style={`color:${town.colors.accentDark}`}>{town.name}</span> <span class="text-ink-faint">·</span> </Fragment>}{data.category} <span class="text-ink-faint">·</span> <time datetime={toIsoLocal(data.date)} class="text-ink-muted">{formatDate(data.date)}</time>
     </p>
