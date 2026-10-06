@@ -38,4 +38,4 @@ The [University Center for the Arts](/places/university-center-for-the-arts/) on
 
 ## The dates that change the city
 
-Move-in week in late August, Homecoming and Family Weekend in early October (October 1 to 4 in 2026, around the Oregon State game), and the two commencements: Friday December 18, 2026, with the Graduate School ceremony at Moby Arena at 11 am, and May 14 and 15, 2027. On those weekends hotels fill from Loveland to Wellington and Old Town restaurants take no walk-ins at seven. Book early or come the week after.
+Move-in week in late August, Homecoming and Family Weekend in early October (October 1 to 4 in 2026, around the Oregon State game), and the two commencements: Friday December 18, 2026, with the Graduate School ceremony at Moby Arena at 11 am, and May 14 and 15, 2027. On those weekends hotels fill from Loveland to Wellington and Old Town restaurants get busy, so book a room early, reserve a table where you can, or come the week after.

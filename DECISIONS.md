@@ -3142,3 +3142,53 @@ an owner and a sellable sponsor slot, and close the open display fixes.
   cosmic pickleball (October 24) are on the Town's Upcoming Events page and
   stay. The Lazy Dog's own site is behind a bot challenge, as it was for the
   October audit, so its title is unchanged rather than guessed.
+
+## The October audit
+
+An outside audit of the live network (5 October 2026) found the faults below
+still open after the network work above. Fixed here; what it proposed beyond
+fixing (a hero rewrite, a new navigation, a two-town picker, featured
+articles on the hub, wider search, naming the publisher, card descriptions on
+phones) was left alone, because it is new work or contradicts the owner's
+earlier briefs.
+
+- **Search showed every result twice.** Typing searches after a pause and
+  Enter searches at once, so a search typed and then submitted ran twice, and
+  both runs appended to the cleared list. Each search now takes a number and
+  one that a later search has overtaken drops its results; Enter also cancels
+  the pending typed search.
+- **Labels that said more than the list.** The hub's "Coming next week" held
+  two weeks; it is now "Coming up" with the dates it holds, renamed in the
+  browser for the days actually left. "This week in Niwot" over the town home
+  page's events could show November; it says "Coming up in Niwot". Filtered
+  to one town, the hub's weekend page hides sections with nothing of that
+  town's in them, and says in words when the town has nothing for the weekend.
+- **Counts and geography.** "See all seven side by side" is "Compare every
+  town side by side"; /advertise/ no longer says "small towns of the northern
+  Front Range". The /moving/ caption is built from the columns, so it cannot
+  promise elevation and incorporation again, and the population column says
+  2020.
+- **The newsletter** is described the same way everywhere: the weekend's
+  events, places new to the guides or closed, and a new article when there
+  is one — which is what the drafting script produces. "New" means new to
+  the guide, not newly opened, and the copy says so. "Nothing else" went.
+- **Facts.** Lyons has a bus: the free Lyons Flyer, four weekday trips each
+  way to Boulder (Boulder County's and the Town's schedule pages); the hub and
+  the Lyons config said "no transit". Berthoud is no longer "the only town
+  here" without a car. Horsetooth Reservoir is "just west" of Fort Collins,
+  as Larimer County describes it, not "inside its limits". The Windsor and
+  Timnath price conclusions ("only the house is cheaper", "without paying for
+  Fort Collins") had nothing behind them and went; Erie's "Boulder prices"
+  and Berthoud's "short of Fort Collins" are the same kind of claim and are
+  still there. The CSU visitor article no longer says Old Town restaurants
+  "take no walk-ins at seven".
+- **Longmont, Loveland and Carbon Valley** now have "Who each one suits"
+  paragraphs, drawn only from what their own Moving Here guides source, and
+  Denver drive times. Frederick's 35 minutes is the Town's own figure.
+  Longmont's 45 and Loveland's 55 are estimates: OSRM route times from the
+  town centre to the State Capitol, which run five to fifteen per cent over
+  the times the other nine guides give, rounded down to match. Both guides
+  now give the time in Getting around, beside the distances they already
+  gave.
+  Elizabeth's cell gives downtown (an hour, as its guide says) and the Tech
+  Center, so every row has the same destination.

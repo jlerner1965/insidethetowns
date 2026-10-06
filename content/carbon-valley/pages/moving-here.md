@@ -4,7 +4,7 @@ description: "What it is like to move to Frederick, Firestone or Dacono: three W
 image: ../images/fifth-street-at-oak.jpg
 imageAlt: "Fifth Street in old-town Frederick at Oak Street under snow in 2018: a two-story red-brick corner building with a stepped parapet, frosted bare trees, a black lamppost and a few cars on the plowed street."
 imageCredit: "Jared Winkler, Wikimedia Commons, CC BY-SA 4.0"
-updated: "2026-10-05"
+updated: "2026-10-06"
 ---
 
 ## What you are moving to
@@ -39,7 +39,7 @@ Schools are assigned by address, and the boundaries do not follow town lines. Us
 
 ## Getting around
 
-By car. I-25 runs north–south a couple of miles west of the three old centers. Colorado 52 meets it between Frederick and Dacono and runs west toward Boulder. Firestone Boulevard meets it at Exit 240 as Colorado 119, the road to Longmont. Frederick's [profile](https://www.frederickco.gov/DocumentCenter/View/28866/ECO_Profile_2024_ADA-1-1) counts Denver International Airport 28 minutes away and Boulder 22 miles, and calls its I-25 interchange at Colorado 52 one of the busiest in northern Colorado, on a stretch of interstate that carries more than 100,000 vehicles a day.
+By car. I-25 runs north–south a couple of miles west of the three old centers. Colorado 52 meets it between Frederick and Dacono and runs west toward Boulder. Firestone Boulevard meets it at Exit 240 as Colorado 119, the road to Longmont. Frederick's [profile](https://www.frederickco.gov/DocumentCenter/View/28866/ECO_Profile_2024_ADA-1-1) counts Denver International Airport 28 minutes away and Boulder 22 miles, and calls its I-25 interchange at Colorado 52 one of the busiest in northern Colorado, on a stretch of interstate that carries more than 100,000 vehicles a day; the Town's [community page](https://frederickco.gov/699/What-Matters-to-You-Find-it-in-Frederick) puts downtown Denver 35 minutes away.
 
 Transit is thin:
 

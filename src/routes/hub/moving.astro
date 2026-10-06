@@ -36,33 +36,42 @@ const growth = (t: (typeof towns)[number]) =>
 const pricesReady = towns.every((t) => t.medianHomePrice && t.medianHomePriceAsOf && t.medianHomePriceSource);
 
 const columns = [
-  { key: 'county', label: 'County', get: (t: (typeof towns)[number]) => countyShort(t) },
-  { key: 'population', label: 'Population', get: (t: (typeof towns)[number]) => num(t.population) },
-  { key: 'growth', label: 'Growth 2010–20', get: growth },
+  { key: 'county', label: 'County', caption: 'county', get: (t: (typeof towns)[number]) => countyShort(t) },
+  { key: 'population', label: 'Population 2020', caption: 'population at the 2020 census', get: (t: (typeof towns)[number]) => num(t.population) },
+  { key: 'growth', label: 'Growth 2010–20', caption: 'growth from 2010 to 2020', get: growth },
   ...(pricesReady
     ? [
         {
           key: 'price',
           label: 'Median home',
+          caption: 'median home price',
           get: (t: (typeof towns)[number]) => `$${num(t.medianHomePrice)}`,
         },
       ]
     : []),
-  { key: 'denver', label: 'To Denver', get: (t: (typeof towns)[number]) => t.driveToDenver ?? '—' },
-  { key: 'schools', label: 'Schools', get: (t: (typeof towns)[number]) => district(t.movingHere.schoolDistrict) },
-  { key: 'character', label: 'In a line', get: (t: (typeof towns)[number]) => t.character ?? '—' },
+  { key: 'denver', label: 'To Denver', caption: 'drive to Denver', get: (t: (typeof towns)[number]) => t.driveToDenver ?? '—' },
+  { key: 'schools', label: 'Schools', caption: 'school district', get: (t: (typeof towns)[number]) => district(t.movingHere.schoolDistrict) },
+  { key: 'character', label: 'In a line', caption: 'what each is like', get: (t: (typeof towns)[number]) => t.character ?? '—' },
 ];
+// Read from the columns, so it cannot promise one the table does not have.
+const caption = `The ${towns.length} towns compared by ${columns
+  .map((c) => c.caption)
+  .join(', ')
+  .replace(/, ([^,]*)$/, ' and $1')}`;
 
 const SUITS: Record<string, string> = {
   "erie": "Suits people working in or near Boulder who will not pay Boulder prices, and who want a downtown they can walk to on a Friday. The catch is that most of Erie is subdivisions built since 2000 and only the old grid around Briggs Street is walkable, so where you buy decides whether you get the town or the commute. Ask which county, which school district and which metro district before you fall for a house: all three change from one street to the next.",
   "johnstown": "Suits northern Colorado commuters. The US 34 interchange is on the west edge, which puts Loveland at ten minutes, Greeley at fifteen, Fort Collins at twenty-five and Denver at fifty. Two school districts, as in Erie: most of town is Weld RE-5J, the north-west corner is Thompson. The trade is that the shopping has moved out to the interstate and Parish Avenue is quiet.",
-  "berthoud": "Suits people who want a Main Street that is genuinely a main street, and the lakes, at Larimer County prices that stop short of Fort Collins. Fifteen minutes to Loveland or Longmont, twenty-five to Fort Collins, and the FLEX bus actually runs — the only town here where a commute without a car is a real option. It doubled in a decade, so a good deal of it is new.",
-  "timnath": "Suits people who want to be minutes from Fort Collins without paying for Fort Collins. It went from 625 people to 6,487 in ten years, which is the largest proportional change of any town here by a wide margin, and it shows: Old Town Main Street is a couple of blocks and everything else was built this decade around the Harmony Road retail. Come for the reservoir and the river trail, not for an old town center.",
+  "berthoud": "Suits people who want a Main Street that is genuinely a main street, and the lakes, at Larimer County prices that stop short of Fort Collins. Fifteen minutes to Loveland or Longmont, twenty-five to Fort Collins, and the FLEX bus runs through it between Fort Collins, Loveland, Longmont and Boulder, so a commute without a car is possible if the timetable fits. It doubled in a decade, so a good deal of it is new.",
+  "timnath": "Suits people who want to be minutes from Fort Collins in a town built almost entirely this century. It went from 625 people to 6,487 in ten years, which is the largest proportional change of any town here by a wide margin, and it shows: Old Town Main Street is a couple of blocks and everything else was built this decade around the Harmony Road retail. Come for the reservoir and the river trail, not for an old town center.",
   "niwot": "Suits people who want small and mean it. It is unincorporated — no town council, no municipal tax, county services, and an incorporation question on the November 3, 2026 ballot whose outcome is worth checking before you buy. Seven per cent growth in a decade, which in this company is a rounding error. Twenty minutes to Boulder or Longmont on the Diagonal, and the BOLT bus stops at Niwot Road.",
-  "lyons": "Suits people who want the mountains to start at the end of the street. It is the canyon mouth: sandstone, the St. Vrain, Planet Bluegrass, and a town that rebuilt itself after the 2013 flood and talks about it. Twenty minutes to Boulder, an hour to Denver, no transit at all. It has barely grown, which means it is expensive, and the river is both the reason to live there and the thing to ask a surveyor about.",
+  "lyons": "Suits people who want the mountains to start at the end of the street. It is the canyon mouth: sandstone, the St. Vrain, Planet Bluegrass, and a town that rebuilt itself after the 2013 flood and talks about it. Twenty minutes to Boulder and an hour to Denver, and one bus: the free Lyons Flyer, four trips each way to Boulder on weekdays. It has barely grown, which means it is expensive, and the river is both the reason to live there and the thing to ask a surveyor about.",
   "elizabeth": "Suits people who want acreage and sky and will trade an hour of driving for it. It is on the Palmer Divide at 6,477 feet — the highest town here by over a thousand feet, with the weather that implies. Inside town you get water and sewer; outside it you own a well and a septic system, and you should have both inspected and the well's yield documented before you buy. Forty-five minutes to the Tech Center, and Denver is not really the point.",
   "windsor": "Suits people who work anywhere in northern Colorado and want to be in the middle of it: Fort Collins, Loveland and Greeley are each about twenty minutes, and Harmony Road puts I-25 at ten. It went from 18,644 people to 32,716 in a decade and most of the housing is new, in metro districts east and south of the old sugar-beet town; the lake, Boardwalk Park and Main Street are the old center and the reason to live near it. Two counties and three school districts inside the town limits — Weld RE-4 for most of it, Poudre or Thompson on the Larimer County side — so check the address, not the town.",
-  "fortcollins": "Suits people who want the city rather than a town near it: a downtown that is genuinely one, a university, the Poudre and Horsetooth inside the city limits, Transfort buses and Bustang to Denver, and the jobs the other towns commute to. The trade is price and scale. It is 170,000 people, the fourth-largest city in Colorado, and it grew eighteen per cent in a decade, so the neighborhoods within walking distance of Old Town cost what that implies and most of what is new is south and east. If you are choosing between Fort Collins and one of its towns, the question is whether you would drive in for everything anyway. If so, live here."
+  "longmont": "Suits people who want a full-size city with Boulder in reach: 98,885 people in 2020, a Main Street downtown, the City's own electric utility and NextLight fiber, and local buses that are free to ride. Boulder is 15 miles south-west on Colorado 119, with RTD's BOLT bus between the two, and downtown Denver 34 miles south; RTD's trains do not reach it. The trade is cost: the City's 2023 housing study put the median sale at $611,421, affordable to 32 per cent of households, and with little land left it is steering new building to infill and apartments. The county line runs through the city, so check whether a house is in Boulder or Weld County, and near a creek check the City's floodplain map.",
+  "loveland": "Suits people who want the foothills and a city's services together: 76,378 people in 2020 at the mouth of the Big Thompson Canyon, Boyd Lake State Park, a city-owned electric utility and Pulse fiber, and Fort Collins next door. I-25 and Centerra are on the east edge, where Bustang stops on its way to Denver, 46 miles south, and the FLEX bus runs to Fort Collins, Berthoud, Longmont and Boulder. The IRES median for a single-family home in the Loveland-Berthoud market was $535,000 in June 2026. Ask three things about any address: whether it is in a metro district and at what mill levy, who supplies the water, and how close it sits to the Big Thompson, which has flooded the city twice in living memory, in 1976 and 2013.",
+  "carbon-valley": "Suits people who want a newer house between Denver and Boulder. It is three old Weld County coal towns side by side a couple of miles east of I-25 and north of Erie — Frederick, Firestone and Dacono, 37,191 people together in 2020 and more since — sharing a rec district and a library but little else. Frederick counts downtown Denver 35 minutes away and Boulder 22 miles; Bustang stops at Exit 240 in Firestone. Most homes are in subdivisions from the last twenty-five years and the old centers are a few blocks each. Oil and gas wells sit among the houses, more than 600 drilled inside Frederick alone, so look any address up on the well maps the towns link, and on Weld County's property portal for its metro district and whether it is in the parks district.",
+  "fortcollins": "Suits people who want the city rather than a town near it: a downtown that is genuinely one, a university, the Poudre through the middle and Horsetooth Reservoir just west, Transfort buses and Bustang to Denver, and the jobs the other towns commute to. The trade is scale. It is 170,000 people, the fourth-largest city in Colorado, and it grew eighteen per cent in a decade, most of the new part south and east, a drive from Old Town. If you are choosing between Fort Collins and one of its towns, the question is whether you would drive in for everything anyway. If so, live here."
 };
 
 const structured = collectionPageJsonLd(hub, {
@@ -85,7 +94,7 @@ const structured = collectionPageJsonLd(hub, {
      is a horizontal scroll nobody performs. */}
   <div class="compare">
     <table>
-      <caption class="sr-only">The {towns.length} towns compared by county, population, elevation, incorporation, drive to Denver and school district</caption>
+      <caption class="sr-only">{caption}</caption>
       <thead>
         <tr>
           <th scope="col">Town</th>
@@ -158,10 +167,11 @@ const structured = collectionPageJsonLd(hub, {
   <div class="prose mt-20 md:mt-24">
     <h2>Where the figures come from</h2>
     <p>
-      Population is the 2020 census. Several of these towns have grown a long way since — Timnath and Johnstown
-      especially — and each guide's Moving Here page carries the later estimate and the source for it. Elevation and
-      incorporation dates are the published figures for each town. Drive times are off-peak estimates from each town's
-      own guide, not a promise about the Boulder Turnpike at half past five.
+      Population is the 2020 census, and growth is 2010 to 2020, so every town is measured the same way. Several of
+      these towns have grown a long way since — Timnath and Johnstown especially — and each guide's Moving Here page
+      carries the later estimate and the source for it. Drive times are off-peak estimates to downtown Denver from each
+      town's own guide (Elizabeth's commuters mostly go to the Tech Center, so it has both), not a promise about the
+      Boulder Turnpike at half past five.
     </p>
     <p>
       There is no median-home-price column. Getting it right means a named source and a quarterly re-check, and a
@@ -170,7 +180,7 @@ const structured = collectionPageJsonLd(hub, {
     </p>
     <h2>One of these is not like the others</h2>
     <p>
-      Niwot has no incorporation date because it has never incorporated. It is a census-designated place under Boulder
+      Niwot has never incorporated. It is a census-designated place under Boulder
       County, which means county services, no town council and no municipal tax — and an incorporation question that
       is <a href="https://insideniwot.com/articles/2026-incorporation-election/">on the ballot in 2026</a>. If you are
       comparing towns on how they are governed, that is the one real difference on this page.

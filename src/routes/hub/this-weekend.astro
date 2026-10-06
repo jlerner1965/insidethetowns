@@ -34,7 +34,7 @@ import SponsorLine from '@/components/SponsorLine.astro';
 import { getHub, liveTowns } from '@/config';
 import { getNetworkEntries } from '@/lib/content';
 import { occurrences, weekendSections, weekendWindow } from '@/lib/events';
-import { formatDate, formatTime } from '@/lib/dates';
+import { formatDate, formatDayRange, formatTime } from '@/lib/dates';
 import { collectionPageJsonLd } from '@/lib/seo';
 
 const hub = getHub();
@@ -58,6 +58,11 @@ const options = towns
   .map((t) => ({ value: t.slug, label: t.name }));
 
 const { start: weekendStart, sunday } = weekendWindow(refreshedAt);
+// "Next week" it is not: the horizon runs two weeks past the weekend. The
+// heading names the days it actually holds, and the script below renames it
+// for the days left once the reader's clock has moved some of them. `next`
+// is in start order.
+const laterLabel = next.length ? `Coming up · ${formatDayRange(next[0].data.start, next.at(-1)!.data.start)}` : 'Coming up';
 const weekendLabel =
   weekendStart.getTime() === sunday.getTime()
     ? formatDate(sunday)
@@ -82,7 +87,7 @@ const structured = collectionPageJsonLd(hub, {
   seoTitle={`This weekend on Colorado’s Front Range — ${weekendLabel}`}
   eyebrow="Across the network"
   description={`Every event across ${towns.length} Front Range town guides this weekend: markets, music, festivals and trails in ${towns.map((t) => t.name).join(', ')}.`}
-  intro={`Everything on across all ${towns.length} guides, ${weekendLabel}, and then the week after. Each listing opens on that town’s own site.`}
+  intro={`Everything on across all ${towns.length} guides, ${weekendLabel}, and the two weeks after it. Each listing opens on that town’s own site.`}
   jsonLd={structured}
 >
   <SponsorLine slot="after-header" sponsor={hub.sponsors?.network} label="This weekend, presented by" />
@@ -111,6 +116,7 @@ const structured = collectionPageJsonLd(hub, {
       <div data-weekend-list data-section-body>
         <NetworkDayList events={weekend} emptyMessage="Nothing listed across the network for this weekend yet." />
       </div>
+      <p data-weekend-filtered hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted"></p>
     </section>
 
     <section class="mt-20 md:mt-24" data-section="continuing" hidden={continuing.length === 0}>
@@ -124,7 +130,7 @@ const structured = collectionPageJsonLd(hub, {
     </section>
 
     <section class="mt-20 md:mt-24" data-section="next">
-      <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">Coming next week</h2>
+      <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4" data-later-heading>{laterLabel}</h2>
       <div data-later-list data-section-body>
         <NetworkDayList events={next} emptyMessage="Nothing listed yet." />
       </div>
@@ -206,6 +212,24 @@ const structured = collectionPageJsonLd(hub, {
       const range = key(start) === key(sunday) ? label(sunday) : `${label(start)} – ${label(sunday)}`;
       heading.textContent = `The weekend · ${range}`;
     }
+
+    // The same "October 12–25" the build wrote, for the days actually left.
+    const later = document.querySelector<HTMLElement>('[data-later-heading]');
+    const left = [...laterList.querySelectorAll<HTMLElement>('[data-day]')].map((d) => d.dataset.day!);
+    if (later) {
+      const monthDay = (k: string) => noon(k).toLocaleDateString('en-US', { timeZone: 'UTC', month: 'long', day: 'numeric' });
+      const month = (k: string) => noon(k).toLocaleDateString('en-US', { timeZone: 'UTC', month: 'long' });
+      const first = left[0];
+      const last = left.at(-1);
+      const range = !first || !last
+        ? ''
+        : first === last
+          ? monthDay(first)
+          : month(first) === month(last)
+            ? `${monthDay(first)}–${noon(last).getUTCDate()}`
+            : `${monthDay(first)} – ${monthDay(last)}`;
+      later.textContent = range ? `Coming up · ${range}` : 'Coming up';
+    }
   }
 
   // 4. Hide any section that has emptied out. The two dated sections keep their
@@ -223,4 +247,34 @@ const structured = collectionPageJsonLd(hub, {
   for (const section of document.querySelectorAll<HTMLElement>('[data-section="weekend"], [data-section="next"]')) {
     if (remaining === 0) section.hidden = true;
   }
+
+  // 6. Filtered to one town, a section with nothing of that town's in it goes,
+  //    heading and all, rather than standing empty under its heading. The
+  //    weekend stays and says so in words, since "nothing this weekend" is the
+  //    answer the reader came for; what that town has coming up is below it.
+  const root = document.querySelector<HTMLElement>('[data-filter-root]');
+  root?.addEventListener('filter:change', (e) => {
+    if (remaining === 0) return;
+    const value = (e as CustomEvent<{ value: string }>).detail.value;
+    const any = !!root.querySelector('[data-filter-item]:not([hidden])');
+    for (const section of root.querySelectorAll<HTMLElement>('[data-section]')) {
+      const has = !!section.querySelector('[data-filter-item]:not([hidden])');
+      const items = !!section.querySelector('[data-filter-item]');
+      const kind = section.dataset.section;
+      if (kind === 'weekend') {
+        section.hidden = !any;
+        const note = section.querySelector<HTMLElement>('[data-weekend-filtered]');
+        if (note) {
+          const name = root.querySelector(`[data-filter="${value}"]`)?.textContent?.trim() ?? 'that town';
+          note.textContent = `Nothing listed in ${name} for the weekend itself.`;
+          note.hidden = has || !items;
+        }
+      } else if (kind === 'next') {
+        // With nothing at all to show it keeps its "nothing listed" line, as unfiltered.
+        section.hidden = !any || (items && !has);
+      } else {
+        section.hidden = !has;
+      }
+    }
+  });
 </script>

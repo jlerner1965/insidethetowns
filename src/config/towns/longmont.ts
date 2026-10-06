@@ -43,6 +43,8 @@ export const longmont: TownConfig = {
   // the town in 1871 (the City's About page); that is the founding, not the
   // incorporation.
   incorporated: 1885,
+  // Downtown Denver is 34 miles; the guide's Getting around has the estimate.
+  driveToDenver: 'About 45 min',
   population2010: 86270, // 2010 census, for census-to-census growth
   character:
     'The Chicago-Colorado Colony’s 1871 town on the St. Vrain, now a city of nearly 100,000 with its own fiber network, fifteen miles from Boulder and five from I-25.',
