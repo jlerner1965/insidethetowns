@@ -4,6 +4,7 @@ import { render } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import DatedNotice from '@/components/DatedNotice.astro';
 import { getTownEntries, type TownEntry } from '@/lib/content';
+import { imageCaption } from '@/lib/photo-credits';
 import { dayKey, formatDate, toIsoLocal } from '@/lib/dates';
 import { getTown } from '@/config';
 import { articleJsonLd, breadcrumbJsonLd } from '@/lib/seo';
@@ -19,6 +20,7 @@ interface Props {
 
 const town = getTown();
 const { article } = Astro.props;
+const caption = imageCaption(article);
 const { data } = article;
 const { Content, headings } = await render(article);
 // Long reads get a contents rail, which is also what stops the column beside
@@ -55,8 +57,8 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
   {data.image && (
     <figure class="mb-12">
       <Image src={data.image} alt={data.imageAlt ?? ''} width={1600} height={900} class="w-full rounded-lg" />
-      {data.imageCredit && (
-        <figcaption class="mt-2 text-[0.8125rem] text-ink-faint">Photo: {data.imageCredit}</figcaption>
+      {caption && (
+        <figcaption class="mt-2 text-[0.8125rem] text-ink-faint">Photo: {caption}</figcaption>
       )}
     </figure>
   )}

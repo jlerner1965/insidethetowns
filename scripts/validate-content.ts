@@ -298,7 +298,10 @@ function checkImageCredits() {
     const row = ledger.get(path);
     if (!row) return;
     const file = row.file;
-    if (row.creditRequired && !caption) {
+    // An entry with no caption of its own prints the ledger's credit
+    // (imageCaption in src/lib/photo-credits.ts), which always names the
+    // licence. The hero and inline images still need theirs written.
+    if (row.creditRequired && !caption && !where.endsWith('#image')) {
       errors.push(`${where}: uses ${file}, whose licence requires attribution, but has no credit`);
       return;
     }
@@ -315,7 +318,7 @@ function checkImageCredits() {
     const image = /^image:\s*\.\.\/images\/(\S+)\s*$/m.exec(text);
     if (image) {
       const credit = /^imageCredit:\s*"?(.*?)"?\s*$/m.exec(text)?.[1] || undefined;
-      checkCaption(rel, `content/${town}/images/${image[1]}`, credit);
+      checkCaption(`${rel}#image`, `content/${town}/images/${image[1]}`, credit);
     }
     // Inline images carry their credit in the italic line that follows them.
     for (const m of text.matchAll(/!\[[^\]]*\]\(\.\.\/images\/([^)\s]+)\)[ \t]*\n(?:[ \t]*\n)?(?:\*([^*\n]+)\*)?/g)) {

@@ -7,6 +7,7 @@ import EventCard from '@/components/EventCard.astro';
 import PlaceIndex from '@/components/PlaceIndex.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import { getTownEntries, type TownEntry } from '@/lib/content';
+import { imageCaption } from '@/lib/photo-credits';
 import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { breadcrumbJsonLd, localBusinessJsonLd } from '@/lib/seo';
 import { EAT_DRINK_TYPES, LAND_TYPES, PLACE_STATUS_LABELS, PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, THINGS_TO_DO_TYPES } from '@/content/schemas';
@@ -28,6 +29,7 @@ interface Props {
 
 const town = getTown();
 const { place } = Astro.props;
+const caption = imageCaption(place);
 const { data } = place;
 const { Content } = await render(place);
 const url = new URL(Astro.url.pathname, Astro.site).toString();
@@ -170,8 +172,8 @@ const facts = [
       {data.image && (
         <figure class="mb-10">
           <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
-          {data.imageCredit && (
-            <figcaption class="mt-2 text-[0.8125rem] text-ink-faint">Photo: {data.imageCredit}</figcaption>
+          {caption && (
+            <figcaption class="mt-2 text-[0.8125rem] text-ink-faint">Photo: {caption}</figcaption>
           )}
         </figure>
       )}

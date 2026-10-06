@@ -12,7 +12,7 @@ import type { ImageMetadata } from 'astro';
 import { getSite } from '@/config';
 import { getHubEntries, getTownEntries } from '@/lib/content';
 import { resolveSiteImage } from '@/lib/images';
-import { parseLedger, publicCredit, type LedgerRow, type PublicCredit } from '@/lib/credits';
+import { captionFrom, parseLedger, publicCredit, type LedgerRow, type PublicCredit } from '@/lib/credits';
 
 export interface PhotoUsage {
   title: string;
@@ -81,4 +81,26 @@ export async function getCreditedPhotos(): Promise<CreditedPhoto[]> {
   }
 
   return [...photos.values()];
+}
+
+let ledgerCache: Map<string, LedgerRow> | undefined;
+function ledgerRows(): Map<string, LedgerRow> {
+  ledgerCache ??= new Map(parseLedger(readFileSync('IMAGE_LICENSES.csv', 'utf8')).map((row) => [row.path, row]));
+  return ledgerCache;
+}
+
+/**
+ * The caption for an entry's lead photograph: its own `imageCredit` when it
+ * has one, otherwise the credit read from IMAGE_LICENSES.csv. Undefined when
+ * the entry has no photograph or the ledger has no row for it (the validator
+ * makes the second impossible on a published entry).
+ */
+export function imageCaption(entry: { filePath?: string; data: { imageCredit?: string } }): string | undefined {
+  if (entry.data.imageCredit) return entry.data.imageCredit;
+  const site = getSite();
+  const source = entry.filePath ? readFileSync(entry.filePath, 'utf8') : '';
+  const file = /^image:\s*\.\.\/images\/(\S+)\s*$/m.exec(source)?.[1];
+  if (!file) return undefined;
+  const row = ledgerRows().get(`content/${site.slug}/images/${file}`);
+  return row ? captionFrom(publicCredit(row)) : undefined;
 }

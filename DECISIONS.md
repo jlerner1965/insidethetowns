@@ -3337,3 +3337,26 @@ town colours unchanged.
   a titled section, which on most towns meant six sections of one article.
   A compact card with no photograph gets an accent rule on top so it still
   reads as a card.
+
+## One record per photograph credit
+
+Found while checking the owner's brief of 6 October 2026 ("one maintained
+record per item"). A photograph's credit was kept twice: its row in
+IMAGE_LICENSES.csv and an `imageCredit` line typed into each article or place
+that used it, with the validator checking that the two agreed.
+
+- **The ledger row is now the credit.** An article's or a place's caption is
+  printed from the row (`imageCaption`, src/lib/photo-credits.ts) when the
+  entry has no `imageCredit`; one written on the entry still wins, so the 85
+  existing lines change nothing.
+- **The validator no longer asks for a caption on an entry's lead
+  photograph**, because one is always printed; a caption that is written must
+  still name the ledger's licence. The hero and inline images still carry
+  their own, as before.
+- Everything else the brief asked about was already one record: each event
+  and place is one file and every listing, the search index, the feeds and
+  the email are built from it; `featured` is the editor's pick for the home
+  page and the email; `verified` and `source` are required on every event and
+  place. The one exception found is an event on several irregular dates
+  (Niwot Hall's open houses), which is a file per date because `repeat` only
+  knows weekly. Left as it is for now.

@@ -158,3 +158,14 @@ export function licenseName(row: LedgerRow): string | undefined {
   const cc = CC.exec(row.license)?.[1];
   return cc && cc !== 'Public domain' ? cc : undefined;
 }
+
+/**
+ * The caption a page prints under a photograph when its entry gives no
+ * `imageCredit`: "Footwarrior, CC BY-SA 3.0". The ledger is the one record of
+ * who took a picture and on what terms (6 October 2026); typing the same
+ * credit again into each article or place was a second place for it to go
+ * wrong. An `imageCredit` written on the entry still wins.
+ */
+export function captionFrom(credit: PublicCredit): string {
+  return [credit.author, credit.license].filter(Boolean).join(', ');
+}

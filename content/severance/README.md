@@ -40,6 +40,8 @@ imageAlt: "Floats on 2nd Avenue during the holiday parade"
 
 `imageAlt` is required whenever `image` is set. Every photo also needs a row in
 `IMAGE_LICENSES.csv` at the repo root: `path, source_url, license, credit_required (y/n), town`.
+That row is the credit: an article's or a place's photo caption is printed from it,
+so there is no need to type `imageCredit` as well (one written on the entry still wins).
 
 ## Event
 
