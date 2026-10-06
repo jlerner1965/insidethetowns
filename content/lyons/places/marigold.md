@@ -10,6 +10,7 @@ featured: true
 summary: "Northern Italian and southern French cooking in a small dining room; the town’s dinner-out address."
 source: "https://www.marigoldlyons.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The town's special-occasion room: northern Italian and southern French cooking, a short menu that changes with the season and a wine list to match. Small, so book.

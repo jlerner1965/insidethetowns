@@ -6,6 +6,7 @@ address: "123 Forest Ave, Dacono, CO 80514"
 url: "https://www.daconoco.gov/1243/Music-Spirits-Festival"
 source: "https://www.daconoco.gov/1147/Vendors-Food-Trucks"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "303-833-2317"
 tags: [festival, live-music, events, water-tower]
 summary: "The City’s open-air event field under Dacono’s blue water tower, home to the Dacono Music & Spirits Festival each summer and the free Boot Scoot’n Bash country night in June."

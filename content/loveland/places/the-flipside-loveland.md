@@ -10,6 +10,7 @@ hours: "Mon 6 pm–11 pm; Tue & Thu 5 pm–11 pm; Fri–Sat 3 pm–1 am; Sun 3 p
 tags: [pinball, arcade, cocktails, games]
 summary: "A pinball arcade and cocktail bar on 4th Street downtown, billed as \"Pinball · Cocktails · After Dark\"; kids are welcome with an adult."
 verified: "2026-10-04"
+added: "2026-10-04"
 verifiedBy: "James Lerner"
 ---
 

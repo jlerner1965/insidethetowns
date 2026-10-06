@@ -9,6 +9,7 @@ tags: [antiques, gifts, colorado made]
 summary: "Colorado-made goods, antiques and farmhouse decor on Third Street."
 source: "https://the-ranchers-wife-co.square.site/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 Local Colorado products, antiques, vintage finds and farmhouse decor in a shop on Third Street, a few blocks from downtown.

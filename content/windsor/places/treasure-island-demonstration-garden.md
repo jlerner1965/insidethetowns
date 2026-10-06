@@ -6,6 +6,7 @@ area: "7th Street at the Poudre"
 url: "https://www.recreationliveshere.com/248/Treasure-Island-Demonstration-Garden"
 source: "https://www.recreationliveshere.com/248/Treasure-Island-Demonstration-Garden"
 verified: "2026-10-01"
+added: "2026-10-01"
 tags: [garden, xeriscape, volunteers, poudre-trail]
 summary: "An acre of public garden on the Poudre River Trail south of Eastman Park, half growing vegetables for the food pantry and half showing water-wise plants that do well in Windsor, with free events through the growing season."
 ---

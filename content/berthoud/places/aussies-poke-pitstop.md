@@ -11,6 +11,7 @@ tags: [poke, bowls, lunch]
 summary: "Poke bowls and quick healthy lunches on Mountain Avenue, order at the counter."
 source: "https://www.aussiespokepitstop.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 Hawaiian-style poke bowls, rice bowls and salads at a counter on Mountain Avenue, built to order. One of the lighter lunch options downtown.

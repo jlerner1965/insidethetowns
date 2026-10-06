@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://www.door222.com/"
 source: "https://www.door222.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-541-3020"
 hours: "Tue–Sun from 4 pm until close"
 tags: [dinner, happy-hour, reservations, private-dining]

@@ -26,20 +26,6 @@ if (!town) {
 }
 const env = { ...process.env, TOWN: town };
 
-// The hub's /newsletter/sample/ lists the places added and closed since last
-// week, from the git history (src/lib/newsletter.ts). Vercel and CI build from
-// a shallow clone, so the hub deepens it to the last three weeks first. If the
-// fetch fails, the page leaves those two sections out; nothing else needs it.
-if (command === 'build' && town === 'hub') {
-  const shallow = spawnSync('git', ['rev-parse', '--is-shallow-repository'], { encoding: 'utf8' }).stdout?.trim();
-  if (shallow === 'true') {
-    const since = new Date(Date.now() - 21 * 86_400_000).toISOString().slice(0, 10);
-    const head = process.env.VERCEL_GIT_COMMIT_SHA || spawnSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).stdout.trim();
-    const f = spawnSync('git', ['fetch', '--quiet', `--shallow-since=${since}`, 'origin', head], { stdio: 'inherit' });
-    if (f.status !== 0) console.warn('run: could not deepen the clone; /newsletter/sample/ will leave out new and closed places.');
-  }
-}
-
 // `--build`: an entry that fails its schema is reported and excluded rather
 // than failing the build, because a failed build on Vercel leaves the previous
 // deployment serving stale events. Anything repo-wide (a CSP mismatch, a

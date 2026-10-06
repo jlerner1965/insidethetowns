@@ -5,6 +5,7 @@ address: "3121 N Garfield Ave, Loveland, CO 80538"
 url: "https://www.crookedbeech.com/"
 source: "https://www.crookedbeech.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-305-0397"
 hours: "Mon–Thu 2 pm–9 pm; Fri–Sat 12 pm–9 pm; Sun 12 pm–8 pm"
 tags: [brewery, kid-friendly, dog-friendly, food-truck, beer-garden]

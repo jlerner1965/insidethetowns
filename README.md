@@ -105,7 +105,7 @@ first, per town: what is waiting in staging, listings whose check crosses the
 freshness window in the next fortnight, and confirmed sources whose last check
 failed. Then it walks the queue, cancellations first, then other changes the
 sources made to published events, then staged places, then staged events by
-date, and at each one takes `a` (approve: stamp `verified` and `verifiedBy`,
+date, and at each one takes `a` (approve: stamp `verified` and `verifiedBy`, and `added` on a place,
 drop the `review` block, move the file into the published folder; for a change,
 write the source's new facts into the published file and clear the flag), `e`
 (open the file in `$EDITOR`, validate, ask again), `r` (reject: delete a staged

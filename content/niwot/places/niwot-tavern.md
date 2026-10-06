@@ -13,6 +13,7 @@ featured: true
 summary: "The neighborhood tavern on the corner of Cottonwood Square, with a covered patio beside the bronze bears."
 source: "https://www.niwottavern.com/location/niwot-tavern/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The tavern everyone in Niwot has an opinion about and most of them end up at anyway. The covered patio faces the square and the bear sculptures, which makes it the default for a long lunch or a summer evening. Hours and the menu are on the tavern’s own site.

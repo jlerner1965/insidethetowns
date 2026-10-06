@@ -6,6 +6,7 @@ area: "Highland Meadows, west Windsor"
 url: "https://www.mashlabbrewing.com/"
 source: "https://business.windsorchamber.net/list/member/mash-lab-brewing-kitchen-3580"
 verified: "2026-10-02"
+added: "2026-10-01"
 phone: "970-262-9225"
 tags: [brewery, restaurant]
 summary: "Brewery with a full kitchen on Highland Meadows Parkway on the west side of Windsor, one of the town's four breweries; its own website blocks automated reading, so hours are not listed here."

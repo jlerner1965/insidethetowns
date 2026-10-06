@@ -1,20 +1,17 @@
 /**
  * What the weekly email and its sample page (/newsletter/sample/) share: the
- * send day, and which places are new or newly closed since the last issue.
+ * send day, and which places are new on the guide or newly closed since the
+ * last issue.
  *
- * Nothing in a place's frontmatter says when it arrived or when it closed, so
- * both come from the git history: a file added in the window is new, and a
- * file whose `status:` line became closed in the window has closed.
- *
- * A shallow checkout is fine if its history reaches back past the window
- * (scripts/run.ts deepens the hub's build checkout by date for this). If it
- * does not, its oldest commit appears to add every file in the repository,
- * so `listingChanges` returns `null` rather than call every place new.
+ * Both are read from the places themselves. `added` is the day a place went
+ * on the guide, stamped when it is approved (scripts/review.ts); `closed` is
+ * the day its status stopped being open, set with the status. The dates for
+ * places that predate the fields were backfilled once from the git history
+ * (DECISIONS.md, "Dates on places"). Nothing reads the history at build time,
+ * so a shallow clone builds the same page as a full one.
  */
-import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
 import { addDays, formatWeekday, startOfDay } from './dates.ts';
+import { isOpen } from './places.ts';
 
 /** The next send day on or after `from`, as a Denver day. */
 export function nextSendDay(from: Date, sendDay: string): Date {
@@ -23,43 +20,41 @@ export function nextSendDay(from: Date, sendDay: string): Date {
   return day;
 }
 
-export interface ListingChanges {
-  /** Paths, relative to the repository root, of place files added in the window. */
-  added: Set<string>;
-  /** Paths of place files whose status became closed or temporarily-closed in the window. */
-  closed: Set<string>;
+/**
+ * The days an issue sent on `send` reports on: the six after the previous
+ * send day, and the send day itself. Weekly issues tile without overlapping,
+ * so nothing is new twice.
+ */
+export function issueWindow(send: Date): { from: Date; until: Date } {
+  return { from: addDays(send, -6), until: addDays(send, 1) };
 }
 
+interface PlaceDates {
+  data: { status?: string; added?: Date; closed?: Date };
+}
+
+const within = (date: Date | undefined, { from, until }: { from: Date; until: Date }) =>
+  !!date && date.getTime() >= from.getTime() && date.getTime() < until.getTime();
+
 /**
- * Places added, and places marked closed, between `since` and `until`, under
- * `dir` (a path relative to `root`, such as "content"). `null` when there is
- * not enough history to read: not a git checkout, git missing, or a shallow
- * clone whose oldest commit is not older than `since`.
+ * The day a town's guide opened: the earliest `added` among its places. What
+ * went on that day is the guide itself, which is news of its own, not a list
+ * of new places; a town that launches with forty would otherwise fill the
+ * section with all forty.
  */
-export function listingChanges(root: string, dir: string, since: Date, until: Date): ListingChanges | null {
-  const git = (args: string[]) => {
-    try {
-      return execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 64 * 1024 * 1024 }).trim();
-    } catch {
-      return null;
-    }
-  };
-  const shallow = git(['rev-parse', '--is-shallow-repository']);
-  if (shallow === null) return null;
-  if (shallow === 'true') {
-    const file = git(['rev-parse', '--git-path', 'shallow']);
-    const boundary = file ? (git(['show', '-s', '--format=%ct', ...readFileSync(resolve(root, file), 'utf8').split('\n').filter(Boolean)]) ?? '') : '';
-    const times = boundary.split('\n').filter(Boolean).map(Number);
-    if (times.length === 0 || times.some((t) => t * 1000 >= since.getTime())) return null;
-  }
-  const range = [`--since=${since.toISOString()}`, `--until=${until.toISOString()}`];
-  const isPlace = (path: string) => /\/places\/[^/_][^/]*\.md$/.test(path);
-  const added = new Set((git(['log', '--diff-filter=A', ...range, '--name-only', '--format=', '--', dir]) ?? '').split('\n').filter(isPlace));
-  const closed = new Set<string>();
-  let file = '';
-  for (const line of (git(['log', ...range, '-p', '--format=', '--', dir]) ?? '').split('\n')) {
-    if (line.startsWith('+++ b/')) file = line.slice('+++ b/'.length);
-    else if (isPlace(file) && /^\+status:\s*["']?(closed|temporarily-closed)["']?\s*$/.test(line)) closed.add(file);
-  }
-  return { added, closed };
+export function openingDay(places: PlaceDates[]): Date | undefined {
+  let first: Date | undefined;
+  for (const p of places) if (p.data.added && (!first || p.data.added < first)) first = p.data.added;
+  return first;
+}
+
+/** Went on the guide in the issue's window, after the guide's opening day, and is open. */
+export function isNewPlace(place: PlaceDates, send: Date, opened?: Date): boolean {
+  if (opened && place.data.added && place.data.added.getTime() <= opened.getTime()) return false;
+  return isOpen(place) && within(place.data.added, issueWindow(send));
+}
+
+/** Recorded as closed, or temporarily closed, in the issue's window. */
+export function isNewlyClosed(place: PlaceDates, send: Date): boolean {
+  return !isOpen(place) && within(place.data.closed, issueWindow(send));
 }

@@ -11,6 +11,7 @@ tags: [burgers, root beer, drive-through]
 summary: "The A&W on west Mountain Avenue near Town Hall, root beer floats included."
 source: "https://awrestaurants.com/locations/colorado/berthoud/802-mountain-avenue/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The A&W at the west end of Mountain Avenue: burgers, cheese curds, and root beer floats in frosted mugs.

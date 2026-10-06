@@ -133,6 +133,7 @@ test('the staging block and the new provenance fields parse, and changeFlag need
     summary: 'A café.',
     source: 'https://cafe.example/',
     verified: '2026-10-03',
+    added: '2026-10-03',
     verifiedBy: 'James',
     sourceId: 'cafe-site',
     sourceUid: 'abc',
@@ -143,10 +144,10 @@ test('the staging block and the new provenance fields parse, and changeFlag need
   assert.equal(stamped.verifiedBy, 'James');
   assert.equal(stamped.changeFlag, true);
   assert.throws(
-    () => schema.parse({ title: 'x', type: 'coffee', address: '1', summary: 's', changeFlag: true }),
+    () => schema.parse({ title: 'x', type: 'coffee', address: '1', summary: 's', added: '2026-10-03', changeFlag: true }),
     /changeNote/,
   );
-  assert.equal(schema.parse({ title: 'x', type: 'coffee', address: '1', summary: 's' }).changeFlag, false);
+  assert.equal(schema.parse({ title: 'x', type: 'coffee', address: '1', summary: 's', added: '2026-10-03' }).changeFlag, false);
 });
 
 test('mountain fields: seasonal hours on any place, access notes only on a trail or a park', () => {
@@ -158,7 +159,7 @@ test('mountain fields: seasonal hours on any place, access notes only on a trail
     source: 'https://www.nps.gov/romo/',
     verified: '2026-10-03',
   };
-  const trail = schema.parse({ title: 'Lily Lake', type: 'trail', address: 'CO 7', summary: 's', access });
+  const trail = schema.parse({ title: 'Lily Lake', type: 'trail', address: 'CO 7', summary: 's', added: '2026-10-03', access });
   assert.equal(trail.access?.parking, access.parking);
   assert.throws(() => schema.parse({ title: 'Café', type: 'coffee', address: '1', summary: 's', access }), /trail or a park/);
   assert.throws(() => schema.parse({ title: 'Lily Lake', type: 'trail', address: 'CO 7', summary: 's', access: { parking: 'x' } }));
@@ -167,6 +168,7 @@ test('mountain fields: seasonal hours on any place, access notes only on a trail
     type: 'lodging',
     address: '1',
     summary: 's',
+    added: '2026-10-03',
     seasonal: { season: 'Memorial Day to mid-October', hours: 'Daily 8–8', closedMonths: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr'] },
   });
   assert.equal(seasonal.seasonal?.closedMonths.length, 6);

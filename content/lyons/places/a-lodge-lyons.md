@@ -10,6 +10,7 @@ tags: [lodge, riverside, bar]
 summary: "Adventure lodge on the river at the west edge of town, with the Rock Garden bar on site."
 source: "https://a-lodge.com/about-our-lyons-lodge/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The adventure lodge on the river at the west edge of town: rooms, cabins and a campground-style feel, with the Rock Garden bar and its music in the garden.

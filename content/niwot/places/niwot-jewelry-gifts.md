@@ -10,6 +10,7 @@ tags: [jewelry, gifts]
 summary: "Jewelry and gifts on the 300 block."
 source: "https://niwotjewelry.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 Jewelry and gifts in the 300 block building. Hours are on the shop’s own site.

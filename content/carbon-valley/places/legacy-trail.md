@@ -9,6 +9,7 @@ phone: "303-833-2317"
 tags: [trail, walking, cycling, rail-trail, paved]
 summary: "A ten-foot concrete trail with a parallel crusher-fines jogging path on the old Union Pacific right-of-way, with a landscaped trailhead at Colorado 52 and Colorado Boulevard: Dacono’s first stretch of the St. Vrain Legacy Trail."
 verified: "2026-10-05"
+added: "2026-10-05"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 

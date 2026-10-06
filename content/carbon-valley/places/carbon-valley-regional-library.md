@@ -6,6 +6,7 @@ address: "7 Park Ave, Firestone, CO 80504"
 url: "https://www.mylibrary.us/cvrl/"
 source: "https://www.mylibrary.us/locations-and-hours/"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "888-861-7323"
 hours: "Mon–Thu 9 am–8 pm; Fri–Sat 10 am–5 pm; Sun 1–5 pm"
 tags: [library, events, study, central-park]

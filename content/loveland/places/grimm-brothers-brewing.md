@@ -5,6 +5,7 @@ address: "815 14th St SW B100, Loveland, CO 80537"
 url: "https://grimmbrothersbrewing.com/"
 source: "https://grimmbrothersbrewing.com/contact/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-541-2429"
 hours: "Mon–Tue 11 am–8 pm; Wed–Fri 11 am–9 pm; Sat 12 pm–9 pm; Sun 12 pm–8 pm"
 tags: [brewery, patio, dog-friendly, event-space]

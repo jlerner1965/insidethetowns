@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://www.independencegallery.com/"
 source: "https://www.independencegallery.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-669-0889"
 hours: "Mon–Fri 11 am–6:30 pm; Sat 11 am–6 pm; Sun 11 am–3 pm some weeks (the gallery says \"sometimes, but not always\")"
 tags: [gallery, local-artists, framing, jewelry]

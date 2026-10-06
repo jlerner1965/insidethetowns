@@ -5,6 +5,7 @@ address: "2698 Bluestem Willow Dr, Loveland, CO 80538"
 url: "https://suburbitat.org/"
 source: "https://suburbitat.org/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-622-9676"
 hours: "Gardens and trails daily, dawn to dusk; office by appointment"
 tags: [nature-center, trails, native-plants, gardens]

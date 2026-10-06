@@ -11,6 +11,7 @@ summary: "Tea room at the south end of Main Street, part of the Carriage Shoppes
 url: "https://carriageshoppestea.wordpress.com/"
 source: "https://carriageshoppestea.wordpress.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A tea room inside the Carriage Shoppes at the south end of Main Street: pots of tea, sandwiches and light lunches, eat in or take away, with the antique and gift stalls next door.

@@ -6,6 +6,7 @@ area: "Old Town"
 url: "https://www.thecupboard.net/"
 source: "https://www.thecupboard.net/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-493-8585"
 hours: "Mon–Sat 10–6, Sun 11–5"
 tags: [kitchenware, cutlery, gifts, specialty-food]

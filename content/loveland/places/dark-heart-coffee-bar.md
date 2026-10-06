@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://www.darkheartcoffeebar.com/"
 source: "https://www.darkheartcoffeebar.com/pages/hours"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-281-2322"
 hours: "Mon–Fri 7 am–4 pm; Sat–Sun 8 am–4 pm"
 tags: [coffee, roastery, specialty]

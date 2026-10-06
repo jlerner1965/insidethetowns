@@ -12,6 +12,7 @@ featured: true
 summary: "The pedestrian plaza at the heart of Old Town, built in 1984 and rebuilt in 2015 by the Downtown Development Authority: a performance stage, a splash pad, a communal fireplace, patios on every side and the city's festivals, from FoCo Fall Fest to the Chili Cook Off."
 source: "https://downtownfortcollins.com/go/old-town-square"
 verified: "2026-10-01"
+added: "2026-10-01"
 ---
 
 The plaza off College Avenue that the rest of downtown is arranged around, originally built in 1983–84 and reimagined in 2015 in a DDA renovation that earned international recognition. It has a performance stage, a kid- and dog-friendly splash pad whose pop jets run 8 am to midnight from May through September (with a light show from 8 pm), a communal fireplace, a kids' play area, a Little Free Library and spots for rotating public art, with flowers all summer and lights all winter. The square is owned and run by the DDA, with the City's Parks Department doing the daily upkeep and the flower displays.

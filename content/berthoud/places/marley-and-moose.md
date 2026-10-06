@@ -9,6 +9,7 @@ tags: [kids, toys]
 summary: "Children's store on Mountain Avenue with eco-friendly toys, books and clothes."
 source: "https://www.marleyandmoose.com/pages/contact"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A children's shop on Mountain Avenue stocking ethically made toys, books, clothes and baby gifts.

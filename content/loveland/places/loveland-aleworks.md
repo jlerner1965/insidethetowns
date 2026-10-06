@@ -9,6 +9,7 @@ phone: "970-619-8726"
 tags: [brewery, live-music, trivia, food-truck]
 summary: "Small, locally owned craft brewery on West 4th Street in downtown Loveland, founded in 2012, pouring everything from crisp lagers to seasonal and experimental small-batch beers."
 verified: "2026-10-04"
+added: "2026-10-04"
 verifiedBy: "James Lerner"
 ---
 

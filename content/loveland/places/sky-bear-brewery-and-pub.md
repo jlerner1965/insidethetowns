@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://www.skybearbrewery.com/"
 source: "https://www.skybearbrewery.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-744-6300"
 hours: "Tue–Thu 11 am–10 pm; Fri–Sat 11 am–11 pm; Sun–Mon 11 am–9 pm"
 tags: [brewery, brewpub, cocktails, patio, trivia]

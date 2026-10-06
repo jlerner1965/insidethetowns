@@ -5,6 +5,7 @@ address: "Boston Avenue between Main and Martin Streets, Longmont, CO 80501"
 url: "https://longmontcolorado.gov/facilities/dickens-farm-nature-area/"
 source: "https://longmontcolorado.gov/facilities/dickens-farm-nature-area/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-651-8416"
 hours: "Daily, 1 hour before sunrise to 1 hour after sunset"
 tags: [creek, playground, tubing, trail]

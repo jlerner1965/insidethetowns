@@ -13,6 +13,7 @@ featured: true
 summary: "Italian cooking made from scratch on the 300 block, with a heated front patio. Open since January 2022."
 source: "https://cimminisniwot.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 Scratch-made Italian on the quieter end of Second Avenue. The heated front patio extends the outdoor season well into fall. Menus and hours are on the restaurant’s site.

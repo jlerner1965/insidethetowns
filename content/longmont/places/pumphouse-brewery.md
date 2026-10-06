@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://pumphousebrewery.com/"
 source: "https://pumphousebrewery.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-702-0881"
 hours: "Mon–Thu 10:45 am–10 pm; Fri 10:45 am–11 pm; Sat 10 am–11 pm; Sun 10 am–10 pm"
 tags: [brewery, brewpub, happy-hour, sports]

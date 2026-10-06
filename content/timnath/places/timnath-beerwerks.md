@@ -11,6 +11,7 @@ featured: true
 summary: "The brewery in the 1920 Timnath Feed & Grain building on Main Street: its own beers, food trucks most days, music bingo, live music and a Monday run club. Family and dog friendly."
 source: "https://www.timnathbeerwerks.com/contactus"
 verified: "2026-10-02"
+added: "2026-09-17"
 ---
 
 Timnath's brewery opened in 2018 in the old Colorado Feed & Grain elevator on Main Street, with a taproom, indoor and outdoor seating, its own beers on tap and a Fort Collins taproom too. A food truck parks out front most days, and the week’s trucks are on the brewery’s calendar; there is music bingo and live music on the calendar, and a run club meets on Monday evenings. Kids and dogs welcome.

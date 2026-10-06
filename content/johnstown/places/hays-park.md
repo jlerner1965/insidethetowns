@@ -9,6 +9,7 @@ tags: [basketball, volleyball, shelters]
 summary: "Neighborhood park with a basketball court, sand volleyball, shelters with electricity and a playground; the only Town park where alcohol is allowed, by permit."
 source: "https://www.johnstownco.gov/572/Hays-Park"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A neighborhood park on Country Acres Drive with a basketball court, a sand volleyball court, a playground and tot lot, portable restrooms and two shelters with electricity that can be reserved. Alcohol is permitted with a shelter reservation.

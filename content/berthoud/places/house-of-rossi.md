@@ -9,6 +9,7 @@ tags: [clothing, boutique]
 summary: "Women's clothing boutique on Mountain Avenue for everyday fashion and accessories."
 source: "https://www.houseofrossiboutique.com/pages/about-us"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A women's clothing boutique on the main block: everyday fashion, accessories and gifts.

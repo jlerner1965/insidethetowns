@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://www.georgiaboys.com/"
 source: "https://www.georgiaboys.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "720-999-4099"
 hours: "Tue–Thu 11 am–8 pm; Fri–Sat 11 am–9 pm; Sun 11 am–8 pm; closed Mon"
 tags: [bbq, southern, catering]

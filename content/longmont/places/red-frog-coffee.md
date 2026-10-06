@@ -5,6 +5,7 @@ address: "15 Ken Pratt Blvd #200, Longmont, CO 80501"
 url: "https://redfrogcoffee.com/"
 source: "https://redfrogcoffee.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-772-7209"
 hours: "Mon–Sat 5:55 am–4 pm"
 tags: [coffee, game-night, markets]

@@ -11,6 +11,7 @@ tags: [lunch, sandwiches]
 summary: "Sandwich and lunch counter a block off Parish Avenue in Old Town."
 source: "https://johnstownlunchbox.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A lunch counter in Old Town a block off Parish Avenue: sandwiches, soups and daily specials, quick and inexpensive.

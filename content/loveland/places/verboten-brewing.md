@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://verbotenbrewing.com/"
 source: "https://verbotenbrewing.com/loveland-location/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-775-7371"
 hours: "Tue–Sat 12 pm–10 pm; Sun–Mon 12 pm–9 pm"
 tags: [brewery, barrel-aged, events]

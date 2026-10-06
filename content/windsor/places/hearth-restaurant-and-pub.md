@@ -6,6 +6,7 @@ area: "4th Street, downtown"
 url: "https://www.hearthrestaurantandpub.com/"
 source: "https://www.hearthrestaurantandpub.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-460-0193"
 hours: "Mon–Thu 3–8:30 pm, Fri–Sat 11 am–9 pm, Sun 11 am–8 pm"
 tags: [pizza, burgers, patio, happy-hour, cocktails]

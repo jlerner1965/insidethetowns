@@ -8,6 +8,7 @@ tags: [mobile, espresso, van]
 summary: "Mobile espresso bar pouring coffee, tea and pastries from a restored 1969 Dodge A100 van."
 source: "https://www.emoryjanescoffeeco.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 Espresso from a restored 1969 Dodge A100 van that parks around Niwot and at events like the Niwot Trot. Where it is on a given morning is on the operator’s schedule.

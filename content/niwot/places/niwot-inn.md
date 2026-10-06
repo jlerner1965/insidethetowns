@@ -9,6 +9,7 @@ featured: true
 summary: "Thirteen rooms and an on-site spa in the middle of Old Town, the only place to stay on Second Avenue."
 source: "https://niwotinn.com/"
 verified: "2026-10-02"
+added: "2026-09-17"
 ---
 
 Thirteen rooms and a spa on Second Avenue, which puts every restaurant, the park and the trail within a few minutes’ walk. It is the one hotel in Niwot; the alternatives are in Longmont and Boulder, each about twenty minutes away.

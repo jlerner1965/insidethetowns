@@ -12,6 +12,7 @@ tags: [fields, playground, views]
 summary: "Sports fields, a playground with an accessible chair swing, a scavenger-hunt panel, and the view of its namesake peak."
 source: "https://erieco.gov/2316/Longs-Peak-Park"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A park in the Vista Ridge area with sports fields, a playground that includes an accessible chair swing and a scavenger-hunt panel, and, on a clear day, Longs Peak on the western horizon.

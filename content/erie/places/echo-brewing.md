@@ -11,6 +11,7 @@ tags: [brewery, pizza, biergarten]
 summary: "Brewery and brick-oven pizzeria in the old downtown fire station, with a biergarten out back and a trivia night."
 source: "https://echobrewing.com/location-and-hours/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 Echo took over the former fire station at the north end of the Briggs Street block in 2014 and pairs its own beers with brick-oven pizzas; there is an outdoor biergarten and a trivia night. Sundays and Saturdays open from 11.

@@ -8,6 +8,7 @@ tags: [disc golf, wooded]
 summary: "An 18-hole disc golf course through the wooded north end of Evans Park. $5 a player."
 source: "https://www.elizabethpr.com/prickly-pines-disc-golf"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 Eighteen holes through the pines at the north end of Evans Park, with enough trees to make you think about the line. The district charges $5 a player; check its page for private-event closures.

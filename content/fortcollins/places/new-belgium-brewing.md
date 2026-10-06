@@ -9,6 +9,7 @@ imageCredit: "M. Doxtad, Wikimedia Commons, CC BY 2.5"
 url: "https://www.newbelgium.com/"
 source: "https://www.newbelgium.com/visit/fort-collins/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-221-0524"
 hours: "Daily 12–8"
 tags: [brewery, food-trucks, tours, lawn]

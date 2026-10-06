@@ -6,9 +6,11 @@ area: "Diamond Valley"
 url: "https://futurelegendscomplex.com/"
 source: "https://www.kunc.org/news/2026-08-17/future-legends-lender-alleges-delay-tactics-with-bankruptcy-filing"
 verified: "2026-10-02"
+added: "2026-10-01"
 tags: [sports, stadium, tournaments]
 summary: "The 118-acre sports complex on Windsor's east side, closed to the public since the spring of 2025 and in the hands of a receiver and the bankruptcy court."
 status: closed
+closed: "2026-10-02"
 statusNote: "Closed to the public since the spring of 2025. A Weld County judge placed the complex under a receiver, and its owners filed for Chapter 11 bankruptcy protection in July 2026 (KUNC, BizWest). Nothing here is open to visitors."
 statusSource: "https://www.kunc.org/news/2026-08-17/future-legends-lender-alleges-delay-tactics-with-bankruptcy-filing"
 ---

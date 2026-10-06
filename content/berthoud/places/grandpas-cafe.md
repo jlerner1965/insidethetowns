@@ -9,6 +9,7 @@ tags: [breakfast, lunch, dinner, home cooking, bar]
 summary: "Home-style cooking at the west end of Mountain Avenue, near Town Hall: big breakfasts, lunch and dinner to 8 pm, with a full bar."
 source: "https://www.mygrandpascafe.com/"
 verified: "2026-10-02"
+added: "2026-09-17"
 ---
 
 A home-cooking cafe at the west end of Mountain Avenue, a block from Town Hall: big breakfasts, daily specials, dinner until 8 and a full bar, and a regular crowd that has been coming for years.

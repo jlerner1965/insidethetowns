@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://www.lundeensculpture.com/"
 source: "https://www.lundeensculpture.com/visit"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-669-7176"
 hours: "Mon–Fri 9:30 am–3 pm"
 tags: [gallery, sculpture, bronze, studio]

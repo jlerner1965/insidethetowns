@@ -6,6 +6,7 @@ area: "Walnut Street, downtown"
 url: "https://www.windsorco.gov/"
 source: "https://www.windsorco.gov/1160"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-674-2450"
 hours: "Mon–Fri 8 am–5 pm"
 tags: [town-government, utilities, permits, meetings]

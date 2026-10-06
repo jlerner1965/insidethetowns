@@ -8,6 +8,7 @@ source: "https://www.lovgov.org/services/parks-recreation/trail-info"
 tags: [city-trail, paved, cycling, walking]
 summary: "The City's paved recreation trail, in seven sections that loop Loveland past the Big Thompson, the Civic Center and Boyd Lake, joining the Front Range and Long View trails to Fort Collins."
 verified: "2026-10-04"
+added: "2026-10-04"
 verifiedBy: "James Lerner"
 ---
 

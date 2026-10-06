@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://www.moxiebreadco.com/"
 source: "https://www.moxiebreadco.com/moxie-bread-co-longmont"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "720-241-4996"
 hours: "Daily 9 am–3 pm"
 tags: [bakery, coffee, patio]

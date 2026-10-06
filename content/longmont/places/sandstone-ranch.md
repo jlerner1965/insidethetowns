@@ -5,6 +5,7 @@ address: "3001 Colorado Highway 119, Longmont, CO 80504"
 url: "https://longmontcolorado.gov/sandstone-ranch/"
 source: "https://longmontcolorado.gov/facilities/sandstone-ranch-community-park-nature-area/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-651-8404"
 hours: "Community park daily 5 am–11 pm; nature area 1 hour before sunrise to 1 hour after sunset"
 tags: [playground, skate-park, fishing, history]

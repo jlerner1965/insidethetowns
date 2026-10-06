@@ -6,6 +6,7 @@ address: "5340 Summit Blvd, Dacono, CO 80514"
 url: "https://www.blitzpaintball.net/"
 source: "https://www.blitzpaintball.net/contact.php"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "303-337-7109"
 hours: "Fri–Sun 10 am–6 pm Memorial Day to Labor Day; Sat–Sun 10 am to half an hour before sunset in winter; weekdays by appointment; weather permitting and above 32 degrees"
 tags: [paintball, airsoft, parties, team-building, outdoor]

@@ -6,6 +6,7 @@ area: "Locust Street, by Town Hall"
 url: "https://www.recreationliveshere.com/Facilities/Facility/Details/Main-Park-14"
 source: "https://www.recreationliveshere.com/Facilities/Facility/Details/Main-Park-14"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-674-3500"
 image: ../images/main-park.jpg
 imageAlt: "Main Park in Windsor in autumn, big cottonwoods and maples turning over the lawn and the playground beyond"

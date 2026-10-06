@@ -9,6 +9,7 @@ hours: "Galleries closed for expansion until the free all-day Grand Reopening on
 tags: [museum, art, history, kids]
 summary: "The City of Longmont's museum of art and history, reopening its galleries Oct. 17 after an expansion the City says adds 70% more gallery space."
 verified: "2026-10-04"
+added: "2026-10-04"
 verifiedBy: "James Lerner"
 ---
 

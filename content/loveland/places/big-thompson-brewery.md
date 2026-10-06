@@ -8,6 +8,7 @@ hours: "Mon–Thu 3 pm–9 pm; Fri–Sat 1 pm–9 pm; Sun 1 pm–8 pm"
 tags: [brewery, pub-food, patio]
 summary: "Neighborhood brewery on East 15th Street that home brewers Barb and Kurt opened in 2015, with 13 beers on tap and pub food."
 verified: "2026-10-04"
+added: "2026-10-04"
 verifiedBy: "James Lerner"
 ---
 

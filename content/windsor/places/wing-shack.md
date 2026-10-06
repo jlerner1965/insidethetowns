@@ -6,6 +6,7 @@ area: "west Main Street"
 url: "https://wingshackwings.com/locations/"
 source: "https://wingshackwings.com/locations/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-686-5202"
 hours: "Daily 11 am–10 pm"
 tags: [wings, takeout, family]

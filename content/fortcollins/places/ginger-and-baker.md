@@ -6,6 +6,7 @@ area: "Old Town"
 url: "https://www.gingerandbaker.com/"
 source: "https://www.gingerandbaker.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-223-7437"
 hours: "Tue–Sun 7 am–9 pm; closed Mon"
 tags: [pie, bakery, cafe, steakhouse, market, cooking-classes]

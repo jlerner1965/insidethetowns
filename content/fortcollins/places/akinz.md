@@ -6,6 +6,7 @@ area: "Old Town"
 url: "https://akinz.com/"
 source: "https://akinz.com/pages/store-locator"
 verified: "2026-10-01"
+added: "2026-10-01"
 hours: "Mon–Thu 10–6, Fri–Sat 10–7, Sun 11–6"
 tags: [apparel, local-brand, gifts]
 summary: "Colorado-designed and -printed apparel brand with its shop on Old Town Square: tees, hoodies, jackets, hats, beanies, socks, blankets and drinkware, the souvenir locals actually wear."

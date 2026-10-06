@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://www.rialtotheatercenter.org/"
 source: "https://www.rialtotheatercenter.org/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-962-2120"
 hours: "Box office (fall): Tue & Thu 12:30 pm–5:30 pm; Fri 3 pm–5:30 pm; also opens 60 minutes before ticketed events"
 tags: [theater, performing-arts, historic, events]

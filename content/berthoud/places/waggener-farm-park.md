@@ -11,6 +11,7 @@ imageCredit: "Town of Berthoud"
 summary: "The big park on the north side: farm-themed playground, full basketball court, skate park, fields, and the Recreation Center on the same site."
 source: "https://www.berthoud.org/Facilities/Facility/Details/Waggener-Farm-Park-19"
 verified: "2026-09-21"
+added: "2026-09-17"
 ---
 
 The town's largest active park, on Berthoud Parkway on the north side, sharing its site with the Recreation Center. A farm-themed playground with a tractor and playhouse, a wavy scooter path, a full-size basketball court, a skate park, multi-use fields, and the site of the Zombie Fun Run in October. A 25-acre arboretum is planned for the southwest corner.

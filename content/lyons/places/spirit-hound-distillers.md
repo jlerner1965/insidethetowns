@@ -10,6 +10,7 @@ tags: [distillery, whisky, cocktails, comedy]
 summary: "Grain-to-glass distillery east of town making Colorado straight malt whisky, gin and rum, with a tasting room and a patio."
 source: "https://www.spirithounds.com/lyons-tasting-room"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A distillery that mills, mashes and distils on site, a couple of miles east of town on the Longmont road. The tasting room pours the malt whisky, the gin and the rum neat or in cocktails; there is a patio, a comedy night on third Fridays and a science-and-spirits talk now and then.

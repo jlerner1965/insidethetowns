@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://pelosdeliandprovisions.com/"
 source: "https://pelosdeliandprovisions.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "720-674-6963"
 hours: "Tue–Sat 11 am–11 pm; Sun 11 am–9 pm; closed Mon"
 tags: [deli, sandwiches, cocktails, catering]

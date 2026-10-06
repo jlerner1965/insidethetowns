@@ -5,6 +5,7 @@ address: "18 S. Sunset St., Longmont, CO 80501"
 url: "https://longmontcolorado.gov/facilities/izaak-walton-nature-area/"
 source: "https://longmontcolorado.gov/facilities/izaak-walton-nature-area/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-651-8416"
 hours: "Daily, 1 hour before sunrise to 1 hour after sunset"
 tags: [fishing, kids, pond, trail]

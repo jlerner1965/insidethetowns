@@ -10,6 +10,7 @@ tags: [wine, cocktails, small-plates]
 summary: "Wine and cocktail lounge a block off Main with paninis, salads, soups and charcuterie boards."
 source: "https://lyonslocale.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The wine bar on High Street, a block north of Main and next door to the bakery: cocktails, boards, paninis and soup, and a quieter room than the breweries.

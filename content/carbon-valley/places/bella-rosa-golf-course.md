@@ -6,6 +6,7 @@ address: "5830 Bella Rosa Pkwy, Frederick, CO 80504"
 url: "https://bellarosagolf.com/"
 source: "https://bellarosagolf.com/contact/"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "303-678-2940"
 hours: "Daily 6 am–8:30 pm; opens an hour after sunrise and closes half an hour before sunset, so shorter in winter"
 tags: [golf, nine-hole, driving-range, town-owned, lessons]

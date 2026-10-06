@@ -9,6 +9,7 @@ tags: [playground, shelters]
 summary: "Neighborhood park in Rolling Hills Ranch with a playground, benches and two reservable shelters."
 source: "https://www.johnstownco.gov/616/Rolling-Hills-Ranch-Park"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A neighborhood park on Rolling Hills Parkway with a play area to climb, slide and explore, benches, and two shelters that can be reserved.

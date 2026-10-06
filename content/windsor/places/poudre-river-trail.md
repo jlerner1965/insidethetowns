@@ -6,6 +6,7 @@ area: "Poudre River, south Windsor"
 url: "https://poudretrail.org/maps/"
 source: "https://www.poudretrail.org/"
 verified: "2026-10-01"
+added: "2026-10-01"
 mapUrl: "https://poudretrail.org/wp-content/uploads/PoudreRiverTrailBrochureMap.pdf"
 image: ../images/poudre-river.jpg
 imageAlt: "The Cache la Poudre River at Windsor in summer, cottonwoods on both banks and a park shelter beyond"

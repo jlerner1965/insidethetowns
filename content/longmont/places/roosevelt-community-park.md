@@ -5,6 +5,7 @@ address: "700 Longs Peak Avenue, Longmont, CO 80501"
 url: "https://longmontcolorado.gov/facilities/roosevelt-community-park/"
 source: "https://longmontcolorado.gov/facilities/roosevelt-community-park/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-651-8416"
 hours: "Daily 5 am–11 pm"
 tags: [playground, pool, ice-rink, rose-garden]

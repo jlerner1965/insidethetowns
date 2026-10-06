@@ -7,6 +7,7 @@ area: "Fifth Street"
 url: "https://www.gabescafe.com/"
 source: "https://www.gabescafe.com/"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "303-833-8915"
 hours: "Mon, Wed–Fri 6 am–8 pm; Tue 6 am–2 pm; Sat 7 am–8 pm; Sun 7 am–2 pm"
 tags: [breakfast, lunch, diner, family-owned]

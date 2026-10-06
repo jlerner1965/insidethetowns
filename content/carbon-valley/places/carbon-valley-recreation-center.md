@@ -7,6 +7,7 @@ area: "Fifth Street"
 url: "https://www.cvprd.com/carbon-valley-recreation-center"
 source: "https://www.cvprd.com/hours-of-operation"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "303-833-3660"
 hours: "Mon–Fri 5:30 am–9 pm; Sat 7:30 am–5 pm; Sun 10 am–5 pm"
 tags: [rec-center, pool, gym, indoor-track, fitness]

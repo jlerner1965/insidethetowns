@@ -6,6 +6,7 @@ area: "Old Town"
 url: "https://www.coopersmithspub.com/"
 source: "https://www.coopersmithspub.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-498-0483"
 hours: "Sun–Wed 11–9, Thu–Sat 11–10"
 tags: [brewpub, pub-food, billiards]

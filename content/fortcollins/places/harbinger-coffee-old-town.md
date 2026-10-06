@@ -6,6 +6,7 @@ area: "Old Town"
 url: "https://harbingercoffee.com/"
 source: "https://harbingercoffee.com/pages/north-college"
 verified: "2026-10-01"
+added: "2026-10-01"
 hours: "Daily 7 am–4 pm"
 tags: [coffee, roaster, espresso]
 summary: "Fort Collins roaster since 2012, pouring in Old Town across from the Armstrong Hotel every day 7 to 4; the beans are roasted at its Harmony Road shop."

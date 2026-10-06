@@ -11,6 +11,7 @@ tags: [museum, history, historic-district]
 summary: "Niwot's 1910 fire shed, moved in six pieces to the Grange lot in 1997 and kept by the Historical Society, with the town's 1910 chemical fire cart out front. Open for occasional open houses; the outside is always on view."
 source: "https://niwothistoricalsociety.org/stories/fire-house-museum-a-short-history/"
 verified: "2026-09-30"
+added: "2026-09-30"
 ---
 
 Niwot's first fire house, built in 1910 when the town bought its first fire-fighting equipment: a plain 8-by-14-foot frame shed with double swinging doors, put up on Second Avenue between the Niwot State Bank and the Livingston Hotel. The hotel later used it as a laundry shed, and in the 1970s and 1980s it was Floyd Edmunds' office inside the Niwot Auction House.

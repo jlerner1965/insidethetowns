@@ -5,6 +5,7 @@ address: "2651 3rd Avenue, Longmont, CO 80503"
 url: "https://longmontcolorado.gov/facilities/golden-ponds-nature-area/"
 source: "https://longmontcolorado.gov/facilities/golden-ponds-nature-area/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-651-8416"
 hours: "Daily, 1 hour before sunrise to 1 hour after sunset"
 tags: [fishing, ponds, trail, wildlife]

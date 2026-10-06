@@ -6,6 +6,7 @@ area: "South Fort Collins"
 url: "https://www.zweibrewing.com/"
 source: "https://www.zweibrewing.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 hours: "Mon–Sat 11–9, Sun 11–7"
 tags: [brewery, german-lagers, patio, food-trucks]
 summary: "South Fort Collins brewery specializing in German-style lagers and weissbiers alongside contemporary craft beers, with a taproom, a patio and food trucks on site, open from 11 every day."

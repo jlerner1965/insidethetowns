@@ -9,6 +9,7 @@ tags: [warehouse, grocery, fuel]
 summary: "The warehouse at Harmony Road and I-25 that anchored Timnath's commercial growth, with Walmart and the fast-food row on the same street."
 source: "https://www.costco.com/w/-/co/timnath/1178"
 verified: "2026-10-02"
+added: "2026-09-17"
 ---
 
 The Costco at Weitzel Street and Harmony Road, the first big anchor of Timnath's commercial growth, with a gas station and the usual warehouse. Walmart, Panda Express, Taco Bell, Subway and Starbucks are on the same street.

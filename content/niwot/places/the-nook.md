@@ -10,6 +10,7 @@ tags: [home, gifts]
 summary: "Home decor and gifts tucked into the market, run by the same owner since 2019."
 source: "https://niwot.com/listing/the-nook/"
 verified: "2026-09-18"
+added: "2026-09-17"
 ---
 
 A gift and home-decor corner inside Niwot Market, run by the same owner since 2019.

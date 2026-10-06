@@ -11,6 +11,7 @@ tags: [donuts, coffee]
 summary: "Made-to-order warm donuts and coffee near Johnstown Plaza."
 source: "https://www.duckdonuts.com/menu/4842-larimer-parkway-johnstown-co-80534"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The made-to-order donut chain's shop off Larimer Parkway by Johnstown Plaza: warm cake donuts dressed while you wait, coffee and breakfast sandwiches.

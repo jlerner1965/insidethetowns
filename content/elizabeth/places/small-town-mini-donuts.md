@@ -11,6 +11,7 @@ summary: "Mini donuts made to order in the old hotel building on Main Street, in
 url: "https://www.smalltownminidonuts.com/"
 source: "https://www.smalltownminidonuts.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A mini-donut counter in the historic hotel building at the north end of Main Street, frying to order in classic cinnamon-sugar and a rotating set of signature styles.

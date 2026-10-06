@@ -6,6 +6,7 @@ area: "North College"
 url: "https://jaxgoods.com/"
 source: "https://stores.jaxgoods.com/jax-fort-collins-outdoor-gear"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-221-0544"
 hours: "Mon–Sat 9–8, Sun 9–7"
 tags: [outdoor-gear, fishing, hunting, camping, cycling, archery]

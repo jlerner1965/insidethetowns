@@ -6,6 +6,7 @@ address: "8201 Colorado Blvd, Frederick, CO 80530"
 url: "https://www.frederickco.gov/Facilities/Facility/Details/2"
 source: "https://www.frederickco.gov/Facilities/Facility/Details/2"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "720-382-5805"
 hours: "Dawn to 10 pm (the skate park’s posted hours)"
 tags: [lake, fishing, trails, dog-park, skatepark, boating]

@@ -49,10 +49,13 @@ test('a status other than the default needs a note saying who says so', () => {
   assert.equal(event.safeParse({ ...base, status: 'canceled', statusNote: 'The Town lists it as canceled.' }).success, true);
 
   const place = placeSchema(plainImage);
-  const pub = { title: 'Pub', type: 'restaurant', address: '1 Main St', summary: 'A pub.' };
+  const pub = { title: 'Pub', type: 'restaurant', address: '1 Main St', summary: 'A pub.', added: '2026-09-17' };
   assert.equal(place.safeParse(pub).data?.status, 'open');
   assert.equal(place.safeParse({ ...pub, status: 'closed' }).success, false);
-  assert.equal(place.safeParse({ ...pub, status: 'closed', statusNote: 'Reported closed in February 2026.' }).success, true);
+  assert.equal(place.safeParse({ ...pub, status: 'closed', closed: '2026-10-02' }).success, false, 'the date alone says nothing about how we know');
+  assert.equal(place.safeParse({ ...pub, status: 'closed', statusNote: 'Reported closed in February 2026.' }).success, false, 'and the note alone does not say when the guide recorded it');
+  assert.equal(place.safeParse({ ...pub, status: 'closed', closed: '2026-10-02', statusNote: 'Reported closed in February 2026.' }).success, true);
+  assert.equal(place.safeParse({ ...pub, closed: '2026-10-02' }).success, false, 'a place that reopened drops its closed date');
 });
 
 // ---------------------------------------------------------------- events
@@ -113,4 +116,12 @@ test('closed places go last, and a closed pick is no longer a pick', () => {
   assert.deepEqual(sorted, ['Mid', 'Alpha', 'Zed', 'Bradford’s']);
   assert.equal(isOpen(p('x')), true);
   assert.equal(isOpen(p('x', false, 'temporarily-closed')), false);
+});
+
+test('a published place says when it went on the guide; a staged one gets the date at approval', () => {
+  const place = placeSchema(plainImage);
+  const cafe = { title: 'Café', type: 'coffee', address: '1 Main St', summary: 'A café.' };
+  assert.equal(place.safeParse(cafe).success, false);
+  assert.equal(place.safeParse({ ...cafe, added: '2026-10-05' }).data?.added?.getTime(), parseLocal('2026-10-05').getTime());
+  assert.equal(place.safeParse({ ...cafe, review: { reason: 'New', since: '2026-10-05', from: 'ingest' } }).success, true);
 });

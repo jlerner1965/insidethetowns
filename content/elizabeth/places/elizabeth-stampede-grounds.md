@@ -13,6 +13,7 @@ featured: true
 summary: "The arena at Casey Jones Park where the Elizabeth Stampede runs its PRCA rodeo, parade and concert the first weekend of June."
 source: "https://www.elizabethstampede.com/upcoming-events/stampede-prca-rodeo"
 verified: "2026-10-02"
+added: "2026-09-17"
 ---
 
 The Elizabeth Stampede is the town's biggest weekend: a Professional Rodeo Cowboys Association rodeo over three days at the Casey Jones Park arena, with a parade down Main Street and a concert the night before. In 2026 the rodeo ran June 5 to 7, with Mitchell Tenpenny, Tracy Byrd and Tyler Farr on the June 4 concert bill; the 2027 dates, tickets and schedule come out in spring.

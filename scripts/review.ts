@@ -13,7 +13,7 @@
  * first, then other changes the sources made, then staged places, then
  * staged events by date. At each item:
  *
- *   a  approve   staged: stamp verified and verifiedBy, drop the review block,
+ *   a  approve   staged: stamp verified and verifiedBy (a place: added), drop the review block,
  *                move the file to the published folder; change: write the
  *                source's new facts into the published file and clear the flag
  *   e  edit      open the file in $EDITOR, then validate it and ask again
@@ -165,7 +165,7 @@ function openUrl(url: string) {
 /** Approve a staged file: validate it as it will be published, stamp, move. Returns a reason when it cannot. */
 function approveStaged(item: Extract<QueueItem, { kind: 'event' | 'place' }>): string | null {
   const text = readFileSync(item.file, 'utf8');
-  const stamped = approveText(text, today, by);
+  const stamped = approveText(text, today, by, item.kind);
   const parsed = schemaFor[item.kind].safeParse(parseFrontmatter(stamped).data);
   if (!parsed.success) return parsed.error.issues.map((i) => `${i.path.join('.') || '(root)'}: ${i.message}`).join('; ');
   if (!(parsed.data as { source?: string }).source) return 'no source: nothing says where this was read. Edit (e) and set source first.';
@@ -287,4 +287,4 @@ for (const town of towns) {
 }
 rl.close();
 line(`\nreview: ${totals.approved} approved, ${totals.rejected} rejected, ${totals.skipped} skipped${by ? ` (as ${by})` : ''}. ` + (totals.approved || totals.rejected ? 'Run npm run validate, then commit.' : ''));
-line(`Approved on ${formatDate(new Date())}: every approved file carries verified and verifiedBy; nothing else was touched.`);
+line(`Approved on ${formatDate(new Date())}: every approved file carries verified and verifiedBy, and every approved place added; nothing else was touched.`);

@@ -6,6 +6,7 @@ address: "5074 Summit Blvd, Dacono, CO 80514"
 url: "https://imimotorsports.com/"
 source: "https://imimotorsports.com/contact-us/"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "303-833-4949"
 hours: "Mon–Fri 10 am–dusk; Sat–Sun 9 am–dusk; kart rentals daily from 10 am"
 tags: [go-karts, motocross, drift, off-road, track]

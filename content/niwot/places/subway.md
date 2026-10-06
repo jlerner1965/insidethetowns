@@ -10,6 +10,7 @@ tags: [sandwiches, quick]
 summary: "Independently owned franchise of the sandwich chain, in the square."
 source: "https://restaurants.subway.com/united-states/co/niwot/7960-niwot-rd"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The square’s franchise sandwich shop, independently owned. Listed for completeness; the hours are on the chain’s location page.

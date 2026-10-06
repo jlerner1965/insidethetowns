@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://www.purevibesloveland.com/"
 source: "https://www.purevibesloveland.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-776-9276"
 hours: "Sun–Tue & Thu 11 am–5 pm; Fri–Sat 11 am–6 pm; closed Wed"
 tags: [gifts, crystals, wellness, books]

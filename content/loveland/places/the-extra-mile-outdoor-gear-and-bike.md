@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://theextramileoutdoorgear.com/"
 source: "https://theextramileoutdoorgear.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-800-3660"
 hours: "Mon–Sat 10 am–6 pm; Sun 10 am–4 pm"
 tags: [outdoor-gear, bikes, ski, bike-repair]

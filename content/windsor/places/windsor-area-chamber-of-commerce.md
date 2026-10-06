@@ -6,6 +6,7 @@ area: "Main Street, downtown"
 url: "https://www.windsorchamber.net/"
 source: "https://www.windsorchamber.net/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-686-7189"
 tags: [chamber, business-directory, visitor-information, events]
 summary: "The chamber's storefront office on Main Street, and the keeper of the member business directory, map and events calendar that are the best local index of who is open in Windsor and Severance."

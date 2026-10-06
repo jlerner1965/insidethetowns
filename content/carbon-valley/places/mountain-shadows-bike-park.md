@@ -6,6 +6,7 @@ address: "South of Mountain Shadows Park, 11267 Carbondale St, Firestone, CO 805
 url: "https://www.firestoneco.gov/728/Mountain-Shadows-Bike-Park-Pump-Track"
 source: "https://www.firestoneco.gov/728/Mountain-Shadows-Bike-Park-Pump-Track"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "720-508-4126"
 tags: [bike-park, pump-track, skateboard, scooter, kids]
 summary: "An asphalt pump track and dirt bike park just south of Mountain Shadows Park, opened in September 2023 for bikes, skateboards and scooters at every level."

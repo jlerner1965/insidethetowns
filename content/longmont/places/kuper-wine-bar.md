@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://www.kuperwinebar.com/"
 source: "https://www.kuperwinebar.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-834-8902"
 hours: "Wed–Thu 3 pm–9 pm; Fri–Sat 3 pm–10 pm; Sun 3 pm–7 pm; closed Mon–Tue"
 tags: [wine-bar, wine-club, events, reservations]

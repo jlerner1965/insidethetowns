@@ -12,6 +12,7 @@ tags: [fitness, playground, views]
 summary: "Outdoor fitness park and treehouse-style playground with a hillside slide and mountain views."
 source: "https://erieco.gov/2318/Serene-Park"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A park on Colliers Boulevard with an outdoor fitness area, a treehouse structure, rope obstacles, a bumblebee bouncer, a hillside slide and mountain views.

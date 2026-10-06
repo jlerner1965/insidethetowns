@@ -5,6 +5,7 @@ address: "600 Longs Peak Ave, Longmont, CO 80501"
 url: "https://www.mountainsunpub.com/location/longs-peak-pub/"
 source: "https://www.mountainsunpub.com/location/longs-peak-pub/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-651-7886"
 hours: "Wed–Thu 12 pm–11 pm; Fri 12 pm–12 am; Sat 11 am–12 am; Sun 11 am–11 pm; closed Mon–Tue (temporarily)"
 tags: [brewpub, patio, kid-friendly, taphouse]

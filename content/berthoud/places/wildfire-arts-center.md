@@ -10,6 +10,7 @@ tags: [arts, classes, kids]
 summary: "Community arts center on Massachusetts Avenue with classes, youth programs, summer camps, Art in the Park and the StreetFest."
 source: "https://www.wildfirearts.org/contact-us"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The nonprofit community arts center on Massachusetts Avenue: classes and open studio for adults and kids, a youth street-art program, summer camps, birthday parties, and the group behind Art in the Park and the summer StreetFest. Check its calendar for exhibits and workshops.

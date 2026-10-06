@@ -124,6 +124,7 @@ priceRange: "$"
 tags: [breakfast, patio]
 featured: true
 summary: "A sample place created by the new-town script. Replace it with a real listing."
+added: "${iso(new Date())}"
 ---
 
 Longer description in Markdown. What it is, who it suits, what to order, when it is busy.

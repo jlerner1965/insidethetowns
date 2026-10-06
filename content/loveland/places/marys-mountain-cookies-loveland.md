@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://www.lovelandcookies.com/"
 source: "https://www.lovelandcookies.com/pages/contact-us"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-619-8169"
 hours: "Sun–Thu 10 am–9 pm; Fri–Sat 10 am–10 pm"
 tags: [bakery, cookies, gluten-friendly]

@@ -10,6 +10,7 @@ tags: [indian, takeout]
 summary: "Fresh curries, biryani and saag, for eating in or taking to the park."
 source: "https://indianbitesco.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 Curries, biryani and saag on the 400 block, made to order; take it across to Sandstone Park on a summer evening.

@@ -6,6 +6,7 @@ area: "Pelican Lakes, Water Valley"
 url: "https://thelodgewindsor.com/"
 source: "https://thelodgewindsor.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-674-1100"
 hours: "Tue–Thu & Sun 4–9 pm, Fri–Sat 4–10 pm; closed Mon"
 tags: [dinner, patio, views, happy-hour, live-music]

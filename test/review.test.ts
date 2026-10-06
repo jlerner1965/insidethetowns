@@ -118,3 +118,19 @@ test('the summary counts what is in staging today', () => {
     assert.ok(Array.isArray(x.goingStale) && Array.isArray(x.brokenSources) && typeof x.waiting.events === 'number', t.slug);
   }
 });
+
+test('approving a place stamps the day it goes on the guide, and keeps one it already had', () => {
+  const staged = `---
+title: "Corner Café"
+review: { reason: "New on its town's list", since: "2026-10-04", from: ingest }
+type: coffee
+address: "1 Main St"
+summary: "A café."
+source: "https://cafe.example/"
+---
+`;
+  assert.equal(getField(approveText(staged, '2026-10-06', 'James', 'place'), 'added'), '"2026-10-06"');
+  assert.equal(getField(approveText(staged, '2026-10-06', 'James'), 'added'), undefined, 'an event has no such field');
+  const returning = staged.replace('source:', 'added: "2026-09-17"\nsource:');
+  assert.equal(getField(approveText(returning, '2026-10-06', 'James', 'place'), 'added'), '"2026-09-17"');
+});

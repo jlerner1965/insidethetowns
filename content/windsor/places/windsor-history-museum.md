@@ -6,6 +6,7 @@ area: "Boardwalk Park, Windsor Lake"
 url: "https://www.recreationliveshere.com/188/Windsor-History-Museum"
 source: "https://www.recreationliveshere.com/188/Windsor-History-Museum"
 verified: "2026-10-01"
+added: "2026-10-01"
 tags: [history, museum, free, summer, kids]
 summary: "Five historic buildings moved to Boardwalk Park, among them the 1882 train depot, an 1885 schoolhouse, a beet shack and a chapel, open free on summer weekends from late May to early September."
 ---

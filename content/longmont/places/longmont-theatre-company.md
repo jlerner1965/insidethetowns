@@ -10,6 +10,7 @@ hours: "Box office opens 1 hour before each ticketed performance"
 tags: [theater, performing-arts, youth-programs]
 summary: "Community theater company staging its seasons at the Longmont Performing Arts Center on Main Street, its home since 1990; the company dates to 1957."
 verified: "2026-10-04"
+added: "2026-10-04"
 verifiedBy: "James Lerner"
 ---
 

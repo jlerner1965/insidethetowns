@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://www.henryspubloveland.com/"
 source: "https://www.henryspubloveland.com/contact/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-613-1896"
 hours: "Sun–Thu 11 am–9 pm; Fri–Sat 11 am–10 pm"
 tags: [pub, american, local-beer, kids-menu]

@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://makergeneral.com/"
 source: "https://makergeneral.com/pages/about"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "720-310-5328"
 hours: "Tue 10 am–2 pm; Wed–Thu 11 am–5 pm; Fri 11 am–6 pm; Sat 10 am–5 pm; Sun 10 am–3 pm; closed Mon"
 tags: [crafts, fabric, workshops, gifts]

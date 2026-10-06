@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://loveshackmocktails.com/"
 source: "https://loveshackmocktails.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-699-5189"
 hours: "Mon–Tue 4 pm–9 pm; Wed–Thu 9 am–9 pm; Fri–Sat 9 am–11 pm; Sun 9 am–8 pm"
 tags: [mocktails, alcohol-free, games, events]

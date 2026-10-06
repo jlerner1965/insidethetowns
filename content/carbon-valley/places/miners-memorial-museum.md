@@ -7,6 +7,7 @@ area: "Fifth Street"
 url: "https://www.frederickco.gov/717/Miners-Memorial-Museum"
 source: "https://www.frederickco.gov/717/Miners-Memorial-Museum"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "720-382-5500"
 hours: "First Fridays 5–7 pm and by appointment; Nov 6 and Dec 4 in 2026"
 tags: [museum, history, coal-mining, landmark]

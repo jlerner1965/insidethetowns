@@ -6,6 +6,7 @@ area: "Downtown"
 url: "http://www.lincolngallery.com/"
 source: "http://www.lincolngallery.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-663-2407"
 hours: "Tue–Sat 12 pm–6 pm; closed Sun–Mon"
 tags: [gallery, artist-cooperative, classes]

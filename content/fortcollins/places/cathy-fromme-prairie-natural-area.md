@@ -13,6 +13,7 @@ tags: [paved, prairie, birding, cycling, dogs-on-leash]
 summary: "A stretch of prairie kept open on the south side of the city, crossed by the paved Fossil Creek Trail (2.4 miles one way, Shields Street to Luther Lane), with a raptor observatory built into the hillside near the Shields entrance. Free; open 5 am to 11 pm."
 source: "https://www.fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Cathy-Fromme-Prairie-Natural-Area"
 verified: "2026-10-01"
+added: "2026-10-01"
 ---
 
 The paved Fossil Creek Trail runs 2.4 miles one way across the prairie between Shields Street and Luther Lane, and the raptor observatory built into the hillside near the Shields Street entrance is the place to watch hawks and eagles, especially in winter. Horned lizards, ground-nesting songbirds, butterflies, rabbits, coyotes and rattlesnakes live here, so dogs stay on leash. Bikes and horses allowed, with horse-trailer parking and seasonal restrooms. Open daily 5 am to 11 pm.

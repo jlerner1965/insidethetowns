@@ -6,6 +6,7 @@ address: "6130 Firestone Blvd, Firestone, CO 80504"
 url: "https://www.marcos.com/our-locations/restaurants/co/firestone/marcos-pizza-firestone-blvd-firestone-1/"
 source: "https://www.marcos.com/our-locations/restaurants/co/firestone/marcos-pizza-firestone-blvd-firestone-1/"
 verified: "2026-10-05"
+added: "2026-10-05"
 phone: "303-228-5440"
 hours: "Daily 10:30 am–10 pm"
 tags: [pizza, takeout, delivery, family]

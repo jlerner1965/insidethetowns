@@ -11,6 +11,7 @@ tags: [tacos, mexican, takeout]
 summary: "Taqueria on Third Street with street tacos, burritos and tortas, quick and inexpensive."
 source: "https://berthoudbennystacos.com/"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 A taqueria on Third Street a couple of blocks off the main drag: street tacos by the piece, burritos, tortas and aguas frescas. Lunch counter pace, takeout-friendly.

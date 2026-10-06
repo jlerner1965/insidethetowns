@@ -9,6 +9,7 @@ tags: [chinese, takeout, delivery]
 summary: "Chinese kitchen in the square: dine in, take out or delivery."
 source: "https://www.fanschinesecuisine.com/"
 verified: "2026-09-18"
+added: "2026-09-17"
 ---
 
 The square’s Chinese kitchen, in the south-west corner next to the bike shop. Dine in, take out, or have it delivered. Fan’s has no site of its own; the Niwot Business Association directory carries its current hours.

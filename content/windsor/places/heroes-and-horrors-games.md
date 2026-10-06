@@ -6,6 +6,7 @@ area: "west Main Street"
 url: "https://www.heroesandhorrorsgames.com/"
 source: "https://www.heroesandhorrorsgames.com/"
 verified: "2026-10-01"
+added: "2026-10-01"
 phone: "970-833-5128"
 hours: "Tue–Fri 2–9 pm, Sat–Sun 12–9 pm; closed Mon"
 tags: [games, comics, magic-the-gathering, game-nights]

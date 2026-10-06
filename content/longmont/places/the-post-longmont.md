@@ -5,6 +5,7 @@ address: "1258 S Hover Rd, Longmont, CO 80501"
 url: "https://www.thepostcolorado.com/location/longmont/"
 source: "https://www.thepostcolorado.com/location/longmont/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "720-588-2883"
 hours: "Mon–Fri 11 am–9 pm; Sat–Sun 10 am–9 pm"
 tags: [brewpub, brunch, happy-hour, house-beer]

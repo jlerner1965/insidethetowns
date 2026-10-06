@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://mikeoshays.com/"
 source: "https://mikeoshays.com/contact/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "303-772-0252"
 hours: "Mon–Thu 11 am–9 pm; Fri–Sat 11 am–10 pm; Sun 11 am–8 pm (closing times approximate); closed Thanksgiving and Christmas"
 tags: [pub, irish, happy-hour, reservations]

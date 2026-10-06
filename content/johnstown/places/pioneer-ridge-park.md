@@ -9,6 +9,7 @@ tags: [disc golf, playground]
 summary: "Park by Pioneer Ridge Elementary with a free nine-hole disc golf course, opened in June 2021."
 source: "https://www.johnstownco.gov/576/Pioneer-Ridge-Park"
 verified: "2026-10-03"
+added: "2026-09-17"
 ---
 
 The park beside Pioneer Ridge Elementary on the east side of town, home to a free nine-hole disc golf course for all skill levels, played with the Pioneer Ridge Disc Golf Club, plus open turf.

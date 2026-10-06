@@ -5,6 +5,7 @@ address: "1906 W Eisenhower Blvd, Loveland, CO 80537"
 url: "https://justinespizza.com/"
 source: "https://justinespizza.com/"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-667-8808"
 hours: "Tue–Sun 4 pm–9 pm; closed Mon"
 tags: [pizza, bar, family-owned]

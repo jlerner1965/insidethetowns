@@ -11,24 +11,21 @@
  * a different page every week and the listings themselves are indexed where
  * they live.
  *
- * New and closed places come from the git history (src/lib/newsletter.ts).
- * A build from a shallow clone has none, and those two sections are left out
- * rather than shown as an empty week.
+ * New and closed places are read from each place's `added` and `closed`
+ * dates (src/lib/newsletter.ts), the same days the email reports on.
  */
 import Page from '@/layouts/Page.astro';
 import { getHub, liveTowns } from '@/config';
 import { getNetworkEntries } from '@/lib/content';
-import { addDays, formatDate, formatDayLong, formatDayRange } from '@/lib/dates';
+import { formatDate, formatDayLong, formatDayRange } from '@/lib/dates';
 import { highlights, isCanceled, occurrences, timeText, weekendSections, weekendWindow } from '@/lib/events';
-import { listingChanges, nextSendDay } from '@/lib/newsletter';
-import { isOpen } from '@/lib/places';
+import { isNewlyClosed, isNewPlace, nextSendDay, openingDay } from '@/lib/newsletter';
 
 const hub = getHub();
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
 const send = nextSendDay(new Date(), sendDay);
 const { start, sunday } = weekendWindow(send);
 const range = formatDayRange(start, sunday);
-const since = addDays(send, -7);
 const sponsor = hub.sponsors?.email ?? hub.sponsors?.network;
 
 const listings = occurrences((await getNetworkEntries('events')).filter((e) => !isCanceled(e)), { now: send, horizonDays: 14 });
@@ -39,10 +36,11 @@ const weeks = liveTowns().map((town) => {
 });
 const total = weeks.reduce((n, w) => n + w.count, 0);
 
-const changes = listingChanges(process.cwd(), 'content', since, addDays(send, 1));
-const places = changes ? await getNetworkEntries('places') : [];
-const opened = places.filter((p) => !!p.filePath && changes!.added.has(p.filePath) && isOpen(p));
-const shut = places.filter((p) => !!p.filePath && changes!.closed.has(p.filePath) && p.data.status !== 'open');
+const places = await getNetworkEntries('places');
+// A guide's opening-day places are the guide, not new places (src/lib/newsletter.ts).
+const openings = new Map(liveTowns().map((t) => [t.slug, openingDay(places.filter((p) => p.town.slug === t.slug))]));
+const opened = places.filter((p) => isNewPlace(p, send, openings.get(p.town.slug)));
+const shut = places.filter((p) => isNewlyClosed(p, send));
 const closedNote = (p: (typeof shut)[number]) =>
   p.data.statusNote ?? (p.data.status === 'closed' ? 'Permanently closed.' : 'Temporarily closed.');
 const builtAt = new Date();

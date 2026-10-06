@@ -6,6 +6,7 @@ area: "Downtown"
 url: "https://nococatcafe.com/"
 source: "https://nococatcafe.com/before-you-visit"
 verified: "2026-10-04"
+added: "2026-10-04"
 phone: "970-792-9853"
 hours: "Tue–Sun 11 am–6 pm; closed Mon"
 tags: [cat-cafe, coffee, adoption, reservations]
