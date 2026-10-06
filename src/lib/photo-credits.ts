@@ -39,6 +39,12 @@ type Collection = keyof typeof COLLECTION_PATHS;
 
 export async function getCreditedPhotos(): Promise<CreditedPhoto[]> {
   const site = getSite();
+  // A town that has not launched builds one holding page and nothing of the
+  // guide: no listing, no article, no hero band. Its images folder holds the
+  // scaffold's stand-in hero, whose ledger row says "placeholder" and which
+  // publicCredit refuses by design, so there is nothing here to credit and
+  // nothing to throw over. The day the town is flipped, every row counts.
+  if (site.kind === 'town' && site.status !== 'live') return [];
   const ledger = new Map<string, LedgerRow>(
     parseLedger(readFileSync('IMAGE_LICENSES.csv', 'utf8')).map((row) => [row.path, row]),
   );

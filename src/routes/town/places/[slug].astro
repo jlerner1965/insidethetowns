@@ -9,12 +9,13 @@ import SectionHeader from '@/components/SectionHeader.astro';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { breadcrumbJsonLd, localBusinessJsonLd } from '@/lib/seo';
-import { EAT_DRINK_TYPES, PLACE_STATUS_LABELS, PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, THINGS_TO_DO_TYPES } from '@/content/schemas';
+import { EAT_DRINK_TYPES, LAND_TYPES, PLACE_STATUS_LABELS, PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, THINGS_TO_DO_TYPES } from '@/content/schemas';
+import { formatDate } from '@/lib/dates';
 import { openingHoursOf } from '@/lib/hours';
 import { byProminence, isOpen } from '@/lib/places';
 import OpenStatus from '@/components/OpenStatus.astro';
 import Provenance from '@/components/Provenance.astro';
-import { ageDays } from '@/lib/freshness';
+import { accessFresh, ageDays } from '@/lib/freshness';
 
 export async function getStaticPaths() {
   const places = await getTownEntries('places');
@@ -64,8 +65,8 @@ const here = uniqueByEvent(upcoming(occurrences(await getTownEntries('events')))
  */
 const destination = /,\s*CO\b/.test(data.address) ? data.address : `${data.address}, ${town.name}, CO`;
 const directions = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
-// A park or a trail has no one to write in as its owner; everything else does.
-const hasOperator = !['park', 'trail'].includes(data.type);
+// A park, a trail or a trailhead has no one to write in as its owner; everything else does.
+const hasOperator = !LAND_TYPES.includes(data.type);
 const hours = openingHoursOf(data);
 // The gate (src/lib/content.ts) has already stripped the hours of a closed
 // place and of one whose check is older than the hours window; here the page
@@ -74,14 +75,57 @@ const hours = openingHoursOf(data);
 const hoursValue =
   place.hoursHidden === 'stale' && data.verified
     ? `Not shown: last checked ${ageDays(data.verified)} days ago. Call to confirm.`
-    : open
-      ? data.hours
-      : undefined;
+    : place.hoursHidden === 'season'
+      ? `Closed for the season${data.seasonal?.opens ? `; reopens ${formatDate(data.seasonal.opens)}` : ''}.`
+      : open
+        ? data.hours
+        : undefined;
+/**
+ * The mountain variant's season, as one row: the operator's own words for
+ * when it runs, then the dates where the page gives them. The hours row
+ * above already shows the season's hours (the gate swaps them in) or says
+ * the place is closed for the season, so this row never repeats hours.
+ */
+const seasonValue = data.seasonal
+  ? [
+      data.seasonal.season,
+      data.seasonal.opens && data.seasonal.closes
+        ? `opens ${formatDate(data.seasonal.opens)}, closes ${formatDate(data.seasonal.closes)}`
+        : data.seasonal.opens
+          ? `opens ${formatDate(data.seasonal.opens)}`
+          : data.seasonal.closes
+            ? `closes ${formatDate(data.seasonal.closes)}`
+            : undefined,
+    ]
+      .filter(Boolean)
+      .join('; ')
+  : undefined;
+/**
+ * Getting there, on a trail, trailhead or park: parking, permits and
+ * closures, each a fact that goes stale fast, so the block carries its own
+ * check date and the shortest window (FRESHNESS.accessDays). Past it the
+ * notes are not shown and the page says so; the land manager's live page is
+ * linked either way, because that link is the one thing here that cannot go
+ * stale. The town's own road and closure links (config `conditionsLinks`)
+ * follow on every such page of a mountain guide.
+ */
+const access = LAND_TYPES.includes(data.type) ? data.access : undefined;
+const accessShown = access && accessFresh(access);
+const accessNotes = accessShown
+  ? [
+      { label: 'Parking', value: access.parking },
+      { label: 'Permit', value: access.permit },
+      { label: 'Closures', value: access.closures },
+    ].filter((n) => n.value)
+  : [];
+const conditionsLinks = LAND_TYPES.includes(data.type) ? town.conditionsLinks ?? [] : [];
+const beforeYouGo = access || conditionsLinks.length > 0;
 const correct = `/correct/?item=${encodeURIComponent(`place/${place.slug}`)}&title=${encodeURIComponent(data.title)}`;
 const facts = [
   { label: 'Address', value: data.area ? `${data.address} · ${data.area}` : data.address },
   { label: 'Directions', value: 'Open in Google Maps', href: directions },
   { label: 'Hours', value: hoursValue, hours: hours ?? undefined },
+  { label: 'Season', value: seasonValue },
   { label: 'Phone', value: data.phone, href: data.phone ? `tel:${data.phone.replace(/[^\d+]/g, '')}` : undefined },
   { label: 'Website', value: data.url ? new URL(data.url).hostname.replace(/^www\./, '') : undefined, href: data.url },
   { label: 'Trail map', value: data.mapUrl ? 'PDF, from the land manager' : undefined, href: data.mapUrl },
@@ -154,6 +198,47 @@ const facts = [
         ))}
       </dl>
       <OpenStatus />
+      {beforeYouGo && (
+        <section class="mt-6 border-t border-line-soft pt-6" aria-labelledby="before-you-go">
+          <h2 id="before-you-go" class="eyebrow">Before you go</h2>
+          {accessNotes.length > 0 && (
+            <dl class="mt-3 grid gap-3 text-[0.9375rem] leading-snug">
+              {accessNotes.map((n) => (
+                <div>
+                  <dt class="font-semibold">{n.label}</dt>
+                  <dd class="mt-0.5 text-ink-muted">{n.value}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
+          {access && !accessShown && (
+            <p class="mt-3 text-[0.875rem] leading-relaxed text-ink-muted">
+              Parking, permit and closure notes not shown: last checked {ageDays(access.verified)} days ago. Check the land manager’s page below.
+            </p>
+          )}
+          {(access?.conditionsUrl || conditionsLinks.length > 0) && (
+            <ul class="mt-3 grid gap-2 text-[0.9375rem] leading-snug">
+              {access?.conditionsUrl && (
+                <li>
+                  <a href={access.conditionsUrl} rel="noopener" class="font-semibold text-accent-text">{access.conditionsLabel ?? 'Current conditions'}</a>
+                  <span class="block text-[0.875rem] text-ink-muted">The land manager’s own page; we link it rather than repeat it.</span>
+                </li>
+              )}
+              {conditionsLinks.map((l) => (
+                <li>
+                  <a href={l.url} rel="noopener" class="font-semibold text-accent-text">{l.label}</a>
+                  {l.note && <span class="block text-[0.875rem] text-ink-muted">{l.note}</span>}
+                </li>
+              ))}
+            </ul>
+          )}
+          {accessShown && (
+            <p class="mt-3 text-xs leading-relaxed text-ink-faint">
+              Access notes checked {formatDate(access.verified)} against <a href={access.source} rel="noopener" class="underline">{new URL(access.source).hostname.replace(/^www\./, '')}</a>.
+            </p>
+          )}
+        </section>
+      )}
       <Provenance
         verified={data.verified}
         source={data.source}

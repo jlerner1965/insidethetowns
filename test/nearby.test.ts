@@ -102,20 +102,30 @@ test('nothing qualifying means nothing at all', () => {
 });
 
 test('each guide names the neighbours the owner set, in that order', () => {
-  // The owner's lists, 5 October 2026.
+  // The owner's lists, 5 October 2026, with the seven towns scaffolded on
+  // 6 October appended to the guides they name, so each pair goes both ways.
+  // A town that is not live is filtered out by neighborsOf, so nothing shows
+  // on a live guide until the owner flips its neighbour.
   const NEIGHBORS: Record<string, string[]> = {
-    niwot: ['longmont', 'lyons', 'erie'],
-    lyons: ['longmont', 'niwot'],
-    longmont: ['niwot', 'lyons', 'erie', 'carbon-valley', 'berthoud'],
+    niwot: ['longmont', 'lyons', 'erie', 'nederland'],
+    lyons: ['longmont', 'niwot', 'estes-park', 'nederland'],
+    longmont: ['niwot', 'lyons', 'erie', 'carbon-valley', 'berthoud', 'fort-lupton'],
     erie: ['longmont', 'carbon-valley', 'niwot'],
-    'carbon-valley': ['erie', 'longmont'],
+    'carbon-valley': ['erie', 'longmont', 'fort-lupton'],
     berthoud: ['loveland', 'longmont', 'johnstown'],
-    loveland: ['berthoud', 'johnstown', 'fortcollins'],
+    loveland: ['berthoud', 'johnstown', 'fortcollins', 'estes-park'],
     johnstown: ['loveland', 'windsor', 'berthoud'],
-    windsor: ['timnath', 'johnstown', 'fortcollins'],
-    timnath: ['fortcollins', 'windsor'],
-    fortcollins: ['timnath', 'windsor', 'loveland'],
-    elizabeth: [],
+    windsor: ['timnath', 'johnstown', 'fortcollins', 'severance'],
+    timnath: ['fortcollins', 'windsor', 'severance'],
+    fortcollins: ['timnath', 'windsor', 'loveland', 'severance'],
+    elizabeth: ['castle-rock'],
+    severance: ['windsor', 'timnath', 'fortcollins'],
+    'fort-lupton': ['carbon-valley', 'longmont'],
+    'castle-rock': ['elizabeth'],
+    'estes-park': ['lyons', 'loveland'],
+    golden: ['evergreen'],
+    evergreen: ['golden'],
+    nederland: ['lyons', 'niwot'],
   };
   for (const t of towns) assert.deepEqual([...t.neighbors], NEIGHBORS[t.slug], t.slug);
 });
@@ -130,7 +140,9 @@ test('neighbours are real guides, never the town itself, and go both ways', () =
   }
 });
 
-test('Elizabeth has no neighbours, so its block is never built', () => {
+test('Elizabeth has no live neighbours, so its block is never built', () => {
+  // Castle Rock is on its list from 6 October 2026 but not live; neighborsOf
+  // leaves it out until it is.
   assert.deepEqual(neighborsOf(findTown('elizabeth')!), []);
   for (const t of liveTowns().filter((t) => t.slug !== 'elizabeth')) assert.ok(neighborsOf(t).length > 0, t.slug);
 });

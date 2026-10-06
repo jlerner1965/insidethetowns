@@ -157,6 +157,11 @@ events page, so readers can subscribe in a calendar app.
   weekly regulars once each with day, time and venue. `/this-weekend/` is the
   weekend as its own page.
 - `/directory/` is every place by kind, with an "Open now" pill and a name search.
+  Place kinds: restaurant, bar, coffee, shop, trail, trailhead, park, venue, lodging,
+  service. A mountain guide's places may carry `seasonal` (season, hours, open and
+  close dates) and a trail, trailhead or park may carry `access` (parking, permit,
+  closures, the land manager's conditions page); the town config's `conditionsLinks`
+  (CDOT; the park for Estes Park) are linked on Things to Do and every such page.
 - `/guides/` is every article by subject. Articles take `sources` (a list of
   `{ label, url }`) and `verified`, shown at the foot.
 
@@ -184,6 +189,7 @@ and placements to a business owner.
 - `src/config/towns/` — one file per town; `index.ts` exports `getSite()` / `getTown()`
 - `content/<town>/` — events, places, articles, pages, images, and `staging/` for what is not yet publishable (see the README in each)
 - `src/config/freshness.ts` — how long a checked fact stays publishable; `src/lib/freshness.ts` decides, `src/lib/content.ts` applies, on every page
+- `docs/CHASSIS_TWEAKS.md` — where the shared template did not fit a town, logged for the owner to pick from
 - `docs/ACCURACY-SYSTEM.md` — the accuracy brief: what the build enforces and why, phase by phase
 - `IMAGE_LICENSES.csv` — every image, its source and licence
 - `docs/PHOTOS.md` — how to get the missing photographs, and what has been ruled out

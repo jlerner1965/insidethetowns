@@ -14,7 +14,7 @@ import { z } from 'astro/zod';
 import { FRESHNESS } from '../../src/config/freshness.ts';
 import type { TownConfig } from '../../src/config/towns/types.ts';
 import { changeSchema, placeSchema, type Change } from '../../src/content/schemas.ts';
-import { daysUntilStale } from '../../src/lib/freshness.ts';
+import { daysUntilAccessStale, daysUntilStale } from '../../src/lib/freshness.ts';
 import { readRegistry } from '../../src/lib/sources.ts';
 import { parseFrontmatter } from './frontmatter.ts';
 import { yamlString } from './event-files.ts';
@@ -158,6 +158,10 @@ export function summarize(town: TownConfig, contentDir: string, now = new Date()
       }
       const inDays = daysUntilStale(data, town.variant, now);
       if (inDays !== null && inDays <= FRESHNESS.reportHorizonDays) goingStale.push({ title: data.title, file, inDays });
+      // "Before you go" notes have their own check date and window; they go
+      // stale on their own and are flagged on their own, like the listing.
+      const accessIn = data.status === 'open' ? daysUntilAccessStale(data.access, now) : null;
+      if (accessIn !== null && accessIn <= FRESHNESS.reportHorizonDays) goingStale.push({ title: `${data.title}: access notes`, file, inDays: accessIn });
     }
     goingStale.sort((a, b) => a.inDays - b.inDays);
   }

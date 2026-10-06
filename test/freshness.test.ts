@@ -12,10 +12,12 @@ import { FRESHNESS, windowsFor } from '../src/config/freshness.ts';
 import {
   accessFresh,
   ageDays,
+  daysUntilAccessStale,
   daysUntilStale,
   dueForRecheck,
   eventExclusion,
   hoursFresh,
+  inSeason,
   placeExclusion,
   presentation,
 } from '../src/lib/freshness.ts';
@@ -161,7 +163,7 @@ test('mountain fields: seasonal hours on any place, access notes only on a trail
   };
   const trail = schema.parse({ title: 'Lily Lake', type: 'trail', address: 'CO 7', summary: 's', added: '2026-10-03', access });
   assert.equal(trail.access?.parking, access.parking);
-  assert.throws(() => schema.parse({ title: 'Café', type: 'coffee', address: '1', summary: 's', access }), /trail or a park/);
+  assert.throws(() => schema.parse({ title: 'Café', type: 'coffee', address: '1', summary: 's', access }), /trail, a trailhead or a park/);
   assert.throws(() => schema.parse({ title: 'Lily Lake', type: 'trail', address: 'CO 7', summary: 's', access: { parking: 'x' } }));
   const seasonal = schema.parse({
     title: 'The Lodge',
@@ -195,4 +197,62 @@ test('what a published listing may still show: closed, temporarily closed, stale
   });
   assert.deepEqual(presentation(place({ verified: verifiedDaysAgo(60) }), 'front-range', now), { hideHours: false, hidePhone: false, delist: false });
   assert.deepEqual(presentation(place({ verified: verifiedDaysAgo(31) }), 'mountain', now).hoursHidden, 'stale');
+});
+
+test('a seasonal place is closed for the season between its dates, or in a closed month', () => {
+  // Dates win when both are given; the season runs from the start of the
+  // first day to the end of the last, in Denver.
+  const dated = { opens: new Date('2026-05-23T06:00:00Z'), closes: new Date('2026-10-12T06:00:00Z') };
+  assert.equal(inSeason(dated, new Date('2026-07-04T18:00:00Z')), true);
+  assert.equal(inSeason(dated, new Date('2026-05-23T12:00:00Z')), true, 'opening day counts');
+  assert.equal(inSeason(dated, new Date('2026-10-13T04:00:00Z')), true, 'still the 12th in Denver');
+  assert.equal(inSeason(dated, new Date('2026-10-13T12:00:00Z')), false);
+  assert.equal(inSeason(dated, new Date('2026-05-22T12:00:00Z')), false);
+  // Months, matched on three letters, when no dates are published.
+  const months = { closedMonths: ['Nov', 'December', 'jan'] };
+  assert.equal(inSeason(months, new Date('2026-11-15T12:00:00Z')), false);
+  assert.equal(inSeason(months, new Date('2026-12-01T12:00:00Z')), false);
+  assert.equal(inSeason(months, new Date('2026-07-01T12:00:00Z')), true);
+  // A block with neither says nothing about today.
+  assert.equal(inSeason({}, new Date('2026-01-01T12:00:00Z')), true);
+  assert.equal(inSeason(undefined), true);
+  // The gate: out of season hides the hours and says why, keeps the phone and the row.
+  assert.deepEqual(presentation(place({ seasonal: dated, verified: verifiedDaysAgo(2) }), 'mountain', new Date('2026-12-01T12:00:00Z')), {
+    hideHours: true,
+    hoursHidden: 'season',
+    hidePhone: false,
+    delist: false,
+  });
+});
+
+test('the seasonal schema takes open and close dates in order, and access notes sit on a trailhead too', () => {
+  const schema = placeSchema(plainImage);
+  const ok = schema.parse({
+    title: 'Bear Lake Road shuttle lot',
+    type: 'trailhead',
+    address: 'US 36',
+    summary: 's',
+    added: '2026-10-06',
+    seasonal: { season: 'Late May to mid-October', opens: '2026-05-22', closes: '2026-10-12' },
+    access: { parking: 'Park-and-ride', source: 'https://www.nps.gov/romo/', verified: '2026-10-06' },
+  });
+  assert.equal(ok.seasonal?.closes?.getTime()! >= ok.seasonal?.opens?.getTime()!, true);
+  assert.equal(ok.seasonal?.closedMonths.length, 0);
+  assert.throws(
+    () => schema.parse({ title: 'x', type: 'coffee', address: '1', summary: 's', added: '2026-10-06', seasonal: { season: 'summer', opens: '2026-10-12', closes: '2026-05-22' } }),
+    /closes on or after/,
+  );
+});
+
+test('access notes need a source and a check date, hide at their window, and are flagged before it', () => {
+  // The owner's condition for the schema, 6 October 2026: "Before you go"
+  // notes are held to the same rules as every other item.
+  const schema = placeSchema(plainImage);
+  const base = { title: 'Lily Lake', type: 'trailhead', address: 'CO 7', summary: 's', added: '2026-10-06' };
+  assert.throws(() => schema.parse({ ...base, access: { parking: 'x', verified: '2026-10-06' } }), /source/);
+  assert.throws(() => schema.parse({ ...base, access: { parking: 'x', source: 'https://www.nps.gov/romo/' } }), /verified/);
+  assert.equal(accessFresh({ verified: verifiedDaysAgo(FRESHNESS.accessDays) }, now), true);
+  assert.equal(accessFresh({ verified: verifiedDaysAgo(FRESHNESS.accessDays + 1) }, now), false);
+  assert.equal(daysUntilAccessStale({ verified: verifiedDaysAgo(20) }, now), FRESHNESS.accessDays - 20);
+  assert.equal(daysUntilAccessStale(undefined, now), null);
 });

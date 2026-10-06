@@ -240,6 +240,10 @@ for (const town of allTowns) {
     if (data.verified && data.verified.getTime() < addDays(today, -STALE_DAYS).getTime()) {
       report.stale.push({ file, title: data.title, verified: dayKey(data.verified) });
     }
+    // Access notes carry their own check date: on the rotation by it, not the listing's.
+    if (data.access && data.access.verified.getTime() < addDays(today, -STALE_DAYS).getTime()) {
+      report.stale.push({ file, title: `${data.title}: access notes`, verified: dayKey(data.access.verified) });
+    }
   }
   report.expiring.sort((a, b) => a.lastDate.localeCompare(b.lastDate));
   reports.push(report);

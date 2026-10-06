@@ -3228,3 +3228,62 @@ build time.
   twice.
 - `scripts/run.ts` no longer fetches history before the hub build, and
   `listingChanges` is gone with it.
+
+## Ten more towns, five regions, the mountain fields
+
+*6 October 2026.* The owner's brief: the remaining ten towns in one run,
+with regions on the hub. Longmont, Loveland and Carbon Valley were already
+live from earlier prompts, so seven were scaffolded (Severance, Fort Lupton,
+Castle Rock on the Front Range chassis; Estes Park, Golden, Evergreen,
+Nederland on the mountain one), each a noindex holding page until the owner
+flips it.
+
+- **The mountain fields are the schema's existing `seasonal` and `access`
+  blocks, now rendered, plus three additions.** `seasonal` gains `opens`
+  and `closes`, the current season's dates from the operator's page; between
+  them and the next opening the gate strips the hours and the page says
+  "Closed for the season". In season, the seasonal hours *are* the hours:
+  `shape()` in `src/lib/content.ts` swaps them in once, so the row, the
+  page, the open-now badge and the structured data cannot disagree. The
+  seasonal block has no window of its own: it follows the listing's
+  `verified` and the mountain windows, as the owner asked. `trailhead` is a
+  place type (Things to Do, the outdoors hue, `TouristAttraction`, no
+  operator to write in, and `access` may sit on it as on a trail or a park;
+  `LAND_TYPES` names the three). A town config may carry `conditionsLinks`,
+  the official road and closure pages (CDOT's COtrip on every mountain
+  guide, the park's conditions page on Estes Park), shown on Things to Do
+  and on every trail, trailhead and park page and never restated.
+- **Regions are the owner's five**, in the order the hub lists them: Boulder
+  County; Northern Colorado; Carbon Valley & I-25; Mountains & Foothills;
+  South Metro. `TOWN_REGIONS` holds the names, each config its own region,
+  and the hub groups by the field with no list of towns and no counts of its
+  own. Erie moves from "Boulder County & St. Vrain" to "Boulder County",
+  Carbon Valley to its own region with Fort Lupton, Elizabeth to South
+  Metro with Castle Rock. The towns test pins every town's region.
+- **A town that is not live is not on the hub at all.** The dashed "Coming
+  next" box that named unlaunched towns is gone and the map now takes the
+  live list, like the picker, the cards and the counts. Until today no
+  configured town was unlaunched, so the box had never rendered.
+- **The owned domain was confirmed from the nameservers**, not guessed:
+  every one of the thirteen existing domains sits on the same Cloudflare
+  nameserver pair, and exactly one candidate per new town does too
+  (insidecastlerockco.com and insideevergreenco.com, not the plain names,
+  which belong to others; the Cloudflare token in the environment was
+  rejected, so the zone list could not be read).
+- **Vercel projects were created without their domains.** Attaching a
+  production domain is the owner's call under the brief, and the session's
+  permission classifier refused the domain step besides. Each new project
+  has `TOWN`, the Ignored Build Step, Node 22.x, previews off and a deploy
+  hook; the apex and `www` wait for the owner (DEPLOY.md).
+- **Neighbours are symmetric, so the new towns were appended to the lists
+  of the guides they name.** `neighborsOf` leaves an unlaunched town out,
+  so nothing shows on a live guide until its neighbour is flipped.
+- **The scaffold's placeholder hero row is tolerated while a town is not
+  live.** `publicCredit` still refuses a placeholder; the validator and the
+  credits test skip the row only on a holding-page town, and it is an error
+  again the day the town is flipped (docs/CHASSIS_TWEAKS.md, row 5, the one
+  fix in that log). The scaffold's invented sample event, place and article
+  were deleted from each new town rather than left for the gate to exclude.
+- **Sources were seeded, all proposed, from a robots-honouring read of each
+  site**, core first, with the visitor center and the land agencies as core
+  on the mountain guides; nothing is ingested until the owner confirms them.

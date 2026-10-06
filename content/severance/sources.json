@@ -1,0 +1,165 @@
+{
+  "town": "severance",
+  "sources": [
+    {
+      "id": "townofseverance-org-events",
+      "name": "Town of Severance: Community Events calendar",
+      "url": "https://www.townofseverance.org/Calendar.aspx?CID=25",
+      "feedUrl": "https://www.townofseverance.org/common/modules/iCalendar/iCalendar.aspx?catID=25&feed=calendar",
+      "sampleUrl": "https://www.townofseverance.org/Calendar.aspx?EID=1323",
+      "type": "ical",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "defaultVenue": "Severance Town Hall, 3 S Timber Ridge Parkway, Severance",
+      "notes": "Found and read once on 6 October 2026. CivicPlus site. The calendar page lists eight calendars: Main Calendar (CID 14), Community Events (25), Municipal Court (26), Town Council Meetings (27), Citizen Advisory Board (28), Planning Commission (29), Tree Board (30), Youth Council (31). The Community Events iCal (catID=25) had 6 VEVENT (2 RRULE), dates 2024-11-03 to 2026-12-12, time zone America/Denver: Town Christmas, Trick or Treat Parade, Severance Food Drive, Teen Movie Night, Tree Limb Disposal, Coffee with a Cop. Locations seen: Community Park; Severance Town Hall & Clearview Library; 'Drop off locations TBD'; several items carry only 'Severance CO 80550'. No meetings in this calendar. LOCATION values contain HTML (<p> tags) that needs stripping. A combined iCal with several catIDs (catID=14,25,...) returned 404, so each calendar is a separate feed. The home page (6 Oct 2026) says Severance Days was cancelled for 2026 and a Neighborhood Concert was held 3 October at Overlook Park. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+    },
+    {
+      "id": "severancechamber-com",
+      "name": "Severance Chamber of Commerce",
+      "url": "https://severancechamber.com/",
+      "type": "manual",
+      "category": "chamber",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "notes": "Attempted on 6 October 2026: https://severancechamber.com/ failed twice at the connection (curl error, not a robots refusal) and is unreachable from here; not read. The URL comes from two pages that were read: the Colorado Sun article of 29 August 2026 (https://coloradosun.com/2026/08/29/rural-chamber-of-commerce-timnath-severence/), which links https://severancechamber.com/severance-chamber and says Dustin Peyser is president of both the Timnath and Severance chambers, and the Clearview Library District event page https://clearview.libnet.info/event/16880333 (Business Spotlight, Vecinos Mexican Grill and Cantina, 15 July), which links https://severancechamber.com/ and describes monthly Business Spotlight evenings run with the library. A 'Towns Connecting Over Coffee' quarterly event for Timnath, Severance, Eaton and Evans is listed on timnathchamber.com. Platform and feed unknown until the site can be reached; there is no downtown association. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+    },
+    {
+      "id": "clearviewlibrary-org",
+      "name": "Clearview Library District: Events (Severance Library)",
+      "url": "https://www.clearviewlibrary.org/events",
+      "sampleUrl": "https://clearview.libnet.info/event/16880333",
+      "type": "html",
+      "category": "library",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "locationFilter": [
+        "Severance Library"
+      ],
+      "defaultVenue": "Severance Library, 5 Timber Ridge Parkway, Severance",
+      "notes": "Found and read once on 6 October 2026. Severance is served by the Clearview Library District (not High Plains): branches are Windsor Library (720 3rd Street, Windsor), Severance Library (5 Timber Ridge Parkway, Severance, CO 80550, 970-686-5603, Mon-Thu 10-6, Fri-Sat 10-5, closed Sun), a Bookmobile, and an outpost at Windsor Community Recreation Center (from https://clearviewlibrary.org/about-us/learn-more/hours-locations). The events page is a Communico embed (page config: apiServer https://api.communico.co, showRSS/showICAL true, locations []); events render client-side, and individual events live at clearview.libnet.info/event/<id>. Public feed attempts all redirected to the HTML events page: https://clearview.libnet.info/events/feed/ical, .../events/feed/rss, .../events/upcoming/feed/ical. The home page's upcoming list showed Windsor and Severance programs side by side (Babies and Books, Stay and Play, PAWS for Reading, Teen Dungeons & Dragons, 'Read, Rhyme, and Romp — Severance Library'), so a location filter on 'Severance Library' is needed. No feed read; check the page by hand or revisit for a Communico feed URL. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+    },
+    {
+      "id": "townofseverance-org-parks",
+      "name": "Town of Severance: Parks & Recreation",
+      "url": "https://www.townofseverance.org/209/Parks-Recreation",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "notes": "Found and read once on 6 October 2026. Parks & Recreation sits under Public Works on the CivicPlus site (3 S Timber Ridge Parkway, 970-686-1218). The page lists the Town's parks: Severance Shores Park, Hunter's Crossing Park, Overlook Park (650 Audubon Boulevard), Hidden Valley Park 1 and 2, Community Park (100 Waterfowl Way), Dog Park, Tailholt Park, Lakeview Park (513 1/2 Broadview Drive), Karen Suman Park (400 S Timber Ridge Parkway), Summit View Park (270 Audubon Boulevard), Blue Spruce Park (50 S Timber Ridge Parkway), plus a Park Reservation Request and 'Parks Master Plan coming soon'. No recreation programs, classes or a recreation centre are listed; the Town has no separate parks calendar, so park events arrive through the Community Events iCal. The regional recreation provider is the Town of Windsor's Community Recreation Center (250 11th Street, Windsor), but https://www.windsorgov.com/Calendar.aspx returned HTTP 403 on 6 October 2026 and is unreachable from here. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+    },
+    {
+      "id": "brucesbar123-com",
+      "name": "Bruce's Bar: Live Music & Other Events",
+      "url": "https://brucesbar123.com/severance-bruce-s-bar-live-music",
+      "sampleUrl": "https://brucesbar123.com/",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "defaultVenue": "Bruce's Bar, 123 1st Street, Severance",
+      "notes": "Found and read once on 6 October 2026. Bruce's Bar (123 1st St, Severance; phone (970) 686-2320), the town's long-running bar and Rocky Mountain oyster restaurant. The Live Music page is a plain HTML events list (the events link carries a spot_id parameter typical of SpotHopper-built restaurant sites) with no RSS/iCal: recurring entries 'Live music every Saturday night 7-10 PM', 'Music Bingo every other Monday 6:30 PM', 'Karaoke Wednesdays 7-10 PM', 'Line Dancing last Thursday of the month 7-8 PM', plus one-off items such as New Year's Eve (31 December). Also mentions a 'Nut Run' event page. Band names are not listed on the page. Dead end: G5 Brew Pub (1018 Mahogany Way) hosted the Severance Fall Festival in 2018 but a search result says it closed in October 2022; not fetched. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+    },
+    {
+      "id": "shs-weldre4-org",
+      "name": "Severance High School (Weld RE-4): Calendar",
+      "url": "https://shs.weldre4.org/en-us/calendar/ac728423-c4fd-427c-bd58-f8263465c637",
+      "sampleUrl": "https://shs.weldre4.org/en-US",
+      "type": "manual",
+      "category": "venue",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "defaultVenue": "Severance High School, 1200 Hidden Valley Parkway, Severance",
+      "notes": "Found and read once on 6 October 2026. Severance High School, 1200 Hidden Valley Pkwy, Severance, CO 80550, in the Weld RE-4 School District (Windsor-Severance). The school calendar page is a client-rendered month grid whose page config points at a public Google Calendar iCal: calendar id c_2bgupdhihf5a6577kh8sl31hm4@group.calendar.google.com (https://calendar.google.com/calendar/ical/c_2bgupdhihf5a6577kh8sl31hm4%40group.calendar.google.com/public/basic.ics). calendar.google.com's robots.txt disallows our agent on /calendar/ical/ paths (confirmed on the district's calendar; the same rule applies to this one), so the feed was not read. The page also links an Athletics section. Severance Middle School is at sms.weldre4.org (seen in the district's school list, not fetched). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+    },
+    {
+      "id": "townofseverance-org-all",
+      "name": "Town of Severance: All calendars (RSS)",
+      "url": "https://www.townofseverance.org/Calendar.aspx",
+      "feedUrl": "https://www.townofseverance.org/RSSFeed.aspx?ModID=58&CID=All-calendar.xml",
+      "sampleUrl": "https://www.townofseverance.org/Calendar.aspx?EID=1258",
+      "type": "rss",
+      "category": "city-calendar",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Town Council",
+        "Planning Commission",
+        "Citizen Advisory Board",
+        "Municipal Court",
+        "Tree Board",
+        "Youth Council",
+        "Facilities Closed"
+      ],
+      "notes": "Found and read once on 6 October 2026. CivicPlus all-calendar RSS carried only 4 items (Coffee with a Cop; Citizen Advisory Board & Comprehensive Advisory Plan Committee; Town Council Work Session at 5:00 PM / Regular Meeting at 6:00 PM; Tree Limb Disposal), i.e. the near-term items across all eight calendars, with about half being meetings. The October 2026 calendar page itself listed 10 items: Community Events 5, Town Council 2, Citizen Advisory Board 1, Planning Commission 1, Youth Council 1. The Community Events iCal (separate entry) is the cleaner feed; this RSS is a fallback that needs the meeting exclusions above."
+    },
+    {
+      "id": "townofseverance-org",
+      "name": "Town of Severance: Main Calendar",
+      "url": "https://www.townofseverance.org/Calendar.aspx?CID=14",
+      "feedUrl": "https://www.townofseverance.org/common/modules/iCalendar/iCalendar.aspx?catID=14&feed=calendar",
+      "sampleUrl": "https://www.townofseverance.org/Calendar.aspx",
+      "type": "ical",
+      "category": "city-calendar",
+      "status": "proposed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Facilities Closed",
+        "Town Hall Closed"
+      ],
+      "notes": "Found and read once on 6 October 2026. CivicPlus Main Calendar iCal (catID=14): 321 VEVENT, 2 RRULE, dates 2024-07-04 to 2076-11-27 (recurring holiday closures expanded decades ahead), time zone America/Denver. The sampled titles were all closures ('Facilities Closed', 'Christmas Eve - Facilities Closed', 'Thanksgiving - Facilities Closed'); locations are Town Hall (3 S. Timber Ridge Parkway) or 'Severance CO 80550' with embedded HTML. On the October 2026 month view the Main Calendar showed no items, consistent with a closures-only calendar. Low value for events; kept as 'other' in case the Town posts non-closure items here."
+    },
+    {
+      "id": "weld-gov",
+      "name": "Weld County: County Calendar and Events listing",
+      "url": "https://www.weld.gov/Government/County-Information/County-Calendar",
+      "sampleUrl": "https://www.weld.gov/Events-directory",
+      "type": "html",
+      "category": "county",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read once on 6 October 2026. Weld County (seat: Greeley) runs a Granicus-style site. The County Calendar page and the Events listing page (/Events-directory) both rendered, but neither exposed an RSS or iCal link in the page source (only ?oc_lang= language variants). Items seen from the home page were county-wide (Area Agency on Aging falls-prevention events, Human Services job-seeker workshops, Matter of Balance / Tai Ji Quan classes), none in Severance. Treat as a page to check by hand for county-wide items; low relevance for a Severance weekly."
+    },
+    {
+      "id": "northfortynews-com",
+      "name": "North Forty News: Severance coverage",
+      "url": "https://northfortynews.com/?s=Severance",
+      "feedUrl": "https://northfortynews.com/?s=Severance&feed=rss2",
+      "sampleUrl": "https://northfortynews.com/category/art-lifestyle/severance-unveils-full-slate-of-summer-events/",
+      "type": "rss",
+      "category": "news",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read once on 6 October 2026. WordPress site; the search feed for 'Severance' returned 10 items dated 15 July to 30 September 2026 (Black Hollow Sun Now Powers Northern Colorado; Former HOA President Charged With Theft; Windsor High School press box; Weld RE-4 students' honors; Weld RE-4 school safety exercise; Human Bean event for food banks), so Severance-specific coverage is occasional and mixed with Windsor and Fort Collins items. A past article, 'Severance Unveils Full Slate of Summer Events', shows the Town's summer slate gets written up here. The Greeley Tribune and Coloradoan cover Severance but block our search agent (reported by the search tool); BizWest and KUNC carry business and water-district stories about Severance (search results only, not fetched)."
+    },
+    {
+      "id": "townofseverance-org-news",
+      "name": "Town of Severance: News Flash",
+      "url": "https://www.townofseverance.org/CivicAlerts.aspx",
+      "feedUrl": "https://www.townofseverance.org/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml",
+      "type": "rss",
+      "category": "news",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read once on 6 October 2026. CivicPlus News Flash RSS with 2 items ('Town Hall Closed October 8 & 9', 'Planning Commission Opening'; dated 29-30 September 2026). The home page also showed 'Severance Days Canceled for 2026' with a replacement Neighborhood Concert on 3 October at Overlook Park. Useful for closures and occasional event announcements, not an events feed."
+    },
+    {
+      "id": "weldre4-org",
+      "name": "Weld RE-4 School District: Calendar",
+      "url": "https://weldre4.org/calendar",
+      "sampleUrl": "https://weldre4.org/en-US/calendar-for-print",
+      "type": "manual",
+      "category": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read once on 6 October 2026. Weld RE-4 School District, 1020 Main St, Windsor, CO 80550, 970-686-8000 (page footer). The district calendar is a client-rendered grid backed by a public Google Calendar: id c_6rfdkemp84b7jsjvqjb5uk6q8c@group.calendar.google.com. Our robots-aware fetch reported that calendar.google.com/robots.txt disallows /calendar/ical/... for our agent, so the iCal was not read. The district site lists school sites gv, hl, mv, oh, rv, shs, sms, sv, tz (.weldre4.org) and a bond site. District-level calendar is mostly school-year dates; keep as a reference, not a weekly source."
+    }
+  ]
+}

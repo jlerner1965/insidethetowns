@@ -78,7 +78,7 @@ three dates on the same weekday.
 ```yaml
 ---
 title: "Niwot Tavern"
-type: restaurant                  # restaurant|bar|coffee|shop|trail|park|venue|lodging|service
+type: restaurant                  # restaurant|bar|coffee|shop|trail|trailhead|park|venue|lodging|service
 address: "7960 Niwot Rd"
 area: "Cottonwood Square"         # optional district or landmark, shown on the card
 url: "https://…"                  # optional
@@ -97,7 +97,34 @@ summary: "One or two sentences shown on the card."
 Longer description in Markdown.
 ```
 
-`restaurant`, `bar` and `coffee` appear under Eat & Drink; `trail`, `park` and `venue` under Things to Do.
+`restaurant`, `bar` and `coffee` appear under Eat & Drink; `trail`, `trailhead`, `park` and `venue` under Things to Do.
+
+### Mountain guides: seasons and access
+
+On a `mountain` guide a place that follows the season says so, from the
+operator's own page, and a trail, trailhead or park says how to get there:
+
+```yaml
+seasonal:                         # any place
+  season: "Memorial Day weekend to mid-October"   # the operator's words
+  hours: "Daily 9 am–5 pm"        # the hours during the season; shown instead of `hours` while it runs
+  opens: "2026-05-23"             # optional: the current season's first day
+  closes: "2026-10-12"            # optional: its last day; between closes and the next opens the page says "Closed for the season"
+  closedMonths: [Nov, Dec, Jan, Feb, Mar, Apr]   # or the months it is shut, when no dates are published
+access:                           # trail, trailhead or park only
+  parking: "About 30 cars; full by 8 am at weekends"
+  permit: "Timed-entry permit May 22 to October 12"
+  closures: "The road closes for the season after the first heavy snow"
+  conditionsUrl: "https://…"      # the land manager's live conditions page, linked, never copied
+  conditionsLabel: "Park conditions"
+  source: "https://…"             # where the notes were read
+  verified: "2026-10-06"          # the day; notes are hidden 30 days after it (src/config/freshness.ts)
+```
+
+The seasonal block follows the listing's own `verified` and the mountain
+window (30 days); the access block has its own date and the shortest window.
+Road and closure links for the whole town (CDOT, the park) are in the town's
+config, not here.
 
 ## Sources, check dates, and staging
 
