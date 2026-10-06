@@ -3329,3 +3329,48 @@ flips it.
   as live (not committed) built all 65 pages once a real licence line
   stood in for the placeholder's, and failed at `/credits/` without one,
   as designed. Each town needs its hero photograph before it is flipped.
+
+## The owner's decisions of 6 October, applied
+
+*6 October 2026, later the same day.* Eleven decisions on the step 8 table.
+
+- **Events from hand-read pages.** The brief's "feeds only" rule was lifted
+  for the confirmed sources that have no feed (chamber, recreation district,
+  venues, the Town's own pages), under the same rules: the organizer's page
+  is the source, nothing is published, the owner reviews. Evergreen went
+  from 2 staged to 58, Nederland 1 to 17, Castle Rock 14 to 41, Severance 5
+  to 10. Castle Rock's Town site stays the owner's to read.
+- **One run, one event.** Golden's sixteen Polar Express evenings are one
+  staged event with its date range, and the museum's feed no longer
+  re-stages them (title exclusion, noted on the source).
+- **Castle Rock is Castle Rock.** The seven county and state properties in
+  Larkspur and Franktown are gone; the fill from staged and new places got
+  the town to 30, and one of the three settled items (Sudden Fiction Books,
+  whose own pages still disagree on hours) went back to staging, so it
+  stands at 29 of 30 with a phone call outstanding.
+- **The Severance map has no addresses.** The Town's Parks & Trails map
+  gives each park a number, an acreage and a position; four parks publish on
+  that (the position as the address, the map as the source, the body saying
+  so), and the two Hidden Valley parks stay staged because the map names
+  four Hidden Valley parks where the Town's page names two.
+- **Moving Here, from sourced facts only.** All seven pages are rewritten,
+  every claim an inline link to an official page, with a claims table per
+  town in docs/moving-here-claims/ for the owner's read. What could not be
+  sourced is out: home prices everywhere (no dated government figure on an
+  HTML page), elevations (GNIS is not on an official HTML page; Visit
+  Golden's figure disagreed with GNIS and was cut), and the Town-run
+  services of Castle Rock (crgov.com) and Estes Park (403). Two config
+  facts now have a rival: Nederland's incorporation (the Town says 1874,
+  the archives 1885) and the 2020 populations, where DOLA's estimates differ
+  by a few dozen from the census counts; the configs keep the census and
+  archives figures and say so.
+- **Carbon Valley's two remaining core calendars are confirmed**, both
+  official; the meetings calendar excludes its routine meetings by title,
+  and the special-events calendar's three items were already known to
+  ingest from the main calendar, so nothing was staged twice.
+- **Hero photographs** were found on Wikimedia Commons, one per town, each
+  showing the town, with licence and author recorded; they wait for the
+  owner's pick and are not installed.
+- **Estes Park's timed-entry lines** describe a season that ends 18 October;
+  a reminder is set for 19 October to replace them with an out-of-season
+  note linking the park's page.
