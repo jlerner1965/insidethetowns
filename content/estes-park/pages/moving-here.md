@@ -1,16 +1,48 @@
 ---
 title: "Moving to Estes Park"
-description: "Schools, commutes, housing and what to expect when you move to Estes Park, Colorado."
+description: "Estes Park, Colorado: a Larimer County town of about 5,900 at the east entrance to Rocky Mountain National Park. Schools, roads, utilities, fire."
+updated: "2026-10-06"
 ---
 
-## Who moves here
+## Who lives here
 
-Sample copy from `npm run new-town`. Replace with the real guide.
+Estes Park is the town at the east entrance to Rocky Mountain National Park; the Park Service calls it one of the park's two gateway communities, with Grand Lake on the west side ([NPS](https://www.nps.gov/romo/planyourvisit/directions.htm)). The State Demography Office's 2024 estimate puts the Town's population at 5,946, up from 5,865 in 2010 and 5,550 in 2000; the series peaked at 6,777 in 2016 and has been below 6,000 since 2020 ([DOLA county and municipal timeseries, vintage 2024](https://storage.googleapis.com/co-publicdata/county-muni-timeseries.csv)). The school district, which covers 445 square miles around the town, says it is primarily in Larimer County and puts its own elevation at 7,522 feet ([district](https://www.estesschools.org/our-district)).
+
+The year-round count understates who is around. The library district serves more than 12,000 local residents, hundreds of seasonal residents and many thousands of visitors to Estes Park and the park ([library](https://estesvalleylibrary.org/about/)). Every autumn the park's elk descend from the high country to the montane meadows for the rut, and in winter they move down to lower elevations of the park and into the Front Range ([NPS](https://www.nps.gov/romo/learn/nature/elk.htm)).
+
+The Town's own website, estespark.colorado.gov, refuses automated reads, so this page cites other agencies for what the Town does; check the Town's pages yourself for anything that matters to you.
 
 ## Housing
 
-What the market looks like, typical price bands, how fast homes move.
+No readable government source dates a home price for Estes Park: the Town's site, Larimer County's site and the Estes Park Housing Authority's site could not be read for this page, so there are no figures here. The listings in the sidebar show what is for sale.
+
+Two things any house here comes with. The Estes Valley Fire Protection District says that if you live in or visit the Estes Valley you are in the wildland-urban interface, and its Wildfire Mitigation Specialists will assess an individual property, which takes about two hours ([fire district](https://www.estesvalleyfire.org/living-in-the-wui-wildland-urban-interface)). And sewer is a special district, not the Town: the Estes Park Sanitation District bills homes a flat annual fee split across quarterly bills, and its system investment fees, also called tap fees, apply to new construction and remodels ([district](https://www.estesparksanitation.org/)).
+
+## Schools
+
+The [Estes Park School District](https://www.estesschools.org/) is the one district for the valley. It runs three schools from its offices at 1605 Brodie Avenue: Estes Park Elementary School for grades PK–5, Estes Park Middle School for 6–8 and Estes Park High School for 9–12 ([schools](https://www.estesschools.org/schools)). The district counts 914 students, about 170 full-time-equivalent staff and a 94.2 percent graduation rate, and says 44.9 percent of its students qualify for reduced-price lunch. Its boundaries take in Glen Haven, Drake, Allenspark and Pinewood Springs as well as Estes Park ([district profile](https://www.estesschools.org/our-district)).
+
+New students are enrolled year-round, and a child who turns five on or before 1 October can start kindergarten that year ([new students](https://www.estesschools.org/in-our-schools/new-students)). Park Place Preschool at the elementary school offers a half-day class for three-year-olds and a full-day pre-kindergarten for four-year-olds through Colorado Universal Preschool, free for children who qualify and $400 a month otherwise, Tuesday to Friday ([preschool](https://www.estesschools.org/in-our-schools/programs/preschool)). District buses carry about 300 students a day over 300 miles, serving riders from the Estes Valley, Glen Haven, Pinewood Springs and Allenspark ([transportation](https://www.estesschools.org/services-supports/transportation)).
 
 ## Getting around
 
-Commutes to the nearest cities, transit, and the roads that matter.
+Two U.S. highways meet in town. US 36 comes up from Lyons and Boulder; the Park Service's directions from Denver via Boulder count 66 miles and 1.5 to 2 hours, or 71 miles via Highway 66 ([NPS](https://www.nps.gov/romo/planyourvisit/directions.htm)). US 34 comes up the Big Thompson Canyon from Loveland. CDOT rebuilt the canyon highway after the 2013 flood and reopened it to all traffic on 24 May 2018, with the roadway realigned near Drake to sit further from the river and 95,000 cubic yards of rock placed against future flooding ([CDOT](https://www.codot.gov/news/2018/may/us-34-canyon-reopens-for-good-on-thursday-may-24)). West of town, US 34 becomes Trail Ridge Road through the park, 48 miles over a 12,183-foot summit; CDOT gives the drive two hours ([CDOT byway page](https://www.codot.gov/travel/coloradobyways/north-central/trail-ridge-rd)). The Park Service closes it from about mid-October to late May, so in winter the park is a dead end and Grand Lake is a long way round ([NPS](https://www.nps.gov/romo/planyourvisit/directions.htm)); the recorded status line is 970-586-1222 ([park roads](https://www.nps.gov/romo/planyourvisit/road_status.htm)).
+
+Transit is seasonal. CDOT's Bustang to Estes runs on summer weekends and holidays from Denver Union Station up US 36 through Westminster, Broomfield, Louisville/Superior, Boulder and Lyons to the Estes Park Visitor Center at 500 Big Thompson Avenue and on to the park's Park & Ride; 2026 service started on 23 May ([Bustang](https://ridebustang.com/routes/bustang-to-estes/)). The same CDOT page says the Town runs The Peak, a free daily shuttle in the summer season from late May to late October with limited weekly service in late autumn, and that the park's Hiker Shuttle links the Visitor Center to the Park & Ride on Bear Lake Road. Denver International is the closest major airport, and there is no public transportation from it to the park ([NPS](https://www.nps.gov/romo/planyourvisit/directions.htm)).
+
+## Services
+
+- **Electricity** comes through Platte River Power Authority, the community-owned wholesale utility that generates power for Estes Park, Fort Collins, Longmont and Loveland "for delivery to their utility customers" ([Platte River](https://prpa.org/)). The Town's own utility pages could not be read for this guide.
+- **Water** is billed by the Town: the sanitation district says its commercial charges are based on water usage recorded by the Town of Estes Park ([Estes Park Sanitation District](https://www.estesparksanitation.org/)).
+- **Sewer** in the town core is the [Estes Park Sanitation District](https://www.estesparksanitation.org/), organized in March 1940 and, it says, Colorado's oldest special district; its office is at 1201 Graves Avenue, 970-586-2866. Ask the seller which sanitation district a house is in.
+- **Fire and rescue** is the [Estes Valley Fire Protection District](https://www.estesvalleyfire.org/), governed by a five-member elected board ([administration](https://www.estesvalleyfire.org/administration)), with two stations: Station 71 at 901 N. Saint Vrain Avenue, which is also the administrative office (970-577-0900), and Station 72 at 1600 Mills Drive, the primary station for Rocky Mountain National Park ([stations](https://www.estesvalleyfire.org/stations-apparatus)). Its ISO rating is 3 for structures within five road miles of a station and 10 beyond that ([ISO report](https://www.estesvalleyfire.org/iso-report)).
+- **Police** is the Estes Park Police Department ([Town page](https://estespark.colorado.gov/pd), not readable for this guide).
+- **Library** is the [Estes Valley Library](https://estesvalleylibrary.org/) at 335 E. Elkhorn Avenue, a library district with a seven-member elected board, begun in 1916 by the Estes Park Woman's Club with 262 books ([about](https://estesvalleylibrary.org/about/)). It is open 10 to 8 Monday to Thursday, 10 to 6 Friday and Saturday and 1 to 5 Sunday, and is renovating its 1991 building while staying open ([renovation](https://estesvalleylibrary.org/about/renovation/)).
+- **Recreation** is the Estes Valley Recreation and Park District; its site returned an unreadable page, so nothing from it is here.
+
+## Before you decide
+
+- **Wildfire.** The fire district's 2022 Community Wildfire Protection Plan and companion Resident Action Plan are on its [CWPP page](https://www.estesvalleyfire.org/cwpp). As of 4 September 2026 the district is under Stage 1 fire restrictions, and where two agencies' rules differ the stricter applies ([restrictions](https://www.estesvalleyfire.org/fire-restrictions-bans)). Residents should sign up for alerts at NoCoAlerts.org; the district says fires in Estes move fastest to the east and counts five ways out of town, depending on the season: County Road 43 north toward Glen Haven, US 34 northeast to Loveland, US 36 southeast to Lyons, Highway 7 south to Lyons, and US 34 west over Trail Ridge Road to Grand Lake ([evacuation](https://www.estesvalleyfire.org/evacuation-resources)).
+- **The park's timed entry.** From 22 May to 12 October 2026 a reservation is needed to enter the park between 9 am and 2 pm, and the Bear Lake Road corridor needs its own reservation from 5 am to 6 pm through 18 October; before 9 am or after 2 pm no reservation is needed ([NPS](https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm)).
+- **Snow and the roads.** The Park Service warns that conditions change fast at this elevation, with strong winds, blowing snow and ice possible at any time and temporary road closures without notice ([park roads](https://www.nps.gov/romo/planyourvisit/road_status.htm)). Check [COtrip](https://www.cotrip.org/) for US 34 and US 36 before you drive.
+- **County rules.** Much of the valley is unincorporated Larimer County, which has its own fire restrictions and permits ([fire district](https://www.estesvalleyfire.org/fire-restrictions-bans)); the county's website could not be read for this guide, so check it directly for zoning, septic and building rules at any address outside the town limits.
