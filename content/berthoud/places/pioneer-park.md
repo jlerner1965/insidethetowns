@@ -6,6 +6,9 @@ area: "Indiana Avenue"
 url: "https://www.berthoud.org/Facilities/Facility/Details/Pioneer-Park-9"
 tags: [playground, basketball, fishing, picnic]
 summary: "Neighborhood park on Indiana Avenue with a playground, a basketball court, a roller hockey rink, a fishing pond and three large picnic pavilions."
+image: ../images/pioneer-park-pond.webp
+imageAlt: "The fishing pond at Pioneer Park in spring: a fountain in the middle of the water, cattails along the near bank, a picnic pavilion on the lawn to the left, houses beyond, and snow on the peaks on the horizon"
+imageCredit: "Town of Berthoud"
 source: "https://www.berthoud.org/Facilities/Facility/Details/Pioneer-Park-9"
 verified: "2026-10-03"
 added: "2026-09-17"
