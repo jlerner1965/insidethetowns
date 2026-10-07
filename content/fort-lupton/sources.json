@@ -21,9 +21,15 @@
         "Water Meters Read",
         "Late Fees Assessed",
         "Late Notices Sent",
-        "Court"
+        "Court",
+        "SBDC",
+        "Network Power Hour",
+        "Maximize your Business",
+        "Storytime",
+        "Dance & Play",
+        "Makerspace"
       ],
-      "notes": "Found and read once on 6 October 2026. CivicPlus. The all-calendar RSS returned 13 items (Dance & Play, Makerspace Open Studio, City Council Meeting, Water Bills Sent, Storytime Explorers, Planning Commission Meeting, Pumpkinfest & Hayrides, Town Hall Meeting ...); RSS pubDates are publish dates (Dec 2025), the event dates are in the item bodies. The Calendar.aspx page lists 17 calendars: 14 City Business, 22 Recreation Center Business, 23 Court Schedule, 27 Utility Billing, 28 Community Events, 31 Coyote Creek Golf Course, 32 Library All Events, 33 Fitness, 34 Public Works, 35 Recreation Center Events, 36 Library Business, 38-40 and 42 Library Programs (Babies & PK, Elementary, Teens, Adults), 41 Library Closures, 47 Events & Programs. iCal feeds at /common/modules/iCalendar/iCalendar.aspx?catID=N&feed=calendar were read for 14 (30 VEVENT to 29 Dec 2026, America/Denver, almost all council/planning/utility-billing items at 130 S McKinley Ave plus Winterfest featuring Cookies & Cocoa with Santa), 31 and 35 (both 0 VEVENT), 32 and 47 (see the library entries). The Community Events iCal (catID=28) errored twice from here and was not read; its items (Pumpkinfest & Hayrides) do appear in the all-calendar RSS. The RSS mixes library programs, meetings and utility-billing reminders, so the excludeTitles list is needed; library items duplicate the library feed. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+      "notes": "Found and read once on 6 October 2026. CivicPlus. The all-calendar RSS returned 13 items (Dance & Play, Makerspace Open Studio, City Council Meeting, Water Bills Sent, Storytime Explorers, Planning Commission Meeting, Pumpkinfest & Hayrides, Town Hall Meeting ...); RSS pubDates are publish dates (Dec 2025), the event dates are in the item bodies. The Calendar.aspx page lists 17 calendars: 14 City Business, 22 Recreation Center Business, 23 Court Schedule, 27 Utility Billing, 28 Community Events, 31 Coyote Creek Golf Course, 32 Library All Events, 33 Fitness, 34 Public Works, 35 Recreation Center Events, 36 Library Business, 38-40 and 42 Library Programs (Babies & PK, Elementary, Teens, Adults), 41 Library Closures, 47 Events & Programs. iCal feeds at /common/modules/iCalendar/iCalendar.aspx?catID=N&feed=calendar were read for 14 (30 VEVENT to 29 Dec 2026, America/Denver, almost all council/planning/utility-billing items at 130 S McKinley Ave plus Winterfest featuring Cookies & Cocoa with Santa), 31 and 35 (both 0 VEVENT), 32 and 47 (see the library entries). The Community Events iCal (catID=28) errored twice from here and was not read; its items (Pumpkinfest & Hayrides) do appear in the all-calendar RSS. The RSS mixes library programs, meetings and utility-billing reminders, so the excludeTitles list is needed; library items duplicate the library feed. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Excluded 7 October 2026 from the launch review: the SBDC's monthly Network Power Hour and its advisor sessions, a networking forum and office hours under the event standard."
     },
     {
       "id": "fortluptonchamber-org",
@@ -49,11 +55,17 @@
       "status": "confirmed",
       "robots": "honor",
       "defaultVenue": "Fort Lupton Public & School Library",
-      "notes": "Found and read once on 6 October 2026. The library is a City of Fort Lupton department on the same CivicPlus host (370 S Rollie Ave, 303-339-4089; nav also links High Plains Library District). Its calendar 32 (Library All Events) iCal returned 54 VEVENT, 2 RRULE, dates to 29 December 2026, America/Denver, with structured locations such as 'Library > Both Community Room 1 & 2 - 370 S. Rollie Ave. Fort Lupton CO 80621' and 'Library > Makerspace'. Sample titles: Dance & Play, Makerspace Open Studio, Storytime Explorers, SBDC Network Power Hour. Sub-calendars exist for Adults (42), Babies & PK (38), Elementary (39), Teens (40), Library Business (36) and Library Closures (41) but were not read; use 32 and exclude Closures/Business titles if they appear. The library page also posts program news (Level Up!, Spooktacular October, Loteria Mexicana, Cereal, Centers & Stories, StoryWalk at Community Center Park). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Title exclusions added 6 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, regular classes and open hours go on the venue’s listing as a Regulars line; routine meetings are not events); remove any to have it staged again.",
+      "notes": "Found and read once on 6 October 2026. The library is a City of Fort Lupton department on the same CivicPlus host (370 S Rollie Ave, 303-339-4089; nav also links High Plains Library District). Its calendar 32 (Library All Events) iCal returned 54 VEVENT, 2 RRULE, dates to 29 December 2026, America/Denver, with structured locations such as 'Library > Both Community Room 1 & 2 - 370 S. Rollie Ave. Fort Lupton CO 80621' and 'Library > Makerspace'. Sample titles: Dance & Play, Makerspace Open Studio, Storytime Explorers, SBDC Network Power Hour. Sub-calendars exist for Adults (42), Babies & PK (38), Elementary (39), Teens (40), Library Business (36) and Library Closures (41) but were not read; use 32 and exclude Closures/Business titles if they appear. The library page also posts program news (Level Up!, Spooktacular October, Loteria Mexicana, Cereal, Centers & Stories, StoryWalk at Community Center Park). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Title exclusions added 6 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, regular classes and open hours go on the venue’s listing as a Regulars line; routine meetings are not events); remove any to have it staged again. Excluded 7 October 2026 from the launch review: the library calendar's copy of the City's Pumpkinfest (published from the City's own page), and the weekly Dance & Play, Makerspace Open Studio and Storytime Explorers.",
       "excludeTitles": [
         "Makerspace Open Studio",
         "Dance & Play",
-        "Storytime"
+        "Storytime",
+        "Pumpkinfest",
+        "Makerspace",
+        "Storytime Explorers",
+        "SBDC",
+        "Network Power Hour",
+        "Maximize your Business"
       ]
     },
     {
@@ -105,6 +117,52 @@
       "robots": "honor",
       "defaultVenue": "South Platte Valley Historic Park",
       "notes": "Found and read once on 6 October 2026. Weebly site for the society that rebuilt Lupton's Fort at the South Platte Valley Historic Park (north side of Fort Lupton; open first and third weekends May-October 2026, 10-4). Annual events listed in the nav: Teas, Frozen Toes Rendezvous, Heritage Fair, Lancaster Rendezvous & Mountain Man University, Trapper Days Rendezvous (weekend after Labor Day, alongside the city's Trapper Days), Hunter Widow's Rendezvous, Colonial Encampment, TRT Camp Outs, Special Events. The calendar page embeds a Google Calendar, id spvhs.org_k06rja30j23skfe5kkbu9vr32k@group.calendar.google.com (ctz America/Denver); calendar.google.com was not fetched because its robots.txt disallows agents, so type stays html and the embed id is recorded for the owner. The city's 'Pumpkinfest at the Fort' (10 Oct 2026) likely uses this park but that was not confirmed on a fetched page. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+    },
+    {
+      "id": "highplains-libcal-com",
+      "name": "Fort Lupton Public & School Library (High Plains Library District), LibCal",
+      "url": "https://highplains.libcal.com/calendar/hpld?cid=8181&t=d&d=0000-00-00&cal=8181&cm=7846&inc=0",
+      "feedUrl": "https://highplains.libcal.com/rss.php?iid=4057&m=month&cid=8181&cam=7846",
+      "type": "rss",
+      "category": "library",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Storytime",
+        "Dance & Play",
+        "Makerspace Open Studio",
+        "Drop-in",
+        "Club",
+        "English Class",
+        "Twinkle Babies",
+        "Paws to Read",
+        "Library 101",
+        "Legal Clinic",
+        "Workforce Wednesday",
+        "Book Banter",
+        "Career Readiness",
+        "Cereal,Centers",
+        "Cuentitos",
+        "Darker Discussions",
+        "English Conversation",
+        "Board Meeting",
+        "Level Up!",
+        "Library2Go",
+        "LIFE (the Library",
+        "¡Lotería!",
+        "Middle School Hangout",
+        "Teen LEGO",
+        "Teen Video Games",
+        "UFOs (Unfinished Objects)",
+        "Makerspace",
+        "PopUp @",
+        "SBDC",
+        "Network Power Hour",
+        "Maximize your Business"
+      ],
+      "defaultVenue": "Fort Lupton Public & School Library",
+      "notes": "Added 7 October 2026 at the owner's direction. The launch review found the library's real program calendar is the High Plains Library District's LibCal, building filter cam=7846, linked from the library's own Calendars page; the City's library iCal (fortluptonco-gov-library, catID 32) carries almost none of its one-off programs. Read by the same LibCal branch of scripts/lib/feeds/rss.ts as Carbon Valley's. robots.txt asks a 10-second crawl delay. Exclusions from the event standard (storytimes, open studio hours, drop-ins, clubs, classes), as Carbon Valley's; remove any to have it staged again. Some events are held off-site (Teen Laser Tag at the high school library, 425 S Denver Ave); the review corrects the venue. A first run in a scratch copy on 7 October staged 61 items; the regulars among them (Cuentitos and the other storytimes, the English hour, the teen LEGO and video-game afternoons, the middle-school hangout, book discussions, the career class, Library2Go stops, the LIFE program, the craft group, the weekly Level Up! sessions, the board meeting, the Banned Books pop-up, and the bingo-style ¡Lotería!, not the Posada celebration that includes it) are excluded here."
     },
     {
       "id": "fortluptonco-gov-events-programs",

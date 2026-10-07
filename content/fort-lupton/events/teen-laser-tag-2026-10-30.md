@@ -7,8 +7,9 @@ address: "425 S Denver Ave, Fort Lupton, CO 80621"
 url: "https://highplains.libcal.com/event/17650873"
 category: family
 organizer: "Fort Lupton Public & School Library"
-source: "https://www.fortluptonco.gov/CivicAlerts.aspx?AID=657"
-sourceId: "fortluptonco-gov-library"
+source: "https://highplains.libcal.com/event/17650873"
+sourceId: "highplains-libcal-com"
+sourceUid: "libcal:17650873"
 verified: "2026-10-07"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---

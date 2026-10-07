@@ -343,6 +343,15 @@ test('venue from a feed location: the editor\'s alias or default wins, then the 
   assert.equal(venueFrom('Longmont Public Library, 355 Emery St., Longmont, CO, 80501, United States', source({ defaultVenue: 'Longmont Public Library' })).guessed, false);
   assert.equal(venueFrom('Berthoud, CO 80513', source()).venue, undefined);
   assert.equal(venueFrom(undefined, source()).venue, undefined);
+  // No location at all: the default stages a new item, but the feed has not
+  // said where anything is, so it is never the word that an event moved.
+  const silent = venueFrom(undefined, source({ defaultVenue: 'Severance Town Hall' }));
+  assert.deepEqual(silent, { venue: 'Severance Town Hall', address: undefined, guessed: false, silent: true });
+  assert.equal(venueFrom('', source({ defaultVenue: 'Severance Town Hall' })).silent, true);
+  assert.equal(venueFrom('Severance CO 80550', source({ defaultVenue: 'Severance Town Hall' })).silent, true);
+  assert.equal(venueFrom('Storytime Room', source({ defaultVenue: 'Erie Community Library' })).silent, undefined);
+  // "Offsite" beside the branch: the branch runs it, somewhere else.
+  assert.equal(venueFrom('Offsite, Fort Lupton Public & School Library - Public Branch', source({ defaultVenue: 'Fort Lupton Public & School Library' })).guessed, true);
 });
 
 test('a location filter keeps the town\'s items from a district-wide feed', () => {

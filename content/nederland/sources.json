@@ -218,6 +218,18 @@
       "status": "proposed",
       "robots": "honor",
       "notes": "Read 6 October 2026. Weekly Peak to Peak newspaper ('Peak to Peak news since 1977'), a TownNews/BLOX site; home page 200 with sections for Nederland, Eldora, Ward, Gold Hill, Jamestown, Allenspark, Coal Creek Canyon, Lyons, Gilpin County, Black Hawk and Central City, plus Meetings, Police Reports, Music of the Mountains and a Visitor's Guide. The BLOX RSS search endpoint (/search/?f=rss&t=article...) returned 403 from the Varnish cache, and a guessed section URL /news/nederland/ returned 404, so no feed is recorded. Subscription paper; use for leads and attribution only, not core."
+    },
+    {
+      "id": "wildbear-org",
+      "name": "Wild Bear Nature Center",
+      "url": "https://wildbear.org/",
+      "sampleUrl": "https://wildbear.org/children",
+      "type": "manual",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Proposed 7 October 2026 from the launch review: the nature center in Nederland lists dated public programs (Owl Moon night hikes on 24 October and 21 November 2026, school-day-off programs) that the with-kids guide mentions but no confirmed source carries. Confirm to have its dated programs read by hand each week."
     }
   ]
 }
