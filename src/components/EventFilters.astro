@@ -86,6 +86,9 @@ const pill =
   import { dayKey, addDays, startOfDay } from '@/lib/dates';
   import { weekendWindow } from '@/lib/events';
 
+  // A block that sits among the listings but is not one of them ("Nearby
+  // this weekend", data-filter-ignore) is left out of the filtering.
+  const ITEM = '[data-filter-item]:not([data-filter-ignore] *)';
   const bar = document.querySelector<HTMLElement>('[data-event-filters]');
   if (bar) {
     const root = bar.closest<HTMLElement>('[data-filter-root]') ?? document.body;
@@ -132,15 +135,15 @@ const pill =
       for (const b of catButtons) b.setAttribute('aria-pressed', String(b.dataset.category === category));
       freeButton?.setAttribute('aria-pressed', String(free));
       for (const b of whereButtons) b.setAttribute('aria-pressed', String(b.dataset.where === where));
-      const items = root.querySelectorAll<HTMLElement>('[data-filter-item]');
+      const items = root.querySelectorAll<HTMLElement>(ITEM);
       for (const item of items) item.hidden = !matches(item, when, category, free, where);
       for (const group of root.querySelectorAll<HTMLElement>('[data-filter-group]')) {
-        group.hidden = !group.querySelector('[data-filter-item]:not([hidden])');
+        group.hidden = !group.querySelector(`${ITEM}:not([hidden])`);
       }
       // A whole section (the fortnight, "further out") with nothing left says
       // so once, rather than leaving a heading over nothing.
       for (const section of root.querySelectorAll<HTMLElement>('[data-filter-section]')) {
-        section.hidden = !section.querySelector('[data-filter-item]:not([hidden])');
+        section.hidden = !section.querySelector(`${ITEM}:not([hidden])`);
       }
       // A day in the strip whose listings are all hidden would scroll to nothing.
       for (const link of root.querySelectorAll<HTMLElement>('[data-day-link]')) {
@@ -148,9 +151,9 @@ const pill =
         link.hidden = !!day && day.hidden;
       }
       const empty = root.querySelector<HTMLElement>('[data-filter-empty]');
-      if (empty) empty.hidden = !!root.querySelector('[data-filter-item]:not([hidden])');
+      if (empty) empty.hidden = !!root.querySelector(`${ITEM}:not([hidden])`);
       if (status) {
-        const shown = root.querySelectorAll('[data-filter-item]:not([hidden])').length;
+        const shown = root.querySelectorAll(`${ITEM}:not([hidden])`).length;
         const whenLabel = bar.querySelector(`[data-when="${when}"]`)?.textContent?.trim().toLowerCase() ?? '';
         const catLabel = category === 'all' ? 'all categories' : category;
         const whereLabel = where === 'all' ? '' : `, in ${bar.querySelector(`[data-where="${where}"]`)?.textContent?.trim() ?? where}`;

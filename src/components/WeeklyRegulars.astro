@@ -12,6 +12,7 @@
 import type { TownEntry } from '@/lib/content';
 import { formatDate, formatTimeRange, formatWeekday } from '@/lib/dates';
 import { shownCategoryLabel } from '@/content/schemas';
+import SectionHeader from './SectionHeader.astro';
 
 interface Props {
   events: TownEntry<'events'>[];
@@ -30,8 +31,11 @@ const through = (e: TownEntry<'events'>) => (e.data.until ? `through ${formatDat
 ---
 {days.length > 0 && (
   <section id="every-week" class="mt-16 scroll-mt-4 md:mt-24" aria-labelledby="every-week-heading">
-    <h2 id="every-week-heading" class="eyebrow border-b-2 border-accent pb-4">Every week in {townName}</h2>
-    <p class="mb-8 mt-4 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">
+    {/* A section of the page with its own title, like "Further out": as a
+        12px label over a rule it was outranked by the 36px day names under
+        it, and the change of section was easy to miss. */}
+    <SectionHeader id="every-week-heading" eyebrow="The regulars" title={`Every week in ${townName}`} />
+    <p class="-mt-2 mb-8 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">
       The regulars, once each: storytimes, trivia, markets, classes. Each links to its page, with the next date and the
       organizer’s own listing.
     </p>

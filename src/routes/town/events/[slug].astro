@@ -5,12 +5,13 @@ import Page from '@/layouts/Page.astro';
 import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { dayKey, formatDate, formatDayLong, formatDayRange, formatMonthDay, formatTimeRange, formatWeekday, toIsoLocal } from '@/lib/dates';
-import { isCanceled, isInProgress, isMultiDay, isPast, nextOccurrence } from '@/lib/events';
+import { isCanceled, isInProgress, isMultiDay, isPast, nextOccurrence, occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { googleCalendarUrl } from '@/lib/ics';
 import { pickCanonical } from '@/lib/series';
 import { breadcrumbJsonLd, eventJsonLd } from '@/lib/seo';
 import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 import Provenance from '@/components/Provenance.astro';
+import EventCard from '@/components/EventCard.astro';
 
 export async function getStaticPaths() {
   const events = await getTownEntries('events');
@@ -82,6 +83,19 @@ const googleUrl = googleCalendarUrl({
   description: firstSentence,
   url,
 });
+// Called off or postponed: the date is struck through, the calendar links go
+// (nobody should add a meeting that is not happening), and the organizer's
+// page is offered as a check rather than as the next step.
+const offList = isCanceled(event);
+/**
+ * Three more things on soon, the same venue's first. A listing with a short
+ * description and no picture left a wide empty column beside the facts, and
+ * every event page ended at the back link.
+ */
+const soon = uniqueByEvent(upcoming(occurrences(await getTownEntries('events'), { horizonDays: 30 }))).filter(
+  (e) => e.slug !== event.slug && e.data.title !== data.title && !isCanceled(e),
+);
+const alsoOn = [...soon.filter((e) => e.data.venue === data.venue), ...soon.filter((e) => e.data.venue !== data.venue)].slice(0, 3);
 const facts = [
   { label: repeatNote ? 'Next' : 'When', value: [dayText, timeText, repeatNote].filter(Boolean) },
   { label: 'Where', value: [data.venue, data.address].filter(Boolean) },
@@ -123,8 +137,8 @@ const facts = [
   <div class="flex flex-col gap-10 lg:grid lg:grid-cols-[1fr_20rem] lg:items-start lg:gap-16">
     <div class="contents lg:block">
       {statusLabel && (
-        <div class="order-1 rounded-lg border-l-4 border-ink bg-raised p-5 ring-1 ring-line-soft lg:mb-10" role="note">
-          <p class="eyebrow">{statusLabel}</p>
+        <div class="order-1 max-w-[40rem] rounded-r-lg border-l-4 border-highlight bg-highlight-soft p-5 lg:mb-10" role="note">
+          <p class="eyebrow text-ink">{statusLabel}</p>
           <p class="mt-2 leading-relaxed">
             {data.statusNote}
             {data.statusSource && (
@@ -140,6 +154,14 @@ const facts = [
         <div class="prose">
           <Content />
         </div>
+        {alsoOn.length > 0 && (
+          <section class="mt-14" aria-labelledby="also-on" data-hide-when-empty>
+            <h2 id="also-on" class="eyebrow border-b-2 border-accent pb-3">Also coming up in {town.name}</h2>
+            <div class="border-b border-line-soft">
+              {alsoOn.map((e) => <EventCard event={e} />)}
+            </div>
+          </section>
+        )}
       </div>
       <p class="order-5 text-[0.9375rem] lg:mt-12"><a href="/events/" class="font-semibold text-accent-text no-underline hover:underline">← All events</a></p>
     </div>
@@ -151,7 +173,7 @@ const facts = [
               <dt class="eyebrow">{f.label}</dt>
               <dd class="mt-1.5 leading-snug">
                 {f.value.map((line, i) => (
-                  <span class:list={['block', i > 0 && 'text-[0.9375rem] text-ink-muted']}>
+                  <span class:list={['block', i > 0 && 'text-[0.9375rem] text-ink-muted', offList && i === 0 && (f.label === 'When' || f.label === 'Next') && 'text-ink-muted line-through decoration-ink-faint']}>
                     {i === 0 && (f.label === 'When' || f.label === 'Next') ? <time datetime={toIsoLocal(when.start)}>{line}</time> : line}
                   </span>
                 ))}
@@ -159,13 +181,19 @@ const facts = [
             </div>
           ))}
         </dl>
-        {data.url && <a href={data.url} rel="noopener" class="btn btn-primary mt-6">Organizer’s page →</a>}
-        <p class="mt-6 text-[0.9375rem] leading-snug">
-          <span class="eyebrow block">Add to calendar</span>
-          <a href={`/events/${event.slug}.ics`} class="mt-1.5 inline-block font-semibold text-accent-text no-underline hover:underline">Apple, Outlook (.ics)</a>
-          <span class="text-ink-faint"> · </span>
-          <a href={googleUrl} rel="noopener" class="font-semibold text-accent-text no-underline hover:underline">Google</a>
-        </p>
+        {data.url && (
+          <a href={data.url} rel="noopener" class:list={['btn mt-6', offList ? 'btn-outline text-accent-text' : 'btn-primary']}>Organizer’s page →</a>
+        )}
+        {/* Two buttons, not two 20px text links a middot apart. */}
+        {!offList && (
+          <div class="mt-6">
+            <p class="eyebrow">Add to calendar</p>
+            <div class="mt-2 flex flex-wrap gap-2">
+              <a href={`/events/${event.slug}.ics`} class="btn btn-outline min-h-11 text-accent-text">Apple, Outlook</a>
+              <a href={googleUrl} rel="noopener" class="btn btn-outline min-h-11 text-accent-text">Google</a>
+            </div>
+          </div>
+        )}
       </aside>
       <div class="order-4 -mt-4 lg:mt-0">
         <Provenance

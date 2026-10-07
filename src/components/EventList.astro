@@ -21,17 +21,23 @@ interface Props {
 const { events, emptyMessage = 'No events listed yet. Check back soon.' } = Astro.props;
 const { ongoing, dated } = splitOngoing(events);
 const days = groupByDay(dated);
+// On a phone the day heading sticks while its listings scroll under it. It
+// was two lines and about 95px, an eighth of the screen, with nothing to
+// separate it from the cards sliding beneath; it is one line now, over a
+// rule. The negative margins match the page gutter at each width.
+const stuck =
+  'sticky top-0 z-10 -mx-5 mb-3 border-b border-line-soft bg-paper px-5 py-2.5 sm:-mx-8 sm:px-8 md:static md:m-0 md:border-0 md:bg-transparent md:p-0 md:pt-6';
 ---
 {days.length === 0 && ongoing.length === 0 ? (
   <p class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">{emptyMessage}</p>
 ) : (
-  <div class="space-y-12 md:space-y-16">
+  <div class="space-y-10 md:space-y-12">
     {ongoing.length > 0 && (
       <section id="now-on" data-filter-group data-hide-when-empty class="scroll-mt-4 md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
-        <h2 class="sticky top-0 z-10 -mx-4 mb-2 bg-paper px-4 py-2 md:static md:m-0 md:bg-transparent md:p-0 md:pt-6">
-          <span class="display-md block text-3xl text-accent-text md:text-[2.25rem]">
-            <span class="eyebrow mb-2 block">Under way</span>
-            <span class="block">Now on</span>
+        <h2 class={stuck}>
+          <span class="display-md flex items-baseline gap-3 text-2xl text-accent-text md:block md:text-[2.25rem]">
+            <span class="eyebrow md:mb-2 md:block">Under way</span>
+            <span class="md:block">Now on</span>
           </span>
         </h2>
         <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
@@ -45,10 +51,10 @@ const days = groupByDay(dated);
            scroll under it, so a reader halfway down a long Saturday still
            knows it is Saturday. On wide screens it sits in its own column and
            there is nothing to stick to. */}
-        <h2 class="sticky top-0 z-10 -mx-4 mb-2 bg-paper px-4 py-2 md:static md:m-0 md:bg-transparent md:p-0 md:pt-6">
-          <time datetime={toIsoLocal(day.date)} class="display-md block text-3xl text-accent-text md:text-[2.25rem]">
+        <h2 class={stuck}>
+          <time datetime={toIsoLocal(day.date)} class="display-md flex items-baseline gap-3 text-2xl text-accent-text md:block md:text-[2.25rem]">
             {formatDayLong(day.date).split(', ').map((part, i) => (
-              <span class:list={[i === 0 ? 'eyebrow block mb-2' : 'block']}>{part}</span>
+              <span class:list={[i === 0 ? 'eyebrow md:mb-2 md:block' : 'md:block']}>{part}</span>
             ))}
           </time>
         </h2>
