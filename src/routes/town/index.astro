@@ -37,15 +37,19 @@ const [lead, second] = articles;
   <Hero />
 
   {/* The page is a run of colored bands: white, then the accent at 9%, then
-     the accent itself. Without them the whole site is one sheet of tan. */}
-  <section class="band band-white">
+     the accent itself. Without them the whole site is one sheet of tan.
+     The first has half the usual padding on top, so "What’s on" starts close
+     under the hero and its first row of events is in the first screen. */}
+  <section class="band band-white pt-8! md:pt-12!">
     <div class="container-page">
     <SectionHeader eyebrow={`Coming up in ${town.name}`} title="What’s on" href="/events/" linkLabel="All events" />
     {events.length === 0 ? (
       <p class="text-ink-muted">No upcoming events listed yet. <a href="/submit-event/" class="text-accent-text underline">Submit one.</a></p>
     ) : (
       <div data-events-scope>
-        <div class="grid border-b border-line-soft md:grid-cols-2 md:gap-x-12">
+        {/* Each card draws the rule above it, bar the first. In two columns the
+           second card heads the right-hand column, so it goes without too. */}
+        <div class="grid border-b border-line-soft md:grid-cols-2 md:gap-x-12 md:[&>article:nth-child(2)]:border-t-0">
           {events.map((event) => <EventCard event={event} />)}
         </div>
         {/* A build from before the weekend, read after it: the browser has
@@ -61,7 +65,9 @@ const [lead, second] = articles;
 
   <section class="band band-tint">
     <div class="container-page">
-    <SectionHeader eyebrow="Eat, drink, wander" title="Where to go" href="/eat-drink/" linkLabel="Eat & drink" />
+    {/* The section shows every kind of place, not only food, so the link goes
+       to the directory, which lists them all. */}
+    <SectionHeader eyebrow="Eat, drink, wander" title="Where to go" href="/directory/" linkLabel="All places" />
     {places.length === 0 ? (
       <p class="text-ink-muted">Places are on their way.</p>
     ) : (
@@ -88,8 +94,8 @@ const [lead, second] = articles;
       <SectionHeader eyebrow="Latest" title="From the guide" href="/guides/" linkLabel="All guides" />
       <ArticleCard article={lead} feature />
       {second && (
-        <div class="mt-12 max-w-xl border-t border-line-soft pt-8">
-          <ArticleCard article={second} />
+        <div class="mt-12 border-t border-line-soft pt-8">
+          <ArticleCard article={second} row />
         </div>
       )}
       </div>
