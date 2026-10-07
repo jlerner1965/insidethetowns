@@ -79,7 +79,7 @@
       "has": [
         {
           "type": "host",
-          "value": "(www\\.)?insidethetowns\\.com"
+          "value": "insidethetowns.com"
         }
       ]
     },

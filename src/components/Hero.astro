@@ -23,7 +23,7 @@ const {
   // tagline is a sentence with a colon clause and clipped with "…" at
   // every width, which read as a truncation error on the first line of
   // the site. The full tagline stays in the meta description and the footer.
-  subtitle = site.shortTagline ?? site.tagline,
+  subtitle = site.kind === 'town' ? site.shortTagline ?? site.tagline : site.tagline,
   links = site.kind === 'town'
     ? [
         { label: 'This week’s events', href: '/events/', primary: true },

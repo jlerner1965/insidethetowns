@@ -173,7 +173,9 @@ const facts = [
         )}
         {/* Search lands people here, not on the home page; the one ask the
             guide makes goes where the readers are. */}
-        <NewsletterSignup town={town} compact id="event-signup" class="mt-14" />
+        <div class="mt-14">
+          <NewsletterSignup town={town} compact id="event-signup" />
+        </div>
       </div>
       <p class="order-5 text-[0.9375rem] lg:mt-12"><a href="/events/" class="inline-block -my-1 py-1 font-semibold text-accent-text no-underline hover:underline">← All events</a></p>
     </div>
