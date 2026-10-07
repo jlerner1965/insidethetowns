@@ -4,7 +4,7 @@ start: "2026-10-21T16:00"
 end: "2026-10-21T18:00"
 venue: "Fort Lupton Public & School Library"
 address: "370 S Rollie Ave, Fort Lupton, CO 80621"
-url: "https://www.fortluptonco.gov/CivicAlerts.aspx?AID=657"
+url: "https://highplains.libcal.com/event/16136796"
 category: arts
 organizer: "Fort Lupton Public & School Library"
 source: "https://www.fortluptonco.gov/CivicAlerts.aspx?AID=657"

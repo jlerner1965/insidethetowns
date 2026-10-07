@@ -3,7 +3,7 @@ title: "Teen Laser Tag"
 start: "2026-10-30T18:00"
 end: "2026-10-30T20:00"
 venue: "Fort Lupton High School Library"
-url: "https://www.fortluptonco.gov/CivicAlerts.aspx?AID=657"
+url: "https://highplains.libcal.com/event/17650873"
 category: family
 organizer: "Fort Lupton Public & School Library"
 source: "https://www.fortluptonco.gov/CivicAlerts.aspx?AID=657"

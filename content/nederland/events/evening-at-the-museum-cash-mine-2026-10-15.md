@@ -9,6 +9,7 @@ category: other
 organizer: "Boulder County Parks & Open Space"
 source: "https://bouldercounty.gov/event/evening-at-the-museum-cash-mine-3rd-level-mining-milling-and-gold-ore-microscopy/"
 sourceId: "bouldercounty-gov-open-space"
+sourceUid: "10004395-1792087200-1792090800@bouldercounty.gov"
 verified: "2026-10-07"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---

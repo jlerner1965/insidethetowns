@@ -54,7 +54,7 @@ The Chamber of Commerce, which also gives 1936 as the year the star was first li
 
 ## A small town for eighty years
 
-The census counted 88 people in 1880, the year before incorporation, and 315 in 1890 ([state historical census](https://storage.googleapis.com/co-publicdata/historical-census.csv)). The number barely moved for half a century: 304 in 1900, 461 in 1920, 580 in 1940, 741 in 1950. Then it began to climb, to 1,152 in 1960, 1,531 in 1970 and 3,921 in 1980.
+The census counted 88 people in 1880, the year before incorporation, and 315 in 1890 ([state historical census](https://storage.googleapis.com/co-publicdata/historical-census.csv)). For the next half century it grew slowly: 304 in 1900, 461 in 1920, 580 in 1940, 741 in 1950. Then it began to climb, to 1,152 in 1960, 1,531 in 1970 and 3,921 in 1980.
 
 The [Historical Society](https://www.castlerockhistoricalsociety.org/?page_id=588) was formed in 1991 by residents who wanted to highlight the town's history and preserve the historic buildings at the heart of downtown, and in its early years it ran house tours in the historic Craig and Gould neighborhood. In 1996 it bought the old depot, and with a State Historical Fund grant and gifts from businesses and the Town it opened the [Castle Rock Museum](/places/castle-rock-museum/) there in October 1997.
 
