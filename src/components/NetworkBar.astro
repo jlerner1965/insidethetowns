@@ -31,7 +31,7 @@ const sisters = site.kind === 'town'
 const link = 'inline-block py-2 no-underline hover:text-white hover:underline sm:py-0.5';
 // A label, not a second headline: the amber is kept for the one link that
 // matters most, the hub's name.
-const label = 'text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-white/60';
+const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-white/60';
 ---
 <div class="border-t border-white/15 bg-black/30 text-[0.8125rem] text-white/70">
   <div class="container-page flex flex-wrap items-center gap-x-5 gap-y-1 py-3.5">
@@ -48,7 +48,7 @@ const label = 'text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-w
       <Fragment>
         <p class="w-full">
           Part of
-          <a href={`https://${hub.domain}/`} class="ml-1 font-semibold text-highlight-ink no-underline hover:underline"
+          <a href={`https://${hub.domain}/`} class="font-semibold text-highlight-ink no-underline hover:underline"
             >{hub.siteTitle}</a
           >, an independent network of {liveTowns().length} Front Range town guides.
         </p>

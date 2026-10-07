@@ -3,6 +3,9 @@ import { getImage, Image } from 'astro:assets';
 import { render } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import DatedNotice from '@/components/DatedNotice.astro';
+import ContentsList from '@/components/ContentsList.astro';
+import ArticleCard from '@/components/ArticleCard.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { dayKey, formatDate, toIsoLocal } from '@/lib/dates';
 import { getTown } from '@/config';
@@ -25,6 +28,12 @@ const { Content, headings } = await render(article);
 // the text from being a page-length empty margin.
 const contents = headings.filter((h) => h.depth === 2);
 const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
+// Where to go after the last line: the two newest other guides. An article
+// used to end at its sources and then the footer.
+const more = (await getTownEntries('articles'))
+  .filter((a) => a.slug !== article.slug)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 2);
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 <Page title={data.title} kind="Guide" eyebrow={data.category} intro={data.excerpt} description={data.excerpt} image={shareImage} imageAlt={data.imageAlt} type="article"
@@ -54,11 +63,18 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
   )}
   {data.image && (
     <figure class="mb-12">
-      <Image src={data.image} alt={data.imageAlt ?? ''} width={1600} height={900} class="w-full rounded-lg" />
+      {/* Held to 32rem on a wide screen: full width at 16:9 it was some 680px
+          tall and the text began a screen and a half down. */}
+      <Image src={data.image} alt={data.imageAlt ?? ''} width={1600} height={900} class="w-full rounded-lg object-cover lg:h-[32rem]!" />
       {data.imageCredit && (
         <figcaption class="mt-2 text-[0.8125rem] text-ink-faint">Photo: {data.imageCredit}</figcaption>
       )}
     </figure>
+  )}
+  {contents.length > 2 && (
+    <div class="mb-10 lg:hidden">
+      <ContentsList headings={contents} label="In this article" variant="panel" id="contents-panel" />
+    </div>
   )}
   <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
     <div class="prose">
@@ -66,7 +82,7 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
       {(data.sources ?? []).length > 0 && (
         <aside class="mt-12 border-t border-line-soft pt-6 text-[0.875rem] leading-relaxed text-ink-muted not-prose">
           <p class="eyebrow mb-2">Sources</p>
-          <ul class="space-y-1">
+          <ul class="space-y-2.5 text-[0.9375rem]">
             {data.sources.map((s) => (
               <li><a href={s.url} rel="noopener" class="underline">{s.label}</a></li>
             ))}
@@ -76,19 +92,22 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
       )}
     </div>
     {contents.length > 2 && (
-      <aside class="lg:sticky lg:top-24 lg:self-start">
-        <nav aria-labelledby="contents-heading">
-          <p class="eyebrow border-b border-line-soft pb-3" id="contents-heading">In this article</p>
-          <ol class="mt-3 space-y-2 text-[0.9375rem] leading-snug">
-            {contents.map((h, i) => (
-              <li class="flex gap-3">
-                <span class="tabular-nums text-ink-faint">{String(i + 1).padStart(2, '0')}</span>
-                <a href={`#${h.slug}`} class="no-underline hover:text-accent-text hover:underline">{h.text}</a>
-              </li>
-            ))}
-          </ol>
-        </nav>
+      <aside class="hidden lg:sticky lg:top-24 lg:block lg:self-start">
+        <ContentsList headings={contents} label="In this article" variant="rail" id="contents-heading" />
       </aside>
     )}
   </div>
+
+  {more.length > 0 && (
+    <section class="mt-20 md:mt-24">
+      <SectionHeader eyebrow="Keep reading" title="From the guide" href="/guides/" linkLabel="All guides" />
+      <div class="space-y-10">
+        {more.map((a, i) => (
+          <div class:list={[i > 0 && 'border-t border-line-soft pt-10']}>
+            <ArticleCard article={a} row />
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
 </Page>

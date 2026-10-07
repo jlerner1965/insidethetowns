@@ -25,7 +25,9 @@ interface Props {
 const { town, compact = false } = Astro.props;
 const hub = getNetworkHub();
 const config = hub.newsletter;
-const towns = liveTowns();
+// A to Z, as on the hub's home page and in the footer, so the same names are
+// in the same order wherever a reader meets them.
+const towns = [...liveTowns()].sort((a, b) => a.name.localeCompare(b.name));
 const day = config?.sendDay ?? 'Thursday';
 const emailField = config?.emailField ?? 'email';
 const tagField = config?.tagField ?? 'tag';
@@ -34,10 +36,13 @@ const where = town ? town.name : 'the Front Range';
 // two inputs sharing an id is a broken label, not a cosmetic slip.
 const inputId = `newsletter-email-${compact ? 'compact' : 'main'}-${town?.slug ?? 'network'}`;
 const field =
-  'mt-1.5 block w-full rounded-md border border-line bg-raised px-3 py-2.5 text-[1.0625rem] font-normal';
+  'mt-1.5 block h-12 w-full rounded-md border border-line bg-raised px-3 text-[1.0625rem] font-normal';
 ---
+{/* One width and one alignment wherever it appears: it was centred at 630px
+    on the home page, the full width of the events page with its right half
+    empty, and left at 715px on This Weekend. */}
 {config && (
-  <section class:list={['rounded-lg bg-accent-tint p-6 md:p-8', !compact && 'ring-1 ring-accent-line']}>
+  <section class:list={['max-w-3xl rounded-lg bg-accent-tint p-6 md:p-8', !compact && 'ring-1 ring-accent-line']}>
     {/*
       A new tab keeps the reader on the page they were reading. No rel="noopener":
       Astro's FormHTMLAttributes does not carry it, and the only host this can
@@ -56,19 +61,21 @@ const field =
         <fieldset class="mt-5">
           <legend class="eyebrow">Which towns?</legend>
           <p class="mt-1 text-[0.875rem] text-ink-muted">Pick as many as you like, or take the lot.</p>
-          <div class="mt-3 flex flex-wrap gap-x-5 gap-y-2.5">
+          {/* "All of them" first and set apart, since it is not a town; the
+              towns in columns, A to Z, each a full-height row to tap. */}
+          {config.allTag && (
+            <label class="mt-3 flex min-h-11 items-center gap-2.5 border-b border-accent-line pb-2 text-[0.9375rem] font-semibold">
+              <input type="checkbox" name={tagField} value={config.allTag} class="size-5 rounded border-line" />
+              All of them
+            </label>
+          )}
+          <div class="mt-2 grid grid-cols-2 gap-x-5 sm:grid-cols-3">
             {towns.map((t) => (
-              <label class="flex items-center gap-2 text-[0.9375rem]">
-                <input type="checkbox" name={tagField} value={t.slug} class="size-4 rounded border-line" />
+              <label class="flex min-h-11 items-center gap-2.5 text-[0.9375rem]">
+                <input type="checkbox" name={tagField} value={t.slug} class="size-5 shrink-0 rounded border-line" />
                 {t.name}
               </label>
             ))}
-            {config.allTag && (
-              <label class="flex items-center gap-2 text-[0.9375rem] font-semibold">
-                <input type="checkbox" name={tagField} value={config.allTag} class="size-4 rounded border-line" />
-                All of them
-              </label>
-            )}
           </div>
         </fieldset>
       )}
@@ -86,7 +93,9 @@ const field =
             class={field}
           />
         </div>
-        <button type="submit" class="btn btn-primary mt-3 w-full justify-center sm:mt-0 sm:w-auto">Sign up</button>
+        {/* The same height as the field beside it: the pill was 40px against a
+            52px field, aligned at the bottom only. */}
+        <button type="submit" class="btn btn-primary mt-3 h-12 w-full justify-center px-6 sm:mt-0 sm:w-auto">Sign up</button>
       </div>
 
       <p class="mt-3 text-[0.8125rem] leading-relaxed text-ink-faint">

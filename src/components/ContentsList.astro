@@ -1,0 +1,49 @@
+---
+/**
+ * The numbered list of a long read's sections. A rail beside the text on a
+ * wide screen; on a phone, a closed panel above the text, because as a rail
+ * it fell to the very end of the page, after the sources, where a contents
+ * list is no use.
+ */
+interface Props {
+  headings: Array<{ slug: string; text: string }>;
+  /** "In this article", "In this guide". */
+  label: string;
+  /** `rail` beside the text from lg; `panel` before it below lg. */
+  variant: 'rail' | 'panel';
+  id: string;
+}
+
+const { headings, label, variant, id } = Astro.props;
+const list = 'space-y-2 text-[0.9375rem] leading-snug';
+---
+{variant === 'panel' ? (
+  <details class="rounded-lg bg-raised px-5 ring-1 ring-line-soft lg:hidden">
+    <summary class="eyebrow flex min-h-12 cursor-pointer items-center justify-between gap-4" id={id}>
+      {label} · {headings.length}
+      <span aria-hidden="true" class="text-ink-faint">＋</span>
+    </summary>
+    <nav aria-labelledby={id} class="border-t border-line-soft pb-4 pt-3">
+      <ol class={list}>
+        {headings.map((h, i) => (
+          <li class="flex gap-3">
+            <span class="tabular-nums text-ink-faint">{String(i + 1).padStart(2, '0')}</span>
+            <a href={`#${h.slug}`} class="py-0.5 no-underline hover:text-accent-text hover:underline">{h.text}</a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  </details>
+) : (
+  <nav aria-labelledby={id} class="hidden lg:block">
+    <p class="eyebrow border-b border-line-soft pb-3" id={id}>{label}</p>
+    <ol class:list={['mt-3', list]}>
+      {headings.map((h, i) => (
+        <li class="flex gap-3">
+          <span class="tabular-nums text-ink-faint">{String(i + 1).padStart(2, '0')}</span>
+          <a href={`#${h.slug}`} class="no-underline hover:text-accent-text hover:underline">{h.text}</a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+)}

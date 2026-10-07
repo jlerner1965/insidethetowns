@@ -115,6 +115,13 @@
     box-shadow: 0 0 0 3px var(--color-paper);
     border-radius: 2px;
   }
+  /* A text field shows focus on its own edge: the ring set 3px off with a
+     paper gap read as a heavy double frame around a field that had just
+     been focused on load (the search page). */
+  :is(input, textarea, select):focus-visible {
+    outline-offset: 0;
+    box-shadow: none;
+  }
   /* On dark grounds the roles swap, so the bright edge is the outline. */
   .on-dark :focus-visible,
   footer :focus-visible {
@@ -299,7 +306,14 @@
     border-block-end: 1px solid var(--color-line);
     box-shadow: 0 20px 34px -26px rgb(0 0 0 / 0.5);
   }
-  .nav-open .site-nav { display: block; }
+  /* The page under an open menu is dimmed, so the panel reads as on top of
+     it rather than as a strip with a half-covered heading below. The shadow
+     is clipped at the panel's top edge, so the header stays clear. */
+  .nav-open .site-nav {
+    display: block;
+    box-shadow: 0 0 0 100vmax rgb(0 0 0 / 0.35);
+    clip-path: inset(0 -100vmax -100vmax -100vmax);
+  }
   .nav-open body { overflow: hidden; }
   .site-nav-list {
     display: block;
@@ -462,18 +476,31 @@ main:has(> :last-child.on-dark) + footer {
   line-height: 1.7;
 }
 .prose > * + * { margin-top: 1.1em; }
+/* Nothing above the first block: a page that opens on a heading got its 2.2em
+   on top of the page's own padding, half as much again as other pages. */
+.prose > :first-child { margin-top: 0; }
 .prose h2 {
   font-size: 1.75rem;
   line-height: 1.2;
   margin-top: 2.2em;
+  /* The headings' base setting is the hairline display cut, opsz 144, made
+     for sizes past 60px; at 28px it crowded the letters and closed up the
+     word spaces. The text cut and near-normal tracking hold up here. */
+  font-variation-settings: "opsz" 36;
+  letter-spacing: -0.005em;
   /* Landing from a contents link should not put the heading against the edge. */
   scroll-margin-top: 1.5rem;
 }
-/* A way in: the opening paragraph is set a size larger than the body. */
-.prose > p:first-of-type {
+/* A way in: the opening paragraph is set a size larger than the body — only
+   when the text opens with one. As :first-of-type it fell on whichever
+   paragraph came first, after a list on Thanks, under section one's heading
+   on Moving Here, so a single mid-page paragraph came out larger. */
+.prose > p:first-child {
   font-size: 1.1875rem;
   line-height: 1.6;
 }
+/* No single word alone on a paragraph's last line. */
+.prose p { text-wrap: pretty; }
 .prose h3 { font-size: 1.3rem; line-height: 1.3; margin-top: 1.8em; }
 .prose h2 + *, .prose h3 + * { margin-top: 0.6em; }
 .prose a {
@@ -544,6 +571,10 @@ main:has(> :last-child.on-dark) + footer {
     color: var(--color-ink-faint);
   }
 }
+/* An empty, required date or time field shows its "mm/dd/yyyy" in the
+   placeholder grey of every other field, not in full ink as if filled in. */
+input:is([type="date"], [type="time"]):invalid::-webkit-datetime-edit { color: var(--color-ink-faint); }
+
 /* A form set inside prose (the contact page) is a card with its own
    padding: the prose rhythm would put 1.1em above it and 2.2em above its
    heading, which opened the card on a band of empty white. */

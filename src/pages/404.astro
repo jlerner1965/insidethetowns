@@ -1,6 +1,33 @@
 ---
 import Page from '@/layouts/Page.astro';
+import { getSite } from '@/config';
+
+const site = getSite();
+const links =
+  site.kind === 'town'
+    ? [
+        { label: 'This weekend', href: '/this-weekend/' },
+        { label: 'Events', href: '/events/' },
+        { label: 'Eat & drink', href: '/eat-drink/' },
+        { label: 'Directory', href: '/directory/' },
+        { label: 'Guides', href: '/guides/' },
+      ]
+    : [
+        { label: 'This weekend', href: '/this-weekend/' },
+        { label: 'The towns', href: '/#towns' },
+        { label: 'Moving', href: '/moving/' },
+      ];
 ---
 <Page title="Page not found" eyebrow="404" intro="That page doesn’t exist or has moved." description="That page doesn’t exist or has moved. Start again from the home page." noindex narrow>
-  <p><a href="/" class="btn btn-primary">Back to the home page</a></p>
+  {/* A way back in besides the home page: the search, and the main sections. */}
+  <form role="search" action="/search/" method="get" class="flex gap-3">
+    <label for="q404" class="sr-only">Search</label>
+    <input id="q404" name="q" type="search" placeholder="Search the guide" class="min-w-0 flex-1 rounded-md border border-line bg-raised px-4 py-3 text-[1.0625rem] text-ink placeholder:text-ink-faint" />
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+  <p class="mt-8 flex flex-wrap items-baseline gap-x-4 gap-y-1 text-[0.9375rem]">
+    <span class="eyebrow text-ink-faint">Or go to</span>
+    {links.map((l) => <a href={l.href} class="py-1 font-semibold text-accent-text no-underline hover:underline">{l.label}</a>)}
+  </p>
+  <p class="mt-10"><a href="/" class="btn btn-outline text-accent-text">Back to the home page</a></p>
 </Page>

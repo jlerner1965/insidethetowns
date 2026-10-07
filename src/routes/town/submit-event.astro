@@ -23,7 +23,10 @@ const action = town.formspreeId ? `https://formspree.io/f/${town.formspreeId}` :
 const mailto = `mailto:${town.social.email}?subject=${encodeURIComponent(`Event submission — ${town.siteTitle}`)}`;
 const field = 'mt-1.5 block w-full rounded-md border border-line bg-raised px-3 py-2.5 text-[1.0625rem] font-normal';
 const label = 'block text-sm font-semibold';
-const group = 'space-y-5 rounded-lg bg-raised p-6 ring-1 ring-line-soft md:p-8';
+// The legend floats inside the card's padding: on a ring (not a border) it
+// had no notch to sit in and straddled the card's top edge, indented past the
+// labels below it.
+const group = 'space-y-5 rounded-lg bg-raised p-5 ring-1 ring-line-soft sm:p-6 md:p-8 [&>legend+*]:clear-both';
 ---
 <Page
   title="Submit an event"
@@ -42,7 +45,7 @@ const group = 'space-y-5 rounded-lg bg-raised p-6 ring-1 ring-line-soft md:p-8';
       </p>
 
       <fieldset class={group}>
-        <legend class="eyebrow px-2">1 · What and when</legend>
+        <legend class="eyebrow float-left mb-1 w-full p-0">1 · What and when</legend>
         <label class={label}>
           Event name
           <input type="text" name="title" required autocomplete="off" class={field} />
@@ -73,7 +76,7 @@ const group = 'space-y-5 rounded-lg bg-raised p-6 ring-1 ring-line-soft md:p-8';
       </fieldset>
 
       <fieldset class={group}>
-        <legend class="eyebrow px-2">2 · Where and who</legend>
+        <legend class="eyebrow float-left mb-1 w-full p-0">2 · Where and who</legend>
         <label class={label}>
           Venue
           <input type="text" name="venue" required autocomplete="off" class={field} />
@@ -107,7 +110,7 @@ const group = 'space-y-5 rounded-lg bg-raised p-6 ring-1 ring-line-soft md:p-8';
         <button type="submit" class="btn btn-primary w-full justify-center sm:w-auto">Send it in</button>
         <p class="text-sm leading-relaxed text-ink-muted">
           We check every submission against the organizer’s own page before it goes up, usually within a couple of
-          days. If something is wrong once it is live, <a href="/contact/" class="text-accent-text">tell us</a> and it
+          days. If something is wrong once it is live, <a href="/contact/" class="text-accent-text underline">tell us</a> and it
           gets fixed.
         </p>
       </div>

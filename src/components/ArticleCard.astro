@@ -5,9 +5,10 @@
  * text: the home page's second story, and a section of the guides page that
  * has only one, rather than a card stranded in the left half of a grid.
  *
- * A feature with no photograph is set as text across the full width, under a
- * heavy rule, rather than beside a tinted rectangle standing in for the
- * picture that does not exist.
+ * A feature with no photograph is set as text across the full width, rather
+ * than beside a tinted rectangle standing in for the picture that does not
+ * exist. It used to sit under a heavy rule of its own, which doubled the
+ * section header's rule just above it.
  */
 import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
@@ -49,7 +50,7 @@ const side = row && !feature && !!data.image;
       />
     </div>
   )}
-  <div class:list={[!feature && !side && data.image && 'mt-4', feature && !data.image && 'max-w-3xl border-t-2 border-ink pt-7', row && 'max-w-2xl']}>
+  <div class:list={[!feature && !side && data.image && 'mt-4', feature && !data.image && 'max-w-3xl', row && 'max-w-2xl']}>
     <p class="eyebrow">
       {showCategory && <Fragment>{data.category} <span class="text-ink-faint">·</span> </Fragment>}<time datetime={toIsoLocal(data.date)} class="text-ink-muted">{formatDate(data.date)}</time>
     </p>

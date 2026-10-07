@@ -110,8 +110,11 @@ const [lead, second] = articles;
     modal: a popup on a community guide reads as spam and costs exactly the
     trust the rest of the site is built on.
   */}
-  <section class="band band-white">
-    <div class="container-page max-w-2xl">
+  {/* Straight after "From the guide", another white band: the two paddings
+     stacked to some 200px of blank, so this one starts at the top. Left with
+     every other block on the page rather than centred. */}
+  <section class:list={['band band-white', lead && 'pt-0!']}>
+    <div class="container-page">
       <NewsletterSignup town={town} compact />
     </div>
   </section>

@@ -6,7 +6,9 @@ import Wordmark from './Wordmark.astro';
 const site = getSite();
 const hub = getNetworkHub();
 const year = new Date().getFullYear();
-const linkClass = 'no-underline text-white/75 hover:text-white hover:underline';
+// A phone gets a taller line to tap: the links were 19px high, under the 24px
+// minimum, a few pixels apart.
+const linkClass = 'inline-block py-1 no-underline text-white/75 hover:text-white hover:underline sm:py-0';
 ---
 <footer class="on-dark mt-24 bg-accent-dark text-white/80">
   <div class="container-page grid gap-10 py-14 md:grid-cols-[1.6fr_1fr_1fr] md:gap-12 md:py-20">
@@ -16,7 +18,7 @@ const linkClass = 'no-underline text-white/75 hover:text-white hover:underline';
     </div>
     <div>
       <p class="eyebrow text-highlight-ink">Get in touch</p>
-      <ul class="mt-4 space-y-2 text-[0.9375rem]">
+      <ul class="mt-3 space-y-0.5 text-[0.9375rem] sm:mt-4 sm:space-y-2">
         <li><a href="/contact/" class={linkClass}>Contact</a></li>
         {site.kind === 'town' && (
           <li><a href="/submit-event/" class={linkClass}>Submit an event</a></li>
