@@ -13,9 +13,9 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  */
 export const fortLupton: TownConfig = {
   kind: 'town',
-  // Not live: the domain serves a noindex holding page until the owner flips
-  // this after the first review (docs/ACCURACY-SYSTEM.md, launch threshold).
-  status: 'wave2',
+  // Live 7 October 2026, on the owner's word, after the first review cleared
+  // the launch threshold (docs/ACCURACY-SYSTEM.md).
+  status: 'live',
   variant: 'front-range',
   region: 'Carbon Valley & I-25',
   neighbors: ['carbon-valley', 'longmont'],
@@ -26,7 +26,8 @@ export const fortLupton: TownConfig = {
   domain: 'insidefortlupton.com',
   siteTitle: 'Inside Fort Lupton',
   tagline:
-    'An independent guide to Fort Lupton, Colorado: the South Platte town around the old fort, its downtown, the recreation center, and what it’s like to live on the far side of I-25 from the Carbon Valley.',
+    'An independent guide to Fort Lupton, Colorado: the old fort on the South Platte, downtown, the recreation center, and life across I-25 from Carbon Valley.',
+  shortTagline: 'The old fort, downtown and the South Platte',
   seoTagline: 'Events and places in Fort Lupton, Colorado',
   counties: ['Weld'],
   state: 'CO',

@@ -15,9 +15,9 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  */
 export const estesPark: TownConfig = {
   kind: 'town',
-  // Not live: the domain serves a noindex holding page until the owner flips
-  // this after the first review (docs/ACCURACY-SYSTEM.md, launch threshold).
-  status: 'wave3',
+  // Live 7 October 2026, on the owner's word, after the first review cleared
+  // the launch threshold (docs/ACCURACY-SYSTEM.md).
+  status: 'live',
   variant: 'mountain',
   region: 'Mountains & Foothills',
   neighbors: ['lyons', 'loveland'],
@@ -28,7 +28,8 @@ export const estesPark: TownConfig = {
   domain: 'insideestespark.com',
   siteTitle: 'Inside Estes Park',
   tagline:
-    'An independent guide to Estes Park, Colorado: the gateway town to Rocky Mountain National Park, Elkhorn Avenue, the trailheads, the elk, and what it’s like to live at 7,500 feet.',
+    'An independent guide to Estes Park, Colorado: the gateway to Rocky Mountain National Park, Elkhorn Avenue, the trailheads, the elk, and mountain life.',
+  shortTagline: 'Elkhorn Avenue, the trailheads, the elk and the national park',
   seoTagline: 'Events and trails in Estes Park, Colorado',
   counties: ['Larimer'],
   state: 'CO',

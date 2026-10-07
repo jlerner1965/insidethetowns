@@ -13,9 +13,9 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  */
 export const severance: TownConfig = {
   kind: 'town',
-  // Not live: the domain serves a noindex holding page until the owner flips
-  // this after the first review (docs/ACCURACY-SYSTEM.md, launch threshold).
-  status: 'wave2',
+  // Live 7 October 2026, on the owner's word, after the first review cleared
+  // the launch threshold (docs/ACCURACY-SYSTEM.md).
+  status: 'live',
   variant: 'front-range',
   region: 'Northern Colorado',
   neighbors: ['windsor', 'timnath', 'fortcollins'],
@@ -28,7 +28,8 @@ export const severance: TownConfig = {
   domain: 'insideseverance.com',
   siteTitle: 'Inside Severance',
   tagline:
-    'An independent guide to Severance, Colorado: the small town east of Windsor that grew from 3,000 to 7,700 people in a decade, its parks and its events, and what it’s like to live there.',
+    'An independent guide to Severance, Colorado: the parks, the ponds, the events, and life in the Weld County town east of Windsor that doubled in a decade.',
+  shortTagline: 'The parks, the ponds and a town that doubled in ten years',
   seoTagline: 'Events and places in Severance, Colorado',
   counties: ['Weld'],
   state: 'CO',

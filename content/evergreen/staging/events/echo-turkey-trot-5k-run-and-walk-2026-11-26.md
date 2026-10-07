@@ -1,6 +1,6 @@
 ---
 title: "EChO Turkey Trot 5K Run & Walk"
-review: { reason: "Read by hand from the Evergreen Area Chamber's community calendar on 6 October 2026; race-day registration opens 8 am, opening ceremony 8:45, 5K starts 9 am; prices as given there.", since: "2026-10-06", from: manual }
+review: { reason: "Re-read 7 October 2026: the chamber listing still gives Thursday 26 November, 5K at 9 am, but Evergreen Christian Outreach's own page (url) answers automated reads with a SiteGround bot challenge. Needs: the date and start confirmed on evergreenchristianoutreach.org by a person.", since: "2026-10-06", from: manual }
 start: "2026-11-26T09:00"
 end: "2026-11-26T11:00"
 venue: "Evergreen Christian Outreach (EChO)"
@@ -13,4 +13,4 @@ source: "https://members.evergreenchamber.org/events/details/16th-annual-echo-tu
 sourceId: "evergreenchamber-org-calendar"
 ---
 
-The 16th annual Thanksgiving-morning 5K in support of Evergreen Christian Outreach, the local food bank and resource centre. Race-day registration opens at 8 am at EChO on Meadow Drive, there is a short opening ceremony at 8:45 and the run and walk start at 9. Fees rise from $30 to $40 for adults as the date nears; children 4 and under are free, and a T-shirt comes with registration by 1 November.
+The 16th annual Thanksgiving-morning 5K in support of Evergreen Christian Outreach, the local food bank and resource center. Race-day registration opens at 8 am at EChO on Meadow Drive, there is a short opening ceremony at 8:45 and the run and walk start at 9. Fees rise from $30 to $40 for adults as the date nears; children 4 and under are free, and a T-shirt comes with registration by 1 November.

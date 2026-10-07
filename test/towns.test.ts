@@ -66,8 +66,9 @@ test('county labels read as English in both shapes', () => {
 
 test('the network counts every county it covers, not every town', () => {
   const live = towns.filter((t) => LIVE_TOWNS.includes(t.slug));
-  // Boulder, Weld, Larimer, Elbert. Windsor and Fort Collins add no county.
-  assert.deepEqual(countiesCovered(live).sort(), ['Boulder', 'Elbert', 'Larimer', 'Weld']);
+  // Boulder, Weld, Larimer, Elbert, and Jefferson from 7 October 2026 (Golden
+  // and Evergreen). Windsor, Fort Collins and the other new guides add no county.
+  assert.deepEqual(countiesCovered(live).sort(), ['Boulder', 'Elbert', 'Jefferson', 'Larimer', 'Weld']);
 });
 
 test('no guide claims a single school district for a town that has two', () => {

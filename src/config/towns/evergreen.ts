@@ -14,9 +14,9 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  */
 export const evergreen: TownConfig = {
   kind: 'town',
-  // Not live: the domain serves a noindex holding page until the owner flips
-  // this after the first review (docs/ACCURACY-SYSTEM.md, launch threshold).
-  status: 'wave3',
+  // Live 7 October 2026, on the owner's word, after the first review cleared
+  // the launch threshold (docs/ACCURACY-SYSTEM.md).
+  status: 'live',
   variant: 'mountain',
   region: 'Mountains & Foothills',
   neighbors: ['golden'],
@@ -27,7 +27,8 @@ export const evergreen: TownConfig = {
   domain: 'insideevergreenco.com',
   siteTitle: 'Inside Evergreen',
   tagline:
-    'An independent guide to Evergreen, Colorado: the lake, the downtown on Bear Creek, the elk in the meadows, the Jeffco Open Space trails, and what it’s like to live in the foothills an hour from Denver.',
+    'An independent guide to Evergreen, Colorado: the lake, downtown on Bear Creek, the elk, the Jeffco Open Space trails, and life in the foothills.',
+  shortTagline: 'The lake, Bear Creek, the elk and the open space trails',
   seoTagline: 'Events and trails in Evergreen, Colorado',
   counties: ['Jefferson'],
   state: 'CO',

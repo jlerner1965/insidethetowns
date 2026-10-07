@@ -23,10 +23,12 @@ const { towns } = Astro.props;
 /** Cities with no guide of their own, drawn faintly so the towns have somewhere to be. */
 const CONTEXT = [
   // Fort Collins and Longmont used to be here; each has a guide of its own now.
+  // Castle Rock stays listed for the day its guide is not live, and drops out
+  // when it is, rather than drawing a faint label under its own pin.
   { name: 'Boulder', lat: 40.015, lng: -105.2705, side: 'right' },
   { name: 'Denver', lat: 39.7392, lng: -104.9903, side: 'left' },
   { name: 'Castle Rock', lat: 39.3722, lng: -104.8561, side: 'right' },
-];
+].filter((c) => !towns.some((t) => t.name === c.name));
 
 /** I-25, the road that ties the whole thing together, as a rough polyline. */
 const I25 = [
@@ -66,30 +68,63 @@ const y = (lat: number) => (maxLat - lat) * scale;
 
 const context = CONTEXT.map((c) => ({ ...c, cx: x(c.lng), cy: y(c.lat) }));
 
-// Berthoud and Johnstown are nine miles apart on the same line of latitude, so
-// a label always drawn to the right of its pin lands on top of its neighbour.
-// Anything with company close to its right gets its label on the other side —
-// unless the other side is more crowded still. Timnath has Fort Collins five
-// pixels off its line to the west and Windsor twenty-one to the east, and a
-// label sent left there ran straight across the Fort Collins pin; it goes
-// where there is more room.
-const placed = [...towns.map((t) => ({ cx: x(t.lng), cy: y(t.lat) })), ...context];
-/** How far off a pin's label line the nearest thing on one side sits, within label reach. */
-const clearance = (cx: number, cy: number, side: 'left' | 'right') =>
-  Math.min(
-    Infinity,
-    ...placed
-      .filter((p) => (side === 'right' ? p.cx - cx > 1 && p.cx - cx < 170 : cx - p.cx > 1 && cx - p.cx < 170))
-      .map((p) => Math.abs(p.cy - cy)),
-  );
-const pins = towns.map((t) => {
-  const cx = x(t.lng);
-  const cy = y(t.lat);
-  const right = clearance(cx, cy, 'right');
-  const left = clearance(cx, cy, 'left');
-  const crowded = right < 22 && !(left < 22 && left < right);
-  return { t, cx, cy, left: crowded, live: LIVE_TOWNS.includes(t.slug) };
-});
+// Labels go to the right of their pins unless that lands on something.
+// Berthoud and Johnstown are nine miles apart on one line of latitude; Timnath
+// sits between Fort Collins and Severance, Carbon Valley beside Fort Lupton.
+// A left-or-right rule ran out of room once those clusters filled in, so each
+// label tries right, left, above, then below, and takes the first spot that
+// clears every pin, every label already placed and the frame. The most
+// crowded pins choose first, while there is still room to choose. Widths are
+// estimated from the character count, generously, since the SVG cannot measure
+// its own text here.
+type Box = { x0: number; y0: number; x1: number; y1: number };
+type Spot = { dx: number; dy: number; anchor: 'start' | 'end' | 'middle' };
+const SPOTS: Spot[] = [
+  { dx: 13, dy: 5, anchor: 'start' },
+  { dx: -13, dy: 5, anchor: 'end' },
+  { dx: 0, dy: -17, anchor: 'middle' },
+  { dx: 0, dy: 27, anchor: 'middle' },
+  { dx: 6, dy: -15, anchor: 'start' },
+  { dx: -6, dy: -15, anchor: 'end' },
+  { dx: 6, dy: 25, anchor: 'start' },
+  { dx: -6, dy: 25, anchor: 'end' },
+];
+const textBox = (tx: number, ty: number, text: string, anchor: Spot['anchor'], size: number): Box => {
+  const w = text.length * size * 0.56;
+  const x0 = anchor === 'start' ? tx : anchor === 'end' ? tx - w : tx - w / 2;
+  return { x0, y0: ty - size * 0.8, x1: x0 + w, y1: ty + size * 0.25 };
+};
+const overlap = (a: Box, b: Box) =>
+  Math.max(0, Math.min(a.x1, b.x1) - Math.max(a.x0, b.x0)) * Math.max(0, Math.min(a.y1, b.y1) - Math.max(a.y0, b.y0));
+
+const points = towns.map((t) => ({ t, cx: x(t.lng), cy: y(t.lat) }));
+const obstacles: Box[] = [
+  // A pin's halo is a 13px circle; a 10px square covers it without its empty corners.
+  ...points.map(({ cx, cy }) => ({ x0: cx - 10, y0: cy - 10, x1: cx + 10, y1: cy + 10 })),
+  ...context.flatMap((c) => [
+    { x0: c.cx - 3, y0: c.cy - 3, x1: c.cx + 3, y1: c.cy + 3 },
+    textBox(c.cx + (c.side === 'right' ? -9 : 9), c.cy + 4, c.name, c.side === 'right' ? 'end' : 'start', 12),
+  ]),
+  // The foothills band down the left edge.
+  { x0: 0, y0: 0, x1: 28, y1: H },
+];
+const crowding = (p: (typeof points)[number]) =>
+  points.filter((q) => q !== p && Math.abs(q.cx - p.cx) < 120 && Math.abs(q.cy - p.cy) < 30).length;
+const spotFor = new Map<string, Spot>();
+for (const p of [...points].sort((a, b) => crowding(b) - crowding(a))) {
+  let best = SPOTS[0]!;
+  let bestCost = Infinity;
+  for (const s of SPOTS) {
+    const box = textBox(p.cx + s.dx, p.cy + s.dy, p.t.name, s.anchor, 15);
+    const outside = box.x0 < 0 || box.x1 > W || box.y0 < 0 || box.y1 > H - footer ? 1e6 : 0;
+    const cost = outside + obstacles.reduce((sum, o) => sum + overlap(box, o), 0);
+    if (cost < bestCost) [best, bestCost] = [s, cost];
+    if (cost === 0) break;
+  }
+  spotFor.set(p.t.slug, best);
+  obstacles.push(textBox(p.cx + best.dx, p.cy + best.dy, p.t.name, best.anchor, 15));
+}
+const pins = points.map(({ t, cx, cy }) => ({ t, cx, cy, spot: spotFor.get(t.slug)!, live: LIVE_TOWNS.includes(t.slug) }));
 const road = I25.map((p) => `${x(p.lng).toFixed(1)},${y(p.lat).toFixed(1)}`).join(' ');
 ---
 <figure class="overflow-hidden rounded-lg bg-raised ring-1 ring-line-soft">
@@ -97,8 +132,8 @@ const road = I25.map((p) => `${x(p.lng).toFixed(1)},${y(p.lat).toFixed(1)}`).joi
      which would leave the town links focusable but unnamed. */}
   <svg viewBox={`0 0 ${W} ${H}`} aria-labelledby="town-map-title" class="h-auto w-full font-body">
     <title id="town-map-title">
-      Map of Colorado's Front Range showing the {towns.length} towns in the network, with Denver,
-      Boulder, Castle Rock and Interstate 25 for reference
+      Map of Colorado's Front Range showing the {towns.length} towns in the network, with{' '}
+      {context.map((c) => c.name).join(', ')} and Interstate 25 for reference
     </title>
     <rect width={W} height={H} fill="var(--color-raised)"></rect>
 
@@ -138,7 +173,7 @@ const road = I25.map((p) => `${x(p.lng).toFixed(1)},${y(p.lat).toFixed(1)}`).joi
       </g>
     ))}
 
-    {pins.map(({ t, cx, cy, left, live }) => (
+    {pins.map(({ t, cx, cy, spot, live }) => (
       <g>
         {live ? (
           <a href={`https://${t.domain}/`} aria-label={`${t.name} — ${t.domain}`}>
@@ -147,22 +182,22 @@ const road = I25.map((p) => `${x(p.lng).toFixed(1)},${y(p.lat).toFixed(1)}`).joi
             <circle cx={cx} cy={cy} r="13" fill={t.colors.accent} fill-opacity="0.14"></circle>
             <circle cx={cx} cy={cy} r="7" fill={t.colors.accent}></circle>
             <text
-              x={cx + (left ? -13 : 13)}
-              y={cy + 5}
+              x={cx + spot.dx}
+              y={cy + spot.dy}
               font-size="15"
               font-weight="600"
               fill="var(--color-ink)"
-              text-anchor={left ? 'end' : 'start'}>{t.name}</text>
+              text-anchor={spot.anchor}>{t.name}</text>
           </a>
         ) : (
           <g>
             <circle cx={cx} cy={cy} r="5.5" fill="none" stroke="var(--color-ink-faint)" stroke-width="2"></circle>
             <text
-              x={cx + (left ? -14 : 14)}
-              y={cy + 5}
+              x={cx + spot.dx}
+              y={cy + spot.dy}
               font-size="14"
               fill="var(--color-ink-muted)"
-              text-anchor={left ? 'end' : 'start'}>{t.name}</text>
+              text-anchor={spot.anchor}>{t.name}</text>
           </g>
         )}
       </g>

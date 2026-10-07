@@ -1,6 +1,6 @@
 ---
 title: "Icefest: New Year's Eve Skating Day"
-review: { reason: "Read by hand from the Evergreen Area Chamber's community calendar on 6 October 2026; time and price as given there. The district's website has no Icefest page yet (its ice-skating pages say 2026/27 season details come once the lake opens), so the chamber listing is both source and url. An older chamber listing, 'Skate the Lake: New Year's Eve Party' (10 am to 8 pm, $30), appears stale and was not staged.", since: "2026-10-06", from: manual }
+review: { reason: "Re-read 7 October 2026: the chamber listing (posted by the recreation district) gives 31 December, noon to 6 pm, $25 on the day, but the district's own site still has no Icefest page and its events menu does not list it. Needs: the district's own Icefest 2026 page.", since: "2026-10-06", from: manual }
 start: "2026-12-31T12:00"
 end: "2026-12-31T18:00"
 venue: "Evergreen Lake"

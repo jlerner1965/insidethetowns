@@ -1,6 +1,6 @@
 ---
 title: "Mountain of Thanks: A Festival of Creative Giving"
-review: { reason: "Read by hand from the Evergreen Area Chamber's community calendar on 6 October 2026; time, venue and price as given there; the listing names no organizer beyond the festival itself.", since: "2026-10-06", from: manual }
+review: { reason: "Re-read 7 October 2026: the chamber listing still gives Saturday 14 November, 1 to 5 pm, free, at the Evergreen Design Center, but the festival's own site (mountainofthanks.com) answers 403, and the listing names no organizer. Needs: the date confirmed on the organizer's own page.", since: "2026-10-06", from: manual }
 start: "2026-11-14T13:00"
 end: "2026-11-14T17:00"
 venue: "The Evergreen Design Center"

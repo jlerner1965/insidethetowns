@@ -13,9 +13,9 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  */
 export const nederland: TownConfig = {
   kind: 'town',
-  // Not live: the domain serves a noindex holding page until the owner flips
-  // this after the first review (docs/ACCURACY-SYSTEM.md, launch threshold).
-  status: 'wave3',
+  // Live 7 October 2026, on the owner's word, after the first review cleared
+  // the launch threshold (docs/ACCURACY-SYSTEM.md).
+  status: 'live',
   variant: 'mountain',
   region: 'Mountains & Foothills',
   neighbors: ['lyons', 'niwot'],
@@ -26,7 +26,8 @@ export const nederland: TownConfig = {
   domain: 'insidenederland.com',
   siteTitle: 'Inside Nederland',
   tagline:
-    'An independent guide to Nederland, Colorado: the town at the top of Boulder Canyon, Barker Reservoir, the Peak to Peak Highway, the Indian Peaks trailheads, and what it’s like to live at 8,200 feet.',
+    'An independent guide to Nederland, Colorado: the top of Boulder Canyon, Barker Reservoir, the Peak to Peak Highway and the Indian Peaks trailheads.',
+  shortTagline: 'Barker Reservoir, the Peak to Peak and the Indian Peaks',
   seoTagline: 'Events and trails in Nederland, Colorado',
   counties: ['Boulder'],
   state: 'CO',

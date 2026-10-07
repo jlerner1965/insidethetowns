@@ -14,9 +14,9 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  */
 export const golden: TownConfig = {
   kind: 'town',
-  // Not live: the domain serves a noindex holding page until the owner flips
-  // this after the first review (docs/ACCURACY-SYSTEM.md, launch threshold).
-  status: 'wave3',
+  // Live 7 October 2026, on the owner's word, after the first review cleared
+  // the launch threshold (docs/ACCURACY-SYSTEM.md).
+  status: 'live',
   variant: 'mountain',
   region: 'Mountains & Foothills',
   neighbors: ['evergreen'],
@@ -27,7 +27,8 @@ export const golden: TownConfig = {
   domain: 'insidegolden.com',
   siteTitle: 'Inside Golden',
   tagline:
-    'An independent guide to Golden, Colorado: Washington Avenue, Clear Creek, the two Table Mountains, Lookout Mountain, the breweries, and what it’s like to live where the plains meet the foothills.',
+    'An independent guide to Golden, Colorado: Washington Avenue, Clear Creek, the Table Mountains, Lookout Mountain, and life at the edge of the foothills.',
+  shortTagline: 'Washington Avenue, Clear Creek and the Table Mountains',
   seoTagline: 'Events, trails and places in Golden, Colorado',
   counties: ['Jefferson'],
   state: 'CO',
