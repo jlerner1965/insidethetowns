@@ -1,0 +1,137 @@
+---
+/**
+ * "This week in [Town]": the editor's pick, this weekend's listings, and what
+ * is new or closed, with the signup under it. One component in two sizes:
+ * the whole of /this-week/, and a compact version near the top of the home
+ * page that shows the first few of each and links to the full week.
+ *
+ * Two outcomes and nothing else: a reader who comes back each week, and a
+ * confirmed Thursday signup. The pick and the New & closed items are the
+ * editor's weekly notes (content/<town>/weekly/, src/lib/weekly.ts); the
+ * listings are the calendar every other page reads. A section with nothing
+ * in it is not shown; a town with nothing at all says so in one line and
+ * still offers the email.
+ *
+ * Every date is decided at build time, in Denver, and the nightly rebuild
+ * keeps it current; the browser also clears a listing whose day has passed
+ * (Freshness.astro), so a build older than the weekend shows fewer rows
+ * rather than wrong ones.
+ */
+import NewsletterSignup from './NewsletterSignup.astro';
+import SectionHeader from './SectionHeader.astro';
+import WeekEventRow from './WeekEventRow.astro';
+import type { TownConfig } from '@/config';
+import { getTownEntries } from '@/lib/content';
+import { formatDate, formatDayRange, toIsoLocal } from '@/lib/dates';
+import { occurrences, weekendWindow } from '@/lib/events';
+import { activeChanges, currentPick, weekWindow, weekendEvents } from '@/lib/weekly';
+import { checkerName } from '@/lib/editor';
+
+interface Props {
+  town: TownConfig;
+  /** The home page's version: the first few of each, and a link to the rest. */
+  compact?: boolean;
+  class?: string;
+}
+
+const { town, compact = false, class: className } = Astro.props;
+const now = new Date();
+const { monday, sunday } = weekWindow(now);
+const range = formatDayRange(monday, sunday);
+const weekend = weekendWindow(now);
+const weekendRange = formatDayRange(weekend.start, weekend.sunday);
+
+const notes = await getTownEntries('weekly');
+const pick = currentPick(notes, now);
+const allChanges = activeChanges(notes, now);
+const allEvents = weekendEvents(occurrences(await getTownEntries('events'), { now, horizonDays: 30 }), now);
+const events = compact ? allEvents.slice(0, 3) : allEvents;
+const changes = compact ? allChanges.slice(0, 2) : allChanges;
+const quiet = !pick && allEvents.length === 0 && allChanges.length === 0;
+
+// Under the page's own h1 the sections are h2s; under the home page's
+// section heading they step down one.
+const H = compact ? 'h3' : 'h2';
+const eyebrow = 'eyebrow border-b-2 border-accent pb-3';
+const block = compact ? 'mt-10' : 'mt-12 md:mt-16';
+const checker = checkerName();
+---
+<section class={className} data-this-week>
+  {compact ? (
+    <SectionHeader eyebrow={`This week in ${town.name}`} title={range} href="/this-week/" linkLabel="See the full week" />
+  ) : (
+    <div class="mb-2 border-b-2 border-accent pb-5">
+      <p class="eyebrow">{range}</p>
+      <p class="mt-2 text-[0.9375rem] text-ink-muted">
+        Last updated <time datetime={toIsoLocal(now)}>{formatDate(now)}</time>
+      </p>
+    </div>
+  )}
+
+  {quiet && (
+    <p class="mt-8 rounded-lg border border-dashed border-line px-6 py-8 text-center text-ink-muted">Quiet week in {town.name}.</p>
+  )}
+
+  {pick && (
+    <section class={block} aria-labelledby={`pick-${compact ? 'compact' : 'full'}`}>
+      <H id={`pick-${compact ? 'compact' : 'full'}`} class={eyebrow}>Our pick</H>
+      <div class="mt-5 max-w-2xl">
+        <p class="display-md text-[1.75rem] md:text-[2rem]">
+          {pick.url ? <a href={pick.url} rel="noopener" class="inline-block -my-2 py-2 no-underline hover:text-accent-text">{pick.title}</a> : pick.title}
+        </p>
+        {pick.body && <p class="mt-3 text-[1.0625rem] leading-relaxed text-ink-muted">{pick.body}</p>}
+      </div>
+    </section>
+  )}
+
+  {events.length > 0 && (
+    <section class={block} data-hide-when-empty aria-labelledby={`weekend-${compact ? 'compact' : 'full'}`}>
+      <H id={`weekend-${compact ? 'compact' : 'full'}`} class={eyebrow}>This weekend · {weekendRange}</H>
+      <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {events.map((event) => <WeekEventRow event={event} />)}
+      </div>
+      {compact && allEvents.length > events.length && (
+        <p class="mt-4 text-[0.9375rem]">
+          <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-accent-text no-underline hover:underline">
+            All {allEvents.length} this weekend →
+          </a>
+        </p>
+      )}
+    </section>
+  )}
+
+  {changes.length > 0 && (
+    <section class={block} aria-labelledby={`changes-${compact ? 'compact' : 'full'}`}>
+      <H id={`changes-${compact ? 'compact' : 'full'}`} class={eyebrow}>New &amp; closed</H>
+      <ul class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {changes.map((c) => (
+          <li class="border-t border-line-soft py-4 first:border-t-0">
+            <p class="eyebrow">{c.label}</p>
+            <p class="mt-1 text-xl font-medium leading-tight">{c.name}</p>
+            <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{c.detail}</p>
+            <p class="mt-1 text-sm text-ink-muted">
+              {c.source && (
+                <Fragment>
+                  <a href={c.source} rel="noopener" class="inline-block -my-3 py-3 text-accent-text underline">Source: {new URL(c.source).hostname.replace(/^www\./, '')}</a>
+                  {' · '}
+                </Fragment>
+              )}
+              Checked {checker && <Fragment>by {checker}, </Fragment>}<time datetime={toIsoLocal(c.checked)}>{formatDate(c.checked)}</time>
+            </p>
+          </li>
+        ))}
+      </ul>
+      {compact && allChanges.length > changes.length && (
+        <p class="mt-4 text-[0.9375rem]">
+          <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-accent-text no-underline hover:underline">
+            All {allChanges.length} new &amp; closed →
+          </a>
+        </p>
+      )}
+    </section>
+  )}
+
+  <div class={block}>
+    <NewsletterSignup town={town} compact id={compact ? 'this-week-compact' : 'this-week'} />
+  </div>
+</section>

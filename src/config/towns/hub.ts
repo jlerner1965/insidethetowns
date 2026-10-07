@@ -45,6 +45,17 @@ export const hub: HubConfig = {
     email: 'hello@insidethetowns.com',
   },
   correctionsEmail: 'hello@insidethetowns.com',
+  /**
+   * Who runs it. The bracketed values are placeholders the owner has yet to
+   * supply (7 October 2026): they show on the About pages as written, so
+   * the gap is visible rather than filled with an invented name. While the
+   * name is a placeholder the structured data keeps the organisation as the
+   * author (src/lib/editor.ts, isPlaceholder).
+   */
+  editor: {
+    name: '[FULL NAME]',
+    bio: '[BIO, e.g. "I live in Niwot and have been building sites for Front Range towns since 2024."]',
+  },
   nav: [
     { label: 'This Weekend', href: '/this-weekend/' },
     { label: 'Moving Here', href: '/moving/' },

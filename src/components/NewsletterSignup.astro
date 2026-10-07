@@ -1,6 +1,6 @@
 ---
 /**
- * The weekly email signup.
+ * The weekly email signup: the one form, wherever a reader meets it.
  *
  * For this model the email is the product: a brewery will pay for nine hundred
  * verified Erie inboxes long before it pays for an unknown number of
@@ -10,33 +10,48 @@
  * Inline, never a modal. A popup on a community guide reads as spam and costs
  * the trust the independence framing buys — which is the whole asset.
  *
+ * The towns are checkboxes everywhere now, one per live guide, each posting
+ * the town's tag to the provider. On a guide the reader's town starts ticked
+ * and the rest sit behind "Show all towns"; on the hub nothing is ticked and
+ * the form will not send without a town or "All towns". It posts to the
+ * provider's hosted flow in a new tab (no key in the page, no address in a
+ * URL) and this page then says what happens next.
+ *
  * Dark until `newsletter` is set on the hub config, so nothing here is a
  * half-built promise while the provider account is being sorted.
  */
 import { getNetworkHub, liveTowns, type TownConfig } from '@/config';
 
 interface Props {
-  /** On a town site: pre-select that town and write the copy about it. */
+  /** On a town site: pre-tick that town and write the copy about it. */
   town?: TownConfig;
   /** A quieter version for the foot of a page. */
   compact?: boolean;
+  /** Where on the page it sits, when two forms share one: keeps the field ids apart. */
+  id?: string;
 }
 
-const { town, compact = false } = Astro.props;
+const { town, compact = false, id } = Astro.props;
 const hub = getNetworkHub();
 const config = hub.newsletter;
 // A to Z, as on the hub's home page and in the footer, so the same names are
 // in the same order wherever a reader meets them.
 const towns = [...liveTowns()].sort((a, b) => a.name.localeCompare(b.name));
+const others = town ? towns.filter((t) => t.slug !== town.slug) : towns;
 const day = config?.sendDay ?? 'Thursday';
 const emailField = config?.emailField ?? 'email';
 const tagField = config?.tagField ?? 'tag';
 const where = town ? town.name : 'the Front Range';
 // Two of these can sit on one page (an issue page shows the compact one), and
 // two inputs sharing an id is a broken label, not a cosmetic slip.
-const inputId = `newsletter-email-${compact ? 'compact' : 'main'}-${town?.slug ?? 'network'}`;
+const variant = id ?? (compact ? 'compact' : 'main');
+const inputId = `newsletter-email-${variant}-${town?.slug ?? 'network'}`;
+const errorId = `newsletter-towns-${variant}-${town?.slug ?? 'network'}`;
 const field =
   'mt-1.5 block h-12 w-full rounded-md border border-line bg-raised px-3 text-[1.0625rem] font-normal';
+// Every row a full 44px to tap, the box itself 20px.
+const row = 'flex min-h-11 items-center gap-2.5 text-[0.9375rem]';
+const box = 'size-5 shrink-0 rounded border-line';
 ---
 {/* One width and one alignment wherever it appears: it was centred at 630px
     on the home page, the full width of the events page with its right half
@@ -49,36 +64,68 @@ const field =
       ever post to is one the CSP form-action allowlist names, which
       validate-content.ts checks against the config on every build.
     */}
-    <form action={config.action} method="POST" target="_blank" class="max-w-xl">
+    <form action={config.action} method="POST" target="_blank" class="max-w-xl" data-signup data-hub={town ? undefined : ''}>
       <h2 class="display-md text-[1.75rem] leading-tight">What’s on in {where}, every {day}</h2>
       <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">
         One email a week: the weekend’s events, places new to the guide or closed, and a new article when there is one.
       </p>
 
-      {town ? (
-        <input type="hidden" name={tagField} value={town.slug} />
-      ) : (
-        <fieldset class="mt-5">
-          <legend class="eyebrow">Which towns?</legend>
-          <p class="mt-1 text-[0.875rem] text-ink-muted">Pick as many as you like, or take the lot.</p>
-          {/* "All of them" first and set apart, since it is not a town; the
-              towns in columns, A to Z, each a full-height row to tap. */}
-          {config.allTag && (
-            <label class="mt-3 flex min-h-11 items-center gap-2.5 border-b border-accent-line pb-2 text-[0.9375rem] font-semibold">
-              <input type="checkbox" name={tagField} value={config.allTag} class="size-5 rounded border-line" />
-              All of them
+      <fieldset class="mt-5" aria-describedby={town ? undefined : errorId}>
+        <legend class="eyebrow">Which towns?</legend>
+        {town ? (
+          <Fragment>
+            <label class:list={[row, 'mt-2 font-semibold']}>
+              <input type="checkbox" name={tagField} value={town.slug} checked class={box} />
+              {town.name}
             </label>
-          )}
-          <div class="mt-2 grid grid-cols-2 gap-x-5 sm:grid-cols-3">
-            {towns.map((t) => (
-              <label class="flex min-h-11 items-center gap-2.5 text-[0.9375rem]">
-                <input type="checkbox" name={tagField} value={t.slug} class="size-5 shrink-0 rounded border-line" />
-                {t.name}
+            {/* The other guides, a disclosure rather than a dozen rows on every
+                page: the reader's own town is the usual answer. Native, so it
+                works without the script and with a keyboard. */}
+            <details class="mt-1">
+              <summary class="inline-flex min-h-11 cursor-pointer items-center text-[0.9375rem] font-semibold text-accent-text underline">
+                Show all towns
+              </summary>
+              <div class="mt-1 grid grid-cols-2 gap-x-5 sm:grid-cols-3">
+                {others.map((t) => (
+                  <label class={row}>
+                    <input type="checkbox" name={tagField} value={t.slug} class={box} />
+                    {t.name}
+                  </label>
+                ))}
+                {config.allTag && (
+                  <label class:list={[row, 'font-semibold']}>
+                    <input type="checkbox" name={tagField} value={config.allTag} class={box} />
+                    All towns
+                  </label>
+                )}
+              </div>
+            </details>
+          </Fragment>
+        ) : (
+          <Fragment>
+            <p class="mt-1 text-[0.875rem] text-ink-muted">Pick as many as you like, or take the lot.</p>
+            {/* "All towns" first and set apart, since it is not a town; the
+                towns in columns, A to Z, each a full-height row to tap. */}
+            {config.allTag && (
+              <label class:list={[row, 'mt-3 border-b border-accent-line pb-2 font-semibold']}>
+                <input type="checkbox" name={tagField} value={config.allTag} class={box} />
+                All towns
               </label>
-            ))}
-          </div>
-        </fieldset>
-      )}
+            )}
+            <div class="mt-2 grid grid-cols-2 gap-x-5 sm:grid-cols-3">
+              {others.map((t) => (
+                <label class={row}>
+                  <input type="checkbox" name={tagField} value={t.slug} class={box} />
+                  {t.name}
+                </label>
+              ))}
+            </div>
+            <p id={errorId} data-towns-error hidden aria-live="polite" class="mt-2 text-[0.9375rem] font-semibold text-ink">
+              Pick at least one town, or All towns.
+            </p>
+          </Fragment>
+        )}
+      </fieldset>
 
       <div class="mt-5 sm:flex sm:items-end sm:gap-3">
         <div class="sm:flex-1">
@@ -95,16 +142,52 @@ const field =
         </div>
         {/* The same height as the field beside it: the pill was 40px against a
             52px field, aligned at the bottom only. */}
-        <button type="submit" class="btn btn-primary mt-3 h-12 w-full justify-center px-6 sm:mt-0 sm:w-auto">Sign up</button>
+        <button type="submit" class="btn btn-primary mt-3 h-12 w-full justify-center px-6 sm:mt-0 sm:w-auto">Send me the {day} email</button>
       </div>
 
       <p class="mt-3 text-[0.8125rem] leading-relaxed text-ink-faint">
-        No spam, unsubscribe any time. We never sell your address — see the
-        <a href={`https://${hub.domain}/privacy/`} class="text-accent-text">privacy page</a>.
+        Free. One email a week. Unsubscribe any time. We never sell your address — see the
+        <a href={`https://${hub.domain}/privacy/`} class="inline-block -my-3 py-3 text-accent-text">privacy page</a>.
       </p>
       {/* A page's own line about the email (the hub's "See a sample issue"),
           inside the card rather than loose underneath it. */}
       <slot />
     </form>
+    {/* Shown in place of the form once it has gone to the provider. */}
+    <p data-signup-done hidden tabindex="-1" class="max-w-xl text-[1.0625rem] font-semibold leading-relaxed">
+      Check your inbox to confirm your subscription.
+    </p>
   </section>
 )}
+
+<script>
+  // The provider's hosted page opens in a new tab with the result; this page
+  // says what to do next. On the hub the form also refuses to send without a
+  // town or "All towns", since an untagged subscriber gets no issue at all.
+  for (const form of document.querySelectorAll<HTMLFormElement>('form[data-signup]')) {
+    const boxes = () => [...form.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')];
+    const error = form.querySelector<HTMLElement>('[data-towns-error]');
+    const done = form.parentElement?.querySelector<HTMLElement>('[data-signup-done]');
+    for (const box of boxes()) {
+      box.addEventListener('change', () => {
+        if (error && boxes().some((b) => b.checked)) error.hidden = true;
+      });
+    }
+    form.addEventListener('submit', (event) => {
+      if (form.dataset.hub !== undefined && !boxes().some((b) => b.checked)) {
+        event.preventDefault();
+        if (error) error.hidden = false;
+        boxes()[0]?.focus();
+        return;
+      }
+      // After the browser has read the form, not before.
+      setTimeout(() => {
+        form.hidden = true;
+        if (done) {
+          done.hidden = false;
+          done.focus();
+        }
+      }, 0);
+    });
+  }
+</script>

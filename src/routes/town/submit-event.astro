@@ -4,8 +4,9 @@
  *
  * Every route into this network was a mailto:, which converts badly on a phone
  * — it opens an app most people have never configured — and returns freeform
- * prose somebody then has to parse by hand. These fields are the ones the
- * event schema needs, so a submission lands almost straight in the collection.
+ * prose somebody then has to parse by hand. Five fields: what, when, where,
+ * the source to check it against, and a way to reply. Everything else a
+ * listing carries is read off the organizer's page.
  *
  * The organizer's link is required rather than optional, because the editorial
  * policy says every listing is checked against its source before it goes up.
@@ -44,58 +45,29 @@ const group = 'space-y-5 rounded-lg bg-raised p-5 ring-1 ring-line-soft sm:p-6 m
         <label>Leave this blank <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
       </p>
 
+      {/* Five fields, the ones a listing cannot be checked without (owner's
+          call, 7 October 2026): the rest is read off the organizer's page. */}
       <fieldset class={group}>
-        <legend class="eyebrow float-left mb-1 w-full p-0">1 · What and when</legend>
+        <legend class="eyebrow float-left mb-1 w-full p-0">The event</legend>
         <label class={label}>
           Event name
           <input type="text" name="title" required autocomplete="off" class={field} />
         </label>
-        <div class="grid gap-5 sm:grid-cols-2">
-          <label class={label}>
-            Date
-            <input type="date" name="date" required class={field} />
-          </label>
-          <label class={label}>
-            Start time
-            <input type="time" name="start" required class={field} />
-          </label>
-        </div>
-        <div class="grid gap-5 sm:grid-cols-2">
-          <label class={label}>
-            End time <span class="font-normal text-ink-faint">— optional</span>
-            <input type="time" name="end" class={field} />
-          </label>
-          <label class={label}>
-            Cost <span class="font-normal text-ink-faint">— optional</span>
-            <input type="text" name="cost" placeholder="Free, or $12 adults" class={field} />
-          </label>
-        </div>
-        <p class="text-sm text-ink-muted">
-          Happens every week or every month? Put that in the description and we’ll set it up as a repeat.
-        </p>
-      </fieldset>
-
-      <fieldset class={group}>
-        <legend class="eyebrow float-left mb-1 w-full p-0">2 · Where and who</legend>
         <label class={label}>
-          Venue
-          <input type="text" name="venue" required autocomplete="off" class={field} />
+          Date and time
+          <input type="datetime-local" name="when" required class={field} />
         </label>
         <label class={label}>
-          Address
-          <input type="text" name="address" required autocomplete="street-address" class={field} />
+          Location
+          <input type="text" name="venue" required autocomplete="off" placeholder="Venue, or an address" class={field} />
         </label>
         <label class={label}>
-          Link to the organizer’s page
+          Link to the source
           <input type="url" name="url" required inputmode="url" placeholder="https://" class={field} />
           <span class="mt-1.5 block text-sm font-normal text-ink-muted">
-            Required: we check every listing against the organizer’s own page before it goes up. A Facebook event or a
-            venue’s own calendar is fine.
+            The organizer’s own page, a Facebook event or a venue’s calendar: every listing is checked against its
+            source before it goes up.
           </span>
-        </label>
-        <label class={label}>
-          What is it, in a sentence or two
-          <textarea name="description" rows="4" required class={field}></textarea>
         </label>
         <label class={label}>
           Your email
@@ -122,7 +94,7 @@ const group = 'space-y-5 rounded-lg bg-raised p-5 ring-1 ring-line-soft sm:p-6 m
         treatment.
       </p>
       <p><a href={mailto} class="btn btn-primary no-underline">Email an event</a></p>
-      <p>Include the event name, the date and time, the venue and its address, the cost, and a link to the organizer’s own page. That last one matters: every listing is checked against its source before it goes up.</p>
+      <p>Include the event name, the date and time, the location, and a link to the organizer’s own page. That last one matters: every listing is checked against its source before it goes up.</p>
     </div>
   )}
 </Page>

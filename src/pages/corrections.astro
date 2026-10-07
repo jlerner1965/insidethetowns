@@ -1,0 +1,45 @@
+---
+/**
+ * The public corrections log: every change made because a reader said
+ * something was wrong, newest first, with its date and one line on what
+ * changed. The entries are content/<town>/corrections/ (the hub's are
+ * content/hub/corrections/), one file per change.
+ */
+import Page from '@/layouts/Page.astro';
+import TipsLink from '@/components/TipsLink.astro';
+import { getSite } from '@/config';
+import { getHubEntries, getTownEntries } from '@/lib/content';
+import { formatDate, toIsoLocal } from '@/lib/dates';
+
+const site = getSite();
+const entries = (site.kind === 'hub' ? await getHubEntries('corrections') : await getTownEntries('corrections')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+---
+<Page
+  title="Corrections"
+  eyebrow={site.kind === 'town' ? site.name : 'Inside the Towns'}
+  description={`Every change made to ${site.siteTitle} in response to a reader report, with its date.`}
+  intro="Every change made because a reader told us something was wrong, newest first: the date, what changed, and the page it was on."
+  narrow
+>
+  {entries.length === 0 ? (
+    <p class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
+      Nothing logged yet. The first correction a reader sends in goes here, with its date.
+    </p>
+  ) : (
+    <ol class="border-t border-line-soft">
+      {entries.map((c) => (
+        <li class="border-b border-line-soft py-5">
+          <p class="eyebrow"><time datetime={toIsoLocal(c.data.date)}>{formatDate(c.data.date)}</time></p>
+          <p class="mt-1.5 text-[1.0625rem] leading-relaxed">
+            {c.data.item ? <a href={c.data.item} class="font-medium">{c.data.summary}</a> : c.data.summary}
+          </p>
+        </li>
+      ))}
+    </ol>
+  )}
+  <p class="mt-10 text-[0.9375rem]">
+    Spotted something wrong? <a href="/contact/" class="font-semibold text-accent-text">Report a correction</a> · <TipsLink class="font-semibold text-accent-text" />
+  </p>
+</Page>

@@ -7,6 +7,7 @@ import type { CollectionEntry } from 'astro:content';
 // its builders can be unit-tested; Vite resolves both the same way.
 import { getNetworkHub, liveTowns, type SiteConfig, type TownConfig } from '../config/index.ts';
 import { toIsoLocal } from './dates.ts';
+import { isPlaceholder } from './editor.ts';
 
 /**
  * The publisher graph: who runs this site, and how the domains relate.
@@ -202,6 +203,8 @@ export function articleJsonLd(
 ) {
   const { data } = article;
   const editor = getNetworkHub().editor;
+  // A placeholder name is not a person to assert; the organisation stays the author.
+  const person = editor && !isPlaceholder(editor.name) ? editor : undefined;
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -218,8 +221,8 @@ export function articleJsonLd(
      * no editor is set, this stays with the organisation rather than
      * attributing the work to a name nobody chose.
      */
-    author: editor
-      ? { '@type': 'Person', name: editor.name, ...(editor.url ? { url: editor.url } : {}) }
+    author: person
+      ? { '@type': 'Person', name: person.name, ...(person.url ? { url: person.url } : {}) }
       : { '@id': `https://${site.domain}/#org` },
     publisher: { '@id': `https://${site.domain}/#org` },
     mainEntityOfPage: url,

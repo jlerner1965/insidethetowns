@@ -20,8 +20,8 @@ export const longmont: TownConfig = {
   // The "co" is the domain's, not the slug's, as with Windsor.
   domain: 'insidelongmontco.com',
   siteTitle: 'Inside Longmont',
-  tagline:
-    'An independent guide to Longmont, Colorado: Main Street, the St. Vrain Greenway, McIntosh Lake, the breweries, and what it’s like to live in a city of nearly 100,000 between Boulder and the interstate.',
+  tagline: 'An independent guide to Longmont, Colorado: Main Street, the St. Vrain Greenway, McIntosh Lake, the breweries, and life in a city of nearly 100,000.',
+  shortTagline: 'Main Street, the St. Vrain Greenway and the breweries',
   seoTagline: 'Events and places in Longmont, Colorado',
   // Boulder first: the City calls itself a Boulder County city that extends
   // east into Weld (longmontcolorado.gov/information/about-longmont/).

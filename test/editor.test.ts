@@ -27,9 +27,19 @@ function withEditor<T>(editor: NonNullable<typeof hub.editor>, fn: () => T): T {
   }
 }
 
+/** Run `fn` with no editor configured, then put the config back. */
+function withoutEditor<T>(fn: () => T): T {
+  const before = hub.editor;
+  hub.editor = undefined;
+  try {
+    return fn();
+  } finally {
+    hub.editor = before;
+  }
+}
+
 test('with no editor configured, the publication is the author', () => {
-  assert.equal(hub.editor, undefined, 'none is set today; this test documents that state');
-  const d = articleJsonLd(site, article, 'https://insideniwot.com/articles/a/') as never as {
+  const d = withoutEditor(() => articleJsonLd(site, article, 'https://insideniwot.com/articles/a/')) as never as {
     author: Record<string, string>;
   };
   assert.deepEqual(d.author, { '@id': 'https://insideniwot.com/#org' });
@@ -61,4 +71,20 @@ test('the publisher stays the publication either way', () => {
     publisher: unknown;
   };
   assert.deepEqual(set.publisher, org);
+});
+
+test('the check lines name the editor by first name, show a bracketed placeholder as written, and say nothing with no editor', async () => {
+  const { checkedBy, checkerName, isPlaceholder } = await import('../src/lib/editor.ts');
+  assert.equal(isPlaceholder('[FULL NAME]'), true);
+  assert.equal(isPlaceholder('James Lerner'), false);
+  assert.equal(checkerName({ name: 'James Lerner', bio: 'x' }), 'James');
+  assert.equal(checkerName({ name: '[FULL NAME]', bio: 'x' }), '[FIRST NAME]');
+  assert.equal(withoutEditor(() => checkerName()), undefined);
+  assert.equal(checkedBy('October 3, 2026', 'James'), 'Checked by James, October 3, 2026');
+  assert.equal(withoutEditor(() => checkedBy('October 3, 2026')), 'Checked October 3, 2026');
+});
+
+test('a placeholder editor is not asserted as the author in structured data', () => {
+  const ld = withEditor({ name: '[FULL NAME]', bio: '[BIO]' }, () => articleJsonLd(site, article, 'https://insideniwot.com/articles/a-piece/'));
+  assert.deepEqual(ld.author, { '@id': 'https://insideniwot.com/#org' });
 });

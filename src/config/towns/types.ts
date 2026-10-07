@@ -119,6 +119,13 @@ export interface TownConfig {
   siteTitle: string;
   /** One sentence. Shown in the hero and meta description. */
   tagline: string;
+  /**
+   * A few words on what the town is, shown beside its name wherever another
+   * site links to it (the footer's sister guides, Nearby this weekend):
+   * "Sandstone, the river, and a music festival". Not the tagline, which is
+   * a sentence.
+   */
+  shortTagline?: string;
   /** Used in <title> when the full tagline would be truncated mid-phrase. */
   seoTagline?: string;
   /**
@@ -239,6 +246,9 @@ export interface EditorConfig {
   email?: string;
   /** A personal or professional page, where one exists. */
   url?: string;
+  /** A photograph, a file in content/hub/images/, shown on every About page. Needs its row in IMAGE_LICENSES.csv. */
+  photo?: string;
+  photoAlt?: string;
 }
 
 export interface HubConfig {

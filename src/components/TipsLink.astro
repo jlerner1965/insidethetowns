@@ -1,0 +1,19 @@
+---
+/**
+ * The reader's way in for what the sites most need to hear: a place opening
+ * or closing. It sits beside every "report a correction" link and goes to the
+ * same address a correction does.
+ */
+import { getNetworkHub, getSite } from '@/config';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = 'underline' } = Astro.props;
+const site = getSite();
+const hub = getNetworkHub();
+const email = hub.correctionsEmail ?? site.social.email;
+const href = `mailto:${email}?subject=${encodeURIComponent(`Opening or closing — ${site.siteTitle}`)}`;
+---
+<a href={href} class={className}>Know something opening or closing? Tell us</a>

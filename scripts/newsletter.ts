@@ -36,7 +36,7 @@ import {
   startOfDay,
 } from '../src/lib/dates.ts';
 import { groupByDay, highlights, isCanceled, occurrences, timeText, weekendSections, weekendWindow } from '../src/lib/events.ts';
-import { isNewlyClosed, isNewPlace, nextSendDay, openingDay } from '../src/lib/newsletter.ts';
+import { campaignLink, isNewlyClosed, isNewPlace, nextSendDay, openingDay } from '../src/lib/newsletter.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -55,6 +55,8 @@ const { start: weekendStart, sunday } = weekendWindow(send);
 const range = formatDayRange(weekendStart, sunday);
 // "New this week" means since the previous issue.
 const since = addDays(send, -7);
+// Every site link carries the issue's campaign tags (src/lib/newsletter.ts).
+const site = (domain: string, path: string) => campaignLink(`https://${domain}${path}`, send);
 
 type EventData = z.infer<ReturnType<typeof eventSchema>>;
 type PlaceData = z.infer<ReturnType<typeof placeSchema>>;
@@ -100,7 +102,7 @@ function line(e: Listing, town: TownConfig): string {
   // A run under way says "Now through October 31", not "All day".
   const time = timeText(e, send);
   const meta = [e.data.venue, e.data.cost].filter(Boolean).join(' · ');
-  return `- **${time}** [${e.data.title}](https://${town.domain}/events/${e.slug}/) · ${meta}`;
+  return `- **${time}** [${e.data.title}](${site(town.domain, `/events/${e.slug}/`)}) · ${meta}`;
 }
 
 function byDay(list: Listing[], town: TownConfig): string[] {
@@ -181,30 +183,31 @@ function townIssue(week: TownWeek): string {
     ...sponsorLine(town.sponsors?.email ?? hub.sponsors?.network),
     `## This weekend, ${range}`,
     '',
-    ...(n ? byDay(weekend, town) : [`Nothing listed for the weekend yet. Know of something? [Send it in](https://${town.domain}/submit-event/).`, '']),
+    ...(n ? byDay(weekend, town) : [`Nothing listed for the weekend yet. Know of something? [Send it in](${site(town.domain, `/submit-event/`)}).`, '']),
   ];
   if (running.length) lines.push('## Still running', '', ...running.map((e) => line(e, town)), '');
   if (next.length) lines.push('## Next week', '', ...byDay(next, town));
   if (newPlaces.length) {
     lines.push('## New on the guide', '');
-    for (const p of newPlaces) lines.push(`- [${p.data.title}](https://${town.domain}/places/${p.slug}/) — ${p.data.summary}`);
+    for (const p of newPlaces) lines.push(`- [${p.data.title}](${site(town.domain, `/places/${p.slug}/`)}) — ${p.data.summary}`);
     lines.push('');
   }
   if (closedPlaces.length) {
     lines.push('## Closed', '');
-    for (const p of closedPlaces) lines.push(`- [${p.data.title}](https://${town.domain}/places/${p.slug}/) — ${p.data.statusNote ?? (p.data.status === 'closed' ? 'Permanently closed.' : 'Temporarily closed.')}`);
+    for (const p of closedPlaces) lines.push(`- [${p.data.title}](${site(town.domain, `/places/${p.slug}/`)}) — ${p.data.statusNote ?? (p.data.status === 'closed' ? 'Permanently closed.' : 'Temporarily closed.')}`);
     lines.push('');
   }
   if (articles.length) {
     lines.push('## Worth reading', '');
-    for (const a of articles) lines.push(`- [${a.data.title}](https://${town.domain}/articles/${a.slug}/) — ${a.data.excerpt}`);
+    for (const a of articles) lines.push(`- [${a.data.title}](${site(town.domain, `/articles/${a.slug}/`)}) — ${a.data.excerpt}`);
     lines.push('');
   }
   lines.push(
     '---',
     '',
-    `Everything on in ${town.name}: https://${town.domain}/events/  `,
-    `Know of something missing? https://${town.domain}/submit-event/`,
+    `This week in ${town.name}: ${site(town.domain, `/this-week/`)}  `,
+    `Everything on in ${town.name}: ${site(town.domain, `/events/`)}  `,
+    `Know of something missing? ${site(town.domain, `/submit-event/`)}`,
     '',
     `_The weekly email from ${town.siteTitle}, part of ${hub.siteTitle}. Listings are editorial; nobody pays to be in them._`,
     '',
@@ -227,7 +230,7 @@ function networkIssue(weeks: TownWeek[]): string {
   for (const { town, weekend } of weeks) {
     lines.push(`## ${town.name}`, '');
     if (!weekend.length) {
-      lines.push(`Nothing listed for the weekend yet — [what’s on next](https://${town.domain}/events/).`, '');
+      lines.push(`Nothing listed for the weekend yet — [what’s on next](${site(town.domain, `/events/`)}).`, '');
       continue;
     }
     const picks = highlights(weekend, { now: send, limit: 4 });
@@ -235,8 +238,8 @@ function networkIssue(weeks: TownWeek[]): string {
     const more = weekend.length - picks.length;
     lines.push(
       more > 0
-        ? `- …and ${more} more on [${town.domain}/events](https://${town.domain}/events/)`
-        : `- Everything on: [${town.domain}/events](https://${town.domain}/events/)`,
+        ? `- …and ${more} more on [${town.domain}/events](${site(town.domain, `/events/`)})`
+        : `- Everything on: [${town.domain}/events](${site(town.domain, `/events/`)})`,
       '',
     );
   }
@@ -244,18 +247,18 @@ function networkIssue(weeks: TownWeek[]): string {
   const shut = weeks.flatMap((w) => w.closedPlaces.map((p) => ({ p, town: w.town })));
   if (opened.length) {
     lines.push('## New on the guides', '');
-    for (const { p, town } of opened) lines.push(`- **${town.name}** [${p.data.title}](https://${town.domain}/places/${p.slug}/) — ${p.data.summary}`);
+    for (const { p, town } of opened) lines.push(`- **${town.name}** [${p.data.title}](${site(town.domain, `/places/${p.slug}/`)}) — ${p.data.summary}`);
     lines.push('');
   }
   if (shut.length) {
     lines.push('## Closed', '');
-    for (const { p, town } of shut) lines.push(`- **${town.name}** [${p.data.title}](https://${town.domain}/places/${p.slug}/) — ${p.data.statusNote ?? (p.data.status === 'closed' ? 'Permanently closed.' : 'Temporarily closed.')}`);
+    for (const { p, town } of shut) lines.push(`- **${town.name}** [${p.data.title}](${site(town.domain, `/places/${p.slug}/`)}) — ${p.data.statusNote ?? (p.data.status === 'closed' ? 'Permanently closed.' : 'Temporarily closed.')}`);
     lines.push('');
   }
   lines.push(
     '---',
     '',
-    `Everything on, town by town: https://${hub.domain}/this-weekend/`,
+    `Everything on, town by town: ${site(hub.domain, `/this-weekend/`)}`,
     '',
     `_The weekly email from ${hub.siteTitle}, independent guides to ${weeks.length} Front Range towns. Listings are editorial; nobody pays to be in them._`,
     '',

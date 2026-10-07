@@ -6,7 +6,7 @@
  */
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { articleSchema, eventSchema, issueSchema, lenient, pageSchema, placeSchema } from './content/schemas';
+import { articleSchema, correctionSchema, eventSchema, issueSchema, lenient, pageSchema, placeSchema, weeklySchema } from './content/schemas';
 
 const base = './content';
 
@@ -56,4 +56,20 @@ const issues = defineCollection({
   schema: ({ image }) => issueSchema(image),
 });
 
-export const collections = { events, places, articles, pages, issues };
+/**
+ * The editor's weekly notes, one file per town per week (content/<town>/weekly/).
+ * Lenient like events and places: a typo in a note must not take the whole
+ * network's build down, and src/lib/weekly.ts drops the marker.
+ */
+const weekly = defineCollection({
+  loader: glob({ pattern: '*/weekly/[^_]*.md', base, generateId }),
+  schema: () => lenient(weeklySchema()),
+});
+
+/** The public corrections log, one file per change: content/<town>/corrections/, content/hub/corrections/. */
+const corrections = defineCollection({
+  loader: glob({ pattern: '*/corrections/[^_]*.md', base, generateId }),
+  schema: () => correctionSchema,
+});
+
+export const collections = { events, places, articles, pages, issues, weekly, corrections };

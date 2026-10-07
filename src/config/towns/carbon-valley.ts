@@ -35,8 +35,8 @@ export const carbonValley: TownConfig = {
   name: 'Carbon Valley',
   domain: 'carbonvalleyguide.com',
   siteTitle: 'Inside Carbon Valley',
-  tagline:
-    'An independent guide to Frederick, Firestone and Dacono, Colorado: what’s on in the three towns, Fifth Street, the Firestone Trail and St. Vrain State Park, and what it’s like to live in the coal towns that became the Front Range’s fastest-growing corner.',
+  tagline: 'An independent guide to Frederick, Firestone and Dacono, Colorado: what’s on, Fifth Street, the Firestone Trail, St. Vrain State Park and the coal towns.',
+  shortTagline: 'Frederick, Firestone and Dacono: three coal towns, one guide',
   seoTagline: 'Frederick, Firestone and Dacono, Colorado',
   // All three are Weld County municipalities; no county line runs through them.
   counties: ['Weld'],

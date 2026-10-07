@@ -268,8 +268,8 @@ keeps that honest. Once, per Vercel project:
    `niwot https://…`, and so on. (A bare URL still fires, but the run can
    then only count hooks against live sites, not name the one that is missing.)
 
-`.github/workflows/scheduled-rebuild.yml` then fires them once a night at
-07:10 UTC (1:10 am Denver in summer, 12:10 am in winter), and can be run by
+`.github/workflows/scheduled-rebuild.yml` then fires them once a day at
+11:10 UTC (5:10 am Denver in summer, 4:10 am in winter), and can be run by
 hand from the Actions tab. GitHub starts scheduled runs late, five to six
 hours late through early October 2026, and sometimes not at all. Before it
 fires, the run waits until `main`'s latest commit is over 30 minutes old,

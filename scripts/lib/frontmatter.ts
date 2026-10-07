@@ -5,11 +5,14 @@
  * Supported (which is all our content uses):
  *   key: value            strings, "quoted strings", numbers, true/false
  *   key: [a, b, "c d"]    inline lists
+ *   key:                  a map under a key, by indentation
+ *     a: 1
+ *   key:                  a list of maps, one `- a: 1` per item, the rest of its keys under it
  *   key:                  block lists
  *     - item
  *     - { label: "a", url: "b" }   an inline map as a list item
  *   key: { a: 1, b: [x, y] }       an inline map, one level of lists inside
- *   # comments
+ *   # comments, at the start of a line or after a space
  *
  * Astro parses the same files with full YAML; everything this accepts, YAML
  * reads the same way. Keep content within this subset.
@@ -97,36 +100,140 @@ function inlineMap(raw: string): Record<string, unknown> {
   return out;
 }
 
-export function parseFrontmatter(source: string): ParsedFile {
-  const lines = source.split(/\r?\n/);
-  if (lines[0]?.trim() !== '---') {
-    throw new Error('File must start with a "---" frontmatter block');
-  }
-  const end = lines.findIndex((l, i) => i > 0 && l.trim() === '---');
-  if (end === -1) throw new Error('Frontmatter block is not closed with "---"');
-
-  const data: Frontmatter = {};
-  let listKey: string | null = null;
-  for (let i = 1; i < end; i++) {
-    const line = lines[i] ?? '';
-    if (line.trim() === '' || line.trim().startsWith('#')) continue;
-    const listItem = /^\s+-\s*(.*)$/.exec(line);
-    if (listItem && listKey) {
-      const item = (listItem[1] ?? '').trim();
-      (data[listKey] as unknown[]).push(item.startsWith('{') && item.endsWith('}') ? inlineMap(item) : scalar(item));
-      continue;
+/**
+ * The text of a line with a trailing comment cut off: a `#` that opens a
+ * comment is one preceded by whitespace (or at the start of the line) and not
+ * inside quotes, which is YAML's own rule. `venue: "Suite #4"` keeps its hash.
+ */
+function stripComment(text: string): string {
+  let quote: string | null = null;
+  let escaped = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i]!;
+    if (quote) {
+      if (escaped) escaped = false;
+      else if (ch === '\\' && quote === '"') escaped = true;
+      else if (ch === quote) quote = null;
+    } else if (ch === '"' || ch === "'") {
+      quote = ch;
+    } else if (ch === '#' && (i === 0 || /\s/.test(text[i - 1]!))) {
+      return text.slice(0, i).trimEnd();
     }
-    const kv = /^([A-Za-z_][\w-]*):(.*)$/.exec(line);
-    if (!kv) throw new Error(`Line ${i + 1}: cannot parse "${line}"`);
+  }
+  return text;
+}
+
+interface Line {
+  indent: number;
+  text: string;
+  /** 1-based, for error messages. */
+  no: number;
+}
+
+const KEY = /^([A-Za-z_][\w-]*):(.*)$/;
+const DASH = /^-(?:\s+(.*))?$/;
+
+/**
+ * The block forms the weekly notes use, which the inline forms above cannot
+ * write readably: a map under a key, and a list of maps under a key.
+ *
+ *   pick:
+ *     title: "…"
+ *   changes:
+ *     - tag: opening
+ *       name: "…"
+ *
+ * Nesting is by indentation, as in YAML: a key's value is the block of
+ * deeper-indented lines that follows it. Astro reads the same files with full
+ * YAML; everything this accepts, YAML reads the same way.
+ */
+function parseMap(lines: Line[], at: number, indent: number): [Record<string, unknown>, number] {
+  const out: Record<string, unknown> = {};
+  let i = at;
+  while (i < lines.length && lines[i]!.indent === indent) {
+    const line = lines[i]!;
+    const kv = KEY.exec(line.text);
+    if (!kv) throw new Error(`Line ${line.no}: cannot parse "${line.text}"`);
     const key = kv[1]!;
     const rest = (kv[2] ?? '').trim();
-    listKey = null;
-    if (rest === '') {
-      data[key] = [];
-      listKey = key;
+    i++;
+    if (rest !== '') {
+      out[key] = value(rest);
+      continue;
+    }
+    const next = lines[i];
+    if (next && next.indent > indent) {
+      [out[key], i] = DASH.test(next.text) ? parseList(lines, i, next.indent) : parseMap(lines, i, next.indent);
     } else {
-      data[key] = value(rest);
+      // `key:` with nothing under it, as before: an empty list.
+      out[key] = [];
     }
   }
-  return { data, body: lines.slice(end + 1).join('\n'), line: 1 };
+  return [out, i];
+}
+
+function parseList(lines: Line[], at: number, indent: number): [unknown[], number] {
+  const out: unknown[] = [];
+  let i = at;
+  while (i < lines.length && lines[i]!.indent === indent && DASH.test(lines[i]!.text)) {
+    const line = lines[i]!;
+    const item = (DASH.exec(line.text)![1] ?? '').trim();
+    i++;
+    const next = lines[i];
+    if (item === '') {
+      // A bare dash: the item is the block under it.
+      if (next && next.indent > indent) {
+        [out[out.length], i] = DASH.test(next.text) ? parseList(lines, i, next.indent) : parseMap(lines, i, next.indent);
+      } else {
+        out.push(null);
+      }
+      continue;
+    }
+    const kv = KEY.exec(item);
+    if (kv && !item.startsWith('{') && !item.startsWith('[')) {
+      // `- tag: opening` opens a map whose other keys follow, indented past the dash.
+      const first: Record<string, unknown> = {};
+      const key = kv[1]!;
+      const rest = (kv[2] ?? '').trim();
+      // The map's own indent is where its first key sits: past the dash and the space.
+      const keyIndent = indent + (line.text.length - line.text.replace(/^-\s*/, '').length);
+      if (rest !== '') first[key] = value(rest);
+      else if (next && next.indent > keyIndent) {
+        [first[key], i] = DASH.test(next.text) ? parseList(lines, i, next.indent) : parseMap(lines, i, next.indent);
+      } else first[key] = [];
+      const after = lines[i];
+      if (after && after.indent > indent && !DASH.test(after.text)) {
+        const [more, j] = parseMap(lines, i, after.indent);
+        Object.assign(first, more);
+        i = j;
+      }
+      out.push(first);
+      continue;
+    }
+    out.push(value(item));
+  }
+  return [out, i];
+}
+
+export function parseFrontmatter(source: string): ParsedFile {
+  const raw = source.split(/\r?\n/);
+  if (raw[0]?.trim() !== '---') {
+    throw new Error('File must start with a "---" frontmatter block');
+  }
+  const end = raw.findIndex((l, i) => i > 0 && l.trim() === '---');
+  if (end === -1) throw new Error('Frontmatter block is not closed with "---"');
+
+  const lines: Line[] = [];
+  for (let i = 1; i < end; i++) {
+    const text = stripComment(raw[i] ?? '').replace(/\t/g, '  ');
+    if (text.trim() === '') continue;
+    lines.push({ indent: text.length - text.trimStart().length, text: text.trim(), no: i + 1 });
+  }
+  if (lines.length > 0 && lines[0]!.indent !== 0) throw new Error(`Line ${lines[0]!.no}: unexpected indentation`);
+  const [data, consumed] = lines.length ? parseMap(lines, 0, 0) : [{}, 0];
+  if (consumed < lines.length) {
+    const line = lines[consumed]!;
+    throw new Error(`Line ${line.no}: cannot parse "${line.text}"`);
+  }
+  return { data, body: raw.slice(end + 1).join('\n'), line: 1 };
 }

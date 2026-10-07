@@ -20,8 +20,8 @@ export const loveland: TownConfig = {
   // The "co" is the domain's, not the slug's, as with Windsor and Longmont.
   domain: 'insidelovelandco.com',
   siteTitle: 'Inside Loveland',
-  tagline:
-    'An independent guide to Loveland, Colorado: downtown and the Rialto, the Benson Sculpture Garden, Lake Loveland and the Big Thompson, the breweries, and what it’s like to live in the Sweetheart City.',
+  tagline: 'An independent guide to Loveland, Colorado: downtown and the Rialto, the Benson Sculpture Garden, Lake Loveland, the breweries, and the Sweetheart City.',
+  shortTagline: 'The Rialto, the sculpture garden, the lake and the Big Thompson',
   // "Colorado" spelled out: there is a Loveland in Ohio (with a museum whose
   // domain is lovelandmuseum.org) and a Loveland Pass a hundred miles away.
   seoTagline: 'Events and places in Loveland, Colorado',

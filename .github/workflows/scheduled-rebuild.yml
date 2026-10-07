@@ -18,14 +18,15 @@ name: Scheduled rebuild
 
 on:
   schedule:
-    # Once a night, at 07:10 UTC: 1:10 am in Denver in summer (MDT) and
-    # 12:10 am in winter (MST), past midnight in both, so the date has turned
-    # over before the rebuild. One fire, by the owner's call (4 October 2026):
-    # the three overnight fires and the Thursday one each rebuilt all ten
-    # sites. GitHub starts scheduled runs late — through early October they
-    # began 5½ to 6½ hours after the cron time — and drops some altogether;
-    # the pages are written not to depend on the hour (Freshness.astro).
-    - cron: '10 7 * * *'
+    # Once a day, at 11:10 UTC: 5:10 am in Denver in summer (MDT) and 4:10 am
+    # in winter (MST). Early enough that "this week", "this weekend" and the
+    # day's listings have turned over before anyone reads them, late enough
+    # that the night's content pushes have landed (the owner's call, 7
+    # October 2026; it was 07:10 UTC before). GitHub starts scheduled runs
+    # late — through early October they began 5½ to 6½ hours after the cron
+    # time — and drops some altogether; the pages are written not to depend
+    # on the hour (Freshness.astro).
+    - cron: '10 11 * * *'
   workflow_dispatch:
 
 jobs:
