@@ -16,9 +16,11 @@ import EventCard from './EventCard.astro';
 interface Props {
   events: TownEntry<'events'>[];
   emptyMessage?: string;
+  /** Smaller day names, for the months-ahead list under "Further out". */
+  compact?: boolean;
 }
 
-const { events, emptyMessage = 'No events listed yet. Check back soon.' } = Astro.props;
+const { events, emptyMessage = 'No events listed yet. Check back soon.', compact = false } = Astro.props;
 const { ongoing, dated } = splitOngoing(events);
 const days = groupByDay(dated);
 // On a phone the day heading sticks while its listings scroll under it. It
@@ -35,7 +37,7 @@ const stuck =
     {ongoing.length > 0 && (
       <section id="now-on" data-filter-group data-hide-when-empty class="scroll-mt-4 md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
         <h2 class={stuck}>
-          <span class="display-md flex items-baseline gap-3 text-2xl text-accent-text md:block md:text-[2.25rem]">
+          <span class:list={['display-md flex items-baseline gap-3 text-2xl text-accent-text md:block', compact ? 'md:text-[1.75rem]' : 'md:text-[2.25rem]']}>
             <span class="eyebrow md:mb-2 md:block">Under way</span>
             <span class="md:block">Now on</span>
           </span>
@@ -52,7 +54,7 @@ const stuck =
            knows it is Saturday. On wide screens it sits in its own column and
            there is nothing to stick to. */}
         <h2 class={stuck}>
-          <time datetime={toIsoLocal(day.date)} class="display-md flex items-baseline gap-3 text-2xl text-accent-text md:block md:text-[2.25rem]">
+          <time datetime={toIsoLocal(day.date)} class:list={['display-md flex items-baseline gap-3 text-2xl text-accent-text md:block', compact ? 'md:text-[1.75rem]' : 'md:text-[2.25rem]']}>
             {formatDayLong(day.date).split(', ').map((part, i) => (
               <span class:list={[i === 0 ? 'eyebrow md:mb-2 md:block' : 'md:block']}>{part}</span>
             ))}

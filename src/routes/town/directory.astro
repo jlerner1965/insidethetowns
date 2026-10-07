@@ -49,7 +49,9 @@ const structured = [
   jsonLd={structured}
 >
   <SubTownLinks slot="after-header" class="mt-5" />
-  <div slot="after-header" class="mt-6 max-w-md">
+  {/* With the filters, not up in the masthead: across the band boundary it
+     read as a separate control from the buttons it works with. */}
+  <div class="mb-6 max-w-md">
     <label for="directory-search" class="eyebrow mb-2 block">Find by name</label>
     <input
       id="directory-search"

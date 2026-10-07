@@ -33,10 +33,11 @@ const day = config?.sendDay ?? 'Thursday';
 >
   {config ? (
     <Fragment>
-      <NewsletterSignup />
-      <p class="mt-5 text-[0.9375rem]">
-        <a href="/newsletter/sample/" class="font-semibold text-accent-text">See a sample issue</a>, built from this week’s listings.
-      </p>
+      <NewsletterSignup>
+        <p class="mt-5 border-t border-accent-line pt-4 text-[0.9375rem]">
+          <a href="/newsletter/sample/" class="font-semibold text-accent-text">See a sample issue</a>, built from this week’s listings.
+        </p>
+      </NewsletterSignup>
     </Fragment>
   ) : (
     <div class="prose">
