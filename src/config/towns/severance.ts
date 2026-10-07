@@ -38,8 +38,8 @@ export const severance: TownConfig = {
   lng: -104.8539,
   population: 7683, // 2020 census
   elevationFt: 4876, // GNIS, via Wikipedia
-  driveToDenver: 'About 1 hr 10 min',
-  character: 'A farm town that more than doubled in ten years, now mostly new subdivisions east of Windsor.',
+  driveToDenver: 'About 1 hr',
+  character: 'A farm town northeast of Windsor that more than doubled in ten years, now mostly new subdivisions.',
   // 20 November 1920, per the Wikipedia infobox (founded 1906).
   incorporated: 1920,
   population2010: 3165, // 2010 census, for census-to-census growth
@@ -66,7 +66,7 @@ export const severance: TownConfig = {
     ],
     // Weld RE-4 (Windsor-Severance), based in Windsor (weldre4.org, read
     // 6 October 2026). commuteNotes are written at launch.
-    schoolDistrict: 'Weld RE-4 School District (Windsor-Severance), based in Windsor; Severance High and Severance Middle are in town.',
+    schoolDistrict: 'Weld RE-4 School District (Windsor-Severance), based in Windsor; Range View Elementary, Severance Middle and Severance High are in town.',
   },
   officialLinks: {
     townSite: 'https://www.townofseverance.org/',

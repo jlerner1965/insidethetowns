@@ -38,7 +38,7 @@ export const estesPark: TownConfig = {
   lng: -105.5222,
   population: 5904, // 2020 census
   elevationFt: 7743, // GNIS, via Wikipedia
-  driveToDenver: 'About 1 hr 30 min',
+  driveToDenver: '1 hr 30 min–2 hr',
   character: 'The gateway to Rocky Mountain National Park, at 7,500 feet, with a tourist season and a quiet winter.',
   // 17 April 1917, per the Colorado State Archives' list of municipal incorporations as the Wikipedia infobox cites it (settled 1859).
   incorporated: 1917,

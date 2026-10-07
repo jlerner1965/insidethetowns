@@ -36,7 +36,7 @@ export const nederland: TownConfig = {
   lng: -105.5014,
   population: 1471, // 2020 census
   elevationFt: 8235, // GNIS, via Wikipedia
-  driveToDenver: 'About 1 hr 15 min',
+  driveToDenver: 'About 1 hr',
   character: 'A mountain town at 8,200 feet above Boulder Canyon, with Eldora, the Peak to Peak and a bus down the canyon.',
   // 1874: the State Demography Office's historical census file gives
   // Nederland's incorporation year as 1874, and the Town's own History page
@@ -90,8 +90,10 @@ export const nederland: TownConfig = {
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Nederland,-CO_rb/' },
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Nederland_CO' },
     ],
-    // schoolDistrict and commuteNotes are written at launch, from the district's
-    // and the town's own pages, with the rest of the Moving Here guide.
+    // commuteNotes are written at launch, from the town's own pages, with the
+    // rest of the Moving Here guide. The schools are from BVSD's school list
+    // (bvsd.org/schools), as the Moving Here page cites them.
+    schoolDistrict: 'Boulder Valley School District; Nederland Elementary and Nederland Middle-Senior are in town.',
   },
   officialLinks: {
     townSite: 'https://nederlandco.org/',
