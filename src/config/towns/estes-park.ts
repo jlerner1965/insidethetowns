@@ -75,9 +75,10 @@ export const estesPark: TownConfig = {
     neutralBg: '#F2F6F7',
   },
   hero: {
-    // The placeholder new-town writes; replace before launch and update IMAGE_LICENSES.csv.
     image: 'hero.jpg',
-    alt: 'Placeholder image; a photograph of Estes Park replaces it before launch',
+    alt: 'Estes Park from the Gem Lake trail: the town in its valley of pines, with snow on Longs Peak above',
+    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 7 October 2026.
+    credit: 'KimonBerlin, Wikimedia Commons, CC BY-SA 2.0',
   },
   social: {
     email: 'hello@insideestespark.com',

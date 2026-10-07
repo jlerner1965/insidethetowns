@@ -47,9 +47,10 @@ export const severance: TownConfig = {
     neutralBg: '#F5F6F1',
   },
   hero: {
-    // The placeholder new-town writes; replace before launch and update IMAGE_LICENSES.csv.
     image: 'hero.jpg',
-    alt: 'Placeholder image; a photograph of Severance replaces it before launch',
+    alt: 'Blue Spruce Pond in Severance at sunset: a fountain on the water, cottonwoods along the far bank and a pink and orange sky',
+    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 7 October 2026.
+    credit: 'Sajacobsen, Wikimedia Commons, CC BY-SA 4.0',
   },
   social: {
     email: 'hello@insideseverance.com',

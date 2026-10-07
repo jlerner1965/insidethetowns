@@ -69,9 +69,10 @@ export const evergreen: TownConfig = {
     neutralBg: '#F3F6F3',
   },
   hero: {
-    // The placeholder new-town writes; replace before launch and update IMAGE_LICENSES.csv.
     image: 'hero.jpg',
-    alt: 'Placeholder image; a photograph of Evergreen replaces it before launch',
+    alt: 'Downtown Evergreen on Highway 74: wooden storefronts with tin roofs and awnings, pickups parked along the boardwalk',
+    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 7 October 2026.
+    credit: 'E10ddie, Wikimedia Commons, CC BY-SA 3.0',
   },
   social: {
     email: 'hello@insideevergreenco.com',

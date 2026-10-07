@@ -46,9 +46,10 @@ export const fortLupton: TownConfig = {
     neutralBg: '#F8F5F0',
   },
   hero: {
-    // The placeholder new-town writes; replace before launch and update IMAGE_LICENSES.csv.
     image: 'hero.jpg',
-    alt: 'Placeholder image; a photograph of Fort Lupton replaces it before launch',
+    alt: 'Denver Avenue in Fort Lupton looking west, a Fort Lupton banner over the road and the snow-covered Front Range beyond the rooftops',
+    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 7 October 2026.
+    credit: 'Jeffrey Beall, Wikimedia Commons, CC BY 3.0',
   },
   social: {
     email: 'hello@insidefortlupton.com',
