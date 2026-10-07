@@ -69,8 +69,10 @@ export const castleRock: TownConfig = {
   officialLinks: {
     townSite: 'https://www.crgov.com/',
     townSiteLabel: 'the Town of Castle Rock',
-    // The Town's own police page is on crgov.com, which answered automated
-    // requests with 403 on 6 October 2026; the page and number are set at
-    // launch once a person has read them there.
+    // The Town's police page, given by the owner on 7 October 2026. crgov.com
+    // answers automated requests with 403, so the number is not read here; the
+    // page carries it.
+    policeNonEmergency: 'https://www.crgov.com/3454/Castle-Rock-Police',
+    policeNonEmergencyLabel: 'Castle Rock Police Department',
   },
 };
