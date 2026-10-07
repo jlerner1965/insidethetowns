@@ -64,9 +64,10 @@ export const golden: TownConfig = {
     neutralBg: '#F5F5F4',
   },
   hero: {
-    // The placeholder new-town writes; replace before launch and update IMAGE_LICENSES.csv.
     image: 'hero.jpg',
-    alt: 'Placeholder image; a photograph of Golden replaces it before launch',
+    alt: 'Clear Creek east of the Washington Avenue bridge in Golden, kayakers in the current and North Table Mountain behind the town',
+    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 7 October 2026.
+    credit: 'Dough4872, Wikimedia Commons, CC BY-SA 4.0',
   },
   social: {
     email: 'hello@insidegolden.com',

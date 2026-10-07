@@ -73,9 +73,10 @@ export const nederland: TownConfig = {
     neutralBg: '#F8F4F4',
   },
   hero: {
-    // The placeholder new-town writes; replace before launch and update IMAGE_LICENSES.csv.
     image: 'hero.jpg',
-    alt: 'Placeholder image; a photograph of Nederland replaces it before launch',
+    alt: 'Mountain People’s Co-op and the Rustic Moose on East First Street in Nederland, under a grey mountain sky',
+    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 7 October 2026.
+    credit: 'Tony Webster, Wikimedia Commons, CC BY-SA 2.0',
   },
   social: {
     email: 'hello@insidenederland.com',
