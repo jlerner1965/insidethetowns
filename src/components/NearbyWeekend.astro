@@ -51,7 +51,7 @@ const signup = hub.newsletter
     <SponsorLine sponsor={sponsorLine} label="Nearby this weekend, presented by" />
     <h2 id="nearby-weekend" class:list={['eyebrow border-b-2 border-accent pb-4', sponsorLine && 'mt-5']}>Nearby this weekend · {formatDayRange(start, sunday)}</h2>
     <div class="mt-6 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-      {picks.map((event) => <NetworkEventCard event={event} showDay />)}
+      {picks.map((event) => <NetworkEventCard event={event} showDay showTagline />)}
     </div>
     {signup && (
       <p class="mt-4 text-[0.9375rem]">

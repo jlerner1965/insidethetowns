@@ -6,7 +6,7 @@
  */
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { articleSchema, eventSchema, issueSchema, lenient, pageSchema, placeSchema, weeklySchema } from './content/schemas';
+import { articleSchema, correctionSchema, eventSchema, issueSchema, lenient, pageSchema, placeSchema, weeklySchema } from './content/schemas';
 
 const base = './content';
 
@@ -66,4 +66,10 @@ const weekly = defineCollection({
   schema: () => lenient(weeklySchema()),
 });
 
-export const collections = { events, places, articles, pages, issues, weekly };
+/** The public corrections log, one file per change: content/<town>/corrections/, content/hub/corrections/. */
+const corrections = defineCollection({
+  loader: glob({ pattern: '*/corrections/[^_]*.md', base, generateId }),
+  schema: () => correctionSchema,
+});
+
+export const collections = { events, places, articles, pages, issues, weekly, corrections };

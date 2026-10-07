@@ -25,6 +25,7 @@ import { getTownEntries } from '@/lib/content';
 import { formatDate, formatDayRange, toIsoLocal } from '@/lib/dates';
 import { occurrences, weekendWindow } from '@/lib/events';
 import { activeChanges, currentPick, weekWindow, weekendEvents } from '@/lib/weekly';
+import { checkerName } from '@/lib/editor';
 
 interface Props {
   town: TownConfig;
@@ -53,6 +54,7 @@ const quiet = !pick && allEvents.length === 0 && allChanges.length === 0;
 const H = compact ? 'h3' : 'h2';
 const eyebrow = 'eyebrow border-b-2 border-accent pb-3';
 const block = compact ? 'mt-10' : 'mt-12 md:mt-16';
+const checker = checkerName();
 ---
 <section class={className} data-this-week>
   {compact ? (
@@ -114,7 +116,7 @@ const block = compact ? 'mt-10' : 'mt-12 md:mt-16';
                   {' · '}
                 </Fragment>
               )}
-              Checked <time datetime={toIsoLocal(c.checked)}>{formatDate(c.checked)}</time>
+              Checked {checker && <Fragment>by {checker}, </Fragment>}<time datetime={toIsoLocal(c.checked)}>{formatDate(c.checked)}</time>
             </p>
           </li>
         ))}

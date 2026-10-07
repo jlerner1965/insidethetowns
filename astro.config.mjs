@@ -9,6 +9,7 @@ import { hostFiles } from './src/integrations/host-files.ts';
 import { tableLabels } from './src/integrations/table-labels.ts';
 import { pastEventSlugs, repeatOccurrenceSlugs } from './src/lib/series.ts';
 import { closedPlaceSlugs } from './src/lib/raw-places.ts';
+import { contentDates, lastmodFor } from './src/lib/lastmod.ts';
 import vercelConfig from './vercel.json' with { type: 'json' };
 
 // Which site to build is decided by the TOWN env var (see src/config/index.ts).
@@ -24,6 +25,10 @@ const expired = site.kind === 'town' ? pastEventSlugs(site.slug) : new Set();
 const closed = site.kind === 'town' ? closedPlaceSlugs(site.slug) : new Set();
 // A town that has not launched is a holding page: nothing of it is indexable.
 const live = site.kind === 'hub' || site.status === 'live';
+// Every sitemap entry carries lastmod: the listing's check date, an article's
+// check or publish date, else the build date (src/lib/lastmod.ts).
+const buildDate = new Date();
+const dates = contentDates(site);
 /** Pages that carry noindex must not be listed in the sitemap either. */
 const NOINDEX = new Set(['/thanks/', '/message-sent/', '/correct/', '/newsletter/sample/']);
 
@@ -54,7 +59,7 @@ export default defineConfig({
   markdown: {
     processor: satteri({ hastPlugins: [tableLabels] }),
   },
-  integrations: [townRoutes(site), sitemap({ filter: indexable }), hostFiles(vercelConfig, site.domain)],
+  integrations: [townRoutes(site), sitemap({ filter: indexable, serialize: (item) => ({ ...item, lastmod: lastmodFor(item.url, dates, buildDate) }) }), hostFiles(vercelConfig, site.domain)],
   vite: {
     plugins: [tailwindcss()],
     build: {

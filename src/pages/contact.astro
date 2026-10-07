@@ -17,6 +17,7 @@
  * anyone with a better subject can overwrite it.
  */
 import Page from '@/layouts/Page.astro';
+import TipsLink from '@/components/TipsLink.astro';
 import { getSite } from '@/config';
 
 const site = getSite();
@@ -45,7 +46,7 @@ const formAction = site.formspreeId ? `https://formspree.io/f/${site.formspreeId
     )}
 
     <h2>Suggest a place or a correction</h2>
-    <p><a href={subject('Listing or correction')}>Email a listing or correction</a></p>
+    <p><a href={subject('Listing or correction')}>Email a listing or correction</a> · <TipsLink class="" /></p>
 
     {formAction && (
       <form

@@ -33,7 +33,7 @@ const structured = [
   ]),
 ];
 ---
-<Page title="Eat & Drink" jsonLd={structured} seoTitle={`Where to eat & drink in ${town.name}, Colorado`} eyebrow={town.name} {description} intro={`Where to eat, drink, browse and linger in ${town.name}. Listings are editorial; nobody pays to be here.`}>
+<Page title="Eat & Drink" jsonLd={structured} seoTitle={`Where to eat & drink in ${town.name}, Colorado`} eyebrow={town.name} {description} intro={`${places.length + shops.length} places to eat, drink, browse and linger in ${town.name}. Listings are editorial; nobody pays to be here.`}>
   <SubTownLinks slot="after-header" class="mt-5" />
   {/* The shops are one more group of the same list, with its own heading,
      count and filter button. As a separate section under a small label they

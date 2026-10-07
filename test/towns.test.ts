@@ -191,3 +191,14 @@ test('the hub draws a region only when it has a live town, from the region field
   }
   assert.deepEqual(groupByRegion([]), []);
 });
+
+test('every live guide’s tagline fits a search snippet, and has a short line for the sister links', () => {
+  // The home page's meta description is the tagline; search results cut
+  // around 155 characters, and SEO.astro's clamp would otherwise end it
+  // mid-phrase with an ellipsis (seven ran long on 7 October 2026).
+  for (const slug of LIVE_TOWNS) {
+    const t = by(slug);
+    assert.ok(t.tagline.length <= 155, `${slug}: tagline is ${t.tagline.length} characters`);
+    assert.ok(t.shortTagline && t.shortTagline.length <= 70, `${slug}: shortTagline missing or long`);
+  }
+});

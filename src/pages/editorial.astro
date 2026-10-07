@@ -8,6 +8,7 @@
  * the list.
  */
 import Page from '@/layouts/Page.astro';
+import TipsLink from '@/components/TipsLink.astro';
 import { getSite, liveTowns } from '@/config';
 
 const site = getSite();
@@ -77,8 +78,8 @@ const live = liveTowns();
     <h2>Corrections</h2>
     <p>
       If something here is wrong, <a href="/contact/">tell us</a> and it will be fixed, usually within a day or two.
-      Corrections are made quietly to listings, because a wrong phone number does not need a public notice; a
-      correction to an article is noted on the article. There is no appeal process for being left out and no payment
+      <TipsLink class="" />. Every change made in response to a reader is recorded, with its date, on the
+      <a href="/corrections/">corrections log</a>; a correction to an article is also noted on the article. There is no appeal process for being left out and no payment
       that changes it — if a place belongs in a guide, say so and it goes in.
     </p>
 

@@ -11,8 +11,8 @@ export const windsor: TownConfig = {
   // insidewindsor.com belongs to someone else; the "co" is the domain's, not the slug's.
   domain: 'insidewindsorco.com',
   siteTitle: 'Inside Windsor',
-  tagline:
-    'An independent guide to Windsor, Colorado: the lake and Boardwalk Park, Main Street, the Poudre River Trail, and what it’s like to move to a sugar-beet town that grew by three-quarters in a decade.',
+  tagline: 'An independent guide to Windsor, Colorado: the lake and Boardwalk Park, Main Street, the Poudre River Trail, and life in a sugar-beet town that grew fast.',
+  shortTagline: 'The lake, Boardwalk Park, Main Street and the Poudre Trail',
   // "Colorado" spelled out: Windsor is the most ambiguous name in the network
   // (Ontario, Berkshire, California, Connecticut, Vermont), and "CO" is too
   // weak a signal. test/towns.test.ts holds this name to it.

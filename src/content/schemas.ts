@@ -603,6 +603,21 @@ export function weeklySchema() {
 }
 export type WeeklyNotes = z.infer<ReturnType<typeof weeklySchema>>;
 
+/**
+ * One entry on a site's public corrections log (/corrections/): a change made
+ * because a reader said something was wrong. content/<town>/corrections/
+ * <date>-<slug>.md, or content/hub/corrections/ for the network's own pages.
+ * The body, if any, is the longer note; the summary is the one line the log shows.
+ */
+export const correctionSchema = z.object({
+  /** The day the change was made. */
+  date: localDate,
+  /** What changed, in one line: "Niwot Tavern: hours corrected to Tue–Sun 11am–9pm." */
+  summary: z.string().min(1).max(200),
+  /** The page that changed, as a path on this site: "/places/niwot-tavern/". */
+  item: z.string().regex(/^\//, 'a path on this site, starting with /').optional(),
+});
+
 /** Free-form pages such as moving-here.md. */
 export function pageSchema<I extends z.ZodType>(image: () => I) {
   return z.object({
@@ -729,7 +744,7 @@ export const changeSchema = z.object({
 });
 export type Change = z.infer<typeof changeSchema>;
 
-export const COLLECTIONS = ['events', 'places', 'articles', 'pages', 'issues', 'weekly'] as const;
+export const COLLECTIONS = ['events', 'places', 'articles', 'pages', 'issues', 'weekly', 'corrections'] as const;
 export type CollectionName = (typeof COLLECTIONS)[number];
 
 /** The collections that have a staging folder: content/<town>/staging/<collection>/. */
@@ -742,6 +757,7 @@ export const schemaFor: Record<CollectionName, (image: ImageSchema) => z.ZodType
   pages: pageSchema,
   issues: issueSchema,
   weekly: () => weeklySchema(),
+  corrections: () => correctionSchema,
 };
 
 /**

@@ -57,7 +57,9 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
             <span class={label}>Sister guides</span>
             <ul class="flex flex-wrap gap-x-4">
               {sisters.map((t) => (
-                <li><a href={`https://${t.domain}/`} class={link}>{t.name}</a></li>
+                <li>
+                  <a href={`https://${t.domain}/`} class={link}>{t.name}</a>{t.shortTagline && <span class="text-white/50"> · {t.shortTagline}</span>}
+                </li>
               ))}
             </ul>
           </nav>

@@ -1,6 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import Page from '@/layouts/Page.astro';
 import FactStrip from '@/components/FactStrip.astro';
+import TipsLink from '@/components/TipsLink.astro';
+import { resolveSiteImage } from '@/lib/images';
 import { countiesCovered, countyLabel, getNetworkHub, getSite, liveTowns } from '@/config';
 import CtaBand from '@/components/CtaBand.astro';
 import { getTownEntries } from '@/lib/content';
@@ -16,8 +19,10 @@ const live = liveTowns();
  */
 const city = live.find((t) => (t.population ?? 0) >= 100_000);
 // Who runs it. Dark until an editor is configured; see EditorConfig for why
-// the slot exists unfilled rather than carrying a plausible name.
+// the slot exists unfilled rather than carrying a plausible name. A value in
+// brackets is a placeholder the owner has yet to fill, shown as written.
 const editor = getNetworkHub().editor;
+const photo = editor?.photo ? resolveSiteImage('hub', editor.photo) : undefined;
 const corrections = getNetworkHub().correctionsEmail;
 const siblings = live.filter((t) => t.slug !== site.slug);
 
@@ -57,15 +62,10 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
           {site.siteTitle} is an independent community and visitor guide to {site.name}, {site.state}: what’s on this
           week, where to eat and drink, where to walk, and what it’s like to live here.
         </p>
-        <h2>Independent, not official</h2>
-        <p>
-          This site is not the town government, a chamber of commerce, or any public body, and it does not speak for
-          them. Anything civic — notices, permits, meetings, services — belongs to the official sources listed
-          alongside, and every page here links out to them rather than paraphrasing them.
-        </p>
         {editor && (
           <Fragment>
             <h2>Who runs it</h2>
+            {photo && <Image src={photo} alt={editor.photoAlt ?? editor.name} width={320} height={320} class="not-prose size-32 rounded-full object-cover" />}
             <p>
               <strong>{editor.name}</strong>{editor.role ? `, ${editor.role}` : ', Editor'}.
               {' '}{editor.bio}
@@ -78,6 +78,12 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
             )}
           </Fragment>
         )}
+        <h2>Independent, not official</h2>
+        <p>
+          This site is not the town government, a chamber of commerce, or any public body, and it does not speak for
+          them. Anything civic — notices, permits, meetings, services — belongs to the official sources listed
+          alongside, and every page here links out to them rather than paraphrasing them.
+        </p>
         <h2>How the listings are made</h2>
         <p>
           Every place and every event is checked against the operator’s own page or a public calendar before it goes
@@ -88,7 +94,7 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
         <h2>Corrections and listings</h2>
         <p>
           Spotted something wrong, or run a business or event here that should be listed?
-          <a href="/contact/">Get in touch</a> — a correction takes a day or two.
+          <a href="/contact/">Get in touch</a> — a correction takes a day or two. <TipsLink class="" />.
         </p>
       </div>
       <aside class="space-y-8 lg:sticky lg:top-24 lg:self-start">
@@ -173,17 +179,10 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
           up, and carries the date it was last checked. Listings are free and editorial; we don’t sell placement.
           The <a href="/editorial/">editorial policy</a> sets out the whole of it.
         </p>
-        {/* No name and no biography: the owner asked not to be named here, and
-           the rest is not ours to invent (see EditorConfig). */}
-        <h2>Who’s behind this</h2>
-        <p>
-          {site.siteTitle} is independently owned and published. It is not owned by, or answerable to, any town
-          government, chamber of commerce or advertiser.
-          {corrections && <Fragment> Corrections and tips go to <a href={`mailto:${corrections}`}>{corrections}</a>.</Fragment>}
-        </p>
         {editor && (
           <Fragment>
             <h2>Who runs it</h2>
+            {photo && <Image src={photo} alt={editor.photoAlt ?? editor.name} width={320} height={320} class="not-prose size-32 rounded-full object-cover" />}
             <p>
               <strong>{editor.name}</strong>{editor.role ? `, ${editor.role}` : ', Editor'}.
               {' '}{editor.bio}
@@ -196,6 +195,12 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
             )}
           </Fragment>
         )}
+        <h2>Who’s behind this</h2>
+        <p>
+          {site.siteTitle} is independently owned and published. It is not owned by, or answerable to, any town
+          government, chamber of commerce or advertiser.
+          {corrections && <Fragment> Corrections and tips go to <a href={`mailto:${corrections}`}>{corrections}</a>. <TipsLink class="" />.</Fragment>}
+        </p>
         <p>More towns are on the way. <a href="/contact/">Suggest one</a>.</p>
       </div>
       <aside class="lg:sticky lg:top-24 lg:self-start">
