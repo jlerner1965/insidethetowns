@@ -44,7 +44,7 @@ During boating operations the district runs a free shuttle, 10 am–5 pm, from [
 
 ## Fall
 
-After Labor Day the rentals go to weekends only and the Lake House page says the hours vary. On October 7, 2026 the boat rentals page said boating operations were closed for the season and the shuttle was done for the year, and the Lake House page said summer boating resumes in 2027. Fishing and the trail carry on.
+After Labor Day the rentals go to weekends only and the Lake House page says the hours vary. On October 7, 2026 the boat rentals page said boating operations were closed for the season and the shuttle was done for the year, and the Lake House page said summer boating resumes in 2027.
 
 ## Winter: the ice
 
