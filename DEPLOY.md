@@ -212,18 +212,19 @@ not been measured on a real deployment yet.
 
 ## Email
 
-Every town config publishes one address, `hello@<domain>`, and the first thirteen domains
-receive it through **Cloudflare Email Routing**, which forwards it to the owner's
+Every town config publishes one address, `hello@<domain>`, and every domain
+receives it through **Cloudflare Email Routing**, which forwards it to the owner's
 inbox. There is no mailbox anywhere: Cloudflare accepts the message and passes it
 on. Set up on 27 September 2026 for the first eight domains, on 4 October
 for insidewindsorco.com, insidefortcollins.com, insidelongmontco.com and
 insidelovelandco.com, and on 5 October for carbonvalleyguide.com.
-
-**Not yet on the seven domains added 6 October** (insideseverance.com,
-insidefortlupton.com, insidecastlerockco.com, insideestespark.com,
-insidegolden.com, insideevergreenco.com, insidenederland.com): none had MX
-records when six of them went live on 7 October, so their `hello@`
-addresses bounce until routing and the rule are switched on as below.
+On 7 October, with a token the owner supplied, the same setup went on the
+seven domains added 6 October (insideseverance.com, insidefortlupton.com,
+insidecastlerockco.com, insideestespark.com, insidegolden.com,
+insideevergreenco.com, insidenederland.com), through the API: routing
+enabled (`POST /zones/<id>/email/routing/dns`), one rule per domain
+copied from insidelovelandco.com's, catch-all left off, and `_dmarc`.
+All twenty guide domains now receive `hello@`.
 
 On each domain (Cloudflare → the domain → Email → Email Routing):
 

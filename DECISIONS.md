@@ -3431,10 +3431,17 @@ clears its threshold.
   - The county test now counts Jefferson.
 - **Infrastructure was already in place.** All seven projects had their
   domains attached and verified and their hooks in `VERCEL_DEPLOY_HOOKS`
-  (the 7 October nightly run fired all twenty). Not done, and the owner's:
-  Cloudflare Email Routing on the seven new domains (no MX records; the
-  session's Cloudflare token is still rejected), and Web Analytics on
-  Golden and Nederland, which were never switched on.
+  (the 7 October nightly run fired all twenty). Web Analytics on Golden
+  and Nederland was never switched on, and is the owner's in the
+  dashboard.
+- **Mail on the seven new domains, the same evening.** None had MX
+  records, so every `hello@` on them bounced. With a Cloudflare token the
+  owner supplied, each got Email Routing (Cloudflare's MX, SPF and DKIM
+  records, locked), a `hello@` rule forwarding to the inbox every other
+  guide forwards to (copied from Loveland's, catch-all off) and the
+  network's `_dmarc` record (`v=DMARC1; p=none`). All seven read back
+  ready, and public DNS shows the records. Every guide domain in the
+  network now has MX and DMARC, Carbon Valley's DMARC included.
 - **Things the agents found for the owner:**
   - The Estes Valley Library's robots.txt now disallows Claude's agents on
     its main site (its calendar subdomain allows them). The library listing
