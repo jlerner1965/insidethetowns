@@ -33,6 +33,7 @@ import DayStrip from '@/components/DayStrip.astro';
 import NetworkDayList from '@/components/NetworkDayList.astro';
 import NetworkEventCard from '@/components/NetworkEventCard.astro';
 import SponsorLine from '@/components/SponsorLine.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { getHub, liveTowns } from '@/config';
 import { getNetworkEntries } from '@/lib/content';
 import { groupByDay, occurrences, weekendSections, weekendWindow } from '@/lib/events';
@@ -157,6 +158,10 @@ const structured = collectionPageJsonLd(hub, {
     Listings refreshed <time datetime={refreshedAt.toISOString()}>{formatDate(refreshedAt)} at {formatTime(refreshedAt)}</time>.
     Every event links to the town guide that keeps it.
   </p>
+
+  <div class="mt-12 md:mt-16">
+    <NewsletterSignup compact />
+  </div>
 </Page>
 
 <script>

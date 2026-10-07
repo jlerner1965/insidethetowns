@@ -1,0 +1,38 @@
+---
+/**
+ * This week in one town: the pick, the weekend, what is new or closed, and
+ * the signup. The page the Thursday email and the home page point at, and
+ * the one a reader comes back to on a Monday.
+ */
+import Page from '@/layouts/Page.astro';
+import ThisWeek from '@/components/ThisWeek.astro';
+import { getTown } from '@/config';
+import { formatDayRange } from '@/lib/dates';
+import { weekWindow } from '@/lib/weekly';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+
+const town = getTown();
+const { monday, sunday } = weekWindow();
+const range = formatDayRange(monday, sunday);
+const description = `This week in ${town.name}, Colorado, ${range}: our pick, this weekend’s events, and what is new or closed.`;
+---
+<Page
+  title={`This week in ${town.name}`}
+  seoTitle={`This week in ${town.name}, Colorado`}
+  eyebrow="This week"
+  {description}
+  intro={`Our pick, what’s on this weekend, and what has opened or closed in ${town.name}. Checked each week; dates drop off on their own.`}
+  jsonLd={[
+    collectionPageJsonLd(town, { name: `This week in ${town.name}, Colorado`, description, path: '/this-week/' }),
+    breadcrumbJsonLd(town, [
+      { name: town.name, path: '/' },
+      { name: 'This week', path: '/this-week/' },
+    ]),
+  ]}
+>
+  <p slot="after-header" class="mt-5 text-[0.9375rem] text-ink-muted">
+    <a href="/this-weekend/" class="font-semibold text-accent-text">The weekend in full</a> ·
+    <a href="/events/" class="font-semibold text-accent-text">All events</a>
+  </p>
+  <ThisWeek town={town} />
+</Page>

@@ -10,7 +10,7 @@
  * (DECISIONS.md, "Dates on places"). Nothing reads the history at build time,
  * so a shallow clone builds the same page as a full one.
  */
-import { addDays, formatWeekday, startOfDay } from './dates.ts';
+import { addDays, dayKey, formatWeekday, startOfDay } from './dates.ts';
 import { isOpen } from './places.ts';
 
 /** The next send day on or after `from`, as a Denver day. */
@@ -57,4 +57,20 @@ export function isNewPlace(place: PlaceDates, send: Date, opened?: Date): boolea
 /** Recorded as closed, or temporarily closed, in the issue's window. */
 export function isNewlyClosed(place: PlaceDates, send: Date): boolean {
   return !isOpen(place) && within(place.data.closed, issueWindow(send));
+}
+
+/**
+ * A site link as the email carries it, with the campaign tags the analytics
+ * read: where it came from (the newsletter), how (email), and which issue
+ * (the send day). The tags name the issue, never the reader; no address goes
+ * in a URL. The same three go on any link written by hand in the provider:
+ *
+ *   ?utm_source=newsletter&utm_medium=email&utm_campaign=2026-10-15
+ */
+export function campaignLink(url: string, send: Date): string {
+  const out = new URL(url);
+  out.searchParams.set('utm_source', 'newsletter');
+  out.searchParams.set('utm_medium', 'email');
+  out.searchParams.set('utm_campaign', dayKey(send));
+  return out.toString();
 }

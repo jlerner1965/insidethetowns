@@ -469,6 +469,23 @@ export function articleSchema<I extends z.ZodType>(image: () => I) {
       /** The day the guide's facts were last checked, shown beside the date. */
       verified: localDate.optional(),
       /**
+       * Where to go next, under the article: up to three links the editor
+       * chose, each with one sentence on how it connects. A path on this
+       * guide or a full URL. Without any, the strip falls back to the newest
+       * articles in the same section, shown without a sentence.
+       */
+      related: z
+        .array(
+          z.object({
+            label: z.string().min(1),
+            href: z.string().regex(/^(\/|https?:\/\/)/, 'a path on this guide ("/places/…/") or a full URL'),
+            /** One sentence on how it connects. */
+            note: z.string().min(1),
+          }),
+        )
+        .max(3)
+        .default([]),
+      /**
        * A Denver day on which this article's framing stops being current —
        * an election held, a season closed, a deadline passed. From that day
        * the page carries `supersededNote` at the top, decided by the build
@@ -522,6 +539,69 @@ export function issueSchema<I extends z.ZodType>(image: () => I) {
     towns: z.array(z.string()).default([]),
   });
 }
+
+/**
+ * The editor's notes for one town and one week: content/<town>/weekly/<weekOf>.md,
+ * copied from scripts/templates/weekly-template.md. "This week in [Town]"
+ * (ThisWeek.astro) reads them: the pick from the current week's file only,
+ * and New & closed from every file whose items have not expired.
+ */
+export const CHANGE_TAGS = ['opening', 'closed', 'new-hours', 'moved', 'added-to-guide'] as const;
+export type ChangeTag = (typeof CHANGE_TAGS)[number];
+/**
+ * What the tag says on the page. "Added to the guide" is a listing new to
+ * us, not a business new to the town, and is never shown as an opening.
+ */
+export const CHANGE_TAG_LABELS: Record<ChangeTag, string> = {
+  opening: 'Opening',
+  closed: 'Closed',
+  'new-hours': 'New hours',
+  moved: 'Moved',
+  'added-to-guide': 'Added to the guide',
+};
+/** A claim about a business needs the owner's or an official announcement behind it; a guide addition is our own doing. */
+export const SOURCED_CHANGE_TAGS: readonly ChangeTag[] = ['opening', 'closed', 'new-hours', 'moved'];
+
+/** The template's empty strings read as "not set", so a copied file validates as it is. */
+const blank = <T extends z.ZodTypeAny>(schema: T) =>
+  z.preprocess((v) => (v === '' || v === null ? undefined : v), schema.optional());
+
+export const weeklyChangeSchema = z.object({
+  tag: z.enum(CHANGE_TAGS),
+  name: z.string().min(1),
+  detail: z.string().min(1),
+  /** The owner's or official announcement. Required on the page for every tag but added-to-guide. */
+  source: blank(httpUrl),
+  /** The day the item was checked against its source; shown as "Checked …". */
+  checked: localDate,
+  /** The last day the item shows. Default: 14 days after the file's weekOf. */
+  expires: blank(localDate),
+});
+export type WeeklyChange = z.infer<typeof weeklyChangeSchema>;
+
+const isBlankChange = (c: unknown) =>
+  typeof c === 'object' && c !== null && ['name', 'detail', 'source'].every((k) => !(c as Record<string, unknown>)[k]);
+
+export function weeklySchema() {
+  return z.object({
+    /** The Monday the file is for. The file name is the same date. */
+    weekOf: localDate,
+    pick: z
+      .object({
+        title: blank(z.string().min(1)),
+        body: blank(z.string().min(1)),
+        /** Links the title when set. */
+        url: blank(httpUrl),
+      })
+      .optional(),
+    // The template's blank item is dropped, not an error; a half-filled one is.
+    changes: z.preprocess(
+      (v) => (Array.isArray(v) ? v.filter((c) => !isBlankChange(c)) : v),
+      z.array(weeklyChangeSchema).default([]),
+    ),
+  });
+}
+export type WeeklyNotes = z.infer<ReturnType<typeof weeklySchema>>;
 
 /** Free-form pages such as moving-here.md. */
 export function pageSchema<I extends z.ZodType>(image: () => I) {
@@ -649,7 +729,7 @@ export const changeSchema = z.object({
 });
 export type Change = z.infer<typeof changeSchema>;
 
-export const COLLECTIONS = ['events', 'places', 'articles', 'pages', 'issues'] as const;
+export const COLLECTIONS = ['events', 'places', 'articles', 'pages', 'issues', 'weekly'] as const;
 export type CollectionName = (typeof COLLECTIONS)[number];
 
 /** The collections that have a staging folder: content/<town>/staging/<collection>/. */
@@ -661,6 +741,7 @@ export const schemaFor: Record<CollectionName, (image: ImageSchema) => z.ZodType
   articles: articleSchema,
   pages: pageSchema,
   issues: issueSchema,
+  weekly: () => weeklySchema(),
 };
 
 /**

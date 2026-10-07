@@ -7,7 +7,7 @@ import PlaceCard from '@/components/PlaceCard.astro';
 import PlaceFeature from '@/components/PlaceFeature.astro';
 import PlaceIndex from '@/components/PlaceIndex.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
-import NewsletterSignup from '@/components/NewsletterSignup.astro';
+import ThisWeek from '@/components/ThisWeek.astro';
 import NearbyWeekend from '@/components/NearbyWeekend.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
@@ -36,11 +36,20 @@ const [lead, second] = articles;
 <Base>
   <Hero />
 
-  {/* The page is a run of colored bands: white, then the accent at 9%, then
-     the accent itself. Without them the whole site is one sheet of tan.
-     The first has half the usual padding on top, so "What’s on" starts close
-     under the hero and its first row of events is in the first screen. */}
+  {/* This week, first: the pick, the weekend's first few, what is new or
+     closed, and the email. Half the usual padding on top so it starts close
+     under the hero. The signup that sat at the foot of the page lives here
+     now; one ask a page. */}
   <section class="band band-white pt-8! md:pt-12!">
+    <div class="container-page">
+      <ThisWeek town={town} compact />
+    </div>
+  </section>
+
+  {/* The page is a run of colored bands: white, the accent at 9%, white, the
+     accent at 9% again, then the accent itself. Without them the whole site
+     is one sheet of tan. */}
+  <section class="band band-tint">
     <div class="container-page">
     <SectionHeader eyebrow={`Coming up in ${town.name}`} title="What’s on" href="/events/" linkLabel="All events" />
     {events.length === 0 ? (
@@ -63,7 +72,7 @@ const [lead, second] = articles;
     </div>
   </section>
 
-  <section class="band band-tint">
+  <section class="band band-white">
     <div class="container-page">
     {/* The section shows every kind of place, not only food, so the link goes
        to the directory, which lists them all. */}
@@ -89,7 +98,7 @@ const [lead, second] = articles;
   </section>
 
   {lead && (
-    <section class="band band-white">
+    <section class="band band-tint">
       <div class="container-page">
       <SectionHeader eyebrow="Latest" title="From the guide" href="/guides/" linkLabel="All guides" />
       <ArticleCard article={lead} feature />
@@ -101,23 +110,6 @@ const [lead, second] = articles;
       </div>
     </section>
   )}
-
-  {/*
-    The signup sat only on /events/ and on the hub. The home page is the page
-    most readers see and the only one some of them see, so the offer belongs
-    here too — inline, at the foot, after the reader has had the events and
-    the places and can tell whether the weekly note is worth having. Not a
-    modal: a popup on a community guide reads as spam and costs exactly the
-    trust the rest of the site is built on.
-  */}
-  {/* Straight after "From the guide", another white band: the two paddings
-     stacked to some 200px of blank, so this one starts at the top. Left with
-     every other block on the page rather than centred. */}
-  <section class:list={['band band-white', lead && 'pt-0!']}>
-    <div class="container-page">
-      <NewsletterSignup town={town} compact />
-    </div>
-  </section>
 
   <section class="on-dark bg-accent-dark text-white">
     <div class="container-page grid gap-8 py-16 md:grid-cols-[3fr_2fr] md:items-end md:py-24">

@@ -1,0 +1,76 @@
+---
+/**
+ * The strip under every guide article: the next few listings, a link to
+ * this week, three related links, and the signup.
+ *
+ * An article is the page a search lands on, and the one page on the site
+ * that said nothing about what is on. The related links are the editor's,
+ * from the article's frontmatter, each with a sentence on how it connects;
+ * without any, the newest articles in the same section stand in, with no
+ * sentence, because a sentence nobody wrote is worse than none.
+ */
+import NewsletterSignup from './NewsletterSignup.astro';
+import WeekEventRow from './WeekEventRow.astro';
+import { getTown } from '@/config';
+import { getTownEntries, type TownEntry } from '@/lib/content';
+import { occurrences } from '@/lib/events';
+import { upcomingEvents } from '@/lib/weekly';
+
+interface Props {
+  article: TownEntry<'articles'>;
+}
+
+const { article } = Astro.props;
+const town = getTown();
+const now = new Date();
+const events = upcomingEvents(occurrences(await getTownEntries('events'), { now, horizonDays: 60 }), { now, limit: 3 });
+
+interface Related {
+  label: string;
+  href: string;
+  note?: string;
+}
+let related: Related[] = article.data.related.slice(0, 3);
+if (related.length === 0) {
+  // The same section first, newest first; the newest of the rest fill out
+  // the three where a section is thin.
+  const others = (await getTownEntries('articles'))
+    .filter((a) => a.slug !== article.slug)
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  const same = others.filter((a) => a.data.category === article.data.category);
+  const rest = others.filter((a) => a.data.category !== article.data.category);
+  related = [...same, ...rest].slice(0, 3).map((a) => ({ label: a.data.title, href: `/articles/${a.slug}/` }));
+}
+const link = 'inline-block -my-2 py-2 font-medium text-accent-text no-underline hover:underline';
+---
+<section class="mt-20 border-t-2 border-accent pt-8 md:mt-24" aria-label={`More from the ${town.name} guide`}>
+  <div class="grid gap-10 md:grid-cols-2 md:gap-12">
+    <div>
+      <h2 class="eyebrow">Coming up in {town.name}</h2>
+      {events.length > 0 && (
+        <div class="mt-2" data-hide-when-empty>
+          {events.map((event) => <WeekEventRow event={event} />)}
+        </div>
+      )}
+      <p class="mt-4 text-[0.9375rem]">
+        <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-accent-text no-underline hover:underline">This week in {town.name} →</a>
+      </p>
+    </div>
+    {related.length > 0 && (
+      <div>
+        <h2 class="eyebrow">Related</h2>
+        <ul class="mt-2">
+          {related.map((r) => (
+            <li class="border-t border-line-soft py-3 first:border-t-0">
+              <a href={r.href} rel={/^https?:/.test(r.href) ? 'noopener' : undefined} class={link}>{r.label}</a>
+              {r.note && <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{r.note}</p>}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+  <div class="mt-12">
+    <NewsletterSignup town={town} compact id="article" />
+  </div>
+</section>

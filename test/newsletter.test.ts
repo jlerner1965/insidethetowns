@@ -6,7 +6,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseLocal } from '../src/lib/dates.ts';
-import { isNewlyClosed, isNewPlace, issueWindow, nextSendDay, openingDay } from '../src/lib/newsletter.ts';
+import { campaignLink, isNewlyClosed, isNewPlace, issueWindow, nextSendDay, openingDay } from '../src/lib/newsletter.ts';
 
 const day = (s: string) => parseLocal(s);
 const send = day('2026-10-08'); // a Thursday
@@ -53,4 +53,16 @@ test('the places a guide opened with are the guide, not new places', () => {
   assert.equal(opened?.getTime(), day('2026-10-04').getTime());
   assert.deepEqual(places.map((p) => isNewPlace(p, send, opened)), [false, false, true]);
   assert.equal(openingDay([]), undefined);
+});
+
+test('a site link in the email carries the issue’s campaign tags and nothing about the reader', () => {
+  const url = new URL(campaignLink('https://insidelyons.com/events/market/', send));
+  assert.equal(url.origin + url.pathname, 'https://insidelyons.com/events/market/');
+  assert.equal(url.searchParams.get('utm_source'), 'newsletter');
+  assert.equal(url.searchParams.get('utm_medium'), 'email');
+  assert.equal(url.searchParams.get('utm_campaign'), '2026-10-08');
+  // An existing query survives, and the hash stays at the end.
+  const kept = new URL(campaignLink('https://insidelyons.com/events/?when=weekend#sat', send));
+  assert.equal(kept.searchParams.get('when'), 'weekend');
+  assert.equal(kept.hash, '#sat');
 });
