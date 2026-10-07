@@ -83,6 +83,18 @@
       "notes": "Found and read once on 6 October 2026. Severance High School, 1200 Hidden Valley Pkwy, Severance, CO 80550, in the Weld RE-4 School District (Windsor-Severance). The school calendar page is a client-rendered month grid whose page config points at a public Google Calendar iCal: calendar id c_2bgupdhihf5a6577kh8sl31hm4@group.calendar.google.com (https://calendar.google.com/calendar/ical/c_2bgupdhihf5a6577kh8sl31hm4%40group.calendar.google.com/public/basic.ics). calendar.google.com's robots.txt disallows our agent on /calendar/ical/ paths (confirmed on the district's calendar; the same rule applies to this one), so the feed was not read. The page also links an Athletics section. Severance Middle School is at sms.weldre4.org (seen in the district's school list, not fetched). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
+      "id": "townofseverance-org-special-events",
+      "name": "Town of Severance: Special Events pages",
+      "url": "https://www.townofseverance.org/210/Special-Events",
+      "type": "manual",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "defaultVenue": "Severance Town Hall, 3 S Timber Ridge Parkway, Severance",
+      "notes": "Added 7 October 2026 at the owner's direction. The Town's Special Events page and its subpages (one per event, e.g. /290 for the Trick or Treat Parade and /376 for Town Christmas) carry the details its Community Events calendar lacks: times, places, what to bring. Read by hand alongside the calendar feed, which stays the source of dates."
+    },
+    {
       "id": "townofseverance-org-all",
       "name": "Town of Severance: All calendars (RSS)",
       "url": "https://www.townofseverance.org/Calendar.aspx",

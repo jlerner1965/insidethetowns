@@ -100,7 +100,7 @@ export function excludedTitle(item: Pick<FeedEvent, 'title'>, source: Pick<Sourc
  * and not an address is the venue, and the address is the part that starts
  * with a number.
  */
-export function venueFrom(location: string | undefined, source: Pick<Source, 'venueAliases' | 'defaultVenue'>): { venue?: string; address?: string; guessed: boolean } {
+export function venueFrom(location: string | undefined, source: Pick<Source, 'venueAliases' | 'defaultVenue'>): { venue?: string; address?: string; guessed: boolean; silent?: boolean } {
   const parts = (location ?? '')
     .split(/\s*,\s*/)
     .map((p) => p.trim())
@@ -121,13 +121,23 @@ export function venueFrom(location: string | undefined, source: Pick<Source, 've
     // "Berthoud" followed by "CO 80513" is the town, not a venue.
     /^(CO|Colorado)\b/.test(parts[i + 1] ?? '');
   if (source.defaultVenue) {
+    // LibCal writes "Offsite" beside the branch that runs an event held
+    // somewhere else (Fort Lupton's teen laser tag, at the high school): the
+    // building is the organizer, not the venue, so the default is only a guess.
+    if (parts.some((p) => /^off-?site$/i.test(p))) return { venue: source.defaultVenue, address: addressIn(parts), guessed: true };
     const named = parts.some((p) => p.toLowerCase().includes(source.defaultVenue!.toLowerCase()));
     // A department's feed is at its own building unless the location names
     // another place: the library's film at the museum ("Longmont Museum,
     // 400 Quail Rd.") is at the museum, and saying the library, with
     // confidence, flagged a move that never happened.
     const elsewhere = !named && parts.some((p, i) => !isRoom(p) && !isAddress(p) && !isRegion(p, i));
-    if (!elsewhere) return { venue: source.defaultVenue, address: addressIn(parts), guessed: false };
+    // `silent`: the feed names no place at all (nothing, or only the town:
+    // "Severance CO 80550"), so the default is the editor's assumption, not
+    // the feed's word. Good enough to stage a new item at; not a reason to
+    // say a published one has moved (Severance's teen movie night is at the
+    // library, and the Town's calendar does not say otherwise).
+    const silent = parts.every((p, i) => isRegion(p, i));
+    if (!elsewhere) return { venue: source.defaultVenue, address: addressIn(parts), guessed: false, ...(silent ? { silent: true } : {}) };
   }
   const candidates = parts.filter((p, i) => !isRoom(p) && !isAddress(p) && !isRegion(p, i));
   const venue = candidates[0] ?? parts.find((p, i) => !isAddress(p) && !isRegion(p, i));

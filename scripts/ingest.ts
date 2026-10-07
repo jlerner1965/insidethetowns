@@ -281,8 +281,8 @@ for (const town of towns) {
         continue;
       }
       // Published. Compare, and file the difference for the review.
-      const { venue, guessed } = venueFrom(item.location, source);
-      const changes = detectChanges(item, match.existing, venue, !guessed);
+      const { venue, guessed, silent } = venueFrom(item.location, source);
+      const changes = detectChanges(item, match.existing, venue, !guessed && !silent);
       if (changes.length === 0) {
         unchanged++;
         continue;

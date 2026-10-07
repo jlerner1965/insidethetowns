@@ -8,8 +8,9 @@ url: "https://highplains.libcal.com/event/17154450"
 cost: "Free"
 category: family
 organizer: "Fort Lupton Public & School Library"
-source: "https://www.fortluptonco.gov/CivicAlerts.aspx?AID=657"
-sourceId: "fortluptonco-gov-library"
+source: "https://highplains.libcal.com/event/17154450"
+sourceId: "highplains-libcal-com"
+sourceUid: "libcal:17154450"
 verified: "2026-10-07"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---
