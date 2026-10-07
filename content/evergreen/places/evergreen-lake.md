@@ -5,7 +5,7 @@ address: "29612 Upper Bear Creek Road, Evergreen, CO 80439"
 area: "Upper Bear Creek Road, west of downtown"
 url: "https://www.evergreenrecreation.com/evergreen-lake"
 source: "https://www.evergreenrecreation.com/evergreen-lake-house"
-verified: "2026-10-06"
+verified: "2026-10-07"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "720-880-1300"
@@ -19,4 +19,4 @@ access: { parking: "Groups such as camps, school outings and clubs must file an 
 
 Evergreen Lake is part of Denver's Dedisse Mountain Park and is managed by the Evergreen Park & Recreation District, which runs the Lake House on the shore (720-880-1300). The district lists a 40-acre lake, a trail around it, an observation boardwalk, wetlands, the historic boat and warming house, and a picnic area with first-come tables; Dedisse Park itself also takes in Evergreen Golf Course and the Dedisse Trail, which links to the Alderfer/Three Sisters trails ([Denver Mountain Parks](https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Mountain-Parks/Mountain-Park-Descriptions), read 6 October 2026).
 
-Boating in summer and skating in winter run only when conditions allow: the district says to call the boating/skating hotline, 720-880-1391, before leaving home. Boat rentals go to weekends only after Labor Day. Lake rules ([Seasonal Lake Rules](https://www.evergreenrecreation.com/seasonal-lake-rules)): life jackets on everyone on the water, private boats no longer than 15 feet, no alcohol on boats, no swimming (pets included), dogs leashed on land and on boats, no drones, and no dogs on the ice. The lake is stocked with trout and fishing needs a state license; no grilling, even propane, during a fire ban ([Evergreen Lake & Trail](https://www.evergreenrecreation.com/evergreen-lake-trail)).
+Boating in summer and skating in winter run only when conditions allow: the district says to call the boating/skating hotline, 720-880-1391, before leaving home. Boat rentals go to weekends only after Labor Day, and on 7 October 2026 the district's [boat rentals page](https://www.evergreenrecreation.com/boat-rentals) said boating operations and the Stagecoach Park parking shuttle were closed for the season; skating follows the ice, so call the hotline before a winter visit. Lake rules ([Seasonal Lake Rules](https://www.evergreenrecreation.com/seasonal-lake-rules)): life jackets on everyone on the water, private boats no longer than 15 feet, no alcohol on boats, no swimming (pets included), dogs leashed on land and on boats, no drones, and no dogs on the ice. The lake is stocked with trout and fishing needs a state license; no grilling, even propane, during a fire ban ([Evergreen Lake & Trail](https://www.evergreenrecreation.com/evergreen-lake-trail)).
