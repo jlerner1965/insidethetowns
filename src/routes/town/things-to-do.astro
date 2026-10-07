@@ -64,9 +64,13 @@ const structured = [
   {outdoors.length > 0 && (
     <section class="mt-20">
       <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">Outdoors, in depth</h2>
-      <div class="grid gap-x-8 gap-y-10 md:grid-cols-2">
-        {outdoors.map((article) => <ArticleCard article={article} />)}
-      </div>
+      {outdoors.length === 1 ? (
+        <ArticleCard article={outdoors[0]} row />
+      ) : (
+        <div class="grid gap-x-8 gap-y-10 md:grid-cols-2">
+          {outdoors.map((article) => <ArticleCard article={article} />)}
+        </div>
+      )}
     </section>
   )}
 </Page>

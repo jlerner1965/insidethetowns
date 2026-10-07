@@ -11,7 +11,7 @@
  */
 import type { TownEntry } from '@/lib/content';
 import { formatDate, formatTimeRange, formatWeekday } from '@/lib/dates';
-import { CATEGORY_LABELS } from '@/content/schemas';
+import { shownCategoryLabel } from '@/content/schemas';
 
 interface Props {
   events: TownEntry<'events'>[];
@@ -44,11 +44,13 @@ const through = (e: TownEntry<'events'>) => (e.data.until ? `through ${formatDat
               <li class="group relative grid gap-x-6 gap-y-1 border-b border-line-soft py-4 last:border-b-0 sm:grid-cols-[minmax(7rem,9rem)_1fr]">
                 <p class="text-sm font-semibold tabular-nums text-ink-muted sm:pt-0.5">{e.data.timeNote ?? formatTimeRange(e.data.start, e.data.end, e.data.allDay)}</p>
                 <div class="min-w-0">
-                  <p class="eyebrow flex items-center gap-2" style={`color:var(--cat-${e.data.category}-ink)`}>
-                    <span class="inline-block size-2 shrink-0 rounded-full" style={`background:var(--cat-${e.data.category}-dot)`} aria-hidden="true"></span>
-                    {CATEGORY_LABELS[e.data.category]}
-                  </p>
-                  <h4 class="mt-1 text-lg font-medium leading-tight">
+                  {shownCategoryLabel(e.data.category) && (
+                    <p class="eyebrow mb-1 flex items-center gap-2" style={`color:var(--cat-${e.data.category}-ink)`}>
+                      <span class="inline-block size-2 shrink-0 rounded-full" style={`background:var(--cat-${e.data.category}-dot)`} aria-hidden="true"></span>
+                      {shownCategoryLabel(e.data.category)}
+                    </p>
+                  )}
+                  <h4 class="text-lg font-medium leading-tight">
                     <a href={`/events/${e.slug}/`} class="stretch no-underline group-hover:text-accent-text">{e.data.title}</a>
                   </h4>
                   <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">

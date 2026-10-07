@@ -9,7 +9,7 @@ import { isCanceled, isInProgress, isMultiDay, isPast, nextOccurrence } from '@/
 import { googleCalendarUrl } from '@/lib/ics';
 import { pickCanonical } from '@/lib/series';
 import { breadcrumbJsonLd, eventJsonLd } from '@/lib/seo';
-import { CATEGORY_LABELS, EVENT_STATUS_LABELS } from '@/content/schemas';
+import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 import Provenance from '@/components/Provenance.astro';
 
 export async function getStaticPaths() {
@@ -95,7 +95,7 @@ const facts = [
   kind="Event"
   title={data.title}
   seoTitle={`${statusLabel ? `${statusLabel}: ` : ''}${data.title} — ${formatDate(when.start)}`}
-  eyebrow={statusLabel ? `${statusLabel} · ${CATEGORY_LABELS[data.category]}` : CATEGORY_LABELS[data.category]}
+  eyebrow={[statusLabel, shownCategoryLabel(data.category)].filter(Boolean).join(' · ') || undefined}
   description={description}
   image={shareImage}
   imageAlt={data.imageAlt}
@@ -113,10 +113,17 @@ const facts = [
     ]),
   ]}
 >
-  <div class="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
-    <div>
+  {/*
+    Two columns on a wide screen, one on a phone, and on a phone the order
+    changes: the notice, then When and Where, then the picture and the
+    description. The facts used to come after the whole description and the
+    back link, a screen or two down. Each column's wrapper is `contents`
+    below lg, so its children take part in the outer column's `order`.
+  */}
+  <div class="flex flex-col gap-10 lg:grid lg:grid-cols-[1fr_20rem] lg:items-start lg:gap-16">
+    <div class="contents lg:block">
       {statusLabel && (
-        <div class="mb-10 rounded-lg border-l-4 border-ink bg-raised p-5 ring-1 ring-line-soft" role="note">
+        <div class="order-1 rounded-lg border-l-4 border-ink bg-raised p-5 ring-1 ring-line-soft lg:mb-10" role="note">
           <p class="eyebrow">{statusLabel}</p>
           <p class="mt-2 leading-relaxed">
             {data.statusNote}
@@ -128,41 +135,47 @@ const facts = [
           </p>
         </div>
       )}
-      {data.image && <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="mb-10 rounded-lg" />}
-      <div class="prose">
-        <Content />
+      <div class="order-3">
+        {data.image && <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="mb-10 rounded-lg" />}
+        <div class="prose">
+          <Content />
+        </div>
       </div>
-      <p class="mt-12 text-[0.9375rem]"><a href="/events/" class="font-semibold text-accent-text no-underline hover:underline">← All events</a></p>
+      <p class="order-5 text-[0.9375rem] lg:mt-12"><a href="/events/" class="font-semibold text-accent-text no-underline hover:underline">← All events</a></p>
     </div>
-    <aside class="lg:pt-1">
-      <dl class="divide-y divide-line-soft border-y border-line-soft">
-        {facts.map((f) => (
-          <div class="py-4">
-            <dt class="eyebrow">{f.label}</dt>
-            <dd class="mt-1.5 leading-snug">
-              {f.value.map((line, i) => (
-                <span class:list={['block', i > 0 && 'text-[0.9375rem] text-ink-muted']}>
-                  {i === 0 && (f.label === 'When' || f.label === 'Next') ? <time datetime={toIsoLocal(when.start)}>{line}</time> : line}
-                </span>
-              ))}
-            </dd>
-          </div>
-        ))}
-      </dl>
-      {data.url && <a href={data.url} rel="noopener" class="btn btn-primary mt-6">Organizer’s page →</a>}
-      <p class="mt-6 text-[0.9375rem] leading-snug">
-        <span class="eyebrow block">Add to calendar</span>
-        <a href={`/events/${event.slug}.ics`} class="mt-1.5 inline-block font-semibold text-accent-text no-underline hover:underline">Apple, Outlook (.ics)</a>
-        <span class="text-ink-faint"> · </span>
-        <a href={googleUrl} rel="noopener" class="font-semibold text-accent-text no-underline hover:underline">Google</a>
-      </p>
-      <Provenance
-        verified={data.verified}
-        source={data.source}
-        item={`event/${event.slug}`}
-        title={data.title}
-        note="Times can change; the organizer’s page is the record."
-      />
-    </aside>
+    <div class="contents lg:block lg:pt-1">
+      <aside class="order-2">
+        <dl class="divide-y divide-line-soft border-y border-line-soft">
+          {facts.map((f) => (
+            <div class="py-4">
+              <dt class="eyebrow">{f.label}</dt>
+              <dd class="mt-1.5 leading-snug">
+                {f.value.map((line, i) => (
+                  <span class:list={['block', i > 0 && 'text-[0.9375rem] text-ink-muted']}>
+                    {i === 0 && (f.label === 'When' || f.label === 'Next') ? <time datetime={toIsoLocal(when.start)}>{line}</time> : line}
+                  </span>
+                ))}
+              </dd>
+            </div>
+          ))}
+        </dl>
+        {data.url && <a href={data.url} rel="noopener" class="btn btn-primary mt-6">Organizer’s page →</a>}
+        <p class="mt-6 text-[0.9375rem] leading-snug">
+          <span class="eyebrow block">Add to calendar</span>
+          <a href={`/events/${event.slug}.ics`} class="mt-1.5 inline-block font-semibold text-accent-text no-underline hover:underline">Apple, Outlook (.ics)</a>
+          <span class="text-ink-faint"> · </span>
+          <a href={googleUrl} rel="noopener" class="font-semibold text-accent-text no-underline hover:underline">Google</a>
+        </p>
+      </aside>
+      <div class="order-4 -mt-4 lg:mt-0">
+        <Provenance
+          verified={data.verified}
+          source={data.source}
+          item={`event/${event.slug}`}
+          title={data.title}
+          note="Times can change; the organizer’s page is the record."
+        />
+      </div>
+    </div>
   </div>
 </Page>

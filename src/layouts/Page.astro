@@ -44,5 +44,8 @@ const { title, seoTitle, eyebrow, intro, narrow = false, ...seo } = Astro.props;
     <div class:list={[narrow && 'max-w-2xl']}>
       <slot />
     </div>
+    {/* The full width of the page, below a narrow body: a CtaBand held to
+        prose width broke its own two-column layout (thanks, message-sent). */}
+    <slot name="after" />
   </div>
 </Base>

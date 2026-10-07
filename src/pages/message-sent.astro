@@ -50,25 +50,27 @@ const town = site.kind === 'town';
     </p>
   </div>
 
-  {town ? (
-    <CtaBand
-      eyebrow="While you’re here"
-      title={`What’s on in ${site.name}`}
-      body="Events are listed free, and anyone can send one in — including you, if you know about something we have missed."
-      links={[
-        { label: 'See what’s on', href: '/events/', primary: true },
-        { label: 'Submit an event', href: '/submit-event/' },
-      ]}
-    />
-  ) : (
-    <CtaBand
-      eyebrow="While you’re here"
-      title="Somewhere to go next"
-      body="What is on across the network this weekend, and one email on a Thursday if you would rather it came to you."
-      links={[
-        { label: 'This weekend', href: '/this-weekend/', primary: true },
-        { label: 'The newsletter', href: '/newsletter/' },
-      ]}
-    />
-  )}
+  <Fragment slot="after">
+    {town ? (
+      <CtaBand
+        eyebrow="While you’re here"
+        title={`What’s on in ${site.name}`}
+        body="Events are listed free, and anyone can send one in — including you, if you know about something we have missed."
+        links={[
+          { label: 'See what’s on', href: '/events/', primary: true },
+          { label: 'Submit an event', href: '/submit-event/' },
+        ]}
+      />
+    ) : (
+      <CtaBand
+        eyebrow="While you’re here"
+        title="Somewhere to go next"
+        body="What is on across the network this weekend, and one email on a Thursday if you would rather it came to you."
+        links={[
+          { label: 'This weekend', href: '/this-weekend/', primary: true },
+          { label: 'The newsletter', href: '/newsletter/' },
+        ]}
+      />
+    )}
+  </Fragment>
 </Page>

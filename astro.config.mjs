@@ -2,9 +2,11 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import { satteri } from '@astrojs/markdown-satteri';
 import { getSite } from './src/config/index.ts';
 import { townRoutes } from './src/integrations/town-routes.ts';
 import { hostFiles } from './src/integrations/host-files.ts';
+import { tableLabels } from './src/integrations/table-labels.ts';
 import { pastEventSlugs, repeatOccurrenceSlugs } from './src/lib/series.ts';
 import { closedPlaceSlugs } from './src/lib/raw-places.ts';
 import vercelConfig from './vercel.json' with { type: 'json' };
@@ -46,6 +48,11 @@ export default defineConfig({
   image: {
     layout: 'constrained',
     responsiveStyles: true,
+  },
+  // Column names on table cells, for the stacked phone layout (table-labels.ts).
+  // Sätteri is Astro's default processor; this only adds a plugin to it.
+  markdown: {
+    processor: satteri({ hastPlugins: [tableLabels] }),
   },
   integrations: [townRoutes(site), sitemap({ filter: indexable }), hostFiles(vercelConfig, site.domain)],
   vite: {

@@ -152,10 +152,17 @@ const facts = [
     ]),
   ]}
 >
-  <div class="grid gap-12 lg:grid-cols-[1fr_20rem] lg:gap-16">
-    <div>
+  {/*
+    Two columns on a wide screen, one on a phone, and on a phone the order
+    changes: the notice, then the address, hours and phone, then the picture
+    and the description. They used to come after the description, the tags
+    and the back link. Each column's wrapper is `contents` below lg, so its
+    children take part in the outer column's `order` (as on an event page).
+  */}
+  <div class="flex flex-col gap-10 lg:grid lg:grid-cols-[1fr_20rem] lg:items-start lg:gap-16">
+    <div class="contents lg:block">
       {statusLabel && (
-        <div class="mb-10 rounded-lg border-l-4 border-ink bg-raised p-5 ring-1 ring-line-soft" role="note">
+        <div class="order-1 rounded-lg border-l-4 border-ink bg-raised p-5 ring-1 ring-line-soft lg:mb-10" role="note">
           <p class="eyebrow">{statusLabel}</p>
           <p class="mt-2 leading-relaxed">
             {data.statusNote}
@@ -170,101 +177,107 @@ const facts = [
           </p>
         </div>
       )}
-      {data.image && (
-        <figure class="mb-10">
-          <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
-          {data.imageCredit && (
-            <figcaption class="mt-2 text-[0.8125rem] text-ink-faint">Photo: {data.imageCredit}</figcaption>
-          )}
-        </figure>
-      )}
-      <div class="prose">
-        <Content />
+      <div class="order-3">
+        {data.image && (
+          <figure class="mb-10">
+            <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
+            {data.imageCredit && (
+              <figcaption class="mt-2 text-[0.8125rem] text-ink-faint">Photo: {data.imageCredit}</figcaption>
+            )}
+          </figure>
+        )}
+        <div class="prose">
+          <Content />
+        </div>
+        {data.tags.length > 0 && (
+          <ul class="mt-10 flex flex-wrap gap-2">
+            {data.tags.map((tag) => <li class="rounded-full border border-line px-3 py-1 text-xs font-medium text-ink-muted">{tag}</li>)}
+          </ul>
+        )}
       </div>
-      {data.tags.length > 0 && (
-        <ul class="mt-10 flex flex-wrap gap-2">
-          {data.tags.map((tag) => <li class="rounded-full border border-line px-3 py-1 text-xs font-medium text-ink-muted">{tag}</li>)}
-        </ul>
-      )}
-      <p class="mt-12 text-[0.9375rem]"><a href={back.href} class="font-semibold text-accent-text no-underline hover:underline">← {back.label}</a></p>
+      <p class="order-5 text-[0.9375rem] lg:mt-12"><a href={back.href} class="font-semibold text-accent-text no-underline hover:underline">← {back.label}</a></p>
     </div>
-    <aside class="lg:pt-1">
-      <dl class="divide-y divide-line-soft border-y border-line-soft">
-        {facts.map((f) => (
-          <div class="py-4" data-hours={f.hours ? JSON.stringify(f.hours) : undefined}>
-            <dt class="eyebrow">{f.label}</dt>
-            <dd class="mt-1.5 leading-snug">
-              {f.href ? <a href={f.href} rel={f.href.startsWith('http') ? 'noopener' : undefined} class="text-accent-text">{f.value}</a> : f.value}
-              {f.hours && <span class="open-status mt-1 block text-[0.9375rem] font-semibold" data-open-status hidden></span>}
-            </dd>
-          </div>
-        ))}
-      </dl>
-      <OpenStatus />
-      {beforeYouGo && (
-        <section class="mt-6 border-t border-line-soft pt-6" aria-labelledby="before-you-go">
-          <h2 id="before-you-go" class="eyebrow">Before you go</h2>
-          {accessNotes.length > 0 && (
-            <dl class="mt-3 grid gap-3 text-[0.9375rem] leading-snug">
-              {accessNotes.map((n) => (
-                <div>
-                  <dt class="font-semibold">{n.label}</dt>
-                  <dd class="mt-0.5 text-ink-muted">{n.value}</dd>
-                </div>
-              ))}
-            </dl>
-          )}
-          {access && !accessShown && (
-            <p class="mt-3 text-[0.875rem] leading-relaxed text-ink-muted">
-              Parking, permit and closure notes not shown: last checked {ageDays(access.verified)} days ago. Check the land manager’s page below.
-            </p>
-          )}
-          {(access?.conditionsUrl || conditionsLinks.length > 0) && (
-            <ul class="mt-3 grid gap-2 text-[0.9375rem] leading-snug">
-              {access?.conditionsUrl && (
-                <li>
-                  <a href={access.conditionsUrl} rel="noopener" class="font-semibold text-accent-text">{access.conditionsLabel ?? 'Current conditions'}</a>
-                  <span class="block text-[0.875rem] text-ink-muted">The land manager’s own page; we link it rather than repeat it.</span>
-                </li>
-              )}
-              {conditionsLinks.map((l) => (
-                <li>
-                  <a href={l.url} rel="noopener" class="font-semibold text-accent-text">{l.label}</a>
-                  {l.note && <span class="block text-[0.875rem] text-ink-muted">{l.note}</span>}
-                </li>
-              ))}
-            </ul>
-          )}
-          {accessShown && (
-            <p class="mt-3 text-xs leading-relaxed text-ink-faint">
-              Access notes checked {formatDate(access.verified)} against <a href={access.source} rel="noopener" class="underline">{new URL(access.source).hostname.replace(/^www\./, '')}</a>.
-            </p>
-          )}
-        </section>
-      )}
-      <Provenance
-        verified={data.verified}
-        source={data.source}
-        item={`place/${place.slug}`}
-        title={data.title}
-        note="Hours and phone numbers change fastest, so the business’s own page is the record."
-      />
-      {/*
-        Most of these listings have no photograph and many have no hours, and
-        those gaps close fastest when the people who know are asked on the page
-        where the gap shows. The link lands on the contact form with the
-        place's name already in the subject line.
-      */}
-      <p class="mt-6 border-t border-line-soft pt-6 text-[0.9375rem] leading-snug">
-        <a href={correct} class="font-semibold text-accent-text no-underline hover:underline">
-          {hasOperator ? `Own or run ${data.title}?` : `Know ${data.title} well?`}
-        </a>
-        <span class="mt-1 block text-[0.875rem] leading-relaxed text-ink-muted">
-          Send a photo, new hours or a correction. Listings are editorial and free; nobody pays to be here.
-          {hasOperator && <a href="/for-businesses/" class="text-accent-text underline">How listings work.</a>}
-        </span>
-      </p>
-    </aside>
+    <div class="contents lg:block lg:pt-1">
+      <aside class="order-2">
+        <dl class="divide-y divide-line-soft border-y border-line-soft">
+          {facts.map((f) => (
+            <div class="py-4" data-hours={f.hours ? JSON.stringify(f.hours) : undefined}>
+              <dt class="eyebrow">{f.label}</dt>
+              <dd class="mt-1.5 leading-snug">
+                {f.href ? <a href={f.href} rel={f.href.startsWith('http') ? 'noopener' : undefined} class="text-accent-text">{f.value}</a> : f.value}
+                {f.hours && <span class="open-status mt-1 block text-[0.9375rem] font-semibold" data-open-status hidden></span>}
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <OpenStatus />
+        {beforeYouGo && (
+          <section class="mt-6 border-t border-line-soft pt-6" aria-labelledby="before-you-go">
+            <h2 id="before-you-go" class="eyebrow">Before you go</h2>
+            {accessNotes.length > 0 && (
+              <dl class="mt-3 grid gap-3 text-[0.9375rem] leading-snug">
+                {accessNotes.map((n) => (
+                  <div>
+                    <dt class="font-semibold">{n.label}</dt>
+                    <dd class="mt-0.5 text-ink-muted">{n.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+            {access && !accessShown && (
+              <p class="mt-3 text-[0.875rem] leading-relaxed text-ink-muted">
+                Parking, permit and closure notes not shown: last checked {ageDays(access.verified)} days ago. Check the land manager’s page below.
+              </p>
+            )}
+            {(access?.conditionsUrl || conditionsLinks.length > 0) && (
+              <ul class="mt-3 grid gap-2 text-[0.9375rem] leading-snug">
+                {access?.conditionsUrl && (
+                  <li>
+                    <a href={access.conditionsUrl} rel="noopener" class="font-semibold text-accent-text">{access.conditionsLabel ?? 'Current conditions'}</a>
+                    <span class="block text-[0.875rem] text-ink-muted">The land manager’s own page; we link it rather than repeat it.</span>
+                  </li>
+                )}
+                {conditionsLinks.map((l) => (
+                  <li>
+                    <a href={l.url} rel="noopener" class="font-semibold text-accent-text">{l.label}</a>
+                    {l.note && <span class="block text-[0.875rem] text-ink-muted">{l.note}</span>}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {accessShown && (
+              <p class="mt-3 text-xs leading-relaxed text-ink-faint">
+                Access notes checked {formatDate(access.verified)} against <a href={access.source} rel="noopener" class="underline">{new URL(access.source).hostname.replace(/^www\./, '')}</a>.
+              </p>
+            )}
+          </section>
+        )}
+      </aside>
+      <div class="order-4 -mt-4 lg:mt-0">
+        <Provenance
+          verified={data.verified}
+          source={data.source}
+          item={`place/${place.slug}`}
+          title={data.title}
+          note="Hours and phone numbers change fastest, so the business’s own page is the record."
+        />
+        {/*
+          Most of these listings have no photograph and many have no hours, and
+          those gaps close fastest when the people who know are asked on the page
+          where the gap shows. The link lands on the contact form with the
+          place's name already in the subject line.
+        */}
+        <p class="mt-6 border-t border-line-soft pt-6 text-[0.9375rem] leading-snug">
+          <a href={correct} class="font-semibold text-accent-text no-underline hover:underline">
+            {hasOperator ? `Own or run ${data.title}?` : `Know ${data.title} well?`}
+          </a>
+          <span class="mt-1 block text-[0.875rem] leading-relaxed text-ink-muted">
+            Send a photo, new hours or a correction. Listings are editorial and free; nobody pays to be here.
+            {hasOperator && <a href="/for-businesses/" class="text-accent-text underline">How listings work.</a>}
+          </span>
+        </p>
+      </div>
+    </div>
   </div>
 
   {here.length > 0 && (

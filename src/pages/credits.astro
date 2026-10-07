@@ -42,7 +42,7 @@ const linkClass = 'underline decoration-ink-faint underline-offset-2 hover:text-
     {photos.map(({ image, alt, credit, usedOn }) => (
       <li class="flex flex-col">
         <div class="aspect-[4/3] overflow-hidden rounded-lg bg-accent-soft">
-          <Image src={image} alt={alt} width={480} height={360} class="h-full w-full object-cover" />
+          <Image src={image} alt={alt} width={480} height={360} class="h-full! w-full object-cover" />
         </div>
         <p class="mt-4 text-[1.0625rem] font-medium leading-snug">
           {credit.author ?? 'Uncredited'}

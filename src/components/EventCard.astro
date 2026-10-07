@@ -20,7 +20,7 @@ import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
 import { dayKey, formatDate, formatDayRange, formatMonthDay, formatTime, formatTimeRange, formatWeekday, monthDay, toIsoLocal } from '@/lib/dates';
 import { isCanceled, isInProgress, lastDay } from '@/lib/events';
-import { CATEGORY_LABELS, EVENT_STATUS_LABELS } from '@/content/schemas';
+import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 import { subTownLabel } from '@/lib/sub-towns';
 
 interface Props {
@@ -64,7 +64,7 @@ const [cellTime, cellTo] = data.timeNote
           ? [formatTime(data.start), `to ${formatTime(data.end)}`]
           : [time];
 // "Other" is filed but not labelled; a status still shows on its own.
-const categoryLabel = data.category !== 'other' ? CATEGORY_LABELS[data.category] : undefined;
+const categoryLabel = shownCategoryLabel(data.category);
 const note =
   data.recurring ??
   (data.repeat === 'weekly' && data.until ? `Every ${formatWeekday(data.start)} through ${formatDate(data.until)}` : undefined);

@@ -152,8 +152,14 @@
   color: #fff;
 }
 
-/* Small caps-style label above headings: "This week in Niwot", "Market". */
+/* Small caps-style label above headings: "This week in Niwot", "Market".
+   It names its face: set on an <h2> or inside a display heading it used to
+   inherit Fraunces, and some forty labels across the sites ("Further out",
+   "Shops", the weekday over every day of events) came out in the serif while
+   every other label was in the sans. */
 @utility eyebrow {
+  font-family: var(--font-body);
+  font-variation-settings: normal;
   font-size: var(--text-eyebrow);
   font-weight: 600;
   letter-spacing: var(--tracking-eyebrow);
@@ -177,6 +183,44 @@
   font-variation-settings: "opsz" 72;
   letter-spacing: -0.025em;
   line-height: 1;
+}
+
+/*
+ * A labelled row of filter buttons: "When", "What", "Where", "Jump to".
+ *
+ * The label sits in a fixed column so every row's buttons start at the same
+ * edge. On a phone a row is one line that scrolls sideways and runs off the
+ * edge of the screen, which says there is more; it used to wrap, and the
+ * events page's three rows took seven lines before the first listing. From
+ * 40rem they wrap as before. The few pixels of padding keep a focus ring
+ * from being clipped by the scroller.
+ */
+@layer components {
+  .filter-row {
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    align-items: center;
+  }
+  .filter-pills {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-block: -6px;
+    margin-inline: -6px -1.25rem;
+    padding-block: 6px;
+    padding-inline: 6px 1.25rem;
+  }
+  .filter-pills::-webkit-scrollbar { display: none; }
+  .filter-pills > * { flex-shrink: 0; white-space: nowrap; }
+  @media (width >= 40rem) {
+    .filter-pills {
+      flex-wrap: wrap;
+      overflow: visible;
+      margin: 0;
+      padding: 0;
+    }
+  }
 }
 
 /*
@@ -402,6 +446,15 @@
   }
 }
 
+/* The footer stands off the page by mt-24, but a page that already ends in a
+   full-width dark band (every town home page and the hub's) got a 6rem strip
+   of paper between two blocks of the same dark colour, which read as a page
+   that had not finished loading. There the two meet, with a hairline. */
+main:has(> :last-child.on-dark) + footer {
+  margin-top: 0;
+  border-top: 1px solid rgb(255 255 255 / 0.14);
+}
+
 /* Long-form markdown: articles, moving-here, event and place bodies. */
 .prose {
   max-width: 40rem;
@@ -464,9 +517,38 @@
    min-width: 0 lets that box be narrower than the table where .prose is a
    grid item, as it is on an article page. */
 .prose { min-width: 0; }
+/* On a phone each row is a card of its own: the first cell as its heading,
+   the rest under it with their column names (data-label, added at build by
+   src/integrations/table-labels.ts). A three-column table scrolled sideways
+   in its box with nothing to say so, and its last column sat cut off at the
+   edge of the screen. */
 @media (width < 40rem) {
-  .prose table { display: block; overflow-x: auto; }
+  .prose table,
+  .prose tbody,
+  .prose tr,
+  .prose td,
+  .prose th { display: block; }
+  .prose thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .prose tr { padding-block: 0.85rem; border-bottom: 1px solid var(--color-line-soft); }
+  .prose td,
+  .prose th { padding: 0; border: 0; }
+  .prose td + td { margin-top: 0.4rem; }
+  .prose tr > :first-child { font-weight: 600; }
+  .prose td[data-label]:not(:first-child)::before {
+    content: attr(data-label);
+    display: block;
+    font-size: var(--text-eyebrow);
+    font-weight: 600;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-ink-faint);
+  }
 }
+/* A form set inside prose (the contact page) is a card with its own
+   padding: the prose rhythm would put 1.1em above it and 2.2em above its
+   heading, which opened the card on a band of empty white. */
+.prose > form { margin-top: 2.5rem; }
+.prose form h2 { margin-top: 0; }
 .prose hr { border: 0; border-top: 1px solid var(--color-line-soft); margin-block: 2.5em; }
 .prose strong { font-weight: 600; }
 .prose code { font-size: 0.9em; background: color-mix(in oklab, var(--color-ink) 6%, transparent); padding: 0.1em 0.35em; border-radius: 0.25rem; }

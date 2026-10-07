@@ -10,7 +10,7 @@
 import type { NetworkEntry } from '@/lib/content';
 import { dayKey, formatDayRange, formatDayShort, formatMonthDay, formatTimeRange, toIsoLocal } from '@/lib/dates';
 import { eventEnd, isCanceled, isInProgress, lastDay } from '@/lib/events';
-import { CATEGORY_LABELS, EVENT_STATUS_LABELS } from '@/content/schemas';
+import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 
 interface Props {
   event: NetworkEntry<'events'>;
@@ -38,7 +38,7 @@ const when =
       ? formatDayRange(data.start, data.end!)
       : formatTimeRange(data.start, data.end, data.allDay));
 // "Other" is filed but not labelled, as on a town's own list (EventCard).
-const categoryLabel = data.category !== 'other' ? CATEGORY_LABELS[data.category] : undefined;
+const categoryLabel = shownCategoryLabel(data.category);
 // A multi-day time range already names its days, and a run says "Now through".
 const time = showDay && !running && !multiDay ? `${formatDayShort(data.start)} · ${when}` : when;
 ---

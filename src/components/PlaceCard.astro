@@ -29,12 +29,14 @@ const open = isOpen(place);
 <article class="group relative flex flex-col" data-filter-item data-category={data.type} data-sub-town={data.subTown}>
   {data.image && (
     <div class="aspect-[4/3] overflow-hidden rounded-lg bg-accent-soft">
+      {/* h-full!, as in ArticleCard: Astro's unlayered height: auto beats the
+          utility, and a source wider than 4:3 left a band of tint under it. */}
       <Image
         src={data.image}
         alt={data.imageAlt ?? ''}
         width={720}
         height={540}
-        class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+        class="h-full! w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
       />
     </div>
   )}
