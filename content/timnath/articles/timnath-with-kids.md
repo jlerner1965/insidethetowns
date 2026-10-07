@@ -34,7 +34,7 @@ Timnath is new, and its parks are new with it: the biggest opened in 2025. For a
 
 ## The soda fountain
 
-The [CF&G Public Market & Coffeehouse](/places/cfg-public-market-and-coffeehouse/) is inside the 1920 Colorado Feed & Grain building on [Main Street](/places/old-town-main-street/): a coffeehouse with a soda fountain, breakfast and lunch bites, sweets, and a general store of local goods. Sunday to Thursday 7 to 3, Friday and Saturday to 5. The Sunday farmers market sets up here.
+The [CF&G Public Market & Coffeehouse](/places/cfg-public-market-and-coffeehouse/) is inside the early-1900s Colorado Feed & Grain building on [Main Street](/places/old-town-main-street/): a coffeehouse with a soda fountain, breakfast and lunch bites, sweets, and a general store of local goods. Sunday to Thursday 7 to 3, Friday and Saturday to 5. The Sunday farmers market sets up here.
 
 ## Birds and eagles, across the interstate
 

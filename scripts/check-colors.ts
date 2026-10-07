@@ -106,6 +106,10 @@ for (const [name, ink] of [['ink-muted', INK_MUTED], ['ink-faint', INK_FAINT]] a
  */
 for (const site of allSites) {
   want(`${site.slug} white/70 on accentDark`, ratio(mix('#ffffff', 0.7, site.colors.accentDark), site.colors.accentDark), 4.5);
+  // The network strip under the footer sits on accentDark darkened by 30%
+  // black (NetworkBar.astro, bg-black/30); its taglines are white/70 on that.
+  const strip = mix('#000000', 0.3, site.colors.accentDark);
+  want(`${site.slug} white/70 on the network strip`, ratio(mix('#ffffff', 0.7, strip), strip), 4.5);
 }
 
 const swatches = [

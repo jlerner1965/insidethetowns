@@ -46,7 +46,7 @@ export const carbonValley: TownConfig = {
   // I-25; the three old centres (the town halls, OpenStreetMap) are about
   // four miles east of it, on the far side of the interstate.
   lat: 40.1139,
-  lng: -105.0111,
+  lng: -104.937,
   // 2020 census, the three summed: Frederick 14,513 + Firestone 16,381 + Dacono 6,297.
   population: 37191,
   // Frederick's, GNIS via Wikipedia (4,938 ft); Firestone is 4,856 and Dacono 5,112.

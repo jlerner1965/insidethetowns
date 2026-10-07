@@ -5,6 +5,7 @@ end: "2026-10-15T21:00"
 venue: "Longmont Museum"
 address: "400 Quail Rd., Longmont, CO, 80501"
 url: "https://longmontcolorado.gov/event/sundance-film-festival-frida-2024-r/"
+cost: "$12; museum members $8"
 category: arts
 source: "https://longmontcolorado.gov/event/sundance-film-festival-frida-2024-r/"
 sourceId: "longmontcolorado-gov-museum"

@@ -36,6 +36,8 @@ export const nederland: TownConfig = {
   lng: -105.5014,
   population: 1471, // 2020 census
   elevationFt: 8235, // GNIS, via Wikipedia
+  driveToDenver: 'About 1 hr 15 min',
+  character: 'A mountain town at 8,200 feet above Boulder Canyon, with Eldora, the Peak to Peak and a bus down the canyon.',
   // 1874: the State Demography Office's historical census file gives
   // Nederland's incorporation year as 1874, and the Town's own History page
   // (nederlandco.org/1444) says the name was chosen in 1874 "when the town was

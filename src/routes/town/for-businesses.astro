@@ -24,7 +24,11 @@ const businesses = places.filter((p) => !LAND_TYPES.includes(p.data.type)).lengt
 // The directory counts every place, parks and trails included; this page is
 // for the businesses among them, and says both so the two pages agree.
 const land = places.length - businesses;
-const claim = `/contact/?about=${encodeURIComponent('My business')}#message-form`;
+// With no form configured the contact page falls back to a mailto link, so
+// the claim link and the sentence about it say that instead of promising a
+// pre-filled form that is not there.
+const hasForm = Boolean(town.formspreeId);
+const claim = hasForm ? `/contact/?about=${encodeURIComponent('My business')}#message-form` : '/contact/';
 const partner = `mailto:${hub.social.email}?subject=${encodeURIComponent(`Partnership — ${town.siteTitle}`)}`;
 const description = `How ${town.siteTitle} lists businesses in ${town.name}, ${town.state}: listings are free and editorial; sponsorship is labeled and sits beside them. How to claim or correct a listing.`;
 ---
@@ -59,7 +63,7 @@ const description = `How ${town.siteTitle} lists businesses in ${town.name}, ${t
     <h2>Claim it, correct it, add to it</h2>
     <p>
       The fastest way to improve your listing is to <a href={claim}>write to us from it</a>. Every place page has an
-      “Own or run this?” link at the foot of its details, which opens the form with your name already filled in.
+      “Own or run this?” link at the foot of its details, which {hasForm ? 'opens the form with your name already filled in' : 'starts an email to us with your name in the subject line'}.
       Things that are always welcome:
     </p>
     <ul>

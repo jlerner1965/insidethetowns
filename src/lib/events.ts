@@ -7,8 +7,6 @@ import { TIME_ZONE, addDays, dayKey, formatDayRange, formatMonthDay, formatTimeR
 
 type EventLike = { data: CollectionEntry<'events'>['data']; slug?: string; id?: string };
 
-const WEEK = 7 * 86_400_000;
-
 /**
  * True when the organizer has called it off or pulled the date. The listing
  * stays on the calendar, marked, for the reader who planned around it; it is
@@ -35,10 +33,17 @@ export function occurrences<T extends EventLike>(
       out.push(event);
       continue;
     }
+    // Step by wall-clock weeks, not 7×24 hours: a 6 pm Tuesday repeat stays
+    // at 6 pm Denver time across the November and March clock changes. The
+    // `until` day is inclusive (the schema's word), so a 7 pm session on that
+    // day is the last one, not the first one left out.
     const duration = end ? end.getTime() - start.getTime() : 0;
-    for (let t = start.getTime(); t <= until.getTime() && t <= horizon; t += WEEK) {
-      const occStart = new Date(t);
-      out.push({ ...event, data: { ...event.data, start: occStart, end: end ? new Date(t + duration) : undefined } });
+    const lastStart = addDays(startOfDay(until), 1).getTime();
+    for (let occStart = start; occStart.getTime() < lastStart && occStart.getTime() <= horizon; occStart = addDays(occStart, 7)) {
+      out.push({
+        ...event,
+        data: { ...event.data, start: occStart, end: end ? new Date(occStart.getTime() + duration) : undefined },
+      });
     }
   }
   return sortByStart(out);
@@ -277,8 +282,18 @@ export function highlights<T extends EventLike>(
     const weekend = t >= start.getTime() && t < end.getTime();
     return (e.data.featured ? 0 : weekend ? 4 : 8) + (isRegular(e) ? 2 : 0) + (e.data.category === 'civic' ? 1 : 0);
   };
+  // One pick per listing, and one per series stored as a file per date: the
+  // Saturday and Sunday of a studio tour are one event to a reader, not two
+  // of a town's four picks.
+  const seenSeries = new Set<string>();
   const live = uniqueByEvent(upcoming(events, { now }))
     .filter((e) => !isCanceled(e))
+    .filter((e) => {
+      const key = `${e.data.title}|${e.data.venue}`;
+      if (seenSeries.has(key)) return false;
+      seenSeries.add(key);
+      return true;
+    })
     .map((e, i) => ({ e, rank: rank(e), i, turn: 0 }));
   // `turn` is a listing's place among its tier's listings on its own day: the
   // first thing on Saturday ranks with the first thing on Friday, not after

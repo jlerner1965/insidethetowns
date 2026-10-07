@@ -23,7 +23,7 @@ Two of those buildings carry most of the town's surviving history, and both came
 
 The **Huber-Carlson Building** at 239 South Main is the oldest commercial building in Elizabeth, put up around 1890 on foundations that go back to 1882. It went on the Colorado State Register of Historic Properties in 1995. Its second name comes from the sculptor George Carlson, who bought it in 1971 and used it as a studio, and the building's survival through the decades when nobody wanted a two-storey brick block on a prairie main street is largely his doing. It now holds the [Elizabeth Brewing Company](/places/elizabeth-brewing-company/), which means the oldest room in town is also the busiest one on a Friday night.
 
-The **First National Bank of Elizabeth** at 188 South Main was built in 1907, in the confident years when a town of this size expected to keep growing. It failed in the Depression, like most small-town banks on the plains, and the building spent the rest of the century in other uses. It was listed on the National Register of Historic Places in March 2023, more than ninety years after the bank itself stopped existing.
+The **First National Bank of Elizabeth** at 188 South Main was built in 1907, in the confident years when a town of this size expected to keep growing. The First National Bank wound itself up in 1914 and the Elizabeth State Bank took its place in the building until 1933, when the Elbert County Bank in Elbert absorbed it; the building spent the rest of the century in other uses. It was listed on the National Register of Historic Places on January 31, 2023, ninety years after the last bank left the building.
 
 ## Deciding to keep it
 

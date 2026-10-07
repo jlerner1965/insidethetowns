@@ -7,16 +7,21 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { faviconSvg, iconIco, iconPng } from '../src/lib/icons.ts';
-import { LIVE_TOWNS } from '../src/config/index.ts';
+import { LIVE_TOWNS, findTown, getNetworkHub } from '../src/config/index.ts';
 
 const SITES = ['hub', ...LIVE_TOWNS];
 const PNG_SIGNATURE = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
 
-test('every site has a favicon SVG to draw from', () => {
+test('every site has a favicon SVG to draw from, in its own palette', () => {
   for (const slug of SITES) {
     const svg = faviconSvg(slug).toString('utf8');
     assert.match(svg, /<svg[^>]*viewBox/, `${slug}: not an SVG`);
     assert.match(svg, /fill="#[0-9A-Fa-f]{6}"/, `${slug}: no colour to distinguish it`);
+    // The tab icon is the one mark that tells eighteen near-identical sites
+    // apart, so its square is the site's own accentDark, not a shared brown.
+    const site = slug === 'hub' ? getNetworkHub() : findTown(slug);
+    const fill = /<rect[^>]*fill="(#[0-9A-Fa-f]{6})"/.exec(svg)?.[1];
+    assert.equal(fill?.toLowerCase(), site?.colors.accentDark.toLowerCase(), `${slug}: favicon square is not the site's accentDark`);
   }
 });
 

@@ -1,9 +1,8 @@
 ---
 title: "Solace"
-type: coffee
+type: shop
 address: "437 Main St"
 area: "Main Street"
-url: "https://lyonscolorado.com/"
 hours: "Daily 10 am–5 pm"
 tags: [chocolate, candy, gifts]
 summary: "Gift and confectionery boutique on the 400 block: chocolate, candy and small presents."

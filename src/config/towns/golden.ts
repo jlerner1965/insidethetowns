@@ -37,6 +37,8 @@ export const golden: TownConfig = {
   lng: -105.2153,
   population: 20399, // 2020 census
   elevationFt: 5784, // GNIS, via Wikipedia
+  driveToDenver: 'About 25 min',
+  character: 'A college and brewery town at the canyon mouth, fifteen miles from downtown Denver.',
   // 3 January 1871, as Golden City, Colorado Territory, per the Wikipedia infobox (founded 16 June 1859).
   incorporated: 1871,
   population2010: 18867, // 2010 census, for census-to-census growth

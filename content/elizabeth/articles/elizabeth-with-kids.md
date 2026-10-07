@@ -28,7 +28,7 @@ Elizabeth's parks belong to a park and recreation district rather than the Town,
 
 ## The library
 
-The [Elizabeth Library](/places/elizabeth-library/) on Beverly Street is the Pines & Plains branch and the busiest public room in town: 13,000 square feet with separate children's and teen rooms, a weekly Story Time, a monthly Curiosity Club, book clubs and free art classes. Open until 8 Monday to Thursday, until 5 on Friday, Saturday 10 to 5; closed Sunday. The [events page](/events/?category=family) has the dates, including the district's school-break day camps.
+The [Elizabeth Library](/places/elizabeth-library/) on Beverly Street is the Pines & Plains branch and the busiest public room in town: children's and teen areas, a weekly Story Time, a monthly Curiosity Club, book clubs and free art classes. Open until 8 Monday to Thursday, until 5 on Friday, Saturday 10 to 5; closed Sunday. The [events page](/events/?category=family) has the dates, including the district's school-break day camps.
 
 ## Donuts on Main Street
 

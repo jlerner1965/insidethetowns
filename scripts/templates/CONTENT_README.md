@@ -137,6 +137,17 @@ older than its freshness window (90 days on a Front Range guide, 30 on a mountai
 one; `src/config/freshness.ts`), and its hours go first (60 and 30 days). The
 weekly report lists what is due for a re-check well before that.
 
+A live website is not proof that a business is open. Fly Away Home in Niwot
+closed in December 2024 and its site stayed up, with hours, for nearly two
+years; it passed as "verified" against that site until October 2026. When you
+set `verified` on a place, the page you read must show one of: something dated
+within the last twelve months (a post, a menu date, a holiday notice, a social
+feed); a phone call; or a second, independent source saying it is open (the
+town's business directory, the local paper, Main Street's list). A domain that
+now redirects somewhere unrelated, or a parked page, is a reason to mark the
+listing `closed` pending a call, not to leave it open. `npm run check-links`
+reports those redirects.
+
 Anything not ready to publish goes in `staging/events/` or `staging/places/`,
 same frontmatter plus one line saying why it is waiting:
 

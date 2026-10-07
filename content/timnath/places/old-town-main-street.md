@@ -13,4 +13,4 @@ verified: "2026-10-03"
 added: "2026-09-17"
 ---
 
-Timnath's original townsite is a few blocks of Main Street south of Harmony Road: the 1920 Colorado Feed & Grain elevator that now holds Timnath Beerwerks and the CF&G market, the 1888 Presbyterian church, the little Timnath Town Square pocket park, the old Timnath Elementary building and a handful of brick and brick-faced storefronts. The Town joined the Colorado Main Street Program to revitalize it, and the downtown group runs 2nd Sundays on Main from May to October.
+Timnath's original townsite is a few blocks of Main Street south of Harmony Road: the early-1900s Colorado Feed & Grain elevator that now holds Timnath Beerwerks and the CF&G market, the 1888 Presbyterian church, the little Timnath Town Square pocket park, the old Timnath Elementary building and a handful of brick and brick-faced storefronts. The Town joined the Colorado Main Street Program to revitalize it, and the downtown group runs 2nd Sundays on Main from May to October.

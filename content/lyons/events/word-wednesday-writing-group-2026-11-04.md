@@ -2,12 +2,11 @@
 title: "Word Wednesday writing group"
 start: "2026-11-04T18:30"
 end: "2026-11-04T20:00"
-venue: "Lyons Regional Library"
-address: "451 4th Ave, Lyons, CO 80540"
+venue: "Online, via the Lyons Regional Library"
+url: "https://lyons.librarycalendar.com/events/upcoming"
 cost: "Free"
 category: arts
 recurring: "First Wednesdays"
-timeNote: "Virtual event"
 source: "https://lyons.librarycalendar.com/events/upcoming"
 verified: "2026-09-18"
 ---

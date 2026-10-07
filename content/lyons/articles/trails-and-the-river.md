@@ -19,11 +19,11 @@ A rule of thumb from the outfitters and the tubing regulars, not a rule. Cubic f
 | Under 40 cfs | Low. Too shallow for tubes; fine for wading, fishing and sitting on the whitewater-park rocks. Most of September to April. |
 | 40 to 100 | Mellow. Easy tubing through LaVern M. Johnson Park with a life jacket on the kids. Late summer. |
 | 100 to 300 | Prime. The classic float from the Apple Valley Road bridge down through town, with the park's drops at their best. Usually July into August. |
-| 300 to 700 | Fast. Pushy water and real holes in the park; experienced floaters only, no small children. Late June and early July in a big snow year. |
-| 700 to 1,200 | High. Not for tubes. Kayakers and rafters only. Peak runoff, late May to mid-June. |
+| 300 to 450 | Fast. Pushy water and real holes in the park; no small children. The Town flies a yellow flag. Late June and early July in a big snow year. |
+| Over 450 | Tubing closed. The Town does not allow tubing above 450 cfs and flies a red flag (double red when the river is dangerous to everyone). Kayakers and rafters only. Peak runoff, late May to mid-June. |
 | Over 1,200 | Flood watch. The Town posts advisories at this level; stay off the water and away from cut banks. |
 
-[Tubing the St. Vrain](/places/tubing-the-st-vrain/) has the put-ins. Anglers work both forks, best in the low, clear water of late summer and fall; [Bohn Park](/places/bohn-park/) has an accessible fishing platform, and Ralph Price Reservoir in Button Rock needs a City of Longmont permit on top of the Colorado license.
+The flags at the park say it on the day: green for go, yellow for caution, red for no tubing, double red for stay out of the water. [Tubing the St. Vrain](/places/tubing-the-st-vrain/) has the put-ins. Anglers work both forks, best in the low, clear water of late summer and fall; [Bohn Park](/places/bohn-park/) has an accessible fishing platform, and Ralph Price Reservoir in Button Rock needs a City of Longmont permit on top of the Colorado license.
 
 ## The trails
 

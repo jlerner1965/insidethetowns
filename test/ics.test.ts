@@ -5,9 +5,13 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseLocal } from '../src/lib/dates.ts';
-import { buildIcs, googleCalendarUrl } from '../src/lib/ics.ts';
+import { buildIcs, escapeText, googleCalendarUrl } from '../src/lib/ics.ts';
 
 const at = (s: string) => parseLocal(s);
+
+test('TEXT values escape semicolons as well as commas, backslashes and newlines', () => {
+  assert.equal(escapeText('Pick; jam, and a\\ line\nbreak'), 'Pick\\; jam\\, and a\\\\ line\\nbreak');
+});
 
 test('a timed event is sent to Google in Denver wall-clock time', () => {
   const url = new URL(

@@ -10,8 +10,8 @@ cost: "Ticketed; dinner included"
 category: arts
 timeNote: "Through Nov 15; see box office for times"
 featured: true
-source: "https://www.broadwayworld.com/denver/regional/Les-Miserables-4388718"
-verified: "2026-09-18"
+source: "https://coloradocandlelight.com/shows/"
+verified: "2026-10-07"
 ---
 
 Colorado's largest professional dinner theater stages Les Misérables through November 15, with dinner served before the show in the 350-seat house at 2534. Performance days, times and dinner-and-show pricing on the box office site.

@@ -13,11 +13,11 @@ Erie is a home-rule town of about 30,000 people at the 2020 census and an estima
 
 ## Housing
 
-Mostly single-family homes in master-planned neighborhoods: Vista Ridge, Erie Highlands, Flatiron Meadows, Colliers Hill, Erie Commons, Morgan Hill, Parkdale and others, most with metropolitan districts and homeowners' associations whose fees and mill levies vary a lot. The old grid around Briggs Street has the small houses from the mining era. The 2020 census counted 10,047 households with a median household income of $99,804. The listings sites in the sidebar show what is for sale; ask which county, which school district and which metro district before you fall for a house, because all three change from one street to the next.
+Mostly single-family homes in master-planned neighborhoods: Vista Ridge, Erie Highlands, Flatiron Meadows, Colliers Hill, Erie Commons, Morgan Hill, Parkdale and others, most with metropolitan districts and homeowners' associations whose fees and mill levies vary a lot. The old grid around Briggs Street has the small houses from the mining era. The 2020 census counted 10,047 households; the Census Bureau's 2018–2022 American Community Survey put the median household income at about $154,500, among the highest of any town on the Front Range. The listings sites in the sidebar show what is for sale; ask which county, which school district and which metro district before you fall for a house, because all three change from one street to the next.
 
 ## Schools
 
-Most of Erie is in [St. Vrain Valley Schools](https://www.svvsd.org/), based in Longmont: Erie, Red Hawk and Black Rock elementaries, Soaring Heights PK-8, Erie Middle School and Erie High School (the Tigers), plus Aspen Ridge Preparatory charter. The Boulder County side is in the [Boulder Valley School District](https://www.bvsd.org/), which runs Meadowlark PK-8 in Erie and feeds Angevine Middle and Centaurus High in Lafayette. The Town's [schools page](https://www.erieco.gov/302/Schools) lists them all, with the private options.
+Most of Erie is in [St. Vrain Valley Schools](https://www.svvsd.org/), based in Longmont: Erie, Red Hawk and Black Rock elementaries, Soaring Heights PK-8, Erie Middle School and Erie High School (the Tigers), plus Aspen Ridge Preparatory charter. The Boulder County side is in the [Boulder Valley School District](https://www.bvsd.org/), which runs Meadowlark PK-8 in Erie, whose students go on to Centaurus High in Lafayette. The Town's [schools page](https://www.erieco.gov/302/Schools) lists them all, with the private options.
 
 ## Getting around
 
@@ -35,7 +35,7 @@ By car. Arapahoe Road and Colorado 7 (Baseline Road) run west to Boulder in abou
 
 ## Government
 
-Erie is a home-rule town with a Town Council of a mayor and six members and an appointed Town Manager. Council meets on the [second and fourth Tuesdays](/events/) at 6:30 pm at Town Hall in the old Lincoln School, streamed live. The Town Manager position is being filled in autumn 2026, with a public meet-and-greet of the finalists on September 28. Boards for planning, parks and trails, historic preservation, sustainability, trees and the airport are filled by application.
+Erie is a home-rule town with a Town Council of a mayor and six members and an appointed Town Manager. Council meets on the [second and fourth Tuesdays](/events/) at 6:30 pm at Town Hall in the old Lincoln School, streamed live. An interim Town Manager has run the Town since February 2026 while a national search for a permanent one goes on. Boards for planning, parks and trails, historic preservation, sustainability, trees and the airport are filled by application.
 
 ## Living here
 

@@ -53,6 +53,15 @@
       ]
     },
     {
+      "source": "/pagefind/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
       "source": "/favicons/(.*)",
       "headers": [
         {
@@ -66,7 +75,13 @@
     {
       "source": "/compare{/}?",
       "destination": "/moving/",
-      "permanent": true
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?insidethetowns\\.com"
+        }
+      ]
     },
     {
       "source": "/sitemap.xml",

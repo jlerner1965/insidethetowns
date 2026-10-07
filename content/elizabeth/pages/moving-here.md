@@ -36,7 +36,7 @@ The middle and high schools share a campus east of town on County Road 13, which
 
 ## Getting around
 
-By car, and you should assume two cars. Highway 86 west to Franktown then north on Parker Road (State Highway 83) is the standard Denver commute: about 45 minutes to the Denver Tech Center in normal traffic, longer in snow, and the Palmer Divide gets snow when Denver gets rain. West on 86 to Castle Rock and I-25 is about twenty minutes and is how most people reach Colorado Springs, Denver International Airport is about an hour and ten minutes. There is no fixed-route transit. Elbert County runs a [dial-a-ride service](https://www.elbertcounty-co.gov/) for seniors and people with disabilities.
+By car, and you should assume two cars. Highway 86 west to Franktown then north on Parker Road (State Highway 83) is the standard Denver commute: about 45 minutes to the Denver Tech Center in normal traffic, longer in snow, and the Palmer Divide gets snow when Denver gets rain. West on 86 to Castle Rock and I-25 is about twenty minutes and is how most people reach Colorado Springs, Denver International Airport is about an hour and ten minutes. There is no fixed-route transit. [Outback Express](https://eccog.com/outback-express), run by the East Central Council of Governments, is the dial-a-ride service covering Elbert County, mainly for seniors and people with disabilities; book ahead.
 
 Inside town everything on Main Street is walkable, and the sidewalks and crossings on Main were rebuilt as part of the Main Street program. The rest of the road network is county roads: gravel in places, and worth driving in winter before you commit to a property at the end of one.
 
@@ -46,7 +46,7 @@ Inside town everything on Main Street is walkable, and the sidewalks and crossin
 - **Electricity** is [CORE Electric Cooperative](https://www.core.coop/), a member-owned co-op, not Xcel. You get a vote and occasional capital credits.
 - **Natural gas** is [Black Hills Energy](https://www.blackhillsenergy.com/) where a gas main reaches. Many rural properties run on propane instead, on a tank you own or lease.
 - **Trash and recycling** are private; you choose and pay a hauler yourself. Ask neighbors which one already comes down your road.
-- **Police** is the [Elizabeth Police Department](https://www.townofelizabeth.org), at Town Hall, 151 S Banner St.
+- **Police** is the [Elizabeth Police Department](https://www.townofelizabeth.org/police), at 425 S Main St; main office 303-646-4664, non-emergency dispatch 303-660-7500. Reports are filed in person there.
 - **Fire and emergency medical** response is the Elizabeth Fire Protection District, Station 271 at 155 W Kiowa Ave, a district that covers far more prairie than town.
 - **Library.** The [Elizabeth branch of Pines & Plains Libraries](/places/elizabeth-library/) is at 651 W Beverly St, open Monday to Thursday until 8, Friday to 5 and Saturday 10 to 5.
 

@@ -8,7 +8,7 @@ hours: "Sun–Thu 7–3, Fri–Sat 7–5"
 priceRange: "$"
 tags: [coffee, market, gifts, breakfast]
 featured: true
-summary: "Coffeehouse, soda fountain, general store and boutique inside the 1920 Colorado Feed & Grain landmark on Main Street; home of the Sunday farmers market."
+summary: "Coffeehouse, soda fountain, general store and boutique inside the early-1900s Colorado Feed & Grain landmark on Main Street; home of the Sunday farmers market."
 source: "https://cfgpublicmarket.com/"
 verified: "2026-10-03"
 added: "2026-09-17"

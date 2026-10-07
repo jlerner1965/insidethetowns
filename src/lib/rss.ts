@@ -22,6 +22,8 @@ export interface FeedItem {
 }
 
 export interface FeedOptions {
+  /** When the feed was generated; the build time, so readers see the feed as current rather than as old as its newest item. */
+  builtAt?: Date;
   title: string;
   description: string;
   /** Absolute URL of the page the feed describes. */
@@ -46,11 +48,7 @@ function rfc822(date: Date): string {
   return date.toUTCString();
 }
 
-export function buildRss({ title, description, link, self, items }: FeedOptions): string {
-  const newest = items.reduce<Date | undefined>(
-    (latest, item) => (!latest || item.pubDate > latest ? item.pubDate : latest),
-    undefined,
-  );
+export function buildRss({ title, description, link, self, items, builtAt = new Date() }: FeedOptions): string {
   const entries = items.map((item) => {
     const parts = [
       `      <title>${escape(item.title)}</title>`,
@@ -70,7 +68,8 @@ export function buildRss({ title, description, link, self, items }: FeedOptions)
     <description>${escape(description)}</description>
     <language>en-us</language>
     <atom:link href="${escape(self)}" rel="self" type="application/rss+xml" />
-${newest ? `    <lastBuildDate>${rfc822(newest)}</lastBuildDate>\n` : ''}${entries.join('\n')}
+    <lastBuildDate>${rfc822(builtAt)}</lastBuildDate>
+${entries.join('\n')}
   </channel>
 </rss>
 `;

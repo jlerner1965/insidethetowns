@@ -20,7 +20,7 @@ Johnstown has two halves for a family: the interchange at 2534, where the big at
 
 [Scheels](/places/scheels/) at the 2534 interchange is a 250,000-square-foot sporting-goods store that is as much an attraction as a shop: a 65-foot indoor Ferris wheel, a 16,000-gallon saltwater aquarium, a wildlife mountain, an arcade, a candy factory and Ginna's Café. Weekdays 9:30 to 9, Saturday from 9, Sunday 10 to 6. It costs nothing to walk around; the wheel and the arcade charge.
 
-Two doors along, [Duck Donuts](/places/duck-donuts/) fries cake donuts to order and dresses them while you wait, daily 6 to 6, and [Urban Egg](/places/urban-egg/) does pancakes and skillets from 7 with gluten-free and dairy-free options marked.
+Two doors along, [Duck Donuts](/places/duck-donuts/) fries cake donuts to order and dresses them while you wait, weekdays 6 to noon and weekends 6 to 6, and [Urban Egg](/places/urban-egg/) does pancakes and skillets from 7 with gluten-free and dairy-free options marked.
 
 ## The pool: the YMCA
 
@@ -32,7 +32,7 @@ The [Glenn A. Jones, M.D. Memorial Library](/places/glenn-a-jones-library/) on S
 
 ## Old Town's parks
 
-[Parish Park](/places/parish-park/), at Charlotte and Raymond beside the Parish House Museum, is the town's original park: a playground, restrooms, sand volleyball and walking paths under mature trees, with two reservable shelters. [Lake Park](/places/lake-park/) on 1st Place has a walking path around the Town reservoir, a playground and fishing for bass, trout, catfish and crappie with a Town permit sold at Town Hall on weekdays. [Eddie Aragon Park](/places/eddie-aragon-park/) in Johnstown Center has the skate park, a lighted outdoor hockey rink, a basketball court and a playground. All the Town parks are open 5 am to 10 pm.
+[Parish Park](/places/parish-park/), at Charlotte and Raymond beside the Parish House Museum, is the town's original park: a playground, restrooms, sand volleyball and walking paths under mature trees, with two reservable shelters. [Lake Park](/places/lake-park/), off Highway 60 at 149 Alabaster Way, has a walking path around the Town reservoir, a playground and fishing for bass, trout, catfish and crappie with a Town permit sold at Town Hall on weekdays. [Eddie Aragon Park](/places/eddie-aragon-park/) in Johnstown Center has the skate park, a lighted outdoor hockey rink, a basketball court and a playground. All the Town parks are open 5 am to 10 pm.
 
 [Pioneer Ridge Park](/places/pioneer-ridge-park/), beside the elementary school on the east side, has a free nine-hole disc golf course that opened in June 2021, an easy first course for children.
 

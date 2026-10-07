@@ -1,7 +1,7 @@
 ---
 title: "Rabbit Mountain (Ron Stewart Preserve)"
 type: trail
-address: "N. 53rd Street, 2.8 miles north of CO 66"
+address: "Rabbit Mountain Trailhead, N 55th Street (via N 53rd Street from CO 66), Longmont, CO"
 area: "Boulder County open space"
 url: "https://bouldercounty.gov/open-space/parks-and-trails/ron-stewart-preserve-rabbit-mountain/"
 mapUrl: "https://assets.bouldercounty.gov/wp-content/uploads/2017/03/rabbit-mountain-map.pdf"

@@ -7,7 +7,7 @@ url: "https://timnathpres.org/"
 phone: "(970) 493-8996"
 hours: "Sun worship 10 am; office Tue–Thu 9–2"
 image: ../images/presbyterian-church.jpg
-imageAlt: "The white clapboard 1888 Presbyterian church on Main Street in Timnath"
+imageAlt: "The 1888 Timnath Presbyterian Church on Main Street: a stucco chapel with a shingled gable, a white belfry and the church sign on the lawn"
 tags: [church, history, landmark]
 summary: "The 1888 church that gave the town its name, the first and only house of worship built in Timnath and one of Colorado's oldest continuously active Presbyterian congregations, with its original pews and pulpit."
 source: "https://timnathpres.org/contact-us/"

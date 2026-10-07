@@ -15,7 +15,7 @@ sources:
   - { label: "Sweets Ice Cream", url: "https://www.sweetsicecream.com/" }
 ---
 
-Erie built its parks for families and it shows: themed playgrounds in every neighborhood, a splash pad downtown, a pump track that has hosted a world championship. This is how to use them.
+Erie built its parks for families and it shows: themed playgrounds in every neighborhood, a splash pad downtown, a pump track that hosts a world-championship qualifier. This is how to use them.
 
 ## Downtown: Coal Creek Park
 
@@ -37,7 +37,7 @@ Each has a theme, which matters to a four-year-old. [Star Meadows Park](/places/
 
 ## Fishing without a boat
 
-[Thomas Reservoir](/places/thomas-reservoir-loop/) on 119th Street is a flat 0.8-mile loop around a stocked ten-acre reservoir in the middle of town, with bank fishing for rainbow trout and bluegill and benches for the ones not fishing. [Erie Lake](/places/erie-lake/) at the south-west edge has a 1.2-mile loop and accessible fishing access.
+[Thomas Reservoir](/places/thomas-reservoir-loop/) on 119th Street is about a mile of flat trail around a stocked ten-acre reservoir in the middle of town, with bank fishing for rainbow trout and bluegill and benches for the ones not fishing. [Erie Lake](/places/erie-lake/) at the south-west edge has a 1.2-mile loop and accessible fishing access.
 
 ## Autumn: Anderson Farms
 

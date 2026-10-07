@@ -28,7 +28,7 @@ export const elizabeth = {
   colors: { accent: "#B26E2A", accentDark: "#78491A", neutralBg: "#FAF7F2" },
   hero: {
     image: "hero.jpg",
-    alt: "Main Street in Elizabeth, Colorado",
+    alt: "Main Street in Elizabeth, Colorado: the 1907 First National Bank building with its arched openings and the white false-front store beyond, under a clear winter sky",
     // Attribution required by the photograph's CC BY-SA license; see IMAGE_LICENSES.csv.
     credit: "ERoss99, Wikimedia Commons, CC BY-SA 3.0",
   },
@@ -36,13 +36,19 @@ export const elizabeth = {
   nav: DEFAULT_TOWN_NAV, // uses defaults
   movingHere: {
     listingsLinks: [
-      { label: "Zillow", url: "https://www.zillow.com/elizabeth-co/" },
-      { label: "Redfin", url: "https://www.redfin.com/city/5866/CO/Elizabeth" }
+      { label: "Homes for sale on Zillow", url: "https://www.zillow.com/elizabeth-co/" },
+      { label: "Homes for sale on Redfin", url: "https://www.redfin.com/city/5866/CO/Elizabeth" },
+      { label: "Homes for sale on Realtor.com", url: "https://www.realtor.com/realestateandhomes-search/Elizabeth_CO" },
     ],
-    schoolDistrict: "Elizabeth School District C-1",
+    schoolDistrict: "Elizabeth School District C-1: Running Creek and Singing Hills elementaries, Elizabeth Middle School and Elizabeth High School.",
     commuteNotes: "About 45 minutes to the Denver Tech Center via Parker Road."
   },
-  officialLinks: { townSite: "https://www.townofelizabeth.org" },
+  officialLinks: {
+    townSite: "https://www.townofelizabeth.org",
+    townSiteLabel: "the Town of Elizabeth",
+    policeNonEmergency: "https://www.townofelizabeth.org/police",
+    policeNonEmergencyLabel: "Elizabeth Police Department",
+  },
   formspreeId: "xyezejwk",
 } satisfies TownConfig;
 

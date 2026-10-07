@@ -25,9 +25,9 @@ US 36 is Main Street, and it is the road to Estes Park, so summer weekend aftern
 Unlike the unincorporated towns nearby, Lyons runs its own services from [Town Hall](https://www.lyonscolorado.com/) at 432 5th Avenue.
 
 - **Water, sewer and electric** are Town utilities, billed together; rates are set by the Board with an advisory Utilities & Engineering Board.
-- **Trash, recycling and compost** are curbside under the Town's contract with Western Disposal. Bears walk the river corridor, so cans stay in until the morning of pickup.
+- **Trash and recycling** are arranged by each household with a private hauler (Western Disposal and One Way Trash both serve Lyons); Western Disposal offers opt-in curbside compost. The Town and county run a free drop-off recycling center at 198 2nd Avenue, open 7 to 7 daily. Bears walk the river corridor, so cans stay in until the morning of pickup.
 - **Fire and emergency medical** response is the [Lyons Fire Protection District](https://lyonsfire.org/), staffed around the clock, which also runs swiftwater rescue on the river.
-- **Police** is the [Boulder County Sheriff](https://bouldercounty.gov/safety/sheriff/), under contract, from a substation on Railroad Avenue.
+- **Police** is the [Boulder County Sheriff](https://bouldercounty.gov/safety/sheriff/), under contract, from a substation in the Depot at 430 5th Avenue.
 - **Emergency alerts** for flood, fire and evacuation come through Boulder County's alert system. Register every phone in the household; the town was cut off for days in 2013.
 - **Building permits, planning and zoning** are Town departments; the Planning & Community Development Commission reviews applications before the Board.
 

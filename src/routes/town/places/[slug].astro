@@ -4,6 +4,7 @@ import { render } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import { getTown } from '@/config';
 import EventCard from '@/components/EventCard.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import PlaceIndex from '@/components/PlaceIndex.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import { getTownEntries, type TownEntry } from '@/lib/content';
@@ -331,4 +332,5 @@ const facts = [
       <PlaceIndex places={nearby} />
     </section>
   )}
+  <NewsletterSignup town={town} compact id="place-signup" class="mt-20 md:mt-24" />
 </Page>

@@ -4,6 +4,9 @@ type: trail
 address: "4580 Weitzel St (Weitzel Park trailhead)"
 area: "Along the Cache la Poudre"
 url: "https://www.larimer.gov/naturalresources/parks/regional-paved-trails/poudre-river-trail"
+image: ../images/poudre-river-trail.jpg
+imageAlt: "The Cache la Poudre in October from a split-rail fence on the bank, cottonwoods turning yellow along the far side"
+imageCredit: "City of Greeley, Flickr, Public Domain Mark 1.0"
 tags: [paved, cycling, regional trail]
 featured: true
 summary: "The 45-mile paved trail from Bellvue to Greeley runs through Timnath along the Cache la Poudre; the last gap, a bridge south of town, closed in 2026."

@@ -11,8 +11,8 @@ hours: "Open daily, sunrise to sunset"
 tags: [dog park, trailhead, ballfield]
 summary: "Park on the north edge of town with a ballfield, a playground, trails, and the Boneyard, a 7.75-acre fenced dog park with separate large- and small-dog areas."
 source: "https://www.erieco.gov/1280/The-Boneyard-at-Reliance-Park"
-verified: "2026-10-03"
+verified: "2026-10-07"
 added: "2026-09-17"
 ---
 
-A 19-acre park at the north end of Briggs Street on County Road 1.5, with a ballfield, a small playground, walking trails and the Boneyard, a 7.75-acre double-gated dog park with fenced areas for large and small dogs, open sunrise to sunset. The Coal Creek Trail's north trailhead is here, and Tails & Ales fills it every September.
+A 19-acre park at the north end of Briggs Street on County Road 1.5, with a ballfield, a small playground, walking trails and the Boneyard, a 7.75-acre double-gated dog park with fenced areas for large and small dogs, open sunrise to sunset. **October 2026:** the Town has the whole dog park closed from October 13 to 16 while the new fences are stained, as part of a redesign running to November 4, and the water spigot is out until mid-October, so bring water. The Coal Creek Trail's north trailhead is here, and Tails & Ales fills it every September.

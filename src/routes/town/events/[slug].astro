@@ -12,6 +12,7 @@ import { breadcrumbJsonLd, eventJsonLd } from '@/lib/seo';
 import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 import Provenance from '@/components/Provenance.astro';
 import EventCard from '@/components/EventCard.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
 
 export async function getStaticPaths() {
   const events = await getTownEntries('events');
@@ -151,7 +152,14 @@ const facts = [
         </div>
       )}
       <div class="order-3">
-        {data.image && <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="mb-10 rounded-lg" />}
+        {data.image && (
+          <figure class="mb-10">
+            <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
+            {data.imageCredit && (
+              <figcaption class="mt-2 text-[0.8125rem] text-ink-faint">Photo: {data.imageCredit}</figcaption>
+            )}
+          </figure>
+        )}
         <div class="prose">
           <Content />
         </div>
@@ -163,6 +171,9 @@ const facts = [
             </div>
           </section>
         )}
+        {/* Search lands people here, not on the home page; the one ask the
+            guide makes goes where the readers are. */}
+        <NewsletterSignup town={town} compact id="event-signup" class="mt-14" />
       </div>
       <p class="order-5 text-[0.9375rem] lg:mt-12"><a href="/events/" class="inline-block -my-1 py-1 font-semibold text-accent-text no-underline hover:underline">← All events</a></p>
     </div>

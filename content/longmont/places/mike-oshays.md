@@ -9,6 +9,7 @@ verified: "2026-10-04"
 added: "2026-10-04"
 phone: "303-772-0252"
 hours: "Mon–Thu 11 am–9 pm; Fri–Sat 11 am–10 pm; Sun 11 am–8 pm (closing times approximate); closed Thanksgiving and Christmas"
+openingHours: ["Mo-Th 11:00-21:00", "Fr-Sa 11:00-22:00", "Su 11:00-20:00"]
 tags: [pub, irish, happy-hour, reservations]
 summary: "A long-running Main Street restaurant and ale house serving seafood, Irish fare, steaks and desserts, with a weekday afternoon happy hour."
 ---

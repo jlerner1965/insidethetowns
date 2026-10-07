@@ -153,10 +153,16 @@ const box = 'size-5 shrink-0 rounded border-line';
           inside the card rather than loose underneath it. */}
       <slot />
     </form>
-    {/* Shown in place of the form once it has gone to the provider. */}
-    <p data-signup-done hidden tabindex="-1" class="max-w-xl text-[1.0625rem] font-semibold leading-relaxed">
-      Check your inbox to confirm your subscription.
-    </p>
+    {/* Shown in place of the form once it has gone to the provider. The
+        provider's page, in a new tab, is where the signup actually finishes
+        (a "Verify and Subscribe" step), so this says that rather than
+        claiming a success this page cannot see. */}
+    <div data-signup-done hidden tabindex="-1" class="max-w-xl text-[1.0625rem] leading-relaxed">
+      <p class="font-semibold">One more step: finish signing up in the Buttondown tab that just opened.</p>
+      <p class="mt-2 text-[0.9375rem] text-ink-muted">
+        Press “Verify and Subscribe” there, then confirm the email it sends you. If no tab opened, allow pop-ups for this site and submit again.
+      </p>
+    </div>
   </section>
 )}
 

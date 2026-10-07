@@ -7,7 +7,7 @@ venue: "Crist Park"
 address: "105 Fifth St, Frederick, CO 80530"
 url: "https://www.frederickco.gov/237/Festival-of-Lights"
 category: festival
-timeNote: "Evening; Frederick Market 5:30 to 8 pm"
+timeNote: "Evening; the Town has not yet posted 2026 times"
 organizer: "Town of Frederick"
 source: "https://www.frederickco.gov/237/Festival-of-Lights"
 sourceId: "frederickco-gov"

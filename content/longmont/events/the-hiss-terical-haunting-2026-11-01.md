@@ -2,7 +2,7 @@
 title: "Hiss-terical Haunting Cat Show"
 start: "2026-11-01T09:00"
 timeNote: "9 am to 4 pm"
-venue: "Boulder County Fairgrounds"
+venue: "Exhibit Building"
 address: "9595 Nelson Road, Longmont, CO, 80501"
 url: "https://gardenofthecats.com/page20.html"
 category: family

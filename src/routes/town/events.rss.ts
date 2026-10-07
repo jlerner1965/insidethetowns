@@ -40,7 +40,8 @@ export const GET: APIRoute = async ({ site }) => {
       guid: `${town.domain}/events/${event.slug}/${dayKey(data.start)}`,
       description: [when, data.venue, data.cost].filter(Boolean).join(' · '),
       pubDate: data.verified ?? data.start,
-      categories: [CATEGORY_LABELS[data.category]],
+      // The site never shows "Other" as a category; the feed should not either.
+      categories: data.category === 'other' ? [] : [CATEGORY_LABELS[data.category]],
     };
   });
   return rssResponse(

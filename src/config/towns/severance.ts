@@ -38,6 +38,8 @@ export const severance: TownConfig = {
   lng: -104.8539,
   population: 7683, // 2020 census
   elevationFt: 4876, // GNIS, via Wikipedia
+  driveToDenver: 'About 1 hr 10 min',
+  character: 'A farm town that more than doubled in ten years, now mostly new subdivisions east of Windsor.',
   // 20 November 1920, per the Wikipedia infobox (founded 1906).
   incorporated: 1920,
   population2010: 3165, // 2010 census, for census-to-census growth

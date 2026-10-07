@@ -8,6 +8,7 @@ verified: "2026-10-04"
 added: "2026-10-04"
 phone: "720-442-8487"
 hours: "Tue–Fri 3 pm–9 pm (food from 3:30 pm); Sat–Sun 10:30 am–9 pm (Sun brunch 10:30 am–2 pm); closed Mon"
+openingHours: ["Tu-Fr 15:00-21:00", "Sa-Su 10:30-21:00"]
 tags: [burgers, cocktails, live-music, brunch, family-friendly]
 summary: "A diner-inspired restaurant and bar in the historic Johnson's Station building, with flat-top burgers, upscale American plates, cocktails and a backyard patio where bands play."
 ---

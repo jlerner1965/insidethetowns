@@ -13,4 +13,4 @@ tags: [pizza, takeout, delivery, family]
 summary: "Counter-serve pizza on Firestone Boulevard, open 10:30 am to 10 pm every day for dine-in, takeout, delivery and curbside pickup."
 ---
 
-The Firestone Boulevard Marco’s offers specialty and build-your-own pizzas for dine-in, takeout, delivery and curbside pickup, and its page flags it as good for kids. Online ordering runs the same hours as the store. It is the one pizzeria in Firestone with a page of its own on the web; the town’s independent restaurants mostly have none, which is why so few are listed here yet.
+The Firestone Boulevard Marco’s offers specialty and build-your-own pizzas for dine-in, takeout, delivery and curbside pickup, and its page flags it as good for kids. Online ordering runs the same hours as the store.

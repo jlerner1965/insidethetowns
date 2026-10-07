@@ -1,15 +1,13 @@
 ---
 title: "Parks and Recreation Commission"
 start: "2026-10-12T18:15"
-end: "2026-10-12T19:45"
+end: "2026-10-12T20:00"
 venue: "Lyons Regional Library, Community Room"
 address: "451 4th Ave, Lyons, CO 80540"
 category: civic
 recurring: "Second Mondays"
 source: "https://lyons.librarycalendar.com/event/parks-and-recreation-commission-11036"
-verified: "2026-10-03"
-changeFlag: true
-changeNote: "townoflyons.com now says: end 2026-10-12T19:45 → 2026-10-12T20:00 (read 2026-10-04; see staging/changes/parks-and-recreation-commission-2026-10-12.json)"
+verified: "2026-10-07"
 ---
 
 Regular meeting of the Town of Lyons Parks and Recreation Commission, held in the library Community Room.

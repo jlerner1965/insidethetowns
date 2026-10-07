@@ -21,7 +21,7 @@ Berthoud has rebuilt most of its parks in the last few years, and the result is 
 
 [Berthoud Town Park](/places/berthoud-town-park/), at 7th and Mountain, is the oldest park in town and the newest playground: 12,000 square feet, fully inclusive, beside a 6,000-square-foot natural-stone water-play feature that runs in the warm months. Two pavilions for the picnic, and on Saturdays the market is on the lawn.
 
-On the north side, [Waggener Farm Park](/places/waggener-farm-park/) has a farm-themed playground with a tractor and a playhouse, a wavy scooter path, a full basketball court, a skate park and fields. [Pioneer Park](/places/pioneer-park/) on Indiana Avenue has a spaceship play structure and a rock wall. [Bein Park](/places/bein-park/), beside the high school, has a log-cabin-themed playground, a fitness trail, and two fenced dog parks if the dog came too.
+On the north side, [Waggener Farm Park](/places/waggener-farm-park/) has a farm-themed playground with a tractor and a playhouse, a wavy scooter path, a full basketball court, a skate park and fields. [Pioneer Park](/places/pioneer-park/) on Indiana Avenue has a playground, a roller-hockey rink and bocce courts. [Bein Park](/places/bein-park/), beside the high school, has a log-cabin-themed playground, a fitness trail, and the fenced town dog park, with small-dog and large-dog sections, if the dog came too.
 
 ## Bikes: the bike park
 
@@ -45,7 +45,7 @@ The [Wildfire Arts Center](/places/wildfire-arts-center/) on Massachusetts Avenu
 
 ## A winter day
 
-Pioneer Park has an outdoor skating rink in winter, and the rec center's pool does not care what the weather is doing.
+Pioneer Park's roller-hockey rink is outdoors all year, and the rec center's pool does not care what the weather is doing.
 
 ## Further out: the water
 

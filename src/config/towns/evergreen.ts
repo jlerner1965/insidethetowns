@@ -36,7 +36,10 @@ export const evergreen: TownConfig = {
   lat: 39.6139,
   lng: -105.3528,
   population: 9307, // 2020 census; the census-designated place
+  population2010: 9038, // 2010 census, the same census-designated place, for census-to-census growth
   elevationFt: 7162, // GNIS, via Wikipedia
+  driveToDenver: 'About 40 min',
+  character: 'A mountain community at 7,100 feet, unincorporated, with the lake and the elk in the middle of it.',
   // Never incorporated: Evergreen is an unincorporated community and census-designated place in Jefferson County (the Wikipedia infobox), so there is no town government. Like Niwot, the county is the local government.
   incorporated: null,
   // No 2010 figure for the same census-designated place is cited here; growth is left blank.

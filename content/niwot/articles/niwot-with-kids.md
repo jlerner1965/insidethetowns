@@ -17,13 +17,13 @@ Niwot is small enough that a day with children needs no car once you have parked
 
 ## Start at the playground
 
-[Niwot Children's Park](/places/niwot-childrens-park/) is the playground on First Avenue, across from Whistle Stop Park. The Cultural Arts Association built it and keeps it up, and it turns ten in October 2026, which the association is marking with a [birthday party](/events/). The flower cart on the Murray Street corner is a summer fixture beside it.
+[Niwot Children's Park](/places/niwot-childrens-park/) is the playground on First Avenue, across from Whistle Stop Park. The Cultural Arts Association built it and keeps it up, and it turns ten in October 2026. The flower cart on the Murray Street corner is a summer fixture beside it.
 
 Directly across the street is [Whistle Stop Park](/places/whistle-stop-park/), the lawn beside the 1907 Burlington Route caboose at the corner of Murray Street and First Avenue. The caboose is the thing every child wants to climb, and the lawn is where the Rock & Rails concerts happen on summer Thursday evenings, which are as family-friendly as an outdoor concert gets. Daylight hours.
 
 ## Walk the sculptures
 
-The [Niwot Sculpture Park](/places/niwot-sculpture-park/) is not a park with a fence but a collection of sculptures placed around the commercial blocks since 2018, some owned and some lent by artists for a year at a time. Finding them is the game: a walk along [Second Avenue](/places/old-town-second-avenue/) end to end takes about ten minutes without stopping, and with children counting sculptures it takes as long as you like.
+The [Niwot Sculpture Park](/places/niwot-sculpture-park/) is at the south-west corner of Niwot Road and 79th Street: a lawn with large sculptures, some owned and some lent by artists for a year at a time, so the collection changes. Counting them and picking a favourite is the game. From there it is a five-minute walk to [Second Avenue](/places/old-town-second-avenue/) for lunch.
 
 ## Lunch and ice cream
 
@@ -33,12 +33,12 @@ The [Niwot Sculpture Park](/places/niwot-sculpture-park/) is not a park with a f
 
 ## The taproom that takes children
 
-[Fritz Family Brewers](/places/fritz-family-brewers/), on 79th Street a few minutes south of the commercial blocks, is a family-run brewery whose taproom takes both kids and dogs. It opens at 3 on weekdays, 1 on Fridays and noon at weekends. German-style lagers for the adults; the brewery's own site has the current hours.
+[Fritz Family Brewers](/places/fritz-family-brewers/), on 79th Street a few minutes south of the commercial blocks, is a family-run brewery that takes children in the taproom and dogs on the patio. It opens at 3 on weekdays, 1 on Fridays and noon at weekends. German-style lagers for the adults; the brewery's own site has the current hours.
 
 ## A flat loop with a stroller
 
-The [Niwot Loop Trail](/places/niwot-loop-trail/) is the flat, easy Boulder County loop around the edge of town, the same course the Niwot Trot 5K uses each October from Whistle Stop Park. It links to the [LoBo Regional Trail](/places/lobo-regional-trail/), the twelve-mile crushed-gravel path between Longmont and Boulder, whose eastern fields at sunset are the reason to go a little further. Both are sunrise to sunset; dogs on leash.
+The [Niwot Loop Trail](/places/niwot-loop-trail/) is the flat, easy Boulder County loop around the edge of town from the trailhead on 79th Street. It links to the [LoBo Regional Trail](/places/lobo-regional-trail/), the twelve-mile crushed-gravel path between Longmont and Boulder, whose eastern fields at sunset are the reason to go a little further. Both are sunrise to sunset; dogs on leash.
 
 ## What's on for families
 
-The [events page](/events/?category=family) filters to family listings, and the [Community Connection talks at Niwot Hall](/events/) are pitched at all ages. Everything there is checked against its source before it goes up.
+The [events page](/events/?category=family) filters to family listings. Everything there is checked against its source before it goes up.
