@@ -1,6 +1,6 @@
 ---
 title: "Aspen Hollow Trunk or Treat"
-review: { reason: "Read by hand from the Evergreen Area Chamber's community calendar on 6 October 2026; time, address and price as given there.", since: "2026-10-06", from: manual }
+review: { reason: "Re-read 7 October 2026: the chamber listing still gives Saturday 31 October, 2 to 4 pm, free, at Aspen Ridge Church, but the church's own page (url) answers automated reads with a SiteGround bot challenge, so the date is not yet confirmed on the organizer's page. Needs: the date read on aspenridgechurch.org by a person.", since: "2026-10-06", from: manual }
 start: "2026-10-31T14:00"
 end: "2026-10-31T16:00"
 venue: "Aspen Ridge Church"

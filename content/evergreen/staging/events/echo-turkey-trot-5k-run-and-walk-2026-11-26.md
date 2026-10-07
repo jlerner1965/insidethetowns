@@ -1,6 +1,6 @@
 ---
 title: "EChO Turkey Trot 5K Run & Walk"
-review: { reason: "Read by hand from the Evergreen Area Chamber's community calendar on 6 October 2026; race-day registration opens 8 am, opening ceremony 8:45, 5K starts 9 am; prices as given there.", since: "2026-10-06", from: manual }
+review: { reason: "Re-read 7 October 2026: the chamber listing still gives Thursday 26 November, 5K at 9 am, but Evergreen Christian Outreach's own page (url) answers automated reads with a SiteGround bot challenge. Needs: the date and start confirmed on evergreenchristianoutreach.org by a person.", since: "2026-10-06", from: manual }
 start: "2026-11-26T09:00"
 end: "2026-11-26T11:00"
 venue: "Evergreen Christian Outreach (EChO)"

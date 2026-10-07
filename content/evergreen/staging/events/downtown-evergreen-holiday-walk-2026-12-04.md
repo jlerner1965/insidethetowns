@@ -1,6 +1,6 @@
 ---
 title: "Downtown Evergreen Holiday Walk"
-review: { reason: "Read by hand from Downtown Evergreen's Holiday Walk page on 6 October 2026: Friday 4 December, 5 to 9 pm; the page says the schedule and details are coming soon and gives no price (the chamber's listing says free).", since: "2026-10-06", from: manual }
+review: { reason: "Not re-read: downtownevergreen.com answered 403 to every automated request on 7 October 2026, robots.txt included, so the organizer's page could not be read today. Needs: the page read by a person to confirm Friday 4 December, 5 to 9 pm, and the price.", since: "2026-10-06", from: manual }
 start: "2026-12-04T17:00"
 end: "2026-12-04T21:00"
 venue: "Downtown Evergreen"

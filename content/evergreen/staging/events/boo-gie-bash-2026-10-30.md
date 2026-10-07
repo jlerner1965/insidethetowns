@@ -1,6 +1,6 @@
 ---
 title: "Boo-gie Bash"
-review: { reason: "Read by hand from the Evergreen Area Chamber's community calendar on 6 October 2026; the listing gives the venue name but no address, and names no organizer beyond a contact site; the night benefits EPRD's INSPIRE special-needs programme.", since: "2026-10-06", from: manual }
+review: { reason: "Re-read 7 October 2026: the chamber listing still gives Friday 30 October, 6 to 10 pm, at the Wild Game Clubhouse, but the organizer's site (boogieatthebarn.com) reset the connection on every try and the listing names no organizer or street address. Needs: the date confirmed on the organizer's own page.", since: "2026-10-06", from: manual }
 start: "2026-10-30T18:00"
 end: "2026-10-30T22:00"
 venue: "Wild Game Clubhouse"
