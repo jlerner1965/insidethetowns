@@ -135,7 +135,7 @@ const structured = collectionPageJsonLd(hub, {
           <div>
             <p class="max-w-[62ch] leading-relaxed text-ink-muted">{SUITS[t.slug]}</p>
             <p class="mt-3 text-[0.9375rem]">
-              <a href={`https://${t.domain}/moving-here/`} class="font-semibold text-accent-text no-underline hover:underline">
+              <a href={`https://${t.domain}/moving-here/`} class="inline-block -my-1 py-1 font-semibold text-accent-text no-underline hover:underline">
                 Moving to {t.name} →
               </a>
             </p>
@@ -189,6 +189,7 @@ const structured = collectionPageJsonLd(hub, {
   </div>
 
   <CtaBand
+    slot="after"
     eyebrow="Across the network"
     title="See what’s on before you visit"
     body={`The surest way to judge a town is to turn up on a Saturday. Every event across all ${towns.length} guides is on one page.`}

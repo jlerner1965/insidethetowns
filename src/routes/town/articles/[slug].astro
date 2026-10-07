@@ -86,7 +86,7 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
           <p class="eyebrow mb-2">Sources</p>
           <ul class="space-y-2.5 text-[0.9375rem]">
             {data.sources.map((s) => (
-              <li><a href={s.url} rel="noopener" class="underline">{s.label}</a></li>
+              <li><a href={s.url} rel="noopener" class="inline-block -my-1 py-1 underline">{s.label}</a></li>
             ))}
           </ul>
           {data.verified && <p class="mt-3">Checked {formatDate(data.verified)}. Hours, prices and seasons change; the sources above are the record.</p>}

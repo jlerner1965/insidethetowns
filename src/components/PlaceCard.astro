@@ -15,6 +15,7 @@ import { PLACE_STATUS_LABELS, PLACE_TYPE_LABELS } from '@/content/schemas';
 import { PLACE_HUE } from '@/config/palette';
 import { isOpen } from '@/lib/places';
 import { subTownLabel } from '@/lib/sub-towns';
+import { shorten } from '@/lib/text';
 
 interface Props {
   place: TownEntry<'places'>;
@@ -48,6 +49,8 @@ const open = isOpen(place);
     <h3 class="mt-1.5 text-[1.375rem] font-medium leading-tight">
       <a href={href} class="stretch no-underline group-hover:text-accent-text">{data.title}</a>
     </h3>
-    <p class="mt-2 line-clamp-2 text-[0.9375rem] leading-relaxed text-ink-muted">{data.summary}</p>
+    {/* Shortened at a word or phrase to about two lines, rather than cut
+        mid-word by the clamp, which stays as a net for a narrow card. */}
+    <p class="mt-2 line-clamp-2 text-[0.9375rem] leading-relaxed text-ink-muted">{shorten(data.summary, 80)}</p>
   </div>
 </article>

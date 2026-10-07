@@ -96,13 +96,13 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
           <p class={panelTitle}>Official sources</p>
           <ul class="mt-4 space-y-3 text-[0.9375rem] leading-snug">
             <li>
-              <a href={site.officialLinks.townSite} rel="noopener" class="font-semibold text-accent-text no-underline hover:underline">
+              <a href={site.officialLinks.townSite} rel="noopener" class="inline-block -my-1 py-1 font-semibold text-accent-text no-underline hover:underline">
                 {site.officialLinks.townSiteLabel ?? `The official ${site.name} site`} →
               </a>
             </li>
             {site.officialLinks.policeNonEmergency && (
               <li>
-                <a href={site.officialLinks.policeNonEmergency} rel="noopener" class="font-semibold text-accent-text no-underline hover:underline">
+                <a href={site.officialLinks.policeNonEmergency} rel="noopener" class="inline-block -my-1 py-1 font-semibold text-accent-text no-underline hover:underline">
                   {site.officialLinks.policeNonEmergencyLabel ?? `${site.name} police`} →
                 </a>
                 <span class="block text-ink-muted">Non-emergency contact. In an emergency, call 911.</span>
@@ -128,6 +128,7 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
       </aside>
     </div>
     <CtaBand
+      slot="after"
       eyebrow={`Coming up in ${site.name}`}
       title="Start with what’s on"
       body={`${events.length} events are listed in ${site.name} right now, from markets and live music to town meetings.`}
@@ -212,6 +213,7 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
       </aside>
     </div>
     <CtaBand
+      slot="after"
       eyebrow="Inside the Towns"
       title="Find your town"
       body="Each guide is written for the people who live there, with the week’s events, the places worth your time, and what it is really like to move in."

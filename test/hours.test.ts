@@ -146,6 +146,11 @@ test('hoursLines: one line per day range, times held together', () => {
     `Mon–Fri 6${NB}am${WJ}–${WJ}2${NB}pm`,
     `weekends 7${NB}am${WJ}–${WJ}2${NB}pm`,
   ]);
-  // A comma that does not start a day range stays where it is.
+  // A comma that does not start a day range stays where it is, and nor does
+  // one inside a list of days.
   assert.deepEqual(hoursLines('Open daily, dawn to dusk'), ['Open daily, dawn to dusk']);
+  assert.deepEqual(hoursLines('Mon, Wed–Fri 6 am–8 pm; Tue 6 am–2 pm'), [
+    `Mon, Wed–Fri 6${NB}am${WJ}–${WJ}8${NB}pm`,
+    `Tue 6${NB}am${WJ}–${WJ}2${NB}pm`,
+  ]);
 });

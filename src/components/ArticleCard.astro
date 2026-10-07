@@ -13,6 +13,7 @@
 import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
 import { formatDate, toIsoLocal } from '@/lib/dates';
+import { shorten } from '@/lib/text';
 
 interface Props {
   article: TownEntry<'articles'>;
@@ -60,7 +61,16 @@ const side = row && !feature && !!data.image;
     <h3 class:list={['mt-2 font-medium leading-tight', feature ? 'display text-3xl md:text-4xl' : 'text-2xl']}>
       <a href={href} class="stretch no-underline group-hover:text-accent-text">{data.title}</a>
     </h3>
-    <p class:list={['mt-3 leading-relaxed text-ink-muted', feature ? 'text-lg' : 'text-[0.9375rem] line-clamp-3']}>{data.excerpt}</p>
+    {/* A teaser's excerpt is shortened at a word or phrase, a phone's further
+        than a wide screen's, rather than cut mid-word by the clamp ("…districts.
+        W…"); the clamp stays as a net. */}
+    {feature ? (
+      <p class="mt-3 text-lg leading-relaxed text-ink-muted">{data.excerpt}</p>
+    ) : (
+      <p class="mt-3 line-clamp-3 text-[0.9375rem] leading-relaxed text-ink-muted">
+        <span class="sm:hidden" data-pagefind-ignore>{shorten(data.excerpt, 120)}</span><span class="hidden sm:inline">{shorten(data.excerpt, 200)}</span>
+      </p>
+    )}
     {feature && <p class="mt-5 text-[0.9375rem] font-semibold text-accent-text">Read the story →</p>}
   </div>
 </article>

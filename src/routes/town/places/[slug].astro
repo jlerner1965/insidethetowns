@@ -215,7 +215,7 @@ const facts = [
           </p>
         )}
       </div>
-      <p class="order-5 text-[0.9375rem] lg:mt-12"><a href={back.href} class="font-semibold text-accent-text no-underline hover:underline">← {back.label}</a></p>
+      <p class="order-5 text-[0.9375rem] lg:mt-12"><a href={back.href} class="inline-block -my-1 py-1 font-semibold text-accent-text no-underline hover:underline">← {back.label}</a></p>
     </div>
     <div class="contents lg:block lg:pt-1">
       <aside class="order-2">
@@ -225,7 +225,7 @@ const facts = [
               <dt class="eyebrow">{f.label}</dt>
               <dd class="mt-1.5 leading-snug">
                 {f.href ? (
-                  <a href={f.href} rel={f.href.startsWith('http') ? 'noopener' : undefined} class="text-accent-text">{f.value}</a>
+                  <a href={f.href} rel={f.href.startsWith('http') ? 'noopener' : undefined} class="inline-block -my-1 py-1 text-accent-text">{f.value}</a>
                 ) : f.lines ? (
                   f.lines.map((line) => <span class="block">{line}</span>)
                 ) : (
