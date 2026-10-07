@@ -153,6 +153,19 @@
       "notes": "Checked 6 October 2026: events page read; a short promotional list (Boo Bash, Saturday 24 October 11am-2pm; HOKA coming soon; military discounts), no feed, no dates in a machine-readable form. A few family events a year (Boo Bash, holiday lighting); html with a monthly look. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
     },
     {
+      "id": "castlerockhistoricalsociety-org",
+      "name": "Castle Rock Historical Society and Museum events",
+      "url": "https://www.castlerockhistoricalsociety.org/calendar/",
+      "sampleUrl": "https://www.castlerockhistoricalsociety.org/news-events/",
+      "type": "manual",
+      "category": "venue",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "defaultVenue": "Castle Rock Museum",
+      "notes": "Checked 7 October 2026: the Society runs the Castle Rock Museum in the old depot, 420 Elbert Street, (303) 814-3164, museum@castlerockhistoricalsociety.org. Its Events page (/calendar/, WordPress) lists the year's own programs with dates and times: the Ghostly Stories and Tragic Tales walking tours (October), the Cedar Hill Cemetery tour, the monthly downtown walking tours (May to September), Santa at the museum (December); /news-events/ carries one post per program, including the monthly presentations. robots.txt allows everything outside /admin/ and asks a Crawl-delay of 10. No feed was found; read by hand. Confirmed 7 October 2026 at the owner’s direction."
+    },
+    {
       "id": "visitcastlerock-org",
       "name": "Visit Castle Rock events (Chamber tourism site)",
       "url": "https://visitcastlerock.org/events/",
