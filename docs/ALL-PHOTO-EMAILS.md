@@ -1419,7 +1419,7 @@ media doing stories on Colorado State at no charge; that is this.
 | B6 | Parks | Town of Elizabeth Public Works (1) | phone | | | |
 | B7 | Parks | Town of Lyons Parks and Recreation (1) | email, a week after A5 | | | |
 | B8 | Parks | Boulder County Parks and Open Space (3) | email, optional | yes | 2026-09-18 | Granted for the three gallery pages (PERMISSIONS.md). Done |
-| B9 | Parks | Douglas County Open Space (1) | email | | | |
+| B9 | Parks | Douglas County Open Space (1) | email | yes | 2026-10-06 | Granted: "any photo from the website", approved by the Assistant Director (PERMISSIONS.md). The county's own Two Bridges Trail photograph now on the listing, credited "Douglas County". Done |
 | B10 | Parks | Niwot Cultural Arts Association (1) | form | | | |
 | C1 | Venues | Berthoud Community Library District | email | | | |
 | C2 | Venues | Town of Berthoud (Recreation Center) | email, a week after B1 | — | — | Not needed: the Recreation Center came with B1. Done |

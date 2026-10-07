@@ -231,3 +231,47 @@ the Town's own aerial of that side shows (the same rail fence along the
 same fields), and what the playground equipment contract the Town Council
 awarded for Sunrise Park on 1 June 2026 (The Johnstown Breeze, 2 June 2026)
 would produce.
+
+---
+
+## Douglas County Open Space & Natural Resources
+
+**Granted** 6 October 2026 by the **Open Space & Natural Resources team**,
+Douglas County, by email from the department's mailbox, copied to Caroline
+(Caroline Frizell, Director of Communication and Public Affairs, was copied
+on the request), in reply to the request in `docs/ALL-PHOTO-EMAILS.md` (B9)
+for a photograph of Bayou Gulch or the Two Bridges Trail for Inside
+Elizabeth, credited to Douglas County.
+
+Their wording, in full:
+
+> Thank you for reaching out. I have discussed your request with our
+> Assistant Director, and he does not see any issue. You are free to use any
+> photo from the website.
+>
+> Please let me know if you need anything else.
+
+| | |
+|---|---|
+| **Scope** | Photographs on douglasco.gov. The reply names no limit; the request it answers was for Inside Elizabeth |
+| **Credit** | Not asked for. The request promised "credited to Douglas County", so it is: "Douglas County" |
+| **Standing** | For Inside Elizabeth, yes. Inside Castle Rock is in Douglas County too; before a county photograph goes on it, a line to the same mailbox confirming the grant covers it costs nothing |
+| **Used** | `two-bridges-trail.jpg`, on the Two Bridges Trail listing |
+| **Contact** | openspace@douglasco.gov; cfrizell@douglasco.gov |
+
+The decision is the Assistant Director's, relayed by the team; he is not
+named. The question about a permit to photograph there ourselves went
+unanswered, because the yes made it moot.
+
+The photograph is the county's own. The property page carries none in its
+HTML today; the file is in the county's media library on douglasco.gov
+(`wp-content/uploads/2022/03/Two-Bridges-1-scaled.jpg`), titled "Two
+Bridges Trail", uploaded in March 2022 to the Open Space & Natural Resources
+page, and its EXIF named the artist as "Douglas County Public Affairs" and
+the copyright as "Douglas County Government", taken 12 July 2018. As with
+Boulder County, "any photo from the website" is best read as the county's
+own photographs: a county site can carry contractors' or partners' images,
+and a file with no such EXIF deserves a look before it is used. The EXIF
+was dropped on import.
+
+The request promised to take it down the day they ask.

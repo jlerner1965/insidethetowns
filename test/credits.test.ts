@@ -73,7 +73,14 @@ test('internal notes never reach the reader', () => {
     row('Town of Johnstown photograph; sent in reply to the photo request 2026-10-02 — see PERMISSIONS.md, section: x; EXIF stripped on import', 'provided directly by the Town of Johnstown, 2026-10-02'),
   );
   assert.deepEqual([johnstownTown.author, johnstownTown.license, johnstownTown.sourceUrl], ['Town of Johnstown', 'Used with permission', undefined]);
-  for (const c of [erie, berthoud, own, johnstown, johnstownTown]) assert.doesNotMatch(JSON.stringify(c), /PERMISSIONS|EXIF|confirm/);
+  const douglas = publicCredit(
+    row('Douglas County photograph; permission 2026-10-06 — see PERMISSIONS.md, section: x; resized to 1600px, EXIF stripped on import', 'https://www.douglasco.gov/wp-content/uploads/2022/03/Two-Bridges-1-scaled.jpg'),
+  );
+  assert.deepEqual(
+    [douglas.author, douglas.license, douglas.changes],
+    ['Douglas County', 'Used with permission', 'resized'],
+  );
+  for (const c of [erie, berthoud, own, johnstown, johnstownTown, douglas]) assert.doesNotMatch(JSON.stringify(c), /PERMISSIONS|EXIF|confirm/);
 });
 
 test('a row it cannot read is an error, not a blank credit', () => {

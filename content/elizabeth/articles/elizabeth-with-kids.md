@@ -5,6 +5,7 @@ excerpt: "Where to take children in Elizabeth: the two big district parks and wh
 category: "Families"
 tags: [families, kids, playgrounds, guide]
 verified: "2026-09-27"
+updated: "2026-10-07"
 sources:
   - { label: "Elizabeth Park & Recreation District: Evans Park", url: "https://www.elizabethpr.com/evans-park" }
   - { label: "Elizabeth Park & Recreation District: Casey Jones Park", url: "https://www.elizabethpr.com/casey-jones-park" }
@@ -12,6 +13,7 @@ sources:
   - { label: "Pines & Plains Libraries: Elizabeth Library", url: "https://pplibraries.org/01b-elizabeth-library/" }
   - { label: "Small Town Mini Donuts", url: "https://www.smalltownminidonuts.com/" }
   - { label: "Town of Elizabeth: parks and trails", url: "https://www.townofelizabeth.org/publicworks/page/parks-and-trails" }
+  - { label: "Douglas County: Two Bridges Trail", url: "https://www.douglasco.gov/open-space-natural-resources/properties/two-bridges-trail/" }
 ---
 
 Elizabeth's parks belong to a park and recreation district rather than the Town, which is why the two big ones sit together on County Road 17 east of Main Street. Between them and the library, a family day is covered.
@@ -38,4 +40,4 @@ The [Elizabeth Library](/places/elizabeth-library/) on Beverly Street is the Pin
 
 ## A first hike
 
-[Two Bridges Trail](/places/two-bridges-trail/) at Bayou Gulch, fifteen minutes west on Bayou Gulch Road, is Douglas County open space through gulches and ponderosa. There are 10.4 miles of trail, so a short loop for small legs and a long circuit for older children are both there; the county’s map shows the junctions. Open an hour before sunrise to an hour after sunset.
+[Two Bridges Trail](/places/two-bridges-trail/) at Bayou Gulch, fifteen minutes west on Bayou Gulch Road, is Douglas County open space over rolling prairie and meadow, with views of Pikes Peak. The loops run from 2.7 to 10.4 miles, so older children have a long circuit and small legs can walk out and turn back; the county’s map shows the junctions. Dogs on leash. Open an hour before sunrise to an hour after sunset.
