@@ -110,6 +110,14 @@ export const CATEGORY_LABELS: Record<EventCategory, string> = {
   other: 'Other',
 };
 
+/**
+ * The label printed over a listing. "Other" is where what fits none of the
+ * rest is filed, and it is not printed: a label that says nothing is noise
+ * above the title. The filter still offers it.
+ */
+export const shownCategoryLabel = (category: EventCategory): string | undefined =>
+  category === 'other' ? undefined : CATEGORY_LABELS[category];
+
 /** Headings over a group of places: "Restaurants", not "Restaurant". */
 export const PLACE_TYPE_PLURALS: Record<PlaceType, string> = {
   restaurant: 'Restaurants',

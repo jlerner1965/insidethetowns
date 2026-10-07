@@ -21,6 +21,10 @@ const photos = (await getCreditedPhotos()).sort((a, b) => {
   return (a.credit.author ?? '~').localeCompare(b.credit.author ?? '~') || a.file.localeCompare(b.file);
 });
 const linkClass = 'underline decoration-ink-faint underline-offset-2 hover:text-accent-text';
+// With one photo over a multiple of three, the first runs two columns wide
+// on a wide screen, so the last does not sit alone on its row; it is fetched
+// at twice the width to fill the space.
+const wide = (i: number) => i === 0 && photos.length % 3 === 1;
 ---
 <Page
   title="Photo credits"
@@ -39,10 +43,10 @@ const linkClass = 'underline decoration-ink-faint underline-offset-2 hover:text-
   </div>
 
   <ul class="mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3" role="list">
-    {photos.map(({ image, alt, credit, usedOn }) => (
-      <li class="flex flex-col">
-        <div class="aspect-[4/3] overflow-hidden rounded-lg bg-accent-soft">
-          <Image src={image} alt={alt} width={480} height={360} class="h-full w-full object-cover" />
+    {photos.map(({ image, alt, credit, usedOn }, i) => (
+      <li class:list={['flex flex-col', wide(i) && 'lg:col-span-2']}>
+        <div class:list={['aspect-[4/3] overflow-hidden rounded-lg bg-accent-soft', wide(i) && 'lg:aspect-[8/3]']}>
+          <Image src={image} alt={alt} width={wide(i) ? 960 : 480} height={360} class="h-full! w-full object-cover" />
         </div>
         <p class="mt-4 text-[1.0625rem] font-medium leading-snug">
           {credit.author ?? 'Uncredited'}

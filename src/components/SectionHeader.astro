@@ -1,21 +1,27 @@
 ---
 /**
  * Eyebrow + heading + optional "All events →" link, used for every home-page
- * section so they share one rhythm.
+ * section, and for a section of a longer page, so they share one rhythm.
+ *
+ * On a phone the link always sits on its own line under the title: it used
+ * to sit beside a short title and drop under a long one, so the three
+ * headers on the home page each put it somewhere different.
  */
 interface Props {
   eyebrow?: string;
   title: string;
   href?: string;
   linkLabel?: string;
+  /** For aria-labelledby and in-page links. */
+  id?: string;
 }
 
-const { eyebrow, title, href, linkLabel = 'See all' } = Astro.props;
+const { eyebrow, title, href, linkLabel = 'See all', id } = Astro.props;
 ---
-<div class="mb-8 flex flex-wrap items-end justify-between gap-x-8 gap-y-3 border-b-2 border-accent pb-5 md:mb-10">
+<div class="mb-8 flex flex-col items-start gap-x-8 gap-y-3 border-b-2 border-accent pb-5 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between md:mb-10">
   <div>
     {eyebrow && <p class="eyebrow mb-2">{eyebrow}</p>}
-    <h2 class="display-md text-4xl md:text-5xl">{title}</h2>
+    <h2 id={id} class="display-md text-4xl md:text-5xl">{title}</h2>
   </div>
   {href && (
     <a href={href} class="text-[0.9375rem] font-semibold text-accent-text no-underline hover:underline">{linkLabel} →</a>

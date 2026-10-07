@@ -15,6 +15,9 @@ interface Props {
 }
 
 const { places } = Astro.props;
+// Under "Trails" every row said TRAIL; the label is kept only where the
+// types differ.
+const mixed = new Set(places.map((p) => p.data.type)).size > 1;
 ---
 {places.length > 0 && (
   <ul class="grid gap-x-12 sm:grid-cols-2">
@@ -27,7 +30,7 @@ const { places } = Astro.props;
             aria-hidden="true"></span>
           {place.data.title}
         </a>
-        <span class="eyebrow shrink-0" style={`color:var(--cat-${PLACE_HUE[place.data.type]}-ink)`}>{PLACE_TYPE_LABELS[place.data.type]}</span>
+        {mixed && <span class="eyebrow shrink-0" style={`color:var(--cat-${PLACE_HUE[place.data.type]}-ink)`}>{PLACE_TYPE_LABELS[place.data.type]}</span>}
       </li>
     ))}
   </ul>

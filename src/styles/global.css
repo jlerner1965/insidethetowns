@@ -115,6 +115,13 @@
     box-shadow: 0 0 0 3px var(--color-paper);
     border-radius: 2px;
   }
+  /* A text field shows focus on its own edge: the ring set 3px off with a
+     paper gap read as a heavy double frame around a field that had just
+     been focused on load (the search page). */
+  :is(input, textarea, select):focus-visible {
+    outline-offset: 0;
+    box-shadow: none;
+  }
   /* On dark grounds the roles swap, so the bright edge is the outline. */
   .on-dark :focus-visible,
   footer :focus-visible {
@@ -152,8 +159,14 @@
   color: #fff;
 }
 
-/* Small caps-style label above headings: "This week in Niwot", "Market". */
+/* Small caps-style label above headings: "This week in Niwot", "Market".
+   It names its face: set on an <h2> or inside a display heading it used to
+   inherit Fraunces, and some forty labels across the sites ("Further out",
+   "Shops", the weekday over every day of events) came out in the serif while
+   every other label was in the sans. */
 @utility eyebrow {
+  font-family: var(--font-body);
+  font-variation-settings: normal;
   font-size: var(--text-eyebrow);
   font-weight: 600;
   letter-spacing: var(--tracking-eyebrow);
@@ -177,6 +190,44 @@
   font-variation-settings: "opsz" 72;
   letter-spacing: -0.025em;
   line-height: 1;
+}
+
+/*
+ * A labelled row of filter buttons: "When", "What", "Where", "Jump to".
+ *
+ * The label sits in a fixed column so every row's buttons start at the same
+ * edge. On a phone a row is one line that scrolls sideways and runs off the
+ * edge of the screen, which says there is more; it used to wrap, and the
+ * events page's three rows took seven lines before the first listing. From
+ * 40rem they wrap as before. The few pixels of padding keep a focus ring
+ * from being clipped by the scroller.
+ */
+@layer components {
+  .filter-row {
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    align-items: center;
+  }
+  .filter-pills {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-block: -6px;
+    margin-inline: -6px -1.25rem;
+    padding-block: 6px;
+    padding-inline: 6px 1.25rem;
+  }
+  .filter-pills::-webkit-scrollbar { display: none; }
+  .filter-pills > * { flex-shrink: 0; white-space: nowrap; }
+  @media (width >= 40rem) {
+    .filter-pills {
+      flex-wrap: wrap;
+      overflow: visible;
+      margin: 0;
+      padding: 0;
+    }
+  }
 }
 
 /*
@@ -255,7 +306,14 @@
     border-block-end: 1px solid var(--color-line);
     box-shadow: 0 20px 34px -26px rgb(0 0 0 / 0.5);
   }
-  .nav-open .site-nav { display: block; }
+  /* The page under an open menu is dimmed, so the panel reads as on top of
+     it rather than as a strip with a half-covered heading below. The shadow
+     is clipped at the panel's top edge, so the header stays clear. */
+  .nav-open .site-nav {
+    display: block;
+    box-shadow: 0 0 0 100vmax rgb(0 0 0 / 0.35);
+    clip-path: inset(0 -100vmax -100vmax -100vmax);
+  }
   .nav-open body { overflow: hidden; }
   .site-nav-list {
     display: block;
@@ -322,6 +380,27 @@
   white-space: nowrap;
 }
 .compare tbody td { font-variant-numeric: tabular-nums; }
+/* Figures right-aligned, so 169,810 and 1,675 line up by place value; a
+   short value that broke ("About 1 hr 10 / min", "Weld & / Larimer") kept
+   whole. */
+.compare :is(td, th).num { text-align: right; }
+@media (width >= 60rem) {
+  .compare td.nowrap { white-space: nowrap; }
+}
+/* Two towns side by side: the row names are labels, not a second set of
+   headings outweighing the figures. */
+.compare-pair { overflow-x: auto; }
+.compare-pair thead th { font-size: 0.875rem; border-block-end-width: 3px; white-space: normal; }
+.compare-pair tbody th {
+  font-family: var(--font-body);
+  font-size: var(--text-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+  white-space: normal;
+}
+.compare-pair tbody td { font-size: 1rem; }
 .compare-domain {
   display: block;
   font-family: var(--font-body);
@@ -332,8 +411,11 @@
 }
 
 @media (width < 60rem) {
-  .compare thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-  .compare tbody tr {
+  .compare:not(.compare-pair) thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  /* Cards, not a table: table sizing would widen every card to the longest
+     unbroken line in any of them, past the edge of the screen. */
+  .compare:not(.compare-pair) :is(table, tbody) { display: block; }
+  .compare:not(.compare-pair) tbody tr {
     display: block;
     margin-block-end: 1.25rem;
     border-radius: 0.5rem;
@@ -341,23 +423,25 @@
     box-shadow: 0 0 0 1px var(--color-line-soft);
     overflow: hidden;
   }
-  .compare tbody th {
+  .compare:not(.compare-pair) tbody th {
     display: block;
     padding: 1rem 1.25rem;
     background: var(--color-accent-tint);
     border-block-end: 1px solid var(--color-line-soft);
     white-space: normal;
   }
-  .compare tbody td {
+  .compare:not(.compare-pair) tbody td {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     gap: 1.5rem;
     padding: 0.7rem 1.25rem;
   }
-  .compare tbody td:last-child { border-block-end: 0; }
-  .compare tbody td::before {
+  .compare:not(.compare-pair) tbody td:last-child { border-block-end: 0; }
+  .compare:not(.compare-pair) tbody td::before {
     content: attr(data-label);
+    flex: none;
+    white-space: nowrap;
     font-size: var(--text-eyebrow);
     font-weight: 600;
     letter-spacing: var(--tracking-eyebrow);
@@ -365,7 +449,10 @@
     color: var(--color-ink-faint);
     font-variant-numeric: normal;
   }
-  .compare tbody td > span { text-align: right; }
+  .compare:not(.compare-pair) tbody td > span { text-align: right; }
+  /* A sentence is not right-aligned under its label but set below it. */
+  .compare:not(.compare-pair) tbody td.text { flex-direction: column; gap: 0.25rem; }
+  .compare:not(.compare-pair) tbody td.text > span { text-align: left; }
 }
 
 @layer components {
@@ -402,6 +489,15 @@
   }
 }
 
+/* The footer stands off the page by mt-24, but a page that already ends in a
+   full-width dark band (every town home page and the hub's) got a 6rem strip
+   of paper between two blocks of the same dark colour, which read as a page
+   that had not finished loading. There the two meet, with a hairline. */
+main:has(> :last-child.on-dark) + footer {
+  margin-top: 0;
+  border-top: 1px solid rgb(255 255 255 / 0.14);
+}
+
 /* Long-form markdown: articles, moving-here, event and place bodies. */
 .prose {
   max-width: 40rem;
@@ -409,18 +505,31 @@
   line-height: 1.7;
 }
 .prose > * + * { margin-top: 1.1em; }
+/* Nothing above the first block: a page that opens on a heading got its 2.2em
+   on top of the page's own padding, half as much again as other pages. */
+.prose > :first-child { margin-top: 0; }
 .prose h2 {
   font-size: 1.75rem;
   line-height: 1.2;
   margin-top: 2.2em;
+  /* The headings' base setting is the hairline display cut, opsz 144, made
+     for sizes past 60px; at 28px it crowded the letters and closed up the
+     word spaces. The text cut and near-normal tracking hold up here. */
+  font-variation-settings: "opsz" 36;
+  letter-spacing: -0.005em;
   /* Landing from a contents link should not put the heading against the edge. */
   scroll-margin-top: 1.5rem;
 }
-/* A way in: the opening paragraph is set a size larger than the body. */
-.prose > p:first-of-type {
+/* A way in: the opening paragraph is set a size larger than the body — only
+   when the text opens with one. As :first-of-type it fell on whichever
+   paragraph came first, after a list on Thanks, under section one's heading
+   on Moving Here, so a single mid-page paragraph came out larger. */
+.prose > p:first-child {
   font-size: 1.1875rem;
   line-height: 1.6;
 }
+/* No single word alone on a paragraph's last line. */
+.prose p { text-wrap: pretty; }
 .prose h3 { font-size: 1.3rem; line-height: 1.3; margin-top: 1.8em; }
 .prose h2 + *, .prose h3 + * { margin-top: 0.6em; }
 .prose a {
@@ -464,9 +573,42 @@
    min-width: 0 lets that box be narrower than the table where .prose is a
    grid item, as it is on an article page. */
 .prose { min-width: 0; }
+/* On a phone each row is a card of its own: the first cell as its heading,
+   the rest under it with their column names (data-label, added at build by
+   src/integrations/table-labels.ts). A three-column table scrolled sideways
+   in its box with nothing to say so, and its last column sat cut off at the
+   edge of the screen. */
 @media (width < 40rem) {
-  .prose table { display: block; overflow-x: auto; }
+  .prose table,
+  .prose tbody,
+  .prose tr,
+  .prose td,
+  .prose th { display: block; }
+  .prose thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .prose tr { padding-block: 0.85rem; border-bottom: 1px solid var(--color-line-soft); }
+  .prose td,
+  .prose th { padding: 0; border: 0; }
+  .prose td + td { margin-top: 0.4rem; }
+  .prose tr > :first-child { font-weight: 600; }
+  .prose td[data-label]:not(:first-child)::before {
+    content: attr(data-label);
+    display: block;
+    font-size: var(--text-eyebrow);
+    font-weight: 600;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-ink-faint);
+  }
 }
+/* An empty, required date or time field shows its "mm/dd/yyyy" in the
+   placeholder grey of every other field, not in full ink as if filled in. */
+input:is([type="date"], [type="time"]):invalid::-webkit-datetime-edit { color: var(--color-ink-faint); }
+
+/* A form set inside prose (the contact page) is a card with its own
+   padding: the prose rhythm would put 1.1em above it and 2.2em above its
+   heading, which opened the card on a band of empty white. */
+.prose > form { margin-top: 2.5rem; }
+.prose form h2 { margin-top: 0; }
 .prose hr { border: 0; border-top: 1px solid var(--color-line-soft); margin-block: 2.5em; }
 .prose strong { font-weight: 600; }
 .prose code { font-size: 0.9em; background: color-mix(in oklab, var(--color-ink) 6%, transparent); padding: 0.1em 0.35em; border-radius: 0.25rem; }

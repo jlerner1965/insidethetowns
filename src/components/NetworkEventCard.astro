@@ -3,14 +3,16 @@
  * An event on the hub: the same editorial row as a town's own listing, plus
  * the town it belongs to, and a link that crosses to that town's domain.
  *
- * The town badge carries that town's accent. It is the one place the towns'
+ * The town badge carries that town's accent, on one line: in a 7rem column
+ * "Fort Collins" and "Carbon Valley" wrapped into lozenges twice the height of
+ * the rest. It is the one place the towns'
  * palettes work together rather than separately, and it is what tells you at a
  * glance that the farmers market you want is in Lyons and not in Erie.
  */
 import type { NetworkEntry } from '@/lib/content';
 import { dayKey, formatDayRange, formatDayShort, formatMonthDay, formatTimeRange, toIsoLocal } from '@/lib/dates';
 import { eventEnd, isCanceled, isInProgress, lastDay } from '@/lib/events';
-import { CATEGORY_LABELS, EVENT_STATUS_LABELS } from '@/content/schemas';
+import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 
 interface Props {
   event: NetworkEntry<'events'>;
@@ -38,12 +40,12 @@ const when =
       ? formatDayRange(data.start, data.end!)
       : formatTimeRange(data.start, data.end, data.allDay));
 // "Other" is filed but not labelled, as on a town's own list (EventCard).
-const categoryLabel = data.category !== 'other' ? CATEGORY_LABELS[data.category] : undefined;
+const categoryLabel = shownCategoryLabel(data.category);
 // A multi-day time range already names its days, and a run says "Now through".
 const time = showDay && !running && !multiDay ? `${formatDayShort(data.start)} Â· ${when}` : when;
 ---
 <article
-  class="group relative grid grid-cols-1 gap-x-7 border-t border-line-soft py-5 first:border-t-0 sm:grid-cols-[7rem_1fr] md:py-6"
+  class="group relative grid grid-cols-1 gap-x-7 border-t border-line-soft py-5 first:border-t-0 sm:grid-cols-[9rem_1fr] md:py-6"
   data-filter-item
   data-category={town.slug}
   data-event-day={lastDay(event)}
@@ -52,7 +54,7 @@ const time = showDay && !running && !multiDay ? `${formatDayShort(data.start)} Â
 >
   <p class="mb-1.5 sm:mb-0 sm:pt-1">
     <span
-      class="inline-block rounded-full px-2.5 py-1 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-white"
+      class="inline-block whitespace-nowrap rounded-full px-2.5 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-white"
       style={`background:${town.colors.accentDark}`}
     >{town.name}</span>
   </p>
@@ -64,7 +66,7 @@ const time = showDay && !running && !multiDay ? `${formatDayShort(data.start)} Â
         )}
         {categoryLabel}
         {statusLabel && (
-          <span class="rounded-full bg-ink px-2 py-0.5 text-[0.625rem] font-semibold uppercase tracking-[0.1em] text-raised">{statusLabel}</span>
+          <span class="rounded-full bg-ink px-2 py-0.5 text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-raised">{statusLabel}</span>
         )}
       </p>
     )}

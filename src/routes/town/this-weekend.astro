@@ -16,6 +16,7 @@ import Page from '@/layouts/Page.astro';
 import SponsorLine from '@/components/SponsorLine.astro';
 import EventCard from '@/components/EventCard.astro';
 import EventList from '@/components/EventList.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import NearbyWeekend from '@/components/NearbyWeekend.astro';
 import { getNetworkHub, getTown } from '@/config';
@@ -74,7 +75,7 @@ const structured = [
 
     {now.length > 0 && (
       <section class="mb-16 md:mb-20">
-        <h2 class="eyebrow mb-6 border-b-2 border-accent pb-4">On right now</h2>
+        <SectionHeader eyebrow="Under way" title="On right now" />
         <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
           {now.map((event) => <EventCard event={event} />)}
         </div>
@@ -90,7 +91,7 @@ const structured = [
 
     {continuing.length > 0 && (
       <section class="mb-16 md:mb-20">
-        <h2 class="eyebrow mb-6 border-b-2 border-accent pb-4">Still running</h2>
+        <SectionHeader eyebrow="Through the weekend" title="Still running" />
         <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
           {continuing.map((event) => <EventCard event={event} />)}
         </div>
@@ -99,10 +100,10 @@ const structured = [
 
     {next.length > 0 && (
       <section class="mb-16 md:mb-20">
-        <h2 class="eyebrow mb-6 border-b-2 border-accent pb-4">The week after</h2>
-        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-          {next.map((event) => <EventCard event={event} />)}
-        </div>
+        <SectionHeader eyebrow="Looking ahead" title="The week after" />
+        {/* By day, like the weekend above it: as one list it repeated the same
+            date block on every row and broke the page's left edge. */}
+        <EventList events={next} />
       </section>
     )}
 
@@ -113,7 +114,7 @@ const structured = [
 
   <NearbyWeekend town={town} sponsor={false} class="mt-16 md:mt-20" />
 
-  <div class="mt-12 max-w-2xl md:mt-16">
+  <div class="mt-12 md:mt-16">
     <NewsletterSignup town={town} compact />
   </div>
 </Page>

@@ -27,6 +27,22 @@ const {
     : [],
 } = Astro.props;
 const hero = resolveSiteImage(site.slug, site.hero.image);
+/**
+ * The tagline in two lines at most, shortened at a phrase rather than by the
+ * clamp alone: line-clamp put its ellipsis wherever the second line ran out
+ * ("…the three towns, Fift…"). Cut at the last comma or colon in the budget,
+ * else the last space; the copy itself is not rewritten. A phone's budget is
+ * smaller than a wide screen's, so there are two. The clamp stays as a net.
+ */
+const shorten = (text: string, budget: number) => {
+  if (text.length <= budget) return text;
+  const cut = text.slice(0, budget);
+  const phrase = Math.max(cut.lastIndexOf(', '), cut.lastIndexOf(': '));
+  const end = phrase >= budget * 0.5 ? phrase : cut.lastIndexOf(' ');
+  return `${cut.slice(0, end).replace(/[\s,;:]+$/, '')}…`;
+};
+const subtitleShort = shorten(subtitle, 64);
+const subtitleLong = shorten(subtitle, 88);
 ---
 <section class="on-dark relative isolate overflow-hidden bg-accent-dark text-white">
   <Image
@@ -80,10 +96,12 @@ const hero = resolveSiteImage(site.slug, site.hero.image);
     */}
     <p class="eyebrow text-white">{eyebrow}</p>
     {/* A third smaller than it was, so "Carbon Valley" and "Fort Collins"
-        hold one line at desktop width. The tagline is clamped to two lines
-        rather than rewritten; the whole sentence is still in the markup. */}
+        hold one line at desktop width. The whole tagline is in the meta
+        description and the footer. */}
     <h1 class="display mt-3 text-[2.875rem] sm:text-[4rem] lg:text-[6rem]">{title}</h1>
-    <p class="mt-4 line-clamp-2 max-w-xl text-lg leading-snug text-white/85 md:text-2xl">{subtitle}</p>
+    <p class="mt-4 line-clamp-2 max-w-xl text-lg leading-snug text-white/85 md:text-2xl">
+      <span class="sm:hidden">{subtitleShort}</span><span class="hidden sm:inline">{subtitleLong}</span>
+    </p>
     {links.length > 0 && (
       <div class="mt-6 flex flex-wrap gap-3 md:mt-7">
         {links.map((l) => (

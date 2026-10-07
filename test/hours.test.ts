@@ -8,7 +8,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { clockLabel, hoursTextByDesign, openingStatus, parseHoursText, parseOpeningHours } from '../src/lib/hours.ts';
+import { clockLabel, hoursLines, hoursTextByDesign, openingStatus, parseHoursText, parseOpeningHours } from '../src/lib/hours.ts';
 
 test('a plain range with am and pm stated', () => {
   assert.deepEqual(parseHoursText('Mon–Sat 6 am–9 pm, Sun 7 am–8 pm'), ['Mo-Sa 06:00-21:00', 'Su 07:00-20:00']);
@@ -132,4 +132,20 @@ test('clock labels', () => {
   assert.equal(clockLabel(10 * 60 + 30), '10:30 am');
   assert.equal(clockLabel(19 * 60), '7 pm');
   assert.equal(clockLabel(25 * 60), '1 am');
+});
+
+test('hoursLines: one line per day range, times held together', () => {
+  const NB = '\u00a0';
+  const WJ = '\u2060';
+  assert.deepEqual(hoursLines('Tue–Thu 4–8:30 pm, Fri–Sat 11 am–9 pm; closed Mon'), [
+    `Tue–Thu 4${WJ}–${WJ}8:30${NB}pm`,
+    `Fri–Sat 11${NB}am${WJ}–${WJ}9${NB}pm`,
+    'closed Mon',
+  ]);
+  assert.deepEqual(hoursLines('Mon–Fri 6 am–2 pm, weekends 7 am–2 pm'), [
+    `Mon–Fri 6${NB}am${WJ}–${WJ}2${NB}pm`,
+    `weekends 7${NB}am${WJ}–${WJ}2${NB}pm`,
+  ]);
+  // A comma that does not start a day range stays where it is.
+  assert.deepEqual(hoursLines('Open daily, dawn to dusk'), ['Open daily, dawn to dusk']);
 });

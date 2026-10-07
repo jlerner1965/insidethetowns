@@ -15,6 +15,7 @@
  * dates (src/lib/newsletter.ts), the same days the email reports on.
  */
 import Page from '@/layouts/Page.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { getHub, liveTowns } from '@/config';
 import { getNetworkEntries } from '@/lib/content';
 import { formatDate, formatDayLong, formatDayRange } from '@/lib/dates';
@@ -35,6 +36,9 @@ const weeks = liveTowns().map((town) => {
   return { town, count: own.length, picks: highlights(own, { now: send, limit: 4 }) };
 });
 const total = weeks.reduce((n, w) => n + w.count, 0);
+// Towns with something on first, A to Z; the ones with nothing listed after
+// them, rather than an empty town opening the issue.
+weeks.sort((a, b) => Number(b.picks.length > 0) - Number(a.picks.length > 0));
 
 const places = await getNetworkEntries('places');
 // A guide's opening-day places are the guide, not new places (src/lib/newsletter.ts).
@@ -59,7 +63,9 @@ const builtAt = new Date();
     <a href="/newsletter/" class="font-semibold text-accent-text">Sign up for the real one</a>.
   </p>
 
-  <article class="prose">
+  {/* Framed as the email it stands for: on bare page paper it read as one
+      more article. */}
+  <article class="prose rounded-lg bg-raised p-6 ring-1 ring-line-soft sm:p-10">
     {sponsor && (
       <p class="text-[0.9375rem] text-ink-muted">
         <em>Sponsor · This week’s email is presented by <a href={sponsor.url} rel="sponsored noopener">{sponsor.name}</a>{sponsor.line && ` · ${sponsor.line}`}.</em>
@@ -73,14 +79,16 @@ const builtAt = new Date();
 
     {weeks.map(({ town, count, picks }) => (
       <Fragment>
-        <h2>{town.name}</h2>
+        <h2 class="border-l-4 pl-3" style={`border-color:${town.colors.accent}`}>{town.name}</h2>
         {picks.length === 0 ? (
           <p>Nothing listed for the weekend yet — <a href={`https://${town.domain}/events/`}>what’s on next</a>.</p>
         ) : (
           <ul>
             {picks.map((e) => (
               <li>
-                <strong>{formatDayLong(e.data.start).split(',')[0]}</strong> <strong>{timeText(e, send)}</strong>{' '}
+                {/* The day and time on a line of their own, so a run of
+                    "Friday 7 pm Title · venue" does not read as one sentence. */}
+                <strong class="block text-[0.875rem]">{formatDayLong(e.data.start).split(',')[0]} · {timeText(e, send)}</strong>
                 <a href={`https://${town.domain}/events/${e.slug}/`}>{e.data.title}</a>
                 {' · '}{[e.data.venue, e.data.cost].filter(Boolean).join(' · ')}
               </li>
@@ -125,4 +133,9 @@ const builtAt = new Date();
       editorial; nobody pays to be in them.</em>
     </p>
   </article>
+
+  {/* The page made the case and then stopped; the signup is the next step. */}
+  <div class="mt-12">
+    <NewsletterSignup compact />
+  </div>
 </Page>

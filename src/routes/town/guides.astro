@@ -57,13 +57,22 @@ const structured = [
   {articles.length === 0 ? (
     <p class="text-ink-muted">Guides are on their way.</p>
   ) : (
-    categories.map((category) => (
-      <section class="mt-14 first:mt-0">
-        <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">{category}</h2>
-        <div class="grid gap-x-8 gap-y-10 md:grid-cols-2">
-          {articles.filter((a) => a.data.category === category).map((article) => <ArticleCard article={article} />)}
-        </div>
-      </section>
-    ))
+    categories.map((category) => {
+      const list = articles.filter((a) => a.data.category === category);
+      // One story in a two-column grid sat in the left half with the right
+      // half empty, section after section; a lone one runs the full width.
+      return (
+        <section class="mt-14 first:mt-0">
+          <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">{category}</h2>
+          {list.length === 1 ? (
+            <ArticleCard article={list[0]} row showCategory={false} />
+          ) : (
+            <div class="grid gap-x-8 gap-y-10 md:grid-cols-2">
+              {list.map((article) => <ArticleCard article={article} showCategory={false} />)}
+            </div>
+          )}
+        </section>
+      );
+    })
   )}
 </Page>

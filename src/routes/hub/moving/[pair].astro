@@ -52,13 +52,15 @@ const rows = [
     { name: `${a.name} or ${b.name}?`, path: `/moving/${comparisonSlug(comparison)}/` },
   ])}
 >
-  <div class="compare">
+  {/* Two towns fit a real table at any width, so this one stays a table on a
+     phone (compare-pair), with the column heads in each town's colour. */}
+  <div class="compare compare-pair">
     <table>
       <caption class="sr-only">{a.name} and {b.name} compared</caption>
       <thead>
         <tr>
           <th scope="col">&nbsp;</th>
-          {pair.map((t) => <th scope="col">{t.name}</th>)}
+          {pair.map((t) => <th scope="col" style={`color:${t.colors.accentDark};border-bottom-color:${t.colors.accent}`}>{t.name}</th>)}
         </tr>
       </thead>
       <tbody>

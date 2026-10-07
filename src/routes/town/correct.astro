@@ -53,10 +53,10 @@ const label = 'block text-sm font-semibold';
         <textarea name="message" rows="6" required class={field} placeholder="The hours, the date, the address, that it has closed — whatever you know, and how you know it."></textarea>
       </label>
       <label class={label}>
-        Your email <span class="font-normal text-ink-muted">(optional, if a reply would help)</span>
+        Your email <span class="font-normal text-ink-faint">— optional, if a reply would help</span>
         <input type="email" name="_replyto" autocomplete="email" class={field} />
       </label>
-      <button type="submit" class="btn btn-primary">Send the correction</button>
+      <button type="submit" class="btn btn-primary w-full justify-center sm:w-auto">Send the correction</button>
     </form>
   ) : (
     <div class="prose">

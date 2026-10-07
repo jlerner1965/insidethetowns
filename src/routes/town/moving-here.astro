@@ -1,6 +1,7 @@
 ---
 import { render } from 'astro:content';
 import Page from '@/layouts/Page.astro';
+import ContentsList from '@/components/ContentsList.astro';
 import { countyLabel, getNetworkHub, getTown, liveTowns } from '@/config';
 import { formatDate, parseLocal } from '@/lib/dates';
 import { getTownEntry } from '@/lib/content';
@@ -25,60 +26,39 @@ const others = liveTowns().length - 1;
   intro={page?.data.description}
   description={page?.data.description ?? `Schools, commutes, housing and what to expect when you move to ${town.name}, ${town.state}.`}
 >
-  <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
-    <div>
-      {Content ? (
-        <div class="prose"><Content /></div>
-      ) : (
-        <p class="text-ink-muted">Guide coming soon.</p>
+  {/*
+    On a phone: the facts (county, schools, commute), then the contents, then
+    the guide, then the listings links. They came after the whole guide,
+    some 6,000px down. On a wide screen the rail scrolls with the page and
+    only the contents stay pinned: the whole rail, pinned, was taller than a
+    laptop screen and hid its own last 450px. Each column's wrapper is
+    `contents` below lg so its children take part in the outer `order`.
+  */}
+  <div class="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
+    <div class="contents lg:block">
+      {contents.length > 2 && (
+        <div class="order-2 lg:hidden">
+          <ContentsList headings={contents} label="In this guide" variant="panel" id="contents-panel" />
+        </div>
       )}
+      <div class="order-3 lg:order-none">
+        {Content ? (
+          <div class="prose"><Content /></div>
+        ) : (
+          <p class="text-ink-muted">Guide coming soon.</p>
+        )}
+      </div>
     </div>
-    <aside class="space-y-8 lg:sticky lg:top-24 lg:self-start">
+    <div class="contents lg:flex lg:flex-col lg:gap-8">
       {town.sponsors?.movingHere && (
-        <div class="rounded-lg border border-line-soft bg-raised p-5" data-sponsor>
+        <div class="order-6 rounded-lg border border-line-soft bg-raised p-5 lg:order-none" data-sponsor>
           <p class="eyebrow text-ink-faint">Sponsor</p>
           <p class="mt-2 text-[0.9375rem] leading-snug">
             Moving Here is supported by <a href={town.sponsors.movingHere.url} rel="sponsored noopener" class="font-semibold text-accent-text">{town.sponsors.movingHere.name}</a>{town.sponsors.movingHere.line && <span class="text-ink-muted"> · {town.sponsors.movingHere.line}</span>}
           </p>
         </div>
       )}
-      {contents.length > 2 && (
-        <nav aria-labelledby="contents-heading">
-          <p class="eyebrow border-b border-line-soft pb-3" id="contents-heading">In this guide</p>
-          <ol class="mt-3 space-y-2 text-[0.9375rem] leading-snug">
-            {contents.map((h, i) => (
-              <li class="flex gap-3">
-                <span class="tabular-nums text-ink-faint">{String(i + 1).padStart(2, '0')}</span>
-                <a href={`#${h.slug}`} class="no-underline hover:text-accent-text hover:underline">{h.text}</a>
-              </li>
-            ))}
-          </ol>
-        </nav>
-      )}
-      {listingsLinks.length > 0 && (
-        <div>
-          <p class="eyebrow border-b border-line-soft pb-3">Homes for sale</p>
-          <ul class="mt-3 space-y-2.5 text-[0.9375rem]">
-            {listingsLinks.map((l) => (
-              <li><a href={l.url} rel="noopener nofollow" class="font-semibold text-accent-text no-underline hover:underline">{l.label} →</a></li>
-            ))}
-          </ul>
-        </div>
-      )}
-      {others > 0 && (
-        <div class="rounded-lg bg-accent-tint p-5">
-          <p class="eyebrow">Still deciding</p>
-          <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">
-            {town.name} next to the other {others} guides in the network: population, elevation, schools and the
-            drive to Denver, side by side.
-          </p>
-          <a
-            href={`https://${hub.domain}/moving/`}
-            class="mt-3 inline-block text-[0.9375rem] font-semibold text-accent-text no-underline hover:underline"
-          >Which Front Range town? →</a>
-        </div>
-      )}
-      <dl class="divide-y divide-line-soft border-y border-line-soft text-[0.9375rem]">
+      <dl class="order-1 divide-y divide-line-soft border-y border-line-soft text-[0.9375rem] lg:order-none">
         <div class="py-4">
           <dt class="eyebrow">County</dt>
           <dd class="mt-1.5 leading-snug">
@@ -105,6 +85,34 @@ const others = liveTowns().length - 1;
           <div class="py-4"><dt class="eyebrow">Population</dt><dd class="mt-1.5 leading-snug">About {town.population.toLocaleString('en-US')}</dd></div>
         )}
       </dl>
-    </aside>
+      {listingsLinks.length > 0 && (
+        <div class="order-4 lg:order-none">
+          <p class="eyebrow border-b border-line-soft pb-3">Homes for sale</p>
+          <ul class="mt-3 space-y-2.5 text-[0.9375rem]">
+            {listingsLinks.map((l) => (
+              <li><a href={l.url} rel="noopener nofollow" class="font-semibold text-accent-text no-underline hover:underline">{l.label} →</a></li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {others > 0 && (
+        <div class="order-5 rounded-lg bg-accent-tint p-5 lg:order-none">
+          <p class="eyebrow">Still deciding</p>
+          <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">
+            {town.name} next to the other {others} guides in the network: population, elevation, schools and the
+            drive to Denver, side by side.
+          </p>
+          <a
+            href={`https://${hub.domain}/moving/`}
+            class="mt-3 inline-block text-[0.9375rem] font-semibold text-accent-text no-underline hover:underline"
+          >Which Front Range town? →</a>
+        </div>
+      )}
+      {contents.length > 2 && (
+        <div class="lg:sticky lg:top-24">
+          <ContentsList headings={contents} label="In this guide" variant="rail" id="contents-heading" />
+        </div>
+      )}
+    </div>
   </div>
 </Page>

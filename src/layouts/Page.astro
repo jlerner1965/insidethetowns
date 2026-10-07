@@ -14,6 +14,9 @@ interface Props {
   /** Title for <title> and social cards when the h1 alone would be ambiguous. */
   seoTitle?: string;
   eyebrow?: string;
+  /** "Canceled", "Permanently closed": a dark pill ahead of the eyebrow, so the
+      masthead does not read like an ordinary listing's. */
+  status?: string;
   description?: string;
   intro?: string;
   image?: string;
@@ -27,13 +30,18 @@ interface Props {
   kind?: string;
 }
 
-const { title, seoTitle, eyebrow, intro, narrow = false, ...seo } = Astro.props;
+const { title, seoTitle, eyebrow, status, intro, narrow = false, ...seo } = Astro.props;
 ---
 <Base title={seoTitle ?? title} {...seo}>
   <header class="border-b-2 border-accent bg-accent-tint">
     <div class="container-page py-10 md:py-14">
       <div class="max-w-3xl">
-        {eyebrow && <p class="eyebrow mb-3">{eyebrow}</p>}
+        {(eyebrow || status) && (
+          <p class="eyebrow mb-3 flex flex-wrap items-center gap-x-2 gap-y-1">
+            {status && <span class="rounded-full bg-ink px-2.5 py-0.5 text-[0.75rem] text-raised">{status}</span>}
+            {eyebrow}
+          </p>
+        )}
         <h1 class="display-md text-[2.75rem] md:text-6xl">{title}</h1>
         {intro && <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted md:text-xl">{intro}</p>}
         <slot name="after-header" />
@@ -44,5 +52,8 @@ const { title, seoTitle, eyebrow, intro, narrow = false, ...seo } = Astro.props;
     <div class:list={[narrow && 'max-w-2xl']}>
       <slot />
     </div>
+    {/* The full width of the page, below a narrow body: a CtaBand held to
+        prose width broke its own two-column layout (thanks, message-sent). */}
+    <slot name="after" />
   </div>
 </Base>

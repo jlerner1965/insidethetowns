@@ -8,6 +8,7 @@ import NearbyWeekend from '@/components/NearbyWeekend.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import WeeklyRegulars from '@/components/WeeklyRegulars.astro';
 import SubTownLinks from '@/components/SubTownLinks.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
@@ -95,9 +96,15 @@ const structured = [
     <div class="mt-12 md:mt-16">
       <NewsletterSignup town={town} />
     </div>
+    {/* This weekend's picks from next door, after the fortnight rather than at
+       the foot of the page after December. The filters above are this town's
+       and leave it alone (data-filter-ignore). */}
+    <div data-filter-ignore>
+      <NearbyWeekend town={town} class="mt-16 md:mt-20" />
+    </div>
     {later.length > 0 && (
       <div id="further-out" class="mt-16 scroll-mt-4 md:mt-24" data-filter-section>
-        <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">Further out</h2>
+        <SectionHeader eyebrow="After the next two weeks" title="Further out" />
         <EventList events={later} />
       </div>
     )}
@@ -105,6 +112,4 @@ const structured = [
   </div>
 
   <WeeklyRegulars events={weekly} townName={town.name} />
-
-  <NearbyWeekend town={town} class="mt-20 md:mt-24" />
 </Page>

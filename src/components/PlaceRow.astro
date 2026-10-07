@@ -14,7 +14,7 @@
 import type { TownEntry } from '@/lib/content';
 import { PLACE_STATUS_LABELS, PLACE_TYPE_LABELS } from '@/content/schemas';
 import { PLACE_HUE } from '@/config/palette';
-import { openingHoursOf } from '@/lib/hours';
+import { hoursLines, openingHoursOf } from '@/lib/hours';
 import { isOpen } from '@/lib/places';
 import Provenance from './Provenance.astro';
 import { subTownLabel } from '@/lib/sub-towns';
@@ -34,7 +34,7 @@ const open = isOpen(place);
 const hours = openingHoursOf(data);
 ---
 <li
-  class="group relative grid gap-x-10 gap-y-2 border-b border-line-soft py-6 last:border-b-0 sm:grid-cols-[minmax(0,1fr)_minmax(8rem,14rem)]"
+  class="group relative grid gap-x-10 gap-y-2 border-b border-line-soft py-6 last:border-b-0 sm:grid-cols-[minmax(0,1fr)_minmax(10rem,14rem)] lg:grid-cols-[minmax(0,1fr)_18rem]"
   data-filter-item
   data-category={data.type}
   data-sub-town={data.subTown}
@@ -44,27 +44,30 @@ const hours = openingHoursOf(data);
       <Heading class="text-[1.25rem] font-medium leading-tight">
         <a href={href} class="stretch no-underline group-hover:text-accent-text">{data.title}</a>
       </Heading>
-      {data.featured && open && (
-        <span class="rounded-full bg-highlight px-2.5 py-0.5 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-ink">
-          Our pick
-        </span>
-      )}
       {!open && (
-        <span class="rounded-full bg-ink px-2.5 py-0.5 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-raised">
+        <span class="rounded-full bg-ink px-2.5 py-0.5 text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-raised">
           {PLACE_STATUS_LABELS[data.status]}
         </span>
       )}
     </div>
-    <p class="eyebrow mt-1.5 flex items-center gap-2" style={`color:var(--cat-${hue}-ink)`}>
+    {/* "Our pick" rides the type line: beside a long name it dropped to a
+        line of its own, so some rows had an extra line and others did not. */}
+    <p class="eyebrow mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1" style={`color:var(--cat-${hue}-ink)`}>
       <span class="inline-block size-2 shrink-0 rounded-full" style={`background:var(--cat-${hue}-dot)`} aria-hidden="true"></span>
-      {PLACE_TYPE_LABELS[data.type]}{data.priceRange && <span class="ml-1 text-ink-faint">{data.priceRange}</span>}{data.subTown && <span class="ml-2 font-medium normal-case tracking-normal text-ink-faint">{subTownLabel(data.subTown)}</span>}
+      {PLACE_TYPE_LABELS[data.type]}{data.priceRange && <span class="text-ink-faint">{data.priceRange}</span>}{data.subTown && <span class="font-medium normal-case tracking-normal text-ink-faint">{subTownLabel(data.subTown)}</span>}
+      {data.featured && open && (
+        <span class="rounded-full bg-highlight px-2.5 py-0.5 text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-ink">Our pick</span>
+      )}
     </p>
-    <p class="mt-2 max-w-[58ch] text-[0.9375rem] leading-relaxed text-ink-muted">{data.summary}</p>
+    {/* Three lines on a phone, where a long list of full summaries ran past
+        twelve thousand pixels; all of it from 40rem. */}
+    <p class="mt-2 line-clamp-3 max-w-[58ch] text-[0.9375rem] leading-relaxed text-ink-muted sm:line-clamp-none">{data.summary}</p>
   </div>
   <div class="grid content-start gap-1 text-[0.875rem] leading-snug text-ink-muted" data-hours={hours ? JSON.stringify(hours) : undefined}>
-    {data.address && <p class="text-ink">{data.address}</p>}
+    {/* The state stays with its ZIP: "Firestone, CO / 80504" was the usual break. */}
+    {data.address && <p class="text-ink">{data.address.replace(/ (\d{5})$/, '\u00a0$1')}</p>}
     {/* A closed place's old hours are the one thing a reader must not act on. */}
-    {open ? data.hours && <p>{data.hours}</p> : <p class="text-ink">{data.statusNote}</p>}
+    {open ? data.hours && hoursLines(data.hours).map((line) => <p>{line}</p>) : <p class="text-ink">{data.statusNote}</p>}
     {open && place.hoursHidden === 'stale' && <p class="text-ink-faint">Hours not recently checked; call ahead</p>}
     {hours && <p class="open-status font-semibold" data-open-status hidden></p>}
     <p class="text-[0.75rem]"><Provenance compact verified={data.verified} item={`place/${slug}`} title={data.title} /></p>

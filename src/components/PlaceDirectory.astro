@@ -68,7 +68,10 @@ const subTowns = subTownsOf(getSite());
             style={`color:var(--cat-${hueOf(group.type)}-ink);border-color:var(--cat-${hueOf(group.type)}-dot)`}
           >
             {group.label}
-            <span class="rounded-full px-2.5 py-0.5 text-[0.8125rem] font-semibold tabular-nums text-white" style={`background:var(--cat-${hueOf(group.type)}-dot)`}>
+            {/* On the category's ink, not its dot colour: white on the dot
+                came to 3.9:1, short of the 4.5 small text needs. In the sans,
+                like every other count on the site. */}
+            <span class="rounded-full px-2.5 py-0.5 font-body text-[0.8125rem] font-semibold tabular-nums text-white" style={`background:var(--cat-${hueOf(group.type)}-ink)`}>
               {group.items.length}
             </span>
           </h3>

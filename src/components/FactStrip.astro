@@ -18,18 +18,20 @@ interface Props {
 const { facts, size = 'text', note } = Astro.props;
 const value = size === 'number' ? 'display-md mt-2 text-[2rem] text-accent-text' : 'mt-2 text-[1.0625rem] leading-snug';
 // Written out rather than interpolated so Tailwind can see the class names.
+// Two to a row from the smallest screen: one to a row, four facts took a whole
+// phone screen. An odd last fact spans the row.
 const columns: Record<number, string> = {
-  1: 'sm:grid-cols-1',
-  2: 'sm:grid-cols-2',
-  3: 'sm:grid-cols-2 lg:grid-cols-3',
-  4: 'sm:grid-cols-2 lg:grid-cols-4',
+  1: 'grid-cols-1',
+  2: 'grid-cols-2',
+  3: 'grid-cols-2 lg:grid-cols-3 [&>:last-child]:col-span-2 lg:[&>:last-child]:col-span-1',
+  4: 'grid-cols-2 lg:grid-cols-4',
 };
 ---
 {facts.length > 0 && (
   <div>
   <dl class:list={['grid gap-px overflow-hidden rounded-lg bg-accent-line ring-1 ring-accent-line', columns[Math.min(facts.length, 4)]]}>
     {facts.map((f) => (
-      <div class="bg-raised px-5 py-5">
+      <div class="min-w-0 bg-raised px-4 py-4 sm:px-5 sm:py-5">
         <dt class="eyebrow">{f.label}</dt>
         <dd class={value}>
           {f.href ? <a href={f.href} rel="noopener" class="text-accent-text no-underline hover:underline">{f.value}</a> : f.value}

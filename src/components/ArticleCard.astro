@@ -1,13 +1,14 @@
 ---
 /**
  * Article teaser. `feature` lays the image beside the text for the home page.
- * `row` is the home page's second story: across the full width under the
- * feature, a smaller picture beside the text, rather than a card stranded in
- * the left half of the grid.
+ * `row` lays one story across the full width, a smaller picture beside the
+ * text: the home page's second story, and a section of the guides page that
+ * has only one, rather than a card stranded in the left half of a grid.
  *
- * A feature with no photograph is set as text across the full width, under a
- * heavy rule, rather than beside a tinted rectangle standing in for the
- * picture that does not exist.
+ * A feature with no photograph is set as text across the full width, rather
+ * than beside a tinted rectangle standing in for the picture that does not
+ * exist. It used to sit under a heavy rule of its own, which doubled the
+ * section header's rule just above it.
  */
 import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
@@ -17,9 +18,11 @@ interface Props {
   article: TownEntry<'articles'>;
   feature?: boolean;
   row?: boolean;
+  /** Off under a heading that already names the category (the guides page). */
+  showCategory?: boolean;
 }
 
-const { article, feature = false, row = false } = Astro.props;
+const { article, feature = false, row = false, showCategory = true } = Astro.props;
 const { data, slug } = article;
 const href = `/articles/${slug}/`;
 const twoUp = feature && !!data.image;
@@ -47,9 +50,9 @@ const side = row && !feature && !!data.image;
       />
     </div>
   )}
-  <div class:list={[!feature && !side && data.image && 'mt-4', feature && !data.image && 'max-w-3xl border-t-2 border-ink pt-7', row && 'max-w-2xl']}>
+  <div class:list={[!feature && !side && data.image && 'mt-4', feature && !data.image && 'max-w-3xl', row && 'max-w-2xl']}>
     <p class="eyebrow">
-      {data.category} <span class="text-ink-faint">·</span> <time datetime={toIsoLocal(data.date)} class="text-ink-muted">{formatDate(data.date)}</time>
+      {showCategory && <Fragment>{data.category} <span class="text-ink-faint">·</span> </Fragment>}<time datetime={toIsoLocal(data.date)} class="text-ink-muted">{formatDate(data.date)}</time>
     </p>
     {/* The feature steps down to 4xl on wide screens; a phone keeps 3xl,
         since at 2xl the tight display cut reads smaller than the 2xl title

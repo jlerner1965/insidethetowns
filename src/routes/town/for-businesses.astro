@@ -10,6 +10,7 @@
  * café, not for a media buyer, who has /advertise/ on the hub.
  */
 import Page from '@/layouts/Page.astro';
+import CtaBand from '@/components/CtaBand.astro';
 import { getNetworkHub, getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { breadcrumbJsonLd } from '@/lib/seo';
@@ -89,4 +90,14 @@ const description = `How ${town.siteTitle} lists businesses in ${town.name}, ${t
       policy</a> says the same at more length, and it applies to us as much as to you.
     </p>
   </div>
+  {/* The page's actions were all inline links; these give it a foot. */}
+  <CtaBand
+    slot="after"
+    eyebrow="For businesses"
+    title="Something to add or fix?"
+    links={[
+      { label: 'Correct a listing', href: '/correct/', primary: true },
+      { label: 'Submit an event', href: '/submit-event/' },
+    ]}
+  />
 </Page>

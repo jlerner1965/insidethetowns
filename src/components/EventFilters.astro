@@ -45,32 +45,38 @@ const when = [
   { value: 'week', label: 'Next 7 days' },
 ];
 const pill =
-  'rounded-full border border-accent-line bg-raised px-4 py-1.5 text-sm font-medium text-ink-muted transition-colors hover:border-accent hover:text-accent-text aria-pressed:border-accent-dark aria-pressed:bg-accent-dark aria-pressed:text-white';
+  'rounded-full border border-accent-line bg-raised px-4 py-2 text-sm sm:py-1.5 font-medium text-ink-muted transition-colors hover:border-accent hover:text-accent-text aria-pressed:border-accent-dark aria-pressed:bg-accent-dark aria-pressed:text-white';
 ---
 <div class="mb-8 space-y-3 md:mb-10" data-event-filters>
-  <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter events by time">
-    <span class="eyebrow mr-1 text-ink-faint">When</span>
-    <button type="button" data-when="any" aria-pressed="true" class={pill}>Anytime</button>
-    {when.map((o) => (
-      <button type="button" data-when={o.value} aria-pressed="false" class={pill}>{o.label}</button>
-    ))}
-  </div>
-  <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter events by category">
-    <span class="eyebrow mr-1 text-ink-faint">What</span>
-    {categories.length > 1 && <button type="button" data-category="all" aria-pressed="true" class={pill}>All</button>}
-    {categories.length > 1 &&
-      categories.map((o) => (
-        <button type="button" data-category={o.value} aria-pressed="false" class={pill}>{o.label}</button>
+  <div class="filter-row" role="group" aria-label="Filter events by time">
+    <span class="eyebrow text-ink-faint">When</span>
+    <div class="filter-pills">
+      <button type="button" data-when="any" aria-pressed="true" class={pill}>Anytime</button>
+      {when.map((o) => (
+        <button type="button" data-when={o.value} aria-pressed="false" class={pill}>{o.label}</button>
       ))}
-    <button type="button" data-free aria-pressed="false" class:list={[pill, 'ml-1 border-dashed']}>Free</button>
+    </div>
+  </div>
+  <div class="filter-row" role="group" aria-label="Filter events by category">
+    <span class="eyebrow text-ink-faint">What</span>
+    <div class="filter-pills">
+      {categories.length > 1 && <button type="button" data-category="all" aria-pressed="true" class={pill}>All</button>}
+      {categories.length > 1 &&
+        categories.map((o) => (
+          <button type="button" data-category={o.value} aria-pressed="false" class={pill}>{o.label}</button>
+        ))}
+      <button type="button" data-free aria-pressed="false" class:list={[pill, 'border-dashed']}>Free</button>
+    </div>
   </div>
   {subTowns.length > 1 && (
-    <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter events by town">
-      <span class="eyebrow mr-1 text-ink-faint">Where</span>
-      <button type="button" data-where="all" aria-pressed="true" class={pill}>All three</button>
-      {subTowns.map((t) => (
-        <button type="button" data-where={t.slug} aria-pressed="false" class={pill}>{t.label}</button>
-      ))}
+    <div class="filter-row" role="group" aria-label="Filter events by town">
+      <span class="eyebrow text-ink-faint">Where</span>
+      <div class="filter-pills">
+        <button type="button" data-where="all" aria-pressed="true" class={pill}>All three</button>
+        {subTowns.map((t) => (
+          <button type="button" data-where={t.slug} aria-pressed="false" class={pill}>{t.label}</button>
+        ))}
+      </div>
     </div>
   )}
   <p class="sr-only" role="status" data-filter-status></p>
@@ -80,6 +86,9 @@ const pill =
   import { dayKey, addDays, startOfDay } from '@/lib/dates';
   import { weekendWindow } from '@/lib/events';
 
+  // A block that sits among the listings but is not one of them ("Nearby
+  // this weekend", data-filter-ignore) is left out of the filtering.
+  const ITEM = '[data-filter-item]:not([data-filter-ignore] *)';
   const bar = document.querySelector<HTMLElement>('[data-event-filters]');
   if (bar) {
     const root = bar.closest<HTMLElement>('[data-filter-root]') ?? document.body;
@@ -126,15 +135,15 @@ const pill =
       for (const b of catButtons) b.setAttribute('aria-pressed', String(b.dataset.category === category));
       freeButton?.setAttribute('aria-pressed', String(free));
       for (const b of whereButtons) b.setAttribute('aria-pressed', String(b.dataset.where === where));
-      const items = root.querySelectorAll<HTMLElement>('[data-filter-item]');
+      const items = root.querySelectorAll<HTMLElement>(ITEM);
       for (const item of items) item.hidden = !matches(item, when, category, free, where);
       for (const group of root.querySelectorAll<HTMLElement>('[data-filter-group]')) {
-        group.hidden = !group.querySelector('[data-filter-item]:not([hidden])');
+        group.hidden = !group.querySelector(`${ITEM}:not([hidden])`);
       }
       // A whole section (the fortnight, "further out") with nothing left says
       // so once, rather than leaving a heading over nothing.
       for (const section of root.querySelectorAll<HTMLElement>('[data-filter-section]')) {
-        section.hidden = !section.querySelector('[data-filter-item]:not([hidden])');
+        section.hidden = !section.querySelector(`${ITEM}:not([hidden])`);
       }
       // A day in the strip whose listings are all hidden would scroll to nothing.
       for (const link of root.querySelectorAll<HTMLElement>('[data-day-link]')) {
@@ -142,9 +151,9 @@ const pill =
         link.hidden = !!day && day.hidden;
       }
       const empty = root.querySelector<HTMLElement>('[data-filter-empty]');
-      if (empty) empty.hidden = !!root.querySelector('[data-filter-item]:not([hidden])');
+      if (empty) empty.hidden = !!root.querySelector(`${ITEM}:not([hidden])`);
       if (status) {
-        const shown = root.querySelectorAll('[data-filter-item]:not([hidden])').length;
+        const shown = root.querySelectorAll(`${ITEM}:not([hidden])`).length;
         const whenLabel = bar.querySelector(`[data-when="${when}"]`)?.textContent?.trim().toLowerCase() ?? '';
         const catLabel = category === 'all' ? 'all categories' : category;
         const whereLabel = where === 'all' ? '' : `, in ${bar.querySelector(`[data-where="${where}"]`)?.textContent?.trim() ?? where}`;

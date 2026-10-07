@@ -17,14 +17,11 @@ interface Props {
 const { hrefFor = (slug: string) => `/${slug}/`, class: className = '' } = Astro.props;
 const subTowns = subTownsOf(getSite());
 ---
+{/* Named for what they are, pages, so they do not read as a second set of
+   the "Where" filter buttons further down. */}
 {subTowns.length > 1 && (
-  <p class:list={['text-[0.9375rem] text-ink-muted', className]}>
-    <span class="eyebrow mr-2 text-ink-faint">By town</span>
-    {subTowns.map((t, i) => (
-      <Fragment>
-        {i > 0 && <span aria-hidden="true"> · </span>}
-        <a href={hrefFor(t.slug)} class="font-semibold text-accent-text">{t.label}</a>
-      </Fragment>
-    ))}
+  <p class:list={['flex flex-wrap items-baseline gap-x-4 gap-y-1 text-[0.9375rem] text-ink-muted', className]}>
+    <span class="eyebrow text-ink-faint">Town pages</span>
+    {subTowns.map((t) => <a href={hrefFor(t.slug)} class="py-1 font-semibold text-accent-text">{t.label}</a>)}
   </p>
 )}
