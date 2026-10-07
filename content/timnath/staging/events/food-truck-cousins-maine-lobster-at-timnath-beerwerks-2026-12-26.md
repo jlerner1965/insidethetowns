@@ -1,5 +1,6 @@
 ---
 title: "Food Truck: Cousins Maine Lobster at Timnath Beerwerks"
+review: { reason: "Monthly food-truck date held back so that three Saturday files do not read as a weekly regular on the events page; publish once the October 31 visit has passed.", since: "2026-10-07", from: manual }
 start: "2026-12-26T12:00"
 end: "2026-12-26T20:00"
 venue: "Timnath Beerwerks"

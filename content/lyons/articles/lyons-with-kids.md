@@ -10,7 +10,6 @@ sources:
   - { label: "Town of Lyons: Bohn Park", url: "https://www.lyonscolorado.com/350/Bohn-Park" }
   - { label: "Lyons Regional Library", url: "https://lyons.colibraries.org/" }
   - { label: "Lyons Redstone Museum", url: "https://www.lyonsredstonemuseum.com/" }
-  - { label: "Lyons Dairy Bar", url: "https://thenewlyonsdairybar.com/" }
   - { label: "Boulder County: Rabbit Mountain", url: "https://bouldercounty.gov/open-space/parks-and-trails/ron-stewart-preserve-rabbit-mountain/" }
 ---
 
@@ -18,15 +17,15 @@ Lyons is a river town, and for children that is the whole point between June and
 
 ## Summer: the river
 
-[LaVern M. Johnson Park](/places/lavern-m-johnson-park/) is the Town's riverside park under the cliffs, rebuilt after the 2013 flood. A quarter-mile of engineered pools and drops on the North St. Vrain takes kayaks in June and tubes in July and August; beside it are a splash pad, playgrounds, the Town campground, and in a cold January an outdoor ice rink. Open 8 am to dusk.
+[LaVern M. Johnson Park](/places/lavern-m-johnson-park/) is the Town's riverside park under the cliffs, rebuilt after the 2013 flood. A quarter-mile of engineered pools and drops on the North St. Vrain takes kayaks in June and tubes in July and August; beside it are a splash pad, playgrounds, the Town campground, and in a cold January an outdoor ice rink. Open dawn to dusk.
 
 [Tubing the St. Vrain](/places/tubing-the-st-vrain/) is the town's summer sport. There are three free put-ins: the Apple Valley Road bridge just west of town for the long float, the park itself for the short run through the whitewater features. The float works when the gauge reads between about 40 and 300 cubic feet per second, which is usually July and August. Small children belong on the short run, on a warm afternoon, with an adult in the water.
 
-Across the river, [Bohn Park](/places/bohn-park/) on the south bank has the ball fields, the fenced dog park, an accessible fishing platform on the St. Vrain and the trailhead for the dirt-jump bike park. Daily 8 to 8. The [river path](/places/st-vrain-river-path/) joins it all to Sandstone Park and the Depot without crossing the highway, which is the walk to do with a stroller.
+Across the river, [Bohn Park](/places/bohn-park/) on the south bank has the ball fields, the fenced dog park, an accessible fishing platform on the St. Vrain and the trailhead for the dirt-jump bike park. Dawn to dusk. The [river path](/places/st-vrain-river-path/) joins it all to Sandstone Park and the Depot without crossing the highway, which is the walk to do with a stroller.
 
-## After the water: the Dairy Bar
+## After the water
 
-The Lyons Dairy Bar is the walk-up window at the east end of Main: burgers, sandwiches and soft-serve, eaten at picnic tables in wet shoes after a float. [Smokin Dave's](/places/smokin-daves-bbq-taphouse/) mid-block on Main is the answer for a hungry group, and [Oskar Blues](/places/oskar-blues-grill-brew/) has been feeding families on Main Street since 1997.
+The walk-up window at the east end of Main, long the Lyons Dairy Bar, has changed hands more than once; check that it is open before promising soft-serve. [Smokin Dave's](/places/smokin-daves-bbq-taphouse/) mid-block on Main is the answer for a hungry group, and [Oskar Blues](/places/oskar-blues-grill-brew/) has been feeding families on Main Street since 1997.
 
 ## Any season: the library
 

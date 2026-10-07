@@ -51,7 +51,9 @@ const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 ---
 <title>{fullTitle}</title>
 <meta name="description" content={metaDescription} />
-<link rel="canonical" href={canonical} />
+{/* A page kept out of the index has nothing to be canonical for; the 404
+    page in particular was declaring /404/, a URL that itself 404s. */}
+{!noindex && <link rel="canonical" href={canonical} />}
 {noindex && <meta name="robots" content="noindex" />}
 
 <meta property="og:site_name" content={site.siteTitle} />

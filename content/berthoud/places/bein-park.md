@@ -1,5 +1,5 @@
 ---
-title: "Ellen Bunyan Bein Park"
+title: "Bein Park"
 type: park
 address: "Spartan Ave & 10th St"
 area: "South side, by Berthoud High"

@@ -17,7 +17,7 @@ Almost entirely single-family homes in master-planned neighborhoods on former fa
 
 ## Schools
 
-Most of Johnstown is in [Weld County School District RE-5J](https://www.weldre5j.org/), the Johnstown-Milliken district: the new Elwell Elementary and the early-childhood center on Silverbell Drive (which replaced Letford Elementary on Jay Avenue), Pioneer Ridge Elementary on Cinnamon Teal Avenue, Roosevelt Middle School (renamed from Milliken Middle in 2024) on North 2nd Street and Roosevelt High School on Roosevelt Parkway, all in town. The northwest corner of town is in the [Thompson School District](https://www.tsd.org/), based in Loveland. The Town's [schools page](https://johnstownco.gov/409/Schools) has the map.
+Most of Johnstown is in [Weld County School District RE-5J](https://www.weldre5j.org/), the Johnstown-Milliken district: the new Elwell Elementary and the early-childhood center on Silverbell Drive (which replaced Letford Elementary on Jay Avenue), Pioneer Ridge Elementary on Cinnamon Teal Avenue, Roosevelt Middle School, in the former high school building on North 2nd Street (opened January 2025), and Roosevelt High School on Roosevelt Parkway, all in town. The northwest corner of town is in the [Thompson School District](https://www.tsd.org/), based in Loveland. The Town's [schools page](https://johnstownco.gov/409/Schools) has the map.
 
 ## Getting around
 
@@ -38,4 +38,4 @@ Johnstown adopted a home-rule charter in 2006. A mayor and six council members, 
 
 ## Living here
 
-Summer is BBQ Day in Parish Park on the first Saturday of June, with a parade, a car show and a duck race, then the YMCA pools and the disc golf course at Pioneer Ridge. Fall is the Downtown Development Authority's Fall Fest in September, Trick-or-Treat Street on Parish Avenue on Halloween morning and the Historical Society's Cemetery Crawl that afternoon. Winter is the Johnstown Jingle and tree lighting in Old Town on the first Sunday of December, the holiday open house at the Parish House and the lighted hockey rink at Eddie Aragon Park. Year-round there is a musical with dinner at [Candlelight](/places/candlelight-dinner-playhouse/), the Ferris wheel at [Scheels](/places/scheels/), and a walk around the lake at [Lake Park](/places/lake-park/).
+Summer is BBQ Day in Parish Park on the first Saturday of June, with a parade, a car show and a duck race, then the YMCA pools and the disc golf course at Pioneer Ridge. Fall is Trick-or-Treat Street on Parish Avenue on Halloween morning and the Historical Society's Cemetery Crawl that afternoon. Winter is the Johnstown Jingle and tree lighting in Old Town on the first Sunday of December, the holiday open house at the Parish House and the lighted hockey rink at Eddie Aragon Park. Year-round there is a musical with dinner at [Candlelight](/places/candlelight-dinner-playhouse/), the Ferris wheel at [Scheels](/places/scheels/), and a walk around the lake at [Lake Park](/places/lake-park/).

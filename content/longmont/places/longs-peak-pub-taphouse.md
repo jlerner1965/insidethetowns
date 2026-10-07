@@ -8,6 +8,7 @@ verified: "2026-10-04"
 added: "2026-10-04"
 phone: "303-651-7886"
 hours: "Wed–Thu 12 pm–11 pm; Fri 12 pm–12 am; Sat 11 am–12 am; Sun 11 am–11 pm; closed Mon–Tue (temporarily)"
+openingHours: ["We-Th 12:00-23:00", "Fr 12:00-24:00", "Sa 11:00-24:00", "Su 11:00-23:00"]
 tags: [brewpub, patio, kid-friendly, taphouse]
 summary: "The Mountain Sun family's Longmont pub, next to Roosevelt Park, pouring more than a dozen Mountain Sun ales among 21 taps alongside the Mountain Sun menu."
 ---

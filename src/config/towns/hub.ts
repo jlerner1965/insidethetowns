@@ -46,15 +46,16 @@ export const hub: HubConfig = {
   },
   correctionsEmail: 'hello@insidethetowns.com',
   /**
-   * Who runs it. The bracketed values are placeholders the owner has yet to
-   * supply (7 October 2026): they show on the About pages as written, so
-   * the gap is visible rather than filled with an invented name. While the
-   * name is a placeholder the structured data keeps the organisation as the
-   * author (src/lib/editor.ts, isPlaceholder).
+   * Who runs it. Shown on every About page and in the "Checked by" line on
+   * every listing; the structured data names this person as author
+   * (src/lib/editor.ts).
    */
   editor: {
-    name: '[FULL NAME]',
-    bio: '[BIO, e.g. "I live in Niwot and have been building sites for Front Range towns since 2024."]',
+    name: 'James Lerner',
+    role: 'Editor',
+    email: 'hello@insidethetowns.com',
+    url: 'https://lernerworks.com',
+    bio: 'James Lerner edits every guide in the network and builds the sites through Lerner Works. Every listing is checked against the organizer’s or operator’s own page before it goes up and re-checked on a schedule; the date on each page says when, and a correction sent through any guide reaches him directly.',
   },
   nav: [
     { label: 'This Weekend', href: '/this-weekend/' },

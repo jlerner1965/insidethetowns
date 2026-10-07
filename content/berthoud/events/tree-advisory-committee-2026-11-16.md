@@ -4,7 +4,7 @@ start: "2026-11-16T17:30"
 end: "2026-11-16T19:30"
 venue: "Berthoud Town Hall"
 address: "807 Mountain Ave"
-url: "https://www.berthoud.org/AgendaCenter"
+url: "https://berthoudco.portal.civicclerk.com/"
 category: civic
 recurring: "Third Mondays"
 source: "https://www.berthoud.org/Calendar.aspx"

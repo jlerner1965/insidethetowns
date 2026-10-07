@@ -167,9 +167,9 @@ const description = `Independent guides to ${live.length} towns on Colorado’s 
           facts={[
             { label: 'Guides live', value: String(live.length) },
             { label: 'Counties', value: String(countiesCovered(live).length) },
-            { label: 'People covered', value: live.reduce((n, t) => n + (t.population ?? 0), 0).toLocaleString('en-US') },
+            { label: 'Population of the towns', value: live.reduce((n, t) => n + (t.population ?? 0), 0).toLocaleString('en-US') },
           ]}
-          note="Population at the 2020 census, summed across the live guides. Several of these towns have grown a long way since."
+          note="Population at the 2020 census, summed across the live guides: the towns' size, not a count of readers. Several have grown a long way since."
         />
       </div>
     </div>

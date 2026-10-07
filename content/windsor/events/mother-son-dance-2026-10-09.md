@@ -13,4 +13,4 @@ source: "https://www.recreationliveshere.com/Calendar.aspx?EID=1320"
 verified: "2026-10-03"
 ---
 
-The Town's Mother Son Decades Night Dance: dress in your favorite decade, from the 50s to the 00s, for retro hits, themed activities and light refreshments. Recommended for boys aged 2 to 12, and grandmothers, aunts and family friends are welcome as substitutes. Call the recreation center front desk on 970-674-3500 to register both parent and child; the Town's calendar lists the cost as $15.
+The Town's Mother Son Decades Night Dance: dress in your favorite decade, from the 50s to the 00s, for retro hits, themed activities and light refreshments. Recommended for boys aged 2 to 12, and grandmothers, aunts and family friends are welcome as substitutes. Registration closed on Monday, October 5; call the recreation center front desk on 970-674-3500 to ask whether there is still space. The Town's calendar lists the cost as $15.

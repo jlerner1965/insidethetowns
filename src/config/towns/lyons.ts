@@ -32,7 +32,7 @@ export const lyons: TownConfig = {
   },
   hero: {
     image: 'hero.jpg',
-    alt: 'Colorado 7 winding between red sandstone walls in the South St. Vrain canyon above Lyons',
+    alt: 'Colorado 7 running between granite walls in the narrows of the South St. Vrain canyon above Lyons',
     credit: 'Footwarrior, Wikimedia Commons, CC BY-SA 3.0',
   },
   social: {
@@ -50,7 +50,7 @@ export const lyons: TownConfig = {
       'About 20 minutes to Boulder on US 36 and 15 to Longmont on CO 66; about an hour to Denver and 1¼ hours to DIA. The free Lyons Flyer makes four weekday trips each way between Fourth and Broadway and Boulder; RTD’s own routes start in Boulder and Longmont.',
   },
   officialLinks: {
-    townSite: 'https://www.lyonscolorado.com/',
+    townSite: 'https://www.townoflyons.com/',
     townSiteLabel: 'the Town of Lyons',
     policeNonEmergency: 'https://bouldercounty.gov/safety/sheriff/',
     policeNonEmergencyLabel: 'Boulder County Sheriff',

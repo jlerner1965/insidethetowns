@@ -33,7 +33,7 @@ The [Wheel House](/places/the-wheel-house/), at the west end of Second Avenue, i
 
 ## For the dog: Fritz Family Brewers
 
-[Fritz Family Brewers](/places/fritz-family-brewers/) is a few minutes south on 79th Street, a family brewery known for clean German-style lagers, and its taproom takes dogs and children both. Weekdays from 3, Friday from 1, weekends from noon.
+[Fritz Family Brewers](/places/fritz-family-brewers/) is a few minutes south on 79th Street, a family brewery known for clean German-style lagers, and it takes children in the taproom and dogs on the patio. Weekdays from 3, Friday from 1, weekends from noon.
 
 ## When they are open right now
 

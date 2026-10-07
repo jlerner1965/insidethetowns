@@ -378,7 +378,7 @@ export type SiteConfig = TownConfig | HubConfig;
 /** Default navigation for a town site. Towns can override `nav` in their config. */
 export const DEFAULT_TOWN_NAV: NavItem[] = [
   { label: 'Events', href: '/events/' },
-  { label: 'This Weekend', href: '/this-weekend/' },
+  { label: 'This Week', href: '/this-week/' },
   { label: 'Eat & Drink', href: '/eat-drink/' },
   { label: 'Things to Do', href: '/things-to-do/' },
   { label: 'Directory', href: '/directory/' },

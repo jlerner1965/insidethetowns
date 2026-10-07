@@ -1,7 +1,7 @@
 ---
 title: "Lucile's Creole Cafe"
 type: restaurant
-address: "544 Briggs St"
+address: "554 Briggs St"
 area: "Historic downtown, Briggs Street"
 url: "https://www.luciles.com/erie-location-menu/"
 phone: "(720) 484-5469"

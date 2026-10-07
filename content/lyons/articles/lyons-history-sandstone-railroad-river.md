@@ -23,7 +23,7 @@ Edward S. Lyon, from Connecticut, bought 160 acres at the confluence in 1880 and
 
 ## 1884 to 1885: the railroad and the depot
 
-The Denver, Utah & Pacific reached the quarries in 1884 and the stone depot on Broadway opened in 1885, later a Burlington line. Sandstone left by the trainload for Denver, Boulder and the Midwest, and the town filled with quarrymen, many of them Welsh, Cornish, Swedish and Italian. The depot worked until the 1960s, went on the National Register in 1974 and served as the town library from 1984 until the 2013 flood. *Source: [Town of Lyons, the Depot](https://www.lyonscolorado.com/).*
+The Denver, Utah & Pacific reached the quarries in 1884 and the stone depot on Broadway opened in 1885, later a Burlington line. Sandstone left by the trainload for Denver, Boulder and the Midwest, and the town filled with quarrymen, many of them Welsh, Cornish, Swedish and Italian. The depot worked until the 1960s, went on the National Register in 1974 and served as the town library from 1977 until the 2013 flood. *Source: [Town of Lyons, the Depot](https://www.lyonscolorado.com/).*
 
 ## 1891: incorporation
 
@@ -39,7 +39,7 @@ Residents formed the Lyons Historical Society in 1973 to stop the depot being so
 
 ## 1997 to 2010: beer, bluegrass and a downtown award
 
-[Oskar Blues](/places/oskar-blues-grill-brew/) opened as a Cajun restaurant on Main Street in 1997 and in 2002 became the first American craft brewery to put its beer in cans, a decision that changed the industry and made the town's name known far outside Colorado. The Arts & Humanities Commission began placing sculpture around town, the annual studio tour started in 2004, and in 2010 the downtown won the Governor's Award for Downtown Excellence. *Source: [Colorado Main Street](https://www.colorado.gov/).*
+[Oskar Blues](/places/oskar-blues-grill-brew/) opened as a Cajun restaurant on Main Street in 1997 and in 2002 became the first American craft brewery to put its beer in cans, a decision that changed the industry and made the town's name known far outside Colorado. The Arts & Humanities Commission began placing sculpture around town, the annual studio tour started in 2004, and in 2016 the restored Depot won a Governor's Award for Downtown Excellence for best adaptive reuse. *Source: [Town of Lyons](https://townoflyons.com/CivicSend/ViewMessage/message/25591).*
 
 ## September 2013: the flood
 

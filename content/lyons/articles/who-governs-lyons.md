@@ -5,7 +5,7 @@ excerpt: "Lyons is a statutory town with an elected mayor and six trustees, and 
 category: "Civic"
 tags: [civic, government]
 image: ../images/depot.jpg
-imageAlt: "The old Lyons railroad depot in red sandstone, now the library building, under a clear sky"
+imageAlt: "The old Lyons railroad depot in red sandstone, now Town offices and the Sheriff’s substation, under a clear sky"
 ---
 
 This is a route to the official bodies, not a substitute for them. Inside Lyons is not one of them and takes no position on Town business. Where a page here and a Town page disagree, the Town is right and this is out of date — every link below goes to the body that holds the authority.
@@ -36,7 +36,7 @@ Residents appointed by the Board, most meeting monthly at Town Hall or the libra
 - **Arts & Humanities Commission** — curates the heARTS of Lyons public-art collection and the annual call for artists.
 - **Historic Preservation Commission** — reviews changes to designated historic buildings and the downtown district.
 - **Parks & Recreation Commission** — advises on the parks, the campground, trails and recreation programs.
-- **Lyons Urban Renewal Authority** — a separate authority, with the Board as its commissioners, managing tax-increment financing for downtown redevelopment.
+- **Lyons Urban Renewal Authority** — a separate authority managing tax-increment financing for downtown redevelopment.
 - **Ecology Advisory Board and others** — sustainability, housing and the Main Street program each have an advisory group.
 
 ## The Town, the county and the districts
@@ -45,9 +45,9 @@ Incorporation in 1891 gave Lyons the powers a Colorado statutory town gets: its 
 
 **Town of Lyons.** Water, wastewater and electric utilities; streets and snow; parks, the campground and recreation; building permits, planning and zoning; the municipal court; the April municipal election; and the Town's sales and property taxes. Town Hall, 432 5th Avenue, 303-823-6622. [lyonscolorado.com](https://www.lyonscolorado.com/)
 
-**Boulder County.** The Sheriff's Office polices the town under contract, from a substation on Railroad Avenue. The county runs public health, property records and assessment, motor vehicles, county roads outside town, the open-space parks around it, and — through the Clerk & Recorder — every election but the Town's. [bouldercounty.gov](https://bouldercounty.gov/)
+**Boulder County.** The Sheriff's Office polices the town under contract, from a substation in the Depot at 430 5th Avenue (5th and Broadway). The county runs public health, property records and assessment, motor vehicles, county roads outside town, the open-space parks around it, and — through the Clerk & Recorder — every election but the Town's. [bouldercounty.gov](https://bouldercounty.gov/)
 
-**Special districts.** Fire and emergency medical response come from the Lyons Fire Protection District, the library from the Lyons Regional Library District, and schools from the St. Vrain Valley School District. Each is a separate public body with its own elected board and its own mill levy.
+**Special districts.** Fire and emergency medical response come from the Lyons Fire Protection District, the library from the Lyons Regional Library District, and schools from the St. Vrain Valley School District. Each is a separate public body with its own board and its own mill levy; the fire and school boards are elected, the library’s trustees are appointed by the Town and the two counties.
 
 ## Elections
 
@@ -73,7 +73,7 @@ Each line names the body and what it is the authority for.
 | Boulder County Clerk & Recorder | County, state and federal elections; recording; motor vehicles | [Clerk & Recorder](https://www.bouldercounty.gov/departments/clerk-and-recorder/) |
 | Boulder County Sheriff | Law enforcement in the town, under contract | [Sheriff's Office](https://www.bouldercounty.gov/departments/sheriff/) |
 | Lyons Fire Protection District | Fire and EMS; elected district board | [lyonsfire.org](https://www.lyonsfire.org/) |
-| Lyons Regional Library District | The library; elected district board | [Library board](https://lyons.colibraries.org/board-of-trustees/) |
+| Lyons Regional Library District | The library; board appointed by the Town, Boulder County and Larimer County | [Library board](https://lyons.colibraries.org/board-of-trustees/) |
 | St. Vrain Valley School District | Lyons Elementary and Lyons Middle/Senior High; elected board | [svvsd.org](https://www.svvsd.org/) |
 | Colorado General Assembly | The state House and Senate members for a Lyons address | [Find my legislator](https://leg.colorado.gov/find-my-legislator) |
 

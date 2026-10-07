@@ -9,10 +9,10 @@ imageAlt: "Afternoon sun off the water at Thomas Reservoir, seen from the fishin
 imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [loop, easy, fishing, birds]
-summary: "Flat 0.8-mile loop of concrete and crusher fines around a 10-acre stocked reservoir in the middle of town; bank fishing, benches and birds."
+summary: "About 1.15 miles of flat trail, under half of it hard-surfaced, around a 10-acre stocked reservoir in the middle of town; bank fishing, benches and birds."
 source: "https://erieco.gov/2295/32276/Thomas-Reservoir"
 verified: "2026-10-03"
 added: "2026-09-17"
 ---
 
-A 28-acre Town open space around a 10.7-acre reservoir on 119th Street: a mostly flat loop of about 0.8 miles in concrete and crusher fines, plus soft-surface spurs, with bank fishing for stocked rainbow trout, bluegill and largemouth bass, benches and grass. Dogs on a six-foot leash and out of the water.
+A 28-acre Town open space around a 10.7-acre reservoir on 119th Street: about 1.15 miles of mostly flat trail by the Town’s count (a quarter-mile of concrete, a quarter-mile of crusher fines and two-thirds of a mile of soft surface), with bank fishing for stocked rainbow trout, bluegill and largemouth bass, benches and grass. Dogs on a six-foot leash and out of the water.

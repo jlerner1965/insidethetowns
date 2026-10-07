@@ -1,9 +1,10 @@
 ---
 title: "Empty Bowls Painting Party"
-subTown: frederick
+subTown: firestone
 start: "2026-10-12T13:00"
 end: "2026-10-12T15:00"
 venue: "Carbon Valley Community Center"
+address: "151 Grant St, Firestone, CO 80520"
 url: "https://www.cvprd.com/active-adults-special-events"
 cost: "No charge; bowls $20 each"
 category: arts

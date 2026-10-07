@@ -4,11 +4,11 @@ start: "2026-10-08T18:00"
 end: "2026-10-08T20:00"
 venue: "Berthoud Town Hall"
 address: "807 Mountain Ave"
-url: "https://www.berthoud.org/AgendaCenter"
+url: "https://berthoudco.portal.civicclerk.com/"
 category: civic
 recurring: "Second and fourth Thursdays"
 source: "https://www.berthoud.org/Calendar.aspx?EID=907"
 verified: "2026-10-03"
 ---
 
-Regular meeting of the Berthoud Planning Commission at Town Hall, second and fourth Thursdays, on subdivision, annexation and development applications before they reach the Board. Agendas post to the Town website.
+Regular meeting of the Berthoud Planning Commission at Town Hall, second and fourth Thursdays, on subdivision, annexation and development applications before they reach the Board. Agendas post to the Town's CivicClerk portal.

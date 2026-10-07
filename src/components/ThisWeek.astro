@@ -24,7 +24,7 @@ import type { TownConfig } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { formatDate, formatDayRange, toIsoLocal } from '@/lib/dates';
 import { occurrences, weekendWindow } from '@/lib/events';
-import { activeChanges, currentPick, weekWindow, weekendEvents } from '@/lib/weekly';
+import { activeChanges, currentPick, isWeekend, weekEvents, weekWindow } from '@/lib/weekly';
 import { checkerName } from '@/lib/editor';
 
 interface Props {
@@ -39,12 +39,16 @@ const now = new Date();
 const { monday, sunday } = weekWindow(now);
 const range = formatDayRange(monday, sunday);
 const weekend = weekendWindow(now);
-const weekendRange = formatDayRange(weekend.start, weekend.sunday);
+// Friday to Sunday the listings are the weekend's; earlier in the week they
+// run from today to Sunday, and the heading says which.
+const onWeekend = isWeekend(now);
+const listingsLabel = onWeekend ? 'This weekend' : 'Rest of the week';
+const listingsRange = onWeekend ? formatDayRange(weekend.start, weekend.sunday) : formatDayRange(now, sunday);
 
 const notes = await getTownEntries('weekly');
 const pick = currentPick(notes, now);
 const allChanges = activeChanges(notes, now);
-const allEvents = weekendEvents(occurrences(await getTownEntries('events'), { now, horizonDays: 30 }), now);
+const allEvents = weekEvents(occurrences(await getTownEntries('events'), { now, horizonDays: 30 }), now);
 const events = compact ? allEvents.slice(0, 3) : allEvents;
 const changes = compact ? allChanges.slice(0, 2) : allChanges;
 const quiet = !pick && allEvents.length === 0 && allChanges.length === 0;
@@ -69,7 +73,13 @@ const checker = checkerName();
   )}
 
   {quiet && (
-    <p class="mt-8 rounded-lg border border-dashed border-line px-6 py-8 text-center text-ink-muted">Quiet week in {town.name}.</p>
+    <div class="mt-8 rounded-lg border border-dashed border-line px-6 py-8 text-center text-ink-muted">
+      {/* "Nothing listed" is a fact about this guide; "nothing happening" would be a claim about the town. */}
+      <p>Nothing verified on the {town.name} calendar for the rest of this week yet.</p>
+      <p class="mt-2 text-[0.9375rem]">
+        Know something that should be here? <a href="/submit-event/" class="inline-block -my-2 py-2 text-accent-text underline">Send it in</a> and it goes up once it is checked.
+      </p>
+    </div>
   )}
 
   {pick && (
@@ -86,14 +96,14 @@ const checker = checkerName();
 
   {events.length > 0 && (
     <section class={block} data-hide-when-empty aria-labelledby={`weekend-${compact ? 'compact' : 'full'}`}>
-      <H id={`weekend-${compact ? 'compact' : 'full'}`} class={eyebrow}>This weekend · {weekendRange}</H>
+      <H id={`weekend-${compact ? 'compact' : 'full'}`} class={eyebrow}>{listingsLabel} · {listingsRange}</H>
       <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
         {events.map((event) => <WeekEventRow event={event} />)}
       </div>
       {compact && allEvents.length > events.length && (
         <p class="mt-4 text-[0.9375rem]">
           <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-accent-text no-underline hover:underline">
-            All {allEvents.length} this weekend →
+            All {allEvents.length} {onWeekend ? 'this weekend' : 'this week'} →
           </a>
         </p>
       )}

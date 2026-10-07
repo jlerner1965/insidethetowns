@@ -20,11 +20,10 @@ import { eventSchema, placeSchema } from '../../src/content/schemas.ts';
 import { DEFAULT_LAUNCH_THRESHOLD } from '../../src/config/freshness.ts';
 import type { TownConfig } from '../../src/config/towns/types.ts';
 import { eventExclusion, placeExclusion } from '../../src/lib/freshness.ts';
-import { startOfDay } from '../../src/lib/dates.ts';
+import { addDays, startOfDay } from '../../src/lib/dates.ts';
 import { parseFrontmatter } from './frontmatter.ts';
 
 const plainImage = () => z.string();
-const WEEK = 7 * 86_400_000;
 
 export interface LaunchCounts {
   /** Events the build publishes that have at least one occurrence still to come. */
@@ -46,9 +45,10 @@ function files(dir: string): string[] {
 function lastEnd(e: { start: Date; end?: Date; allDay: boolean; repeat?: string; until?: Date }): Date {
   const duration = e.end ? e.end.getTime() - e.start.getTime() : e.allDay ? 86_400_000 : 0;
   if (e.repeat === 'weekly' && e.until) {
-    let t = e.start.getTime();
-    while (t + WEEK <= e.until.getTime()) t += WEEK;
-    return new Date(t + duration);
+    const lastStart = addDays(startOfDay(e.until), 1).getTime();
+    let t = e.start;
+    for (let next = addDays(t, 7); next.getTime() < lastStart; next = addDays(next, 7)) t = next;
+    return new Date(t.getTime() + duration);
   }
   return new Date(e.start.getTime() + duration);
 }

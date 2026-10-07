@@ -9,11 +9,11 @@ hours: "Mon–Fri, office hours"
 image: ../images/town-hall.jpg
 imageAlt: "Elizabeth Town Hall, a low civic building at 151 South Banner Street"
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
-tags: [government, meetings, police]
-summary: "Town Hall and the police department on Banner Street: Board of Trustees on the second and fourth Tuesdays, Planning Commission on the first and third."
+tags: [government, meetings]
+summary: "Town Hall on Banner Street: Board of Trustees on the second and fourth Tuesdays, Planning Commission on the first and third. The police station is separate, at 425 S Main St."
 source: "https://www.townofelizabeth.org/bt"
-verified: "2026-09-18"
+verified: "2026-10-07"
 added: "2026-09-17"
 ---
 
-The Town of Elizabeth's hall on South Banner Street, a block off Main, which also houses the Elizabeth Police Department. The Board of Trustees meets here on the second and fourth Tuesdays at 7 pm with five minutes of public comment, and the Planning Commission on the first and third Tuesdays at 6:30 with three minutes.
+The Town of Elizabeth's hall on South Banner Street, a block off Main. (The police department is not here: its station is at 425 S Main St.) The Board of Trustees meets here on the second and fourth Tuesdays at 7 pm with five minutes of public comment, and the Planning Commission on the first and third Tuesdays at 6:30 with three minutes.

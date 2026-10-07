@@ -106,6 +106,30 @@ export function stillOn<T extends EventLike>(events: readonly T[], now = new Dat
 }
 
 /**
+ * The rest of this week's listings: anything from today to Sunday, and a
+ * run that began earlier and is still on. On a Friday, Saturday or Sunday
+ * this is the weekend; earlier in the week it is the week ahead, so a
+ * Wednesday reader is not told the week is quiet while Thursday has three
+ * things on. Pass the calendar through `occurrences` first.
+ */
+export function weekEvents<T extends EventLike>(events: readonly T[], now = new Date()): T[] {
+  const today = startOfDay(now);
+  const { end } = weekWindow(now);
+  const todayKey = dayKey(today);
+  return stillOn(events, now).filter((e) => {
+    const t = e.data.start.getTime();
+    if (t >= today.getTime() && t < end.getTime()) return true;
+    return t < today.getTime() && isMultiDay(e) && lastDay(e) >= todayKey;
+  });
+}
+
+/** True from Friday to Sunday, when the rest of the week is the weekend. */
+export function isWeekend(now = new Date()): boolean {
+  const { start } = weekendWindow(now);
+  return startOfDay(now).getTime() >= start.getTime();
+}
+
+/**
  * This weekend's listings: anything starting Friday to Sunday, and a run
  * that began earlier and is still on over the weekend. Pass the calendar
  * through `occurrences` first so a weekly regular lands on its day.

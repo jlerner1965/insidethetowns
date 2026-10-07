@@ -4,7 +4,8 @@ type: shop
 address: "7960 Niwot Road, Suite B3"
 area: "Cottonwood Square"
 url: "https://niwot.com/listing/inkberry-books/"
-hours: "Sat–Thu 10–3, Fri 10–5"
+phone: "(720) 412-1548"
+hours: "Daily 10 am–3 pm"
 tags: [books, independent, art]
 featured: true
 summary: "Independent bookshop, open since 2018: new, gently used and out-of-print books, with art by Boulder County artists each month."

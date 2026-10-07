@@ -14,6 +14,7 @@ import {
   isInProgress,
   isPast,
   lastDay,
+  occurrences,
   sectionCount,
   splitOngoing,
   upcoming,
@@ -36,6 +37,19 @@ function ev(title: string, start: string, end?: string, allDay = false): Fixture
 
 const at = (s: string) => parseLocal(s);
 const titles = (list: Fixture[]) => list.map((e) => e.data.title);
+
+// ---------------------------------------------------------------- repeats
+
+test('a weekly repeat keeps its wall-clock time across the November clock change', () => {
+  const pick = {
+    slug: 'bluegrass-pick',
+    data: { title: 'Bluegrass pick', start: at('2026-10-27T18:00'), end: at('2026-10-27T20:00'), allDay: false, repeat: 'weekly' as const, until: at('2026-11-24') },
+  };
+  const starts = occurrences([pick], { now: at('2026-10-26T12:00'), horizonDays: 60 }).map((e) => e.data.start.getTime());
+  assert.deepEqual(starts, [at('2026-10-27T18:00'), at('2026-11-03T18:00'), at('2026-11-10T18:00'), at('2026-11-17T18:00'), at('2026-11-24T18:00')].map((d) => d.getTime()));
+  const ends = occurrences([pick], { now: at('2026-10-26T12:00'), horizonDays: 60 }).map((e) => e.data.end!.getTime());
+  assert.equal(ends[1], at('2026-11-03T20:00').getTime(), 'the end moves with the start');
+});
 
 // ---------------------------------------------------------------- over or not
 

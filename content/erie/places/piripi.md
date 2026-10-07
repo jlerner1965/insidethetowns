@@ -15,4 +15,4 @@ verified: "2026-10-03"
 added: "2026-09-17"
 ---
 
-Globally inspired tapas at the north end of the Briggs Street block: Iberian meats, Spanish octopus, small plates meant for the table, and monthly paella nights with live flamenco. The menu is described by the owners as 99 percent gluten-free. Reservations on OpenTable.
+Globally inspired tapas at the north end of the Briggs Street block: Iberian meats, Spanish octopus, small plates meant for the table, and monthly paella nights with live flamenco. Most dishes are marked gluten-free on the menu; ask about cross-contact. Reservations on OpenTable.

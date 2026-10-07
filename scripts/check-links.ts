@@ -91,7 +91,9 @@ function collect(): Hit[] {
     readFileSync(file, 'utf8')
       .split('\n')
       .forEach((line, i) => {
-        for (const m of line.matchAll(/https?:\/\/[^\s"'`<>)\]},]+/g)) {
+        // A URL may contain balanced parentheses (Wikimedia file names, Wikipedia
+        // disambiguation); only an unmatched ")" closes the markdown link.
+        for (const m of line.matchAll(/https?:\/\/(?:[^\s"'`<>()\]},]|\([^\s()]*\))+/g)) {
           const url = m[0].replace(/[.,;:]+$/, '').replace(/&amp;/g, '&');
           const host = hostOf(url);
           if (!host || OURS.has(host) || host === 'localhost') continue;

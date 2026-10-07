@@ -1,14 +1,15 @@
 ---
-title: "Happy Eating"
+title: "Happy Eating Asian Cafe"
 type: restaurant
 address: "506 Welch Ave"
 area: "Welch Avenue"
-hours: "Closed Tuesdays; check the ordering page for the day’s closing time"
+phone: "(970) 532-9821"
+hours: "Mon, Wed 10:30 am–9:30 pm; Thu–Sun 10:30 am–10:30 pm; closed Tue"
 priceRange: "$"
 tags: [chinese, takeout]
 summary: "Chinese takeout on Welch Avenue: the standard menu, done quickly, a few tables inside."
 source: "https://happyeatingasiancafe.fronteats.com/"
-verified: "2026-10-02"
+verified: "2026-10-07"
 added: "2026-09-17"
 ---
 

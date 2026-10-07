@@ -9,6 +9,7 @@ verified: "2026-10-04"
 added: "2026-10-04"
 phone: "303-485-5020"
 hours: "Tue–Sat 11 am–8 pm (or until the dough sells out)"
+openingHours: ["Tu-Sa 11:00-20:00"]
 tags: [pizza, pinball, happy-hour, takeout]
 summary: "A small Old World, East Coast–style neighborhood pizzeria on Main Street that takes pride in its dough, sauce and cheese, with Colorado craft beer, wine and pinball."
 ---

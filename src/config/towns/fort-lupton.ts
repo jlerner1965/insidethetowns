@@ -36,6 +36,8 @@ export const fortLupton: TownConfig = {
   lng: -104.8292,
   population: 7955, // 2020 census
   elevationFt: 4915, // GNIS, via Wikipedia
+  driveToDenver: '35–40 min',
+  character: 'A South Platte farm town on US 85, older than its neighbors and growing again since 2020.',
   // 1890, per the State Demography Office's historical census file (the
   // Wikipedia infobox gives no date); read 6 October 2026.
   incorporated: 1890,

@@ -11,4 +11,4 @@ verified: "2026-09-09"
 added: "2026-09-17"
 ---
 
-Beer, wine and spirits at the east end of the avenue. Hours are on the Business Association listing.
+Beer, wine and spirits at the east end of the avenue. Call 303-652-2636 for hours.

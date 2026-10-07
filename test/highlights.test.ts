@@ -135,6 +135,19 @@ test('one-offs leave out the regulars, however they are stored, and the council'
   assert.deepEqual(titles(oneOffs(weekend, list)), ['Oktoberfest']);
 });
 
+test('a series stored as a file per date takes one of the picks, not one per date', () => {
+  const now = parseLocal('2026-10-15T12:00');
+  const events = [
+    ev('Studio tour', '2026-10-17T10:00', { slug: 'studio-tour-2026-10-17', venue: 'Downtown' }),
+    ev('Studio tour', '2026-10-18T10:00', { slug: 'studio-tour-2026-10-18', venue: 'Downtown' }),
+    ev('Pumpkin patch', '2026-10-17T09:00'),
+    ev('Concert', '2026-10-18T19:00'),
+  ];
+  const picks = highlights(events, { now, limit: 4 }).map((e) => e.slug);
+  assert.equal(picks.filter((s) => s.startsWith('studio-tour')).length, 1);
+  assert.ok(picks.includes('pumpkin-patch') && picks.includes('concert'));
+});
+
 test('what has passed is out, and a weekly series appears once', () => {
   const list = [
     ev('Yesterday', '2026-09-23T18:00'),

@@ -9,7 +9,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseLocal } from '../src/lib/dates.ts';
 import { occurrences } from '../src/lib/events.ts';
-import { activeChanges, currentNotes, currentPick, hasEnded, upcomingEvents, weekWindow, weekendEvents } from '../src/lib/weekly.ts';
+import { activeChanges, currentNotes, currentPick, hasEnded, isWeekend, upcomingEvents, weekEvents, weekWindow, weekendEvents } from '../src/lib/weekly.ts';
 
 const at = (s: string) => parseLocal(s);
 
@@ -136,6 +136,23 @@ test('this weekend is Friday to Sunday, with a run that began earlier and is sti
   ];
   assert.deepEqual(weekendEvents(events, at('2026-10-14T12:00')).map((e) => e.data.title), ['Corn maze', 'Friday show', 'Saturday market', 'Sunday walk']);
   assert.deepEqual(weekendEvents(events, at('2026-10-17T14:00')).map((e) => e.data.title), ['Corn maze', 'Sunday walk'], 'on Saturday afternoon the market has ended');
+});
+
+test('the rest of the week runs from today to Sunday, so a Wednesday is not told the week is quiet', () => {
+  const events = [
+    ev('Tuesday talk', '2026-10-13T19:00', '2026-10-13T21:00'),
+    ev('Wednesday storytime', '2026-10-14T10:00', '2026-10-14T10:30'),
+    ev('Thursday trivia', '2026-10-15T19:00', '2026-10-15T21:00'),
+    ev('Saturday market', '2026-10-17T09:00', '2026-10-17T13:00'),
+    ev('Monday meeting', '2026-10-19T18:00'),
+    ev('Corn maze', '2026-09-25', '2026-10-31', { allDay: true }),
+  ];
+  assert.deepEqual(weekEvents(events, at('2026-10-14T08:00')).map((e) => e.data.title), ['Corn maze', 'Wednesday storytime', 'Thursday trivia', 'Saturday market']);
+  assert.deepEqual(weekEvents(events, at('2026-10-14T12:00')).map((e) => e.data.title), ['Corn maze', 'Thursday trivia', 'Saturday market'], 'the storytime has ended by noon');
+  assert.deepEqual(weekEvents(events, at('2026-10-17T14:00')).map((e) => e.data.title), ['Corn maze'], 'on Saturday afternoon only the run is left');
+  assert.equal(isWeekend(at('2026-10-14T12:00')), false);
+  assert.equal(isWeekend(at('2026-10-16T08:00')), true);
+  assert.equal(isWeekend(at('2026-10-18T23:00')), true);
 });
 
 test('a weekly regular shows once, on its day this weekend', () => {

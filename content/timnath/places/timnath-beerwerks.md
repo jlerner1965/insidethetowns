@@ -8,7 +8,7 @@ phone: "(970) 999-5751"
 hours: "Mon–Wed 12–8, Thu–Fri 12–9, Sat 11–9, Sun 11–8"
 tags: [brewery, food trucks, live music, dog friendly]
 featured: true
-summary: "The brewery in the 1920 Timnath Feed & Grain building on Main Street: its own beers, food trucks most days, music bingo, live music and a Monday run club. Family and dog friendly."
+summary: "The brewery in the early-1900s Timnath Feed & Grain building on Main Street: its own beers, food trucks most days, music bingo, live music and a Monday run club. Family and dog friendly."
 source: "https://www.timnathbeerwerks.com/contactus"
 verified: "2026-10-02"
 added: "2026-09-17"

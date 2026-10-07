@@ -9,8 +9,8 @@
  * which clears a passed day out of a build that is older than it.
  */
 import type { TownEntry } from '@/lib/content';
-import { monthDay, toIsoLocal } from '@/lib/dates';
-import { lastDay, timeText } from '@/lib/events';
+import { monthDay, parseLocal, startOfDay, toIsoLocal } from '@/lib/dates';
+import { isMultiDay, lastDay, timeText } from '@/lib/events';
 import { shownCategoryLabel } from '@/content/schemas';
 import { subTownLabel } from '@/lib/sub-towns';
 
@@ -20,7 +20,11 @@ interface Props {
 
 const { event } = Astro.props;
 const { data, slug } = event;
-const badge = monthDay(data.start);
+// A run that began before today is dated by the day it ends, marked "Until",
+// so a festival in its fourth week does not sit under this weekend with a
+// date from last month.
+const inProgress = isMultiDay(event) && data.start.getTime() < startOfDay(new Date()).getTime();
+const badge = inProgress ? { ...monthDay(parseLocal(lastDay(event))), weekday: 'Until' } : monthDay(data.start);
 const categoryLabel = shownCategoryLabel(data.category);
 // The organizer's page: where the listing was read, else the page it links.
 const source = data.source ?? data.url;

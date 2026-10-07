@@ -7,7 +7,6 @@ address: "4138 Main St"
 url: "https://timnathfarmersmarket.org/about/"
 cost: "Free"
 category: market
-recurring: "Second and fourth Sundays, May to October"
 source: "https://timnathfarmersmarket.org/about/"
 verified: "2026-09-18"
 ---

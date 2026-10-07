@@ -6,7 +6,7 @@ address: "1600 Pelican Lakes Point, Windsor, CO 80550"
 url: "https://runsignup.com/Race/CO/Windsor/PelicanLakesTurkeyTrot"
 cost: "Varies by registration date"
 category: sports
-organizer: "Windsor Area Chamber of Commerce"
+organizer: "Run Windsor (miles.Beyond)"
 organizerUrl: "https://www.windsorchamber.net/"
 source: "https://business.windsorchamber.net/events/details/windsor-turkey-trot-5k-11-26-2026-14313"
 verified: "2026-10-01"

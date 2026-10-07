@@ -30,7 +30,7 @@ const live = site.kind === 'hub' || site.status === 'live';
 const buildDate = new Date();
 const dates = contentDates(site);
 /** Pages that carry noindex must not be listed in the sitemap either. */
-const NOINDEX = new Set(['/thanks/', '/message-sent/', '/correct/', '/newsletter/sample/']);
+const NOINDEX = new Set(['/thanks/', '/message-sent/', '/correct/', '/newsletter/sample/', '/search/']);
 
 const indexable = (/** @type {string} */ url) => {
   if (!live) return false;
