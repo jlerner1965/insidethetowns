@@ -37,6 +37,8 @@ const when =
     : multiDay && data.allDay
       ? formatDayRange(data.start, data.end!)
       : formatTimeRange(data.start, data.end, data.allDay));
+// "Other" is filed but not labelled, as on a town's own list (EventCard).
+const categoryLabel = data.category !== 'other' ? CATEGORY_LABELS[data.category] : undefined;
 // A multi-day time range already names its days, and a run says "Now through".
 const time = showDay && !running && !multiDay ? `${formatDayShort(data.start)} Â· ${when}` : when;
 ---
@@ -55,14 +57,18 @@ const time = showDay && !running && !multiDay ? `${formatDayShort(data.start)} Â
     >{town.name}</span>
   </p>
   <div class="min-w-0">
-    <p class="eyebrow flex flex-wrap items-center gap-2" style={`color:var(--cat-${data.category}-ink)`}>
-      <span class="inline-block size-2 shrink-0 rounded-full" style={`background:var(--cat-${data.category}-dot)`} aria-hidden="true"></span>
-      {CATEGORY_LABELS[data.category]}
-      {statusLabel && (
-        <span class="rounded-full bg-ink px-2 py-0.5 text-[0.625rem] font-semibold uppercase tracking-[0.1em] text-raised">{statusLabel}</span>
-      )}
-    </p>
-    <h3 class="mt-1.5 text-xl font-medium leading-tight md:text-2xl">
+    {(categoryLabel || statusLabel) && (
+      <p class="eyebrow mb-1.5 flex flex-wrap items-center gap-2" style={`color:var(--cat-${data.category}-ink)`}>
+        {categoryLabel && (
+          <span class="inline-block size-2 shrink-0 rounded-full" style={`background:var(--cat-${data.category}-dot)`} aria-hidden="true"></span>
+        )}
+        {categoryLabel}
+        {statusLabel && (
+          <span class="rounded-full bg-ink px-2 py-0.5 text-[0.625rem] font-semibold uppercase tracking-[0.1em] text-raised">{statusLabel}</span>
+        )}
+      </p>
+    )}
+    <h3 class="text-xl font-medium leading-tight md:text-2xl">
       <a href={href} class:list={['stretch no-underline group-hover:text-accent-text', canceled && 'line-through decoration-ink-faint decoration-2']}>{data.title}</a>
     </h3>
     <p class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">

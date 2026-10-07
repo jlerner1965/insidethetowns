@@ -52,17 +52,23 @@ const hero = resolveSiteImage(site.slug, site.hero.image);
 
     The scrim is what carries legibility, so it is not simply lightened to
     match. Its stops are set so that (1 − scrim) × wash is never greater than
-    it was at any height the type reaches — the eyebrow tops out around three
-    quarters of the way up — which is the property that matters: no line of
+    it was at any height the type reaches — the eyebrow tops out around four
+    fifths of the way up — which is the property that matters: no line of
     type sits on a lighter background than it did before. Above that band it
     clears completely, so the top of the frame is the photograph rather than
     the photograph under a 5% black veil.
+
+    The stops moved up (0.5 at 55%, 0.36 at 86%, from 50% and 74%) when the
+    hero was cut to half the screen: the type then fills more of the frame,
+    and the eyebrow went from three quarters of the way up to four fifths.
   */}
-  <div class="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.5)_50%,rgba(0,0,0,0.36)_74%,transparent_100%)]"></div>
+  <div class="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.5)_55%,rgba(0,0,0,0.36)_86%,transparent_100%)]"></div>
   <div class="absolute inset-0 -z-10 bg-accent-dark/20 mix-blend-multiply"></div>
-  {/* Capped as well as proportional: on a tall desktop monitor 78svh is well
-      over a thousand pixels of sky before the page starts. */}
-  <div class="container-page relative flex min-h-[min(70svh,600px)] flex-col justify-end pb-10 pt-40 md:min-h-[min(78svh,760px)] md:pb-16">
+  {/* Capped as well as proportional, and kept to about half the screen so
+      "What’s on" and the first row of events are in view before any scroll:
+      at 1440×900 the old 78svh hero pushed the section heading off the
+      bottom. A phone gets a smaller share still. */}
+  <div class="container-page relative flex min-h-[min(44svh,400px)] flex-col justify-end pb-8 pt-16 md:min-h-[min(50svh,560px)] md:pb-10">
     {/*
       White, not the amber every other dark band uses for this line.
       `check-colors` proves the amber clears 4.5:1 on accentDark, and it does —
@@ -73,15 +79,18 @@ const hero = resolveSiteImage(site.slug, site.hero.image);
       them. The amber stays everywhere it is provably safe.
     */}
     <p class="eyebrow text-white">{eyebrow}</p>
-    <h1 class="display mt-4 text-[4.25rem] sm:text-8xl lg:text-[9rem]">{title}</h1>
-    <p class="mt-5 max-w-xl text-lg leading-snug text-white/85 md:mt-7 md:text-2xl">{subtitle}</p>
+    {/* A third smaller than it was, so "Carbon Valley" and "Fort Collins"
+        hold one line at desktop width. The tagline is clamped to two lines
+        rather than rewritten; the whole sentence is still in the markup. */}
+    <h1 class="display mt-3 text-[2.875rem] sm:text-[4rem] lg:text-[6rem]">{title}</h1>
+    <p class="mt-4 line-clamp-2 max-w-xl text-lg leading-snug text-white/85 md:text-2xl">{subtitle}</p>
     {links.length > 0 && (
-      <div class="mt-8 flex flex-wrap gap-3 md:mt-10">
+      <div class="mt-6 flex flex-wrap gap-3 md:mt-7">
         {links.map((l) => (
           <a href={l.href} class:list={['btn', l.primary ? 'btn-light' : 'btn-outline text-white']}>{l.label}</a>
         ))}
       </div>
     )}
-    {site.hero.credit && <p class="mt-8 text-xs text-white/70">Photo: {site.hero.credit}</p>}
+    {site.hero.credit && <p class="mt-5 text-xs text-white/70">Photo: {site.hero.credit}</p>}
   </div>
 </section>

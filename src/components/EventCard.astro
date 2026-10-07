@@ -6,7 +6,11 @@
  * A run of days is shown as a run. A corn maze open from September 23 to
  * October 31 used to lead the home page as "Wed 23 Sep" for five weeks, which
  * read as a date that had passed; while it is on, the row says "Now through
- * October 31", and before it starts, the range.
+ * October 31", and before it starts, the range. The date block over it says
+ * "Until 31 Oct": "Now" over the end date read as if it happened that day.
+ *
+ * "Other" is the category for what fits none of the rest, so it is not
+ * printed: a label that says nothing is noise above the title.
  *
  * A canceled or postponed listing stays in the list — the reader who planned
  * to go is exactly who needs to see it — with the label and the title struck
@@ -59,6 +63,8 @@ const [cellTime, cellTo] = data.timeNote
         : data.end && !data.allDay
           ? [formatTime(data.start), `to ${formatTime(data.end)}`]
           : [time];
+// "Other" is filed but not labelled; a status still shows on its own.
+const categoryLabel = data.category !== 'other' ? CATEGORY_LABELS[data.category] : undefined;
 const note =
   data.recurring ??
   (data.repeat === 'weekly' && data.until ? `Every ${formatWeekday(data.start)} through ${formatDate(data.until)}` : undefined);
@@ -75,7 +81,7 @@ const note =
 >
   {showDate ? (
     <time datetime={toIsoLocal(data.start)} class="flex flex-col pt-0.5">
-      <span class="eyebrow">{running ? 'Now' : badge.weekday}</span>
+      <span class="eyebrow">{running ? 'Until' : badge.weekday}</span>
       <span class="font-heading text-[2.25rem] font-medium leading-none tabular-nums text-accent-text md:text-[2.5rem]">{badge.day}</span>
       <span class="text-xs font-medium uppercase tracking-[0.1em] text-ink-muted">{badge.month}</span>
     </time>
@@ -89,14 +95,18 @@ const note =
     </time>
   )}
   <div class="min-w-0">
-    <p class="eyebrow flex flex-wrap items-center gap-2" style={`color:var(--cat-${data.category}-ink)`}>
-      <span class="inline-block size-2 shrink-0 rounded-full" style={`background:var(--cat-${data.category}-dot)`} aria-hidden="true"></span>
-      {CATEGORY_LABELS[data.category]}
-      {statusLabel && (
-        <span class="rounded-full bg-ink px-2 py-0.5 text-[0.625rem] font-semibold uppercase tracking-[0.1em] text-raised">{statusLabel}</span>
-      )}
-    </p>
-    <h3 class="mt-1.5 text-xl font-medium leading-tight md:text-2xl">
+    {(categoryLabel || statusLabel) && (
+      <p class="eyebrow mb-1.5 flex flex-wrap items-center gap-2" style={`color:var(--cat-${data.category}-ink)`}>
+        {categoryLabel && (
+          <span class="inline-block size-2 shrink-0 rounded-full" style={`background:var(--cat-${data.category}-dot)`} aria-hidden="true"></span>
+        )}
+        {categoryLabel}
+        {statusLabel && (
+          <span class="rounded-full bg-ink px-2 py-0.5 text-[0.625rem] font-semibold uppercase tracking-[0.1em] text-raised">{statusLabel}</span>
+        )}
+      </p>
+    )}
+    <h3 class="text-xl font-medium leading-tight md:text-2xl">
       <a href={href} class:list={['stretch no-underline group-hover:text-accent-text', canceled && 'line-through decoration-ink-faint decoration-2']}>{data.title}</a>
     </h3>
     <p class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">
