@@ -13,4 +13,4 @@ verified: "2026-10-07"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 
-An evening viewing of the miniature ofrendas, or Day of the Dead altars, that individuals, families and organizations build at the library each year; this is its fourth year. The library is lit by candlelight for the evening. The altars are on display from October 16 to November 3.
+An evening viewing of the miniature ofrendas, or Day of the Dead altars, that individuals, families and organizations build at the library each year; this is its fourth year. The library is lit by candlelight for the evening. The altars are on display from 16 October to 3 November.
