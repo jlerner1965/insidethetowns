@@ -3408,9 +3408,10 @@ clears its threshold.
 - **Castle Rock stays a holding page at 19 of 25.** Every staged item and
   every confirmed source that answers a reader was used. The Town's site
   (crgov.com) still answers 403, and two fairground organizers answer
-  "Blacklisted bot". The Castle Rock Historical Society's ghost walks and
-  Santa day would add about ten dated events if it is confirmed as a
-  source; three items wait on a phone call.
+  "Blacklisted bot". Three items wait on a phone call. The owner then
+  confirmed the Castle Rock Historical Society as a source: its October
+  ghost walks are nine dates of one tour, so one listing as one run, and
+  with Santa at the museum the guide stands at 21 of 25.
 - **Two guides per town**, a history and a with-kids guide, every fact
   linked to a page read that day and listed under its sources, and both
   versions given wherever sources disagree. No new photographs: the guides
