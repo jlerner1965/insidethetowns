@@ -11,9 +11,15 @@ import NetworkEventCard from './NetworkEventCard.astro';
 interface Props {
   events: NetworkEntry<'events'>[];
   emptyMessage: string;
+  /**
+   * Show this many of a day's events and fold the rest behind "Show N more".
+   * Twelve towns' listings made the hub's "Coming up" tens of thousands of
+   * pixels long; a reader scanning ahead wants the shape of each day.
+   */
+  collapseAfter?: number;
 }
 
-const { events, emptyMessage } = Astro.props;
+const { events, emptyMessage, collapseAfter } = Astro.props;
 const days = groupByDay(events);
 ---
 {days.length === 0 ? (
@@ -21,8 +27,11 @@ const days = groupByDay(events);
 ) : (
   <div class="space-y-10 md:space-y-12">
     {days.map((day) => (
-      <section data-filter-group data-day={dayKey(day.date)} class="md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
-        <h3 class="mb-2 md:mb-0 md:pt-6">
+      <section id={`day-${dayKey(day.date)}`} data-filter-group data-day={dayKey(day.date)} class="scroll-mt-40 md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
+        {/* On a wide screen the day's name stays beside its listings, below the
+            pinned town filter, instead of leaving an empty column for
+            thousands of pixels. */}
+        <h3 class="mb-2 md:sticky md:top-40 md:mb-0 md:self-start md:pt-6">
           <time datetime={toIsoLocal(day.date)} class="display-md block text-3xl text-accent-text md:text-[2.25rem]">
             {formatDayLong(day.date).split(', ').map((part, i) => (
               <span class:list={[i === 0 ? 'eyebrow block mb-2' : 'block']}>{part}</span>
@@ -30,7 +39,16 @@ const days = groupByDay(events);
           </time>
         </h3>
         <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-          {day.events.map((event) => <NetworkEventCard event={event} />)}
+          {(collapseAfter && day.events.length > collapseAfter + 1 ? day.events.slice(0, collapseAfter) : day.events).map((event) => <NetworkEventCard event={event} />)}
+          {collapseAfter && day.events.length > collapseAfter + 1 && (
+            <details class="group/more border-t border-line-soft">
+              <summary class="flex min-h-12 cursor-pointer list-none items-center py-3 text-[0.9375rem] font-semibold text-accent-text [&::-webkit-details-marker]:hidden">
+                <span class="group-open/more:hidden">Show {day.events.length - collapseAfter} more</span>
+                <span class="hidden group-open/more:inline">Show fewer</span>
+              </summary>
+              {day.events.slice(collapseAfter).map((event) => <NetworkEventCard event={event} />)}
+            </details>
+          )}
         </div>
       </section>
     ))}

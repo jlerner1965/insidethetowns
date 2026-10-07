@@ -32,8 +32,14 @@ export function findTown(slug: string): TownConfig | undefined {
   return towns.find((t) => t.slug === slug);
 }
 
+/**
+ * A to Z, so the same names come in the same order on every page that lists
+ * them: the hub's filter, its signup, the submit form and About had the
+ * config's own order (Niwot, Lyons, Berthoud…) while the home page and the
+ * footer were alphabetical. A page that wants another order sorts its copy.
+ */
 export function liveTowns(): TownConfig[] {
-  return towns.filter((t) => LIVE_TOWNS.includes(t.slug));
+  return towns.filter((t) => LIVE_TOWNS.includes(t.slug)).sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /**

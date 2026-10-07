@@ -142,10 +142,12 @@ const road = I25.map((p) => `${x(p.lng).toFixed(1)},${y(p.lat).toFixed(1)}`).joi
       <g>
         {live ? (
           <a href={`https://${t.domain}/`} aria-label={`${t.name} — ${t.domain}`}>
-            <circle cx={cx} cy={cy} r="17" fill={t.colors.accent} fill-opacity="0.14"></circle>
+            {/* A 13px halo, not 17: the larger ones ran into each other along
+                the Longmont–Niwot–Erie and Fort Collins–Timnath clusters. */}
+            <circle cx={cx} cy={cy} r="13" fill={t.colors.accent} fill-opacity="0.14"></circle>
             <circle cx={cx} cy={cy} r="7" fill={t.colors.accent}></circle>
             <text
-              x={cx + (left ? -15 : 15)}
+              x={cx + (left ? -13 : 13)}
               y={cy + 5}
               font-size="15"
               font-weight="600"

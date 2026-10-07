@@ -16,10 +16,13 @@ import Wordmark from './Wordmark.astro';
 
 const site = getSite();
 const path = Astro.url.pathname;
+// A link to a section of a page (the hub's "/#towns") is never the current
+// page: stripped to "/" it matched the home page and showed "Towns" as where
+// the reader already was.
 const isActive = (href: string) => {
-  const clean = href.split('#')[0] ?? href;
-  if (clean === '/' || clean === '') return path === '/';
-  return path.startsWith(clean);
+  if (href.includes('#')) return false;
+  if (href === '/' || href === '') return path === '/';
+  return path.startsWith(href);
 };
 /**
  * Roughly how wide the site title is, in em, at the wordmark's weights. Half

@@ -119,7 +119,9 @@ const description = `Independent guides to ${live.length} towns on Colorado’s 
     <SectionHeader eyebrow="The network" title="The towns" />
     <div class="grid items-start gap-10 lg:grid-cols-[3fr_2fr] lg:gap-14">
       {/* Not on a phone: at 375px its labels are too small to read or tap. */}
-      <div class="hidden sm:block">
+      {/* Held in view beside the cards on a wide screen: it ended some 2,700px
+          before they did, leaving an empty column. */}
+      <div class="hidden sm:block lg:sticky lg:top-8">
         <TownMap towns={live} />
       </div>
       <div class="grid content-start gap-8 sm:gap-10">
@@ -128,14 +130,20 @@ const description = `Independent guides to ${live.length} towns on Colorado’s 
             <h3 class="mb-4 text-xl sm:mb-5 sm:text-2xl">{region}</h3>
             {/* A phone gets name and county only, two across, the names level along
                each row however the county line wraps; the card is still the link. */}
-            <div class="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-1">
+            <div class="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-1 [&>:last-child:nth-child(odd)]:col-span-2 lg:[&>:last-child:nth-child(odd)]:col-span-1">
               {towns.map((t) => (
                 <a
                   href={`https://${t.domain}/`}
                   class="group flex flex-col rounded-lg border-l-4 bg-raised p-4 no-underline ring-1 ring-line-soft transition hover:ring-line sm:block sm:p-6"
                   style={`border-color:${t.colors.accent}`}
                 >
-                  <p class="eyebrow" style={`color:${t.colors.accentDark}`}>{countyLabel(t)}</p>
+                  {/* On a phone the counties alone ("Weld · Boulder"): the full
+                      "Weld and Boulder Counties" ran to three lines over a
+                      one-word name. */}
+                  <p class="eyebrow" style={`color:${t.colors.accentDark}`}>
+                    <span class="sm:hidden">{t.counties.join(' · ')}</span>
+                    <span class="hidden sm:inline">{countyLabel(t)}</span>
+                  </p>
                   <h4 class="mt-auto pt-1.5 text-xl font-medium leading-none sm:mt-2 sm:pt-0 sm:text-3xl">
                     <span class="hidden font-light italic sm:inline">Inside</span> <span class="font-semibold">{t.name}</span>
                   </h4>

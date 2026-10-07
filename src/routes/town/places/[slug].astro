@@ -182,7 +182,7 @@ const facts = [
       )}
       <div class="order-3">
         {data.image && (
-          <figure class="mb-10">
+          <figure class:list={['mb-10', data.image.width < 800 && 'max-w-xl']}>
             <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
             {data.imageCredit && (
               <figcaption class="mt-2 text-[0.8125rem] text-ink-faint">Photo: {data.imageCredit}</figcaption>

@@ -380,6 +380,27 @@
   white-space: nowrap;
 }
 .compare tbody td { font-variant-numeric: tabular-nums; }
+/* Figures right-aligned, so 169,810 and 1,675 line up by place value; a
+   short value that broke ("About 1 hr 10 / min", "Weld & / Larimer") kept
+   whole. */
+.compare :is(td, th).num { text-align: right; }
+@media (width >= 60rem) {
+  .compare td.nowrap { white-space: nowrap; }
+}
+/* Two towns side by side: the row names are labels, not a second set of
+   headings outweighing the figures. */
+.compare-pair { overflow-x: auto; }
+.compare-pair thead th { font-size: 0.875rem; border-block-end-width: 3px; white-space: normal; }
+.compare-pair tbody th {
+  font-family: var(--font-body);
+  font-size: var(--text-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+  white-space: normal;
+}
+.compare-pair tbody td { font-size: 1rem; }
 .compare-domain {
   display: block;
   font-family: var(--font-body);
@@ -390,8 +411,11 @@
 }
 
 @media (width < 60rem) {
-  .compare thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-  .compare tbody tr {
+  .compare:not(.compare-pair) thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  /* Cards, not a table: table sizing would widen every card to the longest
+     unbroken line in any of them, past the edge of the screen. */
+  .compare:not(.compare-pair) :is(table, tbody) { display: block; }
+  .compare:not(.compare-pair) tbody tr {
     display: block;
     margin-block-end: 1.25rem;
     border-radius: 0.5rem;
@@ -399,23 +423,25 @@
     box-shadow: 0 0 0 1px var(--color-line-soft);
     overflow: hidden;
   }
-  .compare tbody th {
+  .compare:not(.compare-pair) tbody th {
     display: block;
     padding: 1rem 1.25rem;
     background: var(--color-accent-tint);
     border-block-end: 1px solid var(--color-line-soft);
     white-space: normal;
   }
-  .compare tbody td {
+  .compare:not(.compare-pair) tbody td {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     gap: 1.5rem;
     padding: 0.7rem 1.25rem;
   }
-  .compare tbody td:last-child { border-block-end: 0; }
-  .compare tbody td::before {
+  .compare:not(.compare-pair) tbody td:last-child { border-block-end: 0; }
+  .compare:not(.compare-pair) tbody td::before {
     content: attr(data-label);
+    flex: none;
+    white-space: nowrap;
     font-size: var(--text-eyebrow);
     font-weight: 600;
     letter-spacing: var(--tracking-eyebrow);
@@ -423,7 +449,10 @@
     color: var(--color-ink-faint);
     font-variant-numeric: normal;
   }
-  .compare tbody td > span { text-align: right; }
+  .compare:not(.compare-pair) tbody td > span { text-align: right; }
+  /* A sentence is not right-aligned under its label but set below it. */
+  .compare:not(.compare-pair) tbody td.text { flex-direction: column; gap: 0.25rem; }
+  .compare:not(.compare-pair) tbody td.text > span { text-align: left; }
 }
 
 @layer components {

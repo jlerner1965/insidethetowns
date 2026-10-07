@@ -36,22 +36,23 @@ const growth = (t: (typeof towns)[number]) =>
 const pricesReady = towns.every((t) => t.medianHomePrice && t.medianHomePriceAsOf && t.medianHomePriceSource);
 
 const columns = [
-  { key: 'county', label: 'County', caption: 'county', get: (t: (typeof towns)[number]) => countyShort(t) },
-  { key: 'population', label: 'Population 2020', caption: 'population at the 2020 census', get: (t: (typeof towns)[number]) => num(t.population) },
-  { key: 'growth', label: 'Growth 2010–20', caption: 'growth from 2010 to 2020', get: growth },
+  { key: 'county', label: 'County', caption: 'county', kind: 'nowrap', get: (t: (typeof towns)[number]) => countyShort(t) },
+  { key: 'population', label: 'Population 2020', caption: 'population at the 2020 census', kind: 'num', get: (t: (typeof towns)[number]) => num(t.population) },
+  { key: 'growth', label: 'Growth 2010–20', caption: 'growth from 2010 to 2020', kind: 'num', get: growth },
   ...(pricesReady
     ? [
         {
           key: 'price',
           label: 'Median home',
           caption: 'median home price',
+          kind: 'num',
           get: (t: (typeof towns)[number]) => `$${num(t.medianHomePrice)}`,
         },
       ]
     : []),
-  { key: 'denver', label: 'To Denver', caption: 'drive to Denver', get: (t: (typeof towns)[number]) => t.driveToDenver ?? '—' },
-  { key: 'schools', label: 'Schools', caption: 'school district', get: (t: (typeof towns)[number]) => district(t.movingHere.schoolDistrict) },
-  { key: 'character', label: 'In a line', caption: 'what each is like', get: (t: (typeof towns)[number]) => t.character ?? '—' },
+  { key: 'denver', label: 'To Denver', caption: 'drive to Denver', kind: 'nowrap', get: (t: (typeof towns)[number]) => t.driveToDenver ?? '—' },
+  { key: 'schools', label: 'Schools', caption: 'school district', kind: 'text', get: (t: (typeof towns)[number]) => district(t.movingHere.schoolDistrict) },
+  { key: 'character', label: 'In a line', caption: 'what each is like', kind: 'text', get: (t: (typeof towns)[number]) => t.character ?? '—' },
 ];
 // Read from the columns, so it cannot promise one the table does not have.
 const caption = `The ${towns.length} towns compared by ${columns
@@ -98,7 +99,7 @@ const structured = collectionPageJsonLd(hub, {
       <thead>
         <tr>
           <th scope="col">Town</th>
-          {columns.map((c) => <th scope="col">{c.label}</th>)}
+          {columns.map((c) => <th scope="col" class={c.kind}>{c.label}</th>)}
         </tr>
       </thead>
       <tbody>
@@ -109,7 +110,7 @@ const structured = collectionPageJsonLd(hub, {
               <span class="compare-domain">{t.domain}</span>
             </th>
             {columns.map((c) => (
-              <td data-label={c.label}><span>{c.get(t)}</span></td>
+              <td data-label={c.label} class={c.kind}><span>{c.get(t)}</span></td>
             ))}
           </tr>
         ))}

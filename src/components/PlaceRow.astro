@@ -45,7 +45,7 @@ const hours = openingHoursOf(data);
         <a href={href} class="stretch no-underline group-hover:text-accent-text">{data.title}</a>
       </Heading>
       {!open && (
-        <span class="rounded-full bg-ink px-2.5 py-0.5 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-raised">
+        <span class="rounded-full bg-ink px-2.5 py-0.5 text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-raised">
           {PLACE_STATUS_LABELS[data.status]}
         </span>
       )}
@@ -56,7 +56,7 @@ const hours = openingHoursOf(data);
       <span class="inline-block size-2 shrink-0 rounded-full" style={`background:var(--cat-${hue}-dot)`} aria-hidden="true"></span>
       {PLACE_TYPE_LABELS[data.type]}{data.priceRange && <span class="text-ink-faint">{data.priceRange}</span>}{data.subTown && <span class="font-medium normal-case tracking-normal text-ink-faint">{subTownLabel(data.subTown)}</span>}
       {data.featured && open && (
-        <span class="rounded-full bg-highlight px-2.5 py-0.5 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-ink">Our pick</span>
+        <span class="rounded-full bg-highlight px-2.5 py-0.5 text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-ink">Our pick</span>
       )}
     </p>
     {/* Three lines on a phone, where a long list of full summaries ran past
