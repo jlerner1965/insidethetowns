@@ -1,7 +1,7 @@
 ---
 title: "Two Bridges Trail at Bayou Gulch"
 type: trail
-address: "8038 Bayou Gulch Rd, Franktown"
+address: "8038 Bayou Gulch Rd, Franktown, CO 80116"
 area: "Bayou Gulch Road, west of town"
 url: "https://www.douglasco.gov/open-space-natural-resources/properties/two-bridges-trail/"
 mapUrl: "https://www.douglasco.gov/documents/two-bridges-trail.pdf"
