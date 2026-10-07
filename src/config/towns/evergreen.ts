@@ -27,7 +27,8 @@ export const evergreen: TownConfig = {
   domain: 'insideevergreenco.com',
   siteTitle: 'Inside Evergreen',
   tagline:
-    'An independent guide to Evergreen, Colorado: the lake, the downtown on Bear Creek, the elk in the meadows, the Jeffco Open Space trails, and what it’s like to live in the foothills an hour from Denver.',
+    'An independent guide to Evergreen, Colorado: the lake, downtown on Bear Creek, the elk, the Jeffco Open Space trails, and life in the foothills.',
+  shortTagline: 'The lake, Bear Creek, the elk and the open space trails',
   seoTagline: 'Events and trails in Evergreen, Colorado',
   counties: ['Jefferson'],
   state: 'CO',

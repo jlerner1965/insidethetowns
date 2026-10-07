@@ -29,7 +29,8 @@ export const castleRock: TownConfig = {
   domain: 'insidecastlerockco.com',
   siteTitle: 'Inside Castle Rock',
   tagline:
-    'An independent guide to Castle Rock, Colorado: downtown under the Rock, Philip S. Miller Park, the open space, the breweries, and what it’s like to live in a town of 73,000 halfway between Denver and Colorado Springs.',
+    'An independent guide to Castle Rock, Colorado: downtown under the Rock, Philip S. Miller Park, the trails, and life between Denver and Colorado Springs.',
+  shortTagline: 'Downtown under the Rock, Philip S. Miller Park and the open space',
   seoTagline: 'Events and places in Castle Rock, Colorado',
   counties: ['Douglas'],
   state: 'CO',

@@ -28,7 +28,8 @@ export const severance: TownConfig = {
   domain: 'insideseverance.com',
   siteTitle: 'Inside Severance',
   tagline:
-    'An independent guide to Severance, Colorado: the small town east of Windsor that grew from 3,000 to 7,700 people in a decade, its parks and its events, and what it’s like to live there.',
+    'An independent guide to Severance, Colorado: the parks, the ponds, the events, and life in the Weld County town east of Windsor that doubled in a decade.',
+  shortTagline: 'The parks, the ponds and a town that doubled in ten years',
   seoTagline: 'Events and places in Severance, Colorado',
   counties: ['Weld'],
   state: 'CO',

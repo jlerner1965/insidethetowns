@@ -26,7 +26,8 @@ export const fortLupton: TownConfig = {
   domain: 'insidefortlupton.com',
   siteTitle: 'Inside Fort Lupton',
   tagline:
-    'An independent guide to Fort Lupton, Colorado: the South Platte town around the old fort, its downtown, the recreation center, and what it’s like to live on the far side of I-25 from the Carbon Valley.',
+    'An independent guide to Fort Lupton, Colorado: the old fort on the South Platte, downtown, the recreation center, and life across I-25 from Carbon Valley.',
+  shortTagline: 'The old fort, downtown and the South Platte',
   seoTagline: 'Events and places in Fort Lupton, Colorado',
   counties: ['Weld'],
   state: 'CO',

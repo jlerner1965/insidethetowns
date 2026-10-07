@@ -28,7 +28,8 @@ export const estesPark: TownConfig = {
   domain: 'insideestespark.com',
   siteTitle: 'Inside Estes Park',
   tagline:
-    'An independent guide to Estes Park, Colorado: the gateway town to Rocky Mountain National Park, Elkhorn Avenue, the trailheads, the elk, and what it’s like to live at 7,500 feet.',
+    'An independent guide to Estes Park, Colorado: the gateway to Rocky Mountain National Park, Elkhorn Avenue, the trailheads, the elk, and mountain life.',
+  shortTagline: 'Elkhorn Avenue, the trailheads, the elk and the national park',
   seoTagline: 'Events and trails in Estes Park, Colorado',
   counties: ['Larimer'],
   state: 'CO',

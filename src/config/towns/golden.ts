@@ -27,7 +27,8 @@ export const golden: TownConfig = {
   domain: 'insidegolden.com',
   siteTitle: 'Inside Golden',
   tagline:
-    'An independent guide to Golden, Colorado: Washington Avenue, Clear Creek, the two Table Mountains, Lookout Mountain, the breweries, and what it’s like to live where the plains meet the foothills.',
+    'An independent guide to Golden, Colorado: Washington Avenue, Clear Creek, the Table Mountains, Lookout Mountain, and life at the edge of the foothills.',
+  shortTagline: 'Washington Avenue, Clear Creek and the Table Mountains',
   seoTagline: 'Events, trails and places in Golden, Colorado',
   counties: ['Jefferson'],
   state: 'CO',

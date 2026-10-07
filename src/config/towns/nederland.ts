@@ -26,7 +26,8 @@ export const nederland: TownConfig = {
   domain: 'insidenederland.com',
   siteTitle: 'Inside Nederland',
   tagline:
-    'An independent guide to Nederland, Colorado: the town at the top of Boulder Canyon, Barker Reservoir, the Peak to Peak Highway, the Indian Peaks trailheads, and what it’s like to live at 8,200 feet.',
+    'An independent guide to Nederland, Colorado: the top of Boulder Canyon, Barker Reservoir, the Peak to Peak Highway and the Indian Peaks trailheads.',
+  shortTagline: 'Barker Reservoir, the Peak to Peak and the Indian Peaks',
   seoTagline: 'Events and trails in Nederland, Colorado',
   counties: ['Boulder'],
   state: 'CO',
