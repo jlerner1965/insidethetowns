@@ -5,6 +5,9 @@ address: "Bayou Gulch Rd, Franktown"
 area: "Bayou Gulch Road, west of town"
 url: "https://www.douglasco.gov/open-space-natural-resources/properties/two-bridges-trail/"
 mapUrl: "https://www.douglasco.gov/documents/two-bridges-trail.pdf"
+image: ../images/two-bridges-trail.jpg
+imageAlt: "A dirt path through dry grass and low scrub on the Two Bridges Trail, open country stretching to the horizon under a blue sky"
+imageCredit: "Douglas County"
 hours: "Open daily, 1 hr before sunrise to 1 hr after sunset"
 tags: [hiking, mountain bike, horses]
 summary: "Douglas County open space fifteen minutes west of Elizabeth, near Franktown: 10.4 miles of trail through gulches and ponderosa, open to hikers, horses and mountain bikes, with connections toward the Cherry Creek Trail."

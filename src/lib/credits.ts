@@ -127,6 +127,7 @@ const GRANTS: Array<[RegExp, string]> = [
   [/^Use authorized by Town of Berthoud/, 'Town of Berthoud'],
   [/^Courtesy of the Johnstown Historical Society, Ltd/, 'Johnstown Historical Society, Ltd'],
   [/^Town of Johnstown photograph/, 'Town of Johnstown'],
+  [/^Douglas County photograph/, 'Douglas County'],
 ];
 
 export function publicCredit(row: LedgerRow): PublicCredit {
