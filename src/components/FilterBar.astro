@@ -22,8 +22,11 @@ const { options, label = 'Filter', rowLabel = 'What', openNow = false, subTowns 
 const pill =
   'rounded-full border border-accent-line bg-raised px-4 py-2 text-sm sm:py-1.5 font-medium text-ink-muted transition-colors hover:border-accent hover:text-accent-text aria-pressed:border-accent-dark aria-pressed:bg-accent-dark aria-pressed:text-white';
 ---
+{/* Held at the top of the screen while its list scrolls: a directory on a
+   phone runs to many screens, and the filters used to scroll away with the
+   first of them. The negative margins carry its paper to the page edge. */}
 {(options.length > 1 || openNow || subTowns.length > 1) && (
-  <div class="mb-8 space-y-3 md:mb-10" data-filter-bar>
+  <div class="sticky top-0 z-20 -mx-5 mb-5 space-y-3 bg-paper/95 px-5 py-3 shadow-[0_1px_0_var(--color-line-soft)] backdrop-blur-sm sm:-mx-8 sm:px-8 md:mb-7 lg:-mx-10 lg:px-10" data-filter-bar>
     {/* Every row is labelled, so "Where" no longer sits under an unlabelled
         first row whose buttons started further left (see .filter-row). */}
     <div class="filter-row" role="group" aria-label={label}>

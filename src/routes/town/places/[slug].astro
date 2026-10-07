@@ -11,7 +11,7 @@ import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { breadcrumbJsonLd, localBusinessJsonLd } from '@/lib/seo';
 import { EAT_DRINK_TYPES, LAND_TYPES, PLACE_STATUS_LABELS, PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, THINGS_TO_DO_TYPES } from '@/content/schemas';
 import { formatDate } from '@/lib/dates';
-import { openingHoursOf } from '@/lib/hours';
+import { hoursLines, openingHoursOf } from '@/lib/hours';
 import { byProminence, isOpen } from '@/lib/places';
 import OpenStatus from '@/components/OpenStatus.astro';
 import Provenance from '@/components/Provenance.astro';
@@ -37,7 +37,7 @@ const back = EAT_DRINK_TYPES.includes(data.type) || data.type === 'shop' ? { hre
 // and a notice above the body, so no part of the page reads as an invitation.
 const open = isOpen(place);
 const statusLabel = open ? undefined : PLACE_STATUS_LABELS[data.status];
-const eyebrow = `${statusLabel ? `${statusLabel} · ` : ''}${PLACE_TYPE_LABELS[data.type]}${data.priceRange ? ` · ${data.priceRange}` : ''}`;
+const eyebrow = `${PLACE_TYPE_LABELS[data.type]}${data.priceRange ? ` · ${data.priceRange}` : ''}`;
 // A listing is a short page. Without somewhere to go next it ends a third of
 // the way down the screen, and the other places of its kind are the obvious
 // next thing — as is anything on at this venue.
@@ -49,9 +49,11 @@ const family: readonly string[] = EAT_DRINK_TYPES.includes(data.type)
 // Somewhere to go next, so only places a reader can go.
 const others = (await getTownEntries('places')).filter((p) => p.slug !== place.slug && isOpen(p));
 const sameType = others.filter((p) => p.data.type === data.type);
-const nearby = (sameType.length >= 3 ? sameType : others.filter((p) => family.includes(p.data.type)))
+const nearbyAll = (sameType.length >= 3 ? sameType : others.filter((p) => family.includes(p.data.type)))
   .sort(byProminence)
   .slice(0, 6);
+// Two columns: an odd count left one name alone on the last row.
+const nearby = nearbyAll.length > 2 && nearbyAll.length % 2 === 1 ? nearbyAll.slice(0, -1) : nearbyAll;
 const here = uniqueByEvent(upcoming(occurrences(await getTownEntries('events'))))
   .filter((e) => e.data.venue === data.title)
   .slice(0, 3);
@@ -127,7 +129,7 @@ const correct = `/correct/?item=${encodeURIComponent(`place/${place.slug}`)}&tit
 const facts = [
   { label: 'Address', value: data.area ? `${data.address} · ${data.area}` : data.address },
   { label: 'Directions', value: 'Open in Google Maps', href: directions },
-  { label: 'Hours', value: hoursValue, hours: hours ?? undefined },
+  { label: 'Hours', value: hoursValue, lines: hoursValue && hoursValue === data.hours ? hoursLines(hoursValue) : undefined, hours: hours ?? undefined },
   { label: 'Season', value: seasonValue },
   { label: 'Phone', value: data.phone, href: data.phone ? `tel:${data.phone.replace(/[^\d+]/g, '')}` : undefined },
   { label: 'Website', value: data.url ? new URL(data.url).hostname.replace(/^www\./, '') : undefined, href: data.url },
@@ -138,6 +140,7 @@ const facts = [
   title={data.title}
   kind="Place"
   eyebrow={eyebrow}
+  status={statusLabel}
   intro={data.summary}
   description={statusLabel ? `${statusLabel}. ${data.summary}` : data.summary}
   noindex={place.delisted}
@@ -162,8 +165,8 @@ const facts = [
   <div class="flex flex-col gap-10 lg:grid lg:grid-cols-[1fr_20rem] lg:items-start lg:gap-16">
     <div class="contents lg:block">
       {statusLabel && (
-        <div class="order-1 rounded-lg border-l-4 border-ink bg-raised p-5 ring-1 ring-line-soft lg:mb-10" role="note">
-          <p class="eyebrow">{statusLabel}</p>
+        <div class="order-1 max-w-[40rem] rounded-r-lg border-l-4 border-highlight bg-highlight-soft p-5 lg:mb-10" role="note">
+          <p class="eyebrow text-ink">{statusLabel}</p>
           <p class="mt-2 leading-relaxed">
             {data.statusNote}
             {data.statusSource && (
@@ -189,10 +192,27 @@ const facts = [
         <div class="prose">
           <Content />
         </div>
+        {/* Read as words, not as the bordered pills they were, which looked
+            like filter buttons and showed the raw slugs ("no-dogs"). */}
         {data.tags.length > 0 && (
-          <ul class="mt-10 flex flex-wrap gap-2">
-            {data.tags.map((tag) => <li class="rounded-full border border-line px-3 py-1 text-xs font-medium text-ink-muted">{tag}</li>)}
-          </ul>
+          <p class="mt-10 text-[0.9375rem] text-ink-muted">
+            <span class="eyebrow mr-2 text-ink-faint">At a glance</span>
+            {data.tags.map((tag) => tag.replace(/-/g, ' ')).join(' · ')}
+          </p>
+        )}
+        {/* Without a photograph the column ended well above the facts beside
+            it. The ask for one, which otherwise sits at the foot of the
+            sidebar, goes where the photograph would be. */}
+        {!data.image && (
+          <p class="mt-10 rounded-lg border border-dashed border-line px-5 py-4 text-[0.9375rem] leading-snug">
+            <a href={correct} class="font-semibold text-accent-text no-underline hover:underline">
+              {hasOperator ? `Own or run ${data.title}?` : `Know ${data.title} well?`}
+            </a>
+            <span class="mt-1 block text-[0.875rem] leading-relaxed text-ink-muted">
+              Send a photo, new hours or a correction. Listings are editorial and free; nobody pays to be here.
+              {hasOperator && <a href="/for-businesses/" class="text-accent-text underline">How listings work.</a>}
+            </span>
+          </p>
         )}
       </div>
       <p class="order-5 text-[0.9375rem] lg:mt-12"><a href={back.href} class="font-semibold text-accent-text no-underline hover:underline">← {back.label}</a></p>
@@ -204,7 +224,13 @@ const facts = [
             <div class="py-4" data-hours={f.hours ? JSON.stringify(f.hours) : undefined}>
               <dt class="eyebrow">{f.label}</dt>
               <dd class="mt-1.5 leading-snug">
-                {f.href ? <a href={f.href} rel={f.href.startsWith('http') ? 'noopener' : undefined} class="text-accent-text">{f.value}</a> : f.value}
+                {f.href ? (
+                  <a href={f.href} rel={f.href.startsWith('http') ? 'noopener' : undefined} class="text-accent-text">{f.value}</a>
+                ) : f.lines ? (
+                  f.lines.map((line) => <span class="block">{line}</span>)
+                ) : (
+                  f.value
+                )}
                 {f.hours && <span class="open-status mt-1 block text-[0.9375rem] font-semibold" data-open-status hidden></span>}
               </dd>
             </div>
@@ -267,6 +293,7 @@ const facts = [
           where the gap shows. The link lands on the contact form with the
           place's name already in the subject line.
         */}
+        {data.image && (
         <p class="mt-6 border-t border-line-soft pt-6 text-[0.9375rem] leading-snug">
           <a href={correct} class="font-semibold text-accent-text no-underline hover:underline">
             {hasOperator ? `Own or run ${data.title}?` : `Know ${data.title} well?`}
@@ -276,6 +303,7 @@ const facts = [
             {hasOperator && <a href="/for-businesses/" class="text-accent-text underline">How listings work.</a>}
           </span>
         </p>
+        )}
       </div>
     </div>
   </div>

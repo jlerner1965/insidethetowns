@@ -1,6 +1,7 @@
 ---
 import Page from '@/layouts/Page.astro';
 import PlaceDirectory from '@/components/PlaceDirectory.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
 import SubTownLinks from '@/components/SubTownLinks.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
 import { getTown } from '@/config';
@@ -54,16 +55,12 @@ const structured = [
       <p class="mt-2 text-[0.8125rem] leading-relaxed text-ink-muted">Official pages, linked live. This guide does not report road or trail conditions itself.</p>
     </aside>
   )}
-  <PlaceDirectory places={places} heading="Trails, parks and venues" filterable emptyMessage="No trails, parks or venues listed yet." />
-  {lodging.length > 0 && (
-    <section class="mt-20">
-      <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">Stay the night</h2>
-      <PlaceDirectory places={lodging} lead={2} />
-    </section>
-  )}
+  {/* Places to stay are one more group of the list, as the shops are on Eat
+     & Drink: their own heading, count and filter button. */}
+  <PlaceDirectory places={[...places, ...lodging]} heading="Trails, parks, venues and places to stay" filterable emptyMessage="No trails, parks or venues listed yet." />
   {outdoors.length > 0 && (
     <section class="mt-20">
-      <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">Outdoors, in depth</h2>
+      <SectionHeader eyebrow="From the guide" title="Outdoors, in depth" href="/guides/" linkLabel="All guides" />
       {outdoors.length === 1 ? (
         <ArticleCard article={outdoors[0]} row />
       ) : (

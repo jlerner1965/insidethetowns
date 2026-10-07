@@ -348,3 +348,22 @@ export function openingStatus(spec: readonly string[], now: Date, tz = TIME_ZONE
   }
   return { open: false, label: 'Closed' };
 }
+
+/**
+ * A free-text hours line as display lines, one per day range, held together
+ * where a break would strand a fragment: "11 am" never parts from its "am",
+ * and a time range never breaks at its dash. In a narrow column "Fri–Sat 11
+ * am–10 pm" used to wrap as "Fri–Sat 11 / am–10 pm".
+ */
+export function hoursLines(text: string): string[] {
+  return text
+    // A new line at each semicolon, and at a comma that starts a new day range.
+    .split(/;\s*|,\s*(?=(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun|[Dd]aily|[Ww]eekdays|[Ww]eekends)\b)/)
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((part) =>
+      part
+        .replace(/(\d) ?(am|pm|a\.m\.|p\.m\.)/gi, '$1\u00a0$2')
+        .replace(/(\d(?:\u00a0(?:am|pm|a\.m\.|p\.m\.))?) ?[–-] ?(\d)/gi, '$1\u2060–\u2060$2'),
+    );
+}

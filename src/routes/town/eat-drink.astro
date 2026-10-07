@@ -35,11 +35,8 @@ const structured = [
 ---
 <Page title="Eat & Drink" jsonLd={structured} seoTitle={`Where to eat & drink in ${town.name}, Colorado`} eyebrow={town.name} {description} intro={`Where to eat, drink, browse and linger in ${town.name}. Listings are editorial; nobody pays to be here.`}>
   <SubTownLinks slot="after-header" class="mt-5" />
-  <PlaceDirectory places={places} heading="Places to eat and drink" filterable emptyMessage="No places listed yet." />
-  {shops.length > 0 && (
-    <section class="mt-20">
-      <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">Shops</h2>
-      <PlaceDirectory places={shops} />
-    </section>
-  )}
+  {/* The shops are one more group of the same list, with its own heading,
+     count and filter button. As a separate section under a small label they
+     were a third style of header, and the filters above left them alone. */}
+  <PlaceDirectory places={[...places, ...shops]} heading="Places to eat, drink and shop" filterable emptyMessage="No places listed yet." />
 </Page>
