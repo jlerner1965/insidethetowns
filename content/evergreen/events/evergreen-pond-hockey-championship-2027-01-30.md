@@ -16,4 +16,4 @@ verified: "2026-10-07"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 
-The 15th annual Evergreen Pond Hockey Championship, played on several rinks on Evergreen Lake. Teams of up to eight, all 18 or older, play four on four in competitive, intermediate and novice divisions, with at least three games each on Saturday and the finals on Sunday. Team entry is $750; the district's page says nothing about a charge to watch, and gives the first face-off as 7 am in one place and 7:30 am in another.
+The 15th annual Evergreen Pond Hockey Championship, played on several rinks on Evergreen Lake. Teams of up to eight, all 18 or older, play four on four in competitive, intermediate and novice divisions, with at least three games each on Saturday and the finals on Sunday. Team entry is $750, and the page says nothing about a charge to watch; it gives the first face-off as 7 am in one place and 7:30 am in another. Play depends on the ice: the district's winter page still carries a notice that the tournament was canceled for poor ice quality, and the event page promises teams a full refund if weather or ice cancels it.

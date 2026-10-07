@@ -13,4 +13,4 @@ source: "https://members.evergreenchamber.org/events/details/16th-annual-echo-tu
 sourceId: "evergreenchamber-org-calendar"
 ---
 
-The 16th annual Thanksgiving-morning 5K in support of Evergreen Christian Outreach, the local food bank and resource centre. Race-day registration opens at 8 am at EChO on Meadow Drive, there is a short opening ceremony at 8:45 and the run and walk start at 9. Fees rise from $30 to $40 for adults as the date nears; children 4 and under are free, and a T-shirt comes with registration by 1 November.
+The 16th annual Thanksgiving-morning 5K in support of Evergreen Christian Outreach, the local food bank and resource center. Race-day registration opens at 8 am at EChO on Meadow Drive, there is a short opening ceremony at 8:45 and the run and walk start at 9. Fees rise from $30 to $40 for adults as the date nears; children 4 and under are free, and a T-shirt comes with registration by 1 November.

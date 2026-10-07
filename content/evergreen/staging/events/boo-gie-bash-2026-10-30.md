@@ -11,4 +11,4 @@ source: "https://members.evergreenchamber.org/events/details/boo-gie-bash-108613
 sourceId: "evergreenchamber-org-calendar"
 ---
 
-A costumed Halloween dance night at the Wild Game Clubhouse on Friday, 30 October, raising money for INSPIRE, the recreation district's programme for people with special needs. Doors open at 6 pm and the Wash Park Band plays 7 to 10 pm, with costume contests between sets. Tickets are $30 in advance or $45 at the door.
+A costumed Halloween dance night at the Wild Game Clubhouse on Friday, 30 October, raising money for INSPIRE, the recreation district's program for people with special needs. Doors open at 6 pm and the Wash Park Band plays 7 to 10 pm, with costume contests between sets. Tickets are $30 in advance or $45 at the door.

@@ -39,6 +39,7 @@ sources:
   - { label: "Castle Rock Downtown Alliance: Free Winter Trolley", url: "https://www.downtowncastlerock.com/wintertrolleyrides" }
   - { label: "Castle Rock Downtown Alliance: Holiday Carriage Rides", url: "https://www.downtowncastlerock.com/holidaycarriagerides" }
   - { label: "Castle Rock Chamber of Commerce: Castle Rock Starlighting", url: "https://castlerock.org/castle-rock-starlighting/" }
+  - { label: "Douglas County: Recreation opportunities for kids expand (Gold Crown Field House)", url: "https://www.douglasco.gov/recreation-opportunities-for-kids-expand-thanks-to-voter-funding-and-partnerships/" }
 ---
 
 Castle Rock's outings for children gather in three places: downtown, where the library, the depot museum and the holiday events are; Philip S. Miller Park, home of The Edge; and the County's land at the fairgrounds and out on the open space. One gap first. The Town of Castle Rock runs its own parks and recreation, and its website, crgov.com, could not be read for this guide, so the Town's parks, pools and recreation centers have no hours or prices here; check them there. The rest follows, with the hours, ages and prices each operator publishes.
@@ -91,5 +92,7 @@ Through October the Outlets at Castle Rock show off [Big Jack](https://landing.o
 - **Thursday, December 10:** [A Visit with Santa](https://go.dcl.org/event/14463389) at the library at 10, 2 and 6, with stories, activities and snacks; register each child from November 10.
 - **Mondays and Tuesdays, November 23 to December 29, 5:30 to 7:30 pm:** the [free winter trolley](https://www.downtowncastlerock.com/wintertrolleyrides) loops past the holiday lights from the Encore garage on South Street; every stop takes strollers and wheelchairs.
 - **Wednesday to Sunday, November 22 to January 3:** [carriage rides](https://www.downtowncastlerock.com/holidaycarriagerides) from Festival Park, $59 for a carriage of four, or in some cases two adults and three children under 10. There are 560 rides this season and the Alliance warns that not everyone who wants one will get one; 75 tickets are sold in person at the library at 4 pm on Thursday, October 29, and the rest online at noon on Wednesday, November 18.
+
+Something new is on the way for young athletes. On August 4, 2026, the County commissioners approved $7.5 million toward a 65,000-square-foot Gold Crown Foundation field house in Castle Rock, with six basketball courts, 12 overlapping volleyball courts and a room for STEM programs, on a 22-acre site the Town is providing; the [County's announcement](https://www.douglasco.gov/recreation-opportunities-for-kids-expand-thanks-to-voter-funding-and-partnerships/) gives no opening date.
 
 Upcoming family events with published dates are on the guide's [events page](/events/).
