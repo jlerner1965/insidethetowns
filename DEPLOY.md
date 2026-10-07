@@ -17,13 +17,13 @@ insidefortcollins.com TOWN=fortcollins
 insidelongmontco.com TOWN=longmont
 insidelovelandco.com TOWN=loveland
 carbonvalleyguide.com TOWN=carbon-valley   (project `carbonvalleyguide`; Frederick, Firestone and Dacono on one site)
-insideseverance.com  TOWN=severance       (not live; holding page)
-insidefortlupton.com TOWN=fort-lupton     (not live; holding page)
+insideseverance.com  TOWN=severance
+insidefortlupton.com TOWN=fort-lupton
 insidecastlerockco.com TOWN=castle-rock   (not live; holding page; insidecastlerock.com is someone else's)
-insideestespark.com  TOWN=estes-park      (not live; holding page; mountain variant)
-insidegolden.com     TOWN=golden          (not live; holding page; mountain variant)
-insideevergreenco.com TOWN=evergreen      (not live; holding page; mountain variant; insideevergreen.com is someone else's)
-insidenederland.com  TOWN=nederland       (not live; holding page; mountain variant)
+insideestespark.com  TOWN=estes-park      (mountain variant)
+insidegolden.com     TOWN=golden          (mountain variant)
+insideevergreenco.com TOWN=evergreen      (mountain variant; insideevergreen.com is someone else's)
+insidenederland.com  TOWN=nederland       (mountain variant)
 …
 ```
 
@@ -32,7 +32,8 @@ by the REST API with the same settings (framework, repository, `TOWN`, the
 Ignored Build Step, Node 22.x, preview deployments off, one deploy hook on
 `main`). Their apex and `www` domains (`www` a 308 to the apex) were
 attached later the same day, once the owner said so; DNS at Cloudflare is
-the owner's. Each builds its holding page from `main`.
+the owner's. Six went live on 7 October 2026; Castle Rock still builds its
+holding page from `main`, until it clears its events threshold.
 
 `node scripts/live-towns.ts` prints the list of sites that must have a project.
 
@@ -122,7 +123,7 @@ of a product or service" as commercial. `/advertise/` is that. A commercial
 network on a Hobby account risks being paused, which takes every site
 down at once.
 
-One seat covers every project: the hub and the eleven guides, plus the
+One seat covers every project: the hub and every guide, plus the
 retired predecessors' projects. Pro is billed per user, not per project.
 
 The build also writes `_headers` and `_redirects` into the output
@@ -211,12 +212,18 @@ not been measured on a real deployment yet.
 
 ## Email
 
-Every town config publishes one address, `hello@<domain>`, and all thirteen domains
+Every town config publishes one address, `hello@<domain>`, and the first thirteen domains
 receive it through **Cloudflare Email Routing**, which forwards it to the owner's
 inbox. There is no mailbox anywhere: Cloudflare accepts the message and passes it
 on. Set up on 27 September 2026 for the first eight domains, on 4 October
 for insidewindsorco.com, insidefortcollins.com, insidelongmontco.com and
 insidelovelandco.com, and on 5 October for carbonvalleyguide.com.
+
+**Not yet on the seven domains added 6 October** (insideseverance.com,
+insidefortlupton.com, insidecastlerockco.com, insideestespark.com,
+insidegolden.com, insideevergreenco.com, insidenederland.com): none had MX
+records when six of them went live on 7 October, so their `hello@`
+addresses bounce until routing and the rule are switched on as below.
 
 On each domain (Cloudflare → the domain → Email → Email Routing):
 

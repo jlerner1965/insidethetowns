@@ -3374,3 +3374,75 @@ flips it.
 - **Estes Park's timed-entry lines** describe a season that ends 18 October;
   a reminder is set for 19 October to replace them with an out-of-season
   note linking the park's page.
+
+## Six towns live, Castle Rock held
+
+*7 October 2026.* The owner's words: get the remaining towns live, merge
+when done, and then "launch 6 now keep castle rock on hold" until it
+clears its threshold.
+
+- **The review, delegated as for Carbon Valley.** One agent per town
+  re-read every staged event on the organizer's own page that day, applied
+  the event standard (docs/AUDIT-2026-10-02.md), rewrote each body in the
+  guide's words and approved through the review's own `approveText`, so
+  every approval carries `verifiedBy: "Claude Code, delegated by James
+  Lerner"`. Where staging ran short, more events were hand-read from the
+  town's confirmed sources only, never a proposed one. Rejected: what was
+  over, storytimes and clubs, school-team competitions, members-only and
+  sold-out events, a dealer's sales event, a brand promotion, opening hours
+  billed as an event. Held in staging, each with the one fact it needs:
+  anything whose site refused a reader (403, a bot wall, a robots
+  disallow) and anything a page left without a time or a venue.
+- **A run is one listing.** A play's nine nights, a haunted house's
+  eleven, a two-day show at the fairgrounds and a season of carriage rides
+  are one file each with their date range, as Golden's Polar Express was.
+  Longmont's fairground shows kept a file per day (5 October) because each
+  day sat on the County's calendar as its own item; that is still the rule
+  where ingest would otherwise restage the other days.
+- **Counts at the flip** (upcoming events, open listings, against each
+  threshold): Severance 11 of 10 and 12 of 12; Fort Lupton 13 of 10 and
+  18 of 15; Estes Park 23 of 20 and 46 of 30; Golden 24 of 20 and 31 of
+  25; Evergreen 26 of 15 and 26 of 20; Nederland 15 of 10 and 25 of 15.
+  Severance's events are bunched in October and dip under 10 on 14
+  October; the weekly session is where that is made up.
+- **Castle Rock stays a holding page at 19 of 25.** Every staged item and
+  every confirmed source that answers a reader was used. The Town's site
+  (crgov.com) still answers 403, and two fairground organizers answer
+  "Blacklisted bot". The Castle Rock Historical Society's ghost walks and
+  Santa day would add about ten dated events if it is confirmed as a
+  source; three items wait on a phone call.
+- **Two guides per town**, a history and a with-kids guide, every fact
+  linked to a page read that day and listed under its sources, and both
+  versions given wherever sources disagree. No new photographs: the guides
+  carry none. Golden's and Fort Lupton's followed the launch.
+- **Chassis, found by flipping the seven in a trial build:**
+  - The scaffold had drawn each favicon in a color the config no longer
+    used, so Nederland's tab icon was Niwot's. Each now takes its accent.
+  - All seven taglines ran past the 155 characters a search snippet shows,
+    and none had a `shortTagline`. Cut to fit; the elevations are out, as
+    they were cut from Moving Here.
+  - The hub map's left-or-right label rule ran out of room once Severance
+    sat beside Timnath and Fort Lupton beside Carbon Valley. Labels now try
+    right, left, above and below against every pin and label already
+    placed, the most crowded pins first, and a reference city drops out
+    once it has a guide (Castle Rock's faint label would otherwise sit
+    under its own pin).
+  - The county test now counts Jefferson.
+- **Infrastructure was already in place.** All seven projects had their
+  domains attached and verified and their hooks in `VERCEL_DEPLOY_HOOKS`
+  (the 7 October nightly run fired all twenty). Not done, and the owner's:
+  Cloudflare Email Routing on the seven new domains (no MX records; the
+  session's Cloudflare token is still rejected), and Web Analytics on
+  Golden and Nederland, which were never switched on.
+- **Things the agents found for the owner:**
+  - The Estes Valley Library's robots.txt now disallows Claude's agents on
+    its main site (its calendar subdomain allows them). The library listing
+    and Moving Here cite that site from a 6 October read.
+  - enosmills.com now redirects to an unrelated gambling-type domain;
+    nothing on the guides links to it.
+  - The Severance Town Council's one-off budget town hall (13 October) was
+    approved from a calendar not in the registry, as a civic event people
+    act on; delete the file to reverse it.
+  - Evergreen events that rest only on a chamber listing stayed staged
+    wherever the organizer's own site was blocked. Erie and Windsor have
+    published chamber-sourced events before; the owner may allow it here.
