@@ -102,6 +102,9 @@ const field =
         No spam, unsubscribe any time. We never sell your address — see the
         <a href={`https://${hub.domain}/privacy/`} class="text-accent-text">privacy page</a>.
       </p>
+      {/* A page's own line about the email (the hub's "See a sample issue"),
+          inside the card rather than loose underneath it. */}
+      <slot />
     </form>
   </section>
 )}

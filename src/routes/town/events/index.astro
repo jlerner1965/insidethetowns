@@ -105,7 +105,9 @@ const structured = [
     {later.length > 0 && (
       <div id="further-out" class="mt-16 scroll-mt-4 md:mt-24" data-filter-section>
         <SectionHeader eyebrow="After the next two weeks" title="Further out" />
-        <EventList events={later} />
+        {/* Months of single days: smaller day names, so the list reads as a
+            look ahead rather than a second fortnight at full size. */}
+        <EventList events={later} compact />
       </div>
     )}
     <p data-filter-empty hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">Nothing listed that matches. Try <button type="button" class="font-semibold text-accent-text underline" data-filter-reset>everything, any time</button>.</p>

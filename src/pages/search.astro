@@ -44,7 +44,9 @@ const browse =
   noindex
   narrow
 >
-  <form role="search" action="/search/" method="get" class="mb-10" data-search-form>
+  {/* In the masthead, where the page begins: below it the page was a tall
+     tinted band, then a field, then very little. */}
+  <form slot="after-header" role="search" action="/search/" method="get" class="mt-8 max-w-2xl" data-search-form>
     <label for="q" class="eyebrow mb-2 block">What are you looking for?</label>
     <div class="flex gap-3">
       <input
@@ -62,7 +64,7 @@ const browse =
 
   {/* Somewhere to go before the first word is typed: the empty page was a
      field and then 170px of nothing above the footer. */}
-  <p class="-mt-4 mb-8 flex flex-wrap items-baseline gap-x-4 gap-y-1 text-[0.9375rem]">
+  <p class="mb-8 flex flex-wrap items-baseline gap-x-4 gap-y-1 text-[0.9375rem]">
     <span class="eyebrow text-ink-faint">Or browse</span>
     {browse.map((l) => <a href={l.href} class="py-1 font-semibold text-accent-text no-underline hover:underline">{l.label}</a>)}
   </p>

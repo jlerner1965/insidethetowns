@@ -15,6 +15,7 @@
  */
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
 import { countyLabel, countyShort, getHub, liveTowns } from '@/config';
 import { collectionPageJsonLd } from '@/lib/seo';
 import { comparisonSlug, liveComparisons } from '@/content/comparisons';
@@ -119,8 +120,8 @@ const structured = collectionPageJsonLd(hub, {
   </div>
 
   <section class="mt-20 md:mt-24">
-    <h2 class="display-md mb-2 text-4xl">Who each one suits</h2>
-    <p class="mb-10 max-w-2xl text-lg leading-relaxed text-ink-muted">
+    <SectionHeader eyebrow="Beyond the figures" title="Who each one suits" />
+    <p class="-mt-2 mb-10 max-w-2xl text-lg leading-relaxed text-ink-muted">
       The table is the easy half. This is the part a table cannot do.
     </p>
     <div class="space-y-12">
@@ -147,14 +148,14 @@ const structured = collectionPageJsonLd(hub, {
 
   {comparisons.length > 0 && (
     <section class="mt-20 md:mt-24">
-      <h2 class="display-md mb-6 text-4xl">Head to head</h2>
-      <ul class="border-t border-line-soft">
+      <SectionHeader eyebrow="Two towns at a time" title="Head to head" />
+      <ul>
         {comparisons.map((c) => {
           const a = towns.find((t) => t.slug === c.a);
           const b = towns.find((t) => t.slug === c.b);
           return (
             <li class="border-b border-line-soft py-5">
-              <a href={`/moving/${comparisonSlug(c)}/`} class="text-[1.25rem] font-medium no-underline hover:text-accent-text hover:underline">
+              <a href={`/moving/${comparisonSlug(c)}/`} class="font-heading text-[1.375rem] font-medium no-underline hover:text-accent-text hover:underline">
                 {a?.name} or {b?.name}?
               </a>
               <p class="mt-1.5 max-w-[68ch] text-[0.9375rem] leading-relaxed text-ink-muted">{c.verdict}</p>
