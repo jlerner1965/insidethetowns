@@ -52,8 +52,8 @@ const { title, seoTitle, eyebrow, status, intro, narrow = false, ...seo } = Astr
     <div class:list={[narrow && 'max-w-2xl']}>
       <slot />
     </div>
-    {/* The full width of the page, below a narrow body: a CtaBand held to
-        prose width broke its own two-column layout (thanks, message-sent). */}
-    <slot name="after" />
   </div>
+  {/* After the page's container, full bleed: the closing CtaBand. Inside a
+      narrow body it broke its own two columns (thanks, message-sent). */}
+  <slot name="after" />
 </Base>

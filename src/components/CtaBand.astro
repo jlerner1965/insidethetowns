@@ -6,6 +6,11 @@
  * The short pages — about, contact — ran out of content halfway down the
  * screen and ended in a page-height gap above the footer. This gives them a
  * foot, and an onward link instead of a dead end.
+ *
+ * A full-width band, like the home page's "Moving here", rather than the
+ * rounded card it was: the two closing panels of the site looked like two
+ * different designs. It goes in Page's `after` slot, outside the page's
+ * container, and as the last thing on the page it meets the footer.
  */
 interface Props {
   eyebrow?: string;
@@ -16,8 +21,8 @@ interface Props {
 
 const { eyebrow, title, body, links } = Astro.props;
 ---
-<section class="on-dark mt-20 rounded-lg bg-accent-dark px-6 py-12 text-white md:mt-24 md:px-12 md:py-16">
-  <div class="grid gap-8 md:grid-cols-[3fr_2fr] md:items-end">
+<section class="on-dark mt-20 bg-accent-dark text-white md:mt-24">
+  <div class="container-page grid gap-8 py-16 md:grid-cols-[3fr_2fr] md:items-end md:py-20">
     <div>
       {eyebrow && <p class="eyebrow text-highlight-ink">{eyebrow}</p>}
       <h2 class="display-md mt-3 text-[2.25rem] lg:text-5xl">{title}</h2>

@@ -356,14 +356,24 @@ export function openingStatus(spec: readonly string[], now: Date, tz = TIME_ZONE
  * am–10 pm" used to wrap as "Fri–Sat 11 / am–10 pm".
  */
 export function hoursLines(text: string): string[] {
-  return text
-    // A new line at each semicolon, and at a comma that starts a new day range.
-    .split(/;\s*|,\s*(?=(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun|[Dd]aily|[Ww]eekdays|[Ww]eekends)\b)/)
-    .map((part) => part.trim())
-    .filter(Boolean)
-    .map((part) =>
-      part
-        .replace(/(\d) ?(am|pm|a\.m\.|p\.m\.)/gi, '$1\u00a0$2')
-        .replace(/(\d(?:\u00a0(?:am|pm|a\.m\.|p\.m\.))?) ?[–-] ?(\d)/gi, '$1\u2060–\u2060$2'),
-    );
+  // A new line at each semicolon, and at a comma that starts a new day range
+  // once the range before it has its times: "Mon, Wed–Fri 6 am–8 pm" is one
+  // range of days, "Mon–Fri 6 am–2 pm, Sat 8 am–noon" is two.
+  const DAY = /^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun|[Dd]aily|[Ww]eekdays|[Ww]eekends)\b/;
+  const lines: string[] = [];
+  for (const clause of text.split(/;\s*/)) {
+    let current = '';
+    for (const part of clause.split(/,\s*/)) {
+      if (current && DAY.test(part) && /\d/.test(current)) {
+        lines.push(current);
+        current = part;
+      } else current = current ? `${current}, ${part}` : part;
+    }
+    if (current.trim()) lines.push(current.trim());
+  }
+  return lines.map((part) =>
+    part
+      .replace(/(\d) ?(am|pm|a\.m\.|p\.m\.)/gi, '$1\u00a0$2')
+      .replace(/(\d(?:\u00a0(?:am|pm|a\.m\.|p\.m\.))?) ?[–-] ?(\d)/gi, '$1\u2060–\u2060$2'),
+  );
 }
