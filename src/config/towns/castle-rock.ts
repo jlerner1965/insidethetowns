@@ -48,9 +48,10 @@ export const castleRock: TownConfig = {
     neutralBg: '#F8F4F5',
   },
   hero: {
-    // The placeholder new-town writes; replace before launch and update IMAGE_LICENSES.csv.
     image: 'hero.jpg',
-    alt: 'Placeholder image; a photograph of Castle Rock replaces it before launch',
+    alt: 'Wilcox Street in downtown Castle Rock in winter: brick storefronts, parked cars and strings of lights crossing the street',
+    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 7 October 2026.
+    credit: 'Jared Winkler, Wikimedia Commons, CC BY-SA 4.0',
   },
   social: {
     email: 'hello@insidecastlerockco.com',
