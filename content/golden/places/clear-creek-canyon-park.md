@@ -7,6 +7,9 @@ source: "https://www.jeffco.us/1196/Clear-Creek-Canyon-Park"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/clear-creek-canyon-park.jpg
+imageAlt: "Clear Creek Canyon Park at the CCR Trailhead: the paved trail on the left, the creek and a footbridge in the middle and US 6 on the right between rocky canyon walls"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 4.0"
 hours: "Daily, 1 hour before sunrise to 1 hour after sunset"
 mapUrl: "https://www.jeffco.us/DocumentCenter/View/54228/Clear-Creek-Canyon-Park-Map"
 tags: [hiking, biking, climbing, fishing, paved-trail]

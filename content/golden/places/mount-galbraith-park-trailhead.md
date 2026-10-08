@@ -7,6 +7,9 @@ source: "https://www.jeffco.us/1335/Mount-Galbraith-Park"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/mount-galbraith-park-trailhead.jpg
+imageAlt: "The Mount Galbraith Park trailhead on Golden Gate Canyon Road: the park sign, the gravel parking lot and restroom, and the foothills rising behind"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 hours: "Daily, 1 hour before sunrise to 1 hour after sunset"
 mapUrl: "https://www.jeffco.us/DocumentCenter/View/9379/Mount-Galbraith-Park-Map"
 tags: [hiking, views]

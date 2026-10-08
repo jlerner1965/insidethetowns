@@ -7,6 +7,9 @@ source: "https://www.jeffco.us/1192/Centennial-Cone-Park"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/centennial-cone-park.jpg
+imageAlt: "The forested dome of Centennial Cone seen from Camino Perdido, with ranch meadows and grazing horses in front"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 hours: "Daily, 1 hour before sunrise to 1 hour after sunset"
 seasonal: { season: "Closed to all but permitted hunters in December and January", closedMonths: [Dec, Jan] }
 tags: [hiking, mountain-biking, horses, wildlife]

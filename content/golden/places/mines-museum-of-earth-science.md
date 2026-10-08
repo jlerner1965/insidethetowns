@@ -7,6 +7,9 @@ source: "https://museum.mines.edu/"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/mines-museum-of-earth-science.jpg
+imageAlt: "The entrance of the General Research Lab building on the Colorado School of Mines campus, home of the Mines Museum, with boulder specimens on the plaza in front"
+imageCredit: "Clyde Charles Brown, Wikimedia Commons, CC BY-SA 4.0"
 phone: "303-273-3815"
 hours: "Daily 10 am–4 pm"
 tags: [museum, minerals, free, kids]

@@ -9,6 +9,9 @@ verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 access: { parking: "Limited, especially on summer weekends; reached by five miles of rough two-wheel-drive road", permit: "Camping permit needed for overnight trips in the Indian Peaks Wilderness June 1 to September 15; organized groups need a permit year-round", closures: "In winter, motorized access is typically not possible", conditionsUrl: "https://www.fs.usda.gov/r02/arp/conditions", conditionsLabel: "Boulder Ranger District conditions and road status", source: "https://www.fs.usda.gov/r02/arp/recreation/fourth-july-trailhead", verified: "2026-10-06" }
+image: ../images/fourth-of-july-trailhead.jpg
+imageAlt: "Rocky alpine basin and bare peaks of the Continental Divide around Arapaho Pass in the Indian Peaks Wilderness, seen from the South Arapaho Peak trail above the Fourth of July Trailhead in late summer"
+imageCredit: "Nina Reed, Wikimedia Commons, CC BY-SA 4.0"
 tags: [indian-peaks, hiking, backpacking]
 summary: "Forest Service trailhead at the end of the road past Eldora for the Arapaho Pass, Diamond Lake and Arapaho Glacier trails in the Indian Peaks Wilderness. Parking is limited; no restrooms."
 ---

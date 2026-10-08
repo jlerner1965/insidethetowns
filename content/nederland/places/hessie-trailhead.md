@@ -9,6 +9,9 @@ verified: "2026-10-07"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 access: { parking: "Limited parking near the trailhead and Hessie Cabin; the Forest Service asks visitors to use the Boulder County Hessie Shuttle on summer and fall weekends and holidays", permit: "Camping permit needed for overnight trips in the Indian Peaks Wilderness June 1 to September 15; organized groups need a permit year-round", closures: "In winter, access is typically from the town of Eldora", conditionsUrl: "https://www.fs.usda.gov/r02/arp/conditions", conditionsLabel: "Boulder Ranger District conditions and road status", source: "https://www.fs.usda.gov/r02/arp/recreation/hessie-trailhead", verified: "2026-10-06" }
+image: ../images/hessie-trailhead.jpg
+imageAlt: "Jasper Lake in the Indian Peaks Wilderness, reached by trail from the Hessie Trailhead: clear shallow water over brown stones in the foreground, spruce along the far shore and snow patches on the rocky ridge above"
+imageCredit: "SBobby, Wikimedia Commons, CC BY-SA 4.0"
 tags: [indian-peaks, hiking, backpacking, shuttle]
 summary: "Forest Service trailhead beyond Eldora for Lost, King, Woodland and Diamond lakes, Devils Thumb and the Continental Divide in the Indian Peaks Wilderness. Parking is limited and there are no restrooms."
 ---

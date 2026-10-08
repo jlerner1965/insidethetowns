@@ -7,6 +7,9 @@ source: "https://www.jeffco.us/1427/North-Table-Mountain-Park"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/north-table-mountain-park.jpg
+imageAlt: "The columnar basalt cliffs that cap North Table Mountain, above a grassy slope dotted with shrubs"
+imageCredit: "Georgialh, Wikimedia Commons, CC BY-SA 4.0"
 hours: "Daily, 1 hour before sunrise to 1 hour after sunset"
 mapUrl: "https://www.jeffco.us/DocumentCenter/View/9380/North-Table-Mountain-Park-Map"
 tags: [hiking, mountain-biking, climbing, views]

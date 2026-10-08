@@ -8,6 +8,9 @@ source: "https://www.goldenhistory.org/visit/history-park/"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/golden-history-park.jpg
+imageAlt: "The white 1876 Guy Hill schoolhouse in Golden History Park, with the M of Mount Zion on the hillside behind"
+imageCredit: "Michael Stokes, Wikimedia Commons, CC BY 2.0"
 hours: "Daily 5 am–11 pm"
 tags: [history, free, kids, creek]
 summary: "Free outdoor history park along Clear Creek in downtown Golden: 1800s cabins and outbuildings moved from the Pearce Ranch, an 1876 schoolhouse and a Native American Arbor. Buildings open on event days."

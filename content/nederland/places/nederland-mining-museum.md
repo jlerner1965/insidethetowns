@@ -11,6 +11,9 @@ verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "303-258-7332"
 hours: "Fri–Sun 11 am–5 pm"
 seasonal: { season: "June 1 through October 31", hours: "Fri–Sun 11 am–5 pm", opens: "2026-06-01", closes: "2026-10-31" }
+image: ../images/nederland-mining-museum.jpg
+imageAlt: "The preserved 1923 Bucyrus Model 50-B steam shovel displayed outdoors beside Bridge Street at the Nederland Mining Museum, its riveted boom and bucket raised against a pine-covered hillside"
+imageCredit: "Grey3k, Wikimedia Commons, CC BY 3.0"
 tags: [museum, history, free]
 summary: "Boulder County museum of hard-rock mining, with trams, ore carts, engines, historic photographs and claim maps. Free; open Fridays to Sundays from June 1 through October 31."
 ---
