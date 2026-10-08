@@ -193,7 +193,7 @@ const structured = collectionPageJsonLd(hub, {
   const start = dow === 0 || dow >= 5 ? today : shift(sunday, -2);
 
   // 1. Anything that has finished goes, whether or not its day has turned over.
-  //    `data-end` is the exclusive end as an instant, so this catches a run
+  //    `data-end` is the instant the listing comes off (listedUntil), so this catches a run
   //    that ended two hours ago as well as one that ended last month.
   for (const card of document.querySelectorAll<HTMLElement>('[data-filter-item][data-end]')) {
     const ends = Date.parse(card.dataset.end!);

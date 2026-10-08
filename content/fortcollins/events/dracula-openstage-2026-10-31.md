@@ -1,7 +1,8 @@
 ---
 title: "Dracula"
-start: "2026-10-31T19:30"
-end: "2026-11-28T19:30"
+start: "2026-10-31"
+end: "2026-11-28"
+allDay: true
 venue: "Magnolia Theatre, The Lincoln Center"
 address: "417 W Magnolia St, Fort Collins, CO 80521"
 url: "https://www.lctix.com/shows-tickets/dracula-2/"

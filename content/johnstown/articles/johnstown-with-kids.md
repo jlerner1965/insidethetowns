@@ -24,7 +24,7 @@ Two doors along, [Duck Donuts](/places/duck-donuts/) fries cake donuts to order 
 
 ## The pool: the YMCA
 
-The [Johnstown Community YMCA](/places/johnstown-ymca/) on Settler Way, north of Old Town, is the town's recreation centre: a lap pool and a leisure pool with slides and diving boards, a gym, an indoor track and fitness classes. Weekdays from 5 am, Saturday 7 to 7, Sunday 8 to 7.
+The [Johnstown Community YMCA](/places/johnstown-ymca/) on Settler Way, north of Old Town, is the town's recreation center: a lap pool and a leisure pool with slides and diving boards, a gym, an indoor track and fitness classes. Weekdays from 5 am, Saturday 7 to 7, Sunday 8 to 7.
 
 ## The library
 

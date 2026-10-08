@@ -1,10 +1,10 @@
 ---
 title: "Explore Old Town Fort Collins: four places in walking order"
-date: "2026-10-08"
+date: "2026-10-07"
 excerpt: "Breakfast on Walnut Street, the square, the museum at the top of Mason and the brewery at the end of Linden, all on foot from one City garage. Horsetooth is a separate morning."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-08"
+verified: "2026-10-07"
 sources:
   - { label: "City of Fort Collins: Where to Park", url: "https://www.fortcollins.gov/Services/Parking/Where-to-Park" }
   - { label: "Fort Collins Museum of Discovery: Hours, Location, Admission", url: "https://fcmod.org/hours-location-admission/" }

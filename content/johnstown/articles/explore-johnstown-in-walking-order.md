@@ -1,10 +1,10 @@
 ---
 title: "Explore Johnstown: five places in walking order"
-date: "2026-10-08"
+date: "2026-10-07"
 excerpt: "Crepes on Parish Avenue, the Parish House on a morning it is open, the Historical Society's 25-stop walk and the park next door, all from one parking spot in Old Town. Then a booked evening at the dinner theater out at 2534."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-08"
+verified: "2026-10-07"
 sources:
   - { label: "Johnstown Historical Society: visit", url: "https://jhsco.org/visit/" }
   - { label: "Johnstown Historical Society: historic walking tour", url: "https://jhsco.org/historicwalkingtour/" }

@@ -14,6 +14,7 @@ import {
   isInProgress,
   isPast,
   lastDay,
+  listedUntil,
   occurrences,
   sectionCount,
   splitOngoing,
@@ -53,17 +54,46 @@ test('a weekly repeat keeps its wall-clock time across the November clock change
 
 // ---------------------------------------------------------------- over or not
 
-test('a timed event is over once its end time has passed', () => {
-  const e = ev('Concert', '2026-09-20T19:00', '2026-09-20T22:00');
-  assert.equal(isPast(e, at('2026-09-20T12:00')), false);
-  assert.equal(isPast(e, at('2026-09-20T23:00')), false, 'still today, so still listed for today');
-  assert.equal(isPast(e, at('2026-09-21T00:01')), true);
+test('a timed event is over at its end time, not at midnight', () => {
+  // Late on October 7 Estes Park still promoted that evening's songwriting
+  // session, and Golden its evening talk: today's listings stayed up until
+  // midnight whatever time they ended.
+  const e = ev('Songwriting session', '2026-10-07T18:00', '2026-10-07T20:00');
+  assert.equal(isPast(e, at('2026-10-07T12:00')), false);
+  assert.equal(isPast(e, at('2026-10-07T19:59')), false, 'still on a minute before it ends');
+  assert.equal(isPast(e, at('2026-10-07T20:00')), true, 'gone at its end');
+  assert.equal(isPast(e, at('2026-10-07T20:01')), true, 'and a minute after');
+  assert.equal(isPast(e, at('2026-10-07T23:00')), true, 'not still offered late that night');
 });
 
-test('a timed event with no end time is over the next day', () => {
-  const e = ev('Council meeting', '2026-09-20T18:00');
-  assert.equal(isPast(e, at('2026-09-20T23:59')), false);
-  assert.equal(isPast(e, at('2026-09-21T00:01')), true);
+test('a timed event with no end time stays until the next Denver midnight, and no later', () => {
+  const e = ev('Evening talk', '2026-10-07T19:00');
+  assert.equal(isPast(e, at('2026-10-07T19:00')), false, 'not gone the moment it starts');
+  assert.equal(isPast(e, at('2026-10-07T23:59')), false);
+  assert.equal(isPast(e, at('2026-10-08T00:00')), true);
+  assert.equal(listedUntil(e).getTime(), at('2026-10-08').getTime());
+  assert.equal(eventEnd(e).getTime(), at('2026-10-07T19:00').getTime(), 'the midnight is a display rule, not an end');
+});
+
+test('an overnight event stays until its next-day end', () => {
+  const ball = ev('Crystal Ball', '2026-12-31T20:00', '2027-01-01T00:30');
+  assert.equal(isPast(ball, at('2026-12-31T23:59')), false);
+  assert.equal(isPast(ball, at('2027-01-01T00:15')), false, 'still on after midnight');
+  assert.equal(isPast(ball, at('2027-01-01T00:30')), true);
+  assert.equal(lastDay(ball), '2027-01-01');
+  assert.equal(upcoming([ball], { now: at('2027-01-01T00:10') }).length, 1, 'still listed as on after midnight');
+});
+
+test('the day the clocks go back, a listing drops off at its own local time', () => {
+  // November 1, 2026 is 25 hours long in Denver.
+  const evening = ev('Sunday concert', '2026-11-01T19:00', '2026-11-01T21:00');
+  assert.equal(evening.data.start.toISOString(), '2026-11-02T02:00:00.000Z', '7 pm MST is 02:00 UTC');
+  assert.equal(isPast(evening, at('2026-11-01T20:59')), false);
+  assert.equal(isPast(evening, at('2026-11-01T21:00')), true);
+  const open = ev('Sunday talk', '2026-11-01T19:00');
+  assert.equal(listedUntil(open).toISOString(), '2026-11-02T07:00:00.000Z', 'the next midnight, MST');
+  const early = ev('Before the change', '2026-11-01T00:30', '2026-11-01T01:15');
+  assert.equal(early.data.start.toISOString(), '2026-11-01T06:30:00.000Z', 'still MDT before 2 am');
 });
 
 test('an all-day event is not still advertised the morning after', () => {

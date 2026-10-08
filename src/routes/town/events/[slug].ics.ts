@@ -10,7 +10,7 @@ import type { APIRoute } from 'astro';
 import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { dayKey } from '@/lib/dates';
-import { nextOccurrence } from '@/lib/events';
+import { exportWhen, nextOccurrence } from '@/lib/events';
 import { buildIcs } from '@/lib/ics';
 
 export async function getStaticPaths() {
@@ -21,16 +21,15 @@ export async function getStaticPaths() {
 export const GET: APIRoute = async ({ props, site }) => {
   const town = getTown();
   const event = props.event as TownEntry<'events'>;
-  const { data } = nextOccurrence(event);
+  const next = nextOccurrence(event);
+  const { data } = next;
   const pageUrl = new URL(`/events/${event.slug}/`, site).toString();
   const body = buildIcs(
     [
       {
         uid: `${event.slug}-${dayKey(data.start)}@${town.domain}`,
         title: data.title,
-        start: data.start,
-        end: data.end,
-        allDay: data.allDay,
+        ...exportWhen(next),
         location: [data.venue, data.address, `${town.name}, CO`].filter(Boolean).join(', '),
         description: [data.timeNote, data.cost ? `Cost: ${data.cost}` : undefined, data.recurring, `More: ${pageUrl}`]
           .filter(Boolean)

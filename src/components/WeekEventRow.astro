@@ -5,12 +5,13 @@
  * link to the organizer's page the listing was read from.
  *
  * Two links, so the row is not one stretched link the way EventCard is; each
- * is its own 44px target. The day it falls on rides along for Freshness.astro,
- * which clears a passed day out of a build that is older than it.
+ * is its own 44px target. The day it falls on and the moment it comes off
+ * the page ride along for Freshness.astro, which clears a finished listing
+ * out of a build that is older than it.
  */
 import type { TownEntry } from '@/lib/content';
 import { monthDay, parseLocal, startOfDay, toIsoLocal } from '@/lib/dates';
-import { isMultiDay, lastDay, timeText } from '@/lib/events';
+import { isMultiDay, lastDay, listedUntil, timeText } from '@/lib/events';
 import { shownCategoryLabel } from '@/content/schemas';
 import { subTownLabel } from '@/lib/sub-towns';
 
@@ -30,7 +31,7 @@ const categoryLabel = shownCategoryLabel(data.category);
 const source = data.source ?? data.url;
 const host = source ? new URL(source).hostname.replace(/^www\./, '') : undefined;
 ---
-<article class="grid grid-cols-[4.25rem_1fr] gap-x-4 border-t border-line-soft py-4 first:border-t-0" data-event-day={lastDay(event)}>
+<article class="grid grid-cols-[4.25rem_1fr] gap-x-4 border-t border-line-soft py-4 first:border-t-0" data-event-day={lastDay(event)} data-end={toIsoLocal(listedUntil(event))}>
   <time datetime={toIsoLocal(data.start)} class="flex flex-col pt-1">
     <span class="eyebrow">{badge.weekday}</span>
     <span class="font-heading text-[2rem] font-medium leading-none tabular-nums text-accent-text">{badge.day}</span>

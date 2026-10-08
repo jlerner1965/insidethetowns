@@ -71,8 +71,9 @@ export function nextOccurrence<T extends EventLike>(event: T, now = new Date()):
  * All-day entries store `end` as the last day the thing is on ("2026-10-17" to
  * "2026-10-31" is a scarecrow trail you can still walk on the 31st), so the
  * moment it stops being on is the following midnight. A timed event ends when
- * it says it ends; one with no end time is treated as over once its start has
- * passed, which is the only honest reading of a listing that never said.
+ * it says it ends; one with no end time has no known end, and this returns its
+ * start, so nothing claims it is under way. Whether it is still listed is
+ * `listedUntil`'s question, not this one's.
  */
 export function eventEnd(event: EventLike): Date {
   const { start, end, allDay } = event.data;
@@ -82,13 +83,56 @@ export function eventEnd(event: EventLike): Date {
 }
 
 /**
- * True once the event is over: nothing of it is left on or after today in
- * Denver. The comparison is `<=` because `eventEnd` is exclusive — an all-day
- * event on the 3rd ends at midnight opening the 4th, and must not still be
- * advertised on the 4th.
+ * The instant a listing comes off the pages, exclusive: a timed event at its
+ * end time, an all-day run at the midnight after its last day, and a timed
+ * event whose end the organizer never gave at the next Denver midnight.
+ *
+ * Today's listings used to stay up until midnight whatever time they ended,
+ * so a 7 pm talk was still offered as "coming up" at 11 pm. A listing with no
+ * end cannot drop off at its end, and dropping it at its start would take a
+ * talk off the page while it is on, so it stays for the rest of its day.
+ *
+ * A display rule only. The midnight is ours, not the organizer's, so nothing
+ * that exports an event (the .ics files, the Google link, the structured
+ * data) reads this; those carry the end the listing gives, or none.
+ */
+export function listedUntil(event: EventLike): Date {
+  const { start, end, allDay } = event.data;
+  if (allDay || end) return eventEnd(event);
+  return addDays(startOfDay(start), 1);
+}
+
+/**
+ * When a listing is, as the .ics files, the Google link and the structured
+ * data give it. All three read this, so they agree with each other and with
+ * the page.
+ *
+ * One sitting goes as its start and its end, and an end the listing does not
+ * give is left out, never guessed. An all-day listing goes as whole days. So
+ * does a timed listing that runs across days for 24 hours or more, a festival
+ * weekend or a three-week run with its show times in a note: exported from
+ * its first start to its last end it was one block through every night in
+ * between, which no reader could attend. Separately ticketed nights are
+ * separate listings, one file per night, each exported on its own.
+ *
+ * An overnight sitting (8 pm to 12:30 am) is under 24 hours and stays timed.
+ */
+export function exportWhen(event: EventLike): { start: Date; end?: Date; allDay: boolean } {
+  const { start, end, allDay } = event.data;
+  if (allDay) return { start, end, allDay: true };
+  if (end && dayKey(start) !== dayKey(end) && end.getTime() - start.getTime() >= 24 * 3_600_000) {
+    return { start: startOfDay(start), end: startOfDay(end), allDay: true };
+  }
+  return { start, end, allDay: false };
+}
+
+/**
+ * True once the listing is over by `listedUntil`. The comparison is `<=`
+ * because that instant is exclusive: a talk that ends at 9 pm is gone at
+ * 9 pm, and an all-day event on the 3rd is not still advertised on the 4th.
  */
 export function isPast(event: EventLike, now = new Date()): boolean {
-  return eventEnd(event).getTime() <= startOfDay(now).getTime();
+  return listedUntil(event).getTime() <= now.getTime();
 }
 
 /**

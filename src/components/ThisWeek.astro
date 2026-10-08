@@ -9,8 +9,12 @@
  * confirmed Thursday signup. The pick and the New & closed items are the
  * editor's weekly notes (content/<town>/weekly/, src/lib/weekly.ts); the
  * listings are the calendar every other page reads. A section with nothing
- * in it is not shown; a town with nothing at all says so in one line and
- * still offers the email.
+ * in it is not shown; a week with no pick and no listings says so in one
+ * line and still offers the email.
+ *
+ * Everything under the week's heading is on inside that week. The pick is
+ * dated by the listing it links to (`currentPick`): one for a later date is
+ * not this week's pick, and goes under "Coming up" with its own date.
  *
  * Every date is decided at build time, in Denver, and the nightly rebuild
  * keeps it current; the browser also clears a listing whose day has passed
@@ -22,8 +26,8 @@ import SectionHeader from './SectionHeader.astro';
 import WeekEventRow from './WeekEventRow.astro';
 import type { TownConfig } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { formatDate, formatDayRange, toIsoLocal } from '@/lib/dates';
-import { occurrences, weekendWindow } from '@/lib/events';
+import { formatDate, formatDayLong, formatDayRange, toIsoLocal } from '@/lib/dates';
+import { isMultiDay, lastDay, listedUntil, occurrences, timeText, weekendWindow } from '@/lib/events';
 import { activeChanges, currentPick, isWeekend, weekEvents, weekWindow } from '@/lib/weekly';
 import { checkerName } from '@/lib/editor';
 
@@ -46,12 +50,17 @@ const listingsLabel = onWeekend ? 'This weekend' : 'Rest of the week';
 const listingsRange = onWeekend ? formatDayRange(weekend.start, weekend.sunday) : formatDayRange(now, sunday);
 
 const notes = await getTownEntries('weekly');
-const pick = currentPick(notes, now);
+const calendar = occurrences(await getTownEntries('events'), { now, horizonDays: 30 });
+const { thisWeek: pick, comingUp } = currentPick(notes, calendar, now);
 const allChanges = activeChanges(notes, now);
-const allEvents = weekEvents(occurrences(await getTownEntries('events'), { now, horizonDays: 30 }), now);
+const allEvents = weekEvents(calendar, now);
 const events = compact ? allEvents.slice(0, 3) : allEvents;
 const changes = compact ? allChanges.slice(0, 2) : allChanges;
-const quiet = !pick && allEvents.length === 0 && allChanges.length === 0;
+// Nothing on this week: said in words, whatever New & closed holds.
+const quiet = !pick && allEvents.length === 0;
+// The pick's own day and time, from its listing: "Friday, October 9 · 7 pm".
+const when = (event: typeof calendar[number]) =>
+  [isMultiDay(event) ? undefined : formatDayLong(event.data.start), timeText(event, now)].filter(Boolean).join(' · ');
 
 // Under the page's own h1 the sections are h2s; under the home page's
 // section heading they step down one.
@@ -72,23 +81,26 @@ const checker = checkerName();
     </div>
   )}
 
-  {quiet && (
-    <div class="mt-8 rounded-lg border border-dashed border-line px-6 py-8 text-center text-ink-muted">
-      {/* "Nothing listed" is a fact about this guide; "nothing happening" would be a claim about the town. */}
-      <p>Nothing verified on the {town.name} calendar for the rest of this week yet.</p>
-      <p class="mt-2 text-[0.9375rem]">
-        Know something that should be here? <a href="/submit-event/" class="inline-block -my-2 py-2 text-accent-text underline">Send it in</a> and it goes up once it is checked.
-      </p>
-    </div>
-  )}
+  {/* What is on this week, in one scope: the browser clears what has ended
+     from a build older than it (Freshness.astro), and once nothing is left
+     the empty line shows instead. */}
+  <div data-events-scope>
+  <div data-events-empty hidden={!quiet} class="mt-8 rounded-lg border border-dashed border-line px-6 py-8 text-center text-ink-muted">
+    {/* "Nothing listed" is a fact about this guide; "nothing happening" would be a claim about the town. */}
+    <p>Nothing verified on the {town.name} calendar for the rest of this week yet.</p>
+    <p class="mt-2 text-[0.9375rem]">
+      Know something that should be here? <a href="/submit-event/" class="inline-block -my-2 py-2 text-accent-text underline">Send it in</a> and it goes up once it is checked.
+    </p>
+  </div>
 
   {pick && (
-    <section class={block} aria-labelledby={`pick-${compact ? 'compact' : 'full'}`}>
+    <section class={block} aria-labelledby={`pick-${compact ? 'compact' : 'full'}`} data-event-day={lastDay(pick.event)} data-end={toIsoLocal(listedUntil(pick.event))}>
       <H id={`pick-${compact ? 'compact' : 'full'}`} class={eyebrow}>Our pick</H>
       <div class="mt-5 max-w-2xl">
         <p class="display-md text-[1.75rem] md:text-[2rem]">
           {pick.url ? <a href={pick.url} rel="noopener" class="inline-block -my-2 py-2 no-underline hover:text-accent-text">{pick.title}</a> : pick.title}
         </p>
+        <p class="mt-2 font-medium"><time datetime={toIsoLocal(pick.event.data.start)}>{when(pick.event)}</time></p>
         {pick.body && <p class="mt-3 text-[1.0625rem] leading-relaxed text-ink-muted">{pick.body}</p>}
       </div>
     </section>
@@ -107,6 +119,22 @@ const checker = checkerName();
           </a>
         </p>
       )}
+    </section>
+  )}
+  </div>
+
+  {/* The editor's pick for a later date: kept, but under its own label and
+     date, outside the week's heading it does not belong to. */}
+  {comingUp && (
+    <section class={block} aria-labelledby={`later-${compact ? 'compact' : 'full'}`} data-event-day={lastDay(comingUp.event)} data-end={toIsoLocal(listedUntil(comingUp.event))}>
+      <H id={`later-${compact ? 'compact' : 'full'}`} class={eyebrow}>Coming up</H>
+      <div class="mt-5 max-w-2xl">
+        <p class="font-medium"><time datetime={toIsoLocal(comingUp.event.data.start)}>{when(comingUp.event)}</time></p>
+        <p class="display-md mt-1 text-[1.5rem] md:text-[1.75rem]">
+          {comingUp.url ? <a href={comingUp.url} rel="noopener" class="inline-block -my-2 py-2 no-underline hover:text-accent-text">{comingUp.title}</a> : comingUp.title}
+        </p>
+        {comingUp.body && <p class="mt-3 text-[1.0625rem] leading-relaxed text-ink-muted">{comingUp.body}</p>}
+      </div>
     </section>
   )}
 

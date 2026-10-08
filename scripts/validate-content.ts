@@ -36,6 +36,7 @@ import { readRegistry, registryIssues } from '../src/lib/sources.ts';
 import { hub } from '../src/config/towns/hub.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
 import { hoursTextByDesign, parseHoursText } from '../src/lib/hours.ts';
+import { dayKey } from '../src/lib/dates.ts';
 import { licenseName, parseLedger, publicCredit, sourcePhoto, type LedgerRow } from '../src/lib/credits.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -187,7 +188,7 @@ function validateFile(collection: CollectionName, file: string, town: string, st
       // editorial prompt — an annual worth rolling forward to next year's
       // date, or a one-off that has served its purpose.
       warnings.push(
-        `${rel}: event is over (${end.toISOString().slice(0, 10)}). It is already hidden from listings, noindexed and out of the sitemap. Roll it forward if it recurs.`,
+        `${rel}: event is over (${dayKey(end)}). It is already hidden from listings, noindexed and out of the sitemap. Roll it forward if it recurs.`,
       );
     }
   }

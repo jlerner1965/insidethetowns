@@ -1,7 +1,8 @@
 ---
 title: "Northern Colorado Home Show"
-start: "2026-10-23T12:00"
-end: "2026-10-25T11:00"
+start: "2026-10-23"
+end: "2026-10-25"
+allDay: true
 venue: "Pedersen Toyota Center, The Ranch Events Complex"
 address: "5280 Arena Circle, Loveland, CO 80538"
 url: "https://www.treventscomplex.com/events/detail/free-northern-colorado-home-show-2"

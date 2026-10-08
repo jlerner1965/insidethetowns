@@ -5,7 +5,7 @@
 import type { APIRoute } from 'astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { isCanceled, occurrences, upcoming } from '@/lib/events';
+import { exportWhen, isCanceled, occurrences, upcoming } from '@/lib/events';
 import { buildIcs, type IcsEvent } from '@/lib/ics';
 import { dayKey } from '@/lib/dates';
 
@@ -20,9 +20,7 @@ export const GET: APIRoute = async ({ site }) => {
     return {
       uid: `${e.slug}-${dayKey(e.data.start)}@${town.domain}`,
       title: e.data.title,
-      start: e.data.start,
-      end: e.data.end,
-      allDay: e.data.allDay,
+      ...exportWhen(e),
       location,
       description: [e.data.statusNote, ...parts].filter(Boolean).join('\n'),
       url: e.data.url ?? pageUrl,

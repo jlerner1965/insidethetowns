@@ -13,6 +13,7 @@ import type { TownEntry } from '@/lib/content';
 import { PLACE_STATUS_LABELS, PLACE_TYPE_LABELS } from '@/content/schemas';
 import { PLACE_HUE } from '@/config/palette';
 import { isOpen } from '@/lib/places';
+import { hoursWithMeridiem } from '@/lib/hours';
 
 interface Props {
   place: TownEntry<'places'>;
@@ -22,7 +23,7 @@ const { place } = Astro.props;
 const { data, slug } = place;
 const href = `/places/${slug}/`;
 const open = isOpen(place);
-const facts = [data.priceRange, data.address, open ? data.hours : data.statusNote].filter(Boolean);
+const facts = [data.priceRange, data.address, open ? data.hours && hoursWithMeridiem(data.hours) : data.statusNote].filter(Boolean);
 const hue = PLACE_HUE[data.type];
 ---
 <article class="group relative grid gap-6 overflow-hidden rounded-lg bg-raised ring-1 ring-line-soft md:grid-cols-[5fr_4fr] md:gap-0">

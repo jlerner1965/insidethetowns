@@ -1,7 +1,8 @@
 ---
 title: "The Legend of Sleepy Hollow"
-start: "2026-10-09T19:00"
-end: "2026-10-24T19:00"
+start: "2026-10-09"
+end: "2026-10-24"
+allDay: true
 venue: "Magnolia Theatre, The Lincoln Center"
 address: "417 W Magnolia St, Fort Collins, CO 80521"
 url: "https://www.lctix.com/shows-tickets/the-legend-of-sleepy-hollow/"

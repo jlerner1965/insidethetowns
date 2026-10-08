@@ -68,7 +68,7 @@ Each line names the body and what it is the authority for.
 | Body | Authority for | Official page |
 |---|---|---|
 | Town of Lyons Board of Trustees | Ordinances, budget, utility rates, land use | [Agenda Center](https://www.lyonscolorado.com/AgendaCenter) |
-| Town Clerk | Records, licences, municipal elections, public notices | [Town of Lyons](https://www.lyonscolorado.com/) |
+| Town Clerk | Records, licenses, municipal elections, public notices | [Town of Lyons](https://www.lyonscolorado.com/) |
 | Boulder County Commissioners | The county; the unincorporated land around the town | [Commissioners](https://www.bouldercounty.gov/government/elected-officials/commissioners/) |
 | Boulder County Clerk & Recorder | County, state and federal elections; recording; motor vehicles | [Clerk & Recorder](https://www.bouldercounty.gov/departments/clerk-and-recorder/) |
 | Boulder County Sheriff | Law enforcement in the town, under contract | [Sheriff's Office](https://www.bouldercounty.gov/departments/sheriff/) |

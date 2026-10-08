@@ -49,60 +49,8 @@ const structured = [
   jsonLd={structured}
 >
   <SubTownLinks slot="after-header" class="mt-5" />
-  {/* With the filters, not up in the masthead: across the band boundary it
-     read as a separate control from the buttons it works with. */}
-  <div class="mb-6 max-w-md">
-    <label for="directory-search" class="eyebrow mb-2 block">Find by name</label>
-    <input
-      id="directory-search"
-      type="search"
-      autocomplete="off"
-      placeholder="Start typing a name…"
-      class="w-full rounded-md border border-line bg-raised px-4 py-2.5 text-[1rem] text-ink placeholder:text-ink-faint focus:border-accent"
-      data-directory-search
-    />
-  </div>
-  <div data-directory>
-    <PlaceDirectory places={places} heading="Every place, by kind" filterable lead={0} emptyMessage="Nothing listed yet." />
-    <p data-directory-empty hidden class="mt-6 rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
-      No place by that name. <a href="/contact/" class="font-semibold text-accent-text">Tell us what is missing.</a>
-    </p>
-  </div>
+  {/* The name search sits with the filters and is part of the same filter:
+     one pass over the rows decides what shows, the group counts and the
+     empty box (FilterBar.astro, src/lib/filters.ts). */}
+  <PlaceDirectory places={places} heading="Every place, by kind" filterable search lead={0} emptyMessage="Nothing listed yet." />
 </Page>
-
-<script>
-  /*
-   * The name search narrows the rows already on the page. It sets its own
-   * attribute rather than `hidden`, which FilterBar owns; the CSS below hides
-   * a row when either says so, and FilterBar's counts stay honest because a
-   * name-hidden row is still not [hidden].
-   */
-  const input = document.querySelector<HTMLInputElement>('[data-directory-search]');
-  const root = document.querySelector<HTMLElement>('[data-directory]');
-  if (input && root) {
-    const rows = [...root.querySelectorAll<HTMLElement>('[data-filter-item]')].map((row) => ({
-      row,
-      text: (row.querySelector('h3, h4')?.textContent ?? '').toLowerCase(),
-    }));
-    const groups = root.querySelectorAll<HTMLElement>('[data-filter-group]');
-    const empty = root.querySelector<HTMLElement>('[data-directory-empty]');
-    const apply = () => {
-      const q = input.value.trim().toLowerCase();
-      for (const { row, text } of rows) row.toggleAttribute('data-name-miss', q !== '' && !text.includes(q));
-      for (const group of groups) {
-        group.toggleAttribute('data-name-miss', !group.querySelector('[data-filter-item]:not([data-name-miss]):not([hidden])'));
-      }
-      if (empty) empty.hidden = q === '' || !!root.querySelector('[data-filter-item]:not([data-name-miss]):not([hidden])');
-    };
-    input.addEventListener('input', apply);
-    const q = new URLSearchParams(location.search).get('q');
-    if (q) {
-      input.value = q;
-      apply();
-    }
-  }
-</script>
-
-<style>
-  [data-name-miss] { display: none; }
-</style>

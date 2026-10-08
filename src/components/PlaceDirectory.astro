@@ -29,9 +29,11 @@ interface Props {
   lead?: number;
   /** Names the list for screen readers, so the page does not jump h1 to h3. */
   heading?: string;
+  /** A name search above the filters, part of the same filter (FilterBar.astro). */
+  search?: boolean;
 }
 
-const { places, filterable = false, emptyMessage = 'Nothing listed yet.', lead = 3, heading } = Astro.props;
+const { places, filterable = false, emptyMessage = 'Nothing listed yet.', lead = 3, heading, search = false } = Astro.props;
 
 // PLACE_TYPES order, not the order the files happen to load in, so every town
 // lists restaurants before bars before coffee.
@@ -55,6 +57,19 @@ const subTowns = subTownsOf(getSite());
       {withPhoto.map((place) => <PlaceCard place={place} />)}
     </div>
   )}
+  {search && (
+    <div class="mb-6 max-w-md">
+      <label for="directory-search" class="eyebrow mb-2 block">Find by name</label>
+      <input
+        id="directory-search"
+        type="search"
+        autocomplete="off"
+        placeholder="Start typing a name…"
+        class="w-full rounded-md border border-line bg-raised px-4 py-2.5 text-[1rem] text-ink placeholder:text-ink-faint focus:border-accent"
+        data-filter-search
+      />
+    </div>
+  )}
   {filterable && <FilterBar options={options} label="Filter places" openNow subTowns={subTowns} />}
   <OpenStatus />
   {places.length === 0 ? (
@@ -71,7 +86,7 @@ const subTowns = subTownsOf(getSite());
             {/* On the category's ink, not its dot colour: white on the dot
                 came to 3.9:1, short of the 4.5 small text needs. In the sans,
                 like every other count on the site. */}
-            <span class="rounded-full px-2.5 py-0.5 font-body text-[0.8125rem] font-semibold tabular-nums text-white" style={`background:var(--cat-${hueOf(group.type)}-ink)`}>
+            <span class="rounded-full px-2.5 py-0.5 font-body text-[0.8125rem] font-semibold tabular-nums text-white" style={`background:var(--cat-${hueOf(group.type)}-ink)`} data-filter-count>
               {group.items.length}
             </span>
           </h3>
@@ -82,5 +97,12 @@ const subTowns = subTownsOf(getSite());
       </section>
     ))
   )}
-  <p data-filter-empty hidden class="mt-6 rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">Nothing in this category yet.</p>
+  {/* What left nothing, said, with the way back: the filter writes the line. */}
+  <div data-filter-empty hidden class="mt-6 rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
+    <p data-filter-empty-text>Nothing in this category yet.</p>
+    <p class="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+      <button type="button" class="btn btn-outline min-h-11 text-accent-text" data-filter-reset>Clear the search and filters</button>
+      {search && <a href="/contact/" class="font-semibold text-accent-text">Tell us what is missing</a>}
+    </p>
+  </div>
 </div>

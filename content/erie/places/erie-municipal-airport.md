@@ -5,7 +5,7 @@ address: "395 Airport Rd"
 area: "Colorado 7, south edge"
 url: "https://www.erieco.gov/93/Airport"
 phone: "(303) 664-0633"
-hours: "Runway open 24/7; FBO Mon–Sat 8–5, Sun 8–2"
+hours: "Runway open 24/7; FBO Mon–Sat 8 am–5 pm, Sun 8 am–2 pm"
 image: ../images/municipal-airport.jpg
 imageAlt: "Light aircraft parked along the runway at Erie Municipal Airport"
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"

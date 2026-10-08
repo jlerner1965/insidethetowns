@@ -17,4 +17,4 @@ verified: "2026-10-05"
 sourceId: "firestoneco-gov"
 ---
 
-The Town’s annual exhibition of painting, sculpture, photography and fiber art by artists from Firestone, the Carbon Valley and beyond, hung in the Carbon Valley Regional Library from 17 September to 22 October 2026 and viewable whenever the library is open. The Town says participation is up nearly seventy per cent in recent years and calls it the largest group of artists yet; the opening reception, with live music from D-City Junction, was on 25 September.
+The Town’s annual exhibition of painting, sculpture, photography and fiber art by artists from Firestone, the Carbon Valley and beyond, hung in the Carbon Valley Regional Library from 17 September to 22 October 2026 and viewable whenever the library is open. The Town says participation is up nearly seventy percent in recent years and calls it the largest group of artists yet; the opening reception, with live music from D-City Junction, was on 25 September.

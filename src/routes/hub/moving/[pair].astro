@@ -35,7 +35,7 @@ const growth = (t: typeof a) =>
   t.population && t.population2010 ? `+${Math.round((t.population / t.population2010 - 1) * 100)}%` : '—';
 const rows = [
   { label: 'County', get: (t: typeof a) => countyLabel(t) },
-  { label: 'Population', get: (t: typeof a) => num(t.population) },
+  { label: 'Population 2020', get: (t: typeof a) => num(t.population) },
   { label: 'Growth 2010–20', get: growth },
   { label: 'To Denver', get: (t: typeof a) => t.driveToDenver ?? '—' },
   { label: 'Schools', get: (t: typeof a) => (t.movingHere.schoolDistrict?.split(/[:(]/)[0] ?? '—').trim() },

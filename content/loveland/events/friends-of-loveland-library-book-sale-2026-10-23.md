@@ -1,7 +1,8 @@
 ---
 title: "Friends of the Loveland Public Library fall book sale"
-start: "2026-10-24T10:00"
-end: "2026-10-25T11:00"
+start: "2026-10-24"
+end: "2026-10-25"
+allDay: true
 venue: "Thomas M. McKee 4-H, Youth & Community Building, The Ranch"
 address: "5400 Arena Circle, Loveland, CO 80538"
 url: "https://www.treventscomplex.com/events/detail/friends-of-loveland-library-fall-2026-used-book-sale"

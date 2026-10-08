@@ -1,10 +1,10 @@
 ---
 title: "Explore Golden: five places in walking order"
-date: "2026-10-08"
+date: "2026-10-07"
 excerpt: "A meal on Washington Avenue, the history museum and park on the creek, the creek-side parks, two free museums and a taproom, all from one City garage. Trains for families; the mesa or the canyon for a hiking day."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-08"
+verified: "2026-10-07"
 sources:
   - { label: "Park Golden (City of Golden parking): paid parking", url: "https://www.parkgoldenco.com/paid-parking" }
   - { label: "Park Golden (City of Golden parking): home page", url: "https://www.parkgoldenco.com/" }
@@ -20,7 +20,7 @@ related:
 
 Golden sits at the mouth of Clear Creek Canyon, twelve miles from downtown Denver. Downtown is Washington Avenue, and Clear Creek runs along its north edge with 10th Street beside it. Everything below is on foot between the two; the trails are a separate day, chosen with the [mesa-or-canyon guide](/articles/mesa-hike-or-canyon-walk/).
 
-Park once. The City's parking site lists the North Garage at 702 12th Street, the South Garage at 1250 Jackson Street and the Clear Creek Lot at 304 10th Street. Between 7 am and 5 pm the first two hours are free and each hour after that $2.50, to a maximum of $10 a day, paid by licence plate; on-street parking is free for up to two hours before 5 pm and free after 5 pm, with the days it applies on the signs.
+Park once. The City's parking site lists the North Garage at 702 12th Street, the South Garage at 1250 Jackson Street and the Clear Creek Lot at 304 10th Street. Between 7 am and 5 pm the first two hours are free and each hour after that $2.50, to a maximum of $10 a day, paid by license plate; on-street parking is free for up to two hours before 5 pm and free after 5 pm, with the days it applies on the signs.
 
 ## 01 · A meal on Washington Avenue
 

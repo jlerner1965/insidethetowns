@@ -1,10 +1,10 @@
 ---
 title: "Explore Severance: four places in driving order"
-date: "2026-10-08"
+date: "2026-10-07"
 excerpt: "Brownell Park and Bruce's Bar share 1st Street in Old Town; the library and Lakeview Park are a drive away. Four stops, with the hours and rules the Town, the library district and the bar publish."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-08"
+verified: "2026-10-07"
 sources:
   - { label: "Town of Severance: Brownell Park", url: "https://www.townofseverance.org/Facilities/Facility/Details/Brownell-Park-2" }
   - { label: "Town of Severance: Lakeview Park", url: "https://www.townofseverance.org/Facilities/Facility/Details/Lakeview-Park-4" }

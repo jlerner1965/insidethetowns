@@ -1,6 +1,6 @@
 ---
 title: "Moving to Nederland"
-description: "Nederland, Colorado: a Boulder County statutory town of 1,400 where Colorado 119 meets Colorado 72. Housing, schools, the bus, snow, fire and septic."
+description: "Nederland, Colorado: a Boulder County statutory town of about 1,400 by the state's 2024 estimate, where Colorado 119 meets Colorado 72. Housing, schools, the bus, snow, fire and septic."
 updated: "2026-10-06"
 ---
 

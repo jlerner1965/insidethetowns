@@ -19,7 +19,7 @@
 import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
 import { dayKey, formatDate, formatDayRange, formatMonthDay, formatTime, formatTimeRange, formatWeekday, monthDay, toIsoLocal } from '@/lib/dates';
-import { isCanceled, isInProgress, lastDay } from '@/lib/events';
+import { isCanceled, isInProgress, lastDay, listedUntil } from '@/lib/events';
 import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 import { subTownLabel } from '@/lib/sub-towns';
 
@@ -88,6 +88,7 @@ const note =
   data-category={data.category}
   data-start-day={dayKey(data.start)}
   data-event-day={lastDay(event)}
+  data-end={toIsoLocal(listedUntil(event))}
   data-free={/^free\b/i.test(data.cost ?? '') ? 'true' : undefined}
   data-status={statusLabel ? data.status : undefined}
   data-sub-town={data.subTown}

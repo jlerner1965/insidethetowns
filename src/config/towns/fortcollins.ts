@@ -33,7 +33,7 @@ export const fortcollins: TownConfig = {
   incorporated: 1873,
   driveToDenver: 'About 1 hr 10 min',
   population2010: 143986, // 2010 census, for census-to-census growth
-  character: 'The city the other towns measure against: Old Town, the Poudre, CSU and 170,000 people.',
+  character: 'The city the other towns measure against: Old Town, the Poudre, CSU and 169,810 people at the 2020 census.',
   colors: {
     // Navy on a cool paper. CSU's green was the obvious choice and it would
     // sit next to Niwot's; nothing else in the network is this dark a blue,

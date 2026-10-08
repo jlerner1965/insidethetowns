@@ -6,7 +6,8 @@ import type { CollectionEntry } from 'astro:content';
 // Relative rather than the '@/…' alias so the module loads in plain Node and
 // its builders can be unit-tested; Vite resolves both the same way.
 import { getNetworkHub, liveTowns, type SiteConfig, type TownConfig } from '../config/index.ts';
-import { toIsoLocal } from './dates.ts';
+import { dayKey, toIsoLocal } from './dates.ts';
+import { exportWhen } from './events.ts';
 import { isPlaceholder } from './editor.ts';
 
 /**
@@ -81,12 +82,16 @@ export function eventJsonLd(
   imageUrl?: string,
 ) {
   const { data } = event;
+  // As the .ics and the Google link give it: whole days by date alone, one
+  // sitting by its times, and no end the listing does not have.
+  const when = exportWhen(event);
+  const stamp = (d: Date) => (when.allDay ? dayKey(d) : toIsoLocal(d));
   return {
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: data.title,
-    startDate: toIsoLocal(data.start),
-    ...(data.end ? { endDate: toIsoLocal(data.end) } : {}),
+    startDate: stamp(when.start),
+    ...(when.end ? { endDate: stamp(when.end) } : {}),
     eventStatus:
       data.status === 'canceled'
         ? 'https://schema.org/EventCancelled'

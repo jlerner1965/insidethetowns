@@ -5,7 +5,7 @@ address: "11611 Jasper Rd"
 area: "Jasper Road, southwest of town"
 url: "https://www.eriehistoricalsociety.org/"
 phone: "(303) 828-4568"
-hours: "Sat 10–2, May–Sep; by appointment"
+hours: "Sat 10 am–2 pm, May–Sep; by appointment"
 tags: [museum, history]
 summary: "The Erie Historical Society's 1870 farmhouse museum on Jasper Road, one of the oldest frame houses in Boulder County; Saturdays 10–2, May to September, or by appointment."
 source: "https://www.eriehistoricalsociety.org/erie-wise-homestead-museum/"

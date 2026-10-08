@@ -1,6 +1,6 @@
 ---
 title: "Moving to Erie"
-description: "What it is like to move to a coal town of nearly 40,000 that grew two-thirds in a decade, split across two counties and two school districts: housing, the commute, who sends which bill, and where the trails are."
+description: "What it is like to move to a coal town of about 30,000 at the 2020 census that grew by two-thirds in a decade, split across two counties and two school districts: housing, the commute, who sends which bill, and where the trails are."
 image: ../images/community-center.jpg
 imageAlt: "The west entrance of the Erie Community Center on Powers Street"
 imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
@@ -9,7 +9,7 @@ updated: "2026-10-02"
 
 ## What you are moving to
 
-Erie is a home-rule town of about 30,000 people at the 2020 census and an estimated 38,594 in 2024 on the Boulder–Weld county line, twenty minutes from Boulder and thirty-five from Denver and its airport, on the plateau between Coal Creek and I-25. It was Colorado's coal capital for eighty years and a farm town of a few thousand for the forty after that; then it grew 66 percent between 2010 and 2020 and kept going. Most of the town is subdivisions built since 2000, in every direction, with a compact historic downtown on Briggs Street that has filled up with restaurants and breweries in the last decade. Fifty-eight percent of residents live on the Weld County side, which includes downtown and Town Hall; the rest are in Boulder County.
+Erie is a home-rule town of about 30,000 people at the 2020 census, on the Boulder–Weld county line, twenty minutes from Boulder and thirty-five from Denver and its airport, on the plateau between Coal Creek and I-25. It was Colorado's coal capital for eighty years and a farm town of a few thousand for the forty after that; then it grew 66 percent between 2010 and 2020 and kept going. Most of the town is subdivisions built since 2000, in every direction, with a compact historic downtown on Briggs Street that has filled up with restaurants and breweries in the last decade. Fifty-eight percent of residents live on the Weld County side, which includes downtown and Town Hall; the rest are in Boulder County.
 
 ## Housing
 

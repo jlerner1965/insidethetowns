@@ -61,7 +61,7 @@ export const carbonValley: TownConfig = {
   // 2010 census, summed: Frederick 8,679 + Firestone 10,147 + Dacono 4,152.
   population2010: 22978,
   character:
-    'Three coal towns in a row along I-25 north of Erie, grown from 23,000 to 37,000 people in a decade, with one library, one rec district and one Main Street each.',
+    'Three coal towns in a row along I-25 north of Erie, grown from 23,000 to 37,000 people between the 2010 and 2020 censuses, with one library, one rec district and one Main Street each.',
   colors: {
     // Coal-seam slate: a cool grey-blue on a cool paper, for the Carbon in the
     // name. Darker and greyer than Berthoud's lake blue, lighter and greyer

@@ -82,7 +82,7 @@ const others = liveTowns().length - 1;
           <div class="py-4"><dt class="eyebrow">Commute</dt><dd class="mt-1.5 leading-snug">{commuteNotes}</dd></div>
         )}
         {town.population && (
-          <div class="py-4"><dt class="eyebrow">Population</dt><dd class="mt-1.5 leading-snug">About {town.population.toLocaleString('en-US')}</dd></div>
+          <div class="py-4"><dt class="eyebrow">Population</dt><dd class="mt-1.5 leading-snug">{town.population.toLocaleString('en-US')} at the 2020 census</dd></div>
         )}
       </dl>
       {listingsLinks.length > 0 && (

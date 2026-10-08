@@ -1,7 +1,8 @@
 ---
 title: "Applewood Arts Festival (fall)"
-start: "2026-10-17T09:30"
-end: "2026-10-18T09:30"
+start: "2026-10-17"
+end: "2026-10-18"
+allDay: true
 venue: "Pedersen Toyota Center, The Ranch Events Complex"
 address: "5280 Arena Circle, Loveland, CO 80538"
 url: "https://www.treventscomplex.com/events/detail/applewood-arts-festivals-fall"

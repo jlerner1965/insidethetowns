@@ -14,6 +14,7 @@
  */
 import Page from '@/layouts/Page.astro';
 import { getNetworkHub, getSite } from '@/config';
+import { PRIVACY_LINE } from '@/lib/privacy';
 
 const site = getSite();
 const hub = getNetworkHub();
@@ -105,8 +106,7 @@ const quiet = !analytics && !forms;
           Your address goes to
           {newsletterHost ? <Fragment> <strong>{newsletterHost}</strong>, which sends the email for us,</Fragment> : ' the company that sends the email for us,'}
           along with whichever towns you picked. They hold it so they can send you the thing you asked for, and for
-          nothing else. We do not sell it, rent it or hand it to anyone, and every email has an unsubscribe link that
-          works immediately and for good.
+          nothing else. Every email has an unsubscribe link that works immediately and for good.
         </p>
         {!submitForm && (
           <p>
@@ -116,9 +116,11 @@ const quiet = !analytics && !forms;
       </Fragment>
     )}
 
+    {forms && <p>{PRIVACY_LINE}</p>}
+
     <h2>What we never do</h2>
     <ul>
-      <li>Sell, rent or share an email address. Ever, to anyone, for any amount.</li>
+      <li>Sell an email address, or share one for advertising.</li>
       <li>Run advertising trackers, retargeting pixels or social widgets.</li>
       <li>Ask you to accept cookies, because there are none to accept.</li>
     </ul>

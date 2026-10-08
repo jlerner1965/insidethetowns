@@ -1,10 +1,10 @@
 ---
 title: "Explore Berthoud: six places in walking order"
-date: "2026-10-08"
+date: "2026-10-07"
 excerpt: "Mountain Avenue end to end, from a 7 am breakfast to the museum's afternoon hours, with a flat reservoir loop in between and the brewery to finish. You park once downtown and move the car only for the water."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-08"
+verified: "2026-10-07"
 sources:
   - { label: "Grandpa's Cafe", url: "https://www.mygrandpascafe.com/" }
   - { label: "Town of Berthoud: Fickel Park", url: "https://berthoud.org/facilities/facility/details/Fickel-Park-2" }

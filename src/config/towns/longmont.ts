@@ -20,7 +20,7 @@ export const longmont: TownConfig = {
   // The "co" is the domain's, not the slug's, as with Windsor.
   domain: 'insidelongmontco.com',
   siteTitle: 'Inside Longmont',
-  tagline: 'An independent guide to Longmont, Colorado: Main Street, the St. Vrain Greenway, McIntosh Lake, the breweries, and life in a city of nearly 100,000.',
+  tagline: 'An independent guide to Longmont, Colorado: Main Street, the St. Vrain Greenway, McIntosh Lake, the breweries, and life in a city of 98,885 (2020 census).',
   shortTagline: 'Main Street, the St. Vrain Greenway and the breweries',
   seoTagline: 'Events and places in Longmont, Colorado',
   // Boulder first: the City calls itself a Boulder County city that extends
@@ -47,7 +47,7 @@ export const longmont: TownConfig = {
   driveToDenver: 'About 45 min',
   population2010: 86270, // 2010 census, for census-to-census growth
   character:
-    'The Chicago-Colorado Colony’s 1871 town on the St. Vrain, now a city of nearly 100,000 with its own fiber network, fifteen miles from Boulder and five from I-25.',
+    'The Chicago-Colorado Colony’s 1871 town on the St. Vrain, a city of 98,885 at the 2020 census, with its own fiber network, fifteen miles from Boulder and five from I-25.',
   colors: {
     // Olive on a warm paper: the one hue family between Timnath's gold and
     // Niwot's green that no guide uses. `npm run check-colors` is the gate.

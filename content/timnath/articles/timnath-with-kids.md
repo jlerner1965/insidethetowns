@@ -30,7 +30,7 @@ Timnath is new, and its parks are new with it: the biggest opened in 2025. For a
 
 ## Summer: the reservoir
 
-[Timnath Reservoir](/places/timnath-reservoir/), east of town on County Road 40, is the Town's own lake, about 600 acres with a six-mile shoreline and the Rockies on the horizon: swimming, kayaking and paddleboarding, and fishing with a Colorado licence. Residents' shore permits are free. Open 7 to 7 or dusk, and 6 am to 8:30 pm in summer.
+[Timnath Reservoir](/places/timnath-reservoir/), east of town on County Road 40, is the Town's own lake, about 600 acres with a six-mile shoreline and the Rockies on the horizon: swimming, kayaking and paddleboarding, and fishing with a Colorado license. Residents' shore permits are free. Open 7 to 7 or dusk, and 6 am to 8:30 pm in summer.
 
 ## The soda fountain
 

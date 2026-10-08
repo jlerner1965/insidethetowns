@@ -1,10 +1,10 @@
 ---
 title: "Explore Loveland: five places in driving order"
-date: "2026-10-08"
+date: "2026-10-07"
 excerpt: "The sculpture garden first, then 4th Street for lunch at Henry's, the galleries and a booked evening at the Rialto or Door 222. Devil's Backbone is its own half-day, with the permit and the parking rules that go with it."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-08"
+verified: "2026-10-07"
 sources:
   - { label: "Henry's Pub: contact and hours", url: "https://www.henryspubloveland.com/contact/" }
   - { label: "Door 222 Food & Drink", url: "https://www.door222.com/" }

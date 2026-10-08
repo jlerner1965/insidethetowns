@@ -1,10 +1,10 @@
 ---
 title: "Explore Elizabeth: five places in walking order"
-date: "2026-10-08"
+date: "2026-10-07"
 excerpt: "Breakfast a block off Main Street, the three historic blocks on foot, then the loop trail at Casey Jones Park or the short one at Evans Park, and back to the brewery or the kitchen when they open. The Stampede is a separate plan."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-08"
+verified: "2026-10-07"
 sources:
   - { label: "Elizabeth Main Street: the Depot Parking Lot", url: "https://www.elizabethmainstreet.org/quick_posts/21734/" }
   - { label: "Catrina's Latin Food: contact", url: "https://elizabethfamilyrestaurant.com/contact" }
@@ -43,7 +43,7 @@ Now the car, east on Highway 86. [Casey Jones Park](/places/casey-jones-park/) i
 
 ## 04 · Evans Park
 
-The shorter option is next door at 34201 County Road 17. [Evans Park](/places/evans-park/) has a loop of about a third of a mile that starts and ends at Dragonfly Pond, with picnic tables and benches along the trail. The pond is stocked with trout by Colorado Parks and Wildlife and a licence is required. The skate park is open in daylight hours, the splash pad runs in summer, and [Prickly Pines](/places/prickly-pines-disc-golf/) is an 18-hole disc golf course through the wooded north end, $5 a player. Leashed dogs anywhere except the fields and the splash pad.
+The shorter option is next door at 34201 County Road 17. [Evans Park](/places/evans-park/) has a loop of about a third of a mile that starts and ends at Dragonfly Pond, with picnic tables and benches along the trail. The pond is stocked with trout by Colorado Parks and Wildlife and a license is required. The skate park is open in daylight hours, the splash pad runs in summer, and [Prickly Pines](/places/prickly-pines-disc-golf/) is an 18-hole disc golf course through the wooded north end, $5 a player. Leashed dogs anywhere except the fields and the splash pad.
 
 *Getting there:* the same road; lot parking. *Best for:* a short walk; children; a fishing rod.
 

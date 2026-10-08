@@ -1,10 +1,10 @@
 ---
 title: "Explore Carbon Valley: six places in driving order"
-date: "2026-10-08"
+date: "2026-10-07"
 excerpt: "A Frederick morning on Fifth Street and around Milavec Lake, barbecue for lunch, then the afternoon in Firestone at the state park or on the coal-railroad trail. Three towns, one car, and the days of the week that matter."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-08"
+verified: "2026-10-07"
 sources:
   - { label: "Gabe's Cafe", url: "https://www.gabescafe.com/" }
   - { label: "Town of Frederick: Frederick Recreation Area", url: "https://www.frederickco.gov/Facilities/Facility/Details/2" }
@@ -21,7 +21,7 @@ related:
   - { label: "St. Vrain State Park", href: "/places/st-vrain-state-park/", note: "Fees, campsites and directions for the Firestone afternoon at stop 05." }
 ---
 
-Frederick, Firestone and Dacono are three towns in a row east of I-25, north of Erie, with their old centres within about four miles of one another. Fifth Street in Frederick holds the cafe, the park, the museum and the barbecue within two blocks, so park there once and walk those; everything else is a drive, and each stop says which town it is in.
+Frederick, Firestone and Dacono are three towns in a row east of I-25, north of Erie, with their old centers within about four miles of one another. Fifth Street in Frederick holds the cafe, the park, the museum and the barbecue within two blocks, so park there once and walk those; everything else is a drive, and each stop says which town it is in.
 
 ## 01 · Gabe's Cafe (Frederick)
 
@@ -31,7 +31,7 @@ Start on Fifth Street. [Gabe's](/places/gabes-cafe/) at 214 5th Street is a fami
 
 ## 02 · Milavec Lake (Frederick)
 
-Drive to the [Frederick Recreation Area](/places/frederick-recreation-area/) at 8201 Colorado Boulevard, the Town's 129 acres around Milavec Lake. A 1.26-mile crusher-fine loop circles the water, with 1.7 miles of paved trail connecting to it, all open to walking and cycling. Fishing piers line the shore (a Colorado licence for anyone over 16; no ice fishing, because the aerators keep the ice unstable), and non-motorized boats can launch without a permit once the water is clear of ice. Bald and golden eagles winter here. The Town lists restrooms, parking, picnic shelters, a playground behind the restroom by the main lot, and the skate park at the south-west corner, open dawn to 10 pm.
+Drive to the [Frederick Recreation Area](/places/frederick-recreation-area/) at 8201 Colorado Boulevard, the Town's 129 acres around Milavec Lake. A 1.26-mile crusher-fine loop circles the water, with 1.7 miles of paved trail connecting to it, all open to walking and cycling. Fishing piers line the shore (a Colorado license for anyone over 16; no ice fishing, because the aerators keep the ice unstable), and non-motorized boats can launch without a permit once the water is clear of ice. Bald and golden eagles winter here. The Town lists restrooms, parking, picnic shelters, a playground behind the restroom by the main lot, and the skate park at the south-west corner, open dawn to 10 pm.
 
 *Getting there:* a few minutes' drive from Fifth Street; lot parking. *Best for:* the flat loop before lunch; birds in winter; the dog park.
 

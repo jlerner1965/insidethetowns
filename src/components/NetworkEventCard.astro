@@ -11,7 +11,7 @@
  */
 import type { NetworkEntry } from '@/lib/content';
 import { dayKey, formatDayRange, formatDayShort, formatMonthDay, formatTimeRange, toIsoLocal } from '@/lib/dates';
-import { eventEnd, isCanceled, isInProgress, lastDay } from '@/lib/events';
+import { isCanceled, isInProgress, lastDay, listedUntil } from '@/lib/events';
 import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 
 interface Props {
@@ -52,7 +52,7 @@ const time = showDay && !running && !multiDay ? `${formatDayShort(data.start)} Â
   data-category={town.slug}
   data-event-day={lastDay(event)}
   data-start={toIsoLocal(data.start)}
-  data-end={toIsoLocal(eventEnd(event))}
+  data-end={toIsoLocal(listedUntil(event))}
 >
   <p class="mb-1.5 sm:mb-0 sm:pt-1">
     <span

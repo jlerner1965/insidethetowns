@@ -8,7 +8,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { clockLabel, hoursLines, hoursTextByDesign, openingStatus, parseHoursText, parseOpeningHours } from '../src/lib/hours.ts';
+import { clockLabel, hoursLines, hoursTextByDesign, hoursWithMeridiem, openingStatus, parseHoursText, parseOpeningHours } from '../src/lib/hours.ts';
 
 test('a plain range with am and pm stated', () => {
   assert.deepEqual(parseHoursText('Mon–Sat 6 am–9 pm, Sun 7 am–8 pm'), ['Mo-Sa 06:00-21:00', 'Su 07:00-20:00']);
@@ -153,4 +153,18 @@ test('hoursLines: one line per day range, times held together', () => {
     `Mon, Wed–Fri 6${NB}am${WJ}–${WJ}8${NB}pm`,
     `Tue 6${NB}am${WJ}–${WJ}2${NB}pm`,
   ]);
+});
+
+test('hours are shown with am and pm, read the way the open-now status reads them', () => {
+  // insideerie.com/directory/ showed "11-2" and "4:30-8" with neither.
+  assert.equal(hoursWithMeridiem('Tue–Thu 11–2 & 4:30–8, Fri 11–2 & 4:30–9; closed Mon'), 'Tue–Thu 11 am–2 pm & 4:30 pm–8 pm, Fri 11 am–2 pm & 4:30 pm–9 pm; closed Mon');
+  assert.equal(hoursWithMeridiem('Tue–Sat 10–5; closed Sun–Mon'), 'Tue–Sat 10 am–5 pm; closed Sun–Mon');
+  assert.equal(hoursWithMeridiem('Sat 12–10, Sun noon–5'), 'Sat noon–10 pm, Sun noon–5 pm');
+  assert.equal(hoursWithMeridiem('Mon–Fri 5 am–9 pm, Sat 7–8'), 'Mon–Fri 5 am–9 pm, Sat 7 am–8 pm', 'an explicit am elsewhere decides the bare one');
+  assert.equal(hoursWithMeridiem('Sat 10–5 only'), 'Sat 10 am–5 pm only');
+  assert.equal(hoursWithMeridiem('Daily 7 am–2 pm'), 'Daily 7 am–2 pm', 'already clear: untouched');
+  // Where a number pair may be a date, nothing is rewritten.
+  const season = 'Weekends in May; Jun–Sep: Mon–Sat 9:30–4:30';
+  assert.equal(hoursWithMeridiem(season), season);
+  assert.equal(hoursWithMeridiem('Open daily, sunrise to sunset'), 'Open daily, sunrise to sunset');
 });

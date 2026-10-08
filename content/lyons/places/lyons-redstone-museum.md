@@ -5,7 +5,7 @@ address: "340 High St"
 area: "High Street"
 url: "https://www.lyonsredstonemuseum.com/"
 phone: "(303) 823-5271"
-hours: "Weekends in May; Jun–Sep: Mon–Sat 9:30–4:30, Sun 12:30–4:30"
+hours: "Weekends in May; Jun–Sep: Mon–Sat 9:30 am–4:30 pm, Sun 12:30–4:30 pm"
 image: ../images/redstone-museum.jpg
 imageAlt: "The rusticated red sandstone schoolhouse of 1881, now the Lyons Redstone Museum"
 imageCredit: "Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0"

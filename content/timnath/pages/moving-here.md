@@ -1,6 +1,6 @@
 ---
 title: "Moving to Timnath"
-description: "What it is like to move to a farm town of 625 that became a town of 11,000 in fifteen years: housing in the master-planned neighborhoods, Poudre schools, the Harmony Road commute, who sends which bill, and where the water is."
+description: "What it is like to move to a farm town of 625 at the 2010 census that the Town put at about 11,600 in 2025: housing in the master-planned neighborhoods, Poudre schools, the Harmony Road commute, who sends which bill, and where the water is."
 image: ../images/sunrise.jpg
 imageAlt: "Sunrise through bare cottonwoods over a frozen pond in Timnath"
 imageCredit: "USFWS Mountain-Prairie, Wikimedia Commons, CC BY 2.0"
@@ -9,11 +9,11 @@ updated: "2026-10-02"
 
 ## What you are moving to
 
-Timnath is a home-rule town in Larimer County on the bluff east of the Cache la Poudre River, half a mile east of the Harmony Road exit from I-25 and ten minutes from south Fort Collins. It was a railroad and farm town of a few hundred people for its first 130 years, with a three-block Main Street, a church and a school; the 2010 census counted 625 people. The 2020 census counted 6,487, the estimate for 2025 is about 11,600, and the Town calls itself one of the fastest-growing communities in Colorado. Almost everything except Old Town has been built since 2005: the neighborhoods around Timnath Reservoir and along Harmony Road, the Costco and Walmart at Weitzel Street, the Town Center, three schools and three parks.
+Timnath is a home-rule town in Larimer County on the bluff east of the Cache la Poudre River, half a mile east of the Harmony Road exit from I-25 and ten minutes from south Fort Collins. It was a railroad and farm town of a few hundred people for its first 130 years, with a three-block Main Street, a church and a school; the 2010 census counted 625 people. The 2020 census counted 6,487, the Town's own estimate for 2025 is about 11,600 ([Wikipedia](https://en.wikipedia.org/wiki/Timnath,_Colorado)), and the Town calls itself one of the fastest-growing communities in Colorado. Almost everything except Old Town has been built since 2005: the neighborhoods around Timnath Reservoir and along Harmony Road, the Costco and Walmart at Weitzel Street, the Town Center, three schools and three parks.
 
 ## Housing
 
-Nearly all single-family homes in master-planned neighborhoods, most with metropolitan districts and homeowners' associations: Timnath Ranch, WildWing, Timnath Lakes, Harmony, Serratoga Falls, Trailside, Wildwing and the newer subdivisions east toward County Road 5, plus a few apartment communities near Harmony Road. Old Town has the small houses from the railroad era. Median household income was about $113,000 in the last figures Wikipedia cites, which puts Timnath among the wealthier towns in northern Colorado. The listings sites in the sidebar show what is for sale; ask which metro district and which HOA a house is in, and whether reservoir access comes with it.
+Nearly all single-family homes in master-planned neighborhoods, most with metropolitan districts and homeowners' associations: Timnath Ranch, WildWing, Timnath Lakes, Harmony, Serratoga Falls, Trailside and the newer subdivisions east toward County Road 5, plus a few apartment communities near Harmony Road. Old Town has the small houses from the railroad era. Median household income was about $113,000 in the last figures Wikipedia cites, which puts Timnath among the wealthier towns in northern Colorado. The listings sites in the sidebar show what is for sale; ask which metro district and which HOA a house is in, and whether reservoir access comes with it.
 
 ## Schools
 

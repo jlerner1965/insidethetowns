@@ -3675,3 +3675,104 @@ reachable through a switch, needs the Astro adapter; the build has none.
 - `www.insidefortlupton.com` was found serving the site itself instead of
   redirecting, the only one of the twenty `www` domains to do so; it is now
   a 308 to the apex like the rest.
+
+## The October 7 public audit: one fix pass
+
+*8 October 2026.* A public audit of the network on 7 October found the
+faults below. Each was reproduced in the code or the content before it was
+fixed; nothing outside the list was taken on.
+
+- **This week's pick is dated by its listing.** The notes for the week of
+  October 5 picked Berthoud's talk on the 13th, Carbon Valley's and
+  Elizabeth's Saturdays on the 17th and Niwot's open house on the 16th, all
+  under "October 5–11". `currentPick` now reads the event page the pick's
+  URL names and shows it as Our pick only when that listing is on between
+  Monday 00:00 and the next Monday 00:00, Denver, not ended and not called
+  off. A pick for a later date goes under "Coming up" with its real date;
+  one with no listing to date it by is not shown. A week with no pick and no
+  listings says so in words whatever New & closed holds, and a stale build
+  that has cleared everything says so too. The pick now prints its own day
+  and time. The newsletter never read the editor's pick; its picks are the
+  weekend's listings, which were already inside the weekend.
+- **A listing comes off at its end.** `isPast` compared a listing's end with
+  the start of today, so a 7 pm talk was "coming up" at 11 pm. It now uses
+  `listedUntil`: a timed event's end time, the midnight after an all-day
+  run's last day, and for a listing with no end the next Denver midnight.
+  That midnight is a display rule only; nothing exports it. Every row
+  carries the instant as `data-end`, and Freshness.astro removes a finished
+  row on load as the hub's weekend page already did. Six runs stored the
+  start of their last session as their `end` (Applewood's Sunday opening,
+  the last show of two theatre runs, the Polar Express's 8 pm train, the
+  library book sale, the home show), so they would have dropped off as that
+  day began: they are now whole-day runs (`allDay`), times in the note.
+- **One listing, three exports that agree.** The .ics files, the Google
+  link and the structured data all read `exportWhen`: a sitting by its
+  start and its own end, never a guessed one (the Google link's made-up
+  hour is gone), and a timed listing that runs 24 hours or more across days
+  as whole days, with its times in the description. An overnight sitting
+  (the Crystal Ball, 8 pm to 12:30 am) stays timed.
+- **A show on separate nights is a file per night.** Amy Bruni's two
+  separately ticketed nights were one listing exported as 7:30 pm Thursday
+  to 7:30 pm Friday. Eleven listings of two to four performances (Amy
+  Bruni, Budos Band, DeVotchKa, the monster trucks, the PRCA finals, the
+  Rialto ghost tours, the Nutcracker, CSU's dance concert and Menotti,
+  Mystic Pizza, Willy Wonka) are now one file per performance, as Die
+  Fledermaus already was. The first keeps its URL; two on one day are
+  `-matinee` and `-evening`; each names the others. An end is kept only
+  where the listing stated one for that performance.
+- **One filter.** The directory's name search set `data-name-miss`, which
+  the page's scoped style never matched on rows rendered by PlaceRow, so it
+  hid nothing. Name, category, town and Open now are now one pass in
+  `src/lib/filters.ts`, run by FilterBar; the group counts, the empty box
+  (with a reset) and the status line come from that pass, and the status
+  names the town rather than its slug. On the hub, the day's fold is redone
+  over the rows a filter shows, so a town's only listing that day is never
+  behind "Show 20 more"; All restores the fold as built.
+- **Hours read with am and pm.** `hoursWithMeridiem` writes am or pm on
+  every time of a line the parser reads in full, with the interpretation
+  the open-now badge already used, so the two cannot disagree; a line the
+  parser will not read is left as written, and the five of those without
+  am/pm were given it in the content. A business with no hours says
+  "Hours unknown"; a park or trail, which keeps daylight or none, does not.
+  Open now leaves out what it cannot decide and says how many, businesses
+  and parks apart, rather than treating them as closed.
+- **The signup says what it can see.** It opens the provider's tab itself
+  from the button press, so a blocked tab is known before anything is sent
+  and the reader is offered this tab instead; it then says "Finish signing
+  up in the new tab, then confirm by email", with links to open the tab
+  again or change the details. A second press is refused. Every form needs
+  at least one town now, the hub's rule; the town's own is ticked.
+- **The event form can describe a schedule**: date, start time (Mountain
+  Time), an optional end time, all day, and a line for other dates or a
+  repeat. The source link stays required. The email fallback asks the same.
+- **Privacy wording.** The pages promised an address was never shared
+  while naming the two services it goes to. One sentence now, in
+  `src/lib/privacy.ts`, on the privacy page, the signup, the event form and
+  the page after a message: not sold, not shared for advertising, processed
+  by Buttondown and Formspree only to do what was asked. No retention period
+  added. Waiting on the owner's sign-off before merge.
+- **Explore dates.** The seventeen Explore guides were dated 2026-10-08:
+  they were committed between 00:26 and 00:31 UTC on the 8th, 6:26 to 6:31
+  pm on the 7th in Denver, by a session whose clock was UTC. The pages
+  already format in Denver, so the stored days were what was wrong; they
+  are now 2026-10-07. `new-town` and the validator's "event is over" line
+  now use Denver days too.
+- **Contents numbers once.** A guide that numbers its own headings ("01 ·
+  Elkhorn Avenue") keeps its numbers in the contents list; the list adds
+  none of its own there.
+- **Text.** /moving/ no longer ranks Elizabeth highest (it is a Palmer
+  Divide community; Evergreen, Estes Park and Nederland are all higher), says
+  Evergreen is unincorporated as well as Niwot (Niwot's wording untouched
+  while its vote is pending), and calls Carbon Valley a guide to three
+  municipalities. "Doubled" is now what the census figures on the comparison
+  pages say: Erie grew by about two-thirds and Johnstown by about
+  three-quarters, 2010 to 2020. Every population figure in prose names its
+  year and source; the 2020 census table is unchanged, the Moving Here
+  sidebar says "at the 2020 census", and the comparison table "Population
+  2020". Figures with no source on the sites were taken out rather than
+  guessed at: Elizabeth's "nearer 3,100" for 2026 (and the "nearly doubled"
+  and "fastest-growing" claims resting on it) and Erie's "38,594 in 2024".
+  Frederick's own page gives 16,873 with no year, and the text says so.
+  WildWing is listed once. British spellings in original prose are
+  American (license, center, percent, jewelry); street names such as Centre
+  Avenue, quotations and source titles are as written.

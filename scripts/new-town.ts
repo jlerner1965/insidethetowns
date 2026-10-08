@@ -9,6 +9,7 @@
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync, appendFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { addDays, dayKey } from '../src/lib/dates.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const [slug, ...nameParts] = process.argv.slice(2);
@@ -94,8 +95,10 @@ export const ${ident}: TownConfig = {
 };
 `;
 
-const iso = (d: Date) => d.toISOString().slice(0, 10);
-const daysOut = (n: number) => new Date(Date.now() + n * 86_400_000);
+// Denver days, as every date in content is: a scaffold made on a Colorado
+// evening is dated that evening, not the next UTC day.
+const iso = (d: Date) => dayKey(d);
+const daysOut = (n: number) => addDays(new Date(), n);
 
 const sampleEvent = `---
 title: "${name} Farmers Market (sample)"
