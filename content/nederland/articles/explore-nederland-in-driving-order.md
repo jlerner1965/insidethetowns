@@ -1,10 +1,10 @@
 ---
 title: "Explore Nederland: five places in driving order"
-date: "2026-10-08"
+date: "2026-10-07"
 excerpt: "A bagel on East 1st Street before the 2 pm cutoff, an easy loop at Mud Lake, the carousel on one of its open days, the free mining museum on an autumn weekend, and pizza or a Nepali lunch back in town. Hessie is a separate plan."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-08"
+verified: "2026-10-07"
 sources:
   - { label: "Town of Nederland: Nederland Visitors Center", url: "https://nederlandco.org/1434/Nederland-Visitors-Center" }
   - { label: "Town of Nederland: Directions", url: "https://nederlandco.org/1436/Directions" }

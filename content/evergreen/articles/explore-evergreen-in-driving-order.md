@@ -1,10 +1,10 @@
 ---
 title: "Explore Evergreen: five places in driving order"
-date: "2026-10-08"
+date: "2026-10-07"
 excerpt: "A lake-and-food day: the 1.3-mile loop at Evergreen Lake, then lunch downtown on Highway 74 and ice cream on Meadow Drive. Add the Hiwan museum on a Thursday-to-Sunday afternoon and the county trails for a longer visit. Boating is closed for 2026."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-08"
+verified: "2026-10-07"
 sources:
   - { label: "Evergreen Park & Recreation District: Evergreen Lake", url: "https://www.evergreenrecreation.com/evergreen-lake" }
   - { label: "Evergreen Park & Recreation District: Evergreen Lake House", url: "https://www.evergreenrecreation.com/evergreen-lake-house" }

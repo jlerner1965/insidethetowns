@@ -5,7 +5,7 @@ address: "4020 Main St"
 area: "Old Town, Main Street"
 url: "https://timnathpres.org/"
 phone: "(970) 493-8996"
-hours: "Sun worship 10 am; office Tue–Thu 9–2"
+hours: "Sun worship 10 am; office Tue–Thu 9 am–2 pm"
 image: ../images/presbyterian-church.jpg
 imageAlt: "The 1888 Timnath Presbyterian Church on Main Street: a stucco chapel with a shingled gable, a white belfry and the church sign on the lawn"
 tags: [church, history, landmark]

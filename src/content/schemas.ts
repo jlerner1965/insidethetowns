@@ -544,7 +544,8 @@ export function issueSchema<I extends z.ZodType>(image: () => I) {
  * The editor's notes for one town and one week: content/<town>/weekly/<weekOf>.md,
  * copied from scripts/templates/weekly-template.md. "This week in [Town]"
  * (ThisWeek.astro) reads them: the pick from the current week's file only,
- * and New & closed from every file whose items have not expired.
+ * dated by the listing it links to, and New & closed from every file whose
+ * items have not expired.
  */
 export const CHANGE_TAGS = ['opening', 'closed', 'new-hours', 'moved', 'added-to-guide'] as const;
 export type ChangeTag = (typeof CHANGE_TAGS)[number];
@@ -590,7 +591,11 @@ export function weeklySchema() {
       .object({
         title: blank(z.string().min(1)),
         body: blank(z.string().min(1)),
-        /** Links the title when set. */
+        /**
+         * The listing on this guide, /events/<slug>/. Its date decides where
+         * the pick shows (src/lib/weekly.ts currentPick): Our pick only in
+         * the week it is on, "Coming up" if later, nowhere without one.
+         */
         url: blank(httpUrl),
       })
       .optional(),

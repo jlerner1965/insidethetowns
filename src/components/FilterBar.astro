@@ -2,6 +2,12 @@
 /**
  * Category buttons that show/hide [data-filter-item] elements inside the
  * nearest [data-filter-root]. The only client-side JS on town sites.
+ *
+ * One filter, applied to the rows themselves: category, town, "Open now" and,
+ * where the root has a [data-filter-search] input, the name. Every count the
+ * page shows (a group's badge, "Show N more", the status line, the empty box
+ * and what "Open now" left out) is read from that one result
+ * (src/lib/filters.ts).
  */
 interface Props {
   options: Array<{ value: string; label: string }>;
@@ -54,47 +60,90 @@ const pill =
         </div>
       </div>
     )}
+    {openNow && <p class="text-[0.875rem] text-ink-muted" data-filter-unknown hidden></p>}
     <p class="sr-only" role="status" data-filter-status></p>
   </div>
 )}
 
 <script>
+  import { collapsePlan, emptyText, filterRows, statusText, unknownNote } from '@/lib/filters';
+
   const bars = document.querySelectorAll<HTMLElement>('[data-filter-bar]');
   for (const bar of bars) {
     const root = bar.closest<HTMLElement>('[data-filter-root]') ?? document.body;
     const buttons = bar.querySelectorAll<HTMLButtonElement>('[data-filter]');
     const openToggle = bar.querySelector<HTMLButtonElement>('[data-filter-open]');
     const whereButtons = bar.querySelectorAll<HTMLButtonElement>('[data-where]');
+    const search = root.querySelector<HTMLInputElement>('[data-filter-search]');
     let value = 'all';
     let openOnly = false;
     // Which of a multi-town guide's towns; 'all' everywhere else.
     let where = 'all';
+    // Each row's place in the page as built, so folding and unfolding a day
+    // can always put its rows back in their order.
+    root.querySelectorAll<HTMLElement>('[data-filter-item]').forEach((item, i) => (item.dataset.order = String(i)));
+    const order = (item: HTMLElement) => Number(item.dataset.order ?? 0);
+    const labelOf = (selector: string) => bar.querySelector(selector)?.textContent?.trim();
+
     const apply = () => {
       for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.filter === value));
       openToggle?.setAttribute('aria-pressed', String(openOnly));
       for (const b of whereButtons) b.setAttribute('aria-pressed', String(b.dataset.where === where));
-      const items = root.querySelectorAll<HTMLElement>('[data-filter-item]');
-      for (const item of items) {
-        item.hidden =
-          (value !== 'all' && item.dataset.category !== value) ||
-          (openOnly && item.dataset.open !== 'true') ||
-          (where !== 'all' && item.dataset.subTown !== where);
-      }
+      const query = search?.value ?? '';
+      const items = [...root.querySelectorAll<HTMLElement>('[data-filter-item]')].sort((a, b) => order(a) - order(b));
+      const result = filterRows(
+        items.map((item) => ({
+          category: item.dataset.category,
+          subTown: item.dataset.subTown,
+          name: item.dataset.name ?? item.querySelector('h3, h4')?.textContent ?? '',
+          open: item.dataset.open,
+          land: item.dataset.land === 'true',
+        })),
+        { value, openOnly, where, query },
+      );
+      items.forEach((item, i) => (item.hidden = !result.shown[i]));
+
       for (const group of root.querySelectorAll<HTMLElement>('[data-filter-group]')) {
-        group.hidden = !group.querySelector('[data-filter-item]:not([hidden])');
+        const rows = items.filter((item) => group.contains(item));
+        const shown = rows.filter((item) => !item.hidden);
+        group.hidden = shown.length === 0;
+        const badge = group.querySelector<HTMLElement>('[data-filter-count]');
+        if (badge) badge.textContent = String(shown.length);
+        // A folded day: the shown rows first, the fold after the first few of
+        // them, so a match is never left behind "Show N more".
+        const list = group.querySelector<HTMLElement>('[data-collapse-list]');
+        const more = group.querySelector<HTMLDetailsElement>('[data-collapse-more]');
+        const rest = more?.querySelector<HTMLElement>('[data-collapse-rest]');
+        if (list && more && rest) {
+          const plan = collapsePlan(rows.map((item) => !item.hidden), Number(more.dataset.collapseMore || 6));
+          for (const i of plan.above) list.insertBefore(rows[i]!, more);
+          for (const i of plan.below) rest.append(rows[i]!);
+          for (const item of rows) if (item.hidden) rest.append(item);
+          const count = more.querySelector<HTMLElement>('[data-collapse-count]');
+          if (count) count.textContent = String(plan.below.length);
+          more.hidden = plan.below.length === 0;
+          if (plan.below.length === 0) more.open = false;
+        }
       }
+
+      const label = value === 'all' ? undefined : labelOf(`[data-filter="${value}"]`) ?? value;
+      const whereLabel = where === 'all' ? undefined : labelOf(`[data-where="${where}"]`) ?? where;
       const empty = root.querySelector<HTMLElement>('[data-filter-empty]');
-      if (empty) empty.hidden = !!root.querySelector('[data-filter-item]:not([hidden])');
-      // aria-pressed reports the button; nothing reported the result.
-      const status = bar.querySelector<HTMLElement>('[data-filter-status]');
-      if (status) {
-        const shown = root.querySelectorAll('[data-filter-item]:not([hidden])').length;
-        const label = value === 'all' ? 'all categories' : value;
-        const whereLabel = where === 'all' ? '' : `, in ${bar.querySelector(`[data-where="${where}"]`)?.textContent?.trim() ?? where}`;
-        status.textContent = `${shown} ${shown === 1 ? 'result' : 'results'} in ${label}${openOnly ? ', open now' : ''}${whereLabel}`;
+      if (empty) {
+        empty.hidden = result.count > 0;
+        const text = empty.querySelector<HTMLElement>('[data-filter-empty-text]');
+        if (text) text.textContent = emptyText({ label, openOnly, whereLabel, query });
       }
+      const unknown = bar.querySelector<HTMLElement>('[data-filter-unknown]');
+      if (unknown) {
+        unknown.textContent = openOnly ? unknownNote(result) : '';
+        unknown.hidden = !unknown.textContent;
+      }
+      // aria-pressed reports the button; this reports the result, by name.
+      const status = bar.querySelector<HTMLElement>('[data-filter-status]');
+      if (status) status.textContent = statusText(result.count, { label, openOnly, whereLabel, query });
       // For a page whose sections need more than their groups hidden.
-      root.dispatchEvent(new CustomEvent('filter:change', { detail: { value } }));
+      root.dispatchEvent(new CustomEvent('filter:change', { detail: { value, label } }));
     };
     for (const b of buttons) {
       b.addEventListener('click', () => {
@@ -112,10 +161,31 @@ const pill =
         apply();
       });
     }
+    // Everything back as built: the buttons, the toggle, the search.
+    for (const reset of root.querySelectorAll<HTMLButtonElement>('[data-filter-reset]')) {
+      reset.addEventListener('click', () => {
+        value = 'all';
+        openOnly = false;
+        where = 'all';
+        if (search) search.value = '';
+        const url = new URL(location.href);
+        url.searchParams.delete('where');
+        url.searchParams.delete('q');
+        history.replaceState(null, '', url);
+        apply();
+        search?.focus();
+      });
+    }
     // A section page links here with ?where=firestone; a value the bar does
     // not offer is ignored rather than pressing nothing.
-    const wanted = new URLSearchParams(location.search).get('where');
+    const params = new URLSearchParams(location.search);
+    const wanted = params.get('where');
     if (wanted && [...whereButtons].some((b) => b.dataset.where === wanted)) where = wanted;
+    if (search) {
+      search.addEventListener('input', apply);
+      const q = params.get('q');
+      if (q) search.value = q;
+    }
     if (openToggle) {
       openToggle.addEventListener('click', () => {
         openOnly = !openOnly;
@@ -129,6 +199,6 @@ const pill =
       document.addEventListener('hours:ready', reveal);
       reveal();
     }
-    if (where !== 'all') apply();
+    if (where !== 'all' || search?.value) apply();
   }
 </script>

@@ -17,6 +17,7 @@
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import { getSite } from '@/config';
+import { PRIVACY_LINE } from '@/lib/privacy';
 
 const site = getSite();
 const town = site.kind === 'town';
@@ -45,8 +46,8 @@ const town = site.kind === 'town';
       <a href="/editorial/">editorial policy</a> sets out how that works.
     </p>
     <p>
-      Your email address is only used to reply to you. It is never published, never added to the newsletter without
-      you asking, and never passed on.
+      Your email address is only used to reply to you. It is never published, and never added to the newsletter
+      without you asking. {PRIVACY_LINE}
     </p>
   </div>
 

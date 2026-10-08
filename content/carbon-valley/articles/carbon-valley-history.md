@@ -71,7 +71,7 @@ The coal's successor lies deeper. The [Wattenberg field](https://en.wikipedia.or
 
 ## The boom
 
-Then the valley filled. Between the 2000 and 2020 censuses Frederick went from 2,467 people to 14,513, Firestone from 1,908 to 16,381 and Dacono from 3,015 to 6,297. Firestone's growth between 2000 and 2010, 431 percent, made it what the Town calls [the fastest-growing community in Colorado](https://www.firestoneco.gov/281/History-of-Firestone). Frederick, which unveiled a new brand and logo in 2014, now counts more than 16,873 residents and calls itself the hub of a Carbon Valley of 46,000, taking in Mead and Erie as well.
+Then the valley filled. Between the 2000 and 2020 censuses Frederick went from 2,467 people to 14,513, Firestone from 1,908 to 16,381 and Dacono from 3,015 to 6,297. Firestone's growth between 2000 and 2010, 431 percent, made it what the Town calls [the fastest-growing community in Colorado](https://www.firestoneco.gov/281/History-of-Firestone). Frederick, which unveiled a new brand and logo in 2014, puts its population at 16,873 on [a demographics page](https://www.frederickco.gov/858/Data-and-Demographics) that gives no year, and calls itself the hub of a Carbon Valley of 46,000, taking in Mead and Erie as well.
 
 ## The valley today
 

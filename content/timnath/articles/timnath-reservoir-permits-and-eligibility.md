@@ -1,13 +1,15 @@
 ---
 title: "Timnath Reservoir: who can go, which permit, and when"
 date: "2026-10-07"
-excerpt: "The Town's reservoir is open to Timnath residents, people in the growth management area, Colorado anglers and their guests, each on a different permit. Who qualifies, what each permit costs, the hours by season, the motorized boating days and the rules on swimming, paddling, fishing and dogs."
+updated: "2026-10-08"
+excerpt: "The Town's reservoir is open to Timnath residents, people in the growth management area, Colorado resident anglers and their guests, each on a different permit. Who qualifies, what each permit costs, the hours by season, the motorized boating days and the rules on swimming, paddling, fishing and dogs."
 category: "Outdoors"
 tags: [outdoors, lake, fishing, boating, permits, guide]
-verified: "2026-10-07"
+verified: "2026-10-08"
 sources:
   - { label: "Town of Timnath: Timnath Reservoir", url: "https://timnath.org/timnath-reservoir/" }
   - { label: "Town of Timnath: Reservoir Permits", url: "https://timnath.org/permits/" }
+  - { label: "Town of Timnath: Colorado Anglers", url: "https://timnath.org/permits/colorado-anglers-2/" }
   - { label: "Town of Timnath: Reservoir Policy 2026 (PDF)", url: "https://timnath.org/wp-content/uploads/2026/03/Reservoir-Policy-2026-Final-1.pdf" }
 related:
   - { label: "Timnath Reservoir", href: "/places/timnath-reservoir/", note: "The listing, with the address, phone number and hours." }
@@ -23,9 +25,9 @@ The [reservoir page](https://timnath.org/timnath-reservoir/) says the property i
 
 - **Timnath residents:** anyone living within the Town's municipal boundaries, including property owners, renters and business owners.
 - **GMA residents:** anyone living in the Town's Growth Management Area, which the Town defines as outside the municipal boundary. Property owners and renters count.
-- **Colorado anglers:** anyone who is neither of the above and holds a current Colorado Parks & Wildlife fishing licence.
+- **Colorado anglers:** Colorado residents who are neither of the above. The Town's [Colorado Anglers page](https://timnath.org/permits/colorado-anglers-2/) says "Colorado resident anglers only" and requires a valid Colorado fishing license, for shore and non-motorized boat fishing. The license alone does not get you onto the property: an angler also needs the Town's shore permit, one per license.
 
-Residents and GMA residents must show proof of residency; anglers show the licence. A guest is anyone without a permit who comes with a permit holder. Children under 16 get in free with a permit-holding adult of 18 or over and do not need a guest pass, but they may not be left unattended.
+Residents and GMA residents must show proof of residency; anglers show the license. A guest is anyone without a permit who comes with a permit holder. Children under 16 get in free with a permit-holding adult of 18 or over and do not need a guest pass, but they may not be left unattended.
 
 ## The permits
 
@@ -45,8 +47,8 @@ Some details from the policy that the fee table does not show:
 
 - A **resident household's free shore permit** comes as two tags and includes one guest vehicle a day; a second guest vehicle pass can be bought on site.
 - A **GMA household's annual shore permit** also includes one guest vehicle. The GMA day-use household permit includes no guests.
-- An **angler's shore permit** is individual, one per fishing licence, and lets the holder bring up to two children under 16.
-- **GMA residents and anglers must hold a shore permit** before they can buy a non-motorized boat permit. GMA households are limited to four annual boat permits; anglers to one boat per licence.
+- An **angler's shore permit** is individual, one per fishing license, and lets the holder bring up to two children under 16.
+- **GMA residents and anglers must hold a shore permit** before they can buy a non-motorized boat permit, annual or single-day. GMA households are limited to four annual boat permits; anglers to one boat per license.
 - **Motorized boat permits** go only to Timnath residents, one boat per household, with 65 annual permits issued (the Town may raise that to 70). The boat must be state-registered with an ANS stamp, insured for at least $300,000 liability, and the permit holder must be the resident. Day-use motorized permits are bought online in advance, by noon Friday for the weekend, and a permit does not guarantee a place on the water that day.
 - **eFoils** have their own resident-only permit, 25 a year: $100 annual ($75 senior) or $15 a day ($10 senior). Jet skis and jet boats are prohibited.
 
@@ -62,7 +64,7 @@ Some details from the policy that the fee table does not show:
 
 ## What is allowed
 
-- **Fishing** from shore, piers or boats, with a Colorado licence for anyone 16 and older. Carp must be kept, not released. Bow fishing is allowed; ice fishing is not.
+- **Fishing** from shore, piers or boats, with a Colorado license for anyone 16 and older as well as the Town permit; a fishing license on its own does not grant access. Carp must be kept, not released. Bow fishing is allowed; ice fishing is not.
 - **Swimming** only from the designated swim area, with no lifeguard; the policy prohibits swimming or wading from the shore elsewhere, and keeps boats out of the swim area. The Town does not treat blue-green algae, confirmed in past years in late summer and early fall; stay out of discoloured or scummy water, and keep dogs out.
 - **Paddling** in kayaks, canoes, paddleboards, float tubes and the like counts as non-motorized boating. Every boat needs a life jacket per person, a paddle and a whistle, and children under 13 must wear the jacket. A permit is required even if you launch from somewhere other than the Town's park.
 - **Dogs** on leashes are welcome; clean up after them.

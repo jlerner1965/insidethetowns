@@ -1,6 +1,6 @@
 ---
 title: "Moving to Estes Park"
-description: "Estes Park, Colorado: a Larimer County town of about 5,900 at the east entrance to Rocky Mountain National Park. Schools, roads, utilities, fire."
+description: "Estes Park, Colorado: a Larimer County town of about 5,900 at the 2020 census, at the east entrance to Rocky Mountain National Park. Schools, roads, utilities, fire."
 updated: "2026-10-06"
 ---
 

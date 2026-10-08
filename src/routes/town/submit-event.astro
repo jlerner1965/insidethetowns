@@ -4,9 +4,14 @@
  *
  * Every route into this network was a mailto:, which converts badly on a phone
  * — it opens an app most people have never configured — and returns freeform
- * prose somebody then has to parse by hand. Five fields: what, when, where,
- * the source to check it against, and a way to reply. Everything else a
- * listing carries is read off the organizer's page.
+ * prose somebody then has to parse by hand. What, when, where, the source to
+ * check it against, and a way to reply; everything else a listing carries is
+ * read off the organizer's page.
+ *
+ * "When" is in Mountain Time, says so, and can say what a real schedule
+ * needs: an end time if there is one, all day, and a line for other dates or
+ * a repeat. One date and time could not describe a two-night show or a
+ * Thursday series, and the second night arrived as a guess.
  *
  * The organizer's link is required rather than optional, because the editorial
  * policy says every listing is checked against its source before it goes up.
@@ -19,6 +24,7 @@
 import Page from '@/layouts/Page.astro';
 import { getTown } from '@/config';
 import { eventEmailHref } from '@/lib/submit';
+import { PRIVACY_LINE } from '@/lib/privacy';
 
 const town = getTown();
 const action = town.formspreeId ? `https://formspree.io/f/${town.formspreeId}` : undefined;
@@ -46,17 +52,36 @@ const group = 'space-y-5 rounded-lg bg-raised p-5 ring-1 ring-line-soft sm:p-6 m
         <label>Leave this blank <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
       </p>
 
-      {/* Five fields, the ones a listing cannot be checked without (owner's
-          call, 7 October 2026): the rest is read off the organizer's page. */}
+      {/* The fields a listing cannot be checked without (owner's call,
+          7 October 2026), and the three optional ones a schedule needs: the
+          rest is read off the organizer's page. */}
       <fieldset class={group}>
         <legend class="eyebrow float-left mb-1 w-full p-0">The event</legend>
         <label class={label}>
           Event name
           <input type="text" name="title" required autocomplete="off" class={field} />
         </label>
+        <div class="grid gap-5 sm:grid-cols-3">
+          <label class={label}>
+            Date
+            <input type="date" name="date" required class={field} />
+          </label>
+          <label class={label}>
+            Start time <span class="font-normal text-ink-muted">(Mountain Time)</span>
+            <input type="time" name="start_time" class={field} data-start-time />
+          </label>
+          <label class={label}>
+            End time <span class="font-normal text-ink-muted">(optional)</span>
+            <input type="time" name="end_time" class={field} data-end-time />
+          </label>
+        </div>
+        <label class="flex min-h-11 items-center gap-2.5 text-[0.9375rem] font-semibold">
+          <input type="checkbox" name="all_day" value="yes" class="size-5 shrink-0 rounded border-line" data-all-day />
+          All day, no set times
+        </label>
         <label class={label}>
-          Date and time
-          <input type="datetime-local" name="when" required class={field} />
+          Other dates, or how it repeats <span class="font-normal text-ink-muted">(optional)</span>
+          <textarea name="other_dates" rows="2" maxlength="300" placeholder="Also Friday the 16th at 7:30 pm; or every Thursday through November" class={field}></textarea>
         </label>
         <label class={label}>
           Location
@@ -74,7 +99,7 @@ const group = 'space-y-5 rounded-lg bg-raised p-5 ring-1 ring-line-soft sm:p-6 m
           Your email
           <input type="email" name="email" required autocomplete="email" class={field} />
           <span class="mt-1.5 block text-sm font-normal text-ink-muted">
-            Only so we can come back to you with a question. It is never published and never passed on.
+            Only so we can come back to you with a question, and it is never published. {PRIVACY_LINE}
           </span>
         </label>
       </fieldset>
@@ -96,10 +121,29 @@ const group = 'space-y-5 rounded-lg bg-raised p-5 ring-1 ring-line-soft sm:p-6 m
       </p>
       <p><a href={mailto} class="btn btn-primary no-underline">Email an event</a></p>
       <p>
-        The email opens with the four things we need already listed: the event name, the date and start time, the
-        location, and a link to the organizer’s own page. That last one matters: every listing is checked against its
-        source before it goes up, usually within a couple of days.
+        The email opens with what we need already listed: the event name, the date and start time in Mountain Time,
+        the location, and a link to the organizer’s own page, with lines for an end time and any other dates. The
+        link matters: every listing is checked against its source before it goes up, usually within a couple of days.
       </p>
     </div>
   )}
 </Page>
+
+<script>
+  // A start time is asked for unless the event is all day. Without the
+  // script neither is required, and the source settles it when we check.
+  for (const box of document.querySelectorAll<HTMLInputElement>('[data-all-day]')) {
+    const form = box.form;
+    const start = form?.querySelector<HTMLInputElement>('[data-start-time]');
+    const end = form?.querySelector<HTMLInputElement>('[data-end-time]');
+    const sync = () => {
+      if (start) {
+        start.required = !box.checked;
+        start.disabled = box.checked;
+      }
+      if (end) end.disabled = box.checked;
+    };
+    box.addEventListener('change', sync);
+    sync();
+  }
+</script>

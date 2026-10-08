@@ -1,6 +1,6 @@
 ---
 title: "Moving to Berthoud"
-description: "What it is like to live in a farm town of ten thousand that doubled in a decade: housing, Thompson schools, the US 287 and I-25 commutes, a Town that runs its own water, and the lakes ten minutes up the road."
+description: "What it is like to live in a farm town of ten thousand at the 2020 census that doubled in a decade: housing, Thompson schools, the US 287 and I-25 commutes, a Town that runs its own water, and the lakes ten minutes up the road."
 image: ../images/welcome-sign.jpg
 imageAlt: "The Town of Berthoud welcome sign, 'The Garden Spot of Colorado', on a grey winter day"
 updated: "2026-10-02"
@@ -8,7 +8,7 @@ updated: "2026-10-02"
 
 ## What you are moving to
 
-Berthoud is a statutory town of about 10,300 people (2020 census) on the Larimer–Weld county line, 21 miles south of Fort Collins and 43 north of Denver, on the bluff above the Little Thompson River. It calls itself the Garden Spot of Colorado, a name earned by the irrigated farms around it, and until recently it was a farm town of five thousand with a five-block Main Street. It has roughly doubled since 2010: new subdivisions on every side, a $32 million recreation center opened in 2021, a bike park in 2023, a reservoir park in 2020, and the [downtown](/places/downtown-mural-walk/) filling up with breweries, galleries and antique malls. The old grid of brick storefronts and converted houses along Mountain Avenue is still the center of it.
+Berthoud is a statutory town of about 10,300 people (2020 census) on the Larimer–Weld county line, 21 miles south of Fort Collins and 43 north of Denver, on the bluff above the Little Thompson River. It calls itself the Garden Spot of Colorado, a name earned by the irrigated farms around it, and as recently as the 2010 census it was a farm town of about five thousand with a five-block Main Street. It has roughly doubled since 2010: new subdivisions on every side, a $32 million recreation center opened in 2021, a bike park in 2023, a reservoir park in 2020, and the [downtown](/places/downtown-mural-walk/) filling up with breweries, galleries and antique malls. The old grid of brick storefronts and converted houses along Mountain Avenue is still the center of it.
 
 ## Housing
 

@@ -6,7 +6,7 @@ category: "Moving here"
 tags: [living-here, schools]
 ---
 
-Johnstown is one town with two of most things. It sits in Weld and Larimer counties — about 73 per cent of residents on the Weld side at the 2020 census, 27 per cent on the Larimer side — because the town has annexed west and north-west across the line over time.
+Johnstown is one town with two of most things. It sits in Weld and Larimer counties — about 73 percent of residents on the Weld side at the 2020 census, 27 percent on the Larimer side — because the town has annexed west and north-west across the line over time.
 
 Underneath that are three more boundaries, and none of them is the county line exactly. [The moving guide](/moving-here/) covers utilities, commuting and housing. This is the part that decides which of them apply to a particular address.
 

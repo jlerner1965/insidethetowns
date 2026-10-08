@@ -350,6 +350,38 @@ export function openingStatus(spec: readonly string[], now: Date, tz = TIME_ZONE
 }
 
 /**
+ * The hours line as a reader sees it, with am or pm on every time: "Wed–Fri
+ * 11–2 & 4–8" is "Wed–Fri 11 am–2 pm & 4 pm–8 pm". "11–2" on its own left
+ * the reader to guess, and a guess of 11 pm is a wasted drive.
+ *
+ * The times are the ones the open-or-closed status already reads
+ * (`resolveRange`), so the words and the badge cannot disagree. Only a line
+ * the parser reads in full is rewritten: in any other ("May 1–31", "Jun–Sep:
+ * 9:30–4:30") a number pair may be a date, and the line is shown as written.
+ */
+export function hoursWithMeridiem(text: string): string {
+  if (!parseHoursText(text)) return text;
+  const lower = text.toLowerCase().replace(/[–—]/g, '-').replace(/\b(a|p)\.m\./g, '$1m').replace(/\b(\d)(am|pm)\b/g, '$1 $2');
+  let earliestAm: number | null = null;
+  for (const m of lower.matchAll(/(\d{1,2})(?::(\d{2}))?\s*am\s*(?:-|to)/g)) {
+    const at = (Number(m[1]) % 12) * 60 + Number(m[2] ?? 0);
+    earliestAm = earliestAm === null ? at : Math.min(earliestAm, at);
+  }
+  // The space after a range is the line's, not the range's, so a missing
+  // am/pm takes none with it ("Sat 10–5 only").
+  const meridiem = String.raw`(?:\s*(am|pm|a\.m\.|p\.m\.)(?![a-z]))?`;
+  const time = new RegExp(String.raw`(\d{1,2}|noon)(?::(\d{2}))?${meridiem}(\s*(?:[-–—]|to)\s*)(\d{1,2})(?::(\d{2}))?${meridiem}`, 'gi');
+  const ap = (s: string | undefined) => (s ? (s[0]!.toLowerCase() === 'a' ? 'am' : 'pm') : null);
+  return text.replace(time, (whole, h1: string, m1, ap1, dash, h2, m2, ap2) => {
+    if (ap1 && ap2) return whole;
+    const noon = h1.toLowerCase() === 'noon';
+    const range = resolveRange(noon ? 12 : Number(h1), Number(m1 ?? 0), noon ? 'pm' : ap(ap1), Number(h2), Number(m2 ?? 0), ap(ap2), earliestAm);
+    if (!range) return whole;
+    return `${noon ? h1 : clockLabel(range[0])}${dash}${clockLabel(range[1])}`;
+  });
+}
+
+/**
  * A free-text hours line as display lines, one per day range, held together
  * where a break would strand a fragment: "11 am" never parts from its "am",
  * and a time range never breaks at its dash. In a narrow column "Fri–Sat 11

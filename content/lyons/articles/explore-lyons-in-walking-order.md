@@ -1,10 +1,10 @@
 ---
 title: "Explore Lyons: five places in walking order"
-date: "2026-10-08"
+date: "2026-10-07"
 excerpt: "Park once beside Sandstone Park, walk the six sandstone blocks of Main Street, eat, then follow the river path to LaVern M. Johnson Park. Hall Ranch is the add-on for a longer day, a mile west by car and without the dog."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-08"
+verified: "2026-10-07"
 sources:
   - { label: "Town of Lyons: Parks and Recreation", url: "https://www.lyonscolorado.com/311/Parks-and-Recreation" }
   - { label: "Town of Lyons: Parks and Facilities", url: "https://www.lyonscolorado.com/348/Parks-Facilities" }

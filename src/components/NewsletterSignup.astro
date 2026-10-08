@@ -12,15 +12,19 @@
  *
  * The towns are checkboxes everywhere now, one per live guide, each posting
  * the town's tag to the provider. On a guide the reader's town starts ticked
- * and the rest sit behind "Show all towns"; on the hub nothing is ticked and
- * the form will not send without a town or "All towns". It posts to the
- * provider's hosted flow in a new tab (no key in the page, no address in a
- * URL) and this page then says what happens next.
+ * and the rest sit behind "Show all towns"; on the hub nothing is ticked. No
+ * form sends without at least one town, the hub's rule everywhere: an
+ * untagged subscriber gets no issue at all. It posts to the provider's hosted
+ * flow in a new tab (no key in the page, no address in a URL), and this page
+ * then says what is left to do there and never that the reader is subscribed,
+ * which it cannot see (src/lib/signup.ts).
  *
  * Dark until `newsletter` is set on the hub config, so nothing here is a
  * half-built promise while the provider account is being sorted.
  */
 import { getNetworkHub, liveTowns, type TownConfig } from '@/config';
+import { SIGNUP_MESSAGES } from '@/lib/signup';
+import { PRIVACY_LINE } from '@/lib/privacy';
 
 interface Props {
   /** On a town site: pre-tick that town and write the copy about it. */
@@ -70,7 +74,7 @@ const box = 'size-5 shrink-0 rounded border-line';
         One email a week: the weekend’s events, places new to the guide or closed, and a new article when there is one.
       </p>
 
-      <fieldset class="mt-5" aria-describedby={town ? undefined : errorId}>
+      <fieldset class="mt-5" aria-describedby={errorId}>
         <legend class="eyebrow">Which towns?</legend>
         {town ? (
           <Fragment>
@@ -100,6 +104,9 @@ const box = 'size-5 shrink-0 rounded border-line';
                 )}
               </div>
             </details>
+            <p id={errorId} data-towns-error hidden aria-live="polite" class="mt-2 text-[0.9375rem] font-semibold text-ink">
+              {SIGNUP_MESSAGES['need-town']}
+            </p>
           </Fragment>
         ) : (
           <Fragment>
@@ -121,7 +128,7 @@ const box = 'size-5 shrink-0 rounded border-line';
               ))}
             </div>
             <p id={errorId} data-towns-error hidden aria-live="polite" class="mt-2 text-[0.9375rem] font-semibold text-ink">
-              Pick at least one town, or All towns.
+              {SIGNUP_MESSAGES['need-town-hub']}
             </p>
           </Fragment>
         )}
@@ -145,8 +152,14 @@ const box = 'size-5 shrink-0 rounded border-line';
         <button type="submit" class="btn btn-primary mt-3 h-12 w-full justify-center px-6 sm:mt-0 sm:w-auto">Send me the {day} email</button>
       </div>
 
+      {/* Shown when the browser refuses the new tab: nothing has been sent. */}
+      <div data-signup-blocked hidden role="alert" class="mt-4 rounded-md border border-line bg-raised px-4 py-3 text-[0.9375rem] leading-relaxed">
+        <p>{SIGNUP_MESSAGES.blocked}</p>
+        <button type="button" class="mt-2 inline-flex min-h-11 items-center font-semibold text-accent-text underline" data-signup-here>Continue in this tab</button>
+      </div>
+
       <p class="mt-3 text-[0.8125rem] leading-relaxed text-ink-faint">
-        Free. One email a week. Unsubscribe any time. We never sell your address — see the
+        Free. One email a week. Unsubscribe any time. {PRIVACY_LINE} See the
         <a href={`https://${hub.domain}/privacy/`} class="inline-block -my-3 py-3 text-accent-text">privacy page</a>.
       </p>
       {/* A page's own line about the email (the hub's "See a sample issue"),
@@ -155,45 +168,98 @@ const box = 'size-5 shrink-0 rounded border-line';
     </form>
     {/* Shown in place of the form once it has gone to the provider. The
         provider's page, in a new tab, is where the signup actually finishes
-        (a "Verify and Subscribe" step), so this says that rather than
-        claiming a success this page cannot see. */}
+        (a "Verify and Subscribe" step, then an email to confirm), so this
+        says that rather than claiming a success this page cannot see, and
+        keeps the way back: the tab again, or the form. */}
     <div data-signup-done hidden tabindex="-1" class="max-w-xl text-[1.0625rem] leading-relaxed">
-      <p class="font-semibold">One more step: finish signing up in the Buttondown tab that just opened.</p>
-      <p class="mt-2 text-[0.9375rem] text-ink-muted">
-        Press “Verify and Subscribe” there, then confirm the email it sends you. If no tab opened, allow pop-ups for this site and submit again.
+      <p class="font-semibold">{SIGNUP_MESSAGES.opened}</p>
+      <p class="mt-2 text-[0.9375rem] text-ink-muted">{SIGNUP_MESSAGES.openedHelp}</p>
+      <p class="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-[0.9375rem]">
+        <button type="button" class="inline-flex min-h-11 items-center font-semibold text-accent-text underline" data-signup-reopen>Open the signup tab again</button>
+        <button type="button" class="inline-flex min-h-11 items-center font-semibold text-accent-text underline" data-signup-edit>Change your details</button>
       </p>
     </div>
   </section>
 )}
 
 <script>
-  // The provider's hosted page opens in a new tab with the result; this page
-  // says what to do next. On the hub the form also refuses to send without a
-  // town or "All towns", since an untagged subscriber gets no issue at all.
+  import { submitSignup } from '@/lib/signup';
+
+  // The provider's hosted page opens in a new tab and finishes the signup;
+  // this page says what is left to do there. No form sends without a town.
   for (const form of document.querySelectorAll<HTMLFormElement>('form[data-signup]')) {
     const boxes = () => [...form.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')];
     const error = form.querySelector<HTMLElement>('[data-towns-error]');
+    const blocked = form.querySelector<HTMLElement>('[data-signup-blocked]');
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
     const done = form.parentElement?.querySelector<HTMLElement>('[data-signup-done]');
+    let sending = false;
     for (const box of boxes()) {
       box.addEventListener('change', () => {
         if (error && boxes().some((b) => b.checked)) error.hidden = true;
       });
     }
-    form.addEventListener('submit', (event) => {
-      if (form.dataset.hub !== undefined && !boxes().some((b) => b.checked)) {
-        event.preventDefault();
-        if (error) error.hidden = false;
+    const send = () => {
+      const outcome = submitSignup(
+        {
+          towns: boxes().filter((b) => b.checked).map((b) => b.value),
+          sending,
+          openTab: (name) => window.open('about:blank', name),
+          post: (target) => {
+            form.target = target;
+            // submit() sends without firing "submit" again; the checks above
+            // are the ones a submit event would have made.
+            form.submit();
+          },
+        },
+        `signup-${Date.now()}`,
+      );
+      if (outcome === 'busy') return;
+      if (error) error.hidden = outcome !== 'need-town';
+      if (blocked) blocked.hidden = outcome !== 'blocked';
+      if (outcome === 'need-town') {
         boxes()[0]?.focus();
         return;
       }
-      // After the browser has read the form, not before.
-      setTimeout(() => {
-        form.hidden = true;
-        if (done) {
-          done.hidden = false;
-          done.focus();
-        }
-      }, 0);
+      if (outcome === 'blocked') return;
+      // Sent: the second press of a double click finds the form gone and
+      // the button off, and `sending` turns away anything already queued.
+      sending = true;
+      if (button) button.disabled = true;
+      form.hidden = true;
+      if (done) {
+        done.hidden = false;
+        done.focus();
+      }
+    };
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      send();
+    });
+    // Blocked: the same post, in this tab.
+    form.querySelector('[data-signup-here]')?.addEventListener('click', () => {
+      if (!form.reportValidity()) return;
+      if (!boxes().some((b) => b.checked)) return send();
+      form.target = '_self';
+      form.submit();
+    });
+    // Sent: open the provider's tab again, or go back to the form.
+    done?.querySelector('[data-signup-reopen]')?.addEventListener('click', () => {
+      sending = false;
+      if (!form.checkValidity()) {
+        done.hidden = true;
+        form.hidden = false;
+        form.reportValidity();
+        return;
+      }
+      send();
+    });
+    done?.querySelector('[data-signup-edit]')?.addEventListener('click', () => {
+      sending = false;
+      if (button) button.disabled = false;
+      done.hidden = true;
+      form.hidden = false;
+      form.querySelector<HTMLInputElement>('input[type="email"]')?.focus();
     });
   }
 </script>

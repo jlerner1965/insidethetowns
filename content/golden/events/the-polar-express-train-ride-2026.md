@@ -1,7 +1,8 @@
 ---
 title: "The Polar Express Train Ride"
-start: "2026-11-06T17:00"
-end: "2026-12-23T20:00"
+start: "2026-11-06"
+end: "2026-12-23"
+allDay: true
 venue: "Colorado Railroad Museum"
 address: "17155 W. 44th Ave, Golden, CO 80403"
 url: "https://coloradorailroadmuseum.org/polar-express/"

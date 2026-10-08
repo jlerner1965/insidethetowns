@@ -1,12 +1,12 @@
 ---
 title: "Moving to Lyons"
-description: "What it is like to live in a stone town of 2,200 at the mouth of the St. Vrain canyons: housing, schools, the commute, a Town that runs its own utilities, and a river that floods once a century."
+description: "What it is like to live in a stone town of 2,200 at the 2020 census, at the mouth of the St. Vrain canyons: housing, schools, the commute, a Town that runs its own utilities, and a river that floods once a century."
 updated: "2026-10-02"
 ---
 
 ## What you are moving to
 
-Lyons is an incorporated statutory town of about 2,200 people in 1.36 square miles, where US 36 and Colorado 7 leave the plains for the St. Vrain canyons, twenty minutes north of Boulder. Six blocks of red sandstone storefronts on Main Street, a river running through the middle, four open-space trail areas within fifteen minutes, and two music festivals a summer that bring several thousand visitors to a town with two small lodges and no hotel. It is the last town before Estes Park, and it feels like it: through-traffic on summer weekends, quiet the rest of the year.
+Lyons is an incorporated statutory town of about 2,200 people at the 2020 census, in 1.36 square miles, where US 36 and Colorado 7 leave the plains for the St. Vrain canyons, twenty minutes north of Boulder. Six blocks of red sandstone storefronts on Main Street, a river running through the middle, four open-space trail areas within fifteen minutes, and two music festivals a summer that bring several thousand visitors to a town with two small lodges and no hotel. It is the last town before Estes Park, and it feels like it: through-traffic on summer weekends, quiet the rest of the year.
 
 ## Housing
 

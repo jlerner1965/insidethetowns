@@ -1,10 +1,10 @@
 ---
 title: "Explore Timnath: five places in driving order"
-date: "2026-10-08"
+date: "2026-10-07"
 excerpt: "Coffee in the Feed & Grain building on Main Street, the river trail from Weitzel Park, lunch by the Town Center, the Community Park and the brewery to finish. Five stops a few minutes' drive apart, with the reservoir left to its permit holders."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-08"
+verified: "2026-10-07"
 sources:
   - { label: "Town of Timnath: Timnath Main Street", url: "https://timnath.org/timnath-main-street/" }
   - { label: "Town of Timnath: Weitzel Park", url: "https://timnath.org/weitzel-park/" }

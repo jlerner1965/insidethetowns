@@ -1,6 +1,6 @@
 ---
 title: "Moving to Elizabeth"
-description: "What it is like to move to a sawmill town of 1,675 that has nearly doubled since the last census: housing on Main Street and on acreage, the C-1 schools, the Parker Road commute, who sends which bill, and what the water situation is."
+description: "What it is like to move to a sawmill town of 1,675 at the 2020 census: housing on Main Street and on acreage, the C-1 schools, the Parker Road commute, who sends which bill, and what the water situation is."
 image: ../images/town-hall.jpg
 imageAlt: "Elizabeth Town Hall, a low brick building on South Banner Street"
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
@@ -9,7 +9,7 @@ updated: "2026-10-02"
 
 ## What you are moving to
 
-Elizabeth is a statutory town in Elbert County, on the Palmer Divide at 6,477 feet, where the ponderosa hills of the Black Forest run out into prairie. State Highway 86 bisects it east to west: Castle Rock and I-25 are fifteen miles west, the county seat at Kiowa seven miles east, and Denver about forty-five miles northwest. The 2020 census counted 1,675 residents, up 23 percent in ten years, and estimates for 2026 put the town nearer 3,100. That makes it one of the fastest-growing towns in the country by percentage, which is the single fact that explains most of what you will hear at a Board of Trustees meeting.
+Elizabeth is a statutory town in Elbert County, on the Palmer Divide at 6,477 feet, where the ponderosa hills of the Black Forest run out into prairie. State Highway 86 bisects it east to west: Castle Rock and I-25 are fifteen miles west, the county seat at Kiowa seven miles east, and Denver about forty-five miles northwest. The 2020 census counted 1,675 residents, up 23 percent in ten years.
 
 What has not changed is the shape of the place. Two blocks of brick and false-front storefronts on South Main Street, a rodeo ground and a 103-acre park east of town, subdivisions and five-acre horse properties spreading north and south of the highway, and a school district that is the largest employer. People who move here from the metro almost always say the same thing: they came for the acreage and the sky, and stayed for the fact that the person behind the counter knows them.
 

@@ -1,10 +1,10 @@
 ---
 title: "Explore Fort Lupton: four places in walking order"
-date: "2026-10-08"
+date: "2026-10-07"
 excerpt: "Denver Avenue and the museum on First Street make a simple visit, with a meal in the 1889 St. John building in the middle of it. Watch the days: the restaurant closes Monday and the museum opens Wednesday to Friday."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-08"
+verified: "2026-10-07"
 sources:
   - { label: "City of Fort Lupton: Historic Preservation", url: "https://www.fortluptonco.gov/424/Historic-Preservation" }
   - { label: "City of Fort Lupton: Historic Designation register", url: "https://www.fortluptonco.gov/425/Historic-Designation" }

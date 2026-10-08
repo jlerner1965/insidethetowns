@@ -1,10 +1,10 @@
 ---
 title: "Explore downtown Longmont: five places in walking order"
-date: "2026-10-08"
+date: "2026-10-07"
 excerpt: "Breakfast, bookshops, lunch and an evening on Main Street from one parking spot, then a drive to McIntosh Lake's 3.5-mile loop, Left Hand's tasting room or, from October 17, the museum's reopened galleries."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-08"
+verified: "2026-10-07"
 sources:
   - { label: "City of Longmont: McIntosh Lake Nature Area", url: "https://longmontcolorado.gov/facilities/mcintosh-lake-nature-area/" }
   - { label: "Longmont Museum: plan your visit", url: "https://longmontcolorado.gov/museum/about-the-museum/plan-your-visit/" }

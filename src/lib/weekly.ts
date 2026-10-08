@@ -7,9 +7,10 @@
  * Every date is a Denver day (src/lib/dates.ts). "This week" is Monday to
  * Sunday around `now`, whether or not a notes file exists for it; "this
  * weekend" is weekendWindow's: the coming Friday to Sunday, or the one under
- * way. An event has ended once its end (or its start, with no end) has
- * passed, and an ended event is never shown — a stricter line than the
- * calendar's isPast, which keeps today's listings up until midnight.
+ * way. An event has ended by the calendar's own rule (`listedUntil` in
+ * src/lib/events.ts): at its end time, or at midnight when it gave none, and
+ * an ended event is never shown. Our pick has to be on inside the week the
+ * heading names (`currentPick`).
  */
 import type { CollectionEntry } from 'astro:content';
 import {
@@ -21,7 +22,7 @@ import {
   type WeeklyNotes,
 } from '../content/schemas.ts';
 import { TIME_ZONE, addDays, dayKey, startOfDay } from './dates.ts';
-import { eventEnd, isCanceled, isMultiDay, lastDay, sortByStart, uniqueByEvent, weekendWindow } from './events.ts';
+import { isCanceled, isMultiDay, isPast, lastDay, sortByStart, uniqueByEvent, weekendWindow } from './events.ts';
 
 /** Items show through this many days after the file's weekOf unless the item says otherwise. */
 export const CHANGE_DAYS = 14;
@@ -52,17 +53,65 @@ export function currentNotes<T extends NotesLike>(entries: readonly T[], now = n
   return notesOf(entries).find((n) => n.data.weekOf.getTime() <= today);
 }
 
-export interface Pick {
+export interface Pick<T extends EventLike = EventLike> {
   title: string;
   body?: string;
   url?: string;
+  /** The listing the pick links to, at the occurrence it is for. */
+  event: T;
 }
 
-/** Our pick, from the current week's file only, and only when it has a title. */
-export function currentPick(entries: readonly NotesLike[], now = new Date()): Pick | undefined {
+export interface WeekPick<T extends EventLike = EventLike> {
+  /** On inside the week the heading names: Our pick. */
+  thisWeek?: Pick<T>;
+  /** On after this week: shown apart, under "Coming up", with its own date. */
+  comingUp?: Pick<T>;
+}
+
+/** The listing a pick's URL names, "/events/<slug>/", or undefined for any other link. */
+export function pickSlug(url: string | undefined): string | undefined {
+  if (!url) return undefined;
+  try {
+    return new URL(url).pathname.match(/^\/events\/([^/]+)\/?$/)?.[1];
+  } catch {
+    return undefined;
+  }
+}
+
+/**
+ * Our pick, from the current week's file only, placed by the date of the
+ * listing it links to.
+ *
+ * The notes for the week of October 5 picked a talk on the 13th and a
+ * festival on the 17th, and the home pages showed them under "October 5–11".
+ * A pick is dated by its listing, the event page its URL names, and it is
+ * this week's only when that listing is on between Monday 00:00 and the next
+ * Monday 00:00 in Denver (`weekWindow`), has not ended and is not called off.
+ * A pick whose listing comes after the week is `comingUp`, for the page to
+ * show apart under its real date. A pick with no title, or whose listing has
+ * ended, been called off or cannot be found (no URL, or not one of this
+ * guide's event pages), cannot be dated, and is neither.
+ *
+ * Pass the calendar through `occurrences` first, so a weekly regular is found
+ * on its day this week.
+ */
+export function currentPick<T extends EventLike>(
+  entries: readonly NotesLike[],
+  events: readonly T[],
+  now = new Date(),
+): WeekPick<T> {
   const pick = currentNotes(entries, now)?.data.pick;
-  if (!pick?.title) return undefined;
-  return { title: pick.title, body: pick.body, url: pick.url };
+  const slug = pickSlug(pick?.url);
+  if (!pick?.title || !slug) return {};
+  const listed = sortByStart(events.filter((e) => (e.slug ?? e.id) === slug && !isCanceled(e) && !isPast(e, now)));
+  const { end } = weekWindow(now);
+  const text = { title: pick.title, body: pick.body, url: pick.url };
+  // Not past means still on at `now`, which is inside the week, so starting
+  // before the week's end is enough: a run that began last week counts.
+  const inWeek = listed.find((e) => e.data.start.getTime() < end.getTime());
+  if (inWeek) return { thisWeek: { ...text, event: inWeek } };
+  const later = listed.find((e) => e.data.start.getTime() >= end.getTime());
+  return later ? { comingUp: { ...text, event: later } } : {};
 }
 
 export interface Change extends WeeklyChange {
@@ -95,9 +144,9 @@ export function changeLabel(tag: ChangeTag): string {
   return CHANGE_TAG_LABELS[tag];
 }
 
-/** True once the event's end (or its start, when it has no end) is behind `now`. */
+/** True once the listing is over by the calendar's rule: its end time, or midnight when it has none. */
 export function hasEnded(event: EventLike, now = new Date()): boolean {
-  return eventEnd(event).getTime() <= now.getTime();
+  return isPast(event, now);
 }
 
 /** Not ended, not called off, soonest first, one row per listing. */

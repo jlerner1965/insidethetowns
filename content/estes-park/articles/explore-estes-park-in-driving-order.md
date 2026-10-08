@@ -1,10 +1,10 @@
 ---
 title: "Explore Estes Park: five places in driving order"
-date: "2026-10-08"
+date: "2026-10-07"
 excerpt: "Build the day around one thing, then leave room for a meal: Elkhorn Avenue from the free parking structure, the tramway while it runs, a Stanley tour, lunch on Moraine Avenue. The national park is a separate day, and has its own guide."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-08"
+verified: "2026-10-07"
 sources:
   - { label: "Town of Estes Park: Parking", url: "https://estespark.colorado.gov/parking" }
   - { label: "Town of Estes Park: The Peak (free Town transit service)", url: "https://estespark.colorado.gov/transit" }

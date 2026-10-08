@@ -8,7 +8,7 @@ tags: [living-here, schools]
 
 Erie sits in Boulder and Weld counties. The town [says so plainly](https://erieco.gov/2505/Regional-Partners): "The Town of Erie lies within two counties — Boulder and Weld Counties." County Line Road is the boundary. West of it is Boulder County; east of it is Weld.
 
-That is not trivia. At the 2020 census 58 per cent of Erie's residents lived on the Weld side and 42 per cent on the Boulder side, so neither is a rounding error, and a set of boundaries that were drawn by different bodies for different reasons all run through the middle of town. Two houses four streets apart can differ in ways no listing mentions.
+That is not trivia. At the 2020 census 58 percent of Erie's residents lived on the Weld side and 42 percent on the Boulder side, so neither is a rounding error, and a set of boundaries that were drawn by different bodies for different reasons all run through the middle of town. Two houses four streets apart can differ in ways no listing mentions.
 
 [The moving guide](/moving-here/) covers the utilities, the commute and the housing stock. This is the part underneath it: which lines cross Erie, and what each one changes.
 
@@ -28,7 +28,7 @@ The important part: the school boundary and the county line are drawn by differe
 
 ## The library is a third boundary
 
-[Erie Community Library](/places/erie-community-library/) is not a town department. It is run by the [High Plains Library District](https://www.mylibrary.us/erie/), which is centred on Weld County. A library card is a district question, not a municipal one, and the district's boundary is its own.
+[Erie Community Library](/places/erie-community-library/) is not a town department. It is run by the [High Plains Library District](https://www.mylibrary.us/erie/), which is centered on Weld County. A library card is a district question, not a municipal one, and the district's boundary is its own.
 
 ## Fire is a fourth
 

@@ -24,7 +24,7 @@ export const timnath: TownConfig = {
   incorporated: 1920,
   driveToDenver: 'About 1 hr',
   population2010: 625, // 2010 census, for census-to-census growth
-  character: 'A farm village of 600 that became a town of 6,000, mostly since the Costco.',
+  character: 'A farm village that grew tenfold between the 2010 and 2020 censuses, mostly since the Costco.',
   colors: {
     // Harvest gold on a wheat-white paper: potatoes, alfalfa and sugar beets were the
     // town's business for a century. Distinct from the five other accents.
@@ -33,9 +33,9 @@ export const timnath: TownConfig = {
     neutralBg: '#F7F4EC',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'Geese over Fossil Creek Reservoir, the Fort Collins natural area just across I-25 from Timnath, bare cottonwoods and houses along the far shore',
-    credit: 'KimonBerlin, Wikimedia Commons, CC BY-SA 2.0',
+    image: 'sunrise.jpg',
+    alt: 'Sunrise through bare cottonwoods over a frozen pond in Timnath',
+    credit: 'USFWS Mountain-Prairie, Wikimedia Commons, CC BY 2.0',
   },
   social: {
     email: 'hello@insidetimnath.com',

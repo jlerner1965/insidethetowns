@@ -7,9 +7,9 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseLocal } from '../src/lib/dates.ts';
+import { dayKey, parseLocal } from '../src/lib/dates.ts';
 import { occurrences } from '../src/lib/events.ts';
-import { activeChanges, currentNotes, currentPick, hasEnded, isWeekend, upcomingEvents, weekEvents, weekWindow, weekendEvents } from '../src/lib/weekly.ts';
+import { activeChanges, currentNotes, currentPick, hasEnded, isWeekend, pickSlug, upcomingEvents, weekEvents, weekWindow, weekendEvents } from '../src/lib/weekly.ts';
 
 const at = (s: string) => parseLocal(s);
 
@@ -55,16 +55,129 @@ test('the current file is the latest weekOf on or before today; a file for next 
   assert.equal(currentNotes(files, at('2026-10-01')), undefined);
 });
 
+const listing = (slug: string) => `https://insideberthoud.com/events/${slug}/`;
+
 test('the pick comes only from the current week, and a blank title is no pick', () => {
-  const files = [notes('2026-10-05', { title: 'Old pick', body: 'b' }), notes('2026-10-12', { title: '' })];
-  assert.equal(currentPick(files, at('2026-10-14')), undefined, 'last week’s pick does not carry over');
-  assert.deepEqual(currentPick(files, at('2026-10-07')), { title: 'Old pick', body: 'b', url: undefined });
-  assert.equal(currentPick([], at('2026-10-14')), undefined, 'no file at all');
+  const events = [ev('Old pick', '2026-10-09T19:00'), ev('New pick', '2026-10-15T19:00')];
+  const files = [notes('2026-10-05', { title: 'Old pick', body: 'b', url: listing('old-pick') }), notes('2026-10-12', { title: '', url: listing('new-pick') })];
+  assert.deepEqual(currentPick(files, events, at('2026-10-14')), {}, 'last week’s pick does not carry over');
+  assert.equal(currentPick(files, events, at('2026-10-07')).thisWeek?.title, 'Old pick');
+  assert.equal(currentPick(files, events, at('2026-10-07')).thisWeek?.body, 'b');
+  assert.deepEqual(currentPick([], events, at('2026-10-14')), {}, 'no file at all');
 });
 
 test('a file that failed its schema is skipped, not read', () => {
-  const files = [{ data: { excluded: true as const } }, notes('2026-10-12', { title: 'Good' })];
-  assert.equal(currentPick(files, at('2026-10-14'))?.title, 'Good');
+  const files = [{ data: { excluded: true as const } }, notes('2026-10-12', { title: 'Good', url: listing('good') })];
+  assert.equal(currentPick(files, [ev('Good', '2026-10-16T19:00')], at('2026-10-14')).thisWeek?.title, 'Good');
+});
+
+test('a pick dated after the week is not this week’s pick; it is coming up, with its own date', () => {
+  // The October 5–11 home pages picked Berthoud’s talk on the 13th, Carbon
+  // Valley’s and Elizabeth’s Saturdays on the 17th and Niwot’s open house on
+  // the 16th, all under the heading “October 5–11”.
+  const events = [
+    ev('Speaker night', '2026-10-13T19:00'),
+    ev('Frights on Fifth', '2026-10-17T15:00', '2026-10-17T17:00'),
+    ev('Open house', '2026-10-16T16:00', '2026-10-16T19:00'),
+  ];
+  for (const [slug, day] of [['speaker-night', '2026-10-13'], ['frights-on-fifth', '2026-10-17'], ['open-house', '2026-10-16']] as const) {
+    const files = [notes('2026-10-05', { title: slug, url: listing(slug) })];
+    for (const now of ['2026-10-05T08:00', '2026-10-07T23:00', '2026-10-11T23:59']) {
+      const { thisWeek, comingUp } = currentPick(files, events, at(now));
+      assert.equal(thisWeek, undefined, `${slug} is not the pick for October 5–11 (at ${now})`);
+      assert.equal(comingUp?.event.data.start && dayKey(comingUp.event.data.start), day, `${slug} is coming up on its real date`);
+    }
+    // The same file read in the listing's own week: now it is the pick.
+    const { thisWeek } = currentPick(files, events, at('2026-10-12T09:00'));
+    assert.equal(thisWeek && dayKey(thisWeek.event.data.start), day, `${slug} is the pick in its own week`);
+  }
+});
+
+test('every pick shown falls inside its heading’s week, Monday 00:00 to the next Monday 00:00, end excluded', () => {
+  const events = [
+    ev('Sunday late', '2026-10-11T23:00', '2026-10-11T23:30'),
+    ev('Next Monday midnight', '2026-10-12T00:00'),
+    ev('Last Sunday', '2026-10-04T18:00'),
+  ];
+  const pickOf = (slug: string, now: string) => currentPick([notes('2026-10-05', { title: slug, url: listing(slug) })], events, at(now));
+  assert.equal(pickOf('sunday-late', '2026-10-11T22:00').thisWeek?.title, 'sunday-late');
+  assert.equal(pickOf('next-monday-midnight', '2026-10-11T22:00').thisWeek, undefined, 'the next Monday’s first minute is next week');
+  assert.ok(pickOf('next-monday-midnight', '2026-10-11T22:00').comingUp);
+  assert.deepEqual(pickOf('last-sunday', '2026-10-06T09:00'), {}, 'a pick from before the week is neither');
+});
+
+test('in a week with no events, a later pick does not fill the week', () => {
+  const events = [ev('Next month', '2026-11-07T10:00')];
+  const files = [notes('2026-10-05', { title: 'Next month', url: listing('next-month') })];
+  const now = at('2026-10-07T12:00');
+  assert.deepEqual(weekEvents(events, now), [], 'nothing on this week');
+  assert.equal(currentPick(files, events, now).thisWeek, undefined, 'and no pick under its heading');
+});
+
+test('a pick whose listing has ended, been called off or cannot be found is not shown', () => {
+  const events = [
+    ev('Tuesday talk', '2026-10-06T19:00', '2026-10-06T20:30'),
+    ev('Called off', '2026-10-09T19:00', undefined, { status: 'canceled' }),
+  ];
+  const pickOf = (pick: { title: string; url?: string }) => currentPick([notes('2026-10-05', pick)], events, at('2026-10-08T12:00'));
+  assert.deepEqual(pickOf({ title: 'Tuesday talk', url: listing('tuesday-talk') }), {}, 'over by Thursday');
+  assert.deepEqual(pickOf({ title: 'Called off', url: listing('called-off') }), {});
+  assert.deepEqual(pickOf({ title: 'No link' }), {}, 'nothing to date it by');
+  assert.deepEqual(pickOf({ title: 'Elsewhere', url: 'https://example.org/whatever/' }), {});
+  assert.deepEqual(pickOf({ title: 'Missing', url: listing('not-a-listing') }), {});
+});
+
+test('a weekly regular picked is found on its day this week', () => {
+  const trivia = { ...ev('Trivia', '2026-09-03T19:00', '2026-09-03T21:00'), data: { ...ev('Trivia', '2026-09-03T19:00', '2026-09-03T21:00').data, repeat: 'weekly' as const, until: at('2026-12-17') } };
+  const now = at('2026-10-06T12:00');
+  const { thisWeek } = currentPick([notes('2026-10-05', { title: 'Trivia', url: listing('trivia') })], occurrences([trivia], { now, horizonDays: 30 }), now);
+  assert.equal(thisWeek?.event.data.start.getTime(), at('2026-10-08T19:00').getTime());
+});
+
+test('the URL a pick links to names its listing', () => {
+  assert.equal(pickSlug('https://insideniwot.com/events/open-house-2026-10-16/'), 'open-house-2026-10-16');
+  assert.equal(pickSlug('https://insideniwot.com/events/open-house-2026-10-16'), 'open-house-2026-10-16');
+  assert.equal(pickSlug('https://insideniwot.com/places/niwot-tavern/'), undefined);
+  assert.equal(pickSlug(undefined), undefined);
+});
+
+test('across every town’s notes, a pick shown as this week’s is on inside that week', async () => {
+  // Over the real files: each notes file, read on every day of its week, morning and night.
+  const { readdirSync, readFileSync, existsSync } = await import('node:fs');
+  const { join } = await import('node:path');
+  const { z } = await import('astro/zod');
+  const { eventSchema, weeklySchema } = await import('../src/content/schemas.ts');
+  const { parseFrontmatter } = await import('../scripts/lib/frontmatter.ts');
+  const { listedUntil } = await import('../src/lib/events.ts');
+  const read = (dir: string) => (existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.md') && !f.startsWith('_')) : []);
+  let checked = 0;
+  for (const town of readdirSync('content')) {
+    const files = read(join('content', town, 'weekly')).flatMap((f) => {
+      const parsed = weeklySchema().safeParse(parseFrontmatter(readFileSync(join('content', town, 'weekly', f), 'utf8')).data);
+      return parsed.success ? [{ data: parsed.data }] : [];
+    });
+    if (files.length === 0) continue;
+    const events = read(join('content', town, 'events')).flatMap((f) => {
+      const parsed = eventSchema(() => z.string()).safeParse(parseFrontmatter(readFileSync(join('content', town, 'events', f), 'utf8')).data);
+      return parsed.success ? [{ slug: parsed.data.slug ?? f.slice(0, -3), data: parsed.data }] : [];
+    });
+    for (const file of files) {
+      for (let d = 0; d < 7; d++) {
+        for (const time of ['T00:00', 'T08:00', 'T23:59']) {
+          const now = at(dayKey(new Date(file.data.weekOf.getTime() + (d * 24 + 12) * 3_600_000)) + time);
+          const { monday, end } = weekWindow(now);
+          const { thisWeek, comingUp } = currentPick(files, occurrences(events as never[], { now, horizonDays: 30 }) as typeof events, now);
+          if (thisWeek) {
+            checked++;
+            assert.ok(thisWeek.event.data.start.getTime() < end.getTime(), `${town}: pick starts inside the week at ${now.toISOString()}`);
+            assert.ok(listedUntil(thisWeek.event).getTime() > monday.getTime(), `${town}: pick is on inside the week`);
+          }
+          if (comingUp) assert.ok(comingUp.event.data.start.getTime() >= end.getTime(), `${town}: a coming-up pick is after the week`);
+        }
+      }
+    }
+  }
+  assert.ok(checked > 0, 'at least one real pick was checked');
 });
 
 // ---------------------------------------------------------- new and closed
@@ -112,13 +225,14 @@ test('added-to-guide is never labelled as an opening', () => {
 
 // ----------------------------------------------------------------- events
 
-test('an event has ended once its end time has passed, or its start when it has none', () => {
+test('an event has ended once its end time has passed, or at midnight when it has none', () => {
   const timed = ev('Market', '2026-10-17T09:00', '2026-10-17T13:00');
   assert.equal(hasEnded(timed, at('2026-10-17T12:59')), false);
   assert.equal(hasEnded(timed, at('2026-10-17T13:00')), true, 'gone the minute it ends, not at midnight');
   const open = ev('Talk', '2026-10-17T19:00');
-  assert.equal(hasEnded(open, at('2026-10-17T18:59')), false);
-  assert.equal(hasEnded(open, at('2026-10-17T19:00')), true);
+  assert.equal(hasEnded(open, at('2026-10-17T19:00')), false, 'on while it is on');
+  assert.equal(hasEnded(open, at('2026-10-17T23:59')), false);
+  assert.equal(hasEnded(open, at('2026-10-18T00:00')), true, 'gone at the next midnight');
   const allDay = { ...ev('Fair', '2026-10-17'), data: { ...ev('Fair', '2026-10-17').data, allDay: true } };
   assert.equal(hasEnded(allDay, at('2026-10-17T23:59')), false, 'an all-day listing is on all day');
   assert.equal(hasEnded(allDay, at('2026-10-18T00:00')), true);

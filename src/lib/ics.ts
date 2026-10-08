@@ -138,15 +138,15 @@ export function buildIcs(
  * Google's template URL takes the same fields the .ics carries, as Denver
  * wall-clock times with `ctz` naming the zone.
  *
- * Google insists on an end. A listing with none is given an hour, the least
- * presumptuous guess for a talk or a meeting. The site itself treats such a
- * listing as over once it has started, but a calendar entry of no length is
- * one most apps will not show at all.
+ * Google's template wants an end. A listing with none goes with its start
+ * as its end: an entry of no length, at the right time, rather than an hour
+ * we made up, which put a guessed end in the reader's calendar that the .ics
+ * and the page did not have.
  */
 export function googleCalendarUrl(e: Omit<IcsEvent, 'uid'>): string {
   const dates = e.allDay
     ? `${icsDate(e.start)}/${icsDate(addDays(startOfDay(e.end ?? e.start), 1))}`
-    : `${icsLocal(e.start)}/${icsLocal(e.end ?? new Date(e.start.getTime() + 3_600_000))}`;
+    : `${icsLocal(e.start)}/${icsLocal(e.end ?? e.start)}`;
   const params = new URLSearchParams({ action: 'TEMPLATE', text: e.title, dates, ctz: TIME_ZONE });
   if (e.location) params.set('location', e.location);
   const details = [e.description, e.url].filter(Boolean).join('\n');

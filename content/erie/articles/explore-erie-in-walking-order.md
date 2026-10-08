@@ -1,10 +1,10 @@
 ---
 title: "Explore Erie: four places in walking order"
-date: "2026-10-08"
+date: "2026-10-07"
 excerpt: "Park once at Coal Creek Park, walk a stretch of the creek trail, then Town Hall, the Briggs Street shops and a meal on the block. On a Monday, three of the dinner places are closed; the alternatives are here."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
-verified: "2026-10-08"
+verified: "2026-10-07"
 sources:
   - { label: "Town of Erie: Coal Creek Park", url: "https://www.erieco.gov/2274/Coal-Creek-Park" }
   - { label: "Town of Erie: Coal Creek Open Space", url: "https://www.erieco.gov/2368/Coal-Creek-Open-Space" }

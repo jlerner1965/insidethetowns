@@ -1,5 +1,9 @@
 ---
 # One file per town per week: content/<town>/weekly/<weekOf>.md, weekOf the Monday.
+# The pick's url is its listing on this guide (https://<domain>/events/<slug>/),
+# and the listing's date decides where it shows: as Our pick only in the week
+# it is on, under "Coming up" with its own date if it is later, and not at all
+# without a listing to date it by.
 # "This week in [Town]" reads the pick from the current week's file only, and
 # New & closed from every file until each item's expires date (default: 14
 # days after weekOf). An opening, closed, new-hours or moved item with no

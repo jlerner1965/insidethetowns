@@ -15,6 +15,10 @@ interface Props {
    * Show this many of a day's events and fold the rest behind "Show N more".
    * Twelve towns' listings made the hub's "Coming up" tens of thousands of
    * pixels long; a reader scanning ahead wants the shape of each day.
+   *
+   * The fold is redone by FilterBar.astro after every filter, over the rows
+   * the filter shows (`collapsePlan`): filtered to Estes Park, its one event
+   * that day was announced and then left folded behind "Show 20 more".
    */
   collapseAfter?: number;
 }
@@ -38,15 +42,17 @@ const days = groupByDay(events);
             ))}
           </time>
         </h3>
-        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-collapse-list={collapseAfter ? '' : undefined}>
           {(collapseAfter && day.events.length > collapseAfter + 1 ? day.events.slice(0, collapseAfter) : day.events).map((event) => <NetworkEventCard event={event} />)}
-          {collapseAfter && day.events.length > collapseAfter + 1 && (
-            <details class="group/more border-t border-line-soft">
+          {collapseAfter && (
+            <details class="group/more border-t border-line-soft" data-collapse-more={collapseAfter} hidden={day.events.length <= collapseAfter + 1}>
               <summary class="flex min-h-12 cursor-pointer list-none items-center py-3 text-[0.9375rem] font-semibold text-accent-text [&::-webkit-details-marker]:hidden">
-                <span class="group-open/more:hidden">Show {day.events.length - collapseAfter} more</span>
+                <span class="group-open/more:hidden">Show <span data-collapse-count>{Math.max(day.events.length - collapseAfter, 0)}</span> more</span>
                 <span class="hidden group-open/more:inline">Show fewer</span>
               </summary>
-              {day.events.slice(collapseAfter).map((event) => <NetworkEventCard event={event} />)}
+              <div data-collapse-rest>
+                {day.events.length > collapseAfter + 1 && day.events.slice(collapseAfter).map((event) => <NetworkEventCard event={event} />)}
+              </div>
             </details>
           )}
         </div>

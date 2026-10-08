@@ -5,7 +5,7 @@ import Page from '@/layouts/Page.astro';
 import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { dayKey, formatDate, formatDayLong, formatDayRange, formatMonthDay, formatTimeRange, formatWeekday, toIsoLocal } from '@/lib/dates';
-import { isCanceled, isInProgress, isMultiDay, isPast, nextOccurrence, occurrences, uniqueByEvent, upcoming } from '@/lib/events';
+import { exportWhen, isCanceled, isInProgress, isMultiDay, isPast, nextOccurrence, occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { googleCalendarUrl } from '@/lib/ics';
 import { pickCanonical } from '@/lib/series';
 import { breadcrumbJsonLd, eventJsonLd } from '@/lib/seo';
@@ -73,13 +73,12 @@ const description = firstSentence.length > 30 ? `${particulars} ${firstSentence}
 /**
  * Two ways into a reader's own calendar, neither needing a script: the
  * single-event .ics that Apple and Outlook open, and Google's template link.
- * Both carry the next occurrence, which is the one a reader can still attend.
+ * Both carry the next occurrence, which is the one a reader can still attend,
+ * timed the way the structured data times it (`exportWhen`).
  */
 const googleUrl = googleCalendarUrl({
   title: data.title,
-  start: when.start,
-  end: when.end,
-  allDay: data.allDay,
+  ...exportWhen(next),
   location: [data.venue, data.address, `${town.name}, CO`].filter(Boolean).join(', '),
   description: firstSentence,
   url,
