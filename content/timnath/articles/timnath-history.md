@@ -25,7 +25,7 @@ Then Harmony Road and I-25 caught up with it. The Town adopted a home-rule chart
 ## Sources
 
 - [Timnath, Colorado](https://en.wikipedia.org/wiki/Timnath,_Colorado) on Wikipedia: Sherwood Station, the Fairview school, the 1882 railroad, the name, the crops, the censuses, the 1920 incorporation, the 2006 charter and the 2025 estimate.
-- [Timnath Presbyterian Church history](http://timnathpres.org/our-church/history/): the 1869 log-schoolhouse services, the 1883 organization, the 1888 building and its cost, the Depression years and the 1988–89 addition.
+- [Timnath Presbyterian Church history](https://timnathpres.org/our-church/history/): the 1869 log-schoolhouse services, the 1883 organization, the 1888 building and its cost, the Depression years and the 1988–89 addition.
 - [Bethke Elementary](https://bet.psdschools.org/school-info) and [Timnath Middle-High School](https://tmh.psdschools.org/about-us), Poudre School District: each school's own account of when it opened.
 - [Larimer County](https://www.larimer.gov/naturalresources/parks/regional-paved-trails/poudre-river-trail) and [BizWest, May 2026](https://bizwest.com/2026/05/22/larimer-completes-last-connection-of-poudre-river-trail/): the Poudre River Trail's completion.
 - [CF&G Public Market](https://cfgpublicmarket.com/) and [Timnath Beerwerks](https://www.timnathbeerwerks.com/): the Colorado Feed & Grain building, which the brewery dates to the early 1900s.

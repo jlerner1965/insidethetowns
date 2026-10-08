@@ -4,7 +4,7 @@ import { render } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
-import { dayKey, formatDate, formatDayLong, formatDayRange, formatMonthDay, formatTimeRange, formatWeekday, toIsoLocal } from '@/lib/dates';
+import { dayKey, formatDate, formatDayLong, formatDayRange, formatMonthDay, formatTime, formatTimeRange, formatWeekday, toIsoLocal } from '@/lib/dates';
 import { exportWhen, isCanceled, isInProgress, isMultiDay, isPast, nextOccurrence, occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { googleCalendarUrl } from '@/lib/ics';
 import { pickCanonical } from '@/lib/series';
@@ -29,19 +29,34 @@ export async function getStaticPaths() {
     events.map((e) => ({ slug: e.slug, key: `${e.data.title}|${e.data.venue}`, startDay: dayKey(e.data.start), canceled: isCanceled(e) })),
     dayKey(new Date()),
   );
+  // A matinee and an evening show are two listings with one title on one
+  // day, and so two pages with one <title> (pre-launch audit, 8 October
+  // 2026: four pairs in Fort Collins, one in Loveland). Such a pair gets its
+  // start time in the title; every other listing keeps the date alone.
+  const perDay = new Map<string, number>();
+  for (const e of events) {
+    const key = `${e.data.title}|${dayKey(e.data.start)}`;
+    perDay.set(key, (perDay.get(key) ?? 0) + 1);
+  }
   return events.map((event) => ({
     params: { slug: event.slug },
-    props: { event, canonicalOccurrence: canonical.get(`${event.data.title}|${event.data.venue}`) === event.slug },
+    props: {
+      event,
+      canonicalOccurrence: canonical.get(`${event.data.title}|${event.data.venue}`) === event.slug,
+      sameDayTwin: (perDay.get(`${event.data.title}|${dayKey(event.data.start)}`) ?? 0) > 1,
+    },
   }));
 }
 
 interface Props {
   event: TownEntry<'events'>;
   canonicalOccurrence: boolean;
+  /** Another listing with this title falls on the same day, so the title carries the time. */
+  sameDayTwin: boolean;
 }
 
 const town = getTown();
-const { event, canonicalOccurrence } = Astro.props;
+const { event, canonicalOccurrence, sameDayTwin } = Astro.props;
 const { data } = event;
 const { Content } = await render(event);
 const next = nextOccurrence(event);
@@ -108,7 +123,7 @@ const facts = [
 <Page
   kind="Event"
   title={data.title}
-  seoTitle={`${statusLabel ? `${statusLabel}: ` : ''}${data.title} — ${formatDate(when.start)}`}
+  seoTitle={`${statusLabel ? `${statusLabel}: ` : ''}${data.title} — ${formatDate(when.start)}${sameDayTwin && !when.allDay ? `, ${formatTime(when.start)}` : ''}`}
   eyebrow={shownCategoryLabel(data.category)}
   status={statusLabel}
   description={description}

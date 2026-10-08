@@ -4,7 +4,7 @@ start: "2026-11-07T13:00"
 end: "2026-11-07T16:00"
 venue: "Pulliam Community Building"
 address: "545 Cleveland Ave., Loveland, CO 80537"
-url: "http://www.heartandsolco.org"
+url: "https://heartandsolco.org"
 cost: "Free"
 category: festival
 source: "https://business.loveland.org/events/details/10th-annual-day-of-the-dead-celebration-27012"

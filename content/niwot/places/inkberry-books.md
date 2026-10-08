@@ -9,7 +9,7 @@ hours: "Daily 10 am–3 pm"
 tags: [books, independent, art]
 featured: true
 summary: "Independent bookshop, open since 2018: new, gently used and out-of-print books, with art by Boulder County artists each month."
-source: "http://www.inkberrybooks.com"
+source: "https://www.inkberrybooks.com"
 verified: "2026-10-02"
 added: "2026-09-17"
 ---

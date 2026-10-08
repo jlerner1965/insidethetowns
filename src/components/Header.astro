@@ -76,7 +76,7 @@ const wordmarkEm = (site.siteTitle.length * 0.5).toFixed(1);
       </div>
 
       <nav id="site-nav" class="site-nav" aria-label="Primary">
-        <ul class="site-nav-list container-page xl:gap-5 xl:px-0 2xl:gap-7">
+        <ul class="site-nav-list container-page xl:gap-4 xl:px-0 2xl:gap-7">
           {site.nav.map((item) => (
             <li>
               <a
@@ -92,7 +92,12 @@ const wordmarkEm = (site.siteTitle.length * 0.5).toFixed(1);
           {site.kind === 'town' && (
             <li class="site-nav-switch">
               <details data-town-switch>
-                <summary class="site-nav-link cursor-pointer whitespace-nowrap text-[0.8125rem] font-semibold uppercase tracking-[0.1em] text-ink-muted transition-colors hover:text-ink">Other towns</summary>
+                {/* "Towns" in the row, where every pixel counts (the row and
+                    the longer titles meet at the xl breakpoint; "Other towns"
+                    pushed the search button off a 1280px screen on twelve of
+                    the guides, pre-launch audit, 8 October 2026); "Other
+                    towns" in the phone menu, where it reads better. */}
+                <summary class="site-nav-link cursor-pointer whitespace-nowrap text-[0.8125rem] font-semibold uppercase tracking-[0.1em] text-ink-muted transition-colors hover:text-ink"><span class="xl:hidden">Other towns</span><span class="hidden xl:inline">Towns</span></summary>
                 <div class="site-nav-panel">
                   {nearby.length > 0 && (
                     <Fragment>
