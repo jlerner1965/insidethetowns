@@ -21,7 +21,7 @@ interface Props {
 const site = getSite();
 // What the two section pages list, closed places left out as they are there.
 const listed = site.kind === 'town' ? (await getTownEntries('places')).filter((p) => !p.delisted) : [];
-const second = heroSecondLink({
+const second: NonNullable<Props['links']>[number] = heroSecondLink({
   eatDrink: listed.filter((p) => EAT_DRINK_TYPES.includes(p.data.type) || p.data.type === 'shop').length,
   thingsToDo: listed.filter((p) => THINGS_TO_DO_TYPES.includes(p.data.type) || p.data.type === 'lodging').length,
 });
@@ -33,12 +33,7 @@ const {
   // every width, which read as a truncation error on the first line of
   // the site. The full tagline stays in the meta description and the footer.
   subtitle = site.kind === 'town' ? site.shortTagline ?? site.tagline : site.tagline,
-  links = site.kind === 'town'
-    ? [
-        { label: 'This week’s events', href: '/events/', primary: true },
-        second,
-      ]
-    : [],
+  links = site.kind === 'town' ? [{ label: 'This week’s events', href: '/events/', primary: true }, second] : [],
 } = Astro.props;
 const hero = resolveSiteImage(site.slug, site.hero.image);
 // The tagline in two lines at most, shortened at a phrase (src/lib/text.ts)
