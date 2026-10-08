@@ -234,6 +234,33 @@ would produce.
 
 ---
 
+## Berthoud Community Library District
+
+**Granted** by 8 October 2026: the owner supplied the photograph that day
+with the words "Permission given to use", in answer to the request in
+`docs/VENUE-PHOTO-EMAILS.md` (1) and `docs/ALL-PHOTO-EMAILS.md` (C1), which
+offered to credit the library and to take the photograph down the day it
+asks.
+
+The library's own wording is not recorded here yet. When the owner forwards
+it, paste it in full below with the sender, their role and the date, and
+correct the attribution if the photograph turns out to be someone else's to
+give.
+
+| | |
+|---|---|
+| **Scope** | This photograph, on the library's listing on Inside Berthoud |
+| **Credit** | "Berthoud Community Library District", as the request promised |
+| **Used** | `berthoud-community-library.jpg`, on the Berthoud Community Library listing |
+| **Contact** | berthoudcommunitylibrary@gmail.com; (970) 532-2757 |
+
+The photograph is of the sign on Welch Avenue, the building's lettering and
+number behind it. No one is in it; the two cars at the left edge carry no
+legible plates. Cropped to 3:2 and resized to 1,600px; the camera metadata
+was dropped on import.
+
+---
+
 ## Douglas County Open Space & Natural Resources
 
 **Granted** 6 October 2026 by the **Open Space & Natural Resources team**,

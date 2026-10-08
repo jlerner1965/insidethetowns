@@ -121,3 +121,16 @@ test('sourcePhoto knows one picture saved under two names', () => {
   assert.equal(sourcePhoto('https://jhsco.org/historicwalkingtour/'), undefined);
   assert.equal(sourcePhoto('provided directly by Town of Berthoud, 2026-09-21'), undefined);
 });
+
+test('the Berthoud library grant reads as a permission credited to the library', async () => {
+  const { publicCredit } = await import('../src/lib/credits.ts');
+  const credit = publicCredit({
+    path: 'content/berthoud/images/berthoud-community-library.jpg',
+    town: 'berthoud',
+    file: 'berthoud-community-library.jpg',
+    source: 'provided to the owner, 2026-10-08',
+    license: 'Courtesy of the Berthoud Community Library District; permission 2026-10-08 — see PERMISSIONS.md, section: Berthoud Community Library District; cropped and resized to 1600px, EXIF stripped on import',
+    creditRequired: false,
+  });
+  assert.deepEqual([credit.author, credit.license, credit.changes], ['Berthoud Community Library District', 'Used with permission', 'cropped and resized']);
+});
