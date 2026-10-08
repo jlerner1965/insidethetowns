@@ -20,13 +20,13 @@ Longmont is a city of nearly 100,000, and this guide does not try to cover it. I
 
 ## 01 · Breakfast on Main
 
-[Tangerine](/places/tangerine-longmont/) at 379 Main Street serves breakfast, brunch and lunch cooked from scratch in an 1886 building, 7:30 am–1:30 pm on weekdays and until 2 pm at the weekend, with coffee from the baristas and a full bar; weekday reservations are by email and only for groups of five or more. For something quicker, [Ziggi's Coffee](/places/ziggis-coffee-main-street/) at 400 Main Street opens at 6 am every day with locally made breakfast and lunch.
+[Tangerine](/places/tangerine-longmont/) at 379 Main Street serves breakfast, brunch and lunch cooked from scratch in an 1886 building, 7:30 am–1:30 pm on weekdays and until 2 pm at the weekend, with a full bar; weekday reservations are by email and only for groups of five or more. For something quicker, [Ziggi's Coffee](/places/ziggis-coffee-main-street/) at 400 Main Street opens at 6 am every day with locally made breakfast and lunch.
 
 *Getting there:* park on or near Main Street. *Best for:* a start before the shops open at 10.
 
 ## 02 · The shops
 
-[Composition Shop](/places/composition-shop/) at 356 Main Street is open daily 10 am–6 pm, with events and six book clubs; [Barbed Wire Books](/places/barbed-wire-books/) at 504 Main Street, also daily 10–6, sells new and used books with a deep Colorado and Western Americana section, plus area maps and nature guides. [Maker General](/places/maker-general/) at 381 Main Street is a craft shop for textiles and fiber, with kits, fabric and workshops; it is closed on Monday and opens only 10–2 on Tuesday.
+[Composition Shop](/places/composition-shop/) at 356 Main Street is open daily 10 am–6 pm, with events and six book clubs; [Barbed Wire Books](/places/barbed-wire-books/) at 504 Main Street, also daily 10–6, sells new and used books with a deep Colorado and Western Americana section, plus area maps and nature guides. [Maker General](/places/maker-general/) at 381 Main Street is a craft shop for textiles and fiber, with kits and workshops; it is closed on Monday and opens only 10–2 on Tuesday.
 
 *Getting there:* on foot along Main Street. *Best for:* a trail map or a present; a Wednesday to Sunday if you want Maker General's full hours.
 

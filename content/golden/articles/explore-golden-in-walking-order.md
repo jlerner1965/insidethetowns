@@ -20,7 +20,7 @@ related:
 
 Golden sits at the mouth of Clear Creek Canyon, twelve miles from downtown Denver. Downtown is Washington Avenue, and Clear Creek runs along its north edge with 10th Street beside it. Everything below is on foot between the two; the trails are a separate day, chosen with the [mesa-or-canyon guide](/articles/mesa-hike-or-canyon-walk/).
 
-Park once. The City's parking site lists two garages, the North Garage at 702 12th Street and the South Garage at 1250 Jackson Street, and the Clear Creek Lot at 304 10th Street. Between 7 am and 5 pm the first two hours are free and each hour after that $2.50, to a maximum of $10 a day, paid by licence plate; on-street parking is free for up to two hours before 5 pm and free after 5 pm, with the days it applies on the signs.
+Park once. The City's parking site lists the North Garage at 702 12th Street, the South Garage at 1250 Jackson Street and the Clear Creek Lot at 304 10th Street. Between 7 am and 5 pm the first two hours are free and each hour after that $2.50, to a maximum of $10 a day, paid by licence plate; on-street parking is free for up to two hours before 5 pm and free after 5 pm, with the days it applies on the signs.
 
 ## 01 · A meal on Washington Avenue
 
@@ -36,7 +36,7 @@ The [Golden History Museum](/places/golden-history-museum/) at 923 10th Street i
 
 ## 03 · The creek: Parfet, the whitewater course and Lions Park
 
-[Parfet Park](/places/parfet-park/) at 725 10th Street dates from the early 1900s and is the oldest park in Golden, with shade trees, picnic tables, restrooms and a large field on the Clear Creek Trail. Upstream, the [Clear Creek Whitewater Park](/places/clear-creek-whitewater-park/) runs about seven blocks along the north bank across from [Lions Park](/places/lions-park/), 1300 10th Street, which has a large playground with accessible features, shaded picnic tables and restrooms. The course is free and unsupervised, for paddlers the City says must be proficient in fast, cold water. The creek-corridor parks close an hour after dusk, and alcohol, glass, smoking and most grills are banned there; dogs stay on a leash. Parking at Lions Park is paid.
+[Parfet Park](/places/parfet-park/) at 725 10th Street dates from the early 1900s and is the oldest park in Golden, with shade trees, picnic tables, restrooms and a large field on the Clear Creek Trail. Upstream, the [Clear Creek Whitewater Park](/places/clear-creek-whitewater-park/) runs about seven blocks along the north bank across from [Lions Park](/places/lions-park/), 1300 10th Street, which has a large playground with accessible features, shaded picnic tables and restrooms. The course is free and unsupervised, for paddlers the City says must be proficient in fast, cold water. The creek-corridor parks close an hour after dusk, and alcohol, glass and smoking are banned there; dogs stay on a leash.
 
 *Getting there:* along the creek path from the history park. *Best for:* watching the kayakers, a picnic, the playground.
 
@@ -44,7 +44,7 @@ The [Golden History Museum](/places/golden-history-museum/) at 923 10th Street i
 
 [Foothills Art Center](/places/foothills-art-center/) at 1133 Arapahoe Street has shown art since 1968, free, Monday to Saturday 10 am–5 pm and Sunday noon–5 pm. On the Colorado School of Mines campus south-west of downtown, the [Mines Museum of Earth Science](/places/mines-museum-of-earth-science/) at 1310 Maple Street is free and open daily 10 am–4 pm: Colorado minerals, one of the state's two Apollo 17 moon rocks and more than 3,000 items on display, with a family scavenger hunt that earns a free rock.
 
-*Getting there:* Arapahoe Street is the street the history park sits on; the campus is a longer walk or a short drive. *Best for:* the moon rock, and galleries that cost nothing.
+*Getting there:* Arapahoe Street is the street the history park sits on; the campus is a longer walk. *Best for:* the moon rock, and galleries that cost nothing.
 
 ## 05 · A taproom
 
@@ -52,7 +52,7 @@ The [Golden History Museum](/places/golden-history-museum/) at 923 10th Street i
 
 *Getting there:* back up Washington Avenue. *Best for:* the end of the afternoon.
 
-For families, swap the creek parks for the [Colorado Railroad Museum](/places/colorado-railroad-museum/) at 17155 W 44th Avenue, a drive: more than 100 locomotives, cars and cabooses on 15 acres, Tuesday to Sunday 9 am–5 pm, closed Monday, $12 for adults and $5 for ages 2 to 17. For a hiking day, choose [North Table Mountain or the canyon trail](/articles/mesa-hike-or-canyon-walk/) in the morning and come to the avenue for the meal afterwards.
+For families, swap the creek parks for the [Colorado Railroad Museum](/places/colorado-railroad-museum/) at 17155 W 44th Avenue, a drive: more than 100 locomotives, cars and cabooses on 15 acres, Tuesday to Sunday 9 am–5 pm, closed Monday, $12 for adults and $5 for ages 2 to 17. For a hiking day, choose [North Table Mountain or the canyon trail](/articles/mesa-hike-or-canyon-walk/) in the morning and come to the avenue afterwards.
 
 ## A simple first visit
 
@@ -64,7 +64,7 @@ For families, swap the creek parks for the [Colorado Railroad Museum](/places/co
 
 ## Getting here
 
-Drive times are estimates for normal conditions and vary with traffic, weather and construction; check a live routing service before you set out, and [COtrip](https://www.cotrip.org/) for US 6 and I-70. Golden is about 25 minutes from Denver. Without a car, the City's Ride page lists RTD's W Line from Denver Union Station to the Jefferson County Government Center every half hour, RTD bus 17 between 10th and Washington and Federal Center Station daily, and Golden FlexRide Monday to Saturday; the City's Ore Cart shuttle is free, runs three routes Monday to Saturday with a stop at the light rail station, and does not run on federal holidays. Bustang does not stop in Golden. Posted signs override anything written here.
+Drive times are estimates for normal conditions and vary with traffic, weather and construction; check a live routing service before you set out. Golden is about 25 minutes from Denver. Without a car, the City's Ride page lists RTD's W Line from Denver Union Station to the Jefferson County Government Center every half hour, RTD bus 17 between 10th and Washington and Federal Center Station daily, and Golden FlexRide Monday to Saturday; the City's Ore Cart shuttle is free, runs three routes Monday to Saturday with a stop at the light rail station, and does not run on federal holidays. Bustang does not stop in Golden. Posted signs override anything written here.
 
 ## Accessibility: what we can confirm
 

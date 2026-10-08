@@ -43,7 +43,7 @@ Now the car, east on Highway 86. [Casey Jones Park](/places/casey-jones-park/) i
 
 ## 04 · Evans Park
 
-The shorter option is next door at 34201 County Road 17. [Evans Park](/places/evans-park/) has a loop of about a third of a mile that starts and ends at Dragonfly Pond, with picnic tables along the trail and benches over the creek valley. The pond is stocked with trout by Colorado Parks and Wildlife and a licence is required. The skate park is open any daylight hour, the splash pad runs through summer, and [Prickly Pines](/places/prickly-pines-disc-golf/) is an 18-hole disc golf course through the wooded north end, $5 a player. Leashed dogs anywhere except the fields and the splash pad.
+The shorter option is next door at 34201 County Road 17. [Evans Park](/places/evans-park/) has a loop of about a third of a mile that starts and ends at Dragonfly Pond, with picnic tables and benches along the trail. The pond is stocked with trout by Colorado Parks and Wildlife and a licence is required. The skate park is open in daylight hours, the splash pad runs in summer, and [Prickly Pines](/places/prickly-pines-disc-golf/) is an 18-hole disc golf course through the wooded north end, $5 a player. Leashed dogs anywhere except the fields and the splash pad.
 
 *Getting there:* the same road; lot parking. *Best for:* a short walk; children; a fishing rod.
 
@@ -55,7 +55,7 @@ Back in town, two ends to the day a block apart. [The Elizabeth Brewing Company]
 
 ## The Stampede, separately
 
-The [Elizabeth Stampede](/places/elizabeth-stampede-grounds/) fills the Casey Jones Park arena for three days of PRCA rodeo the first weekend of June, with a concert the night before and a parade down Main Street on the Saturday morning; in 2026 it ran 5 to 7 June, and the 2027 dates and tickets come out in spring. Plan it around the Stampede's own calendar rather than this walk: in 2026 the public parked free at Elizabeth High School and Elizabeth Middle School and rode shuttle buses to the grounds, with no public parking at Casey Jones Park except ADA parking with a placard.
+The [Elizabeth Stampede](/places/elizabeth-stampede-grounds/) fills the Casey Jones Park arena for three days of PRCA rodeo the first weekend of June, with a concert the night before and a parade down Main Street on the Saturday morning; in 2026 it ran 5 to 7 June, and the 2027 dates come out in spring. Plan it from the Stampede's own calendar: in 2026 the public parked free at Elizabeth High School and Elizabeth Middle School and rode shuttles to the grounds, with no public parking at the park except ADA parking with a placard.
 
 ## A simple first visit
 
@@ -63,13 +63,13 @@ The [Elizabeth Stampede](/places/elizabeth-stampede-grounds/) fills the Casey Jo
 2. Breakfast at Catrina's on Elizabeth Street.
 3. Walk Main Street from the bank at 188 to the Carriage Shoppes at the south end.
 4. Drive east to Casey Jones Park for the loop, or to Evans Park for the short one.
-5. Come back for the brewery after 4 pm on a weekday or noon at the weekend, or the kitchen any time from 11 am.
+5. Come back for the brewery after 4 pm on a weekday or noon at the weekend, or the kitchen from 11 am.
 
 ## Getting here
 
 Drive times are estimates for normal conditions and vary with traffic, weather and construction; check a live routing service before you set out. Denver is about an hour, and the Denver Tech Center about 45 minutes by Parker Road. No public transit stop is confirmed on an official page read for this guide, so plan to drive.
 
-Elizabeth is in Elbert County; the two parks belong to the Park & Recreation District rather than the Town, and its rules apply there. Posted signs override anything written here.
+Elizabeth is in Elbert County; the two parks belong to the Park & Recreation District rather than the Town. Posted signs override anything written here.
 
 ## Accessibility: what we can confirm
 
