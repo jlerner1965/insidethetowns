@@ -14,13 +14,20 @@
  *
  * The picker is a plain link list, so it works without JavaScript. The select
  * above it is a convenience for long lists, not the mechanism.
+ *
+ * Not every guide has its form switched on: a guide without a `formspreeId`
+ * takes events by email from its own /submit-event/ page. This page said
+ * "each guide has its own form" regardless (audit, 7 October 2026), so each
+ * town now says which it is, read from the same config the town page reads.
  */
 import Page from '@/layouts/Page.astro';
 import { countyLabel, getHub, liveTowns } from '@/config';
+import { eventEmailHref } from '@/lib/submit';
 
 const hub = getHub();
 const towns = liveTowns();
-const mailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Event submission')}`;
+const withForm = towns.filter((t) => t.formspreeId).length;
+const mailto = eventEmailHref(hub.social.email, 'Event submission');
 ---
 <Page
   title="Submit an event"
@@ -30,7 +37,12 @@ const mailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Event s
   narrow
 >
   <p class="text-[1.0625rem] leading-relaxed">
-    Which town is it in? Each guide has its own form, so this takes you to the right one.
+    Which town is it in? This takes you to that guide’s own page for it.
+    {withForm === towns.length
+      ? 'Each one has a form.'
+      : withForm === 0
+        ? 'For now each one takes events by email, with what we need already filled in.'
+        : `${withForm} of the ${towns.length} have a form; the others take events by email for now, with what we need already filled in, and each says which below.`}
   </p>
 
   <ul class="mt-7 grid gap-3 sm:grid-cols-2" data-town-picker>
@@ -40,8 +52,11 @@ const mailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Event s
           href={`https://${town.domain}/submit-event/`}
           class="group flex items-baseline justify-between gap-3 rounded-lg bg-raised px-5 py-4 no-underline ring-1 ring-line-soft transition hover:ring-accent-line"
         >
-          <span class="font-medium group-hover:text-accent-text">{town.name}</span>
-          <span class="text-sm text-ink-faint">{countyLabel(town)}</span>
+          <span>
+            <span class="block font-medium group-hover:text-accent-text">{town.name}</span>
+            <span class="block whitespace-nowrap text-sm text-ink-muted">{town.formspreeId ? 'Online form' : 'By email for now'}</span>
+          </span>
+          <span class="text-right text-sm text-ink-faint">{countyLabel(town)}</span>
         </a>
       </li>
     ))}
@@ -58,7 +73,7 @@ const mailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Event s
     <h2>What happens to it</h2>
     <p>
       Every submission is checked against the organizer’s own page before it goes up, usually within a couple of days.
-      That is why the form asks for a link. Nothing is published that we could not verify, and nothing is charged for
+      That is why the form, and the email, ask for a link. Nothing is published that we could not verify, and nothing is charged for
       — see the <a href="/editorial/">editorial policy</a> for why that matters.
     </p>
   </div>

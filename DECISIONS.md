@@ -3572,3 +3572,78 @@ as editor: `hub.editor` is removed, reversing the pre-launch audit's fix of
 <date>", no About page has a "Who runs it" section, and an article's
 structured-data author is the publication. The one name left on the sites is
 the "Site by Lerner Works" credit in every footer strip (`hub.credit`).
+
+## The updated audit of 7 October
+
+*8 October 2026.* An outside audit of the live network after the week's
+updates (`Inside-the-Towns-Updated-Audit-2026-10-07.md`, not in the repo)
+proposed a 30-day plan. What could be done in code and was supported by the
+audit's own evidence is done here; the rest is listed below with why.
+
+- **The hub's search finds the network.** A search on insidethetowns.com for
+  "Niwot Tavern" returned six hub pages that mention Niwot and not the
+  tavern; "dogs" found nothing of the Lyons dog guide. The hub build now
+  writes one record per town page each guide's own search would find
+  (`src/routes/hub/network-search.json.ts`): live towns' places less any
+  delisted, every article, each Moving Here page, the event occurrences
+  whose pages are indexed (`pickCanonical`, and not past), and each guide's
+  home. They go through the same gate as every other page
+  (`getNetworkEntries`), so a stale or closed listing is not findable from
+  the hub when it is not findable on its own guide. `scripts/run.ts` now
+  builds the index with Pagefind's Node API (`scripts/lib/search-index.ts`)
+  so the records can be added as pages at their absolute URLs; the records
+  file is deleted before deploy. A town build's index is unchanged: the
+  Node API and `pagefind --site dist` give the same 123 pages on Lyons.
+  1,274 town pages on the hub today. Each result says what it is, which
+  town, and the guide's domain. Ranking is Pagefind's default: on ten
+  decision queries ("Horsetooth permit", "Lyons Flyer", "Berthoud
+  breakfast", "patio Niwot", "Carter Lake"…) eight put the right page
+  first; a gentler length penalty lifted "dogs" but made "Estes Park" lead
+  with its Moving Here page rather than the guide, so it was left alone.
+  Pagefind matches every word, so "dog friendly hikes Lyons" finds nothing
+  of the dog guide, which never says "friendly"; the town sites behave the
+  same. Like the hub's network events, the hub's search catches up with
+  other towns' content at the nightly rebuild.
+- **Sponsorship says the same thing in both places.** Every guide's
+  /for-businesses/ said prices and audience figures were on /advertise/,
+  which publishes neither. It now says prices are quoted on request until
+  `hub.rates` is set, and that /advertise/ says what has been measured and
+  since when. It also says the most sponsor lines a page carries: the
+  town's own and the network's (/this-weekend/ and the Nearby block can
+  show both). /advertise/ now says the network line carries one sponsor at
+  a time, which is all `hub.sponsors.network` can hold. **For the owner:**
+  "open to the first three sponsors only" with one line at a time reads as
+  three sponsors in turn; if that is not the intent, the offer needs
+  rewording. Rate, reporting and cancellation terms were not invented.
+- **Event submission says form or email per town.** Nine guides have no
+  form switched on (no `formspreeId`); the hub's chooser said "each guide
+  has its own form" and the contact pages said "there is a form" on every
+  guide. The chooser now labels each town "Online form" or "By email for
+  now" from the config, and every email route (a town's fallback, the hub's
+  "Not one of those towns?", the hub contact page) opens with the form's
+  four questions in the body (`src/lib/submit.ts`). The email fallback
+  carries the same "usually within a couple of days" as the form.
+- **The hub's opening is shorter.** At the audit's 1348×926 the weekend's
+  heading sat at 1,114px; it is at 843px. From 640px up the headline is a
+  size smaller with less padding above, the intro is one sentence (the
+  tagline before it all but repeated the headline), and the weekend band
+  has less padding above it. Below 640px the picker, six rows now there are
+  eighteen guides, had been cut off at 375×812 (its last row ended at
+  859px; it was 749px when this was last measured, with fewer towns) and
+  on every tablet size tried. It now fits the first screen at 375×812,
+  390×844, 640×900 and 768×1024, every chip still at least 44px.
+- **Left, and why.**
+  - *Naming the publisher*: the owner asked not to be named (above).
+  - *An inline newsletter signup*: Buttondown's embed form cannot be
+    finished inline; it needs its own "Verify and Subscribe" page. Inline
+    means a server function holding an API key, and the audit's own test
+    for it (an owner-controlled address reaching confirmed status with the
+    right town tags) is the owner's to run. The new-tab flow and its
+    "one more step" message stay.
+  - *Photographs on ten articles*: real, credited, permitted photographs
+    are a walk and asks (`docs/PHOTOS.md`); nothing here can supply them
+    and nothing should be made up.
+  - *Four new decision-led guides*: reporting, not code.
+  - *A maintenance queue*: the freshness windows, `npm run weekly`, `npm
+    run review` and the source registry already are one, per field type.
+  - *A rate card, a four-week pilot, Search Console*: the owner's.

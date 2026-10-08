@@ -148,8 +148,10 @@ events page, so readers can subscribe in a calendar app.
 ## Finding things
 
 - `/search/` on every site: Pagefind indexes `dist/` at the end of `npm run build`
-  (`scripts/run.ts`) and the page loads the static index from `/pagefind/`. In
-  `astro dev` there is no index and the page says so.
+  (`scripts/run.ts`) and the page loads the static index from `/pagefind/`. The
+  hub's index also holds every live guide's places, articles, upcoming events and
+  Moving Here page, linking to the guide's own domain (`src/lib/network-search.ts`).
+  In `astro dev` there is no index and the page says so.
 - `/events/` is two lists: the one-time events and the town meetings by date
   (filter by when: today, this weekend, next 7 days; by category, with Free at
   the end of the row; the choice stays in the URL, `?when=weekend&category=music&free=1`,

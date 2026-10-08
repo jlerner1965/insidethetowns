@@ -14,7 +14,8 @@
 #   the rest of src/, public/,           shared: every site builds
 #     package.json, package-lock.json,
 #     astro.config.mjs, tsconfig.json,
-#     vercel.json, scripts/run.ts
+#     vercel.json, scripts/run.ts,
+#     scripts/lib/search-index.ts
 #   IMAGE_LICENSES.csv rows for          its /credits/ page
 #     content/<slug>/
 #
@@ -26,9 +27,9 @@
 #
 # Docs, tests, workflows, the offline scripts (ingest, review, weekly, ...)
 # and other towns' content change nothing this site's pages are made of.
-# Two kinds of page read other towns' listings: the hub's network events and
-# each guide's Nearby this weekend block. Those catch up at the nightly
-# rebuild.
+# Three things read other towns' listings: the hub's network events, the
+# hub's search (which indexes every guide's pages), and each guide's Nearby
+# this weekend block. Those catch up at the nightly rebuild.
 #
 # Rebuilds always build. The nightly deploy hook and the dashboard's Redeploy
 # run this step too, and Vercel tells it nothing about what started the
@@ -68,7 +69,7 @@ while IFS= read -r path; do
       build "$path" ;;
     src/config/towns/*.ts)
       build "$path (every site reads every town's config)" ;;
-    src/* | public/* | package.json | package-lock.json | astro.config.mjs | tsconfig.json | vercel.json | scripts/run.ts)
+    src/* | public/* | package.json | package-lock.json | astro.config.mjs | tsconfig.json | vercel.json | scripts/run.ts | scripts/lib/search-index.ts)
       build "$path (shared)" ;;
   esac
 done <<<"$changed"

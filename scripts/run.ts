@@ -10,6 +10,7 @@
  * before Astro starts.
  */
 import { spawnSync } from 'node:child_process';
+import { buildSearchIndex } from './lib/search-index.ts';
 
 const [command = 'dev', ...rest] = process.argv.slice(2);
 const args: string[] = [];
@@ -39,10 +40,15 @@ if (command === 'build') {
 const result = spawnSync('astro', [command, ...args], { stdio: 'inherit', env, shell: true });
 if (result.status !== 0) process.exit(result.status ?? 1);
 
-// The site search's index, written into dist/pagefind/ from the pages just
-// built. Part of the build, not the deploy, so a preview has search too.
+// The site search's index; on the hub it also takes in the town pages
+// (scripts/lib/search-index.ts).
 if (command === 'build') {
-  const p = spawnSync('pagefind', ['--site', 'dist', '--quiet'], { stdio: 'inherit', env, shell: true });
-  if (p.status !== 0) process.exit(p.status ?? 1);
+  try {
+    const { pages, records } = await buildSearchIndex('dist');
+    console.log(`search index: ${pages} pages${records ? `, ${records} town pages from the network` : ''}`);
+  } catch (error) {
+    console.error(error instanceof Error ? error.message : error);
+    process.exit(1);
+  }
 }
 process.exit(0);

@@ -13,6 +13,12 @@
  * indexed — every ordinary page does, through Base.astro — so past events,
  * the thank-you pages and this one stay out of the results.
  *
+ * On the hub the index also holds every guide's places, guides, upcoming
+ * events and Moving Here pages, each linking to the guide's own domain
+ * (src/lib/network-search.ts), so a search on the network's front door finds
+ * what is in the network. Each result says what it is, which town, and where
+ * the link goes.
+ *
  * In `astro dev` there is no index yet, and the page says so.
  */
 import Page from '@/layouts/Page.astro';
@@ -39,8 +45,8 @@ const browse =
   title="Search"
   seoTitle={`Search ${site.siteTitle}`}
   eyebrow={site.name}
-  description={`Search every event, place and guide on ${site.siteTitle}.`}
-  intro={site.kind === 'town' ? `Every event, place and guide on ${site.siteTitle}.` : `Everything on ${site.siteTitle}.`}
+  description={site.kind === 'town' ? `Search every event, place and guide on ${site.siteTitle}.` : `Search every event, place and guide on every ${site.siteTitle} guide.`}
+  intro={site.kind === 'town' ? `Every event, place and guide on ${site.siteTitle}.` : 'Every event, place and guide on every town’s guide, and the network’s own pages.'}
   noindex
   narrow
 >
@@ -76,7 +82,7 @@ const browse =
 </Page>
 
 <script>
-  type Result = { url: string; meta: { title?: string; kind?: string }; excerpt: string };
+  type Result = { url: string; meta: { title?: string; kind?: string; town?: string; domain?: string }; excerpt: string };
   type Pagefind = {
     init: () => Promise<void>;
     search: (q: string) => Promise<{ results: Array<{ data: () => Promise<Result> }> }>;
@@ -116,17 +122,31 @@ const browse =
   function item(r: Result): HTMLLIElement {
     const li = document.createElement('li');
     li.className = 'py-5';
-    const kind = r.meta.kind ? `<p class="eyebrow mb-1">${r.meta.kind}</p>` : '';
+    // On the hub a result can be on any guide: "Place · Niwot", and the
+    // guide's domain under the title, so a reader knows where the link goes.
+    const label = [r.meta.kind, r.meta.town].filter(Boolean).join(' · ');
+    if (label) {
+      const kind = document.createElement('p');
+      kind.className = 'eyebrow mb-1';
+      kind.textContent = label;
+      li.append(kind);
+    }
     const title = document.createElement('a');
     title.href = r.url;
     title.className = 'text-xl font-medium leading-tight no-underline hover:text-accent-text';
     title.textContent = r.meta.title ?? r.url;
+    li.append(title);
+    if (r.meta.domain) {
+      const domain = document.createElement('p');
+      domain.className = 'mt-1 text-sm text-ink-faint';
+      domain.textContent = r.meta.domain;
+      li.append(domain);
+    }
     const excerpt = document.createElement('p');
     excerpt.className = 'mt-2 text-[0.9375rem] leading-relaxed text-ink-muted';
     // Pagefind's excerpt carries <mark> around the matched words and nothing else.
     excerpt.innerHTML = r.excerpt;
-    li.innerHTML = kind;
-    li.append(title, excerpt);
+    li.append(excerpt);
     return li;
   }
 
