@@ -69,7 +69,8 @@ const cssVars = [
     <link rel="preload" as="font" type="font/woff2" href={frauncesLatin} crossorigin />
     <link rel="preload" as="font" type="font/woff2" href={instrumentLatin} crossorigin />
     <SEO {...seo} jsonLd={structured} />
-    <link rel="icon" href={`/favicons/${site.slug}/favicon.svg`} type="image/svg+xml" />
+    {/* ?v= busts the week-long /favicons/ cache in vercel.json; bump it when the marks change. */}
+    <link rel="icon" href={`/favicons/${site.slug}/favicon.svg?v=2`} type="image/svg+xml" />
     {/* Asked for by name regardless of what the page links; see src/lib/icons.ts. */}
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

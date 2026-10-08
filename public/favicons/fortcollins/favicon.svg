@@ -1,4 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs><linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
   <rect width="64" height="64" rx="12" fill="#172E52"/>
-  <text x="32" y="44" font-family="Georgia, serif" font-size="36" font-weight="700" fill="#fff" text-anchor="middle">F</text>
+  <rect width="64" height="64" rx="12" fill="url(#t)"/>
+  <g transform="translate(32 32) scale(0.9) translate(-32 -32)">
+  <g fill="none" stroke="#F5EFE2" stroke-width="3" stroke-linejoin="miter">
+    <circle cx="18" cy="38" r="9"/>
+    <circle cx="46" cy="38" r="9"/>
+    <path d="M18 38 L27 23 H41 L46 38 M27 23 L32 38 H18 M32 38 L41 23"/>
+    <path d="M41 23 L39.5 17 H44"/>
+    <path d="M23 20.5 H31"/>
+  </g>
+  <rect x="10" y="50" width="44" height="2.2" fill="#D9A94E"/>
+  </g>
 </svg>

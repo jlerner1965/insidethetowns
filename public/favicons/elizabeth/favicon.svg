@@ -1,4 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs><linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
   <rect width="64" height="64" rx="12" fill="#78491A"/>
-  <text x="32" y="44" font-family="Georgia, serif" font-size="36" font-weight="700" fill="#fff" text-anchor="middle">E</text>
+  <rect width="64" height="64" rx="12" fill="url(#t)"/>
+  <g transform="translate(32 32) scale(0.9) translate(-32 -32)">
+  <path d="M28.5 50 L31 25 H33 L35.5 50 H33.8 L32 31 L30.2 50 Z" fill="#F5EFE2"/>
+  <rect x="29" y="38" width="6" height="1.8" fill="#F5EFE2"/>
+  <circle cx="32" cy="21" r="12" fill="#F5EFE2"/>
+  <path d="M32 21 L44.50 21.00" stroke="#78491A" stroke-width="1.6"/><path d="M32 21 L42.83 27.25" stroke="#78491A" stroke-width="1.6"/><path d="M32 21 L38.25 31.83" stroke="#78491A" stroke-width="1.6"/><path d="M32 21 L32.00 33.50" stroke="#78491A" stroke-width="1.6"/><path d="M32 21 L25.75 31.83" stroke="#78491A" stroke-width="1.6"/><path d="M32 21 L21.17 27.25" stroke="#78491A" stroke-width="1.6"/><path d="M32 21 L19.50 21.00" stroke="#78491A" stroke-width="1.6"/><path d="M32 21 L21.17 14.75" stroke="#78491A" stroke-width="1.6"/><path d="M32 21 L25.75 10.17" stroke="#78491A" stroke-width="1.6"/><path d="M32 21 L32.00 8.50" stroke="#78491A" stroke-width="1.6"/><path d="M32 21 L38.25 10.17" stroke="#78491A" stroke-width="1.6"/><path d="M32 21 L42.83 14.75" stroke="#78491A" stroke-width="1.6"/>
+  <circle cx="32" cy="21" r="3" fill="#78491A"/>
+  <path d="M44 19 H54 L52 24 H44 Z" fill="#F5EFE2"/>
+  <rect x="10" y="50" width="44" height="2.2" fill="#D9A94E"/>
+  </g>
 </svg>

@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs><linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
   <rect width="64" height="64" rx="12" fill="#8A2D19"/>
-  <text x="32" y="44" font-family="Georgia, serif" font-size="36" font-weight="700" fill="#fff" text-anchor="middle">L</text>
+  <rect width="64" height="64" rx="12" fill="url(#t)"/>
+  <g transform="translate(32 32) scale(0.9) translate(-32 -32)">
+  <path d="M8 50 L12 26 L17 22 L24 23 L28 16 L41 15 L45 21 L52 22 L56 50 Z" fill="#F5EFE2"/><clipPath id="f"><path d="M8 50 L12 26 L17 22 L24 23 L28 16 L41 15 L45 21 L52 22 L56 50 Z"/></clipPath><path d="M41 15 L43 50 H64 V0 Z" fill="#d7b9aa" clip-path="url(#f)"/>
+  <path d="M11 30 H54 M10 37 H55 M9 44 H56" stroke="#8A2D19" stroke-width="2.2"/>
+  <rect x="10" y="50" width="44" height="2.2" fill="#D9A94E"/>
+  </g>
 </svg>
