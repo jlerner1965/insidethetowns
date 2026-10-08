@@ -2,12 +2,12 @@
   <defs><linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
   <rect width="64" height="64" rx="12" fill="#2F4660"/>
   <rect width="64" height="64" rx="12" fill="url(#t)"/>
-  <g transform="translate(32 32) scale(0.9) translate(-32 -32)">
+  <g transform="translate(32 32) scale(1) translate(-32 -32)">
   <path d="M17 50 L29.5 18 H34.5 L47 50 H42 L32 24 L22 50 Z" fill="#F5EFE2"/>
   <rect x="21" y="38" width="22" height="3.5" fill="#F5EFE2"/>
   <rect x="25.5" y="29" width="13" height="3" fill="#F5EFE2"/>
   <circle cx="32" cy="15" r="6.5" fill="#F5EFE2"/>
   <circle cx="32" cy="15" r="2.5" fill="#2F4660"/>
-  <rect x="10" y="50" width="44" height="2.2" fill="#D9A94E"/>
+  <rect x="10" y="49" width="44" height="3" fill="#D9A94E"/>
   </g>
 </svg>

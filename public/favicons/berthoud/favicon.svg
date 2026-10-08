@@ -2,11 +2,11 @@
   <defs><linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
   <rect width="64" height="64" rx="12" fill="#0D5170"/>
   <rect width="64" height="64" rx="12" fill="url(#t)"/>
-  <g transform="translate(32 32) scale(0.9) translate(-32 -32)">
+  <g transform="translate(32 32) scale(1) translate(-32 -32)">
   <path d="M14 50 V30 L19 20 L32 13 L45 20 L50 30 V50 Z" fill="#F5EFE2"/><clipPath id="f"><path d="M14 50 V30 L19 20 L32 13 L45 20 L50 30 V50 Z"/></clipPath><path d="M32 0 V64 H64 V0 Z" fill="#b4c3c2" clip-path="url(#f)"/>
   <path d="M26 50 V36 H38 V50 Z" fill="#0D5170"/>
   <path d="M27 37 L37 49 M37 37 L27 49" stroke="#F5EFE2" stroke-width="1.6"/>
   <rect x="29" y="22" width="6" height="7" fill="#0D5170"/>
-  <rect x="10" y="50" width="44" height="2.2" fill="#D9A94E"/>
+  <rect x="10" y="49" width="44" height="3" fill="#D9A94E"/>
   </g>
 </svg>

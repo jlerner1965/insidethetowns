@@ -2,8 +2,8 @@
   <defs><linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
   <rect width="64" height="64" rx="12" fill="#1B4A86"/>
   <rect width="64" height="64" rx="12" fill="url(#t)"/>
-  <g transform="translate(32 32) scale(0.9) translate(-32 -32)">
+  <g transform="translate(32 32) scale(1) translate(-32 -32)">
   <path transform="translate(32 46) scale(0.0225 -0.0225) translate(-407.5 0)" d="M562 167Q562 145 575.0 131.0Q588 117 612 110L669 97Q711 84 711 46Q711 25 696.5 12.5Q682 0 651 0H164Q133 0 118.5 12.5Q104 25 104 46Q104 84 146 97L203 110Q227 117 240.0 131.0Q253 145 253 167V1233Q253 1255 240.0 1269.0Q227 1283 203 1290L146 1303Q104 1316 104 1354Q104 1376 118.5 1388.0Q133 1400 164 1400H651Q682 1400 696.5 1388.0Q711 1376 711 1354Q711 1316 669 1303L612 1290Q588 1283 575.0 1269.0Q562 1255 562 1233Z" fill="#F5EFE2"/>
-  <rect x="10" y="50" width="44" height="2.2" fill="#D9A94E"/>
+  <rect x="10" y="49" width="44" height="3" fill="#D9A94E"/>
   </g>
 </svg>
