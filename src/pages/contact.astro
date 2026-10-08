@@ -19,6 +19,7 @@
 import Page from '@/layouts/Page.astro';
 import TipsLink from '@/components/TipsLink.astro';
 import { getSite } from '@/config';
+import { eventEmailHref } from '@/lib/submit';
 
 const site = getSite();
 const email = site.social.email;
@@ -33,15 +34,18 @@ const formAction = site.formspreeId ? `https://formspree.io/f/${site.formspreeId
     {site.kind === 'town' ? (
       <Fragment>
         <p>
-          Anything open to the public in and around {site.name} is welcome, and there is a form for it with the
-          fields we need.
+          Anything open to the public in and around {site.name} is welcome, and
+          {site.formspreeId
+            ? 'there is a form for it with the fields we need.'
+            : 'the submit page starts an email with the four things we need already listed.'}
         </p>
         <p><a href="/submit-event/" class="btn btn-primary no-underline">Submit an event</a></p>
       </Fragment>
     ) : (
       <p>
-        Events belong on their town’s own guide — each one has a form for it. Not sure which?
-        <a href={subject('Event submission')}>Email it here</a> and we’ll put it where it goes.
+        Events belong on their town’s own guide, and <a href="/submit-event/">the submit page</a> takes you to the
+        right one. Not sure which? <a href={eventEmailHref(email, `Event submission — ${site.siteTitle}`)}>Email it
+        here</a> and we’ll put it where it goes.
       </p>
     )}
 

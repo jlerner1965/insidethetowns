@@ -59,6 +59,8 @@ const HUB_ROUTES: Array<[pattern: string, file: string]> = [
   ['/submit-event', 'submit-event.astro'],
   ['/events.rss', 'events.rss.ts'],
   ['/advertise', 'advertise.astro'],
+  // Read and deleted by the indexing step; never deployed (src/lib/network-search.ts).
+  ['/network-search.json', 'network-search.json.ts'],
 ];
 
 export function townRoutes(site: SiteConfig): AstroIntegration {

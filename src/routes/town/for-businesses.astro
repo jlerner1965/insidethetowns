@@ -30,6 +30,10 @@ const land = places.length - businesses;
 const hasForm = Boolean(town.formspreeId);
 const claim = hasForm ? `/contact/?about=${encodeURIComponent('My business')}#message-form` : '/contact/';
 const partner = `mailto:${hub.social.email}?subject=${encodeURIComponent(`Partnership — ${town.siteTitle}`)}`;
+const advertise = `https://${hub.domain}/advertise/`;
+// /advertise/ shows a rate card only once `hub.rates` is set; until then it
+// makes the founding offer without a price.
+const hasRates = (hub.rates?.length ?? 0) > 0;
 const description = `How ${town.siteTitle} lists businesses in ${town.name}, ${town.state}: listings are free and editorial; sponsorship is labeled and sits beside them. How to claim or correct a listing.`;
 ---
 <Page
@@ -85,10 +89,28 @@ const description = `How ${town.siteTitle} lists businesses in ${town.name}, ${t
       <li>A labeled block on <a href="/moving-here/">Moving Here</a>, which is where people about to move to {town.name} look for an agent, a lender, a mover.</li>
       {hub.newsletter && <li>A line at the top of the weekly {town.siteTitle} email.</li>}
     </ul>
+    {/* This said prices and audience figures were on /advertise/, which
+        publishes neither until there are numbers to stand behind (audit, 7
+        October 2026). It now says what that page holds in whichever state it
+        is in. The second line is the network sponsor, which /this-weekend/
+        and the Nearby block carry beside a town's own. */}
     <p>
-      One sponsor per placement, so a sponsor is not competing with three others on the same page. Prices and
-      audience figures are on the network’s <a href={`https://${hub.domain}/advertise/`}>advertising page</a>, which
-      only quotes numbers it has actually measured. To talk about a placement, <a href={partner}>email us</a>.
+      One sponsor per placement, so a sponsor is not competing with three others on the same page: the most a page
+      carries is that one and the network’s own sponsor line, which is sold for every guide at once and labeled the
+      same way.
+      {hasRates ? (
+        <Fragment>
+          Prices are on the network’s <a href={advertise}>advertising page</a>, with what the guides have measured of
+          their audience and since when.
+        </Fragment>
+      ) : (
+        <Fragment>
+          Prices are not published yet: ask, and we will quote one. The network’s <a href={advertise}>advertising
+          page</a> says what the guides have measured of their audience so far and since when, and quotes no number
+          nobody counted.
+        </Fragment>
+      )}
+      To talk about a placement, <a href={partner}>email us</a>.
     </p>
 
     <h2>What we will not do</h2>

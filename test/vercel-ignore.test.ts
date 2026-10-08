@@ -85,7 +85,7 @@ test('shared code builds every site, including the hub', () => {
   for (const slug of ['hub', 'niwot', 'lyons']) assert.equal(decide(slug, head, git('rev-parse', 'HEAD^')), 'build');
   const registry = commit({ 'src/config/towns/registry.ts': 'r2' });
   assert.equal(decide('lyons', registry, head), 'build');
-  for (const path of ['package-lock.json', 'astro.config.mjs', 'vercel.json', 'public/favicons/x.svg', 'scripts/run.ts']) {
+  for (const path of ['package-lock.json', 'astro.config.mjs', 'vercel.json', 'public/favicons/x.svg', 'scripts/run.ts', 'scripts/lib/search-index.ts']) {
     const prev = git('rev-parse', 'HEAD');
     assert.equal(decide('lyons', commit({ [path]: String(clock) }), prev), 'build', path);
   }
