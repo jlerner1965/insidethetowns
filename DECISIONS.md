@@ -3988,3 +3988,23 @@ and the twenty-one ledger rows re-read against Commons in one pass.
   downtown businesses, the Carousel of Happiness, Chipeta Park, Mud Lake and
   West Magnolia; everything in Fort Lupton but the library; everything in
   Severance but Bruce's.
+
+## Pre-launch audit of the hub and the eighteen guides
+
+*8 October 2026.* The owner's last ask of the day: one pass through every
+site to make sure nothing was missed. The method and the findings are in
+`docs/PRELAUNCH-AUDIT-2026-10-08.md`: every built page read by a script
+(1,986 pages, every internal and cross-domain link resolved in the sister
+builds, every image, every JSON-LD block, the day's features present), all
+nineteen live domains fetched, and a sample screenshotted and measured for
+overflow.
+
+- **Found and fixed:** the morning's "Other towns" item made the
+  navigation row wider than a 1280px screen on twelve guides, pushing the
+  search button off the edge; the row now reads "Towns" with a tighter gap
+  at that breakpoint, and the phone menu keeps "Other towns". Same-day
+  matinee and evening listings (four pairs in Fort Collins, one in
+  Loveland) shared one page title and now carry their start time. Eight
+  outbound links moved from http to https where the site serves it.
+- **Checked and sound:** everything else in the table there, including the
+  hub's search index 404 (by design) and the noindex counts.
