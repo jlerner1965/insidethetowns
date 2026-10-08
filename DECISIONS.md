@@ -4008,3 +4008,29 @@ overflow.
   outbound links moved from http to https where the site serves it.
 - **Checked and sound:** everything else in the table there, including the
   hub's search index 404 (by design) and the noindex counts.
+
+## The favicons, redrawn to read in a browser tab
+
+*8 October 2026.* The owner asked for a review of the softened favicon set.
+At 64px it is a good system: one tile, one cream ink, one gold baseline,
+each town's colour. A tab draws it at 16px, or 32px on a high-density
+screen, and there six marks turned to smudges because they relied on
+hairline detail, and every mark lost size to a 90 per cent inset and its
+baseline to grey.
+
+- **All twenty:** the mark is drawn at full size in its tile, and the gold
+  baseline is 3 units rather than 2.2, so it stays gold at 16px.
+- **Redrawn, same ideas:** Elizabeth's windmill has six solid blades with
+  open gaps instead of twelve hairline spokes; Johnstown's compass rose has
+  four broad half-shaded points and four short ones; Nederland's snowflake
+  has six heavy arms with one pair of branches each; Windsor has two broad
+  waves instead of three fine ones; Fort Collins's bicycle keeps its shape
+  with a heavier pen; Timnath's wheat is one solid ear of broad grains.
+- **Unchanged:** the hub's I, Loveland's heart, Severance's sprout, the
+  castle, mesa, sunrise, mountains, evergreen, arch, barn, headframe, tree
+  and Lyons's sandstone, which all hold at 16px once the frame is fixed.
+  Loveland and Nederland keep their marks without a baseline, as before.
+- The favicon link moves to `?v=3`, so a browser that cached the set this
+  morning fetches the new one on its next page view rather than up to a
+  week later. The softening at 02:46 UTC had changed the files without
+  changing the version.

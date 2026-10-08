@@ -2,9 +2,9 @@
   <defs><linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
   <rect width="64" height="64" rx="12" fill="#143C27"/>
   <rect width="64" height="64" rx="12" fill="url(#t)"/>
-  <g transform="translate(32 32) scale(0.9) translate(-32 -32)">
+  <g transform="translate(32 32) scale(1) translate(-32 -32)">
   <path d="M32 9 L42 22 H37.5 L46 34 H40.5 L50 46 H14 L23.5 34 H18 L26.5 22 H22 Z" fill="#F5EFE2"/><clipPath id="f"><path d="M32 9 L42 22 H37.5 L46 34 H40.5 L50 46 H14 L23.5 34 H18 L26.5 22 H22 Z"/></clipPath><path d="M32 0 V50 H64 V0 Z" fill="#b6bdae" clip-path="url(#f)"/>
   <rect x="29.5" y="46" width="5" height="4" fill="#F5EFE2"/>
-  <rect x="10" y="50" width="44" height="2.2" fill="#D9A94E"/>
+  <rect x="10" y="49" width="44" height="3" fill="#D9A94E"/>
   </g>
 </svg>
