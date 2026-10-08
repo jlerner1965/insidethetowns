@@ -10,6 +10,9 @@ added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "720-497-7650"
 hours: "Thu–Sun 12–4:30 pm; closed Mon–Wed"
+image: ../images/hiwan-heritage-park-museum.jpg
+imageAlt: "The two-story log Hiwan Homestead, with its red roofs and stone chimney, among the ponderosa pines"
+imageCredit: "25or6to4, Wikimedia Commons, CC BY-SA 3.0"
 tags: [museum, history, free, tours]
 summary: "Jefferson County Open Space heritage park and museum on Meadow Drive. Free guided museum tours, usually about 45 minutes, Thursday to Sunday afternoons; the grounds are open daily for self-guided tours."
 ---

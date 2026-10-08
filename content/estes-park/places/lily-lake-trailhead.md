@@ -8,6 +8,9 @@ source: "https://www.nps.gov/romo/planyourvisit/lily-lake-trail-wedding-site.htm
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/lily-lake-trailhead.jpg
+imageAlt: "Lily Mountain reflected in Lily Lake"
+imageCredit: "G. Lamar, Wikimedia Commons, CC BY 2.0"
 tags: [rmnp, accessible, lake, wildlife]
 summary: "Lot beside Highway 7 with vault toilets and a viewing dock, at the start of the Lily Lake Trail: benches, two bridges and a wetland boardwalk, with views of Longs Peak and Twin Sisters."
 access: { parking: "Parking lot on Highway 7 with two vault toilets.", permit: "Lily Lake is inside the timed-entry system: reservation needed 9 am–2 pm, May 22 to October 12, 2026, and a park entrance pass at all times.", conditionsUrl: "https://www.nps.gov/romo/planyourvisit/conditions.htm", conditionsLabel: "RMNP current conditions", source: "https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm", verified: "2026-10-06" }

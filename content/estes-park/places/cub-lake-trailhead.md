@@ -9,6 +9,9 @@ verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 mapUrl: "https://www.nps.gov/romo/planyourvisit/upload/Bear-Lake-Road-Digital-Map_large-2023-01.png"
+image: ../images/cub-lake-trailhead.jpg
+imageAlt: "On the trail to Cub Lake: a pond in the meadow grass, red boulders in the foreground and snow on the peaks beyond"
+imageCredit: "NPS / Karen Battle-Sanborn, Wikimedia Commons, public domain"
 tags: [rmnp, hiking, moraine-park, shuttle]
 summary: "Trailhead on the road along Moraine Park for the 2.4-mile walk to Cub Lake, starting at 8,080 feet with about 540 feet of gain."
 access: { parking: "Trailhead parking on the Moraine Park road; the Moraine Park shuttle stops at Cub Lake Trailhead from May 22 to October 18.", permit: "Timed Entry + Bear Lake Road reservation needed 5 am–6 pm, May 22 to October 18, 2026, as well as a park entrance pass.", conditionsUrl: "https://www.nps.gov/romo/planyourvisit/conditions.htm", conditionsLabel: "RMNP current conditions", source: "https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm", verified: "2026-10-06" }

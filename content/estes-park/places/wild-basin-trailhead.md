@@ -8,6 +8,9 @@ source: "https://www.nps.gov/romo/planyourvisit/north-st-vrain.htm"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/wild-basin-trailhead.jpg
+imageAlt: "Copeland Lake, beside Wild Basin Road on the way in to the trailhead, with a peak beyond"
+imageCredit: "Laurenschneider210, Wikimedia Commons, CC BY-SA 4.0"
 tags: [rmnp, hiking, waterfalls, lakes]
 summary: "Trailhead and ranger station at the end of Wild Basin Road, off Highway 7, for Copeland Falls (0.3 mile), Calypso Cascades (1.8), Ouzel Falls (2.7) and the lakes beyond."
 access: { permit: "Timed-entry reservation needed 9 am–2 pm, May 22 to October 12, 2026, and a park entrance pass at all times.", closures: "In the summer season the road is open to the summer parking area and trailhead.", conditionsUrl: "https://www.nps.gov/romo/planyourvisit/conditions.htm", conditionsLabel: "RMNP current conditions", source: "https://www.nps.gov/romo/planyourvisit/road_status.htm", verified: "2026-10-06" }

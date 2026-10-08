@@ -32,6 +32,11 @@ Do not repeat these. The searches are recorded in `DECISIONS.md`.
   a town, SparkFun's headquarters, places with no page, or the wrong place
   entirely. The rejections, and the traps among them, are in `DECISIONS.md`
   under *Four image catalogs*. Do not re-review them.
+- **A fifth catalog: four photo-gallery PDFs (8 October 2026).** 1,594
+  Commons and Flickr candidates across ten towns. Sixteen places got a
+  photograph; the rest were filler (I-25 from a car, aerials, car interiors),
+  same-named places, too small, or people. What was used, the traps and what
+  was left are in `DECISIONS.md` under *A fifth catalog*. Do not re-review it.
 - **KartaView street-level imagery.** Four frames near Elizabeth's Main Street,
   all windshield dashcam shots of roadway with dashboard glare. No storefronts.
 - **Mapillary.** Requires an API token this project does not have.

@@ -3797,3 +3797,39 @@ fixed; nothing outside the list was taken on.
   covers it. Hall Ranch and Heil Valley Ranch's no-dogs rule and the RMNP
   timed-entry dates were already right. Catalina's Diner is not listed on
   the Elizabeth guide, so there were no hours to change.
+
+## A fifth catalog: four photo galleries, sixteen photographs
+
+*8 October 2026.* The owner supplied four photo-gallery PDFs: 1,594
+candidates, about 1,530 from Wikimedia Commons and the rest from Flickr,
+every one CC BY, CC BY-SA, public domain or CC0. None was already on the
+sites. They cover ten towns very unevenly: Estes Park 836, Elizabeth 419,
+Evergreen 131, Fort Collins 114, and a handful each for Carbon Valley, Erie,
+Johnstown, Berthoud, Fort Lupton and Niwot. The other nine towns have none.
+
+- **Added: sixteen places that had no photograph.** In Evergreen,
+  Alderfer/Three Sisters Park, the Buchanan Park Recreation Center,
+  Evergreen Lake and the Hiwan Homestead. In Estes Park, the Aerial Tramway,
+  Rocky Mountain National Park (Moraine Park) and nine trailheads and
+  trails: Bear Lake (Nymph Lake), Cub Lake, Fern Lake, Glacier Gorge (Mills
+  Lake), Lily Lake, Lily Mountain, Longs Peak, Lumpy Ridge (the Gem Lake
+  Trail) and Wild Basin (Copeland Lake). In Carbon Valley, St. Vrain State
+  Park. Each was looked at, checked against its live Commons record
+  (author, licence, date, coordinates where it has them), cropped to 3:2
+  where needed and saved at 1,600px or less with no camera metadata. A
+  trailhead's photograph is of where its trail goes, and the alt text says
+  so rather than calling a lake the trailhead.
+- **Traps**, for the next review: `Spring Creek valley.jpg` is a foothills
+  canyon, not Fort Collins's paved Spring Creek Trail; "Big Horn Restaurant"
+  and "Rock Cut Brewing" match bighorn sheep and Rock Cut on Trail Ridge
+  Road; every Elizabeth and Fort Lupton "town" photograph is an aerial from
+  an airliner; most of Elizabeth's 419 are car interiors at Rambler Ranch;
+  the AboutMyTrip Carbon Valley and Johnstown frames are I-25 from a car.
+- **Not used, on purpose:** the Taffy Shop (an identifiable worker is the
+  subject); Lawn Lake, Thunder Lake and the Poudre in Fort Collins (600px
+  NPS and 2004 frames); the Colorado National Speedway panorama (1,024px
+  and too thin to crop); the 2003 smoke over Elk Meadow.
+- **Left for the owner:** the Evergreen Library photograph is from February
+  2020, before the branch's 2024 redesign; Brownfield's Trading Post is a
+  2009 storefront; `Stanley Park, Colorado.jpg` may or may not show the
+  Events Complex.

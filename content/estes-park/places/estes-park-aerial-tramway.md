@@ -11,6 +11,9 @@ verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "(970) 235-9083"
 hours: "Daily 9 am–7 pm to Oct 11; daily 9 am–6 pm Oct 12–Nov 1"
 seasonal: { season: "May 9 to November 1, 2026", hours: "Daily 9 am–7 pm to Oct 11; daily 9 am–6 pm Oct 12–Nov 1", opens: "2026-05-09", closes: "2026-11-01" }
+image: ../images/estes-park-aerial-tramway.jpg
+imageAlt: "A red tram car at the summit station on Prospect Mountain, with Lake Estes and the valley below"
+imageCredit: "Jerrye and Roy Klotz MD, Wikimedia Commons, CC BY-SA 3.0"
 tags: [views, attraction, families, seasonal]
 summary: "Tram running since 1955 from Riverside Drive to the 8,708-foot summit of Prospect Mountain, with a viewing platform and café at the top. Open daily May 9 to November 1 in 2026; no park pass needed."
 ---

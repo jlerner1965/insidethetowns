@@ -10,6 +10,9 @@ added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "720-880-1100"
 hours: "Mon–Thu 5:30 am–8 pm; Fri 5:30 am–7 pm; Sat–Sun 7 am–4 pm"
+image: ../images/buchanan-park-recreation-center.jpg
+imageAlt: "The Buchanan Park Recreation Center's glass entrance tower and its two wings, snow banked along the drive"
+imageCredit: "WhisperToMe, Wikimedia Commons, CC0"
 tags: [rec-center, pool, climbing, fitness, families]
 summary: "The Evergreen Park & Recreation District's rec center in Buchanan Park: leisure pool with slide, lap lanes, hot tub and sauna, a 41-foot climbing pinnacle, fitness area and drop-in Playschool."
 ---
