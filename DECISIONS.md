@@ -3611,10 +3611,14 @@ audit's own evidence is done here; the rest is listed below with why.
   since when. It also says the most sponsor lines a page carries: the
   town's own and the network's (/this-weekend/ and the Nearby block can
   show both). /advertise/ now says the network line carries one sponsor at
-  a time, which is all `hub.sponsors.network` can hold. **For the owner:**
-  "open to the first three sponsors only" with one line at a time reads as
-  three sponsors in turn; if that is not the intent, the offer needs
-  rewording. Rate, reporting and cancellation terms were not invented.
+  a time, which is all `hub.sponsors.network` can hold. It also said the
+  founding offer was "open to the first three sponsors only", which with
+  one line at a time could only mean three quarters in turn: nine months of
+  the network's one placement sold before there are audience figures to
+  price it by. The owner left the call to us, and it now says the founding
+  rate is offered until the network publishes a rate card, which is when
+  the page stops showing it (`hub.rates`). Rate, reporting and cancellation
+  terms were not invented.
 - **Event submission says form or email per town.** Nine guides have no
   form switched on (no `formspreeId`); the hub's chooser said "each guide
   has its own form" and the contact pages said "there is a form" on every
