@@ -82,3 +82,27 @@ test('an event names its organiser only when the listing records one', async () 
   ) as never as { organizer: Record<string, unknown> };
   assert.equal('url' in noUrl.organizer, false, 'no url recorded, so none invented');
 });
+
+test('an event\'s offer carries a number where the cost line gives one, and the words always', async () => {
+  const { eventJsonLd, offerPrice } = await import('../src/lib/seo.ts');
+  assert.deepEqual(offerPrice('Free'), { price: '0', priceCurrency: 'USD' });
+  assert.deepEqual(offerPrice('Free; registration required'), { price: '0', priceCurrency: 'USD' });
+  assert.deepEqual(offerPrice('$20'), { price: '20', priceCurrency: 'USD' });
+  assert.deepEqual(offerPrice('$25 per person, online in advance only'), { price: '25', priceCurrency: 'USD' });
+  assert.deepEqual(offerPrice('$74.50 standing general admission; 21 and over'), { price: '74.50', priceCurrency: 'USD' });
+  assert.deepEqual(offerPrice('$40–$98'), { lowPrice: '40', highPrice: '98', priceCurrency: 'USD' });
+  assert.deepEqual(offerPrice('$15; seniors $13; under 18 $5; CSU students free'), { lowPrice: '0', highPrice: '15', priceCurrency: 'USD' });
+  assert.deepEqual(offerPrice('Standard $25 / Resident $20'), { lowPrice: '20', highPrice: '25', priceCurrency: 'USD' });
+  assert.equal(offerPrice('Ticketed; dinner included'), undefined, 'no figure, no number');
+  assert.equal(offerPrice('Tickets from the Rams ticket office'), undefined);
+
+  const town = { kind: 'town', name: 'Erie', state: 'CO', domain: 'insideerie.com' } as never;
+  const base = { title: 'Show', start: new Date('2026-12-30T18:00:00Z'), venue: 'Hall', category: 'arts', allDay: false, featured: false, tags: [] };
+  const ld = (cost: string) =>
+    (eventJsonLd(town, { data: { ...base, cost }, body: '' } as never, 'https://insideerie.com/events/show/') as never as { offers: Record<string, string> }).offers;
+  assert.deepEqual(ld('$20'), { '@type': 'Offer', url: 'https://insideerie.com/events/show/', description: '$20', price: '20', priceCurrency: 'USD' });
+  assert.equal(ld('$40–$98')['@type'], 'AggregateOffer');
+  assert.equal(ld('$40–$98').lowPrice, '40');
+  assert.deepEqual(ld('Ticketed'), { '@type': 'Offer', url: 'https://insideerie.com/events/show/', description: 'Ticketed' });
+  assert.equal(ld('Free').price, '0');
+});

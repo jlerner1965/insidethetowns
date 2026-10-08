@@ -5,6 +5,12 @@ excerpt: "Crepes on Parish Avenue, the Parish House on a morning it is open, the
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
+glance:
+  start: "Street parking on or near Parish Avenue in Old Town"
+  duration: "An Old Town morning, then a reserved evening at 2534"
+  by: "On foot in Old Town; the evening at Candlelight needs the car and a reservation"
+  bestDay: "A Tuesday, Wednesday or Saturday morning, when the Parish House is open 9 am to noon"
+  caveat: "The Parish House is by appointment only on Monday, Thursday and Friday; book Candlelight seats before you plan the day around it"
 sources:
   - { label: "Johnstown Historical Society: visit", url: "https://jhsco.org/visit/" }
   - { label: "Johnstown Historical Society: historic walking tour", url: "https://jhsco.org/historicwalkingtour/" }

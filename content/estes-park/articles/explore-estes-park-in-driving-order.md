@@ -5,6 +5,11 @@ excerpt: "Build the day around one thing, then leave room for a meal: Elkhorn Av
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
+glance:
+  start: "The Town's free parking structure at 691 North St. Vrain Avenue, by the Visitor Center; downtown is under ten minutes on foot"
+  duration: "One main thing a day, plus a meal; the national park is a separate day"
+  by: "By car between stops; Elkhorn Avenue on foot from the parking structure"
+  caveat: "The tramway's 2026 season ends on November 1; after that, give the afternoon to the Stanley instead"
 sources:
   - { label: "Town of Estes Park: Parking", url: "https://estespark.colorado.gov/parking" }
   - { label: "Town of Estes Park: The Peak (free Town transit service)", url: "https://estespark.colorado.gov/transit" }

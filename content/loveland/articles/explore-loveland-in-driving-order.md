@@ -5,6 +5,12 @@ excerpt: "The sculpture garden first, then 4th Street for lunch at Henry's, the 
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
+glance:
+  start: "Benson Sculpture Garden on Aspen Drive, then a second parking stop downtown on East 4th Street"
+  duration: "A day; Devil's Backbone is its own half-day"
+  by: "By car, parking twice; stops 02 to 04 are on foot along East 4th Street"
+  bestDay: "A weekday, when Lundeen is open; Tuesday to Sunday for dinner at Door 222"
+  caveat: "Devil's Backbone needs a Larimer County entrance permit and its lot fills on weekends; 4th Street is being rebuilt in 2026"
 sources:
   - { label: "Henry's Pub: contact and hours", url: "https://www.henryspubloveland.com/contact/" }
   - { label: "Door 222 Food & Drink", url: "https://www.door222.com/" }

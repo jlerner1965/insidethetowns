@@ -11,10 +11,21 @@
  * usual way to do this and it puts every link in the page twice, which is
  * duplicate anchor text on four hundred pages and two things to keep in step.
  */
-import { getSite } from '@/config';
+import { getNetworkHub, getSite, liveTowns, neighborsOf } from '@/config';
 import Wordmark from './Wordmark.astro';
 
 const site = getSite();
+const hub = getNetworkHub();
+/**
+ * On a guide, the last item in the row is a switcher: the neighbouring
+ * guides, then the hub's full list. The primary navigation was all about
+ * the current town and the sister guides sat only in the footer, two
+ * screens of taglines down on a phone (follow-up audit, 8 October 2026). A
+ * native disclosure, so it opens without the script and the script only
+ * closes it: on Escape, on a click elsewhere, and on a width change.
+ */
+const nearby = site.kind === 'town' ? neighborsOf(site) : [];
+const guideCount = liveTowns().length;
 const path = Astro.url.pathname;
 // A link to a section of a page (the hub's "/#towns") is never the current
 // page: stripped to "/" it matched the home page and showed "Towns" as where
@@ -78,6 +89,30 @@ const wordmarkEm = (site.siteTitle.length * 0.5).toFixed(1);
               >{item.label}</a>
             </li>
           ))}
+          {site.kind === 'town' && (
+            <li class="site-nav-switch">
+              <details data-town-switch>
+                <summary class="site-nav-link cursor-pointer whitespace-nowrap text-[0.8125rem] font-semibold uppercase tracking-[0.1em] text-ink-muted transition-colors hover:text-ink">Other towns</summary>
+                <div class="site-nav-panel">
+                  {nearby.length > 0 && (
+                    <Fragment>
+                      <p class="eyebrow text-ink-faint">Nearby</p>
+                      <ul class="mt-2 grid gap-1">
+                        {nearby.map((t) => (
+                          <li>
+                            <a href={`https://${t.domain}/`} class="inline-block py-1.5 text-[0.9375rem] font-medium normal-case tracking-normal text-ink no-underline hover:text-accent-text hover:underline">{t.siteTitle}</a>
+                          </li>
+                        ))}
+                      </ul>
+                    </Fragment>
+                  )}
+                  <p class:list={['text-[0.9375rem]', nearby.length > 0 && 'mt-3 border-t border-line-soft pt-3']}>
+                    <a href={`https://${hub.domain}/#towns`} class="inline-block py-1.5 font-semibold normal-case tracking-normal text-accent-text no-underline hover:underline">All {guideCount} guides →</a>
+                  </p>
+                </div>
+              </details>
+            </li>
+          )}
         </ul>
       </nav>
     </div>
@@ -117,5 +152,26 @@ const wordmarkEm = (site.siteTitle.length * 0.5).toFixed(1);
     wide.addEventListener('change', (event) => {
       if (event.matches) set(false);
     });
+  }
+
+  // The town switcher opens on its own; this only closes it, the way a menu
+  // is expected to close: Escape (focus back on its button), a click or a
+  // tab anywhere else, and the row-to-panel width change.
+  const switcher = document.querySelector<HTMLDetailsElement>('[data-town-switch]');
+  if (switcher) {
+    const close = () => switcher.removeAttribute('open');
+    document.addEventListener('click', (event) => {
+      if (switcher.open && !switcher.contains(event.target as Node)) close();
+    });
+    document.addEventListener('focusin', (event) => {
+      if (switcher.open && !switcher.contains(event.target as Node)) close();
+    });
+    switcher.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && switcher.open) {
+        close();
+        switcher.querySelector<HTMLElement>('summary')?.focus();
+      }
+    });
+    window.matchMedia('(min-width: 80rem)').addEventListener('change', close);
   }
 </script>

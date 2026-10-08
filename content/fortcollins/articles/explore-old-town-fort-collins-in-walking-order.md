@@ -5,6 +5,12 @@ excerpt: "Breakfast on Walnut Street, the square, the museum at the top of Mason
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
+glance:
+  start: "One of the three City garages: 100 Remington Street, 165 Chestnut Street or Laporte and Mason; first hour free, free on Sunday"
+  duration: "A day; Horsetooth is a separate morning"
+  by: "On foot from one garage; the museum leg can be driven, using the museum's own lot"
+  bestDay: "Any day but Monday for the museum; Sunday for free garage parking"
+  caveat: "The museum and Ginger and Baker are closed Monday; check New Belgium's adjusted 2026 hours before a special trip"
 sources:
   - { label: "City of Fort Collins: Where to Park", url: "https://www.fortcollins.gov/Services/Parking/Where-to-Park" }
   - { label: "Fort Collins Museum of Discovery: Hours, Location, Admission", url: "https://fcmod.org/hours-location-admission/" }

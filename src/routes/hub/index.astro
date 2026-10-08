@@ -63,6 +63,23 @@ const { start: weekendStart, sunday } = weekendWindow(now);
  * written for the search result.
  */
 const description = `Independent guides to ${live.length} towns on Colorado’s Front Range: the week’s events, where to eat and drink, the trails, and what it’s like to live there.`;
+/**
+ * Where the towns are, for a visitor who does not know one from another: the
+ * northernmost and southernmost by latitude, and the mountain guides by name,
+ * all read from the live list so the sentence cannot name a town that is
+ * not there (follow-up audit, 8 October 2026: the opening gave no location
+ * cue). The three task links under it are the three things a visitor came
+ * to do, ahead of the eighteen names.
+ */
+const byLat = [...live].sort((a, b) => b.lat - a.lat);
+const north = byLat[0]!;
+const south = byLat[byLat.length - 1]!;
+// By elevation, not the freshness variant: Golden shares the mountain
+// guides' shorter windows and sits at the foot of the foothills.
+const mountains = live.filter((t) => (t.elevationFt ?? 0) >= 7000).map((t) => t.name).sort((a, b) => a.localeCompare(b, 'en'));
+const list = (names: string[]) => (names.length > 1 ? `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}` : names[0] ?? '');
+const where = `${live.length} towns around Denver: north to ${north.name}, south to ${south.name}${mountains.length ? `, and up in the mountains at ${list(mountains)}` : ''}.`;
+const task = 'btn btn-outline min-h-11 px-4 text-[0.9375rem] text-ink';
 ---
 <Base {description}>
   {/* Set a little tighter below 640px so the whole picker fits on a phone's
@@ -81,7 +98,13 @@ const description = `Independent guides to ${live.length} towns on Colorado’s 
       One site per town: the week’s events, where to eat and drink, the trails, and a straight account of what it’s
       like to live there.
     </p>
-    <nav aria-labelledby="town-picker" class="mt-6 sm:mt-10">
+    <p class="mt-3 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">{where}</p>
+    <ul class="mt-6 flex flex-wrap gap-2.5" aria-label="Start here">
+      <li><a href="/this-weekend/" class={task}>Find weekend plans</a></li>
+      <li><a href="#towns" class={task}>Choose a town guide</a></li>
+      <li><a href="/moving/" class={task}>Compare a move</a></li>
+    </ul>
+    <nav aria-labelledby="town-picker" class="mt-8 sm:mt-10">
       <p id="town-picker" class="eyebrow">Pick your town</p>
       <ul class="mt-3 grid max-w-4xl grid-cols-3 gap-2 sm:grid-cols-4 lg:grid-cols-6">
         {atoz.map((t) => (

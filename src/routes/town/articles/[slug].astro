@@ -29,6 +29,17 @@ const { Content, headings } = await render(article);
 const contents = headings.filter((h) => h.depth === 2);
 const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
 const url = new URL(Astro.url.pathname, Astro.site).toString();
+const glance: Array<[string, string]> = data.glance
+  ? (
+      [
+        ['Start', data.glance.start],
+        ['How long', data.glance.duration],
+        ['Getting around', data.glance.by],
+        ['Best day', data.glance.bestDay],
+        ['Before you go', data.glance.caveat],
+      ] as Array<[string, string | undefined]>
+    ).filter((pair): pair is [string, string] => !!pair[1])
+  : [];
 ---
 <Page title={data.title} kind="Guide" eyebrow={data.category} intro={data.excerpt} description={data.excerpt} image={shareImage} imageAlt={data.imageAlt} type="article"
   jsonLd={[
@@ -39,11 +50,25 @@ const url = new URL(Astro.url.pathname, Astro.site).toString();
       { name: data.title, path: `/articles/${article.slug}/` },
     ]),
   ]}>
-  <p slot="after-header" class="mt-5 text-sm text-ink-muted">
-    <time datetime={toIsoLocal(data.date)}>{formatDate(data.date)}</time>
-    {data.updated && <span> · Updated {formatDate(data.updated)}</span>}
-    {data.verified && <span> · {checkedBy(formatDate(data.verified))}</span>}
-  </p>
+  <Fragment slot="after-header">
+    <p class="mt-5 text-sm text-ink-muted">
+      <time datetime={toIsoLocal(data.date)}>{formatDate(data.date)}</time>
+      {data.updated && <span> · Updated {formatDate(data.updated)}</span>}
+      {data.verified && <span> · {checkedBy(formatDate(data.verified))}</span>}
+    </p>
+    {/* The route at a glance, in the masthead: what a visitor decides on
+        before reading the stops. Only the lines the article supports. */}
+    {glance.length > 0 && (
+      <dl class="mt-7 grid gap-x-8 gap-y-4 border-t border-accent/30 pt-6 sm:grid-cols-2" aria-label="At a glance">
+        {glance.map(([term, detail]) => (
+          <div>
+            <dt class="eyebrow text-ink-faint">{term}</dt>
+            <dd class="mt-1 text-[0.9375rem] leading-snug">{detail}</dd>
+          </div>
+        ))}
+      </dl>
+    )}
+  </Fragment>
   {data.supersededAfter && data.supersededNote && (
     <DatedNotice from={dayKey(data.supersededAfter)}>
       <strong class="font-semibold">This was written beforehand.</strong>{' '}

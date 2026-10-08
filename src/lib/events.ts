@@ -354,21 +354,40 @@ export function highlights<T extends EventLike>(
 
 /**
  * Whether a listing is a regular: a weekly repeat, one carrying a "Third
- * Fridays" note, or one of a series stored as a file per date — which shows
- * up as another listing with the same title at the same venue, the way
- * src/lib/series.ts recognises a series too.
+ * Fridays" note, or one of a series stored as a file per date that lands on
+ * the same weekday each time — which shows up as another listing with the
+ * same title at the same venue, the way src/lib/series.ts recognises a
+ * series too.
  *
- * Exported for the events page, which marks each row so the default view can
- * lead with the one-offs and put the storytimes and the trivia nights behind
- * a switch (see EventFilters.astro).
+ * The weekday test is what tells a knitting drop-in on two Fridays from a
+ * touring show on a Thursday and a Friday. Both are two files with one
+ * title, and only the first is a regular: a reader opening the home page
+ * on the Thursday before wants the show, and Estes Park's two Amy Bruni
+ * nights were ranked below every one-off a month later because they were
+ * counted as a storytime (follow-up audit, 8 October 2026). A run across
+ * weekdays is a one-off that happens more than once, and `highlights` and
+ * `nearbyPicks` show it once, at its next date.
+ *
+ * `oneOffs` reads this for the hub's weekend block.
  */
 export function regularTest<T extends EventLike>(all: readonly T[]): (event: T) => boolean {
   const slugsByKey = new Map<string, Set<string>>();
+  const weekdaysByKey = new Map<string, Set<string>>();
   for (const e of all) {
     const key = `${e.data.title}|${e.data.venue}`;
     slugsByKey.set(key, (slugsByKey.get(key) ?? new Set()).add(e.slug ?? e.id ?? e.data.title));
+    weekdaysByKey.set(key, (weekdaysByKey.get(key) ?? new Set()).add(denverWeekday(e.data.start)));
   }
-  return (e) => Boolean(e.data.repeat || e.data.recurring) || (slugsByKey.get(`${e.data.title}|${e.data.venue}`)?.size ?? 0) > 1;
+  return (e) => {
+    if (e.data.repeat || e.data.recurring) return true;
+    const key = `${e.data.title}|${e.data.venue}`;
+    return (slugsByKey.get(key)?.size ?? 0) > 1 && weekdaysByKey.get(key)?.size === 1;
+  };
+}
+
+/** The Denver weekday, not UTC's: a 6 pm Thursday is already Friday in UTC. */
+function denverWeekday(date: Date): string {
+  return new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, weekday: 'short' }).format(date);
 }
 
 /**
@@ -385,8 +404,7 @@ export function weeklyTest<T extends EventLike>(all: readonly T[]): (event: T) =
   const weekdaysByKey = new Map<string, Map<string, Set<string>>>();
   for (const e of all) {
     const key = `${e.data.title}|${e.data.venue}`;
-    // The Denver weekday, not UTC's: a 6 pm Thursday is already Friday in UTC.
-    const dow = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, weekday: 'short' }).format(e.data.start);
+    const dow = denverWeekday(e.data.start);
     const slugs = weekdaysByKey.get(key) ?? new Map<string, Set<string>>();
     slugs.set(dow, (slugs.get(dow) ?? new Set()).add(e.slug ?? e.id ?? e.data.title));
     weekdaysByKey.set(key, slugs);

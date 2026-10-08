@@ -330,6 +330,51 @@
     border-block-start: 1px solid var(--color-line-soft);
   }
   .site-nav li:first-child .site-nav-link { border-block-start: 0; }
+  /* The switcher's list opens in place under its row, indented a step. */
+  .site-nav-panel { padding: 0 0 1rem 1rem; }
+}
+
+/*
+ * The town switcher (Header.astro): a native <details> whose summary looks
+ * like the other items in the row, with a chevron that turns when it opens.
+ * In the row it drops a small panel under itself; in the phone menu it
+ * opens in place (above).
+ */
+.site-nav-switch summary {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  list-style: none;
+}
+.site-nav-switch summary::-webkit-details-marker { display: none; }
+.site-nav-switch summary::after {
+  content: '';
+  inline-size: 0.45em;
+  block-size: 0.45em;
+  margin-block-start: -0.2em;
+  border-inline-end: 2px solid currentColor;
+  border-block-end: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 150ms ease;
+}
+.site-nav-switch details[open] > summary::after {
+  margin-block-start: 0.15em;
+  transform: rotate(-135deg);
+}
+@media (width >= 80rem) {
+  .site-nav-switch { position: relative; }
+  .site-nav-panel {
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-start: calc(100% + 0.9rem);
+    z-index: 40;
+    min-inline-size: 15rem;
+    padding: 1rem 1.25rem 0.75rem;
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: 0.5rem;
+    box-shadow: 0 20px 34px -26px rgb(0 0 0 / 0.5);
+  }
 }
 
 /*

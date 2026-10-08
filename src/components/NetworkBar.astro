@@ -15,6 +15,13 @@
  * The "Site by" credit sits at the end of the strip, smaller and fainter than
  * the guides and ruled off from them on a phone, so it does not read as one
  * more guide in the list, when the hub config sets one.
+ *
+ * On a phone the sister guides, with their taglines, ran to several screens
+ * at the foot of every page (follow-up audit, 8 October 2026), so there the
+ * list sits behind a native disclosure that says how many it holds. The
+ * markup ships open, as it was; the script closes it on a narrow screen,
+ * and from `sm` up the summary is not shown. A reader without the script
+ * sees the list as before.
  */
 import { getNetworkHub, getSite, liveTowns } from '@/config';
 
@@ -53,18 +60,32 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
           >, an independent network of {liveTowns().length} Front Range town guides.
         </p>
         {sisters.length > 0 && (
-          <nav aria-label="Sister guides" class="mt-2 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-4">
-            <span class={label}>Sister guides</span>
-            <ul class="flex flex-wrap gap-x-4">
-              {sisters.map((t) => (
-                <li>
-                  <a href={`https://${t.domain}/`} class={link}>{t.name}</a>{t.shortTagline && <span class="text-white/70"> · {t.shortTagline}</span>}
-                </li>
-              ))}
-            </ul>
+          <nav aria-label="Sister guides" class="mt-2 w-full sm:mt-0">
+            <details open data-sisters class="sm:flex sm:flex-wrap sm:items-baseline sm:gap-x-4">
+              <summary class:list={[label, 'cursor-pointer py-2 sm:pointer-events-none sm:py-0 [&::-webkit-details-marker]:hidden']}>
+                Sister guides<span class="sm:hidden"> ({sisters.length})</span>
+              </summary>
+              <ul class="flex flex-wrap gap-x-4 sm:contents">
+                {sisters.map((t) => (
+                  <li>
+                    <a href={`https://${t.domain}/`} class={link}>{t.name}</a>{t.shortTagline && <span class="text-white/70"> · {t.shortTagline}</span>}
+                  </li>
+                ))}
+              </ul>
+            </details>
           </nav>
         )}
       </Fragment>
+    )}
+    {sisters.length > 0 && (
+      <script>
+        // Closed on a phone, open from `sm` up; the markup is open to start with.
+        const sisters = document.querySelector<HTMLDetailsElement>('[data-sisters]');
+        const narrow = window.matchMedia('(width < 40rem)');
+        const settle = () => sisters?.toggleAttribute('open', !narrow.matches);
+        settle();
+        narrow.addEventListener('change', settle);
+      </script>
     )}
     {hub.credit && (
       <p class="mt-2 w-full border-t border-white/10 pt-3 text-[0.75rem] text-white/60 sm:mt-0 sm:ml-auto sm:w-auto sm:border-0 sm:pt-0">

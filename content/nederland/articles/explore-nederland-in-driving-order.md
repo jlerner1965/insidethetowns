@@ -5,6 +5,11 @@ excerpt: "A bagel on East 1st Street before the 2 pm cutoff, an easy loop at Mud
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
+glance:
+  start: "The 1st Street parking lot downtown, at the visitors center"
+  by: "By car, with the downtown stops on foot from the 1st Street lot"
+  bestDay: "A weekend through October for the mining museum; the carousel is closed Tuesday and Wednesday and Crosscut on Tuesday"
+  caveat: "The mining museum is open Fridays to Sundays only, through October 31; call the carousel before an off-season visit"
 sources:
   - { label: "Town of Nederland: Nederland Visitors Center", url: "https://nederlandco.org/1434/Nederland-Visitors-Center" }
   - { label: "Town of Nederland: Directions", url: "https://nederlandco.org/1436/Directions" }
