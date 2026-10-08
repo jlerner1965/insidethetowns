@@ -36,7 +36,7 @@ The [Golden History Museum](/places/golden-history-museum/) at 923 10th Street i
 
 ## 03 · The creek: Parfet, the whitewater course and Lions Park
 
-[Parfet Park](/places/parfet-park/) at 725 10th Street dates from the early 1900s and is the oldest park in Golden, with shade trees, picnic tables, restrooms and a large field on the Clear Creek Trail. Upstream, the [Clear Creek Whitewater Park](/places/clear-creek-whitewater-park/) runs about seven blocks along the north bank across from [Lions Park](/places/lions-park/), 1300 10th Street, which has a large playground with accessible features, shaded picnic tables and restrooms. The course is free and unsupervised, for paddlers the City says must be proficient in fast, cold water. The creek-corridor parks close an hour after dusk, and alcohol, glass and smoking are banned there; dogs stay on a leash.
+[Parfet Park](/places/parfet-park/) at 725 10th Street dates from the early 1900s and is the oldest park in Golden, with shade trees, picnic tables, restrooms and a large field on the Clear Creek Trail. Upstream, the [Clear Creek Whitewater Park](/places/clear-creek-whitewater-park/) runs about seven blocks along the north bank across from [Lions Park](/places/lions-park/), 1300 10th Street, which has a large playground with accessible features, picnic tables and restrooms. The course is free and unsupervised, for paddlers the City says must be proficient in fast, cold water. The creek-corridor parks close an hour after dusk, and alcohol, glass and smoking are banned there; dogs stay on a leash.
 
 *Getting there:* along the creek path from the history park. *Best for:* watching the kayakers, a picnic, the playground.
 
@@ -50,7 +50,7 @@ The [Golden History Museum](/places/golden-history-museum/) at 923 10th Street i
 
 [Mountain Toad Brewing](/places/mountain-toad-brewing/) at 900 Washington Avenue brews everything gluten-reduced, aims to have a food truck every day and runs trivia and live music: Monday to Thursday noon–10 pm, Friday and Saturday 11 am–10 pm, Sunday 11 am–9 pm. Coors, which the history museum's own page puts within walking distance of the museum, has no listing on this guide yet. By car, [Cannonball Creek](/places/cannonball-creek-brewing/) on the north side of town and [New Terrain](/places/new-terrain-brewing/) on Table Mountain Parkway both have food trucks and a patio or beer garden.
 
-*Getting there:* back up Washington Avenue. *Best for:* the end of the afternoon.
+*Getting there:* back along Washington Avenue. *Best for:* the end of the afternoon.
 
 For families, swap the creek parks for the [Colorado Railroad Museum](/places/colorado-railroad-museum/) at 17155 W 44th Avenue, a drive: more than 100 locomotives, cars and cabooses on 15 acres, Tuesday to Sunday 9 am–5 pm, closed Monday, $12 for adults and $5 for ages 2 to 17. For a hiking day, choose [North Table Mountain or the canyon trail](/articles/mesa-hike-or-canyon-walk/) in the morning and come to the avenue afterwards.
 
@@ -60,7 +60,7 @@ For families, swap the creek parks for the [Colorado Railroad Museum](/places/co
 2. Coffee at Humble House or lunch at Old Capitol Grill.
 3. Walk down to 10th Street for the history museum (Tuesday to Saturday) and the history park.
 4. Follow the creek past the whitewater course to Lions Park, then come back by Foothills Art Center.
-5. Finish at Mountain Toad.
+5. End at Mountain Toad.
 
 ## Getting here
 
