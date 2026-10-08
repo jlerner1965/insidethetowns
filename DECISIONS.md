@@ -3530,3 +3530,36 @@ matched record by record against the repo before anything changed.
   Hessie shuttle a different season than the county that runs it; Union
   Reservoir's fees table still prints last year's Thanksgiving dates.
 - **The HTML viewer stays out of the repo**: a review tool, not content.
+
+## Seventeen "Explore" guides, from the pack's outings
+
+*8 October 2026.* The content pack's eighteen one-line outings were seeds,
+not content; Niwot already had the form they wanted, "Explore Niwot: four
+places in walking order". Every other live town now has one, on that
+model: park once, four to six numbered stops, a simple first visit, how to
+get here, and what can be confirmed about access.
+
+- **Stops are published listings only.** Nothing from staging, nothing
+  closed: Pepper's, The Roost, Jefes, Lucile's Longmont, Willow Creek,
+  Muddy Buck, Sherpa House, Coors, Buffalo Rose, Abejas, Chimney Park
+  Restaurant and the Lake Estes trail are absent or named only as having
+  no listing yet. Castlewood Canyon stays out of Elizabeth. Fort Collins
+  and Longmont are their downtowns on foot, since a city is not a walk.
+- **Walking or driving, by the title.** Where the stops are not reachable
+  from one parking spot (Carbon Valley, Estes Park, Evergreen, Loveland,
+  Nederland, Severance, Timnath) the title and the file name say driving
+  order; two files were renamed to match their titles.
+- **Facts beyond the listings come from official pages read that day**
+  and listed under sources; where a site refused (larimer.gov, lovgov.org,
+  coloradocandlelight.com, the Lyons dog park page, windsorco.gov), the
+  stop restates its listing and adds nothing. Day-of-week cautions come
+  from the listings' hours lines. Transit is claimed only where an
+  official page names the town (Transfort's FLEX for Berthoud, Longmont
+  and Loveland; the Town of Golden's Ride page; Estes Park's The Peak).
+  The arts council's site asks Anthropic's crawlers to stay out, so the
+  Loveland guide uses the Benson listing and links the sculpture guide.
+- **Noticed, not resolved:** Catrina's suite (its site says A, the listing
+  Unit 101); the Homesteaders mural's address (224 or 226 Mountain Ave);
+  the Art & Heritage Center's Thursday hours (the Town's page no longer
+  shows them); Estes Park's Town site answered today though the config
+  records a 403.
