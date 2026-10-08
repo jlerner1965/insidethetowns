@@ -469,7 +469,7 @@ The 21 venues partition into three groups that do not overlap. **13 + 2 + 6 = 21
 
 | # | Body | Site it covers | Sent | Reply | Outcome |
 |---|---|---|---|---|---|
-| 1 | Berthoud Community Library District | Berthoud Community Library | | | |
+| 1 | Berthoud Community Library District | Berthoud Community Library | yes | 2026-10-08 | Granted; photograph of the sign and building on the listing, credited to the library (PERMISSIONS.md). Done |
 | 2 | Town of Berthoud | Berthoud Recreation Center | | | |
 | 3 | Berthoud Historical Society | McCarty-Fickel Home | | | |
 | 5 | Wildfire Arts Center | Wildfire Arts Center | | | |
