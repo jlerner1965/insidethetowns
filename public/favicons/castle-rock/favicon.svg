@@ -1,6 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs><linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
   <rect width="64" height="64" rx="12" fill="#6E3647"/>
-  <path d="M9 50 L16 43 L20 35 L25 32 L27 25 H37 L39 32 L44 35 L48 43 L55 50 Z" fill="#F5EFE2"/>
+  <rect width="64" height="64" rx="12" fill="url(#t)"/>
+  <g transform="translate(32 32) scale(0.9) translate(-32 -32)">
+  <path d="M9 50 L16 43 L20 35 L25 32 L27 25 H37 L39 32 L44 35 L48 43 L55 50 Z" fill="#F5EFE2"/><clipPath id="f"><path d="M9 50 L16 43 L20 35 L25 32 L27 25 H37 L39 32 L44 35 L48 43 L55 50 Z"/></clipPath><path d="M37 25 L40 50 H64 V0 H37 Z" fill="#cfbbb7" clip-path="url(#f)"/>
   <polygon points="32.00,7.50 33.59,11.82 38.18,11.99 34.57,14.83 35.82,19.26 32.00,16.70 28.18,19.26 29.43,14.83 25.82,11.99 30.41,11.82" fill="#D9A94E"/>
-  <rect x="10" y="50" width="44" height="3" fill="#D9A94E"/>
+  <rect x="10" y="50" width="44" height="2.2" fill="#D9A94E"/>
+  </g>
 </svg>
