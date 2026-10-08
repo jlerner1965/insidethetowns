@@ -3651,3 +3651,27 @@ audit's own evidence is done here; the rest is listed below with why.
   - *A maintenance queue*: the freshness windows, `npm run weekly`, `npm
     run review` and the source registry already are one, per field type.
   - *A rate card, a four-week pilot, Search Console*: the owner's.
+
+## An hour's cache for built files, none for the search index
+
+*8 October 2026.* Fort Lupton showed one visitor its HTML with no
+stylesheet while it rendered for everyone else. The 04:31 UTC deploy
+(PR #92) had renamed `Base.css` (`dsmGYlsi` to `DLI4aUY1`), and Vercel puts
+a path's headers on every response for it, a 404 included: a stylesheet
+missed during the switch came back as a 404 marked `public,
+max-age=31536000, immutable`, which the browser keeps for a year and does
+not ask about again. Vercel's Skew Protection, which keeps the old files
+reachable through a switch, needs the Astro adapter; the build has none.
+
+- **`/_astro/`** is now `public, max-age=3600`, not immutable. The names
+  are hashed, so a stale copy is never wrong; a missed one now comes back
+  within the hour. A returning visitor revalidates after an hour, a 304.
+- **`/pagefind/`** loses its own rule and takes the site's `max-age=0,
+  must-revalidate`. It had the same year-long, immutable header, and
+  `pagefind.js` and `pagefind-entry.json` are not hashed: the entry file
+  names the current index by hash, so a kept copy outlives its index and
+  the next search asks for files that are gone.
+- `test/cache-headers.test.ts` holds both, and no `immutable` anywhere.
+- `www.insidefortlupton.com` was found serving the site itself instead of
+  redirecting, the only one of the twenty `www` domains to do so; it is now
+  a 308 to the apex like the rest.
