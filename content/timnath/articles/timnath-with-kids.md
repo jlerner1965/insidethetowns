@@ -4,12 +4,14 @@ date: "2026-09-27"
 excerpt: "Where to take children in Timnath: the Community Park splash pad and its hours, WildWing Park, the pond at Weitzel Park, the reservoir beach and the soda fountain on Main Street."
 category: "Families"
 tags: [families, kids, playgrounds, guide]
-verified: "2026-09-27"
+updated: "2026-10-08"
+verified: "2026-10-08"
 sources:
   - { label: "Town of Timnath: Timnath Community Park", url: "https://timnath.org/timnath-community-park/" }
   - { label: "Town of Timnath: WildWing Park", url: "https://timnath.org/wildwing-park/" }
   - { label: "Town of Timnath: Weitzel Park", url: "https://timnath.org/weitzel-park/" }
   - { label: "Town of Timnath: Timnath Reservoir", url: "https://timnath.org/timnath-reservoir/" }
+  - { label: "Town of Timnath: Colorado Anglers permit", url: "https://timnath.org/permits/colorado-anglers-2/" }
   - { label: "CF&G Public Market & Coffeehouse", url: "https://cfgpublicmarket.com/" }
   - { label: "City of Fort Collins: Arapaho Bend Natural Area", url: "https://fortcollins.gov/Parks-and-Natural-Areas-Directory/Natural-Areas/Arapaho-Bend-Natural-Area" }
 ---
@@ -30,7 +32,7 @@ Timnath is new, and its parks are new with it: the biggest opened in 2025. For a
 
 ## Summer: the reservoir
 
-[Timnath Reservoir](/places/timnath-reservoir/), east of town on County Road 40, is the Town's own lake, about 600 acres with a six-mile shoreline and the Rockies on the horizon: swimming, kayaking and paddleboarding, and fishing with a Colorado license. Residents' shore permits are free. Open 7 to 7 or dusk, and 6 am to 8:30 pm in summer.
+[Timnath Reservoir](/places/timnath-reservoir/), east of town on County Road 40, is the Town's own lake, about 600 acres with a six-mile shoreline and the Rockies on the horizon: swimming, kayaking and paddleboarding, and fishing, which takes a valid Colorado fishing license and the Town's shore permit as well: the license alone does not get you onto the water ([the permits, explained](/articles/timnath-reservoir-permits-and-eligibility/)). Residents' shore permits are free. Open 7 to 7 or dusk, and 6 am to 8:30 pm in summer.
 
 ## The soda fountain
 

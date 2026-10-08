@@ -2,6 +2,7 @@
 title: "Explore Berthoud: six places in walking order"
 date: "2026-10-07"
 excerpt: "Mountain Avenue end to end, from a 7 am breakfast to the museum's afternoon hours, with a flat reservoir loop in between and the brewery to finish. You park once downtown and move the car only for the water."
+updated: "2026-10-08"
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
@@ -12,6 +13,7 @@ sources:
   - { label: "Berthoud Main Street: Mural & Public Art Tour", url: "https://berthoudmainstreet.org/berthoud-mural-public-art-tour/" }
   - { label: "Berthoud Historical Society: Little Thompson Valley Pioneer Museum", url: "https://berthoudhistoricalsociety.org/ltv-pioneer-museum/" }
   - { label: "Town of Berthoud: Berthoud Reservoir Park & Open Space", url: "https://berthoud.org/facilities/facility/details/Berthoud-Reservoir-Park-Open-Space-17" }
+  - { label: "Larimer County: Carter Lake", url: "https://www.larimer.gov/naturalresources/parks/carter-lake" }
   - { label: "City Star Brewing", url: "https://www.citystarbrewing.com/" }
   - { label: "Transfort: FLEX", url: "https://www.ridetransfort.com/routes/flex" }
 related:
@@ -48,7 +50,7 @@ The [Little Thompson Valley Pioneer Museum](/places/pioneer-museum/) at 224 Moun
 
 ## 05 · Berthoud Reservoir
 
-Now the car. The [Berthoud Reservoir Loop](/places/berthoud-reservoir-loop/) at 2480 North Berthoud Parkway is a flat 1.2-mile walk around the water, opened to the public in 2020 with a restroom, parking, paddle-craft access and fishing. Free, dogs on leash, foothills to the west. For more water, [Carter Lake](/places/carter-lake/) is ten minutes north-west and is Larimer County's: boat ramps, campgrounds, shoreline trails and a swim beach from Memorial Day to mid-September, with an entrance permit required at the gate. [Roberts Lake](/places/roberts-lake/), off Bunyan Court in town, is the small option, with a walking path and a fishing dock.
+Now the car. The [Berthoud Reservoir Loop](/places/berthoud-reservoir-loop/) at 2480 North Berthoud Parkway is a flat 1.2-mile walk around the water, opened to the public in 2020 with a restroom, parking, paddle-craft access and fishing. Free, dogs on leash, foothills to the west. For more water, [Carter Lake](/places/carter-lake/) is ten minutes north-west and is Larimer County's: boat ramps, campgrounds, shoreline trails and a swim beach from Memorial Day to mid-September, with an entrance permit required at the gate. In August 2026, Colorado Parks and Wildlife confirmed New Zealand mudsnails in the lake, so clean, drain and dry boats, paddleboards and fishing gear, and expect a boat leaving the lake to need inspection before it goes into other water. [Roberts Lake](/places/roberts-lake/), off Bunyan Court in town, is the small option, with a walking path and a fishing dock.
 
 *Getting there:* a short drive north from downtown; the Town page lists parking. *Best for:* an easy loop at any time of year; paddling and fishing.
 

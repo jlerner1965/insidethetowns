@@ -1,10 +1,11 @@
 ---
 title: "Berthoud with kids: the inclusive playground, the bike park, three storytimes a week"
 date: "2026-09-27"
+updated: "2026-10-08"
 excerpt: "Where to take children in Berthoud, by the kind of day it is: a hot one, a rainy one, a winter one, and a Saturday downtown."
 category: "Families"
 tags: [families, kids, playgrounds, guide]
-verified: "2026-09-27"
+verified: "2026-10-08"
 sources:
   - { label: "Town of Berthoud: Parks", url: "https://www.berthoud.org/219/Parks" }
   - { label: "Town of Berthoud: Berthoud Bike Park", url: "https://www.berthoud.org/1465/Berthoud-Bike-Park" }
@@ -49,4 +50,4 @@ Pioneer Park's roller-hockey rink is outdoors all year, and the rec center's poo
 
 ## Further out: the water
 
-[Berthoud Reservoir](/places/berthoud-reservoir-loop/) has a flat 1.2-mile loop with fishing and paddle-craft access, free, dogs on leash. [Carter Lake](/places/carter-lake/), ten minutes north-west, has a swim beach from Memorial Day, camping and boat ramps; Larimer County charges an entrance permit.
+[Berthoud Reservoir](/places/berthoud-reservoir-loop/) has a flat 1.2-mile loop with fishing and paddle-craft access, free, dogs on leash. [Carter Lake](/places/carter-lake/), ten minutes north-west, has a swim beach from Memorial Day, camping and boat ramps; Larimer County charges an entrance permit. In August 2026, Colorado Parks and Wildlife confirmed New Zealand mudsnails in the lake, so clean, drain and dry boats, paddleboards and fishing gear, and expect a boat leaving the lake to need inspection before it goes into other water.

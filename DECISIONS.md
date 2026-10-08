@@ -3776,3 +3776,24 @@ fixed; nothing outside the list was taken on.
   WildWing is listed once. British spellings in original prose are
   American (license, center, percent, jewelry); street names such as Centre
   Avenue, quotations and source titles are as written.
+- **Lyons: seven occurrences back to staging.** The five Lyons Recorder
+  links the audit found dead (the Oskar Blues pick, MainStage's open pick,
+  the women's pinball tournament, Spirit Hound's trivia and comedy) had no
+  working organizer or venue page showing those dates, so each occurrence
+  went to `content/lyons/staging/events/` with a `review` line saying why:
+  seven files, since the pinball listing's November and December files
+  cited the same dead page. Any can come back when its organizer lists it.
+- **Timnath photographs.** The Arapaho Bend photograph's Flickr record is
+  live at the photographer's numeric address (Seth Anthony, CC BY-SA 2.0);
+  the ledger and the caption now point there. The hero showed Fossil Creek
+  Reservoir in Fort Collins; it is now the USFWS "Sunrise in Timnath"
+  photograph already in the repo (CC BY 2.0), which is small (960px) and
+  shows no landmark: a better licensed Old Town photograph is the owner's
+  to find. Fossil Creek stays as its own listing.
+- **Facts checked.** Timnath Reservoir's articles now say what the Town's
+  Colorado Anglers page says: resident anglers with a Colorado license, and
+  a shore permit on top, so a license alone does not get you on. Carter
+  Lake carries the dated August 2026 mudsnail note wherever Berthoud
+  covers it. Hall Ranch and Heil Valley Ranch's no-dogs rule and the RMNP
+  timed-entry dates were already right. Catalina's Diner is not listed on
+  the Elizabeth guide, so there were no hours to change.
