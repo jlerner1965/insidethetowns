@@ -1,4 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="12" fill="#0D5170"/>
-  <text x="32" y="44" font-family="Georgia, serif" font-size="36" font-weight="700" fill="#fff" text-anchor="middle">B</text>
+  <path d="M10 44 V30 H16 V20 H23 V30 H38 V18 H54 V44 Z" fill="#F7F2E6"/>
+  <rect x="42" y="23" width="8" height="7" rx="1" fill="#0D5170"/>
+  <path d="M6 44 L10 36 V44 Z" fill="#F7F2E6"/>
+  <circle cx="19" cy="47" r="6" fill="#F7F2E6" stroke="#0D5170" stroke-width="2.5"/>
+  <circle cx="45" cy="47" r="6" fill="#F7F2E6" stroke="#0D5170" stroke-width="2.5"/>
+  <rect x="25" y="25" width="8" height="5" rx="1.5" fill="#E6B866"/>
 </svg>
