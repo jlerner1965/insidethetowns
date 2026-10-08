@@ -3833,3 +3833,96 @@ Johnstown, Berthoud, Fort Lupton and Niwot. The other nine towns have none.
   2020, before the branch's 2024 redesign; Brownfield's Trading Post is a
   2009 storefront; `Stanley Park, Colorado.jpg` may or may not show the
   Events Complex.
+
+## The 8 October follow-up audit: the expiry defect, the picks, the openings
+
+*8 October 2026.* The follow-up public review (Inside the Towns Follow-Up
+Audit, 8 October 2026) retested the seven immediate findings of the 7 October
+audit and found six corrected and one partly: the browser-side expiry. It then
+set five remaining priorities and a short list of design and search items.
+This pass takes the ones that are code or content in this repository; the
+rest are the owner's, and are listed at the end.
+
+- **Expiry: a known end decides; the day stands in only without one.** The
+  Freshness script removed a row when its day was before today *or* its end
+  had passed. An 8 pm show running to 1 am has an end in the future and a
+  start day in the past, and at half past midnight the day comparison took
+  it down while it was still on. The rule is now one function
+  (`src/lib/expiry.ts`, `listingOver`): an end that parses is the whole
+  answer; a row with no usable end goes once its last day is behind today's.
+  `pruneExpired` then rebuilds what hung off the removals from what
+  survives: a day heading with nothing under it goes, and a jump chip goes
+  when its day's section is gone rather than when the calendar says the day
+  is past, so a day whose last listing is an overnight show keeps its chip.
+  Freshness.astro and the hub's weekend page both run it; a test replays the
+  audit's four clocks (ended same-day, future same-day, overnight at 12:30
+  and at 1:00, no end) against the marks the pages really write, and asserts
+  the pages import the rule rather than a copy of it.
+- **Home page picks: a two-night show is a one-off.** Estes Park's "What's
+  on" led with October 31 while Amy Bruni's October 15 and 16 nights were on
+  its calendar, because two files with one title at one venue were counted a
+  regular (the storytime rule) and ranked below every one-off in November.
+  `regularTest` now calls a series stored as a file per date a regular only
+  when its dates fall on the same weekday: a knitting drop-in on two Fridays
+  is a regular; a show on a Thursday and a Friday is a one-off that happens
+  twice, shown once at its next date. The hub's weekend block (`oneOffs`)
+  reads the same test, so such a run is now a reason to cross a county line
+  there too. The nearby block already used the narrower weekly test.
+- **Hub opening.** Under the headline: one line saying where the towns are,
+  read from the live configs (the northernmost and southernmost by latitude,
+  the mountain guides by name), and three task links ahead of the eighteen
+  pills: find weekend plans, choose a town guide, compare a move. A
+  hierarchy change inside the existing design, as the audit asked.
+- **Town switcher.** The last item in a guide's primary navigation is "Other
+  towns": a native disclosure with the neighbouring guides (the config's
+  `neighbors`, live ones only) and a link to the hub's full list. It opens
+  without the script; the script only closes it (Escape, a click or a tab
+  elsewhere, a width change). In the phone menu it opens in place. The
+  footer's sister-guide list, which ran to several screens of taglines on a
+  phone, sits there behind a disclosure that says how many it holds; the
+  markup ships open and the script closes it on a narrow screen, so a reader
+  without the script sees the list as before, and from `sm` up nothing
+  changes.
+- **Itineraries at a glance.** Every first-visit itinerary now opens with a
+  compact block in its masthead: where it starts and where to leave the car,
+  how long, on foot or by car, the day that suits it, and the one caveat.
+  The lines were extracted from each article's own text, a field left out
+  wherever the article does not say (eleven of eighteen give no length for
+  the day; three give no day guidance), and read back against the body
+  before they went in. Two were tightened on that reading: Timnath's
+  duration restates the article's own shape of the day rather than calling
+  it "a full day", and Erie's Monday list no longer names the Erie Social
+  Club, which the article says is closed on Monday. The block is a
+  summary, not a second source; the schema's comment says so.
+- **Structured prices.** An event's offer now carries `price` and
+  `priceCurrency` where the cost line gives one figure ("$20", "$25 per
+  person"), `lowPrice`/`highPrice` as an AggregateOffer where it gives
+  several ("$40–$98", "$15; seniors $13; under 18 $5; CSU students free",
+  where a free tier puts zero at the bottom), and zero for "Free" in any of
+  its spellings. A line with no figure ("Ticketed", "Tickets from the Rams
+  ticket office") gets no number. The words go in the offer's description
+  every time, so nothing the listing says is lost. The audit's other markup
+  note, an Event with no image, is left as it is: a listing without a
+  photograph of its own gets none, rather than the town's hero as a stand-in.
+- **The publisher is Lerner Works.** The owner's answer, 8 October 2026,
+  to the audit's third priority: the guides are published by Lerner Works,
+  an organisation, and no person is named, so `editor` stays unset and the
+  check lines still read "Checked <date>". The name goes where a reader
+  looks for who is accountable: the About page's "Who's behind this", the
+  editorial policy's Independence section, the footer strip ("Published
+  by" in place of "Site by") and the top of the structured-data graph, as
+  the hub's parentOrganization. The editorial policy also now says what
+  the audit asked it to: a page rests on checked sources, not a visit,
+  unless it says so in its own words, and a recommendation is an editorial
+  choice, never a paid rank.
+- **Signed off.** The owner signed off the whole of this pass and the
+  privacy wording of 7 October (above) on 8 October 2026, and left the
+  remaining calls to the editor.
+- **Left to the owner, and why.** *Photographs for Golden, Fort Lupton,
+  Nederland and Severance:* the one-photo coverage is a rights and sourcing job, as the
+  photo catalogs above record. *The authorized newsletter test, subscriber
+  counts, sponsor placement and reporting sample, and audience measurement:*
+  none can be done from the repository. *Johnstown's theater season:* the
+  Candlelight run is listed as whole days with "see box office for times",
+  which is honest about what the source gives; the split-performance
+  treatment waits on dated performances from the box office.

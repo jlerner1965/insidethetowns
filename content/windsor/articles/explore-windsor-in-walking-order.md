@@ -5,6 +5,11 @@ excerpt: "The lake and Boardwalk Park first, then the 1909 town hall and the Mai
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
+glance:
+  start: "The Boardwalk Park lot at 100 N 5th Street, a block north of Main Street"
+  by: "On foot from one parking spot; only the river trail at the end needs the car again"
+  bestDay: "Friday to Sunday for the Art & Heritage Center, closed Monday to Wednesday; Hearth opens for lunch only Friday to Sunday"
+  caveat: "The History Museum buildings open only in summer; the 2026 season ran May 22 to September 6, and the boat rentals have closed for 2026"
 sources:
   - { label: "Windsor Parks, Recreation & Culture: Windsor Lake", url: "https://www.recreationliveshere.com/206/Windsor-Lake" }
   - { label: "Windsor Parks, Recreation & Culture: Park & Lake Rules", url: "https://www.recreationliveshere.com/156/Park-Lake-Rules" }

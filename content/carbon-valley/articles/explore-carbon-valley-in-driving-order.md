@@ -5,6 +5,12 @@ excerpt: "A Frederick morning on Fifth Street and around Milavec Lake, barbecue 
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
+glance:
+  start: "Street parking on Fifth Street in Frederick; leave the car there for the cafe, Crist Park, the museum and the barbecue"
+  duration: "A Frederick morning, barbecue for lunch, then the afternoon in Firestone"
+  by: "By car between the three towns; the Fifth Street stops on foot"
+  bestDay: "Any day but Monday, when Georgia Boys is closed; a first Friday for the museum, 5–7 pm"
+  caveat: "The Miners Memorial Museum opens only on the first Friday of the month, 5–7 pm, or by request through the Town Clerk"
 sources:
   - { label: "Gabe's Cafe", url: "https://www.gabescafe.com/" }
   - { label: "Town of Frederick: Frederick Recreation Area", url: "https://www.frederickco.gov/Facilities/Facility/Details/2" }

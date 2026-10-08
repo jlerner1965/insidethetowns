@@ -6,6 +6,12 @@ updated: "2026-10-08"
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
+glance:
+  start: "Park once on or near Mountain Avenue; the reservoir is the one stop that needs the car again"
+  duration: "From a 7 am breakfast to the brewery at the end of the day"
+  by: "On foot along Mountain Avenue, with the car for the reservoir"
+  bestDay: "Wednesday to Saturday, when the museum is open; on a Tuesday, breakfast at Grandpa's before 2 pm"
+  caveat: "The Pioneer Museum keeps afternoon hours only, Wednesday to Saturday 1–4 pm"
 sources:
   - { label: "Grandpa's Cafe", url: "https://www.mygrandpascafe.com/" }
   - { label: "Town of Berthoud: Fickel Park", url: "https://berthoud.org/facilities/facility/details/Fickel-Park-2" }

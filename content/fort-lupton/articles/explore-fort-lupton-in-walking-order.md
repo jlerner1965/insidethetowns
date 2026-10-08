@@ -5,6 +5,11 @@ excerpt: "Denver Avenue and the museum on First Street make a simple visit, with
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
+glance:
+  start: "On or near the 300 block of Denver Avenue"
+  by: "On foot along Denver Avenue; the rebuilt fort northwest of town is a drive"
+  bestDay: "Wednesday to Friday, the only days the museum opens; Wholly Stromboli and Raw Roots are closed Monday"
+  caveat: "The fort opens only on the first and third weekends of each month from May to October; in 2026 the last is October 17 and 18"
 sources:
   - { label: "City of Fort Lupton: Historic Preservation", url: "https://www.fortluptonco.gov/424/Historic-Preservation" }
   - { label: "City of Fort Lupton: Historic Designation register", url: "https://www.fortluptonco.gov/425/Historic-Designation" }

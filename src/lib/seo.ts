@@ -18,12 +18,17 @@ import { isPlaceholder } from './editor.ts';
  * them as its `subOrganization`, and that reciprocal pair is what says one
  * publisher rather than a ring of sites linking to each other.
  *
+ * At the top of the graph, when the hub config names one, is the publisher
+ * (Lerner Works): the hub's `parentOrganization`, so every town leads to
+ * the hub and the hub leads to the organisation accountable for it.
+ *
  * No `logo`: the only mark that exists is an SVG favicon, and pointing at
  * something that may not validate is worse than leaving the property out.
  */
 export function siteJsonLd(site: SiteConfig) {
   const url = `https://${site.domain}/`;
   const hubUrl = `https://${getNetworkHub().domain}/`;
+  const publisher = getNetworkHub().publisher;
   const organization =
     site.kind === 'hub'
       ? {
@@ -32,6 +37,7 @@ export function siteJsonLd(site: SiteConfig) {
           name: site.siteTitle,
           url,
           description: site.tagline,
+          ...(publisher ? { parentOrganization: { '@type': 'Organization', name: publisher.name, url: publisher.url } } : {}),
           subOrganization: liveTowns().map((t) => ({
             '@type': 'Organization',
             '@id': `https://${t.domain}/#org`,
@@ -73,6 +79,33 @@ export function siteJsonLd(site: SiteConfig) {
       },
     ],
   };
+}
+
+/**
+ * A structured price from a listing's cost line, where one can be read off
+ * without guessing. "Free" (and "Free; registration required") is a price
+ * of zero. One dollar figure is the price. Several ("$15; seniors $13;
+ * under 18 $5", "$40–$98") are a range, lowest to highest, and a tier that
+ * is free puts zero at the bottom of it. A line with no figure ("Ticketed",
+ * "Tickets from the Rams ticket office") gets no number: the words go in
+ * the offer's description either way, so nothing the listing says is lost.
+ *
+ * Google reads `price` and `priceCurrency` on an Event's offer; a text
+ * description alone is not a price to it (follow-up audit, 8 October 2026).
+ */
+export function offerPrice(
+  cost: string,
+): { price: string; priceCurrency: 'USD' } | { lowPrice: string; highPrice: string; priceCurrency: 'USD' } | undefined {
+  const text = cost.trim();
+  if (/^free\b/i.test(text)) return { price: '0', priceCurrency: 'USD' };
+  const amounts = [...text.matchAll(/\$\s?(\d+(?:\.\d{1,2})?)/g)].map((m) => Number(m[1]));
+  if (/\bfree\b/i.test(text)) amounts.push(0);
+  if (amounts.length === 0) return undefined;
+  const low = Math.min(...amounts);
+  const high = Math.max(...amounts);
+  const money = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(2));
+  if (low === high) return { price: money(low), priceCurrency: 'USD' };
+  return { lowPrice: money(low), highPrice: money(high), priceCurrency: 'USD' };
 }
 
 export function eventJsonLd(
@@ -121,15 +154,18 @@ export function eventJsonLd(
       : {}),
     description: event.body?.slice(0, 300),
     url,
-    ...(data.cost
-      ? {
-          offers: {
-            '@type': 'Offer',
-            url: data.url ?? url,
-            ...(data.cost.toLowerCase() === 'free' ? { price: '0', priceCurrency: 'USD' } : { description: data.cost }),
-          },
-        }
-      : {}),
+    ...(data.cost ? { offers: offer(data.cost, data.url ?? url) } : {}),
+  };
+}
+
+/** The offer: the cost line as written, and a number where one can be read from it. */
+function offer(cost: string, url: string) {
+  const price = offerPrice(cost);
+  return {
+    '@type': price && 'lowPrice' in price ? 'AggregateOffer' : 'Offer',
+    url,
+    description: cost,
+    ...price,
   };
 }
 

@@ -5,6 +5,10 @@ excerpt: "Park once beside Sandstone Park, walk the six sandstone blocks of Main
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
+glance:
+  start: "The Town lot at 4th Avenue and Broadway, beside Sandstone Park"
+  by: "On foot; only Hall Ranch, a mile west on Colorado 7 for a longer day, needs the car"
+  caveat: "LaVern M. Johnson Park has a capacity limit and its gates close when it is reached, often by noon at weekends"
 sources:
   - { label: "Town of Lyons: Parks and Recreation", url: "https://www.lyonscolorado.com/311/Parks-and-Recreation" }
   - { label: "Town of Lyons: Parks and Facilities", url: "https://www.lyonscolorado.com/348/Parks-Facilities" }

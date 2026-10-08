@@ -5,6 +5,12 @@ excerpt: "A lake-and-food day: the 1.3-mile loop at Evergreen Lake, then lunch d
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
+glance:
+  start: "The lake lot on Upper Bear Creek Road, west of downtown"
+  duration: "A lake-and-food day; the county trails are a second half-day"
+  by: "By car, a short drive apart along Highway 74 and Upper Bear Creek Road; the lake loop on foot"
+  bestDay: "Thursday to Sunday for the Hiwan museum tour; Suz is closed Monday and Revival Monday and Tuesday"
+  caveat: "Boating and the Stagecoach Park shuttle are closed for 2026; summer boating resumes in 2027"
 sources:
   - { label: "Evergreen Park & Recreation District: Evergreen Lake", url: "https://www.evergreenrecreation.com/evergreen-lake" }
   - { label: "Evergreen Park & Recreation District: Evergreen Lake House", url: "https://www.evergreenrecreation.com/evergreen-lake-house" }

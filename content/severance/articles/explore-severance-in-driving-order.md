@@ -5,6 +5,11 @@ excerpt: "Brownell Park and Bruce's Bar share 1st Street in Old Town; the librar
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
+glance:
+  start: "Brownell Park at 336 1st Street, in Old Town"
+  by: "By car; Brownell Park and Bruce's Bar share 1st Street, and the library and Lakeview Park are a drive away"
+  bestDay: "Monday to Saturday for the library, which is closed Sunday; a Saturday night for the band at Bruce's"
+  caveat: "The library is closed Sunday; the Town's pages give no hours for its parks and no parking rules for 1st Street"
 sources:
   - { label: "Town of Severance: Brownell Park", url: "https://www.townofseverance.org/Facilities/Facility/Details/Brownell-Park-2" }
   - { label: "Town of Severance: Lakeview Park", url: "https://www.townofseverance.org/Facilities/Facility/Details/Lakeview-Park-4" }

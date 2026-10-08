@@ -24,6 +24,9 @@ const city = live.find((t) => (t.population ?? 0) >= 100_000);
 const editor = getNetworkHub().editor;
 const photo = editor?.photo ? resolveSiteImage('hub', editor.photo) : undefined;
 const corrections = getNetworkHub().correctionsEmail;
+// Who is accountable: the organisation in the hub config, named here on the
+// town pages and the hub's alike (owner's direction, 8 October 2026).
+const publisher = getNetworkHub().publisher;
 const siblings = live.filter((t) => t.slug !== site.slug);
 
 // What the guide actually holds, which is the one thing an About page can say
@@ -80,6 +83,12 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
         )}
         <h2>Independent, not official</h2>
         <p>
+          {publisher && (
+            <Fragment>
+              {site.siteTitle} is published by <a href={publisher.url} rel="noopener">{publisher.name}</a>, which is
+              accountable for everything on it; corrections reach it through the <a href="/contact/">contact page</a>.{' '}
+            </Fragment>
+          )}
           This site is not the town government, a chamber of commerce, or any public body, and it does not speak for
           them. Anything civic — notices, permits, meetings, services — belongs to the official sources listed
           alongside, and every page here links out to them rather than paraphrasing them.
@@ -198,8 +207,14 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
         )}
         <h2>Who’s behind this</h2>
         <p>
-          {site.siteTitle} is independently owned and published. It is not owned by, or answerable to, any town
-          government, chamber of commerce or advertiser.
+          {publisher ? (
+            <Fragment>{site.siteTitle} and every guide in the network are published by <a href={publisher.url} rel="noopener">{publisher.name}</a>, which is accountable for all of them.</Fragment>
+          ) : (
+            <Fragment>{site.siteTitle} is independently owned and published.</Fragment>
+          )}
+          {' '}It is not owned by, or answerable to, any town government, chamber of commerce or advertiser.
+          What the guides say rests on checked sources, not on visits, unless a page says so in its own words; the{' '}
+          <a href="/editorial/">editorial policy</a> sets out the whole of it.
           {corrections && <Fragment> Corrections and tips go to <a href={`mailto:${corrections}`}>{corrections}</a>. <TipsLink class="" />.</Fragment>}
         </p>
         <p>More towns are on the way. <a href="/contact/">Suggest one</a>.</p>

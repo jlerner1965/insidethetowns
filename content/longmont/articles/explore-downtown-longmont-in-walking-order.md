@@ -5,6 +5,12 @@ excerpt: "Breakfast, bookshops, lunch and an evening on Main Street from one par
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
+glance:
+  start: "On or near Main Street, between the 200 and 700 blocks"
+  duration: "A day, with the lake as the drive at its start or end"
+  by: "On foot along Main Street; McIntosh Lake, Left Hand and the museum are a drive"
+  bestDay: "Tuesday to Saturday; three of the five lunch places are closed on Monday"
+  caveat: "The Longmont Museum's galleries are closed until its Grand Reopening on October 17, 2026; do not drive over for them before then"
 sources:
   - { label: "City of Longmont: McIntosh Lake Nature Area", url: "https://longmontcolorado.gov/facilities/mcintosh-lake-nature-area/" }
   - { label: "Longmont Museum: plan your visit", url: "https://longmontcolorado.gov/museum/about-the-museum/plan-your-visit/" }

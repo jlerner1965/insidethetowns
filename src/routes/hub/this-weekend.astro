@@ -165,6 +165,7 @@ const structured = collectionPageJsonLd(hub, {
 </Page>
 
 <script>
+  import { listingOver } from '@/lib/expiry';
   /*
    * Re-decide, from the reader's clock rather than the build's, which listings
    * are still on and which of the baked days is "this weekend".
@@ -195,10 +196,10 @@ const structured = collectionPageJsonLd(hub, {
   // 1. Anything that has finished goes, whether or not its day has turned over.
   //    `data-end` is the instant the listing comes off (listedUntil), so this catches a run
   //    that ended two hours ago as well as one that ended last month.
+  //    The rule is src/lib/expiry.ts's: the end decides, and the day stands in
+  //    only for a card without one.
   for (const card of document.querySelectorAll<HTMLElement>('[data-filter-item][data-end]')) {
-    const ends = Date.parse(card.dataset.end!);
-    const lastDay = card.dataset.eventDay;
-    if ((!Number.isNaN(ends) && ends <= nowMs) || (lastDay && lastDay < todayKey)) card.remove();
+    if (listingOver({ end: card.dataset.end, day: card.dataset.eventDay }, nowMs, todayKey)) card.remove();
   }
 
   // 2. A day heading with nothing left under it is worse than no heading.

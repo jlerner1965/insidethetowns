@@ -5,6 +5,11 @@ excerpt: "A meal on Washington Avenue, the history museum and park on the creek,
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
+glance:
+  start: "North Garage at 702 12th Street; two hours free, $2.50 an hour after"
+  by: "On foot between Washington Avenue and the creek"
+  bestDay: "Tuesday to Saturday, when the history museum is open"
+  caveat: "The history museum is closed Sunday, Monday and the main holidays; the creek-corridor parks close an hour after dusk"
 sources:
   - { label: "Park Golden (City of Golden parking): paid parking", url: "https://www.parkgoldenco.com/paid-parking" }
   - { label: "Park Golden (City of Golden parking): home page", url: "https://www.parkgoldenco.com/" }

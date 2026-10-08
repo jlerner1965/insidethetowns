@@ -47,8 +47,10 @@ export const hub: HubConfig = {
   correctionsEmail: 'hello@insidethetowns.com',
   // No `editor`, at the owner's direction on 8 October 2026: no person is
   // named. The check lines read "Checked <date>", the About pages carry no
-  // "Who runs it", articles are authored by the publication, and the only
-  // name on the sites is the Lerner Works credit below.
+  // "Who runs it", and articles are authored by the publication. The
+  // publisher is an organisation, Lerner Works, named below at the owner's
+  // direction the same day (the follow-up audit asked who is accountable).
+  publisher: { name: 'Lerner Works', url: 'https://lernerworks.com' },
   nav: [
     { label: 'This Weekend', href: '/this-weekend/' },
     { label: 'Moving Here', href: '/moving/' },

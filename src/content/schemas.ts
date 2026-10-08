@@ -502,6 +502,25 @@ export function articleSchema<I extends z.ZodType>(image: () => I) {
       /** Where the current answer lives — an official source, not our own page. */
       supersededSource: httpUrl.optional(),
       supersededSourceLabel: z.string().optional(),
+      /**
+       * The route at a glance, on a first-visit itinerary: where it starts
+       * and where to leave the car, how long it takes, on foot or by car,
+       * the day that suits it, and the one caveat a reader should know
+       * before setting out. Shown under the title (follow-up audit, 8
+       * October 2026: the practical facts were there but spread down a long
+       * page). Every line restates the article; a glance is a summary of
+       * it, not a second source, so a fact that is not in the body does not
+       * belong here, and a line the article cannot support is left out.
+       */
+      glance: z
+        .object({
+          start: z.string().min(1).max(160),
+          duration: z.string().min(1).max(160).optional(),
+          by: z.string().min(1).max(160),
+          bestDay: z.string().min(1).max(160).optional(),
+          caveat: z.string().min(1).max(160).optional(),
+        })
+        .optional(),
     })
     .refine((a) => !a.image || !!a.imageAlt, {
       message: 'imageAlt is required when image is set',

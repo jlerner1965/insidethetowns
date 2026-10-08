@@ -3,6 +3,10 @@ title: "Explore Niwot: four places in walking order"
 date: "2026-09-17"
 excerpt: "Old Town first, then Cottonwood Square, then whatever the weather allows. The whole loop is under two miles, and you only park once."
 category: "Outdoors"
+glance:
+  start: "On or near Second Avenue, in street parking or the adjacent lots"
+  by: "On foot; the whole loop is under two miles and you only park once"
+  caveat: "Niwot is unincorporated, so parking rules, trail closures and dog rules are set by Boulder County rather than a town"
 tags: [outdoors, walking, visiting]
 image: ../images/old-fire-house-museum.jpg
 imageAlt: "The small 1910 fire house on Second Avenue in Old Town, the first stop on the walk, with its red-wheeled chemical fire cart in front"

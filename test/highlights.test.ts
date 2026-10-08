@@ -148,6 +148,34 @@ test('a series stored as a file per date takes one of the picks, not one per dat
   assert.ok(picks.includes('pumpkin-patch') && picks.includes('concert'));
 });
 
+test('a run across weekdays is a one-off shown once, not a regular ranked below everything', () => {
+  // Estes Park, Thursday 8 October 2026: two nights of the same show the
+  // next week, two more at the end of the month, and six one-offs in
+  // November. The show was counted as a regular and never made the six.
+  const now = parseLocal('2026-10-08T12:00');
+  const events = [
+    ev('Walking with Ghosts', '2026-10-15T19:30', { category: 'arts', slug: 'ghosts-10-15', venue: 'Stanley' }),
+    ev('Walking with Ghosts', '2026-10-16T19:30', { category: 'arts', slug: 'ghosts-10-16', venue: 'Stanley' }),
+    ev('Costume Ball', '2026-10-30T18:30', { category: 'music', slug: 'ball-10-30', venue: 'Stanley' }),
+    ev('Costume Ball', '2026-10-31T18:30', { category: 'music', slug: 'ball-10-31', venue: 'Stanley' }),
+    ev('Trick or treat', '2026-10-31T17:00'),
+    ev('Wellness fair', '2026-11-07T09:00'),
+    ev('Gumbo dinner', '2026-11-12T16:30'),
+    ev('Puzzle exchange', '2026-11-14T11:30'),
+    ev('Teen cooking', '2026-11-18T16:30'),
+    ev('Tree lighting', '2026-11-21T15:30'),
+    // A card-making session on three Saturdays is a regular, and still ranks after the one-offs.
+    ev('Card making', '2026-11-07T10:00', { slug: 'cards-11-07', venue: 'Library' }),
+    ev('Card making', '2026-11-21T10:00', { slug: 'cards-11-21', venue: 'Library' }),
+    ev('Card making', '2026-12-12T11:00', { slug: 'cards-12-12', venue: 'Library' }),
+  ];
+  const picks = highlights(events, { now, limit: 6 });
+  assert.deepEqual(picks.map((e) => e.slug), ['ghosts-10-15', 'ball-10-30', 'trick-or-treat', 'wellness-fair', 'gumbo-dinner', 'puzzle-exchange']);
+  // And on the hub, the show is a reason to drive: a one-off, once.
+  assert.deepEqual(oneOffs(events).map((e) => e.slug).filter((s) => s.startsWith('ghosts')), ['ghosts-10-15', 'ghosts-10-16']);
+  assert.ok(!oneOffs(events).some((e) => e.slug.startsWith('cards')));
+});
+
 test('what has passed is out, and a weekly series appears once', () => {
   const list = [
     ev('Yesterday', '2026-09-23T18:00'),

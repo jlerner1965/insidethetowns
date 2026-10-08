@@ -5,6 +5,12 @@ excerpt: "Coffee in the Feed & Grain building on Main Street, the river trail fr
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
+glance:
+  start: "Old Town Main Street, south of Harmony Road; park once there for coffee"
+  duration: "Coffee in Old Town, the middle of the day by car, and back to Main Street to end it"
+  by: "By car; the stops are not walkable from one spot, each a short drive from the last"
+  bestDay: "Mein House is closed Sunday, when G-Que is the one open; the farmers market sets up on second and fourth Sundays, May to October"
+  caveat: "Timnath Reservoir is for permit holders and their guests only; the Weitzel Park gate closes at dusk"
 sources:
   - { label: "Town of Timnath: Timnath Main Street", url: "https://timnath.org/timnath-main-street/" }
   - { label: "Town of Timnath: Weitzel Park", url: "https://timnath.org/weitzel-park/" }

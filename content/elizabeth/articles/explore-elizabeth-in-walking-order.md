@@ -5,6 +5,11 @@ excerpt: "Breakfast a block off Main Street, the three historic blocks on foot, 
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
+glance:
+  start: "The Depot Parking Lot at 455 East Spruce Street, more than a hundred spaces; the two district parks need the car"
+  by: "On foot from the Depot lot; the car for Casey Jones Park and Evans Park, east of town on County Road 17"
+  bestDay: "Monday to Saturday for the early breakfast; the brewery opens at 4 pm on weekdays and noon at weekends"
+  caveat: "The Stampede, the first weekend of June, fills Casey Jones Park with no public parking there; plan it separately"
 sources:
   - { label: "Elizabeth Main Street: the Depot Parking Lot", url: "https://www.elizabethmainstreet.org/quick_posts/21734/" }
   - { label: "Catrina's Latin Food: contact", url: "https://elizabethfamilyrestaurant.com/contact" }

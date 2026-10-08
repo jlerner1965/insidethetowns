@@ -5,6 +5,11 @@ excerpt: "Park once at Coal Creek Park, walk a stretch of the creek trail, then 
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"
+glance:
+  start: "Coal Creek Park lot on Kattell Street, with EV charging and limited street parking; everything is a few blocks from it"
+  by: "On foot"
+  bestDay: "Tuesday to Sunday; on a Monday, Piripi, Lucile's and Echo are the ones open on the block"
+  caveat: "24 Carrot Bistro, Birdhouse and the Old Mine are all closed on Mondays"
 sources:
   - { label: "Town of Erie: Coal Creek Park", url: "https://www.erieco.gov/2274/Coal-Creek-Park" }
   - { label: "Town of Erie: Coal Creek Open Space", url: "https://www.erieco.gov/2368/Coal-Creek-Open-Space" }

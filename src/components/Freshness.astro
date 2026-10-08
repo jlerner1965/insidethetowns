@@ -16,37 +16,20 @@
  * then shows fewer events rather than wrong ones, which is the difference
  * between a stale page and a lying one.
  *
- * Removed rather than hidden, because FilterBar drives `hidden` and two
- * mechanisms toggling one property would fight; a node that is gone is gone
- * for both, and the filter recounts what is left.
+ * The end decides on its own; the day is only read when a row has no usable
+ * end. Or-ing the two took an overnight show down at midnight while it was
+ * still on (follow-up audit, 8 October 2026). The rule and the pruning that
+ * follows it (day headings, jump links, empty states rebuilt from what
+ * survives) are src/lib/expiry.ts, so they can be replayed in a test.
  */
 ---
 <script>
-  // The sites keep their dates as Denver wall-clock days, so ask for the date
-  // in Denver rather than wherever the reader happens to be.
-  const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Denver' });
-  const nowMs = Date.now();
+  import { pruneExpired } from '@/lib/expiry';
 
-  for (const event of document.querySelectorAll<HTMLElement>('[data-event-day]')) {
-    const ends = Date.parse(event.dataset.end ?? '');
-    if ((event.dataset.eventDay ?? today) < today || (!Number.isNaN(ends) && ends <= nowMs)) event.remove();
-  }
-  // A day heading with nothing left under it is worse than no heading.
-  for (const day of document.querySelectorAll<HTMLElement>('[data-day]')) {
-    if (!day.querySelector('[data-event-day]')) day.remove();
-  }
-  // And a jump link to a day that is gone.
-  for (const link of document.querySelectorAll<HTMLElement>('[data-day-link]')) {
-    if ((link.dataset.dayLink ?? today) < today) link.remove();
-  }
-  // A block that has no empty state, such as "Nearby this weekend", goes
-  // altogether once nothing is left in it.
-  for (const box of document.querySelectorAll<HTMLElement>('[data-hide-when-empty]')) {
-    if (!box.querySelector('[data-event-day]')) box.remove();
-  }
-  // Say so when a list has emptied out, rather than leaving a blank.
-  for (const empty of document.querySelectorAll<HTMLElement>('[data-events-empty]')) {
-    const scope = empty.closest<HTMLElement>('[data-events-scope]') ?? document.body;
-    if (!scope.querySelector('[data-event-day]')) empty.hidden = false;
-  }
+  // The sites keep their dates as Denver wall-clock days, so ask for the date
+  // in Denver rather than wherever the reader happens to be. The rule itself
+  // (a known end decides; the day only stands in when there is none) lives in
+  // src/lib/expiry.ts, where the clock cases are tested.
+  const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Denver' });
+  pruneExpired(document.body, Date.now(), today);
 </script>
