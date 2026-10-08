@@ -28,3 +28,23 @@ export function byProminence(a: PlaceLike, b: PlaceLike): number {
     a.data.title.localeCompare(b.data.title)
   );
 }
+
+/**
+ * The home page hero's second button: Eat & Drink, unless the town's Things
+ * to Do page lists at least twice as many places.
+ *
+ * Every guide's hero sent its second button to Eat & Drink, which in Carbon
+ * Valley and Severance was a page of two to four listings beside twenty-odd
+ * trails and parks. The bar is twice, not "more": a town where the two are
+ * close keeps the button every other guide has, and does not change it every
+ * time a listing is added or closes.
+ *
+ * Counts are what the two pages list: Eat & Drink's restaurants, bars, coffee
+ * and shops, and Things to Do's trails, trailheads, parks, venues and
+ * lodging.
+ */
+export function heroSecondLink({ eatDrink, thingsToDo }: { eatDrink: number; thingsToDo: number }): { label: string; href: string } {
+  return thingsToDo > 0 && thingsToDo >= 2 * eatDrink
+    ? { label: 'Things to do', href: '/things-to-do/' }
+    : { label: 'Eat & drink', href: '/eat-drink/' };
+}
