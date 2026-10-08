@@ -330,9 +330,18 @@ export interface HubConfig {
   sponsors?: { email?: Sponsor; network?: Sponsor };
   /**
    * The small "Site by…" credit in every site's footer strip, kept apart
-   * from the editorial. Absent, it renders nothing.
+   * from the editorial. Absent, it renders nothing. When `publisher` is set
+   * the strip says "Published by" instead, since the same name is both.
    */
   credit?: { label: string; url: string };
+  /**
+   * Who publishes the network: an organisation, named on every About and
+   * editorial page and at the top of the publisher graph in the structured
+   * data (the hub's parentOrganization). Set at the owner's direction on 8
+   * October 2026, in answer to the follow-up audit's "name the accountable
+   * publisher". An organisation, not a person: `editor` stays unset.
+   */
+  publisher?: { name: string; url: string };
 }
 
 /** One line on the rate card. */

@@ -9,9 +9,10 @@
  */
 import Page from '@/layouts/Page.astro';
 import TipsLink from '@/components/TipsLink.astro';
-import { getSite, liveTowns } from '@/config';
+import { getNetworkHub, getSite, liveTowns } from '@/config';
 
 const site = getSite();
+const publisher = getNetworkHub().publisher;
 const what = site.kind === 'town' ? site.siteTitle : 'Every guide in the network';
 const live = liveTowns();
 ---
@@ -39,6 +40,12 @@ const live = liveTowns();
     <p>
       Review sites and business-listing directories are not used as sources. Their hours are user-editable and
       frequently stale, and their photographs are not ours to publish.
+    </p>
+    <p>
+      What a page says rests on that checking of sources, not on a visit, unless the page says otherwise. A guide
+      that reports a walk taken, a parking lot checked or a photograph made for it says so in its own words and
+      carries the date; a listing that does not say so is a sourced summary, checked on the date shown, and not a
+      review. A recommendation is an editorial choice from the sources, never a paid rank.
     </p>
 
     <h2>Everything carries its date</h2>
@@ -70,7 +77,14 @@ const live = liveTowns();
 
     <h2>Independence</h2>
     <p>
-      {site.kind === 'town' ? `${site.siteTitle} is` : 'None of these guides is'} a government site, a chamber of
+      {publisher && (
+        <Fragment>
+          {site.kind === 'town' ? `${site.siteTitle} is` : 'These guides are'} published by{' '}
+          <a href={publisher.url} rel="noopener">{publisher.name}</a>, which is accountable for everything on{' '}
+          {site.kind === 'town' ? 'it' : 'them'}.{' '}
+        </Fragment>
+      )}
+      {site.kind === 'town' ? `${site.siteTitle} is not` : 'None of these guides is'} a government site, a chamber of
       commerce or any public body, and {site.kind === 'town' ? 'it does' : 'they do'} not speak for one. Anything
       civic links out to the official source rather than being paraphrased here.
     </p>

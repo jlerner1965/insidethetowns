@@ -3904,11 +3904,22 @@ rest are the owner's, and are listed at the end.
   every time, so nothing the listing says is lost. The audit's other markup
   note, an Event with no image, is left as it is: a listing without a
   photograph of its own gets none, rather than the town's hero as a stand-in.
-- **Left to the owner, and why.** *Naming the publisher:* the config carries
-  the owner's direction of 8 October that no person is named on the sites;
-  the audit's third priority asks for the opposite, and that is the owner's
-  call, not this pass's. *Photographs for Golden, Fort Lupton, Nederland and
-  Severance:* the one-photo coverage is a rights and sourcing job, as the
+- **The publisher is Lerner Works.** The owner's answer, 8 October 2026,
+  to the audit's third priority: the guides are published by Lerner Works,
+  an organisation, and no person is named, so `editor` stays unset and the
+  check lines still read "Checked <date>". The name goes where a reader
+  looks for who is accountable: the About page's "Who's behind this", the
+  editorial policy's Independence section, the footer strip ("Published
+  by" in place of "Site by") and the top of the structured-data graph, as
+  the hub's parentOrganization. The editorial policy also now says what
+  the audit asked it to: a page rests on checked sources, not a visit,
+  unless it says so in its own words, and a recommendation is an editorial
+  choice, never a paid rank.
+- **Signed off.** The owner signed off the whole of this pass and the
+  privacy wording of 7 October (above) on 8 October 2026, and left the
+  remaining calls to the editor.
+- **Left to the owner, and why.** *Photographs for Golden, Fort Lupton,
+  Nederland and Severance:* the one-photo coverage is a rights and sourcing job, as the
   photo catalogs above record. *The authorized newsletter test, subscriber
   counts, sponsor placement and reporting sample, and audience measurement:*
   none can be done from the repository. *Johnstown's theater season:* the

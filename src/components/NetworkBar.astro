@@ -87,9 +87,13 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
         narrow.addEventListener('change', settle);
       </script>
     )}
-    {hub.credit && (
+    {(hub.publisher || hub.credit) && (
       <p class="mt-2 w-full border-t border-white/10 pt-3 text-[0.75rem] text-white/60 sm:mt-0 sm:ml-auto sm:w-auto sm:border-0 sm:pt-0">
-        Site by <a href={hub.credit.url} class="no-underline hover:text-white hover:underline">{hub.credit.label}</a>
+        {hub.publisher ? (
+          <Fragment>Published by <a href={hub.publisher.url} class="no-underline hover:text-white hover:underline">{hub.publisher.name}</a></Fragment>
+        ) : (
+          <Fragment>Site by <a href={hub.credit!.url} class="no-underline hover:text-white hover:underline">{hub.credit!.label}</a></Fragment>
+        )}
       </p>
     )}
   </div>

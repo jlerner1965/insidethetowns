@@ -106,3 +106,14 @@ test('an event\'s offer carries a number where the cost line gives one, and the 
   assert.deepEqual(ld('Ticketed'), { '@type': 'Offer', url: 'https://insideerie.com/events/show/', description: 'Ticketed' });
   assert.equal(ld('Free').price, '0');
 });
+
+test('the publisher graph leads from every town to the hub and from the hub to the publisher', async () => {
+  const { siteJsonLd } = await import('../src/lib/seo.ts');
+  const { getNetworkHub } = await import('../src/config/index.ts');
+  const hub = getNetworkHub();
+  assert.ok(hub.publisher?.name, 'the hub config names the publisher');
+  const graph = siteJsonLd(hub) as { '@graph': Array<Record<string, unknown>> };
+  const org = graph['@graph'][0] as { parentOrganization?: { name: string; url: string } };
+  assert.equal(org.parentOrganization?.name, hub.publisher!.name);
+  assert.equal(org.parentOrganization?.url, hub.publisher!.url);
+});

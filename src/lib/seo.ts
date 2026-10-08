@@ -18,12 +18,17 @@ import { isPlaceholder } from './editor.ts';
  * them as its `subOrganization`, and that reciprocal pair is what says one
  * publisher rather than a ring of sites linking to each other.
  *
+ * At the top of the graph, when the hub config names one, is the publisher
+ * (Lerner Works): the hub's `parentOrganization`, so every town leads to
+ * the hub and the hub leads to the organisation accountable for it.
+ *
  * No `logo`: the only mark that exists is an SVG favicon, and pointing at
  * something that may not validate is worse than leaving the property out.
  */
 export function siteJsonLd(site: SiteConfig) {
   const url = `https://${site.domain}/`;
   const hubUrl = `https://${getNetworkHub().domain}/`;
+  const publisher = getNetworkHub().publisher;
   const organization =
     site.kind === 'hub'
       ? {
@@ -32,6 +37,7 @@ export function siteJsonLd(site: SiteConfig) {
           name: site.siteTitle,
           url,
           description: site.tagline,
+          ...(publisher ? { parentOrganization: { '@type': 'Organization', name: publisher.name, url: publisher.url } } : {}),
           subOrganization: liveTowns().map((t) => ({
             '@type': 'Organization',
             '@id': `https://${t.domain}/#org`,
