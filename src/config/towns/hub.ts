@@ -45,18 +45,10 @@ export const hub: HubConfig = {
     email: 'hello@insidethetowns.com',
   },
   correctionsEmail: 'hello@insidethetowns.com',
-  /**
-   * Who runs it. Shown on every About page and in the "Checked by" line on
-   * every listing; the structured data names this person as author
-   * (src/lib/editor.ts).
-   */
-  editor: {
-    name: 'James Lerner',
-    role: 'Editor',
-    email: 'hello@insidethetowns.com',
-    url: 'https://lernerworks.com',
-    bio: 'James Lerner edits every guide in the network and builds the sites through Lerner Works. Every listing is checked against the organizer’s or operator’s own page before it goes up and re-checked on a schedule; the date on each page says when, and a correction sent through any guide reaches him directly.',
-  },
+  // No `editor`, at the owner's direction on 8 October 2026: no person is
+  // named. The check lines read "Checked <date>", the About pages carry no
+  // "Who runs it", articles are authored by the publication, and the only
+  // name on the sites is the Lerner Works credit below.
   nav: [
     { label: 'This Weekend', href: '/this-weekend/' },
     { label: 'Moving Here', href: '/moving/' },
