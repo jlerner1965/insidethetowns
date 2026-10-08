@@ -11,6 +11,9 @@ verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "720-880-1300"
 hours: "Park and trail open sunrise to sunset"
 mapUrl: "https://www.denvergov.org/media/gis/WebDocs/Parks/Dedisse_ParkMap.pdf"
+image: ../images/evergreen-lake.jpg
+imageAlt: "Paddleboards, a canoe and a small yellow sailboat on Evergreen Lake in summer, the forested hillside behind"
+imageCredit: "Chris Light, Wikimedia Commons, CC BY-SA 4.0"
 tags: [lake, ice-skating, boating, fishing, picnic]
 summary: "The 40-acre lake on Upper Bear Creek Road, owned by Denver as part of Dedisse Park and run by the recreation district: boat rentals in summer, skating in winter, a 1.3-mile trail and the Lake House."
 seasonal: { season: "Seasonal boating and ice skating; hours are weather permitting and set daily on the boating/skating hotline, 720-880-1391" }

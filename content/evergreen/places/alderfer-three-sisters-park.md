@@ -10,6 +10,9 @@ added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "303-271-5925"
 hours: "Open one hour before sunrise to one hour after sunset"
+image: ../images/alderfer-three-sisters-park.jpg
+imageAlt: "The red-roofed Alderfer barn in the meadow at Alderfer/Three Sisters Park, ponderosa forest behind"
+imageCredit: "Chris Light, Wikimedia Commons, CC BY-SA 4.0"
 tags: [hiking, open-space, picnic, rock-formations]
 summary: "Jefferson County Open Space park near the middle of Evergreen: rock formations, old ponderosa stands and, says the county, more trails per acre than any of its foothills parks. Two trailheads on Buffalo Park Road."
 access: { parking: "Two lots on Buffalo Park Road a mile apart: the East Trailhead at 30357 and the West Trailhead at 31537, whose lot was recently expanded.", conditionsUrl: "https://www.jeffco.us/AlertCenter.aspx?CID=25", conditionsLabel: "Jeffco Open Space alerts and closures", source: "https://www.jeffco.us/980/Alderfer-Three-Sisters-Park", verified: "2026-10-06" }

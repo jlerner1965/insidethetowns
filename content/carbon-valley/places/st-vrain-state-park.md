@@ -9,6 +9,9 @@ verified: "2026-10-05"
 added: "2026-10-05"
 phone: "303-678-9402"
 hours: "Daily 5 am–10 pm"
+image: ../images/st-vrain-state-park.jpg
+imageAlt: "The Colorado Parks and Wildlife welcome sign at St. Vrain State Park, with one of the park's ponds behind"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 tags: [state-park, fishing, camping, ponds, birding, trails]
 featured: true
 summary: "Colorado Parks and Wildlife’s pond-dotted park on the northwest edge of Firestone, just west of I-25: 689 acres of land and 228 of water, 87 campsites, seven miles of trail, a boat ramp and the only state park inside a Colorado town’s limits."

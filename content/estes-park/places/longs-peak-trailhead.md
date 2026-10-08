@@ -9,6 +9,9 @@ verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 mapUrl: "https://www.nps.gov/romo/planyourvisit/upload/2018_Longs-Peak-Keyhole-Route-Site-Bulletin-print_PDF-Remediated-July-2025.pdf"
+image: ../images/longs-peak-trailhead.jpg
+imageAlt: "Longs Peak, the summit the longest trail from this trailhead climbs to, above the forested slopes of the park"
+imageCredit: "Thomson M, Wikimedia Commons, CC BY 3.0"
 tags: [rmnp, hiking, summit, chasm-lake]
 summary: "Trailhead by the Longs Peak Ranger Station at 9,300 feet, for Chasm Lake (4.2 miles) and the 8-mile, 4,885-foot climb to the summit of Longs Peak."
 access: { permit: "Longs Peak is inside the timed-entry system: reservation needed 9 am–2 pm, May 22 to October 12, 2026, and a park entrance pass at all times.", conditionsUrl: "https://www.nps.gov/romo/planyourvisit/conditions.htm", conditionsLabel: "RMNP current conditions", source: "https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm", verified: "2026-10-06" }

@@ -10,6 +10,9 @@ added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "970-586-1206"
 mapUrl: "https://www.nps.gov/romo/planyourvisit/upload/ROMO_UnigridBrochure_2022.pdf"
+image: ../images/rocky-mountain-national-park.jpg
+imageAlt: "A stream winding through the meadow grass of Moraine Park, snow on the high peaks behind"
+imageCredit: "Frank Schulenburg, Wikimedia Commons, CC BY-SA 4.0"
 featured: true
 tags: [national-park, hiking, wildlife, scenic-drive, timed-entry]
 summary: "Trail Ridge Road, which links Estes Park and Grand Lake in summer, Bear Lake Road and more than 350 miles of trail. An entrance pass is needed at all hours, and a timed-entry reservation from late May to mid-October."
