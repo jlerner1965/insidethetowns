@@ -4,6 +4,9 @@ date: "2026-10-07"
 excerpt: "North Table Mountain's climb and its 7.4-mile loop, the paved Clear Creek Trail from the Gateway and Tunnel 1 lots into the canyon, and the creek path through downtown: who runs each, who each suits, dogs, bikes, where to park and where to check closures."
 category: "Outdoors"
 tags: [outdoors, hiking, biking, trails, guide]
+image: ../images/table-mountains-and-the-canyon.jpg
+imageAlt: "Looking west from the southern slopes of North Table Mountain: South Table Mountain on the left, the Coors brewery and Golden in the valley, and the foothills where Clear Creek Canyon opens"
+imageCredit: "Joshuahicks, Wikimedia Commons, CC BY-SA 3.0"
 verified: "2026-10-07"
 sources:
   - { label: "Jefferson County Parks & Open Space: North Table Mountain Park", url: "https://www.jeffco.us/1427/North-Table-Mountain-Park" }

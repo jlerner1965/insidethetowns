@@ -4,6 +4,9 @@ date: "2026-10-07"
 excerpt: "Breakfast, bookshops, lunch and an evening on Main Street from one parking spot, then a drive to McIntosh Lake's 3.5-mile loop, Left Hand's tasting room or, from October 17, the museum's reopened galleries."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
+image: ../images/dickens-opera-house.jpg
+imageAlt: "The Dickens Opera House at 300 Main Street at dusk in March 2009, an 1881 red-brick building with a bracketed cornice and striped awnings"
+imageCredit: "Nyttend, Wikimedia Commons, public domain"
 verified: "2026-10-07"
 glance:
   start: "On or near Main Street, between the 200 and 700 blocks"

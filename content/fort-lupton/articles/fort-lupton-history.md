@@ -4,6 +4,9 @@ date: "2026-10-07"
 excerpt: "Lancaster Lupton's adobe trading post on the South Platte, a stage stop and a claim club, a town laid out beside the railroad in 1882, milk, tomatoes and sugar beets, the labor camp, the Buddhist temple and the fort rebuilt by volunteers. The short history of Fort Lupton, with sources."
 category: "History"
 tags: [history]
+image: ../images/ottesen-grain-mill.jpg
+imageAlt: "The 1920 Ottesen Grain Co. feed mill in Fort Lupton in October 2021, a corrugated-metal mill with a tile silo and a headhouse"
+imageCredit: "Suzanne Powell, Wikimedia Commons, CC BY-SA 4.0"
 verified: "2026-10-07"
 sources:
   - { label: "City of Fort Lupton: Crossroads in Eden: The Development of Fort Lupton, 1835–2000 (SWCA, 2003)", url: "https://www.fortluptonco.gov/DocumentCenter/View/398" }

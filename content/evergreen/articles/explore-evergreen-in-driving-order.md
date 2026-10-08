@@ -4,6 +4,9 @@ date: "2026-10-07"
 excerpt: "A lake-and-food day: the 1.3-mile loop at Evergreen Lake, then lunch downtown on Highway 74 and ice cream on Meadow Drive. Add the Hiwan museum on a Thursday-to-Sunday afternoon and the county trails for a longer visit. Boating is closed for 2026."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
+image: ../images/evergreen-lake-from-the-shore.jpg
+imageAlt: "Evergreen Lake from its shore on a July afternoon, forested hills and distant peaks behind and clouds reflected in the water"
+imageCredit: "Chris Light, Wikimedia Commons, CC BY-SA 4.0"
 verified: "2026-10-07"
 glance:
   start: "The lake lot on Upper Bear Creek Road, west of downtown"

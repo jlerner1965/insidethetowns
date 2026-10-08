@@ -1,6 +1,9 @@
 ---
 title: "Moving to Golden"
 description: "Golden, Colorado: a home-rule city where Jefferson County's government sits. Housing, Jeffco schools, the W Line, City utilities and wildfire, with sources."
+image: ../images/golden-between-the-mesas.jpg
+imageAlt: "Golden from Lookout Mountain Road in July 2011: the town and the Colorado School of Mines campus between North and South Table Mountains, the plains beyond"
+imageCredit: "Alan Levine (cogdogblog), Wikimedia Commons, CC BY 2.0"
 updated: "2026-10-06"
 ---
 

@@ -4,6 +4,9 @@ date: "2026-09-27"
 excerpt: "Erie has more playgrounds than any town in this network and a library with a program most days. Where to go with children, by age and by weather."
 category: "Families"
 tags: [families, kids, playgrounds, guide]
+image: ../images/community-center-south.jpg
+imageAlt: "The south side of the Erie Community Center from Erie Parkway, October 2019, its glass-fronted entrance behind ornamental grass"
+imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 verified: "2026-09-27"
 sources:
   - { label: "Town of Erie: parks", url: "https://www.erieco.gov/parks" }

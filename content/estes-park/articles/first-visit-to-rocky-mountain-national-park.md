@@ -4,6 +4,9 @@ date: "2026-10-07"
 excerpt: "What a first visit to Rocky Mountain National Park from Estes Park needs: the entrance pass, the 2026 timed-entry reservations and their hours, the free Bear Lake Road shuttles, the short walks at Bear Lake and Sprague Lake, altitude and weather, the no-pets rule and where the park posts conditions."
 category: "Outdoors"
 tags: [outdoors, hiking, rmnp, timed-entry, guide]
+image: ../images/trail-ridge-road.jpg
+imageAlt: "Trail Ridge Road winding across the alpine tundra of Rocky Mountain National Park, cars small on the road and bare peaks behind"
+imageCredit: "National Park Service, NPGallery, public domain"
 verified: "2026-10-07"
 supersededAfter: "2026-10-19"
 supersededNote: "The 2026 timed-entry season this article describes ended on October 18; the park's page has the current rules."

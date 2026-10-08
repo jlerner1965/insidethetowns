@@ -4034,3 +4034,87 @@ baseline to grey.
   morning fetches the new one on its next page view rather than up to a
   week later. The softening at 02:46 UTC had changed the files without
   changing the version.
+
+## A sixth catalog: the eighteen-guide photo library, thirty-one photographs
+
+*8 October 2026.* The owner supplied a photo library for the eighteen live
+guides, one ZIP per town: 1,424 photographs from Wikimedia Commons, Flickr
+and NPGallery, each with its licence, credit and download URL, and a
+`missing_photo_register` matching them to pages. Every photograph was looked
+at. Each one used was read against its live source page (Commons, Flickr or
+NPGallery), checked against `IMAGE_LICENSES.csv` and a perceptual hash of
+every image in the repository, cropped to 3:2, saved at 1,600px or less with
+no metadata, and given one ledger row. The owner approved every proposal and
+left the open calls to the editor.
+
+- **Added: thirty-one photographs.** Six places that had none: White Ranch
+  Park in Golden, the Stanley Hotel and Lion Gulch Trailhead in Estes Park,
+  Devil's Backbone Open Space in Loveland, Left Hand Brewing's tasting room
+  in Longmont and the Evergreen Lake Trail. Twenty-one articles, and the
+  Moving here pages of Evergreen, Golden, Niwot and Estes Park. Each article
+  shows one of its own stops or subjects: Erie's County Line Road article
+  gets `E County Line Road 01.jpg`, the hero chosen for it on 30 September
+  and never downloaded then.
+- **Moving here now shows its photograph.** The template never rendered
+  the page's `image`: eight towns' Moving here photographs sat in the
+  frontmatter and on `/credits/` ("used on Moving here") without appearing,
+  and the share preview fell back to the hero. The page now shows it as an
+  article does, under the masthead with its caption, and uses it as the
+  share image. That puts the four new ones and the eight existing ones in
+  front of readers, and makes the credits pages true.
+- **White Ranch was hiding under a generic name.** Three files are titled
+  only "Jefferson County, CO, USA - panoramio"; their camera positions are
+  within 20 m of the West Trailhead on Belcher Hill Road (OpenStreetMap), and
+  the one used shows the Rawhide Trail sign. The Golden pass that morning
+  searched by name and could not have found them.
+- **Two archival photographs, labelled as such** in the alt text and the
+  caption: the June 1929 aerial of downtown Fort Collins (CSU University
+  Historic Photograph Collection, UHPC 5969, glass-plate border trimmed) on
+  the history article, and Arundel C. Hull's 1868 Golden on Golden's
+  (871px, kept at its own size).
+- **Licence notes.** Trail Ridge Road is a National Park Service photograph,
+  public domain with "Full Granting Rights" on NPGallery. Lion Gulch is both
+  CC BY 2.0 (Flickr-reviewed) and a USDA work; it is credited as CC BY 2.0,
+  which satisfies either. Niwot's Second Avenue is Jeffrey Beall's Flickr
+  original at 2,048px; the library listed only 1,024px. The Stanley Hotel's
+  Commons geotag is about 15 km off, so that match rests on the building.
+- **The library's own checks were not enough.** Its "already used" filter
+  missed seventeen photographs already on the sites (the St. Vrain State
+  Park sign, Evergreen Lake, Hiwan Homestead 2, five Lyons files, the
+  Nederland steam shovel, Severance's 1st Street, the Fort Lupton library,
+  Mount Zion, the Clear Creek tubers, Golden (16), Mount Galbraith, the
+  tramway and the Lily Mountain reflection), and its register listed pages
+  that already had photographs as gaps. Every match was re-read against the
+  repository, not the register.
+- **Traps, for the next review:** "Parfet-Preserve" is the dinosaur-track
+  preserve, not Parfet Park on 10th Street; "Old Fort Vasquez" is in
+  Platteville; the "Lookout Mountain Park" file is a Mount Zion hillside
+  with radio towers; the Foothills Art Center file is the old church again;
+  the file titled "Nederland" is on South Boulder Creek about 7 km
+  southwest; "McCall Lake" is not McIntosh or Union; Austin's Old Town
+  frame is not the Harmony listing; Windsor's First Methodist Episcopal
+  Church is at 503 Walnut, not Town Hall at 301; the second Elizabeth bank
+  frame was taken minutes from the one already used. The bighorn rams, Rock
+  Cut and `Spring Creek valley.jpg` came round again.
+- **Declined, on the owner's delegation:** the Evergreen Library (February
+  2020, before the 2024 redesign); paddleboarders for Evergreen with kids
+  (the article says boating is closed for 2026); the Longmont Theatre
+  Company (a 2010 marquee advertising that summer's shows); City Park in
+  Fort Collins (2004, 1,355px); the Front Range from Niwot for Who runs
+  what (it repeats the hero); the Cardinal Mill for Nederland's history
+  (the article does not name Cardinal, and the file is heavily processed);
+  Benson Sculpture Garden's entrance sign (the arts council ask of 4
+  October stands). Estes Park's Moving here takes the Big Thompson River
+  downtown rather than the Gateway monument, a designed work the US gives
+  no freedom of panorama.
+- **Held:** a 2015 exterior of the Longmont Museum, until the expanded
+  building reopens on 17 October and can be compared.
+- **Nothing usable for** Carbon Valley, Johnstown, Timnath, Severance,
+  Lyons, Elizabeth or Windsor: highway signs, airliner aerials, 1937 survey
+  frames, disaster photographs, people as the subject, and close-ups.
+- **Left for the owner:** two pages could borrow a photograph the
+  repository already holds, which the one-photograph rule allows for
+  articles. The Carbon Valley Regional Library listing has none while
+  `carbon-valley-regional-library.jpg` sits on the kids' article, and
+  Patios in Niwot has none while two patio photographs sit on one listing
+  each.

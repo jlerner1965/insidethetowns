@@ -8,6 +8,9 @@ source: "https://www.evergreenrecreation.com/evergreen-lake-house"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/evergreen-lake-trail.jpg
+imageAlt: "The wooden boardwalk of the Evergreen Lake trail, with the log Evergreen Lake House beyond it and kayakers on the water, July 2016"
+imageCredit: "Chris Light, Wikimedia Commons, CC BY-SA 4.0"
 phone: "720-880-1300"
 hours: "Open sunrise to sunset"
 tags: [walking, running, lake, natural-surface]

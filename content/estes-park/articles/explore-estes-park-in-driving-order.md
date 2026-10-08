@@ -4,6 +4,9 @@ date: "2026-10-07"
 excerpt: "Build the day around one thing, then leave room for a meal: Elkhorn Avenue from the free parking structure, the tramway while it runs, a Stanley tour, lunch on Moraine Avenue. The national park is a separate day, and has its own guide."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
+image: ../images/west-elkhorn-avenue.jpg
+imageAlt: "West Elkhorn Avenue in Estes Park on 16 October 2024: storefronts with gables and awnings under yellow and red autumn trees, people walking the sidewalk"
+imageCredit: "Frank Schulenburg, Wikimedia Commons, CC BY-SA 4.0"
 verified: "2026-10-07"
 glance:
   start: "The Town's free parking structure at 691 North St. Vrain Avenue, by the Visitor Center; downtown is under ten minutes on foot"

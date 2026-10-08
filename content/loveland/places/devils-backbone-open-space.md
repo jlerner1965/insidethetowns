@@ -8,6 +8,9 @@ source: "https://www.larimer.gov/naturalresources/parks/devils-backbone"
 verified: "2026-10-07"
 added: "2026-10-07"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/devils-backbone.jpg
+imageAlt: "The Devil's Backbone west of Loveland in April 2010: a long fin of tilted sandstone along the hogback, the Keyhole visible near its right end, above a fenced meadow"
+imageCredit: "Maarten Heerlien, Wikimedia Commons, CC BY 2.0"
 hours: "Daily sunrise to sunset; the trailhead gate typically opens by 6 am and closes at sunset"
 tags: [hiking, mountain-biking, horses, hogback, open-space, permit]
 access: { parking: "The lot fills on weekends and holidays; the County says a full lot means the trails are at capacity, to come before 10 am or after 4 pm, and to check its parking-lot webcam before setting out.", permit: "A Larimer County entrance permit is required.", conditionsUrl: "https://www.larimer.gov/naturalresources/parks/devils-backbone", conditionsLabel: "Larimer County's Devil's Backbone page, with alerts and the parking webcam", source: "https://www.larimer.gov/naturalresources/parks/devils-backbone", verified: "2026-10-07" }

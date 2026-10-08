@@ -8,6 +8,9 @@ source: "https://www.stanleyhotel.com/faqs/"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/the-stanley-hotel.jpg
+imageAlt: "The Stanley Hotel on its hill above Estes Park, August 2017: the white Georgian Revival main building with its red roof and cupola, behind a long lawn and a stone wall"
+imageCredit: "Ontherocks108, Wikimedia Commons, CC BY-SA 4.0"
 phone: "(970) 577-4000"
 hours: "Check-in 4 pm, check-out 11 am"
 featured: true

@@ -5,6 +5,9 @@ excerpt: "Mountain Avenue end to end, from a 7 am breakfast to the museum's afte
 updated: "2026-10-08"
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
+image: ../images/bimson-blacksmith-shop-front.jpg
+imageAlt: "The front of the 1893 Bimson Blacksmith Shop at 224 Mountain Avenue, the sandstone heart of the Little Thompson Valley Pioneer Museum, September 2012"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 2.0"
 verified: "2026-10-07"
 glance:
   start: "Park once on or near Mountain Avenue; the reservoir is the one stop that needs the car again"
