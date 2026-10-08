@@ -1421,7 +1421,7 @@ media doing stories on Colorado State at no charge; that is this.
 | B8 | Parks | Boulder County Parks and Open Space (3) | email, optional | yes | 2026-09-18 | Granted for the three gallery pages (PERMISSIONS.md). Done |
 | B9 | Parks | Douglas County Open Space (1) | email | yes | 2026-10-06 | Granted: "any photo from the website", approved by the Assistant Director (PERMISSIONS.md). The county's own Two Bridges Trail photograph now on the listing, credited "Douglas County". Done |
 | B10 | Parks | Niwot Cultural Arts Association (1) | form | | | |
-| C1 | Venues | Berthoud Community Library District | email | | | |
+| C1 | Venues | Berthoud Community Library District | email | yes | 2026-10-08 | Granted; the sign and building now on the listing, credited "Berthoud Community Library District" (PERMISSIONS.md). Done |
 | C2 | Venues | Town of Berthoud (Recreation Center) | email, a week after B1 | — | — | Not needed: the Recreation Center came with B1. Done |
 | C3 | Venues | Berthoud Historical Society | email | | | |
 | C4 | Venues | Berthoud Main Street (murals), optional | form; skip once A2 has gone | | | |
