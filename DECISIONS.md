@@ -3563,3 +3563,12 @@ get here, and what can be confirmed about access.
   the Art & Heritage Center's Thursday hours (the Town's page no longer
   shows them); Estes Park's Town site answered today though the config
   records a 403.
+
+## No named editor; Lerner Works only
+
+*8 October 2026.* At the owner's direction, James Lerner is no longer named
+as editor: `hub.editor` is removed, reversing the pre-launch audit's fix of
+7 October. With the slot dark, every "Checked by James" line reads "Checked
+<date>", no About page has a "Who runs it" section, and an article's
+structured-data author is the publication. The one name left on the sites is
+the "Site by Lerner Works" credit in every footer strip (`hub.credit`).
