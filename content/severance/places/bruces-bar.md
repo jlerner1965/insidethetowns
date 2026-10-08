@@ -10,6 +10,9 @@ added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "(970) 686-2320"
 hours: "Mon–Thu 10 am–9 pm; Fri–Sat 10 am–11 pm; Sun 10 am–8 pm"
+image: ../images/bruces-bar.jpg
+imageAlt: "Bruce's Bar, a long salmon-pink building with a covered front porch, beside a snow-covered 1st Street in Severance in winter"
+imageCredit: "Jared Winkler, Wikimedia Commons, CC BY-SA 4.0"
 tags: [rocky mountain oysters, live music, karaoke, history]
 summary: "The 1st Street bar that has carried the Bruce's name since 1957, known for Rocky Mountain oysters, with live music on Saturday nights and karaoke on Wednesdays."
 ---

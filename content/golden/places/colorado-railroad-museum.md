@@ -7,6 +7,9 @@ source: "https://coloradorailroadmuseum.org/plan-your-visit/"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/colorado-railroad-museum.jpg
+imageAlt: "Colorado & Southern rotary snowplow 99201, black with a red cutting wheel, standing on a track in the Colorado Railroad Museum yard"
+imageCredit: "D&RG Railfan, Wikimedia Commons, CC BY 3.0"
 phone: "800-365-6263"
 hours: "Tue–Sun 9 am–5 pm; closed Mon"
 tags: [museum, trains, kids]

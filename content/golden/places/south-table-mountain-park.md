@@ -7,6 +7,9 @@ source: "https://www.jeffco.us/1430/South-Table-Mountain-Park"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/south-table-mountain-park.jpg
+imageAlt: "The flat top of South Table Mountain and its Castle Rock outcrop above the Colorado School of Mines campus"
+imageCredit: "Georgialh, Wikimedia Commons, CC BY-SA 4.0"
 hours: "Daily, 1 hour before sunrise to 1 hour after sunset"
 tags: [hiking, mountain-biking, views, history]
 summary: "Mesa-top Jeffco open space with the new 1.5-mile T. rex Tooth Trail and a 3-mile loop past the 1935 WPA amphitheater. Camp George West Trailhead at 1219 Kilmer Street."

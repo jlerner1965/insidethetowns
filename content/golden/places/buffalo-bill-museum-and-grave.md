@@ -7,6 +7,9 @@ source: "https://buffalobill.org/visit-us/hours-and-admission/"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/buffalo-bill-museum-and-grave.jpg
+imageAlt: "Buffalo Bill's grave on Lookout Mountain: a white stone cairn with a bronze plaque and a small flag, inside a black iron fence under pines"
+imageCredit: "Jibi44, Wikimedia Commons, CC BY-SA 4.0"
 phone: "720-865-2160"
 hours: "May 19–Oct 31: daily 9 am–5 pm. Nov 1–May 18: Tue–Sun 10 am–5 pm; closed Mon"
 tags: [museum, history, views]

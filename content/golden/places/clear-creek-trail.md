@@ -7,6 +7,9 @@ source: "https://www.jeffco.us/3792/Clear-Creek-Trail"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/clear-creek-trail.jpg
+imageAlt: "The paved Clear Creek Trail curving along a steel railing above the creek in Clear Creek Canyon, with US 6 across the water"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 hours: "Daily, 1 hour before sunrise to 1 hour after sunset"
 mapUrl: "https://www.jeffco.us/DocumentCenter/View/54229/Clear-Creek-Canyon-Park-Map---Gateway-to-CCR"
 tags: [paved-trail, biking, walking, accessible]

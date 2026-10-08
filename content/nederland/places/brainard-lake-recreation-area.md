@@ -11,6 +11,9 @@ verifiedBy: "Claude Code, delegated by James Lerner"
 seasonal: { season: "Seasonal gate open approximately mid-June through mid-October" }
 access: { parking: "Year-round parking without a reservation at Brainard Gateway Trailhead, two miles from the lake, with a $10 day-use fee", permit: "Timed-entry reservation needed to park inside: lower trailheads June to October, upper trailheads (Long Lake, Mitchell Lake/Beaver Creek, Niwot) July to October", closures: "The main gate closes in mid-October; motor vehicles are prohibited November 15 to April 30", conditionsUrl: "https://www.fs.usda.gov/r02/arp/conditions", conditionsLabel: "Boulder Ranger District road status", source: "https://www.fs.usda.gov/r02/arp/recreation/brainard-lake-recreation-area-seasonal-information", verified: "2026-10-06" }
 mapUrl: "https://www.fs.usda.gov/media/273788"
+image: ../images/brainard-lake-recreation-area.jpg
+imageAlt: "Brainard Lake seen from the wildflower meadow on its east side in summer, with dense spruce forest and the bare, snow-patched Indian Peaks rising behind under a blue sky"
+imageCredit: "Wildoo78, Wikimedia Commons, CC BY-SA 4.0"
 tags: [indian-peaks, hiking, timed-entry, skiing]
 summary: "Forest Service recreation area around Brainard Lake at 10,600 feet, with trailheads into the Indian Peaks Wilderness. A timed-entry reservation is needed to park inside in summer."
 ---

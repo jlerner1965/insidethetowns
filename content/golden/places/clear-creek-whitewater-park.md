@@ -8,6 +8,9 @@ source: "https://www.cityofgolden.gov/business_detail_T31_R162.php"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/clear-creek-whitewater-park.jpg
+imageAlt: "Tubers riding a drop on Clear Creek just below the Washington Avenue bridge, with South Table Mountain behind"
+imageCredit: "Dicklyon, Wikimedia Commons, CC BY-SA 4.0"
 tags: [kayaking, whitewater, creek]
 summary: "About seven blocks of built whitewater course on Clear Creek across from Lions Park, free to use and unsupervised. For paddlers who can handle fast, cold water."
 access: { parking: "Paid parking at the drop-in point by Lions Park; parking also at Vanover Park, the take-out.", permit: "No fee for drop-in use.", source: "https://www.cityofgolden.gov/business_detail_T31_R162.php", verified: "2026-10-06" }

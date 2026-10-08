@@ -37,6 +37,17 @@ Do not repeat these. The searches are recorded in `DECISIONS.md`.
   photograph; the rest were filler (I-25 from a car, aerials, car interiors),
   same-named places, too small, or people. What was used, the traps and what
   was left are in `DECISIONS.md` under *A fifth catalog*. Do not re-review it.
+- **A Commons pass for the four one-photo towns (8 October 2026).** Golden,
+  Nederland, Fort Lupton and Severance, each town's category tree and some
+  forty targeted searches, after the follow-up audit called their coverage
+  out. Twenty-one places got a photograph (Golden 14, Nederland 5, Fort
+  Lupton 1, Severance 1); every file was looked at and read against the
+  listing before use. What was used, what was rejected and the places with
+  nothing open on Commons at all (every Fort Lupton park and business, every
+  Severance park, Nederland's downtown businesses and the carousel, Golden's
+  breweries and cafés) are in `DECISIONS.md` under *A Commons pass for the
+  four one-photo towns*. Do not re-review it: those gaps are for a walk with
+  a camera, below.
 - **KartaView street-level imagery.** Four frames near Elizabeth's Main Street,
   all windshield dashcam shots of roadway with dashboard glare. No storefronts.
 - **Mapillary.** Requires an API token this project does not have.

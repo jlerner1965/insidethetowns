@@ -7,6 +7,9 @@ source: "https://www.fortluptonco.gov/1080/Hours-and-Location"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/fort-lupton-public-and-school-library.jpg
+imageAlt: "The tan-brick Fort Lupton Public and School Library with its name lettered on the wall, the bronze Heartland Story statue beside the entrance and patches of snow on the forecourt"
+imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 phone: "303-339-4089"
 hours: "Mon–Thu 9 am–8 pm; Fri–Sat 9 am–5 pm; closed Sun"
 tags: [library, makerspace, kids, events, study-rooms]

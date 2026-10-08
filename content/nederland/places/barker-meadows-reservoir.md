@@ -9,6 +9,9 @@ added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 access: { parking: "Public parking", source: "https://nederlandco.org/1446/Trails-Open-Spaces", verified: "2026-10-06" }
 mapUrl: "https://nederlandco.org/ImageRepository/Document?documentID=551"
+image: ../images/barker-meadows-reservoir.jpg
+imageAlt: "Barker Meadow Reservoir on a windy October day, looking west across the water to Nederland on the far shore, with Eldora's ski runs and snow-capped peaks of the Continental Divide behind"
+imageCredit: "SOTMUS, Wikimedia Commons, CC BY-SA 4.0"
 tags: [fishing, picnic, hiking]
 summary: "Open space at East Street and Boulder Canyon Drive with public parking, picnic tables, fishing and hiking trails."
 ---

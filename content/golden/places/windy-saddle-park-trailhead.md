@@ -7,6 +7,9 @@ source: "https://www.jeffco.us/1440/Windy-Saddle-Park"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/windy-saddle-park-trailhead.jpg
+imageAlt: "Mount Zion, the paraglider launch above the Windy Saddle trailhead, under light snow with the Colorado School of Mines M on its slope"
+imageCredit: "Nolabob, Wikimedia Commons, CC0"
 hours: "Daily, 1 hour before sunrise to 1 hour after sunset"
 mapUrl: "https://www.jeffco.us/DocumentCenter/View/9388/Windy-Saddle-Park-Map"
 tags: [hiking, mountain-biking, paragliding, views]

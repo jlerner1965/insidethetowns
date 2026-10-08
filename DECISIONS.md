@@ -3926,3 +3926,65 @@ rest are the owner's, and are listed at the end.
   Candlelight run is listed as whole days with "see box office for times",
   which is honest about what the source gives; the split-performance
   treatment waits on dated performances from the box office.
+
+## A Commons pass for the four one-photo towns
+
+*8 October 2026.* The follow-up audit's fourth priority: Golden, Fort Lupton,
+Nederland and Severance each showed one photo record on their credits pages,
+the hero. The owner gave the go-ahead the same day. One session per town
+swept its Wikimedia Commons category tree and ran targeted searches for
+every listing, under the catalog rules: CC BY, CC BY-SA, CC0 or public
+domain read from the live file record; the actual place, recognisable
+today; nothing older than about 2012 without a reason; no identifiable
+person as the subject; a trailhead shown by where its trail goes, with the
+alt text saying so; the file looked at and read against the listing before
+use; cropped to 3:2, saved at 1,600px or less with no camera metadata; one
+ledger row each. Every adopted file was then looked at again by the editor,
+and the twenty-one ledger rows re-read against Commons in one pass.
+
+- **Golden, fourteen.** Clear Creek Whitewater Park (tubers below the
+  Washington Avenue bridge, South Table Mountain behind), the Clear Creek
+  Trail and Clear Creek Canyon Park in the canyon (both Jeffrey Beall,
+  2026), North Table Mountain's basalt cliffs and South Table Mountain's
+  Castle Rock (Georgialh, 2014, the only open views of either mesa newer
+  than 2007), Buffalo Bill's grave, the Lookout Mountain Nature Center, the
+  Colorado Railroad Museum's rotary snowplow, the Guy Hill schoolhouse in
+  Golden History Park, Old Capitol Grill & Smokehouse with its name readable
+  over the windows, the Mines Museum's entrance, the Mount Galbraith
+  trailhead itself, Centennial Cone from Camino Perdido, and for Windy
+  Saddle the Mount Zion slope its trails climb, said so in the alt text.
+- **Nederland, five.** Barker Meadow Reservoir looking west to the town and
+  Eldora, Brainard Lake under the Indian Peaks, Jasper Lake for the Hessie
+  trailhead and the Arapaho Pass basin for Fourth of July (each named as the
+  destination, not the trailhead), and the mining museum's 1923 Bucyrus
+  steam shovel (Grey3k, 2009, kept despite its age: a permanent exhibit and
+  the only open photograph of the museum). Lost Lake exists on Commons under
+  CC0 but with a heavy colour filter, so Jasper Lake stands for Hessie.
+- **Fort Lupton, one.** The Public & School Library (Erie Bard, 2019; the
+  description says High Plains Library District, which ran it then, and
+  the building is the same). Nothing open exists of the rebuilt fort (only
+  a 1913 scan of the original adobe wall, 751px), Denver Avenue, the museum,
+  any park, the golf course or any business. The Ottesen Grain Co. mill at
+  815 7th Street has four open photographs and no listing.
+- **Severance, one.** Bruce's Bar, from a 2018 1st Street scene (Jared
+  Winkler) cropped to the building. No sign is readable, so the match was
+  made on position (the west side of 1st Street opposite the post office,
+  at the bar's own map pin) and on the exterior murals its own About page
+  describes, and confirmed against the bar's own banner photograph of the
+  same tan side wall and covered porch. Nothing open exists of Town Hall,
+  the library or any park; the Windsor Lake photographs on Commons are of
+  the lake in Windsor, not Windsor Reservoir.
+- **Not used, on purpose:** the Foothills Art Center's one photograph (the
+  old church at 15th and Washington, today's Creative Campus, not the 1133
+  Arapahoe address the listing gives); Golden History Museum's 2009–2011
+  frames; a "Sunset on Diamond Lake" that is Diamond Lake, Oregon; two CC0
+  "Eldora" lakes with no stated location; "Nederland – panoramio" (an
+  unidentifiable creek); Fort Lupton's Heartland Story statue on its own
+  (it is in the library photograph); the 2008 Nederland downtown pair (one
+  is the hero's subject, one the Pioneer Inn).
+- **Still without a photograph**, for the walk with a camera that
+  docs/PHOTOS.md describes: every Golden brewery, café and restaurant but
+  one, Apex and White Ranch, Parfet, Lions and Vanover parks; Nederland's
+  downtown businesses, the Carousel of Happiness, Chipeta Park, Mud Lake and
+  West Magnolia; everything in Fort Lupton but the library; everything in
+  Severance but Bruce's.
