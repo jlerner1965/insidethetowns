@@ -5,10 +5,12 @@ address: "359 Linden St"
 area: "Old Town"
 url: "https://www.gingerandbaker.com/"
 source: "https://www.gingerandbaker.com/"
-verified: "2026-10-01"
+verified: "2026-10-07"
+verifiedBy: "Claude Code, delegated by James Lerner"
 added: "2026-10-01"
 phone: "970-223-7437"
-hours: "Tue–Sun 7 am–9 pm; closed Mon"
+hours: "Cafe, market and bakery Tue–Sun 7 am–9 pm; The Cache Tue–Sat 4–9 pm; closed Mon"
+openingHours: ["Tu-Su 07:00-21:00"]
 tags: [pie, bakery, cafe, steakhouse, market, cooking-classes]
 featured: true
 summary: "Pie, bakery, market, coffee shop and cafe under one roof on Linden Street in the River District, Tuesday to Sunday 7 to 9, with The Cache steakhouse Tuesday to Saturday evenings and a teaching kitchen that runs classes."

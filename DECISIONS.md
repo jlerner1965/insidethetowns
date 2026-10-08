@@ -3454,3 +3454,79 @@ clears its threshold.
   - Evergreen events that rest only on a chamber listing stayed staged
     wherever the organizer's own site was blocked. Erie and Windsor have
     published chamber-sourced events before; the owner may allow it here.
+
+## The October content pack, read against the guides
+
+*7–8 October 2026.* The owner supplied a "visitor content expansion" pack
+(a Markdown guide, the same guide as a static HTML viewer, a JSON data
+file of 116 place records across the 18 live guides, 24 corrections, 18
+one-line outings, 54 article ideas, and a brief), the product of an online
+review dated 7 October with no field visits. It was read in full and
+matched record by record against the repo before anything changed.
+
+- **What it was worth.** Six to eight real hours corrections; the facts to
+  unblock two staged listings; seven new places with operator sources; the
+  "before you go" notes, where they were specific; and about a dozen
+  article ideas that were not already written. Its 101 "enrich existing"
+  records were otherwise weaker than what the guides already say.
+- **What was not taken, and why.** Its one-line `copy` (60 to 107
+  characters, "a familiar breakfast stop") would have replaced better
+  summaries. Its accessibility, parking, cost and dog fields were
+  boilerplate on 110 or more of 116 records; the schema has no such fields
+  and a card that prints "not independently established" says nothing.
+  Its reformatted hours lines (spaced dashes, semicolons) still parse, but
+  six of them, the split-service ones, would have cost the Open-now badge;
+  those were written the repo's way, text plus `openingHours`. Castlewood
+  Canyon is in Franktown, which the 6 October "Castle Rock is Castle Rock"
+  decision rules out for Elizabeth too. Five of its corrections were
+  already done or wrong: 1914 House (Taverna Laudisio is live), Chimney
+  Park Restaurant (already temporarily closed, and the label could be read
+  as the Town park), Johnson's Corner (filed under Loveland and called
+  closed; it is Johnstown's Black Bear Diner, verified 2 October), Abejas
+  (staged, so nothing to hold), the Longmont Museum (the listing already
+  says the galleries reopen 17 October). Its `review_date` was not copied
+  into `verified`: only the records a person re-read moved.
+- **Each correction was re-read on the operator's page before it was
+  written.** Timnath Beerwerks closes 9 pm Sunday; Elizabeth Kitchen +
+  Bar's kitchen closes before its bar; Ginger and Baker's The Cache has its
+  own hours. The pack's "CooperSmith's Thursday conflict" was the billiards
+  hall's separate schedule, already in the body; Decent Bagel and Woody's
+  already said what it asked. Oskar Blues Lyons (later closing times,
+  per the pack) was not changed: its site answers 403 to the robots-aware
+  reader, so it needs a browser or a call.
+- **Sites that would not answer went to staging, not to the guide.**
+  Pepper's Fireside Grille, The Roost, Jefes, Lucile's Longmont and Windsor
+  Mill Tavern answered 403 or a bot check; Willow Creek's own pages
+  disagree on the weekend brunch start (10:30 or 11 am), the Sudden
+  Fiction rule. Each staged file carries what the pack reported, marked
+  unconfirmed, for whoever calls. Sherpa House and Muddy Buck, which the
+  pack said it had read, still did not answer; their staging notes carry
+  the pack's figures the same way. Devil's Backbone Open Space published
+  for Loveland from Larimer County's page, the one new place whose manager
+  could be read.
+- **Three dated facts read the same day** went into bodies: Evergreen
+  Lake's boating and parking shuttle closed for the season, the 2026
+  Hessie Shuttle's dates, Union Reservoir's 14 October early close. The
+  Evergreen Lake `seasonal` block still has no `closes` date because the
+  district publishes none; the page says it in prose instead.
+- **Twelve guides**, one per town where the pack's idea was not already
+  written and the sources were official pages that answer: Timnath
+  Reservoir's permits, Hessie before you drive, Lyons hikes by dog rule,
+  McIntosh or Union, a first RMNP visit (with `supersededAfter` 19 October,
+  when the 2026 timed-entry season ends), Horsetooth's routes, Golden's
+  mesa or canyon, Evergreen Lake through the seasons, Erie's paved or
+  singletrack, Windsor's Poudre Trail from Eastman Park, Carter Lake, and
+  Loveland's sculpture parks. Every fact from a page read that day and
+  listed under sources; where official pages disagree (Sundance Trail 3 or
+  3.5 miles, Benson's sculpture count, Evergreen's private-boat limit)
+  both figures are given. The pack's other 42 ideas duplicated the history
+  and with-kids guides every town already has, or rested on restaurants.
+  The outings and town intros were seeds, not content, and were not used.
+- **Found along the way, for the owner:** lovgov.org (the City of
+  Loveland) answers 403 to every reader, so the sculpture guide rests on
+  the arts council's and Centerra's pages and says so; poudretrail.org's
+  home page carries injected casino spam, though its trail pages are
+  clean (the Windsor guide cites only those); the Forest Service gives the
+  Hessie shuttle a different season than the county that runs it; Union
+  Reservoir's fees table still prints last year's Thanksgiving dates.
+- **The HTML viewer stays out of the repo**: a review tool, not content.

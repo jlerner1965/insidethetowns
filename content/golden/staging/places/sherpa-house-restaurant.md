@@ -1,6 +1,6 @@
 ---
 title: "Sherpa House Restaurant and Cultural Center"
-review: { reason: "sherpa.house gives the address and phone (303 278 7939) but no hours on the home or About pages, and its Contact page failed to load twice. Check https://sherpa.house/contact-us by hand or call for hours before publishing.", since: "2026-10-06", from: manual }
+review: { reason: "sherpa.house gives the address and phone (303 278 7939) but no hours on the home or About pages, and its Contact page failed to load twice. Check https://sherpa.house/contact-us by hand or call for hours before publishing. The October 2026 content review reported reading that page as: daily lunch 11 am–2:30 pm, dinner 5–9 pm, closed between services, phone (303) 278-7939; on 7 October 2026 the site answered 503 and reset connections to the robots-aware reader, so that is unconfirmed here.", since: "2026-10-06", from: manual }
 type: restaurant
 address: "1518 Washington Ave, Golden, CO"
 area: "Washington Avenue"
