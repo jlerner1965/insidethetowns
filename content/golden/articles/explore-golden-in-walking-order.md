@@ -4,6 +4,9 @@ date: "2026-10-07"
 excerpt: "A meal on Washington Avenue, the history museum and park on the creek, the creek-side parks, two free museums and a taproom, all from one City garage. Trains for families; the mesa or the canyon for a hiking day."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
+image: ../images/washington-avenue-arch.jpg
+imageAlt: "Washington Avenue at 12th Street in downtown Golden, June 2021: the Welcome to Golden arch over the street and a bronze bison on the corner"
+imageCredit: "Dough4872, Wikimedia Commons, CC BY-SA 4.0"
 verified: "2026-10-07"
 glance:
   start: "North Garage at 702 12th Street; two hours free, $2.50 an hour after"

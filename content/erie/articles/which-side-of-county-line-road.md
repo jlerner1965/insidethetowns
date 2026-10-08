@@ -4,6 +4,9 @@ date: "2026-09-20"
 excerpt: "Erie is in two counties, and the boundary decides more than an address: the school district, the library card, the ballot, the assessor — and, since the town took over half of them, who fixes the streetlight. What to check before you make an offer."
 category: "Moving here"
 tags: [living-here, schools]
+image: ../images/east-county-line-road.jpg
+imageAlt: "East County Line Road looking south from Maxwell Avenue in Erie, November 2019, the sidewalk and Erie Community Park's ball fields on the left"
+imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 ---
 
 Erie sits in Boulder and Weld counties. The town [says so plainly](https://erieco.gov/2505/Regional-Partners): "The Town of Erie lies within two counties — Boulder and Weld Counties." County Line Road is the boundary. West of it is Boulder County; east of it is Weld.

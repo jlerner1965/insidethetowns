@@ -7,6 +7,9 @@ source: "https://www.jeffco.us/1437/White-Ranch-Park"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/white-ranch-park.jpg
+imageAlt: "The Rawhide Trail leaving the West Trailhead of White Ranch Park on Belcher Hill Road, a gravel path through winter grass and ponderosa pines with its trail sign, December 2010"
+imageCredit: "Jacob Montgomery, Wikimedia Commons, CC BY-SA 3.0"
 hours: "Daily, 1 hour before sunrise to 1 hour after sunset"
 mapUrl: "https://www.jeffco.us/DocumentCenter/View/9387/White-Ranch-Park-Map"
 tags: [hiking, mountain-biking, horses, camping]

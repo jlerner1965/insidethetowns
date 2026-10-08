@@ -4,6 +4,9 @@ date: "2026-10-07"
 excerpt: "The sculpture garden first, then 4th Street for lunch at Henry's, the galleries and a booked evening at the Rialto or Door 222. Devil's Backbone is its own half-day, with the permit and the parking rules that go with it."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
+image: ../images/devils-backbone-trail.jpg
+imageAlt: "Sandstone towers along the Devil's Backbone trail west of Loveland in July 2010, sagebrush and grass in front and the foothills beyond"
+imageCredit: "Elmschrat, Wikimedia Commons, CC BY-SA 3.0"
 verified: "2026-10-07"
 glance:
   start: "Benson Sculpture Garden on Aspen Drive, then a second parking stop downtown on East 4th Street"

@@ -48,6 +48,13 @@ Do not repeat these. The searches are recorded in `DECISIONS.md`.
   breweries and cafés) are in `DECISIONS.md` under *A Commons pass for the
   four one-photo towns*. Do not re-review it: those gaps are for a walk with
   a camera, below.
+- **A sixth catalog: the eighteen-guide photo library (8 October 2026).**
+  1,424 photographs, one ZIP per town, with a register of matches. Thirty-one
+  pages got a photograph (six places, twenty-one articles, four Moving here
+  pages); the rest were already on the sites (seventeen the library had
+  missed), filler, people, same-named places or the wrong location. What was
+  used, declined and held is in `DECISIONS.md` under *A sixth catalog*. Do
+  not re-review it.
 - **KartaView street-level imagery.** Four frames near Elizabeth's Main Street,
   all windshield dashcam shots of roadway with dashboard glare. No storefronts.
 - **Mapillary.** Requires an API token this project does not have.

@@ -1,6 +1,9 @@
 ---
 title: "Moving to Evergreen"
 description: "Evergreen, Colorado, is unincorporated Jefferson County: who governs it, the Jeffco schools, the wildfire code, wells and septic, snow, and who provides what."
+image: ../images/highway-74-downtown.jpg
+imageAlt: "Highway 74 through downtown Evergreen in July 2016, the Little Bear's log porch and bear sign on the left and storefronts running down the street"
+imageCredit: "Chris Light, Wikimedia Commons, CC BY-SA 4.0"
 updated: "2026-10-06"
 ---
 

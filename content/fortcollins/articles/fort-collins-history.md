@@ -4,6 +4,9 @@ date: "2026-10-01"
 excerpt: "A cavalry camp moved out of a flood in 1864, a town incorporated in 1873, a college that became CSU, a sugar factory, a streetcar, a liquor ban from 1896 to 1969, an Old Town on the National Register and the breweries. The short history of Fort Collins, each claim resting on a source."
 category: "History"
 tags: [history]
+image: ../images/downtown-aerial-1929.jpg
+imageAlt: "Archival aerial photograph of downtown Fort Collins in June 1929, looking east: the angled Old Town blocks, the trolley-line streets and the railway yards"
+imageCredit: "Archival photograph, June 1929. CSU University Historic Photograph Collection, Wikimedia Commons, public domain"
 verified: "2026-10-01"
 sources:
   - { label: "City of Fort Collins: Fort Collins Area Histories", url: "https://history.fcgov.com/explore/city-history" }

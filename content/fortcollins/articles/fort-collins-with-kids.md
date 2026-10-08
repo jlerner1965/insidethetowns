@@ -4,6 +4,9 @@ date: "2026-10-01"
 excerpt: "Where to take children in Fort Collins: the Museum of Discovery and its dome, the Gardens on Spring Creek, the farm at Lee Martinez Park, City Park and its pool, the Spring Creek and Poudre trails, storytimes at three libraries, and the swim beaches and trails at Horsetooth, with hours and prices from each operator."
 category: "Families"
 tags: [families, kids, outdoors, guide]
+image: ../images/horsetooth-inlet-bay.jpg
+imageAlt: "Inlet Bay on the west side of Horsetooth Reservoir from the hills above, the marina's docks below green hillsides, June 2021"
+imageCredit: "Lvaughn7, Wikimedia Commons, CC BY-SA 4.0"
 verified: "2026-10-01"
 sources:
   - { label: "Fort Collins Museum of Discovery: hours, location and admission", url: "https://fcmod.org/hours-location-admission/" }

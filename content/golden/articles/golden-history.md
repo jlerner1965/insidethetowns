@@ -4,6 +4,9 @@ date: "2026-10-07"
 excerpt: "Ute, Arapaho and Cheyenne homeland, Golden City in 1859, a territorial capital that went to Denver by one vote, the Colorado Central, Coors, the School of Mines, Buffalo Bill's grave, a solar lab and a town that kept its old buildings. The short history of Golden, with sources."
 category: "History"
 tags: [history]
+image: ../images/golden-1868.jpg
+imageAlt: "Archival photograph: Golden in 1868, a scatter of buildings on the flat below the mesas"
+imageCredit: "Archival photograph, 1868. Arundel C. Hull, Wikimedia Commons, public domain"
 verified: "2026-10-07"
 sources:
   - { label: "Golden History Museum & Park: Walking Tour of Historical Points of Golden", url: "https://www.goldenhistory.org/learn-do/walkingtour/" }

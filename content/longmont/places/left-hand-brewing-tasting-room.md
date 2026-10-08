@@ -10,6 +10,9 @@ summary: "Left Hand's Longmont tasting room has poured beer on Boston Avenue sin
 verified: "2026-10-04"
 added: "2026-10-04"
 verifiedBy: "James Lerner"
+image: ../images/left-hand-brewing-tasting-room.jpg
+imageAlt: "Left Hand Brewing's tasting room on Boston Avenue in light snow, November 2014: a two-storey wood-sided building with the brewery's red sign and three white silos behind"
+imageCredit: "NE Ent, Wikimedia Commons, CC BY-SA 4.0"
 ---
 
 Three rotating tap walls cover year-round, seasonal, barrel-aged and taproom-only beers, plus cider, wine, local canned cocktails and non-alcoholic options. The MF Bacon food truck serves every day during tasting room hours, trivia is Wednesdays at 6:30 pm, and brewery tours are offered. Kids are welcome; dogs are allowed only on the west patio, or next door in the seasonal Garden (1245 Boston Ave), open Friday afternoon to Sunday, weather permitting.

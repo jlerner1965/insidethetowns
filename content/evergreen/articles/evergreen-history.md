@@ -4,6 +4,9 @@ date: "2026-10-07"
 excerpt: "Thomas Bergen's cabin of 1859, a post office in 1875 or 1876, Camp Neosho and the Douglases, a music conference since 1907, Denver's mountain parks and the 1927–28 dam, Hiwan Ranch, the 1950s commuters and the old buildings saved. The short history of Evergreen, Colorado, with sources."
 category: "History"
 tags: [history]
+image: ../images/humphrey-house.jpg
+imageAlt: "The Humphrey House at 620 South Soda Creek Road in March 2014, a log ranch house with green trim, listed on the National Register of Historic Places"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 3.0"
 verified: "2026-10-07"
 sources:
   - { label: "Jefferson County: Hiwan Heritage Park (history)", url: "https://www.jeffco.us/1251/Hiwan-Heritage-Park" }

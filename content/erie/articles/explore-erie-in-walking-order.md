@@ -4,6 +4,9 @@ date: "2026-10-07"
 excerpt: "Park once at Coal Creek Park, walk a stretch of the creek trail, then Town Hall, the Briggs Street shops and a meal on the block. On a Monday, three of the dinner places are closed; the alternatives are here."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
+image: ../images/town-hall-lincoln-school.jpg
+imageAlt: "Erie Town Hall, the former Lincoln School, in October 2019: a red-brick schoolhouse with a hipped roof and a newer wing"
+imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 verified: "2026-10-07"
 glance:
   start: "Coal Creek Park lot on Kattell Street, with EV charging and limited street parking; everything is a few blocks from it"

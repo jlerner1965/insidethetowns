@@ -1,4 +1,5 @@
 ---
+import { getImage, Image } from 'astro:assets';
 import { render } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import ContentsList from '@/components/ContentsList.astro';
@@ -18,6 +19,11 @@ const { listingsLinks, schoolDistrict, commuteNotes } = town.movingHere;
 const { countySplit } = town;
 const hub = getNetworkHub();
 const others = liveTowns().length - 1;
+// The page's photograph, shown as an article's is. It sat in the frontmatter
+// and on /credits/ without appearing here, and every share preview fell back
+// to the hero.
+const image = page?.data.image;
+const shareImage = image ? (await getImage({ src: image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
 ---
 <Page
   title={page?.data.title ?? `Moving to ${town.name}`}
@@ -25,7 +31,17 @@ const others = liveTowns().length - 1;
   eyebrow="Moving here"
   intro={page?.data.description}
   description={page?.data.description ?? `Schools, commutes, housing and what to expect when you move to ${town.name}, ${town.state}.`}
+  image={shareImage}
+  imageAlt={page?.data.imageAlt}
 >
+  {image && (
+    <figure class:list={['mb-12', image.width < 1000 && 'max-w-2xl']}>
+      <Image src={image} alt={page?.data.imageAlt ?? ''} width={1600} height={900} class:list={['w-full rounded-lg object-cover', image.width >= 1000 && 'lg:h-[32rem]!']} />
+      {page?.data.imageCredit && (
+        <figcaption class="mt-2 text-[0.8125rem] text-ink-faint">Photo: {page.data.imageCredit}</figcaption>
+      )}
+    </figure>
+  )}
   {/*
     On a phone: the facts (county, schools, commute), then the contents, then
     the guide, then the listings links. They came after the whole guide,

@@ -4,6 +4,9 @@ date: "2026-10-07"
 excerpt: "The Community Center's leisure pool and its rules, The Splash in summer, Discovery Park's dinosaur dig, the library's storytimes, trains, free museums, Lookout Mountain's nature center and this fall's Halloween and holiday dates. Where to go with children in Golden."
 category: "Families"
 tags: [families, kids, playgrounds, guide]
+image: ../images/rio-grande-683.jpg
+imageAlt: "Rio Grande No. 683, a black steam locomotive, on display at the Colorado Railroad Museum in Golden, June 2026"
+imageCredit: "Emperor Gibus the 3rd, Wikimedia Commons, CC0"
 verified: "2026-10-07"
 sources:
   - { label: "City of Golden: Golden Community Center", url: "https://www.cityofgolden.gov/community/golden_community_center/index.php" }

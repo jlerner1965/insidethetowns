@@ -4,6 +4,9 @@ date: "2026-10-07"
 excerpt: "Boat rentals in summer and on weekends after Labor Day, the Stagecoach Park shuttle, skating when the hotline says the ice is in, the 1.3-mile trail, fishing with a state license and the lake rules. What the recreation district runs at Denver's lake, season by season."
 category: "Outdoors"
 tags: [outdoors, lake, boating, ice-skating, fishing, guide]
+image: ../images/evergreen-lake-ice-skating.jpg
+imageAlt: "Skaters on frozen Evergreen Lake on 28 December 2010, seen past a roadside guardrail, with forested hills behind"
+imageCredit: "Jacob Montgomery, Wikimedia Commons, CC BY-SA 3.0"
 verified: "2026-10-07"
 sources:
   - { label: "Evergreen Park & Recreation District: Evergreen Lake", url: "https://www.evergreenrecreation.com/evergreen-lake" }

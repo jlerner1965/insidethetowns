@@ -1,6 +1,9 @@
 ---
 title: "Moving to Estes Park"
 description: "Estes Park, Colorado: a Larimer County town of about 5,900 at the 2020 census, at the east entrance to Rocky Mountain National Park. Schools, roads, utilities, fire."
+image: ../images/big-thompson-river-downtown.jpg
+imageAlt: "The Big Thompson River running between boulder banks through downtown Estes Park in October 2020, the Riverwalk railing and buildings at the upper left"
+imageCredit: "G. Lamar, Wikimedia Commons, CC BY 2.0"
 updated: "2026-10-06"
 ---
 

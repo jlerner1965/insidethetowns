@@ -4,6 +4,9 @@ date: "2026-10-07"
 excerpt: "Where to take children in Estes Park, Colorado: the national park's free Junior Ranger books and easy lake loops, the elk rules, the community center's pools and Cubz Den, Stanley Park's playground and skate park, Lake Estes boats, the tram, and the library's storytimes, with fall dates."
 category: "Families"
 tags: [families, kids, playgrounds, outdoors, guide]
+image: ../images/lake-estes.jpg
+imageAlt: "Lake Estes from the south shore path in May 2018, the water deep blue, the lakeside buildings and the mountains north of town beyond"
+imageCredit: "Sarbjit Bahga, Wikimedia Commons, CC BY-SA 4.0"
 verified: "2026-10-07"
 sources:
   - { label: "National Park Service: Kids & Youth (Rocky Mountain National Park)", url: "https://www.nps.gov/romo/learn/kidsyouth/index.htm" }

@@ -8,6 +8,9 @@ source: "https://www.fs.usda.gov/r02/arp/recreation/lion-gulch-trailhead"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/lion-gulch-trail.jpg
+imageAlt: "Yellow aspens along the Lion Gulch Trail, which climbs from the trailhead on US 36 through Roosevelt National Forest, October 2011"
+imageCredit: "USDA Forest Service, Wikimedia Commons, CC BY 2.0"
 tags: [national-forest, hiking, history, dogs-on-leash, no-fee]
 summary: "Forest Service trailhead on US 36 between Estes Park and Lyons for the Lion Gulch Trail to Homestead Meadows, where eight homesteads were settled between 1889 and 1923. No fee; dogs on a hand-held leash."
 access: { parking: "The lot holds about 35 vehicles; vault toilet, no drinking water.", permit: "No fee for this site.", conditionsUrl: "https://www.fs.usda.gov/r02/arp/alerts", conditionsLabel: "Arapaho and Roosevelt National Forests alerts", source: "https://www.fs.usda.gov/r02/arp/recreation/lion-gulch-trailhead", verified: "2026-10-06" }

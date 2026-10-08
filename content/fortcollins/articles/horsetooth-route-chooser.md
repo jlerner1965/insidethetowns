@@ -4,6 +4,9 @@ date: "2026-10-07"
 excerpt: "Horsetooth Mountain Open Space sorted out before you drive up County Road 38E: the Larimer County entrance permit and what it costs, the main trailhead and Soderberg and their hours, the County's own distances for the Rock and the Falls, the Audra Culver loop, the Blue Sky connection, parking, dogs and e-bikes."
 category: "Outdoors"
 tags: [outdoors, hiking, mountain-biking, horsetooth, guide]
+image: ../images/horsetooth-falls-trail.jpg
+imageAlt: "The Horsetooth Falls Trail winding down green slopes into Spring Creek Canyon in Horsetooth Mountain Open Space, June 2021"
+imageCredit: "Lvaughn7, Wikimedia Commons, CC BY-SA 4.0"
 verified: "2026-10-07"
 sources:
   - { label: "Larimer County: Horsetooth Mountain Open Space", url: "https://www.larimer.gov/naturalresources/parks/horsetooth-mountain" }

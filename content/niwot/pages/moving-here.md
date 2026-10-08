@@ -1,6 +1,9 @@
 ---
 title: "Moving to Niwot"
 description: "What it is like to live in an unincorporated town of about 4,300 at the 2020 census, between Boulder and Longmont: housing, schools, the commute, who provides the water and the fire trucks, and the November 2026 vote that could change all of it."
+image: ../images/second-avenue-street.jpg
+imageAlt: "Second Avenue in old-town Niwot on an August morning in 2017: the Niwot Tribune building with its shingled awning and hanging flowers, and a row of brick and painted storefronts down the block"
+imageCredit: "Jeffrey Beall, Flickr, CC BY-SA 2.0"
 updated: "2026-10-02"
 ---
 

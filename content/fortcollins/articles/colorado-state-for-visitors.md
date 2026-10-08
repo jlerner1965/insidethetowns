@@ -4,6 +4,9 @@ date: "2026-10-03"
 excerpt: "How to see the campus that is the biggest thing in Fort Collins: the tour from the Oval, where to park, what a game day at Canvas Stadium or Moby asks of you, the two free museums, and the weekends to book a hotel early."
 category: "Campus"
 tags: [campus, csu, guide]
+image: ../images/csu-oval.jpg
+imageAlt: "The Oval at Colorado State University in September 2011, a walk under rows of old elms with the Administration Building at the far end"
+imageCredit: "Spilly816, Wikimedia Commons, CC BY-SA 3.0"
 verified: "2026-10-03"
 sources:
   - { label: "CSU: fall 2025 enrollment", url: "https://newsmediarelations.colostate.edu/2025/10/09/all-csu-system-universities-grew-enrollment-in-fall-2025/" }
