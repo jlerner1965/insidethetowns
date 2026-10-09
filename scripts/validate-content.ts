@@ -180,8 +180,8 @@ function validateFile(collection: CollectionName, file: string, town: string, st
     }
   }
   if (collection === 'events') {
-    const data = result.data as { start: Date; end?: Date; until?: Date; title: string };
-    const end = data.until ?? data.end ?? data.start;
+    const data = result.data as { start: Date; end?: Date; until?: Date; performances?: { start: Date }[]; title: string };
+    const end = data.performances?.at(-1)?.start ?? data.until ?? data.end ?? data.start;
     if (end.getTime() < Date.now() - 86_400_000) {
       // Not a call to delete it: the page stays reachable, carries noindex and
       // is out of the sitemap, all of which happens on its own. This is an

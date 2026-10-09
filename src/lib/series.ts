@@ -11,8 +11,8 @@
  * occurrence that recedes further into the past every month, while the
  * occurrence a reader could actually attend carries noindex and is missing
  * from the sitemap. Three series across the network were in that state. The
- * canonical occurrence is therefore the soonest one that has not happened yet,
- * and only when the whole series is over does it fall back to the most recent,
+ * canonical occurrence is therefore the soonest one that is still on or to
+ * come, and only when the whole series is over does it fall back to the most recent,
  * so a finished series stays reachable instead of vanishing entirely.
  *
  * The rule lives here, in one place, because two callers need it at different
@@ -30,7 +30,11 @@ export interface Occurrence {
   key: string;
   /** Denver calendar day the occurrence starts, "2026-10-03". */
   startDay: string;
-  /** Last Denver day it is on, inclusive. Equal to startDay for a one-day event. */
+  /**
+   * Last Denver day it is on, inclusive, across every date the file has: the
+   * last week of a weekly repeat, a production's closing show. Equal to
+   * startDay for a one-day event.
+   */
   lastDay: string;
   /** Called off or postponed: not the occurrence to send a searcher to. */
   canceled?: boolean;
@@ -42,9 +46,10 @@ export interface Occurrence {
  * `todayKey` is a Denver day string so it compares directly against
  * `startDay`; an occurrence today still counts as upcoming.
  */
-/** Only the three fields the choice actually turns on, so callers that have
- *  parsed entries rather than raw markdown need not synthesise the rest. */
-type Candidate = Pick<Occurrence, 'slug' | 'key' | 'startDay'> & Partial<Pick<Occurrence, 'canceled'>>;
+/** Only the fields the choice actually turns on, so callers that have
+ *  parsed entries rather than raw markdown need not synthesise the rest.
+ *  Without `lastDay`, a file is taken to be on for its start day alone. */
+type Candidate = Pick<Occurrence, 'slug' | 'key' | 'startDay'> & Partial<Pick<Occurrence, 'canceled' | 'lastDay'>>;
 
 export function pickCanonical(occurrences: Iterable<Candidate>, todayKey: string): Map<string, string> {
   const series = new Map<string, Candidate[]>();
@@ -60,8 +65,11 @@ export function pickCanonical(occurrences: Iterable<Candidate>, todayKey: string
     list.sort((a, b) => a.startDay.localeCompare(b.startDay) || a.slug.localeCompare(b.slug));
     // The soonest a reader could attend: a canceled meeting is skipped for
     // the one after it, and is the indexed page only when nothing else is.
-    const next =
-      list.find((o) => o.startDay >= todayKey && !o.canceled) ?? list.find((o) => o.startDay >= todayKey);
+    // "Could attend" is still on, not yet started: Lyons' Wayback karaoke is
+    // one file through December 4 and another from December 11, and the
+    // one running now was the repeat (fresh audit, 9 October 2026).
+    const on = (o: Candidate) => (o.lastDay ?? o.startDay) >= todayKey;
+    const next = list.find((o) => on(o) && !o.canceled) ?? list.find(on);
     canonical.set(key, (next ?? list[list.length - 1]!).slug);
   }
   return canonical;
@@ -91,9 +99,47 @@ export function lastDayOf(start: string, end: string, allDay: boolean): string {
   return day;
 }
 
+/**
+ * The last Denver day a listing is on across every date it has, from its raw
+ * frontmatter: the last week of a weekly repeat, the closing show of a
+ * production, otherwise `lastDayOf`.
+ *
+ * Mirrors finalDay() in lib/events.ts. Every sitting is as long as the
+ * first, so the last one ends as far after its start as the first did; the
+ * arithmetic is on wall-clock strings, which is what the parsed version
+ * steps by too.
+ */
+export function finalDayOf(
+  start: string,
+  end: string,
+  allDay: boolean,
+  { repeat = '', until = '', performances = [] }: { repeat?: string; until?: string; performances?: string[] } = {},
+): string {
+  const naive = (s: string) => Date.parse(`${s.length > 10 ? s.slice(0, 16) : `${s.slice(0, 10)}T00:00`}:00Z`);
+  const DAY = 86_400_000;
+  let lastStart = start;
+  if (performances.length > 0) lastStart = performances[performances.length - 1]!;
+  else if (repeat === 'weekly' && until) {
+    const weeks = Math.floor((naive(until.slice(0, 10)) - naive(start.slice(0, 10))) / (7 * DAY));
+    lastStart = new Date(naive(start) + weeks * 7 * DAY).toISOString().slice(0, start.length > 10 ? 16 : 10);
+  }
+  if (lastStart === start) return lastDayOf(start, end, allDay);
+  const lastEnd = end ? new Date(naive(lastStart) + naive(end) - naive(start)).toISOString().slice(0, end.length > 10 ? 16 : 10) : '';
+  return lastDayOf(lastStart, lastEnd, allDay);
+}
+
 function field(frontmatter: string, name: string): string {
   const m = frontmatter.match(new RegExp(`^${name}:\\s*"?([^"\\n]+)"?\\s*$`, 'm'));
   return m ? m[1].trim() : '';
+}
+
+/**
+ * The show starts in a raw `performances:` block, written inline or as a
+ * list, plain or with a note: every "2026-10-09T19:30" in it, in order.
+ */
+export function performanceStarts(frontmatter: string): string[] {
+  const m = frontmatter.match(/^performances:([^\n]*(?:\n(?:[ \t]+|-\s)[^\n]*)*)/m);
+  return m ? [...m[1]!.matchAll(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/g)].map((x) => x[0]) : [];
 }
 
 /** Every occurrence in a town's events folder, read straight from the markdown. */
@@ -118,7 +164,11 @@ export function readOccurrences(town: string, contentRoot = 'content'): Occurren
       slug: file.slice(0, -3),
       key: `${title}|${venue}`,
       startDay: start.slice(0, 10),
-      lastDay: lastDayOf(start, end, allDay),
+      lastDay: finalDayOf(start, end, allDay, {
+        repeat: field(fm[1], 'repeat'),
+        until: field(fm[1], 'until'),
+        performances: performanceStarts(fm[1]),
+      }),
       canceled: status === 'canceled' || status === 'postponed',
     });
   }

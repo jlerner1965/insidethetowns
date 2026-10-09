@@ -133,6 +133,22 @@ export function buildIcs(
   return lines.map(fold).join('\r\n') + '\r\n';
 }
 
+/** A show's key, "20261017T1300": the name of its own .ics file, and what tells two shows on one day apart. */
+export function showKey(start: Date): string {
+  return icsLocal(start).slice(0, 13);
+}
+
+/**
+ * The UID a calendar keeps for one occurrence. The feed and the single-event
+ * files give the same one, so a reader who has both does not get it twice.
+ * A production's matinee and evening show are two events on one day, so its
+ * UID carries the time; everything else keeps the day, as it always has, so
+ * subscribers' calendars do not see their events replaced.
+ */
+export function occurrenceUid(slug: string, data: { start: Date; performances?: readonly unknown[] }, domain: string): string {
+  return `${slug}-${data.performances?.length ? showKey(data.start) : dayKey(data.start)}@${domain}`;
+}
+
 /**
  * A "save to Google Calendar" link for one event. No script and no widget:
  * Google's template URL takes the same fields the .ics carries, as Denver

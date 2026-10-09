@@ -9,9 +9,8 @@
 import type { APIRoute } from 'astro';
 import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
-import { dayKey } from '@/lib/dates';
 import { exportWhen, nextOccurrence } from '@/lib/events';
-import { buildIcs } from '@/lib/ics';
+import { buildIcs, occurrenceUid } from '@/lib/ics';
 
 export async function getStaticPaths() {
   const events = await getTownEntries('events');
@@ -27,7 +26,7 @@ export const GET: APIRoute = async ({ props, site }) => {
   const body = buildIcs(
     [
       {
-        uid: `${event.slug}-${dayKey(data.start)}@${town.domain}`,
+        uid: occurrenceUid(event.slug, data, town.domain),
         title: data.title,
         ...exportWhen(next),
         location: [data.venue, data.address, `${town.name}, CO`].filter(Boolean).join(', '),

@@ -17,7 +17,7 @@ sources:
   - { label: "Boulder County Parks & Open Space: Hessie Trailhead and Hessie Shuttle", url: "https://bouldercounty.gov/open-space/parks-and-trails/hessie-trailhead/" }
   - { label: "Carousel of Happiness: Visit the Carousel", url: "https://carouselofhappiness.org/visit-the-carousel/" }
 related:
-  - { label: "Before you drive to Hessie: parking, the shuttle, and conditions", href: "/articles/before-you-drive-to-hessie/", note: "The Indian Peaks trailhead is a day of its own; this is how its parking and shuttle worked in 2026." }
+  - { label: "Before you drive to Hessie: parking, the shuttle, and conditions", href: "/articles/before-you-drive-to-hessie/", note: "The Indian Peaks trailhead is a day of its own; this is how its parking and its 2026 shuttle work." }
   - { label: "Mud Lake Open Space", href: "/places/mud-lake-open-space/", note: "The county's trail map, parking count and rules for the one trail stop on this page." }
   - { label: "Carousel of Happiness", href: "/places/carousel-of-happiness/", note: "The listing, with the ride prices and the days it is closed." }
 ---

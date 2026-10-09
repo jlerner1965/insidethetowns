@@ -73,6 +73,25 @@ the town"; the date list above holds the one-time events and the town meetings
 (under Civic). A series stored as one file per date counts as weekly once it has
 three dates on the same weekday.
 
+A production that plays more than once (a play's nine shows, a touring act's two
+nights) is one file with `performances`: every show's start, in order, with `start`
+set to the first.
+
+```yaml
+start: "2026-10-09T19:00"
+performances:
+  - { start: "2026-10-09T19:00", note: "sold out" }   # a show's own note, from the box office
+  - "2026-10-10T19:00"
+  - "2026-10-11T13:00"
+```
+
+Each show then appears on its own day with its own calendar entry and structured
+data, and the page stays indexed until the closing show. Leave out `end` unless the
+organizer gives a running time (it then closes the first show and sets every show's
+length), and leave out `allDay`, `timeNote` and `recurring`: the performances are the
+times. A separately ticketed second night of the same show is a performance, not a
+second file. A run whose box office gives no show times stays a run of whole days.
+
 ## Place
 
 ```yaml
