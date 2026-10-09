@@ -1,10 +1,17 @@
 ---
 title: "Before you drive to Hessie: parking, the shuttle, and conditions"
 date: "2026-10-07"
-excerpt: "The Hessie Trailhead beyond Eldora has a dirt road, almost no parking and $50 fines on Fourth of July Road. How the free Boulder County shuttle worked in 2026, the trails and their distances, the Indian Peaks Wilderness rules, and where to check the road and fire status before you go."
+excerpt: "The Hessie Trailhead beyond Eldora has a dirt road, almost no parking and $50 fines on Fourth of July Road. How the free Boulder County shuttle works through its last day, October 11, 2026, the trails and their distances, the Indian Peaks Wilderness rules, and where to check the road and fire status before you go."
 category: "Outdoors"
 tags: [outdoors, hiking, indian-peaks, shuttle, guide]
 verified: "2026-10-07"
+# The shuttle runs through Sunday, October 11. From the 12th the page says
+# the season is over, at the top, whether or not a rebuild happened that night
+# (fresh audit, 9 October 2026: the article had closed the season early).
+supersededAfter: "2026-10-12"
+supersededNote: "The 2026 Hessie Shuttle season ended on Sunday, October 11. The schedule below is the 2026 one; the county has not yet published dates for 2027."
+supersededSource: "https://bouldercounty.gov/open-space/parks-and-trails/hessie-trailhead/"
+supersededSourceLabel: "Boulder County's Hessie Trailhead page will post the next season"
 sources:
   - { label: "Boulder County: Hessie Trailhead and Hessie Shuttle", url: "https://bouldercounty.gov/open-space/parks-and-trails/hessie-trailhead/" }
   - { label: "Arapaho and Roosevelt National Forests: Hessie Trailhead", url: "https://www.fs.usda.gov/r02/arp/recreation/hessie-trailhead" }
@@ -30,13 +37,13 @@ If you do want to drive, the county lists alternatives it would rather send you 
 
 ## The Hessie Shuttle
 
-The county's shuttle runs between Nederland and the trailhead on weekend days and holidays through the hiking season, free, with no ticket or reservation. In 2026 it ran Fridays, Saturdays, Sundays and holidays from May 22 through October 11, 6 am–6 pm. The county extended a few evenings to 8 pm: the Sundays of Memorial Day and Labor Day weekends, and Friday, July 3. It also ran on the Monday holidays and on Juneteenth.
+The county's shuttle runs between Nederland and the trailhead on weekend days and holidays through the hiking season, free, with no ticket or reservation. In 2026 it runs Fridays, Saturdays, Sundays and holidays from May 22 through Sunday, October 11, 6 am–6 pm, so the weekend of October 9 to 11 is its last. Earlier in the season the county extended a few evenings to 8 pm (the Sundays of Memorial Day and Labor Day weekends, and Friday, July 3) and ran on the Monday holidays and on Juneteenth.
 
-The pickup moved with the day of the week. On Fridays the shuttle left from the Nederland Park-n-Ride; on Saturdays, Sundays and holidays it left from Nederland High School, 597 Colorado 130. Buses departed every 15 minutes, the ride took about 10 minutes, and leashed dogs were allowed aboard. The shuttle stopped only at Hessie; it did not go up to the [Fourth of July Trailhead](/places/fourth-of-july-trailhead/).
+The pickup moves with the day of the week. On Fridays the shuttle leaves from the Nederland Park-n-Ride; on Saturdays, Sundays and holidays it leaves from Nederland High School, 597 Colorado 130. Buses depart every 15 minutes, the ride takes about 10 minutes, and leashed dogs are allowed aboard. The shuttle stops only at Hessie; it does not go up to the [Fourth of July Trailhead](/places/fourth-of-july-trailhead/).
 
-The county also pointed out that you do not need to drive up Boulder Canyon at all: RTD's NB bus runs hourly from Boulder to Nederland High School, with free weekend parking at Downtown Boulder Station and the Boulder County Justice Center, and connects to the shuttle there. The county listed the NB fare as $2.75 for adults, free for riders 19 and under, and $1.35 for seniors and people with disabilities.
+The county also points out that you do not need to drive up Boulder Canyon at all: RTD's NB bus runs hourly from Boulder to Nederland High School, with free weekend parking at Downtown Boulder Station and the Boulder County Justice Center, and connects to the shuttle there. The county lists the NB fare as $2.75 for adults, free for riders 19 and under, and $1.35 for seniors and people with disabilities.
 
-The 2026 season has ended. The county's [Hessie Trailhead page](https://bouldercounty.gov/open-space/parks-and-trails/hessie-trailhead/) is where next year's dates, hours and pickup points will be posted; shuttle questions go to transit@bouldercounty.gov.
+After October 11 there is no shuttle until next season, and the county's [Hessie Trailhead page](https://bouldercounty.gov/open-space/parks-and-trails/hessie-trailhead/) is where next year's dates, hours and pickup points will be posted; shuttle questions go to transit@bouldercounty.gov.
 
 ### Backpackers and overnight parking
 

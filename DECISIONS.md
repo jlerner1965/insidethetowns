@@ -4118,3 +4118,107 @@ left the open calls to the editor.
   `carbon-valley-regional-library.jpg` sits on the kids' article, and
   Patios in Niwot has none while two patio photographs sit on one listing
   each.
+
+## The 9 October fresh audit: the Hessie season, productions, one rule for "over"
+
+*9 October 2026.* The fresh public audit (Inside the Towns Fresh Network
+Audit, 9 October 2026, crawled the day before) rechecked the forty-three
+findings of 7 October, found most corrected, and raised nine new ones,
+N01–N09. The owner left the calls in this pass to the editor. It takes the
+seven that are code or content (N01–N07); N08 and N09 are the owner's.
+Each was traced to its cause in the repository first, and two causes turned
+out to reach further than the audit could see from outside.
+
+- **N01, Hessie.** "Before you drive to Hessie" said on 7 October that the
+  2026 season had ended. Boulder County's page, read again today, runs the
+  free shuttle Fridays to Sundays through October 11, so the article was
+  sending readers away from its last weekend. The shuttle section is back
+  in the present tense and names October 9 to 11 as the last weekend, and
+  the article carries `supersededAfter: 2026-10-12` with a note that the
+  season ended on the 11th, so the change of state happens on the day
+  without an edit or a rebuild. The mechanism already existed (the Niwot
+  election guide uses it); the article had been written as if the date had
+  passed. The Hessie listing already said "through October 11" and stands.
+- **N02 and N06, productions: one file, one page, every show.** A play's
+  nine shows were stored as one span, start to end, and exported as one
+  block: Sleepy Hollow as sixteen all-day days, Evergreen's Dracula as
+  seventeen, and the regional weekend list showed Dracula on its opening
+  Friday only. Events now take `performances`, every show's start in order,
+  `start` the first, with an optional note per show ("sold out").
+  `occurrences` expands them exactly as it expands a weekly repeat, so the
+  day lists, the weekend pages, the newsletter and the calendar feed carry
+  each show on its own day at its own time, sharing the page. The page
+  lists the shows still to come, each with its own Apple/Outlook file
+  (`/events/<slug>/<show>.ics`) and Google link, and its structured data is
+  an Event per show, as Google asks of separately ticketed performances.
+  The feed's UID for a show carries its time, because a matinee and an
+  evening show are two events on one day; every other listing keeps its
+  day-based UID so subscribers' calendars see no churn. Five runs are
+  converted from their box offices, read today: Sleepy Hollow (nine, with
+  opening night sold out), OpenStage's Dracula (twelve), Alice by Heart
+  (seven), Evergreen's Dracula (nine) and A Christmas Carol (four). Les
+  Misérables stays a run of whole days, because Candlelight publishes no
+  show times. The schema refuses a production with `allDay`, `repeat`,
+  `recurring` or a run-wide `timeNote`, a `start` that is not its first
+  show, shows out of order, or an `end` that spans the run.
+  *The N06 call:* separately ticketed nights of one show are performances
+  of one indexed page, not files competing as a "series" whose indexed URL
+  moves every night. Amy Bruni's two Stanley nights stay two files for now:
+  the shows are a week away, the second page becomes the indexed one after
+  the 15th on its own, and merging them would retire a URL that is live.
+  The next touring pair goes in as one file.
+- **N03, a fee is not a seat.** The price reader took every dollar figure
+  in a cost line, so "$30 adults, $25 seniors, $20 students, plus a $2
+  ticketing fee" was published as an offer from $2. Figures added with
+  "plus", ticketing, service, processing, booking and similar fees, and
+  suggested donations are now set aside before the range is read; an entry
+  or registration fee is still the price, and a free tier still puts zero
+  at the bottom of a range, as before. A line whose only figure is a
+  suggested donation is free to enter. Run against every cost line in the
+  repository, exactly three offers change: the two Evergreen Players shows
+  ($20–30 and $15–25) and Nederland's "$5 suggested donation" choir (now 0).
+- **N04, and the defect behind it: one rule for "over".** The page and the
+  sitemap disagreed about when an event is finished. The page's noindex
+  asked whether its end time had passed; the sitemap asked whether its last
+  day was before today. A class that ended at 11:45 was noindexed on the
+  page and still in that day's sitemap, which is the pair the audit found.
+  Behind that, both answered for the *first* date of a file only: a weekly
+  repeat's file is its first week, so each of the network's fifty-three
+  weekly series (storytimes, trivia, run clubs, bluegrass picks, all running
+  into late October or December) was taken for over once its first week had
+  passed, noindexed and missing from its sitemap; the hub's search left
+  them out too. And
+  `pickCanonical` chose the first file of a series that had not *started*,
+  so in Lyons the karaoke file running now through December 4 was the
+  noindexed repeat of the one starting December 11. Now `finalDay` reads
+  the last day of everything a file holds (a repeat's last week, a
+  production's closing show), `isOver` asks it by the Denver day, and the
+  page, the hub's search and the sitemap all use it; the sitemap's
+  raw-markdown reader (`finalDayOf`) is cross-checked against it for every
+  event in the repository, as before. The canonical file of a series is the
+  first one still on or to come. The audit's other instruction stands:
+  deliberate noindex pages stay out of the sitemap, and none were indexed
+  to make counts match. Checked in builds of Lyons, Fort Collins and
+  Evergreen: every event page's noindex agrees with its sitemap (267 pages,
+  no exceptions), and Lyons' sitemap gains the ten weekly series running
+  now, four of them in place of a later file of the same series.
+- **N05, the civic promise.** The About page and the editorial policy said
+  civic information is linked rather than paraphrased, while the Niwot and
+  Lyons civic guides summarize it. Both now say what the guides do: a
+  summary written here from the official records, linked to each, with the
+  record controlling wherever the two differ; notices, agendas and
+  official text are linked rather than reproduced.
+- **N07, the Census source.** The Fort Collins history cites the 1910
+  census for 8,210. The cited page (Volume 1, the national report) answers
+  200 today, so the audit's 404 did not reproduce; but the figure is in
+  Volume 2, Colorado, page 230, Table IV (places of 2,500 to 10,000), read
+  in the PDF today. The link now goes to Volume 2.
+- **Left to the owner, and why.** *N08, photographs* for the weakest
+  towns' promoted places: a rights and sourcing job, as the catalogs above
+  record. *N09, audience and sponsor proof*: Search Console, analytics,
+  confirmed-signup rate and a placement mockup cannot be made from the
+  repository. *Editorial recommendations not taken here*: shorter
+  headlines (Severance's history), one spelling style, lighter hero
+  overlays per image, the per-town content assignments and the pilot
+  cohort. These are judgment and production calls for the owner, not
+  defects.

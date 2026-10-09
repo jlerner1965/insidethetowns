@@ -21,7 +21,7 @@ import type { APIRoute } from 'astro';
 import { countyLabel, liveTowns, type TownConfig } from '@/config';
 import { getNetworkEntries, type NetworkEntry } from '@/lib/content';
 import { dayKey, formatDayLong, formatDayRange, formatMonthDay } from '@/lib/dates';
-import { isCanceled, isInProgress, isMultiDay, isPast, nextOccurrence } from '@/lib/events';
+import { finalDay, isCanceled, isInProgress, isMultiDay, isOver, nextOccurrence } from '@/lib/events';
 import { escapeHtml, plainText, recordHtml, type NetworkRecord } from '@/lib/network-search';
 import { pickCanonical } from '@/lib/series';
 import { subTownList } from '@/lib/sub-towns';
@@ -125,10 +125,10 @@ function indexedEvents(events: NetworkEntry<'events'>[]): NetworkEntry<'events'>
   const out: NetworkEntry<'events'>[] = [];
   for (const list of byTown.values()) {
     const canonical = pickCanonical(
-      list.map((e) => ({ slug: e.slug, key: `${e.data.title}|${e.data.venue}`, startDay: dayKey(e.data.start), canceled: isCanceled(e) })),
+      list.map((e) => ({ slug: e.slug, key: `${e.data.title}|${e.data.venue}`, startDay: dayKey(e.data.start), lastDay: finalDay(e), canceled: isCanceled(e) })),
       today,
     );
-    out.push(...list.filter((e) => canonical.get(`${e.data.title}|${e.data.venue}`) === e.slug && !isPast(e)));
+    out.push(...list.filter((e) => canonical.get(`${e.data.title}|${e.data.venue}`) === e.slug && !isOver(e)));
   }
   return out;
 }

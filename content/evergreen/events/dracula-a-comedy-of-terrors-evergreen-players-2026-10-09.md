@@ -1,7 +1,17 @@
 ---
 title: "Dracula: A Comedy of Terrors (Evergreen Players)"
 start: "2026-10-09T19:30"
-end: "2026-10-25T15:30"
+# Each show from the Players' box office, read 9 October 2026.
+performances:
+  - "2026-10-09T19:30"
+  - "2026-10-10T19:30"
+  - "2026-10-11T14:00"
+  - "2026-10-16T19:30"
+  - "2026-10-17T19:30"
+  - "2026-10-18T14:00"
+  - "2026-10-23T19:30"
+  - "2026-10-24T19:30"
+  - "2026-10-25T14:00"
 venue: "Center Stage Theater"
 address: "27608 Fireweed Dr, Evergreen, CO 80439"
 organizer: "Evergreen Players"
@@ -9,11 +19,9 @@ organizerUrl: "https://evergreenplayers.org/"
 url: "https://evergreenplayers.org/shows/dracula/"
 cost: "$30 adults, $25 seniors, $20 students, plus a $2 ticketing fee"
 category: arts
-recurring: "Nine performances, October 9 to 25"
-timeNote: "Fri and Sat 7:30 pm; Sun 2 pm"
 source: "https://app.arts-people.com/index.php?show=349728"
 sourceId: "evergreenplayers-org"
-verified: "2026-10-07"
+verified: "2026-10-09"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 

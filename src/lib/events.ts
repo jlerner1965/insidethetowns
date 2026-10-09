@@ -3,7 +3,7 @@
  * they can be unit-tested without Astro.
  */
 import type { CollectionEntry } from 'astro:content';
-import { TIME_ZONE, addDays, dayKey, formatDayRange, formatMonthDay, formatTimeRange, startOfDay } from './dates.ts';
+import { TIME_ZONE, addDays, dayKey, formatDayRange, formatMonthDay, formatTime, formatTimeRange, startOfDay } from './dates.ts';
 
 type EventLike = { data: CollectionEntry<'events'>['data']; slug?: string; id?: string };
 
@@ -17,36 +17,77 @@ export function isCanceled(event: { data: { status?: string } }): boolean {
 }
 
 /**
- * Expand weekly repeats into one entry per occurrence, up to `horizonDays`
- * ahead of `now`. Non-repeating events pass through untouched. Occurrences
- * share the source entry's slug, so they all link to the same page.
+ * Expand weekly repeats and productions into one entry per occurrence, up to
+ * `horizonDays` ahead of `now`. Everything else passes through untouched.
+ * Occurrences share the source entry's slug, so they all link to the same
+ * page.
  */
 export function occurrences<T extends EventLike>(
   events: T[],
   { now = new Date(), horizonDays = 120 }: { now?: Date; horizonDays?: number } = {},
 ): T[] {
   const horizon = addDays(startOfDay(now), horizonDays).getTime();
-  const out: T[] = [];
-  for (const event of events) {
-    const { repeat, until, start, end } = event.data;
-    if (repeat !== 'weekly' || !until) {
-      out.push(event);
-      continue;
-    }
-    // Step by wall-clock weeks, not 7×24 hours: a 6 pm Tuesday repeat stays
-    // at 6 pm Denver time across the November and March clock changes. The
-    // `until` day is inclusive (the schema's word), so a 7 pm session on that
-    // day is the last one, not the first one left out.
-    const duration = end ? end.getTime() - start.getTime() : 0;
-    const lastStart = addDays(startOfDay(until), 1).getTime();
-    for (let occStart = start; occStart.getTime() < lastStart && occStart.getTime() <= horizon; occStart = addDays(occStart, 7)) {
-      out.push({
-        ...event,
-        data: { ...event.data, start: occStart, end: end ? new Date(occStart.getTime() + duration) : undefined },
-      });
-    }
+  return sortByStart(events.flatMap((event) => expand(event, horizon)));
+}
+
+/**
+ * Every date one listing has, as entries of their own: each week of a weekly
+ * repeat through `until`, each show of a production, or the listing itself.
+ * `horizon` stops a long repeat; `finalDay` passes none, since it wants the
+ * last date however far off.
+ */
+function expand<T extends EventLike>(event: T, horizon = Infinity): T[] {
+  const { repeat, until, start, end, performances } = event.data;
+  // Each occurrence is as long as the first: `end` closes the first sitting.
+  const duration = end ? end.getTime() - start.getTime() : 0;
+  const at = (occStart: Date, timeNote = event.data.timeNote): T => ({
+    ...event,
+    data: { ...event.data, start: occStart, end: end ? new Date(occStart.getTime() + duration) : undefined, timeNote },
+  });
+  if (performances?.length) {
+    // A show's card says its own time, and its own note when the box office
+    // gives one: "7 pm; sold out", not the whole run's schedule.
+    return performances
+      .filter((p) => p.start.getTime() <= horizon)
+      .map((p) => at(p.start, p.note ? `${formatTime(p.start)}; ${p.note}` : undefined));
   }
-  return sortByStart(out);
+  if (repeat !== 'weekly' || !until) return [event];
+  // Step by wall-clock weeks, not 7×24 hours: a 6 pm Tuesday repeat stays
+  // at 6 pm Denver time across the November and March clock changes. The
+  // `until` day is inclusive (the schema's word), so a 7 pm session on that
+  // day is the last one, not the first one left out.
+  const out: T[] = [];
+  const lastStart = addDays(startOfDay(until), 1).getTime();
+  for (let occStart = start; occStart.getTime() < lastStart && occStart.getTime() <= horizon; occStart = addDays(occStart, 7)) {
+    out.push(at(occStart));
+  }
+  return out;
+}
+
+/**
+ * The last Denver day a listing is on across every date it has, as
+ * "2026-12-15": a weekly repeat's last week, a production's closing show,
+ * and otherwise `lastDay`.
+ *
+ * `lastDay` and `isPast` answer for one sitting, and a weekly repeat's file
+ * is its first sitting, so a trivia night running to December was taken for
+ * over after its first Tuesday: every weekly series in the network carried
+ * noindex and was missing from its sitemap (fresh audit, 9 October 2026).
+ */
+export function finalDay(event: EventLike): string {
+  return expand(event).reduce((last, e) => (lastDay(e) > last ? lastDay(e) : last), lastDay(event));
+}
+
+/**
+ * Whether a listing's page has anything left to offer: false while any date
+ * of it is today or later. This is the expired-event rule, and the page's
+ * noindex, the sitemap (through src/lib/series.ts, which reads the same
+ * thing from raw markdown) and the network search all ask it, by the Denver
+ * day, so a class that ended at 11:45 is not noindexed on the page while
+ * still in that day's sitemap (fresh audit, 9 October 2026).
+ */
+export function isOver(event: EventLike, now = new Date()): boolean {
+  return finalDay(event) < dayKey(now);
 }
 
 /** Keep the first entry per slug (or id), preserving order. */

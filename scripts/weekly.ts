@@ -87,9 +87,10 @@ function readCollection<T>(town: string, collection: string, schema: (file: stri
   return out;
 }
 
-/** End of the last occurrence: `until` for repeats (plus the event's duration), else end/start. */
+/** End of the last occurrence: a production's closing show or `until` for repeats (plus the event's duration), else end/start. */
 function lastEnd(e: EventData): Date {
   const duration = e.end ? e.end.getTime() - e.start.getTime() : e.allDay ? 86_400_000 : 0;
+  if (e.performances) return new Date(e.performances.at(-1)!.start.getTime() + duration);
   if (e.repeat === 'weekly' && e.until) {
     // The last occurrence starts on the last start-weekday at or before `until`.
     let t = e.start.getTime();
@@ -102,6 +103,7 @@ function lastEnd(e: EventData): Date {
 /** Number of occurrences that have not ended yet. */
 function upcomingOccurrences(e: EventData): number {
   const duration = e.end ? e.end.getTime() - e.start.getTime() : e.allDay ? 86_400_000 : 0;
+  if (e.performances) return e.performances.filter((p) => p.start.getTime() + duration >= today.getTime()).length;
   if (e.repeat === 'weekly' && e.until) {
     let n = 0;
     for (let t = e.start.getTime(); t <= e.until.getTime(); t += WEEK) if (t + duration >= today.getTime()) n++;
@@ -114,6 +116,9 @@ function upcomingOccurrences(e: EventData): number {
 function upcomingDays(e: EventData): string[] {
   const duration = e.end ? e.end.getTime() - e.start.getTime() : e.allDay ? 86_400_000 : 0;
   const days: string[] = [];
+  if (e.performances) {
+    return e.performances.filter((p) => p.start.getTime() + duration >= today.getTime()).map((p) => dayKey(p.start));
+  }
   if (e.repeat === 'weekly' && e.until) {
     for (let t = e.start.getTime(); t <= e.until.getTime(); t += WEEK) {
       if (t + duration >= today.getTime()) days.push(dayKey(new Date(t)));

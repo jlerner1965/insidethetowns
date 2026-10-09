@@ -1,9 +1,12 @@
 ---
 title: "Season's Readings: A Christmas Carol (Evergreen Players)"
-start: "2026-12-18"
-end: "2026-12-20"
-allDay: true
-timeNote: "Fri 7:30 pm; Sat 2 and 7:30 pm; Sun 2 pm"
+start: "2026-12-18T19:30"
+# Each show from the Players' box office, read 9 October 2026.
+performances:
+  - "2026-12-18T19:30"
+  - "2026-12-19T14:00"
+  - "2026-12-19T19:30"
+  - "2026-12-20T14:00"
 venue: "Center Stage Theater"
 address: "27608 Fireweed Dr, Evergreen, CO 80439"
 organizer: "Evergreen Players"
@@ -13,7 +16,7 @@ cost: "$25 adults, $20 seniors, $15 students and youth, plus a $2 fee"
 category: arts
 source: "https://app.arts-people.com/index.php?show=361862"
 sourceId: "evergreenplayers-org"
-verified: "2026-10-07"
+verified: "2026-10-09"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 

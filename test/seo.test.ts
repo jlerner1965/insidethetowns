@@ -95,6 +95,17 @@ test('an event\'s offer carries a number where the cost line gives one, and the 
   assert.deepEqual(offerPrice('Standard $25 / Resident $20'), { lowPrice: '20', highPrice: '25', priceCurrency: 'USD' });
   assert.equal(offerPrice('Ticketed; dinner included'), undefined, 'no figure, no number');
   assert.equal(offerPrice('Tickets from the Rams ticket office'), undefined);
+  // A fee is not a seat (fresh audit, 9 October 2026: Evergreen's Dracula
+  // was offered from $2).
+  assert.deepEqual(offerPrice('$30 adults, $25 seniors, $20 students, plus a $2 ticketing fee'), { lowPrice: '20', highPrice: '30', priceCurrency: 'USD' });
+  assert.deepEqual(offerPrice('$25 adults, $20 seniors, $15 students and youth, plus a $2 fee'), { lowPrice: '15', highPrice: '25', priceCurrency: 'USD' });
+  assert.deepEqual(offerPrice('$40; $3.50 service fee per ticket'), { price: '40', priceCurrency: 'USD' });
+  assert.deepEqual(offerPrice('$60, premier $70 (ticketing fee included)'), { lowPrice: '60', highPrice: '70', priceCurrency: 'USD' });
+  // An entry fee is the price; a donation is asked, not charged.
+  assert.deepEqual(offerPrice('$35 entry fee'), { price: '35', priceCurrency: 'USD' });
+  assert.deepEqual(offerPrice('$5 suggested donation'), { price: '0', priceCurrency: 'USD' });
+  assert.deepEqual(offerPrice('$12; suggested donation of $5 for children'), { price: '12', priceCurrency: 'USD' });
+  assert.equal(offerPrice('Ticketed; donations accepted at the door'), undefined, 'a donation with no figure says nothing of the ticket');
 
   const town = { kind: 'town', name: 'Erie', state: 'CO', domain: 'insideerie.com' } as never;
   const base = { title: 'Show', start: new Date('2026-12-30T18:00:00Z'), venue: 'Hall', category: 'arts', allDay: false, featured: false, tags: [] };

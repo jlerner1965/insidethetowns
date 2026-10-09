@@ -92,14 +92,29 @@ export function siteJsonLd(site: SiteConfig) {
  *
  * Google reads `price` and `priceCurrency` on an Event's offer; a text
  * description alone is not a price to it (follow-up audit, 8 October 2026).
+ *
+ * A figure that is not a ticket is not a tier. "$30 adults, $25 seniors, $20
+ * students, plus a $2 ticketing fee" was published as $2 to $30, so the
+ * structured data offered a $2 seat that does not exist (fresh audit, 9
+ * October 2026). Anything added on with "plus", a ticketing, service or
+ * processing fee, and a suggested donation are dropped before the range is
+ * read. A donation is asked, not charged, so a line that names only one is
+ * free to get into. An entry or registration fee is the price, and stays.
  */
+const SURCHARGE =
+  /\bplus\s+(?:an?\s+)?\$\s?\d+(?:\.\d{1,2})?(?:\s+[a-z-]+){0,2}|\$\s?\d+(?:\.\d{1,2})?\s+(?:[a-z-]+\s+)?(?:ticketing|service|processing|booking|convenience|handling|transaction|facility)\s+fees?\b/gi;
+const DONATION = /\$\s?\d+(?:\.\d{1,2})?\s+(?:suggested\s+)?donations?\b|\bsuggested\s+donation(?:\s+of)?\s+\$\s?\d+(?:\.\d{1,2})?/gi;
+
 export function offerPrice(
   cost: string,
 ): { price: string; priceCurrency: 'USD' } | { lowPrice: string; highPrice: string; priceCurrency: 'USD' } | undefined {
   const text = cost.trim();
   if (/^free\b/i.test(text)) return { price: '0', priceCurrency: 'USD' };
-  const amounts = [...text.matchAll(/\$\s?(\d+(?:\.\d{1,2})?)/g)].map((m) => Number(m[1]));
-  if (/\bfree\b/i.test(text)) amounts.push(0);
+  const charged = text.replace(SURCHARGE, ' ');
+  const admission = charged.replace(DONATION, ' ');
+  const amounts = [...admission.matchAll(/\$\s?(\d+(?:\.\d{1,2})?)/g)].map((m) => Number(m[1]));
+  // A suggested-donation figure and nothing else: free to get into.
+  if (/\bfree\b/i.test(admission) || (amounts.length === 0 && admission !== charged)) amounts.push(0);
   if (amounts.length === 0) return undefined;
   const low = Math.min(...amounts);
   const high = Math.max(...amounts);

@@ -159,6 +159,27 @@ const localDate = z.union([z.string(), z.date()]).transform((value, ctx) => {
   }
 });
 
+/** A Denver wall-clock start with its time, "2026-10-09T19:30": a show has a curtain time. */
+const localDateTime = z
+  .string()
+  .regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/, 'a performance needs its time, as "2026-10-09T19:30"')
+  .transform((value, ctx) => {
+    try {
+      return parseLocal(value);
+    } catch (err) {
+      ctx.addIssue({ code: 'custom', message: (err as Error).message });
+      return z.NEVER;
+    }
+  });
+
+/**
+ * One show of a production: its start, or its start with a note of its own
+ * ("Sold out") read off the box office.
+ */
+const performance = z
+  .union([localDateTime, z.object({ start: localDateTime, note: z.string().min(1).optional() }).strict()])
+  .transform((p) => (p instanceof Date ? { start: p } : p));
+
 const slug = z
   .string()
   .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'slug must be lowercase letters, numbers and hyphens')
@@ -232,6 +253,21 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
       /** The event happens every week on start's weekday, through `until` (inclusive). */
       repeat: z.enum(['weekly']).optional(),
       until: localDate.optional(),
+      /**
+       * Every show of a production that plays more than once: a play's nine
+       * performances, each a curtain time, in order. `start` is the first of
+       * them, and `end`, when the organizer gives one, closes the first and
+       * sets every show's length, as it does for a weekly repeat. The page,
+       * the day lists, the calendar files and the structured data then carry
+       * each show on its own day, where a start and an end had made the run
+       * one block from opening night to closing (fresh audit, 9 October 2026:
+       * Sleepy Hollow's nine shows exported as sixteen all-day days).
+       *
+       * One file and one page per production, indexed while any show is to
+       * come; a separately ticketed night is a performance, not a file. A
+       * show's own note ("Sold out") goes on that show.
+       */
+      performances: z.array(performance).min(2).optional(),
       /** Replaces the computed time range on cards, e.g. "Time to be confirmed" or "Doors 6 pm, music 7 pm". */
       timeNote: z.string().optional(),
       /**
@@ -273,6 +309,23 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
     .refine((e) => !e.until || (e.repeat && e.until.getTime() >= e.start.getTime()), {
       message: 'until requires repeat and must be at or after start',
       path: ['until'],
+    })
+    .refine((e) => !e.performances || (!e.allDay && !e.repeat && !e.recurring && !e.timeNote), {
+      message:
+        'performances are the times: not with allDay, repeat, recurring or timeNote (a show’s own note goes on that performance)',
+      path: ['performances'],
+    })
+    .refine((e) => !e.performances || e.performances[0]!.start.getTime() === e.start.getTime(), {
+      message: 'start must be the first performance',
+      path: ['start'],
+    })
+    .refine((e) => !e.performances || e.performances.every((p, i, all) => i === 0 || p.start.getTime() > all[i - 1]!.start.getTime()), {
+      message: 'performances must be in order, each once',
+      path: ['performances'],
+    })
+    .refine((e) => !e.performances || !e.end || e.end.getTime() - e.start.getTime() < 24 * 3_600_000, {
+      message: 'with performances, end closes the first show: one sitting, under 24 hours',
+      path: ['end'],
     })
     .refine((e) => !e.image || !!e.imageAlt, {
       message: 'imageAlt is required when image is set',
