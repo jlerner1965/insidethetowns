@@ -71,10 +71,10 @@ export const idahoSprings: TownConfig = {
     },
   ],
   colors: {
-    // Argo Mill rust: the red-brown of the mill above the creek, redder than Elizabeth's amber and brighter than Fort Lupton's brown. `npm run check-colors` is the gate.
-    accent: '#A2501C',
-    accentDark: '#6E3612',
-    neutralBg: '#F8F4EF',
+    // Burnished copper + river teal, on warm paper: Color System 2.0, 9 October 2026.
+    primary: '#87542F',
+    accent: '#2C7D83',
+    paper: 'warm',
   },
   hero: {
     image: 'hero.jpg',

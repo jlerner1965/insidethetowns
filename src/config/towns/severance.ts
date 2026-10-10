@@ -44,10 +44,10 @@ export const severance: TownConfig = {
   incorporated: 1920,
   population2010: 3165, // 2010 census, for census-to-census growth
   colors: {
-    // Prairie sage: a grey-green for the beet and grain country east of Windsor, greyer than Longmont's olive and Niwot's emerald. `npm run check-colors` is the gate.
-    accent: '#5F7F5B',
-    accentDark: '#3E5A3B',
-    neutralBg: '#F5F6F1',
+    // Prairie sage + wheat, on warm paper: Color System 2.0, 9 October 2026.
+    primary: '#526849',
+    accent: '#C4AC76',
+    paper: 'warm',
   },
   hero: {
     image: 'hero.jpg',

@@ -26,11 +26,10 @@ export const timnath: TownConfig = {
   population2010: 625, // 2010 census, for census-to-census growth
   character: 'A farm village that grew tenfold between the 2010 and 2020 censuses, mostly since the Costco.',
   colors: {
-    // Harvest gold on a wheat-white paper: potatoes, alfalfa and sugar beets were the
-    // town's business for a century. Distinct from the five other accents.
-    accent: '#A67A14',
-    accentDark: '#6C4F0C',
-    neutralBg: '#F7F4EC',
+    // Harvest olive-gold + reservoir blue, on warm paper: Color System 2.0, 9 October 2026.
+    primary: '#746023',
+    accent: '#638A96',
+    paper: 'warm',
   },
   hero: {
     image: 'sunrise.jpg',

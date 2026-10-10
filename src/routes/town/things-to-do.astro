@@ -47,7 +47,7 @@ const structured = [
       <ul class="mt-2 grid gap-1.5 text-[0.9375rem] leading-snug">
         {conditionsLinks.map((l) => (
           <li>
-            <a href={l.url} rel="noopener" class="font-semibold text-accent-text">{l.label}</a>
+            <a href={l.url} rel="noopener" class="font-semibold text-primary underline">{l.label}</a>
             {l.note && <span class="text-ink-muted"> — {l.note}</span>}
           </li>
         ))}

@@ -23,11 +23,11 @@ interface Props {
 
 const { days, more = [] } = Astro.props;
 const chip =
-  'inline-flex whitespace-nowrap items-baseline gap-1.5 rounded-md border border-line-soft bg-raised px-3 py-1.5 text-sm no-underline transition-colors hover:border-accent hover:text-accent-text';
+  'inline-flex whitespace-nowrap items-baseline gap-1.5 rounded-md border border-line-soft bg-raised px-3 py-1.5 text-sm no-underline transition-colors hover:border-primary hover:text-primary';
 ---
 {(days.length > 0 || more.length > 0) && (
   <nav aria-label="Jump to a day" class="filter-row mb-8 md:mb-10">
-    <span class="eyebrow text-ink-faint" aria-hidden="true">Jump to</span>
+    <span class="eyebrow text-ink-muted" aria-hidden="true">Jump to</span>
     <ul class="filter-pills">
       {days.map((day) => {
         const d = monthDay(day.date);

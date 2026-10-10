@@ -43,10 +43,10 @@ export const fortLupton: TownConfig = {
   incorporated: 1890,
   population2010: 7377, // 2010 census, for census-to-census growth
   colors: {
-    // Fort timber: a saddle brown for the 1836 trading post the city is named for, darker and less orange than Elizabeth's amber. `npm run check-colors` is the gate.
-    accent: '#7D5330',
-    accentDark: '#553820',
-    neutralBg: '#F8F5F0',
+    // Adobe brown + river green, on warm paper: Color System 2.0, 9 October 2026.
+    primary: '#835039',
+    accent: '#5E7D72',
+    paper: 'warm',
   },
   hero: {
     image: 'hero.jpg',

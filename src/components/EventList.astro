@@ -37,7 +37,7 @@ const stuck =
     {ongoing.length > 0 && (
       <section id="now-on" data-filter-group data-hide-when-empty class="scroll-mt-4 md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
         <h2 class={stuck}>
-          <span class:list={['display-md flex items-baseline gap-3 text-2xl text-accent-text md:block', compact ? 'md:text-[1.75rem]' : 'md:text-[2.25rem]']}>
+          <span class:list={['display-md flex items-baseline gap-3 text-2xl text-primary md:block', compact ? 'md:text-[1.75rem]' : 'md:text-[2.25rem]']}>
             <span class="eyebrow md:mb-2 md:block">Under way</span>
             <span class="md:block">Now on</span>
           </span>
@@ -54,7 +54,7 @@ const stuck =
            knows it is Saturday. On wide screens it sits in its own column and
            there is nothing to stick to. */}
         <h2 class={stuck}>
-          <time datetime={toIsoLocal(day.date)} class:list={['display-md flex items-baseline gap-3 text-2xl text-accent-text md:block', compact ? 'md:text-[1.75rem]' : 'md:text-[2.25rem]']}>
+          <time datetime={toIsoLocal(day.date)} class:list={['display-md flex items-baseline gap-3 text-2xl text-primary md:block', compact ? 'md:text-[1.75rem]' : 'md:text-[2.25rem]']}>
             {formatDayLong(day.date).split(', ').map((part, i) => (
               <span class:list={[i === 0 ? 'eyebrow md:mb-2 md:block' : 'md:block']}>{part}</span>
             ))}

@@ -35,12 +35,10 @@ export const fortcollins: TownConfig = {
   population2010: 143986, // 2010 census, for census-to-census growth
   character: 'The city the other towns measure against: Old Town, the Poudre, CSU and 169,810 people at the 2020 census.',
   colors: {
-    // Navy on a cool paper. CSU's green was the obvious choice and it would
-    // sit next to Niwot's; nothing else in the network is this dark a blue,
-    // and the hub's mid-blue and Berthoud's lake blue both read lighter.
-    accent: '#24467A',
-    accentDark: '#172E52',
-    neutralBg: '#F5F6F8',
+    // Fresh spruce + amber, on warm paper: Color System 2.0, 9 October 2026.
+    primary: '#1E6657',
+    accent: '#D0A34B',
+    paper: 'warm',
   },
   hero: {
     image: 'hero.jpg',

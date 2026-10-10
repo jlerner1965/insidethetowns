@@ -66,10 +66,10 @@ export const blackHawk: TownConfig = {
     },
   ],
   colors: {
-    // Cinnabar: a true, deep red for the brick and the marquees of Gregory Gulch, truer and brighter than Nederland's wine, deeper and less orange than Lyons' sandstone. `npm run check-colors` is the gate.
-    accent: '#A42A22',
-    accentDark: '#6F1C17',
-    neutralBg: '#F7F3F2',
+    // Burgundy + brass, on warm paper: Color System 2.0, 9 October 2026.
+    primary: '#652B38',
+    accent: '#B9995B',
+    paper: 'warm',
   },
   hero: {
     image: 'hero.jpg',

@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs><linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
-  <rect width="64" height="64" rx="12" fill="#0C5B39"/>
+  <rect width="64" height="64" rx="12" fill="#355E46"/>
   <rect width="64" height="64" rx="12" fill="url(#t)"/>
   <g transform="translate(32 32) scale(1) translate(-32 -32)">
   <path d="M29.5 50 V37 L22 31 L24 29.5 L29.5 33.5 V30 H34.5 V34.5 L40 30 L42 31.5 L34.5 38 V50 Z" fill="#F5EFE2"/>
-  <path d="M32 9 C40 9 45 13 46 18 C51 19.5 53 24 51 28.5 C49.5 32 45.5 33 42 32 H22 C18.5 33 14.5 32 13 28.5 C11 24 13 19.5 18 18 C19 13 24 9 32 9 Z" fill="#F5EFE2"/><clipPath id="f"><path d="M32 9 C40 9 45 13 46 18 C51 19.5 53 24 51 28.5 C49.5 32 45.5 33 42 32 H22 C18.5 33 14.5 32 13 28.5 C11 24 13 19.5 18 18 C19 13 24 9 32 9 Z"/></clipPath><path d="M32 0 V40 H64 V0 Z" fill="#b4c6b3" clip-path="url(#f)"/>
+  <path d="M32 9 C40 9 45 13 46 18 C51 19.5 53 24 51 28.5 C49.5 32 45.5 33 42 32 H22 C18.5 33 14.5 32 13 28.5 C11 24 13 19.5 18 18 C19 13 24 9 32 9 Z" fill="#F5EFE2"/><clipPath id="f"><path d="M32 9 C40 9 45 13 46 18 C51 19.5 53 24 51 28.5 C49.5 32 45.5 33 42 32 H22 C18.5 33 14.5 32 13 28.5 C11 24 13 19.5 18 18 C19 13 24 9 32 9 Z"/></clipPath><path d="M32 0 V40 H64 V0 Z" fill="#c0c7b7" clip-path="url(#f)"/>
   <rect x="10" y="49" width="44" height="3" fill="#D9A94E"/>
   </g>
 </svg>

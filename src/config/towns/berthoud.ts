@@ -30,11 +30,10 @@ export const berthoud: TownConfig = {
   population2010: 5105, // 2010 census, for census-to-census growth
   character: 'The Garden Spot: a real Main Street and the lakes, fifteen minutes from Loveland and Longmont.',
   colors: {
-    // Carter Lake water under a Front Range sky, on wheat-colored paper for the
-    // "Garden Spot of Colorado". Distinct from Niwot's evergreen and Lyons' sandstone.
-    accent: '#1587B4',
-    accentDark: '#0D5170',
-    neutralBg: '#F6F3EC',
+    // Garden green + warm gold, on warm paper: Color System 2.0, 9 October 2026.
+    primary: '#3D6041',
+    accent: '#C39B50',
+    paper: 'warm',
   },
   hero: {
     image: 'hero.jpg',

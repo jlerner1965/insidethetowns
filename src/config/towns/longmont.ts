@@ -55,11 +55,10 @@ export const longmont: TownConfig = {
   character:
     'The Chicago-Colorado Colony’s 1871 town on the St. Vrain, a city of 98,885 at the 2020 census, with its own fiber network, fifteen miles from Boulder and five from I-25.',
   colors: {
-    // Olive on a warm paper: the one hue family between Timnath's gold and
-    // Niwot's green that no guide uses. `npm run check-colors` is the gate.
-    accent: '#6B7A1E',
-    accentDark: '#4A5514',
-    neutralBg: '#F6F6EF',
+    // Clear denim + lively brick, on cool paper: Color System 2.0, 9 October 2026.
+    primary: '#1F6582',
+    accent: '#B75A3F',
+    paper: 'cool',
   },
   hero: {
     image: 'hero.jpg',

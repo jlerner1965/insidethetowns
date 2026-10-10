@@ -55,7 +55,7 @@ const season = open ? seasonLabel(data.seasonal) : undefined;
   <div>
     <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
       <Heading class="text-[1.25rem] font-medium leading-tight">
-        <a href={href} class="stretch no-underline group-hover:text-accent-text">{data.title}</a>
+        <a href={href} class="stretch no-underline group-hover:text-primary">{data.title}</a>
       </Heading>
       {!open && (
         <span class="rounded-full bg-ink px-2.5 py-0.5 text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-raised">
@@ -67,7 +67,7 @@ const season = open ? seasonLabel(data.seasonal) : undefined;
         line of its own, so some rows had an extra line and others did not. */}
     <p class="eyebrow mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1" style={`color:var(--cat-${hue}-ink)`}>
       <span class="inline-block size-2 shrink-0 rounded-full" style={`background:var(--cat-${hue}-dot)`} aria-hidden="true"></span>
-      {PLACE_TYPE_LABELS[data.type]}{data.priceRange && <span class="text-ink-faint">{data.priceRange}</span>}{data.subTown && <span class="font-medium normal-case tracking-normal text-ink-faint">{subTownLabel(data.subTown)}</span>}
+      {PLACE_TYPE_LABELS[data.type]}{data.priceRange && <span class="text-ink-muted">{data.priceRange}</span>}{data.subTown && <span class="font-medium normal-case tracking-normal text-ink-muted">{subTownLabel(data.subTown)}</span>}
       {data.featured && open && (
         <span class="rounded-full bg-highlight px-2.5 py-0.5 text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-ink">Our pick</span>
       )}
@@ -84,9 +84,9 @@ const season = open ? seasonLabel(data.seasonal) : undefined;
     {data.address && <p class="text-ink">{data.address.replace(/ (\d{5})$/, '\u00a0$1')}</p>}
     {/* A closed place's old hours are the one thing a reader must not act on. */}
     {open ? data.hours && hoursLines(hoursWithMeridiem(data.hours)).map((line) => <p>{line}</p>) : <p class="text-ink">{data.statusNote}</p>}
-    {open && place.hoursHidden === 'stale' && <p class="text-ink-faint">Hours not recently checked; call ahead</p>}
-    {season && <p class:list={[place.hoursHidden === 'season' ? 'text-ink' : 'text-ink-faint']}>{season}</p>}
-    {hoursUnknown && <p class="text-ink-faint">Hours unknown</p>}
+    {open && place.hoursHidden === 'stale' && <p class="text-ink-muted">Hours not recently checked; call ahead</p>}
+    {season && <p class:list={[place.hoursHidden === 'season' ? 'text-ink' : 'text-ink-muted']}>{season}</p>}
+    {hoursUnknown && <p class="text-ink-muted">Hours unknown</p>}
     {hours && <p class="open-status font-semibold" data-open-status hidden></p>}
     <p class="text-[0.75rem]"><Provenance compact verified={data.verified} item={`place/${slug}`} title={data.title} /></p>
   </div>

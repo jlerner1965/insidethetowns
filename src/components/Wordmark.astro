@@ -7,7 +7,9 @@
  * shape renders plainly.
  *
  * `tone` is "ink" on light grounds and "light" inside the footer, where the
- * accent would be unreadable on the accent-dark fill.
+ * town's primary would vanish into the primary band. The light "Inside" is
+ * white at 70%, which is display-size text and needs 3:1, not 4.5:1;
+ * scripts/check-colors.ts holds it to that on every band.
  */
 import { getSite } from '@/config';
 import { WORDMARK_AFTER_SCALE, wordmarkParts } from '@/lib/titles';
@@ -20,7 +22,10 @@ interface Props {
 const site = getSite();
 const { class: className = '', tone = 'ink' } = Astro.props;
 const first = tone === 'light' ? 'text-white/70' : 'text-ink';
-const second = tone === 'light' ? 'text-white' : 'text-accent-text';
+const second = tone === 'light' ? 'text-white' : 'text-primary';
+// The smaller second line is body-size, so it needs 4.5:1, not the display
+// 3:1: full white in the footer (white/70 on Longmont's primary is 4.09:1).
+const after = tone === 'light' ? 'text-white' : 'text-ink';
 const parts = wordmarkParts(site.siteTitle);
 ---
 <a href="/" class:list={['font-heading tracking-tight no-underline', className]} aria-label={`${site.siteTitle} home`}>
@@ -33,6 +38,6 @@ const parts = wordmarkParts(site.siteTitle);
   {/* On a second line, smaller: on one line Longmont's title pushed the
       desktop nav off the side of the page. */}
   {parts.after && (
-    <span class:list={['mt-[0.3em] block font-light italic', first]} style={`font-size:${WORDMARK_AFTER_SCALE}em`}>{parts.after}</span>
+    <span class:list={['mt-[0.3em] block font-light italic', after]} style={`font-size:${WORDMARK_AFTER_SCALE}em`}>{parts.after}</span>
   )}
 </a>

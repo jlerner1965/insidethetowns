@@ -38,7 +38,7 @@ const sisters = site.kind === 'town'
 const link = 'inline-block py-2 no-underline hover:text-white hover:underline sm:py-0.5';
 // A label, not a second headline: the amber is kept for the one link that
 // matters most, the hub's name.
-const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-white/60';
+const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-white/70';
 ---
 <div class="border-t border-white/15 bg-black/30 text-[0.8125rem] text-white/70">
   <div class="container-page flex flex-wrap items-center gap-x-5 gap-y-1 py-3.5">
@@ -88,7 +88,7 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
       </script>
     )}
     {(hub.publisher || hub.credit) && (
-      <p class="mt-2 w-full border-t border-white/10 pt-3 text-[0.75rem] text-white/60 sm:mt-0 sm:ml-auto sm:w-auto sm:border-0 sm:pt-0">
+      <p class="mt-2 w-full border-t border-white/10 pt-3 text-[0.75rem] text-white/70 sm:mt-0 sm:ml-auto sm:w-auto sm:border-0 sm:pt-0">
         {hub.publisher ? (
           <Fragment>Published by <a href={hub.publisher.url} class="no-underline hover:text-white hover:underline">{hub.publisher.name}</a></Fragment>
         ) : (

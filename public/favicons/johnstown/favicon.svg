@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs><linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
-  <rect width="64" height="64" rx="12" fill="#7B1F3C"/>
+  <rect width="64" height="64" rx="12" fill="#7F3C3E"/>
   <rect width="64" height="64" rx="12" fill="url(#t)"/>
   <g transform="translate(32 32) scale(1) translate(-32 -32)">
   <path d="M32 29.5 L37.94 29.5 L41.9 19.6 L32 23.56 Z M32 29.5 L32 35.44 L41.9 39.4 L37.94 29.5 Z M32 29.5 L26.06 29.5 L22.1 39.4 L32 35.44 Z M32 29.5 L32 23.56 L22.1 19.6 L26.06 29.5 Z" fill="#F5EFE2"/>
   <path d="M32 29.5 L38 23.5 L32 10 Z M32 29.5 L38 35.5 L51.5 29.5 Z M32 29.5 L26 35.5 L32 49 Z M32 29.5 L26 23.5 L12.5 29.5 Z" fill="#F5EFE2"/>
-  <path d="M32 29.5 L26 23.5 L32 10 Z M32 29.5 L38 23.5 L51.5 29.5 Z M32 29.5 L38 35.5 L32 49 Z M32 29.5 L26 35.5 L12.5 29.5 Z" fill="#D9B6BC"/>
+  <path d="M32 29.5 L26 23.5 L32 10 Z M32 29.5 L38 23.5 L51.5 29.5 Z M32 29.5 L38 35.5 L32 49 Z M32 29.5 L26 35.5 L12.5 29.5 Z" fill="#d8c3ba"/>
   <circle cx="32" cy="29.5" r="3.4" fill="#D9A94E"/>
   <rect x="10" y="49" width="44" height="3" fill="#D9A94E"/>
   </g>

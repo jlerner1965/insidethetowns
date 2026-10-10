@@ -50,13 +50,13 @@ const mailto = eventEmailHref(hub.social.email, 'Event submission');
       <li>
         <a
           href={`https://${town.domain}/submit-event/`}
-          class="group flex items-baseline justify-between gap-3 rounded-lg bg-raised px-5 py-4 no-underline ring-1 ring-line-soft transition hover:ring-accent-line"
+          class="group flex items-baseline justify-between gap-3 rounded-lg bg-raised px-5 py-4 no-underline ring-1 ring-line-soft transition hover:ring-primary-line"
         >
           <span>
-            <span class="block font-medium group-hover:text-accent-text">{town.name}</span>
+            <span class="block font-medium group-hover:text-primary">{town.name}</span>
             <span class="block whitespace-nowrap text-sm text-ink-muted">{town.formspreeId ? 'Online form' : 'By email for now'}</span>
           </span>
-          <span class="text-right text-sm text-ink-faint">{countyLabel(town)}</span>
+          <span class="text-right text-sm text-ink-muted">{countyLabel(town)}</span>
         </a>
       </li>
     ))}

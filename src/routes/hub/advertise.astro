@@ -93,7 +93,7 @@ const money = (n: number) => `$${n.toLocaleString('en-US')}`;
                   {rate.note && <span class="mt-1 block text-sm text-ink-muted">{rate.note}</span>}
                 </td>
                 <td data-label="Price" class="whitespace-nowrap tabular-nums">
-                  {money(rate.price)} <span class="text-ink-faint">/ {rate.period}</span>
+                  {money(rate.price)} <span class="text-ink-muted">/ {rate.period}</span>
                 </td>
                 <td data-label="How many">{rate.slots ? `${rate.slots} per town` : 'Ask'}</td>
               </tr>

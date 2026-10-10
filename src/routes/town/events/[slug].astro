@@ -178,7 +178,7 @@ const facts = [
             {data.statusNote}
             {data.statusSource && (
               <Fragment>
-                {' '}<a href={data.statusSource} rel="noopener" class="text-accent-text">Source →</a>
+                {' '}<a href={data.statusSource} rel="noopener" class="text-primary underline">Source →</a>
               </Fragment>
             )}
           </p>
@@ -189,7 +189,7 @@ const facts = [
           <figure class="mb-10">
             <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
             {data.imageCredit && (
-              <figcaption class="mt-2 text-[0.8125rem] text-ink-faint">Photo: {data.imageCredit}</figcaption>
+              <figcaption class="mt-2 text-[0.8125rem] text-ink-muted">Photo: {data.imageCredit}</figcaption>
             )}
           </figure>
         )}
@@ -210,7 +210,7 @@ const facts = [
           <NewsletterSignup town={town} compact id="event-signup" />
         </div>
       </div>
-      <p class="order-5 text-[0.9375rem] lg:mt-12"><a href="/events/" class="inline-block -my-1 py-1 font-semibold text-accent-text no-underline hover:underline">← All events</a></p>
+      <p class="order-5 text-[0.9375rem] lg:mt-12"><a href="/events/" class="inline-block -my-1 py-1 font-semibold text-primary underline">← All events</a></p>
     </div>
     <div class="contents lg:block lg:pt-1">
       <aside class="order-2">
@@ -220,7 +220,7 @@ const facts = [
               <dt class="eyebrow">{f.label}</dt>
               <dd class="mt-1.5 leading-snug">
                 {f.value.map((line, i) => (
-                  <span class:list={['block', i > 0 && 'text-[0.9375rem] text-ink-muted', offList && i === 0 && (f.label === 'When' || f.label === 'Next') && 'text-ink-muted line-through decoration-ink-faint']}>
+                  <span class:list={['block', i > 0 && 'text-[0.9375rem] text-ink-muted', offList && i === 0 && (f.label === 'When' || f.label === 'Next') && 'text-ink-muted line-through decoration-ink-muted']}>
                     {i === 0 && (f.label === 'When' || f.label === 'Next') ? <time datetime={toIsoLocal(when.start)}>{line}</time> : line}
                   </span>
                 ))}
@@ -229,7 +229,7 @@ const facts = [
           ))}
         </dl>
         {data.url && (
-          <a href={data.url} rel="noopener" class:list={['btn mt-6', offList ? 'btn-outline text-accent-text' : 'btn-primary']}>Organizer’s page →</a>
+          <a href={data.url} rel="noopener" class:list={['btn mt-6', offList ? 'btn-outline text-primary' : 'btn-primary']}>Organizer’s page →</a>
         )}
         {/* Two buttons, not two 20px text links a middot apart. */}
         {!offList && showsLeft.length > 0 && (
@@ -242,8 +242,8 @@ const facts = [
                   <li class="py-3" data-event-day={lastDay(show)} data-end={toIsoLocal(listedUntil(show))}>
                     <time datetime={toIsoLocal(show.data.start)} class="block leading-snug">{label}</time>
                     <div class="mt-2 flex flex-wrap gap-2">
-                      <a href={`/events/${event.slug}/${showKey(show.data.start)}.ics`} class="btn btn-outline min-h-11 text-accent-text" aria-label={`${label}: add to Apple or Outlook`}>Apple, Outlook</a>
-                      <a href={googleFor(show)} rel="noopener" class="btn btn-outline min-h-11 text-accent-text" aria-label={`${label}: add to Google Calendar`}>Google</a>
+                      <a href={`/events/${event.slug}/${showKey(show.data.start)}.ics`} class="btn btn-outline min-h-11 text-primary" aria-label={`${label}: add to Apple or Outlook`}>Apple, Outlook</a>
+                      <a href={googleFor(show)} rel="noopener" class="btn btn-outline min-h-11 text-primary" aria-label={`${label}: add to Google Calendar`}>Google</a>
                     </div>
                   </li>
                 );
@@ -255,8 +255,8 @@ const facts = [
           <div class="mt-6">
             <p class="eyebrow">Add to calendar</p>
             <div class="mt-2 flex flex-wrap gap-2">
-              <a href={`/events/${event.slug}.ics`} class="btn btn-outline min-h-11 text-accent-text">Apple, Outlook</a>
-              <a href={googleUrl} rel="noopener" class="btn btn-outline min-h-11 text-accent-text">Google</a>
+              <a href={`/events/${event.slug}.ics`} class="btn btn-outline min-h-11 text-primary">Apple, Outlook</a>
+              <a href={googleUrl} rel="noopener" class="btn btn-outline min-h-11 text-primary">Google</a>
             </div>
           </div>
         )}

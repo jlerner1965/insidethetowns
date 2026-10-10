@@ -42,12 +42,10 @@ export const loveland: TownConfig = {
   character:
     'The Sweetheart City, founded by the railroad on the Big Thompson in 1877: a sculpture garden, a lake in town, and the Centerra interchange on I-25.',
   colors: {
-    // Plum on a cool paper: between Erie's blue-violet and Johnstown's
-    // burgundy on the wheel, and further from each than they are from the
-    // reds. `npm run check-colors` is the gate.
-    accent: '#8A3D86',
-    accentDark: '#5F2A5C',
-    neutralBg: '#F8F5F7',
+    // Mulberry + bronze, on warm paper: Color System 2.0, 9 October 2026.
+    primary: '#873762',
+    accent: '#BA8C57',
+    paper: 'warm',
   },
   hero: {
     image: 'hero.jpg',

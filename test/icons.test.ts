@@ -18,10 +18,10 @@ test('every site has a favicon SVG to draw from, in its own palette', () => {
     assert.match(svg, /<svg[^>]*viewBox/, `${slug}: not an SVG`);
     assert.match(svg, /fill="#[0-9A-Fa-f]{6}"/, `${slug}: no colour to distinguish it`);
     // The tab icon is the one mark that tells eighteen near-identical sites
-    // apart, so its square is the site's own accentDark, not a shared brown.
+    // apart, so its square is the site's own primary, not a shared brown.
     const site = slug === 'hub' ? getNetworkHub() : findTown(slug);
     const fill = /<rect[^>]*fill="(#[0-9A-Fa-f]{6})"/.exec(svg)?.[1];
-    assert.equal(fill?.toLowerCase(), site?.colors.accentDark.toLowerCase(), `${slug}: favicon square is not the site's accentDark`);
+    assert.equal(fill?.toLowerCase(), site?.colors.primary.toLowerCase(), `${slug}: favicon square is not the site's primary`);
   }
 });
 

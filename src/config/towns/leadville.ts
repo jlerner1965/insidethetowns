@@ -66,10 +66,10 @@ export const leadville: TownConfig = {
     },
   ],
   colors: {
-    // Spruce: the grey-green of the lodgepole and spruce at ten thousand feet, greyer than Evergreen's forest green and greener than Windsor's teal. `npm run check-colors` is the gate.
-    accent: '#2F6B5E',
-    accentDark: '#1F4A41',
-    neutralBg: '#F2F6F4',
+    // Alpine indigo + silver, on cool paper: Color System 2.0, 9 October 2026.
+    primary: '#3D4D70',
+    accent: '#A3ADBC',
+    paper: 'cool',
   },
   hero: {
     image: 'hero.jpg',

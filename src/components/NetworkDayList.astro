@@ -36,7 +36,7 @@ const days = groupByDay(events);
             pinned town filter, instead of leaving an empty column for
             thousands of pixels. */}
         <h3 class="mb-2 md:sticky md:top-40 md:mb-0 md:self-start md:pt-6">
-          <time datetime={toIsoLocal(day.date)} class="display-md block text-3xl text-accent-text md:text-[2.25rem]">
+          <time datetime={toIsoLocal(day.date)} class="display-md block text-3xl text-primary md:text-[2.25rem]">
             {formatDayLong(day.date).split(', ').map((part, i) => (
               <span class:list={[i === 0 ? 'eyebrow block mb-2' : 'block']}>{part}</span>
             ))}
@@ -46,7 +46,7 @@ const days = groupByDay(events);
           {(collapseAfter && day.events.length > collapseAfter + 1 ? day.events.slice(0, collapseAfter) : day.events).map((event) => <NetworkEventCard event={event} />)}
           {collapseAfter && (
             <details class="group/more border-t border-line-soft" data-collapse-more={collapseAfter} hidden={day.events.length <= collapseAfter + 1}>
-              <summary class="flex min-h-12 cursor-pointer list-none items-center py-3 text-[0.9375rem] font-semibold text-accent-text [&::-webkit-details-marker]:hidden">
+              <summary class="flex min-h-12 cursor-pointer list-none items-center py-3 text-[0.9375rem] font-semibold text-primary [&::-webkit-details-marker]:hidden">
                 <span class="group-open/more:hidden">Show <span data-collapse-count>{Math.max(day.events.length - collapseAfter, 0)}</span> more</span>
                 <span class="hidden group-open/more:inline">Show fewer</span>
               </summary>

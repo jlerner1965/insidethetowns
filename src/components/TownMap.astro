@@ -146,7 +146,7 @@ const road = I25.map((p) => `${x(p.lng).toFixed(1)},${y(p.lat).toFixed(1)}`).joi
       x="12"
       y={H * 0.5}
       font-size="11"
-      fill="var(--color-ink-faint)"
+      fill="var(--color-ink-muted)"
       transform={`rotate(-90 12 ${H * 0.5})`}
       text-anchor="middle"
       letter-spacing="2">FOOTHILLS</text>
@@ -154,21 +154,21 @@ const road = I25.map((p) => `${x(p.lng).toFixed(1)},${y(p.lat).toFixed(1)}`).joi
     <polyline
       points={road}
       fill="none"
-      stroke="var(--color-ink-faint)"
+      stroke="var(--color-ink-muted)"
       stroke-width="2"
       stroke-dasharray="1 5"
       stroke-linecap="round"
       opacity="0.7"></polyline>
-    <text x={x(-104.98) + 9} y={y(39.98)} font-size="11" fill="var(--color-ink-faint)" letter-spacing="1.5">I-25</text>
+    <text x={x(-104.98) + 9} y={y(39.98)} font-size="11" fill="var(--color-ink-muted)" letter-spacing="1.5">I-25</text>
 
     {context.map((c) => (
       <g>
-        <circle cx={c.cx} cy={c.cy} r="3" fill="var(--color-ink-faint)"></circle>
+        <circle cx={c.cx} cy={c.cy} r="3" fill="var(--color-ink-muted)"></circle>
         <text
           x={c.cx + (c.side === 'right' ? -9 : 9)}
           y={c.cy + 4}
           font-size="12"
-          fill="var(--color-ink-faint)"
+          fill="var(--color-ink-muted)"
           text-anchor={c.side === 'right' ? 'end' : 'start'}>{c.name}</text>
       </g>
     ))}
@@ -179,8 +179,8 @@ const road = I25.map((p) => `${x(p.lng).toFixed(1)},${y(p.lat).toFixed(1)}`).joi
           <a href={`https://${t.domain}/`} aria-label={`${t.name} — ${t.domain}`}>
             {/* A 13px halo, not 17: the larger ones ran into each other along
                 the Longmont–Niwot–Erie and Fort Collins–Timnath clusters. */}
-            <circle cx={cx} cy={cy} r="13" fill={t.colors.accent} fill-opacity="0.14"></circle>
-            <circle cx={cx} cy={cy} r="7" fill={t.colors.accent}></circle>
+            <circle cx={cx} cy={cy} r="13" fill={t.colors.primary} fill-opacity="0.14"></circle>
+            <circle cx={cx} cy={cy} r="7" fill={t.colors.primary}></circle>
             <text
               x={cx + spot.dx}
               y={cy + spot.dy}
@@ -191,7 +191,7 @@ const road = I25.map((p) => `${x(p.lng).toFixed(1)},${y(p.lat).toFixed(1)}`).joi
           </a>
         ) : (
           <g>
-            <circle cx={cx} cy={cy} r="5.5" fill="none" stroke="var(--color-ink-faint)" stroke-width="2"></circle>
+            <circle cx={cx} cy={cy} r="5.5" fill="none" stroke="var(--color-ink-muted)" stroke-width="2"></circle>
             <text
               x={cx + spot.dx}
               y={cy + spot.dy}
@@ -203,6 +203,6 @@ const road = I25.map((p) => `${x(p.lng).toFixed(1)},${y(p.lat).toFixed(1)}`).joi
       </g>
     ))}
 
-    <text x={W - 10} y={H - 11} font-size="11" fill="var(--color-ink-faint)" text-anchor="end" letter-spacing="2">COLORADO’S FRONT RANGE</text>
+    <text x={W - 10} y={H - 11} font-size="11" fill="var(--color-ink-muted)" text-anchor="end" letter-spacing="2">COLORADO’S FRONT RANGE</text>
   </svg>
 </figure>

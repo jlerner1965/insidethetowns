@@ -42,7 +42,7 @@ const through = (e: TownEntry<'events'>) => (e.data.until ? `through ${formatDat
     <div class="space-y-8">
       {days.map(({ day, events: list }) => (
         <section class="md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
-          <h3 class="eyebrow mb-3 text-accent-text md:mb-0 md:pt-5">{day}s</h3>
+          <h3 class="eyebrow mb-3 text-primary md:mb-0 md:pt-5">{day}s</h3>
           <ul class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
             {list.map((e) => (
               <li class="group relative grid gap-x-6 gap-y-1 border-b border-line-soft py-4 last:border-b-0 sm:grid-cols-[minmax(7rem,9rem)_1fr]">
@@ -55,10 +55,10 @@ const through = (e: TownEntry<'events'>) => (e.data.until ? `through ${formatDat
                     </p>
                   )}
                   <h4 class="text-lg font-medium leading-tight">
-                    <a href={`/events/${e.slug}/`} class="stretch no-underline group-hover:text-accent-text">{e.data.title}</a>
+                    <a href={`/events/${e.slug}/`} class="stretch no-underline group-hover:text-primary">{e.data.title}</a>
                   </h4>
                   <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">
-                    {e.data.venue}{e.data.cost && <span> · {e.data.cost}</span>}{through(e) && <span class="text-ink-faint"> · {through(e)}</span>}
+                    {e.data.venue}{e.data.cost && <span> · {e.data.cost}</span>}{through(e) && <span class="text-ink-muted"> · {through(e)}</span>}
                   </p>
                 </div>
               </li>
