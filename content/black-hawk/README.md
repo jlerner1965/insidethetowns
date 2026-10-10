@@ -1,6 +1,6 @@
 # Content for Inside Black Hawk
 
-Everything on the Inside Black Hawk site that is not layout lives in this folder. Edit
+Everything on insideblackhawk.com that is not layout lives in this folder. Edit
 Markdown, commit, push; the site rebuilds. No code changes needed.
 
 ```

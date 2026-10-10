@@ -29,16 +29,13 @@ insidegeorgetownco.com   TOWN=georgetown      (mountain variant; not live; no pr
 insidegrandlake.com      TOWN=grand-lake      (mountain variant; not live; no project yet)
 insidemanitousprings.com TOWN=manitou-springs (mountain variant; not live; no project yet)
 insideleadville.com      TOWN=leadville       (mountain variant; not live; no project yet)
-(domain to confirm)      TOWN=black-hawk      (mountain variant; not live; no project yet — the owner names the domain first)
+insideblackhawk.com      TOWN=black-hawk      (mountain variant; not live; no project yet)
 …
 ```
 
 The six towns scaffolded on 10 October 2026 build their holding pages until
-they launch. Five domains were named by the owner the same day, each on the
-owner's Cloudflare nameservers (the same pair as the other guides). Black
-Hawk still carries a reserved `.invalid` domain until the owner names its
-Inside domain, and no Vercel project should be created for it before then.
-A project for any of the six can only build once the branch that adds the
+they launch. The owner named all six domains the same day, each on the
+owner's Cloudflare nameservers (the same pair as the other guides). A project for any of the six can only build once the branch that adds the
 town is on `main`: until then `TOWN=<slug>` is unknown there and the build
 stops. Each domain also needs Cloudflare Email Routing for its `hello@`
 address (see "Email"), which the holding page names.

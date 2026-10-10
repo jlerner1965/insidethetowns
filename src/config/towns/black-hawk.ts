@@ -7,8 +7,8 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  * the Peak to Peak Highway. Mountain chassis; the default launch threshold.
  *
  * Figures are from the Wikipedia infobox (census and GNIS), read 10 October
- * 2026, as for every other town; the comments say which. The domain is not
- * yet the owner's call: see `domain` below.
+ * 2026, as for every other town; the comments say which. The domain,
+ * insideblackhawk.com, is the owner's, named 10 October 2026.
  */
 export const blackHawk: TownConfig = {
   kind: 'town',
@@ -24,15 +24,9 @@ export const blackHawk: TownConfig = {
   neighbors: [],
   slug: 'black-hawk',
   name: 'Black Hawk',
-  /**
-   * UNCONFIRMED. The owner has not named this town's domain (10 October
-   * 2026), and the brief says to ask rather than guess, so this is a
-   * reserved `.invalid` name that cannot resolve. Replace it, and the email
-   * below, with the Inside domain the owner owns before creating the Vercel
-   * project; nothing links to a town that is not live, so until then it
-   * appears nowhere a reader can see.
-   */
-  domain: 'black-hawk.unconfirmed.invalid',
+  // Named by the owner on 10 October 2026, and on the owner's Cloudflare
+  // nameservers (the same pair as the other guides), checked the same day.
+  domain: 'insideblackhawk.com',
   siteTitle: 'Inside Black Hawk',
   tagline:
     'An independent guide to Black Hawk, Colorado: the gaming town in Gregory Gulch, Gilpin County’s hills and the Peak to Peak Highway.',
@@ -83,8 +77,7 @@ export const blackHawk: TownConfig = {
     alt: 'Placeholder: no photograph of Black Hawk has been chosen yet',
   },
   social: {
-    // Follows the domain; see the note on `domain`.
-    email: 'hello@black-hawk.unconfirmed.invalid',
+    email: 'hello@insideblackhawk.com',
   },
   nav: DEFAULT_TOWN_NAV,
   movingHere: {

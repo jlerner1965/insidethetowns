@@ -4286,9 +4286,9 @@ new.
   insidegeorgetownco.com, insidegrandlake.com, insidemanitousprings.com and
   insideleadville.com. Each answered on the owner's Cloudflare nameservers
   (donna and fonzie, the pair every other guide uses) and is now in its
-  town's config, with its `hello@` address. Black Hawk's is still to come
-  and keeps its `.invalid` placeholder.
-- **Not done, for the owner.** Black Hawk's domain; Vercel projects, DNS and
+  town's config, with its `hello@` address. Black Hawk's followed:
+  insideblackhawk.com, on the same pair.
+- **Not done, for the owner.** Vercel projects, DNS and
   deploy hooks for them once named; the hero photographs (the placeholder
   is tolerated while a town is not live); the Moving Here pages where the
   official sources could not be read; and whether the existing mountain
