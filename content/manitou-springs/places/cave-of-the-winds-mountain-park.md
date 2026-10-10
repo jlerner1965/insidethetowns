@@ -10,6 +10,7 @@ added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "719-685-5444"
 hours: "Daily 10 am–5 pm; last tour about 4 pm"
+openingHours: ["Mo-Su 10:00-17:00"]
 tags: [cave-tours, family, zipline]
 summary: "Guided cave tours into the Manitou Grand Caverns plus above-ground rides over Williams Canyon, open daily 10 am to 5 pm with the last tour around 4 pm; closed Thanksgiving and Christmas."
 ---
