@@ -95,8 +95,10 @@ export const idahoSprings: TownConfig = {
     // district's and the City's own pages, with the rest of Moving Here.
   },
   officialLinks: {
-    // The infobox's official site. It answers automated requests with 403,
-    // so nothing here was read from it (10 October 2026).
+    // The infobox's official site. It answered automated requests with 403
+    // when the town was scaffolded on 10 October 2026, then 200 to the
+    // robots-aware reader later that day, when its parks pages and its
+    // visitor site (visitidahospringsco.com) were read for the listings.
     townSite: 'https://www.idahospringsco.com/',
     townSiteLabel: 'the City of Idaho Springs',
   },
