@@ -13,6 +13,9 @@ seasonal:
   season: "Closes for the season on Sunday, September 27"
   hours: "Thu–Fri noon–3 pm, Sat 11 am–4 pm"
   closes: "2026-09-27"
+image: ../images/hamill-house.jpg
+imageAlt: "The white clapboard front of the Hamill House, with a pointed arched window in the gable, a columned porch and double wooden doors, under a spring sky in 2024"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 tags: [museum, history, free]
 summary: "Historic Georgetown's house museum, an 1867 Gothic Revival home on Argentine Street, open Thursday to Saturday in season with no admission charge; closed for the season from late September until spring."
 ---

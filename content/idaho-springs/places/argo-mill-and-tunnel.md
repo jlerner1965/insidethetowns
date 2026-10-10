@@ -11,6 +11,9 @@ verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "303-567-2421"
 hours: "Daily 10 am–4 pm"
 priceRange: "$$"
+image: ../images/argo-mill.jpg
+imageAlt: "The red Argo Gold Mine & Mill stepping up the hillside above Riverside Drive, ARGO GOLD MINE & MILL painted on the upper mill, with buses and cars parked below, in June 2006"
+imageCredit: "Greverod, Wikimedia Commons, public domain"
 tags: [museum, history, mine-tour, gold-panning, gift-shop]
 summary: "The Argo gold mill at the mouth of the 4.16-mile Argo Tunnel, now run by the Mighty Argo: guided tours on the hour daily from 10 am, the last at 3 pm, with gold or gemstone panning included."
 ---

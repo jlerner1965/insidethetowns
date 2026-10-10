@@ -10,6 +10,9 @@ added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "866-386-3936"
 seasonal: { season: "Daily trips from Memorial Day weekend through September; October to April, weekly rides" }
+image: ../images/leadville-railroad-depot.jpg
+imageAlt: "Leadville's red-brick railroad depot on East 7th Street, with a shingled roof, a half-timbered gable over the bay and tall arched windows, in August 2013"
+imageCredit: "Larry Lamsa, Wikimedia Commons, CC BY 2.0"
 tags: [train, scenic-ride, family, seasonal]
 summary: "Scenic train rides from the old depot on East 7th Street: daily from Memorial Day weekend through September, weekly rides October to April, with Oktoberfest, Holiday Express and Winter Express trains."
 ---
