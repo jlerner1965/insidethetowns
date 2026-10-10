@@ -45,10 +45,14 @@ apex) attached, and its first production deployment of `main` is ready.
 The owner added the DNS at Cloudflare the same evening: an `A` record on
 each apex to `76.76.21.21`, as on the other guides, and on `www` a `CNAME`
 to the project's own `vercel-dns-016.com` target (Settings → Domains);
-Vercel reported all twelve hostnames configured. Still to do for each:
-Cloudflare Email Routing for its `hello@` address (see "Email"), which the
-holding page names; and, when the town goes live, a deploy hook on `main`
-added to `VERCEL_DEPLOY_HOOKS`, and Web Analytics switched on.
+Vercel reported all twelve hostnames configured. Idaho Springs' `www` had
+been pointed at Black Hawk's target and was corrected to its own. Vercel
+had issued certificates for four apexes on its own; the other eight
+hostnames' were requested through the API (`POST /v8/certs`), and all
+twelve answer over HTTPS: the apex with the holding page, `www` with a
+308 to it. Email Routing for each `hello@` went on the same evening (see
+"Email"). Still to do for each, when the town goes live: a deploy hook on
+`main` added to `VERCEL_DEPLOY_HOOKS`, and Web Analytics switched on.
 
 The seven projects after `carbonvalleyguide` were created on 6 October 2026
 by the REST API with the same settings (framework, repository, `TOWN`, the
@@ -247,7 +251,11 @@ insidecastlerockco.com, insideestespark.com, insidegolden.com,
 insideevergreenco.com, insidenederland.com), through the API: routing
 enabled (`POST /zones/<id>/email/routing/dns`), one rule per domain
 copied from insidelovelandco.com's, catch-all left off, and `_dmarc`.
-All twenty guide domains now receive `hello@`.
+On 10 October the same went on the six mountain domains
+(insideblackhawk.com, insideidahosprings.com, insidegeorgetownco.com,
+insidegrandlake.com, insidemanitousprings.com, insideleadville.com), with
+the rule copied from insidenederland.com's, again with a token the owner
+supplied. All twenty-six guide domains now receive `hello@`.
 
 On each domain (Cloudflare → the domain → Email → Email Routing):
 
