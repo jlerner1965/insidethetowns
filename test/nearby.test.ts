@@ -121,19 +121,19 @@ test('each guide names the neighbours the owner set, in that order', () => {
     elizabeth: ['castle-rock'],
     severance: ['windsor', 'timnath', 'fortcollins'],
     'fort-lupton': ['carbon-valley', 'longmont'],
-    'castle-rock': ['elizabeth'],
-    'estes-park': ['lyons', 'loveland'],
-    golden: ['evergreen'],
-    evergreen: ['golden'],
-    nederland: ['lyons', 'niwot'],
-    // The six scaffolded on 10 October 2026 wait for the owner's pairs: each
-    // config proposes its neighbours in a comment, and naming one here means
-    // naming the new town on that guide's list too.
-    'black-hawk': [],
-    'idaho-springs': [],
-    georgetown: [],
-    'grand-lake': [],
-    'manitou-springs': [],
+    'castle-rock': ['elizabeth', 'manitou-springs'],
+    'estes-park': ['lyons', 'loveland', 'grand-lake'],
+    golden: ['evergreen', 'black-hawk', 'idaho-springs', 'georgetown'],
+    evergreen: ['golden', 'idaho-springs', 'georgetown'],
+    nederland: ['lyons', 'niwot', 'black-hawk'],
+    // The six mountain guides, live 10 October 2026, each pair both ways.
+    // Leadville has none within an afternoon's drive; Manitou Springs names
+    // Castle Rock, which has not launched.
+    'black-hawk': ['nederland', 'golden', 'idaho-springs', 'georgetown'],
+    'idaho-springs': ['georgetown', 'evergreen', 'golden', 'black-hawk'],
+    georgetown: ['idaho-springs', 'evergreen', 'golden', 'black-hawk'],
+    'grand-lake': ['estes-park'],
+    'manitou-springs': ['castle-rock'],
     leadville: [],
   };
   for (const t of towns) assert.deepEqual([...t.neighbors], NEIGHBORS[t.slug], t.slug);
@@ -149,9 +149,11 @@ test('neighbours are real guides, never the town itself, and go both ways', () =
   }
 });
 
-test('Elizabeth has no live neighbours, so its block is never built', () => {
-  // Castle Rock is on its list from 6 October 2026 but not live; neighborsOf
-  // leaves it out until it is.
-  assert.deepEqual(neighborsOf(findTown('elizabeth')!), []);
-  for (const t of liveTowns().filter((t) => t.slug !== 'elizabeth')) assert.ok(neighborsOf(t).length > 0, t.slug);
+test('Elizabeth, Manitou Springs and Leadville have no live neighbours, so their block is never built', () => {
+  // Castle Rock is on Elizabeth's and Manitou's lists but not live; neighborsOf
+  // leaves it out until it is. Leadville names nobody: nothing in the network
+  // is an afternoon's drive away.
+  const ALONE = ['elizabeth', 'manitou-springs', 'leadville'];
+  for (const slug of ALONE) assert.deepEqual(neighborsOf(findTown(slug)!), [], slug);
+  for (const t of liveTowns().filter((t) => !ALONE.includes(t.slug))) assert.ok(neighborsOf(t).length > 0, t.slug);
 });

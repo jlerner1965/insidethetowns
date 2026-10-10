@@ -13,17 +13,17 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  */
 export const grandLake: TownConfig = {
   kind: 'town',
-  // Not live. The guide builds a holding page until the owner names the
-  // domain and the first review clears the launch threshold.
-  status: 'wave2',
+  // Live 10 October 2026, on the owner's word, under its launch threshold:
+  // it publishes what is verified, and the validator and the weekly report
+  // say what it is short of (docs/ACCURACY-SYSTEM.md).
+  status: 'live',
   variant: 'mountain',
   region: 'Mountains & Foothills',
-  // Empty until the owner sets them: neighbours go both ways (test/nearby.test.ts),
-  // so naming Estes Park here means naming Grand Lake on its config, which is the
-  // owner's call. Proposed: estes-park, the other side of the park, two hours over
-  // Trail Ridge Road in summer and a long way round in winter, when the road is
-  // closed. Nothing else live is within an afternoon's drive.
-  neighbors: [],
+  // Estes Park, the other side of the national park: two hours over Trail
+  // Ridge Road in summer and a long way round in winter, when the road is
+  // closed. Nothing else is within an afternoon's drive. Set when the town
+  // went live, 10 October 2026; Estes Park names Grand Lake back.
+  neighbors: ['estes-park'],
   slug: 'grand-lake',
   name: 'Grand Lake',
   // Named by the owner on 10 October 2026, and on the owner's Cloudflare
@@ -85,8 +85,9 @@ export const grandLake: TownConfig = {
   },
   hero: {
     image: 'hero.jpg',
-    // The stand-in from scripts/templates/; a photograph is chosen at launch, with its row in IMAGE_LICENSES.csv.
-    alt: 'Placeholder: no photograph of Grand Lake has been chosen yet',
+    alt: 'A rainbow over the forested mountains above Grand Lake, with cabins and moored boats along the shore below',
+    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 10 October 2026.
+    credit: 'Muttnick, Wikimedia Commons, CC BY-SA 4.0',
   },
   social: {
     email: 'hello@insidegrandlake.com',

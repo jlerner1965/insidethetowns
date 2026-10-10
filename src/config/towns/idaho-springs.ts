@@ -12,16 +12,16 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  */
 export const idahoSprings: TownConfig = {
   kind: 'town',
-  // Not live. The guide builds a holding page until the owner names the
-  // domain and the first review clears the launch threshold.
-  status: 'wave2',
+  // Live 10 October 2026, on the owner's word, under its launch threshold:
+  // it publishes what is verified, and the validator and the weekly report
+  // say what it is short of (docs/ACCURACY-SYSTEM.md).
+  status: 'live',
   variant: 'mountain',
   region: 'Mountains & Foothills',
-  // Empty until the owner sets them: neighbours go both ways (test/nearby.test.ts),
-  // so naming Evergreen and Golden here means naming Idaho Springs on theirs, which
-  // is the owner's call. Proposed: georgetown (up I-70), evergreen (over Squaw Pass
-  // or Floyd Hill), golden (down the canyon), black-hawk (up Virginia Canyon).
-  neighbors: [],
+  // Georgetown up I-70, Evergreen over Floyd Hill, Golden down the canyon,
+  // Black Hawk up Virginia Canyon. Set when the town went live, 10 October
+  // 2026; each names Idaho Springs back.
+  neighbors: ['georgetown', 'evergreen', 'golden', 'black-hawk'],
   slug: 'idaho-springs',
   name: 'Idaho Springs',
   // Named by the owner on 10 October 2026, and on the owner's Cloudflare
@@ -78,8 +78,9 @@ export const idahoSprings: TownConfig = {
   },
   hero: {
     image: 'hero.jpg',
-    // The stand-in from scripts/templates/; a photograph is chosen at launch, with its row in IMAGE_LICENSES.csv.
-    alt: 'Placeholder: no photograph of Idaho Springs has been chosen yet',
+    alt: 'The red Argo gold mill on the hillside above Idaho Springs, its name painted high on the mill, under a blue sky',
+    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 10 October 2026.
+    credit: 'D&RG Railfan, Wikimedia Commons, CC BY-SA 4.0',
   },
   social: {
     email: 'hello@insideidahosprings.com',

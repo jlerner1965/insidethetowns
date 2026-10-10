@@ -13,16 +13,16 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  */
 export const georgetown: TownConfig = {
   kind: 'town',
-  // Not live. The guide builds a holding page until the owner names the
-  // domain and the first review clears the launch threshold.
-  status: 'wave2',
+  // Live 10 October 2026, on the owner's word, under its launch threshold:
+  // it publishes what is verified, and the validator and the weekly report
+  // say what it is short of (docs/ACCURACY-SYSTEM.md).
+  status: 'live',
   variant: 'mountain',
   region: 'Mountains & Foothills',
-  // Empty until the owner sets them: neighbours go both ways (test/nearby.test.ts),
-  // so naming Evergreen and Golden here means naming Georgetown on theirs, which is
-  // the owner's call. Proposed: idaho-springs (thirteen miles down I-70), then
-  // evergreen and golden beyond it.
-  neighbors: [],
+  // Idaho Springs down I-70, then Evergreen and Golden beyond it, and Black
+  // Hawk up the Central City Parkway. Set when the town went live, 10
+  // October 2026; each names Georgetown back.
+  neighbors: ['idaho-springs', 'evergreen', 'golden', 'black-hawk'],
   slug: 'georgetown',
   name: 'Georgetown',
   // Named by the owner on 10 October 2026, and on the owner's Cloudflare
@@ -76,8 +76,9 @@ export const georgetown: TownConfig = {
   },
   hero: {
     image: 'hero.jpg',
-    // The stand-in from scripts/templates/; a photograph is chosen at launch, with its row in IMAGE_LICENSES.csv.
-    alt: 'Placeholder: no photograph of Georgetown has been chosen yet',
+    alt: 'Looking north over Georgetown from the hillside: the town fills the valley floor, with Georgetown Lake and Interstate 70 beyond between steep mountainsides',
+    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 10 October 2026.
+    credit: 'Ben & Whitney Carey, Wikimedia Commons, CC BY 2.0',
   },
   social: {
     email: 'hello@insidegeorgetownco.com',

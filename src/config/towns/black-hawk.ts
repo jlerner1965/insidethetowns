@@ -12,16 +12,16 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  */
 export const blackHawk: TownConfig = {
   kind: 'town',
-  // Not live. The guide builds a holding page until the owner names the
-  // domain and the first review clears the launch threshold.
-  status: 'wave2',
+  // Live 10 October 2026, on the owner's word, under its launch threshold:
+  // it publishes what is verified, and the validator and the weekly report
+  // say what it is short of (docs/ACCURACY-SYSTEM.md).
+  status: 'live',
   variant: 'mountain',
   region: 'Mountains & Foothills',
-  // Empty until the owner sets them: neighbours go both ways (test/nearby.test.ts),
-  // so naming Nederland and Golden here means naming Black Hawk on theirs, which is
-  // the owner's call. Proposed: nederland (the Peak to Peak), golden (Clear Creek
-  // Canyon), and idaho-springs and georgetown once they launch.
-  neighbors: [],
+  // Nederland by the Peak to Peak, Golden down Clear Creek Canyon, Idaho
+  // Springs up Virginia Canyon, Georgetown beyond it. Set when the town went
+  // live, 10 October 2026; each names Black Hawk back.
+  neighbors: ['nederland', 'golden', 'idaho-springs', 'georgetown'],
   slug: 'black-hawk',
   name: 'Black Hawk',
   // Named by the owner on 10 October 2026, and on the owner's Cloudflare
@@ -73,8 +73,9 @@ export const blackHawk: TownConfig = {
   },
   hero: {
     image: 'hero.jpg',
-    // The stand-in from scripts/templates/; a photograph is chosen at launch, with its row in IMAGE_LICENSES.csv.
-    alt: 'Placeholder: no photograph of Black Hawk has been chosen yet',
+    alt: 'The Lace House in Black Hawk: a small Carpenter Gothic house with lacy white trim along its steep gable and porch, a flag on the porch and pines on the slope behind',
+    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 10 October 2026.
+    credit: 'Jerrye and Roy Klotz MD, Wikimedia Commons, CC BY-SA 3.0',
   },
   social: {
     email: 'hello@insideblackhawk.com',

@@ -14,14 +14,16 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  */
 export const manitouSprings: TownConfig = {
   kind: 'town',
-  // Not live. The guide builds a holding page until the owner names the
-  // domain and the first review clears the launch threshold.
-  status: 'wave2',
+  // Live 10 October 2026, on the owner's word, under its launch threshold:
+  // it publishes what is verified, and the validator and the weekly report
+  // say what it is short of (docs/ACCURACY-SYSTEM.md).
+  status: 'live',
   variant: 'mountain',
   region: 'Mountains & Foothills',
-  // Empty until the owner sets them: neighbours go both ways (test/nearby.test.ts).
-  // Proposed: castle-rock, the nearest guide, an hour up I-25, once it launches.
-  neighbors: [],
+  // Castle Rock, the nearest guide, an hour up I-25; it has not launched, so
+  // the Nearby block stays empty until it does, as Elizabeth's does. Set when
+  // the town went live, 10 October 2026; Castle Rock names Manitou back.
+  neighbors: ['castle-rock'],
   // Set with the brief, 10 October 2026, at Evergreen's level: a town of
   // nearly five thousand with a year-round tourist street.
   launchThreshold: { events: 15, listings: 20 },
@@ -79,8 +81,9 @@ export const manitouSprings: TownConfig = {
   },
   hero: {
     image: 'hero.jpg',
-    // The stand-in from scripts/templates/; a photograph is chosen at launch, with its row in IMAGE_LICENSES.csv.
-    alt: 'Placeholder: no photograph of Manitou Springs has been chosen yet',
+    alt: 'Manitou Avenue in Manitou Springs: brick storefronts on the left and traffic heading down the tree-lined street',
+    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 10 October 2026.
+    credit: 'John Lloyd, Wikimedia Commons, CC BY 2.0',
   },
   social: {
     email: 'hello@insidemanitousprings.com',
