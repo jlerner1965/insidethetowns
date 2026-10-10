@@ -1,6 +1,6 @@
 ---
 title: "Mod Mountain Boutique"
-review: { reason: "The shop’s own site gives the address and hours but no phone on the home, contact or about pages (the contact page is a form), read 6 October. Get a phone number from the shop and publish.", since: "2026-10-06", from: manual }
+review: { reason: "A phone is no longer required (the owner's rule of 10 October 2026), and the home page, re-read 10 October 2026, gives the address and hours (Mon–Fri 10 am–7 pm; Sat 10 am–6 pm; Sun 12:30–5 pm), but nothing on the site is dated within the year. Find a dated post or an independent source (the Town's or the Downtown Alliance's directory) that it is open, then publish.", since: "2026-10-06", from: manual }
 type: shop
 address: "215 Wilcox Street, Castle Rock, CO"
 area: "Wilcox Street, downtown"

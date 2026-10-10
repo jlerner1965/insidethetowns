@@ -1,7 +1,7 @@
 ---
 title: "Erie Coffee Roasters: ECR Cafe"
 subTown: frederick
-review: { reason: "Re-checked 5 October: no phone on the home, cafe or contact-us pages of the business’s own site. Publish with a phone from the business (the site invites enquiries).", since: "2026-10-05", from: manual }
+review: { reason: "A phone is no longer required (the owner's rule of 10 October 2026), and the cafe page, re-read 10 October 2026, gives the address and hours (Mon–Fri 6:30 am–2:30 pm; Sat 8 am–1 pm), but nothing on it is dated within the year. Find a dated post or an independent source (Frederick's or the chamber's directory) that it is open, then publish.", since: "2026-10-05", from: manual }
 type: coffee
 address: "4030 Bruin Blvd, Suite A, Frederick, CO 80504"
 url: "https://www.eriecoffeeroasters.com/"
