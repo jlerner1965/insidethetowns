@@ -89,6 +89,11 @@
     font-variation-settings: "opsz" 48;
     letter-spacing: -0.005em;
   }
+  /* Links are underlined, as Color System 2.0 asks. Tailwind's reset
+     leaves an <a> undecorated, so a link set in the primary carries
+     `underline` itself, standalone "See the full week →" ones included.
+     Navigation, buttons, whole-card links and the footer's lists are not
+     links in that sense and go without. */
   a {
     text-underline-offset: 0.18em;
     text-decoration-thickness: from-font;

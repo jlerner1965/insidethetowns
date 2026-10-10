@@ -4376,6 +4376,14 @@ colour. It is applied as written; no hex was tuned here.
   them; the guide's own checks are white on the primary. The bands'
   eyebrows were the amber and are white too. The network strip under the
   footer keeps white/70 and the amber hub link, both proven on every strip.
+- **Links are underlined**, as both documents ask. Only links inside
+  `.prose` were: Tailwind's reset leaves an `<a>` undecorated, so the 48
+  links set in the primary outside it ("See the full week →", "All events
+  →", the official-sources list, and links inside sentences such as "See
+  what's on now", where a dark primary was hard to tell from the text) had
+  no underline, twenty of them only on hover. Each now carries `underline`.
+  Navigation, buttons, whole-card links, the footer's lists and the
+  ink-coloured lists of towns are left as they were.
 - **The amber stays for meaning, not decoration**: dated notices, "Our
   pick", and the hub's name in the strip. It is gone from the top strip and
   the eyebrows, where it would have been a 26th colour on every guide.

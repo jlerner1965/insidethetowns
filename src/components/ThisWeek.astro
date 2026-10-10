@@ -115,7 +115,7 @@ const checker = checkerName();
       </div>
       {compact && allEvents.length > events.length && (
         <p class="mt-4 text-[0.9375rem]">
-          <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary no-underline hover:underline">
+          <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">
             All {allEvents.length} {onWeekend ? 'this weekend' : 'this week'} →
           </a>
         </p>
@@ -162,7 +162,7 @@ const checker = checkerName();
       </ul>
       {compact && allChanges.length > changes.length && (
         <p class="mt-4 text-[0.9375rem]">
-          <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary no-underline hover:underline">
+          <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">
             All {allChanges.length} new &amp; closed →
           </a>
         </p>

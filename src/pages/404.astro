@@ -27,7 +27,7 @@ const links =
   </form>
   <p class="mt-8 flex flex-wrap items-baseline gap-x-4 gap-y-1 text-[0.9375rem]">
     <span class="eyebrow text-ink-muted">Or go to</span>
-    {links.map((l) => <a href={l.href} class="py-1 font-semibold text-primary no-underline hover:underline">{l.label}</a>)}
+    {links.map((l) => <a href={l.href} class="py-1 font-semibold text-primary underline">{l.label}</a>)}
   </p>
   <p class="mt-10"><a href="/" class="btn btn-outline text-primary">Back to the home page</a></p>
 </Page>

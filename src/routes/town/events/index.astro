@@ -65,9 +65,9 @@ const structured = [
   }
 >
   <p slot="after-header" class="mt-5 text-[0.9375rem] text-ink-muted">
-    Just the weekend? <a href="/this-weekend/" class="font-semibold text-primary">This weekend in {town.name}</a>.
-    Know of something missing? <a href="/submit-event/" class="font-semibold text-primary">Submit an event</a>.
-    Or <a href="/events/calendar.ics" class="font-semibold text-primary">subscribe to the calendar</a> in your calendar app.
+    Just the weekend? <a href="/this-weekend/" class="font-semibold text-primary underline">This weekend in {town.name}</a>.
+    Know of something missing? <a href="/submit-event/" class="font-semibold text-primary underline">Submit an event</a>.
+    Or <a href="/events/calendar.ics" class="font-semibold text-primary underline">subscribe to the calendar</a> in your calendar app.
   </p>
   <SubTownLinks slot="after-header" class="mt-3" hrefFor={(slug) => `/${slug}/`} />
   <SponsorLine slot="after-header" sponsor={town.sponsors?.events} />

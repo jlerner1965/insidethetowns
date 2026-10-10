@@ -34,7 +34,7 @@ const columns: Record<number, string> = {
       <div class="min-w-0 bg-raised px-4 py-4 sm:px-5 sm:py-5">
         <dt class="eyebrow">{f.label}</dt>
         <dd class={value}>
-          {f.href ? <a href={f.href} rel="noopener" class="text-primary no-underline hover:underline">{f.value}</a> : f.value}
+          {f.href ? <a href={f.href} rel="noopener" class="text-primary underline">{f.value}</a> : f.value}
         </dd>
       </div>
     ))}
