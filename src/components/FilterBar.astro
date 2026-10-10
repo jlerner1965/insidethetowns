@@ -26,7 +26,7 @@ interface Props {
 
 const { options, label = 'Filter', rowLabel = 'What', openNow = false, subTowns = [] } = Astro.props;
 const pill =
-  'rounded-full border border-accent-line bg-raised px-4 py-2 text-sm sm:py-1.5 font-medium text-ink-muted transition-colors hover:border-accent hover:text-accent-text aria-pressed:border-accent-dark aria-pressed:bg-accent-dark aria-pressed:text-white';
+  'rounded-full border border-primary-line bg-raised px-4 py-2 text-sm sm:py-1.5 font-medium text-ink-muted transition-colors hover:border-primary hover:text-primary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-white';
 ---
 {/* Held at the top of the screen while its list scrolls: a directory on a
    phone runs to many screens, and the filters used to scroll away with the
@@ -36,7 +36,7 @@ const pill =
     {/* Every row is labelled, so "Where" no longer sits under an unlabelled
         first row whose buttons started further left (see .filter-row). */}
     <div class="filter-row" role="group" aria-label={label}>
-      <span class="eyebrow text-ink-faint">{rowLabel}</span>
+      <span class="eyebrow text-ink-muted">{rowLabel}</span>
       <div class="filter-pills">
         {options.length > 1 && <button type="button" data-filter="all" aria-pressed="true" class={pill}>All</button>}
         {options.length > 1 && options.map((o) => (
@@ -51,7 +51,7 @@ const pill =
     </div>
     {subTowns.length > 1 && (
       <div class="filter-row" role="group" aria-label="Filter by town">
-        <span class="eyebrow text-ink-faint">Where</span>
+        <span class="eyebrow text-ink-muted">Where</span>
         <div class="filter-pills">
           <button type="button" data-where="all" aria-pressed="true" class={pill}>All three</button>
           {subTowns.map((t) => (

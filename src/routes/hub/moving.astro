@@ -113,7 +113,7 @@ const structured = collectionPageJsonLd(hub, {
         {towns.map((t) => (
           <tr>
             <th scope="row">
-              <a href={`https://${t.domain}/`} class="no-underline hover:text-accent-text hover:underline">{t.name}</a>
+              <a href={`https://${t.domain}/`} class="no-underline hover:text-primary hover:underline">{t.name}</a>
               <span class="compare-domain">{t.domain}</span>
             </th>
             {columns.map((c) => (
@@ -134,8 +134,8 @@ const structured = collectionPageJsonLd(hub, {
       {towns.map((t) => (
         <article class="grid gap-x-10 gap-y-3 md:grid-cols-[14rem_minmax(0,1fr)]">
           <h3 class="display-md text-[1.75rem]">
-            <a href={`https://${t.domain}/`} class="no-underline hover:text-accent-text hover:underline">{t.name}</a>
-            <span class="mt-1 block font-body text-[0.8125rem] font-normal tracking-normal text-ink-faint">
+            <a href={`https://${t.domain}/`} class="no-underline hover:text-primary hover:underline">{t.name}</a>
+            <span class="mt-1 block font-body text-[0.8125rem] font-normal tracking-normal text-ink-muted">
               {countyLabel(t)} · {num(t.population)} · {growth(t)}
             </span>
           </h3>
@@ -144,7 +144,7 @@ const structured = collectionPageJsonLd(hub, {
                (the six mountain guides of 10 October 2026) shows its link only. */}
             {SUITS[t.slug] && <p class="max-w-[62ch] leading-relaxed text-ink-muted">{SUITS[t.slug]}</p>}
             <p class:list={['text-[0.9375rem]', SUITS[t.slug] && 'mt-3']}>
-              <a href={`https://${t.domain}/moving-here/`} class="inline-block -my-1 py-1 font-semibold text-accent-text no-underline hover:underline">
+              <a href={`https://${t.domain}/moving-here/`} class="inline-block -my-1 py-1 font-semibold text-primary no-underline hover:underline">
                 Moving to {t.name} →
               </a>
             </p>
@@ -163,7 +163,7 @@ const structured = collectionPageJsonLd(hub, {
           const b = towns.find((t) => t.slug === c.b);
           return (
             <li class="border-b border-line-soft py-5">
-              <a href={`/moving/${comparisonSlug(c)}/`} class="font-heading text-[1.375rem] font-medium no-underline hover:text-accent-text hover:underline">
+              <a href={`/moving/${comparisonSlug(c)}/`} class="font-heading text-[1.375rem] font-medium no-underline hover:text-primary hover:underline">
                 {a?.name} or {b?.name}?
               </a>
               <p class="mt-1.5 max-w-[68ch] text-[0.9375rem] leading-relaxed text-ink-muted">{c.verdict}</p>

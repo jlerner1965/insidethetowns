@@ -1,7 +1,8 @@
 ---
 /**
  * The hub home opens typographically rather than with a photo: the map and
- * the town cards are the picture. Each card borrows its town's accent.
+ * the town cards are the picture. Each card borrows its town's colours: a
+ * rule in its accent and its county line in its primary.
  *
  * It leads with the weekend. The network's numbers — guides, counties, people
  * — are a publisher's facts, and they used to sit where a reader looks first.
@@ -111,7 +112,7 @@ const task = 'btn btn-outline min-h-11 px-4 text-[0.9375rem] text-ink';
           <li class="flex">
             <a
               href={`https://${t.domain}/`}
-              class="flex min-h-11 w-full items-center justify-center rounded-full bg-raised px-1 text-center text-[0.8125rem] font-semibold leading-tight text-ink no-underline ring-1 ring-line-soft transition hover:text-accent-text hover:ring-line sm:px-3 sm:text-sm md:text-[0.9375rem]"
+              class="flex min-h-11 w-full items-center justify-center rounded-full bg-raised px-1 text-center text-[0.8125rem] font-semibold leading-tight text-ink no-underline ring-1 ring-line-soft transition hover:text-primary hover:ring-line sm:px-3 sm:text-sm md:text-[0.9375rem]"
             >{t.name}</a>
           </li>
         ))}
@@ -137,14 +138,14 @@ const task = 'btn btn-outline min-h-11 px-4 text-[0.9375rem] text-ink';
           {lead.map((event) => <NetworkEventCard event={event} />)}
         </div>
         <p data-events-empty hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
-          Those dates have passed. <a href="/this-weekend/" class="font-semibold text-accent-text">See what’s on now.</a>
+          Those dates have passed. <a href="/this-weekend/" class="font-semibold text-primary">See what’s on now.</a>
         </p>
-        <a href="/this-weekend/" class="mt-3 inline-flex min-h-11 items-center text-[0.9375rem] font-semibold text-accent-text no-underline hover:underline sm:hidden">Everything on →</a>
+        <a href="/this-weekend/" class="mt-3 inline-flex min-h-11 items-center text-[0.9375rem] font-semibold text-primary no-underline hover:underline sm:hidden">Everything on →</a>
       </div>
     </section>
   )}
 
-  <section id="towns" class="band band-tint">
+  <section id="towns" class="band band-paper">
     <div class="container-page">
     <SectionHeader eyebrow="The network" title="The towns" />
     <div class="grid items-start gap-10 lg:grid-cols-[3fr_2fr] lg:gap-14">
@@ -170,7 +171,7 @@ const task = 'btn btn-outline min-h-11 px-4 text-[0.9375rem] text-ink';
                   {/* On a phone the counties alone ("Weld · Boulder"): the full
                       "Weld and Boulder Counties" ran to three lines over a
                       one-word name. */}
-                  <p class="eyebrow" style={`color:${t.colors.accentDark}`}>
+                  <p class="eyebrow" style={`color:${t.colors.primary}`}>
                     <span class="sm:hidden">{t.counties.join(' · ')}</span>
                     <span class="hidden sm:inline">{countyLabel(t)}</span>
                   </p>
@@ -178,7 +179,7 @@ const task = 'btn btn-outline min-h-11 px-4 text-[0.9375rem] text-ink';
                     <span class="hidden font-light italic sm:inline">Inside</span> <span class="font-semibold">{t.name}</span>
                   </h4>
                   <p class="mt-3 hidden text-[0.9375rem] leading-relaxed text-ink-muted sm:block">{t.tagline}</p>
-                  <p class="mt-4 hidden text-sm font-semibold group-hover:underline sm:block" style={`color:${t.colors.accentDark}`}>{t.domain} →</p>
+                  <p class="mt-4 hidden text-sm font-semibold group-hover:underline sm:block" style={`color:${t.colors.primary}`}>{t.domain} →</p>
                 </a>
               ))}
             </div>
@@ -205,14 +206,14 @@ const task = 'btn btn-outline min-h-11 px-4 text-[0.9375rem] text-ink';
     </div>
   </section>
 
-  <section class="on-dark bg-accent-dark text-white">
+  <section class="on-dark bg-primary text-white">
     <div class="container-page grid gap-8 py-16 md:grid-cols-[3fr_2fr] md:items-end md:py-24">
       <div>
-        <p class="eyebrow text-highlight-ink">How it’s made</p>
+        <p class="eyebrow text-white">How it’s made</p>
         <h2 class="display-md mt-4 text-4xl lg:text-6xl">One guide per town, made the same careful way.</h2>
       </div>
       <div>
-        <p class="text-lg leading-relaxed text-white/85">
+        <p class="text-lg leading-relaxed">
           Never the town government, always linking to it. Editorial listings, not paid placement.
         </p>
         <a href="/about/" class="btn btn-light mt-6">About the network</a>

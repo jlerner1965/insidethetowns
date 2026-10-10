@@ -90,7 +90,7 @@ const checker = checkerName();
     {/* "Nothing listed" is a fact about this guide; "nothing happening" would be a claim about the town. */}
     <p>Nothing verified on the {town.name} calendar for the rest of this week yet.</p>
     <p class="mt-2 text-[0.9375rem]">
-      Know something that should be here? <a href="/submit-event/" class="inline-block -my-2 py-2 text-accent-text underline">Send it in</a> and it goes up once it is checked.
+      Know something that should be here? <a href="/submit-event/" class="inline-block -my-2 py-2 text-primary underline">Send it in</a> and it goes up once it is checked.
     </p>
   </div>
 
@@ -99,7 +99,7 @@ const checker = checkerName();
       <H id={`pick-${compact ? 'compact' : 'full'}`} class={eyebrow}>Our pick</H>
       <div class="mt-5 max-w-2xl">
         <p class="display-md text-[1.75rem] md:text-[2rem]">
-          {pick.url ? <a href={pick.url} rel="noopener" class="inline-block -my-2 py-2 no-underline hover:text-accent-text">{pick.title}</a> : pick.title}
+          {pick.url ? <a href={pick.url} rel="noopener" class="inline-block -my-2 py-2 no-underline hover:text-primary">{pick.title}</a> : pick.title}
         </p>
         <p class="mt-2 font-medium"><time datetime={toIsoLocal(pick.event.data.start)}>{when(pick.event)}</time></p>
         {pick.body && <p class="mt-3 text-[1.0625rem] leading-relaxed text-ink-muted">{pick.body}</p>}
@@ -115,7 +115,7 @@ const checker = checkerName();
       </div>
       {compact && allEvents.length > events.length && (
         <p class="mt-4 text-[0.9375rem]">
-          <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-accent-text no-underline hover:underline">
+          <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary no-underline hover:underline">
             All {allEvents.length} {onWeekend ? 'this weekend' : 'this week'} →
           </a>
         </p>
@@ -132,7 +132,7 @@ const checker = checkerName();
       <div class="mt-5 max-w-2xl">
         <p class="font-medium"><time datetime={toIsoLocal(comingUp.event.data.start)}>{when(comingUp.event)}</time></p>
         <p class="display-md mt-1 text-[1.5rem] md:text-[1.75rem]">
-          {comingUp.url ? <a href={comingUp.url} rel="noopener" class="inline-block -my-2 py-2 no-underline hover:text-accent-text">{comingUp.title}</a> : comingUp.title}
+          {comingUp.url ? <a href={comingUp.url} rel="noopener" class="inline-block -my-2 py-2 no-underline hover:text-primary">{comingUp.title}</a> : comingUp.title}
         </p>
         {comingUp.body && <p class="mt-3 text-[1.0625rem] leading-relaxed text-ink-muted">{comingUp.body}</p>}
       </div>
@@ -151,7 +151,7 @@ const checker = checkerName();
             <p class="mt-1 text-sm text-ink-muted">
               {c.source && (
                 <Fragment>
-                  <a href={c.source} rel="noopener" class="inline-block -my-3 py-3 text-accent-text underline">Source: {new URL(c.source).hostname.replace(/^www\./, '')}</a>
+                  <a href={c.source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline">Source: {new URL(c.source).hostname.replace(/^www\./, '')}</a>
                   {' · '}
                 </Fragment>
               )}
@@ -162,7 +162,7 @@ const checker = checkerName();
       </ul>
       {compact && allChanges.length > changes.length && (
         <p class="mt-4 text-[0.9375rem]">
-          <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-accent-text no-underline hover:underline">
+          <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary no-underline hover:underline">
             All {allChanges.length} new &amp; closed →
           </a>
         </p>

@@ -4333,3 +4333,57 @@ as the 3 October rule has it. What going live took:
   person to confirm it); Moving Here pages for five towns and the
   comparison paragraphs for six; the staged listings.
 
+
+## Color System 2.0
+
+*10 October 2026.* The owner supplied *Inside the Towns Color System 2.0*
+(release 2.0, 9 October 2026): final palettes for the hub and all 24 town
+guides, two shared page backgrounds, two shared inks, and a job for each
+colour. It is applied as written; no hex was tuned here.
+
+- **Three roles, renamed to match.** `TownColors` is now `primary`,
+  `accent` and `paper`. The primary is identity and action: the town name,
+  links, eyebrows, active navigation, buttons, the dark bands and the town
+  badges, always with white on it. The accent is decoration only: section
+  rules, the six-pixel strip at the top of the page, image placeholders,
+  blockquote and table rules. It never carries text, an essential icon or a
+  control's edge, so it has no contrast to meet. The old `accentDark` is the
+  primary's job and the old bright `accent` mostly the new accent's; the
+  utilities follow (`text-primary`, `bg-primary`, `border-accent`), so the
+  next change cannot use one where it means the other.
+- **Two papers, white cards, two inks.** `paper` is `'warm'` (#F7F5F0) or
+  `'cool'` (#F2F6F7), as each palette assigns, and nothing else is a page
+  surface. The tinted bands and panels (the interior masthead, the home
+  page's alternate bands, the hub's town section, the signup box, Moving
+  Here's "Still deciding") become the paper or white. That was also
+  forced: Golden's primary is 4.66:1 on its paper and the eyebrow in it
+  could not sit on anything darker. Body text is #243137 and supporting
+  text #526068 everywhere; the old third, lighter ink is folded into the
+  supporting one.
+- **Interaction.** Buttons darken by 12% on hover (`primaryHover()` in
+  `src/config/palette.ts`, 12% black mixed in sRGB, so the page carries an
+  exact hex and the check can prove white on it). The guide points to a
+  companion stylesheet for exact hover values; it was not supplied, and if
+  its values differ they replace that one function. Focus is a primary
+  outline with a white ring, except on the dark bands, which keep their
+  white outline. Map pins, filter pills and focused fields use the primary,
+  not the accent. Checkboxes take the primary through `accent-color`.
+- **Text on the bands is white.** The 2.0 primaries include lighter ones
+  (Golden 5.07:1 under white, Lyons 5.96:1), and white at 70–85% fails on
+  them; the guide's own checks are white on the primary. The bands'
+  eyebrows were the amber and are white too. The network strip under the
+  footer keeps white/70 and the amber hub link, both proven on every strip.
+- **The amber stays for meaning, not decoration**: dated notices, "Our
+  pick", and the hub's name in the strip. It is gone from the top strip and
+  the eyebrows, where it would have been a 26th colour on every guide.
+- **`npm run check-colors`** is rewritten for these roles: each primary on
+  white and on its paper (it reproduces the guide's table exactly), white
+  on each primary and on its hover shade, the primary on the amber wash,
+  both inks on both papers, white and the wash, the strip, the category
+  hues on both papers and white, and no two guides sharing a primary. All
+  26 configs pass.
+- **Favicons** keep their marks; each tile, and the tint derived from it, is
+  repainted in the new primary, and the link moves to `?v=4`.
+- **Castle Rock is not in the guide.** It is wave 2 and not live; it keeps
+  its rose in the new roles (its old dark shade as primary) as a
+  placeholder, flagged in its config, and needs a palette before launch.

@@ -179,12 +179,12 @@ const facts = [
             {data.statusNote}
             {data.statusSource && (
               <Fragment>
-                {' '}<a href={data.statusSource} rel="noopener" class="text-accent-text">Source →</a>
+                {' '}<a href={data.statusSource} rel="noopener" class="text-primary">Source →</a>
               </Fragment>
             )}
           </p>
           <p class="mt-2 text-[0.875rem] leading-relaxed text-ink-muted">
-            Know different? <a href={correct} class="text-accent-text underline">Tell us</a> and the listing is corrected.
+            Know different? <a href={correct} class="text-primary underline">Tell us</a> and the listing is corrected.
           </p>
         </div>
       )}
@@ -193,7 +193,7 @@ const facts = [
           <figure class:list={['mb-10', data.image.width < 800 && 'max-w-xl']}>
             <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
             {data.imageCredit && (
-              <figcaption class="mt-2 text-[0.8125rem] text-ink-faint">Photo: {data.imageCredit}</figcaption>
+              <figcaption class="mt-2 text-[0.8125rem] text-ink-muted">Photo: {data.imageCredit}</figcaption>
             )}
           </figure>
         )}
@@ -204,7 +204,7 @@ const facts = [
             like filter buttons and showed the raw slugs ("no-dogs"). */}
         {data.tags.length > 0 && (
           <p class="mt-10 text-[0.9375rem] text-ink-muted">
-            <span class="eyebrow mr-2 text-ink-faint">At a glance</span>
+            <span class="eyebrow mr-2 text-ink-muted">At a glance</span>
             {data.tags.map((tag) => tag.replace(/-/g, ' ')).join(' · ')}
           </p>
         )}
@@ -213,18 +213,18 @@ const facts = [
             sidebar, goes where the photograph would be. */}
         {!data.image && (
           <p class="mt-10 rounded-lg border border-dashed border-line px-5 py-4 text-[0.9375rem] leading-snug">
-            <a href={correct} class="font-semibold text-accent-text no-underline hover:underline">
+            <a href={correct} class="font-semibold text-primary no-underline hover:underline">
               {hasOperator ? `Own or run ${data.title}?` : `Know ${data.title} well?`}
             </a>
             <span class="mt-1 block text-[0.875rem] leading-relaxed text-ink-muted">
               Send a photo, new hours or a correction. Listings are editorial and free; nobody pays to be here.
-              {hasOperator && <a href="/for-businesses/" class="text-accent-text underline">How listings work.</a>}
-              <TipsLink class="mt-1 block text-accent-text underline" />
+              {hasOperator && <a href="/for-businesses/" class="text-primary underline">How listings work.</a>}
+              <TipsLink class="mt-1 block text-primary underline" />
             </span>
           </p>
         )}
       </div>
-      <p class="order-5 text-[0.9375rem] lg:mt-12"><a href={back.href} class="inline-block -my-1 py-1 font-semibold text-accent-text no-underline hover:underline">← {back.label}</a></p>
+      <p class="order-5 text-[0.9375rem] lg:mt-12"><a href={back.href} class="inline-block -my-1 py-1 font-semibold text-primary no-underline hover:underline">← {back.label}</a></p>
     </div>
     <div class="contents lg:block lg:pt-1">
       <aside class="order-2">
@@ -234,7 +234,7 @@ const facts = [
               <dt class="eyebrow">{f.label}</dt>
               <dd class="mt-1.5 leading-snug">
                 {f.href ? (
-                  <a href={f.href} rel={f.href.startsWith('http') ? 'noopener' : undefined} class="inline-block -my-1 py-1 text-accent-text">{f.value}</a>
+                  <a href={f.href} rel={f.href.startsWith('http') ? 'noopener' : undefined} class="inline-block -my-1 py-1 text-primary">{f.value}</a>
                 ) : f.lines ? (
                   f.lines.map((line) => <span class="block">{line}</span>)
                 ) : (
@@ -268,20 +268,20 @@ const facts = [
               <ul class="mt-3 grid gap-2 text-[0.9375rem] leading-snug">
                 {access?.conditionsUrl && (
                   <li>
-                    <a href={access.conditionsUrl} rel="noopener" class="font-semibold text-accent-text">{access.conditionsLabel ?? 'Current conditions'}</a>
+                    <a href={access.conditionsUrl} rel="noopener" class="font-semibold text-primary">{access.conditionsLabel ?? 'Current conditions'}</a>
                     <span class="block text-[0.875rem] text-ink-muted">The land manager’s own page; we link it rather than repeat it.</span>
                   </li>
                 )}
                 {conditionsLinks.map((l) => (
                   <li>
-                    <a href={l.url} rel="noopener" class="font-semibold text-accent-text">{l.label}</a>
+                    <a href={l.url} rel="noopener" class="font-semibold text-primary">{l.label}</a>
                     {l.note && <span class="block text-[0.875rem] text-ink-muted">{l.note}</span>}
                   </li>
                 ))}
               </ul>
             )}
             {accessShown && (
-              <p class="mt-3 text-xs leading-relaxed text-ink-faint">
+              <p class="mt-3 text-xs leading-relaxed text-ink-muted">
                 Access notes checked {formatDate(access.verified)} against <a href={access.source} rel="noopener" class="underline">{new URL(access.source).hostname.replace(/^www\./, '')}</a>.
               </p>
             )}
@@ -304,13 +304,13 @@ const facts = [
         */}
         {data.image && (
         <p class="mt-6 border-t border-line-soft pt-6 text-[0.9375rem] leading-snug">
-          <a href={correct} class="font-semibold text-accent-text no-underline hover:underline">
+          <a href={correct} class="font-semibold text-primary no-underline hover:underline">
             {hasOperator ? `Own or run ${data.title}?` : `Know ${data.title} well?`}
           </a>
           <span class="mt-1 block text-[0.875rem] leading-relaxed text-ink-muted">
             Send a photo, new hours or a correction. Listings are editorial and free; nobody pays to be here.
-            {hasOperator && <a href="/for-businesses/" class="text-accent-text underline">How listings work.</a>}
-            <TipsLink class="mt-1 block text-accent-text underline" />
+            {hasOperator && <a href="/for-businesses/" class="text-primary underline">How listings work.</a>}
+            <TipsLink class="mt-1 block text-primary underline" />
           </span>
         </p>
         )}

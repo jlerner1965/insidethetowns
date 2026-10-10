@@ -62,7 +62,7 @@ const glance: Array<[string, string]> = data.glance
       <dl class="mt-7 grid gap-x-8 gap-y-4 border-t border-accent/30 pt-6 sm:grid-cols-2" aria-label="At a glance">
         {glance.map(([term, detail]) => (
           <div>
-            <dt class="eyebrow text-ink-faint">{term}</dt>
+            <dt class="eyebrow text-ink-muted">{term}</dt>
             <dd class="mt-1 text-[0.9375rem] leading-snug">{detail}</dd>
           </div>
         ))}
@@ -75,7 +75,7 @@ const glance: Array<[string, string]> = data.glance
       {data.supersededNote}
       {data.supersededSource && (
         <Fragment>
-          {' '}<a href={data.supersededSource} class="text-accent-text" rel="nofollow">{data.supersededSourceLabel}</a>.
+          {' '}<a href={data.supersededSource} class="text-primary" rel="nofollow">{data.supersededSourceLabel}</a>.
         </Fragment>
       )}
     </DatedNotice>
@@ -88,7 +88,7 @@ const glance: Array<[string, string]> = data.glance
           tall and the text began a screen and a half down. */}
       <Image src={data.image} alt={data.imageAlt ?? ''} width={1600} height={900} class:list={['w-full rounded-lg object-cover', data.image.width >= 1000 && 'lg:h-[32rem]!']} />
       {data.imageCredit && (
-        <figcaption class="mt-2 text-[0.8125rem] text-ink-faint">Photo: {data.imageCredit}</figcaption>
+        <figcaption class="mt-2 text-[0.8125rem] text-ink-muted">Photo: {data.imageCredit}</figcaption>
       )}
     </figure>
   )}

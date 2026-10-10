@@ -43,10 +43,14 @@ export const castleRock: TownConfig = {
   incorporated: 1881,
   population2010: 48231, // 2010 census, for census-to-census growth
   colors: {
-    // Rhyolite rose: the dusty pink-grey of the butte the town is named for, between Johnstown's raspberry and Loveland's plum and greyer than either. `npm run check-colors` is the gate.
+    // Not in Color System 2.0 (9 October 2026), which covers the guides
+    // then live or launching. A placeholder in its roles until the owner
+    // gives Castle Rock a palette: the rhyolite rose it had, its dark shade
+    // as the primary, on warm paper. Choose one before launch; it sits
+    // close to Black Hawk, Johnstown and Loveland.
+    primary: '#6E3647',
     accent: '#A0546A',
-    accentDark: '#6E3647',
-    neutralBg: '#F8F4F5',
+    paper: 'warm',
   },
   hero: {
     image: 'hero.jpg',

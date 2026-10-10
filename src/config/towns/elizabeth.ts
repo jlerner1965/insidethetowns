@@ -25,7 +25,12 @@ export const elizabeth = {
   driveToDenver: 'About 1 hr; 45 min to the Tech Center',
   population2010: 1358, // 2010 census, for census-to-census growth
   character: 'Prairie and ponderosa on the Palmer Divide, an hour out and sold five acres at a time.',
-  colors: { accent: "#B26E2A", accentDark: "#78491A", neutralBg: "#FAF7F2" },
+  colors: {
+    // Saddle brown + wheat, on warm paper: Color System 2.0, 9 October 2026.
+    primary: "#805434",
+    accent: "#C7A36A",
+    paper: "warm",
+  },
   hero: {
     image: "hero.jpg",
     alt: "Main Street in Elizabeth, Colorado: the 1907 First National Bank building with its arched openings and the white false-front store beyond, under a clear winter sky",

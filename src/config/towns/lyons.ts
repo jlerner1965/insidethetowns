@@ -24,11 +24,10 @@ export const lyons: TownConfig = {
   population2010: 2033, // 2010 census, for census-to-census growth
   character: 'The canyon mouth: sandstone, the river, the music, and a town that rebuilt after 2013.',
   colors: {
-    // Lyons Formation sandstone, on a sandstone-dust paper. The old explorelyons.com
-    // palette used the same rock; this is its red-rock accent, lifted a step for links.
-    accent: '#CE4A2C',
-    accentDark: '#8A2D19',
-    neutralBg: '#F5EDE0',
+    // Sandstone orange-red + river green, on warm paper: Color System 2.0, 9 October 2026.
+    primary: '#A3482D',
+    accent: '#3C8374',
+    paper: 'warm',
   },
   hero: {
     image: 'hero.jpg',

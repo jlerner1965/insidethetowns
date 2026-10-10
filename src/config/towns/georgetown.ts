@@ -69,10 +69,10 @@ export const georgetown: TownConfig = {
     },
   ],
   colors: {
-    // Victorian blue: the deep blue-violet of the painted houses on Taos and Rose streets, darker than the hub's blue and greyer than Erie's indigo. `npm run check-colors` is the gate.
-    accent: '#3F4F8F',
-    accentDark: '#2B3661',
-    neutralBg: '#F4F4F8',
+    // Victorian navy + silver, on cool paper: Color System 2.0, 9 October 2026.
+    primary: '#354664',
+    accent: '#B0B5BD',
+    paper: 'cool',
   },
   hero: {
     image: 'hero.jpg',

@@ -41,7 +41,7 @@ if (related.length === 0) {
   const rest = others.filter((a) => a.data.category !== article.data.category);
   related = [...same, ...rest].slice(0, 3).map((a) => ({ label: a.data.title, href: `/articles/${a.slug}/` }));
 }
-const link = 'inline-block -my-2 py-2 font-medium text-accent-text no-underline hover:underline';
+const link = 'inline-block -my-2 py-2 font-medium text-primary no-underline hover:underline';
 ---
 <section class="mt-20 border-t-2 border-accent pt-8 md:mt-24" aria-label={`More from the ${town.name} guide`}>
   <div class="grid gap-10 md:grid-cols-2 md:gap-12">
@@ -53,7 +53,7 @@ const link = 'inline-block -my-2 py-2 font-medium text-accent-text no-underline 
         </div>
       )}
       <p class="mt-4 text-[0.9375rem]">
-        <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-accent-text no-underline hover:underline">This week in {town.name} →</a>
+        <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary no-underline hover:underline">This week in {town.name} →</a>
       </p>
     </div>
     {related.length > 0 && (

@@ -60,8 +60,8 @@ const structured = [
   jsonLd={structured}
 >
   <p slot="after-header" class="mt-5 text-[0.9375rem] text-ink-muted">
-    <a href="/events/" class="font-semibold text-accent-text">All events</a> ·
-    <a href={`https://${hub.domain}/this-weekend/`} class="font-semibold text-accent-text">This weekend across all the towns</a>
+    <a href="/events/" class="font-semibold text-primary">All events</a> ·
+    <a href={`https://${hub.domain}/this-weekend/`} class="font-semibold text-primary">This weekend across all the towns</a>
   </p>
   <SponsorLine slot="after-header" sponsor={town.sponsors?.events} />
   <SponsorLine slot="after-header" sponsor={hub.sponsors?.network} label="This weekend, presented by" />
@@ -69,7 +69,7 @@ const structured = [
   <div data-events-scope>
     {sectionCount(sections) === 0 && (
       <p class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
-        Nothing listed for this weekend yet. <a href="/submit-event/" class="font-semibold text-accent-text">Know of something?</a>
+        Nothing listed for this weekend yet. <a href="/submit-event/" class="font-semibold text-primary">Know of something?</a>
       </p>
     )}
 
@@ -108,7 +108,7 @@ const structured = [
     )}
 
     <p data-events-empty hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
-      That weekend has been and gone. <a href="/events/" class="font-semibold text-accent-text">See what’s next.</a>
+      That weekend has been and gone. <a href="/events/" class="font-semibold text-primary">See what’s next.</a>
     </p>
   </div>
 

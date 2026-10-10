@@ -46,14 +46,13 @@ const [lead, second] = articles;
     </div>
   </section>
 
-  {/* The page is a run of colored bands: white, the accent at 9%, white, the
-     accent at 9% again, then the accent itself. Without them the whole site
-     is one sheet of tan. */}
-  <section class="band band-tint">
+  {/* The page is a run of bands: white, the paper, white, the paper again,
+     then the primary itself. Without them the whole site is one sheet. */}
+  <section class="band band-paper">
     <div class="container-page">
     <SectionHeader eyebrow={`Coming up in ${town.name}`} title="What’s on" href="/events/" linkLabel="All events" />
     {events.length === 0 ? (
-      <p class="text-ink-muted">No upcoming events listed yet. <a href="/submit-event/" class="text-accent-text underline">Submit one.</a></p>
+      <p class="text-ink-muted">No upcoming events listed yet. <a href="/submit-event/" class="text-primary underline">Submit one.</a></p>
     ) : (
       <div data-events-scope>
         {/* Each card draws the rule above it, bar the first. In two columns the
@@ -64,7 +63,7 @@ const [lead, second] = articles;
         {/* A build from before the weekend, read after it: the browser has
            removed what has passed, and this says so rather than leave a gap. */}
         <p data-events-empty hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
-          Everything listed here has now happened. <a href="/events/" class="font-semibold text-accent-text">See what’s next.</a>
+          Everything listed here has now happened. <a href="/events/" class="font-semibold text-primary">See what’s next.</a>
         </p>
       </div>
     )}
@@ -98,7 +97,7 @@ const [lead, second] = articles;
   </section>
 
   {lead && (
-    <section class="band band-tint">
+    <section class="band band-paper">
       <div class="container-page">
       <SectionHeader eyebrow="Latest" title="From the guide" href="/guides/" linkLabel="All guides" />
       <ArticleCard article={lead} feature />
@@ -111,14 +110,14 @@ const [lead, second] = articles;
     </section>
   )}
 
-  <section class="on-dark bg-accent-dark text-white">
+  <section class="on-dark bg-primary text-white">
     <div class="container-page grid gap-8 py-16 md:grid-cols-[3fr_2fr] md:items-end md:py-24">
       <div>
-        <p class="eyebrow text-highlight-ink">Moving here</p>
+        <p class="eyebrow text-white">Moving here</p>
         <h2 class="display-md mt-4 text-4xl lg:text-6xl">Thinking of making {town.name} home?</h2>
       </div>
       <div>
-        <p class="text-lg leading-relaxed text-white/85">
+        <p class="text-lg leading-relaxed">
           Schools, commutes, what the housing market looks like, and what nobody tells you until you live here.
         </p>
         <a href="/moving-here/" class="btn btn-light mt-6">Read the guide</a>

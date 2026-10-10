@@ -15,9 +15,10 @@ export const hub: HubConfig = {
   tagline: 'Independent community guides to the towns of Colorado’s Front Range.',
   seoTagline: 'Guides to Colorado’s Front Range towns',
   colors: {
-    accent: '#2C74CC',
-    accentDark: '#1B4A86',
-    neutralBg: '#F4F3EF',
+    // Front Range blue + sage, on warm paper: Color System 2.0, 9 October 2026.
+    primary: '#24455D',
+    accent: '#7A8A6B',
+    paper: 'warm',
   },
   hero: {
     image: 'front-range-aerial.jpg',

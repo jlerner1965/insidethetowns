@@ -35,17 +35,21 @@ for (const p of [configFile, contentDir]) {
   }
 }
 
-// A distinct starting accent per town, picked by slug so re-runs are stable.
+// A starting palette per town in Color System 2.0's roles (primary, a
+// decorative accent, warm or cool paper), picked by slug so re-runs are
+// stable. A placeholder: the town needs its own before launch, distinct from
+// the guides already live, and `npm run check-colors` fails a primary that
+// another guide already has or that is too light for white text.
 const palette = [
-  ['#9A3B2E', '#6E281F'], // brick
-  ['#2F6B5E', '#1F4A41'], // spruce
-  ['#8A6A1F', '#5F4915'], // wheat
-  ['#3E5C8A', '#2A3F5F'], // slate blue
-  ['#7A4E8A', '#54365F'], // plum
-  ['#B4562A', '#7D3B1D'], // sandstone
+  ['#6E281F', '#C79A5B'], // brick + wheat
+  ['#1F4A41', '#B38A5A'], // spruce + cedar
+  ['#5F4915', '#6F8FA0'], // wheat + sky
+  ['#2A3F5F', '#B7A27A'], // slate blue + tan
+  ['#54365F', '#8FA38A'], // plum + sage
+  ['#7D3B1D', '#5F8C88'], // sandstone + river
 ];
 const hash = [...slug].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
-const [accent, accentDark] = palette[hash % palette.length]!;
+const [primary, accent] = palette[hash % palette.length]!;
 const ident = slug.replace(/-([a-z0-9])/g, (_, c: string) => c.toUpperCase());
 
 const configSource = `import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
@@ -68,9 +72,10 @@ export const ${ident}: TownConfig = {
   lat: 40.0,
   lng: -105.0,
   colors: {
+    // TODO: the town's palette from the color guide before launch.
+    primary: '${primary}',
     accent: '${accent}',
-    accentDark: '${accentDark}',
-    neutralBg: '#F7F5F0',
+    paper: 'warm',
   },
   hero: {
     image: 'hero.jpg',
@@ -167,7 +172,7 @@ const readme = readFileSync(join(root, 'scripts/templates/CONTENT_README.md'), '
   .replaceAll('__SLUG__', slug);
 
 const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="${accent}"/>
+  <rect width="64" height="64" rx="12" fill="${primary}"/>
   <text x="32" y="44" font-family="Georgia, serif" font-size="36" font-weight="700" fill="#fff" text-anchor="middle">${name.charAt(0).toUpperCase()}</text>
 </svg>
 `;

@@ -43,7 +43,7 @@ const hero = resolveSiteImage(site.slug, site.hero.image);
 const subtitleShort = shorten(subtitle, 64);
 const subtitleLong = shorten(subtitle, 88);
 ---
-<section class="on-dark relative isolate overflow-hidden bg-accent-dark text-white">
+<section class="on-dark relative isolate overflow-hidden bg-primary text-white">
   <Image
     src={hero}
     alt={site.hero.alt}
@@ -61,9 +61,12 @@ const subtitleLong = shorten(subtitle, 88);
   {/*
     Two layers, and the second one is the reason a hero without a bright sky
     used to read as a coloured panel rather than a photograph: the town's
-    accentDark at 35%, multiplied over every pixel, pulls every hue in the
-    frame toward one navy. It is 20% now — enough to tie the picture to the
-    palette, not enough to repaint it.
+    dark colour at 35%, multiplied over every pixel, pulls every hue in the
+    frame toward one navy. It is the primary at 20% now — enough to tie the
+    picture to the palette, not enough to repaint it. Some 2.0 primaries
+    (Golden's copper-gold, Lyons's sandstone) are lighter than the dark
+    shades they replaced, so the wash darkens a little less; the scrim
+    below is what the type relies on, and it is unchanged.
 
     The scrim is what carries legibility, so it is not simply lightened to
     match. Its stops are set so that (1 − scrim) × wash is never greater than
@@ -78,20 +81,17 @@ const subtitleLong = shorten(subtitle, 88);
     and the eyebrow went from three quarters of the way up to four fifths.
   */}
   <div class="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.5)_55%,rgba(0,0,0,0.36)_86%,transparent_100%)]"></div>
-  <div class="absolute inset-0 -z-10 bg-accent-dark/20 mix-blend-multiply"></div>
+  <div class="absolute inset-0 -z-10 bg-primary/20 mix-blend-multiply"></div>
   {/* Capped as well as proportional, and kept to about half the screen so
       "What’s on" and the first row of events are in view before any scroll:
       at 1440×900 the old 78svh hero pushed the section heading off the
       bottom. A phone gets a smaller share still. */}
   <div class="container-page relative flex min-h-[min(44svh,400px)] flex-col justify-end pb-8 pt-16 md:min-h-[min(50svh,560px)] md:pb-10">
     {/*
-      White, not the amber every other dark band uses for this line.
-      `check-colors` proves the amber clears 4.5:1 on accentDark, and it does —
-      but this is the one eyebrow that sits on a photograph rather than on that
-      flat fill, and a photograph has no guaranteed value. Measured against the
-      rendered heroes it came in between 2.88:1 and 3.90:1 on six of the seven
-      towns, at 12.75px, which is a fail. White clears 4.69:1 on the worst of
-      them. The amber stays everywhere it is provably safe.
+      White, as on every band. The amber this line once shared with the
+      other bands came in between 2.88:1 and 3.90:1 against the rendered
+      heroes, at 12.75px, which is a fail; white clears 4.69:1 on the worst
+      of them. Since Color System 2.0 the bands' eyebrows are white too.
     */}
     <p class="eyebrow text-white">{eyebrow}</p>
     {/* A third smaller than it was, so "Carbon Valley" and "Fort Collins"

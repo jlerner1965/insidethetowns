@@ -53,13 +53,13 @@ const side = row && !feature && !!data.image;
   )}
   <div class:list={[!feature && !side && data.image && 'mt-4', feature && !data.image && 'max-w-3xl', row && 'max-w-2xl']}>
     <p class="eyebrow">
-      {showCategory && <Fragment>{data.category} <span class="text-ink-faint">·</span> </Fragment>}<time datetime={toIsoLocal(data.date)} class="text-ink-muted">{formatDate(data.date)}</time>
+      {showCategory && <Fragment>{data.category} <span class="text-ink-muted">·</span> </Fragment>}<time datetime={toIsoLocal(data.date)} class="text-ink-muted">{formatDate(data.date)}</time>
     </p>
     {/* The feature steps down to 4xl on wide screens; a phone keeps 3xl,
         since at 2xl the tight display cut reads smaller than the 2xl title
         of the story under it. */}
     <h3 class:list={['mt-2 font-medium leading-tight', feature ? 'display text-3xl md:text-4xl' : 'text-2xl']}>
-      <a href={href} class="stretch no-underline group-hover:text-accent-text">{data.title}</a>
+      <a href={href} class="stretch no-underline group-hover:text-primary">{data.title}</a>
     </h3>
     {/* A teaser's excerpt is shortened at a word or phrase, a phone's further
         than a wide screen's, rather than cut mid-word by the clamp ("…districts.
@@ -71,6 +71,6 @@ const side = row && !feature && !!data.image;
         <span class="sm:hidden" data-pagefind-ignore>{shorten(data.excerpt, 120)}</span><span class="hidden sm:inline">{shorten(data.excerpt, 200)}</span>
       </p>
     )}
-    {feature && <p class="mt-5 text-[0.9375rem] font-semibold text-accent-text">Read the story →</p>}
+    {feature && <p class="mt-5 text-[0.9375rem] font-semibold text-primary">Read the story →</p>}
   </div>
 </article>

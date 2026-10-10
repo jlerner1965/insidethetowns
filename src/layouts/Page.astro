@@ -1,11 +1,13 @@
 ---
 /**
- * A standard interior page: a colored masthead band carrying eyebrow, title
- * and intro, then the content on paper.
+ * A standard interior page: a masthead band carrying eyebrow, title and
+ * intro, then the content on paper.
  *
- * The band is what keeps the site from opening on plain tan on all four
- * hundred interior pages. It is the town's accent at 9%, under a rule in the
- * accent itself.
+ * The band is what keeps the site from opening on plain paper on all four
+ * hundred interior pages. It is white, under a rule in the town's accent: the
+ * guide allows only the two papers and white as surfaces, and the eyebrow in
+ * the primary sits on it, which Golden's primary can do on white (5.07:1) and
+ * on its paper (4.66:1) but not on anything darker.
  */
 import Base from './Base.astro';
 
@@ -33,7 +35,7 @@ interface Props {
 const { title, seoTitle, eyebrow, status, intro, narrow = false, ...seo } = Astro.props;
 ---
 <Base title={seoTitle ?? title} {...seo}>
-  <header class="border-b-2 border-accent bg-accent-tint">
+  <header class="border-b-2 border-accent bg-raised">
     <div class="container-page py-10 md:py-14">
       <div class="max-w-3xl">
         {(eyebrow || status) && (

@@ -34,8 +34,8 @@ const day = config?.sendDay ?? 'Thursday';
   {config ? (
     <Fragment>
       <NewsletterSignup>
-        <p class="mt-5 border-t border-accent-line pt-4 text-[0.9375rem]">
-          <a href="/newsletter/sample/" class="font-semibold text-accent-text">See a sample issue</a>, built from this week’s listings.
+        <p class="mt-5 border-t border-primary-line pt-4 text-[0.9375rem]">
+          <a href="/newsletter/sample/" class="font-semibold text-primary">See a sample issue</a>, built from this week’s listings.
         </p>
       </NewsletterSignup>
     </Fragment>
@@ -73,10 +73,10 @@ const day = config?.sendDay ?? 'Thursday';
           <li class="group relative border-b border-line-soft py-5">
             <p class="eyebrow">
               <time datetime={toIsoLocal(issue.data.date)}>{formatDate(issue.data.date)}</time>
-              {issue.data.number && <span class="ml-2 text-ink-faint">No. {issue.data.number}</span>}
+              {issue.data.number && <span class="ml-2 text-ink-muted">No. {issue.data.number}</span>}
             </p>
             <h3 class="mt-1.5 text-[1.25rem] font-medium leading-tight">
-              <a href={`/newsletter/${issue.slug}/`} class="stretch no-underline group-hover:text-accent-text">
+              <a href={`/newsletter/${issue.slug}/`} class="stretch no-underline group-hover:text-primary">
                 {issue.data.title}
               </a>
             </h3>

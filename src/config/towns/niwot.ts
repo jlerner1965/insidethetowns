@@ -27,10 +27,10 @@ export const niwot: TownConfig = {
   population2010: 4006, // 2010 census, for census-to-census growth
   character: 'Deliberately small and still unincorporated — no town hall, and a vote on that in 2026.',
   colors: {
-    // Evergreen for the cottonwood-and-foothills valley; the old townofniwot.com wordmark was an evergreen ground too.
-    accent: '#108452',
-    accentDark: '#0C5B39',
-    neutralBg: '#F5F2EA',
+    // Cottonwood green + brick, on warm paper: Color System 2.0, 9 October 2026.
+    primary: '#355E46',
+    accent: '#A26449',
+    paper: 'warm',
   },
   hero: {
     image: 'front-range-from-the-fields.jpg',

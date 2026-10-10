@@ -34,7 +34,7 @@ const host = source ? new URL(source).hostname.replace(/^www\./, '') : undefined
 <article class="grid grid-cols-[4.25rem_1fr] gap-x-4 border-t border-line-soft py-4 first:border-t-0" data-event-day={lastDay(event)} data-end={toIsoLocal(listedUntil(event))}>
   <time datetime={toIsoLocal(data.start)} class="flex flex-col pt-1">
     <span class="eyebrow">{badge.weekday}</span>
-    <span class="font-heading text-[2rem] font-medium leading-none tabular-nums text-accent-text">{badge.day}</span>
+    <span class="font-heading text-[2rem] font-medium leading-none tabular-nums text-primary">{badge.day}</span>
     <span class="text-xs font-medium uppercase tracking-[0.1em] text-ink-muted">{badge.month}</span>
   </time>
   <div class="min-w-0">
@@ -45,14 +45,14 @@ const host = source ? new URL(source).hostname.replace(/^www\./, '') : undefined
       </p>
     )}
     <h3 class="text-xl font-medium leading-tight">
-      <a href={`/events/${slug}/`} class="inline-block -my-2 py-2 no-underline hover:text-accent-text">{data.title}</a>
+      <a href={`/events/${slug}/`} class="inline-block -my-2 py-2 no-underline hover:text-primary">{data.title}</a>
     </h3>
     <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">
       {timeText(event)} · {data.venue}{data.subTown && <span>, {subTownLabel(data.subTown)}</span>}{data.cost && <span> · {data.cost}</span>}
     </p>
     {source && (
       <p class="mt-1 text-sm">
-        <a href={source} rel="noopener" class="inline-block -my-3 py-3 text-accent-text underline">Source: {host}</a>
+        <a href={source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline">Source: {host}</a>
       </p>
     )}
   </div>

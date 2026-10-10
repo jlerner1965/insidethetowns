@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs><linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
-  <rect width="64" height="64" rx="12" fill="#6F1C17"/>
+  <rect width="64" height="64" rx="12" fill="#652B38"/>
   <rect width="64" height="64" rx="12" fill="url(#t)"/>
   <g transform="translate(32 32) scale(1) translate(-32 -32)">
   <path d="M7 50 V16 L27 50 Z M57 50 V16 L37 50 Z" fill="#F5EFE2"/>
   <path d="M26 50 V37 L32 30 L38 37 V50 Z" fill="#D9A94E"/>
-  <rect x="30" y="41" width="4" height="9" fill="#6F1C17"/>
+  <rect x="30" y="41" width="4" height="9" fill="#652B38"/>
   <rect x="10" y="49" width="44" height="3" fill="#D9A94E"/>
   </g>
 </svg>
