@@ -5,6 +5,7 @@ end: "2026-11-26T12:00"
 venue: "Erie Community Center"
 address: "450 Powers Street, Erie, CO 80516"
 url: "https://www.erieco.gov/Calendar.aspx?EID=5197"
+cost: "$40 through November 10, $45 November 11–24, $50 on November 25, plus a registration processing fee; chip-timed 4 mile $5 extra; kids 10 and under free with a registered guardian"
 category: sports
 timeNote: "Waves at 9:00, 9:01 and 9:02"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5197"

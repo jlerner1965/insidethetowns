@@ -4,6 +4,7 @@ start: "2026-10-10T10:00"
 end: "2026-10-10T13:00"
 venue: "Evergreen Lake"
 organizer: "Evergreen Park & Recreation District"
+organizerUrl: "https://www.evergreenrecreation.com/"
 url: "https://www.evergreenrecreation.com/2026-10-10-witches-warlocks-on-evergreen-lake"
 cost: "Registration per board; children under 8 ride free with an adult"
 category: outdoors

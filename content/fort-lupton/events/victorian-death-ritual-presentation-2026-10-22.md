@@ -4,6 +4,8 @@ start: "2026-10-22T18:00"
 end: "2026-10-22T19:00"
 venue: "Fort Lupton Public & School Library"
 address: "370 S Rollie Ave, Fort Lupton, CO 80621"
+performers:
+  - { name: "Jackie Smith", kind: person }
 url: "https://highplains.libcal.com/event/17633024"
 category: other
 organizer: "Fort Lupton Public & School Library"

@@ -14,6 +14,7 @@ url: "https://www.miramontcastle.org/upcoming-events"
 cost: "$65 per ticket; reservations required"
 category: arts
 organizer: "Manitou Springs Historical Society"
+organizerUrl: "https://miramontcastle.org/"
 source: "https://www.miramontcastle.org/upcoming-events"
 verified: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"

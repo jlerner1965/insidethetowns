@@ -4,9 +4,12 @@ start: "2026-10-10T14:00"
 end: "2026-10-10T15:00"
 venue: "Juniper Library at Grand Lake"
 address: "316 Garfield, Grand Lake, CO 80447"
+performers:
+  - { name: "Sonam Sherpa", kind: person }
 url: "https://gcld.librarycalendar.com/event/nepal-community-culture-current-events-16658"
 category: other
 organizer: "Grand County Library District"
+organizerUrl: "https://www.gcld.org/"
 source: "https://gcld.librarycalendar.com/events/month?branches%5B75%5D=75"
 sourceId: "gcld-librarycalendar-com"
 verified: "2026-10-10"

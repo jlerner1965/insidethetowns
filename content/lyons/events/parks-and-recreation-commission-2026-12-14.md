@@ -4,6 +4,7 @@ start: "2026-12-14T18:15"
 end: "2026-12-14T19:45"
 venue: "Lyons Regional Library, Community Room"
 address: "451 4th Ave, Lyons, CO 80540"
+cost: "Free"
 category: civic
 recurring: "Second Mondays"
 source: "https://lyons.librarycalendar.com/events/upcoming"

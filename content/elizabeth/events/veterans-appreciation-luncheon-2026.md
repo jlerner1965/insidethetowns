@@ -4,6 +4,7 @@ start: "2026-11-06T11:30"
 venue: "Casey Jones Park Pavilion"
 address: "4189 S Highway 86"
 url: "https://www.elizabethmainstreet.org/events/"
+cost: "Free for veterans and their families; RSVP required"
 category: other
 featured: true
 source: "https://www.elizabethmainstreet.org/events/"

@@ -9,6 +9,7 @@ url: "https://www.frederickco.gov/237/Festival-of-Lights"
 category: festival
 timeNote: "Evening; the Town has not yet posted 2026 times"
 organizer: "Town of Frederick"
+organizerUrl: "https://www.frederickco.gov/"
 source: "https://www.frederickco.gov/237/Festival-of-Lights"
 sourceId: "frederickco-gov"
 sourceUid: "4287"

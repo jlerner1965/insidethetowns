@@ -5,6 +5,7 @@ end: "2026-10-15T21:00"
 venue: "Max Marr Stadium"
 address: "850 Spartan Ave, Berthoud, CO 80513"
 url: "https://bhs.tsd.org/family/calendar"
+cost: "$8 adults, $5 students; 6 and under free"
 category: sports
 source: "https://bhs.tsd.org/family/calendar"
 verified: "2026-10-03"

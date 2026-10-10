@@ -5,6 +5,7 @@ end: "2026-11-18T17:15"
 venue: "Erie Community Library"
 address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/17380772"
+cost: "Free; registration required"
 category: family
 recurring: "Monthly, usually second Wednesdays; November’s is the third"
 source: "https://highplains.libcal.com/event/17380772"

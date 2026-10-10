@@ -7,6 +7,7 @@ address: "Denver Ave & 4th St, Fort Lupton, CO 80621"
 url: "https://business.fortluptonchamber.org/events/Details/2026-trick-or-treat-street-1895337?sourceTypeId=Website"
 category: family
 organizer: "Fort Lupton Chamber of Commerce"
+organizerUrl: "https://www.fortluptonchamber.org/"
 source: "https://business.fortluptonchamber.org/events/Details/2026-trick-or-treat-street-1895337?sourceTypeId=Website"
 sourceId: "fortluptonchamber-org"
 verified: "2026-10-07"

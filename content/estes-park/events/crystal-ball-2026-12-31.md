@@ -4,6 +4,9 @@ start: "2026-12-31T20:00"
 end: "2027-01-01T00:30"
 venue: "The Stanley Hotel"
 address: "333 E. Wonderview Avenue, Estes Park, CO 80517"
+performers:
+  - { name: "Soul Penny Circus", kind: group }
+  - { name: "DJ Blondtoast", kind: person }
 url: "https://www.stanleyhotel.com/event/crystal-ball/"
 cost: "$80 single, $150 couple; 21 and over"
 category: other

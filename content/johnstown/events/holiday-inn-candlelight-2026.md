@@ -6,7 +6,7 @@ allDay: true
 venue: "Candlelight Dinner Playhouse"
 address: "4747 Marketplace Dr"
 url: "https://coloradocandlelight.com/shows/"
-cost: "Ticketed; dinner included"
+cost: "$84.50–$93.50 adults, $65 youth 13–18, $55 children 12 and under, plus a $6 reservation fee per ticket; dinner included"
 category: arts
 timeNote: "Nov 27 to Jan 17; see box office for times"
 source: "https://coloradocandlelight.com/season-tickets-season-19/"

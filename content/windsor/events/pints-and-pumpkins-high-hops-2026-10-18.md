@@ -5,6 +5,7 @@ end: "2026-10-18T12:00"
 venue: "High Hops Brewery at The Windsor Gardener"
 address: "6461 Colorado 392, Windsor, CO 80550"
 url: "https://www.eventbrite.com/e/2000308870679"
+cost: "$28.52"
 category: food
 organizer: "High Hops Brewery"
 organizerUrl: "https://www.highhopsbrewery.com/"

@@ -7,6 +7,7 @@ address: "100 Waterfowl Way, Severance, CO 80550"
 url: "https://www.townofseverance.org/376/Town-Christmas"
 category: festival
 organizer: "Town of Severance"
+organizerUrl: "https://www.townofseverance.org/"
 source: "https://www.townofseverance.org/calendar.aspx?EID=1324"
 sourceId: "townofseverance-org-events"
 sourceUid: "1324"

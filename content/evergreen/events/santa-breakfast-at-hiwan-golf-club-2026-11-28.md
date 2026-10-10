@@ -5,6 +5,7 @@ end: "2026-11-28T11:00"
 venue: "Hiwan Golf Club"
 address: "30671 Clubhouse Lane, Evergreen, CO 80439"
 organizer: "Evergreen Area Chamber of Commerce"
+organizerUrl: "https://evergreenchamber.org/"
 url: "https://members.evergreenchamber.org/events/details/santa-breakfast-104104"
 cost: "$25 per person, online in advance only"
 category: family

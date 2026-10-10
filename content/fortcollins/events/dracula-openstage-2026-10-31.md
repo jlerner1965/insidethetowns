@@ -17,10 +17,13 @@ performances:
   - "2026-11-28T19:30"
 venue: "Magnolia Theatre, The Lincoln Center"
 address: "417 W Magnolia St, Fort Collins, CO 80521"
+performers:
+  - { name: "OpenStage Theatre", kind: group }
 url: "https://www.lctix.com/shows-tickets/dracula-2/"
 cost: "$41; seniors $36; students $24"
 category: arts
 organizer: "OpenStage Theatre & Company"
+organizerUrl: "https://openstage.com/"
 source: "https://www.lctix.com/shows-tickets/dracula-2/"
 verified: "2026-10-09"
 verifiedBy: "Claude Code, delegated by James Lerner"

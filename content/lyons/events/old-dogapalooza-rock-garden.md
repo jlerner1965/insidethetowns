@@ -5,6 +5,7 @@ end: "2026-10-10T20:00"
 venue: "The Rock Garden"
 address: "338 W Main St"
 url: "https://rockgardenlyons.com/events"
+cost: "Free"
 category: other
 featured: true
 source: "https://rockgardenlyons.com/events"

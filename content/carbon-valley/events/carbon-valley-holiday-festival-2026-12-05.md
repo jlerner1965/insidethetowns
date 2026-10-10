@@ -9,6 +9,7 @@ url: "https://www.daconoco.gov/989/Carbon-Valley-Holiday-Festival"
 cost: "Free"
 category: festival
 organizer: "City of Dacono"
+organizerUrl: "https://www.daconoco.gov/"
 source: "https://www.daconoco.gov/989/Carbon-Valley-Holiday-Festival"
 sourceId: "daconoco-gov"
 sourceUid: "2224"

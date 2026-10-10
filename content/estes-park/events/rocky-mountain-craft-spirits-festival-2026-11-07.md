@@ -8,6 +8,7 @@ url: "https://eventsinestes.com/rocky-mountain-craft-spirits-festival/"
 cost: "$53.16 spirit sampling (21+, with a tasting glass); $29.53 general, no sampling; $5.91 ages 5 and under"
 category: festival
 organizer: "Town of Estes Park"
+organizerUrl: "https://estespark.colorado.gov/"
 source: "https://eventsinestes.com/rocky-mountain-craft-spirits-festival/"
 sourceId: "eventsinestes-com"
 verified: "2026-10-07"

@@ -5,6 +5,7 @@ end: "2026-12-13T15:00"
 venue: "Erie Community Library"
 address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/16890324"
+cost: "Free"
 category: family
 recurring: "Monthly, usually third Sundays; December’s is the second"
 source: "https://highplains.libcal.com/event/16890324"

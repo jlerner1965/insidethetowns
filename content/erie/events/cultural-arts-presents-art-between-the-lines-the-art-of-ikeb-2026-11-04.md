@@ -4,6 +4,8 @@ start: "2026-11-04T18:00"
 end: "2026-11-04T19:00"
 venue: "Briggs Street Books"
 address: "615 Briggs Street, Suite C, Erie, CO 80516"
+performers:
+  - { name: "Eileen Kay", kind: person }
 url: "https://www.erieco.gov/Calendar.aspx?EID=5248"
 cost: "Free"
 category: arts

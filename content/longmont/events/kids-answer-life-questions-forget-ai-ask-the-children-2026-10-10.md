@@ -5,6 +5,7 @@ end: "2026-10-10T15:00"
 venue: "Longmont Public Library"
 address: "355 Emery St., Longmont, CO, 80501"
 url: "https://longmontcolorado.gov/event/kids-answer-life-questions-forget-ai-ask-the-children-2/"
+cost: "Free"
 category: family
 source: "https://longmontcolorado.gov/event/kids-answer-life-questions-forget-ai-ask-the-children-2/"
 sourceId: "longmontcolorado-gov-library"

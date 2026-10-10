@@ -9,6 +9,7 @@ cost: "$9 per trick-or-treating child; adults free"
 category: family
 timeNote: "Fri & Sat 5–7 pm; Sun 1–3 and 5–7 pm"
 organizer: "City of Fort Collins Recreation"
+organizerUrl: "https://www.fortcollins.gov/Activities/Recreation"
 source: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q4/Treatsylvania"
 verified: "2026-10-01"
 ---

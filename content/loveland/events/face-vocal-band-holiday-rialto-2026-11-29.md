@@ -3,6 +3,8 @@ title: "FACE Vocal Band holiday show"
 start: "2026-11-29T15:00"
 venue: "Rialto Theater"
 address: "228 E. 4th St., Loveland, CO 80537"
+performers:
+  - { name: "FACE Vocal Band", kind: group }
 url: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=117"
 cost: "$52"
 category: music

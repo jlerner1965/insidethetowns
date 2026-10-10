@@ -6,6 +6,7 @@ venue: "12th Street public parking lot, between the Astor House and Miners Alley
 url: "https://www.cityofgolden.gov/calendar.php"
 category: festival
 organizer: "Golden Downtown Development Authority"
+organizerUrl: "https://www.cityofgolden.gov/business/economic_development/index.php#dda"
 source: "https://www.cityofgolden.gov/calendar.php"
 sourceId: "cityofgolden-gov"
 verified: "2026-10-07"

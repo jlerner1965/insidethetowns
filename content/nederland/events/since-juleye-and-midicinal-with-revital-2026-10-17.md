@@ -5,6 +5,9 @@ end: "2026-10-17T23:55"
 timeNote: "Doors 7 pm, show 8 pm"
 venue: "The Caribou Room"
 address: "55 Indian Peaks Drive, Nederland, CO 80466"
+performers:
+  - { name: "Since JulEYE", kind: group }
+  - { name: "MIDIcinal", kind: person }
 url: "https://www.thecaribouroom.com/calendar/2026/10/17/since-juleye-amp-midicinal"
 cost: "$20; reserved balcony $28; VIP lounge $500 (up to 10 guests)"
 category: music

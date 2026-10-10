@@ -5,6 +5,7 @@ end: "2026-10-10T09:50"
 venue: "Erie Community Library"
 address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/15672135"
+cost: "Free; registration required"
 category: family
 recurring: "Monthly, usually first Saturdays; October’s is the second"
 source: "https://highplains.libcal.com/event/15672135"

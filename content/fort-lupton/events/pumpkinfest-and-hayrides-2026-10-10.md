@@ -8,6 +8,7 @@ url: "https://www.fortluptonco.gov/846/Pumpkinfest-The-Fort"
 cost: "Free"
 category: festival
 organizer: "City of Fort Lupton"
+organizerUrl: "https://www.fortluptonco.gov/"
 source: "https://www.fortluptonco.gov/846/Pumpkinfest-The-Fort"
 sourceId: "fortluptonco-gov"
 sourceUid: "https://www.fortluptonco.gov/846/Pumpkinfest-The-Fort/639256955580000000"

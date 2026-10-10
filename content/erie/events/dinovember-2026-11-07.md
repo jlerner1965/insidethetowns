@@ -5,6 +5,7 @@ end: "2026-11-07T16:00"
 venue: "Erie Community Library"
 address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/17553996"
+cost: "Free"
 category: family
 source: "https://highplains.libcal.com/event/17553996"
 verified: "2026-09-18"

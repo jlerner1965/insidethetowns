@@ -7,6 +7,7 @@ address: "1470 10th St, Golden, CO 80401"
 url: "https://www.cityofgolden.gov/calendar.php"
 category: civic
 organizer: "City of Golden"
+organizerUrl: "https://www.cityofgolden.gov/"
 source: "https://www.cityofgolden.gov/calendar.php"
 sourceId: "cityofgolden-gov"
 verified: "2026-10-07"

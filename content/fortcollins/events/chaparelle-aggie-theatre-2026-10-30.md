@@ -3,6 +3,9 @@ title: "Chaparelle at the Aggie Theatre"
 start: "2026-10-30T20:00"
 venue: "Aggie Theatre"
 address: "204 S College Ave, Fort Collins, CO 80524"
+performers:
+  - { name: "Chaparelle", kind: group }
+  - { name: "Shovelin Stone", kind: group }
 url: "https://www.tixr.com/groups/aggietheatre/events/chaparelle-with-shovelin-stone-199467"
 category: music
 source: "https://www.aggietheatre.com/"

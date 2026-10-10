@@ -6,6 +6,7 @@ allDay: true
 venue: "Tabor Opera House"
 address: "308 Harrison Avenue, Leadville, CO 80461"
 url: "https://taboroperahouse.org/events/calendar"
+cost: "$35 general admission, $50 VIP, $25 discount tickets (plus a $1 fee per ticket)"
 category: arts
 organizer: "Tabor Opera House"
 source: "https://taboroperahouse.org/events/calendar"

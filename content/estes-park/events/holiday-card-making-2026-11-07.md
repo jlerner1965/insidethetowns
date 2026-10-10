@@ -1,5 +1,7 @@
 ---
 title: "Holiday Card Making"
+changeFlag: true
+changeNote: "The library calendar no longer lists the November 7 session, and its page says \"Event not found\" (10 October 2026); November 21 and December 12 are still listed."
 start: "2026-11-07T10:00"
 end: "2026-11-07T11:00"
 venue: "Estes Valley Library"

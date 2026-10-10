@@ -3,7 +3,11 @@ title: "Rocky Mountain Rep Radio Hour: Yuletide in the Rockies"
 start: "2026-12-05T19:00"
 venue: "Rocky Mountain Repertory Theatre"
 address: "800 Grand Avenue, Grand Lake, CO 80447"
+performers:
+  - { name: "Rocky Mountain Repertory Theatre", kind: group }
+  - { name: "Josh Kellman", kind: person }
 url: "https://www.rockymountainrep.com/show-tickets/current-season/"
+cost: "$40 orchestra, $30 premium, $20 value"
 category: arts
 organizer: "Rocky Mountain Repertory Theatre"
 source: "https://www.rockymountainrep.com/show-tickets/current-season/"

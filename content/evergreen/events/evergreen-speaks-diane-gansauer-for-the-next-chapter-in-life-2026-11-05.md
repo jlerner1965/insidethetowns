@@ -5,6 +5,9 @@ end: "2026-11-05T18:30"
 venue: "Evergreen Christian Church"
 address: "27772 Iris Drive, Evergreen, CO 80439"
 organizer: "Evergreen Newcomers and Neighbors"
+organizerUrl: "https://evergreennewcomers.com/"
+performers:
+  - { name: "Diane Gansauer", kind: person }
 url: "https://evergreennewcomers.com/evergreen-speaks/"
 cost: "Free"
 category: other

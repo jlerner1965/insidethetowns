@@ -5,6 +5,7 @@ end: "2026-10-21T18:00"
 venue: "Lyons Town Hall Board Room"
 address: "432 5th Ave, Lyons, CO 80540"
 url: "https://www.townoflyons.com/Calendar.aspx?EID=6328"
+cost: "Free"
 category: civic
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6328"
 verified: "2026-10-03"

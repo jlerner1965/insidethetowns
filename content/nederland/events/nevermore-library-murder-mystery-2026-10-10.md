@@ -8,6 +8,7 @@ url: "https://nederland.colibraries.org/nevermore/"
 cost: "$100"
 category: arts
 organizer: "Nederland Library Foundation"
+organizerUrl: "https://www.nclfound.org/"
 source: "https://nederland.colibraries.org/nevermore/"
 sourceId: "nederlandlibrary-org"
 verified: "2026-10-07"

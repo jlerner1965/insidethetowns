@@ -5,6 +5,8 @@ end: "2026-10-10T23:55"
 timeNote: "Doors 7 pm, show 8 pm"
 venue: "The Caribou Room"
 address: "55 Indian Peaks Drive, Nederland, CO 80466"
+performers:
+  - { name: "Matt Flaherty Band", kind: group }
 url: "https://www.thecaribouroom.com/calendar/2026/7/30/ladies-night-feat-matt-flaherty-band"
 cost: "Women free; men $10"
 category: music

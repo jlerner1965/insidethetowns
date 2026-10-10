@@ -9,6 +9,7 @@ cost: "Free"
 category: market
 timeNote: "10 am–4 pm Friday and Saturday"
 organizer: "City of Fort Collins Recreation"
+organizerUrl: "https://www.fortcollins.gov/Activities/Recreation"
 source: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q4/Holiday-Artisan-Market"
 verified: "2026-10-01"
 ---

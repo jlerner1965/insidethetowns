@@ -7,6 +7,7 @@ url: "https://www.lctix.com/shows-tickets/willy-wonka/"
 cost: "$29–$35; children, students and seniors $24–$29"
 category: family
 organizer: "Fort Collins Children's Theatre"
+organizerUrl: "https://www.fortcollinschildrenstheatre.org/"
 source: "https://www.lctix.com/shows-tickets/willy-wonka/"
 verified: "2026-10-01"
 ---

@@ -3,6 +3,8 @@ title: "An Evening with Acoustic Eidolon"
 start: "2026-12-05T19:30"
 venue: "Rialto Theater"
 address: "228 E. 4th St., Loveland, CO 80537"
+performers:
+  - { name: "Acoustic Eidolon", kind: group }
 url: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=144"
 cost: "$32; seniors and students $29"
 category: music

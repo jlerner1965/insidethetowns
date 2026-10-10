@@ -5,6 +5,7 @@ end: "2026-11-20T21:30"
 venue: "Cooper Lodge, Ski Cooper"
 address: "232 County Road 29, Leadville, CO 80461"
 url: "https://www.skicooper.com/events/"
+cost: "$33; $35.05 online, fees included, plus a processing fee per order"
 category: arts
 organizer: "Ski Cooper"
 source: "https://www.skicooper.com/events/"

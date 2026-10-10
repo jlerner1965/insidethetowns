@@ -12,6 +12,7 @@ sourceUid: "libcal:17540144"
 sourceHash: "615059bc6413"
 address: "7 Park Ave, Firestone, CO 80504"
 organizer: "High Plains Library District"
+organizerUrl: "https://www.mylibrary.us/"
 verified: "2026-10-05"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---

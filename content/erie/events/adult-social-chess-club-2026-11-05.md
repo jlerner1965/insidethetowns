@@ -5,6 +5,7 @@ end: "2026-11-05T19:45"
 venue: "Erie Community Library"
 address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/15619288"
+cost: "Free"
 category: other
 recurring: "First Thursdays"
 source: "https://highplains.libcal.com/event/15619288"

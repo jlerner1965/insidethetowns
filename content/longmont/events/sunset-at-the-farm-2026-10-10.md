@@ -5,6 +5,7 @@ end: "2026-10-10T18:45"
 venue: "Agricultural Heritage Center"
 address: "8348 Ute Hwy, Longmont, CO, 80503"
 url: "https://bouldercounty.gov/event/sunset-at-the-farm-oct-10/"
+cost: "Free"
 category: outdoors
 source: "https://bouldercounty.gov/event/sunset-at-the-farm-oct-10/"
 sourceId: "bouldercounty-gov"

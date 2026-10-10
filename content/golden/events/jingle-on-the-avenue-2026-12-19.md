@@ -4,6 +4,7 @@ start: "2026-12-19T11:00"
 end: "2026-12-19T13:00"
 venue: "Washington Avenue, 11th to 13th Street"
 url: "https://www.cityofgolden.gov/calendar.php"
+cost: "Free"
 category: family
 source: "https://www.cityofgolden.gov/calendar.php"
 sourceId: "cityofgolden-gov"

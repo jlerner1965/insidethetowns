@@ -4,6 +4,7 @@ start: "2026-11-24T18:00"
 venue: "Timnath Town Center"
 address: "4750 Signal Tree Dr"
 url: "https://timnath.org/town-council/"
+cost: "Free"
 category: civic
 recurring: "Second and fourth Tuesdays"
 source: "https://timnath.org/town-council/"

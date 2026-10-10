@@ -8,6 +8,7 @@ url: "https://business.windsorchamber.net/events/details/stepping-stones-soup-lu
 cost: "Free; donations welcome"
 category: food
 organizer: "Stepping Stones of Windsor"
+organizerUrl: "https://steppingstonesofwindsor.com/"
 source: "https://business.windsorchamber.net/events/details/stepping-stones-soup-luncheon-16879"
 verified: "2026-10-01"
 ---

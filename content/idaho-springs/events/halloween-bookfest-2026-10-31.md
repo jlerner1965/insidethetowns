@@ -8,6 +8,7 @@ url: "https://cccld.org/programs-and-events"
 cost: "Free"
 category: family
 organizer: "Friends of the Idaho Springs Public Library and the John Tomay Memorial Library"
+organizerUrl: "https://cccld.org/about/friends-of-the-library/"
 source: "https://cccld.org/programs-and-events"
 sourceId: "cccld-org"
 verified: "2026-10-10"

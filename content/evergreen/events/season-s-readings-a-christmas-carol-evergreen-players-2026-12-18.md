@@ -11,6 +11,8 @@ venue: "Center Stage Theater"
 address: "27608 Fireweed Dr, Evergreen, CO 80439"
 organizer: "Evergreen Players"
 organizerUrl: "https://evergreenplayers.org/"
+performers:
+  - { name: "Evergreen Players", kind: group }
 url: "https://evergreenplayers.org/shows/a-christmas-carol-2026/"
 cost: "$25 adults, $20 seniors, $15 students and youth, plus a $2 fee"
 category: arts

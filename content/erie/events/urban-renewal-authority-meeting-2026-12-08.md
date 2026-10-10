@@ -4,6 +4,7 @@ start: "2026-12-08T18:30"
 venue: "Erie Town Hall Council Chambers"
 address: "645 Holbrook Street, Erie, CO 80516"
 url: "https://www.erieco.gov/Calendar.aspx?EID=5452"
+cost: "Free"
 category: civic
 recurring: "Second and fourth Tuesdays"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5452"

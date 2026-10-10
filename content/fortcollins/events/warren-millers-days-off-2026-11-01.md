@@ -7,6 +7,7 @@ url: "https://www.lctix.com/shows-tickets/warren-millers-days-off/"
 cost: "$29; groups of 4 or more $24"
 category: outdoors
 organizer: "Warren Miller Entertainment"
+organizerUrl: "https://warrenmiller.com/"
 source: "https://www.lctix.com/shows-tickets/warren-millers-days-off/"
 verified: "2026-10-03"
 ---

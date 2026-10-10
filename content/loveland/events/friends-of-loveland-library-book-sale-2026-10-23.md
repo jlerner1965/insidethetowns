@@ -6,6 +6,7 @@ allDay: true
 venue: "Thomas M. McKee 4-H, Youth & Community Building, The Ranch"
 address: "5400 Arena Circle, Loveland, CO 80538"
 url: "https://www.treventscomplex.com/events/detail/friends-of-loveland-library-fall-2026-used-book-sale"
+cost: "Free"
 category: other
 timeNote: "Public on Saturday, 10 am–4 pm; Friday the 23rd is for members (memberships at the door); Sunday the 25th from 11 am"
 source: "https://www.treventscomplex.com/events/detail/friends-of-loveland-library-fall-2026-used-book-sale"

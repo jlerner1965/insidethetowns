@@ -4,6 +4,7 @@ start: "2027-01-01T10:00"
 end: "2027-01-01T12:00"
 venue: "Evergreen Lake"
 organizer: "Active4All Evergreen Foundation"
+organizerUrl: "https://www.a4aevergreen.org/"
 url: "https://www.a4aevergreen.org/lake-plunge"
 category: outdoors
 source: "https://www.a4aevergreen.org/lake-plunge"

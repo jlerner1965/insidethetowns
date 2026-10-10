@@ -7,6 +7,7 @@ timeNote: "Play from 7:30 am both days"
 venue: "Evergreen Lake (check-in at the Lake House)"
 address: "29612 Upper Bear Creek Rd, Evergreen, CO 80439"
 organizer: "Evergreen Park & Recreation District"
+organizerUrl: "https://www.evergreenrecreation.com/"
 url: "https://www.evergreenrecreation.com/2027-01-30-pond-hockey-championship-2027"
 cost: "$750 per team to enter"
 category: sports

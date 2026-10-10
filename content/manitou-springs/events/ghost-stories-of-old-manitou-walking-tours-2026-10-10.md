@@ -9,7 +9,10 @@ performances:
   - "2026-10-23T17:30"
 venue: "Manitou Springs Heritage Museum"
 address: "517 Manitou Avenue, Manitou Springs, CO 80829"
+performers:
+  - { name: "Theatre d'Art", kind: group }
 url: "https://manitouspringsheritagecenter.org/ghost-tours/"
+cost: "$18 in advance; under 11 free"
 category: arts
 organizer: "Manitou Springs Heritage Center"
 source: "https://manitouspringsheritagecenter.org/events/"

@@ -5,9 +5,11 @@ end: "2026-10-11"
 allDay: true
 venue: "Old Town Square"
 url: "https://www.focofallfest.com/"
+cost: "Free"
 category: festival
 timeNote: "Daily hours not yet published"
 organizer: "Team Player Productions"
+organizerUrl: "https://tppevents.com/"
 source: "https://www.focofallfest.com/"
 verified: "2026-10-03"
 featured: true

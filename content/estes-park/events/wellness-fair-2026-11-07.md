@@ -8,6 +8,7 @@ url: "https://evrpd.com/special-events/"
 cost: "Free"
 category: other
 organizer: "Estes Valley Recreation and Park District"
+organizerUrl: "https://evrpd.com/"
 source: "https://evrpd.com/special-events/"
 sourceId: "evrpd-com"
 verified: "2026-10-07"

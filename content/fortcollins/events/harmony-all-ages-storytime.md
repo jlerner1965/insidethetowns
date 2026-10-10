@@ -7,6 +7,7 @@ until: "2026-12-16"
 venue: "Harmony Library"
 address: "4616 S Shields St, Fort Collins, CO 80526"
 url: "https://poudrelibraries.librarycalendar.com/event/harmony-all-ages-storytime-24119"
+cost: "Free"
 category: family
 recurring: "Wednesdays at 10 and 11 through December 16"
 timeNote: "Sessions at 10 and 11 am"

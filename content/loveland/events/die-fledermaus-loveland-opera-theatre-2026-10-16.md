@@ -4,6 +4,8 @@ start: "2026-10-16T19:00"
 end: "2026-10-16T22:00"
 venue: "Rialto Theater"
 address: "228 E. 4th St., Loveland, CO 80537"
+performers:
+  - { name: "Loveland Opera Theatre", kind: group }
 url: "https://www.lovelandoperatheatre.org"
 cost: "$52 adults, $42 seniors and teachers, $32 students and children 12 and under (plus ticketing fees)"
 category: music

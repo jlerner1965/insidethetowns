@@ -12,6 +12,8 @@ performances:
   - "2026-11-15T14:00"
 venue: "University Center for the Arts"
 address: "1400 Remington St"
+performers:
+  - { name: "CSU Theatre", kind: group }
 url: "https://theatre.colostate.edu/events/alice-by-heart-music-by-duncan-sheik-lyrics-by-steven-sater-and-book-by-steven-sater-and-jessie-nelson-2026-11-06/"
 cost: "$20 adults, $15 seniors 62+, $10 under 18; free for CSU students. UCA ticket office, (970) 491-2787"
 category: arts

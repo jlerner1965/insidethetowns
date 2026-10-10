@@ -8,8 +8,10 @@ performances:
 venue: "Miramont Castle Museum"
 address: "9 Capitol Hill Ave, Manitou Springs, CO 80829"
 url: "https://www.miramontcastle.org/upcoming-events"
+cost: "$20; reservations required"
 category: arts
 organizer: "Manitou Springs Historical Society"
+organizerUrl: "https://miramontcastle.org/"
 source: "https://www.miramontcastle.org/upcoming-events"
 verified: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"

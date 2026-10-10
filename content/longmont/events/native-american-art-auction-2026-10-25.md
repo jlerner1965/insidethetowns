@@ -8,6 +8,7 @@ address: "9595 Nelson Road, Longmont, CO, 80501"
 url: "https://payneauction.com/longmont-10-24-2026/"
 category: arts
 organizer: "Payne Auction Co. and Niwot Auction"
+organizerUrl: "https://payneauction.com/"
 source: "https://payneauction.com/longmont-10-24-2026/"
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10003230-1792915200-1792944000@bouldercounty.gov"

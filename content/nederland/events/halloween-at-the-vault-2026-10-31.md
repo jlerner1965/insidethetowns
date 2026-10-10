@@ -8,6 +8,7 @@ address: "26 CO-119, Nederland, CO 80466"
 url: "https://www.verynicebrewing.com/event-details/halloween-at-the-vault-live-music-with-chris-myth-scott-spanbauer"
 category: family
 organizer: "Very Nice Brewing Company"
+organizerUrl: "https://www.verynicebrewing.com/"
 source: "https://www.verynicebrewing.com/event-details/halloween-at-the-vault-live-music-with-chris-myth-scott-spanbauer"
 sourceId: "verynicebrewing-com"
 verified: "2026-10-07"

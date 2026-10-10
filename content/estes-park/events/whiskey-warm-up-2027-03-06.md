@@ -7,6 +7,7 @@ address: "111 E. Riverside Drive, Estes Park, CO 80517"
 url: "https://eventsinestes.com/whiskey-warm-up/"
 category: festival
 organizer: "Town of Estes Park"
+organizerUrl: "https://estespark.colorado.gov/"
 source: "https://eventsinestes.com/whiskey-warm-up/"
 sourceId: "eventsinestes-com"
 verified: "2026-10-07"

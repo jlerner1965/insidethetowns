@@ -4,6 +4,8 @@ start: "2026-10-16T18:00"
 end: "2026-10-16T21:00"
 venue: "Mighty River Brewing"
 address: "6383 N Fairgrounds Ave, Suite 200, Windsor, CO"
+performers:
+  - { name: "Mountain Duo", kind: group }
 url: "https://mightyriverbrewing.com/events-calendar/"
 category: music
 source: "https://tockify.com/api/feeds/ics/mighty.river.brewing"

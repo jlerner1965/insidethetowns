@@ -8,6 +8,7 @@ url: "https://eventsinestes.com/tree-lighting/"
 cost: "Free"
 category: festival
 organizer: "Town of Estes Park"
+organizerUrl: "https://estespark.colorado.gov/"
 source: "https://eventsinestes.com/tree-lighting/"
 sourceId: "eventsinestes-com"
 verified: "2026-10-07"

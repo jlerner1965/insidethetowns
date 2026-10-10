@@ -4,6 +4,8 @@ start: "2026-10-30T18:00"
 end: "2026-10-30T21:00"
 venue: "Mighty River Brewing"
 address: "6383 N Fairgrounds Ave, Suite 200, Windsor, CO"
+performers:
+  - { name: "Aubrey Dale", kind: person }
 url: "https://mightyriverbrewing.com/events-calendar/"
 cost: "Free"
 category: music

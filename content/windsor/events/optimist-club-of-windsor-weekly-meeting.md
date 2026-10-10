@@ -10,6 +10,7 @@ url: "https://windsoroptimistclub.org"
 category: civic
 recurring: "Every Thursday, 7:30 to 8:30 am"
 organizer: "Optimist Club of Windsor"
+organizerUrl: "https://windsoroptimistclub.org/"
 source: "https://business.windsorchamber.net/events/calendar/2026-12-01"
 verified: "2026-10-03"
 ---

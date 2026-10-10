@@ -4,7 +4,10 @@ start: "2026-11-14T10:30"
 end: "2026-11-14T11:00"
 venue: "Erie Community Library"
 address: "400 Powers Street, Erie, CO 80516"
+performers:
+  - { name: "Centennial State Ballet", kind: group }
 url: "https://highplains.libcal.com/event/17606458"
+cost: "Free"
 category: arts
 source: "https://highplains.libcal.com/event/17606458"
 verified: "2026-09-18"

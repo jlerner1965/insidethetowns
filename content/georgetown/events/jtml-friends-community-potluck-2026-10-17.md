@@ -8,6 +8,7 @@ url: "https://cccld.org/events/"
 cost: "Free; bring a dish to share"
 category: food
 organizer: "Friends of the John Tomay Memorial Library"
+organizerUrl: "https://cccld.org/friends-of-the-georgetown-library/"
 source: "https://cccld.org/events/"
 sourceId: "cccld-org"
 verified: "2026-10-10"

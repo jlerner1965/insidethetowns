@@ -7,6 +7,7 @@ address: "200 N. Bridge Street, Nederland, CO 80466"
 url: "https://bouldercounty.gov/event/evening-at-the-museum-switzerland-trail-railroad/"
 category: other
 organizer: "Boulder County Parks & Open Space"
+organizerUrl: "https://bouldercounty.gov/departments/parks-and-open-space/"
 source: "https://bouldercounty.gov/event/evening-at-the-museum-switzerland-trail-railroad/"
 sourceId: "bouldercounty-gov"
 sourceUid: "10004391-1791396000-1791399600@bouldercounty.gov"

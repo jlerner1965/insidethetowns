@@ -9,6 +9,7 @@ url: "https://www.douglasco.gov/fairground-events/castle-rock-craft-show-extraor
 cost: "Free"
 category: market
 organizer: "Castle Rock Senior Activity Center"
+organizerUrl: "https://www.castlerockseniorcenter.org/"
 source: "https://www.douglasco.gov/fairground-events/castle-rock-craft-show-extraordinaire-11072026/"
 verified: "2026-10-07"
 verifiedBy: "Claude Code, delegated by James Lerner"

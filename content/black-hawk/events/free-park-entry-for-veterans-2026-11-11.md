@@ -8,6 +8,7 @@ url: "https://cpw.state.co.us/event/2026/11/free-park-entry-veterans-and-active-
 cost: "Free entry for veterans, active-duty military and National Guard members with ID; other park fees still apply"
 category: outdoors
 organizer: "Colorado Parks and Wildlife"
+organizerUrl: "https://cpw.state.co.us/"
 source: "https://cpw.state.co.us/event/2026/11/free-park-entry-veterans-and-active-military"
 sourceId: "cpw-state-co-us"
 verified: "2026-10-10"

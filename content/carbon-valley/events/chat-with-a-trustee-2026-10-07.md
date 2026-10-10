@@ -8,6 +8,7 @@ address: "9900 Park Ave, Firestone, CO 80504"
 url: "https://www.firestoneco.gov/calendar.aspx?EID=2636"
 category: civic
 organizer: "Town of Firestone"
+organizerUrl: "https://www.firestoneco.gov/"
 source: "https://www.firestoneco.gov/calendar.aspx?EID=2636"
 sourceId: "firestoneco-gov"
 sourceUid: "2636"

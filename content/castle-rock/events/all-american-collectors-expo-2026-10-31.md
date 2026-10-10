@@ -6,7 +6,7 @@ venue: "Douglas County Fairgrounds & Events Center"
 address: "500 Fairgrounds Drive, Castle Rock, CO 80104"
 sourceId: "douglasco-gov-fairgrounds"
 url: "https://www.douglasco.gov/fairground-events/all-american-collectors-expo-10312026/"
-cost: "Tickets online and at the door; teacher, military, first-responder and senior discounts at the door"
+cost: "$15 adults, $10 children per day; two-day $25 adults, $15 children; VIP $45 adults, $25 children; two dollars off any single ticket at the door for teachers, military, first responders and seniors with ID"
 category: market
 timeNote: "Saturday 10 am to 5 pm, Sunday 10 am to 4 pm"
 source: "https://www.douglasco.gov/fairground-events/all-american-collectors-expo-10312026/"

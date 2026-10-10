@@ -8,6 +8,7 @@ url: "https://www.zeffy.com/en-US/ticketing/trash-fashion-workshop"
 cost: "$20; $40 with the Trash Fashion Show"
 category: arts
 organizer: "Loveland Creative District"
+organizerUrl: "https://www.lovelandcreates.org/"
 source: "https://business.loveland.org/events/details/trash-fashion-workshop-26962"
 sourceId: "loveland-org"
 verified: "2026-10-04"

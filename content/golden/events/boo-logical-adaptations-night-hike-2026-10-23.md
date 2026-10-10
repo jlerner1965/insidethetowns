@@ -8,6 +8,7 @@ url: "https://www.jeffco.us/calendar.aspx?EID=16768"
 cost: "Free; registration required"
 category: outdoors
 organizer: "Jefferson County Parks and Open Space"
+organizerUrl: "https://www.jeffco.us/4867/Open-Space"
 source: "https://www.jeffco.us/calendar.aspx?EID=16768"
 sourceId: "jeffco-us-open-space"
 sourceUid: "16768"

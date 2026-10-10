@@ -4,6 +4,8 @@ start: "2026-10-31T18:00"
 end: "2026-10-31T23:00"
 venue: "University Center for the Arts"
 address: "1400 Remington St"
+performers:
+  - { name: "Joel Bacon", kind: person }
 url: "https://music.colostate.edu/events/halloween-organ-extravaganza-5/"
 cost: "$20; seniors $15; under 18 $10; CSU students free"
 category: music

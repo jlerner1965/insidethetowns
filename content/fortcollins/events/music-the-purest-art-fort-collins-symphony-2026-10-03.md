@@ -8,6 +8,7 @@ cost: "$33–$87; students and children $10"
 category: music
 timeNote: "7:30 pm; pre-concert talk at 6:30"
 organizer: "Fort Collins Symphony"
+organizerUrl: "https://fcsymphony.org/"
 source: "https://www.lctix.com/shows-tickets/music-the-purest-art/"
 verified: "2026-10-03"
 ---

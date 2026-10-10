@@ -10,6 +10,7 @@ category: sports
 featured: true
 timeNote: "Marathon 7 am, half 8, 10K 8:30, 5K 8:45, one-mile fun run 10 am; awards 11"
 organizer: "Run Windsor"
+organizerUrl: "https://gomilesbeyond.com/"
 source: "https://runsignup.com/Race/WindsorColoradoRace/Page/EventDetails"
 verified: "2026-10-03"
 ---

@@ -7,6 +7,7 @@ address: "319 N. Cleveland Ave., Loveland, CO 80537"
 cost: "$75, $125 per couple"
 category: food
 organizer: "Hope Lives! The Lydia Dody Breast Cancer Support Center"
+organizerUrl: "https://www.hopelives.org/"
 source: "https://business.loveland.org/events/details/5th-annual-grains-vs-grains-event-supporting-hope-lives-the-lydia-dody-breast-cancer-support-center-27007"
 sourceId: "loveland-org"
 verified: "2026-10-04"

@@ -8,6 +8,7 @@ address: "7 Park Ave, Firestone, CO 80504"
 url: "https://highplains.libcal.com/event/16027599"
 category: other
 organizer: "High Plains Library District"
+organizerUrl: "https://www.mylibrary.us/"
 source: "https://highplains.libcal.com/event/16027599"
 sourceId: "highplains-libcal-com"
 sourceUid: "libcal:16027599"

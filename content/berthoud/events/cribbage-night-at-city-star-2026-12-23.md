@@ -5,6 +5,7 @@ end: "2026-12-23T20:30"
 venue: "City Star Brewing"
 address: "321 Mountain Ave, Berthoud, CO 80513"
 url: "https://citystarbrewing.com/event/cribbage-tournament/2026-12-23/"
+cost: "Free; sign up by 5:45 p.m."
 category: other
 recurring: "Second and fourth Wednesdays"
 source: "https://citystarbrewing.com/event/cribbage-tournament/2026-12-23/"

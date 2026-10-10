@@ -1,10 +1,13 @@
 ---
 title: "Niwot Election Commission meeting"
+changeFlag: true
+changeNote: "The Election Commission's own meetings page does not list a 20 October meeting; only Niwot Hall's calendar does (checked 10 October 2026)."
 start: "2026-10-20T14:00"
 end: "2026-10-20T15:00"
 venue: "Niwot Hall"
 address: "195 2nd Avenue, Niwot, CO 80544"
 url: "https://niwotelection.org/meetings"
+cost: "Free"
 category: civic
 source: "https://niwothall.org/events/niwot-election-commission-meeting-3-586/"
 verified: "2026-10-03"

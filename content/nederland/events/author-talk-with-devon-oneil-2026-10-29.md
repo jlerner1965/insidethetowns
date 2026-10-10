@@ -4,6 +4,8 @@ start: "2026-10-29T18:30"
 end: "2026-10-29T20:00"
 venue: "Bristlecone Bookshop"
 address: "114 E. Second Street, Nederland, CO 80466"
+performers:
+  - { name: "Devon O'Neil", kind: person }
 url: "https://nederland.colibraries.org/author-talk-with-devon-oneil/"
 cost: "$10, which can go toward a copy of his book"
 category: arts

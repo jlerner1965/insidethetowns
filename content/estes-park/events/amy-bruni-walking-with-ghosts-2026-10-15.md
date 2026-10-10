@@ -3,6 +3,8 @@ title: "Amy Bruni: Walking with Ghosts"
 start: "2026-10-15T19:30"
 venue: "The Stanley Hotel"
 address: "333 E. Wonderview Avenue, Estes Park, CO 80517"
+performers:
+  - { name: "Amy Bruni", kind: person }
 url: "https://www.stanleyhotel.com/event/amy-bruni-walking-with-ghosts/"
 cost: "$50 general admission, $90 VIP with premium seating and a meet-and-greet (fees included); 21 and over"
 category: other

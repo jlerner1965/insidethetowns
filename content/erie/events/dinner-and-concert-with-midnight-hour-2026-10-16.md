@@ -4,6 +4,8 @@ start: "2026-10-16T18:00"
 end: "2026-10-16T20:00"
 venue: "Erie Community Center"
 address: "450 Powers Street, Erie, CO 80516"
+performers:
+  - { name: "Midnight Hour", kind: group }
 url: "https://www.erieco.gov/Calendar.aspx?EID=5445"
 cost: "Standard $25 / Resident $20"
 category: music

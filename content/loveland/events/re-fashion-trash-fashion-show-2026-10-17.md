@@ -9,6 +9,7 @@ cost: "$25; $40 with the Trash Fashion Workshop"
 category: arts
 timeNote: "Doors 6:30 pm, show 7–9 pm"
 organizer: "Loveland Creative District"
+organizerUrl: "https://www.lovelandcreates.org/"
 source: "https://business.loveland.org/events/details/re-fashion-trash-fashion-show-26961"
 sourceId: "loveland-org"
 verified: "2026-10-04"

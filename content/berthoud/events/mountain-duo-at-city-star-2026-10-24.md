@@ -4,6 +4,8 @@ start: "2026-10-24T18:00"
 end: "2026-10-24T20:30"
 venue: "City Star Brewing"
 address: "321 Mountain Ave, Berthoud, CO 80513"
+performers:
+  - { name: "Mountain Duo", kind: group }
 url: "https://citystarbrewing.com/event/mountain-duo/"
 category: music
 source: "https://citystarbrewing.com/event/mountain-duo/"

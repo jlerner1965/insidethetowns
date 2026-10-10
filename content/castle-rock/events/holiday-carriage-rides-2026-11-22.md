@@ -7,6 +7,7 @@ url: "https://www.downtowncastlerock.com/holidaycarriagerides"
 cost: "$59 per carriage (up to 4 people); tickets in advance only, by card"
 category: family
 organizer: "Castle Rock Downtown Alliance"
+organizerUrl: "https://www.downtowncastlerock.com/"
 source: "https://www.downtowncastlerock.com/holidaycarriagerides"
 sourceId: "downtowncastlerock-com"
 recurring: "Wednesday to Sunday, November 22 to January 3"

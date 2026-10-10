@@ -5,6 +5,7 @@ end: "2026-10-28T19:00"
 venue: "Elizabeth Library"
 address: "651 W Beverly St"
 url: "https://pplibraries.org/"
+cost: "Free"
 category: civic
 source: "https://pplibraries.org/03a-activities-calendar/"
 verified: "2026-10-03"

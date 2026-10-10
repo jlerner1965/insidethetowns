@@ -8,6 +8,7 @@ address: "170 Grant Ave, Firestone, CO 80520"
 url: "https://www.firestoneco.gov/135/Carbon-Valley-Holiday-Festival"
 category: festival
 organizer: "Town of Firestone"
+organizerUrl: "https://www.firestoneco.gov/"
 source: "https://www.firestoneco.gov/135/Carbon-Valley-Holiday-Festival"
 sourceId: "firestoneco-gov"
 sourceUid: "2691"

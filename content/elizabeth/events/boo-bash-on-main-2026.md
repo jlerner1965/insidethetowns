@@ -1,5 +1,7 @@
 ---
 title: "Boo Bash on Main: harvest festival and Trick or Treat Street"
+changeFlag: true
+changeNote: "Not on Elizabeth Main Street's events page as of 10 October 2026 (six events listed, none Boo Bash); nothing says it was canceled."
 start: "2026-10-24T10:00"
 venue: "South Main Street"
 address: "S Main St"
@@ -7,6 +9,7 @@ url: "https://www.elizabethmainstreet.org/events/"
 category: festival
 featured: true
 organizer: "Elizabeth Area Chamber of Commerce"
+organizerUrl: "https://elizabethchamber.org/"
 source: "https://www.elizabethmainstreet.org/events/"
 verified: "2026-10-02"
 ---

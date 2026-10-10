@@ -7,6 +7,7 @@ address: "15200 W. 6th Ave, Golden, CO 80401"
 url: "https://www.jeffco.us/calendar.aspx?EID=16873"
 category: civic
 organizer: "Jefferson County Parks and Open Space"
+organizerUrl: "https://www.jeffco.us/4867/Open-Space"
 source: "https://www.jeffco.us/calendar.aspx?EID=16873"
 sourceId: "jeffco-us-open-space"
 sourceUid: "16873"

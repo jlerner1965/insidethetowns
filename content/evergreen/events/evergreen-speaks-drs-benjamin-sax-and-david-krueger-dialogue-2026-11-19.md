@@ -5,6 +5,9 @@ end: "2026-11-19T20:00"
 venue: "Evergreen Christian Church"
 address: "27772 Iris Drive, Evergreen, CO 80439"
 organizer: "Evergreen Newcomers and Neighbors"
+organizerUrl: "https://evergreennewcomers.com/"
+performers:
+  - { name: "Benjamin E. Sax", kind: person }
 url: "https://evergreennewcomers.com/evergreen-speaks/"
 cost: "Free"
 category: other
