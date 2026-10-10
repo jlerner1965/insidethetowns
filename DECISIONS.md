@@ -4596,3 +4596,48 @@ from one builder, `eventJsonLd`, so what changed, changed for every town.
   read off the ticket page. `endDate` was already emitted wherever a
   listing has an end. A `performer` field waits for a decision on whether
   to record it.
+
+## The listings behind the event structured data
+
+*10 October 2026, later.* The owner asked for the rest of the Search
+Console work done, so the gaps the code could not fill were researched
+listing by listing on the organizers' own pages and applied in one pass.
+Every value has a page behind it, and where none was found the field
+stays empty.
+
+- **Cost lines.** 254 lines across upcoming events, from 437 with no cost
+  down to 194. "Free" only where the organizer says so, on the event's
+  page or in a policy on its own site: the High Plains, Poudre River,
+  Clearview and Longmont library policies ("All library-sponsored
+  activities are free and open to the public") cover their programs.
+  **A public meeting of a government body is "Free"** (a ruling made
+  here, for the owner to overrule): council, trustee, commission and
+  board meetings are open to the public at no charge under Colorado's
+  open meetings law, and the listing already says what the meeting is.
+  Prices are copied from the ticket page, tiers and fees as the page gives
+  them. Where a fee would read as a ticket ("$2.05 fee", "$2 off"), the
+  line was reworded so `offerPrice` does not offer a seat that does not
+  exist. "Free before 9 pm for 21+" was left out: as a price it says free
+  to everyone. A "price: 0" in a page's hidden data, with no word on the
+  page, was not taken as free. Severance has 7 of its 8 upcoming events
+  priced; Town Christmas says nothing about cost and stays empty.
+- **Organizer sites.** 151 events, 76 organizers, as `organizerUrl`, each
+  loaded and checked against the organization's name; a department's own
+  page where the organizer is a department (Firestone Police, Fort Collins
+  Natural Areas). Olde Golden Holiday Committee has no site of its own and
+  has none.
+- **Performers.** A `performers` list (name; person or group) on 100 event
+  files, 85 series, from the listing's own words: concerts, plays by their
+  company, talks by their speaker. None for festivals, open mics, classes,
+  screenings, exhibitions or anything whose act is not named. An act whose
+  kind could not be told (Revital, an opener) was left off.
+- **What the research turned up.** Two cancellations confirmed on the
+  organizer's page are marked canceled: Berthoud's Historic Preservation
+  Advisory Committee on 12 October and Boulder County's Las Barracas tour
+  on 10 October. Fort Lupton's ofrenda viewing night moved to 2 November
+  and was corrected from the library's page. Ten conflicts between
+  sources (a date, a time, a venue, a page gone) carry `changeFlag` and a
+  `changeNote` for the weekly review, and nothing else about them changed.
+- **Not done.** `validFrom` and ticket `availability`, as before. The 194
+  events still without a cost have no published price that could be
+  found; most are weekly programs and meetings whose pages say nothing.

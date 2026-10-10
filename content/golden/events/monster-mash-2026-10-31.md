@@ -9,6 +9,7 @@ url: "https://www.goldenhistory.org/event/monster-mash/"
 cost: "Free"
 category: family
 organizer: "Golden History Museum, Golden Library and Foothills Art Center"
+organizerUrl: "https://www.goldenhistory.org/"
 source: "https://www.goldenhistory.org/event/monster-mash/"
 sourceId: "goldenhistory-org"
 sourceUid: "ai1ec-52494@www.goldenhistory.org"

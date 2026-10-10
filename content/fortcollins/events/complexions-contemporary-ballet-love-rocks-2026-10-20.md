@@ -3,6 +3,8 @@ title: "Complexions Contemporary Ballet: Love Rocks"
 start: "2026-10-20T19:30"
 venue: "The Lincoln Center"
 address: "417 W Magnolia St, Fort Collins, CO 80521"
+performers:
+  - { name: "Complexions Contemporary Ballet", kind: group }
 url: "https://www.lctix.com/shows-tickets/complexions/"
 cost: "$58–$92; limited $35 seats"
 category: arts

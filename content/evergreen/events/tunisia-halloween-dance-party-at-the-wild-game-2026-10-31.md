@@ -5,6 +5,9 @@ end: "2026-10-31T23:00"
 venue: "The Wild Game Entertainment Experience"
 address: "1204 Bergen Parkway, Evergreen, CO 80439"
 organizer: "The Wild Game"
+organizerUrl: "https://thewildgameevergreen.com/"
+performers:
+  - { name: "Tunisia", kind: group }
 url: "https://www.eventbrite.com/e/tunisia-live-at-the-wild-game-the-halloween-dance-party-tickets-2002646689157"
 cost: "Free; VIP tables sold separately"
 category: music

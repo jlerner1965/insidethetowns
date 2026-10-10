@@ -5,6 +5,7 @@ end: "2026-10-31T12:00"
 venue: "Buchanan Park ball fields"
 address: "32003 Ellingwood Trail, Evergreen, CO 80439"
 organizer: "Evergreen Animal Protective League"
+organizerUrl: "https://eapl.com/"
 url: "https://raceroster.com/events/2026/119374/eapl-zombie-run-5k"
 cost: "$30 plus processing; children 12 and under half price"
 category: sports

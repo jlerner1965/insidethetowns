@@ -6,7 +6,10 @@ performances:
   - "2026-12-13T14:00"
 venue: "Rocky Mountain Repertory Theatre"
 address: "800 Grand Avenue, Grand Lake, CO 80447"
+performers:
+  - { name: "Rocky Mountain Repertory Theatre", kind: group }
 url: "https://www.rockymountainrep.com/show-tickets/current-season/"
+cost: "$50 orchestra, $40 premium, $28 value, plus a $6.00 service fee per ticket"
 category: arts
 organizer: "Rocky Mountain Repertory Theatre"
 source: "https://www.rockymountainrep.com/show-tickets/current-season/"

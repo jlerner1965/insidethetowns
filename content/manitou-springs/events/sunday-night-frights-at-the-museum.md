@@ -6,6 +6,7 @@ until: "2026-10-25"
 venue: "Manitou Springs Heritage Museum"
 address: "517 Manitou Avenue, Manitou Springs, CO 80829"
 url: "https://manitouspringsheritagecenter.org/events/"
+cost: "Free"
 category: arts
 organizer: "Manitou Springs Heritage Center"
 source: "https://manitouspringsheritagecenter.org/events/"

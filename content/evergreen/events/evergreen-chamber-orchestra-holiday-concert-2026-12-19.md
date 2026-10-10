@@ -5,6 +5,10 @@ end: "2026-12-19T19:30"
 venue: "Evergreen Lutheran Church"
 address: "5980 County Hwy 73, Evergreen, CO 80439"
 organizer: "Evergreen Chamber Orchestra"
+organizerUrl: "https://evergreenchamberorch.org/"
+performers:
+  - { name: "Evergreen Chamber Orchestra", kind: group }
+  - { name: "Altezza", kind: group }
 url: "https://evergreenchamberorch.org/event/2026-2027-colorado-mountain-holiday-concert-3pm-performance/"
 cost: "$50 ages 19 and up; $25 ages 18 and under"
 category: music

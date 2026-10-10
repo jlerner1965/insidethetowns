@@ -5,6 +5,7 @@ end: "2026-10-17T22:00"
 venue: "Callahan House"
 address: "312 Terry St, Longmont, CO, 80501"
 url: "https://longmontcolorado.gov/event/murder-mystery-dinner-at-callahan-house/"
+cost: "$130 residents, $162.50 non-residents; prime seating $140 residents, $175 non-residents; 21 and over"
 category: food
 source: "https://longmontcolorado.gov/event/murder-mystery-dinner-at-callahan-house/"
 sourceId: "longmontcolorado-gov-recreation"

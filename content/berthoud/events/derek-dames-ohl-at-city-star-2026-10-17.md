@@ -4,6 +4,8 @@ start: "2026-10-17T18:00"
 end: "2026-10-17T20:30"
 venue: "City Star Brewing"
 address: "321 Mountain Ave, Berthoud, CO 80513"
+performers:
+  - { name: "Derek Dames Ohl", kind: person }
 url: "https://citystarbrewing.com/event/derek-dames-ohl/"
 category: music
 source: "https://citystarbrewing.com/event/derek-dames-ohl/"

@@ -7,6 +7,7 @@ address: "200 N. Bridge Street, Nederland, CO 80466"
 url: "https://bouldercounty.gov/event/gold-panning-oct-18/"
 category: family
 organizer: "Boulder County Parks & Open Space"
+organizerUrl: "https://bouldercounty.gov/departments/parks-and-open-space/"
 source: "https://bouldercounty.gov/event/gold-panning-oct-18/"
 sourceId: "bouldercounty-gov-open-space"
 verified: "2026-10-07"

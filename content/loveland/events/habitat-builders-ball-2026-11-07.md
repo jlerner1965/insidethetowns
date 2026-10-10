@@ -4,10 +4,13 @@ start: "2026-11-07T17:00"
 end: "2026-11-07T21:00"
 venue: "Ellis Ranch"
 address: "Loveland, CO"
+performers:
+  - { name: "KC Johns", kind: person }
 url: "https://secure.qgiv.com/event/buildersball/"
 cost: "$90; table of eight $700"
 category: other
 organizer: "Loveland Habitat for Humanity"
+organizerUrl: "https://www.lovelandhabitat.org/"
 source: "https://business.loveland.org/events/details/loveland-habitat-for-humanity-s-10th-annual-builder-s-ball-27009"
 sourceId: "loveland-org"
 verified: "2026-10-04"

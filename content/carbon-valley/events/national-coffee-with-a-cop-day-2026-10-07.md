@@ -9,6 +9,7 @@ url: "https://www.firestoneco.gov/calendar.aspx?EID=2758"
 cost: "Free"
 category: civic
 organizer: "Firestone Police Department"
+organizerUrl: "https://www.firestoneco.gov/178/Police"
 source: "https://www.firestoneco.gov/calendar.aspx?EID=2758"
 sourceId: "firestoneco-gov"
 sourceUid: "2758"

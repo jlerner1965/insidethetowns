@@ -9,6 +9,7 @@ address: "3 S Timber Ridge Parkway, Severance, CO 80550"
 url: "https://www.townofseverance.org/312/Annual-Turkey-Food-Drive"
 category: civic
 organizer: "Town of Severance"
+organizerUrl: "https://www.townofseverance.org/"
 source: "https://www.townofseverance.org/calendar.aspx?EID=1325"
 sourceId: "townofseverance-org-events"
 sourceUid: "1325"

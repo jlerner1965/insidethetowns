@@ -8,6 +8,7 @@ address: "6850 Tilbury Ave, Firestone, CO 80504"
 url: "https://www.firestoneco.gov/138/Halloween-Safe-Night"
 category: family
 organizer: "Firestone Police Department"
+organizerUrl: "https://www.firestoneco.gov/178/Police"
 source: "https://www.firestoneco.gov/138/Halloween-Safe-Night"
 sourceId: "firestoneco-gov"
 sourceUid: "2690"

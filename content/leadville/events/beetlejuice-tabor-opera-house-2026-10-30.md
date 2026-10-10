@@ -4,6 +4,7 @@ start: "2026-10-30T19:00"
 venue: "Tabor Opera House"
 address: "308 Harrison Avenue, Leadville, CO 80461"
 url: "https://taboroperahouse.org/events/calendar"
+cost: "$5 plus a $1 fee; ages 18 and under free"
 category: arts
 organizer: "Tabor Opera House"
 source: "https://taboroperahouse.org/events/calendar"

@@ -4,6 +4,7 @@ start: "2026-12-14T18:30"
 venue: "Erie Town Hall Community Room"
 address: "645 Holbrook Street, Erie, CO 80516"
 url: "https://www.erieco.gov/Calendar.aspx?EID=5321"
+cost: "Free"
 category: civic
 recurring: "Second Mondays"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5321"

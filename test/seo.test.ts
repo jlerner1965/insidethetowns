@@ -103,6 +103,23 @@ test('an event names its organiser only when the listing records one', async () 
   assert.equal('organizer' in nobody, false, 'a listed site is not a reason to name an organiser');
 });
 
+test('an event names its performers only when the listing records them', async () => {
+  const { eventJsonLd } = await import('../src/lib/seo.ts');
+  const town = { kind: 'town', name: 'Estes Park', state: 'CO', domain: 'insideestespark.com' } as never;
+  const base = { title: 'Show', start: new Date('2026-12-30T18:00:00Z'), venue: 'Hall', category: 'music', allDay: false, featured: false, tags: [] };
+  const none = eventJsonLd(town, { data: base, body: '' } as never, 'https://insideestespark.com/events/show/');
+  assert.equal('performer' in none, false);
+  const two = eventJsonLd(
+    town,
+    { data: { ...base, performers: [{ name: 'Amy Bruni', kind: 'person' }, { name: 'The Long Run', kind: 'group' }] }, body: '' } as never,
+    'https://insideestespark.com/events/show/',
+  ) as never as { performer: Array<{ '@type': string; name: string }> };
+  assert.deepEqual(two.performer, [
+    { '@type': 'Person', name: 'Amy Bruni' },
+    { '@type': 'PerformingGroup', name: 'The Long Run' },
+  ]);
+});
+
 test('an address line is split into its parts where it ends in a town and the state', async () => {
   const { postalAddress } = await import('../src/lib/seo.ts');
   const town = { name: 'Estes Park', state: 'CO' };

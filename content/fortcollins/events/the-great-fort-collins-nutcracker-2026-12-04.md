@@ -3,10 +3,13 @@ title: "The Great Fort Collins Nutcracker"
 start: "2026-12-04T19:00"
 venue: "The Lincoln Center"
 address: "417 W Magnolia St, Fort Collins, CO 80521"
+performers:
+  - { name: "Gratie Ballet", kind: group }
 url: "https://www.lctix.com/shows-tickets/the-great-fort-collins-nutcracker/"
 cost: "$39–$46; children 12 and under $35"
 category: arts
 organizer: "Gratie Ballet"
+organizerUrl: "https://www.gratieballet.com/"
 source: "https://www.lctix.com/shows-tickets/the-great-fort-collins-nutcracker/"
 verified: "2026-10-01"
 ---

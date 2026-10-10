@@ -8,6 +8,7 @@ url: "https://cccld.org/programs-and-events"
 cost: "Free"
 category: family
 organizer: "Clear Creek County Library District"
+organizerUrl: "https://cccld.org/"
 source: "https://cccld.org/programs-and-events"
 sourceId: "cccld-org"
 verified: "2026-10-10"

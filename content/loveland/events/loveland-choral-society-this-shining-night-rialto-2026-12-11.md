@@ -3,6 +3,8 @@ title: "Loveland Choral Society: This Shining Night"
 start: "2026-12-11T19:30"
 venue: "Rialto Theater"
 address: "228 E. 4th St., Loveland, CO 80537"
+performers:
+  - { name: "Loveland Choral Society", kind: group }
 url: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=151"
 cost: "$27"
 category: music

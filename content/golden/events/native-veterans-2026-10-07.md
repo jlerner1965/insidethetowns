@@ -8,6 +8,7 @@ url: "https://www.goldenhistory.org/event/native-veterans/"
 cost: "$12; $5 for museum members"
 category: other
 organizer: "Golden History Museum & Park"
+organizerUrl: "https://www.goldenhistory.org/"
 source: "https://www.goldenhistory.org/event/native-veterans/"
 sourceId: "goldenhistory-org"
 sourceUid: "ai1ec-52482@www.goldenhistory.org"

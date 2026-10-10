@@ -9,6 +9,7 @@ cost: "Ticket prices vary"
 category: festival
 timeNote: "Early entry 12 pm; regular admission 1 to 6 pm"
 organizer: "Town of Estes Park"
+organizerUrl: "https://estespark.colorado.gov/"
 source: "https://eventsinestes.com/wine-chocolate-festival/"
 sourceId: "eventsinestes-com"
 verified: "2026-10-07"

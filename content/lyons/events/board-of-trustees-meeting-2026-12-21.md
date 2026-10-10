@@ -3,6 +3,7 @@ title: "Board of Trustees meeting"
 start: "2026-12-21T19:00"
 venue: "Lyons Town Hall"
 address: "432 5th Ave, Lyons, CO 80540"
+cost: "Free"
 category: civic
 recurring: "First and third Mondays"
 source: "https://lyonsrecorder.org/event/town-of-lyons-bot-meeting-4/2026-12-21/"

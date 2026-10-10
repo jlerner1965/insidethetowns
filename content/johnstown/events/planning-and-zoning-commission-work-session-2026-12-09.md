@@ -5,6 +5,7 @@ end: "2026-12-09T19:00"
 venue: "Johnstown Town Hall"
 address: "450 South Parish Avenue, Johnstown, CO 80534"
 url: "https://johnstownco.gov/calendar.aspx?CID=14"
+cost: "Free"
 category: civic
 source: "https://johnstownco.gov/calendar.aspx?CID=14"
 verified: "2026-09-18"

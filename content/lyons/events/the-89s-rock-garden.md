@@ -4,6 +4,8 @@ start: "2026-10-24T18:00"
 end: "2026-10-24T19:00"
 venue: "The Rock Garden"
 address: "338 W Main St"
+performers:
+  - { name: "The 89s", kind: group }
 url: "https://rockgardenlyons.com/events"
 category: music
 source: "https://rockgardenlyons.com/events"

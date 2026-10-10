@@ -4,6 +4,7 @@ start: "2026-12-12T10:30"
 end: "2026-12-12T12:00"
 venue: "Washington Avenue, 10th to 13th Street"
 url: "https://www.cityofgolden.gov/calendar.php"
+cost: "Free"
 category: festival
 source: "https://www.cityofgolden.gov/calendar.php"
 sourceId: "cityofgolden-gov"

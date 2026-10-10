@@ -3,6 +3,8 @@ title: "Voctave: It Feels Like Christmas"
 start: "2026-12-19T19:30"
 venue: "The Lincoln Center"
 address: "417 W Magnolia St, Fort Collins, CO 80521"
+performers:
+  - { name: "Voctave", kind: group }
 url: "https://www.lctix.com/shows-tickets/voctave/"
 cost: "$35–$81"
 category: music

@@ -5,6 +5,7 @@ end: "2026-11-14T12:00"
 venue: "Altona Middle School"
 address: "4600 Clover Basin Drive, Longmont, Colorado, 80503"
 url: "https://longmontcolorado.gov/event/longmont-turkey-trot-2/"
+cost: "10K $31 adults, $27 youth, seniors and military/veterans; 2-mile $27 adults, $25 youth, seniors and military/veterans; plus a registration fee"
 category: sports
 source: "https://longmontcolorado.gov/event/longmont-turkey-trot-2/"
 sourceId: "longmontcolorado-gov-recreation"

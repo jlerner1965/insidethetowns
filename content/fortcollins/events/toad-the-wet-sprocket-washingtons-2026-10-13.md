@@ -2,7 +2,10 @@
 title: "Toad the Wet Sprocket at Washington's"
 start: "2026-10-13T19:00"
 venue: "Washington's"
+performers:
+  - { name: "Toad the Wet Sprocket", kind: group }
 url: "https://www.etix.com/ticket/p/86998641/toad-the-wet-sprocket-fort-collins-washingtons"
+cost: "$49.70–$177.42"
 category: music
 source: "https://bohemianlivemusic.org/"
 verified: "2026-10-01"

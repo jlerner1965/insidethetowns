@@ -3,6 +3,8 @@ title: "University Symphony Orchestra: Arts of Resistance"
 start: "2026-10-15T19:30"
 venue: "University Center for the Arts"
 address: "1400 Remington St"
+performers:
+  - { name: "University Symphony Orchestra", kind: group }
 url: "https://music.colostate.edu/events/university-symphony-orchestra-concert-arts-of-resistance-music-as-movement/"
 cost: "$15; seniors $13; under 18 $5; CSU students free"
 category: music

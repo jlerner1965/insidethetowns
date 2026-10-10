@@ -3,8 +3,10 @@ title: "Adam Doleac at Salt & Acres"
 start: "2026-10-17T16:00"
 venue: "Salt & Acres"
 address: "9490 County Road 25, Fort Lupton, CO 80621"
+performers:
+  - { name: "Adam Doleac", kind: person }
 url: "https://www.universe.com/events/adam-doleac-colorado-paradise-concert-series-by-salt-acres-tickets-1965DV"
-cost: "Ticketed"
+cost: "$49.22 general admission, $70.34 VIP; children 5 and under free"
 category: music
 timeNote: "Doors 4 pm, concert 7 pm"
 organizer: "Salt & Acres"

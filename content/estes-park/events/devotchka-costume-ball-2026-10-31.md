@@ -3,6 +3,9 @@ title: "DeVotchKa: Halloween Costume Ball at the Stanley"
 start: "2026-10-31T18:30"
 venue: "The Stanley Hotel"
 address: "333 E. Wonderview Avenue, Estes Park, CO 80517"
+performers:
+  - { name: "DeVotchKa", kind: group }
+  - { name: "The Slavic Sisters", kind: group }
 url: "https://www.stanleyhotel.com/event/devotchka/"
 cost: "$74.50 standing general admission; 21 and over"
 category: music

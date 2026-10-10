@@ -9,6 +9,7 @@ url: "https://www.frederickco.gov/767/Frights-on-Fifth"
 category: family
 timeNote: "3 to 5 pm; pet costume contest at 4 pm"
 organizer: "Town of Frederick"
+organizerUrl: "https://www.frederickco.gov/"
 source: "https://www.frederickco.gov/767/Frights-on-Fifth"
 sourceId: "frederickco-gov"
 sourceUid: "4286"

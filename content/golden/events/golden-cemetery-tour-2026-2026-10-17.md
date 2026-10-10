@@ -10,6 +10,7 @@ url: "https://www.goldenhistory.org/event/golden-cemetery-tour-2026/"
 cost: "$15; $10 for museum members"
 category: other
 organizer: "Golden History Museum & Park"
+organizerUrl: "https://www.goldenhistory.org/"
 source: "https://www.goldenhistory.org/event/golden-cemetery-tour-2026/"
 sourceId: "goldenhistory-org"
 sourceUid: "ai1ec-49838@www.goldenhistory.org"

@@ -4,6 +4,7 @@ start: "2026-12-31T21:00"
 venue: "Rocky Mountain Repertory Theatre"
 address: "800 Grand Avenue, Grand Lake, CO 80447"
 url: "https://www.rockymountainrep.com/show-tickets/current-season/"
+cost: "$55 orchestra, $45 premium, $33 value, plus a $6.00 service fee per ticket"
 category: arts
 organizer: "Rocky Mountain Repertory Theatre"
 source: "https://www.rockymountainrep.com/show-tickets/current-season/"

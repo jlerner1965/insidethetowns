@@ -4,6 +4,7 @@ start: "2026-12-17T17:00"
 end: "2026-12-17T20:00"
 venue: "Lyons Town Hall Board Room"
 address: "432 5th Ave, Lyons, CO 80540"
+cost: "Free"
 category: civic
 recurring: "Third Thursdays"
 source: "https://www.townoflyons.com/Calendar.aspx?EID=5543"

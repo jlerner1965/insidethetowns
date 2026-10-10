@@ -3,6 +3,8 @@ title: "Gary Schmidt: “Piano Inspiration”, Moonlight Sonata"
 start: "2027-01-29T19:30"
 venue: "Rialto Theater"
 address: "228 E. 4th St., Loveland, CO 80537"
+performers:
+  - { name: "Gary Schmidt", kind: person }
 url: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=153"
 cost: "$33"
 category: music

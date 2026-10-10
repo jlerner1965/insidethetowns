@@ -7,6 +7,7 @@ address: "100 S. Wilcox Street, Castle Rock, CO 80104"
 url: "https://go.dcl.org/event/16863774"
 category: other
 organizer: "Douglas County Libraries"
+organizerUrl: "https://dcl.org/"
 source: "https://go.dcl.org/event/16863774"
 sourceId: "dcl-org"
 sourceUid: "16863774"

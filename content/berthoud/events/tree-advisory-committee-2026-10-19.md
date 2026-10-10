@@ -5,6 +5,7 @@ end: "2026-10-19T19:30"
 venue: "Berthoud Town Hall"
 address: "807 Mountain Ave"
 url: "https://berthoudco.portal.civicclerk.com/"
+cost: "Free"
 category: civic
 recurring: "Third Mondays"
 source: "https://www.berthoud.org/Calendar.aspx"

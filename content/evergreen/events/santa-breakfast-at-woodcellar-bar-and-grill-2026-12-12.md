@@ -5,6 +5,7 @@ end: "2026-12-12T11:00"
 venue: "Woodcellar Bar and Grill"
 address: "1552 Bergen Parkway, Ste 101, Evergreen, CO 80439"
 organizer: "Evergreen Area Chamber of Commerce"
+organizerUrl: "https://evergreenchamber.org/"
 url: "https://members.evergreenchamber.org/events/details/santa-breakfast-12-12-2026-104106"
 cost: "$25 per person, online in advance only"
 category: family

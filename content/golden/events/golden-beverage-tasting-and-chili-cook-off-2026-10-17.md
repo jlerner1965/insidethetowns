@@ -8,6 +8,7 @@ url: "https://goldenbeerchilicookoff.org/"
 cost: "$40 all access; $20 non-alcohol or ages 13 and up; 12 and under free; advance tickets only"
 category: food
 organizer: "Golden Welcome Center"
+organizerUrl: "https://www.goldenwelcomecenter.org/"
 source: "https://www.visitgolden.com/event/knock-your-boots-off-golden-beverage-tasting-chili-cookoff/"
 sourceId: "visitgolden-com"
 verified: "2026-10-07"

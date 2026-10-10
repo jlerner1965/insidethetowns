@@ -8,6 +8,7 @@ url: "https://www.sustainablegolden.org/events-1/lawn-free-water-smart-solutions
 cost: "$10; $5 for Sustainable Golden members"
 category: other
 organizer: "Sustainable Golden"
+organizerUrl: "https://www.sustainablegolden.org/"
 source: "https://www.cityofgolden.gov/calendar.php"
 sourceId: "cityofgolden-gov"
 verified: "2026-10-07"

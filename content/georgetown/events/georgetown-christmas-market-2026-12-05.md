@@ -9,6 +9,7 @@ url: "https://historicgeorgetown.org/georgetown-christmas-market-2/"
 cost: "Free admission, parking and shuttle"
 category: market
 organizer: "Historic Georgetown, Inc. and the Town of Georgetown"
+organizerUrl: "https://historicgeorgetown.org/"
 source: "https://historicgeorgetown.org/georgetown-christmas-market-2/"
 sourceId: "historicgeorgetown-org"
 verified: "2026-10-10"

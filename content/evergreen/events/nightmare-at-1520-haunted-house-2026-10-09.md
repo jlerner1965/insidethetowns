@@ -5,6 +5,7 @@ end: "2026-10-31T21:30"
 venue: "North Buchanan Park"
 address: "1521 Bergen Parkway, Evergreen, CO 80439"
 organizer: "Evergreen Park & Recreation District"
+organizerUrl: "https://www.evergreenrecreation.com/"
 url: "https://www.evergreenrecreation.com/nightmare-at-1520-haunted-house"
 cost: "$20 general admission; $50 unlimited; more at the door"
 category: other

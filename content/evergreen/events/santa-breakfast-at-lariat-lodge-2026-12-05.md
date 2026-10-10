@@ -5,6 +5,7 @@ end: "2026-12-05T11:00"
 venue: "Lariat Lodge"
 address: "27618 Fireweed Dr, Evergreen, CO 80439"
 organizer: "Evergreen Area Chamber of Commerce"
+organizerUrl: "https://evergreenchamber.org/"
 url: "https://members.evergreenchamber.org/events/details/santa-breakfast-104105"
 cost: "$25 per person, online in advance only"
 category: family

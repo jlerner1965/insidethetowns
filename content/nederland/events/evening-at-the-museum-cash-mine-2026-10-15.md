@@ -7,6 +7,7 @@ address: "200 N. Bridge Street, Nederland, CO 80466"
 url: "https://bouldercounty.gov/event/evening-at-the-museum-cash-mine-3rd-level-mining-milling-and-gold-ore-microscopy/"
 category: other
 organizer: "Boulder County Parks & Open Space"
+organizerUrl: "https://bouldercounty.gov/departments/parks-and-open-space/"
 source: "https://bouldercounty.gov/event/evening-at-the-museum-cash-mine-3rd-level-mining-milling-and-gold-ore-microscopy/"
 sourceId: "bouldercounty-gov-open-space"
 sourceUid: "10004395-1792087200-1792090800@bouldercounty.gov"

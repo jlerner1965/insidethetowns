@@ -7,6 +7,7 @@ address: "605 6th Street, Georgetown, CO 80444"
 url: "https://cccld.org/events/"
 category: arts
 organizer: "Clear Creek County Library District"
+organizerUrl: "https://cccld.org/"
 source: "https://cccld.org/events/"
 sourceId: "cccld-org"
 verified: "2026-10-10"

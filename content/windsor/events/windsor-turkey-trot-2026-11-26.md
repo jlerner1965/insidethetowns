@@ -4,7 +4,7 @@ start: "2026-11-26T09:00"
 venue: "Pelican Lakes Golf Course, Water Valley"
 address: "1600 Pelican Lakes Point, Windsor, CO 80550"
 url: "https://runsignup.com/Race/CO/Windsor/PelicanLakesTurkeyTrot"
-cost: "Varies by registration date"
+cost: "5K run or walk $43.40 ($48.70 after November 20); ages 1–12 $22.20; registration fees included"
 category: sports
 organizer: "Run Windsor (miles.Beyond)"
 organizerUrl: "https://www.windsorchamber.net/"

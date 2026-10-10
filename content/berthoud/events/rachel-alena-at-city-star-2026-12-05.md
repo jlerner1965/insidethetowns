@@ -4,6 +4,8 @@ start: "2026-12-05T18:00"
 end: "2026-12-05T20:30"
 venue: "City Star Brewing"
 address: "321 Mountain Ave, Berthoud, CO 80513"
+performers:
+  - { name: "Rachel Alena", kind: person }
 url: "https://citystarbrewing.com/event/rachel-alena-duo/2026-12-05/"
 category: music
 source: "https://citystarbrewing.com/event/rachel-alena-duo/2026-12-05/"

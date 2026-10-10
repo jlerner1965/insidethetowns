@@ -8,6 +8,7 @@ url: "https://www.townofseverance.org/290/Trick-or-Treat-Parade"
 cost: "A nonperishable food item for the Weld Food Bank"
 category: family
 organizer: "Town of Severance"
+organizerUrl: "https://www.townofseverance.org/"
 source: "https://www.townofseverance.org/calendar.aspx?EID=1323"
 sourceId: "townofseverance-org-events"
 sourceUid: "1323"

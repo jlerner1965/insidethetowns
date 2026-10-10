@@ -5,7 +5,7 @@ end: "2026-10-31T23:00"
 venue: "Anderson Farms"
 address: "6728 County Rd 3¼"
 url: "https://terrorinthecorn.com/"
-cost: "Timed tickets priced by the night; see the ticket page"
+cost: "Timed tickets: general admission $43 Thursday, $50 Friday or Saturday, $48 Sunday; Quick Pass $63 Thursday, $70 Friday or Saturday, $68 Sunday; Platinum Pass $150; The Final Call $200"
 category: other
 recurring: "Thursday to Sunday nights through October 31"
 timeNote: "Thu & Sun 7–10 pm, Fri & Sat 7–11 pm, through Oct 31"

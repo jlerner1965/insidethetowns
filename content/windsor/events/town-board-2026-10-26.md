@@ -4,6 +4,7 @@ start: "2026-10-26T19:00"
 venue: "Windsor Town Hall"
 address: "301 Walnut Street, Windsor, CO 80550"
 url: "https://www.windsorco.gov/81/Town-Board"
+cost: "Free"
 category: civic
 recurring: "Second and fourth Mondays at 7 pm"
 organizer: "Town of Windsor"

@@ -5,6 +5,7 @@ end: "2026-10-15T19:00"
 venue: "The Club at Erie, Erie Community Library"
 address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/17478746"
+cost: "Free; registration required"
 category: arts
 source: "https://highplains.libcal.com/event/17478746"
 verified: "2026-10-03"

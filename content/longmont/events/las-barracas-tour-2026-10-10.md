@@ -5,6 +5,9 @@ end: "2026-10-10T11:30"
 venue: "Las Barracas, near Longmont"
 url: "https://bouldercounty.gov/event/las-barracas-tour-10-3/"
 category: outdoors
+status: canceled
+statusNote: "Boulder County Parks & Open Space lists this tour as canceled (checked 10 October 2026)."
+statusSource: "https://bouldercounty.gov/event/las-barracas-tour-10-3/"
 source: "https://bouldercounty.gov/event/las-barracas-tour-10-3/"
 sourceId: "bouldercounty-gov"
 sourceUid: "10004380-1791626400-1791631800@bouldercounty.gov"

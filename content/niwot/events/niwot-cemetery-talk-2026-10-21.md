@@ -5,6 +5,7 @@ end: "2026-10-21T20:30"
 venue: "Niwot Hall"
 address: "195 Second Avenue"
 url: "https://niwothistoricalsociety.org/2026/09/16/the-niwot-cemetery/"
+cost: "$5; Niwot Historical Society members free"
 category: other
 source: "https://niwothall.org/events/niwot-historical-society-lecture-6/"
 verified: "2026-10-03"

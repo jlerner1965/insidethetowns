@@ -3,6 +3,8 @@ title: "Stray Cats' Lee Rocker"
 start: "2026-10-24T19:30"
 venue: "Rialto Theater"
 address: "228 E. 4th St., Loveland, CO 80537"
+performers:
+  - { name: "Lee Rocker", kind: person }
 url: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=162"
 cost: "$55, premier $65 (ticketing fee included)"
 category: music

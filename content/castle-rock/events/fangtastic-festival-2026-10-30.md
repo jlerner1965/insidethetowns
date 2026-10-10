@@ -7,6 +7,7 @@ url: "https://www.downtowncastlerock.com/fangtasticfestival"
 cost: "Free"
 category: family
 organizer: "Castle Rock Downtown Alliance"
+organizerUrl: "https://www.downtowncastlerock.com/"
 source: "https://www.downtowncastlerock.com/fangtasticfestival"
 sourceId: "downtowncastlerock-com"
 verified: "2026-10-07"

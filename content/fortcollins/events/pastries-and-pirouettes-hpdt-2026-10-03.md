@@ -7,6 +7,7 @@ url: "https://www.lctix.com/shows-tickets/pastries-pirouettes/"
 cost: "$21; seniors, students and children $18"
 category: arts
 organizer: "High Performance Dance Theatre"
+organizerUrl: "http://www.highperformancedancetheatre.com/"
 source: "https://www.lctix.com/shows-tickets/pastries-pirouettes/"
 verified: "2026-10-03"
 ---

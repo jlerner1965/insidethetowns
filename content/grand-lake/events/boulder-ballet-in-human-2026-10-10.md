@@ -3,7 +3,10 @@ title: "Boulder Ballet: [In]Human"
 start: "2026-10-10T19:30"
 venue: "Rocky Mountain Repertory Theatre"
 address: "800 Grand Avenue, Grand Lake, CO 80447"
+performers:
+  - { name: "Boulder Ballet", kind: group }
 url: "https://www.rockymountainrep.com/show-tickets/current-season/"
+cost: "$45 orchestra, $35 premium, $25 value, plus a $6.00 service fee per ticket"
 category: arts
 organizer: "Rocky Mountain Repertory Theatre"
 source: "https://www.rockymountainrep.com/show-tickets/current-season/"

@@ -4,7 +4,10 @@ start: "2026-11-10T18:00"
 end: "2026-11-10T19:30"
 venue: "Erie Community Library"
 address: "400 Powers Street, Erie, CO 80516"
+performers:
+  - { name: "Rebecca Thorne", kind: person }
 url: "https://highplains.libcal.com/event/17531288"
+cost: "Free; registration required"
 category: arts
 source: "https://highplains.libcal.com/event/17531288"
 verified: "2026-09-18"

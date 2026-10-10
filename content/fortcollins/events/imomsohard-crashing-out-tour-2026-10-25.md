@@ -3,6 +3,9 @@ title: "#IMOMSOHARD: The Crashing Out Tour"
 start: "2026-10-25T18:00"
 venue: "The Lincoln Center"
 address: "417 W Magnolia St, Fort Collins, CO 80521"
+performers:
+  - { name: "Kristin Hensley", kind: person }
+  - { name: "Jen Smedley", kind: person }
 url: "https://www.lctix.com/shows-tickets/imomsohard/"
 cost: "$62–$93; limited $40 seats"
 category: other

@@ -8,6 +8,7 @@ url: "https://www.fortluptonco.gov/283/Teens"
 cost: "$5; registration required"
 category: family
 organizer: "Fort Lupton Recreation Center"
+organizerUrl: "https://www.fortluptonco.gov/1393/Parks-Recreation"
 source: "https://www.fortluptonco.gov/283/Teens"
 sourceId: "fortluptonco-gov-parks"
 verified: "2026-10-07"

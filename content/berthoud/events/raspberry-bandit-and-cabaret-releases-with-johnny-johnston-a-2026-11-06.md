@@ -4,6 +4,9 @@ start: "2026-11-06T15:00"
 end: "2026-11-06T22:00"
 venue: "City Star Brewing"
 address: "321 Mountain Ave, Berthoud, CO 80513"
+performers:
+  - { name: "Johnny Johnston", kind: person }
+  - { name: "Felonius Smith", kind: person }
 url: "https://citystarbrewing.com/event/beer-release-raspberry-bandit/"
 category: music
 timeNote: "Beer release from 3 pm; live music 6 to 8:30 pm."

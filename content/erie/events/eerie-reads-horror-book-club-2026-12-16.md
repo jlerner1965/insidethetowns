@@ -5,6 +5,7 @@ end: "2026-12-16T19:00"
 venue: "Erie Community Library living room"
 address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/17077352"
+cost: "Free; registration required"
 category: arts
 recurring: "Monthly, third Wednesdays"
 source: "https://highplains.libcal.com/event/17077352"

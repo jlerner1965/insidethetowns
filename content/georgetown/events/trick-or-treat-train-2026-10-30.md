@@ -8,6 +8,7 @@ address: "646 Loop Drive, Georgetown, CO 80444"
 url: "https://www.georgetownlooprr.com/events/"
 category: family
 organizer: "Georgetown Loop Railroad"
+organizerUrl: "https://www.georgetownlooprr.com/"
 source: "https://www.georgetownlooprr.com/events/"
 sourceId: "georgetownlooprr-com"
 verified: "2026-10-10"

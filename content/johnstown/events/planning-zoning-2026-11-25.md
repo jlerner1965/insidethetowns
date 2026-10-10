@@ -4,6 +4,7 @@ start: "2026-11-25T18:00"
 venue: "Johnstown Town Hall"
 address: "450 S Parish Ave"
 url: "https://johnstownco.gov/Calendar.aspx"
+cost: "Free"
 category: civic
 recurring: "Second and fourth Wednesdays"
 source: "https://johnstownco.gov/Calendar.aspx"

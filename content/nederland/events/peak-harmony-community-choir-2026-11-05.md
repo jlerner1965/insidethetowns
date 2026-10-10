@@ -3,6 +3,8 @@ title: "Peak Harmony Community Choir"
 start: "2026-11-05T18:30"
 venue: "Nederland Community Library"
 address: "200 Hwy 72 N, Nederland, CO 80466"
+performers:
+  - { name: "Peak Harmony Community Choir", kind: group }
 url: "https://nederland.colibraries.org/peak-harmony-choir/"
 cost: "$5 suggested donation"
 category: music

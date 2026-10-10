@@ -7,6 +7,7 @@ address: "4320 Georgetown Dr., Loveland, CO 80538"
 cost: "Free"
 category: family
 organizer: "Sugar Valley Estates"
+organizerUrl: "https://skyactive.sunriseseniorliving.com/communities/sugar-valley-estates"
 source: "https://business.loveland.org/events/details/sugar-valley-estates-3rd-annual-monster-mash-trunk-or-treat-27011"
 sourceId: "loveland-org"
 verified: "2026-10-04"

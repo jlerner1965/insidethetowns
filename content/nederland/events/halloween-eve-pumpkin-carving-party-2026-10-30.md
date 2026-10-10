@@ -7,6 +7,7 @@ address: "26 CO-119, Nederland, CO 80466"
 url: "https://www.verynicebrewing.com/event-details/halloween-eve-pumpkin-carving-party-both-tap-rooms"
 category: family
 organizer: "Very Nice Brewing Company"
+organizerUrl: "https://www.verynicebrewing.com/"
 source: "https://www.verynicebrewing.com/event-details/halloween-eve-pumpkin-carving-party-both-tap-rooms"
 sourceId: "verynicebrewing-com"
 verified: "2026-10-07"

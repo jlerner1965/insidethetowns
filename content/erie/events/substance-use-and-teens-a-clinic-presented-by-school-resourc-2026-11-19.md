@@ -5,6 +5,7 @@ end: "2026-11-19T19:30"
 venue: "Erie Police Department"
 address: "1000 Telleen Avenue, Erie, CO 80516"
 url: "https://www.erieco.gov/Calendar.aspx?EID=5465"
+cost: "Free; RSVP required"
 category: civic
 source: "https://www.erieco.gov/Calendar.aspx?EID=5465"
 verified: "2026-09-18"

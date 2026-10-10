@@ -4,6 +4,7 @@ start: "2026-11-10T18:30"
 venue: "Erie Town Hall"
 address: "645 Holbrook St"
 url: "https://www.erieco.gov/318/Town-Council"
+cost: "Free"
 category: civic
 recurring: "Second and fourth Tuesdays"
 source: "https://www.erieco.gov/318/Town-Council"

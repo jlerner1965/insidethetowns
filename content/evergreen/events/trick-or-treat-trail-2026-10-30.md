@@ -5,6 +5,7 @@ end: "2026-10-30T20:00"
 venue: "Buchanan Park ball fields"
 address: "32003 Ellingwood Trail, Evergreen, CO 80439"
 organizer: "Evergreen Park & Recreation District"
+organizerUrl: "https://www.evergreenrecreation.com/"
 url: "https://www.evergreenrecreation.com/2026-10-30-trick-or-treat-trail"
 cost: "$5 per trick-or-treater for the trail; the film and everything else free"
 category: family

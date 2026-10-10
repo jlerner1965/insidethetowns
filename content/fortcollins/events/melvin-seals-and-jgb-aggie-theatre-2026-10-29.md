@@ -3,6 +3,8 @@ title: "Melvin Seals & JGB at the Aggie Theatre"
 start: "2026-10-29T20:00"
 venue: "Aggie Theatre"
 address: "204 S College Ave, Fort Collins, CO 80524"
+performers:
+  - { name: "Melvin Seals & JGB", kind: group }
 url: "https://www.tixr.com/groups/aggietheatre/events/melvin-seals-jgb-196504"
 category: music
 source: "https://www.aggietheatre.com/"

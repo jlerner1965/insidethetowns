@@ -1,5 +1,7 @@
 ---
 title: "Artist-in-residence: Painters in the Hall with Gail Denton"
+changeFlag: true
+changeNote: "Niwot Hall's page says 10 am to noon in its description but 8:30 am in its calendar fields; the listing has 8:30 (checked 10 October 2026)."
 start: "2026-10-15T08:30"
 end: "2026-10-15T12:00"
 venue: "Niwot Hall"

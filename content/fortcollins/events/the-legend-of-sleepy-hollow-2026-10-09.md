@@ -18,6 +18,7 @@ url: "https://www.lctix.com/shows-tickets/the-legend-of-sleepy-hollow/"
 cost: "$15, fees included"
 category: arts
 organizer: "Debut Theatre Company"
+organizerUrl: "https://www.debuttheatre.org/"
 source: "https://www.lctix.com/shows-tickets/the-legend-of-sleepy-hollow/"
 verified: "2026-10-09"
 verifiedBy: "Claude Code, delegated by James Lerner"

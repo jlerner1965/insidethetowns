@@ -5,6 +5,7 @@ end: "2026-10-24T16:00"
 venue: "Hiwan Heritage Park & Museum"
 address: "28473 Meadow Drive, Evergreen, CO 80439"
 organizer: "Jefferson County Parks & Open Space"
+organizerUrl: "https://www.jeffco.us/4867/Open-Space"
 url: "https://www.jeffco.us/calendar.aspx?EID=16764"
 cost: "Free"
 category: family

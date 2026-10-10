@@ -5,6 +5,7 @@ end: "2026-12-14T14:00"
 venue: "Erie Community Library"
 address: "400 Powers Street, Erie, CO 80516"
 url: "https://highplains.libcal.com/event/13372943"
+cost: "Free; registration required"
 category: arts
 recurring: "Monthly, second Mondays"
 source: "https://highplains.libcal.com/event/13372943"

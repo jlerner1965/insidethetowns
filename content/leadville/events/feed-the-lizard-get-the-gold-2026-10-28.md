@@ -4,8 +4,10 @@ start: "2026-10-28T14:00"
 end: "2026-10-28T16:00"
 venue: "National Mining Hall of Fame and Museum, Matchless Mine Exhibit"
 address: "120 West 9th Street, Leadville, CO 80461"
+performers:
+  - { name: "Shane Kinney", kind: person }
 url: "https://mininghalloffame.org/events/"
-cost: "Included with museum admission"
+cost: "Included with museum admission: $20 (combo ticket with the Matchless Mine); Lake County residents free; student, senior and military discounts"
 category: arts
 organizer: "National Mining Hall of Fame and Museum"
 source: "https://mininghalloffame.org/events/"

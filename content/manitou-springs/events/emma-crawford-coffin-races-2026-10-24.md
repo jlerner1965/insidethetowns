@@ -8,6 +8,7 @@ url: "https://manitousprings.org/emma-crawford-coffin-races/"
 cost: "Free"
 category: festival
 organizer: "Manitou Springs Chamber of Commerce, Visitors Bureau & Office of Economic Development"
+organizerUrl: "https://manitousprings.org/"
 source: "https://manitousprings.org/emma-crawford-coffin-races/"
 verified: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"

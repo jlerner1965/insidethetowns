@@ -4,6 +4,7 @@ start: "2026-11-18T18:30"
 venue: "Erie Town Hall"
 address: "645 Holbrook St"
 url: "https://www.erieco.gov/338/Planning-Commission"
+cost: "Free"
 category: civic
 recurring: "First and third Wednesdays"
 source: "https://www.erieco.gov/338/Planning-Commission"

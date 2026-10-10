@@ -3,6 +3,8 @@ title: "A Celtic Christmas by A Taste of Ireland"
 start: "2026-11-20T20:00"
 venue: "Rialto Theater"
 address: "228 E. 4th St., Loveland, CO 80537"
+performers:
+  - { name: "A Taste of Ireland", kind: group }
 url: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=158"
 cost: "$89, $75 and $59"
 category: music

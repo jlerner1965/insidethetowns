@@ -7,10 +7,13 @@ performances:
   - "2026-12-19T18:00"
 venue: "Hamill House Museum"
 address: "305 Argentine Street, Georgetown, CO 80444"
+performers:
+  - { name: "Silver Plume Singers", kind: group }
 url: "https://historicgeorgetown.org/christmas-at-the-hamill-house/"
 cost: "$85 per person; reserve by phone or email"
 category: other
 organizer: "Historic Georgetown, Inc."
+organizerUrl: "https://historicgeorgetown.org/"
 source: "https://historicgeorgetown.org/christmas-at-the-hamill-house/"
 sourceId: "historicgeorgetown-org"
 verified: "2026-10-10"

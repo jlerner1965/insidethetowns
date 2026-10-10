@@ -3,6 +3,8 @@ title: "Journey to the Heart of Zeppelin (Dreamboat Annie presents)"
 start: "2026-10-23T19:00"
 venue: "Rialto Theater"
 address: "228 E. 4th St., Loveland, CO 80537"
+performers:
+  - { name: "Dreamboat Annie", kind: group }
 url: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=45"
 cost: "$24, general admission"
 category: music

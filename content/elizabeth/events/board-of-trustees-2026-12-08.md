@@ -4,6 +4,7 @@ start: "2026-12-08T19:00"
 venue: "Elizabeth Town Hall"
 address: "151 S Banner St"
 url: "https://www.townofelizabeth.org/bt"
+cost: "Free"
 category: civic
 recurring: "Second and fourth Tuesdays"
 source: "https://www.townofelizabeth.org/bt"

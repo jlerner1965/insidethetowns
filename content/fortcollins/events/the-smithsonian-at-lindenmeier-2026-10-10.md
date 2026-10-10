@@ -8,6 +8,7 @@ url: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q3/Natural-Areas
 cost: "Free; registration required"
 category: outdoors
 organizer: "City of Fort Collins Natural Areas"
+organizerUrl: "https://www.fortcollins.gov/Activities/Parks-Natural-Areas-and-Trails/Natural-Areas"
 source: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q3/Natural-Areas/The-Smithsonian-at-Lindenmeier"
 verified: "2026-10-03"
 ---

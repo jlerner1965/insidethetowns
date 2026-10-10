@@ -1,5 +1,7 @@
 ---
 title: "Longmont Fire Station 2 Open House"
+changeFlag: true
+changeNote: "Longmont Fire's own listing puts the Fire Station 2 open house on Saturday 10 October, 10 am to noon, not 17 October (checked 10 October 2026)."
 start: "2026-10-17T10:00"
 end: "2026-10-17T12:00"
 venue: "Longmont Fire Station 2"

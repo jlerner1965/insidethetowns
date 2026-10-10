@@ -6,6 +6,7 @@ url: "https://eventsinestes.com/catch-the-glow-parade/"
 cost: "Free"
 category: festival
 organizer: "Town of Estes Park"
+organizerUrl: "https://estespark.colorado.gov/"
 source: "https://eventsinestes.com/catch-the-glow-parade/"
 sourceId: "eventsinestes-com"
 verified: "2026-10-07"

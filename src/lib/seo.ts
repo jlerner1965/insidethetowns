@@ -203,6 +203,14 @@ export function eventJsonLd(
           },
         }
       : {}),
+    ...(data.performers
+      ? {
+          performer: data.performers.map((p) => ({
+            '@type': p.kind === 'person' ? 'Person' : 'PerformingGroup',
+            name: p.name,
+          })),
+        }
+      : {}),
     description: event.body?.slice(0, 300),
     url,
     ...(data.cost ? { offers: offer(data.cost, data.url ?? url) } : {}),

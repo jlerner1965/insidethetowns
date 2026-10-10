@@ -5,6 +5,7 @@ end: "2026-10-17T19:30"
 venue: "Inspired Fitness"
 address: "32045 Castle Ct #51, Evergreen, CO 80439"
 organizer: "Circle of Advocacy"
+organizerUrl: "https://www.circleofadvocacy.org/"
 url: "https://www.circleofadvocacy.org/home/events"
 cost: "By donation; no entry fee"
 category: family

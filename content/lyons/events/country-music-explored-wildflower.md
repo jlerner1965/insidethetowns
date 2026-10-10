@@ -3,6 +3,8 @@ title: "Country Music: Explored, with the Boulder Philharmonic"
 start: "2026-11-04T19:30"
 venue: "Wildflower Pavilion, Planet Bluegrass"
 address: "500 W Main St"
+performers:
+  - { name: "Boulder Philharmonic", kind: group }
 url: "https://www.eventim.us/event/COUNTRY-MUSIC-Explored-with-The-Boulder-Philharmonic/687444"
 cost: "Ticketed"
 category: music

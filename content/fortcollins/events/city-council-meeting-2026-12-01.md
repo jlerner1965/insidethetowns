@@ -5,6 +5,7 @@ end: "2026-12-01T22:00"
 venue: "Council Chambers, City Hall"
 address: "300 Laporte Ave, Fort Collins, CO 80521"
 url: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q4/City-Council-Meetings/Dec.-1-City-Council-Meeting"
+cost: "Free"
 category: civic
 recurring: "First and third Tuesdays at 6"
 source: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q4/City-Council-Meetings/Dec.-1-City-Council-Meeting"

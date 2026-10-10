@@ -4,6 +4,8 @@ start: "2026-10-30T15:00"
 end: "2026-10-30T22:00"
 venue: "City Star Brewing"
 address: "321 Mountain Ave, Berthoud, CO 80513"
+performers:
+  - { name: "Steepland String Band", kind: group }
 url: "https://citystarbrewing.com/event/beer-release-macaroon-stout/"
 category: music
 timeNote: "Beer release from 3 pm; live music 6 to 8:30 pm."

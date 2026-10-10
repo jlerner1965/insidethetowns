@@ -3,6 +3,8 @@ title: "The Drifters"
 start: "2026-11-13T19:30"
 venue: "Rialto Theater"
 address: "228 E. 4th St., Loveland, CO 80537"
+performers:
+  - { name: "The Drifters", kind: group }
 url: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=163"
 cost: "$60, premier $70 (ticketing fee included)"
 category: music

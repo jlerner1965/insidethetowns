@@ -3,6 +3,8 @@ title: "Menotti's The Old Maid and the Thief and The Telephone"
 start: "2026-10-22T19:30"
 venue: "University Center for the Arts"
 address: "1400 Remington St"
+performers:
+  - { name: "Ralph Opera Program", kind: group }
 url: "https://music.colostate.edu/events/gian-carlo-menottis-the-old-maid-and-the-thief-and-the-telephone/"
 cost: "$15; seniors $13; under 18 $5; CSU students free"
 category: arts

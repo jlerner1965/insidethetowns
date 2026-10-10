@@ -4,6 +4,9 @@ start: "2027-01-29T19:00"
 end: "2027-01-29T21:45"
 venue: "The Stanley Hotel"
 address: "333 E. Wonderview Avenue, Estes Park, CO 80517"
+performers:
+  - { name: "Budos Band", kind: group }
+  - { name: "The Gaslamp Killer", kind: person }
 url: "https://www.stanleyhotel.com/event/budos-band/"
 cost: "$75 a night, $135 for both nights; 21 and over"
 category: music

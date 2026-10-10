@@ -5,6 +5,7 @@ end: "2026-10-25T22:00"
 venue: "Alderfer/Three Sisters Park, West Trailhead"
 address: "31537 Buffalo Park Road, Evergreen, CO 80439"
 organizer: "Jefferson County Parks & Open Space"
+organizerUrl: "https://www.jeffco.us/4867/Open-Space"
 url: "https://www.jeffco.us/calendar.aspx?EID=16770"
 cost: "Free; registration required"
 category: outdoors

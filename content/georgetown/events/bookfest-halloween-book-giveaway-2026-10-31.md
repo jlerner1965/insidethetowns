@@ -8,6 +8,7 @@ url: "https://cccld.org/events/"
 cost: "Free"
 category: family
 organizer: "Friends of the Georgetown Library and Friends of the Idaho Springs Library"
+organizerUrl: "https://cccld.org/friends-of-the-georgetown-library/"
 source: "https://cccld.org/events/"
 sourceId: "cccld-org"
 verified: "2026-10-10"

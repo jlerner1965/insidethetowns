@@ -7,6 +7,7 @@ address: "1019 10th St., Golden, CO 80401"
 url: "https://jeffcolibrary.bibliocommons.com/events/6ab1b8f36074830038289974"
 category: family
 organizer: "Jefferson County Public Library"
+organizerUrl: "https://jeffcolibrary.org/"
 source: "https://jeffcolibrary.bibliocommons.com/events/6ab1b8f36074830038289974"
 sourceId: "jeffcolibrary-bibliocommons-com"
 verified: "2026-10-07"

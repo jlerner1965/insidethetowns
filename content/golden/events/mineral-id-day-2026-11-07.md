@@ -5,6 +5,7 @@ end: "2026-11-07T16:00"
 venue: "Mines Museum of Earth Science"
 address: "1310 Maple St., Golden, CO 80401"
 url: "https://calendar.mines.edu/live/events/15702-mineral-id-day"
+cost: "Free"
 category: other
 organizer: "Mines Museum of Earth Science"
 source: "https://calendar.mines.edu/live/events/15702-mineral-id-day"

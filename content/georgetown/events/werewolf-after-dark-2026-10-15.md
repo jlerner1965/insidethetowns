@@ -8,6 +8,7 @@ url: "https://cccld.org/events/"
 cost: "Free; registration required"
 category: other
 organizer: "Clear Creek County Library District"
+organizerUrl: "https://cccld.org/"
 source: "https://cccld.org/events/"
 sourceId: "cccld-org"
 verified: "2026-10-10"

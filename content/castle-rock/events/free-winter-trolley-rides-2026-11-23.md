@@ -8,6 +8,7 @@ url: "https://www.downtowncastlerock.com/wintertrolleyrides"
 cost: "Free"
 category: family
 organizer: "Castle Rock Downtown Alliance"
+organizerUrl: "https://www.downtowncastlerock.com/"
 source: "https://www.downtowncastlerock.com/wintertrolleyrides"
 sourceId: "downtowncastlerock-com"
 recurring: "Mondays and Tuesdays, November 23 to December 29"

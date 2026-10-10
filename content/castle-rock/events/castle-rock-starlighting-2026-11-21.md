@@ -8,6 +8,7 @@ url: "https://castlerock.org/castle-rock-starlighting/"
 cost: "Free"
 category: festival
 organizer: "Castle Rock Chamber of Commerce"
+organizerUrl: "https://castlerock.org/"
 source: "https://castlerock.org/castle-rock-starlighting/"
 sourceId: "castlerock-org"
 timeNote: "2 to 6 pm; ceremony 5 pm, star lit about 5:30 pm, then fireworks"

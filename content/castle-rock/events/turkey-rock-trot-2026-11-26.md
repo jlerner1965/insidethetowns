@@ -9,6 +9,7 @@ url: "https://www.douglasco.gov/fairground-events/turkey-rock-trot-11262026/"
 cost: "5K $40 through Oct 11, $45 Oct 12 to Nov 23, $50 on race day; 1K Kids Dash free"
 category: sports
 organizer: "Plum Creek Church"
+organizerUrl: "https://plumcreek.church/"
 source: "https://www.douglasco.gov/fairground-events/turkey-rock-trot-11262026/"
 verified: "2026-10-07"
 verifiedBy: "Claude Code, delegated by James Lerner"

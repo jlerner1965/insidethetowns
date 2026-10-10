@@ -4,6 +4,9 @@ start: "2026-10-16T18:00"
 end: "2026-10-16T21:00"
 venue: "Lone Hawk Farm"
 address: "10790 N 49th St, Longmont"
+performers:
+  - { name: "Chris Kermiet", kind: person }
+  - { name: "Dry Ditch Riders", kind: group }
 url: "https://lyonsrecorder.org/2026/09/17/things-happening-in-lyons-9-17-26/"
 cost: "$10–15 adults, $5 children, cash"
 category: music

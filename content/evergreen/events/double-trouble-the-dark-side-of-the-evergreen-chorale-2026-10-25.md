@@ -6,6 +6,9 @@ venue: "Evergreen Lutheran Church"
 address: "5980 County Hwy 73, Evergreen, CO 80439"
 organizer: "Evergreen Chorale"
 organizerUrl: "https://www.ovationwest.org"
+performers:
+  - { name: "Evergreen Chorale", kind: group }
+  - { name: "Ralston Valley High School Select Choir", kind: group }
 url: "https://www.ovationwest.org/double-trouble"
 cost: "$30 adults; $20 seniors and military; $15 students 13–25; $5 children 12 and under"
 category: music

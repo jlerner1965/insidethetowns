@@ -282,6 +282,18 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
       organizer: z.string().min(1).optional(),
       /** The organizer's own site, when they have one distinct from `url`. */
       organizerUrl: httpUrl.optional(),
+      /**
+       * Who performs, where the listing names them: a concert's act, a
+       * play's company, a talk's speaker, headliner first. Google reads it
+       * as the Event's `performer`. Left empty for festivals, markets,
+       * meetings, classes and anything whose act is not named, rather than
+       * guessed.
+       */
+      performers: z
+        .array(z.object({ name: z.string().min(1), kind: z.enum(['person', 'group']) }).strict())
+        .min(1)
+        .max(6)
+        .optional(),
       /** The organizer's page or calendar the listing was read from. */
       source: httpUrl.optional(),
       /** The day the listing was checked against its source. */

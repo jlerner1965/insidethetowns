@@ -4,6 +4,7 @@ start: "2026-11-11T09:30"
 venue: "Elizabeth Library"
 address: "651 W Beverly St"
 url: "https://www.elizabethmainstreet.org/events/"
+cost: "Free for qualifying families; appointment required"
 category: other
 recurring: "Monthly, second Wednesday"
 source: "https://www.elizabethmainstreet.org/events/"
