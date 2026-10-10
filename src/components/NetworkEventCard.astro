@@ -23,11 +23,19 @@ interface Props {
   showDay?: boolean;
   /** Say what the town is, under its badge: the Nearby block, where the reader may not know it. */
   showTagline?: boolean;
+  /**
+   * Campaign tags for the link, "utm_source=…&utm_medium=…", so the
+   * destination's analytics can tell the strip's clicks from the rest; the
+   * same tags the weekly email carries (src/lib/newsletter.ts).
+   */
+  query?: string;
+  /** A name for the click, read by the strip's script and sent as a custom event. */
+  track?: string;
 }
 
-const { event, showDay = false, showTagline = false } = Astro.props;
+const { event, showDay = false, showTagline = false, query, track } = Astro.props;
 const { data, slug, town } = event;
-const href = `https://${town.domain}/events/${slug}/`;
+const href = `https://${town.domain}/events/${slug}/${query ? `?${query}` : ''}`;
 const canceled = isCanceled(event);
 const statusLabel = data.status !== 'scheduled' ? EVENT_STATUS_LABELS[data.status] : undefined;
 // The same reading of a run of days as EventCard: "Now through October 31"
@@ -74,7 +82,7 @@ const time = showDay && !running && !multiDay ? `${formatDayShort(data.start)} �
       </p>
     )}
     <h3 class="text-xl font-medium leading-tight md:text-2xl">
-      <a href={href} class:list={['stretch no-underline group-hover:text-accent-text', canceled && 'line-through decoration-ink-faint decoration-2']}>{data.title}</a>
+      <a href={href} data-track={track} data-track-town={track ? town.slug : undefined} class:list={['stretch no-underline group-hover:text-accent-text', canceled && 'line-through decoration-ink-faint decoration-2']}>{data.title}</a>
     </h3>
     <p class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">
       <time datetime={toIsoLocal(data.start)}>{time}</time> · {data.venue}{data.cost && <span> · {data.cost}</span>}

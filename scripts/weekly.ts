@@ -18,6 +18,10 @@
  *     worth a bookmark;
  *   - towns with fewer than 5 upcoming events;
  *   - places without an image;
+ *   - seasonal listings whose season opens or closes within the report
+ *     horizon, or has turned since they were last checked: the hours, the
+ *     phone message and the "open" claim all change on that day, whatever
+ *     the listing's own window says (src/lib/freshness.ts, seasonRecheck);
  *   - listings whose `verified` date is more than 30 days old. The October
  *     2026 audit found hours drifted at five of sixteen Erie businesses in
  *     the fortnight after they were checked; ninety days was a quarter of a
@@ -32,6 +36,7 @@ import { fileURLToPath } from 'node:url';
 import { z } from 'astro/zod';
 import { eventSchema, placeSchema } from '../src/content/schemas.ts';
 import { addDays, dayKey, startOfDay } from '../src/lib/dates.ts';
+import { seasonRecheck } from '../src/lib/freshness.ts';
 import { LIVE_TOWNS, allTowns } from '../src/config/index.ts';
 import { FRESHNESS } from '../src/config/freshness.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
@@ -145,6 +150,8 @@ type TownReport = {
   past: Array<{ file: string; title: string; lastDate: string }>;
   placesWithoutImage: Array<{ file: string; title: string }>;
   stale: Array<{ file: string; title: string; verified: string }>;
+  /** Seasonal listings whose season turns inside the horizon, or turned since their last check. */
+  seasons: Array<{ file: string; title: string; kind: 'opens' | 'closes'; on: string; inDays: number }>;
   broken: string[];
   /** Verified, publishable counts against the launch threshold. */
   launch: ReturnType<typeof launchCounts>;
@@ -177,6 +184,7 @@ for (const town of allTowns) {
     past: [],
     placesWithoutImage: [],
     stale: [],
+    seasons: [],
     broken: [],
     launch: launchCounts(town, contentDir, now),
     sourcesDown: [],
@@ -249,7 +257,11 @@ for (const town of allTowns) {
     if (data.access && data.access.verified.getTime() < addDays(today, -STALE_DAYS).getTime()) {
       report.stale.push({ file, title: `${data.title}: access notes`, verified: dayKey(data.access.verified) });
     }
+    // A season turning is a re-check whatever the listing's own date says.
+    const season = seasonRecheck(data, now, FRESHNESS.reportHorizonDays);
+    if (season) report.seasons.push({ file, title: data.title, kind: season.kind, on: dayKey(season.on), inDays: season.inDays });
   }
+  report.seasons.sort((a, b) => a.inDays - b.inDays);
   report.expiring.sort((a, b) => a.lastDate.localeCompare(b.lastDate));
   reports.push(report);
 }
@@ -292,6 +304,13 @@ for (const r of reports) {
     line(`  Not re-checked in ${STALE_DAYS}+ days (${r.stale.length}):`);
     for (const s of r.stale) line(`    ${s.verified}  ${s.title}  —  ${s.file}`);
   }
+  if (r.seasons.length) {
+    line(`  Seasons turning (${r.seasons.length}; re-check hours, phone and status against the operator's page):`);
+    for (const s of r.seasons) {
+      const when = s.inDays > 0 ? `${s.kind} in ${s.inDays}d` : s.inDays === 0 ? `${s.kind} today` : `${s.kind === 'opens' ? 'opened' : 'closed'} ${-s.inDays}d ago, not checked since`;
+      line(`    ${s.on}  ${s.title}: ${when}  —  ${s.file}`);
+    }
+  }
   if (r.flagged.length) {
     line(`  Changes the sources made to published events (${r.flagged.length}; cancellations first):`);
     for (const f of r.flagged) line(`    ${f.cancel ? 'CANCELED ' : '         '}${f.detected}  ${f.slug}: ${f.summary}`);
@@ -310,7 +329,7 @@ for (const r of reports) {
     line(`  Files that fail validation (run npm run validate):`);
     for (const b of r.broken) line(`    ${b}`);
   }
-  if (!r.expiring.length && !r.past.length && !r.placesWithoutImage.length && !r.stale.length && !r.broken.length && !r.sourcesDown.length && !r.sourcesWaiting && !r.flagged.length && !r.awaitingReview.events && !r.awaitingReview.places) {
+  if (!r.expiring.length && !r.past.length && !r.placesWithoutImage.length && !r.stale.length && !r.seasons.length && !r.broken.length && !r.sourcesDown.length && !r.sourcesWaiting && !r.flagged.length && !r.awaitingReview.events && !r.awaitingReview.places) {
     line('  Nothing to do.');
   }
 }

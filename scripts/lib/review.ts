@@ -14,7 +14,7 @@ import { z } from 'astro/zod';
 import { FRESHNESS } from '../../src/config/freshness.ts';
 import type { TownConfig } from '../../src/config/towns/types.ts';
 import { changeSchema, placeSchema, type Change } from '../../src/content/schemas.ts';
-import { daysUntilAccessStale, daysUntilStale } from '../../src/lib/freshness.ts';
+import { daysUntilAccessStale, daysUntilStale, seasonRecheck } from '../../src/lib/freshness.ts';
 import { readRegistry } from '../../src/lib/sources.ts';
 import { parseFrontmatter } from './frontmatter.ts';
 import { yamlString } from './event-files.ts';
@@ -127,6 +127,11 @@ export interface TownSummary {
   waiting: { events: number; places: number; changes: number; cancellations: number };
   /** Open listings whose check crosses the window inside the report horizon. */
   goingStale: Array<{ title: string; file: string; inDays: number }>;
+  /**
+   * Seasonal listings whose season opens or closes inside the horizon, or
+   * turned since they were last checked (src/lib/freshness.ts, seasonRecheck).
+   */
+  seasonsTurning: Array<{ title: string; file: string; kind: 'opens' | 'closes'; on: Date; inDays: number }>;
   /** Confirmed sources whose last check did not come back ok. */
   brokenSources: Array<{ id: string; status: string; note?: string }>;
 }
@@ -143,6 +148,7 @@ export function summarize(town: TownConfig, contentDir: string, now = new Date()
     cancellations: queue.filter((i) => i.kind === 'change' && i.change.cancel).length,
   };
   const goingStale: TownSummary['goingStale'] = [];
+  const seasonsTurning: TownSummary['seasonsTurning'] = [];
   const placesDir = join(contentDir, town.slug, 'places');
   if (existsSync(placesDir)) {
     for (const name of readdirSync(placesDir)) {
@@ -162,8 +168,12 @@ export function summarize(town: TownConfig, contentDir: string, now = new Date()
       // stale on their own and are flagged on their own, like the listing.
       const accessIn = data.status === 'open' ? daysUntilAccessStale(data.access, now) : null;
       if (accessIn !== null && accessIn <= FRESHNESS.reportHorizonDays) goingStale.push({ title: `${data.title}: access notes`, file, inDays: accessIn });
+      // A season turning is a re-check of its own, whatever the listing's date says.
+      const season = seasonRecheck(data, now, FRESHNESS.reportHorizonDays);
+      if (season) seasonsTurning.push({ title: data.title, file, ...season });
     }
     goingStale.sort((a, b) => a.inDays - b.inDays);
+    seasonsTurning.sort((a, b) => a.inDays - b.inDays);
   }
   let brokenSources: TownSummary['brokenSources'] = [];
   try {
@@ -173,5 +183,5 @@ export function summarize(town: TownConfig, contentDir: string, now = new Date()
   } catch {
     // The validator reports a broken registry file.
   }
-  return { town, waiting, goingStale, brokenSources };
+  return { town, waiting, goingStale, seasonsTurning, brokenSources };
 }

@@ -1,0 +1,175 @@
+{
+  "town": "idaho-springs",
+  "sources": [
+    {
+      "id": "idahospringsco-com",
+      "name": "City of Idaho Springs (idahospringsco.com)",
+      "url": "https://www.idahospringsco.com/",
+      "type": "html",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Blocked on 10 October 2026: https://www.idahospringsco.com/ returned HTTP 403 to automated readers (reported by the owner before this session; not re-fetched). The City's calendar, council meetings, Virginia Canyon Mountain Park, Citizens Park and the Charlie Tayler Water Wheel could not be read, so nothing on this guide cites the City. Needs a person to read it in a browser or the owner to find a feed the City allows."
+    },
+    {
+      "id": "clearcreekcounty-us-calendar",
+      "name": "Clear Creek County calendar (clearcreekcounty.us)",
+      "url": "https://www.clearcreekcounty.us/calendar.aspx",
+      "type": "html",
+      "category": "county",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. clearcreekcounty.us is a CivicPlus site; the home page answered 200 and its Upcoming Events widget showed two October items: Charlie's Place Low-Cost Vaccine Clinic, Sun 18 Oct (Calendar.aspx?EID=2715, read: noon start, Animal Shelter, 500 W Dumont Road, Dumont, $20 vaccines and microchips) and County Commissioners Meeting, Tue 20 Oct (EID=2655, read: 8:30 am-4 pm, Courthouse Complex, 405 Argentine Street, Georgetown; 'typically first and third Tuesday'). Both published. The full calendar list (calendar.aspx?CID=...) and any CivicPlus RSS/iCal feed were not fetched; a feedUrl is likely to exist as on other CivicPlus sites but is unconfirmed. News on 30 September 2026 said the Georgetown County Annex is closing. No St. Mary's Glacier, open space or library page was found from the home page.",
+      "sampleUrl": "https://www.clearcreekcounty.us/Calendar.aspx?EID=2655"
+    },
+    {
+      "id": "cccld-org",
+      "name": "Clear Creek County Library District (cccld.org)",
+      "url": "https://cccld.org/programs-and-events",
+      "type": "html",
+      "category": "library",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. Locations and Hours (/about/locations-and-hours) gives the Idaho Springs Public Library at 219 14th Avenue, 303-567-2020, Mon/Tue/Thu/Fri 9-5, Wed 9-6, Sat 9-2, Sun closed, with dated October 2026 notices (all branches closed Mon 12 Oct and Sat 24 Oct; JTML phone out until about 12 Oct). The programs page (/programs-and-events) listed October only: ISPL Book Group Mon 19 Oct 4-5 pm, Witchy Wonders Storytime Fri 23 Oct 10-11 am, ISPL & JTML BOOkfest Sat 31 Oct 5-7 pm (all published), plus past dates (Starlight Cinema 1 Oct, Friends book sale 2-3 Oct). No November or December events and no weekly storytime schedule were shown. The home page is long (117k characters); its first 100k were read. No feed URL was seen; the site links a community calendar at /community#community-calendar, not fetched.",
+      "sampleUrl": "https://cccld.org/about/locations-and-hours",
+      "locationFilter": [
+        "Idaho Springs",
+        "ISPL"
+      ]
+    },
+    {
+      "id": "clearcreekrecreation-com",
+      "name": "Clear Creek Metropolitan Recreation District (clearcreekrecreation.com)",
+      "url": "https://clearcreekrecreation.com/events/",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. Home page: Downtown Ghost Tours Wednesdays 23 Sep-28 Oct and Cemetery Ghost Tours Thursdays 24 Sep-29 Oct (ticketsignup.io links; Tommyknocker and Smokin' Yard's BBQ discounts for ticket holders), Zombie Fun Run 31 Oct, Pumpkin SMASH 7 Nov, Step & Tone with Cheryl dates; board meetings page said 'no content could be found'. Events page (/events/): Zombie Fun Run Sat 31 Oct 10 am-12 pm, check-in 320 Chicago Creek Road; Fall Festival and Pumpkin SMASH Sat 7 Nov 12-4 pm, Idaho Springs Sports and Events Complex, 101 East Idaho Springs Road; Step & Tone with Cheryl Mon/Wed/Fri 8-9 am through 30 Dec with no venue (not published). Hours page (/hours/): rec center Mon-Fri 6:30 am-8:30 pm, Sat-Sun 10-4, pool hours and holiday hours. Contact page: 98 12th Avenue, PO Box 1149, 303-567-4822, csa@ccmrd.com. The home page links a public Google Calendar (calendar.google.com, cid=Y181MzRi...) that could be an ical feed; not fetched. Class schedule on wellnessliving.com, not fetched.",
+      "sampleUrl": "https://clearcreekrecreation.com/hours/"
+    },
+    {
+      "id": "ticketsignup-io-ccmrd",
+      "name": "CCMRD ghost tour ticket pages (ticketsignup.io)",
+      "url": "https://www.ticketsignup.io/TicketEvent/DowntownGhostTours2026",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. The recreation district's own registration pages for its two autumn tour series, linked from clearcreekrecreation.com. Downtown Ghost Tours: Wednesdays 23 Sep-28 Oct 2026, 7 pm, start at Miner St and 14th Ave (1401 Miner Street), 1.3 miles, $26.44 with fee ($36.73 on 28 Oct); 14 Oct sold out. Cemetery Ghost Tours (/TicketEvent/CemeteryGhostTours2026): Thursdays 24 Sep-29 Oct, 7 pm, top of the hill by the cemetery gate, Red Fox Lane, same prices; 8 and 29 Oct sold out. Both published as weekly events. The pages name no organizer themselves; the district's site does. Seasonal: only worth a read in September and October.",
+      "checkFrequency": "monthly"
+    },
+    {
+      "id": "fs-usda-gov-arp-clear-creek",
+      "name": "Forest Service, Arapaho and Roosevelt NF, Clear Creek Ranger District (fs.usda.gov)",
+      "url": "https://www.fs.usda.gov/r02/arp/recreation/clear-creek-ranger-district",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. Mount Blue Sky Summit (/r02/arp/recreation/mount-blue-sky-summit, updated 8 Sep 2026): 14,264 ft, 'Closed for the season', vault toilets, no water, fees via recreation.gov timed-entry link, history of Crest House and the DU lab; published. Scenic Byway page (/mount-blue-sky-recreation-area-scenic-byway, updated 8 Sep 2026): 28 miles, 14,130 ft, road open to Summit Lake and closed above, directions from exit 240 via Hwy 103 and Hwy 5, 30-ft vehicle limit; published. Echo Lake Campground (/echo-lake-campground, updated 14 Sep 2026): Site Closed, 17 sites, $26, 10,600 ft; published. Mount Blue Sky Activities group page (updated 4 Jun 2026) lists ten sites. Alerts page: only shooting orders and the Guanella Pass order name the district; nothing on Mount Blue Sky or Echo Lake. The district page lists 78 sites over 8 pages (only page 1 read) and gives no district office address or phone; the only number is the Fort Collins supervisor's office, 970-295-6600. A guessed /echo-lake-picnic-area URL returned 404. Conditions page /r02/arp/conditions linked, not fetched.",
+      "sampleUrl": "https://www.fs.usda.gov/r02/arp/recreation/mount-blue-sky-summit"
+    },
+    {
+      "id": "historicidahosprings-com",
+      "name": "Historical Society of Idaho Springs visitor center and museum (historicidahosprings.com)",
+      "url": "https://www.historicidahosprings.com/",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. Single-page site: 2060 Miner Street, PO Box 1318, 303-567-4382, summer hours 9:30 am-5 pm, winter 10 am-4 pm (no days of the week), crafts and souvenirs, museum tours, mission statement; no events, no dated posts, no email, no calendar. Published as a service listing with a note that nothing on the page is dated. The page does not use the name 'Heritage Museum'. Its Mount Blue Sky link points at an old fs.usda.gov recarea URL."
+    },
+    {
+      "id": "visitclearcreek-com",
+      "name": "Visit Clear Creek (visitclearcreek.com) events calendar",
+      "url": "https://www.visitclearcreek.com/events",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. County tourism site ('The Bureau'); the pages do not name the operating organization. The events page is an aggregator of county events with venue but no organizer: for Idaho Springs it listed CCMRD Zombie Fun Run 31 Oct (end time shown as 11 pm, wrong against the district's own page), CCMRD Pumpkin Smash 7 Nov 12-4, Idaho Springs Tree Lighting Sat 28 Nov 3-4:30 pm at 'Citzens Park', 1545 Miner Street (staged: no organizer, City site blocked), and a Virginia Canyon Mountain Park seasonal closure 1 Dec-31 Mar. Also Miner Street Markets on September Fridays 1-2 pm (past; organizer unknown) and many Georgetown and Silver Plume items. Useful as a lead list, not as a source; each item needs the organizer's own page. Listings carry Google Calendar and ICS links per event; no site-wide feed seen. Visitor center address, phone and hours not on the pages read."
+    },
+    {
+      "id": "argomilltour-com",
+      "name": "Argo Mill & Tunnel (argomilltour.com)",
+      "url": "https://argomilltour.com/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. Home page: 2350 Riverside Dr., 303-567-2421, Argomillmanager@mightyargo.com, 'No restrictions at this time', links to Peek booking. Prices page (/things-to-do-in-colorado/gold-mine-tours-prices/): adults $30, children 5-16 $20, 1-4 $4, gold panning $21, gemstones $14, Mercantile daily 10-6, winter 10-5, tours at the top of the hour, last tour varies by season. Visit page (/things-to-do-in-colorado/): tour one hour, 1.5 hours with panning, weather October-May can close the site. News page (/in-the-news/): about 50 undated posts. Nothing on the site carries a 2026 date beyond the copyright. Published with that caveat.",
+      "sampleUrl": "https://argomilltour.com/things-to-do-in-colorado/gold-mine-tours-prices/",
+      "checkFrequency": "monthly"
+    },
+    {
+      "id": "tommyknocker-com",
+      "name": "Tommyknocker Brewery & Pub (tommyknocker.com)",
+      "url": "https://tommyknocker.com/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. Home page gives 1401 Miner Street, 303-567-2688, hours Fri-Sat 10:30 am-9 pm and Sun-Thu 10:30 am-8 pm, menu highlights, catering; no events, no dated posts, empty newsletter section. Published; the 2026 CCMRD ghost tour pages (tours start outside it, discount for ticket holders) are the dated second source that it is operating.",
+      "checkFrequency": "monthly"
+    },
+    {
+      "id": "beaujos-com",
+      "name": "Beau Jo's Pizza, Idaho Springs (beaujos.com)",
+      "url": "https://www.beaujos.com/locations/idaho-springs/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. Location page gives 1517 Miner St, 303-567-4376, Sun-Thu 11 am-8 pm, Fri-Sat 11 am-9 pm, an FAQ (reservations for 20+, paid parking, patio dogs, wait-time line 303-963-4298). The chain home page lists seven locations and an Events & Specials page (/events-specials/, not fetched) with no dated entries visible. No dated post on the location page. Published with that caveat.",
+      "checkFrequency": "monthly"
+    },
+    {
+      "id": "clearcreekrafting-com",
+      "name": "Clear Creek Rafting Company (clearcreekrafting.com)",
+      "url": "https://clearcreekrafting.com/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. Home page: 350 Whitewater Rd, 303-567-1000, daily trips mid-May through mid-August depending on water, beginner/intermediate/advanced trips, 2026 waiver PDF (uploaded May 2026), Google reviews dated July 2026 shown on the page, no prices or hours. Published as a seasonal service (open May-Aug). Other outfitters on Clear Creek were not looked up this session.",
+      "checkFrequency": "monthly"
+    },
+    {
+      "id": "indianhotsprings-com",
+      "name": "Indian Hot Springs (indianhotsprings.com)",
+      "url": "https://indianhotsprings.com/",
+      "type": "manual",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Unreadable on 10 October 2026: the site is a JavaScript app (Vite bundle, 2.8 KB HTML shell) and both WebFetch and curl got only the title 'Indian Hot Springs' and the meta tagline 'Proudly preserved since 1865'. No address, phone, hours or rates could be read; staged. Needs a browser read or a call.",
+      "checkFrequency": "monthly"
+    },
+    {
+      "id": "westboundanddown-com",
+      "name": "Westbound & Down Brewing Company (westboundanddown.com)",
+      "url": "https://westboundanddown.com/",
+      "type": "manual",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Blocked on 10 October 2026: HTTP 403 Forbidden to both WebFetch and curl. Nothing read; staged without an address. Needs a browser read or a call.",
+      "checkFrequency": "monthly"
+    }
+  ]
+}

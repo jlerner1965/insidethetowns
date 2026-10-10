@@ -23,6 +23,7 @@
  */
 import NewsletterSignup from './NewsletterSignup.astro';
 import SectionHeader from './SectionHeader.astro';
+import UpTheHill from './UpTheHill.astro';
 import WeekEventRow from './WeekEventRow.astro';
 import type { TownConfig } from '@/config';
 import { getTownEntries } from '@/lib/content';
@@ -168,6 +169,11 @@ const checker = checkerName();
       )}
     </section>
   )}
+
+  {/* The mountain guides' weekend, on a Front Range guide's full page only:
+     renders nothing on a mountain guide, in the compact version, or with
+     nothing on (UpTheHill.astro). */}
+  {!compact && <UpTheHill town={town} class={block} />}
 
   <div class={block}>
     <NewsletterSignup town={town} compact id={compact ? 'this-week-compact' : 'this-week'} />

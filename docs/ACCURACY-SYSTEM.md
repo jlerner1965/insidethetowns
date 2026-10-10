@@ -397,7 +397,7 @@ computes it.
 | `category` | `type` | `restaurant`, `bar`, `coffee`, `shop`, `trail`, `park`, `venue`, `lodging`, `service` |
 | `address`, `phone`, `hours` | same | `openingHours` carries the structured form when the text cannot be read |
 | `website` | `url` | |
-| `seasonal { season, hours, closedMonths[] }` | `seasonal` | added |
+| `seasonal { season, hours, closedMonths[] }` | `seasonal` | added; `openMonths[]` and `note` added 10 October 2026, with the "Seasons turning" re-check list in the weekly report and the review summary |
 | `sourceUrl` | `source` | |
 | `status: staged` | the `staging/` folder | with `review` |
 | `status: approved` | the published folder | |

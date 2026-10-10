@@ -14,7 +14,7 @@
 import { FRESHNESS, windowsFor } from '../config/freshness.ts';
 import type { TownVariant } from '../config/towns/types.ts';
 import { isExcluded } from '../content/schemas.ts';
-import { dayKey, startOfDay } from './dates.ts';
+import { TIME_ZONE, addDays, dayKey, fromWallClock, startOfDay } from './dates.ts';
 
 const DAY = 86_400_000;
 
@@ -25,7 +25,7 @@ export function ageDays(verified: Date, now: Date = new Date()): number {
 
 type Provenanced = { source?: string; verified?: Date };
 /** The part of a `seasonal` block the gate reads; see seasonalSchema. */
-export type SeasonLike = { opens?: Date; closes?: Date; closedMonths?: readonly string[] };
+export type SeasonLike = { opens?: Date; closes?: Date; openMonths?: readonly string[]; closedMonths?: readonly string[] };
 type PlaceLike = Provenanced & { status?: string; hours?: string; seasonal?: SeasonLike };
 
 /** Why an entry may not publish, or null when it may. */
@@ -127,17 +127,185 @@ export function inSeason(seasonal: SeasonLike | undefined, now: Date = new Date(
   if (seasonal.opens && seasonal.closes) {
     return today.getTime() >= startOfDay(seasonal.opens).getTime() && today.getTime() <= startOfDay(seasonal.closes).getTime();
   }
-  if (seasonal.closedMonths && seasonal.closedMonths.length > 0) {
-    const month = MONTHS[Number(dayKey(now).slice(5, 7)) - 1]!;
-    return !seasonal.closedMonths.some((m) => m.trim().slice(0, 3).toLowerCase() === month);
-  }
+  const months = openMonthSet(seasonal);
+  if (months) return months.has(Number(dayKey(now).slice(5, 7)) - 1);
   return true;
 }
 
-/** Whether a season can be placed on the calendar: dates, or the months it is shut. */
+/** Whether a season can be placed on the calendar: dates, or the months it is open or shut. */
 export function seasonDated(seasonal: SeasonLike | undefined): boolean {
   if (!seasonal) return false;
-  return (!!seasonal.opens && !!seasonal.closes) || (seasonal.closedMonths?.length ?? 0) > 0;
+  return (!!seasonal.opens && !!seasonal.closes) || openMonthSet(seasonal) !== undefined;
+}
+
+/** A month name as the operator wrote it, as an index 0 to 11; undefined for anything else. */
+function monthIndex(name: string): number | undefined {
+  const i = MONTHS.indexOf(name.trim().slice(0, 3).toLowerCase());
+  return i === -1 ? undefined : i;
+}
+
+/**
+ * The months a place is open, as indices, from `openMonths` or the
+ * complement of `closedMonths`; undefined when the block names neither, or
+ * names every month (a season that never turns is not a season).
+ */
+export function openMonthSet(seasonal: SeasonLike | undefined): Set<number> | undefined {
+  if (!seasonal) return undefined;
+  const open = (seasonal.openMonths ?? []).map(monthIndex).filter((i): i is number => i !== undefined);
+  if (open.length > 0) return open.length < 12 ? new Set(open) : undefined;
+  const closed = (seasonal.closedMonths ?? []).map(monthIndex).filter((i): i is number => i !== undefined);
+  if (closed.length === 0) return undefined;
+  const set = new Set(MONTHS.map((_, i) => i).filter((i) => !closed.includes(i)));
+  return set.size === 0 ? undefined : set;
+}
+
+const MONTH_LABELS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+/**
+ * The months a place is open, as a reader reads them: "May–Oct", "Nov–Apr"
+ * for a run that wraps the year, "May–Jun, Sep–Oct" for a split one.
+ * Undefined when the block gives no months. The label is the months as
+ * declared, whatever today is; `seasonLabel` says whether it is open.
+ */
+export function openMonthsLabel(seasonal: SeasonLike | undefined): string | undefined {
+  const months = openMonthSet(seasonal);
+  if (!months) return undefined;
+  // Runs of consecutive open months, starting after a closed month so a run
+  // across December and January reads as one.
+  const first = MONTHS.findIndex((_, i) => months.has(i) && !months.has((i + 11) % 12));
+  const start = first === -1 ? 0 : first;
+  const runs: Array<[number, number]> = [];
+  for (let k = 0; k < 12; k++) {
+    const i = (start + k) % 12;
+    if (!months.has(i)) continue;
+    const last = runs[runs.length - 1];
+    if (last && last[1] === (i + 11) % 12) last[1] = i;
+    else runs.push([i, i]);
+  }
+  return runs.map(([a, b]) => (a === b ? MONTH_LABELS[a] : `${MONTH_LABELS[a]}–${MONTH_LABELS[b]}`)).join(', ');
+}
+
+/**
+ * The one line a row or a card shows for a seasonal place: "Open May–Oct"
+ * while it is in season, "Closed for the season" when it is not, with the
+ * month or the day it reopens where the block says. Undefined for a block
+ * that cannot be placed on the calendar (its `season` text still shows on
+ * the page) and for a place with no season.
+ */
+export function seasonLabel(seasonal: SeasonLike | undefined, now: Date = new Date()): string | undefined {
+  if (!seasonal || !seasonDated(seasonal)) return undefined;
+  const months = openMonthsLabel(seasonal);
+  if (inSeason(seasonal, now)) return months ? `Open ${months}` : 'Open for the season';
+  const turn = seasonTurn(seasonal, now);
+  if (turn?.kind !== 'opens') return 'Closed for the season';
+  // A dated season reopens on a day; one given as months reopens in a month.
+  const when = seasonal.opens && seasonal.closes ? formatTurnDay(turn.on) : MONTH_LABELS[Number(dayKey(turn.on).slice(5, 7)) - 1];
+  return `Closed for the season; reopens ${when}`;
+}
+
+/** "May 23", for a dated reopening. */
+function formatTurnDay(day: Date): string {
+  return new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, month: 'long', day: 'numeric' }).format(day);
+}
+
+/** When a season next turns, or last turned: the day the place opens or closes. */
+export interface SeasonTurn {
+  /** What happens on `on`: the place opens for the season, or closes for it. */
+  kind: 'opens' | 'closes';
+  /** The first day of the new state, a Denver day at 00:00. */
+  on: Date;
+}
+
+/** The first Denver day of a month, `monthsAhead` months from the month `now` is in (negative for past). */
+function monthStart(now: Date, monthsAhead: number): Date {
+  const [y, m] = dayKey(now).split('-').map(Number) as [number, number];
+  const total = y * 12 + (m - 1) + monthsAhead;
+  const year = Math.floor(total / 12);
+  const month = total - year * 12 + 1;
+  return fromWallClock(year, month, 1, 0, 0, 0);
+}
+
+/**
+ * The next day the season turns, from `now` forward: the day it opens if it
+ * is closed, the day after `closes` (or the first closed month) if it is
+ * open. A dated season that has closed with no next `opens` has no next
+ * turn. A block with no dates and no months never turns.
+ */
+export function seasonTurn(seasonal: SeasonLike | undefined, now: Date = new Date()): SeasonTurn | undefined {
+  if (!seasonal) return undefined;
+  const today = startOfDay(now);
+  if (seasonal.opens && seasonal.closes) {
+    const opens = startOfDay(seasonal.opens);
+    const dayAfterClose = addDays(startOfDay(seasonal.closes), 1);
+    if (today.getTime() < opens.getTime()) return { kind: 'opens', on: opens };
+    if (today.getTime() < dayAfterClose.getTime()) return { kind: 'closes', on: dayAfterClose };
+    return undefined;
+  }
+  const months = openMonthSet(seasonal);
+  if (!months) return undefined;
+  const open = inSeason(seasonal, now);
+  for (let ahead = 1; ahead <= 12; ahead++) {
+    const on = monthStart(now, ahead);
+    const month = Number(dayKey(on).slice(5, 7)) - 1;
+    if (months.has(month) !== open) return { kind: open ? 'closes' : 'opens', on };
+  }
+  return undefined;
+}
+
+/** The most recent day the season turned, on or before today; undefined when it never has or the block cannot say. */
+export function lastSeasonTurn(seasonal: SeasonLike | undefined, now: Date = new Date()): SeasonTurn | undefined {
+  if (!seasonal) return undefined;
+  const today = startOfDay(now);
+  if (seasonal.opens && seasonal.closes) {
+    const opens = startOfDay(seasonal.opens);
+    const dayAfterClose = addDays(startOfDay(seasonal.closes), 1);
+    if (today.getTime() >= dayAfterClose.getTime()) return { kind: 'closes', on: dayAfterClose };
+    if (today.getTime() >= opens.getTime()) return { kind: 'opens', on: opens };
+    return undefined;
+  }
+  const months = openMonthSet(seasonal);
+  if (!months) return undefined;
+  const open = inSeason(seasonal, now);
+  for (let back = 0; back < 12; back++) {
+    const on = monthStart(now, -back);
+    const before = Number(dayKey(monthStart(now, -back - 1)).slice(5, 7)) - 1;
+    if (months.has(before) !== open) return { kind: open ? 'opens' : 'closes', on };
+  }
+  return undefined;
+}
+
+/** Why a seasonal listing is on the re-check list, for the weekly report and the review's summary. */
+export interface SeasonRecheck {
+  kind: 'opens' | 'closes';
+  /** The day the season turns, or turned. */
+  on: Date;
+  /** Days from today to that day; zero or negative once it has passed. */
+  inDays: number;
+}
+
+/**
+ * Whether a seasonal listing is due a re-check because its season is about
+ * to turn, or has turned since it was last checked. The hours, the phone
+ * message and the "open" claim all change on that day, whatever the
+ * listing's own freshness window says, so the weekly report lists it:
+ * within `horizonDays` of the turn ahead, and from the turn behind until
+ * `verified` is on or after it. An open-all-year listing is never here.
+ */
+export function seasonRecheck(
+  data: { seasonal?: SeasonLike; verified?: Date; status?: string },
+  now: Date = new Date(),
+  horizonDays: number = FRESHNESS.reportHorizonDays,
+): SeasonRecheck | undefined {
+  if (!data.seasonal || (data.status && data.status !== 'open')) return undefined;
+  const today = startOfDay(now);
+  const days = (on: Date) => Math.round((on.getTime() - today.getTime()) / DAY);
+  const last = lastSeasonTurn(data.seasonal, now);
+  if (last && (!data.verified || startOfDay(data.verified).getTime() < last.on.getTime())) {
+    return { kind: last.kind, on: last.on, inDays: days(last.on) };
+  }
+  const next = seasonTurn(data.seasonal, now);
+  if (next && days(next.on) <= horizonDays) return { kind: next.kind, on: next.on, inDays: days(next.on) };
+  return undefined;
 }
 
 /**

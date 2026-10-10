@@ -13,6 +13,7 @@ import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
 import { PLACE_STATUS_LABELS, PLACE_TYPE_LABELS } from '@/content/schemas';
 import { PLACE_HUE } from '@/config/palette';
+import { seasonLabel } from '@/lib/freshness';
 import { isOpen } from '@/lib/places';
 import { subTownLabel } from '@/lib/sub-towns';
 import { shorten } from '@/lib/text';
@@ -26,6 +27,8 @@ const { data, slug } = place;
 const href = `/places/${slug}/`;
 const hue = PLACE_HUE[data.type];
 const open = isOpen(place);
+// "Open May–Oct" or "Closed for the season", where the operator gave the months or dates (src/lib/freshness.ts).
+const season = open ? seasonLabel(data.seasonal) : undefined;
 ---
 <article class="group relative flex flex-col" data-filter-item data-category={data.type} data-sub-town={data.subTown}>
   {data.image && (
@@ -52,5 +55,6 @@ const open = isOpen(place);
     {/* Shortened at a word or phrase to about two lines, rather than cut
         mid-word by the clamp, which stays as a net for a narrow card. */}
     <p class="mt-2 line-clamp-2 text-[0.9375rem] leading-relaxed text-ink-muted">{shorten(data.summary, 80)}</p>
+    {season && <p class:list={['mt-1.5 text-[0.875rem] font-medium', place.hoursHidden === 'season' ? 'text-ink' : 'text-ink-muted']}>{season}</p>}
   </div>
 </article>

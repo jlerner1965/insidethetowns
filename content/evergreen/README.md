@@ -129,7 +129,9 @@ seasonal:                         # any place
   hours: "Daily 9 am–5 pm"        # the hours during the season; shown instead of `hours` while it runs
   opens: "2026-05-23"             # optional: the current season's first day
   closes: "2026-10-12"            # optional: its last day; between closes and the next opens the page says "Closed for the season"
-  closedMonths: [Nov, Dec, Jan, Feb, Mar, Apr]   # or the months it is shut, when no dates are published
+  openMonths: [May, Jun, Jul, Aug, Sep, Oct]     # or the months it is open, when no dates are published; rows and cards say "Open May–Oct"
+  closedMonths: [Nov, Dec, Jan, Feb, Mar, Apr]   # or the months it is shut (one of the two, not both)
+  note: "Closed in mud season"    # optional: one line in the operator's words, shown with the season
 access:                           # trail, trailhead or park only
   parking: "About 30 cars; full by 8 am at weekends"
   permit: "Timed-entry permit May 22 to October 12"
@@ -142,6 +144,10 @@ access:                           # trail, trailhead or park only
 
 The seasonal block follows the listing's own `verified` and the mountain
 window (30 days); the access block has its own date and the shortest window.
+A season with dates or months is also on the weekly report's "Seasons turning"
+list, and the review's summary, as it opens or closes: within 14 days of the
+turn ahead, and after the turn behind until the listing is checked again, since
+the hours, the phone message and the "open" claim all change on that day.
 Road and closure links for the whole town (CDOT, the park) are in the town's
 config, not here.
 

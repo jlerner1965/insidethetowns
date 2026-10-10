@@ -76,10 +76,15 @@ for (const town of towns) {
       ? `${waiting} waiting: ${w.events} events, ${w.places} places, ${w.changes} changes${w.cancellations ? ` (${w.cancellations} cancellations)` : ''}`
       : 'nothing waiting',
     s.goingStale.length ? `${s.goingStale.length} listing${s.goingStale.length === 1 ? '' : 's'} going stale in 14 days` : '',
+    s.seasonsTurning.length ? `${s.seasonsTurning.length} season${s.seasonsTurning.length === 1 ? '' : 's'} turning` : '',
     s.brokenSources.length ? `${s.brokenSources.length} source${s.brokenSources.length === 1 ? '' : 's'} not answering` : '',
   ].filter(Boolean);
   line(`${town.name.padEnd(13)} ${parts.join(' · ')}`);
   for (const g of s.goingStale) line(`               stale ${g.inDays <= 0 ? 'now' : `in ${g.inDays}d`}: ${g.title}  (${relative(root, g.file)})`);
+  for (const t of s.seasonsTurning) {
+    const when = t.inDays > 0 ? `${t.kind} in ${t.inDays}d` : t.inDays === 0 ? `${t.kind} today` : `${t.kind === 'opens' ? 'opened' : 'closed'} ${-t.inDays}d ago, not checked since`;
+    line(`               season ${when}: ${t.title}  (${relative(root, t.file)})`);
+  }
   for (const b of s.brokenSources) line(`               source ${b.id}: ${b.status}${b.note ? ` — ${b.note}` : ''}`);
 }
 line();

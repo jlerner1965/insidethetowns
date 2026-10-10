@@ -4222,3 +4222,68 @@ out to reach further than the audit could see from outside.
   overlays per image, the per-town content assignments and the pilot
   cohort. These are judgment and production calls for the owner, not
   defects.
+
+## A mountain cluster: six towns scaffolded, seasons as months, "Up the hill this weekend"
+
+10 October 2026. The brief: ten mountain towns on the chassis, seasonal
+fields on the listing schema, and a strip of the mountain guides' weekend on
+the Front Range guides' This Week pages, in one pass. Four of the ten (Estes
+Park, Golden, Evergreen, Nederland) were already live; the other six are
+new.
+
+- **The six towns are scaffolded, not launched.** Black Hawk, Idaho Springs,
+  Georgetown, Grand Lake, Manitou Springs and Leadville each have a config
+  (mountain variant, its own palette, census and GNIS figures from the
+  Wikipedia infobox and the State Demography Office's historical census
+  file, official road and closure links that answered 200 today), a content
+  folder, a favicon and a registry entry. Their status is `wave2`: each
+  builds a holding page. The brief said to use the Inside domains the owner
+  already owns and to ask rather than guess where a domain is not in the
+  config; none of the six is, so each config carries a reserved
+  `<slug>.unconfirmed.invalid` domain that cannot resolve, with a note to
+  replace it before any Vercel project is created. The scaffold's own guess
+  (`inside<slug>.com`) was not used: Evergreen and Castle Rock show the
+  obvious name is sometimes someone else's.
+- **Where the state file and the infobox disagree on incorporation**, the
+  state file wins, as for Nederland, and the infobox date is noted in the
+  config: Black Hawk 1864 (not 1886), Idaho Springs 1878 (not 1885),
+  Georgetown 1868 (not 1885), Grand Lake 1885 (not 1944).
+- **Content was gathered under the accuracy rule, not the coverage one.**
+  Five of the six towns' official sites (and Gilpin and Lake counties')
+  answer automated readers with 403 or reset the connection; only
+  Georgetown's answers. Every published file carries a source that was read
+  today and the facts on it; anything short of that waits in staging with a
+  review line, and a section with nothing verified stays empty. Moving Here
+  pages were written only where every claim could be sourced.
+- **Seasons as months.** `seasonal` already took `season` text, `hours`,
+  `opens`, `closes` and `closedMonths`. It now also takes `openMonths` (the
+  months a place is open, three letters or the full name, which may wrap
+  the year) and `note` (one line in the operator's words). Set open or
+  closed months, not both. Rows, cards and the place page say "Open
+  May–Oct" from either, and "Closed for the season; reopens May" out of
+  season; the gate already stripped the hours. All of it optional: every
+  existing listing parses and renders as before.
+- **A season turning is a re-check.** `seasonRecheck` (src/lib/freshness.ts)
+  flags a seasonal listing within 14 days of the turn ahead (the report
+  horizon) and from the turn behind until `verified` is on or after it.
+  The weekly report prints a "Seasons turning" list per town and the
+  review's summary counts them, beside the listings going stale. The
+  listing's own window is untouched; this is a second reason to look.
+- **"Up the hill this weekend"** (src/components/UpTheHill.astro) sits at
+  the foot of /this-week/ on a Front Range guide: at most three of the
+  live mountain guides' weekend one-offs, one per town (`upTheHillPicks`,
+  the Nearby rule with `perTown: 1`), plus a place whose season opens that
+  week where there is room, each linking to its page on the mountain
+  guide's own domain. The towns are decided by `variant`, not a list, so a
+  mountain guide joins the strip when it goes live. Nothing on, nothing
+  rendered; the browser prunes what has passed and removes the strip when
+  it is empty, as the Nearby block does. Clicks are counted with what the
+  sites already use: campaign tags on every link (`utm_source` the guide,
+  `utm_medium=up-the-hill`), as the weekly email carries, and one custom
+  event per click through the `@vercel/analytics` module Base.astro loads,
+  a no-op where analytics is off. No new tool.
+- **Not done, for the owner.** The six domains; Vercel projects, DNS and
+  deploy hooks for them once named; the hero photographs (the placeholder
+  is tolerated while a town is not live); the Moving Here pages where the
+  official sources could not be read; and whether the existing mountain
+  guides' `neighbors` should name the new towns once they launch.

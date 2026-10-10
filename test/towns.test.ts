@@ -114,7 +114,7 @@ test('the hub groups every guide under the region the owner set', () => {
     'Boulder County': ['niwot', 'lyons', 'erie', 'longmont'],
     'Northern Colorado': ['fortcollins', 'windsor', 'timnath', 'loveland', 'berthoud', 'johnstown', 'severance'],
     'Carbon Valley & I-25': ['carbon-valley', 'fort-lupton'],
-    'Mountains & Foothills': ['estes-park', 'golden', 'evergreen', 'nederland'],
+    'Mountains & Foothills': ['estes-park', 'golden', 'evergreen', 'nederland', 'black-hawk', 'idaho-springs', 'georgetown', 'grand-lake', 'manitou-springs', 'leadville'],
     'South Metro': ['castle-rock', 'elizabeth'],
   };
   assert.deepEqual(Object.keys(REGIONS), [...TOWN_REGIONS], 'regions, in the order the hub lists them');

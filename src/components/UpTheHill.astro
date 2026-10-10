@@ -1,0 +1,112 @@
+---
+/**
+ * "Up the hill this weekend": two or three of the mountain guides' weekend
+ * listings on a Front Range guide's /this-week/ page, each linking to its
+ * page on that mountain guide's own domain. A reader in Erie or Longmont
+ * planning a Saturday drive is the reader the mountain guides want, and the
+ * This Week page is where that reader already is on a Thursday.
+ *
+ * The towns are every live mountain guide (config `variant`), not a
+ * neighbours list, so a Front Range reader sees the same hill from any
+ * guide; a mountain guide shows nothing here, since its own weekend is the
+ * page. The listings are read on purpose through getNeighborEntries, so
+ * every card carries its town and crosses to that domain. The picks are
+ * `upTheHillPicks` (src/lib/events.ts): weekend one-offs, one per town, at
+ * most three. Also here: a place whose season opens this week, from the
+ * mountain guides' listings (seasonal.opens), since an opening is as much a
+ * reason to drive up as a concert.
+ *
+ * With nothing on, the strip renders nothing at all, not an empty state;
+ * built days before it is read, the browser drops what has passed
+ * (Freshness.astro) and removes the strip once nothing is left in it.
+ *
+ * Clicks are counted with the analytics the sites already use: every link
+ * carries campaign tags (utm_source is this guide, utm_medium the strip), as
+ * the weekly email's links do, so the mountain guide's own Vercel Web
+ * Analytics attributes the visit; and the script below sends one custom
+ * event per click from this page through the same @vercel/analytics module
+ * Base.astro loads. Where analytics is off, `track` is a no-op.
+ */
+import NetworkEventCard from './NetworkEventCard.astro';
+import { getSite, mountainTowns, type TownConfig } from '@/config';
+import { getNeighborEntries } from '@/lib/content';
+import { dayKey, formatDayRange, formatDayShort, startOfDay, toIsoLocal } from '@/lib/dates';
+import { occurrences, upTheHillPicks, weekendWindow } from '@/lib/events';
+import { isOpen } from '@/lib/places';
+import { weekWindow } from '@/lib/weekly';
+
+interface Props {
+  town: TownConfig;
+  class?: string;
+}
+
+const { town, class: className } = Astro.props;
+const site = getSite();
+const hills = town.variant === 'mountain' ? [] : mountainTowns();
+const now = new Date();
+const { start, sunday, end } = weekendWindow(now);
+const { monday } = weekWindow(now);
+const order = hills.map((t) => t.slug);
+const all = hills.length ? occurrences(await getNeighborEntries('events', hills), { now, horizonDays: 14 }) : [];
+const events = upTheHillPicks(all, order, { now, limit: 3 });
+
+/**
+ * A season opening up the hill: a place on a mountain guide whose `opens`
+ * day falls this week, Monday to Sunday, so a reader hears about it in time
+ * for the weekend rather than a week late. At most one, after the events.
+ */
+const places = hills.length && events.length < 3 ? await getNeighborEntries('places', hills) : [];
+const openings = places
+  .filter((p) => isOpen(p) && !p.delisted && p.data.seasonal?.opens)
+  .filter((p) => {
+    const day = startOfDay(p.data.seasonal!.opens!).getTime();
+    return day >= monday.getTime() && day < end.getTime();
+  })
+  .sort((a, b) => a.data.seasonal!.opens!.getTime() - b.data.seasonal!.opens!.getTime())
+  .slice(0, 3 - events.length);
+
+const query = `utm_source=${encodeURIComponent(site.slug)}&utm_medium=up-the-hill&utm_campaign=this-week`;
+const count = events.length + openings.length;
+---
+{count > 0 && (
+  <section class={className} data-hide-when-empty data-up-the-hill aria-labelledby="up-the-hill">
+    <h2 id="up-the-hill" class="eyebrow border-b-2 border-accent pb-3">Up the hill this weekend · {formatDayRange(start, sunday)}</h2>
+    <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+      {events.map((event) => <NetworkEventCard event={event} showDay showTagline query={query} track="up-the-hill" />)}
+      {openings.map((place) => (
+        <article
+          class="group relative grid grid-cols-1 gap-x-7 border-t border-line-soft py-5 first:border-t-0 sm:grid-cols-[9rem_1fr] md:py-6"
+          data-event-day={dayKey(sunday)}
+          data-end={toIsoLocal(end)}
+        >
+          <p class="mb-1.5 sm:mb-0 sm:pt-1">
+            <span class="inline-block whitespace-nowrap rounded-full px-2.5 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-white" style={`background:${place.town.colors.accentDark}`}>{place.town.name}</span>
+            {place.town.shortTagline && <span class="mt-1 block text-[0.8125rem] leading-snug text-ink-faint">{place.town.shortTagline}</span>}
+          </p>
+          <div class="min-w-0">
+            <p class="eyebrow mb-1.5" style="color:var(--cat-outdoors-ink)">Season opens</p>
+            <h3 class="text-xl font-medium leading-tight md:text-2xl">
+              <a href={`https://${place.town.domain}/places/${place.slug}/?${query}`} data-track="up-the-hill" data-track-town={place.town.slug} class="stretch no-underline group-hover:text-accent-text">{place.data.title}</a>
+            </h3>
+            <p class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">
+              Opens <time datetime={toIsoLocal(place.data.seasonal!.opens!)}>{formatDayShort(place.data.seasonal!.opens!)}</time>{place.data.seasonal!.hours && <span> · {place.data.seasonal!.hours}</span>}
+            </p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+)}
+
+<script>
+  import { track } from '@vercel/analytics';
+
+  // One custom event per click, named for the strip, with the guide it was
+  // on and the mountain guide it went to. `track` is a no-op when the
+  // analytics script is not on the page (Base.astro decides that).
+  for (const link of document.querySelectorAll<HTMLAnchorElement>('[data-up-the-hill] a[data-track]')) {
+    link.addEventListener('click', () => {
+      track(link.dataset.track ?? 'up-the-hill', { from: location.hostname, to: link.dataset.trackTown ?? '' });
+    });
+  }
+</script>

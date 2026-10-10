@@ -24,8 +24,19 @@ insideestespark.com  TOWN=estes-park      (mountain variant)
 insidegolden.com     TOWN=golden          (mountain variant)
 insideevergreenco.com TOWN=evergreen      (mountain variant; insideevergreen.com is someone else's)
 insidenederland.com  TOWN=nederland       (mountain variant)
+(domain to confirm)  TOWN=black-hawk      (mountain variant; not live; no project yet — the owner names the domain first)
+(domain to confirm)  TOWN=idaho-springs   (mountain variant; not live; no project yet)
+(domain to confirm)  TOWN=georgetown      (mountain variant; not live; no project yet)
+(domain to confirm)  TOWN=grand-lake      (mountain variant; not live; no project yet)
+(domain to confirm)  TOWN=manitou-springs (mountain variant; not live; no project yet)
+(domain to confirm)  TOWN=leadville       (mountain variant; not live; no project yet)
 …
 ```
+
+The six towns scaffolded on 10 October 2026 carry a reserved `.invalid`
+domain in their config until the owner names the Inside domain each one
+gets; none builds more than its holding page until then, and no Vercel
+project should be created for one before its `domain` is real.
 
 The seven projects after `carbonvalleyguide` were created on 6 October 2026
 by the REST API with the same settings (framework, repository, `TOWN`, the

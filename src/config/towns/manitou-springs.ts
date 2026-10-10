@@ -1,0 +1,111 @@
+import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+
+/**
+ * An El Paso County home rule city of 4,858 at the 2020 census, 6,306 feet
+ * up at the foot of Pikes Peak on the west edge of Colorado Springs: the
+ * mineral springs, Manitou Avenue, the Incline, the cog railway and the
+ * Garden of the Gods next door. The lowest of the mountain guides, and the
+ * only one south of Denver; the mountain chassis all the same, for the
+ * seasons the Peak and the Incline keep.
+ *
+ * Figures are from the Wikipedia infobox (census and GNIS), read 10 October
+ * 2026, as for every other town; the comments say which. The domain is not
+ * yet the owner's call: see `domain` below.
+ */
+export const manitouSprings: TownConfig = {
+  kind: 'town',
+  // Not live. The guide builds a holding page until the owner names the
+  // domain and the first review clears the launch threshold.
+  status: 'wave2',
+  variant: 'mountain',
+  region: 'Mountains & Foothills',
+  // Empty until the owner sets them: neighbours go both ways (test/nearby.test.ts).
+  // Proposed: castle-rock, the nearest guide, an hour up I-25, once it launches.
+  neighbors: [],
+  // Set with the brief, 10 October 2026, at Evergreen's level: a town of
+  // nearly five thousand with a year-round tourist street.
+  launchThreshold: { events: 15, listings: 20 },
+  slug: 'manitou-springs',
+  name: 'Manitou Springs',
+  /**
+   * UNCONFIRMED. The owner has not named this town's domain (10 October
+   * 2026), and the brief says to ask rather than guess, so this is a
+   * reserved `.invalid` name that cannot resolve. Replace it, and the email
+   * below, with the Inside domain the owner owns before creating the Vercel
+   * project; nothing links to a town that is not live, so until then it
+   * appears nowhere a reader can see.
+   */
+  domain: 'manitou-springs.unconfirmed.invalid',
+  siteTitle: 'Inside Manitou Springs',
+  tagline:
+    'An independent guide to Manitou Springs, Colorado: the mineral springs, Manitou Avenue, the Incline, the cog railway and the foot of Pikes Peak.',
+  shortTagline: 'The springs, the Incline and the foot of Pikes Peak',
+  seoTagline: 'What’s on in Manitou Springs, Colorado',
+  counties: ['El Paso'],
+  state: 'CO',
+  // GNIS, via the Wikipedia infobox: 38.85750, -104.91278.
+  lat: 38.8575,
+  lng: -104.9128,
+  population: 4858, // 2020 census
+  elevationFt: 6306, // GNIS, via Wikipedia
+  character: 'A home rule city of about 4,900 at 6,300 feet at the foot of Pikes Peak, on the west edge of Colorado Springs, with mineral springs and a tourist avenue.',
+  // 1888: the State Demography Office's historical census file
+  // (storage.googleapis.com/co-publicdata/historical-census.csv, read 10
+  // October 2026) and the Wikipedia infobox (25 January 1888) agree.
+  incorporated: 1888,
+  population2010: 4992, // 2010 census, State Demography Office file
+  /**
+   * Where a reader checks the roads before setting out. Official pages,
+   * linked live on Things to Do and every trail, trailhead and park page;
+   * the guide never restates what they say. Each URL answered 200 to a
+   * request on 10 October 2026.
+   */
+  conditionsLinks: [
+    {
+      label: 'CDOT road conditions (COtrip)',
+      url: 'https://www.cotrip.org/',
+      note: 'Live state highway conditions and closures, including US 24 through Ute Pass.',
+    },
+    {
+      label: 'Pike and San Isabel National Forests: alerts',
+      url: 'https://www.fs.usda.gov/r02/psicc/alerts',
+      note: 'The Pikes Peak Ranger District’s closures and fire restrictions.',
+    },
+    {
+      label: 'Pikes Peak Highway',
+      url: 'https://drivepikespeak.com/',
+      note: 'Whether the highway to the summit is open, from the City of Colorado Springs, which runs it.',
+    },
+  ],
+  colors: {
+    // Plum: a deep magenta-plum for the painted storefronts of Manitou Avenue, darker than Loveland's purple and bluer than Johnstown's raspberry. `npm run check-colors` is the gate.
+    accent: '#8E2F6B',
+    accentDark: '#5F1F48',
+    neutralBg: '#F8F3F6',
+  },
+  hero: {
+    image: 'hero.jpg',
+    // The stand-in from scripts/templates/; a photograph is chosen at launch, with its row in IMAGE_LICENSES.csv.
+    alt: 'Placeholder: no photograph of Manitou Springs has been chosen yet',
+  },
+  social: {
+    // Follows the domain; see the note on `domain`.
+    email: 'hello@manitou-springs.unconfirmed.invalid',
+  },
+  nav: DEFAULT_TOWN_NAV,
+  movingHere: {
+    listingsLinks: [
+      { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Manitou-Springs,-CO_rb/' },
+      { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Manitou-Springs_CO' },
+    ],
+    // schoolDistrict and commuteNotes are written at launch, from the
+    // district's and the City's own pages, with the rest of Moving Here.
+  },
+  officialLinks: {
+    // The infobox gives manitouspringsgov.com, which answered 301 to this
+    // address on 10 October 2026; the site itself answers automated
+    // requests with 403, so nothing here was read from it.
+    townSite: 'https://www.manitouspringsco.gov/',
+    townSiteLabel: 'the City of Manitou Springs',
+  },
+};
