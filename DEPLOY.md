@@ -24,21 +24,31 @@ insideestespark.com  TOWN=estes-park      (mountain variant)
 insidegolden.com     TOWN=golden          (mountain variant)
 insideevergreenco.com TOWN=evergreen      (mountain variant; insideevergreen.com is someone else's)
 insidenederland.com  TOWN=nederland       (mountain variant)
-insideidahosprings.com   TOWN=idaho-springs   (mountain variant; not live; no project yet)
-insidegeorgetownco.com   TOWN=georgetown      (mountain variant; not live; no project yet)
-insidegrandlake.com      TOWN=grand-lake      (mountain variant; not live; no project yet)
-insidemanitousprings.com TOWN=manitou-springs (mountain variant; not live; no project yet)
-insideleadville.com      TOWN=leadville       (mountain variant; not live; no project yet)
-insideblackhawk.com      TOWN=black-hawk      (mountain variant; not live; no project yet)
+insideidahosprings.com   TOWN=idaho-springs   (mountain variant; not live; holding page)
+insidegeorgetownco.com   TOWN=georgetown      (mountain variant; not live; holding page)
+insidegrandlake.com      TOWN=grand-lake      (mountain variant; not live; holding page)
+insidemanitousprings.com TOWN=manitou-springs (mountain variant; not live; holding page)
+insideleadville.com      TOWN=leadville       (mountain variant; not live; holding page)
+insideblackhawk.com      TOWN=black-hawk      (mountain variant; not live; holding page)
 …
 ```
 
 The six towns scaffolded on 10 October 2026 build their holding pages until
 they launch. The owner named all six domains the same day, each on the
-owner's Cloudflare nameservers (the same pair as the other guides). A project for any of the six can only build once the branch that adds the
-town is on `main`: until then `TOWN=<slug>` is unknown there and the build
-stops. Each domain also needs Cloudflare Email Routing for its `hello@`
-address (see "Email"), which the holding page names.
+owner's Cloudflare nameservers (the same pair as the other guides). Their
+projects (`insideblackhawk`, `insideidahosprings`, `insidegeorgetownco`,
+`insidegrandlake`, `insidemanitousprings`, `insideleadville`) were created
+the same evening by the REST API, at the owner's word, with Nederland's
+settings: framework, repository, `TOWN`, the Ignored Build Step, Node 22.x
+and preview deployments off. Each has its apex and `www` (a 308 to the
+apex) attached, and its first production deployment of `main` is ready.
+Still to do for each: the DNS records at Cloudflare (two `A` records on the
+apex, `216.150.1.1` and `216.150.16.1`, which Vercel now recommends over
+the older `76.76.21.21`, and the project's own `CNAME` on `www`, shown
+under Settings → Domains); Cloudflare Email Routing for its `hello@`
+address (see "Email"), which the holding page names; and, when the town
+goes live, a deploy hook on `main` added to `VERCEL_DEPLOY_HOOKS`, and Web
+Analytics switched on.
 
 The seven projects after `carbonvalleyguide` were created on 6 October 2026
 by the REST API with the same settings (framework, repository, `TOWN`, the
