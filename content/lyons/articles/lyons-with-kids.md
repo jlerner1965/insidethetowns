@@ -29,7 +29,7 @@ The walk-up window at the east end of Main, long the Lyons Dairy Bar, has change
 
 ## Any season: the library
 
-The [Lyons Regional Library](/places/lyons-regional-library/), built in 2019 after the flood put the old Depot library out of use, runs programmes most days: a baby storytime and stay-and-play, a toddler and preschool storytime, kids' chess with Chess Wizards, a LEGO Club, creative movement on second Thursdays, and Dogs Enjoy Afternoon Reading on third Thursdays, where children read to a dog. Monday to Thursday 10 to 7, Friday to 5, Saturday to 2. The [events page](/events/?category=family) has the current dates.
+The [Lyons Regional Library](/places/lyons-regional-library/), built in 2019 after the flood put the old Depot library out of use, runs programs most days: a baby storytime and stay-and-play, a toddler and preschool storytime, kids' chess with Chess Wizards, a LEGO Club, creative movement on second Thursdays, and Dogs Enjoy Afternoon Reading on third Thursdays, where children read to a dog. Monday to Thursday 10 to 7, Friday to 5, Saturday to 2. The [events page](/events/?category=family) has the current dates.
 
 ## Summer weekends: the museum
 

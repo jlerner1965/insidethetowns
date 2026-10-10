@@ -1,5 +1,5 @@
 ---
-title: "A first visit to Rocky Mountain National Park from Estes Park: the pass, timed entry, the shuttles and Bear Lake Road"
+title: "Your first RMNP visit from Estes Park"
 date: "2026-10-07"
 excerpt: "What a first visit to Rocky Mountain National Park from Estes Park needs: the entrance pass, the 2026 timed-entry reservations and their hours, the free Bear Lake Road shuttles, the short walks at Bear Lake and Sprague Lake, altitude and weather, the no-pets rule and where the park posts conditions."
 category: "Outdoors"
@@ -9,7 +9,7 @@ imageAlt: "Trail Ridge Road winding across the alpine tundra of Rocky Mountain N
 imageCredit: "National Park Service, NPGallery, public domain"
 verified: "2026-10-07"
 supersededAfter: "2026-10-19"
-supersededNote: "The 2026 timed-entry season this article describes ended on October 18; the park's page has the current rules."
+supersededNote: "The 2026 timed-entry season this article describes is over: general timed entry ended on October 12, and Bear Lake Road timed entry and the park shuttles, the Hiker Shuttle included, on October 18. The park's page has the current rules."
 supersededSource: "https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm"
 supersededSourceLabel: "Rocky Mountain National Park: timed entry permit system"
 sources:
@@ -35,7 +35,7 @@ related:
   - { label: "Sprague Lake Trailhead", href: "/places/sprague-lake-trailhead/", note: "The accessible lake loop with picnic tables on Bear Lake Road, open all year." }
 ---
 
-[Rocky Mountain National Park](/places/rocky-mountain-national-park/) begins at the west edge of Estes Park, with the Beaver Meadows entrance on US 36 and the Fall River entrance on US 34. A first visit by car has three things to sort out: a park pass, needed every hour of the year; from late May to mid-October, a timed-entry reservation for certain hours; and a plan for parking, since the Bear Lake Road lots fill early. Here is how it worked in 2026, read from the park's pages on October 7.
+[Rocky Mountain National Park](/places/rocky-mountain-national-park/) begins at the west edge of Estes Park, with the Beaver Meadows entrance on US 36 and the Fall River entrance on US 34. A first visit by car has three things to sort out: a park pass, needed every hour of the year; from late May to mid-October, a timed-entry reservation for certain hours; and a plan for parking, since the Bear Lake Road lots fill early. Here is the 2026 system, from the park's pages as read on October 7.
 
 ## The entrance pass
 
@@ -45,22 +45,34 @@ The park is cashless: entrance stations take cards only, and visitors with cash 
 
 ## Timed entry in 2026
 
-In 2026 the park ran two kinds of reservation, sold only through [Recreation.gov](https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm) (web, app or 877-444-6777), never at the gates, for a non-refundable $2 fee on top of the entrance pass.
+2026 timed-entry season: through October 12 (Bear Lake Road: through October 18). Two kinds of reservation, sold only through [Recreation.gov](https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm) (web, app or 877-444-6777) and never at the gates, each a non-refundable $2 fee on top of the entrance pass:
 
-| Reservation | Where it lets you go | Hours it was needed in 2026 | Dates in 2026 |
+| Reservation | Where it lets you go | Hours needed, 2026 | 2026 season |
 |---|---|---|---|
 | Timed Entry | Everywhere except the Bear Lake Road corridor: Trail Ridge Road, the Alpine Visitor Center, the west side, Wild Basin, Lily Lake, Lumpy Ridge, Longs Peak | 9 am–2 pm | May 22–October 12 |
 | Timed Entry + Bear Lake Road | The Bear Lake Road corridor (Moraine Park, Sprague Lake, Park & Ride, Glacier Gorge, Bear Lake) and every other area | 5 am–6 pm | May 22–October 18 |
 
-Outside those hours no reservation was needed. Each one gave a two-hour window to enter, after which you could stay as long as you liked; a Bear Lake Road holder who arrived late, or left the corridor and wanted to return, was let in again only after 2 pm. One reservation covered one vehicle for one day; the named holder had to be present with photo ID, and it could not be transferred. Reservations went on sale on the first of each month at 8 am for the month ahead, with 40 percent of each day held back until 7 pm the evening before. None guaranteed a parking space.
+2026 rules:
+
+- No reservation outside those hours.
+- A two-hour window to enter; after that, no limit on how long you stay.
+- Bear Lake Road: re-entry only after 2 pm for a holder who arrives late, or leaves the corridor and wants back in.
+- One reservation per vehicle per day; the named holder present with photo ID; no transfers.
+- On sale on the first of each month at 8 am for the month ahead, with 40 percent of each day held back until 7 pm the evening before.
+- No reservation guarantees a parking space.
 
 The park posts the following year's rules on its [timed-entry page](https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm); the 2026 dates and hours should not be assumed to carry over.
 
 ## The shuttles
 
-Two free [in-park shuttles](https://www.nps.gov/romo/planyourvisit/shuttle-buses-and-public-transit.htm) ran daily from May 22 to October 18, 2026, both from Park & Ride, 5.2 miles up Bear Lake Road, the largest lot on the road and open all year. The Bear Lake Route ran 6:30 am–7:30 pm every 10 to 15 minutes to the Bierstadt Lake, Glacier Gorge and Bear Lake trailheads; the Moraine Park Route ran 7 am–7:30 pm hourly to Sprague Lake, the campgrounds and the Cub Lake and Fern Lake trailheads. There is no shuttle elsewhere in the park, none over Trail Ridge Road, and none in winter.
+2026 in-park shuttle season: daily, May 22 through October 18. Two free [in-park shuttles](https://www.nps.gov/romo/planyourvisit/shuttle-buses-and-public-transit.htm), both from Park & Ride, 5.2 miles up Bear Lake Road, the largest lot on the road and open all year:
 
-The Hiker Shuttle from the Estes Park Visitor Center to Park & Ride ran daily from May 22 to September 7, 2026, then Saturdays and Sundays only from September 12 to October 18, with eight departures from 8:30 am to 1:30 pm and the last bus back at 6 pm. Every passenger, infants included, needed a $2 Recreation.gov reservation (up to four tickets) and a park pass. No bicycles and no pets are carried on any park bus.
+- **Bear Lake Route:** 6:30 am–7:30 pm, every 10 to 15 minutes, to the Bierstadt Lake, Glacier Gorge and Bear Lake trailheads.
+- **Moraine Park Route:** 7 am–7:30 pm, hourly, to Sprague Lake, the campgrounds and the Cub Lake and Fern Lake trailheads.
+
+There is no shuttle elsewhere in the park, none over Trail Ridge Road, and none in winter.
+
+2026 Hiker Shuttle season: daily, May 22 through September 7; Saturdays and Sundays only, September 12 through October 18. Estes Park Visitor Center to Park & Ride, eight departures from 8:30 am to 1:30 pm, last bus back at 6 pm. A $2 Recreation.gov reservation for every passenger, infants included (up to four tickets), plus a park pass. No bicycles and no pets are carried on any park bus.
 
 ## Bear Lake Road and the short walks
 

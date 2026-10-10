@@ -11,7 +11,7 @@ import { towns } from '../src/config/towns/registry.ts';
 import { TOWN_REGIONS, countiesCovered, countyLabel, countyShort } from '../src/config/towns/types.ts';
 import { LIVE_TOWNS } from '../src/config/index.ts';
 import { hub } from '../src/config/towns/hub.ts';
-import { homeTitle } from '../src/lib/titles.ts';
+import { homeTitle, wordmarkEm, wordmarkParts } from '../src/lib/titles.ts';
 import { groupByRegion } from '../src/lib/regions.ts';
 
 const by = (slug: string) => {
@@ -100,11 +100,15 @@ test('every live town is configured and every config is complete enough to build
   // towns at carbonvalleyguide.com. Its title is still "Inside Carbon
   // Valley", as every guide's is, whatever the domain (owner, 5 October 2026).
   const OWN_DOMAIN = new Map([['carbon-valley', 'carbonvalleyguide.com']]);
+  // One guide's title is not "Inside …": a local magazine already publishes
+  // as Inside Longmont, so Longmont's guide is named for the network instead
+  // (owner, October 2026). Its domain is unchanged.
+  const OWN_TITLE = new Map([['longmont', 'Longmont · Inside the Towns']]);
   for (const slug of LIVE_TOWNS) {
     const t = by(slug);
     if (OWN_DOMAIN.has(slug)) assert.equal(t.domain, OWN_DOMAIN.get(slug), `${slug}: domain`);
     else assert.match(t.domain, /^inside[a-z]+\.com$/, `${slug}: domain`);
-    assert.equal(t.siteTitle, `Inside ${t.name}`, `${slug}: title`);
+    assert.equal(t.siteTitle, OWN_TITLE.get(slug) ?? `Inside ${t.name}`, `${slug}: title`);
     assert.equal(t.state, 'CO');
     assert.ok(t.counties.length >= 1, `${slug}: at least one county`);
   }
@@ -165,6 +169,17 @@ test('a tagline whose comma sits before the state is not cut at that comma', () 
   // exactly why every town sets one; the guard above is what enforces that.
   assert.equal(homeTitle({ siteTitle: 'Inside Erie', tagline: 'x', seoTagline: 'Briggs Street, trails and events in Erie, Colorado' }),
     'Inside Erie \u2014 Briggs Street, trails and events in Erie, Colorado');
+});
+
+test('the wordmark sets the town name apart on either side of the network name', () => {
+  assert.deepEqual(wordmarkParts('Inside Niwot'), { before: 'Inside', name: 'Niwot' });
+  assert.deepEqual(wordmarkParts('Inside the Towns'), { before: 'Inside', name: 'the Towns' });
+  assert.deepEqual(wordmarkParts('Longmont · Inside the Towns'), { name: 'Longmont', after: '· Inside the Towns' });
+  assert.deepEqual(wordmarkParts('Carbon Valley Guide'), { name: 'Carbon Valley Guide' });
+  for (const t of towns) assert.equal(wordmarkParts(t.siteTitle).name, t.name, `${t.slug}: wordmark name`);
+  // One-line titles are measured whole; Longmont's two lines by the longer.
+  assert.equal(wordmarkEm('Inside Niwot'), 6);
+  assert.equal(wordmarkEm('Longmont · Inside the Towns'), 4.5);
 });
 
 test('the most ambiguous names spell Colorado out rather than abbreviating', () => {

@@ -13,6 +13,7 @@
  */
 import { getNetworkHub, getSite, liveTowns, neighborsOf } from '@/config';
 import Wordmark from './Wordmark.astro';
+import { wordmarkEm as titleEm } from '@/lib/titles';
 
 const site = getSite();
 const hub = getNetworkHub();
@@ -36,12 +37,11 @@ const isActive = (href: string) => {
   return path.startsWith(href);
 };
 /**
- * Roughly how wide the site title is, in em, at the wordmark's weights. Half
- * an em a character is just over the widest any title measures (Inside
- * Longmont, 0.499). The phone rule for .site-wordmark in global.css divides
- * the room beside the buttons by it.
+ * Roughly how wide the site title is, in em, at the wordmark's weights
+ * (wordmarkEm in src/lib/titles.ts). The phone rule for .site-wordmark in
+ * global.css divides the room beside the buttons by it.
  */
-const wordmarkEm = (site.siteTitle.length * 0.5).toFixed(1);
+const wordmarkEm = titleEm(site.siteTitle).toFixed(1);
 ---
 {/* The first thing on every page is a band of the town's colours, the
    primary running into the accent. It costs six pixels and it is what stops

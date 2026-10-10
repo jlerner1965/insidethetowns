@@ -34,7 +34,7 @@ Nederland sits at the top of Boulder Canyon at 8,235 feet, eighteen miles up Col
 
 [Mud Lake](/places/mud-lake-open-space/) at 2034 County Road 126 is Boulder County open space, 231 acres between 8,250 and 8,600 feet. The county lists five easy trails from 0.7 to 1.3 miles: the Caribou Ranch Link, the Kinnickinnick Loop, the Tungsten Loop, the Chickadee Trail and the Sherwood Forest Trail. The trailhead has 31 car spaces, 2 ADA spaces, a restroom, picnic tables and a 50-person group shelter that can be reserved. The rules: day use only, sunrise to sunset; pets on a leash; bikes on designated trails only; no swimming, fires or camping. Fishing is allowed but the lake is not stocked. The county's trail-closures page says when a trail is shut.
 
-Hessie, the Indian Peaks trailhead beyond Eldora, is a different kind of day, with almost no parking and a weekend shuttle: [before you drive to Hessie](/articles/before-you-drive-to-hessie/) has the 2026 arrangements, and Mud Lake is one of the county's own suggestions when Hessie is full.
+Hessie, the Indian Peaks trailhead beyond Eldora, is a different kind of day, with almost no parking and, in season, a weekend shuttle: [before you drive to Hessie](/articles/before-you-drive-to-hessie/) has the 2026 arrangements, and Mud Lake is one of the county's own suggestions when Hessie is full.
 
 *Getting there:* by car, to the trailhead at 2034 County Road 126. *Best for:* an hour's walk at altitude, with the dog on a leash and children along.
 

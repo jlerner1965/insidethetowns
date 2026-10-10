@@ -1,4 +1,4 @@
-# Content for Inside Longmont
+# Content for Longmont · Inside the Towns
 
 Everything on insidelongmontco.com that is not layout lives in this folder. Edit
 Markdown, commit, push; the site rebuilds. No code changes needed.

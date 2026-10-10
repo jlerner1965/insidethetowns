@@ -37,7 +37,7 @@ If you do want to drive, the county lists alternatives it would rather send you 
 
 ## The Hessie Shuttle
 
-The county's shuttle runs between Nederland and the trailhead on weekend days and holidays through the hiking season, free, with no ticket or reservation. In 2026 it runs Fridays, Saturdays, Sundays and holidays from May 22 through Sunday, October 11, 6 am–6 pm, so the weekend of October 9 to 11 is its last. Earlier in the season the county extended a few evenings to 8 pm (the Sundays of Memorial Day and Labor Day weekends, and Friday, July 3) and ran on the Monday holidays and on Juneteenth.
+The county's shuttle runs between Nederland and the trailhead on weekend days and holidays through the hiking season, free, with no ticket or reservation. 2026 season: Fridays, Saturdays, Sundays and holidays, May 22 through Sunday, October 11, 6 am–6 pm (final weekend: October 9–11). Earlier in the season the county extended a few evenings to 8 pm (the Sundays of Memorial Day and Labor Day weekends, and Friday, July 3) and ran on the Monday holidays and on Juneteenth.
 
 The pickup moves with the day of the week. On Fridays the shuttle leaves from the Nederland Park-n-Ride; on Saturdays, Sundays and holidays it leaves from Nederland High School, 597 Colorado 130. Buses depart every 15 minutes, the ride takes about 10 minutes, and leashed dogs are allowed aboard. The shuttle stops only at Hessie; it does not go up to the [Fourth of July Trailhead](/places/fourth-of-july-trailhead/).
 

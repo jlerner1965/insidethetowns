@@ -36,6 +36,36 @@ export function homeTitle(site: TitleSite): string {
   return `${site.siteTitle} \u2014 ${tail.replace(/[.,;:\s]+$/, '')}`;
 }
 
+/**
+ * A site title cut for the two-weight wordmark: the town's name, set in the
+ * accent, and the rest in a light italic. "Inside Niwot" has the rest before
+ * the name; Longmont's "Longmont · Inside the Towns" (a local magazine already
+ * publishes as Inside Longmont) has it after. Any other title is all name.
+ */
+export function wordmarkParts(siteTitle: string): { before?: string; name: string; after?: string } {
+  const inside = /^(Inside)\s+(.+)$/.exec(siteTitle);
+  if (inside) return { before: inside[1], name: inside[2]! };
+  const network = /^(.+?)\s+(·\s+Inside the Towns)$/.exec(siteTitle);
+  if (network) return { name: network[1]!, after: network[2] };
+  return { name: siteTitle };
+}
+
+/** How big the wordmark sets the `after` part, as a share of the name's size. */
+export const WORDMARK_AFTER_SCALE = 0.5;
+
+/**
+ * Roughly how wide the wordmark is, in em: half an em a character, just over
+ * the widest one-line title measured ("Inside Longmont", 0.499). A title
+ * with an `after` part is set on two lines, the second at
+ * WORDMARK_AFTER_SCALE (on one line, Longmont's pushed the desktop nav off
+ * the page), so it is as wide as the longer line.
+ */
+export function wordmarkEm(siteTitle: string): number {
+  const { name, after } = wordmarkParts(siteTitle);
+  if (!after) return siteTitle.length * 0.5;
+  return Math.max(name.length, after.length * WORDMARK_AFTER_SCALE) * 0.5;
+}
+
 /** "[Page] | Inside [Town]", or the home title when there is no page title. */
 export function pageTitle(site: TitleSite, title?: string): string {
   return title ? `${title} | ${site.siteTitle}` : homeTitle(site);

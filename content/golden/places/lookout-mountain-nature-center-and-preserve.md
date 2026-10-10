@@ -8,7 +8,7 @@ verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 image: ../images/lookout-mountain-nature-center-and-preserve.jpg
-imageAlt: "The log-framed Lookout Mountain Nature Center sign in front of the centre's stucco-and-timber building among ponderosa pines"
+imageAlt: "The log-framed Lookout Mountain Nature Center sign in front of the center's stucco-and-timber building among ponderosa pines"
 imageCredit: "Chris Light, Wikimedia Commons, CC BY-SA 4.0"
 phone: "720-497-7600"
 hours: "Preserve: daily, 1 hour before sunrise to 1 hour after sunset. Nature Center: Fri–Mon 10 am–4 pm; closed Tue–Thu"

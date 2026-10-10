@@ -1,5 +1,5 @@
 ---
-title: "Loveland history: a trading post, a town in a wheat field, sugar and cherries, the valentines, two floods and the sculptors"
+title: "Loveland: railroads, valentines, and sculpture"
 date: "2026-10-05"
 excerpt: "Mariano Medina's trading post on the Overland Trail, a town platted in a wheat field beside the Colorado Central in 1877, Great Western's first sugar factory, the cherry orchards, the Rialto, the valentines, two floods, the sculptors and a city of 76,378. The short history of Loveland, Colorado, with sources."
 category: "History"

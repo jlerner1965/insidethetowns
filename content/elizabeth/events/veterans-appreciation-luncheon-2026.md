@@ -10,4 +10,4 @@ source: "https://www.elizabethmainstreet.org/events/"
 verified: "2026-09-18"
 ---
 
-The third annual lunch for Elbert County veterans and their families at the pavilion on Highway 86, the Friday before Veterans Day. Organised locally through the Main Street program; watch its events page for the RSVP.
+The third annual lunch for Elbert County veterans and their families at the pavilion on Highway 86, the Friday before Veterans Day. Organized locally through the Main Street program; watch its events page for the RSVP.

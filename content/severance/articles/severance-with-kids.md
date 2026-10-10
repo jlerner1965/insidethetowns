@@ -1,7 +1,7 @@
 ---
-title: "Severance with kids: neighborhood playgrounds, a skate park, a stocked pond, the library's storytimes and a trail to Eaton"
+title: "Severance with kids"
 date: "2026-10-07"
-excerpt: "Where to take children in Severance: the Town's parks and what each has, fishing at Blue Spruce Park, the Severance Library's storytimes and after-school programs, the Great Western Trail, the pools in Windsor and the Town's year from the trick-or-treat parade to the fishing derby."
+excerpt: "Where to take children in Severance: neighborhood playgrounds and a skate park, the stocked pond at Blue Spruce Park, the Severance Library's storytimes and after-school programs, the Great Western Trail to Eaton, the pools in Windsor and the Town's year from the trick-or-treat parade to the fishing derby."
 category: "Families"
 tags: [families, kids, playgrounds, guide]
 verified: "2026-10-07"

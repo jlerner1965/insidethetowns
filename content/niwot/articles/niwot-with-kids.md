@@ -23,7 +23,7 @@ Directly across the street is [Whistle Stop Park](/places/whistle-stop-park/), t
 
 ## Walk the sculptures
 
-The [Niwot Sculpture Park](/places/niwot-sculpture-park/) is at the south-west corner of Niwot Road and 79th Street: a lawn with large sculptures, some owned and some lent by artists for a year at a time, so the collection changes. Counting them and picking a favourite is the game. From there it is a five-minute walk to [Second Avenue](/places/old-town-second-avenue/) for lunch.
+The [Niwot Sculpture Park](/places/niwot-sculpture-park/) is at the south-west corner of Niwot Road and 79th Street: a lawn with large sculptures, some owned and some lent by artists for a year at a time, so the collection changes. Counting them and picking a favorite is the game. From there it is a five-minute walk to [Second Avenue](/places/old-town-second-avenue/) for lunch.
 
 ## Lunch and ice cream
 

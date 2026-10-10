@@ -1,7 +1,7 @@
 ---
-title: "Nederland with kids: a hand-carved carousel, a free mining museum, easy trails at Mud Lake, an outdoor rink and the library"
+title: "Nederland with kids"
 date: "2026-10-07"
-excerpt: "Carousel rides and the puppet theater, storytimes, the toy library and museum passes, Chipeta Park, the skatepark, NedRINK's prices, the Mining Museum's last weekends, Mud Lake and Caribou Ranch, Wild Bear's days-off programs, Eldora's lessons and October's family events."
+excerpt: "The hand-carved carousel and its puppet theater, storytimes, the toy library and museum passes, Chipeta Park, the skatepark, the outdoor NedRINK's prices, the free Mining Museum's last weekends, easy trails at Mud Lake and Caribou Ranch, Wild Bear's days-off programs, Eldora's lessons and October's family events."
 category: "Families"
 tags: [families, kids, playgrounds, outdoors, guide]
 verified: "2026-10-07"

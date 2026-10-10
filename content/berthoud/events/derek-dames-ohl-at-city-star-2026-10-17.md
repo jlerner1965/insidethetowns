@@ -10,4 +10,4 @@ source: "https://citystarbrewing.com/event/derek-dames-ohl/"
 verified: "2026-10-03"
 ---
 
-Derek Dames Ohl is a travelling roots musician whose sets move between country, blues and honky-tonk. Free to attend in the taproom.
+Derek Dames Ohl is a traveling roots musician whose sets move between country, blues and honky-tonk. Free to attend in the taproom.

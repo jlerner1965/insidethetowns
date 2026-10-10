@@ -1,7 +1,9 @@
 ---
 title: "The 2026 Niwot incorporation election, plainly"
 date: "2026-09-17"
-excerpt: "The November 3, 2026 ballot inside the proposed boundary: whether Niwot becomes a town, whether to elect a nine-member charter commission, and five fiscal measures that would fund it. What each question does, without an argument for or against."
+updated: "2026-10-10"
+verified: "2026-10-10"
+excerpt: "The November 3, 2026 ballot inside the proposed boundary: whether Niwot becomes a town, whether to form a nine-member charter commission and who would sit on it, and five fiscal measures that would fund it. What each question does, without an argument for or against."
 category: "Civic"
 tags: [civic, election]
 # Ballots are due by 7pm on the 3rd, so the guidance below is live through
@@ -13,7 +15,9 @@ supersededSource: "https://bouldercounty.gov/elections/"
 supersededSourceLabel: "Boulder County Elections publishes the official count"
 ---
 
-This guide describes the measures as filed, without commentary on whether they are advisable. The certified ballot language published by the [Niwot Election Commission](https://niwotelection.org/ballot) controls; everything here is a plain-language summary of it, read on September 10, 2026, and it is provisional until the commission posts its reviewed printer’s proof. Campaign material is labeled as advocacy wherever it appears, and the commission is never presented as an advocate.
+**Updated October 10, 2026:** the commission certified the ballot titles on September 11, 2026, by Resolution 2026-07. This summary now matches the certified text, and the descriptions of Questions 1 to 3 and Issues 1 to 5 have been corrected to it.
+
+This guide describes the measures as filed, without commentary on whether they are advisable. The [Niwot Election Commission](https://niwotelection.org/ballot) certified the ballot titles on September 11, 2026 (Resolution 2026-07), and the certified ballot language controls; everything here is a plain-language summary of it, checked against the certified text on October 10, 2026. Campaign material is labeled as advocacy wherever it appears, and the commission is never presented as an advocate.
 
 ## What you can do now
 
@@ -29,7 +33,7 @@ This guide describes the measures as filed, without commentary on whether they a
 | Vote centers open | October 19, 2026 |
 | Election Day; ballots must be received by 7 pm | November 3, 2026 |
 
-Colorado has no registration deadline: an eligible voter can register and vote through Election Day. Dates are from [Boulder County Elections](https://bouldercounty.gov/elections/information/).
+Colorado has no registration deadline: an eligible voter can register and vote through Election Day. Dates are from [Boulder County Elections](https://bouldercounty.gov/elections/information/), checked October 10, 2026.
 
 ## Who decides what
 
@@ -43,29 +47,29 @@ The proposed boundary is not the same as the Niwot census designated place. The 
 
 ## The questions
 
-**Question 1 · Whether Niwot should incorporate as a municipality.** Whether the territory described in the petition should be organized as a Colorado municipality. Approval would begin the creation of a town government; rejection would leave the area unincorporated and administered by Boulder County, and none of the other measures would take effect.
+**Question 1 · Whether Niwot should incorporate as a municipality.** The ballot asks, “Shall Niwot be incorporated as a municipality?”: whether the territory described in the incorporation petition should be organized as a Colorado municipality. If it is approved, the Boulder County District Court enters an order of incorporation. If it is not, no municipality is created, the process ends, and the area stays unincorporated and administered by Boulder County.
 
-**Question 2 · Whether to form a nine-member home rule charter commission.** Whether a commission of nine members should be formed to draft a proposed home rule charter for the new municipality. The commission drafts a charter; it does not adopt one. It is formed only if incorporation is approved.
+**Question 2 · Whether to form a nine-member home rule charter commission.** Whether a home rule charter commission should be formed under C.R.S. Title 31, Article 2, Part 2 for the proposed municipality. If incorporation is also approved, the commission drafts a proposed home rule charter, which returns to voters at a later election. The commission drafts a charter; it does not adopt one.
 
-**Question 3 · Which nine charter commission candidates should be elected.** Which of the 28 candidates on the ballot would serve on that charter commission: voters may select up to nine. The nine elected take office only if incorporation (Question 1) and the charter commission (Question 2) are both approved.
+**Question 3 · Which nine charter commission candidates should be elected.** Which of the 28 candidates on the ballot would serve on that charter commission: voters may vote for not more than nine, and a ballot marked for more than nine is not counted in this contest. The contest is decided whether or not incorporation passes, but the commission has a charter to write only if it does.
 
 ## The fiscal issues
 
-**Issue 1 · A 2.5% sales and use tax beginning January 1, 2028.** Authorization to levy a municipal sales and use tax at 2.5%, with collection beginning January 1, 2028. The ballot text exempts food for domestic consumption and states an estimated $2.8 million in revenue in the first full fiscal year.
+**Issue 1 · A 2.5% sales and use tax beginning January 1, 2028.** Authorization to levy a municipal sales and use tax at 2.5%, beginning January 1, 2028, to fund capital improvements and related operating costs, including debt repayment, and any lawful municipal purpose. The ballot text exempts food for domestic consumption, leaves any other exemptions to the town’s governing body, applies the use tax to goods stored, used or consumed in Niwot, including construction and building materials, and states a tax increase of $2,800,000 in the first full fiscal year.
 
-**Issue 2 · A four-mill property tax.** Authorization to levy a property tax of four mills within the municipal boundary. The ballot text states an estimated $900,000 in revenue in the first full fiscal year.
+**Issue 2 · A four-mill property tax.** Authorization to levy a property tax of four mills to meet operational and maintenance costs. The ballot text states a tax increase of $900,000 in the first full fiscal year.
 
-**Issue 3 · An additional 3% sales tax on retail marijuana, beginning January 1, 2028.** It applies only if retail marijuana businesses operate within the municipality. The ballot text states an estimated $60,000 in revenue in the first full fiscal year.
+**Issue 3 · An additional 3% sales tax on retail marijuana, beginning January 1, 2028.** A special sales tax on retail marijuana and retail marijuana products, in addition to any other Niwot sales tax. It applies only if retail marijuana businesses operate within the municipality. The ballot text states a tax increase of $60,000 in the first full fiscal year.
 
-**Issue 4 · Authorization to retain and spend collected revenue from 2027.** Authorization for the municipality to keep and spend all the revenue it collects from 2027 onward, as a voter-approved revenue change under the revenue and spending limits in Article X, Section 20 of the Colorado Constitution (the Taxpayer’s Bill of Rights), rather than refunding amounts above those limits.
+**Issue 4 · Authorization to retain and spend all revenue from 2027.** Authorization for the municipality to retain and spend all the revenue it collects from every source not otherwise excluded from fiscal year spending, including grants, fees and charges, and sales, use and property taxes, from 2027 onward, without regard to any state revenue or spending limit, including the one in Article X, Section 20 of the Colorado Constitution (the Taxpayer’s Bill of Rights). If it is not approved, that limit applies and revenue collected above it must be refunded.
 
-**Issue 5 · Authorization for up to $15 million in debt for transportation infrastructure.** With a maximum total repayment cost of up to $28 million. The petition proposes repaying it from the sales and use tax in Issue 1, so this authorization depends on that tax being approved.
+**Issue 5 · Authorization for up to $15 million in debt for transportation infrastructure.** With a maximum total repayment cost of up to $28 million, for the repair, reconstruction, improvement and maintenance of streets, roads, bridges, drainage, sidewalks and related transportation infrastructure. The ballot text makes the debt payable from sales and use tax revenues if those taxes are approved by a separate ballot measure; the commission’s summary names that measure as Issue 1.
 
 ## What happens after the vote
 
-1. If incorporation is rejected, no municipality is created, no charter commission is formed, and the fiscal authorizations have nothing to apply to. The process ends.
+1. If incorporation is rejected, no municipality is created and the fiscal authorizations have nothing to apply to. The charter commission contest is still decided, but the commission has no charter to write. The process ends.
 2. If incorporation is approved, the court enters an order of incorporation, and the fiscal measures that also passed take effect on the dates in the ballot text.
-3. If the charter commission question is also approved, the nine elected commissioners draft a proposed home rule charter. The commission exists only alongside incorporation.
+3. If the charter commission question is also approved, the nine elected commissioners draft a proposed home rule charter. The commission has a charter to write only if incorporation is approved.
 4. The proposed charter returns to voters at a later election.
 5. No charter is being approved in the November 3, 2026 election.
 
@@ -73,6 +77,8 @@ The proposed boundary is not the same as the Niwot census designated place. The 
 
 - [Niwot Election Commission](https://niwotelection.org/) — ballot content and procedure; notices, [meeting records](https://niwotelection.org/meetings) and the timetable.
 - [Official ballot content](https://niwotelection.org/ballot) — the certified questions and fiscal issues.
+- [Resolution 2026-07](https://niwotelection.org/assets/resolutions/resolution-2026-07.pdf) — the commission’s certification of the ballot titles, adopted September 11, 2026. It and the earlier resolutions are on the commission’s [minutes and resolutions page](https://niwotelection.org/records).
+- [The ballot content in full](https://niwotelection.org/assets/resolutions/resolution-2026-05-amended-attachment.pdf) — the amended attachment to Resolution 2026-05: the three questions, the 28 candidates and the five fiscal issues.
 - [Election FAQ and the proposed boundary](https://niwotelection.org/faq) — including how to check an address against the petition exhibits.
 - [Boulder County Elections](https://bouldercounty.gov/elections/) — registration, address updates, drop-off and voting locations, results.
 
@@ -86,4 +92,4 @@ Every registered campaign committee, listed together and labeled identically. No
 
 ## Standards for this page
 
-Nothing here argues for or against incorporation. Anything that cannot be supported by a filed document or an official publication is removed rather than softened. The summaries follow readings of the commission’s ballot page on September 9 and 10, 2026, before the commission’s printer’s-proof review; confirm each against the certified text on the commission’s site. Corrections are published with their date. [Report one](/contact/).
+Nothing here argues for or against incorporation. Anything that cannot be supported by a filed document or an official publication is removed rather than softened. The summaries follow the certified ballot text on the commission’s ballot page and in the amended attachment to Resolution 2026-05, checked on October 10, 2026; where a summary and the ballot language differ, the ballot language governs. Corrections are published with their date. [Report one](/contact/).

@@ -4,7 +4,7 @@ type: venue
 address: "951 W Plum St"
 area: "Campus"
 image: ../images/moby-arena.jpg
-imageAlt: "The domed, tan-coloured Moby Arena with the CSU ram logo on its front, seen down a concrete path across a lawn."
+imageAlt: "The domed, tan-colored Moby Arena with the CSU ram logo on its front, seen down a concrete path across a lawn."
 imageCredit: "LUSportsFan, Wikimedia Commons, CC BY-SA 4.0"
 url: "https://csurams.com/facilities/moby-arena/1"
 phone: "(800) 491-7267"

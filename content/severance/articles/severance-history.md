@@ -1,7 +1,7 @@
 ---
-title: "Severance history: a post office meant to be Tailholt, a beet dump on the Great Western, a bar known for oysters and a town that went from 106 people to 7,683"
+title: "How Severance grew from Tailholt to today"
 date: "2026-10-07"
-excerpt: "A post office meant to be called Tailholt, a governor's son and the sugar-beet railroad, a town of about a hundred people for half a century, Bruce's Bar and its Rocky Mountain oysters, a snowball law repealed by a nine-year-old, and the growth of the last twenty-five years. With sources."
+excerpt: "A post office meant to be called Tailholt, a governor's son, a beet dump on the Great Western Railway, a town of about a hundred people for half a century, Bruce's Bar and its Rocky Mountain oysters, a snowball law repealed by a nine-year-old, and growth from 106 people in 1990 to 7,683 in 2020. With sources."
 category: "History"
 tags: [history]
 verified: "2026-10-07"

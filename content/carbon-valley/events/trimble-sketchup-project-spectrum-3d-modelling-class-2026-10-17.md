@@ -1,5 +1,5 @@
 ---
-title: "SketchUp Project Spectrum: 3D Modelling Class"
+title: "SketchUp Project Spectrum: 3D Modeling Class"
 subTown: firestone
 start: "2026-10-17T13:30"
 end: "2026-10-17T15:00"
@@ -16,4 +16,4 @@ verified: "2026-10-05"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 
-Learn SketchUp, the 3D modelling software behind architecture, interior design, game levels and 3D-printable designs, in a class presented by Trimble's Casey Grothus. It starts with the basics and then lets each participant build a project from their own interests, with group teaching and one-to-one help. Project Spectrum is designed with autistic participants in mind and welcomes anyone neurodivergent, from middle school to adult; you need to be comfortable with a computer and mouse, nothing more.
+Learn SketchUp, the 3D modeling software behind architecture, interior design, game levels and 3D-printable designs, in a class presented by Trimble's Casey Grothus. It starts with the basics and then lets each participant build a project from their own interests, with group teaching and one-to-one help. Project Spectrum is designed with autistic participants in mind and welcomes anyone neurodivergent, from middle school to adult; you need to be comfortable with a computer and mouse, nothing more.

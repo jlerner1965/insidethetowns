@@ -34,7 +34,7 @@ The [Berthoud Recreation Center](/places/berthoud-recreation-center/) at Waggene
 
 [B-Rad's Arcade](/places/b-rads-arcade/) at the east end of Mountain Avenue has pinball, classic cabinets, air hockey and snacks, and is the accepted rainy-afternoon plan.
 
-The [Berthoud Community Library](/places/berthoud-community-library/) on Welch Avenue runs storytimes on Tuesday, Wednesday and Friday mornings, with a baby storytime, a toddler storytime and a pre-K one on the calendar, plus kids' art and science programmes. Open until 8 on Wednesday and Thursday, until 6 the other weekdays, Saturday to 4; closed Sunday. The [events page](/events/?category=family) has this week's.
+The [Berthoud Community Library](/places/berthoud-community-library/) on Welch Avenue runs storytimes on Tuesday, Wednesday and Friday mornings, with a baby storytime, a toddler storytime and a pre-K one on the calendar, plus kids' art and science programs. Open until 8 on Wednesday and Thursday, until 6 the other weekdays, Saturday to 4; closed Sunday. The [events page](/events/?category=family) has this week's.
 
 ## A Saturday downtown
 
@@ -42,7 +42,7 @@ Start with breakfast burritos at [Cocina & Cantina](/places/cocina-and-cantina/)
 
 ## Classes and camps
 
-The [Wildfire Arts Center](/places/wildfire-arts-center/) on Massachusetts Avenue runs classes and open studio for children, a youth street-art programme, summer camps and birthday parties.
+The [Wildfire Arts Center](/places/wildfire-arts-center/) on Massachusetts Avenue runs classes and open studio for children, a youth street-art program, summer camps and birthday parties.
 
 ## A winter day
 
