@@ -22,7 +22,10 @@ function tzOffsetMs(date: Date, tz: string): number {
   }).formatToParts(date);
   const get = (type: string) => Number(parts.find((p) => p.type === type)?.value ?? '0');
   const asUtc = Date.UTC(get('year'), get('month') - 1, get('day'), get('hour'), get('minute'), get('second'));
-  return asUtc - date.getTime();
+  // The parts stop at whole seconds, so compare with the instant cut to the
+  // second: subtracting its milliseconds too gave "the build's own now" a
+  // fractional offset ("-06:0.0137") in toIsoLocal.
+  return asUtc - Math.floor(date.getTime() / 1000) * 1000;
 }
 
 /** Build an instant from wall-clock components in `tz`, DST-aware. */

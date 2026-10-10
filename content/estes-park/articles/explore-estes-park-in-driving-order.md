@@ -54,7 +54,7 @@ Moraine Avenue, US 36 on its way to the Beaver Meadows entrance, is where this d
 
 ## 05 · The national park, on another day
 
-[Rocky Mountain National Park](/places/rocky-mountain-national-park/) begins at the west edge of town. An entrance pass is needed at every hour of the year, and in 2026 a timed-entry reservation was needed as well from May 22 to October 12, or to October 18 for the Bear Lake Road corridor. The 0.6-mile loop at [Bear Lake](/places/bear-lake-trailhead/) and the accessible loop at [Sprague Lake](/places/sprague-lake-trailhead/) are the short walks. [The first-visit guide](/articles/first-visit-to-rocky-mountain-national-park/) has the pass, the reservations, the shuttles and the weather; read it before the park day.
+[Rocky Mountain National Park](/places/rocky-mountain-national-park/) begins at the west edge of town. An entrance pass is needed at every hour of the year. 2026 timed-entry season: May 22 through October 12 (Bear Lake Road corridor: through October 18). The 0.6-mile loop at [Bear Lake](/places/bear-lake-trailhead/) and the accessible loop at [Sprague Lake](/places/sprague-lake-trailhead/) are the short walks. [The first-visit guide](/articles/first-visit-to-rocky-mountain-national-park/) has the pass, the reservations, the shuttles and the weather; read it before the park day.
 
 *Getting there:* US 36 to the Beaver Meadows entrance or US 34 to Fall River. *Best for:* a day of its own.
 

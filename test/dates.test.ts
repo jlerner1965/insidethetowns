@@ -76,6 +76,9 @@ test('an unparseable date is rejected rather than silently wrong', () => {
 test('toIsoLocal carries the Denver offset for JSON-LD', () => {
   assert.equal(toIsoLocal(parseLocal('2026-09-20T10:00')), '2026-09-20T10:00:00-06:00');
   assert.equal(toIsoLocal(parseLocal('2026-12-05T10:00')), '2026-12-05T10:00:00-07:00');
+  // A clock reading with milliseconds, as "Last updated" passes it, still
+  // gets a whole-minute offset.
+  assert.equal(toIsoLocal(new Date('2026-10-10T05:35:31.821Z')), '2026-10-09T23:35:31-06:00');
 });
 
 test('all-day ranges read as "All day" rather than a bogus time', () => {
