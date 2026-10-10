@@ -47,7 +47,7 @@ Two kitchens off Harmony Road open at 11 am. [Mein House](/places/mein-house/) o
 
 ## 04 · Timnath Community Park
 
-[Timnath Community Park](/places/timnath-community-park/), about 25 acres on Summerfields Parkway south of Bethke Elementary, has multi-age playgrounds and climbing structures, six pickleball courts, two tennis courts and a basketball court, all first come, first served, an amphitheater, sheltered picnic areas, open fields and a dog park at the east end. The splash pad runs daily 8 am–8 pm from May 15 until the Fall Festival in September, so it is off by October. The west restroom building is open year-round; the east one is seasonal. Dawn to dusk.
+[Timnath Community Park](/places/timnath-community-park/), about 25 acres on Summerfields Parkway south of Bethke Elementary, has multi-age playgrounds and climbing structures, six pickleball courts, two tennis courts and a basketball court, all first come, first served except when a Town class, program or tournament has them, an amphitheater, sheltered picnic areas, open fields and a dog park at the east end. The splash pad runs daily 8 am–8 pm from May 15 until the Fall Festival in September, so it is off by October. The west restroom building is open year-round; the east one is seasonal. Dawn to dusk.
 
 *Getting there:* 5500 Summerfields Parkway, a short drive from Harmony Road. *Best for:* children after lunch, a pickleball game, and the Holiday Festival in December.
 
