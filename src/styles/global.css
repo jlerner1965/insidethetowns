@@ -354,7 +354,13 @@
   transform: rotate(-135deg);
 }
 @media (width >= 80rem) {
-  .site-nav-switch { position: relative; }
+  /* In the row, "Towns" is not one of the guide's sections but the way out
+     to the others, so it sits apart at the far end, beside search: the nav
+     takes the room between the wordmark and the buttons, and the switch
+     takes the slack. */
+  .site-nav { flex: 1; }
+  .site-nav-list { max-inline-size: none; }
+  .site-nav-switch { position: relative; margin-inline-start: auto; }
   .site-nav-panel {
     position: absolute;
     inset-inline-end: 0;
