@@ -2,7 +2,7 @@
 title: "Golden Gate Canyon State Park"
 type: park
 address: "92 Crawford Gulch Road, Golden, CO 80403"
-area: "Golden Gate Canyon"
+area: "Nearby: Golden Gate Canyon, 16 miles northwest of Golden"
 url: "https://cpw.state.co.us/state-parks/golden-gate-canyon-state-park"
 source: "https://cpw.state.co.us/state-parks/golden-gate-canyon-state-park"
 verified: "2026-10-10"
@@ -16,7 +16,7 @@ tags: [hiking, camping, picnic, dogs-on-leash, horses]
 summary: "Colorado Parks and Wildlife's 12,119-acre state park in the hills between Black Hawk and Golden, with 35 miles of trails, 156 campsites and 125 picnic sites. Expect it to fill by 9 am on fall weekends."
 ---
 
-Golden Gate Canyon State Park is run by Colorado Parks and Wildlife: 12,119 acres, 35 miles of trails, 156 campsites and 125 picnic sites. The park's address is on Crawford Gulch Road, and CPW's directions come from Golden, 16 miles to the southeast: Highway 93 north 1.5 miles to Golden Gate Canyon Road, then left for 13 miles. Day use runs 5 am to 10 pm; the visitor center is open every day 9 am to 4 pm and the campground office 10 am to 5 pm.
+Golden Gate Canyon State Park is outside Black Hawk, on state land, and is run by Colorado Parks and Wildlife: 12,119 acres, 35 miles of trails, 156 campsites and 125 picnic sites. The park's address is on Crawford Gulch Road, and CPW's directions come from Golden, 16 miles to the southeast: Highway 93 north 1.5 miles to Golden Gate Canyon Road, then left for 13 miles. Day use runs 5 am to 10 pm; the visitor center is open every day 9 am to 4 pm and the campground office 10 am to 5 pm.
 
 Entry is by daily vehicle pass, $12 to $17 depending on the plate, or $4 for anyone arriving on foot, by bicycle or on horseback; an annual pass is $80 and the Keep Colorado Wild Pass, bought with a Colorado vehicle registration, is $29. Leashed dogs, service animals and horses are allowed; Kriley Overlook, Nott Creek and the Aspen Meadow Campground are the lots CPW names for horse trailers. Camping is booked through cpwshop.com.
 

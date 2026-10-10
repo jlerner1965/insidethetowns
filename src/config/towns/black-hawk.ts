@@ -90,8 +90,10 @@ export const blackHawk: TownConfig = {
     // district's and the City's own pages, with the rest of Moving Here.
   },
   officialLinks: {
-    // The infobox's official site. It answers automated requests with 403,
-    // so nothing here was read from it (10 October 2026).
+    // The infobox's official site. It answered automated requests with 403
+    // when the town was scaffolded on 10 October 2026, then 200 to the
+    // robots-aware reader later that day, when its pages, news and 2026
+    // agendas were read for the listings.
     townSite: 'https://www.cityofblackhawk.org/',
     townSiteLabel: 'the City of Black Hawk',
   },

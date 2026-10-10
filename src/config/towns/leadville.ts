@@ -92,8 +92,9 @@ export const leadville: TownConfig = {
   officialLinks: {
     // The infobox gives colorado.gov/leadville, which answered 302 to
     // cityofleadville.colorado.gov, and that answered 404 (10 October 2026).
-    // leadville-co.gov answers automated requests with 403, the way Estes
-    // Park's site does. TO CONFIRM with the owner: which is the City's site.
+    // leadville-co.gov answered automated requests with 403 at first, then
+    // 200 later the same day; its footer reads "City of Leadville | 800
+    // Harrison Avenue", which settles that it is the City's site.
     townSite: 'https://www.leadville-co.gov/',
     townSiteLabel: 'the City of Leadville',
   },

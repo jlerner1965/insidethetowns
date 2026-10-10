@@ -102,8 +102,10 @@ export const grandLake: TownConfig = {
     // district's and the Town's own pages, with the rest of Moving Here.
   },
   officialLinks: {
-    // The infobox's official site. It answers automated requests with 403,
-    // so nothing here was read from it (10 October 2026).
+    // The infobox's official site. It answered automated requests with 403
+    // when the town was scaffolded on 10 October 2026, then 200 to the
+    // robots-aware reader later that day, when its park pages were read for
+    // the listings.
     townSite: 'https://www.townofgrandlake.com/',
     townSiteLabel: 'the Town of Grand Lake',
   },

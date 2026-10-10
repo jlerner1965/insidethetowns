@@ -5,7 +5,7 @@ excerpt: "Where to take children in Elizabeth: the two big district parks and wh
 category: "Families"
 tags: [families, kids, playgrounds, guide]
 verified: "2026-09-27"
-updated: "2026-10-07"
+updated: "2026-10-10"
 sources:
   - { label: "Elizabeth Park & Recreation District: Evans Park", url: "https://www.elizabethpr.com/evans-park" }
   - { label: "Elizabeth Park & Recreation District: Casey Jones Park", url: "https://www.elizabethpr.com/casey-jones-park" }
@@ -36,8 +36,8 @@ The [Elizabeth Library](/places/elizabeth-library/) on Beverly Street is the Pin
 
 ## Summer Fridays: the market
 
-[Running Creek Park](/places/running-creek-park/), the Town's newest, on East Kiowa Avenue behind Running Creek Elementary, has open lawn and a trail system connecting toward Evans Park. Its lawn holds the Friday Night Market for ten Fridays each summer.
+[Running Creek Park](/places/running-creek-park/), the Town's park on East Kiowa Avenue, has a stage, picnic tables and a walking and bike path, and the brewery's free Friday Night Market sets up there on summer Fridays.
 
 ## A first hike
 
-[Two Bridges Trail](/places/two-bridges-trail/) at Bayou Gulch, fifteen minutes west on Bayou Gulch Road, is Douglas County open space over rolling prairie and meadow, with views of Pikes Peak. The loops run from 2.7 to 10.4 miles, so older children have a long circuit and small legs can walk out and turn back; the county’s map shows the junctions. Dogs on leash. Open an hour before sunrise to an hour after sunset.
+The Town's Running Creek Park Trail System runs from Running Creek Elementary to Evans Park along the town's southeastern edge, with several places to join it; the Town's parks page has the map. Casey Jones Park's 1.5-mile soft-surface trail is the other loop in town. For a longer prairie walk, Douglas County's [Two Bridges Trail](https://www.douglasco.gov/open-space-natural-resources/properties/two-bridges-trail/) is outside Elizabeth, near Franktown, about fifteen minutes west on Bayou Gulch Road: loops from 2.7 to 10.4 miles, dogs on leash, open an hour before sunrise to an hour after sunset.

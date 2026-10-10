@@ -64,10 +64,13 @@ publishes without a `source` and a `verified` date, an open listing is hidden on
 its check is older than its freshness window (its hours go first), a permanently
 closed place keeps only its page, every item links to `/correct/`, and anything not
 ready waits in `content/<town>/staging/` with a line saying why. A town's site is a
-holding page until its config says `status: 'live'`. No listing publishes without a phone, a
+holding page until its config says `status: 'live'`. No listing publishes without a
 website and hours taken from the business itself (a business with no site gets no
-hours rather than a review site's); hours are written with am and pm; every listing
-and event carries a status; a review site or an aggregator is never the source.
+hours rather than a review site's), and its phone too where the business publishes
+one (the owner, 10 October 2026: no phone is not a bar to listing); a weekday and date
+without a year count as dated when they fall on that weekday this year; hours are
+written with am and pm; every listing and event carries a status; a review site or
+an aggregator is never the source.
 
 ## The source registry
 

@@ -1,6 +1,7 @@
 ---
 title: "Explore Severance: four places in driving order"
 date: "2026-10-07"
+updated: "2026-10-10"
 excerpt: "Brownell Park and Bruce's Bar share 1st Street in Old Town; the library and Lakeview Park are a drive away. Four stops, with the hours and rules the Town, the library district and the bar publish."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
@@ -9,10 +10,11 @@ glance:
   start: "Brownell Park at 336 1st Street, in Old Town"
   by: "By car; Brownell Park and Bruce's Bar share 1st Street, and the library and Lakeview Park are a drive away"
   bestDay: "Monday to Saturday for the library, which is closed Sunday; a Saturday night for the band at Bruce's"
-  caveat: "The library is closed Sunday; the Town's pages give no hours for its parks and no parking rules for 1st Street"
+  caveat: "Lakeview Park has been closed since August 17, 2026 for new playground equipment, with no reopening date posted; the library is closed Sunday"
 sources:
   - { label: "Town of Severance: Brownell Park", url: "https://www.townofseverance.org/Facilities/Facility/Details/Brownell-Park-2" }
   - { label: "Town of Severance: Lakeview Park", url: "https://www.townofseverance.org/Facilities/Facility/Details/Lakeview-Park-4" }
+  - { label: "Town of Severance: Lakeview Park Closure (19 August 2026)", url: "https://www.townofseverance.org/m/newsflash/home/detail/79" }
   - { label: "Town of Severance: Parks & Recreation", url: "https://www.townofseverance.org/209/Parks-Recreation" }
   - { label: "Town of Severance: FAQ", url: "https://www.townofseverance.org/FAQ.aspx" }
   - { label: "Clearview Library District: hours and locations", url: "https://clearviewlibrary.org/about-us/learn-more/hours-locations" }
@@ -46,7 +48,7 @@ The [Severance Library](/places/severance-library/) at 5 Timber Ridge Parkway is
 
 ## 04 · Lakeview Park
 
-[Lakeview Park](/places/lakeview-park/) at 513½ Broadview Drive is the Town's large park at the south end of the Lakeview subdivision: open grass and trees, covered picnic shelters, restrooms, barbecue pits, a playground, a skateboard park and basketball courts. The Town's page lists four parking areas, at the entrance from South 1st Street at Broadview Drive, at the south ends of Mallard Drive and Lakeview Drive, and an asphalt lot at the park's south end. The Town's Parks & Recreation page says its parks are open to the public; a group of more than fifty needs a reservation, filed at least ten business days ahead.
+[Lakeview Park](/places/lakeview-park/) at 513½ Broadview Drive is the Town's large park at the south end of the Lakeview subdivision: open grass and trees, covered picnic shelters, restrooms, barbecue pits, a playground, a skateboard park and basketball courts. The Town's page lists four parking areas, at the entrance from South 1st Street at Broadview Drive, at the south ends of Mallard Drive and Lakeview Drive, and an asphalt lot at the park's south end. The Town's Parks & Recreation page says its parks are open to the public; a group of more than fifty needs a reservation, filed at least ten business days ahead. **The park is closed for now:** the Town's notice of August 19, 2026 closed it from Monday, August 17, while new playground equipment is installed, and no reopening date had been posted when its pages were read on 10 October 2026. Check the [Town's news page](https://www.townofseverance.org/m/newsflash) before you drive there.
 
 *Getting there:* back on South 1st Street (Weld County Road 23), the same road as Old Town, turning at Broadview Drive. *Best for:* the playground and the skate park, and the only restrooms any page read for this guide lists.
 
@@ -55,7 +57,7 @@ The [Severance Library](/places/severance-library/) at 5 Timber Ridge Parkway is
 1. Start at Brownell Park on 1st Street.
 2. Go on to Bruce's, on the same street, for lunch, or come back for the Saturday band.
 3. Drive to the library on Timber Ridge Parkway in open hours, Monday to Saturday.
-4. End at Lakeview Park, off South 1st Street at Broadview Drive.
+4. End at Lakeview Park, off South 1st Street at Broadview Drive, once the Town has posted that it has reopened.
 
 ## Getting here
 

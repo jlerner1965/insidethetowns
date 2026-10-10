@@ -35,7 +35,7 @@ The [CF&G Public Market & Coffeehouse](/places/cfg-public-market-and-coffeehouse
 
 [Weitzel Park](/places/weitzel-park/) is a 4.5-acre gated park on Weitzel Street behind Costco, beside the river and a large irrigation pond: a fishing pond, climbing structures, picnic areas, soft-surface trails and the town's trailhead onto the [Poudre River Trail](/places/poudre-river-trail/). The Town's rules: day use only, dawn to dusk, no swimming, wading or tubing, non-motorized boats only, dogs on a leash. The pond and the open space beyond belong to the New Cache La Poudre Irrigation Company.
 
-The trail itself is 45 continuous paved miles from Bellvue to Greeley since Larimer County and the Town closed the last gap south of town in June 2026. Walk as far along the river as the morning allows and turn back; [Arapaho Bend Natural Area](/places/arapaho-bend-natural-area/), across I-25, is the other way onto it. [Timnath Reservoir](/places/timnath-reservoir/) east of town is for permit holders and their guests only, so it is not on this page; [who qualifies and what it costs](/articles/timnath-reservoir-permits-and-eligibility/) is its own guide.
+The trail itself is 45 continuous paved miles from Bellvue to Greeley since Larimer County and the Town closed the last gap south of town in June 2026. Walk as far along the river as the morning allows and turn back; [Arapaho Bend Natural Area](https://insidefortcollins.com/places/arapaho-bend-natural-area/), across I-25 in Fort Collins (it is on Inside Fort Collins), is the other way onto it. [Timnath Reservoir](/places/timnath-reservoir/) east of town is for permit holders and their guests only, so it is not on this page; [who qualifies and what it costs](/articles/timnath-reservoir-permits-and-eligibility/) is its own guide.
 
 *Getting there:* 4580 Weitzel Street, a short drive west along Harmony Road from Old Town; the gate closes at dusk. *Best for:* a flat river walk or a ride, and the fishing pond.
 
@@ -47,7 +47,7 @@ Two kitchens off Harmony Road open at 11 am. [Mein House](/places/mein-house/) o
 
 ## 04 · Timnath Community Park
 
-[Timnath Community Park](/places/timnath-community-park/), about 25 acres on Summerfields Parkway south of Bethke Elementary, has multi-age playgrounds and climbing structures, six pickleball courts, two tennis courts and a basketball court, all first come, first served, an amphitheater, sheltered picnic areas, open fields and a dog park at the east end. The splash pad runs daily 8 am–8 pm from May 15 until the Fall Festival in September, so it is off by October. The west restroom building is open year-round; the east one is seasonal. Dawn to dusk.
+[Timnath Community Park](/places/timnath-community-park/), about 25 acres on Summerfields Parkway south of Bethke Elementary, has multi-age playgrounds and climbing structures, six pickleball courts, two tennis courts and a basketball court, all first come, first served except when a Town class, program or tournament has them, an amphitheater, sheltered picnic areas, open fields and a dog park at the east end. The splash pad runs daily 8 am–8 pm from May 15 until the Fall Festival in September, so it is off by October. The west restroom building is open year-round; the east one is seasonal. Dawn to dusk.
 
 *Getting there:* 5500 Summerfields Parkway, a short drive from Harmony Road. *Best for:* children after lunch, a pickleball game, and the Holiday Festival in December.
 

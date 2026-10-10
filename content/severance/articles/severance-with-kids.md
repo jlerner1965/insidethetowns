@@ -1,6 +1,7 @@
 ---
 title: "Severance with kids"
 date: "2026-10-07"
+updated: "2026-10-10"
 excerpt: "Where to take children in Severance: neighborhood playgrounds and a skate park, the stocked pond at Blue Spruce Park, the Severance Library's storytimes and after-school programs, the Great Western Trail to Eaton, the pools in Windsor and the Town's year from the trick-or-treat parade to the fishing derby."
 category: "Families"
 tags: [families, kids, playgrounds, guide]
@@ -9,6 +10,7 @@ sources:
   - { label: "Town of Severance: Parks & Recreation", url: "https://www.townofseverance.org/209/Parks-Recreation" }
   - { label: "Town of Severance: Parks & Trails map (April 2026)", url: "https://www.townofseverance.org/DocumentCenter/View/267/Parks-Map-PDF" }
   - { label: "Town of Severance: Lakeview Park", url: "https://www.townofseverance.org/Facilities/Facility/Details/Lakeview-Park-4" }
+  - { label: "Town of Severance: Lakeview Park Closure (19 August 2026)", url: "https://www.townofseverance.org/m/newsflash/home/detail/79" }
   - { label: "Town of Severance: Karen Suman Park", url: "https://www.townofseverance.org/Facilities/Facility/Details/Karen-Suman-Park-3" }
   - { label: "Town of Severance: Summit View Park", url: "https://www.townofseverance.org/Facilities/Facility/Details/Summit-View-Park-5" }
   - { label: "Town of Severance: Brownell Park", url: "https://www.townofseverance.org/Facilities/Facility/Details/Brownell-Park-2" }
@@ -55,8 +57,8 @@ The Town of Severance's [Parks & Recreation page](https://www.townofseverance.or
 
 The Town's [Parks & Trails map](https://www.townofseverance.org/DocumentCenter/View/267/Parks-Map-PDF), dated April 2026, counts 18 parks over 105.1 acres. The Town's own pages describe what is in five of them.
 
-- **[Lakeview Park](/places/lakeview-park/)**, at 513½ Broadview Drive off South 1st Street, has the longest list of the five: a playground, a skateboard park, basketball courts, covered picnic shelters, barbecue pits and restrooms, with four parking areas ([Town page](https://www.townofseverance.org/Facilities/Facility/Details/Lakeview-Park-4)). It is also one of the library district's two StoryWalk sites, where the pages of a children's book are set out along a path; the story changes every other month ([library](https://clearviewlibrary.org/programs-events/just-for-kids/little-ones)).
-- **Karen Suman Park** in the Timber Ridge subdivision has a Play-On! playground built, in the Town's words, for sliding, swinging, spinning, climbing, brachiating and balancing, plus picnic shelters and tables. Its facility page puts it at 1108 Pinon Pine Drive and the Parks & Recreation page at 400 S Timber Ridge Parkway ([Town page](https://www.townofseverance.org/Facilities/Facility/Details/Karen-Suman-Park-3)).
+- **[Lakeview Park](/places/lakeview-park/)**, at 513½ Broadview Drive off South 1st Street, has the longest list of the five: a playground, a skateboard park, basketball courts, covered picnic shelters, barbecue pits and restrooms, with four parking areas ([Town page](https://www.townofseverance.org/Facilities/Facility/Details/Lakeview-Park-4)). It is also one of the library district's two StoryWalk sites, where the pages of a children's book are set out along a path; the story changes every other month ([library](https://clearviewlibrary.org/programs-events/just-for-kids/little-ones)). The park has been closed since August 17, 2026 while new playground equipment is installed; the Town says it will post the reopening date, and none had been posted on 10 October ([Town notice](https://www.townofseverance.org/m/newsflash/home/detail/79)).
+- **[Karen Suman Park](/places/karen-suman-park/)** in the Timber Ridge subdivision has a Play-On! playground built, in the Town's words, for sliding, swinging, spinning, climbing, brachiating and balancing, plus picnic shelters and tables. Its facility page puts it at 1108 Pinon Pine Drive and the Parks & Recreation page at 400 S Timber Ridge Parkway ([Town page](https://www.townofseverance.org/Facilities/Facility/Details/Karen-Suman-Park-3)).
 - **[Summit View Park](/places/summit-view-park/)**, in the middle of the Summit View subdivision off Audubon Boulevard, has a playground and picnic shelters ([Town page](https://www.townofseverance.org/Facilities/Facility/Details/Summit-View-Park-5)).
 - **[Brownell Park](/places/brownell-park/)** at the Old Town Hall on 1st Street is small and shady, with picnic tables and no playground listed ([Town page](https://www.townofseverance.org/Facilities/Facility/Details/Brownell-Park-2)).
 - **[Overlook Park](/places/overlook-park/)** on Audubon Boulevard, 6.9 acres on the map, is where the Town holds its teen field day.
@@ -67,7 +69,7 @@ For a birthday party, the Town asks for a pavilion or park reservation at least 
 
 ## Fishing
 
-**Blue Spruce Park** in the Timber Ridge subdivision, off 4th Avenue, has a pond with a fountain, picnic tables and shade trees. The pond is stocked with fish by the state wildlife agency, and fishing is allowed with the proper license; there is no swimming or playing in the pond and no ice fishing ([Town page](https://www.townofseverance.org/Facilities/Facility/Details/Blue-Spruce-Park-1)). Children don't need the license: Colorado Parks and Wildlife says anyone under 16 can take a full bag and possession limit without one ([CPW](https://cpw.state.co.us/activities/fishing/fishing-licenses-and-dates)). [Hunter's Crossing Pond and Trails](/places/hunters-crossing-park/), seven acres on the map, is another park with a pond.
+**[Blue Spruce Park](/places/blue-spruce-park/)** in the Timber Ridge subdivision, off 4th Avenue, has a pond with a fountain, picnic tables and shade trees. The pond is stocked with fish by the state wildlife agency, and fishing is allowed with the proper license; there is no swimming or playing in the pond and no ice fishing ([Town page](https://www.townofseverance.org/Facilities/Facility/Details/Blue-Spruce-Park-1)). Children don't need the license: Colorado Parks and Wildlife says anyone under 16 can take a full bag and possession limit without one ([CPW](https://cpw.state.co.us/activities/fishing/fishing-licenses-and-dates)). [Hunter's Crossing Pond and Trails](/places/hunters-crossing-park/), seven acres on the map, is another park with a pond.
 
 The Town's **Kids Fishing Derby** at Blue Spruce Park ran on May 16 this year, in three slots: ages 1 to 5 from 7 to 8 am, 6 to 9 from 8:30 to 9:30 and 10 to 15 from 10 to 11, with breakfast from Calvary Severance. It was open to Severance residents only, registration was limited, and children brought their own rods and bait ([Town page](https://www.townofseverance.org/284/Kids-Fishing-Derby)).
 

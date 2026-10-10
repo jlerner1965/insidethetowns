@@ -1,6 +1,6 @@
 ---
 title: "Community Park"
-review: { reason: "Not open yet: the Town's facility page (read 6 October 2026) says Community Park is under construction with an estimated opening 'sometime late fall, weather pending', and the Town Christmas page and the Town's Community Events calendar put Town Christmas there on December 12, 2026. Publish once the Town (970-686-1218 or the facility page) confirms it has opened, and add its amenities then.", since: "2026-10-06", from: manual }
+review: { reason: "Not open yet: the Town's facility page (read 6 and 10 October 2026) says Community Park is under construction with an estimated opening 'sometime late fall, weather pending', and the Town Christmas page and the Town's Community Events calendar put Town Christmas there on December 12, 2026. Publish once the Town (970-686-1218 or the facility page) confirms it has opened, and add its amenities then.", since: "2026-10-06", from: manual }
 type: park
 address: "100 Waterfowl Way, Severance, CO 80550"
 url: "https://www.townofseverance.org/Facilities/Facility/Details/Community-Park-7"
