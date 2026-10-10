@@ -398,13 +398,19 @@ export interface NewsletterConfig {
 
 export type SiteConfig = TownConfig | HubConfig;
 
-/** Default navigation for a town site. Towns can override `nav` in their config. */
+/**
+ * Default navigation for a town site. Towns can override `nav` in their config.
+ *
+ * Five sections (owner, 10 October 2026: eight items read as too many). This
+ * Week and Directory keep their pages and move to the footer: the home page
+ * opens on the week and links "All places", the events page has a "This
+ * weekend" filter, and Eat & Drink and Things to Do hold the directory's
+ * places by kind. "Towns" is not a section and sits apart, beside search.
+ */
 export const DEFAULT_TOWN_NAV: NavItem[] = [
   { label: 'Events', href: '/events/' },
-  { label: 'This Week', href: '/this-week/' },
   { label: 'Eat & Drink', href: '/eat-drink/' },
   { label: 'Things to Do', href: '/things-to-do/' },
-  { label: 'Directory', href: '/directory/' },
   { label: 'Guides', href: '/guides/' },
   { label: 'Moving Here', href: '/moving-here/' },
 ];

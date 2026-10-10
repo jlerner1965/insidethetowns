@@ -15,6 +15,14 @@ const linkClass = 'inline-block py-1 no-underline text-white hover:underline sm:
     <div>
       <Wordmark class="text-3xl leading-none" tone="light" />
       <p class="mt-4 max-w-sm text-[0.9375rem] leading-relaxed">{site.tagline}</p>
+      {/* Off the primary navigation (DEFAULT_TOWN_NAV in types.ts), so here
+          on every page. */}
+      {site.kind === 'town' && (
+        <ul class="mt-4 flex flex-wrap gap-x-5 text-[0.9375rem] font-semibold">
+          <li><a href="/this-week/" class={linkClass}>This week in {site.name}</a></li>
+          <li><a href="/directory/" class={linkClass}>Directory of every place</a></li>
+        </ul>
+      )}
     </div>
     <div>
       <p class="eyebrow text-white">Get in touch</p>

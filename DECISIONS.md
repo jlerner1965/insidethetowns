@@ -4402,3 +4402,17 @@ colour. It is applied as written; no hex was tuned here.
   wave 2 and not live; it keeps
   its rose in the new roles (its old dark shade as primary) as a
   placeholder, flagged in its config, and needs a palette before launch.
+
+## A shorter town menu (10 October 2026)
+
+- **Five sections, then Towns.** The owner found eight items in the row too
+  many. Events, Eat & Drink, Things to Do, Guides and Moving Here stay. This
+  Week and Directory leave the row, not the site: the home page opens on the
+  week ("See the full week") and links "All places", every article ends on
+  "This week in [Town]", the Thursday email links /this-week/, and the
+  events page has its own "This weekend" filter. Both are also linked under
+  the tagline in every guide's footer. URLs are unchanged.
+- **"Towns" stays, set apart.** It is the only way from one guide's header
+  to the others, so it keeps its place but sits at the far end of the row
+  beside search, where it reads as the way out rather than a sixth section.
+  The phone menu is unchanged: "Other towns" is still its last row.
