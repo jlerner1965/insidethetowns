@@ -1,5 +1,5 @@
 ---
-title: "Golden history: a gold-rush supply town, a capital lost by one vote, the brewery, the School of Mines and Buffalo Bill on the mountain"
+title: "Golden: gold rush, brewery, and School of Mines"
 date: "2026-10-07"
 excerpt: "Ute, Arapaho and Cheyenne homeland, Golden City in 1859, a territorial capital that went to Denver by one vote, the Colorado Central, Coors, the School of Mines, Buffalo Bill's grave, a solar lab and a town that kept its old buildings. The short history of Golden, with sources."
 category: "History"

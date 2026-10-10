@@ -25,7 +25,7 @@ related:
   - { label: "Loveland with kids", href: "/articles/loveland-with-kids/", note: "Both parks again, from the point of view of a stroller." }
 ---
 
-Loveland has put sculpture in its parks since 1985, the year a group that had staged an outdoor sculpture show the summer before became the Loveland High Plains Arts Council and the City became, by its own account, the first in Colorado to pass an Art in Public Places ordinance. Four decades on there are two large free sculpture parks, one on the north side of town and one at Centerra, and a City collection of several hundred pieces spread through downtown, the Civic Center and the neighbourhoods. All of it can be seen on foot and none of it costs anything except one weekend in August. Here is how it fits together.
+Loveland has put sculpture in its parks since 1985, the year a group that had staged an outdoor sculpture show the summer before became the Loveland High Plains Arts Council and the City became, by its own account, the first in Colorado to pass an Art in Public Places ordinance. Four decades on there are two large free sculpture parks, one on the north side of town and one at Centerra, and a City collection of several hundred pieces spread through downtown, the Civic Center and the neighborhoods. All of it can be seen on foot and none of it costs anything except one weekend in August. Here is how it fits together.
 
 ## Benson Sculpture Garden
 

@@ -24,7 +24,7 @@ Timnath is new, and its parks are new with it: the biggest opened in 2025. For a
 
 ## The new one: WildWing Park
 
-[WildWing Park](/places/wildwing-park/) opened in spring 2025 on County Road 1 at the WildWing neighbourhood: big multi-use fields, pickleball, a fenced dog park, a playground, a basketball court, a community garden and connecting trails. Dawn to dusk.
+[WildWing Park](/places/wildwing-park/) opened in spring 2025 on County Road 1 at the WildWing neighborhood: big multi-use fields, pickleball, a fenced dog park, a playground, a basketball court, a community garden and connecting trails. Dawn to dusk.
 
 ## A pond and a river: Weitzel Park
 

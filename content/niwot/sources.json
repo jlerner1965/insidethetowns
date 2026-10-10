@@ -68,10 +68,13 @@
       "id": "niwotelection-org",
       "name": "niwotelection.org",
       "url": "https://niwotelection.org/",
-      "sampleUrl": "https://niwotelection.org/",
+      "sampleUrl": "https://niwotelection.org/ballot",
       "type": "html",
       "category": "venue",
       "status": "proposed",
+      "lastChecked": "2026-10-10",
+      "lastStatus": "ok",
+      "lastNote": "Ballot page, Resolution 2026-07 and the amended attachment to Resolution 2026-05 read for the incorporation election article: titles certified September 11, 2026",
       "cites": {
         "events": 1,
         "places": 0

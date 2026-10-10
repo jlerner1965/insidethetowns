@@ -19,10 +19,16 @@ export const longmont: TownConfig = {
   name: 'Longmont',
   // The "co" is the domain's, not the slug's, as with Windsor.
   domain: 'insidelongmontco.com',
-  siteTitle: 'Inside Longmont',
+  // Not "Inside Longmont": a separate local magazine already publishes under
+  // that name, at insidelongmont.com (owner, October 2026). The domain, the
+  // Vercel project and the URLs keep "insidelongmontco"; only the name shown
+  // to readers changes.
+  siteTitle: 'Longmont · Inside the Towns',
   tagline: 'An independent guide to Longmont, Colorado: Main Street, the St. Vrain Greenway, McIntosh Lake, the breweries, and life in a city of 98,885 (2020 census).',
   shortTagline: 'Main Street, the St. Vrain Greenway and the breweries',
-  seoTagline: 'Events and places in Longmont, Colorado',
+  // "CO", not "Colorado": with the longer site title, the spelled-out state
+  // was trimmed off the home page's <title> (test/towns.test.ts).
+  seoTagline: 'Events and places in Longmont, CO',
   // Boulder first: the City calls itself a Boulder County city that extends
   // east into Weld (longmontcolorado.gov/information/about-longmont/).
   counties: ['Boulder', 'Weld'],

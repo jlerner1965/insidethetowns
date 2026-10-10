@@ -1,5 +1,5 @@
 ---
-title: "Evergreen with kids: paddling and skating on the lake, two rec center pools, trout ponds, a Family Place library and the elk"
+title: "Evergreen with kids"
 date: "2026-10-07"
 excerpt: "Boats and paddleboards on Evergreen Lake in summer and skating on it in winter, the pools at Buchanan and Wulf, the district's playgrounds and trout ponds, a Family Place library, the elk at Elk Meadow and the Hiwan Museum. Where to go with children in Evergreen, Colorado."
 category: "Families"

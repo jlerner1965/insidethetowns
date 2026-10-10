@@ -65,7 +65,7 @@ Some details from the policy that the fee table does not show:
 ## What is allowed
 
 - **Fishing** from shore, piers or boats, with a Colorado license for anyone 16 and older as well as the Town permit; a fishing license on its own does not grant access. Carp must be kept, not released. Bow fishing is allowed; ice fishing is not.
-- **Swimming** only from the designated swim area, with no lifeguard; the policy prohibits swimming or wading from the shore elsewhere, and keeps boats out of the swim area. The Town does not treat blue-green algae, confirmed in past years in late summer and early fall; stay out of discoloured or scummy water, and keep dogs out.
+- **Swimming** only from the designated swim area, with no lifeguard; the policy prohibits swimming or wading from the shore elsewhere, and keeps boats out of the swim area. The Town does not treat blue-green algae, confirmed in past years in late summer and early fall; stay out of discolored or scummy water, and keep dogs out.
 - **Paddling** in kayaks, canoes, paddleboards, float tubes and the like counts as non-motorized boating. Every boat needs a life jacket per person, a paddle and a whistle, and children under 13 must wear the jacket. A permit is required even if you launch from somewhere other than the Town's park.
 - **Dogs** on leashes are welcome; clean up after them.
 - **Also:** hiking and biking on the shore trails, picnicking at first-come tables, and horses off the grass and dams. No alcohol or drugs, no camping or overnight parking, no fires without Town permission, no ATVs.

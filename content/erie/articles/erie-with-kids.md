@@ -1,7 +1,7 @@
 ---
 title: "Erie with kids: nine playgrounds, a lazy river, a pump track and the library that never stops"
 date: "2026-09-27"
-excerpt: "Erie has more playgrounds than any town in this network and a library with a program most days. Where to go with children, by age and by weather."
+excerpt: "Erie's themed neighborhood playgrounds, two splash pads, a pump track and a library with a program most days. Where to go with children, by age and by weather."
 category: "Families"
 tags: [families, kids, playgrounds, guide]
 image: ../images/community-center-south.jpg

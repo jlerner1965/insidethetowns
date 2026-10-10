@@ -19,7 +19,7 @@
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import { getHub, liveTowns } from '@/config';
-import { formatDate, parseLocal, startOfDay } from '@/lib/dates';
+import { addDays, formatDate, parseLocal, startOfDay } from '@/lib/dates';
 
 /**
  * Thirty days before the page will talk about an audience at all. A week of
@@ -37,18 +37,11 @@ const rates = hub.rates ?? [];
 // that combination so it does not survive a build unnoticed.
 const since = hub.analyticsSince ? parseLocal(hub.analyticsSince) : null;
 const counting = (Boolean(hub.ga4Id) || hub.analytics === true) && since !== null;
-// Both ends are Denver midnights, so the gap is a whole number of days give
-// or take the hour a DST change moves; rounding lands on the right day.
-const days = since ? Math.round((startOfDay().getTime() - since.getTime()) / 86_400_000) : 0;
-const measured = counting && days >= MIN_DAYS;
-// "0 days ago" is the sort of sentence that tells a reader nobody is looking
-// at this page.
-const started =
-  days <= 0
-    ? 'We started counting today'
-    : days === 1
-      ? 'We started counting yesterday'
-      : `We started counting on ${formatDate(since!)}, ${days} days ago`;
+// The page says when counting began, a fixed date, never how long ago: an
+// age is only true on the day the page was built ("20 days ago" was stale
+// by the morning after). Figures are quoted from a fixed day too, MIN_DAYS
+// after the start, compared as Denver midnights.
+const measured = counting && since !== null && startOfDay().getTime() >= addDays(since, MIN_DAYS).getTime();
 const mailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Advertising enquiry')}`;
 const foundingMailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Founding network sponsor')}`;
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
@@ -156,7 +149,7 @@ const money = (n: number) => `$${n.toLocaleString('en-US')}`;
       </p>
     ) : counting ? (
       <p>
-        {started} — not long enough to tell you anything you should act on. Ask and you will get exactly what the
+        Counting began {formatDate(since!)}. That is not long enough to tell you anything you should act on. Ask and you will get exactly what the
         counter says, with that start date attached, and you can decide for yourself whether it is worth anything
         yet. What you will not get is a projection. We would rather you came back in a month than bought on a number
         we had to squint at.

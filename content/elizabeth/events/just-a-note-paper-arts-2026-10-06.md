@@ -11,4 +11,4 @@ source: "https://pplibraries.org/03a-activities-calendar/"
 verified: "2026-10-03"
 ---
 
-The library's paper-arts circle, first and third Tuesday mornings from 10 to 1: card making, scrapbooking, art journaling, artist trading cards, planners and colouring. Bring your own supplies and whatever you are working on; the point is to swap ideas and techniques. Beginners and long-time crafters both welcome. Food and drink allowed, and there are outlets for cutting machines.
+The library's paper-arts circle, first and third Tuesday mornings from 10 to 1: card making, scrapbooking, art journaling, artist trading cards, planners and coloring. Bring your own supplies and whatever you are working on; the point is to swap ideas and techniques. Beginners and long-time crafters both welcome. Food and drink allowed, and there are outlets for cutting machines.

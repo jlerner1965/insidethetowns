@@ -1,5 +1,5 @@
 ---
-title: "Nederland history: a silver mill named for Holland, a disputed founding date, the tungsten boom, Barker Dam and the bid for Eldora"
+title: "How Nederland got its name and its shape"
 date: "2026-10-07"
 excerpt: "Middle Boulder's mill for the Caribou silver mine, the Dutch company that left its name, an incorporation date the sources disagree on, the tungsten boom of World War I, Barker Dam, the 1960s revival, Caribou Ranch, the carousel, the 2025 fire and the Town's bid for Eldora."
 category: "History"
