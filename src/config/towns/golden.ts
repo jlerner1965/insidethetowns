@@ -61,10 +61,10 @@ export const golden: TownConfig = {
     },
   ],
   colors: {
-    // Table Mountain basalt: a near-neutral charcoal, so the network's shared amber highlight reads as the gold in the name. No other guide uses a neutral accent. `npm run check-colors` is the gate.
-    accent: '#3D4A54',
-    accentDark: '#262F36',
-    neutralBg: '#F5F5F4',
+    // Copper-gold + creek slate, on warm paper: Color System 2.0, 9 October 2026.
+    primary: '#94651E',
+    accent: '#3D5760',
+    paper: 'warm',
   },
   hero: {
     image: 'hero.jpg',

@@ -63,13 +63,10 @@ export const carbonValley: TownConfig = {
   character:
     'Three coal towns in a row along I-25 north of Erie, grown from 23,000 to 37,000 people between the 2010 and 2020 censuses, with one library, one rec district and one Main Street each.',
   colors: {
-    // Coal-seam slate: a cool grey-blue on a cool paper, for the Carbon in the
-    // name. Darker and greyer than Berthoud's lake blue, lighter and greyer
-    // than Fort Collins' navy; no other guide uses the family.
-    // `npm run check-colors` is the gate.
-    accent: '#4A6A8C',
-    accentDark: '#2F4660',
-    neutralBg: '#F4F5F3',
+    // Graphite + copper, on cool paper: Color System 2.0, 9 October 2026.
+    primary: '#3B4E52',
+    accent: '#C48B54',
+    paper: 'cool',
   },
   hero: {
     image: 'hero.jpg',

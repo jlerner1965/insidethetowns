@@ -72,10 +72,10 @@ export const estesPark: TownConfig = {
     },
   ],
   colors: {
-    // Alpine lake: a petrol blue-green for Bear Lake and Lake Estes, darker and greener than Berthoud's cerulean, bluer than Windsor's teal. `npm run check-colors` is the gate.
-    accent: '#1E6E7E',
-    accentDark: '#144B57',
-    neutralBg: '#F2F6F7',
+    // Alpine blue + pine, on cool paper: Color System 2.0, 9 October 2026.
+    primary: '#285970',
+    accent: '#4D6955',
+    paper: 'cool',
   },
   hero: {
     image: 'hero.jpg',

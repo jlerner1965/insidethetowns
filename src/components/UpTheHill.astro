@@ -80,13 +80,13 @@ const count = events.length + openings.length;
           data-end={toIsoLocal(end)}
         >
           <p class="mb-1.5 sm:mb-0 sm:pt-1">
-            <span class="inline-block whitespace-nowrap rounded-full px-2.5 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-white" style={`background:${place.town.colors.accentDark}`}>{place.town.name}</span>
-            {place.town.shortTagline && <span class="mt-1 block text-[0.8125rem] leading-snug text-ink-faint">{place.town.shortTagline}</span>}
+            <span class="inline-block whitespace-nowrap rounded-full px-2.5 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-white" style={`background:${place.town.colors.primary}`}>{place.town.name}</span>
+            {place.town.shortTagline && <span class="mt-1 block text-[0.8125rem] leading-snug text-ink-muted">{place.town.shortTagline}</span>}
           </p>
           <div class="min-w-0">
             <p class="eyebrow mb-1.5" style="color:var(--cat-outdoors-ink)">Season opens</p>
             <h3 class="text-xl font-medium leading-tight md:text-2xl">
-              <a href={`https://${place.town.domain}/places/${place.slug}/?${query}`} data-track="up-the-hill" data-track-town={place.town.slug} class="stretch no-underline group-hover:text-accent-text">{place.data.title}</a>
+              <a href={`https://${place.town.domain}/places/${place.slug}/?${query}`} data-track="up-the-hill" data-track-town={place.town.slug} class="stretch no-underline group-hover:text-primary">{place.data.title}</a>
             </h3>
             <p class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">
               Opens <time datetime={toIsoLocal(place.data.seasonal!.opens!)}>{formatDayShort(place.data.seasonal!.opens!)}</time>{place.data.seasonal!.hours && <span> · {place.data.seasonal!.hours}</span>}

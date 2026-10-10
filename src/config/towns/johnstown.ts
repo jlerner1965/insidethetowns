@@ -30,10 +30,10 @@ export const johnstown: TownConfig = {
   population2010: 9887, // 2010 census, for census-to-census growth
   character: 'Sugar-beet town at the I-25 interchange, filling the gap between Loveland and Greeley.',
   colors: {
-    // Sugar-beet burgundy on a sugar-white paper, for the Great Western factory town.
-    accent: '#BE3762',
-    accentDark: '#7B1F3C',
-    neutralBg: '#F5F1EE',
+    // Barn burgundy + harvest tan, on warm paper: Color System 2.0, 9 October 2026.
+    primary: '#7F3C3E',
+    accent: '#BAA071',
+    paper: 'warm',
   },
   hero: {
     image: 'hero.jpg',

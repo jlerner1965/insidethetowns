@@ -21,9 +21,9 @@ const { sponsor, label = 'Presented by' } = Astro.props;
 ---
 {sponsor && (
   <p class="mt-5 flex flex-wrap items-baseline gap-x-2 text-[0.9375rem] text-ink-muted" data-sponsor>
-    <span class="eyebrow text-ink-faint">Sponsor</span>
+    <span class="eyebrow text-ink-muted">Sponsor</span>
     <span>
-      {label} <a href={sponsor.url} rel="sponsored noopener" class="font-semibold text-accent-text">{sponsor.name}</a>{sponsor.line && <span> · {sponsor.line}</span>}
+      {label} <a href={sponsor.url} rel="sponsored noopener" class="font-semibold text-primary underline">{sponsor.name}</a>{sponsor.line && <span> · {sponsor.line}</span>}
     </span>
   </p>
 )}

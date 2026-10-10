@@ -33,11 +33,10 @@ export const windsor: TownConfig = {
   population2010: 18644, // 2010 census, for census-to-census growth
   character: 'A sugar-beet town between Fort Collins and Greeley that grew by three-quarters in a decade, with a lake in the middle.',
   colors: {
-    // Lake teal on a cool white paper: Windsor Lake and the Poudre. The one
-    // hue family none of the other eight accents uses.
-    accent: '#0F7C72',
-    accentDark: '#0A5650',
-    neutralBg: '#F3F7F5',
+    // Lake teal + warm brass, on cool paper: Color System 2.0, 9 October 2026.
+    primary: '#226A66',
+    accent: '#C2A16D',
+    paper: 'cool',
   },
   hero: {
     image: 'windsor-lake-aerial.jpg',

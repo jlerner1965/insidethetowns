@@ -3,15 +3,29 @@
  * Town differences live here and in content/<town>/, never in components.
  */
 
+import type { Paper } from '../palette.ts';
+
 export type NavItem = { label: string; href: string };
 
+/**
+ * A guide's palette, in the roles of Color System 2.0 (src/config/palette.ts).
+ * The values are the guide's own, not tuned here.
+ */
 export interface TownColors {
-  /** Hex, unique per town. Used for links, buttons, highlights. */
+  /**
+   * Hex, unique per guide. Identity and actions: the town name, links,
+   * active navigation, main buttons and the dark bands, with white on them.
+   * 4.5:1 on white and on the guide's paper; `npm run check-colors` proves it.
+   */
+  primary: string;
+  /**
+   * Hex. Decoration only: small rules, image placeholders, illustration.
+   * Never text, an essential icon or a control's outline, so it has no
+   * contrast to meet, and never a large wash.
+   */
   accent: string;
-  /** Darker shade of accent for text on light backgrounds and hover states. */
-  accentDark: string;
-  /** Page background tint. Keep it close to white. */
-  neutralBg: string;
+  /** Which of the two shared page backgrounds the guide sits on. */
+  paper: Paper;
 }
 
 export interface HeroConfig {

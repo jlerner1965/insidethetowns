@@ -67,10 +67,10 @@ export const evergreen: TownConfig = {
     },
   ],
   colors: {
-    // Evergreen: the dark forest green of the name, deeper and bluer than Niwot's emerald and far from Severance's grey sage. `npm run check-colors` is the gate.
-    accent: '#1F5A3A',
-    accentDark: '#143C27',
-    neutralBg: '#F3F6F3',
+    // Deep pine + lake blue, on cool paper: Color System 2.0, 9 October 2026.
+    primary: '#234B3C',
+    accent: '#648B8D',
+    paper: 'cool',
   },
   hero: {
     image: 'hero.jpg',

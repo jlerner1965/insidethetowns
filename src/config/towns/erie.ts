@@ -30,11 +30,10 @@ export const erie: TownConfig = {
   population2010: 18135, // 2010 census, for census-to-census growth
   character: 'A coal town that became a commuter town, with a downtown that caught up.',
   colors: {
-    // Coal-seam indigo on a warm grey paper: the town was Colorado's coal capital for
-    // eighty years. Distinct from Niwot's evergreen, Lyons' sandstone and Berthoud's lake blue.
-    accent: '#6257C0',
-    accentDark: '#3B3480',
-    neutralBg: '#F3F1EC',
+    // Brick red + open-sky blue, on warm paper: Color System 2.0, 9 October 2026.
+    primary: '#96453C',
+    accent: '#6498B2',
+    paper: 'warm',
   },
   hero: {
     image: 'hero.jpg',

@@ -20,7 +20,7 @@ const photos = (await getCreditedPhotos()).sort((a, b) => {
   if (b.usedOn[0]?.href === '/') return 1;
   return (a.credit.author ?? '~').localeCompare(b.credit.author ?? '~') || a.file.localeCompare(b.file);
 });
-const linkClass = 'underline decoration-ink-faint underline-offset-2 hover:text-accent-text';
+const linkClass = 'underline decoration-ink-muted underline-offset-2 hover:text-primary';
 // With one photo over a multiple of three, the first runs two columns wide
 // on a wide screen, so the last does not sit alone on its row; it is fetched
 // at twice the width to fill the space.
@@ -65,7 +65,7 @@ const wide = (i: number) => i === 0 && photos.length % 3 === 1;
           )}
           {credit.changes && <>{' · '}{credit.changes}</>}
         </p>
-        <p class="mt-2 text-[0.875rem] leading-relaxed text-ink-faint">
+        <p class="mt-2 text-[0.875rem] leading-relaxed text-ink-muted">
           Used on{' '}
           {usedOn.map((u, i) => (
             <>{i > 0 && (i === usedOn.length - 1 ? ' and ' : ', ')}<a href={u.href} class={linkClass}>{u.title}</a></>

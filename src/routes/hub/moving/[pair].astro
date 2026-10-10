@@ -60,7 +60,7 @@ const rows = [
       <thead>
         <tr>
           <th scope="col">&nbsp;</th>
-          {pair.map((t) => <th scope="col" style={`color:${t.colors.accentDark};border-bottom-color:${t.colors.accent}`}>{t.name}</th>)}
+          {pair.map((t) => <th scope="col" style={`color:${t.colors.primary};border-bottom-color:${t.colors.accent}`}>{t.name}</th>)}
         </tr>
       </thead>
       <tbody>
@@ -87,10 +87,10 @@ const rows = [
         class="group block rounded-lg border-l-4 bg-raised p-6 no-underline ring-1 ring-line-soft transition hover:ring-line"
         style={`border-color:${t.colors.accent}`}
       >
-        <p class="eyebrow" style={`color:${t.colors.accentDark}`}>{countyLabel(t)}</p>
+        <p class="eyebrow" style={`color:${t.colors.primary}`}>{countyLabel(t)}</p>
         <h2 class="mt-2 text-2xl font-medium leading-tight">Moving to {t.name}</h2>
         <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">{t.character}</p>
-        <p class="mt-4 text-sm font-semibold group-hover:underline" style={`color:${t.colors.accentDark}`}>{t.domain} →</p>
+        <p class="mt-4 text-sm font-semibold group-hover:underline" style={`color:${t.colors.primary}`}>{t.domain} →</p>
       </a>
     ))}
   </div>

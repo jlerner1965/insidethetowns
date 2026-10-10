@@ -1,50 +1,47 @@
 @import "tailwindcss";
 
 /*
- * Design tokens.
+ * Design tokens: Color System 2.0 (src/config/palette.ts).
  *
- * Per-town values (accent, accentDark, neutralBg) are set as CSS variables on
- * <html> by layouts/Base.astro from the town config. Everything else is shared
- * across the network so the sites read as one family: same type, same
- * rhythm, different colour and photography.
+ * Per-guide values (primary, its hover, accent, paper) are set as CSS
+ * variables on <html> by layouts/Base.astro from the town config. Everything
+ * else is shared across the network so the sites read as one family: same
+ * type, same rhythm, same neutrals, different colour and photography.
  */
 @theme inline {
-  /* Two town colours doing different jobs: accent is the bright one and only
-     ever a fill, a rule or a mark; accent-text is the one words are set in.
-     accent-dark stays the fill of the dark bands in both schemes, because a
-     band is a band whichever way round the page is.
-
-     The split is worth keeping even though the sites are light-only: naming
-     the fill and the text separately is what stops the next change from
+  /* Each colour has one job. The primary is identity and action: the town
+     name, links, active navigation, buttons and the dark bands, with white
+     on them. The accent is decoration only, a small rule or an image's
+     placeholder, never text, an essential icon or a control's outline, and
+     never a wash. Naming them by role is what stops the next change from
      quietly using one where it means the other.
 
-     scripts/check-colors.ts proves every resulting pair clears AA, and CI
-     runs it. */
+     scripts/check-colors.ts proves every pair that carries text clears AA,
+     and CI runs it. */
+  --color-primary: var(--town-primary);
+  --color-primary-hover: var(--town-primary-hover);
+  /* A hairline in the primary, for a control's edge and a panel's rule. */
+  --color-primary-line: var(--t-primary-line);
   --color-accent: var(--town-accent);
-  --color-accent-dark: var(--town-accent-dark);
-  --color-accent-text: var(--t-accent-text);
-  --color-accent-tint: var(--t-accent-tint);
+  /* The accent at placeholder strength, behind an image while it loads. */
   --color-accent-soft: var(--t-accent-soft);
-  --color-accent-line: var(--t-accent-line);
 
-  /* One warm amber across the whole network, so the seven sites read as a
-     family and not seven unrelated colour schemes. A fill, never text. */
+  /* One warm amber across the network, for what it means rather than as
+     decoration: a notice to be read, and "Our pick". A fill, never text. */
   --color-highlight: #f0a62e;
-  /* The same amber, lightened for the one job the brand value cannot do:
-     eyebrow text on a town's dark band. At 12.75px that needs 4.5:1, and
-     #f0a62e manages it on only two of the eight bands — 3.69:1 on Elizabeth
-     and Timnath. The brand value stays for fills, rules and badges, where
-     3:1 is the bar and dark ink sits on top of it. */
+  /* The same amber, lightened for the one job the fill cannot do: the hub's
+     name in the network strip under the footer, which is text. */
   --color-highlight-ink: #f8c265;
   /* The amber at wash strength, for a notice that has to be read, not just seen. */
   --color-highlight-soft: #fdf0d8;
 
-  --color-paper: var(--t-surface);
-  /* Cards and panels: white against the paper. */
-  --color-raised: var(--t-raised);
-  --color-ink: var(--t-ink);
-  --color-ink-muted: var(--t-ink-muted);
-  --color-ink-faint: var(--t-ink-faint);
+  /* The guide's assigned paper, warm or cool, and nothing else as a page
+     surface: cards and panels are white on it. */
+  --color-paper: var(--town-paper);
+  --color-raised: #ffffff;
+  /* Body text, and supporting text: the only two inks. */
+  --color-ink: #243137;
+  --color-ink-muted: #526068;
   --color-line: var(--t-line);
   --color-line-soft: var(--t-line-soft);
 
@@ -56,21 +53,10 @@
 }
 
 :root {
-  --t-surface: var(--town-neutral-bg);
-  --t-raised: #ffffff;
-  --t-ink: #17181a;
-  --t-ink-muted: #55585d;
-  /* The lightest text the sites use. Checked against the masthead tint, not
-     just the paper: the tint is darker, and at 14% accent it was taking the
-     old #63666c down to 4.15:1 on Lyons. scripts/check-colors.ts holds both
-     of these to 4.5:1 on paper, on every town's tint, and on white. */
-  --t-ink-faint: #5d5f64;
-  --t-line: color-mix(in srgb, var(--town-neutral-bg) 70%, #17181a 30%);
-  --t-line-soft: color-mix(in srgb, var(--town-neutral-bg) 88%, #17181a 12%);
-  --t-accent-text: var(--town-accent-dark);
-  --t-accent-tint: color-mix(in srgb, var(--town-accent) 14%, var(--town-neutral-bg));
+  --t-line: color-mix(in srgb, var(--town-paper) 70%, #243137 30%);
+  --t-line-soft: color-mix(in srgb, var(--town-paper) 88%, #243137 12%);
+  --t-primary-line: color-mix(in srgb, var(--town-primary) 25%, #ffffff);
   --t-accent-soft: color-mix(in srgb, var(--town-accent) 16%, #ffffff);
-  --t-accent-line: color-mix(in srgb, var(--town-accent) 32%, #ffffff);
 }
 
 
@@ -84,6 +70,8 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    /* Checkboxes and radios in the primary, not the browser's blue. */
+    accent-color: var(--color-primary);
   }
   body {
     min-height: 100dvh;
@@ -101,18 +89,22 @@
     font-variation-settings: "opsz" 48;
     letter-spacing: -0.005em;
   }
+  /* Links are underlined, as Color System 2.0 asks. Tailwind's reset
+     leaves an <a> undecorated, so a link set in the primary carries
+     `underline` itself, standalone "See the full week →" ones included.
+     Navigation, buttons, whole-card links and the footer's lists are not
+     links in that sense and go without. */
   a {
     text-underline-offset: 0.18em;
     text-decoration-thickness: from-font;
   }
-  /* A single-colour ring in the town accent measured as low as 1.66:1 against
-     the footer, the network bar and the accent-dark bands. Pairing the accent
-     outline with a white box-shadow immediately inside it keeps the ring
-     visible on every ground the site uses, light or dark. */
+  /* A primary outline with a white ring between it and the element, as the
+     guide asks: the white keeps the ring separate from whatever it is drawn
+     around, on paper, on a white card or against a photograph. */
   :focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-primary);
     outline-offset: 3px;
-    box-shadow: 0 0 0 3px var(--color-paper);
+    box-shadow: 0 0 0 3px #fff;
     border-radius: 2px;
   }
   /* A text field shows focus on its own edge: the ring set 3px off with a
@@ -129,7 +121,7 @@
     box-shadow: 0 0 0 3px rgb(0 0 0 / 0.6);
   }
   ::selection {
-    background: var(--color-accent-soft);
+    background: color-mix(in srgb, var(--color-primary) 20%, #fff);
   }
   img {
     font-style: italic;
@@ -153,9 +145,9 @@
   @media (width >= 48rem) { padding-block: 6rem; }
 }
 @utility band-white { background-color: var(--color-raised); }
-@utility band-tint { background-color: var(--color-accent-tint); }
+@utility band-paper { background-color: var(--color-paper); }
 @utility band-dark {
-  background-color: var(--color-accent-text);
+  background-color: var(--color-primary);
   color: #fff;
 }
 
@@ -171,7 +163,7 @@
   font-weight: 600;
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
-  color: var(--color-accent-text);
+  color: var(--color-primary);
   font-variant-numeric: tabular-nums;
 }
 
@@ -406,7 +398,7 @@
   font-weight: 600;
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
-  color: var(--color-accent-text);
+  color: var(--color-primary);
   text-align: left;
   border-block-end: 2px solid var(--color-accent);
   white-space: nowrap;
@@ -442,7 +434,7 @@
   font-weight: 600;
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
-  color: var(--color-ink-faint);
+  color: var(--color-ink-muted);
   white-space: normal;
 }
 .compare-pair tbody td { font-size: 1rem; }
@@ -452,7 +444,7 @@
   font-size: 0.8125rem;
   font-weight: 400;
   font-variant-numeric: normal;
-  color: var(--color-ink-faint);
+  color: var(--color-ink-muted);
 }
 
 @media (width < 60rem) {
@@ -471,7 +463,7 @@
   .compare:not(.compare-pair) tbody th {
     display: block;
     padding: 1rem 1.25rem;
-    background: var(--color-accent-tint);
+    background: var(--color-paper);
     border-block-end: 1px solid var(--color-line-soft);
     white-space: normal;
   }
@@ -491,7 +483,7 @@
     font-weight: 600;
     letter-spacing: var(--tracking-eyebrow);
     text-transform: uppercase;
-    color: var(--color-ink-faint);
+    color: var(--color-ink-muted);
     font-variant-numeric: normal;
   }
   .compare:not(.compare-pair) tbody td > span { text-align: right; }
@@ -514,9 +506,9 @@
     transition: background-color 150ms, color 150ms, border-color 150ms, transform 150ms;
   }
   .btn:active { transform: translateY(1px); }
-  .btn-primary { background: var(--color-accent-dark); color: #fff; }
-  .btn-primary:hover { background: var(--color-accent); }
-  .btn-light { background: #fff; color: #17181a; }
+  .btn-primary { background: var(--color-primary); color: #fff; }
+  .btn-primary:hover { background: var(--color-primary-hover); }
+  .btn-light { background: #fff; color: var(--color-ink); }
   .btn-light:hover { background: #e9e7e2; }
   .btn-outline { border: 1px solid currentColor; }
   .btn-outline:hover { background: color-mix(in oklab, currentColor 8%, transparent); }
@@ -578,20 +570,20 @@ main:has(> :last-child.on-dark) + footer {
 .prose h3 { font-size: 1.3rem; line-height: 1.3; margin-top: 1.8em; }
 .prose h2 + *, .prose h3 + * { margin-top: 0.6em; }
 .prose a {
-  color: var(--color-accent-text);
+  color: var(--color-primary);
   text-decoration: underline;
-  text-decoration-color: color-mix(in oklab, var(--color-accent) 45%, transparent);
+  text-decoration-color: color-mix(in oklab, var(--color-primary) 55%, transparent);
   text-underline-offset: 0.2em;
 }
 .prose a:hover { text-decoration-color: currentColor; }
 /*
  * A button set inside prose keeps the button's colours. Without this, `.prose a`
- * outranks `.btn-primary` and paints accent text over an accent-dark fill — the
+ * outranks `.btn-primary` and paints primary text over a primary fill — the
  * "Submit an event" button on /contact/ was a blank pill on every site.
  */
 .prose a.btn { text-decoration: none; }
 .prose a.btn-primary { color: #fff; }
-.prose a.btn-light { color: #17181a; }
+.prose a.btn-light { color: var(--color-ink); }
 .prose ul { list-style: disc; padding-left: 1.25rem; }
 .prose ol { list-style: decimal; padding-left: 1.25rem; }
 .prose li + li { margin-top: 0.35em; }
@@ -642,12 +634,12 @@ main:has(> :last-child.on-dark) + footer {
     font-weight: 600;
     letter-spacing: var(--tracking-eyebrow);
     text-transform: uppercase;
-    color: var(--color-ink-faint);
+    color: var(--color-ink-muted);
   }
 }
 /* An empty, required date or time field shows its "mm/dd/yyyy" in the
    placeholder grey of every other field, not in full ink as if filled in. */
-input:is([type="date"], [type="time"]):invalid::-webkit-datetime-edit { color: var(--color-ink-faint); }
+input:is([type="date"], [type="time"]):invalid::-webkit-datetime-edit { color: var(--color-ink-muted); }
 
 /* A form set inside prose (the contact page) is a card with its own
    padding: the prose rhythm would put 1.1em above it and 2.2em above its

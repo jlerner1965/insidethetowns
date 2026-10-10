@@ -78,10 +78,10 @@ export const grandLake: TownConfig = {
     },
   ],
   colors: {
-    // Deep water: the navy-teal of the lake under the Never Summer range, darker and greyer than Estes Park's petrol and greener than Fort Collins' navy. `npm run check-colors` is the gate.
-    accent: '#1D4F6B',
-    accentDark: '#143A4F',
-    neutralBg: '#F2F5F7',
+    // Lake blue + cedar, on cool paper: Color System 2.0, 9 October 2026.
+    primary: '#225D7A',
+    accent: '#A57952',
+    paper: 'cool',
   },
   hero: {
     image: 'hero.jpg',

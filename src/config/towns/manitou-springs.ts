@@ -74,10 +74,10 @@ export const manitouSprings: TownConfig = {
     },
   ],
   colors: {
-    // Plum: a deep magenta-plum for the painted storefronts of Manitou Avenue, darker than Loveland's purple and bluer than Johnstown's raspberry. `npm run check-colors` is the gate.
-    accent: '#8E2F6B',
-    accentDark: '#5F1F48',
-    neutralBg: '#F8F3F6',
+    // Artful plum + mineral teal, on cool paper: Color System 2.0, 9 October 2026.
+    primary: '#6D4478',
+    accent: '#439590',
+    paper: 'cool',
   },
   hero: {
     image: 'hero.jpg',

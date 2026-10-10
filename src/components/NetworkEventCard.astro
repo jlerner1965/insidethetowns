@@ -3,7 +3,7 @@
  * An event on the hub: the same editorial row as a town's own listing, plus
  * the town it belongs to, and a link that crosses to that town's domain.
  *
- * The town badge carries that town's accent, on one line: in a 7rem column
+ * The town badge carries that town's primary, on one line: in a 7rem column
  * "Fort Collins" and "Carbon Valley" wrapped into lozenges twice the height of
  * the rest. It is the one place the towns'
  * palettes work together rather than separately, and it is what tells you at a
@@ -65,9 +65,9 @@ const time = showDay && !running && !multiDay ? `${formatDayShort(data.start)} Â
   <p class="mb-1.5 sm:mb-0 sm:pt-1">
     <span
       class="inline-block whitespace-nowrap rounded-full px-2.5 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-white"
-      style={`background:${town.colors.accentDark}`}
+      style={`background:${town.colors.primary}`}
     >{town.name}</span>
-    {showTagline && town.shortTagline && <span class="mt-1 block text-[0.8125rem] leading-snug text-ink-faint">{town.shortTagline}</span>}
+    {showTagline && town.shortTagline && <span class="mt-1 block text-[0.8125rem] leading-snug text-ink-muted">{town.shortTagline}</span>}
   </p>
   <div class="min-w-0">
     {(categoryLabel || statusLabel) && (
@@ -82,7 +82,7 @@ const time = showDay && !running && !multiDay ? `${formatDayShort(data.start)} Â
       </p>
     )}
     <h3 class="text-xl font-medium leading-tight md:text-2xl">
-      <a href={href} data-track={track} data-track-town={track ? town.slug : undefined} class:list={['stretch no-underline group-hover:text-accent-text', canceled && 'line-through decoration-ink-faint decoration-2']}>{data.title}</a>
+      <a href={href} data-track={track} data-track-town={track ? town.slug : undefined} class:list={['stretch no-underline group-hover:text-primary', canceled && 'line-through decoration-ink-muted decoration-2']}>{data.title}</a>
     </h3>
     <p class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">
       <time datetime={toIsoLocal(data.start)}>{time}</time> Â· {data.venue}{data.cost && <span> Â· {data.cost}</span>}

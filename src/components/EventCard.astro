@@ -96,7 +96,7 @@ const note =
   {showDate ? (
     <time datetime={toIsoLocal(data.start)} class="flex flex-col pt-0.5">
       <span class="eyebrow">{running ? 'Until' : badge.weekday}</span>
-      <span class="font-heading text-[2.25rem] font-medium leading-none tabular-nums text-accent-text md:text-[2.5rem]">{badge.day}</span>
+      <span class="font-heading text-[2.25rem] font-medium leading-none tabular-nums text-primary md:text-[2.5rem]">{badge.day}</span>
       <span class="text-xs font-medium uppercase tracking-[0.1em] text-ink-muted">{badge.month}</span>
     </time>
   ) : (
@@ -117,7 +117,7 @@ const note =
       ) : (
         <Fragment>
           {cell[0]}
-          {cell[1] && <span class="text-ink-faint sm:block">{' '}{cell[1]}</span>}
+          {cell[1] && <span class="text-ink-muted sm:block">{' '}{cell[1]}</span>}
         </Fragment>
       )}
     </time>
@@ -135,13 +135,13 @@ const note =
       </p>
     )}
     <h3 class="text-xl font-medium leading-tight md:text-2xl">
-      <a href={href} class:list={['stretch no-underline group-hover:text-accent-text', canceled && 'line-through decoration-ink-faint decoration-2']}>{data.title}</a>
+      <a href={href} class:list={['stretch no-underline group-hover:text-primary', canceled && 'line-through decoration-ink-muted decoration-2']}>{data.title}</a>
     </h3>
     <p class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">
       {showDate ? <span>{time} · </span> : longNote && <span class="hidden sm:inline">{time} · </span>}{data.venue}{data.subTown && <span>, {subTownLabel(data.subTown)}</span>}{data.cost && <span> · {data.cost}</span>}
     </p>
     {statusLabel && data.statusNote && <p class="mt-1 text-sm text-ink">{data.statusNote}</p>}
-    {note && !canceled && <p class="mt-1 text-sm text-ink-faint">{note}</p>}
+    {note && !canceled && <p class="mt-1 text-sm text-ink-muted">{note}</p>}
   </div>
   {data.image && (
     <Image src={data.image} alt={data.imageAlt ?? ''} width={224} height={168} class="hidden aspect-[4/3] w-28 rounded-md object-cover md:block" />

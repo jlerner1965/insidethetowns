@@ -70,8 +70,8 @@ const structured = [
      one run of bold links with tight middots, this town's and its
      neighbours' together. This town's now head its two sections. */}
   <p slot="after-header" class="mt-5 flex flex-wrap items-baseline gap-x-4 gap-y-1 text-[0.9375rem] text-ink-muted">
-    <span class="eyebrow text-ink-faint">Also in this guide</span>
-    {siblings.map((t) => <a href={`/${t.slug}/`} class="py-1 font-semibold text-accent-text">{t.label}</a>)}
+    <span class="eyebrow text-ink-muted">Also in this guide</span>
+    {siblings.map((t) => <a href={`/${t.slug}/`} class="py-1 font-semibold text-primary underline">{t.label}</a>)}
   </p>
 
   <section data-filter-root>

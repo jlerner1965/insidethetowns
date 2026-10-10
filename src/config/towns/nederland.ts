@@ -70,10 +70,10 @@ export const nederland: TownConfig = {
     },
   ],
   colors: {
-    // Mine-town wine: a deep claret for the old mill town at the top of Boulder Canyon, darker and browner than Johnstown's raspberry. `npm run check-colors` is the gate.
-    accent: '#7B2D3C',
-    accentDark: '#541E29',
-    neutralBg: '#F8F4F4',
+    // Alpine violet + moss, on cool paper: Color System 2.0, 9 October 2026.
+    primary: '#514B7C',
+    accent: '#7A8F5D',
+    paper: 'cool',
   },
   hero: {
     image: 'hero.jpg',

@@ -61,7 +61,7 @@ const box = 'size-5 shrink-0 rounded border-line';
     on the home page, the full width of the events page with its right half
     empty, and left at 715px on This Weekend. */}
 {config && (
-  <section class:list={['max-w-3xl rounded-lg bg-accent-tint p-6 md:p-8', !compact && 'ring-1 ring-accent-line']}>
+  <section class:list={['max-w-3xl rounded-lg bg-raised p-6 ring-1 md:p-8', compact ? 'ring-line-soft' : 'ring-primary-line']}>
     {/*
       A new tab keeps the reader on the page they were reading. No rel="noopener":
       Astro's FormHTMLAttributes does not carry it, and the only host this can
@@ -86,7 +86,7 @@ const box = 'size-5 shrink-0 rounded border-line';
                 page: the reader's own town is the usual answer. Native, so it
                 works without the script and with a keyboard. */}
             <details class="mt-1">
-              <summary class="inline-flex min-h-11 cursor-pointer items-center text-[0.9375rem] font-semibold text-accent-text underline">
+              <summary class="inline-flex min-h-11 cursor-pointer items-center text-[0.9375rem] font-semibold text-primary underline">
                 Show all towns
               </summary>
               <div class="mt-1 grid grid-cols-2 gap-x-5 sm:grid-cols-3">
@@ -114,7 +114,7 @@ const box = 'size-5 shrink-0 rounded border-line';
             {/* "All towns" first and set apart, since it is not a town; the
                 towns in columns, A to Z, each a full-height row to tap. */}
             {config.allTag && (
-              <label class:list={[row, 'mt-3 border-b border-accent-line pb-2 font-semibold']}>
+              <label class:list={[row, 'mt-3 border-b border-primary-line pb-2 font-semibold']}>
                 <input type="checkbox" name={tagField} value={config.allTag} class={box} />
                 All towns
               </label>
@@ -155,12 +155,12 @@ const box = 'size-5 shrink-0 rounded border-line';
       {/* Shown when the browser refuses the new tab: nothing has been sent. */}
       <div data-signup-blocked hidden role="alert" class="mt-4 rounded-md border border-line bg-raised px-4 py-3 text-[0.9375rem] leading-relaxed">
         <p>{SIGNUP_MESSAGES.blocked}</p>
-        <button type="button" class="mt-2 inline-flex min-h-11 items-center font-semibold text-accent-text underline" data-signup-here>Continue in this tab</button>
+        <button type="button" class="mt-2 inline-flex min-h-11 items-center font-semibold text-primary underline" data-signup-here>Continue in this tab</button>
       </div>
 
-      <p class="mt-3 text-[0.8125rem] leading-relaxed text-ink-faint">
+      <p class="mt-3 text-[0.8125rem] leading-relaxed text-ink-muted">
         Free. One email a week. Unsubscribe any time. {PRIVACY_LINE} See the
-        <a href={`https://${hub.domain}/privacy/`} class="inline-block -my-3 py-3 text-accent-text">privacy page</a>.
+        <a href={`https://${hub.domain}/privacy/`} class="inline-block -my-3 py-3 text-primary underline">privacy page</a>.
       </p>
       {/* A page's own line about the email (the hub's "See a sample issue"),
           inside the card rather than loose underneath it. */}
@@ -175,8 +175,8 @@ const box = 'size-5 shrink-0 rounded border-line';
       <p class="font-semibold">{SIGNUP_MESSAGES.opened}</p>
       <p class="mt-2 text-[0.9375rem] text-ink-muted">{SIGNUP_MESSAGES.openedHelp}</p>
       <p class="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-[0.9375rem]">
-        <button type="button" class="inline-flex min-h-11 items-center font-semibold text-accent-text underline" data-signup-reopen>Open the signup tab again</button>
-        <button type="button" class="inline-flex min-h-11 items-center font-semibold text-accent-text underline" data-signup-edit>Change your details</button>
+        <button type="button" class="inline-flex min-h-11 items-center font-semibold text-primary underline" data-signup-reopen>Open the signup tab again</button>
+        <button type="button" class="inline-flex min-h-11 items-center font-semibold text-primary underline" data-signup-edit>Change your details</button>
       </p>
     </div>
   </section>

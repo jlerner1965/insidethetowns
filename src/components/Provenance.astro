@@ -28,9 +28,9 @@ const host = source ? new URL(source).hostname.replace(/^www\./, '') : undefined
 const correct = `/correct/?item=${encodeURIComponent(item)}&title=${encodeURIComponent(title)}`;
 ---
 {compact ? (
-  verified && <span class="text-ink-faint">{checkedBy(formatMonthDay(verified))}</span>
+  verified && <span class="text-ink-muted">{checkedBy(formatMonthDay(verified))}</span>
 ) : (
-  <p class="mt-6 text-xs leading-relaxed text-ink-faint">
+  <p class="mt-6 text-xs leading-relaxed text-ink-muted">
     {verified && <span>{checkedBy(formatDate(verified))}</span>}{verified && source && <span> against </span>}{source && <a href={source} rel="noopener" class="underline">{host}</a>}{(verified || source) && '. '}{note && <span>{note} </span>}
     <a href={correct} class="underline">Report a correction</a> · <TipsLink />
   </p>

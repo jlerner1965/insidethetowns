@@ -28,7 +28,7 @@ import Footer from '@/components/Footer.astro';
 import Freshness from '@/components/Freshness.astro';
 import SEO from '@/components/SEO.astro';
 import { siteJsonLd } from '@/lib/seo';
-import { categoryCss } from '@/config/palette';
+import { PAPERS, categoryCss, primaryHover } from '@/config/palette';
 
 interface Props {
   title?: string;
@@ -55,9 +55,10 @@ const searchable = !seo.noindex;
 // The publisher graph belongs on every page; pages add their own on top.
 const structured = [siteJsonLd(site), ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
 const cssVars = [
+  `--town-primary:${site.colors.primary}`,
+  `--town-primary-hover:${primaryHover(site.colors.primary)}`,
   `--town-accent:${site.colors.accent}`,
-  `--town-accent-dark:${site.colors.accentDark}`,
-  `--town-neutral-bg:${site.colors.neutralBg}`,
+  `--town-paper:${PAPERS[site.colors.paper]}`,
 ].join(';');
 ---
 <!doctype html>
@@ -70,11 +71,11 @@ const cssVars = [
     <link rel="preload" as="font" type="font/woff2" href={instrumentLatin} crossorigin />
     <SEO {...seo} jsonLd={structured} />
     {/* ?v= busts the week-long /favicons/ cache in vercel.json; bump it when the marks change. */}
-    <link rel="icon" href={`/favicons/${site.slug}/favicon.svg?v=3`} type="image/svg+xml" />
+    <link rel="icon" href={`/favicons/${site.slug}/favicon.svg?v=4`} type="image/svg+xml" />
     {/* Asked for by name regardless of what the page links; see src/lib/icons.ts. */}
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content={site.colors.accentDark} />
+    <meta name="theme-color" content={site.colors.primary} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     {/* Discovery: an aggregator that lands on any page finds the feeds. */}
     <link rel="alternate" type="application/rss+xml" title={`${site.siteTitle} — what’s on`} href="/events.rss" />
