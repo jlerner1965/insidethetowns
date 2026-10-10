@@ -4363,8 +4363,11 @@ colour. It is applied as written; no hex was tuned here.
 - **Interaction.** Buttons darken by 12% on hover (`primaryHover()` in
   `src/config/palette.ts`, 12% black mixed in sRGB, so the page carries an
   exact hex and the check can prove white on it). The guide points to a
-  companion stylesheet for exact hover values; it was not supplied, and if
-  its values differ they replace that one function. Focus is a primary
+  companion stylesheet for exact hover values. The companion reference the
+  owner supplied the same day (prepared 10 October 2026) lists the 25
+  palettes and the shared neutrals, unchanged from 2.0 and matching the
+  configs value for value, and gives no hover values, so the 12% mix
+  stands; exact values, if they ever arrive, replace that one function. Focus is a primary
   outline with a white ring, except on the dark bands, which keep their
   white outline. Map pins, filter pills and focused fields use the primary,
   not the accent. Checkboxes take the primary through `accent-color`.
@@ -4383,7 +4386,11 @@ colour. It is applied as written; no hex was tuned here.
   hues on both papers and white, and no two guides sharing a primary. All
   26 configs pass.
 - **Favicons** keep their marks; each tile, and the tint derived from it, is
-  repainted in the new primary, and the link moves to `?v=4`.
-- **Castle Rock is not in the guide.** It is wave 2 and not live; it keeps
+  repainted in the new primary, and the link moves to `?v=4`. Golden's tile
+  is now gold itself, and its gold baseline and arch band fell to 2.35:1
+  against it, the only one under 2.5:1; on Golden both are the lighter
+  amber #F8C265 (3.16:1), so the gold stays gold and stays visible.
+- **Castle Rock is in neither the guide nor the companion sheet.** It is
+  wave 2 and not live; it keeps
   its rose in the new roles (its old dark shade as primary) as a
   placeholder, flagged in its config, and needs a palette before launch.
