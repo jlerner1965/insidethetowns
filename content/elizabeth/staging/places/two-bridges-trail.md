@@ -1,11 +1,12 @@
 ---
 title: "Two Bridges Trail at Bayou Gulch"
+review: { reason: "Not Elizabeth's to list: the trail is at 8038 Bayou Gulch Road, Franktown, and the 6 October 2026 rule ('Castle Rock is Castle Rock', which also kept Castlewood Canyon off this guide) keeps another community's places off a town's guide. Retired from the published guide on 10 October 2026; /places/two-bridges-trail/ redirects to Things to Do. Kept here for a guide that covers Franktown, if one is ever made; not to be promoted on Elizabeth's.", since: "2026-10-10", from: manual }
 type: trail
 address: "8038 Bayou Gulch Rd, Franktown, CO 80116"
 area: "Bayou Gulch Road, west of town"
 url: "https://www.douglasco.gov/open-space-natural-resources/properties/two-bridges-trail/"
 mapUrl: "https://www.douglasco.gov/documents/two-bridges-trail.pdf"
-image: ../images/two-bridges-trail.jpg
+image: ../../images/two-bridges-trail.jpg
 imageAlt: "A dirt path through dry grass and low scrub on the Two Bridges Trail, open country stretching to the horizon under a blue sky"
 imageCredit: "Douglas County"
 hours: "Open daily, 1 hr before sunrise to 1 hr after sunset"

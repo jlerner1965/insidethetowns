@@ -95,17 +95,12 @@ The launch handoff's 261 places were read against each business's or agency's ow
 
 | Town | Listing | Why it could not be checked | Ask |
 |---|---|---|---|
-| Black Hawk | Ameristar Black Hawk, 720-946-4000 | Nothing on its site carries a year; promotions are dated by weekday and month only | Open, and the hours? (and whether such dates count as evidence: the owner's call) |
-| Black Hawk | Timberline Grill, 720-946-4082 | Same: Ameristar's pages carry no year | Open; hours |
-| Black Hawk | Fireside Kitchen, 720-946-4142 | Same | Open; still 7 am–5 am? |
-| Black Hawk | White Buffalo Grille (The Lodge), 303-582-6375 | The Lodge's site shows no year; its menu file is dated 10-8-25 | Open; hours |
 | Black Hawk | LitWood & Artisan Friends, 720-756-0465 | Newest post 28 July 2025 | Open; Wed–Sun hours |
 | Black Hawk | Ted Garcia Fine Art Gallery, 303-670-2981 | No hours on any page; the district page gives 303-885-5112 | Hours; which phone |
 | Black Hawk | Copper Kitchen Pizzeria | No site or phone of its own; Pick Axe Pizza's owner runs it (303-567-2148) | Phone, hours |
 | Black Hawk | Golden Rose Antiques, 357 Gregory St | No site or phone; newest source is the City's August 2025 lease | Open? Phone, hours (City Hall, 303-582-2221) |
 | Black Hawk | Fire House Museum | The City's page gives no hours or interior access | When can visitors go in? (City Hall, 303-582-2221) |
 | Fort Lupton | Recreation Center, 303-857-4200 | City pages disagree on Friday closing (8 or 9 pm) | Friday closing time |
-| Fort Lupton | South Platte Valley Historic Park | The Society gives no phone (PO box, email, form) | A phone, or the owner decides a nonprofit site may publish without one |
 | Georgetown | Buckskin Trading Company, 303-569-2050 | Nothing dated within the year; the Town page listing it was last updated July 2025 | Open; Thu–Mon hours |
 | Georgetown | Cooper's on the Creek, 303-569-5088 | Its hours block includes Sunday, its footer does not | Open on Sundays? |
 | Georgetown | The Historic Happy Cooker, 303-569-3166 | Hours only on Facebook | Days and hours |
@@ -124,8 +119,7 @@ The launch handoff's 261 places were read against each business's or agency's ow
 | Grand Lake | Grand Lake Marina and The Wake, 970-627-9273 | "Closed For Season", no dates; FAQ and booking pages opt out | Season dates, hours |
 | Grand Lake | Headwaters Marina, 970-627-5031 | Office hours but no season | Season dates |
 | Grand Lake | Golf course and Nordic center, 970-627-8008 | The district's Find Us and Contact pages return 500 | Address, season, hours |
-| Grand Lake | The World's End Brewpub | Its site says it has no phone line; only today's hours | Weekly hours; may a business with no phone publish? (owner) |
-| Grand Lake | Rocky Mountain Folk School | No phone; classes by registration | Same question |
+| Grand Lake | The World's End Brewpub | No phone line (no longer a bar to listing); its site shows only the day's hours | Weekly hours (in person or by email) |
 | Idaho Springs | Main Street Restaurant, 303-567-2788 | Hours only from a site with a 2019–24 footer and a Covid notice | Hours |
 | Idaho Springs | The Frothy Cup, 303-567-2622 | No hours on any page | Hours |
 | Idaho Springs | Clear Creek Cidery, 303-567-2158 | An undated "Closed Tue & Wed this week" banner against daily hours; City says 1438 Miner, operator 1446 | Regular days; address |
@@ -140,7 +134,6 @@ The launch handoff's 261 places were read against each business's or agency's ow
 | Leadville | Buchi Cafe Cubano, 719-917-8188 | No hours; order link 404 | Open? Hours |
 | Leadville | Harperrose Studios, 719-293-4280 | Hours only in hidden page data | Hours |
 | Leadville | Leadville Outdoors & Mountain Market, 719-293-2728 | Site does not resolve | Hours, phone, site |
-| Leadville | City on a Hill Coffee, 719-486-0797 | No phone on its own site | Is this the shop's own line? |
 | Leadville | Elevation Goods (hi@elevationgoods.co) | No phone; summer hours only | Phone, winter hours |
 | Manitou Springs | Penny Arcade, 719-685-9815 | Its own site gives no street address | Is it 930 Manitou Ave? |
 | Manitou Springs | The Loop, 719-685-9344 | Domain parked | Open? Hours, website |
@@ -178,4 +171,4 @@ The launch handoff's 261 places were read against each business's or agency's ow
 | Leadville | Silver Dollar Saloon | Its own site gives 970-470-2368, Main Street's directory 719-486-9914 | Which number |
 | Timnath | Timnath Beerwerks, (970) 999-5751 | Its pages say 8 pm and 9 pm for Sunday closing | Sunday closing |
 
-121 rows in all.
+114 rows in all.

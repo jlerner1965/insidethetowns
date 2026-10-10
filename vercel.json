@@ -210,6 +210,39 @@
       ],
       "destination": "https://carbonvalleyguide.com/firestone/",
       "permanent": true
+    },
+    {
+      "source": "/places/arapaho-bend-natural-area{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "https://insidefortcollins.com/places/arapaho-bend-natural-area/",
+      "permanent": true
+    },
+    {
+      "source": "/places/two-bridges-trail{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "/things-to-do/",
+      "permanent": true
+    },
+    {
+      "source": "/places/garden-of-the-gods{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemanitousprings.com"
+        }
+      ],
+      "destination": "/things-to-do/",
+      "permanent": true
     }
   ]
 }

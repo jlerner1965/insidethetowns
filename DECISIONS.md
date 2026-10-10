@@ -4513,3 +4513,55 @@ pack set the method: the packet is a set of leads, not a source.
   marked not to be promoted; delete it if preferred.
 - **The handoff document stays out of the repo**, like the content pack's
   viewer: a brief, not content.
+
+## The owner's answers on the handoff's open questions
+
+*10 October 2026, the same evening.* The owner answered two questions and
+left two to the editor.
+
+- **No phone is not a bar to listing** (the owner). A business or agency
+  that publishes no phone may be listed without one; its website, address
+  and hours must still come from it, and the evidence rule is unchanged.
+  The Rocky Mountain Folk School (a class-only venue, like FREIGHT, with
+  no hours line), the South Platte Valley Historic Park, City on a Hill
+  Coffee and the Outlets at Castle Rock (re-read today; its hours page
+  dates the 2026 holiday closures) moved up. World's End Brewpub (no
+  weekly hours), Mod Mountain Boutique, the ECR Cafe and Inkwell & Brew
+  (nothing dated, no second source; each re-read today) stay staged with
+  their reasons rewritten.
+- **A weekday and date with no year count** (the owner) when they fall
+  on that weekday in the current year, as "Friday, October 30" does in
+  2026. Ameristar and its Fireside Kitchen and Timberline Grill, Bally's,
+  and the Lodge and its White Buffalo Grille moved up, the casinos
+  without an hours line as the Monarch's published listing has none.
+  Black Hawk now has 17 places and clears its listing threshold. Saratoga
+  and its Main Street Cafe stay staged: an "October Special" names no day.
+  The README's rules at entry and the content README say both rulings.
+- **Places across a town line follow the 6 October rule** (the editor).
+  "Castle Rock is Castle Rock" already kept Castlewood Canyon (Franktown)
+  off Elizabeth, so the three listings published before it was tested on
+  them follow it too, and no URL breaks:
+  - Arapaho Bend Natural Area, whose address the Census geocoder puts
+    inside Fort Collins, moved to the Fort Collins guide, which did not
+    list it, with its photograph and ledger row. insidetimnath.com's old
+    URL 301s to insidefortcollins.com's page, and Timnath's Explore and
+    with-kids guides link there. Fossil Creek's entrance is unincorporated
+    and stays in Timnath.
+  - Two Bridges Trail (8038 Bayou Gulch Road, Franktown) and Garden of
+    the Gods (the City of Colorado Springs' park, published that morning)
+    are in staging, marked not to be promoted, and their URLs 301 to
+    Things to Do. Elizabeth's with-kids guide still names Two Bridges as
+    a longer walk outside town, linked to Douglas County's page, beside
+    the Town's own Running Creek trail; its Running Creek lines now follow
+    the Town's page. Two Bridges' permissioned photograph stays in the
+    folder with its ledger row. Manitou's Trunk or Treat event at the
+    Garden of the Gods visitor center (25 October) was left as it is.
+  - The rule as applied: a place inside another municipality or named
+    community belongs to that town; where it has a live guide the listing
+    moves there, otherwise it waits in staging. Unincorporated federal,
+    state and county land reached from the town stays, labelled Nearby.
+- **Leadville's City lists stand as a second source** (the editor). The
+  README names the town's business directory, the City keeps these
+  lists, and the mountain window brings all five businesses back for a
+  re-check within thirty days; a call before then is welcome, not
+  required.

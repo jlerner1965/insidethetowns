@@ -40,7 +40,7 @@ The [CF&G Public Market & Coffeehouse](/places/cfg-public-market-and-coffeehouse
 
 ## Birds and eagles, across the interstate
 
-[Arapaho Bend Natural Area](/places/arapaho-bend-natural-area/), on the Fort Collins side of I-25 at Harmony Road, has about four miles of trail around old gravel ponds, fishing, some 80 bird species and the Strauss Cabin ruins. Daily 5 am to 11 pm. [Fossil Creek Reservoir](/places/fossil-creek-reservoir-natural-area/), south-west of town, has bird blinds and bald eagles in winter; hikers only, no dogs or bikes.
+[Arapaho Bend Natural Area](https://insidefortcollins.com/places/arapaho-bend-natural-area/) (on Inside Fort Collins), on the Fort Collins side of I-25 at Harmony Road, has about four miles of trail around old gravel ponds, fishing, some 80 bird species and the Strauss Cabin ruins. Daily 5 am to 11 pm. [Fossil Creek Reservoir](/places/fossil-creek-reservoir-natural-area/), south-west of town, has bird blinds and bald eagles in winter; hikers only, no dogs or bikes.
 
 ## What's on
 

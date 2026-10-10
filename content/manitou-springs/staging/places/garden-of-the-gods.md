@@ -1,5 +1,6 @@
 ---
 title: "Garden of the Gods"
+review: { reason: "Not Manitou Springs' to list: the park is the City of Colorado Springs', at 1805 North 30th Street, Colorado Springs, and the 6 October 2026 rule ('Castle Rock is Castle Rock') keeps another city's places off a town's guide. Retired from the published guide on 10 October 2026, the day it went up; /places/garden-of-the-gods/ redirects to Things to Do. Not to be promoted on Manitou Springs'.", since: "2026-10-10", from: manual }
 type: park
 address: "1805 N. 30th Street, Colorado Springs, CO 80904"
 area: "Colorado Springs, west side"
