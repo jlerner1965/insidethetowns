@@ -42,13 +42,13 @@ the same evening by the REST API, at the owner's word, with Nederland's
 settings: framework, repository, `TOWN`, the Ignored Build Step, Node 22.x
 and preview deployments off. Each has its apex and `www` (a 308 to the
 apex) attached, and its first production deployment of `main` is ready.
-Still to do for each: the DNS records at Cloudflare (two `A` records on the
-apex, `216.150.1.1` and `216.150.16.1`, which Vercel now recommends over
-the older `76.76.21.21`, and the project's own `CNAME` on `www`, shown
-under Settings → Domains); Cloudflare Email Routing for its `hello@`
-address (see "Email"), which the holding page names; and, when the town
-goes live, a deploy hook on `main` added to `VERCEL_DEPLOY_HOOKS`, and Web
-Analytics switched on.
+The owner added the DNS at Cloudflare the same evening: an `A` record on
+each apex to `76.76.21.21`, as on the other guides, and on `www` a `CNAME`
+to the project's own `vercel-dns-016.com` target (Settings → Domains);
+Vercel reported all twelve hostnames configured. Still to do for each:
+Cloudflare Email Routing for its `hello@` address (see "Email"), which the
+holding page names; and, when the town goes live, a deploy hook on `main`
+added to `VERCEL_DEPLOY_HOOKS`, and Web Analytics switched on.
 
 The seven projects after `carbonvalleyguide` were created on 6 October 2026
 by the REST API with the same settings (framework, repository, `TOWN`, the
