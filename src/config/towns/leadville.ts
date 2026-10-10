@@ -14,9 +14,10 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  */
 export const leadville: TownConfig = {
   kind: 'town',
-  // Not live. The guide builds a holding page until the owner names the
-  // domain and the first review clears the launch threshold.
-  status: 'wave2',
+  // Live 10 October 2026, on the owner's word, under its launch threshold:
+  // it publishes what is verified, and the validator and the weekly report
+  // say what it is short of (docs/ACCURACY-SYSTEM.md).
+  status: 'live',
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Nothing in the network is within an afternoon's drive of Leadville:
@@ -72,8 +73,9 @@ export const leadville: TownConfig = {
   },
   hero: {
     image: 'hero.jpg',
-    // The stand-in from scripts/templates/; a photograph is chosen at launch, with its row in IMAGE_LICENSES.csv.
-    alt: 'Placeholder: no photograph of Leadville has been chosen yet',
+    alt: 'Leadville in autumn among yellow aspens, with Turquoise Lake and the mountains beyond under a cloudy sky',
+    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 10 October 2026.
+    credit: 'Clyde Charles Brown, Wikimedia Commons, CC BY-SA 4.0',
   },
   social: {
     email: 'hello@insideleadville.com',

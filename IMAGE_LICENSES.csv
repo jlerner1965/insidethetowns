@@ -218,9 +218,9 @@ content/estes-park/images/big-thompson-river-downtown.jpg,https://commons.wikime
 content/loveland/images/devils-backbone.jpg,https://commons.wikimedia.org/wiki/File:The_Devil%27s_Backbone_(6452999951).jpg,CC BY 2.0 (Maarten Heerlien; 2010); resized to 1600px,y,loveland
 content/loveland/images/devils-backbone-trail.jpg,https://commons.wikimedia.org/wiki/File:Devil-s-backbone-3.JPG,CC BY-SA 3.0 (Elmschrat; 2010); cropped and resized to 1600px,y,loveland
 content/berthoud/images/berthoud-community-library.jpg,"provided to the owner, 2026-10-08","Courtesy of the Berthoud Community Library District; permission 2026-10-08 — see PERMISSIONS.md, section: Berthoud Community Library District; cropped and resized to 1600px, EXIF stripped on import",n,berthoud
-content/black-hawk/images/hero.jpg,generated (scripts/templates/placeholder-hero.jpg),CC0 placeholder — replace before launch,n,black-hawk
-content/idaho-springs/images/hero.jpg,generated (scripts/templates/placeholder-hero.jpg),CC0 placeholder — replace before launch,n,idaho-springs
-content/georgetown/images/hero.jpg,generated (scripts/templates/placeholder-hero.jpg),CC0 placeholder — replace before launch,n,georgetown
-content/grand-lake/images/hero.jpg,generated (scripts/templates/placeholder-hero.jpg),CC0 placeholder — replace before launch,n,grand-lake
-content/manitou-springs/images/hero.jpg,generated (scripts/templates/placeholder-hero.jpg),CC0 placeholder — replace before launch,n,manitou-springs
-content/leadville/images/hero.jpg,generated (scripts/templates/placeholder-hero.jpg),CC0 placeholder — replace before launch,n,leadville
+content/black-hawk/images/hero.jpg,"https://commons.wikimedia.org/wiki/File:LACE_HOUSE,_BLACKHAWK_HISTORIC_DISTRICT;_CENTRAL_CITY,_COLORADO.jpg",CC BY-SA 3.0 (Jerrye and Roy Klotz MD; 2007); Commons' 1920px rendition re-encoded,y,black-hawk
+content/idaho-springs/images/hero.jpg,"https://commons.wikimedia.org/wiki/File:The_Massive_Argo_Mill_at_Idaho_Springs,_Colorado.jpg",CC BY-SA 4.0 (D&RG Railfan; 2020); Commons' 1920px rendition re-encoded,y,idaho-springs
+content/georgetown/images/hero.jpg,https://commons.wikimedia.org/wiki/File:Georgetown_CO.jpg,CC BY 2.0 (Ben & Whitney Carey; 2005); Commons' 1920px rendition re-encoded,y,georgetown
+content/grand-lake/images/hero.jpg,"https://commons.wikimedia.org/wiki/File:Grand_Lake,_Colorado,_Rainbow.jpg",CC BY-SA 4.0 (Muttnick; 2017); Commons' 1920px rendition re-encoded,y,grand-lake
+content/manitou-springs/images/hero.jpg,"https://commons.wikimedia.org/wiki/File:Manitou_Springs,_Colorado_(2541038806).jpg",CC BY 2.0 (John Lloyd; 2008); Commons' 1920px rendition re-encoded,y,manitou-springs
+content/leadville/images/hero.jpg,"https://commons.wikimedia.org/wiki/File:Leadville,_Turquoise_Lake,_Wildcat_Mountain,_and_Galena_Mountain,_Colorado,_US.jpg",CC BY-SA 4.0 (Clyde Charles Brown; 2024); Commons' 1920px rendition re-encoded,y,leadville

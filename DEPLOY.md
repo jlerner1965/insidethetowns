@@ -24,17 +24,18 @@ insideestespark.com  TOWN=estes-park      (mountain variant)
 insidegolden.com     TOWN=golden          (mountain variant)
 insideevergreenco.com TOWN=evergreen      (mountain variant; insideevergreen.com is someone else's)
 insidenederland.com  TOWN=nederland       (mountain variant)
-insideidahosprings.com   TOWN=idaho-springs   (mountain variant; not live; holding page)
-insidegeorgetownco.com   TOWN=georgetown      (mountain variant; not live; holding page)
-insidegrandlake.com      TOWN=grand-lake      (mountain variant; not live; holding page)
-insidemanitousprings.com TOWN=manitou-springs (mountain variant; not live; holding page)
-insideleadville.com      TOWN=leadville       (mountain variant; not live; holding page)
-insideblackhawk.com      TOWN=black-hawk      (mountain variant; not live; holding page)
+insideidahosprings.com   TOWN=idaho-springs   (mountain variant)
+insidegeorgetownco.com   TOWN=georgetown      (mountain variant)
+insidegrandlake.com      TOWN=grand-lake      (mountain variant)
+insidemanitousprings.com TOWN=manitou-springs (mountain variant)
+insideleadville.com      TOWN=leadville       (mountain variant)
+insideblackhawk.com      TOWN=black-hawk      (mountain variant)
 …
 ```
 
-The six towns scaffolded on 10 October 2026 build their holding pages until
-they launch. The owner named all six domains the same day, each on the
+The six towns scaffolded on 10 October 2026 went live the same night, on
+the owner's word and under their launch thresholds (the validator and the
+weekly report say what each is short of). The owner named all six domains the same day, each on the
 owner's Cloudflare nameservers (the same pair as the other guides). Their
 projects (`insideblackhawk`, `insideidahosprings`, `insidegeorgetownco`,
 `insidegrandlake`, `insidemanitousprings`, `insideleadville`) were created
@@ -51,8 +52,11 @@ had issued certificates for four apexes on its own; the other eight
 hostnames' were requested through the API (`POST /v8/certs`), and all
 twelve answer over HTTPS: the apex with the holding page, `www` with a
 308 to it. Email Routing for each `hello@` went on the same evening (see
-"Email"). Still to do for each, when the town goes live: a deploy hook on
-`main` added to `VERCEL_DEPLOY_HOOKS`, and Web Analytics switched on.
+"Email"). Each has a "Scheduled rebuild" deploy hook on `main`, and the
+owner put all twenty-six hooks in `VERCEL_DEPLOY_HOOKS`. Web Analytics is
+the one setting left: Vercel will not switch it on through the API or the
+CLI without a person confirming it, so it is enabled in each project's
+Analytics tab by hand.
 
 The seven projects after `carbonvalleyguide` were created on 6 October 2026
 by the REST API with the same settings (framework, repository, `TOWN`, the

@@ -4293,3 +4293,43 @@ new.
   is tolerated while a town is not live); the Moving Here pages where the
   official sources could not be read; and whether the existing mountain
   guides' `neighbors` should name the new towns once they launch.
+
+## The six mountain guides go live
+
+10 October 2026, the same night they were scaffolded, on the owner's word.
+None clears its launch threshold; a live town under it publishes what is
+verified, and the validator and the weekly report say what it is short of,
+as the 3 October rule has it. What going live took:
+
+- **Status and neighbours.** `status: 'live'` on Black Hawk, Idaho Springs,
+  Georgetown, Grand Lake, Manitou Springs and Leadville. Every live guide
+  but Elizabeth had to have a live neighbour, so the pairs each config had
+  proposed were set, both ways: Black Hawk with Nederland, Golden, Idaho
+  Springs and Georgetown; Idaho Springs and Georgetown with each other,
+  Evergreen, Golden and Black Hawk; Grand Lake with Estes Park; Manitou
+  Springs with Castle Rock, which has not launched. Leadville names nobody,
+  nothing in the network being an afternoon's drive away. Manitou and
+  Leadville join Elizabeth in the test of guides whose Nearby block is
+  never built.
+- **Hero photographs** from Wikimedia Commons, each read against its file
+  page (licence, author, date, categories) and looked at before use: the
+  Lace House (Black Hawk; the file's title says Central City, its category
+  is Black Hawk's), the Argo mill (Idaho Springs), the town from the
+  hillside to the north (Georgetown), a rainbow over the lakeshore (Grand
+  Lake), Manitou Avenue (Manitou Springs; the photographer notes the City's
+  master plan uses it) and the town in autumn with Turquoise Lake
+  (Leadville). Declined: Georgetown from I-70 (a strip whose town sits
+  under the hero's crop) and Wolfgang Moroder's 1867 building on Taos
+  Street, whose page asks to be told of each use and excludes social
+  media. Rows are in IMAGE_LICENSES.csv, credits on the heroes.
+- **Favicons** redrawn in the house style, each on the town's accentDark:
+  a gulch with a building (Black Hawk), hot-spring steam (Idaho Springs),
+  a Victorian gable (Georgetown), peaks over water (Grand Lake), a spring
+  and its ripple (Manitou Springs), a headframe (Leadville).
+- **The hub's comparison** prints a town's "who it suits" paragraph only
+  where one has been written; the six have none yet, so their entry is the
+  link to their own Moving Here page.
+- **Not done here.** Web Analytics on the six projects (Vercel requires a
+  person to confirm it); Moving Here pages for five towns and the
+  comparison paragraphs for six; the staged listings.
+
