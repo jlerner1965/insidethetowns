@@ -1,6 +1,6 @@
 # Content for Inside Georgetown
 
-Everything on the Inside Georgetown site that is not layout lives in this folder. Edit
+Everything on insidegeorgetownco.com that is not layout lives in this folder. Edit
 Markdown, commit, push; the site rebuilds. No code changes needed.
 
 ```

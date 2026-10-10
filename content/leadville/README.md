@@ -1,6 +1,6 @@
 # Content for Inside Leadville
 
-Everything on the Inside Leadville site that is not layout lives in this folder. Edit
+Everything on insideleadville.com that is not layout lives in this folder. Edit
 Markdown, commit, push; the site rebuilds. No code changes needed.
 
 ```

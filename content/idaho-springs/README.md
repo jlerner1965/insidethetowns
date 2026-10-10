@@ -1,6 +1,6 @@
 # Content for Inside Idaho Springs
 
-Everything on the Inside Idaho Springs site that is not layout lives in this folder. Edit
+Everything on insideidahosprings.com that is not layout lives in this folder. Edit
 Markdown, commit, push; the site rebuilds. No code changes needed.
 
 ```

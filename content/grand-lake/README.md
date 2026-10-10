@@ -1,6 +1,6 @@
 # Content for Inside Grand Lake
 
-Everything on the Inside Grand Lake site that is not layout lives in this folder. Edit
+Everything on insidegrandlake.com that is not layout lives in this folder. Edit
 Markdown, commit, push; the site rebuilds. No code changes needed.
 
 ```

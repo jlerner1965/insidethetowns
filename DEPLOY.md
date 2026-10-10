@@ -24,19 +24,24 @@ insideestespark.com  TOWN=estes-park      (mountain variant)
 insidegolden.com     TOWN=golden          (mountain variant)
 insideevergreenco.com TOWN=evergreen      (mountain variant; insideevergreen.com is someone else's)
 insidenederland.com  TOWN=nederland       (mountain variant)
-(domain to confirm)  TOWN=black-hawk      (mountain variant; not live; no project yet — the owner names the domain first)
-(domain to confirm)  TOWN=idaho-springs   (mountain variant; not live; no project yet)
-(domain to confirm)  TOWN=georgetown      (mountain variant; not live; no project yet)
-(domain to confirm)  TOWN=grand-lake      (mountain variant; not live; no project yet)
-(domain to confirm)  TOWN=manitou-springs (mountain variant; not live; no project yet)
-(domain to confirm)  TOWN=leadville       (mountain variant; not live; no project yet)
+insideidahosprings.com   TOWN=idaho-springs   (mountain variant; not live; no project yet)
+insidegeorgetownco.com   TOWN=georgetown      (mountain variant; not live; no project yet)
+insidegrandlake.com      TOWN=grand-lake      (mountain variant; not live; no project yet)
+insidemanitousprings.com TOWN=manitou-springs (mountain variant; not live; no project yet)
+insideleadville.com      TOWN=leadville       (mountain variant; not live; no project yet)
+(domain to confirm)      TOWN=black-hawk      (mountain variant; not live; no project yet — the owner names the domain first)
 …
 ```
 
-The six towns scaffolded on 10 October 2026 carry a reserved `.invalid`
-domain in their config until the owner names the Inside domain each one
-gets; none builds more than its holding page until then, and no Vercel
-project should be created for one before its `domain` is real.
+The six towns scaffolded on 10 October 2026 build their holding pages until
+they launch. Five domains were named by the owner the same day, each on the
+owner's Cloudflare nameservers (the same pair as the other guides). Black
+Hawk still carries a reserved `.invalid` domain until the owner names its
+Inside domain, and no Vercel project should be created for it before then.
+A project for any of the six can only build once the branch that adds the
+town is on `main`: until then `TOWN=<slug>` is unknown there and the build
+stops. Each domain also needs Cloudflare Email Routing for its `hello@`
+address (see "Email"), which the holding page names.
 
 The seven projects after `carbonvalleyguide` were created on 6 October 2026
 by the REST API with the same settings (framework, repository, `TOWN`, the

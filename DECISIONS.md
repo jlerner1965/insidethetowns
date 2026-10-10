@@ -4282,7 +4282,13 @@ new.
   `utm_medium=up-the-hill`), as the weekly email carries, and one custom
   event per click through the `@vercel/analytics` module Base.astro loads,
   a no-op where analytics is off. No new tool.
-- **Not done, for the owner.** The six domains; Vercel projects, DNS and
+- **Domains, the same day.** The owner named five: insideidahosprings.com,
+  insidegeorgetownco.com, insidegrandlake.com, insidemanitousprings.com and
+  insideleadville.com. Each answered on the owner's Cloudflare nameservers
+  (donna and fonzie, the pair every other guide uses) and is now in its
+  town's config, with its `hello@` address. Black Hawk's is still to come
+  and keeps its `.invalid` placeholder.
+- **Not done, for the owner.** Black Hawk's domain; Vercel projects, DNS and
   deploy hooks for them once named; the hero photographs (the placeholder
   is tolerated while a town is not live); the Moving Here pages where the
   official sources could not be read; and whether the existing mountain

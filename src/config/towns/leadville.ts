@@ -9,8 +9,8 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  * launch threshold.
  *
  * Figures are from the Wikipedia infobox (census and GNIS), read 10 October
- * 2026, as for every other town; the comments say which. The domain is not
- * yet the owner's call: see `domain` below.
+ * 2026, as for every other town; the comments say which. The domain,
+ * insideleadville.com, is the owner's, named 10 October 2026.
  */
 export const leadville: TownConfig = {
   kind: 'town',
@@ -25,15 +25,9 @@ export const leadville: TownConfig = {
   neighbors: [],
   slug: 'leadville',
   name: 'Leadville',
-  /**
-   * UNCONFIRMED. The owner has not named this town's domain (10 October
-   * 2026), and the brief says to ask rather than guess, so this is a
-   * reserved `.invalid` name that cannot resolve. Replace it, and the email
-   * below, with the Inside domain the owner owns before creating the Vercel
-   * project; nothing links to a town that is not live, so until then it
-   * appears nowhere a reader can see.
-   */
-  domain: 'leadville.unconfirmed.invalid',
+  // Named by the owner on 10 October 2026, and on the owner's Cloudflare
+  // nameservers (the same pair as the other guides), checked the same day.
+  domain: 'insideleadville.com',
   siteTitle: 'Inside Leadville',
   tagline:
     'An independent guide to Leadville, Colorado: Harrison Avenue, the silver city at 10,000 feet, the Mineral Belt Trail and the highest peaks in the state.',
@@ -82,8 +76,7 @@ export const leadville: TownConfig = {
     alt: 'Placeholder: no photograph of Leadville has been chosen yet',
   },
   social: {
-    // Follows the domain; see the note on `domain`.
-    email: 'hello@leadville.unconfirmed.invalid',
+    email: 'hello@insideleadville.com',
   },
   nav: DEFAULT_TOWN_NAV,
   movingHere: {

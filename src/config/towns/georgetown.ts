@@ -8,8 +8,8 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  * Mountain chassis; the default launch threshold.
  *
  * Figures are from the Wikipedia infobox (census and GNIS), read 10 October
- * 2026, as for every other town; the comments say which. The domain is not
- * yet the owner's call: see `domain` below.
+ * 2026, as for every other town; the comments say which. The domain,
+ * insidegeorgetownco.com, is the owner's, named 10 October 2026.
  */
 export const georgetown: TownConfig = {
   kind: 'town',
@@ -25,15 +25,10 @@ export const georgetown: TownConfig = {
   neighbors: [],
   slug: 'georgetown',
   name: 'Georgetown',
-  /**
-   * UNCONFIRMED. The owner has not named this town's domain (10 October
-   * 2026), and the brief says to ask rather than guess, so this is a
-   * reserved `.invalid` name that cannot resolve. Replace it, and the email
-   * below, with the Inside domain the owner owns before creating the Vercel
-   * project; nothing links to a town that is not live, so until then it
-   * appears nowhere a reader can see.
-   */
-  domain: 'georgetown.unconfirmed.invalid',
+  // Named by the owner on 10 October 2026, and on the owner's Cloudflare
+  // nameservers (the same pair as the other guides), checked the same day.
+  // It carries "co", as Evergreen's does.
+  domain: 'insidegeorgetownco.com',
   siteTitle: 'Inside Georgetown',
   tagline:
     'An independent guide to Georgetown, Colorado: the silver town’s Victorian streets, the Georgetown Loop, Guanella Pass and the Clear Creek County seat.',
@@ -85,8 +80,7 @@ export const georgetown: TownConfig = {
     alt: 'Placeholder: no photograph of Georgetown has been chosen yet',
   },
   social: {
-    // Follows the domain; see the note on `domain`.
-    email: 'hello@georgetown.unconfirmed.invalid',
+    email: 'hello@insidegeorgetownco.com',
   },
   nav: DEFAULT_TOWN_NAV,
   movingHere: {
