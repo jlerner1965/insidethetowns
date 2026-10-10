@@ -123,17 +123,50 @@ export function offerPrice(
   return { lowPrice: money(low), highPrice: money(high), priceCurrency: 'USD' };
 }
 
+/**
+ * A listing's address line as a PostalAddress, in its parts.
+ *
+ * Listings write the address the way a reader copies it, "333 E. Wonderview
+ * Avenue, Estes Park, CO 80517", and the whole line used to go into
+ * `streetAddress`: the town and state said twice, and the ZIP with no field
+ * of its own (Search Console, 10 October 2026). A line that ends in a town
+ * and the state, with or without a ZIP, is split there. Anything else, a bare
+ * street or directions ("Colorado Highway 7, 5.8 miles south of Estes Park"),
+ * is the street line as written, in the guide's own town.
+ */
+export function postalAddress(address: string | undefined, town: { name: string; state: string }) {
+  const parts = address?.match(/^(.+),\s*([A-Za-z][A-Za-z .'-]*),\s*(?:CO|Colorado),?(?:\s+(\d{5}(?:-\d{4})?))?\s*$/);
+  if (parts) {
+    return {
+      '@type': 'PostalAddress',
+      streetAddress: parts[1]!.trim(),
+      addressLocality: parts[2]!.trim(),
+      addressRegion: town.state,
+      ...(parts[3] ? { postalCode: parts[3] } : {}),
+    };
+  }
+  return {
+    '@type': 'PostalAddress',
+    ...(address ? { streetAddress: address } : {}),
+    addressLocality: town.name,
+    addressRegion: town.state,
+  };
+}
+
 export function eventJsonLd(
   town: TownConfig,
   event: CollectionEntry<'events'>,
   url: string,
   imageUrl?: string,
+  /** The organizer's site from its own listing in the guide, for when the event does not give one. */
+  listedOrganizerUrl?: string,
 ) {
   const { data } = event;
   // As the .ics and the Google link give it: whole days by date alone, one
   // sitting by its times, and no end the listing does not have.
   const when = exportWhen(event);
   const stamp = (d: Date) => (when.allDay ? dayKey(d) : toIsoLocal(d));
+  const organizerUrl = data.organizerUrl ?? listedOrganizerUrl;
   return {
     '@context': 'https://schema.org',
     '@type': 'Event',
@@ -150,20 +183,23 @@ export function eventJsonLd(
     location: {
       '@type': 'Place',
       name: data.venue,
-      ...(data.address
-        ? { address: { '@type': 'PostalAddress', streetAddress: data.address, addressLocality: town.name, addressRegion: town.state } }
-        : { address: { '@type': 'PostalAddress', addressLocality: town.name, addressRegion: town.state } }),
+      address: postalAddress(data.address, town),
     },
     ...(imageUrl ? { image: [imageUrl] } : {}),
     // Only when the listing records who is running it. The venue is not
     // evidence of the organiser, so an unset field emits nothing rather than
     // a guess dressed as structured data.
+    //
+    // The site is the listing's own, or else the one on the organiser's own
+    // listing in the guide (the library's events, the library's site). Not
+    // the `source`: that is often a box office or a chamber calendar, and a
+    // missing url is better than a wrong one.
     ...(data.organizer
       ? {
           organizer: {
             '@type': 'Organization',
             name: data.organizer,
-            ...(data.organizerUrl ? { url: data.organizerUrl } : {}),
+            ...(organizerUrl ? { url: organizerUrl } : {}),
           },
         }
       : {}),
@@ -311,12 +347,7 @@ export function localBusinessJsonLd(
     '@type': typeMap[data.type] ?? 'LocalBusiness',
     name: data.title,
     description: data.summary,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: data.address,
-      addressLocality: town.name,
-      addressRegion: town.state,
-    },
+    address: postalAddress(data.address, town),
     ...(data.url ? { sameAs: data.url } : {}),
     ...(data.phone ? { telephone: data.phone } : {}),
     ...(data.priceRange ? { priceRange: data.priceRange } : {}),
