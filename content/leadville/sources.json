@@ -1,0 +1,221 @@
+{
+  "town": "leadville",
+  "sources": [
+    {
+      "id": "leadville-co-gov",
+      "name": "City of Leadville calendar (leadville-co.gov)",
+      "url": "https://www.leadville-co.gov/",
+      "type": "html",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. https://www.leadville-co.gov/ answered 403 to automated readers (not retried). https://www.colorado.gov/leadville redirected (302) to https://cityofleadville.colorado.gov/, which answered 404. Web search results point to leadville-co.gov as the City's site, with a /city-council page saying council meets the 1st and 3rd Tuesdays at 6 pm at 800 Harrison Ave, meeting pages with agendas and an iCal option, and an /about-leadville/page/recreation page linking the Lake County Recreation Department and the Mineral Belt Trail; none of those pages could be read, so nothing from them is in the guide. Council meetings should come from here once an editor can read it."
+    },
+    {
+      "id": "lakecountyco-com",
+      "name": "Lake County government (lakecountyco.com)",
+      "url": "https://www.lakecountyco.com/",
+      "type": "html",
+      "category": "county",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. The connection reset on fetch; not retried. Search results list lakecountyco.com as the county's site and say its offices include the Leadville Public Library and Ski Cooper. No county page was read."
+    },
+    {
+      "id": "lake-county-recreation",
+      "name": "Lake County Recreation Department",
+      "url": "https://www.lakecountyco.com/",
+      "type": "manual",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. No site of its own found by search; the City's recreation page (blocked, 403) links to it and the county site (connection reset) presumably hosts it. URL is a placeholder for the county site until an editor finds the department's page."
+    },
+    {
+      "id": "leadvilletwinlakes-com",
+      "name": "Visit Leadville Twin Lakes (Lake County Tourism Panel) community calendar",
+      "url": "https://www.leadvilletwinlakes.com/events/",
+      "sampleUrl": "https://www.leadvilletwinlakes.com/",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. The tourism site for Leadville and Twin Lakes, with the visitor center at 460 Harrison Ave (719-486-3900, summer hours daily 10-5). /events/ is a community-submitted calendar (an Add Event form at /events/community/add/): on 10 October it showed 12 October 2026 items, among them live music and trivia at the Pastime Saloon (120 W 2nd St), Trivia Tuesdays at The Famous (313 Harrison), Thursday family bingo at the Elks Lodge (123 W 5th), trivia and a paint-and-sip at FREIGHT (320 E 9th), Cloud City Mead's anniversary (609 D Hwy 24), a Community Fall Fest and Haunted Hills run at Colorado Mountain College (901 S Hwy 24), and a Victorian Spirits talk at the Healy House (Oct 16, 5:30 pm, $8-10, staged). Treated as an aggregator for everyone else's events; its own items (OctoberVille: fireworks and parade rescheduled to October 17, no time) are the only ones it can source. Home page also links /listing-category/annual-events/, /know-before-you-go/ (fire closures) and business directories. Page title still said February-March 2025 while listing October 2026. No feed found."
+    },
+    {
+      "id": "lakecountypubliclibrary-org",
+      "name": "Lake County Public Library",
+      "url": "https://www.lakecountypubliclibrary.org/library-events-calendar",
+      "sampleUrl": "https://www.lakecountypubliclibrary.org/",
+      "type": "html",
+      "category": "library",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. Home page gives 1115 Harrison Ave, 719-486-0569 and hours (Mon, Wed 10-6; Tue, Thu, Fri 10-5; Sat 12-4; Sun closed), published as a place. /library-events-calendar rendered only its heading (events load in the browser), and /events-programs is a hub for Kids (0-11), Teens (12-17), Adults and the annual Banned Books Week Celebration, without dates. Only dates seen: a 2026 copyright and 'Library Service Disruptions August 3 & 4' with no year. Look for a feed or a calendar URL that renders server-side."
+    },
+    {
+      "id": "fs-usda-gov-psicc",
+      "name": "Forest Service, Leadville Ranger District (Pike and San Isabel National Forests)",
+      "url": "https://www.fs.usda.gov/r02/psicc/alerts",
+      "sampleUrl": "https://www.fs.usda.gov/r02/psicc/recreation/leadville-ranger-district",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. All pages answered 200. /alerts lists the Willow Fire Area Closure (Order 02-12-01-26-39, Oct 1-Dec 31 2026 unless rescinded, NFS land south of Turquoise Lake to the north side of Halfmoon Creek), Interlaken Hotel and Annex closure (June 22, 2026), Turquoise Lake Road (CR 4) closure dated April 7, 2026 with access via CR 9C, and older wilderness and food-storage orders. Read and used: /recreation/turquoise-lake-recreation-area (2026 boat-ramp hours May 1-Sept 7, 6 am-8 pm; last updated May 1, 2026), /recreation/mount-elbert-fourteener (trails #1484 4.3 mi and #1481 5.8 mi, directions; updated April 15, 2026), /recreation/mount-massive-fourteener (updated March 12, 2026), /offices/leadville-ranger-district (810 Front St, 719-486-0749, 8-4:30, closed federal holidays; updated March 26, 2025), /alerts/willow-fire-area-closure-0. /recreation/leadville-ranger-district lists Halfmoon East and West campgrounds as temporarily closed and links every Turquoise Lake and Twin Lakes site. Not a calendar; a conditions source for the access blocks."
+    },
+    {
+      "id": "mininghalloffame-org",
+      "name": "National Mining Hall of Fame and Museum events",
+      "url": "https://mininghalloffame.org/events/",
+      "sampleUrl": "https://mininghalloffame.org/museum/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. /events/ listed, all 2026: the Spectra and Strata exhibit Oct 8-Jan 10, 2027; a lecture Oct 8 (past); Mining for Knowledge: Coal in Kentucky, Oct 20, 5-6 pm, virtual, $20 per login (not published, online only); Feed the Lizard, Get the Gold, Oct 28, 2-4 pm (published); The Silver Social, Nov 14, 6-9 pm, $30/$10 (published). /museum/ gives 120 W 9th St, Tue-Sun 10-4, closed Mon, open year-round, $20 combo ticket with the Matchless Mine, Lake County residents free; /contact/ gives 719-486-1229; /matchless-mine/ (557 CR 3) says open about Memorial Day to Labor Day and read 'Closed for the season'. Home page phone absent; footer copyright 2025."
+    },
+    {
+      "id": "skicooper-com",
+      "name": "Ski Cooper events",
+      "url": "https://www.skicooper.com/events/",
+      "sampleUrl": "https://www.skicooper.com/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. Home page: 232 CR 29 (POB 896), 719-486-2277, 26/27 season passes on sale, no lift hours or season dates. /events/ listed five dated items, all published: Community Meeting at the Cooper Lodge Oct 24, 2026, 10-12; Warren Miller 'Days Off' Nov 20, 2026, 7-9:30 pm; Opening Day - Weather Permitting Dec 9, 2026, 9-4 ('Kick-off to the 2026-27 Season'); 10th Mountain Day Feb 26, 2027; St. Patrick's Day March 17, 2027. A menu item 'Early Closing March 22, 2026' is last season's."
+    },
+    {
+      "id": "taboroperahouse-org",
+      "name": "Tabor Opera House calendar",
+      "url": "https://taboroperahouse.org/events/calendar",
+      "sampleUrl": "https://taboroperahouse.org/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. taboroperahouse.net redirects (301) to www.taboroperahouse.org, which answered 503 to WebFetch and whose TLS certificate does not match the www name for curl; the bare https://taboroperahouse.org/ reads fine. Home page: 308 Harrison Ave, PO Box 1004, (719) 486-8409, no hours or tour times. /events/calendar listed, without years (2026 inferred from the site's 2026 copyright and matching weekdays): October Historic Tours Oct 2-18 (no times or price, not published); Actually It Is Rocket Science Sat Oct 10, 7 pm (today, not published); The Addams Family Musical Oct 22-24 (date range only, published as whole days); Beetlejuice Fri Oct 30, 7 pm and The Nightmare Before Christmas Sun Nov 1, 3:30 pm (published). Tickets via a getcuebox.com box office; no prices on the calendar."
+    },
+    {
+      "id": "historycolorado-org-healy-house",
+      "name": "History Colorado: Healy House Museum and Dexter Cabin",
+      "url": "https://www.historycolorado.org/healy-house-museum-dexter-cabin",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. Gives 912 Harrison Ave, 719-486-0487, gift shop and exhibit hall Wed-Sun 10-4, tours at 10, 11:30, 1 and 2:30, open on the Memorial Day and Labor Day Mondays, kids and members free; no season dates. Exhibitions dated May 22, 2026-Sep 26, 2027 and Sep 12-Oct 24, 2026. No events list on this page; History Colorado's events calendar was not fetched."
+    },
+    {
+      "id": "leadvillerailroad-com",
+      "name": "Leadville Railroad",
+      "url": "https://leadvillerailroad.com/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. leadville-train.com redirects (302) here. Home page: 326 E 7th St, 866-386-3936; 'Daily trips from Memorial Day weekend through September. October-April we run weekly rides.' Oktoberfest rides all October, Holiday Express 2026-27 tickets on sale with rides from November 2026, summer 2027 tickets late October 2026. Departure times and fares only on the booking calendar; no dated events."
+    },
+    {
+      "id": "fws-gov-leadville-hatchery",
+      "name": "Leadville National Fish Hatchery (U.S. Fish and Wildlife Service)",
+      "url": "https://www.fws.gov/fish-hatchery/leadville/visit-us",
+      "sampleUrl": "https://www.fws.gov/fish-hatchery/leadville",
+      "type": "html",
+      "category": "parks",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. https://www.fws.gov/nfh/leadville answered 404; /fish-hatchery/leadville (3,072 acres, 10,000 ft, 36,000 visitors a year) and /visit-us (2846 Highway 300, 719-486-0189, office Mon-Fri 7-3:30, Rock Creek, Highline and Kearney Park trails meeting the Colorado Trail in the Mount Massive Wilderness) read fine. No visitor-center or grounds hours, no dates; mentions an annual Pathways to Fishing program and a Fish Hatchery 5K without dates."
+    },
+    {
+      "id": "delawarehotel-com",
+      "name": "Delaware Hotel",
+      "url": "https://www.delawarehotel.com/",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. 700 Harrison Ave, (719) 486-1418, desk staffed around the clock, check-in 4 pm, check-out 11 am. Only a 2026 copyright for a date; no events."
+    },
+    {
+      "id": "cityonahillcoffee-com",
+      "name": "City on a Hill Coffee & Espresso",
+      "url": "https://cityonahillcoffee.com/",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. Shopify site; www redirects to the bare host. Leadville shop 508 Harrison Ave, 6am-3pm M-F, 6am-4pm Sat & Sun; Canon City shop too. No phone anywhere on the page (checked the raw HTML); only a 2026 copyright. Staged for the phone."
+    },
+    {
+      "id": "mineralbelttrail-com",
+      "name": "Mineral Belt Trail",
+      "url": "https://mineralbelttrail.com/",
+      "type": "html",
+      "category": "parks",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. Home page reads 200 but gives no manager, length, surface, trailheads, parking or contact; links a Grooming Updates page and the Leadville Loppet (its fundraiser) with no date. /the-trail and /location answered 404. Staged until the City's or county's page can be read."
+    },
+    {
+      "id": "leadvilleraceseries-com",
+      "name": "Leadville Race Series (Life Time)",
+      "url": "https://www.leadvilleraceseries.com/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. Home page lists the races (Leadville Trail 100 MTB and Run, Silver Rush 50, Stage Race, Marathon & Heavy Half, 10K, Lead Challenge, camps) with no dates; 'lotteries open December 1st' without a year. Individual race pages not fetched. Nothing published."
+    },
+    {
+      "id": "twomilebrewing-com",
+      "name": "Two Mile Brewing",
+      "url": "https://www.twomilebrewing.com/",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. Answers 200 but the page renders in the browser: WebFetch saw only the title and the raw HTML's visible text was empty apart from a placeholder phone (555) 555-5555. No address, hours or phone read; nothing published or staged. Needs a browser or a call."
+    },
+    {
+      "id": "periodicbrewing-com",
+      "name": "Periodic Brewing (domain)",
+      "url": "https://periodicbrewing.com/",
+      "type": "manual",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. periodicbrewing.com redirected (302) to a HugeDomains for-sale page. Nothing read about the business; it may have closed or moved domains. Not listed."
+    },
+    {
+      "id": "silverdollarsaloon-com",
+      "name": "Silver Dollar Saloon (domain)",
+      "url": "https://www.silverdollarsaloon.com/",
+      "type": "manual",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. silverdollarsaloon.com redirected (302) to a HugeDomains for-sale page. Nothing read about the business; it may be on another domain or closed. Not listed."
+    }
+  ]
+}

@@ -17,7 +17,7 @@ import { byProminence, isOpen } from '@/lib/places';
 import OpenStatus from '@/components/OpenStatus.astro';
 import Provenance from '@/components/Provenance.astro';
 import TipsLink from '@/components/TipsLink.astro';
-import { accessFresh, ageDays, seasonalHoursApply } from '@/lib/freshness';
+import { accessFresh, ageDays, openMonthsLabel, seasonLabel, seasonalHoursApply } from '@/lib/freshness';
 
 export async function getStaticPaths() {
   const places = await getTownEntries('places');
@@ -80,7 +80,8 @@ const hoursValue =
   place.hoursHidden === 'stale' && data.verified
     ? `Not shown: last checked ${ageDays(data.verified)} days ago. Call to confirm.`
     : place.hoursHidden === 'season'
-      ? `Closed for the season${data.seasonal?.opens ? `; reopens ${formatDate(data.seasonal.opens)}` : ''}.`
+      // "Closed for the season; reopens May", from the dates or the months (src/lib/freshness.ts).
+      ? `${seasonLabel(data.seasonal) ?? 'Closed for the season'}.`
       : open
         ? data.hours ?? (hasOperator ? 'Hours unknown' : undefined)
         : undefined;
@@ -91,9 +92,12 @@ const hoursValue =
  * in) or says the place is closed for the season; an undated season's hours
  * cannot claim today, so they are shown here as text instead.
  */
+const months = openMonthsLabel(data.seasonal);
 const seasonValue = data.seasonal
   ? [
       data.seasonal.season,
+      // The months the operator gave, where the season text does not already say them: "open May–Oct".
+      months && !data.seasonal.season.toLowerCase().includes(months.toLowerCase()) ? `open ${months}` : undefined,
       // Hours the gate did not swap in (an undated season) are shown here as text.
       data.seasonal.hours && !seasonalHoursApply(data.seasonal) ? data.seasonal.hours : undefined,
       data.seasonal.opens && data.seasonal.closes
@@ -103,6 +107,8 @@ const seasonValue = data.seasonal
           : data.seasonal.closes
             ? `closes ${formatDate(data.seasonal.closes)}`
             : undefined,
+      // The operator's own line, "Closed in mud season", last.
+      data.seasonal.note,
     ]
       .filter(Boolean)
       .join('; ')

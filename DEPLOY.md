@@ -24,8 +24,21 @@ insideestespark.com  TOWN=estes-park      (mountain variant)
 insidegolden.com     TOWN=golden          (mountain variant)
 insideevergreenco.com TOWN=evergreen      (mountain variant; insideevergreen.com is someone else's)
 insidenederland.com  TOWN=nederland       (mountain variant)
+insideidahosprings.com   TOWN=idaho-springs   (mountain variant; not live; no project yet)
+insidegeorgetownco.com   TOWN=georgetown      (mountain variant; not live; no project yet)
+insidegrandlake.com      TOWN=grand-lake      (mountain variant; not live; no project yet)
+insidemanitousprings.com TOWN=manitou-springs (mountain variant; not live; no project yet)
+insideleadville.com      TOWN=leadville       (mountain variant; not live; no project yet)
+insideblackhawk.com      TOWN=black-hawk      (mountain variant; not live; no project yet)
 …
 ```
+
+The six towns scaffolded on 10 October 2026 build their holding pages until
+they launch. The owner named all six domains the same day, each on the
+owner's Cloudflare nameservers (the same pair as the other guides). A project for any of the six can only build once the branch that adds the
+town is on `main`: until then `TOWN=<slug>` is unknown there and the build
+stops. Each domain also needs Cloudflare Email Routing for its `hello@`
+address (see "Email"), which the holding page names.
 
 The seven projects after `carbonvalleyguide` were created on 6 October 2026
 by the REST API with the same settings (framework, repository, `TOWN`, the

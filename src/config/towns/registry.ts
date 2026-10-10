@@ -22,6 +22,12 @@ import { estesPark } from './estes-park.ts';
 import { golden } from './golden.ts';
 import { evergreen } from './evergreen.ts';
 import { nederland } from './nederland.ts';
+import { blackHawk } from './black-hawk.ts';
+import { idahoSprings } from './idaho-springs.ts';
+import { georgetown } from './georgetown.ts';
+import { grandLake } from './grand-lake.ts';
+import { manitouSprings } from './manitou-springs.ts';
+import { leadville } from './leadville.ts';
 // new-town:imports
 
 export const towns: TownConfig[] = [
@@ -44,5 +50,11 @@ export const towns: TownConfig[] = [
   golden,
   evergreen,
   nederland,
+  blackHawk,
+  idahoSprings,
+  georgetown,
+  grandLake,
+  manitouSprings,
+  leadville,
   // new-town:entries
 ];

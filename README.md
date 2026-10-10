@@ -157,11 +157,18 @@ events page, so readers can subscribe in a calendar app.
   the end of the row; the choice stays in the URL, `?when=weekend&category=music&free=1`,
   and a day strip jumps down the fortnight), then "Every week in [Town]", the
   weekly regulars once each with day, time and venue. `/this-weekend/` is the
-  weekend as its own page.
+  weekend as its own page. `/this-week/` on a Front Range guide ends with "Up the hill
+  this weekend": two or three of the live mountain guides' weekend listings (and a place
+  whose season opens that week), each linking to its page on that mountain guide, with
+  campaign tags on the link and a custom analytics event on the click
+  (`src/components/UpTheHill.astro`). Nothing on, no strip.
 - `/directory/` is every place by kind, with an "Open now" pill and a name search.
   Place kinds: restaurant, bar, coffee, shop, trail, trailhead, park, venue, lodging,
   service. A mountain guide's places may carry `seasonal` (season, hours, open and
-  close dates) and a trail, trailhead or park may carry `access` (parking, permit,
+  close dates, the months it is open or shut, and a note); rows and cards say "Open
+  May–Oct" or "Closed for the season" from it, and the weekly report and the review's
+  summary list a seasonal listing for a re-check as its season opens or closes
+  (`src/lib/freshness.ts`, `seasonRecheck`). A trail, trailhead or park may carry `access` (parking, permit,
   closures, the land manager's conditions page); the town config's `conditionsLinks`
   (CDOT; the park for Estes Park) are linked on Things to Do and every such page.
 - `/guides/` is every article by subject. Articles take `sources` (a list of

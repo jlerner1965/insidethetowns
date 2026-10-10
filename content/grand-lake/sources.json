@@ -1,0 +1,191 @@
+{
+  "town": "grand-lake",
+  "sources": [
+    {
+      "id": "townofgrandlake-com",
+      "name": "Town of Grand Lake (townofgrandlake.com)",
+      "url": "https://www.townofgrandlake.com/",
+      "type": "html",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Not read. The home page and /calendar both returned HTTP 403 to automated readers on 10 October 2026, so no board meeting dates or Town events are on the guide. Someone needs to open the Town calendar in a browser and find whether it offers an iCal or RSS feed."
+    },
+    {
+      "id": "gograndlake-com",
+      "name": "Grand Lake Area Chamber of Commerce (gograndlake.com)",
+      "url": "https://gograndlake.com/events/",
+      "sampleUrl": "https://gograndlake.com/grand-lake-visitor-center/",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. grandlakechamber.com redirects (301) here. The home page and the visitor center page gave the chamber's address (14700 US Hwy 34), phone and 'Summer Hours' (daily 9 am–4 pm), with no dates; footer dated 2026. The home page lists no dated events, only links to /events/, /events/signature-events/ and /events/summer-fall/, none of which were fetched. A chamber calendar is an organizer's page only for the chamber's own events; a business it lists still needs its own site."
+    },
+    {
+      "id": "gcld-org",
+      "name": "Grand County Library District: Juniper Library at Grand Lake",
+      "url": "https://gcld.org/juniper-library-at-grand-lake",
+      "sampleUrl": "https://gcld.org/juniper-library-at-grand-lake",
+      "type": "html",
+      "category": "library",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. The branch page gives 316 Garfield, 970-627-8353, junilib@gcld.org and hours Wed 10–7, Thu 10–6, Fri–Sun 10–4 (none listed for Mon–Tue). The district home page (gcld.org) lists board meetings on 13 October (5:30 pm), 17 November and 8 December 2026 without a venue. Events live on the separate librarycalendar.com host (next entry)."
+    },
+    {
+      "id": "gcld-librarycalendar-com",
+      "name": "Grand County Library District event calendar, Juniper branch filter",
+      "url": "https://gcld.librarycalendar.com/events/month?branches%5B75%5D=75",
+      "sampleUrl": "https://gcld.librarycalendar.com/events/month?branches%5B75%5D=75",
+      "type": "html",
+      "category": "library",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026 (gcld.org/month-calendar redirects 302 here). October 2026 showed five district events, one at Juniper: 'Nepal: A Community Conversation', Saturday 10 October 2026, 2–3 pm. Each event has a detail page (/event/<slug>-<id>). The 'Ongoing Events' feed was collapsed and not read. A LibraryCalendar site usually offers an iCal feed per branch; not checked."
+    },
+    {
+      "id": "nps-gov-romo",
+      "name": "Rocky Mountain National Park (nps.gov/romo)",
+      "url": "https://www.nps.gov/romo/planyourvisit/conditions.htm",
+      "sampleUrl": "https://www.nps.gov/romo/planyourvisit/road_status.htm",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026: conditions.htm, road_status.htm (Trail Ridge Road open to through travel, timed entry 9 am–2 pm, status line 970-586-1222, updated 6 October 2026), hours.htm (Trail Ridge Road closed to through travel mid-October to late May; timed entry 23 May–19 October), directions.htm (I-70 exit 232, US 40 to Granby, US 34 to Grand Lake, 61 miles), visitorcenters.htm (names the Kawuneeche Visitor Center but loads its hours and address by script), calendar.htm (no events, 'listed as they are scheduled', updated 2023), hiking.htm (landing page only). Every guessed URL for the Kawuneeche Visitor Center, Holzwarth Historic Site, East Inlet and Green Mountain trailheads returned 404, so none is on the guide yet; the park's trail search is script-driven."
+    },
+    {
+      "id": "fs-usda-gov-arp",
+      "name": "Arapaho and Roosevelt National Forests: Sulphur Ranger District",
+      "url": "https://www.fs.usda.gov/r02/arp/recreation/sulphur-ranger-district",
+      "sampleUrl": "https://www.fs.usda.gov/r02/arp/recreation/arapaho-national-recreation-area",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. The district page (updated 12 September 2025) describes the 442,000-acre district, the Three Lakes and the Stillwater OHV area next to town, lists alerts (East Troublesome fire motorized impacts, shooting order, fire danger High) and links the recreation area, Arapaho Bay Campground (closed), Arapaho Pass and Bill Creek trails. The Arapaho National Recreation Area page gave fees ($5/$10/$15 passes, $30 annual), day-use hours and 2026 boat ramp hours (Stillwater closed for the season; Green Ridge to 31 October; Sunset Point to 29 November). Neither page gives the district office address or phone; /r02/arp/offices answered 200 but was not read. /r02/arp/alerts is the guide's conditions link."
+    },
+    {
+      "id": "co-grand-co-us",
+      "name": "Grand County calendar (co.grand.co.us)",
+      "url": "https://www.co.grand.co.us/Calendar.aspx",
+      "sampleUrl": "https://www.co.grand.co.us/Calendar.aspx",
+      "type": "html",
+      "category": "county",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. A CivicPlus calendar listing county commissioner meetings (Tuesdays 8:30 am, 308 Byers Ave., Hot Sulphur Springs), WIC clinics in Granby, Kremmling and Hot Sulphur Springs and a 2027 budget hearing notice; nothing in Grand Lake in October 2026. The page links /iCalendar.aspx and /rss.aspx#calendar; neither feed was fetched. Low yield for this guide."
+    },
+    {
+      "id": "rockymountainrep-com",
+      "name": "Rocky Mountain Repertory Theatre",
+      "url": "https://www.rockymountainrep.com/show-tickets/current-season/",
+      "sampleUrl": "https://www.rockymountainrep.com/show-tickets/box-office-info/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. The current-season page lists the fall and holiday shows with weekday, date and time but no year (Boulder Ballet 10 October 7:30 pm; Radio Hour 5 December 7 pm; Home for the Holidays 12 December 7:30 pm and 13 December 2 pm; NYE special 31 December 9 pm) alongside Colorado Gives Day dated 8 December 2026; the weekdays match 2026. The /show-tickets/calendar/ page is a script-rendered calendar with nothing readable. Box office page gives address, phones and hours by season."
+    },
+    {
+      "id": "grandlakehistory-org",
+      "name": "Grand Lake Area Historical Society (Kauffman House Museum)",
+      "url": "https://grandlakehistory.org/news-events/",
+      "sampleUrl": "https://grandlakehistory.org/museums/kauffman-house-museum/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. The news-and-events page lists a 'Happenings' talk on Tuesday, October 13, 6:30–7:30 (no year, no am/pm) at the Community House in Town Park, and a board meeting on Wednesday, October 14 at 610 Center Drive; the rest is historical clippings. The Kauffman House page gives 407 Pitkin Street, 970-627-8324, hours (Mon–Sat 11–5, Memorial Day through August, weekends in September) and admission ($5 adults). Footer copyright reads 2012; the home page mentions programming from summer 2025. Also links /special-events/ (not fetched)."
+    },
+    {
+      "id": "grandlakelodge-com",
+      "name": "Grand Lake Lodge",
+      "url": "https://www.grandlakelodge.com/",
+      "sampleUrl": "https://www.grandlakelodge.com/restaurant/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026: home page (15500 US-34, 970-627-3967, footer 2026), /faq/ (check-in 3 pm, dog policy, no season dates) and /restaurant/ (Huntington House Tavern 'Currently closed for the season', 970-800-4164, menu file dated May 2026). The lodge's /calendar/ page was not fetched; worth a look for events."
+    },
+    {
+      "id": "grandlakerecreation-com",
+      "name": "Grand Lake Metropolitan Recreation District (golf course, Nordic Center)",
+      "url": "https://www.grandlakerecreation.com/glmrd-calendar/",
+      "sampleUrl": "https://www.grandlakerecreation.com/nordiccenter/",
+      "type": "html",
+      "category": "parks",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026: home page, /nordiccenter/ ('Closed for the 2026 Season', pass prices, 35 km of trails) and /golf-course/ (events phone 970-627-8008, 'Upcoming Events' section loads by script). /contactfind-us/ and /find-us/ returned HTTP 500 on three tries, so no address or phone was read. glmrd.org gave no response. The calendar page was not fetched."
+    },
+    {
+      "id": "bluewaterbakery-com",
+      "name": "Blue Water Bakery",
+      "url": "https://www.bluewaterbakery.com/",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026. Gives 928 Grand Ave. and 970-627-5416 but the hours section says closed for the 2022 season, reopening May 2023, with nothing newer. Staged until someone calls."
+    },
+    {
+      "id": "sagebrushbbq-com",
+      "name": "Sagebrush BBQ & Grill",
+      "url": "https://www.sagebrushbbq.com/",
+      "type": "manual",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Not read: returned HTTP 403 to automated readers on 10 October 2026 (with and without www). Nothing about it is on the guide; open it in a browser."
+    },
+    {
+      "id": "grandlakemarina-com",
+      "name": "Grand Lake Marina",
+      "url": "https://www.grandlakemarina.com/",
+      "type": "manual",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Not read: no response (connection failed) on 10 October 2026, with and without www. The domain is a guess at the marina's site and may be wrong; nothing about it is on the guide."
+    },
+    {
+      "id": "grandlakebrewing-com",
+      "name": "Grand Lake Brewing",
+      "url": "https://www.grandlakebrewing.com/",
+      "type": "manual",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Not read: no response on 10 October 2026, with and without www. The domain is a guess and may be wrong; nothing about it is on the guide."
+    },
+    {
+      "id": "visitgrandlake-com",
+      "name": "visitgrandlake.com (guessed chamber domain)",
+      "url": "https://visitgrandlake.com/",
+      "type": "manual",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Not read: no response on 10 October 2026. The chamber's real site is gograndlake.com (see gograndlake-com); retire this entry once that is confirmed."
+    }
+  ]
+}

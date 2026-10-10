@@ -1,0 +1,167 @@
+{
+  "town": "georgetown",
+  "sources": [
+    {
+      "id": "townofgeorgetown-us",
+      "name": "Town of Georgetown (townofgeorgetown.us)",
+      "url": "https://www.townofgeorgetown.us/",
+      "sampleUrl": "https://www.townofgeorgetown.us/town_government/commissions/index.php",
+      "type": "html",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026: the home page (404 6th Street, 303-569-2555; news items dated 8 Oct, 30 Sep and 25 Sep 2026), newslist.php (titles and dates only, no body text; the newest item is 'Road Work Scheduled for Ward III Beginning Oct. 12', 8 Oct 2026), visitor.php, town_government/parks_and_trails.php, tom_bennhoff_lake_trail.php, werlin_park_dog_park.php, town_government/commissions/index.php and government/boards_and_commissions/board_of_selectmen/index.php. The site is a Revize CMS with no calendar page and no feed: the commissions page gives regular schedules only (Board of Selectmen 2nd and 4th Tuesdays 6 pm; Business Promotion Commission 1st Wednesday 8 am; Design Review Commission 2nd and 4th Thursdays 6 pm; Parks & Recreation Commission 1st Thursday 6 pm; Planning Commission 3rd Wednesday 6 pm; all at Town Hall with Zoom), and cancellations appear as news items. Meetings are streamed and archived at https://townofgeorgetown.ompnetwork.org/embed/full (not fetched). The Board of Selectmen event on the guide is the regular schedule's date, not a posted agenda."
+    },
+    {
+      "id": "co-clear-creek-co-us",
+      "name": "Clear Creek County",
+      "url": "http://www.co.clear-creek.co.us/",
+      "type": "html",
+      "category": "county",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Not fetched on 10 October 2026 (the fetch budget went to the Town, the library, the Forest Service and the venues); the Town's Other Agencies page links it as the county's site. Check for a county calendar and the Guanella Pass road (County Road 381) seasonal closure notice."
+    },
+    {
+      "id": "georgetowntrust-org",
+      "name": "Georgetown Trust for Conservation and Preservation: Gateway Visitor Center and the Old School",
+      "url": "https://www.georgetowntrust.org/",
+      "sampleUrl": "https://www.georgetowntrust.org/events",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026: the home page (Visitor Center 303-569-2405, Old School 303-569-5180), /georgetowngatewayvisitorcenter (1491 Argentine Street; gift shop and information center 9 am to 5 pm daily, restrooms 6 am to 10 pm daily, information services also given as 9 to 5 Monday to Friday) and /events (the Old School at 809 Taos Street; Devil Moon concerts, the plein air exhibit to 9 August 2026, summer Mountain Jams in Library Park; nothing dated after August 2026). The Town's own link, http://www.georgetowntrust.org/gateway-visitor-center.html, returns 404; the live path is /georgetowngatewayvisitorcenter. No feed found. The nearest thing Georgetown has to a chamber or visitor bureau."
+    },
+    {
+      "id": "georgetown-colorado-org",
+      "name": "Georgetown Business Promotion Commission visitor site (georgetown-colorado.org)",
+      "url": "https://www.georgetown-colorado.org/",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Tried 10 October 2026: the home page returned only its title ('Discover Vintage Georgetown, Colorado | History & Adventure') with the body truncated, and /events returned 404. The Town's site links it as the Visitor Business Promotions website and 'Explore Georgetown Recreation'. Nothing was read from it; try again by hand to find its events calendar and business directory."
+    },
+    {
+      "id": "cccld-org",
+      "name": "Clear Creek County Library District (John Tomay Memorial Library, Georgetown)",
+      "url": "https://cccld.org/",
+      "feedUrl": "https://cccld.org/events/?ical=1",
+      "sampleUrl": "https://cccld.org/events/",
+      "type": "html",
+      "category": "library",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026: the home page, /about/locations-and-hours (John Tomay Memorial Library, 605 6th Street, 303-569-2620, Mon to Wed 9 to 5, Thu 9 to 6, Fri 9 to 5, Sat 9 to 2; Local History Archives at 809 Taos Street; dated closure notices for 9, 12 and 13 October) and /events/, a month-view calendar (The Events Calendar plugin by the look of it) showing October 2026 only, with five Georgetown (JTML) events, two Idaho Springs (ISPL) ones, the district board meeting on the third Tuesday and two all-branch closures. The feedUrl is the plugin's usual iCal export and was NOT fetched: confirm it answers before switching the type to ical. The Town's site misnames the district page as 'Library' under Other Agencies."
+    },
+    {
+      "id": "clearcreekrecreation-com",
+      "name": "Clear Creek Metropolitan Recreation District",
+      "url": "https://clearcreekrecreation.com/",
+      "sampleUrl": "https://clearcreekrecreation.com/events/",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026: the home page (pool, gym, classes; fall 2026 ghost tours, a Zombie Fun Run on 31 October and a Pumpkin SMASH on 7 November) and /events/ (38 items from 9 October to 30 December 2026). Every event with a venue is in Idaho Springs (320 Chicago Creek Road; the Idaho Springs Sports and Events Complex), and the Step & Tone sessions give no venue, so nothing from it is on the Georgetown guide. The home page links a Google 'Clear Creek Community Calendar' shared with the school district (not fetched). No address, phone or hours on the home page; those are on /hours and /contact (not fetched)."
+    },
+    {
+      "id": "fs-usda-gov-arp",
+      "name": "Arapaho and Roosevelt National Forests: Clear Creek Ranger District",
+      "url": "https://www.fs.usda.gov/r02/arp/recreation/clear-creek-ranger-district",
+      "sampleUrl": "https://www.fs.usda.gov/r02/arp/recreation/bierstadt-trailhead",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026: the district page (updated 29 May 2026; shows 10 of 78 sites, among them the Bakerville-Loveland Trailhead and Trail and the Bierstadt Trailhead), /recreation/bierstadt-trailhead (updated 19 February 2026), /recreation/guanella-pass-scenic-byway (updated 11 August 2026; no seasonal closure stated), /alerts (fire restrictions alert dated 21 September 2026 saying none are in place; the Guanella Pass occupancy order; Mount Evans Wilderness restrictions; shooting orders) and /alerts/guanella-pass (Forest Order ARP-CCRD-2023-02, 1 January 2024 to 31 December 2028). The Forest Service pages do not give the pass road's winter closure; that is the county's road. Linked live from the town config as a conditions page."
+    },
+    {
+      "id": "historicgeorgetown-org",
+      "name": "Historic Georgetown, Inc. (Hamill House, Alpine Hose No. 2, Christmas Market)",
+      "url": "https://www.historicgeorgetown.org/",
+      "sampleUrl": "https://historicgeorgetown.org/georgetown-christmas-market-2/",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026: the home page (305 Argentine Street, 303-569-2840; museum hours; museums close for the season on Sunday September 27th, no year given; Christmas at the Hamill House 12 and 19 December, $85), /hamill-house (Alpine Hose No. 2 at 507 5th Street, Thu to Sun noon to 4), /georgetown-christmas-market-2/ (66th market, 5-6 and 12-13 December 2026, organized with the Town) and /christmas-at-the-hamill-house/ (6 to 9 pm). The duck races page says to check back in 2027. The site's /program-events/ page was not fetched. The town's biggest annual event, the Christmas Market, lives here, hence core."
+    },
+    {
+      "id": "georgetownlooprr-com",
+      "name": "Georgetown Loop Railroad",
+      "url": "https://www.georgetownlooprr.com/",
+      "sampleUrl": "https://www.georgetownlooprr.com/events/",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026: the home page (646 Loop Drive, Georgetown; 825 Railroad Avenue, Silver Plume; 888-456-6777), /faqs-directions/ (depot directions, season notes, ride lengths, group line 303-569-0133) and /events/ (Pumpkinfest 9-11 Oct, Autumnfest 16-18 Oct, Trick or Treat Train 30-31 Oct, holiday trains 6 Nov to 24 Dec, New Year's train 26 Dec to 1 Jan, Encore 2-3 Jan; the year appears only in the '2026 ... Faro Chip' labels, and no times or prices are on the page). /winter-holiday-trains/ names the trains without dates. Tickets sell through FareHarbor (https://fareharbor.com/embeds/book/georgetownlooprr/items/calendar/, not fetched); that calendar is where departure dates and prices live."
+    },
+    {
+      "id": "cabincreekbrewing-com",
+      "name": "Cabin Creek Brewing",
+      "url": "https://www.cabincreekbrewing.com/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026: the home page gives 577 22nd Street, 720-619-7264 and hours (Sun to Thu 11:30 am to 8 pm, Fri and Sat to 8:30 pm), a live-music page and a Halloween bash and a 7 November wax party without a year; the footer says 2021. Historic Georgetown's 2026 Christmas Market page names it as the biergarten sponsor, which is the second source the listing rests on. Its /livemusic page (not fetched) may carry dated shows."
+    },
+    {
+      "id": "hoteldeparismuseum-org",
+      "name": "Hotel de Paris Museum",
+      "url": "https://www.hoteldeparismuseum.org/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Tried twice on 10 October 2026: the first request timed out after 60 seconds, the second returned a PHP 'Fatal error: Out of memory' page from a Wordfence plugin, with no content. A guessed History Colorado page (historycolorado.org/hotel-de-paris-museum) returned 404. Nothing read, so no listing; the Town's home page names the museum among its attractions without an address."
+    },
+    {
+      "id": "georgetownenergymuseum-org",
+      "name": "Georgetown Energy Museum",
+      "url": "https://www.georgetownenergymuseum.org/",
+      "type": "html",
+      "category": "venue",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Tried twice on 10 October 2026: HTTP 502 Bad Gateway both times (Retry-After: 60). Nothing read, so no listing."
+    },
+    {
+      "id": "ccsdre1-org",
+      "name": "Clear Creek School District No. Re-1",
+      "url": "https://ccsdre1.org/",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Read 10 October 2026 for a Moving Here page: the home page gives only the district office (320 Hwy 103, Idaho Springs, 303-567-3850), a Schools menu with no items, a 2026 ballot measure link and the shared Google community calendar. No school in Georgetown is named, so the page was not written. Monthly is enough."
+    },
+    {
+      "id": "cotrip-org",
+      "name": "CDOT road conditions (COtrip)",
+      "url": "https://www.cotrip.org/",
+      "type": "html",
+      "category": "other",
+      "priority": "other",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Linked live from the town config for I-70, US 6 over Loveland Pass and the Guanella Pass road; not fetched on 10 October 2026. A map application, not a page to read weekly."
+    }
+  ]
+}

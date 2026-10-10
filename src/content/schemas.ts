@@ -354,6 +354,15 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
  * dates follow the listing's `verified` and its town's freshness window;
  * they carry no window of their own.
  */
+/** A month as the operator writes it: "May", "Sept", "October". Matched on its first three letters. */
+const monthName = z
+  .string()
+  .trim()
+  .regex(
+    /^(jan(uary)?|feb(ruary)?|mar(ch)?|apr(il)?|may|jun(e)?|jul(y)?|aug(ust)?|sep(t|tember)?|oct(ober)?|nov(ember)?|dec(ember)?)\.?$/i,
+    'expected a month name, such as "May" or "Oct"',
+  );
+
 export const seasonalSchema = z
   .object({
     /** When these hours apply, as a reader reads it: "Memorial Day to mid-October". */
@@ -364,12 +373,32 @@ export const seasonalSchema = z
     opens: localDate.optional(),
     /** The day the current season closes, "YYYY-MM-DD" (inclusive), from the operator's page. */
     closes: localDate.optional(),
+    /**
+     * Months the place is open: ["May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+     * from the operator's page. The rows and cards say "Open May–Oct" from
+     * it, the page says "Closed for the season" outside it, and the weekly
+     * report flags the listing for a re-check as the first and last of
+     * those months come round (src/lib/freshness.ts, seasonRecheck). Three
+     * letters or the full name; a run may wrap the year (Nov to Apr). Set
+     * this or `closedMonths`, not both: one is the other's complement.
+     */
+    openMonths: z.array(monthName).default([]),
     /** Months the place is shut: ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr"]. */
-    closedMonths: z.array(z.string().min(1)).default([]),
+    closedMonths: z.array(monthName).default([]),
+    /** One short line in the operator's words, shown with the season: "Closed in mud season". */
+    note: z.string().min(1).optional(),
   })
   .refine((s) => !s.opens || !s.closes || s.closes.getTime() >= s.opens.getTime(), {
     message: 'a season closes on or after the day it opens',
     path: ['closes'],
+  })
+  .refine((s) => s.openMonths.length === 0 || s.closedMonths.length === 0, {
+    message: 'set openMonths or closedMonths, not both: one is the complement of the other',
+    path: ['openMonths'],
+  })
+  .refine((s) => s.openMonths.length < 12, {
+    message: 'a place open every month of the year has no season to declare',
+    path: ['openMonths'],
   });
 
 /**

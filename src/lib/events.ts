@@ -524,6 +524,21 @@ const PLAN_YOUR_DAY: ReadonlySet<string> = new Set(['festival', 'market', 'music
  * series shows up as one; `order` is the neighbours' slugs in the town's
  * config order, which breaks ties.
  */
+/**
+ * "Up the hill this weekend", on a Front Range guide: two or three of the
+ * mountain guides' weekend listings, at most one per town so the strip is
+ * not one town's weekend, by the same rule as `nearbyPicks` (one-offs on
+ * Friday to Sunday, nothing civic, nothing weekly, each series once). The
+ * towns' order is the caller's, A to Z; `limit` is the strip's three.
+ */
+export function upTheHillPicks<T extends EventLike & { town: { slug: string } }>(
+  all: readonly T[],
+  order: readonly string[],
+  { now = new Date(), limit = 3 }: { now?: Date; limit?: number } = {},
+): T[] {
+  return nearbyPicks(all, order, { now, limit, perTown: 1 });
+}
+
 export function nearbyPicks<T extends EventLike & { town: { slug: string } }>(
   all: readonly T[],
   order: readonly string[],

@@ -43,6 +43,16 @@ export function liveTowns(): TownConfig[] {
 }
 
 /**
+ * The live mountain guides, A to Z: what the Front Range guides' "Up the hill
+ * this weekend" strip (UpTheHill.astro) reads. Decided by `variant`, so a
+ * mountain town joins the strip the day it goes live and nothing is listed
+ * twice.
+ */
+export function mountainTowns(): TownConfig[] {
+  return liveTowns().filter((t) => t.variant === 'mountain');
+}
+
+/**
  * A town's neighbours that have a guide to send a reader to, in the order its
  * config lists them. One that has not launched is left out: its domain does
  * not serve a guide yet.

@@ -126,6 +126,15 @@ test('each guide names the neighbours the owner set, in that order', () => {
     golden: ['evergreen'],
     evergreen: ['golden'],
     nederland: ['lyons', 'niwot'],
+    // The six scaffolded on 10 October 2026 wait for the owner's pairs: each
+    // config proposes its neighbours in a comment, and naming one here means
+    // naming the new town on that guide's list too.
+    'black-hawk': [],
+    'idaho-springs': [],
+    georgetown: [],
+    'grand-lake': [],
+    'manitou-springs': [],
+    leadville: [],
   };
   for (const t of towns) assert.deepEqual([...t.neighbors], NEIGHBORS[t.slug], t.slug);
 });
