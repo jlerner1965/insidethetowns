@@ -9,6 +9,7 @@ import { exportWhen, finalDay, isCanceled, isInProgress, isMultiDay, isOver, las
 import { googleCalendarUrl, showKey } from '@/lib/ics';
 import { pickCanonical } from '@/lib/series';
 import { breadcrumbJsonLd, eventJsonLd } from '@/lib/seo';
+import { resolveSiteImage } from '@/lib/images';
 import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 import Provenance from '@/components/Provenance.astro';
 import EventCard from '@/components/EventCard.astro';
@@ -80,6 +81,22 @@ const repeatNote = data.performances
     (data.repeat === 'weekly' && data.until ? `Every ${formatWeekday(data.start)} through ${formatDate(data.until)}` : undefined);
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
+/**
+ * The structured data's picture: the listing's own, or else the town's, the
+ * same file the share card falls back to. Four listings in nine hundred have
+ * a picture, and an Event with no image is left out of the picture-led event
+ * results (Search Console, 10 October 2026).
+ */
+const structuredImage =
+  shareImage ?? (await getImage({ src: resolveSiteImage(town.slug, town.hero.image), width: 1200, height: 630, format: 'jpg' })).src;
+/**
+ * An organizer with its own listing in this guide (a library, a museum, a
+ * theatre) has its site there; the structured data uses it when the event
+ * does not give one. Matched on the name exactly, so nothing is guessed.
+ */
+const listedOrganizerUrl = data.organizer
+  ? (await getTownEntries('places')).find((p) => p.data.title.toLowerCase() === data.organizer!.toLowerCase())?.data.url
+  : undefined;
 // The next sitting's own: a production's show carries its time and its note.
 const timeText = next.data.timeNote ?? formatTimeRange(when.start, when.end, data.allDay);
 // A run of days leads with its range, or "Now through…" while it is on, not
@@ -153,7 +170,7 @@ const facts = [
     // A production is an Event per show, as Google asks of separately
     // ticketed performances; anything else is its next occurrence.
     ...(shows.length > 0 ? shows : [next]).map((e) =>
-      eventJsonLd(town, e, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined),
+      eventJsonLd(town, e, url, new URL(structuredImage, Astro.site).toString(), listedOrganizerUrl),
     ),
     breadcrumbJsonLd(town, [
       { name: town.name, path: '/' },

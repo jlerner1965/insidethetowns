@@ -4565,3 +4565,34 @@ left two to the editor.
   lists, and the mountain window brings all five businesses back for a
   re-check within thirty days; a call before then is welcome, not
   required.
+
+## Event structured data, read against Search Console
+
+*10 October 2026.* Search Console listed Events notices on Estes Park (7),
+Fort Lupton (6) and Severance (1), and a note proposed five template rules.
+All the notices are warnings, and the pages stay eligible. The markup comes
+from one builder, `eventJsonLd`, so what changed, changed for every town.
+
+- **An address in its parts.** The whole line, town, state and ZIP
+  included, went into `streetAddress`. A line that ends in a town and the
+  state is now split, with the ZIP as `postalCode` (520 of 891 address
+  lines). A bare street or a set of directions stays the street line in
+  the guide's town, as before. Place pages use the same helper.
+- **Every event has a picture.** Four listings in 964 had one. The rest now
+  give the town's hero, the file their share card already used.
+- **The organizer's site from its own listing.** Where an event names an
+  organizer with no site and the guide lists a place by that exact name
+  (Estes Valley Library, Tabor Opera House), the place's site is used: 54
+  events. Not the `source` link, which is often a box office (lctix.com)
+  or a chamber calendar, and not the venue as the organizer, which the
+  schema already rules out as a guess. The other 152 need each site looked
+  up and added as `organizerUrl`.
+- **Not done, on purpose.** No `validFrom` from the publication date: it
+  means the day tickets went on sale, which no listing records. No
+  `availability` claimed for ticketed events nobody checked. No offer for
+  a listing with no cost line: Severance's listings say "Free" when the
+  source does, and the existing price rule then gives a zero price. A
+  "Ticketed" line still gives an offer without a price until the price is
+  read off the ticket page. `endDate` was already emitted wherever a
+  listing has an end. A `performer` field waits for a decision on whether
+  to record it.
