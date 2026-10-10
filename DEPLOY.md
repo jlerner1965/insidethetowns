@@ -24,21 +24,35 @@ insideestespark.com  TOWN=estes-park      (mountain variant)
 insidegolden.com     TOWN=golden          (mountain variant)
 insideevergreenco.com TOWN=evergreen      (mountain variant; insideevergreen.com is someone else's)
 insidenederland.com  TOWN=nederland       (mountain variant)
-insideidahosprings.com   TOWN=idaho-springs   (mountain variant; not live; no project yet)
-insidegeorgetownco.com   TOWN=georgetown      (mountain variant; not live; no project yet)
-insidegrandlake.com      TOWN=grand-lake      (mountain variant; not live; no project yet)
-insidemanitousprings.com TOWN=manitou-springs (mountain variant; not live; no project yet)
-insideleadville.com      TOWN=leadville       (mountain variant; not live; no project yet)
-insideblackhawk.com      TOWN=black-hawk      (mountain variant; not live; no project yet)
+insideidahosprings.com   TOWN=idaho-springs   (mountain variant; not live; holding page)
+insidegeorgetownco.com   TOWN=georgetown      (mountain variant; not live; holding page)
+insidegrandlake.com      TOWN=grand-lake      (mountain variant; not live; holding page)
+insidemanitousprings.com TOWN=manitou-springs (mountain variant; not live; holding page)
+insideleadville.com      TOWN=leadville       (mountain variant; not live; holding page)
+insideblackhawk.com      TOWN=black-hawk      (mountain variant; not live; holding page)
 …
 ```
 
 The six towns scaffolded on 10 October 2026 build their holding pages until
 they launch. The owner named all six domains the same day, each on the
-owner's Cloudflare nameservers (the same pair as the other guides). A project for any of the six can only build once the branch that adds the
-town is on `main`: until then `TOWN=<slug>` is unknown there and the build
-stops. Each domain also needs Cloudflare Email Routing for its `hello@`
-address (see "Email"), which the holding page names.
+owner's Cloudflare nameservers (the same pair as the other guides). Their
+projects (`insideblackhawk`, `insideidahosprings`, `insidegeorgetownco`,
+`insidegrandlake`, `insidemanitousprings`, `insideleadville`) were created
+the same evening by the REST API, at the owner's word, with Nederland's
+settings: framework, repository, `TOWN`, the Ignored Build Step, Node 22.x
+and preview deployments off. Each has its apex and `www` (a 308 to the
+apex) attached, and its first production deployment of `main` is ready.
+The owner added the DNS at Cloudflare the same evening: an `A` record on
+each apex to `76.76.21.21`, as on the other guides, and on `www` a `CNAME`
+to the project's own `vercel-dns-016.com` target (Settings → Domains);
+Vercel reported all twelve hostnames configured. Idaho Springs' `www` had
+been pointed at Black Hawk's target and was corrected to its own. Vercel
+had issued certificates for four apexes on its own; the other eight
+hostnames' were requested through the API (`POST /v8/certs`), and all
+twelve answer over HTTPS: the apex with the holding page, `www` with a
+308 to it. Email Routing for each `hello@` went on the same evening (see
+"Email"). Still to do for each, when the town goes live: a deploy hook on
+`main` added to `VERCEL_DEPLOY_HOOKS`, and Web Analytics switched on.
 
 The seven projects after `carbonvalleyguide` were created on 6 October 2026
 by the REST API with the same settings (framework, repository, `TOWN`, the
@@ -237,7 +251,11 @@ insidecastlerockco.com, insideestespark.com, insidegolden.com,
 insideevergreenco.com, insidenederland.com), through the API: routing
 enabled (`POST /zones/<id>/email/routing/dns`), one rule per domain
 copied from insidelovelandco.com's, catch-all left off, and `_dmarc`.
-All twenty guide domains now receive `hello@`.
+On 10 October the same went on the six mountain domains
+(insideblackhawk.com, insideidahosprings.com, insidegeorgetownco.com,
+insidegrandlake.com, insidemanitousprings.com, insideleadville.com), with
+the rule copied from insidenederland.com's, again with a token the owner
+supplied. All twenty-six guide domains now receive `hello@`.
 
 On each domain (Cloudflare → the domain → Email → Email Routing):
 
