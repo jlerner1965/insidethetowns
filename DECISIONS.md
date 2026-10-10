@@ -4416,3 +4416,100 @@ colour. It is applied as written; no hex was tuned here.
   to the others, so it keeps its place but sits at the far end of the row
   beside search, where it reads as the way out rather than a sixth section.
   The phone menu is unchanged: "Other towns" is still its last row.
+
+## The launch handoff, read against the guides
+
+*10 October 2026.* The owner supplied *Inside the Towns Launch Handoff*
+(a Word document prepared the same day): original copy for 261 places, 33
+itineraries and 55 FAQs across the six new mountain guides and the five
+guides with the fewest places (Severance, Fort Lupton, Timnath,
+Nederland, Elizabeth), 29 photo records, per-town private notes on
+address conflicts, and instructions for Claude Code. Its own first
+instruction is to follow the project's rules, and the 7 October content
+pack set the method: the packet is a set of leads, not a source.
+
+- **Every place was read again on its own page.** One researcher per
+  town worked from a shared brief, matched each record to the published
+  and staged files, and wrote nothing that a business's or agency's own
+  page, read that day, did not say. Robots.txt and `Content-Signal`
+  opt-outs were honoured as before (coloradosprings.gov for the Incline,
+  pplibraries.org, the Leadville Herald, FareHarbor). Nothing from the
+  packet went into `verified`, and its copy was not used: bodies are in
+  the house voice, from the operator's page, ending on what was read
+  where.
+- **What changed.** Published places on the eleven guides went from 147
+  to 221; staged from 52 to 96. Idaho Springs (24), Manitou Springs (24)
+  and Grand Lake (19) now clear their listing thresholds; Georgetown has
+  17, Leadville 21, Black Hawk 11. Nederland, Timnath and Elizabeth had
+  every packet place already; 17 of their listings were corrected
+  (Brainard Lake's 2026 timed entry and its October 2–16 road closure,
+  Timnath Reservoir's resident-only permits, Catrina's suite, Mountain
+  Man's source, which had become a password page, Running Creek Park now
+  read from the Town's own page). Lakeview Park in Severance is
+  temporarily closed on the Town's 19 August notice. Eight articles:
+  Explore guides for the six mountain towns, from the packet's
+  itineraries with published stops only, and "out of season" guides for
+  Leadville and Georgetown with `supersededAfter` dates in 2027. The
+  Front Range guides got none: every packet itinerary repeated an
+  existing Explore, history or with-kids guide.
+- **Second sources.** Where an operator's page carried nothing dated
+  within the year, the README's second source was used: the town's or
+  City's business directory (Idaho Springs' visitor site, Leadville's
+  Restaurants & Bars and Retail Merchants pages, Georgetown's Where to
+  Eat) or the chamber's member listing (Grand Lake, Manitou Springs, Fort
+  Lupton). A directory page that shows its own date more than a year old
+  was not counted: Buckskin Trading (Georgetown) went back to staging and
+  out of the Explore guide. A site that has visibly not been kept up was
+  not trusted for hours even with a directory behind it: Main Street
+  Restaurant (Idaho Springs; Covid notice, 2019–24 footer) is staged.
+  Catrina's unit and phone were corrected from its own page but its
+  check date stays at 2 October, since nothing dated or independent says
+  it is open. A weekday and month with no year ("Friday, October 30") is
+  not a date: the Black Hawk casinos stay staged, and Adam's Mountain
+  Cafe rests on the chamber, not on its "closed Tuesday, September 8"
+  notice. Leadville's five businesses on the City's undated lists are
+  published on that list; the owner may want them called.
+- **Not listed, on the 6 October rule.** The Central City Opera House and
+  the Gilpin History Museum (Central City). The Census geocoder settled
+  two borders: Windsong Estate (2901 Saddler Blvd) is inside Severance;
+  Arapaho Bend's address is inside Fort Collins (see below). The packet's
+  "nearby excursions" that are federal, state or county land reached from
+  the town are listed with `area: "Nearby: …"`.
+- **The packet's errors**, each against the page that says otherwise:
+  Treeline Kitchen is 615 Harrison, not 615A; Mein House has no suite;
+  Point Park's 1121 Third Street is a tourism site's (the Town gives two
+  other numbers); Columbine Corner's own page says 614 Sixth St; the
+  South Platte Valley Historic Park is in Fort Lupton, not nearby; the
+  Argo now sells from mightyargo.com at $32.95; Barr Trail's figures and
+  Red Mountain's length trace to aggregators; Timnath Beverage, which the
+  packet doubted, has an October 2026 tasting list; Windsong Estate is in
+  Severance's slice, not Timnath's. Several of its sources cite this
+  network's own pages.
+- **Photographs.** Of nine exact-place photos, four went on published
+  listings after a read of the Commons file page and a look: the Argo
+  mill (public domain), the Hamill House and the Tom Bennhoff Lake Trail
+  (Jeffrey Beall, CC BY 4.0) and Leadville's depot (Larry Lamsa, CC BY
+  2.0). The Steamshovel and the Elizabeth bank were already on their
+  listings; the Hotel de Paris and the Penny Arcade wait with their
+  staged listings; Beau Jo's 2012 interior, dim and full of diners'
+  faces, was declined. The twenty town-context photos were not used: the
+  heroes chosen this morning stand.
+- **Sites that answer now.** The official sites of Idaho Springs, Grand
+  Lake, Black Hawk and Leadville refused automated reads this morning and
+  answered this afternoon; their configs say so, and Leadville's
+  `leadville-co.gov` is confirmed as the City's by its own footer. Lake
+  County's site answered too, which published the Mineral Belt Trail.
+- **For the owner.** `docs/CALL-LIST.md` has a new section: every staged
+  listing from this import with its number and question, and the
+  published ones left with a question. Decisions only the owner can make:
+  whether a business with no phone may publish (World's End Brewpub, the
+  Folk School, the South Platte Valley Historic Park); whether a weekday
+  date without a year counts (it would release Ameristar, the Lodge,
+  Bally's and their restaurants once hours are confirmed); and three
+  border cases already published before this rule was tested on them:
+  Arapaho Bend (Timnath, inside Fort Collins), Two Bridges Trail
+  (Elizabeth, in Franktown) and Garden of the Gods (Manitou Springs, a
+  Colorado Springs park). The Gilpin History Museum's staged file is
+  marked not to be promoted; delete it if preferred.
+- **The handoff document stays out of the repo**, like the content pack's
+  viewer: a brief, not content.
