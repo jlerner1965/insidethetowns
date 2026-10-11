@@ -16,7 +16,7 @@
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
-import { countyLabel, countyShort, getHub, liveTowns } from '@/config';
+import { censusGrowth, countyLabel, countyShort, getHub, liveTowns } from '@/config';
 import { collectionPageJsonLd } from '@/lib/seo';
 import { comparisonSlug, liveComparisons } from '@/content/comparisons';
 
@@ -29,8 +29,7 @@ const towns = [...liveTowns()].sort((a, b) => (b.population ?? 0) - (a.populatio
 /** "Thompson School District R2-J: Berthoud Elementary, …" -> the district. */
 const district = (full?: string) => (full ? (full.split(/[:(]/)[0] ?? full).trim() : '—');
 const num = (n?: number) => (n ? n.toLocaleString('en-US') : '—');
-const growth = (t: (typeof towns)[number]) =>
-  t.population && t.population2010 ? `+${Math.round((t.population / t.population2010 - 1) * 100)}%` : '—';
+const growth = censusGrowth;
 
 // All or none. A price column with gaps in it invites the reader to
 // assume the gaps mean "cheap", and an unsourced one is worse than absent.

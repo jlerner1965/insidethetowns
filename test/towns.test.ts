@@ -8,7 +8,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { towns } from '../src/config/towns/registry.ts';
-import { TOWN_REGIONS, countiesCovered, countyLabel, countyShort } from '../src/config/towns/types.ts';
+import { TOWN_REGIONS, censusGrowth, countiesCovered, countyLabel, countyShort } from '../src/config/towns/types.ts';
 import { LIVE_TOWNS } from '../src/config/index.ts';
 import { hub } from '../src/config/towns/hub.ts';
 import { homeTitle, wordmarkEm, wordmarkParts } from '../src/lib/titles.ts';
@@ -220,4 +220,14 @@ test('every live guide’s tagline fits a search snippet, and has a short line f
     assert.ok(t.tagline.length <= 155, `${slug}: tagline is ${t.tagline.length} characters`);
     assert.ok(t.shortTagline && t.shortTagline.length <= 70, `${slug}: shortTagline missing or long`);
   }
+});
+
+test('census growth carries its own sign, so a town that shrank does not read "+-13%"', () => {
+  assert.equal(censusGrowth(by('niwot')), '+7%');
+  assert.equal(censusGrowth(by('timnath')), '+938%');
+  assert.equal(censusGrowth(by('grand-lake')), '\u221213%');
+  assert.equal(censusGrowth(by('manitou-springs')), '\u22123%');
+  assert.equal(censusGrowth({ population: 1000, population2010: 1001 }), '0%');
+  assert.equal(censusGrowth({ population: 1000 }), '—');
+  for (const t of towns) assert.doesNotMatch(censusGrowth(t), /\+-|\+\u2212/, t.slug);
 });
