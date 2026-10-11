@@ -14,3 +14,5 @@ added: "2026-09-17"
 ---
 
 The Johnstown branch of the Johnstown Milliken Public Libraries, on South Parish Avenue next to Town Hall: Monday storytimes, Thursday babytime, kids' and teen programs, adult classes from sourdough to genealogy, a makerspace, a Library of Things and meeting rooms. Late until 8 on Tuesday to Thursday; closed Sundays.
+
+The Makerspace equipment is free to use for children, adults and entrepreneurs. The Library of Things lends items beyond books, and Explorer Passes give admission to participating Colorado attractions; both have their own borrowing rules, set out on the library's site.

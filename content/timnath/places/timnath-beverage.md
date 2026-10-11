@@ -14,3 +14,5 @@ added: "2026-09-17"
 ---
 
 A neighborhood liquor store on Innovate Place in the Timnath Ranch business park, with local and national beer, wine and spirits, tastings and monthly specials.
+
+Orders can be called in ahead, staff carry purchases out at no charge, and they will help with wine pairings, beer choices and cocktail ingredients. The website lists a 10 percent case discount on wine and liquor. Tastings are held on set dates.

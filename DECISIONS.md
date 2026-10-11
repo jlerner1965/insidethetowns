@@ -4641,3 +4641,96 @@ stays empty.
 - **Not done.** `validFrom` and ticket `availability`, as before. The 194
   events still without a cost have no published price that could be
   found; most are weekly programs and meetings whose pages say nothing.
+
+## The owner's rules of 11 October
+
+*11 October 2026.* The owner supplied a second content handoff (prepared by
+Codex against 56c0021: a patch, 18 photographs and a review report) and,
+reading it against the guides, found the entry rules "hurdle after hurdle to
+finish adding content even when it is accurate". The owner agreed this set the same
+morning; the README's rules at entry and the content READMEs say it.
+
+- **Loosened.** A business's own Facebook or Instagram page counts as its own
+  page. Google Maps showing a place open is a second source that it is open,
+  never for its hours, prices or phone. A series the organizer states as a rule
+  ("the second and fourth Wednesday") may be listed on the organizer's word. A
+  mountain listing stays up 60 days from its check and its hours 45
+  (`src/config/freshness.ts`; it was 30 and 30, which hid accurate listings
+  faster than the rotation reached them); the Front Range stays at 90 and 60,
+  and the rotation at 30. A place in a neighbouring town with no guide of its
+  own may be listed as `area: "Nearby: <town>"`. An article publishes once it
+  is accurate and sourced, to be deepened later. A content handoff is
+  spot-checked, about one item in five against its source and every photo
+  licence, and accepted on its own reading when no more than one checked item
+  in ten has a material error; its wording stays after an edit for voice, and
+  `verifiedBy` names who read it. Where a source refuses automated reads, a
+  handoff's recent reading stands until the weekly rotation reaches it.
+- **Kept.** A source and a check date on every item; never a review site or an
+  aggregator for hours or prices; expiry; staging with a reason; marking, not
+  deleting; a parked or hijacked domain read as closed; strict photo licences;
+  and no working around a site's bot check (a headless browser was tried
+  against Black Hawk's Cloudflare check this morning and stopped at the owner's
+  word).
+
+## The 11 October handoff, spot-checked
+
+*11 October 2026.* The handoff's 221 changes: 48 event files, 15 new places
+(four from staging, seven lodgings), additions to 63 existing listings, 12
+history and with-kids articles for the six mountain guides, five Moving Here
+pages (Georgetown, Grand Lake, Idaho Springs, Leadville, Manitou Springs) and
+Black Hawk's revised, 11 calendar sources, 18 photographs, and 24 staging
+files resolved.
+
+- **The check.** 73 text items (16 mountain events, 12 Front Range events, 15
+  new places, 19 expanded listings, six articles and the five Moving Here
+  pages) and all 18 photographs, against their sources. Eleven text items
+  could not be read: the City and Town sites of Black Hawk, Grand Lake,
+  Leadville, Manitou Springs and Elizabeth, and the Ameristar, Toast and Mash
+  Lab pages, answered with Cloudflare's 403. Of the 80 readable checks, five
+  were material errors, about one in sixteen, under the threshold, so the rest
+  was accepted on the handoff's reading.
+- **The errors, fixed.** Beau Jo's Evergreen's Prairie Pie is not "thinner"
+  on its menu; Golden Gate Canyon's campground office is closed for the season
+  (older text gave 10 to 5); the Georgetown history called the 1874 school the
+  Heritage Center, which it has not been since 2023 (it is The Old School);
+  the Manitou history cited a mineral-springs URL that now redirects to an
+  image; and the Kauffman House photograph is CC BY-SA 3.0, not 4.0. Smaller
+  corrections: the Lyons artisan market's address (338 High St, the north gym
+  entrance), the book groups' pages name no title, the Columbine Garden Club's
+  November page says Tommyknockers, not its back room, and the Heritage
+  Museum's Sunday films are free.
+- **Photographs.** Sixteen kept, each with alt text redone from the Commons
+  page's date and what is in the frame (a Georgetown Loop coach, not the
+  Devil's Gate depot; the Hidden Treasure Trailhead bridge, which the City's
+  page gives as Maryland Mountain's access). Two declined: Beau Jo's Idaho
+  Springs interior is the dim, crowded 2012 photograph already declined on 10
+  October, and the Grand Lake Lodge entrance is washed out with two visitors
+  as its subject (and was 2010, not 2012). The "Photograph:" lines the handoff
+  added to bodies are gone; the credit is shown with the image and on
+  /credits/, as on every other listing.
+- **Calendar sources.** The handoff marked eight feeds confirmed. Two answer:
+  the Clear Creek County library district (Georgetown and Idaho Springs) and
+  the Manitou Springs Heritage Center. The City and Town calendars of Black
+  Hawk, Grand Lake, Idaho Springs, Leadville, Manitou Springs and Windsor
+  answered 403 to our check, so they are back to `proposed` with the feed URL
+  kept and the call list asking for a look in a browser.
+- **Staging.** Cooper's on the Creek published with its hours block (Sunday
+  included) and a line that the footer leaves Sunday out; it is on the call
+  list. The Manitou Incline published on the handoff's reading of the City's
+  page, which opts out of automated reads, with Visit Colorado Springs and the
+  Cog Railway confirming the reservation, hours, no-pets rule and parking.
+  Before & After and Bar 8042 rest on pages that now block automated reads.
+  The other deletions were past dates, Johnstown storytimes folded into one
+  series file, a Messy Art already published, and trash pickup notices.
+- **Edited for voice.** Research notes and defensive asides were cut from the
+  handoff's prose ("This is the dated event window, not a claim about…",
+  "Visit details: the operator's page", a clinician disclaimer on a Moving
+  Here page); the frontmatter reformatting on existing listings was undone
+  where the value had not changed. `verifiedBy` reads "Claude Code, delegated
+  by James Lerner" on the 33 items re-read today and "Codex, for James Lerner"
+  on the rest.
+- **Not taken.** The handoff's own report (`docs/CONTENT-COMPLETION-2026-10-11.md`)
+  stays out of the repo, like the earlier briefs. Its verification register
+  (`docs/VERIFICATION-QUEUE-2026-10-11.csv`), the rebuilt photo contacts sheet
+  (now every open listing without a photograph) and its call-list rows are
+  kept, the call list rewritten for the new rules.

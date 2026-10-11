@@ -15,3 +15,5 @@ summary: "The town’s history museum in the old Denver & Rio Grande railroad de
 ---
 
 The Castle Rock Historical Society keeps its museum in the town’s Denver & Rio Grande depot, which Castle Rock won in 1875 after locals pushed for a stop on the narrow-gauge line. The society hosts monthly presentations by local historians and guest speakers, open to the public, and leads walking tours of downtown and of Cedar Hill Cemetery.
+
+The depot is built of local rhyolite stone, and the restored interior keeps the old ticket window and baggage area; the Historical Society says railroad workers’ names remain on an interior wall. The building was moved from the tracks to Elbert Street in 1970, and the museum opened in 1997.

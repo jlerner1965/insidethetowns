@@ -3,14 +3,24 @@
   "sources": [
     {
       "id": "cityofblackhawk-org",
-      "name": "City of Black Hawk (cityofblackhawk.org)",
-      "url": "https://www.cityofblackhawk.org/",
-      "type": "manual",
+      "name": "City of Black Hawk calendar",
+      "url": "https://www.cityofblackhawk.org/calendar",
+      "type": "ical",
       "category": "city-calendar",
       "priority": "core",
       "status": "proposed",
       "robots": "honor",
-      "notes": "10 October 2026: the City's site answered 403 Forbidden to automated readers, so nothing on this guide was read from it: no council calendar, no Visitor Center, no Mountain City Historic Park, no parks page. The editor must read it by hand or the owner must ask the City for a feed."
+      "notes": "The official calendar and advertised iCalendar export answered successfully. Some VEVENTs omit a location and URL: leave those in staging until the detail page or organizer supplies the venue. City office closures are not public events. Gregory Street and gallery dates were reviewed separately.",
+      "checkFrequency": "weekly",
+      "lastChecked": "2026-10-11",
+      "lastStatus": "blocked",
+      "lastNote": "Cloudflare answered 403 to the feed and the calendar page on 11 October 2026. The content handoff of the same day reported reading this feed; confirm it once it answers.",
+      "feedUrl": "https://www.cityofblackhawk.org/calendar/ical/calendar.ics",
+      "excludeTitles": [
+        "^Thanksgiving$",
+        "^Christmas$",
+        "^New Year.s Eve$"
+      ]
     },
     {
       "id": "gilpincounty-org",

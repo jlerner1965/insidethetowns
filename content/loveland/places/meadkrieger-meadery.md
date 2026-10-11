@@ -14,3 +14,5 @@ summary: "A downtown meadery serving its own Old Norse-style meads, hand-crafted
 ---
 
 MeadKrieger lists Colorado Governor's Cup medals for several of its meads, including a 2025 gold for its orange blossom mead. It keeps a calendar of events, offers private rentals, and sells its meads online.
+
+Mead is honey wine. The lineup runs from traditional and oak-aged meads to fruit versions such as raspberry, blueberry and cherry, plus orange blossom and spiced; the menu on the meadery's site lists the current pours and food.

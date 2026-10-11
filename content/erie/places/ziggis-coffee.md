@@ -15,3 +15,5 @@ added: "2026-09-17"
 ---
 
 The Colorado drive-through chain's Erie stand, on Milan Place just off Erie Parkway: espresso, blended drinks, breakfast burritos and paninis, open early every day.
+
+Beyond espresso, the menu lists chai, matcha, hot cocoa, teas, lemonades, smoothies and a range of children's drinks. Availability varies by store; the Milan Place location's ordering link shows what is offered here.

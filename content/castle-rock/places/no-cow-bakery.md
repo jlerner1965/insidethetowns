@@ -15,3 +15,5 @@ summary: "An allergy-friendly bakery on Fifth Street specializing in gluten-free
 ---
 
 No Cow bakes for people avoiding gluten, dairy or animal products, using avocado oil and no tree nuts (coconut milk aside), with soy-free and corn-free choices too. The case holds cakes, muffins, pies, breads and buns, brownies and take-and-bake items. It opens Thursday to Sunday.
+
+The take-and-bake range goes beyond sweets: frozen bun dough, vegan chili, tomato bisque and Bhutanese dumplings filled with mushroom, potato or spinach, alongside cinnamon rolls and several flavors of cookie dough.

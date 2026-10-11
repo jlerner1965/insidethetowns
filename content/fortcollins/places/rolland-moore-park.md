@@ -13,3 +13,5 @@ added: "2026-10-01"
 ---
 
 Rolland Moore Community Park on South Shields Street, beside Spring Creek and the Ross and Fischer natural areas. Eight lighted tennis courts, three outdoor handball and racquetball courts, one platform tennis court, sand volleyball, a fourplex ball field, five basketball courts, horseshoe pits, a playground, picnic tables, a reservable shelter and seasonal restrooms. Three parking lots, all off the park access road. Open daily 5 am to 11 pm.
+
+The reservable shelter is at the west end near the volleyball courts and holds 150. The Racquet Complex has a pro shop and is operated by Lewis Tennis School; court reservations are made separately. The City has announced future renovations of the playground and the tennis complex.

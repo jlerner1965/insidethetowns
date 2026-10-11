@@ -14,3 +14,5 @@ added: "2026-09-17"
 ---
 
 A liquor store on Erie Parkway between the highway and downtown, with beer, wine and spirits and a Colorado craft cooler.
+
+The shelves hold local and imported bottles, and the store takes requests for particular products. Upcoming tastings are listed one by one on its website, each with its own start time.

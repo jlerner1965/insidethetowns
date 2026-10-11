@@ -17,3 +17,5 @@ added: "2026-09-17"
 ---
 
 Erie's municipal airport (EIK) sits on Colorado 7 at the south edge of town, with a 4,700-foot concrete runway, and an airpark of homes with their own hangars alongside it. A quiet place to watch small planes take off against the mountains.
+
+Vector Air is the airport's fixed-base operator, with a lounge, flight-planning area, aircraft tie-downs and a courtesy car. Its desk is staffed Monday–Saturday 8 am–5 pm and Sunday 8 am–2 pm; self-service aviation fuel is available 24 hours.

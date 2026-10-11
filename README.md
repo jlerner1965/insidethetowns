@@ -42,8 +42,8 @@ canceled`, and the pages do the rest (see any content README).
    town are required; address, cost, description, source, repeat, until, recurring,
    allDay, timeNote, verified, slug, image, imageAlt, featured are optional). Dates
    are Denver wall-clock, `2026-10-03T10:00` or `2026-10-03`. A series goes in as
-   dated rows only when each date is on the organizer's calendar; a rule ("every
-   Thursday") that nobody has checked against the calendar is not a listing.
+   dated rows, or one file with `repeat`, when the organizer gives the dates or
+   states the rule ("every Thursday through December") on its own page.
 3. `npm run import-events -- week.csv --dry-run`, read the output, then run it without
    `--dry-run`. Every row is checked against the event schema first; an existing file
    is left alone unless `--force` is given. `source` defaults to `url` and `verified`
@@ -71,6 +71,18 @@ one (the owner, 10 October 2026: no phone is not a bar to listing); a weekday an
 without a year count as dated when they fall on that weekday this year; hours are
 written with am and pm; every listing and event carries a status; a review site or
 an aggregator is never the source.
+
+The owner loosened these on 11 October 2026 (DECISIONS.md, *The owner's rules of
+11 October*): a business's own Facebook or Instagram page counts as its own page;
+Google Maps showing a place open counts as a second source that it is open, never
+for its hours, prices or phone; a series the organizer states as a rule ("the second
+and fourth Wednesday") may be listed on the organizer's word; a mountain listing
+stays up 60 days from its check (hours 45); a place in a neighbouring town with no
+guide of its own may be listed as `area: "Nearby: <town>"`; an article publishes
+once it is accurate and sourced; and a content handoff is spot-checked (about one
+item in five, every photo licence) and accepted on its own reading when no more
+than one checked item in ten has a material error, with `verifiedBy` naming who
+read it. A source that refuses automated reads is not worked around.
 
 ## The source registry
 
@@ -205,7 +217,9 @@ and placements to a business owner.
 - `docs/ACCURACY-SYSTEM.md` — the accuracy brief: what the build enforces and why, phase by phase
 - `IMAGE_LICENSES.csv` — every image, its source and licence
 - `docs/PHOTOS.md` — how to get the missing photographs, and what has been ruled out
-- `docs/PHOTO-CONTACTS.csv` — the 187 businesses without one, with phone and website
+- `docs/PHOTO-CONTACTS.csv` — every open listing without one (610 on 11 October 2026), with phone, website, the shot wanted and permission status
+- `docs/CALL-LIST.md` — the listings that need a phone call, and the question to ask
+- `docs/VERIFICATION-QUEUE-2026-10-11.csv` — every staged record as of 11 October 2026, what was decided and what is still open
 - `docs/PARK-PHOTO-EMAILS.md` — ten ready-to-send requests covering 41 parks and trails
 - `docs/VENUE-PHOTO-EMAILS.md` — fourteen more covering the 21 venues, and how to reach the 139 businesses at once
 - `docs/INDUSTRY-EMAILS.md` — twelve messages to the trade bodies that reach those 139 businesses, with verified addresses

@@ -14,3 +14,5 @@ added: "2026-09-17"
 ---
 
 A fibre arts center on Main Street selling alpaca yarn, roving and finished goods, and teaching classes in spinning, weaving and knitting.
+
+Beyond yarn, the shop stocks batting, roving, books and tools for projects, and clothing, blankets and socks for gifts. It is open Saturdays, 10 am–5 pm; contact the shop before a weekday visit. Class dates are posted separately from the shop hours.

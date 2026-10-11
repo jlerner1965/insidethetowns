@@ -17,3 +17,5 @@ summary: "Garden center and landscaping company on Meadow Drive that specializes
 A garden center and landscaping business on Meadow Drive. It specializes in high-altitude, mountain-friendly and animal-resistant plants, and also offers landscaping services.
 
 Open year round: 10 am to 5 pm Monday to Saturday and 10 am to 4 pm on Sunday.
+
+Classes and workshops have limited space and are booked by phone. With advance notice of a cancellation, a paid workshop becomes store credit. Besides plants and landscaping, the business does garden maintenance and consultations for mountain conditions.

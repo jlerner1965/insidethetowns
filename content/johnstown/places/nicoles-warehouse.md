@@ -14,3 +14,5 @@ added: "2026-09-17"
 ---
 
 An antique and collectibles market of vendor booths at the north end of Parish Avenue, going for more than fifteen years: furniture, vintage kitchenware, tools, decor and new gift lines mixed in.
+
+Several vendors show their goods inside the old warehouse, and the stock also runs to architectural salvage such as distinctive doors and windows, refurbished furniture and handcrafted pieces. Custom orders are taken through the store's site or by phone. Open Wednesday to Saturday, 10 am to 5 pm.

@@ -15,3 +15,5 @@ added: "2026-09-17"
 ---
 
 A tea room inside the Carriage Shoppes at the south end of Main Street: pots of tea, sandwiches and light lunches, eat in or take away, with the antique and gift stalls next door.
+
+The tea room has three dining rooms in a historic livery stable and serves homemade lunches and premium teas; ask about afternoon high tea. The neighboring Carriage Shoppes antique store covers about 5,000 square feet, with work from around 25 local artists. The tea room prefers email for questions and arrangements.

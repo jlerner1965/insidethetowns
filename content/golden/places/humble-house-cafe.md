@@ -15,3 +15,5 @@ summary: "Coffee shop on Washington Avenue with single-origin craft coffee, smoo
 ---
 
 Humble House Cafe serves single-origin craft coffee, smoothies and house drinks, pastries, and breakfast and lunch dishes at 1208 Washington Avenue. It is open every day from 7 am to 4 pm, with the kitchen closing at 2 pm. The cafe says giving back is part of its mission and lists the projects and nonprofits it supports on its site.
+
+Besides the cafe there is a gift shop and a community gathering space. Pickup orders can be placed online, and the menu page lists the current seasonal selection.

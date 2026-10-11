@@ -15,3 +15,5 @@ summary: "A sports bar, billiards hall and grill on Denver Avenue with six Diamo
 ---
 
 Lucky Shot is a downtown sports bar and grill built around pool: six Diamond tables, and the bar is a venue for American Poolplayers Association (APA) tournaments. It serves a grill menu with daily specials, posted on its site. It opens at 11 am on weekdays and 10:30 am at weekends, and stays open until midnight Thursday, Friday and Saturday.
+
+Weekend brunch runs Saturday and Sunday, 10:30 am–1 pm, with a green-chile-smothered breakfast burrito and tater-tot bowls with eggs, cheese and a choice of bacon or sausage.

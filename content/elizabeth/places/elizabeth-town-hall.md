@@ -17,3 +17,5 @@ added: "2026-09-17"
 ---
 
 The Town of Elizabeth's hall on South Banner Street, a block off Main. (The police department is not here: its station is at 425 S Main St.) The Board of Trustees meets here on the second and fourth Tuesdays at 7 pm with five minutes of public comment, and the Planning Commission on the first and third Tuesdays at 6:30 with three minutes.
+
+Town Hall is ADA accessible. At Board of Trustees meetings the five-minute limit is for unscheduled public comment; comment during a public hearing is limited to three minutes. A regular meeting can be canceled, so check the posted agenda and calendar first. The Town publishes formal public notices in the RanchLand News.

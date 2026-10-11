@@ -14,3 +14,5 @@ added: "2026-09-17"
 ---
 
 Niwot’s florist, on the square with a second counter inside Niwot Market.
+
+Belle Terre’s website now concentrates on wedding and event flowers: owner and lead designer Sarah Cioni lists bouquets, centerpieces, ceremony installations and larger event displays, starting with an inquiry and consultation, and can arrange delivery, setup and teardown. For a walk-in bouquet or pickup, call ahead.

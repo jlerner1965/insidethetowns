@@ -42,7 +42,7 @@ const place = (extra: Record<string, unknown> = {}) => ({
 test('the windows are the brief\'s, and the mountain ones are shorter everywhere', () => {
   assert.equal(FRESHNESS.recheckDays, 30);
   assert.deepEqual(windowsFor('front-range'), { listingDays: 90, hoursDays: 60, accessDays: 30, recheckDays: 30 });
-  assert.deepEqual(windowsFor('mountain'), { listingDays: 30, hoursDays: 30, accessDays: 30, recheckDays: 30 });
+  assert.deepEqual(windowsFor('mountain'), { listingDays: 60, hoursDays: 45, accessDays: 30, recheckDays: 30 });
   assert.ok(windowsFor('mountain').listingDays < windowsFor('front-range').listingDays);
   assert.ok(windowsFor('mountain').hoursDays <= windowsFor('front-range').hoursDays);
 });
@@ -64,9 +64,9 @@ test('a Front Range listing is shown through day 90 and hidden on day 91', () =>
   assert.match(hidden?.detail ?? '', /shown for 90/);
 });
 
-test('a mountain listing is hidden on day 31', () => {
-  assert.equal(placeExclusion(place({ verified: verifiedDaysAgo(30) }), 'mountain', now), null);
-  assert.equal(placeExclusion(place({ verified: verifiedDaysAgo(31) }), 'mountain', now)?.reason, 'stale');
+test('a mountain listing is hidden on day 61', () => {
+  assert.equal(placeExclusion(place({ verified: verifiedDaysAgo(60) }), 'mountain', now), null);
+  assert.equal(placeExclusion(place({ verified: verifiedDaysAgo(61) }), 'mountain', now)?.reason, 'stale');
 });
 
 test('a closed listing does not go stale: its claim is that the place is shut', () => {
@@ -81,7 +81,9 @@ test('hours are hidden before the listing is', () => {
   assert.equal(hoursFresh(place({ verified: verifiedDaysAgo(60) }), 'front-range', now), true);
   assert.equal(hoursFresh(place({ verified: verifiedDaysAgo(61) }), 'front-range', now), false);
   assert.equal(placeExclusion(place({ verified: verifiedDaysAgo(61) }), 'front-range', now), null);
-  assert.equal(hoursFresh(place({ verified: verifiedDaysAgo(31) }), 'mountain', now), false);
+  assert.equal(hoursFresh(place({ verified: verifiedDaysAgo(45) }), 'mountain', now), true);
+  assert.equal(hoursFresh(place({ verified: verifiedDaysAgo(46) }), 'mountain', now), false);
+  assert.equal(placeExclusion(place({ verified: verifiedDaysAgo(46) }), 'mountain', now), null);
   assert.equal(hoursFresh(place({ verified: undefined }), 'front-range', now), false);
 });
 
@@ -198,7 +200,7 @@ test('what a published listing may still show: closed, temporarily closed, stale
     delist: false,
   });
   assert.deepEqual(presentation(place({ verified: verifiedDaysAgo(60) }), 'front-range', now), { hideHours: false, hidePhone: false, delist: false });
-  assert.deepEqual(presentation(place({ verified: verifiedDaysAgo(31) }), 'mountain', now).hoursHidden, 'stale');
+  assert.deepEqual(presentation(place({ verified: verifiedDaysAgo(46) }), 'mountain', now).hoursHidden, 'stale');
 });
 
 test('a seasonal place is closed for the season between its dates, or in a closed month', () => {

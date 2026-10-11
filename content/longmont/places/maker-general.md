@@ -14,3 +14,5 @@ summary: "A Main Street craft shop its owners describe as a \"general store\" fo
 ---
 
 Maker General sells hand-picked goods and supplies for people working with textiles and fibers; its shop lists embroidery and cross-stitch kits, fabric and patterns. It offers a wide variety of workshops and classes, from visible mending and upcycling to after-school sewing. Gift certificates are available.
+
+The workshop list includes a learn-to-sew course for adults in November 2026, embroidery and visible-mending sessions, and a November craft night; each workshop's page has its dates and enrollment details.

@@ -143,7 +143,7 @@ access:                           # trail, trailhead or park only
 ```
 
 The seasonal block follows the listing's own `verified` and the mountain
-window (30 days); the access block has its own date and the shortest window.
+window (60 days); the access block has its own date and the shortest window.
 A season with dates or months is also on the weekly report's "Seasons turning"
 list, and the review's summary, as it opens or closes: within 14 days of the
 turn ahead, and after the turn behind until the listing is checked again, since
@@ -154,12 +154,13 @@ config, not here.
 ## Sources, check dates, and staging
 
 Nothing publishes without a `source` (the organizer's or the business's own page,
-never a review site or an aggregator) and a `verified` date. An event or a place
+its own Facebook or Instagram included; never a review site or an aggregator) and a
+`verified` date. An event or a place
 in the published folders that lacks either is left out of the build, with a line
 on the build log and in `npm run validate` saying so; the file is not deleted.
 A listing that claims to be open is also left out once its `verified` date is
-older than its freshness window (90 days on a Front Range guide, 30 on a mountain
-one; `src/config/freshness.ts`), and its hours go first (60 and 30 days). The
+older than its freshness window (90 days on a Front Range guide, 60 on a mountain
+one; `src/config/freshness.ts`), and its hours go first (60 and 45 days). The
 weekly report lists what is due for a re-check well before that.
 
 Anything not ready to publish goes in `staging/events/` or `staging/places/`,

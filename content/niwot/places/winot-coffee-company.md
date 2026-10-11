@@ -13,3 +13,5 @@ added: "2026-09-17"
 ---
 
 The square’s coffeehouse since 2007, family-owned, next door to Hanna’s Herb Shop. WiNot has no site of its own; the Business Association listing carries its hours.
+
+Besides coffee there are light meals and refreshments, made with locally produced ingredients where possible. It closes at 2 pm on Mondays and weekends and at 4 pm Tuesday to Friday.

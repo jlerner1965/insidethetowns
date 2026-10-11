@@ -15,3 +15,5 @@ added: "2026-09-17"
 ---
 
 A mini-donut counter in the historic hotel building at the north end of Main Street, frying to order in classic cinnamon-sugar and a rotating set of signature styles.
+
+Party platters need at least 24 hours' notice: a box holds 36 mini donuts in up to six flavors, and the shop asks for the event details with the order. Larger orders, weddings included, are arranged directly by phone or email.

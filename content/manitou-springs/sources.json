@@ -3,14 +3,22 @@
   "sources": [
     {
       "id": "manitouspringsco-gov",
-      "name": "City of Manitou Springs (manitouspringsco.gov)",
-      "url": "https://www.manitouspringsco.gov/",
-      "type": "manual",
+      "name": "City of Manitou Springs: main calendar",
+      "url": "https://www.manitouspringsco.gov/Calendar.aspx",
+      "type": "ical",
       "category": "city-calendar",
       "priority": "core",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Dead end on 10 October 2026: the City's site answers automated requests with HTTP 403, so no council meeting, park (Soda Springs Park, Memorial Park), Incline or any other City page was read. Nothing on the guide cites it. Confirm by hand whether the City publishes an iCal or RSS calendar feed before adding a feedUrl."
+      "notes": "Official iCalendar feed read and parsed on 11 October 2026. New records enter staging for editorial review; verify venue where the feed leaves LOCATION blank. Office closures and ordinary facility hours are not public events.",
+      "checkFrequency": "weekly",
+      "lastChecked": "2026-10-11",
+      "lastStatus": "blocked",
+      "lastNote": "Cloudflare answered 403 to the feed and the calendar page on 11 October 2026. The content handoff of the same day reported reading this feed; confirm it once it answers.",
+      "feedUrl": "https://www.manitouspringsco.gov/common/modules/iCalendar/iCalendar.aspx?catID=14&feed=calendar",
+      "excludeTitles": [
+        "^(?:.*office.*clos(?:ed|ure)|.*city hall.*closed|.*holiday closure|.*town hall.*closed).*$"
+      ]
     },
     {
       "id": "manitousprings-org",
@@ -49,15 +57,23 @@
     },
     {
       "id": "manitouspringsheritagecenter-org",
-      "name": "Manitou Springs Heritage Center (Heritage Museum)",
+      "name": "Manitou Springs Heritage Museum calendar",
       "url": "https://manitouspringsheritagecenter.org/events/",
       "sampleUrl": "https://manitouspringsheritagecenter.org/events/",
-      "type": "html",
+      "type": "ical",
       "category": "venue",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Read 10 October 2026. Home page (517 Manitou Avenue, (719) 685-1454, 'Open every day Noon-4:00pm or by appointment'), the events calendar (The Events Calendar plugin, October 2026: five Ghost Stories of Old Manitou walking-tour nights 5:30-8:30 pm, Cool Science Festival talks on 10 October, three Sunday Night Frights watch parties, the coffin races listed 10 am-5 pm at Soda Springs Park) and the ghost tours page (annual fundraiser since 1995, Eventbrite tickets, no price). The place, the walking tours and the watch parties cite these. A The Events Calendar site usually serves /events/?ical=1; not tested, confirm by hand before setting a feedUrl."
+      "notes": "Public tours and screenings only. The museum calendar also carries private events and third-party chamber listings; do not approve private entries or assume the museum organizes every listed event.",
+      "checkFrequency": "weekly",
+      "lastChecked": "2026-10-11",
+      "lastStatus": "ok",
+      "lastNote": "Read successfully on 11 October 2026; valid iCalendar feed parsed.",
+      "feedUrl": "https://manitouspringsheritagecenter.org/?ical=1&eventDisplay=list",
+      "excludeTitles": [
+        "Private Event"
+      ]
     },
     {
       "id": "gardenofgods-com",

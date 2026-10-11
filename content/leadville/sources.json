@@ -3,14 +3,22 @@
   "sources": [
     {
       "id": "leadville-co-gov",
-      "name": "City of Leadville calendar (leadville-co.gov)",
-      "url": "https://www.leadville-co.gov/",
-      "type": "html",
+      "name": "City of Leadville: public meetings",
+      "url": "https://www.leadville-co.gov/calendar",
+      "type": "ical",
       "category": "city-calendar",
       "priority": "core",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Read 10 October 2026. https://www.leadville-co.gov/ answered 403 to automated readers (not retried). https://www.colorado.gov/leadville redirected (302) to https://cityofleadville.colorado.gov/, which answered 404. Web search results point to leadville-co.gov as the City's site, with a /city-council page saying council meets the 1st and 3rd Tuesdays at 6 pm at 800 Harrison Ave, meeting pages with agendas and an iCal option, and an /about-leadville/page/recreation page linking the Lake County Recreation Department and the Mineral Belt Trail; none of those pages could be read, so nothing from them is in the guide. Council meetings should come from here once an editor can read it."
+      "notes": "Official iCalendar feed read and parsed on 11 October 2026. New records enter staging for editorial review; verify venue where the feed leaves LOCATION blank. Office closures and ordinary facility hours are not public events.",
+      "checkFrequency": "weekly",
+      "lastChecked": "2026-10-11",
+      "lastStatus": "blocked",
+      "lastNote": "Cloudflare answered 403 to the feed and the calendar page on 11 October 2026. The content handoff of the same day reported reading this feed; confirm it once it answers.",
+      "feedUrl": "https://www.leadville-co.gov/calendar/ical/calendar.ics",
+      "excludeTitles": [
+        "^(?:.*office.*clos(?:ed|ure)|.*city hall.*closed|.*holiday closure|.*town hall.*closed).*$"
+      ]
     },
     {
       "id": "lakecountyco-com",

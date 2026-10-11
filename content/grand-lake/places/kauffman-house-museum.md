@@ -12,6 +12,9 @@ phone: "970-627-8324"
 seasonal: { season: "Memorial Day through August, Monday to Saturday; weekends in September", hours: "Mon–Sat 11 am–5 pm, closed Sun", openMonths: [May, Jun, Jul, Aug, Sep], note: "Also open on special occasions through the year" }
 tags: [museum, history, national-register]
 summary: "The Grand Lake Area Historical Society's museum in an 1892 log hotel on Pitkin Street, open Monday to Saturday from Memorial Day through August and on September weekends. Adults $5, children 12 and under free."
+image: "../images/kauffman-house-museum.jpg"
+imageAlt: "The dark-brown log Kauffman House Museum in Grand Lake, with flag bunting on its porch and a bronze statue on a boulder in front, in 2012"
+imageCredit: "Magicpiano, Wikimedia Commons, CC BY-SA 3.0"
 ---
 
 The Kauffman House was built in 1892 as a hotel and is, the society says, the only log hotel built in Grand Lake before 1900 that still stands; it is on the National Register of Historic Places and the Grand Lake Area Historical Society bought and restored it in 1973. Inside are a parlor and an upstairs bedroom papered from a c. 1915 photograph, a preserved section of wall covered in newspapers from December 1893 and January 1894, a strip of the original wallpaper, and a gallery added in 1990 whose exhibits change. Volunteers act as docents and guides. There are geocaches on the grounds and a virtual tour online.

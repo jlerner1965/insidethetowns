@@ -14,3 +14,5 @@ added: "2026-09-17"
 ---
 
 The Town of Berthoud's offices at the west end of Mountain Avenue, where the Board of Trustees meets on the second and fourth Tuesdays, the Planning Commission on the second and fourth Thursdays, and residents pay water bills and pull permits.
+
+Counter hours are Monday to Thursday, 7 am–5:30 pm; the building is closed Friday through Sunday. Evening public meetings are held outside those hours, on their own agendas. General questions go to info@berthoud.org or 970-532-2643.

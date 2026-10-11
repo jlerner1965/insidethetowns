@@ -138,12 +138,13 @@ Longer description in Markdown.
 ## Sources, check dates, and staging
 
 Nothing publishes without a `source` (the organizer's or the business's own page,
-never a review site or an aggregator) and a `verified` date. An event or a place
+its own Facebook or Instagram included; never a review site or an aggregator) and a
+`verified` date. An event or a place
 in the published folders that lacks either is left out of the build, with a line
 on the build log and in `npm run validate` saying so; the file is not deleted.
 A listing that claims to be open is also left out once its `verified` date is
-older than its freshness window (90 days on a Front Range guide, 30 on a mountain
-one; `src/config/freshness.ts`), and its hours go first (60 and 30 days). The
+older than its freshness window (90 days on a Front Range guide, 60 on a mountain
+one; `src/config/freshness.ts`), and its hours go first (60 and 45 days). The
 weekly report lists what is due for a re-check well before that.
 
 Anything not ready to publish goes in `staging/events/` or `staging/places/`,

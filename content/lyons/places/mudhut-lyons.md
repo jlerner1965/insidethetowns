@@ -13,3 +13,5 @@ added: "2026-09-17"
 ---
 
 The drive-through coffee hut on the Longmont road, for the commute or the drive up to the trailhead.
+
+Lattes, americanos and cappuccinos, plus spicy or honey chai, hot tea and drip coffee; the espresso beans are roasted weekly by a local roaster. To eat: egg bites, burritos, ham-and-cheese croissants, muffins and banana bread. There are picnic tables outside beside the creek.

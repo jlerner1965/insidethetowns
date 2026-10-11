@@ -14,3 +14,5 @@ summary: "Wine bar and tasting room on Main Street, pouring by the glass and the
 ---
 
 Owners Doug and Julie Oldfield set out to make wine approachable rather than intimidating, and the bar runs regular interactive wine events plus two wine clubs. Reservations are taken through Tock, and Küper also hosts private events and offers catering.
+
+The Küper Club includes a monthly wine flight and a discount on wine purchases; the Roosevelt Club centers on bottles from a featured region. The wines come from Argentina, France, Italy, South Africa and the western United States, among other regions.

@@ -17,3 +17,5 @@ summary: "Brewery and restaurant on Fireweed Drive, the Evergreen half of a two-
 Lariat Lodge brews its own beers, among them Angry Elk Amber Ale and the Charging Bull IPAs, and runs a full kitchen at its Evergreen brewery on Fireweed Drive and at a second location in Littleton. Both locations keep separate food, drink and happy hour menus on the site.
 
 The second-floor dining area is available for private events. The site lists the brewery as open daily from 11 am to 9 pm; reservations and online orders for Evergreen are on its site.
+
+The Evergreen brewery has outdoor seating with dog-friendly areas and sells six-packs to take away; the canned lineup includes an amber ale, a Mexican-style lager, a light beer and several IPAs.

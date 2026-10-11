@@ -12,7 +12,9 @@
  *   what the report nags about) and the build's backstop is ninety
  *   (`listingDays`, after which the listing is hidden rather than shown as
  *   current). Mountain towns, where a season closes a road or a kitchen,
- *   get thirty for both.
+ *   get sixty and forty-five: thirty hid accurate listings faster than the
+ *   rotation could reach them (the owner, 11 October 2026), and the seasonal
+ *   block still turns a place's hours on the day its season changes.
  * - Hours are hidden before the listing is: a café is still there at day
  *   sixty-one, its Tuesday closing time may not be.
  * - Trail, parking and closure notes (the mountain variant's `access`) are
@@ -29,9 +31,9 @@ export const FRESHNESS = {
   /** The report's forward look: "going stale in the next N days". */
   reportHorizonDays: 14,
   /** Days from `verified` after which a listing claiming to be open is hidden from the site. */
-  listingDays: { 'front-range': 90, mountain: 30 } satisfies Record<TownVariant, number>,
+  listingDays: { 'front-range': 90, mountain: 60 } satisfies Record<TownVariant, number>,
   /** Days from `verified` after which a listing's hours are hidden; the rest of the listing stays. */
-  hoursDays: { 'front-range': 60, mountain: 30 } satisfies Record<TownVariant, number>,
+  hoursDays: { 'front-range': 60, mountain: 45 } satisfies Record<TownVariant, number>,
   /** Days from `verified` after which trail, parking and closure notes are hidden. */
   accessDays: 30,
 } as const;
