@@ -15,3 +15,5 @@ summary: "Breakfast, brunch and lunch on North Wilcox Street every day from 7 am
 ---
 
 Wide Awake serves breakfast and lunch menus of reworked comfort classics seven days a week, closing at 2 pm, and recommends booking a table ahead. It has a patio, caters, and hosts parties, including outside its regular hours.
+
+Breakfast is served until 2 pm: chilaquiles with pork carnitas, a chorizo-and-bacon breakfast burrito, chicken with a pearl-sugar waffle, banana French toast, lemon-blueberry pancakes and seasonal crepes, along with avocado toast and an egg-and-grain protein bowl.

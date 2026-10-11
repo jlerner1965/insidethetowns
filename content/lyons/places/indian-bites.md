@@ -14,3 +14,5 @@ added: "2026-09-17"
 ---
 
 Curries, biryani and saag on the 400 block, made to order; take it across to Sandstone Park on a summer evening.
+
+The menu runs to tandoori chicken, lamb rogan josh, shrimp biryani, paneer saag and vegetable dishes including chana masala and yellow daal. Some dishes can be made dairy-free with coconut cream.

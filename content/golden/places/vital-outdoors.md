@@ -15,3 +15,5 @@ summary: "Locally owned outdoor clothing, footwear and gear store on Washington 
 ---
 
 Vital Outdoors is a locally owned outdoor shop at 1224 Washington Avenue selling gear, apparel and footwear. Its About page lists brands including The North Face, Patagonia, Kuhl, Black Diamond, Osprey, Hoka, Merrell, Chaco and Smartwool, and its website lists more than 100 brands in all.
+
+The online catalog, with separate camping, running and snow sections, covers daypacks, trail footwear, sun-protection clothing and cold-weather gear such as insulated jackets, winter boots and gloves. It shows stock availability by product, handy for checking a size before a visit. Digital gift cards are available.

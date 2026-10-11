@@ -17,3 +17,5 @@ summary: "Thai restaurant on Highway 119 serving noodles and curries, with carry
 Ubon Thai Cuisine serves Thai food, including noodles and curries, on Highway 119 in Nederland. Orders can be placed online through its site.
 
 Its carryout hours are the same as its business hours.
+
+It opens at 11 am every day except Tuesday, when service starts at 4 pm, and closes at 9:30 pm. Fried shrimp and potstickers are on the menu alongside the noodles and curries.

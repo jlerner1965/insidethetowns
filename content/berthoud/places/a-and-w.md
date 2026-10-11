@@ -15,3 +15,5 @@ added: "2026-09-17"
 ---
 
 The A&W at the west end of Mountain Avenue: burgers, cheese curds, and root beer floats in frosted mugs.
+
+This location also has carhop service. Beyond burgers and floats, the menu has hand-breaded chicken tenders and Coney dogs, and the root beer is made with cane sugar. Closed Sundays.

@@ -13,3 +13,5 @@ added: "2026-09-17"
 ---
 
 A women's clothing boutique on the main block: everyday fashion, accessories and gifts.
+
+The shop leans western alongside its everyday clothing, with denim, dresses and outerwear, and accessories such as bracelets and hats. Stock varies, and the online catalog marks sold-out items. Online orders can be picked up in the store at no charge.

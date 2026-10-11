@@ -16,3 +16,5 @@ summary: "A 1.6-mile Douglas County loop up through the oaks to caprock overlook
 ---
 
 Glendale Farm’s trail is a natural-surface loop of 1.6 miles, with a spur to the rocks and about 200 feet of climbing onto the high prairie and its Front Range views. The 17-acre dog park beside it is Douglas County’s busiest; on the trail itself dogs must be leashed. There is a portable restroom, benches, picnic tables, a Level 2 electric-vehicle charger and a dirt lot, but no water.
+
+Hikers, mountain bikers and horses share the loop, which the county rates moderately easy because of its short climbs. Trailer parking is a small dirt area with room for about three horse trailers, depending on use; there are no hitch rails.

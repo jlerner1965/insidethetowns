@@ -14,3 +14,5 @@ summary: "Firestone’s public 18-hole course on the site of the old McKissick c
 ---
 
 Saddleback runs men’s, ladies’ and senior leagues, PGA Junior League and seasonal junior programs, tournaments and outings, and an indoor Trackman simulator, on ground the Town’s History page identifies as the former McKissick Mine. The Tavern serves Wednesday to Sunday from 11 am to 8 pm, with hot dogs, brats and breakfast burritos from the counter when it is closed. The club says its hours depend on the season.
+
+The golf shop’s basic schedule starts at 6:30 am Monday–Thursday and 6 am Friday–Sunday and holidays; call 303-833-5000 for the current opening and last tee time. Tee times, lessons, dining and the indoor simulator each have their own page on the club’s site.

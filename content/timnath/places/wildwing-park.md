@@ -12,4 +12,6 @@ verified: "2026-10-03"
 added: "2026-09-17"
 ---
 
-Opened in spring 2025 on County Road 1 (Colorado Boulevard) at the WildWing neighborhood: large multi-use fields, connecting trails, pickleball courts, a fenced dog park, a playground, a basketball court, a community garden and restrooms, with a sand volleyball court on the way. Dawn to dusk.
+Opened in spring 2025 on County Road 1 (Colorado Boulevard) at the WildWing neighborhood: large multi-use fields, connecting trails, pickleball courts, a fenced dog park, a playground, a basketball court and a community garden, with restrooms and a sand volleyball court on the way. Dawn to dusk.
+
+Fields and courts are reserved through a separate form, and permitted groups have priority over casual use. No overnight camping or RV parking, glass containers, or amplified sound without a permit. The Town's park page describes parts of the park reopening but still lists the restrooms and the sand volleyball court as coming soon.

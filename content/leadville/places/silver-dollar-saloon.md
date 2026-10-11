@@ -12,6 +12,9 @@ phone: "970-470-2368"
 hours: "Daily 12 pm–1 am"
 tags: [saloon, historic, bar, catering]
 summary: "Harrison Avenue saloon that dates itself to April 13, 1879, open noon to 1 am every day. The kitchen serves noon to 6 pm Wednesday to Saturday and noon to 5 pm Sunday; no reservations."
+image: "../images/silver-dollar-saloon.jpg"
+imageAlt: "The wooden false front of the Silver Dollar Saloon, dated 1879, on Harrison Avenue in Leadville, in August 2023"
+imageCredit: "Laurenschneider210, Wikimedia Commons, CC BY-SA 4.0"
 ---
 
 The Silver Dollar Saloon at 315 Harrison Avenue says it has served drinks and food since April 13, 1879, and points to its bar and to legendary visitors such as Doc Holliday. The bar is open every day from noon to 1 am; the kitchen keeps shorter hours, noon to 6 pm Wednesday through Saturday and noon to 5 pm on Sunday, and the site gives no kitchen hours for Monday and Tuesday. It is not taking reservations. The saloon also caters weddings and events, and FREIGHT, the depot event venue on East 9th Street, names it as the caterer it works with most often.

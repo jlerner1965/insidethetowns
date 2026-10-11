@@ -13,3 +13,5 @@ added: "2026-09-17"
 ---
 
 Dozens of machines from every era in a Main Street storefront, with a monthly tournament on the second Saturday and a women's tournament on the third. Check the door for hours.
+
+Open Thursday 5–10 pm, Friday 4–10 pm, Saturday noon–10 pm and Sunday noon–9 pm; closed Monday to Wednesday. In 2026 it is closed on Thanksgiving and Christmas Eve, and open for an event on New Year's Eve.

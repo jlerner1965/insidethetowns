@@ -3,14 +3,22 @@
   "sources": [
     {
       "id": "idahospringsco-com",
-      "name": "City of Idaho Springs (idahospringsco.com)",
-      "url": "https://www.idahospringsco.com/",
-      "type": "html",
+      "name": "City of Idaho Springs: public meetings",
+      "url": "https://www.idahospringsco.com/calendar",
+      "type": "ical",
       "category": "city-calendar",
       "priority": "core",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Blocked on 10 October 2026: https://www.idahospringsco.com/ returned HTTP 403 to automated readers (reported by the owner before this session; not re-fetched). The City's calendar, council meetings, Virginia Canyon Mountain Park, Citizens Park and the Charlie Tayler Water Wheel could not be read, so nothing on this guide cites the City. Needs a person to read it in a browser or the owner to find a feed the City allows."
+      "notes": "Official iCalendar feed read and parsed on 11 October 2026. New records enter staging for editorial review; verify venue where the feed leaves LOCATION blank. Office closures and ordinary facility hours are not public events.",
+      "checkFrequency": "weekly",
+      "lastChecked": "2026-10-11",
+      "lastStatus": "blocked",
+      "lastNote": "Cloudflare answered 403 to the feed and the calendar page on 11 October 2026. The content handoff of the same day reported reading this feed; confirm it once it answers.",
+      "feedUrl": "https://www.idahospringsco.com/calendar/ical/calendar.ics",
+      "excludeTitles": [
+        "^(?:.*office.*clos(?:ed|ure)|.*city hall.*closed|.*holiday closure|.*town hall.*closed).*$"
+      ]
     },
     {
       "id": "clearcreekcounty-us-calendar",
@@ -26,18 +34,27 @@
     },
     {
       "id": "cccld-org",
-      "name": "Clear Creek County Library District (cccld.org)",
-      "url": "https://cccld.org/programs-and-events",
-      "type": "html",
+      "name": "Clear Creek County Library District calendar",
+      "url": "https://cccld.org/events/",
+      "type": "ical",
       "category": "library",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Read 10 October 2026. Locations and Hours (/about/locations-and-hours) gives the Idaho Springs Public Library at 219 14th Avenue, 303-567-2020, Mon/Tue/Thu/Fri 9-5, Wed 9-6, Sat 9-2, Sun closed, with dated October 2026 notices (all branches closed Mon 12 Oct and Sat 24 Oct; JTML phone out until about 12 Oct). The programs page (/programs-and-events) listed October only: ISPL Book Group Mon 19 Oct 4-5 pm, Witchy Wonders Storytime Fri 23 Oct 10-11 am, ISPL & JTML BOOkfest Sat 31 Oct 5-7 pm (all published), plus past dates (Starlight Cinema 1 Oct, Friends book sale 2-3 Oct). No November or December events and no weekly storytime schedule were shown. The home page is long (117k characters); its first 100k were read. No feed URL was seen; the site links a community calendar at /community#community-calendar, not fetched.",
+      "notes": "Use the named branch to keep the two town calendars separate. Exclude library closures and district meetings whose actual venue is missing. The feed contains explicitly dated book groups through December; children’s programs are checked on their individual pages.",
       "sampleUrl": "https://cccld.org/about/locations-and-hours",
       "locationFilter": [
-        "Idaho Springs",
-        "ISPL"
+        "Idaho Springs Public Library"
+      ],
+      "checkFrequency": "weekly",
+      "lastChecked": "2026-10-11",
+      "lastStatus": "ok",
+      "lastNote": "Read successfully on 11 October 2026; valid iCalendar feed parsed.",
+      "feedUrl": "https://cccld.org/?ical=1&eventDisplay=list",
+      "excludeTitles": [
+        "LIBRARY CLOSED",
+        "Board of directors",
+        "Library District Board"
       ]
     },
     {

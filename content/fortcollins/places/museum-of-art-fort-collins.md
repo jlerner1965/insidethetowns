@@ -17,3 +17,5 @@ added: "2026-10-01"
 ---
 
 Rotating exhibitions in the galleries on College Avenue, open Wednesday to Sunday with Friday evenings until 7. Adults $10, or $8 for Fort Collins residents; seniors 65 and over $8 ($6.40 for residents); educators and university students $5; 18 and under free. Admission is also free with a CSU or Front Range Community College student ID, a military or veteran ID, or a food-assistance card.
+
+Step-free entry is by a lift on the south side, between the museum and Ace Hardware; call 970-482-2787 for help with it. An accessible parking space is beside the lift, with more on Oak Street, and there is two-hour street parking on College Avenue and a garage a few blocks north. The museum also arranges group tours for children and adults.

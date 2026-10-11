@@ -13,3 +13,5 @@ summary: "A 21.5-acre nature area on the St. Vrain Greenway whose 15.7-acre pond
 ---
 
 The 21.5-acre site includes a 15.7-acre pond managed as a fishery for children 14 and under, with parents encouraged to help. It is a trailhead along the St. Vrain Greenway, with native vegetation, paved and gravel trails, picnic areas and restrooms. Dogs must be leashed and are not permitted in the water, and glass and alcohol are not allowed. The clubhouse can be rented.
+
+The outdoor shelter is free, first come, first served; it can be reserved only for a full day together with a clubhouse rental. Robert Tully's mechanical artwork "Gather Enough People Here," installed in 1999, is at the southwest corner of the pond.

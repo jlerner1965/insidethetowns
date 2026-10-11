@@ -17,3 +17,5 @@ summary: "The downtown Evergreen branch of Beau Jo’s, the Colorado pizza chain
 The downtown Evergreen location of Beau Jo's, which has served its "Colorado mountain pie" pizza in the state for more than four decades. This one has a patio on Bear Creek.
 
 Open 11 am to 8 pm Sunday to Thursday and to 9 pm on Friday and Saturday, with happy hour from 3 to 6 pm Monday to Thursday.
+
+Besides Mountain Pies, the menu has Prairie Pies (no hand-rolled edge, a lighter choice of toppings), sandwiches, salads, pasta and calzones, and this location does takeout and take-and-bake. Only service animals are allowed on the patio. Group meals and banquets have their own inquiry page on the site.

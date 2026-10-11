@@ -15,3 +15,5 @@ summary: "Coffee by day and cocktails by night on East Elkhorn: specialty coffee
 ---
 
 A downtown coffee shop that turns into a lounge in the evening, with specialty coffee and fresh breakfast in the morning and cocktails, tapas and shareable plates later on. It takes table reservations, private parties and catering, and online orders. Open 8 am to 9 pm every day.
+
+The food runs to boards and small plates: meat, cheese, pickle and sweet boards, plus olives, bacon-wrapped dates and small European-style desserts.

@@ -11,6 +11,9 @@ verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "303-569-5180"
 tags: [concerts, gallery, community]
 summary: "The Georgetown Trust's events building on Taos Street: the Devil Moon concert series, the annual plein air exhibit, comedy and film nights, and the summer Mountain Jams concerts in Library Park."
+image: "../images/the-old-school.jpg"
+imageAlt: "The red-brick 1874 Georgetown public school on Taos Street, now the Old School, with its earlier Georgetown Heritage Center sign out front, in May 2024"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 ---
 
 The Georgetown Trust for Conservation and Preservation runs the Old School as its venue for concerts, galleries and exhibits. Its events page lists the Devil Moon concert series in the winter and spring (Erica Brown played on 14 February 2026), the ninth annual Georgetown plein air painting event with its exhibit and sale through 9 August 2026, and the free Saturday-afternoon Mountain Jams concerts in Library Park in summer. The building also houses the library district's Local History Archives.

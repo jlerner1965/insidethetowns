@@ -16,3 +16,5 @@ summary: "The community library on Highway 72 North, with books, programs for ki
 Nederland Community Library serves the Nederland mountain community from 200 Highway 72 North. Its site lists book clubs, kids' and adult programs, art exhibits, meeting rooms, experience passes, a notary and curbside pickup.
 
 It closes for New Year's Day, Memorial Day, the Fourth of July, Labor Day, Thanksgiving and the Friday after, Christmas Eve and Christmas Day; the library's calendar has the dates.
+
+Curbside pickup is by arrangement: call 303-258-1101 or email the library, which also takes requests for accommodations. Open until 7 pm Monday to Thursday and 5 pm Friday and Saturday; Sunday hours start at 1 pm. Some events need separate registration.

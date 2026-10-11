@@ -16,3 +16,5 @@ summary: "Nonprofit gallery upstairs in Stanley Village showing regional and loc
 ---
 
 Estes Park's only nonprofit gallery, by its own description, in Middle Stanley Village below Safeway and upstairs from Subway, with changing exhibitions of regional and local work. It runs art classes for adults and mixed-age groups, and hosts Estes Valley Plein Air, an invited and juried fall paint-out that carries on a 15-year tradition begun by the Cultural Arts Council of Estes Park. The hours change with the season, as above.
+
+The current exhibition, "Pots and Paints" (October 2–November 9, 2026), pairs Wynne Wilbur's ceramics with Anne Sneary's watercolors. Classes take beginners as well as experienced artists, and some bring several generations together; each class listing gives its own schedule and enrollment.

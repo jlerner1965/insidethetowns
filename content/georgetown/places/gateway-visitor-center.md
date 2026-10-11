@@ -12,6 +12,9 @@ phone: "303-569-2405"
 hours: "Daily 9 am–5 pm"
 tags: [visitor-info, restrooms, road-conditions, picnic]
 summary: "The Georgetown Trust's visitor center at the I-70 exit, with CDOT traffic monitors, local information, a gift shop, interpretive displays on the Georgetown-Silver Plume landmark district, restrooms, a picnic area and a dog walk."
+image: "../images/gateway-visitor-center.jpg"
+imageAlt: "The red-brick Gateway Visitor Center in Georgetown, with its clock tower and Visitor Center sign below the mountainside, in September 2024"
+imageCredit: "Sdkb, Wikimedia Commons, CC BY-SA 4.0"
 ---
 
 The Georgetown Trust for Conservation and Preservation runs the Gateway Visitor Center at 1491 Argentine Street, just off I-70 at the Georgetown exit. It has real-time traffic information from CDOT monitors and access to the COtrip site, travel and local information, souvenirs and collectibles, and interpretive displays and films about the Georgetown-Silver Plume National Historic Landmark District. Outside there is a picnic area and a dog walk; overnight parking is not permitted.

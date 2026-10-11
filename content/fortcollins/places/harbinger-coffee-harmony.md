@@ -13,3 +13,5 @@ summary: "Harbinger's south shop at Harmony and Lady Moon, home of the roaster a
 ---
 
 The roastery end of Fort Collins' specialty roaster (founded 2012): the Harmony and Lady Moon shop houses the roaster and roasting team and serves the south side of town daily from 7 am to 4 pm. The downtown room is at 236 S College Ave.
+
+Harbinger offers a 96-ounce coffee carafe for meetings and small gatherings, for pickup at either Fort Collins location; choose South for this Harmony Road shop. It also sells whole beans and subscriptions, including a decaffeinated Colombian and the Simply Sweet espresso blend alongside changing single origins.

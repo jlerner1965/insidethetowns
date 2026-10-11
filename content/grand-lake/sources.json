@@ -3,14 +3,22 @@
   "sources": [
     {
       "id": "townofgrandlake-com",
-      "name": "Town of Grand Lake (townofgrandlake.com)",
-      "url": "https://www.townofgrandlake.com/",
-      "type": "html",
+      "name": "Town of Grand Lake: community calendar",
+      "url": "https://www.townofgrandlake.com/calendar",
+      "type": "ical",
       "category": "city-calendar",
       "priority": "core",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Not read. The home page and /calendar both returned HTTP 403 to automated readers on 10 October 2026, so no board meeting dates or Town events are on the guide. Someone needs to open the Town calendar in a browser and find whether it offers an iCal or RSS feed."
+      "notes": "Official iCalendar feed read and parsed on 11 October 2026. New records enter staging for editorial review; verify venue where the feed leaves LOCATION blank. Office closures and ordinary facility hours are not public events.",
+      "checkFrequency": "weekly",
+      "lastChecked": "2026-10-11",
+      "lastStatus": "blocked",
+      "lastNote": "Cloudflare answered 403 to the feed and the calendar page on 11 October 2026. The content handoff of the same day reported reading this feed; confirm it once it answers.",
+      "feedUrl": "https://www.townofgrandlake.com/calendar/ical/calendar.ics",
+      "excludeTitles": [
+        "^(?:.*office.*clos(?:ed|ure)|.*city hall.*closed|.*holiday closure|.*town hall.*closed).*$"
+      ]
     },
     {
       "id": "gograndlake-com",
@@ -38,15 +46,19 @@
     },
     {
       "id": "gcld-librarycalendar-com",
-      "name": "Grand County Library District event calendar, Juniper branch filter",
+      "name": "Juniper Library at Grand Lake: event calendar",
       "url": "https://gcld.librarycalendar.com/events/month?branches%5B75%5D=75",
       "sampleUrl": "https://gcld.librarycalendar.com/events/month?branches%5B75%5D=75",
       "type": "html",
       "category": "library",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Read 10 October 2026 (gcld.org/month-calendar redirects 302 here). October 2026 showed five district events, one at Juniper: 'Nepal: A Community Conversation', Saturday 10 October 2026, 2–3 pm. Each event has a detail page (/event/<slug>-<id>). The 'Ongoing Events' feed was collapsed and not read. A LibraryCalendar site usually offers an iCal feed per branch; not checked."
+      "notes": "Juniper branch is 75. The month shell omits many events from static HTML. Follow its advertised daily /events/feed/html branch feed to individual event pages. Times and rooms were checked on individual pages; district events at other branches are excluded. HTML requires manual editorial review; no machine feed is configured.",
+      "checkFrequency": "weekly",
+      "lastChecked": "2026-10-11",
+      "lastStatus": "ok",
+      "lastNote": "Read successfully on 11 October 2026; HTML source requires editorial review; it is not an automatic feed."
     },
     {
       "id": "nps-gov-romo",

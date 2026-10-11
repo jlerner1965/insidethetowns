@@ -17,3 +17,5 @@ summary: "Downtown gallery on Highway 74 whose artists work in ceramics, wood bu
 A gallery in downtown Evergreen that says it has been drawing art lovers for more than 35 years. Its site lists the artists by medium, among them ceramics, wood burning, wood carving and woodturning, and takes new artists through a jury application.
 
 It is open every day from 10 am to 5 pm, in Suite 2 at 28186 Highway 74.
+
+Beyond ceramics and woodwork, the roster covers fabric work, fused glass, gourds, jewelry, wire sculpture and photography, and each artist's page on the site shows their medium. Exhibition and reception dates are posted separately.

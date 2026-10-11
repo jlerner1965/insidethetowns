@@ -15,3 +15,5 @@ added: "2026-09-17"
 ---
 
 A contemporary gallery in a renovated 1910 brick building on Second Avenue, showing more than forty Colorado artists and hosting the openings that anchor the First Friday Art Walks. Osmosis Architecture shares the building. Hours are from the gallery’s site as read in September 2026.
+
+Rotating shows span ceramics, sculpture and painting. The gallery’s “Why Not Niwot?” competition offers the winning local artwork as cards or prints; the website lists a 2026 winner.

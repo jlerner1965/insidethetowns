@@ -7,6 +7,42 @@ once its listing carries a `verified` date after the one it was added on
 (3 October 2026 for every row here); tell Claude what you heard, in any
 form, and the listing is updated with that date.
 
+## From the 11 October content handoff
+
+The handoff's register of every staged record is
+[VERIFICATION-QUEUE-2026-10-11.csv](VERIFICATION-QUEUE-2026-10-11.csv). Four
+places came out of staging (Cooper's on the Creek, Kneisel & Anderson, the
+Manitou Incline, Before & After) and twenty staged events were promoted, merged
+or removed as past or ordinary service; 168 places and 46 events stay staged.
+
+| Town | Contact | Question |
+| --- | --- | --- |
+| Georgetown | Cooper's on the Creek, 303-569-5088 | Open on Sundays? Its hours block says yes, its footer leaves Sunday out (published with the hours block) |
+| Georgetown | Microtel at Georgetown Lake, 720-679-3754 | The Town's lodging page gives 720-741-8989; which is the front desk? |
+| Georgetown | The Historic Happy Cooker, 303-569-3166 | Days and hours (its Facebook counts as its own page now, but needs a login to read) |
+| Georgetown | Pho Bay, 303-569-2126; Sasha's, 303-569-5058 | Hours, and a website or Facebook page |
+| Georgetown | Scooter's, 720-955-6629 / 720-955-6639 | Open? Which number, hours and site are current? |
+| Leadville | Treeline Kitchen, 719-293-2200 | Wed–Sun banner or daily hours block? |
+| Leadville | Before & After, 719-427-9519 | Phone and kitchen windows were read on its Toast page by the handoff; Toast now blocks automated reads |
+| Black Hawk | Bar 8042 at Ameristar | 24-hour service and 720-946-6172 rest on the handoff's reading; Ameristar's site blocks automated reads |
+| Grand Lake | Grand Pizza, 970-627-8390; Blue Water Bakery, 970-627-5416 | Current hours and season; the bakery's site still describes 2022–23 |
+| Idaho Springs | Clear Creek Cidery, 303-567-2158 | Regular opening days, and 1438 or 1446 Miner Street? |
+| Idaho Springs | Frothy Cup, 303-567-2622 | Hours; its own site gives none |
+| Severance | Shebrews | A site, phone, address and hours of its own |
+| Fort Lupton | Winterfest, 720-928-4071 | The December 5 program, times and venues |
+| Nederland | Carousel, 303-258-3457; library, 303-258-1101 | The gala's year, the Halloween program's hours, the ukulele group's day and time |
+
+**Calendars to open in a browser.** The handoff confirmed iCalendar feeds for
+the City and Town calendars of Black Hawk, Grand Lake, Idaho Springs,
+Leadville, Manitou Springs and Windsor; each answered 403 (Cloudflare) to our
+check the same day, so they are back to `proposed` in `sources.json` with the
+feed URL kept. Open each calendar, and confirm the entry once the feed answers.
+
+**Not to be listed from their own pages.** Hotel Chateau Chamonix's domain now
+carries unrelated gambling content, the Argo Inn's site has pharmacy spam, and
+Western Riviera says it is renovating and not taking calls. Wild Bear Tavern's
+main page and winter menu disagree on its season and closing times.
+
 ## Still open?
 
 A parked, hijacked or lapsed domain, or a different business at the address, is often how a small business's closing shows up online before anyone writes it down. Call or walk past first; if it has closed, the listing gets a closed status and a note saying how we know.
@@ -102,7 +138,6 @@ The launch handoff's 261 places were read against each business's or agency's ow
 | Black Hawk | Fire House Museum | The City's page gives no hours or interior access | When can visitors go in? (City Hall, 303-582-2221) |
 | Fort Lupton | Recreation Center, 303-857-4200 | City pages disagree on Friday closing (8 or 9 pm) | Friday closing time |
 | Georgetown | Buckskin Trading Company, 303-569-2050 | Nothing dated within the year; the Town page listing it was last updated July 2025 | Open; Thu–Mon hours |
-| Georgetown | Cooper's on the Creek, 303-569-5088 | Its hours block includes Sunday, its footer does not | Open on Sundays? |
 | Georgetown | The Historic Happy Cooker, 303-569-3166 | Hours only on Facebook | Days and hours |
 | Georgetown | Pho Bay, 303-569-2126 | No site of its own | Hours, website |
 | Georgetown | Sasha's at the Alpine, 303-569-5058 | No site of its own | Hours, website |
@@ -129,7 +164,6 @@ The launch handoff's 261 places were read against each business's or agency's ow
 | Idaho Springs | Phoenix Gold Mine, 303-567-0422 | Nothing dated after August 2024 | Operating this season? |
 | Idaho Springs | St. Mary's Glacier | No land-manager page found | Clear Creek Ranger District: a page, parking rules |
 | Leadville | Treeline Kitchen, 719-293-2200 | Its banner says Wed–Sun, its hours block every day | Which days |
-| Leadville | Before & After, 719-293-2200 | No phone or street address on its own site | Phone, address |
 | Leadville | Mineral 1886, 719-427-2194 | Two sets of hours on its home page | Hours |
 | Leadville | Buchi Cafe Cubano, 719-917-8188 | No hours; order link 404 | Open? Hours |
 | Leadville | Harperrose Studios, 719-293-4280 | Hours only in hidden page data | Hours |
@@ -152,10 +186,8 @@ The launch handoff's 261 places were read against each business's or agency's ow
 | Black Hawk | Mountain Poppy Boutique & Gift | Facebook only; a search result showed it for sale in June 2026 | Phone, hours; still open? |
 | Black Hawk | Hearts and Legends | Facebook only | Phone, hours |
 | Georgetown | Hotel de Paris Museum, 303-569-2311 | Its site timed out all day | Hours, season (How to Visit page) |
-| Georgetown | Kneisel & Anderson, 303-569-2650 | Bot check on every page | Hours, phone |
 | Idaho Springs | Indian Hot Springs | Script-only site | Hours, prices, reservation rules |
 | Leadville | Two Mile Brewing, 719-293-2766 | Square Online shell | Hours, phone |
-| Manitou Springs | Manitou Incline | coloradosprings.gov opts out | Reservation rules, hours, closures |
 | Severance | Tecate Grill | FoodHub site renders only in a browser | Address, phone, hours |
 
 **Published, with one question open**

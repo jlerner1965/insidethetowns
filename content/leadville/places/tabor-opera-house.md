@@ -11,6 +11,9 @@ verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "719-486-8409"
 tags: [theater, concerts, film, historic, tours]
 summary: "Horace Tabor's 1879 opera house on Harrison Avenue, with concerts, theater, films and historic tours. The October 2026 calendar has The Addams Family musical and Halloween films."
+image: "../images/tabor-opera-house.jpg"
+imageAlt: "The red-brick Tabor Opera House on Harrison Avenue in Leadville, its name painted across the front, in June 2010"
+imageCredit: "Daniel Schwen, Wikimedia Commons, CC BY-SA 4.0"
 ---
 
 The Tabor Opera House is at 308 Harrison Avenue. Its site lists events and films, a Youth Collective of workshops and free films, and tours on its Visit page (https://taboroperahouse.org/visit); no regular opening hours or tour times were on the pages read. The calendar (https://taboroperahouse.org/events/calendar) on 10 October 2026 showed October Historic Tours running October 2–18, "Actually It Is Rocket Science" on October 10, The Addams Family Musical October 22–24, Beetlejuice on October 30 and The Nightmare Before Christmas on November 1; tickets are sold through its online box office.

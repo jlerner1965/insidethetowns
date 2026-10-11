@@ -1,14 +1,14 @@
 ---
 title: "Moving to Black Hawk"
-description: "Black Hawk, Colorado: a Gilpin County city of 127 at the 2020 census, in Gregory Gulch on the Peak to Peak. What the official pages that could be read say about the schools, the roads, the library and the land around town."
-updated: "2026-10-10"
+description: "Black Hawk, Colorado: a Gilpin County city of 127 at the 2020 census, on the Peak to Peak. The schools, the roads, the library, city services and the land around town."
+updated: "2026-10-11"
 ---
 
 ## Who lives here
 
 Black Hawk is one of Colorado's smallest cities. The State Demography Office's census file gives its incorporation year as 1864 and its count at every census since: 1,068 people in 1870, a peak of 1,540 in 1880, 253 by 1920, 118 in both 2000 and 2010, and 127 at the 2020 Census ([State Demography Office historical census file](https://storage.googleapis.com/co-publicdata/historical-census.csv)). The same file counts Gilpin County at 3,070 in 1990, 4,757 in 2000 and 5,441 in 2010.
 
-The City's own website, cityofblackhawk.org, refused automated reads when this page was written (10 October 2026), and Gilpin County's site could not be reached, so this page says nothing about city government, utilities, police, zoning or permits. Read those sites yourself for anything that matters to you.
+The [City of Black Hawk's website](https://www.cityofblackhawk.org/) lists municipal contacts and services, and its [public calendar](https://www.cityofblackhawk.org/calendar) carries council meetings and community programs. Water and sewer service, permits and zoning for a particular property are questions for the responsible City department.
 
 ## Housing
 
@@ -28,7 +28,7 @@ There is bus service aimed at the casinos. Saratoga Casino's visitor page says t
 
 - **Library** is the [Gilpin County Public Library](https://www.gilpinlibrary.org/) at 15131 Hwy 119, Black Hawk, 303-582-5777. Its site does not publish regular hours on the pages read for this guide; its 2026 holiday schedule closes it on Indigenous Peoples' Day, Veterans Day, Thanksgiving and the day after, Christmas Eve and Christmas Day ([holiday schedule](https://www.gilpinlibrary.org/holiday-schedule.html)).
 - **Schools** are the district above, on Highway 119 north of town.
-- **City services, water, sewer, fire and police**: the City's site could not be read, so nothing is stated here.
+- **City services**: the [City's site](https://www.cityofblackhawk.org/) links its water, public works, fire and police departments; ask about service and connections for the specific address.
 
 ## Before you decide
 

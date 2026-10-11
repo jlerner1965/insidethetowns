@@ -13,3 +13,5 @@ summary: "Colorado-designed and -printed apparel brand with its shop on Old Town
 ---
 
 A homegrown apparel label, designed and printed in Colorado, with its storefront on Old Town Square: tees, hoodies and jackets, hats and beanies, socks and scarves, plus blankets, drinkware and tote bags. Open daily, to 7 on Friday and Saturday.
+
+Akinz also makes its own handmade beanies and crochet pom hats, and the catalog runs to children's hats and clothing, art prints, notebooks and small accessories. Custom products, including group orders, go through a separate inquiry page.

@@ -15,3 +15,5 @@ summary: "Independent bookstore on East Elkhorn with books for all ages, local r
 ---
 
 An independent bookshop downtown that sells books for readers of all ages, publishes local reading recommendations and holds author and community events, some after hours. It runs the Books and Trolley Event, alongside EVICS (Estes Valley Investment in Childhood Success), to help local children build home libraries, and sells online through Bookshop.org and audiobooks through Libro.fm.
+
+The shop's history goes back to a log cabin built for the Forest Service in 1907. Books moved into the front parlor of the Macdonald family home in 1928 and gradually filled more of the house; the store's history page traces its generations of ownership.

@@ -15,3 +15,5 @@ summary: "The Clearview Library District's Severance branch on Timber Ridge Park
 ---
 
 Severance's public library is one of the Clearview Library District's branches; the district also runs the Windsor Library, a bookmobile and an outpost in the Windsor Community Recreation Center, and the Windsor and Severance libraries share one phone number. The Severance branch is closed on Sundays. The district's 2026 closure list still to come includes an early 2 pm close on November 25, Thanksgiving Day, Christmas Eve and Christmas Day, and a 2 pm close on New Year's Eve.
+
+On Sundays, when Severance is closed, the district's Windsor branch is open 1 to 5 pm. The outpost in the Windsor Community Recreation Center follows the recreation center's own hours.

@@ -14,3 +14,5 @@ summary: "A 4th Street cookie shop baking quarter-pound and two-ounce cookies in
 ---
 
 Besides cookies there are brownies, cookie sandwiches and gluten-friendly options. Party trays, cookie cakes and cookie boxes can be ordered online, and the shop offers wedding catering plus cookies for birthdays, holidays and other celebrations.
+
+Daily flavors include almond glaze, blueberry oat, peanut butter, snickerdoodle and chocolate chip, alongside a changing seasonal list. There is also edible cookie dough, and cookies filled with ice cream.

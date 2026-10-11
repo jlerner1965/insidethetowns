@@ -49,16 +49,28 @@
     },
     {
       "id": "cccld-org",
-      "name": "Clear Creek County Library District (John Tomay Memorial Library, Georgetown)",
-      "url": "https://cccld.org/",
-      "feedUrl": "https://cccld.org/events/?ical=1",
+      "name": "Clear Creek County Library District calendar",
+      "url": "https://cccld.org/events/",
+      "feedUrl": "https://cccld.org/?ical=1&eventDisplay=list",
       "sampleUrl": "https://cccld.org/events/",
-      "type": "html",
+      "type": "ical",
       "category": "library",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "Read 10 October 2026: the home page, /about/locations-and-hours (John Tomay Memorial Library, 605 6th Street, 303-569-2620, Mon to Wed 9 to 5, Thu 9 to 6, Fri 9 to 5, Sat 9 to 2; Local History Archives at 809 Taos Street; dated closure notices for 9, 12 and 13 October) and /events/, a month-view calendar (The Events Calendar plugin by the look of it) showing October 2026 only, with five Georgetown (JTML) events, two Idaho Springs (ISPL) ones, the district board meeting on the third Tuesday and two all-branch closures. The feedUrl is the plugin's usual iCal export and was NOT fetched: confirm it answers before switching the type to ical. The Town's site misnames the district page as 'Library' under Other Agencies."
+      "notes": "Use the named branch to keep the two town calendars separate. Exclude library closures and district meetings whose actual venue is missing. The feed contains explicitly dated book groups through December; children’s programs are checked on their individual pages.",
+      "checkFrequency": "weekly",
+      "lastChecked": "2026-10-11",
+      "lastStatus": "ok",
+      "lastNote": "Read successfully on 11 October 2026; valid iCalendar feed parsed.",
+      "locationFilter": [
+        "John Tomay Memorial Library"
+      ],
+      "excludeTitles": [
+        "LIBRARY CLOSED",
+        "Board of directors",
+        "Library District Board"
+      ]
     },
     {
       "id": "clearcreekrecreation-com",

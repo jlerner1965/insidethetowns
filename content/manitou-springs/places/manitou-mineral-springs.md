@@ -11,6 +11,9 @@ verifiedBy: "Claude Code, delegated by James Lerner"
 hours: "Daily 24 hours"
 tags: [mineral-springs, walk, free, history]
 summary: "Eight naturally carbonated mineral springs flowing from public fonts around downtown and up Ruxton Avenue, free and running around the clock; the walking map and souvenir cups are at the Visitor Center, 354 Manitou Avenue."
+image: "../images/manitou-mineral-springs.jpg"
+imageAlt: "The timbered pavilion over Seven Minute Spring in Manitou Springs, with autumn foliage around it, in October 2012"
+imageCredit: "Milan Suvajac, Wikimedia Commons, CC BY-SA 4.0"
 ---
 
 Manitou Springs has eight public mineral springs, each with its own taste: 7 Minute Spring, Cheyenne, Iron Spring Geyser, Navajo, Shoshone, Stratton, Twin and Wheeler. The Mineral Springs Foundation, a volunteer group, has restored or developed all eight with the City and private landowners, and the Chamber of Commerce says the public springs are free and flow 24/7. The water is naturally carbonated: carbonic acid formed underground drives it up through cracks in the rock, where it picks up sodium bicarbonate and other minerals.

@@ -15,3 +15,5 @@ summary: "Bakery and cafe on East Wonderview Avenue serving breakfast and lunch 
 ---
 
 A breakfast-and-lunch cafe on East Wonderview Avenue whose menus run to breakfast, lunch, sweets and drinks. It opens at 7 am and closes at 3 pm, seven days a week.
+
+Notchtop makes its own sausages and slow-roasts its meats, and says it uses organic ingredients when possible and non-GMO breads and flours. Its menus cover breakfast, lunch, children's dishes, cafe and bar drinks, and catering. Current menus include breakfast street tacos and the Notchtop Peak Patty.

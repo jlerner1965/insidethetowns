@@ -15,6 +15,9 @@ seasonal:
   closes: "2026-09-27"
 tags: [museum, history]
 summary: "Historic Georgetown's firefighting museum in the Alpine Hose No. 2 firehouse on 5th Street, open Thursday to Sunday in season; closed for the season from late September."
+image: "../images/alpine-hose-no-2-firefighting-museum.jpg"
+imageAlt: "The white Alpine Hose No. 2 firehouse and bell tower in Georgetown, signed as the Georgetown Firefighting Museum, in May 2024"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 ---
 
 Historic Georgetown, Inc. runs the Alpine Hose No. 2 Georgetown Firefighting Museum in the old hose company's building on 5th Street, alongside its Hamill House Museum on Argentine Street. The phone is the organization's office number.

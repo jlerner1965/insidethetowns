@@ -14,9 +14,12 @@ openingHours: ["Mo-Su 05:00-22:00"]
 access: { parking: "Designated spots only; in the fall the park is expected to hit capacity on weekends by 9 am, and parking on the roadside or on vegetation is ticketed or towed", permit: "Daily vehicle pass $12–$17, or an annual Colorado state parks pass", closures: "The Visitor Center lot is closed on Friday and Saturday evenings from mid-September through mid-October; CDOT is paving Highway 46 from September 1 and Jefferson County is paving Crawford Gulch Road from Monday, September 21, with delays expected", conditionsUrl: "https://cpw.state.co.us/state-parks/golden-gate-canyon-state-park", conditionsLabel: "Park closures and notices", source: "https://cpw.state.co.us/state-parks/golden-gate-canyon-state-park", verified: "2026-10-10" }
 tags: [hiking, camping, picnic, dogs-on-leash, horses]
 summary: "Colorado Parks and Wildlife's 12,119-acre state park in the hills between Black Hawk and Golden, with 35 miles of trails, 156 campsites and 125 picnic sites. Expect it to fill by 9 am on fall weekends."
+image: "../images/golden-gate-canyon-state-park.jpg"
+imageAlt: "A dirt trail through golden aspens and picnic tables in Golden Gate Canyon State Park, in September 2018"
+imageCredit: "Tony Webster, Wikimedia Commons, CC BY 2.0"
 ---
 
-Golden Gate Canyon State Park is outside Black Hawk, on state land, and is run by Colorado Parks and Wildlife: 12,119 acres, 35 miles of trails, 156 campsites and 125 picnic sites. The park's address is on Crawford Gulch Road, and CPW's directions come from Golden, 16 miles to the southeast: Highway 93 north 1.5 miles to Golden Gate Canyon Road, then left for 13 miles. Day use runs 5 am to 10 pm; the visitor center is open every day 9 am to 4 pm and the campground office 10 am to 5 pm.
+Golden Gate Canyon State Park is outside Black Hawk, on state land, and is run by Colorado Parks and Wildlife: 12,119 acres, 35 miles of trails, 156 campsites and 125 picnic sites. The park's address is on Crawford Gulch Road, and CPW's directions come from Golden, 16 miles to the southeast: Highway 93 north 1.5 miles to Golden Gate Canyon Road, then left for 13 miles. Day use runs 5 am to 10 pm; the visitor center is open every day 9 am to 4 pm, and the campground office is closed for the season.
 
 Entry is by daily vehicle pass, $12 to $17 depending on the plate, or $4 for anyone arriving on foot, by bicycle or on horseback; an annual pass is $80 and the Keep Colorado Wild Pass, bought with a Colorado vehicle registration, is $29. Leashed dogs, service animals and horses are allowed; Kriley Overlook, Nott Creek and the Aspen Meadow Campground are the lots CPW names for horse trailers. Camping is booked through cpwshop.com.
 

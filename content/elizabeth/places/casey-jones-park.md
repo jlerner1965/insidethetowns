@@ -17,3 +17,5 @@ added: "2026-09-17"
 ---
 
 Elizabeth Park & Recreation District's big park, 103 acres on County Road 17: two lighted baseball fields and The Nest, an artificial-turf ballfield; four pickleball courts added in 2024; a playground; the historic Casey Jones Pavilion; a fenced off-leash dog park; and the rodeo arena where the Elizabeth Stampede is held each June. A soft-surface trail of about 1.5 miles loops the wooded north and east of the site, open to walkers, runners, bikes and horses; park at the north end of the ball fields. The Elbert County Marketplace sets up here on alternating Saturdays.
+
+The Pavilion holds up to 99 people, with a stage, bar area and restrooms; ask the park office about availability. Ballfields and pickleball courts are open for casual play when they are not reserved for programs or events. The soft-surface loop starts at the northwest corner of the parking area north of the baseball fields; the pickleball entrance is off County Road 17 just south of the church.

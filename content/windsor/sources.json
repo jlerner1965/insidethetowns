@@ -3,10 +3,10 @@
   "sources": [
     {
       "id": "windsorco-gov",
-      "name": "windsorco.gov",
-      "url": "https://windsorco.gov/",
+      "name": "Town of Windsor: town events",
+      "url": "https://www.windsorco.gov/Calendar.aspx",
       "sampleUrl": "https://www.windsorco.gov/Calendar.aspx?EID=7632",
-      "type": "html",
+      "type": "ical",
       "category": "city-calendar",
       "priority": "core",
       "status": "proposed",
@@ -14,7 +14,15 @@
         "events": 8,
         "places": 1
       },
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Official iCalendar feed read and parsed on 11 October 2026. New records enter staging for editorial review; verify venue where the feed leaves LOCATION blank. Office closures and ordinary facility hours are not public events.",
+      "checkFrequency": "weekly",
+      "lastChecked": "2026-10-11",
+      "lastStatus": "blocked",
+      "lastNote": "Cloudflare answered 403 to the feed and the calendar page on 11 October 2026. The content handoff of the same day reported reading this feed; confirm it once it answers.",
+      "feedUrl": "https://www.windsorco.gov/common/modules/iCalendar/iCalendar.aspx?catID=32&feed=calendar",
+      "excludeTitles": [
+        "^(?:.*office.*clos(?:ed|ure)|.*city hall.*closed|.*holiday closure|.*town hall.*closed).*$"
+      ]
     },
     {
       "id": "business-windsorchamber-net",

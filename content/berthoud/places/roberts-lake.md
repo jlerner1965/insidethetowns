@@ -12,3 +12,5 @@ added: "2026-09-17"
 ---
 
 A neighborhood lake off Bunyan Court with a walking trail around it, open grass, and a renovated ADA-accessible dock for shore fishing under state regulations.
+
+Boating and swimming are not allowed. There are picnic tables and a pavilion, but no restrooms.

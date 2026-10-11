@@ -15,3 +15,5 @@ summary: "More than 60 local makers and small businesses under one roof on Perry
 ---
 
 The Emporium gathers more than 60 local businesses in one downtown building, each with its own corner: vintage and western decor, art, clothing and accessories, jewelry, toys, pre-loved books, a refillery for low-waste household goods, local beef and eggs, and Oo-de-Lally Coffee. It is open every day except Easter, Thanksgiving, Christmas and New Year’s.
+
+The building began as Castle Rock Feed and Supply. The Boman family turned it into a marketplace in 2012 with twelve merchants; it has since grown to more than sixty. A merchant map on the Emporium’s site shows where each booth is, from books, the refillery and photography to kitchen goods and local food producers.

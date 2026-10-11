@@ -1,12 +1,17 @@
 # Getting the missing photographs
 
-274 of 331 places have no photograph. 187 of those are restaurants, cafes, bars,
-shops and lodgings. (Recounted 1 October 2026, after Windsor and Fort Collins
-were added; the figure was 202 when this was written.) This is how to fix that, and what has already been ruled out.
+612 of 760 open listings (80.5%) have no photograph, 382 of them restaurants,
+cafes, bars, shops and lodgings (recounted 11 October 2026). The content handoff
+of that day added sixteen Wikimedia Commons photographs to listings on the
+mountain guides, each with a credit, dated alt text and a row in
+`IMAGE_LICENSES.csv`; two more it offered were declined (Beau Jo's Idaho Springs
+interior, already declined on 10 October, and a washed-out Grand Lake Lodge
+entrance with two visitors as its subject).
 
-`PHOTO-CONTACTS.csv` in this folder is the working list: every unphotographed
-business with its address, area, phone, website and hours, sorted so a town's
-Main Street reads in order.
+[PHOTO-CONTACTS.csv](PHOTO-CONTACTS.csv) lists every open listing without a
+photograph, with address, phone, website, hours, the shot wanted and whether
+permission has been asked (none has). The Front Range searches below are
+exhausted; what is left needs local photographs or an owner's permission.
 
 ## What has already been tried, and failed
 
