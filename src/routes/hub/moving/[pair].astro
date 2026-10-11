@@ -10,7 +10,7 @@
  */
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
-import { countyLabel, findTown, getHub } from '@/config';
+import { censusGrowth, countyLabel, findTown, getHub } from '@/config';
 import { comparisonSlug, liveComparisons, type Comparison } from '@/content/comparisons';
 import { breadcrumbJsonLd } from '@/lib/seo';
 
@@ -31,8 +31,7 @@ const a = findTown(comparison.a)!;
 const b = findTown(comparison.b)!;
 const pair = [a, b];
 const num = (n?: number) => (n ? n.toLocaleString('en-US') : '—');
-const growth = (t: typeof a) =>
-  t.population && t.population2010 ? `+${Math.round((t.population / t.population2010 - 1) * 100)}%` : '—';
+const growth = censusGrowth;
 const rows = [
   { label: 'County', get: (t: typeof a) => countyLabel(t) },
   { label: 'Population 2020', get: (t: typeof a) => num(t.population) },
