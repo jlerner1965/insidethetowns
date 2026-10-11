@@ -12,7 +12,7 @@ import { hub } from './towns/hub.ts';
 
 export type { ConditionsLink, EditorConfig, HubConfig, SiteConfig, TownConfig, TownRegion, TownStatus, TownVariant, NavItem } from './towns/types.ts';
 export { TOWN_REGIONS } from './towns/types.ts';
-export { countiesCovered, countyLabel, countyShort } from './towns/types.ts';
+export { censusGrowth, countiesCovered, countyLabel, countyShort } from './towns/types.ts';
 
 /**
  * Towns that are deployed and public: every config whose `status` is `live`.

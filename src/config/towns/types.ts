@@ -430,6 +430,21 @@ export function countyShort(town: Pick<TownConfig, 'counties'>): string {
   return town.counties.join(' & ');
 }
 
+/**
+ * Census-to-census change, 2010 to 2020, rounded to a whole percent: "+7%",
+ * "−13%" with a minus sign, "0%", or "—" without both counts. Two of the
+ * mountain towns are smaller than they were (Grand Lake, Manitou Springs), and
+ * the formatter this replaces put a plus in front of every figure, so the
+ * hub's comparison printed "+-13%".
+ */
+export function censusGrowth(town: Pick<TownConfig, 'population' | 'population2010'>): string {
+  if (!town.population || !town.population2010) return '—';
+  const pct = Math.round((town.population / town.population2010 - 1) * 100);
+  if (pct > 0) return `+${pct}%`;
+  if (pct < 0) return `\u2212${-pct}%`;
+  return '0%';
+}
+
 /** Every distinct county the network covers. */
 export function countiesCovered(towns: ReadonlyArray<Pick<TownConfig, 'counties'>>): string[] {
   return [...new Set(towns.flatMap((t) => [...t.counties]))];
