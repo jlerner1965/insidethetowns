@@ -9,8 +9,8 @@ imageAlt: "The small dark-timbered 1910 fire house with its Old Fire House Museu
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 4.0"
 tags: [museum, history, historic-district]
 summary: "Niwot's 1910 fire shed, moved in six pieces to the Grange lot in 1997 and kept by the Historical Society, with the town's 1910 chemical fire cart out front. Open for occasional open houses; the outside is always on view."
-source: "https://niwothistoricalsociety.org/stories/fire-house-museum-a-short-history/"
-verified: "2026-09-30"
+source: "https://niwothistoricalsociety.org/explore/"
+verified: "2026-10-12"
 added: "2026-09-30"
 ---
 

@@ -12,7 +12,7 @@ imageAlt: "The Berthoud Recreation Center and outdoor waterslide at sunset"
 imageCredit: "Town of Berthoud"
 summary: "The Town's recreation center at Waggener Farm Park: pools, gym, climbing wall, fitness classes, day passes and the winter craft fair."
 source: "https://berthoud.org/Facilities/Facility/Details/Berthoud-Recreation-Center-at-Waggener-F-13"
-verified: "2026-09-21"
+verified: "2026-10-12"
 added: "2026-09-17"
 ---
 

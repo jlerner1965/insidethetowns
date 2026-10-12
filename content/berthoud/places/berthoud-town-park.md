@@ -1,7 +1,7 @@
 ---
 title: "Berthoud Town Park"
 type: park
-address: "200 7th St"
+address: "200 N 7th St"
 area: "7th Street, downtown"
 url: "https://www.berthoud.org/219/Parks"
 tags: [playground, splash pad, pavilions, events]
@@ -10,8 +10,8 @@ imageAlt: "Families enjoying the inclusive playground at Berthoud Town Park"
 imageCredit: "Town of Berthoud"
 featured: true
 summary: "The town's oldest park, redeveloped with a 12,000 sq ft inclusive playground, a stone water-play feature, two pavilions, and the Saturday market and Oktoberfest on its lawn."
-source: "https://www.berthoud.org/219/Parks"
-verified: "2026-09-21"
+source: "https://www.berthoud.org/1458/Berthoud-Town-Park"
+verified: "2026-10-12"
 added: "2026-09-17"
 ---
 
