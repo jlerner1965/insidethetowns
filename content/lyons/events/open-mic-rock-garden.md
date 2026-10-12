@@ -13,4 +13,4 @@ source: "https://lyonsrecorder.org/events/"
 verified: "2026-09-18"
 ---
 
-Monday open mic in the garden on the river, outdoors and weather permitting. Free. The Recorder's calendar lists it through November; the garden's own site is the word on a cold night.
+Monday open mic in the creekside beer garden, outdoors and weather permitting. Free. The Recorder's calendar lists it through November; the garden's own site is the word on a cold night.

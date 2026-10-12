@@ -12,4 +12,4 @@ source: "https://rockgardenlyons.com/events"
 verified: "2026-09-18"
 ---
 
-Saturday-evening set in the garden on the river.
+Saturday-evening set in the creekside beer garden.

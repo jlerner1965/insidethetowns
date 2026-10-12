@@ -10,4 +10,4 @@ source: "https://rockgardenlyons.com/events"
 verified: "2026-10-03"
 ---
 
-Live music in the garden on the river on Saturday evening, 6 to 9. The Rock Garden is a 21-and-over venue.
+Live music in the creekside beer garden on Saturday evening, 6 to 9. The Rock Garden is a 21-and-over venue.
