@@ -5,12 +5,11 @@ address: "7980 Niwot Road"
 area: "Inside Niwot Market"
 url: "https://niwotmarket.com/sachi-sushi-1"
 phone: "(303) 652-0919"
-hours: "Closed Mondays and Tuesdays"
 tags: [sushi, ramen, counter]
-summary: "Japanese kitchen at the back of Niwot Market: sushi through the week and ramen on Sundays."
+summary: "Sushi counter at the back of Niwot Market: sushi made fresh daily to go, and ramen as the Sunday special."
 source: "https://niwotmarket.com/sachi-sushi-1"
-verified: "2026-09-09"
+verified: "2026-10-12"
 added: "2026-09-17"
 ---
 
-Walk to the back of the independent grocery and there is a sushi counter. Sushi most of the week, a ramen day on Sundays, and a few seats if you are eating in. Closed Mondays and Tuesdays.
+Walk to the back of the independent grocery and there is a sushi counter, making sushi fresh each day to take away, with ramen as the Sunday special. The market's page gives no hours for the counter; the number above is the market's own line.
