@@ -212,12 +212,28 @@
   }
   .filter-pills::-webkit-scrollbar { display: none; }
   .filter-pills > * { flex-shrink: 0; white-space: nowrap; }
+  /*
+   * An edge with more beyond it fades out instead of cutting a button in
+   * half; an edge with nothing beyond it stays sharp. The attributes are set
+   * as the row scrolls (src/lib/scroll-rows.ts). With no script both are
+   * absent and the row is the plain one-line scroller it always was.
+   */
+  .filter-pills {
+    --fade-before: 0px;
+    --fade-after: 0px;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-before), #000 calc(100% - var(--fade-after)), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-before), #000 calc(100% - var(--fade-after)), transparent 100%);
+  }
+  .filter-pills[data-more-before] { --fade-before: 2rem; }
+  .filter-pills[data-more-after] { --fade-after: 2rem; }
   @media (width >= 40rem) {
     .filter-pills {
       flex-wrap: wrap;
       overflow: visible;
       margin: 0;
       padding: 0;
+      -webkit-mask-image: none;
+      mask-image: none;
     }
   }
 }

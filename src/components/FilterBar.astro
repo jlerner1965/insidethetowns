@@ -67,6 +67,10 @@ const pill =
 
 <script>
   import { collapsePlan, emptyText, filterRows, statusText, unknownNote } from '@/lib/filters';
+  import { initScrollRows } from '@/lib/scroll-rows';
+
+  // Edge fades, and the chosen button kept in view, on a phone's one-line rows.
+  initScrollRows();
 
   const bars = document.querySelectorAll<HTMLElement>('[data-filter-bar]');
   for (const bar of bars) {
