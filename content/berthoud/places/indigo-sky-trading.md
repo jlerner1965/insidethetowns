@@ -6,7 +6,7 @@ area: "East Mountain Avenue"
 tags: [gifts, handmade, jewelry]
 summary: "Handcrafted jewelry, woodcraft and gifts made by local artisans, on east Mountain Avenue."
 source: "https://berthoudmainstreet.org/shop-antiques-berthoud/"
-verified: "2026-09-18"
+verified: "2026-10-12"
 added: "2026-09-17"
 ---
 
