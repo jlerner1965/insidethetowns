@@ -4814,3 +4814,53 @@ the ones that would make sense."
   email is going out is the owner's to say. Buttondown may hold subscribers
   tagged `severance`, `fort-lupton` or `elizabeth`; moving them to `windsor`
   and `carbon-valley`, and telling Elizabeth's, is the owner's in Buttondown.
+
+## Regional editions and visitor guides
+
+*12 October 2026.* The owner brought a second recommendation: combine the
+work, not the coverage. Shared email, calendar and advertising for Timnath
+with Windsor, for Idaho Springs with Georgetown and, more tentatively, for
+Johnstown with Loveland; Black Hawk a focused visitor guide with no weekly
+publication; Leadville and Manitou Springs lower-priority visitor guides;
+Estes Park and Grand Lake kept apart. Read against the guides, the editor
+agreed with all of it but one reading (Timnath shares an email with Windsor
+but keeps its site: its schools are Poudre, Fort Collins' district, and its
+config names Fort Collins first) and proposed the build below. The owner:
+"Yes."
+
+- **What the guides showed.** Black Hawk: 14 of its 20 listings belong to four
+  casino companies (Monarch 7, Ameristar 4, the Lodge 2, Bally's 1), so few
+  separate buyers for a placement, and none of its 16 sources is confirmed.
+  Idaho Springs and Georgetown: their source registries share the county, the
+  library district, the recreation district, the school district and the
+  Forest Service ranger district, and Visit Clear Creek is proposed in Idaho
+  Springs'. Windsor (with Severance) 45 places, Timnath 18.
+- **Editions.** `newsletter.editions` on the hub config names three shared
+  editions; every other guide the email covers is an edition of its own
+  (`src/lib/editions.ts`, `emailEditions()`), fifteen in all. A shared
+  edition is one Thursday draft with each town's listings under its own
+  heading ("Windsor and Severance" for a guide with sections), one signup
+  box and one sponsor line (`sponsor` on the edition, else the network's).
+  Subscribers stay tagged by town, which Buttondown can already filter on,
+  so an edition goes to every tag in it and a reader who ticks two of its
+  towns gets one email. On a guide the box for its edition is ticked and
+  posts that guide's own tag, so the tags still say where readers came from;
+  on the hub a shared box posts its lead town's tag. The hub's `?towns=`
+  link ticks an edition box when any of its towns is named (`data-towns`).
+  An edition whose other towns stop being covered falls back to its one
+  remaining town, so nobody is sent an email named for a town it no longer
+  reaches.
+- **Visitor guides.** A new `visitorGuide` on the config (since, why) for
+  Black Hawk, Leadville and Manitou Springs: no weekly email, signup box or
+  draft, and no thin-calendar warning, but unlike `quiet` they stay in the
+  weekly report, labeled, because a mountain listing expires sixty days from
+  its check.
+- **Advertising.** /advertise/ names the shared editions and says each is one
+  email slot while on-site placements stay by town; a guide's /for-businesses/
+  names its edition, and a guide with no email no longer offers an email line.
+- **Not done.** No sites or domains merged, and no shared calendar page: each
+  guide's /events/ already reads its own listings, and the hub's This Weekend
+  already reads all of them. No sponsor or price was set. Sending is the
+  owner's in Buttondown: fifteen editions a week is still a lot for one
+  person, and starting with fewer (the four priority guides, say) needs no
+  code, only fewer sends.

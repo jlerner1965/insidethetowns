@@ -19,9 +19,9 @@ test('Elizabeth is the quiet guide, and it is still live', () => {
   for (const t of quiet) assert.equal(t.status, 'live', `${t.slug}: a quiet guide stays up`);
 });
 
-test('the weekly email covers every live guide but a quiet one', () => {
+test('the weekly email covers every live guide but a quiet one or a visitor guide', () => {
   const email = emailTowns().map((t) => t.slug);
-  for (const t of liveTowns()) assert.equal(email.includes(t.slug), !t.quiet, t.slug);
+  for (const t of liveTowns()) assert.equal(email.includes(t.slug), !t.quiet && !t.visitorGuide, t.slug);
 });
 
 test("a quiet guide's decision comes before its first listing loses its hours", () => {

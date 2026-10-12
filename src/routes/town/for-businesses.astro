@@ -12,13 +12,15 @@
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import TipsLink from '@/components/TipsLink.astro';
-import { getNetworkHub, getTown } from '@/config';
+import { editionFor, emailEditions, getNetworkHub, getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { breadcrumbJsonLd } from '@/lib/seo';
 import { LAND_TYPES } from '@/content/schemas';
 
 const town = getTown();
 const hub = getNetworkHub();
+// The weekly email this guide is in, if any: a quiet guide or a visitor guide has none.
+const edition = editionFor(town.slug, emailEditions());
 const places = (await getTownEntries('places')).filter((p) => !p.delisted);
 const businesses = places.filter((p) => !LAND_TYPES.includes(p.data.type)).length;
 // The directory counts every place, parks and trails included; this page is
@@ -81,13 +83,19 @@ const description = `How ${town.siteTitle} lists businesses in ${town.name}, ${t
     <h2>What is for sale</h2>
     <p>
       Sponsorship, labeled as such, beside the editorial and never inside it. A sponsor’s name appears on a
-      page or in the weekly email as “presented by”, with a link. It does not change a listing, the order of a
+      page{hub.newsletter && edition && ' or in the weekly email'} as “presented by”, with a link. It does not change a listing, the order of a
       list, or what we write. The placements on this guide are:
     </p>
     <ul>
       <li>A “presented by” line on the <a href="/events/">events page</a> and the <a href="/this-weekend/">weekend page</a> — the pages readers come back to every week.</li>
       <li>A labeled block on <a href="/moving-here/">Moving Here</a>, which is where people about to move to {town.name} look for an agent, a lender, a mover.</li>
-      {hub.newsletter && <li>A line at the top of the weekly {town.siteTitle} email.</li>}
+      {hub.newsletter && edition && (
+        <li>
+          {edition.shared
+            ? `A line at the top of the weekly email for ${edition.name}, which ${town.name} shares with its neighbors; one sponsor reaches all of it.`
+            : `A line at the top of the weekly ${town.siteTitle} email.`}
+        </li>
+      )}
     </ul>
     {/* This said prices and audience figures were on /advertise/, which
         publishes neither until there are numbers to stand behind (audit, 7

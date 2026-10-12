@@ -9,12 +9,13 @@
 import Page from '@/layouts/Page.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import CtaBand from '@/components/CtaBand.astro';
-import { emailTowns, getHub } from '@/config';
+import { emailEditions, emailTowns, getHub } from '@/config';
 import { getHubEntries } from '@/lib/content';
 import { formatDate, toIsoLocal } from '@/lib/dates';
 
 const hub = getHub();
 const towns = emailTowns();
+const editions = emailEditions();
 const config = hub.newsletter;
 // Nothing can have been sent before there is something to send it with, and
 // reading an empty collection warns on every build of every site — the kind of
@@ -28,8 +29,8 @@ const day = config?.sendDay ?? 'Thursday';
   title="The weekly email"
   seoTitle={`What’s on across Colorado’s Front Range, every ${day}`}
   eyebrow="Inside the Towns"
-  description={`One email a week: what’s on in ${towns.map((t) => t.name).join(', ')}. Pick your towns or take all ${towns.length}.`}
-  intro={`The weekend’s events in whichever of the ${towns.length} towns you care about, places new to the guides or closed, and a new article when there is one. One email, every ${day}.`}
+  description={`One email a week: what’s on in ${towns.map((t) => t.name).join(', ')}. Pick your towns or take them all.`}
+  intro={`The weekend’s events in whichever of the ${towns.length} towns you care about, places new to the guides or closed, and a new article when there is one. One email, every ${day}; ${editions.length} editions, a few of them covering neighboring towns together.`}
 >
   {config ? (
     <Fragment>
@@ -101,10 +102,12 @@ const day = config?.sendDay ?? 'Thursday';
 
 <script>
   // A guide's "Get your nearby towns" link arrives as ?towns=niwot,longmont,
-  // and those towns start ticked. Without the script, nothing is ticked and
-  // the form works the same.
+  // and the editions with those towns in them start ticked: a box stands for
+  // every town of its edition (data-towns). Without the script, nothing is
+  // ticked and the form works the same.
   const wanted = new URLSearchParams(location.search).get('towns')?.split(',') ?? [];
   for (const box of document.querySelectorAll<HTMLInputElement>('form input[type="checkbox"]')) {
-    if (wanted.includes(box.value)) box.checked = true;
+    const towns = box.dataset.towns?.split(' ') ?? [box.value];
+    if (towns.some((t) => wanted.includes(t))) box.checked = true;
   }
 </script>

@@ -18,6 +18,12 @@ export const manitouSprings: TownConfig = {
   // it publishes what is verified, and the validator and the weekly report
   // say what it is short of (docs/ACCURACY-SYSTEM.md).
   status: 'live',
+  // A visitor guide from 12 October 2026, owner's word: kept current, no weekly
+  // email (DECISIONS.md, "Regional editions and visitor guides").
+  visitorGuide: {
+    since: '2026-10-12',
+    reason: 'an hour or more from the other live guides, so a weekly issue costs more than it returns; its visitors plan a trip around the Incline, the springs and the seasons',
+  },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Castle Rock, the nearest guide, an hour up I-25; it has not launched, so

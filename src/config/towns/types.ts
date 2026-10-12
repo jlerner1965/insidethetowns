@@ -142,6 +142,15 @@ export interface TownConfig {
    */
   quiet?: { since: string; decideBy: string; reason: string };
   /**
+   * A visitor guide: a destination people plan a trip around, kept current
+   * as a guide to visit by (places, seasons, evergreen articles) but not
+   * published weekly. It has no weekly email: no signup on its pages, no box
+   * for it on any other, no Thursday draft. Unlike `quiet` it stays in the
+   * weekly report, because its listings still expire and need their check;
+   * a mountain guide's every sixty days, so about monthly.
+   */
+  visitorGuide?: { since: string; reason: string };
+  /**
    * What must be verified and upcoming before the guide goes live; the
    * default is DEFAULT_LAUNCH_THRESHOLD in src/config/freshness.ts. A large
    * town launching with a curated scope sets its own.
@@ -416,6 +425,24 @@ export interface NewsletterConfig {
   allTag?: string;
   /** The day it goes out, for the copy. */
   sendDay?: string;
+  /**
+   * Guides that share one weekly issue, one signup box and one sponsor line,
+   * while each keeps its own site, pages and town tag. Every other guide the
+   * email covers is an edition of its own. A town is in one edition at most.
+   */
+  editions?: readonly NewsletterEdition[];
+}
+
+/** Several guides' weekly email, produced and sold as one. */
+export interface NewsletterEdition {
+  /** For the draft's file name: never a town's slug. */
+  slug: string;
+  /** What the email is called and the signup says: "What’s on in <name>". */
+  name: string;
+  /** Town slugs, the lead town first: its tag is what the network's signup box posts. */
+  towns: readonly string[];
+  /** The edition's email sponsor, instead of any one town's. */
+  sponsor?: Sponsor;
 }
 
 export type SiteConfig = TownConfig | HubConfig;

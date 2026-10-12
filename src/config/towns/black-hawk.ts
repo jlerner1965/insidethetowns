@@ -16,6 +16,12 @@ export const blackHawk: TownConfig = {
   // it publishes what is verified, and the validator and the weekly report
   // say what it is short of (docs/ACCURACY-SYSTEM.md).
   status: 'live',
+  // A visitor guide from 12 October 2026, owner's word: kept current, no weekly
+  // email (DECISIONS.md, "Regional editions and visitor guides").
+  visitorGuide: {
+    since: '2026-10-12',
+    reason: '14 of its 20 listings belong to four casino companies, so few separate buyers for a weekly placement; its visitors plan a trip, not a week',
+  },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Nederland by the Peak to Peak, Golden down Clear Creek Canyon, Idaho

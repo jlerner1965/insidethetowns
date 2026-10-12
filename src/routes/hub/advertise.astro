@@ -18,7 +18,7 @@
  */
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
-import { getHub, liveTowns } from '@/config';
+import { emailEditions, getHub, liveTowns } from '@/config';
 import { addDays, formatDate, parseLocal, startOfDay } from '@/lib/dates';
 
 /**
@@ -46,6 +46,8 @@ const mailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Adverti
 const foundingMailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Founding network sponsor')}`;
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
 const money = (n: number) => `$${n.toLocaleString('en-US')}`;
+// Editions covering more than one guide sell their email slot as one.
+const shared = emailEditions().filter((e) => e.shared);
 ---
 <Page
   title="Advertise & partner"
@@ -140,6 +142,13 @@ const money = (n: number) => `$${n.toLocaleString('en-US')}`;
       </li>
       {hub.newsletter && <li>A labeled slot in the weekly email, beside the listings and never inside them.</li>}
     </ul>
+    {hub.newsletter && shared.length > 0 && (
+      <p>
+        Some neighboring towns share one weekly email: {shared.map((e) => e.name).join('; ')}. Each of those
+        emails carries one sponsor line, so it reaches every town in it, while the events and Moving Here placements
+        on each town’s guide are still sold town by town.
+      </p>
+    )}
 
     <h2>Audience</h2>
     {measured ? (

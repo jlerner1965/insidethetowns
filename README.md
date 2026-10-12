@@ -49,8 +49,8 @@ canceled`, and the pages do the rest (see any content README).
    is left alone unless `--force` is given. `source` defaults to `url` and `verified`
    to today, so every imported event carries both.
 4. `npm run validate`, commit, push. Vercel rebuilds every live site.
-5. On the send day, `npm run newsletter -- --number=N` drafts one issue per town and
-   one for the whole network from the listings: the weekend by day, anything still
+5. On the send day, `npm run newsletter -- --number=N` drafts one issue per edition
+   (see *Editions* below) and one for the whole network from the listings: the weekend by day, anything still
    running, the week after, places added since the last issue (from the git history,
    so not in a shallow checkout) and articles published that week. Each draft is
    Markdown under a frontmatter block in the shape of `content/hub/issues/`. Read it,
@@ -103,6 +103,28 @@ Elizabeth was on 12 October 2026, to be decided by 15 November. It stays up
 and accurate as far as the rotation reaches, but makes no weekly promise: no
 email signup on its pages or box for it on any other, no Thursday draft, and
 one line in the weekly report counting the days to the decision.
+
+A **visitor guide** (`visitorGuide` on its config: since, why) is a destination
+people plan a trip around, kept current but not published weekly: Black Hawk,
+Leadville and Manitou Springs, from 12 October 2026. It has no weekly email,
+signup or Thursday draft, but unlike a quiet guide it stays in the weekly
+report, labeled, because a mountain listing still expires sixty days from its
+check; about a monthly pass keeps it whole.
+
+## Editions
+
+The weekly email goes out as editions (`src/lib/editions.ts`). Most are one
+guide's. `newsletter.editions` on the hub config names the few that share one
+issue, one signup box and one sponsor line while each keeps its own site:
+Windsor, Severance and Timnath; Idaho Springs and Georgetown; Loveland and
+Johnstown. A shared edition's draft has each town's listings under its own
+heading. Subscribers are still tagged by town, so in Buttondown a shared
+edition is sent to everyone tagged with any of its towns (one email each,
+however many of them they ticked), and an edition of one to its town's tag.
+On a guide the signup ticks that guide's edition with the guide's own tag;
+on the hub a shared edition's box posts its lead town's tag. Fifteen
+editions as of 12 October 2026; `npm run newsletter -- --town=timnath`
+drafts the edition Timnath is in.
 
 ## The source registry
 
