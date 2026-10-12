@@ -10,4 +10,4 @@ source: "https://rockgardenlyons.com/events"
 verified: "2026-10-03"
 ---
 
-Friday-evening bluegrass in the garden on the river, 6 to 9. The Rock Garden is a 21-and-over venue.
+Friday-evening bluegrass in the creekside beer garden, 6 to 9. The Rock Garden is a 21-and-over venue.

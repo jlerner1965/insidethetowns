@@ -13,4 +13,4 @@ source: "https://rockgardenlyons.com/events"
 verified: "2026-10-03"
 ---
 
-Friday-evening band in the garden on the river.
+Friday-evening band in the creekside beer garden.
