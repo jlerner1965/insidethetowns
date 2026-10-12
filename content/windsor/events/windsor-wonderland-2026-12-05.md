@@ -1,5 +1,6 @@
 ---
 title: "Windsor Wonderland and the tree lighting"
+subTown: windsor
 start: "2026-12-05T16:00"
 end: "2026-12-05T19:00"
 venue: "Boardwalk Community Park"

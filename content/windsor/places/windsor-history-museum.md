@@ -1,5 +1,6 @@
 ---
 title: "Windsor History Museum"
+subTown: windsor
 type: venue
 address: "100 N 5th St"
 area: "Boardwalk Park, Windsor Lake"

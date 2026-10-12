@@ -1,5 +1,6 @@
 ---
 title: "Windsor Lake Trail"
+subTown: windsor
 type: trail
 address: "100 N 5th St (Boardwalk Park)"
 area: "Windsor Lake"

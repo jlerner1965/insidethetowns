@@ -1,5 +1,6 @@
 ---
 title: "Live music: Aubrey Dale at Mighty River Brewing"
+subTown: windsor
 start: "2026-10-30T18:00"
 end: "2026-10-30T21:00"
 venue: "Mighty River Brewing"

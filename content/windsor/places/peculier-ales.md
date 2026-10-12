@@ -1,5 +1,6 @@
 ---
 title: "Peculier Ales"
+subTown: windsor
 type: bar
 address: "301 Main St"
 area: "Windsor Mill, Main Street"

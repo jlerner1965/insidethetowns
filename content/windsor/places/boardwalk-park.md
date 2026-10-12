@@ -1,5 +1,6 @@
 ---
 title: "Boardwalk Park & Windsor Lake"
+subTown: windsor
 type: park
 address: "100 N 5th St"
 area: "Windsor Lake"

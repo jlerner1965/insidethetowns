@@ -1,5 +1,6 @@
 ---
 title: "Family Bingo: Lotería at Windsor Library"
+subTown: windsor
 start: "2026-10-07T16:30"
 end: "2026-10-07T17:30"
 venue: "Clearview Library, Windsor"

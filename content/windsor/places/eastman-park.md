@@ -1,5 +1,6 @@
 ---
 title: "Eastman Park"
+subTown: windsor
 type: park
 address: "7025 Eastman Park Dr"
 area: "7th Street at the Poudre"

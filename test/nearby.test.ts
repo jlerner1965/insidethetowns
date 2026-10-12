@@ -105,22 +105,24 @@ test('each guide names the neighbours the owner set, in that order', () => {
   // The owner's lists, 5 October 2026, with the seven towns scaffolded on
   // 6 October appended to the guides they name, so each pair goes both ways.
   // A town that is not live is filtered out by neighborsOf, so nothing shows
-  // on a live guide until the owner flips its neighbour.
+  // on a live guide until the owner flips its neighbour. Severance and Fort
+  // Lupton were folded into Windsor and Carbon Valley on 12 October 2026 and
+  // name nobody; nobody names them.
   const NEIGHBORS: Record<string, string[]> = {
     niwot: ['longmont', 'lyons', 'erie', 'nederland'],
     lyons: ['longmont', 'niwot', 'estes-park', 'nederland'],
-    longmont: ['niwot', 'lyons', 'erie', 'carbon-valley', 'berthoud', 'fort-lupton'],
+    longmont: ['niwot', 'lyons', 'erie', 'carbon-valley', 'berthoud'],
     erie: ['longmont', 'carbon-valley', 'niwot'],
-    'carbon-valley': ['erie', 'longmont', 'fort-lupton'],
+    'carbon-valley': ['erie', 'longmont'],
     berthoud: ['loveland', 'longmont', 'johnstown'],
     loveland: ['berthoud', 'johnstown', 'fortcollins', 'estes-park'],
     johnstown: ['loveland', 'windsor', 'berthoud'],
-    windsor: ['timnath', 'johnstown', 'fortcollins', 'severance'],
-    timnath: ['fortcollins', 'windsor', 'severance'],
-    fortcollins: ['timnath', 'windsor', 'loveland', 'severance'],
+    windsor: ['timnath', 'johnstown', 'fortcollins'],
+    timnath: ['fortcollins', 'windsor'],
+    fortcollins: ['timnath', 'windsor', 'loveland'],
     elizabeth: ['castle-rock'],
-    severance: ['windsor', 'timnath', 'fortcollins'],
-    'fort-lupton': ['carbon-valley', 'longmont'],
+    severance: [],
+    'fort-lupton': [],
     'castle-rock': ['elizabeth', 'manitou-springs'],
     'estes-park': ['lyons', 'loveland', 'grand-lake'],
     golden: ['evergreen', 'black-hawk', 'idaho-springs', 'georgetown'],

@@ -4734,3 +4734,83 @@ files resolved.
   (`docs/VERIFICATION-QUEUE-2026-10-11.csv`), the rebuilt photo contacts sheet
   (now every open listing without a photograph) and its call-list rows are
   kept, the call list rewritten for the new rules.
+
+## Severance and Fort Lupton become sections
+
+*12 October 2026.* The owner brought an outside recommendation to narrow the
+network: pause Severance, Fort Lupton and Elizabeth, put Black Hawk lower,
+and put the effort into eight guides, Niwot, Longmont, Erie and Lyons first.
+Read against the guides, the editor proposed folding the two thinnest into
+the neighbours they already lean on, keeping Elizabeth up but quiet with a
+date to decide, and keeping everything else. The owner's answer: "do all of
+the ones that would make sense."
+
+- **What the guides showed on 11 October.** Severance: 16 open places, 3 of
+  them businesses, 9 events in the next 30 days, and articles that name
+  Windsor 49 times. Fort Lupton: 20 places, 8 businesses, 11 events, 7 of them
+  at the library. Elizabeth: 25 places, 15 businesses, 24 events; thin on
+  nothing but distance. There were no traffic figures to weigh against this:
+  Vercel Web Analytics is not on for the guide projects (the API answered
+  "Web Analytics not found" for Severance and Lyons), and Search Console is
+  the owner's to read.
+- **Severance is a section of Inside Windsor.** Windsor's config lists
+  `subTowns: ['windsor', 'severance']`, which gives it /severance/ and a
+  "Where" filter on its events and place lists, as Carbon Valley has. The
+  validator wants a `subTown` on every event and place of a multi-town guide,
+  so every Windsor item, staged item and source now says `windsor`. Severance's
+  16 places, 12 events, 8 staged items, 3 articles and 13 sources moved into
+  `content/windsor/` with `subTown: severance` and their slugs unchanged, and
+  Bruce's Bar's photograph with its ledger row. Its Moving Here page is now
+  the article *Moving to Severance*, with a line on where it sits and the
+  sidebar's listings named in the text, and Windsor's own Moving Here page
+  links it. The driving-order article called Windsor "the sister guide"; it
+  now points at Eat & Drink on the same guide. The tagline names both towns;
+  the figures stay Windsor's.
+- **Fort Lupton is a section of Inside Carbon Valley**, a fourth, rather than
+  "Nearby" listings as first proposed: every item on a multi-town guide needs
+  a `subTown` whatever it is labelled, and the old domain needs a page to send
+  its home to. 20 places, 14 events, 5 staged items, 3 articles, 11 sources and
+  2 photographs moved; two sources were renamed where Carbon Valley already
+  had the id (`weld-gov-fort-lupton`, `highplains-libcal-com-fort-lupton`,
+  with the `sourceId` lines that cite them). It is not a coal town and has
+  its own library and school district, so the name and the figures stay the
+  three Carbon Valley towns'; the tagline and short tagline add Fort Lupton,
+  and the SEO line keeps three names because a home title has no room for a
+  fourth (the towns test caught it). Its Moving Here page is now *Moving to
+  Fort Lupton*.
+- **The two domains redirect, path for path.** Each config is
+  `status: 'redirect'` with a new `foldedInto` (guide, section page, date).
+  Thirteen host-scoped rules per domain in `vercel.json` keep the path for
+  events, places and articles, filter the list pages to the town, send
+  Moving Here to the new article and the calendar and RSS feeds to the new
+  guide's, and send `/` and the rest to the section page
+  (docs/REDIRECTS.md). Unlike insidefirestone.com, each domain stays on its
+  own Vercel project, which goes on building from this repo and serves the
+  rules before its one page is reached, so nothing changes in the dashboard;
+  both projects' `www` already 308s to the apex (read from Vercel today).
+  That page, the holding page, now says where the guide went, and each old
+  folder keeps its hero and a README for it. `test/folded-towns.test.ts` holds
+  config, sections, content and rules in step.
+- **Across the network.** Nobody lists the two as neighbours any more
+  (Windsor, Timnath, Fort Collins, Longmont and Carbon Valley did), and the
+  hub and every guide's sister links count 22 guides. The hub's Moving page says
+  where Severance's and Fort Lupton's figures went. The "Where" filters said
+  "All three", true only of Carbon Valley; they say "All". The weekly report
+  skips a folded town.
+- **Elizabeth is quiet until 15 November.** A new `quiet` on the config (since,
+  decide by, why) keeps a live guide out of the weekly routine: no email
+  signup on its pages, no box for it on any other guide's or the hub's
+  (`emailTowns()`), no Thursday draft, and one line in the weekly report with
+  the days left. Its pages stay up and its listings stay accurate as far as
+  the rotation reaches. 15 November is before any of them loses its hours:
+  the five checked on 18 September lose them on 17 November and drop off on
+  17 December, the rest in December and January. Keep it, and the field comes
+  off; fold or retire it, and the Severance pattern applies, though no live
+  guide is near enough to take it.
+- **Not done, and why.** Black Hawk's lower priority is the order of the
+  weekly session, not code. Castle Rock stays `wave2`: opening it would undo
+  the reason Elizabeth went quiet. The "every Thursday" signup stays on the
+  other 21 guides: no issue is in `content/hub/issues/` yet, and whether the
+  email is going out is the owner's to say. Buttondown may hold subscribers
+  tagged `severance`, `fort-lupton` or `elizabeth`; moving them to `windsor`
+  and `carbon-valley`, and telling Elizabeth's, is the owner's in Buttondown.

@@ -1,5 +1,6 @@
 ---
 title: "Live music: Lid Dixon at Mighty River Brewing"
+subTown: windsor
 start: "2026-10-17T19:00"
 end: "2026-10-17T21:00"
 venue: "Mighty River Brewing"

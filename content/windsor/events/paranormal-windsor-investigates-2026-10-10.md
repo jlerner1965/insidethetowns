@@ -1,5 +1,6 @@
 ---
 title: "Paranormal Windsor Investigates: the History Museum after dark"
+subTown: windsor
 start: "2026-10-10T19:30"
 end: "2026-10-10T23:00"
 venue: "Windsor History Museum"

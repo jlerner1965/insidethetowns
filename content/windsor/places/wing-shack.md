@@ -1,5 +1,6 @@
 ---
 title: "Wing Shack"
+subTown: windsor
 type: restaurant
 address: "1294 Main St"
 area: "west Main Street"

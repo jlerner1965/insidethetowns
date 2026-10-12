@@ -1,5 +1,6 @@
 ---
 title: "Thursday beer release at Peculier Ales"
+subTown: windsor
 start: "2026-10-01T11:00"
 end: "2026-10-01T21:00"
 repeat: weekly

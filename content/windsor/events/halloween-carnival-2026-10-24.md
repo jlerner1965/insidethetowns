@@ -1,5 +1,6 @@
 ---
 title: "Halloween Carnival at Boardwalk Park"
+subTown: windsor
 start: "2026-10-24T12:00"
 end: "2026-10-24T16:00"
 venue: "Boardwalk Community Park"

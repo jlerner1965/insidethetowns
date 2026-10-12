@@ -1,5 +1,6 @@
 ---
 title: "Live music: Luke Hahn Zollo at Mighty River Brewing"
+subTown: windsor
 start: "2026-10-09T19:00"
 end: "2026-10-09T21:00"
 venue: "Mighty River Brewing"

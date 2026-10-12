@@ -1,5 +1,6 @@
 ---
 title: "Pumpkin Plunge"
+subTown: windsor
 start: "2026-10-17T11:00"
 end: "2026-10-17T14:00"
 venue: "Community Recreation Center indoor pool"

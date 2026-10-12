@@ -1,5 +1,6 @@
 ---
 title: "Main Park"
+subTown: windsor
 type: park
 address: "300 Locust St"
 area: "Locust Street, by Town Hall"

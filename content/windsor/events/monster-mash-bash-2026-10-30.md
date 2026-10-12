@@ -1,5 +1,6 @@
 ---
 title: "Monster Mash Bash at the Windsor Mill"
+subTown: windsor
 start: "2026-10-30T18:30"
 end: "2026-10-30T22:00"
 venue: "Windsor Mill Event Center"

@@ -1,5 +1,6 @@
 ---
 title: "Wellness in Windsor Health Fair"
+subTown: windsor
 start: "2026-10-17T09:00"
 end: "2026-10-17T14:00"
 venue: "Windsor Community Recreation Center"

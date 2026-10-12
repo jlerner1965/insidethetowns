@@ -1,5 +1,6 @@
 ---
 title: "Live music: Mountain Duo at Mighty River Brewing"
+subTown: windsor
 start: "2026-10-16T18:00"
 end: "2026-10-16T21:00"
 venue: "Mighty River Brewing"

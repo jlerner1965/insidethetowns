@@ -135,6 +135,8 @@ function upcomingDays(e: EventData): string[] {
 }
 
 type TownReport = {
+  /** Out of the weekly routine until a decision (TownConfig `quiet`): one line, no lists. */
+  quiet?: { since: string; decideBy: string; reason: string };
   town: string;
   live: boolean;
   upcoming: number;
@@ -168,12 +170,15 @@ type TownReport = {
 const reports: TownReport[] = [];
 for (const town of allTowns) {
   if (onlyTown && town.slug !== onlyTown) continue;
+  // A guide folded into another has no content of its own to report on.
+  if (town.status === 'redirect') continue;
   if (!existsSync(join(contentDir, town.slug)) || !statSync(join(contentDir, town.slug)).isDirectory()) continue;
   const events = readCollection<EventData>(town.slug, 'events', (f) => eventSchema(imageExists(f)));
   const places = readCollection<PlaceData>(town.slug, 'places', (f) => placeSchema(imageExists(f)));
   const report: TownReport = {
     town: town.slug,
     live: LIVE_TOWNS.includes(town.slug),
+    quiet: town.quiet,
     upcoming: 0,
     lastDate: '',
     runwayDays: 0,
@@ -280,6 +285,12 @@ for (const r of reports) {
     r.upcoming < MIN_UPCOMING ? `  ⚠ fewer than ${MIN_UPCOMING}` : ''
   }`);
   line('-'.repeat(72));
+  if (r.quiet) {
+    const left = Math.round((Date.parse(`${r.quiet.decideBy}T12:00:00Z`) - Date.parse(`${dayKey(now)}T12:00:00Z`)) / 86_400_000);
+    line(`  Quiet since ${r.quiet.since}: ${r.quiet.reason}. Not part of the weekly session.`);
+    line(`  Decide whether to keep it by ${r.quiet.decideBy} (${left < 0 ? `${-left} days overdue` : `${left} days`}); ${r.stale.length} listing${r.stale.length === 1 ? '' : 's'} already past the re-check.`);
+    continue;
+  }
   if (!r.launch.meets) {
     line(`  ⚠ Under the launch threshold: ${describeCounts(r.launch)}${r.live ? ' — live, publishing what is verified' : ' — not live; holding page'}`);
   }
@@ -334,9 +345,9 @@ for (const r of reports) {
   }
 }
 line();
-const thin = reports.filter((r) => r.upcoming < MIN_UPCOMING).map((r) => r.town);
+const thin = reports.filter((r) => !r.quiet && r.upcoming < MIN_UPCOMING).map((r) => r.town);
 const dry = reports
-  .filter((r) => r.live && r.runwayDays < MIN_RUNWAY_DAYS)
+  .filter((r) => r.live && !r.quiet && r.runwayDays < MIN_RUNWAY_DAYS)
   .sort((a, b) => a.runwayDays - b.runwayDays)
   .map((r) => `${r.town} (${r.runwayDays}d)`);
 line(

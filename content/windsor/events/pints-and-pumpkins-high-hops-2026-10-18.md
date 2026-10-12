@@ -1,5 +1,6 @@
 ---
 title: "Pints & Pumpkins at High Hops Brewery"
+subTown: windsor
 start: "2026-10-18T10:30"
 end: "2026-10-18T12:00"
 venue: "High Hops Brewery at The Windsor Gardener"

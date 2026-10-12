@@ -16,7 +16,7 @@
  */
 import Page from '@/layouts/Page.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
-import { getHub, liveTowns } from '@/config';
+import { emailTowns, getHub } from '@/config';
 import { getNetworkEntries } from '@/lib/content';
 import { formatDate, formatDayLong, formatDayRange } from '@/lib/dates';
 import { highlights, isCanceled, occurrences, timeText, weekendSections, weekendWindow } from '@/lib/events';
@@ -31,7 +31,7 @@ const sponsor = hub.sponsors?.email ?? hub.sponsors?.network;
 
 const listings = occurrences((await getNetworkEntries('events')).filter((e) => !isCanceled(e)), { now: send, horizonDays: 14 });
 const weekend = weekendSections(listings, { now: send, horizonDays: 5 }).weekend;
-const weeks = liveTowns().map((town) => {
+const weeks = emailTowns().map((town) => {
   const own = weekend.filter((e) => e.town.slug === town.slug);
   return { town, count: own.length, picks: highlights(own, { now: send, limit: 4 }) };
 });
@@ -42,7 +42,7 @@ weeks.sort((a, b) => Number(b.picks.length > 0) - Number(a.picks.length > 0));
 
 const places = await getNetworkEntries('places');
 // A guide's opening-day places are the guide, not new places (src/lib/newsletter.ts).
-const openings = new Map(liveTowns().map((t) => [t.slug, openingDay(places.filter((p) => p.town.slug === t.slug))]));
+const openings = new Map(emailTowns().map((t) => [t.slug, openingDay(places.filter((p) => p.town.slug === t.slug))]));
 const opened = places.filter((p) => isNewPlace(p, send, openings.get(p.town.slug)));
 const shut = places.filter((p) => isNewlyClosed(p, send));
 const closedNote = (p: (typeof shut)[number]) =>

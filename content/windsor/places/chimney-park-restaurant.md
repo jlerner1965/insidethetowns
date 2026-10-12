@@ -1,5 +1,6 @@
 ---
 title: "Chimney Park Restaurant & Bar"
+subTown: windsor
 type: restaurant
 address: "406 Main St"
 area: "Main Street, downtown"

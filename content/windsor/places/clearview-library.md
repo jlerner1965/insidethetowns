@@ -1,5 +1,6 @@
 ---
 title: "Clearview Library, Windsor"
+subTown: windsor
 type: venue
 address: "720 3rd St"
 area: "3rd Street, downtown"

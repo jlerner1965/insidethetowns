@@ -13,13 +13,19 @@ test('a single-town guide has no sub-towns and no list', () => {
   assert.equal(subTownList({}), '');
 });
 
-test('Carbon Valley covers Frederick, Firestone and Dacono, in that order', () => {
+test('Carbon Valley covers Frederick, Firestone and Dacono, and Fort Lupton since 12 October', () => {
   const cv = towns.find((t) => t.slug === 'carbon-valley');
   assert.ok(cv, 'carbon-valley is configured');
-  assert.deepEqual([...cv.subTowns!], ['frederick', 'firestone', 'dacono']);
-  assert.equal(subTownList(cv), 'Frederick, Firestone and Dacono');
+  assert.deepEqual([...cv.subTowns!], ['frederick', 'firestone', 'dacono', 'fort-lupton']);
+  assert.equal(subTownList(cv), 'Frederick, Firestone, Dacono and Fort Lupton');
   assert.deepEqual(cv.launchThreshold, { events: 15, listings: 20 });
   assert.equal(cv.domain, 'carbonvalleyguide.com');
+});
+
+test('Windsor covers itself and Severance', () => {
+  const windsor = towns.find((t) => t.slug === 'windsor');
+  assert.deepEqual([...windsor!.subTowns!], ['windsor', 'severance']);
+  assert.equal(subTownList(windsor!), 'Windsor and Severance');
 });
 
 test('every sub-town slug is URL-safe and distinct from a route the guide already has', () => {

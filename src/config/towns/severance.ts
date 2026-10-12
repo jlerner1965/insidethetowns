@@ -10,15 +10,23 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  * 2026, as for every other town; the comments say which. The domain is the
  * one on the owner's Cloudflare nameservers (the same pair as the other
  * thirteen), confirmed 6 October 2026.
+ *
+ * Folded into Inside Windsor on 12 October 2026 (DECISIONS.md, "Severance
+ * and Fort Lupton become sections"): its events, places, articles and
+ * sources are in content/windsor/ with `subTown: severance`, and every path
+ * on insideseverance.com redirects there (vercel.json). The config stays so
+ * the Vercel project keeps building, and keeps serving those redirects.
  */
 export const severance: TownConfig = {
   kind: 'town',
   // Live 7 October 2026, on the owner's word, after the first review cleared
-  // the launch threshold (docs/ACCURACY-SYSTEM.md).
-  status: 'live',
+  // the launch threshold (docs/ACCURACY-SYSTEM.md); folded into Windsor on
+  // 12 October 2026.
+  status: 'redirect',
+  foldedInto: { town: 'windsor', path: '/severance/', since: '2026-10-12' },
   variant: 'front-range',
   region: 'Northern Colorado',
-  neighbors: ['windsor', 'timnath', 'fortcollins'],
+  neighbors: [],
   // Set with the brief, 6 October 2026: upcoming events / open listings.
   // Listings lowered from 15 to 12 by the owner on 6 October 2026: the Town's parks
   // have no published addresses and its businesses mostly no sites of their own.

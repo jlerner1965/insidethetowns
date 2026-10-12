@@ -1,5 +1,6 @@
 ---
 title: "Super 8 by Wyndham Windsor"
+subTown: windsor
 type: lodging
 address: "1265 Main St"
 area: "west Main Street"

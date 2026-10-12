@@ -1,5 +1,6 @@
 ---
 title: "Community Recreation Center"
+subTown: windsor
 type: venue
 address: "250 N 11th St"
 area: "11th Street"

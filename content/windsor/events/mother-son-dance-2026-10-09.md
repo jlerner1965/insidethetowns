@@ -1,5 +1,6 @@
 ---
 title: "Mother Son Dance: Decades Night"
+subTown: windsor
 start: "2026-10-09T18:00"
 end: "2026-10-09T20:00"
 venue: "Windsor Community Recreation Center"

@@ -13,7 +13,7 @@ export const longmont: TownConfig = {
   status: 'live',
   variant: 'front-range',
   region: 'Boulder County',
-  neighbors: ['niwot', 'lyons', 'erie', 'carbon-valley', 'berthoud', 'fort-lupton'],
+  neighbors: ['niwot', 'lyons', 'erie', 'carbon-valley', 'berthoud'],
   launchThreshold: { events: 25, listings: 30 },
   slug: 'longmont',
   name: 'Longmont',

@@ -1,5 +1,6 @@
 ---
 title: "Art & Heritage Center"
+subTown: windsor
 type: venue
 address: "116 5th St"
 area: "5th Street, downtown"

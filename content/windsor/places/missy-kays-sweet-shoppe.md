@@ -1,5 +1,6 @@
 ---
 title: "Missy Kay's Sweet Shoppe"
+subTown: windsor
 type: coffee
 address: "503 Main St"
 area: "5th and Main, downtown"

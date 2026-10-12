@@ -53,7 +53,7 @@ const pill =
       <div class="filter-row" role="group" aria-label="Filter by town">
         <span class="eyebrow text-ink-muted">Where</span>
         <div class="filter-pills">
-          <button type="button" data-where="all" aria-pressed="true" class={pill}>All three</button>
+          <button type="button" data-where="all" aria-pressed="true" class={pill}>All</button>
           {subTowns.map((t) => (
             <button type="button" data-where={t.slug} aria-pressed="false" class={pill}>{t.label}</button>
           ))}

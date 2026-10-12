@@ -1,5 +1,6 @@
 ---
 title: "Future Legends Complex"
+subTown: windsor
 type: venue
 address: "950 Owlz Way"
 area: "Diamond Valley"

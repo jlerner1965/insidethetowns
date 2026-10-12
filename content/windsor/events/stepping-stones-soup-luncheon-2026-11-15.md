@@ -1,5 +1,6 @@
 ---
 title: "Stepping Stones Soup Luncheon"
+subTown: windsor
 start: "2026-11-15T11:00"
 end: "2026-11-15T13:00"
 venue: "Bethel Lutheran Church"

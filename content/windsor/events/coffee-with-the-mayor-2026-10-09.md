@@ -1,5 +1,6 @@
 ---
 title: "Coffee with the Mayor"
+subTown: windsor
 start: "2026-10-09T10:00"
 end: "2026-10-09T11:00"
 venue: "Windsor Community Recreation Center"

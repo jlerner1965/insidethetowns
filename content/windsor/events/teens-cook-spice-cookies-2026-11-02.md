@@ -1,5 +1,6 @@
 ---
 title: "Teens Cook: pumpkin spice cookies at Windsor Library"
+subTown: windsor
 start: "2026-11-02T16:30"
 end: "2026-11-02T18:00"
 venue: "Clearview Library, Windsor"
