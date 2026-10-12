@@ -7,9 +7,14 @@
  * launched builds this one page, noindex, with robots.txt asking crawlers to
  * wait, and nothing of the guide behind it. The build succeeds either way:
  * a failed build would leave whatever deployed before.
+ *
+ * A guide folded into another (`foldedInto`, status `redirect`) builds this
+ * page too, saying where it went. vercel.json sends every path on its
+ * domain to the new guide first, so a reader should never see it; it is
+ * here for the request that gets past the rules.
  */
 import Page from '@/layouts/Page.astro';
-import { getNetworkHub, getTown } from '@/config';
+import { findTown, getNetworkHub, getTown } from '@/config';
 import { subTownList } from '@/lib/sub-towns';
 
 const town = getTown();
@@ -17,26 +22,47 @@ const hub = getNetworkHub();
 // Carbon Valley: three towns, and a name that does not say "Inside".
 const covers = subTownList(town);
 const area = covers ? `${covers}, Colorado` : `${town.name}, Colorado`;
+const home = town.foldedInto && findTown(town.foldedInto.town);
+const moved = home && `https://${home.domain}${town.foldedInto!.path}`;
 ---
-<Page
-  title={`${town.siteTitle} is on its way`}
-  seoTitle={`${town.siteTitle} — coming soon`}
-  eyebrow={town.name}
-  description={`An independent guide to ${area}, part of ${hub.siteTitle}, is being prepared.`}
-  intro={`We are checking every event and listing against its source before this guide opens. Nothing goes up here that has not been verified.`}
-  noindex
-  narrow
->
-  <div class="prose">
-    <p>
-      {town.siteTitle} is the <a href={`https://${hub.domain}/`}>{hub.siteTitle}</a> guide to {area}
-      {covers && ` — the towns of ${town.name}, on one site`}. {hub.siteTitle} is an independent network of
-      community guides to Colorado’s Front Range towns: the week’s events, where to eat and drink, the trails, and what it
-      is like to live there. The guides already open are listed there.
-    </p>
-    <p>
-      Run something in {town.name}, or know it well? <a href={`mailto:${town.social.email}`}>{town.social.email}</a> reaches
-      the editor.
-    </p>
-  </div>
-</Page>
+{home && moved ? (
+  <Page
+    title={`${town.name} is now on ${home.siteTitle}`}
+    seoTitle={`${town.name} is now on ${home.siteTitle}`}
+    eyebrow={town.name}
+    description={`${town.siteTitle} is now part of ${home.siteTitle}.`}
+    intro={`${town.name}’s events, places and guides moved to ${home.siteTitle}, which covers ${subTownList(home)}.`}
+    noindex
+    narrow
+  >
+    <div class="prose">
+      <p>
+        <a href={moved}>{town.name} on {home.siteTitle}</a> has everything that was here: what’s on, the places, the
+        history and the Moving Here guide, checked the same way.
+      </p>
+    </div>
+  </Page>
+) : (
+  <Page
+    title={`${town.siteTitle} is on its way`}
+    seoTitle={`${town.siteTitle} — coming soon`}
+    eyebrow={town.name}
+    description={`An independent guide to ${area}, part of ${hub.siteTitle}, is being prepared.`}
+    intro={`We are checking every event and listing against its source before this guide opens. Nothing goes up here that has not been verified.`}
+    noindex
+    narrow
+  >
+    <div class="prose">
+      <p>
+        {town.siteTitle} is the <a href={`https://${hub.domain}/`}>{hub.siteTitle}</a> guide to {area}
+        {covers && ` — the towns of ${town.name}, on one site`}. {hub.siteTitle} is an independent network of
+        community guides to Colorado’s Front Range towns: the week’s events, where to eat and drink, the trails, and what it
+        is like to live there. The guides already open are listed there.
+      </p>
+      <p>
+        Run something in {town.name}, or know it well? <a href={`mailto:${town.social.email}`}>{town.social.email}</a> reaches
+        the editor.
+      </p>
+    </div>
+  </Page>
+)}

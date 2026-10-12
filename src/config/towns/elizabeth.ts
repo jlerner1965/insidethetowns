@@ -4,6 +4,16 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
 export const elizabeth = {
   kind: 'town',
   status: 'live',
+  // Out of the weekly routine from 12 October 2026 on the owner's word, until
+  // a decision on keeping it (DECISIONS.md, "Severance and Fort Lupton become
+  // sections"). 15 November is before any listing's hours expire: the five
+  // checked on 18 September lose them on 17 November and drop off on
+  // 17 December, the rest in early December and January.
+  quiet: {
+    since: '2026-10-12',
+    decideBy: '2026-11-15',
+    reason: 'an hour from the other guides, so visits, photographs and advertisers do not combine with any other town',
+  },
   variant: 'front-range',
   region: 'South Metro',
   neighbors: ['castle-rock'],

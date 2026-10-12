@@ -1,5 +1,6 @@
 ---
 title: "Chimney Park & Chimney Park Pool"
+subTown: windsor
 type: park
 address: "200 E Chestnut St"
 area: "East Chestnut Street"

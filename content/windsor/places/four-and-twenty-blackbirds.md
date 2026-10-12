@@ -1,5 +1,6 @@
 ---
 title: "Four & Twenty Blackbirds"
+subTown: windsor
 type: shop
 address: "505 Main St"
 area: "Main Street, downtown"

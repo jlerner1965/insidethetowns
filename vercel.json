@@ -212,6 +212,292 @@
       "permanent": true
     },
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideseverance.com"
+        }
+      ],
+      "destination": "https://insidewindsorco.com/severance/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideseverance.com"
+        }
+      ],
+      "destination": "https://insidewindsorco.com/events/?where=severance",
+      "permanent": true
+    },
+    {
+      "source": "/events/calendar.ics",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideseverance.com"
+        }
+      ],
+      "destination": "https://insidewindsorco.com/events/calendar.ics",
+      "permanent": true
+    },
+    {
+      "source": "/events/:slug{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideseverance.com"
+        }
+      ],
+      "destination": "https://insidewindsorco.com/events/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/places/:slug{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideseverance.com"
+        }
+      ],
+      "destination": "https://insidewindsorco.com/places/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/articles/:slug{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideseverance.com"
+        }
+      ],
+      "destination": "https://insidewindsorco.com/articles/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/moving-here{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideseverance.com"
+        }
+      ],
+      "destination": "https://insidewindsorco.com/articles/moving-to-severance/",
+      "permanent": true
+    },
+    {
+      "source": "/eat-drink{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideseverance.com"
+        }
+      ],
+      "destination": "https://insidewindsorco.com/eat-drink/?where=severance",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideseverance.com"
+        }
+      ],
+      "destination": "https://insidewindsorco.com/things-to-do/?where=severance",
+      "permanent": true
+    },
+    {
+      "source": "/directory{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideseverance.com"
+        }
+      ],
+      "destination": "https://insidewindsorco.com/directory/?where=severance",
+      "permanent": true
+    },
+    {
+      "source": "/rss.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideseverance.com"
+        }
+      ],
+      "destination": "https://insidewindsorco.com/rss.xml",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideseverance.com"
+        }
+      ],
+      "destination": "https://insidewindsorco.com/events.rss",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideseverance.com"
+        }
+      ],
+      "destination": "https://insidewindsorco.com/severance/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/fort-lupton/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/events/?where=fort-lupton",
+      "permanent": true
+    },
+    {
+      "source": "/events/calendar.ics",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/events/calendar.ics",
+      "permanent": true
+    },
+    {
+      "source": "/events/:slug{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/events/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/places/:slug{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/places/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/articles/:slug{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/articles/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/moving-here{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/articles/moving-to-fort-lupton/",
+      "permanent": true
+    },
+    {
+      "source": "/eat-drink{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/eat-drink/?where=fort-lupton",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/things-to-do/?where=fort-lupton",
+      "permanent": true
+    },
+    {
+      "source": "/directory{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/directory/?where=fort-lupton",
+      "permanent": true
+    },
+    {
+      "source": "/rss.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/rss.xml",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/events.rss",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://carbonvalleyguide.com/fort-lupton/",
+      "permanent": true
+    },
+    {
       "source": "/places/arapaho-bend-natural-area{/}?",
       "has": [
         {

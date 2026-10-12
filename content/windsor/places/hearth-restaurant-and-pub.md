@@ -1,5 +1,6 @@
 ---
 title: "Hearth Restaurant and Pub"
+subTown: windsor
 type: restaurant
 address: "205 1/2 4th St"
 area: "4th Street, downtown"

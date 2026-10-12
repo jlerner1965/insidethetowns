@@ -1,5 +1,6 @@
 ---
 title: "Bingo night at Mighty River Brewing"
+subTown: windsor
 start: "2026-10-07T18:30"
 end: "2026-10-07T20:30"
 repeat: weekly

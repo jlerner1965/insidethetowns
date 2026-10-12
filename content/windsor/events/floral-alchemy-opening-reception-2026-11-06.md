@@ -1,5 +1,6 @@
 ---
 title: "Faith Parks: Floral Alchemy, opening reception"
+subTown: windsor
 start: "2026-11-06T17:00"
 end: "2026-11-06T20:00"
 venue: "Art & Heritage Center"

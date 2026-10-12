@@ -19,6 +19,13 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  * (census and GNIS), and summed where the config wants one number; the
  * comments say which. The retired insidefirestone.com points at /firestone/
  * (docs/REDIRECTS.md).
+ *
+ * Fort Lupton, eight miles east across I-25, joined as a fourth section on
+ * 12 October 2026 after five days as a guide of its own; the retired
+ * insidefortlupton.com points at /fort-lupton/. It is not one of the coal
+ * towns and has its own library and school district, so the figures below
+ * stay the three Carbon Valley towns' and the name stays; Fort Lupton's
+ * figures are in its Moving Here article.
  */
 export const carbonValley: TownConfig = {
   kind: 'town',
@@ -27,16 +34,17 @@ export const carbonValley: TownConfig = {
   status: 'live',
   variant: 'front-range',
   region: 'Carbon Valley & I-25',
-  neighbors: ['erie', 'longmont', 'fort-lupton'],
-  subTowns: ['frederick', 'firestone', 'dacono'],
+  neighbors: ['erie', 'longmont'],
+  subTowns: ['frederick', 'firestone', 'dacono', 'fort-lupton'],
   // Three towns' worth of content before it opens; set with the brief.
   launchThreshold: { events: 15, listings: 20 },
   slug: 'carbon-valley',
   name: 'Carbon Valley',
   domain: 'carbonvalleyguide.com',
   siteTitle: 'Inside Carbon Valley',
-  tagline: 'An independent guide to Frederick, Firestone and Dacono, Colorado: what’s on, Fifth Street, the Firestone Trail, St. Vrain State Park and the coal towns.',
-  shortTagline: 'Frederick, Firestone and Dacono: three coal towns, one guide',
+  tagline: 'An independent guide to Frederick, Firestone, Dacono and Fort Lupton, Colorado: what’s on, St. Vrain State Park, the coal towns and the old fort.',
+  shortTagline: 'Frederick, Firestone, Dacono and Fort Lupton on one guide',
+  // The home title's room ends before a fourth name; /fort-lupton/ carries Fort Lupton's own.
   seoTagline: 'Frederick, Firestone and Dacono, Colorado',
   // All three are Weld County municipalities; no county line runs through them.
   counties: ['Weld'],

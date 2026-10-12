@@ -1,5 +1,6 @@
 ---
 title: "Volunteer clean-up at Treasure Island"
+subTown: windsor
 start: "2026-10-10T09:00"
 end: "2026-10-10T12:00"
 venue: "Kyger Open Space"

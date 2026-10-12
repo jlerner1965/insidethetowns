@@ -1,5 +1,6 @@
 ---
 title: "Twilight Tour of Lakeview Cemetery"
+subTown: windsor
 start: "2026-10-24T17:30"
 end: "2026-10-24T20:00"
 venue: "Lakeview Cemetery"

@@ -1,5 +1,6 @@
 ---
 title: "Treasure Island Demonstration Garden"
+subTown: windsor
 type: park
 address: "1524 7th St"
 area: "7th Street at the Poudre"

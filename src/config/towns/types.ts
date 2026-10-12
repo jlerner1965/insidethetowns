@@ -45,8 +45,10 @@ export interface SocialLinks {
 /**
  * Where a town is on the way to being a site. `live` is the only status that
  * deploys a guide; it replaces the old hand-kept LIVE_TOWNS list. The waves
- * are the launch order in the accuracy brief, `redirect` is a domain that
- * only forwards (insidefirestone.com to the Carbon Valley guide).
+ * are the launch order in the accuracy brief, `redirect` is a guide that
+ * has been folded into another one and whose domain only forwards (see
+ * `foldedInto`; insidefirestone.com, which never had a guide, forwards the
+ * same way from the Carbon Valley project).
  */
 export const TOWN_STATUSES = ['live', 'wave1', 'wave2', 'wave3', 'wave4', 'redirect'] as const;
 export type TownStatus = (typeof TOWN_STATUSES)[number];
@@ -119,6 +121,26 @@ export interface TownConfig {
    * with one of these. Absent on a single-town guide.
    */
   subTowns?: readonly string[];
+  /**
+   * For a town whose guide was folded into another (`status: 'redirect'`):
+   * the guide that covers it now, as a slug, and the section page that
+   * stands for it there. The town is one of that guide's `subTowns`, its
+   * content lives in that guide's folder, vercel.json's rules for the old
+   * domain send every path there, and the holding page the old project
+   * still builds says where it went.
+   */
+  foldedInto?: { town: string; path: string; since: string };
+  /**
+   * A live guide taken out of the weekly routine on the owner's word while
+   * it is decided whether to keep it: the day it went quiet, the day to
+   * decide by, and why. Its pages stay up and its listings stay accurate as
+   * far as the rotation reaches them, but it promises nothing weekly: no
+   * email signup on its pages or box for it on anyone else's, no issue in
+   * the Thursday drafts, and the weekly report gives it one line with the
+   * days left. Pick `decideBy` before its listings start to expire, or the
+   * guide empties itself while it waits.
+   */
+  quiet?: { since: string; decideBy: string; reason: string };
   /**
    * What must be verified and upcoming before the guide goes live; the
    * default is DEFAULT_LAUNCH_THRESHOLD in src/config/freshness.ts. A large

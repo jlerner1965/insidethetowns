@@ -1,5 +1,6 @@
 ---
 title: "Thursdays at the Library: not-so-scary monster morning"
+subTown: windsor
 start: "2026-10-22T10:00"
 end: "2026-10-22T11:30"
 venue: "Clearview Library, Windsor"

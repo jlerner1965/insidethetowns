@@ -1,5 +1,6 @@
 ---
 title: "Manweiler Hardware"
+subTown: windsor
 type: shop
 address: "418 Main St"
 area: "Main Street, downtown"

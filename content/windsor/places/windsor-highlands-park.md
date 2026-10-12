@@ -1,5 +1,6 @@
 ---
 title: "Windsor Highlands Park"
+subTown: windsor
 type: park
 address: "7985 Highland Meadows Pkwy"
 area: "Highland Meadows, west Windsor"

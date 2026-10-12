@@ -1,5 +1,6 @@
 ---
 title: "Bingo at Peculier Ales"
+subTown: windsor
 start: "2026-10-07T18:00"
 end: "2026-10-07T20:00"
 repeat: weekly

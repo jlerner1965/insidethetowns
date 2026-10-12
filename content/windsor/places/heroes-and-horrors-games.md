@@ -1,5 +1,6 @@
 ---
 title: "Heroes & Horrors Games and Comics"
+subTown: windsor
 type: shop
 address: "1215-B Main St"
 area: "west Main Street"

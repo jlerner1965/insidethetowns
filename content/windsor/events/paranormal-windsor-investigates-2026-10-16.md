@@ -1,5 +1,6 @@
 ---
 title: "Paranormal Windsor Investigates: the old town hall after dark"
+subTown: windsor
 start: "2026-10-16T19:30"
 end: "2026-10-16T23:00"
 venue: "Art & Heritage Center"

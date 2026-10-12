@@ -1,5 +1,6 @@
 ---
 title: "The Lodge"
+subTown: windsor
 type: restaurant
 address: "1600-A Pelican Lakes Point"
 area: "Pelican Lakes, Water Valley"

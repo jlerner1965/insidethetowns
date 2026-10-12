@@ -1,5 +1,6 @@
 ---
 title: "Fall Clean Up Days"
+subTown: windsor
 start: "2026-10-09T09:00"
 end: "2026-10-10T15:00"
 venue: "Windsor Public Services Campus"

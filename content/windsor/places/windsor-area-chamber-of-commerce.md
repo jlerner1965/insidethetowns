@@ -1,5 +1,6 @@
 ---
 title: "Windsor Area Chamber of Commerce"
+subTown: windsor
 type: service
 address: "421 Main St"
 area: "Main Street, downtown"

@@ -1,5 +1,6 @@
 ---
 title: "Windsor Town Hall"
+subTown: windsor
 type: service
 address: "301 Walnut St"
 area: "Walnut Street, downtown"

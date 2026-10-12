@@ -1,5 +1,6 @@
 ---
 title: "Live music: Josh Blackburn at Mighty River Brewing"
+subTown: windsor
 start: "2026-10-24T19:00"
 end: "2026-10-24T22:00"
 venue: "Mighty River Brewing"

@@ -43,6 +43,16 @@ export function liveTowns(): TownConfig[] {
 }
 
 /**
+ * The live guides the weekly email covers, A to Z: every one but a guide
+ * the owner has made quiet (`quiet` on its config). The signup's town boxes,
+ * the newsletter page and the Thursday drafts read this, so a quiet guide is
+ * promised to nobody.
+ */
+export function emailTowns(): TownConfig[] {
+  return liveTowns().filter((t) => !t.quiet);
+}
+
+/**
  * The live mountain guides, A to Z: what the Front Range guides' "Up the hill
  * this weekend" strip (UpTheHill.astro) reads. Decided by `variant`, so a
  * mountain town joins the strip the day it goes live and nothing is listed

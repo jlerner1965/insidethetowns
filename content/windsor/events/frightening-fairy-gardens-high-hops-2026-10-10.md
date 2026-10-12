@@ -1,5 +1,6 @@
 ---
 title: "Frightening Fairy Gardens workshop at High Hops Brewery"
+subTown: windsor
 start: "2026-10-10T10:30"
 venue: "High Hops Brewery at The Windsor Gardener"
 address: "6461 Colorado 392, Windsor, CO 80550"

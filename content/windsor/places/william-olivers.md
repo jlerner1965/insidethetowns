@@ -1,5 +1,6 @@
 ---
 title: "William Oliver's"
+subTown: windsor
 type: bar
 address: "514 Main St"
 area: "Main Street, downtown"

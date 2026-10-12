@@ -1,5 +1,6 @@
 ---
 title: "Regional Job Fair at Aims Windsor"
+subTown: windsor
 start: "2026-10-07T16:00"
 end: "2026-10-07T18:30"
 venue: "Aims Community College, Windsor campus"

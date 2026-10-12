@@ -9,12 +9,12 @@
 import Page from '@/layouts/Page.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import CtaBand from '@/components/CtaBand.astro';
-import { getHub, liveTowns } from '@/config';
+import { emailTowns, getHub } from '@/config';
 import { getHubEntries } from '@/lib/content';
 import { formatDate, toIsoLocal } from '@/lib/dates';
 
 const hub = getHub();
-const towns = liveTowns();
+const towns = emailTowns();
 const config = hub.newsletter;
 // Nothing can have been sent before there is something to send it with, and
 // reading an empty collection warns on every build of every site — the kind of

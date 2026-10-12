@@ -1,5 +1,6 @@
 ---
 title: "Mighty River Brewing"
+subTown: windsor
 type: bar
 address: "6383 N Fairgrounds Ave, Suite 200"
 area: "Fairgrounds Avenue, west Windsor"

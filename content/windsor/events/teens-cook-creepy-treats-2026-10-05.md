@@ -1,5 +1,6 @@
 ---
 title: "Teens Cook: Creepy Treats at Windsor Library"
+subTown: windsor
 start: "2026-10-05T16:30"
 end: "2026-10-05T18:00"
 venue: "Clearview Library, Windsor"

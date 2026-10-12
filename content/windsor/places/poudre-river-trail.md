@@ -1,5 +1,6 @@
 ---
 title: "Poudre River Trail"
+subTown: windsor
 type: trail
 address: "Eastman Park, 7025 Eastman Park Dr"
 area: "Poudre River, south Windsor"

@@ -1,5 +1,6 @@
 ---
 title: "High Desert Chocolates"
+subTown: windsor
 type: coffee
 address: "430 Main St"
 area: "5th and Main, downtown"

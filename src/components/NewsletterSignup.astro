@@ -20,9 +20,12 @@
  * which it cannot see (src/lib/signup.ts).
  *
  * Dark until `newsletter` is set on the hub config, so nothing here is a
- * half-built promise while the provider account is being sorted.
+ * half-built promise while the provider account is being sorted. Dark too
+ * on a quiet guide (`quiet` on its config), and a quiet guide is no box on
+ * anyone else's: the email is a weekly promise, and that guide is not being
+ * covered weekly.
  */
-import { getNetworkHub, liveTowns, type TownConfig } from '@/config';
+import { emailTowns, getNetworkHub, type TownConfig } from '@/config';
 import { SIGNUP_MESSAGES } from '@/lib/signup';
 import { PRIVACY_LINE } from '@/lib/privacy';
 
@@ -40,7 +43,7 @@ const hub = getNetworkHub();
 const config = hub.newsletter;
 // A to Z, as on the hub's home page and in the footer, so the same names are
 // in the same order wherever a reader meets them.
-const towns = [...liveTowns()].sort((a, b) => a.name.localeCompare(b.name));
+const towns = [...emailTowns()].sort((a, b) => a.name.localeCompare(b.name));
 const others = town ? towns.filter((t) => t.slug !== town.slug) : towns;
 const day = config?.sendDay ?? 'Thursday';
 const emailField = config?.emailField ?? 'email';
@@ -60,7 +63,7 @@ const box = 'size-5 shrink-0 rounded border-line';
 {/* One width and one alignment wherever it appears: it was centred at 630px
     on the home page, the full width of the events page with its right half
     empty, and left at 715px on This Weekend. */}
-{config && (
+{config && !town?.quiet && (
   <section class:list={['max-w-3xl rounded-lg bg-raised p-6 ring-1 md:p-8', compact ? 'ring-line-soft' : 'ring-primary-line']}>
     {/*
       A new tab keeps the reader on the page they were reading. No rel="noopener":

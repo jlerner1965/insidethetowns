@@ -1,5 +1,7 @@
 # Severance: claims in content/severance/pages/moving-here.md
 
+_Moved 12 October 2026: that page is now `content/windsor/articles/moving-to-severance.md`, an article on the Windsor guide._
+
 | Claim | Source URL | Read on |
 |---|---|---|
 | Home-rule town in Weld County (Home Rule Charter on the page) | https://www.townofseverance.org/162/About-Severance-Government | 2026-10-06 |

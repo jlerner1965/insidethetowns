@@ -1,5 +1,7 @@
 # Fort Lupton: Moving Here claims (read 6 October 2026)
 
+_Moved 12 October 2026: the page these claims are from is now `content/carbon-valley/articles/moving-to-fort-lupton.md`, an article on the Carbon Valley guide._
+
 | Claim | Source URL | Read on |
 |---|---|---|
 | Statutory city under the Colorado Revised Statutes and Municipal Code, administrator form of government | https://www.fortluptonco.gov/133/City-Council | 2026-10-06 |

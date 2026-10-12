@@ -1,5 +1,6 @@
 ---
 title: "Windsor Marathon, Half Marathon, 10K and 5K"
+subTown: windsor
 start: "2026-10-04T07:00"
 end: "2026-10-04T14:00"
 venue: "The Island at Pelican Lakes, Water Valley"

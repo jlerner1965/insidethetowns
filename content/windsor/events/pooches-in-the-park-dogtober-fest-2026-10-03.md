@@ -1,5 +1,6 @@
 ---
 title: "Pooches in the Park: Dogtober Fest"
+subTown: windsor
 start: "2026-10-03T17:00"
 end: "2026-10-03T19:00"
 venue: "Historic Halfway Homestead"

@@ -1,5 +1,6 @@
 ---
 title: "Live music: Cattywampus Duo at Peculier Ales"
+subTown: windsor
 start: "2026-10-09T18:00"
 end: "2026-10-09T21:00"
 venue: "Peculier Ales"

@@ -1,5 +1,6 @@
 ---
 title: "Fall Craft Fair at Eagle's Peak"
+subTown: windsor
 start: "2026-10-10T10:00"
 end: "2026-10-10T16:00"
 venue: "Eagle's Peak"

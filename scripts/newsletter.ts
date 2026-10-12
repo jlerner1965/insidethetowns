@@ -24,7 +24,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'astro/zod';
 import { articleSchema, eventSchema, placeSchema } from '../src/content/schemas.ts';
-import { liveTowns, type TownConfig } from '../src/config/index.ts';
+import { emailTowns, findTown, type TownConfig } from '../src/config/index.ts';
 import { hub } from '../src/config/towns/hub.ts';
 import {
   addDays,
@@ -266,9 +266,12 @@ function networkIssue(weeks: TownWeek[]): string {
   return lines.join('\n');
 }
 
-const towns = liveTowns().filter((t) => !onlyTown || t.slug === onlyTown);
+// A quiet guide (`quiet` on its config) gets no issue and no place in the
+// network one: the email is a weekly promise it is not making.
+const towns = emailTowns().filter((t) => !onlyTown || t.slug === onlyTown);
 if (!towns.length) {
-  console.error(`newsletter: no live town called "${onlyTown}"`);
+  const quiet = onlyTown ? findTown(onlyTown)?.quiet : undefined;
+  console.error(quiet ? `newsletter: ${onlyTown} is quiet until ${quiet.decideBy} (${quiet.reason}), so it has no issue` : `newsletter: no live town called "${onlyTown}"`);
   process.exit(1);
 }
 const weeks = towns.map(readWeek);

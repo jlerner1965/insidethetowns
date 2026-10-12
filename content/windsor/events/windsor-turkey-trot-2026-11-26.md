@@ -1,5 +1,6 @@
 ---
 title: "Windsor Turkey Trot 5K"
+subTown: windsor
 start: "2026-11-26T09:00"
 venue: "Pelican Lakes Golf Course, Water Valley"
 address: "1600 Pelican Lakes Point, Windsor, CO 80550"

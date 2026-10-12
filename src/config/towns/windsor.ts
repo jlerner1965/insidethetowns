@@ -1,17 +1,29 @@
 import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
 
+/**
+ * Windsor, and since 12 October 2026 Severance with it: the Weld County town
+ * on Windsor's north-east edge, which had its own guide from 7 to 12 October.
+ * It shares Windsor's school district (Weld RE-4, Windsor-Severance) and
+ * library district (Clearview), and its guide leaned on Windsor in nearly
+ * every article, so it is a section of this one, the way Firestone is of
+ * Carbon Valley: every event and place carries a `subTown`, and /severance/
+ * is its page. The figures below stay Windsor's own; Severance's are in its
+ * Moving Here article. The retired insideseverance.com points here
+ * (docs/REDIRECTS.md).
+ */
 export const windsor: TownConfig = {
   kind: 'town',
   status: 'live',
   variant: 'front-range',
   region: 'Northern Colorado',
-  neighbors: ['timnath', 'johnstown', 'fortcollins', 'severance'],
+  neighbors: ['timnath', 'johnstown', 'fortcollins'],
+  subTowns: ['windsor', 'severance'],
   slug: 'windsor',
   name: 'Windsor',
   // insidewindsor.com belongs to someone else; the "co" is the domain's, not the slug's.
   domain: 'insidewindsorco.com',
   siteTitle: 'Inside Windsor',
-  tagline: 'An independent guide to Windsor, Colorado: the lake and Boardwalk Park, Main Street, the Poudre River Trail, and life in a sugar-beet town that grew fast.',
+  tagline: 'An independent guide to Windsor and Severance, Colorado: the lake, Boardwalk Park, Main Street, the Poudre River Trail and two beet towns that grew fast.',
   shortTagline: 'The lake, Boardwalk Park, Main Street and the Poudre Trail',
   // "Colorado" spelled out: Windsor is the most ambiguous name in the network
   // (Ontario, Berkshire, California, Connecticut, Vermont), and "CO" is too

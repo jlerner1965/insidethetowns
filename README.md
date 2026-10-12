@@ -84,6 +84,26 @@ item in five, every photo licence) and accepted on its own reading when no more
 than one checked item in ten has a material error, with `verifiedBy` naming who
 read it. A source that refuses automated reads is not worked around.
 
+## Folded and quiet guides
+
+A town too small or too thin to hold a guide of its own can be **folded**
+into a neighbour as a section, as Severance was into Windsor and Fort Lupton
+into Carbon Valley on 12 October 2026: its content moves to the neighbour's
+folder with a `subTown` on every event and place, the neighbour lists it in
+`subTowns` (which gives it a `/<town>/` page and a "Where" filter), its own
+config takes `status: 'redirect'` and `foldedInto`, and host-scoped rules in
+`vercel.json` send every path on its old domain to the same page on the new
+one (docs/REDIRECTS.md). `test/folded-towns.test.ts` holds the four in step.
+New Severance content goes in `content/windsor/` with `subTown: severance`;
+new Fort Lupton content in `content/carbon-valley/` with `subTown: fort-lupton`.
+
+A guide the owner wants out of the weekly routine while deciding whether to
+keep it is made **quiet** (`quiet` on its config: since, decide by, why), as
+Elizabeth was on 12 October 2026, to be decided by 15 November. It stays up
+and accurate as far as the rotation reaches, but makes no weekly promise: no
+email signup on its pages or box for it on any other, no Thursday draft, and
+one line in the weekly report counting the days to the decision.
+
 ## The source registry
 
 `content/<town>/sources.json` is the list of places checked each week for that

@@ -1,5 +1,6 @@
 ---
 title: "Veterans Day: placing flags at Lakeview Cemetery"
+subTown: windsor
 start: "2026-11-11T10:00"
 end: "2026-11-11T11:00"
 venue: "Lakeview Cemetery"

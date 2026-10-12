@@ -1,5 +1,6 @@
 ---
 title: "Live music: Wendy Woo and Gilly Mac at Mighty River Brewing"
+subTown: windsor
 start: "2026-10-03T18:00"
 end: "2026-10-03T21:00"
 venue: "Mighty River Brewing"

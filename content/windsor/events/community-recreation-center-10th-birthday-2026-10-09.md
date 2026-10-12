@@ -1,5 +1,6 @@
 ---
 title: "Community Recreation Center's 10th birthday"
+subTown: windsor
 start: "2026-10-09"
 allDay: true
 venue: "Windsor Community Recreation Center"

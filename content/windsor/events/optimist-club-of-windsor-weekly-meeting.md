@@ -1,5 +1,6 @@
 ---
 title: "Optimist Club of Windsor weekly meeting"
+subTown: windsor
 start: "2026-10-01T07:30"
 end: "2026-10-01T08:30"
 repeat: weekly

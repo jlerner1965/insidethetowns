@@ -1,5 +1,6 @@
 ---
 title: "Town Board regular meeting"
+subTown: windsor
 start: "2026-11-09T19:00"
 venue: "Windsor Town Hall"
 address: "301 Walnut Street, Windsor, CO 80550"

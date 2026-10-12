@@ -1,5 +1,6 @@
 ---
 title: "Santa Catch 5K and 10K around Windsor Lake"
+subTown: windsor
 start: "2026-12-12T09:00"
 venue: "Boardwalk Park, Windsor Lake"
 address: "100 N 5th Street, Windsor, CO 80550"

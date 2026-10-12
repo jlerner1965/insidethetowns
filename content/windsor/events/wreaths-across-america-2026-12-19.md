@@ -1,5 +1,6 @@
 ---
 title: "Wreaths Across America at Lakeview Cemetery"
+subTown: windsor
 start: "2026-12-19T10:00"
 end: "2026-12-19T11:00"
 venue: "Lakeview Cemetery"

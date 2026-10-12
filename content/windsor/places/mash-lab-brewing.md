@@ -1,5 +1,6 @@
 ---
 title: "Mash Lab Brewing & Kitchen"
+subTown: windsor
 type: bar
 address: "4487 Highland Meadows Pkwy"
 area: "Highland Meadows, west Windsor"

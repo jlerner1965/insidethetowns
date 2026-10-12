@@ -1,5 +1,6 @@
 ---
 title: "Dandelions & Rust"
+subTown: windsor
 type: shop
 address: "500 Main St, Ste B"
 area: "Main Street, downtown"
