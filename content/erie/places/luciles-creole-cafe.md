@@ -1,7 +1,7 @@
 ---
 title: "Lucile's Creole Cafe"
 type: restaurant
-address: "554 Briggs St"
+address: "544 Briggs St"
 area: "Historic downtown, Briggs Street"
 url: "https://www.luciles.com/erie-location-menu/"
 phone: "(720) 484-5469"
@@ -10,7 +10,7 @@ priceRange: "$$"
 tags: [breakfast, creole, brunch]
 summary: "The Boulder Creole institution's Erie branch: beignets, chicory coffee, gumbo, po'boys and a weekend brunch line, breakfast and lunch only."
 source: "https://www.luciles.com/erie-location-menu/"
-verified: "2026-09-18"
+verified: "2026-10-12"
 added: "2026-09-17"
 ---
 
