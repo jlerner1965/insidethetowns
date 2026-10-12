@@ -4864,3 +4864,18 @@ config names Fort Collins first) and proposed the build below. The owner:
   owner's in Buttondown: fifteen editions a week is still a lot for one
   person, and starting with fewer (the four priority guides, say) needs no
   code, only fewer sends.
+
+## The filter rows on a phone fade where they are cut
+
+*12 October 2026.* The owner sent a phone screenshot of Erie's events page:
+the "When" row had been swiped, so a sliver of "Today" sat hard against the
+label and the chosen "Anytime" was out of sight, and every row ended in a
+button cut in half at the screen edge. The rows stay one sideways-scrolling
+line on a phone (wrapping put seven lines and more before the first listing,
+and the day strip alone would take five), but they now say where they are
+cut: a row fades on an edge only when there is more beyond it, and the
+chosen button is scrolled into view on load and whenever the choice changes,
+so a link to `?category=sports` opens with Sports showing
+(`src/lib/scroll-rows.ts`, `.filter-pills` in global.css). Without the
+script the rows are the plain scrollers they were; from 40rem they wrap and
+none of it applies.

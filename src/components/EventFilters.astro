@@ -85,6 +85,10 @@ const pill =
 <script>
   import { dayKey, addDays, startOfDay } from '@/lib/dates';
   import { weekendWindow } from '@/lib/events';
+  import { initScrollRows } from '@/lib/scroll-rows';
+
+  // Edge fades, and the chosen button kept in view, on a phone's one-line rows.
+  initScrollRows();
 
   // A block that sits among the listings but is not one of them ("Nearby
   // this weekend", data-filter-ignore) is left out of the filtering.
