@@ -19,8 +19,8 @@ last check); the whole listing goes thirty days after that.
 | --- | --- | --- |
 | Niwot | Sachi Sushi, (303) 652-0919 (the market's line) | The counter's days and hours: its page (read 12 October) gives none, so the listing shows none |
 | Niwot | The Nook, (303) 652-0919 or 303-709-7004 | Which number is the Nook's? The guide has the first, which is the Niwot Market's main line on every page of its site; the business association's listing (August 2026) has the second |
-| Niwot | Niwot Liquor Store, 303-652-2636 | Open, and its hours? Only a 2025 directory entry was found (before 8 November) |
-| Niwot | Niwot Cultural Arts Association (niwotarts.org) | Is the gateway sculpture still theirs to describe? Their site no longer mentions it (before 8 November) |
+| Niwot | Niwot Liquor Store, 303-652-2636 | Open, and its hours? Only a 2025 directory entry was found (the listing goes on 8 December) |
+| Niwot | Niwot Cultural Arts Association (niwotarts.org) | Is the gateway sculpture still theirs to describe? Their site no longer mentions it (the listing goes on 8 December) |
 | Niwot | Belle Terre Floral, (303) 652-0419 | Hours, and still inside the Niwot Market? Its own site gives neither |
 | Berthoud | Wishful Living, (970) 532-9834 | Still open at 321 Mountain Ave? Its domain now carries a gambling store; Main Street still lists it |
 | Berthoud | B-Rad's Arcade | Still open? It has left Berthoud Main Street's dining list |
