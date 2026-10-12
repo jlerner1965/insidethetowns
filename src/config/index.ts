@@ -9,8 +9,11 @@
 import type { HubConfig, SiteConfig, TownConfig } from './towns/types.ts';
 import { towns } from './towns/registry.ts';
 import { hub } from './towns/hub.ts';
+import { editionsOf, type Edition } from '../lib/editions.ts';
 
-export type { ConditionsLink, EditorConfig, HubConfig, SiteConfig, TownConfig, TownRegion, TownStatus, TownVariant, NavItem } from './towns/types.ts';
+export type { ConditionsLink, EditorConfig, HubConfig, NewsletterEdition, SiteConfig, TownConfig, TownRegion, TownStatus, TownVariant, NavItem } from './towns/types.ts';
+export type { Edition } from '../lib/editions.ts';
+export { editionFor } from '../lib/editions.ts';
 export { TOWN_REGIONS } from './towns/types.ts';
 export { censusGrowth, countiesCovered, countyLabel, countyShort } from './towns/types.ts';
 
@@ -44,12 +47,17 @@ export function liveTowns(): TownConfig[] {
 
 /**
  * The live guides the weekly email covers, A to Z: every one but a guide
- * the owner has made quiet (`quiet` on its config). The signup's town boxes,
- * the newsletter page and the Thursday drafts read this, so a quiet guide is
- * promised to nobody.
+ * the owner has made quiet (`quiet`) or a visitor guide (`visitorGuide`).
+ * The signup, the newsletter page and the Thursday drafts read this, through
+ * `emailEditions()`, so neither is promised a weekly issue.
  */
 export function emailTowns(): TownConfig[] {
-  return liveTowns().filter((t) => !t.quiet);
+  return liveTowns().filter((t) => !t.quiet && !t.visitorGuide);
+}
+
+/** The weekly email's editions, A to Z: shared ones from the hub's config, every other covered guide on its own. */
+export function emailEditions(): Edition[] {
+  return editionsOf(emailTowns(), hub.newsletter?.editions);
 }
 
 /**

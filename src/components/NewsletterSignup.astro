@@ -10,9 +10,13 @@
  * Inline, never a modal. A popup on a community guide reads as spam and costs
  * the trust the independence framing buys — which is the whole asset.
  *
- * The towns are checkboxes everywhere now, one per live guide, each posting
- * the town's tag to the provider. On a guide the reader's town starts ticked
- * and the rest sit behind "Show all towns"; on the hub nothing is ticked. No
+ * The boxes are the email's editions (src/lib/editions.ts), one per issue a
+ * reader can get: most are one guide, a few are guides that share an issue
+ * ("Windsor, Severance and Timnath"). Each box posts a town tag, and an
+ * edition goes to every tag in it. On a guide the reader's edition starts
+ * ticked, posting that guide's own tag so the tags still say where readers
+ * signed up, and the rest sit behind "Show all towns"; elsewhere a shared
+ * edition's box posts its lead town's tag, and on the hub nothing is ticked. No
  * form sends without at least one town, the hub's rule everywhere: an
  * untagged subscriber gets no issue at all. It posts to the provider's hosted
  * flow in a new tab (no key in the page, no address in a URL), and this page
@@ -21,11 +25,11 @@
  *
  * Dark until `newsletter` is set on the hub config, so nothing here is a
  * half-built promise while the provider account is being sorted. Dark too
- * on a quiet guide (`quiet` on its config), and a quiet guide is no box on
- * anyone else's: the email is a weekly promise, and that guide is not being
- * covered weekly.
+ * on a guide the email does not cover (a quiet guide, a visitor guide), and
+ * such a guide is no box on anyone else's: the email is a weekly promise,
+ * and that guide is not being covered weekly.
  */
-import { emailTowns, getNetworkHub, type TownConfig } from '@/config';
+import { editionFor, emailEditions, getNetworkHub, type TownConfig } from '@/config';
 import { SIGNUP_MESSAGES } from '@/lib/signup';
 import { PRIVACY_LINE } from '@/lib/privacy';
 
@@ -41,14 +45,17 @@ interface Props {
 const { town, compact = false, id } = Astro.props;
 const hub = getNetworkHub();
 const config = hub.newsletter;
-// A to Z, as on the hub's home page and in the footer, so the same names are
-// in the same order wherever a reader meets them.
-const towns = [...emailTowns()].sort((a, b) => a.name.localeCompare(b.name));
-const others = town ? towns.filter((t) => t.slug !== town.slug) : towns;
+// A to Z by name, as on the hub's home page and in the footer, so the same
+// names are in the same order wherever a reader meets them.
+const editions = emailEditions();
+const mine = town ? editionFor(town.slug, editions) : undefined;
+const others = mine ? editions.filter((e) => e !== mine) : editions;
+// Which towns a box stands for, for the hub's ?towns= link to tick it.
+const covers = (e: (typeof editions)[number]) => e.towns.map((t) => t.slug).join(' ');
 const day = config?.sendDay ?? 'Thursday';
 const emailField = config?.emailField ?? 'email';
 const tagField = config?.tagField ?? 'tag';
-const where = town ? town.name : 'the Front Range';
+const where = mine ? mine.name : 'the Front Range';
 // Two of these can sit on one page (an issue page shows the compact one), and
 // two inputs sharing an id is a broken label, not a cosmetic slip.
 const variant = id ?? (compact ? 'compact' : 'main');
@@ -63,7 +70,7 @@ const box = 'size-5 shrink-0 rounded border-line';
 {/* One width and one alignment wherever it appears: it was centred at 630px
     on the home page, the full width of the events page with its right half
     empty, and left at 715px on This Weekend. */}
-{config && !town?.quiet && (
+{config && (!town || mine) && (
   <section class:list={['max-w-3xl rounded-lg bg-raised p-6 ring-1 md:p-8', compact ? 'ring-line-soft' : 'ring-primary-line']}>
     {/*
       A new tab keeps the reader on the page they were reading. No rel="noopener":
@@ -82,8 +89,8 @@ const box = 'size-5 shrink-0 rounded border-line';
         {town ? (
           <Fragment>
             <label class:list={[row, 'mt-2 font-semibold']}>
-              <input type="checkbox" name={tagField} value={town.slug} checked class={box} />
-              {town.name}
+              <input type="checkbox" name={tagField} value={town.slug} checked class={box} data-towns={covers(mine!)} />
+              {mine!.name}
             </label>
             {/* The other guides, a disclosure rather than a dozen rows on every
                 page: the reader's own town is the usual answer. Native, so it
@@ -93,10 +100,10 @@ const box = 'size-5 shrink-0 rounded border-line';
                 Show all towns
               </summary>
               <div class="mt-1 grid grid-cols-2 gap-x-5 sm:grid-cols-3">
-                {others.map((t) => (
+                {others.map((e) => (
                   <label class={row}>
-                    <input type="checkbox" name={tagField} value={t.slug} class={box} />
-                    {t.name}
+                    <input type="checkbox" name={tagField} value={e.towns[0]!.slug} class={box} data-towns={covers(e)} />
+                    {e.name}
                   </label>
                 ))}
                 {config.allTag && (
@@ -123,10 +130,10 @@ const box = 'size-5 shrink-0 rounded border-line';
               </label>
             )}
             <div class="mt-2 grid grid-cols-2 gap-x-5 sm:grid-cols-3">
-              {others.map((t) => (
+              {others.map((e) => (
                 <label class={row}>
-                  <input type="checkbox" name={tagField} value={t.slug} class={box} />
-                  {t.name}
+                  <input type="checkbox" name={tagField} value={e.towns[0]!.slug} class={box} data-towns={covers(e)} />
+                  {e.name}
                 </label>
               ))}
             </div>

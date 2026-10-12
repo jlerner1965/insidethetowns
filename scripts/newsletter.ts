@@ -3,8 +3,8 @@
  * Drafts the weekly email from the listings, so Thursday's issue is a read
  * and a paste rather than a blank page.
  *
- *   npm run newsletter                       # every live town, plus the all-towns issue
- *   npm run newsletter -- --town=lyons       # one town
+ *   npm run newsletter                       # every edition, plus the all-towns issue
+ *   npm run newsletter -- --town=lyons       # the edition with that town in it
  *   npm run newsletter -- --date=2026-10-01  # for a particular send day (default: the next Thursday)
  *   npm run newsletter -- --number=3         # the issue number, for the archive
  *   npm run newsletter -- --out=drafts       # write one file per issue instead of printing
@@ -13,6 +13,11 @@
  * block in the shape of content/hub/issues/. Paste the body into the provider
  * and send; then drop the file into content/hub/issues/ and it becomes the
  * archive page at /newsletter/<file name>/.
+ *
+ * One draft per edition (src/lib/editions.ts): most are one guide's; a shared
+ * edition (Windsor, Severance and Timnath) is one issue with each town's
+ * listings under its own heading, sent in Buttondown to every subscriber
+ * tagged with any of its towns. Quiet guides and visitor guides have none.
  *
  * It drafts. It does not send, and it does not decide what is worth saying:
  * the listings are laid out the way the sites lay them out, and any words
@@ -24,7 +29,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'astro/zod';
 import { articleSchema, eventSchema, placeSchema } from '../src/content/schemas.ts';
-import { emailTowns, findTown, type TownConfig } from '../src/config/index.ts';
+import { editionFor, emailEditions, findTown, type Edition, type TownConfig } from '../src/config/index.ts';
 import { hub } from '../src/config/towns/hub.ts';
 import {
   addDays,
@@ -37,6 +42,7 @@ import {
 } from '../src/lib/dates.ts';
 import { groupByDay, highlights, isCanceled, occurrences, timeText, weekendSections, weekendWindow } from '../src/lib/events.ts';
 import { campaignLink, isNewlyClosed, isNewPlace, nextSendDay, openingDay } from '../src/lib/newsletter.ts';
+import { subTownList } from '../src/lib/sub-towns.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -167,7 +173,7 @@ function sponsorLine(sponsor: { name: string; url: string; line?: string } | und
   return [`_Sponsor · This week’s email is presented by [${sponsor.name}](${sponsor.url})${sponsor.line ? ` · ${sponsor.line}` : ''}._`, ''];
 }
 
-function townIssue(week: TownWeek): string {
+function townIssue(week: TownWeek, sponsor: Edition['sponsor']): string {
   const { town, weekend, running, next, newPlaces, closedPlaces, articles } = week;
   const n = weekend.length;
   const picks = highlights(weekend, { now: send, limit: 3 }).map((e) => e.data.title);
@@ -180,7 +186,7 @@ function townIssue(week: TownWeek): string {
     `**${town.siteTitle}** · ${formatDate(send)}`,
     '',
     // The email's sponsor, labeled, above the listings and never among them.
-    ...sponsorLine(town.sponsors?.email ?? hub.sponsors?.network),
+    ...sponsorLine(sponsor ?? hub.sponsors?.network),
     `## This weekend, ${range}`,
     '',
     ...(n ? byDay(weekend, town) : [`Nothing listed for the weekend yet. Know of something? [Send it in](${site(town.domain, `/submit-event/`)}).`, '']),
@@ -210,6 +216,60 @@ function townIssue(week: TownWeek): string {
     `Know of something missing? ${site(town.domain, `/submit-event/`)}`,
     '',
     `_The weekly email from ${town.siteTitle}, part of ${hub.siteTitle}. Listings are editorial; nobody pays to be in them._`,
+    '',
+  );
+  return lines.join('\n');
+}
+
+/**
+ * A shared edition: one issue, each section split by town under its own
+ * heading, a town with nothing in a section left out of it. The links go to
+ * each town's own guide, as they do in a town's issue.
+ */
+function sharedIssue(edition: Edition, weeks: TownWeek[]): string {
+  const weekend = weeks.flatMap((w) => w.weekend);
+  const n = weekend.length;
+  const picks = highlights(weekend, { now: send, limit: 3 }).map((e) => e.data.title);
+  const excerpt =
+    n === 0
+      ? `A quiet weekend in ${edition.name}, ${range}: nothing listed yet, and what is on in the week after.`
+      : `${n} thing${n === 1 ? '' : 's'} on in ${edition.name} this weekend, ${range}: ${picks.join(', ')}.`;
+  const lines = [
+    ...frontmatter(`${edition.name}, the weekend of ${range}`, excerpt, edition.towns.map((t) => t.slug)),
+    `**${edition.name}** · ${formatDate(send)}`,
+    '',
+    ...sponsorLine(edition.sponsor ?? hub.sponsors?.network),
+    `## This weekend, ${range}`,
+    '',
+  ];
+  // "Windsor and Severance": a guide with sections is headed with all of them.
+  const heading = (town: TownConfig) => subTownList(town) || town.name;
+  for (const w of weeks) {
+    lines.push(`### ${heading(w.town)}`, '');
+    if (w.weekend.length) lines.push(...byDay(w.weekend, w.town));
+    else lines.push(`Nothing listed for the weekend yet. Know of something? [Send it in](${site(w.town.domain, `/submit-event/`)}).`, '');
+  }
+  const section = (title: string, pick: (w: TownWeek) => string[]) => {
+    const parts = weeks.map((w) => ({ town: w.town, body: pick(w) })).filter((p) => p.body.length);
+    if (!parts.length) return;
+    lines.push(`## ${title}`, '');
+    for (const { town, body } of parts) lines.push(`### ${heading(town)}`, '', ...body);
+  };
+  section('Still running', (w) => (w.running.length ? [...w.running.map((e) => line(e, w.town)), ''] : []));
+  section('Next week', (w) => (w.next.length ? byDay(w.next, w.town) : []));
+  const items = (title: string, rows: Array<{ town: TownConfig; text: string }>) => {
+    if (!rows.length) return;
+    lines.push(`## ${title}`, '', ...rows.map((r) => `- **${r.town.name}** ${r.text}`), '');
+  };
+  items('New on the guides', weeks.flatMap((w) => w.newPlaces.map((p) => ({ town: w.town, text: `[${p.data.title}](${site(w.town.domain, `/places/${p.slug}/`)}) — ${p.data.summary}` }))));
+  items('Closed', weeks.flatMap((w) => w.closedPlaces.map((p) => ({ town: w.town, text: `[${p.data.title}](${site(w.town.domain, `/places/${p.slug}/`)}) — ${p.data.statusNote ?? (p.data.status === 'closed' ? 'Permanently closed.' : 'Temporarily closed.')}` }))));
+  items('Worth reading', weeks.flatMap((w) => w.articles.map((a) => ({ town: w.town, text: `[${a.data.title}](${site(w.town.domain, `/articles/${a.slug}/`)}) — ${a.data.excerpt}` }))));
+  lines.push('---', '');
+  for (const { town } of weeks) lines.push(`This week in ${town.name}: ${site(town.domain, `/this-week/`)}  `);
+  lines.push(
+    `Know of something missing? ${site(weeks[0]!.town.domain, `/submit-event/`)}`,
+    '',
+    `_The weekly email for ${edition.name}, from ${weeks.map((w) => w.town.siteTitle).join(' and ')}, part of ${hub.siteTitle}. Listings are editorial; nobody pays to be in them._`,
     '',
   );
   return lines.join('\n');
@@ -266,17 +326,27 @@ function networkIssue(weeks: TownWeek[]): string {
   return lines.join('\n');
 }
 
-// A quiet guide (`quiet` on its config) gets no issue and no place in the
-// network one: the email is a weekly promise it is not making.
-const towns = emailTowns().filter((t) => !onlyTown || t.slug === onlyTown);
-if (!towns.length) {
-  const quiet = onlyTown ? findTown(onlyTown)?.quiet : undefined;
-  console.error(quiet ? `newsletter: ${onlyTown} is quiet until ${quiet.decideBy} (${quiet.reason}), so it has no issue` : `newsletter: no live town called "${onlyTown}"`);
+// A quiet guide (`quiet`) or a visitor guide (`visitorGuide`) gets no issue
+// and no place in the network one: the email is a weekly promise it is not making.
+const all = emailEditions();
+const editions = onlyTown ? [editionFor(onlyTown, all)].filter((e): e is Edition => !!e) : all;
+if (!editions.length) {
+  const t = findTown(onlyTown!);
+  console.error(
+    t?.quiet
+      ? `newsletter: ${onlyTown} is quiet until ${t.quiet.decideBy} (${t.quiet.reason}), so it has no issue`
+      : t?.visitorGuide
+        ? `newsletter: ${onlyTown} is a visitor guide (${t.visitorGuide.reason}), so it has no issue`
+        : `newsletter: no live town called "${onlyTown}"`,
+  );
   process.exit(1);
 }
-const weeks = towns.map(readWeek);
-const drafts = weeks.map((w) => ({ name: `${dayKey(send)}-${w.town.slug}.md`, text: townIssue(w) }));
-if (!onlyTown) drafts.push({ name: `${dayKey(send)}-all-towns.md`, text: networkIssue(weeks) });
+const issues = editions.map((edition) => ({ edition, weeks: edition.towns.map(readWeek) }));
+const drafts = issues.map(({ edition, weeks }) => ({
+  name: `${dayKey(send)}-${edition.slug}.md`,
+  text: edition.shared ? sharedIssue(edition, weeks) : townIssue(weeks[0]!, edition.sponsor),
+}));
+if (!onlyTown) drafts.push({ name: `${dayKey(send)}-all-towns.md`, text: networkIssue(issues.flatMap((i) => i.weeks).sort((a, b) => a.town.name.localeCompare(b.town.name))) });
 
 if (outDir) {
   const dir = resolve(root, outDir);

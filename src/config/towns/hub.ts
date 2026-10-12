@@ -41,6 +41,15 @@ export const hub: HubConfig = {
     action: 'https://buttondown.com/api/emails/embed-subscribe/jlerner1965',
     allTag: 'all-towns',
     sendDay: 'Thursday',
+    // Shared editions, owner's word, 12 October 2026 (DECISIONS.md, "Regional
+    // editions and visitor guides"): one issue, one box and one sponsor line
+    // for towns a reader would plan a weekend across. Each guide keeps its
+    // site and its subscribers' town tags; an edition goes to every tag in it.
+    editions: [
+      { slug: 'windsor-timnath', name: 'Windsor, Severance and Timnath', towns: ['windsor', 'timnath'] },
+      { slug: 'clear-creek', name: 'Idaho Springs and Georgetown', towns: ['idaho-springs', 'georgetown'] },
+      { slug: 'loveland-johnstown', name: 'Loveland and Johnstown', towns: ['loveland', 'johnstown'] },
+    ],
   },
   social: {
     email: 'hello@insidethetowns.com',

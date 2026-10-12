@@ -137,6 +137,8 @@ function upcomingDays(e: EventData): string[] {
 type TownReport = {
   /** Out of the weekly routine until a decision (TownConfig `quiet`): one line, no lists. */
   quiet?: { since: string; decideBy: string; reason: string };
+  /** A visitor guide (TownConfig `visitorGuide`): reported in full, but no weekly email and no thin-calendar warning. */
+  visitorGuide: boolean;
   town: string;
   live: boolean;
   upcoming: number;
@@ -179,6 +181,7 @@ for (const town of allTowns) {
     town: town.slug,
     live: LIVE_TOWNS.includes(town.slug),
     quiet: town.quiet,
+    visitorGuide: Boolean(town.visitorGuide),
     upcoming: 0,
     lastDate: '',
     runwayDays: 0,
@@ -281,8 +284,8 @@ line(`Weekly content report — ${dayKey(now)} (Denver), window ${windowDays} da
 line('='.repeat(72));
 for (const r of reports) {
   line();
-  line(`${r.town.toUpperCase()}${r.live ? '' : '  (not live)'} — ${r.upcoming} upcoming event${r.upcoming === 1 ? '' : 's'}${
-    r.upcoming < MIN_UPCOMING ? `  ⚠ fewer than ${MIN_UPCOMING}` : ''
+  line(`${r.town.toUpperCase()}${r.live ? '' : '  (not live)'}${r.visitorGuide ? '  (visitor guide: no weekly email)' : ''} — ${r.upcoming} upcoming event${r.upcoming === 1 ? '' : 's'}${
+    r.upcoming < MIN_UPCOMING && !r.visitorGuide ? `  ⚠ fewer than ${MIN_UPCOMING}` : ''
   }`);
   line('-'.repeat(72));
   if (r.quiet) {
@@ -345,9 +348,11 @@ for (const r of reports) {
   }
 }
 line();
-const thin = reports.filter((r) => !r.quiet && r.upcoming < MIN_UPCOMING).map((r) => r.town);
+// A quiet guide and a visitor guide promise no weekly calendar, so a thin one is no warning.
+const weekly = (r: TownReport) => !r.quiet && !r.visitorGuide;
+const thin = reports.filter((r) => weekly(r) && r.upcoming < MIN_UPCOMING).map((r) => r.town);
 const dry = reports
-  .filter((r) => r.live && !r.quiet && r.runwayDays < MIN_RUNWAY_DAYS)
+  .filter((r) => r.live && weekly(r) && r.runwayDays < MIN_RUNWAY_DAYS)
   .sort((a, b) => a.runwayDays - b.runwayDays)
   .map((r) => `${r.town} (${r.runwayDays}d)`);
 line(
