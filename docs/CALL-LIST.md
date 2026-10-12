@@ -7,6 +7,34 @@ once its listing carries a `verified` date after the one it was added on
 (3 October 2026 for every row here); tell Claude what you heard, in any
 form, and the listing is updated with that date.
 
+## From the 12 October re-check
+
+The first pass of the 30-day rotation, on the 29 listings last checked in
+September (Elizabeth's five left out while it is quiet). Ten were
+confirmed or corrected; these could not be checked online. The date in
+each question is the day the listing's hours stop showing (60 days from its
+last check); the whole listing goes thirty days after that.
+
+| Town | Contact | Question |
+| --- | --- | --- |
+| Niwot | Sachi Sushi, (303) 652-0919 | Hours, and still at the Niwot Market? The market's site would not load (before 8 November) |
+| Niwot | The Nook, (303) 652-0919 or 303-709-7004 | Which number is the Nook's? The guide has the first (Sachi's too), the business association's listing (August 2026) the second |
+| Niwot | Niwot Liquor Store, 303-652-2636 | Open, and its hours? Only a 2025 directory entry was found (before 8 November) |
+| Niwot | Niwot Cultural Arts Association (niwotarts.org) | Is the gateway sculpture still theirs to describe? Their site no longer mentions it (before 8 November) |
+| Niwot | Belle Terre Floral, (303) 652-0419 | Hours, and still inside the Niwot Market? Its own site gives neither |
+| Berthoud | Wishful Living, (970) 532-9834 | Still open at 321 Mountain Ave? Its domain now carries a gambling store; Main Street still lists it |
+| Berthoud | B-Rad's Arcade | Still open? It has left Berthoud Main Street's dining list |
+| Lyons | Solace; Uniquely Lyons; Western Stars Gallery & Studio | Still open, and hours? Each one's website is dead or lapsing; the Town's shop list still has them |
+| Lyons | Gatherings of a Lifetime | Weekend hours still Sat–Sun 10–4? Only the Town's undated shop list says so |
+| Timnath | The Hidden Stem, (970) 473-4565 | Still Wed–Sun 9–6? Its only page is Facebook |
+
+**Open in a browser** (each site answers automated reads with a bot check;
+the listing's facts are probably fine, a person only needs to look): Fan's
+Chinese Cuisine and the Garden Gate Cafe (Niwot), Brick Oven Pizza and the
+Trailhead Cafe (Berthoud), Oskar Blues Grill & Brew (Lyons), Dominic's
+Hometown Pizza and Scheels (Johnstown). If a page matches the listing, say
+so and its check date moves to that day.
+
 ## From the 11 October content handoff
 
 The handoff's register of every staged record is
