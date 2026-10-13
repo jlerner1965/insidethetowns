@@ -4,7 +4,7 @@ type: park
 address: "254 Lakeview Drive, Nederland, CO"
 url: "https://nederlandco.org/1446/Trails-Open-Spaces"
 source: "https://nederlandco.org/1446/Trails-Open-Spaces"
-verified: "2026-10-06"
+verified: "2026-10-13"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 mapUrl: "https://nederlandco.org/ImageRepository/Document?documentID=551"
