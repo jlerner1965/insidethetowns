@@ -4879,3 +4879,30 @@ so a link to `?category=sports` opens with Sports showing
 (`src/lib/scroll-rows.ts`, `.filter-pills` in global.css). Without the
 script the rows are the plain scrollers they were; from 40rem they wrap and
 none of it applies.
+
+## A correction from Lyons Classic Pinball: last Sundays, no women's league
+
+*13 October 2026.* The owner wrote on 12 October (hello@lyonsclassicpinball.com):
+the monthly tournament moved to the last Sunday of the month almost a year
+ago, there is no women's league and no monthly women's tournament, nothing is
+on 14 November, and the shop's events page (lyonsclassicpinball.com/events)
+is the record. The 15 October league night and the 25 October tournament
+were right, and so were the hours.
+
+- **What changed.** The listing's lead loses the women's league; its body now
+  reads "a monthly tournament on the last Sunday and a Thursday-night league".
+  Hours, holidays and phone were re-read on the shop's hours page the same
+  day and match, so it carries a 13 October check and now its phone. The
+  three second-Saturday tournament files (10 October, 14 November, 12
+  December) are deleted: the owner says those dates are not theirs, and the
+  events page lists none of them. One entry in the public corrections log.
+- **Where it came from.** The listing was written on 17 September from the
+  town's visitor site, in the same session that took the tournaments from
+  the Lyons Recorder's community calendar; the event files cited the
+  Recorder. On 13 October the Recorder still shows a "Monthly Pinball
+  Tournament" series on Saturday 10 October. Pinside's venue page reportedly
+  carries the same second- and third-Saturday pair and may be where the
+  Recorder got it; that page refuses automated reads, so it was not checked
+  here. The three women's tournament files already in staging stay there.
+- **For next time.** A Recorder series at a venue that has its own events
+  page is a lead, not a source: the venue's page decides.
