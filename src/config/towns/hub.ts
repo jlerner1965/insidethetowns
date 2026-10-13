@@ -11,9 +11,12 @@ export const hub: HubConfig = {
   // the Organization description in the publisher graph (src/lib/seo.ts).
   // Not "northern" either: Elizabeth is on the Palmer Divide, south-east of
   // Denver, and a tagline that puts every guide north of the city is wrong
-  // on one of them.
-  tagline: 'Independent community guides to the towns of Colorado’s Front Range.',
-  seoTagline: 'Guides to Colorado’s Front Range towns',
+  // on one of them. Not "Front Range" alone since 10 October 2026 either:
+  // Grand Lake, Leadville and the Clear Creek towns are in the mountains,
+  // and two of the guides cover a few neighbouring communities together
+  // (audit of 13 October 2026, F06).
+  tagline: 'Independent community guides to Colorado’s towns, on the Front Range and in the mountains.',
+  seoTagline: 'Colorado town guides: Front Range & mountains',
   colors: {
     // Front Range blue + sage, on warm paper: Color System 2.0, 9 October 2026.
     primary: '#24455D',

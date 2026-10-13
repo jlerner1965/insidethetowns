@@ -18,15 +18,19 @@ import { getTownEntries } from '@/lib/content';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import { byProminence } from '@/lib/places';
 import { PLACE_TYPE_PLURALS, PLACE_TYPES } from '@/content/schemas';
+import { subTownList, subTownsOf } from '@/lib/sub-towns';
 
 const town = getTown();
+// "All 45 places in Windsor" when sixteen of them are in Severance (audit of
+// 13 October 2026, F07): a guide that covers several towns names them all.
+const coverage = subTownsOf(town).length > 1 ? subTownList(town) : town.name;
 // A closed place keeps its page and leaves every list (src/lib/content.ts sets `delisted`).
 const places = (await getTownEntries('places')).filter((p) => !p.delisted).sort(byProminence);
 const kinds = PLACE_TYPES.filter((t) => places.some((p) => p.data.type === t)).map((t) => PLACE_TYPE_PLURALS[t].toLowerCase());
 const kindList = kinds.length > 1 ? `${kinds.slice(0, -1).join(', ')} and ${kinds[kinds.length - 1]}` : kinds.join('');
 // "Every restaurants, bars…" was on every guide: a singular quantifier over a
 // list of plurals. The list is plural, so the sentence is built around it.
-const description = `${places.length} places in ${town.name}, ${town.state}, in one list — ${kindList.length > 0 ? kindList.replace(/ and /, ', ') : 'every place we list'} — with addresses and hours. Nobody pays to be listed.`;
+const description = `${places.length} places in ${coverage}, ${town.state}, in one list — ${kindList.length > 0 ? kindList.replace(/ and /, ', ') : 'every place we list'} — with addresses and hours. Nobody pays to be listed.`;
 const structured = [
   collectionPageJsonLd(town, {
     name: `${town.name}, Colorado directory`,
@@ -45,7 +49,7 @@ const structured = [
   seoTitle={`${town.name}, Colorado directory: every place we list`}
   eyebrow={town.name}
   {description}
-  intro={`All ${places.length} places in ${town.name} we list — ${kindList} — with where they are and when they are open. Listings are editorial; nobody pays to be here.`}
+  intro={`All ${places.length} places in ${coverage} we list — ${kindList} — with where they are and when they are open. Listings are editorial; nobody pays to be here.`}
   jsonLd={structured}
 >
   <SubTownLinks slot="after-header" class="mt-5" />

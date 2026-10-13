@@ -26,7 +26,7 @@ const second: NonNullable<Props['links']>[number] = heroSecondLink({
   thingsToDo: listed.filter((p) => THINGS_TO_DO_TYPES.includes(p.data.type) || p.data.type === 'lodging').length,
 });
 const {
-  eyebrow = site.kind === 'town' ? `${countyLabel(site)}, Colorado` : 'Colorado’s Front Range',
+  eyebrow = site.kind === 'town' ? `${countyLabel(site)}, Colorado` : 'Colorado’s Front Range and mountains',
   title = site.name,
   // The short tagline, written to fit, when the site has one; the full
   // tagline is a sentence with a colon clause and clipped with "…" at

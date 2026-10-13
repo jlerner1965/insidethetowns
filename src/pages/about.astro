@@ -168,15 +168,15 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
     <div class="mt-14 grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
       <div class="prose">
         <p>
-          Inside the Towns publishes independent community guides for the towns of Colorado’s Front
-          Range: one site per town, each with the week’s events, places to eat and drink, things to do outdoors, and a
-          plain account of what it’s like to move there.
+          Inside the Towns publishes independent community guides to Colorado towns, on the Front Range and in the
+          mountains: a guide for each town, or for a few neighboring communities together, each with the week’s
+          events, places to eat and drink, things to do outdoors, and a plain account of what it’s like to move there.
         </p>
         {city && (
           <p>
             One of them, {city.name}, is a city of {(Math.round((city.population ?? 0) / 10_000) * 10_000).toLocaleString('en-US')} rather than a
-            town. It is here because it is the city the rest look to, and a guide to the Front Range that
-            left it out would have a hole in the middle.
+            town. It is here because it is the city the rest look to, and a network of guides to northern
+            Colorado that left it out would have a hole in the middle.
           </p>
         )}
         <h2>Independent</h2>

@@ -1,5 +1,6 @@
 ---
 title: "A mesa hike or a canyon walk: choosing a Golden trail"
+seoTitle: "Golden, CO hiking trails: a mesa hike or a canyon walk"
 date: "2026-10-07"
 excerpt: "North Table Mountain's climb and its 7.4-mile loop, the paved Clear Creek Trail from the Gateway and Tunnel 1 lots into the canyon, and the creek path through downtown: who runs each, who each suits, dogs, bikes, where to park and where to check closures."
 category: "Outdoors"

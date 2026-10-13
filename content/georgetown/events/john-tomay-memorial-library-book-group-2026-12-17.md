@@ -1,7 +1,8 @@
 ---
-title: "John Tomay Memorial Library Book Group"
+title: "JTML Book Group"
 start: "2026-12-17T15:00"
 venue: "John Tomay Memorial Library"
+recurring: "Monthly"
 url: "https://cccld.org/event/jtml-book-group/2026-12-17/"
 category: "other"
 source: "https://cccld.org/event/jtml-book-group/2026-12-17/"

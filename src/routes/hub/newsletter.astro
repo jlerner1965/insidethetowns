@@ -9,7 +9,7 @@
 import Page from '@/layouts/Page.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import CtaBand from '@/components/CtaBand.astro';
-import { emailEditions, emailTowns, getHub } from '@/config';
+import { emailEditions, emailTowns, getHub, liveTowns } from '@/config';
 import { getHubEntries } from '@/lib/content';
 import { formatDate, toIsoLocal } from '@/lib/dates';
 
@@ -24,10 +24,23 @@ const issues = config
   ? (await getHubEntries('issues')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   : [];
 const day = config?.sendDay ?? 'Thursday';
+/**
+ * The live guides the email does not cover, so the page says so rather than
+ * leave a reader in Leadville wondering why there is no box for it (audit
+ * of 13 October 2026, F02): the visitor guides, kept current but not
+ * published weekly, and a guide the owner has paused while deciding its
+ * future. Read from the configs, so the sentence cannot name a guide that
+ * has since joined an edition.
+ */
+const names = (list: { name: string }[]) =>
+  list.length > 1 ? `${list.slice(0, -1).map((t) => t.name).join(', ')} and ${list[list.length - 1]!.name}` : (list[0]?.name ?? '');
+const visitor = liveTowns().filter((t) => t.visitorGuide);
+const paused = liveTowns().filter((t) => t.quiet);
+const uncovered = liveTowns().length - towns.length;
 ---
 <Page
   title="The weekly email"
-  seoTitle={`What’s on across Colorado’s Front Range, every ${day}`}
+  seoTitle={`What’s on across Colorado’s towns, every ${day}`}
   eyebrow="Inside the Towns"
   description={`One email a week: what’s on in ${towns.map((t) => t.name).join(', ')}. Pick your towns or take them all.`}
   intro={`The weekend’s events in whichever of the ${towns.length} towns you care about, places new to the guides or closed, and a new article when there is one. One email, every ${day}; ${editions.length} editions, a few of them covering neighboring towns together.`}
@@ -59,6 +72,14 @@ const day = config?.sendDay ?? 'Thursday';
       <li>Places added to the guides since the last one, and places that closed.</li>
       <li>A new article from the guides, when there is one.</li>
     </ul>
+    {uncovered > 0 && (
+      <p>
+        {uncovered === 1 ? 'One' : uncovered} of the {liveTowns().length} guides {uncovered === 1 ? 'has' : 'have'} no edition yet, so there is no box for {uncovered === 1 ? 'it' : 'them'} above.
+        {visitor.length > 0 && <Fragment> {names(visitor)} {visitor.length === 1 ? 'is a visitor guide' : 'are visitor guides'}, kept current but not published weekly.</Fragment>}
+        {paused.length > 0 && <Fragment> {names(paused)} {paused.length === 1 ? 'is' : 'are'} paused while we decide {paused.length === 1 ? 'its' : 'their'} future.</Fragment>}
+        {' '}Their listings stay on the web, and an edition opens the day one is ready to be sent every {day}.
+      </p>
+    )}
     <p>
       No sponsored placements inside the listings, because the
       <a href="/editorial/">editorial policy</a> says nobody can buy their way into them and that applies to the email

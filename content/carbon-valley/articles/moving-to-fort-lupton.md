@@ -1,5 +1,6 @@
 ---
 title: "Moving to Fort Lupton"
+seoTitle: "Moving to Fort Lupton, Colorado: a local living guide"
 date: "2026-10-06"
 excerpt: "Fort Lupton, Colorado: a Weld County statutory city of 7,955 at the 2020 Census (about 10,600 by the City’s 2025 estimate), at US 85 and Colorado 52. Housing, Weld Re-8 schools, utilities, fire and police."
 category: "Moving here"

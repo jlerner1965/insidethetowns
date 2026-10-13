@@ -1,5 +1,6 @@
 ---
 title: "Breakfast and coffee in Berthoud: where to start the day, and how early"
+seoTitle: "Breakfast and coffee in Berthoud, Colorado"
 date: "2026-09-27"
 excerpt: "Seven places for breakfast or a coffee in Berthoud, from the 6 am drive-through to the downtown room you can sit in, with what each is for."
 category: "Food & drink"

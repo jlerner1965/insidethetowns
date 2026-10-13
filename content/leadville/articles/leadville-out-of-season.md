@@ -1,5 +1,6 @@
 ---
 title: "Leadville out of season: what is open from October to May"
+seoTitle: "Leadville in winter: what is open from October to May"
 date: "2026-10-10"
 excerpt: "The mining museum stays open all year and the train runs weekly; the Matchless Mine, the Tabor's public tours and Turquoise Lake's boat ramps wait for summer. Ski Cooper aims for December 9, the rink for December, and a fire closure covers forest land south of Turquoise Lake through December 31."
 category: "Outdoors"

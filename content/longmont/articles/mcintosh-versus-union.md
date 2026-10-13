@@ -1,5 +1,6 @@
 ---
 title: "McIntosh or Union: which Longmont lake for which day"
+seoTitle: "McIntosh Lake or Union Reservoir: a Longmont guide"
 date: "2026-10-07"
 excerpt: "McIntosh Lake is free, has a 3.5-mile loop and takes carry-in boats but no swimmers. Union Reservoir charges $10 a vehicle, allows wakeless boating, has a year-round dog beach and closes the water December 1 to February 28. The City's rules, fees and hours for each, side by side."
 category: "Outdoors"

@@ -89,8 +89,11 @@ export const georgetown: TownConfig = {
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Georgetown,-CO_rb/' },
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Georgetown_CO' },
     ],
-    // schoolDistrict and commuteNotes are written at launch, from the
-    // district's and the Town's own pages, with the rest of Moving Here.
+    // The district as the guide's Moving Here page names it (13 October
+    // 2026, audit F05). The comparison table shows only the words before
+    // the colon. commuteNotes waits on a sourced drive time.
+    schoolDistrict:
+      'Clear Creek School District RE-1: a four-day week with optional Enrichment Fridays; confirm the assigned school and transport with the district (303-567-3850).',
   },
   officialLinks: {
     // The infobox's official site; its home page answered 200 on 10

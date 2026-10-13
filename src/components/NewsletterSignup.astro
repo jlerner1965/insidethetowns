@@ -55,7 +55,7 @@ const covers = (e: (typeof editions)[number]) => e.towns.map((t) => t.slug).join
 const day = config?.sendDay ?? 'Thursday';
 const emailField = config?.emailField ?? 'email';
 const tagField = config?.tagField ?? 'tag';
-const where = mine ? mine.name : 'the Front Range';
+const where = mine ? mine.name : 'the towns';
 // Two of these can sit on one page (an issue page shows the compact one), and
 // two inputs sharing an id is a broken label, not a cosmetic slip.
 const variant = id ?? (compact ? 'compact' : 'main');

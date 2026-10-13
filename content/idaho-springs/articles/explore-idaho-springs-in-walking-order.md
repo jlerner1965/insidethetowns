@@ -48,7 +48,7 @@ The [Mighty Argo Cable Car](/places/mighty-argo-cable-car/) leaves from the same
 
 ## 03 · Water Wheel Park
 
-[Water Wheel Park](/places/water-wheel-park/) is reached by a paved path from behind City Hall at 1711 Miner Street, which the City says leads under I-70 and along the creek to a better view of the wheel. The Historical Society calls it the Charlie Tayler Waterwheel: Tayler built it in 1893 to power a stamp mill at his mine on Ute Creek, it was moved here in 1946 as a gift from his estate, and volunteers restored it in 1988. Behind City Hall too, the City's Anderson Park holds Colorado & Southern locomotive No. 60 and passenger car No. 70 on a piece of the original rail line.
+[Water Wheel Park](/places/water-wheel-park/) is reached by a paved path from behind City Hall at 1711 Miner Street, which the City says leads under I-70 and along the creek to a better view of the wheel. The Historical Society calls it the Charlie Tayler Waterwheel. Tayler built it in 1893 to power a stamp mill at his mine on Ute Creek. It was moved here in 1946 as a gift from his estate, and volunteers restored it in 1988. Behind City Hall too, the City's Anderson Park holds Colorado & Southern locomotive No. 60 and passenger car No. 70 on a piece of the original rail line.
 
 *Getting there:* on foot to City Hall at 1711 Miner Street and the path behind it. *Best for:* a short walk by the creek between the mill and Miner Street's shops.
 

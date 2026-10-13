@@ -1,5 +1,6 @@
 ---
 title: "Timnath Reservoir: who can go, which permit, and when"
+seoTitle: "Timnath Reservoir: permits, eligibility and nonresident access"
 date: "2026-10-07"
 updated: "2026-10-08"
 excerpt: "The Town's reservoir is open to Timnath residents, people in the growth management area, Colorado resident anglers and their guests, each on a different permit. Who qualifies, what each permit costs, the hours by season, the motorized boating days and the rules on swimming, paddling, fishing and dogs."

@@ -105,6 +105,16 @@ test('the chosen listings come back in date order', () => {
   assert.deepEqual(titles(highlights(list, { now: thursday })), ['Weekend thing', 'Later thing', 'Headliner']);
 });
 
+test('a one-off weeks away beats a regular this weekend', () => {
+  const list = [
+    ev('Toddler storytime', '2026-09-25T10:30', { category: 'family', recurring: 'Fridays at 10:30' }),
+    ev('Harvest festival', '2026-10-17T10:00', { category: 'festival' }),
+  ];
+  // The storytime is for the people who live there; the festival is the
+  // reason a reader opened the page, however far off it is.
+  assert.deepEqual(titles(highlights(list, { now: thursday, limit: 1 })), ['Harvest festival']);
+});
+
 test('within the weekend a one-off beats an earlier regular', () => {
   const list = [
     ev('Toddler storytime', '2026-09-25T10:30', { category: 'family', recurring: 'Fridays at 10:30' }),

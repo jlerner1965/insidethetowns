@@ -48,7 +48,7 @@ Now the car, east on Highway 86. [Casey Jones Park](/places/casey-jones-park/) i
 
 ## 04 · Evans Park
 
-The shorter option is next door at 34201 County Road 17. [Evans Park](/places/evans-park/) has a loop of about a third of a mile that starts and ends at Dragonfly Pond, with picnic tables and benches along the trail. The pond is stocked with trout by Colorado Parks and Wildlife and a license is required. The skate park is open in daylight hours, the splash pad runs in summer, and [Prickly Pines](/places/prickly-pines-disc-golf/) is an 18-hole disc golf course through the wooded north end, $5 a player. Leashed dogs anywhere except the fields and the splash pad.
+The shorter option is next door at 34201 County Road 17. [Evans Park](/places/evans-park/) has a loop of about a third of a mile that starts and ends at Dragonfly Pond, with picnic tables and benches along the trail. The pond is stocked with trout by Colorado Parks and Wildlife and a license is required. The skate park is open during daylight hours, and the splash pad runs in summer. [Prickly Pines](/places/prickly-pines-disc-golf/) is an 18-hole disc golf course through the wooded north end. Admission is $5 per player. Leashed dogs anywhere except the fields and the splash pad.
 
 *Getting there:* the same road; lot parking. *Best for:* a short walk; children; a fishing rod.
 

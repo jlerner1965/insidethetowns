@@ -1,5 +1,6 @@
 ---
 title: "Patios in Niwot: five places to sit outside, and which one for when"
+seoTitle: "Niwot, CO patios: five places to sit outside, and which one for when"
 date: "2026-09-27"
 excerpt: "The covered one, the heated one, the one under umbrellas, the one with a band, and the one that takes the dog. Niwot's outdoor tables, in order of season."
 category: "Food & drink"

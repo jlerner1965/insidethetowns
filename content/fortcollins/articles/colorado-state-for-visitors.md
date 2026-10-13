@@ -1,5 +1,6 @@
 ---
 title: "Colorado State for visitors: tours, game day, the museums and the dates that fill the city"
+seoTitle: "Visiting Colorado State University: a Fort Collins guide"
 date: "2026-10-03"
 excerpt: "How to see the campus that is the biggest thing in Fort Collins: the tour from the Oval, where to park, what a game day at Canvas Stadium or Moby asks of you, the two free museums, and the weekends to book a hotel early."
 category: "Campus"

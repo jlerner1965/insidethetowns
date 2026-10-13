@@ -1,5 +1,6 @@
 ---
 title: "Loveland's sculpture parks on foot: Benson, Chapungu and the downtown pieces"
+seoTitle: "Loveland sculpture parks on foot: Benson, Chapungu and downtown"
 date: "2026-10-07"
 excerpt: "Two free sculpture parks, a City collection of 581 works, a one-percent ordinance from 1985 and an audio tour of downtown. How to walk Loveland's public art, with the hours, the parking the operators publish and the dates of the 2027 Sculpture in the Park show."
 category: "Community"

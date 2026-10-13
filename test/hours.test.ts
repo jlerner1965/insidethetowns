@@ -122,7 +122,7 @@ test('a bar still open at half past midnight is open, on the day before', () => 
 });
 
 test('always open, and nothing to say', () => {
-  assert.deepEqual(openingStatus(['Mo-Su 00:00-24:00'], new Date()), { open: true, label: 'Open · closes midnight' });
+  assert.deepEqual(openingStatus(['Mo-Su 00:00-24:00'], new Date()), { open: true, label: 'Open 24 hours' });
   assert.equal(openingStatus([], new Date()), null);
 });
 
@@ -167,4 +167,11 @@ test('hours are shown with am and pm, read the way the open-now status reads the
   const season = 'Weekends in May; Jun–Sep: Mon–Sat 9:30–4:30';
   assert.equal(hoursWithMeridiem(season), season);
   assert.equal(hoursWithMeridiem('Open daily, sunrise to sunset'), 'Open daily, sunrise to sunset');
+});
+
+test('a place open round the clock says so, rather than closing at midnight', () => {
+  const spec = ['Mo-Su 00:00-24:00'];
+  assert.deepEqual(openingStatus(spec, denver('2026-10-01T14:00', '-06:00')), { open: true, label: 'Open 24 hours' });
+  // Open all day on Saturday only: at midnight it really does close.
+  assert.deepEqual(openingStatus(['Sa 00:00-24:00'], denver('2026-10-03T14:00', '-06:00')), { open: true, label: 'Open · closes midnight' });
 });

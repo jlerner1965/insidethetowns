@@ -98,8 +98,11 @@ export const grandLake: TownConfig = {
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Grand-Lake,-CO_rb/' },
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Grand-Lake_CO' },
     ],
-    // schoolDistrict and commuteNotes are written at launch, from the
-    // district's and the Town's own pages, with the rest of Moving Here.
+    // The district as the guide's Moving Here page names it (13 October
+    // 2026, audit F05). The comparison table shows only the words before
+    // the colon. commuteNotes waits on a sourced drive time.
+    schoolDistrict:
+      'East Grand School District: confirm enrollment and the bus arrangements for the address with the district; in winter the journey can matter as much as the distance.',
   },
   officialLinks: {
     // The infobox's official site. It answered automated requests with 403
