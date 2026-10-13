@@ -5,13 +5,13 @@ address: "30357 Buffalo Park Road, Evergreen, CO 80439"
 area: "Buffalo Park Road"
 url: "https://www.jeffco.us/980/Alderfer-Three-Sisters-Park"
 source: "https://www.jeffco.us/980/Alderfer-Three-Sisters-Park"
-verified: "2026-10-06"
+verified: "2026-10-13"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 hours: "Open one hour before sunrise to one hour after sunset"
 tags: [hiking, open-space, trailhead]
 summary: "The eastern of the two Jefferson County Open Space trailheads into Alderfer/Three Sisters Park, on Buffalo Park Road a mile east of the West Trailhead."
-access: { parking: "Trailhead lot at 30357 Buffalo Park Road; the park's second lot, the West Trailhead, is a mile west at 31537.", conditionsUrl: "https://www.jeffco.us/AlertCenter.aspx?CID=25", conditionsLabel: "Jeffco Open Space alerts and closures", source: "https://www.jeffco.us/980/Alderfer-Three-Sisters-Park", verified: "2026-10-06" }
+access: { parking: "Trailhead lot at 30357 Buffalo Park Road; the park's second lot, the West Trailhead, is a mile west at 31537.", conditionsUrl: "https://www.jeffco.us/AlertCenter.aspx?CID=25", conditionsLabel: "Jeffco Open Space alerts and closures", source: "https://www.jeffco.us/980/Alderfer-Three-Sisters-Park", verified: "2026-10-13" }
 ---
 
 One of two county trailheads into Alderfer/Three Sisters Park, run by Jefferson County Open Space. The county's park page gives this lot's address and places the newer West Trailhead a mile to the west on the same road.
