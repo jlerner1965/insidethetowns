@@ -4,7 +4,7 @@ type: bar
 address: "393 Washington Ave, Golden, CO 80403"
 url: "https://www.cannonballcreekbrewing.com/"
 source: "https://www.cannonballcreekbrewing.com/"
-verified: "2026-10-06"
+verified: "2026-10-13"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "303-278-0111"
