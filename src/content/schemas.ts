@@ -544,6 +544,17 @@ export function articleSchema<I extends z.ZodType>(image: () => I) {
   return z
     .object({
       title: z.string().min(1),
+      /**
+       * The <title> and share title, when the headline on the page is not
+       * the line a searcher needs: "Which side of County Line Road you buy
+       * on" is the right headline over the article and the wrong one in a
+       * results list, which wants the town, the state and the question
+       * ("Erie, CO: Boulder County or Weld County?"). Sentence case, like
+       * the rest of the guide; the site title is appended as on every page.
+       * Left unset, the headline is the title (search audit, 13 October
+       * 2026).
+       */
+      seoTitle: z.string().min(1).max(70).optional(),
       slug,
       date: localDate,
       updated: localDate.optional(),

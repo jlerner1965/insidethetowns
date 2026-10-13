@@ -38,6 +38,11 @@ const pricesReady = towns.every((t) => t.medianHomePrice && t.medianHomePriceAsO
 const columns = [
   { key: 'county', label: 'County', caption: 'county', kind: 'nowrap', get: (t: (typeof towns)[number]) => countyShort(t) },
   { key: 'population', label: 'Population 2020', caption: 'population at the 2020 census', kind: 'num', get: (t: (typeof towns)[number]) => num(t.population) },
+  // Promised by every guide's Moving Here page ("population, elevation,
+  // schools and the drive to Denver, side by side") and missing here until
+  // the audit of 13 October 2026 (F05). Each config's figure is GNIS's for
+  // the town's own point, the same reference for all of them.
+  { key: 'elevation', label: 'Elevation', caption: 'elevation', kind: 'num', get: (t: (typeof towns)[number]) => (t.elevationFt ? `${num(t.elevationFt)} ft` : '—') },
   { key: 'growth', label: 'Growth 2010–20', caption: 'growth from 2010 to 2020', kind: 'num', get: growth },
   ...(pricesReady
     ? [
@@ -62,7 +67,7 @@ const caption = `The ${towns.length} towns compared by ${columns
 
 const SUITS: Record<string, string> = {
   "erie": "Suits people working in or near Boulder who want a newer house within reach of it, and a downtown they can walk to on a Friday. The catch is that most of Erie is subdivisions built since 2000 and only the old grid around Briggs Street is walkable, so where you buy decides whether you get the town or the commute. Ask which county, which school district and which metro district before you fall for a house: all three change from one street to the next.",
-  "johnstown": "Suits northern Colorado commuters. The US 34 interchange is on the west edge, which puts Loveland at ten minutes, Greeley at fifteen, Fort Collins at twenty-five and Denver at fifty. Two school districts, as in Erie: most of town is Weld RE-5J, the north-west corner is Thompson. The trade is that the shopping has moved out to the interstate and Parish Avenue is quiet.",
+  "johnstown": "Suits northern Colorado commuters. The US 34 interchange is on the west edge, which puts Loveland at ten minutes, Greeley at fifteen, Fort Collins at twenty-five and Denver at fifty. Johnstown spans two school districts, as Erie does. Most of town is in Weld RE-5J; the northwest corner is in Thompson, so check the address. The trade is that the shopping has moved out to the interstate and Parish Avenue is quiet.",
   "berthoud": "Suits people who want a Main Street that is genuinely a main street, and the lakes. Fifteen minutes to Loveland or Longmont, twenty-five to Fort Collins, and the FLEX bus runs through it between Fort Collins, Loveland, Longmont and Boulder, so a commute without a car is possible if the timetable fits. It doubled in a decade, so a good deal of it is new.",
   "timnath": "Suits people who want to be minutes from Fort Collins in a town built almost entirely this century. It went from 625 people at the 2010 census to 6,487 at the 2020 census, which is the largest proportional change of any town here by a wide margin, and it shows: Old Town Main Street is a couple of blocks and everything else was built this decade around the Harmony Road retail. Come for the reservoir and the river trail, not for an old town center.",
   "niwot": "Suits people who want small and mean it. It is unincorporated — no town council, no municipal tax, county services, and an incorporation question on the November 3, 2026 ballot whose outcome is worth checking before you buy. Seven percent growth in a decade, which in this company is a rounding error. Twenty minutes to Boulder or Longmont on the Diagonal, and the BOLT bus stops at Niwot Road.",
@@ -76,7 +81,17 @@ const SUITS: Record<string, string> = {
   "evergreen": "Suits people who want to live in the mountains and still reach Denver, thirty to forty minutes down I-70. It is unincorporated: no mayor or town hall, the Jefferson County commissioners govern, and a fire district and a park district do much of what a town would. The census place counted 9,307 people in 2020, three percent more than in 2010, but the fire district serves nearly 26,000, which is closer to what people mean by Evergreen. The lake and Bear Creek are in the middle and the elk are in the meadows. A house in the hills is often on a well and a septic system, and since July 2026 the county's wildfire code applies to new building and exterior work, so find the parcel's wildfire class and get an insurance quote before you make an offer. Jeffco Public Schools; Evergreen Middle and Evergreen High are in town.",
   "estes-park": "Suits people who want to live at the east entrance to Rocky Mountain National Park and can live with what that brings: timed-entry reservations for the park from late May to mid-October, elk in the meadows for the autumn rut, and a winter when Trail Ridge Road is closed and the park is a dead end. The town itself is small and has barely grown, 5,904 people at the 2020 census, but the library district serves more than 12,000 residents across the valley, much of which is unincorporated Larimer County. Denver is an hour and a half to two hours away by US 36 through Lyons or US 34 down the Big Thompson Canyon, which was rebuilt after the 2013 flood. It has its own school district and its own hospital, and the whole valley is wildland-urban interface: the fire district will assess any house for you.",
   "nederland": "Suits people who want a real mountain town, 8,200 feet up Boulder Canyon, with Boulder below and Eldora, Barker Reservoir and the Indian Peaks above. Full-time residents of the library district get an RTD EcoPass paid for by their property taxes, so the bus down to Boulder, and the rest of RTD, costs nothing to ride. It is small and has stayed that way: 1,471 people at the 2020 census, slightly fewer by the state's 2024 estimate. Winter is the real thing, about 140 inches of snow a year and plowing the Town itself says is not on a par with Boulder's, and wildfire is part of life here. Outside the town line a house may be on a septic system, which Boulder County must inspect and approve before a sale. Boulder Valley School District; Nederland Elementary and Nederland Middle-Senior are in town.",
-  "fortcollins": "Suits people who want the city rather than a town near it: a downtown that is genuinely one, a university, the Poudre through the middle and Horsetooth Reservoir just west, Transfort buses and Bustang to Denver, and the jobs the other towns commute to. The trade is scale. It is the fourth-largest city in Colorado, 169,810 people at the 2020 census, and it grew eighteen percent in a decade, most of the new part south and east, a drive from Old Town. If you are choosing between Fort Collins and one of its towns, the question is whether you would drive in for everything anyway. If so, live here."
+  "fortcollins": "Suits people who want the city rather than a town near it: a downtown that is genuinely one, a university, the Poudre through the middle and Horsetooth Reservoir just west, Transfort buses and Bustang to Denver, and the jobs the other towns commute to. The trade is scale. It is the fourth-largest city in Colorado, 169,810 people at the 2020 census, and it grew eighteen percent in a decade, most of the new part south and east, a drive from Old Town. If you are choosing between Fort Collins and one of its towns, the question is whether you would drive in for everything anyway. If so, live here.",
+  // The six mountain guides of 10 October 2026, written 13 October from
+  // their own Moving Here pages (the audit's F04): what those pages can
+  // stand behind, which is the agencies, the schools and the winter, and
+  // no commute, housing or price claim they do not make.
+  "black-hawk": "Suits people who want one of Colorado's smallest cities, 127 people at the 2020 census, in Gregory Gulch at 8,000 feet with the casinos as the town's business and public land around it: Golden Gate Canyon State Park and the national forest, with closures and fire restrictions to check before a visit. The one school district, Gilpin County RE-1, is a single preschool-to-12th-grade campus on Highway 119 north of the casinos, and the county library is on the same road. No official page gives a home price. Expect snow on the Peak to Peak and in the canyons, and confirm water, sewer and service for the specific address with the City.",
+  "georgetown": "Suits people who want a Victorian silver town at 8,500 feet, the Clear Creek County seat, whose downtown is a National Historic Landmark District: before buying with plans to change a building, fence or use, ask town planning what applies to that property. Clear Creek School District RE-1 runs a four-day week with optional Enrichment Fridays, which shapes work and childcare. Water and wastewater are the Town's, account by account. Guanella Pass is a recreation route with seasonal limits, not a commute, and the winter drive to work is the thing to test before deciding.",
+  "grand-lake": "Suits people who want a compact lakeside town of about 400 at the west entrance to Rocky Mountain National Park, with a summer season and a snowed-in winter. A Grand Lake mailing address does not by itself put a property inside the town; the Town and Grand County can say which side of the boundary it is on. East Grand School District serves it, and in winter the bus arrangements for an address matter as much as the distance on a map. Trail Ridge Road is seasonal, so Estes Park across the park is not a year-round route for shopping, school or work, and the visitor economy gives work a summer-and-winter pattern: ask an employer about the full year.",
+  "idaho-springs": "Suits people who want a small downtown on Clear Creek at 7,500 feet, the first stop up I-70 from Denver, with the mountains around it. The City runs water, wastewater and planning, and a postal address does not show whether a property is inside the city. Clear Creek School District RE-1, based in town at 320 Highway 103, runs a four-day week with optional Enrichment Fridays. The City's transportation page links the current services; try the commute at the time of day you would make it, in more than one season, and check COtrip before an interstate drive.",
+  "leadville": "Suits people who want a silver-boom main street at 10,150 feet and can live with long winters. Whether a property is inside the city decides whether the City of Leadville or Lake County handles each question, and utility providers vary from one property to the next. Ask whether a rental is a year-round home or short-term visitor lodging; the City's Housing Authority runs its own programs. Lake County School District answers enrollment and transport by address. Try the work and shopping trips in winter and ask about snow clearing at home: the elevation is part of daily life.",
+  "manitou-springs": "Suits people who want a walkable center at the foot of Pikes Peak, on the west edge of Colorado Springs, with mineral springs and a tourist avenue. The City runs water, sewer, planning, parking and mobility, and parking is the question to settle for a prospective home: a public visitor lot does not cover a lease's parking, and a permit may apply. Manitou Springs School District 14 covers more than downtown and confirms school assignment and bus routes by address. Test the commute at the time you would make it, with the operator's timetable for any bus or shuttle."
 };
 
 const structured = collectionPageJsonLd(hub, {
@@ -87,8 +102,8 @@ const structured = collectionPageJsonLd(hub, {
 });
 ---
 <Page
-  title="Which Front Range town?"
-  seoTitle={`Moving to Colorado’s Front Range: ${towns.length} towns compared`}
+  title="Which Colorado town?"
+  seoTitle={`Moving to Colorado: ${towns.length} Front Range and mountain towns compared`}
   eyebrow="Moving here"
   description={`${towns.map((t) => t.name).join(', ')}: population, growth, schools, the commute and what each one is actually like.`}
   intro={`All ${towns.length} towns side by side, then a straight answer on who each one suits. Every name links to its own guide.`}
@@ -138,7 +153,7 @@ const structured = collectionPageJsonLd(hub, {
           </h3>
           <div>
             {/* Written per town, from its own sources; a town without one yet
-               (the six mountain guides of 10 October 2026) shows its link only. */}
+               shows its link only. */}
             {SUITS[t.slug] && <p class="max-w-[62ch] leading-relaxed text-ink-muted">{SUITS[t.slug]}</p>}
             <p class:list={['text-[0.9375rem]', SUITS[t.slug] && 'mt-3']}>
               <a href={`https://${t.domain}/moving-here/`} class="inline-block -my-1 py-1 font-semibold text-primary underline">
@@ -178,7 +193,9 @@ const structured = collectionPageJsonLd(hub, {
       these towns have grown a long way since — Timnath and Johnstown especially — and each guide's Moving Here page
       carries the later estimate and the source for it. Drive times are off-peak estimates to downtown Denver from each
       town's own guide (Elizabeth's commuters mostly go to the Tech Center, so it has both), not a promise about the
-      Boulder Turnpike at half past five.
+      Boulder Turnpike at half past five. Elevation is each town's own point as the federal gazetteer gives it, not
+      the highest house. A dash means we have not yet researched that figure for that town, not that there is
+      nothing to say: the six mountain guides that opened on 10 October 2026 have no sourced drive time yet.
     </p>
     <p>
       There is no median-home-price column. Getting it right means a named source and a quarterly re-check, and a
@@ -190,8 +207,8 @@ const structured = collectionPageJsonLd(hub, {
       Niwot has never incorporated. It is a census-designated place under Boulder
       County, which means county services, no town council and no municipal tax — and an incorporation question that
       is <a href="https://insideniwot.com/articles/2026-incorporation-election/">on the ballot in 2026</a>. Evergreen is
-      unincorporated too: it has no mayor, council or town hall, the Jefferson County commissioners govern it, and a
-      fire district and a park district do much of what a town hall does elsewhere. Carbon Valley is a guide to three
+      also unincorporated. It has no mayor, council or town hall. The Jefferson County commissioners govern it, while
+      a fire district and a park district provide many services handled by municipal government elsewhere. Carbon Valley is a guide to three
       municipalities, Frederick, Firestone and Dacono, each with its own government, and its population figures here
       are the three added together; Fort Lupton, across I-25, is a section of that guide, and its own figures are in
       <a href="https://carbonvalleyguide.com/articles/moving-to-fort-lupton/">Moving to Fort Lupton</a>. Windsor's

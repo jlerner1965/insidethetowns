@@ -51,7 +51,7 @@ The [river path](/places/st-vrain-river-path/) joins Sandstone Park, the Depot a
 
 ## 05 · Hall Ranch, on a longer day
 
-[Hall Ranch](/places/hall-ranch/) is Boulder County open space a mile west of Main Street on Colorado 7, with thirteen and a half miles of trail. Bitterbrush (3.7 miles, difficult) climbs the rocky front to the Nelson Loop (2.2 miles) through ponderosa meadows; Nighthawk (4.7 miles, hikers and horses) is the quieter way up; Antelope is the short one. It is open sunrise to sunset, the lot is full by nine on summer weekends, and the county may close trails on prescribed-burn days in winter and spring. Dogs are not allowed: [where they are](/articles/lyons-hikes-where-dogs-are-allowed/) is its own page, and [Trails and the river](/articles/trails-and-the-river/) covers the other four areas.
+[Hall Ranch](/places/hall-ranch/) is Boulder County open space a mile west of Main Street on Colorado 7, with thirteen and a half miles of trail. Bitterbrush (3.7 miles, difficult) climbs the rocky front to the Nelson Loop (2.2 miles) through ponderosa meadows; Nighthawk (4.7 miles, hikers and horses) is the quieter way up; Antelope is the short one. Hall Ranch is open from sunrise to sunset, with 64 parking spaces across two lots at the main trailhead. Check the county's current trail notices before visiting, including prescribed-burn closures between mid-January and mid-April. Dogs are not allowed: [where they are](/articles/lyons-hikes-where-dogs-are-allowed/) is its own page, and [Trails and the river](/articles/trails-and-the-river/) covers the other four areas.
 
 *Getting there:* by car, a mile west on Colorado 7; two lots. *Best for:* a half-day hike or the mountain-bike climb, without the dog.
 

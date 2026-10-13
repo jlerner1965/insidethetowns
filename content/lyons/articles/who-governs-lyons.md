@@ -1,5 +1,6 @@
 ---
 title: "Who governs Lyons, and where the official information is"
+seoTitle: "Lyons, CO government and services: who does what, where to get help"
 date: "2026-09-19"
 excerpt: "Lyons is a statutory town with an elected mayor and six trustees, and it shares the work with Boulder County and three special districts. Who does what, when the Board meets, and the official page for each."
 category: "Civic"

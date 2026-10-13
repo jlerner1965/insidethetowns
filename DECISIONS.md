@@ -4906,3 +4906,73 @@ were right, and so were the hours.
   here. The three women's tournament files already in staging stay there.
 - **For next time.** A Recorder series at a venue that has its own events
   page is a lead, not a source: the venue's page decides.
+
+## Two reviews of 13 October: what was taken, what was not
+
+*13 October 2026.* The owner handed over two documents, an independent
+network review (16 findings, 14 copy edits and a set of search titles) and
+an implementation brief (trust fixes, mobile layout, new listings), with the
+instruction to decide item by item and change only what stands up. Every
+factual change below was re-read against the source the same day; a source
+that refused the robots-aware reader was left alone, as the 11 October rule
+says.
+
+- **Taken, and re-checked.** The Museum of Discovery's youth ticket is ages
+  2 to 12 on the museum's admission table (its sidebar still says 2 to 18),
+  and its old `/visit/` link now points at the admission page. LaVern M.
+  Johnson Park is sourced to the Town's own park page, loses "the best
+  picnic spot in town", and carries the Town's winterization notice and
+  capacity rule as a dated `access` block. Niwot's 2027 Fourth of July says
+  its organizer's page still describes the 2026 program. Hall Ranch no
+  longer says its lot is full by nine: the County's page says 64 spaces and
+  nothing about when they fill. Timnath's 11,600 is attributed to Wikipedia,
+  where the citation actually is, on three pages. The Black Hawk Moving Here
+  page names its public lands instead of calling "the land around town"
+  public, and its research notes are cut to what a reader can act on.
+- **Events.** Home-page highlights now rank every one-off, however far off,
+  ahead of any regular; a weekend storytime used to outrank a festival three
+  weeks out. Georgetown's three book-group files carry one title and
+  "Monthly", so they read as the series they are. Twelve school-team games
+  (Berthoud, Niwot, Timnath) are deleted under the brief's rule that
+  school-team competitions are not events; the college games stay as
+  "qualifying big home games". "Daily, 24 hours" reads "Open 24 hours"
+  instead of "closes midnight". The editorial page describes how repeats
+  are actually stored.
+- **The hub.** The six mountain guides have their "who it suits" paragraph
+  and their school district, written from their own Moving Here pages; the
+  table has the elevation column every guide's Moving Here page promised,
+  and says what a dash means. The network calls itself Colorado's Front
+  Range *and* mountain towns, and "one site per town" is gone, since two
+  guides cover a few towns each. The advertiser page says the Nearby block
+  is on the guides with a neighbouring guide, on weekends with something
+  on, instead of "all 22", and quotes the audience the way the review
+  suggested; the newsletter page says which guides have no edition and why.
+  Windsor's directory counts "Windsor and Severance".
+- **Listings.** Five places added from their own pages: Nederland Community
+  Center, Leadville's Community Park & Fairgrounds, Una Vida in Niwot, Muddy
+  Buck Coffee House in Evergreen and the Estes Valley Community Center
+  (whose Sunday hours its page gives two ways, so it carries none). The
+  Carousel of Happiness, the Wheel House and the two Niwot trails carry what
+  their operators publish on access, the bike shop and the County's trail
+  rules. Dutch Henry Sledding Hill waits in staging; Caribou Ranch already
+  did, since 6 October, with a closure-date question the brief did not know
+  about, and that file stands.
+- **Search titles.** Articles may carry a `seoTitle` for the `<title>` and
+  share card when the headline leaves out the town or the question; 26 do.
+  Home-page titles and H1s are unchanged: every live guide's title already
+  names the town and the state, and the review's "Your guide to X,
+  Colorado" would flatten the voice the brief asked to keep. Carbon
+  Valley's title still omits Fort Lupton: four names and a state do not fit
+  65 characters, and `/fort-lupton/` carries its own.
+- **Not taken.** Oskar Blues' hours: the brief reports new closing times,
+  but oskarbluesfooderies.com answers 403 to every automated read, so the
+  listing keeps its 17 September hours and the owner should check by eye
+  or phone. The Little Thompson Observatory (starkids.org answered 503) and
+  the Manitou Creek Walk (the City's page answered 403) were not added. The
+  photo finding (585 place pages with no image) needs photographs, not
+  code. The brief's mobile redesign of the directory and home page is not
+  done: the hub home was reworked for the phone on 7 October and the
+  directory's introduction is already one sentence. The family-guide
+  decision boxes and the relocation-slogan rewrites beyond the two
+  verdicts changed here are editorial work for a session with the sources
+  open.

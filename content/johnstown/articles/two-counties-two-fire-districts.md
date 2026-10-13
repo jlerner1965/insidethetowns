@@ -1,5 +1,6 @@
 ---
 title: "Two counties, two fire districts, three power companies"
+seoTitle: "Johnstown, CO: which county, fire district and utility serves you"
 date: "2026-09-20"
 excerpt: "Johnstown straddles the Weld–Larimer line, and the boundaries underneath it do not agree with each other: schools split one way, fire another, electricity a third. What to check against an address before you make an offer."
 category: "Moving here"

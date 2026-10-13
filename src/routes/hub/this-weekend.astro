@@ -80,16 +80,16 @@ const weekendLabel =
  */
 const structured = collectionPageJsonLd(hub, {
   name: `What’s on across ${hub.siteTitle}`,
-  description: `Every event across ${towns.length} Front Range town guides this weekend.`,
+  description: `Every event across ${towns.length} Colorado town guides this weekend.`,
   path: '/this-weekend/',
   items: everything.map((e) => ({ name: `${e.data.title} — ${e.town.name}`, url: `https://${e.town.domain}/events/${e.slug}/` })),
 });
 ---
 <Page
-  title="This weekend on the Front Range"
-  seoTitle={`This weekend on Colorado’s Front Range — ${weekendLabel}`}
+  title="This weekend across the towns"
+  seoTitle={`This weekend across Colorado’s towns — ${weekendLabel}`}
   eyebrow="Across the network"
-  description={`Every event across ${towns.length} Front Range town guides this weekend: markets, music, festivals and trails, each opening on its town’s own guide.`}
+  description={`Every event across ${towns.length} Colorado town guides this weekend, Front Range and mountains: markets, music, festivals and trails, each opening on its town’s own guide.`}
   intro={`Everything on across all ${towns.length} guides, ${weekendLabel}, and the two weeks after it. Each listing opens on that town’s own site.`}
   jsonLd={structured}
 >

@@ -1,5 +1,6 @@
 ---
 title: "Evergreen Lake through the seasons"
+seoTitle: "Evergreen Lake, CO: a guide to the seasons and their activities"
 date: "2026-10-07"
 excerpt: "Boat rentals in summer and on weekends after Labor Day, the Stagecoach Park shuttle, skating when the hotline says the ice is in, the 1.3-mile trail, fishing with a state license and the lake rules. What the recreation district runs at Denver's lake, season by season."
 category: "Outdoors"

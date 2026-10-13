@@ -92,8 +92,11 @@ export const blackHawk: TownConfig = {
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Black-Hawk,-CO_rb/' },
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Black-Hawk_CO' },
     ],
-    // schoolDistrict and commuteNotes are written at launch, from the
-    // district's and the City's own pages, with the rest of Moving Here.
+    // The district as the guide's Moving Here page names it (13 October
+    // 2026, audit F05). The comparison table shows only the words before
+    // the colon. commuteNotes waits on a sourced drive time.
+    schoolDistrict:
+      'Gilpin County School District RE-1: one campus at 10595 Highway 119 for preschool through 12th grade (Gilpin County Preschool, Elementary and Secondary).',
   },
   officialLinks: {
     // The infobox's official site. It answered automated requests with 403

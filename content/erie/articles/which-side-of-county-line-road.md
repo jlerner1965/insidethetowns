@@ -1,5 +1,6 @@
 ---
 title: "Which side of County Line Road you buy on"
+seoTitle: "Erie, CO: Boulder County or Weld County? County Line Road decides"
 date: "2026-09-20"
 excerpt: "Erie is in two counties, and the boundary decides more than an address: the school district, the library card, the ballot, the assessor — and, since the town took over half of them, who fixes the streetlight. What to check before you make an offer."
 category: "Moving here"

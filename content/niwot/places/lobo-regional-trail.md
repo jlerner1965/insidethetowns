@@ -17,4 +17,4 @@ added: "2026-09-17"
 
 The Longmont-to-Boulder (LoBo) Regional Trail covers about twelve miles between the two cities through Gunbarrel and Niwot, mostly on crushed gravel, and connects to the local loops around town. From Old Town it is a short walk to the open-space edge, and the stretch through the eastern fields is the one to save for late afternoon, with the Indian Peaks the whole way west.
 
-Trail surfaces, closures and dog rules are set by Boulder County Parks & Open Space, since Niwot is unincorporated; check the county’s trail closures page before a long ride.
+Trail surfaces, closures and dog rules are set by Boulder County Parks & Open Space, since Niwot is unincorporated; check the county’s trail closures page before a long ride. The County keeps its regional trails and connectors, this one included, open to commuters 24 hours a day, but the trailheads along it close at sunset and parking at them is not allowed between sunset and sunrise, so a night ride starts and ends somewhere else.

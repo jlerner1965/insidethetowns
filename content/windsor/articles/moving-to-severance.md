@@ -1,5 +1,6 @@
 ---
 title: "Moving to Severance"
+seoTitle: "Moving to Severance, Colorado: a local living guide"
 date: "2026-10-06"
 excerpt: "Severance, Colorado: a Weld County home-rule town of 7,683 at the 2020 census and 11,570 by the state's 2024 estimate. Water, schools, fire, library, HOAs."
 category: "Moving here"

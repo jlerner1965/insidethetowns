@@ -12,11 +12,11 @@ The [City of Black Hawk's website](https://www.cityofblackhawk.org/) lists munic
 
 ## Housing
 
-No official page that could be read for this guide gives a home price for Black Hawk, so there are no figures here. The listings in the sidebar show what is for sale.
+There is no sourced home-price figure for Black Hawk here. The listings in the sidebar show what is for sale now.
 
 ## Schools
 
-[Gilpin County School District RE-1](https://www.gilpin.k12.co.us/) is the one district, and it is in Black Hawk: a single campus at 10595 Hwy 119, Black Hawk, CO 80422, phone 303-582-3444, that serves preschool through 12th grade with three schools, Gilpin County Preschool, Gilpin County Elementary and Gilpin County Secondary ([district](https://www.gilpin.k12.co.us/), [about](https://www.gilpin.k12.co.us/about)). The district's about page says its history begins in 1862, a year after the county was established, that RE-1 was formed in 1959, that the present campus opened in 1978 and gained a three-story middle and high school building in 2000, and that in 2008 Black Hawk's voters approved a sales tax increase for the schools, the Educational Enhancement Tax, which it reports brought in $1,846,257 in 2025 through December ([about](https://www.gilpin.k12.co.us/about)). The district's pages list no enrollment figures and do not give the grade span of each school.
+[Gilpin County School District RE-1](https://www.gilpin.k12.co.us/) is the one district, and it is in Black Hawk: a single campus at 10595 Hwy 119, Black Hawk, CO 80422, phone 303-582-3444, that serves preschool through 12th grade with three schools, Gilpin County Preschool, Gilpin County Elementary and Gilpin County Secondary ([district](https://www.gilpin.k12.co.us/), [about](https://www.gilpin.k12.co.us/about)). The district's about page says its history begins in 1862, a year after the county was established, that RE-1 was formed in 1959, that the present campus opened in 1978 and gained a three-story middle and high school building in 2000, and that in 2008 Black Hawk's voters approved a sales tax increase for the schools, the Educational Enhancement Tax, which it reports brought in $1,846,257 in 2025 through December ([about](https://www.gilpin.k12.co.us/about)). Ask the district for enrollment and the grade span of each school.
 
 ## Getting around
 
@@ -26,11 +26,11 @@ There is bus service aimed at the casinos. Saratoga Casino's visitor page says t
 
 ## Services
 
-- **Library** is the [Gilpin County Public Library](https://www.gilpinlibrary.org/) at 15131 Hwy 119, Black Hawk, 303-582-5777. Its site does not publish regular hours on the pages read for this guide; its 2026 holiday schedule closes it on Indigenous Peoples' Day, Veterans Day, Thanksgiving and the day after, Christmas Eve and Christmas Day ([holiday schedule](https://www.gilpinlibrary.org/holiday-schedule.html)).
+- **Library** is the [Gilpin County Public Library](https://www.gilpinlibrary.org/) at 15131 Hwy 119, Black Hawk, 303-582-5777. Confirm its hours by phone before visiting; it closes on Indigenous Peoples' Day, Veterans Day, Thanksgiving and the day after, Christmas Eve and Christmas Day ([holiday schedule](https://www.gilpinlibrary.org/holiday-schedule.html)).
 - **Schools** are the district above, on Highway 119 north of town.
 - **City services**: the [City's site](https://www.cityofblackhawk.org/) links its water, public works, fire and police departments; ask about service and connections for the specific address.
 
 ## Before you decide
 
-- **The land around town is public.** Golden Gate Canyon State Park, 12,119 acres with 35 miles of trails and 156 campsites, is open for day use from 5 am to 10 pm, and Colorado Parks and Wildlife expects it to hit capacity on fall weekends by 9 am ([CPW](https://cpw.state.co.us/state-parks/golden-gate-canyon-state-park)). The Forest Service's Cold Springs Campground is five miles north of Black Hawk beside Highway 119 at 9,200 feet ([Forest Service](https://www.fs.usda.gov/r02/arp/recreation/cold-springs-campground)); closures and fire restrictions on the national forest are on the [Arapaho and Roosevelt alerts page](https://www.fs.usda.gov/r02/arp/alerts).
-- **Elevation.** The school district's campus and the library are on Highway 119 north of the casinos; the campground above is at 9,200 feet. Expect snow on the Peak to Peak and in the canyons; check COtrip.
+- **Nearby public lands include Golden Gate Canyon State Park and national forest areas; check boundaries, access rules and current closures before a visit.** Golden Gate Canyon State Park, 12,119 acres with 35 miles of trails and 156 campsites, is open for day use from 5 am to 10 pm, and Colorado Parks and Wildlife expects it to hit capacity on fall weekends by 9 am ([CPW](https://cpw.state.co.us/state-parks/golden-gate-canyon-state-park)). The Forest Service's Cold Springs Campground is five miles north of Black Hawk beside Highway 119 at 9,200 feet ([Forest Service](https://www.fs.usda.gov/r02/arp/recreation/cold-springs-campground)); closures and fire restrictions on the national forest are on the [Arapaho and Roosevelt alerts page](https://www.fs.usda.gov/r02/arp/alerts).
+- **Elevation.** The school district's campus and the library are on Highway 119 north of the casinos; the campground above is at 9,200 feet. Expect snow on the Peak to Peak and in the canyons; check current road conditions on [COtrip](https://www.cotrip.org/) before driving.

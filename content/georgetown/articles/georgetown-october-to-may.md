@@ -1,5 +1,6 @@
 ---
 title: "Before you go: Georgetown from October to May"
+seoTitle: "Georgetown, CO in winter: seasonal openings and roads, October to May"
 date: "2026-10-10"
 excerpt: "What changes in Georgetown after the summer: the Loop's shorter diesel trains and closed Silver Plume station, the museums shut since 27 September, the gold mine by reservation, Guanella Pass gated after Thanksgiving, and the Town's rules for the lake ice. Where to check each before you drive up."
 category: "Outdoors"

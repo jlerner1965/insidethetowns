@@ -18,7 +18,7 @@
  */
 import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
-import { emailEditions, getHub, liveTowns } from '@/config';
+import { emailEditions, getHub, liveTowns, neighborsOf } from '@/config';
 import { addDays, formatDate, parseLocal, startOfDay } from '@/lib/dates';
 
 /**
@@ -48,18 +48,29 @@ const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
 const money = (n: number) => `$${n.toLocaleString('en-US')}`;
 // Editions covering more than one guide sell their email slot as one.
 const shared = emailEditions().filter((e) => e.shared);
+/**
+ * Where the "Nearby this weekend" block can appear at all: a guide with a
+ * live neighbour. The block is built from the neighbours' one-off listings
+ * for the coming weekend and is not drawn when there are none, so the offer
+ * says which guides and on what condition rather than "all of them" (audit
+ * of 13 October 2026, F03: promised on 22, present on 19).
+ */
+const withNearby = live.filter((t) => neighborsOf(t).length > 0);
+const withoutNearby = live.filter((t) => neighborsOf(t).length === 0);
+const list = (names: string[]) => (names.length > 1 ? `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}` : (names[0] ?? ''));
 ---
 <Page
   title="Advertise & partner"
   eyebrow="Work with us"
-  description={`Reach residents and visitors across Colorado’s Front Range through the ${live.length} Inside the Towns guides.`}
-  intro={`Independent guides to the towns of the Front Range, ${live.length} of them, that people read when they are deciding where to go this weekend, or whether to move here at all.`}
+  description={`Reach residents and visitors across Colorado’s Front Range and mountain towns through the ${live.length} Inside the Towns guides.`}
+  intro={`Independent guides to ${live.length} Colorado towns, on the Front Range and in the mountains, that people read when they are deciding where to go this weekend, or whether to move here at all.`}
   narrow
 >
   <div class="prose">
     <p>
-      Inside the Towns reaches people who live in, visit, or are about to move to the towns and cities of Colorado’s
-      Front Range, from Fort Collins in the north to Elizabeth south-east of Denver. Placements are clearly labeled and never mixed into the editorial listings.
+      Inside the Towns reaches people who live in, visit, or are about to move to towns and cities on Colorado’s
+      Front Range and in its mountains, from Fort Collins in the north to Elizabeth south-east of Denver and up to
+      Leadville at 10,000 feet. Placements are clearly labeled and never mixed into the editorial listings.
     </p>
 
     <h2>What isn’t for sale</h2>
@@ -118,8 +129,10 @@ const shared = emailEditions().filter((e) => e.shared);
       </p>
       <ul>
         <li>
-          “Nearby this weekend, presented by” your name, on that block on
-          {live.length === 1 ? ' the live guide' : ` all ${live.length} guides`}.
+          “Nearby this weekend, presented by” your name, on that block on the {withNearby.length} of the {live.length} guides
+          that have a neighboring guide, each weekend its neighbors have something on. The block is built from the
+          neighbors’ one-off listings and is not drawn on a weekend with none, and {list(withoutNearby.map((t) => t.name))}{' '}
+          {withoutNearby.length === 1 ? 'has' : 'have'} no neighboring guide yet, so no block.
         </li>
         <li>The same line on every This Weekend page, each guide’s and the network’s.</li>
         {hub.newsletter && <li>A labeled sponsor line in the {sendDay} email.</li>}
@@ -158,10 +171,10 @@ const shared = emailEditions().filter((e) => e.shared);
       </p>
     ) : counting ? (
       <p>
-        Counting began {formatDate(since!)}. That is not long enough to tell you anything you should act on. Ask and you will get exactly what the
-        counter says, with that start date attached, and you can decide for yourself whether it is worth anything
-        yet. What you will not get is a projection. We would rather you came back in a month than bought on a number
-        we had to squint at.
+        Audience tracking began {formatDate(since!)}. Ask for the current verified traffic and newsletter figures and
+        you will get exactly what the counter says, with that start date and the reporting period attached. The
+        founding sponsorship terms reflect the network’s early stage. What you will not get is a projection: actual
+        figures are never mixed with estimates, and no rate or audience claim is manufactured to close a sale.
       </p>
     ) : (
       <p>

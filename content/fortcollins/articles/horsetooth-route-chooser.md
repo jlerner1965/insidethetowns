@@ -1,5 +1,6 @@
 ---
 title: "Horsetooth: which trailhead, which route, and the permit"
+seoTitle: "Horsetooth Mountain: trails, trailheads, parking and the permit"
 date: "2026-10-07"
 excerpt: "Horsetooth Mountain Open Space sorted out before you drive up County Road 38E: the Larimer County entrance permit and what it costs, the main trailhead and Soderberg and their hours, the County's own distances for the Rock and the Falls, the Audra Culver loop, the Blue Sky connection, parking, dogs and e-bikes."
 category: "Outdoors"

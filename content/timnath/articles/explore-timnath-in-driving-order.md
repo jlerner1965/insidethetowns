@@ -53,7 +53,7 @@ Two kitchens off Harmony Road open at 11 am. [Mein House](/places/mein-house/) o
 
 ## 05 · Timnath Beerwerks
 
-Back on Main Street, the other half of the Feed & Grain elevator is [Timnath Beerwerks](/places/timnath-beerwerks/), the brewery that opened in 2018 with a taproom, indoor and outdoor seating and its own beers. A food truck parks out front most days, the week's trucks are on the brewery's calendar, and kids and dogs are welcome. It opens at noon Monday to Friday and 11 am on Saturday and Sunday, and closes at 8 pm Monday to Wednesday and 9 pm the rest of the week: an afternoon-and-evening stop, not a morning one.
+Back on Main Street, the other half of the Feed & Grain elevator is [Timnath Beerwerks](/places/timnath-beerwerks/), the brewery that opened in 2018 with a taproom, indoor and outdoor seating and its own beers. A food truck parks out front most days. Check the brewery's calendar for the weekly lineup. Kids and dogs are welcome. It opens at noon Monday to Friday and 11 am on Saturday and Sunday, and closes at 8 pm Monday to Wednesday and 9 pm the rest of the week: an afternoon-and-evening stop, not a morning one.
 
 *Getting there:* 4138 Main Street, the same building as the morning's coffee. *Best for:* a beer and a food-truck dinner to end the day.
 

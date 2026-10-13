@@ -1,5 +1,6 @@
 ---
 title: "Breakfast in Erie: beignets, burritos, brunch and the 6 am window"
+seoTitle: "Breakfast in Erie, CO: cafés, burritos, brunch and the 6 am window"
 date: "2026-09-27"
 excerpt: "Four places for breakfast or brunch in Erie, from the Creole cafe with the famous weekend line to the drive-through that opens at six."
 category: "Food & drink"

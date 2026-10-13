@@ -42,7 +42,7 @@ export const GET: APIRoute = async ({ site }) => {
   });
   return rssResponse(
     buildRss({
-      title: `${hub.siteTitle} — what’s on across the Front Range`,
+      title: `${hub.siteTitle} — what’s on across the towns`,
       description: 'Every event across the Inside the Towns guides.',
       link: new URL('/this-weekend/', site).toString(),
       self: new URL('/events.rss', site).toString(),

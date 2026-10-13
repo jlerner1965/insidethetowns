@@ -1,5 +1,6 @@
 ---
 title: "Your first RMNP visit from Estes Park"
+seoTitle: "Rocky Mountain National Park: a first visit from Estes Park"
 date: "2026-10-07"
 excerpt: "What a first visit to Rocky Mountain National Park from Estes Park needs: the entrance pass, the 2026 timed-entry reservations and their hours, the free Bear Lake Road shuttles, the short walks at Bear Lake and Sprague Lake, altitude and weather, the no-pets rule and where the park posts conditions."
 category: "Outdoors"

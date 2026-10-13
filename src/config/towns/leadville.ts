@@ -92,8 +92,11 @@ export const leadville: TownConfig = {
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Leadville,-CO_rb/' },
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Leadville_CO' },
     ],
-    // schoolDistrict and commuteNotes are written at launch, from the
-    // district's and the City's own pages, with the rest of Moving Here.
+    // The district as the guide's Moving Here page names it (13 October
+    // 2026, audit F05). The comparison table shows only the words before
+    // the colon. commuteNotes waits on a sourced drive time.
+    schoolDistrict:
+      'Lake County School District: enrollment, school assignment and transport depend on the address; the district answers those.',
   },
   officialLinks: {
     // The infobox gives colorado.gov/leadville, which answered 302 to

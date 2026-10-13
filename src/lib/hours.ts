@@ -335,7 +335,18 @@ export function openingStatus(spec: readonly string[], now: Date, tz = TIME_ZONE
     if (s.days.includes(day) && s.open <= minutes && minutes < s.close) closesAt = Math.max(closesAt ?? 0, s.close);
     if (s.days.includes(yesterday) && s.close > 24 * 60 && minutes < s.close - 24 * 60) closesAt = Math.max(closesAt ?? 0, s.close - 24 * 60);
   }
-  if (closesAt !== null) return { open: true, label: `Open · closes ${clockLabel(closesAt)}` };
+  if (closesAt !== null) {
+    // A place open round the clock: today's span runs the whole day and
+    // tomorrow's starts at midnight. "Open · closes midnight" was what two
+    // casino counters in Black Hawk said (handoff, 13 October 2026), and a
+    // reader takes that as last orders at twelve.
+    const tomorrow = (day + 1) % 7;
+    const allDay =
+      spans.some((s) => s.days.includes(day) && s.open === 0 && s.close >= 24 * 60) &&
+      spans.some((s) => s.days.includes(tomorrow) && s.open === 0);
+    if (allDay) return { open: true, label: 'Open 24 hours' };
+    return { open: true, label: `Open · closes ${clockLabel(closesAt)}` };
+  }
 
   // Closed: the next opening, today or on a later day.
   for (let ahead = 0; ahead < 8; ahead++) {

@@ -1,5 +1,6 @@
 ---
 title: "The 2026 Niwot incorporation election, plainly"
+seoTitle: "The 2026 Niwot incorporation election: a local guide"
 date: "2026-09-17"
 updated: "2026-10-10"
 verified: "2026-10-10"

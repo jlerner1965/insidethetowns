@@ -347,14 +347,20 @@ export function sectionCount<T>(sections: WeekendSections<T>): number {
  * Date order alone leads with whatever is soonest, which on a Thursday evening
  * is Friday morning's storytime and knitting circle, with the weekend the
  * reader is actually planning pushed off the end. So this ranks before it
- * cuts: featured listings, then the coming weekend, then the rest by date. At
- * each step the one-offs come before the regulars — a release beats the
- * weekly trivia night — and a civic meeting comes after everything else,
- * because a council agenda is worth listing and is never the reason someone
- * opened the page. Within a tier it takes one listing from each day in turn,
- * so a Thursday build shows the weekend and not only Friday, which is what a
- * date-sorted tier comes to. The chosen few go back into date order, since a
- * list of dates that is not in date order reads as a mistake.
+ * cuts: featured listings, then the one-offs of the coming weekend, then the
+ * rest of the one-offs by date, and only then the regulars, weekend first.
+ * A release beats the weekly trivia night, and so does a festival three
+ * weeks out: a regular is for the people who already live there, and the
+ * owner's rule (13 October 2026) is that default discovery does not promote
+ * a storytime or a book group as the thing to plan a day around, however
+ * soon it is. Until then a weekend regular outranked a later one-off, which
+ * put Georgetown's library sessions at the top of its home page. Within a
+ * tier a civic meeting comes after everything else, because a council agenda
+ * is worth listing and is never the reason someone opened the page. Within a
+ * tier it takes one listing from each day in turn, so a Thursday build shows
+ * the weekend and not only Friday, which is what a date-sorted tier comes
+ * to. The chosen few go back into date order, since a list of dates that is
+ * not in date order reads as a mistake.
  */
 export function highlights<T extends EventLike>(
   events: T[],
@@ -365,7 +371,7 @@ export function highlights<T extends EventLike>(
   const rank = (e: T) => {
     const t = e.data.start.getTime();
     const weekend = t >= start.getTime() && t < end.getTime();
-    return (e.data.featured ? 0 : weekend ? 4 : 8) + (isRegular(e) ? 2 : 0) + (e.data.category === 'civic' ? 1 : 0);
+    return (e.data.featured ? 0 : weekend ? 2 : 4) + (isRegular(e) ? 4 : 0) + (e.data.category === 'civic' ? 1 : 0);
   };
   // One pick per listing, and one per series stored as a file per date: the
   // Saturday and Sunday of a studio tour are one event to a reader, not two

@@ -1,5 +1,6 @@
 ---
 title: "Who runs what in Niwot"
+seoTitle: "Niwot government and local services: who handles what"
 date: "2026-09-17"
 excerpt: "Without a town hall, local groups organize the gatherings, the arts and the business district, and county offices and special districts handle most public services. Which one to approach for what."
 category: "Community"

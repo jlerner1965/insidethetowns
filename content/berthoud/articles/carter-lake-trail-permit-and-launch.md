@@ -1,5 +1,6 @@
 ---
 title: "Carter Lake: the permit, the trails, the launch and the beach"
+seoTitle: "Carter Lake, CO: the permit, the trails, the boat launch and the beach"
 date: "2026-10-07"
 excerpt: "What Larimer County charges at the gate, how the boat inspection works now that mudsnails are in the lake, which campgrounds have power, when the swim beach opens, the Sundance Trail and the state fishing license. The practical version of a day at Carter Lake."
 category: "Outdoors"

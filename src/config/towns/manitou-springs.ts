@@ -100,8 +100,11 @@ export const manitouSprings: TownConfig = {
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Manitou-Springs,-CO_rb/' },
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Manitou-Springs_CO' },
     ],
-    // schoolDistrict and commuteNotes are written at launch, from the
-    // district's and the City's own pages, with the rest of Moving Here.
+    // The district as the guide's Moving Here page names it (13 October
+    // 2026, audit F05). The comparison table shows only the words before
+    // the colon. commuteNotes waits on a sourced drive time.
+    schoolDistrict:
+      'Manitou Springs School District 14: it covers more than downtown and confirms school assignment and bus routes by address.',
   },
   officialLinks: {
     // The infobox gives manitouspringsgov.com, which answered 301 to this
