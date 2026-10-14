@@ -11,7 +11,7 @@ const year = new Date().getFullYear();
 const linkClass = 'inline-block py-1 no-underline text-white hover:underline sm:py-0';
 ---
 <footer class="on-dark mt-24 bg-primary text-white">
-  <div class="container-page grid gap-10 py-14 md:grid-cols-[1.6fr_1fr_1fr] md:gap-12 md:py-20">
+  <div class="container-page grid gap-10 py-14 sm:grid-cols-2 md:py-20 lg:grid-cols-[1.5fr_1fr_1fr_1.3fr] lg:gap-12">
     <div>
       <Wordmark class="text-3xl leading-none" tone="light" />
       <p class="mt-4 max-w-sm text-[0.9375rem] leading-relaxed">{site.tagline}</p>
@@ -46,12 +46,19 @@ const linkClass = 'inline-block py-1 no-underline text-white hover:underline sm:
             Partner with us
           </a>
         </li>
+        {site.social.instagram && <li><a href={site.social.instagram} rel="noopener" class={linkClass}>Instagram</a></li>}
+        {site.social.facebook && <li><a href={site.social.facebook} rel="noopener" class={linkClass}>Facebook</a></li>}
+      </ul>
+    </div>
+    {/* Out of "Get in touch", where ten links ran under a heading that fitted
+        the first six: these say what the site is and how it works. */}
+    <div>
+      <p class="eyebrow text-white">{site.kind === 'town' ? 'This guide' : 'This site'}</p>
+      <ul class="mt-3 space-y-0.5 text-[0.9375rem] sm:mt-4 sm:space-y-2">
         <li><a href="/about/" class={linkClass}>About</a></li>
         <li><a href="/editorial/" class={linkClass}>Editorial policy</a></li>
         <li><a href="/credits/" class={linkClass}>Photo credits</a></li>
         <li><a href="/privacy/" class={linkClass}>Privacy</a></li>
-        {site.social.instagram && <li><a href={site.social.instagram} rel="noopener" class={linkClass}>Instagram</a></li>}
-        {site.social.facebook && <li><a href={site.social.facebook} rel="noopener" class={linkClass}>Facebook</a></li>}
       </ul>
     </div>
     <div class="text-[0.875rem] leading-relaxed">
