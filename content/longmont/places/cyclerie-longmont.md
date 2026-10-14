@@ -11,8 +11,8 @@ verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "720-712-7666"
 hours: "Tue–Sat 10 am–6 pm; Sun 11 am–3 pm; closed Mon"
 tags: [bikes, e-bikes, service, test-rides]
-image: ../images/cyclerie-longmont-logo.jpg
-imageAlt: "The CyclErie logo: a bike climbing a mountain silhouette beside a hot-air balloon, above the words “Your Bike Shop In Longmont.”"
+image: ../images/cyclerie-longmont-storefront.jpg
+imageAlt: "CyclErie Bike Shop’s storefront on Main Street: the sign above windows lettered Aventon and Specialized, with e-bikes lined up on the sidewalk"
 summary: "The Erie bike shop's second store, on Main Street: e-bikes and bikes to test-ride through Roosevelt Park, a block away, with sales and service under one roof."
 ---
 
