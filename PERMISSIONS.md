@@ -302,3 +302,31 @@ and a file with no such EXIF deserves a look before it is used. The EXIF
 was dropped on import.
 
 The request promised to take it down the day they ask.
+
+---
+
+## CyclErie — Longmont logo
+
+**Sent** 14 October 2026 by **DJ, CyclErie**, by email to hello@ and
+Jennifer, with the request to list the shop's Longmont grand opening and
+ribbon cutting (27 October 2026). The logo came as an attachment.
+
+The email's wording about it, in full:
+
+> Our Longmont logo is attached.
+
+The email gives no permission in so many words; it sends the logo with a
+request to be listed, which is what it was sent for. The owner put it on
+the shop's listing on 14 October 2026.
+
+| | |
+|---|---|
+| **Scope** | The CyclErie Longmont logo, on CyclErie's own listing on insidelongmontco.com |
+| **Not covered** | Anything else of CyclErie's, its Erie listing included |
+| **Credit** | Not asked for. We credit "CyclErie" |
+| **Standing** | For this listing |
+| **Contact** | 720-712-7666 (the Longmont shop) |
+
+The file is the logo as sent, resized and set on a white 4:3 canvas so the
+cards' 4:3 crop shows it whole; the EXIF was dropped on import. It comes
+down the day CyclErie asks.
