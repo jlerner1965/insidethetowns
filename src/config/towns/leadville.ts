@@ -37,8 +37,13 @@ export const leadville: TownConfig = {
   domain: 'insideleadville.com',
   siteTitle: 'Inside Leadville',
   tagline:
-    'An independent guide to Leadville, Colorado: Harrison Avenue, the silver city at 10,000 feet, the Mineral Belt Trail and the highest peaks in the state.',
-  shortTagline: 'Harrison Avenue, the Mineral Belt and 10,000 feet',
+    // The highest incorporated city in the United States (Wikipedia's lead,
+    // read 14 October 2026), at about 10,150 feet: GNIS gives 10,154, the
+    // City 10,152, so the round figure, as the hub's table caption and the
+    // character line below have it. "10,000 feet" said neither (network
+    // audit, 14 October 2026).
+    'An independent guide to Leadville, Colorado: Harrison Avenue, the Mineral Belt Trail and the highest incorporated city in the US, at about 10,150 feet.',
+  shortTagline: 'Harrison Avenue, the Mineral Belt and the highest city in the US',
   seoTagline: 'Events and trails in Leadville, Colorado',
   counties: ['Lake'],
   state: 'CO',
@@ -47,7 +52,7 @@ export const leadville: TownConfig = {
   lng: -106.2911,
   population: 2633, // 2020 census
   elevationFt: 10154, // GNIS, via Wikipedia
-  character: 'The Lake County seat, a statutory city of about 2,600 at 10,150 feet, with a silver-boom main street and long winters.',
+  character: 'The Lake County seat, a statutory city of about 2,600 at about 10,150 feet, the highest incorporated city in the United States, with a silver-boom main street and long winters.',
   // 1878: the State Demography Office's historical census file
   // (storage.googleapis.com/co-publicdata/historical-census.csv, read 10
   // October 2026) and the Wikipedia infobox (18 February 1878) agree.

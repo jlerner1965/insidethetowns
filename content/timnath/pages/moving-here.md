@@ -13,7 +13,7 @@ Timnath is a home-rule town in Larimer County on the bluff east of the Cache la 
 
 ## Housing
 
-Nearly all single-family homes in master-planned neighborhoods, most with metropolitan districts and homeowners' associations: Timnath Ranch, WildWing, Timnath Lakes, Harmony, Serratoga Falls, Trailside and the newer subdivisions east toward County Road 5, plus a few apartment communities near Harmony Road. Old Town has the small houses from the railroad era. Median household income was about $113,000 in the last figures Wikipedia cites, which puts Timnath among the wealthier towns in northern Colorado. The listings sites in the sidebar show what is for sale; ask which metro district and which HOA a house is in, and whether reservoir access comes with it.
+Nearly all single-family homes in master-planned neighborhoods, most with metropolitan districts and homeowners' associations: Timnath Ranch, WildWing, Timnath Lakes, Harmony, Serratoga Falls, Trailside and the newer subdivisions east toward County Road 5, plus a few apartment communities near Harmony Road. Old Town has the small houses from the railroad era. Median household income was $113,144 in the 2009–2013 American Community Survey, the last figure [Wikipedia](https://en.wikipedia.org/wiki/Timnath,_Colorado) cites and now more than a decade old; the town has grown tenfold since, and the Census Bureau's current QuickFacts estimate is the number to check. The listings sites in the sidebar show what is for sale; ask which metro district and which HOA a house is in, and whether reservoir access comes with it.
 
 ## Schools
 

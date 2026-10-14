@@ -25,15 +25,28 @@ const fullTitle = pageTitle(site, title);
 
 /**
  * Search results cut a description around 155 characters. Page copy is written
- * for the page, not for the snippet, so clamp here at a word boundary rather
- * than shortening the copy itself.
+ * for the page, not for the snippet, so clamp here rather than shortening the
+ * copy itself: at the end of a sentence when one closes past the halfway
+ * mark, so the snippet reads as a whole thought, else at a word with an
+ * ellipsis. Every article and section page used to end "…" mid-sentence
+ * (network audit, 14 October 2026).
  */
 function clamp(text: string, limit = 155): string {
   const flat = text.replace(/\s+/g, ' ').trim();
   if (flat.length <= limit) return flat;
-  const cut = flat.slice(0, limit - 1);
-  const space = cut.lastIndexOf(' ');
-  return `${(space > limit * 0.6 ? cut.slice(0, space) : cut).replace(/[\s,;:.]+$/, '')}…`;
+  const cut = flat.slice(0, limit);
+  // The last full stop that ends a sentence: not "St. Vrain", "Mt. Evans",
+  // "Hwy. 86", "U.S. 36" or an initial.
+  const ABBREVIATION = /(?:\b(?:St|Mt|Dr|Mr|Mrs|Ms|Ave|Rd|Blvd|Hwy|No|vs|Co|Inc|Jr|Sr)|\b[A-Z]|\b[A-Z]\.[A-Z])$/;
+  let sentence = -1;
+  for (const m of cut.matchAll(/[.!?] /g)) {
+    if (m[0] === '. ' && ABBREVIATION.test(cut.slice(0, m.index))) continue;
+    sentence = m.index;
+  }
+  if (sentence > limit * 0.5) return cut.slice(0, sentence + 1);
+  const short = cut.slice(0, limit - 1);
+  const space = short.lastIndexOf(' ');
+  return `${(space > limit * 0.6 ? short.slice(0, space) : short).replace(/[\s,;:.]+$/, '')}…`;
 }
 const metaDescription = clamp(description);
 const canonical = new URL(Astro.url.pathname, Astro.site);

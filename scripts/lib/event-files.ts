@@ -18,6 +18,17 @@ export function slugify(text: string): string {
     .replace(/-+$/g, '');
 }
 
+/**
+ * The file name for an event: the title, then the day it starts. A title
+ * that ends in the year ("Golden Cemetery Tour 2026") used to double it
+ * ("golden-cemetery-tour-2026-2026-10-17"; network audit, 14 October 2026),
+ * so a trailing year that is the start day's own is dropped first.
+ */
+export function eventSlug(title: string, startDay: string): string {
+  const base = slugify(title).replace(new RegExp(`-${startDay.slice(0, 4)}$`), '');
+  return `${base}-${startDay}`;
+}
+
 export function yamlString(value: string): string {
   return `"${value.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n')}"`;
 }

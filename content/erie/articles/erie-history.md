@@ -1,7 +1,7 @@
 ---
 title: "Erie history: the greatest coal town in Colorado"
 date: "2026-09-18"
-excerpt: "A homestead named for a Pennsylvania hometown, a railroad spur, eighty years of underground coal, a schoolhouse that became Town Hall, and a farm town that grew by two-thirds in a decade. The short history of Erie, with each claim resting on a source."
+excerpt: "A homestead named for a Pennsylvania hometown, a railroad spur, a century of underground coal, a schoolhouse that became Town Hall, and a farm town that grew by two-thirds in a decade. The short history of Erie, with each claim resting on a source."
 category: "History"
 tags: [history]
 image: ../images/miner-memorial.jpg
@@ -11,9 +11,9 @@ imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 
 Erie exists because of coal. Settlers came to the Coal Creek valley after the gold rush, and coal was found in the seams under the prairie in the mid-1860s. Richard Van Valkenburg, one of the early arrivals, named the settlement for his former home of Erie, Pennsylvania. The Denver Pacific spur reached it in 1870, the Denver & Boulder Valley Railroad in 1871, and the town incorporated on November 16, 1874. The first official underground mine opened in 1876 under Ira Austin, and by 1895 Briggs Street had eleven saloons.
 
-## Eighty years underground
+## A century underground
 
-For the next eighty years Erie was, in its own description, the greatest coal mining town in Colorado, the center of the Northern Coalfield that ran from Marshall to Frederick. The mines and the camps around them (Puritan Camp, whose miners' homes were photographed for the federal government, was one) drew miners from across Europe and Mexico, and their names are on the black granite of the [Coal Miners' Memorial](/places/erie-town-hall/) outside Town Hall, dedicated on April 29, 2000, with a bronze miner standing over more than 500 of them. The town's civic buildings are from the mining years: the two-story 1889 Davis building on Briggs Street that now holds [the Old Mine](/places/the-old-mine/), the 1906 Lincoln School on Holbrook Street, the 1930 City Hall with its fire bell tower. Most of the mines closed by 1960; the last, the Eagle Mine, shut in 1978.
+For the next century, until the last mine shut in 1978, Erie was, in its own description, the greatest coal mining town in Colorado, the center of the Northern Coalfield that ran from Marshall to Frederick. The mines and the camps around them (Puritan Camp, whose miners' homes were photographed for the federal government, was one) drew miners from across Europe and Mexico, and their names are on the black granite of the [Coal Miners' Memorial](/places/erie-town-hall/) outside Town Hall, dedicated on April 29, 2000, with a bronze miner standing over more than 500 of them. The town's civic buildings are from the mining years: the two-story 1889 Davis building on Briggs Street that now holds [the Old Mine](/places/the-old-mine/), the 1906 Lincoln School on Holbrook Street, the 1930 City Hall with its fire bell tower. Most of the mines closed by 1960; the last, the Eagle Mine, shut in 1978.
 
 ![A miner's frame house with a hipped roof and brick chimney at Puritan Camp in 1946, a vegetable garden planted in front](../images/puritan-camp-1946.jpg)
 

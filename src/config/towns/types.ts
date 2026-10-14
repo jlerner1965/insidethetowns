@@ -234,6 +234,13 @@ export interface TownConfig {
     townSite: string;
     /** Label for the townSite link, e.g. "Boulder County" for unincorporated towns. */
     townSiteLabel?: string;
+    /**
+     * The other governments a multi-town guide answers to, each a link of
+     * its own: Carbon Valley's Firestone and Dacono beside Frederick. The
+     * footer and About named them in the label text with no link (network
+     * audit, 14 October 2026).
+     */
+    also?: ReadonlyArray<{ label: string; url: string }>;
     policeNonEmergency?: string;
     /** What to call the policeNonEmergency link. Without it the raw URL would be the link text. */
     policeNonEmergencyLabel?: string;

@@ -2,7 +2,7 @@
 title: "Elizabeth Stampede rodeo grounds"
 type: venue
 address: "4189 S Hwy 86"
-area: "Casey Jones Park, County Road 17"
+area: "Casey Jones Park, Hwy 86 east of town"
 url: "https://www.elizabethstampede.com/"
 phone: "(303) 646-0308"
 image: ../images/stampede-arena.jpg

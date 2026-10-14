@@ -1,7 +1,7 @@
 ---
 title: "The Source Zero"
 type: shop
-address: "434 Mountain Ave"
+address: "434 Mountain Ave, Unit D"
 area: "Downtown, Mountain Avenue"
 url: "https://thesourcezeronoco.com/"
 phone: "(970) 344-5145"

@@ -13,7 +13,7 @@ Erie is a home-rule town of about 30,000 people at the 2020 census, on the Bould
 
 ## Housing
 
-Mostly single-family homes in master-planned neighborhoods: Vista Ridge, Erie Highlands, Flatiron Meadows, Colliers Hill, Erie Commons, Morgan Hill, Parkdale and others, most with metropolitan districts and homeowners' associations whose fees and mill levies vary a lot. The old grid around Briggs Street has the small houses from the mining era. The 2020 census counted 10,047 households; the Census Bureau's 2018–2022 American Community Survey put the median household income at about $154,500, among the highest of any town on the Front Range. The listings sites in the sidebar show what is for sale; ask which county, which school district and which metro district before you fall for a house, because all three change from one street to the next.
+Mostly single-family homes in master-planned neighborhoods: Vista Ridge, Erie Highlands, Flatiron Meadows, Colliers Hill, Erie Commons, Morgan Hill, Parkdale and others, most with metropolitan districts and homeowners' associations whose fees and mill levies vary a lot. The old grid around Briggs Street has the small houses from the mining era. The 2020 census counted 10,047 households; the Census Bureau's 2020–2024 American Community Survey puts the median household income at $173,349 ([QuickFacts](https://www.census.gov/quickfacts/fact/table/erietowncolorado/INC110223)), among the highest of any town on the Front Range. The listings sites in the sidebar show what is for sale; ask which county, which school district and which metro district before you fall for a house, because all three change from one street to the next.
 
 ## Schools
 
