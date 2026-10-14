@@ -60,15 +60,22 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
           >, an independent network of {liveTowns().length} Colorado town guides.
         </p>
         {sisters.length > 0 && (
-          <nav aria-label="Sister guides" class="mt-2 w-full sm:mt-0">
-            <details open data-sisters class="sm:flex sm:flex-wrap sm:items-baseline sm:gap-x-4">
-              <summary class:list={[label, 'cursor-pointer py-2 sm:pointer-events-none sm:py-0 [&::-webkit-details-marker]:hidden']}>
+          <nav aria-label="Sister guides" class="mt-2 w-full sm:mt-4">
+            <details open data-sisters>
+              {/* From `sm` up the list cannot be closed, so the disclosure
+                  triangle, which promised it could, is not shown there. */}
+              <summary class:list={[label, 'cursor-pointer py-2 sm:pointer-events-none sm:list-none sm:py-0 sm:[&::-webkit-details-marker]:hidden']}>
                 Sister guides<span class="sm:hidden"> ({sisters.length})</span>
               </summary>
-              <ul class="flex flex-wrap gap-x-4 sm:contents">
+              {/* Columns, A to Z down each, the name a white link with its
+                  tagline beneath: in one run of "name · tagline" the 21 guides
+                  hung in a single column down the left half of the strip, the
+                  links the same grey as the words around them. */}
+              <ul class="mt-1 pb-1 sm:mt-3 sm:columns-2 sm:gap-x-8 lg:columns-3">
                 {sisters.map((t) => (
-                  <li>
-                    <a href={`https://${t.domain}/`} class={link}>{t.name}</a>{t.shortTagline && <span class="text-white/70"> · {t.shortTagline}</span>}
+                  <li class="break-inside-avoid pb-3 leading-snug">
+                    <a href={`https://${t.domain}/`} class="inline-block py-1 text-[0.875rem] font-medium text-white no-underline hover:underline sm:py-0">{t.name}</a>
+                    {t.shortTagline && <span class="block text-white/70">{t.shortTagline}</span>}
                   </li>
                 ))}
               </ul>
@@ -88,7 +95,7 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
       </script>
     )}
     {(hub.publisher || hub.credit) && (
-      <p class="mt-2 w-full border-t border-white/10 pt-3 text-[0.75rem] text-white/70 sm:mt-0 sm:ml-auto sm:w-auto sm:border-0 sm:pt-0">
+      <p class="mt-2 w-full border-t border-white/10 pt-3 text-[0.75rem] text-white/70 sm:mt-3 sm:ml-auto sm:w-auto sm:border-0 sm:pt-0">
         {hub.publisher ? (
           <Fragment>Published by <a href={hub.publisher.url} class="no-underline hover:text-white hover:underline">{hub.publisher.name}</a></Fragment>
         ) : (

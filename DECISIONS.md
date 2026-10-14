@@ -5059,3 +5059,28 @@ and the primary sources before anything moved.
   rest of the mountain additions (the Black Hawk casinos, Georgetown's
   museums, Grand Lake's winter calendar) and the big-city restaurant depth
   are content sessions with the sources open.
+
+## The footer, 14 October
+
+The owner, looking at Longmont's footer, said it needed work. What was
+wrong with it, and what changed:
+
+- **Sister guides in columns.** From `sm` up the 21 sister guides ran as
+  one "name · tagline" per line, a single column down the left half of the
+  strip, taller than the footer above it, with each town's name the same
+  white/70 as its tagline so nothing said which words were the links. Each
+  guide is now its name, in white, over its tagline in white/70, in columns
+  A to Z down each: three from `lg`, two from `sm`. At 1280px the list is
+  seven rows instead of twenty-one. The list itself stays, as the owner
+  chose on 5 October; the colours are the strip's own (white/70 and the
+  amber hub link are unchanged, and the names in full white only raise the
+  contrast, which `check-colors` still passes).
+- **No triangle where the list cannot close.** The summary is not
+  clickable from `sm` up, but Chrome and Firefox still drew its disclosure
+  triangle there; it is hidden from `sm` up. On a phone the list still
+  ships open and the script closes it, as on 8 October, and the triangle
+  now shows there in Safari too, which had hidden it at every width.
+- **"Get in touch" holds what it says.** It ran to ten links, the last four
+  of them (About, Editorial policy, Photo credits, Privacy) not ways of
+  getting in touch. Those four have their own column, "This guide" ("This
+  site" on the hub). The footer is four columns from `lg`, two from `sm`.
