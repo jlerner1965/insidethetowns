@@ -305,28 +305,35 @@ The request promised to take it down the day they ask.
 
 ---
 
-## CyclErie — Longmont logo
+## CyclErie — Longmont storefront
 
-**Sent** 14 October 2026 by **DJ, CyclErie**, by email to hello@ and
-Jennifer, with the request to list the shop's Longmont grand opening and
-ribbon cutting (27 October 2026). The logo came as an attachment.
+**Sent** 14 October 2026 by **DJ, CyclErie**: a photograph of the shop's
+front at 724 Main Street, Longmont, with e-bikes lined up on the sidewalk,
+sent to the owner after the shop was listed, for the listing. The owner put
+it on the listing the same day, in place of the logo below.
 
-The email's wording about it, in full:
-
-> Our Longmont logo is attached.
-
-The email gives no permission in so many words; it sends the logo with a
-request to be listed, which is what it was sent for. The owner put it on
-the shop's listing on 14 October 2026.
+The email's wording is not recorded here yet. When the owner forwards it,
+paste it in full here with the sender, their role and the date.
 
 | | |
 |---|---|
-| **Scope** | The CyclErie Longmont logo, on CyclErie's own listing on insidelongmontco.com |
+| **Scope** | The storefront photograph, on CyclErie's own listing on insidelongmontco.com |
 | **Not covered** | Anything else of CyclErie's, its Erie listing included |
 | **Credit** | Not asked for. We credit "CyclErie" |
 | **Standing** | For this listing |
 | **Contact** | 720-712-7666 (the Longmont shop) |
 
-The file is the logo as sent, resized and set on a white 4:3 canvas so the
-cards' 4:3 crop shows it whole; the EXIF was dropped on import. It comes
-down the day CyclErie asks.
+The file is a 4:3 crop of the portrait original, from the top of the sign
+down to the bikes' frames, so the cards' crop and the page's keep the
+shop's name whole; resized to 1600px and the EXIF dropped on import. It
+comes down the day CyclErie asks.
+
+**The logo it replaced.** DJ's first email, of the same day, asking for the
+grand opening and ribbon cutting (27 October 2026) to be listed, attached
+the Longmont logo with the words, in full:
+
+> Our Longmont logo is attached.
+
+It was on the listing for part of 14 October 2026 and is no longer
+published; the file was removed from the repository when the photograph
+replaced it.
