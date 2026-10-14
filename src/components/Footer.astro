@@ -28,6 +28,10 @@ const linkClass = 'inline-block py-1 no-underline text-white hover:underline sm:
       <p class="eyebrow text-white">Get in touch</p>
       <ul class="mt-3 space-y-0.5 text-[0.9375rem] sm:mt-4 sm:space-y-2">
         <li><a href="/contact/" class={linkClass}>Contact</a></li>
+        {/* The address itself, on every page: it was on /about/ and the
+            contact form alone (network audit, 14 October 2026). The
+            network's one address, which is where every town's mail goes. */}
+        <li><a href={`mailto:${hub.social.email}`} class={linkClass}>{hub.social.email}</a></li>
         {site.kind === 'town' && (
           <li><a href="/submit-event/" class={linkClass}>Submit an event</a></li>
         )}
@@ -56,7 +60,9 @@ const linkClass = 'inline-block py-1 no-underline text-white hover:underline sm:
         <p class="mt-4">
           {site.siteTitle} is an independent community guide, not a government website.
           For official information see
-          <a href={site.officialLinks.townSite} rel="noopener" class="text-white underline">{site.officialLinks.townSiteLabel ?? `the official ${site.name} site`}</a>.
+          <a href={site.officialLinks.townSite} rel="noopener" class="text-white underline">{site.officialLinks.townSiteLabel ?? `the official ${site.name} site`}</a>{(site.officialLinks.also ?? []).map((g, i, all) => (
+            <Fragment>{i === all.length - 1 ? ' and ' : ', '}<a href={g.url} rel="noopener" class="text-white underline">{g.label}</a></Fragment>
+          ))}.
         </p>
       ) : (
         <p class="mt-4">{site.siteTitle} publishes independent community guides. None of its sites is affiliated with a town government.</p>

@@ -12,7 +12,7 @@ import type { Source } from '../../src/content/schemas.ts';
 import { dayKey, toWallClock } from '../../src/lib/dates.ts';
 import { INGEST } from '../../src/config/ingest.ts';
 import type { FeedEvent } from './feeds/types.ts';
-import { slugify } from './event-files.ts';
+import { eventSlug } from './event-files.ts';
 
 /** An event file already in the repository, published or staged, as the matcher needs it. */
 export interface ExistingEvent {
@@ -211,7 +211,7 @@ export function toStaged(item: FeedEvent, source: Source, _town: string, today: 
     sourceUid: item.uid,
     sourceHash: fingerprint(item, venue),
   };
-  const slug = `${slugify(item.title)}-${dayKey(item.start)}`;
+  const slug = eventSlug(item.title, dayKey(item.start));
   const body = item.description
     ? `<!-- The organizer's own text, from the feed. Rewrite in the guide's words before approving. -->\n\n${item.description}`
     : `<!-- The feed carried no description. Write one from the organizer's page before approving. -->`;

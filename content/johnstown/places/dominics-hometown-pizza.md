@@ -7,7 +7,7 @@ url: "https://dominicsdelivery.com/"
 hours: "Daily 11–9"
 priceRange: "$$"
 tags: [pizza, family, delivery]
-summary: "Family pizzeria on Parish Avenue since 1986, next door to Black Sheep: pizza, wine, cocktails and beer, open every day."
+summary: "Family pizzeria on Parish Avenue since 1986, at the same address as Black Sheep: pizza, wine, cocktails and beer, open every day."
 source: "https://dominicsdelivery.com/"
 verified: "2026-09-18"
 added: "2026-09-17"

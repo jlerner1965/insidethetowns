@@ -103,7 +103,11 @@ export const carbonValley: TownConfig = {
   officialLinks: {
     // Frederick's, the middle town's; the section pages link each town's own.
     townSite: 'https://www.frederickco.gov/',
-    townSiteLabel: 'the Town of Frederick (Firestone: firestoneco.gov; Dacono: daconoco.gov)',
+    townSiteLabel: 'the Town of Frederick',
+    also: [
+      { label: 'the Town of Firestone', url: 'https://www.firestoneco.gov/' },
+      { label: 'the City of Dacono', url: 'https://www.daconoco.gov/' },
+    ],
     policeNonEmergency: 'https://www.frederickco.gov/360/Police',
     policeNonEmergencyLabel: 'Frederick Police Department (720-652-4222 dispatches for Firestone too; Dacono Police: 303-833-3095)',
   },

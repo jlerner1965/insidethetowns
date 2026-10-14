@@ -12,7 +12,7 @@ Berthoud is a statutory town of about 10,300 people (2020 census) on the Larimer
 
 ## Housing
 
-Mostly single-family homes: the older grid around Mountain Avenue and the 7th Street historic neighborhood, ranchettes on the county roads, and the large newer subdivisions (Heron Lakes and TPC Colorado around Lonetree Reservoir, Berthoud Harvest, Prairiestar, Hammond Farm and others) that account for most of what is on the market. The 2020 census counted 3,879 households with a median household income of $95,872, and the listings sites linked in the sidebar show what is for sale today. Most of the new subdivisions have metropolitan districts and homeowners' associations with their own fees; ask for the mill levy before you fall for the house.
+Mostly single-family homes: the older grid around Mountain Avenue and the 7th Street historic neighborhood, ranchettes on the county roads, and the large newer subdivisions (Heron Lakes and TPC Colorado around Lonetree Reservoir, Berthoud Harvest, Prairiestar, Hammond Farm and others) that account for most of what is on the market. The 2020 census counted 3,879 households; the median household income of $95,872 is an American Community Survey estimate rather than a census count, the figure the Census Bureau's QuickFacts gave in 2023 as [Wikipedia](https://en.wikipedia.org/wiki/Berthoud,_Colorado) cites it. The listings sites linked in the sidebar show what is for sale today. Most of the new subdivisions have metropolitan districts and homeowners' associations with their own fees; ask for the mill levy before you fall for the house.
 
 ## Schools
 

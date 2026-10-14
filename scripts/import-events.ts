@@ -23,7 +23,7 @@ import { z } from 'astro/zod';
 import { eventSchema } from '../src/content/schemas.ts';
 import { dayKey } from '../src/lib/dates.ts';
 import { allTowns } from '../src/config/index.ts';
-import { slugify, yamlString } from './lib/event-files.ts';
+import { eventSlug, slugify, yamlString } from './lib/event-files.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -123,7 +123,7 @@ rows.forEach((cells, index) => {
     return;
   }
   const startDay = String(rec.start).slice(0, 10);
-  const slug = rec.slug ? slugify(rec.slug) : `${slugify(rec.title ?? '')}-${startDay}`;
+  const slug = rec.slug ? slugify(rec.slug) : eventSlug(rec.title ?? '', startDay);
   if (!slug || slug === `-${startDay}`) {
     errors.push(`row ${line}: cannot derive a slug from the title`);
     return;

@@ -4976,3 +4976,86 @@ says.
   decision boxes and the relocation-slogan rewrites beyond the two
   verdicts changed here are editorial work for a session with the sources
   open.
+
+## The network audit of 14 October: what it saw, what was wrong, what changed
+
+*14 October 2026.* The owner handed over a 23-site network audit written
+the same day from pages read as extracted text, with a scorecard, fourteen
+network-wide issues, a table of about forty fact findings and a "what to do
+first" list. Each item was checked against the repository, the live sites
+and the primary sources before anything moved.
+
+- **The audit read old builds.** About a third of its findings were already
+  fixed on `main` by the 13 October commits: the Timnath growth figure, the
+  Centennial Cone season, the newsletter typo, the Georgetown multi-day
+  listings, "Every restaurants" in the directory description, the Oct 6
+  Elizabeth meeting, the Windsor stop count, the Rocky Horror dates. The
+  live pages fetched today are current (Lyons and the hub built at 03:49 UTC
+  on 14 October, Timnath and Elizabeth at the 13 October nightly, the hub's
+  weekend page reads 16–18 October), the scheduled rebuild has succeeded
+  every day since 5 October, and Vercel serves every HTML page with
+  `max-age=0, must-revalidate`. Nothing in the repository or the deploy
+  settings reproduces the week-old pages the audit describes; the likeliest
+  cause is the audit tool's own cache. The Vercel deployment list could not
+  be read from this session (403), so the dashboard is where to confirm.
+- **Already there, invisible to a text reader.** Organization, WebSite,
+  Event, LocalBusiness, Article, BreadcrumbList and CollectionPage JSON-LD
+  are on every page (three `ld+json` scripts on a Lyons place page); the
+  `&amp;` in a title is correct HTML escaping; the "doubled" hero tagline,
+  nav label, teasers, day chips and contents lists are the phone/desktop
+  pairs (`sm:hidden` / `hidden sm:inline`), of which a browser and a screen
+  reader see one; the Estes meta tags carry no prefix. No template change
+  for any of these.
+- **Owner decisions the audit asked to revisit, left standing.** No named
+  editor (8 October); "Longmont · Inside the Towns" (a magazine already
+  publishes as Inside Longmont); fifteen signup boxes (the editions, with
+  the quiet and visitor guides out by the 12 October rules); a production's
+  shows and a council's meetings listed on their days.
+- **Template changes.** Check dates on rows and cards and About's "Last
+  checked" carry the year ("Checked Oct 3, 2026"). Meta descriptions end
+  at a sentence when one closes past the halfway mark instead of "…"
+  mid-phrase. The footer carries the network's address, and a multi-town
+  guide's footer and About link every government (`officialLinks.also`:
+  Carbon Valley now links Frederick, Firestone and Dacono). An imported or
+  ingested event whose title ends in the start year no longer doubles it
+  in the slug (`eventSlug`); existing slugs are URLs and are not renamed.
+  Leadville's tagline says what the town is known for, the highest
+  incorporated city in the US at about 10,150 feet (GNIS 10,154, the City
+  10,152). Niwot's config carries the two post-vote taglines as a comment.
+- **Facts changed, each re-read today.** Loveland: the authority's board
+  offered the chief's post to Paul Claflin on 22 September (Fire
+  Engineering). Erie: median household income $173,349, 2020–2024 ACS;
+  the coal era is "a century" (1876–1978), not eighty years. Evergreen
+  Lake is 55 acres on the district's own page, not 40. Longmont Museum
+  carries its regular hours from the 17 October reopening and the
+  admission from the City's fall brochure. Estes Park's Bustang line says
+  the route is seasonal and resumed for 2026. Windsor's three districts
+  read as three. Nederland's carousel line no longer implies the carving
+  ended before the opening. Berthoud's and Timnath's income lines say
+  which survey they come from; Timnath's is the 2009–2013 ACS, flagged as
+  old (the Census API wants a key and QuickFacts blocks automated reads,
+  so no newer figure is given). The Stampede grounds' area line says Hwy
+  86. Dominic's is "at the same address as" Black Sheep, since both
+  businesses' own pages give 19 South Parish.
+- **Findings checked and found sound as written.** Berthoud Brewing's
+  Berthoud taproom is 450 8th St with hours on the brewery's site; Kofe
+  House and the Source Zero share 434 Mountain (the Source Zero is Unit D,
+  added); City Star and Wishful Living share 321 Mountain; the Leadville
+  Railroad's own page says "October–April we run weekly rides"; Timnath's
+  11,600 is Wikipedia's 2025 figure, cited to the Census Bureau; the Estes
+  spirits festival's $53.16 and $5.91 child ticket are the Town's own
+  page's, so they stay (Visit Estes Park says $53.17); Black Hawk's two
+  Halloween Saturdays are two dates on the City's calendar; Golden's
+  Monster Mash page already states the hosts' conflicting hours.
+- **Three listings out of staging.** Indian Hot Springs, Two Mile Brewing
+  and the Cog Railway publish with address, phone and hours read from
+  their own sites, opened in a headless browser because the pages render
+  only with scripts; none refused the reader, so the 11 October rule on
+  sources that refuse automated reads does not apply. Hotel de Paris
+  timed out again; Eldora, the Energy Museum, Saratoga, World's End, the
+  Nordic Center and Little Bear keep their staging reasons.
+- **Not done here.** Search Console and Bing verification and sitemap
+  submission for 23 domains are account work the owner does once. The
+  rest of the mountain additions (the Black Hawk casinos, Georgetown's
+  museums, Grand Lake's winter calendar) and the big-city restaurant depth
+  are content sessions with the sources open.

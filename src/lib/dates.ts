@@ -192,6 +192,15 @@ export function toIsoLocal(date: Date, tz = TIME_ZONE): string {
   return `${local.toISOString().slice(0, 19)}${sign}${hh}:${mm}`;
 }
 
+/**
+ * "Oct 3, 2026": the check date on a row or card. Every card said "Checked
+ * Oct 3" with no year (network audit, 14 October 2026), which reads as
+ * today's year until it is not; the year costs five characters.
+ */
+export function formatShortDate(date: Date): string {
+  return fmt({ month: 'short', day: 'numeric', year: 'numeric' }).format(date);
+}
+
 /** "October 31" */
 export function formatMonthDay(date: Date): string {
   return fmt({ month: 'long', day: 'numeric' }).format(date);

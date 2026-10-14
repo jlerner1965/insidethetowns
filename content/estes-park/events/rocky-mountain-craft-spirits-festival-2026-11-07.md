@@ -11,7 +11,7 @@ organizer: "Town of Estes Park"
 organizerUrl: "https://estespark.colorado.gov/"
 source: "https://eventsinestes.com/rocky-mountain-craft-spirits-festival/"
 sourceId: "eventsinestes-com"
-verified: "2026-10-07"
+verified: "2026-10-14"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 
