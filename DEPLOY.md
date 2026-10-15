@@ -358,11 +358,15 @@ Two more workflows take the mechanical half of the weekly session, from 15
 October 2026. Neither publishes anything.
 
 - **Weekly ingest** (`.github/workflows/weekly-ingest.yml`), Mondays at 13:10
-  UTC: `npm run sources -- check`, `npm run ingest`, `npm run validate`,
-  `npm test`, then a pull request on the `automation/ingest` branch whose
-  body is `npm run review -- --summary`. The build never reads staging, so
-  the pull request is a queue, not a change: check the branch out, run
-  `npm run review`, push, merge. Close it unmerged and nothing has happened.
+  UTC: `npm run sources -- check`, `npm run ingest`, `npm run auto-review`
+  (the standing rules, README *Review*: an organizer's own confirmed feed
+  item with a venue and a future date is moved to the published folder on
+  the branch; the rest waits), `npm run validate`, `npm test`, then a pull
+  request on the `automation/ingest` branch whose body is the auto-review's
+  report and `npm run review -- --summary`. The build never reads staging
+  and the branch is not a site, so nothing reaches a reader until the pull
+  request is merged: check the branch out, run `npm run review` on what
+  waits, push, merge. Close it unmerged and nothing has happened.
 - **Thursday drafts** (`.github/workflows/newsletter-drafts.yml`), Thursdays
   at 12:10 UTC: `npm run newsletter` into `docs/newsletter/<send day>/`,
   committed straight to `main`. Docs only, so every site's build is skipped

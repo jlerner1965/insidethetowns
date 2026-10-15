@@ -1,12 +1,20 @@
-# Reads the confirmed feeds into staging once a week and opens a pull request
-# with what arrived, so the weekly session starts at `npm run review` rather
-# than at `npm run ingest`.
+# Reads the confirmed feeds into staging once a week, approves what the
+# standing rules allow, and opens a pull request with both, so the weekly
+# session starts at `npm run review` on what is left rather than at
+# `npm run ingest`.
 #
-# Nothing here publishes. The build never reads content/<town>/staging/, and a
-# published listing is touched only by its `changeFlag` and a change file for
-# the review (scripts/ingest.ts). The pull request is the queue: check the
-# branch out, run `npm run review`, approve or reject each item, push, merge.
-# Close it unmerged and nothing has happened.
+# Nothing here reaches a site until the pull request is merged. The build
+# never reads content/<town>/staging/. The unattended review
+# (scripts/auto-review.ts, rules in scripts/lib/auto-review.ts; the owner's
+# delegation of 15 October 2026) moves a staged event into the published
+# folder only when the organizer's own confirmed feed listed it with a venue
+# and a future date and nothing about it is in doubt, and writes in a change
+# the same feed made to a listing's time, venue or status; its body is the
+# feed's facts in one sentence and the organizer's words quoted as theirs.
+# Everything else waits, and the pull request says why, item by item. The
+# pull request is the queue and the approval: check the branch out, run
+# `npm run review` on what waits, push, merge. Close it unmerged and nothing
+# has happened.
 #
 # Before the pull request is opened the run validates every entry, staging
 # included, and runs the tests, because a pull request opened with the
@@ -55,6 +63,11 @@ jobs:
         run: npm run sources -- check
       - name: Read the confirmed feeds into staging
         run: npm run ingest
+      # The unattended review: what the standing rules allow is published
+      # (moved out of staging) with the run named in verifiedBy; the rest
+      # waits for a person, and the report says why.
+      - name: Approve what the standing rules allow
+        run: npm run auto-review -- --by="the weekly ingest workflow" --report=/tmp/auto-review.md
       # Strict, staging included: a feed that writes a file the schema
       # rejects fails here, not in the owner's review.
       - run: npm run validate
@@ -64,9 +77,11 @@ jobs:
         run: |
           {
             echo 'body<<EOF'
-            echo 'Read by the weekly ingest workflow. Nothing in it is published: the build never reads staging.'
+            echo 'Read by the weekly ingest workflow. Nothing in it reaches a site until this pull request is merged: the build never reads staging, and the files the standing rules approved (below) are in the published folders of this branch only.'
             echo
-            echo 'To work it: `git fetch origin automation/ingest && git checkout automation/ingest`, then `npm run review`, approve or reject each item, `npm run validate`, push, and merge this pull request. Close it unmerged and nothing changes.'
+            echo 'To work it: `git fetch origin automation/ingest && git checkout automation/ingest`, then `npm run review` on what waits, approve or reject each item, `npm run validate`, push, and merge this pull request. Close it unmerged and nothing changes.'
+            echo
+            cat /tmp/auto-review.md
             echo
             echo '```'
             npm run review -- --summary 2>&1 | sed -n '/^$/,$p' | head -200
@@ -87,8 +102,8 @@ jobs:
           token: ${{ secrets.WORKFLOW_PAT || github.token }}
           branch: automation/ingest
           delete-branch: true
-          commit-message: "Ingest: what the confirmed feeds said this week, to staging"
-          title: "Weekly ingest: the feeds' new items, for review"
+          commit-message: "Ingest: what the confirmed feeds said this week, approved under the rules or staged for review"
+          title: "Weekly ingest: approved under the rules, and the rest for review"
           body: ${{ steps.summary.outputs.body }}
           labels: ingest
       - name: Say where the queue is if the pull request could not be opened
