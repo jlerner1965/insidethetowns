@@ -11,6 +11,8 @@
       "category": "county",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok",
       "cites": {
         "events": 3,
         "places": 2
@@ -19,9 +21,7 @@
       "locationFilter": [
         "Niwot"
       ],
-      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. County-wide feed (The Events Calendar; 30 upcoming items on 4 October); only items whose location names Niwot are taken.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. County-wide feed (The Events Calendar; 30 upcoming items on 4 October); only items whose location names Niwot are taken."
     },
     {
       "id": "niwot-com",
