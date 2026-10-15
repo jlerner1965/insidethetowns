@@ -82,8 +82,11 @@ export const golden: TownConfig = {
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Golden_CO' },
     ],
     // Jeffco Public Schools (jeffcopublicschools.org, read 6 October 2026).
-    // commuteNotes are written at launch with the rest of the Moving Here guide.
     schoolDistrict: 'Jeffco Public Schools, the county-wide district.',
+    // From the Moving Here guide's Getting around section and its sources
+    // (Jefferson County, RTD and City of Golden pages, read 6 October 2026).
+    commuteNotes:
+      'About 25 minutes to downtown Denver on US 6 or I-70. RTD’s W Line light rail ends at Jefferson County Government Center–Golden Station, trains every half hour; bus 17 links 10th & Washington to Federal Center Station, and the free Ore Cart shuttle joins downtown, the Mines campus and the station.',
   },
   officialLinks: {
     // cityofgolden.net redirects here (read 6 October 2026).
