@@ -14,6 +14,8 @@ import WeekEventRow from './WeekEventRow.astro';
 import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { occurrences } from '@/lib/events';
+import { linkedPlaceSlugs } from '@/lib/mentions';
+import { isOpen } from '@/lib/places';
 import { upcomingEvents } from '@/lib/weekly';
 
 interface Props {
@@ -32,14 +34,27 @@ interface Related {
 }
 let related: Related[] = article.data.related.slice(0, 3);
 if (related.length === 0) {
-  // The same section first, newest first; the newest of the rest fill out
-  // the three where a section is thin.
+  // Without the editor's links: first the listings the article itself links
+  // in its body, in order of appearance, each with its own summary as the
+  // sentence (the summary is the listing's, checked and sourced, not a line
+  // written for the strip); a closed place is left out. Then the same
+  // section's newest articles, then the newest of the rest, with no sentence,
+  // to fill out the three (search-visibility phase 2, 15 October 2026).
+  const places = await getTownEntries('places');
+  const linked = linkedPlaceSlugs(article.body)
+    .map((slug) => places.find((p) => p.slug === slug))
+    .filter((p): p is NonNullable<typeof p> => !!p && isOpen(p))
+    .slice(0, 3)
+    .map((p) => ({ label: p.data.title, href: `/places/${p.slug}/`, note: p.data.summary }));
   const others = (await getTownEntries('articles'))
     .filter((a) => a.slug !== article.slug)
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
   const same = others.filter((a) => a.data.category === article.data.category);
   const rest = others.filter((a) => a.data.category !== article.data.category);
-  related = [...same, ...rest].slice(0, 3).map((a) => ({ label: a.data.title, href: `/articles/${a.slug}/` }));
+  related = [
+    ...linked,
+    ...[...same, ...rest].slice(0, 3 - linked.length).map((a) => ({ label: a.data.title, href: `/articles/${a.slug}/` })),
+  ];
 }
 const link = 'inline-block -my-2 py-2 font-medium text-primary underline';
 ---
