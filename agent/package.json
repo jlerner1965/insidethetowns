@@ -1,0 +1,10 @@
+{
+  "name": "itt-agent",
+  "private": true,
+  "type": "module",
+  "description": "Research agent for Inside the Towns on the Claude API: weekly notes, fact verification, articles. Drafts only; never writes to content/.",
+  "dependencies": {
+    "@anthropic-ai/sdk": "latest"
+  },
+  "engines": { "node": ">=22.18" }
+}
