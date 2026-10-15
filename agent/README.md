@@ -16,4 +16,4 @@ Then: read the draft, paste what holds up into `content/<town>/…`, `npm run va
 
 The editorial rules are in `.claude/skills/inside-the-towns-editor/SKILL.md` — one file, used by both this agent and Claude Code. Every draft ends with the URLs read and anything it could not confirm.
 
-Cost: roughly $0.15–0.40 per town per weekly run on Sonnet (web search is $10 per 1,000 queries plus tokens). `.github/workflows/agent-weekly.yml` runs `weekly all` each Wednesday morning and opens a PR, once `ANTHROPIC_API_KEY` is added under Settings → Secrets → Actions.
+Cost: roughly $0.15–0.40 per town per weekly run on Sonnet (web search is $10 per 1,000 queries plus tokens). `.github/workflows/agent-weekly.yml` runs `weekly all` each Wednesday morning (12:20 UTC) and commits the drafts to `docs/agent/` on `main`; it needs `ANTHROPIC_API_KEY` under Settings → Secrets → Actions.

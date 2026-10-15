@@ -109,6 +109,8 @@ test('what stays for a person: the editor’s own holds, sources that are not th
   refused(staged({ status: 'canceled', statusNote: '"Lyons Library marks this canceled (feed read 2026-10-14)."' }), ctx(), /arrives canceled/);
   refused(staged({}, 'This event has been canceled. Songs and stories for the under-fives.'), ctx(), /says "canceled"/);
   refused(staged({}, 'POSTPONED to a new date. Songs and stories.'), ctx(), /says "POSTPONED"/);
+  // A CivicPlus calendar says it in the title alone, with no status and no description.
+  refused(staged({ title: '"Open Space and Trails Advisory Board Meeting  - CANCELED"' }, ''), ctx(), /says "CANCELED"/);
   refused(staged(), ctx({ town: carbonValley }), /needs a subTown/);
   assert.equal(decideEvent(staged({ subTown: 'firestone' }), ctx({ town: carbonValley })).approve, true);
   refused(staged(), ctx({ published: [{ file: 'content/lyons/events/toddler-storytime.md', title: 'Toddler Storytime', start: new Date('2026-11-07T16:00:00Z') }] }), /may be content\/lyons\/events\/toddler-storytime\.md/);
@@ -143,6 +145,12 @@ test('the quotation is the organizer’s first sentences, with the labels, links
   assert.equal(quoteFrom('Everyone is welcome to the monthly book group at the library. Visit cccld.org for more information.'), 'Everyone is welcome to the monthly book group at the library.');
   // Initials do not end a sentence.
   assert.match(quoteFrom('Learn about the C.H. Callahan house, one of the city’s oldest homes and gathering places.') ?? '', /^Learn about the C\.H\. Callahan house/);
+  // A sentence end inside brackets, mid-sentence, does not start a sentence at the bracket; the one that
+  // ran on from it is a sign-up pointer and goes, so the quotation is the two sentences around it.
+  assert.equal(
+    quoteFrom('Join members of the elections staff to celebrate Vote Early Day!\nStop by from 8 – 9 a.m., sign up to register to vote (bring friends!), ask elections staff questions, and get swag (while supplies last). We’ll also have coffee and donuts!'),
+    'Join members of the elections staff to celebrate Vote Early Day! We’ll also have coffee and donuts!',
+  );
   // Too short to mean anything, or nothing left: no quotation.
   assert.equal(quoteFrom('Fun for all ages!'), undefined);
   assert.equal(quoteFrom('<!-- The feed carried no description. -->'), undefined);

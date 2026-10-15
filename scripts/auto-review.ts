@@ -23,7 +23,7 @@ import { fileURLToPath } from 'node:url';
 import { z } from 'astro/zod';
 import { allTowns, LIVE_TOWNS } from '../src/config/index.ts';
 import { eventSchema, type Source } from '../src/content/schemas.ts';
-import { dayKey } from '../src/lib/dates.ts';
+import { addDays, dayKey, startOfDay } from '../src/lib/dates.ts';
 import { readRegistry } from '../src/lib/sources.ts';
 import { decideChange, decideEvent, type PublishedEvent } from './lib/auto-review.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
@@ -65,7 +65,9 @@ function publishedEvents(town: string): PublishedEvent[] {
     const d = parsed.data;
     const starts = [d.start];
     if (d.repeat === 'weekly' && d.until) {
-      for (let t = d.start.getTime() + 7 * 86_400_000; t <= d.until.getTime(); t += 7 * 86_400_000) starts.push(new Date(t));
+      // By wall-clock weeks, as the site expands it (src/lib/events.ts), not 7×24 hours.
+      const lastStart = addDays(startOfDay(d.until), 1).getTime();
+      for (let t = addDays(d.start, 7); t.getTime() < lastStart; t = addDays(t, 7)) starts.push(t);
     }
     for (const start of starts) out.push({ file: relative(root, file), title: d.title, start });
   }

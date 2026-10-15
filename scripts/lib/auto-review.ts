@@ -111,7 +111,10 @@ export function decideEvent(text: string, ctx: EventContext): Verdict {
   else if (d.venue.length > 80) reasons.push('venue is too long to be a name');
   else if (d.venue.trim().split(/\s+/).length === 1 && !d.address) reasons.push(`venue "${d.venue}" is one word with no address: a room, not a place`);
   if (CLOSURE_RE.test(d.title)) reasons.push('title reads as a closure notice, not an event');
-  const said = body.replace(/<!--[\s\S]*?-->/g, '').match(CALLED_OFF_RE);
+  // The title counts as the organizer's text: a CivicPlus calendar marks a
+  // called-off meeting only there ("… - CANCELED"), with no status field and
+  // no description, and the Erie feed did so on 12 October 2026.
+  const said = `${d.title}\n${body.replace(/<!--[\s\S]*?-->/g, '')}`.match(CALLED_OFF_RE);
   if (said) reasons.push(`the organizer's text says "${said[0]}"; the status is a person's call`);
   if (SERVICE_RE.test(d.title)) reasons.push('title reads as a service schedule, not an event');
   const startDay = dayKey(d.start);
@@ -177,7 +180,11 @@ export function quoteFrom(stagedBody: string): string | undefined {
     .replace(/\s+([.,;!?])/g, '$1')
     .replace(ABBREVIATIONS, (m) => m.replace(/\./g, '\u0000'))
     .replace(/\b([A-Z])\./g, '$1\u0000');
-  const sentences = (text.match(/[^.!?]+[.!?]+["”’)]?(?=\s|$)/g) ?? [])
+  // Cut where a sentence end is followed by a space, so "(bring friends!), ask…"
+  // stays inside its sentence instead of a new one starting at the bracket.
+  const sentences = text
+    .split(/(?<=[.!?]["”’)]?)\s+/)
+    .filter((s) => /[.!?]["”’)]?$/.test(s))
     .map((s) => s.replace(/\u0000/g, '.').trim())
     // A fragment: it starts lowercase, or it is a word or two.
     .filter((s) => /^[^a-z]/.test(s) && s.split(' ').length >= 3)

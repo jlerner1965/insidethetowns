@@ -107,10 +107,15 @@ function existingEvents(town: string): ExistingEvent[] {
       if (!parsed.success) continue;
       const d = parsed.data;
       // A weekly repeat is one file for many dates; the matcher works per
-      // date, so expand it the way the site does.
+      // date, so expand it the way the site does (src/lib/events.ts): by
+      // wall-clock weeks, not 7×24 hours. A fixed-millisecond step read an
+      // 11 am Thursday series as 10 am after the November clock change, and
+      // the feed's unchanged 11 am was written up as a change (Babytime,
+      // Johnstown, 15 October 2026).
       const starts: Date[] = [d.start];
       if (d.repeat === 'weekly' && d.until) {
-        for (let t = d.start.getTime() + 7 * 86_400_000; t <= d.until.getTime(); t += 7 * 86_400_000) starts.push(new Date(t));
+        const lastStart = addDays(startOfDay(d.until), 1).getTime();
+        for (let t = addDays(d.start, 7); t.getTime() < lastStart; t = addDays(t, 7)) starts.push(t);
       }
       for (const start of starts) {
         out.push({
