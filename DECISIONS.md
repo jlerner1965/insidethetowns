@@ -5084,3 +5084,27 @@ wrong with it, and what changed:
   of them (About, Editorial policy, Photo credits, Privacy) not ways of
   getting in touch. Those four have their own column, "This guide" ("This
   site" on the hub). The footer is four columns from `lg`, two from `sm`.
+
+## Elizabeth stays, 15 October
+
+The quiet of 12 October set 15 November as the day to decide whether to
+keep the guide. The owner decided on 15 October, on the one number that
+had not been looked at: Vercel Web Analytics counts 148 visitors and 308
+pageviews on insideelizabeth.com in the four weeks to 15 October, more than
+Golden (84), Fort Collins (101) or Timnath (104) and in Longmont's band
+(123). The reason it went quiet was about selling, not reading: an hour
+from every other guide, so a visit, a photograph or an advertiser there
+combines with nothing. That is still true, so it stays quiet, with no
+weekly email and no signup box, and its listings are kept by the monthly
+pass like a visitor guide's. There is also nowhere to fold it: Castle Rock
+is a holding page, so "fold" would have meant "close", and closing a guide
+with a hundred and fifty readers a month to save a monthly check is the
+wrong trade.
+
+What is left to decide, on 15 December, is only whether it rejoins the
+weekly email. `decideBy` moves to that date, which is still before the
+first of its listings loses its hours (17 December). Two stale pull
+requests were closed the same day: #13 (Codex, 22 September, no common
+history with main, everything it proposed since built differently) and
+#34 (2 October, whose facts about Bradford's and Cassidy's had already
+landed).
