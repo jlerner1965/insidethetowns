@@ -368,12 +368,17 @@ October 2026. Neither publishes anything.
   committed straight to `main`. Docs only, so every site's build is skipped
   (scripts/vercel-ignore.sh). Sending stays a person's job, as before.
 
-One optional secret, `WORKFLOW_PAT`: a fine-grained personal access token
-with *Contents* and *Pull requests* write on this repository. Without it the
-ingest pull request is opened with the default `GITHUB_TOKEN`, and GitHub
-does not start the CI workflow on a pull request a workflow opened; the run
-validates and tests before opening it, so the gap is small, but with the
-secret set CI runs on that pull request like any other. The drafts workflow
+One repository setting, required: *Settings → Actions → General → Workflow
+permissions → Allow GitHub Actions to create and approve pull requests*. It
+is off by default, and the first run on 15 October 2026 pushed the branch
+and then could not open the pull request; until it is on, the run ends with
+a warning naming the compare URL to open by hand. One optional secret,
+`WORKFLOW_PAT`: a fine-grained personal access token with *Contents* and
+*Pull requests* write on this repository. Without it the ingest pull request
+is opened with the default `GITHUB_TOKEN`, and GitHub does not start the CI
+workflow on a pull request a workflow opened; the run validates and tests
+before opening it, so the gap is small, but with the secret set CI runs on
+that pull request like any other, and the setting above is not needed. The drafts workflow
 pushes to `main` with the default token; if `main` is ever protected against
 direct pushes, that run fails visibly and the command is run by hand.
 
