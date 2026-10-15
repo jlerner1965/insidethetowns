@@ -11,14 +11,12 @@
  * once per listing however many occurrences it has. Nothing is inferred
  * from a title, and nothing here invents an event.
  */
+import type { CollectionEntry } from 'astro:content';
 import { addDays, startOfDay } from './dates.ts';
 import { isCanceled, isOver, uniqueByEvent } from './events.ts';
 
-type EventLike = {
-  data: { start: Date; end?: Date; category: string; status?: string; title: string };
-  slug?: string;
-  id?: string;
-};
+// The same shape src/lib/events.ts works over, so its helpers accept these.
+type EventLike = { data: CollectionEntry<'events'>['data']; slug?: string; id?: string };
 
 export function bigDates<T extends EventLike>(
   events: readonly T[],
