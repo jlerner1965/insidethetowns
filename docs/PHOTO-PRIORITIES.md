@@ -39,7 +39,7 @@ picture: what is in the frame, where, and when it was taken.
 | # | Page | Why | Subject wanted | Alt-text guidance |
 |---|---|---|---|---|
 | 1 | /places/niwot-market/ | Featured; the one Niwot listing already landing from Google ("Niwot Market", "Niwot Market hours") | The storefront in Cottonwood Square with the sign and the hours board legible | Name the shopping center and the road; say the hours board is readable if it is |
-| 2 | /places/fans-chinese-cuisine/ | Named in the search plan; no photo, no phone on file | The restaurant front in the south-west corner of Cottonwood Square | Name the corner and the neighbouring shop |
+| 2 | /places/fans-chinese-cuisine/ | Named in the search plan; no photo | The restaurant front in the south-west corner of Cottonwood Square | Name the corner and the neighbouring shop |
 | 3 | /places/the-nook/ | A Google landing page (Vercel referrer data); inside Niwot Market | The gift nook inside the market, with the market's permission | Say it is inside the market and what is on the shelves |
 | 4 | /events/holiday-parade-2026/ | The annual event people search for by name; the big date on /events/ | The parade on Second Avenue, 28 November 2026, floats and the crowd, no child identifiable close up | Name the street, the date and what the float is |
 | 5 | /events/fourth-of-july-2027/ | The other named annual event | The Fourth of July morning on Second Avenue, 2027; until then, no photograph rather than an old one | Name the street, the year and the activity |
