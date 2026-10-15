@@ -47,6 +47,10 @@ sources:
   - { label: "Jefferson County Parks & Open Space: Boo-Logical Adaptations Night Hike", url: "https://www.jeffco.us/calendar.aspx?EID=16768" }
   - { label: "Jefferson County Parks & Open Space: South Table Mountain Park", url: "https://www.jeffco.us/1430/South-Table-Mountain-Park" }
   - { label: "Visit Golden: Olde Golden Candlelight Walk", url: "https://www.visitgolden.com/event/olde-golden-candlelight-walk/" }
+related:
+  - { label: "Colorado Railroad Museum", href: "/places/colorado-railroad-museum/", note: "More than 100 locomotives and cars on 15 acres, with train rides on set days." }
+  - { label: "Lookout Mountain Nature Center and Preserve", href: "/places/lookout-mountain-nature-center-and-preserve/", note: "Exhibits, a kids’ play room and free naturalist programs in a hiker-only preserve." }
+  - { label: "Lions Park", href: "/places/lions-park/", note: "The large accessible playground next to the Community Center." }
 ---
 
 Golden packs a lot for children into a few blocks along Clear Creek: the City's Community Center and its pools, Lions Park, the library and the history museum are all on 10th Street. The trains are at the Colorado Railroad Museum on West 44th Avenue, and the nature center and Buffalo Bill's grave are up on Lookout Mountain. Hours and prices are as the operators posted them in early October 2026; the rules are worth knowing before you go.

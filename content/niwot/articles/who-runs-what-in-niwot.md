@@ -5,6 +5,10 @@ date: "2026-09-17"
 excerpt: "Without a town hall, local groups organize the gatherings, the arts and the business district, and county offices and special districts handle most public services. Which one to approach for what."
 category: "Community"
 tags: [community, living-here]
+related:
+  - { label: "The 2026 Niwot incorporation election, plainly", href: "/articles/2026-incorporation-election/", note: "What the November 2026 ballot asks, and what would change if it creates a town." }
+  - { label: "Niwot Hall", href: "/places/niwot-hall/", note: "The Left Hand Grange hall on Second Avenue, where community meetings are held." }
+  - { label: "Events in Niwot", href: "/events/", note: "Meetings and civic dates are listed under Civic, with the rest of the calendar." }
 ---
 
 Niwot has no town government. The summer concerts, art walks and seasonal gatherings are not municipal programs; they happen because residents and local organizations build the calendar, maintain the public art and keep showing up. Public services come from Boulder County, the special districts and a water district. Here is which body to approach for what.

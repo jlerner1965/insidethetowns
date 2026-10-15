@@ -14,6 +14,8 @@ import { EAT_DRINK_TYPES, LAND_TYPES, PLACE_STATUS_LABELS, PLACE_TYPE_LABELS, PL
 import { formatDate } from '@/lib/dates';
 import { hoursLines, hoursWithMeridiem, openingHoursOf } from '@/lib/hours';
 import { byProminence, isOpen } from '@/lib/places';
+import { articlesMentioning } from '@/lib/mentions';
+import { placeTitle } from '@/lib/titles';
 import OpenStatus from '@/components/OpenStatus.astro';
 import Provenance from '@/components/Provenance.astro';
 import TipsLink from '@/components/TipsLink.astro';
@@ -56,6 +58,11 @@ const nearbyAll = (sameType.length >= 3 ? sameType : others.filter((p) => family
   .slice(0, 6);
 // Two columns: an odd count left one name alone on the last row.
 const nearby = nearbyAll.length > 2 && nearbyAll.length % 2 === 1 ? nearbyAll.slice(0, -1) : nearbyAll;
+// The guide articles that link this listing, newest first (src/lib/mentions.ts):
+// the way from the address and hours to the piece that says why to go.
+const inGuides = articlesMentioning(await getTownEntries('articles'), place.slug).slice(0, 3);
+// "Hall Ranch — Trail in Lyons, CO" in the tab and the search result; the h1 stays the name.
+const seoTitle = placeTitle(data.title, PLACE_TYPE_LABELS[data.type], town);
 const here = uniqueByEvent(upcoming(occurrences(await getTownEntries('events'))))
   .filter((e) => e.data.venue === data.title)
   .slice(0, 3);
@@ -146,6 +153,7 @@ const facts = [
 ---
 <Page
   title={data.title}
+  seoTitle={seoTitle}
   kind="Place"
   eyebrow={eyebrow}
   status={statusLabel}
@@ -324,6 +332,20 @@ const facts = [
       <div class="border-b border-line-soft">
         {here.map((event) => <EventCard event={event} />)}
       </div>
+    </section>
+  )}
+
+  {inGuides.length > 0 && (
+    <section class="mt-20 md:mt-24" aria-labelledby="in-guides">
+      <SectionHeader eyebrow="In the guides" title={`Read about ${data.title}`} href="/guides/" linkLabel="All guides" id="in-guides" />
+      <ul class="divide-y divide-line-soft border-y border-line-soft">
+        {inGuides.map((a) => (
+          <li class="py-3">
+            <a href={`/articles/${a.slug}/`} class="inline-block -my-1 py-1 font-semibold text-primary underline">{a.data.title}</a>
+            <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{a.data.excerpt}</p>
+          </li>
+        ))}
+      </ul>
     </section>
   )}
 

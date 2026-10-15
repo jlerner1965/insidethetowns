@@ -7,6 +7,10 @@ tags: [history]
 image: ../images/redstone-museum.jpg
 imageAlt: "The rusticated red sandstone walls of the 1881 Lyons schoolhouse, now the Redstone Museum"
 imageCredit: "Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0"
+related:
+  - { label: "Lyons Redstone Museum", href: "/places/lyons-redstone-museum/", note: "Local history in the 1881 sandstone schoolhouse, free in the summer season." }
+  - { label: "Main Street and the stone town", href: "/places/main-street/", note: "Six blocks of quarried red sandstone, fifteen of them on the National Register." }
+  - { label: "Who governs Lyons, and where the official information is", href: "/articles/who-governs-lyons/", note: "The town the history produced: a mayor, six trustees, and who does what today." }
 ---
 
 Lyons exists because of a rock. The Lyons Formation, a band of Permian sandstone that runs along the Front Range, breaks here into flat, even, red-pink slabs that split cleanly and weather hardly at all. Edward S. Lyon saw it in 1880, bought 160 acres at the confluence of the North and South St. Vrain, and platted a town to sell it. The buildings on [Main Street](/places/main-street/) are made of it; so are the University of Colorado campus in Boulder and flagstone patios across the country.

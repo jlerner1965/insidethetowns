@@ -70,3 +70,17 @@ export function wordmarkEm(siteTitle: string): number {
 export function pageTitle(site: TitleSite, title?: string): string {
   return title ? `${title} | ${site.siteTitle}` : homeTitle(site);
 }
+
+/**
+ * The <title> of a place page, before the site title is appended: what the
+ * place is and where. "Hall Ranch | Inside Lyons" told a search result
+ * nothing about which Hall Ranch or what kind of place it is; "Hall Ranch —
+ * Trail in Lyons, CO" does, and is what someone typing "trails in Lyons"
+ * is shown (search-visibility phase 1, 15 October 2026). A place whose
+ * name already carries the town's ("Niwot Market") is not told twice where
+ * it is. The h1 on the page stays the bare name.
+ */
+export function placeTitle(name: string, kind: string, town: { name: string; state: string }): string {
+  const named = new RegExp(`\\b${town.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(name);
+  return named ? `${name} — ${kind}` : `${name} — ${kind} in ${town.name}, ${town.state}`;
+}

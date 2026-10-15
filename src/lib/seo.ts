@@ -311,9 +311,14 @@ export function articleJsonLd(
     headline: data.title,
     description: data.excerpt,
     datePublished: toIsoLocal(data.date),
-    ...(data.updated ? { dateModified: toIsoLocal(data.updated) } : {}),
+    // The day the article last changed: an edit, or else the day its facts
+    // were last re-checked and the check line on the page moved. A check
+    // that confirms every fact still changes the page (search-visibility
+    // phase 1, 15 October 2026). Nothing when neither has happened.
+    ...(articleModified(data) ? { dateModified: toIsoLocal(articleModified(data)!) } : {}),
     ...(imageUrl ? { image: [imageUrl] } : {}),
     articleSection: data.category,
+    isPartOf: { '@id': `https://${site.domain}/#website` },
     /*
      * A named person when the network has one configured, the publication
      * itself otherwise. Both are valid; the difference is that a reader and a
@@ -327,6 +332,42 @@ export function articleJsonLd(
     publisher: { '@id': `https://${site.domain}/#org` },
     mainEntityOfPage: url,
     url,
+  };
+}
+
+/**
+ * When an article last changed, for `dateModified`: the later of its
+ * `updated` and `verified` dates, or nothing when it has neither.
+ */
+export function articleModified(data: { updated?: Date; verified?: Date }): Date | undefined {
+  const dates = [data.updated, data.verified].filter((d): d is Date => d instanceof Date);
+  if (dates.length === 0) return undefined;
+  return dates.reduce((a, b) => (b.getTime() > a.getTime() ? b : a));
+}
+
+/**
+ * A free-form page (the Moving Here guide) as a WebPage, with the day it
+ * was last updated. These pages carried only the site's Organization and
+ * WebSite, so a search engine saw a long guide with no date and no stated
+ * place in the publication. `isPartOf` ties it to the site's WebSite node,
+ * as the collection pages do.
+ */
+export function webPageJsonLd(
+  site: SiteConfig,
+  page: { name: string; description: string; path: string; updated?: Date },
+) {
+  const url = `https://${site.domain}/`;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${url}${page.path.replace(/^\//, '')}#page`,
+    url: `${url}${page.path.replace(/^\//, '')}`,
+    name: page.name,
+    description: page.description,
+    isPartOf: { '@id': `${url}#website` },
+    publisher: { '@id': `${url}#org` },
+    inLanguage: 'en-US',
+    ...(page.updated ? { dateModified: toIsoLocal(page.updated) } : {}),
   };
 }
 

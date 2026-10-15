@@ -7,6 +7,10 @@ category: "Outdoors"
 tags: [outdoors, trails, river]
 image: ../images/button-rock-dam-trail.jpg
 imageAlt: "Button Rock reservoir seen through ponderosa pines from the dam trail, snow on the high peaks along the skyline"
+related:
+  - { label: "Lyons hikes: where dogs are allowed, and where they are not", href: "/articles/lyons-hikes-where-dogs-are-allowed/", note: "Each land manager’s dog rule, trail by trail, before you load the car." }
+  - { label: "Hall Ranch", href: "/places/hall-ranch/", note: "The Bitterbrush climb to the Nelson Loop, about 1,500 feet up through ponderosa meadows." }
+  - { label: "Button Rock Preserve", href: "/places/button-rock-preserve/", note: "The gentle two-mile walk along the North St. Vrain to the dam." }
 ---
 
 The North and South St. Vrain join in the middle of town, and the state gauge just below the confluence (station SVCLYOCO, on the [Colorado Division of Water Resources site](https://dwr.state.co.us/Tools/Stations/SVCLYOCO)) reports the flow every fifteen minutes. Read it before you plan anything on the water.

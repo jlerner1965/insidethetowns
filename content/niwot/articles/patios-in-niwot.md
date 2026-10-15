@@ -12,6 +12,10 @@ sources:
   - { label: "Raza Fresa Mexican Kitchen", url: "https://razafresa.com/" }
   - { label: "The Wheel House", url: "https://www.niwotwheelhouse.com/" }
   - { label: "Fritz Family Brewers", url: "https://www.fritzfamilybrewers.com/" }
+related:
+  - { label: "Where to eat & drink in Niwot", href: "/eat-drink/", note: "Every restaurant, bar and coffee shop we list, with hours and the business’s own site." }
+  - { label: "The Wheel House", href: "/places/the-wheel-house/", note: "The back patio with live music; its own kitchen opened in February 2026." }
+  - { label: "Fritz Family Brewers", href: "/places/fritz-family-brewers/", note: "German-style lagers and ales; kids welcome, dogs on the patio." }
 ---
 
 Niwot has more outdoor seating than a town of four thousand has any right to, and most of it faces something worth looking at. Five places, and the conditions each one suits.
