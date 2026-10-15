@@ -5,6 +5,7 @@
       "id": "berthoud-org",
       "name": "berthoud.org",
       "url": "https://berthoud.org/",
+      "feedUrl": "https://www.berthoud.org/RSSFeed.aspx?ModID=58&CID=All-calendar.xml",
       "sampleUrl": "https://www.berthoud.org/DocumentCenter/View/7680/Berthoud-Parks--Recreation-Fall-Activity-Guide-2026",
       "type": "rss",
       "category": "city-calendar",
@@ -14,8 +15,7 @@
         "events": 21,
         "places": 10
       },
-      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (37 items on 4 October). Recurring drop-ins and classes are excluded by title at the editor's direction (4 October 2026); the recreation centre's listing links the Town's drop-in calendar instead. One-time and seasonal events at the centre still come through.",
-      "feedUrl": "https://www.berthoud.org/RSSFeed.aspx?ModID=58&CID=All-calendar.xml",
+      "robots": "honor",
       "excludeTitles": [
         "Lap Swim",
         "Family Swim",
@@ -25,7 +25,10 @@
         "Silver Sneakers",
         "Pick-up Basketball",
         "Bootcamp"
-      ]
+      ],
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (37 items on 4 October). Recurring drop-ins and classes are excluded by title at the editor's direction (4 October 2026); the recreation centre's listing links the Town's drop-in calendar instead. One-time and seasonal events at the centre still come through.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
     },
     {
       "id": "berthoudmainstreet-org",
@@ -40,6 +43,7 @@
         "events": 3,
         "places": 9
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -55,6 +59,7 @@
         "events": 1,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -70,7 +75,10 @@
         "events": 8,
         "places": 1
       },
-      "notes": "Checked 4 October 2026: a Wix site with an events page and no calendar feed or embed found; checked by hand."
+      "robots": "honor",
+      "notes": "Checked 4 October 2026: a Wix site with an events page and no calendar feed or embed found; checked by hand.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
     },
     {
       "id": "citystarbrewing-com",
@@ -85,6 +93,7 @@
         "events": 27,
         "places": 1
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -99,6 +108,7 @@
         "events": 0,
         "places": 2
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -113,6 +123,7 @@
         "events": 1,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -127,6 +138,7 @@
         "events": 1,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -141,6 +153,7 @@
         "events": 1,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -155,6 +168,7 @@
         "events": 6,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     }
   ]

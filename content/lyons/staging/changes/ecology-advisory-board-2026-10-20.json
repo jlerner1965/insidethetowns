@@ -1,0 +1,15 @@
+{
+  "slug": "ecology-advisory-board-2026-10-20",
+  "sourceId": "townoflyons-com",
+  "sourceUid": "EID=6511",
+  "sourceUrl": "https://www.townoflyons.com/Calendar.aspx?EID=6511",
+  "detected": "2026-10-14",
+  "cancel": false,
+  "changes": [
+    {
+      "field": "end",
+      "was": "2026-10-20T20:30",
+      "now": "2026-10-20T20:00"
+    }
+  ]
+}

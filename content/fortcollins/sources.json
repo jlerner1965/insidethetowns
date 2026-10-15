@@ -10,15 +10,15 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "blocked",
+      "lastNote": "refused an automated request",
       "cites": {
         "events": 13,
         "places": 14
       },
-      "notes": "Official calendar displays dated October 2026 events with addresses. HTML requires editorial review; no verified aggregate machine feed found in this pass. This source does not automatically ingest.",
-      "checkFrequency": "weekly",
-      "lastChecked": "2026-10-11",
-      "lastStatus": "ok",
-      "lastNote": "Read successfully on 11 October 2026; HTML source requires editorial review; it is not an automatic feed."
+      "robots": "honor",
+      "notes": "Official calendar displays dated October 2026 events with addresses. HTML requires editorial review; no verified aggregate machine feed found in this pass. This source does not automatically ingest."
     },
     {
       "id": "larimer-gov",
@@ -33,6 +33,7 @@
         "events": 1,
         "places": 2
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -48,6 +49,7 @@
         "events": 6,
         "places": 2
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -63,6 +65,7 @@
         "events": 2,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -78,6 +81,7 @@
         "events": 4,
         "places": 1
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -93,6 +97,7 @@
         "events": 6,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -108,6 +113,7 @@
         "events": 11,
         "places": 1
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -123,6 +129,7 @@
         "events": 5,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -137,6 +144,7 @@
         "events": 1,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -151,6 +159,7 @@
         "events": 3,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -165,6 +174,7 @@
         "events": 1,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -179,6 +189,7 @@
         "events": 1,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -193,6 +204,7 @@
         "events": 1,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -207,6 +219,7 @@
         "events": 0,
         "places": 2
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -221,6 +234,7 @@
         "events": 3,
         "places": 1
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -235,6 +249,7 @@
         "events": 1,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -249,6 +264,7 @@
         "events": 1,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -263,6 +279,7 @@
         "events": 2,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -277,6 +294,7 @@
         "events": 1,
         "places": 1
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -291,6 +309,7 @@
         "events": 2,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -305,6 +324,7 @@
         "events": 4,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -319,6 +339,7 @@
         "events": 18,
         "places": 1
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -333,6 +354,7 @@
         "events": 1,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     }
   ]

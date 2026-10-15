@@ -12,7 +12,9 @@
       "priority": "core",
       "status": "confirmed",
       "robots": "honor",
-      "notes": "Found and read once on 5 October 2026. The City's index of its own events, one page each, with dates and venues the calendar feed does not carry: Boot Scoot'n Bash (12 June 2026, 5:30 to 9 pm, Centennial Field, free), the Fall Fiesta (3 October 2026, 1 to 4 pm, Clem DuFour Park, 99 Glen Creighton Drive), the Carbon Valley Holiday Festival (5 December 2026, 4 to 6 pm, City Hall), National Night Out (first Tuesday in August), the Citywide Garage Sale (6 June 2026), the Music & Spirits Festival (Centennial Field; no 2027 date yet), the splash pad season. Contact: James Lewis, Community Relations & Event Coordinator. The City's News Flash RSS (RSSFeed.aspx?ModID=1&CID=All) announces events first but is news, not a calendar, and ingest would read nothing from it. Confirmed 5 October 2026 on the owner's word that the choice was the editor's."
+      "notes": "Found and read once on 5 October 2026. The City's index of its own events, one page each, with dates and venues the calendar feed does not carry: Boot Scoot'n Bash (12 June 2026, 5:30 to 9 pm, Centennial Field, free), the Fall Fiesta (3 October 2026, 1 to 4 pm, Clem DuFour Park, 99 Glen Creighton Drive), the Carbon Valley Holiday Festival (5 December 2026, 4 to 6 pm, City Hall), National Night Out (first Tuesday in August), the Citywide Garage Sale (6 June 2026), the Music & Spirits Festival (Centennial Field; no 2027 date yet), the splash pad season. Contact: James Lewis, Community Relations & Event Coordinator. The City's News Flash RSS (RSSFeed.aspx?ModID=1&CID=All) announces events first but is news, not a calendar, and ingest would read nothing from it. Confirmed 5 October 2026 on the owner's word that the choice was the editor's.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
     },
     {
       "id": "daconoco-gov",
@@ -35,7 +37,42 @@
         "City offices closed",
         "Election Day"
       ],
-      "notes": "Found and read once on 5 October 2026. CivicPlus; cityofdacono.com now redirects here. The main calendar (CID 14): 122 items from 7 October 2026 to December 2030, nearly all meetings (Planning and Zoning 83 under two spellings, City Council 28, with \"- canceled\" appended to a called-off one rather than STATUS:CANCELLED, as Longmont does) at City Hall, 512 Cherry Avenue, Building C. The rest: the Veterans Wall of Honor Ceremony (8 November, no venue in the feed), the Carbon Valley Holiday Festival (5 December; the City's page says 4 to 6 pm at City Hall), Election Day and the office closures. The City's community events (Boot Scoot'n Bash in June at Centennial Field, the Fall Fiesta in early October at Clem DuFour Park, National Night Out on the first Tuesday in August, the Citywide Garage Sale in June, the Music & Spirits Festival, whose own calendar CID 32 is empty and whose 2027 date is not yet published) live on pages under /1012/Events-Fun, not on the calendar, so that hub is read by hand (daconoco-gov-events). The server reset the connection three times in forty fetches; each retry answered. robots.txt disallows /rss.aspx, which this does not read. America/Denver times. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Exclusions set 5 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (routine meetings, the court and office closures are not events), at the owner's direction that the sources be settled on the editor's judgment; remove any to have it staged again. What remains after the exclusions on 5 October: the Veterans Wall of Honor Ceremony and the Carbon Valley Holiday Festival."
+      "notes": "Found and read once on 5 October 2026. CivicPlus; cityofdacono.com now redirects here. The main calendar (CID 14): 122 items from 7 October 2026 to December 2030, nearly all meetings (Planning and Zoning 83 under two spellings, City Council 28, with \"- canceled\" appended to a called-off one rather than STATUS:CANCELLED, as Longmont does) at City Hall, 512 Cherry Avenue, Building C. The rest: the Veterans Wall of Honor Ceremony (8 November, no venue in the feed), the Carbon Valley Holiday Festival (5 December; the City's page says 4 to 6 pm at City Hall), Election Day and the office closures. The City's community events (Boot Scoot'n Bash in June at Centennial Field, the Fall Fiesta in early October at Clem DuFour Park, National Night Out on the first Tuesday in August, the Citywide Garage Sale in June, the Music & Spirits Festival, whose own calendar CID 32 is empty and whose 2027 date is not yet published) live on pages under /1012/Events-Fun, not on the calendar, so that hub is read by hand (daconoco-gov-events). The server reset the connection three times in forty fetches; each retry answered. robots.txt disallows /rss.aspx, which this does not read. America/Denver times. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Exclusions set 5 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (routine meetings, the court and office closures are not events), at the owner's direction that the sources be settled on the editor's judgment; remove any to have it staged again. What remains after the exclusions on 5 October: the Veterans Wall of Honor Ceremony and the Carbon Valley Holiday Festival.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
+    },
+    {
+      "id": "fortluptonco-gov",
+      "subTown": "fort-lupton",
+      "name": "City of Fort Lupton: Community Calendar",
+      "url": "https://www.fortluptonco.gov/Calendar.aspx",
+      "feedUrl": "https://www.fortluptonco.gov/RSSFeed.aspx?ModID=58&CID=All-calendar.xml",
+      "sampleUrl": "https://www.fortluptonco.gov/Calendar.aspx?EID=27205",
+      "type": "rss",
+      "category": "city-calendar",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "excludeTitles": [
+        "City Council Meeting",
+        "Planning Commission Meeting",
+        "Town Hall Meeting",
+        "Water Bills Sent",
+        "Water Bills Due",
+        "Water Meters Read",
+        "Late Fees Assessed",
+        "Late Notices Sent",
+        "Court",
+        "SBDC",
+        "Network Power Hour",
+        "Maximize your Business",
+        "Storytime",
+        "Dance & Play",
+        "Makerspace"
+      ],
+      "notes": "Found and read once on 6 October 2026. CivicPlus. The all-calendar RSS returned 13 items (Dance & Play, Makerspace Open Studio, City Council Meeting, Water Bills Sent, Storytime Explorers, Planning Commission Meeting, Pumpkinfest & Hayrides, Town Hall Meeting ...); RSS pubDates are publish dates (Dec 2025), the event dates are in the item bodies. The Calendar.aspx page lists 17 calendars: 14 City Business, 22 Recreation Center Business, 23 Court Schedule, 27 Utility Billing, 28 Community Events, 31 Coyote Creek Golf Course, 32 Library All Events, 33 Fitness, 34 Public Works, 35 Recreation Center Events, 36 Library Business, 38-40 and 42 Library Programs (Babies & PK, Elementary, Teens, Adults), 41 Library Closures, 47 Events & Programs. iCal feeds at /common/modules/iCalendar/iCalendar.aspx?catID=N&feed=calendar were read for 14 (30 VEVENT to 29 Dec 2026, America/Denver, almost all council/planning/utility-billing items at 130 S McKinley Ave plus Winterfest featuring Cookies & Cocoa with Santa), 31 and 35 (both 0 VEVENT), 32 and 47 (see the library entries). The Community Events iCal (catID=28) errored twice from here and was not read; its items (Pumpkinfest & Hayrides) do appear in the all-calendar RSS. The RSS mixes library programs, meetings and utility-billing reminders, so the excludeTitles list is needed; library items duplicate the library feed. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Excluded 7 October 2026 from the launch review: the SBDC's monthly Network Power Hour and its advisor sessions, a networking forum and office hours under the event standard.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
     },
     {
       "id": "firestoneco-gov-special-events",
@@ -49,7 +86,9 @@
       "priority": "core",
       "status": "confirmed",
       "robots": "honor",
-      "notes": "Found and read once on 5 October 2026. The Town's second calendar (CID 26, \"Town of Firestone Special Events\"): 3 items on 5 October, each with a venue and times: School's Out-Standing: Paint the Plows (16 October, 2 to 5 pm, Mountain Shadows Park, 11267 Carbondale Street), Halloween Safe Night (23 October, 5 to 8 pm; the feed says Miners Park, 170 Grant Avenue, the event page /138 says the Firestone Regional Sports Complex, 6850 Tilbury Avenue: check before publishing) and the Carbon Valley Holiday Festival (5 December, noon to 4 pm, Miners Park; a Firestone, Frederick and Dacono collaboration that each town's calendar carries at its own venue and time, so ingest will stage it three times). Its RSS (RSSFeed.aspx?ModID=58&CID=26) was empty. The items also appear in the main calendar above; ingest merges by UID within one feed only, so confirming both means two staged copies of each: confirm this one for the events and the main one only if the meetings are wanted. Left proposed 5 October 2026: its three items are also in the main calendar, which is confirmed; confirming both would stage each twice. Confirmed 6 October 2026 at the owner’s direction (an official Town calendar). Its items also appear in the Town’s main calendar, which is confirmed; ingest matches a staged item from another feed by the same day and a near-identical title, and the dry run after confirmation says how many came through twice."
+      "notes": "Found and read once on 5 October 2026. The Town's second calendar (CID 26, \"Town of Firestone Special Events\"): 3 items on 5 October, each with a venue and times: School's Out-Standing: Paint the Plows (16 October, 2 to 5 pm, Mountain Shadows Park, 11267 Carbondale Street), Halloween Safe Night (23 October, 5 to 8 pm; the feed says Miners Park, 170 Grant Avenue, the event page /138 says the Firestone Regional Sports Complex, 6850 Tilbury Avenue: check before publishing) and the Carbon Valley Holiday Festival (5 December, noon to 4 pm, Miners Park; a Firestone, Frederick and Dacono collaboration that each town's calendar carries at its own venue and time, so ingest will stage it three times). Its RSS (RSSFeed.aspx?ModID=58&CID=26) was empty. The items also appear in the main calendar above; ingest merges by UID within one feed only, so confirming both means two staged copies of each: confirm this one for the events and the main one only if the meetings are wanted. Left proposed 5 October 2026: its three items are also in the main calendar, which is confirmed; confirming both would stage each twice. Confirmed 6 October 2026 at the owner’s direction (an official Town calendar). Its items also appear in the Town’s main calendar, which is confirmed; ingest matches a staged item from another feed by the same day and a near-identical title, and the dry run after confirmation says how many came through twice.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
     },
     {
       "id": "firestoneco-gov",
@@ -70,7 +109,9 @@
         "Town Offices Closed",
         "Tree Limb"
       ],
-      "notes": "Found and read once on 5 October 2026. CivicPlus. The Town's main calendar (CID 33, \"Town of Firestone\"): 45 items from 7 October 2026 to August 2027, a superset of the Special Events calendar below. Most are meetings and the court (Planning & Zoning 20, Municipal Court 6, Board of Trustees 5) and office closures; the rest are the Town's own events: National Coffee with a Cop Day (7 October), Chat with a Trustee (7 October, 4 November, at the Police Department, 9900 Park Avenue), Free Tree Limb Drop-Off (10 October, 7500 County Road 20), Drug Take Back Day, and the three special events. Meetings carry no LOCATION; a few locations hold pasted HTML, which ingest's venue guess will flag. Under the event standard the regular meetings and the court are not events; the editor may exclude their titles as Longmont's registry does. The 2026 special-events lineup (/132/Programs-Events) lists fourteen dates, most of them past: 4th at Firestone (parade down First Street, 4 July), Picnic in the Park (21 August, Peninsula Park), Carbon Valley Kids Day (6 June, Stoneridge Park), the Art & Music Show (17 September to 22 October at the library), Arbor Day, Clean Up Day, the monthly tree-limb drop-offs. robots.txt disallows /RSS.aspx and /CurrentEvents*.aspx, neither of which this reads. America/Denver times. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Exclusions set 5 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (routine meetings, the court and office closures are not events), at the owner's direction that the sources be settled on the editor's judgment; remove any to have it staged again. Confirmed instead of the Special Events calendar because it carries the same three events plus the Town's smaller ones (Coffee with a Cop, Chat with a Trustee, the tree-limb drop-off, Drug Take Back Day). \"Tree Limb\" excluded on 5 October 2026 at the review: the drop-off days are a Town service for residents, not an event."
+      "notes": "Found and read once on 5 October 2026. CivicPlus. The Town's main calendar (CID 33, \"Town of Firestone\"): 45 items from 7 October 2026 to August 2027, a superset of the Special Events calendar below. Most are meetings and the court (Planning & Zoning 20, Municipal Court 6, Board of Trustees 5) and office closures; the rest are the Town's own events: National Coffee with a Cop Day (7 October), Chat with a Trustee (7 October, 4 November, at the Police Department, 9900 Park Avenue), Free Tree Limb Drop-Off (10 October, 7500 County Road 20), Drug Take Back Day, and the three special events. Meetings carry no LOCATION; a few locations hold pasted HTML, which ingest's venue guess will flag. Under the event standard the regular meetings and the court are not events; the editor may exclude their titles as Longmont's registry does. The 2026 special-events lineup (/132/Programs-Events) lists fourteen dates, most of them past: 4th at Firestone (parade down First Street, 4 July), Picnic in the Park (21 August, Peninsula Park), Carbon Valley Kids Day (6 June, Stoneridge Park), the Art & Music Show (17 September to 22 October at the library), Arbor Day, Clean Up Day, the monthly tree-limb drop-offs. robots.txt disallows /RSS.aspx and /CurrentEvents*.aspx, neither of which this reads. America/Denver times. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Exclusions set 5 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (routine meetings, the court and office closures are not events), at the owner's direction that the sources be settled on the editor's judgment; remove any to have it staged again. Confirmed instead of the Special Events calendar because it carries the same three events plus the Town's smaller ones (Coffee with a Cop, Chat with a Trustee, the tree-limb drop-off, Drug Take Back Day). \"Tree Limb\" excluded on 5 October 2026 at the review: the drop-off days are a Town service for residents, not an event.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
     },
     {
       "id": "frederickco-gov",
@@ -84,7 +125,9 @@
       "priority": "core",
       "status": "confirmed",
       "robots": "honor",
-      "notes": "Found and read once on 5 October 2026. CivicPlus, like Lyons, Berthoud, Erie and Johnstown. The Town keeps two public calendars; this is \"Frederick Events Calendar\" (CID 34), the Town-run community events: 2 items on 5 October (Frights on Fifth, 17 October, Downtown Frederick; Festival of Lights, 5 December, Crist Park, 105 Fifth Street), both all-day in the feed where the event pages give times. The iCal reaches further than the CivicPlus RSS (RSSFeed.aspx?ModID=58&CID=34, 1 item, current month only). The Town's signature events (Miners Day in September, Frederick in Flight in June, Chainsaws & Chuckwagons in July, Music in the Park on summer second Wednesdays, the Memorial Day ceremony) each have a page under /234/Events and reach the calendar only as the date nears, so the events page is read by hand as well. www.frederickco.gov/robots.txt is a Cloudflare content-signals stub with no rules; frederickco.gov's (CivicPlus) disallows /RSS.aspx and /CurrentEvents*.aspx, neither of which this reads. America/Denver times. Confirmed 5 October 2026 on the owner's word that the choice was the editor's."
+      "notes": "Found and read once on 5 October 2026. CivicPlus, like Lyons, Berthoud, Erie and Johnstown. The Town keeps two public calendars; this is \"Frederick Events Calendar\" (CID 34), the Town-run community events: 2 items on 5 October (Frights on Fifth, 17 October, Downtown Frederick; Festival of Lights, 5 December, Crist Park, 105 Fifth Street), both all-day in the feed where the event pages give times. The iCal reaches further than the CivicPlus RSS (RSSFeed.aspx?ModID=58&CID=34, 1 item, current month only). The Town's signature events (Miners Day in September, Frederick in Flight in June, Chainsaws & Chuckwagons in July, Music in the Park on summer second Wednesdays, the Memorial Day ceremony) each have a page under /234/Events and reach the calendar only as the date nears, so the events page is read by hand as well. www.frederickco.gov/robots.txt is a Cloudflare content-signals stub with no rules; frederickco.gov's (CivicPlus) disallows /RSS.aspx and /CurrentEvents*.aspx, neither of which this reads. America/Denver times. Confirmed 5 October 2026 on the owner's word that the choice was the editor's.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
     },
     {
       "id": "frederickco-gov-meetings",
@@ -109,7 +152,9 @@
         "Youth Commission",
         "Urban Renewal"
       ],
-      "notes": "Found and read once on 5 October 2026. The Town's second public calendar (CID 38): 77 items to December 2030 on 5 October, every one a board or commission meeting (Board of Trustees regular and work sessions, Planning Commission, Parks, Recreation, Open Space & Trails Commission, Historic Preservation Committee, Frederick Arts Committee, Youth Commission, Urban Renewal Authority), with no LOCATION. The two titles excluded are the calendar's own placeholders (\"One Time Event\" on 31 December 2030, \"Parking Lot for Agenda Items\" on 30 December 2027), not meetings. Under the event standard (docs/AUDIT-2026-10-02.md) routine meetings are not events; whether to confirm this feed at all, or exclude the regular sessions as Longmont's registry does, is the editor's call. The Town's nine other iCal categories (Centennial Park, Crist Park, Frederick Recreation Area, Downtown Activities, each board on its own) were each read once and are empty. Left proposed 5 October 2026: every item is a routine meeting, which the event standard excludes; confirm it only to have the meetings staged. Confirmed 6 October 2026 at the owner’s direction (an official Town calendar). Its routine board and commission meetings are excluded by title under the event standard, as Firestone’s and Dacono’s are, so it stages only what is not a regular meeting; remove an exclusion to have that body’s meetings staged."
+      "notes": "Found and read once on 5 October 2026. The Town's second public calendar (CID 38): 77 items to December 2030 on 5 October, every one a board or commission meeting (Board of Trustees regular and work sessions, Planning Commission, Parks, Recreation, Open Space & Trails Commission, Historic Preservation Committee, Frederick Arts Committee, Youth Commission, Urban Renewal Authority), with no LOCATION. The two titles excluded are the calendar's own placeholders (\"One Time Event\" on 31 December 2030, \"Parking Lot for Agenda Items\" on 30 December 2027), not meetings. Under the event standard (docs/AUDIT-2026-10-02.md) routine meetings are not events; whether to confirm this feed at all, or exclude the regular sessions as Longmont's registry does, is the editor's call. The Town's nine other iCal categories (Centennial Park, Crist Park, Frederick Recreation Area, Downtown Activities, each board on its own) were each read once and are empty. Left proposed 5 October 2026: every item is a routine meeting, which the event standard excludes; confirm it only to have the meetings staged. Confirmed 6 October 2026 at the owner’s direction (an official Town calendar). Its routine board and commission meetings are excluded by title under the event standard, as Firestone’s and Dacono’s are, so it stages only what is not a regular meeting; remove an exclusion to have that body’s meetings staged.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
     },
     {
       "id": "weld-gov",
@@ -121,7 +166,9 @@
       "priority": "core",
       "status": "confirmed",
       "robots": "honor",
-      "notes": "Found and read once on 5 October 2026. Granicus OpenCities (weldgov.com redirects here). The county's events listing filters by location, with Dacono, Firestone and Frederick each a choice, but only through an ASP.NET form post, and neither it, the County Calendar nor an event's own page offers iCal, RSS or JSON. Its 614-line robots.txt disallows several of the sub-calendars (holiday closures, the Health and Environment calendar, the commissioners' hearings calendar, job-seeker events) and allows the listing and the County Calendar. On 5 October the first page (5 to 15 October) had nothing in the three towns. Core as Boulder County is for Niwot and Lyons, but read by a person who sets the location filter; the county's offices and fairgrounds are in Greeley, thirty miles off. Confirmed 5 October 2026 on the owner's word that the choice was the editor's."
+      "notes": "Found and read once on 5 October 2026. Granicus OpenCities (weldgov.com redirects here). The county's events listing filters by location, with Dacono, Firestone and Frederick each a choice, but only through an ASP.NET form post, and neither it, the County Calendar nor an event's own page offers iCal, RSS or JSON. Its 614-line robots.txt disallows several of the sub-calendars (holiday closures, the Health and Environment calendar, the commissioners' hearings calendar, job-seeker events) and allows the listing and the County Calendar. On 5 October the first page (5 to 15 October) had nothing in the three towns. Core as Boulder County is for Niwot and Lyons, but read by a person who sets the location filter; the county's offices and fairgrounds are in Greeley, thirty miles off. Confirmed 5 October 2026 on the owner's word that the choice was the editor's.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
     },
     {
       "id": "carbonvalleychamber-com",
@@ -132,7 +179,24 @@
       "priority": "core",
       "status": "confirmed",
       "robots": "honor",
-      "notes": "Found and read once on 5 October 2026: not readable. Every path on carbonvalleychamber.com, robots.txt included, answers automated requests with HTTP 202 and a SiteGround captcha page, so neither the site's robots rules nor its calendar could be read, and its CMS is unknown; the old GrowthZone calendar at business.carbonvalleychamber.com answers 410 Gone. The chamber is real (Firestone's History page and the Carbon Valley Parks and Recreation District both name it; CVPRD lists its Chamber Open golf tournament on 17 August). The host name is the obvious one and was not confirmed from an official page. Read by a person in a browser, or ask the chamber for its calendar. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. A manual source: confirming it puts it on the weekly check, where it will report blocked until the chamber's site admits readers."
+      "notes": "Found and read once on 5 October 2026: not readable. Every path on carbonvalleychamber.com, robots.txt included, answers automated requests with HTTP 202 and a SiteGround captcha page, so neither the site's robots rules nor its calendar could be read, and its CMS is unknown; the old GrowthZone calendar at business.carbonvalleychamber.com answers 410 Gone. The chamber is real (Firestone's History page and the Carbon Valley Parks and Recreation District both name it; CVPRD lists its Chamber Open golf tournament on 17 August). The host name is the obvious one and was not confirmed from an official page. Read by a person in a browser, or ask the chamber for its calendar. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. A manual source: confirming it puts it on the weekly check, where it will report blocked until the chamber's site admits readers.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
+    },
+    {
+      "id": "fortluptonchamber-org",
+      "subTown": "fort-lupton",
+      "name": "Fort Lupton Chamber of Commerce: Events",
+      "url": "https://business.fortluptonchamber.org/events",
+      "sampleUrl": "https://business.fortluptonchamber.org/events/Details/2026-october-luncheon-1850985?sourceTypeId=Website",
+      "type": "html",
+      "category": "chamber",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "notes": "Found and read once on 6 October 2026. The public site www.fortluptonchamber.org is WordPress (GrowthZone-built; it exposes a WordPress /feed/ for posts, not read) and links to a GrowthZone hub at business.fortluptonchamber.org with two listings: /events (chamber events) and /communityevents. The /events page listed October Luncheon (14 Oct 2026, Weld RE-8 District Office, 200 S. Fulton Avenue), Trick or Treat Street 2026, November Non-Profit Luncheon, Ambassadors meetings, Power Hour (City of Fort Lupton), Women in Business Lunch and Learn, and a 2026 Chamber Vendor Market; the /communityevents page showed a handful of the same items (Trick or Treat Street, Power Hour). No iCal, RSS or JSON link was found in either page's source, so type is html. Phone (303) 857-4474, PO Box 501. The chamber handles Trapper Days parade registration per search results (not verified on a fetched page). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own).",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
     },
     {
       "id": "highplains-libcal-com",
@@ -174,228 +238,9 @@
         "Golden Ponds"
       ],
       "defaultVenue": "Carbon Valley Regional Library",
-      "notes": "Found and read once on 5 October 2026. One branch serves all three towns: 7 Park Avenue, Firestone (Mon to Thu 9 am to 8 pm, Fri and Sat 10 am to 5 pm, Sun 1 to 5 pm, per mylibrary.us/locations-and-hours/). The district's LibCal is the same one the Windsor and Johnstown work found: its public iCal (ical_subscribe.php?src=p&cid=8181) is the district's 500 oldest items, 4 August to 25 September 2026 on 5 October, and no parameter (cal, cm, inc, d, t) narrows it to the branch or moves it forward, re-tested three ways. The district-wide RSS (rss.php?iid=4057&m=month&cid=8181; m=upcoming answers \"invalid mode\") does carry the coming fortnight, 300 items on 5 October of which 19 were at the Carbon Valley Regional Library (Drop-in Chess, English Class, Tween Craft Club, Sketch Club, Page Turner's Book Club), but its dates, times and building are inside each item's description, which the repo's RSS reader does not read (it reads CivicPlus's calendarEvent elements), so ingest would stage nothing from it: reading LibCal RSS would be a new feed reader, which is a feature to ask about. Until then the branch's calendar page, linked above with the building preselected, is read in a browser. robots.txt names a 10-second crawl delay for everyone and disallows the /process_ endpoints the page loads events from, so the page cannot be read by script either. The locationFilter is set for the day a reader exists. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Read as RSS from 5 October 2026: scripts/lib/feeds/rss.ts now reads LibCal's own libcal:date, libcal:time, libcal:location and libcal:campus elements (the district-wide feed covers the coming fortnight or so, 300 items on 5 October), and the locationFilter keeps the branch's. Exclusions set 5 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (routine meetings, the court and office closures are not events), at the owner's direction that the sources be settled on the editor's judgment; remove any to have it staged again. Storytimes, clubs, drop-ins, the English class and the advisory board are excluded; what remains is the one-off programs (a science afternoon, a teen improv session, an adult D&D one-shot, a 3D-modelling class). The feed marks a called-off session by prefixing \"Cancelled:\" to the title, as Longmont's does. The branch is in Firestone, so staged items carry subTown firestone. Excluded on 5 October 2026 at the review: \"Let’s Draw!\" and \"Science Fun\", monthly after-school sessions for elementary pupils (a class in all but name, under the event standard). \"Ageless Grace\" was already excluded; its cancelled session reached staging because the feed wrote a non-breaking space in the title, which the readers now treat as a space. Feed narrowed on 5 October 2026 to the branch with cam=4554 (the calendar's own building filter): 62 items, all at Carbon Valley, reaching about a month ahead where the district feed's 300 reach a fortnight. The locationFilter stays as a guard. Further exclusions on 5 October 2026, with the branch feed: the baby storytime (Twinkle Babies), the job-help drop-in, the legal clinic, Library 101, the monthly Paws to Read, make-and-take craft classes (Cricut, tote bags, looming), as Longmont excludes them, and the bird walk at Golden Ponds, which is in Longmont."
-    },
-    {
-      "id": "cvprd-com",
-      "name": "Carbon Valley Parks and Recreation District",
-      "url": "https://www.cvprd.com/special-events",
-      "sampleUrl": "https://www.cvprd.com/active-adults-special-events",
-      "type": "html",
-      "category": "parks",
-      "priority": "core",
-      "status": "confirmed",
-      "robots": "honor",
-      "notes": "Found and read once on 5 October 2026. The special district (established 1983, 45 square miles: Dacono, Firestone, Frederick and the country between) that runs the Carbon Valley Recreation Center, 701 Fifth Street, Frederick, the Community (Active Adults) Center and the Gymnastics Center, and the recreation programming for all three towns. Streamline (CivicPlus) site with no events module, no calendar page and no feed; the Special Events page is a hand-written list (\"2026 Schedule of Events\": Carbon Valley Kids Day 6 June in Firestone, Boot Scoot'n Bash 12 June in Dacono, the Chamber Open 17 August, Miners Day 19 September in Frederick, Zumba Glow Party 16 October, Eye of Freedom Encounter 28 October, Harvest & Holly Market 15 November 11 am to 3 pm at the Recreation Center, Burn the Bird Fitness Party 27 November) and the Active Adults page another (Senior Resource Fair, Empty Bowls Painting Party 12 October). Programs register through CivicRec (secure.rec1.com), which has no feed. The monthly Rec Connect newsletter PDF (/rec-connect-newsletter) is the fullest schedule. robots.txt allows everything but the SEO bots. Read by hand; each event's subTown is where it is held, not the district. Confirmed 5 October 2026 on the owner's word that the choice was the editor's."
-    },
-    {
-      "id": "daconoco-gov-parks",
-      "subTown": "dacono",
-      "name": "City of Dacono: Parks and Trails",
-      "url": "https://www.daconoco.gov/942/City-Parks",
-      "sampleUrl": "https://www.daconoco.gov/499/Trails",
-      "type": "html",
-      "category": "parks",
-      "priority": "core",
-      "status": "confirmed",
-      "robots": "honor",
-      "notes": "Found and read once on 5 October 2026. The City's parks page names the pocket parks and the splash pad at Clem DuFour Park (open Memorial Day to Labor Day; the pavilion is rentable, 303-833-2317 ext. 120) and no others by address; the Trails page describes the Legacy Trail's first alignment with its trailhead at Colorado 52 and Colorado Boulevard; City Center Community Park is a plan, not a park. No calendar: recreation programming for Dacono is the district's (cvprd-com), and the City's own events are on Events & Fun. Centennial Field, the festival venue, has no page or street address on the City site. Confirmed 5 October 2026 on the owner's word that the choice was the editor's."
-    },
-    {
-      "id": "firestoneco-gov-parks",
-      "subTown": "firestone",
-      "name": "Town of Firestone: Parks and Trails",
-      "url": "https://www.firestoneco.gov/568/Parks-Trails",
-      "sampleUrl": "https://www.firestoneco.gov/Facilities/Facility/PrepopulatedSearch?isReservableOnly=false&categoryIDs=2",
-      "type": "html",
-      "category": "parks",
-      "priority": "core",
-      "status": "confirmed",
-      "robots": "honor",
-      "notes": "Found and read once on 5 October 2026. The Town's parks page (shelter permits, the ArcGIS parks and trails map, the POST master plan, the Mountain Shadows Bike Park and Pump Track, a link to St. Vrain State Park) and its facilities directory (Firestone Regional Sports Complex, the Central Park disc golf course, Town Hall). No calendar of its own: park events are on the Town calendars above. The 12-mile Firestone Trail on the old coal railbed and Miners Park (170 Grant Avenue) have no page of their own on the Town site; the History page (/281) describes the trail. Recreation programming is the district's (cvprd-com). Confirmed 5 October 2026 on the owner's word that the choice was the editor's."
-    },
-    {
-      "id": "frederickco-gov-parks",
-      "subTown": "frederick",
-      "name": "Town of Frederick: Parks, Open Space and Trails",
-      "url": "https://www.frederickco.gov/972/Parks-and-Open-Space",
-      "sampleUrl": "https://www.frederickco.gov/Facilities",
-      "type": "html",
-      "category": "parks",
-      "priority": "core",
-      "status": "confirmed",
-      "robots": "honor",
-      "notes": "Found and read once on 5 October 2026. The Town's Parks, Open Space and Trails Division (Town-owned parks, open space, trails) and Golf Division (Bella Rosa Golf Course, the Frederick Recreation Area). No calendar of its own: park events go on the Frederick Events Calendar above, and recreation programming for Frederick is the Carbon Valley Parks and Recreation District's (cvprd-com). The facilities directory lists the parks (Centennial Park, 630 Eighth Street; Crist Park, 105 Fifth Street; Coalridge, Confluence, Countryside, Bulrush Open Space, the skate park at the Frederick Recreation Area); its later pages load by script, so read it in a browser. Confirmed 5 October 2026 on the owner's word that the choice was the editor's."
-    },
-    {
-      "id": "daconoco-gov-police",
-      "subTown": "dacono",
-      "name": "City of Dacono: Police Department calendar",
-      "url": "https://www.daconoco.gov/1242/Police-Department",
-      "feedUrl": "https://www.daconoco.gov/common/modules/iCalendar/iCalendar.aspx?catID=29&feed=calendar",
-      "sampleUrl": "https://www.daconoco.gov/768/Community-Programs-Events",
-      "type": "ical",
-      "category": "city-calendar",
-      "status": "proposed",
-      "robots": "honor",
-      "notes": "Found and read once on 5 October 2026. The department's own calendar (CID 29): 2 items (National Fire Prevention Week, 4 to 10 October; National Law Enforcement Day, 9 January 2027), neither an event a reader attends. Its community programs page lists National Night Out, Santa Cops and the drug take-back, which are on the Events & Fun pages. Not core; here so the editor knows it exists. Left proposed: neither item is an event a reader attends."
-    },
-    {
-      "id": "cpw-state-co-us",
-      "subTown": "firestone",
-      "name": "Colorado Parks and Wildlife: St. Vrain State Park",
-      "url": "https://cpw.state.co.us/state-parks/st-vrain-state-park",
-      "sampleUrl": "https://cpw.state.co.us/state-parks/st-vrain-state-park",
-      "type": "manual",
-      "category": "venue",
-      "status": "proposed",
-      "robots": "honor",
-      "notes": "Found and read once on 5 October 2026: the park page answered 200 (3785 Weld County Road 24 1/2, Firestone, 303-678-9402; ten ponds open to the public, four miles of easy trails, two campgrounds open year-round; the only state park inside a Colorado town's limits, per the Town). CPW's events pages (/events, the park's own event listings) answer automated requests with a Cloudflare 403, so the park's programs are read by a person in a browser. The park itself is a place listing; this entry is for its events."
-    },
-    {
-      "id": "longmontleader-com",
-      "name": "Longmont Leader",
-      "url": "https://www.longmontleader.com/local-news",
-      "sampleUrl": "https://www.longmontleader.com/rss",
-      "type": "html",
-      "category": "news",
-      "status": "proposed",
-      "robots": "honor",
-      "notes": "Found and read once on 5 October 2026. Village Media; robots.txt allows everything. Site-wide RSS at /rss (20 items a page, paginated) and an Events section feed at /rss/colorado/events (20 items, press-release style); neither mentioned Frederick, Firestone, Dacono or Carbon Valley on 5 October, and a news feed carries no event dates for ingest to read. For the editor's reading, not the pipeline."
-    },
-    {
-      "id": "timescall-com",
-      "name": "Longmont Times-Call: Carbon Valley tag",
-      "url": "https://www.timescall.com/tag/carbon-valley/",
-      "type": "manual",
-      "category": "news",
-      "status": "proposed",
-      "robots": "honor",
-      "notes": "Found and read once on 5 October 2026, by hand only. The paper covers the three towns under a Carbon Valley tag (4 October: \"Dacono cancels City Council election, reelects two members\"; \"Colo. 52 to close for construction east of I-25\"). Its main feed (/feed/) answers our user agent 403, which the repo treats as a site that blocks automated reads, and its robots.txt header forbids text and data mining and commercial reuse; the tag feed happened to answer 200 in the same batch and is not used. Link, never fetch. The Greeley Tribune (Weld County's paper) answered the same way."
-    },
-    {
-      "id": "fortluptonco-gov",
-      "subTown": "fort-lupton",
-      "name": "City of Fort Lupton: Community Calendar",
-      "url": "https://www.fortluptonco.gov/Calendar.aspx",
-      "feedUrl": "https://www.fortluptonco.gov/RSSFeed.aspx?ModID=58&CID=All-calendar.xml",
-      "sampleUrl": "https://www.fortluptonco.gov/Calendar.aspx?EID=27205",
-      "type": "rss",
-      "category": "city-calendar",
-      "priority": "core",
-      "status": "confirmed",
-      "robots": "honor",
-      "excludeTitles": [
-        "City Council Meeting",
-        "Planning Commission Meeting",
-        "Town Hall Meeting",
-        "Water Bills Sent",
-        "Water Bills Due",
-        "Water Meters Read",
-        "Late Fees Assessed",
-        "Late Notices Sent",
-        "Court",
-        "SBDC",
-        "Network Power Hour",
-        "Maximize your Business",
-        "Storytime",
-        "Dance & Play",
-        "Makerspace"
-      ],
-      "notes": "Found and read once on 6 October 2026. CivicPlus. The all-calendar RSS returned 13 items (Dance & Play, Makerspace Open Studio, City Council Meeting, Water Bills Sent, Storytime Explorers, Planning Commission Meeting, Pumpkinfest & Hayrides, Town Hall Meeting ...); RSS pubDates are publish dates (Dec 2025), the event dates are in the item bodies. The Calendar.aspx page lists 17 calendars: 14 City Business, 22 Recreation Center Business, 23 Court Schedule, 27 Utility Billing, 28 Community Events, 31 Coyote Creek Golf Course, 32 Library All Events, 33 Fitness, 34 Public Works, 35 Recreation Center Events, 36 Library Business, 38-40 and 42 Library Programs (Babies & PK, Elementary, Teens, Adults), 41 Library Closures, 47 Events & Programs. iCal feeds at /common/modules/iCalendar/iCalendar.aspx?catID=N&feed=calendar were read for 14 (30 VEVENT to 29 Dec 2026, America/Denver, almost all council/planning/utility-billing items at 130 S McKinley Ave plus Winterfest featuring Cookies & Cocoa with Santa), 31 and 35 (both 0 VEVENT), 32 and 47 (see the library entries). The Community Events iCal (catID=28) errored twice from here and was not read; its items (Pumpkinfest & Hayrides) do appear in the all-calendar RSS. The RSS mixes library programs, meetings and utility-billing reminders, so the excludeTitles list is needed; library items duplicate the library feed. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Excluded 7 October 2026 from the launch review: the SBDC's monthly Network Power Hour and its advisor sessions, a networking forum and office hours under the event standard."
-    },
-    {
-      "id": "fortluptonchamber-org",
-      "subTown": "fort-lupton",
-      "name": "Fort Lupton Chamber of Commerce: Events",
-      "url": "https://business.fortluptonchamber.org/events",
-      "sampleUrl": "https://business.fortluptonchamber.org/events/Details/2026-october-luncheon-1850985?sourceTypeId=Website",
-      "type": "html",
-      "category": "chamber",
-      "priority": "core",
-      "status": "confirmed",
-      "robots": "honor",
-      "notes": "Found and read once on 6 October 2026. The public site www.fortluptonchamber.org is WordPress (GrowthZone-built; it exposes a WordPress /feed/ for posts, not read) and links to a GrowthZone hub at business.fortluptonchamber.org with two listings: /events (chamber events) and /communityevents. The /events page listed October Luncheon (14 Oct 2026, Weld RE-8 District Office, 200 S. Fulton Avenue), Trick or Treat Street 2026, November Non-Profit Luncheon, Ambassadors meetings, Power Hour (City of Fort Lupton), Women in Business Lunch and Learn, and a 2026 Chamber Vendor Market; the /communityevents page showed a handful of the same items (Trick or Treat Street, Power Hour). No iCal, RSS or JSON link was found in either page's source, so type is html. Phone (303) 857-4474, PO Box 501. The chamber handles Trapper Days parade registration per search results (not verified on a fetched page). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
-    },
-    {
-      "id": "fortluptonco-gov-library",
-      "subTown": "fort-lupton",
-      "name": "Fort Lupton Public & School Library: All Events",
-      "url": "https://www.fortluptonco.gov/1397/Public-School-Library",
-      "feedUrl": "https://www.fortluptonco.gov/common/modules/iCalendar/iCalendar.aspx?catID=32&feed=calendar",
-      "sampleUrl": "https://www.fortluptonco.gov/Calendar.aspx?EID=27205",
-      "type": "ical",
-      "category": "library",
-      "priority": "core",
-      "status": "confirmed",
-      "robots": "honor",
-      "defaultVenue": "Fort Lupton Public & School Library",
-      "notes": "Found and read once on 6 October 2026. The library is a City of Fort Lupton department on the same CivicPlus host (370 S Rollie Ave, 303-339-4089; nav also links High Plains Library District). Its calendar 32 (Library All Events) iCal returned 54 VEVENT, 2 RRULE, dates to 29 December 2026, America/Denver, with structured locations such as 'Library > Both Community Room 1 & 2 - 370 S. Rollie Ave. Fort Lupton CO 80621' and 'Library > Makerspace'. Sample titles: Dance & Play, Makerspace Open Studio, Storytime Explorers, SBDC Network Power Hour. Sub-calendars exist for Adults (42), Babies & PK (38), Elementary (39), Teens (40), Library Business (36) and Library Closures (41) but were not read; use 32 and exclude Closures/Business titles if they appear. The library page also posts program news (Level Up!, Spooktacular October, Loteria Mexicana, Cereal, Centers & Stories, StoryWalk at Community Center Park). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Title exclusions added 6 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, regular classes and open hours go on the venue’s listing as a Regulars line; routine meetings are not events); remove any to have it staged again. Excluded 7 October 2026 from the launch review: the library calendar's copy of the City's Pumpkinfest (published from the City's own page), and the weekly Dance & Play, Makerspace Open Studio and Storytime Explorers.",
-      "excludeTitles": [
-        "Makerspace Open Studio",
-        "Dance & Play",
-        "Storytime",
-        "Pumpkinfest",
-        "Makerspace",
-        "Storytime Explorers",
-        "SBDC",
-        "Network Power Hour",
-        "Maximize your Business"
-      ]
-    },
-    {
-      "id": "fortluptonco-gov-parks",
-      "subTown": "fort-lupton",
-      "name": "City of Fort Lupton: Parks & Recreation / Recreation Center",
-      "url": "https://www.fortluptonco.gov/1012/Parks-Recreation",
-      "type": "html",
-      "category": "parks",
-      "priority": "core",
-      "status": "confirmed",
-      "robots": "honor",
-      "defaultVenue": "Fort Lupton Recreation Center",
-      "notes": "Found and read once on 6 October 2026 (first attempt errored, second succeeded). CivicPlus department page with sections About Us, Parks, Active Adults, Aquatics, Sports, Fitness, Special Interests, Online Registration, Activity Guide, Rentals, Fitness Schedule, Events; it embeds the same General/City Business/Community Events calendar widgets as the home page. The Recreation Center Events iCal (catID=35) and Coyote Creek Golf Course iCal (catID=31) both returned 0 VEVENT, and Recreation Center Business (22) and Fitness (33) were not read, so there is no usable rec feed today; recreation events (Coffee with a Cop in the Recreation Center Multi-Purpose room, Pumpkinfest at the Fort, Fix It Fort Lupton day of service) surface through city news and the all-calendar RSS instead. Parks named on city pages: Sam Koshio Memorial Park (First Street and McKinley, under renovation) and Community Center Park. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
-    },
-    {
-      "id": "fortluptonco-gov-museum",
-      "subTown": "fort-lupton",
-      "name": "Fort Lupton City Museum",
-      "url": "https://www.fortluptonco.gov/157/Museum",
-      "type": "html",
-      "category": "venue",
-      "priority": "core",
-      "status": "confirmed",
-      "robots": "honor",
-      "defaultVenue": "Fort Lupton City Museum",
-      "notes": "Found and read once on 6 October 2026. City-run museum in the 1929 former library building; the page has General Information, Exhibits & Special Events and Free Resources sections and a 'View our Upcoming Events Here!' link to the city calendar, so its programs would arrive through the city calendar rather than a separate feed. Search results (not verified on a fetched page) give 453 1st St, 303-857-1634, Wed-Fri 10-3, and recurring Sip and Chat Tea Time (4th Thursday) and Cuentitos Spanish storytime (3rd Thursday, with the library). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
-    },
-    {
-      "id": "saltandacres-com",
-      "subTown": "fort-lupton",
-      "name": "Salt & Acres: Calendar & Events",
-      "url": "https://saltandacres.com/pages/calendar",
-      "sampleUrl": "https://saltandacres.com/blogs/events-at-the-acres",
-      "type": "html",
-      "category": "venue",
-      "priority": "core",
-      "status": "confirmed",
-      "robots": "honor",
-      "defaultVenue": "Salt & Acres",
-      "notes": "Found and read once on 6 October 2026. Shopify site for a winery/tasting room and event venue outside Fort Lupton (search results give 9490 County Road 25; not verified on a fetched page). The calendar page listed Adam Doleac concert (17 Oct 2026, Colorado Paradise Concert Series, ticketed via Universe), Secret Supper No. 5, and the Annual Harvest Fest/Harvest Market 2-4 Oct 2026 (Eventbrite), and embeds a Google Calendar, id c_32a40da05611b4d1516d9328f051adbdb41a0b83802e416273a99b801eaaefd6@group.calendar.google.com (America/Denver); calendar.google.com not fetched (robots disallows agents). No Shopify RSS for events was found (the /blogs/events-at-the-acres blog would have an .atom feed by Shopify convention but it was not read). Mostly ticketed and private events; useful for the handful of public concerts and markets. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
-    },
-    {
-      "id": "spvhs-org",
-      "subTown": "fort-lupton",
-      "name": "South Platte Valley Historical Society: Historic Park calendar",
-      "url": "https://www.spvhs.org/calendar.html",
-      "sampleUrl": "https://spvhs.org/",
-      "type": "html",
-      "category": "venue",
-      "priority": "core",
-      "status": "confirmed",
-      "robots": "honor",
-      "defaultVenue": "South Platte Valley Historic Park",
-      "notes": "Found and read once on 6 October 2026. Weebly site for the society that rebuilt Lupton's Fort at the South Platte Valley Historic Park (north side of Fort Lupton; open first and third weekends May-October 2026, 10-4). Annual events listed in the nav: Teas, Frozen Toes Rendezvous, Heritage Fair, Lancaster Rendezvous & Mountain Man University, Trapper Days Rendezvous (weekend after Labor Day, alongside the city's Trapper Days), Hunter Widow's Rendezvous, Colonial Encampment, TRT Camp Outs, Special Events. The calendar page embeds a Google Calendar, id spvhs.org_k06rja30j23skfe5kkbu9vr32k@group.calendar.google.com (ctz America/Denver); calendar.google.com was not fetched because its robots.txt disallows agents, so type stays html and the embed id is recorded for the owner. The city's 'Pumpkinfest at the Fort' (10 Oct 2026) likely uses this park but that was not confirmed on a fetched page. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+      "notes": "Found and read once on 5 October 2026. One branch serves all three towns: 7 Park Avenue, Firestone (Mon to Thu 9 am to 8 pm, Fri and Sat 10 am to 5 pm, Sun 1 to 5 pm, per mylibrary.us/locations-and-hours/). The district's LibCal is the same one the Windsor and Johnstown work found: its public iCal (ical_subscribe.php?src=p&cid=8181) is the district's 500 oldest items, 4 August to 25 September 2026 on 5 October, and no parameter (cal, cm, inc, d, t) narrows it to the branch or moves it forward, re-tested three ways. The district-wide RSS (rss.php?iid=4057&m=month&cid=8181; m=upcoming answers \"invalid mode\") does carry the coming fortnight, 300 items on 5 October of which 19 were at the Carbon Valley Regional Library (Drop-in Chess, English Class, Tween Craft Club, Sketch Club, Page Turner's Book Club), but its dates, times and building are inside each item's description, which the repo's RSS reader does not read (it reads CivicPlus's calendarEvent elements), so ingest would stage nothing from it: reading LibCal RSS would be a new feed reader, which is a feature to ask about. Until then the branch's calendar page, linked above with the building preselected, is read in a browser. robots.txt names a 10-second crawl delay for everyone and disallows the /process_ endpoints the page loads events from, so the page cannot be read by script either. The locationFilter is set for the day a reader exists. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Read as RSS from 5 October 2026: scripts/lib/feeds/rss.ts now reads LibCal's own libcal:date, libcal:time, libcal:location and libcal:campus elements (the district-wide feed covers the coming fortnight or so, 300 items on 5 October), and the locationFilter keeps the branch's. Exclusions set 5 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (routine meetings, the court and office closures are not events), at the owner's direction that the sources be settled on the editor's judgment; remove any to have it staged again. Storytimes, clubs, drop-ins, the English class and the advisory board are excluded; what remains is the one-off programs (a science afternoon, a teen improv session, an adult D&D one-shot, a 3D-modelling class). The feed marks a called-off session by prefixing \"Cancelled:\" to the title, as Longmont's does. The branch is in Firestone, so staged items carry subTown firestone. Excluded on 5 October 2026 at the review: \"Let’s Draw!\" and \"Science Fun\", monthly after-school sessions for elementary pupils (a class in all but name, under the event standard). \"Ageless Grace\" was already excluded; its cancelled session reached staging because the feed wrote a non-breaking space in the title, which the readers now treat as a space. Feed narrowed on 5 October 2026 to the branch with cam=4554 (the calendar's own building filter): 62 items, all at Carbon Valley, reaching about a month ahead where the district feed's 300 reach a fortnight. The locationFilter stays as a guard. Further exclusions on 5 October 2026, with the branch feed: the baby storytime (Twinkle Babies), the job-help drop-in, the legal clinic, Library 101, the monthly Paws to Read, make-and-take craft classes (Cricut, tote bags, looming), as Longmont excludes them, and the bird walk at Golden Ponds, which is in Longmont.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
     },
     {
       "id": "highplains-libcal-com-fort-lupton",
@@ -442,7 +287,171 @@
         "Maximize your Business"
       ],
       "defaultVenue": "Fort Lupton Public & School Library",
-      "notes": "Added 7 October 2026 at the owner's direction. The launch review found the library's real program calendar is the High Plains Library District's LibCal, building filter cam=7846, linked from the library's own Calendars page; the City's library iCal (fortluptonco-gov-library, catID 32) carries almost none of its one-off programs. Read by the same LibCal branch of scripts/lib/feeds/rss.ts as Carbon Valley's. robots.txt asks a 10-second crawl delay. Exclusions from the event standard (storytimes, open studio hours, drop-ins, clubs, classes), as Carbon Valley's; remove any to have it staged again. Some events are held off-site (Teen Laser Tag at the high school library, 425 S Denver Ave); the review corrects the venue. A first run in a scratch copy on 7 October staged 61 items; the regulars among them (Cuentitos and the other storytimes, the English hour, the teen LEGO and video-game afternoons, the middle-school hangout, book discussions, the career class, Library2Go stops, the LIFE program, the craft group, the weekly Level Up! sessions, the board meeting, the Banned Books pop-up, and the bingo-style ¡Lotería!, not the Posada celebration that includes it) are excluded here."
+      "notes": "Added 7 October 2026 at the owner's direction. The launch review found the library's real program calendar is the High Plains Library District's LibCal, building filter cam=7846, linked from the library's own Calendars page; the City's library iCal (fortluptonco-gov-library, catID 32) carries almost none of its one-off programs. Read by the same LibCal branch of scripts/lib/feeds/rss.ts as Carbon Valley's. robots.txt asks a 10-second crawl delay. Exclusions from the event standard (storytimes, open studio hours, drop-ins, clubs, classes), as Carbon Valley's; remove any to have it staged again. Some events are held off-site (Teen Laser Tag at the high school library, 425 S Denver Ave); the review corrects the venue. A first run in a scratch copy on 7 October staged 61 items; the regulars among them (Cuentitos and the other storytimes, the English hour, the teen LEGO and video-game afternoons, the middle-school hangout, book discussions, the career class, Library2Go stops, the LIFE program, the craft group, the weekly Level Up! sessions, the board meeting, the Banned Books pop-up, and the bingo-style ¡Lotería!, not the Posada celebration that includes it) are excluded here.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
+    },
+    {
+      "id": "fortluptonco-gov-library",
+      "subTown": "fort-lupton",
+      "name": "Fort Lupton Public & School Library: All Events",
+      "url": "https://www.fortluptonco.gov/1397/Public-School-Library",
+      "feedUrl": "https://www.fortluptonco.gov/common/modules/iCalendar/iCalendar.aspx?catID=32&feed=calendar",
+      "sampleUrl": "https://www.fortluptonco.gov/Calendar.aspx?EID=27205",
+      "type": "ical",
+      "category": "library",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "excludeTitles": [
+        "Makerspace Open Studio",
+        "Dance & Play",
+        "Storytime",
+        "Pumpkinfest",
+        "Makerspace",
+        "Storytime Explorers",
+        "SBDC",
+        "Network Power Hour",
+        "Maximize your Business"
+      ],
+      "defaultVenue": "Fort Lupton Public & School Library",
+      "notes": "Found and read once on 6 October 2026. The library is a City of Fort Lupton department on the same CivicPlus host (370 S Rollie Ave, 303-339-4089; nav also links High Plains Library District). Its calendar 32 (Library All Events) iCal returned 54 VEVENT, 2 RRULE, dates to 29 December 2026, America/Denver, with structured locations such as 'Library > Both Community Room 1 & 2 - 370 S. Rollie Ave. Fort Lupton CO 80621' and 'Library > Makerspace'. Sample titles: Dance & Play, Makerspace Open Studio, Storytime Explorers, SBDC Network Power Hour. Sub-calendars exist for Adults (42), Babies & PK (38), Elementary (39), Teens (40), Library Business (36) and Library Closures (41) but were not read; use 32 and exclude Closures/Business titles if they appear. The library page also posts program news (Level Up!, Spooktacular October, Loteria Mexicana, Cereal, Centers & Stories, StoryWalk at Community Center Park). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Title exclusions added 6 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, regular classes and open hours go on the venue’s listing as a Regulars line; routine meetings are not events); remove any to have it staged again. Excluded 7 October 2026 from the launch review: the library calendar's copy of the City's Pumpkinfest (published from the City's own page), and the weekly Dance & Play, Makerspace Open Studio and Storytime Explorers.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
+    },
+    {
+      "id": "cvprd-com",
+      "name": "Carbon Valley Parks and Recreation District",
+      "url": "https://www.cvprd.com/special-events",
+      "sampleUrl": "https://www.cvprd.com/active-adults-special-events",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "notes": "Found and read once on 5 October 2026. The special district (established 1983, 45 square miles: Dacono, Firestone, Frederick and the country between) that runs the Carbon Valley Recreation Center, 701 Fifth Street, Frederick, the Community (Active Adults) Center and the Gymnastics Center, and the recreation programming for all three towns. Streamline (CivicPlus) site with no events module, no calendar page and no feed; the Special Events page is a hand-written list (\"2026 Schedule of Events\": Carbon Valley Kids Day 6 June in Firestone, Boot Scoot'n Bash 12 June in Dacono, the Chamber Open 17 August, Miners Day 19 September in Frederick, Zumba Glow Party 16 October, Eye of Freedom Encounter 28 October, Harvest & Holly Market 15 November 11 am to 3 pm at the Recreation Center, Burn the Bird Fitness Party 27 November) and the Active Adults page another (Senior Resource Fair, Empty Bowls Painting Party 12 October). Programs register through CivicRec (secure.rec1.com), which has no feed. The monthly Rec Connect newsletter PDF (/rec-connect-newsletter) is the fullest schedule. robots.txt allows everything but the SEO bots. Read by hand; each event's subTown is where it is held, not the district. Confirmed 5 October 2026 on the owner's word that the choice was the editor's.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
+    },
+    {
+      "id": "daconoco-gov-parks",
+      "subTown": "dacono",
+      "name": "City of Dacono: Parks and Trails",
+      "url": "https://www.daconoco.gov/942/City-Parks",
+      "sampleUrl": "https://www.daconoco.gov/499/Trails",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "notes": "Found and read once on 5 October 2026. The City's parks page names the pocket parks and the splash pad at Clem DuFour Park (open Memorial Day to Labor Day; the pavilion is rentable, 303-833-2317 ext. 120) and no others by address; the Trails page describes the Legacy Trail's first alignment with its trailhead at Colorado 52 and Colorado Boulevard; City Center Community Park is a plan, not a park. No calendar: recreation programming for Dacono is the district's (cvprd-com), and the City's own events are on Events & Fun. Centennial Field, the festival venue, has no page or street address on the City site. Confirmed 5 October 2026 on the owner's word that the choice was the editor's.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
+    },
+    {
+      "id": "fortluptonco-gov-parks",
+      "subTown": "fort-lupton",
+      "name": "City of Fort Lupton: Parks & Recreation / Recreation Center",
+      "url": "https://www.fortluptonco.gov/1012/Parks-Recreation",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "defaultVenue": "Fort Lupton Recreation Center",
+      "notes": "Found and read once on 6 October 2026 (first attempt errored, second succeeded). CivicPlus department page with sections About Us, Parks, Active Adults, Aquatics, Sports, Fitness, Special Interests, Online Registration, Activity Guide, Rentals, Fitness Schedule, Events; it embeds the same General/City Business/Community Events calendar widgets as the home page. The Recreation Center Events iCal (catID=35) and Coyote Creek Golf Course iCal (catID=31) both returned 0 VEVENT, and Recreation Center Business (22) and Fitness (33) were not read, so there is no usable rec feed today; recreation events (Coffee with a Cop in the Recreation Center Multi-Purpose room, Pumpkinfest at the Fort, Fix It Fort Lupton day of service) surface through city news and the all-calendar RSS instead. Parks named on city pages: Sam Koshio Memorial Park (First Street and McKinley, under renovation) and Community Center Park. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own).",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
+    },
+    {
+      "id": "firestoneco-gov-parks",
+      "subTown": "firestone",
+      "name": "Town of Firestone: Parks and Trails",
+      "url": "https://www.firestoneco.gov/568/Parks-Trails",
+      "sampleUrl": "https://www.firestoneco.gov/Facilities/Facility/PrepopulatedSearch?isReservableOnly=false&categoryIDs=2",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "notes": "Found and read once on 5 October 2026. The Town's parks page (shelter permits, the ArcGIS parks and trails map, the POST master plan, the Mountain Shadows Bike Park and Pump Track, a link to St. Vrain State Park) and its facilities directory (Firestone Regional Sports Complex, the Central Park disc golf course, Town Hall). No calendar of its own: park events are on the Town calendars above. The 12-mile Firestone Trail on the old coal railbed and Miners Park (170 Grant Avenue) have no page of their own on the Town site; the History page (/281) describes the trail. Recreation programming is the district's (cvprd-com). Confirmed 5 October 2026 on the owner's word that the choice was the editor's.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
+    },
+    {
+      "id": "frederickco-gov-parks",
+      "subTown": "frederick",
+      "name": "Town of Frederick: Parks, Open Space and Trails",
+      "url": "https://www.frederickco.gov/972/Parks-and-Open-Space",
+      "sampleUrl": "https://www.frederickco.gov/Facilities",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "notes": "Found and read once on 5 October 2026. The Town's Parks, Open Space and Trails Division (Town-owned parks, open space, trails) and Golf Division (Bella Rosa Golf Course, the Frederick Recreation Area). No calendar of its own: park events go on the Frederick Events Calendar above, and recreation programming for Frederick is the Carbon Valley Parks and Recreation District's (cvprd-com). The facilities directory lists the parks (Centennial Park, 630 Eighth Street; Crist Park, 105 Fifth Street; Coalridge, Confluence, Countryside, Bulrush Open Space, the skate park at the Frederick Recreation Area); its later pages load by script, so read it in a browser. Confirmed 5 October 2026 on the owner's word that the choice was the editor's.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
+    },
+    {
+      "id": "fortluptonco-gov-museum",
+      "subTown": "fort-lupton",
+      "name": "Fort Lupton City Museum",
+      "url": "https://www.fortluptonco.gov/157/Museum",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "defaultVenue": "Fort Lupton City Museum",
+      "notes": "Found and read once on 6 October 2026. City-run museum in the 1929 former library building; the page has General Information, Exhibits & Special Events and Free Resources sections and a 'View our Upcoming Events Here!' link to the city calendar, so its programs would arrive through the city calendar rather than a separate feed. Search results (not verified on a fetched page) give 453 1st St, 303-857-1634, Wed-Fri 10-3, and recurring Sip and Chat Tea Time (4th Thursday) and Cuentitos Spanish storytime (3rd Thursday, with the library). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own).",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
+    },
+    {
+      "id": "saltandacres-com",
+      "subTown": "fort-lupton",
+      "name": "Salt & Acres: Calendar & Events",
+      "url": "https://saltandacres.com/pages/calendar",
+      "sampleUrl": "https://saltandacres.com/blogs/events-at-the-acres",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "defaultVenue": "Salt & Acres",
+      "notes": "Found and read once on 6 October 2026. Shopify site for a winery/tasting room and event venue outside Fort Lupton (search results give 9490 County Road 25; not verified on a fetched page). The calendar page listed Adam Doleac concert (17 Oct 2026, Colorado Paradise Concert Series, ticketed via Universe), Secret Supper No. 5, and the Annual Harvest Fest/Harvest Market 2-4 Oct 2026 (Eventbrite), and embeds a Google Calendar, id c_32a40da05611b4d1516d9328f051adbdb41a0b83802e416273a99b801eaaefd6@group.calendar.google.com (America/Denver); calendar.google.com not fetched (robots disallows agents). No Shopify RSS for events was found (the /blogs/events-at-the-acres blog would have an .atom feed by Shopify convention but it was not read). Mostly ticketed and private events; useful for the handful of public concerts and markets. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own).",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
+    },
+    {
+      "id": "spvhs-org",
+      "subTown": "fort-lupton",
+      "name": "South Platte Valley Historical Society: Historic Park calendar",
+      "url": "https://www.spvhs.org/calendar.html",
+      "sampleUrl": "https://spvhs.org/",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "confirmed",
+      "robots": "honor",
+      "defaultVenue": "South Platte Valley Historic Park",
+      "notes": "Found and read once on 6 October 2026. Weebly site for the society that rebuilt Lupton's Fort at the South Platte Valley Historic Park (north side of Fort Lupton; open first and third weekends May-October 2026, 10-4). Annual events listed in the nav: Teas, Frozen Toes Rendezvous, Heritage Fair, Lancaster Rendezvous & Mountain Man University, Trapper Days Rendezvous (weekend after Labor Day, alongside the city's Trapper Days), Hunter Widow's Rendezvous, Colonial Encampment, TRT Camp Outs, Special Events. The calendar page embeds a Google Calendar, id spvhs.org_k06rja30j23skfe5kkbu9vr32k@group.calendar.google.com (ctz America/Denver); calendar.google.com was not fetched because its robots.txt disallows agents, so type stays html and the embed id is recorded for the owner. The city's 'Pumpkinfest at the Fort' (10 Oct 2026) likely uses this park but that was not confirmed on a fetched page. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own).",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
+    },
+    {
+      "id": "daconoco-gov-police",
+      "subTown": "dacono",
+      "name": "City of Dacono: Police Department calendar",
+      "url": "https://www.daconoco.gov/1242/Police-Department",
+      "feedUrl": "https://www.daconoco.gov/common/modules/iCalendar/iCalendar.aspx?catID=29&feed=calendar",
+      "sampleUrl": "https://www.daconoco.gov/768/Community-Programs-Events",
+      "type": "ical",
+      "category": "city-calendar",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read once on 5 October 2026. The department's own calendar (CID 29): 2 items (National Fire Prevention Week, 4 to 10 October; National Law Enforcement Day, 9 January 2027), neither an event a reader attends. Its community programs page lists National Night Out, Santa Cops and the drug take-back, which are on the Events & Fun pages. Not core; here so the editor knows it exists. Left proposed: neither item is an event a reader attends."
     },
     {
       "id": "fortluptonco-gov-events-programs",
@@ -471,6 +480,18 @@
       "notes": "Found and read once on 6 October 2026 (also read https://weld.gov/Government/County-Information). OpenCities site; the Events-directory page carried no RSS, iCal or .ics link in its source, so no feed was read. Listings are overwhelmingly in Greeley (county seat); the only Fort Lupton item seen was a program at the Fort Lupton Public & School Library - Public Branch, 370 S Rollie Ave. Treat as a low-yield page to skim with a Fort Lupton location filter, not a weekly feed."
     },
     {
+      "id": "cpw-state-co-us",
+      "subTown": "firestone",
+      "name": "Colorado Parks and Wildlife: St. Vrain State Park",
+      "url": "https://cpw.state.co.us/state-parks/st-vrain-state-park",
+      "sampleUrl": "https://cpw.state.co.us/state-parks/st-vrain-state-park",
+      "type": "manual",
+      "category": "venue",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read once on 5 October 2026: the park page answered 200 (3785 Weld County Road 24 1/2, Firestone, 303-678-9402; ten ponds open to the public, four miles of easy trails, two campgrounds open year-round; the only state park inside a Colorado town's limits, per the Town). CPW's events pages (/events, the park's own event listings) answer automated requests with a Cloudflare 403, so the park's programs are read by a person in a browser. The park itself is a place listing; this entry is for its events."
+    },
+    {
       "id": "ftluptonpress-com",
       "subTown": "fort-lupton",
       "name": "Fort Lupton Press",
@@ -481,6 +502,27 @@
       "status": "proposed",
       "robots": "honor",
       "notes": "Found and read once on 6 October 2026. BLOX/TownNews site of the weekly Fort Lupton Press (Colorado Trust for Local News), with sections including Noticias en Espanol, Local Government, Things To Do, Live Music and a Local Events calendar fed by Evvnt (an aggregator, not proposed). The article RSS returned 20 items dated 1-5 October 2026 (e.g. Fort Lupton celebrates 85 years of mobile library; Singing, cheering Fort Lupton fans march in parade; State panel recommends partial Fort Lupton High reboot; Fort Lupton boys soccer snags 4-0 win). The paper also runs 'The Fort Report', a weekly beehiiv newsletter (fort-lupton.beehiiv.com, not fetched)."
+    },
+    {
+      "id": "longmontleader-com",
+      "name": "Longmont Leader",
+      "url": "https://www.longmontleader.com/local-news",
+      "sampleUrl": "https://www.longmontleader.com/rss",
+      "type": "html",
+      "category": "news",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read once on 5 October 2026. Village Media; robots.txt allows everything. Site-wide RSS at /rss (20 items a page, paginated) and an Events section feed at /rss/colorado/events (20 items, press-release style); neither mentioned Frederick, Firestone, Dacono or Carbon Valley on 5 October, and a news feed carries no event dates for ingest to read. For the editor's reading, not the pipeline."
+    },
+    {
+      "id": "timescall-com",
+      "name": "Longmont Times-Call: Carbon Valley tag",
+      "url": "https://www.timescall.com/tag/carbon-valley/",
+      "type": "manual",
+      "category": "news",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Found and read once on 5 October 2026, by hand only. The paper covers the three towns under a Carbon Valley tag (4 October: \"Dacono cancels City Council election, reelects two members\"; \"Colo. 52 to close for construction east of I-25\"). Its main feed (/feed/) answers our user agent 403, which the repo treats as a site that blocks automated reads, and its robots.txt header forbids text and data mining and commercial reuse; the tag feed happened to answer 200 in the same batch and is not used. Link, never fetch. The Greeley Tribune (Weld County's paper) answered the same way."
     }
   ]
 }

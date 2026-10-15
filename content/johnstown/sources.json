@@ -5,6 +5,7 @@
       "id": "johnstownco-gov",
       "name": "johnstownco.gov",
       "url": "https://johnstownco.gov/",
+      "feedUrl": "https://johnstownco.gov/RSSFeed.aspx?ModID=58&CID=All-calendar.xml",
       "sampleUrl": "https://johnstownco.gov/Calendar.aspx",
       "type": "rss",
       "category": "city-calendar",
@@ -14,8 +15,10 @@
         "events": 12,
         "places": 9
       },
+      "robots": "honor",
       "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (6 items on 4 October).",
-      "feedUrl": "https://johnstownco.gov/RSSFeed.aspx?ModID=58&CID=All-calendar.xml"
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
     },
     {
       "id": "visitdowntownjohnstown-com",
@@ -30,12 +33,14 @@
         "events": 2,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
       "id": "johnstownmillikenpubliclibraries-us",
       "name": "johnstownmillikenpubliclibraries.us",
       "url": "https://johnstownmillikenpubliclibraries.us/",
+      "feedUrl": "https://johnstownmillikenpubliclibraries.us/wp-json/tribe/events/v1/events",
       "sampleUrl": "https://johnstownmillikenpubliclibraries.us/event/acrylic-sugar-skulls/",
       "type": "json",
       "category": "library",
@@ -45,14 +50,16 @@
         "events": 28,
         "places": 1
       },
-      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. The Events Calendar REST API (its iCal export answered 502 twice). Both branches are in the feed; only the Johnstown branch is taken, and the feed's 'Johnstown Location' is the name the guide already uses for it.",
-      "feedUrl": "https://johnstownmillikenpubliclibraries.us/wp-json/tribe/events/v1/events",
+      "robots": "honor",
       "locationFilter": [
         "Johnstown"
       ],
       "venueAliases": {
         "Johnstown Location": "Glenn A. Jones, M.D. Memorial Library"
-      }
+      },
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. The Events Calendar REST API (its iCal export answered 502 twice). Both branches are in the feed; only the Johnstown branch is taken, and the feed's 'Johnstown Location' is the name the guide already uses for it.",
+      "lastChecked": "2026-10-14",
+      "lastStatus": "ok"
     },
     {
       "id": "coloradocandlelight-com",
@@ -66,6 +73,7 @@
         "events": 1,
         "places": 1
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -80,6 +88,7 @@
         "events": 2,
         "places": 2
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
@@ -94,6 +103,7 @@
         "events": 1,
         "places": 0
       },
+      "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     }
   ]
