@@ -10,7 +10,7 @@
  *   npm run agent -- write lyons "Where to park for Folks Fest"
  *
  * Env: ANTHROPIC_API_KEY (required; agent/.env is read when present),
- *      ITT_MODEL (default claude-sonnet-5-5), ITT_MAX_SEARCHES (default 12).
+ *      ITT_MODEL (default claude-sonnet-5-5), ITT_MAX_SEARCHES (10), ITT_MAX_FETCHES (20), ITT_CONCURRENCY (4).
  * The rules it follows live in .claude/skills/inside-the-towns-editor/SKILL.md.
  */
 
@@ -27,7 +27,9 @@ const skillPath = path.join(root, '.claude/skills/inside-the-towns-editor/SKILL.
 
 loadDotenv(path.join(here, '.env'));
 const MODEL = process.env.ITT_MODEL ?? 'claude-sonnet-5-5';
-const MAX_SEARCHES = Number(process.env.ITT_MAX_SEARCHES ?? 12);
+const MAX_SEARCHES = Number(process.env.ITT_MAX_SEARCHES ?? 10);
+const MAX_FETCHES = Number(process.env.ITT_MAX_FETCHES ?? 20); // the first run ran out of fetches before searches
+const CONCURRENCY = Number(process.env.ITT_CONCURRENCY ?? 4);
 const MAX_TURNS = 24;
 const STALE_BATCH = 8;
 
@@ -47,16 +49,26 @@ const todayLong = denver({ weekday: 'long', month: 'long', day: 'numeric', year:
 
 // ---------- run ----------
 
-for (const town of towns) {
-  const tasks = await buildTasks(mode, town, rest);
-  for (const { label, prompt, outFile } of tasks) {
-    console.log(`\n▶ ${mode} · ${town.name} · ${label} · ${MODEL}`);
-    const { text, searches, usage } = await runAgent(prompt, town);
-    await mkdir(path.dirname(outFile), { recursive: true });
-    await writeFile(outFile, text + '\n', 'utf8');
-    console.log(`✓ ${path.relative(root, outFile)}  (${searches} lookups, ${usage.input} in / ${usage.output} out tokens)`);
+// Towns run CONCURRENCY at a time: the first full run took 67 minutes one town after another.
+const queue = [];
+for (const town of towns) for (const task of await buildTasks(mode, town, rest)) queue.push({ town, ...task });
+let failed = 0;
+await Promise.all(Array.from({ length: Math.min(CONCURRENCY, queue.length) }, async () => {
+  for (let job; (job = queue.shift()); ) {
+    const { town, label, prompt, outFile } = job;
+    console.log(`▶ ${mode} · ${town.name} · ${label} · ${MODEL}`);
+    try {
+      const { text, searches, usage } = await runAgent(prompt, town);
+      await mkdir(path.dirname(outFile), { recursive: true });
+      await writeFile(outFile, text + '\n', 'utf8');
+      console.log(`✓ ${town.name}: ${path.relative(root, outFile)}  (${searches} lookups, ${usage.input} in / ${usage.output} out tokens)`);
+    } catch (err) {
+      failed++;
+      console.error(`✗ ${town.name}: ${err?.message ?? err}`);
+    }
   }
-}
+}));
+if (failed) process.exitCode = 1;
 
 // ---------- tasks ----------
 
@@ -154,7 +166,7 @@ async function runAgent(userPrompt, town) {
       allowed_callers: ['direct'],
       user_location: { type: 'approximate', country: 'US', region: 'Colorado', timezone: 'America/Denver' },
     },
-    { type: 'web_fetch_20260318', name: 'web_fetch', max_uses: MAX_SEARCHES, citations: { enabled: false }, max_content_tokens: 40000 },
+    { type: 'web_fetch_20260318', name: 'web_fetch', max_uses: MAX_FETCHES, citations: { enabled: false }, max_content_tokens: 40000 },
   ];
   const system = [
     { type: 'text', text: skill, cache_control: { type: 'ephemeral' } },
@@ -176,12 +188,12 @@ async function runAgent(userPrompt, town) {
     }
     messages.push({ role: 'assistant', content: res.content }); // keep encrypted search content intact
     if (res.stop_reason === 'pause_turn') continue;
-    if (res.stop_reason === 'tool_use') die('Model asked for a client tool; none are defined.');
+    if (res.stop_reason === 'tool_use') throw new Error('model asked for a client tool; none are defined');
     if (res.stop_reason === 'max_tokens') console.warn('   ! hit max_tokens; draft may be truncated');
-    const text = res.content.filter((b) => b.type === 'text').map((b) => b.text).join('\n').trim();
+    const text = res.content.filter((b) => b.type === 'text').map((b) => b.text).join('').trim();
     return { text: stripFence(text), searches, usage };
   }
-  die(`Gave up after ${MAX_TURNS} turns.`);
+  throw new Error(`gave up after ${MAX_TURNS} turns`);
 }
 
 // ---------- repo readers (front matter is read with a small line parser; enough for these fields) ----------
