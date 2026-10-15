@@ -11,14 +11,14 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "ok",
       "cites": {
         "events": 12,
         "places": 9
       },
       "robots": "honor",
-      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (6 items on 4 October).",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (6 items on 4 October)."
     },
     {
       "id": "visitdowntownjohnstown-com",
@@ -46,6 +46,8 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "ok",
       "cites": {
         "events": 28,
         "places": 1
@@ -57,9 +59,7 @@
       "venueAliases": {
         "Johnstown Location": "Glenn A. Jones, M.D. Memorial Library"
       },
-      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. The Events Calendar REST API (its iCal export answered 502 twice). Both branches are in the feed; only the Johnstown branch is taken, and the feed's 'Johnstown Location' is the name the guide already uses for it.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. The Events Calendar REST API (its iCal export answered 502 twice). Both branches are in the feed; only the Johnstown branch is taken, and the feed's 'Johnstown Location' is the name the guide already uses for it."
     },
     {
       "id": "coloradocandlelight-com",

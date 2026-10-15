@@ -26,14 +26,14 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "ok",
       "cites": {
         "events": 7,
         "places": 6
       },
       "robots": "honor",
-      "notes": "Checked 4 October 2026: a WordPress site whose events page redirects to sponsorships; the news RSS carries no events. Meetings and festivals are read from its pages by hand.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Checked 4 October 2026: a WordPress site whose events page redirects to sponsorships; the news RSS carries no events. Meetings and festivals are read from its pages by hand."
     },
     {
       "id": "timnathbeerwerks-com",

@@ -10,15 +10,15 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "blocked",
+      "lastNote": "Cloudflare bot challenge",
       "cites": {
         "events": 12,
         "places": 1
       },
       "robots": "honor",
-      "notes": "Checked 4 October 2026: the site answers automated requests with 403, so there is nothing to read; checked by hand in a browser.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "blocked",
-      "lastNote": "Cloudflare bot challenge"
+      "notes": "Checked 4 October 2026: the site answers automated requests with 403, so there is nothing to read; checked by hand in a browser."
     },
     {
       "id": "elizabethmainstreet-org",
@@ -46,16 +46,16 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "skipped",
+      "lastNote": "robots.txt asks automated clients not to fetch it",
       "cites": {
         "events": 15,
         "places": 1
       },
       "robots": "honor",
       "defaultVenue": "Elizabeth Library",
-      "notes": "Manual until the library answers: the activities page embeds five public Google calendars and this feedUrl is the one named 'Elizabeth Events' (647 events, 177 recurring, America/Denver), but calendar.google.com's robots.txt disallows unlisted agents, and the editor is asking the library for permission before ingest reads it (docs/SOURCE-PERMISSION-EMAILS.md). Set type back to ical and robots to subscribe when it comes. Found 4 October 2026.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "skipped",
-      "lastNote": "robots.txt asks automated clients not to fetch it"
+      "notes": "Manual until the library answers: the activities page embeds five public Google calendars and this feedUrl is the one named 'Elizabeth Events' (647 events, 177 recurring, America/Denver), but calendar.google.com's robots.txt disallows unlisted agents, and the editor is asking the library for permission before ingest reads it (docs/SOURCE-PERMISSION-EMAILS.md). Set type back to ical and robots to subscribe when it comes. Found 4 October 2026."
     },
     {
       "id": "pplibraries-org-district",
