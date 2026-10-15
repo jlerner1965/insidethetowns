@@ -9,6 +9,7 @@ verified: "2026-10-04"
 added: "2026-10-04"
 phone: "970-669-0889"
 hours: "Mon–Fri 11 am–6:30 pm; Sat 11 am–6 pm; Sun 11 am–3 pm some weeks (the gallery says \"sometimes, but not always\")"
+openingHours: ["Mo-Fr 11:00-18:30", "Sa 11:00-18:00"]
 tags: [gallery, local-artists, framing, jewelry]
 summary: "An artist-owned gallery on East 4th Street showing original work by Northern Colorado artists, from paintings and pottery to jewelry and photography, with custom framing."
 ---

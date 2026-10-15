@@ -9,6 +9,7 @@ verified: "2026-10-11"
 added: "2026-10-11"
 verifiedBy: "Codex, for James Lerner"
 hours: "Sun–Thu 7 am–9 pm; Fri–Sat 7 am–10 pm (Harrison Avenue location; online ordering has separate availability)"
+openingHours: ["Su-Th 07:00-21:00", "Fr-Sa 07:00-22:00"]
 tags:
   - "coffee"
   - "cocktails"

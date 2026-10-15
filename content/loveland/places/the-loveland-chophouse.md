@@ -9,6 +9,7 @@ verified: "2026-10-04"
 added: "2026-10-04"
 phone: "970-613-8287"
 hours: "Mon–Thu 5 pm–8:30 pm; Fri–Sat 5 pm–9 pm; Sun 4:30 pm–8:30 pm (last seating at the listed closing time)"
+openingHours: ["Mo-Th 17:00-20:30", "Fr-Sa 17:00-21:00", "Su 16:30-20:30"]
 tags: [steakhouse, seafood, wine, reservations]
 summary: "A locally owned steak and seafood restaurant on 4th Street downtown, serving hand-selected steaks, fresh seafood and chosen wines, with an emphasis on warm, personal service."
 ---

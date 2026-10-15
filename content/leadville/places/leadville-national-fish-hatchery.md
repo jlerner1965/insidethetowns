@@ -10,6 +10,7 @@ added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "719-486-0189"
 hours: "Office Mon–Fri 7 am–3:30 pm"
+openingHours: ["Mo-Fr 07:00-15:30"]
 access: { closures: "The Willow Fire Area Closure (October 1 to December 31, 2026 unless rescinded) covers National Forest land south of Turquoise Lake on Mount Massive's eastern slope, where the hatchery's trails meet the Colorado Trail; check the Forest alerts page or call the hatchery before walking the loop", conditionsUrl: "https://www.fs.usda.gov/r02/psicc/alerts", conditionsLabel: "Pike and San Isabel National Forests alerts and closures", source: "https://www.fs.usda.gov/r02/psicc/alerts/willow-fire-area-closure-0", verified: "2026-10-10" }
 tags: [trails, snowshoeing, cross-country-skiing, fish-hatchery, family]
 summary: "The U.S. Fish and Wildlife Service hatchery west of town, 3,072 acres at 10,000 feet, with the Rock Creek, Highline and Kearney Park trails that meet the Colorado Trail in the Mount Massive Wilderness."

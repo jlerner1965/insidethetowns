@@ -9,6 +9,7 @@ verified: "2026-10-04"
 added: "2026-10-04"
 phone: "970-391-3772"
 hours: "Wed–Fri 4 pm–9 pm; Sat 12 pm–9 pm; Sun 12 pm–5 pm; closed Mon–Tue (closes at 6 pm on the last Wednesday of each month)"
+openingHours: ["We-Fr 16:00-21:00", "Sa 12:00-21:00", "Su 12:00-17:00"]
 tags: [mead, wine, cider, small-plates]
 summary: "A downtown meadery serving its own Old Norse-style meads, hand-crafted with local honey, along with wines, ciders and small plates."
 ---

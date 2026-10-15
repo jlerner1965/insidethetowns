@@ -8,6 +8,7 @@ verified: "2026-10-04"
 added: "2026-10-04"
 phone: "970-669-1739"
 hours: "Park daily 5 am–10 pm; visitor center Wed–Sun 9 am–4 pm (closed Mon–Tue and holidays)"
+openingHours: ["Mo-Su 05:00-22:00"]
 tags: [state-park, lake, camping, fishing, paddling]
 summary: "A 2,082-acre Colorado Parks and Wildlife park built around Boyd Lake, with camping, fishing, swimming and paddling; low water has closed the lake to boating for the rest of 2026."
 image: ../images/boyd-lake-heron-cove.jpg
