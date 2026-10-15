@@ -1,0 +1,58 @@
+# Researches every live town's weekly notes on Wednesday morning and commits
+# the drafts to docs/agent/<town>/, so Thursday's content session starts from
+# a researched draft rather than a blank template.
+#
+# It drafts; it never writes to content/. A person reads each draft, pastes
+# what holds up into content/<town>/weekly/<weekOf>.md, runs `npm run validate`
+# and commits (agent/README.md). The commit is docs only, so every site's
+# build is skipped by scripts/vercel-ignore.sh.
+#
+# Needs ANTHROPIC_API_KEY in Settings → Secrets and variables → Actions.
+name: Wednesday research drafts
+
+on:
+  schedule:
+    # Wednesday, 12:20 UTC: 6:20 am in Denver in summer, 5:20 am in winter.
+    - cron: '20 12 * * 3'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: agent-weekly
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    name: Draft weekly notes for every live town
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-audit --no-fund
+        working-directory: agent
+      - name: Research and draft
+        id: draft
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          echo "day=$(TZ=America/Denver date +%F)" >> "$GITHUB_OUTPUT"
+          npm run agent -- weekly all
+      - name: Commit the drafts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/agent
+          if git diff --cached --quiet; then
+            echo "No draft changed; nothing to commit."
+            exit 0
+          fi
+          git commit -m "Wednesday research drafts, ${{ steps.draft.outputs.day }}: weekly notes for every live town" \
+            -m "Written by the research agent (agent/) from the web and the guide's own listings. Not published: a person reads each draft and pastes what holds up into content/<town>/weekly/."
+          git push origin HEAD:main

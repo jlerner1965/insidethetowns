@@ -8,3 +8,6 @@ dist-*/
 !.env.example
 .DS_Store
 npm-debug.log*
+
+# agent/ has its own install (see agent/README.md)
+agent/node_modules/
