@@ -1,0 +1,62 @@
+# Drafts Thursday's email every Thursday morning and commits the drafts, so
+# the issue is waiting to be read and sent rather than waiting to be made.
+#
+# It drafts; it never sends. `npm run newsletter` writes one Markdown file per
+# edition under docs/newsletter/<send day>/ from the listings (README.md, The
+# weekly content session, step 5). A person reads each draft, gives it an
+# opening line, pastes the body into Buttondown and sends; the sent file then
+# moves to content/hub/issues/ and becomes the archive page, with its number.
+#
+# The commit is docs only, so scripts/vercel-ignore.sh skips every site's
+# build and the daily rebuilds carry on as before. If main is protected
+# against direct pushes the run fails here, visibly; the fallback is to run
+# the command by hand (README.md).
+name: Thursday drafts
+
+on:
+  schedule:
+    # Thursday, 12:10 UTC: 6:10 am in Denver in summer, 5:10 am in winter,
+    # after the night's content pushes and the 11:10 rebuild, before the
+    # morning. The script picks the send day itself: today when today is a
+    # Thursday (src/lib/newsletter.ts).
+    - cron: '10 12 * * 4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: newsletter-drafts
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    name: Draft every edition for this Thursday
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Draft the editions
+        id: draft
+        run: |
+          day="$(TZ=America/Denver date +%F)"
+          echo "day=$day" >> "$GITHUB_OUTPUT"
+          npm run newsletter -- --out="docs/newsletter/$day"
+      - name: Commit the drafts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/newsletter
+          if git diff --cached --quiet; then
+            echo "No draft changed; nothing to commit."
+            exit 0
+          fi
+          git commit -m "Thursday drafts, ${{ steps.draft.outputs.day }}: every edition, from the listings" \
+            -m "Written by the Thursday drafts workflow from the listings as they stood this morning. Not sent: a person reads each, adds an opening line, sends it from Buttondown, and files the sent issue under content/hub/issues/ (README.md, The weekly content session)."
+          git push origin HEAD:main
