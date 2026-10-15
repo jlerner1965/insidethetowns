@@ -45,6 +45,7 @@ jobs:
           echo "day=$(TZ=America/Denver date +%F)" >> "$GITHUB_OUTPUT"
           npm run agent -- weekly all
       - name: Commit the drafts
+        if: ${{ !cancelled() }}   # one town failing still commits the others; the run shows red
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
