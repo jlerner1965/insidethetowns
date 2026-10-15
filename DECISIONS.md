@@ -5101,9 +5101,9 @@ is a holding page, so "fold" would have meant "close", and closing a guide
 with a hundred and fifty readers a month to save a monthly check is the
 wrong trade.
 
-What is left to decide, on 15 December, is only whether it rejoins the
-weekly email. `decideBy` moves to that date, which is still before the
-first of its listings loses its hours (17 December). Two stale pull
+What is left to decide, on 15 November, is only whether it rejoins the
+weekly email. `decideBy` stays at that date, which is before the
+first of its listings loses its hours (17 November). Two stale pull
 requests were closed the same day: #13 (Codex, 22 September, no common
 history with main, everything it proposed since built differently) and
 #34 (2 October, whose facts about Bradford's and Cassidy's had already

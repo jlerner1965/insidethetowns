@@ -11,13 +11,13 @@ export const elizabeth = {
   // (DECISIONS.md, "Elizabeth stays"). It stays quiet, with no weekly
   // promise, because the reason it went quiet (an hour from every other
   // guide, so nothing about it combines) has not changed. What is left to
-  // decide on 15 December is only whether it rejoins the weekly email; the
-  // date is before any listing's hours expire (the five checked on 18
-  // September lose them on 17 December).
+  // decide on 15 November is only whether it rejoins the weekly email; the
+  // date stays before any listing's hours expire (the five checked on 18
+  // September lose them on 17 November, and the test holds the order).
   quiet: {
     since: '2026-10-12',
-    decideBy: '2026-12-15',
-    reason: 'kept on 15 October 2026 on its reader numbers, but an hour from the other guides, so it stays out of the weekly email; 15 December decides whether it rejoins',
+    decideBy: '2026-11-15',
+    reason: 'kept on 15 October 2026 on its reader numbers, but an hour from the other guides, so it stays out of the weekly email; 15 November decides whether it rejoins',
   },
   variant: 'front-range',
   region: 'South Metro',
