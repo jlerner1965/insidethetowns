@@ -11,6 +11,10 @@ tags: [outdoors, walking, visiting]
 image: ../images/old-fire-house-museum.jpg
 imageAlt: "The small 1910 fire house on Second Avenue in Old Town, the first stop on the walk, with its red-wheeled chemical fire cart in front"
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 4.0"
+related:
+  - { label: "Old Town, Second Avenue", href: "/places/old-town-second-avenue/", note: "The railroad-era block the walk starts on, end to end in about ten minutes." }
+  - { label: "Niwot with kids", href: "/articles/niwot-with-kids/", note: "The same ground with children: the playground, the caboose and the ice cream." }
+  - { label: "Patios in Niwot", href: "/articles/patios-in-niwot/", note: "Where to sit outside at the end of the walk, in order of season." }
 ---
 
 Niwot sits off the Diagonal Highway between Boulder and Longmont, about twenty minutes from either. Leave the car on or near Second Avenue: the two commercial blocks are within a fifteen-minute walk of each other, and the park and the trail are at their edges.

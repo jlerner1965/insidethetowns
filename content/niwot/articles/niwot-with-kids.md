@@ -11,6 +11,10 @@ sources:
   - { label: "Boulder County Parks & Open Space: parks and trails", url: "https://bouldercounty.gov/open-space/parks-and-trails/" }
   - { label: "Love Ice Cream", url: "https://www.loveicecream.co/" }
   - { label: "Fritz Family Brewers", url: "https://www.fritzfamilybrewers.com/" }
+related:
+  - { label: "Whistle Stop Park", href: "/places/whistle-stop-park/", note: "The lawn beside the 1907 caboose, and the Rock & Rails concerts on summer Thursdays." }
+  - { label: "Niwot Children’s Park", href: "/places/niwot-childrens-park/", note: "The playground on First Avenue, across from Whistle Stop Park." }
+  - { label: "Explore Niwot: four places in walking order", href: "/articles/explore-niwot-in-walking-order/", note: "The grown-up version of the loop: under two miles, and you only park once." }
 ---
 
 Niwot is small enough that a day with children needs no car once you have parked. The playground, the caboose, the sculptures, the pizza and the ice cream are all within the two commercial blocks and the park at their edge. This is the order that works.

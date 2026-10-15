@@ -13,11 +13,17 @@ import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import { categoriesIn, groupByDay, occurrences, splitOngoing, uniqueByEvent, upcoming, weeklyRegulars, weeklyTest } from '@/lib/events';
+import { bigDates } from '@/lib/big-dates';
+import { formatDate, formatDayLong, toIsoLocal } from '@/lib/dates';
 import { CATEGORY_LABELS, EVENT_CATEGORIES, type EventCategory } from '@/content/schemas';
 import { subTownsOf } from '@/lib/sub-towns';
 
 const town = getTown();
 const entries = await getTownEntries('events');
+// When this page was built. It is rebuilt nightly and on every push, and the
+// browser drops what has finished in between (Freshness.astro); the date
+// tells a reader, and a search engine, how current the list is.
+const refreshedAt = new Date();
 /**
  * Two lists. The date list is the one-time events and the town meetings,
  * each on its date; the weekly regulars — the storytime, the trivia night,
@@ -37,7 +43,10 @@ const options = categoriesIn(shown, EVENT_CATEGORIES).map((c) => ({ value: c, la
 const fortnightDays = groupByDay(splitOngoing(nextTwoWeeks).dated);
 // Carbon Valley: a "Where" row on the filters, one pill per town.
 const subTowns = subTownsOf(town);
-
+// The parade, the festival, the Fourth: the dates a reader searches for by
+// name months out, linked from here so each has a permanent way in
+// (src/lib/big-dates.ts). Beyond the fortnight the list already shows.
+const big = bigDates(all, { now: refreshedAt });
 
 const structured = [
   collectionPageJsonLd(town, {
@@ -69,6 +78,9 @@ const structured = [
     Know of something missing? <a href="/submit-event/" class="font-semibold text-primary underline">Submit an event</a>.
     Or <a href="/events/calendar.ics" class="font-semibold text-primary underline">subscribe to the calendar</a> in your calendar app.
   </p>
+  <p slot="after-header" class="mt-3 text-[0.875rem] text-ink-muted">
+    Listings refreshed <time datetime={toIsoLocal(refreshedAt)}>{formatDate(refreshedAt)}</time>; each one names its source and the day it was checked.
+  </p>
   <SubTownLinks slot="after-header" class="mt-3" hrefFor={(slug) => `/${slug}/`} />
   <SponsorLine slot="after-header" sponsor={town.sponsors?.events} />
 
@@ -93,6 +105,20 @@ const structured = [
       has had the listings and can tell whether a weekly note of them is worth
       an address.
     */}
+    {big.length > 0 && (
+      <section id="big-dates" class="mt-16 scroll-mt-4 md:mt-20" data-filter-ignore aria-labelledby="big-dates-heading">
+        <SectionHeader eyebrow="Mark the calendar" title="Big dates ahead" id="big-dates-heading" />
+        <ul class="divide-y divide-line-soft border-y border-line-soft">
+          {big.map((event) => (
+            <li class="flex flex-wrap items-baseline gap-x-4 gap-y-1 py-3">
+              <time datetime={toIsoLocal(event.data.start)} class="w-44 shrink-0 text-[0.9375rem] text-ink-muted">{formatDayLong(event.data.start)}</time>
+              <a href={`/events/${event.slug}/`} class="inline-block -my-1 py-1 font-semibold text-primary underline">{event.data.title}</a>
+              <span class="text-[0.9375rem] text-ink-muted">{event.data.venue}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
     <div class="mt-12 md:mt-16">
       <NewsletterSignup town={town} />
     </div>

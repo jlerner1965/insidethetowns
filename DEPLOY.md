@@ -186,6 +186,28 @@ Vercel's default notification threshold is $200 per billing cycle, which this
 network should never approach — set it to $5, so an alert means something is
 wrong rather than something is busy.
 
+## Search engine verification
+
+Google Search Console and Bing Webmaster Tools each accept a meta tag as
+proof that a site is yours. The tag is built in from two environment
+variables, read at build time by `src/layouts/Base.astro`
+(`src/lib/verification.ts`), and nothing is emitted while they are unset:
+
+| Variable | Fills |
+|---|---|
+| `GOOGLE_SITE_VERIFICATION` | `<meta name="google-site-verification" content="…">` |
+| `BING_SITE_VERIFICATION` | `<meta name="msvalidate.01" content="…">` |
+
+A token is per property, so per domain, so it goes on that domain's project
+and nowhere else: Project → Settings → Environment Variables, Production,
+paste the `content` value Search Console shows for the HTML-tag method, then
+Redeploy. No token is ever committed; the test `test/verification.test.ts`
+fails if one is. The alternative is a Search Console Domain property verified
+by a DNS TXT record at Cloudflare, which needs no build and covers `www` too;
+pick one route per domain. docs/SEARCH-VISIBILITY.md has the per-site table
+and the sitemap URLs to submit afterwards. As of 15 October 2026 no property
+has been verified.
+
 ## Redirecting the old sites
 
 Two predecessors have been folded into the network. Both domains stay with

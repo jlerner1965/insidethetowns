@@ -7,6 +7,10 @@ tags: [history]
 image: ../images/niwot-tribune-storefront.jpg
 imageAlt: "The Niwot Tribune false-front building on Second Avenue, a survivor of the railroad period"
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 4.0"
+related:
+  - { label: "Old Fire House Museum", href: "/places/old-fire-house-museum/", note: "The 1910 fire shed and chemical fire cart the Historical Society keeps on the Grange lot." }
+  - { label: "Old Town, Second Avenue", href: "/places/old-town-second-avenue/", note: "The brick and false-front block from the railroad period, still where the community gathers." }
+  - { label: "The 2026 Niwot incorporation election, plainly", href: "/articles/2026-incorporation-election/", note: "The November 2026 vote on whether the unincorporated town becomes one." }
 ---
 
 Niwot exists because a rail line was built through the Left Hand valley in the 1870s. The town plat was recorded in 1875, and the street grid still follows the tracks rather than the county roads that came later. The brick block on Second Avenue is what remains of that decision.

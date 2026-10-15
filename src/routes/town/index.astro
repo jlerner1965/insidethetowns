@@ -9,7 +9,7 @@ import PlaceIndex from '@/components/PlaceIndex.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
 import ThisWeek from '@/components/ThisWeek.astro';
 import NearbyWeekend from '@/components/NearbyWeekend.astro';
-import { getTown } from '@/config';
+import { getNetworkHub, getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { highlights, occurrences } from '@/lib/events';
 import { isOpen } from '@/lib/places';
@@ -32,6 +32,19 @@ const carded = new Set(placeCards.map((p) => p.slug));
 const placeIndex = pickedFirst(places.filter((p) => !carded.has(p.slug))).slice(0, 8);
 const articles = (await getTownEntries('articles')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 2);
 const [lead, second] = articles;
+const publisher = getNetworkHub().publisher;
+// The paths a reader asks for by name, each described in a sentence. Eat &
+// Drink and Things to Do are the two halves of the places; the directory is
+// all of them in one list. The signup sits in This week above, so it is
+// pointed at rather than repeated.
+const startHere = [
+  { label: `Events in ${town.name}`, href: '/events/', text: 'Every event with a date, the weekly regulars once each, and the weekend on its own page. Past dates drop off on their own.' },
+  { label: 'This weekend', href: '/this-weekend/', text: `Friday to Sunday in ${town.name}, what is still running, and the week after.` },
+  { label: 'Where to eat and drink', href: '/eat-drink/', text: 'Restaurants, bars, coffee and shops, each with its hours, its address and its own website.' },
+  { label: 'Things to do', href: '/things-to-do/', text: 'Trails, parks, venues and places to stay, and who looks after each.' },
+  { label: 'Guides', href: '/guides/', text: 'The longer reads: a walking route, the history, the town with kids, who runs what. Each says where its facts came from.' },
+  { label: `Moving to ${town.name}`, href: '/moving-here/', text: 'Housing, schools, the commute, who provides the water and the fire trucks, and what to check before you decide.' },
+];
 ---
 <Base>
   <Hero />
@@ -43,6 +56,33 @@ const [lead, second] = articles;
   <section class="band band-white pt-8! md:pt-12!">
     <div class="container-page">
       <ThisWeek town={town} compact />
+    </div>
+  </section>
+
+  {/* Start here: what the guide holds, each part named for what a reader
+     comes looking for, in words rather than a nav label. The home page
+     answered "what is on" and left a first-time visitor to find the
+     directory, the guides and Moving Here from the menu (search-visibility
+     phase 1, 15 October 2026). Every line is drawn from the config; no
+     count is typed. */}
+  <section class="band band-paper">
+    <div class="container-page">
+      <SectionHeader eyebrow="Start here" title={`What ${town.siteTitle} covers`} />
+      <ul class="grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+        {startHere.map((item) => (
+          <li class="border-t border-line-soft pt-4">
+            <a href={item.href} class="inline-block -my-1 py-1 text-lg font-semibold text-primary underline">{item.label}</a>
+            <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{item.text}</p>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-8 max-w-3xl text-[0.9375rem] leading-relaxed text-ink-muted">
+        {town.siteTitle} is an independent guide to {town.name}, {town.state}
+        {publisher && <Fragment>, published by <a href={publisher.url} rel="noopener" class="text-primary underline">{publisher.name}</a></Fragment>}.
+        It is not a government site and nobody pays to be listed. Every listing names its source and the day it was checked;
+        {' '}<a href="/about/" class="text-primary underline">how the guide works</a>, and
+        {' '}<a href="/correct/" class="text-primary underline">how to correct it</a>.
+      </p>
     </div>
   </section>
 

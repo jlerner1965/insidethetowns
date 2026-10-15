@@ -6,6 +6,7 @@ import ContentsList from '@/components/ContentsList.astro';
 import { countyLabel, getNetworkHub, getTown, liveTowns } from '@/config';
 import { formatDate, parseLocal } from '@/lib/dates';
 import { getTownEntry } from '@/lib/content';
+import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
 const page = await getTownEntry('pages', 'moving-here');
@@ -24,15 +25,27 @@ const others = liveTowns().length - 1;
 // to the hero.
 const image = page?.data.image;
 const shareImage = image ? (await getImage({ src: image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
+const title = page?.data.title ?? `Moving to ${town.name}`;
+const description = page?.data.description ?? `Schools, commutes, housing and what to expect when you move to ${town.name}, ${town.state}.`;
+// The guide carried only the site's Organization and WebSite; as a WebPage
+// of the site, dated by its `updated`, with its place in the breadcrumb.
+const structured = [
+  webPageJsonLd(town, { name: `Moving to ${town.name}, Colorado`, description, path: '/moving-here/', updated: page?.data.updated }),
+  breadcrumbJsonLd(town, [
+    { name: town.name, path: '/' },
+    { name: 'Moving here', path: '/moving-here/' },
+  ]),
+];
 ---
 <Page
-  title={page?.data.title ?? `Moving to ${town.name}`}
+  title={title}
   seoTitle={`Moving to ${town.name}, Colorado`}
   eyebrow="Moving here"
   intro={page?.data.description}
-  description={page?.data.description ?? `Schools, commutes, housing and what to expect when you move to ${town.name}, ${town.state}.`}
+  {description}
   image={shareImage}
   imageAlt={page?.data.imageAlt}
+  jsonLd={structured}
 >
   {image && (
     <figure class:list={['mb-12', image.width < 1000 && 'max-w-2xl']}>

@@ -11,6 +11,10 @@ sources:
   - { label: "Lyons Regional Library", url: "https://lyons.colibraries.org/" }
   - { label: "Lyons Redstone Museum", url: "https://www.lyonsredstonemuseum.com/" }
   - { label: "Boulder County: Rabbit Mountain", url: "https://bouldercounty.gov/open-space/parks-and-trails/ron-stewart-preserve-rabbit-mountain/" }
+related:
+  - { label: "LaVern M. Johnson Park", href: "/places/lavern-m-johnson-park/", note: "The whitewater park, splash pad, playgrounds and campground under the cliffs." }
+  - { label: "Tubing the St. Vrain", href: "/places/tubing-the-st-vrain/", note: "The summer float through the whitewater park, and the gauge reading it depends on." }
+  - { label: "Lyons Regional Library", href: "/places/lyons-regional-library/", note: "Programs most days in the library district’s 2019 building." }
 ---
 
 Lyons is a river town, and for children that is the whole point between June and September. The rest of the year the library and the museum carry more of the day than you would guess. Here is both versions.

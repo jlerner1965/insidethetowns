@@ -28,6 +28,7 @@ import Footer from '@/components/Footer.astro';
 import Freshness from '@/components/Freshness.astro';
 import SEO from '@/components/SEO.astro';
 import { siteJsonLd } from '@/lib/seo';
+import { verificationTags } from '@/lib/verification';
 import { PAPERS, categoryCss, primaryHover } from '@/config/palette';
 
 interface Props {
@@ -54,6 +55,9 @@ const seo = site.kind === 'town' && site.status !== 'live' ? { ...props, noindex
 const searchable = !seo.noindex;
 // The publisher graph belongs on every page; pages add their own on top.
 const structured = [siteJsonLd(site), ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
+// Search Console and Bing verification, from the Vercel project's environment
+// (src/lib/verification.ts; docs/SEARCH-VISIBILITY.md). Nothing unless set.
+const verification = verificationTags(import.meta.env);
 const cssVars = [
   `--town-primary:${site.colors.primary}`,
   `--town-primary-hover:${primaryHover(site.colors.primary)}`,
@@ -70,6 +74,7 @@ const cssVars = [
     <link rel="preload" as="font" type="font/woff2" href={frauncesLatin} crossorigin />
     <link rel="preload" as="font" type="font/woff2" href={instrumentLatin} crossorigin />
     <SEO {...seo} jsonLd={structured} />
+    {verification.map((tag) => <meta name={tag.name} content={tag.content} />)}
     {/* ?v= busts the week-long /favicons/ cache in vercel.json; bump it when the marks change. */}
     <link rel="icon" href={`/favicons/${site.slug}/favicon.svg?v=4`} type="image/svg+xml" />
     {/* Asked for by name regardless of what the page links; see src/lib/icons.ts. */}

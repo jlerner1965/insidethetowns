@@ -7,6 +7,10 @@ category: "Civic"
 tags: [civic, government]
 image: ../images/depot.jpg
 imageAlt: "The old Lyons railroad depot in red sandstone, now Town offices and the Sheriff’s substation, under a clear sky"
+related:
+  - { label: "Events in Lyons", href: "/events/", note: "Board of Trustees and commission meetings are on the calendar under Civic." }
+  - { label: "Moving to Lyons", href: "/moving-here/", note: "Town utilities, trash, fire and police, for anyone about to live under this government." }
+  - { label: "Lyons history: sandstone, the railroad and the river", href: "/articles/lyons-history-sandstone-railroad-river/", note: "How a quarry town came to run its own utilities and rebuild after 2013." }
 ---
 
 This is a route to the official bodies, not a substitute for them. Inside Lyons is not one of them and takes no position on Town business. Where a page here and a Town page disagree, the Town is right and this is out of date — every link below goes to the body that holds the authority.

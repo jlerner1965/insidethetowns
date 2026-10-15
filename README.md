@@ -267,6 +267,9 @@ and placements to a business owner.
 - `docs/INDUSTRY-EMAILS.md` — twelve messages to the trade bodies that reach those 139 businesses, with verified addresses
 - `docs/ALL-PHOTO-EMAILS.md` — all 36 of those messages in one file, in the order to send them, with one tracking table
 - `docs/BACKLINKS.md` — verified local link targets per town, and the two domains not to touch
+- `docs/SEARCH-VISIBILITY.md` — Search Console verification (tokens come from each Vercel project’s environment, never the repo), the sitemap URLs, the permanent events pages, and the weekly measurement table
+- `docs/PHOTO-PRIORITIES.md` — the photographs the three flagship guides (Lyons, Niwot, Golden) need first, with the subject and alt-text guidance for each
+- `docs/OUTREACH-FLAGSHIPS.md` — the human partnership tasks for the three flagships: who to ask for a link, a source, distribution or a calendar; nothing on it has been done
 - `docs/LAUNCH-AUDIT.md` — the launch audit: what was fixed, what is left, what needs the owner
 - `docs/AUDIT-2026-10-02.md` — the October site audit: every finding and what was done with it, the phone list, and the weekly routine and event standard the guides are held to
 - `docs/EXPANSION-WINDSOR-FORT-COLLINS.md` — the plan for the two northern guides: what to settle first, what changes beyond the scaffold, the sources checked

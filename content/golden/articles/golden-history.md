@@ -26,6 +26,10 @@ sources:
   - { label: "National Laboratory of the Rockies: History", url: "https://www.nlr.gov/about/history" }
   - { label: "Colorado State Demography Office: historical census counts (CSV)", url: "https://storage.googleapis.com/co-publicdata/historical-census.csv" }
   - { label: "Golden, Colorado on Wikipedia", url: "https://en.wikipedia.org/wiki/Golden,_Colorado" }
+related:
+  - { label: "Golden History Museum", href: "/places/golden-history-museum/", note: "Free, Tuesday to Saturday, with 15,000-plus objects in the collection." }
+  - { label: "Golden History Park", href: "/places/golden-history-park/", note: "The 1800s cabins and 1876 schoolhouse moved to the creek downtown." }
+  - { label: "Buffalo Bill Museum and Grave", href: "/places/buffalo-bill-museum-and-grave/", note: "Cody’s grave and museum on Lookout Mountain; the grave and the observation deck are free." }
 ---
 
 Golden grew up where Clear Creek comes out of the foothills, on what the City's history museum calls [an access corridor between the Rocky Mountains and the Plains](https://www.goldenhistory.org/new-ghmp-publication-indigenous-connections-native-american-ethnographic-study-of-golden-colorado-and-the-clear-creek-valley/). It began as a supply town for the 1859 gold rush, was for a few years the capital of Colorado Territory, and lost both the capital and the railroad race to Denver. What it kept was industry and a college: a brewery that grew into the largest at a single site in the world, the Colorado School of Mines, and, a century later, a federal energy laboratory. This is the short version, from the sources listed at the foot; where they disagree, both are given.

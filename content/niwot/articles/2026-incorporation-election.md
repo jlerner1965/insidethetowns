@@ -14,6 +14,10 @@ supersededAfter: "2026-11-04"
 supersededNote: "The vote it describes was held on November 3, 2026. Everything below is the ballot as it stood beforehand, and none of it is a result."
 supersededSource: "https://bouldercounty.gov/elections/"
 supersededSourceLabel: "Boulder County Elections publishes the official count"
+related:
+  - { label: "Who runs what in Niwot", href: "/articles/who-runs-what-in-niwot/", note: "The county offices, special districts and volunteer groups that provide each service today, before any vote changes it." }
+  - { label: "How Niwot got here: a railroad and no town hall", href: "/articles/how-niwot-got-here/", note: "A century and a half without a municipal government, and how that came about." }
+  - { label: "Moving to Niwot", href: "/moving-here/", note: "Water, sewer, fire and schools as they stand, for anyone deciding whether to buy here before the result." }
 ---
 
 **Updated October 10, 2026:** the commission certified the ballot titles on September 11, 2026, by Resolution 2026-07. This summary now matches the certified text, and the descriptions of Questions 1 to 3 and Issues 1 to 5 have been corrected to it.
