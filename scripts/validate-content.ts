@@ -8,6 +8,8 @@
  *   npm run validate            # strict: any invalid entry fails
  *   npm run validate -- --build # what `npm run build` runs: an invalid event
  *                               # or place is reported as excluded, not fatal
+ *   npm run validate -- --past  # list every event whose last date has passed
+ *   npm run validate -- --hours # list every hours line the site cannot read
  *
  * Runs automatically before every `npm run build`. In `--build` mode nothing
  * here fails the build: an event or place that fails its schema is reported
@@ -46,6 +48,8 @@ const townsDir = join(root, 'src/config/towns');
 const buildMode = process.argv.includes('--build');
 const errors: string[] = [];
 const warnings: string[] = [];
+/** Events whose last date has passed: reported as one count, listed with --past. */
+const pastEvents: string[] = [];
 /** Per town: what publishes, what the build holds back and why, what waits in staging. */
 type TownTally = {
   published: Record<string, number>;
@@ -187,9 +191,7 @@ function validateFile(collection: CollectionName, file: string, town: string, st
       // is out of the sitemap, all of which happens on its own. This is an
       // editorial prompt — an annual worth rolling forward to next year's
       // date, or a one-off that has served its purpose.
-      warnings.push(
-        `${rel}: event is over (${dayKey(end)}). It is already hidden from listings, noindexed and out of the sitemap. Roll it forward if it recurs.`,
-      );
+      pastEvents.push(`${rel}: event is over (${dayKey(end)})`);
     }
   }
 }
@@ -509,6 +511,17 @@ if (!existsSync(contentDir)) {
 }
 
 for (const w of warnings) console.warn(`warn  ${w}`);
+/**
+ * Past events, one line, not one warning each. They are already hidden,
+ * noindexed and out of the sitemap, and the weekly report lists them town by
+ * town for the editor; as 169 identical warnings they buried the dozen that
+ * were not (search-visibility phase 2, 15 October 2026). `--past` lists them.
+ */
+if (process.argv.includes('--past')) {
+  for (const w of pastEvents) console.warn(`past  ${w}. Already hidden, noindexed and out of the sitemap. Roll it forward if it recurs, or delete the file.`);
+} else if (pastEvents.length > 0) {
+  console.warn(`past  ${pastEvents.length} events are over and already hidden, noindexed and out of the sitemap (run with --past to list them; the weekly report lists them by town)`);
+}
 if (process.argv.includes('--hours')) {
   for (const w of unparsedHours) console.warn(`hours ${w}`);
   for (const w of hoursByDesign) console.log(`hours (text by design) ${w}`);

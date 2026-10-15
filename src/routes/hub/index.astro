@@ -64,7 +64,9 @@ const { start: weekendStart, sunday } = weekendWindow(now);
  * stays short because it is also the Organization description; this is
  * written for the search result.
  */
-const description = `Independent guides to ${live.length} Colorado towns, on the Front Range and in the mountains: the week’s events, where to eat and drink, the trails, and what it’s like to live there.`;
+// Under 155 characters with a two-digit count, so the snippet ends at its
+// full stop: the longer line was cut at "what it’s…" in every result.
+const description = `Independent guides to ${live.length} Colorado towns, on the Front Range and in the mountains: the week’s events, where to eat and drink, the trails, and moving there.`;
 /**
  * Where the towns are, for a visitor who does not know one from another: the
  * northernmost and southernmost by latitude, and the mountain guides by name,

@@ -125,6 +125,18 @@ Lyons 234 visitors and 579 pageviews, 32 from google.com; Golden 84 visitors
 and 184 pageviews, referrers not read. Niwot's Google landings were led by
 the Niwot Trot 5K event page and the incorporation-election article.
 
+## The phases
+
+Decided 15 October 2026, after phase 1 shipped. Each phase has an owner;
+nothing moves to "done" here until it is.
+
+| Phase | What | Owner | Done when |
+|---|---|---|---|
+| 1 | Pages answer the searcher: Start here, refreshed date and big dates on /events/, place titles and "In the guides", Article and Moving Here structured data, flagship `related` links, verification from the environment | Repository | Shipped, PR #132 |
+| 2 | Signal over noise: past events as one count in the validator (`--past` lists them), a second daily rebuild at 17:10 UTC, About titles not doubled, Golden's commute line, the hub snippet ending at its full stop, outbound links on the three flagships checked (0 dead) | Repository | This phase |
+| 3 | Editorial, needs a person or a business's facts: verify the Search Console properties and submit the sitemaps; fix the Buttondown description and send the first issue; confirm the core event sources for Lyons, Niwot and Golden; roll forward or delete the 169 past events; reword or source the 13 unreadable hours lines; the photo list (docs/PHOTO-PRIORITIES.md); the outreach list (docs/OUTREACH-FLAGSHIPS.md); extend `related` links to the other nineteen guides' articles; verify the 2026 Holiday Parade date with the Business Association | Owner, with the weekly session | Each line struck through here with a date |
+| 4 | Measurement and commercial proof, after four weeks of Search Console and sends: fill the weekly table above, decide the three flagships' sponsor placements from real numbers, publish a rate card only if they hold | Owner | First rate card, or a dated decision not to publish one yet |
+
 ## Done in this phase, in the code
 
 - Place pages: `<title>` names the kind and the town ("Hall Ranch — Trail in

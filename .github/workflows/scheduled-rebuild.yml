@@ -27,6 +27,12 @@ on:
     # time — and drops some altogether; the pages are written not to depend
     # on the hour (Freshness.astro).
     - cron: '10 11 * * *'
+    # And once more in the Denver late morning (11:10 am MDT, 10:10 am MST),
+    # so a morning's push to main, or a late start of the run above, leaves
+    # the sitemaps, the noindex flags and the "Listings refreshed" date on
+    # /events/ no more than half a day behind (search-visibility phase 2,
+    # 15 October 2026). The browser still drops finished listings in between.
+    - cron: '10 17 * * *'
   workflow_dispatch:
 
 jobs:
