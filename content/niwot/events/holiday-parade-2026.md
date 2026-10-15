@@ -9,7 +9,8 @@ cost: "Free"
 category: festival
 featured: true
 source: "https://niwot.com/upcoming-events/annual-events-and-festivals/"
-verified: "2026-09-17"
+verified: "2026-10-15"
+verifiedBy: "James Lerner, from the Niwot Business Association’s event page on niwot.com: Nov 28 2026, 11:00 am–1:00 pm, downtown Niwot"
 ---
 
 Santa rides in the parade down Second Avenue from Murray Street to Niwot Road on the Saturday after Thanksgiving, then meets children at the Grange hall. The Business Association’s calendar gives Saturday, November 28 from 11 am to 1 pm; an older sentence on one of its pages still says November 29, and the calendar is the record.
