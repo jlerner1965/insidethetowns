@@ -352,6 +352,34 @@ for sixty days. The pages are built not to depend on the schedule (see
 DECISIONS.md, "Staying current without a server"), but if the Actions tab shows
 no recent runs, that is why.
 
+## Weekly ingest and Thursday drafts
+
+Two more workflows take the mechanical half of the weekly session, from 15
+October 2026. Neither publishes anything.
+
+- **Weekly ingest** (`.github/workflows/weekly-ingest.yml`), Mondays at 13:10
+  UTC: `npm run sources -- check`, `npm run ingest`, `npm run validate`,
+  `npm test`, then a pull request on the `automation/ingest` branch whose
+  body is `npm run review -- --summary`. The build never reads staging, so
+  the pull request is a queue, not a change: check the branch out, run
+  `npm run review`, push, merge. Close it unmerged and nothing has happened.
+- **Thursday drafts** (`.github/workflows/newsletter-drafts.yml`), Thursdays
+  at 12:10 UTC: `npm run newsletter` into `docs/newsletter/<send day>/`,
+  committed straight to `main`. Docs only, so every site's build is skipped
+  (scripts/vercel-ignore.sh). Sending stays a person's job, as before.
+
+One optional secret, `WORKFLOW_PAT`: a fine-grained personal access token
+with *Contents* and *Pull requests* write on this repository. Without it the
+ingest pull request is opened with the default `GITHUB_TOKEN`, and GitHub
+does not start the CI workflow on a pull request a workflow opened; the run
+validates and tests before opening it, so the gap is small, but with the
+secret set CI runs on that pull request like any other. The drafts workflow
+pushes to `main` with the default token; if `main` is ever protected against
+direct pushes, that run fails visibly and the command is run by hand.
+
+Both workflows have a *Run workflow* button in the Actions tab, and both stop
+after sixty days without a push, like the rebuild above.
+
 ## Turning the newsletter on
 
 Nothing about the weekly email renders until `newsletter` is set on

@@ -32,6 +32,12 @@ canceled`, and the pages do the rest (see any content README).
 1. `npm run ingest`, then `npm run review`: the feeds' new items and changes land in
    staging and the review walks them (see *Review* below), with the summary at the
    top: what is waiting, listings going stale in 14 days, sources not answering.
+   The ingest runs on its own every Monday morning
+   (`.github/workflows/weekly-ingest.yml`): it checks the sources, reads the feeds
+   into staging, validates, and opens a pull request on the `automation/ingest`
+   branch with the summary as its body. Check that branch out, run the review
+   there, push, merge; close it unmerged and nothing has happened. Nothing it
+   writes is published until the review approves it.
    `npm run weekly` still prints the longer report, per town: events whose last date
    falls within the next 7 days (add the next dates or delete the file), events
    already past, towns with fewer than 5 upcoming events, places without a photo,
@@ -49,7 +55,9 @@ canceled`, and the pages do the rest (see any content README).
    is left alone unless `--force` is given. `source` defaults to `url` and `verified`
    to today, so every imported event carries both.
 4. `npm run validate`, commit, push. Vercel rebuilds every live site.
-5. On the send day, `npm run newsletter -- --number=N` drafts one issue per edition
+5. On the send day, the drafts are already there: `.github/workflows/newsletter-drafts.yml`
+   runs `npm run newsletter` every Thursday morning and commits one file per edition
+   under `docs/newsletter/<send day>/`. By hand, `npm run newsletter -- --number=N` drafts one issue per edition
    (see *Editions* below) and one for the whole network from the listings: the weekend by day, anything still
    running, the week after, places added since the last issue (from the git history,
    so not in a shallow checkout) and articles published that week. Each draft is

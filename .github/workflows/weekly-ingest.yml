@@ -1,0 +1,85 @@
+# Reads the confirmed feeds into staging once a week and opens a pull request
+# with what arrived, so the weekly session starts at `npm run review` rather
+# than at `npm run ingest`.
+#
+# Nothing here publishes. The build never reads content/<town>/staging/, and a
+# published listing is touched only by its `changeFlag` and a change file for
+# the review (scripts/ingest.ts). The pull request is the queue: check the
+# branch out, run `npm run review`, approve or reject each item, push, merge.
+# Close it unmerged and nothing has happened.
+#
+# Before the pull request is opened the run validates every entry, staging
+# included, and runs the tests, because a pull request opened with the
+# default GITHUB_TOKEN does not start the CI workflow (GitHub's rule against
+# workflows triggering workflows). Set a repository secret WORKFLOW_PAT (a
+# fine-grained token with contents and pull-requests write on this repository)
+# and the pull request is opened with it instead, and CI runs on it like any
+# other (DEPLOY.md, Weekly ingest and Thursday drafts).
+name: Weekly ingest
+
+on:
+  schedule:
+    # Monday, 13:10 UTC: 7:10 am in Denver in summer, 6:10 am in winter, so
+    # the week's queue is waiting when the session starts. GitHub starts
+    # scheduled runs late and drops some; the Run workflow button is the
+    # fallback.
+    - cron: '10 13 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: weekly-ingest
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    name: Read the confirmed feeds into staging
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.WORKFLOW_PAT || github.token }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # Which confirmed sources still answer, recorded in each registry for
+      # the weekly report's "sources not answering" line. robots.txt is
+      # honoured by the script.
+      - name: Ask each confirmed source whether it still answers
+        run: npm run sources -- check
+      - name: Read the confirmed feeds into staging
+        run: npm run ingest
+      # Strict, staging included: a feed that writes a file the schema
+      # rejects fails here, not in the owner's review.
+      - run: npm run validate
+      - run: npm test
+      - name: The review's summary, for the pull request
+        id: summary
+        run: |
+          {
+            echo 'body<<EOF'
+            echo 'Read by the weekly ingest workflow. Nothing in it is published: the build never reads staging.'
+            echo
+            echo 'To work it: `git fetch origin automation/ingest && git checkout automation/ingest`, then `npm run review`, approve or reject each item, `npm run validate`, push, and merge this pull request. Close it unmerged and nothing changes.'
+            echo
+            echo '```'
+            npm run review -- --summary 2>&1 | sed -n '/^$/,$p' | head -200
+            echo '```'
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
+      - name: Open or update the pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.WORKFLOW_PAT || github.token }}
+          branch: automation/ingest
+          delete-branch: true
+          commit-message: "Ingest: what the confirmed feeds said this week, to staging"
+          title: "Weekly ingest: the feeds' new items, for review"
+          body: ${{ steps.summary.outputs.body }}
+          labels: ingest
