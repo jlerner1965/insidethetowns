@@ -73,7 +73,15 @@ jobs:
             echo '```'
             echo EOF
           } >> "$GITHUB_OUTPUT"
+      # The branch is pushed either way. Opening the pull request needs the
+      # repository to allow it: Settings → Actions → General → Workflow
+      # permissions → "Allow GitHub Actions to create and approve pull
+      # requests" (off by default, which is how the first run failed on 15
+      # October 2026), or the WORKFLOW_PAT secret. Until one of those is set
+      # the step fails softly and the step after prints where to open it.
       - name: Open or update the pull request
+        id: pr
+        continue-on-error: true
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.WORKFLOW_PAT || github.token }}
@@ -83,3 +91,8 @@ jobs:
           title: "Weekly ingest: the feeds' new items, for review"
           body: ${{ steps.summary.outputs.body }}
           labels: ingest
+      - name: Say where the queue is if the pull request could not be opened
+        if: steps.pr.outcome == 'failure'
+        run: |
+          echo "::warning::The staged items are on the automation/ingest branch, but this workflow is not allowed to open a pull request. Either allow it (Settings → Actions → General → Workflow permissions → Allow GitHub Actions to create and approve pull requests) or add a WORKFLOW_PAT secret (DEPLOY.md), then open this week's by hand: https://github.com/${{ github.repository }}/compare/main...automation/ingest"
+          exit 1
