@@ -16,6 +16,7 @@ npm run import-events -- events.csv --dry-run   # CSV → event files
 npm run sources               # the source registry: what waits to be confirmed, core first (see below)
 npm run ingest -- --dry-run   # read the confirmed feeds into staging; changes to published events go to review
 npm run review                # the summary, then everything in staging: approve, edit, reject (see below)
+npm run auto-review -- --dry-run   # what the standing rules would approve without a person, and why the rest waits
 scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
 ```
 
@@ -34,10 +35,11 @@ canceled`, and the pages do the rest (see any content README).
    top: what is waiting, listings going stale in 14 days, sources not answering.
    The ingest runs on its own every Monday morning
    (`.github/workflows/weekly-ingest.yml`): it checks the sources, reads the feeds
-   into staging, validates, and opens a pull request on the `automation/ingest`
-   branch with the summary as its body. Check that branch out, run the review
-   there, push, merge; close it unmerged and nothing has happened. Nothing it
-   writes is published until the review approves it.
+   into staging, approves what the standing rules allow (`npm run auto-review`,
+   below), validates, and opens a pull request on the `automation/ingest` branch
+   whose body lists what was approved, what waits and why. Check that branch out,
+   run the review there on what waits, push, merge; close it unmerged and nothing
+   has happened. Nothing it writes reaches a site until that merge.
    `npm run weekly` still prints the longer report, per town: events whose last date
    falls within the next 7 days (add the next dates or delete the file), events
    already past, towns with fewer than 5 upcoming events, places without a photo,
@@ -179,6 +181,22 @@ file, or dismiss a change and keep the listing), `o` (open the source URL), `s`
 without a `source`. `--town=lyons` narrows it, `--summary` prints only the
 summary, `--by="Name"` says who approved (else `REVIEWER`, else git's
 user.name). Then `npm run validate`, commit, push.
+
+`npm run auto-review` is the same review without a person at the prompt, under
+standing rules (`scripts/lib/auto-review.ts`; the owner's delegation of 15
+October 2026). It approves a staged event only when the organizer's own
+confirmed feed listed it (a town, county, library or parks calendar, or a
+venue's own; never a chamber's or a paper's), the venue is named and is a
+place, the date is ahead and within 400 days, nothing in the organizer's text
+says canceled or postponed, no published listing has the same title that day,
+and the editor did not hold it by hand. The published body is one sentence
+from the feed's fields and the organizer's description quoted as its own
+words, never passed off as the guide's. A change is written in when the same
+feed moved a listing's time, named its venue or called it off; a change to
+the day, to a weekly series, or from another source waits. Staged places
+never approve here. `verifiedBy` names the feed, the day it was read and the
+run. `--dry-run` decides and writes nothing; `--report=<file>` writes the same
+report as Markdown (the Monday pull request's body); `--by` names the run.
 
 ## Link rot
 

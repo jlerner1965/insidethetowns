@@ -5108,3 +5108,52 @@ requests were closed the same day: #13 (Codex, 22 September, no common
 history with main, everything it proposed since built differently) and
 #34 (2 October, whose facts about Bradford's and Cassidy's had already
 landed).
+
+## The review runs on its own, 15 October
+
+The owner asked for this week's queue to be reviewed and for the review to
+run by itself from here on ("run review automatically if possible"). The
+standing rules are in `scripts/lib/auto-review.ts`, pinned by
+`test/auto-review.test.ts`, and the Monday workflow runs them after ingest.
+
+**What approves without a person.** A staged event from the organizer's own
+confirmed feed (a town, county, library or parks calendar, or a venue's own;
+a chamber's or a paper's calendar lists other people's events and waits),
+with a venue that is a place (not a PO box, a Teams link or a one-word room
+with no address), a date ahead and within 400 days, no word of cancellation
+or postponement in the organizer's own text, no published listing with the
+same title that day, and not held back by the editor. A change the same feed
+made to a listing's time, venue or status is written in; a change to the day,
+to a weekly series, or from another site waits. Staged places never approve
+here: every one is held for a reason that needs a site read.
+
+**What the published file says.** Ingest asks for the organizer's
+description to be rewritten in the guide's words. A rule cannot write, so the
+body is one sentence built from the feed's fields (title, venue, day, time,
+free or not, who listed it) and then the organizer's first sentences as a
+quotation that names the organizer. The guide never passes the organizer's
+copy off as its own, and never adds a fact the feed did not carry.
+`verifiedBy` names the feed, the day it was read, and the run.
+
+**One guess undone.** Ingest's category is a keyword guess; "board" made a
+game night civic. A civic guess on a title whose board is a game is set to
+`other`, which claims nothing. Every other guess stands and the page shows it.
+
+**The 15 October run.** 58 events approved and one change applied (the City
+of Longmont's own site moved its Day of the Dead celebration from downtown to
+the Longmont Museum; the listing came from the recreation calendar and the
+change from the museum's, one site, so the rules count it as the organizer's).
+By hand, as the owner's delegate: the Town of Lyons's calendar times applied
+to two of its meetings; the Babytime change dismissed because the listing
+already says 11 am; twelve staged copies of Johnstown's Music & Movement
+Storytime replaced by one afternoon series file (the feed lists a 1 pm
+session on seven Mondays; the 10 am copies were the published series again);
+four trash-pickup schedules, a library closure notice, a past second session
+and an owl walk the County had already canceled rejected. What waits is in
+the pull request body and in `npm run review -- --summary`.
+
+**Why not an LLM rewrite.** The research agent (`agent/`) could rewrite each
+description on the Claude API. It would read better and cost a few cents an
+item, and it would also be a second author whose sentences nobody checks
+before they publish. The quotation is dull and honest; the agent can be added
+later as a step the owner reads.

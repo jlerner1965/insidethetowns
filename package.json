@@ -28,7 +28,8 @@
     "build:hub": "TOWN=hub node scripts/run.ts build",
     "astro": "astro",
     "check-colors": "node scripts/check-colors.ts",
-    "agent": "node agent/agent.mjs"
+    "agent": "node agent/agent.mjs",
+    "auto-review": "node scripts/auto-review.ts"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "^0.4.1",
