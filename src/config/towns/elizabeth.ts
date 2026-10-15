@@ -4,15 +4,20 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
 export const elizabeth = {
   kind: 'town',
   status: 'live',
-  // Out of the weekly routine from 12 October 2026 on the owner's word, until
-  // a decision on keeping it (DECISIONS.md, "Severance and Fort Lupton become
-  // sections"). 15 November is before any listing's hours expire: the five
-  // checked on 18 September lose them on 17 November and drop off on
-  // 17 December, the rest in early December and January.
+  // Out of the weekly routine from 12 October 2026 on the owner's word
+  // (DECISIONS.md, "Severance and Fort Lupton become sections"). Kept, on
+  // the owner's word of 15 October 2026, on its readers: 148 visitors in the
+  // four weeks to 15 October, more than Golden, Fort Collins or Timnath
+  // (DECISIONS.md, "Elizabeth stays"). It stays quiet, with no weekly
+  // promise, because the reason it went quiet (an hour from every other
+  // guide, so nothing about it combines) has not changed. What is left to
+  // decide on 15 November is only whether it rejoins the weekly email; the
+  // date stays before any listing's hours expire (the five checked on 18
+  // September lose them on 17 November, and the test holds the order).
   quiet: {
     since: '2026-10-12',
     decideBy: '2026-11-15',
-    reason: 'an hour from the other guides, so visits, photographs and advertisers do not combine with any other town',
+    reason: 'kept on 15 October 2026 on its reader numbers, but an hour from the other guides, so it stays out of the weekly email; 15 November decides whether it rejoins',
   },
   variant: 'front-range',
   region: 'South Metro',
