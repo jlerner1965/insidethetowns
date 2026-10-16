@@ -5157,3 +5157,18 @@ description on the Claude API. It would read better and cost a few cents an
 item, and it would also be a second author whose sentences nobody checks
 before they publish. The quotation is dull and honest; the agent can be added
 later as a step the owner reads.
+
+## Niwot's tagline, 16 October
+
+- **"A town that never incorporated" is gone.** It was the Niwot hero subtitle
+  and its line in the network bar, and with incorporation on the November 3,
+  2026 ballot it read as a settled fact the vote could overturn. The tagline
+  now names the vote and its date, which stays true after the count: "Old
+  Town, the trails, and the incorporation vote of November 3, 2026". The two
+  pre-written lines for the result are unchanged.
+- **/moving/ says "Niwot is unincorporated"**, not "has never incorporated",
+  and its ballot link names the date instead of "in 2026". This reverses the
+  14 October choice to leave Niwot's wording untouched while the vote is
+  pending. "How Niwot got here" keeps "It has never been an incorporated
+  municipality": it is history, and the next sentence says November 2026 may
+  change it.

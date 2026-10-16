@@ -11,14 +11,15 @@ export const niwot: TownConfig = {
   domain: 'insideniwot.com',
   siteTitle: 'Inside Niwot',
   tagline: 'An independent guide to Niwot, Colorado: what’s on, where to eat, where to walk, and what it’s like to live here.',
-  // True until the incorporation vote of 3 November 2026 is counted (Left
-  // Hand Valley Courier, 26 August 2026: the election commission approved
-  // the ballot wording). Pre-written for the night of the count (network
-  // audit, 14 October 2026); swap the line, and update the incorporation
-  // explainer article, once the result is official:
+  // Names the vote and its date rather than calling Niwot a town that never
+  // incorporated, which read as settled while the question was on the
+  // 3 November 2026 ballot (Left Hand Valley Courier, 26 August 2026: the
+  // election commission approved the ballot wording). Pre-written for the
+  // night of the count (network audit, 14 October 2026); swap the line, and
+  // update the incorporation explainer article, once the result is official:
   //   passes: 'Old Town, the trails, and a town that voted to incorporate'
   //   fails:  'Old Town, the trails, and a town that voted to stay unincorporated'
-  shortTagline: 'Old Town, the trails, and a town that never incorporated',
+  shortTagline: 'Old Town, the trails, and the incorporation vote of November 3, 2026',
   seoTagline: 'Old Town, trails and events in Niwot, Colorado',
   counties: ['Boulder'],
   state: 'CO',
