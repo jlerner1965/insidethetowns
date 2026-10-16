@@ -11,6 +11,8 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "ok",
       "cites": {
         "events": 21,
         "places": 10
@@ -26,9 +28,7 @@
         "Pick-up Basketball",
         "Bootcamp"
       ],
-      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (37 items on 4 October). Recurring drop-ins and classes are excluded by title at the editor's direction (4 October 2026); the recreation centre's listing links the Town's drop-in calendar instead. One-time and seasonal events at the centre still come through.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (37 items on 4 October). Recurring drop-ins and classes are excluded by title at the editor's direction (4 October 2026); the recreation centre's listing links the Town's drop-in calendar instead. One-time and seasonal events at the centre still come through."
     },
     {
       "id": "berthoudmainstreet-org",
@@ -71,14 +71,14 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "ok",
       "cites": {
         "events": 8,
         "places": 1
       },
       "robots": "honor",
-      "notes": "Checked 4 October 2026: a Wix site with an events page and no calendar feed or embed found; checked by hand.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Checked 4 October 2026: a Wix site with an events page and no calendar feed or embed found; checked by hand."
     },
     {
       "id": "citystarbrewing-com",

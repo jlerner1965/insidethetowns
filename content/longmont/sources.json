@@ -11,6 +11,8 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
         "Pre-Session",
@@ -19,9 +21,7 @@
         "Study Session",
         "Joint Meeting"
       ],
-      "notes": "Found and read once on 4 October 2026. The City's calendar is The Events Calendar on WordPress. Its robots.txt disallows /wp-json/, so the REST API is not read; the iCal exports under /events/ are allowed, but each stops at 30 items, which on the all-events export is two to four days, nearly all library drop-ins. So the City's calendar is proposed as one feed per department category, each reaching further. This one is the City Council category: 18 items to 29 December on 4 October (council meetings, pre-sessions, study sessions, Coffee with Council, Council at the farmers market, a fire station open house). The City marks a called-off meeting by prefixing \"Canceled:\" to the title rather than with STATUS:CANCELLED, so ingest will stage those as new items; three in December were marked so. America/Denver times. Exclusions set 4 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again. \"Council at Longmont Farmers Market\" was excluded on 4 October because ingest matched it to the market itself and overwrote one with the other; that matching was fixed on 5 October (a file whose own feed id is still in the run cannot be taken by a similar title), so it is staged again for the editor to judge. Regular council meetings, study sessions and joint meetings excluded on 4 October 2026 at the review, where the owner rejected the eight staged (routine meetings, per the event standard); Coffee with Council and the fire station open house stay.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Found and read once on 4 October 2026. The City's calendar is The Events Calendar on WordPress. Its robots.txt disallows /wp-json/, so the REST API is not read; the iCal exports under /events/ are allowed, but each stops at 30 items, which on the all-events export is two to four days, nearly all library drop-ins. So the City's calendar is proposed as one feed per department category, each reaching further. This one is the City Council category: 18 items to 29 December on 4 October (council meetings, pre-sessions, study sessions, Coffee with Council, Council at the farmers market, a fire station open house). The City marks a called-off meeting by prefixing \"Canceled:\" to the title rather than with STATUS:CANCELLED, so ingest will stage those as new items; three in December were marked so. America/Denver times. Exclusions set 4 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again. \"Council at Longmont Farmers Market\" was excluded on 4 October because ingest matched it to the market itself and overwrote one with the other; that matching was fixed on 5 October (a file whose own feed id is still in the run cannot be taken by a similar title), so it is staged again for the editor to judge. Regular council meetings, study sessions and joint meetings excluded on 4 October 2026 at the review, where the owner rejected the eight staged (routine meetings, per the event standard); Coffee with Council and the fire station open house stay."
     },
     {
       "id": "bouldercounty-gov",
@@ -33,6 +33,8 @@
       "category": "county",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "ok",
       "robots": "honor",
       "locationFilter": [
         "Longmont"
@@ -41,9 +43,7 @@
         "AHC Open",
         "Election Champion"
       ],
-      "notes": "Found and read once on 4 October 2026; the same feed Niwot's and Lyons' registries confirm with their own location filter. County-wide, 30 upcoming items; the ones naming Longmont are mostly County open space and the Agricultural Heritage Center with Longmont addresses outside the city limits (Pella Crossing, Rabbit Mountain, 8348 Ute Hwy), which the guide's parks and outdoors scope takes in. Fairgrounds events also carry Longmont and are proposed separately below; ingest merges an item two feeds share. Exclusions set 4 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again. \"Election Champion\" (a volunteer training) excluded on 5 October 2026: the owner rejected it at the 4 October review, and a rejected feed item is staged again unless its title is excluded.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Found and read once on 4 October 2026; the same feed Niwot's and Lyons' registries confirm with their own location filter. County-wide, 30 upcoming items; the ones naming Longmont are mostly County open space and the Agricultural Heritage Center with Longmont addresses outside the city limits (Pella Crossing, Rabbit Mountain, 8348 Ute Hwy), which the guide's parks and outdoors scope takes in. Fairgrounds events also carry Longmont and are proposed separately below; ingest merges an item two feeds share. Exclusions set 4 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again. \"Election Champion\" (a volunteer training) excluded on 5 October 2026: the owner rejected it at the 4 October review, and a rejected feed item is staged again unless its title is excluded."
     },
     {
       "id": "downtownlongmont-com",
@@ -54,10 +54,10 @@
       "category": "chamber",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "ok",
       "robots": "honor",
-      "notes": "Checked 4 October 2026: Craft CMS. The calendar page reads as plain HTML (Downtown and Creative District events, many at businesses: Kuper Wine Bar, The Blackbird House), with pages for the annuals (Day of the Dead, Costume Crawl, Wine Walk, summer concerts, holidays). robots.txt disallows /_feeds/, where a feed would live, so none is proposed. Read by hand.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Checked 4 October 2026: Craft CMS. The calendar page reads as plain HTML (Downtown and Creative District events, many at businesses: Kuper Wine Bar, The Blackbird House), with pages for the annuals (Day of the Dead, Costume Crawl, Wine Walk, summer concerts, holidays). robots.txt disallows /_feeds/, where a feed would live, so none is proposed. Read by hand."
     },
     {
       "id": "longmontchamber-org",
@@ -68,10 +68,10 @@
       "category": "chamber",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "ok",
       "robots": "honor",
-      "notes": "Checked 4 October 2026: GrowthZone. Two calendars, the chamber's own (my.longmontchamber.org/calendar: networking, ribbon cuttings) and a community calendar; neither offers a calendar feed, only a .ics per event, and the WordPress RSS at longmontchamber.org/feed/ is news posts. The community calendar carries events outside Longmont (the first one opened was a gala in Loveland), so each item needs its location checked. Read by hand.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Checked 4 October 2026: GrowthZone. Two calendars, the chamber's own (my.longmontchamber.org/calendar: networking, ribbon cuttings) and a community calendar; neither offers a calendar feed, only a .ics per event, and the WordPress RSS at longmontchamber.org/feed/ is news posts. The community calendar carries events outside Longmont (the first one opened was a gala in Loveland), so each item needs its location checked. Read by hand."
     },
     {
       "id": "longmontcolorado-gov-library",
@@ -83,6 +83,8 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
         "Storytime",
@@ -103,9 +105,7 @@
         "Book Club"
       ],
       "defaultVenue": "Longmont Public Library",
-      "notes": "Found and read once on 4 October 2026. The library is a City department and its programmes are on the City's calendar (see longmontcolorado-gov for why it is split by category). 30 items reached 12 October: storytimes, Stay & Play, writers' and teen groups, workshops, most at 355 Emery St. The guide's event standard leaves out most daily regulars; excludeTitles is the editor's to set. Exclusions set 4 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Found and read once on 4 October 2026. The library is a City department and its programmes are on the City's calendar (see longmontcolorado-gov for why it is split by category). 30 items reached 12 October: storytimes, Stay & Play, writers' and teen groups, workshops, most at 355 Emery St. The guide's event standard leaves out most daily regulars; excludeTitles is the editor's to set. Exclusions set 4 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again."
     },
     {
       "id": "longmontcolorado-gov-parks",
@@ -116,10 +116,10 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "ok",
       "robots": "honor",
-      "notes": "Checked 4 October 2026: the source for park, greenway and open-space listings (the directory of parks and trails, the greenways and trails page, the trail status map). Its category on the City calendar had no events, so there is no feed to read; parks events come through longmontcolorado-gov-recreation.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Checked 4 October 2026: the source for park, greenway and open-space listings (the directory of parks and trails, the greenways and trails page, the trail status map). Its category on the City calendar had no events, so there is no feed to read; parks events come through longmontcolorado-gov-recreation."
     },
     {
       "id": "longmontcolorado-gov-recreation",
@@ -131,6 +131,8 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
         "Itty Bitty City",
@@ -139,9 +141,7 @@
         "Advisory Board",
         "Floating Pumpkin Patch"
       ],
-      "notes": "Found and read once on 4 October 2026. The City's community events are filed under Recreation Services: 22 items to 12 December on 4 October, among them the Floating Pumpkin Patch, the Day of the Dead Family Celebration, the Halloween Costume Parade, the Turkey Trot, the Ice Pavilion opening and the Longmont Lights Holiday Parade, plus Callahan House events (its own category duplicates this one and is not proposed separately). Weekly items (Itty Bitty City Preschool Playtime, Free Saturday Fitness) are in it too. Exclusions set 4 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again. \"Floating Pumpkin Patch\" excluded on 5 October 2026: the City canceled it and the owner rejected it at the 4 October review; a rejected feed item is staged again unless its title is excluded.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Found and read once on 4 October 2026. The City's community events are filed under Recreation Services: 22 items to 12 December on 4 October, among them the Floating Pumpkin Patch, the Day of the Dead Family Celebration, the Halloween Costume Parade, the Turkey Trot, the Ice Pavilion opening and the Longmont Lights Holiday Parade, plus Callahan House events (its own category duplicates this one and is not proposed separately). Weekly items (Itty Bitty City Preschool Playtime, Free Saturday Fitness) are in it too. Exclusions set 4 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again. \"Floating Pumpkin Patch\" excluded on 5 October 2026: the City canceled it and the owner rejected it at the 4 October review; a rejected feed item is staged again unless its title is excluded."
     },
     {
       "id": "bouldercounty-gov-fairgrounds",
@@ -153,6 +153,8 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
         "Horse Show",
@@ -160,9 +162,7 @@
         "Saddle Club",
         "Agility Trial"
       ],
-      "notes": "Found and read once on 4 October 2026: the County's fairgrounds category, 9595 Nelson Road, Longmont. 30 items to 13 November, among them the Longmont Farmers Market every Saturday at 8 am in the North Parking Lot (the market's own site, bcfm.org, sits behind a bot challenge), the Pumpkin Pie Days and Mollie McGee's markets, the Longmont Quilt Guild show and Feria del Tamal. Horse shows and club gymkhanas are in it too and are the editor's to exclude. The Boulder County Fair in August is here. Exclusions set 4 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Found and read once on 4 October 2026: the County's fairgrounds category, 9595 Nelson Road, Longmont. 30 items to 13 November, among them the Longmont Farmers Market every Saturday at 8 am in the North Parking Lot (the market's own site, bcfm.org, sits behind a bot challenge), the Pumpkin Pie Days and Mollie McGee's markets, the Longmont Quilt Guild show and Feria del Tamal. Horse shows and club gymkhanas are in it too and are the editor's to exclude. The Boulder County Fair in August is here. Exclusions set 4 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again."
     },
     {
       "id": "dickensoperahouse-com",
@@ -172,11 +172,11 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "robots": "honor",
-      "notes": "Checked 4 October 2026: robots.txt allows us, but the site answers automated requests with 403, so nothing could be read. Downtown's main music room; check its calendar in a browser.",
-      "lastChecked": "2026-10-14",
+      "lastChecked": "2026-10-15",
       "lastStatus": "blocked",
-      "lastNote": "refused an automated request"
+      "lastNote": "refused an automated request",
+      "robots": "honor",
+      "notes": "Checked 4 October 2026: robots.txt allows us, but the site answers automated requests with 403, so nothing could be read. Downtown's main music room; check its calendar in a browser."
     },
     {
       "id": "longmontcolorado-gov-museum",
@@ -188,6 +188,8 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
         "Discovery Days",
@@ -197,9 +199,7 @@
         "Art & Sip"
       ],
       "defaultVenue": "Longmont Museum",
-      "notes": "Found and read once on 4 October 2026. The museum, 400 Quail Rd., is a City department; its Stewart Auditorium programme (Friday afternoon concerts, films co-presented with the Sundance Film Festival, talks) and its classes are on the City's calendar. 30 items reached 22 October, including the Grand Reopening Celebration on 17 October. Like the council calendar it marks changes in the title (\"Postponed: ...\"). Daily Discovery Days sessions are regulars. Exclusions set 4 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again. Art & Sip excluded on 4 October 2026 at the review, where the owner rejected the three staged: ticketed craft classes, which the event standard leaves out.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Found and read once on 4 October 2026. The museum, 400 Quail Rd., is a City department; its Stewart Auditorium programme (Friday afternoon concerts, films co-presented with the Sundance Film Festival, talks) and its classes are on the City's calendar. 30 items reached 22 October, including the Grand Reopening Celebration on 17 October. Like the council calendar it marks changes in the title (\"Postponed: ...\"). Daily Discovery Days sessions are regulars. Exclusions set 4 October 2026 from the event standard in docs/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again. Art & Sip excluded on 4 October 2026 at the review, where the owner rejected the three staged: ticketed craft classes, which the event standard leaves out."
     },
     {
       "id": "longmontsymphony-org",
@@ -210,10 +210,10 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "ok",
       "robots": "honor",
-      "notes": "Checked 4 October 2026: Squarespace, and the season page reads as plain HTML (the 60th season: 17 October, 14 November, the Nutcracker 5 and 6 December, 12 December, then 2027). Squarespace's robots.txt disallows ?format=, so its iCal export is not read. Concerts are at Vance Brand Civic Auditorium on the Skyline High campus, which has no site of its own.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Checked 4 October 2026: Squarespace, and the season page reads as plain HTML (the 60th season: 17 October, 14 November, the Nutcracker 5 and 6 December, 12 December, then 2027). Squarespace's robots.txt disallows ?format=, so its iCal export is not read. Concerts are at Vance Brand Civic Auditorium on the Skyline High campus, which has no site of its own."
     },
     {
       "id": "firehouseart-org",

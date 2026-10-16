@@ -27,14 +27,14 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "ok",
       "cites": {
         "events": 14,
         "places": 0
       },
       "robots": "honor",
-      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location; lists the next few weeks (13 items on 4 October).",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location; lists the next few weeks (13 items on 4 October)."
     },
     {
       "id": "bouldercounty-gov",
@@ -46,6 +46,8 @@
       "category": "county",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "ok",
       "cites": {
         "events": 0,
         "places": 3
@@ -54,9 +56,7 @@
       "locationFilter": [
         "Lyons"
       ],
-      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. County-wide feed (The Events Calendar; 30 upcoming items on 4 October); only items whose location names Lyons are taken.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "ok"
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. County-wide feed (The Events Calendar; 30 upcoming items on 4 October); only items whose location names Lyons are taken."
     },
     {
       "id": "lyons-librarycalendar-com",
@@ -68,16 +68,16 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-10-15",
+      "lastStatus": "skipped",
+      "lastNote": "robots.txt asks automated clients not to fetch it",
       "cites": {
         "events": 74,
         "places": 0
       },
       "robots": "honor",
       "defaultVenue": "Lyons Regional Library",
-      "notes": "Manual until the library answers: its iCal feed (feedUrl, kept here) is offered to readers under 'subscribe', but the site's robots.txt disallows every path for agents it does not list, and the editor is asking the library for permission before ingest reads it (docs/SOURCE-PERMISSION-EMAILS.md). Set type back to ical and robots to subscribe when it comes. Found 4 October 2026; 109 events, UTC times.",
-      "lastChecked": "2026-10-14",
-      "lastStatus": "skipped",
-      "lastNote": "robots.txt asks automated clients not to fetch it"
+      "notes": "Manual until the library answers: its iCal feed (feedUrl, kept here) is offered to readers under 'subscribe', but the site's robots.txt disallows every path for agents it does not list, and the editor is asking the library for permission before ingest reads it (docs/SOURCE-PERMISSION-EMAILS.md). Set type back to ical and robots to subscribe when it comes. Found 4 October 2026; 109 events, UTC times."
     },
     {
       "id": "rockgardenlyons-com",
