@@ -3,9 +3,9 @@ title: "Leadville National Fish Hatchery"
 type: park
 address: "2846 Highway 300, Leadville, CO 80461"
 area: "Highway 300 / Mount Massive"
-url: "https://www.fws.gov/fish-hatchery/leadville"
-source: "https://www.fws.gov/fish-hatchery/leadville/visit-us"
-verified: "2026-10-10"
+url: "https://www.fws.gov/locations/leadville-national-fish-hatchery"
+source: "https://www.fws.gov/locations/leadville-national-fish-hatchery"
+verified: "2026-10-17"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "719-486-0189"
@@ -19,6 +19,6 @@ imageAlt: "The round display pond with a boardwalk and interpretive signs at Lea
 imageCredit: "Famartin, Wikimedia Commons, CC BY-SA 4.0"
 ---
 
-The Leadville National Fish Hatchery sits on 3,072 acres at 10,000 feet west of town on Highway 300 and draws more than 36,000 visitors a year, according to the U.S. Fish and Wildlife Service. Its Visit Us page lists office hours of Monday through Friday, 7 am to 3:30 pm, and tours for organized programs and school groups during business hours by appointment, depending on staff. Three trails start on the grounds, Rock Creek, Highline and Kearney Park, and all three meet the Colorado Trail in the Mount Massive Wilderness, so they can be walked as a loop from the hatchery; lengths are not given. Snowshoeing and cross-country skiing are listed as winter activities. Visitor-center and grounds hours are not on the page, and no dated notice was on it; the hatchery also mentions an annual fifth-grade Pathways to Fishing program and a Fish Hatchery 5K without dates.
+The Leadville National Fish Hatchery sits on 3,072 acres at 10,000 feet west of town on Highway 300 and draws more than 36,000 visitors a year, according to the U.S. Fish and Wildlife Service. Its page lists office hours of Monday through Friday, 7 am to 3:30 pm, and tours for organized programs and school groups during business hours by appointment, depending on staff. Three trails start on the grounds, Rock Creek, Highline and Kearney Park, and all three meet the Colorado Trail in the Mount Massive Wilderness, so they can be walked as a loop from the hatchery; lengths are not given. Snowshoeing and cross-country skiing are listed as winter activities. Visitor-center and grounds hours are not on the page, and no dated notice was on it; the hatchery also mentions an annual fifth-grade Pathways to Fishing program and a Fish Hatchery 5K without dates.
 
-Address, phone, hours and trails from the hatchery's [Visit Us page](https://www.fws.gov/fish-hatchery/leadville/visit-us), acreage from its [home page](https://www.fws.gov/fish-hatchery/leadville), both read 10 October 2026.
+Address, phone, hours, trails, acreage and visitor numbers from the hatchery's [page on the Service's site](https://www.fws.gov/locations/leadville-national-fish-hatchery), read 17 October 2026.
