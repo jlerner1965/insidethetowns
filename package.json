@@ -30,7 +30,8 @@
     "check-colors": "node scripts/check-colors.ts",
     "agent": "node agent/agent.mjs",
     "auto-review": "node scripts/auto-review.ts",
-    "recheck": "node scripts/recheck-events.ts"
+    "recheck": "node scripts/recheck-events.ts",
+    "confirm": "node scripts/confirm-events.ts"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "^0.4.1",

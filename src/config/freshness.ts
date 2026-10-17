@@ -36,6 +36,22 @@ export const FRESHNESS = {
   hoursDays: { 'front-range': 60, mountain: 45 } satisfies Record<TownVariant, number>,
   /** Days from `verified` after which trail, parking and closure notes are hidden. */
   accessDays: 30,
+  /**
+   * Events (src/lib/confidence.ts). A date is the organizer's fact, but a
+   * listing rests on a confirmation, and these say how long one holds. The
+   * Lyons check of 16 October 2026 found the drift in the weekly series: all
+   * eight dead listings were regulars carried forward from a September read.
+   */
+  events: {
+    /** A confirmation (the organizer's page or feed, or a call or email) counts as current for this many days. */
+    confirmedDays: 60,
+    /** A weekly series shows its dates this many days past its last confirmation, and no further. */
+    seriesDays: 56,
+    /** A listing resting on a community calendar alone must have been seen there within this many days. */
+    calendarDays: 30,
+    /** A listed event (a community calendar's, or one whose confirmation has gone stale) appears this many days ahead. */
+    listedAheadDays: 21,
+  },
 } as const;
 
 /** A town's own windows, so callers do not index the tables themselves. */

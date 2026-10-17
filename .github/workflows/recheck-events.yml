@@ -11,9 +11,9 @@
 # source sets `changeFlag` with the evidence in `changeNote`, the same flag
 # the ingest raises, for `npm run review`. It never edits a time, never
 # deletes and never moves a file to staging. Nothing reaches a site until the
-# pull request is merged. The report in the pull request also lists what it
-# could not read (a page rendered by JavaScript, a bot challenge), which is
-# the list for a browser or a phone.
+# pull request is merged. The report in the pull request opens with the calls
+# to make: each venue whose events no machine could confirm, its phone number
+# from the guide, and the `npm run confirm` line that records the call.
 #
 # Opening the pull request needs the same setting as the weekly ingest:
 # Settings → Actions → General → Workflow permissions → "Allow GitHub Actions
@@ -49,6 +49,12 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # A headless browser for the calendars drawn by JavaScript (MainStage's).
+      # Not a project dependency: only this job uses it, and the sites' builds
+      # stay as they were. The re-check runs without it if this step fails.
+      - name: Install a headless browser for JavaScript calendars
+        continue-on-error: true
+        run: npm install --no-save --no-audit --no-fund playwright@1.56.1 && npx playwright install --with-deps chromium
       - name: Re-check and write what was found
         run: npm run recheck -- --write --by="the nightly re-check workflow" --report=/tmp/recheck.md
       - run: npm run validate

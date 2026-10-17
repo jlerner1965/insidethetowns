@@ -7,7 +7,8 @@ address: "451 4th Ave, Lyons, CO 80540"
 category: civic
 recurring: "Second Mondays"
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (run by hand, 17 October 2026): \"Parks and Recreation Commission\" at 6:15 pm on 9 November on the lyons.librarycalendar.com feed"
 ---
 
 Regular meeting of the Town of Lyons Parks and Recreation Commission, held in the library Community Room.

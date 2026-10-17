@@ -6,7 +6,8 @@ venue: "Lyons Regional Library, Effie Banta Room"
 address: "451 4th Ave, Lyons, CO 80540"
 category: other
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (run by hand, 17 October 2026): \"Explore Resources with the BoCo Area Agency on Aging\" at 10:15 am on 21 October on the lyons.librarycalendar.com feed"
 ---
 
 Drop-in session with a Boulder County Area Agency on Aging representative to discuss benefits, services and support for older adults.

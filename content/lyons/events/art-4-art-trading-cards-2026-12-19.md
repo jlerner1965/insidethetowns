@@ -7,7 +7,8 @@ address: "451 4th Ave, Lyons, CO 80540"
 category: arts
 recurring: "Third Saturdays"
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (run by hand, 17 October 2026): \"Art 4 Art Trading Cards\" at 12:30 pm on 19 December on the lyons.librarycalendar.com feed"
 ---
 
 Monthly swap of artist trading cards: 2.5 by 3.5 inch original works in any medium, traded rather than sold. Open to teens and adults.

@@ -7,7 +7,8 @@ address: "451 4th Ave, Lyons, CO 80540"
 category: family
 recurring: "Second Thursdays"
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (run by hand, 17 October 2026): \"Creative Movement with Dandelion Arts Collective\" at 3:45 pm on 10 December on the lyons.librarycalendar.com feed"
 ---
 
 A movement and dance session for children led by the Dandelion Arts Collective in the library Community Room. Registration is available through the library.

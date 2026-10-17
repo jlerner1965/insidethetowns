@@ -51,7 +51,8 @@ test('no source or no check date holds an entry back, with a reason that names t
   assert.equal(placeExclusion(place(), 'front-range', now), null);
   assert.equal(placeExclusion(place({ source: undefined }), 'front-range', now)?.reason, 'no-source');
   assert.equal(placeExclusion(place({ verified: undefined }), 'front-range', now)?.reason, 'no-verified');
-  assert.equal(eventExclusion({ title: 'x', source: 'https://a.org/', verified: verifiedDaysAgo(300) }), null);
+  // An old check does not hide a dated event outright; it makes it listed, shown a few weeks ahead (test/confidence.test.ts).
+  assert.equal(eventExclusion({ title: 'x', start: new Date(), source: 'https://a.org/', verified: verifiedDaysAgo(300) }), null);
   assert.equal(eventExclusion({ title: 'x', verified: verifiedDaysAgo(1) })?.reason, 'no-source');
   assert.match(eventExclusion({ title: 'x', source: 'https://a.org/' })?.detail ?? '', /verified/);
 });

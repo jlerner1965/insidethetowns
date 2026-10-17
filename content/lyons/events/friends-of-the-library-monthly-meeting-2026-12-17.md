@@ -7,7 +7,8 @@ address: "451 4th Ave, Lyons, CO 80540"
 category: civic
 recurring: "Third Thursdays"
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (run by hand, 17 October 2026): \"Friends of the Library Monthly Meeting\" at 4:30 pm on 17 December on the lyons.librarycalendar.com feed"
 ---
 
 Monthly meeting of the Friends of the Lyons Regional Library, the volunteer group that fundraises for library programs.

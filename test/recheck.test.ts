@@ -7,7 +7,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseLocal } from '../src/lib/dates.ts';
 import type { FeedEvent } from '../scripts/lib/feeds/types.ts';
-import { dateRegex, jsonLdEvents, judgeFeed, judgePage, occurrences, pageText, timeRegex, type RecheckEvent } from '../scripts/lib/recheck.ts';
+import { dateRegex, jsonLdEvents, judgeFeed, judgePage, occurrenceUrl, occurrences, pageText, sameTitle, timeRegex, type RecheckEvent } from '../scripts/lib/recheck.ts';
 
 const at = (s: string) => parseLocal(s);
 const event = (over: Partial<RecheckEvent> = {}): RecheckEvent => ({
@@ -127,4 +127,16 @@ test('a feed that carries the event on other days but not this one is a change; 
 
 test('a cancelled feed item is a change', () => {
   assert.match(judgeFeed(event(), at('2026-11-11T18:00'), [item({ status: 'cancelled' })], 'the feed').note, /cancelled/);
+});
+
+test("titles match on their own words, not the venue's", () => {
+  assert.ok(sameTitle('Pints & Pages Book Club at MainStage Brewing', 'Pints & Pages book club', 'MainStage Brewing Company'));
+  assert.ok(!sameTitle('Trivia Game (WayBack Bar)', 'Karaoke at the Wayback Bar', 'Wayback Bar (back of Wildcat Mountaineering)'));
+  assert.ok(sameTitle('Old Time Jam (Oskar Blues)', 'Old-time jam at Oskar Blues', 'Oskar Blues Grill & Brew'));
+});
+
+test("a calendar that gives each date its own page is read at the page for the date checked", () => {
+  assert.equal(occurrenceUrl('https://lyonsrecorder.org/event/old-time-jam/2026-10-28/', at('2026-11-25T18:00')), 'https://lyonsrecorder.org/event/old-time-jam/2026-11-25/');
+  assert.equal(occurrenceUrl('https://lyonsrecorder.org/event/old-time-jam/2026-11-25/', at('2026-11-25T18:00')), 'https://lyonsrecorder.org/event/old-time-jam/2026-11-25/');
+  assert.equal(occurrenceUrl('https://mainstagebrewing.com/music', at('2026-11-25T18:00')), 'https://mainstagebrewing.com/music');
 });

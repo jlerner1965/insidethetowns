@@ -66,6 +66,7 @@ export const EVENT_KEY_ORDER = [
   'sourceHash',
   'verified',
   'verifiedBy',
+  'confirmed',
 ] as const;
 
 const BARE = new Set(['subTown', 'category', 'repeat', 'image', 'status']);

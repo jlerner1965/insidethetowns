@@ -14,6 +14,7 @@
 import { FRESHNESS, windowsFor } from '../config/freshness.ts';
 import type { TownVariant } from '../config/towns/types.ts';
 import { isExcluded } from '../content/schemas.ts';
+import { eventPresentation, type ConfidenceInput } from './confidence.ts';
 import { TIME_ZONE, addDays, dayKey, fromWallClock, startOfDay } from './dates.ts';
 
 const DAY = 86_400_000;
@@ -33,7 +34,9 @@ export type Exclusion =
   | { reason: 'invalid'; detail: string }
   | { reason: 'no-source'; detail: string }
   | { reason: 'no-verified'; detail: string }
-  | { reason: 'stale'; detail: string; ageDays: number; windowDays: number };
+  | { reason: 'stale'; detail: string; ageDays: number; windowDays: number }
+  /** An event with nothing current behind it, or a listed one further ahead than it is shown (src/lib/confidence.ts). */
+  | { reason: 'unconfirmed'; detail: string };
 
 /**
  * Whether a place may appear on the site at all.
@@ -61,9 +64,22 @@ export function placeExclusion(data: unknown, variant: TownVariant, now: Date = 
   return null;
 }
 
-/** Whether an event may appear. Events do not go stale; they end (src/lib/events.ts decides that). */
-export function eventExclusion(data: unknown): Exclusion | null {
-  return provenanceExclusion(data);
+/**
+ * Whether an event may appear. It needs a source and a check date, or a
+ * person's confirmation in their place; and something current behind it,
+ * which src/lib/confidence.ts decides: a listed event appears only a few
+ * weeks ahead, and a weekly series only through its confirmed weeks. When it
+ * ends is src/lib/events.ts's question.
+ */
+export function eventExclusion(data: unknown, now: Date = new Date()): Exclusion | null {
+  if (isExcluded(data)) return { reason: 'invalid', detail: data.issues.join('; ') };
+  const event = data as ConfidenceInput;
+  if (!event.confirmed) {
+    const missing = provenanceExclusion(data);
+    if (missing) return missing;
+  }
+  const shown = eventPresentation(event, now);
+  return shown.hidden ? { reason: 'unconfirmed', detail: shown.hidden } : null;
 }
 
 /**

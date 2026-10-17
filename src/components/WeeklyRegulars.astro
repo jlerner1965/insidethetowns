@@ -9,6 +9,7 @@
  * the one-time events and the town meetings. Decided by `weeklyTest` in
  * src/lib/events.ts.
  */
+import { isTentative } from '@/lib/confidence';
 import type { TownEntry } from '@/lib/content';
 import { formatDate, formatTimeRange, formatWeekday } from '@/lib/dates';
 import { shownCategoryLabel } from '@/content/schemas';
@@ -27,7 +28,8 @@ for (const e of events) {
   byDay.set(day, [...(byDay.get(day) ?? []), e]);
 }
 const days = ORDER.filter((d) => byDay.has(d)).map((d) => ({ day: d, events: byDay.get(d)! }));
-const through = (e: TownEntry<'events'>) => (e.data.until ? `through ${formatDate(e.data.until)}` : e.data.recurring);
+// A series cut to its confirmed weeks (src/lib/confidence.ts) does not show the cut as its end.
+const through = (e: TownEntry<'events'>) => (e.data.until && !e.seriesCut ? `through ${formatDate(e.data.until)}` : e.data.recurring);
 ---
 {days.length > 0 && (
   <section id="every-week" class="mt-16 scroll-mt-4 md:mt-24" aria-labelledby="every-week-heading">
@@ -58,7 +60,7 @@ const through = (e: TownEntry<'events'>) => (e.data.until ? `through ${formatDat
                     <a href={`/events/${e.slug}/`} class="stretch no-underline group-hover:text-primary">{e.data.title}</a>
                   </h4>
                   <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">
-                    {e.data.venue}{e.data.cost && <span> · {e.data.cost}</span>}{through(e) && <span class="text-ink-muted"> · {through(e)}</span>}
+                    {e.data.venue}{e.data.cost && <span> · {e.data.cost}</span>}{through(e) && <span class="text-ink-muted"> · {through(e)}</span>}{isTentative(e) && <span class="italic text-ink-muted"> · {e.confidence!.short}</span>}
                   </p>
                 </div>
               </li>

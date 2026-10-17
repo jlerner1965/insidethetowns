@@ -20,6 +20,7 @@ import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
 import { dayKey, formatDate, formatDayRange, formatMonthDay, formatTime, formatTimeRange, formatWeekday, monthDay, toIsoLocal } from '@/lib/dates';
 import { isCanceled, isInProgress, lastDay, listedUntil } from '@/lib/events';
+import { isTentative } from '@/lib/confidence';
 import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 import { subTownLabel } from '@/lib/sub-towns';
 
@@ -33,6 +34,8 @@ const { event, showDate = true } = Astro.props;
 const { data, slug } = event;
 const href = `/events/${slug}/`;
 const canceled = isCanceled(event);
+// Listed, not confirmed with the organizer: the row says so in a few words (src/lib/confidence.ts).
+const tentative = isTentative(event);
 const statusLabel = data.status !== 'scheduled' ? EVENT_STATUS_LABELS[data.status] : undefined;
 // A listing spanning more than one day: a festival weekend, a six-week run.
 const multiDay = !!data.end && dayKey(data.start) !== dayKey(data.end);
@@ -74,7 +77,7 @@ const cell = longNote ? (firstClause && firstClause.length <= 14 ? [firstClause]
 const categoryLabel = shownCategoryLabel(data.category);
 const note =
   data.recurring ??
-  (data.repeat === 'weekly' && data.until ? `Every ${formatWeekday(data.start)} through ${formatDate(data.until)}` : undefined);
+  (data.repeat === 'weekly' && data.until && !event.seriesCut ? `Every ${formatWeekday(data.start)} through ${formatDate(data.until)}` : undefined);
 ---
 {/* Under a day heading on a phone the row is one column, the time a line
     above the title: beside a time column the titles had about 215px and ran
@@ -142,6 +145,7 @@ const note =
     </p>
     {statusLabel && data.statusNote && <p class="mt-1 text-sm text-ink">{data.statusNote}</p>}
     {note && !canceled && <p class="mt-1 text-sm text-ink-muted">{note}</p>}
+    {tentative && !canceled && <p class="mt-1 text-sm italic text-ink-muted">{event.confidence!.short}</p>}
   </div>
   {data.image && (
     <Image src={data.image} alt={data.imageAlt ?? ''} width={224} height={168} class="hidden aspect-[4/3] w-28 rounded-md object-cover md:block" />

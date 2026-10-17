@@ -7,8 +7,8 @@ address: "451 4th Ave"
 url: "https://www.townoflyons.com/Calendar.aspx?EID=6661"
 category: arts
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6661"
-verified: "2026-10-16"
-verifiedBy: "recheck-events (run by hand): \"Quarterly Art Show Opening Reception\" at 5 pm on 21 October on the townoflyons.com feed"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (run by hand, 17 October 2026): \"Quarterly Art Show Opening Reception\" at 5 pm on 21 October on the townoflyons.com feed"
 ---
 
 The fourth-quarter show of the Lyons Arts & Humanities Commission opens with a reception at the library, 5 to 7. This round's theme is SHUDDER.
