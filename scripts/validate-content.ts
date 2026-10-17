@@ -33,7 +33,8 @@ import { COLLECTIONS, STAGED_COLLECTIONS, changeSchema, schemaFor, type Collecti
 import { allSites, findTown, liveTowns } from '../src/config/index.ts';
 import { describeExclusion, eventExclusion, placeExclusion } from '../src/lib/freshness.ts';
 import { describeCounts, launchCounts } from './lib/launch.ts';
-import { communityCalendar, readRegistry, registryIssues } from '../src/lib/sources.ts';
+import { readRegistry, registryIssues } from '../src/lib/sources.ts';
+import { eventConfidence } from '../src/lib/confidence.ts';
 // Imported directly, not via getHub(): the validator runs without TOWN set.
 import { hub } from '../src/config/towns/hub.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
@@ -53,6 +54,10 @@ const pastEvents: string[] = [];
 /** Per town: what publishes, what the build holds back and why, what waits in staging. */
 type TownTally = {
   published: Record<string, number>;
+  /** Published events resting on a community calendar or a stale confirmation (src/lib/confidence.ts). */
+  listed: number;
+  /** Listed events further ahead than they are shown: the normal state, counted, not warned about. */
+  held: number;
   excluded: string[];
   staged: Record<string, number>;
   launch?: ReturnType<typeof launchCounts>;
@@ -63,7 +68,7 @@ const tallies = new Map<string, TownTally>();
 const tallyFor = (town: string): TownTally => {
   let t = tallies.get(town);
   if (!t) {
-    t = { published: { events: 0, places: 0 }, excluded: [], staged: { events: 0, places: 0 } };
+    t = { published: { events: 0, places: 0 }, listed: 0, held: 0, excluded: [], staged: { events: 0, places: 0 } };
     tallies.set(town, t);
   }
   return t;
@@ -154,11 +159,15 @@ function validateFile(collection: CollectionName, file: string, town: string, st
     } else {
       const variant = findTown(town)?.variant ?? 'front-range';
       const why = collection === 'places' ? placeExclusion(data, variant) : eventExclusion(data);
-      if (why) {
+      if (why?.reason === 'unconfirmed' && /shown from/.test(why.detail)) {
+        // A listed event three months out waits its turn; that is the rule working.
+        tally.held++;
+      } else if (why) {
         tally.excluded.push(`${rel}: ${describeExclusion(why)}`);
         warnings.push(`${rel}: excluded from the build, ${describeExclusion(why)}`);
       } else {
         tally.published[collection] = (tally.published[collection] ?? 0) + 1;
+        if (collection === 'events' && eventConfidence(data as unknown as Parameters<typeof eventConfidence>[0]).level === 'listed') tally.listed++;
       }
     }
   }
@@ -185,12 +194,6 @@ function validateFile(collection: CollectionName, file: string, town: string, st
   }
   if (collection === 'events') {
     const data = result.data as { start: Date; end?: Date; until?: Date; performances?: { start: Date }[]; title: string; source?: string };
-    // The source rule, enforced: an aggregated calendar is where the wrong
-    // times and the prices nobody charges came from (Lyons, October 2026).
-    const calendar = communityCalendar(data.source);
-    if (calendar) {
-      errors.push(`${rel}: source is ${calendar}, an aggregated calendar, not the organizer's own page; cite the organizer's page (its site, its Facebook or Instagram) or move the file to staging/ until there is one`);
-    }
     const end = data.performances?.at(-1)?.start ?? data.until ?? data.end ?? data.start;
     if (end.getTime() < Date.now() - 86_400_000) {
       // Not a call to delete it: the page stays reachable, carries noindex and
@@ -577,7 +580,7 @@ for (const [town, t] of [...tallies.entries()].sort(([a], [b]) => a.localeCompar
         : '';
   console.log(
     `  ${town.padEnd(12)} ${String(t.published.events).padStart(4)} / ${String(t.published.places).padStart(3)} published · ` +
-      `${String(t.excluded.length).padStart(2)} excluded · ${t.staged.events} / ${t.staged.places} staged${t.changes ? ` · ${t.changes} flagged` : ''}${note}`,
+      `${String(t.excluded.length).padStart(2)} excluded · ${t.staged.events} / ${t.staged.places} staged${t.changes ? ` · ${t.changes} flagged` : ''}${t.listed || t.held ? ` · ${t.listed} listed, ${t.held} waiting to be in range` : ''}${note}`,
   );
 }
 console.log(`\nvalidate-content: ${checked} entries checked, ${errors.length} errors, ${warnings.length} warnings`);

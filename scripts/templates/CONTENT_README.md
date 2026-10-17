@@ -62,6 +62,7 @@ until: "2026-12-15"               # …through this date (inclusive). Cards say 
 timeNote: "Time to be confirmed"  # optional, shown instead of the time range
 source: "https://organizer.example/calendar"  # where the listing was read; without it the build holds the event back
 verified: "2026-09-17"            # the day it was checked; same
+confirmed: { how: phone, with: "Oskar Blues", on: "2026-10-17" }  # optional: a call or email to the organizer (npm run confirm)
 featured: false                   # optional
 ---
 Description in Markdown.
@@ -155,10 +156,29 @@ config, not here.
 
 Nothing publishes without a `source` (the organizer's or the business's own page,
 its own Facebook or Instagram included; never a review site or an aggregator) and a
-`verified` date. An aggregated community calendar (a newspaper's events listing; the
-list is `COMMUNITY_CALENDARS` in `src/lib/sources.ts`) fails validation as a `source`:
-anyone can submit there and nobody checks, which is where the wrong times and the
-prices nobody charges came from. Cite the organizer's page or stage the file. An event or a place
+`verified` date. An event may instead carry a `confirmed` block: a call or an email
+to the organizer, written by `npm run confirm` (below).
+
+How sure the site is of an event shows on it (`src/lib/confidence.ts`):
+
+- **Confirmed**: the organizer's own page or feed, read in the last 60 days (the
+  nightly re-check keeps that date moving), or a call or email in the same window.
+  A weekly series shows its dates 8 weeks past its last confirmation and stops
+  there; the next confirmation moves them on.
+- **Listed**: the event rests on an aggregated community calendar alone (a
+  newspaper's events listing; `COMMUNITY_CALENDARS` in `src/lib/community-calendars.ts`),
+  or its last confirmation is more than 60 days old. It shows only three weeks
+  ahead, with a line saying where it was seen and that it is worth a quick check
+  with the venue, and it is kept out of the picks, the big dates and the email. A
+  community-calendar listing not seen there in 30 days comes off. Anyone can submit
+  to those calendars and nobody checks, which is where the wrong times and the
+  prices nobody charges came from; a call to the venue makes it confirmed.
+
+`npm run confirm -- lyons old-time-jam --how=phone --with="Oskar Blues"` records a
+call for every file whose name starts with `old-time-jam`, published or staged (a
+staged one is published). It never changes a time or a price: if they said
+something different, edit the file. The nightly re-check's pull request lists the
+calls worth making, with the venue's number. An event or a place
 in the published folders that lacks either is left out of the build, with a line
 on the build log and in `npm run validate` saying so; the file is not deleted.
 A listing that claims to be open is also left out once its `verified` date is

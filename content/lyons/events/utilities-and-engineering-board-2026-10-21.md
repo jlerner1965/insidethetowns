@@ -7,8 +7,8 @@ address: "432 5th Ave, Lyons, CO 80540"
 url: "https://www.townoflyons.com/Calendar.aspx?EID=6328"
 category: civic
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6328"
-verified: "2026-10-16"
-verifiedBy: "recheck-events (run by hand): \"Utilities & Engineering Board\" at 4:30 pm on 21 October on the townoflyons.com feed"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (run by hand, 17 October 2026): \"Utilities & Engineering Board\" at 4:30 pm on 21 October on the townoflyons.com feed"
 ---
 
 Regular meeting of the Town of Lyons Utilities & Engineering Board in the Town Hall board room. Open to the public.

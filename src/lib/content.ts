@@ -7,6 +7,7 @@ import { getCollection, type CollectionEntry, type CollectionKey } from 'astro:c
 import { getSite, liveTowns, type TownConfig } from '@/config';
 import { isExcluded } from '@/content/schemas';
 import { eventExclusion, placeExclusion, presentation, seasonalHoursApply, type Exclusion } from '@/lib/freshness';
+import { eventPresentation, type Confidence } from '@/lib/confidence';
 
 export type TownEntry<C extends CollectionKey> = CollectionEntry<C> & {
   slug: string;
@@ -18,6 +19,14 @@ export type TownEntry<C extends CollectionKey> = CollectionEntry<C> & {
   hoursHidden?: 'closed' | 'stale' | 'season';
   /** Set by the gate on a closed place: the page stays, every list and the search index drop it. */
   delisted?: boolean;
+  /**
+   * Set by the gate on every event: confirmed with the organizer, or only
+   * listed (src/lib/confidence.ts). A listed event carries a line saying so
+   * and is kept out of the picks.
+   */
+  confidence?: Confidence;
+  /** Set by the gate on a weekly series shown only through its confirmed weeks: its `until` is that cut, not the organizer's end. */
+  seriesCut?: boolean;
 };
 /** A town's entry seen from the hub, which needs to know whose it is. */
 export type NetworkEntry<C extends CollectionKey> = TownEntry<C> & { town: TownConfig };
@@ -43,9 +52,10 @@ function publishable<C extends CollectionKey>(collection: C, entries: Collection
     const townSlug = entry.id.split('/')[0]!;
     const variant = towns.get(townSlug)?.variant ?? 'front-range';
     const why: Exclusion | null =
-      collection === 'places' ? placeExclusion(entry.data, variant, now) : eventExclusion(entry.data);
+      collection === 'places' ? placeExclusion(entry.data, variant, now) : eventExclusion(entry.data, now);
     if (!why) {
       if (collection === 'places') shape(entry as CollectionEntry<'places'>, variant, now);
+      else shapeEvent(entry as CollectionEntry<'events'>, now);
       return true;
     }
     if (!reported.has(entry.id)) {
@@ -81,6 +91,18 @@ function shape(entry: CollectionEntry<'places'>, variant: TownConfig['variant'],
   }
   if (p.hidePhone) data.phone = undefined;
   Object.assign(entry, { data, hoursHidden: p.hoursHidden, delisted: p.delist });
+}
+
+/**
+ * An event as the pages show it: its confidence attached, and a weekly
+ * series cut to the weeks its last confirmation covers, so every list, the
+ * month grid, the calendar file and the structured data stop at the same
+ * date. The decision is `eventPresentation` in src/lib/confidence.ts.
+ */
+function shapeEvent(entry: CollectionEntry<'events'>, now: Date) {
+  const p = eventPresentation(entry.data, now);
+  const data = p.until ? { ...entry.data, until: p.until, recurring: p.recurring } : entry.data;
+  Object.assign(entry, { data, confidence: p.confidence, seriesCut: !!p.until });
 }
 
 /** All entries of a collection for the site being built. Empty for the hub. */

@@ -4,6 +4,7 @@
  */
 import type { CollectionEntry } from 'astro:content';
 import { TIME_ZONE, addDays, dayKey, formatDayRange, formatMonthDay, formatTime, formatTimeRange, startOfDay } from './dates.ts';
+import { isTentative } from './confidence.ts';
 
 type EventLike = { data: CollectionEntry<'events'>['data']; slug?: string; id?: string };
 
@@ -377,8 +378,10 @@ export function highlights<T extends EventLike>(
   // Saturday and Sunday of a studio tour are one event to a reader, not two
   // of a town's four picks.
   const seenSeries = new Set<string>();
+  // A listing nobody has confirmed with the organizer is shown, with a line
+  // saying so, but never recommended (src/lib/confidence.ts).
   const live = uniqueByEvent(upcoming(events, { now }))
-    .filter((e) => !isCanceled(e))
+    .filter((e) => !isCanceled(e) && !isTentative(e))
     .filter((e) => {
       const key = `${e.data.title}|${e.data.venue}`;
       if (seenSeries.has(key)) return false;
@@ -560,7 +563,7 @@ export function nearbyPicks<T extends EventLike & { town: { slug: string } }>(
   };
   const seen = new Set<string>();
   const candidates = sortByStart([...all]).filter((e) => {
-    if (isPast(e, now) || isCanceled(e) || e.data.category === 'civic' || isWeekly(e) || !onThisWeekend(e)) return false;
+    if (isPast(e, now) || isCanceled(e) || isTentative(e) || e.data.category === 'civic' || isWeekly(e) || !onThisWeekend(e)) return false;
     // One card per series: the same title at the same venue is the same thing on another date.
     const key = `${e.town.slug}|${e.data.title}|${e.data.venue}`;
     if (seen.has(key)) return false;

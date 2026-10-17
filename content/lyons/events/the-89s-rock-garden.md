@@ -9,8 +9,8 @@ performers:
 url: "https://rockgardenlyons.com/events"
 category: music
 source: "https://rockgardenlyons.com/events"
-verified: "2026-10-16"
-verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 16 October 2026"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (run by hand, 17 October 2026): 24 October and 6 pm on the page"
 ---
 
 Saturday-evening set in the creekside beer garden.

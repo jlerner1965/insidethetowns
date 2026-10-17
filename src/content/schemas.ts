@@ -89,6 +89,9 @@ export const PLACE_STATUS_LABELS: Record<PlaceStatus, string> = {
  * for things a reader can still attend. `postponed` is for a date the
  * organizer has withdrawn without naming a new one.
  */
+/** How a person confirmed an event with its organizer (an event's `confirmed`). */
+export const CONFIRMATION_METHODS = ['phone', 'email', 'in-person'] as const;
+
 export const EVENT_STATUSES = ['scheduled', 'postponed', 'canceled'] as const;
 export type EventStatus = (typeof EVENT_STATUSES)[number];
 export const EVENT_STATUS_LABELS: Record<EventStatus, string> = {
@@ -298,6 +301,23 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
       source: httpUrl.optional(),
       /** The day the listing was checked against its source. */
       verified: localDate.optional(),
+      /**
+       * A person asked the organizer: a call, an email, a word at the door.
+       * What a page cannot say for a venue that has no page, or one no
+       * machine can read. `npm run confirm` writes it. A confirmation of a
+       * weekly series covers its dates for FRESHNESS.events.seriesDays.
+       */
+      confirmed: z
+        .object({
+          how: z.enum(CONFIRMATION_METHODS),
+          /** Who said so: "Oskar Blues, the front desk", "Kay Miller, the group's leader". */
+          with: z.string().min(1),
+          on: localDate,
+          /** What they said, where it adds to the listing: "Every second and fourth Wednesday, 6 to 8:30". */
+          note: z.string().min(1).optional(),
+        })
+        .strict()
+        .optional(),
       featured: z.boolean().default(false),
       /** Still on as listed, or not. See EVENT_STATUSES. */
       status: z.enum(EVENT_STATUSES).default('scheduled'),

@@ -13,12 +13,14 @@
  * the file; the third is for a person, in the report.
  */
 import { addDays, dayKey, formatTime, parseLocal, toWallClock } from '../../src/lib/dates.ts';
-import { titleSimilarity } from './ingest.ts';
+import { titleTokens } from './ingest.ts';
 import type { FeedEvent } from './feeds/types.ts';
 
 export interface RecheckEvent {
   slug: string;
   title: string;
+  /** The venue, whose words do not count toward a title match. */
+  venue?: string;
   start: Date;
   end?: Date;
   allDay: boolean;
@@ -44,6 +46,32 @@ export interface Judgement {
 
 /** A title match loose enough for "Trivia Night" against "Trivia at MainStage", tight enough to pass "Open mic". */
 const TITLE_MATCH = 0.4;
+
+/**
+ * Whether two titles name the same event, on the words that are not the
+ * venue's. "Karaoke at the Wayback Bar" and "Trivia Game (WayBack Bar)" share
+ * two of five words, enough to pass on raw overlap; without the venue they
+ * share none.
+ */
+export function sameTitle(a: string, b: string, venue?: string): boolean {
+  const skip = venue ? titleTokens(venue) : new Set<string>();
+  const x = [...titleTokens(a)].filter((w) => !skip.has(w));
+  const y = new Set([...titleTokens(b)].filter((w) => !skip.has(w)));
+  if (!x.length || !y.size) return false;
+  const shared = x.filter((w) => y.has(w)).length;
+  return shared / (x.length + y.size - shared) >= TITLE_MATCH;
+}
+
+/**
+ * The source page for one date of a series, where the calendar gives each
+ * date its own address ("/event/old-time-jam/2026-10-28/", The Events
+ * Calendar's form): a file for 11 November that cites the 28 October page is
+ * checked against the 11 November page, not marked as moved.
+ */
+export function occurrenceUrl(source: string, occurrence: Date): string {
+  const day = dayKey(occurrence);
+  return source.replace(/\/(\d{4}-\d{2}-\d{2})\/?$/, (m, d: string) => (d === day ? m : `/${day}/`));
+}
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -229,7 +257,7 @@ export function judgePage(e: RecheckEvent, occurrence: Date, html: string): Judg
     return { verdict: 'unreadable', note: 'the page has almost no readable text (rendered by JavaScript, or a bot challenge); check it in a browser', asides };
   }
   const { day, hm } = wall(occurrence);
-  const ld = jsonLdEvents(html).filter((x) => titleSimilarity(x.name, e.title) >= TITLE_MATCH);
+  const ld = jsonLdEvents(html).filter((x) => sameTitle(x.name, e.title, e.venue));
   const sameDay = ld.map((x) => ({ x, start: ldInstant(x.startDate) })).find(({ start }) => start && wall(start).day === day);
   if (sameDay) {
     const { x, start } = sameDay;
@@ -275,7 +303,7 @@ const normUrl = (u: string) => u.replace(/^https?:\/\/(www\.)?/, '').replace(/\/
  */
 export function judgeFeed(e: RecheckEvent, occurrence: Date, items: FeedEvent[], feedName: string): Judgement {
   const { day, hm } = wall(occurrence);
-  const matches = (i: FeedEvent) => (i.url && e.url && normUrl(i.url) === normUrl(e.url)) || titleSimilarity(i.title, e.title) >= TITLE_MATCH;
+  const matches = (i: FeedEvent) => (i.url && e.url && normUrl(i.url) === normUrl(e.url)) || sameTitle(i.title, e.title, e.venue);
   const onDay = items.filter((i) => wall(i.start).day === day && matches(i));
   const asides = e.cost && /^free\b/i.test(e.cost) && onDay[0] && !onDay[0].cost && !/\bfree\b/i.test(onDay[0].description ?? '') ? ['the feed gives no cost; "Free" should come off unless the organizer says so'] : [];
   if (!onDay.length) {

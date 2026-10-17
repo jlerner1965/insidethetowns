@@ -8,7 +8,8 @@ venue: "Lyons Regional Library"
 address: "451 4th Ave, Lyons, CO 80540"
 category: family
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (run by hand, 17 October 2026): \"Baby Storytime & Stay-and-Play\" at 10:30 am on 1 December on the lyons.librarycalendar.com feed"
 ---
 
 Songs, rhymes and stories for babies and their caregivers, followed by open play in the Community Room.

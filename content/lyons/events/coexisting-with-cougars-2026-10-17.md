@@ -10,8 +10,8 @@ source: "https://bouldercounty.gov/event/coexisting-with-cougars-2/"
 sourceId: "bouldercounty-gov"
 sourceUid: "10004397-1792231200-1792238400@bouldercounty.gov"
 sourceHash: "b334c7cbe716"
-verified: "2026-10-16"
-verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 16 October 2026"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (run by hand, 17 October 2026): \"Coexisting with Cougars\" at 10 am on 17 October on the bouldercounty.gov feed"
 ---
 
 Coexisting with Cougars at Hall Ranch, Saturday, October 17, 10 am – 12 pm. Registration is required; register on Boulder County's event page.

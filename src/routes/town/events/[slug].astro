@@ -79,7 +79,7 @@ const shows = showsLeft.length > 0 ? showsLeft : allShows;
 const repeatNote = data.performances
   ? `${data.performances.length} performances, ${formatDayRange(data.start, data.performances.at(-1)!.start)}`
   : data.recurring ??
-    (data.repeat === 'weekly' && data.until ? `Every ${formatWeekday(data.start)} through ${formatDate(data.until)}` : undefined);
+    (data.repeat === 'weekly' && data.until && !event.seriesCut ? `Every ${formatWeekday(data.start)} through ${formatDate(data.until)}` : undefined);
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
 /**
@@ -298,6 +298,7 @@ const facts = [
         <Provenance
           verified={data.verified}
           source={data.source}
+          confidence={event.confidence}
           item={`event/${event.slug}`}
           title={data.title}
           note="Times can change; the organizer’s page is the record."

@@ -18,6 +18,7 @@ npm run ingest -- --dry-run   # read the confirmed feeds into staging; changes t
 npm run review                # the summary, then everything in staging: approve, edit, reject (see below)
 npm run auto-review -- --dry-run   # what the standing rules would approve without a person, and why the rest waits
 npm run recheck -- --town=lyons    # the next 14 days of events read against their sources again; --write stamps and flags (see below)
+npm run confirm -- lyons old-time-jam --how=phone --with="Oskar Blues"   # record a call to an organizer
 scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
 ```
 
@@ -38,10 +39,13 @@ canceled`, and the pages do the rest (see any content README).
    fetched and its structured data or visible text read. A confirmation moves
    `verified` and says what was read where in `verifiedBy`; a change sets
    `changeFlag` with the evidence in `changeNote`, which `npm run review` walks;
-   what no machine can read (a page rendered by JavaScript, a bot challenge, a
-   robots.txt that says no) is listed in its pull request for a browser or a
-   phone. It never edits a time or moves a file. Merge its pull request, then
-   work what it flagged and what it could not read.
+   its pull request opens with the calls to make: each venue whose events no
+   machine could confirm (a bot challenge, a robots.txt that says no, a listing
+   resting on a community calendar alone), its number from the guide, and the
+   `npm run confirm` line that records the call. It never edits a time or moves a
+   file. Merge its pull request, make the calls, then work what it flagged. How a
+   confirmation shows on the site, and what "listed" means, is in the content
+   README ("Sources, check dates, and staging").
 1. `npm run ingest`, then `npm run review`: the feeds' new items and changes land in
    staging and the review walks them (see *Review* below), with the summary at the
    top: what is waiting, listings going stale in 14 days, sources not answering.
