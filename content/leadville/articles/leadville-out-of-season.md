@@ -25,7 +25,7 @@ sources:
   - { label: "Pike and San Isabel National Forests: Turquoise Lake Recreation Area", url: "https://www.fs.usda.gov/r02/psicc/recreation/turquoise-lake-recreation-area" }
   - { label: "Pike and San Isabel National Forests: Willow Fire Area Closure", url: "https://www.fs.usda.gov/r02/psicc/alerts/willow-fire-area-closure-0" }
   - { label: "Pike and San Isabel National Forests: Leadville Ranger District", url: "https://www.fs.usda.gov/r02/psicc/offices/leadville-ranger-district" }
-  - { label: "U.S. Fish and Wildlife Service: Leadville National Fish Hatchery, Visit Us", url: "https://www.fws.gov/fish-hatchery/leadville/visit-us" }
+  - { label: "U.S. Fish and Wildlife Service: Leadville National Fish Hatchery", url: "https://www.fws.gov/locations/leadville-national-fish-hatchery" }
   - { label: "Cycles of Life: Winter Ski Services & Rentals", url: "https://www.colbikes.com/winter-ski-services" }
 related:
   - { label: "Explore Leadville: six places in walking order", href: "/articles/explore-leadville-in-walking-order/", note: "The Harrison Avenue walk, most of which works in any month." }

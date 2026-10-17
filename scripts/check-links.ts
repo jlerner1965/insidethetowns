@@ -92,8 +92,10 @@ function collect(): Hit[] {
       .split('\n')
       .forEach((line, i) => {
         // A URL may contain balanced parentheses (Wikimedia file names, Wikipedia
-        // disambiguation); only an unmatched ")" closes the markdown link.
-        for (const m of line.matchAll(/https?:\/\/(?:[^\s"'`<>()\]},]|\([^\s()]*\))+/g)) {
+        // disambiguation); only an unmatched ")" closes the markdown link. It may
+        // contain commas too (Wikipedia's "Loveland,_Colorado"); a trailing one is
+        // prose and is trimmed below.
+        for (const m of line.matchAll(/https?:\/\/(?:[^\s"'`<>()\]}]|\([^\s()]*\))+/g)) {
           const url = m[0].replace(/[.,;:]+$/, '').replace(/&amp;/g, '&');
           const host = hostOf(url);
           if (!host || OURS.has(host) || host === 'localhost') continue;

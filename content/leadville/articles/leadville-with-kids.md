@@ -13,7 +13,7 @@ sources:
   - label: "Leadville Railroad"
     url: "https://leadvillerailroad.com/"
   - label: "U.S. Fish and Wildlife Service: Leadville hatchery"
-    url: "https://www.fws.gov/fish-hatchery/leadville/visit-us"
+    url: "https://www.fws.gov/locations/leadville-national-fish-hatchery"
 image: "../images/leadville-national-fish-hatchery.jpg"
 imageAlt: "The round display pond with a boardwalk and interpretive signs at Leadville National Fish Hatchery, in September 2022"
 imageCredit: "Famartin, Wikimedia Commons, CC BY-SA 4.0"

@@ -3,7 +3,7 @@ title: "The Whiskey Vault"
 type: bar
 address: "333 E Wonderview Ave, Estes Park, CO 80517"
 area: "The Stanley Hotel"
-url: "https://www.stanleyhotel.com/dining/the-whiskey-vault/"
+url: "https://www.stanleyhotel.com/dining/"
 source: "https://www.stanleyhotel.com/dining/the-whiskey-vault/"
 verified: "2026-10-06"
 added: "2026-10-06"

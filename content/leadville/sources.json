@@ -139,8 +139,8 @@
     {
       "id": "fws-gov-leadville-hatchery",
       "name": "Leadville National Fish Hatchery (U.S. Fish and Wildlife Service)",
-      "url": "https://www.fws.gov/fish-hatchery/leadville/visit-us",
-      "sampleUrl": "https://www.fws.gov/fish-hatchery/leadville",
+      "url": "https://www.fws.gov/locations/leadville-national-fish-hatchery",
+      "sampleUrl": "https://www.fws.gov/locations/leadville-national-fish-hatchery",
       "type": "html",
       "category": "parks",
       "priority": "other",

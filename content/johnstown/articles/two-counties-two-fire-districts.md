@@ -24,7 +24,7 @@ In an emergency none of this matters: call 911 and the right engine is dispatche
 
 ## Two school districts
 
-Most of Johnstown is [Weld County School District RE-5J](https://www.weldre5j.org/) — Elwell and Pioneer Ridge elementaries, Roosevelt Middle and Roosevelt High, all in town. The north-west corner, on the Larimer side, is [Thompson School District R2-J](https://www.thompsonschools.org/), which is Loveland's district. The town [lists both](https://johnstownco.gov/409/Schools).
+Most of Johnstown is [Weld County School District RE-5J](https://www.weldre5j.org/) — Elwell and Pioneer Ridge elementaries, Roosevelt Middle and Roosevelt High, all in town. The north-west corner, on the Larimer side, is [Thompson School District R2-J](https://www.tsd.org/), which is Loveland's district. The town [lists both](https://johnstownco.gov/409/Schools).
 
 "Johnstown schools" is therefore not one answer. Confirm an address with the district itself before you commit.
 
@@ -48,7 +48,7 @@ Which side you are on sets the assessor who values your house and hears an appea
 
 1. Which county is the address in? — the town, or either county assessor.
 2. Which fire district? — the town's [fire districts page](https://johnstownco.gov/408/Fire-Districts).
-3. Which school district? — [Weld RE-5J](https://www.weldre5j.org/) or [Thompson R2-J](https://www.thompsonschools.org/), confirmed by the district.
+3. Which school district? — [Weld RE-5J](https://www.weldre5j.org/) or [Thompson R2-J](https://www.tsd.org/), confirmed by the district.
 4. Which power company, and is the parcel in a metropolitan district? — the [utility providers page](https://johnstownco.gov/510/Utility-Service-Providers) and the [state special district map](https://gis.dola.colorado.gov/CO_SpecialDistrict).
 
 Checked against each body's own site on September 20, 2026. Boundaries move and districts merge — this town has already seen two fire districts become one. Where it matters, confirm with the body itself. [Tell us if something here is out of date](/contact/).

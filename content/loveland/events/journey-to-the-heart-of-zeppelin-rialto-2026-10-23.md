@@ -10,10 +10,11 @@ cost: "$24, general admission"
 category: music
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=45"
 sourceId: "rialtotheatercenter-org"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
-changeFlag: true
-changeNote: "recheck 2026-10-17: the page says \"Tickets | *CANCELLED* Dreamboat Annie presents Journey to the Heart of Zeppelin 10/23/26 (rental) | Rialto Theater Tickets\""
+verified: "2026-10-17"
+verifiedBy: "Claude Code, delegated by James Lerner"
+status: canceled
+statusNote: "The Rialto's box office lists this show as cancelled at the request of the rental partner (read 17 October 2026)."
+statusSource: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=45"
 ---
 
 Dreamboat Annie presents a tribute to the music of Heart, Journey and Led Zeppelin at the Rialto.
