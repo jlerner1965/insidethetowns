@@ -73,6 +73,9 @@ export function occurrenceUrl(source: string, occurrence: Date): string {
   return source.replace(/\/(\d{4}-\d{2}-\d{2})\/?$/, (m, d: string) => (d === day ? m : `/${day}/`));
 }
 
+/** Any date a page might write: "Aug 5, 2026", "October 24th", "10/23/26", "2026-10-21". */
+const ANY_DATE = /\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sept?|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2}(?:st|nd|rd|th)?(?:,?\s*\d{4})?|\b\d{1,2}\/\d{1,2}(?:\/\d{2,4})?\b|\b\d{4}-\d{2}-\d{2}\b/gi;
+
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 /**
@@ -266,7 +269,7 @@ export function judgePage(e: RecheckEvent, occurrence: Date, html: string): Judg
   const m = dateRegex(occurrence).exec(text);
   const near = m ? text.slice(Math.max(0, m.index - 400), m.index + 600) : '';
   const textTime = !!m && timeRegex(occurrence).test(near);
-  const called = m ? cancellation(text, e.title, e.venue) : undefined;
+  const called = m ? cancellation(text, e.title, e.venue, occurrence) : undefined;
 
   if (sameDay.length) {
     const off = sameDay.find(({ x }) => x.eventStatus && /cancel|postpone/i.test(x.eventStatus));
@@ -320,9 +323,11 @@ function parseLocalNoon(d: Date): Date {
  * of other events too (Elizabeth's, 17 October 2026: "End of Summer Bash,
  * August 15th, CANCELLED" on the page for Halloween Haven), while a box
  * office puts it in the title ("*CANCELLED* … Journey to the Heart of
- * Zeppelin 10/23/26", the Rialto's, the same day).
+ * Zeppelin 10/23/26", the Rialto's, the same day). And it has to be said of
+ * this date: Erie's Planning Commission page marks the 5 August meeting
+ * "CANCELED" above every meeting to come.
  */
-export function cancellation(text: string, title: string, venue?: string): string | undefined {
+export function cancellation(text: string, title: string, venue: string | undefined, occurrence: Date): string | undefined {
   const skip = venue ? titleTokens(venue) : new Set<string>();
   const words = [...titleTokens(title)].filter((w) => !skip.has(w));
   if (!words.length) return undefined;
@@ -335,7 +340,14 @@ export function cancellation(text: string, title: string, venue?: string): strin
     const stop = after.search(/[.!?\n]/);
     const sentence = text.slice(start, at + hit[0].length + (stop === -1 ? after.length : stop));
     const there = titleTokens(sentence);
-    if (words.filter((w) => there.has(w)).length >= Math.ceil(words.length / 2)) return sentence.replace(/\s+/g, ' ').trim();
+    if (words.filter((w) => there.has(w)).length < Math.ceil(words.length / 2)) continue;
+    // Whose date: the nearest one before the word, as a listing gives it
+    // ("Aug 5, 2026 … Planning Commission Meeting - CANCELED"), or, with none
+    // before, the nearest after ("*CANCELLED* … Zeppelin 10/23/26").
+    const lo = Math.max(0, at - 200);
+    const mentions = [...text.slice(lo, at + hit[0].length + 200).matchAll(ANY_DATE)].map((d) => ({ at: lo + d.index!, said: d[0] }));
+    const whose = mentions.filter((d) => d.at < at).at(-1) ?? mentions.find((d) => d.at > at);
+    if (whose && dateRegex(occurrence).test(whose.said)) return sentence.replace(/\s+/g, ' ').trim();
   }
   return undefined;
 }

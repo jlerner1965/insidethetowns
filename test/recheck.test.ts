@@ -168,6 +168,9 @@ test('"cancelled" counts only beside the event\'s own name', () => {
   const off = judgePage(event({ title: 'Journey to the Heart of Zeppelin', start: at('2026-10-23T19:30'), end: undefined }), at('2026-10-23T19:30'), `<p>*CANCELLED* Dreamboat Annie presents Journey to the Heart of Zeppelin 10/23/26 at 7:30 pm. ${filler}</p>`);
   assert.equal(off.verdict, 'changed');
   assert.match(off.note, /CANCELLED/);
+  // Erie's page: a past meeting cancelled, the one being checked listed as usual.
+  const erie = `<p>Wednesday Aug 5, 2026 at 6:30 PM MDT Planning Commission Meeting - CANCELED Council Chambers. Wednesday Oct 21, 2026 at 6:30 PM MDT Planning Commission Meeting Council Chambers. ${filler}</p>`;
+  assert.equal(judgePage(event({ title: 'Planning Commission', start: at('2026-10-21T18:30'), end: undefined }), at('2026-10-21T18:30'), erie).verdict, 'confirmed');
 });
 
 test("a meeting past the end of a town's feed is not missing from it", () => {
