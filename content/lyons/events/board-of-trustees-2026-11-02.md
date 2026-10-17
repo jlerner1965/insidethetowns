@@ -5,7 +5,6 @@ end: "2026-11-02T23:00"
 venue: "Lyons Town Hall"
 address: "432 5th Ave"
 url: "https://www.lyonscolorado.com/AgendaCenter"
-cost: "Free"
 category: civic
 recurring: "First and third Mondays"
 source: "https://www.lyonscolorado.com/AgendaCenter"

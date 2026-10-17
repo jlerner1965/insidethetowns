@@ -4,7 +4,6 @@ start: "2026-10-07T18:00"
 end: "2026-10-07T19:30"
 venue: "Lyons Regional Library"
 address: "451 4th Ave, Lyons, CO 80540"
-cost: "Free"
 category: civic
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6668"
 verified: "2026-10-03"

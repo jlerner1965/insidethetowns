@@ -29,7 +29,8 @@
     "astro": "astro",
     "check-colors": "node scripts/check-colors.ts",
     "agent": "node agent/agent.mjs",
-    "auto-review": "node scripts/auto-review.ts"
+    "auto-review": "node scripts/auto-review.ts",
+    "recheck": "node scripts/recheck-events.ts"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "^0.4.1",

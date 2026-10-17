@@ -1,0 +1,84 @@
+# Reads every published event due in the next fourteen days against its
+# source again, every morning, and opens a pull request with what it found.
+# The weekly routine (README, "The weekly content session") asks a person to
+# do this once a week; the October 2026 Lyons check found that a month had
+# passed without it, and a dozen listings had drifted. This is the part a
+# machine can do every day: an organizer's feed gives the exact time, and a
+# page's structured data or visible text gives the day and the time.
+#
+# What it writes (scripts/recheck-events.ts): a confirmation moves the
+# listing's `verified` date and says what was read where; a change at the
+# source sets `changeFlag` with the evidence in `changeNote`, the same flag
+# the ingest raises, for `npm run review`. It never edits a time, never
+# deletes and never moves a file to staging. Nothing reaches a site until the
+# pull request is merged. The report in the pull request also lists what it
+# could not read (a page rendered by JavaScript, a bot challenge), which is
+# the list for a browser or a phone.
+#
+# Opening the pull request needs the same setting as the weekly ingest:
+# Settings → Actions → General → Workflow permissions → "Allow GitHub Actions
+# to create and approve pull requests", or the WORKFLOW_PAT secret.
+name: Nightly event re-check
+
+on:
+  schedule:
+    # 11:40 UTC: 5:40 am in Denver in summer, 4:40 am in winter, after the
+    # night's calendar updates and before anyone reads the sites.
+    - cron: '40 11 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: recheck-events
+  cancel-in-progress: false
+
+jobs:
+  recheck:
+    name: Re-check the next two weeks of events against their sources
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.WORKFLOW_PAT || github.token }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Re-check and write what was found
+        run: npm run recheck -- --write --by="the nightly re-check workflow" --report=/tmp/recheck.md
+      - run: npm run validate
+      - run: npm test
+      - name: The report, for the pull request
+        id: report
+        run: |
+          {
+            echo 'body<<EOF'
+            echo 'Written by the nightly re-check (scripts/recheck-events.ts). Nothing in it reaches a site until this pull request is merged.'
+            echo
+            echo 'A confirmed listing has its check date moved and `verifiedBy` saying what was read where. A listing the source now contradicts carries `changeFlag` and the evidence in `changeNote`: check it out, `npm run review`, decide, push, merge. What could not be read by a machine is listed for a browser or a phone.'
+            echo
+            cat /tmp/recheck.md
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
+      - name: Open or update the pull request
+        id: pr
+        continue-on-error: true
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.WORKFLOW_PAT || github.token }}
+          branch: automation/recheck
+          delete-branch: true
+          commit-message: "Re-check: events confirmed against their sources, and the changes found"
+          title: "Nightly re-check: confirmations and changes at the source"
+          body: ${{ steps.report.outputs.body }}
+          labels: recheck
+      - name: Say where the changes are if the pull request could not be opened
+        if: steps.pr.outcome == 'failure'
+        run: |
+          echo "::warning::The re-check's changes are on the automation/recheck branch, but this workflow is not allowed to open a pull request. Either allow it (Settings → Actions → General → Workflow permissions → Allow GitHub Actions to create and approve pull requests) or add a WORKFLOW_PAT secret (DEPLOY.md), then open it by hand: https://github.com/${{ github.repository }}/compare/main...automation/recheck"
+          exit 1
