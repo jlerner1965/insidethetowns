@@ -3,7 +3,6 @@ title: "Fly Away Home"
 type: shop
 address: "7960 Niwot Road, Unit B-1"
 area: "Cottonwood Square"
-url: "https://www.flyawayhomedecor.com/"
 phone: "(303) 887-8064"
 tags: [home, gifts]
 summary: "The home-decor and gift shop in Cottonwood Square, closed at the end of 2024 when its owner retired."
