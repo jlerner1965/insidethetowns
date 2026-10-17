@@ -1,7 +1,7 @@
 ---
 title: "Board of Trustees meeting"
 start: "2026-11-16T19:00"
-end: "2026-11-16T21:00"
+end: "2026-11-16T23:00"
 venue: "Lyons Town Hall"
 address: "432 5th Ave"
 url: "https://www.lyonscolorado.com/AgendaCenter"
@@ -9,7 +9,8 @@ cost: "Free"
 category: civic
 recurring: "First and third Mondays"
 source: "https://www.lyonscolorado.com/AgendaCenter"
-verified: "2026-09-18"
+verified: "2026-10-16"
+verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 16 October 2026"
 ---
 
-Regular meeting of the Town Board in the Shirley F. Johnson Council Chamber, hybrid with a livestream and remote public comment. Agendas post to the Town's Agenda Center the week before; public comment on items not on the agenda is taken near the start.
+Regular meeting of the Lyons Board of Trustees at Town Hall. Watch the livestream at townoflyons.com/livestream; audience comment is taken in person only. Agendas post to the Town's Agenda Center the week before.

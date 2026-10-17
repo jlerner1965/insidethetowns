@@ -2,7 +2,6 @@
 title: "Old-time jam at Oskar Blues"
 start: "2026-12-09T18:00"
 venue: "Oskar Blues Grill & Brew"
-cost: "Free"
 category: music
 recurring: "Second and fourth Wednesdays"
 source: "https://lyonsrecorder.org/event/old-time-jam/2026-10-28/"

@@ -4,11 +4,11 @@ start: "2026-12-02T18:30"
 end: "2026-12-02T20:00"
 venue: "Online, via the Lyons Regional Library"
 url: "https://lyons.librarycalendar.com/events/upcoming"
-cost: "Free"
 category: arts
 recurring: "First Wednesdays"
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-09-18"
+verified: "2026-10-16"
+verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 16 October 2026"
 ---
 
-Monthly virtual writing group facilitated by Dr Kayann Short, open to all genres and levels. Hosted by the Lyons Regional Library.
+Monthly virtual writing group facilitated by Dr Kayann Short, open to all genres and levels. Register on the library's calendar to receive the Zoom link.

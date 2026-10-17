@@ -4,7 +4,6 @@ start: "2026-12-17T17:00"
 end: "2026-12-17T18:00"
 venue: "Lyons Regional Library"
 address: "451 4th Ave, Lyons, CO 80540"
-cost: "Free"
 category: family
 recurring: "Third Thursdays"
 source: "https://lyons.librarycalendar.com/events/upcoming"

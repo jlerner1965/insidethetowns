@@ -7,7 +7,6 @@ until: "2026-11-24"
 venue: "Lyons Regional Library, Community Room"
 address: "451 4th Ave, Lyons, CO 80540"
 url: "https://lyons.librarycalendar.com/event/baby-storytime-stay-and-play-11882"
-cost: "Free"
 category: family
 source: "https://lyons.librarycalendar.com/event/baby-storytime-stay-and-play-11882"
 verified: "2026-10-03"

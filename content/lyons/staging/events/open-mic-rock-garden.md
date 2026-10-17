@@ -1,5 +1,6 @@
 ---
 title: "Open mic at The Rock Garden"
+review: { reason: "Unpublished 17 October 2026: the Rock Garden's own events page (rockgardenlyons.com/events) does not list a Monday open mic, and the Recorder's events page no longer carries it. Publish once the garden lists it.", since: "2026-10-17", from: manual }
 start: "2026-09-21T18:00"
 end: "2026-09-21T21:00"
 repeat: weekly
