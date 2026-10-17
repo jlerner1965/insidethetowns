@@ -68,7 +68,9 @@ jobs:
             echo
             echo 'A confirmed listing has its check date moved and `verifiedBy` saying what was read where. A listing the source now contradicts carries `changeFlag` and the evidence in `changeNote`: check it out, `npm run review`, decide, push, merge. What could not be read by a machine is listed for a browser or a phone.'
             echo
-            cat /tmp/recheck.md
+            # GitHub refuses a body over 65,536 characters; the run's log holds the whole report.
+            head -c 60000 /tmp/recheck.md
+            if [ "$(wc -c < /tmp/recheck.md)" -gt 60000 ]; then echo; echo; echo "_The report runs on; the rest is in this run's log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}_"; fi
             echo EOF
           } >> "$GITHUB_OUTPUT"
       - name: Open or update the pull request

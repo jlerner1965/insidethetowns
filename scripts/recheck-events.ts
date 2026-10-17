@@ -359,11 +359,23 @@ if (!towns.length) {
 }
 
 const rows: Row[] = [];
-const calls = new Map<string, { town: string; venue: string; phone?: string; place?: string; items: Map<string, { title: string; why: string; day: string }> }>();
+interface Call {
+  town: string;
+  townName: string;
+  venue: string;
+  phone?: string;
+  place?: string;
+  /** By the start of the file name, so a series is one line: its title, why it needs a call, its next date. */
+  items: Map<string, { title: string; why: string; day: string }>;
+}
+const calls = new Map<string, Call>();
+/** Calls are for what is coming: a date further off than this waits for a later report. */
+const CALL_AHEAD = dayKey(addDays(from, 21));
 function wantCall(town: string, venue: string, slug: string, title: string, day: string, why: string, list: Place[], townName: string) {
+  if (day > CALL_AHEAD) return;
   const place = placeFor(venue, list, townName);
   const key = `${town}|${place?.slug ?? venue}`;
-  const entry = calls.get(key) ?? { town, venue: place?.title ?? venue, phone: place?.phone, place: place?.slug, items: new Map() };
+  const entry = calls.get(key) ?? { town, townName, venue: place?.title ?? venue, phone: place?.phone, place: place?.slug, items: new Map() };
   const prefix = prefixOf(slug);
   if (!entry.items.has(prefix) || day < entry.items.get(prefix)!.day) entry.items.set(prefix, { title, why, day });
   calls.set(key, entry);
@@ -462,18 +474,24 @@ lines.push(
     (write ? ` · ${rows.filter((r) => r.written).length} file${rows.filter((r) => r.written).length === 1 ? '' : 's'} written` : ' · nothing written (no --write)'),
 );
 if (calls.size) {
-  lines.push('', `## Calls to make (${calls.size})`, '');
-  lines.push('One call settles a venue\'s whole list. Afterwards, `npm run confirm` records it (the line under each venue); if they gave a different time, day or price, edit the file before you push.', '');
-  const sorted = [...calls.values()].sort((a, b) => Math.min(...[...a.items.values()].map((i) => +new Date(i.day))) - Math.min(...[...b.items.values()].map((i) => +new Date(i.day))));
-  for (const c of sorted) {
-    const items = [...c.items.entries()].sort(([, a], [, b]) => a.day.localeCompare(b.day));
-    lines.push(`- **${c.venue}**${c.phone ? `, ${c.phone}` : ', no phone on the guide'}${c.place ? '' : ' (no listing on the guide)'}`);
-    for (const [, i] of items) lines.push(`  - ${i.title}, next ${i.day}: ${i.why}`);
-    lines.push(`  - \`npm run confirm -- ${c.town} ${items.map(([p]) => p).join(' ')} --how=phone --with="${c.venue}"\``);
+  lines.push('', `## Calls to make (${calls.size}), for dates in the next three weeks`, '');
+  lines.push('One call settles a venue\'s whole list. Afterwards, `npm run confirm` records it (the line under each venue); if they gave a different time, day or price, edit the file before you push.');
+  const first = (c: Call) => [...c.items.values()].map((i) => i.day).sort()[0]!;
+  const byTown = new Map<string, Call[]>();
+  for (const c of calls.values()) byTown.set(c.townName, [...(byTown.get(c.townName) ?? []), c]);
+  for (const [townName, list] of [...byTown.entries()].sort(([a], [b]) => a.localeCompare(b))) {
+    lines.push('', `### ${townName}`, '');
+    for (const c of list.sort((a, b) => first(a).localeCompare(first(b)))) {
+      const items = [...c.items.entries()].sort(([, a], [, b]) => a.day.localeCompare(b.day));
+      lines.push(`- **${c.venue}**${c.phone ? `, ${c.phone}` : ', no phone on the guide'}${c.place ? '' : ' (no listing on the guide)'}`);
+      for (const [, i] of items) lines.push(`  - ${i.title}, next ${i.day}: ${i.why}`);
+      lines.push(`  - \`npm run confirm -- ${c.town} ${items.map(([p]) => p).join(' ')} --how=phone --with="${c.venue}"\``);
+    }
   }
 }
-for (const v of order) {
-  const group = rows.filter((r) => r.verdict === v && !(v === 'confirmed' && r.calendar));
+// Confirmations are counted above and written into each file's verifiedBy; listed one by one they ran the report past what a pull request holds.
+for (const v of order.filter((x) => x !== 'confirmed')) {
+  const group = rows.filter((r) => r.verdict === v);
   if (!group.length) continue;
   lines.push('', `## ${label[v]} (${group.length})`, '');
   if (v === 'unreadable') {
