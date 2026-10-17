@@ -8,7 +8,8 @@ cost: "Free"
 category: civic
 recurring: "Monthly"
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6601"
-verified: "2026-09-24"
+verified: "2026-10-16"
+verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 16 October 2026"
 ---
 
-Regular meeting of the Town of Lyons Historic Preservation Commission, held in the library's Effie Banta Room. Open to the public. The November meeting has moved from the fourth Tuesday to the first Tuesday of December.
+Regular meeting of the Town of Lyons Historic Preservation Commission, held in the library's Effie Banta Room. Open to the public.

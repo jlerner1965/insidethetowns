@@ -13,7 +13,8 @@ image: ../images/oskar-blues-pints.jpg
 imageAlt: "Pints on a table at Oskar Blues"
 imageCredit: "ShanMcG213, Flickr, CC BY-SA 2.0"
 source: "https://lyonsrecorder.org/events/"
-verified: "2026-09-18"
+verified: "2026-10-16"
+verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 16 October 2026"
 ---
 
-A gentle, all-ages early-evening concert by local musicians in the upstairs room at Oskar Blues, every Sunday. No cover.
+A gentle, all-ages early-evening concert by local musicians at Oskar Blues, every Sunday. No cover.

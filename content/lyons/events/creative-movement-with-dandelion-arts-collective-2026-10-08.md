@@ -4,7 +4,6 @@ start: "2026-10-08T15:45"
 end: "2026-10-08T16:30"
 venue: "Lyons Regional Library"
 address: "451 4th Ave, Lyons, CO 80540"
-cost: "Free"
 category: family
 recurring: "Second Thursdays"
 source: "https://lyons.librarycalendar.com/event/creative-movement-dandelion-arts-collective-11962"

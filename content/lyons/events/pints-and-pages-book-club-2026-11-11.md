@@ -1,13 +1,14 @@
 ---
 title: "Pints & Pages book club"
 start: "2026-11-11T18:00"
-end: "2026-11-11T20:00"
+end: "2026-11-11T19:00"
 venue: "MainStage Brewing Company"
 address: "450 Main St, Lyons, CO 80540"
 category: other
 recurring: "Second Wednesdays"
 source: "https://lyonsrecorder.org/event/pints-pages-main-stage/2026-11-11/"
-verified: "2026-09-18"
+verified: "2026-10-16"
+verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 16 October 2026"
 ---
 
-Book club run jointly by the Lyons Regional Library and MainStage Brewing, with discussion and drink specials. The current title is listed on the library website.
+Book club run jointly by the Lyons Regional Library and MainStage Brewing, with discussion and drink specials. The library asks people to register on its calendar.

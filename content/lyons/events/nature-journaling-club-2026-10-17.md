@@ -4,7 +4,6 @@ start: "2026-10-17T14:00"
 end: "2026-10-17T15:30"
 venue: "Lyons Regional Library"
 address: "451 4th Ave, Lyons, CO 80540"
-cost: "Free"
 category: outdoors
 recurring: "Third Saturdays"
 source: "https://lyons.librarycalendar.com/event/nature-journaling-club-11140"

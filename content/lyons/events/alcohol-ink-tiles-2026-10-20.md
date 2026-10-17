@@ -4,10 +4,14 @@ start: "2026-10-20T18:00"
 end: "2026-10-20T20:00"
 venue: "Lyons Regional Library"
 address: "451 4th Ave, Lyons, CO 80540"
-cost: "Free"
 category: arts
-source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-09-18"
+url: "https://lyons.librarycalendar.com/event/alcohol-ink-tiles"
+organizer: "Lyons Regional Library"
+source: "https://lyons.librarycalendar.com/event/alcohol-ink-tiles"
+verified: "2026-10-16"
+verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 16 October 2026"
 ---
 
-Adult craft workshop making alcohol ink tiles in the library Community Room.
+Mosaic and mixed-media artist Triana Singelyn of Laughing Heart Arts leads the class, which covers several ways of working with alcohol inks on tile and how to finish the pieces: four 4-by-4-inch tiles to take home as coasters or wall decor. No art experience is needed. For adults, in the library's Community Room.
+
+Registration is required and the class is limited to 12. The library lists it as full; new sign-ups join the waitlist on its calendar. The library has not listed a fee.

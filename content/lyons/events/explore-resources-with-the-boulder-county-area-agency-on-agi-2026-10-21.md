@@ -4,7 +4,6 @@ start: "2026-10-21T10:15"
 end: "2026-10-21T11:30"
 venue: "Lyons Regional Library, Effie Banta Room"
 address: "451 4th Ave, Lyons, CO 80540"
-cost: "Free"
 category: other
 source: "https://lyons.librarycalendar.com/events/upcoming"
 verified: "2026-09-18"

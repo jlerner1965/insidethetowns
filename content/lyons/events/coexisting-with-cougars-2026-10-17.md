@@ -10,11 +10,11 @@ source: "https://bouldercounty.gov/event/coexisting-with-cougars-2/"
 sourceId: "bouldercounty-gov"
 sourceUid: "10004397-1792231200-1792238400@bouldercounty.gov"
 sourceHash: "b334c7cbe716"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the bouldercounty.gov feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-16"
+verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 16 October 2026"
 ---
 
-Coexisting with Cougars at Hall Ranch, Saturday, October 17, 10 am – 12 pm. Listed by bouldercounty.gov; the organizer's page has the details and any registration.
+Coexisting with Cougars at Hall Ranch, Saturday, October 17, 10 am – 12 pm. Registration is required; register on Boulder County's event page.
 
 > The same wild landscape that draws people to Boulder County to live and play also provides mountain lions with everything they need to call it home. This program is great for all ages.
 >
