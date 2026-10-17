@@ -49,12 +49,13 @@ test('the day regex reads the ways pages write a date', () => {
   for (const s of ['October 2, 2026', 'October 200', 'November 20', '10/21']) assert.ok(!re.test(s), `not ${s}`);
 });
 
-test('the time regex reads the ways pages write a time', () => {
+test('the time regex reads the ways pages write a time: "6:00" and "6" are both six', () => {
   const seven = timeRegex(at('2026-10-20T19:00'));
-  for (const s of ['7:00 PM', '7pm', '7 p.m.', '07:00 PM', '19:00']) assert.ok(seven.test(s), s);
-  for (const s of ['7:00 AM', '17:00', '7:30 pm', '6 pm']) assert.ok(!seven.test(s), `not ${s}`);
-  assert.ok(timeRegex(at('2026-10-20T18:30')).test('6:30pm'));
-  assert.ok(!timeRegex(at('2026-10-20T18:30')).test('6 pm'));
+  for (const s of ['7:00 PM', '7pm', '7 p.m.', '07:00 PM', '19:00', '7 PM', '7:00', 'Doors 7', 'at 7', 'from 7', '7-9pm', '7:00 – 9:30 PM', '7 to 9 p.m.']) assert.ok(seven.test(s), s);
+  for (const s of ['7:00 AM', '17:00', '7:30 pm', '6 pm', 'table 7', '7 teams', '7:00 - 9:00 am', 'at 7 am']) assert.ok(!seven.test(s), `not ${s}`);
+  const half = timeRegex(at('2026-10-20T18:30'));
+  for (const s of ['6:30pm', '6:30', 'doors 6:30', '6:30-8pm']) assert.ok(half.test(s), s);
+  for (const s of ['6 pm', '6:00', 'doors 6']) assert.ok(!half.test(s), `not ${s}`);
 });
 
 test('structured data is read out of a page', () => {
