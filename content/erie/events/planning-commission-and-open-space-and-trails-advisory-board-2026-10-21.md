@@ -10,8 +10,8 @@ source: "https://www.erieco.gov/Calendar.aspx?EID=5218"
 sourceId: "erieco-gov"
 sourceUid: "EID=5218"
 sourceHash: "7057b965c997"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the erieco.gov feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Planning Commission and Open Space and Trails Advisory Board Joint Study Session\" at 6:30 pm on 21 October on the erieco.gov feed"
 ---
 
 Planning Commission and Open Space and Trails Advisory Board Joint Study Session at Council Chambers, Wednesday, October 21, 6:30 pm – 11:59 pm. Listed by erieco.gov; the organizer's page has the details and any registration.

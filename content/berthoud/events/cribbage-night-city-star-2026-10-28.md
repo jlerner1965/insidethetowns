@@ -9,7 +9,8 @@ cost: "Free"
 category: other
 recurring: "Second and fourth Wednesdays"
 source: "https://citystarbrewing.com/event/cribbage-tournament/2026-10-28/"
-verified: "2026-10-03"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Cribbage Night\" at 6 pm on 28 October in the page's structured data"
 ---
 
 Cribbage night in the City Star taproom on the second and fourth Wednesdays: free to enter, beer prizes, boards provided.

@@ -9,7 +9,8 @@ cost: "Free"
 category: festival
 featured: true
 source: "https://berthoudmainstreet.org/averymerryberthoud/"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 5 December on the page"
 ---
 
 An all-day holiday festival across town: photos with Santa, carolers, ice skating, festive markets, crafts and cookie decorating, letters-to-Santa mailboxes around downtown, blacksmithing demonstrations at the Pioneer Museum, and a cowboy Christmas, before everyone gathers on Mountain Avenue for the Parade of Lights at 5 pm and the tree lighting that follows. The Winter Craft Fair runs at the Recreation Center the same morning.

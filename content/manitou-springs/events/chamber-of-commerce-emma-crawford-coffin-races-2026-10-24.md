@@ -10,8 +10,8 @@ source: "https://manitouspringsheritagecenter.org/event/chamber-of-commerce-emma
 sourceId: "manitouspringsheritagecenter-org"
 sourceUid: "12953-1792836000-1792861200@manitouspringsheritagecenter.org"
 sourceHash: "97c6a31e386c"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the Manitou Springs Heritage Museum calendar feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Chamber of Commerce - Emma Crawford Coffin Races\" at 10 am on 24 October on the Manitou Springs Heritage Museum calendar feed"
 ---
 
 Chamber of Commerce - Emma Crawford Coffin Races at Manitou Springs Soda Springs Park, Saturday, October 24, 10 am – 5 pm. Listed by Manitou Springs Heritage Museum calendar; the organizer's page has the details and any registration.

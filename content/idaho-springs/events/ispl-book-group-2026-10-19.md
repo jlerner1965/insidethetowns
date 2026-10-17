@@ -11,8 +11,8 @@ organizer: "Clear Creek County Library District"
 organizerUrl: "https://cccld.org/"
 source: "https://cccld.org/programs-and-events"
 sourceId: "cccld-org"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"ISPL Book Group\" at 4 pm on 19 October on the Clear Creek County Library District calendar feed"
 ---
 
 The library's book group meets at the Idaho Springs Public Library. "Everyone is welcome"; email courtney@clearcreeklibrarydistrict.org for the title and details. Read on the library district's programs page on 10 October 2026, which listed only this October date.

@@ -10,7 +10,8 @@ url: "https://highplains.libcal.com/event/17531288"
 cost: "Free; registration required"
 category: arts
 source: "https://highplains.libcal.com/event/17531288"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Rebecca Thorne Author Talk\" at 6 pm on 10 November in the page's structured data"
 ---
 
 Bestselling author Rebecca Thorne, who wrote Can’t Spell Treason Without Tea, discusses plotting, story structure and her writing process.

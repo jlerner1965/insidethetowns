@@ -12,8 +12,8 @@ source: "https://www.jeffco.us/calendar.aspx?EID=16873"
 sourceId: "jeffco-us-open-space"
 sourceUid: "16873"
 sourceHash: "87a89cbd702e"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Open House: Jefferson County Seeks Input on Community Gathering Spaces\" at 5 pm on 27 October on the Jeffco Open Space - Programs, Alerts & Closures feed"
 ---
 
 Jefferson County Parks and Open Space is studying where to invest in places for community gatherings and for equine, youth and agricultural activities, from modernizing the Fairgrounds to building at Fehringer Ranch, another county property. This is the Golden session of four open houses, in the Fairgrounds' Green Mountain Conference Room, to learn about the study, ask questions and give input; the others are in Littleton on October 20, Lakewood on October 23 and Evergreen on October 26.

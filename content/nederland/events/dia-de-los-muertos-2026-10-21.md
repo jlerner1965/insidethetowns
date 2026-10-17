@@ -10,8 +10,8 @@ category: family
 organizer: "Nederland Community Library"
 source: "https://nederland.colibraries.org/"
 sourceId: "nederlandlibrary-org"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 21 October on the page"
 ---
 
 A family Day of the Dead celebration at the Nederland Community Library, with a game of Lotería, Day of the Dead crafts and Mexican hot chocolate. The library lists it as running all day; it is open 10 am to 7 pm on Wednesdays.

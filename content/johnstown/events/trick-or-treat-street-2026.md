@@ -9,7 +9,8 @@ cost: "Free"
 category: family
 featured: true
 source: "https://www.visitdowntownjohnstown.com/trickortreatstreet"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 31 October and 10 am on the page"
 ---
 
 Halloween morning on Parish Avenue: trick-or-treating at more than 50 Old Town businesses, character meet-and-greets, movie-car photo stops, a downtown haunted house and business specials, from 10 to noon. Free; put on by the Johnstown Downtown Development Authority.

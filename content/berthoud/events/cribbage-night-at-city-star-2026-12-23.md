@@ -9,7 +9,8 @@ cost: "Free; sign up by 5:45 p.m."
 category: other
 recurring: "Second and fourth Wednesdays"
 source: "https://citystarbrewing.com/event/cribbage-tournament/2026-12-23/"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Cribbage Night\" at 6 pm on 23 December in the page's structured data"
 ---
 
 The taproom's twice-monthly cribbage night, open to players of all levels.

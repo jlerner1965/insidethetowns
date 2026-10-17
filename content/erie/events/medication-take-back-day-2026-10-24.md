@@ -8,7 +8,8 @@ url: "https://www.erieco.gov/Calendar.aspx?EID=5390"
 cost: "Free"
 category: civic
 source: "https://www.erieco.gov/Calendar.aspx?EID=5390"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Medication Take-Back\" at 10 am on 24 October on the erieco.gov feed"
 ---
 
 Drop-off point for unwanted or expired prescription medications, with no questions asked. Run by the Erie Police Department as part of national Drug Take Back Day.

@@ -8,8 +8,8 @@ url: "https://www.skicooper.com/events/"
 category: other
 organizer: "Ski Cooper"
 source: "https://www.skicooper.com/events/"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Community Meeting at the Cooper Lodge\" at 10 am on 24 October in the page's structured data"
 ---
 
 Ski Cooper's annual community meeting at the Cooper Lodge, Saturday, October 24 from 10 am to noon: what is new for the 2026–27 season, a chance to meet the new general manager, with coffee, tea and pastries.

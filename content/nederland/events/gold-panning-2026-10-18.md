@@ -10,8 +10,8 @@ organizer: "Boulder County Parks & Open Space"
 organizerUrl: "https://bouldercounty.gov/departments/parks-and-open-space/"
 source: "https://bouldercounty.gov/event/gold-panning-oct-18/"
 sourceId: "bouldercounty-gov-open-space"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Gold Panning\" at 12 pm on 18 October on the Boulder County events (bouldercounty.gov) feed"
 ---
 
 Try gold panning at the Nederland Mining Museum and hear how the search for gold brought European settlers to Boulder County. For children 5 and older and for adults. Boulder County Parks & Open Space runs three half-hour sessions, at noon, 12:45 and 1:30 pm; register for one.

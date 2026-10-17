@@ -8,7 +8,8 @@ url: "https://bouldercounty.gov/elections/"
 category: civic
 featured: true
 source: "https://niwotelection.org/"
-verified: "2026-09-17"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 3 November on the page"
 ---
 
 Voters inside the proposed boundary decide whether Niwot becomes a municipality, whether to form a home rule charter commission, who would sit on it, and five fiscal issues that would fund a town. Ballots must be received, not postmarked, by 7 pm; anyone voting in person must be in line by 7 pm.

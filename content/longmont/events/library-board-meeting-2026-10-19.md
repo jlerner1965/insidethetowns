@@ -9,8 +9,8 @@ source: "https://longmontcolorado.gov/event/library-board-meeting/2026-10-19/"
 sourceId: "longmontcolorado-gov-library"
 sourceUid: "10009216-1792432800-1792440000@longmontcolorado.gov"
 sourceHash: "1a8be3ab35c6"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the Longmont Public Library (City of Longmont calendar) feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Library Board Meeting\" at 6 pm on 19 October on the Longmont Public Library (City of Longmont calendar) feed"
 ---
 
 Library Board Meeting at Longmont Public Library, Monday, October 19, 6 pm – 8 pm. Listed by Longmont Public Library (City of Longmont calendar); the organizer's page has the details and any registration.

@@ -13,8 +13,8 @@ source: "https://coloradorailroadmuseum.org/event/harvest-haunt-3-3/"
 sourceId: "coloradorailroadmuseum-org"
 sourceUid: "10001531-1792231200-1792249200@coloradorailroadmuseum.org"
 sourceHash: "a8e19ceb2966"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Harvest Haunt Express\" at 10 am on 17 October on the Colorado Railroad Museum feed"
 ---
 
 The Colorado Railroad Museum's annual Halloween steam-up weekend: rides behind a coal-burning Colorado steam locomotive, leaving every half hour from 10 am to 3 pm, with not-so-spooky haunted railcars, a silly graveyard, a hay bale maze and a pumpkin cart for costume photos. Guests are encouraged to come in costume to trick-or-treat. Capacity is limited, so the museum recommends buying admission and ride tickets ahead and arriving 30 minutes before your departure; food is for sale on site.

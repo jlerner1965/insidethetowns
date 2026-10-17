@@ -9,7 +9,8 @@ cost: "Free"
 category: sports
 recurring: "Thursdays October 8, 22 and 29 at 11"
 source: "https://www.newbelgium.com/visit/fort-collins/"
-verified: "2026-10-03"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 29 October and 11 am on the page"
 ---
 
 A free 45-minute barre3 Signature class on the New Belgium lawn at 11 on a Thursday morning: full-body, low-impact strength and cardio work with real-time modifications, while the barre3 Fort Collins studio around the corner is under construction. Bring a yoga mat. New Belgium lists three October dates, the 8th, 22nd and 29th (no class on the 15th); sign up through the Eventbrite link on the brewery's events page.

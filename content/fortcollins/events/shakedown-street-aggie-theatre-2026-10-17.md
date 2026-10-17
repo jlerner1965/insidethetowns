@@ -8,7 +8,8 @@ performers:
 url: "https://www.tixr.com/groups/aggietheatre/events/shakedown-street-196432"
 category: music
 source: "https://www.aggietheatre.com/"
-verified: "2026-10-03"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 17 October and 8 pm on the page"
 ---
 
 Colorado's long-running Grateful Dead tribute band at the Aggie, Saturday at 8 pm, presented by KRFC 88.9 FM and Natural Alternatives. Tickets through Tixr.

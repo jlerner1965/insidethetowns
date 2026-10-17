@@ -10,8 +10,8 @@ source: "https://longmontcolorado.gov/event/murder-haunts-intrigue-nightime-hist
 sourceId: "longmontcolorado-gov-museum"
 sourceUid: "10009019-1793214000-1793219400@longmontcolorado.gov"
 sourceHash: "22188de37c40"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the Longmont Museum (City of Longmont calendar) feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Murder, Haunts & Intrigue: Nightime Historic Walking Tour\" at 7 pm on 28 October on the Longmont Museum (City of Longmont calendar) feed"
 ---
 
 Murder, Haunts & Intrigue: Nightime Historic Walking Tour at Longmont Museum, Wednesday, October 28, 7 pm – 8:30 pm. Listed by Longmont Museum (City of Longmont calendar); the organizer's page has the details and any registration.

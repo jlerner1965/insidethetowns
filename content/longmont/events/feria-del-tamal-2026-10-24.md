@@ -13,8 +13,8 @@ source: "https://www.latinochamberco.org/event-details/feria-del-tamal-2026"
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10004341-1792857600-1792872000@bouldercounty.gov"
 sourceHash: "401ee0ed3638"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Feria Del Tamal\" at 4 pm on 24 October on the Boulder County Fairgrounds feed"
 ---
 
 The Latino Chamber of Commerce of Boulder County's fourth annual Feria del Tamal, in the Exhibit Building at the Boulder County Fairgrounds, Saturday 24 October, 4 to 8 pm. Visitors taste tamales and vote for the businesses competing in the best-tamale contest; the Chamber also lists electric-vehicle rides, wrestling shows, a small-business marketplace and children's activities, and this year adds a drone show with Visit Longmont for the USA 250 – Colorado 150 commemoration. Tickets are $20, $15 for students and seniors 65 and over with ID, and free for children 12 and under with school ID; tickets are non-refundable.

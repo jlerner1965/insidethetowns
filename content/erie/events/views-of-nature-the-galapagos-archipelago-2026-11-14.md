@@ -8,7 +8,8 @@ url: "https://highplains.libcal.com/event/17448299"
 cost: "Free; registration required"
 category: other
 source: "https://highplains.libcal.com/event/17448299"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Views of Nature The Galapagos Archipelago\" at 1 pm on 14 November in the page's structured data"
 ---
 
 An illustrated talk on the wildlife of the Galapagos Islands and the surrounding marine reserve.

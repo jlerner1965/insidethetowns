@@ -7,7 +7,8 @@ address: "195 Second Avenue"
 url: "https://niwot.com/upcoming-events/"
 category: market
 source: "https://niwot.com/upcoming-events/annual-events-and-festivals/"
-verified: "2026-09-17"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 5 December and 10 am on the page"
 ---
 
 A day of holiday shopping with local businesses and vendors at Niwot Hall and around town, with Santa visits, live music and carriage rides. Listed on the Niwot Business Association calendar for Saturday, December 5 from 10 am to 4 pm.

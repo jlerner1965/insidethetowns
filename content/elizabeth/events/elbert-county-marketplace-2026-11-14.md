@@ -8,7 +8,8 @@ url: "https://marketspread.com/market/21488/elbert-county-marketplace/"
 category: market
 recurring: "Alternate Saturdays, April to December"
 source: "https://marketspread.com/market/21488/elbert-county-marketplace/"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 9 am on the page"
 ---
 
 The Elbert County Marketplace sets up under and around the pavilion at Casey Jones Park, 9 to 2: Elbert County farms and ranches, baked and preserved goods, jewelry, woodwork and home goods from makers who mostly live within a few miles of the field. The market runs every other Saturday from April to December, so check the date before you drive out. Commercial booths are not accepted, which keeps the aisles local.

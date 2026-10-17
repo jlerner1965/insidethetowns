@@ -8,7 +8,8 @@ url: "https://johnstownmillikenpubliclibraries.us/event/basic-auto-care-for-teen
 cost: "Free"
 category: other
 source: "https://johnstownmillikenpubliclibraries.us/event/basic-auto-care-for-teens/"
-verified: "2026-10-03"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Basic Auto Care for Teens\" at 10 am on 17 October in the page's structured data"
 ---
 
 Practical class covering basic car maintenance skills for teen drivers.

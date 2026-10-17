@@ -13,8 +13,8 @@ source: "https://www.jeffco.us/calendar.aspx?EID=16770"
 sourceId: "jeffco-us-open-space"
 sourceUid: "16770"
 sourceHash: "69050ed020fb"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Full Moon Night Hike\" at 7:30 pm on 25 October on the Jeffco Open Space – Open Space Master Calendar, parks and alerts feed"
 ---
 
 A ranger-led hike of about 4.25 miles by the light of the full moon, from the West Trailhead up Evergreen Mountain to the Scenic View Trail. It is rated difficult, with about two miles of steady climbing and 750 feet of gain; ages 13 and up with an adult, no pets, and sturdy boots, water, warm layers and a headlamp are expected. Free with registration; the county's listing gives 7:30 to 10 pm, though a summary line on the same page says 8 pm.

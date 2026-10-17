@@ -14,8 +14,8 @@ source: "https://www.frederickco.gov/767/Frights-on-Fifth"
 sourceId: "frederickco-gov"
 sourceUid: "4286"
 sourceHash: "5ecdb0e6cbdf"
-verified: "2026-10-05"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Frights on Fifth\" on 17 October on the Town of Frederick: Frederick Events Calendar feed"
 ---
 
 Downtown Frederick's Halloween afternoon: dress up and stroll Fifth Street from 3 to 5 pm, filling a treat bag at the participating shops and community booths, with the Big Beast Bazaar pet costume contest at 4 pm awarding prizes to the best-dressed pets (register the pet on the Town's page).

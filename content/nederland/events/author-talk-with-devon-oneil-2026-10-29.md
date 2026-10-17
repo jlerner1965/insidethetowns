@@ -12,8 +12,8 @@ category: arts
 organizer: "Nederland Community Library"
 source: "https://nederland.colibraries.org/author-talk-with-devon-oneil/"
 sourceId: "nederlandlibrary-org"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 29 October and 6:30 pm on the page"
 ---
 
 Devon O'Neil, author of The Way Out, gives a talk at Bristlecone Bookshop, followed by questions and refreshments, in an evening hosted by the Nederland Community Library. Seating is limited: register with the library, then pay the $10 fee in person there (cash, check or card) to hold a seat; the fee can go toward his book.

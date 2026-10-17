@@ -7,7 +7,8 @@ url: "https://www.treventscomplex.com/events/detail/prca-2026boot-barn-mountain-
 category: sports
 source: "https://www.treventscomplex.com/events/detail/prca-2026boot-barn-mountain-states-circuit-finals"
 sourceId: "treventscomplex-com"
-verified: "2026-10-04"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 24 October and 7 pm on the page"
 ---
 
 The Professional Rodeo Cowboys Association's 2026 Boot Barn Mountain States Circuit Finals, three performances over two days at The Ranch.

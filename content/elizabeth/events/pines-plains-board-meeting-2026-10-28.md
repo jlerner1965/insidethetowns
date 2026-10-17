@@ -8,7 +8,8 @@ url: "https://pplibraries.org/"
 cost: "Free"
 category: civic
 source: "https://pplibraries.org/03a-activities-calendar/"
-verified: "2026-10-03"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 28 October and 4 pm on the page"
 ---
 
 The regular meeting of the board of trustees of Pines & Plains Libraries, the district that runs the Elizabeth, Elbert, Kiowa and Simla branches, at the Elizabeth Library at 4 pm. All meetings are open to the public. The Kiowa branch's construction closure and the district budget are the live subjects this autumn.

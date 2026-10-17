@@ -9,7 +9,8 @@ performers:
 url: "https://citystarbrewing.com/event/mountain-duo/"
 category: music
 source: "https://citystarbrewing.com/event/mountain-duo/"
-verified: "2026-10-03"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Mountain Duo\" at 6 pm on 24 October in the page's structured data"
 ---
 
 Mountain Duo plays "guitar music from the 20th century" of every flavor: hot guitars, high-energy grooves and crowd-pleasing tunes with a surprisingly full-band sound, at a volume you can still talk over. The same evening as Trick or Treat Street downtown.

@@ -10,8 +10,8 @@ source: "https://longmontcolorado.gov/event/family-american-sign-language/2026-1
 sourceId: "longmontcolorado-gov-library"
 sourceUid: "10008854-1792332000-1792335600@longmontcolorado.gov"
 sourceHash: "cc9dd798dc73"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the Longmont Public Library (City of Longmont calendar) feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Family American Sign Language (ASL) with Instructor\" at 2 pm on 18 October on the Longmont Public Library (City of Longmont calendar) feed"
 ---
 
 Family American Sign Language (ASL) with Instructor at Longmont Public Library, Sunday, October 18, 2 pm – 3 pm. Listed by Longmont Public Library (City of Longmont calendar); the organizer's page has the details and any registration.

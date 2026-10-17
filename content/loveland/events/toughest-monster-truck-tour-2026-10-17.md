@@ -7,7 +7,8 @@ url: "https://www.treventscomplex.com/events/detail/toughest-monster-truck-tour-
 category: family
 source: "https://www.treventscomplex.com/events/detail/toughest-monster-truck-tour-4"
 sourceId: "treventscomplex-com"
-verified: "2026-10-04"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 17 October and 3 pm on the page"
 ---
 
 Two monster truck shows at Blue Arena, Friday evening and Saturday afternoon; doors open an hour ahead.

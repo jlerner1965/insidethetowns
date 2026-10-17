@@ -9,7 +9,8 @@ performers:
 url: "https://citystarbrewing.com/event/derek-dames-ohl/"
 category: music
 source: "https://citystarbrewing.com/event/derek-dames-ohl/"
-verified: "2026-10-03"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Derek Dames Ohl\" at 6 pm on 17 October in the page's structured data"
 ---
 
 Derek Dames Ohl is a traveling roots musician whose sets move between country, blues and honky-tonk. Free to attend in the taproom.

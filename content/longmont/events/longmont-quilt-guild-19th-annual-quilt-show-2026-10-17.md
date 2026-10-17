@@ -10,8 +10,8 @@ source: "https://longmontquiltguild.org/quiltguildactivities/quilt-show/"
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10003676-1792227600-1792252800@bouldercounty.gov"
 sourceHash: "26f0f0fbd914"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Longmont Quilt Guild 19th Annual Quilt Show\" at 9 am on 17 October on the Boulder County Fairgrounds feed"
 ---
 
 The Longmont Quilt Guild's 19th annual quilt show in Barn A at the Boulder County Fairgrounds, Friday 16 October 9 am to 7 pm and Saturday 17 October 9 am to 4 pm.

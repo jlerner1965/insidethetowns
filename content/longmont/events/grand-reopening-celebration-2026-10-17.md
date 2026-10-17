@@ -11,8 +11,8 @@ source: "https://longmontcolorado.gov/event/grand-reopening-celebration/"
 sourceId: "longmontcolorado-gov-museum"
 sourceUid: "10008924-1792227600-1792256400@longmontcolorado.gov"
 sourceHash: "63c26105e8a1"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Grand Reopening Celebration\" at 9 am on 17 October on the Longmont Museum (City of Longmont calendar) feed"
 ---
 
 The Longmont Museum reopens after its expansion with a free day: a ribbon-cutting at 9 am, then the new galleries, the DreamLab and programs and tours for all ages until 5 pm.

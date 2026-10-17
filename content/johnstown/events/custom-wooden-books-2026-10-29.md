@@ -8,7 +8,8 @@ url: "https://johnstownmillikenpubliclibraries.us/event/custom-wooden-books/"
 cost: "Free"
 category: family
 source: "https://johnstownmillikenpubliclibraries.us/event/custom-wooden-books/"
-verified: "2026-10-03"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Custom Wooden Books\" at 10 am on 29 October in the page's structured data"
 ---
 
 Customize a wooden book to fill with sketches, recipes, poems or a journal. All ages, one book per family.

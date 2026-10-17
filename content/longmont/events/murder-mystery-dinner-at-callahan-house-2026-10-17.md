@@ -11,8 +11,8 @@ source: "https://longmontcolorado.gov/event/murder-mystery-dinner-at-callahan-ho
 sourceId: "longmontcolorado-gov-recreation"
 sourceUid: "10009583-1792261800-1792274400@longmontcolorado.gov"
 sourceHash: "804c8188dcb0"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Murder Mystery Dinner at Callahan House\" at 6:30 pm on 17 October on the Longmont Recreation Services (City of Longmont calendar) feed"
 ---
 
 A 1930s Hollywood whodunit dinner at the historic Callahan House, run by The Murder Mystery Co.: food, drinks and a mystery the guests help solve. Period dress encouraged; register through the City.

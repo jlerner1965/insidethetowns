@@ -14,8 +14,8 @@ category: music
 organizer: "The Caribou Room"
 source: "https://www.thecaribouroom.com/calendar/2026/10/17/since-juleye-amp-midicinal"
 sourceId: "thecaribouroom-com"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 17 October and 7 pm on the page"
 ---
 
 Since JulEYE and MIDIcinal share a bill at The Caribou Room, with Revital opening. Doors and dinner from 7 pm, show at 8; general admission is $20, with reserved balcony seats and a VIP lounge for up to ten guests at higher prices.

@@ -8,7 +8,8 @@ url: "https://www.etix.com/ticket/p/52682146/dinosaur-jr-fort-collins-washington
 cost: "$44.04"
 category: music
 source: "https://bohemianlivemusic.org/"
-verified: "2026-10-01"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 30 October and 8 pm on the page"
 ---
 
 The indie-rock band Dinosaur Jr. at Washington's on the Friday before Halloween, 8 pm. Tickets through etix.

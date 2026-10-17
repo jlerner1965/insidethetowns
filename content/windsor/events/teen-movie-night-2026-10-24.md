@@ -15,8 +15,8 @@ source: "https://www.townofseverance.org/calendar.aspx?EID=1328"
 sourceId: "townofseverance-org-events"
 sourceUid: "1328"
 sourceHash: "f84c87eb54e6"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen Movie Night\" at 7 pm on 24 October on the Town of Severance: Community Events calendar feed"
 ---
 
 An outdoor horror movie for teens aged 12 to 18 only, on the Severance Library's patio and green space: Night Swim, rated PG-13. Bring blankets, pillows or lawn chairs; light snacks are provided, and the screening moves indoors if the weather is bad. Registration is encouraged and sends a reminder.

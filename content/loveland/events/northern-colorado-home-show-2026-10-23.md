@@ -11,7 +11,8 @@ category: other
 timeNote: "Opens Friday at noon, Saturday at 10 am, Sunday at 11 am"
 source: "https://www.treventscomplex.com/events/detail/free-northern-colorado-home-show-2"
 sourceId: "treventscomplex-com"
-verified: "2026-10-04"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 23 October on the page"
 ---
 
 Three days of home-improvement demonstrations, expert advice and show offers at the Pedersen Toyota Center. Free admission.

@@ -9,8 +9,9 @@ cost: "$15 adults, $10 ages 5–17, 4 and under free; members $12 and $8"
 category: family
 timeNote: "5–9 pm nightly, October 22–25; gates close at 8"
 source: "https://gardens.fortcollins.gov/Events/Public-Events/Pumpkins"
-verified: "2026-10-01"
+verified: "2026-10-17"
 featured: true
+verifiedBy: "recheck-events (the nightly re-check workflow): 22 October and 5 pm on the page"
 ---
 
 Four nights of Halloween at the Gardens: pumpkin displays by local artists lighting up themed garden zones, giant regionally grown pumpkins, pumpkin bowling and other family games, a magician, a dog troupe and a DJ, plus judging of the carved-pumpkin contest. 5 to 9 pm each night; the entrance gates close at 8.

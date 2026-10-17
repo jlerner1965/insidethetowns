@@ -13,8 +13,8 @@ organizer: "Fort Lupton Public & School Library"
 source: "https://highplains.libcal.com/event/17633024"
 sourceId: "highplains-libcal-com-fort-lupton"
 sourceUid: "libcal:17633024"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Victorian Death Rituals Historical Presentation\" at 6 pm on 22 October on the Fort Lupton Public & School Library (High Plains Library District), LibCal feed"
 ---
 
 A talk by Jackie Smith on Victorian mourning customs and the etiquette of death: why bells were attached to the dead, how long mourning had to last, and what was done with clocks at a death. Period mourning covers, hair jewelry, periodicals and a graveyard bell will be on hand to look at. For ages 16 and up.

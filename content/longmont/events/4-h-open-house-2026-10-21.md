@@ -11,8 +11,8 @@ source: "https://bouldercounty.gov/event/4-h-open-house-oct-21/"
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10004426-1792606500-1792611000@bouldercounty.gov"
 sourceHash: "b3cb5ef24048"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"4-H Open House\" at 6:15 pm on 21 October on the Boulder County Fairgrounds feed"
 ---
 
 An evening open house for families curious about 4-H, in the Exhibit Building at the Boulder County Fairgrounds: project displays from photography and cooking to animals, current members and leaders to talk to, and how to enroll. Free and open to all young people and their families; no farm needed.

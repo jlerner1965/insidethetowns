@@ -9,8 +9,8 @@ cost: "$20 registration"
 category: arts
 organizer: "Manitou Art Center"
 source: "https://www.manitouartcenter.org/event-6861205"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 17 October and 6 pm on the page"
 ---
 
 A dance party fundraiser for the Manitou Art Center in its Intemann Gallery on Saturday, October 17, 2026, 6 to 9 pm. Registration is $20; the center's page showed 43 spaces left on 10 October 2026. The listing is a poster with no further text.

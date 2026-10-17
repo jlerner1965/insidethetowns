@@ -13,8 +13,8 @@ source: "https://www.jeffco.us/calendar.aspx?EID=16768"
 sourceId: "jeffco-us-open-space"
 sourceUid: "16768"
 sourceHash: "13eb81feb35e"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Boo-Logical Adaptations Night Hike\" at 7 pm on 23 October on the Jeffco Open Space - Programs, Alerts & Closures feed"
 ---
 
 A beginner-friendly Halloween night hike of about a mile on Lookout Mountain's Forest Loop Trail, looking at what makes owls, spiders and other animals seem a little ghostly after dark, with a lantern to make before setting out. All ages, with children accompanied by an adult; it is free, but everyone in the group must register with Jeffco Open Space. The trail is uneven dirt with rocks and roots, so wear sturdy shoes and bring water and warm layers, and a flashlight if you like.

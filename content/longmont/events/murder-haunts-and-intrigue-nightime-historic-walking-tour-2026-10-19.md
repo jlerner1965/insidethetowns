@@ -11,8 +11,8 @@ source: "https://longmontcolorado.gov/event/murder-haunts-intrigue-nightime-hist
 sourceId: "longmontcolorado-gov-museum"
 sourceUid: "10009014-1792436400-1792441800@longmontcolorado.gov"
 sourceHash: "8daa38c58f7d"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Murder, Haunts & Intrigue: Nightime Historic Walking Tour\" at 7 pm on 19 October on the Longmont Museum (City of Longmont calendar) feed"
 ---
 
 A Halloween-season walking tour of downtown Longmont after dark with the Longmont Museum's curator of history, Elizabeth Beaudoin, and paranormal investigator Catlyn Keenan, through the town's stranger and spookier past. $20; register with the museum early, as these tours sell out.

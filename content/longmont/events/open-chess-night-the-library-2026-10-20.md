@@ -10,8 +10,8 @@ source: "https://longmontcolorado.gov/event/open-chess-night/2026-10-20/"
 sourceId: "longmontcolorado-gov-library"
 sourceUid: "10007367-1792517400-1792524600@longmontcolorado.gov"
 sourceHash: "2955d9b91352"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the Longmont Public Library (City of Longmont calendar) feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Open Chess Night @ the Library\" at 5:30 pm on 20 October on the Longmont Public Library (City of Longmont calendar) feed"
 ---
 
 Open Chess Night @ the Library at Longmont Public Library, Tuesday, October 20, 5:30 pm – 7:30 pm. Listed by Longmont Public Library (City of Longmont calendar); the organizer's page has the details and any registration.

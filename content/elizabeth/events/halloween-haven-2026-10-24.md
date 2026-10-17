@@ -7,7 +7,8 @@ address: "4189 S Highway 86"
 url: "https://www.elizabethpr.com/epr-hosted-events"
 category: family
 source: "https://www.elizabethpr.com/epr-hosted-events"
-verified: "2026-10-03"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 24 October and 6 pm on the page"
 ---
 
 The Park & Recreation District's Halloween evening at the Casey Jones Park Pavilion, 6 to 8: a haunted house in the pavilion, a hayride through the park's trails, gifts and prizes.

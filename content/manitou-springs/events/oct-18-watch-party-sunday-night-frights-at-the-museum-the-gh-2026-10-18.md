@@ -10,8 +10,8 @@ source: "https://manitouspringsheritagecenter.org/event/oct-18-watch-party-sunda
 sourceId: "manitouspringsheritagecenter-org"
 sourceUid: "12942-1792346400-1792357200@manitouspringsheritagecenter.org"
 sourceHash: "ec6ef59541d2"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the Manitou Springs Heritage Museum calendar feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Oct 18 Watch Party Sunday Night Frights at the Museum - The Ghost Breakers\" at 6 pm on 18 October on the Manitou Springs Heritage Museum calendar feed"
 ---
 
 Oct 18 Watch Party Sunday Night Frights at the Museum - The Ghost Breakers at Manitou Springs Heritage Museum, Sunday, October 18, 6 pm – 9 pm. Listed by Manitou Springs Heritage Museum calendar; the organizer's page has the details and any registration.

@@ -10,7 +10,8 @@ url: "https://niwot.com/upcoming-events/"
 cost: "$35"
 category: food
 source: "https://niwot.com/upcoming-events/"
-verified: "2026-09-17"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 20 February and 1 pm on the page"
 ---
 
 A store-to-store wine and beer tasting through Old Town and Cottonwood Square that supports the Niwot Cultural Arts Association. The Business Association calendar currently carries two 2027 listings, February 7 and February 20, both 1 to 5 pm; February 20 is the date the organizer had published first, and this listing follows it until the calendar settles.

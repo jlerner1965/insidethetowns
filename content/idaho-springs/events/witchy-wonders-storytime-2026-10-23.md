@@ -11,8 +11,8 @@ organizer: "Clear Creek County Library District"
 organizerUrl: "https://cccld.org/"
 source: "https://cccld.org/programs-and-events"
 sourceId: "cccld-org"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"ISPL Witchy Wonders Storytime\" at 10 am on 23 October on the Clear Creek County Library District calendar feed"
 ---
 
 "Mix up some magic at this wonderfully-witchy storytime!" A Halloween-week storytime at the Idaho Springs Public Library. Read on the library district's programs page on 10 October 2026.

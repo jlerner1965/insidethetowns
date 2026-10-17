@@ -8,7 +8,8 @@ url: "https://johnstownmillikenpubliclibraries.us/event/autumn-bath-salts/"
 cost: "Free"
 category: arts
 source: "https://johnstownmillikenpubliclibraries.us/event/autumn-bath-salts/"
-verified: "2026-10-03"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Autumn Bath Salts\" at 2:30 pm on 23 October in the page's structured data"
 ---
 
 Mix and blend your own bath salts with seasonal scents to take home. For adults.

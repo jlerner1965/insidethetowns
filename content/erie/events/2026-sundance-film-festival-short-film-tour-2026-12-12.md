@@ -8,7 +8,8 @@ url: "https://highplains.libcal.com/event/16923053"
 cost: "Free; registration required"
 category: arts
 source: "https://highplains.libcal.com/event/16923053"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"2026 Sundance Film Festival Short Film Tour\" at 1 pm on 12 December in the page's structured data"
 ---
 
 A screening of six short films selected by Sundance from the previous festival, running 99 minutes with a 15 minute intermission.

@@ -8,7 +8,8 @@ url: "https://highplains.libcal.com/event/15523227"
 cost: "Free; registration required"
 category: arts
 source: "https://highplains.libcal.com/event/15523227"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Adults Needle Felting a Bird\" at 5 pm on 28 December in the page's structured data"
 ---
 
 An introduction to needle felting for adults, making a small bird. Uses 100 percent wool felt and notched felting needles; finger cots provided. Registration required.

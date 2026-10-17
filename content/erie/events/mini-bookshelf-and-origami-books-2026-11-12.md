@@ -8,7 +8,8 @@ url: "https://highplains.libcal.com/event/16845714"
 cost: "Free; registration required"
 category: arts
 source: "https://highplains.libcal.com/event/16845714"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Mini Bookshelf and Origami Books\" at 4:30 pm on 12 November in the page's structured data"
 ---
 
 Assemble a pre-cut bookshelf, cut a decorative front on the laser cutter and make origami books to fill it. For teens and adults; registration required.

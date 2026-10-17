@@ -9,8 +9,8 @@ source: "https://calendar.estesvalleylibrary.org/event/17290419"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17290419"
 sourceHash: "0e2499ef8dbb"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the Estes Valley Library feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen & Tween Cooking and Culture: Canadian Bannock Bread\" at 4:30 pm on 21 October on the Estes Valley Library feed"
 ---
 
 Teen & Tween Cooking and Culture: Canadian Bannock Bread at Estes Valley Community Center, Wednesday, October 21, 4:30 pm – 6:30 pm. Listed by Estes Valley Library; the organizer's page has the details and any registration.

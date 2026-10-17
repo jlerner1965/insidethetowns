@@ -12,6 +12,8 @@ organizer: "Town of Windsor Parks, Recreation & Culture"
 organizerUrl: "https://www.recreationliveshere.com/"
 source: "https://www.recreationliveshere.com/Calendar.aspx?EID=1334"
 verified: "2026-10-03"
+changeFlag: true
+changeNote: "recheck 2026-10-17: the source page answers 404"
 ---
 
 Pumpkins floating in the recreation center's indoor pool, and children jumping in to find the right one. Registration is required and the Town's listing gives the cost as $12; the pool is closed to the public while it runs. Sign up through the Town's registration system or the front desk on 970-674-3500.
