@@ -1,0 +1,38 @@
+{
+  "_note": "Source of truth for the manager agent. Keep this current. 'live' means the site is published and should be audited. Mirrors the build's own list in src/config/towns/*.ts (status, domain) and DEPLOY.md; if the two disagree, the repo config wins. Domains checked against both and over HTTPS on 17 October 2026.",
+  "network": {
+    "name": "Inside the Towns",
+    "domain": "insidethetowns.com",
+    "repo": "https://github.com/jlerner1965/insidethetowns",
+    "correction_reports": "email",
+    "newsletter_day": "Thursday"
+  },
+  "towns": [
+    { "slug": "niwot",       "name": "Niwot",        "domain": "insideniwot.com",        "live": true,  "alternate_domains": ["townofniwot.com"], "notes": "townofniwot.com is the older separate site; it now redirects to insideniwot.com" },
+    { "slug": "lyons",       "name": "Lyons",        "domain": "insidelyons.com",        "live": true,  "alternate_domains": ["explorelyons.com"] },
+    { "slug": "berthoud",    "name": "Berthoud",     "domain": "insideberthoud.com",     "live": true },
+    { "slug": "erie",        "name": "Erie",         "domain": "insideerie.com",         "live": true },
+    { "slug": "johnstown",   "name": "Johnstown",    "domain": "insidejohnstown.com",    "live": true },
+    { "slug": "timnath",     "name": "Timnath",      "domain": "insidetimnath.com",      "live": true },
+    { "slug": "elizabeth",   "name": "Elizabeth",    "domain": "insideelizabeth.com",    "live": true,  "notes": "quiet since 2026-10-12: out of the weekly email, so no signup or This Week expected; owner decides by 2026-11-15 whether it rejoins" },
+    { "slug": "windsor",     "name": "Windsor",      "domain": "insidewindsorco.com",    "live": true,  "alternate_domains": ["insideseverance.com"], "notes": "Windsor and Severance on one site; Severance folded in 2026-10-12 (subTown: severance, /severance/). insidewindsor.com is someone else's" },
+    { "slug": "fortcollins", "name": "Fort Collins", "domain": "insidefortcollins.com",  "live": true },
+    { "slug": "longmont",    "name": "Longmont",     "domain": "insidelongmontco.com",   "live": true },
+    { "slug": "loveland",    "name": "Loveland",     "domain": "insidelovelandco.com",   "live": true },
+    { "slug": "carbon-valley","name": "Carbon Valley","domain": "carbonvalleyguide.com",  "live": true,  "alternate_domains": ["insidefirestone.com", "insidefortlupton.com"], "notes": "Frederick / Firestone / Dacono / Fort Lupton; Fort Lupton folded in 2026-10-12 (subTown: fort-lupton, /fort-lupton/)" },
+
+    { "slug": "estes-park",  "name": "Estes Park",   "domain": "insideestespark.com",    "live": true,  "notes": "mountain town" },
+    { "slug": "golden",      "name": "Golden",       "domain": "insidegolden.com",       "live": true,  "notes": "mountain town" },
+    { "slug": "evergreen",   "name": "Evergreen",    "domain": "insideevergreenco.com",  "live": true,  "notes": "mountain town; insideevergreen.com is someone else's" },
+    { "slug": "nederland",   "name": "Nederland",    "domain": "insidenederland.com",    "live": true,  "notes": "mountain town" },
+    { "slug": "idaho-springs","name": "Idaho Springs","domain": "insideidahosprings.com", "live": true,  "notes": "mountain town" },
+    { "slug": "georgetown",  "name": "Georgetown",   "domain": "insidegeorgetownco.com", "live": true,  "notes": "mountain town" },
+    { "slug": "grand-lake",  "name": "Grand Lake",   "domain": "insidegrandlake.com",    "live": true,  "notes": "mountain town" },
+    { "slug": "manitou-springs","name": "Manitou Springs","domain": "insidemanitousprings.com","live": true, "notes": "mountain town; visitor guide since 2026-10-12: no weekly email, signup or This Week expected" },
+    { "slug": "leadville",   "name": "Leadville",    "domain": "insideleadville.com",    "live": true,  "notes": "mountain town; visitor guide since 2026-10-12: no weekly email, signup or This Week expected" },
+    { "slug": "black-hawk",  "name": "Black Hawk",   "domain": "insideblackhawk.com",    "live": true,  "notes": "mountain town; visitor guide since 2026-10-12: no weekly email, signup or This Week expected" },
+
+    { "slug": "castle-rock", "name": "Castle Rock",  "domain": "insidecastlerockco.com", "live": false, "notes": "wave 2: domain serves a noindex holding page until the owner flips it live. insidecastlerock.com is someone else's" },
+    { "slug": "summit-county","name": "Summit County","domain": "insidesummitcounty.com", "live": false, "notes": "undecided whether to use; not in the repo yet" }
+  ]
+}
