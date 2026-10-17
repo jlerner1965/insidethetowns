@@ -52,7 +52,7 @@ allDay: false                     # optional
 venue: "2nd Avenue"
 address: "2nd Ave & Franklin St"  # optional
 url: "https://organizer.example"  # optional, the organizer's page
-cost: "Free"                      # optional, "Free" or a note
+cost: "Free"                      # optional, only what the source states: "Free" when it says free, "$12" when it says $12; nothing when it says nothing
 category: festival                # music|market|festival|outdoors|family|food|arts|civic|sports|other
 image: ../images/parade.jpg       # optional
 imageAlt: "…"                     # required with image
@@ -122,7 +122,10 @@ Longer description in Markdown.
 
 Nothing publishes without a `source` (the organizer's or the business's own page,
 its own Facebook or Instagram included; never a review site or an aggregator) and a
-`verified` date. An event or a place
+`verified` date. An aggregated community calendar (a newspaper's events listing; the
+list is `COMMUNITY_CALENDARS` in `src/lib/sources.ts`) fails validation as a `source`:
+anyone can submit there and nobody checks, which is where the wrong times and the
+prices nobody charges came from. Cite the organizer's page or stage the file. An event or a place
 in the published folders that lacks either is left out of the build, with a line
 on the build log and in `npm run validate` saying so; the file is not deleted.
 A listing that claims to be open is also left out once its `verified` date is

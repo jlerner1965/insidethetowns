@@ -5,10 +5,10 @@ end: "2026-10-21T18:00"
 venue: "Lyons Town Hall Board Room"
 address: "432 5th Ave, Lyons, CO 80540"
 url: "https://www.townoflyons.com/Calendar.aspx?EID=6328"
-cost: "Free"
 category: civic
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6328"
-verified: "2026-10-03"
+verified: "2026-10-16"
+verifiedBy: "recheck-events (run by hand): \"Utilities & Engineering Board\" at 4:30 pm on 21 October on the townoflyons.com feed"
 ---
 
 Regular meeting of the Town of Lyons Utilities & Engineering Board in the Town Hall board room. Open to the public.

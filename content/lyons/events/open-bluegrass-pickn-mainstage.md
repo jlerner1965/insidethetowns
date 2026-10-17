@@ -7,9 +7,9 @@ venue: "MainStage Brewing Company"
 address: "450 Main St"
 url: "https://mainstagebrewing.com/music"
 category: music
-source: "https://lyonsrecorder.org/events/"
-verified: "2026-10-16"
-verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 16 October 2026"
+source: "https://mainstagebrewing.com/music"
+verified: "2026-10-17"
+verifiedBy: "Claude Code for James Lerner, on MainStage's own calendar (Open Bluegrass Pick, every Thursday from 6 PM, the host leads the jam), 17 October 2026"
 ---
 
-Thursday's bluegrass jam at MainStage Brewing, from 6 p.m., led by the evening's host. All players welcome.
+Thursday's open bluegrass jam at MainStage Brewing, from 6 p.m.; the evening's host leads it. All players welcome.

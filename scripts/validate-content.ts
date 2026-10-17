@@ -33,7 +33,7 @@ import { COLLECTIONS, STAGED_COLLECTIONS, changeSchema, schemaFor, type Collecti
 import { allSites, findTown, liveTowns } from '../src/config/index.ts';
 import { describeExclusion, eventExclusion, placeExclusion } from '../src/lib/freshness.ts';
 import { describeCounts, launchCounts } from './lib/launch.ts';
-import { readRegistry, registryIssues } from '../src/lib/sources.ts';
+import { communityCalendar, readRegistry, registryIssues } from '../src/lib/sources.ts';
 // Imported directly, not via getHub(): the validator runs without TOWN set.
 import { hub } from '../src/config/towns/hub.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
@@ -184,7 +184,13 @@ function validateFile(collection: CollectionName, file: string, town: string, st
     }
   }
   if (collection === 'events') {
-    const data = result.data as { start: Date; end?: Date; until?: Date; performances?: { start: Date }[]; title: string };
+    const data = result.data as { start: Date; end?: Date; until?: Date; performances?: { start: Date }[]; title: string; source?: string };
+    // The source rule, enforced: an aggregated calendar is where the wrong
+    // times and the prices nobody charges came from (Lyons, October 2026).
+    const calendar = communityCalendar(data.source);
+    if (calendar) {
+      errors.push(`${rel}: source is ${calendar}, an aggregated calendar, not the organizer's own page; cite the organizer's page (its site, its Facebook or Instagram) or move the file to staging/ until there is one`);
+    }
     const end = data.performances?.at(-1)?.start ?? data.until ?? data.end ?? data.start;
     if (end.getTime() < Date.now() - 86_400_000) {
       // Not a call to delete it: the page stays reachable, carries noindex and

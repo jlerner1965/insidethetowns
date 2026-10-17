@@ -1,5 +1,6 @@
 ---
 title: "Art opening at MainStage Brewing"
+review: { reason: "Unpublished 17 October 2026: the Recorder calendar this cited is an aggregator, and MainStage's own calendar (mainstagebrewing.com/music) lists about two weeks ahead and does not show the opening yet. Publish once MainStage lists the date.", since: "2026-10-17", from: manual }
 start: "2026-11-06T18:00"
 end: "2026-11-06T20:00"
 venue: "MainStage Brewing Company"

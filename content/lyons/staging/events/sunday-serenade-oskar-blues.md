@@ -1,5 +1,6 @@
 ---
 title: "Sunday Serenade at Oskar Blues"
+review: { reason: "Unpublished 17 October 2026: the Recorder calendar this cited is an aggregator, and Oskar Blues' own page (oskarbluesfooderies.com/lyons) answers automated requests with a bot challenge and did not load in a browser. Confirm the day and time with Oskar Blues by phone or on its Instagram, cite that, and publish.", since: "2026-10-17", from: manual }
 start: "2026-09-20T17:00"
 end: "2026-09-20T19:00"
 repeat: weekly
@@ -9,7 +10,7 @@ address: "303 Main St"
 url: "https://oskarbluesfooderies.com/lyons"
 cost: "No cover"
 category: music
-image: ../images/oskar-blues-pints.jpg
+image: ../../images/oskar-blues-pints.jpg
 imageAlt: "Pints on a table at Oskar Blues"
 imageCredit: "ShanMcG213, Flickr, CC BY-SA 2.0"
 source: "https://lyonsrecorder.org/events/"

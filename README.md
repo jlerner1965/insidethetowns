@@ -17,6 +17,7 @@ npm run sources               # the source registry: what waits to be confirmed,
 npm run ingest -- --dry-run   # read the confirmed feeds into staging; changes to published events go to review
 npm run review                # the summary, then everything in staging: approve, edit, reject (see below)
 npm run auto-review -- --dry-run   # what the standing rules would approve without a person, and why the rest waits
+npm run recheck -- --town=lyons    # the next 14 days of events read against their sources again; --write stamps and flags (see below)
 scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
 ```
 
@@ -30,6 +31,17 @@ Mark, don't delete: a place that has closed gets `status: closed` and a note
 saying how you know, a meeting the Town has called off gets `status:
 canceled`, and the pages do the rest (see any content README).
 
+0. The nightly re-check has already run (`.github/workflows/recheck-events.yml`,
+   `npm run recheck`): every published event due in the next 14 days read against
+   its source again. Where the source is a feed in the registry, the item on the
+   day is compared exactly (start, end, cancellation); otherwise the page is
+   fetched and its structured data or visible text read. A confirmation moves
+   `verified` and says what was read where in `verifiedBy`; a change sets
+   `changeFlag` with the evidence in `changeNote`, which `npm run review` walks;
+   what no machine can read (a page rendered by JavaScript, a bot challenge, a
+   robots.txt that says no) is listed in its pull request for a browser or a
+   phone. It never edits a time or moves a file. Merge its pull request, then
+   work what it flagged and what it could not read.
 1. `npm run ingest`, then `npm run review`: the feeds' new items and changes land in
    staging and the review walks them (see *Review* below), with the summary at the
    top: what is waiting, listings going stale in 14 days, sources not answering.

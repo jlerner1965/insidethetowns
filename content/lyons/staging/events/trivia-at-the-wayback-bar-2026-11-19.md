@@ -1,5 +1,6 @@
 ---
 title: "Trivia at the Wayback Bar"
+review: { reason: "Unpublished 17 October 2026: the Recorder calendar this cited is an aggregator, and its page for this series now opens a February date; neither the Wayback Bar nor Wildcat Mountaineering has a page listing trivia. Confirm with the bar, cite that, and publish.", since: "2026-10-17", from: manual }
 start: "2026-11-19T18:00"
 end: "2026-11-19T21:00"
 venue: "Wayback Bar (back of Wildcat Mountaineering)"

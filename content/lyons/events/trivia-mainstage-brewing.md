@@ -7,9 +7,10 @@ venue: "MainStage Brewing Company"
 address: "450 Main St"
 url: "https://mainstagebrewing.com/music"
 category: other
-source: "https://lyonsrecorder.org/events/"
-verified: "2026-10-16"
-verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 16 October 2026"
+cost: "Free"
+source: "https://mainstagebrewing.com/music"
+verified: "2026-10-17"
+verifiedBy: "Claude Code for James Lerner, on MainStage's own calendar (Trivia Night, Tuesday 20 October, 7:00 PM, free to play, prizes for the top three teams), 17 October 2026"
 ---
 
-Tuesday quiz night at the west-end brewery, from 7 p.m.
+Tuesday quiz night at the west-end brewery, from 7 p.m. Free to play, in six-person teams, with prizes for the top three (the brewery's calendar).
