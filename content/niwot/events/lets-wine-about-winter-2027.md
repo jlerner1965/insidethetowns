@@ -1,7 +1,5 @@
 ---
 title: "Let’s Wine About Winter"
-changeFlag: true
-changeNote: "niwot.com's upcoming-events page also lists this on 7 February 2027, 1 to 5 pm, as well as the 20 February event page (checked 10 October 2026)."
 start: "2027-02-20T13:00"
 end: "2027-02-20T17:00"
 venue: "Downtown Niwot"

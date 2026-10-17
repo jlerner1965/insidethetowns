@@ -3,14 +3,14 @@ title: "Maryland Mountain Quartz Valley Open Space Park"
 type: park
 address: "Hidden Treasure Trailhead, 8060 Black Hawk Blvd, Black Hawk, CO 80422"
 area: "Hidden Treasure Trailhead, Highway 119"
-url: "https://www.cityofblackhawk.org/things-do-black-hawk/page/maryland-mountain-quartz-valley-open-space-park-hiking-biking"
-source: "https://www.cityofblackhawk.org/things-do-black-hawk/page/maryland-mountain-quartz-valley-open-space-park-hiking-biking"
+url: "https://www.cityofblackhawk.org/1219/Maryland-Mountain-Quartz-Valley-Open-Spa"
+source: "https://www.cityofblackhawk.org/1219/Maryland-Mountain-Quartz-Valley-Open-Spa"
 verified: "2026-10-10"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
 hours: "Daily, dawn to dusk"
-mapUrl: "https://www.cityofblackhawk.org/media/2316"
-access: { parking: "Parking, restrooms and trash cans at the Hidden Treasure Trailhead, with a bike and pedestrian bridge over Highway 119 to the trails; no water at the trailhead or in the park", closures: "The City closes trails from time to time for maintenance, trail building and fire mitigation; follow marked closures", conditionsUrl: "https://www.cityofblackhawk.org/calendar", conditionsLabel: "City of Black Hawk calendar, where trail closures are posted", source: "https://www.cityofblackhawk.org/things-do-black-hawk/page/maryland-mountain-quartz-valley-open-space-park-hiking-biking", verified: "2026-10-10" }
+mapUrl: "https://www.cityofblackhawk.org/DocumentCenter/View/1580/Maryland-Mountain-Trails-Map"
+access: { parking: "Parking, restrooms and trash cans at the Hidden Treasure Trailhead, with a bike and pedestrian bridge over Highway 119 to the trails; no water at the trailhead or in the park", closures: "The City closes trails from time to time for maintenance, trail building and fire mitigation; follow marked closures", conditionsUrl: "https://www.cityofblackhawk.org/calendar", conditionsLabel: "City of Black Hawk calendar, where trail closures are posted", source: "https://www.cityofblackhawk.org/1219/Maryland-Mountain-Quartz-Valley-Open-Spa", verified: "2026-10-10" }
 tags: [hiking, mountain-biking, dogs-on-leash, history, free]
 summary: "The City's open space above Black Hawk for hiking, running and mountain biking, reached by a bridge over Highway 119 from the Hidden Treasure Trailhead: old mills and mines, the Gilpin Tramway grade and a 9,200-foot summit. Dawn to dusk; dogs on leash."
 image: "../images/maryland-mountain-quartz-valley-open-space-park.jpg"

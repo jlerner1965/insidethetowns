@@ -9,9 +9,9 @@ tags:
 verified: "2026-10-11"
 sources:
   - label: "City of Black Hawk: history"
-    url: "https://www.cityofblackhawk.org/about-black-hawk/page/history"
+    url: "https://www.cityofblackhawk.org/1195/History"
   - label: "City of Black Hawk: Gregory Street Plaza"
-    url: "https://www.cityofblackhawk.org/things-do-black-hawk/page/gregory-street-plaza"
+    url: "https://www.cityofblackhawk.org/1215/Gregory-Street-Plaza"
 image: "../images/maryland-mountain-quartz-valley-open-space-park.jpg"
 imageAlt: "The rust-brown steel truss bridge, with a hawk cut-out on its side, carrying the trail over Highway 119 from the Hidden Treasure Trailhead to Maryland Mountain, north of Black Hawk, in June 2024"
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 4.0"

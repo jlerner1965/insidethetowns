@@ -11,11 +11,11 @@ glance:
   bestDay: "Wednesday to Sunday, when Bistro Mariposa is open; in October 2026, a Saturday for Halloween Street on Gregory Street"
   caveat: "There is no water at the trailhead or in the park; spa day passes are limited and must be reserved"
 sources:
-  - { label: "City of Black Hawk: Maryland Mountain Quartz Valley Open Space Park", url: "https://www.cityofblackhawk.org/things-do-black-hawk/page/maryland-mountain-quartz-valley-open-space-park-hiking-biking" }
-  - { label: "City of Black Hawk: Shuttle Service (Black Hawk & Central City Tramway)", url: "https://www.cityofblackhawk.org/public-works/page/shuttle-service" }
-  - { label: "City of Black Hawk: Tramway route brochure", url: "https://www.cityofblackhawk.org/media/76" }
-  - { label: "City of Black Hawk: Gregory Street Plaza", url: "https://www.cityofblackhawk.org/things-do-black-hawk/page/gregory-street-plaza" }
-  - { label: "City of Black Hawk: Halloween Street & Fall Festival", url: "https://www.cityofblackhawk.org/city-clerk/page/halloween-street-fall-festival" }
+  - { label: "City of Black Hawk: Maryland Mountain Quartz Valley Open Space Park", url: "https://www.cityofblackhawk.org/1219/Maryland-Mountain-Quartz-Valley-Open-Spa" }
+  - { label: "City of Black Hawk: Shuttle Service (Black Hawk & Central City Tramway)", url: "https://www.cityofblackhawk.org/1385/Shuttle-Service" }
+  - { label: "City of Black Hawk: Tramway route brochure", url: "https://www.cityofblackhawk.org/DocumentCenter/View/1596/Tramway-Route-Cards---2023" }
+  - { label: "City of Black Hawk: Gregory Street Plaza", url: "https://www.cityofblackhawk.org/1215/Gregory-Street-Plaza" }
+  - { label: "City of Black Hawk: free fall and Halloween events in October", url: "https://www.cityofblackhawk.org/CivicAlerts.aspx?AID=52" }
   - { label: "Monarch Casino Resort Spa: Getting Here", url: "https://monarchblackhawk.com/getting-here" }
   - { label: "Monarch Casino Resort Spa: Spa Monarch", url: "https://monarchblackhawk.com/wellness" }
   - { label: "Monarch Casino Resort Spa: Bistro Mariposa", url: "https://monarchblackhawk.com/dining/bistro-mariposa" }

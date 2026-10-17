@@ -9,7 +9,7 @@ tags:
 verified: "2026-10-11"
 sources:
   - label: "City of Black Hawk: Gregory Street Plaza"
-    url: "https://www.cityofblackhawk.org/things-do-black-hawk/page/gregory-street-plaza"
+    url: "https://www.cityofblackhawk.org/1215/Gregory-Street-Plaza"
   - label: "Gilpin County Public Library"
     url: "https://www.gilpinlibrary.org/"
   - label: "Colorado Parks and Wildlife: Golden Gate Canyon"
