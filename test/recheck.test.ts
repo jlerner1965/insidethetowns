@@ -140,3 +140,38 @@ test("a calendar that gives each date its own page is read at the page for the d
   assert.equal(occurrenceUrl('https://lyonsrecorder.org/event/old-time-jam/2026-11-25/', at('2026-11-25T18:00')), 'https://lyonsrecorder.org/event/old-time-jam/2026-11-25/');
   assert.equal(occurrenceUrl('https://mainstagebrewing.com/music', at('2026-11-25T18:00')), 'https://mainstagebrewing.com/music');
 });
+
+// The false alarms of the first network-wide run (17 October 2026), each now a question for a person or a confirmation.
+
+test('structured data for another date of a series is not a change', () => {
+  const html = `<script type="application/ld+json">{"@type":"Event","name":"Cribbage Night","startDate":"2026-10-14T18:30:00-06:00"}</script><p>${filler}</p>`;
+  const j = judgePage(event({ title: 'Cribbage Night', start: at('2026-11-11T18:30'), end: undefined }), at('2026-11-11T18:30'), html);
+  assert.equal(j.verdict, 'unconfirmed');
+  assert.match(j.note, /does not show 11 November; its structured data has "Cribbage Night" on 14 October/);
+});
+
+test('a matinee and an evening show on one day: the one at the listed time confirms', () => {
+  const html = `<script type="application/ld+json">[{"@type":"TheaterEvent","name":"Mystic Pizza","startDate":"2026-10-17T14:00:00-06:00"},{"@type":"TheaterEvent","name":"Mystic Pizza","startDate":"2026-10-17T19:30:00-06:00"}]</script><p>${filler}</p>`;
+  assert.equal(judgePage(event({ title: 'Mystic Pizza', start: at('2026-10-17T19:30'), end: undefined }), at('2026-10-17T19:30'), html).verdict, 'confirmed');
+});
+
+test('a structured-data time that is only the date (midnight), or the site clock in UTC, is not a change', () => {
+  const midnight = `<script type="application/ld+json">{"@type":"Event","name":"Weekly beer release day","startDate":"2026-10-22T00:00:00-06:00"}</script><p>Weekly beer release day, October 22, 11 am.${filler}</p>`;
+  assert.equal(judgePage(event({ title: 'Weekly beer release day', start: at('2026-10-22T11:00'), end: undefined }), at('2026-10-22T11:00'), midnight).verdict, 'confirmed');
+  const utc = `<script type="application/ld+json">{"@type":"Event","name":"Trunk or Treat","startDate":"2026-10-25T07:00:00-06:00"}</script><p>${filler}</p>`;
+  assert.notEqual(judgePage(event({ title: 'Trunk or Treat', start: at('2026-10-25T13:00'), end: undefined }), at('2026-10-25T13:00'), utc).verdict, 'changed');
+});
+
+test('"cancelled" counts only beside the event\'s own name', () => {
+  const page = (s: string) => `<p>Halloween Haven, October 24, 2026, 5 pm at the park. ${s} ${filler}</p>`;
+  assert.equal(judgePage(event({ title: 'Halloween Haven', start: at('2026-10-24T17:00'), end: undefined }), at('2026-10-24T17:00'), page('End of Summer Bash, August 15th, CANCELLED!')).verdict, 'confirmed');
+  const off = judgePage(event({ title: 'Journey to the Heart of Zeppelin', start: at('2026-10-23T19:30'), end: undefined }), at('2026-10-23T19:30'), `<p>*CANCELLED* Dreamboat Annie presents Journey to the Heart of Zeppelin 10/23/26 at 7:30 pm. ${filler}</p>`);
+  assert.equal(off.verdict, 'changed');
+  assert.match(off.note, /CANCELLED/);
+});
+
+test("a meeting past the end of a town's feed is not missing from it", () => {
+  const j = judgeFeed(event({ title: 'Town Board Meeting', start: at('2026-11-10T18:00'), end: undefined }), at('2026-11-10T18:00'), [item({ title: 'Town Board Meeting', start: at('2026-10-27T18:00'), end: undefined, url: undefined })], 'the town feed');
+  assert.equal(j.verdict, 'unconfirmed');
+  assert.match(j.note, /does not reach 10 November yet/);
+});

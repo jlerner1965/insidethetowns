@@ -12,7 +12,7 @@
  * bot challenge, or shows the date but no time). Only the first two write to
  * the file; the third is for a person, in the report.
  */
-import { addDays, dayKey, formatTime, parseLocal, toWallClock } from '../../src/lib/dates.ts';
+import { addDays, dayKey, formatTime, fromWallClock, parseLocal, toWallClock } from '../../src/lib/dates.ts';
 import { titleTokens } from './ingest.ts';
 import type { FeedEvent } from './feeds/types.ts';
 
@@ -257,40 +257,87 @@ export function judgePage(e: RecheckEvent, occurrence: Date, html: string): Judg
     return { verdict: 'unreadable', note: 'the page has almost no readable text (rendered by JavaScript, or a bot challenge); check it in a browser', asides };
   }
   const { day, hm } = wall(occurrence);
-  const ld = jsonLdEvents(html).filter((x) => sameTitle(x.name, e.title, e.venue));
-  const sameDay = ld.map((x) => ({ x, start: ldInstant(x.startDate) })).find(({ start }) => start && wall(start).day === day);
-  if (sameDay) {
-    const { x, start } = sameDay;
-    if (x.eventStatus && /cancel|postpone/i.test(x.eventStatus)) {
-      return { verdict: 'changed', note: `the page's structured data lists "${x.name}" on ${when(occurrence)} as ${/cancel/i.test(x.eventStatus) ? 'canceled' : 'postponed'}`, asides };
-    }
-    if (e.allDay) return { verdict: 'confirmed', note: `"${x.name}" on ${when(occurrence)} in the page's structured data`, asides };
-    const found = wall(start!).hm;
-    if (found === hm) return { verdict: 'confirmed', note: `"${x.name}" at ${formatTime(start!)} on ${when(occurrence)} in the page's structured data`, asides };
-    return { verdict: 'changed', note: `the page's structured data lists "${x.name}" at ${formatTime(start!)} on ${when(occurrence)}, not ${formatTime(occurrence)}`, asides };
-  }
-  if (ld.length) {
-    const days = ld.map((x) => ldInstant(x.startDate)).filter((d): d is Date => !!d).map(when);
-    return {
-      verdict: 'changed',
-      note: `the page's structured data has "${ld[0]!.name}" on ${days.join(', ') || 'no date'}, not ${when(occurrence)}`,
-      asides,
-    };
-  }
+  const ld = jsonLdEvents(html)
+    .filter((x) => sameTitle(x.name, e.title, e.venue))
+    .map((x) => ({ x, start: ldInstant(x.startDate) }))
+    .filter((d): d is { x: LdEvent; start: Date } => !!d.start);
+  const sameDay = ld.filter(({ start }) => wall(start).day === day);
+  // The visible text, read for the date, the time, and a cancellation next to the event's own name.
   const m = dateRegex(occurrence).exec(text);
-  if (!m) return { verdict: 'unconfirmed', note: `the page does not show ${when(occurrence)}`, asides };
-  const near = text.slice(Math.max(0, m.index - 400), m.index + 600);
-  if (/\b(cancell?ed|postponed)\b/i.test(near)) {
-    return { verdict: 'changed', note: `the page says "${/\b(cancell?ed|postponed)\b/i.exec(near)![0]}" near ${when(occurrence)}`, asides };
+  const near = m ? text.slice(Math.max(0, m.index - 400), m.index + 600) : '';
+  const textTime = !!m && timeRegex(occurrence).test(near);
+  const called = m ? cancellation(text, e.title, e.venue) : undefined;
+
+  if (sameDay.length) {
+    const off = sameDay.find(({ x }) => x.eventStatus && /cancel|postpone/i.test(x.eventStatus));
+    // A show that plays twice in a day is two items; the one at this time is the one that counts.
+    const atTime = sameDay.find(({ start }) => wall(start).hm === hm);
+    const status = (atTime ?? (e.allDay ? sameDay[0] : undefined))?.x.eventStatus ?? (sameDay.length === 1 ? off?.x.eventStatus : undefined);
+    if (status && /cancel|postpone/i.test(status)) {
+      return { verdict: 'changed', note: `the page's structured data lists "${sameDay[0]!.x.name}" on ${when(occurrence)} as ${/cancel/i.test(status) ? 'canceled' : 'postponed'}`, asides };
+    }
+    if (e.allDay) return { verdict: 'confirmed', note: `"${sameDay[0]!.x.name}" on ${when(occurrence)} in the page's structured data`, asides };
+    if (atTime) return { verdict: 'confirmed', note: `"${atTime.x.name}" at ${formatTime(atTime.start)} on ${when(occurrence)} in the page's structured data`, asides };
+    if (textTime) return { verdict: 'confirmed', note: `${when(occurrence)} and ${formatTime(occurrence)} on the page`, asides };
+    // Midnight is a date with no time; a time off by exactly the UTC offset is a site clock set to UTC, not a moved event.
+    const timed = sameDay.filter(({ start }) => wall(start).hm !== '00:00' && !utcSlip(start, occurrence));
+    if (timed.length) {
+      const times = [...new Set(timed.map(({ start }) => formatTime(start)))].join(', ');
+      return { verdict: 'changed', note: `the page's structured data lists "${timed[0]!.x.name}" at ${times} on ${when(occurrence)}, not ${formatTime(occurrence)}`, asides };
+    }
   }
+  if (!m) {
+    // Structured data for another date of a series is no evidence about this one; a person looks.
+    const other = ld.length ? `; its structured data has "${ld[0]!.x.name}" on ${[...new Set(ld.map(({ start }) => when(start)))].slice(0, 3).join(', ')}` : '';
+    return { verdict: 'unconfirmed', note: `the page does not show ${when(occurrence)}${other}`, asides };
+  }
+  if (called) return { verdict: 'changed', note: `the page says "${called}"`, asides };
   if (e.allDay) return { verdict: 'confirmed', note: `${when(occurrence)} on the page`, asides };
-  if (timeRegex(occurrence).test(near)) return { verdict: 'confirmed', note: `${when(occurrence)} and ${formatTime(occurrence)} on the page`, asides };
+  if (textTime) return { verdict: 'confirmed', note: `${when(occurrence)} and ${formatTime(occurrence)} on the page`, asides };
   const times = [...near.matchAll(/\b\d{1,2}(?::\d{2})?\s*(?:am|pm|a\.m\.|p\.m\.)/gi)].map((t) => t[0]).slice(0, 4);
   return {
     verdict: 'unconfirmed',
     note: `the page shows ${when(occurrence)} but not ${formatTime(occurrence)}${times.length ? ` (times near it: ${times.join(', ')})` : ''}`,
     asides,
   };
+}
+
+/** A time off from the listing's by exactly Denver's distance from UTC that day: a site whose clock is set to UTC. */
+function utcSlip(found: Date, listed: Date): boolean {
+  const diff = Math.abs(found.getTime() - listed.getTime()) / 60_000;
+  const offset = Math.abs(new Date(`${toWallClock(listed).slice(0, 10)}T12:00:00Z`).getTime() - parseLocalNoon(listed).getTime()) / 60_000;
+  return diff === offset;
+}
+
+function parseLocalNoon(d: Date): Date {
+  const [y, mo, da] = wall(d).day.split('-').map(Number) as [number, number, number];
+  return fromWallClock(y, mo, da, 12, 0, 0);
+}
+
+/**
+ * "Cancelled" or "postponed" said of this event: the word in the same
+ * sentence as most of the event's own words. A page listing a season says it
+ * of other events too (Elizabeth's, 17 October 2026: "End of Summer Bash,
+ * August 15th, CANCELLED" on the page for Halloween Haven), while a box
+ * office puts it in the title ("*CANCELLED* … Journey to the Heart of
+ * Zeppelin 10/23/26", the Rialto's, the same day).
+ */
+export function cancellation(text: string, title: string, venue?: string): string | undefined {
+  const skip = venue ? titleTokens(venue) : new Set<string>();
+  const words = [...titleTokens(title)].filter((w) => !skip.has(w));
+  if (!words.length) return undefined;
+  for (const hit of text.matchAll(/\b(cancell?ed|postponed)\b/gi)) {
+    const at = hit.index!;
+    // The sentence around the word, at most 200 characters each way.
+    const before = text.slice(Math.max(0, at - 200), at);
+    const start = Math.max(0, at - 200) + Math.max(before.search(/[.!?\n][^.!?\n]*$/) + 1, 0);
+    const after = text.slice(at + hit[0].length, at + hit[0].length + 200);
+    const stop = after.search(/[.!?\n]/);
+    const sentence = text.slice(start, at + hit[0].length + (stop === -1 ? after.length : stop));
+    const there = titleTokens(sentence);
+    if (words.filter((w) => there.has(w)).length >= Math.ceil(words.length / 2)) return sentence.replace(/\s+/g, ' ').trim();
+  }
+  return undefined;
 }
 
 const normUrl = (u: string) => u.replace(/^https?:\/\/(www\.)?/, '').replace(/\/+$/, '').toLowerCase();
@@ -307,18 +354,22 @@ export function judgeFeed(e: RecheckEvent, occurrence: Date, items: FeedEvent[],
   const onDay = items.filter((i) => wall(i.start).day === day && matches(i));
   const asides = e.cost && /^free\b/i.test(e.cost) && onDay[0] && !onDay[0].cost && !/\bfree\b/i.test(onDay[0].description ?? '') ? ['the feed gives no cost; "Free" should come off unless the organizer says so'] : [];
   if (!onDay.length) {
+    const last = items.reduce<Date | undefined>((acc, i) => (!acc || i.start > acc ? i.start : acc), undefined);
+    const reaches = !!last && wall(last).day >= day;
     const elsewhere = items.filter(matches).map((i) => when(i.start));
+    // A town's feed runs a few weeks ahead; a meeting past its end is not missing from it.
+    if (elsewhere.length && !reaches) {
+      return { verdict: 'unconfirmed', note: `${feedName} does not reach ${when(occurrence)} yet`, asides };
+    }
     if (elsewhere.length) {
       return { verdict: 'changed', note: `not on ${feedName} on ${when(occurrence)}; it has "${items.find(matches)!.title}" on ${[...new Set(elsewhere)].join(', ')}`, asides };
     }
     // Not on the feed at all: a feed lists what its calendar module holds,
     // and a title the organizer words differently matches nothing, so this
     // is a question for a person, not a flag.
-    const last = items.reduce<Date | undefined>((acc, i) => (!acc || i.start > acc ? i.start : acc), undefined);
-    const covers = last && wall(last).day >= day;
     return {
       verdict: 'unconfirmed',
-      note: covers ? `${feedName} runs past ${when(occurrence)} and has nothing by this title; check the organizer's page` : `${feedName} does not reach ${when(occurrence)} yet`,
+      note: reaches ? `${feedName} runs past ${when(occurrence)} and has nothing by this title; check the organizer's page` : `${feedName} does not reach ${when(occurrence)} yet`,
       asides,
     };
   }
