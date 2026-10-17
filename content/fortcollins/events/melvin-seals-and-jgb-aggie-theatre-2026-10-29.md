@@ -7,9 +7,9 @@ performers:
   - { name: "Melvin Seals & JGB", kind: group }
 url: "https://www.tixr.com/groups/aggietheatre/events/melvin-seals-jgb-196504"
 category: music
-source: "https://www.aggietheatre.com/"
+source: "https://www.z2ent.com/venues-we-book/aggie-theatre"
 verified: "2026-10-17"
-verifiedBy: "recheck-events (the nightly re-check workflow): 29 October and 8 pm on the page"
+verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 
 Organist Melvin Seals, who played with Jerry Garcia for fifteen years, leads JGB through the Jerry Garcia Band catalog at the Aggie, Thursday at 8 pm. Presented by Odell Brewing and KRFC 88.9 FM; tickets through Tixr.

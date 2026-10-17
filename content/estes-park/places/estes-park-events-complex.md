@@ -3,7 +3,7 @@ title: "Estes Park Events Complex"
 type: venue
 address: "1125 Rooftop Way, Estes Park, CO 80517"
 area: "Rooftop Way"
-url: "https://www.estesparkeventscomplex.com/"
+url: "https://eventsinestes.com/"
 source: "https://eventsinestes.com/"
 verified: "2026-10-06"
 added: "2026-10-06"

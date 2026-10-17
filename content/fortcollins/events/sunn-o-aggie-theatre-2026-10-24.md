@@ -8,9 +8,9 @@ performers:
   - { name: "Gentry Densley", kind: person }
 url: "https://www.tixr.com/groups/aggietheatre/events/sunn-o-with-gentry-densley-198458"
 category: music
-source: "https://www.aggietheatre.com/"
+source: "https://www.z2ent.com/venues-we-book/aggie-theatre"
 verified: "2026-10-17"
-verifiedBy: "recheck-events (the nightly re-check workflow): 24 October and 8 pm on the page"
+verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 
 The Seattle drone-metal duo Sunn O))), robed and very loud, at the Aggie on a Saturday night at 8, with Gentry Densley opening. Earplugs are a good idea; tickets through Tixr.
