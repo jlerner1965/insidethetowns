@@ -177,16 +177,32 @@ export function dateRegex(d: Date): RegExp {
   return new RegExp(alts.join('|'), 'i');
 }
 
-/** A regex for the ways a page writes a clock time: "7:00 PM", "7pm", "7 p.m.", "19:00". */
+/**
+ * A regex for the ways a page writes a clock time. "6:00 PM", "6 pm", "6pm",
+ * "6 p.m." and "18:00" are all six o'clock; so are "6:00" on its own, "6 to
+ * 8:30 pm" (the am/pm carried by the end of the range), and "doors 6" or
+ * "at 6". A bare "6" anywhere else is a number, not a time.
+ */
 export function timeRegex(d: Date): RegExp {
   const { hm } = wall(d);
   const [h, m] = hm.split(':').map(Number) as [number, number];
   const h12 = h % 12 === 0 ? 12 : h % 12;
   const ampm = h < 12 ? '(?:am|a\\.m\\.?|a)' : '(?:pm|p\\.m\\.?|p)';
+  const wrong = h < 12 ? '(?:pm|p\\.m)' : '(?:am|a\\.m)';
   const minutes = m === 0 ? '(?::00)?' : `:${String(m).padStart(2, '0')}`;
-  const twelve = `\\b0?${h12}${minutes}\\s*${ampm}\\b`;
-  const twentyFour = `\\b${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}\\b(?!\\s*(?:am|pm))`;
-  return new RegExp(`${twelve}|${twentyFour}`, 'i');
+  const exact = m === 0 ? ':00' : `:${String(m).padStart(2, '0')}`;
+  const hour = `\\b0?${h12}`;
+  const alts = [
+    `${hour}${minutes}\\s*${ampm}\\b`,
+    // "6 to 8:30 pm", "6:00–8:30 PM": the am/pm sits on the end of the range
+    `${hour}${minutes}\\s*(?:-|–|—|to|until)\\s*\\d{1,2}(?::\\d{2})?\\s*${ampm}\\b`,
+    // "6:00" with no am/pm at all
+    `${hour}${exact}\\b(?!\\s*${wrong})(?!\\s*(?:-|–|—|to|until)\\s*\\d{1,2}(?::\\d{2})?\\s*${wrong})`,
+    // "doors 6", "at 6", "from 6", "@ 6"
+    `\\b(?:at|doors|from|@)\\s*0?${h12}${m === 0 ? '' : exact}\\b(?!:)(?!\\s*${wrong})`,
+    `\\b${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}\\b(?!\\s*(?:am|pm))`,
+  ];
+  return new RegExp(alts.join('|'), 'i');
 }
 
 function when(d: Date): string {
