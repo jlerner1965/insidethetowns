@@ -9,8 +9,8 @@ cost: "$17"
 category: other
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=175"
 sourceId: "rialtotheatercenter-org"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 25 October and 5 pm on the page"
 ---
 
 Backstage Rialto's ghost tours of the theater, a long-standing Rialto tradition: backstage stories, paranormal lore and visits to dark, seldom-seen corners of the more than 106-year-old building.

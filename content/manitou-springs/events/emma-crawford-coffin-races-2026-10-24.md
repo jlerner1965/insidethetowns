@@ -10,8 +10,8 @@ category: festival
 organizer: "Manitou Springs Chamber of Commerce, Visitors Bureau & Office of Economic Development"
 organizerUrl: "https://manitousprings.org/"
 source: "https://manitousprings.org/emma-crawford-coffin-races/"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 24 October and 10 am on the page"
 featured: true
 ---
 

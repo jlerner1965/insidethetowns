@@ -11,8 +11,8 @@ organizer: "Friends of the John Tomay Memorial Library"
 organizerUrl: "https://cccld.org/friends-of-the-georgetown-library/"
 source: "https://cccld.org/events/"
 sourceId: "cccld-org"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"JTML Friends Community Potluck\" at 5 pm on 17 October on the Clear Creek County Library District calendar feed"
 ---
 
 A community dinner on 6th Street put on by the Friends of the Georgetown library as part of 150 Tables Across Colorado. Dinner is free; bring a dish to share, and sign up by the QR code on the library's poster. Read from the Clear Creek County Library District's events calendar.

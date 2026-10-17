@@ -10,8 +10,8 @@ source: "https://manitouspringsheritagecenter.org/event/31st-annual-ghost-storie
 sourceId: "manitouspringsheritagecenter-org"
 sourceUid: "12993-1792776600-1792787400@manitouspringsheritagecenter.org"
 sourceHash: "26b7540a61c3"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the Manitou Springs Heritage Museum calendar feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"31st Annual Ghost Stories of Old Manitou Walking Tours\" at 5:30 pm on 23 October on the Manitou Springs Heritage Museum calendar feed"
 ---
 
 31st Annual Ghost Stories of Old Manitou Walking Tours at Manitou Springs Heritage Museum, Friday, October 23, 5:30 pm – 8:30 pm. Listed by Manitou Springs Heritage Museum calendar; the organizer's page has the details and any registration.

@@ -9,7 +9,8 @@ cost: "Free; registration required"
 category: other
 recurring: "Monthly, third Wednesdays"
 source: "https://highplains.libcal.com/event/16776751"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Mahjong Meetup\" at 1 pm on 21 October in the page's structured data"
 ---
 
 Self-guided open play for mahjong players. Bring a set or National Mah Jongg card if you have one. Registration required.

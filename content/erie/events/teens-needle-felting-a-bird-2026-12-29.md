@@ -8,7 +8,8 @@ url: "https://highplains.libcal.com/event/16877806"
 cost: "Free; registration required"
 category: arts
 source: "https://highplains.libcal.com/event/16877806"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Teens Needle Felting a Bird\" at 2 pm on 29 December in the page's structured data"
 ---
 
 An introduction to needle felting for ages 12 and up, making a small bird. Uses 100 percent wool felt and notched felting needles. Registration required.

@@ -14,8 +14,8 @@ source: "https://www.firestoneco.gov/calendar.aspx?EID=2755"
 sourceId: "firestoneco-gov"
 sourceUid: "2755"
 sourceHash: "36fc8fcc5482"
-verified: "2026-10-05"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Drug Take Back Day\" at 10 am on 24 October on the Town of Firestone: Town calendar feed"
 ---
 
 The Firestone Police Department takes part in the DEA's annual Drug Take Back Day: bring unwanted, unneeded or expired household medications, prescription and over-the-counter, to the Police Department between 10 am and 2 pm to be disposed of safely and anonymously.

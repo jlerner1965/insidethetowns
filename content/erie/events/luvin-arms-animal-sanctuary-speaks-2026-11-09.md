@@ -8,7 +8,8 @@ url: "https://highplains.libcal.com/event/17476890"
 cost: "Free; registration required"
 category: other
 source: "https://highplains.libcal.com/event/17476890"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Luvin Arms Animal Sanctuary Speaks!\" at 6 pm on 9 November in the page's structured data"
 ---
 
 A talk from Luvin Arms Animal Sanctuary, the farmed-animal sanctuary in Erie whose residents include cows, pigs, turkeys, horses, goats, donkeys, sheep and ducks.

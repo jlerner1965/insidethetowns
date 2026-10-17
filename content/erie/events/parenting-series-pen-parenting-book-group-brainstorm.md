@@ -11,7 +11,8 @@ cost: "Free; registration required"
 category: family
 recurring: "Wednesdays"
 source: "https://highplains.libcal.com/event/17161385"
-verified: "2026-10-03"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Parenting Series: PEN Parenting Book Group: Brainstorm\" at 6 pm on 21 October in the page's structured data"
 ---
 
 A parenting book group reading Brainstorm, meeting on Wednesday evenings at 6 through October 21; the library lists sessions on October 7, 14 and 21. Registration required.

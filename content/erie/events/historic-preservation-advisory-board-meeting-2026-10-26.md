@@ -8,7 +8,8 @@ cost: "Free"
 category: civic
 recurring: "Fourth Mondays"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5363"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Historic Preservation Advisory Board Meeting - In Person\" at 6:30 pm on 26 October on the erieco.gov feed"
 ---
 
 Regular in-person meeting of the Town of Erie Historic Preservation Advisory Board. Open to the public.

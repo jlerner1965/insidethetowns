@@ -6,7 +6,8 @@ venue: "Downtown Fort Collins"
 url: "https://downtownfortcollins.com/play/tiny-tot-halloween"
 category: family
 source: "https://downtownfortcollins.com/play/tiny-tot-halloween"
-verified: "2026-10-01"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 30 October and 10 am on the page"
 ---
 
 Downtown's daytime trick-or-treat for preschool- and kindergarten-age children with a parent or guardian: nearly a hundred businesses hand out treats between 10 am and 1 pm on the Friday before Halloween.

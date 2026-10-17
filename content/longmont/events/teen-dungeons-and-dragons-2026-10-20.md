@@ -10,8 +10,8 @@ source: "https://longmontcolorado.gov/event/dungeons-dragons/2026-10-20/"
 sourceId: "longmontcolorado-gov-library"
 sourceUid: "10008099-1792519200-1792524600@longmontcolorado.gov"
 sourceHash: "e31baf4872db"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the Longmont Public Library (City of Longmont calendar) feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen Dungeons & Dragons\" at 6 pm on 20 October on the Longmont Public Library (City of Longmont calendar) feed"
 ---
 
 Teen Dungeons & Dragons at Longmont Public Library, Tuesday, October 20, 6 pm – 7:30 pm. Listed by Longmont Public Library (City of Longmont calendar); the organizer's page has the details and any registration.

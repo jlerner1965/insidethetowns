@@ -10,8 +10,8 @@ source: "https://longmontcolorado.gov/event/kids-answer-life-questions-forget-ai
 sourceId: "longmontcolorado-gov-library"
 sourceUid: "10008050-1792245600-1792249200@longmontcolorado.gov"
 sourceHash: "41a2f9363c75"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the Longmont Public Library (City of Longmont calendar) feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Kids Answer Life Questions: Forget AI, Ask the Children\" at 2 pm on 17 October on the Longmont Public Library (City of Longmont calendar) feed"
 ---
 
 Kids Answer Life Questions: Forget AI, Ask the Children at Longmont Public Library, Saturday, October 17, 2 pm – 3 pm. Listed by Longmont Public Library (City of Longmont calendar); the organizer's page has the details and any registration.

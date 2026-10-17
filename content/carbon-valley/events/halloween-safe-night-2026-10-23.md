@@ -13,8 +13,8 @@ source: "https://www.firestoneco.gov/138/Halloween-Safe-Night"
 sourceId: "firestoneco-gov"
 sourceUid: "2690"
 sourceHash: "9a140485a4b1"
-verified: "2026-10-05"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Halloween Safe Night\" at 5 pm on 23 October on the Town of Firestone: Town calendar feed"
 ---
 
 The Firestone Police Department's trunk-or-treat, which the Town calls its most popular fall event: decorated trunks handing out candy, inflatables and obstacle courses, a trackless train, a word about community safety and food trucks (Emory Jane's Coffee, Infinitus Pie and Nacho Mamas Tacos), from 5 to 8 pm at the Firestone Regional Sports Complex.

@@ -10,8 +10,8 @@ source: "https://longmontcolorado.gov/event/coffee-with-council-10/"
 sourceId: "longmontcolorado-gov"
 sourceUid: "10005617-1792227600-1792231200@longmontcolorado.gov"
 sourceHash: "8415aec70124"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Coffee with Council\" at 9 am on 17 October on the City of Longmont: City Council calendar feed"
 ---
 
 Coffee and conversation on any topic with at least two City Council members, this month Councilmembers Kalkhofer and Prieto, at the Civic Center. It runs on the third Saturday of each month from January to October, so this is the last until 2027.

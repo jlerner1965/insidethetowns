@@ -10,8 +10,8 @@ source: "https://longmontcolorado.gov/event/council-at-longmont-farmers-market/2
 sourceId: "longmontcolorado-gov"
 sourceUid: "10008128-1792828800-1792836000@longmontcolorado.gov"
 sourceHash: "a91c2d99bb89"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Council at Longmont Farmers Market\" at 8 am on 24 October on the City of Longmont: City Council calendar feed"
 ---
 
 Members of the Longmont City Council at the Longmont Farmers Market in the north parking lot of the Boulder County Fairgrounds, Saturday 24 October, 8 to 10 am. The City lists the visit under City Council outreach; the market itself runs 8 am to 1 pm.

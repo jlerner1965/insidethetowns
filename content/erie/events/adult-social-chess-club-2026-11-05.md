@@ -9,7 +9,8 @@ cost: "Free"
 category: other
 recurring: "First Thursdays"
 source: "https://highplains.libcal.com/event/15619288"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Adult Social Chess Club\" at 6:15 pm on 5 November in the page's structured data"
 ---
 
 Drop-in chess for adults of any standard, from beginners to competitive players, with an instructor on hand. No registration required.

@@ -10,8 +10,8 @@ organizer: "Clear Creek County Library District"
 organizerUrl: "https://cccld.org/"
 source: "https://cccld.org/events/"
 sourceId: "cccld-org"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"JTML Hoppy Halloween Storytime\" at 10 am on 30 October on the Clear Creek County Library District calendar feed"
 ---
 
 A Halloween storytime with Miss Honeybun at the Georgetown library, the Friday before Halloween. Read from the Clear Creek County Library District's events calendar.

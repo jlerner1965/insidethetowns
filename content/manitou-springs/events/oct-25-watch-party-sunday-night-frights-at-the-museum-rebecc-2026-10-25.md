@@ -10,8 +10,8 @@ source: "https://manitouspringsheritagecenter.org/event/oct-25-watch-party-sunda
 sourceId: "manitouspringsheritagecenter-org"
 sourceUid: "12944-1792951200-1792962000@manitouspringsheritagecenter.org"
 sourceHash: "6b915c43adf6"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the Manitou Springs Heritage Museum calendar feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Oct 25 Watch Party Sunday Night Frights at the Museum - Rebecca\" at 6 pm on 25 October on the Manitou Springs Heritage Museum calendar feed"
 ---
 
 Oct 25 Watch Party Sunday Night Frights at the Museum - Rebecca at Manitou Springs Heritage Museum, Sunday, October 25, 6 pm – 9 pm. Listed by Manitou Springs Heritage Museum calendar; the organizer's page has the details and any registration.

@@ -8,7 +8,8 @@ url: "https://citystarbrewing.com/event/blind-date-with-a-book-2/"
 cost: "$20 for a beer and a wrapped book"
 category: arts
 source: "https://citystarbrewing.com/event/blind-date-with-a-book-2/"
-verified: "2026-10-03"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Blind Date with a Book\" at 12 pm on 25 October in the page's structured data"
 ---
 
 City Star teams up with Midnight Oil Book Store for an afternoon for book lovers: $20 buys a beer and a wrapped mystery book, thriller or horror themed for the season, with clues on the wrapping hinting at the title. Read it in the taproom or take it home. Drop in any time between noon and 4.

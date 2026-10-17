@@ -10,8 +10,8 @@ source: "https://longmontcolorado.gov/event/mont-alto-motion-picture-orchestra-f
 sourceId: "longmontcolorado-gov-museum"
 sourceUid: "10008881-1793300400-1793307600@longmontcolorado.gov"
 sourceHash: "9dcf08c4ed0f"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the Longmont Museum (City of Longmont calendar) feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Mont Alto Motion Picture Orchestra: Fritz Lang's Destiny (1921, NR)\" at 7 pm on 29 October on the Longmont Museum (City of Longmont calendar) feed"
 ---
 
 Mont Alto Motion Picture Orchestra: Fritz Lang's Destiny (1921, NR) at Longmont Museum, Thursday, October 29, 7 pm – 9 pm. Listed by Longmont Museum (City of Longmont calendar); the organizer's page has the details and any registration.

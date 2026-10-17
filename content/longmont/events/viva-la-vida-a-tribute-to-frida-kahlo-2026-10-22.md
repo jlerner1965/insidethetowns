@@ -10,8 +10,8 @@ source: "https://longmontcolorado.gov/event/viva-la-vida-a-tribute-to-frida-kahl
 sourceId: "longmontcolorado-gov-museum"
 sourceUid: "10008880-1792695600-1792702800@longmontcolorado.gov"
 sourceHash: "187a1c2e8edf"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the Longmont Museum (City of Longmont calendar) feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"¡Viva la Vida! A Tribute to Frida Kahlo\" at 7 pm on 22 October on the Longmont Museum (City of Longmont calendar) feed"
 ---
 
 ¡Viva la Vida! A Tribute to Frida Kahlo at Longmont Museum, Thursday, October 22, 7 pm – 9 pm. Listed by Longmont Museum (City of Longmont calendar); the organizer's page has the details and any registration.

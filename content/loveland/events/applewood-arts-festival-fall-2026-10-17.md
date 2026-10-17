@@ -11,7 +11,8 @@ category: arts
 timeNote: "Saturday October 17, 9:30 am–4 pm; Sunday October 18 from 9:30 am"
 source: "https://www.treventscomplex.com/events/detail/applewood-arts-festivals-fall"
 sourceId: "treventscomplex-com"
-verified: "2026-10-04"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 17 October on the page"
 ---
 
 The fifth annual fall arts and crafts festival at The Ranch's Pedersen Toyota Center, with free parking. Sunday's closing time is not on the listing.

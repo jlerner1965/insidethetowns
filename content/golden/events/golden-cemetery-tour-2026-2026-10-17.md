@@ -15,8 +15,8 @@ source: "https://www.goldenhistory.org/event/golden-cemetery-tour-2026/"
 sourceId: "goldenhistory-org"
 sourceUid: "ai1ec-49838@www.goldenhistory.org"
 sourceHash: "7043294770a0"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Golden Cemetery Tour 2026\" on 17 October on the Golden History Museum & Park feed"
 ---
 
 Historian and storyteller Barb Warden leads a walk among the graves of Golden's early characters at the City-owned cemetery, where Colorado Transcript founder George West and Astor House builder Seth Lake are buried. Tours start and end at the cemetery at 11 am and 1 pm; registration is required through the City's WebTrac. The museum says the tour is popular, so book early, and that it goes ahead rain or shine.

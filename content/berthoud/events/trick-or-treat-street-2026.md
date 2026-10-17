@@ -8,7 +8,8 @@ url: "https://downtownberthoud.org/downtown-berthoud-events/"
 cost: "Free"
 category: family
 source: "https://berthoudmainstreet.org/fall-for-berthoud/"
-verified: "2026-10-03"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 24 October and 3 pm on the page"
 ---
 
 Costumed kids collect treats from the shops and businesses along Mountain Avenue and the side streets of the historic downtown, 3 to 5 pm the Saturday before Halloween. Hosted by Berthoud Physical Therapy with Berthoud Main Street.

@@ -9,7 +9,8 @@ performers:
 url: "https://www.tixr.com/groups/aggietheatre/events/chaparelle-with-shovelin-stone-199467"
 category: music
 source: "https://www.aggietheatre.com/"
-verified: "2026-10-03"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 30 October and 8 pm on the page"
 ---
 
 The Americana band Chaparelle at the Aggie on the Friday before Halloween, 8 pm, with Colorado's Shovelin Stone opening. Presented by 105.5 The Colorado Sound and the CSU Music Business Collective; tickets through Tixr.

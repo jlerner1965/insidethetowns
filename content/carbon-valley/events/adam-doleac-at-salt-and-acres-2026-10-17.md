@@ -14,8 +14,8 @@ organizer: "Salt & Acres"
 organizerUrl: "https://saltandacres.com/"
 source: "https://saltandacres.com/"
 sourceId: "saltandacres-com"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 17 October and 4 pm on the page"
 ---
 
 Adam Doleac returns to Salt & Acres, the tasting room and event venue on County Road 25, for an acoustic set. Doors open at 4 pm and the concert starts at 7 pm. Tickets are sold in advance through the link on the venue's site, and the venue says they are selling quickly.

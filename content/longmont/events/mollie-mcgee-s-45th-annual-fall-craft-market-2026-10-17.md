@@ -11,8 +11,8 @@ source: "https://www.molliemcgees.com/event-details/fall-craft-market-2026"
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10004416-1792231200-1792252800@bouldercounty.gov"
 sourceHash: "ebe1e57664d0"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Mollie McGee's 45th Annual Fall Craft Market\" at 10 am on 17 October on the Boulder County Fairgrounds feed"
 ---
 
 Mollie McGee's 45th annual fall craft market: more than 150 booths of handmade crafts in the Exhibit Building at the Boulder County Fairgrounds, Saturday 17 and Sunday 18 October, 10 am to 4 pm both days. Admission is $5 and covers both days; children under 12 get in free. A $12 VIP ticket adds a Mollie McGee's tote bag and early entry from 9 am on Saturday. It is a juried show, and raffle drawings run through the weekend, with entries taken at the show.

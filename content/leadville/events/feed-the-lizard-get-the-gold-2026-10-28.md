@@ -11,8 +11,8 @@ cost: "Included with museum admission: $20 (combo ticket with the Matchless Mine
 category: arts
 organizer: "National Mining Hall of Fame and Museum"
 source: "https://mininghalloffame.org/events/"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 28 October and 2 pm on the page"
 ---
 
 A fireside chat on mining legends from around the world, led by museum registrar Shane Kinney in the Matchless Mine exhibit. Wednesday, October 28, 2 to 4 pm; included with museum admission.

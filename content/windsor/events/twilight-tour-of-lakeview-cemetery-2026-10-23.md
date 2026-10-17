@@ -12,7 +12,8 @@ timeNote: "Tours at 5:30 and 7 pm"
 organizer: "Town of Windsor Museums"
 organizerUrl: "https://www.recreationliveshere.com/294/Museums"
 source: "https://www.recreationliveshere.com/calendar.aspx"
-verified: "2026-10-01"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): 23 October and 5:30 pm on the page"
 ---
 
 A lantern-lit evening walk through Windsor's historic cemetery at the corner of Highways 392 and 257 with a museum educator, telling the stories of the early residents who shaped the town, with a nod to Colorado's 150th birthday. Two one-hour tours, at 5:30 and 7; $10 and advance registration required. The Town runs the tours on October 23, 24, 29 and 30, and private tours for groups of eight or more through the month (hfuhrman@windsorgov.com).

@@ -7,7 +7,8 @@ url: "https://www.lctix.com/shows-tickets/mystic-pizza/"
 cost: "$40–$98"
 category: arts
 source: "https://www.lctix.com/shows-tickets/mystic-pizza/"
-verified: "2026-10-03"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Mystic Pizza: A New Musical\" at 2 pm on 17 October in the page's structured data"
 ---
 
 A touring jukebox musical built on the 1988 film: three young women working at a small-town pizzeria, set to hits of the '80s and '90s. Four performances in the Performance Hall over the weekend of October 16–18.

@@ -10,8 +10,8 @@ source: "https://bouldercounty.gov/event/longmont-farmers-market-2/2026-10-24/"
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10003334-1792828800-1792846800@bouldercounty.gov"
 sourceHash: "4cbbf4e2933f"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Longmont Farmers Market\" at 8 am on 24 October on the Boulder County Fairgrounds feed"
 ---
 
 The Longmont Farmers Market, run by Boulder County Farmers Markets, in the north parking lot of the Boulder County Fairgrounds: Saturdays 8 am to 1 pm through November 21, with live music most weeks. No pets. On the fourth Saturday of the month, this one, local artisans join the farmers.

@@ -9,7 +9,8 @@ cost: "Free; registration required"
 category: arts
 recurring: "Monthly, second Mondays"
 source: "https://highplains.libcal.com/event/13372943"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Book Lovers' Book Club\" at 1 pm on 14 December in the page's structured data"
 ---
 
 In-person afternoon book group discussing fiction and non-fiction titles.

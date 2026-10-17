@@ -9,7 +9,8 @@ cost: "Free; registration required"
 category: arts
 recurring: "Monthly, first Mondays"
 source: "https://highplains.libcal.com/event/15852477"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Erie Evening Book Club\" at 6:30 pm on 7 December in the page's structured data"
 ---
 
 In-person evening book group discussing fiction and non-fiction titles.

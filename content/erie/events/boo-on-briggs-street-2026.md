@@ -9,7 +9,8 @@ cost: "Free; costume contest $5 per entry"
 category: family
 featured: true
 source: "https://www.erieco.gov/1429/Boo-on-Briggs-Street"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Boo! on Briggs Street\" at 3 pm on 24 October on the erieco.gov feed"
 ---
 
 The Town's Halloween afternoon downtown: trick-or-treating at the shops along Briggs Street between Moffat and Cheesman, a family costume contest ($5 an entry to register), live music, face painting, and the storefront-decorating winners announced. Free for all ages. Briggs Street closes from about 12:45; park at Coal Creek Park or Town Hall. Erie Uplink collects mac and cheese for its Tiger Packs program.

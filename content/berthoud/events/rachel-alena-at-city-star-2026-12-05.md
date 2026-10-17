@@ -9,7 +9,8 @@ performers:
 url: "https://citystarbrewing.com/event/rachel-alena-duo/2026-12-05/"
 category: music
 source: "https://citystarbrewing.com/event/rachel-alena-duo/2026-12-05/"
-verified: "2026-09-18"
+verified: "2026-10-17"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Rachel Alena\" at 6 pm on 5 December in the page's structured data"
 ---
 
 Singer and session musician Rachel Alena returns to the City Star taproom for an evening set.
