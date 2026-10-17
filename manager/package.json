@@ -1,0 +1,16 @@
+{
+  "name": "inside-the-towns-manager",
+  "private": true,
+  "type": "module",
+  "description": "Managed Agents setup + a small web hub for the Inside the Towns manager agent",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "setup": "node setup.mjs",
+    "schedule": "node schedule.mjs",
+    "web": "node web/server.mjs",
+    "check": "node --check setup.mjs && node --check schedule.mjs && node --check lib.mjs && node --check web/server.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "latest"
+  }
+}
