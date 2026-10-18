@@ -5237,6 +5237,6 @@ machinery in four places, each fixed here.
   auto-review and the owner's rules of 11 October are consistent with one
   another and with the README. The two hand-written flags of 10 October
   (Longmont's fire station open house, Niwot's artist-in-residence) and the
-  Pumpkin Plunge are all for dates now past; the review will offer them,
-  and `r` is the answer.
+  Pumpkin Plunge are all for dates now past; their flags were cleared the
+  same day at the owner's word, with nothing else on the files touched.
 
