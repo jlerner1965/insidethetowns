@@ -1,11 +1,14 @@
 # Newsletter drafts
 
-One folder per send day, one file per issue: nine towns and the all-towns
-issue. They are drafts from `npm run newsletter`, read and given an opening
-paragraph by a person, and they have not been sent. To send one: paste the
-body (everything below the frontmatter) into the provider as Markdown, read
-it once more, send. Then move the file to `content/hub/issues/` and it
-becomes the archive page at `/newsletter/<file name>/`; the next draft's
-"New on the guide" counts from that file's date.
+The drafts of 8 and 15 October 2026, from when an issue was pasted into
+Buttondown by hand and filed in the archive afterwards.
 
-An issue that was never sent must not go into `content/hub/issues/`.
+From 22 October the Thursday drafts arrive as a pull request instead
+(`.github/workflows/newsletter-drafts.yml`), with each edition already in
+`content/hub/issues/`, where a file is its archive page at
+`/newsletter/<file name>/`. Merging that pull request sends every edition in
+it (`.github/workflows/newsletter-send.yml`, `npm run send-newsletter`); close
+it and nothing is sent. If a send fails, the run is red and says why: fix it
+and re-run the workflow, which sends only what has not gone, or delete the
+file, because an issue that was never sent must not stay in
+`content/hub/issues/`.

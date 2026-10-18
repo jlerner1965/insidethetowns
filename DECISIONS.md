@@ -5240,3 +5240,38 @@ machinery in four places, each fixed here.
   Pumpkin Plunge are all for dates now past; their flags were cleared the
   same day at the owner's word, with nothing else on the files touched.
 
+
+## Merging the Thursday email sends it, 18 October
+
+*18 October 2026.* The owner: "I want it to be so I don't have to remember to
+run anything just merge the pulls", and, asked whether that should take in
+the email, which was still pasted into Buttondown by hand, "ok I will add key
+to GitHub for butto[ndown]". So the send is a merge, as the ingest, the re-check and the
+weekly editor already are, and nothing goes out on a timer.
+
+- **The pull request is the issue.** The Thursday drafts workflow now writes
+  each edition straight into `content/hub/issues/`, validates it, and opens a
+  pull request on `automation/newsletter` instead of committing to `main`.
+  Its body is `npm run send-newsletter -- --dry-run`: every edition and the
+  subscriber tags it goes to. Reading it there, or on the hub's preview
+  deployment, is the read before sending that `scripts/newsletter.ts` asks
+  for; an opening line is an edit on the branch.
+- **The merge sends.** `.github/workflows/newsletter-send.yml` runs on the
+  push to `main` and hands `npm run send-newsletter` the issue files that
+  push added (an edit to a sent issue's page is not a second email). Each
+  goes through Buttondown's API with `status: about_to_send`, to subscribers
+  carrying any of the edition's town tags, a town folded into one included
+  (`severance` gets Windsor's), the network issue to `all-towns`.
+- **What it will not do.** Send to an empty audience: Buttondown reads an
+  empty filter as every subscriber, so an edition whose tags nobody carries
+  yet is skipped and said to be. Send an issue more than a day past its
+  date, when "this weekend" has started. Send twice: each email carries its
+  file name as slug and metadata, and a re-run leaves those alone. Without
+  `BUTTONDOWN_API_KEY` it sends nothing and the run fails; the Thursday pull
+  request opens as a draft until the key is set, so no unsent issue can be
+  merged into the archive. The weekly editor cannot write under
+  `content/hub/`, so a page it reads cannot slip an issue into its pull
+  request.
+- **Not done.** Issue numbers stay optional and unset: fifteen editions and
+  a network issue a week do not share one count, and the archive orders by
+  date. Buttondown's own archive is left at its default.

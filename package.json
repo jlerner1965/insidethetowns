@@ -18,6 +18,7 @@
     "new-town": "node scripts/new-town.ts",
     "weekly": "node scripts/weekly.ts",
     "newsletter": "node scripts/newsletter.ts",
+    "send-newsletter": "node scripts/send-newsletter.ts",
     "import-events": "node scripts/import-events.ts",
     "sources": "node scripts/sources.ts",
     "ingest": "node scripts/ingest.ts",

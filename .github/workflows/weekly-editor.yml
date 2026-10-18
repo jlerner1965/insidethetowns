@@ -14,7 +14,9 @@
 # confirms `verifiedBy: "Claude Code, delegated by James Lerner"`.
 #
 # It reads pages on the open web, so it is fenced: it can edit only under
-# content/, run only `npm run validate`, `npm test` and `git rm`, and the
+# content/ and never content/hub/ (a file in content/hub/issues/ is an email
+# the merge would send; newsletter-send.yml), run only `npm run validate`,
+# `npm test` and `git rm`, and the
 # checkout keeps no git credential for it to find. The pull request step
 # brings its own token. The run stops at $10 of API use.
 #
@@ -78,7 +80,7 @@ jobs:
             --output-format json \
             --allowedTools Read Glob Grep Skill WebFetch WebSearch 'Edit(content/**)' \
               'Bash(git rm:*)' 'Bash(git status:*)' 'Bash(git diff:*)' 'Bash(ls:*)' 'Bash(npm run validate)' 'Bash(npm test)' \
-            --disallowedTools 'Read(//proc/**)' \
+            --disallowedTools 'Read(//proc/**)' 'Edit(content/hub/**)' \
             > "$RUNNER_TEMP/editor.json"
       - name: Checks
         id: checks

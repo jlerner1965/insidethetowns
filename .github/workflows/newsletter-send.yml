@@ -1,0 +1,62 @@
+# Sends the weekly email when its pull request is merged.
+#
+# The Thursday drafts workflow opens a pull request that adds the week's
+# issues to content/hub/issues/; merging it is the owner's approval to send
+# (DECISIONS.md, "Merging the Thursday email sends it"). This runs on that
+# push and sends each file the push added, and only added: correcting a sent
+# issue's archive page later is an edit, not a second email. The rules are
+# scripts/send-newsletter.ts's: each edition to the subscribers tagged with
+# its towns, the network issue to all-towns, never to an empty audience,
+# never an issue more than a day past its date, never one already sent.
+#
+# Needs BUTTONDOWN_API_KEY under Settings → Secrets and variables → Actions.
+# Without it the run fails and says so, and nothing is sent. The Run workflow
+# button sends named files by hand, a dry run unless that box is cleared.
+name: Send the Thursday email
+
+on:
+  push:
+    branches: [main]
+    paths: ['content/hub/issues/*.md']
+  workflow_dispatch:
+    inputs:
+      files:
+        description: Issue files to send, space-separated (content/hub/issues/<date>-<edition>.md)
+        required: true
+      dry_run:
+        description: Say what would be sent and send nothing
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: newsletter-send
+  cancel-in-progress: false
+
+jobs:
+  send:
+    name: Send the issues this merge added
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Send
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          BEFORE: ${{ github.event.before }}
+          FILES: ${{ inputs.files }}
+          DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = push ]; then
+            FILES="$(git diff --diff-filter=A --name-only "$BEFORE" "$GITHUB_SHA" -- 'content/hub/issues/*.md')"
+          fi
+          # One argument per file; the names have no spaces.
+          npm run send-newsletter -- $DRY_RUN $FILES

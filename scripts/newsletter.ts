@@ -10,9 +10,9 @@
  *   npm run newsletter -- --out=drafts       # write one file per issue instead of printing
  *
  * Each draft is Markdown, which Buttondown takes as it is, under a frontmatter
- * block in the shape of content/hub/issues/. Paste the body into the provider
- * and send; then drop the file into content/hub/issues/ and it becomes the
- * archive page at /newsletter/<file name>/.
+ * block in the shape of content/hub/issues/, where a file is the archive page
+ * at /newsletter/<file name>/. The Thursday workflow writes the drafts there
+ * and opens a pull request; merging it sends them (scripts/send-newsletter.ts).
  *
  * One draft per edition (src/lib/editions.ts): most are one guide's; a shared
  * edition (Windsor, Severance and Timnath) is one issue with each town's
@@ -22,7 +22,8 @@
  * It drafts. It does not send, and it does not decide what is worth saying:
  * the listings are laid out the way the sites lay them out, and any words
  * beyond them are for a person to write. An issue nobody read before it went
- * out is the quickest way to lose the trust the signup box asks for.
+ * out is the quickest way to lose the trust the signup box asks for, which is
+ * why the send is a merge and not a schedule.
  */
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
