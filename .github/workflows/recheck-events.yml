@@ -66,7 +66,7 @@ jobs:
             echo 'body<<EOF'
             echo 'Written by the nightly re-check (scripts/recheck-events.ts). Nothing in it reaches a site until this pull request is merged.'
             echo
-            echo 'A confirmed listing has its check date moved and `verifiedBy` saying what was read where. A listing the source now contradicts carries `changeFlag` and the evidence in `changeNote`: check it out, `npm run review`, decide, push, merge. What could not be read by a machine is listed for a browser or a phone.'
+            echo 'A confirmed listing has its check date moved and `verifiedBy` saying what was read where. A listing the source now contradicts carries `changeFlag` and the evidence in `changeNote`: merge, and the Wednesday editor run (weekly-editor.yml) judges each flag against the source and opens a pull request with its rulings; to decide one yourself first, check it out, `npm run review`, push, merge. What could not be read by a machine is listed for a browser or a phone.'
             echo
             # GitHub refuses a body over 65,536 characters; the run's log holds the whole report.
             head -c 60000 /tmp/recheck.md

@@ -1,0 +1,129 @@
+# Does the week's editorial review on Wednesday, as soon as the research
+# drafts are in, and opens one pull request with the rulings, so the owner's
+# part of the week is reading that pull request and merging it.
+#
+# What it reviews (the prompt is .github/weekly-editor.md): every published
+# listing the nightly re-check or the ingest flagged (`changeFlag`), judged
+# against the source and either applied, dismissed or left with a reason; the
+# soonest staged events and longest-waiting staged places the Monday ingest
+# could not approve under its rules, approved only when the organizer's or the
+# business's own page says the same thing today; and next Monday's weekly
+# notes, published from the Wednesday drafts in docs/agent/ with anything
+# unsourced dropped. It is Claude Code on the Anthropic API, following
+# .claude/skills/inside-the-towns-editor/SKILL.md, and it stamps what it
+# confirms `verifiedBy: "Claude Code, delegated by James Lerner"`.
+#
+# It reads pages on the open web, so it is fenced: it can edit only under
+# content/, run only `npm run validate`, `npm test` and `git rm`, and the
+# checkout keeps no git credential for it to find. The pull request step
+# brings its own token. The run stops at $10 of API use.
+#
+# Nothing here reaches a site until the pull request is merged; close it
+# unmerged and nothing has happened. If the checks fail on what it wrote, the
+# pull request opens as a draft that says so, and cannot be merged as it is.
+# Opening it needs the same setting as the weekly ingest (Settings → Actions
+# → General → Workflow permissions → "Allow GitHub Actions to create and
+# approve pull requests", or the WORKFLOW_PAT secret) and ANTHROPIC_API_KEY,
+# which the Wednesday drafts already use.
+name: Weekly editor
+
+on:
+  # Right after the Wednesday drafts (agent-weekly.yml), which take about an
+  # hour, so the weekly notes are reviewed the morning they are drafted. One
+  # town failing turns that run red but still commits the others' drafts, so
+  # only a cancelled run is skipped.
+  workflow_run:
+    workflows: ['Wednesday research drafts']
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: weekly-editor
+  cancel-in-progress: false
+
+jobs:
+  edit:
+    name: Rule on the flags and staging, publish the weekly notes
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion != 'cancelled'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm install -g @anthropic-ai/claude-code@2.1.288
+      - name: The editor
+        id: editor
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          today="$(TZ=America/Denver date +%F)"
+          monday="$(TZ=America/Denver date -d 'next monday' +%F)"
+          echo "day=$today" >> "$GITHUB_OUTPUT"
+          sed -e "s/{{TODAY}}/$today/g" -e "s/{{MONDAY}}/$monday/g" .github/weekly-editor.md > "$RUNNER_TEMP/prompt.md"
+          claude -p "$(cat "$RUNNER_TEMP/prompt.md")" \
+            --model claude-sonnet-5-5 \
+            --max-budget-usd 10 \
+            --output-format json \
+            --allowedTools Read Glob Grep Skill WebFetch WebSearch 'Edit(content/**)' \
+              'Bash(git rm:*)' 'Bash(git status:*)' 'Bash(git diff:*)' 'Bash(ls:*)' 'Bash(npm run validate)' 'Bash(npm test)' \
+            --disallowedTools 'Read(//proc/**)' \
+            > "$RUNNER_TEMP/editor.json"
+      - name: Checks
+        id: checks
+        if: ${{ !cancelled() }}
+        continue-on-error: true
+        run: |
+          npm run validate
+          npm test
+      - name: The pull request's body
+        if: ${{ !cancelled() }}
+        run: |
+          out="$RUNNER_TEMP/editor.json"
+          body="$RUNNER_TEMP/body.md"
+          # A run stopped by the budget or a crash leaves no result, or no file.
+          field() { v="$(jq -r "$1 // empty" "$out" 2>/dev/null || true)"; printf '%s' "${v:-$2}"; }
+          {
+            if [ "${{ steps.checks.outcome }}" != success ]; then
+              echo '> **Not ready to merge.** `npm run validate` or `npm test` failed on what the editor wrote; the run log says which. This stays a draft until it is fixed.'
+              echo
+            fi
+            report="$(field .result '')"
+            if [ -n "$report" ]; then
+              printf '%s\n' "$report" | head -c 60000
+            else
+              echo "The editor stopped before it reported ($(field .subtype 'no output')). What it changed is in the diff, unreported; read it before merging."
+            fi
+            echo
+            echo '---'
+            echo "Run by the weekly editor workflow ([log](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}), \$$(field .total_cost_usd '?') of API use). Nothing here reaches a site until this pull request is merged; close it unmerged and nothing has happened."
+            echo
+            echo '_Generated by [Claude Code](https://claude.ai/code)_'
+          } > "$body"
+          cat "$body" >> "$GITHUB_STEP_SUMMARY"
+      # No change under content/ means no pull request; the report is still
+      # in the run's summary.
+      - name: Open or update the pull request
+        if: ${{ !cancelled() }}
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.WORKFLOW_PAT || github.token }}
+          branch: automation/editor
+          delete-branch: true
+          add-paths: content
+          commit-message: "Weekly editor, ${{ steps.editor.outputs.day }}: rulings on the flags and staging, and the weekly notes"
+          title: "Weekly editor: ${{ steps.editor.outputs.day }}"
+          body-path: ${{ runner.temp }}/body.md
+          draft: ${{ steps.checks.outcome != 'success' }}
+          labels: editor

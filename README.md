@@ -43,7 +43,8 @@ canceled`, and the pages do the rest (see any content README).
    machine could confirm (a bot challenge, a robots.txt that says no, a listing
    resting on a community calendar alone), its number from the guide, and the
    `npm run confirm` line that records the call. It never edits a time or moves a
-   file. Merge its pull request, make the calls, then work what it flagged. How a
+   file. Merge its pull request and make the calls; the Wednesday editor run
+   (step 1) works what it flagged. How a
    confirmation shows on the site, and what "listed" means, is in the content
    README ("Sources, check dates, and staging").
 1. `npm run ingest`, then `npm run review`: the feeds' new items and changes land in
@@ -53,9 +54,18 @@ canceled`, and the pages do the rest (see any content README).
    (`.github/workflows/weekly-ingest.yml`): it checks the sources, reads the feeds
    into staging, approves what the standing rules allow (`npm run auto-review`,
    below), validates, and opens a pull request on the `automation/ingest` branch
-   whose body lists what was approved, what waits and why. Check that branch out,
-   run the review there on what waits, push, merge; close it unmerged and nothing
-   has happened. Nothing it writes reaches a site until that merge.
+   whose body lists what was approved, what waits and why. Merge it; close it
+   unmerged and nothing has happened. Nothing it writes reaches a site until that
+   merge. What waits is reviewed on Wednesday, once the research drafts are in, by
+   `.github/workflows/weekly-editor.yml`: Claude Code on the API, following the
+   editor skill, rules on every flag against its source, approves the soonest
+   staged events and longest-waiting places only where the organizer's or the
+   business's own page says the same thing that day, publishes next Monday's
+   weekly notes from the drafts with anything unsourced dropped, and opens one
+   pull request (`automation/editor`) whose body is a table of its rulings. Read
+   it and merge it. Its prompt is `.github/weekly-editor.md`; it can edit only
+   under `content/`, and it stops at $10 of API use. To decide the queue yourself
+   instead, check the ingest branch out and run the review there before merging.
    `npm run weekly` still prints the longer report, per town: events whose last date
    falls within the next 7 days (add the next dates or delete the file), events
    already past, towns with fewer than 5 upcoming events, places without a photo,
