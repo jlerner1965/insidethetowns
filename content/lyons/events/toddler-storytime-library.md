@@ -9,8 +9,8 @@ address: "451 4th Ave"
 url: "https://lyons.librarycalendar.com/events/upcoming"
 category: family
 source: "https://lyons.librarycalendar.com/event/toddler-preschool-storytime-craft-11327"
-verified: "2026-10-17"
-verifiedBy: "recheck-events (run by hand, 17 October 2026): \"Toddler & Preschool Storytime & Craft\" at 10:30 am on 21 October on the lyons.librarycalendar.com feed"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Toddler & Preschool Storytime & Craft\" at 10:30 am on 21 October on the lyons.librarycalendar.com feed"
 ---
 
 Music, movement and stories for ages 0 to 5, with a craft, every Wednesday morning at the library.

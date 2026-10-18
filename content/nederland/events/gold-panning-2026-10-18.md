@@ -10,7 +10,7 @@ organizer: "Boulder County Parks & Open Space"
 organizerUrl: "https://bouldercounty.gov/departments/parks-and-open-space/"
 source: "https://bouldercounty.gov/event/gold-panning-oct-18/"
 sourceId: "bouldercounty-gov-open-space"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Gold Panning\" at 12 pm on 18 October on the Boulder County events (bouldercounty.gov) feed"
 ---
 

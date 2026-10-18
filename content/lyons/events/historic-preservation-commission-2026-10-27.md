@@ -7,8 +7,8 @@ address: "451 4th Ave, Lyons, CO 80540"
 category: civic
 recurring: "Fourth Tuesdays"
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6600"
-verified: "2026-10-17"
-verifiedBy: "recheck-events (run by hand, 17 October 2026): \"Historic Preservation Commission\" at 4:30 pm on 27 October on the townoflyons.com feed"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Historic Preservation Commission\" at 4:30 pm on 27 October on the townoflyons.com feed"
 ---
 
 Regular meeting of the Town of Lyons Historic Preservation Commission, held in the library's Effie Banta Room. Open to the public.

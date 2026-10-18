@@ -9,8 +9,8 @@ category: sports
 organizer: "Clear Creek Metropolitan Recreation District"
 source: "https://clearcreekrecreation.com/events/"
 sourceId: "clearcreekrecreation-com"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): 31 October and 10 am on the page"
 ---
 
 The recreation district's Halloween 5K and 1-mile run, with check-in at 320 Chicago Creek Road. The race starts at 10 am, and the district promises costume contests, candy and prizes; its home page adds a cemetery run and an after party. Registration is through RunSignup (https://runsignup.com/Race/CO/IdahoSprings/CCMRDHalloweenFunRun), linked from the district's home page. Read on the district's events page on 10 October 2026.

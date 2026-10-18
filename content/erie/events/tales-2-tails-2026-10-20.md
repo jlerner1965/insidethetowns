@@ -9,7 +9,7 @@ cost: "Free"
 category: family
 recurring: "First and third Tuesdays"
 source: "https://highplains.libcal.com/event/16010112"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Tales 2 Tails\" at 4 pm on 20 October in the page's structured data"
 ---
 

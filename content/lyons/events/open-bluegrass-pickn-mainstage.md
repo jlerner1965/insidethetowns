@@ -8,8 +8,8 @@ address: "450 Main St"
 url: "https://mainstagebrewing.com/music"
 category: music
 source: "https://mainstagebrewing.com/music"
-verified: "2026-10-17"
-verifiedBy: "Claude Code for James Lerner, on MainStage's own calendar (Open Bluegrass Pick, every Thursday from 6 PM, the host leads the jam), 17 October 2026"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): 22 October and 6 pm on the page"
 ---
 
 Thursday's open bluegrass jam at MainStage Brewing, from 6 p.m.; the evening's host leads it. All players welcome.

@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/10300/"
 cost: "Free"
 category: arts
 source: "https://johnstownmillikenpubliclibraries.us/event/10300/"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Gothic Canvas Windows\" at 4:30 pm on 20 October in the page's structured data"
 ---
 

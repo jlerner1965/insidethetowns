@@ -9,8 +9,8 @@ url: "https://mainstagebrewing.com/music"
 category: other
 cost: "Free"
 source: "https://mainstagebrewing.com/music"
-verified: "2026-10-17"
-verifiedBy: "Claude Code for James Lerner, on MainStage's own calendar (Trivia Night, Tuesday 20 October, 7:00 PM, free to play, prizes for the top three teams), 17 October 2026"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): 20 October and 7 pm on the page"
 ---
 
 Tuesday quiz night at the west-end brewery, from 7 p.m. Free to play, in six-person teams, with prizes for the top three (the brewery's calendar).

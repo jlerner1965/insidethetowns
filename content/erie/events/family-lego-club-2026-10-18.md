@@ -9,7 +9,7 @@ cost: "Free"
 category: family
 recurring: "Monthly, third Sundays"
 source: "https://highplains.libcal.com/event/16890322"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Family LEGO Club\" at 2 pm on 18 October in the page's structured data"
 ---
 

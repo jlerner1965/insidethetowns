@@ -8,8 +8,8 @@ url: "https://niwotelection.org/meetings"
 cost: "Free"
 category: civic
 source: "https://niwotelection.org/meetings"
-verified: "2026-10-17"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): 20 October and 2 pm on the page"
 ---
 
 The court-appointed commission that administers the November 3 incorporation and charter commission election meets at Niwot Hall. Its meetings page lists this one for Tuesday, October 20 at 2 pm, to discuss the process for reporting the election results. The hall's calendar has it from 2 to 3 pm and describes it as a public meeting for observation only.

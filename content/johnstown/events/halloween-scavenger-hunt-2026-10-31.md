@@ -8,7 +8,8 @@ url: "https://johnstownmillikenpubliclibraries.us/event/halloween-scavenger-hunt
 cost: "Free"
 category: family
 source: "https://johnstownmillikenpubliclibraries.us/event/halloween-scavenger-hunt/"
-verified: "2026-10-03"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Halloween Scavenger Hunt\" at 9 am on 31 October in the page's structured data"
 ---
 
 Hidden Halloween pictures are playing hide and seek around the Johnstown library on Halloween morning; find them all for a prize. All ages.

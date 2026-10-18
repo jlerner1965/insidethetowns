@@ -16,8 +16,8 @@ cost: "$18 in advance; under 11 free"
 category: arts
 organizer: "Manitou Springs Heritage Center"
 source: "https://manitouspringsheritagecenter.org/events/"
-verified: "2026-10-17"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"31st Annual Ghost Stories of Old Manitou Walking Tours\" at 5:30 pm on 17 October on the Manitou Springs Heritage Museum calendar feed"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"31st Annual Ghost Stories of Old Manitou Walking Tours\" at 5:30 pm on 23 October on the Manitou Springs Heritage Museum calendar feed"
 ---
 
 Theatre d'Art performers playing "Spirit Guides" lead walking tours to places around Manitou Springs and tell their historic stories, a fundraiser the Heritage Center has run since 1995 to keep the museum's admission free. The museum's October 2026 calendar lists the tours from the Heritage Museum at 517 Manitou Avenue on Friday, October 9, Saturday, October 10, Friday, October 16, Saturday, October 17 and Friday, October 23, 5:30 to 8:30 pm each night; the October 9 night has passed. Tickets are sold through Eventbrite from the museum's ghost tours page, which gives no price.

@@ -13,8 +13,8 @@ source: "https://gardenofthecats.com/page20.html"
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10002969-1793437200-1793458800@bouldercounty.gov"
 sourceHash: "09dcea3a0910"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"The Hiss-terical Haunting\" at 9 am on 31 October on the Boulder County Fairgrounds feed"
 ---
 
 Garden of the Cats' Hiss-terical Haunting, a TICA-sponsored championship and household-pet cat show with 14 judges in 14 rings, in the Exhibit Building at the Boulder County Fairgrounds, Saturday 31 October and Sunday 1 November, open to the public 9 am to 4 pm both days. There are also information booths and vendors. Entry is $10, $25 for a family of four and $5 for military. Garden of the Cats, a nonprofit animal-welfare group that works in Southern Colorado, gives part of the proceeds to a shelter or rescue.

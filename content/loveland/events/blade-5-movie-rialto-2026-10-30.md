@@ -8,7 +8,7 @@ cost: "$5"
 category: arts
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=173"
 sourceId: "rialtotheatercenter-org"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): 30 October and 7 pm on the page"
 ---
 

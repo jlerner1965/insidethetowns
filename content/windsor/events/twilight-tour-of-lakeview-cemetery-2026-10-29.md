@@ -11,7 +11,7 @@ category: other
 organizer: "Town of Windsor Museums"
 organizerUrl: "https://www.recreationliveshere.com/294/Museums"
 source: "https://www.recreationliveshere.com/calendar.aspx"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): 29 October and 7 pm on the page"
 ---
 

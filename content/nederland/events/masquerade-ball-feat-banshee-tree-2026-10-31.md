@@ -14,8 +14,8 @@ category: music
 organizer: "The Caribou Room"
 source: "https://www.thecaribouroom.com/calendar/2026/10/31/masquerade-ball-feat-banshee-tree"
 sourceId: "thecaribouroom-com"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): 31 October and 7 pm on the page"
 ---
 
 The Caribou Room's Halloween masquerade ball, with Banshee Tree headlining and Cycles opening. Doors and dinner from 7 pm, show at 8; general admission is $25 in advance or $28 on the day, with reserved balcony seats, tables for two and a VIP lounge at higher prices.

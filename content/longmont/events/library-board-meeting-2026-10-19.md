@@ -9,7 +9,7 @@ source: "https://longmontcolorado.gov/event/library-board-meeting/2026-10-19/"
 sourceId: "longmontcolorado-gov-library"
 sourceUid: "10009216-1792432800-1792440000@longmontcolorado.gov"
 sourceHash: "1a8be3ab35c6"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Library Board Meeting\" at 6 pm on 19 October on the Longmont Public Library (City of Longmont calendar) feed"
 ---
 

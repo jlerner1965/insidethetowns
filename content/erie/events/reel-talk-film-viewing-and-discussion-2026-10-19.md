@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/15984757"
 cost: "Free; registration required"
 category: arts
 source: "https://highplains.libcal.com/event/15984757"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Reel Talk   Movie viewing and discussion group\" at 6 pm on 19 October in the page's structured data"
 ---
 
