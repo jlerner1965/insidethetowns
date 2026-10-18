@@ -18,6 +18,17 @@ export function isCanceled(event: { data: { status?: string } }): boolean {
 }
 
 /**
+ * True while the nightly re-check has the organizer's page saying something
+ * else and nobody has ruled on it (`changeFlag`). The listing stays up as it
+ * was until the editor rules, but like a canceled one it is kept out of
+ * everything that recommends: until 17 October a show the Rialto had
+ * cancelled could still lead Loveland's home page.
+ */
+export function isFlagged(event: { data: { changeFlag?: boolean } }): boolean {
+  return event.data.changeFlag === true;
+}
+
+/**
  * Expand weekly repeats and productions into one entry per occurrence, up to
  * `horizonDays` ahead of `now`. Everything else passes through untouched.
  * Occurrences share the source entry's slug, so they all link to the same
@@ -379,9 +390,10 @@ export function highlights<T extends EventLike>(
   // of a town's four picks.
   const seenSeries = new Set<string>();
   // A listing nobody has confirmed with the organizer is shown, with a line
-  // saying so, but never recommended (src/lib/confidence.ts).
+  // saying so, but never recommended (src/lib/confidence.ts); nor is one the
+  // re-check has flagged.
   const live = uniqueByEvent(upcoming(events, { now }))
-    .filter((e) => !isCanceled(e) && !isTentative(e))
+    .filter((e) => !isCanceled(e) && !isTentative(e) && !isFlagged(e))
     .filter((e) => {
       const key = `${e.data.title}|${e.data.venue}`;
       if (seenSeries.has(key)) return false;
@@ -563,7 +575,7 @@ export function nearbyPicks<T extends EventLike & { town: { slug: string } }>(
   };
   const seen = new Set<string>();
   const candidates = sortByStart([...all]).filter((e) => {
-    if (isPast(e, now) || isCanceled(e) || isTentative(e) || e.data.category === 'civic' || isWeekly(e) || !onThisWeekend(e)) return false;
+    if (isPast(e, now) || isCanceled(e) || isTentative(e) || isFlagged(e) || e.data.category === 'civic' || isWeekly(e) || !onThisWeekend(e)) return false;
     // One card per series: the same title at the same venue is the same thing on another date.
     const key = `${e.town.slug}|${e.data.title}|${e.data.venue}`;
     if (seen.has(key)) return false;

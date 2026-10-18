@@ -18,6 +18,7 @@ test('the big dates are the festivals beyond the fortnight the events page alrea
       ev('enchanted-evening-2026', '2026-11-27T18:00'),
       ev('trivia', '2026-11-30T18:30', 'nightlife'),
       ev('called-off', '2026-12-05T10:00', 'festival', { status: 'canceled' }),
+      ev('flagged', '2026-12-06T10:00', 'festival', { changeFlag: true }), // the re-check found its page saying otherwise
       ev('last-year', '2025-11-29T11:00'),
     ],
     { now },

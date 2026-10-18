@@ -20,10 +20,12 @@ type Extra = {
   /** For a series stored as one file per date: the same title, a different slug. */
   slug?: string;
   venue?: string;
+  /** The nightly re-check found the organizer's page saying something else. */
+  changeFlag?: boolean;
 };
 
 /** A listing as the content collection would hand it over. */
-function ev(title: string, start: string, { category = 'other', featured = false, end, repeat, until, recurring, slug, venue = 'The hall' }: Extra = {}) {
+function ev(title: string, start: string, { category = 'other', featured = false, end, repeat, until, recurring, slug, venue = 'The hall', changeFlag }: Extra = {}) {
   return {
     slug: slug ?? title.toLowerCase().replace(/\W+/g, '-'),
     data: {
@@ -37,6 +39,7 @@ function ev(title: string, start: string, { category = 'other', featured = false
       repeat,
       until: until ? parseLocal(until) : undefined,
       recurring,
+      changeFlag,
     },
   };
 }
@@ -184,6 +187,19 @@ test('a run across weekdays is a one-off shown once, not a regular ranked below 
   // And on the hub, the show is a reason to drive: a one-off, once.
   assert.deepEqual(oneOffs(events).map((e) => e.slug).filter((s) => s.startsWith('ghosts')), ['ghosts-10-15', 'ghosts-10-16']);
   assert.ok(!oneOffs(events).some((e) => e.slug.startsWith('cards')));
+});
+
+test('a listing the re-check has flagged is never recommended, featured or not', () => {
+  // Loveland, 17 October: the Rialto's page said the Saturday show was
+  // cancelled, the re-check flagged it, and until the editor ruled it could
+  // still lead the home page and This Week.
+  const list = [
+    ev('Tribute night', '2026-09-26T19:00', { category: 'music', featured: true, changeFlag: true }),
+    ev('Art in the Park', '2026-09-26T09:00', { category: 'arts' }),
+    ev('Farmers market', '2026-09-27T09:00', { category: 'market' }),
+  ];
+  assert.deepEqual(titles(highlights(list, { now: thursday })), ['Art in the Park', 'Farmers market']);
+  assert.deepEqual(titles(highlights(list, { now: thursday, limit: 1 })), ['Art in the Park']);
 });
 
 test('what has passed is out, and a weekly series appears once', () => {
