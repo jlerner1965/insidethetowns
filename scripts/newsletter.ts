@@ -40,7 +40,7 @@ import {
   parseLocal,
   startOfDay,
 } from '../src/lib/dates.ts';
-import { groupByDay, highlights, isCanceled, occurrences, timeText, weekendSections, weekendWindow } from '../src/lib/events.ts';
+import { groupByDay, highlights, isCanceled, isFlagged, occurrences, timeText, weekendSections, weekendWindow } from '../src/lib/events.ts';
 import { campaignLink, isNewlyClosed, isNewPlace, nextSendDay, openingDay } from '../src/lib/newsletter.ts';
 import { subTownList } from '../src/lib/sub-towns.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
@@ -147,9 +147,10 @@ function readWeek(town: TownConfig): TownWeek {
   // keeps it, marked, for whoever already had the date in their diary. So is
   // one the site would not show, and one only listed, never confirmed with
   // its organizer (src/lib/confidence.ts): the site shows that with a line
-  // saying so, and an email has no room for the line.
+  // saying so, and an email has no room for the line. Nor one the re-check
+  // has flagged and nobody has ruled on yet.
   const rows = readCollection<EventData>(town.slug, 'events', eventSchema(plainImage)).filter(
-    (r) => !isCanceled(r) && !eventExclusion(r.data, send) && eventConfidence(r.data as ConfidenceInput, send).level === 'confirmed',
+    (r) => !isCanceled(r) && !isFlagged(r) && !eventExclusion(r.data, send) && eventConfidence(r.data as ConfidenceInput, send).level === 'confirmed',
   );
   const listings = occurrences(rows as unknown as Listing[], { now: send, horizonDays: 14 });
   // `next` runs to the Thursday after the weekend: the days the following issue will not reach back to.

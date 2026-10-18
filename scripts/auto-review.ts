@@ -5,8 +5,10 @@
  * confirmed feed, with a venue, a future date and nothing in doubt, is
  * published with its facts as the feed gave them and the organizer's words
  * quoted as its own; a change the same feed made to a listing's time, venue
- * or status is written in. Everything else stays for `npm run review`, and
- * the run says why, item by item.
+ * or status is written in. A staged event whose dates have all passed is
+ * deleted: it could only go up as over, so there is nothing to rule on, and
+ * the report lists it. Everything else stays for `npm run review`, and the
+ * run says why, item by item.
  *
  *   npm run auto-review                        # every live town, writes the files
  *   npm run auto-review -- --dry-run           # decide and report, write nothing
@@ -23,7 +25,8 @@ import { fileURLToPath } from 'node:url';
 import { z } from 'astro/zod';
 import { allTowns, LIVE_TOWNS } from '../src/config/index.ts';
 import { eventSchema, type Source } from '../src/content/schemas.ts';
-import { addDays, dayKey, startOfDay } from '../src/lib/dates.ts';
+import { addDays, dayKey, parseLocal, startOfDay } from '../src/lib/dates.ts';
+import { isOver } from '../src/lib/events.ts';
 import { readRegistry } from '../src/lib/sources.ts';
 import { decideChange, decideEvent, type PublishedEvent } from './lib/auto-review.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
@@ -74,8 +77,24 @@ function publishedEvents(town: string): PublishedEvent[] {
   return out;
 }
 
+/**
+ * Whether every date a staged listing has is behind us, by the site's own
+ * expired-event rule (isOver): a weekly series or a run still going is not.
+ * A file the schema refuses is judged on its raw dates.
+ */
+function stagedIsOver(text: string): boolean {
+  const raw = parseFrontmatter(text).data as Record<string, unknown>;
+  const parsed = schema.safeParse(raw);
+  if (parsed.success) return isOver({ data: parsed.data } as never);
+  const date = (v: unknown) => (typeof v === 'string' && v ? parseLocal(v) : undefined);
+  const start = date(raw.start);
+  if (!start) return false;
+  return isOver({ data: { start, end: date(raw.end), until: date(raw.until), repeat: raw.repeat, allDay: raw.allDay === true } } as never);
+}
+
 interface TownReport {
   name: string;
+  dropped: string[];
   approved: string[];
   applied: string[];
   left: Array<{ what: string; why: string[] }>;
@@ -83,7 +102,7 @@ interface TownReport {
 }
 
 const reports: TownReport[] = [];
-const totals = { approved: 0, applied: 0, leftEvents: 0, leftChanges: 0, places: 0 };
+const totals = { dropped: 0, approved: 0, applied: 0, leftEvents: 0, leftChanges: 0, places: 0 };
 
 for (const town of towns) {
   const queue = readQueue(town, contentDir);
@@ -96,7 +115,7 @@ for (const town of towns) {
   }
   const sourceById = (id: string | undefined) => (id ? sources.find((s) => s.id === id) : undefined);
   const published = publishedEvents(town.slug);
-  const report: TownReport = { name: town.name, approved: [], applied: [], left: [], places: 0 };
+  const report: TownReport = { name: town.name, dropped: [], approved: [], applied: [], left: [], places: 0 };
   for (const item of queue) {
     if (item.kind === 'place') {
       report.places++;
@@ -122,6 +141,11 @@ for (const town of towns) {
     const text = readFileSync(item.file, 'utf8');
     const target = join(contentDir, town.slug, 'events', basename(item.file));
     const what = `${item.data.title} (${String(item.data.start ?? '').slice(0, 10)})`;
+    if (stagedIsOver(text)) {
+      if (!dryRun) unlinkSync(item.file);
+      report.dropped.push(`${what} (${relative(root, item.file)})`);
+      continue;
+    }
     const verdict = decideEvent(text, {
       town,
       source: sourceById(typeof item.data.sourceId === 'string' ? item.data.sourceId : undefined),
@@ -145,6 +169,7 @@ for (const town of towns) {
     if (d.success) published.push({ file: relative(root, target), title: d.data.title, start: d.data.start });
   }
   reports.push(report);
+  totals.dropped += report.dropped.length;
   totals.approved += report.approved.length;
   totals.applied += report.applied.length;
   totals.leftEvents += report.left.filter((l) => l.what.startsWith('event')).length;
@@ -158,7 +183,8 @@ const line = (s = '') => console.log(s);
 line(`Auto-review — ${today} (Denver)${dryRun ? ' — dry run, nothing written' : ''}`);
 line('='.repeat(72));
 for (const r of reports) {
-  line(`${r.name}: ${r.approved.length} approved, ${r.applied.length} applied, ${r.left.length} left${r.places ? `, ${r.places} place${r.places === 1 ? '' : 's'} for the review` : ''}`);
+  line(`${r.name}: ${r.dropped.length} past dropped, ${r.approved.length} approved, ${r.applied.length} applied, ${r.left.length} left${r.places ? `, ${r.places} place${r.places === 1 ? '' : 's'} for the review` : ''}`);
+  for (const a of r.dropped) line(`  dropped   ${a}`);
   for (const a of r.approved) line(`  approved  ${a}`);
   for (const a of r.applied) line(`  applied   ${a}`);
   for (const l of r.left) line(`  left      ${l.what}\n            ${l.why.join('; ')}`);
@@ -166,9 +192,9 @@ for (const r of reports) {
 line();
 const left = totals.leftEvents + totals.leftChanges + totals.places;
 line(
-  `auto-review: ${totals.approved} event${totals.approved === 1 ? '' : 's'} approved, ${totals.applied} change${totals.applied === 1 ? '' : 's'} applied; ` +
+  `auto-review: ${totals.dropped} past event${totals.dropped === 1 ? '' : 's'} dropped, ${totals.approved} event${totals.approved === 1 ? '' : 's'} approved, ${totals.applied} change${totals.applied === 1 ? '' : 's'} applied; ` +
     `${left} left for npm run review (${totals.leftEvents} events, ${totals.places} places, ${totals.leftChanges} changes).` +
-    (dryRun ? ' Dry run: nothing written.' : totals.approved || totals.applied ? ' Run npm run validate, then commit.' : ''),
+    (dryRun ? ' Dry run: nothing written.' : totals.dropped || totals.approved || totals.applied ? ' Run npm run validate, then commit.' : ''),
 );
 
 if (reportPath) {
@@ -177,10 +203,12 @@ if (reportPath) {
   md.push('');
   md.push(
     `${totals.approved} event${totals.approved === 1 ? '' : 's'} approved and ${totals.applied} change${totals.applied === 1 ? '' : 's'} applied under the standing rules (scripts/lib/auto-review.ts): the organizer's own confirmed feed, a named venue, a future date, no duplicate. ` +
-      `${left} item${left === 1 ? '' : 's'} left for \`npm run review\`: ${totals.leftEvents} events, ${totals.places} places, ${totals.leftChanges} changes.`,
+      `${left} item${left === 1 ? '' : 's'} left for \`npm run review\`: ${totals.leftEvents} events, ${totals.places} places, ${totals.leftChanges} changes.` +
+      (totals.dropped ? ` ${totals.dropped} staged event${totals.dropped === 1 ? '' : 's'} whose dates had all passed ${totals.dropped === 1 ? 'was' : 'were'} deleted.` : ''),
   );
   for (const r of reports) {
     md.push('', `#### ${r.name}`);
+    for (const a of r.dropped) md.push(`- dropped (past): ${a}`);
     for (const a of r.approved) md.push(`- approved: ${a}`);
     for (const a of r.applied) md.push(`- applied: ${a}`);
     for (const l of r.left) md.push(`- left: ${l.what} — ${l.why.join('; ')}`);

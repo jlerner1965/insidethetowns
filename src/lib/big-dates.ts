@@ -14,7 +14,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { addDays, startOfDay } from './dates.ts';
 import { isTentative } from './confidence.ts';
-import { isCanceled, isOver, uniqueByEvent } from './events.ts';
+import { isCanceled, isFlagged, isOver, uniqueByEvent } from './events.ts';
 
 // The same shape src/lib/events.ts works over, so its helpers accept these.
 type EventLike = { data: CollectionEntry<'events'>['data']; slug?: string; id?: string };
@@ -25,7 +25,7 @@ export function bigDates<T extends EventLike>(
 ): T[] {
   const after = addDays(startOfDay(now), afterDays).getTime();
   const picks = events.filter(
-    (e) => e.data.category === 'festival' && !isCanceled(e) && !isTentative(e) && !isOver(e, now) && e.data.start.getTime() >= after,
+    (e) => e.data.category === 'festival' && !isCanceled(e) && !isTentative(e) && !isFlagged(e) && !isOver(e, now) && e.data.start.getTime() >= after,
   );
   return uniqueByEvent([...picks].sort((a, b) => a.data.start.getTime() - b.data.start.getTime())).slice(0, limit);
 }

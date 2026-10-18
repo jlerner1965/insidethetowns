@@ -22,6 +22,7 @@ interface Opts {
   status?: string;
   featured?: boolean;
   venue?: string;
+  changeFlag?: boolean;
 }
 /** A neighbour's listing as getNeighborEntries hands it over. */
 function ev(town: string, title: string, start: string, o: Opts = {}) {
@@ -40,6 +41,7 @@ function ev(town: string, title: string, start: string, o: Opts = {}) {
       recurring: o.recurring,
       status: o.status ?? 'scheduled',
       featured: o.featured ?? false,
+      changeFlag: o.changeFlag,
     },
   } as never as Parameters<typeof nearbyPicks>[0][number];
 }
@@ -69,12 +71,13 @@ test('the plan-your-day listings win the second places', () => {
   assert.deepEqual(titles(nearbyPicks(all, ['a'], { now })), ['Festival', 'Concert']);
 });
 
-test('meetings, weekly regulars, cancellations and other days are left out', () => {
+test('meetings, weekly regulars, cancellations, flagged listings and other days are left out', () => {
   const all = [
     ev('a', 'Council', '2026-10-10T10:00', { category: 'civic' }),
     ev('a', 'Storytime', '2026-10-03T10:00', { repeat: 'weekly', until: '2026-12-26', category: 'family' }),
     ev('a', 'Trivia', '2026-10-09T19:00', { recurring: 'Every Friday' }),
     ev('a', 'Called off', '2026-10-10T12:00', { status: 'canceled' }),
+    ev('a', 'Flagged', '2026-10-10T13:00', { changeFlag: true }),
     ev('a', 'Tuesday gig', '2026-10-06T19:00'),
     ev('a', 'Next Saturday', '2026-10-17T19:00'),
     ev('a', 'Last weekend', '2026-10-03T19:00'),

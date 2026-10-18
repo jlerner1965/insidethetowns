@@ -14,7 +14,9 @@
  *
  * Everything under the week's heading is on inside that week. The pick is
  * dated by the listing it links to (`currentPick`): one for a later date is
- * not this week's pick, and goes under "Coming up" with its own date.
+ * not this week's pick, and goes under "Coming up" with its own date. With no
+ * pick for the week the top listing of the home page's ranking leads instead
+ * (`highlights`), as a Highlight: nobody picked it, so it is not Our pick.
  *
  * Every date is decided at build time, in Denver, and the nightly rebuild
  * keeps it current; the browser also clears a listing whose day has passed
@@ -28,9 +30,10 @@ import WeekEventRow from './WeekEventRow.astro';
 import type { TownConfig } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { formatDate, formatDayLong, formatDayRange, toIsoLocal } from '@/lib/dates';
-import { isMultiDay, lastDay, listedUntil, occurrences, timeText, weekendWindow } from '@/lib/events';
+import { highlights, isMultiDay, lastDay, listedUntil, occurrences, timeText, weekendWindow } from '@/lib/events';
 import { activeChanges, currentPick, isWeekend, weekEvents, weekWindow } from '@/lib/weekly';
 import { checkerName } from '@/lib/editor';
+import { subTownLabel } from '@/lib/sub-towns';
 
 interface Props {
   town: TownConfig;
@@ -55,6 +58,11 @@ const calendar = occurrences(await getTownEntries('events'), { now, horizonDays:
 const { thisWeek: pick, comingUp } = currentPick(notes, calendar, now);
 const allChanges = activeChanges(notes, now);
 const allEvents = weekEvents(calendar, now);
+// No editor's pick this week: the week leads with the listing the home page
+// would, the top of the same ranking, so one confirmed with its organizer and
+// neither canceled nor flagged. Only the listing's own facts are shown; a
+// weekly note's pick still takes its place.
+const highlight = pick ? undefined : highlights(allEvents, { now, limit: 1 })[0];
 const events = compact ? allEvents.slice(0, 3) : allEvents;
 const changes = compact ? allChanges.slice(0, 2) : allChanges;
 // Nothing on this week: said in words, whatever New & closed holds.
@@ -103,6 +111,21 @@ const checker = checkerName();
         </p>
         <p class="mt-2 font-medium"><time datetime={toIsoLocal(pick.event.data.start)}>{when(pick.event)}</time></p>
         {pick.body && <p class="mt-3 text-[1.0625rem] leading-relaxed text-ink-muted">{pick.body}</p>}
+      </div>
+    </section>
+  )}
+
+  {highlight && (
+    <section class={block} aria-labelledby={`highlight-${compact ? 'compact' : 'full'}`} data-event-day={lastDay(highlight)} data-end={toIsoLocal(listedUntil(highlight))}>
+      <H id={`highlight-${compact ? 'compact' : 'full'}`} class={eyebrow}>Highlight</H>
+      <div class="mt-5 max-w-2xl">
+        <p class="display-md text-[1.75rem] md:text-[2rem]">
+          <a href={`/events/${highlight.slug}/`} class="inline-block -my-2 py-2 no-underline hover:text-primary">{highlight.data.title}</a>
+        </p>
+        <p class="mt-2 font-medium"><time datetime={toIsoLocal(highlight.data.start)}>{when(highlight)}</time></p>
+        <p class="mt-3 text-[1.0625rem] leading-relaxed text-ink-muted">
+          {highlight.data.venue}{highlight.data.subTown && <span>, {subTownLabel(highlight.data.subTown)}</span>}{highlight.data.cost && <span> · {highlight.data.cost}</span>}
+        </p>
       </div>
     </section>
   )}
