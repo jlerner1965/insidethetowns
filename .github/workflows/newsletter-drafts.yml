@@ -1,16 +1,23 @@
-# Drafts Thursday's email every Thursday morning and commits the drafts, so
-# the issue is waiting to be read and sent rather than waiting to be made.
+# Drafts Thursday's email every Thursday morning and opens a pull request
+# with it, so the issue is waiting to be read rather than waiting to be made,
+# and merging it is the send.
 #
-# It drafts; it never sends. `npm run newsletter` writes one Markdown file per
-# edition under docs/newsletter/<send day>/ from the listings (README.md, The
-# weekly content session, step 5). A person reads each draft, gives it an
-# opening line, pastes the body into Buttondown and sends; the sent file then
-# moves to content/hub/issues/ and becomes the archive page, with its number.
+# `npm run newsletter` writes one Markdown file per edition from the listings
+# (README.md, The weekly content session, step 5), straight into
+# content/hub/issues/, where a file is the issue's page in the archive. The
+# pull request is the issue as it will go out: read it there (or on the hub's
+# preview deployment), edit a file on the branch to add an opening line or cut
+# something, and merge. The merge is a push to main that adds those files,
+# and newsletter-send.yml sends each through Buttondown to its towns'
+# subscribers (the owner's word, 18 October 2026: DECISIONS.md, "Merging the
+# Thursday email sends it"). Close it unmerged and nothing is sent; an issue
+# merged after the Friday is not sent either, because its weekend has begun,
+# and the next Thursday's run replaces the pull request with its own.
 #
-# The commit is docs only, so scripts/vercel-ignore.sh skips every site's
-# build and the daily rebuilds carry on as before. If main is protected
-# against direct pushes the run fails here, visibly; the fallback is to run
-# the command by hand (README.md).
+# The body is `npm run send-newsletter -- --dry-run`: every edition, the tags
+# it goes to and, once BUTTONDOWN_API_KEY is set, which have no subscribers
+# yet. Opening it needs the same setting as the weekly ingest, or the
+# WORKFLOW_PAT secret (DEPLOY.md).
 name: Thursday drafts
 
 on:
@@ -24,6 +31,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: newsletter-drafts
@@ -47,16 +55,51 @@ jobs:
         run: |
           day="$(TZ=America/Denver date +%F)"
           echo "day=$day" >> "$GITHUB_OUTPUT"
-          npm run newsletter -- --out="docs/newsletter/$day"
-      - name: Commit the drafts
+          npm run newsletter -- --out=content/hub/issues
+      # The issues are hub pages from the merge on, so the schema has its say
+      # before anyone is asked to read them.
+      - run: npm run validate
+      - name: What merging sends, for the pull request
+        id: plan
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/newsletter
-          if git diff --cached --quiet; then
-            echo "No draft changed; nothing to commit."
-            exit 0
+          body="$RUNNER_TEMP/body.md"
+          {
+            echo '**Merging this pull request sends the email.** Every edition below goes out through Buttondown within minutes of the merge, to the subscribers tagged with its towns, and each file becomes its page in the archive at insidethetowns.com/newsletter/. Close it unmerged and nothing is sent.'
+            echo
+            echo 'Merge it today or tomorrow. From Saturday its weekend has started and nothing in it is sent; next Thursday'"'"'s run replaces it.'
+            echo
+            echo 'To change an issue first, edit its file on this branch (an opening line goes under the date line), or delete a file to hold that edition back.'
+            echo
+          } > "$body"
+          # A run before the key is set, or an issue that cannot go, still
+          # opens the pull request; the table says what would happen.
+          # The files this run wrote: not yet tracked on main.
+          npm run --silent send-newsletter -- --dry-run --report="$RUNNER_TEMP/plan.md" $(git ls-files --others --exclude-standard -- content/hub/issues) || true
+          cat "$RUNNER_TEMP/plan.md" >> "$body" 2>/dev/null || echo 'No issue was drafted for today.' >> "$body"
+          # Without the key a merge would put unsent issues in the archive, so
+          # the pull request opens as a draft until it is set.
+          if [ -z "$BUTTONDOWN_API_KEY" ]; then
+            echo "nokey=true" >> "$GITHUB_OUTPUT"
+            printf '\n> **BUTTONDOWN_API_KEY is not set yet**, so a merge would send nothing. Add it under Settings → Secrets and variables → Actions and run this workflow again. Until then this is a draft.\n' >> "$body"
           fi
-          git commit -m "Thursday drafts, ${{ steps.draft.outputs.day }}: every edition, from the listings" \
-            -m "Written by the Thursday drafts workflow from the listings as they stood this morning. Not sent: a person reads each, adds an opening line, sends it from Buttondown, and files the sent issue under content/hub/issues/ (README.md, The weekly content session)."
-          git push origin HEAD:main
+      - name: Open or update the pull request
+        id: pr
+        continue-on-error: true
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.WORKFLOW_PAT || github.token }}
+          branch: automation/newsletter
+          delete-branch: true
+          add-paths: content/hub/issues
+          commit-message: "Thursday email, ${{ steps.draft.outputs.day }}: every edition, from the listings"
+          title: "Thursday email, ${{ steps.draft.outputs.day }}: merge to send"
+          body-path: ${{ runner.temp }}/body.md
+          draft: ${{ steps.plan.outputs.nokey == 'true' }}
+          labels: newsletter
+      - name: Say where the issue is if the pull request could not be opened
+        if: steps.pr.outcome == 'failure'
+        run: |
+          echo "::warning::This week's issues are on the automation/newsletter branch, but this workflow is not allowed to open a pull request. Allow it (Settings → Actions → General → Workflow permissions → Allow GitHub Actions to create and approve pull requests) or add a WORKFLOW_PAT secret (DEPLOY.md), then open it by hand: https://github.com/${{ github.repository }}/compare/main...automation/newsletter"
+          exit 1

@@ -83,15 +83,19 @@ canceled`, and the pages do the rest (see any content README).
    is left alone unless `--force` is given. `source` defaults to `url` and `verified`
    to today, so every imported event carries both.
 4. `npm run validate`, commit, push. Vercel rebuilds every live site.
-5. On the send day, the drafts are already there: `.github/workflows/newsletter-drafts.yml`
-   runs `npm run newsletter` every Thursday morning and commits one file per edition
-   under `docs/newsletter/<send day>/`. By hand, `npm run newsletter -- --number=N` drafts one issue per edition
+5. On the send day, the issue is waiting as a pull request: `.github/workflows/newsletter-drafts.yml`
+   runs `npm run newsletter` every Thursday morning, writes one file per edition
+   into `content/hub/issues/` and opens a pull request on `automation/newsletter`
+   whose body lists every edition and the subscriber tags it goes to. Read it, edit
+   a file on the branch if something wants saying, and merge it by Friday: the merge
+   sends every edition through Buttondown (`.github/workflows/newsletter-send.yml`,
+   `npm run send-newsletter`, which needs `BUTTONDOWN_API_KEY`) and each file becomes
+   its archive page. Close it and nothing is sent. By hand, `npm run newsletter -- --number=N` drafts one issue per edition
    (see *Editions* below) and one for the whole network from the listings: the weekend by day, anything still
    running, the week after, places added since the last issue (from the git history,
    so not in a shallow checkout) and articles published that week. Each draft is
-   Markdown under a frontmatter block in the shape of `content/hub/issues/`. Read it,
-   paste the body into Buttondown, send; then drop the file into `content/hub/issues/`
-   and it becomes the archive page. `--town=lyons`, `--date=2026-10-01` and
+   Markdown under a frontmatter block in the shape of `content/hub/issues/`.
+   `--town=lyons`, `--date=2026-10-01` and
    `--out=drafts` narrow it, move it, or write files instead of printing. It drafts;
    it never sends. Canceled events and closed places are left out of it.
 

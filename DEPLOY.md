@@ -357,7 +357,8 @@ no recent runs, that is why.
 ## Weekly ingest and Thursday drafts
 
 Two more workflows take the mechanical half of the weekly session, from 15
-October 2026. Neither publishes anything.
+October 2026. Neither publishes anything on its own: each opens a pull
+request, and the merge is the decision.
 
 - **Weekly ingest** (`.github/workflows/weekly-ingest.yml`), Mondays at 13:10
   UTC: `npm run sources -- check`, `npm run ingest`, `npm run auto-review`
@@ -370,9 +371,15 @@ October 2026. Neither publishes anything.
   request is merged: check the branch out, run `npm run review` on what
   waits, push, merge. Close it unmerged and nothing has happened.
 - **Thursday drafts** (`.github/workflows/newsletter-drafts.yml`), Thursdays
-  at 12:10 UTC: `npm run newsletter` into `docs/newsletter/<send day>/`,
-  committed straight to `main`. Docs only, so every site's build is skipped
-  (scripts/vercel-ignore.sh). Sending stays a person's job, as before.
+  at 12:10 UTC: `npm run newsletter` into `content/hub/issues/`, `npm run
+  validate`, then a pull request on `automation/newsletter` whose body is
+  `npm run send-newsletter -- --dry-run`: every edition and the tags it goes
+  to. Merging it sends them: `.github/workflows/newsletter-send.yml` runs on
+  the push and sends each issue file it added through Buttondown's API, to
+  the subscribers tagged with the edition's towns (the network issue to
+  `all-towns`), never to an empty audience, never more than a day late, never
+  twice. It needs the secret `BUTTONDOWN_API_KEY` (Buttondown → Settings →
+  API); until that is set the pull request opens as a draft.
 
 One repository setting, required: *Settings → Actions → General → Workflow
 permissions → Allow GitHub Actions to create and approve pull requests*. It
@@ -384,9 +391,9 @@ a warning naming the compare URL to open by hand. One optional secret,
 is opened with the default `GITHUB_TOKEN`, and GitHub does not start the CI
 workflow on a pull request a workflow opened; the run validates and tests
 before opening it, so the gap is small, but with the secret set CI runs on
-that pull request like any other, and the setting above is not needed. The drafts workflow
-pushes to `main` with the default token; if `main` is ever protected against
-direct pushes, that run fails visibly and the command is run by hand.
+that pull request like any other, and the setting above is not needed. The
+same holds for the Thursday pull request; a merge by a person is an ordinary
+push, so the send runs either way.
 
 Both workflows have a *Run workflow* button in the Actions tab, and both stop
 after sixty days without a push, like the rebuild above.
