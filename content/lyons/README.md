@@ -98,7 +98,7 @@ second file. A run whose box office gives no show times stays a run of whole day
 ```yaml
 ---
 title: "Niwot Tavern"
-type: restaurant                  # restaurant|bar|coffee|shop|trail|park|venue|lodging|service
+type: restaurant                  # restaurant|bar|coffee|shop|trail|trailhead|park|venue|lodging|service
 address: "7960 Niwot Rd"
 area: "Cottonwood Square"         # optional district or landmark, shown on the card
 url: "https://…"                  # optional
@@ -117,7 +117,7 @@ summary: "One or two sentences shown on the card."
 Longer description in Markdown.
 ```
 
-`restaurant`, `bar` and `coffee` appear under Eat & Drink; `trail`, `park` and `venue` under Things to Do.
+`restaurant`, `bar` and `coffee` appear under Eat & Drink; `trail`, `trailhead`, `park` and `venue` under Things to Do.
 
 ## Sources, check dates, and staging
 

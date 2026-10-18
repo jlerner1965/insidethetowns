@@ -10,14 +10,17 @@
  *
  * The summary first: what is waiting, listings going stale in the next
  * fortnight, sources whose last check failed. Then the queue, cancellations
- * first, then other changes the sources made, then staged places, then
- * staged events by date. At each item:
+ * first, then other changes the sources made and the listings the nightly
+ * re-check flagged, then staged places, then staged events by date. At each
+ * item:
  *
  *   a  approve   staged: stamp verified and verifiedBy (a place: added), drop the review block,
  *                move the file to the published folder; change: write the
- *                source's new facts into the published file and clear the flag
+ *                source's new facts into the published file and clear the flag;
+ *                flag: the listing now says what the source says (edit it
+ *                first with e if it does not), so clear the flag and stamp today
  *   e  edit      open the file in $EDITOR, then validate it and ask again
- *   r  reject    staged: delete the file; change: clear the flag, keep the listing
+ *   r  reject    staged: delete the file; change or flag: clear the flag, keep the listing
  *   o  open      print the source URL (and open it where the OS can)
  *   s  skip      leave it for next time
  *   A  approve the rest of this town's queue
@@ -37,7 +40,7 @@ import { eventSchema, placeSchema } from '../src/content/schemas.ts';
 import { dayKey, formatDate } from '../src/lib/dates.ts';
 import { readRegistry } from '../src/lib/sources.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
-import { applyChangeText, approveText, dismissChangeText, readQueue, summarize, type QueueItem } from './lib/review.ts';
+import { applyChangeText, approveText, clearFlagText, dismissChangeText, readQueue, summarize, type QueueItem } from './lib/review.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'content');
@@ -73,7 +76,7 @@ for (const town of towns) {
   anyWaiting ||= waiting > 0;
   const parts = [
     waiting
-      ? `${waiting} waiting: ${w.events} events, ${w.places} places, ${w.changes} changes${w.cancellations ? ` (${w.cancellations} cancellations)` : ''}`
+      ? `${waiting} waiting: ${w.events} events, ${w.places} places, ${w.changes} changes${w.cancellations ? ` (${w.cancellations} cancellations)` : ''}${w.flags ? ` (${w.flags} flagged by the re-check)` : ''}`
       : 'nothing waiting',
     s.goingStale.length ? `${s.goingStale.length} listing${s.goingStale.length === 1 ? '' : 's'} going stale in 14 days` : '',
     s.seasonsTurning.length ? `${s.seasonsTurning.length} season${s.seasonsTurning.length === 1 ? '' : 's'} turning` : '',
@@ -144,6 +147,16 @@ function show(item: QueueItem, n: number, total: number) {
     line(`  source: ${c.sourceUrl}`);
     return;
   }
+  if (item.kind === 'flag') {
+    const d = item.data;
+    line(`[${n}/${total}] FLAGGED · ${item.town.name} · ${d.title}`);
+    line(`  published: ${relative(root, item.file)}`);
+    line(`  when: ${d.start}${d.end ? ` – ${d.end}` : ''}${d.allDay ? ' (all day)' : ''}  at ${d.venue}`);
+    line(`  says: ${item.note || '(no changeNote)'}`);
+    line(`  source: ${d.source ?? '(none)'}`);
+    line(`  a: the listing now says what the source says (edit it first with e if it does not); r: the listing was right as it stands`);
+    return;
+  }
   const d = item.data;
   line(`[${n}/${total}] ${item.kind.toUpperCase()} · ${item.town.name} · ${d.title}`);
   if (item.kind === 'event') {
@@ -194,11 +207,25 @@ function approveChange(item: Extract<QueueItem, { kind: 'change' }>): string | n
   return null;
 }
 
+/** A re-check's flag answered: the listing is validated as it now stands, the flag cleared and the check stamped. */
+function approveFlag(item: Extract<QueueItem, { kind: 'flag' }>): string | null {
+  const text = readFileSync(item.file, 'utf8');
+  const cleared = clearFlagText(text, today, by);
+  const parsed = schemaFor.event.safeParse(parseFrontmatter(cleared).data);
+  if (!parsed.success) return parsed.error.issues.map((i) => `${i.path.join('.') || '(root)'}: ${i.message}`).join('; ');
+  writeFileSync(item.file, cleared);
+  line(`  flag cleared, check stamped on ${relative(root, item.file)}`);
+  return null;
+}
+
 function reject(item: QueueItem) {
   if (item.kind === 'change') {
     writeFileSync(item.eventFile, dismissChangeText(readFileSync(item.eventFile, 'utf8')));
     unlinkSync(item.file);
     line(`  dismissed; ${relative(root, item.eventFile)} stands as it was`);
+  } else if (item.kind === 'flag') {
+    writeFileSync(item.file, dismissChangeText(readFileSync(item.file, 'utf8')));
+    line(`  flag cleared; ${relative(root, item.file)} stands as it was`);
   } else {
     unlinkSync(item.file);
     line(`  rejected; ${relative(root, item.file)} deleted (git has it if that was wrong)`);
@@ -229,7 +256,8 @@ for (const town of towns) {
         case 'a':
         case 'A': {
           if (answer === 'A') approveRest = true;
-          const why = item.kind === 'change' ? approveChange(item) : approveStaged(item);
+          // A flag is evidence against the listing; "approve the rest" is not a read of it.
+          const why = item.kind === 'change' ? approveChange(item) : item.kind === 'flag' ? (approveRest ? 'a re-check flag needs a person to read the listing against its note' : approveFlag(item)) : approveStaged(item);
           if (why) {
             line(`  cannot approve: ${why}`);
             if (approveRest) {
@@ -249,9 +277,9 @@ for (const town of towns) {
           if (item.kind !== 'change') {
             try {
               const { data, body } = parseFrontmatter(readFileSync(item.file, 'utf8'));
-              item = { ...item, data, body };
+              item = item.kind === 'flag' ? { ...item, data, body, note: String(data.changeNote ?? '') } : { ...item, data, body };
               queue[i] = item;
-              const check = schemaFor[item.kind].safeParse(data);
+              const check = schemaFor[item.kind === 'flag' ? 'event' : item.kind].safeParse(data);
               if (!check.success) line(`  still invalid: ${check.error.issues.map((x) => `${x.path.join('.')}: ${x.message}`).join('; ')}`);
             } catch (err) {
               line(`  cannot read the file now: ${(err as Error).message}`);

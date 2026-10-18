@@ -134,3 +134,48 @@ source: "https://cafe.example/"
   const returning = staged.replace('source:', 'added: "2026-09-17"\nsource:');
   assert.equal(getField(approveText(returning, '2026-10-06', 'James', 'place'), 'added'), '"2026-09-17"');
 });
+
+// The queue holds what the nightly re-check flags, not only what ingest files a change for.
+
+import { mkdtempSync, mkdirSync, writeFileSync as writeFs } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { clearFlagText, readQueue } from '../scripts/lib/review.ts';
+
+test('a published event flagged by the re-check is in the queue as a flag, with its note, among the changes', () => {
+  const lyons = towns.find((t) => t.slug === 'lyons')!;
+  const content = mkdtempSync(join(tmpdir(), 'itt-review-'));
+  mkdirSync(join(content, 'lyons', 'events'), { recursive: true });
+  mkdirSync(join(content, 'lyons', 'staging', 'events'), { recursive: true });
+  mkdirSync(join(content, 'lyons', 'staging', 'changes'), { recursive: true });
+  const flagged = PUBLISHED.replace('townoflyons.com now says: end 2026-10-05T21:00 → 2026-10-05T23:00', 'recheck 2026-10-18: the source page answers 404');
+  writeFs(join(content, 'lyons', 'events', 'board-of-trustees-2026-10-05.md'), flagged);
+  // An ingest change on another listing: it keeps its own kind, and is not doubled as a flag.
+  writeFs(join(content, 'lyons', 'events', 'market-2026-10-10.md'), PUBLISHED.replace('Board of Trustees meeting', 'Farmers Market'));
+  writeFs(
+    join(content, 'lyons', 'staging', 'changes', 'market-2026-10-10.json'),
+    JSON.stringify({ slug: 'market-2026-10-10', sourceId: 'townoflyons-com', sourceUrl: 'https://www.townoflyons.com/x', detected: '2026-10-18', changes: [{ field: 'start', was: 'a', now: 'b' }] }),
+  );
+  writeFs(join(content, 'lyons', 'events', 'quiet-2026-10-12.md'), PUBLISHED.replace(/changeFlag: true\nchangeNote: .*\n/, ''));
+  writeFs(join(content, 'lyons', 'staging', 'events', 'new-2026-10-20.md'), STAGED);
+  const queue = readQueue(lyons, content);
+  assert.deepEqual(
+    queue.map((i) => i.kind),
+    ['change', 'flag', 'event'],
+    'cancellations and changes first, a flag with them, then staged places and events',
+  );
+  const flag = queue.find((i) => i.kind === 'flag')!;
+  assert.equal(flag.kind === 'flag' && flag.note, 'recheck 2026-10-18: the source page answers 404');
+  assert.equal(queue.filter((i) => i.kind === 'flag').length, 1, 'the listing with a change file is a change, not also a flag');
+});
+
+test('answering a flag clears it and stamps the check; the listing is otherwise as the editor left it', () => {
+  const out = clearFlagText(PUBLISHED, '2026-10-18', 'James');
+  assert.equal(getField(out, 'changeFlag'), undefined);
+  assert.equal(getField(out, 'changeNote'), undefined);
+  assert.equal(getField(out, 'verified'), '"2026-10-18"');
+  assert.equal(getField(out, 'verifiedBy'), '"James"');
+  assert.equal(getField(out, 'end'), '"2026-10-05T21:00"');
+  assert.ok(out.endsWith('The regular meeting.\n'));
+  schema.parse(parseFrontmatter(out).data);
+});

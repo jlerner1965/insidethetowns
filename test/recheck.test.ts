@@ -178,3 +178,35 @@ test("a meeting past the end of a town's feed is not missing from it", () => {
   assert.equal(j.verdict, 'unconfirmed');
   assert.match(j.note, /does not reach 10 November yet/);
 });
+
+// The call list (callReason): whom the re-check's report asks a person to ring.
+
+import { callReason } from '../scripts/lib/recheck.ts';
+
+const from = at('2026-10-18');
+const call = (over: Partial<Parameters<typeof callReason>[0]>) =>
+  callReason({ verdict: 'confirmed', note: '', level: 'confirmed', basis: 'source', from, ...over });
+
+test('a listed event is a call whatever the page said: a community calendar alone, or a check gone stale', () => {
+  assert.equal(call({ level: 'listed', basis: 'calendar', calendar: "the Lyons Recorder's community calendar", verdict: 'confirmed', note: 'still on the calendar' }), 'only on a community calendar');
+  assert.equal(call({ level: 'listed', basis: 'stale', verdict: 'unconfirmed', note: 'the page does not show 20 October' }), 'check gone stale');
+});
+
+test('a page no machine could read, or that does not show the date, is a call; a feed that does not reach the date yet is not', () => {
+  assert.equal(call({ verdict: 'unreadable', note: 'the source page: 403, a bot challenge or a refusal' }), 'page cannot be read');
+  assert.equal(call({ verdict: 'unconfirmed', note: 'the page does not show 20 October' }), 'page does not show it');
+  assert.equal(call({ verdict: 'unconfirmed', note: 'the Town feed does not reach 20 October yet' }), undefined);
+  assert.equal(call({ verdict: 'confirmed', note: '"Trivia" at 7 pm on 20 October on the feed' }), undefined);
+});
+
+test('a venue a person has already confirmed is not rung again because its page refuses a machine', () => {
+  for (const basis of ['phone', 'email', 'in-person'] as const) {
+    assert.equal(call({ verdict: 'unreadable', note: 'the source page: 403', level: 'confirmed', basis }), undefined, basis);
+    assert.equal(call({ verdict: 'unconfirmed', note: 'the page does not show 20 October', level: 'confirmed', basis }), undefined, basis);
+  }
+});
+
+test('a weekly series about to run out of confirmed weeks is a call, even one confirmed by phone', () => {
+  assert.equal(call({ until: at('2026-10-27'), level: 'confirmed', basis: 'phone' }), 'series shown only through 2026-10-27');
+  assert.equal(call({ until: at('2026-11-20') }), undefined, 'three weeks of dates in hand is not yet a call');
+});

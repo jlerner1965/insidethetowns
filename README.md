@@ -187,13 +187,17 @@ Nothing ingest writes is published: approval is the review's.
 first, per town: what is waiting in staging, listings whose check crosses the
 freshness window in the next fortnight, and confirmed sources whose last check
 failed. Then it walks the queue, cancellations first, then other changes the
-sources made to published events, then staged places, then staged events by
-date, and at each one takes `a` (approve: stamp `verified` and `verifiedBy`, and `added` on a place,
-drop the `review` block, move the file into the published folder; for a change,
-write the source's new facts into the published file and clear the flag), `e`
-(open the file in `$EDITOR`, validate, ask again), `r` (reject: delete a staged
-file, or dismiss a change and keep the listing), `o` (open the source URL), `s`
-(skip), `A` (approve the rest of the town's queue) or `q`. Nothing is approved
+sources made to published events and the listings the nightly re-check flagged
+(`changeFlag` with the evidence in `changeNote`, no change file), then staged
+places, then staged events by date, and at each one takes `a` (approve: stamp
+`verified` and `verifiedBy`, and `added` on a place, drop the `review` block,
+move the file into the published folder; for a change, write the source's new
+facts into the published file and clear the flag; for a re-check flag, the
+listing now says what the source says, so clear the flag and stamp the check),
+`e` (open the file in `$EDITOR`, validate, ask again), `r` (reject: delete a
+staged file, or dismiss a change or a flag and keep the listing), `o` (open the
+source URL), `s` (skip), `A` (approve the rest of the town's queue; a flag is
+skipped, since it needs a person's read) or `q`. Nothing is approved
 without a `source`. `--town=lyons` narrows it, `--summary` prints only the
 summary, `--by="Name"` says who approved (else `REVIEWER`, else git's
 user.name). Then `npm run validate`, commit, push.

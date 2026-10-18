@@ -25,7 +25,7 @@ manager/
 
 ## Setup (one time, ~5 minutes)
 
-1. **Check `towns.json`.** Windsor and the not-yet-live towns have domains filled in from the naming pattern — fix any that are wrong and flip `live` as sites go up.
+1. **Check `towns.json`.** Windsor and the not-yet-live towns have domains filled in from the naming pattern — fix any that are wrong and flip `live` as sites go up. `npm test` at the repo root (`test/manager-towns.test.ts`) fails when this file and `src/config/towns/*.ts` disagree on what is live, its domain, a folded town's alternate domain, or a quiet or visitor guide's note.
 
 2. **Tokens.**
    - `ANTHROPIC_API_KEY` from the Console.

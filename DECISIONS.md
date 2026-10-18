@@ -5172,3 +5172,71 @@ later as a step the owner reads.
   pending. "How Niwot got here" keeps "It has never been an incorporated
   municipality": it is history, and the next sentence says November 2026 may
   change it.
+
+## The rules read against each other, 18 October
+
+The owner asked for the whole repository read through once, every rule,
+automatic check and workflow against the others, before more is built on
+it. Every check was green at the start (382 tests, the validator at 0
+errors, the colour check, `astro check`, the manager's syntax check) and
+the rules themselves agree with each other; what did not agree was the
+machinery in four places, each fixed here.
+
+- **The re-check's flags never reached the review.** The README and the
+  nightly workflow's pull request both say a listing the source contradicts
+  carries `changeFlag` with the evidence in `changeNote`, "which `npm run
+  review` walks". The review read only `staging/changes/*.json`, which
+  ingest writes and the re-check does not, so the Pumpkin Plunge's 404 of
+  17 October, and the two flags a person wrote by hand on 10 October, were
+  in no queue and no report: a flagged listing stayed out of the picks and
+  the email until somebody happened on the file. The queue now carries a
+  `flag` item for a published event with the flag and no change file,
+  sorted with the changes; the card shows the note; `a` says the listing
+  now reads as the source does (edit it first with `e` if not) and clears
+  the flag with today's check; `r` clears the flag and touches nothing
+  else; `A` skips a flag, since it is evidence against the listing and not
+  a read of it. The review's summary, the weekly report and the validator's
+  per-town line count them (`flagged`). `test/review.test.ts` pins it.
+- **The call list rang venues a person had just rung.** The re-check put a
+  venue on the pull request's call list whenever its page refused a
+  machine or did not show the date, including an event already carrying
+  the `confirmed` block that `npm run confirm` writes for exactly that
+  call. Oskar Blues, whose site answers 403, would have been on the list
+  the night after every call. The decision is now one function
+  (`callReason`, scripts/lib/recheck.ts): a listed event is a call, a
+  series about to run out of confirmed weeks is a call, and otherwise a
+  page no machine can read is a call only when no person has confirmed
+  the event inside the sixty-day window. Tested.
+- **A switch that said the opposite of the rules.** `INGEST.
+  autoApplyCancellations: false` (4 October: "nothing publishes without a
+  person") was read by nothing, and since 15 October the standing rules do
+  write a cancellation in when the listing's own organizer feed makes it.
+  The flag is gone; the ingest script's header and the config say where
+  that decision lives. The dated entries above stand as history.
+- **The manager's list of towns was a copy with no check.** `manager/
+  towns.json` says "if the two disagree, the repo config wins" and nothing
+  made sure they did not. `test/manager-towns.test.ts` holds it to the
+  configs: every live guide listed live with its domain, a folded town's
+  domain an alternate of the guide that took it, a quiet or visitor guide
+  said so in its notes. The notes themselves were wrong on one point: they
+  told the audit agent to expect no This Week on Elizabeth, Black Hawk,
+  Leadville or Manitou Springs, when the 19 October weekly notes were
+  published on all 22 live guides the day before. Quiet and visitor guides
+  drop the email and the signup box, not the week; the notes say so.
+- **Smaller.** The content skill marked an unverifiable fact `[VERIFY: …]`
+  where the editor skill, which the same agent reads, says `[UNVERIFIED]`;
+  one marker now. The Front Range content READMEs listed the place types
+  without `trailhead`, which every guide may use. An unused import in
+  `scripts/auto-review.ts`.
+- **Read and left alone.** The six workflows agree with the scripts they
+  run and with DEPLOY.md (the rebuild's 32-minute wait against the Ignored
+  Build Step's 30; the ingest and re-check pull requests; the Thursday and
+  Wednesday drafts). `manager/schedule.mjs`'s budget shape
+  (`max_list_cost`) matches the Managed Agents documentation read today.
+  The freshness windows, the confidence levels, the standing rules of
+  auto-review and the owner's rules of 11 October are consistent with one
+  another and with the README. The two hand-written flags of 10 October
+  (Longmont's fire station open house, Niwot's artist-in-residence) and the
+  Pumpkin Plunge are all for dates now past; their flags were cleared the
+  same day at the owner's word, with nothing else on the files touched.
+

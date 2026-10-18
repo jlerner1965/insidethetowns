@@ -84,9 +84,32 @@ export function dismissChangeText(text: string): string {
   return removeField(removeField(text, 'changeFlag'), 'changeNote');
 }
 
-/** The queue, in the order the editor should see it: cancellations, other changes, places, then events by date. */
+/**
+ * A re-check's flag answered: the listing now says what the source says (the
+ * editor has edited it, or it already did), so the flag comes off and the
+ * check is stamped today. The re-check writes no change file, only the flag
+ * and the evidence in `changeNote`, so there are no fields to write in.
+ */
+export function clearFlagText(text: string, today: string, by: string): string {
+  let out = dismissChangeText(text);
+  out = setField(out, 'verified', yamlString(today));
+  out = setField(out, 'verifiedBy', yamlString(by));
+  return out;
+}
+
+/**
+ * The queue, in the order the editor should see it: cancellations, other
+ * changes and flags, places, then events by date.
+ *
+ * A `flag` is a published event carrying `changeFlag` with no change file:
+ * what the nightly re-check writes (scripts/recheck-events.ts) when the
+ * source contradicts a listing, or a person writes by hand. The evidence is
+ * the `changeNote`; there are no new fields to write in, so the editor edits
+ * the listing or lets it stand, and either way the flag comes off here.
+ */
 export type QueueItem =
   | { kind: 'change'; town: TownConfig; file: string; eventFile: string; change: Change }
+  | { kind: 'flag'; town: TownConfig; file: string; data: Record<string, unknown>; body: string; note: string }
   | { kind: 'place' | 'event'; town: TownConfig; file: string; data: Record<string, unknown>; body: string };
 
 export function readQueue(town: TownConfig, contentDir: string): QueueItem[] {
@@ -103,6 +126,24 @@ export function readQueue(town: TownConfig, contentDir: string): QueueItem[] {
       items.push({ kind: 'change', town, file, eventFile, change: parsed.data });
     }
   }
+  // Flagged listings with no change file: the re-check's, and the editor's own.
+  const withChange = new Set(items.map((i) => (i.kind === 'change' ? i.eventFile : '')));
+  const eventsDir = join(contentDir, town.slug, 'events');
+  if (existsSync(eventsDir)) {
+    for (const name of readdirSync(eventsDir).sort()) {
+      if (!name.endsWith('.md') || name.startsWith('_')) continue;
+      const file = join(eventsDir, name);
+      if (withChange.has(file)) continue;
+      let parsed;
+      try {
+        parsed = parseFrontmatter(readFileSync(file, 'utf8'));
+      } catch {
+        continue;
+      }
+      if (parsed.data.changeFlag !== true) continue;
+      items.push({ kind: 'flag', town, file, data: parsed.data, body: parsed.body, note: String(parsed.data.changeNote ?? '') });
+    }
+  }
   for (const kind of ['place', 'event'] as const) {
     const dir = join(contentDir, town.slug, 'staging', `${kind}s`);
     if (!existsSync(dir)) continue;
@@ -117,14 +158,15 @@ export function readQueue(town: TownConfig, contentDir: string): QueueItem[] {
       }
     }
   }
-  const rank = (i: QueueItem) => (i.kind === 'change' ? (i.change.cancel ? 0 : 1) : i.kind === 'place' ? 2 : 3);
-  const when = (i: QueueItem) => (i.kind === 'event' ? String(i.data.start ?? '') : '');
+  const rank = (i: QueueItem) => (i.kind === 'change' ? (i.change.cancel ? 0 : 1) : i.kind === 'flag' ? 1 : i.kind === 'place' ? 2 : 3);
+  const when = (i: QueueItem) => (i.kind === 'event' || i.kind === 'flag' ? String(i.data.start ?? '') : '');
   return items.sort((a, b) => rank(a) - rank(b) || when(a).localeCompare(when(b)));
 }
 
 export interface TownSummary {
   town: TownConfig;
-  waiting: { events: number; places: number; changes: number; cancellations: number };
+  /** `changes` counts every published listing a source or the re-check has a question about: change files and bare flags; `flags` is the bare flags alone. */
+  waiting: { events: number; places: number; changes: number; cancellations: number; flags: number };
   /** Open listings whose check crosses the window inside the report horizon. */
   goingStale: Array<{ title: string; file: string; inDays: number }>;
   /**
@@ -144,8 +186,9 @@ export function summarize(town: TownConfig, contentDir: string, now = new Date()
   const waiting = {
     events: queue.filter((i) => i.kind === 'event').length,
     places: queue.filter((i) => i.kind === 'place').length,
-    changes: queue.filter((i) => i.kind === 'change').length,
+    changes: queue.filter((i) => i.kind === 'change' || i.kind === 'flag').length,
     cancellations: queue.filter((i) => i.kind === 'change' && i.change.cancel).length,
+    flags: queue.filter((i) => i.kind === 'flag').length,
   };
   const goingStale: TownSummary['goingStale'] = [];
   const seasonsTurning: TownSummary['seasonsTurning'] = [];
