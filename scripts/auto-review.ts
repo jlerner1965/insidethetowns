@@ -19,7 +19,7 @@
  * Staged places are never approved here: each is held for a reason that
  * needs a site read. Then `npm run validate`, commit.
  */
-import { existsSync, mkdirSync, readdirSync, readFileSync, renameSync, unlinkSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs';
 import { basename, dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'astro/zod';

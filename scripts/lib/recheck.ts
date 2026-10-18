@@ -12,6 +12,7 @@
  * bot challenge, or shows the date but no time). Only the first two write to
  * the file; the third is for a person, in the report.
  */
+import type { ConfidenceBasis, ConfidenceLevel } from '../../src/lib/confidence.ts';
 import { addDays, dayKey, formatTime, fromWallClock, parseLocal, toWallClock } from '../../src/lib/dates.ts';
 import { titleTokens } from './ingest.ts';
 import type { FeedEvent } from './feeds/types.ts';
@@ -402,4 +403,42 @@ export function judgeFeed(e: RecheckEvent, occurrence: Date, items: FeedEvent[],
     }
   }
   return { verdict: 'confirmed', note: `"${item.title}" at ${formatTime(item.start)} on ${when(occurrence)} on ${feedName}`, asides };
+}
+
+/** What the call list decides from: the re-check's verdict on an event and the event's standing today. */
+export interface CallInput {
+  verdict: Verdict | 'gone';
+  note: string;
+  /** The event's confidence today (src/lib/confidence.ts): confirmed or listed, and on what. */
+  level: ConfidenceLevel;
+  basis: ConfidenceBasis;
+  /** The community calendar the event rests on, when it does. */
+  calendar?: string;
+  /** A weekly series' last shown date, when its confirmed weeks stop short of `until`. */
+  until?: Date;
+  /** Today, the start of the Denver day. */
+  from: Date;
+}
+
+/** A series whose confirmed weeks run out within this many days is on the call list before its dates go. */
+export const FADING_DAYS = 14;
+
+/**
+ * Why a venue should be rung about an event, or undefined when no call is
+ * due. A listed event (a community calendar's, or a check gone stale) needs
+ * one whatever a page says; a series about to run out of confirmed weeks
+ * needs one too. Otherwise a call is for what no machine could read, and
+ * not when a person has already made it: an event with a recent `confirmed`
+ * block (`npm run confirm`) is the organizer's word, and a page that refuses
+ * automated reads does not put it back on the list every night.
+ */
+export function callReason(c: CallInput): string | undefined {
+  const stillListed = c.level === 'listed' && !(c.verdict === 'confirmed' && !c.calendar);
+  if (stillListed) return c.basis === 'calendar' ? 'only on a community calendar' : 'check gone stale';
+  if (c.until && dayKey(c.until) < dayKey(addDays(c.from, FADING_DAYS))) return `series shown only through ${dayKey(c.until)}`;
+  if (c.level === 'confirmed' && c.basis !== 'source') return undefined;
+  if (c.verdict === 'unreadable') return 'page cannot be read';
+  // A feed that does not reach the date yet will; that is not a call.
+  if (c.verdict === 'unconfirmed' && !/does not reach/.test(c.note)) return 'page does not show it';
+  return undefined;
 }

@@ -59,7 +59,7 @@ import { yamlString } from './lib/event-files.ts';
 import { titleTokens } from './lib/ingest.ts';
 import { hostOf, robotsFor, TIMEOUT, UA } from './lib/probe.ts';
 import { isAllowed } from './lib/robots.ts';
-import { judgeFeed, judgePage, occurrences, occurrenceUrl, pageText, type Judgement, type RecheckEvent } from './lib/recheck.ts';
+import { callReason, judgeFeed, judgePage, occurrences, occurrenceUrl, pageText, type Judgement, type RecheckEvent } from './lib/recheck.ts';
 import { getField, removeField, setField } from './lib/review.ts';
 
 const run = promisify(execFile);
@@ -416,20 +416,14 @@ for (const town of towns) {
     }
     rows.push(row);
     // Whom to ring: a listing only a call can settle, soonest first. A listed
-    // event (a community calendar's, a check gone stale), anything no machine
-    // could read, and a series whose confirmed weeks run out within a fortnight.
+    // event (a community calendar's, a check gone stale), a series whose
+    // confirmed weeks run out within a fortnight, and anything no machine
+    // could read that a person has not already confirmed (lib/recheck.ts,
+    // callReason).
     const level = eventConfidence(data, now);
     const shown = eventPresentation(data, now);
-    const fading = shown.until && dayKey(shown.until) < dayKey(addDays(from, 14));
-    const stillListed = level.level === 'listed' && !(row.verdict === 'confirmed' && !calendar);
-    // A feed that does not reach the date yet will; that is not a call.
-    const early = row.verdict === 'unconfirmed' && /does not reach/.test(row.note);
-    if (stillListed || row.verdict === 'unreadable' || (row.verdict === 'unconfirmed' && !early) || fading) {
-      const why = stillListed
-        ? level.basis === 'calendar' ? 'only on a community calendar' : 'check gone stale'
-        : fading ? `series shown only through ${dayKey(shown.until!)}` : row.verdict === 'unreadable' ? 'page cannot be read' : 'page does not show it';
-      wantCall(town.slug, event.venue ?? '', event.slug, event.title, row.day, why, placeList, town.name);
-    }
+    const why = callReason({ verdict: row.verdict, note: row.note, level: level.level, basis: level.basis, calendar, until: shown.until, from });
+    if (why) wantCall(town.slug, event.venue ?? '', event.slug, event.title, row.day, why, placeList, town.name);
   }
   // Staged events a person set aside for a venue to confirm, with a date ahead.
   const stagedDir = join(contentDir, town.slug, 'staging', 'events');

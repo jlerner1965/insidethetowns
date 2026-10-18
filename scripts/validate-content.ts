@@ -61,7 +61,7 @@ type TownTally = {
   excluded: string[];
   staged: Record<string, number>;
   launch?: ReturnType<typeof launchCounts>;
-  /** Changes ingest found to published events, waiting for the review. */
+  /** Published events a source or the re-check has contradicted (`changeFlag`), waiting for the review. */
   changes?: number;
 };
 const tallies = new Map<string, TownTally>();
@@ -168,6 +168,8 @@ function validateFile(collection: CollectionName, file: string, town: string, st
       } else {
         tally.published[collection] = (tally.published[collection] ?? 0) + 1;
         if (collection === 'events' && eventConfidence(data as unknown as Parameters<typeof eventConfidence>[0]).level === 'listed') tally.listed++;
+        // Flagged by ingest (with a change file) or by the re-check (the note alone): either way it waits for npm run review.
+        if (collection === 'events' && data.changeFlag === true) tally.changes = (tally.changes ?? 0) + 1;
       }
     }
   }
@@ -498,8 +500,6 @@ if (!existsSync(contentDir)) {
             for (const issue of parsed.error.issues) errors.push(`${rel}: ${issue.path.join('.') || '(root)'}: ${issue.message}`);
           } else if (!existsSync(join(townDir, 'events', `${parsed.data.slug}.md`))) {
             warnings.push(`${rel}: names an event that is no longer published (${parsed.data.slug}); delete the change file`);
-          } else {
-            tallyFor(town).changes = (tallyFor(town).changes ?? 0) + 1;
           }
         } catch (err) {
           errors.push(`${rel}: ${(err as Error).message}`);

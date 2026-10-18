@@ -19,7 +19,7 @@ Before drafting anything:
 ## 2. Draft
 
 - **Facts come from sources, not from memory.** Every business name, hour, date, address, price and claim in the draft needs a source you fetched (`web_fetch`/`web_search`) or a file in the repo. Put the source URL in an HTML comment or a front-matter `sources:` list, whichever the repo's existing pages use.
-- If a fact can't be verified, leave it out or mark it `[VERIFY: …]` in the draft so James sees it. Never write around a gap with a plausible guess.
+- If a fact can't be verified, leave it out or mark it `[UNVERIFIED]` with what you found and what is missing, the marker the editor skill (`inside-the-towns-editor`) uses, so James sees it. Never write around a gap with a plausible guess.
 - Match the existing pages: same front-matter fields, same heading pattern, same way of linking to other pages on the site, same image conventions. If the chassis has a component for something (a hours block, an events list), use it rather than hand-writing HTML.
 - "This Week in [Town]" updates follow the existing structure exactly: New & closed, then the rest. Short. If nothing happened in a section, say so in one line rather than inventing filler.
 - Sponsored content: label it clearly as sponsored and mark links as sponsored, per James's rule. If the brief doesn't say who is paying or what the budget is, stop and ask before drafting.
@@ -29,7 +29,7 @@ Before drafting anything:
 - Save the draft to the memory store at `drafts/<town-slug>/<YYYY-MM-DD>-<short-slug>.md`.
 - In your reply, give the full draft, then a short block:
   - the repo path where it would go (follow the existing content layout)
-  - any `[VERIFY: …]` items, listed out
+  - any `[UNVERIFIED]` items, listed out
   - anything you changed from an existing `docs/agent/` draft and why
 - **Never write into `content/`, never commit, never push.** James publishes.
 

@@ -10,14 +10,16 @@ export const INGEST = {
    * it, the item is staged as new and the review decides.
    */
   titleMatch: 0.6,
-  /**
-   * Whether a cancellation read from a source is written straight into the
-   * published file as `status: canceled`, with the feed as the source.
-   *
-   * Off: nothing published changes without a person approving it, which is
-   * the brief's first rule, and a cancellation goes to the top of the review
-   * queue instead. On: a called-off meeting leaves the picks and the feeds
-   * the night it is read, days before the weekly review. The owner's call.
-   */
-  autoApplyCancellations: false,
 } as const;
+
+/*
+ * There is no switch here for applying a cancellation the night it is read.
+ * Ingest writes every change a feed makes to a published event, a
+ * cancellation included, to staging/changes/ with `changeFlag` on the
+ * listing, and touches nothing else. Whether it is then written in without
+ * a person is the standing rules' call (scripts/lib/auto-review.ts, the
+ * owner's delegation of 15 October 2026): the same organizer feed the
+ * listing came from may cancel it, move its time or name its venue; any
+ * other change waits for `npm run review`. Until 18 October 2026 an unused
+ * `autoApplyCancellations: false` sat here and said the opposite.
+ */

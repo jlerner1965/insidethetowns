@@ -31,7 +31,7 @@
  * Exit code is 0 either way; the report is for a person, not CI.
  */
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
-import { dirname, join, relative, resolve } from 'node:path';
+import { basename, dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'astro/zod';
 import { eventSchema, placeSchema } from '../src/content/schemas.ts';
@@ -165,7 +165,7 @@ type TownReport = {
   sourcesWaiting: number;
   /** Events and places in staging, waiting for the review. */
   awaitingReview: { events: number; places: number };
-  /** Changes ingest found to published events; cancellations first. */
+  /** Changes ingest found to published events, and listings the nightly re-check flagged; cancellations first. */
   flagged: Array<{ slug: string; cancel: boolean; summary: string; detected: string }>;
 };
 
@@ -213,8 +213,18 @@ for (const town of allTowns) {
       const c = parsed.data;
       report.flagged.push({ slug: c.slug, cancel: c.cancel, detected: dayKey(c.detected), summary: c.changes.map((x) => `${x.field} ${x.was} → ${x.now}`).join('; ') });
     }
-    report.flagged.sort((a, b) => Number(b.cancel) - Number(a.cancel) || a.slug.localeCompare(b.slug));
   }
+  // A listing the re-check flagged carries the evidence in its changeNote and
+  // has no change file; it waits for the same review (scripts/lib/review.ts).
+  const withChange = new Set(report.flagged.map((f) => f.slug));
+  for (const { file, data } of events) {
+    if (!data?.changeFlag) continue;
+    const slug = data.slug ?? basename(file, '.md');
+    if (withChange.has(slug)) continue;
+    const note = data.changeNote ?? '';
+    report.flagged.push({ slug, cancel: false, detected: /^recheck (\d{4}-\d{2}-\d{2})/.exec(note)?.[1] ?? '', summary: note });
+  }
+  report.flagged.sort((a, b) => Number(b.cancel) - Number(a.cancel) || a.slug.localeCompare(b.slug));
   try {
     const registry = readRegistry(town.slug, contentDir);
     report.sourcesWaiting = registry.sources.filter((s) => s.status === 'proposed' && s.priority === 'core').length;
@@ -326,7 +336,7 @@ for (const r of reports) {
     }
   }
   if (r.flagged.length) {
-    line(`  Changes the sources made to published events (${r.flagged.length}; cancellations first):`);
+    line(`  Published events a source or the re-check contradicts (${r.flagged.length}; cancellations first; npm run review walks them):`);
     for (const f of r.flagged) line(`    ${f.cancel ? 'CANCELED ' : '         '}${f.detected}  ${f.slug}: ${f.summary}`);
   }
   if (r.awaitingReview.events || r.awaitingReview.places) {

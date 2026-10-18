@@ -28,8 +28,10 @@
  *    staging/changes/<slug>.json for the review, cancellations first.
  *
  * Nothing here publishes. The build never reads staging, and a published
- * file's facts are touched only by the review (or, if
- * INGEST.autoApplyCancellations is ever switched on, a cancellation).
+ * file's facts are touched only by the review: a person at `npm run review`,
+ * or the standing rules of `npm run auto-review` (scripts/lib/auto-review.ts),
+ * which write in a time, a venue or a cancellation from the same organizer
+ * feed the listing came from and leave everything else waiting.
  */
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';

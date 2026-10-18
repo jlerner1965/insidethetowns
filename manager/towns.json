@@ -1,5 +1,5 @@
 {
-  "_note": "Source of truth for the manager agent. Keep this current. 'live' means the site is published and should be audited. Mirrors the build's own list in src/config/towns/*.ts (status, domain) and DEPLOY.md; if the two disagree, the repo config wins. Domains checked against both and over HTTPS on 17 October 2026.",
+  "_note": "Source of truth for the manager agent. Keep this current. 'live' means the site is published and should be audited. Mirrors the build's own list in src/config/towns/*.ts (status, domain) and DEPLOY.md; if the two disagree, the repo config wins. Domains checked against both and over HTTPS on 17 October 2026; test/manager-towns.test.ts fails when this file and the configs disagree.",
   "network": {
     "name": "Inside the Towns",
     "domain": "insidethetowns.com",
@@ -14,7 +14,7 @@
     { "slug": "erie",        "name": "Erie",         "domain": "insideerie.com",         "live": true },
     { "slug": "johnstown",   "name": "Johnstown",    "domain": "insidejohnstown.com",    "live": true },
     { "slug": "timnath",     "name": "Timnath",      "domain": "insidetimnath.com",      "live": true },
-    { "slug": "elizabeth",   "name": "Elizabeth",    "domain": "insideelizabeth.com",    "live": true,  "notes": "quiet since 2026-10-12: out of the weekly email, so no signup or This Week expected; owner decides by 2026-11-15 whether it rejoins" },
+    { "slug": "elizabeth",   "name": "Elizabeth",    "domain": "insideelizabeth.com",    "live": true,  "notes": "quiet since 2026-10-12: out of the weekly email, so no signup box on its pages or anyone else's and no Thursday draft; its This Week page and weekly notes carry on like every live guide's. The owner kept it on 2026-10-15 and decides by 2026-11-15 whether it rejoins the email" },
     { "slug": "windsor",     "name": "Windsor",      "domain": "insidewindsorco.com",    "live": true,  "alternate_domains": ["insideseverance.com"], "notes": "Windsor and Severance on one site; Severance folded in 2026-10-12 (subTown: severance, /severance/). insidewindsor.com is someone else's" },
     { "slug": "fortcollins", "name": "Fort Collins", "domain": "insidefortcollins.com",  "live": true },
     { "slug": "longmont",    "name": "Longmont",     "domain": "insidelongmontco.com",   "live": true },
@@ -28,9 +28,9 @@
     { "slug": "idaho-springs","name": "Idaho Springs","domain": "insideidahosprings.com", "live": true,  "notes": "mountain town" },
     { "slug": "georgetown",  "name": "Georgetown",   "domain": "insidegeorgetownco.com", "live": true,  "notes": "mountain town" },
     { "slug": "grand-lake",  "name": "Grand Lake",   "domain": "insidegrandlake.com",    "live": true,  "notes": "mountain town" },
-    { "slug": "manitou-springs","name": "Manitou Springs","domain": "insidemanitousprings.com","live": true, "notes": "mountain town; visitor guide since 2026-10-12: no weekly email, signup or This Week expected" },
-    { "slug": "leadville",   "name": "Leadville",    "domain": "insideleadville.com",    "live": true,  "notes": "mountain town; visitor guide since 2026-10-12: no weekly email, signup or This Week expected" },
-    { "slug": "black-hawk",  "name": "Black Hawk",   "domain": "insideblackhawk.com",    "live": true,  "notes": "mountain town; visitor guide since 2026-10-12: no weekly email, signup or This Week expected" },
+    { "slug": "manitou-springs","name": "Manitou Springs","domain": "insidemanitousprings.com","live": true, "notes": "mountain town; visitor guide since 2026-10-12: no weekly email or signup box expected; its This Week page and weekly notes carry on like every live guide's" },
+    { "slug": "leadville",   "name": "Leadville",    "domain": "insideleadville.com",    "live": true,  "notes": "mountain town; visitor guide since 2026-10-12: no weekly email or signup box expected; its This Week page and weekly notes carry on like every live guide's" },
+    { "slug": "black-hawk",  "name": "Black Hawk",   "domain": "insideblackhawk.com",    "live": true,  "notes": "mountain town; visitor guide since 2026-10-12: no weekly email or signup box expected; its This Week page and weekly notes carry on like every live guide's" },
 
     { "slug": "castle-rock", "name": "Castle Rock",  "domain": "insidecastlerockco.com", "live": false, "notes": "wave 2: domain serves a noindex holding page until the owner flips it live. insidecastlerock.com is someone else's" },
     { "slug": "summit-county","name": "Summit County","domain": "insidesummitcounty.com", "live": false, "notes": "undecided whether to use; not in the repo yet" }
