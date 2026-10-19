@@ -10,7 +10,7 @@ source: "https://bouldercounty.gov/event/a-fall-full-moon-walk/"
 sourceId: "bouldercounty-gov"
 sourceUid: "10004400-1792863000-1792870200@bouldercounty.gov"
 sourceHash: "32286fe85af2"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"A Fall Full Moon Walk\" at 5:30 pm on 24 October on the Boulder County feed"
 ---
 

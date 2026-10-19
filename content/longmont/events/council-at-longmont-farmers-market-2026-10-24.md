@@ -10,7 +10,7 @@ source: "https://longmontcolorado.gov/event/council-at-longmont-farmers-market/2
 sourceId: "longmontcolorado-gov"
 sourceUid: "10008128-1792828800-1792836000@longmontcolorado.gov"
 sourceHash: "a91c2d99bb89"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Council at Longmont Farmers Market\" at 8 am on 24 October on the City of Longmont: City Council calendar feed"
 ---
 

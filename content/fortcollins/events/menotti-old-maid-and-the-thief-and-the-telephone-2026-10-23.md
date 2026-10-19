@@ -9,7 +9,7 @@ url: "https://music.colostate.edu/events/gian-carlo-menottis-the-old-maid-and-th
 cost: "$15; seniors $13; under 18 $5; CSU students free"
 category: arts
 source: "https://music.colostate.edu/events/gian-carlo-menottis-the-old-maid-and-the-thief-and-the-telephone/"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): 23 October and 7:30 pm on the page"
 ---
 

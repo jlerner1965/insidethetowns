@@ -11,7 +11,7 @@ source: "https://longmontcolorado.gov/event/day-of-the-dead-family-celebration-2
 sourceId: "longmontcolorado-gov-recreation"
 sourceUid: "10008919-1792839600-1792854000@longmontcolorado.gov"
 sourceHash: "0e26bb47cb55"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Day of the Dead Family Celebration\" at 11 am on 24 October on the Longmont Recreation Services (City of Longmont calendar) feed"
 ---
 

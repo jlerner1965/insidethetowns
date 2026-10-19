@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/17099044"
 cost: "Free; registration required"
 category: family
 source: "https://highplains.libcal.com/event/17099044"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Parenting Series: Adolescent RISE, with Nicholas Thompson\" at 6:30 pm on 22 October in the page's structured data"
 ---
 

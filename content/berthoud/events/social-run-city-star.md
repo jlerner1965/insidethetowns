@@ -11,7 +11,8 @@ cost: "Free; $3 post-run beer"
 category: sports
 recurring: "Thursdays at 6"
 source: "https://citystarbrewing.com/events/"
-verified: "2026-10-03"
+verified: "2026-10-19"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Social Run\" at 6 pm on 22 October in the page's structured data"
 ---
 
 A weekly group run from the brewery on Thursday evenings, two distance options, every pace welcome, with a $3 post-run beer waiting at the end.

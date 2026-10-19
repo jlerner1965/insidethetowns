@@ -9,7 +9,7 @@ performers:
 url: "https://citystarbrewing.com/event/mountain-duo/"
 category: music
 source: "https://citystarbrewing.com/event/mountain-duo/"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Mountain Duo\" at 6 pm on 24 October in the page's structured data"
 ---
 

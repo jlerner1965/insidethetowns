@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/autumn-bath-salts/"
 cost: "Free"
 category: arts
 source: "https://johnstownmillikenpubliclibraries.us/event/autumn-bath-salts/"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Autumn Bath Salts\" at 2:30 pm on 23 October in the page's structured data"
 ---
 

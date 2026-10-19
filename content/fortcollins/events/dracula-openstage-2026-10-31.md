@@ -25,7 +25,7 @@ category: arts
 organizer: "OpenStage Theatre & Company"
 organizerUrl: "https://openstage.com/"
 source: "https://www.lctix.com/shows-tickets/dracula-2/"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Dracula\" at 7:30 pm on 31 October in the page's structured data"
 ---
 

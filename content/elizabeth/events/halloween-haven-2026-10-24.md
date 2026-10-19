@@ -7,7 +7,7 @@ address: "4189 S Highway 86"
 url: "https://www.elizabethpr.com/epr-hosted-events"
 category: family
 source: "https://www.elizabethpr.com/epr-hosted-events"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): 24 October and 6 pm on the page"
 ---
 

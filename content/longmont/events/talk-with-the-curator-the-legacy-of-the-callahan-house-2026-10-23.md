@@ -10,7 +10,7 @@ source: "https://longmontcolorado.gov/event/talk-with-the-curator-the-legacy-of-
 sourceId: "longmontcolorado-gov-museum"
 sourceUid: "10009021-1792765800-1792771200@longmontcolorado.gov"
 sourceHash: "7ca7bcb6edf6"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Talk with the Curator: The Legacy of the Callahan House\" at 2:30 pm on 23 October on the Longmont Museum (City of Longmont calendar) feed"
 ---
 

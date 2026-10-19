@@ -16,7 +16,7 @@ cost: "$18 in advance; under 11 free"
 category: arts
 organizer: "Manitou Springs Heritage Center"
 source: "https://manitouspringsheritagecenter.org/events/"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"31st Annual Ghost Stories of Old Manitou Walking Tours\" at 5:30 pm on 23 October on the Manitou Springs Heritage Museum calendar feed"
 ---
 

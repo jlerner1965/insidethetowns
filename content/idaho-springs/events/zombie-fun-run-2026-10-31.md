@@ -9,7 +9,7 @@ category: sports
 organizer: "Clear Creek Metropolitan Recreation District"
 source: "https://clearcreekrecreation.com/events/"
 sourceId: "clearcreekrecreation-com"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): 31 October and 10 am on the page"
 ---
 

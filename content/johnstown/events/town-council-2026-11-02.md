@@ -8,7 +8,8 @@ cost: "Free"
 category: civic
 recurring: "First and third Mondays"
 source: "https://johnstownco.gov/Calendar.aspx"
-verified: "2026-09-18"
+verified: "2026-10-19"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Town Council Regular Meeting\" at 7 pm on 2 November on the johnstownco.gov feed"
 ---
 
 Regular meeting of the Johnstown Town Council in the Council Chambers at Town Hall, first and third Mondays at 7 pm (the following Wednesday when Monday is a holiday), streamed live on the Town's website. Agendas and packets on the Town's CivicClerk portal.

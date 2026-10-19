@@ -8,7 +8,7 @@ category: arts
 url: "https://lyons.librarycalendar.com/event/alcohol-ink-tiles"
 organizer: "Lyons Regional Library"
 source: "https://lyons.librarycalendar.com/event/alcohol-ink-tiles"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Alcohol Ink Tiles\" at 6 pm on 20 October on the lyons.librarycalendar.com feed"
 ---
 

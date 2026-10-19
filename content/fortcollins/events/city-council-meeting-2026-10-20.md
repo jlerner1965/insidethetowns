@@ -9,7 +9,7 @@ cost: "Free"
 category: civic
 recurring: "First and third Tuesdays at 6"
 source: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q4/City-Council-Meetings/Oct.-20-City-Council-Meeting"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): 20 October and 6 pm on the page"
 ---
 

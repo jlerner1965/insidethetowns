@@ -6,7 +6,7 @@ venue: "Downtown Fort Collins"
 url: "https://downtownfortcollins.com/play/tiny-tot-halloween"
 category: family
 source: "https://downtownfortcollins.com/play/tiny-tot-halloween"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): 30 October and 10 am on the page"
 ---
 

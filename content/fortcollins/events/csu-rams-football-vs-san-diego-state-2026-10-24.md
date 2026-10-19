@@ -5,7 +5,7 @@ venue: "Canvas Stadium"
 url: "https://csurams.com/sports/football/schedule/2026"
 category: sports
 source: "https://csurams.com/sports/football/schedule/2026"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): 24 October and 4:30 pm on the page"
 ---
 

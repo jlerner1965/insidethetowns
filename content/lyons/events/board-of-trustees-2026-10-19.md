@@ -8,7 +8,7 @@ url: "https://www.lyonscolorado.com/AgendaCenter"
 category: civic
 recurring: "First and third Mondays"
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6704"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Board of Trustees Meeting\" at 7 pm on 19 October on the townoflyons.com feed"
 ---
 
