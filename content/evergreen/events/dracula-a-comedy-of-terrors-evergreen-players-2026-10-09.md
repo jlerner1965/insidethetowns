@@ -21,8 +21,8 @@ cost: "$30 adults, $25 seniors, $20 students, plus a $2 ticketing fee"
 category: arts
 source: "https://app.arts-people.com/index.php?show=349728"
 sourceId: "evergreenplayers-org"
-verified: "2026-10-17"
-verifiedBy: "recheck-events (the nightly re-check workflow): 17 October and 7:30 pm on the page"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): 18 October and 2 pm on the page"
 ---
 
 The Evergreen Players' fall show, a 90-minute comic retelling of Bram Stoker's Dracula by Gordon Greenberg and Steve Rosen, directed by Paul Newman, with quick changes and a female vampire hunter, Jean Van Helsing. Performances are Fridays and Saturdays at 7:30 pm and Sundays at 2 pm from October 9 to 25 at Center Stage on Fireweed Drive; tickets are sold through the Players' box office.

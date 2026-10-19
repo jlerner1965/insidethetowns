@@ -11,7 +11,7 @@ timeNote: "Fri & Sat 5–7 pm; Sun 1–3 and 5–7 pm"
 organizer: "City of Fort Collins Recreation"
 organizerUrl: "https://www.fortcollins.gov/Activities/Recreation"
 source: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q4/Treatsylvania"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): 23 October and 5 pm on the page"
 ---
 

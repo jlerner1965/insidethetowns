@@ -11,7 +11,7 @@ category: food
 organizer: "High Hops Brewery"
 organizerUrl: "https://www.highhopsbrewery.com/"
 source: "https://www.highhopsbrewery.com/events-2"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): 18 October and 10:30 am on the page"
 ---
 

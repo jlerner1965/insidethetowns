@@ -10,7 +10,7 @@ source: "https://longmontcolorado.gov/event/mythical-creatures-club-2/"
 sourceId: "longmontcolorado-gov-library"
 sourceUid: "10008851-1792425600-1792429200@longmontcolorado.gov"
 sourceHash: "0eea9b3c69fd"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Mythical Creatures Club\" at 4 pm on 19 October on the Longmont Public Library (City of Longmont calendar) feed"
 ---
 

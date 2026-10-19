@@ -9,8 +9,8 @@ performers:
 url: "https://rockgardenlyons.com/events"
 category: music
 source: "https://rockgardenlyons.com/events"
-verified: "2026-10-17"
-verifiedBy: "recheck-events (run by hand, 17 October 2026): 24 October and 6 pm on the page"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): 24 October and 6 pm on the page"
 ---
 
 Saturday-evening set in the creekside beer garden.

@@ -11,7 +11,7 @@ source: "https://www.molliemcgees.com/event-details/fall-craft-market-2026"
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10004417-1792317600-1792339200@bouldercounty.gov"
 sourceHash: "a54f5214e6a2"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Mollie McGee's 45th Annual Fall Craft Market\" at 10 am on 18 October on the Boulder County Fairgrounds feed"
 ---
 

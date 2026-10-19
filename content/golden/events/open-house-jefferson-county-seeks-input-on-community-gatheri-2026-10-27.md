@@ -12,7 +12,7 @@ source: "https://www.jeffco.us/calendar.aspx?EID=16873"
 sourceId: "jeffco-us-open-space"
 sourceUid: "16873"
 sourceHash: "87a89cbd702e"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Open House: Jefferson County Seeks Input on Community Gathering Spaces\" at 5 pm on 27 October on the Jeffco Open Space - Programs, Alerts & Closures feed"
 ---
 

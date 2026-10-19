@@ -11,8 +11,8 @@ organizer: "Very Nice Brewing Company"
 organizerUrl: "https://www.verynicebrewing.com/"
 source: "https://www.verynicebrewing.com/event-details/halloween-at-the-vault-live-music-with-chris-myth-scott-spanbauer"
 sourceId: "verynicebrewing-com"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Halloween at The Vault & Live Music with Chris Myth & Scott Spanbauer\" at 5 pm on 31 October in the page's structured data"
 ---
 
 Halloween at Very Nice Brewing: children can trick-or-treat through the day at its shops in The Vault and at its neighbor, Mountain Man Outdoor Store, though no hours are given for that part. From 5 to 7 pm there are treats for adults around The Vault and live music in the taproom from Chris Myth and Scott Spanbauer on pedal steel.

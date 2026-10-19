@@ -11,8 +11,8 @@ source: "https://longmontcolorado.gov/event/halloween-costume-parade/"
 sourceId: "longmontcolorado-gov-recreation"
 sourceUid: "10009011-1793439000-1793446200@longmontcolorado.gov"
 sourceHash: "954b3822cbf6"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Halloween Costume Parade\" at 9:30 am on 31 October on the Longmont Recreation Services (City of Longmont calendar) feed"
 ---
 
 Longmont's annual costume parade on foot down Main Street, for children and adults, followed by trick-or-treating at participating downtown businesses. Free and no registration; strollers and wagons welcome, dogs on a leash, no motorized vehicles.

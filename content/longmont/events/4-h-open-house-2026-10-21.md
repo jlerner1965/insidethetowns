@@ -11,7 +11,7 @@ source: "https://bouldercounty.gov/event/4-h-open-house-oct-21/"
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10004426-1792606500-1792611000@bouldercounty.gov"
 sourceHash: "b3cb5ef24048"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"4-H Open House\" at 6:15 pm on 21 October on the Boulder County Fairgrounds feed"
 ---
 

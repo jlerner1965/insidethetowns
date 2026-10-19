@@ -8,7 +8,7 @@ url: "https://downtownberthoud.org/downtown-berthoud-events/"
 cost: "Free"
 category: family
 source: "https://berthoudmainstreet.org/fall-for-berthoud/"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): 24 October and 3 pm on the page"
 ---
 

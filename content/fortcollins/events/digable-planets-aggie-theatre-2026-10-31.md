@@ -10,7 +10,8 @@ performers:
 url: "https://www.tixr.com/groups/aggietheatre/events/digable-planets-blowout-comb-30th-anniversary-tour-with-dvnehppy-thin-air-crew-192015"
 category: music
 source: "https://www.z2ent.com/venues-we-book/aggie-theatre"
-verified: "2026-10-01"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): 31 October and 8 pm on the page"
 ---
 
 The jazz-rap trio's Blowout Comb 30th-anniversary tour at the Aggie on College Avenue, Halloween night at 8, with DVNEHPPY and Thin Air Crew opening.

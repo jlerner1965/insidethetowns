@@ -9,8 +9,8 @@ cost: "$11.97; VIP $27.95"
 category: other
 source: "https://events.deskchairworkspace.com/e/halloweenparty/tickets"
 sourceId: "loveland-org"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): 31 October and 7 pm on the page"
 ---
 
 An adult Halloween party, 21 and over, on the rooftop above 4th Street: a DJ from Howe Eventful, Halloween cocktails and one drink with the ticket; VIP adds entry to the Find Your Fright haunted house.

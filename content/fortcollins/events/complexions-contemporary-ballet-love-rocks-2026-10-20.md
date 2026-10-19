@@ -9,7 +9,7 @@ url: "https://www.lctix.com/shows-tickets/complexions/"
 cost: "$58–$92; limited $35 seats"
 category: arts
 source: "https://www.lctix.com/shows-tickets/complexions/"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Complexions Contemporary Ballet: Love Rocks\" at 7:30 pm on 20 October in the page's structured data"
 ---
 

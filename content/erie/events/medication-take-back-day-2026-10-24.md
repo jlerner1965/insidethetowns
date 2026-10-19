@@ -8,7 +8,7 @@ url: "https://www.erieco.gov/Calendar.aspx?EID=5390"
 cost: "Free"
 category: civic
 source: "https://www.erieco.gov/Calendar.aspx?EID=5390"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Medication Take-Back\" at 10 am on 24 October on the erieco.gov feed"
 ---
 

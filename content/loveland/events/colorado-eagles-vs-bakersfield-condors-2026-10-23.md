@@ -8,7 +8,7 @@ category: sports
 timeNote: "Doors 6 pm, puck drop 7:05 pm"
 source: "https://www.treventscomplex.com/events/detail/colorado-eagles-vs-bakersfield-condors-12"
 sourceId: "treventscomplex-com"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): 23 October and 7:05 pm on the page"
 ---
 

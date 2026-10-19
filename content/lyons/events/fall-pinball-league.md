@@ -8,8 +8,8 @@ address: "339 Main St, Lyons, CO 80540"
 cost: "$40 league fee"
 category: sports
 source: "https://www.lyonsclassicpinball.com/events"
-verified: "2026-10-17"
-verifiedBy: "recheck-events (run by hand, 17 October 2026): 22 October and 7:30 pm on the page"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): 22 October and 7:30 pm on the page"
 ---
 
 Weeks three to nine and the finals of Lyons Classic Pinball's Season 49 league, running Thursday evenings through 19 November. Weeks one and two have already been played.

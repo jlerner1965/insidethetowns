@@ -12,7 +12,7 @@ timeNote: "Open house, come anytime 10 to 11:30 am"
 organizer: "Clearview Library District"
 organizerUrl: "https://www.clearviewlibrary.org/"
 source: "https://clearview.libnet.info/event/17236567"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): 22 October and 10 am on the page"
 ---
 

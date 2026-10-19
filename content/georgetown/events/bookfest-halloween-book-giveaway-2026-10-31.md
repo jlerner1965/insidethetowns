@@ -11,8 +11,8 @@ organizer: "Friends of the Georgetown Library and Friends of the Idaho Springs L
 organizerUrl: "https://cccld.org/friends-of-the-georgetown-library/"
 source: "https://cccld.org/events/"
 sourceId: "cccld-org"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-18"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"ISPL & JTML BOOkfest\" at 5 pm on 31 October on the Clear Creek County Library District calendar feed"
 ---
 
 On Halloween night both county libraries, the John Tomay Memorial Library in Georgetown and the Idaho Springs Public Library, give every child a free book and a sweet treat, sponsored by the two libraries' Friends groups. Read from the Clear Creek County Library District's events calendar.

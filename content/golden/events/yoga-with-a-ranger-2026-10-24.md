@@ -13,7 +13,7 @@ source: "https://www.jeffco.us/calendar.aspx?EID=16769"
 sourceId: "jeffco-us-open-space"
 sourceUid: "16769"
 sourceHash: "8529f3fb7b4c"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Yoga With a Ranger\" at 8:30 am on 24 October on the Jeffco Open Space - Programs, Alerts & Closures feed"
 ---
 

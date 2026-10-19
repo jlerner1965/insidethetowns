@@ -13,7 +13,7 @@ sourceHash: "555bc6403692"
 address: "7 Park Ave, Firestone, CO 80504"
 organizer: "High Plains Library District"
 organizerUrl: "https://www.mylibrary.us/"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Halloween Dance Party\" at 10 am on 30 October on the Carbon Valley Regional Library (High Plains Library District), LibCal feed"
 ---
 

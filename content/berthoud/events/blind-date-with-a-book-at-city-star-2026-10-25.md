@@ -8,7 +8,7 @@ url: "https://citystarbrewing.com/event/blind-date-with-a-book-2/"
 cost: "$20 for a beer and a wrapped book"
 category: arts
 source: "https://citystarbrewing.com/event/blind-date-with-a-book-2/"
-verified: "2026-10-17"
+verified: "2026-10-18"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Blind Date with a Book\" at 12 pm on 25 October in the page's structured data"
 ---
 
