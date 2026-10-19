@@ -27,7 +27,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "ok",
       "cites": {
         "events": 14,
@@ -46,7 +46,7 @@
       "category": "county",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "ok",
       "cites": {
         "events": 0,
@@ -68,7 +68,7 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "skipped",
       "lastNote": "robots.txt asks automated clients not to fetch it",
       "cites": {
