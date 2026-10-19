@@ -13,7 +13,7 @@ imageAlt: "Estes Park and the mountains beyond it, seen from the Gem Lake Trail 
 imageCredit: "SOTMUS, Wikimedia Commons, CC BY-SA 4.0"
 tags: [rmnp, hiking, gem-lake, close-to-town]
 summary: "Rocky Mountain National Park trailhead 1.8 miles by road from Bond Park downtown: Gem Lake is 1.6 miles and about 1,000 feet up from here. A park entrance pass is required."
-access: { permit: "Timed-entry reservation needed 9 am–2 pm, May 22 to October 12, 2026 (Lumpy Ridge is included), and a park entrance pass at all times.", conditionsUrl: "https://www.nps.gov/romo/planyourvisit/conditions.htm", conditionsLabel: "RMNP current conditions", source: "https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm", verified: "2026-10-06" }
+access: { permit: "Timed entry is out of season: the 2026 reservation season ended 12 October, and the park has not yet posted 2027 dates (per its timed-entry page). A park entrance pass is still needed at all times.", conditionsUrl: "https://www.nps.gov/romo/planyourvisit/conditions.htm", conditionsLabel: "RMNP current conditions", source: "https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm", verified: "2026-10-19" }
 ---
 
 A Rocky Mountain National Park trailhead at 7,840 feet. From Bond Park in downtown Estes Park, drive 1.5 miles on MacGregor Avenue/Devils Gulch Road to the Lumpy Ridge sign, turn left and go 0.3 mile. The park's trail list gives Gem Lake as 1.6 miles one way with about 1,000 feet of gain.
