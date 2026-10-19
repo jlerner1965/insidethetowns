@@ -10,7 +10,7 @@ cost: "Free"
 category: arts
 source: "https://evergreenarts.org/cae/exhibition-of-chaos-order/"
 sourceId: "evergreenarts-org"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): 22 October and 4 pm on the page"
 ---
 

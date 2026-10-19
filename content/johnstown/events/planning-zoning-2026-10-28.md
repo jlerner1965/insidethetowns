@@ -8,7 +8,7 @@ cost: "Free"
 category: civic
 recurring: "Second and fourth Wednesdays"
 source: "https://johnstownco.gov/Calendar.aspx"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Planning and Zoning Commission Meeting 4th Wednesday\" at 6 pm on 28 October on the johnstownco.gov feed"
 ---
 

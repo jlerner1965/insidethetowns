@@ -10,7 +10,7 @@ source: "https://longmontcolorado.gov/event/the-library-the-longmont-senior-cent
 sourceId: "longmontcolorado-gov-library"
 sourceUid: "10008664-1792668600-1792674900@longmontcolorado.gov"
 sourceHash: "4e50c12b21f4"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"The Library @ the Longmont Senior Center\" at 11:30 am on 22 October on the Longmont Public Library (City of Longmont calendar) feed"
 ---
 

@@ -9,7 +9,7 @@ cost: "Free"
 category: civic
 recurring: "Third Mondays"
 source: "https://www.berthoud.org/Calendar.aspx"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Tree Advisory Committee Meeting\" at 5:30 pm on 19 October on the berthoud.org feed"
 ---
 

@@ -7,7 +7,7 @@ address: "432 5th Ave, Lyons, CO 80540"
 url: "https://www.townoflyons.com/Calendar.aspx?EID=6328"
 category: civic
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6328"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Utilities & Engineering Board\" at 4:30 pm on 21 October on the townoflyons.com feed"
 ---
 

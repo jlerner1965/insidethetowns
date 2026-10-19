@@ -9,7 +9,7 @@ performers:
 url: "https://www.tixr.com/groups/aggietheatre/events/sunn-o-with-gentry-densley-198458"
 category: music
 source: "https://www.z2ent.com/venues-we-book/aggie-theatre"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): 24 October and 8 pm on the page"
 ---
 

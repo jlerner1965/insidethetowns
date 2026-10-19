@@ -13,7 +13,7 @@ source: "https://www.jeffco.us/calendar.aspx?EID=16770"
 sourceId: "jeffco-us-open-space"
 sourceUid: "16770"
 sourceHash: "69050ed020fb"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Full Moon Night Hike\" at 7:30 pm on 25 October on the Jeffco Open Space – Open Space Master Calendar, parks and alerts feed"
 ---
 

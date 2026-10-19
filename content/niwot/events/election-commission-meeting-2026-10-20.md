@@ -8,7 +8,7 @@ url: "https://niwotelection.org/meetings"
 cost: "Free"
 category: civic
 source: "https://niwotelection.org/meetings"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): 20 October and 2 pm on the page"
 ---
 

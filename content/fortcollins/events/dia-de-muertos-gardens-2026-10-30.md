@@ -9,7 +9,7 @@ cost: "Included with Gardens admission: $12.50 adults; $10.50 adults 65+ and mil
 category: festival
 timeNote: "October 30 to November 3, during Gardens hours"
 source: "https://gardens.fortcollins.gov/Events-and-Classes/D%C3%ADa-de-Muertos"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): 30 October and 9 am on the page"
 ---
 

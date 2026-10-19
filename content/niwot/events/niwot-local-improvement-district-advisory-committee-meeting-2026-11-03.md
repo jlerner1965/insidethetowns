@@ -9,7 +9,8 @@ cost: "Free"
 category: civic
 recurring: "first Tuesday of the month"
 source: "https://bouldercounty.gov/series/niwot-local-improvement-district-advisory-committee-nlidac-meeting/"
-verified: "2026-09-18"
+verified: "2026-10-19"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Niwot Local Improvement District Advisory Committee (NLIDAC) Meeting\" at 7 pm on 3 November on the bouldercounty.gov feed"
 ---
 
 Monthly meeting of the advisory committee for the Niwot Local Improvement District. Held the same day as the November 3 incorporation election. The public is invited to attend; check the Commissioners' two-week advance agenda to confirm the meeting is on.

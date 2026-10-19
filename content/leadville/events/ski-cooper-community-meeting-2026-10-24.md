@@ -8,7 +8,7 @@ url: "https://www.skicooper.com/events/"
 category: other
 organizer: "Ski Cooper"
 source: "https://www.skicooper.com/events/"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Community Meeting at the Cooper Lodge\" at 10 am on 24 October in the page's structured data"
 ---
 

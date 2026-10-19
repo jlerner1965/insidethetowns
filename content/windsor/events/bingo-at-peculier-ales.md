@@ -11,7 +11,7 @@ url: "https://peculierales.com/events/bingo/"
 category: other
 recurring: "Every Wednesday, 6 to 8 pm"
 source: "https://peculierales.com/events/bingo/"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): 21 October and 6 pm on the page"
 ---
 

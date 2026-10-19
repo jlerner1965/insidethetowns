@@ -11,7 +11,7 @@ organizer: "Clear Creek County Library District"
 organizerUrl: "https://cccld.org/"
 source: "https://cccld.org/programs-and-events"
 sourceId: "cccld-org"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"ISPL Book Group\" at 4 pm on 19 October on the Clear Creek County Library District calendar feed"
 ---
 

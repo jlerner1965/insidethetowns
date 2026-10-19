@@ -12,7 +12,7 @@ timeNote: "Tours at 5:30 and 7 pm"
 organizer: "Town of Windsor Museums"
 organizerUrl: "https://www.recreationliveshere.com/294/Museums"
 source: "https://www.recreationliveshere.com/calendar.aspx"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): 30 October and 5:30 pm on the page"
 ---
 

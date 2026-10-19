@@ -11,8 +11,8 @@ source: "https://www.niwotauction.com/2026/09/15/antique-auction-on-nov-1-2026-a
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10003225-1793523600-1793556000@bouldercounty.gov"
 sourceHash: "8717ae7d9fb6"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-19"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Niwot Antique Auction\" at 9 am on 1 November on the Boulder County Fairgrounds feed"
 ---
 
 Niwot Auction's antique auction in Barn A at the Boulder County Fairgrounds, Sunday 1 November; the auction starts at 11 am, and the County books the barn for it from 9 am to 6 pm. The auction house says more details will follow on its site.

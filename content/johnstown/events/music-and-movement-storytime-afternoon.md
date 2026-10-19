@@ -11,7 +11,7 @@ category: family
 recurring: "Mondays at 1"
 source: "https://johnstownmillikenpubliclibraries.us/event/music-movement-storytime-9/2026-10-19/2/"
 sourceId: "johnstownmillikenpubliclibraries-us"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Music &#038; Movement Storytime\" at 1 pm on 19 October in the page's structured data"
 ---
 

@@ -13,7 +13,7 @@ organizer: "Fort Lupton Public & School Library"
 source: "https://highplains.libcal.com/event/17633024"
 sourceId: "highplains-libcal-com-fort-lupton"
 sourceUid: "libcal:17633024"
-verified: "2026-10-18"
+verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Victorian Death Rituals Historical Presentation\" at 6 pm on 22 October on the Fort Lupton Public & School Library (High Plains Library District), LibCal feed"
 ---
 
