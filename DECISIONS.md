@@ -5563,3 +5563,29 @@ candidate was read against them and against the live Commons record.
   searches above found. The routes the report suggests (permission
   emails, a walk with a camera, the towns' parks departments) are already
   written up in docs/PHOTOS.md and the email drafts beside it.
+
+## The signup's tab is the browser's, 20 October
+
+*20 October 2026.* The owner put an address into the signup at the foot of a
+page and got an empty tab; back on the page it said "Finish signing up in the
+new tab". Since 13 October ("The signup says what it can see", above) the
+script had opened that tab itself, empty, cleared its opener, and then posted
+the form into it by name, so that a blocked tab would be known before
+anything was sent. Chromium carries the post into the tab; the empty tab
+says at least one browser did not, while the page went ahead as if it had.
+
+- **The form posts with its own `target="_blank"`**, as Buttondown's embed
+  does, and the browser opens the tab the way it opens a link's. A tab the
+  reader asked for with a press is not a pop-up, so the blocked-tab notice
+  and its "Continue in this tab" are gone with the code that needed them.
+  Buttondown's page sends `Cross-Origin-Opener-Policy: same-origin`, so it
+  still gets no handle on this page.
+- **Kept:** a town is still required on every form, a double click still
+  sends once, and the page still says what is left to do in the tab, with
+  "Open the signup tab again" (a fresh press of the same form) and "Change
+  your details".
+- **Checked** in Chromium against the built component, with Buttondown's
+  address answered locally: one tab with the provider's page in it and the
+  address and town tag posted, the reopen link, the town rule, a double
+  click. Not checked in Safari, which this container does not have; the
+  owner's next signup there is the test.
