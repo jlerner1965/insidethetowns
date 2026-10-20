@@ -5,7 +5,7 @@ address: "11th & Arapahoe, Golden, CO"
 area: "Downtown"
 url: "https://www.goldenhistory.org/visit/history-park/"
 source: "https://www.goldenhistory.org/visit/history-park/"
-verified: "2026-10-06"
+verified: "2026-10-20"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 image: ../images/golden-history-park.jpg

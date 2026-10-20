@@ -4,7 +4,7 @@ type: venue
 address: "17155 W. 44th Avenue, Golden, CO 80403"
 url: "https://coloradorailroadmuseum.org/"
 source: "https://coloradorailroadmuseum.org/plan-your-visit/"
-verified: "2026-10-06"
+verified: "2026-10-20"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 image: ../images/colorado-railroad-museum.jpg
