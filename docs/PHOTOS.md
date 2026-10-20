@@ -72,6 +72,12 @@ Do not repeat these. The searches are recorded in `DECISIONS.md`.
   Springs and Grand Lake; the traps and what was declined are in
   `DECISIONS.md` under *The eighteen-town Commons lists*. Do not re-review
   them.
+- **A per-place search of nine guides (20 October 2026).** 259 places in
+  Niwot, Lyons, Golden, Erie, Berthoud, Estes Park, Longmont, Loveland and
+  Nederland, each searched on Commons, made outside the repository. Two
+  trailheads got a photograph (Sprague Lake and Bierstadt Lake); the rest
+  of its picks had been ruled on already. Recorded in `DECISIONS.md` under
+  *A per-place search of nine guides*. Do not re-review it.
 - **KartaView street-level imagery.** Four frames near Elizabeth's Main Street,
   all windshield dashcam shots of roadway with dashboard glare. No storefronts.
 - **Mapillary.** Requires an API token this project does not have.

@@ -8,6 +8,9 @@ source: "https://www.nps.gov/romo/planyourvisit/exploring-the-bear-lake-road-cor
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/sprague-lake-trailhead.jpg
+imageAlt: "Sprague Lake from its shore, a short walk from the trailhead's parking area, with the peaks of the Continental Divide beyond, July 2022"
+imageCredit: "Axan77, Wikimedia Commons, CC BY 4.0"
 mapUrl: "https://www.nps.gov/romo/planyourvisit/upload/Bear-Lake-Road-Digital-Map_large-2023-01.png"
 tags: [rmnp, accessible, picnic, fishing, easy]
 summary: "Paved lot, picnic tables and restrooms beside Sprague Lake, with a short loop round the lake that the park describes as wheelchair and stroller accessible. Open all year."
