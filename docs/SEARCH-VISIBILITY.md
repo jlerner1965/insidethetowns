@@ -123,6 +123,32 @@ project, over the seven days.
 (`src/config/towns/types.ts`, `TownSponsors`), so until then this column is
 not applicable rather than zero.
 
+**First Search Console read, 20 October 2026**, through the GSC Wizard
+plugin the owner connected that day (Google read-only; Bing not yet, it
+needs a Bing Webmaster API key added in the plugin). Twenty-eight days to
+18 October, the whole property, not the weekly window above, so a baseline
+rather than a row:
+
+| Site | Clicks | Impressions | CTR | Avg position | Top page (clicks) | Section page for "[town] events" |
+|---|---|---|---|---|---|---|
+| Inside Niwot | 89 | 1,930 | 4.6% | 11.9 | /events/niwot-trot-5k-2026/ (33) | /events/ position 12.6, 145 impressions, 5 clicks |
+| Inside Lyons | 45 | 988 | 4.6% | 17.8 | /events/ (16) | "lyons events" position 10, 40% CTR |
+| Inside Golden | 32 | 977 | 3.3% | 15.0 | /events/trick-or-treat-street-2026-10-30/ (27) | /events/ position 14.6, 36 impressions, 0 clicks |
+
+What the queries say, and what phase 5 answers: Lyons's /eat-drink/ drew
+153 impressions and one click at position 27, on queries like "bars in
+lyons" (position 14), "best restaurants in lyons, co" (10), "coffee shop
+lyons co" (41) and "breakfast lyons co" (50); Niwot's were "coffee shop
+niwot" (11), "breakfast niwot" (37) and a run of searches for one
+restaurant by name. Those are the queries the kind pages are titled for.
+The first comparison is these same rows four weeks after the pages are
+live. Single event pages carry most clicks on all three guides (the Niwot
+Trot, Trick or Treat Street, Old Dogapalooza), which argues for the big
+dates ahead on /events/ and for a permanent page per annual event, not
+yet built. Golden's home page sits at position 48 on 31 impressions and
+the guide's section pages barely show; Golden's problem is authority, so
+its outreach (docs/OUTREACH-FLAGSHIPS.md) matters more than its pages.
+
 Baseline, for comparison only and not from Search Console: Vercel Web
 Analytics, 19 September to 15 October 2026, read on 15 October. Niwot 292
 visitors and 730 pageviews, of which 75 visitors arrived from google.com;
