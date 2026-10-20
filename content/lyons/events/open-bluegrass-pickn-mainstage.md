@@ -8,7 +8,7 @@ address: "450 Main St"
 url: "https://mainstagebrewing.com/music"
 category: music
 source: "https://mainstagebrewing.com/music"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): 22 October and 6 pm on the page"
 ---
 

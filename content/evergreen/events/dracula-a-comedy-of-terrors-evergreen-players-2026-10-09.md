@@ -21,7 +21,7 @@ cost: "$30 adults, $25 seniors, $20 students, plus a $2 ticketing fee"
 category: arts
 source: "https://app.arts-people.com/index.php?show=349728"
 sourceId: "evergreenplayers-org"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): 23 October and 7:30 pm on the page"
 ---
 

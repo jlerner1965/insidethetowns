@@ -10,7 +10,7 @@ category: family
 organizer: "Nederland Community Library"
 source: "https://nederland.colibraries.org/"
 sourceId: "nederlandlibrary-org"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): 21 October on the page"
 ---
 

@@ -7,7 +7,7 @@ address: "451 4th Ave"
 url: "https://www.townoflyons.com/Calendar.aspx?EID=6661"
 category: arts
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6661"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Quarterly Art Show Opening Reception\" at 5 pm on 21 October on the townoflyons.com feed"
 ---
 

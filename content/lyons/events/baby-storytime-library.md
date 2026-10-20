@@ -9,7 +9,7 @@ address: "451 4th Ave"
 url: "https://lyons.librarycalendar.com/events/upcoming"
 category: family
 source: "https://lyons.librarycalendar.com/event/baby-storytime-stay-and-play-11882"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Baby Storytime & Stay-and-Play\" at 10:30 am on 20 October on the lyons.librarycalendar.com feed"
 ---
 

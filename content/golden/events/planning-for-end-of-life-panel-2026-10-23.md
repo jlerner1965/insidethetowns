@@ -10,7 +10,7 @@ organizer: "Jefferson County Public Library"
 organizerUrl: "https://jeffcolibrary.org/"
 source: "https://jeffcolibrary.bibliocommons.com/events/6ab201698cf597003f958ef1"
 sourceId: "jeffcolibrary-bibliocommons-com"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Planning for End of Life Panel\" at 1 pm on 23 October in the page's structured data"
 ---
 

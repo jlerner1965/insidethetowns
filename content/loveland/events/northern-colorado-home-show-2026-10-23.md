@@ -11,7 +11,7 @@ category: other
 timeNote: "Opens Friday at noon, Saturday at 10 am, Sunday at 11 am"
 source: "https://www.treventscomplex.com/events/detail/free-northern-colorado-home-show-2"
 sourceId: "treventscomplex-com"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): 23 October on the page"
 ---
 

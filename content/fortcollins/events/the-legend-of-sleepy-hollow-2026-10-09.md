@@ -20,7 +20,7 @@ category: arts
 organizer: "Debut Theatre Company"
 organizerUrl: "https://www.debuttheatre.org/"
 source: "https://www.lctix.com/shows-tickets/the-legend-of-sleepy-hollow/"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"The Legend of Sleepy Hollow\" at 7 pm on 23 October in the page's structured data"
 ---
 

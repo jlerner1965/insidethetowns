@@ -11,7 +11,7 @@ cost: "Included with museum admission: $20 (combo ticket with the Matchless Mine
 category: arts
 organizer: "National Mining Hall of Fame and Museum"
 source: "https://mininghalloffame.org/events/"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): 28 October and 2 pm on the page"
 ---
 

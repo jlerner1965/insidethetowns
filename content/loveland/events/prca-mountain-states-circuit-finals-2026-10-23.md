@@ -7,7 +7,7 @@ url: "https://www.treventscomplex.com/events/detail/prca-2026boot-barn-mountain-
 category: sports
 source: "https://www.treventscomplex.com/events/detail/prca-2026boot-barn-mountain-states-circuit-finals"
 sourceId: "treventscomplex-com"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): 23 October and 7 pm on the page"
 ---
 
