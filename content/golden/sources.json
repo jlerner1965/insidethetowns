@@ -10,7 +10,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
@@ -32,7 +32,7 @@
       "category": "county",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "ok",
       "robots": "honor",
       "locationFilter": [
@@ -52,7 +52,7 @@
       "category": "chamber",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Read 2026-10-06. goldenchamber.org (200) links to a ChamberMaster/GrowthZone calendar at business.goldenchamber.org/events/calendar (200, 'Greater Golden Chamber of Commerce'), showing 61 results for October-November 2026 with categories (Arts & Culture, Business After Hours, Festivals & Celebrations, Ribbon Cuttings, Recreation & Sports...); first visible item 'Sovrn's Run Club'. No iCal or RSS link on the page, only a print view and a date-range search, so type html. Member-hosted items mix with chamber networking events. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
@@ -66,7 +66,7 @@
       "category": "chamber",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "blocked",
       "lastNote": "Cloudflare bot challenge",
       "robots": "honor",
@@ -81,7 +81,7 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "ok",
       "robots": "honor",
       "locationFilter": [
@@ -98,7 +98,7 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Read 2026-10-06. The Parks & Trails page (200) is an A-Z list of city parks with amenities and no calendar; it records that Rooney Road Sports Complex was turned over to Jefferson County Open Space on 1/1/2025. No separate city open-space page or trail-conditions page was found in the site nav (nav items: Parks & Trails, Park Rules, City Tree Map, Clear Creek RV Park, Fossil Trace Golf Club, Splash). Recreation registration is a Vermont Systems WebTrac at web2.myvscloud.com (linked from the homepage, not a feed). Community Center programs appear in the city JSON feed under primary_calendar_name 'Community Center' (e.g. Friends of the Front Porch), so this entry is for places and the Movies & Music in the Park page (community/movies_music_park.php, linked, not opened). The sampleUrl was linked from the homepage, not opened. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
@@ -112,7 +112,7 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Read 2026-10-06. Both denvergov.org URLs returned 200 with the same Mountain Parks page: 'Lookout Mountain Park & Pahaska Tepee', 'home to the popular Buffalo Bill Museum and Grave ... 12 miles west of downtown Denver', Genesee bison herd, Chief Hosa Campground, forest-health work. Informational page with no calendar or feed; land agency for Lookout Mountain Park above Golden, category parks. Buffalo Bill Museum & Grave is registered as a venue below. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
@@ -127,7 +127,7 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "ok",
       "robots": "honor",
       "locationFilter": [
@@ -152,7 +152,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Buffalo Bill Museum & Grave, 987 1/2 Lookout Mountain Rd, Golden",
@@ -166,7 +166,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "unreachable",
       "lastNote": "no response — DNS, TLS or timeout",
       "robots": "honor",
@@ -182,7 +182,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
@@ -205,7 +205,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Read 2026-10-06. mines.edu/events/ returned 404 but links calendar.mines.edu (200, WordPress/Divi, 1500 Illinois St., Golden, CO 80401, 303-273-3000). The page body is 'Featured Events' with no visible items in the fetched HTML and no .ics, RSS or API link; one All-in-One Event Calendar CSS reference, but the ai1ec export URL on calendar.mines.edu returned the HTML page, not a feed. Public events (lectures, Geology Museum, athletics) need a manual look; type html. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
@@ -220,7 +220,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
@@ -237,7 +237,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Read 2026-10-06. The homepage returned 202 with a SiteGround captcha challenge (meta refresh to /.well-known/sgcaptcha/), so nothing could be read and no feed was found. Not retried by other means. Season listings must be checked by hand. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
@@ -250,7 +250,7 @@
       "category": "other",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-15",
+      "lastChecked": "2026-10-19",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Read 2026-10-06. Returned 200 but is a JavaScript app ('COtrip Traveler Information Loading'); nothing to ingest. Link only, from the town config, for US 6 / Clear Creek Canyon, US 40 / Lookout Mountain and I-70 conditions. The City's own Road Closures link is an ArcGIS web app (cityofgolden.maps.arcgis.com/apps/webappviewer/index.html?id=122dee1893c7494fb39afdadbe23eb0e, seen on the homepage, not opened). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
