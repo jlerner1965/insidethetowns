@@ -11,7 +11,8 @@ category: family
 organizer: "Clearview Library District"
 organizerUrl: "https://www.clearviewlibrary.org/"
 source: "https://clearview.libnet.info/event/17449973"
-verified: "2026-10-03"
+verified: "2026-10-20"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Teens Cook\" at 4:30 pm on 2 November in the page's structured data"
 ---
 
 The library's monthly cooking session for ages 12 to 18 returns in November with teams baking and frosting pumpkin spice cookies. Registration is required and the class is capped at 16; four places were taken when this was checked on October 3. The library cannot accommodate severe gluten, dairy or nut allergies. Questions to amy@clearviewlibrary.org.

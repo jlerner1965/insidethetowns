@@ -11,7 +11,7 @@ cost: "Free"
 category: family
 recurring: "Wednesdays at 10am"
 source: "https://johnstownmillikenpubliclibraries.us/events/"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Messy Art\" at 10 am on 21 October in the page's structured data"
 ---
 

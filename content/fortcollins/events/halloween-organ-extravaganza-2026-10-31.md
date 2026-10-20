@@ -12,8 +12,8 @@ category: music
 timeNote: "Shows at 6, 8 and 10 pm"
 featured: true
 source: "https://music.colostate.edu/events/halloween-organ-extravaganza-5/"
-verified: "2026-10-19"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Halloween Organ Extravaganza\" at 6 pm on 31 October in the page's structured data"
+verified: "2026-10-20"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Halloween Organ Extravaganza\" at 6 pm on 31 October on the music.colostate.edu feed"
 ---
 
 The 21st Halloween Organ Extravaganza in the Organ Recital Hall: CSU's organ studio and faculty organist Joel Bacon play the classic and not-so-classic repertoire of the night, Bach's Toccata and Fugue in D minor included, in costume, three times on Halloween night. A Fort Collins tradition that sells out; book ahead.

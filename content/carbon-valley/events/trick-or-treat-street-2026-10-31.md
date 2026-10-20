@@ -11,7 +11,7 @@ organizer: "Fort Lupton Chamber of Commerce"
 organizerUrl: "https://www.fortluptonchamber.org/"
 source: "https://business.fortluptonchamber.org/events/Details/2026-trick-or-treat-street-1895337?sourceTypeId=Website"
 sourceId: "fortluptonchamber-org"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): 31 October and 4 pm on the page"
 ---
 

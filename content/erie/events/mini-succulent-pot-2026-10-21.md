@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/17527471"
 cost: "Free; registration required"
 category: arts
 source: "https://highplains.libcal.com/event/17527471"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Mini Succulent Pot\" at 12 pm on 21 October in the page's structured data"
 ---
 
