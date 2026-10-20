@@ -19,6 +19,13 @@
  * district's iCal export is its 500 oldest items and never reaches the
  * coming weeks, so the RSS is the one feed that does. A called-off session
  * is written as "Cancelled: <title>"; it is read as the title, cancelled.
+ *
+ * Modern Events Calendar, the WordPress plugin behind niwot.com (the Niwot
+ * Business Association), publishes its calendar at /events/feed/ with one
+ * item per event, at its next date: `mec:startDate` and `mec:endDate`
+ * (2026-11-27), `mec:startHour` and `mec:endHour` ("6:00 pm", or "All Day"
+ * and nothing), `mec:location` (a name, or no element) and `mec:category`
+ * (a comma list). Its site-wide iCal feed is switched off on niwot.com.
  */
 import { TIME_ZONE, fromWallClock } from '../../../src/lib/dates.ts';
 import { plainText, type FeedEvent, type Horizon } from './types.ts';
@@ -67,6 +74,13 @@ export function readRss(xml: string, horizon: Horizon): RssReadResult {
     const libcalDate = element(item, 'libcal:date');
     if (libcalDate) {
       const event = readLibCalItem(item, title, link, libcalDate, horizon);
+      if (event === 'skip') skipped++;
+      else if (event) events.push(event);
+      continue;
+    }
+    const mecDate = element(item, 'mec:startDate');
+    if (mecDate) {
+      const event = readMecItem(item, title, link, mecDate, horizon);
       if (event === 'skip') skipped++;
       else if (event) events.push(event);
       continue;
@@ -125,6 +139,54 @@ export function readRss(xml: string, horizon: Horizon): RssReadResult {
     });
   }
   return { events, skipped };
+}
+
+/** "6:30 pm" -> [18, 30]; "7 pm" -> [19, 0]; "All Day" or nothing -> null. */
+function parseMecClock(text: string | undefined): [number, number] | null {
+  const m = text?.trim().match(/^(\d{1,2})(?::(\d{2}))?\s*([ap])\.?m\.?$/i);
+  if (!m) return null;
+  let hour = Number(m[1]) % 12;
+  if (m[3]!.toLowerCase() === 'p') hour += 12;
+  return [hour, Number(m[2] ?? 0)];
+}
+
+/** One Modern Events Calendar item, or null when outside the horizon, or 'skip' when it cannot be read. */
+function readMecItem(item: string, rawTitle: string, link: string | undefined, date: string, horizon: Horizon): FeedEvent | null | 'skip' {
+  const ymd = (text: string | undefined) => text?.trim().match(/^(\d{4})-(\d{2})-(\d{2})$/)?.slice(1).map(Number) as [number, number, number] | undefined;
+  const first = ymd(date);
+  if (!first || !rawTitle) return 'skip';
+  const last = ymd(element(item, 'mec:endDate')) ?? first;
+  const startClock = parseMecClock(element(item, 'mec:startHour'));
+  const endClock = startClock ? parseMecClock(element(item, 'mec:endHour')) : null;
+  const allDay = !startClock;
+  const start = fromWallClock(first[0], first[1], first[2], startClock?.[0] ?? 0, startClock?.[1] ?? 0, 0, TIME_ZONE);
+  const sameDay = last.join('-') === first.join('-');
+  const end = endClock
+    ? fromWallClock(last[0], last[1], last[2], endClock[0], endClock[1], 0, TIME_ZONE)
+    : sameDay
+      ? undefined
+      : fromWallClock(last[0], last[1], last[2], 0, 0, 0, TIME_ZONE);
+  if (start.getTime() >= horizon.to.getTime() || (end ?? start).getTime() < horizon.from.getTime()) return null;
+  const location = plainText(element(item, 'mec:location') ?? '') || undefined;
+  const description = element(item, 'description');
+  const categories = (element(item, 'mec:category') ?? '')
+    .split(',')
+    .map((c) => plainText(c))
+    .filter(Boolean);
+  // The guid names the event; a repeating one has an item per date, so the date is part of the id.
+  const id = element(item, 'guid') ?? link?.replace(/\?.*$/, '') ?? rawTitle;
+  return {
+    uid: `mec:${plainText(id)}#${date.trim()}`,
+    title: rawTitle,
+    start,
+    end,
+    allDay,
+    location,
+    url: link,
+    description: description ? plainText(description) || undefined : undefined,
+    categories,
+    status: 'confirmed',
+  };
 }
 
 /** "13:30:00" -> [13, 30]. */

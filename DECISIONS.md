@@ -5275,3 +5275,36 @@ weekly editor already are, and nothing goes out on a timer.
 - **Not done.** Issue numbers stay optional and unset: fifteen editions and
   a network issue a week do not share one count, and the archive orders by
   date. Buttondown's own archive is left at its default.
+
+## The Niwot Business Association's calendar is a source, 20 October
+
+The owner asked why the arts association's tree-carving appeal on niwot.com
+was not on Inside Niwot, then asked for niwot.com, the Niwot Business
+Association's site, to be a source, on the editor's judgment.
+
+- **Why the appeal stays off.** It is a donation drive for the carvings'
+  shelter on the Lobo Trail, which the calendar repeats every Tuesday as an
+  all-day entry with no time or place. That is not an event under the
+  standard (docs/AUDIT-2026-10-02.md). It is excluded by title.
+- **The feed.** The calendar is Modern Events Calendar. Its site-wide iCal
+  feed is switched off, but /events/feed/ is RSS with the plugin's own
+  elements (`mec:startDate`, `mec:startHour`, `mec:endDate`, `mec:endHour`,
+  `mec:location`, `mec:category`), one item per event at its next date.
+  The RSS reader now reads that dialect beside CivicPlus and LibCal, with a
+  test. The feed holds ten items; on 20 October they reached July 2027, so
+  it is the whole calendar for now.
+- **Filed as chamber, not venue.** The board carries other groups' events
+  too, and the unattended review approves only organizer categories, so
+  nothing from it publishes without a person. Another group's event is
+  confirmed on that group's own page, as before.
+- **Also excluded:** Trivia Night (The Wheel House's weekly regular, listed
+  from the venue) and the Hormone Health Small Group Medical Program (an
+  enrollment clinic program at a day spa: a promotion).
+- **Duplicates.** Enchanted Evening, the First Friday Art Walk and the
+  Holiday Magic Market Fayre matched their listings by title. The Holiday
+  Parade did not ("Niwot's Annual Holiday Parade"), so its listing now
+  carries the feed's id; the feed agrees with it on day and time, and its
+  "Downtown Niwot" is read as a guess, which flags nothing.
+  The 21 October cemetery talk was rejected once: its listing is from the
+  Historical Society's own page (to 8:30; the board says 8), and it is past
+  before the next Monday ingest.

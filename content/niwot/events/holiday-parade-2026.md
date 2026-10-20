@@ -9,6 +9,8 @@ cost: "Free"
 category: festival
 featured: true
 source: "https://niwot.com/upcoming-events/annual-events-and-festivals/"
+sourceId: "niwot-com"
+sourceUid: "mec:https://niwot.com/?post_type=mec-events&p=8004#2026-11-28"
 verified: "2026-10-15"
 verifiedBy: "James Lerner, from the Niwot Business Association’s event page on niwot.com: Nov 28 2026, 11:00 am–1:00 pm, downtown Niwot"
 ---

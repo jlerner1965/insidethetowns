@@ -223,6 +223,43 @@ test("LibCal RSS: the libcal elements carry the facts; a room and its branch mak
   assert.equal(passesLocationFilter(hunt, { locationFilter: ['Carbon Valley'] }), false);
 });
 
+// Modern Events Calendar's /events/feed/ (niwot.com), shortened from the feed as read on 20 October 2026.
+const MEC = `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:mec="http://webnus.net/rss/mec/"><channel>
+<item><title>Tree Carving Fundraiser- ongoing</title><link>https://niwot.com/events/tree-carving-fundraiser-ongoing/?occurrence=2026-10-20</link>
+<guid isPermaLink="false">https://niwot.com/events/tree-carving-fundraiser-ongoing/</guid>
+<mec:startDate>2026-10-20</mec:startDate><mec:startHour>All Day</mec:startHour><mec:endDate>2026-10-20</mec:endDate><mec:endHour></mec:endHour>
+<mec:category>Art &amp; Crafts, Family Friendly Events</mec:category></item>
+<item><title>Enchanted Evening</title><link>https://niwot.com/events/enchanted-evening/?occurrence=2026-11-27</link>
+<guid isPermaLink="false">https://niwot.com/?post_type=mec-events&#038;p=8020</guid>
+<description><![CDATA[<img src="https://niwot.com/x.jpg" alt="" /> Every year on the day after Thanksgiving, the community of Niwot officially ushers in the holiday season.]]></description>
+<mec:startDate>2026-11-27</mec:startDate><mec:startHour>6:00 pm</mec:startHour><mec:endDate>2026-11-27</mec:endDate><mec:endHour>9:00 pm</mec:endHour>
+<mec:location>Downtown Niwot</mec:location>
+<mec:category>Annual Events &amp; Festivals, Holidays &amp; Parades</mec:category></item>
+<item><title>4th of July in Niwot</title><link>https://niwot.com/events/4th-of-july-in-niwot/?occurrence=2027-07-04</link>
+<guid isPermaLink="false">https://niwot.com/?post_type=mec-events&#038;p=8001</guid>
+<mec:startDate>2027-07-04</mec:startDate><mec:startHour>7:30 am</mec:startHour><mec:endDate>2027-07-04</mec:endDate><mec:endHour>12:00 pm</mec:endHour></item>
+</channel></rss>`;
+
+test('Modern Events Calendar RSS: the mec elements carry the facts; the date is part of the id; "All Day" has no time', () => {
+  const { events, skipped } = readRss(MEC, horizon);
+  assert.equal(skipped, 0);
+  assert.equal(events.length, 2, 'next July is outside the horizon');
+  const [appeal, evening] = events as [(typeof events)[0], (typeof events)[0]];
+  assert.equal(appeal.allDay, true);
+  assert.equal(toWallClock(appeal.start), '2026-10-20');
+  assert.equal(appeal.end, undefined, 'one day, no end');
+  assert.equal(appeal.location, undefined);
+  assert.equal(appeal.uid, 'mec:https://niwot.com/events/tree-carving-fundraiser-ongoing/#2026-10-20');
+  assert.equal(evening.uid, 'mec:https://niwot.com/?post_type=mec-events&p=8020#2026-11-27');
+  assert.equal(toWallClock(evening.start), '2026-11-27T18:00');
+  assert.equal(toWallClock(evening.end!), '2026-11-27T21:00');
+  assert.equal(evening.location, 'Downtown Niwot');
+  assert.deepEqual(evening.categories, ['Annual Events & Festivals', 'Holidays & Parades']);
+  assert.equal(evening.description, 'Every year on the day after Thanksgiving, the community of Niwot officially ushers in the holiday season.');
+  assert.equal(evening.url, 'https://niwot.com/events/enchanted-evening/?occurrence=2026-11-27');
+  assert.equal(excludedTitle(appeal, { excludeTitles: ['Tree Carving Fundraiser'] }), true);
+});
+
 test('a non-breaking space is a space: in feed text and in the title exclusions', () => {
   assert.equal(plainText('Ageless\u00a0Grace&nbsp;®'), 'Ageless Grace ®');
   assert.equal(excludedTitle({ title: 'Ageless\u00a0Grace®' }, { excludeTitles: ['Ageless Grace'] }), true, 'even a title that reached the matcher unconverted');
