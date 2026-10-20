@@ -92,26 +92,31 @@ Loveland Zombie Crawl are on the same path: the ranking Google gave each of
 them this year is dropped when the date passes, and next year's listing
 starts from nothing under a new slug.
 
-The rule is right for a council meeting; it is wrong for the festival
-category, where the name is what people search and the search comes back
-every year. A permanent page per festival (one URL, the next date on it,
-last year's below) is the structural fix; it is a design decision for the
-owner, not something to slip in. Until then, `src/lib/big-dates.ts` keeps
-the upcoming festivals linked from `/events/`, which is why "golden
-candlelight walk 2026" and "golden christmas parade 2026" already sit at
-position 3 in October.
+The rule is right for a council meeting and costly for an annual event,
+where the name is what people search and the search comes back every year.
+A permanent page per festival (one URL, the next date on it, last year's
+below) would carry the ranking over. Decided 20 October 2026 not to build it
+yet (DECISIONS.md): festival names were about 6% of impressions and 9% of
+clicks, the category field does not mark the annual events (Pumpkin Pie Days
+is a market), and an indexed past page needs its own "this edition is over"
+treatment. The interim is editorial: file next year's occurrence as soon as
+the organizer names the date, and `src/lib/big-dates.ts` links it from
+`/events/`, which is why "golden candlelight walk 2026" and "golden
+christmas parade 2026" already sit at position 3 in October.
 
-### 2. Johnstown's best-ranking page is a 404
+### 2. Johnstown's best-ranking page was a 404 (fixed 20 October)
 
 `insidejohnstown.com/places/cassidys-sports-grill/` drew 270 impressions at
 positions 5 to 10 across fourteen spellings of the name, and Google is still
 serving it. The listing was moved to `content/johnstown/staging/places/` on
 3 October (its website now redirects to a gambling site; the hours could not
-be checked), so the live URL returns 404 with `noindex`. Google will drop
-it within weeks. The fix is editorial: call (970) 587-7744, record it with
-`npm run confirm`, and republish. The page already says "call before you
-go"; a confirmed-by-phone listing is better than a hole where the town's
-most-searched restaurant was.
+be checked), so the live URL returned 404 with `noindex`. Republished on 20
+October 2026: the owner confirmed it is open, its own Instagram is the
+source, and the hours stay as read on 18 September with the page saying so.
+The old title was "Johnstown's best-ranking page is a 404"; the lesson
+stands: a listing sent to staging takes its search ranking with it, so the
+weekly review should look at what staging is holding against what Search
+Console says people search.
 
 ### 3. Castle Rock's sitemap was submitted at the wrong path
 

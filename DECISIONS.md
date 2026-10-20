@@ -5563,3 +5563,29 @@ candidate was read against them and against the live Commons record.
   searches above found. The routes the report suggests (permission
   emails, a walk with a camera, the towns' parks departments) are already
   written up in docs/PHOTOS.md and the email drafts beside it.
+
+## Search Console, 20 October 2026
+
+- **Annual-event pages stay on the expired-event rule, for now.** The first
+  Search Console read (docs/SEARCH-CONSOLE-2026-10-20.md) showed that the
+  name of an annual event is the biggest single query on most guides, and
+  that the page is noindexed the day after. A permanent page per festival
+  would carry its ranking from year to year, but the numbers do not yet earn
+  the change: festival-name queries were about 1,650 of the guides' 26,081
+  impressions and about 55 of 614 clicks over 28 days, and most of what they
+  would gain is next year's. The clean fix is not cheap either: `category`
+  does not mark the annual ones (Pumpkin Pie Days is a `market`, Boo on
+  Briggs a `festival`), the schema has no annual flag, an indexed past page
+  needs a visible "this edition is over" notice, and the expired-event rule
+  is an acceptance criterion in docs/ACCURACY-SYSTEM.md. Revisit with a year
+  of data, when the second edition of each festival can be compared with the
+  first. Until then the interim is editorial: file next year's occurrence as
+  soon as the organizer names the date, and `src/lib/big-dates.ts` links it
+  from `/events/` so the "[festival] 2027" searches land.
+- **Cassidy's Sports Grill is back on the Johnstown guide.** Its former
+  website now redirects elsewhere, so the listing sat in staging while its
+  page drew 270 impressions and returned 404. The owner confirmed it is open
+  on 20 October 2026; its own Instagram is the `source`, which the content
+  rule allows, and the hours stay as they were read on 18 September 2026,
+  with the page saying so and asking readers to call. `added` is today, the
+  day it went back on the guide, as `npm run review` would have stamped it.
