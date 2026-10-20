@@ -5445,5 +5445,8 @@ metadata, with one ledger row.
 - **Still without a photograph:** in Golden, Apex, Parfet and Vanover, the
   Golden History Museum, the Foothills Art Center and every business but
   one; Erie's businesses and the Wise Homestead; Niwot as before. The
-  Flickr report's unread leads (ten Niwot pages, Ken Lund's 38 Golden
-  photographs, Jeffrey Beall's Clear Creek) were not opened.
+  Flickr report's ten unread Niwot leads were opened afterwards: eight are
+  all rights reserved and two are CC BY-NC-ND (Wally Gobetz's Arapaho
+  monument, which is in Boulder, and a lightning shot), and the one CC BY
+  Niwot Market photograph is a blurred frame of basement pipes. Ken Lund's
+  38 Golden photographs and Jeffrey Beall's Clear Creek were not opened.
