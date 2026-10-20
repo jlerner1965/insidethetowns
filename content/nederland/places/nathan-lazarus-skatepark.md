@@ -5,10 +5,10 @@ address: "155 East 1st Street, Nederland, CO"
 area: "First Street"
 url: "https://nederlandco.org/1446/Trails-Open-Spaces"
 source: "https://nederlandco.org/1446/Trails-Open-Spaces"
-verified: "2026-10-06"
+verified: "2026-10-20"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
-access: { parking: "Public parking", source: "https://nederlandco.org/1446/Trails-Open-Spaces", verified: "2026-10-06" }
+access: { parking: "Public parking", source: "https://nederlandco.org/1446/Trails-Open-Spaces", verified: "2026-10-20" }
 tags: [skatepark, teens]
 summary: "Town skatepark on East 1st Street with a pool, flow bowl, cradle, hoodie and wall ride. Skateboards and roller skates or blades only."
 ---
