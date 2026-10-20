@@ -10,8 +10,8 @@ source: "https://bouldercounty.gov/event/hammering-on-the-farm-oct-31-2/"
 sourceId: "bouldercounty-gov"
 sourceUid: "10004355-1793440800-1793448000@bouldercounty.gov"
 sourceHash: "9b711d387feb"
-verified: "2026-10-19"
-verifiedBy: "auto-review from the Boulder County feed read 2026-10-19, the weekly ingest workflow"
+verified: "2026-10-20"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Hammering on the Farm\" at 10 am on 31 October on the Boulder County feed"
 ---
 
 Hammering on the Farm at Agricultural Heritage Center, Saturday, October 31, 10 am – 12 pm. Listed by Boulder County; the organizer's page has the details and any registration.

@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/sketch-in-nature/"
 cost: "Free"
 category: arts
 source: "https://johnstownmillikenpubliclibraries.us/event/sketch-in-nature/"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Sketch in Nature\" at 10 am on 22 October in the page's structured data"
 ---
 

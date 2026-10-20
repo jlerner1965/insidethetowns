@@ -9,7 +9,7 @@ cost: "Free"
 category: sports
 recurring: "Thursdays October 8, 22 and 29 at 11"
 source: "https://www.newbelgium.com/visit/fort-collins/"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): 29 October and 11 am on the page"
 ---
 

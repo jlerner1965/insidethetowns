@@ -13,7 +13,7 @@ sourceHash: "1735bbe6d61d"
 address: "7 Park Ave, Firestone, CO 80504"
 organizer: "High Plains Library District"
 organizerUrl: "https://www.mylibrary.us/"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Sipping & Socializing: How Tea Has Guided Social Interaction\" at 3 pm on 24 October on the Carbon Valley Regional Library (High Plains Library District), LibCal feed"
 ---
 

@@ -10,7 +10,7 @@ source: "https://longmontcolorado.gov/event/monsters-myths-alien-invasions-an-af
 sourceId: "longmontcolorado-gov-museum"
 sourceUid: "10009695-1792938600-1792944000@longmontcolorado.gov"
 sourceHash: "c51ab772a969"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Monsters, Myths, and Alien Invasions: an Afternoon with Astrobiologist Dr. Graham Lau\" at 2:30 pm on 25 October on the Longmont Museum (City of Longmont calendar) feed"
 ---
 

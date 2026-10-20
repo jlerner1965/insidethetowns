@@ -9,7 +9,7 @@ source: "https://calendar.estesvalleylibrary.org/event/17640355"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17640355"
 sourceHash: "ee16a029d17f"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Connect With the Classics: The Haunting of Hill House\" at 5:30 pm on 29 October on the Estes Valley Library feed"
 ---
 

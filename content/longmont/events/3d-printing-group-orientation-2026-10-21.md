@@ -10,7 +10,7 @@ source: "https://longmontcolorado.gov/event/3d-printing-group-orientation-7/"
 sourceId: "longmontcolorado-gov-library"
 sourceUid: "10008873-1792605600-1792609200@longmontcolorado.gov"
 sourceHash: "0539b58bc03c"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"3D Printing Group Orientation\" at 6 pm on 21 October on the Longmont Public Library (City of Longmont calendar) feed"
 ---
 

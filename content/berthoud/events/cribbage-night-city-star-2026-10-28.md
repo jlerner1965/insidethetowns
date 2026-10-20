@@ -9,7 +9,7 @@ cost: "Free"
 category: other
 recurring: "Second and fourth Wednesdays"
 source: "https://citystarbrewing.com/event/cribbage-tournament/2026-10-28/"
-verified: "2026-10-19"
+verified: "2026-10-20"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Cribbage Night\" at 6 pm on 28 October in the page's structured data"
 ---
 
