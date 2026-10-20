@@ -279,6 +279,11 @@ events page, so readers can subscribe in a calendar app.
   whose season opens that week), each linking to its page on that mountain guide, with
   campaign tags on the link and a custom analytics event on the click
   (`src/components/UpTheHill.astro`). Nothing on, no strip.
+- `/restaurants/`, `/bars-breweries/`, `/coffee/`, `/shops/`, `/trails/`, `/trailheads/`,
+  `/parks/`, `/venues/`, `/stay/` and `/services/`: one page per kind of place the guide
+  lists at least three of (`src/lib/place-types.ts`), titled "[Kind] in [Town], CO", the
+  page a search for "[town] restaurants" or "[town] trails" lands on. The group headings
+  on Eat & Drink, Things to Do and the directory link to them (docs/SEARCH-VISIBILITY.md).
 - `/directory/` is every place by kind, with an "Open now" pill and a name search.
   Place kinds: restaurant, bar, coffee, shop, trail, trailhead, park, venue, lodging,
   service. A mountain guide's places may carry `seasonal` (season, hours, open and
