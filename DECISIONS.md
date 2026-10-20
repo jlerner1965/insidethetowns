@@ -5563,3 +5563,76 @@ candidate was read against them and against the live Commons record.
   searches above found. The routes the report suggests (permission
   emails, a walk with a camera, the towns' parks departments) are already
   written up in docs/PHOTOS.md and the email drafts beside it.
+
+## Search Console, 20 October 2026
+
+- **Annual-event pages stay on the expired-event rule, for now.** The first
+  Search Console read (docs/SEARCH-CONSOLE-2026-10-20.md) showed that the
+  name of an annual event is the biggest single query on most guides, and
+  that the page is noindexed the day after. A permanent page per festival
+  would carry its ranking from year to year, but the numbers do not yet earn
+  the change: festival-name queries were about 1,650 of the guides' 26,081
+  impressions and about 55 of 614 clicks over 28 days, and most of what they
+  would gain is next year's. The clean fix is not cheap either: `category`
+  does not mark the annual ones (Pumpkin Pie Days is a `market`, Boo on
+  Briggs a `festival`), the schema has no annual flag, an indexed past page
+  needs a visible "this edition is over" notice, and the expired-event rule
+  is an acceptance criterion in docs/ACCURACY-SYSTEM.md. Revisit with a year
+  of data, when the second edition of each festival can be compared with the
+  first. Until then the interim is editorial: file next year's occurrence as
+  soon as the organizer names the date, and `src/lib/big-dates.ts` links it
+  from `/events/` so the "[festival] 2027" searches land.
+- **Cassidy's Sports Grill is back on the Johnstown guide.** Its former
+  website now redirects elsewhere, so the listing sat in staging while its
+  page drew 270 impressions and returned 404. The owner confirmed it is open
+  on 20 October 2026; its own Instagram is the `source`, which the content
+  rule allows, and the hours stay as they were read on 18 September 2026,
+  with the page saying so and asking readers to call. `added` is today, the
+  day it went back on the guide, as `npm run review` would have stamped it.
+
+## The 90-day test, 20 October 2026
+
+- **Expansion and technical work stop; three guides get the next 90 days.**
+  The network has 22 live guides, 614 search clicks in the 28 days to 17
+  October, two issues pasted into Buttondown by hand (8 and 15 October), no sponsor asked, no partner agreed. The code is
+  not the constraint; the human work that has not started is. The decision,
+  taken by the owner on 20 October 2026: no new towns, no new features and
+  no SEO work for 90 days, except the one rule that drops a place page
+  entirely when its check is overdue, if the owner asks for it. The other
+  guides stay live on the ingest, the nightly recheck and the standing
+  automation, with no hand work.
+- **The three towns, chosen on evidence.** Niwot: the owner lives there, and
+  it is third on search. Lyons: the one chamber relationship that exists,
+  so the one place distribution can be tested. Berthoud: the best search
+  performance in the network (133 clicks, 3,571 impressions in 28 days)
+  and a town of 10,000 with no good calendar of its own. Golden and Erie
+  are next, on automation until one of the three proves the model.
+- **The product is the Thursday email; the site collects the address.**
+  Search Console says readers arrive by the name of an event or a place,
+  so the site's job is to rank for those and turn the reader into a
+  subscriber. One labeled sponsor line per town, in the email and on the
+  site, three-month minimum, at a founding price with a number in it.
+  Sponsors get a plain monthly report of sends, opens and clicks. Nothing
+  else is for sale until a sponsor renews.
+- **The clock starts with the first automated send, not today.** The
+  Thursday drafts arrive as a pull request from 22 October
+  (`.github/workflows/newsletter-drafts.yml`); merging it sends. Day 90 is
+  counted from the first Thursday a Niwot edition goes out that way,
+  22 October 2026 if that one is merged, so day 90 is 20 January 2027. Targets at day 90:
+  12 consecutive weekly editions per town; 200 confirmed subscribers in
+  Niwot, 150 in Lyons, 150 in Berthoud; one institution per town sharing
+  the email; two paid sponsor pilots; one renewal. Workload capped at ten
+  hours a week. The scorecard is docs/90-DAY-TEST.md, one row a week.
+- **The decision at day 90.** A renewal and two of three subscriber
+  targets: repeat the model in Golden and Erie. Readers but no sponsor:
+  fix the offer, with a budget and a deadline. Neither: the network stays
+  live as a portfolio and community project at zero marginal hours, and
+  stops being run as a business. The search question is separate and
+  earlier to answer: three months of Search Console data, so late January
+  2026, with a holiday season in it, says which guides rank for what
+  matters.
+- **What the assistant does and does not do.** Drafts every email, every
+  outreach message and the sponsor offer; keeps the contact record; pulls
+  the search numbers each Monday; fills the scorecard. Sends nothing,
+  publishes nothing, prices nothing. The send, the call, the meeting and
+  the price are the owner's.
