@@ -5,13 +5,13 @@ address: "32281 Stagecoach Boulevard, Evergreen, CO 80439"
 area: "Stagecoach Boulevard"
 url: "https://www.jeffco.us/1218/Elk-Meadow-Park"
 source: "https://www.jeffco.us/1218/Elk-Meadow-Park"
-verified: "2026-10-06"
+verified: "2026-10-20"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 hours: "Open one hour before sunrise to one hour after sunset"
 tags: [hiking, trailhead, bergen-peak, elk]
 summary: "The main Jefferson County trailhead into Elk Meadow Park and the start of the 4.7-mile, 2,100-foot climb to Bergen Peak. Rebuilt in 2025 with a bigger lot, new restroom and EV chargers."
-access: { parking: "Expanded lot with EV charging stations, reopened 25 October 2025 after the rebuild.", closures: "There is no longer an off-leash dog area at this trailhead.", conditionsUrl: "https://www.jeffco.us/AlertCenter.aspx?CID=25", conditionsLabel: "Jeffco Open Space alerts and closures", source: "https://www.jeffco.us/1218/Elk-Meadow-Park", verified: "2026-10-06" }
+access: { parking: "Expanded lot with EV charging stations, reopened 25 October 2025 after the rebuild.", closures: "There is no longer an off-leash dog area at this trailhead.", conditionsUrl: "https://www.jeffco.us/AlertCenter.aspx?CID=25", conditionsLabel: "Jeffco Open Space alerts and closures", source: "https://www.jeffco.us/1218/Elk-Meadow-Park", verified: "2026-10-20" }
 ---
 
 The Stagecoach Boulevard trailhead is Jefferson County Open Space's main way into Elk Meadow Park and where the county starts the difficult 4.7-mile hike to 9,708-foot Bergen Peak, with 2,100 feet of climbing.
