@@ -11,7 +11,7 @@ cost: "No cover"
 category: music
 image: ../images/oskar-blues-pints.jpg
 imageAlt: "Pints on a table at Oskar Blues"
-imageCredit: "ShanMcG213, Flickr, CC BY-SA 2.0"
+imageCredit: "Shannon McGee, Flickr, CC BY-SA 2.0"
 source: "https://lyonsrecorder.org/events/"
 verified: "2026-10-17"
 verifiedBy: "Claude Code for James Lerner, on the Lyons Recorder's community calendar: “Sunday Serenade (Oskar Blues)” at 5 pm on 18 October, 17 October 2026"

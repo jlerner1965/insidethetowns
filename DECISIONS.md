@@ -5373,3 +5373,80 @@ calendars left proposed on 11 October. What came of it:
   its registry entry or here for the next pass.
 - **lyonscolorado.com is retired:** an alias of the Town of Lyons' site,
   not a chamber.
+
+## A seventh catalog: three photographs from four lists, 20 October
+
+The owner supplied four photo lists for Niwot, Lyons, Golden and Erie: a
+Flickr report (eighteen photographs cleared on licence and place, fourteen
+for Golden and four for Lyons, none seen by its author) and three Wikimedia
+Commons spreadsheets with a README (Erie 33, Golden 93, Niwot 9, each looked
+at and rated). The README also describes a Lyons spreadsheet that was not
+among the files. Every entry was read against `IMAGE_LICENSES.csv` by
+Commons file and Flickr photo id, and against the places, articles and
+Moving here pages that have no photograph. Each one used was read on its
+live source page, looked at, cropped to 3:2 and saved at 1,600px with no
+metadata, with one ledger row.
+
+- **Most of it was already here.** Nine of Erie's 33 files, nine of
+  Golden's 93 and three of Niwot's nine are on the sites. Three of the
+  Flickr report's four Lyons photographs were already in the repository as
+  unused files (the post office, the National Guard evacuation and the
+  Planet Bluegrass grounds): the report checked the `/credits/` pages,
+  which list only photographs in use. Check the ledger, not the credits
+  pages.
+- **Added: three.** Lions Park in Golden, which had none: the park's sign,
+  a bronze lion on a brick pillar with a plaque to Roy Claar of the Golden
+  Lions Club (Billy Hathorn, CC BY-SA 3.0). It is from July 2010, kept for
+  a reason: a permanent monument with the park's name on it, still at the
+  southeast corner in a Golden Today photograph of 2 May 2023, and the only
+  open photograph of the park. Lookout Mountain Park, which had none:
+  "Buffalo Bill's view looking down to Golden" (Cathy Cline, CC BY-SA 3.0,
+  June 2010), downtown and the brewery between the two mesas, the view
+  docs/PHOTO-PRIORITIES.md asks for. Its companion frame, taken two minutes
+  later, is described as from the top of Lookout Mountain, and the alt text
+  says that much and no more. Golden's Moving here shows a similar view from
+  Lookout Mountain Road; a page may, and the two are different photographs.
+  And Lyons's Moving here, the one flagship Moving here page without a
+  photograph: the post office behind its red sandstone sign (Shannon McGee,
+  CC BY-SA 2.0, July 2013). The repository's 700px copy, `post-office.jpg`,
+  was replaced in place with Flickr's 1,600px copy rather than saved twice;
+  the post office reopened after the 2013 flood (USPS, 31 October 2013).
+  The same photographer's Oskar Blues photograph was credited to the
+  account name, ShanMcG213; all three credits now read Shannon McGee, the
+  name the account gives.
+- **Traps**, for the next review: the Foothills Art Center file is the old
+  church at Washington Avenue and 15th Street, with 809 15th Street on the
+  sign, the Creative Campus and not the 1133 Arapahoe Street address the
+  listing gives (the third catalog to offer it). Chris Light's 2017
+  "Lookout Mountain" views were taken at the Nature Center, as two of the
+  file names say, not in the park.
+  Steven Miller's 2015 "Lookout Mountain" frames look west into the
+  foothills; two are geotagged 300 and 900 m west of the museum, and
+  nothing in any frame ties them to the park. Golden (5) by Michael Stokes is on both
+  lists, once from Commons and once from Flickr.
+- **Not used, on purpose.** The National Guard evacuation photograph (Lyons
+  2 on the Flickr report): the evacuees, a baby and small children among
+  them, are its subject. The Planet Bluegrass grounds and Ralph Price
+  Reservoir: both pages have a photograph. Ralph Price is Button Rock's
+  reservoir, as the dog-hikes article's City of Longmont source says, but
+  Button Rock bans dogs, so it does not lead that article either. All
+  fourteen Golden Flickr photographs: each would go on a page that has a
+  photograph, or on Things to do, Eat & drink or Guides, which have no
+  photograph slot. In Niwot, the Front Range from Niwot repeats the hero
+  (declined 8 October); The Eagle Catcher is a 750px silhouette from 2015
+  that says only "in Niwot", three years before the sculpture park opened;
+  the rest is an aerial, a creek outside Boulder, a 2013 flood scene,
+  SparkFun's offices and a 2005 basement. Erie and the rest of Golden are
+  alternates of places with a photograph, subjects with no page (Lincoln
+  School, the 1888 church, the Vaughn house, the cemetery, Marfell Lakes,
+  the Astor House, the Mines buildings, the Cabrini Shrine), the Puritan
+  Camp kitchen and children (declined 30 September), and historic prints
+  and postcards.
+- **Still without a photograph:** in Golden, Apex, Parfet and Vanover, the
+  Golden History Museum, the Foothills Art Center and every business but
+  one; Erie's businesses and the Wise Homestead; Niwot as before. The
+  Flickr report's ten unread Niwot leads were opened afterwards: eight are
+  all rights reserved and two are CC BY-NC-ND (Wally Gobetz's Arapaho
+  monument, which is in Boulder, and a lightning shot), and the one CC BY
+  Niwot Market photograph is a blurred frame of basement pipes. Ken Lund's
+  38 Golden photographs and Jeffrey Beall's Clear Creek were not opened.

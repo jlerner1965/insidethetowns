@@ -7,6 +7,9 @@ source: "https://buffalobill.org/visit-us/park-amenities-and-things-to-do/"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/lookout-mountain-park.jpg
+imageAlt: "Golden from the top of Lookout Mountain in June 2010: downtown and the Coors brewery in the valley below, North Table Mountain on the left, the end of South Table Mountain on the right and the plains beyond"
+imageCredit: "Cathy Cline, Wikimedia Commons, CC BY-SA 3.0"
 hours: "Daily, 1 hour before sunrise to 1 hour after sunset"
 tags: [views, picnic, history, hiking]
 summary: "City and County of Denver park on Lookout Mountain, open year-round: Buffalo Bill's grave, a free observation deck with views of the Front Range and plains, picnic tables and a trail to the Lookout Mountain Nature Center."

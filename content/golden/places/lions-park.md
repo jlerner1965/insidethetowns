@@ -8,6 +8,9 @@ source: "https://www.cityofgolden.gov/business_detail_T31_R17.php"
 verified: "2026-10-06"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/lions-park.jpg
+imageAlt: "The Lions Park sign at the park's southeast corner: a bronze lion standing on a brick pillar beside a plaque to Roy Claar of the Golden Lions Club, behind a bed of yellow marigolds and pink petunias, July 2010"
+imageCredit: "Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0"
 hours: "Daily, 1 hour before dawn to 1 hour after dusk"
 tags: [playground, picnic, dogs-on-leash, creek]
 summary: "City park next to the Golden Community Center, just north of Clear Creek, with a large accessible playground, shaded picnic tables and two rentable pavilions. Known for its community Fourth of July celebration."
