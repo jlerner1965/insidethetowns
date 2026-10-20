@@ -4,6 +4,9 @@ date: "2026-10-10"
 excerpt: "Down Harrison Avenue from the top: a park on the Mineral Belt Trail, the mining museum next door, Healy House's guided tours, Melanzana's open-shopping side, the Tabor Opera House, and steak, pizza or the Silver Dollar at the bottom. Wednesday to Sunday suits it best."
 category: "Outdoors"
 tags: [outdoors, walking, visiting, history]
+image: ../images/harrison-avenue-at-seventh-street.jpg
+imageAlt: "Harrison Avenue at Seventh Street, brick blocks on both sides and the Delaware Block's corner front on the right, September 2022"
+imageCredit: "Famartin, Wikimedia Commons, CC BY-SA 4.0"
 verified: "2026-10-10"
 glance:
   start: "Ice Palace Park, 1017 Harrison Avenue; the county lists parking off West 10th Street or Harrison Avenue"

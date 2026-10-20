@@ -8,6 +8,9 @@ source: "https://www.idahospringsco.com/our-community/page/parks"
 verified: "2026-10-10"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/water-wheel-park.jpg
+imageAlt: "The Charlie Tayler Waterwheel, a large wooden wheel on a timber frame against a wooded slope, small flags at its base, July 2010"
+imageCredit: "Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0"
 tags: [history, waterwheel, clear-creek, walking]
 summary: "The City park on Clear Creek around the Charlie Tayler Waterwheel, built in 1893 and moved here in 1946, reached by a paved path from behind City Hall under I-70."
 ---

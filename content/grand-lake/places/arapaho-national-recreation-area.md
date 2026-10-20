@@ -8,6 +8,9 @@ source: "https://www.fs.usda.gov/r02/arp/recreation/arapaho-national-recreation-
 verified: "2026-10-10"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/shadow-mountain-lake-green-ridge.jpg
+imageAlt: "Shadow Mountain Lake from Green Ridge Campground in the Arapaho National Recreation Area, aspens turning gold and peaks beyond, September 2018"
+imageCredit: "Tony Webster, Wikimedia Commons, CC BY 2.0"
 hours: "Day use sun-up to sun-down; overnight in campgrounds only"
 tags: [boating, fishing, camping, forest-service, fee-area]
 summary: "35,000 Forest Service acres of reservoirs and shoreline beside Grand Lake: Lake Granby and Shadow Mountain for motorboats, Monarch Lake, Willow Creek and Meadow Creek for paddling, with campgrounds, picnic areas and day hikes. A day pass is $5."

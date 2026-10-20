@@ -8,6 +8,9 @@ source: "https://www.cliffdwellingsmuseum.com/plan-your-visit/season-hours-cost/
 verified: "2026-10-10"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/manitou-cliff-dwellings.jpg
+imageAlt: "The Manitou Cliff Dwellings: rooms and towers of red stone set under a sandstone overhang, a paved walk running along the front, 2007"
+imageCredit: "Obiwan23, Wikimedia Commons, public domain"
 phone: "719-685-5242"
 hours: "Daily 9 am–5 pm Apr–Oct; Mar 9 am–4:30 pm; Nov 9 am–4 pm; Dec–Feb 10 am–4 pm"
 tags: [museum, family, history]

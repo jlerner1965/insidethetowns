@@ -66,6 +66,12 @@ Do not repeat these. The searches are recorded in `DECISIONS.md`.
   photograph: Lions Park and Lookout Mountain Park in Golden, and Lyons's
   Moving here. What was declined, and the traps, are in `DECISIONS.md`
   under *A seventh catalog*. Do not re-review it.
+- **The eighteen-town Commons lists (20 October 2026).** The remaining
+  fifteen towns' spreadsheets from the same set, about 400 rows.
+  Twenty-four pages got a photograph, most in Manitou Springs, Idaho
+  Springs and Grand Lake; the traps and what was declined are in
+  `DECISIONS.md` under *The eighteen-town Commons lists*. Do not re-review
+  them.
 - **KartaView street-level imagery.** Four frames near Elizabeth's Main Street,
   all windshield dashcam shots of roadway with dashboard glare. No storefronts.
 - **Mapillary.** Requires an API token this project does not have.

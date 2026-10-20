@@ -8,6 +8,9 @@ source: "https://cccld.org/about/locations-and-hours"
 verified: "2026-10-10"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/idaho-springs-public-library.jpg
+imageAlt: "The Idaho Springs library in its Carnegie building on 14th Avenue: a pale two-storey building with a pedimented front and a columned entrance, mountainside behind, July 2016"
+imageCredit: "Chris Light, Wikimedia Commons, CC BY-SA 4.0"
 phone: "303-567-2020"
 hours: "Mon, Tue, Thu, Fri 9 am–5 pm; Wed 9 am–6 pm; Sat 9 am–2 pm; Sun closed"
 tags: [library, free, storytime, book-group]

@@ -5450,3 +5450,77 @@ metadata, with one ledger row.
   monument, which is in Boulder, and a lightning shot), and the one CC BY
   Niwot Market photograph is a blurred frame of basement pipes. Ken Lund's
   38 Golden photographs and Jeffrey Beall's Clear Creek were not opened.
+
+## The eighteen-town Commons lists, the other fifteen towns, 20 October
+
+The owner supplied the rest of the Commons spreadsheets behind the seventh
+catalog's README: one list per guide, eighteen in all (Niwot's was sent
+twice, identical). Erie, Golden and Niwot were reviewed under *A seventh
+catalog*; this pass covers the other fifteen, about 400 rows, under the
+same rules. Each row was read against `IMAGE_LICENSES.csv`; each one that
+could fill a page without a photograph was read on its live Commons page,
+looked at, and compared with every image in the repository; each one used
+was cropped to 3:2, saved at 1,600px with no metadata and given one row.
+
+- **Already on the sites:** sixty-three rows, most of all in Johnstown (6
+  of 10), Berthoud (5 of 8), Elizabeth (4 of 7) and Lyons (9 of 33). Estes
+  Park's rows 8 and 9 are the same file.
+- **Added: twenty-four.** Manitou Springs, six: the Cog Railway (a 2024
+  train below the summit station, CC0), the Cliff Dwellings, the Incline
+  from the Barr Trail bailout, Williams Canyon for Cave of the Winds, the
+  Cliff House and its drive, and the 700 block of Manitou Avenue for the
+  walking article. Idaho Springs, seven, where only the Argo had one: the
+  Charlie Tayler Waterwheel for Water Wheel Park, the Citizens Park
+  fountain, the library's Carnegie building, the Beau Jo's building, Echo
+  Lake for the Mount Blue Sky byway, Miner Street for Moving here and the
+  Hanchett Building for the walking article. Grand Lake, six, where only
+  the Kauffman House had one: the Visitor Center (2024), the north-shore
+  beach for Lakefront Park (its geotag is on that shore), Shadow Mountain
+  Lake from Green Ridge Campground for the Arapaho National Recreation
+  Area, the Grand Lake Lodge entrance arch, the waterfront from the air
+  for Moving here and Grand Avenue for the walking article. Leadville,
+  two: Harrison Avenue at Seventh Street for the walking article and at
+  Fourth Street for Moving here. Estes Park's history gets the USGS
+  photograph of its main street in 1912; Nederland's, the 1939 Army aerial
+  of Barker Dam, cropped to the print; Lyons's, the National Guard
+  checkpoint at the St. Vrain bridge on 16 September 2013, set in the
+  flood section with its caption. The archival frames say so in their alt
+  text and credit.
+- **Older than 2012, kept for a reason:** the Cliff Dwellings (2007,
+  rebuilt stone that does not change, and the only open photograph of the
+  dwellings themselves; the 2026 file is a view out of a doorway), the
+  Cliff House (2007, the only open photograph of the hotel's front),
+  Williams Canyon (2009, a canyon), the waterwheel and the Citizens Park
+  fountain (2010, fixed structures), the Grand Lake Lodge arch (2010, the
+  same entrance), and Manitou Avenue and Grand Avenue (2010) on walking
+  articles, dated in the alt text.
+- **Traps**, for the next review: Windsor's "West ariel" was taken on the
+  same flight as the Windsor hero and looks the same; its "Windsor Town
+  Hall" files are the old town hall, now the Art & Heritage Center, not
+  301 Walnut. Fort Collins's "North Fork Cache la Poudre" is at Dale Creek,
+  far upstream of Gateway Natural Area. Loveland's events center still
+  reads "Budweiser Events Center" on its front (2008), and its 4th Street
+  scene is the one centred on a bronze, left out on 4 October. The Estes
+  Park Taffy Shop file's subject is the staff at the wrapping machine, as
+  in the fifth catalog. Leadville's "visitor center" file shows a house
+  whose sign names something else. "Mount Elbert from the valley" names its
+  author only as "me", which a BY-SA credit cannot carry.
+- **Not used, on purpose:** Benson Sculpture Garden (copyrighted
+  sculpture, the rule of 4 October); the Armstrong Hotel
+  (behind its street trees); the Incline's base and bailout frames (people
+  as the subject) and the 2013 summit train (a different train from the
+  one in the 2024 photograph); the Echo Lake Lodge (a
+  business; the lake stands for the byway); Leadville's 1896 Ice Palace
+  (a place listing shows the place now, and no article is about it);
+  RockyGrass performers, the Lyons flood-recovery frames with named
+  people, Homestead Meadows (11 miles out) and Peaceful Valley; 1937
+  survey aerials, low-resolution Timnath frames and Garden of the Gods,
+  which is not in Manitou Springs.
+- **Left for a check:** the Great Western Sugar effluent flume (Jeffrey
+  Beall, 2016) stands on the Poudre half a mile west of Timberline Road;
+  if the Poudre River Trail passes it, it can be that listing's photograph.
+  The Longmont Museum's 2015 exterior stays held: the expanded building
+  reopened on 17 October and there is still no current photograph to
+  compare it with.
+- **Nothing usable for** Windsor, Loveland, Longmont, Johnstown, Berthoud,
+  Elizabeth, Timnath or Fort Collins beyond what the guides already show.

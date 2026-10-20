@@ -4,6 +4,9 @@ date: "2026-10-07"
 excerpt: "Arapaho and Ute summers in the Circle, Joel Estes in 1859, Isabella Bird and the Earl of Dunraven, F.O. Stanley's hotel, Enos Mills and the national park of 1915, a water tunnel under the Divide, and the floods of 1976, 1982 and 2013. The short history of Estes Park, with sources."
 category: "History"
 tags: [history]
+image: ../images/estes-park-1912.jpg
+imageAlt: "Archival photograph: Estes Park's main street in 1912, a dirt road between low wooden storefronts, wagons parked on the right"
+imageCredit: "Archival photograph, 1912. E. B. Marshall, US Geological Survey, Wikimedia Commons, public domain"
 verified: "2026-10-07"
 sources:
   - { label: "National Park Service: Brief Park History (Rocky Mountain National Park)", url: "https://www.nps.gov/romo/learn/historyculture/brief.htm" }

@@ -1,6 +1,9 @@
 ---
 title: "Moving to Leadville"
 description: "Leadville relocation basics: city and county responsibilities, Lake County schools, year-round housing, winter transport and planning everyday life at mountain elevation."
+image: ../images/harrison-avenue-at-fourth-street.jpg
+imageAlt: "Harrison Avenue at Fourth Street in Leadville, brick and stone storefronts on either side of the wide street, September 2022"
+imageCredit: "Famartin, Wikimedia Commons, CC BY-SA 4.0"
 updated: "2026-10-11"
 ---
 

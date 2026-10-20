@@ -49,6 +49,10 @@ Residents formed the Lyons Historical Society in 1973 to stop the depot being so
 
 After a week of rain, both forks of the St. Vrain rose on the night of September 11 to 12, 2013 and met in the middle of town. Every road in was cut, the water, sewer and power went, and the National Guard evacuated residents by convoy and helicopter. About a fifth of the housing was lost or badly damaged, the parks and the depot library were wrecked, and it took years of federal, state and Town money to rebuild the utilities, bridges and riverbanks. [LaVern M. Johnson Park](/places/lavern-m-johnson-park/) reopened in 2017 and the library moved into a new building in 2019. *Source: [Wikipedia, 2013 Colorado floods](https://en.wikipedia.org/wiki/2013_Colorado_floods).*
 
+![A Colorado National Guard Humvee parked across the road at a checkpoint before the St. Vrain bridge into Lyons, a traffic cone and a warning triangle in front, September 2013](../images/flood-2013-checkpoint.jpg)
+
+*The Colorado National Guard's checkpoint at the St. Vrain bridge into Lyons, 16 September 2013. Photo: Staff Sgt. Dixie Manzanares, Colorado National Guard; public domain.*
+
 ## Today: a stone town at the canyon mouth
 
 The 2020 census counted 2,209 people in 1.36 square miles. The downtown is an accredited Main Street America program and a state Creative District; about 97% of its businesses are independently owned. Two festivals, two breweries, a distillery, a tiny-home resort and a mountain-bike trail keep the through-traffic stopping, and the quarries on the hogbacks are still working.

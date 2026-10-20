@@ -1,6 +1,9 @@
 ---
 title: "Moving to Idaho Springs"
 description: "Moving to Idaho Springs: city utilities and planning, Clear Creek schools, transport, winter travel, and what a town address does and does not tell you."
+image: ../images/miner-street.jpg
+imageAlt: "Miner Street in downtown Idaho Springs: a row of Victorian brick and painted fronts, with the Tommyknocker brewery's building on the right, July 2016"
+imageCredit: "Chris Light, Wikimedia Commons, CC BY-SA 4.0"
 updated: "2026-10-11"
 ---
 

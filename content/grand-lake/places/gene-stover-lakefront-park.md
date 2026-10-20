@@ -8,6 +8,9 @@ source: "https://www.townofgrandlake.com/administration/page/gene-stover-lakefro
 verified: "2026-10-10"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/gene-stover-lakefront-park.jpg
+imageAlt: "The sand beach on the north shore of Grand Lake, a young spruce in front and paddle boats tied up along the shore, July 2020"
+imageCredit: "Faith Warehime, Wikimedia Commons, CC BY-SA 4.0"
 phone: "970-627-3435"
 tags: [beach, picnic, lake, town-park]
 summary: "The Town of Grand Lake's park and beach on the north shore of the lake, with two picnic pavilions that can be rented by the hour, public restrooms, parking and barbecue grills."

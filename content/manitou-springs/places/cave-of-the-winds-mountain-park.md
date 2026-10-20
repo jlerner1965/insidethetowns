@@ -8,6 +8,9 @@ source: "https://caveofthewinds.com/plan-your-day/hours-directions/"
 verified: "2026-10-10"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/cave-of-the-winds-mountain-park.jpg
+imageAlt: "Williams Canyon at Cave of the Winds: layered pale cliffs under a cover of pinyon and juniper on the far wall, June 2009"
+imageCredit: "Chris Light, Wikimedia Commons, CC BY-SA 4.0"
 phone: "719-685-5444"
 hours: "Daily 10 am–5 pm; last tour about 4 pm"
 openingHours: ["Mo-Su 10:00-17:00"]

@@ -8,6 +8,9 @@ source: "https://gograndlake.com/grand-lake-visitor-center/"
 verified: "2026-10-10"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/grand-lake-visitor-center.jpg
+imageAlt: "The Grand Lake Visitor Center, a timber building with a red metal roof, stone pillars at the door and flower beds in front, July 2024"
+imageCredit: "Larry D. Moore, Wikimedia Commons, CC BY 4.0"
 phone: "970-627-3402"
 hours: "Summer: daily 9 am–4 pm"
 seasonal: { season: "Summer", hours: "Daily 9 am–4 pm" }
