@@ -8,6 +8,9 @@ source: "https://coloradosprings.gov/manitouincline"
 verified: "2026-10-11"
 added: "2026-10-11"
 verifiedBy: "Codex, for James Lerner"
+image: ../images/manitou-incline.jpg
+imageAlt: "The Manitou Incline's timber steps dropping away below the Barr Trail bailout, about two-thirds of the way up, with snow at the edges and the town far below, January 2015"
+imageCredit: "Ixbrian, Wikimedia Commons, CC BY-SA 4.0"
 tags:
   - "hiking"
   - "stairs"

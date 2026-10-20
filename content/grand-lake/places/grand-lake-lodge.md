@@ -8,6 +8,9 @@ source: "https://www.grandlakelodge.com/"
 verified: "2026-10-10"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/grand-lake-lodge.jpg
+imageAlt: "The log entrance arch over the drive to Grand Lake Lodge, its carved sign hung under a pair of antlers, aspens and a mountain beyond, July 2010"
+imageCredit: "Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0"
 phone: "970-627-3967"
 tags: [lodge, dog-friendly, restaurant]
 summary: "Historic lodge on US 34 with rooms and cabins and the Huntington House Tavern, which was closed for the season when read in October 2026."

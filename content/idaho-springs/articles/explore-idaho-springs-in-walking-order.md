@@ -4,6 +4,9 @@ date: "2026-10-10"
 excerpt: "The Heritage Museum for the background, the Argo's mill tour before its last 3 pm departure, the Charlie Tayler Waterwheel behind City Hall, a cooperative gallery on Miner Street, and mountain pie at the first Beau Jo's. All on foot after parking once."
 category: "Outdoors"
 tags: [outdoors, walking, visiting, history]
+image: ../images/hanchett-building.jpg
+imageAlt: "The Hanchett Building on Miner Street, a two-storey Victorian front with a pediment, arched upper windows and shops below, July 2016"
+imageCredit: "Chris Light, Wikimedia Commons, CC BY-SA 4.0"
 verified: "2026-10-10"
 glance:
   start: "The Heritage Museum and Visitor Center at 2060 Miner Street, after parking downtown or in the Argo's lots"

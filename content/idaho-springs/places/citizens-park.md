@@ -8,6 +8,9 @@ source: "https://www.idahospringsco.com/our-community/page/parks"
 verified: "2026-10-10"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/citizens-park.jpg
+imageAlt: "The tiered cast-iron fountain in Citizens Park, set in a round brick basin against a brick wall, with a spruce and a hanging basket of petunias, July 2010"
+imageCredit: "Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0"
 tags: [downtown, restrooms, events]
 summary: "Small City park among the Miner Street shops, a downtown meeting spot with a public restroom."
 ---

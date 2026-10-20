@@ -8,6 +8,9 @@ source: "https://www.thecliffhouse.com/contact-us"
 verified: "2026-10-10"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/the-cliff-house-at-pikes-peak.jpg
+imageAlt: "The Cliff House at Pikes Peak, a Victorian hotel with a turreted gable and a long porch, at the end of its curving brick drive, September 2007"
+imageCredit: "Suzie T, Wikimedia Commons, CC BY 2.0"
 phone: "719-785-1000"
 tags: [historic-hotel, dining, weddings, wine-cellar]
 summary: "Historic Victorian hotel on Cañon Avenue, a stagecoach stop nearly 150 years ago, with 54 rooms and suites, a dining room, the Red Mountain Bar & Grill and an 800-bottle wine cellar."

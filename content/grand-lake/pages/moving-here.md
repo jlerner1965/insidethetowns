@@ -1,6 +1,9 @@
 ---
 title: "Moving to Grand Lake"
 description: "Moving to Grand Lake: town and county services, East Grand schools, winter travel, seasonal work and what to check for a particular property."
+image: ../images/grand-lake-waterfront-aerial.jpg
+imageAlt: "Grand Lake from the air: boathouses and docks on the town's shore, a boat crossing the lake and mountains beyond, September 2017"
+imageCredit: "Heath Alseike, Wikimedia Commons, CC BY 2.0"
 updated: "2026-10-11"
 ---
 

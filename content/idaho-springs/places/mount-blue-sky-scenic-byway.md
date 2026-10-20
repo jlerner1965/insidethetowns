@@ -8,6 +8,9 @@ source: "https://www.fs.usda.gov/r02/arp/recreation/mount-blue-sky-recreation-ar
 verified: "2026-10-10"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/echo-lake.jpg
+imageAlt: "Echo Lake, where the road up Mount Blue Sky leaves Highway 103, with forested ridges and a bare summit behind, June 2018"
+imageCredit: "Int77345, Wikimedia Commons, CC BY-SA 4.0"
 seasonal: { season: "The upper road closes for the season; on 8 September 2026 the Forest Service said the road was open to Summit Lake and closed above it", note: "Closed for the season above Summit Lake" }
 access: { permit: "Fees and reservations through recreation.gov; the Forest Service page links its timed-entry page without stating the dates", closures: "The road is open to Summit Lake; the upper portion is closed for the season (Forest Service, updated 8 September 2026). 30-foot vehicle length limit on Highway 5", conditionsUrl: "https://www.fs.usda.gov/r02/arp/conditions", conditionsLabel: "Arapaho and Roosevelt current conditions", source: "https://www.fs.usda.gov/r02/arp/recreation/mount-blue-sky-recreation-area-scenic-byway", verified: "2026-10-10" }
 tags: [scenic-drive, fourteener, wildlife, cycling]

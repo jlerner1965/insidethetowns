@@ -8,6 +8,9 @@ source: "https://www.cograilway.com/"
 verified: "2026-10-14"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
+image: ../images/broadmoor-manitou-and-pikes-peak-cog-railway.jpg
+imageAlt: "A red Cog Railway train climbing the last stretch of track below the Pikes Peak summit station, over bare rock and tundra, July 2024"
+imageCredit: "Bob Burch, Wikimedia Commons, CC0"
 phone: "719-685-5401"
 hours: "Runs all year; departure times by date on the railway's booking calendar (cograilway.com/purchase-tickets) or from its box office, 719-685-5401"
 tags: [pikes-peak, train, summit]

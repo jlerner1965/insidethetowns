@@ -4,6 +4,9 @@ date: "2026-10-10"
 excerpt: "Coffee before the 2:30 kitchen cutoff, the boardwalk shops, Town Square Park, two history museums in their summer season, the lakefront beach, and dinner before a show, all on foot from the Lakefront Park lot. Adams Falls and the park's visitor center are a short drive."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
+image: ../images/grand-avenue.jpg
+imageAlt: "Grand Avenue in Grand Lake: wooden storefronts along the boardwalk with flags out, cars parked in front and mountains behind, August 2010"
+imageCredit: "Greg Tally, Wikimedia Commons, CC BY-SA 3.0"
 verified: "2026-10-10"
 glance:
   start: "The public parking at Gene Stover Lakefront Park, 1101 Lake Avenue"

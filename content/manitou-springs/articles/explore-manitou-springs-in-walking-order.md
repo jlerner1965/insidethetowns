@@ -4,6 +4,9 @@ date: "2026-10-10"
 excerpt: "A springs map and a cup from the Visitor Center, the Art Center and the free Heritage Center, the mineral springs along Manitou Avenue, the Commonwheel co-op, Soda Springs Park, Miramont Castle before 3:30, and fondue or the brewpub for dinner, all on foot from one lot."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
+image: ../images/manitou-avenue-700-block.jpg
+imageAlt: "The 700 block of Manitou Avenue in the Manitou Springs Historic District: two- and three-storey brick fronts with shops and awnings at street level, July 2010"
+imageCredit: "Smallbones, Wikimedia Commons, public domain"
 verified: "2026-10-10"
 glance:
   start: "The Hiawatha Gardens lot, 10 Old Mans Trail, or the Cañon lot, 135 Cañon Ave; both paid by the hour until 6 pm"
