@@ -25,19 +25,25 @@
     },
     {
       "id": "niwot-com",
-      "name": "niwot.com",
+      "name": "Niwot Business Association (niwot.com)",
       "url": "https://niwot.com/",
+      "feedUrl": "https://niwot.com/events/feed/",
       "sampleUrl": "https://niwot.com/upcoming-events/",
-      "type": "html",
-      "category": "venue",
+      "type": "rss",
+      "category": "chamber",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 9,
         "places": 7
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "excludeTitles": [
+        "Tree Carving Fundraiser",
+        "Trivia Night",
+        "Hormone Health"
+      ],
+      "notes": "The Niwot Business Association's site, added as a source on the owner's word, 20 October 2026. Its calendar (Modern Events Calendar) publishes /events/feed/: one item per event at its next date, with mec:startDate, mec:startHour, mec:endDate, mec:endHour, mec:location and mec:category; the plugin's site-wide iCal feed is switched off. The feed holds ten items, the next ten events in date order, which on 20 October reached July 2027. Filed as chamber, not venue: the board also carries other groups' events, so nothing from it is approved without a person, and another group's event is confirmed on that group's own page. Excluded: the Tree Carving Fundraiser, a donation appeal the calendar repeats every Tuesday with no time or place; Trivia Night, The Wheel House's weekly regular, which the guide lists from the venue; and the Hormone Health Small Group Medical Program, an enrollment clinic program at a day spa, which is a promotion, not an event."
     },
     {
       "id": "niwothall-org",
