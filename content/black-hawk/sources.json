@@ -8,19 +8,29 @@
       "type": "ical",
       "category": "city-calendar",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "robots": "honor",
-      "notes": "The official calendar and advertised iCalendar export answered successfully. Some VEVENTs omit a location and URL: leave those in staging until the detail page or organizer supplies the venue. City office closures are not public events. Gregory Street and gallery dates were reviewed separately.",
+      "notes": "Confirmed 20 October 2026 on the owner's delegation. CivicPlus. The registry's earlier feedUrl (/calendar/ical/calendar.ics, from the 11 October handoff) answers 404; the site's own iCalendar page lists six calendars, and catID 24 is the community one (Black Hawk Fall Festival, 24 October 11 am-3 pm; Black Hawk Halloween Celebration, 31 October 3-8 pm), alongside the City's holiday closures, which are excluded by title. catID 14 is federal holidays, 25 the City Council and 26 the Historic Preservation Commission (meetings, left out); 22 and 23 were empty. The all-calendar RSS (/RSSFeed.aspx?ModID=58&CID=All-calendar.xml) carries only the near-term window. The feed's LOCATION field holds the event flyer's HTML and the city and ZIP, not a venue, so each item's venue is a guess the editor settles. robots.txt allows the reader (20 October 2026).",
       "checkFrequency": "weekly",
       "lastChecked": "2026-10-11",
       "lastStatus": "blocked",
       "lastNote": "Cloudflare answered 403 to the feed and the calendar page on 11 October 2026. The content handoff of the same day reported reading this feed; confirm it once it answers.",
-      "feedUrl": "https://www.cityofblackhawk.org/calendar/ical/calendar.ics",
+      "feedUrl": "https://www.cityofblackhawk.org/common/modules/iCalendar/iCalendar.aspx?catID=24&feed=calendar",
       "excludeTitles": [
-        "^Thanksgiving$",
-        "^Christmas$",
-        "^New Year.s Eve$"
-      ]
+        "Thanksgiving",
+        "Christmas",
+        "New Year's",
+        "Veterans Day",
+        "Independence Day",
+        "Memorial Day",
+        "Labor Day",
+        "Martin Luther King",
+        "Presidents",
+        "Juneteenth",
+        "Columbus Day",
+        "Indigenous Peoples"
+      ],
+      "sampleUrl": "https://www.cityofblackhawk.org/calendar.aspx?EID=812"
     },
     {
       "id": "gilpincounty-org",

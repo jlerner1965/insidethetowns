@@ -8,6 +8,7 @@ cost: "$34, general admission"
 category: music
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=143"
 sourceId: "rialtotheatercenter-org"
+sourceUid: "showare:229"
 verified: "2026-10-04"
 verifiedBy: "James Lerner"
 ---

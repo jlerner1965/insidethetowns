@@ -12,6 +12,8 @@ category: music
 organizer: "Fort Collins Symphony"
 organizerUrl: "https://fcsymphony.org/"
 source: "https://www.lctix.com/shows-tickets/halloween-pops-concert-frankenstein/"
+sourceId: "lctix-com"
+sourceUid: "showare:5481"
 verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Halloween Pops Concert &#8211; Frankenstein\" at 7 pm on 29 October in the page's structured data"
 ---

@@ -10,6 +10,7 @@ cost: "$33"
 category: music
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=153"
 sourceId: "rialtotheatercenter-org"
+sourceUid: "showare:247"
 verified: "2026-10-04"
 verifiedBy: "James Lerner"
 ---

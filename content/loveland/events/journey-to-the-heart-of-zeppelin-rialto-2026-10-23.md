@@ -10,6 +10,7 @@ cost: "$24, general admission"
 category: music
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=45"
 sourceId: "rialtotheatercenter-org"
+sourceUid: "showare:231"
 verified: "2026-10-17"
 verifiedBy: "Claude Code, delegated by James Lerner"
 status: canceled

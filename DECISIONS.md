@@ -5308,3 +5308,68 @@ Association's site, to be a source, on the editor's judgment.
   The 21 October cemetery talk was rejected once: its listing is from the
   Historical Society's own page (to 8:30; the board says 8), and it is past
   before the next Monday ingest.
+
+## Sources with events to pull from, across the towns, 20 October
+
+The owner asked for a search across the towns for sources that carry many
+events and qualify as niwot.com did: the organizer's own calendar, or a
+community board filed as one, with a feed the robots-aware reader may read.
+Five researchers probed 45 hosts on 20 October, each host through the
+helper and never past a bot check, and the editor read the town
+calendars left proposed on 11 October. What came of it:
+
+- **Twelve feeds confirmed.** Black Hawk's City calendar (CivicPlus iCal,
+  catID 24; the path the 11 October handoff recorded answers 404, the site's
+  own iCalendar page gives the real one); Berthoud's City Star Brewing
+  (tribe REST, 133 occurrences a season, the food-truck rota and the weekly
+  regulars excluded); Fort Collins' Lincoln Center (ShoWare, 132
+  performances), CSU Music, Theatre and Dance (Events Manager iCal; the
+  studio recitals, webinars and college cross-posts excluded) and Bohemian
+  Live Music (tribe REST; its iCal is 410); Loveland's Rialto (ShoWare, 55
+  performances; the hourly ghost-tour slots excluded); Niwot Hall's rental
+  calendar (Modern Events Calendar RSS, the hall's "Featured Event" category
+  only); Windsor's parks department on recreationliveshere.com (CivicPlus
+  iCal; closures and the leaf drop excluded) and Peculier Ales (MEC RSS, the
+  Fort Collins taproom and the regulars excluded). Dry runs after linking
+  the listings each feed already covers: Lincoln Center 55 new, City Star
+  27, Bohemian 21, CSU Music 17, Rialto 15, Windsor parks 2, Dance 2,
+  Theatre 1, Niwot Hall 1, Peculier 1, Black Hawk 0; one change to a
+  published event (the dance concert's end time, the department's). The Monday ingest stages them; the venue feeds are
+  organizer feeds, so the unattended review may approve from them.
+- **Two readers and two filters added.** `scripts/lib/feeds/showare.ts`
+  reads a ShoWare box office's performance list, the JSON the ticket site's
+  own page loads (the Rialto and the Lincoln Center; each site's page size
+  is counted, not assumed). A source may now carry `includeCategories` and
+  `excludeCategories`, the feed's own category names, because a hall's
+  public events and a brewery's food trucks are marked by category, not
+  title. Ids are matched on the registrable domain, so tickets.lctix.com and
+  www.lctix.com are one site.
+- **Linked, not duplicated.** The Rialto's 16 future listings, the Lincoln
+  Center's 16 and Black Hawk's two festival days carry their feed ids, found
+  by matching start times; the feed now tracks them. The Rialto feed marks
+  the 23 October Zeppelin show cancelled, which the listing already says.
+- **Blocked, and left alone.** Five town sites behind Cloudflare: Grand
+  Lake, Idaho Springs, Leadville, Manitou Springs and Windsor (windsorco.gov);
+  the 11 October handoff's "read and parsed" notes on their feeds came from
+  a read that got past the check, which the owner's rule forbids. Also
+  csurams.com (Incapsula), larimer.gov, and three robots refusals: the
+  Lyons Recorder (44 listings cite it; nothing from it can be refreshed by
+  machine), Poudre Libraries' calendar and downtownfortcollins.com's data
+  host. Tockify's and Squarespace's feed paths are disallowed where their
+  pages are allowed, which rules out Wildfire Community Arts Center, Mighty
+  River Brewing, Timnath Beerwerks, The Rock Garden and The Old Mine (whose
+  Google Calendar is on a disallowed host); seven Windsor and two Timnath
+  listings cite those disallowed URLs and want re-sourcing by hand.
+- **Readable but not worth a reader now.** The City of Fort Collins'
+  OpenCities JSON (titles and times, no place or page, and 110 of 177
+  entries are board meetings), the Aggie Theatre's Webflow page (45 shows;
+  Fort Collins is over target), the Windsor and Erie chambers' GrowthZone
+  boards (one fetch per event), Elizabeth Main Street's Locable board (the
+  library's programmes), New Belgium's Humanitix page. Anderson Farms' iCal
+  lists the festival's daily entertainers, which the festival listing
+  covers; the Elbert County Marketplace iCal titles every date "2026 Season"
+  and the eight dates are listed already; Clear Creek County's calendars
+  hold closures; the Niwot Rotary's iCal is club meetings. Each is noted in
+  its registry entry or here for the next pass.
+- **lyonscolorado.com is retired:** an alias of the Town of Lyons' site,
+  not a chamber.

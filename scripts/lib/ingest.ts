@@ -31,6 +31,15 @@ export interface ExistingEvent {
 }
 
 /** "https://www.firestoneco.gov/calendar.aspx?EID=2690" -> "firestoneco.gov". */
+/** "tickets.lctix.com" -> "lctix.com": the last two labels, which is the site for every host these feeds use. */
+export function siteOf(host: string): string {
+  return host.toLowerCase().split('.').slice(-2).join('.');
+}
+
+export function sameSite(a: string, b: string): boolean {
+  return siteOf(a) === siteOf(b);
+}
+
 export function hostOf(url: string | undefined): string | undefined {
   if (!url) return undefined;
   try {
@@ -82,6 +91,16 @@ export function passesLocationFilter(item: FeedEvent, source: Pick<Source, 'loca
   if (!source.locationFilter?.length) return true;
   const haystack = `${item.location ?? ''} ${item.title}`.toLowerCase();
   return source.locationFilter.some((needle) => haystack.includes(needle.toLowerCase()));
+}
+
+/** Whether the item's feed categories pass the source's include and exclude lists. */
+export function passesCategoryFilter(item: Pick<FeedEvent, 'categories'>, source: Pick<Source, 'includeCategories' | 'excludeCategories'>): boolean {
+  const have = item.categories.map((c) => c.replace(/\s+/g, ' ').trim().toLowerCase());
+  const norm = (list: string[] | undefined) => (list ?? []).map((c) => c.replace(/\s+/g, ' ').trim().toLowerCase());
+  const include = norm(source.includeCategories);
+  if (include.length && !have.some((c) => include.includes(c))) return false;
+  const exclude = norm(source.excludeCategories);
+  return !have.some((c) => exclude.includes(c));
 }
 
 /** Whether the editor has excluded this title from the source. */
@@ -245,7 +264,9 @@ export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblin
   // The site, not the registry entry, is the scope: Longmont's council and
   // library feeds are one site and share ids, and an item in both is one
   // event. A file whose host is unknown still matches any id, as before.
-  const byUid = existing.find((e) => e.sourceUid && e.sourceUid === item.uid && (!host || !e.sourceHost || e.sourceHost === host));
+  // tickets.lctix.com and www.lctix.com are one site: the comparison is on
+  // the registrable domain, not the hostname.
+  const byUid = existing.find((e) => e.sourceUid && e.sourceUid === item.uid && (!host || !e.sourceHost || sameSite(e.sourceHost, host)));
   if (byUid) return { kind: byUid.staged ? 'staged' : 'published', existing: byUid };
   const day = dayKey(item.start);
   const sameDay = existing.filter((e) => dayKey(e.start) === day);

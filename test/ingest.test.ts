@@ -11,9 +11,10 @@ import assert from 'node:assert/strict';
 import { z } from 'astro/zod';
 import { civicPlusLocation, readIcal, urlAndDescription } from '../scripts/lib/feeds/ical.ts';
 import { parseClock, parseLongDate, readRss } from '../scripts/lib/feeds/rss.ts';
+import { isShowareFeed, readShowarePage, showareHasMore, showarePage, showareTitle } from '../scripts/lib/feeds/showare.ts';
 import { readTribePage, tribeFirstPage } from '../scripts/lib/feeds/tribe.ts';
 import { plainText } from '../scripts/lib/feeds/types.ts';
-import { detectChanges, excludedTitle, fingerprint, guessCategory, hostOf, matchExisting, passesLocationFilter, siblingCounts, titleSimilarity, toStaged, venueFrom } from '../scripts/lib/ingest.ts';
+import { detectChanges, excludedTitle, fingerprint, guessCategory, hostOf, matchExisting, passesCategoryFilter, passesLocationFilter, sameSite, siblingCounts, titleSimilarity, toStaged, venueFrom } from '../scripts/lib/ingest.ts';
 import { eventFile, slugify } from '../scripts/lib/event-files.ts';
 import { parseFrontmatter } from '../scripts/lib/frontmatter.ts';
 import { eventSchema, sourceSchema } from '../src/content/schemas.ts';
@@ -260,6 +261,80 @@ test('Modern Events Calendar RSS: the mec elements carry the facts; the date is 
   assert.equal(excludedTitle(appeal, { excludeTitles: ['Tree Carving Fundraiser'] }), true);
 });
 
+// ShoWare's performance list (tickets.rialtotheatercenter.org), two rows shortened from page 1 as read on 20 October 2026.
+const SHOWARE = {
+  performance: [
+    {
+      EventID: 45, PerformanceID: 231, Event: '*CANCELLED* Dreamboat Annie presents Journey to the Heart of Zeppelin',
+      PerformanceDateTime: 'Friday, October 23, 2026 7:00:00 PM', PerformanceEndDateTime: 'Friday, October 23, 2026 12:00:00 AM',
+      Venue: 'The Rialto Theater', VenueAddress: '228 E 4th St 228 E 4th St', VenueCity: 'Loveland', ManualStatus: 4,
+      PerformanceMinPrice: 24, PerformanceMaxPrice: 24,
+    },
+    {
+      EventID: 175, PerformanceID: 271, Event: 'BACKSTAGE RIALTO PRESENTS 2026 Rialto Theater Ghost Tours',
+      PerformanceName: 'Rialto Theater Ghost Tours (Low Ticket Availability))',
+      PerformanceDateTime: 'Sunday, October 25, 2026 5:00:00 PM', PerformanceEndDateTime: 'Sunday, October 25, 2026 6:00:00 PM',
+      Venue: 'The Rialto Theater', VenueAddress: '228 E 4th St 228 E 4th St', VenueCity: 'Loveland', ManualStatus: 1,
+      Description: 'Hourly tours 5-8 pm, October 25 &amp; 26<br /> <br /> Join a long standing tradition at the Rialto.',
+      PerformanceMinPrice: 17, PerformanceMaxPrice: 17,
+    },
+    {
+      EventID: 159, PerformanceID: 255, Event: "Mom's Unhinged Stand-Up Comedy Show (rental) 10/2026",
+      PerformanceDateTime: 'Thursday, October 22, 2026 7:00:00 PM', PerformanceEndDateTime: 'Thursday, October 22, 2026 7:00:00 PM',
+      Venue: 'The Rialto Theater', VenueAddress: '228 E 4th St 228 E 4th St', VenueCity: 'Loveland', ManualStatus: 1,
+      PerformanceMinPrice: 33, PerformanceMaxPrice: 53.5,
+    },
+    {
+      EventID: 1, PerformanceID: 2, Event: 'Next summer', PerformanceDateTime: 'Saturday, July 3, 2027 7:30:00 PM',
+      Venue: 'The Rialto Theater', ManualStatus: 1,
+    },
+  ],
+  perfCount: 55,
+};
+
+test('ShoWare performance list: the venue clock, the cleaned title, the cancelled marker, the price range, the paging', () => {
+  const origin = 'https://tickets.rialtotheatercenter.org';
+  const events = readShowarePage(SHOWARE, origin, horizon);
+  assert.equal(events.length, 3, 'next summer is outside the horizon');
+  const [zeppelin, tours, moms] = events as [(typeof events)[0], (typeof events)[0], (typeof events)[0]];
+  assert.equal(zeppelin.title, 'Dreamboat Annie presents Journey to the Heart of Zeppelin');
+  assert.equal(zeppelin.status, 'cancelled');
+  assert.equal(zeppelin.end, undefined, 'a midnight end before the start is no end');
+  assert.equal(zeppelin.cost, '$24');
+  assert.equal(tours.uid, 'showare:271');
+  assert.equal(tours.title, 'Rialto Theater Ghost Tours');
+  assert.equal(toWallClock(tours.start), '2026-10-25T17:00');
+  assert.equal(toWallClock(tours.end!), '2026-10-25T18:00');
+  assert.equal(tours.location, 'The Rialto Theater, 228 E 4th St, Loveland', 'the repeated address collapses');
+  assert.equal(tours.url, `${origin}/eventperformances.asp?evt=175`);
+  assert.equal(tours.description, 'Hourly tours 5-8 pm, October 25 & 26\n\nJoin a long standing tradition at the Rialto.');
+  assert.equal(tours.status, 'confirmed');
+  assert.equal(moms.title, "Mom's Unhinged Stand-Up Comedy Show");
+  assert.equal(moms.cost, '$33–53.50');
+  assert.equal(moms.end, undefined, 'an end equal to the start is no end');
+  assert.equal(isShowareFeed(`${origin}/include/widgets/events/performancelist.asp?action=perf&page=1`), true);
+  assert.equal(isShowareFeed('https://x.org/wp-json/tribe/events/v1/events'), false);
+  assert.equal(showarePage(`${origin}/include/widgets/events/performancelist.asp`, 3), `${origin}/include/widgets/events/performancelist.asp?action=perf&page=3`);
+  assert.equal(showareHasMore(SHOWARE, 4), true, '4 of 55 read: more to come');
+  assert.equal(showareHasMore(SHOWARE, 55), false, 'all 55 read');
+  assert.equal(showareHasMore({ performance: [], perfCount: 55 }, 20), false, 'an empty page ends the read');
+  assert.equal(showareTitle('COMPLEXIONS CONTEMPORARY BALLET: LOVE ROCKS | Presented by The Lincoln Center'), 'COMPLEXIONS CONTEMPORARY BALLET: LOVE ROCKS');
+  assert.equal(showareTitle('Debut Theatre Company | The Legend of Sleepy Hollow'), 'Debut Theatre Company | The Legend of Sleepy Hollow', 'a company credit stays');
+});
+
+test("a source's category lists: include keeps only the feed's marked items, exclude drops the marked ones", () => {
+  const featured = { categories: ['Featured Event'] };
+  const rental = { categories: ['Private Rental'] };
+  const truck = { categories: ['Events', 'Food Trucks'] };
+  const none = { categories: [] };
+  assert.equal(passesCategoryFilter(featured, { includeCategories: ['featured event'] }), true, 'case does not matter');
+  assert.equal(passesCategoryFilter(rental, { includeCategories: ['Featured Event'] }), false);
+  assert.equal(passesCategoryFilter(none, { includeCategories: ['Featured Event'] }), false, 'an unmarked item fails an include list');
+  assert.equal(passesCategoryFilter(truck, { excludeCategories: ['Food Trucks'] }), false);
+  assert.equal(passesCategoryFilter(featured, { excludeCategories: ['Food Trucks'] }), true);
+  assert.equal(passesCategoryFilter(none, {}), true, 'no lists, nothing filtered');
+});
+
 test('a non-breaking space is a space: in feed text and in the title exclusions', () => {
   assert.equal(plainText('Ageless\u00a0Grace&nbsp;®'), 'Ageless Grace ®');
   assert.equal(excludedTitle({ title: 'Ageless\u00a0Grace®' }, { excludeTitles: ['Ageless Grace'] }), true, 'even a title that reached the matcher unconverted');
@@ -272,6 +347,9 @@ test("a site's ids are its own: a file read from another site with the same id i
   assert.equal(matchExisting(item, [theirs], 1, undefined, hostOf(item.url)).kind, 'none', "Dacono's 2690 is not Firestone's");
   assert.equal(matchExisting(item, [theirs], 1, undefined, 'daconoco.gov').kind, 'published', 'the same site, the same event, whichever of its feeds it came by');
   assert.equal(matchExisting(item, [{ ...theirs, sourceHost: undefined }], 1, undefined, 'firestoneco.gov').kind, 'published', 'a file whose host is unknown still matches by id, as before');
+  assert.equal(matchExisting({ ...item, uid: 'showare:5523' }, [{ ...theirs, sourceUid: 'showare:5523', sourceHost: 'lctix.com' }], 1, undefined, 'tickets.lctix.com').kind, 'published', 'a box office on a subdomain is the same site as the venue');
+  assert.equal(sameSite('tickets.lctix.com', 'www.lctix.com'), true);
+  assert.equal(sameSite('daconoco.gov', 'firestoneco.gov'), false);
 });
 
 const CIVICPLUS_ICS = `BEGIN:VCALENDAR

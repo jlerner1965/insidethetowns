@@ -10,6 +10,8 @@ url: "https://www.lctix.com/shows-tickets/imomsohard/"
 cost: "$62–$93; limited $40 seats"
 category: other
 source: "https://www.lctix.com/shows-tickets/imomsohard/"
+sourceId: "lctix-com"
+sourceUid: "showare:5519"
 verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"#IMOMSOHARD: The Crashing Out Tour\" at 6 pm on 25 October in the page's structured data"
 ---

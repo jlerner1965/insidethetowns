@@ -11,6 +11,7 @@ category: music
 timeNote: "December 11 at 7:30 pm; December 12 at 3 pm and 7:30 pm; December 13 at 3 pm"
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=151"
 sourceId: "rialtotheatercenter-org"
+sourceUid: "showare:240"
 verified: "2026-10-04"
 verifiedBy: "James Lerner"
 ---

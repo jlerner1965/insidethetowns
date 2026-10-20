@@ -9,13 +9,13 @@
       "type": "html",
       "category": "city-calendar",
       "priority": "core",
-      "status": "proposed",
+      "status": "retired",
       "cites": {
         "events": 3,
         "places": 11
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Retired 20 October 2026: lyonscolorado.com is an alias of the Town of Lyons' CivicPlus site (townoflyons-com, confirmed), not a chamber; its calendar RSS is the same feed. Its robots.txt also timed out twice in three minutes on 20 October."
     },
     {
       "id": "townoflyons-com",

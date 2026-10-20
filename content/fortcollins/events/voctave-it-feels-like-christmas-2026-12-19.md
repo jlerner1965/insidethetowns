@@ -9,6 +9,8 @@ url: "https://www.lctix.com/shows-tickets/voctave/"
 cost: "$35–$81"
 category: music
 source: "https://www.lctix.com/shows-tickets/voctave/"
+sourceId: "lctix-com"
+sourceUid: "showare:5531"
 verified: "2026-10-01"
 ---
 

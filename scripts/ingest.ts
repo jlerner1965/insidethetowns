@@ -48,9 +48,10 @@ import { parseFrontmatter } from './lib/frontmatter.ts';
 import { eventFile } from './lib/event-files.ts';
 import { readIcal } from './lib/feeds/ical.ts';
 import { readRss } from './lib/feeds/rss.ts';
+import { isShowareFeed, readShowarePage, showareHasMore, showarePage, type ShowarePage } from './lib/feeds/showare.ts';
 import { readTribePage, tribeFirstPage, type TribePage } from './lib/feeds/tribe.ts';
 import type { FeedEvent, Horizon } from './lib/feeds/types.ts';
-import { detectChanges, excludedTitle, hostOf, matchExisting, passesLocationFilter, siblingCounts, toStaged, venueFrom, type ExistingEvent } from './lib/ingest.ts';
+import { detectChanges, excludedTitle, hostOf, matchExisting, passesLocationFilter, siblingCounts, toStaged, venueFrom, type ExistingEvent, passesCategoryFilter } from './lib/ingest.ts';
 import { isAllowed } from './lib/robots.ts';
 import { robotsFor, TIMEOUT, UA } from './lib/probe.ts';
 
@@ -149,6 +150,28 @@ async function readFeed(source: Source): Promise<{ items: FeedEvent[]; note: str
     }
   }
   const robotsNote = !isAllowed(rules, pathname + search) ? ' (robots.txt disallows; read under the editor\'s robots: subscribe)' : '';
+  if (source.type === 'json' && isShowareFeed(feedUrl)) {
+    // A ShoWare box office's performance list, fifteen a page.
+    const items: FeedEvent[] = [];
+    let n = 1;
+    let read = 0;
+    for (;;) {
+      const url = showarePage(feedUrl, n);
+      const { code, body } = await fetchText(url);
+      if (!/^2/.test(code)) return { error: `${url} answered ${code}` };
+      let page: ShowarePage;
+      try {
+        page = JSON.parse(body) as ShowarePage;
+      } catch {
+        return { error: `${url} did not return JSON` };
+      }
+      items.push(...readShowarePage(page, origin, horizon));
+      read += page.performance?.length ?? 0;
+      if (!showareHasMore(page, read) || n >= 20) break;
+      n++;
+    }
+    return { items, note: `${n} page${n === 1 ? '' : 's'}${robotsNote}` };
+  }
   if (source.type === 'json') {
     // The Events Calendar REST API, paginated.
     const items: FeedEvent[] = [];
@@ -224,7 +247,7 @@ for (const town of towns) {
       continue;
     }
     const located = result.items.filter((item) => passesLocationFilter(item, source));
-    const inScope = located.filter((item) => !excludedTitle(item, source));
+    const inScope = located.filter((item) => !excludedTitle(item, source) && passesCategoryFilter(item, source));
     const filtered = result.items.length - located.length;
     const excluded = located.length - inScope.length;
     console.log(

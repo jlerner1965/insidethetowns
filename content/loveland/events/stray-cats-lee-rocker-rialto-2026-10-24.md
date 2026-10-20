@@ -10,6 +10,7 @@ cost: "$55, premier $65 (ticketing fee included)"
 category: music
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=162"
 sourceId: "rialtotheatercenter-org"
+sourceUid: "showare:258"
 verified: "2026-10-19"
 verifiedBy: "recheck-events (the nightly re-check workflow): 24 October and 7:30 pm on the page"
 ---

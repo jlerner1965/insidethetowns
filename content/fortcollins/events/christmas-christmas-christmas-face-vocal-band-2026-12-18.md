@@ -9,6 +9,8 @@ url: "https://www.lctix.com/shows-tickets/christmas-christmas-christmas/"
 cost: "$32–$54"
 category: music
 source: "https://www.lctix.com/shows-tickets/christmas-christmas-christmas/"
+sourceId: "lctix-com"
+sourceUid: "showare:5659"
 verified: "2026-10-01"
 ---
 

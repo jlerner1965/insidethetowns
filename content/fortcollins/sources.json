@@ -121,16 +121,33 @@
       "name": "music.colostate.edu",
       "url": "https://music.colostate.edu/",
       "sampleUrl": "https://music.colostate.edu/events/all-choral-holiday-concert-5/",
-      "type": "html",
+      "type": "ical",
       "category": "venue",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 5,
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "CSU Department of Music, University Center for the Arts, 1400 Remington St. WordPress with the Events Manager plugin; /events/ical/ is iCalendar (America/Denver), read 20 October 2026: 50 VEVENTs, 43 in the next 120 days, 45 with a LOCATION (the five without are webinars and information sessions), no RRULEs. The plugin caps the export at 50 items, so the far end can be cut off when the department lists more than 50 ahead. Noise to hold back: an umbrella 'Fall 2026 Student Recitals' spanning October to December, and the college's cross-posts (CLA Democracy Summit, CSU Scholarships Fair), which appear identically in the theatre and dance feeds too. Confirmed 20 October 2026 on the owner's delegation. Excluded by title: the department's studio and area recitals and chamber-ensemble class recitals (student coursework, not the ensemble concerts), webinars and information sessions, the honor band festival (schools), the Spur Music Lab (at CSU Spur in Denver) and the Parade of Lights preview (no place given).",
+      "feedUrl": "https://music.colostate.edu/events/ical/",
+      "excludeTitles": [
+        "Student Recitals",
+        "Democracy Summit",
+        "Scholarships Fair",
+        "Webinar",
+        "Studio Recital",
+        "Area Recital",
+        "Area Solo Recital",
+        "Area Chamber Recital",
+        "Chamber Music Recital",
+        "Chamber Ensembles",
+        "Be a Music",
+        "Honor Band Festival",
+        "Spur Music Lab",
+        "Parade of Lights Preview"
+      ]
     },
     {
       "id": "bathgardencenter-com",
@@ -152,30 +169,37 @@
       "name": "bohemianlivemusic.org",
       "url": "https://bohemianlivemusic.org/",
       "sampleUrl": "https://bohemianlivemusic.org/",
-      "type": "html",
+      "type": "json",
       "category": "venue",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 3,
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Bohemian Live Music, the Bohemian Foundation's programme at Washington's (132 Laporte Ave) and The Armory (314 E Mountain Ave): ticketed club shows, not the free concerts. WordPress with The Events Calendar; the page advertises an iCal export that answers 410 Gone, but the REST feed /wp-json/tribe/events/v1/events answers, read 20 October 2026: 30 events, 22 in the next 120 days, a venue with address on every one, costs as the feed gives them ('$44.04', 'Sold Out'). Confirmed 20 October 2026 on the owner's delegation.",
+      "feedUrl": "https://bohemianlivemusic.org/wp-json/tribe/events/v1/events?per_page=50"
     },
     {
       "id": "dance-colostate-edu",
       "name": "dance.colostate.edu",
       "url": "https://dance.colostate.edu/",
       "sampleUrl": "https://dance.colostate.edu/events/2026-fall-dance-concert/",
-      "type": "html",
+      "type": "ical",
       "category": "venue",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 1,
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "CSU Dance, University Dance Theatre at the UCA, 1400 Remington St. Same stack; /events/ical/ read 20 October 2026: 11 VEVENTs, 8 in the next 120 days, every one with a LOCATION. Visit days start at midnight; cross-posts as in the music feed. Confirmed 20 October 2026 on the owner's delegation.",
+      "feedUrl": "https://dance.colostate.edu/events/ical/",
+      "excludeTitles": [
+        "Democracy Summit",
+        "Scholarships Fair",
+        "Visit Day"
+      ]
     },
     {
       "id": "focofallfest-com",
@@ -242,15 +266,22 @@
       "name": "theatre.colostate.edu",
       "url": "https://theatre.colostate.edu/",
       "sampleUrl": "https://theatre.colostate.edu/events/alice-by-heart-music-by-duncan-sheik-lyrics-by-steven-sater-and-book-by-steven-sater-and-jessie-nelson-2026-11-06-2026-11-07-2026-11-08-2026-11-09-2026-11-10-2026-11-11/",
-      "type": "html",
+      "type": "ical",
       "category": "venue",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 1,
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "CSU Theatre, University Theatre and Studio Theatre at the UCA, 1400 Remington St. Same Events Manager stack as the music department; /events/ical/ read 20 October 2026: 22 VEVENTs, 12 in the next 120 days, every one with a LOCATION. Each performance is its own VEVENT, but a run's first VEVENT carries DTEND at closing night (Alice by Heart: 6 to 13 November), so a multi-day end on a performance is the run, not the night. Visit days start at midnight. Cross-posts as in the music feed. Confirmed 20 October 2026 on the owner's delegation. Alice by Heart is excluded for this run: the guide lists it once as a run (6 to 15 November, from the department's page), and the feed would stage each night.",
+      "feedUrl": "https://theatre.colostate.edu/events/ical/",
+      "excludeTitles": [
+        "Democracy Summit",
+        "Scholarships Fair",
+        "Visit Day",
+        "Alice by Heart"
+      ]
     },
     {
       "id": "tourdecorgi-org",
@@ -329,18 +360,20 @@
     },
     {
       "id": "lctix-com",
-      "name": "lctix.com",
+      "name": "The Lincoln Center (lctix.com)",
       "url": "https://lctix.com/",
       "sampleUrl": "https://www.lctix.com/shows-tickets/aoife-odonovan-chris-thile/",
-      "type": "html",
-      "category": "other",
-      "status": "proposed",
+      "type": "json",
+      "category": "venue",
+      "status": "confirmed",
       "cites": {
         "events": 18,
         "places": 1
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "The City of Fort Collins' performing arts centre, 417 W. Magnolia St. Its own site (WordPress) has no events feed; its box office, tickets.lctix.com, is ShoWare, like the Rialto's, and the ticket site's event list is drawn by script from /include/widgets/events/performancelist.asp?action=perf&page=N, twenty performances a page (132 on 20 October 2026, to July 2027), read by scripts/lib/feeds/showare.ts; robots.txt allows it. Every row names the hall (Performance Hall, Magnolia Theatre) and the address. A few rows are untitled placeholders with no price, which the reader skips. Presenters' shows (the Fort Collins Symphony, OpenStage, Debut Theatre) are sold by the Center's own box office, which the standard counts as the organizer's ticket page. Confirmed 20 October 2026 on the owner's delegation; 18 published events already cite the box office.",
+      "feedUrl": "https://tickets.lctix.com/include/widgets/events/performancelist.asp?action=perf&page=1",
+      "priority": "core"
     },
     {
       "id": "runsignup-com",

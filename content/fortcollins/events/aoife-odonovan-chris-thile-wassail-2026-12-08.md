@@ -10,6 +10,8 @@ url: "https://www.lctix.com/shows-tickets/aoife-odonovan-chris-thile/"
 cost: "$29–$87"
 category: music
 source: "https://www.lctix.com/shows-tickets/aoife-odonovan-chris-thile/"
+sourceId: "lctix-com"
+sourceUid: "showare:5530"
 verified: "2026-10-01"
 ---
 
