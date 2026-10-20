@@ -7,6 +7,8 @@ url: "https://www.lctix.com/shows-tickets/fraggle-rock/"
 cost: "$35–$68"
 category: family
 source: "https://www.lctix.com/shows-tickets/fraggle-rock/"
+sourceId: "lctix-com"
+sourceUid: "showare:5529"
 verified: "2026-10-01"
 ---
 

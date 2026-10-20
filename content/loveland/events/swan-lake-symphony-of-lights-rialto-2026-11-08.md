@@ -8,6 +8,7 @@ cost: "$53, $43 and $33"
 category: arts
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=149"
 sourceId: "rialtotheatercenter-org"
+sourceUid: "showare:238"
 verified: "2026-10-04"
 verifiedBy: "James Lerner"
 ---

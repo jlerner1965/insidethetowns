@@ -848,6 +848,16 @@ export const sourceSchema = z
      * day; the guide's event standard does not list them. Set by the editor.
      */
     excludeTitles: z.array(z.string().min(1)).optional(),
+    /**
+     * Keep only feed items carrying one of these feed categories (case-
+     * insensitive, exact), or drop items carrying one of these. A hall's
+     * rental calendar marks its public events "Featured Event" among the
+     * rehearsals and private bookings; a brewery's calendar files the daily
+     * food truck under "Food Trucks". Set by the editor; the feed's own
+     * category names, not the guide's.
+     */
+    includeCategories: z.array(z.string().min(1)).optional(),
+    excludeCategories: z.array(z.string().min(1)).optional(),
     /** Feed venue text -> the name the guide uses: { "Johnstown Location": "Glenn A. Jones, M.D. Memorial Library" }. */
     venueAliases: z.record(z.string(), z.string().min(1)).optional(),
     /** The venue when the feed names a room or an address but not the place: a library's own calendar. */

@@ -11,6 +11,8 @@ category: arts
 organizer: "Gratie Ballet"
 organizerUrl: "https://www.gratieballet.com/"
 source: "https://www.lctix.com/shows-tickets/the-great-fort-collins-nutcracker/"
+sourceId: "lctix-com"
+sourceUid: "showare:5643"
 verified: "2026-10-01"
 ---
 

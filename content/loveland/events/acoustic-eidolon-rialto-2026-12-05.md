@@ -10,6 +10,7 @@ cost: "$32; seniors and students $29"
 category: music
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=144"
 sourceId: "rialtotheatercenter-org"
+sourceUid: "showare:230"
 verified: "2026-10-04"
 verifiedBy: "James Lerner"
 ---

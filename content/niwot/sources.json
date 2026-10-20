@@ -47,19 +47,28 @@
     },
     {
       "id": "niwothall-org",
-      "name": "niwothall.org",
+      "name": "Niwot Hall (Left Hand Grange)",
       "url": "https://niwothall.org/",
       "sampleUrl": "https://niwothall.org/events/artists-in-the-hall-3/",
-      "type": "html",
+      "type": "rss",
       "category": "venue",
       "priority": "core",
-      "status": "proposed",
+      "status": "confirmed",
       "cites": {
         "events": 16,
         "places": 1
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "The hall's rental calendar (Modern Events Calendar), read 20 October 2026 at /events/feed/: ten items, the coming week only (the plugin ignores paging and its iCal export is off), mixing public events with band practice, rehearsals and private bookings. The hall marks the public ones 'Featured Event', which is the include filter; the Rotary's weekly breakfast is already listed as a regular and the election commission's meetings are civic notices. No location element: the hall is the venue. A one-week window read on Mondays lists that week's talks and seminars; longer notice has to come from the organizers' own pages. Confirmed 20 October 2026 on the owner's delegation; 16 published events already cite the site.",
+      "feedUrl": "https://niwothall.org/events/feed/",
+      "defaultVenue": "Niwot Hall",
+      "includeCategories": [
+        "Featured Event"
+      ],
+      "excludeTitles": [
+        "Rotary Club",
+        "Election Commission"
+      ]
     },
     {
       "id": "niwotarts-org",

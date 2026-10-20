@@ -8,6 +8,7 @@ cost: "$5"
 category: family
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=174"
 sourceId: "rialtotheatercenter-org"
+sourceUid: "showare:270"
 verified: "2026-10-04"
 ---
 
