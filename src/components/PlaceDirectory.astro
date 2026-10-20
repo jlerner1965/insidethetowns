@@ -13,6 +13,7 @@ import type { TownEntry } from '@/lib/content';
 import { PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, PLACE_TYPES, type PlaceType } from '@/content/schemas';
 import { PLACE_HUE } from '@/config/palette';
 import { isOpen } from '@/lib/places';
+import { PLACE_TYPE_PAGES, countByType, placeTypePages } from '@/lib/place-types';
 import FilterBar from './FilterBar.astro';
 import PlaceCard from './PlaceCard.astro';
 import PlaceFeature from './PlaceFeature.astro';
@@ -46,6 +47,12 @@ const groups = grouped
   ? types.map((type) => ({ type, label: PLACE_TYPE_PLURALS[type], items: places.filter((p) => p.data.type === type) }))
   : [{ type: types[0], label: '', items: places }];
 const hueOf = (type: PlaceType | undefined) => (type ? PLACE_HUE[type] : undefined);
+// A group heading links to the kind's own page where one is built. The
+// decision is made over the places this list holds, never more than the
+// town has, so it links only to a page the route integration built
+// (src/lib/place-types.ts); on a page filtered to one sub-town a kind can
+// fall short of the threshold here and go unlinked, which is the safe side.
+const linked = new Set(placeTypePages(countByType(places.filter(isOpen))));
 // On a multi-town guide the filter bar gets a second row, one pill per town.
 const subTowns = subTownsOf(getSite());
 ---
@@ -82,7 +89,11 @@ const subTowns = subTownsOf(getSite());
             class="flex items-baseline justify-between gap-4 border-b-2 pb-2.5 text-[1.5rem] font-medium"
             style={`color:var(--cat-${hueOf(group.type)}-ink);border-color:var(--cat-${hueOf(group.type)}-dot)`}
           >
-            {group.label}
+            {group.type && linked.has(group.type) ? (
+              <a href={PLACE_TYPE_PAGES[group.type].path} class="underline decoration-2 underline-offset-4 hover:decoration-4" style="color:inherit">{group.label}</a>
+            ) : (
+              group.label
+            )}
             {/* On the category's ink, not its dot colour: white on the dot
                 came to 3.9:1, short of the 4.5 small text needs. In the sans,
                 like every other count on the site. */}

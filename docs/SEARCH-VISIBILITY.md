@@ -47,8 +47,13 @@ both.
 
 After verification, submit the sitemap index for each property (below), and
 set the property's users so the owner is not the only one who can read it.
-Nothing in this repository claims that any property has been verified or
-that any sitemap has been submitted; when it has, record the date here.
+**Done, 20 October 2026.** The owner reports every live domain added to
+Google Search Console and to Bing Webmaster Tools. Nothing in this
+repository can read either account, so the weekly table below is filled by
+a person from the Performance and Pages reports; the first useful rows are
+four weeks out, when the data has settled. If a sitemap index has not been
+submitted on a property, submit it from the table below; it costs nothing to
+submit twice.
 
 ## Sitemap URLs
 
@@ -134,7 +139,7 @@ nothing moves to "done" here until it is.
 |---|---|---|---|
 | 1 | Pages answer the searcher: Start here, refreshed date and big dates on /events/, place titles and "In the guides", Article and Moving Here structured data, flagship `related` links, verification from the environment | Repository | Shipped, PR #132 |
 | 2 | Signal over noise: past events as one count in the validator (`--past` lists them), a second daily rebuild at 17:10 UTC, About titles not doubled, Golden's commute line, the hub snippet ending at its full stop, outbound links on the three flagships checked (0 dead) | Repository | This phase |
-| 3 | Editorial, needs a person or a business's facts: verify the Search Console properties and submit the sitemaps; fix the Buttondown description and send the first issue; confirm the core event sources for Lyons, Niwot and Golden; roll forward or delete the 169 past events; reword or source the 13 unreadable hours lines; the photo list (docs/PHOTO-PRIORITIES.md); the outreach list (docs/OUTREACH-FLAGSHIPS.md); extend `related` links to the other nineteen guides' articles; verify the 2026 Holiday Parade date with the Business Association | Owner, with the weekly session | Each line struck through here with a date |
+| 3 | Editorial, needs a person or a business's facts: ~~verify the Search Console properties and submit the sitemaps~~ (done, 20 October 2026, owner's word); fix the Buttondown description and send the first issue; confirm the core event sources for Lyons, Niwot and Golden; roll forward or delete the 169 past events; reword or source the 13 unreadable hours lines; the photo list (docs/PHOTO-PRIORITIES.md); the outreach list (docs/OUTREACH-FLAGSHIPS.md); extend `related` links to the other nineteen guides' articles; verify the 2026 Holiday Parade date with the Business Association | Owner, with the weekly session | Each line struck through here with a date |
 | 4 | Measurement and commercial proof, after four weeks of Search Console and sends: fill the weekly table above, decide the three flagships' sponsor placements from real numbers, publish a rate card only if they hold | Owner | First rate card, or a dated decision not to publish one yet |
 
 ## Done in this phase, in the code
@@ -150,3 +155,59 @@ nothing moves to "done" here until it is.
 - Articles: `isPartOf` the site, `dateModified` from the edit or the check
   date; `related` links on the twelve flagship articles that had none.
 - Verification tags from the environment, as above.
+
+## Phase 5, 20 October 2026: one page per kind of place
+
+Shipped on the branch of 20 October. The queries a town guide exists for
+are "[town] restaurants", "[town] breweries", "[town] trails", "[town]
+parks", and until now each landed on /eat-drink/ or /things-to-do/, a page
+titled for a broader thing and listing four kinds at once. Every live guide
+now builds one page per kind it has at least three of (`MIN_PLACES_FOR_TYPE_PAGE`,
+src/lib/place-types.ts): /restaurants/, /bars-breweries/, /coffee/, /shops/,
+/trails/, /trailheads/, /parks/, /venues/, /stay/ and /services/, each
+titled "[Kind] in [Town], CO", with the kind and the town in the h1, a
+CollectionPage with its ItemList, a breadcrumb through the section it
+belongs to, and links to its sibling kinds. The group headings on
+/eat-drink/, /things-to-do/, /directory/ and the sub-town pages link to
+them, so every page that lists places leads to the kind pages and the kind
+pages lead back. They enter the sitemap like any other page. Lyons builds
+seven of them, the network 70-odd; `test/place-types.test.ts` keeps the
+routes built and the headings linked in step over every listing.
+
+What to watch in Search Console, four weeks on: impressions for queries of
+the shape "[town] [kind]" and which URL Google shows for them. If it still
+shows /eat-drink/ for "golden breweries" the kind pages need more on them
+(an opening line, the article that mentions the kind) rather than more of
+them.
+
+## Distribution: where a small town's readers actually are
+
+Search is slow and links are slower. The traffic a town guide can turn on
+this month is the town's own Facebook groups, Nextdoor, and the newsletters
+the chamber and the library already send, and none of this is in any
+document yet. It is work for a person with accounts of their own; the
+repository supplies the pages to share and the campaign tags to count them.
+
+- **One post a week per flagship, in the town's community Facebook group**,
+  on the day the Thursday email goes out: the /this-weekend/ page, with
+  the three best things on it named in the post. Not the home page, and
+  not a different page each week: a page whose URL never changes builds
+  recognition. Link with `?utm_source=facebook&utm_medium=social&utm_campaign=weekend`
+  so Vercel Web Analytics can tell the group from search
+  (src/lib/newsletter.ts has the tag shape the email uses).
+- **Nextdoor, the same post**, with `utm_source=nextdoor`. Nextdoor shows
+  a post to the neighbourhoods around the poster, which for Niwot and
+  Lyons is the whole town.
+- **The chamber's and the library's own newsletters.** Ask once, in the
+  outreach emails (docs/OUTREACH-DRAFTS-2026-10-20.md), whether they would
+  carry one line a month pointing at the kind page their members are on
+  (/restaurants/ for the chamber, /events/ for the library).
+- **A Google Business Profile for each flagship guide** is not worth it:
+  the guides have no premises and Google removes such profiles.
+
+The measure is the "Signups from search" and "Event-page visits" columns
+above, split by `utm_source`, and the week's new subscribers in Buttondown.
+A post that brings fewer than ten visitors twice running is not worth the
+weekly minute; a group that brings fifty is where the next sponsor's
+customers are.
+

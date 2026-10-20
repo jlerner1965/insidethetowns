@@ -1,0 +1,79 @@
+---
+/**
+ * Every place of one kind in the town: /restaurants/, /trails/, /parks/.
+ *
+ * The page a search for "[town] restaurants" or "[town] trails" should land
+ * on: one kind, one town, in the title, the heading, the list and the
+ * structured data. Injected once per kind the town has enough of
+ * (src/integrations/town-routes.ts, src/lib/place-types.ts), at a fixed
+ * path, so the kind is read off the URL rather than a route param.
+ *
+ * The list is the directory's, with the photographed places leading, and
+ * no filter bar: there is one kind here and the filter would be one button.
+ * A page whose listings have all been excluded since the route was decided
+ * (a source gone, a check out of date) keeps its URL and asks not to be
+ * indexed rather than offering a search engine an empty list.
+ */
+import Page from '@/layouts/Page.astro';
+import PlaceDirectory from '@/components/PlaceDirectory.astro';
+import SubTownLinks from '@/components/SubTownLinks.astro';
+import { getTown } from '@/config';
+import { getTownEntries } from '@/lib/content';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+import { byProminence } from '@/lib/places';
+import { PLACE_TYPE_PAGES, countByType, placeTypeOfPath, placeTypePages, siblingTypePages } from '@/lib/place-types';
+import { subTownList, subTownsOf } from '@/lib/sub-towns';
+
+const town = getTown();
+const type = placeTypeOfPath(Astro.url.pathname);
+if (!type) throw new Error(`${Astro.url.pathname} is not a place-type page (src/lib/place-types.ts)`);
+const page = PLACE_TYPE_PAGES[type];
+
+const all = (await getTownEntries('places')).filter((p) => !p.delisted);
+const places = all.filter((p) => p.data.type === type).sort(byProminence);
+// "Restaurants in Windsor" when a third of them are in Severance: a guide
+// that covers several towns names them all, as the directory does.
+const coverage = subTownsOf(town).length > 1 ? subTownList(town) : town.name;
+const where = { name: coverage, state: town.state };
+const description = page.describe(where, places.length);
+const siblings = siblingTypePages(type, placeTypePages(countByType(all)));
+const structured = [
+  collectionPageJsonLd(town, {
+    name: page.title(where),
+    description,
+    path: page.path,
+    items: places.map((p) => ({ name: p.data.title, path: `/places/${p.slug}/` })),
+  }),
+  breadcrumbJsonLd(town, [
+    { name: town.name, path: '/' },
+    page.parent,
+    { name: page.heading, path: page.path },
+  ]),
+];
+---
+<Page
+  title={`${page.heading} in ${coverage}`}
+  seoTitle={page.title(where)}
+  eyebrow={page.parent.name}
+  {description}
+  intro={places.length > 0 ? description : `Nothing of this kind is listed in ${coverage} at the moment.`}
+  jsonLd={structured}
+  noindex={places.length === 0}
+>
+  <p slot="after-header" class="mt-5 text-[0.9375rem] text-ink-muted">
+    <a href={page.parent.path} class="font-semibold text-primary underline">All of {page.parent.name}</a>
+    {siblings.length > 0 && (
+      <>
+        {' · '}
+        {siblings.map((s, i) => (
+          <>
+            {i > 0 && ' · '}
+            <a href={PLACE_TYPE_PAGES[s].path} class="font-semibold text-primary underline">{PLACE_TYPE_PAGES[s].heading}</a>
+          </>
+        ))}
+      </>
+    )}
+  </p>
+  <SubTownLinks slot="after-header" class="mt-5" />
+  <PlaceDirectory places={places} heading={`${page.heading} in ${coverage}`} emptyMessage={`No ${page.heading.toLowerCase()} listed yet.`} />
+</Page>
