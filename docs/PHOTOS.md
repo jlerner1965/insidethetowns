@@ -60,6 +60,12 @@ Do not repeat these. The searches are recorded in `DECISIONS.md`.
   missed), filler, people, same-named places or the wrong location. What was
   used, declined and held is in `DECISIONS.md` under *A sixth catalog*. Do
   not re-review it.
+- **A seventh catalog: a Flickr report and three Commons lists for Niwot,
+  Lyons, Golden and Erie (20 October 2026).** About 150 candidates, most
+  already on the sites or in the repository unused. Three pages got a
+  photograph: Lions Park and Lookout Mountain Park in Golden, and Lyons's
+  Moving here. What was declined, and the traps, are in `DECISIONS.md`
+  under *A seventh catalog*. Do not re-review it.
 - **KartaView street-level imagery.** Four frames near Elizabeth's Main Street,
   all windshield dashcam shots of roadway with dashboard glare. No storefronts.
 - **Mapillary.** Requires an API token this project does not have.

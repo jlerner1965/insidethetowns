@@ -1,6 +1,9 @@
 ---
 title: "Moving to Lyons"
 description: "What it is like to live in a stone town of 2,200 at the 2020 census, at the mouth of the St. Vrain canyons: housing, schools, the commute, a Town that runs its own utilities, and a river that floods once a century."
+image: ../images/post-office.jpg
+imageAlt: "The Lyons post office, a one-story brick building behind its red sandstone United States Post Office sign, with the foothills beyond, July 2013"
+imageCredit: "Shannon McGee, Flickr, CC BY-SA 2.0"
 updated: "2026-10-02"
 ---
 
