@@ -4,7 +4,7 @@ type: bar
 address: "801 Brickyard Circle, Unit B, Golden, CO 80403"
 url: "https://holidailybrewing.com/"
 source: "https://holidailybrewing.com/"
-verified: "2026-10-06"
+verified: "2026-10-20"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "303-278-2337"

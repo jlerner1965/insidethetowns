@@ -4,11 +4,11 @@ type: park
 address: "2034 County Road 126"
 url: "https://bouldercounty.gov/open-space/parks-and-trails/mud-lake/"
 source: "https://bouldercounty.gov/open-space/parks-and-trails/mud-lake/"
-verified: "2026-10-06"
+verified: "2026-10-20"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 hours: "Sunrise to sunset"
-access: { parking: "31 car spaces, 2 ADA spaces and 4 horse-trailer spots at the trailhead", conditionsUrl: "https://bouldercounty.gov/open-space/parks-and-trails/trail-closures/", conditionsLabel: "Boulder County trail closures and alerts", source: "https://bouldercounty.gov/open-space/parks-and-trails/mud-lake/", verified: "2026-10-06" }
+access: { parking: "31 car spaces, 2 ADA spaces and 4 horse-trailer spots at the trailhead", conditionsUrl: "https://bouldercounty.gov/open-space/parks-and-trails/trail-closures/", conditionsLabel: "Boulder County trail closures and alerts", source: "https://bouldercounty.gov/open-space/parks-and-trails/mud-lake/", verified: "2026-10-20" }
 mapUrl: "https://assets.bouldercounty.gov/wp-content/uploads/2017/03/mud-lake-map.pdf"
 tags: [hiking, family, picnic, dogs-on-leash]
 summary: "Boulder County open space with a lake, five easy trails, restrooms, picnic tables and a 50-person group shelter. Day use only; leashed dogs allowed."
