@@ -5524,3 +5524,42 @@ was cropped to 3:2, saved at 1,600px with no metadata and given one row.
   compare it with.
 - **Nothing usable for** Windsor, Loveland, Longmont, Johnstown, Berthoud,
   Elizabeth, Timnath or Fort Collins beyond what the guides already show.
+
+## A per-place search of nine guides, 20 October
+
+*20 October 2026.* The owner supplied a search made outside the repository:
+259 places across Niwot, Lyons, Golden, Erie, Berthoud, Estes Park,
+Longmont, Loveland and Nederland, each looked up on Wikimedia Commons and
+in Wikipedia page images, with a CSV of the result per place and a summary
+that offered five photographs as usable and three as weak. It was made
+without this repository, so it could not see the rulings above; each
+candidate was read against them and against the live Commons record.
+
+- **Added: two trailheads**, under the fifth catalog's rule that a
+  trailhead's photograph is of where its trail goes. Sprague Lake, beside
+  its own parking area (Axan77, CC BY 4.0, July 2022, cropped from a
+  portrait frame), and Bierstadt Lake, where the 1.5-mile climb from its
+  trailhead ends (K. Lee, CC BY-SA 4.0, August 2005; a lake, which does
+  not change, dated in the alt text). Elmschrat's 2010 view from the
+  Bierstadt Lake trail was the alternative: it shows the Glacier Creek
+  valley from the climb, not the lake the trail goes to.
+- **Already ruled on, and the rulings stand:** the Foothills Art Center
+  file (the fourth catalog to offer it; the frame shows the Washington
+  Avenue and 15th Street sign, the Creative Campus, not 1133 Arapahoe
+  Street); the Longmont Museum's 2015 exterior (held until it can be
+  compared with the expanded building); Benson Sculpture Garden
+  (copyrighted sculpture, the rule of 4 October); the Taffy Shop (a
+  worker is the subject); Lawn Lake (declined 8 October); the Blue Arena
+  (Budweiser signage); the Lyons Depot Library, which is already on the
+  Lyons guide for Sandstone Park and Who governs Lyons and is not the
+  library at 451 4th Avenue.
+- **Not used, on purpose:** Vanover Park's sign (800 × 600, undated, the
+  sign alone); Parfet Park (a Clear Creek view from the Washington Avenue
+  bridge that does not show the park); Golden History Museum (History
+  Park's cabins, as before).
+- **Still left for the owner:** Brownfield's 2009 storefront, offered a
+  second time; nothing newer is on Commons.
+- **No free photograph for the other 246**, which agrees with what the
+  searches above found. The routes the report suggests (permission
+  emails, a walk with a camera, the towns' parks departments) are already
+  written up in docs/PHOTOS.md and the email drafts beside it.
