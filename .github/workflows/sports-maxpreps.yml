@@ -1,0 +1,34 @@
+# Berthoud High sports from MaxPreps, step 1: does a GitHub runner get the
+# team home page, and does the parse read it? Run by hand; the schedule comes
+# in step 2 once this is shown to work (scripts/sports-maxpreps.ts).
+name: Berthoud sports (MaxPreps)
+
+on:
+  workflow_dispatch:
+    inputs:
+      sport:
+        description: 'MaxPreps sport slug (football, soccer, volleyball, cross-country)'
+        default: football
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    name: Fetch and parse one MaxPreps team page
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Fetch and parse
+        run: node scripts/sports-maxpreps.ts --sport=${{ inputs.sport || 'football' }} --dump --save=$RUNNER_TEMP/page.html | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Keep the page for reading
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: maxpreps-${{ inputs.sport || 'football' }}
+          path: ${{ runner.temp }}/page.html
+          if-no-files-found: ignore
