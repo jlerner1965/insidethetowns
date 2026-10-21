@@ -43,7 +43,7 @@ export const berthoud: TownConfig = {
   social: {
     email: 'hello@insideberthoud.com',
   },
-  // The sports page (src/routes/town/sports.astro) is Berthoud's alone for now.
+  // Berthoud High's scores and schedules (src/config/school-sports.ts).
   nav: [...DEFAULT_TOWN_NAV, { label: 'Sports', href: '/sports/' }],
   movingHere: {
     listingsLinks: [

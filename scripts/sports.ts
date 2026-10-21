@@ -26,13 +26,12 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { setTimeout as sleep } from 'node:timers/promises';
-import { BERTHOUD_SPORTS, MAXPREPS_TEAM_HOME, type SportsData } from '../src/config/berthoud-sports.ts';
+import { SCHOOL_SPORTS, schoolSportsFor, sportsDataFile, type SchoolSports, type SportsData } from '../src/config/school-sports.ts';
 import { dayKey } from '../src/lib/dates.ts';
-import { CRAWL_DELAY_MS, fetchMonth, parseMonth, type CalendarEvent } from './lib/bhs-calendar.ts';
+import { CRAWL_DELAY_MS, fetchMonth, parseMonth, type CalendarEvent } from './lib/finalsite-calendar.ts';
 import { fetchPage, parseTeamPage, usable, visibleText, type TeamPage } from './lib/maxpreps.ts';
 import { crossCheck, emptyEntry, entryFrom, gamesToCome, keepPrevious } from './lib/sports-crosscheck.ts';
 
-export const DATA_FILE = 'data/berthoud/sports.json';
 const MAXPREPS_PAUSE_MS = 4000;
 
 const args = new Map(process.argv.slice(2).map((a) => a.replace(/^--/, '').split('=') as [string, string]));
@@ -53,14 +52,14 @@ function describe(page: TeamPage): string {
   ].join('\n');
 }
 
-/** One team's page, read and printed: the step-1 probe, kept for checking a slug or a saved page. */
-async function probe(sport: string): Promise<number> {
+/** One team's page, read and printed: the probe, for checking a path or a saved page. */
+async function probe(school: SchoolSports, sport: string): Promise<number> {
+  const url = `${school.maxpreps}${sport}/`;
   let html: string;
   if (args.has('html')) {
     html = readFileSync(args.get('html')!, 'utf8');
     console.log(`Parsing ${args.get('html')} (${html.length} bytes)`);
   } else {
-    const url = `${MAXPREPS_TEAM_HOME}${sport}/`;
     console.log(`Fetching ${url}`);
     const res = await fetchPage(url);
     if (!res.ok) {
@@ -72,7 +71,7 @@ async function probe(sport: string): Promise<number> {
     console.log(`HTTP 200, ${html.length} bytes`);
     if (args.has('save')) writeFileSync(args.get('save')!, html);
   }
-  const page = parseTeamPage(html, sport);
+  const page = parseTeamPage(html, { url, schoolName: school.maxprepsName });
   console.log(describe(page));
   if (!usable(page) && !page.noSchedule) {
     // What the page carries instead, for working out what to read.
@@ -103,10 +102,14 @@ function monthsToRead(today: string): string[] {
 }
 
 /** One month of the school calendar, read and counted: for checking the site answers a runner. */
-async function probeCalendar(): Promise<number> {
+async function probeCalendar(school: SchoolSports): Promise<number> {
+  if (!school.calendar) {
+    console.log(`${school.school} has no calendar this script may read. ${school.calendarNote ?? ''}`);
+    return 2;
+  }
   const month = monthsToRead(dayKey(new Date()))[0]!;
   const started = Date.now();
-  const res = await fetchMonth(month);
+  const res = await fetchMonth(school.calendar.url, month);
   const took = `${((Date.now() - started) / 1000).toFixed(1)}s`;
   if (!res.ok) {
     console.log(`School calendar, ${month.slice(0, 7)}: failed after ${took}: ${res.reason}`);
@@ -118,20 +121,25 @@ async function probeCalendar(): Promise<number> {
   return events.length ? 0 : 3;
 }
 
-async function main(): Promise<number> {
-  if (args.has('sport')) return probe(args.get('sport')!);
-  if (args.has('calendar')) return probeCalendar();
-
+/** One town: its calendar, its teams, its file. The report for the summary comes back. */
+async function runTown(school: SchoolSports): Promise<string> {
+  const DATA_FILE = sportsDataFile(school.town);
   const now = new Date();
   const today = dayKey(now);
   const previous: SportsData | undefined = existsSync(DATA_FILE) ? JSON.parse(readFileSync(DATA_FILE, 'utf8')) : undefined;
   const summary: string[] = [];
   const flags: string[] = [];
+  console.log(`\n${school.school} (${school.town})`);
 
   // The school calendar first: two month pages, five seconds apart.
   let calendar: CalendarEvent[] | undefined = [];
-  for (const month of monthsToRead(today)) {
-    const res = await fetchMonth(month);
+  if (!school.calendar) {
+    calendar = undefined;
+    flags.push(`No school calendar to check against: ${school.calendarNote ?? 'none is configured'}`);
+  }
+  for (const month of calendar ? monthsToRead(today) : []) {
+    if (!calendar) break;
+    const res = await fetchMonth(school.calendar!.url, month);
     if (!res.ok) {
       flags.push(`The school calendar's ${month.slice(0, 7)} page could not be read (${res.reason}); upcoming games were not checked against it.`);
       calendar = undefined;
@@ -149,11 +157,11 @@ async function main(): Promise<number> {
   if (calendar) console.log(`School calendar: ${calendar.length} events read for ${monthsToRead(today).map((m) => m.slice(0, 7)).join(' and ')}.`);
 
   const data: SportsData = { generated: now.toISOString(), sports: [] };
-  for (const [i, sport] of BERTHOUD_SPORTS.entries()) {
+  for (const [i, sport] of school.teams.entries()) {
     if (i > 0) await sleep(MAXPREPS_PAUSE_MS);
-    const url = `${MAXPREPS_TEAM_HOME}${sport.maxpreps}/`;
+    const url = `${school.maxpreps}${sport.maxpreps}/`;
     const res = await fetchPage(url);
-    const old = keepPrevious(sport, previous);
+    const old = keepPrevious(sport, previous, school.maxpreps);
     const was = old.fetched ? `the entry from ${old.fetched.slice(0, 10)} stays` : 'there is no earlier entry, so the page shows nothing for it';
     if (!res.ok) {
       flags.push(`**${sport.name}**: MaxPreps could not be read (${res.reason}); ${was}.`);
@@ -161,7 +169,7 @@ async function main(): Promise<number> {
       console.log(`${sport.name}: fetch failed (${res.reason}); kept previous.`);
       continue;
     }
-    const page = parseTeamPage(res.html, sport.maxpreps);
+    const page = parseTeamPage(res.html, { url, schoolName: school.maxprepsName });
     if (page.noSchedule) {
       data.sports.push(emptyEntry(sport, page, now.toISOString()));
       summary.push(`| ${sport.name} | — | — | — | — | — |`);
@@ -176,7 +184,9 @@ async function main(): Promise<number> {
       continue;
     }
     const toCome = gamesToCome(page, today);
-    const check = calendar ? crossCheck(sport, toCome, calendar) : { upcoming: toCome, held: [], notes: ['the school calendar was not read, so nothing was checked against it'] };
+    const check = calendar
+      ? crossCheck(sport, toCome, calendar)
+      : { upcoming: toCome, held: [], notes: [school.calendar ? 'the school calendar was not read, so nothing was checked against it' : 'no school calendar to check against'] };
     const entry = entryFrom(sport, page, check, now.toISOString());
     data.sports.push(entry);
     const last = entry.results[0];
@@ -189,7 +199,7 @@ async function main(): Promise<number> {
   }
 
   const report = [
-    '## Berthoud High sports',
+    `## ${school.school} (${school.town})`,
     '',
     `Read ${data.generated.slice(0, 16).replace('T', ' ')} UTC. Nothing a run cannot confirm is written: a team whose page fails keeps its last good entry and date.`,
     '',
@@ -201,7 +211,6 @@ async function main(): Promise<number> {
     '',
   ].join('\n');
   console.log(`\n${report}`);
-  if (args.has('summary')) writeFileSync(args.get('summary')!, report);
 
   if (args.has('write')) {
     mkdirSync(dirname(DATA_FILE), { recursive: true });
@@ -210,6 +219,25 @@ async function main(): Promise<number> {
   } else {
     console.log(`Dry run: ${DATA_FILE} not written (pass --write).`);
   }
+  return report;
+}
+
+async function main(): Promise<number> {
+  const townArg = args.get('town');
+  const schools = townArg ? [schoolSportsFor(townArg)].filter((s): s is SchoolSports => !!s) : SCHOOL_SPORTS;
+  if (townArg && !schools.length) {
+    console.error(`No school is configured for "${townArg}" (src/config/school-sports.ts).`);
+    return 1;
+  }
+  if (args.has('sport')) return probe(schools[0]!, args.get('sport')!);
+  if (args.has('calendar')) return probeCalendar(schools[0]!);
+
+  const reports: string[] = [];
+  for (const [i, school] of schools.entries()) {
+    if (i > 0) await sleep(MAXPREPS_PAUSE_MS);
+    reports.push(await runTown(school));
+  }
+  if (args.has('summary')) writeFileSync(args.get('summary')!, reports.join('\n'));
   return 0;
 }
 

@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-21T16:12:16.534Z",
+  "generated": "2026-10-21T19:12:22.103Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/football/",
-      "fetched": "2026-10-21T16:12:16.534Z",
-      "maxprepsUpdated": "2026-10-21T16:06:57",
+      "fetched": "2026-10-21T19:12:22.103Z",
+      "maxprepsUpdated": "2026-10-21T16:06:58",
       "overall": "6-2",
       "league": {
         "record": "3-1",
@@ -104,7 +104,7 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/soccer/",
-      "fetched": "2026-10-21T16:12:16.534Z",
+      "fetched": "2026-10-21T19:12:22.103Z",
       "maxprepsUpdated": "2026-10-21T15:49:04",
       "overall": "7-7",
       "league": {
@@ -207,7 +207,7 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/volleyball/",
-      "fetched": "2026-10-21T16:12:16.534Z",
+      "fetched": "2026-10-21T19:12:22.103Z",
       "maxprepsUpdated": "2026-10-21T15:45:51",
       "overall": "14-5",
       "league": {
@@ -270,17 +270,6 @@
             "us": 2,
             "them": 3
           }
-        },
-        {
-          "date": "2026-09-22",
-          "opponent": "Standley Lake",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-standley-lake-westminster/9-22-2026/",
-          "result": "W",
-          "score": {
-            "us": 3,
-            "them": 0
-          }
         }
       ],
       "upcoming": [
@@ -306,7 +295,7 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/",
-      "fetched": "2026-10-21T16:12:16.534Z",
+      "fetched": "2026-10-21T19:12:22.103Z",
       "maxprepsUpdated": "2026-10-21T16:07:12",
       "results": [],
       "upcoming": [],
@@ -320,7 +309,7 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/girls/",
-      "fetched": "2026-10-21T16:12:16.534Z",
+      "fetched": "2026-10-21T19:12:22.103Z",
       "maxprepsUpdated": "2026-10-21T16:12:52",
       "results": [],
       "upcoming": [],

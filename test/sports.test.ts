@@ -6,12 +6,14 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseTeamPage } from '../scripts/lib/maxpreps.ts';
-import { parseMonth, parseTitle } from '../scripts/lib/bhs-calendar.ts';
+import { parseMonth, parseTitle } from '../scripts/lib/finalsite-calendar.ts';
 import { crossCheck, gamesToCome, keepPrevious, sameSchool } from '../scripts/lib/sports-crosscheck.ts';
-import { BERTHOUD_SPORTS, type SportsData } from '../src/config/berthoud-sports.ts';
+import { schoolSportsFor, type SportsData } from '../src/config/school-sports.ts';
 
-const football = BERTHOUD_SPORTS.find((s) => s.key === 'football')!;
+const berthoud = schoolSportsFor('berthoud')!;
+const football = berthoud.teams.find((s) => s.key === 'football')!;
 const US = 'https://www.maxpreps.com/co/berthoud/berthoud-spartans/football/';
+const TEAM = { url: US, schoolName: 'Berthoud' };
 
 /** The shapes seen on the real page, 21 October 2026, cut to what is read. */
 function contest(opts: { id: string; url: string; home: boolean; played?: { us: number; them: number; result: 'W' | 'L' }; kickoff?: string; them: string }) {
@@ -57,7 +59,7 @@ const realPage = page({
 });
 
 test('the records, the glance card and the results come out of the page data', () => {
-  const p = parseTeamPage(realPage, 'football');
+  const p = parseTeamPage(realPage, TEAM);
   assert.equal(p.overall, '6-2');
   assert.deepEqual(p.league, { record: '3-1', name: '3A Cache la Poudre', place: '3rd' });
   assert.equal(p.updatedOn, '2026-10-21T14:37:47');
@@ -71,7 +73,7 @@ test('the records, the glance card and the results come out of the page data', (
 });
 
 test('a played game is dated by its page URL, not the GMT instant the score went in', () => {
-  const p = parseTeamPage(realPage, 'football');
+  const p = parseTeamPage(realPage, TEAM);
   assert.deepEqual(p.results.map((g) => [g.date, g.opponent, `${g.result} ${g.score!.us}-${g.score!.them}`]), [
     ['2026-10-15', 'Greeley Central', 'W 22-0'],
     ['2026-10-09', 'Windsor', 'L 0-46'],
@@ -80,10 +82,10 @@ test('a played game is dated by its page URL, not the GMT instant the score went
 });
 
 test('a page without its data, or whose visible records differ from its data, is reported rather than trusted', () => {
-  const blocked = parseTeamPage('<html><title>403 - Forbidden</title></html>', 'football');
+  const blocked = parseTeamPage('<html><title>403 - Forbidden</title></html>', TEAM);
   assert.equal(blocked.overall, undefined);
   assert.deepEqual(blocked.warnings, ['no __NEXT_DATA__ on the page']);
-  const drifted = parseTeamPage(realPage.replace('Overall 6-2', 'Overall 7-2'), 'football');
+  const drifted = parseTeamPage(realPage.replace('Overall 6-2', 'Overall 7-2'), TEAM);
   assert.ok(drifted.warnings.some((w) => w.includes('7-2')), drifted.warnings.join('; '));
 });
 
@@ -92,7 +94,7 @@ test('a team MaxPreps has nothing for is told apart from a page that could not b
     { teamContext: { standingsData: { overallStanding: { overallWinLossTies: '0-0' } } }, wallCards: {}, wallPosts: [] },
     'Berthoud Spartans Varsity Boys Cross Country Overall 0-0 League Schedule at a Glance No Schedule If you have the full schedule, send it to MaxPreps.',
   );
-  const p = parseTeamPage(empty, 'cross-country');
+  const p = parseTeamPage(empty, { url: `${berthoud.maxpreps}cross-country/`, schoolName: 'Berthoud' });
   assert.equal(p.noSchedule, true);
   assert.deepEqual(p.glance, []);
   assert.ok(!p.warnings.includes('no "Schedule at a Glance" card'));
@@ -132,7 +134,7 @@ test('a school’s name is the same with or without "High School" after it', () 
 
 test('the cross-check publishes what the school calendar agrees with and holds what it contradicts', () => {
   const calendar = parseMonth(monthHtml);
-  const p = parseTeamPage(realPage, 'football');
+  const p = parseTeamPage(realPage, TEAM);
   const toCome = gamesToCome(p, '2026-10-21');
   assert.deepEqual(toCome.map((g) => g.opponent), ['Mountain View', 'Severance']);
 
@@ -174,9 +176,27 @@ test('a team whose page failed keeps its previous entry, its date included', () 
     generated: '2026-10-14T14:00:00Z',
     sports: [{ key: 'football', name: 'Football', maxprepsUrl: US, fetched: '2026-10-14T14:00:00Z', overall: '5-2', results: [], upcoming: [], held: [], notes: [] }],
   };
-  const kept = keepPrevious(football, previous);
+  const kept = keepPrevious(football, previous, berthoud.maxpreps);
   assert.equal(kept.fetched, '2026-10-14T14:00:00Z');
   assert.equal(kept.overall, '5-2');
-  const fresh = keepPrevious(football, undefined);
+  const fresh = keepPrevious(football, undefined, berthoud.maxpreps);
   assert.equal(fresh.fetched, undefined, 'no earlier entry: the card says it has not been read');
+  assert.equal(fresh.maxprepsUrl, US, 'and still links the team');
+  const niwot = schoolSportsFor('niwot')!;
+  assert.equal(keepPrevious(niwot.teams[0]!, undefined, niwot.maxpreps).maxprepsUrl, 'https://www.maxpreps.com/co/niwot/niwot-cougars/football/');
+  assert.equal(niwot.calendar, undefined, 'Niwot has no calendar a machine may read');
+});
+
+test('the big game of the week is the first team in config order with a game in the next seven days', async () => {
+  const { bigGame, coming } = await import('../src/lib/school-sports.ts');
+  const game = (date: string, opponent: string) => ({ date, time: '19:00', opponent, site: 'away' as const, url: `https://x/${opponent}/` });
+  const team = (key: string, upcoming: ReturnType<typeof game>[]) => ({ key, name: key, maxprepsUrl: '', results: [], upcoming, held: [], notes: [] });
+  const now = new Date('2026-10-21T18:00:00Z');
+  const data = { generated: '', sports: [team('football', [game('2026-10-23', 'Mountain View'), game('2026-10-30', 'Severance')]), team('soccer', [game('2026-10-22', 'Sterling')])] };
+  assert.equal(bigGame(data, now)!.game.opponent, 'Mountain View', 'Friday football over Thursday soccer');
+  assert.deepEqual(coming(data).map((c) => c.game.opponent), ['Sterling', 'Mountain View', 'Severance'], 'the list stays chronological');
+  const later = { generated: '', sports: [team('football', [game('2026-11-06', 'Playoff')]), team('soccer', [game('2026-10-29', 'Valley')])] };
+  assert.equal(bigGame(later, now)!.game.opponent, 'Valley', 'nothing for football this week: the soonest game leads');
+  const past = { generated: '', sports: [team('football', [game('2026-10-16', 'Greeley Central')])] };
+  assert.equal(bigGame(past, now), undefined, 'a game already played is not next');
 });

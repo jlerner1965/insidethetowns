@@ -1,13 +1,14 @@
-# Berthoud High sports for Inside Berthoud's /sports/ page: each followed
-# team's MaxPreps home page read, the games to come checked against the
-# school's own calendar, and data/berthoud/sports.json committed to main, which
-# rebuilds the Berthoud site (scripts/vercel-ignore.sh). The teams are in
-# src/config/berthoud-sports.ts; the rules are in scripts/sports.ts.
+# High-school sports for the town guides' /sports/ pages: for each school in
+# src/config/school-sports.ts, every followed team's MaxPreps home page read,
+# the games to come checked against the school's own calendar where there is
+# one a machine may read, and data/<town>/sports.json committed to main, which
+# rebuilds that town's site alone (scripts/vercel-ignore.sh). The rules are
+# in scripts/sports.ts.
 #
 # Nothing a run cannot confirm is written: a team whose page fails keeps its
 # last good entry and its date; a game the school calendar contradicts is held
 # off the page. Both are in the run's summary, under "Flagged".
-name: Berthoud sports (MaxPreps)
+name: School sports (MaxPreps)
 
 on:
   schedule:
@@ -18,8 +19,11 @@ on:
     - cron: '20 12 * * 3'
   workflow_dispatch:
     inputs:
+      town:
+        description: 'One town only (berthoud, niwot); every configured town when empty.'
+        required: false
       sport:
-        description: 'Probe one team instead: its MaxPreps path (football, cross-country/girls). Writes nothing; keeps the page as an artifact.'
+        description: 'Probe one team instead: its MaxPreps path (football, cross-country/girls). Needs town. Writes nothing; keeps the page as an artifact.'
         required: false
       calendar:
         description: 'Probe the school calendar instead: one month read and counted. Writes nothing.'
@@ -45,7 +49,7 @@ jobs:
           node-version: 22
       - name: Probe one team
         if: inputs.sport != ''
-        run: node scripts/sports.ts --sport=${{ inputs.sport }} --save="$RUNNER_TEMP/page.html" | tee -a "$GITHUB_STEP_SUMMARY"
+        run: node scripts/sports.ts --town=${{ inputs.town || 'berthoud' }} --sport=${{ inputs.sport }} --save="$RUNNER_TEMP/page.html" | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Keep the probed page
         if: always() && inputs.sport != ''
         uses: actions/upload-artifact@v4
@@ -55,22 +59,22 @@ jobs:
           if-no-files-found: ignore
       - name: Probe the school calendar
         if: inputs.sport == '' && inputs.calendar
-        run: node scripts/sports.ts --calendar | tee -a "$GITHUB_STEP_SUMMARY"
+        run: node scripts/sports.ts --town=${{ inputs.town || 'berthoud' }} --calendar | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Read and write
         if: inputs.sport == '' && !inputs.calendar
         run: |
-          node scripts/sports.ts --write --summary="$RUNNER_TEMP/sports.md"
+          node scripts/sports.ts ${{ inputs.town && format('--town={0}', inputs.town) || '' }} --write --summary="$RUNNER_TEMP/sports.md"
           cat "$RUNNER_TEMP/sports.md" >> "$GITHUB_STEP_SUMMARY"
       - name: Commit the data file
         if: inputs.sport == '' && !inputs.calendar
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/berthoud/sports.json
+          git add data/*/sports.json
           if git diff --cached --quiet; then
             echo "Nothing changed; nothing to commit."
             exit 0
           fi
-          git commit -m "Berthoud sports, $(TZ=America/Denver date +%F): MaxPreps records, results and upcoming games" \
+          git commit -m "School sports, $(TZ=America/Denver date +%F): MaxPreps records, results and upcoming games" \
             -m "Written by the sports workflow (scripts/sports.ts) from MaxPreps, with upcoming games checked against the school calendar. The run summary lists what was held or could not be read."
           git push origin HEAD:${{ github.ref_name }}
