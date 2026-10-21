@@ -5757,3 +5757,45 @@ fold into, and make the four visitor towns visitor guides, Golden included.
   telling them is the owner's call. The four city guides (Fort Collins,
   Longmont, Loveland, and Castle Rock before it opens) are the next
   decision; this one touched only the mountains.
+
+## The city guides, 20 October
+
+*20 October 2026.* After the mountain guides, the owner said to do the city
+guides. Read against the 90-day test decided the same day (Niwot, Lyons and
+Berthoud get the effort; "the other guides stay live on the ingest, the
+nightly recheck and the standing automation, with no hand work"), the same
+step as the small mountain guides: quiet, not retire.
+
+- **Quiet: Fort Collins, Longmont and Loveland.** Each is a city with a
+  daily paper, a tourism office and a city government behind the official
+  sites, which the editor's sort of 20 October called the wrong fight: a
+  town guide can become the go-to resource for a town of 10,000 with no
+  good calendar, not for a city of 76,000 to 170,000 with three. Each gets
+  a `quiet` block: pages up and indexed, listings checked as the rotation
+  reaches them, no weekly email, no signup box on its pages or anyone
+  else's, no Thursday draft, one line in the weekly report. Decide by 29
+  November, before any listing's hours expire (sixty days from its check on
+  the Front Range chassis: Fort Collins's earliest is 1 October, so 30
+  November; the other two 3 December). Longmont was named a priority on 12
+  October; the 90-day test replaced that list, and its reason stands in
+  the config.
+- **Castle Rock stays `wave2`**, as it has been: a holding page, nothing
+  live, nothing to quiet. Opening it was already ruled out on 12 October.
+- **The Loveland and Johnstown edition ends**, Loveland being out of the
+  email; Johnstown is an edition of its own. The email now covers nine
+  guides in eight editions, one shared (Windsor, Severance and Timnath).
+  The hub's signup, the newsletter page, the drafts and the weekly report
+  read the configs and need no change; manager/towns.json says which guides
+  are out of the email and why.
+- **Where the network stands after the day's three decisions.** In the
+  weekly email: Niwot, Lyons, Berthoud, Erie, Johnstown, Timnath, Windsor
+  (with Severance), Carbon Valley (with Fort Lupton) and Clear Creek (Idaho
+  Springs, Georgetown and Black Hawk). Visitor guides: Estes Park, Golden,
+  Evergreen, Manitou Springs. Quiet, with a date: Elizabeth (15 November),
+  Grand Lake, Leadville and Nederland (19 November), Fort Collins, Longmont
+  and Loveland (29 November). Folded: Severance, Fort Lupton, Georgetown,
+  Black Hawk. Not open: Castle Rock.
+- **Not done, and the owner's.** Buttondown subscribers tagged with the
+  three cities stay tagged and get nothing until a guide rejoins. On each
+  decide-by date a quiet guide either rejoins (the field comes off) or
+  goes (a holding page and redirects, with no neighbour to take a city).

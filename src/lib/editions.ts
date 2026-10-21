@@ -3,7 +3,7 @@
  *
  * Every guide the email covers is in exactly one edition. Most are an
  * edition of their own; the hub's newsletter config names the few that share
- * one (Windsor, Severance and Timnath; Loveland and Johnstown). A shared edition is one issue, one signup box and one
+ * one (Windsor, Severance and Timnath). A shared edition is one issue, one signup box and one
  * sponsor line, sent to every subscriber tagged with any of its towns, so a
  * reader who ticks Windsor and Timnath gets it once. Each guide keeps its
  * own site and its own subscribers' tags. Pure, so it can be tested without

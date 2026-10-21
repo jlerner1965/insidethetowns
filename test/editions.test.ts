@@ -40,19 +40,19 @@ test('an edition of one carries its town’s email sponsor; a shared one its own
   assert.equal(shared!.sponsor, own);
 });
 
-test('the two shared editions the owner set, and ten in all', () => {
+test('the one shared edition left, and eight in all', () => {
   // Three shared and fifteen in all until 20 October 2026: Idaho Springs and
   // Georgetown became one guide, Inside Clear Creek, an edition of one under
-  // the Idaho Springs slug; then Estes Park, Golden and Evergreen became
-  // visitor guides and Grand Lake, Leadville and Nederland went quiet, five
-  // editions fewer.
+  // the Idaho Springs slug; Estes Park, Golden and Evergreen became visitor
+  // guides and Grand Lake, Leadville and Nederland went quiet; then Fort
+  // Collins, Longmont and Loveland went quiet, which left Johnstown an
+  // edition of its own.
   const editions = emailEditions();
   const shared = editions.filter((e) => e.shared).map((e) => [e.slug, e.towns.map((x) => x.slug)]);
   assert.deepEqual(shared, [
-    ['loveland-johnstown', ['loveland', 'johnstown']],
     ['windsor-timnath', ['windsor', 'timnath']],
   ]);
-  assert.equal(editions.length, 10);
+  assert.equal(editions.length, 8);
   // Every covered guide in exactly one edition.
   const placed = editions.flatMap((e) => e.towns.map((x) => x.slug)).sort();
   assert.deepEqual(placed, emailTowns().map((x) => x.slug).sort());

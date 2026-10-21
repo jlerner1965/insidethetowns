@@ -14,10 +14,11 @@ import { FRESHNESS } from '../src/config/freshness.ts';
 
 const quiet = towns.filter((t) => t.quiet);
 
-test('Elizabeth, Grand Lake, Leadville and Nederland are the quiet guides, and still live', () => {
-  // The three mountain guides from 20 October 2026 (DECISIONS.md, "The other
-  // mountain guides, 20 October"); Elizabeth from 12 October.
-  assert.deepEqual(quiet.map((t) => t.slug).sort(), ['elizabeth', 'grand-lake', 'leadville', 'nederland']);
+test('Elizabeth, the three small mountain guides and the three city guides are quiet, and still live', () => {
+  // Elizabeth from 12 October 2026; Grand Lake, Leadville and Nederland, then
+  // Fort Collins, Longmont and Loveland, from 20 October (DECISIONS.md, "The
+  // other mountain guides" and "The city guides").
+  assert.deepEqual(quiet.map((t) => t.slug).sort(), ['elizabeth', 'fortcollins', 'grand-lake', 'leadville', 'longmont', 'loveland', 'nederland']);
   for (const t of quiet) assert.equal(t.status, 'live', `${t.slug}: a quiet guide stays up`);
 });
 

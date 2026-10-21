@@ -11,6 +11,16 @@ export const longmont: TownConfig = {
   kind: 'town',
   // Live on 5 October 2026, on the owner's word after the first review.
   status: 'live',
+  // Quiet from 20 October 2026, owner's word, with the other city guides
+  // (DECISIONS.md, "The city guides, 20 October"): pages up, listings
+  // checked as the rotation reaches them, no weekly promise. 29 November is
+  // before any listing's hours expire (60 days from its check on the Front
+  // Range chassis; the quiet-towns test holds the order).
+  quiet: {
+    since: '2026-10-20',
+    decideBy: '2026-11-29',
+    reason: "a city of 99,000 with a daily paper, a downtown authority and the City behind the official sites; named a priority on 12 October, but the 90-day test of 20 October put the effort on Niwot, Lyons and Berthoud, and a city guide cannot be won from the weekly routine",
+  },
   variant: 'front-range',
   region: 'Boulder County',
   neighbors: ['niwot', 'lyons', 'erie', 'carbon-valley', 'berthoud'],
