@@ -20,6 +20,9 @@
  *   off the page and names it in the summary (scripts/lib/sports-crosscheck.ts).
  * - If the school calendar cannot be read at all, no game is held and the
  *   summary says the check did not run.
+ * - Each team is two MaxPreps pages: the home page for the records and the
+ *   recent games, then /schedule/ for the whole season, used only where it
+ *   agrees with the home page on every game both carry.
  * - Requests are spaced: MaxPreps a few seconds apart, the school calendar
  *   five (its robots.txt's crawl-delay).
  */
@@ -29,7 +32,7 @@ import { setTimeout as sleep } from 'node:timers/promises';
 import { SCHOOL_SPORTS, schoolSportsFor, sportsDataFile, type SchoolSports, type SportsData } from '../src/config/school-sports.ts';
 import { dayKey } from '../src/lib/dates.ts';
 import { CRAWL_DELAY_MS, fetchMonth, parseMonth, type CalendarEvent } from './lib/finalsite-calendar.ts';
-import { fetchPage, parseTeamPage, usable, visibleText, type TeamPage } from './lib/maxpreps.ts';
+import { applySchedule, fetchPage, parseSchedulePage, parseTeamPage, usable, visibleText, type TeamPage } from './lib/maxpreps.ts';
 import { crossCheck, emptyEntry, entryFrom, gamesToCome, keepPrevious } from './lib/sports-crosscheck.ts';
 
 const MAXPREPS_PAUSE_MS = 4000;
@@ -183,6 +186,15 @@ async function runTown(school: SchoolSports): Promise<string> {
       console.log(`${sport.name}: parse failed; kept previous.`);
       continue;
     }
+    // The whole season from the /schedule/ page, where it agrees with the
+    // home page; otherwise the home page's shorter list stays and the
+    // summary says why.
+    await sleep(MAXPREPS_PAUSE_MS);
+    const sched = await fetchPage(`${url}schedule/`);
+    const schedule = sched.ok ? parseSchedulePage(sched.html, { url, schoolName: school.maxprepsName }) : undefined;
+    const problem = schedule ? applySchedule(page, schedule) : `could not be read (${(sched as { reason: string }).reason})`;
+    if (problem) flags.push(`**${sport.name}**: the full schedule on MaxPreps ${problem.startsWith('could not') ? problem : `was not used: ${problem}`}; the page shows the games the team page reports.`);
+    else if (schedule!.skipped) flags.push(`${sport.name}: ${schedule!.skipped} row${schedule!.skipped === 1 ? '' : 's'} on the schedule page ${schedule!.skipped === 1 ? 'is' : 'are'} not a game (cancelled, or a placeholder) and ${schedule!.skipped === 1 ? 'was' : 'were'} left out.`);
     const toCome = gamesToCome(page, today);
     const check = calendar
       ? crossCheck(sport, toCome, calendar)

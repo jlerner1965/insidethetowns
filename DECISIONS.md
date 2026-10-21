@@ -5841,3 +5841,27 @@ step as the small mountain guides: quiet, not retire.
   Previews on vercel.app send nothing.
 - **/privacy/ names it** on those three guides. Still no cookie banner:
   Plausible sets no cookies either.
+
+## The whole season on /sports/, and softball, 21 October 2026
+
+- **The sources for a complete schedule.** MaxPreps's team home page
+  carries only the recent games on its wall (Berthoud football's 6-2 showed
+  as six), so each team's `/schedule/` page is read too: every game of the
+  season with the score, and it answers the GitHub runner as the home page
+  does (run 39666831083). Its data has no keys, 41 values a row, so every
+  row is checked against the sentence MaxPreps writes beside it and a page
+  with one row the sentence does not bear out is not used; the home page's
+  shorter list stays and the run summary says why. Also looked at:
+  CHSAANow (chsaanow.com), the association's own site, which has a page
+  per game for every Berthoud and Niwot team with the score and the time,
+  found through its per-sport sitemaps, and whose robots.txt allows us.
+  Not used today, since MaxPreps already carries the records and the
+  cross-check machinery, but it is the authority and the fallback if
+  MaxPreps closes its door. The Berthoud school calendar lists the past
+  games too, without scores. ArbiterLive (Niwot's schedules) still asks
+  automated readers to stay out.
+- **Softball joins the fall teams** on both guides: a fall sport in
+  Colorado, which MaxPreps files at `softball/fall`. Berthoud's girls flag
+  football, which CHSAA lists as a MaxPreps sport, is not on MaxPreps under
+  any of four spellings tried, so it waits; CHSAANow has its 15 games if
+  it is ever read from there.

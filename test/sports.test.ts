@@ -5,7 +5,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseTeamPage } from '../scripts/lib/maxpreps.ts';
+import { applySchedule, parseSchedulePage, parseTeamPage } from '../scripts/lib/maxpreps.ts';
 import { parseMonth, parseTitle } from '../scripts/lib/finalsite-calendar.ts';
 import { crossCheck, gamesToCome, keepPrevious, sameSchool } from '../scripts/lib/sports-crosscheck.ts';
 import { schoolSportsFor, type SportsData } from '../src/config/school-sports.ts';
@@ -199,4 +199,123 @@ test('the big game of the week is the first team in config order with a game in 
   assert.equal(bigGame(later, now)!.game.opponent, 'Valley', 'nothing for football this week: the soonest game leads');
   const past = { generated: '', sports: [team('football', [game('2026-10-16', 'Greeley Central')])] };
   assert.equal(bigGame(past, now), undefined, 'a game already played is not next');
+});
+
+/*
+ * The /schedule/ page's rows, as the live page had them on 21 October 2026:
+ * 41 values a row and 32 a team, no keys. Only the positions the reader
+ * uses are filled; the rest are null, as many of the real ones are.
+ */
+function scheduleRow(o: { id: string; url: string; kickoff: string; sentence: string; played?: boolean; teams: Array<{ name: string; url: string; away: boolean | 'neutral'; result?: 'W' | 'L' | 'T'; score?: number }> }) {
+  const row: unknown[] = new Array(41).fill(null);
+  row[0] = o.teams.map((t) => {
+    const team: unknown[] = new Array(32).fill(null);
+    team[5] = t.result ?? null;
+    team[6] = t.score ?? null;
+    team[11] = t.away === 'neutral' ? 2 : t.away ? 1 : 0;
+    team[13] = t.url;
+    team[14] = t.name;
+    return team;
+  });
+  row[1] = o.id;
+  row[4] = !!o.played;
+  row[11] = o.kickoff;
+  row[18] = `${o.url}?c=${o.id}`;
+  row[29] = o.sentence;
+  return row;
+}
+const schedulePage = (rows: unknown[][]) => `<html><body><script id="__NEXT_DATA__" type="application/json">${JSON.stringify({ props: { pageProps: { contests: rows } } })}</script></body></html>`;
+const BERTHOUD = { name: 'Berthoud', url: US };
+const fortMorgan = scheduleRow({
+  id: 'a1', url: 'https://www.maxpreps.com/co/football/game/berthoud-vs-fort-morgan/8-21-2026/', kickoff: '2026-08-21T19:00:00', played: true,
+  sentence: 'On 8/21, the Berthoud varsity football team won their away non-conference game against Fort Morgan (CO) by a score of 33-13.',
+  teams: [{ name: 'Fort Morgan', url: 'https://www.maxpreps.com/co/fort-morgan/fort-morgan-mustangs/football/', away: false, result: 'L', score: 13 }, { ...BERTHOUD, away: true, result: 'W', score: 33 }],
+});
+const timnath = scheduleRow({
+  id: 'a2', url: 'https://www.maxpreps.com/co/football/game/berthoud-vs-timnath/8-28-2026/', kickoff: '2026-08-28T19:00:00', played: true,
+  sentence: 'On 8/28, the Timnath varsity football team won their away non-conference game against Berthoud (CO) by a score of 28-0.',
+  teams: [{ name: 'Timnath', url: 'https://www.maxpreps.com/co/timnath/timnath-cubs/football/', away: true, result: 'W', score: 28 }, { ...BERTHOUD, away: false, result: 'L', score: 0 }],
+});
+const greeleyRow = scheduleRow({
+  id: 'c7', url: 'https://www.maxpreps.com/co/football/game/berthoud-vs-greeley-central/10-15-2026/', kickoff: '2026-10-15T19:00:00', played: true,
+  sentence: 'On 10/15, the Greeley Central varsity football team lost their away conference game against Berthoud (CO) by a score of 22-0.',
+  teams: [{ ...BERTHOUD, away: false, result: 'W', score: 22 }, { name: 'Greeley Central', url: 'https://www.maxpreps.com/co/greeley/greeley-central-wildcats/football/', away: true, result: 'L', score: 0 }],
+});
+const mountainViewRow = scheduleRow({
+  id: '38', url: 'https://www.maxpreps.com/co/football/game/berthoud-vs-mountain-view-loveland/10-23-2026/', kickoff: '2026-10-23T19:00:00',
+  sentence: 'The Berthoud varsity football team has an away conference game @  Mountain View (Loveland, CO) on Friday, October 23 @ 7p.',
+  teams: [{ name: 'Mountain View', url: 'https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/football/', away: false }, { ...BERTHOUD, away: true }],
+});
+const severanceRow = scheduleRow({
+  id: '44', url: 'https://www.maxpreps.com/co/football/game/berthoud-vs-severance/10-30-2026/', kickoff: '2026-10-30T19:00:00',
+  sentence: 'The Berthoud varsity football team has an away conference game @  Severance (CO) on Friday, October 30, time TBA.',
+  teams: [{ name: 'Severance', url: 'https://www.maxpreps.com/co/severance/severance-silver-knights/football/', away: false }, { ...BERTHOUD, away: true }],
+});
+
+// Softball's rows, 21 October 2026: a tournament game at a neutral site, and
+// a cancelled game that keeps its row with the sentence blank.
+const meeker = scheduleRow({
+  id: 's1', url: 'https://www.maxpreps.com/co/softball/game/berthoud-vs-meeker/9-4-2026/', kickoff: '2026-09-04T12:00:00', played: true,
+  sentence: 'On 9/4, the Meeker varsity softball team lost their neutral tournament game against Berthoud (CO) by a score of 21-0.',
+  teams: [{ ...BERTHOUD, away: 'neutral', result: 'W', score: 21 }, { name: 'Meeker', url: 'https://www.maxpreps.com/co/meeker/meeker-cowboys/softball/fall/', away: 'neutral', result: 'L', score: 0 }],
+});
+const cancelled = scheduleRow({ id: 'x0', url: 'https://www.maxpreps.com/co/softball/game/berthoud-vs-golden/1-1-1900/', kickoff: '1900-01-01T00:00:00', sentence: '', teams: [{ name: 'Golden', url: 'https://www.maxpreps.com/co/golden/golden-demons/softball/fall/', away: 'neutral' }, { ...BERTHOUD, away: 'neutral' }] });
+
+test('the schedule page gives the whole season, oldest first: scores where played, the kickoff where not, nothing where the sentence names no time', () => {
+  const page = parseSchedulePage(schedulePage([greeleyRow, fortMorgan, cancelled, timnath, meeker, mountainViewRow, severanceRow]), TEAM);
+  assert.deepEqual(page.warnings, []);
+  assert.equal(page.skipped, 1);
+  assert.deepEqual(page.games.map((g) => `${g.date} ${g.site} ${g.opponent} ${g.result ?? ''} ${g.score ? `${g.score.us}-${g.score.them}` : g.time ?? 'TBA'}`), [
+    '2026-08-21 away Fort Morgan W 33-13',
+    '2026-08-28 home Timnath L 0-28',
+    '2026-09-04 neutral Meeker W 21-0',
+    '2026-10-15 home Greeley Central W 22-0',
+    '2026-10-23 away Mountain View  19:00',
+    '2026-10-30 away Severance  TBA',
+  ]);
+  assert.equal(page.games[0]!.url, 'https://www.maxpreps.com/co/football/game/berthoud-vs-fort-morgan/8-21-2026/');
+});
+
+test('a schedule row the sentence does not bear out is reported, not read: a swapped score, a side the other way, a kickoff that differs', () => {
+  const swapped = structuredClone(fortMorgan) as unknown[];
+  (swapped[29] as string) && (swapped[29] = 'On 8/21, the Berthoud varsity football team won their away non-conference game against Fort Morgan (CO) by a score of 33-14.');
+  const sideways = structuredClone(timnath) as unknown[];
+  sideways[29] = 'On 8/28, the Timnath varsity football team won their home non-conference game against Berthoud (CO) by a score of 28-0.';
+  const late = structuredClone(mountainViewRow) as unknown[];
+  late[29] = 'The Berthoud varsity football team has an away conference game @  Mountain View (Loveland, CO) on Friday, October 23 @ 7:30p.';
+  const page = parseSchedulePage(schedulePage([swapped, sideways, late, greeleyRow]), TEAM);
+  assert.equal(page.games.length, 1);
+  assert.equal(page.warnings.length, 3);
+  assert.match(page.warnings[0]!, /33-14/);
+  assert.match(page.warnings[1]!, /the other way/);
+  assert.match(page.warnings[2]!, /19:30/);
+});
+
+test('the schedule replaces the home page’s results only where the two agree on every game the home page has', () => {
+  const home = parseTeamPage(realPage, TEAM);
+  assert.equal(home.results.length, 2);
+  const full = parseSchedulePage(schedulePage([fortMorgan, timnath, greeleyRow, mountainViewRow, severanceRow]), TEAM);
+  // Windsor, which the home page reports, is not on this schedule.
+  assert.match(applySchedule(home, full)!, /no 2026-10-09 Windsor/);
+  assert.equal(home.results.length, 2);
+  assert.equal(home.schedule, undefined);
+
+  const windsorRow = scheduleRow({
+    id: 'w1', url: 'https://www.maxpreps.com/co/football/game/berthoud-vs-windsor/10-9-2026/', kickoff: '2026-10-09T19:00:00', played: true,
+    sentence: 'On 10/9, the Berthoud varsity football team lost their away conference game against Windsor (CO) by a score of 46-0.',
+    teams: [{ name: 'Windsor', url: 'https://www.maxpreps.com/co/windsor/windsor-wizards/football/', away: false, result: 'W', score: 46 }, { ...BERTHOUD, away: true, result: 'L', score: 0 }],
+  });
+  const agreed = parseSchedulePage(schedulePage([fortMorgan, timnath, windsorRow, greeleyRow, mountainViewRow, severanceRow]), TEAM);
+  assert.equal(applySchedule(home, agreed), undefined);
+  assert.deepEqual(home.results.map((g) => g.date), ['2026-10-15', '2026-10-09', '2026-08-28', '2026-08-21']);
+  assert.equal(home.schedule!.length, 6);
+  assert.deepEqual(gamesToCome(home, '2026-10-21').map((g) => g.opponent), ['Mountain View', 'Severance']);
+
+  // The same page with Greeley Central's score wrong is refused.
+  const wrong = structuredClone(greeleyRow) as unknown[];
+  wrong[29] = 'On 10/15, the Greeley Central varsity football team lost their away conference game against Berthoud (CO) by a score of 23-0.';
+  ((wrong[0] as unknown[][])[0]!)[6] = 23;
+  const fresh = parseTeamPage(realPage, TEAM);
+  assert.match(applySchedule(fresh, parseSchedulePage(schedulePage([fortMorgan, timnath, windsorRow, wrong, mountainViewRow, severanceRow]), TEAM))!, /scores differ for 2026-10-15 Greeley Central/);
+  assert.equal(fresh.results.length, 2);
 });

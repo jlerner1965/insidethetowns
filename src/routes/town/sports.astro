@@ -44,7 +44,9 @@ const data: SportsData = sportsDataFor(town.slug, files) ?? { generated: '', spo
 const sports: SportData[] = data.sports;
 const MAXPREPS_SCHOOL = cfg.maxpreps;
 const { school, mascot, calendar } = cfg;
-const description = `${school} ${mascot} scores, schedules and records this fall: football, soccer and volleyball, from MaxPreps${calendar ? ', checked against the school calendar' : ''}.`;
+// "football, boys soccer, volleyball, softball and cross country": the teams followed, the two cross country teams as one.
+const followed = [...new Set(cfg.teams.map((t) => t.name.toLowerCase().replace(/^(boys|girls) (cross country)$/, '$2')))];
+const description = `${school} ${mascot} scores, schedules and records this fall: ${followed.slice(0, -1).join(', ')} and ${followed.at(-1)}, from MaxPreps${calendar ? ', checked against the school calendar' : ''}.`;
 
 const now = new Date();
 const today = dayKey(now);
