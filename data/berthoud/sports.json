@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-21T15:49:31.000Z",
+  "generated": "2026-10-21T16:06:27.145Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/football/",
-      "fetched": "2026-10-21T15:49:31.000Z",
-      "maxprepsUpdated": "2026-10-21T14:37:47",
+      "fetched": "2026-10-21T16:06:27.145Z",
+      "maxprepsUpdated": "2026-10-21T16:06:57",
       "overall": "6-2",
       "league": {
         "record": "3-1",
@@ -98,25 +98,215 @@
         }
       ],
       "held": [],
-      "notes": []
+      "notes": [
+        "the school calendar was not read, so nothing was checked against it"
+      ]
     },
     {
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/soccer/",
-      "results": [],
-      "upcoming": [],
+      "fetched": "2026-10-21T16:06:27.145Z",
+      "maxprepsUpdated": "2026-10-21T15:49:04",
+      "overall": "7-7",
+      "league": {
+        "record": "5-2",
+        "name": "4A/3A/2A Patriot",
+        "place": "3rd"
+      },
+      "results": [
+        {
+          "date": "2026-10-20",
+          "opponent": "Frontier Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/berthoud-vs-frontier-academy-greeley/10-20-2026/",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/berthoud-vs-valley-gilcrest/10-15-2026/",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Windsor Charter Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/berthoud-vs-windsor-charter-academy/10-13-2026/",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Fort Morgan",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/berthoud-vs-fort-morgan/10-8-2026/",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Liberty Common",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/berthoud-vs-liberty-common-fort-collins/10-1-2026/",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Weld Central",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/berthoud-vs-weld-central-keenesburg/9-29-2026/",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Wellington",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/berthoud-vs-wellington/9-24-2026/",
+          "result": "W",
+          "score": {
+            "us": 5,
+            "them": 2
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Sterling",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/berthoud-vs-sterling/10-22-2026/",
+          "time": "16:00"
+        }
+      ],
       "held": [],
-      "notes": []
+      "notes": [
+        "the school calendar was not read, so nothing was checked against it"
+      ]
     },
     {
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/volleyball/",
-      "results": [],
-      "upcoming": [],
+      "fetched": "2026-10-21T16:06:27.145Z",
+      "maxprepsUpdated": "2026-10-21T15:45:51",
+      "overall": "14-5",
+      "league": {
+        "record": "3-1",
+        "name": "4A/3A Patriots Peak",
+        "place": "3rd"
+      },
+      "results": [
+        {
+          "date": "2026-10-20",
+          "opponent": "Fort Morgan",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-fort-morgan/10-20-2026/",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Wellington",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-wellington/10-13-2026/",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Resurrection Christian",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-resurrection-christian-loveland/10-8-2026/",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Eaton",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-eaton-fightin-reds/10-6-2026/",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Northfield",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-northfield-denver/9-24-2026/",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Standley Lake",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-standley-lake-westminster/9-22-2026/",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Liberty Common",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-liberty-common-fort-collins/10-22-2026/",
+          "time": "18:30"
+        },
+        {
+          "date": "2026-10-26",
+          "opponent": "University",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-university-greeley/10-26-2026/",
+          "time": "18:30"
+        }
+      ],
       "held": [],
-      "notes": []
+      "notes": [
+        "the school calendar was not read, so nothing was checked against it"
+      ]
     },
     {
       "key": "boys-cross-country",
