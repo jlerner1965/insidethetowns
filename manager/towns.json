@@ -25,12 +25,10 @@
     { "slug": "golden",      "name": "Golden",       "domain": "insidegolden.com",       "live": true,  "notes": "mountain town" },
     { "slug": "evergreen",   "name": "Evergreen",    "domain": "insideevergreenco.com",  "live": true,  "notes": "mountain town; insideevergreen.com is someone else's" },
     { "slug": "nederland",   "name": "Nederland",    "domain": "insidenederland.com",    "live": true,  "notes": "mountain town" },
-    { "slug": "idaho-springs","name": "Idaho Springs","domain": "insideidahosprings.com", "live": true,  "notes": "mountain town" },
-    { "slug": "georgetown",  "name": "Georgetown",   "domain": "insidegeorgetownco.com", "live": true,  "notes": "mountain town" },
+    { "slug": "idaho-springs","name": "Clear Creek",  "domain": "insideidahosprings.com", "live": true,  "alternate_domains": ["insidegeorgetownco.com", "insideblackhawk.com"], "notes": "mountain town; Idaho Springs, Georgetown and Black Hawk on one site since 2026-10-20 (subTown: idaho-springs | georgetown | black-hawk; /georgetown/ and /black-hawk/ are the section pages). The domain is still Idaho Springs's; the site is titled Inside Clear Creek" },
     { "slug": "grand-lake",  "name": "Grand Lake",   "domain": "insidegrandlake.com",    "live": true,  "notes": "mountain town" },
     { "slug": "manitou-springs","name": "Manitou Springs","domain": "insidemanitousprings.com","live": true, "notes": "mountain town; visitor guide since 2026-10-12: no weekly email or signup box expected; its This Week page and weekly notes carry on like every live guide's" },
     { "slug": "leadville",   "name": "Leadville",    "domain": "insideleadville.com",    "live": true,  "notes": "mountain town; visitor guide since 2026-10-12: no weekly email or signup box expected; its This Week page and weekly notes carry on like every live guide's" },
-    { "slug": "black-hawk",  "name": "Black Hawk",   "domain": "insideblackhawk.com",    "live": true,  "notes": "mountain town; visitor guide since 2026-10-12: no weekly email or signup box expected; its This Week page and weekly notes carry on like every live guide's" },
 
     { "slug": "castle-rock", "name": "Castle Rock",  "domain": "insidecastlerockco.com", "live": false, "notes": "wave 2: domain serves a noindex holding page until the owner flips it live. insidecastlerock.com is someone else's" },
     { "slug": "summit-county","name": "Summit County","domain": "insidesummitcounty.com", "live": false, "notes": "undecided whether to use; not in the repo yet" }

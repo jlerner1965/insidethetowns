@@ -1,5 +1,6 @@
 ---
 title: "Uplift Inn"
+subTown: idaho-springs
 type: "lodging"
 address: "2729 Colorado Boulevard, Idaho Springs, CO 80452"
 url: "https://www.upliftinn.com/"

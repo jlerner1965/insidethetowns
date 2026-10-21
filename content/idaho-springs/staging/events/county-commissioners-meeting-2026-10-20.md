@@ -1,5 +1,6 @@
 ---
 title: "Clear Creek County Commissioners Meeting"
+subTown: idaho-springs
 start: "2026-10-20T08:30"
 end: "2026-10-20T16:00"
 venue: "Courthouse Complex, Georgetown"

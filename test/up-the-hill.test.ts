@@ -35,7 +35,12 @@ const titles = (list: { data: { title: string } }[]) => list.map((e) => e.data.t
 
 test('the strip reads every live mountain guide and nothing else, decided by variant alone', () => {
   const hills = mountainTowns();
-  assert.deepEqual(hills.map((t) => t.slug), towns.filter((t) => t.status === 'live' && t.variant === 'mountain').map((t) => t.slug).sort((a, b) => a.localeCompare(b)));
+  // A to Z by name, as liveTowns() lists them: the Idaho Springs guide is
+  // named Clear Creek since 20 October 2026, so slug order is not name order.
+  assert.deepEqual(
+    hills.map((t) => t.slug),
+    towns.filter((t) => t.status === 'live' && t.variant === 'mountain').sort((a, b) => a.name.localeCompare(b.name)).map((t) => t.slug),
+  );
   for (const t of hills) assert.equal(t.variant, 'mountain', t.slug);
   assert.ok(hills.length >= 4, 'four mountain guides were live on 7 October 2026');
   assert.ok(!hills.some((t) => t.slug === 'niwot'));

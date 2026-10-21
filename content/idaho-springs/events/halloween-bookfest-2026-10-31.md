@@ -1,5 +1,6 @@
 ---
 title: "Halloween BOOkfest"
+subTown: idaho-springs
 start: "2026-10-31T17:00"
 end: "2026-10-31T19:00"
 venue: "Idaho Springs Public Library"

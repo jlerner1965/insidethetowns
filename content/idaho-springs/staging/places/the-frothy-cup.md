@@ -1,5 +1,6 @@
 ---
 title: "The Frothy Cup"
+subTown: idaho-springs
 type: coffee
 address: "1510 Miner Street, Idaho Springs, CO 80452"
 area: "Miner Street"

@@ -1,5 +1,6 @@
 ---
 title: "Safeway"
+subTown: idaho-springs
 type: shop
 address: "2425 Miner St, Idaho Springs, CO 80452"
 area: "Miner Street"

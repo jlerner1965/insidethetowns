@@ -19,7 +19,7 @@ export const evergreen: TownConfig = {
   status: 'live',
   variant: 'mountain',
   region: 'Mountains & Foothills',
-  neighbors: ['golden', 'idaho-springs', 'georgetown'],
+  neighbors: ['golden', 'idaho-springs'],
   // Set with the brief, 6 October 2026: upcoming events / open listings.
   launchThreshold: { events: 15, listings: 20 },
   slug: 'evergreen',

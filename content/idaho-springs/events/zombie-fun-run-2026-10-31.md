@@ -1,5 +1,6 @@
 ---
 title: "Zombie Fun Run"
+subTown: idaho-springs
 start: "2026-10-31T10:00"
 end: "2026-10-31T12:00"
 venue: "Check-in at 320 Chicago Creek Road"

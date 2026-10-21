@@ -1,5 +1,6 @@
 ---
 title: "Mighty Argo Cable Car"
+subTown: idaho-springs
 type: venue
 address: "2350 Riverside Drive, Idaho Springs, CO 80452"
 area: "Riverside Drive"

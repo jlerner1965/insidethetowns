@@ -1,5 +1,6 @@
 ---
 title: "Idaho Springs Tree Lighting"
+subTown: idaho-springs
 start: "2026-11-28T15:00"
 end: "2026-11-28T16:30"
 venue: "Citizens Park"

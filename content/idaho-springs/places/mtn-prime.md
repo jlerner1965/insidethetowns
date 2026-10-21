@@ -1,5 +1,6 @@
 ---
 title: "MTN Prime"
+subTown: idaho-springs
 type: restaurant
 address: "1600 Miner St, Idaho Springs, CO 80452"
 area: "Miner Street"

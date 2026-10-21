@@ -1,5 +1,6 @@
 ---
 title: "Columbine Garden Club: November Meeting"
+subTown: idaho-springs
 start: "2026-11-12T12:00"
 venue: "Tommyknockers"
 url: "https://columbinegardenclub.com/event/november-meeting-4/"

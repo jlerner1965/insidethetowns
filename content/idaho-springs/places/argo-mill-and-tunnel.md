@@ -1,5 +1,6 @@
 ---
 title: "Argo Mill & Tunnel"
+subTown: idaho-springs
 type: venue
 address: "2350 Riverside Dr., Idaho Springs, CO 80452"
 area: "Riverside Drive"

@@ -1,5 +1,6 @@
 ---
 title: "Idaho Springs Heritage Museum and Visitor Center"
+subTown: idaho-springs
 type: service
 address: "2060 Miner Street, Idaho Springs, CO 80452"
 area: "Miner Street"

@@ -1,5 +1,6 @@
 ---
 title: "The Majestic Art Gallery"
+subTown: idaho-springs
 type: shop
 address: "1636 Miner St, Idaho Springs, CO 80452"
 area: "Miner Street"

@@ -1,5 +1,6 @@
 ---
 title: "Idaho Springs Book Group"
+subTown: idaho-springs
 start: "2026-12-14T16:00"
 venue: "Idaho Springs Public Library"
 url: "https://cccld.org/event/ispl-book-group-16-2-2/2026-12-14/"

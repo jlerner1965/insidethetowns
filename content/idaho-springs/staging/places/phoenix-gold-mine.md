@@ -1,5 +1,6 @@
 ---
 title: "Phoenix Gold Mine"
+subTown: idaho-springs
 type: venue
 address: "800 Trail Creek Rd., Idaho Springs, CO 80452"
 area: "Nearby: Trail Creek Road, outside town"

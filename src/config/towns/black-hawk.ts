@@ -9,25 +9,25 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  * Figures are from the Wikipedia infobox (census and GNIS), read 10 October
  * 2026, as for every other town; the comments say which. The domain,
  * insideblackhawk.com, is the owner's, named 10 October 2026.
+ *
+ * Folded into Inside Clear Creek, the Idaho Springs guide, on 20 October 2026
+ * (DECISIONS.md, "Georgetown and Black Hawk join Idaho Springs on one Clear
+ * Creek guide"): its events, places, articles, corrections and sources are
+ * in content/idaho-springs/ with `subTown: black-hawk`, and every path on
+ * insideblackhawk.com redirects there (vercel.json). The config stays so the
+ * Vercel project keeps building, and keeps serving those redirects. It was a
+ * visitor guide from 12 to 20 October (no weekly email); the guide it joined
+ * is in the email, so that flag went with the fold.
  */
 export const blackHawk: TownConfig = {
   kind: 'town',
-  // Live 10 October 2026, on the owner's word, under its launch threshold:
-  // it publishes what is verified, and the validator and the weekly report
-  // say what it is short of (docs/ACCURACY-SYSTEM.md).
-  status: 'live',
-  // A visitor guide from 12 October 2026, owner's word: kept current, no weekly
-  // email (DECISIONS.md, "Regional editions and visitor guides").
-  visitorGuide: {
-    since: '2026-10-12',
-    reason: '14 of its 20 listings belong to four casino companies, so few separate buyers for a weekly placement; its visitors plan a trip, not a week',
-  },
+  // Live 10 October 2026, on the owner's word, under its launch threshold;
+  // folded into the Idaho Springs guide on 20 October 2026.
+  status: 'redirect',
+  foldedInto: { town: 'idaho-springs', path: '/black-hawk/', since: '2026-10-20' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
-  // Nederland by the Peak to Peak, Golden down Clear Creek Canyon, Idaho
-  // Springs up Virginia Canyon, Georgetown beyond it. Set when the town went
-  // live, 10 October 2026; each names Black Hawk back.
-  neighbors: ['nederland', 'golden', 'idaho-springs', 'georgetown'],
+  neighbors: [],
   slug: 'black-hawk',
   name: 'Black Hawk',
   // Named by the owner on 10 October 2026, and on the owner's Cloudflare

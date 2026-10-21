@@ -10,19 +10,23 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
  * Figures are from the Wikipedia infobox (census and GNIS), read 10 October
  * 2026, as for every other town; the comments say which. The domain,
  * insidegeorgetownco.com, is the owner's, named 10 October 2026.
+ *
+ * Folded into Inside Clear Creek, the Idaho Springs guide, on 20 October 2026
+ * (DECISIONS.md, "Georgetown and Black Hawk join Idaho Springs on one Clear
+ * Creek guide"): its events, places, articles and sources are in
+ * content/idaho-springs/ with `subTown: georgetown`, and every path on
+ * insidegeorgetownco.com redirects there (vercel.json). The config stays so
+ * the Vercel project keeps building, and keeps serving those redirects.
  */
 export const georgetown: TownConfig = {
   kind: 'town',
-  // Live 10 October 2026, on the owner's word, under its launch threshold:
-  // it publishes what is verified, and the validator and the weekly report
-  // say what it is short of (docs/ACCURACY-SYSTEM.md).
-  status: 'live',
+  // Live 10 October 2026, on the owner's word, under its launch threshold;
+  // folded into the Idaho Springs guide on 20 October 2026.
+  status: 'redirect',
+  foldedInto: { town: 'idaho-springs', path: '/georgetown/', since: '2026-10-20' },
   variant: 'mountain',
   region: 'Mountains & Foothills',
-  // Idaho Springs down I-70, then Evergreen and Golden beyond it, and Black
-  // Hawk up the Central City Parkway. Set when the town went live, 10
-  // October 2026; each names Georgetown back.
-  neighbors: ['idaho-springs', 'evergreen', 'golden', 'black-hawk'],
+  neighbors: [],
   slug: 'georgetown',
   name: 'Georgetown',
   // Named by the owner on 10 October 2026, and on the owner's Cloudflare

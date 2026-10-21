@@ -40,11 +40,13 @@ test('an edition of one carries its town’s email sponsor; a shared one its own
   assert.equal(shared!.sponsor, own);
 });
 
-test('the three shared editions the owner set, and fifteen in all', () => {
+test('the two shared editions the owner set, and fifteen in all', () => {
+  // Three until 20 October 2026: Idaho Springs and Georgetown became one
+  // guide, Inside Clear Creek, so theirs is an edition of one under the
+  // Idaho Springs slug, and the count holds.
   const editions = emailEditions();
   const shared = editions.filter((e) => e.shared).map((e) => [e.slug, e.towns.map((x) => x.slug)]);
   assert.deepEqual(shared, [
-    ['clear-creek', ['idaho-springs', 'georgetown']],
     ['loveland-johnstown', ['loveland', 'johnstown']],
     ['windsor-timnath', ['windsor', 'timnath']],
   ]);
@@ -71,9 +73,11 @@ test('the configured editions name live guides the email covers, once each, unde
   }
 });
 
-test('Black Hawk, Leadville and Manitou Springs are visitor guides, live and out of the email', () => {
+test('Leadville and Manitou Springs are visitor guides, live and out of the email', () => {
+  // Black Hawk was the third until 20 October 2026, when it became a section
+  // of the Idaho Springs guide, which the email covers.
   const visitor = towns.filter((x) => x.visitorGuide).map((x) => x.slug).sort();
-  assert.deepEqual(visitor, ['black-hawk', 'leadville', 'manitou-springs']);
+  assert.deepEqual(visitor, ['leadville', 'manitou-springs']);
   const live = liveTowns().map((x) => x.slug);
   for (const slug of visitor) {
     assert.ok(live.includes(slug), `${slug} stays live`);

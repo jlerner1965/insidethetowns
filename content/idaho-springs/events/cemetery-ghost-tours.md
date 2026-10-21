@@ -1,5 +1,6 @@
 ---
 title: "Cemetery Ghost Tours"
+subTown: idaho-springs
 start: "2026-09-24T19:00"
 repeat: weekly
 until: "2026-10-29"

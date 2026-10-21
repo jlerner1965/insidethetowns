@@ -1,5 +1,6 @@
 ---
 title: "Indian Hot Springs"
+subTown: idaho-springs
 type: venue
 address: "302 Soda Creek Road, Idaho Springs, CO 80452"
 area: "Soda Creek Road"

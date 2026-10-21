@@ -1,5 +1,6 @@
 ---
 title: "Underhill Museum"
+subTown: idaho-springs
 type: venue
 address: "Miner Street, Idaho Springs, CO 80452 (house number unconfirmed: 1413, 1414 or 1416)"
 area: "Miner Street"

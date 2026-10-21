@@ -1,5 +1,6 @@
 ---
 title: "Two Brothers Deli"
+subTown: idaho-springs
 type: restaurant
 address: "1424 Miner Street, Idaho Springs, CO 80452"
 area: "Miner Street"

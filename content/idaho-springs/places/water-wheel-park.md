@@ -1,5 +1,6 @@
 ---
 title: "Water Wheel Park"
+subTown: idaho-springs
 type: park
 address: "Behind City Hall, 1711 Miner Street, Idaho Springs, CO 80452, by a paved path under I-70"
 area: "City Hall"

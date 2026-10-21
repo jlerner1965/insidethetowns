@@ -1,5 +1,6 @@
 ---
 title: "Tommyknocker Brewery & Pub"
+subTown: idaho-springs
 type: bar
 address: "1401 Miner Street, Idaho Springs, CO 80452"
 area: "Miner Street"

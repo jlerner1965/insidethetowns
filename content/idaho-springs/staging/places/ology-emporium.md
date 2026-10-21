@@ -1,5 +1,6 @@
 ---
 title: "Ology Emporium"
+subTown: idaho-springs
 type: shop
 address: "1630 Miner Street, Idaho Springs, CO 80452 (from the City's visitor site, not the shop's own)"
 area: "Miner Street"
