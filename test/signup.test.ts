@@ -1,65 +1,47 @@
 /**
  * The weekly email's signup (src/lib/signup.ts, run by NewsletterSignup.astro).
- * Nothing here reaches the provider or the subscriber list: the browser's tab
- * and the form's post are stand-ins that record what they were asked to do.
+ * Nothing here reaches the provider or the subscriber list: the decisions are
+ * pure, and the component is read as text.
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { SIGNUP_MESSAGES, submitSignup, type SignupStep } from '../src/lib/signup.ts';
+import { SIGNUP_MESSAGES, signupOutcome } from '../src/lib/signup.ts';
 
-/** A browser that opens tabs (or refuses to), and a form that records where it was posted. */
-function harness({ blocks = false } = {}) {
-  const posted: string[] = [];
-  const tabs: Array<{ name: string; opener: unknown }> = [];
-  const step = (towns: string[], sending = false): SignupStep => ({
-    towns,
-    sending,
-    openTab: (name) => {
-      if (blocks) return null;
-      const tab = { name, opener: { page: 'this one' } as unknown };
-      tabs.push(tab);
-      return tab;
-    },
-    post: (target) => posted.push(target),
-  });
-  return { posted, tabs, step };
-}
-
-test('a sent form opens one tab, posts into it, and leaves the provider no handle on this page', () => {
-  const h = harness();
-  assert.equal(submitSignup(h.step(['erie']), 'signup-1'), 'opened');
-  assert.deepEqual(h.posted, ['signup-1']);
-  assert.equal(h.tabs[0]!.opener, null);
+test('a form with a town ticked is left to the browser to send', () => {
+  assert.equal(signupOutcome({ towns: ['erie'], sending: false }), 'send');
 });
 
 test('a double click sends once', () => {
-  const h = harness();
   let sending = false;
+  let sent = 0;
   const press = () => {
-    const outcome = submitSignup(h.step(['erie'], sending), `signup-${h.tabs.length}`);
-    if (outcome === 'opened') sending = true;
+    const outcome = signupOutcome({ towns: ['erie'], sending });
+    if (outcome === 'send') {
+      sending = true;
+      sent++;
+    }
     return outcome;
   };
-  assert.equal(press(), 'opened');
+  assert.equal(press(), 'send');
   assert.equal(press(), 'busy', 'the second press does nothing');
-  assert.equal(h.posted.length, 1);
-  assert.equal(h.tabs.length, 1, 'one tab, not two');
-});
-
-test('a blocked tab sends nothing and says so, with a way through', () => {
-  const h = harness({ blocks: true });
-  assert.equal(submitSignup(h.step(['erie']), 'signup-1'), 'blocked');
-  assert.deepEqual(h.posted, [], 'nothing posted into a tab that never opened');
-  assert.match(SIGNUP_MESSAGES.blocked, /nothing was sent/);
-  assert.match(SIGNUP_MESSAGES.blocked, /this tab/, 'offers to continue here');
+  assert.equal(sent, 1);
 });
 
 test('no towns ticked: nothing sent, on a town’s form as on the hub’s', () => {
-  const h = harness();
-  assert.equal(submitSignup(h.step([]), 'signup-1'), 'need-town');
-  assert.equal(h.tabs.length + h.posted.length, 0);
+  assert.equal(signupOutcome({ towns: [], sending: false }), 'need-town');
   assert.equal(SIGNUP_MESSAGES['need-town'], 'Pick at least one town.');
+});
+
+test('the browser opens the provider’s tab, not the script', () => {
+  // The script opened an empty tab and posted into it by name; the owner got
+  // the empty tab and nothing in it (20 October 2026). A plain target="_blank"
+  // post is what every browser opens a tab for.
+  const component = readFileSync('src/components/NewsletterSignup.astro', 'utf8');
+  assert.match(component, /<form[^>]*\starget="_blank"/);
+  assert.doesNotMatch(component, /window\.open\(/);
+  assert.doesNotMatch(component, /form\.target\s*=/, 'the form keeps its own target');
+  assert.doesNotMatch(component, /form\.submit\(\)/, 'requestSubmit, so the town check runs on every send');
 });
 
 test('the page never claims a subscription it cannot see, and keeps the way back', () => {
