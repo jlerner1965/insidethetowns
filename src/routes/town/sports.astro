@@ -22,8 +22,9 @@ import Base from '@/layouts/Base.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
-import type { SportData, SportGame, SportsData } from '@/config/berthoud-sports';
-import { dayKey, formatDayLong, formatDayShort, formatShortDate, formatTime, fromWallClock } from '@/lib/dates';
+import type { SportData, SportsData } from '@/config/berthoud-sports';
+import { dayKey, formatDayLong, formatDayShort, formatShortDate, formatTime } from '@/lib/dates';
+import { bigGame, coming, gameDay as day, latestResult, outcome, RESULT_WORD, sitePhrase, when, where } from '@/lib/berthoud-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import sportsFile from '../../../data/berthoud/sports.json';
 
@@ -34,51 +35,10 @@ const MAXPREPS_SCHOOL = 'https://www.maxpreps.com/co/berthoud/berthoud-spartans/
 const school = 'Berthoud High School';
 const description = `${school} Spartans scores, records and upcoming games: football, soccer, volleyball and cross country, from MaxPreps, checked against the school calendar.`;
 
-function day(g: SportGame): Date {
-  const [y, m, d] = g.date.split('-').map(Number) as [number, number, number];
-  const [hh, mm] = (g.time ?? '00:00').split(':').map(Number) as [number, number];
-  return fromWallClock(y, m, d, hh, mm);
-}
-function where(g: SportGame): string {
-  return g.site === 'away' ? 'at' : 'vs';
-}
-/** "W 22-0 vs Greeley Central" or "3rd at the Niwot Invitational". */
-function outcome(g: SportGame): string {
-  if (g.result && g.score) return `${g.score.us}-${g.score.them} ${where(g)} ${g.opponent}`;
-  if (g.place) return `${g.place} ${where(g)} ${g.opponent}`;
-  return `${where(g)} ${g.opponent}`;
-}
-function sitePhrase(g: SportGame): string {
-  return g.site === 'home' ? 'Home' : g.site === 'away' ? 'Away' : 'Neutral site';
-}
-/** "Today", "Tomorrow", or the day in full, for the highlight. */
-function when(g: SportGame): string {
-  const today = dayKey(new Date());
-  const tomorrow = dayKey(new Date(Date.now() + 86_400_000));
-  if (g.date === today) return 'Today';
-  if (g.date === tomorrow) return 'Tomorrow';
-  return formatDayLong(day(g));
-}
-const RESULT_WORD = { W: 'Won', L: 'Lost', T: 'Tied' } as const;
-
-/** Every game to come, across the teams, soonest first. */
-const coming = sports
-  .flatMap((s) => s.upcoming.map((game) => ({ team: s, game })))
-  .sort((a, b) => a.game.date.localeCompare(b.game.date) || (a.game.time ?? '').localeCompare(b.game.time ?? ''));
-/**
- * The highlight: the big game of the week, not merely the soonest. The
- * teams are listed in order of what the town turns out for (football
- * first, src/config/berthoud-sports.ts), so the first team with a game in
- * the next seven days leads, and a Tuesday soccer match does not push
- * Friday night off the top. With nothing in the week, the soonest game.
- */
-const weekAhead = dayKey(new Date(Date.now() + 7 * 86_400_000));
-const next = sports.flatMap((s) => s.upcoming.filter((g) => g.date <= weekAhead).slice(0, 1).map((game) => ({ team: s, game })))[0] ?? coming[0];
-const then = coming.filter((c) => c !== next);
-/** The most recent result across the teams, for a page with nothing to come. */
-const latest = sports
-  .flatMap((s) => s.results.slice(0, 1).map((game) => ({ team: s, game })))
-  .sort((a, b) => b.game.date.localeCompare(a.game.date))[0];
+const now = new Date();
+const next = bigGame(data, now);
+const then = coming(data).filter((c) => c.game.date >= dayKey(now) && c !== next);
+const latest = latestResult(data);
 
 const fetchedDates = sports.map((s) => s.fetched).filter(Boolean) as string[];
 const newest = fetchedDates.length ? new Date(fetchedDates.sort().at(-1)!) : undefined;

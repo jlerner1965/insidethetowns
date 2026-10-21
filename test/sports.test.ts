@@ -180,3 +180,17 @@ test('a team whose page failed keeps its previous entry, its date included', () 
   const fresh = keepPrevious(football, undefined);
   assert.equal(fresh.fetched, undefined, 'no earlier entry: the card says it has not been read');
 });
+
+test('the big game of the week is the first team in config order with a game in the next seven days', async () => {
+  const { bigGame, coming } = await import('../src/lib/berthoud-sports.ts');
+  const game = (date: string, opponent: string) => ({ date, time: '19:00', opponent, site: 'away' as const, url: `https://x/${opponent}/` });
+  const team = (key: string, upcoming: ReturnType<typeof game>[]) => ({ key, name: key, maxprepsUrl: '', results: [], upcoming, held: [], notes: [] });
+  const now = new Date('2026-10-21T18:00:00Z');
+  const data = { generated: '', sports: [team('football', [game('2026-10-23', 'Mountain View'), game('2026-10-30', 'Severance')]), team('soccer', [game('2026-10-22', 'Sterling')])] };
+  assert.equal(bigGame(data, now)!.game.opponent, 'Mountain View', 'Friday football over Thursday soccer');
+  assert.deepEqual(coming(data).map((c) => c.game.opponent), ['Sterling', 'Mountain View', 'Severance'], 'the list stays chronological');
+  const later = { generated: '', sports: [team('football', [game('2026-11-06', 'Playoff')]), team('soccer', [game('2026-10-29', 'Valley')])] };
+  assert.equal(bigGame(later, now)!.game.opponent, 'Valley', 'nothing for football this week: the soonest game leads');
+  const past = { generated: '', sports: [team('football', [game('2026-10-16', 'Greeley Central')])] };
+  assert.equal(bigGame(past, now), undefined, 'a game already played is not next');
+});
