@@ -85,9 +85,31 @@ export function crossCheck(sport: SportConfig, toCome: SportGame[], calendar: Ca
 
 /** The games still to come, by the run's own date: the whole schedule's where it was read, else the glance card's, soonest first. */
 export function gamesToCome(page: TeamPage, today: string): SportGame[] {
-  return (page.schedule ?? page.glance)
-    .filter((g) => !g.result && !g.place && g.date >= today)
-    .sort((a, b) => a.date.localeCompare(b.date));
+  return dedupeToCome(
+    (page.schedule ?? page.glance)
+      .filter((g) => !g.result && !g.place && g.date >= today)
+      .sort((a, b) => a.date.localeCompare(b.date)),
+  );
+}
+
+/**
+ * One game per opponent per start: MaxPreps carried Niwot volleyball's 30
+ * October match against Fossil Ridge twice, at 9:45 am both times, under two
+ * contest ids (21 October 2026); a team cannot play the same opponent twice
+ * at one moment, and the second page has since gone. A doubleheader is two
+ * games at two times, or two games with no time given, and both of those
+ * are kept: only a repeat of the same day, the same known time and the same
+ * opponent is dropped, the first contest id kept.
+ */
+export function dedupeToCome(games: SportGame[]): SportGame[] {
+  const seen = new Set<string>();
+  return games.filter((g) => {
+    if (!g.time) return true;
+    const key = `${g.date}|${g.time}|${g.opponent.toLowerCase()}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 /** A fresh entry for the data file, from a page that was read today. */

@@ -119,6 +119,18 @@ export interface Change extends WeeklyChange {
   label: string;
   /** The last day it shows, the item's own or 14 days after its file's weekOf. */
   expires: Date;
+  /**
+   * The change happened well before the guide noticed it (`effective` more
+   * than CHANGE_DAYS before `checked`): a correction to the guide, shown
+   * apart from the week's news with both dates.
+   */
+  backlog: boolean;
+}
+
+/** True when a change's `effective` date is more than `days` before the day it was checked. */
+export function isBacklog(c: { effective?: Date; checked: Date }, days = CHANGE_DAYS): boolean {
+  if (!c.effective) return false;
+  return (startOfDay(c.checked).getTime() - startOfDay(c.effective).getTime()) / 86_400_000 > days;
 }
 
 /**
@@ -134,7 +146,7 @@ export function activeChanges(entries: readonly NotesLike[], now = new Date()): 
       if (SOURCED_CHANGE_TAGS.includes(c.tag) && !c.source) continue;
       const expires = c.expires ?? addDays(notes.data.weekOf, CHANGE_DAYS);
       if (dayKey(expires) < today) continue;
-      out.push({ ...c, expires, label: changeLabel(c.tag) });
+      out.push({ ...c, expires, label: changeLabel(c.tag), backlog: isBacklog(c) });
     }
   }
   return out.sort((a, b) => b.checked.getTime() - a.checked.getTime());

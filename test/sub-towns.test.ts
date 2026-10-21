@@ -29,7 +29,7 @@ test('Windsor covers itself and Severance', () => {
 });
 
 test('every sub-town slug is URL-safe and distinct from a route the guide already has', () => {
-  const RESERVED = new Set(['events', 'places', 'articles', 'guides', 'eat-drink', 'things-to-do', 'directory', 'moving-here', 'search', 'about', 'contact', 'this-weekend', 'correct', 'thanks', 'submit-event', 'for-businesses', 'privacy', 'credits', 'editorial']);
+  const RESERVED = new Set(['events', 'places', 'articles', 'guides', 'eat-drink', 'things-to-do', 'directory', 'moving-here', 'search', 'about', 'contact', 'this-weekend', 'correct', 'thanks', 'submit-event', 'for-businesses', 'privacy', 'credits', 'editorial', 'families', 'get-involved', 'living-here', 'updates', 'people', 'sports']);
   for (const t of towns) {
     for (const slug of t.subTowns ?? []) {
       assert.match(slug, /^[a-z][a-z0-9-]*$/, `${t.slug}: ${slug}`);

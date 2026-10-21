@@ -92,6 +92,95 @@ export interface ConditionsLink {
   note?: string;
 }
 
+/**
+ * A link a resident needs, with the one line that says what it is for.
+ * `note` is the caveat a bare link hides: "Depends on the address".
+ */
+export interface ResourceLink {
+  label: string;
+  url: string;
+  note?: string;
+  /** For the click counts: 'service' (a resident-service page), 'registration', 'participation'. Default 'service'. */
+  track?: 'service' | 'registration' | 'participation';
+}
+
+/**
+ * /living-here/: which body handles what, as links to the right page of
+ * each official site, grouped the way a resident asks. Town-specific
+ * entirely: the route and the layout are shared, every word here is the
+ * town's. Each section carries the day its links were read.
+ */
+export interface LivingHereConfig {
+  /** One or two sentences under the title. */
+  intro: string;
+  sections: ReadonlyArray<{
+    title: string;
+    /** A line of context for the section: "Berthoud straddles two counties, so check the address". */
+    note?: string;
+    items: readonly ResourceLink[];
+    /** The day these links were last opened and read. */
+    verified: string;
+  }>;
+}
+
+/**
+ * The home page's flagship layout (src/components/home/FlagshipHome.astro),
+ * for a guide the owner has decided to give the effort: a compact split
+ * masthead, the week first, a signature section, then places, the email,
+ * resident resources and the neighbours. A guide without it keeps the
+ * shared home page as it was.
+ */
+export interface HomeConfig {
+  /** Which resident hub is the town's signature section on the home page. */
+  signature: 'families' | 'get-involved';
+  /** The enduring line under the town's name: what the guide is for, never a dated topic. */
+  purpose: string;
+  /** The photograph beside the introduction: a file in content/<slug>/images/, with its row in IMAGE_LICENSES.csv. */
+  photo: HeroConfig;
+  /** The second button under the introduction, after "This week". */
+  secondary: { label: string; href: string };
+  /** The accent's name, for the design notes and nothing else: the colour itself is `colors.accent`. */
+  accentName?: string;
+}
+
+/**
+ * /get-involved/: the participation hub. The route is the same on every
+ * guide that has one; the title is the town's ("Get involved in Niwot",
+ * "Join something in Berthoud").
+ */
+export interface ParticipationConfig {
+  /** The nav label and the page's name: "Get Involved", "Join Something". */
+  label: string;
+  intro: string;
+}
+
+/**
+ * /families/: the family hub. School breaks come from the district's own
+ * calendar and carry its URL and the day it was read; the programs come
+ * from content/<town>/programs/.
+ */
+export interface FamiliesConfig {
+  label: string;
+  intro: string;
+  /** The districts a town's children may be in, each with its boundary lookup. */
+  schools: ReadonlyArray<ResourceLink & { district: string }>;
+  /** Published break dates, from the district calendar. */
+  breaks: ReadonlyArray<{ district: string; label: string; from: string; to: string; source: string; verified: string }>;
+}
+
+/**
+ * About: who is behind this guide, in the publisher's own words, beside
+ * the network-wide publisher line. Only verified facts the owner supplied;
+ * the slot stays empty rather than carrying a line nobody checked.
+ */
+export interface AboutConfig {
+  /** Short paragraphs under "Who runs it". */
+  who: readonly string[];
+  /** A portrait in content/hub/images/ with its licence row; none means none, never a stand-in. */
+  photo?: string;
+  photoAlt?: string;
+}
+
 export interface TownConfig {
   kind: 'town';
   /** URL-safe identifier, also the content folder name: "lyons" */
@@ -245,6 +334,18 @@ export interface TownConfig {
     /** What to call the policeNonEmergency link. Without it the raw URL would be the link text. */
     policeNonEmergencyLabel?: string;
   };
+  /**
+   * The resident hubs and the flagship home page, each optional and each
+   * switching on a route or a layout only for the guide that sets it. The
+   * shared chassis is unchanged for every guide without them.
+   */
+  home?: HomeConfig;
+  livingHere?: LivingHereConfig;
+  participation?: ParticipationConfig;
+  families?: FamiliesConfig;
+  about?: AboutConfig;
+  /** 'compact': the footer's network strip names the neighbours and the hub, not every guide. Default 'full'. */
+  footer?: 'full' | 'compact';
   /** Formspree form id for the contact form. Without it the contact page falls back to mailto. */
   formspreeId?: string;
   ga4Id?: string;

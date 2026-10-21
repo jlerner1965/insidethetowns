@@ -5865,3 +5865,87 @@ step as the small mountain guides: quiet, not retire.
   football, which CHSAA lists as a MaxPreps sport, is not on MaxPreps under
   any of four spellings tried, so it waits; CHSAANow has its 15 games if
   it is ever read from there.
+
+## The two flagships: Berthoud and Niwot, 21 October 2026
+
+*21 October 2026.* The owner's brief for the two flagship guides, worked
+as one project in the order it gave: the trust fixes, then the resident
+hubs, then the design, then the validation. Everything town-specific is
+in the two configs and under `content/berthoud/` and `content/niwot/`;
+the routes, components and schemas are shared, and every other guide
+renders exactly as it did (the old home page is `ClassicHome.astro`,
+unchanged; a guide gets the flagship layout only with `home` on its
+config, and the hub routes only with `families`, `participation`,
+`livingHere`, an `updates/` folder or a published profile).
+
+- **Neon Nights.** The Town's Upcoming Events page and its home-page
+  calendar, read today, give cosmic pickleball on Friday October 23 and
+  the dodgeball tournament on Saturday October 24; the printed fall guide
+  has them the other way round, and the guide had followed the print. The
+  two listings now follow the Town's current pages, say so, keep the
+  print's times and fees with a line to call, and a corrections entry
+  logs the change.
+- **Niwot volleyball, 30 October.** MaxPreps carried the Fossil Ridge
+  match twice at 9:45 am under two contest ids; the second answered 404
+  today. A duplicate, not a doubleheader: `dedupeToCome` drops a repeat of
+  the same day, the same known time and the same opponent, keeps the first
+  id, and leaves a doubleheader (two times, or no times) alone. The data
+  file is corrected by the same rule and says why in the team's notes.
+- **Weekly nearby.** The town's own content comes first on every "This
+  week" page; the neighbours' weekend follows it (now on the full page too,
+  limited to four), and the mountain guides' strip is labelled "Day trips:
+  up the hill this weekend". Niwot's page had led with Evergreen, Manitou
+  Springs and Golden on a one-listing week.
+- **When a business changed versus when the guide noticed.** A weekly
+  change takes `effective`; one more than fourteen days before its check
+  is a backlog item, shown as "Corrections to the guide" with both dates,
+  off the week's news. Fly Away Home (closed December 2024, found October
+  2026) and Niles Family Dentistry (moved September 1, found October 17)
+  are the two. The same two are in the new local-changes collection with
+  "noted" dates.
+- **One count.** `src/lib/event-totals.ts` is the one definition: listings
+  (dated events plus weekly series, each once) and dates in the fortnight.
+  About, its closing band and the home page read it and say which they
+  count.
+- **Nothing twice on the home page.** The pick's listing is left out of
+  the rows under it, "Coming up" leaves out what the week showed, and the
+  masthead's dated notice is left out of "Things to know".
+- **Three collections, one gate.** `programs/` (what to join, by audience,
+  kind, topic and access, with the organizer's deadline), `updates/` (what
+  changed, who it affects, when, what to do, the original; three dates
+  kept apart; current until `expires`, then archive) and `profiles/`
+  (draft until an interview or supplied words, consent and a date exist;
+  the schema refuses to publish without them, and the route builds only
+  where one is published). A program or an update needs `source` and
+  `verified`, like a place.
+- **Who runs it.** At the owner's direction in this brief, James Lerner is
+  named on the two About pages through a per-town `about` block, in
+  verified words only: he runs Lerner Works and grew up in Niwot; the
+  Berthoud page says he is not a Berthoud resident and that nothing is
+  endorsed. `hub.editor` stays unset, so the check lines and the other
+  nineteen About pages are as they were (8 October). No portrait exists in
+  the repository; none was generated.
+- **Niwot's tagline.** The November 3 vote came out of the permanent
+  short tagline and the comparison line and into dated coverage: the
+  election explainer, a local-changes notice that expires on election day,
+  and a dated line under the masthead that goes with it.
+- **The home page.** A split masthead at about a third of the old hero's
+  height (the Town's own playground photograph on Berthoud, Second Avenue
+  on Niwot, both licensed in IMAGE_LICENSES.csv); the week in a main
+  column (pick, rows, coming up) and a supporting column (things to know,
+  deadlines, new & closed, the week's games in the school's colour, with
+  no team featured out of season); the signature section (Berthoud
+  Families; Around Niwot and Get Involved); the places; the email once;
+  Living Here; the neighbours, four at most; a footer strip naming the
+  neighbours and the hub. Six navigation items; Guides and Moving Here
+  move to the footer and Living Here.
+- **Clicks.** `data-track` on registration, participation and
+  resident-service links, and the signup's submit, go as custom events
+  through the Vercel and Plausible scripts the sites already load. No new
+  vendor.
+- **Withheld.** Two profile drafts (Steve Hensley, Pat Murphy) with their
+  open questions; Halloween in the Hall (no description on the hall's
+  calendar); Troop 161's own meeting hours (no troop page could be read);
+  the Berthoud Chamber (its site returned nothing); Niwot Pizza's move
+  date (the owner's page gives none); the LID's November 17 date (the
+  Courier's report; the county's calendar still says the 3rd).

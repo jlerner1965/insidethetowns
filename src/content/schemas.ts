@@ -719,8 +719,21 @@ export const weeklyChangeSchema = z.object({
   source: blank(httpUrl),
   /** The day the item was checked against its source; shown as "Checked …". */
   checked: localDate,
+  /**
+   * The day the business actually changed, when it is known and is not the
+   * week the guide noticed: Fly Away Home closed on 24 December 2024 and the
+   * guide found out on 7 October 2026. The page says both dates, and an
+   * item whose change is more than CHANGE_DAYS before its check is labelled
+   * as a correction to the guide rather than as this week's news
+   * (src/lib/weekly.ts, `isBacklog`). Without it, the change is taken to be
+   * recent. Never later than `checked`.
+   */
+  effective: blank(localDate),
   /** The last day the item shows. Default: 14 days after the file's weekOf. */
   expires: blank(localDate),
+}).refine((c) => !c.effective || c.effective.getTime() <= c.checked.getTime(), {
+  message: 'effective is the day the business changed, so it cannot be after the day it was checked',
+  path: ['effective'],
 });
 export type WeeklyChange = z.infer<typeof weeklyChangeSchema>;
 
@@ -748,6 +761,35 @@ export function weeklySchema() {
       (v) => (Array.isArray(v) ? v.filter((c) => !isBlankChange(c)) : v),
       z.array(weeklyChangeSchema).default([]),
     ),
+    /**
+     * A resident's question answered in a few sentences, from a named source:
+     * "When does the winter activity guide open?" The week's page shows it
+     * under its own heading; a week without one shows nothing there.
+     */
+    qa: z
+      .object({
+        question: z.string().min(1),
+        answer: z.string().min(1),
+        source: blank(httpUrl),
+        sourceLabel: blank(z.string().min(1)),
+      })
+      .optional(),
+    /**
+     * An original local feature for the week: a person, a place, a thing
+     * the editor went and looked at. `url` is the page it lives on (a
+     * profile, an article, a place) and `body` the teaser. Only ever the
+     * editor's own reporting or material the subject supplied; nothing
+     * here is written from a search result.
+     */
+    feature: z
+      .object({
+        title: z.string().min(1),
+        body: z.string().min(1),
+        url: blank(z.string().regex(/^(\/|https?:\/\/)/, 'a path on this guide or a full URL')),
+        /** Where the reporting came from: "Interview with …, 14 October 2026", "Supplied by …". */
+        basis: z.string().min(1),
+      })
+      .optional(),
   });
 }
 export type WeeklyNotes = z.infer<ReturnType<typeof weeklySchema>>;
@@ -903,7 +945,314 @@ export const changeSchema = z.object({
 });
 export type Change = z.infer<typeof changeSchema>;
 
-export const COLLECTIONS = ['events', 'places', 'articles', 'pages', 'issues', 'weekly', 'corrections'] as const;
+
+/*
+ * Programs, clubs and ways in: content/<town>/programs/<slug>.md.
+ *
+ * The ongoing things a resident can join, register for or turn up to,
+ * kept apart from the dated events: a storytime is a weekly listing on the
+ * calendar, but "what can my four-year-old join this winter" is a question
+ * about programs, with an age range, a season, a price and a deadline. One
+ * file per program or organization; a dated session of it is still an
+ * event, and `nextEvent` points at the listing rather than copying it.
+ *
+ * Every entry carries `source` and `verified` like a place does, and is
+ * held back without them (src/lib/content.ts). Nothing here is a claim the
+ * organizer did not publish: a field the organizer's page does not give is
+ * left out, and the page says "not stated" rather than guessing.
+ */
+export const PROGRAM_AUDIENCES = ['babies', 'preschool', 'elementary', 'teens', 'adults', 'seniors', 'families', 'everyone'] as const;
+export type ProgramAudience = (typeof PROGRAM_AUDIENCES)[number];
+export const PROGRAM_AUDIENCE_LABELS: Record<ProgramAudience, string> = {
+  babies: 'Babies and toddlers',
+  preschool: 'Preschoolers',
+  elementary: 'Elementary age',
+  teens: 'Teens',
+  adults: 'Adults',
+  seniors: '50 and over',
+  families: 'Families together',
+  everyone: 'Everyone',
+};
+
+export const PROGRAM_KINDS = ['program', 'league', 'class', 'club', 'organization', 'volunteer', 'meeting', 'social', 'service'] as const;
+export type ProgramKind = (typeof PROGRAM_KINDS)[number];
+export const PROGRAM_KIND_LABELS: Record<ProgramKind, string> = {
+  program: 'Program',
+  league: 'League or team',
+  class: 'Class',
+  club: 'Club or group',
+  organization: 'Organization',
+  volunteer: 'Volunteering',
+  meeting: 'Public meeting',
+  social: 'Social activity',
+  service: 'Service',
+};
+
+/** The subjects a family hub groups by, in the order the page shows them. */
+export const PROGRAM_TOPICS = ['sports', 'arts', 'learning', 'outdoors', 'community', 'civic', 'history', 'faith', 'other'] as const;
+export type ProgramTopic = (typeof PROGRAM_TOPICS)[number];
+export const PROGRAM_TOPIC_LABELS: Record<ProgramTopic, string> = {
+  sports: 'Sports and recreation',
+  arts: 'Arts and music',
+  learning: 'Learning and the library',
+  outdoors: 'Outdoors',
+  community: 'Community',
+  civic: 'Civic and public meetings',
+  history: 'History',
+  faith: 'Faith',
+  other: 'Other',
+};
+
+/** What a venue booking is, so a room reservation is never shown as an open invitation. */
+export const PROGRAM_ACCESS = ['public', 'members', 'registered', 'private'] as const;
+export type ProgramAccess = (typeof PROGRAM_ACCESS)[number];
+export const PROGRAM_ACCESS_LABELS: Record<ProgramAccess, string> = {
+  public: 'Open to the public',
+  members: 'Members and their guests',
+  registered: 'Registration required',
+  private: 'Private',
+};
+
+export function programSchema<I extends z.ZodType>(image: () => I) {
+  return z
+    .object({
+      title: z.string().min(1),
+      slug,
+      /** On a multi-town guide, which town. */
+      subTown: z.string().min(1).optional(),
+      kind: z.enum(PROGRAM_KINDS),
+      topic: z.enum(PROGRAM_TOPICS).default('other'),
+      audience: z.array(z.enum(PROGRAM_AUDIENCES)).min(1),
+      /** Who runs it: "Berthoud Recreation", "Niwot Youth Sports". */
+      organizer: z.string().min(1),
+      organizerUrl: httpUrl.optional(),
+      /** Where to register, join or read more, when it is not the organizer's front page. */
+      url: httpUrl.optional(),
+      /** One or two sentences for the row. */
+      summary: z.string().min(1).max(320),
+      /** "Ages 4–5", "Grades 3–8", "16 and up", as the organizer writes it. */
+      ages: z.string().min(1).optional(),
+      /** "Berthoud Recreation Center, 1000 N Berthoud Pkwy". */
+      location: z.string().min(1).optional(),
+      /** "Tuesdays 4:30–5:30 pm", "Most Thursdays 7:30–8:30 am". */
+      schedule: z.string().min(1).optional(),
+      /** "Winter 2027: January to March", "Year-round". */
+      season: z.string().min(1).optional(),
+      /** "$91 resident / $101 non-resident", "Free", "$30 a year per household". */
+      price: z.string().min(1).optional(),
+      /** What to bring or buy: "Own glove; bats and helmets provided". */
+      equipment: z.string().min(1).optional(),
+      /** Who may take part, and how: see PROGRAM_ACCESS. */
+      access: z.enum(PROGRAM_ACCESS).default('public'),
+      registration: z
+        .object({
+          required: z.boolean(),
+          /** "Online through DaySmart", "Call 970-532-2757", "Form at the front desk". */
+          how: z.string().min(1).optional(),
+          url: httpUrl.optional(),
+          /** The organizer's own deadline, as a Denver day. */
+          deadline: localDate.optional(),
+          /** The day registration opens, where the organizer says. */
+          opens: localDate.optional(),
+          /** The organizer's words on the deadline where a date alone misleads: "Early-bird pricing through November". */
+          note: z.string().min(1).optional(),
+        })
+        .optional(),
+      /** The organizer says beginners are fine. Left unset when they do not say. */
+      beginners: z.boolean().optional(),
+      /** The organizer says newcomers or visitors are welcome. Left unset when they do not say. */
+      newcomers: z.boolean().optional(),
+      /** The slug of the listing that is this program's next public date, on this guide. */
+      nextEvent: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).optional(),
+      /** A need the organizer has published, in their words: "Parent volunteers needed". */
+      volunteerNeed: z.string().min(1).optional(),
+      /** How to make a first inquiry: an email, a phone, a form. */
+      contact: z.string().min(1).optional(),
+      /** The organizer's page this was read from. Required to publish. */
+      source: httpUrl.optional(),
+      /** The day the facts above were read. Required to publish. */
+      verified: localDate.optional(),
+      verifiedBy: z.string().min(1).optional(),
+      image: image().optional(),
+      imageAlt: z.string().optional(),
+      imageCredit: z.string().optional(),
+      tags: z.array(z.string()).default([]),
+      featured: z.boolean().default(false),
+    })
+    .refine((p) => !p.image || !!p.imageAlt, { message: 'imageAlt is required when image is set', path: ['imageAlt'] })
+    .refine((p) => !p.registration?.deadline || !p.registration.opens || p.registration.opens.getTime() <= p.registration.deadline.getTime(), {
+      message: 'registration opens before its deadline',
+      path: ['registration'],
+    });
+}
+export type ProgramData = z.infer<ReturnType<typeof programSchema>>;
+
+/*
+ * Local changes: content/<town>/updates/<slug>.md.
+ *
+ * What changed, who it affects, when, what a resident should do, and where
+ * the original is: an opening or a closure, a road or park closure, a
+ * decision a public body took, a program announced. One file per change.
+ * Three dates are kept apart on purpose: `effective` is when the thing
+ * happens or happened, `published` is when the guide wrote it up, and
+ * `verified` is when the source was last read. An old closure found this
+ * month is an old closure, and the page says so.
+ *
+ * `stage` is where the change stands: a proposal is not an approval, and
+ * approved work is not work under way. `expires` is the last day it shows
+ * on the pages that promise what is current; after that it is archive,
+ * still reachable, never recycled as news.
+ */
+export const UPDATE_KINDS = ['opening', 'closure', 'move', 'construction', 'park', 'decision', 'program', 'notice'] as const;
+export type UpdateKind = (typeof UPDATE_KINDS)[number];
+export const UPDATE_KIND_LABELS: Record<UpdateKind, string> = {
+  opening: 'Opening',
+  closure: 'Closure',
+  move: 'Move',
+  construction: 'Construction and access',
+  park: 'Parks and facilities',
+  decision: 'Public decision',
+  program: 'Program announcement',
+  notice: 'Notice',
+};
+export const UPDATE_STAGES = ['proposed', 'approved', 'underway', 'complete', 'scheduled'] as const;
+export type UpdateStage = (typeof UPDATE_STAGES)[number];
+export const UPDATE_STAGE_LABELS: Record<UpdateStage, string> = {
+  proposed: 'Proposed',
+  approved: 'Approved',
+  underway: 'Under way',
+  complete: 'Complete',
+  scheduled: 'Scheduled',
+};
+
+export function updateSchema<I extends z.ZodType>(image: () => I) {
+  return z
+    .object({
+      title: z.string().min(1),
+      slug,
+      subTown: z.string().min(1).optional(),
+      kind: z.enum(UPDATE_KINDS),
+      stage: z.enum(UPDATE_STAGES),
+      /** What changed, in one or two sentences. */
+      summary: z.string().min(1).max(400),
+      /** Who it affects: "Anyone driving CO 119 through Niwot", "Families with children in Thompson schools". */
+      affects: z.string().min(1),
+      /** What a resident should do, in a sentence. Optional: some changes ask nothing. */
+      action: z.string().min(1).optional(),
+      /** When the change takes or took effect, as a Denver day; the first day of a run. */
+      effective: localDate,
+      /** The last day of a run (a closure through the 25th), inclusive. */
+      effectiveEnd: localDate.optional(),
+      /** The organizer's words where a date alone misleads: "Spring 2027", "First Sunday of each month". */
+      effectiveNote: z.string().min(1).optional(),
+      /** The day the guide published this. */
+      published: localDate,
+      /** The day the source was last read. Required to publish. */
+      verified: localDate.optional(),
+      verifiedBy: z.string().min(1).optional(),
+      /** The original: the agency's or business's own page. Required to publish. */
+      source: httpUrl.optional(),
+      /** "CDOT project page", "Town of Berthoud news release". */
+      sourceLabel: z.string().min(1).optional(),
+      /** A second source, where the first is a report rather than the original. */
+      alsoSource: httpUrl.optional(),
+      alsoSourceLabel: z.string().min(1).optional(),
+      /** The last day this shows as current; after it, the archive. Default: effectiveEnd, else 60 days after effective. */
+      expires: localDate.optional(),
+      /** A page on this guide the change is about: "/places/fly-away-home/". */
+      item: z.string().regex(/^\//, 'a path on this guide, starting with /').optional(),
+      image: image().optional(),
+      imageAlt: z.string().optional(),
+      imageCredit: z.string().optional(),
+      featured: z.boolean().default(false),
+    })
+    .refine((u) => !u.image || !!u.imageAlt, { message: 'imageAlt is required when image is set', path: ['imageAlt'] })
+    .refine((u) => !u.effectiveEnd || u.effectiveEnd.getTime() >= u.effective.getTime(), {
+      message: 'effectiveEnd is on or after effective',
+      path: ['effectiveEnd'],
+    })
+    .refine((u) => !u.alsoSource || !!u.alsoSourceLabel, { message: 'alsoSource needs an alsoSourceLabel', path: ['alsoSourceLabel'] });
+}
+export type UpdateData = z.infer<ReturnType<typeof updateSchema>>;
+
+/*
+ * People: content/<town>/profiles/<slug>.md. A short profile of someone
+ * behind the town: a business owner, a volunteer, an artist, a coach, a
+ * longtime resident, someone running a program.
+ *
+ * Nothing here is ever generated. A profile publishes only when it rests on
+ * original or authorized material: an interview the editor conducted, words
+ * the subject supplied and approved, or a published account the subject's
+ * own organization put out. `basis` says which, with the date, and
+ * `consent` says the subject agreed to appear; a file without both stays a
+ * draft (`status: draft`), is validated, and is never built. A draft is
+ * where the questions still to ask are kept, so the handoff can say
+ * exactly what is missing.
+ */
+export const PROFILE_ROLES = ['business-owner', 'volunteer', 'artist', 'coach', 'longtime-resident', 'organizer', 'educator', 'other'] as const;
+export type ProfileRole = (typeof PROFILE_ROLES)[number];
+export const PROFILE_ROLE_LABELS: Record<ProfileRole, string> = {
+  'business-owner': 'Business owner',
+  volunteer: 'Volunteer',
+  artist: 'Artist',
+  coach: 'Coach',
+  'longtime-resident': 'Longtime resident',
+  organizer: 'Runs a community program',
+  educator: 'Educator',
+  other: 'Resident',
+};
+export const PROFILE_BASES = ['interview', 'supplied', 'published-by-subject', 'public-record'] as const;
+export type ProfileBasis = (typeof PROFILE_BASES)[number];
+
+export function profileSchema<I extends z.ZodType>(image: () => I) {
+  return z
+    .object({
+      name: z.string().min(1),
+      slug,
+      subTown: z.string().min(1).optional(),
+      role: z.enum(PROFILE_ROLES),
+      /** "Owner, Inkberry Books", "Scoutmaster, Troop 161". */
+      affiliation: z.string().min(1).optional(),
+      /** A page on this guide: the place or program they are behind. */
+      item: z.string().regex(/^\//, 'a path on this guide, starting with /').optional(),
+      /** One or two sentences for the row and the card. */
+      summary: z.string().min(1).max(320),
+      /** `draft` until the material and the consent exist; only `published` builds. */
+      status: z.enum(['draft', 'published']).default('draft'),
+      /** What the profile rests on, and when: see PROFILE_BASES. */
+      basis: z
+        .object({
+          kind: z.enum(PROFILE_BASES),
+          /** "Interview at the shop, 14 October 2026", "Statement supplied by email, 2 October 2026". */
+          detail: z.string().min(1),
+          on: localDate,
+        })
+        .optional(),
+      /** The subject agreed to the profile and the photograph: how and when. */
+      consent: z.object({ how: z.enum(['email', 'in-person', 'phone', 'form']), on: localDate }).optional(),
+      /** Still to ask, for a draft: each a question the editor needs answered before publishing. */
+      needs: z.array(z.string().min(1)).default([]),
+      date: localDate.optional(),
+      updated: localDate.optional(),
+      image: image().optional(),
+      imageAlt: z.string().optional(),
+      imageCredit: z.string().optional(),
+      sources: z.array(z.object({ label: z.string().min(1), url: httpUrl })).default([]),
+      tags: z.array(z.string()).default([]),
+    })
+    .refine((p) => !p.image || !!p.imageAlt, { message: 'imageAlt is required when image is set', path: ['imageAlt'] })
+    .refine((p) => p.status !== 'published' || (!!p.basis && !!p.consent && !!p.date), {
+      message: 'a published profile needs basis, consent and date; without them it stays a draft',
+      path: ['status'],
+    })
+    .refine((p) => p.status !== 'published' || p.needs.length === 0, {
+      message: 'a profile with open questions is not ready to publish',
+      path: ['needs'],
+    });
+}
+export type ProfileData = z.infer<ReturnType<typeof profileSchema>>;
+
+export const COLLECTIONS = ['events', 'places', 'articles', 'pages', 'issues', 'weekly', 'corrections', 'programs', 'updates', 'profiles'] as const;
 export type CollectionName = (typeof COLLECTIONS)[number];
 
 /** The collections that have a staging folder: content/<town>/staging/<collection>/. */
@@ -917,6 +1266,9 @@ export const schemaFor: Record<CollectionName, (image: ImageSchema) => z.ZodType
   issues: issueSchema,
   weekly: () => weeklySchema(),
   corrections: () => correctionSchema,
+  programs: programSchema,
+  updates: updateSchema,
+  profiles: profileSchema,
 };
 
 /**

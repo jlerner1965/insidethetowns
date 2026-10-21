@@ -175,7 +175,7 @@ function validateFile(collection: CollectionName, file: string, town: string, st
   }
   if (staged) return;
   // A weekly notes file is all frontmatter; a corrections entry is one line.
-  if (!['pages', 'weekly', 'corrections'].includes(collection) && parsed.body.trim() === '') {
+  if (!['pages', 'weekly', 'corrections', 'programs', 'updates'].includes(collection) && parsed.body.trim() === '') {
     warnings.push(`${rel}: body is empty`);
   }
   if (collection === 'places') {

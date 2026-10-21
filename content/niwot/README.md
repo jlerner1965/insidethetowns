@@ -11,6 +11,9 @@ content/niwot/
   sources.json  the places the editor checks each week (see below); never built
   articles/     one .md per article        → /articles/<file-name>/
   pages/        moving-here.md             → /moving-here/
+  programs/     one .md per program or way in → /families/ and /get-involved/
+  updates/      one .md per local change   → /updates/
+  profiles/     one .md per person, draft until interviewed → /people/<file-name>/
   images/       photos referenced above, plus hero.jpg
 ```
 
@@ -146,6 +149,42 @@ published file and touching nothing else there. The build never reads
 the `review` line and move the file up a level (the review CLI does these in one
 step). A published file still carrying `review` fails validation, as does a staged
 file without one.
+
+
+## Programs, local changes and people
+
+Three more folders, read by the resident hubs (`/families/`, `/get-involved/`,
+`/updates/`, `/people/`); each file carries `source` and `verified` like a
+place, and is held back without them.
+
+```
+programs/   one .md per program, club, meeting or way in  → listed on /families/ and /get-involved/
+updates/    one .md per local change                     → /updates/ (current, then the archive)
+profiles/   one .md per person; status: draft until the interview and the consent exist → /people/<slug>/
+```
+
+A program (`kind`: program, league, class, club, organization, volunteer,
+meeting, social, service; `audience`: babies, preschool, elementary, teens,
+adults, seniors, families, everyone; `topic`; `access`: public, members,
+registered, private) carries only what the organizer publishes: `ages`,
+`schedule`, `season`, `price`, `equipment`, `registration` (required, how,
+url, deadline, opens, note), `beginners` and `newcomers` (only where the
+organizer says so), `nextEvent` (a listing's slug, so the next date is the
+calendar's), `volunteerNeed`, `contact`. A room booking is not a public
+invitation: write the organizer's own times, and set `access`.
+
+An update (`kind`: opening, closure, move, construction, park, decision,
+program, notice; `stage`: proposed, approved, underway, complete,
+scheduled) answers what changed (`summary`), who it affects (`affects`),
+when (`effective`, `effectiveEnd`, `effectiveNote`), what to do (`action`)
+and where the original is (`source`, `sourceLabel`, `alsoSource`). `published`
+is the day the guide wrote it; `expires` the last day it shows as current
+(default: the end of its run, else sixty days).
+
+A profile (`scripts/templates/profile-template.md`) publishes only with
+`basis` (interview, supplied, published-by-subject, public-record; what and
+when), `consent` (how and when) and `date`, and with `needs` empty. Nothing
+in one is ever generated.
 
 ## The source registry
 

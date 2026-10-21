@@ -6,7 +6,9 @@
  * routes every site has (about, contact, 404, robots.txt).
  */
 import type { AstroIntegration } from 'astro';
-import type { SiteConfig } from '../config/towns/types';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import type { SiteConfig, TownConfig } from '../config/towns/types';
 import { PLACE_TYPE_PAGES, placeTypePages } from '../lib/place-types.ts';
 import { openPlaceTypeCounts } from '../lib/raw-places.ts';
 import { SCHOOL_SPORTS } from '../config/school-sports.ts';
@@ -75,6 +77,38 @@ export function placeTypeRoutes(town: string, contentRoot = 'content'): Array<[p
   ]);
 }
 
+/**
+ * The resident hubs, each injected only for a guide whose config switches
+ * it on (TownConfig.families, .participation, .livingHere); the local
+ * changes page for any guide that has an updates folder; the people pages
+ * only where a published profile exists, so no guide carries an empty
+ * page. The folders are read from the markdown, as the sitemap filter
+ * reads closed places, because this runs before the collections exist.
+ */
+export function hubRoutes(site: TownConfig, contentRoot = 'content'): Array<[pattern: string, file: string]> {
+  const routes: Array<[pattern: string, file: string]> = [];
+  if (site.families) routes.push(['/families', 'families.astro']);
+  if (site.participation) routes.push(['/get-involved', 'get-involved.astro']);
+  if (site.livingHere) routes.push(['/living-here', 'living-here.astro']);
+  if (hasFiles(join(contentRoot, site.slug, 'updates'))) routes.push(['/updates', 'updates.astro']);
+  if (hasPublishedProfile(join(contentRoot, site.slug, 'profiles'))) {
+    routes.push(['/people', 'people/index.astro'], ['/people/[slug]', 'people/[slug].astro']);
+  }
+  return routes;
+}
+
+function hasFiles(dir: string): boolean {
+  return existsSync(dir) && readdirSync(dir).some((f) => f.endsWith('.md') && !f.startsWith('_'));
+}
+
+/** A profile builds only when its file says `status: published`. */
+function hasPublishedProfile(dir: string): boolean {
+  if (!existsSync(dir)) return false;
+  return readdirSync(dir)
+    .filter((f) => f.endsWith('.md') && !f.startsWith('_'))
+    .some((f) => /^status:\s*"?published"?\s*$/m.test(readFileSync(join(dir, f), 'utf8')));
+}
+
 const HUB_ROUTES: Array<[pattern: string, file: string]> = [
   ['/', 'index.astro'],
   ['/this-weekend', 'this-weekend.astro'],
@@ -103,6 +137,7 @@ export function townRoutes(site: SiteConfig): AstroIntegration {
                   ...TOWN_ROUTES,
                   ...(site.subTowns?.length ? SUB_TOWN_ROUTES : []),
                   ...(SPORTS_TOWNS.has(site.slug) ? SPORTS_ROUTES : []),
+                  ...hubRoutes(site),
                   ...placeTypeRoutes(site.slug),
                 ]
               : HOLDING_ROUTES;

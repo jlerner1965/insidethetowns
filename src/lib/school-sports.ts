@@ -100,6 +100,24 @@ export function bigGame(data: SportsData, now = new Date()): TeamGame | undefine
 }
 
 /**
+ * The week's games, every team, soonest first: what the home page's compact
+ * sports module lists. Teams are in the config's order of what the town
+ * turns out for, so with two games on one day football's leads; a team out
+ * of season has no games to come and never appears. Nothing is featured for
+ * being football: a Tuesday soccer match in the week is here, and in
+ * November, when the fall teams are done, the module shows whatever is next
+ * or nothing at all.
+ */
+export function weekGames(data: SportsData, now = new Date(), days = 7): TeamGame[] {
+  const today = dayKey(now);
+  const until = dayKey(new Date(now.getTime() + days * 86_400_000));
+  const order = new Map(data.sports.map((t, i) => [t.key, i]));
+  return coming(data)
+    .filter((c) => c.game.date >= today && c.game.date <= until)
+    .sort((a, b) => a.game.date.localeCompare(b.game.date) || (order.get(a.team.key) ?? 0) - (order.get(b.team.key) ?? 0));
+}
+
+/**
  * The town's data file, from the build's bundle of every town's. Vite reads
  * the glob at build time, so a town without a file simply has no entry.
  */

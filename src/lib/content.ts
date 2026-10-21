@@ -6,7 +6,7 @@
 import { getCollection, type CollectionEntry, type CollectionKey } from 'astro:content';
 import { getSite, liveTowns, type TownConfig } from '@/config';
 import { isExcluded } from '@/content/schemas';
-import { eventExclusion, placeExclusion, presentation, seasonalHoursApply, type Exclusion } from '@/lib/freshness';
+import { eventExclusion, hubExclusion, placeExclusion, presentation, seasonalHoursApply, type Exclusion } from '@/lib/freshness';
 import { eventPresentation, type Confidence } from '@/lib/confidence';
 
 export type TownEntry<C extends CollectionKey> = CollectionEntry<C> & {
@@ -46,6 +46,7 @@ const reported = new Set<string>();
  * applied, so no page can forget it.
  */
 function publishable<C extends CollectionKey>(collection: C, entries: CollectionEntry<C>[], towns: Map<string, TownConfig>): CollectionEntry<C>[] {
+  if (collection === 'programs' || collection === 'updates' || collection === 'profiles') return hubPublishable(collection, entries);
   if (collection !== 'events' && collection !== 'places') return entries;
   const now = new Date();
   return entries.filter((entry) => {
@@ -62,6 +63,26 @@ function publishable<C extends CollectionKey>(collection: C, entries: Collection
       reported.add(entry.id);
       const name = isExcluded(entry.data) ? entry.data.title : (entry.data as { title?: string }).title ?? entry.id;
       console.warn(`excluded ${collection}/${entry.id} (${name}): ${why.detail}`);
+    }
+    return false;
+  });
+}
+
+/**
+ * The resident hubs' gate: a program or a local change publishes with a
+ * source and a check date, as a place does (src/lib/freshness.ts,
+ * `hubExclusion`); a profile only when it says `published`, which the
+ * schema allows only with its basis, its consent and no open questions. An
+ * entry that failed its schema is dropped with the same line on the log.
+ */
+function hubPublishable<C extends CollectionKey>(collection: C, entries: CollectionEntry<C>[]): CollectionEntry<C>[] {
+  return entries.filter((entry) => {
+    const why = hubExclusion(collection, entry.data);
+    if (!why) return true;
+    if (!reported.has(entry.id)) {
+      reported.add(entry.id);
+      const d = entry.data as { title?: string; name?: string };
+      console.warn(`excluded ${collection}/${entry.id} (${isExcluded(entry.data) ? entry.data.title : d.title ?? d.name ?? entry.id}): ${why.detail}`);
     }
     return false;
   });

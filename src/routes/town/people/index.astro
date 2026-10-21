@@ -1,0 +1,42 @@
+---
+/**
+ * The people behind the town (/people/): every published profile. Built
+ * only when there is one (src/integrations/town-routes.ts), so no guide
+ * carries an empty page; a draft (content/<town>/profiles/, status: draft)
+ * is validated and never built.
+ */
+import { Image } from 'astro:assets';
+import Page from '@/layouts/Page.astro';
+import { getTown } from '@/config';
+import { getTownEntries } from '@/lib/content';
+import { PROFILE_ROLE_LABELS } from '@/content/schemas';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+
+const town = getTown();
+const people = (await getTownEntries('profiles')).sort((a, b) => a.data.name.localeCompare(b.data.name));
+const description = `The people behind ${town.name}, Colorado: business owners, volunteers, artists, coaches and longtime residents, in their own words.`;
+const structured = [
+  collectionPageJsonLd(town, { name: `People of ${town.name}, Colorado`, description, path: '/people/', items: people.map((p) => ({ name: p.data.name, path: `/people/${p.slug}/` })) }),
+  breadcrumbJsonLd(town, [
+    { name: town.name, path: '/' },
+    { name: 'People', path: '/people/' },
+  ]),
+];
+---
+<Page title={`People of ${town.name}`} eyebrow={town.name} {description} intro="Short profiles of the people who run the shops, the programs and the volunteer hours, each from an interview or words they supplied and approved." jsonLd={structured} kind="Guide">
+  <ul class="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+    {people.map((p) => (
+      <li class="group relative">
+        {p.data.image && (
+          <div class="aspect-[4/3] overflow-hidden rounded-lg bg-accent-soft">
+            <Image src={p.data.image} alt={p.data.imageAlt ?? ''} width={720} height={540} class="h-full! w-full object-cover" />
+          </div>
+        )}
+        <p class:list={['eyebrow', p.data.image && 'mt-4']}>{PROFILE_ROLE_LABELS[p.data.role]}</p>
+        <h2 class="mt-1.5 text-[1.375rem] font-medium leading-tight"><a href={`/people/${p.slug}/`} class="stretch no-underline group-hover:text-primary">{p.data.name}</a></h2>
+        {p.data.affiliation && <p class="mt-1 text-[0.9375rem] text-ink-muted">{p.data.affiliation}</p>}
+        <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">{p.data.summary}</p>
+      </li>
+    ))}
+  </ul>
+</Page>

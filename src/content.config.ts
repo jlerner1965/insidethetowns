@@ -6,7 +6,7 @@
  */
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { articleSchema, correctionSchema, eventSchema, issueSchema, lenient, pageSchema, placeSchema, weeklySchema } from './content/schemas';
+import { articleSchema, correctionSchema, eventSchema, issueSchema, lenient, pageSchema, placeSchema, profileSchema, programSchema, updateSchema, weeklySchema } from './content/schemas';
 
 const base = './content';
 
@@ -72,4 +72,26 @@ const corrections = defineCollection({
   schema: () => correctionSchema,
 });
 
-export const collections = { events, places, articles, pages, issues, weekly, corrections };
+/**
+ * The resident hubs' collections (programs to join, local changes, people),
+ * one folder each under content/<town>/. Lenient like events and places:
+ * they carry dated claims, and a bad field in one must not take a build
+ * down; src/lib/content.ts drops the marker and holds back anything
+ * without a source and a check date.
+ */
+const programs = defineCollection({
+  loader: glob({ pattern: '*/programs/[^_]*.md', base, generateId }),
+  schema: ({ image }) => lenient(programSchema(image)),
+});
+
+const updates = defineCollection({
+  loader: glob({ pattern: '*/updates/[^_]*.md', base, generateId }),
+  schema: ({ image }) => lenient(updateSchema(image)),
+});
+
+const profiles = defineCollection({
+  loader: glob({ pattern: '*/profiles/[^_]*.md', base, generateId }),
+  schema: ({ image }) => lenient(profileSchema(image)),
+});
+
+export const collections = { events, places, articles, pages, issues, weekly, corrections, programs, updates, profiles };

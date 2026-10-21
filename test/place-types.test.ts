@@ -51,7 +51,8 @@ test('every kind of place has a page definition, at its own path, under a sectio
 test('a kind’s path never shadows a route every town has, or a town a guide folds in', () => {
   const fixed = ['events', 'this-weekend', 'this-week', 'rss.xml', 'events.rss', 'places', 'articles', 'guides', 'eat-drink',
     'things-to-do', 'directory', 'for-businesses', 'moving-here', 'submit-event', 'correct', 'thanks', 'about', 'contact',
-    'corrections', 'credits', 'editorial', 'message-sent', 'privacy', 'search', 'newsletter', 'moving', 'advertise'];
+    'corrections', 'credits', 'editorial', 'message-sent', 'privacy', 'search', 'newsletter', 'moving', 'advertise',
+    'families', 'get-involved', 'living-here', 'updates', 'people', 'sports'];
   const subTowns = towns.flatMap((t) => t.subTowns ?? []);
   for (const type of PLACE_TYPES) {
     const segment = PLACE_TYPE_PAGES[type].path.replaceAll('/', '');

@@ -83,6 +83,24 @@ export function eventExclusion(data: unknown, now: Date = new Date()): Exclusion
 }
 
 /**
+ * Whether a program, a local change or a profile may appear. A program and
+ * an update need the source and the check date every listing needs; a
+ * profile needs to say `published`, which its schema grants only with its
+ * basis and consent (src/content/schemas.ts). Nothing else is gated here:
+ * an update past its `expires` still publishes, to the archive, and the
+ * pages decide where it shows (src/lib/updates.ts).
+ */
+export function hubExclusion(collection: string, data: unknown, now: Date = new Date()): Exclusion | null {
+  if (isExcluded(data)) return { reason: 'invalid', detail: data.issues.join('; ') };
+  if (collection === 'profiles') {
+    const status = (data as { status?: string }).status;
+    return status === 'published' ? null : { reason: 'unconfirmed', detail: 'a draft profile: it publishes once it has its basis, its consent and no open questions' };
+  }
+  void now;
+  return provenanceExclusion(data);
+}
+
+/**
  * Whether a place's hours may be shown. Hours drift before anything else
  * does, so they are hidden ahead of the listing: past `hoursDays` the row
  * and the page keep the address and the phone and say nothing about hours,

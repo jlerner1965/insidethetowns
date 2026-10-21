@@ -1,37 +1,51 @@
 ---
 /**
- * "This week in [Town]": the editor's pick, this weekend's listings, and what
- * is new or closed, with the signup under it. One component in two sizes:
- * the whole of /this-week/, and a compact version near the top of the home
- * page that shows the first few of each and links to the full week.
+ * "This week in [Town]": what to know, the editor's pick, the week's
+ * listings, what is closing for registration, what is new or closed, a
+ * resident's question answered, a local feature, then the neighbours and
+ * the hill, with the signup under it. One component in two sizes: the whole
+ * of /this-week/, and a compact version the shared home page shows.
  *
- * Two outcomes and nothing else: a reader who comes back each week, and a
- * confirmed Thursday signup. The pick and the New & closed items are the
- * editor's weekly notes (content/<town>/weekly/, src/lib/weekly.ts); the
- * listings are the calendar every other page reads. A section with nothing
- * in it is not shown; a week with no pick and no listings says so in one
- * line and still offers the email.
+ * Every section is shown only with something in it; a week with no pick
+ * and no listings says so in one line and still offers the email. The
+ * town's own content comes first, every time: the neighbours' weekend and
+ * the mountain guides' sit below it, on the full page only, and the hill is
+ * labelled as the day trip it is (flagship brief, 21 October 2026: Niwot's
+ * page led with Evergreen, Manitou Springs and Golden on a thin week).
+ *
+ * The pick and the New & closed items are the editor's weekly notes
+ * (content/<town>/weekly/, src/lib/weekly.ts); the listings are the
+ * calendar every other page reads; "Things to know" is the local-changes
+ * collection (src/lib/updates.ts) and the deadlines the programs
+ * (src/lib/programs.ts). A change the guide found long after it happened
+ * is set apart as a correction with both dates, not as the week's news.
  *
  * Everything under the week's heading is on inside that week. The pick is
  * dated by the listing it links to (`currentPick`): one for a later date is
  * not this week's pick, and goes under "Coming up" with its own date. With no
  * pick for the week the top listing of the home page's ranking leads instead
  * (`highlights`), as a Highlight: nobody picked it, so it is not Our pick.
+ * In the compact version the pick's own listing is not repeated in the rows
+ * under it.
  *
  * Every date is decided at build time, in Denver, and the nightly rebuild
  * keeps it current; the browser also clears a listing whose day has passed
  * (Freshness.astro), so a build older than the weekend shows fewer rows
  * rather than wrong ones.
  */
+import DeadlineList from './DeadlineList.astro';
+import NearbyWeekend from './NearbyWeekend.astro';
 import NewsletterSignup from './NewsletterSignup.astro';
 import SectionHeader from './SectionHeader.astro';
+import UpdateRow from './UpdateRow.astro';
 import UpTheHill from './UpTheHill.astro';
 import WeekEventRow from './WeekEventRow.astro';
 import type { TownConfig } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { formatDate, formatDayLong, formatDayRange, toIsoLocal } from '@/lib/dates';
 import { highlights, isMultiDay, lastDay, listedUntil, occurrences, timeText, weekendWindow } from '@/lib/events';
-import { activeChanges, currentPick, isWeekend, weekEvents, weekWindow } from '@/lib/weekly';
+import { activeChanges, currentNotes, currentPick, isWeekend, weekEvents, weekWindow } from '@/lib/weekly';
+import { currentUpdates } from '@/lib/updates';
 import { checkerName } from '@/lib/editor';
 import { subTownLabel } from '@/lib/sub-towns';
 
@@ -39,10 +53,12 @@ interface Props {
   town: TownConfig;
   /** The home page's version: the first few of each, and a link to the rest. */
   compact?: boolean;
+  /** The signup under it; off where the page places its own. */
+  signup?: boolean;
   class?: string;
 }
 
-const { town, compact = false, class: className } = Astro.props;
+const { town, compact = false, signup = true, class: className } = Astro.props;
 const now = new Date();
 const { monday, sunday } = weekWindow(now);
 const range = formatDayRange(monday, sunday);
@@ -57,14 +73,25 @@ const notes = await getTownEntries('weekly');
 const calendar = occurrences(await getTownEntries('events'), { now, horizonDays: 30 });
 const { thisWeek: pick, comingUp } = currentPick(notes, calendar, now);
 const allChanges = activeChanges(notes, now);
+const current = currentNotes(notes, now)?.data;
+const qa = current?.qa;
+const feature = current?.feature;
 const allEvents = weekEvents(calendar, now);
 // No editor's pick this week: the week leads with the listing the home page
 // would, the top of the same ranking, so one confirmed with its organizer and
 // neither canceled nor flagged. Only the listing's own facts are shown; a
 // weekly note's pick still takes its place.
 const highlight = pick ? undefined : highlights(allEvents, { now, limit: 1 })[0];
-const events = compact ? allEvents.slice(0, 3) : allEvents;
-const changes = compact ? allChanges.slice(0, 2) : allChanges;
+const lead = pick?.event ?? highlight;
+// The compact version does not list the pick again two lines under it.
+const rows = compact && lead ? allEvents.filter((e) => e.slug !== lead.slug) : allEvents;
+const events = compact ? rows.slice(0, 3) : rows;
+const fresh = allChanges.filter((c) => !c.backlog);
+const backlog = allChanges.filter((c) => c.backlog);
+const changes = compact ? fresh.slice(0, 2) : fresh;
+const updates = currentUpdates(await getTownEntries('updates'), now);
+const know = compact ? updates.slice(0, 2) : updates.slice(0, 5);
+const programs = await getTownEntries('programs');
 // Nothing on this week: said in words, whatever New & closed holds.
 const quiet = !pick && allEvents.length === 0;
 // The pick's own day and time, from its listing: "Friday, October 9 · 7 pm".
@@ -75,8 +102,10 @@ const when = (event: typeof calendar[number]) =>
 // section heading they step down one.
 const H = compact ? 'h3' : 'h2';
 const eyebrow = 'eyebrow border-b-2 border-accent pb-3';
-const block = compact ? 'mt-10' : 'mt-12 md:mt-16';
+const block = compact ? 'mt-10' : 'mt-12 md:mt-14';
 const checker = checkerName();
+const v = compact ? 'compact' : 'full';
+const hubHref = town.families ? '/families/' : town.participation ? '/get-involved/' : undefined;
 ---
 <section class={className} data-this-week>
   {compact ? (
@@ -88,6 +117,18 @@ const checker = checkerName();
         Last updated <time datetime={toIsoLocal(now)}>{formatDate(now)}</time>
       </p>
     </div>
+  )}
+
+  {know.length > 0 && (
+    <section class={block} aria-labelledby={`know-${v}`}>
+      <H id={`know-${v}`} class={eyebrow}>Things to know this week</H>
+      <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {know.map((u) => <UpdateRow update={u} compact />)}
+      </div>
+      {updates.length > know.length && (
+        <p class="mt-4 text-[0.9375rem]"><a href="/updates/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">All {updates.length} current changes →</a></p>
+      )}
+    </section>
   )}
 
   {/* What is on this week, in one scope: the browser clears what has ended
@@ -103,8 +144,8 @@ const checker = checkerName();
   </div>
 
   {pick && (
-    <section class={block} aria-labelledby={`pick-${compact ? 'compact' : 'full'}`} data-event-day={lastDay(pick.event)} data-end={toIsoLocal(listedUntil(pick.event))}>
-      <H id={`pick-${compact ? 'compact' : 'full'}`} class={eyebrow}>Our pick</H>
+    <section class={block} aria-labelledby={`pick-${v}`} data-event-day={lastDay(pick.event)} data-end={toIsoLocal(listedUntil(pick.event))}>
+      <H id={`pick-${v}`} class={eyebrow}>Our pick</H>
       <div class="mt-5 max-w-2xl">
         <p class="display-md text-[1.75rem] md:text-[2rem]">
           {pick.url ? <a href={pick.url} rel="noopener" class="inline-block -my-2 py-2 no-underline hover:text-primary">{pick.title}</a> : pick.title}
@@ -116,8 +157,8 @@ const checker = checkerName();
   )}
 
   {highlight && (
-    <section class={block} aria-labelledby={`highlight-${compact ? 'compact' : 'full'}`} data-event-day={lastDay(highlight)} data-end={toIsoLocal(listedUntil(highlight))}>
-      <H id={`highlight-${compact ? 'compact' : 'full'}`} class={eyebrow}>Highlight</H>
+    <section class={block} aria-labelledby={`highlight-${v}`} data-event-day={lastDay(highlight)} data-end={toIsoLocal(listedUntil(highlight))}>
+      <H id={`highlight-${v}`} class={eyebrow}>Highlight</H>
       <div class="mt-5 max-w-2xl">
         <p class="display-md text-[1.75rem] md:text-[2rem]">
           <a href={`/events/${highlight.slug}/`} class="inline-block -my-2 py-2 no-underline hover:text-primary">{highlight.data.title}</a>
@@ -131,12 +172,12 @@ const checker = checkerName();
   )}
 
   {events.length > 0 && (
-    <section class={block} data-hide-when-empty aria-labelledby={`weekend-${compact ? 'compact' : 'full'}`}>
-      <H id={`weekend-${compact ? 'compact' : 'full'}`} class={eyebrow}>{listingsLabel} · {listingsRange}</H>
+    <section class={block} data-hide-when-empty aria-labelledby={`weekend-${v}`}>
+      <H id={`weekend-${v}`} class={eyebrow}>{listingsLabel} · {listingsRange}</H>
       <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
         {events.map((event) => <WeekEventRow event={event} />)}
       </div>
-      {compact && allEvents.length > events.length && (
+      {compact && rows.length > events.length && (
         <p class="mt-4 text-[0.9375rem]">
           <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">
             All {allEvents.length} {onWeekend ? 'this weekend' : 'this week'} →
@@ -150,8 +191,8 @@ const checker = checkerName();
   {/* The editor's pick for a later date: kept, but under its own label and
      date, outside the week's heading it does not belong to. */}
   {comingUp && (
-    <section class={block} aria-labelledby={`later-${compact ? 'compact' : 'full'}`} data-event-day={lastDay(comingUp.event)} data-end={toIsoLocal(listedUntil(comingUp.event))}>
-      <H id={`later-${compact ? 'compact' : 'full'}`} class={eyebrow}>Coming up</H>
+    <section class={block} aria-labelledby={`later-${v}`} data-event-day={lastDay(comingUp.event)} data-end={toIsoLocal(listedUntil(comingUp.event))}>
+      <H id={`later-${v}`} class={eyebrow}>Coming up</H>
       <div class="mt-5 max-w-2xl">
         <p class="font-medium"><time datetime={toIsoLocal(comingUp.event.data.start)}>{when(comingUp.event)}</time></p>
         <p class="display-md mt-1 text-[1.5rem] md:text-[1.75rem]">
@@ -162,13 +203,28 @@ const checker = checkerName();
     </section>
   )}
 
+  {!compact && programs.length > 0 && (
+    <section class={block} aria-labelledby={`deadlines-${v}`}>
+      <H id={`deadlines-${v}`} class={eyebrow}>Registration deadlines and ways to join</H>
+      <DeadlineList programs={programs} limit={5} class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" moreHref={hubHref} />
+      {hubHref && (
+        <p class="mt-4 text-[0.9375rem]">
+          <a href={hubHref} class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">{town.families ? town.families.label : town.participation!.label} →</a>
+          {town.families && town.participation && (
+            <Fragment>{' · '}<a href="/get-involved/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">{town.participation.label} →</a></Fragment>
+          )}
+        </p>
+      )}
+    </section>
+  )}
+
   {changes.length > 0 && (
-    <section class={block} aria-labelledby={`changes-${compact ? 'compact' : 'full'}`}>
-      <H id={`changes-${compact ? 'compact' : 'full'}`} class={eyebrow}>New &amp; closed</H>
+    <section class={block} aria-labelledby={`changes-${v}`}>
+      <H id={`changes-${v}`} class={eyebrow}>New &amp; closed</H>
       <ul class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
         {changes.map((c) => (
           <li class="border-t border-line-soft py-4 first:border-t-0">
-            <p class="eyebrow">{c.label}</p>
+            <p class="eyebrow">{c.label}{c.effective && <span class="ml-2 font-medium normal-case tracking-normal text-ink-muted">{formatDate(c.effective)}</span>}</p>
             <p class="mt-1 text-xl font-medium leading-tight">{c.name}</p>
             <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{c.detail}</p>
             <p class="mt-1 text-sm text-ink-muted">
@@ -183,22 +239,78 @@ const checker = checkerName();
           </li>
         ))}
       </ul>
-      {compact && allChanges.length > changes.length && (
+      {compact && fresh.length > changes.length && (
         <p class="mt-4 text-[0.9375rem]">
           <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">
-            All {allChanges.length} new &amp; closed →
+            All {fresh.length} new &amp; closed →
           </a>
         </p>
       )}
     </section>
   )}
 
-  {/* The mountain guides' weekend, on a Front Range guide's full page only:
-     renders nothing on a mountain guide, in the compact version, or with
-     nothing on (UpTheHill.astro). */}
-  {!compact && <UpTheHill town={town} class={block} />}
+  {/* An old change the guide only just caught: a correction to the guide,
+     with the day it happened and the day it was noticed, never the week's
+     news. On the full page only; it leaves with its own expiry. */}
+  {!compact && backlog.length > 0 && (
+    <section class={block} aria-labelledby={`backlog-${v}`}>
+      <H id={`backlog-${v}`} class={eyebrow}>Corrections to the guide</H>
+      <ul class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {backlog.map((c) => (
+          <li class="border-t border-line-soft py-4 first:border-t-0">
+            <p class="eyebrow">{c.label} <span class="ml-1 font-medium normal-case tracking-normal text-ink-muted">{formatDate(c.effective!)} · noticed {formatDate(c.checked)}</span></p>
+            <p class="mt-1 text-xl font-medium leading-tight">{c.name}</p>
+            <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{c.detail}</p>
+            <p class="mt-1 text-sm text-ink-muted">
+              {c.source && (
+                <Fragment>
+                  <a href={c.source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline">Source: {new URL(c.source).hostname.replace(/^www\./, '')}</a>
+                  {' · '}
+                </Fragment>
+              )}
+              Checked {checker && <Fragment>by {checker}, </Fragment>}<time datetime={toIsoLocal(c.checked)}>{formatDate(c.checked)}</time>
+            </p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 
-  <div class={block}>
-    <NewsletterSignup town={town} compact id={compact ? 'this-week-compact' : 'this-week'} />
-  </div>
+  {!compact && qa && (
+    <section class={block} aria-labelledby={`qa-${v}`}>
+      <H id={`qa-${v}`} class={eyebrow}>A resident asks</H>
+      <div class="mt-5 max-w-2xl">
+        <p class="text-xl font-medium leading-tight md:text-2xl">{qa.question}</p>
+        <p class="mt-3 text-[1.0625rem] leading-relaxed">{qa.answer}</p>
+        {qa.source && (
+          <p class="mt-2 text-sm text-ink-muted"><a href={qa.source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline">Source: {qa.sourceLabel ?? new URL(qa.source).hostname.replace(/^www\./, '')}</a></p>
+        )}
+      </div>
+    </section>
+  )}
+
+  {!compact && feature && (
+    <section class={block} aria-labelledby={`feature-${v}`}>
+      <H id={`feature-${v}`} class={eyebrow}>From around {town.name}</H>
+      <div class="mt-5 max-w-2xl">
+        <p class="display-md text-[1.75rem] md:text-[2rem]">
+          {feature.url ? <a href={feature.url} class="inline-block -my-2 py-2 no-underline hover:text-primary">{feature.title}</a> : feature.title}
+        </p>
+        <p class="mt-3 text-[1.0625rem] leading-relaxed text-ink-muted">{feature.body}</p>
+        <p class="mt-2 text-sm text-ink-muted">{feature.basis}</p>
+      </div>
+    </section>
+  )}
+
+  {/* The neighbours' weekend and the hill, after everything of the town's
+     own, on the full page only: the neighbours as "nearby", the mountain
+     guides as the day trips they are. Each renders nothing with nothing on. */}
+  {!compact && <NearbyWeekend town={town} class={block} limit={4} />}
+  {!compact && <UpTheHill town={town} class={block} label="Day trips: up the hill this weekend" />}
+
+  {signup && (
+    <div class={block}>
+      <NewsletterSignup town={town} compact id={compact ? 'this-week-compact' : 'this-week'} />
+    </div>
+  )}
 </section>
