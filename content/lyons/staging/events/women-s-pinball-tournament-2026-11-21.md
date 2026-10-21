@@ -1,6 +1,6 @@
 ---
 title: "Women's pinball tournament"
-review: { reason: "Unpublished 8 October 2026: this cited the 17 October Lyons Recorder page (lyonsrecorder.org/event/womens-pinball-tournament/2026-10-17/), which answers 404, and Lyons Classic Pinball's own events page (lyonsclassicpinball.com/events) lists no women's tournament on 21 November. Its last monthly women's tournament there was 20 December 2025, followed by a Women's Quarterly on 15 March 2026. Publish only if the venue lists this date.", since: "2026-10-08", from: manual }
+review: { reason: "Rechecked 21 October 2026: Lyons Classic Pinball's own calendar lists no women's tournament this autumn; its November tournament is the Fifth Sunday Classics on 29 November, 1 pm, $20. Suggest deleting both women's dates and filing the Fifth Sunday Classics instead.", since: "2026-10-21", from: manual }
 start: "2026-11-21T15:00"
 end: "2026-11-21T20:00"
 venue: "Lyons Classic Pinball"
