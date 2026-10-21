@@ -4,6 +4,10 @@
 name: Berthoud sports (MaxPreps)
 
 on:
+  # Step 1 only: a push of the script or this file on its branch runs the probe.
+  push:
+    branches: [claude/berthoud-sports]
+    paths: [scripts/sports-maxpreps.ts, .github/workflows/sports-maxpreps.yml]
   workflow_dispatch:
     inputs:
       sport:
