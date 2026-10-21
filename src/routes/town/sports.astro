@@ -32,7 +32,7 @@ import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
 import { schoolSportsFor, type SportData, type SportGame, type SportsData } from '@/config/school-sports';
 import { dayKey, formatDayLong, formatDayShort, formatShortDate, formatTime } from '@/lib/dates';
-import { bigGame, coming, gameDay as day, latestResult, outcome, recentResults, RESULT_WORD, season, sitePhrase, sportsDataFor, when, where } from '@/lib/school-sports';
+import { bigGame, coming, gameDay as day, latestResult, outcome, recentResults, RESULT_WORD, schoolCssVars, season, sitePhrase, sportsDataFor, when, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -89,6 +89,8 @@ const jsonLd = [
 ];
 ---
 <Base title={`${school} ${mascot} scores and schedules`} {description} {jsonLd}>
+  {/* The school's colour from here to the foot: see SchoolSports.colors. */}
+  <div style={schoolCssVars(cfg)}>
   <header class="border-b-2 border-accent bg-raised">
     <div class="container-page py-10 md:py-14">
       <div class="max-w-3xl">
@@ -382,4 +384,5 @@ const jsonLd = [
       { label: `This week in ${town.name}`, href: '/this-week/' },
     ]}
   />
+  </div>
 </Base>

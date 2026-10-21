@@ -50,6 +50,16 @@ export interface SchoolSports {
    */
   calendar?: { kind: 'finalsite'; url: string; label: string };
   calendarNote?: string;
+  /**
+   * The school's own colour, for the sports page and the home page's game
+   * strip: those are the Spartans' and the Cougars' pages, not the town's,
+   * and a maroon-and-white school in a green guide reads wrong. Inside those
+   * two it does every job the town's primary does (the records, the dark
+   * band, the pills, the links, with white on it), so it has to clear what
+   * a primary clears; `npm run check-colors` proves it. Absent, the guide's
+   * primary stays.
+   */
+  colors?: { primary: string };
   teams: SportConfig[];
 }
 
@@ -72,6 +82,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     mascot: 'Spartans',
     maxpreps: 'https://www.maxpreps.com/co/berthoud/berthoud-spartans/',
     maxprepsName: 'Berthoud',
+    // Spartan maroon, as MaxPreps's team data gives it (8F0018 on white, 21 October 2026).
+    colors: { primary: '#8F0018' },
     // Thompson School District's Finalsite site; `?cal_date=YYYY-MM-01` shows a month.
     calendar: { kind: 'finalsite', url: 'https://bhs.tsd.org/family/calendar', label: 'the Berthoud High calendar' },
     teams: FALL(),
@@ -82,6 +94,10 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     mascot: 'Cougars',
     maxpreps: 'https://www.maxpreps.com/co/niwot/niwot-cougars/',
     maxprepsName: 'Niwot',
+    // Cougar green, as MaxPreps's team data gives it (00824B, 21 October
+    // 2026), darkened 5%: the exact shade is 4.49:1 on the warm paper and
+    // the records are set in it there. The guide's own green is #355E46.
+    colors: { primary: '#007C47' },
     // St. Vrain Valley keeps Niwot's schedules on ArbiterLive
     // (arbiterlive.com/School/Calendar/16031), whose robots.txt disallows
     // every automated reader, so there is nothing to check against.

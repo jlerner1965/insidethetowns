@@ -3,8 +3,34 @@
  * game, the games to come, and the words for a game. Shared by /sports/
  * and the home page so both lead with the same game.
  */
-import type { SportData, SportGame, SportsData } from '../config/school-sports.ts';
+import type { SchoolSports, SportData, SportGame, SportsData } from '../config/school-sports.ts';
+import { primaryHover } from '../config/palette.ts';
 import { dayKey, formatDayLong, formatTime, fromWallClock } from './dates.ts';
+
+/**
+ * The school's colour as the page's primary, for a `style` on the element
+ * that wraps the sports page or the home page's game strip. Base.astro sets
+ * the town's on <html>; a custom property is computed where it is declared,
+ * so the line colour derived from it in global.css is set here again, or it
+ * would stay the town's. Nothing where the school has no colour.
+ */
+export function schoolCssVars(school: SchoolSports | undefined): string | undefined {
+  const primary = school?.colors?.primary;
+  if (!primary) return undefined;
+  const hover = primaryHover(primary);
+  const line = `color-mix(in srgb, ${primary} 25%, #ffffff)`;
+  // Both names: Tailwind's utilities read the town's (`bg-primary` is
+  // `var(--town-primary)`), the stylesheet's own rules (.btn-primary,
+  // .eyebrow) read the theme's, which the root resolved to the town's.
+  return [
+    `--town-primary:${primary}`,
+    `--town-primary-hover:${hover}`,
+    `--t-primary-line:${line}`,
+    `--color-primary:${primary}`,
+    `--color-primary-hover:${hover}`,
+    `--color-primary-line:${line}`,
+  ].join(';');
+}
 
 export interface TeamGame {
   team: SportData;
