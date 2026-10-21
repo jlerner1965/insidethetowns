@@ -1,0 +1,156 @@
+---
+/**
+ * Berthoud High School sports: one card per team the guide follows, with
+ * the record, the last result and the next game, read from
+ * data/berthoud/sports.json. The Saturday and Wednesday runs write that
+ * file (`npm run sports`); nothing here is typed in by hand.
+ *
+ * Berthoud only, for now: the route is injected for its slug alone
+ * (src/integrations/town-routes.ts), and the data file is Berthoud's. The
+ * card's "updated" date is the team's own last successful read, so a week
+ * MaxPreps could not be reached shows last week's date, not today's.
+ *
+ * A game the school calendar contradicts is not in the file's `upcoming`
+ * list at all (scripts/lib/sports-crosscheck.ts), so the card simply shows
+ * the next game the two sources agree on, or none.
+ */
+import Page from '@/layouts/Page.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { getTown } from '@/config';
+import type { SportData, SportGame, SportsData } from '@/config/berthoud-sports';
+import { formatDayShort, formatShortDate, formatTime, fromWallClock } from '@/lib/dates';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+import sportsFile from '../../../data/berthoud/sports.json';
+
+const town = getTown();
+const data = sportsFile as SportsData;
+const sports: SportData[] = data.sports;
+const MAXPREPS_SCHOOL = 'https://www.maxpreps.com/co/berthoud/berthoud-spartans/';
+const school = 'Berthoud High School';
+const description = `${school} Spartans scores, records and upcoming games: football, soccer, volleyball and cross country, from MaxPreps, checked against the school calendar.`;
+
+function day(g: SportGame): Date {
+  const [y, m, d] = g.date.split('-').map(Number) as [number, number, number];
+  const [hh, mm] = (g.time ?? '00:00').split(':').map(Number) as [number, number];
+  return fromWallClock(y, m, d, hh, mm);
+}
+function where(g: SportGame): string {
+  return g.site === 'home' ? 'vs' : g.site === 'away' ? 'at' : 'vs';
+}
+/** "W 22-0 vs Greeley Central" or "3rd at the Niwot Invitational". */
+function outcome(g: SportGame): string {
+  if (g.result && g.score) return `${g.result} ${g.score.us}-${g.score.them} ${where(g)} ${g.opponent}`;
+  if (g.place) return `${g.place} ${where(g)} ${g.opponent}`;
+  return `${where(g)} ${g.opponent}`;
+}
+function sitePhrase(g: SportGame): string {
+  return g.site === 'home' ? 'Home' : g.site === 'away' ? 'Away' : 'Neutral site';
+}
+const fetchedDates = sports.map((s) => s.fetched).filter(Boolean) as string[];
+const newest = fetchedDates.length ? new Date(fetchedDates.sort().at(-1)!) : undefined;
+---
+<Page
+  title={`${school} sports`}
+  seoTitle={`${school} Spartans scores and schedules`}
+  eyebrow="Sports"
+  {description}
+  intro="The Spartans' records, last results and next games, read from MaxPreps twice a week and checked against the school's own calendar."
+  jsonLd={[
+    collectionPageJsonLd(town, { name: `${school} Spartans scores and schedules`, description, path: '/sports/' }),
+    breadcrumbJsonLd(town, [
+      { name: town.name, path: '/' },
+      { name: 'Sports', path: '/sports/' },
+    ]),
+  ]}
+>
+  <p slot="after-header" class="mt-5 text-[0.9375rem] text-ink-muted">
+    {newest && <span>Last read {formatShortDate(newest)}. </span>}
+    <a href={MAXPREPS_SCHOOL} rel="noopener" class="font-semibold text-primary underline">Every Spartans team on MaxPreps</a> ·
+    <a href="https://bhs.tsd.org/family/calendar" rel="noopener" class="font-semibold text-primary underline">The school calendar</a>
+  </p>
+
+  {sports.length === 0 ? (
+    <p class="text-ink-muted">No scores yet: the first read has not run.</p>
+  ) : (
+    <ul class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" aria-label="Teams">
+      {sports.map((s) => {
+        const last = s.results[0];
+        const next = s.upcoming[0];
+        return (
+          <li id={s.key} class="flex flex-col rounded-lg bg-raised px-5 py-5 ring-1 ring-primary-line">
+            <p class="eyebrow">{s.name}</p>
+            {s.fetched ? (
+              <Fragment>
+                <p class="display-md mt-2 text-[2rem] leading-none text-primary">{s.overall ?? '—'}</p>
+                <p class="mt-1 text-[0.9375rem] text-ink-muted">
+                  {s.league ? `${s.league.record} in the ${s.league.name}${s.league.place ? `, ${s.league.place}` : ''}` : 'No league record yet'}
+                </p>
+                <dl class="mt-4 space-y-3 text-[0.9375rem] leading-snug">
+                  <div>
+                    <dt class="eyebrow text-ink-muted">Last result</dt>
+                    <dd class="mt-1">
+                      {last ? (
+                        <Fragment>
+                          <a href={last.url} rel="noopener" class="font-semibold text-ink underline decoration-primary-line underline-offset-2 hover:text-primary">{outcome(last)}</a>
+                          <span class="block text-ink-muted"><time datetime={last.date}>{formatDayShort(day(last))}</time> · {sitePhrase(last)}</span>
+                        </Fragment>
+                      ) : (
+                        'No result yet this season'
+                      )}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt class="eyebrow text-ink-muted">Next game</dt>
+                    <dd class="mt-1">
+                      {next ? (
+                        <Fragment>
+                          <a href={next.url} rel="noopener" class="font-semibold text-ink underline decoration-primary-line underline-offset-2 hover:text-primary">{where(next)} {next.opponent}</a>
+                          <span class="block text-ink-muted">
+                            <time datetime={next.time ? `${next.date}T${next.time}` : next.date}>{formatDayShort(day(next))}{next.time && ` · ${formatTime(day(next))}`}</time> · {sitePhrase(next)}
+                          </span>
+                        </Fragment>
+                      ) : s.held.length ? (
+                        'Next game to be confirmed: MaxPreps and the school calendar disagree'
+                      ) : (
+                        'None scheduled on MaxPreps'
+                      )}
+                    </dd>
+                  </div>
+                </dl>
+                {s.results.length > 1 && (
+                  <details class="mt-4 text-[0.9375rem]">
+                    <summary class="cursor-pointer font-semibold text-primary">This season ({s.results.length} results)</summary>
+                    <ol class="mt-2 space-y-1 text-ink-muted" reversed>
+                      {s.results.map((g) => (
+                        <li><time datetime={g.date}>{formatDayShort(day(g))}</time>: <a href={g.url} rel="noopener" class="underline">{outcome(g)}</a></li>
+                      ))}
+                    </ol>
+                  </details>
+                )}
+                <p class="mt-auto pt-5 text-xs leading-relaxed text-ink-muted">
+                  Source: <a href={s.maxprepsUrl} rel="noopener" class="underline">MaxPreps</a> · updated {formatShortDate(new Date(s.fetched))}
+                </p>
+              </Fragment>
+            ) : (
+              <p class="mt-3 text-[0.9375rem] text-ink-muted">Not read yet. <a href={s.maxprepsUrl || MAXPREPS_SCHOOL} rel="noopener" class="underline">See the team on MaxPreps</a>.</p>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  )}
+
+  <p class="mt-10 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">
+    Records and scores are MaxPreps's, as coaches and the CHSAA report them, read by this site on Saturday mornings and Wednesdays. Where MaxPreps and the school calendar disagree on a game's day, time or opponent, the game is left off until a person has checked. A team whose page could not be read keeps its last good numbers and their date. Something wrong? <a href="/correct/?item=sports&title=Berthoud%20High%20sports" class="underline">Tell us</a>.
+  </p>
+  <CtaBand
+    slot="after"
+    eyebrow="Sports"
+    title="Know a score we have wrong?"
+    body="The records are MaxPreps's and the dates the school's. If a game moved or a score is off, say so and we will check it."
+    links={[
+      { label: 'Report a correction', href: '/correct/?item=sports&title=Berthoud%20High%20sports', primary: true },
+      { label: 'This week in Berthoud', href: '/this-week/' },
+    ]}
+  />
+</Page>

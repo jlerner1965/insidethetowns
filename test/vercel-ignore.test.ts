@@ -71,6 +71,16 @@ test("a town builds for its own content and skips another town's", () => {
   assert.equal(decide('hub', event, base), 'skip');
 });
 
+test("a town's data file builds the town and no other site", () => {
+  // The sports workflow commits data/berthoud/sports.json twice a week; only
+  // the Berthoud site is made of it.
+  const prev = git('rev-parse', 'HEAD');
+  const scores = commit({ 'data/berthoud/sports.json': String(clock) });
+  assert.equal(decide('berthoud', scores, prev), 'build');
+  assert.equal(decide('lyons', scores, prev), 'skip');
+  assert.equal(decide('hub', scores, prev), 'skip');
+});
+
 test("any town's config builds every site", () => {
   // A town goes live by changing its config, and the hub's count of guides,
   // every footer's sister guides and the neighbours' blocks all read it. When

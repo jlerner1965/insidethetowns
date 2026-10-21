@@ -10,6 +10,7 @@
 # A push builds a site only when it changes something the site is made of:
 #
 #   content/<slug>/                      the site's own content
+#   data/<slug>/                         the site's own data files (sports.json)
 #   src/config/towns/*.ts                any town's config: every site builds
 #   the rest of src/, public/,           shared: every site builds
 #     package.json, package-lock.json,
@@ -65,7 +66,7 @@ changed="$(git diff --name-only --no-renames "$prev" "$head")" || build "cannot 
 
 while IFS= read -r path; do
   case "$path" in
-    "content/$slug/"*)
+    "content/$slug/"* | "data/$slug/"*)
       build "$path" ;;
     src/config/towns/*.ts)
       build "$path (every site reads every town's config)" ;;

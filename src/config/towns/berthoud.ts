@@ -43,7 +43,8 @@ export const berthoud: TownConfig = {
   social: {
     email: 'hello@insideberthoud.com',
   },
-  nav: DEFAULT_TOWN_NAV,
+  // The sports page (src/routes/town/sports.astro) is Berthoud's alone for now.
+  nav: [...DEFAULT_TOWN_NAV, { label: 'Sports', href: '/sports/' }],
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Berthoud,-CO_rb/' },

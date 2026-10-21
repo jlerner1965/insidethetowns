@@ -1,38 +1,62 @@
-# Berthoud High sports from MaxPreps, step 1: does a GitHub runner get the
-# team home page, and does the parse read it? Run by hand; the schedule comes
-# in step 2 once this is shown to work (scripts/sports-maxpreps.ts).
+# Berthoud High sports for Inside Berthoud's /sports/ page: each followed
+# team's MaxPreps home page read, the games to come checked against the
+# school's own calendar, and data/berthoud/sports.json committed to main, which
+# rebuilds the Berthoud site (scripts/vercel-ignore.sh). The teams are in
+# src/config/berthoud-sports.ts; the rules are in scripts/sports.ts.
+#
+# Nothing a run cannot confirm is written: a team whose page fails keeps its
+# last good entry and its date; a game the school calendar contradicts is held
+# off the page. Both are in the run's summary, under "Flagged".
 name: Berthoud sports (MaxPreps)
 
 on:
-  # Step 1 only: a push of the script or this file on its branch runs the probe.
-  push:
-    branches: [claude/berthoud-sports]
-    paths: [scripts/sports-maxpreps.ts, .github/workflows/sports-maxpreps.yml]
+  schedule:
+    # Saturday 14:00 UTC: 8 am in Denver in summer, 7 am in winter, for
+    # Friday night's scores. Wednesday 12:20 UTC alongside the research
+    # drafts (agent-weekly.yml), for the midweek games.
+    - cron: '0 14 * * 6'
+    - cron: '20 12 * * 3'
   workflow_dispatch:
     inputs:
       sport:
-        description: 'MaxPreps sport slug (football, soccer, volleyball, cross-country)'
-        default: football
+        description: 'Probe one team instead: a MaxPreps sport slug (football, soccer). Writes nothing.'
+        required: false
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: sports-maxpreps
+  cancel-in-progress: false
 
 jobs:
-  probe:
-    name: Fetch and parse one MaxPreps team page
+  sports:
+    name: Read MaxPreps and the school calendar, write the data file
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Fetch and parse
-        run: node scripts/sports-maxpreps.ts --sport=${{ inputs.sport || 'football' }} --dump --save=$RUNNER_TEMP/page.html | tee -a "$GITHUB_STEP_SUMMARY"
-      - name: Keep the page for reading
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: maxpreps-${{ inputs.sport || 'football' }}
-          path: ${{ runner.temp }}/page.html
-          if-no-files-found: ignore
+      - name: Probe one team
+        if: inputs.sport != ''
+        run: node scripts/sports.ts --sport=${{ inputs.sport }} | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Read and write
+        if: inputs.sport == ''
+        run: |
+          node scripts/sports.ts --write --summary="$RUNNER_TEMP/sports.md"
+          cat "$RUNNER_TEMP/sports.md" >> "$GITHUB_STEP_SUMMARY"
+      - name: Commit the data file
+        if: inputs.sport == ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/berthoud/sports.json
+          if git diff --cached --quiet; then
+            echo "Nothing changed; nothing to commit."
+            exit 0
+          fi
+          git commit -m "Berthoud sports, $(TZ=America/Denver date +%F): MaxPreps records, results and upcoming games" \
+            -m "Written by the sports workflow (scripts/sports.ts) from MaxPreps, with upcoming games checked against the school calendar. The run summary lists what was held or could not be read."
+          git push origin HEAD:${{ github.ref_name }}

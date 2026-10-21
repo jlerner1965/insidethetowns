@@ -1,0 +1,140 @@
+{
+  "generated": "2026-10-21T15:49:31.000Z",
+  "sports": [
+    {
+      "key": "football",
+      "name": "Football",
+      "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/football/",
+      "fetched": "2026-10-21T15:49:31.000Z",
+      "maxprepsUpdated": "2026-10-21T14:37:47",
+      "overall": "6-2",
+      "league": {
+        "record": "3-1",
+        "name": "3A Cache la Poudre",
+        "place": "3rd"
+      },
+      "results": [
+        {
+          "date": "2026-10-15",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-greeley-central/10-15-2026/",
+          "result": "W",
+          "score": {
+            "us": 22,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Windsor",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-windsor/10-9-2026/",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 46
+          }
+        },
+        {
+          "date": "2026-10-02",
+          "opponent": "Niwot",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-niwot/10-2-2026/",
+          "result": "W",
+          "score": {
+            "us": 48,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-09-25",
+          "opponent": "Skyline",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-skyline-longmont/9-25-2026/",
+          "result": "W",
+          "score": {
+            "us": 35,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-thompson-valley-loveland/9-18-2026/",
+          "result": "W",
+          "score": {
+            "us": 36,
+            "them": 34
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Moffat County",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-moffat-county-craig/9-4-2026/",
+          "result": "W",
+          "score": {
+            "us": 47,
+            "them": 13
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Mountain View",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-mountain-view-loveland/10-23-2026/",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Severance",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-severance/10-30-2026/",
+          "time": "19:00"
+        }
+      ],
+      "held": [],
+      "notes": []
+    },
+    {
+      "key": "boys-soccer",
+      "name": "Boys soccer",
+      "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/soccer/",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": []
+    },
+    {
+      "key": "volleyball",
+      "name": "Volleyball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/volleyball/",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": []
+    },
+    {
+      "key": "boys-cross-country",
+      "name": "Boys cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": []
+    },
+    {
+      "key": "girls-cross-country",
+      "name": "Girls cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/girls-cross-country/",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": []
+    }
+  ]
+}

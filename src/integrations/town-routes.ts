@@ -52,6 +52,14 @@ const HOLDING_ROUTES: Array<[pattern: string, file: string]> = [['/', 'coming-so
 const SUB_TOWN_ROUTES: Array<[pattern: string, file: string]> = [['/[subTown]', 'sub-town/[subTown].astro']];
 
 /**
+ * Berthoud is the test site for high-school sports (data/berthoud/sports.json,
+ * `npm run sports`): the page is injected for its slug alone until the data
+ * exists for another town. Not a shared abstraction yet, on purpose.
+ */
+const SPORTS_TOWNS = new Set(['berthoud']);
+const SPORTS_ROUTES: Array<[pattern: string, file: string]> = [['/sports', 'sports.astro']];
+
+/**
  * One page per kind of place the town has enough of: /restaurants/,
  * /trails/, /parks/ (src/lib/place-types.ts). Each is the same component
  * at a fixed path, which reads the kind off its own URL; a dynamic
@@ -91,7 +99,12 @@ export function townRoutes(site: SiteConfig): AstroIntegration {
           site.kind === 'hub'
             ? HUB_ROUTES
             : site.status === 'live'
-              ? [...TOWN_ROUTES, ...(site.subTowns?.length ? SUB_TOWN_ROUTES : []), ...placeTypeRoutes(site.slug)]
+              ? [
+                  ...TOWN_ROUTES,
+                  ...(site.subTowns?.length ? SUB_TOWN_ROUTES : []),
+                  ...(SPORTS_TOWNS.has(site.slug) ? SPORTS_ROUTES : []),
+                  ...placeTypeRoutes(site.slug),
+                ]
               : HOLDING_ROUTES;
         for (const [pattern, file] of routes) {
           injectRoute({
