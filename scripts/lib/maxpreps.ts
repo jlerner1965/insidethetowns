@@ -17,12 +17,15 @@
  * (run 39629133155, 21 October 2026).
  */
 import { execFile } from 'node:child_process';
+import { setTimeout as sleep } from 'node:timers/promises';
 import { promisify } from 'node:util';
 import { MAXPREPS_TEAM_HOME, type SportGame } from '../../src/config/berthoud-sports.ts';
 import { isAllowed } from './robots.ts';
 import { robotsFor, TIMEOUT, UA } from './probe.ts';
 
 const run = promisify(execFile);
+/** Before the one retry after no response. */
+const RETRY_MS = 3000;
 
 export interface TeamPage {
   url: string;
@@ -52,18 +55,25 @@ export async function fetchPage(url: string): Promise<Fetched> {
     '-H', 'Accept-Language: en-US,en;q=0.9',
     '-w', '\n%{http_code}', url,
   ];
-  try {
-    const { stdout } = await run('curl', args, { maxBuffer: 32 << 20 });
-    const nl = stdout.lastIndexOf('\n');
-    const code = stdout.slice(nl + 1).trim();
-    const html = stdout.slice(0, nl);
-    if (!/^2/.test(code)) return { ok: false, reason: `HTTP ${code}`, html };
-    return { ok: true, html };
-  } catch (e) {
-    const err = e as Error & { stderr?: string };
-    const said = (err.stderr ?? '').trim().split('\n').at(-1) || err.message.split('\n')[0];
-    return { ok: false, reason: `no response (${said})` };
+  // One more try after no response at all: a blip at either end is the
+  // likelier reading, and the first scheduled run met exactly one.
+  let last: { ok: false; reason: string } = { ok: false, reason: 'not tried' };
+  for (let attempt = 0; attempt < 2; attempt++) {
+    if (attempt) await sleep(RETRY_MS);
+    try {
+      const { stdout } = await run('curl', args, { maxBuffer: 32 << 20 });
+      const nl = stdout.lastIndexOf('\n');
+      const code = stdout.slice(nl + 1).trim();
+      const html = stdout.slice(0, nl);
+      if (/^2/.test(code)) return { ok: true, html };
+      return { ok: false, reason: `HTTP ${code}`, html };
+    } catch (e) {
+      const err = e as Error & { stderr?: string };
+      const said = (err.stderr ?? '').trim().split('\n').at(-1) || err.message.split('\n')[0];
+      last = { ok: false, reason: `no response (${said})` };
+    }
   }
+  return last;
 }
 
 /** The page as a reader sees it: no scripts, no styles, no tags, one space between words. */
