@@ -107,6 +107,22 @@ export function entryFrom(sport: SportConfig, page: TeamPage, check: Check, now:
   };
 }
 
+/** A team MaxPreps has nothing for: read today, with nothing to show but the link. */
+export function emptyEntry(sport: SportConfig, page: TeamPage, now: string): SportData {
+  return {
+    key: sport.key,
+    name: sport.name,
+    maxprepsUrl: page.url,
+    fetched: now,
+    maxprepsUpdated: page.updatedOn,
+    results: [],
+    upcoming: [],
+    held: [],
+    notes: ['MaxPreps lists no schedule or results for this team'],
+    empty: 'MaxPreps has no schedule or results for this team yet.',
+  };
+}
+
 /** The previous run's entry, kept as it was, when this run could not replace it. */
 export function keepPrevious(sport: SportConfig, previous: SportsData | undefined): SportData {
   const old = previous?.sports.find((s) => s.key === sport.key);

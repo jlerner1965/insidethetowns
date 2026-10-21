@@ -30,7 +30,7 @@ import { BERTHOUD_SPORTS, MAXPREPS_TEAM_HOME, type SportsData } from '../src/con
 import { dayKey } from '../src/lib/dates.ts';
 import { CRAWL_DELAY_MS, fetchMonth, parseMonth, type CalendarEvent } from './lib/bhs-calendar.ts';
 import { fetchPage, parseTeamPage, usable, visibleText, type TeamPage } from './lib/maxpreps.ts';
-import { crossCheck, entryFrom, gamesToCome, keepPrevious } from './lib/sports-crosscheck.ts';
+import { crossCheck, emptyEntry, entryFrom, gamesToCome, keepPrevious } from './lib/sports-crosscheck.ts';
 
 export const DATA_FILE = 'data/berthoud/sports.json';
 const MAXPREPS_PAUSE_MS = 4000;
@@ -74,7 +74,7 @@ async function probe(sport: string): Promise<number> {
   }
   const page = parseTeamPage(html, sport);
   console.log(describe(page));
-  if (!usable(page)) {
+  if (!usable(page) && !page.noSchedule) {
     // What the page carries instead, for working out what to read.
     const raw = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/)?.[1];
     if (raw) {
@@ -90,8 +90,9 @@ async function probe(sport: string): Promise<number> {
       }
     }
   }
-  console.log(usable(page) ? '\nParse: ok' : '\nParse: the records or the schedule were not found.');
-  return usable(page) ? 0 : 3;
+  if (page.noSchedule) console.log('\nParse: ok, but MaxPreps lists no schedule for this team.');
+  else console.log(usable(page) ? '\nParse: ok' : '\nParse: the records or the schedule were not found.');
+  return usable(page) || page.noSchedule ? 0 : 3;
 }
 
 /** The current month and the next, which is as far as the glance card looks. */
@@ -161,6 +162,13 @@ async function main(): Promise<number> {
       continue;
     }
     const page = parseTeamPage(res.html, sport.maxpreps);
+    if (page.noSchedule) {
+      data.sports.push(emptyEntry(sport, page, now.toISOString()));
+      summary.push(`| ${sport.name} | — | — | — | — | — |`);
+      flags.push(`${sport.name}: MaxPreps lists no schedule or results for this team; the card says so.`);
+      console.log(`${sport.name}: MaxPreps has nothing for this team.`);
+      continue;
+    }
     if (!usable(page)) {
       flags.push(`**${sport.name}**: the MaxPreps page came back but could not be read (${page.warnings.join('; ')}); ${was}.`);
       data.sports.push(old);

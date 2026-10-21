@@ -87,6 +87,17 @@ test('a page without its data, or whose visible records differ from its data, is
   assert.ok(drifted.warnings.some((w) => w.includes('7-2')), drifted.warnings.join('; '));
 });
 
+test('a team MaxPreps has nothing for is told apart from a page that could not be read', () => {
+  const empty = page(
+    { teamContext: { standingsData: { overallStanding: { overallWinLossTies: '0-0' } } }, wallCards: {}, wallPosts: [] },
+    'Berthoud Spartans Varsity Boys Cross Country Overall 0-0 League Schedule at a Glance No Schedule If you have the full schedule, send it to MaxPreps.',
+  );
+  const p = parseTeamPage(empty, 'cross-country');
+  assert.equal(p.noSchedule, true);
+  assert.deepEqual(p.glance, []);
+  assert.ok(!p.warnings.includes('no "Schedule at a Glance" card'));
+});
+
 test('the school calendar titles are read into team, level, where and opponent', () => {
   assert.deepEqual(parseTitle('Boys Varsity Football @ Mountain View High School - FR'), { gender: 'Boys', level: 'Varsity', sport: 'Football', where: '@', opponent: 'Mountain View High School' });
   assert.deepEqual(parseTitle('Girls C-Team Volleyball vs University High School - .'), { gender: 'Girls', level: 'C-Team', sport: 'Volleyball', where: 'vs', opponent: 'University High School' });

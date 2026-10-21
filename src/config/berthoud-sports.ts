@@ -77,6 +77,12 @@ export interface SportData {
   held: Array<{ game: SportGame; reason: string }>;
   /** Anything a reader of the run summary should know: a game the school calendar does not list, a meet without a score. */
   notes: string[];
+  /**
+   * MaxPreps has the team but nothing for it: no schedule, no results (the
+   * cross country pages, October 2026). The card says so, with the link,
+   * rather than a record of 0-0.
+   */
+  empty?: string;
 }
 
 export interface SportsData {

@@ -79,7 +79,14 @@ const newest = fetchedDates.length ? new Date(fetchedDates.sort().at(-1)!) : und
         return (
           <li id={s.key} class="flex flex-col rounded-lg bg-raised px-5 py-5 ring-1 ring-primary-line">
             <p class="eyebrow">{s.name}</p>
-            {s.fetched ? (
+            {s.empty ? (
+              <Fragment>
+                <p class="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">{s.empty} <a href={s.maxprepsUrl} rel="noopener" class="underline">The team on MaxPreps</a>.</p>
+                <p class="mt-auto pt-5 text-xs leading-relaxed text-ink-muted">
+                  Source: <a href={s.maxprepsUrl} rel="noopener" class="underline">MaxPreps</a> · checked {formatShortDate(new Date(s.fetched!))}
+                </p>
+              </Fragment>
+            ) : s.fetched ? (
               <Fragment>
                 <p class="display-md mt-2 text-[2rem] leading-none text-primary">{s.overall ?? '—'}</p>
                 <p class="mt-1 text-[0.9375rem] text-ink-muted">

@@ -36,6 +36,8 @@ export interface TeamPage {
   results: SportGame[];
   /** What did not add up: a cross-check that failed, a block that was missing. */
   warnings: string[];
+  /** The page says "No Schedule": MaxPreps has the team and nothing for it. */
+  noSchedule?: boolean;
 }
 
 export type Fetched = { ok: true; html: string } | { ok: false; reason: string; html?: string };
@@ -172,7 +174,10 @@ export function parseTeamPage(html: string, sport: string): TeamPage {
   if (stamps.length) page.updatedOn = stamps.sort().at(-1);
 
   const glance: MpContest[] = pp?.wallCards?.schedule?.data ?? [];
-  if (!glance.length) page.warnings.push('no "Schedule at a Glance" card');
+  if (!glance.length) {
+    if (/\bNo Schedule\b/.test(visibleText(html))) page.noSchedule = true;
+    else page.warnings.push('no "Schedule at a Glance" card');
+  }
   for (const c of glance) {
     const g = toGame(c, url);
     if (g) page.glance.push(g);
