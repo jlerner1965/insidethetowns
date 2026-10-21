@@ -1,5 +1,6 @@
 ---
 title: "Idaho Springs Book Group"
+subTown: idaho-springs
 start: "2026-10-19T16:00"
 end: "2026-10-19T17:00"
 venue: "Idaho Springs Public Library"

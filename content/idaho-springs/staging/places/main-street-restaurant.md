@@ -1,5 +1,6 @@
 ---
 title: "Main Street Restaurant"
+subTown: idaho-springs
 review: { reason: "The hours come only from the restaurant's own site, which has not been kept up (its footer reads 2019–24 and it still carries a Covid-19 notice); the City's visitor site confirms the restaurant and its phone but not its hours. Call 303-567-2788 to confirm the hours, then publish.", since: "2026-10-10", from: manual }
 type: restaurant
 address: "1518 Miner St, Idaho Springs, CO 80452"

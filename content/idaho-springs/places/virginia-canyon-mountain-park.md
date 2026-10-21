@@ -1,5 +1,6 @@
 ---
 title: "Virginia Canyon Mountain Park"
+subTown: idaho-springs
 type: park
 address: "Virginia Canyon above Idaho Springs; the Mighty Argo cable car from 2350 Riverside Drive reaches the top at Miners Point"
 area: "Virginia Canyon"

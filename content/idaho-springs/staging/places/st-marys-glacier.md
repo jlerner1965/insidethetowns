@@ -1,5 +1,6 @@
 ---
 title: "St. Mary's Glacier"
+subTown: idaho-springs
 type: trail
 address: "Trailhead parking on Fall River Road, north of Idaho Springs"
 area: "Nearby: Fall River Road, outside town"

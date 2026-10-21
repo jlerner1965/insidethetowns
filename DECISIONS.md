@@ -5662,3 +5662,166 @@ says at least one browser did not, while the page went ahead as if it had.
   address and town tag posted, the reopen link, the town rule, a double
   click. Not checked in Safari, which this container does not have; the
   owner's next signup there is the test.
+
+## Georgetown and Black Hawk join Idaho Springs on one Clear Creek guide, 20 October
+
+*20 October 2026.* The owner, having set the goal as becoming each town's
+go-to resource rather than monetising, asked which guides to drop. The
+editor's sort put the six smallest mountain guides (Black Hawk, Georgetown,
+Idaho Springs, Grand Lake, Leadville, Nederland) as coverage for coverage's
+sake, twelve to seventeen events apiece, and proposed that the three on the
+I-70 corridor fold into one guide the way Carbon Valley covers three towns.
+The owner: "first do the clear creek combo."
+
+- **What the three showed on 20 October.** Idaho Springs 12 events, 27
+  places, 3 articles; Georgetown 14, 20, 4; Black Hawk 17, 20, 3. Idaho
+  Springs and Georgetown already shared a county, a library district
+  (cccld.org), a recreation district, a school district, the Clear Creek
+  Ranger District and, since 12 October, an email edition. Black Hawk had
+  been a visitor guide since the same day. Together: 43 events, 67 places,
+  12 articles, 35 staged items and 39 sources, which is a guide.
+- **The Idaho Springs guide is the one that stays**, as Windsor's did for
+  Severance: its slug, folder, Vercel project and domain
+  (insideidahosprings.com) are unchanged, since it is the largest of the
+  three and the one with the search history. Its config lists
+  `subTowns: ['idaho-springs', 'georgetown', 'black-hawk']`, which gives it
+  /idaho-springs/, /georgetown/ and /black-hawk/ and a "Where" filter on its
+  lists, and every Idaho Springs event and place now says
+  `subTown: idaho-springs`. Unlike Windsor the guide takes a new name, the
+  corridor's: `name: 'Clear Creek'`, `siteTitle: 'Inside Clear Creek'`, on
+  the owner's words, with a tagline, short tagline and SEO line naming all
+  three towns (the home title fits with exactly three names and "CO"). The
+  domain is a mismatch the owner can end by naming a Clear Creek domain;
+  until then nothing else changes.
+- **Figures are summed, as Carbon Valley's are**: 3,027 people at the 2020
+  census (1,782 + 1,118 + 127), 2,869 at the 2010 (State Demography Office
+  file), incorporated 1864 (Black Hawk's, the earliest). The point,
+  elevation, colours and hero stay Idaho Springs's. The guide covers two
+  counties, Clear Creek and Gilpin, so it carries a `countySplit` note (the
+  towns test wants one wherever a config names two) sourced to the state
+  census file read today, and its school line is hedged "Mostly Clear Creek
+  RE-1" with Black Hawk's Gilpin RE-1 after the colon. The conditions links
+  are the three lists made one; `officialLinks.also` names the Town of
+  Georgetown and the City of Black Hawk.
+- **Content moved with its slugs.** Georgetown's and Black Hawk's events,
+  places, staged items, articles, photographs (every one but the hero, which
+  the holding page uses) and Black Hawk's one correction are in
+  `content/idaho-springs/`, each event and place stamped with its town after
+  the title; no slug collided. The two Moving Here pages are the articles
+  *Moving to Georgetown* and *Moving to Black Hawk*, with a line on where
+  they sit, and Idaho Springs's own Moving Here page links them. The image
+  ledger's rows follow the files. Georgetown's blank weekly note and Black
+  Hawk's are deleted; the guide's weekly file is Idaho Springs's.
+- **One source registry.** The three merged into
+  `content/idaho-springs/sources.json`: a town's own sources carry its
+  `subTown`; the nine county- and district-wide ones (the library district,
+  the recreation district, the county calendar and site, Visit Clear Creek,
+  the ranger district, COtrip, the school district, the census file) carry
+  none, so ingest stages their events without a town and the editor sets
+  it. Four sources were in two registries (the library district, the
+  recreation district, COtrip, the ranger district, the last under two ids);
+  one entry each is kept, `fs-usda-gov-arp` for the ranger district. Every
+  `sourceId` in the moved content still resolves.
+- **The two domains redirect, path for path**, the thirteen host-scoped
+  rules of the Severance pattern each, in vercel.json (docs/REDIRECTS.md);
+  the projects keep building from their configs, now `status: 'redirect'`
+  with `foldedInto`, and serve one holding page saying where the guide went.
+  Nobody lists the two as neighbours: Golden and Evergreen name the Idaho
+  Springs guide, and Nederland's Peak to Peak neighbour is that guide now
+  in Black Hawk's place. Black Hawk's `visitorGuide` went with the fold,
+  since the guide it joined is in the email. The hub's Idaho Springs and
+  Georgetown edition is gone from the config; the guide is an edition of
+  one, so the count of fifteen holds. The hub's Moving page compares the
+  three as one row and says so; manager/towns.json lists one guide with two
+  alternate domains; DEPLOY.md's list says which project serves what.
+- **Tests.** `test/folded-towns.test.ts` names four folded guides and checks
+  `corrections/` has moved too; the nearby, editions and manager tests
+  follow the configs; the mountain strip test sorted its expectation by
+  slug, which was name order until a guide's name stopped matching its slug.
+- **Not done, and the owner's.** Buttondown may hold subscribers tagged
+  `georgetown` or `black-hawk`; the send script already adds a folded town's
+  tag to its guide's issue, so they are reached, but moving them to
+  `idaho-springs` is the owner's in Buttondown. The Search Console and Bing
+  properties for the two retired domains stay as they are, so the redirects
+  can be seen to take; nothing else in the two dashboards changes. A Clear
+  Creek domain, if the owner wants one, is a config change and one more row
+  of redirects. The other three small mountain guides (Grand Lake,
+  Leadville, Nederland) and the four city guides are the next decision, not
+  this one.
+
+## The other mountain guides, 20 October
+
+*20 October 2026.* After the Clear Creek fold the owner said to do the other
+mountain towns. Asked how, with the choices and a recommendation for each,
+the owner took both recommendations: quiet the three that have no guide to
+fold into, and make the four visitor towns visitor guides, Golden included.
+
+- **Quiet: Grand Lake, Leadville and Nederland.** Each gets a `quiet` block
+  (since, decide by, why), as Elizabeth has: pages up and indexed, listings
+  checked as the rotation reaches them, but no weekly email, no signup box
+  on its pages or anyone else's, no Thursday draft, and one line in the
+  weekly report with the days left. Leadville's `visitorGuide` is replaced,
+  since quiet is the stronger step. The decide-by date is 19 November, not
+  the 20 January first offered: the quiet-towns test wants the decision
+  before any listing's hours expire, forty-five days from its check on the
+  mountain chassis, which is 20 November for Nederland (checked 6 October)
+  and 24 November for the other two. Keep a guide, and the field comes off;
+  retire it, and the Severance pattern applies, with no neighbour to take
+  it, so a holding page and a redirect to the hub would be the shape.
+- **Visitor guides: Estes Park, Golden and Evergreen**, joining Manitou
+  Springs: kept current on the sixty-day check, in the weekly report, but
+  with no weekly email. Golden stops being treated as a flagship for the
+  weekly routine; its site, its search phases (docs/SEARCH-VISIBILITY.md)
+  and its outreach list stand, since none of those depends on the email.
+- **What follows from the configs.** `emailTowns()` now covers twelve
+  guides in ten editions (two shared), down from fifteen; the hub's signup,
+  the newsletter page, the Thursday drafts and the weekly report read the
+  same fields and need no change. manager/towns.json says which guides are
+  out of the email and why, as its test requires.
+- **Not done, and the owner's.** Buttondown subscribers tagged with the six
+  towns stay tagged; nothing is sent to them until a guide rejoins, and
+  telling them is the owner's call. The four city guides (Fort Collins,
+  Longmont, Loveland, and Castle Rock before it opens) are the next
+  decision; this one touched only the mountains.
+
+## The city guides, 20 October
+
+*20 October 2026.* After the mountain guides, the owner said to do the city
+guides. Read against the 90-day test decided the same day (Niwot, Lyons and
+Berthoud get the effort; "the other guides stay live on the ingest, the
+nightly recheck and the standing automation, with no hand work"), the same
+step as the small mountain guides: quiet, not retire.
+
+- **Quiet: Fort Collins, Longmont and Loveland.** Each is a city with a
+  daily paper, a tourism office and a city government behind the official
+  sites, which the editor's sort of 20 October called the wrong fight: a
+  town guide can become the go-to resource for a town of 10,000 with no
+  good calendar, not for a city of 76,000 to 170,000 with three. Each gets
+  a `quiet` block: pages up and indexed, listings checked as the rotation
+  reaches them, no weekly email, no signup box on its pages or anyone
+  else's, no Thursday draft, one line in the weekly report. Decide by 29
+  November, before any listing's hours expire (sixty days from its check on
+  the Front Range chassis: Fort Collins's earliest is 1 October, so 30
+  November; the other two 3 December). Longmont was named a priority on 12
+  October; the 90-day test replaced that list, and its reason stands in
+  the config.
+- **Castle Rock stays `wave2`**, as it has been: a holding page, nothing
+  live, nothing to quiet. Opening it was already ruled out on 12 October.
+- **The Loveland and Johnstown edition ends**, Loveland being out of the
+  email; Johnstown is an edition of its own. The email now covers nine
+  guides in eight editions, one shared (Windsor, Severance and Timnath).
+  The hub's signup, the newsletter page, the drafts and the weekly report
+  read the configs and need no change; manager/towns.json says which guides
+  are out of the email and why.
+- **Where the network stands after the day's three decisions.** In the
+  weekly email: Niwot, Lyons, Berthoud, Erie, Johnstown, Timnath, Windsor
+  (with Severance), Carbon Valley (with Fort Lupton) and Clear Creek (Idaho
+  Springs, Georgetown and Black Hawk). Visitor guides: Estes Park, Golden,
+  Evergreen, Manitou Springs. Quiet, with a date: Elizabeth (15 November),
+  Grand Lake, Leadville and Nederland (19 November), Fort Collins, Longmont
+  and Loveland (29 November). Folded: Severance, Fort Lupton, Georgetown,
+  Black Hawk. Not open: Castle Rock.
+- **Not done, and the owner's.** Buttondown subscribers tagged with the
+  three cities stay tagged and get nothing until a guide rejoins. On each
+  decide-by date a quiet guide either rejoins (the field comes off) or
+  goes (a holding page and redirects, with no neighbour to take a city).

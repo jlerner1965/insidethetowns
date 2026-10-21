@@ -1,5 +1,6 @@
 ---
 title: "Idaho Springs Public Library"
+subTown: idaho-springs
 type: venue
 address: "219 14th Avenue, Idaho Springs, CO 80452"
 area: "14th Avenue"

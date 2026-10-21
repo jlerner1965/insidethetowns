@@ -1,5 +1,6 @@
 ---
 title: "Echo Lake Campground"
+subTown: idaho-springs
 type: lodging
 address: "Colorado Highway 103, 14 miles south of I-70 exit 240, at the junction with Highway 5"
 area: "Echo Lake"

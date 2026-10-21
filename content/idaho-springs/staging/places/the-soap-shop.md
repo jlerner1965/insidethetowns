@@ -1,5 +1,6 @@
 ---
 title: "The Soap Shop"
+subTown: idaho-springs
 type: shop
 address: "1542 Miner Street, Idaho Springs, CO 80452"
 area: "Miner Street"

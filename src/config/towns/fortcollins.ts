@@ -11,6 +11,16 @@ import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
 export const fortcollins: TownConfig = {
   kind: 'town',
   status: 'live',
+  // Quiet from 20 October 2026, owner's word, with the other city guides
+  // (DECISIONS.md, "The city guides, 20 October"): pages up, listings
+  // checked as the rotation reaches them, no weekly promise. 29 November is
+  // before any listing's hours expire (60 days from its check on the Front
+  // Range chassis; the quiet-towns test holds the order).
+  quiet: {
+    since: '2026-10-20',
+    decideBy: '2026-11-29',
+    reason: "a city of 170,000 with a daily paper, Visit Fort Collins and the City's own calendar behind the official sites; the guide cannot become the go-to resource there, and its 101 events and 67 listings cost the most hours of any guide to keep honest",
+  },
   variant: 'front-range',
   region: 'Northern Colorado',
   neighbors: ['timnath', 'windsor', 'loveland'],

@@ -1,5 +1,6 @@
 ---
 title: "Westbound & Down Brewing Company"
+subTown: idaho-springs
 type: bar
 address: "1617 Miner St, Idaho Springs, CO 80452"
 area: "Miner Street"

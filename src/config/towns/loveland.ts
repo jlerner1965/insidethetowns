@@ -11,6 +11,16 @@ export const loveland: TownConfig = {
   kind: 'town',
   // Live on 5 October 2026, on the owner's word after the first review.
   status: 'live',
+  // Quiet from 20 October 2026, owner's word, with the other city guides
+  // (DECISIONS.md, "The city guides, 20 October"): pages up, listings
+  // checked as the rotation reaches them, no weekly promise. 29 November is
+  // before any listing's hours expire (60 days from its check on the Front
+  // Range chassis; the quiet-towns test holds the order).
+  quiet: {
+    since: '2026-10-20',
+    decideBy: '2026-11-29',
+    reason: "a city of 76,000 with a daily paper, Visit Loveland and the City behind the official sites; its shared edition with Johnstown ends, Johnstown's being its own again",
+  },
   variant: 'front-range',
   region: 'Northern Colorado',
   neighbors: ['berthoud', 'johnstown', 'fortcollins', 'estes-park'],

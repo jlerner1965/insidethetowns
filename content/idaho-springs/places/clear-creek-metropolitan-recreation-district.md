@@ -1,5 +1,6 @@
 ---
 title: "Clear Creek Metropolitan Recreation District"
+subTown: idaho-springs
 type: venue
 address: "98 12th Avenue, Idaho Springs, CO 80452"
 area: "12th Avenue"

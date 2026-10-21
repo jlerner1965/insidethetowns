@@ -1,5 +1,6 @@
 ---
 title: "Fall Festival and Pumpkin SMASH"
+subTown: idaho-springs
 start: "2026-11-07T12:00"
 end: "2026-11-07T16:00"
 venue: "Idaho Springs Sports and Events Complex"

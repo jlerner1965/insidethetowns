@@ -1,5 +1,6 @@
 ---
 title: "Mount Blue Sky Recreation Area & Scenic Byway"
+subTown: idaho-springs
 type: park
 address: "Colorado Highway 103 south from I-70 exit 240 to Echo Lake, then Colorado Highway 5 to the summit"
 area: "Mount Blue Sky"

@@ -1,5 +1,6 @@
 ---
 title: "Slaymaker Cellars"
+subTown: idaho-springs
 type: bar
 address: "1428 Miner St, Idaho Springs, CO 80452"
 area: "Miner Street"

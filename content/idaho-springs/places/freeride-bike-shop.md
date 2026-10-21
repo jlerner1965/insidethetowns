@@ -1,5 +1,6 @@
 ---
 title: "Freeride Bike Shop"
+subTown: idaho-springs
 type: service
 address: "1800 Colorado Blvd, Suite 5, Idaho Springs, CO 80452"
 area: "Colorado Boulevard"

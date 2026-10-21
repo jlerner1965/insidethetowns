@@ -48,10 +48,12 @@ export const hub: HubConfig = {
     // editions and visitor guides"): one issue, one box and one sponsor line
     // for towns a reader would plan a weekend across. Each guide keeps its
     // site and its subscribers' town tags; an edition goes to every tag in it.
+    // The Idaho Springs and Georgetown edition ended on 20 October 2026 when
+    // the two became one guide, Inside Clear Creek, an edition of its own;
+    // the Loveland and Johnstown edition the same day, when Loveland went
+    // quiet, so Johnstown is an edition of its own.
     editions: [
       { slug: 'windsor-timnath', name: 'Windsor, Severance and Timnath', towns: ['windsor', 'timnath'] },
-      { slug: 'clear-creek', name: 'Idaho Springs and Georgetown', towns: ['idaho-springs', 'georgetown'] },
-      { slug: 'loveland-johnstown', name: 'Loveland and Johnstown', towns: ['loveland', 'johnstown'] },
     ],
   },
   social: {

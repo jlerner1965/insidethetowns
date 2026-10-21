@@ -1,5 +1,6 @@
 ---
 title: "Witchy Wonders Storytime"
+subTown: idaho-springs
 start: "2026-10-23T10:00"
 end: "2026-10-23T11:00"
 venue: "Idaho Springs Public Library"

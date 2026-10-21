@@ -1,5 +1,6 @@
 ---
 title: "ISPL Book Group"
+subTown: idaho-springs
 start: "2026-12-14T16:00"
 end: "2026-12-14T17:00"
 venue: "Idaho Springs Public Library"

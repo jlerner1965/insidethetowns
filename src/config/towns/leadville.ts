@@ -18,11 +18,15 @@ export const leadville: TownConfig = {
   // it publishes what is verified, and the validator and the weekly report
   // say what it is short of (docs/ACCURACY-SYSTEM.md).
   status: 'live',
-  // A visitor guide from 12 October 2026, owner's word: kept current, no weekly
-  // email (DECISIONS.md, "Regional editions and visitor guides").
-  visitorGuide: {
-    since: '2026-10-12',
-    reason: 'the farthest guide from the rest of the network, so a weekly issue costs more than it returns; its visitors plan a trip around the seasons',
+  // Quiet from 20 October 2026, owner's word, with the other small mountain
+  // guides (DECISIONS.md, "The other mountain guides, 20 October"): pages
+  // up, listings checked as the rotation reaches them, no weekly promise.
+  // 19 November is before any listing's hours expire (45 days from its check
+  // on the mountain chassis; the quiet-towns test holds the order).
+  quiet: {
+    since: '2026-10-20',
+    decideBy: '2026-11-19',
+    reason: 'the farthest guide from the rest of the network and a dozen events; a visitor guide from 12 October, and out of the weekly report too from 20 October, with the small mountain guides',
   },
   variant: 'mountain',
   region: 'Mountains & Foothills',

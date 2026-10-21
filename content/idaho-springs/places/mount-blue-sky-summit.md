@@ -1,5 +1,6 @@
 ---
 title: "Mount Blue Sky Summit"
+subTown: idaho-springs
 type: park
 address: "Top of Colorado Highway 5, reached from Idaho Springs by Highway 103 to Echo Lake"
 area: "Mount Blue Sky"

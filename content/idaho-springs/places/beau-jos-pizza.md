@@ -1,5 +1,6 @@
 ---
 title: "Beau Jo's Pizza"
+subTown: idaho-springs
 type: restaurant
 address: "1517 Miner St, Idaho Springs, CO 80452"
 area: "Miner Street"

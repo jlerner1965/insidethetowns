@@ -1,5 +1,6 @@
 ---
 title: "Citizens Park"
+subTown: idaho-springs
 type: park
 address: "1545 Miner St, Idaho Springs, CO 80452"
 area: "Miner Street"

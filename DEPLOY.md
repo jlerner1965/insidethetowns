@@ -24,12 +24,12 @@ insideestespark.com  TOWN=estes-park      (mountain variant)
 insidegolden.com     TOWN=golden          (mountain variant)
 insideevergreenco.com TOWN=evergreen      (mountain variant; insideevergreen.com is someone else's)
 insidenederland.com  TOWN=nederland       (mountain variant)
-insideidahosprings.com   TOWN=idaho-springs   (mountain variant)
-insidegeorgetownco.com   TOWN=georgetown      (mountain variant)
+insideidahosprings.com   TOWN=idaho-springs   (mountain variant; Inside Clear Creek: Idaho Springs, Georgetown and Black Hawk on one site since 20 Oct 2026)
+insidegeorgetownco.com   TOWN=georgetown      (folded into the Idaho Springs guide 20 Oct 2026; serves redirects only, docs/REDIRECTS.md)
 insidegrandlake.com      TOWN=grand-lake      (mountain variant)
 insidemanitousprings.com TOWN=manitou-springs (mountain variant)
 insideleadville.com      TOWN=leadville       (mountain variant)
-insideblackhawk.com      TOWN=black-hawk      (mountain variant)
+insideblackhawk.com      TOWN=black-hawk      (folded into the Idaho Springs guide 20 Oct 2026; serves redirects only)
 …
 ```
 

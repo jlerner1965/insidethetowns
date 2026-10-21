@@ -1,5 +1,6 @@
 ---
 title: "Smokin' Yards BBQ"
+subTown: idaho-springs
 type: restaurant
 address: "2736 Colorado Blvd, Idaho Springs, CO 80452"
 area: "Colorado Boulevard"

@@ -128,15 +128,17 @@ test('each guide names the neighbours the owner set, in that order', () => {
     'fort-lupton': [],
     'castle-rock': ['elizabeth', 'manitou-springs'],
     'estes-park': ['lyons', 'loveland', 'grand-lake'],
-    golden: ['evergreen', 'black-hawk', 'idaho-springs', 'georgetown'],
-    evergreen: ['golden', 'idaho-springs', 'georgetown'],
-    nederland: ['lyons', 'niwot', 'black-hawk'],
+    golden: ['evergreen', 'idaho-springs'],
+    evergreen: ['golden', 'idaho-springs'],
+    nederland: ['lyons', 'niwot', 'idaho-springs'],
     // The six mountain guides, live 10 October 2026, each pair both ways.
     // Leadville has none within an afternoon's drive; Manitou Springs names
-    // Castle Rock, which has not launched.
-    'black-hawk': ['nederland', 'golden', 'idaho-springs', 'georgetown'],
-    'idaho-springs': ['georgetown', 'evergreen', 'golden', 'black-hawk'],
-    georgetown: ['idaho-springs', 'evergreen', 'golden', 'black-hawk'],
+    // Castle Rock, which has not launched. Georgetown and Black Hawk are
+    // sections of the Idaho Springs guide since 20 October 2026, so Nederland's
+    // Peak to Peak neighbour is that guide now and the two name nobody.
+    'black-hawk': [],
+    'idaho-springs': ['evergreen', 'golden', 'nederland'],
+    georgetown: [],
     'grand-lake': ['estes-park'],
     'manitou-springs': ['castle-rock'],
     leadville: [],

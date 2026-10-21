@@ -1,5 +1,6 @@
 ---
 title: "Starbucks — Colorado Boulevard"
+subTown: idaho-springs
 type: "coffee"
 address: "2900 Colorado Boulevard, Idaho Springs Retail Center, Idaho Springs, CO 80452"
 url: "https://www.starbucks.com/store-locator?map=39.770895,-105.444815,10z&place=Idaho%20Springs%2C%20Colorado"

@@ -1,6 +1,7 @@
 /**
  * A guide folded into another: Severance into Windsor and Fort Lupton into
- * Carbon Valley, 12 October 2026. Four things have to agree for the move to
+ * Carbon Valley, 12 October 2026; Georgetown and Black Hawk into the Idaho
+ * Springs guide, Inside Clear Creek, 20 October 2026. Four things have to agree for the move to
  * hold, and each lives in a different file: the config says where the town
  * went, the receiving guide lists it as a section, its content has left its
  * old folder, and vercel.json sends every path on the old domain to the new
@@ -18,8 +19,8 @@ const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url
 const folded = towns.filter((t) => t.status === 'redirect');
 const rulesFor = (domain: string) => vercel.redirects.filter((r) => r.has?.some((h) => h.type === 'host' && h.value === domain));
 
-test('Severance and Fort Lupton are the folded guides', () => {
-  assert.deepEqual(folded.map((t) => t.slug).sort(), ['fort-lupton', 'severance']);
+test('Severance, Fort Lupton, Georgetown and Black Hawk are the folded guides', () => {
+  assert.deepEqual(folded.map((t) => t.slug).sort(), ['black-hawk', 'fort-lupton', 'georgetown', 'severance']);
 });
 
 test('a folded guide names a live guide that lists it as a section, and nobody lists it as a neighbour', () => {
@@ -37,7 +38,7 @@ test('a folded guide names a live guide that lists it as a section, and nobody l
 
 test("a folded guide's content has moved out of its folder", () => {
   for (const t of folded) {
-    for (const dir of ['events', 'places', 'articles', 'pages', 'staging', 'weekly']) {
+    for (const dir of ['events', 'places', 'articles', 'pages', 'staging', 'weekly', 'corrections']) {
       const path = new URL(`../content/${t.slug}/${dir}/`, import.meta.url);
       assert.ok(!existsSync(path) || readdirSync(path).length === 0, `content/${t.slug}/${dir}/ should be empty`);
     }

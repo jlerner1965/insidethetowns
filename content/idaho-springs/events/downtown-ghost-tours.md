@@ -1,5 +1,6 @@
 ---
 title: "Downtown Ghost Tours"
+subTown: idaho-springs
 start: "2026-09-23T19:00"
 repeat: weekly
 until: "2026-10-28"

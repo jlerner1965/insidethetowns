@@ -1,5 +1,6 @@
 ---
 title: "Courtney Ryley Cooper Park"
+subTown: idaho-springs
 type: park
 address: "2350 Colorado Blvd, Idaho Springs, CO 80452"
 area: "Colorado Boulevard"

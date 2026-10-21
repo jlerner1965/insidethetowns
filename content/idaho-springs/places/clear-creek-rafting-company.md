@@ -1,5 +1,6 @@
 ---
 title: "Clear Creek Rafting Company"
+subTown: idaho-springs
 type: service
 address: "350 Whitewater Rd, Idaho Springs, CO 80452"
 area: "Whitewater Road"

@@ -1,5 +1,6 @@
 ---
 title: "Idaho Springs Mountain Gems"
+subTown: idaho-springs
 type: shop
 address: "1447 B Miner Street, Idaho Springs, CO 80452"
 area: "Miner Street"

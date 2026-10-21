@@ -1,6 +1,9 @@
-# Content for Inside Idaho Springs
+# Content for Inside Clear Creek
 
-Everything on insideidahosprings.com that is not layout lives in this folder. Edit
+Everything on insideidahosprings.com that is not layout lives in this folder: the
+guide covers Idaho Springs, Georgetown and Black Hawk (since 20 October 2026,
+DECISIONS.md), so every event and place carries a `subTown` of `idaho-springs`,
+`georgetown` or `black-hawk`, and each town has a section page at `/<subTown>/`. Edit
 Markdown, commit, push; the site rebuilds. No code changes needed.
 
 ```

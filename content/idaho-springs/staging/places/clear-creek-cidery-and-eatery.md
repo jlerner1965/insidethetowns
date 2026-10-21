@@ -1,5 +1,6 @@
 ---
 title: "Clear Creek Cidery & Eatery"
+subTown: idaho-springs
 type: restaurant
 address: "1446 Miner St., Idaho Springs, CO 80452"
 area: "Miner Street"
