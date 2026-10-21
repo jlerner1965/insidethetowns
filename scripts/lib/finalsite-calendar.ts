@@ -1,8 +1,10 @@
 /**
- * Berthoud High School's own calendar (bhs.tsd.org, a Finalsite site), read
- * a month at a time, for the games the school says it is playing.
+ * A school's own calendar on a Finalsite site (Berthoud High's bhs.tsd.org
+ * was the first), read a month at a time, for the games the school says it
+ * is playing. The URL is the town's `calendar.url` in
+ * src/config/school-sports.ts.
  *
- * The month grid at /family/calendar?cal_date=YYYY-MM-01 lists each event
+ * The month grid at <url>?cal_date=YYYY-MM-01 lists each event
  * once as a link whose title is the school's own line ("Boys Varsity
  * Football @ Mountain View High School - FR") and whose `data-occur-id`
  * carries the start and end as UTC instants. That is date, time, team and
@@ -13,7 +15,6 @@
 import { execFile } from 'node:child_process';
 import { setTimeout as sleep } from 'node:timers/promises';
 import { promisify } from 'node:util';
-import { BHS_CALENDAR } from '../../src/config/berthoud-sports.ts';
 import { toIsoLocal } from '../../src/lib/dates.ts';
 import { isAllowed } from './robots.ts';
 import { robotsFor, TIMEOUT, UA } from './probe.ts';
@@ -39,8 +40,8 @@ export interface CalendarEvent {
 /** Five seconds between requests, as the site's robots.txt asks. */
 export const CRAWL_DELAY_MS = 5000;
 
-export async function fetchMonth(firstOfMonth: string): Promise<{ ok: true; html: string } | { ok: false; reason: string }> {
-  const url = `${BHS_CALENDAR}?cal_date=${firstOfMonth}`;
+export async function fetchMonth(calendarUrl: string, firstOfMonth: string): Promise<{ ok: true; html: string } | { ok: false; reason: string }> {
+  const url = `${calendarUrl}?cal_date=${firstOfMonth}`;
   const { origin, pathname, search } = new URL(url);
   const rules = await robotsFor(origin);
   if (!isAllowed(rules, pathname + search)) return { ok: false, reason: 'robots.txt asks automated clients not to fetch it' };

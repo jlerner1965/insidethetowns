@@ -47,7 +47,8 @@ export const niwot: TownConfig = {
   social: {
     email: 'hello@insideniwot.com',
   },
-  nav: DEFAULT_TOWN_NAV,
+  // Niwot High's scores and schedules (src/config/school-sports.ts).
+  nav: [...DEFAULT_TOWN_NAV, { label: 'Sports', href: '/sports/' }],
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Niwot,-CO_rb/' },

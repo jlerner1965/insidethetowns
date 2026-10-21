@@ -13,9 +13,8 @@ import { getNetworkHub, getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { highlights, occurrences } from '@/lib/events';
 import { isOpen } from '@/lib/places';
-import type { SportsData } from '@/config/berthoud-sports';
-import { bigGame, formatGameTime, RESULT_WORD, outcome, sitePhrase, when, where } from '@/lib/berthoud-sports';
-import sportsFile from '../../../data/berthoud/sports.json';
+import { schoolSportsFor, type SportsData } from '@/config/school-sports';
+import { bigGame, formatGameTime, RESULT_WORD, outcome, sitePhrase, sportsDataFor, when, where } from '@/lib/school-sports';
 
 const town = getTown();
 // Six, ranked rather than simply soonest (see highlights), so a Thursday
@@ -36,10 +35,13 @@ const placeIndex = pickedFirst(places.filter((p) => !carded.has(p.slug))).slice(
 const articles = (await getTownEntries('articles')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 2);
 const [lead, second] = articles;
 const publisher = getNetworkHub().publisher;
-// Berthoud is the test site for high-school sports (/sports/): the week's
-// big game, chosen as that page chooses it, in a strip under This week.
-// Berthoud's alone until another town has the data.
-const game = town.slug === 'berthoud' ? bigGame(sportsFile as SportsData) : undefined;
+// High-school sports (/sports/), for the towns that follow a school
+// (src/config/school-sports.ts): the week's big game, chosen as that page
+// chooses it, in a strip under the hero.
+const sportsFiles = import.meta.glob<SportsData>('../../../data/*/sports.json', { eager: true, import: 'default' });
+const schoolSports = schoolSportsFor(town.slug);
+const sportsData = schoolSports && sportsDataFor(town.slug, sportsFiles);
+const game = sportsData ? bigGame(sportsData) : undefined;
 // The paths a reader asks for by name, each described in a sentence. Eat &
 // Drink and Things to Do are the two halves of the places; the directory is
 // all of them in one list. The signup sits in This week above, so it is
@@ -57,14 +59,14 @@ const startHere = [
   <Hero />
 
   {/* The scoreboard bar: the week's big game, straight under the photo, in
-     one line a reader can take in without stopping. Berthoud's alone. */}
-  {game && (
+     one line a reader can take in without stopping. */}
+  {game && schoolSports && (
     <section class="border-b-2 border-accent bg-paper" aria-labelledby="big-game">
       <div class="container-page flex flex-col gap-4 py-6 md:flex-row md:items-center md:justify-between md:py-7">
         <div class="min-w-0">
-          <p class="eyebrow">Spartans {game.team.name.toLowerCase()} · {when(game.game)}{game.game.time && ` · ${formatGameTime(game.game)}`}</p>
+          <p class="eyebrow">{schoolSports.mascot} {game.team.name.toLowerCase()} · {when(game.game)}{game.game.time && ` · ${formatGameTime(game.game)}`}</p>
           <h2 id="big-game" class="display-md mt-1.5 text-[1.75rem] md:text-4xl">
-            <a href="/sports/" class="no-underline hover:text-primary">Spartans {where(game.game)} {game.game.opponent}</a>
+            <a href="/sports/" class="no-underline hover:text-primary">{schoolSports.mascot} {where(game.game)} {game.game.opponent}</a>
           </h2>
           <p class="mt-1.5 text-[0.9375rem] text-ink-muted">
             {sitePhrase(game.game)}{game.team.overall && ` · ${game.team.overall} this season`}{game.team.results[0]?.result && ` · last out ${RESULT_WORD[game.team.results[0].result].toLowerCase()} ${outcome(game.team.results[0])}`}

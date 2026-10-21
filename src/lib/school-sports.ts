@@ -1,9 +1,9 @@
 /**
- * Reading data/berthoud/sports.json for the pages: the week's big game,
- * the games to come, and the words for a game. Shared by /sports/ and the
- * Berthoud home page so both lead with the same game.
+ * Reading a town's data/<town>/sports.json for the pages: the week's big
+ * game, the games to come, and the words for a game. Shared by /sports/
+ * and the home page so both lead with the same game.
  */
-import type { SportData, SportGame, SportsData } from '../config/berthoud-sports.ts';
+import type { SportData, SportGame, SportsData } from '../config/school-sports.ts';
 import { dayKey, formatDayLong, formatTime, fromWallClock } from './dates.ts';
 
 export interface TeamGame {
@@ -58,7 +58,7 @@ export function coming(data: SportsData): TeamGame[] {
 /**
  * The big game of the week, not merely the soonest. The teams are listed
  * in order of what the town turns out for (football first,
- * src/config/berthoud-sports.ts), so the first team with a game in the
+ * src/config/school-sports.ts), so the first team with a game in the
  * next seven days leads, and a Tuesday soccer match does not push Friday
  * night off the top. With nothing in the week, the soonest game of any
  * team; with nothing to come at all, undefined.
@@ -71,6 +71,14 @@ export function bigGame(data: SportsData, now = new Date()): TeamGame | undefine
     if (game) return { team, game };
   }
   return coming(data).find((c) => c.game.date >= today);
+}
+
+/**
+ * The town's data file, from the build's bundle of every town's. Vite reads
+ * the glob at build time, so a town without a file simply has no entry.
+ */
+export function sportsDataFor(town: string, files: Record<string, SportsData>): SportsData | undefined {
+  return files[Object.keys(files).find((k) => k.endsWith(`/data/${town}/sports.json`)) ?? ''];
 }
 
 /** The most recent result across the teams. */

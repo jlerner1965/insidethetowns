@@ -7,8 +7,8 @@
  * run summary for a person to look at. A game the calendar does not list at
  * all is published and noted, since silence is not a contradiction.
  */
-import { MAXPREPS_TEAM_HOME, type SportConfig, type SportData, type SportGame, type SportsData } from '../../src/config/berthoud-sports.ts';
-import type { CalendarEvent } from './bhs-calendar.ts';
+import type { SportConfig, SportData, SportGame, SportsData } from '../../src/config/school-sports.ts';
+import type { CalendarEvent } from './finalsite-calendar.ts';
 import type { TeamPage } from './maxpreps.ts';
 
 /** "Mountain View High School" and "Mountain View" are the same school. */
@@ -124,8 +124,8 @@ export function emptyEntry(sport: SportConfig, page: TeamPage, now: string): Spo
 }
 
 /** The previous run's entry, kept as it was, when this run could not replace it. */
-export function keepPrevious(sport: SportConfig, previous: SportsData | undefined): SportData {
+export function keepPrevious(sport: SportConfig, previous: SportsData | undefined, maxprepsRoot: string): SportData {
   const old = previous?.sports.find((s) => s.key === sport.key);
   if (old) return { ...old, name: sport.name };
-  return { key: sport.key, name: sport.name, maxprepsUrl: `${MAXPREPS_TEAM_HOME}${sport.maxpreps}/`, results: [], upcoming: [], held: [], notes: [] };
+  return { key: sport.key, name: sport.name, maxprepsUrl: `${maxprepsRoot}${sport.maxpreps}/`, results: [], upcoming: [], held: [], notes: [] };
 }

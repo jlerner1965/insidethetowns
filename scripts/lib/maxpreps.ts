@@ -19,7 +19,7 @@
 import { execFile } from 'node:child_process';
 import { setTimeout as sleep } from 'node:timers/promises';
 import { promisify } from 'node:util';
-import { MAXPREPS_TEAM_HOME, type SportGame } from '../../src/config/berthoud-sports.ts';
+import type { SportGame } from '../../src/config/school-sports.ts';
 import { isAllowed } from './robots.ts';
 import { robotsFor, TIMEOUT, UA } from './probe.ts';
 
@@ -134,8 +134,8 @@ function ordinal(n: number): string {
   return `${n}${s[(v - 20) % 10] ?? s[v] ?? s[0]}`;
 }
 
-function toGame(c: MpContest, us: string, kickoff?: string): SportGame | undefined {
-  const mine = c.teams?.find((t) => t.teamCanonicalUrl?.startsWith(us) || t.schoolName === 'Berthoud');
+function toGame(c: MpContest, us: Team, kickoff?: string): SportGame | undefined {
+  const mine = c.teams?.find((t) => t.teamCanonicalUrl?.startsWith(us.url) || t.schoolName === us.schoolName);
   const theirs = c.teams?.find((t) => t !== mine);
   const date = dateFromUrl(c.canonicalUrl ?? '') ?? (c.hasResult ? kickoff : c.timestamp)?.slice(0, 10);
   if (!mine || !date || !c.canonicalUrl) return undefined;
@@ -153,8 +153,14 @@ function toGame(c: MpContest, us: string, kickoff?: string): SportGame | undefin
   return game;
 }
 
-export function parseTeamPage(html: string, sport: string): TeamPage {
-  const url = `${MAXPREPS_TEAM_HOME}${sport}/`;
+/** The team page being read: its URL, and the school's name as MaxPreps writes it in a game's data. */
+export interface Team {
+  url: string;
+  schoolName: string;
+}
+
+export function parseTeamPage(html: string, us: Team): TeamPage {
+  const { url } = us;
   const page: TeamPage = { url, glance: [], results: [], warnings: [] };
 
   const raw = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/)?.[1];
@@ -189,7 +195,7 @@ export function parseTeamPage(html: string, sport: string): TeamPage {
     else page.warnings.push('no "Schedule at a Glance" card');
   }
   for (const c of glance) {
-    const g = toGame(c, url);
+    const g = toGame(c, us);
     if (g) page.glance.push(g);
     else page.warnings.push(`a game in the glance card could not be read (${c.contestId})`);
   }
@@ -199,7 +205,7 @@ export function parseTeamPage(html: string, sport: string): TeamPage {
   for (const p of posts) {
     if (p.title !== 'Game Results' || !p.data?.contestId || seen.has(p.data.contestId)) continue;
     seen.add(p.data.contestId);
-    const g = toGame(p.data as MpContest, url, p.timeStamp);
+    const g = toGame(p.data as MpContest, us, p.timeStamp);
     if (g?.result || g?.place) page.results.push(g);
   }
   // The glance card's own played games, when the posts feed missed them (a meet, say).
