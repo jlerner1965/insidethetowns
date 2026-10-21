@@ -50,12 +50,17 @@ both.
 After verification, submit the sitemap index for each property (below), and
 set the property's users so the owner is not the only one who can read it.
 **Done, 20 October 2026.** The owner reports every live domain added to
-Google Search Console and to Bing Webmaster Tools. Nothing in this
-repository can read either account, so the weekly table below is filled by
-a person from the Performance and Pages reports; the first useful rows are
-four weeks out, when the data has settled. If a sitemap index has not been
-submitted on a property, submit it from the table below; it costs nothing to
-submit twice.
+Google Search Console and to Bing Webmaster Tools, and the GSC Wizard
+plugin connected the same day reads the Google side: every guide, the hub
+and carbonvalleyguide.com has a verified `sc-domain:` property (the DNS
+route), and each has a sitemap submitted, as `/sitemap.xml` or
+`/sitemap-index.xml`. Inside Castle Rock's was submitted as `/site.xml`,
+which does not exist; resubmit it when the site launches. The Google
+connection is read-only, so submitting stays a Search Console task, and
+Bing is not connected (it needs a Bing Webmaster API key in the plugin).
+The Performance figures in the weekly table below can be read through the
+plugin; the Pages report's indexed count cannot, and stays a person's job.
+The first read of the data is docs/SEARCH-CONSOLE-2026-10-20.md.
 
 ## Sitemap URLs
 
@@ -105,13 +110,17 @@ is the honest starting point.
 
 | Week of | Site | Indexed pages ¹ | Impressions ¹ | Clicks ¹ | Non-brand queries ¹ | Queries in positions 4–20 ¹ | Independent referring domains ² | Signups from search ³ | Event-page visits ⁴ | Sponsor impressions / clicks ⁵ |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 2026-10-12 | Inside Lyons | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | n/a (no sponsor) |
-| 2026-10-12 | Inside Niwot | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | n/a (no sponsor) |
-| 2026-10-12 | Inside Golden | unknown | unknown | unknown | unknown | unknown | unknown | unknown | unknown | n/a (no sponsor) |
+| 2026-10-12 | Inside Lyons | unknown | 427 | 14 | 82 | 41 | unknown | unknown | unknown | n/a (no sponsor) |
+| 2026-10-12 | Inside Niwot | unknown | 521 | 18 | 59 | 25 | unknown | unknown | unknown | n/a (no sponsor) |
+| 2026-10-12 | Inside Golden | unknown | 922 | 34 | 138 | 37 | unknown | unknown | unknown | n/a (no sponsor) |
 
 ¹ Google Search Console, Performance report for the property, the seven days
 ending the Sunday of the row; "indexed pages" from the Pages report. A
 non-brand query is one that does not contain "inside" with the town's name.
+The 12 October row was read through the Search Console API on 20 October
+2026 (docs/SEARCH-CONSOLE-2026-10-20.md): no query that week contained the
+brand, so the non-brand count is every query Google listed; the Pages report
+is not in the API, so indexed pages stay unknown until read by hand.
 ² Hand-counted from Search Console's Links report or any link tool the owner
 uses, with every `inside*.com` and `insidethetowns.com` domain excluded: the
 sister-guide footers link every guide from every other, and those are not
@@ -167,7 +176,7 @@ nothing moves to "done" here until it is.
 |---|---|---|---|
 | 1 | Pages answer the searcher: Start here, refreshed date and big dates on /events/, place titles and "In the guides", Article and Moving Here structured data, flagship `related` links, verification from the environment | Repository | Shipped, PR #132 |
 | 2 | Signal over noise: past events as one count in the validator (`--past` lists them), a second daily rebuild at 17:10 UTC, About titles not doubled, Golden's commute line, the hub snippet ending at its full stop, outbound links on the three flagships checked (0 dead) | Repository | This phase |
-| 3 | Editorial, needs a person or a business's facts: ~~verify the Search Console properties and submit the sitemaps~~ (done, 20 October 2026, owner's word); fix the Buttondown description and send the first issue; confirm the core event sources for Lyons, Niwot and Golden; roll forward or delete the 169 past events; reword or source the 13 unreadable hours lines; the photo list (docs/PHOTO-PRIORITIES.md); the outreach list (docs/OUTREACH-FLAGSHIPS.md); extend `related` links to the other nineteen guides' articles; verify the 2026 Holiday Parade date with the Business Association | Owner, with the weekly session | Each line struck through here with a date |
+| 3 | Editorial, needs a person or a business's facts: ~~verify the Search Console properties and submit the sitemaps~~ (done, 20 October 2026: owner's word, and read through GSC Wizard the same day; Castle Rock's resubmit at launch, docs/SEARCH-CONSOLE-2026-10-20.md); fix the Buttondown description and send the first issue; confirm the core event sources for Lyons, Niwot and Golden; roll forward or delete the 169 past events; reword or source the 13 unreadable hours lines; the photo list (docs/PHOTO-PRIORITIES.md); the outreach list (docs/OUTREACH-FLAGSHIPS.md); extend `related` links to the other nineteen guides' articles; verify the 2026 Holiday Parade date with the Business Association | Owner, with the weekly session | Each line struck through here with a date |
 | 4 | Measurement and commercial proof, after four weeks of Search Console and sends: fill the weekly table above, decide the three flagships' sponsor placements from real numbers, publish a rate card only if they hold | Owner | First rate card, or a dated decision not to publish one yet |
 
 ## Done in this phase, in the code
