@@ -19,8 +19,24 @@ npm run review                # the summary, then everything in staging: approve
 npm run auto-review -- --dry-run   # what the standing rules would approve without a person, and why the rest waits
 npm run recheck -- --town=lyons    # the next 14 days of events read against their sources again; --write stamps and flags (see below)
 npm run confirm -- lyons old-time-jam --how=phone --with="Oskar Blues"   # record a call to an organizer
+npm run sports -- --write          # Berthoud High scores from MaxPreps, checked against the school calendar (see below)
 scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
 ```
+
+## Berthoud High sports
+
+Berthoud is the test site for a sports page: `/sports/` on Inside Berthoud shows
+each followed team's record, last result and next game, read from the team's
+MaxPreps home page by `.github/workflows/sports-maxpreps.yml` on Saturday
+mornings (Friday night's scores) and Wednesdays. The teams are listed in
+`src/config/berthoud-sports.ts`; the run writes `data/berthoud/sports.json`
+(never `content/`), commits it to main, and the Berthoud site rebuilds. Each
+game to come is checked against the school's own calendar (bhs.tsd.org): where
+the two disagree on the day, time or opponent the game is held off the page and
+named in the run's summary. A team whose page cannot be read or parsed keeps its
+last good entry and its "updated" date; nothing guessed or partial is written.
+`npm run sports` prints what a run would do; `--sport=football` reads one team's
+page and prints it.
 
 ## The weekly content session
 
