@@ -10,7 +10,7 @@ category: family
 organizer: "Garden of the Gods Visitor & Nature Center"
 organizerUrl: "https://gardenofgods.com/"
 source: "https://gardenofgods.com/"
-verified: "2026-10-20"
+verified: "2026-10-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): 25 October and 1 pm on the page"
 ---
 

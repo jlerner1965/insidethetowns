@@ -7,7 +7,7 @@ address: "451 4th Ave, Lyons, CO 80540"
 url: "https://lyons.librarycalendar.com/event/friends-library-book-sale-11922"
 category: market
 source: "https://lyons.librarycalendar.com/event/friends-library-book-sale-11922"
-verified: "2026-10-20"
+verified: "2026-10-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Friends of the Library Fall Book Haul\" at 10 am on 24 October on the lyons.librarycalendar.com feed"
 ---
 

@@ -10,7 +10,7 @@ source: "https://longmontcolorado.gov/event/noche-de-museo-celebrating-day-of-th
 sourceId: "longmontcolorado-gov-museum"
 sourceUid: "10008918-1793386800-1793394000@longmontcolorado.gov"
 sourceHash: "d79a1bad49c7"
-verified: "2026-10-20"
+verified: "2026-10-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Noche de Museo: Celebrating Day of the Dead\" at 7 pm on 30 October on the Longmont Museum (City of Longmont calendar) feed"
 ---
 

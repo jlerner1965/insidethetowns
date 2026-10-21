@@ -10,7 +10,7 @@ source: "https://longmontcolorado.gov/event/teen-make-art-part-ii/"
 sourceId: "longmontcolorado-gov-library"
 sourceUid: "10008720-1792688400-1792692000@longmontcolorado.gov"
 sourceHash: "2f09255781c3"
-verified: "2026-10-20"
+verified: "2026-10-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen Take-Apart Art (Part 2)\" at 5 pm on 22 October on the Longmont Public Library (City of Longmont calendar) feed"
 ---
 
