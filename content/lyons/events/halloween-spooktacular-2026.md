@@ -14,10 +14,8 @@ timeNote: "Kids' activities from 4 p.m.; parade at 6 p.m."
 organizer: "Town of Lyons"
 organizerUrl: "https://www.townoflyons.com/775/Halloween-Spooktacular"
 source: "https://www.townoflyons.com/775/Halloween-Spooktacular"
-verified: "2026-10-17"
-verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 17 October 2026"
-changeFlag: true
-changeNote: "recheck 2026-10-20: the townoflyons.com feed lists \"Lyons Spooktacular\" at 4:30 pm on 24 October, not 4 pm"
+verified: "2026-10-21"
+verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 
 The Town's schedule for the day:
