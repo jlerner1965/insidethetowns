@@ -20,7 +20,7 @@ draft email and the two domains never to write to.
 
 | Task | Organisation | URL | Status |
 |---|---|---|---|
-| Chamber or merchant association link | Lyons Area Chamber of Commerce | No website of its own found; operates through Facebook and the Boulder Chamber directory (docs/BACKLINKS.md) | Not contacted |
+| Chamber or merchant association link | Lyons Area Chamber of Commerce | No website of its own found; operates through Facebook and the Boulder Chamber directory (docs/BACKLINKS.md) | Contacted: the owner has spoken with them (reported 20 October 2026; date and content to log). The distribution ask is drafted in docs/relationships/drafts/lyons-chamber-2026-10-20.md |
 | Municipality link | Town of Lyons (government and visitor sites, one relationship) | https://www.townoflyons.com/ · https://www.lyonscolorado.com/ | Not contacted |
 | Library link | Lyons Regional Library District | https://lyons.colibraries.org/ | Permission email drafted in docs/SOURCE-PERMISSION-EMAILS.md; not sent |
 | Museum or historical society link | Lyons Redstone Museum / Lyons Historical Society | https://www.lyonsredstonemuseum.com/ | Not contacted |
