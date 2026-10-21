@@ -13,8 +13,8 @@ sourceHash: "7bc7b20e8ca0"
 address: "7 Park Ave, Firestone, CO 80504"
 organizer: "High Plains Library District"
 organizerUrl: "https://www.mylibrary.us/"
-verified: "2026-10-05"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-21"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen Dungeons & Dragons\" at 3:45 pm on 3 November on the Carbon Valley Regional Library (High Plains Library District), LibCal feed"
 ---
 
 A three-hour Dungeons & Dragons session for middle- and high-school players in the library’s Storytime Room. Registration opens at 3:45 pm on Tuesday 20 October; the next session is on 1 December.

@@ -7,7 +7,7 @@ url: "https://music.colostate.edu/events/concert-orchestra-concert-peter-and-the
 cost: "Free"
 category: family
 source: "https://music.colostate.edu/events/concert-orchestra-concert-peter-and-the-wolf-free/"
-verified: "2026-10-20"
+verified: "2026-10-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Concert Orchestra Concert: Peter and the Wolf / FREE\" at 7:30 pm on 21 October on the music.colostate.edu feed"
 ---
 

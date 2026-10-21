@@ -10,7 +10,7 @@ cost: "$35 general admission, $50 VIP, $25 discount tickets (plus a $1 fee per t
 category: arts
 organizer: "Tabor Opera House"
 source: "https://taboroperahouse.org/events/calendar"
-verified: "2026-10-20"
+verified: "2026-10-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): 22 October on the page"
 timeNote: "Show times and prices on the box office page"
 ---

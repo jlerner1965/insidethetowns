@@ -8,7 +8,7 @@ url: "https://marketspread.com/market/21488/elbert-county-marketplace/"
 category: market
 recurring: "Alternate Saturdays, April to December"
 source: "https://marketspread.com/market/21488/elbert-county-marketplace/"
-verified: "2026-10-20"
+verified: "2026-10-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): 31 October and 9 am on the page"
 ---
 

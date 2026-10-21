@@ -13,7 +13,7 @@ sourceHash: "10bb006a0b35"
 address: "7 Park Ave, Firestone, CO 80504"
 organizer: "High Plains Library District"
 organizerUrl: "https://www.mylibrary.us/"
-verified: "2026-10-20"
+verified: "2026-10-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Genealogy Presentation: Saying Goodbye: Our Ancestors’ Traditions of Death and Dying\" at 6 pm on 21 October on the Carbon Valley Regional Library (High Plains Library District), LibCal feed"
 ---
 
