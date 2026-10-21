@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-21T19:12:59.657Z",
+  "generated": "2026-10-21T20:16:49.538Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/football/",
-      "fetched": "2026-10-21T19:12:59.657Z",
-      "maxprepsUpdated": "2026-10-21T16:05:31",
+      "fetched": "2026-10-21T20:16:49.538Z",
+      "maxprepsUpdated": "2026-10-21T20:09:33",
       "overall": "3-5",
       "league": {
         "record": "1-3",
@@ -79,6 +79,28 @@
             "us": 34,
             "them": 43
           }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Mountain View",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/mountain-view-loveland-vs-niwot/9-4-2026/",
+          "result": "W",
+          "score": {
+            "us": 44,
+            "them": 16
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Littleton",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/littleton-vs-niwot/8-28-2026/",
+          "result": "W",
+          "score": {
+            "us": 58,
+            "them": 14
+          }
         }
       ],
       "upcoming": [
@@ -106,7 +128,7 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/soccer/",
-      "fetched": "2026-10-21T19:12:59.657Z",
+      "fetched": "2026-10-21T20:16:49.538Z",
       "maxprepsUpdated": "2026-10-21T17:28:30",
       "overall": "2-7-5",
       "league": {
@@ -169,6 +191,105 @@
             "us": 2,
             "them": 1
           }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Silver Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/niwot-vs-silver-creek-longmont/9-29-2026/",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Frederick",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/frederick-vs-niwot/9-24-2026/",
+          "result": "T",
+          "score": {
+            "us": 0,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/greeley-central-vs-niwot/9-15-2026/",
+          "result": "T",
+          "score": {
+            "us": 0,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-09",
+          "opponent": "Prairie View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/niwot-vs-prairie-view-henderson/9-9-2026/",
+          "result": "T",
+          "score": {
+            "us": 0,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Cheyenne Mountain",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/cheyenne-mountain-colorado-springs-vs-niwot/9-4-2026/",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Wheat Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/niwot-vs-wheat-ridge/9-1-2026/",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Skyline",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/niwot-vs-skyline-longmont/8-27-2026/",
+          "result": "T",
+          "score": {
+            "us": 1,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Poudre",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/niwot-vs-poudre-fort-collins/8-25-2026/",
+          "result": "W",
+          "score": {
+            "us": 1,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "Legacy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/legacy-broomfield-vs-niwot/8-20-2026/",
+          "result": "T",
+          "score": {
+            "us": 0,
+            "them": 0
+          }
         }
       ],
       "upcoming": [
@@ -189,8 +310,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/volleyball/",
-      "fetched": "2026-10-21T19:12:59.657Z",
-      "maxprepsUpdated": "2026-10-21T15:45:30",
+      "fetched": "2026-10-21T20:16:49.538Z",
+      "maxprepsUpdated": "2026-10-21T19:49:16",
       "overall": "14-3",
       "league": {
         "record": "11-1",
@@ -252,6 +373,138 @@
             "us": 2,
             "them": 3
           }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Holy Family",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/holy-family-broomfield-vs-niwot/10-1-2026/",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Mead",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mead-longmont-vs-niwot/9-29-2026/",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-23",
+          "opponent": "Silver Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/niwot-vs-silver-creek-longmont/9-23-2026/",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Frederick",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-niwot/9-22-2026/",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Centaurus",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/centaurus-lafayette-vs-niwot/9-17-2026/",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Longmont",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/longmont-vs-niwot/9-15-2026/",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Monarch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/monarch-louisville-vs-niwot/9-10-2026/",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Cheyenne Mountain",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/cheyenne-mountain-colorado-springs-vs-niwot/9-4-2026/",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Alamosa",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/alamosa-vs-niwot/8-29-2026/",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "The Classical Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/niwot-vs-the-classical-academy-colorado-springs/8-29-2026/",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Mountain View",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-niwot/8-28-2026/",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Berthoud",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-niwot/8-28-2026/",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
         }
       ],
       "upcoming": [
@@ -268,6 +521,20 @@
           "site": "away",
           "url": "https://www.maxpreps.com/co/volleyball/match/holy-family-broomfield-vs-niwot/10-27-2026/",
           "time": "18:30"
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Fossil Ridge",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/fossil-ridge-fort-collins-vs-niwot/10-30-2026/",
+          "time": "09:45"
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Fossil Ridge",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/fossil-ridge-fort-collins-vs-niwot/10-30-2026/",
+          "time": "09:45"
         }
       ],
       "held": [],
@@ -276,10 +543,97 @@
       ]
     },
     {
+      "key": "softball",
+      "name": "Softball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/softball/fall/",
+      "fetched": "2026-10-21T20:16:49.538Z",
+      "maxprepsUpdated": "2026-10-21T17:14:31",
+      "overall": "15-11",
+      "league": {
+        "record": "9-5",
+        "name": "5A/4A/3A Granite Peaks",
+        "place": "4th"
+      },
+      "results": [
+        {
+          "date": "2026-10-17",
+          "opponent": "Falcon",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/falcon-vs-niwot/10-17-2026/",
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 15
+          }
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Eagle Valley",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/eagle-valley-gypsum-vs-niwot/10-17-2026/",
+          "result": "W",
+          "score": {
+            "us": 16,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Falcon",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/falcon-vs-niwot/10-17-2026/",
+          "result": "L",
+          "score": {
+            "us": 9,
+            "them": 17
+          }
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Longmont",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/longmont-vs-niwot/10-3-2026/",
+          "result": "W",
+          "score": {
+            "us": 16,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Monarch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/monarch-louisville-vs-niwot/10-1-2026/",
+          "result": "W",
+          "score": {
+            "us": 6,
+            "them": 5
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Centaurus",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/centaurus-lafayette-vs-niwot/9-29-2026/",
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 1
+          }
+        }
+      ],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "no school calendar to check against",
+        "MaxPreps page: scores differ for 2026-10-17 Falcon"
+      ]
+    },
+    {
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/cross-country/",
-      "fetched": "2026-10-21T19:12:59.657Z",
+      "fetched": "2026-10-21T20:16:49.538Z",
       "maxprepsUpdated": "2026-10-21T16:40:31",
       "results": [],
       "upcoming": [],
@@ -293,7 +647,7 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/cross-country/girls/",
-      "fetched": "2026-10-21T19:12:59.657Z",
+      "fetched": "2026-10-21T20:16:49.538Z",
       "maxprepsUpdated": "2026-10-21T19:13:17",
       "results": [],
       "upcoming": [],
