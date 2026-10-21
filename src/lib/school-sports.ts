@@ -81,6 +81,19 @@ export function sportsDataFor(town: string, files: Record<string, SportsData>): 
   return files[Object.keys(files).find((k) => k.endsWith(`/data/${town}/sports.json`)) ?? ''];
 }
 
+/** Every result across the teams, newest first: the scoreboard. */
+export function recentResults(data: SportsData, limit = 6): TeamGame[] {
+  return data.sports
+    .flatMap((team) => team.results.map((game) => ({ team, game })))
+    .sort((a, b) => b.game.date.localeCompare(a.game.date))
+    .slice(0, limit);
+}
+
+/** A team's season in order, oldest first: the results, then the games to come. */
+export function season(team: SportData): SportGame[] {
+  return [...team.results].reverse().concat(team.upcoming);
+}
+
 /** The most recent result across the teams. */
 export function latestResult(data: SportsData): TeamGame | undefined {
   return data.sports
