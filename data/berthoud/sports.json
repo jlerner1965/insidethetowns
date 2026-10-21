@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-21T16:06:27.145Z",
+  "generated": "2026-10-21T16:12:16.534Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/football/",
-      "fetched": "2026-10-21T16:06:27.145Z",
+      "fetched": "2026-10-21T16:12:16.534Z",
       "maxprepsUpdated": "2026-10-21T16:06:57",
       "overall": "6-2",
       "league": {
@@ -98,15 +98,13 @@
         }
       ],
       "held": [],
-      "notes": [
-        "the school calendar was not read, so nothing was checked against it"
-      ]
+      "notes": []
     },
     {
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/soccer/",
-      "fetched": "2026-10-21T16:06:27.145Z",
+      "fetched": "2026-10-21T16:12:16.534Z",
       "maxprepsUpdated": "2026-10-21T15:49:04",
       "overall": "7-7",
       "league": {
@@ -203,15 +201,13 @@
         }
       ],
       "held": [],
-      "notes": [
-        "the school calendar was not read, so nothing was checked against it"
-      ]
+      "notes": []
     },
     {
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/volleyball/",
-      "fetched": "2026-10-21T16:06:27.145Z",
+      "fetched": "2026-10-21T16:12:16.534Z",
       "maxprepsUpdated": "2026-10-21T15:45:51",
       "overall": "14-5",
       "league": {
@@ -304,27 +300,35 @@
         }
       ],
       "held": [],
-      "notes": [
-        "the school calendar was not read, so nothing was checked against it"
-      ]
+      "notes": []
     },
     {
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/",
+      "fetched": "2026-10-21T16:12:16.534Z",
+      "maxprepsUpdated": "2026-10-21T16:07:12",
       "results": [],
       "upcoming": [],
       "held": [],
-      "notes": []
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
     },
     {
       "key": "girls-cross-country",
       "name": "Girls cross country",
-      "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/girls-cross-country/",
+      "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/girls/",
+      "fetched": "2026-10-21T16:12:16.534Z",
+      "maxprepsUpdated": "2026-10-21T16:12:52",
       "results": [],
       "upcoming": [],
       "held": [],
-      "notes": []
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
     }
   ]
 }
