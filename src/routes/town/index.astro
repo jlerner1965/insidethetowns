@@ -14,7 +14,7 @@ import { getTownEntries } from '@/lib/content';
 import { highlights, occurrences } from '@/lib/events';
 import { isOpen } from '@/lib/places';
 import { schoolSportsFor, type SportsData } from '@/config/school-sports';
-import { bigGame, formatGameTime, RESULT_WORD, outcome, sitePhrase, sportsDataFor, when, where } from '@/lib/school-sports';
+import { bigGame, formatGameTime, RESULT_WORD, outcome, schoolCssVars, sitePhrase, sportsDataFor, when, where } from '@/lib/school-sports';
 
 const town = getTown();
 // Six, ranked rather than simply soonest (see highlights), so a Thursday
@@ -61,7 +61,7 @@ const startHere = [
   {/* The scoreboard bar: the week's big game, straight under the photo, in
      one line a reader can take in without stopping. */}
   {game && schoolSports && (
-    <section class="border-b-2 border-accent bg-paper" aria-labelledby="big-game">
+    <section class="border-b-2 border-accent bg-paper" aria-labelledby="big-game" style={schoolCssVars(schoolSports)}>
       <div class="container-page flex flex-col gap-4 py-6 md:flex-row md:items-center md:justify-between md:py-7">
         <div class="min-w-0">
           <p class="eyebrow">{schoolSports.mascot} {game.team.name.toLowerCase()} · {when(game.game)}{game.game.time && ` · ${formatGameTime(game.game)}`}</p>
