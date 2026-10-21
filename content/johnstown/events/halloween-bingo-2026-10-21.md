@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/halloween-bingo/"
 cost: "Free"
 category: other
 source: "https://johnstownmillikenpubliclibraries.us/event/halloween-bingo/"
-verified: "2026-10-20"
+verified: "2026-10-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Halloween Bingo\" at 6 pm on 21 October in the page's structured data"
 ---
 

@@ -9,6 +9,7 @@ import type { AstroIntegration } from 'astro';
 import type { SiteConfig } from '../config/towns/types';
 import { PLACE_TYPE_PAGES, placeTypePages } from '../lib/place-types.ts';
 import { openPlaceTypeCounts } from '../lib/raw-places.ts';
+import { SCHOOL_SPORTS } from '../config/school-sports.ts';
 
 const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
   ['/', 'index.astro'],
@@ -52,6 +53,13 @@ const HOLDING_ROUTES: Array<[pattern: string, file: string]> = [['/', 'coming-so
 const SUB_TOWN_ROUTES: Array<[pattern: string, file: string]> = [['/[subTown]', 'sub-town/[subTown].astro']];
 
 /**
+ * High-school sports (data/<town>/sports.json, `npm run sports`): the page is
+ * injected for the towns that follow a school (src/config/school-sports.ts).
+ */
+const SPORTS_TOWNS = new Set(SCHOOL_SPORTS.map((s) => s.town));
+const SPORTS_ROUTES: Array<[pattern: string, file: string]> = [['/sports', 'sports.astro']];
+
+/**
  * One page per kind of place the town has enough of: /restaurants/,
  * /trails/, /parks/ (src/lib/place-types.ts). Each is the same component
  * at a fixed path, which reads the kind off its own URL; a dynamic
@@ -91,7 +99,12 @@ export function townRoutes(site: SiteConfig): AstroIntegration {
           site.kind === 'hub'
             ? HUB_ROUTES
             : site.status === 'live'
-              ? [...TOWN_ROUTES, ...(site.subTowns?.length ? SUB_TOWN_ROUTES : []), ...placeTypeRoutes(site.slug)]
+              ? [
+                  ...TOWN_ROUTES,
+                  ...(site.subTowns?.length ? SUB_TOWN_ROUTES : []),
+                  ...(SPORTS_TOWNS.has(site.slug) ? SPORTS_ROUTES : []),
+                  ...placeTypeRoutes(site.slug),
+                ]
               : HOLDING_ROUTES;
         for (const [pattern, file] of routes) {
           injectRoute({

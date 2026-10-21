@@ -43,7 +43,8 @@ export const berthoud: TownConfig = {
   social: {
     email: 'hello@insideberthoud.com',
   },
-  nav: DEFAULT_TOWN_NAV,
+  // Berthoud High's scores and schedules (src/config/school-sports.ts).
+  nav: [...DEFAULT_TOWN_NAV, { label: 'Sports', href: '/sports/' }],
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Berthoud,-CO_rb/' },

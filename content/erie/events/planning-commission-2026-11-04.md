@@ -8,7 +8,8 @@ cost: "Free"
 category: civic
 recurring: "First and third Wednesdays"
 source: "https://www.erieco.gov/338/Planning-Commission"
-verified: "2026-09-18"
+verified: "2026-10-21"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Planning Commission Meeting\" at 6:30 pm on 4 November on the erieco.gov feed"
 ---
 
 Regular meeting of the Erie Planning Commission in the Council Chambers at Town Hall, first and third Wednesdays at 6:30 pm, on development applications, annexations and the comprehensive plan. Streamed live; agendas post 24 hours ahead.

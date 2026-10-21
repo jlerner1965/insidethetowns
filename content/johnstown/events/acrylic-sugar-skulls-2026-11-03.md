@@ -8,7 +8,8 @@ url: "https://johnstownmillikenpubliclibraries.us/event/acrylic-sugar-skulls/"
 cost: "Free"
 category: family
 source: "https://johnstownmillikenpubliclibraries.us/event/acrylic-sugar-skulls/"
-verified: "2026-10-03"
+verified: "2026-10-21"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Acrylic Sugar Skulls\" at 2 pm on 3 November in the page's structured data"
 ---
 
 Celebrate Día de los Muertos in the Makerspace by making a colorful acrylic sugar skull. All ages, drop in.
