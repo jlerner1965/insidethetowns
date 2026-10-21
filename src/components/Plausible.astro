@@ -1,0 +1,29 @@
+---
+/**
+ * Plausible Analytics, on a guide whose config sets `plausible`
+ * (TownConfig.plausible). Base.astro renders this only there, so no other
+ * site ships the script.
+ *
+ * The options are the ones Plausible's own snippet for insideberthoud.com had
+ * switched on: outbound link clicks, file downloads and form submissions,
+ * each an event with the page's path and nothing typed into the form.
+ */
+interface Props {
+  /** The site as Plausible knows it: the guide's domain. */
+  domain: string;
+}
+
+const { domain } = Astro.props;
+---
+<span hidden data-plausible-domain={domain}></span>
+
+<script>
+  import { init } from '@plausible-analytics/tracker';
+
+  const domain = document.querySelector<HTMLElement>('[data-plausible-domain]')?.dataset.plausibleDomain;
+  // The production domain only: a preview deployment on vercel.app would
+  // otherwise land in the guide's own figures.
+  if (domain && location.hostname.replace(/^www\./, '') === domain) {
+    init({ domain, outboundLinks: true, fileDownloads: true, formSubmissions: true });
+  }
+</script>

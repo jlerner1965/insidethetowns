@@ -26,6 +26,7 @@ import { getNetworkHub, getSite } from '@/config';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import Freshness from '@/components/Freshness.astro';
+import Plausible from '@/components/Plausible.astro';
 import SEO from '@/components/SEO.astro';
 import { siteJsonLd } from '@/lib/seo';
 import { verificationTags } from '@/lib/verification';
@@ -45,6 +46,7 @@ interface Props {
 
 const site = getSite();
 const analytics = getNetworkHub().analytics === true;
+const plausible = site.kind === 'town' && site.plausible === true;
 const { jsonLd, kind, ...props } = Astro.props;
 // A town that has not launched serves a holding page; nothing on it, nor the
 // shared pages around it, should be indexed before the guide exists.
@@ -101,5 +103,6 @@ const cssVars = [
     <Footer />
     <Freshness />
     {analytics && <Analytics />}
+    {plausible && <Plausible domain={site.domain} />}
   </body>
 </html>

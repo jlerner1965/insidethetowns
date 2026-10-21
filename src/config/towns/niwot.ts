@@ -67,4 +67,5 @@ export const niwot: TownConfig = {
     policeNonEmergencyLabel: 'Boulder County Sheriff',
   },
   formspreeId: 'xbglgygb',
+  plausible: true,
 };

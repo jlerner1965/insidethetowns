@@ -5825,3 +5825,19 @@ step as the small mountain guides: quiet, not retire.
   three cities stay tagged and get nothing until a guide rejoins. On each
   decide-by date a quiet guide either rejoins (the field comes off) or
   goes (a holding page and redirects, with no neighbour to take a city).
+
+## Plausible on Berthoud, Lyons and Niwot, 21 October 2026
+
+- **Plausible Analytics counts the three guides**, the owner's request,
+  beside the network's Vercel Web Analytics rather than instead of it.
+  `plausible: true` in a town's config switches it on; each guide reports
+  under its own domain, so each needs to be a site in the Plausible account.
+- **From the npm package, not Plausible's snippet.** The snippet is a script
+  on plausible.io plus an inline one, and the CSP allows neither; bundled,
+  the script is served from the guide itself and only `connect-src` widens,
+  to https://plausible.io, for the events. `npm run validate` fails if a
+  guide has it on and the CSP does not list it. The options are the ones
+  the Berthoud snippet had on: outbound links, downloads, form submissions.
+  Previews on vercel.app send nothing.
+- **/privacy/ names it** on those three guides. Still no cookie banner:
+  Plausible sets no cookies either.

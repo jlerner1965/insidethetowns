@@ -18,7 +18,8 @@ import { PRIVACY_LINE } from '@/lib/privacy';
 
 const site = getSite();
 const hub = getNetworkHub();
-const analytics = Boolean(site.ga4Id) || hub.analytics === true;
+const plausible = site.kind === 'town' && site.plausible === true;
+const analytics = Boolean(site.ga4Id) || hub.analytics === true || plausible;
 const submitForm = Boolean(site.formspreeId);
 const newsletter = Boolean(hub.newsletter);
 const forms = submitForm || newsletter;
@@ -80,6 +81,14 @@ const quiet = !analytics && !forms;
           request itself, and that is discarded after 24 hours, so there is nothing that follows you between visits or
           between sites.
         </p>
+        {plausible && (
+          <p>
+            The same counting also goes to <strong>plausible.io</strong> (Plausible Analytics, hosted in the EU), which
+            sets no cookies either: it tells visitors apart by a hash of the request made with a key it throws away
+            every day, and keeps neither your IP address nor the hash. Besides page views it counts clicks on links to
+            other sites, downloads, and that a form was sent, never what was typed in it.
+          </p>
+        )}
         <p>
           What gets recorded is the page, where you came from, roughly where you are (country, region, city), and what
           browser and device you used. No names, no addresses, nothing tied to a person.
