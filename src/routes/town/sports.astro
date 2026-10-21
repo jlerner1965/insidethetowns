@@ -1,32 +1,38 @@
 ---
 /**
- * The town's high school sports: the next game across every team up top, in
- * the town's dark band, then one card per team with the record, the last
- * result and the next game, all read from data/<town>/sports.json. The
- * Saturday and Wednesday runs write that file (`npm run sports`); nothing
- * here is typed in by hand.
+ * The town's high school sports, laid out the way a scores site is: the
+ * records across the top, the next game big in the town's dark band, a
+ * scoreboard of the latest scores, then every team's season as one table,
+ * played games and games to come in one run, all read from
+ * data/<town>/sports.json. The Saturday and Wednesday runs write that file
+ * (`npm run sports`); nothing here is typed in by hand.
+ *
+ * Only the teams in play are laid out: the fall list in
+ * src/config/school-sports.ts, and of those, one MaxPreps has nothing for
+ * (both cross country teams, October 2026) gets a line at the foot rather
+ * than an empty card among the full ones.
  *
  * Built on Base with its own masthead and bands, the way the home page is,
- * rather than on Page: the highlight has to be a full-width band between
- * the masthead and the cards, and Page has no slot there.
+ * rather than on Page: the big game has to be a full-width band between
+ * the masthead and the rest, and Page has no slot there.
  *
  * The route is injected for the towns in src/config/school-sports.ts
  * (src/integrations/town-routes.ts), which also names the school, the
- * mascot and the calendar. A
- * card's "updated" date is the team's own last successful read, so a week
- * MaxPreps could not be reached shows last week's date, not today's. A game
- * the school calendar contradicts is not in the file's `upcoming` list at
- * all (scripts/lib/sports-crosscheck.ts), so the page simply shows the next
- * game the two sources agree on, or none. A school with no calendar a
- * machine may read says so in the footnote.
+ * mascot and the calendar. A team's "updated" date is its own last
+ * successful read, so a week MaxPreps could not be reached shows last
+ * week's date, not today's. A game the school calendar contradicts is not
+ * in the file's `upcoming` list at all (scripts/lib/sports-crosscheck.ts),
+ * so the page simply shows the next game the two sources agree on, or
+ * none. A school with no calendar a machine may read says so in the
+ * footnote.
  */
 import Base from '@/layouts/Base.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
-import { schoolSportsFor, type SportData, type SportsData } from '@/config/school-sports';
+import { schoolSportsFor, type SportData, type SportGame, type SportsData } from '@/config/school-sports';
 import { dayKey, formatDayLong, formatDayShort, formatShortDate, formatTime } from '@/lib/dates';
-import { bigGame, coming, gameDay as day, latestResult, outcome, RESULT_WORD, sitePhrase, sportsDataFor, when, where } from '@/lib/school-sports';
+import { bigGame, coming, gameDay as day, latestResult, outcome, recentResults, RESULT_WORD, season, sitePhrase, sportsDataFor, when, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -38,15 +44,42 @@ const data: SportsData = sportsDataFor(town.slug, files) ?? { generated: '', spo
 const sports: SportData[] = data.sports;
 const MAXPREPS_SCHOOL = cfg.maxpreps;
 const { school, mascot, calendar } = cfg;
-const description = `${school} ${mascot} scores, records and upcoming games: football, soccer, volleyball and cross country, from MaxPreps${calendar ? ', checked against the school calendar' : ''}.`;
+// "football, boys soccer, volleyball, softball and cross country": the teams followed, the two cross country teams as one.
+const followed = [...new Set(cfg.teams.map((t) => t.name.toLowerCase().replace(/^(boys|girls) (cross country)$/, '$2')))];
+const description = `${school} ${mascot} scores, schedules and records this fall: ${followed.slice(0, -1).join(', ')} and ${followed.at(-1)}, from MaxPreps${calendar ? ', checked against the school calendar' : ''}.`;
 
 const now = new Date();
+const today = dayKey(now);
 const next = bigGame(data, now);
-const then = coming(data).filter((c) => c.game.date >= dayKey(now) && c.game.url !== next?.game.url);
+const then = coming(data).filter((c) => c.game.date >= today && c.game.url !== next?.game.url);
 const latest = latestResult(data);
+const board = recentResults(data, 6);
+
+// The teams with a season to show, the ones MaxPreps has nothing for, and
+// the ones whose page has never been read.
+const teams = sports.filter((s) => s.fetched && !s.empty);
+const empties = sports.filter((s) => s.empty);
+const unread = sports.filter((s) => !s.fetched && !s.empty);
 
 const fetchedDates = sports.map((s) => s.fetched).filter(Boolean) as string[];
 const newest = fetchedDates.length ? new Date(fetchedDates.sort().at(-1)!) : undefined;
+
+/** The pill's colours: a win in the primary, a loss in the ink, a tie in the soft accent. */
+const PILL = {
+  W: 'bg-primary text-white',
+  L: 'bg-ink text-raised',
+  T: 'bg-accent-soft text-ink',
+} as const;
+/** "22–0", "3rd", or nothing for a game without a score. */
+const scoreline = (g: SportGame) => (g.score ? `${g.score.us}–${g.score.them}` : g.place ?? '');
+/**
+ * How many games the record counts: "6-2" is eight, "2-7-5" fourteen. The
+ * results list is what MaxPreps's page reports, which can be fewer (the
+ * early season drops off its wall), and the card says so rather than show
+ * a 6-2 record over a five-and-one list.
+ */
+const gamesInRecord = (overall?: string) => (overall ?? '').split('-').map(Number).reduce((a, b) => a + (Number.isFinite(b) ? b : 0), 0);
+
 const jsonLd = [
   collectionPageJsonLd(town, { name: `${school} ${mascot} scores and schedules`, description, path: '/sports/' }),
   breadcrumbJsonLd(town, [
@@ -59,16 +92,48 @@ const jsonLd = [
   <header class="border-b-2 border-accent bg-raised">
     <div class="container-page py-10 md:py-14">
       <div class="max-w-3xl">
-        <p class="eyebrow mb-3">Sports</p>
+        <p class="eyebrow mb-3">Sports · Fall {today.slice(0, 4)}</p>
         <h1 class="display-md text-[2.75rem] md:text-6xl">{school} sports</h1>
         <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted md:text-xl">
-          The {mascot}’ records, last results and next games, read from MaxPreps twice a week{calendar ? ' and checked against the school’s own calendar' : ''}.
-        </p>
-        <p class="mt-5 text-[0.9375rem] text-ink-muted">
-          {newest && <span>Last read {formatShortDate(newest)}. </span>}
-          <a href={MAXPREPS_SCHOOL} rel="noopener" class="font-semibold text-primary underline">Every {mascot} team on MaxPreps</a>{calendar && <Fragment> · <a href={calendar.url} rel="noopener" class="font-semibold text-primary underline">The school calendar</a></Fragment>}
+          The {mascot}’ scores, schedules and records, read from MaxPreps twice a week{calendar ? ' and checked against the school’s own calendar' : ''}.
         </p>
       </div>
+
+      {/* The records strip: every team in play, its record as the headline,
+          each a link to its season below. The first thing a scores site
+          shows, and the one line a parent in the stands wants. */}
+      {teams.length > 0 && (
+        <nav class="mt-8" aria-label="Teams and records">
+          {/* One row per team on a phone, the record at the right edge; from
+              40rem the teams sit side by side as columns. */}
+          <ul class="divide-y divide-line-soft border-y border-line-soft sm:flex sm:divide-x sm:divide-y-0">
+            {teams.map((s) => (
+              <li class="sm:flex-1">
+                <a href={`#${s.key}`} class="group flex items-baseline justify-between gap-4 py-3 no-underline sm:block sm:py-4 sm:pr-6 sm:pl-5 sm:first:pl-0">
+                  <span class="min-w-0">
+                    <span class="eyebrow block">{s.name}</span>
+                    {s.league && (
+                      <span class="mt-0.5 block text-[0.875rem] leading-snug text-ink-muted sm:hidden">
+                        {s.league.place ? `${s.league.place} in the ` : ''}{s.league.name}
+                      </span>
+                    )}
+                  </span>
+                  <span class="display-md shrink-0 whitespace-nowrap text-[2.25rem] text-primary group-hover:underline sm:mt-1 sm:block md:text-5xl">{s.overall ?? '—'}</span>
+                  {s.league && (
+                    <span class="mt-1 hidden whitespace-nowrap text-[0.875rem] text-ink-muted sm:block">
+                      {s.league.place ? `${s.league.place} in the ` : ''}{s.league.name}
+                    </span>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+      <p class="mt-5 text-[0.9375rem] text-ink-muted">
+        {newest && <span>Last read {formatShortDate(newest)}. </span>}
+        <a href={MAXPREPS_SCHOOL} rel="noopener" class="font-semibold text-primary underline">Every {mascot} team on MaxPreps</a>{calendar && <Fragment> · <a href={calendar.url} rel="noopener" class="font-semibold text-primary underline">The school calendar</a></Fragment>}
+      </p>
     </div>
   </header>
 
@@ -100,11 +165,11 @@ const jsonLd = [
         </div>
         {then.length > 0 && (
           <div>
-            <p class="eyebrow text-white/80">Then</p>
+            <p class="eyebrow text-white/80">Also coming up</p>
             <ol class="mt-3 divide-y divide-white/15 border-y border-white/15">
-              {then.slice(0, 4).map(({ team, game }) => (
+              {then.slice(0, 5).map(({ team, game }) => (
                 <li class="flex items-baseline gap-4 py-3">
-                  <time datetime={game.date} class="w-24 shrink-0 text-[0.9375rem] text-white/70">{formatDayShort(day(game))}</time>
+                  <time datetime={game.date} class="w-24 shrink-0 text-[0.9375rem] text-white/70">{game.date === today ? 'Today' : formatDayShort(day(game))}</time>
                   <span class="min-w-0">
                     <span class="font-semibold">{team.name}</span> {where(game)} {game.opponent}
                     {game.time && <span class="text-white/70"> · {formatTime(day(game))}</span>}
@@ -130,106 +195,177 @@ const jsonLd = [
     </section>
   ) : null}
 
+  {/* The scoreboard: the latest scores across the teams, each as the two
+      lines a scores ticker shows, the winner in the heavier ink. */}
+  {board.length > 0 && (
+    <section class="band band-white">
+      <div class="container-page">
+        <SectionHeader eyebrow="Scoreboard" title="Latest scores" id="scores" />
+        <ol class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-labelledby="scores">
+          {board.map(({ team, game }) => {
+            const won = game.result === 'W';
+            const lost = game.result === 'L';
+            return (
+              <li class="rounded-lg bg-paper p-5 ring-1 ring-line-soft">
+                <p class="flex items-baseline justify-between gap-3 text-[0.8125rem] text-ink-muted">
+                  <span class="eyebrow">{team.name}</span>
+                  <span><time datetime={game.date}>{formatDayShort(day(game))}</time> · {sitePhrase(game)}</span>
+                </p>
+                {game.score ? (
+                  <dl class="mt-4 space-y-1.5">
+                    <div class="flex items-baseline justify-between gap-4">
+                      <dt class:list={['text-lg leading-tight', won ? 'font-semibold text-ink' : 'text-ink-muted']}>{mascot}</dt>
+                      <dd class:list={['display-md text-[2rem] tabular-nums', won ? 'text-primary' : 'text-ink-muted']}>{game.score.us}</dd>
+                    </div>
+                    <div class="flex items-baseline justify-between gap-4">
+                      <dt class:list={['text-lg leading-tight', lost ? 'font-semibold text-ink' : 'text-ink-muted']}>{game.opponent}</dt>
+                      <dd class:list={['display-md text-[2rem] tabular-nums', lost ? 'text-ink' : 'text-ink-muted']}>{game.score.them}</dd>
+                    </div>
+                  </dl>
+                ) : (
+                  <p class="display-md mt-4 text-[2rem] text-primary">{game.place ?? '—'} <span class="font-body text-lg tracking-normal text-ink-muted">{where(game)} {game.opponent}</span></p>
+                )}
+                <p class="mt-4 flex items-center gap-2 text-[0.9375rem]">
+                  {game.result && <span class:list={['inline-flex h-6 w-6 items-center justify-center rounded-full text-[0.75rem] font-bold', PILL[game.result]]} aria-hidden="true">{game.result}</span>}
+                  <a href={game.url} rel="noopener" class="font-semibold text-primary underline">{game.result ? RESULT_WORD[game.result] : 'The meet'} on MaxPreps</a>
+                </p>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+    </section>
+  )}
+
+  {/* Every team's season, MaxPreps's way: the record and the run of
+      results up top, then one table from the first game to the last on
+      the schedule, with the score where it has been played and the time
+      where it has not. */}
   <section class="band band-paper">
     <div class="container-page">
       <SectionHeader eyebrow="Every team" title={`The ${mascot} this season`} />
       {sports.length === 0 ? (
         <p class="text-ink-muted">No scores yet: the first read has not run.</p>
       ) : (
-        <ul class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" aria-label="Teams">
-          {sports.map((s) => {
-            const last = s.results[0];
-            const up = s.upcoming[0];
+        <div class="space-y-6">
+          {teams.map((s) => {
+            const games = season(s);
+            const form = [...s.results].reverse();
             const wins = s.results.filter((g) => g.result === 'W').length;
+            const firstToCome = s.upcoming[0]?.url;
+            const counted = gamesInRecord(s.overall);
+            const partial = counted > s.results.length;
             return (
-              <li id={s.key} class="flex scroll-mt-24 flex-col rounded-lg bg-raised p-5 ring-1 ring-primary-line sm:p-6">
-                <p class="eyebrow">{s.name}</p>
-                {s.empty ? (
-                  <Fragment>
-                          <p class="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">{s.empty} <a href={s.maxprepsUrl} rel="noopener" class="underline">The team on MaxPreps</a>.</p>
-                    <p class="mt-auto pt-5 text-xs leading-relaxed text-ink-muted">
-                      Source: <a href={s.maxprepsUrl} rel="noopener" class="underline">MaxPreps</a> · checked {formatShortDate(new Date(s.fetched!))}
+              <article id={s.key} class="scroll-mt-24 rounded-lg bg-raised p-5 ring-1 ring-primary-line sm:p-7" aria-labelledby={`${s.key}-title`}>
+                <header class="grid gap-5 border-b-2 border-accent pb-5 md:grid-cols-[1fr_auto] md:items-end">
+                  <div>
+                    <h3 id={`${s.key}-title`} class="display-md text-3xl md:text-4xl">{s.name}</h3>
+                    <p class="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                      <span class="display-md whitespace-nowrap text-[2.75rem] text-primary md:text-5xl">{s.overall ?? '—'}</span>
+                      {s.league && (
+                        <span class="text-[0.9375rem] leading-snug text-ink-muted">
+                          {s.league.record} in the {s.league.name}{s.league.place && <Fragment>, <strong class="font-semibold text-ink">{s.league.place}</strong></Fragment>}
+                        </span>
+                      )}
                     </p>
-                  </Fragment>
-                ) : s.fetched ? (
-                  <Fragment>
-                    <p class="display-md mt-2 whitespace-nowrap text-[2.75rem] text-primary">{s.overall ?? '—'}</p>
-                    {s.league && <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{s.league.record} in the {s.league.name}{s.league.place && `, ${s.league.place}`}</p>}
+                  </div>
+                  {form.length > 0 && (
+                    <div class="md:text-right">
+                      <p class="eyebrow text-ink-muted">{partial ? `Last ${form.length}` : 'Form'} · {wins} of {form.length} won</p>
+                      <ol class="mt-2 flex flex-wrap gap-1 md:justify-end" aria-label="Results, oldest first">
+                        {form.map((g) => (
+                          <li>
+                            <a
+                              href={g.url}
+                              rel="noopener"
+                              class:list={['inline-flex h-7 w-7 items-center justify-center rounded-sm text-[0.75rem] font-bold no-underline', g.result ? PILL[g.result] : 'bg-accent-soft text-ink']}
+                              title={`${formatDayShort(day(g))}: ${g.result ? `${RESULT_WORD[g.result]} ` : ''}${outcome(g)}`}
+                            >
+                              <span aria-hidden="true">{g.result ?? '·'}</span>
+                              <span class="sr-only">{formatDayShort(day(g))}: {g.result ? `${RESULT_WORD[g.result]} ` : ''}{outcome(g)}</span>
+                            </a>
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                  )}
+                </header>
 
-                    <dl class="mt-5 space-y-4 text-[0.9375rem] leading-snug">
-                      <div class="flex gap-3">
-                        {last?.result ? (
-                          <span
-                            class:list={[
-                              'mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[0.8125rem] font-bold',
-                              last.result === 'W' ? 'bg-primary text-white' : last.result === 'L' ? 'bg-ink text-raised' : 'bg-accent-soft text-ink',
-                            ]}
-                            aria-hidden="true"
-                          >{last.result}</span>
-                        ) : (
-                          <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft text-[0.8125rem] font-bold text-ink" aria-hidden="true">–</span>
-                        )}
-                        <div class="min-w-0">
-                          <dt class="eyebrow text-ink-muted">Last result</dt>
-                          <dd class="mt-0.5">
-                            {last ? (
-                              <Fragment>
-                                <a href={last.url} rel="noopener" class="font-semibold text-ink underline decoration-primary-line underline-offset-2 hover:text-primary">{last.result ? `${RESULT_WORD[last.result]} ` : ''}{outcome(last)}</a>
-                                <span class="block text-ink-muted"><time datetime={last.date}>{formatDayShort(day(last))}</time> · {sitePhrase(last)}</span>
-                              </Fragment>
+                <table class="mt-2 w-full border-collapse text-[0.9375rem]">
+                  <caption class="sr-only">{s.name} schedule and results, oldest first</caption>
+                  <thead>
+                    <tr class="text-left">
+                      <th scope="col" class="eyebrow py-3 pr-3 font-semibold text-ink-muted">Date</th>
+                      <th scope="col" class="eyebrow py-3 pr-3 font-semibold text-ink-muted">Opponent</th>
+                      <th scope="col" class="eyebrow hidden py-3 pr-3 font-semibold text-ink-muted sm:table-cell">Where</th>
+                      <th scope="col" class="eyebrow py-3 text-right font-semibold text-ink-muted">Result</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-line-soft border-y border-line-soft">
+                    {games.map((g) => {
+                      const played = Boolean(g.result || g.score || g.place);
+                      const isNext = g.url === firstToCome;
+                      return (
+                        <tr class:list={[isNext && 'bg-paper']}>
+                          <td class="whitespace-nowrap py-3 pr-3 align-baseline text-ink-muted">
+                            <time datetime={g.time && !played ? `${g.date}T${g.time}` : g.date}>{g.date === today ? 'Today' : formatDayShort(day(g))}</time>
+                          </td>
+                          <td class="py-3 pr-3 align-baseline">
+                            <a href={g.url} rel="noopener" class="font-semibold text-ink underline decoration-primary-line underline-offset-2 hover:text-primary">
+                              <span class="font-normal text-ink-muted">{where(g)}</span> {g.opponent}
+                            </a>
+                            {isNext && <span class="ml-2 rounded-full bg-primary px-2 py-0.5 text-[0.6875rem] font-bold uppercase tracking-eyebrow text-white">Next</span>}
+                          </td>
+                          <td class="hidden py-3 pr-3 align-baseline text-ink-muted sm:table-cell">{sitePhrase(g)}</td>
+                          <td class="whitespace-nowrap py-3 text-right align-baseline">
+                            {played ? (
+                              <span class="inline-flex items-center justify-end gap-2">
+                                {g.result && <span class:list={['inline-flex h-6 w-6 items-center justify-center rounded-full text-[0.75rem] font-bold', PILL[g.result]]} aria-hidden="true">{g.result}</span>}
+                                <span class="font-semibold tabular-nums">{g.result ? <span class="sr-only">{RESULT_WORD[g.result]} </span> : null}{scoreline(g)}</span>
+                              </span>
+                            ) : g.time ? (
+                              <span class="text-ink">{formatTime(day(g))}</span>
                             ) : (
-                              'No result yet this season'
+                              <span class="text-ink-muted">Time TBA</span>
                             )}
-                          </dd>
-                        </div>
-                      </div>
-                      <div class="flex gap-3">
-                        <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full ring-1 ring-primary-line text-[0.8125rem] font-bold text-primary" aria-hidden="true">→</span>
-                        <div class="min-w-0">
-                          <dt class="eyebrow text-ink-muted">Next game</dt>
-                          <dd class="mt-0.5">
-                            {up ? (
-                              <Fragment>
-                                <a href={up.url} rel="noopener" class="font-semibold text-ink underline decoration-primary-line underline-offset-2 hover:text-primary">{where(up)} {up.opponent}</a>
-                                <span class="block text-ink-muted">
-                                  <time datetime={up.time ? `${up.date}T${up.time}` : up.date}>{when(up)}{up.time && ` · ${formatTime(day(up))}`}</time> · {sitePhrase(up)}
-                                </span>
-                              </Fragment>
-                            ) : s.held.length ? (
-                              'To be confirmed: MaxPreps and the school calendar disagree'
-                            ) : (
-                              'None scheduled on MaxPreps'
-                            )}
-                          </dd>
-                        </div>
-                      </div>
-                    </dl>
-
-                    {s.results.length > 1 && (
-                      <details class="mt-5 text-[0.9375rem]">
-                        <summary class="cursor-pointer font-semibold text-primary">This season: {wins} of {s.results.length} won</summary>
-                        <ol class="mt-3 divide-y divide-line-soft border-y border-line-soft" reversed>
-                          {s.results.map((g) => (
-                            <li class="flex items-baseline gap-3 py-2">
-                              <time datetime={g.date} class="w-20 shrink-0 text-ink-muted">{formatDayShort(day(g))}</time>
-                              <span class:list={['w-5 shrink-0 font-bold', g.result === 'W' ? 'text-primary' : 'text-ink-muted']}>{g.result ?? ''}</span>
-                              <a href={g.url} rel="noopener" class="min-w-0 underline decoration-primary-line underline-offset-2 hover:text-primary">{outcome(g)}</a>
-                            </li>
-                          ))}
-                        </ol>
-                      </details>
-                    )}
-                    <p class="mt-auto pt-5 text-xs leading-relaxed text-ink-muted">
-                      Source: <a href={s.maxprepsUrl} rel="noopener" class="underline">MaxPreps</a> · updated {formatShortDate(new Date(s.fetched))}
-                    </p>
-                  </Fragment>
-                ) : (
-                  <p class="mt-3 text-[0.9375rem] text-ink-muted">Not read yet. <a href={s.maxprepsUrl || MAXPREPS_SCHOOL} rel="noopener" class="underline">See the team on MaxPreps</a>.</p>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+                {s.held.length > 0 && (
+                  <p class="mt-4 text-[0.9375rem] leading-relaxed text-ink-muted">
+                    {s.held.length === 1 ? 'One more game' : `${s.held.length} more games`} to be confirmed: MaxPreps and the school calendar disagree.
+                  </p>
                 )}
-              </li>
+                <p class="mt-5 text-xs leading-relaxed text-ink-muted">
+                  {partial && <span>The {s.overall} record counts {counted} games; MaxPreps’s page reports the {s.results.length} above. </span>}
+                  <a href={s.maxprepsUrl} rel="noopener" class="underline">The {s.name.toLowerCase()} team on MaxPreps</a> · updated {formatShortDate(new Date(s.fetched!))}
+                </p>
+              </article>
             );
           })}
-        </ul>
+
+          {(empties.length > 0 || unread.length > 0) && (
+            <ul class="space-y-2 text-[0.9375rem] leading-relaxed text-ink-muted">
+              {empties.length > 0 && (
+                <li>
+                  <strong class="font-semibold text-ink">Also this fall:</strong> {empties.map((s, i) => (
+                    <Fragment>{i > 0 && (i === empties.length - 1 ? ' and ' : ', ')}<a href={s.maxprepsUrl} rel="noopener" class="underline">{s.name.toLowerCase()}</a></Fragment>
+                  ))}. MaxPreps lists no meets or results for {empties.length > 1 ? 'them' : 'the team'} yet.
+                </li>
+              )}
+              {unread.length > 0 && (
+                <li>
+                  Not read yet: {unread.map((s, i) => (
+                    <Fragment>{i > 0 && ', '}<a href={s.maxprepsUrl || MAXPREPS_SCHOOL} rel="noopener" class="underline">{s.name.toLowerCase()}</a></Fragment>
+                  ))}.
+                </li>
+              )}
+            </ul>
+          )}
+        </div>
       )}
 
       <p class="mt-10 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">

@@ -57,6 +57,10 @@ const FALL = (): SportConfig[] => [
   { key: 'football', name: 'Football', maxpreps: 'football', calendar: { gender: 'Boys', sport: 'Football' } },
   { key: 'boys-soccer', name: 'Boys soccer', maxpreps: 'soccer', calendar: { gender: 'Boys', sport: 'Soccer' } },
   { key: 'volleyball', name: 'Volleyball', maxpreps: 'volleyball', calendar: { gender: 'Girls', sport: 'Volleyball' } },
+  // Softball is a fall sport in Colorado, which MaxPreps files under the
+  // spring sport's name with the season after it (CHSAA's school pages list
+  // it for both schools, 21 October 2026).
+  { key: 'softball', name: 'Softball', maxpreps: 'softball/fall', calendar: { gender: 'Girls', sport: 'Softball' } },
   { key: 'boys-cross-country', name: 'Boys cross country', maxpreps: 'cross-country', calendar: { gender: 'Boys', sport: 'Cross Country' } },
   { key: 'girls-cross-country', name: 'Girls cross country', maxpreps: 'cross-country/girls', calendar: { gender: 'Girls', sport: 'Cross Country' } },
 ];

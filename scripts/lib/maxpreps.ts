@@ -9,8 +9,8 @@
  * text are read too and compared, so a page whose markup changed under us is
  * reported rather than trusted.
  *
- * Only the team home page is read: the /schedule/ page is bot-blocked and is
- * not tried. robots.txt is read first, as for every other site, and the
+ * The team home page is read first, then its /schedule/ page for the whole
+ * season (the end of this file). robots.txt is read first, as for every other site, and the
  * request identifies honestly (scripts/lib/probe.ts). MaxPreps refuses a
  * request that pretends to be a browser and, after a handful of requests,
  * one from a cloud address; the honest one from a GitHub runner was answered
@@ -37,6 +37,8 @@ export interface TeamPage {
   glance: SportGame[];
   /** Every game played this season that the page reports, newest first. */
   results: SportGame[];
+  /** The whole season, oldest first, once the /schedule/ page has been read and agreed with (applySchedule). */
+  schedule?: SportGame[];
   /** What did not add up: a cross-check that failed, a block that was missing. */
   warnings: string[];
   /** The page says "No Schedule": MaxPreps has the team and nothing for it. */
@@ -141,7 +143,10 @@ function toGame(c: MpContest, us: Team, kickoff?: string): SportGame | undefined
   if (!mine || !date || !c.canonicalUrl) return undefined;
   // A meet has no single opponent; MaxPreps names the event in the URL.
   const opponent = theirs?.schoolName ?? c.canonicalUrl.match(/\/game\/([^/]+)\//)?.[1]?.replace(/-/g, ' ') ?? 'meet';
-  const game: SportGame = { date, opponent, site: site(c.homeAwayType), url: c.canonicalUrl.split('?')[0]! };
+  // The URL keeps its ?c=: a doubleheader's two games share the path and
+  // differ only in that contest id (Niwot softball at Falcon, 17 October
+  // 2026, lost 4-15 and 9-17), and it is what tells one from the other.
+  const game: SportGame = { date, opponent, site: site(c.homeAwayType), url: c.canonicalUrl };
   if (c.hasResult && mine.result && mine.score != null && theirs?.score != null) {
     game.result = mine.result;
     game.score = { us: mine.score, them: theirs.score };
@@ -235,4 +240,173 @@ export function parseTeamPage(html: string, us: Team): TeamPage {
 /** A page is usable when it has a record and the glance card; the warnings say what else is off. */
 export function usable(page: TeamPage): boolean {
   return !!page.overall && page.glance.length > 0;
+}
+
+/*
+ * The team's /schedule/ page: every game of the season, played and to come,
+ * where the home page's wall carries only the recent ones (Berthoud
+ * football's 6-2 showed as six games, October 2026). It answers the runner
+ * (run 39666831083, 21 October 2026) as the home page does.
+ *
+ * Its data is `pageProps.contests`, an array of rows with no keys: 41
+ * values a row, the teams as 32-value rows inside. The positions below
+ * were read off the live page and are what the site's own script reads,
+ * but a reshuffle would not announce itself, so every row is checked
+ * against the sentence MaxPreps writes beside it ("On 10/9, the Berthoud
+ * varsity football team lost their away conference game against Windsor
+ * (CO) by a score of 46-0.", winner's score first; "… has an away
+ * conference game @ Mountain View (Loveland, CO) on Friday, October 23 @
+ * 7p." for one to come). A row the sentence does not bear out fails the
+ * whole page, and the run keeps what the home page said.
+ */
+const ROW = { teams: 0, id: 1, hasResult: 4, kickoff: 11, url: 18, sentence: 29 } as const;
+/** `where` is 0 at home, 1 away, 2 at a neutral site (the softball tournament rows, 21 October 2026). */
+const TEAM = { result: 5, score: 6, where: 11, url: 13, name: 14 } as const;
+
+export interface SchedulePage {
+  url: string;
+  /** Every game of the season, oldest first. */
+  games: SportGame[];
+  warnings: string[];
+  /** Rows that are not games: a cancelled one keeps its row with the sentence blank. */
+  skipped: number;
+}
+
+/** "@ 7p", "@ 6:30p", "@ 11a" → "19:00", "18:30", "11:00". */
+function clockFromSentence(sentence: string): string | undefined {
+  const m = sentence.match(/@\s*(\d{1,2})(?::(\d{2}))?\s*([ap])\b/i);
+  if (!m) return undefined;
+  const h = (Number(m[1]) % 12) + (m[3]!.toLowerCase() === 'p' ? 12 : 0);
+  return `${String(h).padStart(2, '0')}:${m[2] ?? '00'}`;
+}
+
+export function parseSchedulePage(html: string, us: Team): SchedulePage {
+  const page: SchedulePage = { url: us.url, games: [], warnings: [], skipped: 0 };
+  const raw = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/)?.[1];
+  if (!raw) {
+    page.warnings.push('no __NEXT_DATA__ on the schedule page');
+    return page;
+  }
+  let rows: unknown;
+  try {
+    rows = JSON.parse(raw).props?.pageProps?.contests;
+  } catch {
+    page.warnings.push('the schedule page’s __NEXT_DATA__ is not JSON');
+    return page;
+  }
+  if (!Array.isArray(rows)) {
+    page.warnings.push('no contests on the schedule page');
+    return page;
+  }
+  for (const row of rows as unknown[][]) {
+    const id = String(row[ROW.id] ?? '');
+    const fail = (why: string) => page.warnings.push(`schedule row ${id || '?'}: ${why}`);
+    const teams = row[ROW.teams];
+    const url = row[ROW.url];
+    const kickoff = row[ROW.kickoff];
+    const sentence = row[ROW.sentence];
+    // A cancelled or placeholder game keeps a row with no sentence, no
+    // result and, once, a date in 1900. Not a game; counted, not read.
+    if (row[ROW.hasResult] !== true && !sentence) {
+      page.skipped++;
+      continue;
+    }
+    if (!Array.isArray(teams) || teams.length !== 2 || typeof url !== 'string' || typeof kickoff !== 'string' || typeof sentence !== 'string') {
+      fail('not the shape this script reads');
+      continue;
+    }
+    const sides = (teams as unknown[][]).map((t) => ({
+      name: String(t[TEAM.name] ?? ''),
+      url: String(t[TEAM.url] ?? ''),
+      away: t[TEAM.where] === 1,
+      neutral: t[TEAM.where] === 2,
+      result: t[TEAM.result] as 'W' | 'L' | 'T' | null,
+      score: t[TEAM.score] as number | null,
+    }));
+    const mine = sides.find((t) => t.url.startsWith(us.url) || t.name === us.schoolName);
+    const theirs = sides.find((t) => t !== mine);
+    const date = dateFromUrl(url) ?? kickoff.slice(0, 10);
+    if (!mine || !theirs || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+      fail('could not tell the two teams apart');
+      continue;
+    }
+    // The sentence's subject is the team named first; its "away"/"home" is
+    // that team's, and its "won"/"lost" too.
+    // "On 8/21, the Berthoud varsity football team won their away …", or
+    // softball's "On Saturday, Oct 17, 2026, the Berthoud Varsity Girls
+    // Softball team won their game against …".
+    const subject = sentence.match(/^(?:On .*?, )?[Tt]he (.+?) [Vv]arsity /)?.[1];
+    if (!subject) {
+      fail(`the sentence is not in the form this script reads: "${sentence}"`);
+      continue;
+    }
+    const subjectIsUs = subject === mine.name;
+    const saidAway = /\b(away)\b/.test(sentence) ? true : /\b(home)\b/.test(sentence) ? false : undefined;
+    const saidNeutral = /\bneutral\b/i.test(sentence);
+    if (saidNeutral !== mine.neutral) {
+      fail(`the sentence ${saidNeutral ? 'says' : 'does not say'} neutral site, the data ${mine.neutral ? 'does' : 'does not'}`);
+      continue;
+    }
+    const site: SportGame['site'] = mine.neutral ? 'neutral' : mine.away ? 'away' : 'home';
+    if (!mine.neutral && saidAway !== undefined && (subjectIsUs ? mine.away : !mine.away) !== saidAway) {
+      fail(`the sentence puts ${mine.name} ${saidAway === subjectIsUs ? 'away' : 'at home'}, the data the other way`);
+      continue;
+    }
+    const game: SportGame = { date, opponent: theirs.name, site, url };
+    if (row[ROW.hasResult] === true) {
+      if (!mine.result || mine.score == null || theirs.score == null) {
+        fail('played, but no score in the data');
+        continue;
+      }
+      // Football's sentence puts the winner's score first, softball's the
+      // subject's; the pair has to match either way round.
+      const said = sentence.match(/by a score of (\d+)-(\d+)/);
+      const tied = /\btied\b/i.test(sentence);
+      const pair = said ? [Number(said[1]), Number(said[2])].sort((a, b) => b - a) : [];
+      const [hi, lo] = [Math.max(mine.score, theirs.score), Math.min(mine.score, theirs.score)];
+      const wordOk = tied ? mine.result === 'T' : subjectIsUs ? (mine.result === 'W') === /\bwon\b/.test(sentence) : (mine.result === 'W') === /\blost\b/.test(sentence);
+      if (!said || pair[0] !== hi || pair[1] !== lo || !wordOk) {
+        fail(`the sentence says "${sentence}", the data ${mine.result} ${mine.score}-${theirs.score}`);
+        continue;
+      }
+      game.result = mine.result;
+      game.score = { us: mine.score, them: theirs.score };
+    } else {
+      // The kickoff field, unless the sentence names a different hour or
+      // says the time is to be announced; a midnight kickoff is no time.
+      const said = clockFromSentence(sentence);
+      const time = kickoff.slice(11, 16);
+      if (said && said !== time) {
+        fail(`the sentence says ${said}, the data ${time}`);
+        continue;
+      }
+      if (!/\bTBA\b/i.test(sentence) && time !== '00:00') game.time = time;
+    }
+    page.games.push(game);
+  }
+  page.games.sort((a, b) => a.date.localeCompare(b.date));
+  return page;
+}
+
+/**
+ * The schedule page's games in place of the home page's: the results in
+ * full, and the games to come for the cross-check. Only where the two
+ * agree on every game the home page does report; a score that differs
+ * between them is not a page to trust, and the home page's shorter list
+ * stays. Returns what stopped it, or nothing.
+ */
+export function applySchedule(page: TeamPage, schedule: SchedulePage): string | undefined {
+  if (schedule.warnings.length) return schedule.warnings.join('; ');
+  if (!schedule.games.length) return 'the schedule page lists no games';
+  for (const known of [...page.results, ...page.glance]) {
+    const g = schedule.games.find((x) => x.url === known.url);
+    if (!g) return `the schedule page has no ${known.date} ${known.opponent}`;
+    if (known.score && (!g.score || g.score.us !== known.score.us || g.score.them !== known.score.them)) return `scores differ for ${known.date} ${known.opponent}`;
+    // The home page's data names a neutral site outright; the schedule's
+    // rows only say which side was away, so its word on the site wins.
+    g.site = known.site;
+  }
+  page.results = schedule.games.filter((g) => g.result || g.place).sort((a, b) => b.date.localeCompare(a.date));
+  page.schedule = schedule.games;
+  return undefined;
 }

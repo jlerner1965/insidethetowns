@@ -26,8 +26,10 @@ scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
 ## High-school sports
 
 A town that follows its high school (Berthoud and Niwot, in
-`src/config/school-sports.ts`) has `/sports/`: each followed team's record, last
-result and next game, read from the team's MaxPreps home page by
+`src/config/school-sports.ts`) has `/sports/`: each followed team's record, the
+whole season's results and the games to come, read from the team's MaxPreps
+home page and its `/schedule/` page (the full season, used only where it
+agrees with the home page on every game both carry) by
 `.github/workflows/sports-maxpreps.yml` on Saturday mornings (Friday night's
 scores) and Wednesdays, and the week's big game in a strip under the home page
 hero. The run writes `data/<town>/sports.json` (never `content/`), commits it

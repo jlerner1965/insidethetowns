@@ -83,9 +83,9 @@ export function crossCheck(sport: SportConfig, toCome: SportGame[], calendar: Ca
   return out;
 }
 
-/** The games still to come, by the run's own date: the glance card's unplayed games, soonest first. */
+/** The games still to come, by the run's own date: the whole schedule's where it was read, else the glance card's, soonest first. */
 export function gamesToCome(page: TeamPage, today: string): SportGame[] {
-  return page.glance
+  return (page.schedule ?? page.glance)
     .filter((g) => !g.result && !g.place && g.date >= today)
     .sort((a, b) => a.date.localeCompare(b.date));
 }
