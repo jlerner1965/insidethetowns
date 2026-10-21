@@ -14,7 +14,7 @@ source: "https://www.goldenhistory.org/event/monster-mash/"
 sourceId: "goldenhistory-org"
 sourceUid: "ai1ec-52494@www.goldenhistory.org"
 sourceHash: "949c7a7adf9a"
-verified: "2026-10-20"
+verified: "2026-10-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Monster Mash\" at 3 pm on 31 October on the Golden History Museum & Park feed"
 ---
 

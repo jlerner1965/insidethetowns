@@ -6,7 +6,7 @@ venue: "Lyons Regional Library"
 address: "451 4th Ave, Lyons, CO 80540"
 category: family
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-10-20"
+verified: "2026-10-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen Advisory Group\" at 6 pm on 22 October on the lyons.librarycalendar.com feed"
 ---
 

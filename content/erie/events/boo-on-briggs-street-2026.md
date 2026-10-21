@@ -9,7 +9,7 @@ cost: "Free; costume contest $5 per entry"
 category: family
 featured: true
 source: "https://www.erieco.gov/1429/Boo-on-Briggs-Street"
-verified: "2026-10-20"
+verified: "2026-10-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Boo! on Briggs Street\" at 3 pm on 24 October on the erieco.gov feed"
 ---
 

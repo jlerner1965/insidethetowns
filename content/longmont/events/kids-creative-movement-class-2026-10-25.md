@@ -10,7 +10,7 @@ source: "https://longmontcolorado.gov/event/kids-creative-movement-class-9/2026-
 sourceId: "longmontcolorado-gov-library"
 sourceUid: "10007949-1792936800-1792938600@longmontcolorado.gov"
 sourceHash: "e8076e5397b2"
-verified: "2026-10-20"
+verified: "2026-10-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Kids' Creative Movement Class\" at 2 pm on 25 October on the Longmont Public Library (City of Longmont calendar) feed"
 ---
 

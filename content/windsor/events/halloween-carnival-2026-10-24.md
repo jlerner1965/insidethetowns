@@ -12,7 +12,7 @@ featured: true
 organizer: "Town of Windsor Parks, Recreation & Culture"
 organizerUrl: "https://www.recreationliveshere.com/"
 source: "https://www.recreationliveshere.com/Calendar.aspx?EID=1333"
-verified: "2026-10-20"
+verified: "2026-10-21"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Halloween Carnival\" at 12 pm on 24 October on the Windsor Parks, Recreation & Culture (recreationliveshere.com) feed"
 ---
 
