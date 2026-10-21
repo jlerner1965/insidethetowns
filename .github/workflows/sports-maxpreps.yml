@@ -19,8 +19,12 @@ on:
   workflow_dispatch:
     inputs:
       sport:
-        description: 'Probe one team instead: a MaxPreps sport slug (football, soccer). Writes nothing.'
+        description: 'Probe one team instead: its MaxPreps path (football, cross-country/girls). Writes nothing; keeps the page as an artifact.'
         required: false
+      calendar:
+        description: 'Probe the school calendar instead: one month read and counted. Writes nothing.'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -41,14 +45,24 @@ jobs:
           node-version: 22
       - name: Probe one team
         if: inputs.sport != ''
-        run: node scripts/sports.ts --sport=${{ inputs.sport }} | tee -a "$GITHUB_STEP_SUMMARY"
+        run: node scripts/sports.ts --sport=${{ inputs.sport }} --save="$RUNNER_TEMP/page.html" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Keep the probed page
+        if: always() && inputs.sport != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: maxpreps-page
+          path: ${{ runner.temp }}/page.html
+          if-no-files-found: ignore
+      - name: Probe the school calendar
+        if: inputs.sport == '' && inputs.calendar
+        run: node scripts/sports.ts --calendar | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Read and write
-        if: inputs.sport == ''
+        if: inputs.sport == '' && !inputs.calendar
         run: |
           node scripts/sports.ts --write --summary="$RUNNER_TEMP/sports.md"
           cat "$RUNNER_TEMP/sports.md" >> "$GITHUB_STEP_SUMMARY"
       - name: Commit the data file
-        if: inputs.sport == ''
+        if: inputs.sport == '' && !inputs.calendar
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

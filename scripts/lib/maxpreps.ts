@@ -58,7 +58,9 @@ export async function fetchPage(url: string): Promise<Fetched> {
     if (!/^2/.test(code)) return { ok: false, reason: `HTTP ${code}`, html };
     return { ok: true, html };
   } catch (e) {
-    return { ok: false, reason: `no response (${(e as Error).message.split('\n')[0]})` };
+    const err = e as Error & { stderr?: string };
+    const said = (err.stderr ?? '').trim().split('\n').at(-1) || err.message.split('\n')[0];
+    return { ok: false, reason: `no response (${said})` };
   }
 }
 

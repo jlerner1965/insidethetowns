@@ -8,6 +8,8 @@
  *   npm run sports -- --write --summary=/tmp/sports.md   # and the run summary, for the workflow
  *   npm run sports -- --sport=football   # one team's page, read and printed (the step-1 probe)
  *   npm run sports -- --sport=football --html=page.html  # the same from a saved page
+ *   npm run sports -- --sport=football --save=page.html  # and keep the page
+ *   npm run sports -- --calendar         # one month of the school calendar, read and counted
  *
  * The rules (src/config/berthoud-sports.ts has the teams and the data's shape):
  * - A team whose fetch or parse fails keeps its previous entry, its
@@ -68,9 +70,26 @@ async function probe(sport: string): Promise<number> {
     }
     html = res.html;
     console.log(`HTTP 200, ${html.length} bytes`);
+    if (args.has('save')) writeFileSync(args.get('save')!, html);
   }
   const page = parseTeamPage(html, sport);
   console.log(describe(page));
+  if (!usable(page)) {
+    // What the page carries instead, for working out what to read.
+    const raw = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/)?.[1];
+    if (raw) {
+      try {
+        const pp = JSON.parse(raw).props?.pageProps ?? {};
+        console.log(`pageProps keys: ${Object.keys(pp).join(', ')}`);
+        console.log(`wallCards keys: ${Object.keys(pp.wallCards ?? {}).join(', ')}`);
+        for (const [k, v] of Object.entries<any>(pp.wallCards ?? {})) if (v?.data) console.log(`  ${k}: ${JSON.stringify(v.data).slice(0, 800)}`);
+        console.log(`wall posts: ${(pp.wallPosts ?? []).map((p: any) => `${p.title} | ${String(p.text).slice(0, 100)}`).join('\n  ')}`);
+        console.log(`standings: ${JSON.stringify(pp.teamContext?.standingsData)}`);
+      } catch {
+        console.log('__NEXT_DATA__ is not JSON');
+      }
+    }
+  }
   console.log(usable(page) ? '\nParse: ok' : '\nParse: the records or the schedule were not found.');
   return usable(page) ? 0 : 3;
 }
@@ -82,8 +101,25 @@ function monthsToRead(today: string): string[] {
   return [`${y}-${String(m).padStart(2, '0')}-01`, next];
 }
 
+/** One month of the school calendar, read and counted: for checking the site answers a runner. */
+async function probeCalendar(): Promise<number> {
+  const month = monthsToRead(dayKey(new Date()))[0]!;
+  const started = Date.now();
+  const res = await fetchMonth(month);
+  const took = `${((Date.now() - started) / 1000).toFixed(1)}s`;
+  if (!res.ok) {
+    console.log(`School calendar, ${month.slice(0, 7)}: failed after ${took}: ${res.reason}`);
+    return 2;
+  }
+  const events = parseMonth(res.html);
+  console.log(`School calendar, ${month.slice(0, 7)}: ${res.html.length} bytes in ${took}, ${events.length} events, ${events.filter((e) => e.level === 'Varsity').length} varsity.`);
+  for (const e of events.filter((e) => e.level === 'Varsity').slice(0, 12)) console.log(`  ${e.date} ${e.time}  ${e.title}`);
+  return events.length ? 0 : 3;
+}
+
 async function main(): Promise<number> {
   if (args.has('sport')) return probe(args.get('sport')!);
+  if (args.has('calendar')) return probeCalendar();
 
   const now = new Date();
   const today = dayKey(now);

@@ -8,8 +8,10 @@
  * read each team's MaxPreps home page, check the games to come against the
  * school's own calendar, and write the file; the page reads it at build.
  *
- * To follow another team, add it here: `maxpreps` is the sport segment of
- * the team's MaxPreps URL under https://www.maxpreps.com/co/berthoud/berthoud-spartans/,
+ * To follow another team, add it here: `maxpreps` is the team's path under
+ * https://www.maxpreps.com/co/berthoud/berthoud-spartans/ ("football",
+ * "soccer"; a girls' team where the boys' is the default is "cross-country/girls",
+ * and the other way round "volleyball/boys"),
  * and `calendar` is how the school calendar (bhs.tsd.org) titles the varsity
  * team's events: "Boys Varsity Football vs …", "Girls Varsity Volleyball @ …".
  * Winter and spring teams wait until their seasons.
@@ -19,7 +21,7 @@ export interface SportConfig {
   key: string;
   /** As the card names it: "Football", "Boys soccer". */
   name: string;
-  /** The sport segment of the MaxPreps team URL: "football", "soccer", "girls-cross-country". */
+  /** The team's path under the MaxPreps school URL: "football", "soccer", "cross-country/girls". */
   maxpreps: string;
   /** The school calendar's words for the varsity team, as they open the event title. */
   calendar: { gender: 'Boys' | 'Girls'; sport: string };
@@ -30,7 +32,7 @@ export const BERTHOUD_SPORTS: SportConfig[] = [
   { key: 'boys-soccer', name: 'Boys soccer', maxpreps: 'soccer', calendar: { gender: 'Boys', sport: 'Soccer' } },
   { key: 'volleyball', name: 'Volleyball', maxpreps: 'volleyball', calendar: { gender: 'Girls', sport: 'Volleyball' } },
   { key: 'boys-cross-country', name: 'Boys cross country', maxpreps: 'cross-country', calendar: { gender: 'Boys', sport: 'Cross Country' } },
-  { key: 'girls-cross-country', name: 'Girls cross country', maxpreps: 'girls-cross-country', calendar: { gender: 'Girls', sport: 'Cross Country' } },
+  { key: 'girls-cross-country', name: 'Girls cross country', maxpreps: 'cross-country/girls', calendar: { gender: 'Girls', sport: 'Cross Country' } },
 ];
 
 export const MAXPREPS_TEAM_HOME = 'https://www.maxpreps.com/co/berthoud/berthoud-spartans/';

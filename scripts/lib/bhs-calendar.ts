@@ -49,7 +49,9 @@ export async function fetchMonth(firstOfMonth: string): Promise<{ ok: true; html
     if (!/^2/.test(code)) return { ok: false, reason: `HTTP ${code}` };
     return { ok: true, html: stdout.slice(0, nl) };
   } catch (e) {
-    return { ok: false, reason: `no response (${(e as Error).message.split('\n')[0]})` };
+    const err = e as Error & { stderr?: string };
+    const said = (err.stderr ?? '').trim().split('\n').at(-1) || err.message.split('\n')[0];
+    return { ok: false, reason: `no response (${said})` };
   }
 }
 
