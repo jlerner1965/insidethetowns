@@ -1,0 +1,63 @@
+---
+/**
+ * One profile. Published only with its basis and its consent
+ * (src/content/schemas.ts, profileSchema), both of which the page states at
+ * the foot, so a reader can see what the words rest on.
+ */
+import { getImage, Image } from 'astro:assets';
+import { render } from 'astro:content';
+import Page from '@/layouts/Page.astro';
+import { getTown } from '@/config';
+import { getTownEntries, type TownEntry } from '@/lib/content';
+import { formatDate, toIsoLocal } from '@/lib/dates';
+import { PROFILE_ROLE_LABELS } from '@/content/schemas';
+import { breadcrumbJsonLd } from '@/lib/seo';
+
+export async function getStaticPaths() {
+  return (await getTownEntries('profiles')).map((profile) => ({ params: { slug: profile.slug }, props: { profile } }));
+}
+
+interface Props {
+  profile: TownEntry<'profiles'>;
+}
+
+const town = getTown();
+const { profile } = Astro.props;
+const { data } = profile;
+const { Content } = await render(profile);
+const shareImage = data.image ? (await getImage({ src: data.image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
+const BASIS: Record<string, string> = {
+  interview: 'From an interview',
+  supplied: 'In words the subject supplied and approved',
+  'published-by-subject': 'From material the subject’s own organization published',
+  'public-record': 'From the public record',
+};
+---
+<Page title={data.name} eyebrow={`${PROFILE_ROLE_LABELS[data.role]}${data.affiliation ? ` · ${data.affiliation}` : ''}`} intro={data.summary} description={data.summary} image={shareImage} imageAlt={data.imageAlt} type="article" kind="Person" narrow
+  jsonLd={breadcrumbJsonLd(town, [
+    { name: town.name, path: '/' },
+    { name: 'People', path: '/people/' },
+    { name: data.name, path: `/people/${profile.slug}/` },
+  ])}>
+  <p slot="after-header" class="mt-5 text-sm text-ink-muted">
+    {data.date && <time datetime={toIsoLocal(data.date)}>{formatDate(data.date)}</time>}
+    {data.updated && <span> · Updated {formatDate(data.updated)}</span>}
+  </p>
+  {data.image && (
+    <figure class="mb-10 max-w-2xl">
+      <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={900} class="w-full rounded-lg object-cover" />
+      {data.imageCredit && <figcaption class="mt-2 text-[0.8125rem] text-ink-muted">Photo: {data.imageCredit}</figcaption>}
+    </figure>
+  )}
+  <div class="prose"><Content /></div>
+  <aside class="mt-12 max-w-2xl border-t border-line-soft pt-6 text-[0.875rem] leading-relaxed text-ink-muted">
+    <p class="eyebrow mb-2">How this was made</p>
+    {data.basis && <p>{BASIS[data.basis.kind]}: {data.basis.detail}, <time datetime={toIsoLocal(data.basis.on)}>{formatDate(data.basis.on)}</time>.{data.consent && ` ${data.name.split(' ')[0]} agreed to this profile by ${data.consent.how === 'in-person' ? 'a conversation in person' : data.consent.how} on ${formatDate(data.consent.on)}.`}</p>}
+    {data.item && <p class="mt-2"><a href={data.item} class="text-primary underline">On this guide →</a></p>}
+    {data.sources.length > 0 && (
+      <ul class="mt-2 space-y-1">
+        {data.sources.map((s) => <li><a href={s.url} rel="noopener" class="underline">{s.label}</a></li>)}
+      </ul>
+    )}
+  </aside>
+</Page>

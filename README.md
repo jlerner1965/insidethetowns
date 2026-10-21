@@ -42,6 +42,41 @@ entry and its "updated" date; nothing guessed or partial is written. `npm run
 sports` prints what a run would do; `--town=niwot` narrows it, and
 `--town=berthoud --sport=football` reads one team's page and prints it.
 
+## The resident hubs and the flagship layout
+
+Berthoud and Niwot (21 October 2026) carry three resident hubs and a
+flagship home page, each switched on by the town's config and shared as
+routes and components with nothing town-specific in them:
+
+- `/families/` (`families` on the config): what a child can join, by age and
+  by subject, the organizer's deadlines and openings, the district's break
+  dates, and the free things. Reads `content/<town>/programs/`.
+- `/get-involved/` (`participation`): the organizations, clubs, volunteer
+  roles, public meetings and social activities, each with cost, contact,
+  access (public, members, registration, private) and the next public date.
+  The same collection, the ways-in kinds (`src/lib/programs.ts`).
+- `/living-here/` (`livingHere`): which body handles what, as links to the
+  right page of each official site, every section dated.
+- `/updates/` (any guide with `content/<town>/updates/`): local changes with
+  three dates kept apart, when it took effect, when the guide published it,
+  when the source was read, current first and then the archive
+  (`src/lib/updates.ts`).
+- `/people/` builds only where a profile in `content/<town>/profiles/` says
+  `status: published`, which the schema allows only with its basis, its
+  consent and no open questions; a draft is validated and never built.
+
+A program or an update publishes with a `source` and a `verified` date,
+like a place; without them it is held back with a line on the log. The
+weekly notes took three more fields: `effective` on a change (the day the
+business changed, so an old closure found this month is shown as a
+correction with both dates, never as the week's news), and optional `qa`
+and `feature` blocks. "This week" lists the town's own content first and
+the neighbours and the mountain guides after it, labelled as the day trips
+they are. `src/lib/event-totals.ts` is the one definition of "how many
+events" for every page that prints a count. The home page's flagship layout
+(`home` on the config, `src/components/home/FlagshipHome.astro`) keeps the
+shared chassis for every other guide (`ClassicHome.astro`).
+
 ## The weekly content session
 
 The standing routine is `docs/AUDIT-2026-10-02.md`'s: one town at a time on a

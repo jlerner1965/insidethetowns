@@ -9,7 +9,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { dayKey, parseLocal } from '../src/lib/dates.ts';
 import { occurrences } from '../src/lib/events.ts';
-import { activeChanges, currentNotes, currentPick, hasEnded, isWeekend, pickSlug, upcomingEvents, weekEvents, weekWindow, weekendEvents } from '../src/lib/weekly.ts';
+import { activeChanges, currentNotes, currentPick, hasEnded, isBacklog, isWeekend, pickSlug, upcomingEvents, weekEvents, weekWindow, weekendEvents } from '../src/lib/weekly.ts';
 
 const at = (s: string) => parseLocal(s);
 
@@ -24,6 +24,7 @@ function notes(weekOf: string, pick?: { title?: string; body?: string; url?: str
         detail: String(c.detail ?? 'Detail'),
         source: c.source as string | undefined,
         checked: at(String(c.checked ?? '2026-10-13')),
+        effective: c.effective ? at(String(c.effective)) : undefined,
         expires: c.expires ? at(String(c.expires)) : undefined,
       })),
     },
@@ -280,4 +281,17 @@ test('a weekly regular shows once, on its day this weekend', () => {
 test('the strip under an article takes the next few that have not ended', () => {
   const events = [ev('Over', '2026-10-14T09:00', '2026-10-14T10:00'), ev('Soon', '2026-10-14T18:00'), ev('Later', '2026-10-20T18:00'), ev('Much later', '2026-11-20T18:00')];
   assert.deepEqual(upcomingEvents(events, { now: at('2026-10-14T12:00'), limit: 2 }).map((e) => e.data.title), ['Soon', 'Later']);
+});
+
+test('a change that happened long before the guide noticed is a backlog item, told apart by its dates', () => {
+  assert.equal(isBacklog({ effective: at('2024-12-24'), checked: at('2026-10-07') }), true, 'Fly Away Home');
+  assert.equal(isBacklog({ effective: at('2026-09-01'), checked: at('2026-10-17') }), true, 'a move six weeks old');
+  assert.equal(isBacklog({ effective: at('2026-10-10'), checked: at('2026-10-17') }), false, 'last week’s opening is news');
+  assert.equal(isBacklog({ effective: undefined, checked: at('2026-10-17') }), false, 'no date given: taken as recent');
+  const files = [notes('2026-10-05', undefined, [
+    { tag: 'closed', name: 'Old shop', detail: 'd', source: 'https://x.example/', checked: '2026-10-07', effective: '2024-12-24', expires: '2026-10-26' },
+    { tag: 'opening', name: 'New shop', detail: 'd', source: 'https://x.example/', checked: '2026-10-07', expires: '2026-10-26' },
+  ])];
+  const out = activeChanges(files, at('2026-10-21'));
+  assert.deepEqual(out.map((c) => [c.name, c.backlog]), [['Old shop', true], ['New shop', false]]);
 });

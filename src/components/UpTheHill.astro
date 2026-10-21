@@ -37,10 +37,12 @@ import { weekWindow } from '@/lib/weekly';
 
 interface Props {
   town: TownConfig;
+  /** The heading: "Up the hill this weekend" unless the page says what it is (a day trip). */
+  label?: string;
   class?: string;
 }
 
-const { town, class: className } = Astro.props;
+const { town, label = 'Up the hill this weekend', class: className } = Astro.props;
 const site = getSite();
 const hills = town.variant === 'mountain' ? [] : mountainTowns();
 const now = new Date();
@@ -70,7 +72,7 @@ const count = events.length + openings.length;
 ---
 {count > 0 && (
   <section class={className} data-hide-when-empty data-up-the-hill aria-labelledby="up-the-hill">
-    <h2 id="up-the-hill" class="eyebrow border-b-2 border-accent pb-3">Up the hill this weekend · {formatDayRange(start, sunday)}</h2>
+    <h2 id="up-the-hill" class="eyebrow border-b-2 border-accent pb-3">{label} · {formatDayRange(start, sunday)}</h2>
     <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
       {events.map((event) => <NetworkEventCard event={event} showDay showTagline query={query} track="up-the-hill" />)}
       {openings.map((place) => (

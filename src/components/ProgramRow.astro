@@ -1,0 +1,93 @@
+---
+/**
+ * One program, club or way in, as a row: what it is, who it is for, when,
+ * where, what it costs, how to register, and the source with its check
+ * date. Every fact is the organizer's; a line the organizer did not give
+ * is not drawn. The deadline is said plainly, and said to have passed when
+ * it has.
+ */
+import type { TownEntry } from '@/lib/content';
+import { formatDate, toIsoLocal } from '@/lib/dates';
+import { deadlinePassed } from '@/lib/programs';
+import { PROGRAM_ACCESS_LABELS, PROGRAM_KIND_LABELS } from '@/content/schemas';
+import { getTownEntries } from '@/lib/content';
+import { nextOccurrence, occurrences, upcoming } from '@/lib/events';
+import { formatDayShort } from '@/lib/dates';
+
+interface Props {
+  program: TownEntry<'programs'>;
+  /** Show the organizer and the kind over the title (off under a heading that already says). */
+  showKind?: boolean;
+}
+
+const { program, showKind = true } = Astro.props;
+const { data } = program;
+const now = new Date();
+const passed = deadlinePassed(program, now);
+// The next date of the listing the program points at, so "next" is a date
+// the calendar agrees with rather than a line typed here.
+const next = data.nextEvent ? (await getTownEntries('events')).find((e) => e.slug === data.nextEvent) : undefined;
+const nextWhen = next ? upcoming(occurrences([next], { now, horizonDays: 400 }), { now, limit: 1 })[0] : undefined;
+const facts: Array<[string, string | undefined]> = [
+  ['Who', data.ages],
+  ['When', data.schedule],
+  ['Season', data.season],
+  ['Where', data.location],
+  ['Cost', data.price],
+  ['Bring', data.equipment],
+  ['Access', data.access !== 'public' ? PROGRAM_ACCESS_LABELS[data.access] : undefined],
+];
+const shown = facts.filter((f): f is [string, string] => !!f[1]);
+const reg = data.registration;
+const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
+const track = data.kind === 'league' || data.kind === 'class' || data.kind === 'program' ? 'registration' : 'participation';
+---
+<article class="min-w-0 border-t border-line-soft py-5 first:border-t-0 md:py-6 [overflow-wrap:anywhere]">
+  {showKind && (
+    <p class="eyebrow text-ink-muted">{PROGRAM_KIND_LABELS[data.kind]} · {data.organizer}</p>
+  )}
+  <h3 class="mt-1 text-xl font-medium leading-tight md:text-[1.375rem]">
+    {data.url ? <a href={data.url} rel="noopener" data-track={track} class="no-underline hover:text-primary hover:underline">{data.title}</a> : data.title}
+  </h3>
+  <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">{data.summary}</p>
+  {shown.length > 0 && (
+    <dl class="mt-3 grid gap-x-6 gap-y-1.5 text-[0.9375rem] leading-snug sm:grid-cols-[6rem_1fr]">
+      {shown.map(([k, v]) => (
+        <Fragment>
+          <dt class="eyebrow text-ink-muted sm:pt-0.5">{k}</dt>
+          <dd class="mb-1 sm:mb-0">{v}</dd>
+        </Fragment>
+      ))}
+    </dl>
+  )}
+  <ul class="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-[0.9375rem]">
+    {reg && (
+      <li class:list={[passed && 'text-ink-muted']}>
+        {reg.required ? 'Registration required' : 'No registration'}{reg.deadline && (
+          <Fragment>{' · '}<time datetime={toIsoLocal(reg.deadline)}>{passed ? `deadline was ${formatDate(reg.deadline)}` : `by ${formatDate(reg.deadline)}`}</time></Fragment>
+        )}{reg.opens && !reg.deadline && <Fragment>{' · opens '}<time datetime={toIsoLocal(reg.opens)}>{formatDate(reg.opens)}</time></Fragment>}
+        {reg.how && <span class="block text-ink-muted">{reg.how}</span>}
+        {reg.note && <span class="block text-ink-muted">{reg.note}</span>}
+      </li>
+    )}
+    {data.beginners && <li class="text-ink-muted">Beginners welcome, the organizer says</li>}
+    {data.newcomers && <li class="text-ink-muted">Newcomers welcome, the organizer says</li>}
+  </ul>
+  {data.volunteerNeed && <p class="mt-2 text-[0.9375rem]"><span class="eyebrow text-ink-muted">Volunteer need</span> <span class="block">{data.volunteerNeed}</span></p>}
+  {nextWhen && (
+    <p class="mt-2 text-[0.9375rem]">
+      <span class="eyebrow text-ink-muted">Next</span>{' '}
+      <a href={`/events/${next!.slug}/`} class="text-primary underline">{nextWhen.data.title}</a>, <time datetime={toIsoLocal(nextWhen.data.start)}>{formatDayShort(nextWhen.data.start)}</time>
+    </p>
+  )}
+  <p class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-[0.875rem] text-ink-muted">
+    {reg?.url && <a href={reg.url} rel="noopener" data-track={track} class="inline-block -my-2 py-2 font-semibold text-primary underline">Register →</a>}
+    {data.contact && <span>Contact: {data.contact}</span>}
+    {data.source && (
+      <span>
+        <a href={data.source} rel="noopener" class="inline-block -my-2 py-2 underline">Source: {host(data.source)}</a>
+        {data.verified && <Fragment> · checked <time datetime={toIsoLocal(data.verified)}>{formatDate(data.verified)}</time></Fragment>}
+      </span>
+    )}
+  </p>
+</article>

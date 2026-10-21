@@ -30,15 +30,17 @@ interface Props {
   town: TownConfig;
   /** Show the network sponsor's line at the top. */
   sponsor?: boolean;
+  /** How many picks at most; the default is nearbyPicks's six. */
+  limit?: number;
   class?: string;
 }
 
-const { town, sponsor = true, class: className } = Astro.props;
+const { town, sponsor = true, limit = 6, class: className } = Astro.props;
 const hub = getNetworkHub();
 const neighbors = neighborsOf(town);
 const now = new Date();
 const all = occurrences(await getNeighborEntries('events', neighbors), { now, horizonDays: 30 });
-const picks = nearbyPicks(all, neighbors.map((t) => t.slug), { now });
+const picks = nearbyPicks(all, neighbors.map((t) => t.slug), { now, limit });
 const { start, sunday } = weekendWindow(now);
 const sponsorLine = sponsor ? hub.sponsors?.network : undefined;
 // The signup preselects the towns named in `towns` (src/routes/hub/newsletter.astro).

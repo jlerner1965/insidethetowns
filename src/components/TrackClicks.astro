@@ -1,0 +1,35 @@
+---
+/**
+ * Counts the clicks the resident hubs exist for, with the analytics the
+ * sites already use and no new vendor: a link marked `data-track` sends one
+ * custom event named for what it is (registration, participation, service)
+ * through Vercel Web Analytics and, on a guide that has it, Plausible. Both
+ * are no-ops where their script is not on the page. The newsletter form's
+ * own submit is counted the same way from NewsletterSignup.astro.
+ */
+---
+<script>
+  import { track as vercel } from '@vercel/analytics';
+  import { track as plausible } from '@plausible-analytics/tracker';
+
+  const send = (name: string, props: Record<string, string>) => {
+    try {
+      vercel(name, props);
+    } catch {
+      /* analytics off */
+    }
+    try {
+      plausible(name, { props });
+    } catch {
+      /* no plausible here */
+    }
+  };
+  document.addEventListener('click', (event) => {
+    const link = (event.target as HTMLElement).closest<HTMLAnchorElement>('a[data-track]');
+    if (!link || !link.dataset.track) return;
+    send(link.dataset.track, { href: link.href, from: location.pathname });
+  });
+  for (const form of document.querySelectorAll<HTMLFormElement>('form[data-signup]')) {
+    form.addEventListener('submit', () => send('newsletter-signup', { from: location.pathname }));
+  }
+</script>

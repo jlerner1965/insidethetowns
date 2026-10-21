@@ -1,0 +1,58 @@
+---
+/**
+ * One local change: what changed, who it affects, when, what to do, and
+ * the original. Three dates kept apart (src/lib/updates.ts): when it takes
+ * effect, when the guide published it, when the source was read. A change
+ * the guide noticed long after the fact says so.
+ */
+import type { TownEntry } from '@/lib/content';
+import { formatDate, formatDayRange, toIsoLocal } from '@/lib/dates';
+import { isLateNotice, stageLabel, timing } from '@/lib/updates';
+import { UPDATE_KIND_LABELS } from '@/content/schemas';
+
+interface Props {
+  update: TownEntry<'updates'>;
+  /** The short form: title, the when line, the action, the source. */
+  compact?: boolean;
+}
+
+const { update, compact = false } = Astro.props;
+const { data, slug } = update;
+const now = new Date();
+const t = timing(update, now);
+const late = isLateNotice(update);
+const whenText = data.effectiveNote
+  ? data.effectiveNote
+  : data.effectiveEnd
+    ? formatDayRange(data.effective, data.effectiveEnd)
+    : formatDate(data.effective);
+const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
+const H = compact ? 'h3' : 'h2';
+---
+<article class="min-w-0 border-t border-line-soft py-5 first:border-t-0 [overflow-wrap:anywhere]" id={slug}>
+  <p class="eyebrow flex flex-wrap items-center gap-2">
+    <span>{UPDATE_KIND_LABELS[data.kind]}</span>
+    <span class="rounded-full bg-paper px-2 py-0.5 text-[0.7rem] text-ink-muted ring-1 ring-line-soft">{stageLabel(data.stage)}</span>
+    {t === 'now' && !late && <span class="rounded-full bg-highlight-soft px-2 py-0.5 text-[0.7rem] text-ink ring-1 ring-highlight">Now</span>}
+  </p>
+  <H class:list={['mt-1.5 font-medium leading-tight', compact ? 'text-lg' : 'text-xl md:text-2xl']}>{data.title}</H>
+  <p class="mt-1.5 text-[0.9375rem] font-medium">
+    {t === 'ahead' ? 'From ' : t === 'past' && !data.effectiveEnd ? 'On ' : ''}<time datetime={toIsoLocal(data.effective)}>{whenText}</time>
+    {late && <span class="font-normal text-ink-muted"> · noted <time datetime={toIsoLocal(data.published)}>{formatDate(data.published)}</time></span>}
+  </p>
+  {!compact && <p class="mt-2 leading-relaxed text-ink-muted">{data.summary}</p>}
+  {!compact && (
+    <dl class="mt-3 grid gap-x-6 gap-y-1.5 text-[0.9375rem] leading-snug sm:grid-cols-[7rem_1fr]">
+      <dt class="eyebrow text-ink-muted">Who</dt><dd>{data.affects}</dd>
+      {data.action && <Fragment><dt class="eyebrow text-ink-muted">What to do</dt><dd>{data.action}</dd></Fragment>}
+    </dl>
+  )}
+  {compact && data.action && <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted">{data.action}</p>}
+  <p class="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[0.875rem] text-ink-muted">
+    {data.source && <a href={data.source} rel="noopener" class="inline-block -my-2 py-2 underline">Source: {data.sourceLabel ?? host(data.source)}</a>}
+    {data.alsoSource && <a href={data.alsoSource} rel="noopener" class="inline-block -my-2 py-2 underline">{data.alsoSourceLabel}</a>}
+    {data.item && <a href={data.item} class="inline-block -my-2 py-2 text-primary underline">On this guide</a>}
+    {data.verified && <span>Checked <time datetime={toIsoLocal(data.verified)}>{formatDate(data.verified)}</time></span>}
+    {!compact && <a href={`/updates/#${slug}`} class="inline-block -my-2 py-2 underline">Link</a>}
+  </p>
+</article>

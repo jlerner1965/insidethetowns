@@ -7,7 +7,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { applySchedule, parseSchedulePage, parseTeamPage } from '../scripts/lib/maxpreps.ts';
 import { parseMonth, parseTitle } from '../scripts/lib/finalsite-calendar.ts';
-import { crossCheck, gamesToCome, keepPrevious, sameSchool } from '../scripts/lib/sports-crosscheck.ts';
+import { crossCheck, dedupeToCome, gamesToCome, keepPrevious, sameSchool } from '../scripts/lib/sports-crosscheck.ts';
 import { schoolSportsFor, type SportsData } from '../src/config/school-sports.ts';
 
 const berthoud = schoolSportsFor('berthoud')!;
@@ -325,4 +325,24 @@ test('the schedule replaces the home page’s results only where the two agree o
   const fresh = parseTeamPage(realPage, TEAM);
   assert.match(applySchedule(fresh, parseSchedulePage(schedulePage([fortMorgan, timnath, windsorRow, wrong, mountainViewRow, severanceRow]), TEAM))!, /scores differ for 2026-10-15 Greeley Central/);
   assert.equal(fresh.results.length, 2);
+});
+
+test('a game listed twice at the same time against the same opponent is one game; a doubleheader is two', () => {
+  const game = (id: string, time: string | undefined, opponent = 'Fossil Ridge') => ({
+    date: '2026-10-30',
+    opponent,
+    site: 'neutral' as const,
+    url: `https://www.maxpreps.com/co/volleyball/match/fossil-ridge-fort-collins-vs-niwot/10-30-2026/?c=${id}`,
+    ...(time ? { time } : {}),
+  });
+  // Niwot volleyball, 21 October 2026: the same 9:45 match under two contest ids.
+  const twice = dedupeToCome([game('0d7c07ea', '09:45'), game('831d7c52', '09:45')]);
+  assert.equal(twice.length, 1);
+  assert.match(twice[0]!.url, /0d7c07ea/, 'the first contest id is kept');
+  // Two games at two times is a doubleheader.
+  assert.equal(dedupeToCome([game('a', '10:00'), game('b', '12:00')]).length, 2);
+  // Two games with no time given cannot be told apart from a doubleheader, so both stay.
+  assert.equal(dedupeToCome([game('a', undefined), game('b', undefined)]).length, 2);
+  // Different opponents at one time are two entries (a tournament pool listed loosely), kept.
+  assert.equal(dedupeToCome([game('a', '09:45'), game('b', '09:45', 'Mead')]).length, 2);
 });

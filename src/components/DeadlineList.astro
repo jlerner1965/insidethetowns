@@ -1,0 +1,41 @@
+---
+/**
+ * Registration deadlines and openings in the next few weeks, soonest
+ * first, from the programs collection (src/lib/programs.ts). A deadline
+ * the organizer did not publish is not here. Nothing renders with nothing
+ * ahead.
+ */
+import type { TownEntry } from '@/lib/content';
+import { formatDayShort, toIsoLocal } from '@/lib/dates';
+import { upcomingDeadlines } from '@/lib/programs';
+
+interface Props {
+  programs: TownEntry<'programs'>[];
+  limit?: number;
+  days?: number;
+  /** Where the rest are. */
+  moreHref?: string;
+  class?: string;
+}
+
+const { programs, limit = 5, days = 45, moreHref, class: className } = Astro.props;
+const list = upcomingDeadlines(programs, { days });
+---
+{list.length > 0 && (
+  <ul class:list={['divide-y divide-line-soft', className]}>
+    {list.slice(0, limit).map(({ program, on, what }) => (
+      <li class="py-3 text-[0.9375rem] leading-snug">
+        <time datetime={toIsoLocal(on)} class="eyebrow text-ink-muted">{formatDayShort(on)} · registration {what}</time>
+        <span class="mt-0.5 block font-medium">
+          {program.data.registration?.url ? (
+            <a href={program.data.registration.url} rel="noopener" data-track="registration" class="no-underline hover:text-primary hover:underline">{program.data.title}</a>
+          ) : program.data.title}
+        </span>
+        <span class="block text-ink-muted">{program.data.organizer}{program.data.registration?.note && ` · ${program.data.registration.note}`}</span>
+      </li>
+    ))}
+    {moreHref && list.length > limit && (
+      <li class="py-3 text-[0.9375rem]"><a href={moreHref} class="font-semibold text-primary underline">All {list.length} →</a></li>
+    )}
+  </ul>
+)}

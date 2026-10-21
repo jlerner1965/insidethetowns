@@ -528,18 +528,12 @@
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/fossil-ridge-fort-collins-vs-niwot/10-30-2026/?c=0d7c07ea-2c1b-4531-b375-39e2c7952727",
           "time": "09:45"
-        },
-        {
-          "date": "2026-10-30",
-          "opponent": "Fossil Ridge",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/fossil-ridge-fort-collins-vs-niwot/10-30-2026/?c=831d7c52-6d19-45fc-a951-f0e8a73e7ba8",
-          "time": "09:45"
         }
       ],
       "held": [],
       "notes": [
-        "no school calendar to check against"
+        "no school calendar to check against",
+        "2026-10-30 Fossil Ridge was listed twice at 9:45 am under two contest ids; the second (c=831d7c52) answered 404 on 21 October 2026 and is dropped as a duplicate"
       ]
     },
     {

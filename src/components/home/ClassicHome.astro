@@ -1,0 +1,198 @@
+---
+/**
+ * The shared town home page, as every guide has had it: the hero, the
+ * week, "Start here", what's on, the places, the latest guide and the
+ * Moving Here band. Unchanged when the flagship layout arrived (21 October
+ * 2026): a guide without `home` in its config renders this.
+ */
+import Hero from '@/components/Hero.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import EventCard from '@/components/EventCard.astro';
+import PlaceCard from '@/components/PlaceCard.astro';
+import PlaceFeature from '@/components/PlaceFeature.astro';
+import PlaceIndex from '@/components/PlaceIndex.astro';
+import ArticleCard from '@/components/ArticleCard.astro';
+import ThisWeek from '@/components/ThisWeek.astro';
+import NearbyWeekend from '@/components/NearbyWeekend.astro';
+import { getNetworkHub, getTown } from '@/config';
+import { getTownEntries } from '@/lib/content';
+import { highlights, occurrences } from '@/lib/events';
+import { isOpen } from '@/lib/places';
+import { schoolSportsFor, type SportsData } from '@/config/school-sports';
+import { bigGame, formatGameTime, RESULT_WORD, outcome, schoolCssVars, sitePhrase, sportsDataFor, when, where } from '@/lib/school-sports';
+
+const town = getTown();
+// Six, ranked rather than simply soonest (see highlights), so a Thursday
+// visitor sees the weekend and not only Friday morning's library sessions.
+const events = highlights(occurrences(await getTownEntries('events')), { limit: 6 });
+// The home page recommends; a place that has closed is listed, not recommended.
+const places = (await getTownEntries('places')).filter(isOpen);
+// Cards are for photographs. A card with no photograph is an empty grey box,
+// and most of these towns have only a handful of licensed images, so the rest
+// of the section is an index of names instead of a grid of placeholders.
+const pickedFirst = <T extends { data: { featured: boolean } }>(list: T[]) => [
+  ...list.filter((p) => p.data.featured),
+  ...list.filter((p) => !p.data.featured),
+];
+const placeCards = pickedFirst(places.filter((p) => p.data.image)).slice(0, 3);
+const carded = new Set(placeCards.map((p) => p.slug));
+const placeIndex = pickedFirst(places.filter((p) => !carded.has(p.slug))).slice(0, 8);
+const articles = (await getTownEntries('articles')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 2);
+const [lead, second] = articles;
+const publisher = getNetworkHub().publisher;
+// High-school sports (/sports/), for the towns that follow a school
+// (src/config/school-sports.ts): the week's big game, chosen as that page
+// chooses it, in a strip under the hero.
+const sportsFiles = import.meta.glob<SportsData>('../../../data/*/sports.json', { eager: true, import: 'default' });
+const schoolSports = schoolSportsFor(town.slug);
+const sportsData = schoolSports && sportsDataFor(town.slug, sportsFiles);
+const game = sportsData ? bigGame(sportsData) : undefined;
+// The paths a reader asks for by name, each described in a sentence. Eat &
+// Drink and Things to Do are the two halves of the places; the directory is
+// all of them in one list. The signup sits in This week above, so it is
+// pointed at rather than repeated.
+const startHere = [
+  { label: `Events in ${town.name}`, href: '/events/', text: 'Every event with a date, the weekly regulars once each, and the weekend on its own page. Past dates drop off on their own.' },
+  { label: 'This weekend', href: '/this-weekend/', text: `Friday to Sunday in ${town.name}, what is still running, and the week after.` },
+  { label: 'Where to eat and drink', href: '/eat-drink/', text: 'Restaurants, bars, coffee and shops, each with its hours, its address and its own website.' },
+  { label: 'Things to do', href: '/things-to-do/', text: 'Trails, parks, venues and places to stay, and who looks after each.' },
+  { label: 'Guides', href: '/guides/', text: 'The longer reads: a walking route, the history, the town with kids, who runs what. Each says where its facts came from.' },
+  { label: `Moving to ${town.name}`, href: '/moving-here/', text: 'Housing, schools, the commute, who provides the water and the fire trucks, and what to check before you decide.' },
+];
+---
+  <Hero />
+
+  {/* The scoreboard bar: the week's big game, straight under the photo, in
+     one line a reader can take in without stopping. */}
+  {game && schoolSports && (
+    <section class="border-b-2 border-accent bg-paper" aria-labelledby="big-game" style={schoolCssVars(schoolSports)}>
+      <div class="container-page flex flex-col gap-4 py-6 md:flex-row md:items-center md:justify-between md:py-7">
+        <div class="min-w-0">
+          <p class="eyebrow">{schoolSports.mascot} {game.team.name.toLowerCase()} · {when(game.game)}{game.game.time && ` · ${formatGameTime(game.game)}`}</p>
+          <h2 id="big-game" class="display-md mt-1.5 text-[1.75rem] md:text-4xl">
+            <a href="/sports/" class="no-underline hover:text-primary">{schoolSports.mascot} {where(game.game)} {game.game.opponent}</a>
+          </h2>
+          <p class="mt-1.5 text-[0.9375rem] text-ink-muted">
+            {sitePhrase(game.game)}{game.team.overall && ` · ${game.team.overall} this season`}{game.team.results[0]?.result && ` · last out ${RESULT_WORD[game.team.results[0].result].toLowerCase()} ${outcome(game.team.results[0])}`}
+          </p>
+        </div>
+        <a href="/sports/" class="btn btn-primary shrink-0">Scores and schedules</a>
+      </div>
+    </section>
+  )}
+
+  {/* This week, first: the pick, the weekend's first few, what is new or
+     closed, and the email. Half the usual padding on top so it starts close
+     under the hero. The signup that sat at the foot of the page lives here
+     now; one ask a page. */}
+  <section class="band band-white pt-8! md:pt-12!">
+    <div class="container-page">
+      <ThisWeek town={town} compact />
+    </div>
+  </section>
+
+  {/* Start here: what the guide holds, each part named for what a reader
+     comes looking for, in words rather than a nav label. The home page
+     answered "what is on" and left a first-time visitor to find the
+     directory, the guides and Moving Here from the menu (search-visibility
+     phase 1, 15 October 2026). Every line is drawn from the config; no
+     count is typed. */}
+  <section class="band band-paper">
+    <div class="container-page">
+      <SectionHeader eyebrow="Start here" title={`What ${town.siteTitle} covers`} />
+      <ul class="grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+        {startHere.map((item) => (
+          <li class="border-t border-line-soft pt-4">
+            <a href={item.href} class="inline-block -my-1 py-1 text-lg font-semibold text-primary underline">{item.label}</a>
+            <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{item.text}</p>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-8 max-w-3xl text-[0.9375rem] leading-relaxed text-ink-muted">
+        {town.siteTitle} is an independent guide to {town.name}, {town.state}
+        {publisher && <Fragment>, published by <a href={publisher.url} rel="noopener" class="text-primary underline">{publisher.name}</a></Fragment>}.
+        It is not a government site and nobody pays to be listed. Every listing names its source and the day it was checked;
+        {' '}<a href="/about/" class="text-primary underline">how the guide works</a>, and
+        {' '}<a href="/correct/" class="text-primary underline">how to correct it</a>.
+      </p>
+    </div>
+  </section>
+
+  {/* The page is a run of bands: white, the paper, white, the paper again,
+     then the primary itself. Without them the whole site is one sheet. */}
+  <section class="band band-paper">
+    <div class="container-page">
+    <SectionHeader eyebrow={`Coming up in ${town.name}`} title="What’s on" href="/events/" linkLabel="All events" />
+    {events.length === 0 ? (
+      <p class="text-ink-muted">No upcoming events listed yet. <a href="/submit-event/" class="text-primary underline">Submit one.</a></p>
+    ) : (
+      <div data-events-scope>
+        {/* Each card draws the rule above it, bar the first. In two columns the
+           second card heads the right-hand column, so it goes without too. */}
+        <div class="grid border-b border-line-soft md:grid-cols-2 md:gap-x-12 md:[&>article:nth-child(2)]:border-t-0">
+          {events.map((event) => <EventCard event={event} />)}
+        </div>
+        {/* A build from before the weekend, read after it: the browser has
+           removed what has passed, and this says so rather than leave a gap. */}
+        <p data-events-empty hidden class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">
+          Everything listed here has now happened. <a href="/events/" class="font-semibold text-primary underline">See what’s next.</a>
+        </p>
+      </div>
+    )}
+    <NearbyWeekend town={town} class="mt-16 md:mt-20" />
+    </div>
+  </section>
+
+  <section class="band band-white">
+    <div class="container-page">
+    {/* The section shows every kind of place, not only food, so the link goes
+       to the directory, which lists them all. */}
+    <SectionHeader eyebrow="Eat, drink, wander" title="Where to go" href="/directory/" linkLabel="All places" />
+    {places.length === 0 ? (
+      <p class="text-ink-muted">Places are on their way.</p>
+    ) : (
+      <>
+        {placeCards.length === 1 && <PlaceFeature place={placeCards[0]} />}
+        {placeCards.length > 1 && (
+          <div class:list={['grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:gap-x-8', placeCards.length > 2 && 'lg:grid-cols-3']}>
+            {placeCards.map((place) => <PlaceCard place={place} />)}
+          </div>
+        )}
+        {placeIndex.length > 0 && (
+          <div class:list={[placeCards.length > 0 && 'mt-12 border-t border-line-soft pt-2']}>
+            <PlaceIndex places={placeIndex} />
+          </div>
+        )}
+      </>
+    )}
+    </div>
+  </section>
+
+  {lead && (
+    <section class="band band-paper">
+      <div class="container-page">
+      <SectionHeader eyebrow="Latest" title="From the guide" href="/guides/" linkLabel="All guides" />
+      <ArticleCard article={lead} feature />
+      {second && (
+        <div class="mt-12 border-t border-line-soft pt-8">
+          <ArticleCard article={second} row />
+        </div>
+      )}
+      </div>
+    </section>
+  )}
+
+  <section class="on-dark bg-primary text-white">
+    <div class="container-page grid gap-8 py-16 md:grid-cols-[3fr_2fr] md:items-end md:py-24">
+      <div>
+        <p class="eyebrow text-white">Moving here</p>
+        <h2 class="display-md mt-4 text-4xl lg:text-6xl">Thinking of making {town.name} home?</h2>
+      </div>
+      <div>
+        <p class="text-lg leading-relaxed">
+          Schools, commutes, what the housing market looks like, and what nobody tells you until you live here.
+        </p>
+        <a href="/moving-here/" class="btn btn-light mt-6">Read the guide</a>
+      </div>
+    </div>
+  </section>

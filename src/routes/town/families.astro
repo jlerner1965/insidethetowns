@@ -1,0 +1,187 @@
+---
+/**
+ * The family hub (/families/): what a child can join, what closes soon, and
+ * what there is on a school day off, from content/<town>/programs/, the
+ * family listings on the calendar, and the district calendar in the town's
+ * config. Grouped by age, then by subject, each program once per age it
+ * names. A section with nothing in it is not drawn.
+ */
+import Page from '@/layouts/Page.astro';
+import DeadlineList from '@/components/DeadlineList.astro';
+import ProgramRow from '@/components/ProgramRow.astro';
+import WeekEventRow from '@/components/WeekEventRow.astro';
+import NewsletterSignup from '@/components/NewsletterSignup.astro';
+import { getTown } from '@/config';
+import { getTownEntries } from '@/lib/content';
+import { formatDate, formatDayRange, parseLocal } from '@/lib/dates';
+import { occurrences, upcoming, weeklyTest } from '@/lib/events';
+import { byAudience, byTopic, filedUnder, isForFamilies } from '@/lib/programs';
+import { PROGRAM_AUDIENCE_LABELS, PROGRAM_TOPIC_LABELS } from '@/content/schemas';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+
+const town = getTown();
+const families = town.families!;
+const now = new Date();
+const all = await getTownEntries('programs');
+const programs = all.filter(isForFamilies);
+const AGES = ['babies', 'preschool', 'elementary', 'teens', 'families'] as const;
+const ages = byAudience(programs, AGES);
+const topics = byTopic(programs);
+const free = programs.filter((p) => /^free\b/i.test(p.data.price ?? '') || /\$5\b/.test(p.data.price ?? ''));
+// The next few family listings on the calendar: the one-time events, not
+// the weekly regulars, which the programs above already describe.
+const entries = await getTownEntries('events');
+const isWeekly = weeklyTest(entries);
+const familyEvents = upcoming(occurrences(entries.filter((e) => e.data.category === 'family' && !isWeekly(e)), { now, horizonDays: 60 }), { now, limit: 6 });
+// School breaks still ahead, from the district calendar, in date order.
+const breaks = [...families.breaks]
+  .map((b) => ({ ...b, fromDate: parseLocal(b.from), toDate: parseLocal(b.to) }))
+  .filter((b) => b.toDate.getTime() >= now.getTime() - 86_400_000)
+  .sort((a, b) => a.fromDate.getTime() - b.fromDate.getTime());
+const breakSources = [...new Map(breaks.map((b) => [b.source, b])).values()];
+// The town's own outing guide, where it has one: the newest article filed under Families.
+const outing = (await getTownEntries('articles')).filter((a) => a.data.category === 'Families').sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
+const description = `${families.label}: what a child can join in ${town.name}, Colorado, by age, with prices, registration deadlines and school-break dates, each from the organizer's own page.`;
+const contents = [
+  ...(programs.length > 0 ? [{ id: 'deadlines', label: 'Deadlines' }] : []),
+  ...ages.map((g) => ({ id: `age-${g.audience}`, label: PROGRAM_AUDIENCE_LABELS[g.audience] })),
+  ...topics.map((g) => ({ id: `topic-${g.topic}`, label: PROGRAM_TOPIC_LABELS[g.topic] })),
+  ...(breaks.length > 0 ? [{ id: 'breaks', label: 'School breaks' }] : []),
+  ...(free.length > 0 ? [{ id: 'free', label: 'Free and inexpensive' }] : []),
+  ...(familyEvents.length > 0 ? [{ id: 'events', label: 'Coming up' }] : []),
+  { id: 'schools', label: 'Schools' },
+];
+const structured = [
+  collectionPageJsonLd(town, { name: `${families.label}: ${town.name}, Colorado`, description, path: '/families/', items: programs.map((p) => ({ name: p.data.title, path: '/families/' })) }),
+  breadcrumbJsonLd(town, [
+    { name: town.name, path: '/' },
+    { name: families.label, path: '/families/' },
+  ]),
+];
+const H2 = 'eyebrow border-b-2 border-accent pb-3';
+---
+<Page title={families.label} seoTitle={`${families.label}: what kids can join in ${town.name}, CO`} eyebrow={town.name} {description} intro={families.intro} jsonLd={structured} kind="Guide">
+  <nav slot="after-header" aria-label="On this page" class="mt-6 flex flex-wrap gap-x-5 gap-y-1 text-[0.9375rem]">
+    {contents.map((c) => <a href={`#${c.id}`} class="inline-block -my-1 py-1 font-semibold text-primary underline">{c.label}</a>)}
+  </nav>
+
+  <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
+    <div class="min-w-0">
+      {programs.length > 0 && (
+        <section id="deadlines" class="scroll-mt-4" aria-labelledby="deadlines-h">
+          <h2 id="deadlines-h" class={H2}>Registration deadlines and openings</h2>
+          <DeadlineList programs={all} limit={8} days={60} class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" />
+          <p class="mt-3 text-[0.875rem] text-ink-muted">Only deadlines the organizer has published. A program with none listed is open until it fills, or its organizer has not said.</p>
+        </section>
+      )}
+
+      {ages.map((g) => (
+        <section id={`age-${g.audience}`} class="mt-14 scroll-mt-4" aria-labelledby={`age-${g.audience}-h`}>
+          <h2 id={`age-${g.audience}-h`} class={H2}>{PROGRAM_AUDIENCE_LABELS[g.audience]}</h2>
+          <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+            {g.programs.map((p) => <ProgramRow program={p} />)}
+          </div>
+        </section>
+      ))}
+
+      {topics.length > 1 && (
+        <section class="mt-14" aria-labelledby="by-subject-h">
+          <h2 id="by-subject-h" class={H2}>By subject</h2>
+          <p class="mt-3 text-[0.9375rem] text-ink-muted">The same programs, by what they are.</p>
+          {topics.map((g) => (
+            <div id={`topic-${g.topic}`} class="mt-6 scroll-mt-4">
+              <h3 class="text-xl font-medium">{PROGRAM_TOPIC_LABELS[g.topic]}</h3>
+              <ul class="mt-2 grid gap-x-8 sm:grid-cols-2">
+                {g.programs.map((p) => (
+                  <li class="border-b border-line-soft py-2.5 text-[0.9375rem]">
+                    <a href={`#age-${filedUnder(p, AGES)}`} class="font-medium no-underline hover:text-primary hover:underline">{p.data.title}</a>
+                    <span class="block text-ink-muted">{p.data.organizer}{p.data.ages && ` · ${p.data.ages}`}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </section>
+      )}
+
+      {breaks.length > 0 && (
+        <section id="breaks" class="mt-14 scroll-mt-4" aria-labelledby="breaks-h">
+          <h2 id="breaks-h" class={H2}>School breaks and days off</h2>
+          <ul class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+            {breaks.map((b) => (
+              <li class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t border-line-soft py-3 first:border-t-0 text-[0.9375rem]">
+                <span class="font-medium">{b.label}</span>
+                <span class="text-ink-muted"><time datetime={b.from}>{b.from === b.to ? formatDate(b.fromDate) : formatDayRange(b.fromDate, b.toDate)}</time> · {b.district}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-3 text-[0.875rem] text-ink-muted">
+            From {breakSources.map((b, i) => (
+              <Fragment>{i > 0 && ' and '}<a href={b.source} rel="noopener" class="underline">the {b.district} calendar</a> (read <time datetime={b.verified}>{formatDate(parseLocal(b.verified))}</time>)</Fragment>
+            ))}. What is open on those days: the <a href="#age-families" class="underline">programs above</a> that say so, and the <a href="/events/?category=family" class="underline">family listings</a>.
+          </p>
+        </section>
+      )}
+
+      {free.length > 0 && (
+        <section id="free" class="mt-14 scroll-mt-4" aria-labelledby="free-h">
+          <h2 id="free-h" class={H2}>Free and inexpensive</h2>
+          <ul class="mt-2 grid gap-x-8 sm:grid-cols-2">
+            {free.map((p) => (
+              <li class="border-b border-line-soft py-2.5 text-[0.9375rem]">
+                <a href={`#age-${filedUnder(p, AGES)}`} class="font-medium no-underline hover:text-primary hover:underline">{p.data.title}</a>
+                <span class="block text-ink-muted">{p.data.price}{p.data.schedule && ` · ${p.data.schedule}`}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-3 text-[0.875rem] text-ink-muted">Also free: the parks{outing && <Fragment>, the playgrounds and trails in <a href={`/articles/${outing.slug}/`} class="underline">{outing.data.title}</a></Fragment>}, and most of the family listings on the calendar.</p>
+        </section>
+      )}
+
+      {familyEvents.length > 0 && (
+        <section id="events" class="mt-14 scroll-mt-4" aria-labelledby="events-h" data-events-scope>
+          <h2 id="events-h" class={H2}>Coming up for families</h2>
+          <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" data-hide-when-empty>
+            {familyEvents.map((e) => <WeekEventRow event={e} />)}
+          </div>
+          <p class="mt-3 text-[0.9375rem]"><a href="/events/?category=family" class="inline-block -my-2 py-2 font-semibold text-primary underline">All family listings →</a></p>
+        </section>
+      )}
+
+      <section id="schools" class="mt-14 scroll-mt-4" aria-labelledby="schools-h">
+        <h2 id="schools-h" class={H2}>Schools</h2>
+        <ul class="mt-2 divide-y divide-line-soft">
+          {families.schools.map((s) => (
+            <li class="py-3 text-[0.9375rem]">
+              <a href={s.url} rel="noopener" data-track="service" class="inline-block -my-1 py-1 font-semibold text-primary underline">{s.label} →</a>
+              {s.note && <span class="block text-ink-muted">{s.note}</span>}
+            </li>
+          ))}
+          <li class="py-3 text-[0.9375rem]"><a href="/sports/" class="inline-block -my-1 py-1 font-semibold text-primary underline">High-school sports: scores and schedules →</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <aside class="space-y-8 lg:sticky lg:top-24 lg:self-start">
+      <div class="rounded-lg bg-raised p-6 ring-1 ring-line-soft">
+        <p class="eyebrow border-b border-line-soft pb-3">How this page is made</p>
+        <p class="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">
+          Every line is the organizer's own: age ranges, prices and deadlines as its page or guide gives them, with the day it was read. A fact the organizer does not publish is left out. Registration links go to the organizer, never through this site.
+        </p>
+        <p class="mt-3 text-[0.9375rem]"><a href="/correct/" class="font-semibold text-primary underline">Report a change →</a></p>
+      </div>
+      <div class="rounded-lg bg-raised p-6 ring-1 ring-line-soft">
+        <p class="eyebrow border-b border-line-soft pb-3">Also on this guide</p>
+        <ul class="mt-3 space-y-2 text-[0.9375rem]">
+          <li><a href="/events/?category=family" class="font-semibold text-primary underline">Family events this fortnight</a></li>
+          {town.participation && <li><a href="/get-involved/" class="font-semibold text-primary underline">{town.participation.label}: the adults' ways in</a></li>}
+          {town.livingHere && <li><a href="/living-here/" class="font-semibold text-primary underline">Living here: schools, utilities, who to call</a></li>}
+          <li><a href="/guides/" class="font-semibold text-primary underline">The guides</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <div class="mt-14">
+    <NewsletterSignup town={town} compact id="families" />
+  </div>
+</Page>
