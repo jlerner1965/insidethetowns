@@ -16,6 +16,16 @@ export const nederland: TownConfig = {
   // Live 7 October 2026, on the owner's word, after the first review cleared
   // the launch threshold (docs/ACCURACY-SYSTEM.md).
   status: 'live',
+  // Quiet from 20 October 2026, owner's word, with the other small mountain
+  // guides (DECISIONS.md, "The other mountain guides, 20 October"): pages
+  // up, listings checked as the rotation reaches them, no weekly promise.
+  // 19 November is before any listing's hours expire (45 days from its check
+  // on the mountain chassis; the quiet-towns test holds the order).
+  quiet: {
+    since: '2026-10-20',
+    decideBy: '2026-11-19',
+    reason: 'seventeen events and no guide to fold into (Boulder has none); with the other small mountain guides it leaves the weekly routine so the effort goes to the Front Range towns that can be won',
+  },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   neighbors: ['lyons', 'niwot', 'idaho-springs'],

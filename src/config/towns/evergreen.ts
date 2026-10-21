@@ -17,6 +17,13 @@ export const evergreen: TownConfig = {
   // Live 7 October 2026, on the owner's word, after the first review cleared
   // the launch threshold (docs/ACCURACY-SYSTEM.md).
   status: 'live',
+  // A visitor guide from 20 October 2026, owner's word, with Estes Park,
+  // Golden and Evergreen together (DECISIONS.md, "The other mountain guides,
+  // 20 October"): kept current on the sixty-day check, no weekly email.
+  visitorGuide: {
+    since: '2026-10-20',
+    reason: 'an unincorporated foothills community whose readers come for the lake, the trails and the seasons; a guide to visit by, not a weekly',
+  },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   neighbors: ['golden', 'idaho-springs'],

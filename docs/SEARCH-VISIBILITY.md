@@ -2,7 +2,9 @@
 
 Phase 1 of the search-visibility plan, 15 October 2026. Three flagship guides
 get the concentrated effort: **Inside Lyons**, **Inside Niwot** and **Inside
-Golden**. Nothing here adds a town, and nothing here has been connected to
+Golden**. (Golden became a visitor guide on 20 October 2026, out of the
+weekly email; its search phases below stand, since none depends on the email.
+DECISIONS.md, "The other mountain guides, 20 October".) Nothing here adds a town, and nothing here has been connected to
 Google or Bing yet: this page says what the sites can accept and what the
 owner has to do by hand.
 

@@ -5649,3 +5649,38 @@ The owner: "first do the clear creek combo."
   of redirects. The other three small mountain guides (Grand Lake,
   Leadville, Nederland) and the four city guides are the next decision, not
   this one.
+
+## The other mountain guides, 20 October
+
+*20 October 2026.* After the Clear Creek fold the owner said to do the other
+mountain towns. Asked how, with the choices and a recommendation for each,
+the owner took both recommendations: quiet the three that have no guide to
+fold into, and make the four visitor towns visitor guides, Golden included.
+
+- **Quiet: Grand Lake, Leadville and Nederland.** Each gets a `quiet` block
+  (since, decide by, why), as Elizabeth has: pages up and indexed, listings
+  checked as the rotation reaches them, but no weekly email, no signup box
+  on its pages or anyone else's, no Thursday draft, and one line in the
+  weekly report with the days left. Leadville's `visitorGuide` is replaced,
+  since quiet is the stronger step. The decide-by date is 19 November, not
+  the 20 January first offered: the quiet-towns test wants the decision
+  before any listing's hours expire, forty-five days from its check on the
+  mountain chassis, which is 20 November for Nederland (checked 6 October)
+  and 24 November for the other two. Keep a guide, and the field comes off;
+  retire it, and the Severance pattern applies, with no neighbour to take
+  it, so a holding page and a redirect to the hub would be the shape.
+- **Visitor guides: Estes Park, Golden and Evergreen**, joining Manitou
+  Springs: kept current on the sixty-day check, in the weekly report, but
+  with no weekly email. Golden stops being treated as a flagship for the
+  weekly routine; its site, its search phases (docs/SEARCH-VISIBILITY.md)
+  and its outreach list stand, since none of those depends on the email.
+- **What follows from the configs.** `emailTowns()` now covers twelve
+  guides in ten editions (two shared), down from fifteen; the hub's signup,
+  the newsletter page, the Thursday drafts and the weekly report read the
+  same fields and need no change. manager/towns.json says which guides are
+  out of the email and why, as its test requires.
+- **Not done, and the owner's.** Buttondown subscribers tagged with the six
+  towns stay tagged; nothing is sent to them until a guide rejoins, and
+  telling them is the owner's call. The four city guides (Fort Collins,
+  Longmont, Loveland, and Castle Rock before it opens) are the next
+  decision; this one touched only the mountains.

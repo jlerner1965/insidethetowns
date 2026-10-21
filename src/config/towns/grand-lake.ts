@@ -17,6 +17,16 @@ export const grandLake: TownConfig = {
   // it publishes what is verified, and the validator and the weekly report
   // say what it is short of (docs/ACCURACY-SYSTEM.md).
   status: 'live',
+  // Quiet from 20 October 2026, owner's word, with the other small mountain
+  // guides (DECISIONS.md, "The other mountain guides, 20 October"): pages
+  // up, listings checked as the rotation reaches them, no weekly promise.
+  // 19 November is before any listing's hours expire (45 days from its check
+  // on the mountain chassis; the quiet-towns test holds the order).
+  quiet: {
+    since: '2026-10-20',
+    decideBy: '2026-11-19',
+    reason: 'the smallest guide left after the Clear Creek fold, 410 people and sixteen events, with Estes Park a closed pass away for half the year; its readers are visitors, and nothing about it combines',
+  },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Estes Park, the other side of the national park: two hours over Trail

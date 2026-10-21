@@ -17,6 +17,13 @@ export const golden: TownConfig = {
   // Live 7 October 2026, on the owner's word, after the first review cleared
   // the launch threshold (docs/ACCURACY-SYSTEM.md).
   status: 'live',
+  // A visitor guide from 20 October 2026, owner's word, with Estes Park,
+  // Golden and Evergreen together (DECISIONS.md, "The other mountain guides,
+  // 20 October"): kept current on the sixty-day check, no weekly email.
+  visitorGuide: {
+    since: '2026-10-20',
+    reason: 'a college and visitor town with Visit Golden, the DDA and the City behind the official calendar, and a home page at position 48 in search; the guide stays live and in the search plan, but the weekly effort goes to Niwot, Lyons, Erie and Berthoud',
+  },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   neighbors: ['evergreen', 'idaho-springs'],

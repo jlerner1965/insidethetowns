@@ -40,17 +40,19 @@ test('an edition of one carries its town’s email sponsor; a shared one its own
   assert.equal(shared!.sponsor, own);
 });
 
-test('the two shared editions the owner set, and fifteen in all', () => {
-  // Three until 20 October 2026: Idaho Springs and Georgetown became one
-  // guide, Inside Clear Creek, so theirs is an edition of one under the
-  // Idaho Springs slug, and the count holds.
+test('the two shared editions the owner set, and ten in all', () => {
+  // Three shared and fifteen in all until 20 October 2026: Idaho Springs and
+  // Georgetown became one guide, Inside Clear Creek, an edition of one under
+  // the Idaho Springs slug; then Estes Park, Golden and Evergreen became
+  // visitor guides and Grand Lake, Leadville and Nederland went quiet, five
+  // editions fewer.
   const editions = emailEditions();
   const shared = editions.filter((e) => e.shared).map((e) => [e.slug, e.towns.map((x) => x.slug)]);
   assert.deepEqual(shared, [
     ['loveland-johnstown', ['loveland', 'johnstown']],
     ['windsor-timnath', ['windsor', 'timnath']],
   ]);
-  assert.equal(editions.length, 15);
+  assert.equal(editions.length, 10);
   // Every covered guide in exactly one edition.
   const placed = editions.flatMap((e) => e.towns.map((x) => x.slug)).sort();
   assert.deepEqual(placed, emailTowns().map((x) => x.slug).sort());
@@ -73,11 +75,12 @@ test('the configured editions name live guides the email covers, once each, unde
   }
 });
 
-test('Leadville and Manitou Springs are visitor guides, live and out of the email', () => {
-  // Black Hawk was the third until 20 October 2026, when it became a section
-  // of the Idaho Springs guide, which the email covers.
+test('Estes Park, Evergreen, Golden and Manitou Springs are visitor guides, live and out of the email', () => {
+  // Black Hawk, Leadville and Manitou Springs until 20 October 2026: Black
+  // Hawk became a section of the Idaho Springs guide, which the email covers,
+  // Leadville went quiet, and Estes Park, Golden and Evergreen joined Manitou.
   const visitor = towns.filter((x) => x.visitorGuide).map((x) => x.slug).sort();
-  assert.deepEqual(visitor, ['leadville', 'manitou-springs']);
+  assert.deepEqual(visitor, ['estes-park', 'evergreen', 'golden', 'manitou-springs']);
   const live = liveTowns().map((x) => x.slug);
   for (const slug of visitor) {
     assert.ok(live.includes(slug), `${slug} stays live`);
