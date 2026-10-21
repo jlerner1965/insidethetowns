@@ -264,6 +264,28 @@ function checkFormActions() {
 checkFormActions();
 
 /**
+ * Same coupling for Plausible: its events go to plausible.io, and a CSP that
+ * does not list it in connect-src drops every one of them in the reader's
+ * browser while the dashboard just shows nobody came.
+ */
+function checkPlausible() {
+  const towns = liveTowns().filter((town) => town.plausible);
+  const vercelJson = join(root, 'vercel.json');
+  if (towns.length === 0 || !existsSync(vercelJson)) return;
+  const directive = /connect-src ([^;"]*)/.exec(readFileSync(vercelJson, 'utf8'));
+  if (!directive?.[1].trim().split(/\s+/).includes('https://plausible.io')) {
+    for (const town of towns) {
+      errors.push(
+        `src/config/towns/${town.slug}.ts: plausible is on, but the CSP would block its events. ` +
+          'Add https://plausible.io to connect-src in vercel.json.',
+      );
+    }
+  }
+}
+
+checkPlausible();
+
+/**
  * Attribution is a licence term, not a courtesy. Every CC BY / CC BY-SA image
  * here legally requires it, and Boulder County asked for it in writing. The
  * editorial page tells readers "credit is shown where the licence asks for

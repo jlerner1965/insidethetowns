@@ -55,4 +55,5 @@ export const lyons: TownConfig = {
     policeNonEmergencyLabel: 'Boulder County Sheriff',
   },
   formspreeId: 'moevewdw',
+  plausible: true,
 };

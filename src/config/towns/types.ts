@@ -249,6 +249,17 @@ export interface TownConfig {
   formspreeId?: string;
   ga4Id?: string;
   /**
+   * Plausible Analytics on this guide, beside the network's Vercel Web
+   * Analytics. Counted under the guide's `domain`, which has to be added as a
+   * site in Plausible's dashboard or the events are dropped there.
+   *
+   * Loaded from the npm package and bundled, not from Plausible's snippet:
+   * the snippet is a script on plausible.io plus an inline one, and the CSP
+   * allows neither. Only `connect-src` names plausible.io, for the events.
+   * Cookieless, like Vercel's, so /privacy/ names it and still needs no banner.
+   */
+  plausible?: boolean;
+  /**
    * The town's sponsors, one per placement, each a labeled line beside the
    * editorial and never inside it — the placements /advertise/ describes.
    * Absent until someone has actually bought one; every slot stays dark

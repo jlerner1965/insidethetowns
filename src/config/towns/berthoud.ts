@@ -63,4 +63,5 @@ export const berthoud: TownConfig = {
     policeNonEmergencyLabel: 'the Larimer County Sheriff’s Berthoud squad',
   },
   formspreeId: 'xjykyryq',
+  plausible: true,
 };
