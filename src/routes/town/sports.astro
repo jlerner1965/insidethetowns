@@ -1,24 +1,29 @@
 ---
 /**
- * Berthoud High School sports: one card per team the guide follows, with
- * the record, the last result and the next game, read from
- * data/berthoud/sports.json. The Saturday and Wednesday runs write that
- * file (`npm run sports`); nothing here is typed in by hand.
+ * Berthoud High School sports: the next game across every team up top, in
+ * the town's dark band, then one card per team with the record, the last
+ * result and the next game, all read from data/berthoud/sports.json. The
+ * Saturday and Wednesday runs write that file (`npm run sports`); nothing
+ * here is typed in by hand.
+ *
+ * Built on Base with its own masthead and bands, the way the home page is,
+ * rather than on Page: the highlight has to be a full-width band between
+ * the masthead and the cards, and Page has no slot there.
  *
  * Berthoud only, for now: the route is injected for its slug alone
- * (src/integrations/town-routes.ts), and the data file is Berthoud's. The
+ * (src/integrations/town-routes.ts), and the data file is Berthoud's. A
  * card's "updated" date is the team's own last successful read, so a week
- * MaxPreps could not be reached shows last week's date, not today's.
- *
- * A game the school calendar contradicts is not in the file's `upcoming`
- * list at all (scripts/lib/sports-crosscheck.ts), so the card simply shows
- * the next game the two sources agree on, or none.
+ * MaxPreps could not be reached shows last week's date, not today's. A game
+ * the school calendar contradicts is not in the file's `upcoming` list at
+ * all (scripts/lib/sports-crosscheck.ts), so the page simply shows the next
+ * game the two sources agree on, or none.
  */
-import Page from '@/layouts/Page.astro';
+import Base from '@/layouts/Base.astro';
 import CtaBand from '@/components/CtaBand.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
 import type { SportData, SportGame, SportsData } from '@/config/berthoud-sports';
-import { formatDayShort, formatShortDate, formatTime, fromWallClock } from '@/lib/dates';
+import { dayKey, formatDayLong, formatDayShort, formatShortDate, formatTime, fromWallClock } from '@/lib/dates';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 import sportsFile from '../../../data/berthoud/sports.json';
 
@@ -35,129 +40,246 @@ function day(g: SportGame): Date {
   return fromWallClock(y, m, d, hh, mm);
 }
 function where(g: SportGame): string {
-  return g.site === 'home' ? 'vs' : g.site === 'away' ? 'at' : 'vs';
+  return g.site === 'away' ? 'at' : 'vs';
 }
 /** "W 22-0 vs Greeley Central" or "3rd at the Niwot Invitational". */
 function outcome(g: SportGame): string {
-  if (g.result && g.score) return `${g.result} ${g.score.us}-${g.score.them} ${where(g)} ${g.opponent}`;
+  if (g.result && g.score) return `${g.score.us}-${g.score.them} ${where(g)} ${g.opponent}`;
   if (g.place) return `${g.place} ${where(g)} ${g.opponent}`;
   return `${where(g)} ${g.opponent}`;
 }
 function sitePhrase(g: SportGame): string {
   return g.site === 'home' ? 'Home' : g.site === 'away' ? 'Away' : 'Neutral site';
 }
+/** "Today", "Tomorrow", or the day in full, for the highlight. */
+function when(g: SportGame): string {
+  const today = dayKey(new Date());
+  const tomorrow = dayKey(new Date(Date.now() + 86_400_000));
+  if (g.date === today) return 'Today';
+  if (g.date === tomorrow) return 'Tomorrow';
+  return formatDayLong(day(g));
+}
+const RESULT_WORD = { W: 'Won', L: 'Lost', T: 'Tied' } as const;
+
+/** Every game to come, across the teams, soonest first. */
+const coming = sports
+  .flatMap((s) => s.upcoming.map((game) => ({ team: s, game })))
+  .sort((a, b) => a.game.date.localeCompare(b.game.date) || (a.game.time ?? '').localeCompare(b.game.time ?? ''));
+/**
+ * The highlight: the big game of the week, not merely the soonest. The
+ * teams are listed in order of what the town turns out for (football
+ * first, src/config/berthoud-sports.ts), so the first team with a game in
+ * the next seven days leads, and a Tuesday soccer match does not push
+ * Friday night off the top. With nothing in the week, the soonest game.
+ */
+const weekAhead = dayKey(new Date(Date.now() + 7 * 86_400_000));
+const next = sports.flatMap((s) => s.upcoming.filter((g) => g.date <= weekAhead).slice(0, 1).map((game) => ({ team: s, game })))[0] ?? coming[0];
+const then = coming.filter((c) => c !== next);
+/** The most recent result across the teams, for a page with nothing to come. */
+const latest = sports
+  .flatMap((s) => s.results.slice(0, 1).map((game) => ({ team: s, game })))
+  .sort((a, b) => b.game.date.localeCompare(a.game.date))[0];
+
 const fetchedDates = sports.map((s) => s.fetched).filter(Boolean) as string[];
 const newest = fetchedDates.length ? new Date(fetchedDates.sort().at(-1)!) : undefined;
+const jsonLd = [
+  collectionPageJsonLd(town, { name: `${school} Spartans scores and schedules`, description, path: '/sports/' }),
+  breadcrumbJsonLd(town, [
+    { name: town.name, path: '/' },
+    { name: 'Sports', path: '/sports/' },
+  ]),
+];
 ---
-<Page
-  title={`${school} sports`}
-  seoTitle={`${school} Spartans scores and schedules`}
-  eyebrow="Sports"
-  {description}
-  intro="The Spartans' records, last results and next games, read from MaxPreps twice a week and checked against the school's own calendar."
-  jsonLd={[
-    collectionPageJsonLd(town, { name: `${school} Spartans scores and schedules`, description, path: '/sports/' }),
-    breadcrumbJsonLd(town, [
-      { name: town.name, path: '/' },
-      { name: 'Sports', path: '/sports/' },
-    ]),
-  ]}
->
-  <p slot="after-header" class="mt-5 text-[0.9375rem] text-ink-muted">
-    {newest && <span>Last read {formatShortDate(newest)}. </span>}
-    <a href={MAXPREPS_SCHOOL} rel="noopener" class="font-semibold text-primary underline">Every Spartans team on MaxPreps</a> ·
-    <a href="https://bhs.tsd.org/family/calendar" rel="noopener" class="font-semibold text-primary underline">The school calendar</a>
-  </p>
+<Base title={`${school} Spartans scores and schedules`} {description} {jsonLd}>
+  <header class="border-b-2 border-accent bg-raised">
+    <div class="container-page py-10 md:py-14">
+      <div class="max-w-3xl">
+        <p class="eyebrow mb-3">Sports</p>
+        <h1 class="display-md text-[2.75rem] md:text-6xl">{school} sports</h1>
+        <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted md:text-xl">
+          The Spartans’ records, last results and next games, read from MaxPreps twice a week and checked against the school’s own calendar.
+        </p>
+        <p class="mt-5 text-[0.9375rem] text-ink-muted">
+          {newest && <span>Last read {formatShortDate(newest)}. </span>}
+          <a href={MAXPREPS_SCHOOL} rel="noopener" class="font-semibold text-primary underline">Every Spartans team on MaxPreps</a> ·
+          <a href="https://bhs.tsd.org/family/calendar" rel="noopener" class="font-semibold text-primary underline">The school calendar</a>
+        </p>
+      </div>
+    </div>
+  </header>
 
-  {sports.length === 0 ? (
-    <p class="text-ink-muted">No scores yet: the first read has not run.</p>
-  ) : (
-    <ul class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" aria-label="Teams">
-      {sports.map((s) => {
-        const last = s.results[0];
-        const next = s.upcoming[0];
-        return (
-          <li id={s.key} class="flex flex-col rounded-lg bg-raised px-5 py-5 ring-1 ring-primary-line">
-            <p class="eyebrow">{s.name}</p>
-            {s.empty ? (
-              <Fragment>
-                <p class="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">{s.empty} <a href={s.maxprepsUrl} rel="noopener" class="underline">The team on MaxPreps</a>.</p>
-                <p class="mt-auto pt-5 text-xs leading-relaxed text-ink-muted">
-                  Source: <a href={s.maxprepsUrl} rel="noopener" class="underline">MaxPreps</a> · checked {formatShortDate(new Date(s.fetched!))}
-                </p>
-              </Fragment>
-            ) : s.fetched ? (
-              <Fragment>
-                <p class="display-md mt-2 text-[2rem] leading-none text-primary">{s.overall ?? '—'}</p>
-                <p class="mt-1 text-[0.9375rem] text-ink-muted">
-                  {s.league ? `${s.league.record} in the ${s.league.name}${s.league.place ? `, ${s.league.place}` : ''}` : 'No league record yet'}
-                </p>
-                <dl class="mt-4 space-y-3 text-[0.9375rem] leading-snug">
-                  <div>
-                    <dt class="eyebrow text-ink-muted">Last result</dt>
-                    <dd class="mt-1">
-                      {last ? (
-                        <Fragment>
-                          <a href={last.url} rel="noopener" class="font-semibold text-ink underline decoration-primary-line underline-offset-2 hover:text-primary">{outcome(last)}</a>
-                          <span class="block text-ink-muted"><time datetime={last.date}>{formatDayShort(day(last))}</time> · {sitePhrase(last)}</span>
-                        </Fragment>
-                      ) : (
-                        'No result yet this season'
-                      )}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt class="eyebrow text-ink-muted">Next game</dt>
-                    <dd class="mt-1">
-                      {next ? (
-                        <Fragment>
-                          <a href={next.url} rel="noopener" class="font-semibold text-ink underline decoration-primary-line underline-offset-2 hover:text-primary">{where(next)} {next.opponent}</a>
-                          <span class="block text-ink-muted">
-                            <time datetime={next.time ? `${next.date}T${next.time}` : next.date}>{formatDayShort(day(next))}{next.time && ` · ${formatTime(day(next))}`}</time> · {sitePhrase(next)}
-                          </span>
-                        </Fragment>
-                      ) : s.held.length ? (
-                        'Next game to be confirmed: MaxPreps and the school calendar disagree'
-                      ) : (
-                        'None scheduled on MaxPreps'
-                      )}
-                    </dd>
-                  </div>
-                </dl>
-                {s.results.length > 1 && (
-                  <details class="mt-4 text-[0.9375rem]">
-                    <summary class="cursor-pointer font-semibold text-primary">This season ({s.results.length} results)</summary>
-                    <ol class="mt-2 space-y-1 text-ink-muted" reversed>
-                      {s.results.map((g) => (
-                        <li><time datetime={g.date}>{formatDayShort(day(g))}</time>: <a href={g.url} rel="noopener" class="underline">{outcome(g)}</a></li>
-                      ))}
-                    </ol>
-                  </details>
+  {/* The one thing most readers came for: the next game, big, in the town's
+      colour, with the rest of the week beside it. Off season, the last
+      result takes its place. */}
+  {next ? (
+    <section class="on-dark bg-primary text-white" aria-labelledby="next-up">
+      <div class="container-page grid gap-10 py-14 md:grid-cols-[3fr_2fr] md:items-end md:py-20">
+        <div>
+          <p class="eyebrow text-white/80">Next up · {next.team.name}</p>
+          <h2 id="next-up" class="display mt-4 text-[2.75rem] sm:text-6xl lg:text-7xl">
+            Spartans {where(next.game)} {next.game.opponent}
+          </h2>
+          <p class="mt-5 text-xl leading-snug md:text-2xl">
+            <time datetime={next.game.time ? `${next.game.date}T${next.game.time}` : next.game.date}>
+              {when(next.game)}{next.game.time && <Fragment> · {formatTime(day(next.game))}</Fragment>}
+            </time>
+            <span class="text-white/70"> · {sitePhrase(next.game)}</span>
+          </p>
+          <p class="mt-2 text-[1.0625rem] text-white/80">
+            {next.team.overall && <span>The Spartans are {next.team.overall}{next.team.league ? ` overall, ${next.team.league.record} in the ${next.team.league.name}` : ''}. </span>}
+            {next.team.results[0] && <span>Last time out: {RESULT_WORD[next.team.results[0].result ?? 'T']} {outcome(next.team.results[0])}.</span>}
+          </p>
+          <div class="mt-7 flex flex-wrap gap-3">
+            <a href={next.game.url} rel="noopener" class="btn btn-light">The game on MaxPreps</a>
+            <a href={`#${next.team.key}`} class="btn btn-outline text-white">The {next.team.name.toLowerCase()} season</a>
+          </div>
+        </div>
+        {then.length > 0 && (
+          <div>
+            <p class="eyebrow text-white/80">Then</p>
+            <ol class="mt-3 divide-y divide-white/15 border-y border-white/15">
+              {then.slice(0, 4).map(({ team, game }) => (
+                <li class="flex items-baseline gap-4 py-3">
+                  <time datetime={game.date} class="w-24 shrink-0 text-[0.9375rem] text-white/70">{formatDayShort(day(game))}</time>
+                  <span class="min-w-0">
+                    <span class="font-semibold">{team.name}</span> {where(game)} {game.opponent}
+                    {game.time && <span class="text-white/70"> · {formatTime(day(game))}</span>}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+      </div>
+    </section>
+  ) : latest ? (
+    <section class="on-dark bg-primary text-white" aria-labelledby="last-out">
+      <div class="container-page py-14 md:py-20">
+        <p class="eyebrow text-white/80">Last time out · {latest.team.name}</p>
+        <h2 id="last-out" class="display mt-4 text-[2.75rem] sm:text-6xl lg:text-7xl">
+          {RESULT_WORD[latest.game.result ?? 'T']} {outcome(latest.game)}
+        </h2>
+        <p class="mt-5 text-xl leading-snug md:text-2xl">
+          <time datetime={latest.game.date}>{formatDayLong(day(latest.game))}</time><span class="text-white/70"> · {sitePhrase(latest.game)} · nothing scheduled yet</span>
+        </p>
+      </div>
+    </section>
+  ) : null}
+
+  <section class="band band-paper">
+    <div class="container-page">
+      <SectionHeader eyebrow="Every team" title="The Spartans this season" />
+      {sports.length === 0 ? (
+        <p class="text-ink-muted">No scores yet: the first read has not run.</p>
+      ) : (
+        <ul class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" aria-label="Teams">
+          {sports.map((s) => {
+            const last = s.results[0];
+            const up = s.upcoming[0];
+            const wins = s.results.filter((g) => g.result === 'W').length;
+            return (
+              <li id={s.key} class="flex scroll-mt-24 flex-col rounded-lg bg-raised p-5 ring-1 ring-primary-line sm:p-6">
+                <p class="eyebrow">{s.name}</p>
+                {s.empty ? (
+                  <Fragment>
+                    <p class="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">{s.empty} <a href={s.maxprepsUrl} rel="noopener" class="underline">The team on MaxPreps</a>.</p>
+                    <p class="mt-auto pt-5 text-xs leading-relaxed text-ink-muted">
+                      Source: <a href={s.maxprepsUrl} rel="noopener" class="underline">MaxPreps</a> · checked {formatShortDate(new Date(s.fetched!))}
+                    </p>
+                  </Fragment>
+                ) : s.fetched ? (
+                  <Fragment>
+                    <p class="display-md mt-2 whitespace-nowrap text-[2.75rem] text-primary">{s.overall ?? '—'}</p>
+                    {s.league && <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{s.league.record} in the {s.league.name}{s.league.place && `, ${s.league.place}`}</p>}
+
+                    <dl class="mt-5 space-y-4 text-[0.9375rem] leading-snug">
+                      <div class="flex gap-3">
+                        {last?.result ? (
+                          <span
+                            class:list={[
+                              'mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[0.8125rem] font-bold',
+                              last.result === 'W' ? 'bg-primary text-white' : last.result === 'L' ? 'bg-ink text-raised' : 'bg-accent-soft text-ink',
+                            ]}
+                            aria-hidden="true"
+                          >{last.result}</span>
+                        ) : (
+                          <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-soft text-[0.8125rem] font-bold text-ink" aria-hidden="true">–</span>
+                        )}
+                        <div class="min-w-0">
+                          <dt class="eyebrow text-ink-muted">Last result</dt>
+                          <dd class="mt-0.5">
+                            {last ? (
+                              <Fragment>
+                                <a href={last.url} rel="noopener" class="font-semibold text-ink underline decoration-primary-line underline-offset-2 hover:text-primary">{last.result ? `${RESULT_WORD[last.result]} ` : ''}{outcome(last)}</a>
+                                <span class="block text-ink-muted"><time datetime={last.date}>{formatDayShort(day(last))}</time> · {sitePhrase(last)}</span>
+                              </Fragment>
+                            ) : (
+                              'No result yet this season'
+                            )}
+                          </dd>
+                        </div>
+                      </div>
+                      <div class="flex gap-3">
+                        <span class="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full ring-1 ring-primary-line text-[0.8125rem] font-bold text-primary" aria-hidden="true">→</span>
+                        <div class="min-w-0">
+                          <dt class="eyebrow text-ink-muted">Next game</dt>
+                          <dd class="mt-0.5">
+                            {up ? (
+                              <Fragment>
+                                <a href={up.url} rel="noopener" class="font-semibold text-ink underline decoration-primary-line underline-offset-2 hover:text-primary">{where(up)} {up.opponent}</a>
+                                <span class="block text-ink-muted">
+                                  <time datetime={up.time ? `${up.date}T${up.time}` : up.date}>{when(up)}{up.time && ` · ${formatTime(day(up))}`}</time> · {sitePhrase(up)}
+                                </span>
+                              </Fragment>
+                            ) : s.held.length ? (
+                              'To be confirmed: MaxPreps and the school calendar disagree'
+                            ) : (
+                              'None scheduled on MaxPreps'
+                            )}
+                          </dd>
+                        </div>
+                      </div>
+                    </dl>
+
+                    {s.results.length > 1 && (
+                      <details class="mt-5 text-[0.9375rem]">
+                        <summary class="cursor-pointer font-semibold text-primary">This season: {wins} of {s.results.length} won</summary>
+                        <ol class="mt-3 divide-y divide-line-soft border-y border-line-soft" reversed>
+                          {s.results.map((g) => (
+                            <li class="flex items-baseline gap-3 py-2">
+                              <time datetime={g.date} class="w-20 shrink-0 text-ink-muted">{formatDayShort(day(g))}</time>
+                              <span class:list={['w-5 shrink-0 font-bold', g.result === 'W' ? 'text-primary' : 'text-ink-muted']}>{g.result ?? ''}</span>
+                              <a href={g.url} rel="noopener" class="min-w-0 underline decoration-primary-line underline-offset-2 hover:text-primary">{outcome(g)}</a>
+                            </li>
+                          ))}
+                        </ol>
+                      </details>
+                    )}
+                    <p class="mt-auto pt-5 text-xs leading-relaxed text-ink-muted">
+                      Source: <a href={s.maxprepsUrl} rel="noopener" class="underline">MaxPreps</a> · updated {formatShortDate(new Date(s.fetched))}
+                    </p>
+                  </Fragment>
+                ) : (
+                  <p class="mt-3 text-[0.9375rem] text-ink-muted">Not read yet. <a href={s.maxprepsUrl || MAXPREPS_SCHOOL} rel="noopener" class="underline">See the team on MaxPreps</a>.</p>
                 )}
-                <p class="mt-auto pt-5 text-xs leading-relaxed text-ink-muted">
-                  Source: <a href={s.maxprepsUrl} rel="noopener" class="underline">MaxPreps</a> · updated {formatShortDate(new Date(s.fetched))}
-                </p>
-              </Fragment>
-            ) : (
-              <p class="mt-3 text-[0.9375rem] text-ink-muted">Not read yet. <a href={s.maxprepsUrl || MAXPREPS_SCHOOL} rel="noopener" class="underline">See the team on MaxPreps</a>.</p>
-            )}
-          </li>
-        );
-      })}
-    </ul>
-  )}
+              </li>
+            );
+          })}
+        </ul>
+      )}
 
-  <p class="mt-10 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">
-    Records and scores are MaxPreps's, as coaches and the CHSAA report them, read by this site on Saturday mornings and Wednesdays. Where MaxPreps and the school calendar disagree on a game's day, time or opponent, the game is left off until a person has checked. A team whose page could not be read keeps its last good numbers and their date. Something wrong? <a href="/correct/?item=sports&title=Berthoud%20High%20sports" class="underline">Tell us</a>.
-  </p>
+      <p class="mt-10 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">
+        Records and scores are MaxPreps’s, as coaches and the CHSAA report them, read by this site on Saturday mornings and Wednesdays. Where MaxPreps and the school calendar disagree on a game’s day, time or opponent, the game is left off until a person has checked. A team whose page could not be read keeps its last good numbers and their date. Something wrong? <a href="/correct/?item=sports&title=Berthoud%20High%20sports" class="underline">Tell us</a>.
+      </p>
+    </div>
+  </section>
   <CtaBand
-    slot="after"
     eyebrow="Sports"
     title="Know a score we have wrong?"
-    body="The records are MaxPreps's and the dates the school's. If a game moved or a score is off, say so and we will check it."
+    body="The records are MaxPreps’s and the dates the school’s. If a game moved or a score is off, say so and we will check it."
     links={[
       { label: 'Report a correction', href: '/correct/?item=sports&title=Berthoud%20High%20sports', primary: true },
       { label: 'This week in Berthoud', href: '/this-week/' },
     ]}
   />
-</Page>
+</Base>
