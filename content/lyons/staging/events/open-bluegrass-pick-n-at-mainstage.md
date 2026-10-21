@@ -1,6 +1,6 @@
 ---
 title: "Open bluegrass pick'n at MainStage"
-review: { reason: "Unpublished 8 October 2026: the Lyons Recorder page this cited (lyonsrecorder.org/event/open-bluegrass-pickn-mainstage/2026-12-24/) answers 404. MainStage's own calendar (mainstagebrewing.com/music) lists the Thursday 6 pm Open Bluegrass Pick only as far as 29 October; Thursday 24 and 31 December are not on it yet. Publish once MainStage lists them.", since: "2026-10-08", from: manual }
+review: { reason: "Rechecked 21 October 2026: Oskar Blues' page still answers 403, the host KC Groves' events page (thebluegrassgirl.com/events) lists the Tuesday jam only under a December 2025 date, and the Recorder's calendar no longer carries it. Confirm with Oskar Blues or the host, cite that, and publish.", since: "2026-10-21", from: manual }
 start: "2026-12-24T18:00"
 end: "2026-12-24T21:00"
 repeat: weekly

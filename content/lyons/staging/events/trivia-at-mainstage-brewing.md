@@ -1,6 +1,6 @@
 ---
 title: "Trivia at MainStage Brewing"
-review: { reason: "Unpublished 17 October 2026: the Recorder calendar this cited is an aggregator, and MainStage's own calendar (mainstagebrewing.com/music) lists trivia about two weeks ahead with no weekly rule stated. Publish once MainStage lists 22 December.", since: "2026-10-17", from: manual }
+review: { reason: "Rechecked 21 October 2026: MainStage's calendar (mainstagebrewing.com/music) loads its dates by script, so nothing past the live listing's run could be read; the Recorder's calendar is an aggregator. Publish once MainStage lists the December dates, or confirm by phone.", since: "2026-10-21", from: manual }
 start: "2026-12-22T19:00"
 repeat: weekly
 until: "2026-12-29"

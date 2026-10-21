@@ -1,6 +1,6 @@
 ---
 title: "Bluegrass pick at Oskar Blues"
-review: { reason: "Unpublished 17 October 2026: the Recorder's events page no longer lists the Tuesday pick, and Oskar Blues' own page (oskarbluesfooderies.com/lyons) answers with a Cloudflare bot check, so it was not read. Publish once Oskar Blues or the hosts list the dates (staging/events/bluegrass-pick-at-oskar-blues.md waits on the same question).", since: "2026-10-17", from: manual }
+review: { reason: "Rechecked 21 October 2026: Oskar Blues' page still answers 403, the host KC Groves' events page (thebluegrassgirl.com/events) lists the Tuesday jam only under a December 2025 date, and the Recorder's calendar no longer carries it. Confirm with Oskar Blues or the host, cite that, and publish.", since: "2026-10-21", from: manual }
 start: "2026-09-22T18:00"
 end: "2026-09-22T20:30"
 repeat: weekly
