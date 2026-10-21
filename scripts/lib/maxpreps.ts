@@ -143,7 +143,10 @@ function toGame(c: MpContest, us: Team, kickoff?: string): SportGame | undefined
   if (!mine || !date || !c.canonicalUrl) return undefined;
   // A meet has no single opponent; MaxPreps names the event in the URL.
   const opponent = theirs?.schoolName ?? c.canonicalUrl.match(/\/game\/([^/]+)\//)?.[1]?.replace(/-/g, ' ') ?? 'meet';
-  const game: SportGame = { date, opponent, site: site(c.homeAwayType), url: c.canonicalUrl.split('?')[0]! };
+  // The URL keeps its ?c=: a doubleheader's two games share the path and
+  // differ only in that contest id (Niwot softball at Falcon, 17 October
+  // 2026, lost 4-15 and 9-17), and it is what tells one from the other.
+  const game: SportGame = { date, opponent, site: site(c.homeAwayType), url: c.canonicalUrl };
   if (c.hasResult && mine.result && mine.score != null && theirs?.score != null) {
     game.result = mine.result;
     game.score = { us: mine.score, them: theirs.score };
@@ -349,7 +352,7 @@ export function parseSchedulePage(html: string, us: Team): SchedulePage {
       fail(`the sentence puts ${mine.name} ${saidAway === subjectIsUs ? 'away' : 'at home'}, the data the other way`);
       continue;
     }
-    const game: SportGame = { date, opponent: theirs.name, site, url: url.split('?')[0]! };
+    const game: SportGame = { date, opponent: theirs.name, site, url };
     if (row[ROW.hasResult] === true) {
       if (!mine.result || mine.score == null || theirs.score == null) {
         fail('played, but no score in the data');

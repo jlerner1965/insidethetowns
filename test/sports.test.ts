@@ -68,7 +68,7 @@ test('the records, the glance card and the results come out of the page data', (
     [['2026-10-15', 'home', 'Greeley Central', 'W'], ['2026-10-23', 'away', 'Mountain View', '19:00'], ['2026-10-30', 'away', 'Severance', '19:00']],
   );
   assert.deepEqual(p.glance[0]!.score, { us: 22, them: 0 });
-  assert.equal(p.glance[1]!.url, 'https://www.maxpreps.com/co/football/game/berthoud-vs-mountain-view-loveland/10-23-2026/', 'the game page, without the tracking query');
+  assert.equal(p.glance[1]!.url, 'https://www.maxpreps.com/co/football/game/berthoud-vs-mountain-view-loveland/10-23-2026/?c=38', 'the game page, without the tracking query');
   assert.deepEqual(p.warnings, []);
 });
 
@@ -273,7 +273,7 @@ test('the schedule page gives the whole season, oldest first: scores where playe
     '2026-10-23 away Mountain View  19:00',
     '2026-10-30 away Severance  TBA',
   ]);
-  assert.equal(page.games[0]!.url, 'https://www.maxpreps.com/co/football/game/berthoud-vs-fort-morgan/8-21-2026/');
+  assert.equal(page.games[0]!.url, 'https://www.maxpreps.com/co/football/game/berthoud-vs-fort-morgan/8-21-2026/?c=a1');
 });
 
 test('a schedule row the sentence does not bear out is reported, not read: a swapped score, a side the other way, a kickoff that differs', () => {
@@ -305,10 +305,17 @@ test('the schedule replaces the home page’s results only where the two agree o
     sentence: 'On 10/9, the Berthoud varsity football team lost their away conference game against Windsor (CO) by a score of 46-0.',
     teams: [{ name: 'Windsor', url: 'https://www.maxpreps.com/co/windsor/windsor-wizards/football/', away: false, result: 'W', score: 46 }, { ...BERTHOUD, away: true, result: 'L', score: 0 }],
   });
-  const agreed = parseSchedulePage(schedulePage([fortMorgan, timnath, windsorRow, greeleyRow, mountainViewRow, severanceRow]), TEAM);
+  // A doubleheader: two games on one page path, told apart by ?c= alone.
+  const twice = (id: string, us: number, them: number) => scheduleRow({
+    id, url: 'https://www.maxpreps.com/co/football/game/berthoud-vs-falcon/10-17-2026/', kickoff: '2026-10-17T10:00:00', played: true,
+    sentence: `On 10/17, the Berthoud varsity football team lost their away non-conference game against Falcon (CO) by a score of ${them}-${us}.`,
+    teams: [{ name: 'Falcon', url: 'https://www.maxpreps.com/co/falcon/falcon-falcons/football/', away: false, result: 'W', score: them }, { ...BERTHOUD, away: true, result: 'L', score: us }],
+  });
+  const agreed = parseSchedulePage(schedulePage([fortMorgan, timnath, windsorRow, greeleyRow, twice('d1', 4, 15), twice('d2', 9, 17), mountainViewRow, severanceRow]), TEAM);
   assert.equal(applySchedule(home, agreed), undefined);
-  assert.deepEqual(home.results.map((g) => g.date), ['2026-10-15', '2026-10-09', '2026-08-28', '2026-08-21']);
-  assert.equal(home.schedule!.length, 6);
+  assert.deepEqual(home.results.map((g) => g.date), ['2026-10-17', '2026-10-17', '2026-10-15', '2026-10-09', '2026-08-28', '2026-08-21']);
+  assert.deepEqual(home.results.filter((g) => g.opponent === 'Falcon').map((g) => `${g.score!.us}-${g.score!.them} ${g.url.slice(-5)}`), ['4-15 ?c=d1', '9-17 ?c=d2']);
+  assert.equal(home.schedule!.length, 8);
   assert.deepEqual(gamesToCome(home, '2026-10-21').map((g) => g.opponent), ['Mountain View', 'Severance']);
 
   // The same page with Greeley Central's score wrong is refused.
