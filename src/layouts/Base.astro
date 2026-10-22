@@ -79,7 +79,7 @@ const cssVars = [
     <SEO {...seo} jsonLd={structured} />
     {verification.map((tag) => <meta name={tag.name} content={tag.content} />)}
     {/* ?v= busts the week-long /favicons/ cache in vercel.json; bump it when the marks change. */}
-    <link rel="icon" href={`/favicons/${site.slug}/favicon.svg?v=5`} type="image/svg+xml" />
+    <link rel="icon" href={`/favicons/${site.slug}/favicon.svg?v=6`} type="image/svg+xml" />
     {/* Asked for by name regardless of what the page links; see src/lib/icons.ts. */}
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

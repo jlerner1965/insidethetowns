@@ -38,9 +38,14 @@ export const PAPERS = {
 } as const;
 export type Paper = keyof typeof PAPERS;
 
-/** Body text, and supporting text (meta lines, captions, labels), on every guide. */
+/**
+ * Body text, and supporting text (meta lines, captions, labels), on every
+ * guide. The supporting ink was #526068 (6:1 on the paper) until 22 October
+ * 2026, when the owner found a program card's notes hard to read; it is
+ * now 7.2:1 on the warm paper, AAA at any size.
+ */
 export const INK = '#243137';
-export const INK_MUTED = '#526068';
+export const INK_MUTED = '#46545B';
 
 /**
  * A primary's hover and pressed fill: the primary darkened by 12%, as the

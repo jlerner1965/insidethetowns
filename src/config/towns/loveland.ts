@@ -52,8 +52,11 @@ export const loveland: TownConfig = {
   character:
     'The Sweetheart City, founded by the railroad on the Big Thompson in 1877: a sculpture garden, a lake in town, and the Centerra interchange on I-25.',
   colors: {
-    // Mulberry + bronze, on warm paper: Color System 2.0, 9 October 2026.
-    primary: '#873762',
+    // Red Wolf red, Loveland High's colour as the guide's (22 October 2026):
+    // the city follows four schools, and its namesake's red is the guide's;
+    // the shade is Loveland High's own site's. The other three schools keep
+    // their colours on their own pages.
+    primary: '#BA0C2F',
     accent: '#BA8C57',
     paper: 'warm',
   },
