@@ -55,6 +55,116 @@ export const elizabeth = {
     credit: "ERoss99, Wikimedia Commons, CC BY-SA 3.0",
   },
   social: { email: "hello@insideelizabeth.com" },
+  /**
+   * The flagship layout (22 October 2026), as Berthoud's and Lyons's: the
+   * week as the page, Families as the signature hub, every other hub one
+   * link. The owner's call, for Elizabeth, Windsor, Erie and Johnstown together.
+   */
+  home: {
+    signature: "families",
+    purpose: "What’s on this week, what your family can join, and who handles what in town.",
+    secondary: { label: "Elizabeth Families", href: "/families/" },
+    accentName: "gold",
+  },
+  families: {
+    label: "Elizabeth Families",
+    intro: "What Elizabeth kids can join, what closes soon, and the school days off.",
+    schools: [
+      {
+        district: "Elizabeth School District",
+        label: "Elizabeth School District: boundary map",
+        url: "https://www.elizabethschooldistrict.org/about-us/district-boundaries",
+        note: "Running Creek and Singing Hills elementaries, Elizabeth Middle and Elizabeth High; the map draws the line between the two elementaries. Legacy Academy and Independence Classical Academy are the district’s K–8 charters",
+      },
+    ],
+    // The district's own calendar page, read month by month on 22 October
+    // 2026; it matches the parent calendar PDF linked there (board-approved
+    // revisions of 9 December 2025). The copy the Park and Recreation
+    // District links is the January 2025 version, with other break dates.
+    breaks: [
+      { district: "Elizabeth", label: "Thanksgiving break", from: "2026-11-23", to: "2026-11-30", source: "https://www.elizabethschooldistrict.org/all-events", verified: "2026-10-22" },
+      { district: "Elizabeth", label: "Winter break", from: "2026-12-21", to: "2027-01-04", source: "https://www.elizabethschooldistrict.org/all-events", verified: "2026-10-22" },
+      { district: "Elizabeth", label: "Martin Luther King Jr. Day", from: "2027-01-18", to: "2027-01-18", source: "https://www.elizabethschooldistrict.org/all-events", verified: "2026-10-22" },
+      { district: "Elizabeth", label: "Staff workday (no school)", from: "2027-02-12", to: "2027-02-12", source: "https://www.elizabethschooldistrict.org/all-events", verified: "2026-10-22" },
+      { district: "Elizabeth", label: "Presidents’ Day", from: "2027-02-15", to: "2027-02-15", source: "https://www.elizabethschooldistrict.org/all-events", verified: "2026-10-22" },
+      { district: "Elizabeth", label: "Spring break", from: "2027-03-12", to: "2027-03-19", source: "https://www.elizabethschooldistrict.org/all-events", verified: "2026-10-22" },
+      { district: "Elizabeth", label: "Staff workday (no school)", from: "2027-04-23", to: "2027-04-23", source: "https://www.elizabethschooldistrict.org/all-events", verified: "2026-10-22" },
+    ],
+  },
+  // The Town's own site answers automated requests with 403 (sources.json),
+  // so nothing below is read from it: the Town's water, sewer, trash and
+  // Board of Trustees pages wait for a check by hand. The sidebar's
+  // officialLinks still carry the Town and its police department.
+  livingHere: {
+    intro: "Who handles what in Elizabeth, with the official page for each.",
+    sections: [
+      {
+        title: "Utilities",
+        note: "CORE Electric Cooperative supplies electricity in Elizabeth and Black Hills Energy natural gas, by each company’s own documents; for a particular address, especially outside the town limits, ask the company. A home with no sewer connection is on a septic system the County permits.",
+        verified: "2026-10-22",
+        items: [
+          { label: "CORE Electric Cooperative: service area map", url: "https://core.coop/my-cooperative/service-area/", note: "Enter an address to see whether CORE serves it" },
+          { label: "CORE: start, stop or move service", url: "https://core.coop/start-stop-service/", note: "Member Services, (800) 332-9540" },
+          { label: "Black Hills Energy: natural gas", url: "https://www.blackhillsenergy.com/customer-service", note: "888-890-5554, weekdays 7 am–5 pm. If you smell gas, leave the building and call 911 first" },
+          { label: "Elbert County: septic system permits", url: "https://www.elbertcounty-co.gov/341/Onsite-Wastewater-Treatment-Systems-OWTS", note: "Elbert County Public Health, 75 Ute Ave, Kiowa; 720-595-3620" },
+        ],
+      },
+      {
+        title: "Getting around",
+        verified: "2026-10-22",
+        items: [
+          { label: "CDOT road conditions", url: "https://www.cotrip.org/", note: "Closures, conditions and cameras on the state highways, CO 86 among them" },
+          { label: "Elbert County Road & Bridge", url: "https://www.elbertcounty-co.gov/234/Public-Works-Road-Bridge", note: "County roads; 303-621-3157, RNB@elbertcounty-co.gov" },
+          { label: "Elizabeth School District transportation", url: "https://www.elizabethschooldistrict.org/departments/transportation/transportation-homepage", note: "School buses; main line 303-646-6790" },
+        ],
+      },
+      {
+        title: "Parks and recreation",
+        note: "The leagues, the school-break camps, before- and after-school care and Casey Jones Park are the Elizabeth Park and Recreation District’s, a special district with its own board.",
+        verified: "2026-10-22",
+        items: [
+          { label: "Register for Park and Recreation programs", url: "https://secure.rec1.com/CO/elizabeth-parks-recreation-district-co/catalog", note: "Create an account, then choose the program; youth fees are due in full at registration", track: "registration" },
+          { label: "Elizabeth Park and Recreation District", url: "https://www.elizabethpr.com/contact-us", note: "Park office in Evans Park, 34201 County Road 17; 303-646-3599, weekdays 9–5" },
+          { label: "Casey Jones Park", url: "https://www.elizabethpr.com/casey-jones-park", note: "103 acres: the pavilion, a playground, a 1.5-mile soft-surface trail, lit ballfields, the rodeo grounds, four pickleball courts and a fenced off-leash dog park" },
+          { label: "Kids Club: before- and after-school care", url: "https://www.elizabethpr.com/kids-club-offered-at-running-creek-singing-hills", note: "At Running Creek and Singing Hills; $13 a morning, $15 an afternoon, booked and paid ahead", track: "registration" },
+        ],
+      },
+      {
+        title: "Schools",
+        note: "Elizabeth School District serves the town. Its schools start an hour late on Thursdays, and a weather closing or delay is announced by 6 am.",
+        verified: "2026-10-22",
+        items: [
+          { label: "Elizabeth School District: boundary map", url: "https://www.elizabethschooldistrict.org/about-us/district-boundaries", note: "Streets, neighborhoods and the line between Running Creek and Singing Hills" },
+          { label: "Enrollment and registration", url: "https://www.elizabethschooldistrict.org/about-us/enroll", note: "Registration line (303) 646-6788; a family outside the district applies for open enrollment first", track: "registration" },
+          { label: "District calendar, 2026–27", url: "https://www.elizabethschooldistrict.org/all-events", note: "The parent calendar is linked on the page" },
+          { label: "School closings and delays", url: "https://www.elizabethschooldistrict.org/departments/safety-and-security/safety-and-security-homepage/school-closings-delays", note: "A delay is two hours, one hour on a Thursday" },
+          { label: "Elizabeth High School", url: "https://ehs.elizabethschooldistrict.org/", note: "34500 County Road 13, 303-646-4616" },
+        ],
+      },
+      {
+        title: "Reporting a problem",
+        note: "Inside the town limits, policing is the Town’s own Elizabeth Police Department; outside them, the Elbert County Sheriff’s Office. In an emergency, call 911.",
+        verified: "2026-10-22",
+        items: [
+          { label: "Elbert County Sheriff’s Office", url: "https://www.elbertcounty-co.gov/181/Sheriffs-Office", note: "Non-emergency dispatch 303-660-7500; tip line 303-805-6111; crime and incident reports online" },
+          { label: "Elizabeth Fire Protection District", url: "https://elizabethfpd.colorado.gov/contact-us", note: "146 N Elbert St, (303) 646-3800, weekdays 8–5; Station 271 is at 155 W Kiowa Ave" },
+          { label: "Burn permits and fire restrictions", url: "https://elizabethfpd.colorado.gov/fire-prevention/request-a-burn-permit", note: "By phone, 303-646-3800, no more than 48 hours ahead; a state permit may be needed first" },
+          { label: "Report a fire code or fire safety concern", url: "https://elizabethfpd.colorado.gov/fire-code-complaint-or-fire-safety-concern" },
+          { label: "School safety: Safe2Tell", url: "https://www.elizabethschooldistrict.org/departments/safety-and-security/reporting-concerns", note: "Anonymous, 24 hours a day, through the state’s tip line" },
+        ],
+      },
+      {
+        title: "Meetings and elections",
+        verified: "2026-10-22",
+        items: [
+          { label: "Elbert County elections", url: "https://www.elbertcounty-co.gov/290/Elections", note: "A ballot drop box at the Town of Elizabeth, 151 South Banner Street, until 7 pm November 3; the same address is a voter service center on Election Day only, 7 am–7 pm", track: "participation" },
+          { label: "Board of Education meetings", url: "https://www.elizabethschooldistrict.org/board-of-education/board-meetings", note: "Second and/or fourth Tuesdays at 6 pm, with exceptions, at the district offices, 634 S. Elbert St; livestreamed on the district’s YouTube channel", track: "participation" },
+          { label: "Park and Recreation District board", url: "https://www.elizabethpr.com/board-meetings", note: "Usually the third Tuesday at 7 pm, at the Casey Jones Pavilion or the park office; the 2027 budget hearing is December 8", track: "participation" },
+          { label: "Fire Protection District board", url: "https://elizabethfpd.colorado.gov/about-us/board-of-directors/board-meetings-and-other-documents", note: "Second Tuesdays at 5 pm, 155 W Kiowa Ave, and by video call", track: "participation" },
+        ],
+      },
+    ],
+  },
   movingHere: {
     listingsLinks: [
       { label: "Homes for sale on Zillow", url: "https://www.zillow.com/elizabeth-co/" },

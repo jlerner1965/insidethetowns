@@ -1,6 +1,6 @@
 /**
  * The flagship guides (Berthoud and Niwot, 21 October 2026; Lyons, 22
- * October): what their
+ * October; Elizabeth, Windsor, Erie and Johnstown, later that day): what their
  * configs promise the pages, checked so a config edit cannot quietly break
  * a hub. Every link on Living Here is an official page or a path on the
  * guide, every school break names its source and its check date, and the
@@ -14,7 +14,7 @@ import { existsSync } from 'node:fs';
 import { towns } from '../src/config/towns/registry.ts';
 import { hubRoutes } from '../src/integrations/town-routes.ts';
 
-const FLAGSHIPS = ['berthoud', 'niwot', 'lyons'];
+const FLAGSHIPS = ['berthoud', 'niwot', 'lyons', 'elizabeth', 'windsor', 'erie', 'johnstown'];
 const by = (slug: string) => towns.find((t) => t.slug === slug)!;
 
 test('each flagship has the flagship layout and the three hubs; no other guide does', () => {
@@ -29,6 +29,7 @@ test('each flagship has the flagship layout and the three hubs; no other guide d
   assert.equal(by('berthoud').home!.signature, 'families');
   assert.equal(by('niwot').home!.signature, 'get-involved');
   assert.equal(by('lyons').home!.signature, 'families');
+  for (const slug of ['elizabeth', 'windsor', 'erie', 'johnstown']) assert.equal(by(slug).home!.signature, 'families', slug);
 });
 
 test('every guide has the same menu, built from what it has: the week, events, its school, the places, its hub and Living here or Moving here', () => {
@@ -47,7 +48,8 @@ test('every guide has the same menu, built from what it has: the week, events, i
   assert.equal(townNav(by('lyons')).find((n) => n.href === '/sports/')?.label, 'Lions sports');
   assert.equal(townNav(towns.find((t) => t.slug === 'carbon-valley')!).find((n) => n.href === '/sports/')?.label, 'Frederick sports');
   assert.equal(townNav(towns.find((t) => t.slug === 'loveland')!).find((n) => n.href === '/sports/')?.label, 'High school sports');
-  assert.deepEqual(townNav(towns.find((t) => t.slug === 'erie')!).map((n) => n.label), ['This week', 'Events', 'Eat & drink', 'Things to do', 'Moving here']);
+  assert.deepEqual(townNav(towns.find((t) => t.slug === 'erie')!).map((n) => n.label), ['This week', 'Events', 'Eat & drink', 'Families', 'Living here']);
+  assert.deepEqual(townNav(towns.find((t) => t.slug === 'longmont')!).map((n) => n.label), ['This week', 'Events', 'Eat & drink', 'Things to do', 'Moving here']);
 });
 
 test('the purpose line is enduring: no dated civic topic in the masthead or the short tagline', () => {
