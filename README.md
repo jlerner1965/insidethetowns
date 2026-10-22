@@ -44,9 +44,10 @@ sports` prints what a run would do; `--town=niwot` narrows it, and
 
 ## The resident hubs and the flagship layout
 
-Berthoud and Niwot (21 October 2026) carry three resident hubs and a
-flagship home page, each switched on by the town's config and shared as
-routes and components with nothing town-specific in them:
+Berthoud and Niwot (21 October 2026) and Lyons (22 October) carry the
+resident hubs and a flagship home page, each switched on by the town's
+config and shared as routes and components with nothing town-specific in
+them:
 
 - `/families/` (`families` on the config): what a child can join, by age and
   by subject, the organizer's deadlines and openings, the district's break
@@ -74,8 +75,11 @@ and `feature` blocks. "This week" lists the town's own content first and
 the neighbours and the mountain guides after it, labelled as the day trips
 they are. `src/lib/event-totals.ts` is the one definition of "how many
 events" for every page that prints a count. The home page's flagship layout
-(`home` on the config, `src/components/home/FlagshipHome.astro`) keeps the
-shared chassis for every other guide (`ClassicHome.astro`).
+(`home` on the config, `src/components/home/FlagshipHome.astro`: the header
+as a masthead with five pills, today in a line, the week as a list, every
+other hub as one link, the email) keeps the shared chassis for every other
+guide (`ClassicHome.astro`). A flagship's primary colour is its school's,
+as `src/config/school-sports.ts` names it.
 
 ## The weekly content session
 

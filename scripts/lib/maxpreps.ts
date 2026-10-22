@@ -262,7 +262,7 @@ export function usable(page: TeamPage): boolean {
  * 7p." for one to come). A row the sentence does not bear out fails the
  * whole page, and the run keeps what the home page said.
  */
-const ROW = { teams: 0, id: 1, hasResult: 4, venue: 5, kickoff: 11, url: 18, sentence: 29 } as const;
+const ROW = { teams: 0, id: 1, hasResult: 4, venue: 5, kickoff: 11, url: 18, state: 28, sentence: 29 } as const;
 /** `where` is 0 at home, 1 away, 2 at a neutral site (the softball tournament rows, 21 October 2026). */
 const TEAM = { result: 5, score: 6, where: 11, url: 13, name: 14 } as const;
 
@@ -309,13 +309,21 @@ export function parseSchedulePage(html: string, us: Team): SchedulePage {
     const kickoff = row[ROW.kickoff];
     const sentence = row[ROW.sentence];
     // A cancelled or placeholder game keeps a row with no sentence, no
-    // result and, once, a date in 1900. Not a game; counted, not read.
-    if (row[ROW.hasResult] !== true && !sentence) {
+    // result and, once, a date in 1900; a game MaxPreps has deleted keeps
+    // its row, its result and its teams, with no URL and "ContestState is
+    // Deleted." where the state goes (Lyons volleyball, 22 October 2026).
+    // Neither is a game; counted, not read.
+    const state = row[ROW.state];
+    const deleted = typeof state === 'string' && /\bdeleted\b/i.test(state);
+    if ((row[ROW.hasResult] !== true && !sentence) || deleted) {
       page.skipped++;
       continue;
     }
     if (!Array.isArray(teams) || teams.length !== 2 || typeof url !== 'string' || typeof kickoff !== 'string' || typeof sentence !== 'string') {
-      fail('not the shape this script reads');
+      // The row without its two team arrays, which are long and seldom the
+      // problem; the teams' names, where they can be read, come first.
+      const names = Array.isArray(teams) ? teams.map((t) => (Array.isArray(t) ? t[TEAM.name] : '?')).join(' / ') : typeof teams;
+      fail(`not the shape this script reads: teams ${names}; fields ${JSON.stringify(row.slice(1)).slice(0, 900)}`);
       continue;
     }
     const sides = (teams as unknown[][]).map((t) => ({

@@ -260,12 +260,20 @@ const meeker = scheduleRow({
   sentence: 'On 9/4, the Meeker varsity softball team lost their neutral tournament game against Berthoud (CO) by a score of 21-0.',
   teams: [{ ...BERTHOUD, away: 'neutral', result: 'W', score: 21 }, { name: 'Meeker', url: 'https://www.maxpreps.com/co/meeker/meeker-cowboys/softball/fall/', away: 'neutral', result: 'L', score: 0 }],
 });
+// A game MaxPreps deleted: the row keeps its teams and a result, has no URL
+// and no sentence, and says so where the state goes.
+const deleted = (() => {
+  const row = scheduleRow({ id: 'x1', url: 'https://www.maxpreps.com/co/volleyball/game/berthoud-vs-colorado-academy/10-5-2026/', kickoff: '2026-10-05T19:00:00', played: true, sentence: '', teams: [{ ...BERTHOUD, away: false, result: 'W', score: 3 }, { name: 'Colorado Academy', url: 'https://www.maxpreps.com/co/denver/colorado-academy-mustangs/volleyball/', away: true, result: 'L', score: 0 }] });
+  row[18] = null;
+  row[28] = 'ContestState is Deleted.';
+  return row;
+})();
 const cancelled = scheduleRow({ id: 'x0', url: 'https://www.maxpreps.com/co/softball/game/berthoud-vs-golden/1-1-1900/', kickoff: '1900-01-01T00:00:00', sentence: '', teams: [{ name: 'Golden', url: 'https://www.maxpreps.com/co/golden/golden-demons/softball/fall/', away: 'neutral' }, { ...BERTHOUD, away: 'neutral' }] });
 
 test('the schedule page gives the whole season, oldest first: scores where played, the kickoff where not, nothing where the sentence names no time', () => {
-  const page = parseSchedulePage(schedulePage([greeleyRow, fortMorgan, cancelled, timnath, meeker, mountainViewRow, severanceRow]), TEAM);
+  const page = parseSchedulePage(schedulePage([greeleyRow, fortMorgan, cancelled, timnath, deleted, meeker, mountainViewRow, severanceRow]), TEAM);
   assert.deepEqual(page.warnings, []);
-  assert.equal(page.skipped, 1);
+  assert.equal(page.skipped, 2, 'the cancelled row and the deleted one');
   assert.deepEqual(page.games.map((g) => `${g.date} ${g.site} ${g.opponent} ${g.result ?? ''} ${g.score ? `${g.score.us}-${g.score.them}` : g.time ?? 'TBA'}`), [
     '2026-08-21 away Fort Morgan W 33-13',
     '2026-08-28 home Timnath L 0-28',
