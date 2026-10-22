@@ -88,29 +88,45 @@ export function when(g: SportGame, now = new Date()): string {
   return formatDayLong(gameDay(g));
 }
 
-/** Every game to come, across the teams, soonest first. */
+/**
+ * Every game to come, across the teams, soonest first: by day, then by
+ * start, a game without a time after the timed ones that day; two at one
+ * moment stay in the config's order.
+ */
 export function coming(data: SportsData): TeamGame[] {
   return data.sports
     .flatMap((team) => team.upcoming.map((game) => ({ team, game })))
-    .sort((a, b) => a.game.date.localeCompare(b.game.date) || (a.game.time ?? '').localeCompare(b.game.time ?? ''));
+    .sort((a, b) => a.game.date.localeCompare(b.game.date) || (a.game.time ?? '99:99').localeCompare(b.game.time ?? '99:99'));
 }
 
 /**
- * The big game of the week, not merely the soonest. The teams are listed
- * in order of what the town turns out for (football first,
- * src/config/school-sports.ts), so the first team with a game in the
- * next seven days leads, and a Tuesday soccer match does not push Friday
- * night off the top. With nothing in the week, the soonest game of any
- * team; with nothing to come at all, undefined.
+ * The next game, whichever team plays it: the sports page's "Next up".
+ * It was the first team in the config's order with a game in the week, so
+ * Friday's football led while soccer and volleyball both played on
+ * Thursday (navigation audit, 22 October 2026); a parent looking for
+ * tomorrow's game wants tomorrow's game. Undefined with nothing to come.
  */
 export function bigGame(data: SportsData, now = new Date()): TeamGame | undefined {
-  const weekAhead = dayKey(new Date(now.getTime() + 7 * 86_400_000));
   const today = dayKey(now);
-  for (const team of data.sports) {
-    const game = team.upcoming.find((g) => g.date >= today && g.date <= weekAhead);
-    if (game) return { team, game };
-  }
   return coming(data).find((c) => c.game.date >= today);
+}
+
+/**
+ * A team's results with a repeated game shown once: MaxPreps listed three
+ * of the 17 October softball tournament games twice, the same day, the
+ * same opponent and the same score under two contest ids (Carbon Valley,
+ * Thompson Valley, Resurrection Christian, 22 October 2026). A
+ * doubleheader is two games with two scores and stays two.
+ */
+export function dedupeResults(results: SportGame[]): SportGame[] {
+  const seen = new Set<string>();
+  return results.filter((g) => {
+    if (!g.score && !g.place) return true;
+    const key = `${g.date}|${g.opponent.toLowerCase()}|${g.result ?? ''}|${g.score ? `${g.score.us}-${g.score.them}` : g.place}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 /**
@@ -144,14 +160,14 @@ export function sportsDataFor(school: Pick<SchoolSports, 'town' | 'slug'>, files
 /** Every result across the teams, newest first: the scoreboard. */
 export function recentResults(data: SportsData, limit = 6): TeamGame[] {
   return data.sports
-    .flatMap((team) => team.results.map((game) => ({ team, game })))
+    .flatMap((team) => dedupeResults(team.results).map((game) => ({ team, game })))
     .sort((a, b) => b.game.date.localeCompare(a.game.date))
     .slice(0, limit);
 }
 
 /** A team's season in order, oldest first: the results, then the games to come. */
 export function season(team: SportData): SportGame[] {
-  return [...team.results].reverse().concat(team.upcoming);
+  return [...dedupeResults(team.results)].reverse().concat(team.upcoming);
 }
 
 /** The most recent result across the teams. */
