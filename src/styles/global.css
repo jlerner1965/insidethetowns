@@ -343,6 +343,37 @@
 }
 
 /*
+ * The flagship masthead's pill row (Header.astro, TownConfig.home) on a
+ * phone: one line that scrolls sideways and bleeds to the screen's edges,
+ * so a pill cut off at the edge says there is more. The switcher's panel
+ * drops under the whole row rather than inside the scroller, which would
+ * clip it: the row is not its containing block, the header is.
+ */
+.pill-row {
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-inline: -1.25rem;
+  padding-inline: 1.25rem;
+  padding-block: 2px;
+}
+.pill-row::-webkit-scrollbar { display: none; }
+@media (width >= 40rem) {
+  .pill-row { margin-inline: -2rem; padding-inline: 2rem; }
+}
+.pill-row .site-nav-switch { position: static; }
+.pill-row .site-nav-panel {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 100%;
+  z-index: 40;
+  padding: 1rem 1.25rem 0.75rem;
+  background: var(--color-paper);
+  border-block-end: 1px solid var(--color-line);
+  box-shadow: 0 20px 34px -26px rgb(0 0 0 / 0.5);
+}
+.pill-row .site-nav-switch summary::after { margin-inline-start: 0.1rem; }
+
+/*
  * The town switcher (Header.astro): a native <details> whose summary looks
  * like the other items in the row, with a chevron that turns when it opens.
  * In the row it drops a small panel under itself; in the phone menu it

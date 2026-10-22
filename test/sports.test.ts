@@ -9,6 +9,7 @@ import { applySchedule, parseSchedulePage, parseTeamPage } from '../scripts/lib/
 import { parseMonth, parseTitle } from '../scripts/lib/finalsite-calendar.ts';
 import { crossCheck, dedupeToCome, gamesToCome, keepPrevious, sameSchool } from '../scripts/lib/sports-crosscheck.ts';
 import { schoolSportsFor, type SportsData } from '../src/config/school-sports.ts';
+import { nextGames, placeText } from '../src/lib/school-sports.ts';
 
 const berthoud = schoolSportsFor('berthoud')!;
 const football = berthoud.teams.find((s) => s.key === 'football')!;
@@ -345,4 +346,56 @@ test('a game listed twice at the same time against the same opponent is one game
   assert.equal(dedupeToCome([game('a', undefined), game('b', undefined)]).length, 2);
   // Different opponents at one time are two entries (a tournament pool listed loosely), kept.
   assert.equal(dedupeToCome([game('a', '09:45'), game('b', '09:45', 'Mead')]).length, 2);
+});
+
+test('a playoff or tournament game is at a neutral site, with the venue MaxPreps gives or the sport’s playoff site', () => {
+  const softball = { url: 'https://www.maxpreps.com/co/berthoud/berthoud-spartans/softball/fall/', schoolName: 'Berthoud', playoffVenue: 'Aurora Sports Park' };
+  const delta = scheduleRow({
+    id: 'p1', url: 'https://www.maxpreps.com/co/softball/game/berthoud-vs-delta/10-23-2026/', kickoff: '2026-10-23T12:15:00',
+    sentence: 'The Delta varsity softball team has an away playoff game @  Berthoud (CO) on Friday, October 23 @ 12:15p.',
+    teams: [{ name: 'Berthoud', url: softball.url, away: false }, { name: 'Delta', url: 'https://www.maxpreps.com/co/delta/delta-panthers/softball/fall/', away: true }],
+  });
+  (delta as unknown[])[5] = 'Field A2';
+  const barnes = structuredClone(meeker) as unknown[];
+  barnes[5] = 'Barnes Complex/Fairgrounds Park';
+  const page = parseSchedulePage(schedulePage([barnes, delta]), softball);
+  assert.deepEqual(page.warnings, []);
+  const [meet, playoff] = page.games;
+  assert.equal(meet!.site, 'neutral');
+  assert.equal(meet!.neutral, true);
+  assert.equal(meet!.venue, 'Barnes Complex/Fairgrounds Park');
+  // MaxPreps files the state opener as a home game; it is played at Aurora.
+  assert.equal(playoff!.site, 'neutral');
+  assert.equal(playoff!.venue, 'Aurora Sports Park');
+  assert.equal(placeText(playoff!), 'Aurora Sports Park');
+  assert.equal(placeText({ date: '2026-10-30', opponent: 'x', site: 'away', url: 'u' }), 'Away');
+  assert.equal(placeText({ date: '2026-10-30', opponent: 'x', site: 'neutral', neutral: true, url: 'u' }), 'Neutral site');
+
+  // The home page's glance card calls it a home game; the schedule's word stands.
+  const home = parseTeamPage(realPage, TEAM);
+  const football = { ...TEAM };
+  const mv = structuredClone(mountainViewRow) as unknown[];
+  mv[29] = 'The Berthoud varsity football team has an away playoff game @  Mountain View (Loveland, CO) on Friday, October 23 @ 7p.';
+  mv[5] = 'Ray Patterson Stadium';
+  const windsorRow = scheduleRow({
+    id: 'w1', url: 'https://www.maxpreps.com/co/football/game/berthoud-vs-windsor/10-9-2026/', kickoff: '2026-10-09T19:00:00', played: true,
+    sentence: 'On 10/9, the Berthoud varsity football team lost their away conference game against Windsor (CO) by a score of 46-0.',
+    teams: [{ name: 'Windsor', url: 'https://www.maxpreps.com/co/windsor/windsor-wizards/football/', away: false, result: 'W', score: 46 }, { ...BERTHOUD, away: true, result: 'L', score: 0 }],
+  });
+  assert.equal(applySchedule(home, parseSchedulePage(schedulePage([fortMorgan, timnath, windsorRow, greeleyRow, mv, severanceRow]), football)), undefined);
+  const next = home.schedule!.find((g) => g.opponent === 'Mountain View')!;
+  assert.equal(next.site, 'neutral');
+  assert.equal(next.venue, 'Ray Patterson Stadium');
+});
+
+test('the home page’s sports block takes each team’s next game in the config’s order', () => {
+  const data: SportsData = {
+    generated: '',
+    sports: [
+      { key: 'football', name: 'Football', maxprepsUrl: '', results: [], held: [], notes: [], upcoming: [{ date: '2026-10-23', opponent: 'Mountain View', site: 'away', url: 'f' }] },
+      { key: 'volleyball', name: 'Volleyball', maxprepsUrl: '', results: [], held: [], notes: [], upcoming: [{ date: '2026-10-20', opponent: 'Old', site: 'home', url: 'o' }, { date: '2026-10-22', opponent: 'Liberty Common', site: 'home', url: 'v' }] },
+      { key: 'xc', name: 'Cross country', maxprepsUrl: '', results: [], held: [], notes: [], upcoming: [] },
+    ],
+  };
+  assert.deepEqual(nextGames(data, new Date('2026-10-21T18:00:00Z')).map((g) => `${g.team.name} ${g.game.opponent}`), ['Football Mountain View', 'Volleyball Liberty Common']);
 });

@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 export const berthoud: TownConfig = {
   kind: 'town',
@@ -61,17 +61,16 @@ export const berthoud: TownConfig = {
     accentName: 'gold',
   },
   footer: 'compact',
-  // Berthoud High's scores and schedules (src/config/school-sports.ts).
-  // Six sections: the week, the places, the two resident hubs and sports;
-  // Guides and Moving Here keep their pages and sit in the footer and on
-  // Living Here (flagship navigation, 21 October 2026).
+  // The pill row of the flagship masthead (redesign of 22 October 2026):
+  // the week, the family hub, the Spartans (src/config/school-sports.ts),
+  // Living Here and the places. Events, Things to Do, Guides and Moving
+  // Here keep their pages and sit in the footer and on Living Here.
   nav: [
-    DEFAULT_TOWN_NAV[0]!,
-    DEFAULT_TOWN_NAV[1]!,
-    DEFAULT_TOWN_NAV[2]!,
+    { label: 'This week', href: '/this-week/' },
     { label: 'Families', href: '/families/' },
-    { label: 'Living Here', href: '/living-here/' },
-    { label: 'Sports', href: '/sports/' },
+    { label: 'Spartans', href: '/sports/' },
+    { label: 'Living here', href: '/living-here/' },
+    { label: 'Eat & drink', href: '/eat-drink/' },
   ],
   families: {
     label: 'Berthoud Families',

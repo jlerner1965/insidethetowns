@@ -7,7 +7,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseLocal } from '../src/lib/dates.ts';
-import { byAudience, byTopic, deadlinePassed, filedUnder, isForFamilies, isWayIn, upcomingDeadlines } from '../src/lib/programs.ts';
+import { byAudience, byTopic, deadlinePassed, deadlineTitle, familyAgeGroups, onePerProgram, familyGroupOf, filedUnder, isForFamilies, isWayIn, upcomingDeadlines } from '../src/lib/programs.ts';
 import type { ProgramData } from '../src/content/schemas.ts';
 
 const at = (s: string) => parseLocal(s);
@@ -76,4 +76,39 @@ test('deadlines: the next few weeks only, soonest first, today still counts, a p
     upcomingDeadlines(list, { now: at('2026-12-02'), days: 45 }).map((d) => `${d.program.data.title}:${d.what}`),
     ['Open enrollment:closes'],
   );
+});
+
+test('the family hub’s three age sections file a program once, a families-only program with the school years', () => {
+  const swim = program('Swim', { audience: ['babies', 'preschool', 'elementary', 'teens'] });
+  const museum = program('Museum', { audience: ['elementary', 'families'] });
+  const passes = program('Passes', { audience: ['families', 'everyone'] });
+  const write = program('Just Write', { audience: ['teens'] });
+  const story = program('Storytime', { audience: ['babies', 'preschool'] });
+  const groups = familyAgeGroups([write, passes, museum, swim, story]);
+  // A program made for the age leads its group; one filed there by its youngest audience follows.
+  assert.deepEqual(groups.map((g) => [g.group.id, g.programs.map((p) => p.data.title)]), [
+    ['under-5', ['Storytime', 'Swim']],
+    ['5-11', ['Museum', 'Passes']],
+    ['teens', ['Just Write']],
+  ]);
+  assert.equal(familyGroupOf(passes)?.id, '5-11');
+  assert.equal(familyGroupOf(program('Adults', { audience: ['adults'] })), undefined);
+});
+
+test('a deadline’s title carries the action: entries due, register by, registration opens; a listing’s own title stands in', () => {
+  const contest = program('Pioneer Museum and the contests', { registration: { required: true, how: 'Contest entries in person or online', deadline: at('2026-11-07') } });
+  const league = program('Youth sports', { kind: 'league', registration: { required: true, how: 'Online', opens: at('2026-11-01') } });
+  const camp = program('Day camp', { registration: { required: true, deadline: at('2026-12-01') } });
+  const [c] = upcomingDeadlines([contest], { now: at('2026-10-22'), days: 45 });
+  assert.equal(deadlineTitle(c!, 'Sat Nov 7', 'Holiday Card Art Contest deadline'), 'Holiday Card Art Contest: entries due Sat Nov 7');
+  const [l] = upcomingDeadlines([league], { now: at('2026-10-22'), days: 45 });
+  assert.equal(deadlineTitle(l!, 'Sun Nov 1'), 'Youth sports: registration opens Sun Nov 1');
+  const [k] = upcomingDeadlines([camp], { now: at('2026-10-22'), days: 45 });
+  assert.equal(deadlineTitle(k!, 'Tue Dec 1'), 'Day camp: register by Tue Dec 1');
+});
+
+test('a window that opens and closes within the horizon is one entry, the sooner', () => {
+  const schools = program('Schools', { registration: { required: true, opens: at('2026-12-01'), deadline: at('2026-12-15') } });
+  const list = onePerProgram(upcomingDeadlines([schools], { now: at('2026-10-22'), days: 60 }));
+  assert.deepEqual(list.map((d) => d.what), ['opens']);
 });

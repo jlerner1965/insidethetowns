@@ -224,7 +224,7 @@ const facts = [
           <Content />
         </div>
         {alsoOn.length > 0 && (
-          <section class="mt-14" aria-labelledby="also-on" data-hide-when-empty>
+          <section class="mt-14" aria-labelledby="also-on" data-hide-when-empty data-pagefind-ignore>
             <h2 id="also-on" class="eyebrow border-b-2 border-accent pb-3">Also coming up in {town.name}</h2>
             <div class="border-b border-line-soft">
               {alsoOn.map((e) => <EventCard event={e} />)}

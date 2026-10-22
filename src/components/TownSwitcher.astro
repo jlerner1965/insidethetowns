@@ -1,0 +1,38 @@
+---
+/**
+ * The sister guides, as a pill in the flagship masthead (Header.astro): a
+ * native disclosure, "Towns", that drops the neighbours and the hub's list.
+ * The header's script closes it on Escape, a click or a tab elsewhere.
+ */
+import { getNetworkHub, liveTowns, neighborsOf, type TownConfig } from '@/config';
+
+interface Props {
+  town: TownConfig;
+  summaryClass: string;
+}
+
+const { town, summaryClass } = Astro.props;
+const hub = getNetworkHub();
+const nearby = neighborsOf(town);
+const guideCount = liveTowns().length;
+---
+<details data-town-switch>
+  <summary class={summaryClass}>Towns</summary>
+  <div class="site-nav-panel text-ink">
+    {nearby.length > 0 && (
+      <Fragment>
+        <p class="eyebrow text-ink-muted">Nearby</p>
+        <ul class="mt-2 grid gap-1">
+          {nearby.map((t) => (
+            <li>
+              <a href={`https://${t.domain}/`} class="inline-block py-1.5 text-[0.9375rem] font-medium normal-case tracking-normal text-ink no-underline hover:text-primary hover:underline">{t.siteTitle}</a>
+            </li>
+          ))}
+        </ul>
+      </Fragment>
+    )}
+    <p class:list={['text-[0.9375rem]', nearby.length > 0 && 'mt-3 border-t border-line-soft pt-3']}>
+      <a href={`https://${hub.domain}/#towns`} class="inline-block py-1.5 font-semibold normal-case tracking-normal text-primary underline">All {guideCount} guides →</a>
+    </p>
+  </div>
+</details>

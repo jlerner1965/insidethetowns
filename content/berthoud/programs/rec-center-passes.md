@@ -6,12 +6,15 @@ audience: [families, everyone]
 organizer: "Berthoud Recreation"
 organizerUrl: "https://www.berthoud.org/1547/Berthoud-Recreation-Center-at-Waggener-F"
 url: "https://www.berthoud.org/1521/Facility-Schedules"
-summary: "Day passes from $3, a family membership at $65 a month, and extended open-swim hours on school days off: noon to 8 on November 2, and through Thanksgiving week bar the day itself."
+summary: "Day passes from $3, a family membership at $65 a month, and extended open-swim hours on school days off: noon to 8 on November 2, and through Thanksgiving week except the day itself."
 ages: "All ages; child watch included with family, adult and senior memberships"
 location: "Berthoud Recreation Center, 1000 N Berthoud Pkwy"
 schedule: "Mon–Fri 5 am–9 pm, Sat 7–8, Sun 11–8"
 price: "Day pass: $3 under 6, $5.50 youth 6–15, $7 adult, $5.50 over 60; family membership $65 a month or $780 a year, youth $27 a month; $60 family / $30 individual application fee on a new membership"
 registration: { required: false, how: "Buy a pass at the desk, 970-532-1600" }
+openOn:
+  - { from: "2026-11-02", to: "2026-11-02", note: "Pool open noon–8" }
+  - { from: "2026-11-23", to: "2026-11-27", note: "Extended swim, closed Thanksgiving" }
 contact: "970-532-1600"
 source: "https://www.berthoud.org/DocumentCenter/View/7680/Berthoud-Parks--Recreation-Fall-Activity-Guide-2026"
 verified: "2026-10-21"

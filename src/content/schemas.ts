@@ -1064,6 +1064,19 @@ export function programSchema<I extends z.ZodType>(image: () => I) {
       newcomers: z.boolean().optional(),
       /** The slug of the listing that is this program's next public date, on this guide. */
       nextEvent: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).optional(),
+      /**
+       * Days the program keeps hours it does not usually keep, in the
+       * organizer's words: the pool's school-break swims. The family hub's
+       * days-off rows read these, so a break with a program open on it says
+       * so in a chip rather than sending a reader to look.
+       */
+      openOn: z
+        .array(
+          z
+            .object({ from: localDate, to: localDate, note: z.string().min(1) })
+            .refine((o) => o.from.getTime() <= o.to.getTime(), { message: 'openOn: from is after to' }),
+        )
+        .optional(),
       /** A need the organizer has published, in their words: "Parent volunteers needed". */
       volunteerNeed: z.string().min(1).optional(),
       /** How to make a first inquiry: an email, a phone, a form. */

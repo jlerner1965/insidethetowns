@@ -1,45 +1,39 @@
 ---
 /**
- * The flagship home page (TownConfig.home): a compact split masthead, the
- * week first with a supporting column, the town's signature section, the
- * places, the email, resident resources, the neighbours. The order and the
- * sections are shared; which signature section, which photograph, which
- * purpose line and which links are the town's config and content.
+ * The flagship home page (TownConfig.home), resident first (the redesign
+ * of 22 October 2026, docs/screenshots/2026-10-22/): the masthead is the
+ * header's pill row; then today in one line; the week, as the pick and a
+ * dated list; the school's games; the family hub's deadlines and sections;
+ * who handles what; what is open now; the email; the independence note.
+ * The order and the blocks are shared; every word in them is the town's
+ * config and content, and a block with nothing in it is not drawn.
  *
  * Nothing is shown twice: the pick's listing is not repeated in the week's
- * rows, and "Coming up" leaves out whatever the week already showed. A
- * section with nothing in it is not drawn, and the supporting column goes
- * when it has nothing, so the main column takes the width rather than
- * sitting beside a gap.
+ * rows, and today's strip is the one place a listing can appear twice,
+ * since "today" and "this week" are both true of it.
  */
-import HeroCompact from '@/components/HeroCompact.astro';
-import SectionHeader from '@/components/SectionHeader.astro';
-import WeekEventRow from '@/components/WeekEventRow.astro';
-import UpdateRow from '@/components/UpdateRow.astro';
-import DeadlineList from '@/components/DeadlineList.astro';
-import SportsStrip from '@/components/SportsStrip.astro';
-import PlaceCard from '@/components/PlaceCard.astro';
-import PlaceIndex from '@/components/PlaceIndex.astro';
-import ArticleCard from '@/components/ArticleCard.astro';
+import { Image } from 'astro:assets';
+import TodayStrip from './TodayStrip.astro';
+import SportsBlock from './SportsBlock.astro';
+import FamiliesBlock from './FamiliesBlock.astro';
+import HandlesWhat from './HandlesWhat.astro';
+import OpenNow from './OpenNow.astro';
+import TrustPanel from './TrustPanel.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
-import NearbyWeekend from '@/components/NearbyWeekend.astro';
 import type { TownConfig } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { formatDate, formatDayLong, formatDayRange, formatDayShort, toIsoLocal } from '@/lib/dates';
+import { formatDayRange, formatWeekday, monthDay, parseLocal, startOfDay, toIsoLocal } from '@/lib/dates';
 import { highlights, isMultiDay, lastDay, listedUntil, occurrences, timeText } from '@/lib/events';
-import { activeChanges, currentPick, isWeekend, weekEvents, weekWindow } from '@/lib/weekly';
+import { currentPick, isWeekend, weekEvents, weekWindow } from '@/lib/weekly';
 import { currentUpdates } from '@/lib/updates';
-import { byName, isForFamilies, isWayIn, upcomingDeadlines } from '@/lib/programs';
-import { isOpen } from '@/lib/places';
+import { byProminence, isOpen } from '@/lib/places';
 import { eventTotals } from '@/lib/event-totals';
-import { PROGRAM_KIND_LABELS } from '@/content/schemas';
 
 interface Props {
   town: TownConfig;
 }
 
 const { town } = Astro.props;
-const home = town.home!;
 const now = new Date();
 const { monday, sunday } = weekWindow(now);
 const range = formatDayRange(monday, sunday);
@@ -53,268 +47,119 @@ const { thisWeek: pick } = currentPick(notes, calendar, now);
 const week = weekEvents(calendar, now);
 const highlight = pick ? undefined : highlights(week, { now, limit: 1 })[0];
 const lead = pick?.event ?? highlight;
-const rows = (lead ? week.filter((e) => e.slug !== lead.slug) : week).slice(0, 6);
-const shown = new Set([lead?.slug, ...rows.map((e) => e.slug)].filter(Boolean) as string[]);
-// Coming up: the ranked picks beyond this week's rows, none repeated.
-const coming = highlights(occurrences(entries, { now, horizonDays: 60 }), { now, limit: 12 }).filter((e) => !shown.has(e.slug)).slice(0, 5);
-const when = (event: typeof calendar[number]) => [isMultiDay(event) ? undefined : formatDayLong(event.data.start), timeText(event, now)].filter(Boolean).join(' · ');
-
-// The supporting column: what to know, deadlines, new & closed, the week's games.
-const updates = currentUpdates(await getTownEntries('updates'), now);
-// The dated civic line under the masthead is the featured decision; the
-// panel below does not say it again.
-const notice = updates.find((u) => u.data.featured && u.data.kind === 'decision');
-const know = updates.filter((u) => u !== notice).slice(0, 3);
-const programs = await getTownEntries('programs');
-const deadlines = upcomingDeadlines(programs, { now, days: 45 });
-const changes = activeChanges(notes, now).filter((c) => !c.backlog).slice(0, 3);
+const rows = (lead ? week.filter((e) => e.slug !== lead.slug) : week).slice(0, 5);
 const totals = eventTotals(entries, now);
-
-// The signature section's rows.
-// The things a child joins first: leagues, programs and classes ahead of the organizations a parent joins.
-const JOIN_FIRST = ['league', 'program', 'class'];
-const familyPrograms = byName(programs.filter(isForFamilies))
-  .sort((a, b) => Number(JOIN_FIRST.includes(b.data.kind)) - Number(JOIN_FIRST.includes(a.data.kind)) || Number(b.data.featured) - Number(a.data.featured))
-  .slice(0, 4);
-const waysIn = byName(programs.filter(isWayIn)).slice(0, 6);
-
-// Places: the photographed ones first, as cards, then names.
-const places = (await getTownEntries('places')).filter(isOpen);
-const pickedFirst = <T extends { data: { featured: boolean } }>(list: T[]) => [...list.filter((p) => p.data.featured), ...list.filter((p) => !p.data.featured)];
-const placeCards = pickedFirst(places.filter((p) => p.data.image)).slice(0, 3);
-const carded = new Set(placeCards.map((p) => p.slug));
-const placeIndex = pickedFirst(places.filter((p) => !carded.has(p.slug))).slice(0, 6);
-const articles = (await getTownEntries('articles')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-const lead1 = articles[0];
-const people = await getTownEntries('profiles');
-
-const living = town.livingHere;
-const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-const eyebrow = 'eyebrow border-b-2 border-accent pb-3';
-const panel = 'rounded-lg bg-raised p-5 ring-1 ring-line-soft';
 const quiet = !lead && rows.length === 0;
----
-<HeroCompact town={town} notice={notice ? { text: notice.data.title, href: `/updates/#${notice.slug}`, date: formatDayShort(notice.data.effective) } : undefined} />
+const meta = (event: NonNullable<typeof lead>) =>
+  [isMultiDay(event) ? undefined : `${monthDay(event.data.start).weekday} ${monthDay(event.data.start).month} ${monthDay(event.data.start).day}`, timeText(event, now), event.data.venue, event.data.cost]
+    .filter(Boolean)
+    .join(' · ');
 
-{/* 1. This week: the main column (the pick, the rows), the supporting column
-    (what to know, deadlines, new & closed, the games). */}
+const updates = currentUpdates(await getTownEntries('updates'), now);
+const notice = updates.find((u) => u.data.featured && u.data.kind === 'decision');
+const programs = await getTownEntries('programs');
+
+// The open places, the picked ones first, for "Open now".
+const places = (await getTownEntries('places')).filter(isOpen).sort(byProminence);
+// A run that began before today is dated by the day it ends, marked
+// "Until", as WeekEventRow does: the scarecrow contest in its second week
+// is not a Saturday listing from last week.
+const badgeOf = (e: (typeof rows)[number]) =>
+  isMultiDay(e) && e.data.start.getTime() < startOfDay(now).getTime() ? { ...monthDay(parseLocal(lastDay(e))), weekday: 'Until' } : monthDay(e.data.start);
+const h2 = 'display-md text-[1.75rem] md:text-[2rem]';
+const more = 'inline-block -my-2 shrink-0 py-2 text-[0.9375rem] font-semibold text-primary underline';
+---
+<TodayStrip calendar={calendar} now={now} />
+
+{/* 1. This week: the pick as a card, the next rows as a dated list. */}
 <section class="band band-paper pt-8! pb-10! md:pt-10! md:pb-12!" aria-labelledby="week-h">
   <div class="container-page">
-    <SectionHeader eyebrow={`This week in ${town.name}`} title={range} href="/this-week/" linkLabel="The full week" id="week-h" />
-    <div class="grid gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,4fr)] lg:gap-12">
-      <div class="min-w-0" data-events-scope>
-        <div data-events-empty hidden={!quiet} class="rounded-lg border border-dashed border-line px-6 py-8 text-center text-ink-muted">
-          <p>Nothing verified on the {town.name} calendar for the rest of this week yet.</p>
-          <p class="mt-2 text-[0.9375rem]">Know something that should be here? <a href="/submit-event/" class="inline-block -my-2 py-2 text-primary underline">Send it in</a>.</p>
-        </div>
-        {lead && (
-          <article class="rounded-lg bg-raised p-6 ring-1 ring-line-soft md:p-8" data-event-day={lastDay(lead)} data-end={toIsoLocal(listedUntil(lead))}>
-            <p class="eyebrow">{pick ? 'Our pick' : 'Highlight'}</p>
-            <h3 class="display-md mt-2 text-[1.75rem] md:text-[2.25rem]">
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 id="week-h" class={h2}>This week</h2>
+      <a href="/this-week/" class={more}>{range} →</a>
+    </div>
+    <div class="mt-4 grid gap-4 lg:grid-cols-[minmax(0,13fr)_minmax(0,11fr)] lg:gap-6" data-events-scope>
+      <div data-events-empty hidden={!quiet} class="rounded-lg border border-dashed border-line px-6 py-8 text-center text-ink-muted lg:col-span-2">
+        <p>Nothing verified on the {town.name} calendar for the rest of this week yet.</p>
+        <p class="mt-2 text-[0.9375rem]">Know something that should be here? <a href="/submit-event/" class="inline-block -my-2 py-2 text-primary underline">Send it in</a>.</p>
+      </div>
+      {lead && (
+        <article class="overflow-hidden rounded-lg bg-raised ring-1 ring-line-soft" data-event-day={lastDay(lead)} data-end={toIsoLocal(listedUntil(lead))}>
+          {/* The photograph where the listing has one; otherwise the tag sits
+              on the accent's wash, a band and not a frame left empty. */}
+          <div class:list={['relative bg-accent-soft', lead.data.image ? 'aspect-[16/9] lg:aspect-[4/3]' : 'h-28 lg:h-36']}>
+            {lead.data.image && <Image src={lead.data.image} alt={lead.data.imageAlt ?? ''} widths={[480, 720, 960]} sizes="(min-width: 1024px) 50vw, 100vw" class="h-full! w-full object-cover" />}
+            <span class="absolute bottom-4 left-4 rounded-full bg-ink px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-eyebrow text-raised">
+              {pick ? 'Our pick' : 'Highlight'} · {formatWeekday(lead.data.start)}
+            </span>
+          </div>
+          <div class="p-5 md:p-6">
+            <h3 class="display-md text-[1.75rem] md:text-[2rem]">
               <a href={pick?.url ?? `/events/${lead.slug}/`} class="no-underline hover:text-primary">{pick?.title ?? lead.data.title}</a>
             </h3>
-            <p class="mt-2 font-medium"><time datetime={toIsoLocal(lead.data.start)}>{when(lead)}</time></p>
-            <p class="mt-3 max-w-2xl text-[1.0625rem] leading-relaxed text-ink-muted">
-              {pick?.body ?? <Fragment>{lead.data.venue}{lead.data.cost && <span> · {lead.data.cost}</span>}</Fragment>}
-            </p>
-          </article>
-        )}
-        {rows.length > 0 && (
-          <div class="mt-6" data-hide-when-empty>
-            <h3 class={eyebrow}>{onWeekend ? 'This weekend' : 'Rest of the week'}</h3>
-            <div class="rounded-b-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-              {rows.map((event) => <WeekEventRow event={event} />)}
-            </div>
-            <p class="mt-3 text-[0.9375rem]">
-              <a href="/this-week/" class="inline-block -my-2 py-2 font-semibold text-primary underline">All {week.length} {onWeekend ? 'this weekend' : 'this week'} →</a>
-              {' · '}<a href="/events/" class="inline-block -my-2 py-2 font-semibold text-primary underline">{totals.listings} listings on the calendar →</a>
-            </p>
+            <p class="mt-2 text-[1.0625rem] leading-snug"><time datetime={toIsoLocal(lead.data.start)}>{meta(lead)}</time></p>
+            {pick?.body && <p class="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">{pick.body}</p>}
+            <p class="mt-3 text-[0.9375rem]"><a href={pick?.url ?? `/events/${lead.slug}/`} class="font-semibold text-primary underline">The details →</a></p>
           </div>
-        )}
-        {coming.length > 0 && (
-          <div class="mt-8" data-hide-when-empty>
-            <h3 class={eyebrow}>Coming up</h3>
-            <ul class="divide-y divide-line-soft">
-              {coming.map((e) => (
-                <li class="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 py-2.5 text-[0.9375rem]" data-event-day={lastDay(e)} data-end={toIsoLocal(listedUntil(e))}>
-                  <time datetime={toIsoLocal(e.data.start)} class="w-20 shrink-0 font-semibold tabular-nums text-ink-muted">{formatDayShort(e.data.start)}</time>
-                  <a href={`/events/${e.slug}/`} class="font-medium no-underline hover:text-primary hover:underline">{e.data.title}</a>
-                  <span class="text-ink-muted">{e.data.venue}</span>
+        </article>
+      )}
+      {rows.length > 0 && (
+        <div class="min-w-0" data-hide-when-empty>
+          <ul class="divide-y divide-line-soft rounded-lg bg-raised ring-1 ring-line-soft">
+            {rows.map((e) => {
+              const badge = badgeOf(e);
+              return (
+                <li class="grid grid-cols-[3.25rem_1fr] gap-x-3 px-4 py-3" data-event-day={lastDay(e)} data-end={toIsoLocal(listedUntil(e))}>
+                  <time datetime={toIsoLocal(e.data.start)} class="flex flex-col items-center pt-0.5 leading-none">
+                    <span class="text-[0.625rem] font-bold uppercase tracking-[0.08em] text-primary">{badge.weekday}</span>
+                    <span class="mt-0.5 font-heading text-[1.5rem] font-medium tabular-nums">{badge.day}</span>
+                  </time>
+                  <span class="min-w-0">
+                    <a href={`/events/${e.slug}/`} class="font-semibold leading-snug no-underline hover:text-primary hover:underline">{e.data.title}</a>
+                    <span class="mt-0.5 block text-[0.875rem] leading-snug text-ink-muted">{[timeText(e, now), e.data.venue, e.data.cost].filter(Boolean).join(' · ')}</span>
+                  </span>
                 </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
-
-      {(know.length > 0 || deadlines.length > 0 || changes.length > 0 || true) && (
-        <aside class="min-w-0 space-y-6" aria-label="Useful this week">
-          {know.length > 0 && (
-            <div class={panel}>
-              <h3 class="eyebrow border-b-2 border-primary-line pb-2">Things to know</h3>
-              <div class="-mb-2">{know.map((u) => <UpdateRow update={u} compact />)}</div>
-              <p class="mt-2 text-[0.9375rem]"><a href="/updates/" class="inline-block -my-1 py-1 font-semibold text-primary underline">All local changes →</a></p>
-            </div>
-          )}
-          {deadlines.length > 0 && (
-            <div class={panel}>
-              <h3 class="eyebrow border-b-2 border-primary-line pb-2">Deadlines and ways in</h3>
-              <DeadlineList programs={programs} limit={3} days={45} moreHref={town.families ? '/families/' : '/get-involved/'} />
-            </div>
-          )}
-          {changes.length > 0 && (
-            <div class={panel}>
-              <h3 class="eyebrow border-b-2 border-primary-line pb-2">New &amp; closed</h3>
-              <ul class="divide-y divide-line-soft">
-                {changes.map((c) => (
-                  <li class="py-3 text-[0.9375rem] leading-snug">
-                    <span class="eyebrow text-ink-muted">{c.label}{c.effective && ` · ${formatDate(c.effective)}`}</span>
-                    <span class="mt-0.5 block font-medium">{c.name}</span>
-                    <span class="block text-ink-muted">{c.detail}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-          <SportsStrip town={town.slug} limit={3} />
-        </aside>
+              );
+            })}
+          </ul>
+          <p class="mt-3 text-[0.9375rem]">
+            <a href="/this-week/" class="inline-block -my-2 py-2 font-semibold text-primary underline">All {week.length} {onWeekend ? 'this weekend' : 'this week'} →</a>
+            {' · '}<a href="/events/" class="inline-block -my-2 py-2 font-semibold text-primary underline">{totals.listings} listings on the calendar →</a>
+          </p>
+        </div>
       )}
     </div>
   </div>
 </section>
 
-{/* 2. The signature section: Families on Berthoud, Around Niwot and Get
-    Involved on Niwot. From the config; the rows from the content. */}
-{home.signature === 'families' && town.families && familyPrograms.length > 0 && (
-  <section class="band band-white py-12! md:py-16!" aria-labelledby="families-h">
-    <div class="container-page">
-      <SectionHeader eyebrow="Signature" title={town.families.label} href="/families/" linkLabel="The whole hub" id="families-h" />
-      <div class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
-        {familyPrograms.map((p) => (
-          <article class="border-t border-line-soft pt-4">
-            <p class="eyebrow text-ink-muted">{p.data.organizer}{p.data.ages && ` · ${p.data.ages}`}</p>
-            <h3 class="mt-1 text-xl font-medium leading-tight"><a href="/families/" class="no-underline hover:text-primary hover:underline">{p.data.title}</a></h3>
-            <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted">{p.data.summary}</p>
-            {p.data.price && <p class="mt-1.5 text-[0.875rem] font-medium">{p.data.price}</p>}
-          </article>
-        ))}
-      </div>
-      <p class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[0.9375rem]">
-        <a href="/families/#breaks" class="inline-block -my-1 py-1 font-semibold text-primary underline">School breaks and days off →</a>
-        <a href="/families/#deadlines" class="inline-block -my-1 py-1 font-semibold text-primary underline">Registration deadlines →</a>
-        {town.participation && <a href="/get-involved/" class="inline-block -my-1 py-1 font-semibold text-primary underline">{town.participation.label} →</a>}
-      </p>
-    </div>
-  </section>
-)}
-
-{home.signature === 'get-involved' && (
-  <section class="band band-white py-12! md:py-16!" aria-labelledby="around-h">
-    <div class="container-page">
-      <SectionHeader eyebrow="Signature" title={`Around ${town.name}`} href="/directory/" linkLabel="All places" id="around-h" />
-      {placeCards.length > 0 && (
-        <div class:list={['grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:gap-x-8', placeCards.length > 2 && 'lg:grid-cols-3']}>
-          {placeCards.map((place) => <PlaceCard place={place} />)}
-        </div>
-      )}
-      {placeIndex.length > 0 && <div class="mt-10 border-t border-line-soft pt-2"><PlaceIndex places={placeIndex} /></div>}
-      {lead1 && (
-        <div class="mt-10 border-t border-line-soft pt-8">
-          <ArticleCard article={lead1} row />
-        </div>
-      )}
-    </div>
-  </section>
-)}
-
-{home.signature === 'get-involved' && town.participation && waysIn.length > 0 && (
-  <section class="band band-paper py-12! md:py-16!" aria-labelledby="involved-h">
-    <div class="container-page">
-      <SectionHeader eyebrow="Signature" title={`${town.participation.label} in ${town.name}`} href="/get-involved/" linkLabel="Every way in" id="involved-h" />
-      <div class="grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-        {waysIn.map((p) => (
-          <article class="border-t border-line-soft pt-4">
-            <p class="eyebrow text-ink-muted">{PROGRAM_KIND_LABELS[p.data.kind]}</p>
-            <h3 class="mt-1 text-xl font-medium leading-tight"><a href={`/get-involved/#${p.data.kind}`} class="no-underline hover:text-primary hover:underline">{p.data.title}</a></h3>
-            <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted">{p.data.summary}</p>
-            {(p.data.price || p.data.schedule) && <p class="mt-1.5 text-[0.875rem] font-medium">{[p.data.schedule, p.data.price].filter(Boolean).join(' · ')}</p>}
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-)}
-
-{/* 3. Places and people (Berthoud; Niwot's places are its signature above). */}
-{home.signature !== 'get-involved' && (placeCards.length > 0 || placeIndex.length > 0) && (
-  <section class="band band-paper py-12! md:py-16!" aria-labelledby="places-h">
-    <div class="container-page">
-      <SectionHeader eyebrow="Eat, drink, wander" title={`Around ${town.name}`} href="/directory/" linkLabel="All places" id="places-h" />
-      {placeCards.length > 0 && (
-        <div class:list={['grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:gap-x-8', placeCards.length > 2 && 'lg:grid-cols-3']}>
-          {placeCards.map((place) => <PlaceCard place={place} />)}
-        </div>
-      )}
-      {placeIndex.length > 0 && <div class="mt-10 border-t border-line-soft pt-2"><PlaceIndex places={placeIndex} /></div>}
-      {lead1 && (
-        <div class="mt-10 border-t border-line-soft pt-8">
-          <ArticleCard article={lead1} row />
-        </div>
-      )}
-    </div>
-  </section>
-)}
-
-{people.length > 0 && (
-  <section class="band band-white py-12! md:py-16!" aria-labelledby="people-h">
-    <div class="container-page">
-      <SectionHeader eyebrow="The people" title={`Who runs ${town.name}`} href="/people/" linkLabel="All profiles" id="people-h" />
-      <ul class="grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-        {people.slice(0, 3).map((p) => (
-          <li class="border-t border-line-soft pt-4">
-            <p class="eyebrow text-ink-muted">{p.data.affiliation}</p>
-            <h3 class="mt-1 text-xl font-medium leading-tight"><a href={`/people/${p.slug}/`} class="no-underline hover:text-primary hover:underline">{p.data.name}</a></h3>
-            <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted">{p.data.summary}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-)}
-
-{/* 4. The email, once the reader has seen what it carries. */}
-<section class="band band-white py-12! md:py-16!">
-  <div class="container-page">
-    <NewsletterSignup town={town} id="home" />
+{/* 2. The school's games and the family hub, side by side on a desktop. */}
+<section class="band band-paper pt-0! pb-10! md:pb-12!">
+  <div class="container-page grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-10">
+    <SportsBlock town={town.slug} class="self-start" />
+    {town.families && <FamiliesBlock town={town} programs={programs} events={entries} now={now} />}
   </div>
 </section>
 
-{/* 5. Resident resources: the sections of Living Here, each a link. */}
-{living && (
-  <section class="band band-paper py-12! md:py-16!" aria-labelledby="living-h">
+{/* 3. Who handles what, from Living Here, and the current decision. */}
+{town.livingHere && (
+  <section class="band band-white py-10! md:py-12!">
     <div class="container-page">
-      <SectionHeader eyebrow="Living here" title="Who handles what" href="/living-here/" linkLabel="The whole page" id="living-h" />
-      <ul class="grid gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
-        {living.sections.map((s) => (
-          <li class="border-t border-line-soft pt-3">
-            <a href={`/living-here/#${slugify(s.title)}`} class="inline-block -my-1 py-1 text-lg font-semibold text-primary underline">{s.title}</a>
-            <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{s.items.slice(0, 3).map((i) => i.label).join(' · ')}</p>
-          </li>
-        ))}
-      </ul>
-      <p class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[0.9375rem]">
-        <a href="/moving-here/" class="inline-block -my-1 py-1 font-semibold text-primary underline">Moving to {town.name} →</a>
-        <a href="/guides/" class="inline-block -my-1 py-1 font-semibold text-primary underline">The guides →</a>
-        <a href="/about/" class="inline-block -my-1 py-1 font-semibold text-primary underline">How this guide works →</a>
-        <a href="/correct/" class="inline-block -my-1 py-1 font-semibold text-primary underline">Correct something →</a>
-      </p>
+      <HandlesWhat town={town} notice={notice} />
     </div>
   </section>
 )}
 
-{/* 6. The neighbours, limited, last. */}
-<section class="band band-white py-12! md:py-16!">
+{/* 4. What is open now. */}
+<section class="band band-paper py-10! md:py-12!">
   <div class="container-page">
-    <NearbyWeekend town={town} limit={4} />
+    <OpenNow places={places} />
+  </div>
+</section>
+
+{/* 5. The email, and the one sentence on how the guide works. */}
+<section class="band band-paper pt-0! pb-10! md:pb-12!">
+  <div class="container-page grid gap-4 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-6">
+    <NewsletterSignup town={town} id="home" dark />
+    <TrustPanel town={town} />
   </div>
 </section>

@@ -37,7 +37,7 @@ const H = compact ? 'h3' : 'h2';
   </p>
   <H class:list={['mt-1.5 font-medium leading-tight', compact ? 'text-lg' : 'text-xl md:text-2xl']}>{data.title}</H>
   <p class="mt-1.5 text-[0.9375rem] font-medium">
-    {t === 'ahead' ? 'From ' : t === 'past' && !data.effectiveEnd ? 'On ' : ''}<time datetime={toIsoLocal(data.effective)}>{whenText}</time>
+    {data.effectiveNote ? '' : t === 'ahead' ? 'From ' : t === 'past' && !data.effectiveEnd ? 'On ' : ''}<time datetime={toIsoLocal(data.effective)}>{whenText}</time>
     {late && <span class="font-normal text-ink-muted"> · noted <time datetime={toIsoLocal(data.published)}>{formatDate(data.published)}</time></span>}
   </p>
   {!compact && <p class="mt-2 leading-relaxed text-ink-muted">{data.summary}</p>}

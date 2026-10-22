@@ -32,7 +32,7 @@ import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
 import { schoolSportsFor, type SportData, type SportGame, type SportsData } from '@/config/school-sports';
 import { dayKey, formatDayLong, formatDayShort, formatShortDate, formatTime } from '@/lib/dates';
-import { bigGame, coming, gameDay as day, latestResult, outcome, recentResults, RESULT_WORD, schoolCssVars, season, sitePhrase, sportsDataFor, when, where } from '@/lib/school-sports';
+import { bigGame, coming, gameDay as day, latestResult, outcome, recentResults, RESULT_WORD, placeText, schoolCssVars, season, sportsDataFor, when, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -154,7 +154,7 @@ const jsonLd = [
             <time datetime={next.game.time ? `${next.game.date}T${next.game.time}` : next.game.date}>
               {when(next.game)}{next.game.time && <Fragment> · {formatTime(day(next.game))}</Fragment>}
             </time>
-            <span class="text-white/70"> · {sitePhrase(next.game)}</span>
+            <span class="text-white/70"> · {placeText(next.game)}</span>
           </p>
           <p class="mt-2 text-[1.0625rem] text-white/80">
             {next.team.overall && <span>The {mascot} are {next.team.overall}{next.team.league ? ` overall, ${next.team.league.record} in the ${next.team.league.name}` : ''}. </span>}
@@ -191,7 +191,7 @@ const jsonLd = [
           {RESULT_WORD[latest.game.result ?? 'T']} {outcome(latest.game)}
         </h2>
         <p class="mt-5 text-xl leading-snug md:text-2xl">
-          <time datetime={latest.game.date}>{formatDayLong(day(latest.game))}</time><span class="text-white/70"> · {sitePhrase(latest.game)} · nothing scheduled yet</span>
+          <time datetime={latest.game.date}>{formatDayLong(day(latest.game))}</time><span class="text-white/70"> · {placeText(latest.game)} · nothing scheduled yet</span>
         </p>
       </div>
     </section>
@@ -211,7 +211,7 @@ const jsonLd = [
               <li class="rounded-lg bg-paper p-5 ring-1 ring-line-soft">
                 <p class="flex items-baseline justify-between gap-3 text-[0.8125rem] text-ink-muted">
                   <span class="eyebrow">{team.name}</span>
-                  <span><time datetime={game.date}>{formatDayShort(day(game))}</time> · {sitePhrase(game)}</span>
+                  <span><time datetime={game.date}>{formatDayShort(day(game))}</time> · {placeText(game)}</span>
                 </p>
                 {game.score ? (
                   <dl class="mt-4 space-y-1.5">
@@ -318,7 +318,7 @@ const jsonLd = [
                             </a>
                             {isNext && <span class="ml-2 rounded-full bg-primary px-2 py-0.5 text-[0.6875rem] font-bold uppercase tracking-eyebrow text-white">Next</span>}
                           </td>
-                          <td class="hidden py-3 pr-3 align-baseline text-ink-muted sm:table-cell">{sitePhrase(g)}</td>
+                          <td class="hidden py-3 pr-3 align-baseline text-ink-muted sm:table-cell">{placeText(g)}</td>
                           <td class="whitespace-nowrap py-3 text-right align-baseline">
                             {played ? (
                               <span class="inline-flex items-center justify-end gap-2">

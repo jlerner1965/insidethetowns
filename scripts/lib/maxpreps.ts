@@ -147,6 +147,7 @@ function toGame(c: MpContest, us: Team, kickoff?: string): SportGame | undefined
   // differ only in that contest id (Niwot softball at Falcon, 17 October
   // 2026, lost 4-15 and 9-17), and it is what tells one from the other.
   const game: SportGame = { date, opponent, site: site(c.homeAwayType), url: c.canonicalUrl };
+  if (c.homeAwayType === 2) game.neutral = true;
   if (c.hasResult && mine.result && mine.score != null && theirs?.score != null) {
     game.result = mine.result;
     game.score = { us: mine.score, them: theirs.score };
@@ -162,6 +163,8 @@ function toGame(c: MpContest, us: Team, kickoff?: string): SportGame | undefined
 export interface Team {
   url: string;
   schoolName: string;
+  /** Where the sport's playoff games are played, when one site hosts them all (SportConfig.playoffVenue). */
+  playoffVenue?: string;
 }
 
 export function parseTeamPage(html: string, us: Team): TeamPage {
@@ -259,7 +262,7 @@ export function usable(page: TeamPage): boolean {
  * 7p." for one to come). A row the sentence does not bear out fails the
  * whole page, and the run keeps what the home page said.
  */
-const ROW = { teams: 0, id: 1, hasResult: 4, kickoff: 11, url: 18, sentence: 29 } as const;
+const ROW = { teams: 0, id: 1, hasResult: 4, venue: 5, kickoff: 11, url: 18, sentence: 29 } as const;
 /** `where` is 0 at home, 1 away, 2 at a neutral site (the softball tournament rows, 21 October 2026). */
 const TEAM = { result: 5, score: 6, where: 11, url: 13, name: 14 } as const;
 
@@ -353,6 +356,17 @@ export function parseSchedulePage(html: string, us: Team): SchedulePage {
       continue;
     }
     const game: SportGame = { date, opponent: theirs.name, site, url };
+    // A playoff or tournament game is at a neutral site, whichever side
+    // MaxPreps files it on (the state softball opener was "home"). The
+    // venue is MaxPreps's where it names one, or the sport's playoff site.
+    const playoff = /\bplayoff\b/i.test(sentence);
+    if (playoff || mine.neutral || /\btournament\b/i.test(sentence)) {
+      game.neutral = true;
+      game.site = 'neutral';
+      const venue = typeof row[ROW.venue] === 'string' ? (row[ROW.venue] as string).trim() : '';
+      if (playoff && us.playoffVenue) game.venue = us.playoffVenue;
+      else if (venue) game.venue = venue;
+    }
     if (row[ROW.hasResult] === true) {
       if (!mine.result || mine.score == null || theirs.score == null) {
         fail('played, but no score in the data');
@@ -403,8 +417,9 @@ export function applySchedule(page: TeamPage, schedule: SchedulePage): string | 
     if (!g) return `the schedule page has no ${known.date} ${known.opponent}`;
     if (known.score && (!g.score || g.score.us !== known.score.us || g.score.them !== known.score.them)) return `scores differ for ${known.date} ${known.opponent}`;
     // The home page's data names a neutral site outright; the schedule's
-    // rows only say which side was away, so its word on the site wins.
-    g.site = known.site;
+    // rows only say which side was away, so its word on the site wins,
+    // except for a game the schedule knows to be a playoff or tournament.
+    if (!g.neutral) g.site = known.site;
   }
   page.results = schedule.games.filter((g) => g.result || g.place).sort((a, b) => b.date.localeCompare(a.date));
   page.schedule = schedule.games;

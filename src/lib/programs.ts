@@ -56,6 +56,54 @@ export function byAudience<T extends ProgramLike>(
     .filter((g) => g.programs.length > 0);
 }
 
+/**
+ * The family hub's three age sections (redesign brief, 22 October 2026):
+ * the under-fives, the school years, the teens. A program for families as
+ * a whole is filed with the school years, the age most of them mean. A
+ * program appears once, under the first group it fits, as byAudience does.
+ */
+export const FAMILY_AGE_GROUPS = [
+  { id: 'under-5', label: 'Under 5', audiences: ['babies', 'preschool'] as readonly ProgramAudience[] },
+  { id: '5-11', label: 'Ages 5–11', audiences: ['elementary', 'families'] as readonly ProgramAudience[] },
+  { id: 'teens', label: 'Teens', audiences: ['teens'] as readonly ProgramAudience[] },
+] as const;
+export type FamilyAgeGroup = (typeof FAMILY_AGE_GROUPS)[number];
+
+export function familyAgeGroups<T extends ProgramLike>(list: readonly T[]): Array<{ group: FamilyAgeGroup; programs: T[] }> {
+  const placed = new Set<T>();
+  return FAMILY_AGE_GROUPS.map((group) => {
+    // The programs made for the youngest of the group's ages lead (a
+    // storytime for babies before a league that starts at four); the ones
+    // filed here by their first audience follow, by name within a rank.
+    const rank = (p: T) => {
+      const i = group.audiences.indexOf(p.data.audience[0]!);
+      return i < 0 ? group.audiences.length : i;
+    };
+    const programs = byName(list.filter((p) => !placed.has(p) && p.data.audience.some((a) => group.audiences.includes(a)))).sort((a, b) => rank(a) - rank(b));
+    for (const p of programs) placed.add(p);
+    return { group, programs };
+  }).filter((g) => g.programs.length > 0);
+}
+
+/** The group a family program is filed under, for a link to its section. */
+export function familyGroupOf(p: ProgramLike): FamilyAgeGroup | undefined {
+  return FAMILY_AGE_GROUPS.find((g) => p.data.audience.some((a) => g.audiences.includes(a)));
+}
+
+/**
+ * A deadline as one line with the action in it: "Holiday Card Art Contest:
+ * entries due Sat Nov 7", "Berthoud Recreation youth sports: registration
+ * opens Sun Nov 1". The organizer's own words on how to register decide
+ * between entries and registration; a listing's title stands in for the
+ * program's where the deadline has its own listing.
+ */
+export function deadlineTitle(d: Deadline, day: string, eventTitle?: string): string {
+  const title = (eventTitle ?? d.program.data.title).replace(/\s*(?:[:·-]\s*)?(?:deadline|(?:\w+\s+)?due|registration (?:opens|closes))\s*$/i, '');
+  const entries = /\bentr(?:y|ies)\b/i.test(d.program.data.registration?.how ?? '');
+  const action = d.what === 'opens' ? 'registration opens' : entries ? 'entries due' : 'register by';
+  return `${title}: ${action} ${day}`;
+}
+
 /** The audience a program is filed under on a page that lists it once: the first of its audiences in the page's order. */
 export function filedUnder(p: ProgramLike, audiences: readonly ProgramAudience[] = PROGRAM_AUDIENCES): ProgramAudience {
   return audiences.find((a) => p.data.audience.includes(a)) ?? p.data.audience[0]!;
@@ -91,6 +139,12 @@ export function upcomingDeadlines<T extends ProgramLike>(list: readonly T[], { n
     if (r.deadline && r.deadline.getTime() >= today && r.deadline.getTime() < horizon) out.push({ program, on: r.deadline, what: 'closes' });
   }
   return out.sort((a, b) => a.on.getTime() - b.on.getTime() || a.program.data.title.localeCompare(b.program.data.title));
+}
+
+/** One entry per program, the soonest: a window that opens and closes within the horizon is one row, not two. */
+export function onePerProgram<T extends ProgramLike>(list: Deadline<T>[]): Deadline<T>[] {
+  const seen = new Set<T>();
+  return list.filter((d) => !seen.has(d.program) && seen.add(d.program));
 }
 
 /** True once the organizer's deadline is behind us, so a row can say so instead of inviting a reader to miss it. */
