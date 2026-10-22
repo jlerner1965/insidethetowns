@@ -115,4 +115,5 @@ export const leadville: TownConfig = {
     townSite: 'https://www.leadville-co.gov/',
     townSiteLabel: 'the City of Leadville',
   },
+  plausible: true,
 };

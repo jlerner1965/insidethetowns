@@ -112,4 +112,5 @@ export const carbonValley: TownConfig = {
     policeNonEmergency: 'https://www.frederickco.gov/360/Police',
     policeNonEmergencyLabel: 'Frederick Police Department (720-652-4222 dispatches for Firestone too; Dacono Police: 303-833-3095)',
   },
+  plausible: true,
 };

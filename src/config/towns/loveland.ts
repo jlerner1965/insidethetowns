@@ -82,4 +82,5 @@ export const loveland: TownConfig = {
     townSite: 'https://www.lovgov.org/',
     townSiteLabel: 'the City of Loveland',
   },
+  plausible: true,
 };

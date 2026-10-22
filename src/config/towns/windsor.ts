@@ -83,4 +83,5 @@ export const windsor: TownConfig = {
     policeNonEmergencyLabel: 'Windsor Police Department',
   },
   formspreeId: 'mvkgnjrd',
+  plausible: true,
 };

@@ -121,4 +121,5 @@ export const grandLake: TownConfig = {
     townSite: 'https://www.townofgrandlake.com/',
     townSiteLabel: 'the Town of Grand Lake',
   },
+  plausible: true,
 };

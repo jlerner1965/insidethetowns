@@ -111,4 +111,5 @@ export const estesPark: TownConfig = {
     policeNonEmergency: 'https://estespark.colorado.gov/pd',
     policeNonEmergencyLabel: 'Estes Park Police Department',
   },
+  plausible: true,
 };

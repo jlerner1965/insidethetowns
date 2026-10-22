@@ -6002,3 +6002,15 @@ the school's colour throughout.
   cancelled one; the re-run reads all nineteen. The probe now reads the
   schedule page too, prints a refused row's fields, and lists the page's
   colour fields, which is where the navy came from.
+
+## Plausible on every live guide, 22 October 2026
+
+- **The other seventeen live guides count to Plausible too**, the owner's
+  request, with Plausible's dashboard already holding them as sites
+  ("Setup pending" until a first page view lands): Carbon Valley, Elizabeth,
+  Erie, Estes Park, Evergreen, Fort Collins, Golden, Grand Lake, Idaho
+  Springs, Johnstown, Leadville, Longmont, Loveland, Manitou Springs,
+  Nederland, Timnath and Windsor, each with `plausible: true` beside
+  Berthoud, Lyons and Niwot. Same tracker, same events, same CSP; /privacy/
+  on each now names it. Not the folded guides (they only redirect), not
+  Castle Rock's holding page, not the hub.

@@ -96,4 +96,5 @@ export const longmont: TownConfig = {
     policeNonEmergency: 'https://longmontcolorado.gov/public-safety/contact-public-safety/',
     policeNonEmergencyLabel: 'Longmont Public Safety (police and fire)',
   },
+  plausible: true,
 };

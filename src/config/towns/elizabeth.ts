@@ -71,6 +71,7 @@ export const elizabeth = {
     policeNonEmergencyLabel: "Elizabeth Police Department",
   },
   formspreeId: "xyezejwk",
+  plausible: true,
 } satisfies TownConfig;
 
 export default elizabeth;

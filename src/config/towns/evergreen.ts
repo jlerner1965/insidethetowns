@@ -106,4 +106,5 @@ export const evergreen: TownConfig = {
     policeNonEmergency: 'https://www.jeffcosheriffco.gov/about/contact',
     policeNonEmergencyLabel: 'Jefferson County Sheriff’s Office (non-emergency 303-980-7300)',
   },
+  plausible: true,
 };
