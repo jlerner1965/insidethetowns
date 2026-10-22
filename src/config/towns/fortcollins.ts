@@ -75,4 +75,5 @@ export const fortcollins: TownConfig = {
     policeNonEmergencyLabel: 'Fort Collins Police Services',
   },
   formspreeId: 'mgavbjyp',
+  plausible: true,
 };

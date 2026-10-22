@@ -114,4 +114,5 @@ export const nederland: TownConfig = {
     policeNonEmergency: 'https://www.nederlandco.gov/1451/Law-Enforcement',
     policeNonEmergencyLabel: 'Boulder County Sheriff’s Office, under contract to the Town (non-emergency 303-441-4444)',
   },
+  plausible: true,
 };

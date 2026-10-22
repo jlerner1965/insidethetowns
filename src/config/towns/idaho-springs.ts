@@ -144,4 +144,5 @@ export const idahoSprings: TownConfig = {
       { label: 'the City of Black Hawk', url: 'https://www.cityofblackhawk.org/' },
     ],
   },
+  plausible: true,
 };

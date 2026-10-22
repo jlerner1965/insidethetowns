@@ -112,4 +112,5 @@ export const manitouSprings: TownConfig = {
     townSite: 'https://www.manitouspringsco.gov/',
     townSiteLabel: 'the City of Manitou Springs',
   },
+  plausible: true,
 };

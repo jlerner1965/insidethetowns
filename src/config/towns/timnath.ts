@@ -59,4 +59,5 @@ export const timnath: TownConfig = {
     policeNonEmergencyLabel: 'Timnath public safety',
   },
   formspreeId: 'xzezegre',
+  plausible: true,
 };

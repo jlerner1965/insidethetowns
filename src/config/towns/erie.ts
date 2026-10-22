@@ -61,4 +61,5 @@ export const erie: TownConfig = {
     policeNonEmergencyLabel: 'Erie Police Department',
   },
   formspreeId: 'maenejow',
+  plausible: true,
 };

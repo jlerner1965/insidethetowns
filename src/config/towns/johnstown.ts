@@ -63,4 +63,5 @@ export const johnstown: TownConfig = {
     policeNonEmergencyLabel: 'Johnstown Police Department',
   },
   formspreeId: 'xljdjnbd',
+  plausible: true,
 };
