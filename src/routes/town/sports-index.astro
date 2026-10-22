@@ -48,7 +48,7 @@ const jsonLd = [
           {teams.length > 0 ? (
             <p class="mt-2 text-[0.9375rem] text-ink-muted">
               {teams.map((t, i) => (
-                <Fragment>{i > 0 && ' · '}{t.name} <strong class="font-semibold text-ink">{t.overall ?? '—'}</strong></Fragment>
+                <Fragment>{i > 0 && ' · '}{t.name}{' '}<strong class="font-semibold text-ink">{t.overall ?? '—'}</strong></Fragment>
               ))}
             </p>
           ) : (
