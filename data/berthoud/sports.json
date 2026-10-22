@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-21T20:19:49.267Z",
+  "generated": "2026-10-22T01:15:25.959Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/football/",
-      "fetched": "2026-10-21T20:19:49.267Z",
-      "maxprepsUpdated": "2026-10-21T20:08:17",
+      "fetched": "2026-10-22T01:15:25.959Z",
+      "maxprepsUpdated": "2026-10-21T22:43:43",
       "overall": "6-2",
       "league": {
         "record": "3-1",
@@ -126,8 +126,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/soccer/",
-      "fetched": "2026-10-21T20:19:49.267Z",
-      "maxprepsUpdated": "2026-10-21T19:58:13",
+      "fetched": "2026-10-22T01:15:25.959Z",
+      "maxprepsUpdated": "2026-10-21T22:49:42",
       "overall": "7-7",
       "league": {
         "record": "5-2",
@@ -306,8 +306,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/volleyball/",
-      "fetched": "2026-10-21T20:19:49.267Z",
-      "maxprepsUpdated": "2026-10-21T19:47:14",
+      "fetched": "2026-10-22T01:15:25.959Z",
+      "maxprepsUpdated": "2026-10-21T23:00:35",
       "overall": "14-5",
       "league": {
         "record": "3-1",
@@ -452,6 +452,7 @@
           "opponent": "Peak to Peak",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-peak-to-peak-lafayette/8-29-2026/?c=4ee4df42-32d8-4354-a9e1-9b6c0633cedc",
+          "neutral": true,
           "result": "W",
           "score": {
             "us": 3,
@@ -463,6 +464,7 @@
           "opponent": "Longmont",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-longmont/8-29-2026/?c=d97b6676-bf9d-4c0c-96d6-709050a41e00",
+          "neutral": true,
           "result": "W",
           "score": {
             "us": 3,
@@ -474,6 +476,7 @@
           "opponent": "Mountain View",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-mountain-view-loveland/8-28-2026/?c=f1b2b182-b14b-42f7-a791-9c6ea995280d",
+          "neutral": true,
           "result": "L",
           "score": {
             "us": 2,
@@ -485,6 +488,7 @@
           "opponent": "Niwot",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-niwot/8-28-2026/?c=ee987482-2209-45b2-abac-78f19b653450",
+          "neutral": true,
           "result": "L",
           "score": {
             "us": 0,
@@ -562,8 +566,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/softball/fall/",
-      "fetched": "2026-10-21T20:19:49.267Z",
-      "maxprepsUpdated": "2026-10-21T20:12:06",
+      "fetched": "2026-10-22T01:15:25.959Z",
+      "maxprepsUpdated": "2026-10-21T22:51:46",
       "overall": "16-9",
       "league": {
         "record": "2-7",
@@ -574,8 +578,9 @@
         {
           "date": "2026-10-17",
           "opponent": "Alamosa",
-          "site": "home",
+          "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/alamosa-vs-berthoud/10-17-2026/?c=81ef8aed-e02a-4f44-958e-28f8239695cd",
+          "neutral": true,
           "result": "W",
           "score": {
             "us": 15,
@@ -587,6 +592,7 @@
           "opponent": "The Classical Academy",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-the-classical-academy-colorado-springs/10-17-2026/?c=b9b9048f-b2a4-433e-af88-d29bb424c171",
+          "neutral": true,
           "result": "W",
           "score": {
             "us": 9,
@@ -719,6 +725,8 @@
           "opponent": "Montezuma-Cortez",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-montezuma-cortez/9-5-2026/?c=7601561b-99fd-4ed8-9de0-b46701a7609d",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
           "result": "W",
           "score": {
             "us": 11,
@@ -730,6 +738,8 @@
           "opponent": "Roosevelt",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-roosevelt-johnstown/9-5-2026/?c=eed4f939-c769-4d22-aef5-b152acfd22db",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
           "result": "W",
           "score": {
             "us": 7,
@@ -741,6 +751,8 @@
           "opponent": "Silver Creek",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-silver-creek-longmont/9-4-2026/?c=be5bf438-88c7-4d1c-b2ca-2da2ab09e97d",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
           "result": "W",
           "score": {
             "us": 15,
@@ -752,6 +764,8 @@
           "opponent": "Meeker",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-meeker/9-4-2026/?c=9e206cf3-f132-487e-807d-bdedabf75694",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
           "result": "W",
           "score": {
             "us": 21,
@@ -847,24 +861,29 @@
           }
         }
       ],
-      "upcoming": [
+      "upcoming": [],
+      "held": [
         {
-          "date": "2026-10-23",
-          "opponent": "Delta",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-delta/10-23-2026/?c=2824efb1-a490-4092-8967-075ee31246dd",
-          "time": "12:15"
+          "game": {
+            "date": "2026-10-23",
+            "opponent": "Delta",
+            "site": "neutral",
+            "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-delta/10-23-2026/?c=2824efb1-a490-4092-8967-075ee31246dd",
+            "neutral": true,
+            "venue": "Aurora Sports Park",
+            "time": "12:15"
+          },
+          "reason": "2026-10-23 at Delta: MaxPreps has it neutral, the school calendar home (\"Girls Varsity Softball vs Delta High School\")"
         }
       ],
-      "held": [],
       "notes": []
     },
     {
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/",
-      "fetched": "2026-10-21T20:19:49.267Z",
-      "maxprepsUpdated": "2026-10-21T20:16:40",
+      "fetched": "2026-10-22T01:15:25.959Z",
+      "maxprepsUpdated": "2026-10-22T01:16:18",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -877,8 +896,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/girls/",
-      "fetched": "2026-10-21T20:19:49.267Z",
-      "maxprepsUpdated": "2026-10-21T20:16:45",
+      "fetched": "2026-10-22T01:15:25.959Z",
+      "maxprepsUpdated": "2026-10-22T01:16:22",
       "results": [],
       "upcoming": [],
       "held": [],
