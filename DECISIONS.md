@@ -5994,8 +5994,11 @@ the school's colour throughout.
   and both cross country teams, no boys' soccer, as the school's athletics
   page lists them; the school keeps each schedule as a spreadsheet, so
   games to come are on MaxPreps's word alone, as Niwot's are. Volleyball's
-  full schedule page carries one row of a shape the reader refuses, so
-  that card shows the team page's five games against a 14-5 record until
-  the shape is read. The probe now reads the schedule page too, prints a
-  refused row's fields, and lists the page's colour fields, which is where
-  the navy came from.
+  full schedule page carried a row for a match MaxPreps had deleted (the
+  teams and a result still there, no URL, no sentence, "ContestState is
+  Deleted." where the state goes), which the reader refused the whole
+  page over, leaving the card with the team page's five games against a
+  14-5 record. A row marked deleted is skipped and counted like a
+  cancelled one; the re-run reads all nineteen. The probe now reads the
+  schedule page too, prints a refused row's fields, and lists the page's
+  colour fields, which is where the navy came from.
