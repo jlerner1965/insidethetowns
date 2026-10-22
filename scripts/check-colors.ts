@@ -76,6 +76,13 @@ for (const site of allSites) {
   want(`${site.slug} white on primary hover`, ratio(WHITE, primaryHover(primary)), 4.5);
   // A link inside a notice, on the amber wash.
   want(`${site.slug} primary on the highlight wash`, ratio(primary, HIGHLIGHT_SOFT), 4.5);
+  // The primary's own wash (global.css --t-primary-soft: the primary at 9%
+  // on the paper), a surface the flagship home page sets type on. Only the
+  // inks go on it: a primary that just clears white (Golden's) does not
+  // clear its own wash, so the wash never carries the primary as text.
+  const primarySoft = mix(primary, 0.09, page);
+  want(`${site.slug} ink on the primary wash`, ratio(INK, primarySoft), 4.5);
+  want(`${site.slug} supporting ink on the primary wash`, ratio(INK_MUTED, primarySoft), 4.5);
   // The footer wordmark's light "Inside", white at 70% at 30px: display
   // size, so 3:1.
   want(`${site.slug} white/70 display text on primary`, ratio(mix(WHITE, 0.7, primary), primary), 3);

@@ -78,17 +78,31 @@ const guide: Array<{ href: string; label: string; line: string }> = [
   ...(town.participation && !town.families ? [{ href: '/get-involved/', label: town.participation.label, line: shorten(town.participation.intro, 70) }] : []),
   { href: '/eat-drink/', label: 'Eat & drink', line: `${places.length} places, with what’s open now` },
 ];
-const h2 = 'display-md text-[1.75rem] md:text-[2rem]';
+const h2 = 'display-md mt-1 text-[1.75rem] md:text-[2rem]';
 const more = 'inline-block -my-2 shrink-0 py-2 text-[0.9375rem] font-semibold text-primary underline';
+// Every section opens the same way: the eyebrow in the town's colour, the
+// title, the link, and the accent's rule under all three; and the bands
+// alternate (the Today strip and "On this guide" on the town's wash, the
+// week on the paper, the email on white). The colour is what tells the
+// sections apart on a page that is otherwise lists (the owner, 22 October
+// 2026), and it is the config's: maroon and gold on Berthoud, green and
+// brick on Niwot.
+const head = 'flex items-baseline justify-between gap-4 border-b-2 border-accent pb-3';
+// The pick's row sits on the wash with the town's colour down its edge,
+// and each row's date is a small tile of the wash; the inks go on the
+// wash as text, as check-colors proves.
 ---
 <TodayStrip calendar={calendar} now={now} />
 
 {/* 1. This week: the pick as the first row, then the next rows. */}
 <section class="band band-paper pt-8! pb-10! md:pt-10! md:pb-12!" aria-labelledby="week-h">
   <div class="container-page">
-    <div class="flex items-baseline justify-between gap-4">
-      <h2 id="week-h" class={h2}>This week</h2>
-      <a href="/this-week/" class={more}>{range} →</a>
+    <div class:list={[head, 'max-w-3xl']}>
+      <div>
+        <p class="eyebrow">This week in {town.name}</p>
+        <h2 id="week-h" class={h2}>{range}</h2>
+      </div>
+      <a href="/this-week/" class={more}>The full week →</a>
     </div>
     <div class="mt-4 max-w-3xl" data-events-scope>
       <div data-events-empty hidden={!quiet} class="rounded-lg border border-dashed border-line px-6 py-8 text-center text-ink-muted">
@@ -98,10 +112,10 @@ const more = 'inline-block -my-2 shrink-0 py-2 text-[0.9375rem] font-semibold te
       {(lead || rows.length > 0) && (
         <ul class="divide-y divide-line-soft rounded-lg bg-raised ring-1 ring-line-soft" data-hide-when-empty>
           {lead && (
-            <li class="flex flex-col gap-1.5 p-4 md:p-5" data-event-day={lastDay(lead)} data-end={toIsoLocal(listedUntil(lead))}>
+            <li class="flex flex-col gap-1.5 rounded-t-lg border-l-4 border-primary bg-primary-soft p-4 md:p-5" data-event-day={lastDay(lead)} data-end={toIsoLocal(listedUntil(lead))}>
               <span class="w-fit rounded-full bg-highlight px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-eyebrow text-ink">{pick ? 'Our pick' : 'Highlight'} · {formatWeekday(lead.data.start)}</span>
               <h3 class="display-md text-[1.5rem] md:text-[1.75rem]">
-                <a href={pick?.url ?? `/events/${lead.slug}/`} class="no-underline hover:text-primary">{pick?.title ?? lead.data.title}</a>
+                <a href={pick?.url ?? `/events/${lead.slug}/`} class="no-underline hover:underline">{pick?.title ?? lead.data.title}</a>
               </h3>
               <p class="text-[0.9375rem] leading-snug text-ink-muted"><time datetime={toIsoLocal(lead.data.start)}>{meta(lead)}</time></p>
               {pick?.body && <p class="text-[0.9375rem] leading-relaxed text-ink-muted">{shorten(pick.body, 160)}</p>}
@@ -111,8 +125,8 @@ const more = 'inline-block -my-2 shrink-0 py-2 text-[0.9375rem] font-semibold te
             const badge = badgeOf(e);
             return (
               <li class="grid grid-cols-[3.25rem_1fr] gap-x-3 px-4 py-3" data-event-day={lastDay(e)} data-end={toIsoLocal(listedUntil(e))}>
-                <time datetime={toIsoLocal(e.data.start)} class="flex flex-col items-center pt-0.5 leading-none">
-                  <span class="text-[0.625rem] font-bold uppercase tracking-[0.08em] text-primary">{badge.weekday}</span>
+                <time datetime={toIsoLocal(e.data.start)} class="flex flex-col items-center justify-center rounded-md bg-primary-soft py-1.5 leading-none">
+                  <span class="text-[0.625rem] font-bold uppercase tracking-[0.08em] text-ink-muted">{badge.weekday}</span>
                   <span class="mt-0.5 font-heading text-[1.5rem] font-medium tabular-nums">{badge.day}</span>
                 </time>
                 <span class="min-w-0">
@@ -134,10 +148,15 @@ const more = 'inline-block -my-2 shrink-0 py-2 text-[0.9375rem] font-semibold te
   </div>
 </section>
 
-{/* 2. Every other part of the guide, one link each. */}
-<section class="band band-paper pt-0! pb-10! md:pb-12!" aria-labelledby="guide-h">
+{/* 2. Every other part of the guide, one link each, on the town's wash. */}
+<section class="band band-tint py-10! md:py-12!" aria-labelledby="guide-h">
   <div class="container-page">
-    <h2 id="guide-h" class={h2}>On this guide</h2>
+    <div class:list={[head, 'max-w-3xl']}>
+      <div>
+        <p class="eyebrow">The rest of the guide</p>
+        <h2 id="guide-h" class={h2}>On this guide</h2>
+      </div>
+    </div>
     <ul class="mt-4 max-w-3xl divide-y divide-line-soft rounded-lg bg-raised ring-1 ring-line-soft">
       {guide.map((g) => (
         <li>
@@ -154,8 +173,8 @@ const more = 'inline-block -my-2 shrink-0 py-2 text-[0.9375rem] font-semibold te
   </div>
 </section>
 
-{/* 3. The email, and the one sentence on how the guide works. */}
-<section class="band band-paper pt-0! pb-10! md:pb-12!">
+{/* 3. The email, and the one sentence on how the guide works, on white. */}
+<section class="band band-white py-10! md:py-12!">
   <div class="container-page">
     <NewsletterSignup town={town} id="home" dark />
     <p class="mt-6 max-w-3xl text-[0.9375rem] leading-relaxed text-ink-muted">
