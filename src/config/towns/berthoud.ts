@@ -32,9 +32,11 @@ export const berthoud: TownConfig = {
   colors: {
     // Spartan maroon + warm gold, on warm paper: the school's colour as the
     // guide's, the owner's call of 22 October 2026 (it was garden green,
-    // #3D6041, from 9 October). The same maroon src/config/school-sports.ts
-    // names, so the sports pages and the rest of the guide are one colour.
-    primary: '#8F0018',
+    // #3D6041, from 9 October). The shade Berthoud High's own site brands
+    // with (bhs.tsd.org's primary colour), in place of MaxPreps's 8F0018,
+    // which read as red. The same maroon src/config/school-sports.ts names,
+    // so the sports pages and the rest of the guide are one colour.
+    primary: '#572932',
     accent: '#C39B50',
     paper: 'warm',
   },

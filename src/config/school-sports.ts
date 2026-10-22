@@ -131,8 +131,9 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     mascot: 'Spartans',
     maxpreps: 'https://www.maxpreps.com/co/berthoud/berthoud-spartans/',
     maxprepsName: 'Berthoud',
-    // Spartan maroon, as MaxPreps's team data gives it (8F0018 on white, 21 October 2026).
-    colors: { primary: '#8F0018' },
+    // Spartan maroon, the shade Berthoud High's own site brands with
+    // (bhs.tsd.org, 22 October 2026); MaxPreps's 8F0018 read as red.
+    colors: { primary: '#572932' },
     // Thompson School District's Finalsite site; `?cal_date=YYYY-MM-01` shows a month.
     calendar: { kind: 'finalsite', url: 'https://bhs.tsd.org/family/calendar', label: 'the Berthoud High calendar' },
     teams: FALL(),

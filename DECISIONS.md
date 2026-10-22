@@ -6014,3 +6014,16 @@ the school's colour throughout.
   Berthoud, Lyons and Niwot. Same tracker, same events, same CSP; /privacy/
   on each now names it. Not the folded guides (they only redirect), not
   Castle Rock's holding page, not the hub.
+
+## Berthoud in the school's own maroon, 22 October 2026
+
+- **`#572932`, from Berthoud High's own site**, in place of MaxPreps's
+  `#8F0018`, at the owner's "Berthoud is maroon": MaxPreps's shade read as
+  red. bhs.tsd.org's theme names `#572932` its primary colour (the nav tab,
+  the buttons, the headings and the footer band on its athletics page) and
+  `#7f3035` its secondary; the primary is the one that does the jobs the
+  guide's primary does. The town config, the school's sports entry and the
+  favicon change together (favicon cache to v7); the gold accent stays.
+  `check-colors` passes. Windsor, Elizabeth, Johnstown, Loveland and Carbon
+  Valley already took their school's own site over MaxPreps; Berthoud now
+  does too.
