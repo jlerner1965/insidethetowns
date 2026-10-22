@@ -10,7 +10,7 @@
 import { schoolSportsFor } from '../src/config/school-sports.ts';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { towns } from '../src/config/towns/registry.ts';
 import { hubRoutes } from '../src/integrations/town-routes.ts';
 
@@ -100,7 +100,8 @@ test('the home page photograph is a file with a licence row, credited where the 
 test('the hub routes follow the config and the content: both hubs, local changes, and people only where a profile is published', () => {
   for (const slug of FLAGSHIPS) {
     const patterns = hubRoutes(by(slug)).map(([p]) => p);
-    assert.ok(patterns.includes('/families') && patterns.includes('/living-here') && patterns.includes('/updates'), slug);
+    assert.ok(patterns.includes('/families') && patterns.includes('/living-here'), slug);
+    assert.equal(patterns.includes('/updates'), existsSync(`content/${slug}/updates`), `${slug}: updates follows the content folder`);
     assert.equal(patterns.includes('/get-involved'), !!by(slug).participation, `${slug}: get-involved follows participation`);
     // Every profile is still a draft, so there is no people page to build.
     assert.ok(!patterns.includes('/people'), `${slug}: no profile is published yet`);

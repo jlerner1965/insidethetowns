@@ -5949,3 +5949,53 @@ config, and the hub routes only with `families`, `participation`,
   the Berthoud Chamber (its site returned nothing); Niwot Pizza's move
   date (the owner's page gives none); the LID's November 17 date (the
   Courier's report; the county's calendar still says the 3rd).
+
+## The home page as option B, and Lyons as the third flagship, 22 October 2026
+
+*22 October 2026.* The first flagship home page of the day (the masthead,
+today, the week, the school's games, the family cards, who handles what,
+open now, the email) was, in the owner's words, "way too overwhelming".
+Three simpler mockups at phone width went to the owner as a design
+canvas; the choice was **B, "the week, then links"**, with the guide in
+the school's colour throughout.
+
+- **The home page.** The header is the masthead (the town's colour, the
+  wordmark, search, five pills, the sister-guide switcher); then today in
+  one line; "This week" as one list, the pick as its first row with the
+  amber tag and up to five dated rows, then the week's count and the
+  calendar's; "On this guide", one link per hub with one line of reason
+  from the hub's own data (the records, the next family deadline, the
+  Living Here sections, the current decision, the places count); the email
+  as a dark panel; one sentence on independence. The sports, families,
+  who-handles-what, open-now and trust blocks of the morning came off and
+  their components are deleted; the hubs behind them are unchanged. The
+  photograph the compact hero drew is no longer drawn, and `home.photo`
+  is optional.
+- **The school's colour as the guide's.** Berthoud is the Spartans'
+  maroon (`#8F0018`), Niwot the Cougars' green (`#007C47`, the exact
+  shade darkened 5% to clear the warm paper), Lyons the Lions' navy
+  (`#022C66`), each as MaxPreps's team data gives it, header to favicon.
+  The old primaries (garden green, the Niwot green, sandstone) go; on
+  Lyons the sandstone stays as the accent. `check-colors` holds every pair.
+- **Lyons.** The third flagship, at the owner's "do the same for Lyons":
+  the same masthead and pills (the week, Families, Lions, Living here, Eat
+  & drink), the same home page, a Families hub of thirteen programs read
+  from the library's calendar, the Town's recreation pages and the
+  school's athletics pages on this date, the St. Vrain breaks, and a
+  Living Here of seven sections (the Town's own water, sewer and electric
+  utilities; trash as private haulers and the free recycling center; the
+  free Lyons Flyer to Boulder; parks and recreation; schools; the
+  Sheriff's contract, the fire district and the request tracker; the
+  Board of Trustees, first and third Mondays). No participation hub yet:
+  the flagship test lets a flagship go without one. No photograph was
+  chosen, so none is invented. The character line lost its "2013" (the
+  flood is still there, undated) because the masthead test refuses a year.
+- **The Lions on MaxPreps.** Football (eight-man), volleyball, softball
+  and both cross country teams, no boys' soccer, as the school's athletics
+  page lists them; the school keeps each schedule as a spreadsheet, so
+  games to come are on MaxPreps's word alone, as Niwot's are. Volleyball's
+  full schedule page carries one row of a shape the reader refuses, so
+  that card shows the team page's five games against a 14-5 record until
+  the shape is read. The probe now reads the schedule page too, prints a
+  refused row's fields, and lists the page's colour fields, which is where
+  the navy came from.
