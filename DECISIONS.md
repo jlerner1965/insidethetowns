@@ -6027,3 +6027,18 @@ the school's colour throughout.
   `check-colors` passes. Windsor, Elizabeth, Johnstown, Loveland and Carbon
   Valley already took their school's own site over MaxPreps; Berthoud now
   does too.
+
+## The email's closing links as words, 22 October 2026
+
+- **The footer of every edition links words, not addresses.** The first
+  issue as it landed on a phone (Inside Niwot, 22 October) ended in three
+  raw URLs, each carrying its utm string across four lines. "This week in
+  Niwot", "Everything on in Niwot" and "Know of something missing? Send
+  it in" are now the links, as the multi-town and all-towns footers'
+  lines are. Same addresses and campaign tags; the archive pages render
+  the same Markdown.
+- **The blue dates and times are Apple Mail's**, not the issue's: iOS
+  turns a future date or time into a calendar link in its own colour. The
+  cure is a stylesheet rule in the email's `<head>`
+  (`a[x-apple-data-detectors]`), which belongs in Buttondown's custom CSS,
+  not in the issue body. Left to the owner.
