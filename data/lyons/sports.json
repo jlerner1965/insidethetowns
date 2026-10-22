@@ -1,0 +1,535 @@
+{
+  "generated": "2026-10-22T02:19:42.285Z",
+  "sports": [
+    {
+      "key": "football",
+      "name": "Football",
+      "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/football/",
+      "fetched": "2026-10-22T02:19:42.285Z",
+      "maxprepsUpdated": "2026-10-21T23:02:08",
+      "overall": "5-3",
+      "league": {
+        "record": "3-2",
+        "name": "8-Man Central (8 Man)",
+        "place": "4th"
+      },
+      "results": [
+        {
+          "date": "2026-10-15",
+          "opponent": "South Park",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/lyons-vs-south-park-fairplay/10-15-2026/?c=b558d4fa-97f5-436e-99b3-f625fe59ca39",
+          "result": "W",
+          "score": {
+            "us": 48,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Justice",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/justice-lafayette-vs-lyons/10-10-2026/?c=124c5ed8-d5e8-4b90-af3a-368848502571",
+          "result": "W",
+          "score": {
+            "us": 54,
+            "them": 28
+          }
+        },
+        {
+          "date": "2026-10-02",
+          "opponent": "Gilpin County",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/gilpin-county-black-hawk-vs-lyons/10-2-2026/?c=5a0aa2dc-c8a9-4307-b22f-c988b0bae00e",
+          "result": "W",
+          "score": {
+            "us": 43,
+            "them": 34
+          }
+        },
+        {
+          "date": "2026-09-25",
+          "opponent": "Front Range Christian",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/front-range-christian-littleton-vs-lyons/9-25-2026/?c=6453843e-18a3-405c-a024-251fb14b5622",
+          "result": "L",
+          "score": {
+            "us": 15,
+            "them": 55
+          }
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "Estes Park",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/estes-park-vs-lyons/9-18-2026/?c=486d5157-0576-43d0-90f3-4ec282b61544",
+          "result": "L",
+          "score": {
+            "us": 41,
+            "them": 44
+          }
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Rocky Ford",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/lyons-vs-rocky-ford/9-11-2026/?c=36dc6a81-8ccd-4ca2-a8cb-9a7bacfe2fb9",
+          "result": "W",
+          "score": {
+            "us": 47,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Simla",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/lyons-vs-simla/9-4-2026/?c=d989a9c7-71fd-403b-b66b-48df7873dc7b",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 43
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Walsenburg",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/lyons-vs-walsenburg/8-28-2026/?c=859f966e-d70c-463b-bc91-0b56bfcbb9e3",
+          "result": "W",
+          "score": {
+            "us": 40,
+            "them": 0
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Soroco",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/lyons-vs-soroco-oak-creek/10-30-2026/?c=55b2871c-8f9e-49bd-a8af-2e9465a48e49",
+          "time": "19:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "volleyball",
+      "name": "Volleyball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/volleyball/",
+      "fetched": "2026-10-22T02:19:42.285Z",
+      "maxprepsUpdated": "2026-10-22T00:20:35",
+      "overall": "14-5",
+      "league": {
+        "record": "8-0",
+        "name": "2A/1A Mile High",
+        "place": "1st"
+      },
+      "results": [
+        {
+          "date": "2026-10-21",
+          "opponent": "Dawson School",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/dawson-school-lafayette-vs-lyons/10-21-2026/?c=72e2d024-01f3-4fe3-b51b-0978ecadbfd4",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Heritage Christian",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/heritage-christian-fort-collins-vs-lyons/10-20-2026/?c=97a74c69-8727-478f-98b7-e65f10ca6703",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Merino",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/lyons-vs-merino/10-13-2026/?c=889f3329-0714-4318-b34f-3ffe6bf6db68",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Denver Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/denver-academy-vs-lyons/10-8-2026/?c=500bd9fb-5872-401f-a7fe-eebc73a53aa1",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Flatirons Academy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/flatirons-academy-bulldogs-westminster-vs-lyons/10-6-2026/?c=cf923bd6-043e-4ebc-8a6f-ad6b3853b942",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Front Range Christian",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/front-range-christian-littleton-vs-lyons/10-22-2026/?c=e4594ef7-5dc3-49fc-85a0-1531d44e1422",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-10-27",
+          "opponent": "Dayspring Christian Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/dayspring-christian-academy-greeley-vs-lyons/10-27-2026/?c=cb4d0af4-4725-4261-a026-5c247423f1f3",
+          "time": "18:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "softball",
+      "name": "Softball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/softball/fall/",
+      "fetched": "2026-10-22T02:19:42.285Z",
+      "maxprepsUpdated": "2026-10-21T22:49:37",
+      "overall": "18-6",
+      "league": {
+        "record": "4-5",
+        "name": "4A/3A Patriot Peaks",
+        "place": "3rd"
+      },
+      "results": [
+        {
+          "date": "2026-10-17",
+          "opponent": "Wray",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-wray/10-17-2026/?c=f0071574-1894-42ef-b2cf-398b4399fd43",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 14,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "The Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-the-academy-westminster/10-17-2026/?c=d83429bf-7a89-4a43-ba84-16cb850ebe29",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Resurrection Christian",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-resurrection-christian-loveland/10-9-2026/?c=76245100-1112-46f1-ae88-064f1b714bb3",
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Resurrection Christian",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-resurrection-christian-loveland/10-8-2026/?c=b7834c88-46c4-4559-a0d2-f86c9e6f9feb",
+          "result": "W",
+          "score": {
+            "us": 9,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "University",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-university-greeley/10-6-2026/?c=a6999868-7981-41a3-b4ec-dcb06797f369",
+          "result": "W",
+          "score": {
+            "us": 6,
+            "them": 5
+          }
+        },
+        {
+          "date": "2026-10-05",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-northridge-greeley/10-5-2026/?c=eca4b11d-d93a-4bf7-a102-e2be8db38567",
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Eaton",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/eaton-fightin-reds-vs-lyons/10-1-2026/?c=9a9ad372-468a-46e4-bde6-c109e7e53014",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Wellington",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-wellington/9-29-2026/?c=814930f3-5e8b-4bd9-8f0a-fef25aecd9a9",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-28",
+          "opponent": "Silver Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-silver-creek-longmont/9-28-2026/?c=5d6211e2-caab-4ff0-869d-b72bf88fa68d",
+          "result": "W",
+          "score": {
+            "us": 6,
+            "them": 5
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Berthoud",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-lyons/9-24-2026/?c=8c694afa-3d98-4243-a52b-a4fee87b4145",
+          "result": "W",
+          "score": {
+            "us": 17,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-23",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-severance/9-23-2026/?c=24a2c01b-773a-4116-abdd-ebf0cfeca6d3",
+          "result": "L",
+          "score": {
+            "us": 3,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-09-21",
+          "opponent": "Woodland Park",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-woodland-park/9-21-2026/?c=0bbd97de-466a-4e11-b393-b04f00859232",
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "University",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-university-greeley/9-17-2026/?c=e66a7cff-f8f9-4248-bcc5-b4e54b1785e8",
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 8
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Eaton",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/eaton-fightin-reds-vs-lyons/9-15-2026/?c=a169cc88-1084-48e4-af99-4210f338c5df",
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Wellington",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-wellington/9-10-2026/?c=d0be0aa8-c5d0-4f24-8cc3-37927d7933eb",
+          "result": "L",
+          "score": {
+            "us": 8,
+            "them": 10
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Berthoud",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-lyons/9-8-2026/?c=13b34a9d-29a9-4085-8206-c6a0eb5d733b",
+          "result": "W",
+          "score": {
+            "us": 11,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Platte Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-platte-valley-kersey/9-3-2026/?c=6872613e-75fc-4b45-9591-14795e9710d1",
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-31",
+          "opponent": "Douglas County",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/douglas-county-castle-rock-vs-lyons/8-31-2026/?c=f528fdf1-1bf4-4d08-b703-1b1d7102108f",
+          "result": "W",
+          "score": {
+            "us": 11,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Limon",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/limon-vs-lyons/8-27-2026/?c=fdf5af8f-5cb7-4ed7-87ff-cc871509bcd7",
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "The Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-the-academy-westminster/8-25-2026/?c=695fe6e5-6e52-49b7-a5bc-778eef197bbf",
+          "result": "W",
+          "score": {
+            "us": 14,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "Forge Christian",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/forge-christian-eagles-arvada-vs-lyons/8-20-2026/?c=47c28daa-85a5-4bfe-9821-80b3421cf844",
+          "result": "W",
+          "score": {
+            "us": 6,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-18",
+          "opponent": "Greeley Central",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/greeley-central-vs-lyons/8-18-2026/?c=e14779c7-9220-458c-962d-230dfcc6b1f1",
+          "result": "W",
+          "score": {
+            "us": 20,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-15",
+          "opponent": "Peak to Peak",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-peak-to-peak-lafayette/8-15-2026/?c=c83f76ff-b5d4-463f-96f0-177bd3947f3c",
+          "result": "W",
+          "score": {
+            "us": 27,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-15",
+          "opponent": "Timnath",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-timnath/8-15-2026/?c=61e3ecc2-306f-4b81-a49b-c1ad42e443bb",
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 0
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Rocky Ford",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-rocky-ford/10-23-2026/?c=75f5a50a-e728-4b8a-ac49-2cc54f9c544b",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "time": "12:15"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "boys-cross-country",
+      "name": "Boys cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/cross-country/",
+      "fetched": "2026-10-22T02:19:42.285Z",
+      "maxprepsUpdated": "2026-10-22T02:20:10",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-cross-country",
+      "name": "Girls cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/cross-country/girls/",
+      "fetched": "2026-10-22T02:19:42.285Z",
+      "maxprepsUpdated": "2026-10-22T02:20:14",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    }
+  ]
+}
