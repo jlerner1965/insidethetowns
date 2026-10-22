@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-22T02:19:42.285Z",
+  "generated": "2026-10-22T02:36:00.317Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/football/",
-      "fetched": "2026-10-22T02:19:42.285Z",
+      "fetched": "2026-10-22T02:36:00.317Z",
       "maxprepsUpdated": "2026-10-21T23:02:08",
       "overall": "5-3",
       "league": {
@@ -121,7 +121,7 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/volleyball/",
-      "fetched": "2026-10-22T02:19:42.285Z",
+      "fetched": "2026-10-22T02:36:00.317Z",
       "maxprepsUpdated": "2026-10-22T00:20:35",
       "overall": "14-5",
       "league": {
@@ -184,6 +184,164 @@
             "us": 3,
             "them": 2
           }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Belleview Christian",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/belleview-christian-westminster-vs-lyons/10-1-2026/?c=d6fa11dc-5055-423e-bab2-69e90028821b",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Gilpin County",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/gilpin-county-black-hawk-vs-lyons/9-29-2026/?c=2eb1db68-9a3f-4fb9-80d8-0b4e3d21f4b3",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-21",
+          "opponent": "Simla",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/lyons-vs-simla/9-21-2026/?c=893ba1ab-ea73-411b-9090-815072ce1708",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Frontier Academy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frontier-academy-greeley-vs-lyons/9-17-2026/?c=81a1e022-958d-463f-a892-e7c1b4eef49c",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "SkyView Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/lyons-vs-skyview-academy-highlands-ranch/9-15-2026/?c=f644f541-649f-46cc-930a-6efba9ab4e2e",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Vail Christian",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/lyons-vs-vail-christian-edwards/9-12-2026/?c=f63398a8-f289-4b2b-b747-8007c13bfddc",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Byers",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/byers-vs-lyons/9-12-2026/?c=37822df5-a4f9-4ce6-8bfe-f4da4e73d1a9",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Denver Christian",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/denver-christian-vs-lyons/9-12-2026/?c=25367a18-5f26-4107-bf5c-88bfbfce8d07",
+          "neutral": true,
+          "venue": "DC Thunder Volleyball Tournament",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Clear Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/clear-creek-evergreen-vs-lyons/9-8-2026/?c=6900973e-342d-4b54-8c27-5a3354fd0851",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Highland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/highland-ault-vs-lyons/9-3-2026/?c=28f7e128-9371-4289-96cd-ddd4e78365a1",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Peak to Peak",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/lyons-vs-peak-to-peak-lafayette/9-1-2026/?c=84a58b53-3f83-458a-b118-5ab638e1bea2",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Wiggins",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/lyons-vs-wiggins/8-27-2026/?c=ad437db3-e697-466f-a2fc-95c48d52a151",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Ascent Classical Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/ascent-classical-academy-lone-tree-vs-lyons/8-25-2026/?c=f32035df-3000-4234-ac47-1ec2ed7c1d36",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "Forge Christian",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/forge-christian-eagles-arvada-vs-lyons/8-20-2026/?c=9de64207-83ae-4cb2-a00d-31b72f6acd0f",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
         }
       ],
       "upcoming": [
@@ -200,6 +358,13 @@
           "site": "home",
           "url": "https://www.maxpreps.com/co/volleyball/match/dayspring-christian-academy-greeley-vs-lyons/10-27-2026/?c=cb4d0af4-4725-4261-a026-5c247423f1f3",
           "time": "18:00"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Estes Park",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/estes-park-vs-lyons/10-29-2026/?c=f3e52e0a-35fc-4295-bfd6-1667e1d03f82",
+          "time": "18:00"
         }
       ],
       "held": [],
@@ -211,7 +376,7 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/softball/fall/",
-      "fetched": "2026-10-22T02:19:42.285Z",
+      "fetched": "2026-10-22T02:36:00.317Z",
       "maxprepsUpdated": "2026-10-21T22:49:37",
       "overall": "18-6",
       "league": {
@@ -507,7 +672,7 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/cross-country/",
-      "fetched": "2026-10-22T02:19:42.285Z",
+      "fetched": "2026-10-22T02:36:00.317Z",
       "maxprepsUpdated": "2026-10-22T02:20:10",
       "results": [],
       "upcoming": [],
@@ -521,7 +686,7 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/cross-country/girls/",
-      "fetched": "2026-10-22T02:19:42.285Z",
+      "fetched": "2026-10-22T02:36:00.317Z",
       "maxprepsUpdated": "2026-10-22T02:20:14",
       "results": [],
       "upcoming": [],
