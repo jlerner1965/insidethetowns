@@ -399,3 +399,16 @@ test('the home page’s sports block takes each team’s next game in the config
   };
   assert.deepEqual(nextGames(data, new Date('2026-10-21T18:00:00Z')).map((g) => `${g.team.name} ${g.game.opponent}`), ['Football Mountain View', 'Volleyball Liberty Common']);
 });
+
+test('a playoff game the school calendar files as home is published at its neutral site, with a note, not held', () => {
+  const softball = berthoud.teams.find((s) => s.key === 'softball')!;
+  const game = { date: '2026-10-23', opponent: 'Delta', site: 'neutral' as const, neutral: true, venue: 'Aurora Sports Park', time: '12:15', url: 'u' };
+  const calendar = [{ gender: 'Girls' as const, level: 'Varsity', sport: 'Softball', where: 'vs' as const, opponent: 'Delta High School', title: 'Girls Varsity Softball vs Delta High School', date: '2026-10-23', time: '12:15' }];
+  const check = crossCheck(softball, [game], calendar);
+  assert.deepEqual(check.held, []);
+  assert.equal(check.upcoming[0]!.venue, 'Aurora Sports Park');
+  assert.match(check.notes[0]!, /Aurora Sports Park.*files as home/);
+  // The time still has to agree.
+  const late = crossCheck(softball, [{ ...game, time: '14:00' }], calendar);
+  assert.equal(late.held.length, 1);
+});
