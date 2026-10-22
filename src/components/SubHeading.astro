@@ -1,0 +1,18 @@
+---
+/**
+ * A heading one step under a SectionHeader: the eyebrow over a rule, as an
+ * h3. ThisWeek uses it in its compact form, where its sections sit under the
+ * home page's own SectionHeader; on /this-week/ the same sections are h2s
+ * and take SectionHeader, so a page's h2s all look alike (navigation audit,
+ * 22 October 2026, item 7).
+ */
+interface Props {
+  id?: string;
+  title: string;
+  /** A date or range after the title: "Rest of the week · October 22–25". */
+  eyebrow?: string;
+}
+
+const { id, title, eyebrow } = Astro.props;
+---
+<h3 id={id} class="eyebrow border-b-2 border-accent pb-3">{title}{eyebrow && ` · ${eyebrow}`}</h3>

@@ -7,12 +7,11 @@
  * it has.
  */
 import type { TownEntry } from '@/lib/content';
-import { formatDate, toIsoLocal } from '@/lib/dates';
+import { formatDate, formatDayShort, toIsoLocal } from '@/lib/dates';
 import { deadlinePassed } from '@/lib/programs';
 import { PROGRAM_ACCESS_LABELS, PROGRAM_KIND_LABELS } from '@/content/schemas';
 import { getTownEntries } from '@/lib/content';
-import { nextOccurrence, occurrences, upcoming } from '@/lib/events';
-import { formatDayShort } from '@/lib/dates';
+import { occurrences, upcoming } from '@/lib/events';
 
 interface Props {
   program: TownEntry<'programs'>;
@@ -86,7 +85,6 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
     {data.source && (
       <span>
         <a href={data.source} rel="noopener" class="inline-block -my-2 py-2 underline">Source: {host(data.source)}</a>
-        {data.verified && <Fragment> · checked <time datetime={toIsoLocal(data.verified)}>{formatDate(data.verified)}</time></Fragment>}
       </span>
     )}
   </p>

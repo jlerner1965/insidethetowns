@@ -37,6 +37,8 @@ import DeadlineList from './DeadlineList.astro';
 import NearbyWeekend from './NearbyWeekend.astro';
 import NewsletterSignup from './NewsletterSignup.astro';
 import SectionHeader from './SectionHeader.astro';
+import SubHeading from './SubHeading.astro';
+import CheckedLine from './CheckedLine.astro';
 import UpdateRow from './UpdateRow.astro';
 import UpTheHill from './UpTheHill.astro';
 import WeekEventRow from './WeekEventRow.astro';
@@ -109,10 +111,9 @@ const later = quiet
 const when = (event: typeof calendar[number]) =>
   [isMultiDay(event) ? undefined : formatDayLong(event.data.start), timeText(event, now)].filter(Boolean).join(' · ');
 
-// Under the page's own h1 the sections are h2s; under the home page's
-// section heading they step down one.
-const H = compact ? 'h3' : 'h2';
-const eyebrow = 'eyebrow border-b-2 border-accent pb-3';
+// Under the page's own h1 the sections are h2s, in the site's one h2 style
+// (SectionHeader); under the home page's section heading they step down one.
+const Heading = compact ? SubHeading : SectionHeader;
 const block = compact ? 'mt-10' : 'mt-12 md:mt-14';
 const v = compact ? 'compact' : 'full';
 const hubHref = town.families ? '/families/' : town.participation ? '/get-involved/' : undefined;
@@ -121,17 +122,15 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
   {compact ? (
     <SectionHeader eyebrow={`This week in ${town.name}`} title={range} href="/this-week/" linkLabel="See the full week" />
   ) : (
-    <div class="mb-2 border-b-2 border-accent pb-5">
+    <div>
       <p class="eyebrow">{range}</p>
-      <p class="mt-2 text-[0.9375rem] text-ink-muted">
-        Last updated <time datetime={toIsoLocal(now)}>{formatDate(now)}</time>
-      </p>
+      <CheckedLine dates={[...allEvents.map((e) => e.data.verified), ...know.map((u) => u.data.verified)]} class="mt-2" />
     </div>
   )}
 
   {know.length > 0 && (
     <section class={block} aria-labelledby={`know-${v}`}>
-      <H id={`know-${v}`} class={eyebrow}>Things to know this week</H>
+      <Heading id={`know-${v}`} title="Things to know this week" />
       <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
         {know.map((u) => <UpdateRow update={u} compact />)}
       </div>
@@ -147,7 +146,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
   <div data-events-scope>
   {later.length > 0 && (
     <section class={block} data-hide-when-empty aria-labelledby={`later-${v}-cal`}>
-      <H id={`later-${v}-cal`} class={eyebrow}>Next on the calendar</H>
+      <Heading id={`later-${v}-cal`} title="Next on the calendar" />
       <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
         {later.map((event) => <WeekEventRow event={event} />)}
       </div>
@@ -164,7 +163,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
 
   {pick && (
     <section class={block} aria-labelledby={`pick-${v}`} data-event-day={lastDay(pick.event)} data-end={toIsoLocal(listedUntil(pick.event))}>
-      <H id={`pick-${v}`} class={eyebrow}>Our pick</H>
+      <Heading id={`pick-${v}`} title="Our pick" />
       <div class="mt-5 max-w-2xl">
         <p class="display-md text-[1.75rem] md:text-[2rem]">
           {pick.url ? <a href={pick.url} rel="noopener" class="inline-block -my-2 py-2 no-underline hover:text-primary">{pick.title}</a> : pick.title}
@@ -177,7 +176,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
 
   {highlight && (
     <section class={block} aria-labelledby={`highlight-${v}`} data-event-day={lastDay(highlight)} data-end={toIsoLocal(listedUntil(highlight))}>
-      <H id={`highlight-${v}`} class={eyebrow}>Highlight</H>
+      <Heading id={`highlight-${v}`} title="Highlight" />
       <div class="mt-5 max-w-2xl">
         <p class="display-md text-[1.75rem] md:text-[2rem]">
           <a href={`/events/${highlight.slug}/`} class="inline-block -my-2 py-2 no-underline hover:text-primary">{highlight.data.title}</a>
@@ -192,7 +191,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
 
   {events.length > 0 && (
     <section class={block} data-hide-when-empty aria-labelledby={`weekend-${v}`}>
-      <H id={`weekend-${v}`} class={eyebrow}>{listingsLabel} · {listingsRange}</H>
+      <Heading id={`weekend-${v}`} title={listingsLabel} eyebrow={listingsRange} />
       <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
         {events.map((event) => <WeekEventRow event={event} />)}
       </div>
@@ -211,7 +210,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
      date, outside the week's heading it does not belong to. */}
   {comingUp && (
     <section class={block} aria-labelledby={`later-${v}`} data-event-day={lastDay(comingUp.event)} data-end={toIsoLocal(listedUntil(comingUp.event))}>
-      <H id={`later-${v}`} class={eyebrow}>Coming up</H>
+      <Heading id={`later-${v}`} title="Coming up" />
       <div class="mt-5 max-w-2xl">
         <p class="font-medium"><time datetime={toIsoLocal(comingUp.event.data.start)}>{when(comingUp.event)}</time></p>
         <p class="display-md mt-1 text-[1.5rem] md:text-[1.75rem]">
@@ -224,7 +223,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
 
   {!compact && programs.length > 0 && (
     <section class={block} aria-labelledby={`deadlines-${v}`}>
-      <H id={`deadlines-${v}`} class={eyebrow}>Registration deadlines and ways to join</H>
+      <Heading id={`deadlines-${v}`} title="Registration deadlines and ways to join" />
       <DeadlineList programs={programs} limit={5} class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" moreHref={hubHref} />
       {hubHref && (
         <p class="mt-4 text-[0.9375rem]">
@@ -239,7 +238,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
 
   {changes.length > 0 && (
     <section class={block} aria-labelledby={`changes-${v}`}>
-      <H id={`changes-${v}`} class={eyebrow}>New &amp; closed</H>
+      <Heading id={`changes-${v}`} title="New & closed" />
       <ul class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
         {changes.map((c) => (
           <li class="border-t border-line-soft py-4 first:border-t-0">
@@ -269,7 +268,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
      news. On the full page only; it leaves with its own expiry. */}
   {!compact && backlog.length > 0 && (
     <section class={block} aria-labelledby={`backlog-${v}`}>
-      <H id={`backlog-${v}`} class={eyebrow}>Corrections to the guide</H>
+      <Heading id={`backlog-${v}`} title="Corrections to the guide" />
       <ul class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
         {backlog.map((c) => (
           <li class="border-t border-line-soft py-4 first:border-t-0">
@@ -289,7 +288,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
 
   {!compact && qa && (
     <section class={block} aria-labelledby={`qa-${v}`}>
-      <H id={`qa-${v}`} class={eyebrow}>A resident asks</H>
+      <Heading id={`qa-${v}`} title="A resident asks" />
       <div class="mt-5 max-w-2xl">
         <p class="text-xl font-medium leading-tight md:text-2xl">{qa.question}</p>
         <p class="mt-3 text-[1.0625rem] leading-relaxed">{qa.answer}</p>
@@ -302,7 +301,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
 
   {!compact && feature && (
     <section class={block} aria-labelledby={`feature-${v}`}>
-      <H id={`feature-${v}`} class={eyebrow}>From around {town.name}</H>
+      <Heading id={`feature-${v}`} title={`From around ${town.name}`} />
       <div class="mt-5 max-w-2xl">
         <p class="display-md text-[1.75rem] md:text-[2rem]">
           {feature.url ? <a href={feature.url} class="inline-block -my-2 py-2 no-underline hover:text-primary">{feature.title}</a> : feature.title}
@@ -317,7 +316,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
      own, on the full page only: the neighbours as "nearby", the mountain
      guides as the day trips they are. Each renders nothing with nothing on. */}
   {!compact && <NearbyWeekend town={town} class={block} limit={4} />}
-  {!compact && <UpTheHill town={town} class={block} label="Day trips: up the hill this weekend" />}
+  {!compact && <UpTheHill town={town} class={block} label="Day trips up the hill" />}
 
   {signup && (
     <div class={block}>

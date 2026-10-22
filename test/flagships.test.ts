@@ -113,3 +113,13 @@ test('the About page names who runs the guide, in verified words: James Lerner, 
   assert.match(berthoud, /Lerner Works/);
   assert.equal(by('niwot').about!.photo, undefined, 'no portrait exists; none is invented');
 });
+
+test('the hub pages open on an intro of fifteen words or fewer', () => {
+  for (const town of towns) {
+    for (const [page, intro] of [['families', town.families?.intro], ['get-involved', town.participation?.intro], ['living-here', town.livingHere?.intro]] as const) {
+      if (!intro) continue;
+      const words = intro.split(/\s+/).filter(Boolean).length;
+      assert.ok(words <= 15, `${town.slug} /${page}/ intro is ${words} words: ${intro}`);
+    }
+  }
+});

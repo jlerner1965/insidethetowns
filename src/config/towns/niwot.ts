@@ -58,11 +58,11 @@ export const niwot: TownConfig = {
   },
   participation: {
     label: 'Get involved',
-    intro: 'Niwot has no town hall, so the organizations are the town: the associations, the Grange, the Rotary, the Historical Society, the arts group and the youth league. Each entry says what it does, who can take part, what it costs, how to make a first inquiry, and the next public date, with the day it was read.',
+    intro: 'The associations, clubs and groups that run Niwot, and how to join each.',
   },
   families: {
     label: 'Niwot Families',
-    intro: 'The verified routes for a Niwot family: youth sports, the schools, what is on for children, and the breaks on the St. Vrain calendar.',
+    intro: 'Youth sports, schools, children’s events and the St. Vrain school breaks for Niwot.',
     schools: [
       {
         district: 'St. Vrain Valley Schools',
@@ -80,7 +80,7 @@ export const niwot: TownConfig = {
     ],
   },
   livingHere: {
-    intro: 'Niwot has no town government, so each service comes from a different body. Which one handles what, as links to the page of its site that does the job; the sewer district and the school all depend on the address.',
+    intro: 'Niwot has no town government: who handles what, with each official page.',
     sections: [
       {
         title: 'Roads, snow and maintenance',

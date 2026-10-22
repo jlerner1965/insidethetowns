@@ -3,15 +3,16 @@
  * Living Here (/living-here/): which body handles what, as links to the
  * right page of each official site, from the town's config
  * (TownConfig.livingHere). The layout is shared; every word is the town's,
- * and each section carries the day its links were read. Nothing here
+ * and the day the links were read is said once, under the title. Nothing here
  * restates what an official page says, because a copied closure is wrong by
  * the time it is read; it links.
  */
 import Page from '@/layouts/Page.astro';
 import UpdateRow from '@/components/UpdateRow.astro';
+import CheckedLine from '@/components/CheckedLine.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { formatDate, parseLocal } from '@/lib/dates';
 import { currentUpdates } from '@/lib/updates';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
@@ -29,6 +30,7 @@ const structured = [
 ];
 ---
 <Page title={`Living in ${town.name}`} seoTitle={`Living in ${town.name}, CO: utilities, schools, who to call`} eyebrow="Living here" {description} intro={living.intro} jsonLd={structured} kind="Guide">
+  <CheckedLine slot="after-header" dates={living.sections.map((s) => s.verified)} />
   <nav slot="after-header" aria-label="On this page" class="mt-6 flex flex-wrap gap-x-5 gap-y-1 text-[0.9375rem]">
     {living.sections.map((s) => <a href={`#${slug(s.title)}`} class="inline-block -my-1 py-1 font-semibold text-primary underline">{s.title}</a>)}
     {updates.length > 0 && <a href="#changes" class="inline-block -my-1 py-1 font-semibold text-primary underline">What changed</a>}
@@ -37,9 +39,9 @@ const structured = [
     <div class="min-w-0">
       {living.sections.map((s, i) => (
         <section id={slug(s.title)} class:list={['scroll-mt-4', i > 0 && 'mt-12']} aria-labelledby={`${slug(s.title)}-h`}>
-          <h2 id={`${slug(s.title)}-h`} class="eyebrow border-b-2 border-accent pb-3">{s.title}</h2>
-          {s.note && <p class="mt-3 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">{s.note}</p>}
-          <ul class="mt-2 divide-y divide-line-soft">
+          <SectionHeader id={`${slug(s.title)}-h`} title={s.title} />
+          {s.note && <p class="-mt-4 mb-2 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">{s.note}</p>}
+          <ul class="divide-y divide-line-soft">
             {s.items.map((item) => (
               <li class="py-3 text-[0.9375rem] leading-snug">
                 <a href={item.url} rel={/^https?:/.test(item.url) ? 'noopener' : undefined} data-track={item.track ?? 'service'} class="inline-block -my-1 py-1 font-semibold text-primary underline">{item.label} →</a>
@@ -47,16 +49,14 @@ const structured = [
               </li>
             ))}
           </ul>
-          <p class="mt-2 text-[0.8125rem] text-ink-muted">Links read <time datetime={s.verified}>{formatDate(parseLocal(s.verified))}</time>.</p>
         </section>
       ))}
       {updates.length > 0 && (
         <section id="changes" class="mt-12 scroll-mt-4" aria-labelledby="changes-h">
-          <h2 id="changes-h" class="eyebrow border-b-2 border-accent pb-3">What changed lately</h2>
-          <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+          <SectionHeader id="changes-h" title="What changed lately" href="/updates/" linkLabel="All local changes" />
+          <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
             {updates.map((u) => <UpdateRow update={u} compact />)}
           </div>
-          <p class="mt-3 text-[0.9375rem]"><a href="/updates/" class="inline-block -my-2 py-2 font-semibold text-primary underline">All local changes, and the archive →</a></p>
         </section>
       )}
     </div>

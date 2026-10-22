@@ -27,6 +27,7 @@
  * event per click from this page through the same @vercel/analytics module
  * Base.astro loads. Where analytics is off, `track` is a no-op.
  */
+import SectionHeader from './SectionHeader.astro';
 import NetworkEventCard from './NetworkEventCard.astro';
 import { getSite, mountainTowns, type TownConfig } from '@/config';
 import { getNeighborEntries } from '@/lib/content';
@@ -72,8 +73,8 @@ const count = events.length + openings.length;
 ---
 {count > 0 && (
   <section class={className} data-hide-when-empty data-up-the-hill aria-labelledby="up-the-hill">
-    <h2 id="up-the-hill" class="eyebrow border-b-2 border-accent pb-3">{label} · {formatDayRange(start, sunday)}</h2>
-    <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+    <SectionHeader id="up-the-hill" eyebrow={formatDayRange(start, sunday)} title={label} />
+    <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
       {events.map((event) => <NetworkEventCard event={event} showDay showTagline query={query} track="up-the-hill" />)}
       {openings.map((place) => (
         <article

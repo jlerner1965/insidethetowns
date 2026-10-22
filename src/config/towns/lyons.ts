@@ -52,7 +52,7 @@ export const lyons: TownConfig = {
   },
   families: {
     label: 'Lyons Families',
-    intro: 'What a child can join, what closes soon, and what there is on a school day off: the library, the Town’s recreation programs, the school and the organizers’ own pages, each with the day it was read.',
+    intro: 'What Lyons kids can join, what closes soon, and the school days off.',
     schools: [
       {
         district: 'St. Vrain Valley Schools',
@@ -70,7 +70,7 @@ export const lyons: TownConfig = {
     ],
   },
   livingHere: {
-    intro: 'Who handles what in Lyons, as links to the right page of each official site. The Town runs water, sewer and electricity itself; the Sheriff polices under contract; trash is a private hauler.',
+    intro: 'Who handles what in Lyons, with the official page for each.',
     sections: [
       {
         title: 'Utilities',

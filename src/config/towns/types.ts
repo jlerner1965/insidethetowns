@@ -108,10 +108,11 @@ export interface ResourceLink {
  * /living-here/: which body handles what, as links to the right page of
  * each official site, grouped the way a resident asks. Town-specific
  * entirely: the route and the layout are shared, every word here is the
- * town's. Each section carries the day its links were read.
+ * town's. Each section carries the day its links were read; the page says
+ * the range once, under its title.
  */
 export interface LivingHereConfig {
-  /** One or two sentences under the title. */
+  /** Fifteen words or fewer, saying what is on the page (navigation audit, 22 October 2026). */
   intro: string;
   sections: ReadonlyArray<{
     title: string;
@@ -143,12 +144,13 @@ export interface HomeConfig {
 
 /**
  * /get-involved/: the participation hub. The route is the same on every
- * guide that has one; the title is the town's ("Get involved in Niwot",
- * "Join something in Berthoud").
+ * guide that has one, and so is the name: "Get involved in Niwot", "Get
+ * involved in Berthoud".
  */
 export interface ParticipationConfig {
   /** The page's name, "Get involved" on every guide that has the page. */
   label: string;
+  /** Fifteen words or fewer, saying what is on the page (navigation audit, 22 October 2026). */
   intro: string;
 }
 
@@ -159,6 +161,7 @@ export interface ParticipationConfig {
  */
 export interface FamiliesConfig {
   label: string;
+  /** Fifteen words or fewer, saying what is on the page (navigation audit, 22 October 2026). */
   intro: string;
   /** The districts a town's children may be in, each with its boundary lookup. */
   schools: ReadonlyArray<ResourceLink & { district: string }>;

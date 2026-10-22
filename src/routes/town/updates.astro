@@ -7,6 +7,8 @@
  */
 import Page from '@/layouts/Page.astro';
 import UpdateRow from '@/components/UpdateRow.astro';
+import CheckedLine from '@/components/CheckedLine.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { archivedUpdates, currentUpdates } from '@/lib/updates';
@@ -26,21 +28,22 @@ const structured = [
   ]),
 ];
 ---
-<Page title="Local changes" seoTitle={`Local changes in ${town.name}, CO`} eyebrow={town.name} {description} intro="What changed, who it affects, when, what to do, and where the original is. A proposal is marked as a proposal, work under way as under way; each notice says when it took effect, when this guide published it and when the source was last read." jsonLd={structured} kind="Guide" narrow>
+<Page title="Local changes" seoTitle={`Local changes in ${town.name}, CO`} eyebrow={town.name} {description} intro={`What changed in ${town.name}, who it affects, and what to do.`} jsonLd={structured} kind="Guide" narrow>
+  <CheckedLine slot="after-header" dates={current.map((u) => u.data.verified)} />
   {current.length === 0 && archive.length === 0 ? (
     <p class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">Nothing logged yet.</p>
   ) : (
     <Fragment>
-      <h2 class="eyebrow border-b-2 border-accent pb-3">Current</h2>
+      <SectionHeader title="Current" />
       {current.length === 0 ? (
-        <p class="mt-4 text-ink-muted">Nothing current. The archive is below.</p>
+        <p class="text-ink-muted">Nothing current. The archive is below.</p>
       ) : (
-        <div class="mt-2">{current.map((u) => <UpdateRow update={u} />)}</div>
+        <div>{current.map((u) => <UpdateRow update={u} />)}</div>
       )}
       {archive.length > 0 && (
         <section class="mt-14" aria-labelledby="archive-h">
-          <h2 id="archive-h" class="eyebrow border-b-2 border-accent pb-3">Archive</h2>
-          <div class="mt-2">{archive.map((u) => <UpdateRow update={u} />)}</div>
+          <SectionHeader id="archive-h" title="Archive" />
+          <div>{archive.map((u) => <UpdateRow update={u} />)}</div>
         </section>
       )}
     </Fragment>

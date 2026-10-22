@@ -12,9 +12,11 @@ import Page from '@/layouts/Page.astro';
 import DeadlineCard from '@/components/DeadlineCard.astro';
 import ProgramRow from '@/components/ProgramRow.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
+import CheckedLine from '@/components/CheckedLine.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { formatDate, formatDayRange, formatDayShort, parseLocal } from '@/lib/dates';
+import { formatDayRange, formatDayShort, parseLocal } from '@/lib/dates';
 import { familyAgeGroups, isForFamilies, onePerProgram, upcomingDeadlines } from '@/lib/programs';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
@@ -55,10 +57,10 @@ const structured = [
     { name: families.label, path: '/families/' },
   ]),
 ];
-const H2 = 'display-md text-[1.75rem] md:text-[2rem]';
 const chip = 'inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full px-4 text-[0.9375rem] font-semibold no-underline ring-1 ring-line transition-colors hover:bg-raised';
 ---
 <Page title={families.label} seoTitle={`${families.label}: what kids can join in ${town.name}, CO`} eyebrow="Kids, teens and school breaks" {description} intro={families.intro} jsonLd={structured} kind="Guide" narrow>
+  <CheckedLine slot="after-header" dates={[...programs.map((p) => p.data.verified), ...breaks.map((b) => b.verified)]} />
   {/* The sections as chips, stuck under the top of the screen as the page
       scrolls; one line that scrolls sideways on a phone. */}
   <nav aria-label="On this page" class="sticky top-0 z-30 -mt-2 border-b border-line-soft bg-paper py-3">
@@ -69,18 +71,17 @@ const chip = 'inline-flex min-h-11 shrink-0 items-center whitespace-nowrap round
 
   {deadlines.length > 0 && (
     <section id="deadlines" class="mt-10 scroll-mt-20" aria-labelledby="deadlines-h">
-      <h2 id="deadlines-h" class={H2}>Closing soon</h2>
-      <div class="mt-4 space-y-4">
+      <SectionHeader id="deadlines-h" title="Closing soon" />
+      <div class="space-y-4">
         {deadlines.map((d) => <DeadlineCard deadline={d} event={eventFor(d.program.data.nextEvent)} now={now} />)}
       </div>
-      <p class="mt-3 text-[0.875rem] text-ink-muted">Only deadlines the organizer has published. A program with none listed is open until it fills, or its organizer has not said.</p>
     </section>
   )}
 
   {groups.map(({ group, programs: list }) => (
     <section id={`age-${group.id}`} class="mt-12 scroll-mt-20" aria-labelledby={`age-${group.id}-h`}>
-      <h2 id={`age-${group.id}-h`} class={H2}>{group.label}</h2>
-      <div class="mt-4 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+      <SectionHeader id={`age-${group.id}-h`} title={group.label} />
+      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
         {list.map((p) => <ProgramRow program={p} />)}
       </div>
     </section>
@@ -92,11 +93,11 @@ const chip = 'inline-flex min-h-11 shrink-0 items-center whitespace-nowrap round
 
   {breaks.length > 0 && (
     <section id="breaks" class="mt-12 scroll-mt-20" aria-labelledby="breaks-h">
-      <h2 id="breaks-h" class={H2}>No-school days</h2>
-      <p class="mt-2 text-[0.9375rem] text-ink-muted">
-        {breakSources.map((b, i) => (
-          <Fragment>{i > 0 && ' and '}<a href={b.source} rel="noopener" class="underline">{b.district}</a>, read {formatDate(parseLocal(b.verified))}</Fragment>
-        ))}. A day with a program open on it says so; the rest go to the family listings.
+      <SectionHeader id="breaks-h" title="No-school days" />
+      <p class="-mt-4 text-[0.9375rem] text-ink-muted">
+        From the {breakSources.map((b, i) => (
+          <Fragment>{i > 0 && ' and '}<a href={b.source} rel="noopener" class="underline">{b.district}</a></Fragment>
+        ))} district calendar{breakSources.length > 1 ? 's' : ''}.
       </p>
       <ul class="mt-4 divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft">
         {breaks.map((b) => (
@@ -118,8 +119,8 @@ const chip = 'inline-flex min-h-11 shrink-0 items-center whitespace-nowrap round
 
   {free.length > 0 && (
     <section id="free" class="mt-12 scroll-mt-20" aria-labelledby="free-h">
-      <h2 id="free-h" class={H2}>Free, any day</h2>
-      <ul class="mt-4 grid grid-cols-2 gap-3">
+      <SectionHeader id="free-h" title="Free, any day" />
+      <ul class="grid grid-cols-2 gap-3">
         {free.map((p) => (
           <li>
             <a href={`#program-${p.slug}`} class="flex h-full flex-col rounded-lg bg-raised p-4 no-underline ring-1 ring-line-soft hover:ring-primary-line">
@@ -154,10 +155,7 @@ const chip = 'inline-flex min-h-11 shrink-0 items-center whitespace-nowrap round
     </div>
   </section>
 
-  <p class="mt-10 text-[0.9375rem] leading-relaxed text-ink-muted">
-    Every line is the organizer’s own: ages, prices and deadlines as its page gives them, with the day it was read. A fact the organizer does not publish is left out. Registration links go to the organizer, never through this site.
-  </p>
-  <p class="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[0.9375rem]">
+  <p class="mt-10 flex flex-wrap gap-x-4 gap-y-1 text-[0.9375rem]">
     <a href="/correct/" class="inline-block -my-1 py-1 font-semibold text-primary underline">Something wrong? Send a correction</a>
     <a href="/submit-event/" class="inline-block -my-1 py-1 font-semibold text-primary underline">Suggest a program</a>
     <a href="/events/?category=family" class="inline-block -my-1 py-1 font-semibold text-primary underline">Family listings on the calendar</a>

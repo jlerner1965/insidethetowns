@@ -27,7 +27,8 @@ const whenText = data.effectiveNote
     ? formatDayRange(data.effective, data.effectiveEnd)
     : formatDate(data.effective);
 const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
-const H = compact ? 'h3' : 'h2';
+// Under the page's "Current" or "Archive", or a section of another page: always one step down.
+const H = 'h3';
 ---
 <article class="min-w-0 border-t border-line-soft py-5 first:border-t-0 [overflow-wrap:anywhere]" id={slug}>
   <p class="eyebrow flex flex-wrap items-center gap-2">
@@ -52,7 +53,6 @@ const H = compact ? 'h3' : 'h2';
     {data.source && <a href={data.source} rel="noopener" class="inline-block -my-2 py-2 underline">Source: {data.sourceLabel ?? host(data.source)}</a>}
     {data.alsoSource && <a href={data.alsoSource} rel="noopener" class="inline-block -my-2 py-2 underline">{data.alsoSourceLabel}</a>}
     {data.item && <a href={data.item} class="inline-block -my-2 py-2 text-primary underline">On this guide</a>}
-    {data.verified && <span>Checked <time datetime={toIsoLocal(data.verified)}>{formatDate(data.verified)}</time></span>}
     {!compact && <a href={`/updates/#${slug}`} class="inline-block -my-2 py-2 underline">Link</a>}
   </p>
 </article>
