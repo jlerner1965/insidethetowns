@@ -1,5 +1,6 @@
 /**
- * The two flagship guides (Berthoud and Niwot, 21 October 2026): what their
+ * The flagship guides (Berthoud and Niwot, 21 October 2026; Lyons, 22
+ * October): what their
  * configs promise the pages, checked so a config edit cannot quietly break
  * a hub. Every link on Living Here is an official page or a path on the
  * guide, every school break names its source and its check date, the home
@@ -13,7 +14,7 @@ import { readFileSync } from 'node:fs';
 import { towns } from '../src/config/towns/registry.ts';
 import { hubRoutes } from '../src/integrations/town-routes.ts';
 
-const FLAGSHIPS = ['berthoud', 'niwot'];
+const FLAGSHIPS = ['berthoud', 'niwot', 'lyons'];
 const by = (slug: string) => towns.find((t) => t.slug === slug)!;
 const licences = readFileSync('IMAGE_LICENSES.csv', 'utf8');
 
@@ -22,12 +23,14 @@ test('each flagship has the flagship layout, the three hubs and a compact footer
     const flagship = FLAGSHIPS.includes(t.slug);
     assert.equal(!!t.home, flagship, `${t.slug}: home`);
     assert.equal(!!t.livingHere, flagship, `${t.slug}: livingHere`);
-    assert.equal(!!t.participation, flagship, `${t.slug}: participation`);
+    // The participation hub is a flagship's to have or not: Lyons has none yet.
+    if (!flagship) assert.equal(!!t.participation, false, `${t.slug}: participation`);
     assert.equal(!!t.families, flagship, `${t.slug}: families`);
     assert.equal(t.footer === 'compact', flagship, `${t.slug}: footer`);
   }
   assert.equal(by('berthoud').home!.signature, 'families');
   assert.equal(by('niwot').home!.signature, 'get-involved');
+  assert.equal(by('lyons').home!.signature, 'families');
 });
 
 test('the flagship navigation is the five pills: the week, the family hub, the school’s mascot, Living Here and the places', () => {
@@ -77,27 +80,32 @@ test('school breaks come from the district calendar, dated, sourced and in order
   // Both districts' Thanksgiving weeks, as their 2026–27 calendars give them.
   assert.ok(by('berthoud').families!.breaks.some((b) => b.from === '2026-11-23' && b.to === '2026-11-27'));
   assert.ok(by('niwot').families!.breaks.some((b) => b.from === '2026-11-23' && b.to === '2026-11-27'));
+  assert.ok(by('lyons').families!.breaks.some((b) => b.from === '2026-11-23' && b.to === '2026-11-27'));
 });
 
 test('the home page photograph is a file with a licence row, credited where the licence asks', () => {
   for (const slug of FLAGSHIPS) {
     const { photo } = by(slug).home!;
+    // The option-B home page draws no photograph; a guide may have none.
+    if (!photo) continue;
     assert.ok(licences.includes(`content/${slug}/images/${photo.image}`), `${slug}: ${photo.image} has no licence row`);
     assert.ok(photo.alt.length > 20, `${slug}: alt text`);
   }
   // Second Avenue is CC BY-SA and needs its credit; the Town's playground photograph is credited as a courtesy.
-  assert.match(by('niwot').home!.photo.credit ?? '', /CC BY-SA/);
-  assert.match(by('berthoud').home!.photo.credit ?? '', /Town of Berthoud/);
+  assert.match(by('niwot').home!.photo?.credit ?? '', /CC BY-SA/);
+  assert.match(by('berthoud').home!.photo?.credit ?? '', /Town of Berthoud/);
+  assert.equal(by('lyons').home!.photo, undefined, 'no photograph was chosen for Lyons; none is invented');
 });
 
 test('the hub routes follow the config and the content: both hubs, local changes, and people only where a profile is published', () => {
   for (const slug of FLAGSHIPS) {
     const patterns = hubRoutes(by(slug)).map(([p]) => p);
-    assert.ok(patterns.includes('/families') && patterns.includes('/get-involved') && patterns.includes('/living-here') && patterns.includes('/updates'), slug);
+    assert.ok(patterns.includes('/families') && patterns.includes('/living-here') && patterns.includes('/updates'), slug);
+    assert.equal(patterns.includes('/get-involved'), !!by(slug).participation, `${slug}: get-involved follows participation`);
     // Every profile is still a draft, so there is no people page to build.
     assert.ok(!patterns.includes('/people'), `${slug}: no profile is published yet`);
   }
-  assert.deepEqual(hubRoutes(by('lyons')), [], 'a guide without the hubs gets no hub routes');
+  assert.deepEqual(hubRoutes(by('longmont')), [], 'a guide without the hubs gets no hub routes');
 });
 
 test('the About page names who runs the guide, in verified words: James Lerner, Lerner Works, and Niwot as where he grew up', () => {

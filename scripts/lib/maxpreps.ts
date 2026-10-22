@@ -315,7 +315,10 @@ export function parseSchedulePage(html: string, us: Team): SchedulePage {
       continue;
     }
     if (!Array.isArray(teams) || teams.length !== 2 || typeof url !== 'string' || typeof kickoff !== 'string' || typeof sentence !== 'string') {
-      fail(`not the shape this script reads: ${JSON.stringify(row).slice(0, 700)}`);
+      // The row without its two team arrays, which are long and seldom the
+      // problem; the teams' names, where they can be read, come first.
+      const names = Array.isArray(teams) ? teams.map((t) => (Array.isArray(t) ? t[TEAM.name] : '?')).join(' / ') : typeof teams;
+      fail(`not the shape this script reads: teams ${names}; fields ${JSON.stringify(row.slice(1)).slice(0, 900)}`);
       continue;
     }
     const sides = (teams as unknown[][]).map((t) => ({

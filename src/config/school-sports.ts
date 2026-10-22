@@ -118,6 +118,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     mascot: 'Lions',
     maxpreps: 'https://www.maxpreps.com/co/lyons/lyons-lions/',
     maxprepsName: 'Lyons',
+    // Lion navy, as MaxPreps's team data gives it (022C66 on white, 22 October 2026).
+    colors: { primary: '#022C66' },
     // The school posts each team's schedule as a Google Sheet
     // (lmshs.svvsd.org/activities-arts-athletics/athletics/high-school-athletics/,
     // 22 October 2026), which the cross-check does not read.
