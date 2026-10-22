@@ -90,13 +90,14 @@ for (const site of allSites) {
   // page's game strip (src/config/school-sports.ts), so it clears the same
   // bars as the primary: records and links on white and the paper, white on
   // the band and the pills and on the hover shade, white/70 at display size.
-  const school = SCHOOL_SPORTS.find((s) => s.town === site.slug)?.colors?.primary;
-  if (school) {
-    want(`${site.slug} school colour on white`, ratio(school, WHITE), 4.5);
-    want(`${site.slug} school colour on its ${paper} paper`, ratio(school, page), 4.5);
-    want(`${site.slug} white on school colour`, ratio(WHITE, school), 4.5);
-    want(`${site.slug} white on school colour hover`, ratio(WHITE, primaryHover(school)), 4.5);
-    want(`${site.slug} white/70 display text on school colour`, ratio(mix(WHITE, 0.7, school), school), 3);
+  for (const s of SCHOOL_SPORTS.filter((s) => s.town === site.slug && s.colors)) {
+    const school = s.colors!.primary;
+    const who = `${site.slug} ${s.mascot} colour`;
+    want(`${who} on white`, ratio(school, WHITE), 4.5);
+    want(`${who} on its ${paper} paper`, ratio(school, page), 4.5);
+    want(`white on ${who}`, ratio(WHITE, school), 4.5);
+    want(`white on ${who} hover`, ratio(WHITE, primaryHover(school)), 4.5);
+    want(`white/70 display text on ${who}`, ratio(mix(WHITE, 0.7, school), school), 3);
   }
   // The network strip under the footer is the primary under 30% black
   // (NetworkBar.astro, bg-black/30): its labels and taglines are white/70,

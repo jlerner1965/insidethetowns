@@ -3,7 +3,7 @@
  * game, the games to come, and the words for a game. Shared by /sports/
  * and the home page so both lead with the same game.
  */
-import type { SchoolSports, SportData, SportGame, SportsData } from '../config/school-sports.ts';
+import { sportsDataFile, type SchoolSports, type SportData, type SportGame, type SportsData } from '../config/school-sports.ts';
 import { primaryHover } from '../config/palette.ts';
 import { dayKey, formatDayLong, formatTime, fromWallClock } from './dates.ts';
 
@@ -132,11 +132,13 @@ export function weekGames(data: SportsData, now = new Date(), days = 7): TeamGam
 }
 
 /**
- * The town's data file, from the build's bundle of every town's. Vite reads
- * the glob at build time, so a town without a file simply has no entry.
+ * The school's data file, from the build's bundle of every town's (the
+ * pages glob the data folder for every sports JSON file). Vite reads the
+ * glob at build time, so a school without a file simply has no entry.
  */
-export function sportsDataFor(town: string, files: Record<string, SportsData>): SportsData | undefined {
-  return files[Object.keys(files).find((k) => k.endsWith(`/data/${town}/sports.json`)) ?? ''];
+export function sportsDataFor(school: Pick<SchoolSports, 'town' | 'slug'>, files: Record<string, SportsData>): SportsData | undefined {
+  const file = `/${sportsDataFile(school)}`;
+  return files[Object.keys(files).find((k) => k.endsWith(file)) ?? ''];
 }
 
 /** Every result across the teams, newest first: the scoreboard. */

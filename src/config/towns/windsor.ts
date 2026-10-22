@@ -60,7 +60,9 @@ export const windsor: TownConfig = {
   social: {
     email: 'hello@insidewindsorco.com',
   },
-  nav: DEFAULT_TOWN_NAV,
+  // The default five with the Wizards (src/config/school-sports.ts) in the third
+  // slot, where Berthoud's pill row carries the Spartans (22 October 2026).
+  nav: [...DEFAULT_TOWN_NAV.slice(0, 2), { label: 'Wizards', href: '/sports/' }, ...DEFAULT_TOWN_NAV.slice(2)],
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Windsor,-CO_rb/' },

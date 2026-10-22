@@ -1,17 +1,19 @@
 /**
- * Berthoud High sports for Inside Berthoud's /sports/ page: each followed
- * team's MaxPreps home page read, the games to come checked against the
- * school's own calendar, and the data file written.
+ * High-school sports for the guides' /sports/ pages: each followed team's
+ * MaxPreps home page read, the games to come checked against the school's
+ * own calendar, and the data file written, one per school.
  *
  *   npm run sports                       # read everything, print what would change, write nothing
- *   npm run sports -- --write            # write data/berthoud/sports.json
+ *   npm run sports -- --write            # write every school's data file
+ *   npm run sports -- --town=loveland --write             # one town's schools
+ *   npm run sports -- --town=loveland --school=mountain-view --sport=football   # one of a town's several schools
  *   npm run sports -- --write --summary=/tmp/sports.md   # and the run summary, for the workflow
  *   npm run sports -- --sport=football   # one team's page, read and printed (the step-1 probe)
  *   npm run sports -- --sport=football --html=page.html  # the same from a saved page
  *   npm run sports -- --sport=football --save=page.html  # and keep the page
  *   npm run sports -- --calendar         # one month of the school calendar, read and counted
  *
- * The rules (src/config/berthoud-sports.ts has the teams and the data's shape):
+ * The rules (src/config/school-sports.ts has the teams and the data's shape):
  * - A team whose fetch or parse fails keeps its previous entry, its
  *   `fetched` date included, and the summary says so. Nothing guessed or
  *   partial is written in its place.
@@ -29,7 +31,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { setTimeout as sleep } from 'node:timers/promises';
-import { SCHOOL_SPORTS, schoolSportsFor, sportsDataFile, type SchoolSports, type SportsData } from '../src/config/school-sports.ts';
+import { SCHOOL_SPORTS, schoolsFor, sportsDataFile, type SchoolSports, type SportsData } from '../src/config/school-sports.ts';
 import { dayKey } from '../src/lib/dates.ts';
 import { CRAWL_DELAY_MS, fetchMonth, parseMonth, type CalendarEvent } from './lib/finalsite-calendar.ts';
 import { applySchedule, fetchPage, parseSchedulePage, parseTeamPage, usable, visibleText, type TeamPage } from './lib/maxpreps.ts';
@@ -126,7 +128,7 @@ async function probeCalendar(school: SchoolSports): Promise<number> {
 
 /** One town: its calendar, its teams, its file. The report for the summary comes back. */
 async function runTown(school: SchoolSports): Promise<string> {
-  const DATA_FILE = sportsDataFile(school.town);
+  const DATA_FILE = sportsDataFile(school);
   const now = new Date();
   const today = dayKey(now);
   const previous: SportsData | undefined = existsSync(DATA_FILE) ? JSON.parse(readFileSync(DATA_FILE, 'utf8')) : undefined;
@@ -237,9 +239,15 @@ async function runTown(school: SchoolSports): Promise<string> {
 
 async function main(): Promise<number> {
   const townArg = args.get('town');
-  const schools = townArg ? [schoolSportsFor(townArg)].filter((s): s is SchoolSports => !!s) : SCHOOL_SPORTS;
-  if (townArg && !schools.length) {
-    console.error(`No school is configured for "${townArg}" (src/config/school-sports.ts).`);
+  const schoolArg = args.get('school');
+  let schools = townArg ? schoolsFor(townArg) : SCHOOL_SPORTS;
+  if (schoolArg) schools = schools.filter((s) => s.slug === schoolArg);
+  if ((townArg || schoolArg) && !schools.length) {
+    console.error(`No school is configured for "${townArg ?? ''}${schoolArg ? ` / ${schoolArg}` : ''}" (src/config/school-sports.ts).`);
+    return 1;
+  }
+  if ((args.has('sport') || args.has('calendar')) && schools.length > 1) {
+    console.error(`A probe reads one school: name it (--town=${townArg ?? '<town>'}${schools[0]?.slug ? ` --school=${schools.map((s) => s.slug).join('|')}` : ''}).`);
     return 1;
   }
   if (args.has('sport')) return probe(schools[0]!, args.get('sport')!);

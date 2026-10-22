@@ -8,7 +8,9 @@ import assert from 'node:assert/strict';
 import { applySchedule, parseSchedulePage, parseTeamPage } from '../scripts/lib/maxpreps.ts';
 import { parseMonth, parseTitle } from '../scripts/lib/finalsite-calendar.ts';
 import { crossCheck, dedupeToCome, gamesToCome, keepPrevious, sameSchool } from '../scripts/lib/sports-crosscheck.ts';
-import { schoolSportsFor, type SportsData } from '../src/config/school-sports.ts';
+import { SCHOOL_SPORTS, schoolSportsFor, schoolsFor, sportsDataFile, sportsPath, type SportsData } from '../src/config/school-sports.ts';
+import { sportsRoutes } from '../src/integrations/town-routes.ts';
+import { findTown } from '../src/config/index.ts';
 import { nextGames, placeText } from '../src/lib/school-sports.ts';
 
 const berthoud = schoolSportsFor('berthoud')!;
@@ -411,4 +413,40 @@ test('a playoff game the school calendar files as home is published at its neutr
   // The time still has to agree.
   const late = crossCheck(softball, [{ ...game, time: '14:00' }], calendar);
   assert.equal(late.held.length, 1);
+});
+
+test('a town with one school keeps /sports/ and sports.json; Loveland’s four each get a slug, a page and a file, and /sports/ lists them', () => {
+  const berthoud = schoolSportsFor('berthoud')!;
+  assert.equal(sportsPath(berthoud), '/sports/');
+  assert.equal(sportsDataFile(berthoud), 'data/berthoud/sports.json');
+  assert.deepEqual(sportsRoutes('berthoud'), [['/sports', 'sports.astro']]);
+  assert.deepEqual(sportsRoutes('lyons'), [], 'a town without a school has no page');
+
+  const loveland = schoolsFor('loveland');
+  assert.deepEqual(loveland.map((s) => s.slug), ['loveland-high', 'thompson-valley', 'mountain-view', 'resurrection-christian']);
+  assert.equal(schoolSportsFor('loveland'), undefined, 'no one school is the city’s');
+  assert.equal(schoolSportsFor('loveland', 'mountain-view')?.mascot, 'Mountain Lions');
+  assert.equal(sportsPath(loveland[1]!), '/sports/thompson-valley/');
+  assert.equal(sportsDataFile(loveland[1]!), 'data/loveland/sports-thompson-valley.json');
+  assert.deepEqual(sportsRoutes('loveland'), [
+    ['/sports', 'sports-index.astro'],
+    ['/sports/loveland-high', 'sports.astro'],
+    ['/sports/thompson-valley', 'sports.astro'],
+    ['/sports/mountain-view', 'sports.astro'],
+    ['/sports/resurrection-christian', 'sports.astro'],
+  ]);
+});
+
+test('every school is one entry with its own file, and its town’s nav carries it in the third slot', () => {
+  const files = SCHOOL_SPORTS.map(sportsDataFile);
+  assert.equal(new Set(files).size, files.length, 'no two schools share a file');
+  for (const town of new Set(SCHOOL_SPORTS.map((s) => s.town))) {
+    const schools = schoolsFor(town);
+    const sluggish = schools.filter((s) => s.slug).length;
+    assert.ok(sluggish === 0 ? schools.length === 1 : sluggish === schools.length, `${town}: either one school without a slug or several each with one`);
+    const nav = findTown(town)!.nav;
+    assert.equal(nav[2]?.href, '/sports/', `${town}: the school is the third nav item`);
+    assert.equal(nav[2]?.label, schools.length === 1 ? schools[0]!.mascot : 'Sports', `${town}: the label is the mascot, or "Sports" for several schools`);
+    for (const s of schools) assert.ok(s.calendar || s.calendarNote, `${s.school}: a calendar to check against, or a note saying why not`);
+  }
 });

@@ -11,7 +11,7 @@ import { join } from 'node:path';
 import type { SiteConfig, TownConfig } from '../config/towns/types';
 import { PLACE_TYPE_PAGES, placeTypePages } from '../lib/place-types.ts';
 import { openPlaceTypeCounts } from '../lib/raw-places.ts';
-import { SCHOOL_SPORTS } from '../config/school-sports.ts';
+import { schoolsFor, sportsPath } from '../config/school-sports.ts';
 
 const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
   ['/', 'index.astro'],
@@ -55,11 +55,17 @@ const HOLDING_ROUTES: Array<[pattern: string, file: string]> = [['/', 'coming-so
 const SUB_TOWN_ROUTES: Array<[pattern: string, file: string]> = [['/[subTown]', 'sub-town/[subTown].astro']];
 
 /**
- * High-school sports (data/<town>/sports.json, `npm run sports`): the page is
- * injected for the towns that follow a school (src/config/school-sports.ts).
+ * High-school sports (data/<town>/sports*.json, `npm run sports`): one page
+ * per school the town follows (src/config/school-sports.ts), at /sports/
+ * for a town's only school and at /sports/<slug>/ for each of several, with
+ * /sports/ then the list of them.
  */
-const SPORTS_TOWNS = new Set(SCHOOL_SPORTS.map((s) => s.town));
-const SPORTS_ROUTES: Array<[pattern: string, file: string]> = [['/sports', 'sports.astro']];
+export function sportsRoutes(town: string): Array<[pattern: string, file: string]> {
+  const schools = schoolsFor(town);
+  if (schools.length === 0) return [];
+  if (schools.length === 1) return [['/sports', 'sports.astro']];
+  return [['/sports', 'sports-index.astro'], ...schools.map((s): [string, string] => [sportsPath(s).replace(/\/$/, ''), 'sports.astro'])];
+}
 
 /**
  * One page per kind of place the town has enough of: /restaurants/,
@@ -136,7 +142,7 @@ export function townRoutes(site: SiteConfig): AstroIntegration {
               ? [
                   ...TOWN_ROUTES,
                   ...(site.subTowns?.length ? SUB_TOWN_ROUTES : []),
-                  ...(SPORTS_TOWNS.has(site.slug) ? SPORTS_ROUTES : []),
+                  ...sportsRoutes(site.slug),
                   ...hubRoutes(site),
                   ...placeTypeRoutes(site.slug),
                 ]

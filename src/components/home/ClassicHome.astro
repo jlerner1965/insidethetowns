@@ -43,9 +43,9 @@ const publisher = getNetworkHub().publisher;
 // High-school sports (/sports/), for the towns that follow a school
 // (src/config/school-sports.ts): the week's big game, chosen as that page
 // chooses it, in a strip under the hero.
-const sportsFiles = import.meta.glob<SportsData>('../../../data/*/sports.json', { eager: true, import: 'default' });
+const sportsFiles = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
 const schoolSports = schoolSportsFor(town.slug);
-const sportsData = schoolSports && sportsDataFor(town.slug, sportsFiles);
+const sportsData = schoolSports && sportsDataFor(schoolSports, sportsFiles);
 const game = sportsData ? bigGame(sportsData) : undefined;
 // The paths a reader asks for by name, each described in a sentence. Eat &
 // Drink and Things to Do are the two halves of the places; the directory is

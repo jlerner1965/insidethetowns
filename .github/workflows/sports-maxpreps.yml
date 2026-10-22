@@ -1,7 +1,7 @@
 # High-school sports for the town guides' /sports/ pages: for each school in
 # src/config/school-sports.ts, every followed team's MaxPreps home page read,
 # the games to come checked against the school's own calendar where there is
-# one a machine may read, and data/<town>/sports.json committed to main, which
+# one a machine may read, and data/<town>/sports*.json committed to main, which
 # rebuilds that town's site alone (scripts/vercel-ignore.sh). The rules are
 # in scripts/sports.ts.
 #
@@ -20,7 +20,10 @@ on:
   workflow_dispatch:
     inputs:
       town:
-        description: 'One town only (berthoud, niwot); every configured town when empty.'
+        description: 'One town only (berthoud, niwot, timnath, elizabeth, johnstown, windsor, loveland, carbon-valley); every configured town when empty.'
+        required: false
+      school:
+        description: 'One of a town’s several schools (Loveland: loveland-high, thompson-valley, mountain-view, resurrection-christian). Needs town.'
         required: false
       sport:
         description: 'Probe one team instead: its MaxPreps path (football, cross-country/girls). Needs town. Writes nothing; keeps the page as an artifact.'
@@ -49,7 +52,7 @@ jobs:
           node-version: 22
       - name: Probe one team
         if: inputs.sport != ''
-        run: node scripts/sports.ts --town=${{ inputs.town || 'berthoud' }} --sport=${{ inputs.sport }} --save="$RUNNER_TEMP/page.html" | tee -a "$GITHUB_STEP_SUMMARY"
+        run: node scripts/sports.ts --town=${{ inputs.town || 'berthoud' }} ${{ inputs.school && format('--school={0}', inputs.school) || '' }} --sport=${{ inputs.sport }} --save="$RUNNER_TEMP/page.html" | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Keep the probed page
         if: always() && inputs.sport != ''
         uses: actions/upload-artifact@v4
@@ -59,18 +62,18 @@ jobs:
           if-no-files-found: ignore
       - name: Probe the school calendar
         if: inputs.sport == '' && inputs.calendar
-        run: node scripts/sports.ts --town=${{ inputs.town || 'berthoud' }} --calendar | tee -a "$GITHUB_STEP_SUMMARY"
+        run: node scripts/sports.ts --town=${{ inputs.town || 'berthoud' }} ${{ inputs.school && format('--school={0}', inputs.school) || '' }} --calendar | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Read and write
         if: inputs.sport == '' && !inputs.calendar
         run: |
-          node scripts/sports.ts ${{ inputs.town && format('--town={0}', inputs.town) || '' }} --write --summary="$RUNNER_TEMP/sports.md"
+          node scripts/sports.ts ${{ inputs.town && format('--town={0}', inputs.town) || '' }} ${{ inputs.school && format('--school={0}', inputs.school) || '' }} --write --summary="$RUNNER_TEMP/sports.md"
           cat "$RUNNER_TEMP/sports.md" >> "$GITHUB_STEP_SUMMARY"
       - name: Commit the data file
         if: inputs.sport == '' && !inputs.calendar
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/*/sports.json
+          git add data/*/sports.json data/*/sports-*.json
           if git diff --cached --quiet; then
             echo "Nothing changed; nothing to commit."
             exit 0
