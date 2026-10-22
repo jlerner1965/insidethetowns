@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 /**
  * A Weld County statutory city of 7,955 at the 2020 census, on US 85 and the
@@ -66,7 +66,6 @@ export const fortLupton: TownConfig = {
   social: {
     email: 'hello@insidefortlupton.com',
   },
-  nav: DEFAULT_TOWN_NAV,
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Fort-Lupton,-CO_rb/' },

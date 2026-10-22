@@ -33,7 +33,7 @@ const {
   // every width, which read as a truncation error on the first line of
   // the site. The full tagline stays in the meta description and the footer.
   subtitle = site.kind === 'town' ? site.shortTagline ?? site.tagline : site.tagline,
-  links = site.kind === 'town' ? [{ label: 'This week’s events', href: '/events/', primary: true }, second] : [],
+  links = site.kind === 'town' ? [{ label: 'This week', href: '/this-week/', primary: true }, second] : [],
 } = Astro.props;
 const hero = resolveSiteImage(site.slug, site.hero.image);
 // The tagline in two lines at most, shortened at a phrase (src/lib/text.ts)

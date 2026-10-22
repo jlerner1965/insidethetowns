@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 /**
  * Three municipalities on one guide: the Town of Frederick, the Town of
@@ -86,9 +86,6 @@ export const carbonValley: TownConfig = {
   social: {
     email: 'hello@carbonvalleyguide.com',
   },
-  // The default five with Frederick High’s Golden Eagles (src/config/school-sports.ts) in the third
-  // slot, where Berthoud's pill row carries the Spartans (22 October 2026).
-  nav: [...DEFAULT_TOWN_NAV.slice(0, 2), { label: 'Golden Eagles', href: '/sports/' }, ...DEFAULT_TOWN_NAV.slice(2)],
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale in Frederick on Zillow', url: 'https://www.zillow.com/homes/Frederick,-CO_rb/' },

@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 /**
  * A city of 98,885 at the 2020 census, the network's second after Fort
@@ -78,7 +78,6 @@ export const longmont: TownConfig = {
   social: {
     email: 'hello@insidelongmontco.com',
   },
-  nav: DEFAULT_TOWN_NAV,
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Longmont,-CO_rb/' },

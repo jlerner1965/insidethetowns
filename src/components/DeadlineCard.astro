@@ -4,10 +4,11 @@
  * date, the program, one line of who and what, the organizer's own words
  * on the program, and the ways in as buttons (the registration page, named
  * by how the organizer says to register; the deadline's own listing, where
- * it links out). The source and the day it was read sit at the foot.
+ * it links out). The source sits at the foot; the page says once, under
+ * its title, the day the sources were read.
  */
 import type { TownEntry } from '@/lib/content';
-import { dayKey, formatShortDate, monthDay, toIsoLocal } from '@/lib/dates';
+import { dayKey, monthDay, toIsoLocal } from '@/lib/dates';
 import type { Deadline } from '@/lib/programs';
 import { shorten } from '@/lib/text';
 
@@ -53,7 +54,7 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
   </div>
   {data.source && (
     <p class="mt-4 text-[0.8125rem] text-ink-muted">
-      <a href={data.source} rel="noopener" class="underline">{host(data.source)}</a>{data.verified && <Fragment> · read <time datetime={toIsoLocal(data.verified)}>{formatShortDate(data.verified)}</time></Fragment>}
+      <a href={data.source} rel="noopener" class="underline">{host(data.source)}</a>
     </p>
   )}
 </article>

@@ -53,32 +53,16 @@ export const niwot: TownConfig = {
   home: {
     signature: 'get-involved',
     purpose: 'What’s on this week, who runs what, and how to take part.',
-    photo: {
-      image: 'second-avenue-street.jpg',
-      alt: 'Second Avenue in Old Town Niwot: the Niwot Tribune building with its shingled awning and a row of brick and painted storefronts down the block',
-      credit: 'Jeffrey Beall, Flickr, CC BY-SA 2.0',
-    },
-    secondary: { label: 'Get Involved', href: '/get-involved/' },
+    secondary: { label: 'Get involved', href: '/get-involved/' },
     accentName: 'terracotta',
   },
-  footer: 'compact',
-  // The pill row of the flagship masthead (redesign of 22 October 2026),
-  // the same five as Berthoud's with the Cougars for the Spartans; Get
-  // Involved, Events, Things to Do and Guides stay in the footer.
-  nav: [
-    { label: 'This week', href: '/this-week/' },
-    { label: 'Families', href: '/families/' },
-    { label: 'Cougars', href: '/sports/' },
-    { label: 'Living here', href: '/living-here/' },
-    { label: 'Eat & drink', href: '/eat-drink/' },
-  ],
   participation: {
-    label: 'Get Involved',
-    intro: 'Niwot has no town hall, so the organizations are the town: the associations, the Grange, the Rotary, the Historical Society, the arts group and the youth league. Each entry says what it does, who can take part, what it costs, how to make a first inquiry, and the next public date, with the day it was read.',
+    label: 'Get involved',
+    intro: 'The associations, clubs and groups that run Niwot, and how to join each.',
   },
   families: {
     label: 'Niwot Families',
-    intro: 'The verified routes for a Niwot family: youth sports, the schools, what is on for children, and the breaks on the St. Vrain calendar.',
+    intro: 'Youth sports, schools, children’s events and the St. Vrain school breaks for Niwot.',
     schools: [
       {
         district: 'St. Vrain Valley Schools',
@@ -96,7 +80,7 @@ export const niwot: TownConfig = {
     ],
   },
   livingHere: {
-    intro: 'Niwot has no town government, so each service comes from a different body. Which one handles what, as links to the page of its site that does the job; the sewer district and the school all depend on the address.',
+    intro: 'Niwot has no town government: who handles what, with each official page.',
     sections: [
       {
         title: 'Roads, snow and maintenance',

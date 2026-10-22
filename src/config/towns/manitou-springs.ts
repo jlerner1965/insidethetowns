@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 /**
  * An El Paso County home rule city of 4,858 at the 2020 census, 6,306 feet
@@ -94,7 +94,6 @@ export const manitouSprings: TownConfig = {
   social: {
     email: 'hello@insidemanitousprings.com',
   },
-  nav: DEFAULT_TOWN_NAV,
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Manitou-Springs,-CO_rb/' },

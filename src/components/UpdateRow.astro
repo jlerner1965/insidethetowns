@@ -27,12 +27,15 @@ const whenText = data.effectiveNote
     ? formatDayRange(data.effective, data.effectiveEnd)
     : formatDate(data.effective);
 const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
-const H = compact ? 'h3' : 'h2';
+// Under the page's "Current" or "Archive", or a section of another page: always one step down.
+const H = 'h3';
 ---
 <article class="min-w-0 border-t border-line-soft py-5 first:border-t-0 [overflow-wrap:anywhere]" id={slug}>
   <p class="eyebrow flex flex-wrap items-center gap-2">
-    <span>{UPDATE_KIND_LABELS[data.kind]}</span>
-    <span class="rounded-full bg-paper px-2 py-0.5 text-[0.7rem] text-ink-muted ring-1 ring-line-soft">{stageLabel(data.stage)}</span>
+    {/* One phrase, "Public decision · Proposed": as a label and a pill side
+        by side it read "Public decision Proposed" (navigation audit,
+        22 October 2026). */}
+    <span>{UPDATE_KIND_LABELS[data.kind]} <span class="text-ink-muted">· {stageLabel(data.stage)}</span></span>
     {t === 'now' && !late && <span class="rounded-full bg-highlight-soft px-2 py-0.5 text-[0.7rem] text-ink ring-1 ring-highlight">Now</span>}
   </p>
   <H class:list={['mt-1.5 font-medium leading-tight', compact ? 'text-lg' : 'text-xl md:text-2xl']}>{data.title}</H>
@@ -52,7 +55,6 @@ const H = compact ? 'h3' : 'h2';
     {data.source && <a href={data.source} rel="noopener" class="inline-block -my-2 py-2 underline">Source: {data.sourceLabel ?? host(data.source)}</a>}
     {data.alsoSource && <a href={data.alsoSource} rel="noopener" class="inline-block -my-2 py-2 underline">{data.alsoSourceLabel}</a>}
     {data.item && <a href={data.item} class="inline-block -my-2 py-2 text-primary underline">On this guide</a>}
-    {data.verified && <span>Checked <time datetime={toIsoLocal(data.verified)}>{formatDate(data.verified)}</time></span>}
     {!compact && <a href={`/updates/#${slug}`} class="inline-block -my-2 py-2 underline">Link</a>}
   </p>
 </article>

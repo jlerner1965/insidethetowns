@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 /**
  * The network's first city. 169,810 people at the 2020 census, the
@@ -58,7 +58,6 @@ export const fortcollins: TownConfig = {
   social: {
     email: 'hello@insidefortcollins.com',
   },
-  nav: DEFAULT_TOWN_NAV,
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Fort-Collins,-CO_rb/' },

@@ -1,5 +1,5 @@
 // src/config/towns/elizabeth.ts
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 export const elizabeth = {
   kind: 'town',
@@ -55,9 +55,6 @@ export const elizabeth = {
     credit: "ERoss99, Wikimedia Commons, CC BY-SA 3.0",
   },
   social: { email: "hello@insideelizabeth.com" },
-  // The default five with the Cardinals (src/config/school-sports.ts) in the third
-  // slot, where Berthoud's pill row carries the Spartans (22 October 2026).
-  nav: [...DEFAULT_TOWN_NAV.slice(0, 2), { label: 'Cardinals', href: '/sports/' }, ...DEFAULT_TOWN_NAV.slice(2)],
   movingHere: {
     listingsLinks: [
       { label: "Homes for sale on Zillow", url: "https://www.zillow.com/elizabeth-co/" },

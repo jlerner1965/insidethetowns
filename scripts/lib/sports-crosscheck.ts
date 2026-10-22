@@ -10,6 +10,7 @@
 import type { SportConfig, SportData, SportGame, SportsData } from '../../src/config/school-sports.ts';
 import type { CalendarEvent } from './finalsite-calendar.ts';
 import type { TeamPage } from './maxpreps.ts';
+import { dedupeResults } from '../../src/lib/school-sports.ts';
 
 /** "Mountain View High School" and "Mountain View" are the same school. */
 export function sameSchool(a: string, b: string): boolean {
@@ -126,7 +127,7 @@ export function entryFrom(sport: SportConfig, page: TeamPage, check: Check, now:
     maxprepsUpdated: page.updatedOn,
     overall: page.overall,
     league: page.league,
-    results: page.results,
+    results: dedupeResults(page.results),
     upcoming: check.upcoming,
     held: check.held,
     notes: [...check.notes, ...page.warnings.map((w) => `MaxPreps page: ${w}`)],

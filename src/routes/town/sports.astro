@@ -2,15 +2,14 @@
 /**
  * The town's high school sports, laid out the way a scores site is: the
  * records across the top, the next game big in the town's dark band, a
- * scoreboard of the latest scores, then every team's season as one table,
- * played games and games to come in one run, all read from
+ * scoreboard of the latest scores, then every team: its next games first
+ * and the whole season behind "Show all N games", all read from
  * data/<town>/sports.json. The Saturday and Wednesday runs write that file
  * (`npm run sports`); nothing here is typed in by hand.
  *
  * Only the teams in play are laid out: the fall list in
  * src/config/school-sports.ts, and of those, one MaxPreps has nothing for
- * (both cross country teams, October 2026) gets a line at the foot rather
- * than an empty card among the full ones.
+ * (both cross country teams, October 2026) is left off until it has a meet.
  *
  * Built on Base with its own masthead and bands, the way the home page is,
  * rather than on Page: the big game has to be a full-width band between
@@ -20,21 +19,25 @@
  * (src/integrations/town-routes.ts), which also names the school, the
  * mascot and the calendar: at /sports/ for a town's only school, and at
  * /sports/<slug>/ for each of a town's several (Loveland's four), the page
- * reading its school off its own path. A team's "updated" date is its own last
- * successful read, so a week MaxPreps could not be reached shows last
- * week's date, not today's. A game the school calendar contradicts is not
- * in the file's `upcoming` list at all (scripts/lib/sports-crosscheck.ts),
- * so the page simply shows the next game the two sources agree on, or
- * none. A school with no calendar a machine may read says so in the
- * footnote.
+ * reading its school off its own path. The source line at the top dates the
+ * newest read; a team whose own read is older than that says so under its
+ * table, so a week MaxPreps could not be reached shows. A game the school
+ * calendar contradicts is not in the file's `upcoming` list at all
+ * (scripts/lib/sports-crosscheck.ts), so the page simply shows the next game
+ * the two sources agree on, or none.
+ *
+ * The navigation audit of 22 October 2026 cut the method text (a per-team
+ * "updated" line, the record-count notes, the empty cross country line and
+ * a closing paragraph) to the one source line and a sentence at the foot.
  */
 import Base from '@/layouts/Base.astro';
 import CtaBand from '@/components/CtaBand.astro';
+import SeasonTable from '@/components/SeasonTable.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
-import { schoolSportsFor, schoolsFor, sportsPath, type SportData, type SportGame, type SportsData } from '@/config/school-sports';
+import { schoolSportsFor, schoolsFor, sportsPath, type SportData, type SportsData } from '@/config/school-sports';
 import { dayKey, formatDayLong, formatDayShort, formatShortDate, formatTime } from '@/lib/dates';
-import { bigGame, coming, gameDay as day, latestResult, outcome, recentResults, RESULT_WORD, placeText, schoolCssVars, season, sportsDataFor, when, where } from '@/lib/school-sports';
+import { bigGame, coming, dedupeResults, gameDay as day, latestResult, outcome, recentResults, RESULT_WORD, placeText, schoolCssVars, season, sportsDataFor, when, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -43,7 +46,8 @@ const files = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eag
 const slug = Astro.url.pathname.match(/^\/sports\/([^/]+)\/?$/)?.[1];
 const cfg = schoolSportsFor(town.slug, slug);
 if (!cfg) throw new Error(`No school is configured for ${Astro.url.pathname} on ${town.slug} (src/config/school-sports.ts)`);
-const sisters = schoolsFor(town.slug).filter((s) => s !== cfg);
+const schools = schoolsFor(town.slug);
+const sisters = schools.filter((s) => s !== cfg);
 const path = sportsPath(cfg);
 const data: SportsData = sportsDataFor(cfg, files) ?? { generated: '', sports: [] };
 const sports: SportData[] = data.sports;
@@ -52,6 +56,9 @@ const { school, mascot, calendar } = cfg;
 // "football, boys soccer, volleyball, softball and cross country": the teams followed, the two cross country teams as one.
 const followed = [...new Set(cfg.teams.map((t) => t.name.toLowerCase().replace(/^(boys|girls) (cross country)$/, '$2')))];
 const description = `${school} ${mascot} scores, schedules and records this fall: ${followed.slice(0, -1).join(', ')} and ${followed.at(-1)}, from MaxPreps${calendar ? ', checked against the school calendar' : ''}.`;
+// One guide, one colour: a guide that follows one school wears it; a guide
+// that follows several (Loveland) keeps its own on every school's page.
+const schoolStyle = schools.length === 1 ? schoolCssVars(cfg) : undefined;
 
 const now = new Date();
 const today = dayKey(now);
@@ -60,14 +67,16 @@ const then = coming(data).filter((c) => c.game.date >= today && c.game.url !== n
 const latest = latestResult(data);
 const board = recentResults(data, 6);
 
-// The teams with a season to show, the ones MaxPreps has nothing for, and
-// the ones whose page has never been read.
+// The teams with a season to show and the ones whose page has never been
+// read. A team MaxPreps has nothing for yet (cross country in the fall) is
+// left off: an empty line on every page until spring helped nobody.
 const teams = sports.filter((s) => s.fetched && !s.empty);
-const empties = sports.filter((s) => s.empty);
 const unread = sports.filter((s) => !s.fetched && !s.empty);
 
 const fetchedDates = sports.map((s) => s.fetched).filter(Boolean) as string[];
 const newest = fetchedDates.length ? new Date(fetchedDates.sort().at(-1)!) : undefined;
+/** A team read more than three days before the newest read: its date is worth showing. */
+const stale = (s: SportData) => !!newest && !!s.fetched && newest.getTime() - new Date(s.fetched).getTime() > 3 * 86_400_000;
 
 /** The pill's colours: a win in the primary, a loss in the ink, a tie in the soft accent. */
 const PILL = {
@@ -75,16 +84,9 @@ const PILL = {
   L: 'bg-ink text-raised',
   T: 'bg-accent-soft text-ink',
 } as const;
-/** "22–0", "3rd", or nothing for a game without a score. */
-const scoreline = (g: SportGame) => (g.score ? `${g.score.us}–${g.score.them}` : g.place ?? '');
-/**
- * How many games the record counts: "6-2" is eight, "2-7-5" fourteen. The
- * results list is what MaxPreps's page reports, which can be fewer (the
- * early season drops off its wall), and the card says so rather than show
- * a 6-2 record over a five-and-one list.
- */
-const gamesInRecord = (overall?: string) => (overall ?? '').split('-').map(Number).reduce((a, b) => a + (Number.isFinite(b) ? b : 0), 0);
 
+const shortName = (s: { school: string }) => s.school.replace(/ (High )?School$/, '');
+const indexName = `${town.name} high school sports`;
 const jsonLd = [
   collectionPageJsonLd(town, { name: `${school} ${mascot} scores and schedules`, description, path }),
   breadcrumbJsonLd(town, [
@@ -95,15 +97,26 @@ const jsonLd = [
 ];
 ---
 <Base title={`${school} ${mascot} scores and schedules`} {description} {jsonLd}>
-  {/* The school's colour from here to the foot: see SchoolSports.colors. */}
-  <div style={schoolCssVars(cfg)}>
+  {/* The school's colour from here to the foot, where the guide follows one school: see SchoolSports.colors. */}
+  <div style={schoolStyle}>
   <header class="border-b-2 border-accent bg-raised">
     <div class="container-page py-10 md:py-14">
       <div class="max-w-3xl">
-        <p class="eyebrow mb-3">Sports · Fall {today.slice(0, 4)}</p>
-        <h1 class="display-md text-[2.75rem] md:text-6xl">{school} sports</h1>
+        {cfg.slug ? (
+          <nav aria-label="Breadcrumb" class="mb-3">
+            <ol class="eyebrow flex flex-wrap items-center gap-x-2">
+              <li><a href="/sports/" class="underline underline-offset-2">{indexName}</a></li>
+              <li aria-hidden="true">›</li>
+              <li aria-current="page">{shortName(cfg)}</li>
+            </ol>
+          </nav>
+        ) : (
+          <p class="eyebrow mb-3">Sports · Fall {today.slice(0, 4)}</p>
+        )}
+        {/* 2.25rem on a phone: "Resurrection Christian sports" in two lines, not three. */}
+        <h1 class="display-md text-[2.25rem] sm:text-5xl md:text-6xl">{school} sports</h1>
         <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted md:text-xl">
-          The {mascot}’ scores, schedules and records, read from MaxPreps twice a week{calendar ? ' and checked against the school’s own calendar' : ''}.
+          Scores, schedules and records for every {mascot} team this fall.
         </p>
         {cfg.note && <p class="mt-3 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">{cfg.note}</p>}
       </div>
@@ -139,15 +152,15 @@ const jsonLd = [
           </ul>
         </nav>
       )}
+      {/* The page's one source line. */}
       <p class="mt-5 text-[0.9375rem] text-ink-muted">
-        {newest && <span>Last read {formatShortDate(newest)}. </span>}
-        <a href={MAXPREPS_SCHOOL} rel="noopener" class="font-semibold text-primary underline">Every {mascot} team on MaxPreps</a>{calendar && <Fragment> · <a href={calendar.url} rel="noopener" class="font-semibold text-primary underline">The school calendar</a></Fragment>}
+        {calendar ? 'Scores from ' : 'Scores and schedules from '}<a href={MAXPREPS_SCHOOL} rel="noopener" class="font-semibold text-primary underline">MaxPreps</a>{newest && `, read ${formatShortDate(newest)}`}{calendar && <Fragment>; dates checked against the <a href={calendar.url} rel="noopener" class="font-semibold text-primary underline">school calendar</a></Fragment>}.
       </p>
       {sisters.length > 0 && (
         <p class="mt-2 text-[0.9375rem] text-ink-muted">
           Also in {town.name}: {sisters.map((s, i) => (
-            <Fragment>{i > 0 && (i === sisters.length - 1 ? ' and ' : ', ')}<a href={sportsPath(s)} class="font-semibold text-primary underline">{s.school.replace(/ (High )?School$/, '')} {s.mascot}</a></Fragment>
-          ))}. <a href="/sports/" class="font-semibold text-primary underline">All {town.name} schools</a>
+            <Fragment>{i > 0 && (i === sisters.length - 1 ? ' and ' : ', ')}<a href={sportsPath(s)} class="font-semibold text-primary underline">{shortName(s)} {s.mascot}</a></Fragment>
+          ))}.
         </p>
       )}
     </div>
@@ -218,11 +231,12 @@ const jsonLd = [
       <div class="container-page">
         <SectionHeader eyebrow="Scoreboard" title="Latest scores" id="scores" />
         <ol class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-labelledby="scores">
-          {board.map(({ team, game }) => {
+          {board.map(({ team, game }, i) => {
             const won = game.result === 'W';
             const lost = game.result === 'L';
             return (
-              <li class="rounded-lg bg-paper p-5 ring-1 ring-line-soft">
+              // Three on a phone, where six ran 1,100px before any schedule; six from 40rem.
+              <li class:list={['rounded-lg bg-paper p-5 ring-1 ring-line-soft', i >= 3 && 'hidden sm:block']}>
                 <p class="flex items-baseline justify-between gap-3 text-[0.8125rem] text-ink-muted">
                   <span class="eyebrow">{team.name}</span>
                   <span><time datetime={game.date}>{formatDayShort(day(game))}</time> · {placeText(game)}</span>
@@ -253,10 +267,10 @@ const jsonLd = [
     </section>
   )}
 
-  {/* Every team's season, MaxPreps's way: the record and the run of
-      results up top, then one table from the first game to the last on
-      the schedule, with the score where it has been played and the time
-      where it has not. */}
+  {/* Every team: the record and the run of results up top, then the next
+      games, and the whole season, oldest first, behind "Show all N games".
+      With nothing left to play, the last three results take the next
+      games' place. */}
   <section class="band band-paper">
     <div class="container-page">
       <SectionHeader eyebrow="Every team" title={`The ${mascot} this season`} />
@@ -265,12 +279,12 @@ const jsonLd = [
       ) : (
         <div class="space-y-6">
           {teams.map((s) => {
+            const results = dedupeResults(s.results);
             const games = season(s);
-            const form = [...s.results].reverse();
-            const wins = s.results.filter((g) => g.result === 'W').length;
-            const firstToCome = s.upcoming[0]?.url;
-            const counted = gamesInRecord(s.overall);
-            const partial = counted > s.results.length;
+            const form = [...results].reverse();
+            const wins = results.filter((g) => g.result === 'W').length;
+            const ahead = s.upcoming.filter((g) => g.date >= today);
+            const lead = ahead.length > 0 ? ahead.slice(0, 5) : results.slice(0, 3);
             return (
               <article id={s.key} class="scroll-mt-24 rounded-lg bg-raised p-5 ring-1 ring-primary-line sm:p-7" aria-labelledby={`${s.key}-title`}>
                 <header class="grid gap-5 border-b-2 border-accent pb-5 md:grid-cols-[1fr_auto] md:items-end">
@@ -287,7 +301,7 @@ const jsonLd = [
                   </div>
                   {form.length > 0 && (
                     <div class="md:text-right">
-                      <p class="eyebrow text-ink-muted">{partial ? `Last ${form.length}` : 'Form'} · {wins} of {form.length} won</p>
+                      <p class="eyebrow text-ink-muted">Form · {wins} of {form.length} won</p>
                       <ol class="mt-2 flex flex-wrap gap-1 md:justify-end" aria-label="Results, oldest first">
                         {form.map((g) => (
                           <li>
@@ -307,92 +321,55 @@ const jsonLd = [
                   )}
                 </header>
 
-                <table class="mt-2 w-full border-collapse text-[0.9375rem]">
-                  <caption class="sr-only">{s.name} schedule and results, oldest first</caption>
-                  <thead>
-                    <tr class="text-left">
-                      <th scope="col" class="eyebrow py-3 pr-3 font-semibold text-ink-muted">Date</th>
-                      <th scope="col" class="eyebrow py-3 pr-3 font-semibold text-ink-muted">Opponent</th>
-                      <th scope="col" class="eyebrow hidden py-3 pr-3 font-semibold text-ink-muted sm:table-cell">Where</th>
-                      <th scope="col" class="eyebrow py-3 text-right font-semibold text-ink-muted">Result</th>
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y divide-line-soft border-y border-line-soft">
-                    {games.map((g) => {
-                      const played = Boolean(g.result || g.score || g.place);
-                      const isNext = g.url === firstToCome;
-                      return (
-                        <tr class:list={[isNext && 'bg-paper']}>
-                          <td class="whitespace-nowrap py-3 pr-3 align-baseline text-ink-muted">
-                            <time datetime={g.time && !played ? `${g.date}T${g.time}` : g.date}>{g.date === today ? 'Today' : formatDayShort(day(g))}</time>
-                          </td>
-                          <td class="py-3 pr-3 align-baseline">
-                            <a href={g.url} rel="noopener" class="font-semibold text-ink underline decoration-primary-line underline-offset-2 hover:text-primary">
-                              <span class="font-normal text-ink-muted">{where(g)}</span> {g.opponent}
-                            </a>
-                            {isNext && <span class="ml-2 rounded-full bg-primary px-2 py-0.5 text-[0.6875rem] font-bold uppercase tracking-eyebrow text-white">Next</span>}
-                          </td>
-                          <td class="hidden py-3 pr-3 align-baseline text-ink-muted sm:table-cell">{placeText(g)}</td>
-                          <td class="whitespace-nowrap py-3 text-right align-baseline">
-                            {played ? (
-                              <span class="inline-flex items-center justify-end gap-2">
-                                {g.result && <span class:list={['inline-flex h-6 w-6 items-center justify-center rounded-full text-[0.75rem] font-bold', PILL[g.result]]} aria-hidden="true">{g.result}</span>}
-                                <span class="font-semibold tabular-nums">{g.result ? <span class="sr-only">{RESULT_WORD[g.result]} </span> : null}{scoreline(g)}</span>
-                              </span>
-                            ) : g.time ? (
-                              <span class="text-ink">{formatTime(day(g))}</span>
-                            ) : (
-                              <span class="text-ink-muted">Time TBA</span>
-                            )}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-                {s.held.length > 0 && (
+                {lead.length > 0 && (
+                  <SeasonTable
+                    games={lead}
+                    {today}
+                    caption={ahead.length > 0 ? (ahead.length === 1 ? 'Next game' : `Next ${lead.length} games`) : 'Latest results'}
+                    next={ahead[0]?.url}
+                    last={ahead.length > 0 ? 'Time' : 'Result'}
+                  />
+                )}
+                {games.length > lead.length && (
+                  <details class="group mt-4">
+                    <summary class="inline-flex min-h-11 cursor-pointer items-center gap-2 font-semibold text-primary underline underline-offset-2">
+                      <span class="group-open:hidden">Show all {games.length} games</span>
+                      <span class="hidden group-open:inline">Hide the season</span>
+                    </summary>
+                    <div class="mt-2">
+                      <SeasonTable games={games} {today} caption={`${s.name}, every game this season, oldest first`} hideCaption next={ahead[0]?.url} />
+                    </div>
+                  </details>
+                )}
+                {(s.held.length > 0 || stale(s)) && (
                   <p class="mt-4 text-[0.9375rem] leading-relaxed text-ink-muted">
-                    {s.held.length === 1 ? 'One more game' : `${s.held.length} more games`} to be confirmed: MaxPreps and the school calendar disagree.
+                    {s.held.length > 0 && <span>{s.held.length === 1 ? 'One more game' : `${s.held.length} more games`} to be confirmed: MaxPreps and the school calendar disagree. </span>}
+                    {stale(s) && <span>MaxPreps’s <a href={s.maxprepsUrl} rel="noopener" class="underline">{s.name.toLowerCase()} page</a> was last read {formatShortDate(new Date(s.fetched!))}.</span>}
                   </p>
                 )}
-                <p class="mt-5 text-xs leading-relaxed text-ink-muted">
-                  {partial && <span>The {s.overall} record counts {counted} games; MaxPreps’s page reports the {s.results.length} above. </span>}
-                  <a href={s.maxprepsUrl} rel="noopener" class="underline">The {s.name.toLowerCase()} team on MaxPreps</a> · updated {formatShortDate(new Date(s.fetched!))}
-                </p>
               </article>
             );
           })}
 
-          {(empties.length > 0 || unread.length > 0) && (
-            <ul class="space-y-2 text-[0.9375rem] leading-relaxed text-ink-muted">
-              {empties.length > 0 && (
-                <li>
-                  <strong class="font-semibold text-ink">Also this fall:</strong> {empties.map((s, i) => (
-                    <Fragment>{i > 0 && (i === empties.length - 1 ? ' and ' : ', ')}<a href={s.maxprepsUrl} rel="noopener" class="underline">{s.name.toLowerCase()}</a></Fragment>
-                  ))}. MaxPreps lists no meets or results for {empties.length > 1 ? 'them' : 'the team'} yet.
-                </li>
-              )}
-              {unread.length > 0 && (
-                <li>
-                  Not read yet: {unread.map((s, i) => (
-                    <Fragment>{i > 0 && ', '}<a href={s.maxprepsUrl || MAXPREPS_SCHOOL} rel="noopener" class="underline">{s.name.toLowerCase()}</a></Fragment>
-                  ))}.
-                </li>
-              )}
-            </ul>
+          {unread.length > 0 && (
+            <p class="text-[0.9375rem] leading-relaxed text-ink-muted">
+              Not read yet: {unread.map((s, i) => (
+                <Fragment>{i > 0 && ', '}<a href={s.maxprepsUrl || MAXPREPS_SCHOOL} rel="noopener" class="underline">{s.name.toLowerCase()}</a></Fragment>
+              ))}.
+            </p>
           )}
         </div>
       )}
 
       <p class="mt-10 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">
-        Records and scores are MaxPreps’s, as coaches and the CHSAA report them, read by this site on Saturday mornings and Wednesdays. {calendar ? 'Where MaxPreps and the school calendar disagree on a game’s day, time or opponent, the game is left off until a person has checked. ' : cfg.calendarNote ? `${cfg.calendarNote} ` : ''}A team whose page could not be read keeps its last good numbers and their date. Something wrong? <a href={`/correct/?item=sports&title=${encodeURIComponent(`${school} sports`)}`} class="underline">Tell us</a>.
+        {calendar ? 'A game MaxPreps and the school calendar disagree on waits until a person has checked it.' : cfg.calendarNote ?? 'Scores and dates are MaxPreps’s, as coaches report them.'} <a href="/editorial/" class="underline">How this guide checks its facts</a>.
       </p>
     </div>
   </section>
   <CtaBand
     eyebrow="Sports"
     title="Know a score we have wrong?"
-    body={calendar ? 'The records are MaxPreps’s and the dates the school’s. If a game moved or a score is off, say so and we will check it.' : 'The records and dates are MaxPreps’s. If a game moved or a score is off, say so and we will check it.'}
+    body="If a game moved or a score is off, say so and we will check it."
     links={[
       { label: 'Report a correction', href: `/correct/?item=sports&title=${encodeURIComponent(`${school} sports`)}`, primary: true },
       { label: `This week in ${town.name}`, href: '/this-week/' },

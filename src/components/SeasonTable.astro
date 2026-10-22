@@ -1,0 +1,78 @@
+---
+/**
+ * A run of one team's games as a table, the way the sports page lays out
+ * each team: date, opponent (a link to the game on MaxPreps), where, and
+ * the score once played or the start time before. The page draws it twice
+ * a team: the next games, and inside "Show all N games" the whole season
+ * oldest first.
+ */
+import type { SportGame } from '@/config/school-sports';
+import { formatDayShort, formatTime } from '@/lib/dates';
+import { gameDay as day, placeText, RESULT_WORD, where } from '@/lib/school-sports';
+
+interface Props {
+  games: SportGame[];
+  /** Today's day key, for "Today" in place of a date. */
+  today: string;
+  /** What the table is; shown above it, or read only by a screen reader when `hideCaption`. */
+  caption: string;
+  hideCaption?: boolean;
+  /** The URL of the team's next game, marked "Next". */
+  next?: string;
+  /** The last column's heading: "Time" for games to come, "Result" for a season. */
+  last?: string;
+}
+
+const { games, today, caption, hideCaption = false, next, last = 'Result' } = Astro.props;
+/** The pill's colours: a win in the primary, a loss in the ink, a tie in the soft accent. */
+const PILL = {
+  W: 'bg-primary text-white',
+  L: 'bg-ink text-raised',
+  T: 'bg-accent-soft text-ink',
+} as const;
+/** "22–0", "3rd", or nothing for a game without a score. */
+const scoreline = (g: SportGame) => (g.score ? `${g.score.us}–${g.score.them}` : g.place ?? '');
+---
+<table class="w-full border-collapse text-[0.9375rem]">
+  <caption class:list={[hideCaption ? 'sr-only' : 'eyebrow pb-1 pt-4 text-left text-ink-muted']}>{caption}</caption>
+  <thead class="sr-only">
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Opponent</th>
+      <th scope="col" class="hidden sm:table-cell">Where</th>
+      <th scope="col">{last}</th>
+    </tr>
+  </thead>
+  <tbody class="divide-y divide-line-soft border-y border-line-soft">
+    {games.map((g) => {
+      const played = Boolean(g.result || g.score || g.place);
+      const isNext = g.url === next;
+      return (
+        <tr class:list={[isNext && 'bg-paper']}>
+          <td class="whitespace-nowrap py-3 pr-3 align-baseline text-ink-muted">
+            <time datetime={g.time && !played ? `${g.date}T${g.time}` : g.date}>{g.date === today ? 'Today' : formatDayShort(day(g))}</time>
+          </td>
+          <td class="py-3 pr-3 align-baseline">
+            <a href={g.url} rel="noopener" class="font-semibold text-ink underline decoration-primary-line underline-offset-2 hover:text-primary">
+              <span class="font-normal text-ink-muted">{where(g)}</span> {g.opponent}
+            </a>
+            {isNext && <span class="ml-2 rounded-full bg-primary px-2 py-0.5 text-[0.6875rem] font-bold uppercase tracking-eyebrow text-white">Next</span>}
+          </td>
+          <td class="hidden py-3 pr-3 align-baseline text-ink-muted sm:table-cell">{placeText(g)}</td>
+          <td class="whitespace-nowrap py-3 text-right align-baseline">
+            {played ? (
+              <span class="inline-flex items-center justify-end gap-2">
+                {g.result && <span class:list={['inline-flex h-6 w-6 items-center justify-center rounded-full text-[0.75rem] font-bold', PILL[g.result]]} aria-hidden="true">{g.result}</span>}
+                <span class="font-semibold tabular-nums">{g.result ? <span class="sr-only">{RESULT_WORD[g.result]} </span> : null}{scoreline(g)}</span>
+              </span>
+            ) : g.time ? (
+              <span class="text-ink">{formatTime(day(g))}</span>
+            ) : (
+              <span class="text-ink-muted">Time TBA</span>
+            )}
+          </td>
+        </tr>
+      );
+    })}
+  </tbody>
+</table>

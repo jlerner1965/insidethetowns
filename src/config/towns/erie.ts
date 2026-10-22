@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 export const erie: TownConfig = {
   kind: 'town',
@@ -43,7 +43,6 @@ export const erie: TownConfig = {
   social: {
     email: 'hello@insideerie.com',
   },
-  nav: DEFAULT_TOWN_NAV,
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Erie,-CO_rb/' },

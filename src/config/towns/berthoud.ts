@@ -55,29 +55,12 @@ export const berthoud: TownConfig = {
   home: {
     signature: 'families',
     purpose: 'What’s on this week, what your family can join, and who handles what in town.',
-    photo: {
-      image: 'berthoud-town-park-playground.webp',
-      alt: 'Families on the inclusive playground at Berthoud Town Park, on 7th Street downtown',
-      credit: 'Town of Berthoud',
-    },
     secondary: { label: 'Berthoud Families', href: '/families/' },
     accentName: 'gold',
   },
-  footer: 'compact',
-  // The pill row of the flagship masthead (redesign of 22 October 2026):
-  // the week, the family hub, the Spartans (src/config/school-sports.ts),
-  // Living Here and the places. Events, Things to Do, Guides and Moving
-  // Here keep their pages and sit in the footer and on Living Here.
-  nav: [
-    { label: 'This week', href: '/this-week/' },
-    { label: 'Families', href: '/families/' },
-    { label: 'Spartans', href: '/sports/' },
-    { label: 'Living here', href: '/living-here/' },
-    { label: 'Eat & drink', href: '/eat-drink/' },
-  ],
   families: {
     label: 'Berthoud Families',
-    intro: 'What a child can join, what closes soon, and what there is on a school day off: the library, Berthoud Recreation, the schools and the organizers’ own pages, each with the day it was read.',
+    intro: 'What Berthoud kids can join, what closes soon, and the school days off.',
     schools: [
       {
         district: 'Thompson School District R2-J',
@@ -102,11 +85,13 @@ export const berthoud: TownConfig = {
     ],
   },
   participation: {
-    label: 'Join Something',
-    intro: 'The standing ways into Berthoud: a run club that asks nothing but shoes, groups at the library, the Historical Society, the Town’s boards, and the people who put on the downtown year. Each line says what it costs, what to bring and how to make a first inquiry.',
+    // One name for the route on every guide (navigation audit, 22 October
+    // 2026): it was "Join Something" here and "Get Involved" on Niwot.
+    label: 'Get involved',
+    intro: 'Clubs, boards, volunteering and groups in Berthoud, and how to join each.',
   },
   livingHere: {
-    intro: 'Who handles what in Berthoud, as links to the right page of each official site. Two things depend on the address rather than the town: the electric provider and, on the Weld County side, the school district.',
+    intro: 'Who handles what in Berthoud, with the official page for each.',
     sections: [
       {
         title: 'Utilities',

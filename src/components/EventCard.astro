@@ -98,9 +98,10 @@ const note =
 >
   {showDate ? (
     <time datetime={toIsoLocal(data.start)} class="flex flex-col pt-0.5">
+      {/* Weekday, month, day, the order of every other date on the page (WeekEventRow). */}
       <span class="eyebrow">{running ? 'Until' : badge.weekday}</span>
-      <span class="font-heading text-[2.25rem] font-medium leading-none tabular-nums text-primary md:text-[2.5rem]">{badge.day}</span>
       <span class="text-xs font-medium uppercase tracking-[0.1em] text-ink-muted">{badge.month}</span>
+      <span class="font-heading text-[2.25rem] font-medium leading-none tabular-nums text-primary md:text-[2.5rem]">{badge.day}</span>
     </time>
   ) : (
     <time

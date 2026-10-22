@@ -3,22 +3,21 @@
  * October): what their
  * configs promise the pages, checked so a config edit cannot quietly break
  * a hub. Every link on Living Here is an official page or a path on the
- * guide, every school break names its source and its check date, the home
- * page's photograph has its licence row, and the navigation names the hubs
- * the config switches on.
+ * guide, every school break names its source and its check date, and the
+ * navigation names the hubs the config switches on.
  */
-import { schoolSportsFor } from '../src/config/school-sports.ts';
+import { schoolsFor } from '../src/config/school-sports.ts';
+import { townNav } from '../src/lib/nav.ts';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import { towns } from '../src/config/towns/registry.ts';
 import { hubRoutes } from '../src/integrations/town-routes.ts';
 
 const FLAGSHIPS = ['berthoud', 'niwot', 'lyons'];
 const by = (slug: string) => towns.find((t) => t.slug === slug)!;
-const licences = readFileSync('IMAGE_LICENSES.csv', 'utf8');
 
-test('each flagship has the flagship layout, the three hubs and a compact footer; no other guide does', () => {
+test('each flagship has the flagship layout and the three hubs; no other guide does', () => {
   for (const t of towns) {
     const flagship = FLAGSHIPS.includes(t.slug);
     assert.equal(!!t.home, flagship, `${t.slug}: home`);
@@ -26,20 +25,29 @@ test('each flagship has the flagship layout, the three hubs and a compact footer
     // The participation hub is a flagship's to have or not: Lyons has none yet.
     if (!flagship) assert.equal(!!t.participation, false, `${t.slug}: participation`);
     assert.equal(!!t.families, flagship, `${t.slug}: families`);
-    assert.equal(t.footer === 'compact', flagship, `${t.slug}: footer`);
   }
   assert.equal(by('berthoud').home!.signature, 'families');
   assert.equal(by('niwot').home!.signature, 'get-involved');
   assert.equal(by('lyons').home!.signature, 'families');
 });
 
-test('the flagship navigation is the five pills: the week, the family hub, the school’s mascot, Living Here and the places', () => {
-  for (const slug of FLAGSHIPS) {
-    const t = by(slug);
-    const hrefs = t.nav.map((n) => n.href);
-    assert.deepEqual(hrefs, ['/this-week/', '/families/', '/sports/', '/living-here/', '/eat-drink/'], slug);
-    assert.equal(t.nav.find((n) => n.href === '/sports/')?.label, schoolSportsFor(slug)?.mascot, `${slug}: the pill is the mascot`);
+test('every guide has the same menu, built from what it has: the week, events, its school, the places, its hub and Living here or Moving here', () => {
+  for (const t of towns) {
+    const nav = townNav(t);
+    const labels = nav.map((n) => n.label);
+    assert.deepEqual(nav.slice(0, 2).map((n) => n.href), ['/this-week/', '/events/'], `${t.slug}: the week and events lead`);
+    const sports = nav.find((n) => n.href === '/sports/');
+    assert.equal(!!sports, schoolsFor(t.slug).length > 0, `${t.slug}: a sports item exactly where there is a school`);
+    if (sports) assert.match(sports.label, /\bsports$/, `${t.slug}: "${sports.label}" says sports`);
+    assert.ok(nav.some((n) => n.href === (t.families ? '/families/' : '/things-to-do/')), `${t.slug}: hub or things to do`);
+    assert.ok(nav.some((n) => n.href === (t.livingHere ? '/living-here/' : '/moving-here/')), `${t.slug}: living or moving here`);
+    for (const l of labels) assert.equal(l, l[0] + l.slice(1).replace(/\b[A-Z][a-z]/g, (w) => (/^(Golden|Eagles|Frederick)$/.test(w) ? w : w.toLowerCase())), `${t.slug}: "${l}" is in sentence case`);
   }
+  assert.deepEqual(townNav(by('berthoud')).map((n) => n.label), ['This week', 'Events', 'Spartans sports', 'Eat & drink', 'Families', 'Living here']);
+  assert.equal(townNav(by('lyons')).find((n) => n.href === '/sports/')?.label, 'Lions sports');
+  assert.equal(townNav(towns.find((t) => t.slug === 'carbon-valley')!).find((n) => n.href === '/sports/')?.label, 'Frederick sports');
+  assert.equal(townNav(towns.find((t) => t.slug === 'loveland')!).find((n) => n.href === '/sports/')?.label, 'High school sports');
+  assert.deepEqual(townNav(towns.find((t) => t.slug === 'erie')!).map((n) => n.label), ['This week', 'Events', 'Eat & drink', 'Things to do', 'Moving here']);
 });
 
 test('the purpose line is enduring: no dated civic topic in the masthead or the short tagline', () => {
@@ -83,20 +91,6 @@ test('school breaks come from the district calendar, dated, sourced and in order
   assert.ok(by('lyons').families!.breaks.some((b) => b.from === '2026-11-23' && b.to === '2026-11-27'));
 });
 
-test('the home page photograph is a file with a licence row, credited where the licence asks', () => {
-  for (const slug of FLAGSHIPS) {
-    const { photo } = by(slug).home!;
-    // The option-B home page draws no photograph; a guide may have none.
-    if (!photo) continue;
-    assert.ok(licences.includes(`content/${slug}/images/${photo.image}`), `${slug}: ${photo.image} has no licence row`);
-    assert.ok(photo.alt.length > 20, `${slug}: alt text`);
-  }
-  // Second Avenue is CC BY-SA and needs its credit; the Town's playground photograph is credited as a courtesy.
-  assert.match(by('niwot').home!.photo?.credit ?? '', /CC BY-SA/);
-  assert.match(by('berthoud').home!.photo?.credit ?? '', /Town of Berthoud/);
-  assert.equal(by('lyons').home!.photo, undefined, 'no photograph was chosen for Lyons; none is invented');
-});
-
 test('the hub routes follow the config and the content: both hubs, local changes, and people only where a profile is published', () => {
   for (const slug of FLAGSHIPS) {
     const patterns = hubRoutes(by(slug)).map(([p]) => p);
@@ -118,4 +112,14 @@ test('the About page names who runs the guide, in verified words: James Lerner, 
   assert.match(berthoud, /not a Berthoud resident/);
   assert.match(berthoud, /Lerner Works/);
   assert.equal(by('niwot').about!.photo, undefined, 'no portrait exists; none is invented');
+});
+
+test('the hub pages open on an intro of fifteen words or fewer', () => {
+  for (const town of towns) {
+    for (const [page, intro] of [['families', town.families?.intro], ['get-involved', town.participation?.intro], ['living-here', town.livingHere?.intro]] as const) {
+      if (!intro) continue;
+      const words = intro.split(/\s+/).filter(Boolean).length;
+      assert.ok(words <= 15, `${town.slug} /${page}/ intro is ${words} words: ${intro}`);
+    }
+  }
 });

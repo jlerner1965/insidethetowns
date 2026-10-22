@@ -20,6 +20,7 @@
  * twice.
  */
 import NetworkEventCard from './NetworkEventCard.astro';
+import SectionHeader from './SectionHeader.astro';
 import SponsorLine from './SponsorLine.astro';
 import { getNetworkHub, neighborsOf, type TownConfig } from '@/config';
 import { getNeighborEntries } from '@/lib/content';
@@ -51,8 +52,10 @@ const signup = hub.newsletter
 {picks.length > 0 && (
   <section class={className} data-hide-when-empty data-pagefind-ignore aria-labelledby="nearby-weekend">
     <SponsorLine sponsor={sponsorLine} label="Nearby this weekend, presented by" />
-    <h2 id="nearby-weekend" class:list={['eyebrow border-b-2 border-accent pb-4', sponsorLine && 'mt-5']}>Nearby this weekend · {formatDayRange(start, sunday)}</h2>
-    <div class="mt-6 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+    <div class:list={[sponsorLine && 'mt-5']}>
+      <SectionHeader id="nearby-weekend" eyebrow={formatDayRange(start, sunday)} title="Nearby this weekend" />
+    </div>
+    <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
       {picks.map((event) => <NetworkEventCard event={event} showDay showTagline />)}
     </div>
     {signup && (

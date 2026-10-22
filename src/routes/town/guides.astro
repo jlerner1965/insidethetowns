@@ -8,6 +8,7 @@
  * more in its third year than its first week, and this is where it lives.
  */
 import Page from '@/layouts/Page.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
@@ -63,7 +64,7 @@ const structured = [
       // half empty, section after section; a lone one runs the full width.
       return (
         <section class="mt-14 first:mt-0">
-          <h2 class="eyebrow mb-8 border-b-2 border-accent pb-4">{category}</h2>
+          <SectionHeader title={category} />
           {list.length === 1 ? (
             <ArticleCard article={list[0]} row showCategory={false} />
           ) : (

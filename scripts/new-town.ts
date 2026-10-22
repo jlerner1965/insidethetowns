@@ -52,7 +52,7 @@ const hash = [...slug].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
 const [primary, accent] = palette[hash % palette.length]!;
 const ident = slug.replace(/-([a-z0-9])/g, (_, c: string) => c.toUpperCase());
 
-const configSource = `import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+const configSource = `import type { TownConfig } from './types.ts';
 
 // TODO: fill in the real values (lat/lng, counties, region, neighbors, population, links) before launch.
 export const ${ident}: TownConfig = {
@@ -84,7 +84,6 @@ export const ${ident}: TownConfig = {
   social: {
     email: 'hello@inside${slug.replace(/-/g, '')}.com',
   },
-  nav: DEFAULT_TOWN_NAV,
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/${encodeURIComponent(name)},-CO_rb/' },

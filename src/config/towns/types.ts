@@ -108,10 +108,11 @@ export interface ResourceLink {
  * /living-here/: which body handles what, as links to the right page of
  * each official site, grouped the way a resident asks. Town-specific
  * entirely: the route and the layout are shared, every word here is the
- * town's. Each section carries the day its links were read.
+ * town's. Each section carries the day its links were read; the page says
+ * the range once, under its title.
  */
 export interface LivingHereConfig {
-  /** One or two sentences under the title. */
+  /** Fifteen words or fewer, saying what is on the page (navigation audit, 22 October 2026). */
   intro: string;
   sections: ReadonlyArray<{
     title: string;
@@ -126,20 +127,15 @@ export interface LivingHereConfig {
 /**
  * The home page's flagship layout (src/components/home/FlagshipHome.astro),
  * for a guide the owner has decided to give the effort: the header as a
- * masthead with the pill row, the week as the page, every other hub as one
- * link, the email. A guide without it keeps the shared home page as it was.
+ * band in the town's colour, the introduction with the purpose line and
+ * the school's games, the week, every other hub as one link, the email. A
+ * guide without it has the classic home, on the same recipe.
  */
 export interface HomeConfig {
-  /** Which resident hub is the town's signature section on the home page. */
+  /** Which resident hub leads "On this guide" on the home page. */
   signature: 'families' | 'get-involved';
   /** The enduring line under the town's name: what the guide is for, never a dated topic. */
   purpose: string;
-  /**
-   * A photograph for the introduction: a file in content/<slug>/images/,
-   * with its row in IMAGE_LICENSES.csv. The option-B home page of 22
-   * October 2026 draws none; the field stays for a guide that has one.
-   */
-  photo?: HeroConfig;
   /** The second button under the introduction, after "This week". */
   secondary: { label: string; href: string };
   /** The accent's name, for the design notes and nothing else: the colour itself is `colors.accent`. */
@@ -148,12 +144,13 @@ export interface HomeConfig {
 
 /**
  * /get-involved/: the participation hub. The route is the same on every
- * guide that has one; the title is the town's ("Get involved in Niwot",
- * "Join something in Berthoud").
+ * guide that has one, and so is the name: "Get involved in Niwot", "Get
+ * involved in Berthoud".
  */
 export interface ParticipationConfig {
-  /** The nav label and the page's name: "Get Involved", "Join Something". */
+  /** The page's name, "Get involved" on every guide that has the page. */
   label: string;
+  /** Fifteen words or fewer, saying what is on the page (navigation audit, 22 October 2026). */
   intro: string;
 }
 
@@ -164,6 +161,7 @@ export interface ParticipationConfig {
  */
 export interface FamiliesConfig {
   label: string;
+  /** Fifteen words or fewer, saying what is on the page (navigation audit, 22 October 2026). */
   intro: string;
   /** The districts a town's children may be in, each with its boundary lookup. */
   schools: ReadonlyArray<ResourceLink & { district: string }>;
@@ -313,8 +311,6 @@ export interface TownConfig {
   fonts?: { heading?: string; body?: string };
   hero: HeroConfig;
   social: SocialLinks;
-  /** Primary navigation. Override per town if needed. */
-  nav: NavItem[];
   movingHere: {
     /** Zillow/Redfin/etc. link-outs. */
     listingsLinks: Array<{ label: string; url: string }>;
@@ -347,8 +343,6 @@ export interface TownConfig {
   participation?: ParticipationConfig;
   families?: FamiliesConfig;
   about?: AboutConfig;
-  /** 'compact': the footer's network strip names the neighbours and the hub, not every guide. Default 'full'. */
-  footer?: 'full' | 'compact';
   /** Formspree form id for the contact form. Without it the contact page falls back to mailto. */
   formspreeId?: string;
   ga4Id?: string;
@@ -569,22 +563,11 @@ export interface NewsletterEdition {
 
 export type SiteConfig = TownConfig | HubConfig;
 
-/**
- * Default navigation for a town site. Towns can override `nav` in their config.
- *
- * Five sections (owner, 10 October 2026: eight items read as too many). This
- * Week and Directory keep their pages and move to the footer: the home page
- * opens on the week and links "All places", the events page has a "This
- * weekend" filter, and Eat & Drink and Things to Do hold the directory's
- * places by kind. "Towns" is not a section and sits apart, beside search.
+/*
+ * A town guide's navigation is not configured: it follows from what the
+ * guide has (src/lib/nav.ts, townNav), so a new school or hub reaches the
+ * menu without a list to edit. The hub keeps its own `nav`.
  */
-export const DEFAULT_TOWN_NAV: NavItem[] = [
-  { label: 'Events', href: '/events/' },
-  { label: 'Eat & Drink', href: '/eat-drink/' },
-  { label: 'Things to Do', href: '/things-to-do/' },
-  { label: 'Guides', href: '/guides/' },
-  { label: 'Moving Here', href: '/moving-here/' },
-];
 
 /**
  * "Boulder County", or "Weld and Boulder counties" where the town spans two.

@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 /**
  * The network's first mountain guide. A Larimer County statutory town of
@@ -93,7 +93,6 @@ export const estesPark: TownConfig = {
   social: {
     email: 'hello@insideestespark.com',
   },
-  nav: DEFAULT_TOWN_NAV,
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Estes-Park,-CO_rb/' },

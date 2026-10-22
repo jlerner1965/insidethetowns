@@ -11,6 +11,8 @@
 import Page from '@/layouts/Page.astro';
 import ProgramRow from '@/components/ProgramRow.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
+import CheckedLine from '@/components/CheckedLine.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { byName, isWayIn } from '@/lib/programs';
@@ -43,6 +45,7 @@ const structured = [
 ];
 ---
 <Page title={`${participation.label} in ${town.name}`} seoTitle={`${participation.label} in ${town.name}, CO: clubs, volunteering, meetings`} eyebrow={town.name} {description} intro={participation.intro} jsonLd={structured} kind="Guide">
+  <CheckedLine slot="after-header" dates={programs.map((p) => p.data.verified)} />
   <nav slot="after-header" aria-label="On this page" class="mt-6 flex flex-wrap gap-x-5 gap-y-1 text-[0.9375rem]">
     {groups.map((g) => <a href={`#${g.kind}`} class="inline-block -my-1 py-1 font-semibold text-primary underline">{GROUP_LABELS[g.kind] ?? PROGRAM_KIND_LABELS[g.kind]}</a>)}
   </nav>
@@ -54,8 +57,8 @@ const structured = [
       <div class="min-w-0">
         {groups.map((g, i) => (
           <section id={g.kind} class:list={['scroll-mt-4', i > 0 && 'mt-14']} aria-labelledby={`${g.kind}-h`}>
-            <h2 id={`${g.kind}-h`} class="eyebrow border-b-2 border-accent pb-3">{GROUP_LABELS[g.kind] ?? PROGRAM_KIND_LABELS[g.kind]}</h2>
-            <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+            <SectionHeader id={`${g.kind}-h`} title={GROUP_LABELS[g.kind] ?? PROGRAM_KIND_LABELS[g.kind]!} />
+            <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
               {g.programs.map((p) => <ProgramRow program={p} showKind={false} />)}
             </div>
           </section>
@@ -68,7 +71,7 @@ const structured = [
             <li><strong class="text-ink">Newcomers welcome</strong> is said only where the organizer says it.</li>
             <li><strong class="text-ink">Members and their guests</strong> means a meeting a non-member does not simply walk into.</li>
             <li>A room booked at a hall is a booking, not an invitation; the times here are the organizer's, not the hall's.</li>
-            <li>{published} of the {programs.length} entries say newcomers are welcome. Every entry names its source and the day it was read.</li>
+            <li>{published} of the {programs.length} entries say newcomers are welcome. Every entry links its source.</li>
           </ul>
         </div>
         <div class="rounded-lg bg-raised p-6 ring-1 ring-line-soft">

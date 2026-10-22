@@ -11,6 +11,7 @@ import { crossCheck, dedupeToCome, gamesToCome, keepPrevious, sameSchool } from 
 import { SCHOOL_SPORTS, schoolSportsFor, schoolsFor, sportsDataFile, sportsPath, type SportsData } from '../src/config/school-sports.ts';
 import { sportsRoutes } from '../src/integrations/town-routes.ts';
 import { findTown } from '../src/config/index.ts';
+import { townNav } from '../src/lib/nav.ts';
 import { nextGames, placeText } from '../src/lib/school-sports.ts';
 
 const berthoud = schoolSportsFor('berthoud')!;
@@ -190,16 +191,16 @@ test('a team whose page failed keeps its previous entry, its date included', () 
   assert.equal(niwot.calendar, undefined, 'Niwot has no calendar a machine may read');
 });
 
-test('the big game of the week is the first team in config order with a game in the next seven days', async () => {
+test('the next game is the soonest of any team, a Thursday match before Friday football', async () => {
   const { bigGame, coming } = await import('../src/lib/school-sports.ts');
   const game = (date: string, opponent: string) => ({ date, time: '19:00', opponent, site: 'away' as const, url: `https://x/${opponent}/` });
   const team = (key: string, upcoming: ReturnType<typeof game>[]) => ({ key, name: key, maxprepsUrl: '', results: [], upcoming, held: [], notes: [] });
   const now = new Date('2026-10-21T18:00:00Z');
   const data = { generated: '', sports: [team('football', [game('2026-10-23', 'Mountain View'), game('2026-10-30', 'Severance')]), team('soccer', [game('2026-10-22', 'Sterling')])] };
-  assert.equal(bigGame(data, now)!.game.opponent, 'Mountain View', 'Friday football over Thursday soccer');
+  assert.equal(bigGame(data, now)!.game.opponent, 'Sterling', 'Thursday soccer before Friday football');
   assert.deepEqual(coming(data).map((c) => c.game.opponent), ['Sterling', 'Mountain View', 'Severance'], 'the list stays chronological');
   const later = { generated: '', sports: [team('football', [game('2026-11-06', 'Playoff')]), team('soccer', [game('2026-10-29', 'Valley')])] };
-  assert.equal(bigGame(later, now)!.game.opponent, 'Valley', 'nothing for football this week: the soonest game leads');
+  assert.equal(bigGame(later, now)!.game.opponent, 'Valley', 'the soonest game leads, a week out or not');
   const past = { generated: '', sports: [team('football', [game('2026-10-16', 'Greeley Central')])] };
   assert.equal(bigGame(past, now), undefined, 'a game already played is not next');
 });
@@ -445,16 +446,23 @@ test('a town with one school keeps /sports/ and sports.json; Loveland’s four e
   ]);
 });
 
-test('every school is one entry with its own file, and its town’s nav carries it in the third slot', () => {
+test('every school is one entry with its own file, and its town’s menu carries it in the third slot', () => {
   const files = SCHOOL_SPORTS.map(sportsDataFile);
   assert.equal(new Set(files).size, files.length, 'no two schools share a file');
   for (const town of new Set(SCHOOL_SPORTS.map((s) => s.town))) {
     const schools = schoolsFor(town);
     const sluggish = schools.filter((s) => s.slug).length;
     assert.ok(sluggish === 0 ? schools.length === 1 : sluggish === schools.length, `${town}: either one school without a slug or several each with one`);
-    const nav = findTown(town)!.nav;
-    assert.equal(nav[2]?.href, '/sports/', `${town}: the school is the third nav item`);
-    assert.equal(nav[2]?.label, schools.length === 1 ? schools[0]!.mascot : 'Sports', `${town}: the label is the mascot, or "Sports" for several schools`);
+    const nav = townNav(findTown(town)!);
+    assert.equal(nav[2]?.href, '/sports/', `${town}: the school is the third menu item`);
+    assert.equal(nav[2]?.label, schools.length === 1 ? (schools[0]!.navLabel ?? `${schools[0]!.mascot} sports`) : 'High school sports', `${town}: the label says sports`);
     for (const s of schools) assert.ok(s.calendar || s.calendarNote, `${s.school}: a calendar to check against, or a note saying why not`);
   }
+});
+
+test('a result MaxPreps lists twice is shown once; a doubleheader stays two games', async () => {
+  const { dedupeResults } = await import('../src/lib/school-sports.ts');
+  const g = (c: string, us: number, them: number) => ({ date: '2026-10-17', opponent: 'Air Academy', site: 'neutral' as const, result: us > them ? ('W' as const) : ('L' as const), score: { us, them }, url: `https://x/?c=${c}` });
+  assert.equal(dedupeResults([g('a', 6, 22), g('b', 6, 22)]).length, 1, 'the same game under two contest ids');
+  assert.equal(dedupeResults([g('a', 4, 15), g('b', 9, 17)]).length, 2, 'a doubleheader');
 });

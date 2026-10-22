@@ -35,11 +35,11 @@ const structured = [
   }),
   breadcrumbJsonLd(town, [
     { name: town.name, path: '/' },
-    { name: 'Things to Do', path: '/things-to-do/' },
+    { name: 'Things to do', path: '/things-to-do/' },
   ]),
 ];
 ---
-<Page title="Things to Do" jsonLd={structured} seoTitle={`Things to do in ${town.name}, Colorado`} eyebrow={town.name} {description} intro={`Trails, parks and places worth an afternoon in and around ${town.name}.`}>
+<Page title="Things to do" jsonLd={structured} seoTitle={`Things to do in ${town.name}, Colorado`} eyebrow={town.name} {description} intro={`Trails, parks and places worth an afternoon in and around ${town.name}.`}>
   <SubTownLinks slot="after-header" class="mt-5" />
   {conditionsLinks.length > 0 && (
     <aside slot="after-header" class="mt-6 max-w-2xl rounded-lg border-l-4 border-accent bg-raised p-5 ring-1 ring-line-soft" aria-labelledby="roads">

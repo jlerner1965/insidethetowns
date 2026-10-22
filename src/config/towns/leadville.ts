@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 /**
  * The Lake County seat, a statutory city of 2,633 at the 2020 census and,
@@ -95,7 +95,6 @@ export const leadville: TownConfig = {
   social: {
     email: 'hello@insideleadville.com',
   },
-  nav: DEFAULT_TOWN_NAV,
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Leadville,-CO_rb/' },

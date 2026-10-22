@@ -16,7 +16,9 @@ export const hub: HubConfig = {
   // and two of the guides cover a few neighbouring communities together
   // (audit of 13 October 2026, F06).
   tagline: 'Independent community guides to Colorado’s towns, on the Front Range and in the mountains.',
-  seoTagline: 'Colorado town guides: Front Range & mountains',
+  // "to", not "&": a text fetch showed the title's "&amp;" raw (navigation
+  // audit, 22 October 2026), and "and" runs the title past 65 characters.
+  seoTagline: 'Colorado town guides: Front Range to mountains',
   colors: {
     // Front Range blue + sage, on warm paper: Color System 2.0, 9 October 2026.
     primary: '#24455D',
@@ -68,7 +70,7 @@ export const hub: HubConfig = {
   publisher: { name: 'Lerner Works', url: 'https://lernerworks.com' },
   nav: [
     { label: 'This Weekend', href: '/this-weekend/' },
-    { label: 'Moving Here', href: '/moving/' },
+    { label: 'Moving here', href: '/moving/' },
     { label: 'Newsletter', href: '/newsletter/' },
     { label: 'Towns', href: '/#towns' },
     { label: 'About', href: '/about/' },

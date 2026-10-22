@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 /**
  * A Boulder County statutory town of 1,471 at the 2020 census, 8,235 feet up
@@ -94,7 +94,6 @@ export const nederland: TownConfig = {
   social: {
     email: 'hello@insidenederland.com',
   },
-  nav: DEFAULT_TOWN_NAV,
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Nederland,-CO_rb/' },

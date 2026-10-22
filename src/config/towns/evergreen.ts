@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 /**
  * An unincorporated Jefferson County community of 9,307 at the 2020 census
@@ -88,7 +88,6 @@ export const evergreen: TownConfig = {
   social: {
     email: 'hello@insideevergreenco.com',
   },
-  nav: DEFAULT_TOWN_NAV,
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Evergreen,-CO_rb/' },
