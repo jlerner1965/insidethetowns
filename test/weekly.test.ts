@@ -9,7 +9,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { dayKey, parseLocal } from '../src/lib/dates.ts';
 import { occurrences } from '../src/lib/events.ts';
-import { activeChanges, currentNotes, currentPick, hasEnded, isBacklog, isWeekend, pickSlug, upcomingEvents, weekEvents, weekWindow, weekendEvents } from '../src/lib/weekly.ts';
+import { activeChanges, briefingUpdates, corrections, currentNotes, currentPick, hasEnded, isBacklog, isWeekend, pickSlug, upcomingEvents, weekEvents, weekWindow, weekendEvents } from '../src/lib/weekly.ts';
+import type { UpdateData } from '../src/content/schemas.ts';
 
 const at = (s: string) => parseLocal(s);
 
@@ -295,3 +296,52 @@ test('a change that happened long before the guide noticed is a backlog item, to
   const out = activeChanges(files, at('2026-10-21'));
   assert.deepEqual(out.map((c) => [c.name, c.backlog]), [['Old shop', true], ['New shop', false]]);
 });
+
+// ------------------------------------------- old changes and the week's briefing
+
+function update(title: string, over: Partial<UpdateData> & Pick<UpdateData, 'effective' | 'published'>) {
+  const data: UpdateData = { title, kind: 'notice', stage: 'scheduled', summary: 'x', affects: 'y', featured: false, ...over };
+  return { slug: title.toLowerCase().replace(/\W+/g, '-'), data };
+}
+
+test('a closure from 2024 verified this month is not a thing to know this week, however fresh its check', () => {
+  // Fly Away Home closed on December 24, 2024; the guide found out on October 7,
+  // 2026, and "Things to know this week" led with it (weekly audit, 22 October 2026).
+  const now = at('2026-10-22T12:00');
+  const old = update('Fly Away Home closed in December 2024', { kind: 'closure', stage: 'complete', effective: at('2024-12-24'), published: at('2026-10-07'), verified: at('2026-10-21'), expires: at('2026-10-26') });
+  const moved = update('Niles Family Dentistry has moved', { kind: 'move', stage: 'complete', effective: at('2026-09-01'), published: at('2026-10-21'), verified: at('2026-10-17') });
+  const road = update('CO 119 medians closed', { kind: 'construction', stage: 'underway', effective: at('2026-10-18'), effectiveEnd: at('2026-10-25'), published: at('2026-10-21') });
+  const vote = update('The vote is November 3', { kind: 'decision', effective: at('2026-11-03'), published: at('2026-10-21'), expires: at('2026-11-03'), featured: true });
+  const fresh = update('Opened last week', { kind: 'opening', stage: 'complete', effective: at('2026-10-15'), published: at('2026-10-21') });
+  assert.deepEqual(briefingUpdates([old, moved, road, vote, fresh], now).map((u) => u.data.title), ['The vote is November 3', 'CO 119 medians closed', 'Opened last week']);
+  // The road closure stays through its last day and leaves the morning after.
+  assert.ok(briefingUpdates([road], at('2026-10-25T22:00')).length === 1, 'an ongoing notice keeps to its real end date');
+  assert.equal(briefingUpdates([road], at('2026-10-26T08:00')).length, 0);
+});
+
+test('the corrections section lists each business once: the update stands, the notes item that names the same business is folded into it', () => {
+  const notes = [
+    notesFile('2026-10-05', [{ tag: 'closed', name: 'Fly Away Home', detail: 'Closed December 24, 2024', source: 'https://lhvc.com/x', effective: '2024-12-24', checked: '2026-10-07', expires: '2026-10-26' }]),
+    notesFile('2026-10-19', [
+      { tag: 'moved', name: 'Niles Family Dentistry', detail: 'Moved', source: 'https://www.nilesfamilydentistry.com/', effective: '2026-09-01', checked: '2026-10-17', expires: '2026-11-02' },
+      { tag: 'moved', name: 'Niwot Pizza (formerly Lefty’s)', detail: 'Moved to Longmont', source: 'https://niwotpizza.com/', checked: '2026-10-15', expires: '2026-11-02' },
+      { tag: 'closed', name: 'Some Other Shop', detail: 'Closed in June', source: 'https://example.org/', effective: '2026-06-01', checked: '2026-10-17', expires: '2026-11-02' },
+    ]),
+  ];
+  const now = at('2026-10-22T12:00');
+  const changes = activeChanges(notes, now);
+  const backlog = changes.filter((c) => c.backlog);
+  assert.deepEqual(backlog.map((c) => c.name), ['Niles Family Dentistry', 'Some Other Shop', 'Fly Away Home']);
+  const late = [
+    update('Fly Away Home closed in December 2024', { kind: 'closure', stage: 'complete', effective: at('2024-12-24'), published: at('2026-10-07'), item: '/places/fly-away-home/' }),
+    update('Niles Family Dentistry has moved to 364 Second Avenue', { kind: 'move', stage: 'complete', effective: at('2026-09-01'), published: at('2026-10-21') }),
+  ];
+  const out = corrections(backlog, late);
+  assert.deepEqual(out.updates.map((u) => u.data.title), late.map((u) => u.data.title));
+  assert.deepEqual(out.changes.map((c) => c.name), ['Some Other Shop'], 'only the item no update covers is left');
+  assert.ok(!changes.filter((c) => !c.backlog).some((c) => c.name === 'Fly Away Home'), 'and it is not in New & closed either');
+});
+
+function notesFile(weekOf: string, changes: Array<Record<string, unknown>>) {
+  return notes(weekOf, undefined, changes);
+}

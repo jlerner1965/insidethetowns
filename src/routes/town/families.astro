@@ -1,23 +1,28 @@
 ---
 /**
- * The family hub (/families/): what closes soon, what a child can join by
- * age, what there is on a school day off, the free things, and which
+ * The family hub (/families/): what closes or opens in the next fortnight,
+ * what a child can join by age, the parents' side (schools, passes,
+ * volunteering), the organizations a family can join, what there is on a
+ * school day off, the free things, what is coming up later, and which
  * school, from content/<town>/programs/ and the district calendar in the
- * town's config (the redesign of 22 October 2026). Three age sections,
- * each program once under the first it fits (src/lib/programs.ts,
- * familyAgeGroups), every program with its own anchor so the home page's
- * cards land on it. A section with nothing in it is not drawn.
+ * town's config (the redesign of 22 October 2026; the family audit the
+ * same day). Three age sections, each child's activity once under the
+ * group most of its ages fall in and named again under every other group
+ * it reaches (src/lib/programs.ts, familyAgeGroups), every program with
+ * its own anchor so the home page's cards land on it. A section with
+ * nothing in it is not drawn. Every day count is a Denver calendar day.
  */
 import Page from '@/layouts/Page.astro';
 import DeadlineCard from '@/components/DeadlineCard.astro';
+import DeadlineList from '@/components/DeadlineList.astro';
 import ProgramRow from '@/components/ProgramRow.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import CheckedLine from '@/components/CheckedLine.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { formatDayRange, formatDayShort, parseLocal } from '@/lib/dates';
-import { familyAgeGroups, isForFamilies, onePerProgram, upcomingDeadlines } from '@/lib/programs';
+import { dayKey, formatDayRange, formatDayShort, parseLocal } from '@/lib/dates';
+import { SOON_DAYS, ageText, familyAgeGroups, familySection, freePrograms, isDropIn, isForFamilies, splitDeadlines } from '@/lib/programs';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -26,15 +31,20 @@ const now = new Date();
 const all = await getTownEntries('programs');
 const programs = all.filter(isForFamilies);
 const events = await getTownEntries('events');
-const deadlines = onePerProgram(upcomingDeadlines(all, { now, days: 60 }));
+const { closingSoon, openingSoon, later } = splitDeadlines(all, { now });
 const eventFor = (slug?: string) => (slug ? events.find((e) => e.slug === slug) : undefined);
-const groups = familyAgeGroups(programs);
-const free = programs.filter((p) => /^free\b/i.test(p.data.price ?? '') || /\$5\b/.test(p.data.price ?? ''));
+const children = programs.filter((p) => familySection(p) === 'children');
+const parents = programs.filter((p) => familySection(p) === 'parents');
+const organizations = programs.filter((p) => familySection(p) === 'organizations');
+const groups = familyAgeGroups(children);
+const free = freePrograms(programs);
 // School breaks still ahead, from the district calendar, in date order,
-// each with the program that says it keeps hours on it (openOn), if one does.
+// each with the program that says it keeps hours on it (openOn), if one
+// does. A break shows through its last day, by the Denver calendar.
+const today = dayKey(now);
 const breaks = [...families.breaks]
   .map((b) => ({ ...b, fromDate: parseLocal(b.from), toDate: parseLocal(b.to) }))
-  .filter((b) => b.toDate.getTime() >= now.getTime() - 86_400_000)
+  .filter((b) => dayKey(b.toDate) >= today)
   .sort((a, b) => a.fromDate.getTime() - b.fromDate.getTime())
   .map((b) => ({
     ...b,
@@ -45,10 +55,14 @@ const breakSources = [...new Map(breaks.map((b) => [b.source, b])).values()];
 const outing = (await getTownEntries('articles')).filter((a) => a.data.category === 'Families').sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
 const description = `${families.label}: what a child can join in ${town.name}, Colorado, by age, with prices, registration deadlines and school-break dates, each from the organizer's own page.`;
 const chips = [
-  ...(deadlines.length > 0 ? [{ id: 'deadlines', label: 'Deadlines' }] : []),
+  ...(closingSoon.length > 0 ? [{ id: 'closing', label: 'Closing soon' }] : []),
+  ...(openingSoon.length > 0 ? [{ id: 'opening', label: 'Opening soon' }] : []),
   ...groups.map((g) => ({ id: `age-${g.group.id}`, label: g.group.label.replace('Ages ', '') })),
+  ...(parents.length > 0 ? [{ id: 'parents', label: 'Parents' }] : []),
+  ...(organizations.length > 0 ? [{ id: 'organizations', label: 'Organizations' }] : []),
   ...(breaks.length > 0 ? [{ id: 'breaks', label: 'Days off' }] : []),
   ...(free.length > 0 ? [{ id: 'free', label: 'Free' }] : []),
+  ...(later.length > 0 ? [{ id: 'later', label: 'Coming up' }] : []),
 ];
 const structured = [
   collectionPageJsonLd(town, { name: `${families.label}: ${town.name}, Colorado`, description, path: '/families/', items: programs.map((p) => ({ name: p.data.title, path: `/families/#program-${p.slug}` })) }),
@@ -58,6 +72,9 @@ const structured = [
   ]),
 ];
 const chip = 'inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full px-4 text-[0.9375rem] font-semibold no-underline ring-1 ring-line transition-colors hover:bg-raised';
+const card = 'flex h-full flex-col rounded-lg bg-raised p-4 no-underline ring-1 ring-line-soft hover:ring-primary-line';
+/** "Drop in", "Sign up", or nothing where the organizer's page did not say. */
+const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in' : isDropIn(p) === false ? 'Sign up' : undefined);
 ---
 <Page title={families.label} seoTitle={`${families.label}: what kids can join in ${town.name}, CO`} eyebrow="Kids, teens and school breaks" {description} intro={families.intro} jsonLd={structured} kind="Guide" narrow>
   <CheckedLine slot="after-header" dates={[...programs.map((p) => p.data.verified), ...breaks.map((b) => b.verified)]} />
@@ -69,27 +86,68 @@ const chip = 'inline-flex min-h-11 shrink-0 items-center whitespace-nowrap round
     </ul>
   </nav>
 
-  {deadlines.length > 0 && (
-    <section id="deadlines" class="mt-10 scroll-mt-20" aria-labelledby="deadlines-h">
-      <SectionHeader id="deadlines-h" title="Closing soon" />
+  {closingSoon.length > 0 && (
+    <section id="closing" class="mt-10 scroll-mt-20" aria-labelledby="closing-h">
+      <SectionHeader id="closing-h" title="Closing soon" eyebrow={`Deadlines in the next ${SOON_DAYS} days`} />
       <div class="space-y-4">
-        {deadlines.map((d) => <DeadlineCard deadline={d} event={eventFor(d.program.data.nextEvent)} now={now} />)}
+        {closingSoon.map((d) => <DeadlineCard deadline={d} event={eventFor(d.program.data.nextEvent)} now={now} />)}
       </div>
     </section>
   )}
 
-  {groups.map(({ group, programs: list }) => (
+  {openingSoon.length > 0 && (
+    <section id="opening" class="mt-10 scroll-mt-20" aria-labelledby="opening-h">
+      <SectionHeader id="opening-h" title="Opening soon" eyebrow={`Registration opens in the next ${SOON_DAYS} days`} />
+      <div class="space-y-4">
+        {openingSoon.map((d) => <DeadlineCard deadline={d} event={eventFor(d.program.data.nextEvent)} now={now} />)}
+      </div>
+    </section>
+  )}
+
+  {groups.map(({ group, programs: list, alsoHere }) => (
     <section id={`age-${group.id}`} class="mt-12 scroll-mt-20" aria-labelledby={`age-${group.id}-h`}>
       <SectionHeader id={`age-${group.id}-h`} title={group.label} />
-      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-        {list.map((p) => <ProgramRow program={p} />)}
-      </div>
+      {list.length > 0 && (
+        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+          {list.map((p) => <ProgramRow program={p} />)}
+        </div>
+      )}
+      {/* A program whose ages reach into this group but is filed under the
+          one most of them fall in: named here with its real range, linked
+          to its row. */}
+      {alsoHere.length > 0 && (
+        <p class:list={['text-[0.9375rem] leading-relaxed text-ink-muted', list.length > 0 ? 'mt-3' : 'mt-0']}>
+          <span class="font-semibold text-ink">Also for this age:</span>{' '}
+          {alsoHere.map((p, i) => (
+            <Fragment>{i > 0 && '; '}<a href={`#program-${p.slug}`} class="text-primary underline">{p.data.title}</a>{ageText(p) && ` (${ageText(p)})`}</Fragment>
+          ))}.
+        </p>
+      )}
     </section>
   ))}
 
   <p class="mt-6">
     <a href="/sports/" class="flex items-center justify-between rounded-lg bg-primary px-5 py-4 font-semibold text-white no-underline hover:bg-primary-hover">High-school sports: schedules and scores <span aria-hidden="true">→</span></a>
   </p>
+
+  {parents.length > 0 && (
+    <section id="parents" class="mt-12 scroll-mt-20" aria-labelledby="parents-h">
+      <SectionHeader id="parents-h" title="For parents: schools, passes and volunteering" />
+      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {parents.map((p) => <ProgramRow program={p} />)}
+      </div>
+    </section>
+  )}
+
+  {organizations.length > 0 && (
+    <section id="organizations" class="mt-12 scroll-mt-20" aria-labelledby="organizations-h">
+      <SectionHeader id="organizations-h" title="Organizations a family can join" />
+      <p class="-mt-4 mb-4 text-[0.9375rem] text-ink-muted">Memberships and their prices are the organization's; what a membership includes is on its row.</p>
+      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {organizations.map((p) => <ProgramRow program={p} />)}
+      </div>
+    </section>
+  )}
 
   {breaks.length > 0 && (
     <section id="breaks" class="mt-12 scroll-mt-20" aria-labelledby="breaks-h">
@@ -106,10 +164,13 @@ const chip = 'inline-flex min-h-11 shrink-0 items-center whitespace-nowrap round
               <span class="block font-semibold"><time datetime={b.from}>{b.from === b.to ? formatDayShort(b.fromDate) : formatDayRange(b.fromDate, b.toDate)}</time></span>
               <span class="block text-ink-muted">{b.label}</span>
             </span>
+            {/* The calendar cannot be filtered to a break's dates, so the
+                link says what it is: the family listings, not an answer
+                to what is open that week. */}
             {b.open ? (
               <a href={`#program-${b.open.program.slug}`} class="shrink-0 rounded-full bg-accent-soft px-3 py-2 text-[0.875rem] font-semibold text-ink no-underline ring-1 ring-primary-line hover:bg-raised">{b.open.note}</a>
             ) : (
-              <a href="/events/?category=family" class="inline-block -my-2 shrink-0 py-2 text-[0.875rem] font-semibold text-primary underline">What’s open →</a>
+              <a href="/events/?category=family" class="inline-block -my-2 shrink-0 py-2 text-[0.875rem] font-semibold text-primary underline">Browse family events →</a>
             )}
           </li>
         ))}
@@ -119,25 +180,44 @@ const chip = 'inline-flex min-h-11 shrink-0 items-center whitespace-nowrap round
 
   {free.length > 0 && (
     <section id="free" class="mt-12 scroll-mt-20" aria-labelledby="free-h">
-      <SectionHeader id="free-h" title="Free, any day" />
+      <SectionHeader id="free-h" title="Free" />
+      <p class="-mt-4 mb-4 text-[0.9375rem] text-ink-muted">Where the organizer's page says the activity itself costs nothing. "Drop in" means no sign-up; the rest take one, or the page did not say.</p>
       <ul class="grid grid-cols-2 gap-3">
         {free.map((p) => (
           <li>
-            <a href={`#program-${p.slug}`} class="flex h-full flex-col rounded-lg bg-raised p-4 no-underline ring-1 ring-line-soft hover:ring-primary-line">
+            <a href={`#program-${p.slug}`} class={card}>
               <span class="font-semibold leading-snug">{p.data.title}</span>
-              <span class="mt-1 block text-[0.875rem] leading-snug text-ink-muted">{[p.data.price, p.data.schedule].filter(Boolean).join(' · ')}</span>
+              <span class="mt-1 block text-[0.875rem] leading-snug text-ink-muted">{[howIn(p), p.data.schedule].filter(Boolean).join(' · ')}</span>
             </a>
           </li>
         ))}
         {outing && (
           <li>
-            <a href={`/articles/${outing.slug}/`} class="flex h-full flex-col rounded-lg bg-raised p-4 no-underline ring-1 ring-line-soft hover:ring-primary-line">
+            <a href={`/articles/${outing.slug}/`} class={card}>
               <span class="font-semibold leading-snug">{outing.data.title}</span>
               <span class="mt-1 block text-[0.875rem] leading-snug text-ink-muted">The guide: parks, playgrounds and trails</span>
             </a>
           </li>
         )}
       </ul>
+    </section>
+  )}
+
+  {/* The town's outing guide on its own when nothing free is listed, so the
+      one page of parks and playgrounds does not leave with the section. */}
+  {free.length === 0 && outing && (
+    <p class="mt-6">
+      <a href={`/articles/${outing.slug}/`} class="flex items-center justify-between rounded-lg bg-raised px-5 py-4 font-semibold no-underline ring-1 ring-line-soft hover:ring-primary-line">
+        <span>{outing.data.title} <span class="block text-[0.875rem] font-normal text-ink-muted">The guide: parks, playgrounds and trails</span></span>
+        <span aria-hidden="true" class="text-primary">→</span>
+      </a>
+    </p>
+  )}
+
+  {later.length > 0 && (
+    <section id="later" class="mt-12 scroll-mt-20" aria-labelledby="later-h">
+      <SectionHeader id="later-h" title="Coming up" eyebrow={`Later than ${SOON_DAYS} days out`} />
+      <DeadlineList items={later} limit={later.length} class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" />
     </section>
   )}
 

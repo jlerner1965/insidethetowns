@@ -59,6 +59,14 @@ export const berthoud: TownConfig = {
     purpose: 'What’s on this week, what your family can join, and who handles what in town.',
     secondary: { label: 'Berthoud Families', href: '/families/' },
     accentName: 'gold',
+    // The Town's own playground photograph, which the flagship brief named
+    // for this spot (docs/FLAGSHIPS-2026-10-21.md): supplied by the Town of
+    // Berthoud on 21 September 2026, use authorized, credit optional.
+    photo: {
+      image: 'berthoud-town-park-playground.webp',
+      alt: 'The playground at Berthoud Town Park on a sunny day: a tall green climbing tower with a tube slide, rope nets and a ring-climber, families on the rubber surface, cottonwoods and blue sky behind',
+      credit: 'Town of Berthoud',
+    },
   },
   families: {
     label: 'Berthoud Families',

@@ -59,3 +59,26 @@ test('every form carries the town rule, not only the hub’s', () => {
   assert.equal(component.match(/data-towns-error/g)?.length, 3, 'two in the markup, one in the script');
   assert.doesNotMatch(component, /form\.dataset\.hub !== undefined && !boxes/, 'the check is no longer hub-only');
 });
+
+test('the signup promises what the partnership page sells: labeled sponsors, never "no ads", and never list sharing', async () => {
+  const { EMAIL_PROMISE } = await import('../src/lib/privacy.ts');
+  assert.equal(EMAIL_PROMISE, 'One email a week. Clearly labeled sponsors. No list sharing.');
+  const { readdirSync, statSync } = await import('node:fs');
+  const { join } = await import('node:path');
+  const files: string[] = [];
+  const walk = (dir: string) => {
+    for (const name of readdirSync(dir)) {
+      const path = join(dir, name);
+      if (statSync(path).isDirectory()) walk(path);
+      else if (/\.(astro|ts|md)$/.test(name)) files.push(path);
+    }
+  };
+  walk('src');
+  walk('content/hub');
+  for (const file of files) {
+    const text = readFileSync(file, 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+    assert.doesNotMatch(text, /\bno ads\b/i, `${file} promises no ads while a sponsor line is for sale`);
+  }
+  // The partnership page does sell the email line, so the promise has to allow it.
+  assert.match(readFileSync('src/routes/hub/advertise.astro', 'utf8'), /sponsor line in the \{sendDay\} email/);
+});

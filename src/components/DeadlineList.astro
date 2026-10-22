@@ -7,10 +7,13 @@
  */
 import type { TownEntry } from '@/lib/content';
 import { formatDayShort, toIsoLocal } from '@/lib/dates';
-import { upcomingDeadlines } from '@/lib/programs';
+import { upcomingDeadlines, type Deadline } from '@/lib/programs';
 
 interface Props {
-  programs: TownEntry<'programs'>[];
+  /** The programs to read deadlines from, or `items` already decided. */
+  programs?: TownEntry<'programs'>[];
+  /** A list the page has already split (closing soon, coming up): shown as given. */
+  items?: Deadline<TownEntry<'programs'>>[];
   limit?: number;
   days?: number;
   /** Where the rest are. */
@@ -18,8 +21,8 @@ interface Props {
   class?: string;
 }
 
-const { programs, limit = 5, days = 45, moreHref, class: className } = Astro.props;
-const list = upcomingDeadlines(programs, { days });
+const { programs = [], items, limit = 5, days = 45, moreHref, class: className } = Astro.props;
+const list = items ?? upcomingDeadlines(programs, { days });
 ---
 {list.length > 0 && (
   <ul class:list={['divide-y divide-line-soft', className]}>

@@ -126,6 +126,21 @@ export function addDays(date: Date, days: number, tz = TIME_ZONE): Date {
   return fromWallClock(year, month, day + days, hour, minute, second, tz);
 }
 
+/**
+ * Whole Denver calendar days from `from` to `to`: 0 on the same day, 1 for
+ * tomorrow, negative for a day gone by, whatever the time of day on either
+ * end and across the clock changes. A countdown built from milliseconds
+ * ("14 days left" rounded from 13.6) was a day out for anyone reading after
+ * lunch, and the Sunday the clocks go back is 25 hours long.
+ */
+export function daysBetween(from: Date, to: Date, tz = TIME_ZONE): number {
+  const utcMidnight = (d: Date) => {
+    const [y, m, day] = dayKey(d, tz).split('-').map(Number);
+    return Date.UTC(y!, m! - 1, day!);
+  };
+  return Math.round((utcMidnight(to) - utcMidnight(from)) / 86_400_000);
+}
+
 const fmt = (opts: Intl.DateTimeFormatOptions) =>
   new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, ...opts });
 

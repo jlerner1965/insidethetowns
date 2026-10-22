@@ -8,7 +8,7 @@
  */
 import type { TownEntry } from '@/lib/content';
 import { formatDate, formatDayShort, toIsoLocal } from '@/lib/dates';
-import { deadlinePassed } from '@/lib/programs';
+import { ageText, deadlinePassed } from '@/lib/programs';
 import { PROGRAM_ACCESS_LABELS, PROGRAM_KIND_LABELS } from '@/content/schemas';
 import { getTownEntries } from '@/lib/content';
 import { occurrences, upcoming } from '@/lib/events';
@@ -27,12 +27,14 @@ const passed = deadlinePassed(program, now);
 // the calendar agrees with rather than a line typed here.
 const next = data.nextEvent ? (await getTownEntries('events')).find((e) => e.slug === data.nextEvent) : undefined;
 const nextWhen = next ? upcoming(occurrences([next], { now, horizonDays: 400 }), { now, limit: 1 })[0] : undefined;
+// A cost the organizer did not publish is said to be missing, not left
+// blank: a blank reads as free (family audit, 22 October 2026).
 const facts: Array<[string, string | undefined]> = [
-  ['Who', data.ages],
+  ['Who', ageText(program)],
   ['When', data.schedule],
   ['Season', data.season],
   ['Where', data.location],
-  ['Cost', data.price],
+  ['Cost', data.price ?? 'Not stated on the organizer’s page'],
   ['Bring', data.equipment],
   ['Access', data.access !== 'public' ? PROGRAM_ACCESS_LABELS[data.access] : undefined],
 ];

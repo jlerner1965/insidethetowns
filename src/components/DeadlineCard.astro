@@ -9,7 +9,7 @@
  */
 import type { TownEntry } from '@/lib/content';
 import { dayKey, monthDay, toIsoLocal } from '@/lib/dates';
-import type { Deadline } from '@/lib/programs';
+import { daysLeft, isFree, type Deadline } from '@/lib/programs';
 import { shorten } from '@/lib/text';
 
 interface Props {
@@ -23,14 +23,20 @@ const { deadline, event, now } = Astro.props;
 const { program, on, what } = deadline;
 const { data } = program;
 const badge = monthDay(on);
-const left = Math.round((on.getTime() - now.getTime()) / 86_400_000);
-const leftText = what === 'opens' ? `opens in ${left} day${left === 1 ? '' : 's'}` : left <= 0 ? 'today' : `${left} day${left === 1 ? '' : 's'} left`;
+// Whole Denver days (src/lib/dates.ts, daysBetween): a deadline two
+// midnights away is "2 days left" at any hour, never "1" after lunch.
+const left = daysLeft(deadline, now);
+const leftText =
+  what === 'opens'
+    ? left === 1 ? 'opens tomorrow' : `opens in ${left} days`
+    : left <= 0 ? 'today' : left === 1 ? 'tomorrow' : `${left} days left`;
 const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
 const reg = data.registration;
 // The button's name is the organizer's own "how", where it is short enough to be one.
 const how = reg?.how && reg.how.length <= 28 ? reg.how : what === 'opens' ? 'Registration' : 'Register';
 const listing = event && dayKey(event.data.start) === dayKey(on) ? event : undefined;
-const free = data.price && /\bfree\b/i.test(data.price) ? 'Free' : undefined;
+// "Free" only where the activity itself is (src/lib/programs.ts, isFree).
+const free = isFree(program) ? 'Free' : undefined;
 const track = data.kind === 'league' || data.kind === 'class' || data.kind === 'program' ? 'registration' : 'participation';
 ---
 <article class:list={['rounded-lg p-5 ring-1 sm:p-6', what === 'closes' ? 'bg-highlight-soft ring-highlight' : 'bg-raised ring-line-soft']} id={`deadline-${program.slug}`}>

@@ -5,10 +5,15 @@
  * is and where, with the town's games beside it; then the week; then the
  * rest of the guide, one link each; then the email.
  *
- * - The introduction: the county, the town as the page's one h1, the
- *   config's purpose line, This week and the signature hub as buttons, and
- *   the school's games in the week (SportsStrip) beside it on a wide screen
- *   and under it on a phone.
+ * - The introduction, kept short (home audit, 22 October 2026: it took
+ *   most of a desktop's first screen, and the week began at its foot): the
+ *   county, the town as the page's one h1, the config's purpose line, one
+ *   line on the week's lead with its date, one button to the signature hub
+ *   and a text link to the week (the masthead's pills already say "This
+ *   week"), the school's games in the week (SportsStrip) beside it on a
+ *   wide screen and under it on a phone, and on a desktop the town's own
+ *   photograph (`home.photo`) between the two, never on a phone, where it
+ *   would push the week down.
  * - The week is the shared This week block (ThisWeek, compact), the same as
  *   the classic home's, so the two cannot drift; a week with nothing listed
  *   leads with what is next on the calendar, never with an apology.
@@ -18,6 +23,7 @@
  *   carry them.
  * - The email, on its own band at the foot.
  */
+import { Image } from 'astro:assets';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import SportsStrip from '@/components/SportsStrip.astro';
@@ -25,10 +31,14 @@ import ThisWeek from '@/components/ThisWeek.astro';
 import { countyLabel, type TownConfig } from '@/config';
 import { schoolsFor } from '@/config/school-sports';
 import { getTownEntries } from '@/lib/content';
-import { monthDay } from '@/lib/dates';
+import { formatDayShort, monthDay, toIsoLocal } from '@/lib/dates';
+import { highlights, occurrences } from '@/lib/events';
+import { resolveSiteImage } from '@/lib/images';
 import { deadlineTitle, onePerProgram, upcomingDeadlines } from '@/lib/programs';
 import { isOpen } from '@/lib/places';
 import { shorten } from '@/lib/text';
+import { briefingUpdates, currentPick, weekEvents } from '@/lib/weekly';
+import { currentUpdates } from '@/lib/updates';
 
 interface Props {
   town: TownConfig;
@@ -38,6 +48,7 @@ const { town } = Astro.props;
 const home = town.home!;
 const now = new Date();
 const hasSchool = schoolsFor(town.slug).length > 0;
+const photo = home.photo ? { ...home.photo, src: resolveSiteImage(town.slug, home.photo.image) } : undefined;
 
 const programs = await getTownEntries('programs');
 const nextDeadline = town.families ? onePerProgram(upcomingDeadlines(programs, { now, days: 45 }))[0] : undefined;
@@ -46,6 +57,19 @@ const deadlineDay = (on: Date) => {
   return `${b.weekday} ${b.month} ${b.day}`;
 };
 const places = (await getTownEntries('places')).filter(isOpen);
+// One line on what is current, under the purpose line, the same choice the
+// week block makes below: the featured local change (an election day), else
+// the editor's pick for the week, else the top of the week's listings. The
+// week itself is one screen down; this is the reason to scroll.
+const calendar = occurrences(await getTownEntries('events'), { now, horizonDays: 30 });
+const featured = briefingUpdates(currentUpdates(await getTownEntries('updates'), now), now).find((u) => u.data.featured);
+const pick = currentPick(await getTownEntries('weekly'), calendar, now).thisWeek;
+const top = pick?.event ?? highlights(weekEvents(calendar, now), { now, limit: 1 })[0];
+const lead = featured
+  ? { label: 'Now', text: featured.data.title, href: '/updates/', when: undefined }
+  : top
+    ? { label: 'This week', text: pick?.title ?? top.data.title, href: `/events/${top.slug}/`, when: top.data.start }
+    : undefined;
 const families = town.families
   ? { key: 'families', href: '/families/', label: town.families.label, line: nextDeadline ? deadlineTitle(nextDeadline, deadlineDay(nextDeadline.on)) : shorten(town.families.intro, 70) }
   : undefined;
@@ -59,23 +83,49 @@ const guide: Array<{ href: string; label: string; line: string }> = [
   { href: '/eat-drink/', label: 'Eat & drink', line: `${places.length} places, with what’s open now` },
   { href: '/events/', label: 'Every event', line: 'The whole calendar, by date, with the weekend on its own page' },
 ];
+// Three columns on a desktop when there is a photograph and a school
+// (introduction, photograph, games); two without one of them; one on a phone.
+const columns = hasSchool && photo
+  ? 'lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] xl:grid-cols-[minmax(0,5fr)_minmax(0,3fr)_minmax(0,4fr)]'
+  : hasSchool || photo
+    ? 'lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]'
+    : '';
 ---
-<section class="band band-paper">
-  <div class:list={['container-page grid gap-10', hasSchool && 'lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start']}>
+<section class="band-paper py-8 md:py-10">
+  <div class:list={['container-page grid gap-6 lg:items-start lg:gap-8', columns]}>
     <div>
       <p class="eyebrow">{countyLabel(town)}, Colorado</p>
-      <h1 class="display-md mt-3 text-[2.5rem] leading-[1.05] md:text-6xl">{town.name}</h1>
-      <p class="mt-4 max-w-xl text-lg leading-relaxed text-ink-muted md:text-xl">{home.purpose}</p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="/this-week/" class="btn btn-primary">This week</a>
-        <a href={home.secondary.href} class="btn btn-outline text-primary">{home.secondary.label}</a>
+      <h1 class="display-md mt-2 text-[2.25rem] leading-[1.05] md:text-5xl">{town.name}</h1>
+      <p class="mt-3 max-w-xl text-lg leading-snug text-ink-muted">{home.purpose}</p>
+      {lead && (
+        <p class="mt-4 max-w-xl text-[0.9375rem] leading-snug">
+          <span class="eyebrow text-ink-muted">{lead.label}</span>{' '}
+          <a href={lead.href} class="font-semibold text-ink underline decoration-primary-line underline-offset-4 hover:text-primary">{lead.text}</a>
+          {lead.when && <Fragment>, <time datetime={toIsoLocal(lead.when)} class="text-ink-muted">{formatDayShort(lead.when)}</time></Fragment>}
+        </p>
+      )}
+      <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
+        <a href={home.secondary.href} class="btn btn-primary">{home.secondary.label}</a>
+        <a href="/this-week/" class="inline-block -my-2 py-2 font-semibold text-primary underline">The full week →</a>
       </div>
     </div>
-    {hasSchool && <SportsStrip town={town.slug} />}
+    {photo && (
+      <figure class="hidden xl:block">
+        <Image
+          src={photo.src}
+          alt={photo.alt}
+          widths={[480, 720, 960]}
+          sizes="(min-width: 80rem) 20rem, 0px"
+          class="aspect-[4/3] w-full rounded-lg object-cover ring-1 ring-line-soft"
+        />
+        {photo.credit && <figcaption class="mt-1.5 text-[0.75rem] text-ink-muted">Photo: {photo.credit}</figcaption>}
+      </figure>
+    )}
+    {hasSchool && <SportsStrip town={town.slug} limit={3} />}
   </div>
 </section>
 
-<section class="band band-white">
+<section class="band band-white pt-10! md:pt-14!">
   <div class="container-page">
     <ThisWeek town={town} compact signup={false} />
   </div>

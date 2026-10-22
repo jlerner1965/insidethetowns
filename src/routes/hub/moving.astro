@@ -60,7 +60,7 @@ const columns = [
   { key: 'character', label: 'In a line', caption: 'what each is like', kind: 'text', get: (t: (typeof towns)[number]) => t.character ?? '—' },
 ];
 // Read from the columns, so it cannot promise one the table does not have.
-const caption = `The ${towns.length} towns compared by ${columns
+const caption = `The ${towns.length} guides' towns compared by ${columns
   .map((c) => c.caption)
   .join(', ')
   .replace(/, ([^,]*)$/, ' and $1')}`;
@@ -93,7 +93,7 @@ const SUITS: Record<string, string> = {
 };
 
 const structured = collectionPageJsonLd(hub, {
-  name: `The ${towns.length} towns of ${hub.siteTitle}, compared`,
+  name: `The ${towns.length} guides of ${hub.siteTitle}, compared`,
   description: `${towns.map((t) => t.name).join(', ')}: population, growth, schools, the commute and what each one is actually like.`,
   path: '/moving/',
   items: towns.map((t) => ({ name: t.name, url: `https://${t.domain}/` })),
@@ -101,10 +101,10 @@ const structured = collectionPageJsonLd(hub, {
 ---
 <Page
   title="Which Colorado town?"
-  seoTitle={`Moving to Colorado: ${towns.length} Front Range and mountain towns compared`}
+  seoTitle={`Moving to Colorado: ${towns.length} Front Range and mountain guides compared`}
   eyebrow="Moving here"
   description={`${towns.map((t) => t.name).join(', ')}: population, growth, schools, the commute and what each one is actually like.`}
-  intro={`All ${towns.length} towns side by side, then a straight answer on who each one suits. Every name links to its own guide.`}
+  intro={`All ${towns.length} guides side by side, then a straight answer on who each one suits. Every name links to its own guide.`}
   jsonLd={structured}
 >
   {/* Wide: one row per town. Narrow: one card per town, same markup, because

@@ -8,6 +8,8 @@ organizerUrl: "https://www.niwotyouthsports.org/"
 url: "https://www.niwotyouthsports.org/register/"
 summary: "The nonprofit youth league for the Niwot end of St. Vrain: recreational basketball for kindergarten through 8th grade this winter (register by December 1), plus baseball, softball, soccer and flag football by season."
 ages: "4 to 18 across its programs; basketball K–8; recreational soccer ages 4–8"
+ageFrom: 4
+ageTo: 18
 location: "Practices at St. Vrain schools in Niwot or south Longmont; most basketball games at YMCA NoCo in Lafayette"
 schedule: "Basketball practices once a week from early January; games Saturdays (K–5) and Friday evenings (grades 6–8), January to March, tournament March 6"
 season: "Winter 2027 basketball; spring soccer; summer baseball and softball"

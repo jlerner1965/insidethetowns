@@ -2,11 +2,13 @@
 title: "Scouts BSA Troop 161"
 kind: club
 topic: outdoors
-audience: [elementary, teens]
+audience: [teens]
 organizer: "Left Hand Grange No. 9 (chartering organization)"
 organizerUrl: "https://niwothall.org/calendar/"
 summary: "Niwot's scout troop, chartered by the Grange for more than fifty years, with a girls' troop since 2021; the hall's calendar books it on a Monday evening. No troop website could be read, so contact comes through the hall."
 ages: "11 to 17"
+ageFrom: 11
+ageTo: 17
 location: "Niwot Hall, 195 Second Avenue"
 schedule: "The hall's calendar books the troop on Monday, October 26, 6–9 pm; that is the room reservation, and the troop's own meeting hours are not published"
 price: "Not stated"

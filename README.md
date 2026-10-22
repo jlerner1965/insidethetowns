@@ -49,9 +49,14 @@ resident hubs and a flagship home page, each switched on by the town's
 config and shared as routes and components with nothing town-specific in
 them:
 
-- `/families/` (`families` on the config): what a child can join, by age and
-  by subject, the organizer's deadlines and openings, the district's break
-  dates, and the free things. Reads `content/<town>/programs/`.
+- `/families/` (`families` on the config): what a child can join, by age
+  (by the organizer's numbers, `ageFrom`/`ageTo`, where the file gives them;
+  a program spanning ages is filed once and named under every other age it
+  reaches), the parents' side and the organizations apart from the child
+  activities, what closes or opens in the next 14 days and what comes
+  later, the district's break dates, and the free things (`free` on the
+  file, else a price line that begins "Free" with nothing paid after it).
+  Reads `content/<town>/programs/`; the rules are `src/lib/programs.ts`.
 - `/get-involved/` (`participation`): the organizations, clubs, volunteer
   roles, public meetings and social activities, each with cost, contact,
   access (public, members, registration, private) and the next public date.

@@ -44,6 +44,12 @@ const counting = (Boolean(hub.ga4Id) || hub.analytics === true) && since !== nul
 const measured = counting && since !== null && startOfDay().getTime() >= addDays(since, MIN_DAYS).getTime();
 const mailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Advertising enquiry')}`;
 const foundingMailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Founding network sponsor')}`;
+// The community side of "Partner with us": a chamber, a library, a
+// recreation district or a volunteer group working with a guide, which is
+// not a placement and costs nothing. The page had only the paid side
+// (audit, 22 October 2026). Nothing here is a promise of software: every
+// line is something the guides already do by email and by hand.
+const communityMailto = `mailto:${hub.social.email}?subject=${encodeURIComponent('Community partnership')}`;
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
 const money = (n: number) => `$${n.toLocaleString('en-US')}`;
 // Editions covering more than one guide sell their email slot as one.
@@ -63,7 +69,7 @@ const list = (names: string[]) => (names.length > 1 ? `${names.slice(0, -1).join
   title="Advertise & partner"
   eyebrow="Work with us"
   description={`Reach residents and visitors across Colorado’s Front Range and mountain towns through the ${live.length} Inside the Towns guides.`}
-  intro={`Independent guides to ${live.length} Colorado towns, on the Front Range and in the mountains, that people read when they are deciding where to go this weekend, or whether to move here at all.`}
+  intro={`${live.length} independent guides to Colorado towns, on the Front Range and in the mountains, that people read when they are deciding where to go this weekend, or whether to move here at all. Two ways to work with them: a labeled sponsorship, or a community partnership that costs nothing.`}
   narrow
 >
   <div class="prose">
@@ -80,6 +86,44 @@ const list = (names: string[]) => (names.length > 1 ? `${names.slice(0, -1).join
       anyone believes the listings in the first place. Sponsorship sits beside the editorial, labeled, never inside
       it. This is not a policy we will quietly change later; it is written into the
       <a href="/editorial/">editorial policy</a>.
+    </p>
+  </div>
+
+  <div class="prose mt-14" id="community">
+    <h2>Chambers and community organizations</h2>
+    <p>
+      This is the other kind of partnership, and it is not a placement: a chamber of commerce, a library, a
+      recreation district, a historical society or a volunteer group working with the guide for its town so the
+      guide is right and the organization's work reaches the people it is for. Nothing in it is for sale and nothing
+      in it buys a place in the listings.
+    </p>
+    <ul>
+      <li>
+        <strong>Share verified events.</strong> You send the events your members and your calendar carry, from
+        the organizer's own page or your own; the guide lists them with the source named and the day it was
+        checked, free, under the same rules as every other listing.
+      </li>
+      <li>
+        <strong>Send corrections, openings and closures.</strong> You tell us when a business opens, moves or
+        closes, or when a listing is wrong; we check it against the business's own page and fix it, usually within
+        a day or two, and log the change where readers can see it.
+      </li>
+      <li>
+        <strong>Coordinate seasonal guides.</strong> You tell us what your town is planning for a season (a holiday
+        market, a summer concert series, a parade) early enough for a guide to carry the dates and the facts; we
+        write it from the organizers' own pages and keep it current.
+      </li>
+      <li>
+        <strong>Start small.</strong> <a href={communityMailto}>Email {hub.social.email}</a> with your town and
+        one thing you would like to try first: a season, a calendar, a correction. We reply with what the guide can
+        do and what we would need from you.
+      </li>
+    </ul>
+    <p>
+      What stays the same whoever we work with: the guide decides what it lists and how it describes it; nothing
+      is ranked for a partner; a sponsor, if there is one, is labeled as one and sits beside the listings, never
+      inside them; and no guide is affiliated with, endorsed by or speaking for a chamber, a town or any
+      organization, which the <a href="/editorial/">editorial policy</a> says and each guide's About page repeats.
     </p>
   </div>
 
