@@ -20,7 +20,7 @@ on:
   workflow_dispatch:
     inputs:
       town:
-        description: 'One town only (berthoud, niwot); every configured town when empty.'
+        description: 'One town only (berthoud, niwot, lyons); every configured town when empty.'
         required: false
       sport:
         description: 'Probe one team instead: its MaxPreps path (football, cross-country/girls). Needs town. Writes nothing; keeps the page as an artifact.'
