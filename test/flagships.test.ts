@@ -3,21 +3,19 @@
  * October): what their
  * configs promise the pages, checked so a config edit cannot quietly break
  * a hub. Every link on Living Here is an official page or a path on the
- * guide, every school break names its source and its check date, the home
- * page's photograph has its licence row, and the navigation names the hubs
- * the config switches on.
+ * guide, every school break names its source and its check date, and the
+ * navigation names the hubs the config switches on.
  */
 import { schoolsFor } from '../src/config/school-sports.ts';
 import { townNav } from '../src/lib/nav.ts';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import { towns } from '../src/config/towns/registry.ts';
 import { hubRoutes } from '../src/integrations/town-routes.ts';
 
 const FLAGSHIPS = ['berthoud', 'niwot', 'lyons'];
 const by = (slug: string) => towns.find((t) => t.slug === slug)!;
-const licences = readFileSync('IMAGE_LICENSES.csv', 'utf8');
 
 test('each flagship has the flagship layout and the three hubs; no other guide does', () => {
   for (const t of towns) {
@@ -91,20 +89,6 @@ test('school breaks come from the district calendar, dated, sourced and in order
   assert.ok(by('berthoud').families!.breaks.some((b) => b.from === '2026-11-23' && b.to === '2026-11-27'));
   assert.ok(by('niwot').families!.breaks.some((b) => b.from === '2026-11-23' && b.to === '2026-11-27'));
   assert.ok(by('lyons').families!.breaks.some((b) => b.from === '2026-11-23' && b.to === '2026-11-27'));
-});
-
-test('the home page photograph is a file with a licence row, credited where the licence asks', () => {
-  for (const slug of FLAGSHIPS) {
-    const { photo } = by(slug).home!;
-    // The option-B home page draws no photograph; a guide may have none.
-    if (!photo) continue;
-    assert.ok(licences.includes(`content/${slug}/images/${photo.image}`), `${slug}: ${photo.image} has no licence row`);
-    assert.ok(photo.alt.length > 20, `${slug}: alt text`);
-  }
-  // Second Avenue is CC BY-SA and needs its credit; the Town's playground photograph is credited as a courtesy.
-  assert.match(by('niwot').home!.photo?.credit ?? '', /CC BY-SA/);
-  assert.match(by('berthoud').home!.photo?.credit ?? '', /Town of Berthoud/);
-  assert.equal(by('lyons').home!.photo, undefined, 'no photograph was chosen for Lyons; none is invented');
 });
 
 test('the hub routes follow the config and the content: both hubs, local changes, and people only where a profile is published', () => {

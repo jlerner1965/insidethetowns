@@ -1,50 +1,88 @@
 ---
 /**
- * The week's games in a compact module: every team with a game in the next
- * seven days, soonest first, the last result in a line, a link to the
- * scores page. The team's colour stays inside this box (the school's
- * primary, set on the element), and a team out of season has no games and
- * is not here, so nothing is featured for being football in a month with no
- * football. Nothing to come at all, nothing rendered.
+ * The town's high-school games, on the home page of every guide that follows
+ * a school: the one block the navigation audit of 22 October 2026 asked for
+ * near the top ("next game, where there is one"), the same on the flagship
+ * and the classic home.
+ *
+ * One school: its games in the next seven days, soonest first, every team
+ * (a Thursday volleyball match is here as well as Friday's football), then
+ * the last result in a line. Several (Loveland's four): one line a school,
+ * its next game in the week or else its last result, each to its own page.
+ * Nothing in the week and nothing played: the block is not drawn.
+ *
+ * In the guide's own colours: a guide that follows one school is in that
+ * school's colour already, and a guide that follows several is in one.
  */
-import { schoolSportsFor, type SportsData } from '@/config/school-sports';
-import { formatGameTime, latestResult, outcome, RESULT_WORD, schoolCssVars, sportsDataFor, weekGames, when, where } from '@/lib/school-sports';
+import { schoolsFor, sportsPath, type SchoolSports, type SportsData } from '@/config/school-sports';
+import { formatGameTime, latestResult, outcome, RESULT_WORD, sportsDataFor, weekGames, when, where } from '@/lib/school-sports';
 
 interface Props {
   town: string;
   class?: string;
-  /** How many games to list; the rest are on the sports page. */
+  /** How many of one school's games to list; the rest are on the sports page. */
   limit?: number;
 }
 
 const { town, class: className, limit = 4 } = Astro.props;
 const files = import.meta.glob<SportsData>('../../data/*/sports*.json', { eager: true, import: 'default' });
-const school = schoolSportsFor(town);
-const data = school && sportsDataFor(school, files);
-const games = data ? weekGames(data) : [];
-const last = data ? latestResult(data) : undefined;
 const now = new Date();
+const schools = schoolsFor(town);
+const read = (school: SchoolSports) => {
+  const data = sportsDataFor(school, files);
+  return { school, games: data ? weekGames(data, now) : [], last: data ? latestResult(data) : undefined };
+};
+const rows = schools.map(read);
+const single = rows.length === 1 ? rows[0] : undefined;
+const title = single ? `${single.school.mascot} this week` : 'High school sports this week';
+const shown = single ? single.games.length > 0 || !!single.last?.game.result : rows.some((r) => r.games.length > 0 || r.last?.game.result);
+const placeWord = (site: string) => (site === 'home' ? ' · Home' : site === 'away' ? ' · Away' : '');
 ---
-{school && data && (games.length > 0 || last) && (
-  <section class:list={['rounded-lg bg-raised p-5 ring-1 ring-line-soft', className]} aria-labelledby="sports-strip" style={schoolCssVars(school)}>
-    <h2 id="sports-strip" class="eyebrow border-b-2 border-primary-line pb-2">{school.mascot} this week</h2>
-    {games.length > 0 ? (
-      <ul class="mt-3 space-y-2.5">
-        {games.slice(0, limit).map(({ team, game }) => (
-          <li class="text-[0.9375rem] leading-snug">
-            <span class="font-semibold">{team.name}</span> {where(game)} {game.opponent}
-            <span class="block text-ink-muted">{when(game, now)}{game.time && ` · ${formatGameTime(game)}`}{game.site === 'home' ? ' · Home' : game.site === 'away' ? ' · Away' : ''}</span>
-          </li>
-        ))}
-      </ul>
+{shown && (
+  <section class:list={['rounded-lg bg-raised p-5 ring-1 ring-line-soft', className]} aria-labelledby="sports-strip">
+    <h2 id="sports-strip" class="eyebrow border-b-2 border-primary-line pb-2">{title}</h2>
+    {single ? (
+      <Fragment>
+        {single.games.length > 0 ? (
+          <ul class="mt-3 space-y-2.5">
+            {single.games.slice(0, limit).map(({ team, game }) => (
+              <li class="text-[0.9375rem] leading-snug">
+                <span class="font-semibold">{team.name}</span> {where(game)} {game.opponent}
+                <span class="block text-ink-muted">{when(game, now)}{game.time && ` · ${formatGameTime(game)}`}{placeWord(game.site)}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="mt-3 text-[0.9375rem] text-ink-muted">No games in the next seven days.</p>
+        )}
+        {single.last?.game.result && (
+          <p class="mt-3 border-t border-line-soft pt-3 text-[0.9375rem] text-ink-muted">
+            Last out: {single.last.team.name.toLowerCase()} {RESULT_WORD[single.last.game.result].toLowerCase()} {outcome(single.last.game)}{single.last.team.overall && `, ${single.last.team.overall} this season`}
+          </p>
+        )}
+        <p class="mt-3 text-[0.9375rem]"><a href="/sports/" class="inline-block -my-1 py-1 font-semibold text-primary underline">Scores and schedules →</a></p>
+      </Fragment>
     ) : (
-      <p class="mt-3 text-[0.9375rem] text-ink-muted">No games in the next seven days.</p>
+      <Fragment>
+        <ul class="mt-1 divide-y divide-line-soft">
+          {rows.map(({ school, games, last }) => {
+            const next = games[0];
+            return (
+              <li class="py-3 text-[0.9375rem] leading-snug">
+                <a href={sportsPath(school)} class="font-semibold text-primary underline">{school.school.replace(/ (High )?School$/, '')} {school.mascot}</a>
+                {next ? (
+                  <span class="block text-ink-muted">{next.team.name} {where(next.game)} {next.game.opponent} · {when(next.game, now)}{next.game.time && ` · ${formatGameTime(next.game)}`}{placeWord(next.game.site)}</span>
+                ) : last?.game.result ? (
+                  <span class="block text-ink-muted">Last out: {last.team.name.toLowerCase()} {RESULT_WORD[last.game.result].toLowerCase()} {outcome(last.game)}</span>
+                ) : (
+                  <span class="block text-ink-muted">No games in the next seven days.</span>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+        <p class="mt-1 text-[0.9375rem]"><a href="/sports/" class="inline-block -my-1 py-1 font-semibold text-primary underline">All {rows.length} schools →</a></p>
+      </Fragment>
     )}
-    {last?.game.result && (
-      <p class="mt-3 border-t border-line-soft pt-3 text-[0.875rem] text-ink-muted">
-        Last out: {last.team.name.toLowerCase()} {RESULT_WORD[last.game.result].toLowerCase()} {outcome(last.game)}{last.team.overall && `, ${last.team.overall} this season`}
-      </p>
-    )}
-    <p class="mt-3 text-[0.9375rem]"><a href="/sports/" class="inline-block -my-1 py-1 font-semibold text-primary underline">Scores and schedules →</a></p>
   </section>
 )}

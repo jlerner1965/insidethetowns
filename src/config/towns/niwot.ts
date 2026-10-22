@@ -53,11 +53,6 @@ export const niwot: TownConfig = {
   home: {
     signature: 'get-involved',
     purpose: 'What’s on this week, who runs what, and how to take part.',
-    photo: {
-      image: 'second-avenue-street.jpg',
-      alt: 'Second Avenue in Old Town Niwot: the Niwot Tribune building with its shingled awning and a row of brick and painted storefronts down the block',
-      credit: 'Jeffrey Beall, Flickr, CC BY-SA 2.0',
-    },
     secondary: { label: 'Get involved', href: '/get-involved/' },
     accentName: 'terracotta',
   },

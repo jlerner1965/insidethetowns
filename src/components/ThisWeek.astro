@@ -46,7 +46,6 @@ import { formatDate, formatDayLong, formatDayRange, toIsoLocal } from '@/lib/dat
 import { highlights, isMultiDay, lastDay, listedUntil, occurrences, timeText, weekendWindow } from '@/lib/events';
 import { activeChanges, currentNotes, currentPick, isWeekend, weekEvents, weekWindow } from '@/lib/weekly';
 import { currentUpdates } from '@/lib/updates';
-import { checkerName } from '@/lib/editor';
 import { subTownLabel } from '@/lib/sub-towns';
 
 interface Props {
@@ -83,8 +82,10 @@ const allEvents = weekEvents(calendar, now);
 // weekly note's pick still takes its place.
 const highlight = pick ? undefined : highlights(allEvents, { now, limit: 1 })[0];
 const lead = pick?.event ?? highlight;
-// The compact version does not list the pick again two lines under it.
-const rows = compact && lead ? allEvents.filter((e) => e.slug !== lead.slug) : allEvents;
+// The pick is not listed again under it, on the home page or the full page
+// (Timnath's week was one farmers market, shown as the Highlight and again
+// as the only row: navigation audit, 22 October 2026).
+const rows = lead ? allEvents.filter((e) => e.slug !== lead.slug) : allEvents;
 const events = compact ? rows.slice(0, 3) : rows;
 const fresh = allChanges.filter((c) => !c.backlog);
 const backlog = allChanges.filter((c) => c.backlog);
@@ -92,8 +93,18 @@ const changes = compact ? fresh.slice(0, 2) : fresh;
 const updates = currentUpdates(await getTownEntries('updates'), now);
 const know = compact ? updates.slice(0, 2) : updates.slice(0, 5);
 const programs = await getTownEntries('programs');
-// Nothing on this week: said in words, whatever New & closed holds.
+// Nothing on this week: the week leads with what is next on the calendar
+// instead, so a page never opens on an apology (Niwot's home did); the line
+// saying the week is empty shows only when nothing later is listed either.
 const quiet = !pick && allEvents.length === 0;
+const sundayEnd = new Date(sunday.getTime() + 86_400_000);
+const seen = new Set<string>();
+const later = quiet
+  ? [...calendar]
+      .sort((x, y) => x.data.start.getTime() - y.data.start.getTime())
+      .filter((e) => e.data.start.getTime() >= sundayEnd.getTime() && !seen.has(e.slug) && seen.add(e.slug))
+      .slice(0, compact ? 3 : 5)
+  : [];
 // The pick's own day and time, from its listing: "Friday, October 9 · 7 pm".
 const when = (event: typeof calendar[number]) =>
   [isMultiDay(event) ? undefined : formatDayLong(event.data.start), timeText(event, now)].filter(Boolean).join(' · ');
@@ -103,7 +114,6 @@ const when = (event: typeof calendar[number]) =>
 const H = compact ? 'h3' : 'h2';
 const eyebrow = 'eyebrow border-b-2 border-accent pb-3';
 const block = compact ? 'mt-10' : 'mt-12 md:mt-14';
-const checker = checkerName();
 const v = compact ? 'compact' : 'full';
 const hubHref = town.families ? '/families/' : town.participation ? '/get-involved/' : undefined;
 ---
@@ -135,7 +145,16 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
      from a build older than it (Freshness.astro), and once nothing is left
      the empty line shows instead. */}
   <div data-events-scope>
-  <div data-events-empty hidden={!quiet} class="mt-8 rounded-lg border border-dashed border-line px-6 py-8 text-center text-ink-muted">
+  {later.length > 0 && (
+    <section class={block} data-hide-when-empty aria-labelledby={`later-${v}-cal`}>
+      <H id={`later-${v}-cal`} class={eyebrow}>Next on the calendar</H>
+      <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {later.map((event) => <WeekEventRow event={event} />)}
+      </div>
+      <p class="mt-4 text-[0.9375rem]"><a href="/events/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">Every event →</a></p>
+    </section>
+  )}
+  <div data-events-empty hidden={!quiet || later.length > 0} class="mt-8 rounded-lg border border-dashed border-line px-6 py-8 text-center text-ink-muted">
     {/* "Nothing listed" is a fact about this guide; "nothing happening" would be a claim about the town. */}
     <p>Nothing verified on the {town.name} calendar for the rest of this week yet.</p>
     <p class="mt-2 text-[0.9375rem]">
@@ -227,15 +246,11 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
             <p class="eyebrow">{c.label}{c.effective && <span class="ml-2 font-medium normal-case tracking-normal text-ink-muted">{formatDate(c.effective)}</span>}</p>
             <p class="mt-1 text-xl font-medium leading-tight">{c.name}</p>
             <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{c.detail}</p>
-            <p class="mt-1 text-sm text-ink-muted">
-              {c.source && (
-                <Fragment>
-                  <a href={c.source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline">Source: {new URL(c.source).hostname.replace(/^www\./, '')}</a>
-                  {' · '}
-                </Fragment>
-              )}
-              Checked {checker && <Fragment>by {checker}, </Fragment>}<time datetime={toIsoLocal(c.checked)}>{formatDate(c.checked)}</time>
-            </p>
+            {c.source && (
+              <p class="mt-1 text-sm">
+                <a href={c.source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline">Source: {new URL(c.source).hostname.replace(/^www\./, '')}</a>
+              </p>
+            )}
           </li>
         ))}
       </ul>
@@ -261,15 +276,11 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
             <p class="eyebrow">{c.label} <span class="ml-1 font-medium normal-case tracking-normal text-ink-muted">{formatDate(c.effective!)} · noticed {formatDate(c.checked)}</span></p>
             <p class="mt-1 text-xl font-medium leading-tight">{c.name}</p>
             <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{c.detail}</p>
-            <p class="mt-1 text-sm text-ink-muted">
-              {c.source && (
-                <Fragment>
-                  <a href={c.source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline">Source: {new URL(c.source).hostname.replace(/^www\./, '')}</a>
-                  {' · '}
-                </Fragment>
-              )}
-              Checked {checker && <Fragment>by {checker}, </Fragment>}<time datetime={toIsoLocal(c.checked)}>{formatDate(c.checked)}</time>
-            </p>
+            {c.source && (
+              <p class="mt-1 text-sm">
+                <a href={c.source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline">Source: {new URL(c.source).hostname.replace(/^www\./, '')}</a>
+              </p>
+            )}
           </li>
         ))}
       </ul>

@@ -55,11 +55,6 @@ export const berthoud: TownConfig = {
   home: {
     signature: 'families',
     purpose: 'What’s on this week, what your family can join, and who handles what in town.',
-    photo: {
-      image: 'berthoud-town-park-playground.webp',
-      alt: 'Families on the inclusive playground at Berthoud Town Park, on 7th Street downtown',
-      credit: 'Town of Berthoud',
-    },
     secondary: { label: 'Berthoud Families', href: '/families/' },
     accentName: 'gold',
   },

@@ -126,20 +126,15 @@ export interface LivingHereConfig {
 /**
  * The home page's flagship layout (src/components/home/FlagshipHome.astro),
  * for a guide the owner has decided to give the effort: the header as a
- * masthead with the pill row, the week as the page, every other hub as one
- * link, the email. A guide without it keeps the shared home page as it was.
+ * band in the town's colour, the introduction with the purpose line and
+ * the school's games, the week, every other hub as one link, the email. A
+ * guide without it has the classic home, on the same recipe.
  */
 export interface HomeConfig {
-  /** Which resident hub is the town's signature section on the home page. */
+  /** Which resident hub leads "On this guide" on the home page. */
   signature: 'families' | 'get-involved';
   /** The enduring line under the town's name: what the guide is for, never a dated topic. */
   purpose: string;
-  /**
-   * A photograph for the introduction: a file in content/<slug>/images/,
-   * with its row in IMAGE_LICENSES.csv. The option-B home page of 22
-   * October 2026 draws none; the field stays for a guide that has one.
-   */
-  photo?: HeroConfig;
   /** The second button under the introduction, after "This week". */
   secondary: { label: string; href: string };
   /** The accent's name, for the design notes and nothing else: the colour itself is `colors.accent`. */
