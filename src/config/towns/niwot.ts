@@ -31,8 +31,10 @@ export const niwot: TownConfig = {
   population2010: 4006, // 2010 census, for census-to-census growth
   character: 'Deliberately small and unincorporated: Boulder County and the special districts provide the services, and volunteer groups run the calendar.',
   colors: {
-    // Cottonwood green + brick, on warm paper: Color System 2.0, 9 October 2026.
-    primary: '#355E46',
+    // Cougar green + brick, on warm paper: the school's colour as the
+    // guide's, the owner's call of 22 October 2026 (it was cottonwood green,
+    // #355E46, from 9 October); the shade src/config/school-sports.ts names.
+    primary: '#007C47',
     accent: '#A26449',
     paper: 'warm',
   },

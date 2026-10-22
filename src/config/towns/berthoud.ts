@@ -30,8 +30,11 @@ export const berthoud: TownConfig = {
   population2010: 5105, // 2010 census, for census-to-census growth
   character: 'The Garden Spot: a real Main Street and the lakes, fifteen minutes from Loveland and Longmont.',
   colors: {
-    // Garden green + warm gold, on warm paper: Color System 2.0, 9 October 2026.
-    primary: '#3D6041',
+    // Spartan maroon + warm gold, on warm paper: the school's colour as the
+    // guide's, the owner's call of 22 October 2026 (it was garden green,
+    // #3D6041, from 9 October). The same maroon src/config/school-sports.ts
+    // names, so the sports pages and the rest of the guide are one colour.
+    primary: '#8F0018',
     accent: '#C39B50',
     paper: 'warm',
   },

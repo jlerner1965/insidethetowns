@@ -1,33 +1,29 @@
 ---
 /**
- * The flagship home page (TownConfig.home), resident first (the redesign
- * of 22 October 2026, docs/screenshots/2026-10-22/): the masthead is the
- * header's pill row; then today in one line; the week, as the pick and a
- * dated list; the school's games; the family hub's deadlines and sections;
- * who handles what; what is open now; the email; the independence note.
- * The order and the blocks are shared; every word in them is the town's
- * config and content, and a block with nothing in it is not drawn.
- *
- * Nothing is shown twice: the pick's listing is not repeated in the week's
- * rows, and today's strip is the one place a listing can appear twice,
- * since "today" and "this week" are both true of it.
+ * The flagship home page (TownConfig.home), option B of the mockups of 22
+ * October 2026: the week is the only content, and every other part of the
+ * guide is one link with one line of reason. The masthead is the header's
+ * pill row; then today in one line; the week as a list, the pick its first
+ * row; "On this guide", a list of the hubs; the email; one sentence on
+ * independence. The order and the blocks are shared; every word in them is
+ * the town's config and content, and a row with nothing behind it is not
+ * drawn. Nothing is shown twice: the pick's listing is not repeated in the
+ * week's rows.
  */
-import { Image } from 'astro:assets';
 import TodayStrip from './TodayStrip.astro';
-import SportsBlock from './SportsBlock.astro';
-import FamiliesBlock from './FamiliesBlock.astro';
-import HandlesWhat from './HandlesWhat.astro';
-import OpenNow from './OpenNow.astro';
-import TrustPanel from './TrustPanel.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import type { TownConfig } from '@/config';
+import { schoolSportsFor, type SportsData } from '@/config/school-sports';
 import { getTownEntries } from '@/lib/content';
 import { formatDayRange, formatWeekday, monthDay, parseLocal, startOfDay, toIsoLocal } from '@/lib/dates';
 import { highlights, isMultiDay, lastDay, listedUntil, occurrences, timeText } from '@/lib/events';
 import { currentPick, isWeekend, weekEvents, weekWindow } from '@/lib/weekly';
 import { currentUpdates } from '@/lib/updates';
-import { byProminence, isOpen } from '@/lib/places';
+import { deadlineTitle, onePerProgram, upcomingDeadlines } from '@/lib/programs';
+import { isOpen } from '@/lib/places';
+import { sportsDataFor } from '@/lib/school-sports';
 import { eventTotals } from '@/lib/event-totals';
+import { shorten } from '@/lib/text';
 
 interface Props {
   town: TownConfig;
@@ -54,112 +50,117 @@ const meta = (event: NonNullable<typeof lead>) =>
   [isMultiDay(event) ? undefined : `${monthDay(event.data.start).weekday} ${monthDay(event.data.start).month} ${monthDay(event.data.start).day}`, timeText(event, now), event.data.venue, event.data.cost]
     .filter(Boolean)
     .join(' · ');
-
-const updates = currentUpdates(await getTownEntries('updates'), now);
-const notice = updates.find((u) => u.data.featured && u.data.kind === 'decision');
-const programs = await getTownEntries('programs');
-
-// The open places, the picked ones first, for "Open now".
-const places = (await getTownEntries('places')).filter(isOpen).sort(byProminence);
 // A run that began before today is dated by the day it ends, marked
-// "Until", as WeekEventRow does: the scarecrow contest in its second week
-// is not a Saturday listing from last week.
+// "Until", as WeekEventRow does.
 const badgeOf = (e: (typeof rows)[number]) =>
   isMultiDay(e) && e.data.start.getTime() < startOfDay(now).getTime() ? { ...monthDay(parseLocal(lastDay(e))), weekday: 'Until' } : monthDay(e.data.start);
+
+// "On this guide": each hub as a link with one line of reason, from the
+// same data the hub's page shows.
+const school = schoolSportsFor(town.slug);
+const sportsFiles = import.meta.glob<SportsData>('../../../data/*/sports.json', { eager: true, import: 'default' });
+const sportsData = school ? sportsDataFor(town.slug, sportsFiles) : undefined;
+const records = (sportsData?.sports ?? []).filter((s) => s.overall).map((s, i) => `${i === 0 ? s.name : s.name.toLowerCase()} ${s.overall}`);
+const programs = await getTownEntries('programs');
+const nextDeadline = town.families ? onePerProgram(upcomingDeadlines(programs, { now, days: 45 }))[0] : undefined;
+const deadlineDay = (on: Date) => {
+  const b = monthDay(on);
+  return `${b.weekday} ${b.month} ${b.day}`;
+};
+const updates = currentUpdates(await getTownEntries('updates'), now);
+const notice = updates.find((u) => u.data.featured && u.data.kind === 'decision');
+const places = (await getTownEntries('places')).filter(isOpen);
+const guide: Array<{ href: string; label: string; line: string }> = [
+  ...(school && records.length ? [{ href: '/sports/', label: `${school.mascot} scores and schedules`, line: records.join(' · ') }] : []),
+  ...(town.families ? [{ href: '/families/', label: town.families.label, line: nextDeadline ? deadlineTitle(nextDeadline, deadlineDay(nextDeadline.on)) : shorten(town.families.intro, 70) }] : []),
+  ...(town.livingHere ? [{ href: '/living-here/', label: 'Living here: who handles what', line: town.livingHere.sections.map((s) => s.title).join(', ') }] : []),
+  ...(notice ? [{ href: `/updates/#${notice.slug}`, label: notice.data.title, line: notice.data.action ? shorten(notice.data.action, 80) : shorten(notice.data.summary, 80) }] : []),
+  ...(town.participation && !town.families ? [{ href: '/get-involved/', label: town.participation.label, line: shorten(town.participation.intro, 70) }] : []),
+  { href: '/eat-drink/', label: 'Eat & drink', line: `${places.length} places, with what’s open now` },
+];
 const h2 = 'display-md text-[1.75rem] md:text-[2rem]';
 const more = 'inline-block -my-2 shrink-0 py-2 text-[0.9375rem] font-semibold text-primary underline';
 ---
 <TodayStrip calendar={calendar} now={now} />
 
-{/* 1. This week: the pick as a card, the next rows as a dated list. */}
+{/* 1. This week: the pick as the first row, then the next rows. */}
 <section class="band band-paper pt-8! pb-10! md:pt-10! md:pb-12!" aria-labelledby="week-h">
   <div class="container-page">
     <div class="flex items-baseline justify-between gap-4">
       <h2 id="week-h" class={h2}>This week</h2>
       <a href="/this-week/" class={more}>{range} →</a>
     </div>
-    <div class="mt-4 grid gap-4 lg:grid-cols-[minmax(0,13fr)_minmax(0,11fr)] lg:gap-6" data-events-scope>
-      <div data-events-empty hidden={!quiet} class="rounded-lg border border-dashed border-line px-6 py-8 text-center text-ink-muted lg:col-span-2">
+    <div class="mt-4 max-w-3xl" data-events-scope>
+      <div data-events-empty hidden={!quiet} class="rounded-lg border border-dashed border-line px-6 py-8 text-center text-ink-muted">
         <p>Nothing verified on the {town.name} calendar for the rest of this week yet.</p>
         <p class="mt-2 text-[0.9375rem]">Know something that should be here? <a href="/submit-event/" class="inline-block -my-2 py-2 text-primary underline">Send it in</a>.</p>
       </div>
-      {lead && (
-        <article class="overflow-hidden rounded-lg bg-raised ring-1 ring-line-soft" data-event-day={lastDay(lead)} data-end={toIsoLocal(listedUntil(lead))}>
-          {/* The photograph where the listing has one; otherwise the tag sits
-              on the accent's wash, a band and not a frame left empty. */}
-          <div class:list={['relative bg-accent-soft', lead.data.image ? 'aspect-[16/9] lg:aspect-[4/3]' : 'h-28 lg:h-36']}>
-            {lead.data.image && <Image src={lead.data.image} alt={lead.data.imageAlt ?? ''} widths={[480, 720, 960]} sizes="(min-width: 1024px) 50vw, 100vw" class="h-full! w-full object-cover" />}
-            <span class="absolute bottom-4 left-4 rounded-full bg-ink px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-eyebrow text-raised">
-              {pick ? 'Our pick' : 'Highlight'} · {formatWeekday(lead.data.start)}
-            </span>
-          </div>
-          <div class="p-5 md:p-6">
-            <h3 class="display-md text-[1.75rem] md:text-[2rem]">
-              <a href={pick?.url ?? `/events/${lead.slug}/`} class="no-underline hover:text-primary">{pick?.title ?? lead.data.title}</a>
-            </h3>
-            <p class="mt-2 text-[1.0625rem] leading-snug"><time datetime={toIsoLocal(lead.data.start)}>{meta(lead)}</time></p>
-            {pick?.body && <p class="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">{pick.body}</p>}
-            <p class="mt-3 text-[0.9375rem]"><a href={pick?.url ?? `/events/${lead.slug}/`} class="font-semibold text-primary underline">The details →</a></p>
-          </div>
-        </article>
+      {(lead || rows.length > 0) && (
+        <ul class="divide-y divide-line-soft rounded-lg bg-raised ring-1 ring-line-soft" data-hide-when-empty>
+          {lead && (
+            <li class="flex flex-col gap-1.5 p-4 md:p-5" data-event-day={lastDay(lead)} data-end={toIsoLocal(listedUntil(lead))}>
+              <span class="w-fit rounded-full bg-highlight px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-eyebrow text-ink">{pick ? 'Our pick' : 'Highlight'} · {formatWeekday(lead.data.start)}</span>
+              <h3 class="display-md text-[1.5rem] md:text-[1.75rem]">
+                <a href={pick?.url ?? `/events/${lead.slug}/`} class="no-underline hover:text-primary">{pick?.title ?? lead.data.title}</a>
+              </h3>
+              <p class="text-[0.9375rem] leading-snug text-ink-muted"><time datetime={toIsoLocal(lead.data.start)}>{meta(lead)}</time></p>
+              {pick?.body && <p class="text-[0.9375rem] leading-relaxed text-ink-muted">{shorten(pick.body, 160)}</p>}
+            </li>
+          )}
+          {rows.map((e) => {
+            const badge = badgeOf(e);
+            return (
+              <li class="grid grid-cols-[3.25rem_1fr] gap-x-3 px-4 py-3" data-event-day={lastDay(e)} data-end={toIsoLocal(listedUntil(e))}>
+                <time datetime={toIsoLocal(e.data.start)} class="flex flex-col items-center pt-0.5 leading-none">
+                  <span class="text-[0.625rem] font-bold uppercase tracking-[0.08em] text-primary">{badge.weekday}</span>
+                  <span class="mt-0.5 font-heading text-[1.5rem] font-medium tabular-nums">{badge.day}</span>
+                </time>
+                <span class="min-w-0">
+                  <a href={`/events/${e.slug}/`} class="font-semibold leading-snug no-underline hover:text-primary hover:underline">{e.data.title}</a>
+                  <span class="mt-0.5 block text-[0.875rem] leading-snug text-ink-muted">{[timeText(e, now), e.data.venue, e.data.cost].filter(Boolean).join(' · ')}</span>
+                </span>
+              </li>
+            );
+          })}
+        </ul>
       )}
-      {rows.length > 0 && (
-        <div class="min-w-0" data-hide-when-empty>
-          <ul class="divide-y divide-line-soft rounded-lg bg-raised ring-1 ring-line-soft">
-            {rows.map((e) => {
-              const badge = badgeOf(e);
-              return (
-                <li class="grid grid-cols-[3.25rem_1fr] gap-x-3 px-4 py-3" data-event-day={lastDay(e)} data-end={toIsoLocal(listedUntil(e))}>
-                  <time datetime={toIsoLocal(e.data.start)} class="flex flex-col items-center pt-0.5 leading-none">
-                    <span class="text-[0.625rem] font-bold uppercase tracking-[0.08em] text-primary">{badge.weekday}</span>
-                    <span class="mt-0.5 font-heading text-[1.5rem] font-medium tabular-nums">{badge.day}</span>
-                  </time>
-                  <span class="min-w-0">
-                    <a href={`/events/${e.slug}/`} class="font-semibold leading-snug no-underline hover:text-primary hover:underline">{e.data.title}</a>
-                    <span class="mt-0.5 block text-[0.875rem] leading-snug text-ink-muted">{[timeText(e, now), e.data.venue, e.data.cost].filter(Boolean).join(' · ')}</span>
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-          <p class="mt-3 text-[0.9375rem]">
-            <a href="/this-week/" class="inline-block -my-2 py-2 font-semibold text-primary underline">All {week.length} {onWeekend ? 'this weekend' : 'this week'} →</a>
-            {' · '}<a href="/events/" class="inline-block -my-2 py-2 font-semibold text-primary underline">{totals.listings} listings on the calendar →</a>
-          </p>
-        </div>
+      {week.length > 0 && (
+        <p class="mt-3 text-[0.9375rem]">
+          <a href="/this-week/" class="inline-block -my-2 py-2 font-semibold text-primary underline">All {week.length} {onWeekend ? 'this weekend' : 'this week'} →</a>
+          {' · '}<a href="/events/" class="inline-block -my-2 py-2 font-semibold text-primary underline">{totals.listings} on the calendar →</a>
+        </p>
       )}
     </div>
   </div>
 </section>
 
-{/* 2. The school's games and the family hub, side by side on a desktop. */}
-<section class="band band-paper pt-0! pb-10! md:pb-12!">
-  <div class="container-page grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-10">
-    <SportsBlock town={town.slug} class="self-start" />
-    {town.families && <FamiliesBlock town={town} programs={programs} events={entries} now={now} />}
-  </div>
-</section>
-
-{/* 3. Who handles what, from Living Here, and the current decision. */}
-{town.livingHere && (
-  <section class="band band-white py-10! md:py-12!">
-    <div class="container-page">
-      <HandlesWhat town={town} notice={notice} />
-    </div>
-  </section>
-)}
-
-{/* 4. What is open now. */}
-<section class="band band-paper py-10! md:py-12!">
+{/* 2. Every other part of the guide, one link each. */}
+<section class="band band-paper pt-0! pb-10! md:pb-12!" aria-labelledby="guide-h">
   <div class="container-page">
-    <OpenNow places={places} />
+    <h2 id="guide-h" class={h2}>On this guide</h2>
+    <ul class="mt-4 max-w-3xl divide-y divide-line-soft rounded-lg bg-raised ring-1 ring-line-soft">
+      {guide.map((g) => (
+        <li>
+          <a href={g.href} class="flex items-center justify-between gap-4 px-4 py-3.5 no-underline hover:bg-paper">
+            <span class="min-w-0">
+              <span class="block font-semibold leading-snug text-ink">{g.label}</span>
+              <span class="mt-0.5 block text-[0.875rem] leading-snug text-ink-muted">{g.line}</span>
+            </span>
+            <span class="shrink-0 text-primary" aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>
 
-{/* 5. The email, and the one sentence on how the guide works. */}
+{/* 3. The email, and the one sentence on how the guide works. */}
 <section class="band band-paper pt-0! pb-10! md:pb-12!">
-  <div class="container-page grid gap-4 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-6">
+  <div class="container-page">
     <NewsletterSignup town={town} id="home" dark />
-    <TrustPanel town={town} />
+    <p class="mt-6 max-w-3xl text-[0.9375rem] leading-relaxed text-ink-muted">
+      Independent. Nobody pays to be listed, and every listing names its source and the day it was read.
+      {' '}<a href="/editorial/" class="font-semibold text-primary underline">How the guide works</a> · <a href="/correct/" class="font-semibold text-primary underline">Send a correction</a>
+    </p>
   </div>
 </section>
