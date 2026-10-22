@@ -30,7 +30,7 @@ const checked = checks.length ? new Date(Math.max(...checks)) : now;
 const checkedLabel = dayKey(checked) === today ? 'Checked today' : `Checked ${formatShortDate(checked)}`;
 const items = todays.length ? todays : next;
 ---
-<section class="border-b border-line-soft bg-paper" aria-label="Today">
+<section class="border-b border-line-soft bg-primary-soft" aria-label="Today">
   <div class="container-page py-4 md:py-5">
     <p class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
       <time datetime={today} class="eyebrow">{formatDayLong(now)}</time>
@@ -38,12 +38,12 @@ const items = todays.length ? todays : next;
     </p>
     <p class="mt-1.5 text-[1.0625rem] leading-snug" data-events-scope>
       {items.length === 0 ? (
-        <span class="text-ink-muted">Nothing on the calendar today or tomorrow. <a href="/events/" class="text-primary underline">The month →</a></span>
+        <span class="text-ink-muted">Nothing on the calendar today or tomorrow. <a href="/events/" class="font-semibold text-ink underline">The month →</a></span>
       ) : (
         items.map((e, i) => (
           <span data-event-day={lastDay(e)} data-end={toIsoLocal(listedUntil(e))}>
             {i > 0 && <span class="text-ink-muted"> · </span>}
-            <a href={`/events/${e.slug}/`} class="font-semibold no-underline hover:text-primary hover:underline">{e.data.title}</a><span class="text-ink-muted">, {e.data.venue}{todays.length === 0 ? ' tomorrow' : ''}, {timeText(e, now)}</span>
+            <a href={`/events/${e.slug}/`} class="font-semibold no-underline hover:underline">{e.data.title}</a><span class="text-ink-muted">, {e.data.venue}{todays.length === 0 ? ' tomorrow' : ''}, {timeText(e, now)}</span>
           </span>
         ))
       )}
