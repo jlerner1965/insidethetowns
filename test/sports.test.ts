@@ -115,9 +115,9 @@ const monthHtml = `
 <a class="fsCalendarTitle fsCalendarEventLink" title="Boys Varsity Football @ Mountain View High School - FR" data-occur-id="112093072_2026-10-24T01:00:00Z_2026-10-24T03:00:00Z" href="#">x</a>
 <a class="fsCalendarTitle fsCalendarEventLink" title="Boys Varsity Football @ Severance High School - FR" data-occur-id="112093076_2026-10-31T01:00:00Z_2026-10-31T03:00:00Z" href="#">x</a>
 <a class="fsCalendarTitle fsCalendarEventLink" title="Boys JV Football vs Severance High School - FR" data-occur-id="112093077_2026-10-31T22:00:00Z_2026-11-01T00:00:00Z" href="#">x</a>
-<a class="fsCalendarTitle fsCalendarEventLink" title="Girls Varsity Volleyball vs Eaton High School" data-occur-id="1_2026-10-07T00:30:00Z_2026-10-07T02:00:00Z" href="#">x</a>`;
+<a class="fsCalendarTitle fsCalendarEventLink fsCalendarTruncate" title="Girls Varsity Volleyball vs Eaton High School" data-occur-id="1_2026-10-07T00:30:00Z_2026-10-07T02:00:00Z" href="#">x</a>`;
 
-test('a month page gives each event once, in Denver time', () => {
+test('a month page gives each event once, in Denver time, whether or not the link carries a third class (Roosevelt High’s grid does)', () => {
   const events = parseMonth(monthHtml);
   assert.deepEqual(events.map((e) => [e.date, e.time, e.level, e.sport, e.opponent]), [
     ['2026-10-23', '19:00', 'Varsity', 'Football', 'Mountain View High School'],

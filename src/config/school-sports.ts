@@ -112,7 +112,9 @@ const FALL_WITHOUT = (...keys: string[]): SportConfig[] => FALL().filter((t) => 
 
 /**
  * Thompson School District's Finalsite sites: `?cal_date=YYYY-MM-01` shows a
- * month, and the varsity games are titled "Boys Varsity Football @ …".
+ * month, and the varsity games are titled "Boys Varsity Football @ …". Each
+ * school's robots.txt has its own say: Berthoud's and Mountain View's allow
+ * the calendar, Loveland High's and Thompson Valley's do not.
  */
 const TSD_CALENDAR = (host: string, label: string): NonNullable<SchoolSports['calendar']> => ({ kind: 'finalsite', url: `https://${host}.tsd.org/family/calendar`, label });
 
@@ -207,7 +209,10 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     mascot: 'Red Wolves',
     maxpreps: 'https://www.maxpreps.com/co/loveland/loveland-red-wolves/',
     maxprepsName: 'Loveland',
-    calendar: TSD_CALENDAR('lhs', 'the Loveland High calendar'),
+    // Loveland High's Finalsite calendar is at lhs.tsd.org/family/calendar,
+    // but the site's robots.txt disallows that path to every automated
+    // reader (22 October 2026), where Mountain View's allows it.
+    calendarNote: 'Loveland High’s calendar asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
     teams: FALL(),
   },
   {
@@ -218,7 +223,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     mascot: 'Eagles',
     maxpreps: 'https://www.maxpreps.com/co/loveland/thompson-valley-eagles/',
     maxprepsName: 'Thompson Valley',
-    calendar: TSD_CALENDAR('tvhs', 'the Thompson Valley calendar'),
+    // As Loveland High: tvhs.tsd.org/robots.txt disallows /family/calendar.
+    calendarNote: 'Thompson Valley’s calendar asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
     teams: FALL(),
   },
   {
