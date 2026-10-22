@@ -1,0 +1,949 @@
+{
+  "generated": "2026-10-22T03:24:31.310Z",
+  "sports": [
+    {
+      "key": "football",
+      "name": "Football",
+      "maxprepsUrl": "https://www.maxpreps.com/co/frederick/frederick-golden-eagles/football/",
+      "fetched": "2026-10-22T03:24:31.310Z",
+      "maxprepsUpdated": "2026-10-22T02:46:34",
+      "overall": "6-2",
+      "league": {
+        "record": "4-1",
+        "name": "4A Northern",
+        "place": "4th"
+      },
+      "results": [
+        {
+          "date": "2026-10-15",
+          "opponent": "Greeley West",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/frederick-vs-greeley-west/10-15-2026/?c=ddc59564-b726-4ece-a210-db94e2b9b90e",
+          "result": "W",
+          "score": {
+            "us": 49,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Northridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/frederick-vs-northridge-greeley/10-9-2026/?c=c0191cf1-6c42-4fba-81f7-15ec7dfa6f2c",
+          "result": "W",
+          "score": {
+            "us": 41,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-02",
+          "opponent": "Longmont",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/frederick-vs-longmont/10-2-2026/?c=c0dc8e9e-9769-4e33-8b47-8f1f82526830",
+          "result": "W",
+          "score": {
+            "us": 22,
+            "them": 19
+          }
+        },
+        {
+          "date": "2026-09-25",
+          "opponent": "Poudre",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/frederick-vs-poudre-fort-collins/9-25-2026/?c=7a5e5ee1-3c7e-4650-8b85-eda5f7a680ca",
+          "result": "W",
+          "score": {
+            "us": 43,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Grand Junction",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/frederick-vs-grand-junction/9-17-2026/?c=79841413-f081-4a91-b577-3fb322985608",
+          "result": "L",
+          "score": {
+            "us": 10,
+            "them": 28
+          }
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Silver Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/frederick-vs-silver-creek-longmont/9-11-2026/?c=24de9364-f34d-49c5-918c-4372d4da4eb9",
+          "result": "W",
+          "score": {
+            "us": 16,
+            "them": 9
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Mead",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/frederick-vs-mead-longmont/9-4-2026/?c=0b591178-9634-49d4-b77b-2096a3037adf",
+          "result": "L",
+          "score": {
+            "us": 14,
+            "them": 38
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Golden",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/frederick-vs-golden/8-27-2026/?c=08b150f9-f1e2-4e61-936b-d2dba499fd4c",
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 14
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Roosevelt",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/frederick-vs-roosevelt-johnstown/10-23-2026/?c=81df90d8-6471-4f55-a640-248b177d7290",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Loveland",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/frederick-vs-loveland/10-29-2026/?c=2f7f23a2-9c4a-44e2-9d59-ac48d9feac84",
+          "time": "18:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "boys-soccer",
+      "name": "Boys soccer",
+      "maxprepsUrl": "https://www.maxpreps.com/co/frederick/frederick-golden-eagles/soccer/",
+      "fetched": "2026-10-22T03:24:31.310Z",
+      "maxprepsUpdated": "2026-10-22T02:58:45",
+      "overall": "3-7-4",
+      "league": {
+        "record": "1-3-2",
+        "name": "5A/4A Granite Peaks",
+        "place": "6th"
+      },
+      "results": [
+        {
+          "date": "2026-10-20",
+          "opponent": "Longmont",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/frederick-vs-longmont/10-20-2026/?c=1e19537b-5b71-446d-83a3-88d33c282292",
+          "result": "L",
+          "score": {
+            "us": 3,
+            "them": 5
+          }
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Monarch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/frederick-vs-monarch-louisville/10-15-2026/?c=de85a04c-426c-4fa7-bd2f-8c153900fc9c",
+          "result": "T",
+          "score": {
+            "us": 2,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Centaurus",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/centaurus-lafayette-vs-frederick/10-8-2026/?c=ba205f73-fe40-403a-9e4e-a6828631df5c",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Holy Family",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/frederick-vs-holy-family-broomfield/10-6-2026/?c=b4628152-dde3-4c5c-ae05-bdaf72b5893a",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Mead",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/frederick-vs-mead-longmont/9-29-2026/?c=ac27dbb9-c545-44e5-bb9e-26b990484211",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Niwot",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/frederick-vs-niwot/9-24-2026/?c=dc6b5e5d-7d4d-4bcb-be0d-b79521aab0da",
+          "result": "T",
+          "score": {
+            "us": 0,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Erie",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/erie-vs-frederick/9-22-2026/?c=3600fae8-70b3-460f-96c1-6a4af7d1cb8a",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Prairie View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/frederick-vs-prairie-view-henderson/9-17-2026/?c=e37d3d8a-eb69-4da7-814c-8b030bae0946",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Skyline",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/frederick-vs-skyline-longmont/9-15-2026/?c=d87f3b13-8ee0-41d0-b796-cc2bdb63e4ab",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 5
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Severance",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/frederick-vs-severance/9-8-2026/?c=1a431aac-f57b-40a0-b439-2dc76ceb3a1c",
+          "result": "T",
+          "score": {
+            "us": 4,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Northridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/frederick-vs-northridge-greeley/9-3-2026/?c=6ca7f995-2385-4556-940b-b928679fda71",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Greeley West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/frederick-vs-greeley-west/8-27-2026/?c=134cab0f-2c69-4880-a0b8-79d6e551b647",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/frederick-vs-thompson-valley-loveland/8-25-2026/?c=662493c9-aee2-4013-915d-c30a37c74526",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "Brighton",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/brighton-vs-frederick/8-20-2026/?c=a761a1f8-bc01-4c68-a966-d1bd60af134d",
+          "result": "T",
+          "score": {
+            "us": 1,
+            "them": 1
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Silver Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/frederick-vs-silver-creek-longmont/10-22-2026/?c=3862f73b-4f4f-49fe-88a8-7fd05a93341f",
+          "time": "18:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "volleyball",
+      "name": "Volleyball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/frederick/frederick-golden-eagles/volleyball/",
+      "fetched": "2026-10-22T03:24:31.310Z",
+      "maxprepsUpdated": "2026-10-22T03:05:19",
+      "overall": "4-16",
+      "league": {
+        "record": "1-11",
+        "name": "5A/4A/3A Granite Peaks",
+        "place": "8th"
+      },
+      "results": [
+        {
+          "date": "2026-10-20",
+          "opponent": "Mead",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-mead-longmont/10-20-2026/?c=b63633fe-f743-41d1-90d7-8fb04183b3fa",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Niwot",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-niwot/10-15-2026/?c=52cbd6df-596d-4482-97c2-f6091e300335",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Longmont",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-longmont/10-13-2026/?c=7ae4ac60-ce2f-483f-9f03-7f2e61baafe2",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Air Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/air-academy-us-air-force-academy-vs-frederick/10-10-2026/?c=21b51f17-f228-4dd8-9b89-c390e66de807",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Regis Groff",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-regis-groff-denver/10-10-2026/?c=6716fcc8-79e7-4173-a8e6-fe79940cd325",
+          "neutral": true,
+          "venue": "FFC Trojan Invitational",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Pueblo Centennial",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-pueblo-centennial/10-10-2026/?c=ea688d31-97cd-4efb-89f9-989dbc5d1d2d",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Fountain-Fort Carson",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/fountain-fort-carson-vs-frederick/10-10-2026/?c=18d07ee6-2b22-4bad-b9b3-a45279326fa4",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Holy Family",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-holy-family-broomfield/10-8-2026/?c=7df39335-a5a1-4c0d-a1d5-0d9cbf27a596",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Silver Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-silver-creek-longmont/10-6-2026/?c=1df1aca0-cb03-4bc5-90dd-4b8144eb1861",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Centaurus",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/centaurus-lafayette-vs-frederick/10-1-2026/?c=c1cfb1ec-a71b-41cf-8983-3fcbf562e098",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Monarch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-monarch-louisville/9-29-2026/?c=3bd9b00e-53f8-49e4-8e61-2f546110b67b",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Mead",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-mead-longmont/9-24-2026/?c=e3a1cf38-8531-4c81-adaa-bc93f38c7252",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Niwot",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-niwot/9-22-2026/?c=1bf38ec9-99b7-4108-ad4c-a4f042161ede",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Longmont",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-longmont/9-17-2026/?c=3bd35d46-0fb8-4af8-8c60-cde4f8738428",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Holy Family",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-holy-family-broomfield/9-15-2026/?c=83cd4079-1c09-4446-bebc-ac6fa59346de",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Silver Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-silver-creek-longmont/9-10-2026/?c=3821492f-f393-4279-916b-7af23bce238d",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Timnath",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-timnath/9-8-2026/?c=a681aeef-9eb9-474a-9889-9ef84fee33e8",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-northridge-greeley/9-3-2026/?c=2ff45f21-5cf1-4026-80fe-676b593b6b58",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Erie",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-frederick/9-1-2026/?c=478a5938-3d55-4858-90ca-7aa72208bae7",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Fort Morgan",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/fort-morgan-vs-frederick/8-27-2026/?c=85e74f12-e9e9-41a7-92f5-3d38b9564d41",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Monarch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-monarch-louisville/10-22-2026/?c=79b240c2-8511-4a83-8e24-f5a5fe708609",
+          "time": "18:30"
+        },
+        {
+          "date": "2026-10-27",
+          "opponent": "Centaurus",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/centaurus-lafayette-vs-frederick/10-27-2026/?c=2f88638b-cf9f-4c48-b3e8-3ebb5b44d732",
+          "time": "18:30"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Berthoud",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-frederick/10-29-2026/?c=c77b92ce-5eb0-4ac2-8391-1ca60a73fed6",
+          "time": "18:30"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "softball",
+      "name": "Softball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/frederick/frederick-golden-eagles/softball/fall/",
+      "fetched": "2026-10-22T03:24:31.310Z",
+      "maxprepsUpdated": "2026-10-22T03:07:48",
+      "overall": "20-7",
+      "league": {
+        "record": "9-5",
+        "name": "5A/4A/3A Granite Peaks",
+        "place": "3rd"
+      },
+      "results": [
+        {
+          "date": "2026-10-17",
+          "opponent": "Air Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/air-academy-us-air-force-academy-vs-frederick/10-17-2026/?c=32e8c143-fc1b-45d7-80ba-a408a7bde90e",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 22
+          }
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Air Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/air-academy-us-air-force-academy-vs-frederick/10-17-2026/?c=b8c166e9-9c9b-4e7f-82ed-da4bdd5f29e7",
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 22
+          }
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Thompson Valley",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-thompson-valley-loveland/10-17-2026/?c=589058fb-b629-4d46-b975-1dc8e9a8eaaa",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Air Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/air-academy-us-air-force-academy-vs-frederick/10-17-2026/?c=185019ff-311c-4111-bc27-b0f0e383790d",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Holy Family",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-holy-family-broomfield/10-8-2026/?c=5db06cca-16ba-4fc7-9c25-9624233acd5a",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Silver Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-silver-creek-longmont/10-6-2026/?c=058ca7a3-0ef2-4d7a-8944-4fc8df818e9a",
+          "result": "W",
+          "score": {
+            "us": 13,
+            "them": 11
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Longmont",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-longmont/10-1-2026/?c=92420660-94ab-4f09-adc0-d267464c3cac",
+          "result": "W",
+          "score": {
+            "us": 13,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Monarch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-monarch-louisville/9-29-2026/?c=722d52b5-f6d2-443b-b4c2-0bfbd72a204a",
+          "result": "W",
+          "score": {
+            "us": 8,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Centaurus",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/centaurus-lafayette-vs-frederick/9-24-2026/?c=fad18b69-2077-4697-a0c7-6cfe6d2f2bb8",
+          "result": "W",
+          "score": {
+            "us": 12,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Holy Family",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-holy-family-broomfield/9-22-2026/?c=33e1c3ee-f6ad-4944-9c54-234d729b40b8",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Mead",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-mead-longmont/9-17-2026/?c=0da6e57f-4112-46e4-a838-4f6fe350ea8d",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Niwot",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-niwot/9-15-2026/?c=7d962b7b-10a9-49da-9f3c-bb4115ce1d2a",
+          "result": "W",
+          "score": {
+            "us": 8,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-09-14",
+          "opponent": "Mountain Range",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-mountain-range-westminster/9-14-2026/?c=e01d0878-97a7-436d-afcf-f741bcf2ec57",
+          "result": "W",
+          "score": {
+            "us": 13,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Northfield",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-northfield-denver/9-12-2026/?c=27ff52d6-08fe-4e34-9635-742d691a8e2a",
+          "neutral": true,
+          "venue": "Northridge Tournament",
+          "result": "W",
+          "score": {
+            "us": 12,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Mountain View",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-mountain-view-loveland/9-12-2026/?c=732ffe49-cef5-4158-b525-329cd158d437",
+          "neutral": true,
+          "venue": "Northridge Tournament",
+          "result": "W",
+          "score": {
+            "us": 12,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Thompson Valley",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-thompson-valley-loveland/9-11-2026/?c=9b42af41-3e4f-4d7b-9eb6-a2333faa1eb1",
+          "neutral": true,
+          "venue": "Northridge Tournament",
+          "result": "W",
+          "score": {
+            "us": 5,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Silver Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-silver-creek-longmont/9-10-2026/?c=7a5f5cac-275d-4e1f-bbb7-2a47ad1f855a",
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 5
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Longmont",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-longmont/9-8-2026/?c=d9d30062-d816-4fc0-91e2-563c735769a8",
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Monarch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-monarch-louisville/9-3-2026/?c=4ee37838-71cd-41c6-9f4f-e973dd9d0c11",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Centaurus",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/centaurus-lafayette-vs-frederick/9-1-2026/?c=76b3861d-a81b-4858-adb6-9d6a647fdca8",
+          "result": "W",
+          "score": {
+            "us": 9,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Poudre",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-poudre-fort-collins/8-29-2026/?c=5ee76590-abe1-4b0f-bc1b-45ca8dc64563",
+          "neutral": true,
+          "venue": "Loveland Tournament Barnes Complex",
+          "result": "W",
+          "score": {
+            "us": 21,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Dakota Ridge",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/dakota-ridge-littleton-vs-frederick/8-29-2026/?c=d410e930-3e7b-4959-bf9a-1042af4c6e94",
+          "neutral": true,
+          "venue": "Loveland High School",
+          "result": "W",
+          "score": {
+            "us": 8,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Prairie View",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-prairie-view-henderson/8-28-2026/?c=e0fcdad5-4359-4e70-8ef6-5cbaa8932734",
+          "neutral": true,
+          "venue": "Loveland High School",
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Vista PEAK Prep",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-vista-peak-prep-aurora/8-28-2026/?c=29cac72f-5ecd-4065-9509-f6384210aa27",
+          "neutral": true,
+          "venue": "Loveland Tournament Barnes Complex",
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Mead",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-mead-longmont/8-25-2026/?c=4830fda7-159e-42ed-bc0a-b45fd40fc222",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-08-21",
+          "opponent": "Timnath",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-timnath/8-21-2026/?c=cabe4eec-1009-449f-8cb1-96807e4c50f9",
+          "result": "W",
+          "score": {
+            "us": 16,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "Niwot",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-niwot/8-20-2026/?c=20f795f5-b0d6-4973-bd3a-5d1e4939f23f",
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 16
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Pueblo West",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-pueblo-west/10-23-2026/?c=9895fcf4-7c43-401f-a51c-3b75969b51b8",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "time": "10:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "boys-cross-country",
+      "name": "Boys cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/frederick/frederick-golden-eagles/cross-country/",
+      "fetched": "2026-10-22T03:24:31.310Z",
+      "maxprepsUpdated": "2026-10-22T03:07:57",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-cross-country",
+      "name": "Girls cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/frederick/frederick-golden-eagles/cross-country/girls/",
+      "fetched": "2026-10-22T03:24:31.310Z",
+      "maxprepsUpdated": "2026-10-22T03:08:02",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    }
+  ]
+}
