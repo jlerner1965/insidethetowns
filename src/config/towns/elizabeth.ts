@@ -41,8 +41,10 @@ export const elizabeth = {
   population2010: 1358, // 2010 census, for census-to-census growth
   character: 'Prairie and ponderosa on the Palmer Divide, an hour out and sold five acres at a time.',
   colors: {
-    // Saddle brown + wheat, on warm paper: Color System 2.0, 9 October 2026.
-    primary: "#805434",
+    // Cardinal red, the school's colour as the guide's (22 October 2026):
+    // the shade Elizabeth High's own site brands with (MaxPreps's CC0022 is
+    // Loveland High's too, and a guide's primary is its own).
+    primary: '#8D181B',
     accent: "#C7A36A",
     paper: "warm",
   },

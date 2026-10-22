@@ -71,8 +71,10 @@ export const carbonValley: TownConfig = {
   character:
     'Three coal towns in a row along I-25 north of Erie, grown from 23,000 to 37,000 people between the 2010 and 2020 censuses, with one library, one rec district and one Main Street each.',
   colors: {
-    // Graphite + copper, on cool paper: Color System 2.0, 9 October 2026.
-    primary: '#3B4E52',
+    // Golden Eagle navy, Frederick High's colour as the guide's (22 October
+    // 2026): the shade the school's own site brands with (MaxPreps's 022C66
+    // is Lyons' too, and a guide's primary is its own).
+    primary: '#1C2550',
     accent: '#C48B54',
     paper: 'cool',
   },

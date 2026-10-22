@@ -46,7 +46,7 @@
   --color-raised: #ffffff;
   /* Body text, and supporting text: the only two inks. */
   --color-ink: #243137;
-  --color-ink-muted: #526068;
+  --color-ink-muted: #46545B;
   --color-line: var(--t-line);
   --color-line-soft: var(--t-line-soft);
 

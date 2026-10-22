@@ -30,8 +30,10 @@ export const johnstown: TownConfig = {
   population2010: 9887, // 2010 census, for census-to-census growth
   character: 'Sugar-beet town at the I-25 interchange, filling the gap between Loveland and Greeley.',
   colors: {
-    // Barn burgundy + harvest tan, on warm paper: Color System 2.0, 9 October 2026.
-    primary: '#7F3C3E',
+    // Roughrider red, the school's colour as the guide's (22 October 2026):
+    // Roosevelt High's own site theme (hsl 350 83% 42%); MaxPreps's team
+    // data carries only a placeholder black for the school.
+    primary: '#C41230',
     accent: '#BAA071',
     paper: 'warm',
   },

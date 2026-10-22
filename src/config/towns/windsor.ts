@@ -45,8 +45,11 @@ export const windsor: TownConfig = {
   population2010: 18644, // 2010 census, for census-to-census growth
   character: 'A sugar-beet town between Fort Collins and Greeley that grew by three-quarters in a decade, with a lake in the middle.',
   colors: {
-    // Lake teal + warm brass, on cool paper: Color System 2.0, 9 October 2026.
-    primary: '#226A66',
+    // Wizard maroon, the school's colour as the guide's (22 October 2026):
+    // the shade Windsor High's own site brands with (MaxPreps's 8F0018 is
+    // Berthoud's too, and a guide's primary is its own). The brass stays: it
+    // is the Wizards' gold.
+    primary: '#6A1B32',
     accent: '#C2A16D',
     paper: 'cool',
   },

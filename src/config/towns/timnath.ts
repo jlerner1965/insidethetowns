@@ -26,9 +26,11 @@ export const timnath: TownConfig = {
   population2010: 625, // 2010 census, for census-to-census growth
   character: 'A farm village that grew tenfold between the 2010 and 2020 censuses, mostly since the Costco.',
   colors: {
-    // Harvest olive-gold + reservoir blue, on warm paper: Color System 2.0, 9 October 2026.
-    primary: '#746023',
-    accent: '#638A96',
+    // Cub blue, the school's colour as the guide's (22 October 2026, owner's
+    // call that a guide matches its high school): MaxPreps's team data gives
+    // 1580A5, darkened 10% to clear the warm paper and the amber notice wash. The gold is the Cubs' too.
+    primary: '#137495',
+    accent: '#C8880A',
     paper: 'warm',
   },
   hero: {
