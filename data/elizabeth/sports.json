@@ -1,0 +1,928 @@
+{
+  "generated": "2026-10-22T03:11:30.983Z",
+  "sports": [
+    {
+      "key": "football",
+      "name": "Football",
+      "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/football/",
+      "fetched": "2026-10-22T03:11:30.983Z",
+      "maxprepsUpdated": "2026-10-22T02:43:40",
+      "overall": "8-0",
+      "league": {
+        "record": "4-0",
+        "name": "2A Metro",
+        "place": "1st"
+      },
+      "results": [
+        {
+          "date": "2026-10-15",
+          "opponent": "D'Evelyn",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/develyn-denver-vs-elizabeth/10-15-2026/?c=461eda66-9451-4fa4-a264-2702f46fd414",
+          "result": "W",
+          "score": {
+            "us": 49,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-10",
+          "opponent": "Denver West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/denver-west-vs-elizabeth/10-10-2026/?c=56bdb5cb-e4b3-425f-b1ac-67272929a9db",
+          "result": "W",
+          "score": {
+            "us": 40,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-02",
+          "opponent": "Strasburg",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/elizabeth-vs-strasburg/10-2-2026/?c=367fffdd-03e0-4103-bd48-7bcdf8f8f437",
+          "result": "W",
+          "score": {
+            "us": 37,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-09-25",
+          "opponent": "Forge Christian",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/elizabeth-vs-forge-christian-eagles-arvada/9-25-2026/?c=108a3f2c-625b-49c1-a108-1411c6a119cf",
+          "result": "W",
+          "score": {
+            "us": 42,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "Resurrection Christian",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/elizabeth-vs-resurrection-christian-loveland/9-18-2026/?c=d9cc3551-e9f9-41fd-97a7-852df8a09920",
+          "result": "W",
+          "score": {
+            "us": 17,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Banning Lewis Academy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/banning-lewis-academy-colorado-springs-vs-elizabeth/9-4-2026/?c=719d0c44-37ff-4e20-8ded-2f1d1997de20",
+          "result": "W",
+          "score": {
+            "us": 59,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Alamosa",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/alamosa-vs-elizabeth/8-27-2026/?c=d649f9c0-8c69-4149-9eb7-186580368766",
+          "result": "W",
+          "score": {
+            "us": 35,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-08-21",
+          "opponent": "Florence",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/elizabeth-vs-florence/8-21-2026/?c=0c346b87-bc70-4d5f-a751-f83bccbd72dc",
+          "result": "W",
+          "score": {
+            "us": 51,
+            "them": 7
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-23",
+          "opponent": "The Classical Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/elizabeth-vs-the-classical-academy-colorado-springs/10-23-2026/?c=269b81c8-d551-4121-91f1-6eae384d8eae",
+          "time": "19:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "boys-soccer",
+      "name": "Boys soccer",
+      "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/soccer/",
+      "fetched": "2026-10-22T03:11:30.983Z",
+      "maxprepsUpdated": "2026-10-22T02:52:18",
+      "overall": "5-7-2",
+      "league": {
+        "record": "0-4",
+        "name": "5A/4A/3A Continental",
+        "place": "13th"
+      },
+      "results": [
+        {
+          "date": "2026-10-20",
+          "opponent": "The Classical Academy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/elizabeth-vs-the-classical-academy-colorado-springs/10-20-2026/?c=8a6485af-9a21-49e8-9df8-aede67822b4d",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 5
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Highlands Ranch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/elizabeth-vs-highlands-ranch/10-8-2026/?c=3a0e781c-a5c4-44f8-802a-7b975b4a44e6",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Ponderosa",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/elizabeth-vs-ponderosa-jaguars-parker/10-6-2026/?c=deeeb294-1e4b-4d4b-9fb6-e71a3e8c16b3",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Sand Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/elizabeth-vs-sand-creek-colorado-springs/10-1-2026/?c=55d5266d-aba9-440a-b4c9-c9599b750f11",
+          "result": "T",
+          "score": {
+            "us": 0,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Douglas County",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/douglas-county-castle-rock-vs-elizabeth/9-29-2026/?c=046be1bf-0df0-4ad6-b8d9-1f33fce9d91a",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-09-23",
+          "opponent": "Rocky Mountain Lutheran",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/elizabeth-vs-rocky-mountain-lutheran-denver/9-23-2026/?c=b9356da3-1fa1-49f3-ad5f-4b95086fdadd",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/elizabeth-vs-valley-gilcrest/9-17-2026/?c=a6f316cd-ce3e-471c-9877-83017b4d0e9e",
+          "result": "W",
+          "score": {
+            "us": 8,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Palmer",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/elizabeth-vs-palmer-colorado-springs/9-15-2026/?c=ab950017-e051-4555-8257-4e879df93185",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Thomas MacLaren School",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/elizabeth-vs-thomas-maclaren-school-colorado-springs/9-10-2026/?c=ab3a6efb-6593-4320-a7da-41b578829b22",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Lotus School For Excellence",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/elizabeth-vs-lotus-school-for-excellence-aurora/9-8-2026/?c=0168521b-8f65-4ff5-8479-ab756dafa003",
+          "result": "T",
+          "score": {
+            "us": 1,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Wellington",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/elizabeth-vs-wellington/9-3-2026/?c=5eaf84b7-d873-40a0-b89e-a119f2498c5b",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Fort Morgan",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/elizabeth-vs-fort-morgan/9-1-2026/?c=40beb57b-5f97-4976-b30f-952eb677cc20",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Denver Academy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/denver-academy-vs-elizabeth/8-25-2026/?c=84babd61-9a7e-4593-b5b2-fe6fc5786de1",
+          "result": "W",
+          "score": {
+            "us": 5,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "STEM School Highlands Ranch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/elizabeth-vs-stem-school-highlands-ranch/8-20-2026/?c=5387d4db-f1dc-49a7-99d0-acc66661c467",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Bennett",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/bennett-vs-elizabeth/10-22-2026/?c=1b62de79-749d-4834-9e1d-0916fc924dd1",
+          "time": "18:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "volleyball",
+      "name": "Volleyball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/volleyball/",
+      "fetched": "2026-10-22T03:11:30.983Z",
+      "maxprepsUpdated": "2026-10-21T23:12:01",
+      "overall": "11-11",
+      "league": {
+        "record": "1-6",
+        "name": "5A/4A/3A Continental",
+        "place": "12th"
+      },
+      "results": [
+        {
+          "date": "2026-10-20",
+          "opponent": "Highlands Ranch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-highlands-ranch/10-20-2026/?c=e55dc966-e57a-4863-bbf8-051d7fa57586",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Douglas County",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/douglas-county-castle-rock-vs-elizabeth/10-8-2026/?c=d95c459d-3cf7-4e16-9b76-cbb1b68ef2cf",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-07",
+          "opponent": "Sand Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-sand-creek-colorado-springs/10-7-2026/?c=24182efb-bf9e-43ae-aedf-e1fe1dbbcfc1",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "The Classical Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-the-classical-academy-colorado-springs/10-1-2026/?c=9039b39d-76e0-4ec0-b317-9ae608bfd348",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Ponderosa",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-ponderosa-jaguars-parker/9-29-2026/?c=376cd6b5-3a6e-4a21-8808-204deb12f24a",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-23",
+          "opponent": "Highlands Ranch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-highlands-ranch/9-23-2026/?c=6ec4af4d-9bb1-45aa-85e8-2cec53a1a53a",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Douglas County",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/douglas-county-castle-rock-vs-elizabeth/9-22-2026/?c=67654a24-0a4a-45f9-b1d5-d8bedadf2671",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "St. Mary's Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-st-marys-academy-englewood/9-19-2026/?c=7e414f37-7d74-4497-a682-d2f49822b144",
+          "neutral": true,
+          "venue": "Fort Lupton High School",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "The Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-the-academy-westminster/9-19-2026/?c=57297716-6569-4e60-a0ee-dac07278c0e5",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Stargate School",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-stargate-school-thornton/9-19-2026/?c=f882fd8f-fa77-4b0f-9c51-a1ee807378e8",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Jefferson Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-jefferson-academy-broomfield/9-19-2026/?c=5e79be06-930e-486a-8c04-d2c0baf50e76",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Mesa Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-mesa-ridge-colorado-springs/9-17-2026/?c=9daa95d8-f5a0-4da3-b909-530b088edaa5",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-16",
+          "opponent": "Palmer",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-palmer-colorado-springs/9-16-2026/?c=2a578da7-43fb-4936-8baa-7c0a65fc4424",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "The Classical Academy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-the-classical-academy-colorado-springs/9-15-2026/?c=4f93a24e-ba0b-49ff-b172-735507b06c18",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "STEM School Highlands Ranch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-stem-school-highlands-ranch/9-10-2026/?c=68b6e886-dfe1-4f15-90ab-bc441e0b8310",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-09",
+          "opponent": "Bennett",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/bennett-vs-elizabeth/9-9-2026/?c=2bcd4c50-8914-40fa-9052-db0094a5704b",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Manitou Springs",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-manitou-springs/9-8-2026/?c=29d0b477-5371-45ef-a1c5-c1081feba6c6",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "University",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-university-greeley/9-3-2026/?c=cdf3308c-3448-40b5-a808-3e3b70fab1e9",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Coronado",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/coronado-colorado-springs-vs-elizabeth/9-1-2026/?c=6840958a-3682-439e-a897-d446c5b79aef",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Weld Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-weld-central-keenesburg/8-28-2026/?c=e2bfd993-a785-4d88-87c2-03469ac0982d",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Woodland Park",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-woodland-park/8-25-2026/?c=b4c4c9fb-c444-4f0e-9e46-af87f2ac51f2",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "Discovery Canyon",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/discovery-canyon-colorado-springs-vs-elizabeth/8-20-2026/?c=d3aed29b-2704-40ba-9775-026f851364c1",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Ponderosa",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-ponderosa-jaguars-parker/10-22-2026/?c=9b80d3d3-40d4-4d3f-a43b-037cd5dda799",
+          "time": "18:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "softball",
+      "name": "Softball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/softball/fall/",
+      "fetched": "2026-10-22T03:11:30.983Z",
+      "maxprepsUpdated": "2026-10-22T02:58:26",
+      "overall": "16-9",
+      "league": {
+        "record": "7-1",
+        "name": "4A/3A Continental",
+        "place": "1st"
+      },
+      "results": [
+        {
+          "date": "2026-10-17",
+          "opponent": "Southeast Colorado",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-southeast-colorado-wiley/10-17-2026/?c=bb2ff4f5-8c92-4df4-99ed-4ffbfdb7281b",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 13,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Lamar",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-lamar/10-17-2026/?c=82fef69a-38b3-4b33-a2aa-fb2b71cfbd6f",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "result": "W",
+          "score": {
+            "us": 1,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Douglas County",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/douglas-county-castle-rock-vs-elizabeth/10-9-2026/?c=64c0f6c9-af0f-47e4-b265-b9e6fa3a2aa5",
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Legend",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-legend-parker/10-8-2026/?c=608d4d6c-629b-4a5b-ab38-7a3298c9ca0e",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 13
+          }
+        },
+        {
+          "date": "2026-10-05",
+          "opponent": "Vista Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-vista-ridge-colorado-springs/10-5-2026/?c=722e56b9-b935-4787-b382-b9b4b5b956cf",
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-10-02",
+          "opponent": "Highlands Ranch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-highlands-ranch/10-2-2026/?c=b46bd789-24df-4c65-bc94-4125a782114e",
+          "result": "W",
+          "score": {
+            "us": 16,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "The Classical Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-the-classical-academy-colorado-springs/9-29-2026/?c=f5137ec4-e2df-476e-9f5f-b5a683b5810f",
+          "result": "W",
+          "score": {
+            "us": 11,
+            "them": 10
+          }
+        },
+        {
+          "date": "2026-09-28",
+          "opponent": "Heritage",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-heritage-littleton/9-28-2026/?c=4977ea69-6322-4c0c-a994-05ec7e0540eb",
+          "result": "L",
+          "score": {
+            "us": 10,
+            "them": 11
+          }
+        },
+        {
+          "date": "2026-09-21",
+          "opponent": "Highlands Ranch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-highlands-ranch/9-21-2026/?c=b0735a40-931a-4d25-9d9a-d889bca97105",
+          "result": "W",
+          "score": {
+            "us": 12,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-19",
+          "opponent": "Mead",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-mead-longmont/9-19-2026/?c=58a134dc-3644-414a-bc42-58ec59eca9b3",
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "Douglas County",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/douglas-county-castle-rock-vs-elizabeth/9-18-2026/?c=ed162341-86dd-40c0-b14b-007f1cfa2c4c",
+          "result": "W",
+          "score": {
+            "us": 5,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-16",
+          "opponent": "Heritage",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-heritage-littleton/9-16-2026/?c=206d51fd-169d-46e0-851c-075e5a785ab3",
+          "result": "W",
+          "score": {
+            "us": 16,
+            "them": 9
+          }
+        },
+        {
+          "date": "2026-09-14",
+          "opponent": "The Classical Academy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-the-classical-academy-colorado-springs/9-14-2026/?c=463b2e31-a62e-45b0-9c6f-c8f373963bc1",
+          "result": "W",
+          "score": {
+            "us": 8,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Sand Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-sand-creek-colorado-springs/9-8-2026/?c=c39e8968-0ffc-49b7-8cd6-5fa411e49a1a",
+          "result": "W",
+          "score": {
+            "us": 16,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-05",
+          "opponent": "Palmer Ridge",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-palmer-ridge-monument/9-5-2026/?c=4c8aa310-f621-43c8-afd1-6893b8eb94f0",
+          "neutral": true,
+          "venue": "Twin Rivers Softball Fields",
+          "result": "L",
+          "score": {
+            "us": 10,
+            "them": 20
+          }
+        },
+        {
+          "date": "2026-09-05",
+          "opponent": "University",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-university-greeley/9-5-2026/?c=4ae028f4-9f48-4695-b2e0-10cce0c281e4",
+          "neutral": true,
+          "venue": "Twin Rivers Softball Fields",
+          "result": "L",
+          "score": {
+            "us": 5,
+            "them": 15
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Windsor",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-windsor/9-4-2026/?c=72ac8c56-6dfd-4d17-8284-e7444e960f78",
+          "neutral": true,
+          "venue": "Twin Rivers Softball Fields",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 16
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Fort Collins",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-fort-collins/8-29-2026/?c=c62a7594-2d46-4508-98ae-274e75e4b69d",
+          "neutral": true,
+          "venue": "Loveland High School",
+          "result": "W",
+          "score": {
+            "us": 12,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Arvada West",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/arvada-west-vs-elizabeth/8-29-2026/?c=a64ef4ac-459d-4356-9bf7-82e45673270b",
+          "neutral": true,
+          "venue": "Loveland High School",
+          "result": "W",
+          "score": {
+            "us": 13,
+            "them": 9
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Rocky Mountain",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-rocky-mountain-fort-collins/8-28-2026/?c=6f8683da-752d-42d3-a94c-9e7387d43466",
+          "neutral": true,
+          "venue": "Loveland High School",
+          "result": "W",
+          "score": {
+            "us": 8,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Sterling",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-sterling/8-28-2026/?c=c46fe858-5663-40a7-b510-ce6affa4ca2c",
+          "neutral": true,
+          "venue": "Loveland High School",
+          "result": "W",
+          "score": {
+            "us": 11,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Berthoud",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-elizabeth/8-25-2026/?c=6e8e76a8-4e69-4f88-98ae-355e347b26b8",
+          "result": "W",
+          "score": {
+            "us": 9,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-08-21",
+          "opponent": "Chaparral",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/chaparral-parker-vs-elizabeth/8-21-2026/?c=f765e317-a420-4444-b793-dd6b937733b7",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-severance/8-20-2026/?c=88fe41de-6a86-494d-8493-a555fcba59e1",
+          "result": "L",
+          "score": {
+            "us": 11,
+            "them": 13
+          }
+        },
+        {
+          "date": "2026-08-18",
+          "opponent": "Grandview",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-grandview-aurora/8-18-2026/?c=759c16dc-8a1c-4ab5-a9d5-3fceab4c8da7",
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 11
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Wellington",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-wellington/10-23-2026/?c=655c5c6f-ae54-4e79-af71-0b5ae9dcd2a7",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "time": "12:15"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "boys-cross-country",
+      "name": "Boys cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/cross-country/",
+      "fetched": "2026-10-22T03:11:30.983Z",
+      "maxprepsUpdated": "2026-10-22T03:12:07",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-cross-country",
+      "name": "Girls cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/cross-country/girls/",
+      "fetched": "2026-10-22T03:11:30.983Z",
+      "maxprepsUpdated": "2026-10-22T03:12:11",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    }
+  ]
+}
