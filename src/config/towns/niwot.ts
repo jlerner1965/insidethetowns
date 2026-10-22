@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 export const niwot: TownConfig = {
   kind: 'town',
@@ -60,14 +60,15 @@ export const niwot: TownConfig = {
     accentName: 'terracotta',
   },
   footer: 'compact',
-  // Niwot High's scores and schedules (src/config/school-sports.ts).
+  // The pill row of the flagship masthead (redesign of 22 October 2026),
+  // the same five as Berthoud's with the Cougars for the Spartans; Get
+  // Involved, Events, Things to Do and Guides stay in the footer.
   nav: [
-    DEFAULT_TOWN_NAV[0]!,
-    DEFAULT_TOWN_NAV[1]!,
-    DEFAULT_TOWN_NAV[2]!,
-    { label: 'Get Involved', href: '/get-involved/' },
-    { label: 'Living Here', href: '/living-here/' },
-    { label: 'Sports', href: '/sports/' },
+    { label: 'This week', href: '/this-week/' },
+    { label: 'Families', href: '/families/' },
+    { label: 'Cougars', href: '/sports/' },
+    { label: 'Living here', href: '/living-here/' },
+    { label: 'Eat & drink', href: '/eat-drink/' },
   ],
   participation: {
     label: 'Get Involved',

@@ -1,0 +1,59 @@
+---
+/**
+ * One registration deadline or opening on the family hub, as a card: the
+ * date, the program, one line of who and what, the organizer's own words
+ * on the program, and the ways in as buttons (the registration page, named
+ * by how the organizer says to register; the deadline's own listing, where
+ * it links out). The source and the day it was read sit at the foot.
+ */
+import type { TownEntry } from '@/lib/content';
+import { dayKey, formatShortDate, monthDay, toIsoLocal } from '@/lib/dates';
+import type { Deadline } from '@/lib/programs';
+import { shorten } from '@/lib/text';
+
+interface Props {
+  deadline: Deadline<TownEntry<'programs'>>;
+  /** The listing the program points at, when it is the deadline's own day. */
+  event?: TownEntry<'events'>;
+  now: Date;
+}
+
+const { deadline, event, now } = Astro.props;
+const { program, on, what } = deadline;
+const { data } = program;
+const badge = monthDay(on);
+const left = Math.round((on.getTime() - now.getTime()) / 86_400_000);
+const leftText = what === 'opens' ? `opens in ${left} day${left === 1 ? '' : 's'}` : left <= 0 ? 'today' : `${left} day${left === 1 ? '' : 's'} left`;
+const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
+const reg = data.registration;
+// The button's name is the organizer's own "how", where it is short enough to be one.
+const how = reg?.how && reg.how.length <= 28 ? reg.how : what === 'opens' ? 'Registration' : 'Register';
+const listing = event && dayKey(event.data.start) === dayKey(on) ? event : undefined;
+const free = data.price && /\bfree\b/i.test(data.price) ? 'Free' : undefined;
+const track = data.kind === 'league' || data.kind === 'class' || data.kind === 'program' ? 'registration' : 'participation';
+---
+<article class:list={['rounded-lg p-5 ring-1 sm:p-6', what === 'closes' ? 'bg-highlight-soft ring-highlight' : 'bg-raised ring-line-soft']} id={`deadline-${program.slug}`}>
+  <div class="flex items-start gap-4">
+    <time datetime={toIsoLocal(on)} class:list={['flex size-12 shrink-0 flex-col items-center justify-center rounded-full text-center leading-none', what === 'closes' ? 'bg-highlight text-ink' : 'bg-paper text-ink ring-1 ring-line-soft']}>
+      <span class="text-[0.625rem] font-bold uppercase tracking-[0.08em]">{badge.month}</span>
+      <span class="mt-0.5 text-[0.9375rem] font-bold">{badge.day}</span>
+    </time>
+    <div class="min-w-0">
+      <h3 class="text-lg font-semibold leading-snug"><a href={`#program-${program.slug}`} class="no-underline hover:text-primary hover:underline">{listing ? listing.data.title.replace(/\s*[:·-]\s*(?:\w+\s+)?due\s*$/i, '') : data.title}</a></h3>
+      <p class="mt-0.5 text-[0.875rem] leading-snug text-ink-muted">
+        {[data.organizer, free, leftText].filter(Boolean).join(' · ')}
+      </p>
+    </div>
+  </div>
+  <p class="mt-3 text-[0.9375rem] leading-relaxed">{reg?.note && reg.note.length <= 140 ? reg.note : shorten(data.summary, 180)}</p>
+  <div class="mt-4 flex flex-wrap gap-2">
+    {reg?.url && <a href={reg.url} rel="noopener" data-track={track} class="btn btn-primary">{how}</a>}
+    {listing?.data.url && <a href={listing.data.url} rel="noopener" class="btn btn-outline text-primary">Details on {host(listing.data.url)}</a>}
+    {!reg?.url && !listing?.data.url && data.url && <a href={data.url} rel="noopener" data-track={track} class="btn btn-outline text-primary">The organizer’s page</a>}
+  </div>
+  {data.source && (
+    <p class="mt-4 text-[0.8125rem] text-ink-muted">
+      <a href={data.source} rel="noopener" class="underline">{host(data.source)}</a>{data.verified && <Fragment> · read <time datetime={toIsoLocal(data.verified)}>{formatShortDate(data.verified)}</time></Fragment>}
+    </p>
+  )}
+</article>

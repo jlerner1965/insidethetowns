@@ -60,6 +60,20 @@ export function sitePhrase(g: SportGame): string {
   return g.site === 'home' ? 'Home' : g.site === 'away' ? 'Away' : 'Neutral site';
 }
 
+/** Where the game is: the venue where one is known (a playoff site), else "Home", "Away" or "Neutral site". */
+export function placeText(g: SportGame): string {
+  return g.venue ?? sitePhrase(g);
+}
+
+/** Each team's next game, in the config's order: the home page's sports block. */
+export function nextGames(data: SportsData, now = new Date()): TeamGame[] {
+  const today = dayKey(now);
+  return data.sports.flatMap((team) => {
+    const game = team.upcoming.find((g) => g.date >= today);
+    return game ? [{ team, game }] : [];
+  });
+}
+
 /** "7 pm", from the game's Denver time. */
 export function formatGameTime(g: SportGame): string {
   return formatTime(gameDay(g));

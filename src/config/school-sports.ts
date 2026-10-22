@@ -28,6 +28,14 @@ export interface SportConfig {
   maxpreps: string;
   /** The school calendar's words for the varsity team, as they open the event title. */
   calendar: { gender: 'Boys' | 'Girls'; sport: string };
+  /**
+   * Where this sport's playoff games are played when every class plays at
+   * one site: CHSAA's state softball tournament is at Aurora Sports Park.
+   * A playoff game MaxPreps files as "home" is still played there, so the
+   * page names the park rather than "Home". Unset for a sport whose
+   * playoff venues vary; MaxPreps's own venue is used where it gives one.
+   */
+  playoffVenue?: string;
 }
 
 export interface SchoolSports {
@@ -70,7 +78,7 @@ const FALL = (): SportConfig[] => [
   // Softball is a fall sport in Colorado, which MaxPreps files under the
   // spring sport's name with the season after it (CHSAA's school pages list
   // it for both schools, 21 October 2026).
-  { key: 'softball', name: 'Softball', maxpreps: 'softball/fall', calendar: { gender: 'Girls', sport: 'Softball' } },
+  { key: 'softball', name: 'Softball', maxpreps: 'softball/fall', calendar: { gender: 'Girls', sport: 'Softball' }, playoffVenue: 'Aurora Sports Park' },
   { key: 'boys-cross-country', name: 'Boys cross country', maxpreps: 'cross-country', calendar: { gender: 'Boys', sport: 'Cross Country' } },
   { key: 'girls-cross-country', name: 'Girls cross country', maxpreps: 'cross-country/girls', calendar: { gender: 'Girls', sport: 'Cross Country' } },
 ];
@@ -127,6 +135,13 @@ export interface SportGame {
   score?: { us: number; them: number };
   /** A meet's placing, when MaxPreps gives one instead of a score: "3rd". */
   place?: string;
+  /**
+   * A playoff or tournament game: played at a neutral site whatever side
+   * MaxPreps files it on, so the page never says "Home" for it.
+   */
+  neutral?: boolean;
+  /** Where a neutral game is played, when known: MaxPreps's venue, or the sport's playoffVenue. */
+  venue?: string;
   /** The game's page on MaxPreps. */
   url: string;
 }

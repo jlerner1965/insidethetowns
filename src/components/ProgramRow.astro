@@ -42,7 +42,7 @@ const reg = data.registration;
 const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
 const track = data.kind === 'league' || data.kind === 'class' || data.kind === 'program' ? 'registration' : 'participation';
 ---
-<article class="min-w-0 border-t border-line-soft py-5 first:border-t-0 md:py-6 [overflow-wrap:anywhere]">
+<article id={`program-${program.slug}`} class="min-w-0 scroll-mt-20 border-t border-line-soft py-5 first:border-t-0 md:py-6 [overflow-wrap:anywhere]">
   {showKind && (
     <p class="eyebrow text-ink-muted">{PROGRAM_KIND_LABELS[data.kind]} · {data.organizer}</p>
   )}

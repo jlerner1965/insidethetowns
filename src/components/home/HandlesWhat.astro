@@ -1,0 +1,74 @@
+---
+/**
+ * "Who handles what" on the home page: one link card per section of
+ * Living Here (icon, the section's name, the first link's note with its
+ * phone number), each to that section of /living-here/; then the current
+ * public decision from /updates/ as one row, where there is one.
+ */
+import type { TownConfig } from '@/config';
+import type { TownEntry } from '@/lib/content';
+import { formatMonthDay, formatShortDate, parseLocal } from '@/lib/dates';
+import { UPDATE_KIND_LABELS } from '@/content/schemas';
+
+interface Props {
+  town: TownConfig;
+  /** The featured decision, if one is current. */
+  notice?: TownEntry<'updates'>;
+  class?: string;
+}
+
+const { town, notice, class: className } = Astro.props;
+const living = town.livingHere!;
+const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+const PHONE = /\b(?:1-)?\d{3}-\d{3}-\d{4}\b/;
+/** The first link's note to its first clause, with the section's phone number where one is given. */
+const noteFor = (s: (typeof living.sections)[number]) => {
+  const first = s.items[0]?.note ?? s.items[0]?.label ?? '';
+  const clause = first.split(/[;.]/)[0]!.trim();
+  const phone = s.items.map((i) => i.note?.match(PHONE)?.[0]).find(Boolean);
+  return phone && !clause.includes(phone) ? `${clause} · ${phone}` : clause;
+};
+const checked = living.sections.map((s) => s.verified).sort().at(-1);
+// One line icon per kind of section, by the words in its title; a plain
+// mark for a title the list does not know.
+const ICONS: Array<[RegExp, string]> = [
+  [/water|utilit/i, 'M12 3s-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z'],
+  [/trash|recycl/i, 'M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3'],
+  [/transport|around|bus|road/i, 'M5 5h14v11H5zM5 16v2h3v-2M16 16v2h3v-2M7 12h10'],
+  [/recreation|parks|rec /i, 'M4 5h16v15H4zM4 10h16M9 3v4M15 3v4'],
+  [/school/i, 'M4 20V10l8-6 8 6v10M10 20v-6h4v6'],
+  [/report|problem|safety|police|fire/i, 'M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z'],
+  [/meeting|town|civic|particip|govern/i, 'M3 21h18M5 21V9h14v12M9 21v-5h6v5M12 3l8 6H4z'],
+];
+const iconFor = (title: string) => ICONS.find(([re]) => re.test(title))?.[1] ?? 'M12 6v12M6 12h12';
+const effective = notice ? formatMonthDay(notice.data.effective) : '';
+---
+<section class={className} aria-labelledby="handles-what">
+  <div class="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between md:gap-4">
+    <h2 id="handles-what" class="display-md text-[1.75rem] md:text-[2rem]">Who handles what</h2>
+    <p class="text-[0.9375rem] text-ink-muted">Straight to the right page of the official site{checked && ` · checked ${formatShortDate(parseLocal(checked))}`}.</p>
+  </div>
+  <ul class="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
+    {living.sections.map((s) => (
+      <li>
+        <a href={`/living-here/#${slugify(s.title)}`} class="flex h-full flex-col rounded-lg bg-raised p-4 no-underline ring-1 ring-line-soft hover:ring-primary-line">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="text-primary" aria-hidden="true"><path d={iconFor(s.title)}></path></svg>
+          <span class="mt-2 block font-semibold leading-snug">{s.title}</span>
+          <span class="mt-1 block text-[0.875rem] leading-snug text-ink-muted">{noteFor(s)}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+  {notice && (
+    <div class="mt-3 flex flex-col gap-3 rounded-lg bg-raised p-4 ring-1 ring-line-soft md:flex-row md:items-center md:gap-5">
+      <span class="w-fit shrink-0 rounded-full bg-ink px-3 py-1 text-[0.6875rem] font-bold uppercase tracking-eyebrow text-raised">
+        {notice.data.kind === 'decision' ? `Vote ${effective}` : UPDATE_KIND_LABELS[notice.data.kind]}
+      </span>
+      <p class="min-w-0 flex-1 text-[0.9375rem] leading-snug">
+        <strong class="font-semibold">{notice.data.title}.</strong>
+        {notice.data.action && <span class="text-ink-muted"> {notice.data.action}</span>}
+      </p>
+      <a href={`/updates/#${notice.slug}`} class="inline-block -my-2 shrink-0 py-2 text-[0.9375rem] font-semibold text-primary underline">Details →</a>
+    </div>
+  )}
+</section>

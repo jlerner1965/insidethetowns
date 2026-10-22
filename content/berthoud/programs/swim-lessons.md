@@ -12,7 +12,7 @@ location: "Berthoud Recreation Center, 1000 N Berthoud Pkwy"
 schedule: "Monday/Wednesday or Tuesday/Thursday mornings and evenings; Saturday mornings; two-week Monday-to-Thursday blocks"
 season: "Year-round in monthly blocks; the fall guide lists blocks through November 19"
 price: "$40 resident / $50 non-resident for a two-week block; $52.50 / $62.50 for a month of Monday/Wednesday lessons; private lessons $256 / $266"
-registration: { required: true, how: "Online through Berthoud Recreation's registration portal or by calling 970-532-1600; registration opens on the 1st of each month for classes two months ahead", url: "https://apps.daysmartrecreation.com/dash/x/berthoud/", note: "Registration for swim lessons opens on the 1st of each month for classes scheduled two months in advance" }
+registration: { required: true, how: "Online through Berthoud Recreation's registration portal or by calling 970-532-1600; registration opens on the 1st of each month for classes two months ahead", url: "https://apps.daysmartrecreation.com/dash/x/berthoud/" }
 beginners: true
 contact: "Luke, ldiede@berthoud.org, for a free swim assessment"
 featured: true

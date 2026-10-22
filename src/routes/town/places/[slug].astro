@@ -350,7 +350,7 @@ const facts = [
   )}
 
   {nearby.length > 0 && (
-    <section class="mt-20 md:mt-24">
+    <section class="mt-20 md:mt-24" data-pagefind-ignore>
       <SectionHeader
         eyebrow={`More in ${town.name}`}
         title={nearby.every((p) => p.data.type === data.type) ? PLACE_TYPE_PLURALS[data.type] : back.label}

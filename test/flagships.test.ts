@@ -6,6 +6,7 @@
  * page's photograph has its licence row, and the navigation names the hubs
  * the config switches on.
  */
+import { schoolSportsFor } from '../src/config/school-sports.ts';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -29,16 +30,13 @@ test('each flagship has the flagship layout, the three hubs and a compact footer
   assert.equal(by('niwot').home!.signature, 'get-involved');
 });
 
-test('the flagship navigation names the week, the places, the hubs and sports, six items, and leaves the rest to the footer', () => {
+test('the flagship navigation is the five pills: the week, the family hub, the school’s mascot, Living Here and the places', () => {
   for (const slug of FLAGSHIPS) {
     const t = by(slug);
     const hrefs = t.nav.map((n) => n.href);
-    assert.equal(hrefs.length, 6, `${slug}: six items`);
-    assert.ok(hrefs.includes('/events/') && hrefs.includes('/living-here/') && hrefs.includes('/sports/'), slug);
-    assert.ok(hrefs.includes('/families/') || hrefs.includes('/get-involved/'), `${slug}: a hub in the row`);
+    assert.deepEqual(hrefs, ['/this-week/', '/families/', '/sports/', '/living-here/', '/eat-drink/'], slug);
+    assert.equal(t.nav.find((n) => n.href === '/sports/')?.label, schoolSportsFor(slug)?.mascot, `${slug}: the pill is the mascot`);
   }
-  assert.equal(by('niwot').nav.find((n) => n.href === '/get-involved/')?.label, 'Get Involved');
-  assert.equal(by('berthoud').nav.find((n) => n.href === '/families/')?.label, 'Families');
 });
 
 test('the purpose line is enduring: no dated civic topic in the masthead or the short tagline', () => {

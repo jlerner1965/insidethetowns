@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-21T20:20:40.850Z",
+  "generated": "2026-10-22T01:19:13.649Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/football/",
-      "fetched": "2026-10-21T20:20:40.850Z",
-      "maxprepsUpdated": "2026-10-21T20:09:33",
+      "fetched": "2026-10-22T01:19:13.649Z",
+      "maxprepsUpdated": "2026-10-21T22:57:00",
       "overall": "3-5",
       "league": {
         "record": "1-3",
@@ -128,8 +128,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/soccer/",
-      "fetched": "2026-10-21T20:20:40.850Z",
-      "maxprepsUpdated": "2026-10-21T17:28:30",
+      "fetched": "2026-10-22T01:19:13.649Z",
+      "maxprepsUpdated": "2026-10-21T23:21:19",
       "overall": "2-7-5",
       "league": {
         "record": "0-5-1",
@@ -310,8 +310,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/volleyball/",
-      "fetched": "2026-10-21T20:20:40.850Z",
-      "maxprepsUpdated": "2026-10-21T19:49:16",
+      "fetched": "2026-10-22T01:19:13.649Z",
+      "maxprepsUpdated": "2026-10-22T00:24:29",
       "overall": "14-3",
       "league": {
         "record": "11-1",
@@ -467,6 +467,8 @@
           "opponent": "Alamosa",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/alamosa-vs-niwot/8-29-2026/?c=5fc3460d-4b51-4b9b-b714-6711cddb19dc",
+          "neutral": true,
+          "venue": "Eaton Tournament",
           "result": "W",
           "score": {
             "us": 3,
@@ -478,6 +480,7 @@
           "opponent": "The Classical Academy",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/niwot-vs-the-classical-academy-colorado-springs/8-29-2026/?c=f8e577fc-16a4-4ba2-891c-97aa246c31f5",
+          "neutral": true,
           "result": "L",
           "score": {
             "us": 1,
@@ -489,6 +492,7 @@
           "opponent": "Mountain View",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-niwot/8-28-2026/?c=aca1873d-c40c-4c4b-93d6-4d29e5634304",
+          "neutral": true,
           "result": "W",
           "score": {
             "us": 3,
@@ -500,6 +504,7 @@
           "opponent": "Berthoud",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-niwot/8-28-2026/?c=ee987482-2209-45b2-abac-78f19b653450",
+          "neutral": true,
           "result": "W",
           "score": {
             "us": 3,
@@ -527,21 +532,22 @@
           "opponent": "Fossil Ridge",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/fossil-ridge-fort-collins-vs-niwot/10-30-2026/?c=0d7c07ea-2c1b-4531-b375-39e2c7952727",
+          "neutral": true,
+          "venue": "The Broadmoor World Arena",
           "time": "09:45"
         }
       ],
       "held": [],
       "notes": [
-        "no school calendar to check against",
-        "2026-10-30 Fossil Ridge was listed twice at 9:45 am under two contest ids; the second (c=831d7c52) answered 404 on 21 October 2026 and is dropped as a duplicate"
+        "no school calendar to check against"
       ]
     },
     {
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/softball/fall/",
-      "fetched": "2026-10-21T20:20:40.850Z",
-      "maxprepsUpdated": "2026-10-21T17:14:31",
+      "fetched": "2026-10-22T01:19:13.649Z",
+      "maxprepsUpdated": "2026-10-21T22:48:09",
       "overall": "15-11",
       "league": {
         "record": "9-5",
@@ -552,8 +558,9 @@
         {
           "date": "2026-10-17",
           "opponent": "Falcon",
-          "site": "home",
+          "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/falcon-vs-niwot/10-17-2026/?c=80d4e22f-5527-483b-a197-e9a8e947cd5d",
+          "neutral": true,
           "result": "L",
           "score": {
             "us": 9,
@@ -565,6 +572,7 @@
           "opponent": "Eagle Valley",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/eagle-valley-gypsum-vs-niwot/10-17-2026/?c=42ea3584-4d6a-4bdf-abc9-994c2cc310c3",
+          "neutral": true,
           "result": "W",
           "score": {
             "us": 16,
@@ -576,6 +584,7 @@
           "opponent": "Falcon",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/falcon-vs-niwot/10-17-2026/?c=a362baee-7e39-4992-84f1-fe146e441440",
+          "neutral": true,
           "result": "L",
           "score": {
             "us": 4,
@@ -620,6 +629,8 @@
           "opponent": "Grand Junction Central",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/central-warriors-grand-junction-vs-niwot/9-26-2026/?c=bf4dc1cb-dbca-4a2c-92ab-0ddbb11ad286",
+          "neutral": true,
+          "venue": "Canyon View Park",
           "result": "W",
           "score": {
             "us": 16,
@@ -631,6 +642,8 @@
           "opponent": "Palisade",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/niwot-vs-palisade/9-26-2026/?c=b1962534-f2f4-4fc0-a83b-5e2da9cbe869",
+          "neutral": true,
+          "venue": "Canyon View Park",
           "result": "W",
           "score": {
             "us": 5,
@@ -642,6 +655,8 @@
           "opponent": "Grand Junction",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/grand-junction-vs-niwot/9-25-2026/?c=d8542466-d5b2-481f-a5db-df2afdb3e5aa",
+          "neutral": true,
+          "venue": "Canyon View Park",
           "result": "L",
           "score": {
             "us": 4,
@@ -653,6 +668,8 @@
           "opponent": "Fruita Monument",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/fruita-monument-vs-niwot/9-25-2026/?c=38bb4c17-45a0-4996-9d48-21b74f77a689",
+          "neutral": true,
+          "venue": "Canyon View Park",
           "result": "L",
           "score": {
             "us": 1,
@@ -730,6 +747,8 @@
           "opponent": "Montezuma-Cortez",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/montezuma-cortez-vs-niwot/9-5-2026/?c=e6e8b7cb-8784-438f-9edd-edc4c3d23c5a",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
           "result": "W",
           "score": {
             "us": 12,
@@ -741,6 +760,8 @@
           "opponent": "Air Academy",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/air-academy-us-air-force-academy-vs-niwot/9-5-2026/?c=f085dc7c-1e29-45ec-99bb-49762575b1c0",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
           "result": "L",
           "score": {
             "us": 4,
@@ -752,6 +773,8 @@
           "opponent": "Mullen",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/mullen-denver-vs-niwot/9-4-2026/?c=3dc2f97c-333a-4d44-99eb-c1dde13b2654",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
           "result": "W",
           "score": {
             "us": 15,
@@ -763,6 +786,8 @@
           "opponent": "Pine Creek",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/niwot-vs-pine-creek-colorado-springs/9-4-2026/?c=05e8c292-e7b6-410b-87e3-365dc337c654",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
           "result": "W",
           "score": {
             "us": 12,
@@ -846,8 +871,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/cross-country/",
-      "fetched": "2026-10-21T20:20:40.850Z",
-      "maxprepsUpdated": "2026-10-21T16:40:31",
+      "fetched": "2026-10-22T01:19:13.649Z",
+      "maxprepsUpdated": "2026-10-22T01:17:03",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -860,8 +885,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/cross-country/girls/",
-      "fetched": "2026-10-21T20:20:40.850Z",
-      "maxprepsUpdated": "2026-10-21T19:13:17",
+      "fetched": "2026-10-22T01:19:13.649Z",
+      "maxprepsUpdated": "2026-10-22T01:17:07",
       "results": [],
       "upcoming": [],
       "held": [],

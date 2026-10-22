@@ -40,9 +40,15 @@ interface Props {
   compact?: boolean;
   /** Where on the page it sits, when two forms share one: keeps the field ids apart. */
   id?: string;
+  /**
+   * The flagship home page's panel (redesign of 22 October 2026): the
+   * town's colour behind white type, the button in the amber. The same
+   * form, the same boxes; only the surface and the opening line change.
+   */
+  dark?: boolean;
 }
 
-const { town, compact = false, id } = Astro.props;
+const { town, compact = false, id, dark = false } = Astro.props;
 const hub = getNetworkHub();
 const config = hub.newsletter;
 // A to Z by name, as on the hub's home page and in the footer, so the same
@@ -62,7 +68,9 @@ const variant = id ?? (compact ? 'compact' : 'main');
 const inputId = `newsletter-email-${variant}-${town?.slug ?? 'network'}`;
 const errorId = `newsletter-towns-${variant}-${town?.slug ?? 'network'}`;
 const field =
-  'mt-1.5 block h-12 w-full rounded-md border border-line bg-raised px-3 text-[1.0625rem] font-normal';
+  'mt-1.5 block h-12 w-full rounded-md border border-line bg-raised px-3 text-[1.0625rem] font-normal text-ink';
+const muted = dark ? 'text-white/80' : 'text-ink-muted';
+const link = dark ? 'text-white underline' : 'text-primary underline';
 // Every row a full 44px to tap, the box itself 20px.
 const row = 'flex min-h-11 items-center gap-2.5 text-[0.9375rem]';
 const box = 'size-5 shrink-0 rounded border-line';
@@ -71,7 +79,7 @@ const box = 'size-5 shrink-0 rounded border-line';
     on the home page, the full width of the events page with its right half
     empty, and left at 715px on This Weekend. */}
 {config && (!town || mine) && (
-  <section class:list={['max-w-3xl rounded-lg bg-raised p-6 ring-1 md:p-8', compact ? 'ring-line-soft' : 'ring-primary-line']}>
+  <section class:list={['max-w-3xl rounded-lg p-6 md:p-8', dark ? 'on-dark bg-primary text-white' : ['bg-raised ring-1', compact ? 'ring-line-soft' : 'ring-primary-line']]}>
     {/*
       A new tab keeps the reader on the page they were reading, and the
       browser opens it from target="_blank" itself (src/lib/signup.ts says
@@ -83,13 +91,13 @@ const box = 'size-5 shrink-0 rounded border-line';
       on every build.
     */}
     <form action={config.action} method="POST" target="_blank" class="max-w-xl" data-signup data-hub={town ? undefined : ''}>
-      <h2 class="display-md text-[1.75rem] leading-tight">What’s on in {where}, every {day}</h2>
-      <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">
-        One email a week: the weekend’s events, places new to the guide or closed, and a new article when there is one.
+      <h2 class="display-md text-[1.75rem] leading-tight">{dark ? `${day} email: the week, the scores, what closed.` : `What’s on in ${where}, every ${day}`}</h2>
+      <p class:list={['mt-2 text-[0.9375rem] leading-relaxed', muted]}>
+        {dark ? 'One email a week. No ads, no list sharing.' : 'One email a week: the weekend’s events, places new to the guide or closed, and a new article when there is one.'}
       </p>
 
       <fieldset class="mt-5" aria-describedby={errorId}>
-        <legend class="eyebrow">Which towns?</legend>
+        <legend class:list={['eyebrow', dark && 'text-white']}>Which towns?</legend>
         {town ? (
           <Fragment>
             <label class:list={[row, 'mt-2 font-semibold']}>
@@ -100,7 +108,7 @@ const box = 'size-5 shrink-0 rounded border-line';
                 page: the reader's own town is the usual answer. Native, so it
                 works without the script and with a keyboard. */}
             <details class="mt-1">
-              <summary class="inline-flex min-h-11 cursor-pointer items-center text-[0.9375rem] font-semibold text-primary underline">
+              <summary class:list={['inline-flex min-h-11 cursor-pointer items-center text-[0.9375rem] font-semibold', link]}>
                 Show all towns
               </summary>
               <div class="mt-1 grid grid-cols-2 gap-x-5 sm:grid-cols-3">
@@ -150,7 +158,7 @@ const box = 'size-5 shrink-0 rounded border-line';
 
       <div class="mt-5 sm:flex sm:items-end sm:gap-3">
         <div class="sm:flex-1">
-          <label for={inputId} class="block text-sm font-semibold">Your email</label>
+          <label for={inputId} class:list={['block text-sm font-semibold', dark && 'eyebrow text-white']}>{dark ? 'Email' : 'Your email'}</label>
           <input
             id={inputId}
             type="email"
@@ -163,12 +171,12 @@ const box = 'size-5 shrink-0 rounded border-line';
         </div>
         {/* The same height as the field beside it: the pill was 40px against a
             52px field, aligned at the bottom only. */}
-        <button type="submit" class="btn btn-primary mt-3 h-12 w-full justify-center px-6 sm:mt-0 sm:w-auto">Send me the {day} email</button>
+        <button type="submit" class:list={['btn mt-3 h-12 w-full justify-center px-6 sm:mt-0 sm:w-auto', dark ? 'bg-highlight text-ink hover:bg-highlight-ink' : 'btn-primary']}>Send me {dark ? `${day}’s` : `the ${day}`} email</button>
       </div>
 
-      <p class="mt-3 text-[0.8125rem] leading-relaxed text-ink-muted">
+      <p class:list={['mt-3 text-[0.8125rem] leading-relaxed', muted]}>
         Free. One email a week. Unsubscribe any time. {PRIVACY_LINE} See the
-        <a href={`https://${hub.domain}/privacy/`} class="inline-block -my-3 py-3 text-primary underline">privacy page</a>.
+        <a href={`https://${hub.domain}/privacy/`} class:list={['inline-block -my-3 py-3', link]}>privacy page</a>.
       </p>
       {/* A page's own line about the email (the hub's "See a sample issue"),
           inside the card rather than loose underneath it. */}
@@ -181,10 +189,10 @@ const box = 'size-5 shrink-0 rounded border-line';
         keeps the way back: the tab again, or the form. */}
     <div data-signup-done hidden tabindex="-1" class="max-w-xl text-[1.0625rem] leading-relaxed">
       <p class="font-semibold">{SIGNUP_MESSAGES.opened}</p>
-      <p class="mt-2 text-[0.9375rem] text-ink-muted">{SIGNUP_MESSAGES.openedHelp}</p>
+      <p class:list={['mt-2 text-[0.9375rem]', muted]}>{SIGNUP_MESSAGES.openedHelp}</p>
       <p class="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-[0.9375rem]">
-        <button type="button" class="inline-flex min-h-11 items-center font-semibold text-primary underline" data-signup-reopen>Open the signup tab again</button>
-        <button type="button" class="inline-flex min-h-11 items-center font-semibold text-primary underline" data-signup-edit>Change your details</button>
+        <button type="button" class:list={['inline-flex min-h-11 items-center font-semibold', link]} data-signup-reopen>Open the signup tab again</button>
+        <button type="button" class:list={['inline-flex min-h-11 items-center font-semibold', link]} data-signup-edit>Change your details</button>
       </p>
     </div>
   </section>

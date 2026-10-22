@@ -1,0 +1,55 @@
+---
+/**
+ * The school's games this week, in the school's colour (SchoolSports.colors):
+ * each team's next game as a row, the team and the opponent, the day, the
+ * time and where, the record at the right; then one line naming where the
+ * numbers came from and when they were read. A playoff game names its
+ * venue (SportGame.venue) rather than a side. A team with no game to come
+ * is not a row. Nothing to come at all, nothing rendered.
+ */
+import { schoolSportsFor, type SportsData } from '@/config/school-sports';
+import { formatDayShort, formatShortDate } from '@/lib/dates';
+import { formatGameTime, gameDay, nextGames, placeText, schoolCssVars, sportsDataFor, when, where } from '@/lib/school-sports';
+
+interface Props {
+  town: string;
+  class?: string;
+}
+
+const { town, class: className } = Astro.props;
+const files = import.meta.glob<SportsData>('../../../data/*/sports.json', { eager: true, import: 'default' });
+const school = schoolSportsFor(town);
+const data = school && sportsDataFor(town, files);
+const now = new Date();
+// Each team's next game, soonest first.
+const games = data ? nextGames(data, now).sort((a, b) => a.game.date.localeCompare(b.game.date) || (a.game.time ?? '').localeCompare(b.game.time ?? '')) : [];
+const read = data?.sports.map((s) => s.fetched).filter(Boolean).sort().at(-1);
+const dayLabel = (g: (typeof games)[number]['game']) => {
+  const w = when(g, now);
+  return w === 'Today' || w === 'Tomorrow' ? w : formatDayShort(gameDay(g));
+};
+---
+{school && games.length > 0 && (
+  <section class:list={['on-dark rounded-lg bg-primary p-5 text-white sm:p-6', className]} aria-labelledby="sports-block" style={schoolCssVars(school)}>
+    <div class="flex items-baseline justify-between gap-4">
+      <h2 id="sports-block" class="display-md text-[1.75rem] md:text-[2rem]">{school.mascot} this week</h2>
+      <a href="/sports/" class="inline-block -my-2 shrink-0 py-2 text-[0.9375rem] font-semibold text-white underline">All scores →</a>
+    </div>
+    <ul class="mt-4 space-y-2">
+      {games.map(({ team, game }) => (
+        <li class="flex items-center justify-between gap-4 rounded-md bg-white/10 px-4 py-3 ring-1 ring-white/15">
+          <a href="/sports/" class="min-w-0 no-underline">
+            <span class="block font-semibold leading-snug">{team.name} {where(game)} {game.opponent}</span>
+            <span class="block text-[0.875rem] text-white/80">
+              {dayLabel(game)}{game.time && ` · ${formatGameTime(game)}`} · {placeText(game)}
+            </span>
+          </a>
+          {team.overall && <span class="shrink-0 font-semibold tabular-nums">{team.overall}</span>}
+        </li>
+      ))}
+    </ul>
+    <p class="mt-4 text-[0.8125rem] text-white/80">
+      From <a href={school.maxpreps} rel="noopener" class="text-white underline">MaxPreps</a>{read && `, read ${formatShortDate(new Date(read))}`}{school.calendar ? '; checked against the school calendar.' : '.'}
+    </p>
+  </section>
+)}

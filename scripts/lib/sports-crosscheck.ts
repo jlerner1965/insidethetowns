@@ -61,10 +61,14 @@ export function crossCheck(sport: SportConfig, toCome: SportGame[], calendar: Ca
         continue;
       }
       const where = match.where === 'vs' ? 'home' : match.where === '@' ? 'away' : undefined;
-      if (where && where !== game.site) {
+      // A playoff or tournament game is at a neutral site whichever side
+      // the school files it on (the seeded host is "vs" on its calendar),
+      // so a side is not a disagreement there; the day and the time are.
+      if (where && where !== game.site && !game.neutral) {
         out.held.push({ game, reason: `${label}: MaxPreps has it ${game.site}, the school calendar ${where} ("${match.title}")` });
         continue;
       }
+      if (where && game.neutral) out.notes.push(`${label}: a ${game.venue ? `game at ${game.venue}` : 'neutral-site game'}, which the school calendar files as ${where} ("${match.title}")`);
       out.upcoming.push(game);
       continue;
     }

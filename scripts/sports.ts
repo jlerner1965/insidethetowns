@@ -173,6 +173,7 @@ async function runTown(school: SchoolSports): Promise<string> {
       continue;
     }
     const page = parseTeamPage(res.html, { url, schoolName: school.maxprepsName });
+    const team = { url, schoolName: school.maxprepsName, playoffVenue: sport.playoffVenue };
     if (page.noSchedule) {
       data.sports.push(emptyEntry(sport, page, now.toISOString()));
       summary.push(`| ${sport.name} | — | — | — | — | — |`);
@@ -191,7 +192,7 @@ async function runTown(school: SchoolSports): Promise<string> {
     // summary says why.
     await sleep(MAXPREPS_PAUSE_MS);
     const sched = await fetchPage(`${url}schedule/`);
-    const schedule = sched.ok ? parseSchedulePage(sched.html, { url, schoolName: school.maxprepsName }) : undefined;
+    const schedule = sched.ok ? parseSchedulePage(sched.html, team) : undefined;
     const problem = schedule ? applySchedule(page, schedule) : `could not be read (${(sched as { reason: string }).reason})`;
     if (problem) flags.push(`**${sport.name}**: the full schedule on MaxPreps ${problem.startsWith('could not') ? problem : `was not used: ${problem}`}; the page shows the games the team page reports.`);
     else if (schedule!.skipped) flags.push(`${sport.name}: ${schedule!.skipped} row${schedule!.skipped === 1 ? '' : 's'} on the schedule page ${schedule!.skipped === 1 ? 'is' : 'are'} not a game (cancelled, or a placeholder) and ${schedule!.skipped === 1 ? 'was' : 'were'} left out.`);

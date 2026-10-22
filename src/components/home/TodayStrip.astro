@@ -1,0 +1,52 @@
+---
+/**
+ * The strip under the masthead: today's date, when the calendar was last
+ * checked, and what is on today in one line (title, venue, time), from the
+ * same occurrences the week below is built from. With nothing on today,
+ * tomorrow's first listing stands in and says so. Built daily, and each
+ * item carries the day it falls on, so Freshness.astro drops one that has
+ * passed by the time the page is read.
+ */
+import type { TownEntry } from '@/lib/content';
+import { addDays, dayKey, formatDayLong, formatShortDate, toIsoLocal } from '@/lib/dates';
+import { lastDay, listedUntil, timeText } from '@/lib/events';
+
+interface Props {
+  /** The calendar's occurrences, as the week is built from (occurrences()). */
+  calendar: TownEntry<'events'>[];
+  now: Date;
+}
+
+const { calendar, now } = Astro.props;
+const today = dayKey(now);
+const tomorrow = dayKey(addDays(now, 1));
+const onDay = (day: string) => calendar.filter((e) => dayKey(e.data.start) === day).sort((a, b) => a.data.start.getTime() - b.data.start.getTime());
+const todays = onDay(today).slice(0, 3);
+const next = todays.length === 0 ? onDay(tomorrow).slice(0, 2) : [];
+// The day the calendar was last read: the newest check among today's and
+// tomorrow's listings, else the build itself.
+const checks = [...todays, ...next].map((e) => e.data.verified?.getTime()).filter((t): t is number => !!t);
+const checked = checks.length ? new Date(Math.max(...checks)) : now;
+const checkedLabel = dayKey(checked) === today ? 'Checked today' : `Checked ${formatShortDate(checked)}`;
+const items = todays.length ? todays : next;
+---
+<section class="border-b border-line-soft bg-paper" aria-label="Today">
+  <div class="container-page py-4 md:py-5">
+    <p class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+      <time datetime={today} class="eyebrow">{formatDayLong(now)}</time>
+      <span class="text-[0.875rem] text-ink-muted">{checkedLabel}</span>
+    </p>
+    <p class="mt-1.5 text-[1.0625rem] leading-snug" data-events-scope>
+      {items.length === 0 ? (
+        <span class="text-ink-muted">Nothing on the calendar today or tomorrow. <a href="/events/" class="text-primary underline">The month →</a></span>
+      ) : (
+        items.map((e, i) => (
+          <span data-event-day={lastDay(e)} data-end={toIsoLocal(listedUntil(e))}>
+            {i > 0 && <span class="text-ink-muted"> · </span>}
+            <a href={`/events/${e.slug}/`} class="font-semibold no-underline hover:text-primary hover:underline">{e.data.title}</a><span class="text-ink-muted">, {e.data.venue}{todays.length === 0 ? ' tomorrow' : ''}, {timeText(e, now)}</span>
+          </span>
+        ))
+      )}
+    </p>
+  </div>
+</section>
