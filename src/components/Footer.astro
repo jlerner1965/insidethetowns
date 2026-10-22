@@ -1,5 +1,7 @@
 ---
 import { getNetworkHub, getSite } from '@/config';
+import { getTownEntries } from '@/lib/content';
+import { siteNav } from '@/lib/nav';
 import NetworkBar from './NetworkBar.astro';
 import Wordmark from './Wordmark.astro';
 
@@ -9,24 +11,30 @@ const year = new Date().getFullYear();
 // A phone gets a taller line to tap: the links were 19px high, under the 24px
 // minimum, a few pixels apart.
 const linkClass = 'inline-block py-1 no-underline text-white hover:underline sm:py-0';
+// Every section of the guide the menu leaves out (src/lib/nav.ts), so each
+// is one click from any page and none is reachable only from an aside.
+const inMenu = new Set(siteNav(site).map((n) => n.href));
+const hasUpdates = site.kind === 'town' && (await getTownEntries('updates')).length > 0;
+const sections = site.kind === 'town'
+  ? [
+      { label: 'This weekend', href: '/this-weekend/' },
+      { label: 'Things to do', href: '/things-to-do/' },
+      { label: 'Guides', href: '/guides/' },
+      { label: 'Every place, A to Z', href: '/directory/' },
+      { label: 'Moving here', href: '/moving-here/' },
+      ...(site.participation ? [{ label: 'Get involved', href: '/get-involved/' }] : []),
+      ...(hasUpdates ? [{ label: 'Local changes', href: '/updates/' }] : []),
+    ].filter((l) => !inMenu.has(l.href))
+  : [];
 ---
 <footer class="on-dark mt-24 bg-primary text-white" data-pagefind-ignore>
   <div class="container-page grid gap-10 py-14 sm:grid-cols-2 md:py-20 lg:grid-cols-[1.5fr_1fr_1fr_1.3fr] lg:gap-12">
     <div>
       <Wordmark class="text-3xl leading-none" tone="light" />
       <p class="mt-4 max-w-sm text-[0.9375rem] leading-relaxed">{site.tagline}</p>
-      {/* Off the primary navigation (DEFAULT_TOWN_NAV in types.ts), so here
-          on every page. */}
-      {site.kind === 'town' && (
+      {sections.length > 0 && (
         <ul class="mt-4 flex flex-wrap gap-x-5 text-[0.9375rem] font-semibold">
-          <li><a href="/this-week/" class={linkClass}>This week in {site.name}</a></li>
-          <li><a href="/directory/" class={linkClass}>Directory of every place</a></li>
-          {/* The sections the flagship navigation leaves out, kept reachable from every page. */}
-          {site.home && <li><a href="/guides/" class={linkClass}>Guides</a></li>}
-          {site.home && <li><a href="/moving-here/" class={linkClass}>Moving here</a></li>}
-          {site.livingHere && <li><a href="/living-here/" class={linkClass}>Living here</a></li>}
-          {site.families && <li><a href="/families/" class={linkClass}>{site.families.label}</a></li>}
-          {site.participation && <li><a href="/get-involved/" class={linkClass}>{site.participation.label}</a></li>}
+          {sections.map((l) => <li><a href={l.href} class={linkClass}>{l.label}</a></li>)}
         </ul>
       )}
     </div>

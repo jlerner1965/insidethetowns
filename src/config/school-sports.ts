@@ -69,6 +69,12 @@ export interface SchoolSports {
   note?: string;
   /** "Spartans": how the pages name the teams. */
   mascot: string;
+  /**
+   * The menu's word for the sports page where "<mascot> sports" would not
+   * say whose team it is (src/lib/nav.ts): Carbon Valley is four towns and
+   * the Golden Eagles are Frederick High's.
+   */
+  navLabel?: string;
   /** The school's MaxPreps URL; each team's page is `maxpreps` + its path + "/". */
   maxpreps: string;
   /** How MaxPreps names the school in a game's data ("Berthoud"), to tell our side from theirs. */
@@ -281,6 +287,7 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // CHSAANow: Frederick Senior High School, St Vrain Valley RE1J; football 4A, 4A Northern (2026–28).
     school: 'Frederick High School',
     mascot: 'Golden Eagles',
+    navLabel: 'Frederick sports',
     note: 'Dacono’s and Firestone’s students attend Frederick High too, so the Golden Eagles are the whole valley’s team.',
     maxpreps: 'https://www.maxpreps.com/co/frederick/frederick-golden-eagles/',
     maxprepsName: 'Frederick',

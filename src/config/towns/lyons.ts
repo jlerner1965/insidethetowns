@@ -50,16 +50,6 @@ export const lyons: TownConfig = {
     secondary: { label: 'Lyons Families', href: '/families/' },
     accentName: 'sandstone',
   },
-  footer: 'compact',
-  // The pill row of the flagship masthead: the week, the family hub, the
-  // Lions (src/config/school-sports.ts), Living Here and the places.
-  nav: [
-    { label: 'This week', href: '/this-week/' },
-    { label: 'Families', href: '/families/' },
-    { label: 'Lions', href: '/sports/' },
-    { label: 'Living here', href: '/living-here/' },
-    { label: 'Eat & drink', href: '/eat-drink/' },
-  ],
   families: {
     label: 'Lyons Families',
     intro: 'What a child can join, what closes soon, and what there is on a school day off: the library, the Town’s recreation programs, the school and the organizers’ own pages, each with the day it was read.',

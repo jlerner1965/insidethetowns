@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 /**
  * A Weld County home-rule town of 7,683 at the 2020 census, up from 3,165 in
@@ -66,7 +66,6 @@ export const severance: TownConfig = {
   social: {
     email: 'hello@insideseverance.com',
   },
-  nav: DEFAULT_TOWN_NAV,
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Severance,-CO_rb/' },

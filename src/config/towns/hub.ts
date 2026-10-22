@@ -68,7 +68,7 @@ export const hub: HubConfig = {
   publisher: { name: 'Lerner Works', url: 'https://lernerworks.com' },
   nav: [
     { label: 'This Weekend', href: '/this-weekend/' },
-    { label: 'Moving Here', href: '/moving/' },
+    { label: 'Moving here', href: '/moving/' },
     { label: 'Newsletter', href: '/newsletter/' },
     { label: 'Towns', href: '/#towns' },
     { label: 'About', href: '/about/' },

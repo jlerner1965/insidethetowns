@@ -7,7 +7,8 @@
  * page's photograph has its licence row, and the navigation names the hubs
  * the config switches on.
  */
-import { schoolSportsFor } from '../src/config/school-sports.ts';
+import { schoolsFor } from '../src/config/school-sports.ts';
+import { townNav } from '../src/lib/nav.ts';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
@@ -18,7 +19,7 @@ const FLAGSHIPS = ['berthoud', 'niwot', 'lyons'];
 const by = (slug: string) => towns.find((t) => t.slug === slug)!;
 const licences = readFileSync('IMAGE_LICENSES.csv', 'utf8');
 
-test('each flagship has the flagship layout, the three hubs and a compact footer; no other guide does', () => {
+test('each flagship has the flagship layout and the three hubs; no other guide does', () => {
   for (const t of towns) {
     const flagship = FLAGSHIPS.includes(t.slug);
     assert.equal(!!t.home, flagship, `${t.slug}: home`);
@@ -26,20 +27,29 @@ test('each flagship has the flagship layout, the three hubs and a compact footer
     // The participation hub is a flagship's to have or not: Lyons has none yet.
     if (!flagship) assert.equal(!!t.participation, false, `${t.slug}: participation`);
     assert.equal(!!t.families, flagship, `${t.slug}: families`);
-    assert.equal(t.footer === 'compact', flagship, `${t.slug}: footer`);
   }
   assert.equal(by('berthoud').home!.signature, 'families');
   assert.equal(by('niwot').home!.signature, 'get-involved');
   assert.equal(by('lyons').home!.signature, 'families');
 });
 
-test('the flagship navigation is the five pills: the week, the family hub, the school’s mascot, Living Here and the places', () => {
-  for (const slug of FLAGSHIPS) {
-    const t = by(slug);
-    const hrefs = t.nav.map((n) => n.href);
-    assert.deepEqual(hrefs, ['/this-week/', '/families/', '/sports/', '/living-here/', '/eat-drink/'], slug);
-    assert.equal(t.nav.find((n) => n.href === '/sports/')?.label, schoolSportsFor(slug)?.mascot, `${slug}: the pill is the mascot`);
+test('every guide has the same menu, built from what it has: the week, events, its school, the places, its hub and Living here or Moving here', () => {
+  for (const t of towns) {
+    const nav = townNav(t);
+    const labels = nav.map((n) => n.label);
+    assert.deepEqual(nav.slice(0, 2).map((n) => n.href), ['/this-week/', '/events/'], `${t.slug}: the week and events lead`);
+    const sports = nav.find((n) => n.href === '/sports/');
+    assert.equal(!!sports, schoolsFor(t.slug).length > 0, `${t.slug}: a sports item exactly where there is a school`);
+    if (sports) assert.match(sports.label, /\bsports$/, `${t.slug}: "${sports.label}" says sports`);
+    assert.ok(nav.some((n) => n.href === (t.families ? '/families/' : '/things-to-do/')), `${t.slug}: hub or things to do`);
+    assert.ok(nav.some((n) => n.href === (t.livingHere ? '/living-here/' : '/moving-here/')), `${t.slug}: living or moving here`);
+    for (const l of labels) assert.equal(l, l[0] + l.slice(1).replace(/\b[A-Z][a-z]/g, (w) => (/^(Golden|Eagles|Frederick)$/.test(w) ? w : w.toLowerCase())), `${t.slug}: "${l}" is in sentence case`);
   }
+  assert.deepEqual(townNav(by('berthoud')).map((n) => n.label), ['This week', 'Events', 'Spartans sports', 'Eat & drink', 'Families', 'Living here']);
+  assert.equal(townNav(by('lyons')).find((n) => n.href === '/sports/')?.label, 'Lions sports');
+  assert.equal(townNav(towns.find((t) => t.slug === 'carbon-valley')!).find((n) => n.href === '/sports/')?.label, 'Frederick sports');
+  assert.equal(townNav(towns.find((t) => t.slug === 'loveland')!).find((n) => n.href === '/sports/')?.label, 'High school sports');
+  assert.deepEqual(townNav(towns.find((t) => t.slug === 'erie')!).map((n) => n.label), ['This week', 'Events', 'Eat & drink', 'Things to do', 'Moving here']);
 });
 
 test('the purpose line is enduring: no dated civic topic in the masthead or the short tagline', () => {

@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 /**
  * The Clear Creek County seat, a territorial charter municipality of 1,118
@@ -87,7 +87,6 @@ export const georgetown: TownConfig = {
   social: {
     email: 'hello@insidegeorgetownco.com',
   },
-  nav: DEFAULT_TOWN_NAV,
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Georgetown,-CO_rb/' },

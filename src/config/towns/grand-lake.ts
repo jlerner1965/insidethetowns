@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 /**
  * A Grand County statutory town of 410 at the 2020 census, 8,439 feet up on
@@ -102,7 +102,6 @@ export const grandLake: TownConfig = {
   social: {
     email: 'hello@insidegrandlake.com',
   },
-  nav: DEFAULT_TOWN_NAV,
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Grand-Lake,-CO_rb/' },

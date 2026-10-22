@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 /**
  * A city of 76,378 at the 2020 census, the second-largest in Larimer County,
@@ -68,9 +68,6 @@ export const loveland: TownConfig = {
   social: {
     email: 'hello@insidelovelandco.com',
   },
-  // The default five with the four high schools (src/config/school-sports.ts), under one word since no one mascot is the city’s in the third
-  // slot, where Berthoud's pill row carries the Spartans (22 October 2026).
-  nav: [...DEFAULT_TOWN_NAV.slice(0, 2), { label: 'Sports', href: '/sports/' }, ...DEFAULT_TOWN_NAV.slice(2)],
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Loveland,-CO_rb/' },

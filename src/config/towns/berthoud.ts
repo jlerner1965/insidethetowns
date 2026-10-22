@@ -63,18 +63,6 @@ export const berthoud: TownConfig = {
     secondary: { label: 'Berthoud Families', href: '/families/' },
     accentName: 'gold',
   },
-  footer: 'compact',
-  // The pill row of the flagship masthead (redesign of 22 October 2026):
-  // the week, the family hub, the Spartans (src/config/school-sports.ts),
-  // Living Here and the places. Events, Things to Do, Guides and Moving
-  // Here keep their pages and sit in the footer and on Living Here.
-  nav: [
-    { label: 'This week', href: '/this-week/' },
-    { label: 'Families', href: '/families/' },
-    { label: 'Spartans', href: '/sports/' },
-    { label: 'Living here', href: '/living-here/' },
-    { label: 'Eat & drink', href: '/eat-drink/' },
-  ],
   families: {
     label: 'Berthoud Families',
     intro: 'What a child can join, what closes soon, and what there is on a school day off: the library, Berthoud Recreation, the schools and the organizers’ own pages, each with the day it was read.',
@@ -102,7 +90,9 @@ export const berthoud: TownConfig = {
     ],
   },
   participation: {
-    label: 'Join Something',
+    // One name for the route on every guide (navigation audit, 22 October
+    // 2026): it was "Join Something" here and "Get Involved" on Niwot.
+    label: 'Get involved',
     intro: 'The standing ways into Berthoud: a run club that asks nothing but shoes, groups at the library, the Historical Society, the Town’s boards, and the people who put on the downtown year. Each line says what it costs, what to bring and how to make a first inquiry.',
   },
   livingHere: {

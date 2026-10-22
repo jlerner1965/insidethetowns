@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 /**
  * A Gilpin County home rule city of 127 at the 2020 census, 8,058 feet up
@@ -86,7 +86,6 @@ export const blackHawk: TownConfig = {
   social: {
     email: 'hello@insideblackhawk.com',
   },
-  nav: DEFAULT_TOWN_NAV,
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Black-Hawk,-CO_rb/' },

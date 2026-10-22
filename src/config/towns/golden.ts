@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 /**
  * The Jefferson County seat, a home-rule city of 20,399 at the 2020 census at
@@ -82,7 +82,6 @@ export const golden: TownConfig = {
   social: {
     email: 'hello@insidegolden.com',
   },
-  nav: DEFAULT_TOWN_NAV,
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Golden,-CO_rb/' },

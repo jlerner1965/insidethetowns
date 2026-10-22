@@ -152,7 +152,7 @@ export interface HomeConfig {
  * "Join something in Berthoud").
  */
 export interface ParticipationConfig {
-  /** The nav label and the page's name: "Get Involved", "Join Something". */
+  /** The page's name, "Get involved" on every guide that has the page. */
   label: string;
   intro: string;
 }
@@ -313,8 +313,6 @@ export interface TownConfig {
   fonts?: { heading?: string; body?: string };
   hero: HeroConfig;
   social: SocialLinks;
-  /** Primary navigation. Override per town if needed. */
-  nav: NavItem[];
   movingHere: {
     /** Zillow/Redfin/etc. link-outs. */
     listingsLinks: Array<{ label: string; url: string }>;
@@ -347,8 +345,6 @@ export interface TownConfig {
   participation?: ParticipationConfig;
   families?: FamiliesConfig;
   about?: AboutConfig;
-  /** 'compact': the footer's network strip names the neighbours and the hub, not every guide. Default 'full'. */
-  footer?: 'full' | 'compact';
   /** Formspree form id for the contact form. Without it the contact page falls back to mailto. */
   formspreeId?: string;
   ga4Id?: string;
@@ -569,22 +565,11 @@ export interface NewsletterEdition {
 
 export type SiteConfig = TownConfig | HubConfig;
 
-/**
- * Default navigation for a town site. Towns can override `nav` in their config.
- *
- * Five sections (owner, 10 October 2026: eight items read as too many). This
- * Week and Directory keep their pages and move to the footer: the home page
- * opens on the week and links "All places", the events page has a "This
- * weekend" filter, and Eat & Drink and Things to Do hold the directory's
- * places by kind. "Towns" is not a section and sits apart, beside search.
+/*
+ * A town guide's navigation is not configured: it follows from what the
+ * guide has (src/lib/nav.ts, townNav), so a new school or hub reaches the
+ * menu without a list to edit. The hub keeps its own `nav`.
  */
-export const DEFAULT_TOWN_NAV: NavItem[] = [
-  { label: 'Events', href: '/events/' },
-  { label: 'Eat & Drink', href: '/eat-drink/' },
-  { label: 'Things to Do', href: '/things-to-do/' },
-  { label: 'Guides', href: '/guides/' },
-  { label: 'Moving Here', href: '/moving-here/' },
-];
 
 /**
  * "Boulder County", or "Weld and Boulder counties" where the town spans two.

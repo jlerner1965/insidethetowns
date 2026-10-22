@@ -33,8 +33,8 @@ export interface PlaceTypePage {
   describe: (town: { name: string; state: string }, count: number) => string;
 }
 
-const EAT_DRINK = { name: 'Eat & Drink', path: '/eat-drink/' };
-const THINGS_TO_DO = { name: 'Things to Do', path: '/things-to-do/' };
+const EAT_DRINK = { name: 'Eat & drink', path: '/eat-drink/' };
+const THINGS_TO_DO = { name: 'Things to do', path: '/things-to-do/' };
 const DIRECTORY = { name: 'Directory', path: '/directory/' };
 
 const where = (town: { name: string; state: string }) => `${town.name}, ${town.state}`;

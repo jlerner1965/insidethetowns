@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 export const johnstown: TownConfig = {
   kind: 'town',
@@ -45,9 +45,6 @@ export const johnstown: TownConfig = {
   social: {
     email: 'hello@insidejohnstown.com',
   },
-  // The default five with the Roughriders (src/config/school-sports.ts) in the third
-  // slot, where Berthoud's pill row carries the Spartans (22 October 2026).
-  nav: [...DEFAULT_TOWN_NAV.slice(0, 2), { label: 'Roughriders', href: '/sports/' }, ...DEFAULT_TOWN_NAV.slice(2)],
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Johnstown,-CO_rb/' },

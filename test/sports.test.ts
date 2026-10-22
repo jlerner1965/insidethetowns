@@ -11,6 +11,7 @@ import { crossCheck, dedupeToCome, gamesToCome, keepPrevious, sameSchool } from 
 import { SCHOOL_SPORTS, schoolSportsFor, schoolsFor, sportsDataFile, sportsPath, type SportsData } from '../src/config/school-sports.ts';
 import { sportsRoutes } from '../src/integrations/town-routes.ts';
 import { findTown } from '../src/config/index.ts';
+import { townNav } from '../src/lib/nav.ts';
 import { nextGames, placeText } from '../src/lib/school-sports.ts';
 
 const berthoud = schoolSportsFor('berthoud')!;
@@ -445,16 +446,16 @@ test('a town with one school keeps /sports/ and sports.json; Loveland’s four e
   ]);
 });
 
-test('every school is one entry with its own file, and its town’s nav carries it in the third slot', () => {
+test('every school is one entry with its own file, and its town’s menu carries it in the third slot', () => {
   const files = SCHOOL_SPORTS.map(sportsDataFile);
   assert.equal(new Set(files).size, files.length, 'no two schools share a file');
   for (const town of new Set(SCHOOL_SPORTS.map((s) => s.town))) {
     const schools = schoolsFor(town);
     const sluggish = schools.filter((s) => s.slug).length;
     assert.ok(sluggish === 0 ? schools.length === 1 : sluggish === schools.length, `${town}: either one school without a slug or several each with one`);
-    const nav = findTown(town)!.nav;
-    assert.equal(nav[2]?.href, '/sports/', `${town}: the school is the third nav item`);
-    assert.equal(nav[2]?.label, schools.length === 1 ? schools[0]!.mascot : 'Sports', `${town}: the label is the mascot, or "Sports" for several schools`);
+    const nav = townNav(findTown(town)!);
+    assert.equal(nav[2]?.href, '/sports/', `${town}: the school is the third menu item`);
+    assert.equal(nav[2]?.label, schools.length === 1 ? (schools[0]!.navLabel ?? `${schools[0]!.mascot} sports`) : 'High school sports', `${town}: the label says sports`);
     for (const s of schools) assert.ok(s.calendar || s.calendarNote, `${s.school}: a calendar to check against, or a note saying why not`);
   }
 });

@@ -148,7 +148,7 @@ const list = (names: string[]) => (names.length > 1 ? `${names.slice(0, -1).join
     <h2>What’s available</h2>
     <ul>
       <li>A labeled “presented by” slot on a town’s events page — the page people come back to weekly.</li>
-      <li>A sponsor block on a town’s Moving Here page, which is where agents, lenders and movers are looked for.</li>
+      <li>A sponsor block on a town’s Moving here page, which is where agents, lenders and movers are looked for.</li>
       <li>
         Network-wide sponsorship across {live.length === 1 ? 'the live guide' : `all ${live.length} live guides`}, for
         anyone serving the whole corridor rather than one town.
@@ -158,7 +158,7 @@ const list = (names: string[]) => (names.length > 1 ? `${names.slice(0, -1).join
     {hub.newsletter && shared.length > 0 && (
       <p>
         Some neighboring towns share one weekly email: {shared.map((e) => e.name).join('; ')}. Each of those
-        emails carries one sponsor line, so it reaches every town in it, while the events and Moving Here placements
+        emails carries one sponsor line, so it reaches every town in it, while the events and Moving here placements
         on each town’s guide are still sold town by town.
       </p>
     )}
@@ -197,7 +197,7 @@ const list = (names: string[]) => (names.length > 1 ? `${names.slice(0, -1).join
     slot="after"
     eyebrow="Before you spend anything"
     title="Look at what you would be next to"
-    body="The guides are the pitch. Read a town's events page and its Moving Here page, and decide whether the company is one you want to keep."
+    body="The guides are the pitch. Read a town's events page and its Moving here page, and decide whether the company is one you want to keep."
     links={[
       { label: 'This weekend', href: '/this-weekend/', primary: true },
       { label: 'Moving here', href: '/moving/' },

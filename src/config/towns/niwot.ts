@@ -58,22 +58,11 @@ export const niwot: TownConfig = {
       alt: 'Second Avenue in Old Town Niwot: the Niwot Tribune building with its shingled awning and a row of brick and painted storefronts down the block',
       credit: 'Jeffrey Beall, Flickr, CC BY-SA 2.0',
     },
-    secondary: { label: 'Get Involved', href: '/get-involved/' },
+    secondary: { label: 'Get involved', href: '/get-involved/' },
     accentName: 'terracotta',
   },
-  footer: 'compact',
-  // The pill row of the flagship masthead (redesign of 22 October 2026),
-  // the same five as Berthoud's with the Cougars for the Spartans; Get
-  // Involved, Events, Things to Do and Guides stay in the footer.
-  nav: [
-    { label: 'This week', href: '/this-week/' },
-    { label: 'Families', href: '/families/' },
-    { label: 'Cougars', href: '/sports/' },
-    { label: 'Living here', href: '/living-here/' },
-    { label: 'Eat & drink', href: '/eat-drink/' },
-  ],
   participation: {
-    label: 'Get Involved',
+    label: 'Get involved',
     intro: 'Niwot has no town hall, so the organizations are the town: the associations, the Grange, the Rotary, the Historical Society, the arts group and the youth league. Each entry says what it does, who can take part, what it costs, how to make a first inquiry, and the next public date, with the day it was read.',
   },
   families: {

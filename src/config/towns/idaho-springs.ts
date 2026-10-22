@@ -1,4 +1,4 @@
-import { DEFAULT_TOWN_NAV, type TownConfig } from './types.ts';
+import type { TownConfig } from './types.ts';
 
 /**
  * Three towns on one guide, since 20 October 2026: Idaho Springs, Georgetown
@@ -117,7 +117,6 @@ export const idahoSprings: TownConfig = {
   social: {
     email: 'hello@insideidahosprings.com',
   },
-  nav: DEFAULT_TOWN_NAV,
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale in Idaho Springs on Zillow', url: 'https://www.zillow.com/homes/Idaho-Springs,-CO_rb/' },

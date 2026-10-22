@@ -58,11 +58,11 @@ const structured = [
 const H2 = 'display-md text-[1.75rem] md:text-[2rem]';
 const chip = 'inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full px-4 text-[0.9375rem] font-semibold no-underline ring-1 ring-line transition-colors hover:bg-raised';
 ---
-<Page title={families.label} seoTitle={`${families.label}: what kids can join in ${town.name}, CO`} eyebrow="Resident hub" {description} intro={families.intro} jsonLd={structured} kind="Guide" narrow>
+<Page title={families.label} seoTitle={`${families.label}: what kids can join in ${town.name}, CO`} eyebrow="Kids, teens and school breaks" {description} intro={families.intro} jsonLd={structured} kind="Guide" narrow>
   {/* The sections as chips, stuck under the top of the screen as the page
       scrolls; one line that scrolls sideways on a phone. */}
   <nav aria-label="On this page" class="sticky top-0 z-30 -mt-2 border-b border-line-soft bg-paper py-3">
-    <ul class="pill-row flex gap-2">
+    <ul class="flex flex-wrap gap-2">
       {chips.map((c) => <li><a href={`#${c.id}`} class={chip}>{c.label}</a></li>)}
     </ul>
   </nav>
