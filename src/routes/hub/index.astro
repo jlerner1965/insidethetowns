@@ -18,7 +18,8 @@ import NetworkEventCard from '@/components/NetworkEventCard.astro';
 import { getNetworkEntries } from '@/lib/content';
 import { formatDayRange } from '@/lib/dates';
 import { highlights, occurrences, oneOffs, weekendSections, weekendWindow } from '@/lib/events';
-import { LIVE_TOWNS, countiesCovered, countyLabel, getHub } from '@/config';
+import { LIVE_TOWNS, countiesCovered, getHub } from '@/config';
+import { schoolsFor, sportsPath } from '@/config/school-sports';
 import { groupByRegion } from '@/lib/regions';
 import { wordmarkParts } from '@/lib/titles';
 
@@ -38,6 +39,15 @@ const live = hub.towns.filter((t) => LIVE_TOWNS.includes(t.slug));
 const atoz = [...live].sort((a, b) => a.name.localeCompare(b.name, 'en'));
 /** The cards, one group per region in TOWN_REGIONS order, A to Z within each; an empty region is not drawn. */
 const regions = groupByRegion(live);
+// The guides that follow a high school, and their schools: the network's
+// scores and schedules, which the hub did not mention (navigation audit,
+// 22 October 2026).
+const sports = live
+  .map((t) => ({ town: t, schools: schoolsFor(t.slug) }))
+  .filter((s) => s.schools.length > 0)
+  .sort((a, b) => a.town.name.localeCompare(b.town.name, 'en'));
+const schoolCount = sports.reduce((n, s) => n + s.schools.length, 0);
+const NUMBER: Record<number, string> = { 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten', 11: 'eleven', 12: 'twelve' };
 /**
  * The weekend across every guide, ranked the way a town's own home page ranks
  * its listings (highlights). On a Sunday night, or in a quiet week, the
@@ -173,10 +183,11 @@ const task = 'btn btn-outline min-h-11 px-4 text-[0.9375rem] text-ink';
                 >
                   {/* On a phone the counties alone ("Weld · Boulder"): the full
                       "Weld and Boulder Counties" ran to three lines over a
-                      one-word name. */}
+                      one-word name. One run of text either way, so a reader
+                      without the styles gets "Weld · Boulder counties", not
+                      both labels run together. */}
                   <p class="eyebrow" style={`color:${t.colors.primary}`}>
-                    <span class="sm:hidden">{t.counties.join(' · ')}</span>
-                    <span class="hidden sm:inline">{countyLabel(t)}</span>
+                    {t.counties.join(' · ')}<span class="hidden sm:inline"> {t.counties.length > 1 ? 'counties' : 'County'}</span>
                   </p>
                   <h4 class="mt-auto pt-1.5 text-xl font-medium leading-none sm:mt-2 sm:pt-0 sm:text-3xl">
                     {title.before && <Fragment><span class="hidden font-light italic sm:inline">{title.before}</span>{' '}</Fragment>}<span class="font-semibold">{t.name}</span>{title.after && <span class="hidden font-light italic sm:inline">{' '}{title.after}</span>}
@@ -193,7 +204,29 @@ const task = 'btn btn-outline min-h-11 px-4 text-[0.9375rem] text-ink';
     </div>
   </section>
 
-  <section class="band band-white">
+  {sports.length > 0 && (
+    <section class="band band-white" aria-labelledby="sports-h">
+      <div class="container-page">
+        <SectionHeader eyebrow="Across the towns" title="High school sports" id="sports-h" />
+        <p class="-mt-2 mb-6 max-w-2xl text-lg leading-relaxed text-ink-muted">Scores and schedules for {NUMBER[schoolCount] ?? schoolCount} schools, on {NUMBER[sports.length] ?? sports.length} of the guides.</p>
+        <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {sports.flatMap(({ town: t, schools }) => schools.map((s) => (
+            <li>
+              <a href={`https://${t.domain}${sportsPath(s)}`} class="flex h-full items-center justify-between gap-4 rounded-lg border-l-4 bg-raised px-5 py-4 no-underline ring-1 ring-line-soft hover:ring-line" style={`border-color:${t.colors.accent}`}>
+                <span class="min-w-0">
+                  <span class="block font-semibold leading-snug">{s.school.replace(/ (High )?School$/, '')} {s.mascot}</span>
+                  <span class="block text-[0.875rem] text-ink-muted">{t.siteTitle}</span>
+                </span>
+                <span aria-hidden="true" style={`color:${t.colors.primary}`}>→</span>
+              </a>
+            </li>
+          )))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <section class="band band-paper">
     <div class="container-page">
       <div class="max-w-4xl">
         <FactStrip

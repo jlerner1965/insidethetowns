@@ -32,6 +32,7 @@ test('a program is for families by its audiences, and a way in by its kind', () 
   assert.equal(isForFamilies(program('Storytime', { audience: ['babies'] })), true);
   assert.equal(isForFamilies(program('Trivia', { audience: ['adults'] })), false);
   assert.equal(isForFamilies(program('Swim', { audience: ['adults', 'teens'] })), true, 'one family audience is enough');
+  assert.equal(isForFamilies(program('Town boards', { kind: 'meeting', audience: ['adults', 'teens'] })), false, 'a public meeting is on /get-involved/');
   assert.equal(isWayIn(program('Rotary', { kind: 'club' })), true);
   assert.equal(isWayIn(program('Soccer', { kind: 'league' })), false, 'a league is the family hub’s, not the participation hub’s');
   assert.equal(isWayIn(program('Board', { kind: 'meeting' })), true);
@@ -86,11 +87,14 @@ test('the family hub’s three age sections file a program once, a families-only
   const story = program('Storytime', { audience: ['babies', 'preschool'] });
   const groups = familyAgeGroups([write, passes, museum, swim, story]);
   // A program made for the age leads its group; one filed there by its youngest audience follows.
+  // Swim lessons from six months up are filed with the school years, where most of their ages are.
   assert.deepEqual(groups.map((g) => [g.group.id, g.programs.map((p) => p.data.title)]), [
-    ['under-5', ['Storytime', 'Swim']],
-    ['5-11', ['Museum', 'Passes']],
+    ['under-5', ['Storytime']],
+    ['5-11', ['Museum', 'Passes', 'Swim']],
     ['teens', ['Just Write']],
   ]);
+  assert.equal(familyGroupOf(program('League', { audience: ['preschool', 'elementary', 'teens'] }))?.id, '5-11', 'a league from four to fifteen');
+  assert.equal(familyGroupOf(program('Storytime', { audience: ['babies', 'preschool', 'families'] }))?.id, 'under-5', 'families alone does not move it');
   assert.equal(familyGroupOf(passes)?.id, '5-11');
   assert.equal(familyGroupOf(program('Adults', { audience: ['adults'] })), undefined);
 });

@@ -33,9 +33,12 @@ const host = source ? new URL(source).hostname.replace(/^www\./, '') : undefined
 ---
 <article class="grid grid-cols-[4.25rem_1fr] gap-x-4 border-t border-line-soft py-4 first:border-t-0" data-event-day={lastDay(event)} data-end={toIsoLocal(listedUntil(event))}>
   <time datetime={toIsoLocal(data.start)} class="flex flex-col pt-1">
+    {/* Weekday, month, day: read in order it is "Sat Oct 24", the order of
+        every other date on the page; day before month it read "Sat 24 Oct"
+        (navigation audit, 22 October 2026). */}
     <span class="eyebrow">{badge.weekday}</span>
-    <span class="font-heading text-[2rem] font-medium leading-none tabular-nums text-primary">{badge.day}</span>
     <span class="text-xs font-medium uppercase tracking-[0.1em] text-ink-muted">{badge.month}</span>
+    <span class="font-heading text-[2rem] font-medium leading-none tabular-nums text-primary">{badge.day}</span>
   </time>
   <div class="min-w-0">
     {categoryLabel && (

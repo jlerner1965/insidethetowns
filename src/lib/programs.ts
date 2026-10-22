@@ -21,8 +21,15 @@ export const JOIN_KINDS: readonly ProgramKind[] = ['club', 'organization', 'volu
 /** The audiences a family hub is for, in the order its sections run. */
 export const FAMILY_AUDIENCES: readonly ProgramAudience[] = ['babies', 'preschool', 'elementary', 'teens', 'families'];
 
+/**
+ * A program the family hub lists: one with a family audience, other than a
+ * public meeting. Berthoud's Town boards took teens on its Youth Advisory
+ * Commission and so sat under Teens beside the library's teen programs
+ * (navigation audit, 22 October 2026); a board is a way in for a resident,
+ * listed on /get-involved/, not something a parent signs a child up for.
+ */
 export function isForFamilies(p: ProgramLike): boolean {
-  return p.data.audience.some((a) => FAMILY_AUDIENCES.includes(a));
+  return p.data.kind !== 'meeting' && p.data.audience.some((a) => FAMILY_AUDIENCES.includes(a));
 }
 
 export function isWayIn(p: ProgramLike): boolean {
@@ -60,7 +67,11 @@ export function byAudience<T extends ProgramLike>(
  * The family hub's three age sections (redesign brief, 22 October 2026):
  * the under-fives, the school years, the teens. A program for families as
  * a whole is filed with the school years, the age most of them mean. A
- * program appears once, under the first group it fits, as byAudience does.
+ * program appears once, under the first group it fits, as byAudience does,
+ * except that one reaching from the under-fives into school age is filed
+ * with the school years, where most of its ages are: swim lessons from six
+ * months and a league from four to fifteen had led the under-fives
+ * (navigation audit, 22 October 2026).
  */
 export const FAMILY_AGE_GROUPS = [
   { id: 'under-5', label: 'Under 5', audiences: ['babies', 'preschool'] as readonly ProgramAudience[] },
@@ -70,7 +81,6 @@ export const FAMILY_AGE_GROUPS = [
 export type FamilyAgeGroup = (typeof FAMILY_AGE_GROUPS)[number];
 
 export function familyAgeGroups<T extends ProgramLike>(list: readonly T[]): Array<{ group: FamilyAgeGroup; programs: T[] }> {
-  const placed = new Set<T>();
   return FAMILY_AGE_GROUPS.map((group) => {
     // The programs made for the youngest of the group's ages lead (a
     // storytime for babies before a league that starts at four); the ones
@@ -79,14 +89,16 @@ export function familyAgeGroups<T extends ProgramLike>(list: readonly T[]): Arra
       const i = group.audiences.indexOf(p.data.audience[0]!);
       return i < 0 ? group.audiences.length : i;
     };
-    const programs = byName(list.filter((p) => !placed.has(p) && p.data.audience.some((a) => group.audiences.includes(a)))).sort((a, b) => rank(a) - rank(b));
-    for (const p of programs) placed.add(p);
+    const programs = byName(list.filter((p) => familyGroupOf(p) === group)).sort((a, b) => rank(a) - rank(b));
     return { group, programs };
   }).filter((g) => g.programs.length > 0);
 }
 
-/** The group a family program is filed under, for a link to its section. */
+/** The group a family program is filed under, for its section and a link to it. */
 export function familyGroupOf(p: ProgramLike): FamilyAgeGroup | undefined {
+  const [under5, school] = FAMILY_AGE_GROUPS;
+  const has = (a: ProgramAudience) => p.data.audience.includes(a);
+  if (under5.audiences.some(has) && (has('elementary') || has('teens'))) return school;
   return FAMILY_AGE_GROUPS.find((g) => p.data.audience.some((a) => g.audiences.includes(a)));
 }
 

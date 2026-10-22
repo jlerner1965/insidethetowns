@@ -32,8 +32,10 @@ const H = 'h3';
 ---
 <article class="min-w-0 border-t border-line-soft py-5 first:border-t-0 [overflow-wrap:anywhere]" id={slug}>
   <p class="eyebrow flex flex-wrap items-center gap-2">
-    <span>{UPDATE_KIND_LABELS[data.kind]}</span>
-    <span class="rounded-full bg-paper px-2 py-0.5 text-[0.7rem] text-ink-muted ring-1 ring-line-soft">{stageLabel(data.stage)}</span>
+    {/* One phrase, "Public decision · Proposed": as a label and a pill side
+        by side it read "Public decision Proposed" (navigation audit,
+        22 October 2026). */}
+    <span>{UPDATE_KIND_LABELS[data.kind]} <span class="text-ink-muted">· {stageLabel(data.stage)}</span></span>
     {t === 'now' && !late && <span class="rounded-full bg-highlight-soft px-2 py-0.5 text-[0.7rem] text-ink ring-1 ring-highlight">Now</span>}
   </p>
   <H class:list={['mt-1.5 font-medium leading-tight', compact ? 'text-lg' : 'text-xl md:text-2xl']}>{data.title}</H>
