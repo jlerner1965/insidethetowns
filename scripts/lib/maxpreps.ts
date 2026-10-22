@@ -315,7 +315,7 @@ export function parseSchedulePage(html: string, us: Team): SchedulePage {
       continue;
     }
     if (!Array.isArray(teams) || teams.length !== 2 || typeof url !== 'string' || typeof kickoff !== 'string' || typeof sentence !== 'string') {
-      fail('not the shape this script reads');
+      fail(`not the shape this script reads: ${JSON.stringify(row).slice(0, 700)}`);
       continue;
     }
     const sides = (teams as unknown[][]).map((t) => ({
