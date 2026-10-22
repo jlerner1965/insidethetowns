@@ -8,6 +8,8 @@ organizerUrl: "https://www.berthoudcommunitylibrary.org/"
 url: "https://www.berthoudcommunitylibrary.org/events-classes"
 summary: "Four free weekly sessions for the under-fives: baby storytime Tuesday, pre-K Wednesday and toddler storytime Friday, all at 10:30 am, and Musical Moments, a music program for preschoolers, on Mondays at 4 pm."
 ages: "Babies under two (Tuesday), toddlers (Friday), preschoolers (Monday and Wednesday)"
+ageFrom: 0
+ageTo: 5
 location: "Berthoud Community Library, 236 Welch Ave"
 schedule: "Mon 4 pm; Tue, Wed and Fri 10:30 am"
 season: "Through mid-December; none November 11 or 27"

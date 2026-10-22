@@ -8,6 +8,7 @@ organizerUrl: "https://www.berthoud.org/1483/Berthoud-Recreation"
 url: "https://www.berthoud.org/1598/Activity-Guide"
 summary: "Learn-to-swim classes from six months up in nine levels: parent-and-baby, preschool, levels for school-age swimmers, and adult water introduction, in two-week and month-long blocks."
 ages: "6 months and up"
+ageFrom: 0
 location: "Berthoud Recreation Center, 1000 N Berthoud Pkwy"
 schedule: "Monday/Wednesday or Tuesday/Thursday mornings and evenings; Saturday mornings; two-week Monday-to-Thursday blocks"
 season: "Year-round in monthly blocks; the fall guide lists blocks through November 19"

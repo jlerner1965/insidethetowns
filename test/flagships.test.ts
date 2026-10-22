@@ -125,3 +125,25 @@ test('the hub pages open on an intro of fifteen words or fewer', () => {
     }
   }
 });
+
+test('a flagship’s home photograph is a real file with a licence row, and its credit names the licence the register records', async () => {
+  const { readFileSync } = await import('node:fs');
+  const { licenseName, parseLedger } = await import('../src/lib/credits.ts');
+  const ledger = new Map(parseLedger(readFileSync('IMAGE_LICENSES.csv', 'utf8')).map((r) => [r.path, r]));
+  for (const slug of FLAGSHIPS) {
+    const photo = by(slug).home!.photo;
+    if (!photo) continue;
+    const path = `content/${slug}/images/${photo.image}`;
+    assert.ok(existsSync(path), `${slug}: ${path} exists`);
+    const row = ledger.get(path);
+    assert.ok(row, `${slug}: ${path} has a licence row`);
+    assert.ok(photo.alt.length > 20, `${slug}: the photograph is described`);
+    if (row!.creditRequired) assert.ok(photo.credit, `${slug}: ${photo.image} requires a credit`);
+    const name = licenseName(row!);
+    if (name && photo.credit) assert.ok(photo.credit.includes(name), `${slug}: credit "${photo.credit}" names ${name}`);
+    assert.doesNotMatch(row!.license, /placeholder|stock|generated/i, `${slug}: a real photograph of the town`);
+  }
+  // The two the brief named (docs/FLAGSHIPS-2026-10-21.md): Second Avenue and the Town's playground.
+  assert.equal(by('niwot').home!.photo?.image, 'second-avenue-street.jpg');
+  assert.equal(by('berthoud').home!.photo?.image, 'berthoud-town-park-playground.webp');
+});

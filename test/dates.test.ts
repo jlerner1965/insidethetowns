@@ -8,7 +8,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { dayKey, formatTimeRange, fromWallClock, parseLocal, startOfDay, toIsoLocal } from '../src/lib/dates.ts';
+import { dayKey, daysBetween, formatTimeRange, fromWallClock, parseLocal, startOfDay, toIsoLocal } from '../src/lib/dates.ts';
 
 const iso = (d: Date) => d.toISOString();
 
@@ -84,4 +84,17 @@ test('toIsoLocal carries the Denver offset for JSON-LD', () => {
 test('all-day ranges read as "All day" rather than a bogus time', () => {
   const start = parseLocal('2026-09-20');
   assert.equal(formatTimeRange(start, undefined, true), 'All day');
+});
+
+test('daysBetween counts Denver midnights, whatever the hour and across both clock changes', () => {
+  assert.equal(daysBetween(parseLocal('2026-10-22T23:59'), parseLocal('2026-10-23T00:01')), 1);
+  assert.equal(daysBetween(parseLocal('2026-10-22T00:01'), parseLocal('2026-10-22T23:59')), 0);
+  assert.equal(daysBetween(parseLocal('2026-10-23'), parseLocal('2026-10-22')), -1);
+  // Fall back: 25 hours between the Saturday and the Sunday, still one day.
+  assert.equal(daysBetween(parseLocal('2026-10-31T12:00'), parseLocal('2026-11-01T12:00')), 1);
+  assert.equal(daysBetween(parseLocal('2026-10-31'), parseLocal('2026-11-14')), 14);
+  // Spring forward: 23 hours, still one day.
+  assert.equal(daysBetween(parseLocal('2026-03-07T12:00'), parseLocal('2026-03-08T12:00')), 1);
+  // An instant that is the next day in UTC but the same evening in Denver.
+  assert.equal(daysBetween(parseLocal('2026-11-04T20:00'), new Date('2026-11-05T05:30:00Z')), 0);
 });

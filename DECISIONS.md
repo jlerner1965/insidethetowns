@@ -6075,3 +6075,54 @@ the school's colour throughout.
   school district; Boulder Valley says only "parts of Erie". St. Vrain's
   calendar also marks MLK Day, Presidents' Day and April 26–27, which
   Lyons's and Niwot's break lists leave out.
+
+## The family hub's classifications, the weekly briefing and the signup's promise, 22 October 2026
+
+- **Ages by the organizer's numbers.** A program may carry `ageFrom` and
+  `ageTo` (whole years); where it does, the family hub files it under the
+  age group most of its years fall in and names it again, with its real
+  range, under every other group it reaches ("Also for this age"). Scouts
+  BSA Troop 161, "11 to 17", had sat under "Ages 5–11" by its audience
+  tags. Child activities, the parents' side (schools, passes, volunteering)
+  and organizations with a family membership are three sections, not one
+  list by age.
+- **Free means the activity is free.** `free` on the file decides; without
+  it, only a price line that begins "Free" with no paid part after it
+  counts, so "Free to volunteer", "$15 a year; lectures $5" and "Free;
+  basketball $5" are not free things to do, and a volunteer role or a
+  membership organization never is. "Drop in" is said only where the
+  organizer's page says no sign-up; a cost the organizer did not publish
+  is "Not stated", never blank.
+- **Soon is fourteen Denver days** (`SOON_DAYS`). Closing soon and opening
+  soon are separate sections; everything later is "Coming up" with its
+  date; countdowns are whole calendar days (`daysBetween`), never rounded
+  milliseconds. The school-break rows say "Browse family events": the
+  calendar cannot be filtered to a break's dates, so the link no longer
+  implies it answers what is open that week.
+- **An old change is a correction, not the week's news.** A local change
+  published more than thirty days after it happened (`isLateNotice`) is
+  kept out of "Things to know this week" however recently its source was
+  read, and listed once under "Corrections to the guide" with the day it
+  happened, the day it was noticed, the day the source was read and what
+  to do now; a notes item naming the same business is folded into it.
+  The archive on /updates/ keeps every one.
+- **"Clearly labeled sponsors", not "No ads".** The flagship signup
+  promised no ads while /advertise/ sold a labeled line in the Thursday
+  email. The one line (`EMAIL_PROMISE`) now says what the partnership
+  page, the business page and the privacy page say; a test keeps "no ads"
+  out of the source.
+- **The partner page has a community side**: what a chamber or a community
+  organization and a guide each bring (verified events with their source,
+  corrections and closures, seasonal guides, a first small collaboration
+  by email), with the editorial rules restated. No partner, figure, price
+  or result is named, because none exists.
+- **The flagship introduction is a third shorter**, with one line on the
+  week's lead (the featured change, else the pick), one button to the
+  signature hub and a text link to the week, and on a desktop the town's
+  own photograph from the project's licensed assets (`home.photo`:
+  Second Avenue by Jeffrey Beall, CC BY-SA 2.0; the Town of Berthoud's
+  playground), credited under it, never on a phone. The week begins at
+  595px of a 900px desktop screen on both, from 811px.
+- **"20 guides", not "20 towns"**, wherever the hub counts the live list;
+  the hub's headline now has one line and the picker under it, with where
+  the towns are and the task buttons below the names.

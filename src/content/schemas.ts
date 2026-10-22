@@ -1032,6 +1032,15 @@ export function programSchema<I extends z.ZodType>(image: () => I) {
       summary: z.string().min(1).max(320),
       /** "Ages 4–5", "Grades 3–8", "16 and up", as the organizer writes it. */
       ages: z.string().min(1).optional(),
+      /**
+       * The same eligibility as whole years, where the organizer gives
+       * numbers: `ageFrom: 11, ageTo: 17` for a troop of 11 to 17, `ageFrom:
+       * 16` alone for "16 and up". The family hub files a program by these
+       * when they are set and by `audience` when they are not, so a program
+       * for 11 to 17 is never under "Ages 5–11" because a tag said so.
+       */
+      ageFrom: z.number().int().min(0).max(120).optional(),
+      ageTo: z.number().int().min(0).max(120).optional(),
       /** "Berthoud Recreation Center, 1000 N Berthoud Pkwy". */
       location: z.string().min(1).optional(),
       /** "Tuesdays 4:30–5:30 pm", "Most Thursdays 7:30–8:30 am". */
@@ -1040,6 +1049,20 @@ export function programSchema<I extends z.ZodType>(image: () => I) {
       season: z.string().min(1).optional(),
       /** "$91 resident / $101 non-resident", "Free", "$30 a year per household". */
       price: z.string().min(1).optional(),
+      /**
+       * The organizer says taking part costs nothing. Set it only for the
+       * activity itself: free volunteering, a free membership benefit or a
+       * free tour of a paid museum is not a free program. Unset, the hub
+       * reads `price` and counts only a line that begins "Free" with no
+       * paid part after it (src/lib/programs.ts, isFree).
+       */
+      free: z.boolean().optional(),
+      /**
+       * No sign-up and no fixed date: a reader can turn up any day it runs.
+       * Unset, the hub takes `registration.required: false` as the same
+       * thing; a program with no registration block is not assumed either way.
+       */
+      dropIn: z.boolean().optional(),
       /** What to bring or buy: "Own glove; bats and helmets provided". */
       equipment: z.string().min(1).optional(),
       /** Who may take part, and how: see PROGRAM_ACCESS. */
@@ -1096,6 +1119,10 @@ export function programSchema<I extends z.ZodType>(image: () => I) {
     .refine((p) => !p.registration?.deadline || !p.registration.opens || p.registration.opens.getTime() <= p.registration.deadline.getTime(), {
       message: 'registration opens before its deadline',
       path: ['registration'],
+    })
+    .refine((p) => p.ageFrom === undefined || p.ageTo === undefined || p.ageFrom <= p.ageTo, {
+      message: 'ageFrom is greater than ageTo',
+      path: ['ageTo'],
     });
 }
 export type ProgramData = z.infer<ReturnType<typeof programSchema>>;

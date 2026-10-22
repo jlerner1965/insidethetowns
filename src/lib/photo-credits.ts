@@ -65,6 +65,9 @@ export async function getCreditedPhotos(): Promise<CreditedPhoto[]> {
   // The hero is on the home page and, as the share image every page without
   // a photograph of its own falls back to, on the link preview of all of them.
   use(site.hero.image, site.hero.alt, { title: 'the home page, and the link preview of every page without its own photograph', href: '/' });
+  // The flagship home's photograph beside the introduction, where the guide has one.
+  const photo = site.kind === 'town' ? site.home?.photo : undefined;
+  if (photo) use(photo.image, photo.alt, { title: 'the home page', href: '/' });
 
   const read = site.kind === 'hub' ? getHubEntries : getTownEntries;
   for (const collection of Object.keys(COLLECTION_PATHS) as Collection[]) {

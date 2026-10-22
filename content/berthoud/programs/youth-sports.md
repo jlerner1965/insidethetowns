@@ -7,6 +7,8 @@ organizer: "Berthoud Recreation"
 organizerUrl: "https://www.berthoud.org/1483/Berthoud-Recreation"
 url: "https://www.berthoud.org/1598/Activity-Guide"
 summary: "The Town's leagues by season: soccer, flag football, softball, volleyball and cross country in the fall; basketball and futsal over the winter; register through the activity guide, with early-bird pricing in the first month."
+ageFrom: 4
+ageTo: 15
 ages: "4 to 15, by program: Little Strikers and Little Dribblers at 4–5, leagues from 5 or 6 up to 14, and a new 7th–8th grade girls' basketball league at 13–15"
 location: "Berthoud Recreation Center and Waggener Farm Fields; some games in other Northern Colorado towns"
 schedule: "Practices once or twice a week on weekday evenings; games on Saturdays (Friday nights for the girls' basketball league)"

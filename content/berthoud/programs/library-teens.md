@@ -8,6 +8,8 @@ organizerUrl: "https://www.berthoudcommunitylibrary.org/"
 url: "https://www.berthoudcommunitylibrary.org/events-classes"
 summary: "The library's monthly writing group for middle and high schoolers: a writing basic, time to write, and the option to read aloud."
 ages: "11 to 17"
+ageFrom: 11
+ageTo: 17
 location: "Berthoud Community Library, 236 Welch Ave"
 schedule: "Monthly, a Thursday at 4 pm"
 price: "Free"

@@ -55,6 +55,14 @@ export const niwot: TownConfig = {
     purpose: 'What’s on this week, who runs what, and how to take part.',
     secondary: { label: 'Get involved', href: '/get-involved/' },
     accentName: 'terracotta',
+    // Second Avenue, the photograph the flagship brief named for this spot
+    // (docs/FLAGSHIPS-2026-10-21.md); Jeffrey Beall's, CC BY-SA 2.0, with
+    // the credit the licence asks for under it.
+    photo: {
+      image: 'second-avenue-street.jpg',
+      alt: 'Second Avenue in Old Town Niwot on a summer morning: the Niwot Tribune building’s white porch and hanging flower baskets, the brick storefronts beyond it, and cars parked along the curb',
+      credit: 'Jeffrey Beall, CC BY-SA 2.0',
+    },
   },
   participation: {
     label: 'Get involved',

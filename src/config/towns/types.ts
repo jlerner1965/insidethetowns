@@ -140,6 +140,15 @@ export interface HomeConfig {
   secondary: { label: string; href: string };
   /** The accent's name, for the design notes and nothing else: the colour itself is `colors.accent`. */
   accentName?: string;
+  /**
+   * A photograph of the town beside the introduction, on a wide screen
+   * only, so it adds a sense of the place without pushing the week down
+   * a phone. A file in content/<slug>/images/ with its row in
+   * IMAGE_LICENSES.csv; `credit` is shown under it and must name the
+   * licence the register records (the validator checks, as for the hero).
+   * None means none: no stand-in, no stock.
+   */
+  photo?: { image: string; alt: string; credit?: string };
 }
 
 /**

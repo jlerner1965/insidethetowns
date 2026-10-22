@@ -37,7 +37,7 @@ import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { getHub, liveTowns } from '@/config';
 import { getNetworkEntries } from '@/lib/content';
 import { groupByDay, occurrences, weekendSections, weekendWindow } from '@/lib/events';
-import { formatDate, formatDayRange, formatTime } from '@/lib/dates';
+import { dayKey, formatDate, formatDayRange, formatTime } from '@/lib/dates';
 import { collectionPageJsonLd } from '@/lib/seo';
 
 const hub = getHub();
@@ -87,7 +87,7 @@ const structured = collectionPageJsonLd(hub, {
 ---
 <Page
   title="This weekend across the towns"
-  seoTitle={`This weekend across Colorado’s towns — ${weekendLabel}`}
+  seoTitle={`This weekend across Colorado’s towns: ${formatDayRange(weekendStart, sunday)}, ${dayKey(sunday).slice(0, 4)}`}
   eyebrow="Across the network"
   description={`Every event across ${towns.length} Colorado town guides this weekend, Front Range and mountains: markets, music, festivals and trails, each opening on its town’s own guide.`}
   intro={`Everything on across all ${towns.length} guides, ${weekendLabel}, and the two weeks after it. Each listing opens on that town’s own site.`}

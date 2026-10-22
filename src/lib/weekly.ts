@@ -23,6 +23,7 @@ import {
 } from '../content/schemas.ts';
 import { TIME_ZONE, addDays, dayKey, startOfDay } from './dates.ts';
 import { isCanceled, isMultiDay, isPast, lastDay, sortByStart, uniqueByEvent, weekendWindow } from './events.ts';
+import { currentUpdates, isLateNotice, type UpdateLike } from './updates.ts';
 
 /** Items show through this many days after the file's weekOf unless the item says otherwise. */
 export const CHANGE_DAYS = 14;
@@ -208,4 +209,38 @@ export function weekendEvents<T extends EventLike>(events: readonly T[], now = n
 /** The next few listings that have not ended, for the strip under an article. */
 export function upcomingEvents<T extends EventLike>(events: readonly T[], { now = new Date(), limit = 3 } = {}): T[] {
   return stillOn(events, now).slice(0, limit);
+}
+
+/**
+ * "Things to know this week": the current local changes, less the ones the
+ * guide wrote up long after they happened (src/lib/updates.ts,
+ * isLateNotice). A closure from December 2024 verified this month is a
+ * correction to the guide, not news of the week, and sorting by the day it
+ * was published put it at the top of the briefing (weekly audit, 22 October
+ * 2026). It is still current on /updates/ until its own expiry, and the
+ * weekly page lists it under its corrections with both dates and what, if
+ * anything, a reader should do about it now (`action`). An old change
+ * with a current consequence belongs in the briefing only as an update
+ * whose `effective` date is the consequence's, not the original event's.
+ */
+export function briefingUpdates<T extends UpdateLike>(list: readonly T[], now = new Date()): T[] {
+  return currentUpdates(list, now).filter((u) => !isLateNotice(u));
+}
+
+/**
+ * The corrections a weekly page shows: the late-noticed local changes and
+ * the notes' backlog items, each business once. The same closure was in
+ * the notes file (a `changes` item with `effective`) and in the updates
+ * collection, and the page listed both (weekly audit, 22 October 2026).
+ * Where a notes item names a business an update's title names too, the
+ * update stands, since it carries the action and all three dates; the
+ * notes item is dropped from the page, never from its file.
+ */
+export function corrections<C extends Change, U extends UpdateLike>(
+  backlog: readonly C[],
+  late: readonly U[],
+): { updates: U[]; changes: C[] } {
+  const names = (u: U) => `${u.data.title} ${u.data.item ?? ''}`.toLowerCase();
+  const named = (c: C) => late.some((u) => names(u).includes(c.name.toLowerCase().replace(/\s*\(.*\)\s*$/, '')));
+  return { updates: [...late], changes: backlog.filter((c) => !named(c)) };
 }

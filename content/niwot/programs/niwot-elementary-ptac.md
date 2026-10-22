@@ -10,6 +10,7 @@ summary: "The parent council behind the Niwot Trot, the Cougar Carnival and the 
 ages: "Families of Niwot Elementary students"
 location: "Niwot Elementary, 8778 Morton Road"
 price: "Free to volunteer; the directory and spirit wear are optional purchases"
+free: false
 registration: { required: true, how: "Volunteer interest form on the PTAC site; committees listed there", url: "https://www.niwotptac.com/volunteer-interest-form.html" }
 newcomers: true
 volunteerNeed: "'There are so many ways to help no matter how much time you have to give'"
