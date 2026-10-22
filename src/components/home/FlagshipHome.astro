@@ -58,8 +58,8 @@ const badgeOf = (e: (typeof rows)[number]) =>
 // "On this guide": each hub as a link with one line of reason, from the
 // same data the hub's page shows.
 const school = schoolSportsFor(town.slug);
-const sportsFiles = import.meta.glob<SportsData>('../../../data/*/sports.json', { eager: true, import: 'default' });
-const sportsData = school ? sportsDataFor(town.slug, sportsFiles) : undefined;
+const sportsFiles = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
+const sportsData = school ? sportsDataFor(school, sportsFiles) : undefined;
 const records = (sportsData?.sports ?? []).filter((s) => s.overall).map((s, i) => `${i === 0 ? s.name : s.name.toLowerCase()} ${s.overall}`);
 const programs = await getTownEntries('programs');
 const nextDeadline = town.families ? onePerProgram(upcomingDeadlines(programs, { now, days: 45 }))[0] : undefined;

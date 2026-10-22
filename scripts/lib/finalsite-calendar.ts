@@ -97,7 +97,10 @@ export function parseTitle(title: string): Pick<CalendarEvent, 'gender' | 'level
 export function parseMonth(html: string): CalendarEvent[] {
   const events: CalendarEvent[] = [];
   const seen = new Set<string>();
-  const re = /<a class="fsCalendarTitle fsCalendarEventLink" title="([^"]*)" data-occur-id="(\d+)_(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z)_[^"]*"/g;
+  // The link's classes are the two, or those and a third (Roosevelt High's
+  // month grid adds fsCalendarTruncate, 22 October 2026); the title and the
+  // occurrence id follow either way.
+  const re = /<a class="fsCalendarTitle fsCalendarEventLink[^"]*" title="([^"]*)" data-occur-id="(\d+)_(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z)_[^"]*"/g;
   for (const m of html.matchAll(re)) {
     const [, title, id, startUtc] = m;
     const key = `${id}_${startUtc}`;

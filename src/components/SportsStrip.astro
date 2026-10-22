@@ -18,9 +18,9 @@ interface Props {
 }
 
 const { town, class: className, limit = 4 } = Astro.props;
-const files = import.meta.glob<SportsData>('../../data/*/sports.json', { eager: true, import: 'default' });
+const files = import.meta.glob<SportsData>('../../data/*/sports*.json', { eager: true, import: 'default' });
 const school = schoolSportsFor(town);
-const data = school && sportsDataFor(town, files);
+const data = school && sportsDataFor(school, files);
 const games = data ? weekGames(data) : [];
 const last = data ? latestResult(data) : undefined;
 const now = new Date();

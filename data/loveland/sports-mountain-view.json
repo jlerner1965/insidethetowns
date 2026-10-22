@@ -1,0 +1,903 @@
+{
+  "generated": "2026-10-22T03:18:40.577Z",
+  "sports": [
+    {
+      "key": "football",
+      "name": "Football",
+      "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/football/",
+      "fetched": "2026-10-22T03:18:40.577Z",
+      "maxprepsUpdated": "2026-10-22T02:54:47",
+      "overall": "0-8",
+      "league": {
+        "record": "0-4",
+        "name": "3A Cache la Poudre",
+        "place": "7th"
+      },
+      "results": [
+        {
+          "date": "2026-10-15",
+          "opponent": "Skyline",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/mountain-view-loveland-vs-skyline-longmont/10-15-2026/?c=fd566bf4-2104-4cfb-b865-8e91224c28b1",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 49
+          }
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Severance",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/mountain-view-loveland-vs-severance/10-9-2026/?c=b4b917a2-22f5-4e50-831b-d07ca59dfbe9",
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 53
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Windsor",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/mountain-view-loveland-vs-windsor/10-1-2026/?c=e0380c1a-b624-4d40-a015-03168452734a",
+          "result": "L",
+          "score": {
+            "us": 3,
+            "them": 56
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Fort Morgan",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/fort-morgan-vs-mountain-view-loveland/9-24-2026/?c=a8adfccd-4730-48aa-a751-b288ea15d29e",
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 49
+          }
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/greeley-central-vs-mountain-view-loveland/9-18-2026/?c=4074ef54-de84-40eb-a616-d315f28d2559",
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 47
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Niwot",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/mountain-view-loveland-vs-niwot/9-4-2026/?c=2e580f46-93fe-4f42-882e-8937704dba3d",
+          "result": "L",
+          "score": {
+            "us": 16,
+            "them": 44
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Poudre",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/mountain-view-loveland-vs-poudre-fort-collins/8-29-2026/?c=9be8401f-7b29-4d98-b330-72b628933a09",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 35
+          }
+        },
+        {
+          "date": "2026-08-21",
+          "opponent": "Canon City",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/canon-city-vs-mountain-view-loveland/8-21-2026/?c=1486df7c-ba02-4036-a39b-31744e90fa06",
+          "result": "L",
+          "score": {
+            "us": 14,
+            "them": 55
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Berthoud",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-mountain-view-loveland/10-23-2026/?c=387c61c2-46af-46c3-adfb-46c6798a44c1",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Thompson Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/mountain-view-loveland-vs-thompson-valley-loveland/10-30-2026/?c=6b3a965f-195d-4d9c-846f-2d235f576f2a",
+          "time": "19:00"
+        }
+      ],
+      "held": [],
+      "notes": []
+    },
+    {
+      "key": "boys-soccer",
+      "name": "Boys soccer",
+      "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/soccer/",
+      "fetched": "2026-10-22T03:18:40.577Z",
+      "maxprepsUpdated": "2026-10-22T03:19:07",
+      "overall": "5-7-2",
+      "league": {
+        "record": "1-6-2",
+        "name": "5A/4A/3A Northern",
+        "place": "10th"
+      },
+      "results": [
+        {
+          "date": "2026-10-20",
+          "opponent": "Roosevelt",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/mountain-view-loveland-vs-roosevelt-johnstown/10-20-2026/?c=544eda44-9678-4b7e-94a4-72332a62e904",
+          "result": "T",
+          "score": {
+            "us": 1,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Loveland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/loveland-vs-mountain-view-loveland/10-14-2026/?c=9c286f79-e9de-45f4-b512-226ab63e7105",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Greeley West",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/greeley-west-vs-mountain-view-loveland/10-8-2026/?c=8656eab4-dea9-488a-b39c-e388467dbc69",
+          "result": "T",
+          "score": {
+            "us": 1,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Windsor",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/mountain-view-loveland-vs-windsor/10-6-2026/?c=44e2f083-e874-40e3-928b-35a02129a4c0",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-02",
+          "opponent": "Poudre",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/mountain-view-loveland-vs-poudre-fort-collins/10-2-2026/?c=82127ff7-cbc5-4ec9-b961-db316dd88dae",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Greeley Central",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/greeley-central-vs-mountain-view-loveland/9-29-2026/?c=8a35ef04-c1e6-4eb2-9577-04931c0f3448",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Timnath",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/mountain-view-loveland-vs-timnath/9-24-2026/?c=21710c50-75f9-4565-a25f-6fb4da5b559e",
+          "result": "W",
+          "score": {
+            "us": 1,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-21",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/mountain-view-loveland-vs-northridge-greeley/9-21-2026/?c=639cddaa-f5fa-4fa2-91cd-32edb54e497d",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/mountain-view-loveland-vs-severance/9-17-2026/?c=9c7c6caa-7fd1-46f6-b1ca-2fb160db48a3",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "DSST: Green Valley Ranch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/dsst-green-valley-ranch-denver-vs-mountain-view-loveland/9-15-2026/?c=113d728f-6acc-475c-a479-f8261b43d8e2",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/mountain-view-loveland-vs-valley-gilcrest/9-10-2026/?c=504d6946-9e58-44b1-ab9c-90c45d3dc8eb",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Prospect Ridge Academy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/mountain-view-loveland-vs-prospect-ridge-academy-broomfield/9-3-2026/?c=a545449e-de9c-44bf-90a7-63d02dd8aaee",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Mountain Range",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/mountain-range-westminster-vs-mountain-view-loveland/9-1-2026/?c=ea82f6f5-a830-4b8e-a1ed-080399066f89",
+          "result": "W",
+          "score": {
+            "us": 5,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Wellington",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/mountain-view-loveland-vs-wellington/8-25-2026/?c=51c4dc74-d3dd-4953-af52-38efdddd63e4",
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 0
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/mountain-view-loveland-vs-thompson-valley-loveland/10-22-2026/?c=de8343c8-82df-46f6-9bf7-cd0ab767a93f",
+          "time": "18:00"
+        }
+      ],
+      "held": [],
+      "notes": []
+    },
+    {
+      "key": "volleyball",
+      "name": "Volleyball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/volleyball/",
+      "fetched": "2026-10-22T03:18:40.577Z",
+      "maxprepsUpdated": "2026-10-22T03:16:05",
+      "overall": "13-7",
+      "league": {
+        "record": "5-3",
+        "name": "4A/3A Northern",
+        "place": "5th"
+      },
+      "results": [
+        {
+          "date": "2026-10-20",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-northridge-greeley/10-20-2026/?c=1e246de5-7e88-4713-ab2c-ea6f8eb151c2",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Thompson Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-thompson-valley-loveland/10-13-2026/?c=1e9512ba-3dc8-4e56-ba38-f37cf156efa5",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Roosevelt",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-roosevelt-johnstown/10-6-2026/?c=fa105732-2c76-43df-864e-54ac753fd416",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Lotus School For Excellence",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/lotus-school-for-excellence-aurora-vs-mountain-view-loveland/10-3-2026/?c=3ebf5169-dfe6-4e06-afbe-2e1589ff39df",
+          "neutral": true,
+          "venue": "Greeley West tournament (4 games )",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Greeley West",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/greeley-west-vs-mountain-view-loveland/10-3-2026/?c=a5ad2624-7196-40ef-b6e9-f2a4a4b3d86c",
+          "neutral": true,
+          "venue": "Greeley West Tournament",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Skyline",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-skyline-longmont/10-3-2026/?c=cfc887d9-e7de-4b5b-b7bf-bd9e035983c2",
+          "neutral": true,
+          "venue": "Greeley West Tournament",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Standley Lake",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-standley-lake-westminster/10-3-2026/?c=8d899535-9f3b-4695-80d9-77afb513532a",
+          "neutral": true,
+          "venue": "Greeley West Tournament",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Severance",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-severance/10-1-2026/?c=6234d36d-60ef-4490-9123-c7ffe4c4f074",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Poudre",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-poudre-fort-collins/9-29-2026/?c=ff696814-3ffb-40c7-aac7-9f7c47fc92ed",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Greeley West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/greeley-west-vs-mountain-view-loveland/9-24-2026/?c=68aff7d2-66e9-4300-b7c2-c0e744bae7ce",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Loveland",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/loveland-vs-mountain-view-loveland/9-22-2026/?c=307937d1-afdb-4528-8a5a-38ffd35cbdab",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Skyline",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-skyline-longmont/9-15-2026/?c=c95c9204-8e71-48ec-982d-a2b94408646d",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/greeley-central-vs-mountain-view-loveland/9-10-2026/?c=82205ec4-6835-4109-ae45-065969bbfc3d",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Thomas Jefferson",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-thomas-jefferson-denver/9-8-2026/?c=5317dc68-58fa-47e8-bf61-e597d6489b80",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Prospect Ridge Academy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-prospect-ridge-academy-broomfield/9-3-2026/?c=c6ff3461-f32a-44fc-a68b-4406a9206523",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Platte Valley",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-platte-valley-kersey/8-29-2026/?c=47e80993-24be-48c4-b0c5-4f53ad3ab56d",
+          "neutral": true,
+          "venue": "Eaton High School Pre-Season Tournament",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Eaton",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/eaton-fightin-reds-vs-mountain-view-loveland/8-29-2026/?c=93820bcc-f6fc-4901-9c26-8a9a6be396e5",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Berthoud",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-mountain-view-loveland/8-28-2026/?c=f1b2b182-b14b-42f7-a791-9c6ea995280d",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Niwot",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-niwot/8-28-2026/?c=aca1873d-c40c-4c4b-93d6-4d29e5634304",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Wellington",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-wellington/8-25-2026/?c=ed648845-cb10-483a-ba78-7b6ac86e31fa",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Timnath",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-timnath/10-22-2026/?c=382c7c29-cb76-479c-b15c-79650a0abb4a",
+          "time": "18:30"
+        },
+        {
+          "date": "2026-10-27",
+          "opponent": "Windsor",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-windsor/10-27-2026/?c=c4bdc5c3-c390-4daf-93fc-d7f3eb6c9643",
+          "time": "18:30"
+        },
+        {
+          "date": "2026-10-29",
+          "opponent": "Silver Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-silver-creek-longmont/10-29-2026/?c=a61514ba-347f-4fda-b31f-33e13723a11f",
+          "time": "18:00"
+        }
+      ],
+      "held": [],
+      "notes": []
+    },
+    {
+      "key": "softball",
+      "name": "Softball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/softball/fall/",
+      "fetched": "2026-10-22T03:18:40.577Z",
+      "maxprepsUpdated": "2026-10-21T23:56:32",
+      "overall": "8-15-1",
+      "league": {
+        "record": "2-8",
+        "name": "5A/4A/3A Northern",
+        "place": "9th"
+      },
+      "results": [
+        {
+          "date": "2026-10-17",
+          "opponent": "Brush",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/brush-vs-mountain-view-loveland/10-17-2026/?c=dc993321-dcef-4227-a596-2cf18c1a91b8",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 10
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Timnath",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-timnath/10-8-2026/?c=99e9cadc-0033-458f-86a8-7d471e770b35",
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-severance/10-6-2026/?c=07a6d4bc-4e15-4aa6-b145-b644df3bf40a",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 17
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Greeley West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/greeley-west-vs-mountain-view-loveland/10-1-2026/?c=969b3c06-fbd8-406d-9e09-face1a7958bd",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Roosevelt",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-roosevelt-johnstown/9-29-2026/?c=3bbc6ea6-ea64-459c-b1f8-c67bda27fbc5",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 16
+          }
+        },
+        {
+          "date": "2026-09-28",
+          "opponent": "Lincoln",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/lincoln-denver-vs-mountain-view-loveland/9-28-2026/?c=83210de2-576e-4b1f-bb10-07a0c023db8e",
+          "result": "W",
+          "score": {
+            "us": 11,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-26",
+          "opponent": "Moffat County",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/moffat-county-craig-vs-mountain-view-loveland/9-26-2026/?c=eb441b96-6236-4660-b8e2-a2753af8f520",
+          "result": "W",
+          "score": {
+            "us": 17,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-26",
+          "opponent": "Moffat County",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/moffat-county-craig-vs-mountain-view-loveland/9-26-2026/?c=eccb637a-03ef-4a9f-8457-170fed64d931",
+          "result": "W",
+          "score": {
+            "us": 18,
+            "them": 9
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Windsor",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-windsor/9-24-2026/?c=034e63ff-4494-4211-85db-e1816dd3b4bf",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 16
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Northridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-northridge-greeley/9-17-2026/?c=cc9d7963-365c-4a44-9460-877d9407f1ff",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 8
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Loveland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/loveland-vs-mountain-view-loveland/9-15-2026/?c=c9b09935-f200-4873-a1b0-2ee354b9d902",
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 11
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Timnath",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-timnath/9-12-2026/?c=881f45eb-a42b-40c2-8396-4da42d137771",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 11,
+            "them": 13
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Frederick",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-mountain-view-loveland/9-12-2026/?c=732ffe49-cef5-4158-b525-329cd158d437",
+          "neutral": true,
+          "venue": "Northridge Tournament",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Vista PEAK Prep",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-vista-peak-prep-aurora/9-11-2026/?c=d71dda27-a21a-4c90-bd12-871a1b3c47ec",
+          "neutral": true,
+          "venue": "Rumble on the Ridge Tournament",
+          "result": "W",
+          "score": {
+            "us": 12,
+            "them": 8
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-thompson-valley-loveland/9-10-2026/?c=35eaa709-95b8-4dee-8802-3091beb2e8b0",
+          "result": "L",
+          "score": {
+            "us": 17,
+            "them": 20
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Poudre",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-poudre-fort-collins/9-8-2026/?c=0c63e324-1b88-4f48-b06c-d19e72f9f2b6",
+          "result": "W",
+          "score": {
+            "us": 13,
+            "them": 9
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/greeley-central-vs-mountain-view-loveland/9-3-2026/?c=9d851201-9ac7-481f-b772-7ea5faa5c6b5",
+          "result": "W",
+          "score": {
+            "us": 16,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Vista PEAK Prep",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-vista-peak-prep-aurora/8-29-2026/?c=80ca6fdf-2147-44b0-ae4f-8846fcf6c356",
+          "neutral": true,
+          "venue": "Barnes Complex- Field #9",
+          "result": "W",
+          "score": {
+            "us": 14,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Adams City",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/adams-city-commerce-city-vs-mountain-view-loveland/8-29-2026/?c=0448adcd-6b83-4d7e-9e81-5e4d68941fdf",
+          "neutral": true,
+          "venue": "Loveland High School",
+          "result": "T",
+          "score": {
+            "us": 10,
+            "them": 10
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Rangeview",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-rangeview-aurora/8-28-2026/?c=de785c3c-9101-4de1-b38e-00d814ce357f",
+          "neutral": true,
+          "venue": "Loveland High School",
+          "result": "L",
+          "score": {
+            "us": 10,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Pomona",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-pomona-arvada/8-28-2026/?c=279137d0-1387-40bb-9dbd-ec242dd23939",
+          "neutral": true,
+          "venue": "Loveland High School",
+          "result": "L",
+          "score": {
+            "us": 7,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-08-21",
+          "opponent": "Thomas Jefferson",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-thomas-jefferson-denver/8-21-2026/?c=84694b14-d543-4115-873e-963149c11fcc",
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-08-18",
+          "opponent": "Resurrection Christian",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-resurrection-christian-loveland/8-18-2026/?c=9e8ada56-a841-4451-ae88-0fe32276a1ab",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 13
+          }
+        },
+        {
+          "date": "2026-08-13",
+          "opponent": "Berthoud",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-mountain-view-loveland/8-13-2026/?c=ec447e1c-605d-4e5a-8db7-f784e862d99c",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 19
+          }
+        }
+      ],
+      "upcoming": [],
+      "held": [],
+      "notes": []
+    },
+    {
+      "key": "boys-cross-country",
+      "name": "Boys cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/cross-country/",
+      "fetched": "2026-10-22T03:18:40.577Z",
+      "maxprepsUpdated": "2026-10-22T03:19:34",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-cross-country",
+      "name": "Girls cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/cross-country/girls/",
+      "fetched": "2026-10-22T03:18:40.577Z",
+      "maxprepsUpdated": "2026-10-22T03:19:39",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    }
+  ]
+}

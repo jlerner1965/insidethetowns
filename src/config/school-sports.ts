@@ -3,8 +3,12 @@
  * where its teams live on MaxPreps, which calendar of the school's own the
  * games to come are checked against, and the shape of the data file.
  *
- * Berthoud was the test site (October 2026); Niwot followed. One entry per
- * town, one data file (data/<town>/sports.json), one page (/sports/) and
+ * Berthoud was the test site (October 2026); Niwot followed, then six more
+ * guides on 22 October 2026 (Timnath, Elizabeth, Johnstown, Windsor,
+ * Loveland and Carbon Valley), the same page and the same reader. One entry
+ * per school, one data file (data/<town>/sports.json, or
+ * data/<town>/sports-<slug>.json where a town follows several schools), one
+ * page (/sports/, or /sports/<slug>/ with /sports/ listing the schools) and
  * one strip on the home page, all keyed by the town's slug. The Saturday
  * and Wednesday runs (.github/workflows/sports-maxpreps.yml, `npm run
  * sports`) read each team's MaxPreps home page, check the games to come
@@ -12,12 +16,19 @@
  * the file; the pages read it at build. A town without an entry here has
  * no sports page.
  *
- * To follow another team, add it to the town's list: `maxpreps` is the
+ * To follow another team, add it to the school's list: `maxpreps` is the
  * team's path under the school's MaxPreps URL ("football", "soccer"; a
  * girls' team where the boys' is the default is "cross-country/girls", and
  * the other way round "volleyball/boys"), and `calendar` is how the school
  * calendar titles the varsity team's events ("Boys Varsity Football vs …").
  * Winter and spring teams wait until their seasons.
+ *
+ * The school, its mascot, its classification and its league are checked
+ * against CHSAANow's member-school profiles and its 2026–28 classification
+ * tables (chsaanow.com/schools/<school>, chsaanow.com/data/cloc/classes),
+ * read 22 October 2026; the football class and league are noted on each
+ * entry. CHSAANow's profiles carry no mascot, so the mascot is MaxPreps's
+ * and the school's own.
  */
 export interface SportConfig {
   /** The key in the data file and the card's anchor: "football". */
@@ -41,8 +52,21 @@ export interface SportConfig {
 export interface SchoolSports {
   /** The town's slug. */
   town: string;
+  /**
+   * The school's own slug, only where the town follows several schools
+   * (Loveland's four): its page is then /sports/<slug>/ and its file
+   * data/<town>/sports-<slug>.json, and /sports/ lists the schools. A
+   * town's only school has no slug, and keeps /sports/ and sports.json.
+   */
+  slug?: string;
   /** "Berthoud High School". */
   school: string;
+  /**
+   * One line the page says once, under its introduction, where the school
+   * serves more than the town the guide is named for: Carbon Valley's
+   * Frederick High takes Dacono's and Firestone's students too.
+   */
+  note?: string;
   /** "Spartans": how the pages name the teams. */
   mascot: string;
   /** The school's MaxPreps URL; each team's page is `maxpreps` + its path + "/". */
@@ -83,6 +107,17 @@ const FALL = (): SportConfig[] => [
   { key: 'girls-cross-country', name: 'Girls cross country', maxpreps: 'cross-country/girls', calendar: { gender: 'Girls', sport: 'Cross Country' } },
 ];
 
+/** The fall list without one team, for a school that does not field it. */
+const FALL_WITHOUT = (...keys: string[]): SportConfig[] => FALL().filter((t) => !keys.includes(t.key));
+
+/**
+ * Thompson School District's Finalsite sites: `?cal_date=YYYY-MM-01` shows a
+ * month, and the varsity games are titled "Boys Varsity Football @ …". Each
+ * school's robots.txt has its own say: Berthoud's and Mountain View's allow
+ * the calendar, Loveland High's and Thompson Valley's do not.
+ */
+const TSD_CALENDAR = (host: string, label: string): NonNullable<SchoolSports['calendar']> => ({ kind: 'finalsite', url: `https://${host}.tsd.org/family/calendar`, label });
+
 export const SCHOOL_SPORTS: SchoolSports[] = [
   {
     town: 'berthoud',
@@ -112,6 +147,145 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     calendarNote: 'Niwot’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
     teams: FALL(),
   },
+  // The six guides of 22 October 2026, the Berthoud pattern as it stands.
+  // Each school's colour is MaxPreps's first school colour, read by the
+  // probe on the GitHub runner that day (`npm run sports -- --sport=football`
+  // prints them); one is darkened a step to clear the paper, as Niwot's was.
+  {
+    town: 'timnath',
+    // CHSAANow: Timnath Middle-High School, Poudre R-1; football 3A, Granite Peaks (2026–28).
+    school: 'Timnath Middle-High School',
+    mascot: 'Cubs',
+    maxpreps: 'https://www.maxpreps.com/co/timnath/timnath-cubs/',
+    maxprepsName: 'Timnath',
+    // Cub blue, as MaxPreps's team data gives it (1580A5, 22 October 2026),
+    // darkened 6%: the exact shade is 4.13:1 on the warm paper.
+    colors: { primary: '#14789B' },
+    // Poudre School District keeps Timnath's schedules on ArbiterLive
+    // (arbiterlive.com/Teams?entityId=119370, linked from
+    // tmh.psdschools.org/athletics), whose robots.txt disallows every
+    // automated reader.
+    calendarNote: 'Timnath’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
+    teams: FALL(),
+  },
+  {
+    town: 'elizabeth',
+    // CHSAANow: Elizabeth High School, Elizabeth School District; football 2A, 2A Metro (2026–28).
+    school: 'Elizabeth High School',
+    mascot: 'Cardinals',
+    maxpreps: 'https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/',
+    maxprepsName: 'Elizabeth',
+    // Cardinal red, as MaxPreps's team data gives it (CC0022, 22 October 2026).
+    colors: { primary: '#CC0022' },
+    // The school's athletics page sends schedules to GoBound
+    // (gobound.com/co/schools/elizabethhs), which this reader does not read.
+    calendarNote: 'Elizabeth’s schedules live on GoBound, which this site does not read yet, so games to come are published on MaxPreps’s word alone.',
+    teams: FALL(),
+  },
+  {
+    town: 'johnstown',
+    // CHSAANow: Roosevelt High School, Johnstown-Milliken RE-5J; football 4A, 4A Northern (2026–28).
+    school: 'Roosevelt High School',
+    // "Roughriders", one word, as MaxPreps and the school write it.
+    mascot: 'Roughriders',
+    maxpreps: 'https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/',
+    maxprepsName: 'Roosevelt',
+    // Roughrider black, as MaxPreps's team data gives it (222222, 22 October 2026).
+    colors: { primary: '#222222' },
+    // Weld RE-5J's Finalsite site; `?cal_date=YYYY-MM-01` shows a month.
+    calendar: { kind: 'finalsite', url: 'https://rhs.weldre5j.org/calendar', label: 'the Roosevelt High calendar' },
+    teams: FALL(),
+  },
+  {
+    town: 'windsor',
+    // CHSAANow: Windsor High School, Weld RE-4; football 3A, Cache la Poudre (2026–28).
+    school: 'Windsor High School',
+    mascot: 'Wizards',
+    maxpreps: 'https://www.maxpreps.com/co/windsor/windsor-wizards/',
+    maxprepsName: 'Windsor',
+    // Wizard maroon, as MaxPreps's team data gives it (8F0018, 22 October 2026).
+    colors: { primary: '#8F0018' },
+    // Windsor High posts each team's schedule on its own site
+    // (whs.weldre4.org, one page per sport), not in a calendar this reader reads.
+    calendarNote: 'Windsor High posts its schedules team by team on its own site, in a form this site does not read yet, so games to come are published on MaxPreps’s word alone.',
+    teams: FALL(),
+  },
+  {
+    town: 'loveland',
+    slug: 'loveland-high',
+    // CHSAANow: Loveland High School, Thompson R2-J; football 4A, 4A Northern (2026–28).
+    school: 'Loveland High School',
+    mascot: 'Red Wolves',
+    maxpreps: 'https://www.maxpreps.com/co/loveland/loveland-red-wolves/',
+    maxprepsName: 'Loveland',
+    // Red Wolf red, as MaxPreps's team data gives it (CC0022, 22 October 2026).
+    colors: { primary: '#CC0022' },
+    // Loveland High's Finalsite calendar is at lhs.tsd.org/family/calendar,
+    // but the site's robots.txt disallows that path to every automated
+    // reader (22 October 2026), where Mountain View's allows it.
+    calendarNote: 'Loveland High’s calendar asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
+    teams: FALL(),
+  },
+  {
+    town: 'loveland',
+    slug: 'thompson-valley',
+    // CHSAANow: Thompson Valley High School, Thompson R2-J; football 3A, Cache la Poudre (2026–28).
+    school: 'Thompson Valley High School',
+    mascot: 'Eagles',
+    maxpreps: 'https://www.maxpreps.com/co/loveland/thompson-valley-eagles/',
+    maxprepsName: 'Thompson Valley',
+    // Eagle black, as MaxPreps's team data gives it (222222, 22 October 2026).
+    colors: { primary: '#222222' },
+    // As Loveland High: tvhs.tsd.org/robots.txt disallows /family/calendar.
+    calendarNote: 'Thompson Valley’s calendar asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
+    teams: FALL(),
+  },
+  {
+    town: 'loveland',
+    slug: 'mountain-view',
+    // CHSAANow: Mountain View High School, Thompson R2-J; football 3A, Cache la Poudre (2026–28).
+    school: 'Mountain View High School',
+    mascot: 'Mountain Lions',
+    maxpreps: 'https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/',
+    maxprepsName: 'Mountain View',
+    // Mountain Lion purple, as MaxPreps's team data gives it (754ACC, 22 October 2026).
+    colors: { primary: '#754ACC' },
+    calendar: TSD_CALENDAR('mvhs', 'the Mountain View calendar'),
+    teams: FALL(),
+  },
+  {
+    town: 'loveland',
+    slug: 'resurrection-christian',
+    // CHSAANow: Resurrection Christian, non-public; football 2A, Patriot (2026–28).
+    school: 'Resurrection Christian School',
+    mascot: 'Cougars',
+    maxpreps: 'https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/',
+    maxprepsName: 'Resurrection Christian',
+    // Cougar blue, as MaxPreps's team data gives it (034CB2, 22 October 2026).
+    colors: { primary: '#034CB2' },
+    // The school's Teams & Schedules page sends readers to ArbiterSports
+    // (students.arbitersports.com/organizations/resurrection-christian-school),
+    // which this reader does not read.
+    calendarNote: 'Resurrection Christian’s schedules live on ArbiterSports, which this site does not read yet, so games to come are published on MaxPreps’s word alone.',
+    // No boys' soccer: CHSAANow's alignment lists none for the school.
+    teams: FALL_WITHOUT('boys-soccer'),
+  },
+  {
+    town: 'carbon-valley',
+    // CHSAANow: Frederick Senior High School, St Vrain Valley RE1J; football 4A, 4A Northern (2026–28).
+    school: 'Frederick High School',
+    mascot: 'Golden Eagles',
+    note: 'Dacono’s and Firestone’s students attend Frederick High too, so the Golden Eagles are the whole valley’s team.',
+    maxpreps: 'https://www.maxpreps.com/co/frederick/frederick-golden-eagles/',
+    maxprepsName: 'Frederick',
+    // Golden Eagle navy, as MaxPreps's team data gives it (022C66, 22 October 2026).
+    colors: { primary: '#022C66' },
+    // St. Vrain Valley keeps its schools' schedules on ArbiterLive, as it
+    // does Niwot's, whose robots.txt disallows every automated reader;
+    // Frederick High's own site links no calendar of games.
+    calendarNote: 'Frederick’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
+    teams: FALL(),
+  },
   {
     town: 'lyons',
     school: 'Lyons Middle/Senior High School',
@@ -130,13 +304,31 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
   },
 ];
 
-export function schoolSportsFor(town: string): SchoolSports | undefined {
-  return SCHOOL_SPORTS.find((s) => s.town === town);
+/** Every school a town follows, in the config's order. */
+export function schoolsFor(town: string): SchoolSports[] {
+  return SCHOOL_SPORTS.filter((s) => s.town === town);
 }
 
-/** Where a town's run writes, relative to the repo root. */
-export function sportsDataFile(town: string): string {
-  return `data/${town}/sports.json`;
+/**
+ * The school a page is about: the one with the slug, or the town's only
+ * school. A town that follows several has no single school, so the home
+ * page's strip and the guide's one-line sports entry, which name one, show
+ * nothing there; /sports/ lists the schools instead.
+ */
+export function schoolSportsFor(town: string, slug?: string): SchoolSports | undefined {
+  const schools = schoolsFor(town);
+  if (slug) return schools.find((s) => s.slug === slug);
+  return schools.length === 1 ? schools[0] : undefined;
+}
+
+/** The school's page: "/sports/", or "/sports/<slug>/" where the town follows several. */
+export function sportsPath(school: SchoolSports): string {
+  return school.slug ? `/sports/${school.slug}/` : '/sports/';
+}
+
+/** Where a school's run writes, relative to the repo root. */
+export function sportsDataFile(school: Pick<SchoolSports, 'town' | 'slug'>): string {
+  return school.slug ? `data/${school.town}/sports-${school.slug}.json` : `data/${school.town}/sports.json`;
 }
 
 /** One game or meet, as the data file holds it. */

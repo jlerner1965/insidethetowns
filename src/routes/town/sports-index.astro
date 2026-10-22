@@ -1,0 +1,67 @@
+---
+/**
+ * /sports/ on a guide that follows several schools (Loveland's four,
+ * src/config/school-sports.ts): each school as one row, its records this
+ * fall and its next game, from the same data files its own page reads, and
+ * a link to that page. A town with one school has no such page: its
+ * /sports/ is the school's own.
+ */
+import Page from '@/layouts/Page.astro';
+import { getTown } from '@/config';
+import { schoolsFor, sportsPath, type SportsData } from '@/config/school-sports';
+import { formatDayShort, formatShortDate } from '@/lib/dates';
+import { bigGame, formatGameTime, gameDay, sportsDataFor, where } from '@/lib/school-sports';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+
+const town = getTown();
+const files = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
+const schools = schoolsFor(town.slug);
+if (schools.length < 2) throw new Error(`${town.slug} follows ${schools.length} school(s); /sports/ is the school's own page (src/integrations/town-routes.ts)`);
+const now = new Date();
+const rows = schools.map((school) => {
+  const data = sportsDataFor(school, files) ?? { generated: '', sports: [] };
+  const teams = data.sports.filter((s) => s.fetched && !s.empty);
+  const fetched = data.sports.map((s) => s.fetched).filter(Boolean) as string[];
+  return { school, teams, next: bigGame(data, now), read: fetched.length ? new Date(fetched.sort().at(-1)!) : undefined };
+});
+const names = schools.map((s) => s.school);
+const description = `${town.name}’s high-school scores and schedules this fall: ${names.slice(0, -1).join(', ')} and ${names.at(-1)}, from MaxPreps, each checked against the school’s own calendar where there is one.`;
+const jsonLd = [
+  collectionPageJsonLd(town, {
+    name: `${town.name} high-school sports`,
+    description,
+    path: '/sports/',
+    items: schools.map((s) => ({ name: `${s.school} ${s.mascot}`, path: sportsPath(s) })),
+  }),
+  breadcrumbJsonLd(town, [
+    { name: town.name, path: '/' },
+    { name: 'Sports', path: '/sports/' },
+  ]),
+];
+---
+<Page title="Sports" seoTitle={`${town.name} high-school scores and schedules`} eyebrow={`${town.name} · Fall ${now.getFullYear()}`} {description} intro={`${schools.length} schools, each with its scores, schedules and records on its own page, read from MaxPreps twice a week.`} {jsonLd}>
+  <ul class="divide-y divide-line-soft border-y border-line-soft">
+    {rows.map(({ school, teams, next, read }) => (
+      <li class="py-5">
+        <a href={sportsPath(school)} class="group block no-underline">
+          <h2 class="display-md text-[1.75rem] group-hover:underline md:text-[2rem]">{school.school} {school.mascot}</h2>
+          {teams.length > 0 ? (
+            <p class="mt-2 text-[0.9375rem] text-ink-muted">
+              {teams.map((t, i) => (
+                <Fragment>{i > 0 && ' · '}{t.name}{' '}<strong class="font-semibold text-ink">{t.overall ?? '—'}</strong></Fragment>
+              ))}
+            </p>
+          ) : (
+            <p class="mt-2 text-[0.9375rem] text-ink-muted">No scores yet: the first read has not run.</p>
+          )}
+          {next && (
+            <p class="mt-1 text-[0.9375rem]">
+              Next: <strong class="font-semibold">{next.team.name}</strong> {where(next.game)} {next.game.opponent}, <time datetime={next.game.date}>{formatDayShort(gameDay(next.game))}</time>{next.game.time && ` · ${formatGameTime(next.game)}`}
+            </p>
+          )}
+          <p class="mt-1 text-[0.875rem] text-ink-muted">{read && `Last read ${formatShortDate(read)} · `}<span class="font-semibold text-primary underline">Scores and schedules →</span></p>
+        </a>
+      </li>
+    ))}
+  </ul>
+</Page>
