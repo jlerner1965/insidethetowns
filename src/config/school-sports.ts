@@ -148,9 +148,9 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     teams: FALL(),
   },
   // The six guides of 22 October 2026, the Berthoud pattern as it stands.
-  // No school colour on these: MaxPreps's team data, where the colour is
-  // read from, answers the GitHub runner but not this session's address,
-  // so the guide's own primary stays until a colour has been read.
+  // Each school's colour is MaxPreps's first school colour, read by the
+  // probe on the GitHub runner that day (`npm run sports -- --sport=football`
+  // prints them); one is darkened a step to clear the paper, as Niwot's was.
   {
     town: 'timnath',
     // CHSAANow: Timnath Middle-High School, Poudre R-1; football 3A, Granite Peaks (2026–28).
@@ -158,6 +158,9 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     mascot: 'Cubs',
     maxpreps: 'https://www.maxpreps.com/co/timnath/timnath-cubs/',
     maxprepsName: 'Timnath',
+    // Cub blue, as MaxPreps's team data gives it (1580A5, 22 October 2026),
+    // darkened 6%: the exact shade is 4.13:1 on the warm paper.
+    colors: { primary: '#14789B' },
     // Poudre School District keeps Timnath's schedules on ArbiterLive
     // (arbiterlive.com/Teams?entityId=119370, linked from
     // tmh.psdschools.org/athletics), whose robots.txt disallows every
@@ -172,6 +175,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     mascot: 'Cardinals',
     maxpreps: 'https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/',
     maxprepsName: 'Elizabeth',
+    // Cardinal red, as MaxPreps's team data gives it (CC0022, 22 October 2026).
+    colors: { primary: '#CC0022' },
     // The school's athletics page sends schedules to GoBound
     // (gobound.com/co/schools/elizabethhs), which this reader does not read.
     calendarNote: 'Elizabeth’s schedules live on GoBound, which this site does not read yet, so games to come are published on MaxPreps’s word alone.',
@@ -185,6 +190,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     mascot: 'Roughriders',
     maxpreps: 'https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/',
     maxprepsName: 'Roosevelt',
+    // Roughrider black, as MaxPreps's team data gives it (222222, 22 October 2026).
+    colors: { primary: '#222222' },
     // Weld RE-5J's Finalsite site; `?cal_date=YYYY-MM-01` shows a month.
     calendar: { kind: 'finalsite', url: 'https://rhs.weldre5j.org/calendar', label: 'the Roosevelt High calendar' },
     teams: FALL(),
@@ -196,6 +203,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     mascot: 'Wizards',
     maxpreps: 'https://www.maxpreps.com/co/windsor/windsor-wizards/',
     maxprepsName: 'Windsor',
+    // Wizard maroon, as MaxPreps's team data gives it (8F0018, 22 October 2026).
+    colors: { primary: '#8F0018' },
     // Windsor High posts each team's schedule on its own site
     // (whs.weldre4.org, one page per sport), not in a calendar this reader reads.
     calendarNote: 'Windsor High posts its schedules team by team on its own site, in a form this site does not read yet, so games to come are published on MaxPreps’s word alone.',
@@ -209,6 +218,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     mascot: 'Red Wolves',
     maxpreps: 'https://www.maxpreps.com/co/loveland/loveland-red-wolves/',
     maxprepsName: 'Loveland',
+    // Red Wolf red, as MaxPreps's team data gives it (CC0022, 22 October 2026).
+    colors: { primary: '#CC0022' },
     // Loveland High's Finalsite calendar is at lhs.tsd.org/family/calendar,
     // but the site's robots.txt disallows that path to every automated
     // reader (22 October 2026), where Mountain View's allows it.
@@ -223,6 +234,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     mascot: 'Eagles',
     maxpreps: 'https://www.maxpreps.com/co/loveland/thompson-valley-eagles/',
     maxprepsName: 'Thompson Valley',
+    // Eagle black, as MaxPreps's team data gives it (222222, 22 October 2026).
+    colors: { primary: '#222222' },
     // As Loveland High: tvhs.tsd.org/robots.txt disallows /family/calendar.
     calendarNote: 'Thompson Valley’s calendar asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
     teams: FALL(),
@@ -235,6 +248,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     mascot: 'Mountain Lions',
     maxpreps: 'https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/',
     maxprepsName: 'Mountain View',
+    // Mountain Lion purple, as MaxPreps's team data gives it (754ACC, 22 October 2026).
+    colors: { primary: '#754ACC' },
     calendar: TSD_CALENDAR('mvhs', 'the Mountain View calendar'),
     teams: FALL(),
   },
@@ -246,6 +261,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     mascot: 'Cougars',
     maxpreps: 'https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/',
     maxprepsName: 'Resurrection Christian',
+    // Cougar blue, as MaxPreps's team data gives it (034CB2, 22 October 2026).
+    colors: { primary: '#034CB2' },
     // The school's Teams & Schedules page sends readers to ArbiterSports
     // (students.arbitersports.com/organizations/resurrection-christian-school),
     // which this reader does not read.
@@ -261,6 +278,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     note: 'Dacono’s and Firestone’s students attend Frederick High too, so the Golden Eagles are the whole valley’s team.',
     maxpreps: 'https://www.maxpreps.com/co/frederick/frederick-golden-eagles/',
     maxprepsName: 'Frederick',
+    // Golden Eagle navy, as MaxPreps's team data gives it (022C66, 22 October 2026).
+    colors: { primary: '#022C66' },
     // St. Vrain Valley keeps its schools' schedules on ArbiterLive, as it
     // does Niwot's, whose robots.txt disallows every automated reader;
     // Frederick High's own site links no calendar of games.
