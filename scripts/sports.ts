@@ -94,6 +94,37 @@ async function probe(school: SchoolSports, sport: string): Promise<number> {
       }
     }
   }
+  // The team's colours, as the page data carries them, for
+  // SchoolSports.colors: every key with "color" in its name, with its value.
+  const raw = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/)?.[1];
+  if (raw) {
+    try {
+      const found: string[] = [];
+      const walk = (v: unknown, path: string, depth: number) => {
+        if (found.length >= 12 || depth > 7 || !v || typeof v !== 'object') return;
+        for (const [k, x] of Object.entries(v as Record<string, unknown>)) {
+          if (/colou?r/i.test(k) && (typeof x === 'string' || typeof x === 'number')) found.push(`${path}.${k} = ${x}`);
+          else walk(x, `${path}.${k}`, depth + 1);
+        }
+      };
+      walk(JSON.parse(raw).props?.pageProps ?? {}, 'pageProps', 0);
+      console.log(`Colours: ${found.length ? found.join('; ') : 'none in the page data'}`);
+    } catch {
+      /* not JSON: nothing to report */
+    }
+  }
+  // The season's schedule page, as the run reads it, with every row the
+  // sentence does not bear out: the probe is where a new shape is seen first.
+  if (!args.has('html')) {
+    const sched = await fetchPage(`${url}schedule/`);
+    if (!sched.ok) console.log(`Schedule page: fetch failed (${sched.reason})`);
+    else {
+      const team = school.teams.find((t) => t.maxpreps === sport);
+      const schedule = parseSchedulePage(sched.html, { url, schoolName: school.maxprepsName, playoffVenue: team?.playoffVenue });
+      console.log(`Schedule page: ${schedule.games.length} games, ${schedule.skipped} skipped, ${schedule.warnings.length} warnings`);
+      for (const w of schedule.warnings) console.log(`  ${w}`);
+    }
+  }
   if (page.noSchedule) console.log('\nParse: ok, but MaxPreps lists no schedule for this team.');
   else console.log(usable(page) ? '\nParse: ok' : '\nParse: the records or the schedule were not found.');
   return usable(page) || page.noSchedule ? 0 : 3;

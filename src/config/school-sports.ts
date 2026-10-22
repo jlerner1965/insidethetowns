@@ -267,6 +267,22 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     calendarNote: 'Frederick’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
     teams: FALL(),
   },
+  {
+    town: 'lyons',
+    school: 'Lyons Middle/Senior High School',
+    mascot: 'Lions',
+    maxpreps: 'https://www.maxpreps.com/co/lyons/lyons-lions/',
+    maxprepsName: 'Lyons',
+    // Lion navy, as MaxPreps's team data gives it (022C66 on white, 22 October 2026).
+    colors: { primary: '#022C66' },
+    // The school posts each team's schedule as a Google Sheet
+    // (lmshs.svvsd.org/activities-arts-athletics/athletics/high-school-athletics/,
+    // 22 October 2026), which the cross-check does not read.
+    calendarNote: 'Lyons posts its schedules as spreadsheets on the school site, which the cross-check does not read, so games to come are published on MaxPreps’s word alone.',
+    // The fall list at the school site, 22 October 2026: cross country,
+    // football, softball, volleyball (and cheer). No boys soccer.
+    teams: FALL().filter((t) => t.key !== 'boys-soccer'),
+  },
 ];
 
 /** Every school a town follows, in the config's order. */
