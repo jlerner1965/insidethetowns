@@ -6027,3 +6027,51 @@ the school's colour throughout.
   `check-colors` passes. Windsor, Elizabeth, Johnstown, Loveland and Carbon
   Valley already took their school's own site over MaxPreps; Berthoud now
   does too.
+
+## The email's closing links as words, 22 October 2026
+
+- **The footer of every edition links words, not addresses.** The first
+  issue as it landed on a phone (Inside Niwot, 22 October) ended in three
+  raw URLs, each carrying its utm string across four lines. "This week in
+  Niwot", "Everything on in Niwot" and "Know of something missing? Send
+  it in" are now the links, as the multi-town and all-towns footers'
+  lines are. Same addresses and campaign tags; the archive pages render
+  the same Markdown.
+- **The blue dates and times are Apple Mail's**, not the issue's: iOS
+  turns a future date or time into a calendar link in its own colour. The
+  cure is a stylesheet rule in the email's `<head>`
+  (`a[x-apple-data-detectors]`), which belongs in Buttondown's custom CSS,
+  not in the issue body. Left to the owner.
+
+## Elizabeth, Windsor, Erie and Johnstown as flagships, 22 October 2026
+
+- **Four more flagships**, at the owner's "make all flagship design with
+  extra page same as Berthoud and Niwot and Lyons": each gets `home` (the
+  masthead in the town's colour with the pills, the option-B home with no
+  photograph), a Families hub and a Living Here, as Lyons did. Families is
+  the signature hub on all four; none has a participation hub yet.
+  `test/flagships.test.ts` now holds seven. Erie follows no school, so its
+  menu is This week, Events, Eat & drink, Families, Living here, with no
+  sports pill.
+- **Every fact read on 22 October** from the Town, the county, the
+  district, the library and the organizer: 9 programs for Elizabeth, 13
+  each for Windsor, Erie and Johnstown; each district's 2026–27 calendar
+  for the breaks (Erie lists St. Vrain's and Boulder Valley's, each row
+  named for its district; Windsor's are Weld RE-4's, Johnstown's Weld
+  RE-5J's, Elizabeth's the district's revised calendar).
+- **What the sources would not give.** townofelizabeth.org still refuses
+  every automated request, so Elizabeth's Living Here has no Town items:
+  no utility billing, trash or Board of Trustees; the county, CORE, Black
+  Hills, the park district, the fire district and the schools are there,
+  and the section is "Meetings and elections" until the Town's own pages
+  can be read. The library (pplibraries.org) disallows the fetcher, so no
+  Elizabeth library programs. windsorco.gov refuses direct requests too;
+  its pages were read through a reader service (r.jina.ai), said in a
+  comment in windsor.ts, which is not how the network reads a refusing
+  site elsewhere: the owner's call whether those items stay.
+- **Conflicts left for a person.** Windsor's recreation center place file
+  gives weekend hours the Town's page no longer does (Saturday 8–7, Sunday
+  12–6 today). Erie's `countySplit` note says County Line Road decides the
+  school district; Boulder Valley says only "parts of Erie". St. Vrain's
+  calendar also marks MLK Day, Presidents' Day and April 26–27, which
+  Lyons's and Niwot's break lists leave out.

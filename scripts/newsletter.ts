@@ -220,9 +220,9 @@ function townIssue(week: TownWeek, sponsor: Edition['sponsor']): string {
   lines.push(
     '---',
     '',
-    `This week in ${town.name}: ${site(town.domain, `/this-week/`)}  `,
-    `Everything on in ${town.name}: ${site(town.domain, `/events/`)}  `,
-    `Know of something missing? ${site(town.domain, `/submit-event/`)}`,
+    `[This week in ${town.name}](${site(town.domain, `/this-week/`)})  `,
+    `[Everything on in ${town.name}](${site(town.domain, `/events/`)})  `,
+    `Know of something missing? [Send it in](${site(town.domain, `/submit-event/`)}).`,
     '',
     `_The weekly email from ${town.siteTitle}, part of ${hub.siteTitle}. Listings are editorial; nobody pays to be in them._`,
     '',
@@ -274,9 +274,9 @@ function sharedIssue(edition: Edition, weeks: TownWeek[]): string {
   items('Closed', weeks.flatMap((w) => w.closedPlaces.map((p) => ({ town: w.town, text: `[${p.data.title}](${site(w.town.domain, `/places/${p.slug}/`)}) — ${p.data.statusNote ?? (p.data.status === 'closed' ? 'Permanently closed.' : 'Temporarily closed.')}` }))));
   items('Worth reading', weeks.flatMap((w) => w.articles.map((a) => ({ town: w.town, text: `[${a.data.title}](${site(w.town.domain, `/articles/${a.slug}/`)}) — ${a.data.excerpt}` }))));
   lines.push('---', '');
-  for (const { town } of weeks) lines.push(`This week in ${town.name}: ${site(town.domain, `/this-week/`)}  `);
+  for (const { town } of weeks) lines.push(`[This week in ${town.name}](${site(town.domain, `/this-week/`)})  `);
   lines.push(
-    `Know of something missing? ${site(weeks[0]!.town.domain, `/submit-event/`)}`,
+    `Know of something missing? [Send it in](${site(weeks[0]!.town.domain, `/submit-event/`)}).`,
     '',
     `_The weekly email for ${edition.name}, from ${weeks.map((w) => w.town.siteTitle).join(' and ')}, part of ${hub.siteTitle}. Listings are editorial; nobody pays to be in them._`,
     '',
@@ -327,7 +327,7 @@ function networkIssue(weeks: TownWeek[]): string {
   lines.push(
     '---',
     '',
-    `Everything on, town by town: ${site(hub.domain, `/this-weekend/`)}`,
+    `[Everything on, town by town](${site(hub.domain, `/this-weekend/`)})`,
     '',
     `_The weekly email from ${hub.siteTitle}, independent guides to ${weeks.length} Front Range towns. Listings are editorial; nobody pays to be in them._`,
     '',
