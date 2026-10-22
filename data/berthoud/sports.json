@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-22T01:15:25.959Z",
+  "generated": "2026-10-22T01:18:20.454Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/football/",
-      "fetched": "2026-10-22T01:15:25.959Z",
+      "fetched": "2026-10-22T01:18:20.454Z",
       "maxprepsUpdated": "2026-10-21T22:43:43",
       "overall": "6-2",
       "league": {
@@ -126,7 +126,7 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/soccer/",
-      "fetched": "2026-10-22T01:15:25.959Z",
+      "fetched": "2026-10-22T01:18:20.454Z",
       "maxprepsUpdated": "2026-10-21T22:49:42",
       "overall": "7-7",
       "league": {
@@ -306,7 +306,7 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/volleyball/",
-      "fetched": "2026-10-22T01:15:25.959Z",
+      "fetched": "2026-10-22T01:18:20.454Z",
       "maxprepsUpdated": "2026-10-21T23:00:35",
       "overall": "14-5",
       "league": {
@@ -566,7 +566,7 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/softball/fall/",
-      "fetched": "2026-10-22T01:15:25.959Z",
+      "fetched": "2026-10-22T01:18:20.454Z",
       "maxprepsUpdated": "2026-10-21T22:51:46",
       "overall": "16-9",
       "league": {
@@ -861,28 +861,27 @@
           }
         }
       ],
-      "upcoming": [],
-      "held": [
+      "upcoming": [
         {
-          "game": {
-            "date": "2026-10-23",
-            "opponent": "Delta",
-            "site": "neutral",
-            "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-delta/10-23-2026/?c=2824efb1-a490-4092-8967-075ee31246dd",
-            "neutral": true,
-            "venue": "Aurora Sports Park",
-            "time": "12:15"
-          },
-          "reason": "2026-10-23 at Delta: MaxPreps has it neutral, the school calendar home (\"Girls Varsity Softball vs Delta High School\")"
+          "date": "2026-10-23",
+          "opponent": "Delta",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-delta/10-23-2026/?c=2824efb1-a490-4092-8967-075ee31246dd",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "time": "12:15"
         }
       ],
-      "notes": []
+      "held": [],
+      "notes": [
+        "2026-10-23 at Delta: a game at Aurora Sports Park, which the school calendar files as home (\"Girls Varsity Softball vs Delta High School\")"
+      ]
     },
     {
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/",
-      "fetched": "2026-10-22T01:15:25.959Z",
+      "fetched": "2026-10-22T01:18:20.454Z",
       "maxprepsUpdated": "2026-10-22T01:16:18",
       "results": [],
       "upcoming": [],
@@ -896,7 +895,7 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/girls/",
-      "fetched": "2026-10-22T01:15:25.959Z",
+      "fetched": "2026-10-22T01:18:20.454Z",
       "maxprepsUpdated": "2026-10-22T01:16:22",
       "results": [],
       "upcoming": [],

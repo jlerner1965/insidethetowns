@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-22T01:16:27.147Z",
+  "generated": "2026-10-22T01:19:13.649Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/football/",
-      "fetched": "2026-10-22T01:16:27.147Z",
+      "fetched": "2026-10-22T01:19:13.649Z",
       "maxprepsUpdated": "2026-10-21T22:57:00",
       "overall": "3-5",
       "league": {
@@ -128,7 +128,7 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/soccer/",
-      "fetched": "2026-10-22T01:16:27.147Z",
+      "fetched": "2026-10-22T01:19:13.649Z",
       "maxprepsUpdated": "2026-10-21T23:21:19",
       "overall": "2-7-5",
       "league": {
@@ -310,7 +310,7 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/volleyball/",
-      "fetched": "2026-10-22T01:16:27.147Z",
+      "fetched": "2026-10-22T01:19:13.649Z",
       "maxprepsUpdated": "2026-10-22T00:24:29",
       "overall": "14-3",
       "league": {
@@ -546,7 +546,7 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/softball/fall/",
-      "fetched": "2026-10-22T01:16:27.147Z",
+      "fetched": "2026-10-22T01:19:13.649Z",
       "maxprepsUpdated": "2026-10-21T22:48:09",
       "overall": "15-11",
       "league": {
@@ -871,7 +871,7 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/cross-country/",
-      "fetched": "2026-10-22T01:16:27.147Z",
+      "fetched": "2026-10-22T01:19:13.649Z",
       "maxprepsUpdated": "2026-10-22T01:17:03",
       "results": [],
       "upcoming": [],
@@ -885,7 +885,7 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/cross-country/girls/",
-      "fetched": "2026-10-22T01:16:27.147Z",
+      "fetched": "2026-10-22T01:19:13.649Z",
       "maxprepsUpdated": "2026-10-22T01:17:07",
       "results": [],
       "upcoming": [],
