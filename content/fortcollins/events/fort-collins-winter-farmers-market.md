@@ -10,7 +10,8 @@ url: "https://www.wildcraftmarkets.com/"
 category: market
 recurring: "Saturdays from November 7"
 source: "https://www.wildcraftmarkets.com/"
-verified: "2026-10-01"
+verified: "2026-10-23"
+verifiedBy: "recheck-events (the nightly re-check workflow): 7 November and 10 am on the page"
 ---
 
 The indoor winter market inside Foothills, run by Wildcraft Farmers Markets (the old winterfarmersmarket.com address now points there). Opening day is Saturday, November 7, and it runs every Saturday 10 am to 2 pm. The organizer has not published the season's last date, so this listing stops before the holiday weeks; check their page for January onward.

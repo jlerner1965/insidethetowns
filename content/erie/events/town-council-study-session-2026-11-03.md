@@ -8,7 +8,7 @@ cost: "Free"
 category: civic
 recurring: "First and third Tuesdays"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5435"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Town Council Study Session Meeting\" at 6 pm on 3 November on the erieco.gov feed"
 ---
 

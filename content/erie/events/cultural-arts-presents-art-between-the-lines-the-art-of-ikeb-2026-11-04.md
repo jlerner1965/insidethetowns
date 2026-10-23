@@ -10,7 +10,7 @@ url: "https://www.erieco.gov/Calendar.aspx?EID=5248"
 cost: "Free"
 category: arts
 source: "https://www.erieco.gov/Calendar.aspx?EID=5248"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Cultural Arts Presents: Art Between the Lines Lecture Series\" at 6 pm on 4 November on the erieco.gov feed"
 ---
 

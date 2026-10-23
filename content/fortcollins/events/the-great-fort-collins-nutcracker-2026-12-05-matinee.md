@@ -13,7 +13,8 @@ organizerUrl: "https://www.gratieballet.com/"
 source: "https://www.lctix.com/shows-tickets/the-great-fort-collins-nutcracker/"
 sourceId: "lctix-com"
 sourceUid: "showare:5644"
-verified: "2026-10-01"
+verified: "2026-10-23"
+verifiedBy: "recheck-events (the nightly re-check workflow): 5 December and 2 pm on the page"
 ---
 
 Gratie Ballet's Nutcracker, with professional dancers alongside students: Clara, the Mouse King and the Land of Sweets. Three performances in the Performance Hall, Friday evening and Saturday afternoon and evening.

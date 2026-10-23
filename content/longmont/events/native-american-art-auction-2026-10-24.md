@@ -13,7 +13,7 @@ source: "https://payneauction.com/longmont-10-24-2026/"
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10003229-1792828800-1792857600@bouldercounty.gov"
 sourceHash: "d63d1e3d00a1"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Native American Art Auction\" at 8 am on 24 October on the Boulder County Fairgrounds feed"
 ---
 

@@ -11,7 +11,8 @@ category: music
 source: "https://www.lctix.com/shows-tickets/voctave/"
 sourceId: "lctix-com"
 sourceUid: "showare:5531"
-verified: "2026-10-01"
+verified: "2026-10-23"
+verifiedBy: "recheck-events (the nightly re-check workflow): 19 December and 7:30 pm on the page"
 ---
 
 The 11-voice a cappella group Voctave's holiday show, Saturday at 7:30 in the Performance Hall.

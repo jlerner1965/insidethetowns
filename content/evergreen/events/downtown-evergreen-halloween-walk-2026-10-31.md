@@ -10,8 +10,8 @@ category: family
 organizer: "Evergreen Downtown Business Association"
 source: "https://downtownevergreen.com/events/halloween-walk"
 sourceId: "downtownevergreen-com"
-verified: "2026-10-21"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-23"
+verifiedBy: "recheck-events (the nightly re-check workflow): 31 October and 4 pm on the page"
 ---
 
 Costumed children walk Main Street in Downtown Evergreen from 4 to 6 pm on Halloween, and the merchants open their doors with a treat or two. The downtown association describes it as a relaxed late-afternoon event that leaves time for trick-or-treating afterwards.

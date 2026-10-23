@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/15492019"
 cost: "Free; registration required"
 category: arts
 source: "https://highplains.libcal.com/event/15492019"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Thriller Dance Workshop\" at 6 pm on 26 October in the page's structured data"
 ---
 

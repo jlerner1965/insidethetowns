@@ -8,8 +8,8 @@ address: "450 Main St"
 url: "https://mainstagebrewing.com/music"
 category: music
 source: "https://mainstagebrewing.com/music"
-verified: "2026-10-21"
-verifiedBy: "recheck-events (the nightly re-check workflow): 22 October and 6 pm on the page"
+verified: "2026-10-23"
+verifiedBy: "recheck-events (the nightly re-check workflow): 29 October and 6 pm on the page"
 ---
 
 Thursday's open bluegrass jam at MainStage Brewing, from 6 p.m.; the evening's host leads it. All players welcome.

@@ -8,7 +8,7 @@ cost: "Free"
 category: civic
 recurring: "Second and fourth Tuesdays"
 source: "https://www.erieco.gov/Calendar.aspx?EID=4889"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Urban Renewal Authority- In Person\" at 6:30 pm on 27 October on the erieco.gov feed"
 ---
 

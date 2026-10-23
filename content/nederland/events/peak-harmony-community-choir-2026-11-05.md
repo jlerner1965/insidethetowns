@@ -11,8 +11,8 @@ category: music
 organizer: "Nederland Community Library"
 source: "https://nederland.colibraries.org/peak-harmony-choir/"
 sourceId: "nederlandlibrary-org"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-23"
+verifiedBy: "recheck-events (the nightly re-check workflow): 5 November and 6:30 pm on the page"
 ---
 
 Nederland's Peak Harmony Community Choir, an all-inclusive community ensemble, sings a set of about 45 minutes at the Nederland Community Library. Seating is limited and light refreshments are served; the library suggests a $5 donation toward its costs.

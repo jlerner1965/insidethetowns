@@ -9,7 +9,7 @@ cost: "Free; registration required"
 category: arts
 recurring: "Monthly, first Mondays"
 source: "https://highplains.libcal.com/event/15852476"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Erie Evening Book Club\" at 6:30 pm on 2 November in the page's structured data"
 ---
 

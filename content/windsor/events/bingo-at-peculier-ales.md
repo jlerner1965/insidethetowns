@@ -11,8 +11,8 @@ url: "https://peculierales.com/events/bingo/"
 category: other
 recurring: "Every Wednesday, 6 to 8 pm"
 source: "https://peculierales.com/events/bingo/"
-verified: "2026-10-21"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Bingo!\" at 6 pm on 21 October on the Peculier Ales (Windsor) feed"
+verified: "2026-10-23"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Bingo!\" at 6 pm on 28 October on the Peculier Ales (Windsor) feed"
 ---
 
 All-ages bingo in the taproom of Peculier Ales in the Windsor Mill, Wednesdays 6 to 8. The brewery's calendar lists it as a weekly event with no end date; it is written here through the end of December. The listing gives no cost.

@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/halloween-scavenger-hunt
 cost: "Free"
 category: family
 source: "https://johnstownmillikenpubliclibraries.us/event/halloween-scavenger-hunt/"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Halloween Scavenger Hunt\" at 9 am on 31 October in the page's structured data"
 ---
 

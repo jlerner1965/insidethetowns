@@ -13,7 +13,7 @@ source: "https://www.jeffco.us/calendar.aspx?EID=16768"
 sourceId: "jeffco-us-open-space"
 sourceUid: "16768"
 sourceHash: "13eb81feb35e"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Boo-Logical Adaptations Night Hike\" at 7 pm on 23 October on the Jeffco Open Space - Programs, Alerts & Closures feed"
 ---
 

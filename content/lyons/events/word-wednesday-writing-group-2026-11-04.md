@@ -7,8 +7,8 @@ url: "https://lyons.librarycalendar.com/events/upcoming"
 category: arts
 recurring: "First Wednesdays"
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-10-16"
-verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 16 October 2026"
+verified: "2026-10-23"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Word Wednesday Writing Group\" at 6:30 pm on 4 November on the lyons.librarycalendar.com feed"
 ---
 
 Monthly virtual writing group facilitated by Dr Kayann Short, open to all genres and levels. Register on the library's calendar to receive the Zoom link.

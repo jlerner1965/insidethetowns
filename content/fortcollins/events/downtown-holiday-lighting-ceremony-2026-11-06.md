@@ -9,8 +9,9 @@ cost: "Free"
 category: festival
 timeNote: "Live music from 5:30; countdown at 6:30"
 source: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q4/Downtown-Holiday-Lighting-Ceremony"
-verified: "2026-10-01"
+verified: "2026-10-23"
 featured: true
+verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 5:30 pm on the page"
 ---
 
 The night Old Town's trees light up. Live music on the Old Town Square stage from 5:30, then City representatives lead the countdown at 6:30 and thousands of LED bulbs come on across downtown, where they stay lit through February. A partnership of the City, the Downtown Development Authority, the Downtown General Improvement District and Connexion.

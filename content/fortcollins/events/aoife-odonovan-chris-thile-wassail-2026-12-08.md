@@ -12,7 +12,8 @@ category: music
 source: "https://www.lctix.com/shows-tickets/aoife-odonovan-chris-thile/"
 sourceId: "lctix-com"
 sourceUid: "showare:5530"
-verified: "2026-10-01"
+verified: "2026-10-23"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Aoife O&#8217;Donovan and Chris Thile: Wassail! A Holiday Celebration\" at 7:30 pm on 8 December in the page's structured data"
 ---
 
 Two Grammy-winning musicians in a holiday program of new originals and fresh arrangements of seasonal songs. Tuesday at 7:30 in the Performance Hall.

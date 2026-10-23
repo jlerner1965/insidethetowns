@@ -10,7 +10,7 @@ timeNote: "Sat 10–5, Sun 12–5"
 organizer: "City of Fort Collins Arts and Culture"
 organizerUrl: "https://www.fortcollins.gov/Activities/Arts-and-Culture"
 source: "https://www.fortcollins.gov/Activities/Arts-and-Culture/Studio-Tour"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): 24 October and 10 am on the page"
 ---
 

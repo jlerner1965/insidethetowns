@@ -10,7 +10,7 @@ source: "https://bouldercounty.gov/event/ved-happy-day-2026-general-election/"
 sourceId: "bouldercounty-gov"
 sourceUid: "10004506-1793088000-1793091600@bouldercounty.gov"
 sourceHash: "94abcd18bcea"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Vote Early Day - Happy Day Plants - 2026 General Election\" at 8 am on 27 October on the Boulder County feed"
 ---
 

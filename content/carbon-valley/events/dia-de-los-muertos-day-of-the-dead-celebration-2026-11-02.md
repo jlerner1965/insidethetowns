@@ -10,7 +10,7 @@ source: "https://highplains.libcal.com/event/17579368"
 sourceId: "highplains-libcal-com-fort-lupton"
 sourceUid: "libcal:17579368"
 sourceHash: "6902959ca82e"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Día de los Muertos | Day of the Dead Celebration\" at 5:30 pm on 2 November on the Fort Lupton Public & School Library (High Plains Library District), LibCal feed"
 ---
 
