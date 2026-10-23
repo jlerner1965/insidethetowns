@@ -9,7 +9,7 @@ url: "https://mainstagebrewing.com/music"
 category: other
 cost: "Free"
 source: "https://mainstagebrewing.com/music"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): 27 October and 7 pm on the page"
 ---
 

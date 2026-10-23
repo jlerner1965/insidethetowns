@@ -13,8 +13,8 @@ source: "https://www.firestoneco.gov/calendar.aspx?EID=2637"
 sourceId: "firestoneco-gov"
 sourceUid: "2637"
 sourceHash: "532351182979"
-verified: "2026-10-05"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-23"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Chat with a Trustee\" at 6:30 pm on 4 November on the Town of Firestone: Town calendar feed"
 ---
 
 An informal hour with Firestone's elected trustees at the Police Department and Municipal Court building: no presentation, come when you can, ask what you like and raise what concerns you about the Town.

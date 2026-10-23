@@ -11,7 +11,8 @@ category: music
 source: "https://www.lctix.com/shows-tickets/christmas-christmas-christmas/"
 sourceId: "lctix-com"
 sourceUid: "showare:5659"
-verified: "2026-10-01"
+verified: "2026-10-23"
+verifiedBy: "recheck-events (the nightly re-check workflow): 18 December and 7:30 pm on the page"
 ---
 
 The a cappella group Face Vocal Band in a holiday concert of Christmas favorites, Friday at 7:30 in the Performance Hall.

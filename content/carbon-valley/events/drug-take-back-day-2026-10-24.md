@@ -14,7 +14,7 @@ source: "https://www.firestoneco.gov/calendar.aspx?EID=2755"
 sourceId: "firestoneco-gov"
 sourceUid: "2755"
 sourceHash: "36fc8fcc5482"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Drug Take Back Day\" at 10 am on 24 October on the Town of Firestone: Town calendar feed"
 ---
 

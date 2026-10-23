@@ -12,7 +12,7 @@ category: family
 timeNote: "Trail 4 to 8 pm; film at sunset"
 source: "https://www.evergreenrecreation.com/2026-10-30-trick-or-treat-trail"
 sourceId: "evergreenrecreation-com-events"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): 30 October and 4 pm on the page"
 ---
 

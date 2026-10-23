@@ -7,7 +7,8 @@ url: "https://www.berthoudcommunitylibrary.org/events-classes"
 cost: "Free"
 category: outdoors
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-10-21"
+verified: "2026-10-23"
+verifiedBy: "recheck-events (the nightly re-check workflow): 24 October and 10:30 am on the page"
 ---
 
 The Larimer County Master Gardeners' monthly talk at the library: what vermiculture is (composting with worms) and the basics of a compost pile that works. Saturday, October 24 at 10:30 am. The last of the fall garden series after houseplants and putting the garden to bed.

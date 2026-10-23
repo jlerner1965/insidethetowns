@@ -12,7 +12,7 @@ category: other
 source: "https://www.lctix.com/shows-tickets/imomsohard/"
 sourceId: "lctix-com"
 sourceUid: "showare:5519"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"#IMOMSOHARD: The Crashing Out Tour\" at 6 pm on 25 October in the page's structured data"
 ---
 

@@ -8,7 +8,7 @@ category: festival
 cost: "Free"
 timeNote: "Ribbon cutting at 4 pm"
 source: "https://store.cyclerie.net/pages/longmont-grand-opening"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"CyclErie Longmont Grand Opening & Ribbon Cutting\" at 4 pm on 27 October in the page's structured data"
 ---
 

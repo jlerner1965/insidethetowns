@@ -11,8 +11,8 @@ source: "https://hgbsale.org/"
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10004334-1793786400-1793815200@bouldercounty.gov"
 sourceHash: "3fcd250260c8"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-23"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Handweavers Guild of Boulder, Fiber Art Show and Sale\" at 10 am on 4 November on the Boulder County Fairgrounds feed"
 ---
 
 The Handweavers Guild of Boulder's Fiber Art Show & Sale: work by more than 100 of the guild's member artists in the Exhibit Building at the Boulder County Fairgrounds, Wednesday 4 to Sunday 8 November, with free admission and free parking. Hours are Wednesday 10 am to 6 pm, Thursday 10 am to 8 pm, Friday and Saturday 10 am to 6 pm, and Sunday 10 am to 3 pm. This year's juried showcase theme is VIVID – A Celebration of Color.

@@ -11,7 +11,8 @@ cost: "Free"
 category: civic
 recurring: "First three Thursdays of the month"
 source: "https://www.niwotrotary.org/Events/Cards?searchTypes=All"
-verified: "2026-10-03"
+verified: "2026-10-23"
+verifiedBy: "recheck-events (the nightly re-check workflow): 5 November and 7:30 am on the page"
 ---
 
 The Rotary Club of Niwot's Thursday-morning meetings at Niwot Hall in November, 7:30 to 8:30 am, with complimentary breakfast and coffee: a club business meeting on November 5, then club meetings with a speaker on November 12 and 19. The club meets on the first three Thursdays of the month and welcomes guests from the community. November 26 is a committee meeting at Old Oak Coffeehouse, not a club breakfast. Dates are from the club's own calendar.

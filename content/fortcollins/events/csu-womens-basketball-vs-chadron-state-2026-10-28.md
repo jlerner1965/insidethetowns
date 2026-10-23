@@ -7,7 +7,7 @@ url: "https://csurams.com/sports/womens-basketball/schedule/2026-27"
 cost: "Tickets from the Rams ticket office"
 category: sports
 source: "https://csurams.com/sports/womens-basketball/schedule/2026-27"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): 28 October and 6:30 pm on the page"
 ---
 

@@ -10,6 +10,8 @@ timeNote: "Kids' run about 8:45 am; 4-mile about 9 am"
 source: "https://runsignup.com/Race/CO/FortCollins/FortCollinsThanksgivingDayRun"
 verified: "2026-10-01"
 featured: true
+changeFlag: true
+changeNote: "recheck 2026-10-23: the page's structured data lists \"Fort Collins Thanksgiving Day Run\" at 9 am on 26 November, not 8:45 am"
 ---
 
 Northern Colorado's biggest Thanksgiving-morning race: a four-mile run and walk through Old Town starting on College Avenue at about 9, after a kids' run at about 8:45. Presented by Raymond James; register on RunSignup. The race's own site was not readable when this was checked, so details come from its registration page.

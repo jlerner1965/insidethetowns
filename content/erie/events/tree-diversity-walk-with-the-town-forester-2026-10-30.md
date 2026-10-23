@@ -8,7 +8,7 @@ url: "https://www.erieco.gov/Calendar.aspx?EID=5482"
 cost: "Free, no registration required"
 category: outdoors
 source: "https://www.erieco.gov/Calendar.aspx?EID=5482"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Tree Diversity Walk with Town Forester\" at 12 pm on 30 October on the erieco.gov feed"
 ---
 

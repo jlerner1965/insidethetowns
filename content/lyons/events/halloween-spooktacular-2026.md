@@ -16,6 +16,8 @@ organizerUrl: "https://www.townoflyons.com/775/Halloween-Spooktacular"
 source: "https://www.townoflyons.com/775/Halloween-Spooktacular"
 verified: "2026-10-21"
 verifiedBy: "Claude Code, delegated by James Lerner"
+changeFlag: true
+changeNote: "recheck 2026-10-23: the townoflyons.com feed lists \"Lyons Spooktacular\" at 4:30 pm on 24 October, not 4 pm"
 ---
 
 The Town's schedule for the day:

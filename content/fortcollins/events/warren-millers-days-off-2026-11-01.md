@@ -11,7 +11,7 @@ organizerUrl: "https://warrenmiller.com/"
 source: "https://www.lctix.com/shows-tickets/warren-millers-days-off/"
 sourceId: "lctix-com"
 sourceUid: "showare:5602"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): 1 November and 6 pm on the page"
 ---
 

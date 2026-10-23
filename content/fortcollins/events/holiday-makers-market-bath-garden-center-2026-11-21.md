@@ -7,7 +7,8 @@ address: "2000 E Prospect Rd, Fort Collins, CO 80525"
 url: "https://www.bathgardencenter.com/event-details/holiday-makers-market-2026"
 category: market
 source: "https://www.bathgardencenter.com/event-details/holiday-makers-market-2026"
-verified: "2026-10-01"
+verified: "2026-10-23"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Holiday Makers Market 2026\" at 9 am on 21 November in the page's structured data"
 ---
 
 A Saturday-morning market of local makers at the garden center on East Prospect: jewelry, pottery and seasonal decor, with lattes from Happy Pine Coffee. 9 am to 1 pm.

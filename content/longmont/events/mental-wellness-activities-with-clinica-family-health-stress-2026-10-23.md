@@ -10,7 +10,7 @@ source: "https://longmontcolorado.gov/event/mental-wellness-activities-with-clin
 sourceId: "longmontcolorado-gov-library"
 sourceUid: "10008082-1792767600-1792773000@longmontcolorado.gov"
 sourceHash: "724c53897dfa"
-verified: "2026-10-21"
+verified: "2026-10-23"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Mental Wellness Activities with Clinica Family Health: Stress Balls\" at 3 pm on 23 October on the Longmont Public Library (City of Longmont calendar) feed"
 ---
 
