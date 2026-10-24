@@ -11,7 +11,7 @@ cost: "Free; registration required"
 category: family
 recurring: "Mondays"
 source: "https://highplains.libcal.com/event/14991644"
-verified: "2026-10-23"
+verified: "2026-10-24"
 verifiedBy: "recheck-events (the nightly re-check workflow): 26 October and 4:15 pm on the page"
 ---
 

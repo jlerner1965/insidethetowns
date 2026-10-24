@@ -8,7 +8,8 @@ url: "https://www.etix.com/ticket/p/40847199/bahamas-fort-collins-washingtons"
 cost: "$29.25"
 category: music
 source: "https://bohemianlivemusic.org/"
-verified: "2026-10-01"
+verified: "2026-10-24"
+verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 8 pm on the page"
 ---
 
 Bahamas, the band of singer and guitarist Afie Jurvanen, at Washington's, Saturday at 8 pm. Tickets through etix.

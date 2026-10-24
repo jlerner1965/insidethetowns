@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/16902958"
 cost: "Free; registration required"
 category: other
 source: "https://highplains.libcal.com/event/16902958"
-verified: "2026-10-23"
+verified: "2026-10-24"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"The History and the Sport of Pack Burro Racing with ReDONKulous Ranch Sanctuary & Rescue, Inc.\" at 4:30 pm on 29 October in the page's structured data"
 ---
 

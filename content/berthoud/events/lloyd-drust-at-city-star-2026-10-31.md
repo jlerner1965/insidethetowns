@@ -9,7 +9,7 @@ performers:
 url: "https://citystarbrewing.com/event/lloyd-drust/"
 category: music
 source: "https://citystarbrewing.com/event/lloyd-drust/"
-verified: "2026-10-23"
+verified: "2026-10-24"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Lloyd Drust\" at 6 pm on 31 October in the page's structured data"
 ---
 

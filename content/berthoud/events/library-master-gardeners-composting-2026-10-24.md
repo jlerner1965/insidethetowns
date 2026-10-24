@@ -7,7 +7,7 @@ url: "https://www.berthoudcommunitylibrary.org/events-classes"
 cost: "Free"
 category: outdoors
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-10-23"
+verified: "2026-10-24"
 verifiedBy: "recheck-events (the nightly re-check workflow): 24 October and 10:30 am on the page"
 ---
 

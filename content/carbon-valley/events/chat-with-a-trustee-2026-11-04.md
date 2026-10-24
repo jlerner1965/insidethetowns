@@ -13,7 +13,7 @@ source: "https://www.firestoneco.gov/calendar.aspx?EID=2637"
 sourceId: "firestoneco-gov"
 sourceUid: "2637"
 sourceHash: "532351182979"
-verified: "2026-10-23"
+verified: "2026-10-24"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Chat with a Trustee\" at 6:30 pm on 4 November on the Town of Firestone: Town calendar feed"
 ---
 

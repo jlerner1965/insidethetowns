@@ -10,7 +10,7 @@ source: "https://calendar.estesvalleylibrary.org/event/15413227"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-15413227"
 sourceHash: "157968ccd3d6"
-verified: "2026-10-23"
+verified: "2026-10-24"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Halloween Trick-or-Treat\" at 5 pm on 31 October on the Estes Valley Library feed"
 ---
 

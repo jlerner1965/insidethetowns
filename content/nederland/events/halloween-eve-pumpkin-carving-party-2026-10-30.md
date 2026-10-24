@@ -10,7 +10,7 @@ organizer: "Very Nice Brewing Company"
 organizerUrl: "https://www.verynicebrewing.com/"
 source: "https://www.verynicebrewing.com/event-details/halloween-eve-pumpkin-carving-party-both-tap-rooms"
 sourceId: "verynicebrewing-com"
-verified: "2026-10-23"
+verified: "2026-10-24"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Halloween Eve Pumpkin Carving Party - Both Tap Rooms\" at 6 pm on 30 October in the page's structured data"
 ---
 

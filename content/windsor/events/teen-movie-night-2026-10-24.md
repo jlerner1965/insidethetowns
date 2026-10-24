@@ -15,7 +15,7 @@ source: "https://www.townofseverance.org/calendar.aspx?EID=1328"
 sourceId: "townofseverance-org-events"
 sourceUid: "1328"
 sourceHash: "f84c87eb54e6"
-verified: "2026-10-23"
+verified: "2026-10-24"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen Movie Night\" at 7 pm on 24 October on the Town of Severance: Community Events calendar feed"
 ---
 
