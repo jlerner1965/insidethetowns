@@ -1,19 +1,30 @@
 {
-  "generated": "2026-10-22T03:15:57.943Z",
+  "generated": "2026-10-24T17:11:41.540Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/football/",
-      "fetched": "2026-10-22T03:15:57.943Z",
-      "maxprepsUpdated": "2026-10-22T02:49:58",
-      "overall": "3-5",
+      "fetched": "2026-10-24T17:11:41.540Z",
+      "maxprepsUpdated": "2026-10-24T16:46:49",
+      "overall": "4-5",
       "league": {
-        "record": "3-1",
+        "record": "4-1",
         "name": "3A Cache la Poudre",
         "place": "2nd"
       },
       "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Thompson Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/thompson-valley-loveland-vs-windsor/10-22-2026/?c=c13eed26-6c83-4561-839c-96a7c7e23872",
+          "result": "W",
+          "score": {
+            "us": 56,
+            "them": 14
+          }
+        },
         {
           "date": "2026-10-15",
           "opponent": "Holy Family",
@@ -105,13 +116,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-22",
-          "opponent": "Thompson Valley",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/football/game/thompson-valley-loveland-vs-windsor/10-22-2026/?c=c13eed26-6c83-4561-839c-96a7c7e23872",
-          "time": "18:30"
-        },
-        {
           "date": "2026-10-29",
           "opponent": "Greeley Central",
           "site": "away",
@@ -128,15 +132,26 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/soccer/",
-      "fetched": "2026-10-22T03:15:57.943Z",
-      "maxprepsUpdated": "2026-10-21T23:23:41",
-      "overall": "10-0-4",
+      "fetched": "2026-10-24T17:11:41.540Z",
+      "maxprepsUpdated": "2026-10-24T17:10:48",
+      "overall": "10-1-4",
       "league": {
-        "record": "8-0-1",
+        "record": "8-1-1",
         "name": "5A/4A/3A Northern",
-        "place": "1st"
+        "place": "2nd"
       },
       "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/northridge-greeley-vs-windsor/10-22-2026/?c=51d8ac52-978b-4958-a81b-701008c64dcb",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 4
+          }
+        },
         {
           "date": "2026-10-15",
           "opponent": "Thompson Valley",
@@ -292,15 +307,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-22",
-          "opponent": "Northridge",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/soccer/match/northridge-greeley-vs-windsor/10-22-2026/?c=51d8ac52-978b-4958-a81b-701008c64dcb",
-          "time": "18:30"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -310,15 +317,26 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/volleyball/",
-      "fetched": "2026-10-22T03:15:57.943Z",
-      "maxprepsUpdated": "2026-10-22T02:55:28",
-      "overall": "11-6",
+      "fetched": "2026-10-24T17:11:41.540Z",
+      "maxprepsUpdated": "2026-10-24T16:40:38",
+      "overall": "12-6",
       "league": {
-        "record": "7-1",
+        "record": "8-1",
         "name": "4A/3A Northern",
         "place": "2nd"
       },
       "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Roosevelt",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/roosevelt-johnstown-vs-windsor/10-22-2026/?c=afccab1f-78d9-460e-b707-9775cd70aabb",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-20",
           "opponent": "Severance",
@@ -516,13 +534,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-22",
-          "opponent": "Roosevelt",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/volleyball/match/roosevelt-johnstown-vs-windsor/10-22-2026/?c=afccab1f-78d9-460e-b707-9775cd70aabb",
-          "time": "18:30"
-        },
-        {
           "date": "2026-10-27",
           "opponent": "Mountain View",
           "site": "home",
@@ -532,10 +543,8 @@
         {
           "date": "2026-10-30",
           "opponent": "Legend",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/legend-parker-vs-windsor/10-30-2026/?c=417c608b-cba6-49d1-9058-567a236afbe0",
-          "neutral": true,
-          "venue": "Colorado invite",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/legend-parker-vs-windsor/10-30-2026/?c=384f8698-abd4-4f21-a52a-1f5b21e0190b",
           "time": "08:00"
         }
       ],
@@ -548,15 +557,41 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/softball/fall/",
-      "fetched": "2026-10-22T03:15:57.943Z",
-      "maxprepsUpdated": "2026-10-22T02:55:12",
-      "overall": "25-0",
+      "fetched": "2026-10-24T17:11:41.540Z",
+      "maxprepsUpdated": "2026-10-24T16:34:09",
+      "overall": "27-0",
       "league": {
         "record": "10-0",
         "name": "5A/4A/3A Northern",
         "place": "1st"
       },
       "results": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Green Mountain",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/green-mountain-lakewood-vs-windsor/10-23-2026/?c=478440ba-a231-48aa-a3d2-c67e95fbbf15",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "result": "W",
+          "score": {
+            "us": 16,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Ponderosa",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/ponderosa-jaguars-parker-vs-windsor/10-23-2026/?c=94c5629c-bd08-4186-a620-78aa6587f09c",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-17",
           "opponent": "Thomas Jefferson",
@@ -849,10 +884,10 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-23",
-          "opponent": "Green Mountain",
+          "date": "2026-10-24",
+          "opponent": "Fruita Monument",
           "site": "neutral",
-          "url": "https://www.maxpreps.com/co/softball/game/green-mountain-lakewood-vs-windsor/10-23-2026/?c=478440ba-a231-48aa-a3d2-c67e95fbbf15",
+          "url": "https://www.maxpreps.com/co/softball/game/fruita-monument-vs-windsor/10-24-2026/?c=0e969045-dfab-4bb1-bc9e-713d843ea25b",
           "neutral": true,
           "venue": "Aurora Sports Park",
           "time": "10:00"
@@ -867,8 +902,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/cross-country/",
-      "fetched": "2026-10-22T03:15:57.943Z",
-      "maxprepsUpdated": "2026-10-22T03:16:34",
+      "fetched": "2026-10-24T17:11:41.540Z",
+      "maxprepsUpdated": "2026-10-24T17:12:17",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -881,8 +916,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/cross-country/girls/",
-      "fetched": "2026-10-22T03:15:57.943Z",
-      "maxprepsUpdated": "2026-10-22T03:16:38",
+      "fetched": "2026-10-24T17:11:41.540Z",
+      "maxprepsUpdated": "2026-10-24T17:12:21",
       "results": [],
       "upcoming": [],
       "held": [],

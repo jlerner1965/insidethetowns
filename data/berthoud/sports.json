@@ -1,19 +1,30 @@
 {
-  "generated": "2026-10-22T01:18:20.454Z",
+  "generated": "2026-10-24T17:07:31.253Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/football/",
-      "fetched": "2026-10-22T01:18:20.454Z",
-      "maxprepsUpdated": "2026-10-21T22:43:43",
-      "overall": "6-2",
+      "fetched": "2026-10-24T17:07:31.253Z",
+      "maxprepsUpdated": "2026-10-24T16:31:31",
+      "overall": "7-2",
       "league": {
-        "record": "3-1",
+        "record": "4-1",
         "name": "3A Cache la Poudre",
         "place": "3rd"
       },
       "results": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Mountain View",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-mountain-view-loveland/10-23-2026/?c=387c61c2-46af-46c3-adfb-46c6798a44c1",
+          "result": "W",
+          "score": {
+            "us": 50,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-15",
           "opponent": "Greeley Central",
@@ -105,13 +116,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-23",
-          "opponent": "Mountain View",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-mountain-view-loveland/10-23-2026/?c=387c61c2-46af-46c3-adfb-46c6798a44c1",
-          "time": "19:00"
-        },
-        {
           "date": "2026-10-30",
           "opponent": "Severance",
           "site": "away",
@@ -126,15 +130,26 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/soccer/",
-      "fetched": "2026-10-22T01:18:20.454Z",
-      "maxprepsUpdated": "2026-10-21T22:49:42",
-      "overall": "7-7",
+      "fetched": "2026-10-24T17:07:31.253Z",
+      "maxprepsUpdated": "2026-10-24T15:18:48",
+      "overall": "8-7",
       "league": {
-        "record": "5-2",
+        "record": "6-2",
         "name": "4A/3A/2A Patriot",
         "place": "3rd"
       },
       "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Sterling",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/berthoud-vs-sterling/10-22-2026/?c=10410491-ff9e-4d13-8ad8-73ab3febf345",
+          "result": "W",
+          "score": {
+            "us": 9,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-20",
           "opponent": "Frontier Academy",
@@ -290,15 +305,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-22",
-          "opponent": "Sterling",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/soccer/match/berthoud-vs-sterling/10-22-2026/?c=10410491-ff9e-4d13-8ad8-73ab3febf345",
-          "time": "16:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": []
     },
@@ -306,15 +313,26 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/volleyball/",
-      "fetched": "2026-10-22T01:18:20.454Z",
-      "maxprepsUpdated": "2026-10-21T23:00:35",
-      "overall": "14-5",
+      "fetched": "2026-10-24T17:07:31.253Z",
+      "maxprepsUpdated": "2026-10-24T16:50:06",
+      "overall": "15-5",
       "league": {
         "record": "3-1",
         "name": "4A/3A Patriots Peak",
         "place": "3rd"
       },
       "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Liberty Common",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-liberty-common-fort-collins/10-22-2026/?c=3daefabd-0b15-47b4-a98e-39388164f36f",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-20",
           "opponent": "Fort Morgan",
@@ -531,13 +549,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-22",
-          "opponent": "Liberty Common",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-liberty-common-fort-collins/10-22-2026/?c=3daefabd-0b15-47b4-a98e-39388164f36f",
-          "time": "18:30"
-        },
-        {
           "date": "2026-10-26",
           "opponent": "University",
           "site": "home",
@@ -566,15 +577,41 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/softball/fall/",
-      "fetched": "2026-10-22T01:18:20.454Z",
-      "maxprepsUpdated": "2026-10-21T22:51:46",
-      "overall": "16-9",
+      "fetched": "2026-10-24T17:07:31.253Z",
+      "maxprepsUpdated": "2026-10-24T13:31:16",
+      "overall": "17-10",
       "league": {
         "record": "2-7",
         "name": "4A/3A Patriot Peaks",
         "place": "5th"
       },
       "results": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Delta",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-delta/10-23-2026/?c=2824efb1-a490-4092-8967-075ee31246dd",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "result": "W",
+          "score": {
+            "us": 12,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Lyons",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-lyons/10-23-2026/?c=cabb6773-afd8-4d13-a6e7-f16bbb13652f",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
         {
           "date": "2026-10-17",
           "opponent": "Alamosa",
@@ -861,28 +898,16 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-23",
-          "opponent": "Delta",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-delta/10-23-2026/?c=2824efb1-a490-4092-8967-075ee31246dd",
-          "neutral": true,
-          "venue": "Aurora Sports Park",
-          "time": "12:15"
-        }
-      ],
+      "upcoming": [],
       "held": [],
-      "notes": [
-        "2026-10-23 at Delta: a game at Aurora Sports Park, which the school calendar files as home (\"Girls Varsity Softball vs Delta High School\")"
-      ]
+      "notes": []
     },
     {
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/",
-      "fetched": "2026-10-22T01:18:20.454Z",
-      "maxprepsUpdated": "2026-10-22T01:16:18",
+      "fetched": "2026-10-24T17:07:31.253Z",
+      "maxprepsUpdated": "2026-10-24T16:00:33",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -895,8 +920,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/girls/",
-      "fetched": "2026-10-22T01:18:20.454Z",
-      "maxprepsUpdated": "2026-10-22T01:16:22",
+      "fetched": "2026-10-24T17:07:31.253Z",
+      "maxprepsUpdated": "2026-10-24T17:08:26",
       "results": [],
       "upcoming": [],
       "held": [],

@@ -1,17 +1,17 @@
 {
-  "generated": "2026-10-22T03:17:09.477Z",
+  "generated": "2026-10-24T17:12:25.568Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/football/",
-      "fetched": "2026-10-22T03:17:09.477Z",
-      "maxprepsUpdated": "2026-10-22T02:42:39",
+      "fetched": "2026-10-24T17:12:25.568Z",
+      "maxprepsUpdated": "2026-10-24T16:32:41",
       "overall": "7-1",
       "league": {
         "record": "4-1",
         "name": "4A Northern",
-        "place": "2nd"
+        "place": "3rd"
       },
       "results": [
         {
@@ -128,15 +128,26 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/soccer/",
-      "fetched": "2026-10-22T03:17:09.477Z",
-      "maxprepsUpdated": "2026-10-22T02:45:51",
-      "overall": "8-4-2",
+      "fetched": "2026-10-24T17:12:25.568Z",
+      "maxprepsUpdated": "2026-10-24T17:12:34",
+      "overall": "9-4-2",
       "league": {
-        "record": "5-3-1",
+        "record": "6-3-1",
         "name": "5A/4A/3A Northern",
         "place": "5th"
       },
       "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Roosevelt",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/loveland-vs-roosevelt-johnstown/10-22-2026/?c=04e30a82-3b46-4263-9478-74afd8a74014",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-14",
           "opponent": "Mountain View",
@@ -292,15 +303,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-22",
-          "opponent": "Roosevelt",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/soccer/match/loveland-vs-roosevelt-johnstown/10-22-2026/?c=04e30a82-3b46-4263-9478-74afd8a74014",
-          "time": "18:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -310,15 +313,26 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/volleyball/",
-      "fetched": "2026-10-22T03:17:09.477Z",
-      "maxprepsUpdated": "2026-10-22T02:54:28",
-      "overall": "5-14",
+      "fetched": "2026-10-24T17:12:25.568Z",
+      "maxprepsUpdated": "2026-10-24T13:50:59",
+      "overall": "5-15",
       "league": {
-        "record": "1-6",
+        "record": "1-7",
         "name": "4A/3A Northern",
         "place": "9th"
       },
       "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Severance",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/loveland-vs-severance/10-22-2026/?c=50ace766-0343-4787-b8ee-93cac54cee39",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
         {
           "date": "2026-10-20",
           "opponent": "Poudre",
@@ -543,13 +557,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-22",
-          "opponent": "Severance",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/volleyball/match/loveland-vs-severance/10-22-2026/?c=50ace766-0343-4787-b8ee-93cac54cee39",
-          "time": "18:30"
-        },
-        {
           "date": "2026-10-27",
           "opponent": "Roosevelt",
           "site": "home",
@@ -573,8 +580,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/softball/fall/",
-      "fetched": "2026-10-22T03:17:09.477Z",
-      "maxprepsUpdated": "2026-10-22T00:15:29",
+      "fetched": "2026-10-24T17:12:25.568Z",
+      "maxprepsUpdated": "2026-10-24T17:12:52",
       "overall": "7-16",
       "league": {
         "record": "4-6",
@@ -636,6 +643,218 @@
             "us": 0,
             "them": 9
           }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Greeley West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/greeley-west-vs-loveland/9-24-2026/?c=fee01a8e-2f80-400e-9288-a944f9d22498",
+          "result": "L",
+          "score": {
+            "us": 3,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Roosevelt",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/loveland-vs-roosevelt-johnstown/9-22-2026/?c=898c2ef4-33fe-4012-b0aa-9acf48ccff54",
+          "result": "L",
+          "score": {
+            "us": 5,
+            "them": 10
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Windsor",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/loveland-vs-windsor/9-17-2026/?c=d4961234-d5f8-4605-8c10-0604fe7f16f6",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 13
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/loveland-vs-mountain-view-loveland/9-15-2026/?c=c9b09935-f200-4873-a1b0-2ee354b9d902",
+          "result": "W",
+          "score": {
+            "us": 11,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Silver Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/loveland-vs-silver-creek-longmont/9-12-2026/?c=4d2f986a-60b6-4671-91bc-f64851420c6d",
+          "result": "L",
+          "score": {
+            "us": 3,
+            "them": 13
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/loveland-vs-northridge-greeley/9-10-2026/?c=100e5a01-c9eb-4f8a-bdf9-3996cc880c4d",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-09-05",
+          "opponent": "Mead",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/loveland-vs-mead-longmont/9-5-2026/?c=7a098ad3-39e2-4dcf-9924-05e75da36cce",
+          "neutral": true,
+          "venue": "Spartan Invite (Barnes Softball Complex) Field 4",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-09-05",
+          "opponent": "Mullen",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/loveland-vs-mullen-denver/9-5-2026/?c=68238625-c1c3-4fd3-a058-2fb3b5a143f0",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
+          "result": "L",
+          "score": {
+            "us": 8,
+            "them": 10
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Pine Creek",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/loveland-vs-pine-creek-colorado-springs/9-4-2026/?c=1f052fc5-c644-401b-8f27-7ecf78b8c7f7",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
+          "result": "L",
+          "score": {
+            "us": 5,
+            "them": 10
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Prairie View",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/loveland-vs-prairie-view-henderson/9-4-2026/?c=c55bb3ed-0dec-4401-a14f-75d481622079",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
+          "result": "L",
+          "score": {
+            "us": 8,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/loveland-vs-thompson-valley-loveland/9-3-2026/?c=5fcf397d-f520-4767-974c-19669b8ddaaa",
+          "result": "W",
+          "score": {
+            "us": 12,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Sterling",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/loveland-vs-sterling/8-29-2026/?c=21051e6a-4803-457f-8b20-f6a5ad95b50b",
+          "neutral": true,
+          "venue": "Loveland High School",
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 16
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Vista PEAK Prep",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/loveland-vs-vista-peak-prep-aurora/8-29-2026/?c=50c7e5d3-c165-4539-b8dc-dc91d93d6b2a",
+          "neutral": true,
+          "venue": "Mike Felton Showcase (Barnes Softball Complex)",
+          "result": "W",
+          "score": {
+            "us": 23,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Dakota Ridge",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/dakota-ridge-littleton-vs-loveland/8-28-2026/?c=54f64dad-1a8f-47f1-a32e-234f5be9723c",
+          "neutral": true,
+          "venue": "Loveland High School",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 13
+          }
+        },
+        {
+          "date": "2026-08-24",
+          "opponent": "Centaurus",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/centaurus-lafayette-vs-loveland/8-24-2026/?c=cba0e17b-84b6-4791-9954-f615cd1c2b1f",
+          "result": "L",
+          "score": {
+            "us": 5,
+            "them": 8
+          }
+        },
+        {
+          "date": "2026-08-22",
+          "opponent": "Resurrection Christian",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/loveland-vs-resurrection-christian-loveland/8-22-2026/?c=a8686b64-6e76-486f-915d-6a053d6cf12b",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "Berthoud",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-loveland/8-20-2026/?c=6e454ced-9056-4dc8-84dc-9e16cd77811e",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-08-18",
+          "opponent": "Fort Collins",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/fort-collins-vs-loveland/8-18-2026/?c=e3f3192c-a87c-47d5-8d50-59a3d363c5e1",
+          "result": "W",
+          "score": {
+            "us": 18,
+            "them": 0
+          }
         }
       ],
       "upcoming": [],
@@ -648,8 +867,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/cross-country/",
-      "fetched": "2026-10-22T03:17:09.477Z",
-      "maxprepsUpdated": "2026-10-22T03:17:46",
+      "fetched": "2026-10-24T17:12:25.568Z",
+      "maxprepsUpdated": "2026-10-24T17:13:00",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -662,8 +881,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/cross-country/girls/",
-      "fetched": "2026-10-22T03:17:09.477Z",
-      "maxprepsUpdated": "2026-10-22T03:17:51",
+      "fetched": "2026-10-24T17:12:25.568Z",
+      "maxprepsUpdated": "2026-10-24T17:13:05",
       "results": [],
       "upcoming": [],
       "held": [],

@@ -1,19 +1,30 @@
 {
-  "generated": "2026-10-22T01:19:13.649Z",
+  "generated": "2026-10-24T17:08:30.524Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/football/",
-      "fetched": "2026-10-22T01:19:13.649Z",
-      "maxprepsUpdated": "2026-10-21T22:57:00",
-      "overall": "3-5",
+      "fetched": "2026-10-24T17:08:30.524Z",
+      "maxprepsUpdated": "2026-10-24T16:52:19",
+      "overall": "3-6",
       "league": {
-        "record": "1-3",
+        "record": "1-4",
         "name": "3A Granite Peaks",
         "place": "6th"
       },
       "results": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Fort Morgan",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/fort-morgan-vs-niwot/10-23-2026/?c=512f5f22-2993-4a61-8b3e-68f6e85b9443",
+          "result": "L",
+          "score": {
+            "us": 7,
+            "them": 49
+          }
+        },
         {
           "date": "2026-10-16",
           "opponent": "Skyview",
@@ -105,13 +116,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-23",
-          "opponent": "Fort Morgan",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/football/game/fort-morgan-vs-niwot/10-23-2026/?c=512f5f22-2993-4a61-8b3e-68f6e85b9443",
-          "time": "19:00"
-        },
-        {
           "date": "2026-10-30",
           "opponent": "Mead",
           "site": "away",
@@ -128,15 +132,26 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/soccer/",
-      "fetched": "2026-10-22T01:19:13.649Z",
-      "maxprepsUpdated": "2026-10-21T23:21:19",
-      "overall": "2-7-5",
+      "fetched": "2026-10-24T17:08:30.524Z",
+      "maxprepsUpdated": "2026-10-24T13:49:51",
+      "overall": "2-7-6",
       "league": {
-        "record": "0-5-1",
+        "record": "0-5-2",
         "name": "5A/4A Granite Peaks",
         "place": "8th"
       },
       "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Longmont",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/longmont-vs-niwot/10-22-2026/?c=90caa978-ba3b-4aea-a260-b01d807572a4",
+          "result": "T",
+          "score": {
+            "us": 2,
+            "them": 2
+          }
+        },
         {
           "date": "2026-10-20",
           "opponent": "Monarch",
@@ -292,15 +307,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-22",
-          "opponent": "Longmont",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/soccer/match/longmont-vs-niwot/10-22-2026/?c=90caa978-ba3b-4aea-a260-b01d807572a4",
-          "time": "18:30"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -310,15 +317,26 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/volleyball/",
-      "fetched": "2026-10-22T01:19:13.649Z",
-      "maxprepsUpdated": "2026-10-22T00:24:29",
-      "overall": "14-3",
+      "fetched": "2026-10-24T17:08:30.524Z",
+      "maxprepsUpdated": "2026-10-24T16:56:31",
+      "overall": "15-3",
       "league": {
-        "record": "11-1",
+        "record": "12-1",
         "name": "5A/4A/3A Granite Peaks",
         "place": "1st"
       },
       "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Mead",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mead-longmont-vs-niwot/10-22-2026/?c=c81298d1-7ba6-4b62-ba5d-7e2f37dffd52",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
         {
           "date": "2026-10-20",
           "opponent": "Silver Creek",
@@ -514,13 +532,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-22",
-          "opponent": "Mead",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/mead-longmont-vs-niwot/10-22-2026/?c=c81298d1-7ba6-4b62-ba5d-7e2f37dffd52",
-          "time": "18:30"
-        },
-        {
           "date": "2026-10-27",
           "opponent": "Holy Family",
           "site": "away",
@@ -546,8 +557,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/softball/fall/",
-      "fetched": "2026-10-22T01:19:13.649Z",
-      "maxprepsUpdated": "2026-10-21T22:48:09",
+      "fetched": "2026-10-24T17:08:30.524Z",
+      "maxprepsUpdated": "2026-10-24T14:18:05",
       "overall": "15-11",
       "league": {
         "record": "9-5",
@@ -871,8 +882,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/cross-country/",
-      "fetched": "2026-10-22T01:19:13.649Z",
-      "maxprepsUpdated": "2026-10-22T01:17:03",
+      "fetched": "2026-10-24T17:08:30.524Z",
+      "maxprepsUpdated": "2026-10-24T17:09:05",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -885,8 +896,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/cross-country/girls/",
-      "fetched": "2026-10-22T01:19:13.649Z",
-      "maxprepsUpdated": "2026-10-22T01:17:07",
+      "fetched": "2026-10-24T17:08:30.524Z",
+      "maxprepsUpdated": "2026-10-24T17:09:10",
       "results": [],
       "upcoming": [],
       "held": [],

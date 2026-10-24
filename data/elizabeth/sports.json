@@ -1,19 +1,30 @@
 {
-  "generated": "2026-10-22T03:11:30.983Z",
+  "generated": "2026-10-24T17:09:58.516Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/football/",
-      "fetched": "2026-10-22T03:11:30.983Z",
-      "maxprepsUpdated": "2026-10-22T02:43:40",
-      "overall": "8-0",
+      "fetched": "2026-10-24T17:09:58.516Z",
+      "maxprepsUpdated": "2026-10-24T16:30:05",
+      "overall": "9-0",
       "league": {
-        "record": "4-0",
+        "record": "5-0",
         "name": "2A Metro",
         "place": "1st"
       },
       "results": [
+        {
+          "date": "2026-10-23",
+          "opponent": "The Classical Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/elizabeth-vs-the-classical-academy-colorado-springs/10-23-2026/?c=269b81c8-d551-4121-91f1-6eae384d8eae",
+          "result": "W",
+          "score": {
+            "us": 27,
+            "them": 17
+          }
+        },
         {
           "date": "2026-10-15",
           "opponent": "D'Evelyn",
@@ -103,15 +114,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-23",
-          "opponent": "The Classical Academy",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/football/game/elizabeth-vs-the-classical-academy-colorado-springs/10-23-2026/?c=269b81c8-d551-4121-91f1-6eae384d8eae",
-          "time": "19:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -121,15 +124,26 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/soccer/",
-      "fetched": "2026-10-22T03:11:30.983Z",
-      "maxprepsUpdated": "2026-10-22T02:52:18",
-      "overall": "5-7-2",
+      "fetched": "2026-10-24T17:09:58.516Z",
+      "maxprepsUpdated": "2026-10-24T13:28:32",
+      "overall": "5-8-2",
       "league": {
         "record": "0-4",
         "name": "5A/4A/3A Continental",
         "place": "13th"
       },
       "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Bennett",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/bennett-vs-elizabeth/10-22-2026/?c=1b62de79-749d-4834-9e1d-0916fc924dd1",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 4
+          }
+        },
         {
           "date": "2026-10-20",
           "opponent": "The Classical Academy",
@@ -285,15 +299,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-22",
-          "opponent": "Bennett",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/soccer/match/bennett-vs-elizabeth/10-22-2026/?c=1b62de79-749d-4834-9e1d-0916fc924dd1",
-          "time": "18:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -303,15 +309,26 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/volleyball/",
-      "fetched": "2026-10-22T03:11:30.983Z",
-      "maxprepsUpdated": "2026-10-21T23:12:01",
-      "overall": "11-11",
+      "fetched": "2026-10-24T17:09:58.516Z",
+      "maxprepsUpdated": "2026-10-24T13:34:37",
+      "overall": "12-11",
       "league": {
-        "record": "1-6",
+        "record": "2-6",
         "name": "5A/4A/3A Continental",
-        "place": "12th"
+        "place": "11th"
       },
       "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Ponderosa",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-ponderosa-jaguars-parker/10-22-2026/?c=9b80d3d3-40d4-4d3f-a43b-037cd5dda799",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
         {
           "date": "2026-10-20",
           "opponent": "Highlands Ranch",
@@ -560,15 +577,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-22",
-          "opponent": "Ponderosa",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-ponderosa-jaguars-parker/10-22-2026/?c=9b80d3d3-40d4-4d3f-a43b-037cd5dda799",
-          "time": "18:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -578,15 +587,28 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/softball/fall/",
-      "fetched": "2026-10-22T03:11:30.983Z",
-      "maxprepsUpdated": "2026-10-22T02:58:26",
-      "overall": "16-9",
+      "fetched": "2026-10-24T17:09:58.516Z",
+      "maxprepsUpdated": "2026-10-24T13:44:03",
+      "overall": "16-10",
       "league": {
         "record": "7-1",
         "name": "4A/3A Continental",
         "place": "1st"
       },
       "results": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Wellington",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-wellington/10-23-2026/?c=655c5c6f-ae54-4e79-af71-0b5ae9dcd2a7",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 4
+          }
+        },
         {
           "date": "2026-10-17",
           "opponent": "Southeast Colorado",
@@ -880,17 +902,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-23",
-          "opponent": "Wellington",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/softball/game/elizabeth-vs-wellington/10-23-2026/?c=655c5c6f-ae54-4e79-af71-0b5ae9dcd2a7",
-          "neutral": true,
-          "venue": "Aurora Sports Park",
-          "time": "12:15"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -900,8 +912,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/cross-country/",
-      "fetched": "2026-10-22T03:11:30.983Z",
-      "maxprepsUpdated": "2026-10-22T03:12:07",
+      "fetched": "2026-10-24T17:09:58.516Z",
+      "maxprepsUpdated": "2026-10-24T17:10:33",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -914,8 +926,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/cross-country/girls/",
-      "fetched": "2026-10-22T03:11:30.983Z",
-      "maxprepsUpdated": "2026-10-22T03:12:11",
+      "fetched": "2026-10-24T17:09:58.516Z",
+      "maxprepsUpdated": "2026-10-24T17:10:38",
       "results": [],
       "upcoming": [],
       "held": [],

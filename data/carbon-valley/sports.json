@@ -1,19 +1,30 @@
 {
-  "generated": "2026-10-22T03:24:31.310Z",
+  "generated": "2026-10-24T17:15:30.956Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/frederick/frederick-golden-eagles/football/",
-      "fetched": "2026-10-22T03:24:31.310Z",
-      "maxprepsUpdated": "2026-10-22T02:46:34",
-      "overall": "6-2",
+      "fetched": "2026-10-24T17:15:30.956Z",
+      "maxprepsUpdated": "2026-10-24T16:26:25",
+      "overall": "6-3",
       "league": {
-        "record": "4-1",
+        "record": "4-2",
         "name": "4A Northern",
         "place": "4th"
       },
       "results": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Roosevelt",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/frederick-vs-roosevelt-johnstown/10-23-2026/?c=81df90d8-6471-4f55-a640-248b177d7290",
+          "result": "L",
+          "score": {
+            "us": 3,
+            "them": 31
+          }
+        },
         {
           "date": "2026-10-15",
           "opponent": "Greeley West",
@@ -105,13 +116,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-23",
-          "opponent": "Roosevelt",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/football/game/frederick-vs-roosevelt-johnstown/10-23-2026/?c=81df90d8-6471-4f55-a640-248b177d7290",
-          "time": "19:00"
-        },
-        {
           "date": "2026-10-29",
           "opponent": "Loveland",
           "site": "home",
@@ -128,15 +132,26 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/frederick/frederick-golden-eagles/soccer/",
-      "fetched": "2026-10-22T03:24:31.310Z",
-      "maxprepsUpdated": "2026-10-22T02:58:45",
-      "overall": "3-7-4",
+      "fetched": "2026-10-24T17:15:30.956Z",
+      "maxprepsUpdated": "2026-10-24T17:08:10",
+      "overall": "3-8-4",
       "league": {
-        "record": "1-3-2",
+        "record": "1-4-2",
         "name": "5A/4A Granite Peaks",
-        "place": "6th"
+        "place": "7th"
       },
       "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Silver Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/frederick-vs-silver-creek-longmont/10-22-2026/?c=3862f73b-4f4f-49fe-88a8-7fd05a93341f",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
         {
           "date": "2026-10-20",
           "opponent": "Longmont",
@@ -292,15 +307,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-22",
-          "opponent": "Silver Creek",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/soccer/match/frederick-vs-silver-creek-longmont/10-22-2026/?c=3862f73b-4f4f-49fe-88a8-7fd05a93341f",
-          "time": "18:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -310,15 +317,26 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/frederick/frederick-golden-eagles/volleyball/",
-      "fetched": "2026-10-22T03:24:31.310Z",
-      "maxprepsUpdated": "2026-10-22T03:05:19",
-      "overall": "4-16",
+      "fetched": "2026-10-24T17:15:30.956Z",
+      "maxprepsUpdated": "2026-10-24T13:27:33",
+      "overall": "4-17",
       "league": {
-        "record": "1-11",
+        "record": "1-12",
         "name": "5A/4A/3A Granite Peaks",
         "place": "8th"
       },
       "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Monarch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-monarch-louisville/10-22-2026/?c=79b240c2-8511-4a83-8e24-f5a5fe708609",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
         {
           "date": "2026-10-20",
           "opponent": "Mead",
@@ -547,13 +565,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-22",
-          "opponent": "Monarch",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/frederick-vs-monarch-louisville/10-22-2026/?c=79b240c2-8511-4a83-8e24-f5a5fe708609",
-          "time": "18:30"
-        },
-        {
           "date": "2026-10-27",
           "opponent": "Centaurus",
           "site": "away",
@@ -577,8 +588,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/frederick/frederick-golden-eagles/softball/fall/",
-      "fetched": "2026-10-22T03:24:31.310Z",
-      "maxprepsUpdated": "2026-10-22T03:07:48",
+      "fetched": "2026-10-24T17:15:30.956Z",
+      "maxprepsUpdated": "2026-10-24T17:15:52",
       "overall": "20-7",
       "league": {
         "record": "9-5",
@@ -587,15 +598,16 @@
       },
       "results": [
         {
-          "date": "2026-10-17",
-          "opponent": "Air Academy",
+          "date": "2026-10-23",
+          "opponent": "Pueblo West",
           "site": "neutral",
-          "url": "https://www.maxpreps.com/co/softball/game/air-academy-us-air-force-academy-vs-frederick/10-17-2026/?c=32e8c143-fc1b-45d7-80ba-a408a7bde90e",
+          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-pueblo-west/10-23-2026/?c=9895fcf4-7c43-401f-a51c-3b75969b51b8",
           "neutral": true,
+          "venue": "Aurora Sports Park",
           "result": "L",
           "score": {
-            "us": 6,
-            "them": 22
+            "us": 2,
+            "them": 3
           }
         },
         {
@@ -901,17 +913,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-23",
-          "opponent": "Pueblo West",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/softball/game/frederick-vs-pueblo-west/10-23-2026/?c=9895fcf4-7c43-401f-a51c-3b75969b51b8",
-          "neutral": true,
-          "venue": "Aurora Sports Park",
-          "time": "10:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -921,8 +923,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/frederick/frederick-golden-eagles/cross-country/",
-      "fetched": "2026-10-22T03:24:31.310Z",
-      "maxprepsUpdated": "2026-10-22T03:07:57",
+      "fetched": "2026-10-24T17:15:30.956Z",
+      "maxprepsUpdated": "2026-10-24T17:16:05",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -935,8 +937,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/frederick/frederick-golden-eagles/cross-country/girls/",
-      "fetched": "2026-10-22T03:24:31.310Z",
-      "maxprepsUpdated": "2026-10-22T03:08:02",
+      "fetched": "2026-10-24T17:15:30.956Z",
+      "maxprepsUpdated": "2026-10-24T17:16:10",
       "results": [],
       "upcoming": [],
       "held": [],

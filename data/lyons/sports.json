@@ -1,17 +1,17 @@
 {
-  "generated": "2026-10-22T02:36:00.317Z",
+  "generated": "2026-10-24T17:16:14.619Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/football/",
-      "fetched": "2026-10-22T02:36:00.317Z",
-      "maxprepsUpdated": "2026-10-21T23:02:08",
+      "fetched": "2026-10-24T17:16:14.619Z",
+      "maxprepsUpdated": "2026-10-24T17:07:10",
       "overall": "5-3",
       "league": {
         "record": "3-2",
         "name": "8-Man Central (8 Man)",
-        "place": "4th"
+        "place": "3rd"
       },
       "results": [
         {
@@ -121,15 +121,26 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/volleyball/",
-      "fetched": "2026-10-22T02:36:00.317Z",
-      "maxprepsUpdated": "2026-10-22T00:20:35",
-      "overall": "14-5",
+      "fetched": "2026-10-24T17:16:14.619Z",
+      "maxprepsUpdated": "2026-10-24T16:47:26",
+      "overall": "15-5",
       "league": {
-        "record": "8-0",
+        "record": "9-0",
         "name": "2A/1A Mile High",
         "place": "1st"
       },
       "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Front Range Christian",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/front-range-christian-littleton-vs-lyons/10-22-2026/?c=e4594ef7-5dc3-49fc-85a0-1531d44e1422",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-21",
           "opponent": "Dawson School",
@@ -346,13 +357,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-22",
-          "opponent": "Front Range Christian",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/front-range-christian-littleton-vs-lyons/10-22-2026/?c=e4594ef7-5dc3-49fc-85a0-1531d44e1422",
-          "time": "18:00"
-        },
-        {
           "date": "2026-10-27",
           "opponent": "Dayspring Christian Academy",
           "site": "home",
@@ -376,15 +380,41 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/softball/fall/",
-      "fetched": "2026-10-22T02:36:00.317Z",
-      "maxprepsUpdated": "2026-10-21T22:49:37",
-      "overall": "18-6",
+      "fetched": "2026-10-24T17:16:14.619Z",
+      "maxprepsUpdated": "2026-10-24T16:39:57",
+      "overall": "20-6",
       "league": {
         "record": "4-5",
         "name": "4A/3A Patriot Peaks",
         "place": "3rd"
       },
       "results": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Rocky Ford",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-rocky-ford/10-23-2026/?c=75f5a50a-e728-4b8a-ac49-2cc54f9c544b",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "result": "W",
+          "score": {
+            "us": 13,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Berthoud",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-lyons/10-23-2026/?c=cabb6773-afd8-4d13-a6e7-f16bbb13652f",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
         {
           "date": "2026-10-17",
           "opponent": "Wray",
@@ -654,13 +684,13 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-23",
-          "opponent": "Rocky Ford",
+          "date": "2026-10-24",
+          "opponent": "Brush",
           "site": "neutral",
-          "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-rocky-ford/10-23-2026/?c=75f5a50a-e728-4b8a-ac49-2cc54f9c544b",
+          "url": "https://www.maxpreps.com/co/softball/game/brush-vs-lyons/10-24-2026/?c=e9d6cc70-e24a-4359-8cb6-da11c8c07b52",
           "neutral": true,
           "venue": "Aurora Sports Park",
-          "time": "12:15"
+          "time": "10:00"
         }
       ],
       "held": [],
@@ -672,8 +702,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/cross-country/",
-      "fetched": "2026-10-22T02:36:00.317Z",
-      "maxprepsUpdated": "2026-10-22T02:20:10",
+      "fetched": "2026-10-24T17:16:14.619Z",
+      "maxprepsUpdated": "2026-10-24T17:16:40",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -686,8 +716,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/cross-country/girls/",
-      "fetched": "2026-10-22T02:36:00.317Z",
-      "maxprepsUpdated": "2026-10-22T02:20:14",
+      "fetched": "2026-10-24T17:16:14.619Z",
+      "maxprepsUpdated": "2026-10-24T17:16:45",
       "results": [],
       "upcoming": [],
       "held": [],

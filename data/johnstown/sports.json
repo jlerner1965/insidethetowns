@@ -1,19 +1,30 @@
 {
-  "generated": "2026-10-22T03:14:32.079Z",
+  "generated": "2026-10-24T17:10:42.688Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/football/",
-      "fetched": "2026-10-22T03:14:32.079Z",
-      "maxprepsUpdated": "2026-10-22T02:45:15",
-      "overall": "7-1",
+      "fetched": "2026-10-24T17:10:42.688Z",
+      "maxprepsUpdated": "2026-10-24T16:26:36",
+      "overall": "8-1",
       "league": {
-        "record": "5-0",
+        "record": "6-0",
         "name": "4A Northern",
         "place": "1st"
       },
       "results": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Frederick",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/frederick-vs-roosevelt-johnstown/10-23-2026/?c=81df90d8-6471-4f55-a640-248b177d7290",
+          "result": "W",
+          "score": {
+            "us": 31,
+            "them": 3
+          }
+        },
         {
           "date": "2026-10-16",
           "opponent": "Loveland",
@@ -105,13 +116,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-23",
-          "opponent": "Frederick",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/football/game/frederick-vs-roosevelt-johnstown/10-23-2026/?c=81df90d8-6471-4f55-a640-248b177d7290",
-          "time": "19:00"
-        },
-        {
           "date": "2026-10-30",
           "opponent": "Grand Junction",
           "site": "home",
@@ -126,15 +130,26 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/soccer/",
-      "fetched": "2026-10-22T03:14:32.079Z",
-      "maxprepsUpdated": "2026-10-21T23:24:04",
-      "overall": "3-10-1",
+      "fetched": "2026-10-24T17:10:42.688Z",
+      "maxprepsUpdated": "2026-10-24T13:42:55",
+      "overall": "3-11-1",
       "league": {
-        "record": "2-6-1",
+        "record": "2-7-1",
         "name": "5A/4A/3A Northern",
-        "place": "9th"
+        "place": "10th"
       },
       "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Loveland",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/loveland-vs-roosevelt-johnstown/10-22-2026/?c=04e30a82-3b46-4263-9478-74afd8a74014",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 2
+          }
+        },
         {
           "date": "2026-10-20",
           "opponent": "Mountain View",
@@ -290,15 +305,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-22",
-          "opponent": "Loveland",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/soccer/match/loveland-vs-roosevelt-johnstown/10-22-2026/?c=04e30a82-3b46-4263-9478-74afd8a74014",
-          "time": "18:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": []
     },
@@ -306,15 +313,52 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/volleyball/",
-      "fetched": "2026-10-22T03:14:32.079Z",
-      "maxprepsUpdated": "2026-10-22T03:15:02",
-      "overall": "9-8",
+      "fetched": "2026-10-24T17:10:42.688Z",
+      "maxprepsUpdated": "2026-10-24T17:11:04",
+      "overall": "10-10",
       "league": {
-        "record": "4-4",
+        "record": "4-5",
         "name": "4A/3A Northern",
         "place": "7th"
       },
       "results": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Erie",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-roosevelt-johnstown/10-23-2026/?c=399ff5bf-afed-4f0b-86f6-7deb95cf5854",
+          "neutral": true,
+          "venue": "Mustang Classic",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Pine Creek",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/pine-creek-colorado-springs-vs-roosevelt-johnstown/10-23-2026/?c=65eeaa3a-5b85-4774-8cfe-8cfd2d944ca5",
+          "neutral": true,
+          "venue": "Ponderosa Tournament",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-22",
+          "opponent": "Windsor",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/roosevelt-johnstown-vs-windsor/10-22-2026/?c=afccab1f-78d9-460e-b707-9775cd70aabb",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
         {
           "date": "2026-10-20",
           "opponent": "Timnath",
@@ -508,13 +552,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-22",
-          "opponent": "Windsor",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/roosevelt-johnstown-vs-windsor/10-22-2026/?c=afccab1f-78d9-460e-b707-9775cd70aabb",
-          "time": "18:30"
-        },
-        {
           "date": "2026-10-24",
           "opponent": "Ponderosa",
           "site": "neutral",
@@ -522,6 +559,14 @@
           "neutral": true,
           "venue": "Mustang Classic",
           "time": "09:45"
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Falcon",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/falcon-vs-roosevelt-johnstown/10-24-2026/?c=5edf2afb-21bb-44b7-b946-bfd670930448",
+          "neutral": true,
+          "time": "11:05"
         },
         {
           "date": "2026-10-27",
@@ -533,15 +578,16 @@
       ],
       "held": [],
       "notes": [
-        "2026-10-24 at Ponderosa is not on the school calendar (published on MaxPreps's word alone)"
+        "2026-10-24 at Ponderosa is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-10-24 at Falcon is not on the school calendar (published on MaxPreps's word alone)"
       ]
     },
     {
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/softball/fall/",
-      "fetched": "2026-10-22T03:14:32.079Z",
-      "maxprepsUpdated": "2026-10-21T23:52:17",
+      "fetched": "2026-10-24T17:10:42.688Z",
+      "maxprepsUpdated": "2026-10-24T13:38:49",
       "overall": "19-7",
       "league": {
         "record": "8-2",
@@ -553,12 +599,12 @@
           "date": "2026-10-17",
           "opponent": "Green Mountain",
           "site": "neutral",
-          "url": "https://www.maxpreps.com/co/softball/game/green-mountain-lakewood-vs-roosevelt-johnstown/10-17-2026/?c=e3bad251-a5fc-4775-b625-8483202a183c",
+          "url": "https://www.maxpreps.com/co/softball/game/green-mountain-lakewood-vs-roosevelt-johnstown/10-17-2026/?c=123e33da-469e-4421-bcae-26c9bab015bf",
           "neutral": true,
-          "result": "L",
+          "result": "W",
           "score": {
-            "us": 6,
-            "them": 11
+            "us": 10,
+            "them": 4
           }
         },
         {
@@ -577,12 +623,12 @@
           "date": "2026-10-17",
           "opponent": "Green Mountain",
           "site": "neutral",
-          "url": "https://www.maxpreps.com/co/softball/game/green-mountain-lakewood-vs-roosevelt-johnstown/10-17-2026/?c=123e33da-469e-4421-bcae-26c9bab015bf",
+          "url": "https://www.maxpreps.com/co/softball/game/green-mountain-lakewood-vs-roosevelt-johnstown/10-17-2026/?c=e3bad251-a5fc-4775-b625-8483202a183c",
           "neutral": true,
-          "result": "W",
+          "result": "L",
           "score": {
-            "us": 10,
-            "them": 4
+            "us": 6,
+            "them": 11
           }
         },
         {
@@ -650,6 +696,210 @@
             "us": 15,
             "them": 0
           }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Poudre",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/poudre-fort-collins-vs-roosevelt-johnstown/9-15-2026/?c=57dbdc96-1a52-486b-9004-290b0bfb0cb1",
+          "result": "W",
+          "score": {
+            "us": 23,
+            "them": 8
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/greeley-central-vs-roosevelt-johnstown/9-10-2026/?c=fa1082bc-fd00-4b33-aa1f-9bda4d833cf4",
+          "result": "W",
+          "score": {
+            "us": 18,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Timnath",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/roosevelt-johnstown-vs-timnath/9-8-2026/?c=57a6a64d-df8b-4a56-8721-e177b09f6a21",
+          "result": "W",
+          "score": {
+            "us": 19,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-05",
+          "opponent": "Pine Creek",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/pine-creek-colorado-springs-vs-roosevelt-johnstown/9-5-2026/?c=9573e228-8240-4778-a322-e67661e3770b",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
+          "result": "W",
+          "score": {
+            "us": 16,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-05",
+          "opponent": "Berthoud",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-roosevelt-johnstown/9-5-2026/?c=eed4f939-c769-4d22-aef5-b152acfd22db",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
+          "result": "L",
+          "score": {
+            "us": 3,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Rifle",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/rifle-vs-roosevelt-johnstown/9-4-2026/?c=5b233f39-dda8-45e2-9e96-00d570223e3c",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
+          "result": "W",
+          "score": {
+            "us": 14,
+            "them": 8
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Air Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/air-academy-us-air-force-academy-vs-roosevelt-johnstown/9-4-2026/?c=95426f30-9a40-4666-a3f4-fa1e6e447b81",
+          "neutral": true,
+          "venue": "Barnes Complex/Fairgrounds Park",
+          "result": "W",
+          "score": {
+            "us": 13,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/roosevelt-johnstown-vs-severance/9-3-2026/?c=4724b89e-99e7-406b-a309-d873271003cd",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 9
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Palmer Ridge",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/palmer-ridge-monument-vs-roosevelt-johnstown/8-29-2026/?c=c4b06788-c061-4d99-b797-3a0b4b5d5e1a",
+          "neutral": true,
+          "venue": "Loveland High School",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 10
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Widefield",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/roosevelt-johnstown-vs-widefield-colorado-springs/8-29-2026/?c=ba1760ae-777e-4686-b7de-f847c3f9b616",
+          "neutral": true,
+          "venue": "Loveland High School",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Fort Collins",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/fort-collins-vs-roosevelt-johnstown/8-28-2026/?c=9c7ad6b3-f493-4604-801a-303924d417e5",
+          "neutral": true,
+          "venue": "Loveland High School",
+          "result": "W",
+          "score": {
+            "us": 12,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Northfield",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/northfield-denver-vs-roosevelt-johnstown/8-28-2026/?c=ab97f920-4c8f-4c6b-906e-dc11c794f5df",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 12,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-19",
+          "opponent": "Niwot",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/niwot-vs-roosevelt-johnstown/8-19-2026/?c=e28dbde9-cce4-445f-b880-ada6306ce807",
+          "result": "W",
+          "score": {
+            "us": 17,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-15",
+          "opponent": "Brush",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/brush-vs-roosevelt-johnstown/8-15-2026/?c=28bc5a95-10d0-47c7-81c2-eb508b850049",
+          "neutral": true,
+          "venue": "Roosevelt High School Tournament",
+          "result": "W",
+          "score": {
+            "us": 7,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-15",
+          "opponent": "Brush",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/brush-vs-roosevelt-johnstown/8-15-2026/?c=6fa104e3-342e-4374-a452-0565d1550ae8",
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 5
+          }
+        },
+        {
+          "date": "2026-08-14",
+          "opponent": "Bear Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/bear-creek-lakewood-vs-roosevelt-johnstown/8-14-2026/?c=0105a1dc-793e-4cd5-aae8-c554be3d6909",
+          "result": "W",
+          "score": {
+            "us": 13,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-14",
+          "opponent": "Northridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/northridge-greeley-vs-roosevelt-johnstown/8-14-2026/?c=856efb6b-ca15-4e92-ad98-5f6821aaedd0",
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 5
+          }
         }
       ],
       "upcoming": [],
@@ -660,8 +910,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/cross-country/",
-      "fetched": "2026-10-22T03:14:32.079Z",
-      "maxprepsUpdated": "2026-10-22T03:15:20",
+      "fetched": "2026-10-24T17:10:42.688Z",
+      "maxprepsUpdated": "2026-10-24T17:11:33",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -674,8 +924,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/cross-country/girls/",
-      "fetched": "2026-10-22T03:14:32.079Z",
-      "maxprepsUpdated": "2026-10-22T03:15:25",
+      "fetched": "2026-10-24T17:10:42.688Z",
+      "maxprepsUpdated": "2026-10-24T17:11:37",
       "results": [],
       "upcoming": [],
       "held": [],

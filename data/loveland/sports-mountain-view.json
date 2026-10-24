@@ -1,19 +1,30 @@
 {
-  "generated": "2026-10-22T03:18:40.577Z",
+  "generated": "2026-10-24T17:13:53.293Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/football/",
-      "fetched": "2026-10-22T03:18:40.577Z",
-      "maxprepsUpdated": "2026-10-22T02:54:47",
-      "overall": "0-8",
+      "fetched": "2026-10-24T17:13:53.293Z",
+      "maxprepsUpdated": "2026-10-24T16:35:56",
+      "overall": "0-9",
       "league": {
-        "record": "0-4",
+        "record": "0-5",
         "name": "3A Cache la Poudre",
         "place": "7th"
       },
       "results": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Berthoud",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-mountain-view-loveland/10-23-2026/?c=387c61c2-46af-46c3-adfb-46c6798a44c1",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 50
+          }
+        },
         {
           "date": "2026-10-15",
           "opponent": "Skyline",
@@ -105,13 +116,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-23",
-          "opponent": "Berthoud",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-mountain-view-loveland/10-23-2026/?c=387c61c2-46af-46c3-adfb-46c6798a44c1",
-          "time": "19:00"
-        },
-        {
           "date": "2026-10-30",
           "opponent": "Thompson Valley",
           "site": "away",
@@ -126,15 +130,26 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/soccer/",
-      "fetched": "2026-10-22T03:18:40.577Z",
-      "maxprepsUpdated": "2026-10-22T03:19:07",
-      "overall": "5-7-2",
+      "fetched": "2026-10-24T17:13:53.293Z",
+      "maxprepsUpdated": "2026-10-24T17:14:20",
+      "overall": "6-7-2",
       "league": {
-        "record": "1-6-2",
+        "record": "2-6-2",
         "name": "5A/4A/3A Northern",
-        "place": "10th"
+        "place": "8th"
       },
       "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/mountain-view-loveland-vs-thompson-valley-loveland/10-22-2026/?c=de8343c8-82df-46f6-9bf7-cd0ab767a93f",
+          "result": "W",
+          "score": {
+            "us": 9,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-20",
           "opponent": "Roosevelt",
@@ -290,15 +305,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-22",
-          "opponent": "Thompson Valley",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/soccer/match/mountain-view-loveland-vs-thompson-valley-loveland/10-22-2026/?c=de8343c8-82df-46f6-9bf7-cd0ab767a93f",
-          "time": "18:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": []
     },
@@ -306,15 +313,26 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/volleyball/",
-      "fetched": "2026-10-22T03:18:40.577Z",
-      "maxprepsUpdated": "2026-10-22T03:16:05",
-      "overall": "13-7",
+      "fetched": "2026-10-24T17:13:53.293Z",
+      "maxprepsUpdated": "2026-10-24T17:09:34",
+      "overall": "13-8",
       "league": {
-        "record": "5-3",
+        "record": "5-4",
         "name": "4A/3A Northern",
-        "place": "5th"
+        "place": "6th"
       },
       "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Timnath",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-timnath/10-22-2026/?c=382c7c29-cb76-479c-b15c-79650a0abb4a",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
         {
           "date": "2026-10-20",
           "opponent": "Northridge",
@@ -551,13 +569,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-22",
-          "opponent": "Timnath",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-timnath/10-22-2026/?c=382c7c29-cb76-479c-b15c-79650a0abb4a",
-          "time": "18:30"
-        },
-        {
           "date": "2026-10-27",
           "opponent": "Windsor",
           "site": "away",
@@ -579,8 +590,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/softball/fall/",
-      "fetched": "2026-10-22T03:18:40.577Z",
-      "maxprepsUpdated": "2026-10-21T23:56:32",
+      "fetched": "2026-10-24T17:13:53.293Z",
+      "maxprepsUpdated": "2026-10-24T17:14:38",
       "overall": "8-15-1",
       "league": {
         "record": "2-8",
@@ -875,8 +886,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/cross-country/",
-      "fetched": "2026-10-22T03:18:40.577Z",
-      "maxprepsUpdated": "2026-10-22T03:19:34",
+      "fetched": "2026-10-24T17:13:53.293Z",
+      "maxprepsUpdated": "2026-10-24T17:14:47",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -889,8 +900,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/cross-country/girls/",
-      "fetched": "2026-10-22T03:18:40.577Z",
-      "maxprepsUpdated": "2026-10-22T03:19:39",
+      "fetched": "2026-10-24T17:13:53.293Z",
+      "maxprepsUpdated": "2026-10-24T17:14:51",
       "results": [],
       "upcoming": [],
       "held": [],
