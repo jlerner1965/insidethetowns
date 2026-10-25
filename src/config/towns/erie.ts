@@ -30,8 +30,14 @@ export const erie: TownConfig = {
   population2010: 18135, // 2010 census, for census-to-census growth
   character: 'A coal town that became a commuter town, with a downtown that caught up.',
   colors: {
-    // Brick red + open-sky blue, on warm paper: Color System 2.0, 9 October 2026.
-    primary: '#96453C',
+    // Tiger orange + open-sky blue, on warm paper: the school's colour as
+    // the guide's, as Berthoud's and the other flagships' are (25 October
+    // 2026; it was brick red, #96453C, from 9 October). The darkest step of
+    // Erie High's own orange (ehs.svvsd.org's `--color-primary-700`), the
+    // same shade src/config/school-sports.ts names, so the sports pages and
+    // the rest of the guide are one colour. The blue accent stays: it is
+    // decoration only and keeps the guide its own.
+    primary: '#983C0E',
     accent: '#6498B2',
     paper: 'warm',
   },

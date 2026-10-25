@@ -357,7 +357,7 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // brand shade is 2.85:1 on the paper and cannot carry text, so this is
     // the site's own darkest step of it (`--color-primary-700: #983c0e`),
     // 6.6:1 on the paper. MaxPreps's D5350B is 4.5:1 and was not used. The
-    // guide's own primary is a brick red and stays.
+    // guide's primary is the same (src/config/towns/erie.ts).
     colors: { primary: '#983C0E' },
     // St. Vrain Valley keeps Erie's schedules on ArbiterLive
     // (arbiterlive.com/Teams?entityId=7041, linked from the school's
