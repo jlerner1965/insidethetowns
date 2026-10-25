@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-25T02:31:26.084Z",
+  "generated": "2026-10-25T17:26:44.103Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/football/",
-      "fetched": "2026-10-25T02:31:26.084Z",
-      "maxprepsUpdated": "2026-10-25T01:17:41",
+      "fetched": "2026-10-25T17:26:44.103Z",
+      "maxprepsUpdated": "2026-10-25T15:44:44",
       "overall": "9-0",
       "league": {
         "record": "5-0",
@@ -117,15 +117,16 @@
       "upcoming": [],
       "held": [],
       "notes": [
-        "no school calendar to check against"
+        "no school calendar to check against",
+        "MaxPreps page: a game in the glance card could not be read (39f3ec7d-44ce-4915-8703-dd0d5b2220b8)"
       ]
     },
     {
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/soccer/",
-      "fetched": "2026-10-25T02:31:26.084Z",
-      "maxprepsUpdated": "2026-10-25T02:16:37",
+      "fetched": "2026-10-25T17:26:44.103Z",
+      "maxprepsUpdated": "2026-10-25T14:24:50",
       "overall": "5-8-2",
       "league": {
         "record": "0-4",
@@ -309,8 +310,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/volleyball/",
-      "fetched": "2026-10-25T02:31:26.084Z",
-      "maxprepsUpdated": "2026-10-25T01:39:51",
+      "fetched": "2026-10-25T17:26:44.103Z",
+      "maxprepsUpdated": "2026-10-25T16:33:40",
       "overall": "12-11",
       "league": {
         "record": "2-6",
@@ -589,8 +590,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/softball/fall/",
-      "fetched": "2026-10-25T02:31:26.084Z",
-      "maxprepsUpdated": "2026-10-25T02:17:15",
+      "fetched": "2026-10-25T17:26:44.103Z",
+      "maxprepsUpdated": "2026-10-25T15:57:22",
       "overall": "16-10",
       "league": {
         "record": "7-1",
@@ -924,8 +925,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/cross-country/",
-      "fetched": "2026-10-25T02:31:26.084Z",
-      "maxprepsUpdated": "2026-10-25T02:32:01",
+      "fetched": "2026-10-25T17:26:44.103Z",
+      "maxprepsUpdated": "2026-10-25T17:27:18",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -938,8 +939,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/cross-country/girls/",
-      "fetched": "2026-10-25T02:31:26.084Z",
-      "maxprepsUpdated": "2026-10-25T02:32:06",
+      "fetched": "2026-10-25T17:26:44.103Z",
+      "maxprepsUpdated": "2026-10-25T13:42:19",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -952,8 +953,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/basketball/",
-      "fetched": "2026-10-25T02:31:26.084Z",
-      "maxprepsUpdated": "2026-10-25T01:42:38",
+      "fetched": "2026-10-25T17:26:44.103Z",
+      "maxprepsUpdated": "2026-10-25T14:33:34",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1121,8 +1122,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/basketball/girls/",
-      "fetched": "2026-10-25T02:31:26.084Z",
-      "maxprepsUpdated": "2026-10-25T02:32:19",
+      "fetched": "2026-10-25T17:26:44.103Z",
+      "maxprepsUpdated": "2026-10-25T15:03:31",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1239,8 +1240,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/wrestling/",
-      "fetched": "2026-10-25T02:31:26.084Z",
-      "maxprepsUpdated": "2026-10-25T00:43:23",
+      "fetched": "2026-10-25T17:26:44.103Z",
+      "maxprepsUpdated": "2026-10-25T17:27:45",
       "results": [],
       "upcoming": [],
       "held": [],
