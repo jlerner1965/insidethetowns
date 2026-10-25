@@ -79,10 +79,13 @@ export function sportsRoutes(town: string, root = '.'): Array<[pattern: string, 
     }
     return teamsWithData(data).map((t) => [teamPath(school, t.key).replace(/\/$/, ''), 'sports-team.astro']);
   };
-  if (schools.length === 1) return [['/sports', 'sports.astro'], ...teams(schools[0]!)];
+  // The share cards, one per school and per team with data, for the pages' og:image.
+  const share: [string, string] = ['/sports/share/[image].png', 'sports-share.png.ts'];
+  if (schools.length === 1) return [['/sports', 'sports.astro'], ...teams(schools[0]!), share];
   return [
     ['/sports', 'sports-index.astro'],
     ...schools.flatMap((s): Array<[string, string]> => [[sportsPath(s).replace(/\/$/, ''), 'sports.astro'], ...teams(s)]),
+    share,
   ];
 }
 

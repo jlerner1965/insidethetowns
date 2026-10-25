@@ -420,6 +420,21 @@ export function teamPath(school: Pick<SchoolSports, 'slug'>, key: string): strin
   return `${sportsPath(school as SchoolSports)}${key}/`;
 }
 
+/**
+ * The share card's name under /sports/share/: "school" and "football" for
+ * a town's only school; "mountain-view" and "mountain-view-football" for
+ * one of several (src/routes/town/sports-share.png.ts).
+ */
+export function shareImageName(school: Pick<SchoolSports, 'slug'>, teamKey?: string): string {
+  if (school.slug) return teamKey ? `${school.slug}-${teamKey}` : school.slug;
+  return teamKey ?? 'school';
+}
+
+/** The share card's path: "/sports/share/football.png". */
+export function shareImagePath(school: Pick<SchoolSports, 'slug'>, teamKey?: string): string {
+  return `/sports/share/${shareImageName(school, teamKey)}.png`;
+}
+
 /** Where a school's run writes, relative to the repo root. */
 export function sportsDataFile(school: Pick<SchoolSports, 'town' | 'slug'>): string {
   return school.slug ? `data/${school.town}/sports-${school.slug}.json` : `data/${school.town}/sports.json`;

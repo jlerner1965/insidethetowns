@@ -37,7 +37,7 @@ import NextUp from '@/components/NextUp.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import TeamSeason from '@/components/TeamSeason.astro';
 import { getTown } from '@/config';
-import { schoolSportsFor, schoolsFor, sportsPath, teamPath, type SportData, type SportsData } from '@/config/school-sports';
+import { schoolSportsFor, schoolsFor, shareImagePath, sportsPath, teamPath, type SportData, type SportsData } from '@/config/school-sports';
 import { dayKey, formatDayShort, formatShortDate } from '@/lib/dates';
 import { bigGame, coming, gameDay as day, latestResult, recentResults, RESULT_WORD, placeText, schoolCssVars, schoolPageTitle, seasonComplete, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd, sportsEventJsonLd } from '@/lib/seo';
@@ -113,7 +113,7 @@ const jsonLd = [
     .filter((e): e is NonNullable<typeof e> => !!e),
 ];
 ---
-<Base title={pageTitle} fullTitle={`${pageTitle} · ${town.siteTitle}`} {description} {jsonLd}>
+<Base title={pageTitle} fullTitle={`${pageTitle} · ${town.siteTitle}`} {description} {jsonLd} image={shareImagePath(cfg)} imageAlt={`${mascot} sports: scores and schedules on ${town.siteTitle}`}>
   {/* The school's colour from here to the foot, where the guide follows one school: see SchoolSports.colors. */}
   <div style={schoolStyle}>
   <header class="border-b-2 border-accent bg-raised">

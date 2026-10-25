@@ -13,7 +13,7 @@ import CtaBand from '@/components/CtaBand.astro';
 import NextUp from '@/components/NextUp.astro';
 import TeamSeason from '@/components/TeamSeason.astro';
 import { getTown } from '@/config';
-import { schoolSportsFor, schoolsFor, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
+import { schoolSportsFor, schoolsFor, shareImagePath, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
 import { dayKey, formatShortDate } from '@/lib/dates';
 import { coming, hasData, schoolCssVars, seasonComplete, seasonOf, sportsDataFor, teamDescription, teamPageTitle, teamsWithData } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd, sportsEventJsonLd } from '@/lib/seo';
@@ -68,7 +68,7 @@ const jsonLd = [
   ...ahead.map((c) => sportsEventJsonLd(town, cfg, team, c.game, path)).filter((e): e is NonNullable<typeof e> => !!e),
 ];
 ---
-<Base title={teamPageTitle(cfg, team, years)} {fullTitle} {description} {jsonLd}>
+<Base title={teamPageTitle(cfg, team, years)} {fullTitle} {description} {jsonLd} image={shareImagePath(cfg, key)} imageAlt={`${title}: scores and schedules on ${town.siteTitle}`}>
   <div style={schoolStyle}>
   <header class="border-b-2 border-accent bg-raised">
     <div class="container-page py-10 md:py-14">

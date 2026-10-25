@@ -8,7 +8,7 @@ import assert from 'node:assert/strict';
 import { applySchedule, parseSchedulePage, parseTeamPage } from '../scripts/lib/maxpreps.ts';
 import { parseMonth, parseTitle } from '../scripts/lib/finalsite-calendar.ts';
 import { crossCheck, dedupeToCome, gamesToCome, keepPrevious, sameSchool } from '../scripts/lib/sports-crosscheck.ts';
-import { SCHOOL_SPORTS, schoolSportsFor, schoolsFor, sportsDataFile, sportsPath, teamPath, type SportsData } from '../src/config/school-sports.ts';
+import { SCHOOL_SPORTS, schoolSportsFor, schoolsFor, shareImageName, shareImagePath, sportsDataFile, sportsPath, teamPath, type SportsData } from '../src/config/school-sports.ts';
 import { readFileSync } from 'node:fs';
 import { sportsRoutes } from '../src/integrations/town-routes.ts';
 import { findTown } from '../src/config/index.ts';
@@ -434,12 +434,12 @@ test('a town with one school keeps /sports/ and sports.json; Loveland’s four e
   assert.deepEqual(berthoudRoutes[0], ['/sports', 'sports.astro']);
   const berthoudData = JSON.parse(readFileSync('data/berthoud/sports.json', 'utf8')) as SportsData;
   assert.deepEqual(
-    berthoudRoutes.slice(1),
+    berthoudRoutes.slice(1, -1),
     berthoudData.sports.filter((t) => t.fetched && !t.empty).map((t) => [`/sports/${t.key}`, 'sports-team.astro']),
     'a team page for every team with data, none for one MaxPreps has nothing for',
   );
   assert.ok(berthoudRoutes.some(([p]) => p === '/sports/football'), 'football has a page');
-  assert.deepEqual(sportsRoutes('berthoud', '/nowhere'), [['/sports', 'sports.astro']], 'no data file, no team pages');
+  assert.deepEqual(sportsRoutes('berthoud', '/nowhere'), [['/sports', 'sports.astro'], ['/sports/share/[image].png', 'sports-share.png.ts']], 'no data file, no team pages');
   assert.deepEqual(sportsRoutes('longmont'), [], 'a town without a school has no page');
   assert.equal(sportsRoutes('erie')[0]![0], '/sports', 'Erie follows Erie High (25 October 2026)');
   assert.equal(teamPath(berthoud, 'football'), '/sports/football/');
@@ -456,6 +456,7 @@ test('a town with one school keeps /sports/ and sports.json; Loveland’s four e
     ['/sports/thompson-valley', 'sports.astro'],
     ['/sports/mountain-view', 'sports.astro'],
     ['/sports/resurrection-christian', 'sports.astro'],
+    ['/sports/share/[image].png', 'sports-share.png.ts'],
   ]);
   assert.ok(sportsRoutes('loveland').some(([p, f]) => p === '/sports/mountain-view/football' && f === 'sports-team.astro'), 'a school’s team page carries the school’s slug');
   assert.equal(teamPath(loveland[2]!, 'football'), '/sports/mountain-view/football/');
@@ -752,4 +753,25 @@ test('a game to come is a SportsEvent with only schema.org’s fields, Denver’
   const unknownVenue = sportsEventJsonLd(town, berthoud, football, { date: '2026-11-13', opponent: 'X', site: 'neutral', neutral: true, url: 'u' }, '/sports/')!;
   assert.equal(unknownVenue.location, undefined, 'no venue, no place invented');
   assert.equal(sportsEventJsonLd(town, berthoud, football, { date: '', opponent: 'X', site: 'home', url: 'u' }, '/sports/'), undefined, 'no date, nothing');
+});
+
+test('a share card is a 1200×630 PNG in the school’s colour, named for the school or the team', async () => {
+  const { renderShareCard, SHARE_HEIGHT, SHARE_WIDTH } = await import('../src/lib/share-image.ts');
+  const sharp = (await import('sharp')).default;
+  const png = await renderShareCard({ color: '#572932', title: 'Spartans football', record: '7-2 this fall · 3-1 in the 3A Cache la Poudre', footer: 'Scores and schedules · Inside Berthoud' });
+  const meta = await sharp(png).metadata();
+  assert.equal(meta.format, 'png');
+  assert.equal(meta.width, SHARE_WIDTH);
+  assert.equal(meta.height, SHARE_HEIGHT);
+  // The corner is the school's colour; the type is white somewhere on it.
+  const { data } = await sharp(png).raw().toBuffer({ resolveWithObject: true });
+  assert.deepEqual([data[0], data[1], data[2]], [0x57, 0x29, 0x32]);
+  let white = 0;
+  for (let i = 0; i < data.length; i += 4) if (data[i]! > 240 && data[i + 1]! > 240 && data[i + 2]! > 240) white++;
+  assert.ok(white > 2000, `white type on the card (${white} pixels)`);
+  assert.equal(shareImageName(berthoud), 'school');
+  assert.equal(shareImagePath(berthoud, 'football'), '/sports/share/football.png');
+  assert.equal(shareImagePath(schoolsFor('loveland')[2]!, 'football'), '/sports/share/mountain-view-football.png');
+  assert.equal(shareImagePath(schoolsFor('loveland')[2]!), '/sports/share/mountain-view.png');
+  assert.ok(sportsRoutes('berthoud').some(([p, f]) => p === '/sports/share/[image].png' && f === 'sports-share.png.ts'));
 });
