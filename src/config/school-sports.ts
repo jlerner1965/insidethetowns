@@ -411,6 +411,15 @@ export function sportsPath(school: SchoolSports): string {
   return school.slug ? `/sports/${school.slug}/` : '/sports/';
 }
 
+/**
+ * A team's own page: "/sports/football/", or "/sports/<slug>/football/"
+ * where the town follows several schools. Built only for a team with data
+ * (src/integrations/town-routes.ts), and linked only where it is built.
+ */
+export function teamPath(school: Pick<SchoolSports, 'slug'>, key: string): string {
+  return `${sportsPath(school as SchoolSports)}${key}/`;
+}
+
 /** Where a school's run writes, relative to the repo root. */
 export function sportsDataFile(school: Pick<SchoolSports, 'town' | 'slug'>): string {
   return school.slug ? `data/${school.town}/sports-${school.slug}.json` : `data/${school.town}/sports.json`;

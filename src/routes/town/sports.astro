@@ -33,12 +33,13 @@
  */
 import Base from '@/layouts/Base.astro';
 import CtaBand from '@/components/CtaBand.astro';
-import SeasonTable from '@/components/SeasonTable.astro';
+import NextUp from '@/components/NextUp.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
+import TeamSeason from '@/components/TeamSeason.astro';
 import { getTown } from '@/config';
-import { schoolSportsFor, schoolsFor, sportsPath, type SportData, type SportsData } from '@/config/school-sports';
-import { dayKey, formatDayLong, formatDayShort, formatShortDate, formatTime } from '@/lib/dates';
-import { bigGame, coming, dedupeResults, gameDay as day, latestResult, outcome, recentResults, RESULT_WORD, placeText, schoolCssVars, season, seasonComplete, seasonOf, sportsDataFor, when, where } from '@/lib/school-sports';
+import { schoolSportsFor, schoolsFor, sportsPath, teamPath, type SportData, type SportsData } from '@/config/school-sports';
+import { dayKey, formatDayShort, formatShortDate } from '@/lib/dates';
+import { bigGame, coming, gameDay as day, latestResult, recentResults, RESULT_WORD, placeText, schoolCssVars, seasonComplete, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -78,7 +79,7 @@ const board = recentResults(data, 6);
 // The teams with a season to show and the ones whose page has never been
 // read. A team MaxPreps has nothing for yet (cross country in the fall) is
 // left off: an empty line on every page until spring helped nobody.
-const teams = sports.filter((s) => s.fetched && !s.empty);
+const teams = teamsWithData(data);
 const unread = sports.filter((s) => !s.fetched && !s.empty);
 
 const fetchedDates = sports.map((s) => s.fetched).filter(Boolean) as string[];
@@ -174,64 +175,10 @@ const jsonLd = [
     </div>
   </header>
 
-  {/* The one thing most readers came for: the next game, big, in the town's
-      colour, with the rest of the week beside it. Off season, the last
-      result takes its place. */}
-  {next ? (
-    <section class="on-dark bg-primary text-white" aria-labelledby="next-up">
-      <div class="container-page grid gap-10 py-14 md:grid-cols-[3fr_2fr] md:items-end md:py-20">
-        <div>
-          <p class="eyebrow text-white/80">Next up · {next.team.name}{next.game.stage && ` · ${next.game.stage}`}</p>
-          <h2 id="next-up" class="display mt-4 text-[2.75rem] sm:text-6xl lg:text-7xl">
-            {mascot} {where(next.game)} {next.game.opponent}
-          </h2>
-          <p class="mt-5 text-xl leading-snug md:text-2xl">
-            <time datetime={next.game.time ? `${next.game.date}T${next.game.time}` : next.game.date}>
-              {when(next.game)}{next.game.time && <Fragment> · {formatTime(day(next.game))}</Fragment>}
-            </time>
-            <span class="text-white/70"> · {placeText(next.game)}</span>
-          </p>
-          <p class="mt-2 text-[1.0625rem] text-white/80">
-            {next.team.overall && <span>The {mascot} are {next.team.overall}{next.team.league ? ` overall, ${next.team.league.record} in the ${next.team.league.name}` : ''}. </span>}
-            {next.team.results[0] && <span>Last time out: {RESULT_WORD[next.team.results[0].result ?? 'T']} {outcome(next.team.results[0])}.</span>}
-          </p>
-          <div class="mt-7 flex flex-wrap gap-3">
-            <a href={next.game.url} rel="noopener" class="btn btn-light">The game on MaxPreps</a>
-            <a href={`#${next.team.key}`} class="btn btn-outline text-white">The {next.team.name.toLowerCase()} season</a>
-          </div>
-        </div>
-        {then.length > 0 && (
-          <div>
-            <p class="eyebrow text-white/80">Also coming up</p>
-            <ol class="mt-3 divide-y divide-white/15 border-y border-white/15">
-              {then.slice(0, 5).map(({ team, game }) => (
-                <li class="flex items-baseline gap-4 py-3">
-                  <time datetime={game.date} class="w-24 shrink-0 text-[0.9375rem] text-white/70">{game.date === today ? 'Today' : formatDayShort(day(game))}</time>
-                  <span class="min-w-0">
-                    <span class="font-semibold">{team.name}</span> {where(game)} {game.opponent}
-                    {game.time && <span class="text-white/70"> · {formatTime(day(game))}</span>}
-                    {game.stage && <span class="text-white/70"> · {game.stage}</span>}
-                  </span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        )}
-      </div>
-    </section>
-  ) : latest ? (
-    <section class="on-dark bg-primary text-white" aria-labelledby="last-out">
-      <div class="container-page py-14 md:py-20">
-        <p class="eyebrow text-white/80">Last time out · {latest.team.name}</p>
-        <h2 id="last-out" class="display mt-4 text-[2.75rem] sm:text-6xl lg:text-7xl">
-          {RESULT_WORD[latest.game.result ?? 'T']} {outcome(latest.game)}
-        </h2>
-        <p class="mt-5 text-xl leading-snug md:text-2xl">
-          <time datetime={latest.game.date}>{formatDayLong(day(latest.game))}</time><span class="text-white/70"> · {latest.game.stage && `${latest.game.stage} · `}{placeText(latest.game)} · {seasonComplete(data, now) ? 'regular season complete' : 'nothing scheduled yet'}</span>
-        </p>
-      </div>
-    </section>
-  ) : null}
+  {/* The one thing most readers came for: the next game, big, in the
+      school's colour, with the rest of the week beside it; off season, the
+      last result (NextUp). */}
+  <NextUp {mascot} {next} {then} {latest} complete={seasonComplete(data, now)} seasonHref={(t) => `#${t.key}`} {today} />
 
   {/* The scoreboard: the latest scores across the teams, each as the two
       lines a scores ticker shows, the winner in the heavier ink. */}
@@ -277,9 +224,8 @@ const jsonLd = [
   )}
 
   {/* Every team: the record and the run of results up top, then the next
-      games, and the whole season, oldest first, behind "Show all N games".
-      With nothing left to play, the last three results take the next
-      games' place. */}
+      games, and the whole season, oldest first, behind "Show all N games"
+      (TeamSeason, the article each team's own page draws too). */}
   <section class="band band-paper">
     <div class="container-page">
       <SectionHeader eyebrow="Every team" title={`The ${mascot} this season`} />
@@ -287,78 +233,8 @@ const jsonLd = [
         <p class="text-ink-muted">No scores yet: the first read has not run.</p>
       ) : (
         <div class="space-y-6">
-          {teams.map((s) => {
-            const results = dedupeResults(s.results);
-            const games = season(s);
-            const form = [...results].reverse();
-            const wins = results.filter((g) => g.result === 'W').length;
-            const ahead = s.upcoming.filter((g) => g.date >= today);
-            const lead = ahead.length > 0 ? ahead.slice(0, 5) : results.slice(0, 3);
-            return (
-              <article id={s.key} class="scroll-mt-24 rounded-lg bg-raised p-5 ring-1 ring-primary-line sm:p-7" aria-labelledby={`${s.key}-title`}>
-                <header class="grid gap-5 border-b-2 border-accent pb-5 md:grid-cols-[1fr_auto] md:items-end">
-                  <div>
-                    <h3 id={`${s.key}-title`} class="display-md text-3xl md:text-4xl">{s.name}</h3>
-                    <p class="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                      <span class="display-md whitespace-nowrap text-[2.75rem] text-primary md:text-5xl">{s.overall ?? '—'}</span>
-                      {s.league && (
-                        <span class="text-[0.9375rem] leading-snug text-ink-muted">
-                          {s.league.record} in the {s.league.name}{s.league.place && <Fragment>, <strong class="font-semibold text-ink">{s.league.place}</strong></Fragment>}
-                        </span>
-                      )}
-                    </p>
-                  </div>
-                  {form.length > 0 && (
-                    <div class="md:text-right">
-                      <p class="eyebrow text-ink-muted">Form · {wins} of {form.length} won</p>
-                      <ol class="mt-2 flex flex-wrap gap-1 md:justify-end" aria-label="Results, oldest first">
-                        {form.map((g) => (
-                          <li>
-                            <a
-                              href={g.url}
-                              rel="noopener"
-                              class:list={['inline-flex h-7 w-7 items-center justify-center rounded-sm text-[0.75rem] font-bold no-underline', g.result ? PILL[g.result] : 'bg-accent-soft text-ink']}
-                              title={`${formatDayShort(day(g))}: ${g.result ? `${RESULT_WORD[g.result]} ` : ''}${outcome(g)}`}
-                            >
-                              <span aria-hidden="true">{g.result ?? '·'}</span>
-                              <span class="sr-only">{formatDayShort(day(g))}: {g.result ? `${RESULT_WORD[g.result]} ` : ''}{outcome(g)}</span>
-                            </a>
-                          </li>
-                        ))}
-                      </ol>
-                    </div>
-                  )}
-                </header>
-
-                {lead.length > 0 && (
-                  <SeasonTable
-                    games={lead}
-                    {today}
-                    caption={ahead.length > 0 ? (ahead.length === 1 ? 'Next game' : `Next ${lead.length} games`) : 'Latest results'}
-                    next={ahead[0]?.url}
-                    last={ahead.length > 0 ? 'Time' : 'Result'}
-                  />
-                )}
-                {games.length > lead.length && (
-                  <details class="group mt-4">
-                    <summary class="inline-flex min-h-11 cursor-pointer items-center gap-2 font-semibold text-primary underline underline-offset-2">
-                      <span class="group-open:hidden">Show all {games.length} games</span>
-                      <span class="hidden group-open:inline">Hide the season</span>
-                    </summary>
-                    <div class="mt-2">
-                      <SeasonTable games={games} {today} caption={`${s.name}, every game this season, oldest first`} hideCaption next={ahead[0]?.url} />
-                    </div>
-                  </details>
-                )}
-                {(s.held.length > 0 || stale(s)) && (
-                  <p class="mt-4 text-[0.9375rem] leading-relaxed text-ink-muted">
-                    {s.held.length > 0 && <span>{s.held.length === 1 ? 'One more game' : `${s.held.length} more games`} to be confirmed: MaxPreps and the school calendar disagree. </span>}
-                    {stale(s) && <span>MaxPreps’s <a href={s.maxprepsUrl} rel="noopener" class="underline">{s.name.toLowerCase()} page</a> was last read {formatShortDate(new Date(s.fetched!))}.</span>}
-                  </p>
-                )}
-              </article>
-            );
-          })}
+          {/* Each team's season, its heading a link to the team's own page (/sports/<team>/). */}
+          {teams.map((s) => <TeamSeason team={s} {today} heading={{ level: 'h3', text: s.name, href: teamPath(cfg, s.key) }} stale={stale(s)} />)}
 
           {unread.length > 0 && (
             <p class="text-[0.9375rem] leading-relaxed text-ink-muted">

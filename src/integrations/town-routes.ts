@@ -11,7 +11,8 @@ import { join } from 'node:path';
 import type { SiteConfig, TownConfig } from '../config/towns/types';
 import { PLACE_TYPE_PAGES, placeTypePages } from '../lib/place-types.ts';
 import { openPlaceTypeCounts } from '../lib/raw-places.ts';
-import { schoolsFor, sportsPath } from '../config/school-sports.ts';
+import { schoolsFor, sportsDataFile, sportsPath, teamPath, type SportsData } from '../config/school-sports.ts';
+import { teamsWithData } from '../lib/school-sports.ts';
 
 const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
   ['/', 'index.astro'],
@@ -58,13 +59,31 @@ const SUB_TOWN_ROUTES: Array<[pattern: string, file: string]> = [['/[subTown]', 
  * High-school sports (data/<town>/sports*.json, `npm run sports`): one page
  * per school the town follows (src/config/school-sports.ts), at /sports/
  * for a town's only school and at /sports/<slug>/ for each of several, with
- * /sports/ then the list of them.
+ * /sports/ then the list of them; and one page per team that has data
+ * (read at least once, and not empty on MaxPreps), at /sports/<team>/ or
+ * /sports/<slug>/<team>/. The data file is read from disk here, as the
+ * content folders are, because this runs before the build's bundle exists;
+ * a school whose run has never written has no team pages, and the pages
+ * link only to the team pages that exist (src/lib/school-sports.ts).
  */
-export function sportsRoutes(town: string): Array<[pattern: string, file: string]> {
+export function sportsRoutes(town: string, root = '.'): Array<[pattern: string, file: string]> {
   const schools = schoolsFor(town);
   if (schools.length === 0) return [];
-  if (schools.length === 1) return [['/sports', 'sports.astro']];
-  return [['/sports', 'sports-index.astro'], ...schools.map((s): [string, string] => [sportsPath(s).replace(/\/$/, ''), 'sports.astro'])];
+  const teams = (school: (typeof schools)[number]): Array<[string, string]> => {
+    const file = join(root, sportsDataFile(school));
+    let data: SportsData | undefined;
+    try {
+      data = existsSync(file) ? (JSON.parse(readFileSync(file, 'utf8')) as SportsData) : undefined;
+    } catch {
+      data = undefined;
+    }
+    return teamsWithData(data).map((t) => [teamPath(school, t.key).replace(/\/$/, ''), 'sports-team.astro']);
+  };
+  if (schools.length === 1) return [['/sports', 'sports.astro'], ...teams(schools[0]!)];
+  return [
+    ['/sports', 'sports-index.astro'],
+    ...schools.flatMap((s): Array<[string, string]> => [[sportsPath(s).replace(/\/$/, ''), 'sports.astro'], ...teams(s)]),
+  ];
 }
 
 /**

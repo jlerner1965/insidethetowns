@@ -1,0 +1,123 @@
+---
+/**
+ * One team's page: /sports/<team>/ for a town's only school, or
+ * /sports/<school>/<team>/ where the town follows several
+ * (src/integrations/town-routes.ts injects one for every team with data).
+ * The same article the school page draws for the team (TeamSeason: record,
+ * form, next games, the whole season), under its own masthead, with the
+ * team's next game in the band and links back to the school page and to
+ * its sister teams. A team with no data has no page and nothing links to it.
+ */
+import Base from '@/layouts/Base.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import NextUp from '@/components/NextUp.astro';
+import TeamSeason from '@/components/TeamSeason.astro';
+import { getTown } from '@/config';
+import { schoolSportsFor, schoolsFor, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
+import { dayKey, formatShortDate } from '@/lib/dates';
+import { coming, hasData, schoolCssVars, seasonComplete, seasonOf, sportsDataFor, teamsWithData } from '@/lib/school-sports';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+
+const town = getTown();
+const files = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
+const schools = schoolsFor(town.slug);
+// /sports/football/ on a town with one school; /sports/<slug>/football/ with several.
+const m = Astro.url.pathname.match(/^\/sports\/(?:([^/]+)\/)?([^/]+)\/?$/);
+const slug = schools.length > 1 ? m?.[1] : undefined;
+const key = m?.[2];
+const cfg = schoolSportsFor(town.slug, slug);
+if (!cfg || !key || (schools.length > 1 && !slug)) throw new Error(`No school is configured for ${Astro.url.pathname} on ${town.slug} (src/config/school-sports.ts)`);
+const data = sportsDataFor(cfg, files) ?? { generated: '', sports: [] };
+const team = data.sports.find((s) => s.key === key);
+if (!team || !hasData(team)) throw new Error(`${Astro.url.pathname}: ${key} has no data on ${cfg.school}; the route should not have been injected (src/integrations/town-routes.ts)`);
+const { school, mascot, calendar } = cfg;
+const shortSchool = school.replace(/ (High )?School$/, '');
+const path = teamPath(cfg, key);
+const schoolPath = sportsPath(cfg);
+const sisters = teamsWithData(data).filter((s) => s.key !== key);
+const schoolStyle = schools.length === 1 ? schoolCssVars(cfg) : undefined;
+
+const now = new Date();
+const today = dayKey(now);
+const { season: seasonName, label: seasonLabel } = seasonOf({ generated: data.generated, sports: [team] }, cfg.teams, now);
+const seasonWord = seasonName.toLowerCase();
+const own: SportsData = { generated: data.generated, sports: [team] };
+const ahead = coming(own).filter((c) => c.game.date >= today);
+const next = ahead[0];
+const then = ahead.slice(1);
+const latest = team.results[0] ? { team, game: team.results[0] } : undefined;
+const read = team.fetched ? new Date(team.fetched) : undefined;
+const newest = data.sports.map((s) => s.fetched).filter(Boolean).sort().at(-1);
+const stale = !!newest && !!team.fetched && new Date(newest).getTime() - new Date(team.fetched).getTime() > 3 * 86_400_000;
+
+const title = `${shortSchool} ${mascot} ${team.name.toLowerCase()}`;
+const description = `${school} ${team.name.toLowerCase()}${team.overall ? ` is ${team.overall} this ${seasonWord}` : ` this ${seasonWord}`}: every score and the full schedule, from MaxPreps${calendar ? ', checked against the school calendar' : ''}.`;
+const jsonLd = [
+  collectionPageJsonLd(town, { name: `${title} schedule and scores`, description, path }),
+  breadcrumbJsonLd(town, [
+    { name: town.name, path: '/' },
+    { name: 'Sports', path: '/sports/' },
+    ...(cfg.slug ? [{ name: school, path: schoolPath }] : []),
+    { name: team.name, path },
+  ]),
+];
+---
+<Base title={`${title} schedule and scores`} {description} {jsonLd}>
+  <div style={schoolStyle}>
+  <header class="border-b-2 border-accent bg-raised">
+    <div class="container-page py-10 md:py-14">
+      <div class="max-w-3xl">
+        <nav aria-label="Breadcrumb" class="mb-3">
+          <ol class="eyebrow flex flex-wrap items-center gap-x-2">
+            <li><a href="/sports/" class="underline underline-offset-2">{cfg.slug ? `${town.name} high school sports` : `${mascot} sports`}</a></li>
+            {cfg.slug && (
+              <Fragment>
+                <li aria-hidden="true">›</li>
+                <li><a href={schoolPath} class="underline underline-offset-2">{shortSchool}</a></li>
+              </Fragment>
+            )}
+            <li aria-hidden="true">›</li>
+            <li aria-current="page">{team.name}</li>
+          </ol>
+        </nav>
+        <p class="eyebrow mb-3">{seasonLabel}</p>
+        <h1 class="display-md text-[2.25rem] sm:text-5xl md:text-6xl">{title}</h1>
+        <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted md:text-xl">
+          {team.overall ? <Fragment>The {mascot} are <strong class="font-semibold text-ink">{team.overall}</strong>{team.league ? `, ${team.league.record} in the ${team.league.name}${team.league.place ? ` (${team.league.place})` : ''}` : ''}. </Fragment> : null}
+          Every score and the full schedule this {seasonWord}.
+        </p>
+      </div>
+      <p class="mt-5 text-[0.9375rem] text-ink-muted">
+        {calendar ? 'Scores from ' : 'Scores and schedules from '}<a href={team.maxprepsUrl} rel="noopener" class="font-semibold text-primary underline">MaxPreps</a>{read && `, read ${formatShortDate(read)}`}{calendar && <Fragment>; dates checked against the <a href={calendar.url} rel="noopener" class="font-semibold text-primary underline">school calendar</a></Fragment>}.
+      </p>
+      {sisters.length > 0 && (
+        <p class="mt-2 text-[0.9375rem] text-ink-muted">
+          Also at {shortSchool}: {sisters.map((s, i) => (
+            <Fragment>{i > 0 && (i === sisters.length - 1 ? ' and ' : ', ')}<a href={teamPath(cfg, s.key)} class="font-semibold text-primary underline">{s.name.toLowerCase()}</a></Fragment>
+          ))}. <a href={schoolPath} class="font-semibold text-primary underline">Every {mascot} team →</a>
+        </p>
+      )}
+    </div>
+  </header>
+
+  <NextUp {mascot} {next} {then} {latest} complete={seasonComplete(own, now)} seasonHref={() => '#season'} {today} />
+
+  <section class="band band-paper" id="season">
+    <div class="container-page">
+      <TeamSeason {team} {today} heading={{ level: 'h2', text: `The ${team.name.toLowerCase()} season` }} {stale} />
+      <p class="mt-10 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">
+        {calendar ? 'A game MaxPreps and the school calendar disagree on waits until a person has checked it.' : cfg.calendarNote ?? 'Scores and dates are MaxPreps’s, as coaches report them.'} <a href="/editorial/" class="underline">How this guide checks its facts</a>.
+      </p>
+    </div>
+  </section>
+  <CtaBand
+    eyebrow="Sports"
+    title="Know a score we have wrong?"
+    body="If a game moved or a score is off, say so and we will check it."
+    links={[
+      { label: 'Report a correction', href: `/correct/?item=sports&title=${encodeURIComponent(`${school} ${team.name.toLowerCase()}`)}`, primary: true },
+      { label: `Every ${mascot} team`, href: schoolPath },
+    ]}
+  />
+  </div>
+</Base>

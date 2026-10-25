@@ -65,6 +65,19 @@ export function placeText(g: SportGame): string {
   return g.venue ?? sitePhrase(g);
 }
 
+/**
+ * A team the pages lay out: read at least once, and not one MaxPreps has
+ * nothing for. The same filter decides which teams get a page of their own.
+ */
+export function hasData(team: SportData): boolean {
+  return !!team.fetched && !team.empty;
+}
+
+/** The teams with data, in the config's order. */
+export function teamsWithData(data: SportsData | undefined): SportData[] {
+  return (data?.sports ?? []).filter(hasData);
+}
+
 /** Each team's next game, in the config's order: the home page's sports block. */
 export function nextGames(data: SportsData, now = new Date()): TeamGame[] {
   const today = dayKey(now);

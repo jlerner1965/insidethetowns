@@ -8,7 +8,8 @@ import assert from 'node:assert/strict';
 import { applySchedule, parseSchedulePage, parseTeamPage } from '../scripts/lib/maxpreps.ts';
 import { parseMonth, parseTitle } from '../scripts/lib/finalsite-calendar.ts';
 import { crossCheck, dedupeToCome, gamesToCome, keepPrevious, sameSchool } from '../scripts/lib/sports-crosscheck.ts';
-import { SCHOOL_SPORTS, schoolSportsFor, schoolsFor, sportsDataFile, sportsPath, type SportsData } from '../src/config/school-sports.ts';
+import { SCHOOL_SPORTS, schoolSportsFor, schoolsFor, sportsDataFile, sportsPath, teamPath, type SportsData } from '../src/config/school-sports.ts';
+import { readFileSync } from 'node:fs';
 import { sportsRoutes } from '../src/integrations/town-routes.ts';
 import { findTown } from '../src/config/index.ts';
 import { townNav } from '../src/lib/nav.ts';
@@ -428,9 +429,20 @@ test('a town with one school keeps /sports/ and sports.json; Loveland’s four e
   const berthoud = schoolSportsFor('berthoud')!;
   assert.equal(sportsPath(berthoud), '/sports/');
   assert.equal(sportsDataFile(berthoud), 'data/berthoud/sports.json');
-  assert.deepEqual(sportsRoutes('berthoud'), [['/sports', 'sports.astro']]);
+  // The school page, then one page per team with data in the file on disk (none with no file).
+  const berthoudRoutes = sportsRoutes('berthoud');
+  assert.deepEqual(berthoudRoutes[0], ['/sports', 'sports.astro']);
+  const berthoudData = JSON.parse(readFileSync('data/berthoud/sports.json', 'utf8')) as SportsData;
+  assert.deepEqual(
+    berthoudRoutes.slice(1),
+    berthoudData.sports.filter((t) => t.fetched && !t.empty).map((t) => [`/sports/${t.key}`, 'sports-team.astro']),
+    'a team page for every team with data, none for one MaxPreps has nothing for',
+  );
+  assert.ok(berthoudRoutes.some(([p]) => p === '/sports/football'), 'football has a page');
+  assert.deepEqual(sportsRoutes('berthoud', '/nowhere'), [['/sports', 'sports.astro']], 'no data file, no team pages');
   assert.deepEqual(sportsRoutes('longmont'), [], 'a town without a school has no page');
-  assert.deepEqual(sportsRoutes('erie'), [['/sports', 'sports.astro']], 'Erie follows Erie High (25 October 2026)');
+  assert.equal(sportsRoutes('erie')[0]![0], '/sports', 'Erie follows Erie High (25 October 2026)');
+  assert.equal(teamPath(berthoud, 'football'), '/sports/football/');
 
   const loveland = schoolsFor('loveland');
   assert.deepEqual(loveland.map((s) => s.slug), ['loveland-high', 'thompson-valley', 'mountain-view', 'resurrection-christian']);
@@ -438,13 +450,15 @@ test('a town with one school keeps /sports/ and sports.json; Loveland’s four e
   assert.equal(schoolSportsFor('loveland', 'mountain-view')?.mascot, 'Mountain Lions');
   assert.equal(sportsPath(loveland[1]!), '/sports/thompson-valley/');
   assert.equal(sportsDataFile(loveland[1]!), 'data/loveland/sports-thompson-valley.json');
-  assert.deepEqual(sportsRoutes('loveland'), [
+  assert.deepEqual(sportsRoutes('loveland', '/nowhere'), [
     ['/sports', 'sports-index.astro'],
     ['/sports/loveland-high', 'sports.astro'],
     ['/sports/thompson-valley', 'sports.astro'],
     ['/sports/mountain-view', 'sports.astro'],
     ['/sports/resurrection-christian', 'sports.astro'],
   ]);
+  assert.ok(sportsRoutes('loveland').some(([p, f]) => p === '/sports/mountain-view/football' && f === 'sports-team.astro'), 'a school’s team page carries the school’s slug');
+  assert.equal(teamPath(loveland[2]!, 'football'), '/sports/mountain-view/football/');
 });
 
 test('every school is one entry with its own file, and its town’s menu carries it in the third slot', () => {

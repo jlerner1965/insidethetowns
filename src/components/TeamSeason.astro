@@ -1,0 +1,104 @@
+---
+/**
+ * One team's season as the sports pages lay it out: the record and the run
+ * of results up top, then the next games, and the whole season, oldest
+ * first, behind "Show all N games". With nothing left to play, the last
+ * three results take the next games' place. The school page draws one per
+ * team with the heading linked to the team's own page; the team page draws
+ * its own under its masthead.
+ */
+import SeasonTable from './SeasonTable.astro';
+import type { SportData } from '@/config/school-sports';
+import { formatDayShort, formatShortDate } from '@/lib/dates';
+import { dedupeResults, gameDay as day, outcome, RESULT_WORD, season } from '@/lib/school-sports';
+
+interface Props {
+  team: SportData;
+  /** Today's day key, for "Today" and for which games are still to come. */
+  today: string;
+  /** The heading: its level under the page's own, its words, and the team page it links to where there is one. */
+  heading: { level: 'h2' | 'h3'; text: string; href?: string };
+  /** The team was read well before the school's newest read: say when. */
+  stale?: boolean;
+  class?: string;
+}
+
+const { team: s, today, heading, stale = false, class: className } = Astro.props;
+const Heading = heading.level;
+/** The pill's colours: a win in the primary, a loss in the ink, a tie in the soft accent. */
+const PILL = {
+  W: 'bg-primary text-white',
+  L: 'bg-ink text-raised',
+  T: 'bg-accent-soft text-ink',
+} as const;
+const results = dedupeResults(s.results);
+const games = season(s);
+const form = [...results].reverse();
+const wins = results.filter((g) => g.result === 'W').length;
+const ahead = s.upcoming.filter((g) => g.date >= today);
+const lead = ahead.length > 0 ? ahead.slice(0, 5) : results.slice(0, 3);
+---
+<article id={s.key} class:list={['scroll-mt-24 rounded-lg bg-raised p-5 ring-1 ring-primary-line sm:p-7', className]} aria-labelledby={`${s.key}-title`}>
+  <header class="grid gap-5 border-b-2 border-accent pb-5 md:grid-cols-[1fr_auto] md:items-end">
+    <div>
+      <Heading id={`${s.key}-title`} class="display-md text-3xl md:text-4xl">
+        {heading.href ? <a href={heading.href} class="no-underline hover:text-primary hover:underline">{heading.text}</a> : heading.text}
+      </Heading>
+      <p class="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+        <span class="display-md whitespace-nowrap text-[2.75rem] text-primary md:text-5xl">{s.overall ?? '—'}</span>
+        {s.league && (
+          <span class="text-[0.9375rem] leading-snug text-ink-muted">
+            {s.league.record} in the {s.league.name}{s.league.place && <Fragment>, <strong class="font-semibold text-ink">{s.league.place}</strong></Fragment>}
+          </span>
+        )}
+      </p>
+    </div>
+    {form.length > 0 && (
+      <div class="md:text-right">
+        <p class="eyebrow text-ink-muted">Form · {wins} of {form.length} won</p>
+        <ol class="mt-2 flex flex-wrap gap-1 md:justify-end" aria-label="Results, oldest first">
+          {form.map((g) => (
+            <li>
+              <a
+                href={g.url}
+                rel="noopener"
+                class:list={['inline-flex h-7 w-7 items-center justify-center rounded-sm text-[0.75rem] font-bold no-underline', g.result ? PILL[g.result] : 'bg-accent-soft text-ink']}
+                title={`${formatDayShort(day(g))}: ${g.result ? `${RESULT_WORD[g.result]} ` : ''}${outcome(g)}`}
+              >
+                <span aria-hidden="true">{g.result ?? '·'}</span>
+                <span class="sr-only">{formatDayShort(day(g))}: {g.result ? `${RESULT_WORD[g.result]} ` : ''}{outcome(g)}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    )}
+  </header>
+
+  {lead.length > 0 && (
+    <SeasonTable
+      games={lead}
+      {today}
+      caption={ahead.length > 0 ? (ahead.length === 1 ? 'Next game' : `Next ${lead.length} games`) : 'Latest results'}
+      next={ahead[0]?.url}
+      last={ahead.length > 0 ? 'Time' : 'Result'}
+    />
+  )}
+  {games.length > lead.length && (
+    <details class="group mt-4">
+      <summary class="inline-flex min-h-11 cursor-pointer items-center gap-2 font-semibold text-primary underline underline-offset-2">
+        <span class="group-open:hidden">Show all {games.length} games</span>
+        <span class="hidden group-open:inline">Hide the season</span>
+      </summary>
+      <div class="mt-2">
+        <SeasonTable games={games} {today} caption={`${s.name}, every game this season, oldest first`} hideCaption next={ahead[0]?.url} />
+      </div>
+    </details>
+  )}
+  {(s.held.length > 0 || stale) && (
+    <p class="mt-4 text-[0.9375rem] leading-relaxed text-ink-muted">
+      {s.held.length > 0 && <span>{s.held.length === 1 ? 'One more game' : `${s.held.length} more games`} to be confirmed: MaxPreps and the school calendar disagree. </span>}
+      {stale && s.fetched && <span>MaxPreps’s <a href={s.maxprepsUrl} rel="noopener" class="underline">{s.name.toLowerCase()} page</a> was last read {formatShortDate(new Date(s.fetched))}.</span>}
+    </p>
+  )}
+</article>
