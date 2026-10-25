@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-25T02:02:05.770Z",
+  "generated": "2026-10-25T02:07:58.667Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/football/",
-      "fetched": "2026-10-25T02:02:05.770Z",
+      "fetched": "2026-10-25T02:07:58.667Z",
       "maxprepsUpdated": "2026-10-25T01:19:53",
       "overall": "0-9",
       "league": {
@@ -132,7 +132,7 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/soccer/",
-      "fetched": "2026-10-25T02:02:05.770Z",
+      "fetched": "2026-10-25T02:07:58.667Z",
       "maxprepsUpdated": "2026-10-25T01:19:46",
       "overall": "12-1-2",
       "league": {
@@ -317,7 +317,7 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/volleyball/",
-      "fetched": "2026-10-25T02:02:05.770Z",
+      "fetched": "2026-10-25T02:07:58.667Z",
       "maxprepsUpdated": "2026-10-25T01:46:52",
       "overall": "10-11",
       "league": {
@@ -585,7 +585,7 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/softball/fall/",
-      "fetched": "2026-10-25T02:02:05.770Z",
+      "fetched": "2026-10-25T02:07:58.667Z",
       "maxprepsUpdated": "2026-10-25T01:19:11",
       "overall": "22-6",
       "league": {
@@ -932,7 +932,7 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/cross-country/",
-      "fetched": "2026-10-25T02:02:05.770Z",
+      "fetched": "2026-10-25T02:07:58.667Z",
       "maxprepsUpdated": "2026-10-25T01:46:59",
       "results": [],
       "upcoming": [],
@@ -946,7 +946,7 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/cross-country/girls/",
-      "fetched": "2026-10-25T02:02:05.770Z",
+      "fetched": "2026-10-25T02:07:58.667Z",
       "maxprepsUpdated": "2026-10-24T22:09:10",
       "results": [],
       "upcoming": [],
@@ -960,7 +960,7 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/basketball/",
-      "fetched": "2026-10-25T02:02:05.770Z",
+      "fetched": "2026-10-25T02:07:58.667Z",
       "maxprepsUpdated": "2026-10-25T01:47:06",
       "overall": "0-0",
       "league": {
@@ -968,54 +968,7 @@
         "name": "6A Front Range",
         "place": "1st"
       },
-      "results": [
-        {
-          "date": "2026-02-27",
-          "opponent": "Rangeview",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-rangeview-aurora/2-27-2026/?c=b194053d-68fb-4352-bdd6-31bebc0d0ff6",
-          "stage": "Boys Basketball State Tournaments",
-          "result": "L",
-          "score": {
-            "us": 37,
-            "them": 73
-          }
-        },
-        {
-          "date": "2026-02-24",
-          "opponent": "Rocky Mountain",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-rocky-mountain-fort-collins/2-24-2026/?c=c0c953df-2a76-4192-9b90-bf770b4838e2",
-          "stage": "Boys Basketball State Tournaments",
-          "result": "W",
-          "score": {
-            "us": 70,
-            "them": 66
-          }
-        },
-        {
-          "date": "2026-02-20",
-          "opponent": "Horizon",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-horizon-thornton/2-20-2026/?c=7801352b-e70e-4b70-9afb-9d0969862b8a",
-          "result": "L",
-          "score": {
-            "us": 58,
-            "them": 79
-          }
-        },
-        {
-          "date": "2026-02-19",
-          "opponent": "Brighton",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/basketball/game/brighton-vs-erie/2-19-2026/?c=d3d25164-02b5-4a03-a84f-27bb874d4948",
-          "result": "L",
-          "score": {
-            "us": 61,
-            "them": 67
-          }
-        }
-      ],
+      "results": [],
       "upcoming": [
         {
           "date": "2026-12-01",
@@ -1037,6 +990,131 @@
           "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/game/bear-creek-lakewood-vs-erie/12-10-2026/?c=4440521d-c489-460c-a392-d05f2dcf6052",
           "time": "18:30"
+        },
+        {
+          "date": "2026-12-12",
+          "opponent": "Rock Canyon",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-rock-canyon-highlands-ranch/12-12-2026/?c=237de4c9-cab2-483b-8852-31ba875fd4b6",
+          "time": "15:00"
+        },
+        {
+          "date": "2026-12-14",
+          "opponent": "Frederick",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-frederick/12-14-2026/?c=183bc082-d47b-4914-981e-33439938d0c9",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-16",
+          "opponent": "Mullen",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-mullen-denver/12-16-2026/?c=655b1029-996a-4ce3-94db-a4d5194fe6f4"
+        },
+        {
+          "date": "2027-01-05",
+          "opponent": "Fairview",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-fairview-boulder/1-5-2027/?c=c7853d07-9212-4f99-867e-69bb794fea56",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-08",
+          "opponent": "Broomfield",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/broomfield-bald-eagle-vs-erie/1-8-2027/?c=99cbcdc1-0dbe-47ab-b986-e6f0cff106a6",
+          "time": "18:30"
+        },
+        {
+          "date": "2027-01-12",
+          "opponent": "Legacy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-legacy-broomfield/1-12-2027/?c=2b28df58-9ce1-4142-aab5-6e49b10f612c",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-13",
+          "opponent": "Mountain View",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-mountain-view-loveland/1-13-2027/?c=fefbc124-adcd-47c5-8a18-7bf4933ed70b",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-15",
+          "opponent": "Horizon",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-horizon-thornton/1-15-2027/?c=0953479e-b6e2-44d4-99e8-81a814477d52",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-19",
+          "opponent": "Fort Collins",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-fort-collins/1-19-2027/?c=c6a377e7-04f1-4035-bf90-349ade02ad86",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Rocky Mountain",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-rocky-mountain-fort-collins/1-22-2027/?c=9367894e-4581-48c7-af8e-41d27b03bb31",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Fossil Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-fossil-ridge-fort-collins/1-26-2027/?c=9565fcb2-5b94-4f07-9028-8e7a128cf0a4",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Fairview",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-fairview-boulder/1-29-2027/?c=82e33ab9-143e-467b-909d-f6476275d442",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-02",
+          "opponent": "Broomfield",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/broomfield-bald-eagle-vs-erie/2-2-2027/?c=e57fdcfa-2be4-4903-8b1d-d71acacceff6",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-05",
+          "opponent": "Legacy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-legacy-broomfield/2-5-2027/?c=bc72845d-7ed5-42bb-8f58-99e135512387",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-09",
+          "opponent": "Horizon",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-horizon-thornton/2-9-2027/?c=b2ed515e-6d0e-43bc-9f93-bc8ad1233717",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-12",
+          "opponent": "Fort Collins",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-fort-collins/2-12-2027/?c=69d82838-fa00-4117-9972-f9ed6d0dac37",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-02-16",
+          "opponent": "Rocky Mountain",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-rocky-mountain-fort-collins/2-16-2027/?c=4da02992-3fbc-4e50-9a12-8f55e209ec70",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-18",
+          "opponent": "Fossil Ridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-fossil-ridge-fort-collins/2-18-2027/?c=9e45ba1e-d4e4-40c7-b014-4c1ddb5ca272",
+          "time": "19:00"
         }
       ],
       "held": [],
@@ -1048,7 +1126,7 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/basketball/girls/",
-      "fetched": "2026-10-25T02:02:05.770Z",
+      "fetched": "2026-10-25T02:07:58.667Z",
       "maxprepsUpdated": "2026-10-25T02:03:00",
       "overall": "0-0",
       "league": {
@@ -1056,54 +1134,7 @@
         "name": "6A Front Range",
         "place": "1st"
       },
-      "results": [
-        {
-          "date": "2026-03-04",
-          "opponent": "Highlands Ranch",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-highlands-ranch/3-4-2026/?c=4323c843-395c-4c72-be26-6162259faf57",
-          "stage": "Girls Basketball State Tournaments",
-          "result": "L",
-          "score": {
-            "us": 26,
-            "them": 73
-          }
-        },
-        {
-          "date": "2026-02-28",
-          "opponent": "Rock Canyon",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-rock-canyon-highlands-ranch/2-28-2026/?c=b0a9f69b-d928-4d6f-9411-08d5046bc933",
-          "stage": "Girls Basketball State Tournaments",
-          "result": "W",
-          "score": {
-            "us": 53,
-            "them": 30
-          }
-        },
-        {
-          "date": "2026-02-20",
-          "opponent": "Horizon",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-horizon-thornton/2-20-2026/?c=11ee48be-b86a-4045-bd96-6271865cf0e3",
-          "result": "W",
-          "score": {
-            "us": 46,
-            "them": 24
-          }
-        },
-        {
-          "date": "2026-02-19",
-          "opponent": "Brighton",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/basketball/girls/game/brighton-vs-erie/2-19-2026/?c=45d2b792-ee1e-4458-9248-8cd57c538f9d",
-          "result": "W",
-          "score": {
-            "us": 66,
-            "them": 19
-          }
-        }
-      ],
+      "results": [],
       "upcoming": [
         {
           "date": "2026-11-30",
@@ -1125,6 +1156,132 @@
           "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-pueblo-east/12-10-2026/?c=094d408d-341c-4e4e-b56e-2657b47ecd08",
           "time": "17:30"
+        },
+        {
+          "date": "2026-12-16",
+          "opponent": "Poudre",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-poudre-fort-collins/12-16-2026/?c=1648bbc7-9cca-456c-95a1-00b768766207",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-05",
+          "opponent": "Fairview",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-fairview-boulder/1-5-2027/?c=d0124ff8-699d-43f7-a1a0-0cf2fdd2bb61",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-09",
+          "opponent": "Columbine",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/columbine-littleton-vs-erie/1-9-2027/?c=b2fcfd5a-d09f-4f7f-b289-2251e906a3fb",
+          "time": "12:00"
+        },
+        {
+          "date": "2027-01-11",
+          "opponent": "Arvada West",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/arvada-west-vs-erie/1-11-2027/?c=3f19a0b1-5833-4794-8717-a1699c3f48e4",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-12",
+          "opponent": "Legacy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-legacy-broomfield/1-12-2027/?c=948a568e-818d-4168-ab4c-133dad63777f",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-15",
+          "opponent": "Horizon",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-horizon-thornton/1-15-2027/?c=50c2564b-0332-41cc-8989-7cb7fa69a470",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-19",
+          "opponent": "Fort Collins",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-fort-collins/1-19-2027/?c=62240763-8791-4477-992f-ff164e3a6e55",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Rocky Mountain",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-rocky-mountain-fort-collins/1-22-2027/?c=379d6327-e87f-4539-b203-8525daa618c8",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-23",
+          "opponent": "Broomfield",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/broomfield-bald-eagle-vs-erie/1-23-2027/?c=c50c4bcb-242d-4057-865f-560aa7491073",
+          "time": "12:00"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Fossil Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-fossil-ridge-fort-collins/1-26-2027/?c=b905ae22-e483-40b0-aac2-3eb1b39e0dca",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-27",
+          "opponent": "Frederick",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-frederick/1-27-2027/?c=685b576f-c055-44f9-be11-ae921bf56639",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Fairview",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-fairview-boulder/1-29-2027/?c=fc62e3cf-5e39-4909-a6a3-58b0ccccf7cd",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-02",
+          "opponent": "Broomfield",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/broomfield-bald-eagle-vs-erie/2-2-2027/?c=53bd5393-2365-4c29-9efc-8b9afe0f43ee",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-05",
+          "opponent": "Legacy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-legacy-broomfield/2-5-2027/?c=12a1d913-2aef-4522-997c-f5d159d6fbe8",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-09",
+          "opponent": "Horizon",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-horizon-thornton/2-9-2027/?c=22d1f5b2-62b5-4ec7-adb2-9e8c450893c7",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-12",
+          "opponent": "Fort Collins",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-fort-collins/2-12-2027/?c=f13f4867-d2ff-4998-848d-26f0e4fe0b11",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-16",
+          "opponent": "Rocky Mountain",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-rocky-mountain-fort-collins/2-16-2027/?c=701b515b-017f-40d3-8a57-d03e9fa4f1cc",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-18",
+          "opponent": "Fossil Ridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-fossil-ridge-fort-collins/2-18-2027/?c=3febca05-d845-4891-a9bc-2c284fc9d0e7",
+          "time": "17:30"
         }
       ],
       "held": [],
@@ -1136,7 +1293,7 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/wrestling/",
-      "fetched": "2026-10-25T02:02:05.770Z",
+      "fetched": "2026-10-25T02:07:58.667Z",
       "maxprepsUpdated": "2026-10-25T01:47:13",
       "results": [],
       "upcoming": [],
@@ -1150,7 +1307,7 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/swimming/girls/",
-      "fetched": "2026-10-25T02:02:05.770Z",
+      "fetched": "2026-10-25T02:07:58.667Z",
       "maxprepsUpdated": "2026-10-25T01:47:20",
       "results": [],
       "upcoming": [],
