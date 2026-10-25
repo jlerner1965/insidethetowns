@@ -406,6 +406,16 @@ export function schoolSportsFor(town: string, slug?: string): SchoolSports | und
   return schools.length === 1 ? schools[0] : undefined;
 }
 
+/**
+ * The school as its teams are called: "Berthoud Spartans", "Lyons Lions",
+ * "Timnath Cubs". MaxPreps's short name and the mascot, the way people say
+ * it and search for it; cutting "High School" off the full name gave
+ * "Lyons Middle/Senior Lions" and "Timnath Middle-High Cubs" (25 October 2026).
+ */
+export function schoolTeamName(school: Pick<SchoolSports, 'maxprepsName' | 'mascot'>): string {
+  return `${school.maxprepsName} ${school.mascot}`;
+}
+
 /** The school's page: "/sports/", or "/sports/<slug>/" where the town follows several. */
 export function sportsPath(school: SchoolSports): string {
   return school.slug ? `/sports/${school.slug}/` : '/sports/';

@@ -8,7 +8,7 @@ import assert from 'node:assert/strict';
 import { applySchedule, parseSchedulePage, parseTeamPage } from '../scripts/lib/maxpreps.ts';
 import { parseMonth, parseTitle } from '../scripts/lib/finalsite-calendar.ts';
 import { crossCheck, dedupeToCome, gamesToCome, keepPrevious, sameSchool } from '../scripts/lib/sports-crosscheck.ts';
-import { SCHOOL_SPORTS, schoolSportsFor, schoolsFor, shareImageName, shareImagePath, sportsDataFile, sportsPath, teamPath, type SportsData } from '../src/config/school-sports.ts';
+import { SCHOOL_SPORTS, schoolSportsFor, schoolsFor, schoolTeamName, shareImageName, shareImagePath, sportsDataFile, sportsPath, teamPath, type SportsData } from '../src/config/school-sports.ts';
 import { readFileSync } from 'node:fs';
 import { sportsRoutes } from '../src/integrations/town-routes.ts';
 import { findTown } from '../src/config/index.ts';
@@ -798,4 +798,29 @@ test('a league place is shown only once a league game is played: MaxPreps ranks 
   assert.equal(leaguePlace({ league: { record: '3-1', name: '3A Cache la Poudre', place: '3rd' } }), '3rd');
   assert.equal(leaguePlace({ league: { record: '0-2', name: 'x', place: '7th' } }), '7th', 'a winless team that has played has a place');
   assert.equal(leaguePlace({}), undefined);
+});
+
+test('the email’s "Last week" is a result from the past seven days: football’s, else any team’s, else nothing', async () => {
+  const { recentResult, weekAhead } = await import('../src/lib/school-sports.ts');
+  const result = (date: string, opponent: string) => ({ date, opponent, site: 'home' as const, result: 'W' as const, score: { us: 3, them: 1 }, url: `u-${date}` });
+  const team = (key: string, results: ReturnType<typeof result>[]) => ({ key, name: key, maxprepsUrl: '', fetched: 'x', results, upcoming: [], held: [], notes: [] });
+  const now = new Date('2026-11-12T15:00:00Z');
+  // Football done on 30 October, softball on 24 October: nothing in the week before 12 November.
+  const quiet: SportsData = { generated: '', sports: [team('football', [result('2026-10-30', 'Severance')]), team('softball', [result('2026-10-24', 'Holy Family')])] };
+  assert.equal(recentResult(quiet, now), undefined, 'an old result is not last week’s');
+  assert.equal(weekAhead(quiet, now).football, undefined);
+  assert.equal(weekAhead(quiet, now).last!.game.opponent, 'Severance', 'the page’s "Last out" still has it');
+  // Volleyball played on the 10th: that is last week's.
+  const busy: SportsData = { generated: '', sports: [...quiet.sports, team('volleyball', [result('2026-11-10', 'Erie')])] };
+  assert.equal(recentResult(busy, now)!.game.opponent, 'Erie');
+});
+
+test('a school’s teams are called by its short name and mascot, as people search for them', async () => {
+  const { teamPageTitle } = await import('../src/lib/school-sports.ts');
+  assert.equal(schoolTeamName(schoolSportsFor('lyons')!), 'Lyons Lions', 'not "Lyons Middle/Senior Lions"');
+  assert.equal(schoolTeamName(schoolSportsFor('timnath')!), 'Timnath Cubs', 'not "Timnath Middle-High Cubs"');
+  assert.equal(schoolTeamName(schoolSportsFor('johnstown')!), 'Roosevelt Roughriders');
+  assert.equal(schoolTeamName(schoolSportsFor('loveland', 'resurrection-christian')!), 'Resurrection Christian Cougars');
+  assert.equal(teamPageTitle(schoolSportsFor('lyons')!, { name: 'Football' }, '2026'), 'Lyons Lions Football Schedule, Scores & Record 2026');
+  for (const s of SCHOOL_SPORTS) assert.doesNotMatch(schoolTeamName(s), /School|Middle|Senior|\//, s.school);
 });

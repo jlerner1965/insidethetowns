@@ -3,7 +3,7 @@
  * game, the games to come, and the words for a game. Shared by /sports/
  * and the home page so both lead with the same game.
  */
-import { sportsDataFile, type SchoolSports, type SportConfig, type SportData, type SportGame, type SportsData } from '../config/school-sports.ts';
+import { schoolTeamName, sportsDataFile, type SchoolSports, type SportConfig, type SportData, type SportGame, type SportsData } from '../config/school-sports.ts';
 import { primaryHover } from '../config/palette.ts';
 import { dayKey, formatDayLong, formatTime, fromWallClock, TIME_ZONE } from './dates.ts';
 
@@ -201,11 +201,21 @@ export function lastResultOf(data: SportsData, key: string, now = new Date(), da
   return game.date >= since && game.date <= dayKey(now) ? { team, game } : undefined;
 }
 
+/** The most recent result of any team inside the last `days` days, or nothing. */
+export function recentResult(data: SportsData, now = new Date(), days = 7): TeamGame | undefined {
+  const last = latestResult(data);
+  if (!last) return undefined;
+  const since = dayKey(new Date(now.getTime() - days * 86_400_000));
+  return last.game.date >= since && last.game.date <= dayKey(now) ? last : undefined;
+}
+
 export interface WeekAhead {
   /** The week's games, football first, then soonest first, cut to the limit (stripGames). */
   games: TeamGame[];
-  /** The most recent result of any team, whenever it was. */
+  /** The most recent result of any team, whenever it was: "Last out" on the page. */
   last?: TeamGame;
+  /** The most recent result of any team in the past week: the email's "Last week" when football has none. */
+  recent?: TeamGame;
   /** Football's most recent result when it was in the past week. */
   football?: TeamGame;
 }
@@ -219,6 +229,7 @@ export function weekAhead(data: SportsData, now = new Date(), limit = Infinity, 
   return {
     games: stripGames(data, now, limit, days),
     last: latestResult(data),
+    recent: recentResult(data, now, days),
     football: lastResultOf(data, FLAGSHIP_TEAM, now, days),
   };
 }
@@ -327,8 +338,8 @@ export function schoolPageTitle(school: Pick<SchoolSports, 'school' | 'mascot'>,
 }
 
 /** "Berthoud Spartans Football Schedule, Scores & Record 2026". */
-export function teamPageTitle(school: Pick<SchoolSports, 'school' | 'mascot'>, team: Pick<SportData, 'name'>, years: string): string {
-  return `${school.school.replace(/ (High )?School$/, '')} ${school.mascot} ${titleCase(team.name)} Schedule, Scores & Record ${years}`;
+export function teamPageTitle(school: Pick<SchoolSports, 'maxprepsName' | 'mascot'>, team: Pick<SportData, 'name'>, years: string): string {
+  return `${schoolTeamName(school)} ${titleCase(team.name)} Schedule, Scores & Record ${years}`;
 }
 
 /** "Friday Oct 30, 7 pm" / "Saturday Oct 31": the next game's moment, short, for a description. */

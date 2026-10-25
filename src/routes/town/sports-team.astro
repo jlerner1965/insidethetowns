@@ -31,7 +31,8 @@ const data = sportsDataFor(cfg, files) ?? { generated: '', sports: [] };
 const team = data.sports.find((s) => s.key === key);
 if (!team || !hasData(team)) throw new Error(`${Astro.url.pathname}: ${key} has no data on ${cfg.school}; the route should not have been injected (src/integrations/town-routes.ts)`);
 const { school, mascot, calendar } = cfg;
-const shortSchool = school.replace(/ (High )?School$/, '');
+// "Berthoud", "Lyons": the school as its teams are called (schoolTeamName).
+const shortSchool = cfg.maxprepsName;
 const path = teamPath(cfg, key);
 const schoolPath = sportsPath(cfg);
 const sisters = teamsWithData(data).filter((s) => s.key !== key);

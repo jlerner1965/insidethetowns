@@ -50,7 +50,7 @@ import { activeChanges, briefingUpdates, corrections, currentNotes, currentPick,
 import { currentUpdates, isLateNotice } from '@/lib/updates';
 import { subTownLabel } from '@/lib/sub-towns';
 import { UPDATE_KIND_LABELS } from '@/content/schemas';
-import { schoolsFor, sportsPath, type SportsData } from '@/config/school-sports';
+import { schoolsFor, schoolTeamName, sportsPath, type SportsData } from '@/config/school-sports';
 import { formatGameTime, resultText, sportsDataFor, weekAhead, when as gameWhen, where } from '@/lib/school-sports';
 
 interface Props {
@@ -222,7 +222,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
       <Heading id={`games-${v}`} title="Games this week" />
       {schoolWeeks.map(({ school, week }) => (
         <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-          {schoolWeeks.length > 1 && <p class="eyebrow pt-4"><a href={sportsPath(school)} class="underline underline-offset-2">{school.school.replace(/ (High )?School$/, '')} {school.mascot}</a></p>}
+          {schoolWeeks.length > 1 && <p class="eyebrow pt-4"><a href={sportsPath(school)} class="underline underline-offset-2">{schoolTeamName(school)}</a></p>}
           <ul>
             {week.games.map(({ team, game }) => (
               <li class="border-t border-line-soft py-4 first:border-t-0">

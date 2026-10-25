@@ -94,7 +94,8 @@ const PILL = {
   T: 'bg-accent-soft text-ink',
 } as const;
 
-const shortName = (s: { school: string }) => s.school.replace(/ (High )?School$/, '');
+// "Mountain View", "Resurrection Christian": the school as its teams are called (schoolTeamName).
+const shortName = (s: { maxprepsName: string }) => s.maxprepsName;
 const indexName = `${town.name} high school sports`;
 // "Berthoud High School Spartans Scores & Schedules — Football, Soccer,
 // Volleyball, Softball": the sports from the teams with data, never typed.

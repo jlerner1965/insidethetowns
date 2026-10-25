@@ -17,7 +17,7 @@
  * In the guide's own colours: a guide that follows one school is in that
  * school's colour already, and a guide that follows several is in one.
  */
-import { schoolsFor, sportsPath, type SchoolSports, type SportGame, type SportsData } from '@/config/school-sports';
+import { schoolsFor, schoolTeamName, sportsPath, type SchoolSports, type SportGame, type SportsData } from '@/config/school-sports';
 import { formatGameTime, latestResult, outcome, RESULT_WORD, sportsDataFor, stripGames, weekGames, when, where } from '@/lib/school-sports';
 
 interface Props {
@@ -76,7 +76,7 @@ const stageWord = (g: SportGame) => (g.stage ? ` · ${g.stage}` : '');
             const next = games[0];
             return (
               <li class="py-3 text-[0.9375rem] leading-snug">
-                <a href={sportsPath(school)} class="font-semibold text-primary underline">{school.school.replace(/ (High )?School$/, '')} {school.mascot}</a>
+                <a href={sportsPath(school)} class="font-semibold text-primary underline">{schoolTeamName(school)}</a>
                 {next ? (
                   <span class="block text-ink-muted">{next.team.name} {where(next.game)} {next.game.opponent} · {when(next.game, now)}{next.game.time && ` · ${formatGameTime(next.game)}`}{stageWord(next.game)}{placeWord(next.game)}</span>
                 ) : last?.game.result ? (
