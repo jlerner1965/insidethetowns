@@ -62,7 +62,10 @@ Inside Grand Lake (insidegrandlake.com) was the one live guide missing; it
 is a URL-prefix property, `https://insidegrandlake.com/`, verified by the
 HTML tag: its code is `GOOGLE_SITE_VERIFICATION` on the `insidegrandlake`
 project (Production), set and deployed on 25 October 2026, the tag checked
-live on the page. Keep the variable: removing it unverifies the property.
+live on the page. The owner verified it and submitted
+`/sitemap-index.xml` the same day; Google read it with no errors, and the
+property is in GSC Wizard with the others. Keep the variable: removing it
+unverifies the property.
 The Performance figures in the weekly table below can be read through the
 plugin; the Pages report's indexed count cannot, and stays a person's job.
 The first read of the data is docs/SEARCH-CONSOLE-2026-10-20.md.
