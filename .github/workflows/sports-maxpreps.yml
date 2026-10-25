@@ -88,4 +88,17 @@ jobs:
           fi
           git commit -m "School sports, $(TZ=America/Denver date +%F): MaxPreps records, results and upcoming games" \
             -m "Written by the sports workflow (scripts/sports.ts) from MaxPreps, with upcoming games checked against the school calendar. The run summary lists what was held or could not be read."
-          git push origin HEAD:${{ github.ref_name }}
+          # A run takes a quarter of an hour, and anything pushed to the
+          # branch meanwhile (a merge, another run's data) turned this push
+          # away and the run's reads were lost (25 October 2026). So take
+          # what is new and push again. The commit only touches data files,
+          # and where another run wrote the same file this run's is the
+          # newer read, so it wins (-X theirs: in a rebase "theirs" is the
+          # commit being replayed, this run's).
+          for attempt in 1 2 3; do
+            if git push origin HEAD:${{ github.ref_name }}; then exit 0; fi
+            echo "The branch moved; taking its new commits and trying again ($attempt)."
+            git pull --rebase -X theirs origin ${{ github.ref_name }}
+          done
+          echo "Could not push after three tries."
+          exit 1
