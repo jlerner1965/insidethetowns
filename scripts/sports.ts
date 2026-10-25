@@ -45,7 +45,7 @@ function describe(page: TeamPage): string {
   const line = (g: TeamPage['glance'][number]) => {
     const where = g.site === 'home' ? 'vs' : g.site === 'away' ? '@ ' : 'n ';
     const tail = g.result ? `${g.result} ${g.score!.us}-${g.score!.them}` : g.place ? g.place : (g.time ?? 'time TBA');
-    return `  ${g.date}  ${where} ${g.opponent}  ${tail}`;
+    return `  ${g.date}  ${where} ${g.opponent}  ${tail}${g.stage ? `  [${g.stage}]` : ''}`;
   };
   return [
     `Overall ${page.overall ?? '(not found)'}; ${page.league ? `${page.league.name} ${page.league.record}${page.league.place ? ` (${page.league.place})` : ''}` : 'no league record'}; MaxPreps updated ${page.updatedOn ?? '(unknown)'}`,
@@ -123,6 +123,8 @@ async function probe(school: SchoolSports, sport: string): Promise<number> {
       const schedule = parseSchedulePage(sched.html, { url, schoolName: school.maxprepsName, playoffVenue: team?.playoffVenue });
       console.log(`Schedule page: ${schedule.games.length} games, ${schedule.skipped} skipped, ${schedule.warnings.length} warnings`);
       for (const w of schedule.warnings) console.log(`  ${w}`);
+      // The postseason as MaxPreps labels it, game by game, so a run shows the stage field where there is one.
+      for (const g of schedule.games.filter((g) => g.stage)) console.log(`  ${g.date} ${g.opponent}: ${g.stage}${g.venue ? ` at ${g.venue}` : ''}`);
     }
   }
   if (page.noSchedule) console.log('\nParse: ok, but MaxPreps lists no schedule for this team.');
@@ -237,7 +239,7 @@ async function runTown(school: SchoolSports): Promise<string> {
     data.sports.push(entry);
     const last = entry.results[0];
     summary.push(
-      `| ${sport.name} | ${entry.overall ?? '—'} | ${entry.league ? `${entry.league.record} ${entry.league.name}` : '—'} | ${last ? `${last.result ?? last.place ?? ''} ${last.score ? `${last.score.us}-${last.score.them} ` : ''}${last.site === 'home' ? 'vs' : 'at'} ${last.opponent}, ${last.date}` : '—'} | ${entry.upcoming[0] ? `${entry.upcoming[0].date} ${entry.upcoming[0].site === 'home' ? 'vs' : 'at'} ${entry.upcoming[0].opponent}` : '—'} | ${entry.held.length} |`,
+      `| ${sport.name} | ${entry.overall ?? '—'} | ${entry.league ? `${entry.league.record} ${entry.league.name}` : '—'} | ${last ? `${last.result ?? last.place ?? ''} ${last.score ? `${last.score.us}-${last.score.them} ` : ''}${last.site === 'home' ? 'vs' : 'at'} ${last.opponent}, ${last.date}${last.stage ? ` (${last.stage})` : ''}` : '—'} | ${entry.upcoming[0] ? `${entry.upcoming[0].date} ${entry.upcoming[0].site === 'home' ? 'vs' : 'at'} ${entry.upcoming[0].opponent}${entry.upcoming[0].stage ? ` (${entry.upcoming[0].stage})` : ''}` : '—'} | ${entry.held.length} |`,
     );
     for (const h of entry.held) flags.push(`**${sport.name}**, held: ${h.reason}`);
     for (const n of entry.notes) flags.push(`${sport.name}: ${n}`);

@@ -187,6 +187,20 @@ export function season(team: SportData): SportGame[] {
   return [...dedupeResults(team.results)].reverse().concat(team.upcoming);
 }
 
+/**
+ * Every team's season is played out: no game to come from today on, and at
+ * least one result. The sports page's band then says "Regular season
+ * complete" rather than "nothing scheduled yet": a team with nine results
+ * and no tenth game listed has finished its regular season (Elizabeth
+ * football, 9-0, 25 October 2026); a playoff round not yet on MaxPreps is
+ * the same from here. Nothing is said about a team with no results at all.
+ */
+export function seasonComplete(data: SportsData, now = new Date()): boolean {
+  const today = dayKey(now);
+  const played = data.sports.filter((t) => t.results.length > 0);
+  return played.length > 0 && !data.sports.some((t) => t.upcoming.some((g) => g.date >= today));
+}
+
 /** The most recent result across the teams. */
 export function latestResult(data: SportsData): TeamGame | undefined {
   return data.sports

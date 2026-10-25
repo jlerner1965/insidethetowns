@@ -111,6 +111,13 @@ interface MpContest {
   isTimeTba: boolean;
   isDateTba: boolean;
   teams: MpTeam[];
+  /**
+   * The bracket a postseason or tournament game belongs to, or null. The
+   * glance card carries the bracket's name only ("Class 4A"); the Game
+   * Results post for the same contest names the tournament too ("2026 CHSAA
+   * State Softball Tournaments", Windsor softball, 25 October 2026).
+   */
+  tournament?: { tournamentName?: string | null; bracketName?: string | null } | null;
 }
 interface MpPost {
   type: number;
@@ -128,6 +135,20 @@ function site(homeAwayType: number): SportGame['site'] {
 function dateFromUrl(url: string): string | undefined {
   const m = url.match(/\/(\d{1,2})-(\d{1,2})-(\d{4})\//);
   return m ? `${m[3]}-${m[1]!.padStart(2, '0')}-${m[2]!.padStart(2, '0')}` : undefined;
+}
+
+/**
+ * The stage MaxPreps labels a postseason or tournament game with, as the
+ * data file carries it: the tournament's name with the season's year and
+ * "CHSAA" dropped from the front ("2026 CHSAA State Softball Tournaments" is
+ * "State Softball Tournaments"; "2026 CHSAA Class 4A Softball Round of 32"
+ * is "Class 4A Softball Round of 32"). Nothing else is changed or added:
+ * MaxPreps names no round per game, so no "semifinal" or "championship" is
+ * written that it does not state.
+ */
+export function stageName(tournamentName: string | null | undefined): string | undefined {
+  const name = (tournamentName ?? '').replace(/^\s*\d{4}\s+/, '').replace(/^CHSAA\s+/i, '').trim();
+  return name || undefined;
 }
 
 function ordinal(n: number): string {
@@ -148,6 +169,8 @@ function toGame(c: MpContest, us: Team, kickoff?: string): SportGame | undefined
   // 2026, lost 4-15 and 9-17), and it is what tells one from the other.
   const game: SportGame = { date, opponent, site: site(c.homeAwayType), url: c.canonicalUrl };
   if (c.homeAwayType === 2) game.neutral = true;
+  const stage = stageName(c.tournament?.tournamentName);
+  if (stage) game.stage = stage;
   if (c.hasResult && mine.result && mine.score != null && theirs?.score != null) {
     game.result = mine.result;
     game.score = { us: mine.score, them: theirs.score };
@@ -262,7 +285,9 @@ export function usable(page: TeamPage): boolean {
  * 7p." for one to come). A row the sentence does not bear out fails the
  * whole page, and the run keeps what the home page said.
  */
-const ROW = { teams: 0, id: 1, hasResult: 4, venue: 5, kickoff: 11, url: 18, state: 28, sentence: 29 } as const;
+const ROW = { teams: 0, id: 1, hasResult: 4, venue: 5, kickoff: 11, bracketId: 12, tournamentId: 13, url: 18, state: 28, sentence: 29 } as const;
+/** A row outside any bracket carries this in place of a tournament id. */
+const NO_TOURNAMENT = '00000000-0000-0000-0000-000000000000';
 /** `where` is 0 at home, 1 away, 2 at a neutral site (the softball tournament rows, 21 October 2026). */
 const TEAM = { result: 5, score: 6, where: 11, url: 13, name: 14 } as const;
 
@@ -283,6 +308,36 @@ function clockFromSentence(sentence: string): string | undefined {
   return `${String(h).padStart(2, '0')}:${m[2] ?? '00'}`;
 }
 
+/**
+ * The schedule page's postseason, contest id to the stage name (stageName):
+ * `pageProps.tournaments` is one entry per bracket game of the season, with
+ * the contest's id, the tournament's name and `isTournamentPlayOff`
+ * (Windsor softball, read 25 October 2026: four entries, all "2026 CHSAA
+ * State Softball Tournaments", all playoff). A page without the list, or
+ * with one in another shape, gives no names, and the rows fall back to the
+ * sentence's word.
+ */
+export function tournamentNames(html: string): Map<string, string> {
+  const out = new Map<string, string>();
+  const raw = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/)?.[1];
+  if (!raw) return out;
+  let list: unknown;
+  try {
+    list = JSON.parse(raw).props?.pageProps?.tournaments;
+  } catch {
+    return out;
+  }
+  if (!Array.isArray(list)) return out;
+  for (const t of list as Array<Record<string, unknown>>) {
+    if (!t || typeof t !== 'object') continue;
+    const name = stageName(typeof t.tournamentName === 'string' ? t.tournamentName : undefined);
+    if (!name) continue;
+    if (typeof t.contestId === 'string') out.set(t.contestId, name);
+    if (typeof t.tournamentId === 'string') out.set(t.tournamentId, name);
+  }
+  return out;
+}
+
 export function parseSchedulePage(html: string, us: Team): SchedulePage {
   const page: SchedulePage = { url: us.url, games: [], warnings: [], skipped: 0 };
   const raw = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/)?.[1];
@@ -301,6 +356,7 @@ export function parseSchedulePage(html: string, us: Team): SchedulePage {
     page.warnings.push('no contests on the schedule page');
     return page;
   }
+  const names = tournamentNames(html);
   for (const row of rows as unknown[][]) {
     const id = String(row[ROW.id] ?? '');
     const fail = (why: string) => page.warnings.push(`schedule row ${id || '?'}: ${why}`);
@@ -368,7 +424,15 @@ export function parseSchedulePage(html: string, us: Team): SchedulePage {
     // MaxPreps files it on (the state softball opener was "home"). The
     // venue is MaxPreps's where it names one, or the sport's playoff site.
     const playoff = /\bplayoff\b/i.test(sentence);
-    if (playoff || mine.neutral || /\btournament\b/i.test(sentence)) {
+    const tournament = /\btournament\b/i.test(sentence);
+    // The stage, as MaxPreps labels the game: the tournament's name where
+    // the page's bracket list has it (`pageProps.tournaments`, by the
+    // contest's id, else the tournament's), else the kind of game the
+    // sentence names ("playoff game", "tournament match").
+    const tournamentId = typeof row[ROW.tournamentId] === 'string' && row[ROW.tournamentId] !== NO_TOURNAMENT ? (row[ROW.tournamentId] as string) : undefined;
+    const stage = names.get(id) ?? (tournamentId && names.get(tournamentId)) ?? (playoff ? 'Playoffs' : tournament ? 'Tournament' : undefined);
+    if (stage) game.stage = stage;
+    if (playoff || mine.neutral || tournament) {
       game.neutral = true;
       game.site = 'neutral';
       const venue = typeof row[ROW.venue] === 'string' ? (row[ROW.venue] as string).trim() : '';

@@ -493,3 +493,99 @@ test('the strip keeps the week’s football game however many matches come befor
   const later = { ...berthoud, sports: [team('football', 'Football', '7-2', [game('2026-11-06', '19:00', 'Playoff', 'away')]), ...bye.sports] };
   assert.deepEqual(stripGames(later, now, 3).map((c) => c.game.opponent), ['University', 'Windsor Charter Academy', 'Frederick']);
 });
+
+/*
+ * The postseason as MaxPreps labels it (Windsor softball, read from the
+ * runner 25 October 2026): the schedule row's sentence says "neutral playoff
+ * game", the row carries the tournament's id, and the page's bracket list
+ * names it "2026 CHSAA State Softball Tournaments"; the Game Results post on
+ * the home page names the same tournament in its `tournament` object. No
+ * round is stated anywhere per game.
+ */
+const WINDSOR_SB = { url: 'https://www.maxpreps.com/co/windsor/windsor-wizards/softball/fall/', schoolName: 'Windsor', playoffVenue: 'Aurora Sports Park' };
+const WINDSOR = { name: 'Windsor', url: WINDSOR_SB.url };
+const STATE = 'ebde8a19-74eb-4897-839d-0c381f6bad34';
+const R32 = '6a45d709-60fb-4e2a-907d-b2cebf15d0cc';
+function stateRow(o: { id: string; date: string; kickoff: string; them: string; themUrl: string; us: number; them2: number; sentence: string; tournament?: string; venue?: string }) {
+  const row = scheduleRow({
+    id: o.id, url: `https://www.maxpreps.com/co/softball/game/${o.them.toLowerCase().replace(/ /g, '-')}-vs-windsor/${o.date}/`, kickoff: o.kickoff, played: true, sentence: o.sentence,
+    teams: [{ ...WINDSOR, away: 'neutral', result: 'W', score: o.us }, { name: o.them, url: o.themUrl, away: 'neutral', result: 'L', score: o.them2 }],
+  });
+  row[12] = o.tournament ? 'cbf4aaf8-cddf-4f26-8d76-d9957e13ba35' : '00000000-0000-0000-0000-000000000000';
+  row[13] = o.tournament ?? '00000000-0000-0000-0000-000000000000';
+  if (o.venue) row[5] = o.venue;
+  return row;
+}
+const windsorRows = [
+  scheduleRow({
+    id: 'sev', url: 'https://www.maxpreps.com/co/softball/game/severance-vs-windsor/10-8-2026/', kickoff: '2026-10-08T16:00:00', played: true,
+    sentence: 'On 10/8, the Windsor varsity softball team won their away conference game against Severance (CO) by a score of 4-0.',
+    teams: [{ ...WINDSOR, away: true, result: 'W', score: 4 }, { name: 'Severance', url: 'https://www.maxpreps.com/co/severance/severance-silver-knights/softball/fall/', away: false, result: 'L', score: 0 }],
+  }),
+  stateRow({ id: 'tj', date: '10-17-2026', kickoff: '2026-10-17T10:00:00', them: 'Thomas Jefferson', themUrl: 'https://www.maxpreps.com/co/denver/thomas-jefferson-spartans/softball/fall/', us: 13, them2: 0, tournament: R32, sentence: 'On 10/17, the Thomas Jefferson varsity softball team lost their neutral tournament game against Windsor (CO) by a score of 13-0.' }),
+  stateRow({ id: 'fm', date: '10-24-2026', kickoff: '2026-10-24T10:00:00', them: 'Fruita Monument', themUrl: 'https://www.maxpreps.com/co/fruita/fruita-monument-wildcats/softball/fall/', us: 13, them2: 3, tournament: STATE, venue: 'Field B4', sentence: 'On 10/24, the Windsor varsity softball team won their neutral playoff game against Fruita Monument (Fruita, CO) by a score of 13-3.' }),
+  stateRow({ id: 'hf', date: '10-24-2026', kickoff: '2026-10-24T13:15:00', them: 'Holy Family', themUrl: 'https://www.maxpreps.com/co/broomfield/holy-family-tigers/softball/fall/', us: 6, them2: 2, tournament: STATE, venue: 'Field B4', sentence: 'On 10/24, the Windsor varsity softball team won their neutral playoff game against Holy Family (Broomfield, CO) by a score of 6-2.' }),
+];
+const schedulePageWith = (rows: unknown[][], tournaments: unknown) => `<html><body><script id="__NEXT_DATA__" type="application/json">${JSON.stringify({ props: { pageProps: { contests: rows, tournaments } } })}</script></body></html>`;
+
+test('a playoff or tournament game carries the stage MaxPreps labels it with, and no round it does not state: Windsor softball', async () => {
+  const { stageName } = await import('../scripts/lib/maxpreps.ts');
+  assert.equal(stageName('2026 CHSAA State Softball Tournaments'), 'State Softball Tournaments');
+  assert.equal(stageName('2026 CHSAA Class 4A Softball Round of 32'), 'Class 4A Softball Round of 32');
+  assert.equal(stageName(null), undefined);
+
+  // The schedule page: the bracket list names the tournament; a row outside any bracket has no stage.
+  // `pageProps.tournaments` as the live page had it: one entry per bracket game, by contest id.
+  const brackets = [
+    { contestId: 'fm', tournamentId: STATE, tournamentName: '2026 CHSAA State Softball Tournaments', isTournamentPlayOff: true, bracketName: 'Class 4A' },
+    { contestId: 'hf', tournamentId: STATE, tournamentName: '2026 CHSAA State Softball Tournaments', isTournamentPlayOff: true, bracketName: 'Class 4A' },
+    { contestId: 'tj', tournamentId: R32, tournamentName: '2026 CHSAA Class 4A Softball Round of 32', isTournamentPlayOff: false, bracketName: 'Class 4A Site 1 ' },
+  ];
+  const named = parseSchedulePage(schedulePageWith(windsorRows, brackets), WINDSOR_SB);
+  assert.deepEqual(named.warnings, []);
+  assert.deepEqual(named.games.map((g) => [g.opponent, g.stage ?? null, g.venue ?? null]), [
+    ['Severance', null, null],
+    ['Thomas Jefferson', 'Class 4A Softball Round of 32', null],
+    ['Fruita Monument', 'State Softball Tournaments', 'Aurora Sports Park'],
+    ['Holy Family', 'State Softball Tournaments', 'Aurora Sports Park'],
+  ]);
+  for (const g of named.games) assert.ok(!/semifinal|championship|final/i.test(g.stage ?? ''), 'no round is invented');
+  // Without the bracket list, the sentence's own word stands; a volleyball "tournament match" reads the same.
+  const bare = parseSchedulePage(schedulePageWith(windsorRows, []), WINDSOR_SB);
+  assert.deepEqual(bare.games.map((g) => g.stage ?? null), [null, 'Tournament', 'Playoffs', 'Playoffs']);
+
+  // The home page: the Game Results post names the tournament; the glance card's entry does not, and says nothing.
+  const holyFamily = {
+    contestId: 'hf', hasResult: true, canonicalUrl: 'https://www.maxpreps.com/co/softball/game/holy-family-broomfield-vs-windsor/10-24-2026/?c=hf', timestamp: '2026-10-24T21:26:29', homeAwayType: 2, isTimeTba: false, isDateTba: false,
+    teams: [{ schoolName: 'Windsor', score: 6, result: 'W', teamCanonicalUrl: WINDSOR_SB.url }, { schoolName: 'Holy Family', score: 2, result: 'L', teamCanonicalUrl: 'https://www.maxpreps.com/co/broomfield/holy-family-tigers/softball/fall/' }],
+    tournament: { tournamentName: null, bracketName: 'Class 4A' },
+  };
+  const home = page({
+    teamContext: { standingsData: { overallStanding: { overallWinLossTies: '29-0' } } },
+    wallCards: { schedule: { data: [holyFamily] } },
+    wallPosts: [{ type: 9, title: 'Game Results', timeStamp: '2026-10-24T21:26:29', data: { ...holyFamily, tournament: { tournamentName: '2026 CHSAA State Softball Tournaments', bracketName: 'Class 4A' } } }],
+  }, 'Windsor Wizards Softball Overall 29-0 Schedule at a Glance');
+  const p = parseTeamPage(home, WINDSOR_SB);
+  assert.equal(p.results[0]!.stage, 'State Softball Tournaments');
+  assert.equal(p.results[0]!.neutral, true);
+  assert.equal(p.glance[0]!.stage, undefined, 'the glance card names no tournament, so nothing is written');
+  assert.deepEqual(p.warnings, []);
+});
+
+test('with every game played and none listed to come, the band says the regular season is complete: Elizabeth football', async () => {
+  const { seasonComplete } = await import('../src/lib/school-sports.ts');
+  const now = new Date('2026-10-25T15:00:00Z');
+  const tca = { date: '2026-10-23', opponent: 'The Classical Academy', site: 'home' as const, result: 'W' as const, score: { us: 27, them: 17 }, url: 'u1' };
+  const team = (key: string, results: typeof tca[], upcoming: Array<{ date: string; opponent: string; site: 'home' | 'away'; url: string }>) => ({ key, name: key, maxprepsUrl: '', fetched: '2026-10-24T17:09:58.516Z', overall: '9-0', results, upcoming, held: [], notes: [] });
+  // data/elizabeth/sports.json, 24 October 2026: nine results, nothing to come, on every team.
+  const elizabeth: SportsData = { generated: '2026-10-24T17:09:58.516Z', sports: [team('football', [tca], []), team('volleyball', [{ ...tca, opponent: 'Ponderosa', url: 'u2' }], [])] };
+  assert.equal(seasonComplete(elizabeth, now), true);
+  // Berthoud the same day: football at Severance on the Friday, so the season is not complete.
+  const berthoud: SportsData = { generated: '', sports: [team('football', [tca], [{ date: '2026-10-30', opponent: 'Severance', site: 'away', url: 'u3' }])] };
+  assert.equal(seasonComplete(berthoud, now), false);
+  // A game listed for today still counts as to come.
+  const today: SportsData = { generated: '', sports: [team('football', [tca], [{ date: '2026-10-25', opponent: 'X', site: 'away', url: 'u4' }])] };
+  assert.equal(seasonComplete(today, now), false);
+  // Nothing played yet: nothing to say.
+  assert.equal(seasonComplete({ generated: '', sports: [team('football', [], [])] }, now), false);
+});

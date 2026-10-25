@@ -365,6 +365,15 @@ export interface SportGame {
   neutral?: boolean;
   /** Where a neutral game is played, when known: MaxPreps's venue, or the sport's playoffVenue. */
   venue?: string;
+  /**
+   * A postseason or tournament game, as MaxPreps labels it: the tournament's
+   * name where it gives one ("State Softball Tournaments", "Class 4A
+   * Softball Round of 32", the year and "CHSAA" dropped from the front), else
+   * the kind of game its schedule sentence names ("Playoffs", "Tournament").
+   * MaxPreps states no round per game (no "semifinal", no "championship"),
+   * so none is written; what the page cannot read is left unset.
+   */
+  stage?: string;
   /** The game's page on MaxPreps. */
   url: string;
 }

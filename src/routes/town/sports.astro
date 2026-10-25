@@ -37,7 +37,7 @@ import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
 import { schoolSportsFor, schoolsFor, sportsPath, type SportData, type SportsData } from '@/config/school-sports';
 import { dayKey, formatDayLong, formatDayShort, formatShortDate, formatTime } from '@/lib/dates';
-import { bigGame, coming, dedupeResults, gameDay as day, latestResult, outcome, recentResults, RESULT_WORD, placeText, schoolCssVars, season, sportsDataFor, when, where } from '@/lib/school-sports';
+import { bigGame, coming, dedupeResults, gameDay as day, latestResult, outcome, recentResults, RESULT_WORD, placeText, schoolCssVars, season, seasonComplete, sportsDataFor, when, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -177,7 +177,7 @@ const jsonLd = [
     <section class="on-dark bg-primary text-white" aria-labelledby="next-up">
       <div class="container-page grid gap-10 py-14 md:grid-cols-[3fr_2fr] md:items-end md:py-20">
         <div>
-          <p class="eyebrow text-white/80">Next up · {next.team.name}</p>
+          <p class="eyebrow text-white/80">Next up · {next.team.name}{next.game.stage && ` · ${next.game.stage}`}</p>
           <h2 id="next-up" class="display mt-4 text-[2.75rem] sm:text-6xl lg:text-7xl">
             {mascot} {where(next.game)} {next.game.opponent}
           </h2>
@@ -206,6 +206,7 @@ const jsonLd = [
                   <span class="min-w-0">
                     <span class="font-semibold">{team.name}</span> {where(game)} {game.opponent}
                     {game.time && <span class="text-white/70"> · {formatTime(day(game))}</span>}
+                    {game.stage && <span class="text-white/70"> · {game.stage}</span>}
                   </span>
                 </li>
               ))}
@@ -222,7 +223,7 @@ const jsonLd = [
           {RESULT_WORD[latest.game.result ?? 'T']} {outcome(latest.game)}
         </h2>
         <p class="mt-5 text-xl leading-snug md:text-2xl">
-          <time datetime={latest.game.date}>{formatDayLong(day(latest.game))}</time><span class="text-white/70"> · {placeText(latest.game)} · nothing scheduled yet</span>
+          <time datetime={latest.game.date}>{formatDayLong(day(latest.game))}</time><span class="text-white/70"> · {latest.game.stage && `${latest.game.stage} · `}{placeText(latest.game)} · {seasonComplete(data, now) ? 'regular season complete' : 'nothing scheduled yet'}</span>
         </p>
       </div>
     </section>
@@ -243,7 +244,7 @@ const jsonLd = [
               <li class:list={['rounded-lg bg-paper p-5 ring-1 ring-line-soft', i >= 3 && 'hidden sm:block']}>
                 <p class="flex items-baseline justify-between gap-3 text-[0.8125rem] text-ink-muted">
                   <span class="eyebrow">{team.name}</span>
-                  <span><time datetime={game.date}>{formatDayShort(day(game))}</time> · {placeText(game)}</span>
+                  <span><time datetime={game.date}>{formatDayShort(day(game))}</time>{game.stage && ` · ${game.stage}`} · {placeText(game)}</span>
                 </p>
                 {game.score ? (
                   <dl class="mt-4 space-y-1.5">

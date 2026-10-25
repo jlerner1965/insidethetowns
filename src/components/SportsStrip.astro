@@ -17,7 +17,7 @@
  * In the guide's own colours: a guide that follows one school is in that
  * school's colour already, and a guide that follows several is in one.
  */
-import { schoolsFor, sportsPath, type SchoolSports, type SportsData } from '@/config/school-sports';
+import { schoolsFor, sportsPath, type SchoolSports, type SportGame, type SportsData } from '@/config/school-sports';
 import { formatGameTime, latestResult, outcome, RESULT_WORD, sportsDataFor, stripGames, weekGames, when, where } from '@/lib/school-sports';
 
 interface Props {
@@ -40,7 +40,10 @@ const rows = schools.map(read);
 const single = rows.length === 1 ? rows[0] : undefined;
 const title = single ? `${single.school.mascot} this week` : 'High school sports this week';
 const shown = single ? single.games.length > 0 || !!single.last?.game.result : rows.some((r) => r.games.length > 0 || r.last?.game.result);
-const placeWord = (site: string) => (site === 'home' ? ' · Home' : site === 'away' ? ' · Away' : '');
+// " · Home", " · Away", " · Aurora Sports Park" for a neutral game with a venue, nothing for one without.
+const placeWord = (g: SportGame) => (g.venue ? ` · ${g.venue}` : g.site === 'home' ? ' · Home' : g.site === 'away' ? ' · Away' : '');
+// " · State Softball Tournaments": the stage MaxPreps labels the game with, where it does.
+const stageWord = (g: SportGame) => (g.stage ? ` · ${g.stage}` : '');
 ---
 {shown && (
   <section class:list={['rounded-lg bg-raised p-5 ring-1 ring-line-soft', className]} aria-labelledby="sports-strip">
@@ -52,7 +55,7 @@ const placeWord = (site: string) => (site === 'home' ? ' · Home' : site === 'aw
             {single.games.map(({ team, game }) => (
               <li class="text-[0.9375rem] leading-snug">
                 <span class="font-semibold">{team.name}</span> {where(game)} {game.opponent}
-                <span class="block text-ink-muted">{when(game, now)}{game.time && ` · ${formatGameTime(game)}`}{placeWord(game.site)}</span>
+                <span class="block text-ink-muted">{when(game, now)}{game.time && ` · ${formatGameTime(game)}`}{stageWord(game)}{placeWord(game)}</span>
               </li>
             ))}
           </ul>
@@ -75,7 +78,7 @@ const placeWord = (site: string) => (site === 'home' ? ' · Home' : site === 'aw
               <li class="py-3 text-[0.9375rem] leading-snug">
                 <a href={sportsPath(school)} class="font-semibold text-primary underline">{school.school.replace(/ (High )?School$/, '')} {school.mascot}</a>
                 {next ? (
-                  <span class="block text-ink-muted">{next.team.name} {where(next.game)} {next.game.opponent} · {when(next.game, now)}{next.game.time && ` · ${formatGameTime(next.game)}`}{placeWord(next.game.site)}</span>
+                  <span class="block text-ink-muted">{next.team.name} {where(next.game)} {next.game.opponent} · {when(next.game, now)}{next.game.time && ` · ${formatGameTime(next.game)}`}{stageWord(next.game)}{placeWord(next.game)}</span>
                 ) : last?.game.result ? (
                   <span class="block text-ink-muted">Last out: {last.team.name.toLowerCase()} {RESULT_WORD[last.game.result].toLowerCase()} {outcome(last.game)}</span>
                 ) : (
