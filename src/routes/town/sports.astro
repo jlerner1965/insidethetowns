@@ -40,7 +40,7 @@ import { getTown } from '@/config';
 import { schoolSportsFor, schoolsFor, sportsPath, teamPath, type SportData, type SportsData } from '@/config/school-sports';
 import { dayKey, formatDayShort, formatShortDate } from '@/lib/dates';
 import { bigGame, coming, gameDay as day, latestResult, recentResults, RESULT_WORD, placeText, schoolCssVars, schoolPageTitle, seasonComplete, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
-import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, collectionPageJsonLd, sportsEventJsonLd } from '@/lib/seo';
 
 const town = getTown();
 // Every town's file is in the bundle; the route exists only for towns in the config.
@@ -106,6 +106,11 @@ const jsonLd = [
     { name: 'Sports', path: '/sports/' },
     ...(cfg.slug ? [{ name: school, path }] : []),
   ]),
+  // One SportsEvent per game to come, every team, from the data alone (src/lib/seo.ts).
+  ...coming(data)
+    .filter((c) => c.game.date >= today)
+    .map((c) => sportsEventJsonLd(town, cfg, c.team, c.game, path))
+    .filter((e): e is NonNullable<typeof e> => !!e),
 ];
 ---
 <Base title={pageTitle} fullTitle={`${pageTitle} · ${town.siteTitle}`} {description} {jsonLd}>

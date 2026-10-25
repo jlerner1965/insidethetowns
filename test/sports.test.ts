@@ -706,3 +706,50 @@ test('titles and descriptions come from the data: the school, the mascot, the sp
   assert.equal(schoolPageTitle(berthoud, [team('Football'), team('Boys soccer'), team('Volleyball'), team('Softball')]), 'Berthoud High School Spartans Scores & Schedules — Football, Soccer, Volleyball, Softball');
   assert.equal(schoolPageTitle(berthoud, []), 'Berthoud High School Spartans Scores & Schedules', 'no data yet, no list');
 });
+
+/*
+ * schema.org's SportsEvent, as its page lists the type (schema.org/SportsEvent,
+ * read 25 October 2026): its own properties, then Event's, then Thing's.
+ * Every key the builder writes has to be one of them, and the nested
+ * types have to be what the properties take.
+ */
+const SPORTS_EVENT_PROPERTIES = new Set([
+  'awayTeam', 'competitor', 'homeTeam', 'referee', 'sport',
+  'about', 'actor', 'aggregateRating', 'attendee', 'audience', 'composer', 'contributor', 'director', 'doorTime', 'duration', 'endDate', 'eventAttendanceMode', 'eventSchedule', 'eventStatus', 'funder', 'funding', 'hasParticipationOffer', 'hasSponsorshipOffer', 'inLanguage', 'isAccessibleForFree', 'keywords', 'location', 'maximumAttendeeCapacity', 'maximumPhysicalAttendeeCapacity', 'maximumVirtualAttendeeCapacity', 'offers', 'organizer', 'performer', 'previousStartDate', 'recordedIn', 'remainingAttendeeCapacity', 'review', 'sponsor', 'startDate', 'subEvent', 'superEvent', 'translator', 'typicalAgeRange', 'workFeatured', 'workPerformed',
+  'additionalType', 'alternateName', 'description', 'disambiguatingDescription', 'identifier', 'image', 'mainEntityOfPage', 'name', 'owner', 'potentialAction', 'sameAs', 'subjectOf', 'url',
+]);
+
+test('a game to come is a SportsEvent with only schema.org’s fields, Denver’s offset, the two sides and a place nothing is invented for', async () => {
+  const { sportsEventJsonLd } = await import('../src/lib/seo.ts');
+  const town = findTown('berthoud')!;
+  const football = { name: 'Football' };
+  const away = sportsEventJsonLd(town, berthoud, football, { date: '2026-10-30', time: '19:00', opponent: 'Severance', site: 'away', url: 'https://www.maxpreps.com/g/1' }, '/sports/football/')!;
+  for (const key of Object.keys(away)) assert.ok(key.startsWith('@') || SPORTS_EVENT_PROPERTIES.has(key), `${key} is a SportsEvent property`);
+  assert.equal(away['@type'], 'SportsEvent');
+  assert.equal(away.name, 'Berthoud at Severance — football');
+  assert.equal(away.sport, 'Football');
+  assert.equal(away.startDate, '2026-10-30T19:00:00-06:00', 'Denver, still on daylight time');
+  assert.equal(away.eventStatus, 'https://schema.org/EventScheduled');
+  assert.deepEqual(away.homeTeam, { '@type': 'SportsTeam', name: 'Severance', sport: 'Football' });
+  assert.deepEqual(away.awayTeam, { '@type': 'SportsTeam', name: 'Berthoud', sport: 'Football' });
+  assert.deepEqual(away.location, { '@type': 'Place', name: 'Severance' }, 'the opponent’s school, no address');
+  assert.equal(away.url, 'https://insideberthoud.com/sports/football/');
+  assert.equal(away.sameAs, 'https://www.maxpreps.com/g/1');
+
+  const home = sportsEventJsonLd(town, berthoud, { name: 'Volleyball' }, { date: '2026-11-07', opponent: 'University', site: 'home', url: 'u' }, '/sports/')!;
+  assert.equal(home.startDate, '2026-11-07', 'no time: the date alone');
+  assert.equal(home.name, 'Berthoud vs University — volleyball');
+  assert.deepEqual(home.location, { '@type': 'Place', name: 'Berthoud High School' });
+  assert.equal(home.homeTeam!.name, 'Berthoud');
+  const november = sportsEventJsonLd(town, berthoud, football, { date: '2026-11-13', time: '19:00', opponent: 'X', site: 'home', url: 'u' }, '/sports/')!;
+  assert.equal(november.startDate, '2026-11-13T19:00:00-07:00', 'standard time after the clocks go back');
+
+  const neutral = sportsEventJsonLd(town, schoolSportsFor('windsor')!, { name: 'Softball' }, { date: '2026-10-24', time: '10:00', opponent: 'Fruita Monument', site: 'neutral', neutral: true, venue: 'Aurora Sports Park', stage: 'State Softball Tournaments', url: 'u' }, '/sports/softball/')!;
+  assert.deepEqual(neutral.location, { '@type': 'Place', name: 'Aurora Sports Park' });
+  assert.equal(neutral.homeTeam, undefined, 'a neutral game has no home side');
+  assert.equal(neutral.competitor!.length, 2);
+  assert.match(neutral.description!, /^State Softball Tournaments: Windsor High School softball vs Fruita Monument\.$/);
+  const unknownVenue = sportsEventJsonLd(town, berthoud, football, { date: '2026-11-13', opponent: 'X', site: 'neutral', neutral: true, url: 'u' }, '/sports/')!;
+  assert.equal(unknownVenue.location, undefined, 'no venue, no place invented');
+  assert.equal(sportsEventJsonLd(town, berthoud, football, { date: '', opponent: 'X', site: 'home', url: 'u' }, '/sports/'), undefined, 'no date, nothing');
+});
