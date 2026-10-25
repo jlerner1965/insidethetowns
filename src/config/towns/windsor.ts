@@ -74,6 +74,12 @@ export const windsor: TownConfig = {
     secondary: { label: 'Windsor Families', href: '/families/' },
     accentName: 'brass',
   },
+  /**
+   * Windsor High's colours, read from its own site 25 October 2026
+   * (whs.weldre4.org), which names them "Maroon and Gold": the page's
+   * theme colour is #6A1B32 and the theme's gold accent #FFC900.
+   */
+  school: { name: 'Windsor High School', mascot: 'Wizards', teamName: 'Windsor Wizards', primary: '#6A1B32', secondary: '#FFC900' },
   families: {
     label: 'Windsor Families',
     intro: 'What Windsor and Severance kids can join, what closes soon, and the school days off.',

@@ -60,6 +60,16 @@ export const erie: TownConfig = {
     secondary: { label: 'Erie Families', href: '/families/' },
     accentName: 'open-sky blue',
   },
+  /**
+   * Erie High's colours, read from its own site 25 October 2026
+   * (ehs.svvsd.org): the theme's `--color-primary` is #F26B21, the Tiger
+   * orange, and the school's logo (ehs-logo.svg) is that orange (#F47421)
+   * with black (#231F20). White is 3.0:1 on the orange, short of the 7:1
+   * the masthead needs, so the two swap: the black is the band and the
+   * orange the accent and the eyebrows (src/config/school-colors.ts). The
+   * guide's own primary, the darker #983C0E, stays as it is.
+   */
+  school: { name: 'Erie High School', mascot: 'Tigers', teamName: 'Erie Tigers', primary: '#F26B21', secondary: '#231F20' },
   families: {
     label: 'Erie Families',
     intro: 'What Erie kids can join, what closes soon, and the school days off.',

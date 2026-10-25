@@ -1,0 +1,646 @@
+/*
+ * The flagship home page (the homepage brief, 25 October 2026), and the
+ * home variants of the masthead, the footer and the signup it uses.
+ *
+ * Plain CSS imported by FlagshipHome.astro alone, so it is in a flagship's
+ * build and on its home page and nowhere else: the shared stylesheet every
+ * other page and every classic guide loads (src/styles/global.css, through
+ * Tailwind) is untouched by it. It reads the shared tokens (--color-ink,
+ * --color-primary, --font-heading) and adds the school's, which the page
+ * and the header set on their own elements from src/config/school-colors.ts:
+ *
+ *   --fh-band      the masthead and closing band, the Home pill (white on it, 7:1)
+ *   --fh-eyebrow   eyebrows on the band
+ *   --fh-mark      the masthead's dot
+ *   --fh-pill      the band's pills; --fh-pill-ink the words on them
+ *
+ * Reading sizes: body text 18px at 1.6 in the ink; nothing under 15px;
+ * Fraunces at optical size 144 from 60px up and 72 below it.
+ */
+
+/* ------------------------------------------------------------- the page */
+
+.fh {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-ink);
+}
+.fh .eyebrow,
+.fh-header .eyebrow {
+  font-size: 15px;
+  letter-spacing: 0.12em;
+}
+.fh-band {
+  background: var(--fh-band);
+  color: #fff;
+}
+.fh-band .eyebrow {
+  color: var(--fh-eyebrow);
+}
+.fh-paper { background: var(--color-paper); }
+.fh-white { background: #fff; }
+.fh-section { padding-block: 4rem; }
+@media (width >= 48rem) {
+  .fh-section { padding-block: 5.5rem; }
+}
+
+/* A standalone link: a full 44px to tap, underlined, an arrow in its words. */
+.fh-link {
+  display: inline-flex;
+  min-block-size: 44px;
+  align-items: center;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.fh-band .fh-link { color: #fff; }
+
+/* Fraunces at the size it is set: the display cut from 60px up, the text cut below. */
+.fh-big,
+.fh-score,
+.fh-team-num,
+.fh-cta-title {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.03em;
+}
+.fh-team-name,
+.fh-know-title,
+.fh-next-heading,
+.fh-headline,
+.fh-day-num,
+.fh-know-head,
+.fh-signup-title,
+.fh-team-sentence,
+.fh-tile-title,
+.fh-know-list > li::before {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-variation-settings: "opsz" 72;
+  letter-spacing: -0.015em;
+}
+
+/* ---------------------------------------------------------- the header */
+
+.fh-header {
+  background: var(--fh-band);
+  color: #fff;
+}
+/* "Thursday email": the pill to the signup, from a tablet's width up. */
+.fh-email-button {
+  display: none;
+}
+@media (width >= 40rem) {
+  .fh-email-button {
+    display: inline-flex;
+    min-block-size: 44px;
+    align-items: center;
+    margin-inline-start: 0.5rem;
+    padding-inline: 1.15rem;
+    border-radius: 9999px;
+    background: var(--fh-pill);
+    color: var(--fh-pill-ink);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  .fh-email-button:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+}
+/* The row from 80rem: white words, no pills; below it the shared phone panel. */
+@media (width >= 80rem) {
+  .fh-nav-link {
+    display: inline-flex;
+    min-block-size: 44px;
+    align-items: center;
+    padding-inline: 0.7rem;
+    border-radius: 9999px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+  .fh-nav-link:hover { background: rgb(255 255 255 / 0.15); }
+}
+
+/* -------------------------------------------------------- the masthead */
+
+.fh-masthead {
+  padding-block: 1.5rem 4rem;
+}
+@media (width >= 48rem) {
+  .fh-masthead { padding-block: 2.5rem 5rem; }
+}
+.fh-masthead-grid {
+  display: grid;
+  gap: 3rem;
+}
+@media (width >= 64rem) {
+  .fh-masthead-grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 4.5rem;
+    align-items: start;
+  }
+  .fh-masthead-grid.fh-single { grid-template-columns: minmax(0, 1fr); }
+}
+.fh-when {
+  margin-block-start: 0.5rem;
+  font-size: 18px;
+}
+.fh-board {
+  margin-block-start: 1.25rem;
+  border-block: 1px solid rgb(255 255 255 / 0.28);
+}
+.fh-score-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.75rem;
+}
+.fh-score-row + .fh-score-row { border-block-start: 1px solid rgb(255 255 255 / 0.28); }
+.fh-score-row.fh-lost { opacity: 0.72; }
+.fh-team-name {
+  min-inline-size: 0;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+.fh-score {
+  flex-shrink: 0;
+  font-size: 5.5rem;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+@media (width >= 40rem) {
+  .fh-score { font-size: 7rem; }
+}
+@media (width >= 64rem) {
+  .fh-score { font-size: 10rem; }
+}
+/* The next game set where the score would be, when there is no final to show. */
+.fh-big > span { display: block; }
+.fh-big {
+  margin-block-start: 1rem;
+  font-size: 5.5rem;
+  line-height: 0.9;
+}
+@media (width >= 40rem) {
+  .fh-big { font-size: 7rem; }
+}
+@media (width >= 64rem) {
+  .fh-big { font-size: 9rem; }
+}
+.fh-board-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.5rem;
+  margin-block-start: 1.25rem;
+}
+.fh-pill {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 36px;
+  padding-inline: 0.95rem;
+  border-radius: 9999px;
+  background: var(--fh-pill);
+  color: var(--fh-pill-ink);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+}
+.fh-share {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+.fh-share-status { font-size: 15px; }
+.fh-next-heading {
+  margin-block-start: 0.5rem;
+  font-size: 3rem;
+  line-height: 1.05;
+}
+.fh-next-line { margin-block-start: 0.75rem; }
+.fh-rule {
+  margin-block: 2rem;
+  border: 0;
+  border-block-start: 1px solid rgb(255 255 255 / 0.28);
+}
+.fh-headline {
+  margin-block-start: 0.75rem;
+  font-size: 1.75rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.3;
+}
+.fh-checked {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-block-start: 1.5rem;
+  font-size: 15px;
+}
+.fh-dot {
+  flex-shrink: 0;
+  inline-size: 10px;
+  block-size: 10px;
+  border-radius: 9999px;
+  background: var(--fh-mark);
+  box-shadow: 0 0 0 1.5px rgb(255 255 255 / 0.55);
+}
+
+/* ------------------------------------------------- the week, day by day */
+
+.fh-day {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 0 1rem;
+  padding-block: 1rem;
+  border-block-end: 1px solid var(--color-line-soft);
+}
+.fh-day-head {
+  display: flex;
+  flex-direction: column;
+  font: inherit;
+}
+.fh-day-head .eyebrow { color: var(--color-ink-muted); }
+.fh-day-num {
+  font-size: 2.75rem;
+  line-height: 1;
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.fh-day-items { min-inline-size: 0; }
+.fh-item {
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr);
+  gap: 0 0.65rem;
+  padding-block: 0.5rem;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+.fh-item-dot {
+  inline-size: 8px;
+  block-size: 8px;
+  margin-block-start: 0.6em;
+  border-radius: 9999px;
+}
+.fh-item-title {
+  font-weight: 600;
+  line-height: 1.35;
+}
+a.fh-item:hover .fh-item-title { color: var(--color-primary); text-decoration: underline; text-underline-offset: 0.18em; }
+.fh-item-meta {
+  display: block;
+  margin-block-start: 0.15rem;
+  font-size: 15px;
+  line-height: 1.45;
+}
+.fh-day-empty {
+  padding-block: 0.5rem;
+  font-size: 15px;
+}
+.fh-day .fh-link { font-size: 15px; }
+@media (width >= 70rem) {
+  .fh-week {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+  .fh-day {
+    display: block;
+    padding: 0 0.85rem;
+    border-block-end: 0;
+    border-inline-start: 1px solid var(--color-line-soft);
+  }
+  .fh-day:first-child { padding-inline-start: 0; border-inline-start: 0; }
+  .fh-day:last-child { padding-inline-end: 0; }
+  .fh-day-head { margin-block-end: 0.5rem; }
+}
+
+/* ------------------------------------------ three things, and the card */
+
+.fh-know-grid {
+  display: grid;
+  gap: 3rem;
+}
+@media (width >= 64rem) {
+  .fh-know-grid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 4rem;
+    align-items: start;
+  }
+}
+.fh-know-title {
+  margin-block-start: 0.5rem;
+  font-size: 2.25rem;
+  line-height: 1.05;
+}
+@media (width >= 48rem) {
+  .fh-know-title { font-size: 3rem; }
+}
+.fh-know-list {
+  margin-block-start: 2rem;
+  border-block-start: 1px solid var(--color-line-soft);
+  counter-reset: know;
+}
+/* The numeral is the list's order, which the <ol> already says: an
+   ornament in the accent, drawn by the stylesheet, never text. */
+.fh-know-list > li {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  padding-block: 1.75rem;
+  border-block-end: 1px solid var(--color-line-soft);
+  counter-increment: know;
+}
+.fh-know-list > li::before {
+  content: counter(know, decimal-leading-zero);
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.fh-know-head {
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+.fh-know-line { margin-block-start: 0.6rem; }
+.fh-know-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+  margin-block-start: 0.35rem;
+  font-size: 15px;
+  color: var(--color-ink-muted);
+}
+.fh-know-sources a {
+  display: inline-flex;
+  min-block-size: 44px;
+  align-items: center;
+  color: var(--color-ink-muted);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+.fh-know-empty {
+  margin-block-start: 2rem;
+  padding: 1.5rem 0;
+  border-block: 1px solid var(--color-line-soft);
+}
+
+.fh-signup-card {
+  border-radius: 16px;
+  /* The highlight wash, as a hex: naming its token here would add it to
+     the shared stylesheet's theme for every guide. */
+  background: #fdf0d8;
+  padding: 28px 22px;
+}
+@media (width >= 40rem) {
+  .fh-signup-card { padding: 40px 36px; }
+}
+@media (width >= 64rem) {
+  .fh-signup-card { position: sticky; inset-block-start: 24px; }
+}
+.fh-signup-eyebrow {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+.fh-signup-title {
+  margin-block-start: 0.75rem;
+  font-size: 2.25rem;
+  line-height: 1.1;
+}
+.fh-signup-line { margin-block-start: 0.75rem; }
+.fh-signup-row {
+  display: grid;
+  gap: 0.75rem;
+  margin-block-start: 1.5rem;
+}
+.fh-signup-label {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+}
+.fh-signup-button {
+  inline-size: 100%;
+  block-size: 48px;
+  justify-content: center;
+  font-size: 1rem;
+}
+.fh-signup-small {
+  margin-block-start: 1rem;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.fh-signup-small a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+/* The form inside the closing band: the field and the button on one line from a tablet up. */
+.fh-signup-band { margin-block-start: 2.25rem; max-inline-size: 40rem; }
+.fh-signup-band .fh-signup-label { color: #fff; }
+.fh-signup-band .fh-signup-legend { font-size: 15px; }
+.fh-signup-band [data-towns-error],
+.fh-signup-band [data-email-error] { color: #fff; }
+@media (width >= 40rem) {
+  .fh-signup-band .fh-signup-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+  .fh-signup-band .fh-signup-button { inline-size: auto; padding-inline: 1.5rem; }
+}
+
+/* ------------------------------------------------------- the school */
+
+.fh-team {
+  display: grid;
+  gap: 1rem 2rem;
+  padding-block: 2rem;
+  border-block-end: 1px solid var(--color-line-soft);
+}
+@media (width >= 48rem) {
+  .fh-team {
+    grid-template-columns: 220px minmax(0, 1fr) auto;
+    align-items: start;
+  }
+}
+.fh-team-num {
+  margin-block-start: 0.35rem;
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.fh-team-caption { font-size: 15px; }
+.fh-team-sentence {
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+.fh-team-note { margin-block-start: 0.6rem; }
+.fh-matches > li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.75rem;
+  padding-block: 0.6rem;
+  border-block-start: 1px solid var(--color-line-soft);
+}
+.fh-matches > li:first-child { border-block-start: 0; padding-block-start: 0; }
+.fh-site {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 28px;
+  padding-inline: 0.7rem;
+  border-radius: 9999px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+}
+.fh-site-home { background: var(--fh-band); color: #fff; }
+.fh-site-away { box-shadow: inset 0 0 0 1.5px var(--fh-band); color: var(--fh-band); }
+.fh-school-note {
+  margin-block-start: 1.5rem;
+  font-size: 15px;
+  color: var(--color-ink-muted);
+}
+
+/* ------------------------------------------------------- the guide */
+
+.fh-tiles {
+  display: grid;
+  gap: 1rem;
+}
+.fh-tiles > li { display: flex; }
+@media (width >= 40rem) {
+  .fh-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (width >= 64rem) {
+  .fh-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.fh-tile {
+  display: block;
+  flex: 1;
+  padding: 1.5rem;
+  border: 1px solid var(--color-line-soft);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--color-ink);
+  text-decoration: none;
+  transition: border-color 150ms;
+}
+.fh-tile:hover { border-color: var(--color-primary); }
+.fh-tile:hover .fh-tile-title { color: var(--color-primary); }
+.fh-tile-title {
+  margin-block-start: 0.5rem;
+  font-size: 1.625rem;
+  line-height: 1.15;
+  transition: color 150ms;
+}
+.fh-tile-line {
+  margin-block-start: 0.6rem;
+  font-size: 15px;
+  color: var(--color-ink-muted);
+}
+
+/* ------------------------------------------------------ the closing band */
+
+.fh-cta { padding-block: 4.5rem; }
+.fh-cta-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+@media (width >= 64rem) {
+  .fh-cta-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 4rem;
+    align-items: start;
+  }
+  /* The words begin level with the heading's first line. */
+  .fh-cta-grid .fh-cta-text { margin-block-start: 2.75rem; }
+}
+@media (width >= 48rem) {
+  .fh-cta { padding-block: 6.5rem; }
+}
+.fh-cta-title {
+  margin-block-start: 1rem;
+  max-inline-size: 13ch;
+  font-size: 3.5rem;
+  font-variation-settings: "opsz" 72;
+  line-height: 0.95;
+}
+.fh-cta-title em {
+  font-style: italic;
+  font-weight: 300;
+}
+@media (width >= 48rem) {
+  .fh-cta-title {
+    font-size: 6rem;
+    font-variation-settings: "opsz" 144;
+  }
+}
+.fh-cta-text {
+  margin-block-start: 1.5rem;
+  max-inline-size: 36rem;
+}
+
+/* --------------------------------------------------------- the footer */
+
+.fh-footer { border-block-start: 1px solid rgb(255 255 255 / 0.14); }
+.fh-footer-grid {
+  display: grid;
+  gap: 2.5rem;
+  padding-block: 3.5rem;
+}
+@media (width >= 64rem) {
+  .fh-footer-grid {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 3rem;
+    padding-block: 4.5rem;
+  }
+}
+.fh-footer-tagline {
+  margin-block-start: 1rem;
+  max-inline-size: 26rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.fh-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+  margin-block-start: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.fh-footer-links a {
+  display: inline-flex;
+  min-block-size: 44px;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+}
+.fh-footer-links a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+.fh-footer-label {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.fh-footer-independent p {
+  margin-block-start: 1rem;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.fh-footer-independent p:first-child { margin-block-start: 0; }
+.fh-footer-independent a { color: #fff; text-decoration: underline; text-underline-offset: 0.18em; }
+/* The network strip at the home page's reading sizes. */
+.fh-netbar,
+.fh-netbar :is(p, a, span, summary, li) {
+  font-size: 15px;
+}

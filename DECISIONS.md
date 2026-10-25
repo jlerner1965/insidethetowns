@@ -6184,3 +6184,67 @@ with both set carries both tags, one without carries neither, and a test
 holds the layout to it. No guide's project had either code set yet, so
 nothing had been relying on it; docs/SEARCH-VISIBILITY.md's steps stand
 as written.
+
+## The scoreboard-led home page for the flagships, 25 October 2026
+
+*25 October 2026.* The owner's brief: one home page for the seven
+flagships, built for the parent or student back for the scores and the
+week, and for the reader who should be on the Thursday email. The calls
+made inside it:
+
+- **Its own route, its own stylesheet.** A guide with `home` is built from
+  `src/routes/town/home-flagship.astro`; every other guide's home is
+  `index.astro`, which no longer imports the flagship at all. The page's
+  look is plain CSS (`src/components/home/flagship-home.css`) imported only
+  there, with the italic Fraunces it needs, so a classic guide's build is
+  byte for byte what it was (every file compared against main, with only
+  the build's own clock masked: the calendar's DTSTAMP, the feeds'
+  lastBuildDate, the events page's "Listings refreshed" stamp and the
+  sitemap's build-time lastmod). The shared stylesheet keeps the handful of
+  utilities only the old flagship used, named in one `@source inline` line
+  at the top of `global.css`, for the same reason; dropping that line
+  changes every guide's stylesheet and is best done on its own.
+- **The school's colours, from the schools' own sites.** `school` on each
+  flagship's config, each colour read on 25 October from the school's site
+  or its logo, with the comment saying where. They are the masthead, the
+  closing band and the Home and Away pills, and nothing else; the guide's
+  palette is untouched. `npm run check-colors` proves white at 7:1 on the
+  band, and the secondary at 4.5:1 on it before it carries words.
+  - **Erie and Johnstown swap.** White is 3.0:1 on Erie High's orange and
+    6.0:1 on Roosevelt's red, short of 7:1, and both schools publish black
+    as their second colour, so black is their band and the orange and the
+    red are the accent (the dot; on Erie, the eyebrows too, 5.4:1).
+  - **Niwot takes its site's darker step.** White is 4.7:1 on Niwot High's
+    green (#008462); its other colour is white, which cannot be a band. Its
+    site publishes the green as a scale, and the 700 step, #126637, is
+    7.04:1. The nearest shade the school publishes, not one picked here.
+  - **Berthoud is maroon and white**, as the brief had it: the site's
+    `--secondary-color` is a second maroon, a web shade, and the logo is
+    maroon, white and black.
+  - **Lyons's band is its site's blue, #0054A6**, not MaxPreps's navy,
+    which stays on /sports/.
+- **"Town" in the home menu is Things to do.** The brief's menu named
+  This week, the mascot, Town, Eat & drink, Families and Living here; Town
+  had no page of its own, and Things to do (the parks, trails and places in
+  and around it) is the one every guide has. The home menu is the home
+  page's only: every other page keeps the shared one.
+- **The card's small print is the true one.** The brief's "We don't sell or
+  share your address" is the promise the privacy line was rewritten to stop
+  making (src/lib/privacy.ts: the address goes to Buttondown); the card says
+  "We don't sell your address or share it for advertising".
+- **The schedule line says where the schedules come from.** The brief's
+  "Schedules from <School>, cross-checked against MaxPreps" is the other
+  way round from the pipeline: the schedules are MaxPreps's, checked against
+  the school's calendar where one may be read. The line says so, school by
+  school.
+- **7 am is in the config.** `sendTime` on the newsletter config, the
+  owner's word in the brief. The send is the merge of Thursday's pull
+  request, so the hour is a promise to keep; without the field the page
+  names the day alone.
+- **The week is the week.** Monday to Sunday (weekWindow), so on a Sunday
+  six of the seven days have gone: they show what was listed and played,
+  with the scores, and never "Add an event". The Thursday email is on its
+  day from that day on, not on a Thursday gone by.
+- **The old home's fields stay in the configs.** `signature`, `purpose`,
+  `secondary` and `photo` are read by nothing on the new page; the credits
+  page no longer says the photograph is on the home page.

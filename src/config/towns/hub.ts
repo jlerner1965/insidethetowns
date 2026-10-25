@@ -46,6 +46,11 @@ export const hub: HubConfig = {
     action: 'https://buttondown.com/api/emails/embed-subscribe/jlerner1965',
     allTag: 'all-towns',
     sendDay: 'Thursday',
+    // The owner's word for the flagship home pages (25 October 2026): the
+    // issue goes out at 7 am. The send is the merge of Thursday's pull
+    // request (newsletter-drafts.yml), so this is a promise to keep; remove
+    // it and the pages name the day alone.
+    sendTime: '7 am',
     // Shared editions, owner's word, 12 October 2026 (DECISIONS.md, "Regional
     // editions and visitor guides"): one issue, one box and one sponsor line
     // for towns a reader would plan a weekend across. Each guide keeps its

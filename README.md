@@ -82,11 +82,17 @@ and `feature` blocks. "This week" lists the town's own content first and
 the neighbours and the mountain guides after it, labelled as the day trips
 they are. `src/lib/event-totals.ts` is the one definition of "how many
 events" for every page that prints a count. The home page's flagship layout
-(`home` on the config, `src/components/home/FlagshipHome.astro`: the header
-as a masthead with five pills, today in a line, the week as a list, every
-other hub as one link, the email) keeps the shared chassis for every other
-guide (`ClassicHome.astro`). A flagship's primary colour is its school's,
-as `src/config/school-sports.ts` names it.
+(`home` on the config, `src/components/home/FlagshipHome.astro`, built from
+its own route, `src/routes/town/home-flagship.astro`, 25 October 2026) is
+led by a scoreboard: the masthead on the school's band (`school` on the
+config) with the latest final and what is next, the week as seven days,
+three things to know beside the email's card, the school's teams in
+season, the guide's four hubs and a closing band with the full signup. Its
+stylesheet is its own (`flagship-home.css`), so every other guide keeps the
+shared chassis byte for byte (`ClassicHome.astro`). The school's colours
+are in the masthead, the closing band and the Home and Away pills only,
+each proven by `npm run check-colors` (white at 7:1 on the band); the
+guide's own palette is everything else.
 
 ## The weekly content session
 

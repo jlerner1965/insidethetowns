@@ -2,8 +2,19 @@
 import { getNetworkHub, getSite } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { siteNav } from '@/lib/nav';
+import { schoolsFor } from '@/config/school-sports';
 import NetworkBar from './NetworkBar.astro';
 import Wordmark from './Wordmark.astro';
+
+interface Props {
+  /**
+   * The flagship home page's footer (Base `chrome="home"`): one list of
+   * seven links (the homepage brief, 25 October 2026), the Independent
+   * statement and the network line, set to the home page's reading sizes by
+   * its stylesheet. Every other page keeps the full footer.
+   */
+  home?: boolean;
+}
 
 const site = getSite();
 const hub = getNetworkHub();
@@ -26,7 +37,45 @@ const sections = site.kind === 'town'
       ...(hasUpdates ? [{ label: 'Local changes', href: '/updates/' }] : []),
     ].filter((l) => !inMenu.has(l.href))
   : [];
+const homeTown = Astro.props.home && site.kind === 'town' && site.home ? site : undefined;
+const mascot = homeTown?.school && schoolsFor(homeTown.slug).length > 0 ? homeTown.school.mascot : undefined;
+const homeLinks = homeTown
+  ? [
+      { label: 'This week', href: '/this-week/' },
+      ...(mascot ? [{ label: mascot, href: '/sports/' }] : []),
+      { label: 'Eat & drink', href: '/eat-drink/' },
+      homeTown.livingHere ? { label: 'Living here', href: '/living-here/' } : { label: 'Moving here', href: '/moving-here/' },
+      { label: 'Submit an event', href: '/submit-event/' },
+      { label: 'For businesses', href: '/for-businesses/' },
+      { label: 'Contact', href: '/contact/' },
+    ]
+  : [];
 ---
+{homeTown ? (
+  <footer class="fh-footer on-dark bg-primary text-white" data-pagefind-ignore>
+    <div class="container-page fh-footer-grid">
+      <div>
+        <Wordmark class="text-3xl leading-none" tone="light" />
+        <p class="fh-footer-tagline">{homeTown.tagline}</p>
+        <ul class="fh-footer-links">
+          {homeLinks.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+        </ul>
+      </div>
+      <div class="fh-footer-independent">
+        <p class="fh-footer-label">Independent</p>
+        <p>
+          {homeTown.siteTitle} is an independent community guide, not a government website.
+          For official information see
+          <a href={homeTown.officialLinks.townSite} rel="noopener">{homeTown.officialLinks.townSiteLabel ?? `the official ${homeTown.name} site`}</a>{(homeTown.officialLinks.also ?? []).map((g, i, all) => (
+            <Fragment>{i === all.length - 1 ? ' and ' : ', '}<a href={g.url} rel="noopener">{g.label}</a></Fragment>
+          ))}.
+        </p>
+        <p>© {year} {homeTown.siteTitle}</p>
+      </div>
+    </div>
+    <NetworkBar home />
+  </footer>
+) : (
 <footer class="on-dark mt-24 bg-primary text-white" data-pagefind-ignore>
   <div class="container-page grid gap-10 py-14 sm:grid-cols-2 md:py-20 lg:grid-cols-[1.5fr_1fr_1fr_1.3fr] lg:gap-12">
     <div>
@@ -93,3 +142,4 @@ const sections = site.kind === 'town'
   </div>
   <NetworkBar />
 </footer>
+)}

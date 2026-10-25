@@ -18,9 +18,15 @@
  *   inks        body and supporting text 4.5:1 on white, on both papers and
  *               on the amber wash.
  *   category    dot 3:1 on both papers and white; ink 4.5:1 on all three.
+ *   school      the flagship home page's band (TownConfig.school,
+ *               src/config/school-colors.ts): white 7:1 on it; the
+ *               secondary 4.5:1 on it, or the eyebrows and pills are white;
+ *               ink 4.5:1 on a pill; the losing score, white at 72%,
+ *               display size, 3:1.
  */
 import { allSites } from '../src/config/index.ts';
 import { SCHOOL_SPORTS } from '../src/config/school-sports.ts';
+import { schoolTheme } from '../src/config/school-colors.ts';
 import { CATEGORY_COLORS, HIGHLIGHT, INK, INK_MUTED, PAPERS, PLACE_TYPE_COLORS, primaryHover } from '../src/config/palette.ts';
 
 const WHITE = '#ffffff';
@@ -107,6 +113,45 @@ for (const site of allSites) {
   want(`${site.slug} highlight-ink on the network strip`, ratio(HIGHLIGHT_INK, strip), 4.5);
 }
 
+// The flagship home page's school colours. The ratios are this script's own,
+// not the module's, so the module's choices are checked rather than
+// repeated: the band is the primary, or the secondary where white does not
+// clear 7:1 on the primary and does on the secondary; the secondary (the
+// primary, once swapped) carries the eyebrows and the pills only where it
+// clears 4.5:1 on the band, and white stands in for it everywhere else.
+const schoolNotes: string[] = [];
+for (const site of allSites) {
+  if (site.kind !== 'town' || !site.school) continue;
+  const { school } = site;
+  const page = PAPERS[site.colors.paper];
+  const theme = schoolTheme(school);
+  const who = `${site.slug} ${school.mascot}`;
+  const primaryClears = ratio(WHITE, school.primary) >= 7;
+  const band = primaryClears ? school.primary : school.secondary;
+  const mark = primaryClears ? school.secondary : school.primary;
+  if (theme.band.toLowerCase() !== band.toLowerCase()) failures.push(`${who}: the page's band is ${theme.band}, the rule gives ${band}`);
+  want(`${who}: white on the band (${band})`, ratio(WHITE, band), 7);
+  // The Away pill's outline and words, and the Home pill's fill, on the paper and on white.
+  want(`${who}: the band on white`, ratio(band, WHITE), 4.5);
+  want(`${who}: the band on its ${site.colors.paper} paper`, ratio(band, page), 4.5);
+  // The losing side, white at 72%: the team's name at 2rem and the score
+  // far larger, both display size, so 3:1.
+  want(`${who}: the losing score, white at 72% on the band`, ratio(mix(WHITE, 0.72, band), band), 3);
+  const legible = ratio(mark, band) >= 4.5;
+  if (legible) {
+    want(`${who}: eyebrows (${mark}) on the band`, ratio(theme.eyebrow, band), 4.5);
+  } else if (theme.eyebrow !== WHITE || theme.pill.fill !== WHITE) {
+    failures.push(`${who}: ${mark} is ${ratio(mark, band).toFixed(2)}:1 on the band, so the eyebrows and pills must fall back to white`);
+  }
+  want(`${who}: ink on the pill (${theme.pill.fill})`, ratio(INK, theme.pill.fill), 4.5);
+  // The pill's edge against the band, a control's boundary: 3:1.
+  want(`${who}: the pill against the band`, ratio(theme.pill.fill, band), 3);
+  schoolNotes.push(
+    `${who}: band ${band}${theme.swapped ? ` (the secondary; white is ${ratio(WHITE, school.primary).toFixed(2)}:1 on the primary ${school.primary})` : ''}, ` +
+      `white ${ratio(WHITE, band).toFixed(2)}:1; eyebrows ${legible ? mark : 'white'}; pill ${theme.pill.fill}`,
+  );
+}
+
 // Every guide's primary is its own: it is what tells one tab from another.
 const seen = new Map<string, string>();
 for (const site of allSites) {
@@ -151,3 +196,5 @@ console.log(
   `check-colors: ${allSites.length} sites, ${Object.keys(CATEGORY_COLORS).length} categories, ` +
     `${Object.keys(PLACE_TYPE_COLORS).length} place types — all pairs pass AA`,
 );
+console.log(`check-colors: ${schoolNotes.length} school bands — white at 7:1 on each`);
+for (const note of schoolNotes) console.log(`  ${note}`);

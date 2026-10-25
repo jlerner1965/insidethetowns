@@ -25,7 +25,7 @@ Plain, warm, local — a neighbor who pays attention, not a tourism board. Short
 ## File formats (these are validated by `npm run validate`; follow them exactly)
 
 ### Weekly notes — `content/<town>/weekly/<weekOf>.md`
-`weekOf` is the Monday. The file is YAML front matter only. The pick must link to an event listing that already exists on this guide (you are given the list); with no fitting listing, leave the pick blank. `changes` tags: `opening`, `closed`, `new-hours`, `moved`, `added-to-guide`. Every tag but `added-to-guide` requires `source` (the owner's or official announcement). Leave out any change you cannot source — a blank item is better than an unsourced one.
+`weekOf` is the Monday. The file is YAML front matter only. On a flagship guide, `headline` is the week in two or three plain sentences for the home page's masthead, every fact one the week's listings or sources carry (blank leaves the block off the page), and `knowTitle` is a few words over "Three things to know" (blank reads "This week"). The pick must link to an event listing that already exists on this guide (you are given the list); with no fitting listing, leave the pick blank. `changes` tags: `opening`, `closed`, `new-hours`, `moved`, `added-to-guide`. Every tag but `added-to-guide` requires `source` (the owner's or official announcement). Leave out any change you cannot source — a blank item is better than an unsourced one.
 
 ```
 ---

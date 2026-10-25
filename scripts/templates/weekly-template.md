@@ -8,7 +8,13 @@
 # New & closed from every file until each item's expires date (default: 14
 # days after weekOf). An opening, closed, new-hours or moved item with no
 # source is skipped. Leave what you have nothing for blank.
+# On a flagship guide the home page's masthead prints `headline` under "The
+# week of …" (two or three plain sentences, every fact one the week's
+# listings or sources carry), and `knowTitle` heads "Three things to know"
+# (a few words; "This week" when blank).
 weekOf: 2026-10-12
+headline: ""
+knowTitle: ""
 pick:
   title: ""
   body: ""

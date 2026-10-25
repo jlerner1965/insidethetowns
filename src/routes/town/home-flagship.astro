@@ -1,0 +1,15 @@
+---
+/**
+ * The flagship home page (TownConfig.home): the scoreboard-led front page
+ * of the homepage brief, 25 October 2026, with its own masthead and footer
+ * (Base `chrome="home"`). Every other guide's home is index.astro.
+ */
+import Base from '@/layouts/Base.astro';
+import FlagshipHome from '@/components/home/FlagshipHome.astro';
+import { getTown } from '@/config';
+
+const town = getTown();
+---
+<Base chrome="home">
+  <FlagshipHome town={town} />
+</Base>
