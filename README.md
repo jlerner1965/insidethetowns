@@ -31,8 +31,9 @@ whole season's results and the games to come, read from the team's MaxPreps
 home page and its `/schedule/` page (the full season, used only where it
 agrees with the home page on every game both carry) by
 `.github/workflows/sports-maxpreps.yml` on Saturday mornings (Friday night's
-scores) and Wednesdays, and the week's big game in a strip under the home page
-hero. The run writes `data/<town>/sports.json` (never `content/`), commits it
+scores), Sunday mornings (Saturday's: the playoff rounds and the state
+tournaments) and Wednesdays, and the week's games in a strip under the home
+page hero. The run writes `data/<town>/sports.json` (never `content/`), commits it
 to main, and that town's site rebuilds. Where the school has a calendar a
 machine may read (Berthoud's Finalsite site; Niwot's ArbiterLive asks readers
 to stay out), each game to come is checked against it: where the two disagree

@@ -13,9 +13,13 @@ name: School sports (MaxPreps)
 on:
   schedule:
     # Saturday 14:00 UTC: 8 am in Denver in summer, 7 am in winter, for
-    # Friday night's scores. Wednesday 12:20 UTC alongside the research
-    # drafts (agent-weekly.yml), for the midweek games.
+    # Friday night's scores. Sunday 14:00 UTC for Saturday's: the playoff
+    # rounds and the state tournaments play on Saturdays (softball's state
+    # games, 24 October 2026), and without it a Saturday score waited until
+    # Wednesday. Wednesday 12:20 UTC alongside the research drafts
+    # (agent-weekly.yml), for the midweek games.
     - cron: '0 14 * * 6'
+    - cron: '0 14 * * 0'
     - cron: '20 12 * * 3'
   workflow_dispatch:
     inputs:
