@@ -219,7 +219,7 @@ const jsonLd = [
                     </div>
                   </dl>
                 ) : (
-                  <p class="display-md mt-4 text-[2rem] text-primary">{game.place ?? '—'} <span class="font-body text-lg tracking-normal text-ink-muted">{where(game)} {game.opponent}</span></p>
+                  <p class="display-md mt-4 text-[2rem] text-primary">{game.place ?? (game.forfeit ? 'Forfeit' : '—')} <span class="font-body text-lg tracking-normal text-ink-muted">{where(game)} {game.opponent}</span></p>
                 )}
                 <p class="mt-4 flex items-center gap-2 text-[0.9375rem]">
                   {game.result && <span class:list={['inline-flex h-6 w-6 items-center justify-center rounded-full text-[0.75rem] font-bold', PILL[game.result]]} aria-hidden="true">{game.result}</span>}

@@ -230,6 +230,11 @@ export function parseTeamPage(html: string, us: Team): TeamPage {
   for (const c of glance) {
     const g = toGame(c, us);
     if (g) page.glance.push(g);
+    // A bracket slot not yet filled: no game page, no opponent, the date to
+    // be announced (Elizabeth football's first 2A playoff game, 25 October
+    // 2026). Nothing to show until MaxPreps fills it; the summary says so.
+    else if (!c.canonicalUrl && c.isDateTba && !c.teams?.some((t) => t.schoolName && t.schoolName !== us.schoolName))
+      page.warnings.push(`a ${c.tournament?.bracketName ? `${c.tournament.bracketName.trim()} ` : ''}bracket game with its date and opponent still to be set`);
     else page.warnings.push(`a game in the glance card could not be read (${c.contestId})`);
   }
 
@@ -412,7 +417,13 @@ export function parseSchedulePage(html: string, us: Team): SchedulePage {
     // "On 8/21, the Berthoud varsity football team won their away …", or
     // softball's "On Saturday, Oct 17, 2026, the Berthoud Varsity Girls
     // Softball team won their game against …".
-    const subject = sentence.match(/^(?:On .*?, )?[Tt]he (.+?) [Vv]arsity /)?.[1];
+    // A past game nobody entered a score for has its own sentence: "No
+    // result has been reported for the Pine Creek varsity volleyball
+    // neutral tournament match vs. Erie (CO)." (Erie volleyball, 25 October
+    // 2026). It is a game with no result, kept so the page still agrees
+    // with the home page's list, and never one to come.
+    const unreported = /^No result has been reported for the (.+?) [Vv]arsity /.exec(sentence)?.[1];
+    const subject = unreported ?? sentence.match(/^(?:On .*?, )?[Tt]he (.+?) [Vv]arsity /)?.[1];
     if (!subject) {
       fail(`the sentence is not in the form this script reads: "${sentence}"`);
       continue;
@@ -449,7 +460,17 @@ export function parseSchedulePage(html: string, us: Team): SchedulePage {
       if (playoff && us.playoffVenue) game.venue = us.playoffVenue;
       else if (venue) game.venue = venue;
     }
-    if (row[ROW.hasResult] === true) {
+    // "won by forfeit": a result with no score; the data carries 0-0.
+    const forfeit = row[ROW.hasResult] === true && /\bby forfeit\b/i.test(sentence);
+    if (forfeit) {
+      const wordOk = subjectIsUs ? (mine.result === 'W') === /\bwon\b/.test(sentence) : (mine.result === 'W') === /\blost\b/.test(sentence);
+      if (!mine.result || mine.result === 'T' || !wordOk) {
+        fail(`the sentence says "${sentence}", the data ${mine.result ?? 'no result'}`);
+        continue;
+      }
+      game.result = mine.result;
+      game.forfeit = true;
+    } else if (row[ROW.hasResult] === true) {
       if (!mine.result || mine.score == null || theirs.score == null) {
         fail('played, but no score in the data');
         continue;
@@ -476,7 +497,7 @@ export function parseSchedulePage(html: string, us: Team): SchedulePage {
         fail(`the sentence says ${said}, the data ${time}`);
         continue;
       }
-      if (!/\bTBA\b/i.test(sentence) && time !== '00:00') game.time = time;
+      if (!unreported && !/\bTBA\b/i.test(sentence) && time !== '00:00') game.time = time;
     }
     page.games.push(game);
   }
@@ -497,7 +518,9 @@ export function applySchedule(page: TeamPage, schedule: SchedulePage): string | 
   for (const known of [...page.results, ...page.glance]) {
     const g = schedule.games.find((x) => x.url === known.url);
     if (!g) return `the schedule page has no ${known.date} ${known.opponent}`;
-    if (known.score && (!g.score || g.score.us !== known.score.us || g.score.them !== known.score.them)) return `scores differ for ${known.date} ${known.opponent}`;
+    // A forfeit is 0-0 in the home page's data and has no score on the schedule's.
+    const forfeitAgrees = g.forfeit && known.result === g.result && known.score?.us === 0 && known.score?.them === 0;
+    if (known.score && !forfeitAgrees && (!g.score || g.score.us !== known.score.us || g.score.them !== known.score.them)) return `scores differ for ${known.date} ${known.opponent}`;
     // The home page's data names a neutral site outright; the schedule's
     // rows only say which side was away, so its word on the site wins,
     // except for a game the schedule knows to be a playoff or tournament.

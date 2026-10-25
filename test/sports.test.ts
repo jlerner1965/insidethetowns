@@ -824,3 +824,54 @@ test('a school’s teams are called by its short name and mascot, as people sear
   assert.equal(teamPageTitle(schoolSportsFor('lyons')!, { name: 'Football' }, '2026'), 'Lyons Lions Football Schedule, Scores & Record 2026');
   for (const s of SCHOOL_SPORTS) assert.doesNotMatch(schoolTeamName(s), /School|Middle|Senior|\//, s.school);
 });
+
+test('a forfeit and a game nobody scored are read, not a reason to drop the whole schedule (25 October 2026)', async () => {
+  const { outcome } = await import('../src/lib/school-sports.ts');
+  // Resurrection Christian softball: "won by forfeit", the data W 0-0.
+  const rc = { name: 'Resurrection Christian', url: 'https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/softball/fall/' };
+  const forfeit = scheduleRow({
+    id: 'f1', url: 'https://www.maxpreps.com/co/softball/game/peak-to-peak-vs-resurrection-christian/10-6-2026/', kickoff: '2026-10-06T16:00:00', played: true,
+    sentence: 'On 10/6, the Resurrection Christian varsity softball team won by forfeit in their away non-conference game against Peak to Peak (Lafayette, CO).',
+    teams: [{ ...rc, away: true, result: 'W', score: 0 }, { name: 'Peak to Peak', url: 'https://www.maxpreps.com/co/lafayette/peak-to-peak-pumas/softball/fall/', away: false, result: 'L', score: 0 }],
+  });
+  const read = parseSchedulePage(schedulePage([forfeit]), { url: rc.url, schoolName: rc.name });
+  assert.deepEqual(read.warnings, []);
+  assert.equal(read.games[0]!.result, 'W');
+  assert.equal(read.games[0]!.forfeit, true);
+  assert.equal(read.games[0]!.score, undefined, 'no 0-0 shown for a forfeit');
+  assert.equal(outcome(read.games[0]!), 'by forfeit at Peak to Peak');
+  // The word has to match the data, as for any result.
+  const wrong = structuredClone(forfeit) as unknown[];
+  wrong[29] = 'On 10/6, the Resurrection Christian varsity softball team lost by forfeit in their away non-conference game against Peak to Peak (Lafayette, CO).';
+  assert.equal(parseSchedulePage(schedulePage([wrong]), { url: rc.url, schoolName: rc.name }).warnings.length, 1);
+
+  // Erie volleyball: a past tournament match with no result reported.
+  const erie = { name: 'Erie', url: 'https://www.maxpreps.com/co/erie/erie-tigers/volleyball/' };
+  const unreported = scheduleRow({
+    id: 'u1', url: 'https://www.maxpreps.com/co/volleyball/match/erie-vs-pine-creek/9-12-2026/', kickoff: '2026-09-12T09:00:00',
+    sentence: 'No result has been reported for the Pine Creek varsity volleyball neutral tournament match vs. Erie (CO).',
+    teams: [{ name: 'Pine Creek', url: 'https://www.maxpreps.com/co/colorado-springs/pine-creek-eagles/volleyball/', away: 'neutral' }, { ...erie, away: 'neutral' }],
+  });
+  const vb = parseSchedulePage(schedulePage([unreported]), { url: erie.url, schoolName: erie.name });
+  assert.deepEqual(vb.warnings, []);
+  assert.equal(vb.games.length, 1);
+  const [g] = vb.games;
+  assert.equal(g!.result, undefined);
+  assert.equal(g!.time, undefined, 'no time: it is not a game to come');
+  assert.equal(g!.stage, 'Tournament');
+  assert.deepEqual(gamesToCome({ url: erie.url, glance: [], results: [], warnings: [], schedule: vb.games }, '2026-10-25'), [], 'never listed as next');
+});
+
+test('a bracket slot MaxPreps has not filled is named as one, not as an unreadable game (Elizabeth football, 25 October 2026)', () => {
+  const us = { url: 'https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/football/', schoolName: 'Elizabeth' };
+  const slot = {
+    contestId: '39f3', hasResult: false, canonicalUrl: null, timestamp: '1900-01-01T00:00:00', homeAwayType: 2, isTimeTba: true, isDateTba: true,
+    teams: [{ schoolName: 'Elizabeth', score: null, result: null, teamCanonicalUrl: us.url }, { schoolName: null, score: null, result: null, teamCanonicalUrl: null }],
+    tournament: { tournamentName: null, bracketName: 'Class 2A' },
+  };
+  const tca = { contestId: 'c1', hasResult: true, canonicalUrl: 'https://www.maxpreps.com/co/football/game/elizabeth-vs-tca/10-23-2026/?c=c1', timestamp: '2026-10-24T03:15:04', homeAwayType: 0, isTimeTba: false, isDateTba: false,
+    teams: [{ schoolName: 'Elizabeth', score: 27, result: 'W', teamCanonicalUrl: us.url }, { schoolName: 'The Classical Academy', score: 17, result: 'L', teamCanonicalUrl: 'https://x/' }] };
+  const p = parseTeamPage(page({ teamContext: { standingsData: { overallStanding: { overallWinLossTies: '9-0' } } }, wallCards: { schedule: { data: [tca, slot] } }, wallPosts: [] }, 'Elizabeth Football Overall 9-0 Schedule at a Glance'), us);
+  assert.deepEqual(p.warnings, ['a Class 2A bracket game with its date and opponent still to be set']);
+  assert.equal(p.glance.length, 1, 'nothing invented for the slot');
+});

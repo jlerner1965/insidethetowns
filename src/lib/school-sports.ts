@@ -51,6 +51,7 @@ export function where(g: SportGame): string {
 
 /** "22-0 vs Greeley Central", "3rd at the Niwot Invitational", "at Sterling". */
 export function outcome(g: SportGame): string {
+  if (g.result && g.forfeit) return `by forfeit ${where(g)} ${g.opponent}`;
   if (g.result && g.score) return `${g.score.us}-${g.score.them} ${where(g)} ${g.opponent}`;
   if (g.place) return `${g.place} ${where(g)} ${g.opponent}`;
   return `${where(g)} ${g.opponent}`;

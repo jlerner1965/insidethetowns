@@ -460,6 +460,12 @@ export interface SportGame {
   site: 'home' | 'away' | 'neutral';
   result?: 'W' | 'L' | 'T';
   score?: { us: number; them: number };
+  /**
+   * Won or lost by forfeit, as MaxPreps's schedule says ("won by forfeit in
+   * their away non-conference game", Resurrection Christian softball, 6
+   * October 2026): a result with no score, so none is shown.
+   */
+  forfeit?: boolean;
   /** A meet's placing, when MaxPreps gives one instead of a score: "3rd". */
   place?: string;
   /**

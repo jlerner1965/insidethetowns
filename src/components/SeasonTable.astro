@@ -31,7 +31,7 @@ const PILL = {
   T: 'bg-accent-soft text-ink',
 } as const;
 /** "22–0", "3rd", or nothing for a game without a score. */
-const scoreline = (g: SportGame) => (g.score ? `${g.score.us}–${g.score.them}` : g.place ?? '');
+const scoreline = (g: SportGame) => (g.score ? `${g.score.us}–${g.score.them}` : g.place ?? (g.forfeit ? 'Forfeit' : ''));
 ---
 <table class="w-full border-collapse text-[0.9375rem]">
   <caption class:list={[hideCaption ? 'sr-only' : 'eyebrow pb-1 pt-4 text-left text-ink-muted']}>{caption}</caption>
