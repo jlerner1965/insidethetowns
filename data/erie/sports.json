@@ -1,0 +1,1164 @@
+{
+  "generated": "2026-10-25T02:02:05.770Z",
+  "sports": [
+    {
+      "key": "football",
+      "name": "Football",
+      "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/football/",
+      "fetched": "2026-10-25T02:02:05.770Z",
+      "maxprepsUpdated": "2026-10-25T01:19:53",
+      "overall": "0-9",
+      "league": {
+        "record": "0-5",
+        "name": "5A Front Range",
+        "place": "7th"
+      },
+      "results": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Fossil Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/erie-vs-fossil-ridge-fort-collins/10-23-2026/?c=0605f2f4-c517-4074-a983-edd3df54f1a2",
+          "result": "L",
+          "score": {
+            "us": 13,
+            "them": 20
+          }
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Riverdale Ridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/erie-vs-riverdale-ridge-thornton/10-15-2026/?c=5daa21de-680e-492c-bc07-e48debdf2cc5",
+          "result": "L",
+          "score": {
+            "us": 10,
+            "them": 31
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Columbine",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/columbine-littleton-vs-erie/10-8-2026/?c=0198e5b3-0db2-4107-812b-16198d17c031",
+          "result": "L",
+          "score": {
+            "us": 21,
+            "them": 48
+          }
+        },
+        {
+          "date": "2026-10-02",
+          "opponent": "Legacy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/erie-vs-legacy-broomfield/10-2-2026/?c=a55b1e8f-25ba-4c55-9668-8e775e68096a",
+          "result": "L",
+          "score": {
+            "us": 22,
+            "them": 52
+          }
+        },
+        {
+          "date": "2026-09-25",
+          "opponent": "Rocky Mountain",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/erie-vs-rocky-mountain-fort-collins/9-25-2026/?c=5896159c-ceff-4941-bb1d-47bf54899d22",
+          "result": "L",
+          "score": {
+            "us": 13,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "Fort Collins",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/erie-vs-fort-collins/9-18-2026/?c=8a128ce0-91c9-46fd-9c53-691b9035b739",
+          "result": "L",
+          "score": {
+            "us": 9,
+            "them": 56
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Broomfield",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/broomfield-bald-eagle-vs-erie/9-10-2026/?c=1dfd51f6-1bea-49f4-b37e-0a00d0a09b51",
+          "result": "L",
+          "score": {
+            "us": 7,
+            "them": 29
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Eaglecrest",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/eaglecrest-centennial-vs-erie/9-4-2026/?c=cc4ee5c7-9e10-4fd3-8235-2ab909bf5f52",
+          "result": "L",
+          "score": {
+            "us": 14,
+            "them": 17
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "Spruce Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/inter-state/football/game/erie-co-vs-spruce-creek-port-orange-fl/8-20-2026/?c=582105f4-6a67-4ada-b94b-457d309836b2",
+          "result": "L",
+          "score": {
+            "us": 10,
+            "them": 14
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Fairview",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/erie-vs-fairview-boulder/10-30-2026/?c=1e577622-530f-4f2a-8c21-4cde64a00852",
+          "time": "18:30"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "boys-soccer",
+      "name": "Boys soccer",
+      "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/soccer/",
+      "fetched": "2026-10-25T02:02:05.770Z",
+      "maxprepsUpdated": "2026-10-25T01:19:46",
+      "overall": "12-1-2",
+      "league": {
+        "record": "5-1-1",
+        "name": "5A Front Range",
+        "place": "1st"
+      },
+      "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Broomfield",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/broomfield-bald-eagle-vs-erie/10-22-2026/?c=751fc12b-0969-48a9-9a26-26eb6966bc4a",
+          "result": "W",
+          "score": {
+            "us": 5,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Fort Collins",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/erie-vs-fort-collins/10-20-2026/?c=3a501976-776a-410d-a2a8-557d4e565e5c",
+          "result": "T",
+          "score": {
+            "us": 1,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Horizon",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/erie-vs-horizon-thornton/10-15-2026/?c=9c1a937c-9cc2-426c-9b0b-a24fa51b09f4",
+          "result": "W",
+          "score": {
+            "us": 1,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Rocky Mountain",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/erie-vs-rocky-mountain-fort-collins/10-13-2026/?c=d7223829-bc9d-4fa0-b688-dd89ca8b9b4a",
+          "result": "W",
+          "score": {
+            "us": 5,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Fairview",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/erie-vs-fairview-boulder/10-8-2026/?c=e91e56db-4ed2-4177-bc95-a30ec5164fe8",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Fossil Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/erie-vs-fossil-ridge-fort-collins/10-6-2026/?c=5919d69c-1473-41e4-91e3-e6e8c561d3c3",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Legacy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/erie-vs-legacy-broomfield/10-1-2026/?c=2f81b12d-a0c6-4fa7-8200-7e1806f47afe",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Frederick",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/erie-vs-frederick/9-22-2026/?c=3600fae8-70b3-460f-96c1-6a4af7d1cb8a",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Boulder",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/boulder-vs-erie/9-17-2026/?c=6866fccb-171a-41ab-a1f0-2d35831c9193",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-14",
+          "opponent": "Arvada West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/arvada-west-vs-erie/9-14-2026/?c=e1f1db0a-c80e-4471-a660-788005e32819",
+          "result": "T",
+          "score": {
+            "us": 1,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Riverdale Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/erie-vs-riverdale-ridge-thornton/9-10-2026/?c=cda64e28-b768-4aca-9519-c930ed166b43",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Rangeview",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/erie-vs-rangeview-aurora/9-3-2026/?c=e40bce7c-39c5-49b2-b4c1-fcfcb5c71dd0",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Centaurus",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/centaurus-lafayette-vs-erie/9-1-2026/?c=2aec95dd-1a97-4f79-a5b1-d03f7d94c996",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Fruita Monument",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/erie-vs-fruita-monument/8-29-2026/?c=ba4f81cc-ed8a-4b81-b32c-21e32c811fbd",
+          "result": "W",
+          "score": {
+            "us": 9,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Grand Junction",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/erie-vs-grand-junction/8-28-2026/?c=6c4be02c-02f4-4382-8ed1-c44e7990e106",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 1
+          }
+        }
+      ],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "volleyball",
+      "name": "Volleyball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/volleyball/",
+      "fetched": "2026-10-25T02:02:05.770Z",
+      "maxprepsUpdated": "2026-10-25T01:46:52",
+      "overall": "10-11",
+      "league": {
+        "record": "7-6",
+        "name": "5A Front Range",
+        "place": "4th"
+      },
+      "results": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Fruita Monument",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-fruita-monument/10-24-2026/?c=6df5368c-96e0-4e60-a6ae-1c9e81fb33ea",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Mustang Classic @ Ponderosa high school",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Roosevelt",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-roosevelt-johnstown/10-23-2026/?c=399ff5bf-afed-4f0b-86f6-7deb95cf5854",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Mustang Classic",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Ponderosa",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-ponderosa-jaguars-parker/10-23-2026/?c=0ca17ea1-7d3e-48b8-aa33-f8d77e201199",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Mustang Classic",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-22",
+          "opponent": "Fairview",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-fairview-boulder/10-22-2026/?c=a1d3c015-f74f-4928-b66b-86eaa5855f02",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "Rocky Mountain",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-rocky-mountain-fort-collins/10-20-2026/?c=38ccdcc7-8340-43ad-a071-ba294a2f78aa",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Horizon",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-horizon-thornton/10-15-2026/?c=dde47299-d97e-4681-9241-fa616e82449a",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-13",
+          "opponent": "Fort Collins",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-fort-collins/10-13-2026/?c=c7e04e6a-f536-4e53-a0c2-fa0de2b23bdd",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Broomfield",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/broomfield-bald-eagle-vs-erie/10-8-2026/?c=821552c3-1a93-40c3-a530-a7df4a85ffd0",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Legacy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-legacy-broomfield/10-6-2026/?c=426867ef-45be-430c-9369-049f09f89046",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Fossil Ridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-fossil-ridge-fort-collins/10-1-2026/?c=49f4ff52-5d6f-49fa-9bfc-8d43005efe02",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Fairview",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-fairview-boulder/9-29-2026/?c=ea135be3-dbac-48c6-9766-90947c4ae286",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Rocky Mountain",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-rocky-mountain-fort-collins/9-24-2026/?c=78a57a55-62c6-45d4-bc84-1d201b69901a",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Horizon",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-horizon-thornton/9-22-2026/?c=18cee1f4-f390-4513-9b31-8db26a8c509b",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Fort Collins",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-fort-collins/9-17-2026/?c=759211a5-4226-41db-b7d2-a7a96fed5794",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Broomfield",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/broomfield-bald-eagle-vs-erie/9-15-2026/?c=a8d63ce2-5f6a-425f-bd71-39c3b147acaa",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Berthoud",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-erie/9-12-2026/?c=de5294bb-52d8-4db3-b795-fe16a581a0d7",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-09",
+          "opponent": "Legacy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-legacy-broomfield/9-9-2026/?c=9abafe03-ee22-44fb-9a1e-ff8a593b09d8",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Frederick",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-frederick/9-1-2026/?c=478a5938-3d55-4858-90ca-7aa72208bae7",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Riverdale Ridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-riverdale-ridge-thornton/8-27-2026/?c=de00037a-271b-4701-8e16-f0dda57aa705",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Arvada West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/arvada-west-vs-erie/8-25-2026/?c=523422c6-91a3-4716-8551-0b3c27eace7d",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "Thompson Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-thompson-valley-loveland/8-20-2026/?c=a8ffda69-019d-4c3c-9477-6ce9e192caeb",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-27",
+          "opponent": "Fossil Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-fossil-ridge-fort-collins/10-27-2026/?c=5cc9a6a2-6acd-457e-a155-88832a1cdf86",
+          "time": "18:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "softball",
+      "name": "Softball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/softball/fall/",
+      "fetched": "2026-10-25T02:02:05.770Z",
+      "maxprepsUpdated": "2026-10-25T01:19:11",
+      "overall": "22-6",
+      "league": {
+        "record": "12-2",
+        "name": "5A Front Range",
+        "place": "1st"
+      },
+      "results": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Lutheran",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-lutheran-parker/10-24-2026/?c=c4418fb6-59e8-4b5e-acc1-9b98e147b2c7",
+          "stage": "State Softball Tournaments",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 10
+          }
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Valor Christian",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-valor-christian-highlands-ranch/10-23-2026/?c=1b119497-35f3-42da-85bc-78c145dc4864",
+          "stage": "State Softball Tournaments",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "result": "W",
+          "score": {
+            "us": 7,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-10-23",
+          "opponent": "Eaglecrest",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/eaglecrest-centennial-vs-erie/10-23-2026/?c=ac9d6923-0771-41f0-b21c-f74be0edc40f",
+          "stage": "State Softball Tournaments",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "result": "W",
+          "score": {
+            "us": 13,
+            "them": 9
+          }
+        },
+        {
+          "date": "2026-10-17",
+          "opponent": "Horizon",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-horizon-thornton/10-17-2026/?c=e7cf6c9d-dcaa-4069-bc46-84e84334d327",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Northfield",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-northfield-denver/10-16-2026/?c=b39260b8-af19-49a1-a162-e6556ad65451",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Fossil Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-fossil-ridge-fort-collins/10-8-2026/?c=053b4f82-c84a-41cd-af01-549267b33e26",
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Horizon",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-horizon-thornton/10-6-2026/?c=e5fa37f5-31d3-4078-a309-187972685c84",
+          "result": "W",
+          "score": {
+            "us": 8,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-05",
+          "opponent": "Legacy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-legacy-broomfield/10-5-2026/?c=aa610c16-6874-41e6-b410-31cbd08cbac7",
+          "result": "W",
+          "score": {
+            "us": 8,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Holy Family",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-holy-family-broomfield/10-3-2026/?c=ccd19227-84e1-4883-a894-7e4b2c5b01df",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Rocky Mountain",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-rocky-mountain-fort-collins/10-1-2026/?c=031f9348-94c7-4175-859d-b0bd715ed61a",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Fairview",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-fairview-boulder/9-29-2026/?c=37ff1d77-81a0-4976-8bed-b10704da1b9b",
+          "result": "W",
+          "score": {
+            "us": 12,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-28",
+          "opponent": "Windsor",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-windsor/9-28-2026/?c=b2995924-847e-42cf-97b2-f724fe4ec30f",
+          "result": "L",
+          "score": {
+            "us": 3,
+            "them": 13
+          }
+        },
+        {
+          "date": "2026-09-26",
+          "opponent": "Fort Collins",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-fort-collins/9-26-2026/?c=2f8ad634-9630-422f-88b2-919abb3edf7e",
+          "result": "W",
+          "score": {
+            "us": 17,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Broomfield",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/broomfield-bald-eagle-vs-erie/9-24-2026/?c=a8e1d29a-e391-45ba-8a18-f1368022cb0d",
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 10
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Fossil Ridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-fossil-ridge-fort-collins/9-22-2026/?c=3aa9f8ba-4dfe-4073-9b12-e25e847e7046",
+          "result": "W",
+          "score": {
+            "us": 5,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Horizon",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-horizon-thornton/9-17-2026/?c=50a9ae18-5c5f-425c-8920-fad2aa3c66d6",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Legacy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-legacy-broomfield/9-15-2026/?c=9001825c-d6c8-4dfe-bfef-79caa5dc1211",
+          "result": "W",
+          "score": {
+            "us": 12,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Chatfield",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/chatfield-littleton-vs-erie/9-12-2026/?c=5011648c-28e3-41d4-bb82-e14643da8de7",
+          "result": "W",
+          "score": {
+            "us": 6,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Rocky Mountain",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-rocky-mountain-fort-collins/9-10-2026/?c=f46debe4-7305-4f98-8468-cc0bff87d34f",
+          "result": "W",
+          "score": {
+            "us": 1,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Fairview",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-fairview-boulder/9-8-2026/?c=04135cdf-9924-4bd3-bedb-0cf6b65abfe9",
+          "result": "W",
+          "score": {
+            "us": 17,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-09-05",
+          "opponent": "Eaglecrest",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/eaglecrest-centennial-vs-erie/9-5-2026/?c=1b26d67e-0894-4120-b42f-7c28f2669b6b",
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Fort Collins",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-fort-collins/9-3-2026/?c=6eada02d-ec4f-4960-b585-2c1bfc9a4478",
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Broomfield",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/broomfield-bald-eagle-vs-erie/9-1-2026/?c=aa161c34-d005-4c34-8cb3-279df9fd824a",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-08-29",
+          "opponent": "Riverdale Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-riverdale-ridge-thornton/8-29-2026/?c=9db6136c-a1e4-41fb-b158-3e5033942234",
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-28",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-severance/8-28-2026/?c=ad5a179a-eef0-4c07-9260-be8132c427f4",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "Arvada West",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/arvada-west-vs-erie/8-20-2026/?c=22c40f2e-2d9c-4a8f-a528-2570c808725a",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Regency Athletic Complex at MSU Denver",
+          "result": "W",
+          "score": {
+            "us": 18,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "Valor Christian",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/erie-vs-valor-christian-highlands-ranch/8-20-2026/?c=d227d957-28c8-4e1e-b2af-cf54e35e0b6e",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Regency Athletic Complex at MSU Denver",
+          "result": "W",
+          "score": {
+            "us": 13,
+            "them": 5
+          }
+        },
+        {
+          "date": "2026-08-19",
+          "opponent": "Chatfield",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/chatfield-littleton-vs-erie/8-19-2026/?c=d808f669-a30d-49da-805d-82e21784c31c",
+          "result": "W",
+          "score": {
+            "us": 11,
+            "them": 0
+          }
+        }
+      ],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "boys-cross-country",
+      "name": "Boys cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/cross-country/",
+      "fetched": "2026-10-25T02:02:05.770Z",
+      "maxprepsUpdated": "2026-10-25T01:46:59",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-cross-country",
+      "name": "Girls cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/cross-country/girls/",
+      "fetched": "2026-10-25T02:02:05.770Z",
+      "maxprepsUpdated": "2026-10-24T22:09:10",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "boys-basketball",
+      "name": "Boys basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/basketball/",
+      "fetched": "2026-10-25T02:02:05.770Z",
+      "maxprepsUpdated": "2026-10-25T01:47:06",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "6A Front Range",
+        "place": "1st"
+      },
+      "results": [
+        {
+          "date": "2026-02-27",
+          "opponent": "Rangeview",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-rangeview-aurora/2-27-2026/?c=b194053d-68fb-4352-bdd6-31bebc0d0ff6",
+          "stage": "Boys Basketball State Tournaments",
+          "result": "L",
+          "score": {
+            "us": 37,
+            "them": 73
+          }
+        },
+        {
+          "date": "2026-02-24",
+          "opponent": "Rocky Mountain",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-rocky-mountain-fort-collins/2-24-2026/?c=c0c953df-2a76-4192-9b90-bf770b4838e2",
+          "stage": "Boys Basketball State Tournaments",
+          "result": "W",
+          "score": {
+            "us": 70,
+            "them": 66
+          }
+        },
+        {
+          "date": "2026-02-20",
+          "opponent": "Horizon",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-horizon-thornton/2-20-2026/?c=7801352b-e70e-4b70-9afb-9d0969862b8a",
+          "result": "L",
+          "score": {
+            "us": 58,
+            "them": 79
+          }
+        },
+        {
+          "date": "2026-02-19",
+          "opponent": "Brighton",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/brighton-vs-erie/2-19-2026/?c=d3d25164-02b5-4a03-a84f-27bb874d4948",
+          "result": "L",
+          "score": {
+            "us": 61,
+            "them": 67
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-12-01",
+          "opponent": "Poudre",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-poudre-fort-collins/12-1-2026/?c=26d75cb8-1dd5-4b83-8d04-55ab569e7706",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-08",
+          "opponent": "Loveland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-loveland/12-8-2026/?c=abb96615-8215-4d1a-adee-181b2c985c55",
+          "time": "19:30"
+        },
+        {
+          "date": "2026-12-10",
+          "opponent": "Bear Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/bear-creek-lakewood-vs-erie/12-10-2026/?c=4440521d-c489-460c-a392-d05f2dcf6052",
+          "time": "18:30"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "girls-basketball",
+      "name": "Girls basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/basketball/girls/",
+      "fetched": "2026-10-25T02:02:05.770Z",
+      "maxprepsUpdated": "2026-10-25T02:03:00",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "6A Front Range",
+        "place": "1st"
+      },
+      "results": [
+        {
+          "date": "2026-03-04",
+          "opponent": "Highlands Ranch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-highlands-ranch/3-4-2026/?c=4323c843-395c-4c72-be26-6162259faf57",
+          "stage": "Girls Basketball State Tournaments",
+          "result": "L",
+          "score": {
+            "us": 26,
+            "them": 73
+          }
+        },
+        {
+          "date": "2026-02-28",
+          "opponent": "Rock Canyon",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-rock-canyon-highlands-ranch/2-28-2026/?c=b0a9f69b-d928-4d6f-9411-08d5046bc933",
+          "stage": "Girls Basketball State Tournaments",
+          "result": "W",
+          "score": {
+            "us": 53,
+            "them": 30
+          }
+        },
+        {
+          "date": "2026-02-20",
+          "opponent": "Horizon",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-horizon-thornton/2-20-2026/?c=11ee48be-b86a-4045-bd96-6271865cf0e3",
+          "result": "W",
+          "score": {
+            "us": 46,
+            "them": 24
+          }
+        },
+        {
+          "date": "2026-02-19",
+          "opponent": "Brighton",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/brighton-vs-erie/2-19-2026/?c=45d2b792-ee1e-4458-9248-8cd57c538f9d",
+          "result": "W",
+          "score": {
+            "us": 66,
+            "them": 19
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-11-30",
+          "opponent": "Rangeview",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-rangeview-aurora/11-30-2026/?c=eba350e8-4258-44ce-8277-c69ea5e8f819",
+          "time": "18:30"
+        },
+        {
+          "date": "2026-12-08",
+          "opponent": "Loveland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-loveland/12-8-2026/?c=0aa6b765-7942-448b-991d-909903ca3ec6",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-10",
+          "opponent": "Pueblo East",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-pueblo-east/12-10-2026/?c=094d408d-341c-4e4e-b56e-2657b47ecd08",
+          "time": "17:30"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "wrestling",
+      "name": "Wrestling",
+      "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/wrestling/",
+      "fetched": "2026-10-25T02:02:05.770Z",
+      "maxprepsUpdated": "2026-10-25T01:47:13",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-swimming",
+      "name": "Girls swimming",
+      "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/swimming/girls/",
+      "fetched": "2026-10-25T02:02:05.770Z",
+      "maxprepsUpdated": "2026-10-25T01:47:20",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    }
+  ]
+}
