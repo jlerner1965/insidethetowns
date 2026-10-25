@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-25T17:34:21.501Z",
+  "generated": "2026-10-25T18:39:35.739Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/football/",
-      "fetched": "2026-10-25T17:34:21.501Z",
+      "fetched": "2026-10-25T18:39:35.739Z",
       "maxprepsUpdated": "2026-10-25T15:45:45",
       "overall": "2-7",
       "league": {
@@ -124,7 +124,7 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/volleyball/",
-      "fetched": "2026-10-25T17:34:21.501Z",
+      "fetched": "2026-10-25T18:39:35.739Z",
       "maxprepsUpdated": "2026-10-25T16:03:30",
       "overall": "18-1",
       "league": {
@@ -363,8 +363,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/softball/fall/",
-      "fetched": "2026-10-25T17:34:21.501Z",
-      "maxprepsUpdated": "2026-10-25T13:39:31",
+      "fetched": "2026-10-25T18:39:35.739Z",
+      "maxprepsUpdated": "2026-10-25T17:44:49",
       "overall": "13-12",
       "league": {
         "record": "0-5",
@@ -375,10 +375,8 @@
         {
           "date": "2026-10-17",
           "opponent": "Valley",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/softball/game/resurrection-christian-loveland-vs-valley-gilcrest/10-17-2026/?c=c304c621-b4fa-48b6-9ec2-f1fa64cabcc8",
-          "neutral": true,
-          "stage": "Class 3A Softball Round of 32",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/resurrection-christian-loveland-vs-valley-gilcrest/10-17-2026/?c=2c78aae7-77b0-4981-b47c-4f13b8127d87",
           "result": "L",
           "score": {
             "us": 8,
@@ -424,10 +422,7 @@
           "site": "away",
           "url": "https://www.maxpreps.com/co/softball/game/peak-to-peak-lafayette-vs-resurrection-christian-loveland/10-6-2026/?c=f9342773-2802-4c23-b42b-45fea2440fda",
           "result": "W",
-          "score": {
-            "us": 0,
-            "them": 0
-          }
+          "forfeit": true
         },
         {
           "date": "2026-10-01",
@@ -438,6 +433,212 @@
           "score": {
             "us": 0,
             "them": 12
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "University",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/resurrection-christian-loveland-vs-university-greeley/9-29-2026/?c=284a329a-b41b-4f07-9558-0e2a66b07fba",
+          "result": "L",
+          "score": {
+            "us": 3,
+            "them": 8
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/greeley-central-vs-resurrection-christian-loveland/9-24-2026/?c=61dbff1c-74b8-4495-87eb-74adcb73e98d",
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/greeley-central-vs-resurrection-christian-loveland/9-24-2026/?c=49556c4b-6827-40e9-bd8d-ee7bf38c47f8",
+          "result": "W",
+          "score": {
+            "us": 18,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Eaton",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/eaton-fightin-reds-vs-resurrection-christian-loveland/9-17-2026/?c=6a6a47aa-21df-4749-92b0-6859e4e7f1b1",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Yuma",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/resurrection-christian-loveland-vs-yuma/9-15-2026/?c=46b78e41-cb38-44ee-8a5f-c51c27f16b90",
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Douglas County",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/douglas-county-castle-rock-vs-resurrection-christian-loveland/9-12-2026/?c=30cbcb2f-ba3d-4666-bd78-dbf7da8c8551",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Golden",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/golden-vs-resurrection-christian-loveland/9-12-2026/?c=a2f2a9d4-f3f4-4ce5-b6b2-10a8a25ea100",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 19,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Mullen",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/mullen-denver-vs-resurrection-christian-loveland/9-11-2026/?c=200d6a71-f597-45a2-ab48-bf0a293548ff",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 5
+          }
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Limon",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/limon-vs-resurrection-christian-loveland/9-11-2026/?c=a78875f9-e1bf-46a5-b257-9f4b59cb94e1",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 7,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Wellington",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/resurrection-christian-loveland-vs-wellington/9-8-2026/?c=07d94143-f8e8-4c28-9cf4-e8d4ca464d4b",
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 13
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/resurrection-christian-loveland-vs-valley-gilcrest/9-1-2026/?c=2527ee28-75f6-4e1e-8929-034b5069a69b",
+          "result": "W",
+          "score": {
+            "us": 7,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Platte Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/platte-valley-kersey-vs-resurrection-christian-loveland/8-27-2026/?c=9967392c-fe6b-423b-ac85-0f46b2b8e73b",
+          "result": "W",
+          "score": {
+            "us": 14,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Forge Christian",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/forge-christian-eagles-arvada-vs-resurrection-christian-loveland/8-25-2026/?c=f8d7dcad-c321-463f-b3e5-1837dde45043",
+          "result": "L",
+          "score": {
+            "us": 14,
+            "them": 17
+          }
+        },
+        {
+          "date": "2026-08-22",
+          "opponent": "Loveland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/loveland-vs-resurrection-christian-loveland/8-22-2026/?c=a8686b64-6e76-486f-915d-6a053d6cf12b",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/resurrection-christian-loveland-vs-thompson-valley-loveland/8-20-2026/?c=c542d690-adba-462e-9ff5-9d04f08c2c5c",
+          "result": "L",
+          "score": {
+            "us": 11,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-08-19",
+          "opponent": "Mullen",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/mullen-denver-vs-resurrection-christian-loveland/8-19-2026/?c=e71dd455-f760-4b5b-85bf-cf8ff6fba7c8",
+          "result": "W",
+          "score": {
+            "us": 19,
+            "them": 10
+          }
+        },
+        {
+          "date": "2026-08-18",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-resurrection-christian-loveland/8-18-2026/?c=9e8ada56-a841-4451-ae88-0fe32276a1ab",
+          "result": "W",
+          "score": {
+            "us": 13,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-14",
+          "opponent": "Sterling",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/resurrection-christian-loveland-vs-sterling/8-14-2026/?c=5c6a3a95-f765-440f-804e-0c3cde743939",
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 14
           }
         }
       ],
@@ -451,7 +652,7 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/cross-country/",
-      "fetched": "2026-10-25T17:34:21.501Z",
+      "fetched": "2026-10-25T18:39:35.739Z",
       "maxprepsUpdated": "2026-10-25T17:34:48",
       "results": [],
       "upcoming": [],
@@ -465,7 +666,7 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/cross-country/girls/",
-      "fetched": "2026-10-25T17:34:21.501Z",
+      "fetched": "2026-10-25T18:39:35.739Z",
       "maxprepsUpdated": "2026-10-25T17:34:52",
       "results": [],
       "upcoming": [],
@@ -479,8 +680,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/basketball/",
-      "fetched": "2026-10-25T17:34:21.501Z",
-      "maxprepsUpdated": "2026-10-25T14:34:48",
+      "fetched": "2026-10-25T18:39:35.739Z",
+      "maxprepsUpdated": "2026-10-25T18:37:41",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -583,7 +784,7 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/basketball/girls/",
-      "fetched": "2026-10-25T17:34:21.501Z",
+      "fetched": "2026-10-25T18:39:35.739Z",
       "maxprepsUpdated": "2026-10-25T15:19:16",
       "overall": "0-0",
       "league": {
@@ -743,7 +944,7 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/wrestling/",
-      "fetched": "2026-10-25T17:34:21.501Z",
+      "fetched": "2026-10-25T18:39:35.739Z",
       "maxprepsUpdated": "2026-10-25T17:35:14",
       "results": [],
       "upcoming": [],
@@ -757,8 +958,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/swimming/girls/",
-      "fetched": "2026-10-25T17:34:21.501Z",
-      "maxprepsUpdated": "2026-10-25T17:35:18",
+      "fetched": "2026-10-25T18:39:35.739Z",
+      "maxprepsUpdated": "2026-10-25T17:35:19",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -771,7 +972,7 @@
       "key": "ice-hockey",
       "name": "Ice hockey",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/ice-hockey/",
-      "fetched": "2026-10-25T17:34:21.501Z",
+      "fetched": "2026-10-25T18:39:35.739Z",
       "maxprepsUpdated": "2026-10-25T15:31:22",
       "overall": "0-0",
       "league": {
