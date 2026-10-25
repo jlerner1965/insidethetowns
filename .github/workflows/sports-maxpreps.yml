@@ -48,7 +48,9 @@ jobs:
   sports:
     name: Read MaxPreps and the school calendar, write the data file
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # Two MaxPreps pages a team, four seconds apart: ten teams a school and
+    # thirteen schools is some twenty minutes (the winter list, 25 October 2026).
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

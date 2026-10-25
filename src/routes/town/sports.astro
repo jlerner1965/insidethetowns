@@ -7,9 +7,10 @@
  * data/<town>/sports.json. The Saturday and Wednesday runs write that file
  * (`npm run sports`); nothing here is typed in by hand.
  *
- * Only the teams in play are laid out: the fall list in
+ * Only the teams in play are laid out: the fall and winter lists in
  * src/config/school-sports.ts, and of those, one MaxPreps has nothing for
- * (both cross country teams, October 2026) is left off until it has a meet.
+ * (both cross country teams, October 2026; the winter teams until their
+ * schedules are posted) is left off until it has a game.
  *
  * Built on Base with its own masthead and bands, the way the home page is,
  * rather than on Page: the big game has to be a full-width band between
@@ -37,7 +38,7 @@ import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
 import { schoolSportsFor, schoolsFor, sportsPath, type SportData, type SportsData } from '@/config/school-sports';
 import { dayKey, formatDayLong, formatDayShort, formatShortDate, formatTime } from '@/lib/dates';
-import { bigGame, coming, dedupeResults, gameDay as day, latestResult, outcome, recentResults, RESULT_WORD, placeText, schoolCssVars, season, seasonComplete, sportsDataFor, when, where } from '@/lib/school-sports';
+import { bigGame, coming, dedupeResults, gameDay as day, latestResult, outcome, recentResults, RESULT_WORD, placeText, schoolCssVars, season, seasonComplete, seasonOf, sportsDataFor, when, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -59,13 +60,16 @@ const { school, mascot, calendar } = cfg;
 // which every page left off because MaxPreps had nothing for it.
 const followed = [...new Set(sports.filter((t) => t.fetched && !t.empty).map((t) => t.name.toLowerCase().replace(/^(boys|girls) (cross country)$/, '$2')))];
 const teamList = followed.length > 1 ? `${followed.slice(0, -1).join(', ')} and ${followed.at(-1)}` : followed[0] ?? 'every team';
-const description = `${school} ${mascot} scores, schedules and records this fall: ${teamList}, from MaxPreps${calendar ? ', checked against the school calendar' : ''}.`;
+const now = new Date();
+const today = dayKey(now);
+// "Fall 2026", "Winter 2026": the season of the next game listed, from the data (seasonOf).
+const { season: seasonName, label: seasonLabel } = seasonOf(data, cfg.teams, now);
+const seasonWord = seasonName.toLowerCase();
+const description = `${school} ${mascot} scores, schedules and records this ${seasonWord}: ${teamList}, from MaxPreps${calendar ? ', checked against the school calendar' : ''}.`;
 // One guide, one colour: a guide that follows one school wears it; a guide
 // that follows several (Loveland) keeps its own on every school's page.
 const schoolStyle = schools.length === 1 ? schoolCssVars(cfg) : undefined;
 
-const now = new Date();
-const today = dayKey(now);
 const next = bigGame(data, now);
 const then = coming(data).filter((c) => c.game.date >= today && c.game.url !== next?.game.url);
 const latest = latestResult(data);
@@ -115,12 +119,12 @@ const jsonLd = [
             </ol>
           </nav>
         ) : (
-          <p class="eyebrow mb-3">Sports · Fall {today.slice(0, 4)}</p>
+          <p class="eyebrow mb-3">Sports · {seasonLabel}</p>
         )}
         {/* 2.25rem on a phone: "Resurrection Christian sports" in two lines, not three. */}
         <h1 class="display-md text-[2.25rem] sm:text-5xl md:text-6xl">{school} sports</h1>
         <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted md:text-xl">
-          Scores, schedules and records for every {mascot} team this fall.
+          Scores, schedules and records for every {mascot} team this {seasonWord}.
         </p>
         {cfg.note && <p class="mt-3 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">{cfg.note}</p>}
       </div>

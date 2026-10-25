@@ -10,7 +10,7 @@ import Page from '@/layouts/Page.astro';
 import { getTown } from '@/config';
 import { schoolsFor, sportsPath, type SportsData } from '@/config/school-sports';
 import { formatDayShort, formatShortDate } from '@/lib/dates';
-import { bigGame, formatGameTime, gameDay, latestResult, outcome, RESULT_WORD, sportsDataFor, where } from '@/lib/school-sports';
+import { bigGame, formatGameTime, gameDay, latestResult, outcome, RESULT_WORD, seasonOf, sportsDataFor, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -24,11 +24,14 @@ const rows = schools.map((school) => {
   const fetched = data.sports.map((s) => s.fetched).filter(Boolean) as string[];
   return { school, teams, next: bigGame(data, now), last: latestResult(data), read: fetched.length ? new Date(fetched.sort().at(-1)!) : undefined };
 });
+// The season, from the first school's data (seasonOf): the four share a calendar.
+const { label: seasonLabel, season } = seasonOf(sportsDataFor(schools[0]!, files) ?? { generated: '', sports: [] }, schools[0]!.teams, now);
+const seasonWord = season.toLowerCase();
 const reads = rows.map((r) => r.read).filter(Boolean) as Date[];
 const newest = reads.length ? new Date(Math.max(...reads.map((d) => d.getTime()))) : undefined;
 const names = schools.map((s) => s.school);
 const COUNT: Record<number, string> = { 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six' };
-const description = `${town.name}’s high-school scores and schedules this fall: ${names.slice(0, -1).join(', ')} and ${names.at(-1)}, from MaxPreps, each checked against the school’s own calendar where there is one.`;
+const description = `${town.name}’s high-school scores and schedules this ${seasonWord}: ${names.slice(0, -1).join(', ')} and ${names.at(-1)}, from MaxPreps, each checked against the school’s own calendar where there is one.`;
 const jsonLd = [
   collectionPageJsonLd(town, {
     name: `${town.name} high-school sports`,
@@ -42,7 +45,7 @@ const jsonLd = [
   ]),
 ];
 ---
-<Page title="High school sports" seoTitle={`${town.name} high-school scores and schedules`} eyebrow={`${town.name} · Fall ${now.getFullYear()}`} {description} intro={`Scores, schedules and records for ${town.name}’s ${COUNT[schools.length] ?? schools.length} high schools this fall.`} {jsonLd}>
+<Page title="High school sports" seoTitle={`${town.name} high-school scores and schedules`} eyebrow={`${town.name} · ${seasonLabel}`} {description} intro={`Scores, schedules and records for ${town.name}’s ${COUNT[schools.length] ?? schools.length} high schools this ${seasonWord}.`} {jsonLd}>
   {newest && <p slot="after-header" class="mt-3 text-[0.9375rem] text-ink-muted">Scores from MaxPreps, read {formatShortDate(newest)}.</p>}
   <ul class="divide-y divide-line-soft border-y border-line-soft">
     {rows.map(({ school, teams, next, last }) => (

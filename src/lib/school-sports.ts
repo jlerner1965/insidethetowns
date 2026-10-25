@@ -3,7 +3,7 @@
  * game, the games to come, and the words for a game. Shared by /sports/
  * and the home page so both lead with the same game.
  */
-import { sportsDataFile, type SchoolSports, type SportData, type SportGame, type SportsData } from '../config/school-sports.ts';
+import { sportsDataFile, type SchoolSports, type SportConfig, type SportData, type SportGame, type SportsData } from '../config/school-sports.ts';
 import { primaryHover } from '../config/palette.ts';
 import { dayKey, formatDayLong, formatTime, fromWallClock } from './dates.ts';
 
@@ -249,6 +249,26 @@ export function seasonComplete(data: SportsData, now = new Date()): boolean {
   const today = dayKey(now);
   const played = data.sports.filter((t) => t.results.length > 0);
   return played.length > 0 && !data.sports.some((t) => t.upcoming.some((g) => g.date >= today));
+}
+
+/**
+ * The season the page is in, from the data: the season (SportConfig.season)
+ * of the team with the next game to come, else of the team with the latest
+ * result, and that game's year. "Fall 2026" while football has a game left;
+ * "Winter 2026–27" once the next game listed is basketball's. Nothing to go
+ * on (no games at all): the fall of the build's year, which is what the
+ * eyebrow said before the winter list existed.
+ */
+export function seasonOf(data: SportsData, teams: Array<Pick<SportConfig, 'key' | 'season'>>, now = new Date()): { season: 'Fall' | 'Winter'; year: number; label: string } {
+  const seasonOfTeam = (key: string) => teams.find((t) => t.key === key)?.season ?? 'fall';
+  const game = bigGame(data, now) ?? latestResult(data);
+  const season = game && seasonOfTeam(game.team.key) === 'winter' ? 'Winter' : 'Fall';
+  const [y, m] = (game ? game.game.date : dayKey(now)).split('-').map(Number) as [number, number];
+  // A winter season runs across the new year and is named for the school
+  // year it belongs to: a January game is "Winter 2026–27", not 2027's.
+  const year = season === 'Winter' && m < 8 ? y - 1 : y;
+  const label = season === 'Winter' ? `Winter ${year}–${String(year + 1).slice(-2)}` : `Fall ${year}`;
+  return { season, year, label };
 }
 
 /** The most recent result across the teams. */

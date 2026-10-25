@@ -21,7 +21,10 @@
  * girls' team where the boys' is the default is "cross-country/girls", and
  * the other way round "volleyball/boys"), and `calendar` is how the school
  * calendar titles the varsity team's events ("Boys Varsity Football vs …").
- * Winter and spring teams wait until their seasons.
+ * The winter list is configured (25 October 2026) and its teams take
+ * their place on the pages as MaxPreps fills their schedules in: a team
+ * with nothing on MaxPreps is an `empty` entry the page leaves off. Spring
+ * teams wait until their season.
  *
  * The school, its mascot, its classification and its league are checked
  * against CHSAANow's member-school profiles and its 2026–28 classification
@@ -33,6 +36,8 @@
 export interface SportConfig {
   /** The key in the data file and the card's anchor: "football". */
   key: string;
+  /** The CHSAA season the team plays in; the page's eyebrow says which season its next game is in. */
+  season: 'fall' | 'winter';
   /** As the card names it: "Football", "Boys soccer". */
   name: string;
   /** The team's path under the school's MaxPreps URL: "football", "soccer", "cross-country/girls". */
@@ -102,19 +107,56 @@ export interface SchoolSports {
 }
 
 const FALL = (): SportConfig[] => [
-  { key: 'football', name: 'Football', maxpreps: 'football', calendar: { gender: 'Boys', sport: 'Football' } },
-  { key: 'boys-soccer', name: 'Boys soccer', maxpreps: 'soccer', calendar: { gender: 'Boys', sport: 'Soccer' } },
-  { key: 'volleyball', name: 'Volleyball', maxpreps: 'volleyball', calendar: { gender: 'Girls', sport: 'Volleyball' } },
+  { key: 'football', season: 'fall', name: 'Football', maxpreps: 'football', calendar: { gender: 'Boys', sport: 'Football' } },
+  { key: 'boys-soccer', season: 'fall', name: 'Boys soccer', maxpreps: 'soccer', calendar: { gender: 'Boys', sport: 'Soccer' } },
+  { key: 'volleyball', season: 'fall', name: 'Volleyball', maxpreps: 'volleyball', calendar: { gender: 'Girls', sport: 'Volleyball' } },
   // Softball is a fall sport in Colorado, which MaxPreps files under the
   // spring sport's name with the season after it (CHSAA's school pages list
   // it for both schools, 21 October 2026).
-  { key: 'softball', name: 'Softball', maxpreps: 'softball/fall', calendar: { gender: 'Girls', sport: 'Softball' }, playoffVenue: 'Aurora Sports Park' },
-  { key: 'boys-cross-country', name: 'Boys cross country', maxpreps: 'cross-country', calendar: { gender: 'Boys', sport: 'Cross Country' } },
-  { key: 'girls-cross-country', name: 'Girls cross country', maxpreps: 'cross-country/girls', calendar: { gender: 'Girls', sport: 'Cross Country' } },
+  { key: 'softball', season: 'fall', name: 'Softball', maxpreps: 'softball/fall', calendar: { gender: 'Girls', sport: 'Softball' }, playoffVenue: 'Aurora Sports Park' },
+  { key: 'boys-cross-country', season: 'fall', name: 'Boys cross country', maxpreps: 'cross-country', calendar: { gender: 'Boys', sport: 'Cross Country' } },
+  { key: 'girls-cross-country', season: 'fall', name: 'Girls cross country', maxpreps: 'cross-country/girls', calendar: { gender: 'Girls', sport: 'Cross Country' } },
 ];
+
+/**
+ * The winter teams, CHSAA's season: boys' and girls' basketball, wrestling
+ * (the boys' team; MaxPreps has a girls' page for Berthoud, Roosevelt,
+ * Loveland High and Frederick only, and it is not followed) and girls'
+ * swimming (the winter season; the boys swim in spring). Each path was
+ * read from the GitHub runner on 25 October 2026 with the run's own fetch
+ * and reader (scripts/lib/maxpreps.ts, as `npm run sports -- --town=<town>
+ * --sport=<path>` reads a page; MaxPreps refuses the cloud address this
+ * was written from): `basketball` and `basketball/girls` exist for every
+ * school and already carry a schedule; `wrestling` exists for every school
+ * with no schedule yet; `swimming/girls` exists for every school but
+ * Elizabeth's and Lyons's (HTTP 404 both, so neither follows it). The
+ * calendar words are the Finalsite pattern's ("Boys Varsity Basketball vs
+ * …"); swimming's is unverified until the season and a mismatch only
+ * notes a game as not on the school calendar.
+ */
+const WINTER = (): SportConfig[] => [
+  { key: 'boys-basketball', season: 'winter', name: 'Boys basketball', maxpreps: 'basketball', calendar: { gender: 'Boys', sport: 'Basketball' } },
+  { key: 'girls-basketball', season: 'winter', name: 'Girls basketball', maxpreps: 'basketball/girls', calendar: { gender: 'Girls', sport: 'Basketball' } },
+  { key: 'wrestling', season: 'winter', name: 'Wrestling', maxpreps: 'wrestling', calendar: { gender: 'Boys', sport: 'Wrestling' } },
+  { key: 'girls-swimming', season: 'winter', name: 'Girls swimming', maxpreps: 'swimming/girls', calendar: { gender: 'Girls', sport: 'Swimming' } },
+];
+
+/**
+ * Ice hockey, only where CHSAA's 2026–28 alignment lists the school
+ * (chsaanow.com/data/cloc/classes, ice hockey, read 25 October 2026): of
+ * the schools followed, Resurrection Christian alone (4A Metro); the
+ * Poudre School District co-op is listed as the district, not as Timnath.
+ * MaxPreps's `ice-hockey` page exists for Resurrection Christian and for no
+ * other school followed (HTTP 404, the runner, the same day).
+ */
+const ICE_HOCKEY: SportConfig = { key: 'ice-hockey', season: 'winter', name: 'Ice hockey', maxpreps: 'ice-hockey', calendar: { gender: 'Boys', sport: 'Ice Hockey' } };
 
 /** The fall list without one team, for a school that does not field it. */
 const FALL_WITHOUT = (...keys: string[]): SportConfig[] => FALL().filter((t) => !keys.includes(t.key));
+/** The winter list without one team, for a school whose MaxPreps page for it does not exist. */
+const WINTER_WITHOUT = (...keys: string[]): SportConfig[] => WINTER().filter((t) => !keys.includes(t.key));
+/** Every school's teams: the fall list, or a variant of it, then the winter list. */
+const TEAMS = (fall: SportConfig[] = FALL(), winter: SportConfig[] = WINTER()): SportConfig[] => [...fall, ...winter];
 
 /**
  * Thompson School District's Finalsite sites: `?cal_date=YYYY-MM-01` shows a
@@ -136,7 +178,7 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     colors: { primary: '#572932' },
     // Thompson School District's Finalsite site; `?cal_date=YYYY-MM-01` shows a month.
     calendar: { kind: 'finalsite', url: 'https://bhs.tsd.org/family/calendar', label: 'the Berthoud High calendar' },
-    teams: FALL(),
+    teams: TEAMS(),
   },
   {
     town: 'niwot',
@@ -152,7 +194,7 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // (arbiterlive.com/School/Calendar/16031), whose robots.txt disallows
     // every automated reader, so there is nothing to check against.
     calendarNote: 'Niwot’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
-    teams: FALL(),
+    teams: TEAMS(),
   },
   // The six guides of 22 October 2026, the Berthoud pattern as it stands.
   // Each school's colour is MaxPreps's first school colour, read by the
@@ -174,7 +216,7 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // tmh.psdschools.org/athletics), whose robots.txt disallows every
     // automated reader.
     calendarNote: 'Timnath’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
-    teams: FALL(),
+    teams: TEAMS(),
   },
   {
     town: 'elizabeth',
@@ -189,7 +231,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // The school's athletics page sends schedules to GoBound
     // (gobound.com/co/schools/elizabethhs), which this reader does not read.
     calendarNote: 'Elizabeth’s schedules live on GoBound, which this site does not read yet, so games to come are published on MaxPreps’s word alone.',
-    teams: FALL(),
+    // No girls' swimming page on MaxPreps (HTTP 404, 25 October 2026).
+    teams: TEAMS(FALL(), WINTER_WITHOUT('girls-swimming')),
   },
   {
     town: 'johnstown',
@@ -205,7 +248,7 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     colors: { primary: '#C41230' },
     // Weld RE-5J's Finalsite site; `?cal_date=YYYY-MM-01` shows a month.
     calendar: { kind: 'finalsite', url: 'https://rhs.weldre5j.org/calendar', label: 'the Roosevelt High calendar' },
-    teams: FALL(),
+    teams: TEAMS(),
   },
   {
     town: 'windsor',
@@ -220,7 +263,7 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // Windsor High posts each team's schedule on its own site
     // (whs.weldre4.org, one page per sport), not in a calendar this reader reads.
     calendarNote: 'Windsor High posts its schedules team by team on its own site, in a form this site does not read yet, so games to come are published on MaxPreps’s word alone.',
-    teams: FALL(),
+    teams: TEAMS(),
   },
   {
     town: 'loveland',
@@ -237,7 +280,7 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // but the site's robots.txt disallows that path to every automated
     // reader (22 October 2026), where Mountain View's allows it.
     calendarNote: 'Loveland High’s calendar asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
-    teams: FALL(),
+    teams: TEAMS(),
   },
   {
     town: 'loveland',
@@ -251,7 +294,7 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     colors: { primary: '#222222' },
     // As Loveland High: tvhs.tsd.org/robots.txt disallows /family/calendar.
     calendarNote: 'Thompson Valley’s calendar asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
-    teams: FALL(),
+    teams: TEAMS(),
   },
   {
     town: 'loveland',
@@ -264,7 +307,7 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // Mountain Lion purple, as MaxPreps's team data gives it (754ACC, 22 October 2026).
     colors: { primary: '#754ACC' },
     calendar: TSD_CALENDAR('mvhs', 'the Mountain View calendar'),
-    teams: FALL(),
+    teams: TEAMS(),
   },
   {
     town: 'loveland',
@@ -280,8 +323,9 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // (students.arbitersports.com/organizations/resurrection-christian-school),
     // which this reader does not read.
     calendarNote: 'Resurrection Christian’s schedules live on ArbiterSports, which this site does not read yet, so games to come are published on MaxPreps’s word alone.',
-    // No boys' soccer: CHSAANow's alignment lists none for the school.
-    teams: FALL_WITHOUT('boys-soccer'),
+    // No boys' soccer: CHSAANow's alignment lists none for the school. Ice
+    // hockey: the one school followed that CHSAA lists for it.
+    teams: TEAMS(FALL_WITHOUT('boys-soccer'), [...WINTER(), ICE_HOCKEY]),
   },
   {
     town: 'carbon-valley',
@@ -299,7 +343,7 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // does Niwot's, whose robots.txt disallows every automated reader;
     // Frederick High's own site links no calendar of games.
     calendarNote: 'Frederick’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
-    teams: FALL(),
+    teams: TEAMS(),
   },
   {
     town: 'lyons',
@@ -314,8 +358,9 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // 22 October 2026), which the cross-check does not read.
     calendarNote: 'Lyons posts its schedules as spreadsheets on the school site, which the cross-check does not read, so games to come are published on MaxPreps’s word alone.',
     // The fall list at the school site, 22 October 2026: cross country,
-    // football, softball, volleyball (and cheer). No boys soccer.
-    teams: FALL().filter((t) => t.key !== 'boys-soccer'),
+    // football, softball, volleyball (and cheer). No boys soccer. No girls'
+    // swimming page on MaxPreps (HTTP 404, 25 October 2026).
+    teams: TEAMS(FALL_WITHOUT('boys-soccer'), WINTER_WITHOUT('girls-swimming')),
   },
 ];
 
