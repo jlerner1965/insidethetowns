@@ -8,7 +8,8 @@ url: "https://johnstownmillikenpubliclibraries.us/event/puppets-popcorn-2/"
 cost: "Free"
 category: family
 source: "https://johnstownmillikenpubliclibraries.us/event/puppets-popcorn-2/"
-verified: "2026-10-03"
+verified: "2026-10-25"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Puppets &#038; Popcorn\" at 11 am on 7 November in the page's structured data"
 ---
 
 Dragons, puppets, stories and popcorn: the library's half-hour puppet show for all ages.

@@ -7,7 +7,8 @@ url: "https://csurams.com/sports/womens-basketball/schedule/2026-27"
 cost: "Tickets from the Rams ticket office"
 category: sports
 source: "https://csurams.com/sports/womens-basketball/schedule/2026-27"
-verified: "2026-10-03"
+verified: "2026-10-25"
+verifiedBy: "recheck-events (the nightly re-check workflow): 5 December and 1 pm on the page"
 ---
 
 A Saturday afternoon game at Moby Arena against Southern. Lots open two hours before tip-off; will call at the Rams Ticket Office at Moby opens one hour before. Clear bags only. Tickets (800) 491-RAMS.

@@ -11,8 +11,8 @@ source: "https://www.firestoneco.gov/calendar.aspx?EID=2764"
 sourceId: "firestoneco-gov"
 sourceUid: "2764"
 sourceHash: "e5211216650b"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the Town of Firestone: Town calendar feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-25"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Low-Sensory Blue Heart Social\" at 10 am on 7 November on the Town of Firestone: Town calendar feed"
 ---
 
 Low-Sensory Blue Heart Social at Firestone Police Department & Municipal Court Building, Saturday, November 7, 10 am – 12 pm. Listed by Town of Firestone: Town calendar; the organizer's page has the details and any registration.

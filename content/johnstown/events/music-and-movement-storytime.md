@@ -10,7 +10,7 @@ cost: "Free"
 category: family
 recurring: "Mondays at 10"
 source: "https://johnstownmillikenpubliclibraries.us/"
-verified: "2026-10-24"
+verified: "2026-10-25"
 verifiedBy: "recheck-events (the nightly re-check workflow): 26 October and 10 am on the page"
 ---
 

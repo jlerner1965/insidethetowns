@@ -9,7 +9,7 @@ cost: "Free, donations appreciated"
 category: music
 recurring: "First Friday of the month"
 source: "https://tockify.com/wildfire/detail/678/1794015900000"
-verified: "2026-10-24"
+verified: "2026-10-25"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Monthly Community Drum Circle\" at 6:45 pm on 6 November in the page's structured data"
 ---
 

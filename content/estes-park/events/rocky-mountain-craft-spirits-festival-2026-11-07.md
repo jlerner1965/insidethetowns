@@ -11,8 +11,8 @@ organizer: "Town of Estes Park"
 organizerUrl: "https://estespark.colorado.gov/"
 source: "https://eventsinestes.com/rocky-mountain-craft-spirits-festival/"
 sourceId: "eventsinestes-com"
-verified: "2026-10-14"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-25"
+verifiedBy: "recheck-events (the nightly re-check workflow): 7 November and 12 pm on the page"
 ---
 
 The Town's afternoon festival of Colorado craft distilleries, now with breweries and non-alcoholic drink makers too: the Town lists 30-plus distilleries and 10-plus breweries, with live music, food and local makers. Sampling tickets are for ages 21 and over; general and child tickets let the rest of the family in, and no one is admitted without a ticket. A free in-town shuttle runs from downtown.

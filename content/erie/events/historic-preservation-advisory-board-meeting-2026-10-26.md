@@ -8,7 +8,7 @@ cost: "Free"
 category: civic
 recurring: "Fourth Mondays"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5363"
-verified: "2026-10-24"
+verified: "2026-10-25"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Historic Preservation Advisory Board Meeting - In Person\" at 6:30 pm on 26 October on the erieco.gov feed"
 ---
 

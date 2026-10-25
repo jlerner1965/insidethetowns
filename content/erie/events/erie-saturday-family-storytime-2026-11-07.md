@@ -9,7 +9,7 @@ cost: "Free"
 category: family
 recurring: "Monthly, first Saturdays"
 source: "https://highplains.libcal.com/event/15672193"
-verified: "2026-10-17"
+verified: "2026-10-25"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Erie Saturday Family Storytime\" at 10:30 am on 7 November in the page's structured data"
 ---
 

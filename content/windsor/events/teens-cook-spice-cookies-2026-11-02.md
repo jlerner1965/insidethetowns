@@ -11,7 +11,7 @@ category: family
 organizer: "Clearview Library District"
 organizerUrl: "https://www.clearviewlibrary.org/"
 source: "https://clearview.libnet.info/event/17449973"
-verified: "2026-10-24"
+verified: "2026-10-25"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Teens Cook\" at 4:30 pm on 2 November in the page's structured data"
 ---
 

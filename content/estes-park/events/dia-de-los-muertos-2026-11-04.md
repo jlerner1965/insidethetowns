@@ -9,7 +9,7 @@ source: "https://calendar.estesvalleylibrary.org/event/17835236"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17835236"
 sourceHash: "719cfa2ec0a5"
-verified: "2026-10-24"
+verified: "2026-10-25"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Día de los Muertos\" at 5 pm on 4 November on the Estes Valley Library feed"
 ---
 
