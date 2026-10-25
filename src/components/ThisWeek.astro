@@ -50,6 +50,8 @@ import { activeChanges, briefingUpdates, corrections, currentNotes, currentPick,
 import { currentUpdates, isLateNotice } from '@/lib/updates';
 import { subTownLabel } from '@/lib/sub-towns';
 import { UPDATE_KIND_LABELS } from '@/content/schemas';
+import { schoolsFor, sportsPath, type SportsData } from '@/config/school-sports';
+import { formatGameTime, resultText, sportsDataFor, weekAhead, when as gameWhen, where } from '@/lib/school-sports';
 
 interface Props {
   town: TownConfig;
@@ -121,6 +123,21 @@ const later = quiet
 // The pick's own day and time, from its listing: "Friday, October 9 · 7 pm".
 const when = (event: typeof calendar[number]) =>
   [isMultiDay(event) ? undefined : formatDayLong(event.data.start), timeText(event, now)].filter(Boolean).join(' · ');
+
+// The school's games this week, after the pick (or the highlight standing
+// in for it) and before the listings: the strip's own selection (football
+// first, src/lib/school-sports.ts weekAhead), each with the team's record,
+// then the last result. On the full page only: the home page has the strip
+// beside this block already. Nothing drawn for a week with no games; a
+// town's several schools each get a line group.
+const sportsFiles = import.meta.glob<SportsData>('../../data/*/sports*.json', { eager: true, import: 'default' });
+const schoolWeeks = compact
+  ? []
+  : schoolsFor(town.slug).flatMap((school) => {
+      const data = sportsDataFor(school, sportsFiles);
+      const week = data ? weekAhead(data, now) : undefined;
+      return week && week.games.length > 0 ? [{ school, week }] : [];
+    });
 
 // Under the page's own h1 the sections are h2s, in the site's one h2 style
 // (SectionHeader); under the home page's section heading they step down one.
@@ -197,6 +214,36 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
           {highlight.data.venue}{highlight.data.subTown && <span>, {subTownLabel(highlight.data.subTown)}</span>}{highlight.data.cost && <span> · {highlight.data.cost}</span>}
         </p>
       </div>
+    </section>
+  )}
+
+  {schoolWeeks.length > 0 && (
+    <section class={block} aria-labelledby={`games-${v}`}>
+      <Heading id={`games-${v}`} title="Games this week" />
+      {schoolWeeks.map(({ school, week }) => (
+        <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+          {schoolWeeks.length > 1 && <p class="eyebrow pt-4"><a href={sportsPath(school)} class="underline underline-offset-2">{school.school.replace(/ (High )?School$/, '')} {school.mascot}</a></p>}
+          <ul>
+            {week.games.map(({ team, game }) => (
+              <li class="border-t border-line-soft py-4 first:border-t-0">
+                <p class="text-xl font-medium leading-tight">
+                  <a href={game.url} rel="noopener" class="no-underline hover:text-primary">{team.name} {where(game)} {game.opponent}</a>
+                  {team.overall && <span class="ml-2 text-[0.9375rem] font-normal text-ink-muted">{team.overall}</span>}
+                </p>
+                <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">
+                  <time datetime={game.time ? `${game.date}T${game.time}` : game.date}>{gameWhen(game, now)}{game.time && ` · ${formatGameTime(game)}`}</time>
+                  {game.stage && ` · ${game.stage}`}
+                  {game.venue ? ` · ${game.venue}` : game.site === 'home' ? ' · Home' : game.site === 'away' ? ' · Away' : ''}
+                </p>
+              </li>
+            ))}
+          </ul>
+          {week.last?.game.result && (
+            <p class="border-t border-line-soft py-4 text-[0.9375rem] text-ink-muted">Last out: {resultText(week.last)}.</p>
+          )}
+        </div>
+      ))}
+      <p class="mt-4 text-[0.9375rem]"><a href="/sports/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">Scores and schedules →</a></p>
     </section>
   )}
 

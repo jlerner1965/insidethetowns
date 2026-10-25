@@ -20,6 +20,8 @@ import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { findTown, liveTowns } from '../src/config/index.ts';
+import { townSportsWeek } from '../scripts/lib/sports-data.ts';
+import { gameText, resultText } from '../src/lib/school-sports.ts';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
@@ -82,6 +84,7 @@ async function buildTasks(mode, town, args) {
     case 'weekly': {
       const weekOf = nextMonday();
       const events = await upcomingEvents(contentDir, 21);
+      const sports = schoolSports(town, weekOf);
       return [{
         label: `week of ${weekOf}`,
         outFile: path.join(outDir, `weekly-${weekOf}.md`),
@@ -92,7 +95,10 @@ ${sources || '(no source registry yet — find the town site, chamber, library a
 
 Pick: choose from the listings already on the guide (only these qualify for the pick url):
 ${events || '(no upcoming listings on the guide — leave the pick blank)'}
-
+${sports ? `
+High-school sports, from the guide's own data (MaxPreps, read by the sports run; the notes may mention a game or a result in these words and numbers only, never a score, date or opponent not listed here; the guide's page is https://${town.domain}/sports/):
+${sports}
+` : ''}
 Produce the "Weekly notes" file format from your instructions, front matter first, then the Editor's notes section. checked: ${today}. expires: 14 days after weekOf unless the item is dated sooner.`,
       }];
     }
@@ -197,6 +203,28 @@ async function runAgent(userPrompt, town) {
 }
 
 // ---------- repo readers (front matter is read with a small line parser; enough for these fields) ----------
+
+/**
+ * The school's games from today to the end of the week being drafted, and
+ * each team's last result, as the home page's strip and the Thursday email
+ * read them (src/lib/school-sports.ts weekAhead): football first. Nothing
+ * where the town follows no school or its data file has not been written.
+ */
+function schoolSports(town, weekOf) {
+  const now = new Date();
+  const sunday = new Date(`${weekOf}T23:59`);
+  sunday.setDate(sunday.getDate() + 6);
+  const days = Math.max(7, Math.ceil((sunday - now) / 86400000));
+  const lines = [];
+  for (const { school, week } of townSportsWeek(town.slug, now, root, days)) {
+    lines.push(`- ${school.school} ${school.mascot} (${school.maxpreps}):`);
+    const games = week.games.length ? week.games : [];
+    for (const g of games) lines.push(`  - ${gameText(g, now)}${g.team.overall ? ` (${g.team.overall} this season)` : ''}`);
+    if (!games.length) lines.push('  - no games listed this week');
+    if (week.last?.game.result) lines.push(`  - last out: ${resultText(week.last)} (${week.last.game.date})`);
+  }
+  return lines.join('\n');
+}
 
 async function trustedSources(contentDir) {
   const file = path.join(contentDir, 'sources.json');

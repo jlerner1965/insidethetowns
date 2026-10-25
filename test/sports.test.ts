@@ -589,3 +589,32 @@ test('with every game played and none listed to come, the band says the regular 
   // Nothing played yet: nothing to say.
   assert.equal(seasonComplete({ generated: '', sports: [team('football', [], [])] }, now), false);
 });
+
+test('the strip, This week and the email read one week: football first, the last result, last week’s football', async () => {
+  const { gameText, lastResultOf, resultText, weekAhead } = await import('../src/lib/school-sports.ts');
+  const { townSportsWeek } = await import('../scripts/lib/sports-data.ts');
+  const now = new Date('2026-10-25T15:00:00Z');
+  const greeley = { date: '2026-10-23', opponent: 'Greeley Central', site: 'home' as const, result: 'W' as const, score: { us: 22, them: 0 }, url: 'g' };
+  const team = (key: string, name: string, overall: string, results: typeof greeley[], upcoming: Array<{ date: string; time?: string; opponent: string; site: 'home' | 'away' | 'neutral'; url: string; venue?: string; stage?: string }>) => ({ key, name, maxprepsUrl: '', fetched: 'x', overall, results, upcoming, held: [], notes: [] });
+  const data: SportsData = {
+    generated: '',
+    sports: [
+      team('football', 'Football', '7-2', [greeley], [{ date: '2026-10-30', time: '19:00', opponent: 'Severance', site: 'away', url: 'f' }]),
+      team('volleyball', 'Volleyball', '15-5', [{ ...greeley, date: '2026-10-24', opponent: 'Windsor', result: 'L', score: { us: 1, them: 3 }, url: 'v0' }], [{ date: '2026-10-26', time: '18:30', opponent: 'University', site: 'home', url: 'v1' }]),
+      team('softball', 'Softball', '27-0', [], [{ date: '2026-10-31', time: '10:00', opponent: 'Fruita Monument', site: 'neutral', venue: 'Aurora Sports Park', stage: 'State Softball Tournaments', url: 's' }]),
+    ],
+  };
+  const week = weekAhead(data, now);
+  assert.deepEqual(week.games.map((g) => g.game.opponent), ['Severance', 'University', 'Fruita Monument'], 'football first, then by date');
+  assert.equal(week.last!.game.opponent, 'Windsor', 'the latest result of any team');
+  assert.equal(week.football!.game.opponent, 'Greeley Central', 'last week’s football');
+  assert.equal(lastResultOf(data, 'football', new Date('2026-11-05T15:00:00Z')), undefined, 'a result more than a week old is not last week’s');
+  assert.equal(gameText(week.games[0]!, now), 'Football at Severance · Friday, October 30 · 7 pm · Away');
+  assert.equal(gameText(week.games[1]!, now), 'Volleyball vs University · Tomorrow · 6:30 pm · Home');
+  assert.equal(gameText(week.games[2]!, now), 'Softball vs Fruita Monument · Saturday, October 31 · 10 am · State Softball Tournaments · Aurora Sports Park');
+  assert.equal(resultText(week.football!), 'Football won 22-0 vs Greeley Central, 7-2 this season');
+  assert.equal(weekAhead(data, now, 2).games.length, 2, 'the strip’s limit');
+  // The scripts read the same files from disk: a town with a school and a file has a week; one without has none.
+  assert.equal(townSportsWeek('berthoud', now)[0]?.school.mascot, 'Spartans');
+  assert.deepEqual(townSportsWeek('estes-park', now), []);
+});

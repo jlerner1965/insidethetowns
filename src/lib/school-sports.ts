@@ -165,6 +165,56 @@ export function stripGames(data: SportsData, now = new Date(), limit = Infinity,
 }
 
 /**
+ * A team's most recent result inside the last `days` days, or nothing: the
+ * Thursday email's "last Friday's football".
+ */
+export function lastResultOf(data: SportsData, key: string, now = new Date(), days = 7): TeamGame | undefined {
+  const team = data.sports.find((t) => t.key === key);
+  const game = team?.results.find((g) => g.result || g.place);
+  if (!team || !game) return undefined;
+  const since = dayKey(new Date(now.getTime() - days * 86_400_000));
+  return game.date >= since && game.date <= dayKey(now) ? { team, game } : undefined;
+}
+
+export interface WeekAhead {
+  /** The week's games, football first, then soonest first, cut to the limit (stripGames). */
+  games: TeamGame[];
+  /** The most recent result of any team, whenever it was. */
+  last?: TeamGame;
+  /** Football's most recent result when it was in the past week. */
+  football?: TeamGame;
+}
+
+/**
+ * This week's games and the last result, the one reading the home page's
+ * strip, "This week in [Town]" and the Thursday email share, so the three
+ * agree on which games are the week's and which result is the last.
+ */
+export function weekAhead(data: SportsData, now = new Date(), limit = Infinity, days = 7): WeekAhead {
+  return {
+    games: stripGames(data, now, limit, days),
+    last: latestResult(data),
+    football: lastResultOf(data, FLAGSHIP_TEAM, now, days),
+  };
+}
+
+/**
+ * One game as a plain line, for the email and the research drafts:
+ * "Football at Severance · Friday, October 30 · 7 pm · Away", the stage
+ * where MaxPreps gives one, the venue for a neutral game that has one.
+ */
+export function gameText({ team, game }: TeamGame, now = new Date()): string {
+  const place = game.venue ?? (game.site === 'home' ? 'Home' : game.site === 'away' ? 'Away' : undefined);
+  return [`${team.name} ${where(game)} ${game.opponent}`, when(game, now), game.time ? formatGameTime(game) : undefined, game.stage, place].filter(Boolean).join(' · ');
+}
+
+/** "Football won 22-0 vs Greeley Central, 7-2 this season" / "Volleyball lost 1-3 at Windsor". */
+export function resultText({ team, game }: TeamGame): string {
+  const word = game.result ? RESULT_WORD[game.result].toLowerCase() : 'placed';
+  return `${team.name} ${word} ${outcome(game)}${team.overall ? `, ${team.overall} this season` : ''}`;
+}
+
+/**
  * The school's data file, from the build's bundle of every town's (the
  * pages glob the data folder for every sports JSON file). Vite reads the
  * glob at build time, so a school without a file simply has no entry.

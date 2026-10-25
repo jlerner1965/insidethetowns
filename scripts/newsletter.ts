@@ -45,6 +45,8 @@ import { groupByDay, highlights, isCanceled, isFlagged, occurrences, timeText, w
 import { campaignLink, isNewlyClosed, isNewPlace, nextSendDay, openingDay } from '../src/lib/newsletter.ts';
 import { subTownList } from '../src/lib/sub-towns.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
+import { townSportsWeek, type SchoolWeek } from './lib/sports-data.ts';
+import { gameText, resultText } from '../src/lib/school-sports.ts';
 import { eventConfidence, type ConfidenceInput } from '../src/lib/confidence.ts';
 import { eventExclusion } from '../src/lib/freshness.ts';
 
@@ -135,6 +137,8 @@ function frontmatter(title: string, excerpt: string, towns: string[]): string[] 
 
 interface TownWeek {
   town: TownConfig;
+  /** The school's games in the week from the send day, football first, and its last result (src/lib/school-sports.ts weekAhead). */
+  sports: SchoolWeek[];
   weekend: Listing[];
   running: Listing[];
   next: Listing[];
@@ -159,6 +163,11 @@ function readWeek(town: TownConfig): TownWeek {
   const places = readCollection<PlaceData>(town.slug, 'places', placeSchema(plainImage));
   return {
     town,
+    // The same reading as the home page's strip and "This week in [Town]":
+    // the week from the Thursday the email goes out, so Friday's football
+    // and the weekend's games, data/<town>/sports*.json as the Saturday,
+    // Sunday and Wednesday runs left it.
+    sports: townSportsWeek(town.slug, send, root),
     weekend: parts.weekend,
     running: [...parts.now, ...parts.continuing],
     next: parts.next,
@@ -182,8 +191,32 @@ function sponsorLine(sponsor: { name: string; url: string; line?: string } | und
   return [`_Sponsor · This week’s email is presented by [${sponsor.name}](${sponsor.url})${sponsor.line ? ` · ${sponsor.line}` : ''}._`, ''];
 }
 
+/**
+ * The school's games this week, one line a game in the listings' style, the
+ * record after each, then last week's football result where there was one
+ * and the last result of any team otherwise. Nothing for a week with no
+ * games and no result; a town's several schools are each their own group.
+ */
+function sportsLines(sports: SchoolWeek[], town: TownConfig): string[] {
+  const out: string[] = [];
+  for (const { school, week } of sports) {
+    if (!week.games.length && !week.football && !week.last) continue;
+    const name = `${school.school.replace(/ (High )?School$/, '')} ${school.mascot}`;
+    out.push(`## ${name} this week`, '');
+    for (const g of week.games) {
+      const text = gameText(g, send);
+      const [what, ...rest] = text.split(' · ');
+      out.push(`- **${rest.join(' · ')}** [${what}](${g.game.url})${g.team.overall ? ` · ${g.team.overall} this season` : ''}`);
+    }
+    const last = week.football ?? week.last;
+    if (last?.game.result || last?.game.place) out.push(...(week.games.length ? [''] : []), `Last week: ${resultText(last).replace(/^[A-Z]/, (c) => c.toLowerCase())}.`);
+    out.push('', `[Scores and schedules](${site(town.domain, `/sports/`)})`, '');
+  }
+  return out;
+}
+
 function townIssue(week: TownWeek, sponsor: Edition['sponsor']): string {
-  const { town, weekend, running, next, newPlaces, closedPlaces, articles } = week;
+  const { town, sports, weekend, running, next, newPlaces, closedPlaces, articles } = week;
   const n = weekend.length;
   const picks = highlights(weekend, { now: send, limit: 3 }).map((e) => e.data.title);
   const excerpt =
@@ -199,6 +232,7 @@ function townIssue(week: TownWeek, sponsor: Edition['sponsor']): string {
     `## This weekend, ${range}`,
     '',
     ...(n ? byDay(weekend, town) : [`Nothing listed for the weekend yet. Know of something? [Send it in](${site(town.domain, `/submit-event/`)}).`, '']),
+    ...sportsLines(sports, town),
   ];
   if (running.length) lines.push('## Still running', '', ...running.map((e) => line(e, town)), '');
   if (next.length) lines.push('## Next week', '', ...byDay(next, town));
@@ -257,6 +291,11 @@ function sharedIssue(edition: Edition, weeks: TownWeek[]): string {
     lines.push(`### ${heading(w.town)}`, '');
     if (w.weekend.length) lines.push(...byDay(w.weekend, w.town));
     else lines.push(`Nothing listed for the weekend yet. Know of something? [Send it in](${site(w.town.domain, `/submit-event/`)}).`, '');
+  }
+  // The games, each town's under its own heading, where a town follows a school.
+  for (const w of weeks) {
+    const games = sportsLines(w.sports, w.town);
+    if (games.length) lines.push(...games.map((l) => (l.startsWith('## ') ? `### ${heading(w.town)}: ${l.slice(3)}` : l)));
   }
   const section = (title: string, pick: (w: TownWeek) => string[]) => {
     const parts = weeks.map((w) => ({ town: w.town, body: pick(w) })).filter((p) => p.body.length);
