@@ -48,7 +48,8 @@ test('every guide has the same menu, built from what it has: the week, events, i
   assert.equal(townNav(by('lyons')).find((n) => n.href === '/sports/')?.label, 'Lions sports');
   assert.equal(townNav(towns.find((t) => t.slug === 'carbon-valley')!).find((n) => n.href === '/sports/')?.label, 'Frederick sports');
   assert.equal(townNav(towns.find((t) => t.slug === 'loveland')!).find((n) => n.href === '/sports/')?.label, 'High school sports');
-  assert.deepEqual(townNav(towns.find((t) => t.slug === 'erie')!).map((n) => n.label), ['This week', 'Events', 'Eat & drink', 'Families', 'Living here']);
+  // Erie follows Erie High since 25 October 2026, so its menu carries the Tigers in the third slot.
+  assert.deepEqual(townNav(towns.find((t) => t.slug === 'erie')!).map((n) => n.label), ['This week', 'Events', 'Tigers sports', 'Eat & drink', 'Families', 'Living here']);
   assert.deepEqual(townNav(towns.find((t) => t.slug === 'longmont')!).map((n) => n.label), ['This week', 'Events', 'Eat & drink', 'Things to do', 'Moving here']);
 });
 
