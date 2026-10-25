@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-24T17:09:14.933Z",
+  "generated": "2026-10-25T02:30:15.184Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/football/",
-      "fetched": "2026-10-24T17:09:14.933Z",
-      "maxprepsUpdated": "2026-10-24T16:36:11",
+      "fetched": "2026-10-25T02:30:15.184Z",
+      "maxprepsUpdated": "2026-10-25T01:19:13",
       "overall": "7-2",
       "league": {
         "record": "3-2",
@@ -132,8 +132,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/soccer/",
-      "fetched": "2026-10-24T17:09:14.933Z",
-      "maxprepsUpdated": "2026-10-24T14:23:12",
+      "fetched": "2026-10-25T02:30:15.184Z",
+      "maxprepsUpdated": "2026-10-25T01:23:17",
       "overall": "5-8-2",
       "league": {
         "record": "3-7",
@@ -317,8 +317,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/volleyball/",
-      "fetched": "2026-10-24T17:09:14.933Z",
-      "maxprepsUpdated": "2026-10-24T17:08:06",
+      "fetched": "2026-10-25T02:30:15.184Z",
+      "maxprepsUpdated": "2026-10-25T02:00:56",
       "overall": "15-3",
       "league": {
         "record": "9-0",
@@ -540,6 +540,7 @@
           "opponent": "Palmer Ridge",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/palmer-ridge-monument-vs-timnath/10-30-2026/?c=ec00730a-813d-45b1-9fde-70900f86e52d",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "Cheyenne Mountain Tournament @ World Arena",
           "time": "11:30"
@@ -554,8 +555,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/softball/fall/",
-      "fetched": "2026-10-24T17:09:14.933Z",
-      "maxprepsUpdated": "2026-10-24T15:16:02",
+      "fetched": "2026-10-25T02:30:15.184Z",
+      "maxprepsUpdated": "2026-10-25T01:35:41",
       "overall": "5-18",
       "league": {
         "record": "2-8",
@@ -667,6 +668,7 @@
           "opponent": "Mountain View",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/mountain-view-loveland-vs-timnath/9-12-2026/?c=881f45eb-a42b-40c2-8396-4da42d137771",
+          "stage": "Tournament",
           "neutral": true,
           "result": "W",
           "score": {
@@ -679,6 +681,7 @@
           "opponent": "Thompson Valley",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/thompson-valley-loveland-vs-timnath/9-12-2026/?c=def029bd-b257-4a8e-84f4-05406dcac252",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "Rumble on the Ridge (Northridge High School)",
           "result": "L",
@@ -692,6 +695,7 @@
           "opponent": "Northfield",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/northfield-denver-vs-timnath/9-11-2026/?c=9b50b9d2-69fb-4816-9f90-4e94dfb7a9f7",
+          "stage": "Tournament",
           "neutral": true,
           "result": "L",
           "score": {
@@ -748,6 +752,7 @@
           "opponent": "Prairie View",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/prairie-view-henderson-vs-timnath/8-29-2026/?c=33f020cf-f304-41cc-8d9a-2f5994331bd8",
+          "stage": "Tournament",
           "neutral": true,
           "result": "L",
           "score": {
@@ -772,6 +777,7 @@
           "opponent": "Rangeview",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/rangeview-aurora-vs-timnath/8-28-2026/?c=e3b62cbd-4d27-415a-99b5-a60f2fd7d1af",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "field 7",
           "result": "W",
@@ -835,8 +841,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/cross-country/",
-      "fetched": "2026-10-24T17:09:14.933Z",
-      "maxprepsUpdated": "2026-10-24T17:09:49",
+      "fetched": "2026-10-25T02:30:15.184Z",
+      "maxprepsUpdated": "2026-10-25T02:30:50",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -849,8 +855,358 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/cross-country/girls/",
-      "fetched": "2026-10-24T17:09:14.933Z",
-      "maxprepsUpdated": "2026-10-24T17:09:54",
+      "fetched": "2026-10-25T02:30:15.184Z",
+      "maxprepsUpdated": "2026-10-25T02:30:54",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "boys-basketball",
+      "name": "Boys basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/basketball/",
+      "fetched": "2026-10-25T02:30:15.184Z",
+      "maxprepsUpdated": "2026-10-25T01:42:10",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "6A/5A/4A Northern",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-12-01",
+          "opponent": "Berthoud",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-timnath/12-1-2026/?c=de371872-2185-48a1-b0f1-fecc72239419",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-16",
+          "opponent": "University",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/timnath-vs-university-greeley/12-16-2026/?c=4d53054c-a655-4864-b027-208954dbc573",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-18",
+          "opponent": "Liberty Common",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/liberty-common-fort-collins-vs-timnath/12-18-2026/?c=39004ac3-e9af-4e0d-af2f-2f608d795ea2",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-19",
+          "opponent": "Wellington",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/game/timnath-vs-wellington/12-19-2026/?c=f4fb87d2-f892-4dbd-975a-ac860177f939",
+          "neutral": true,
+          "venue": "@ Moby Arena"
+        },
+        {
+          "date": "2027-01-08",
+          "opponent": "Brighton",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/brighton-vs-timnath/1-8-2027/?c=d5db0ecc-abbe-4f01-8b31-bc382aa30757",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-12",
+          "opponent": "Eaton",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/eaton-fightin-reds-vs-timnath/1-12-2027/?c=70685936-1473-4715-9cb2-d92f3902a6b3",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-16",
+          "opponent": "Frederick",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/frederick-vs-timnath/1-16-2027/?c=1af1dca1-96bd-4617-bced-b61b8bb5bc28",
+          "time": "13:00"
+        },
+        {
+          "date": "2027-01-19",
+          "opponent": "Roosevelt",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/roosevelt-johnstown-vs-timnath/1-19-2027/?c=b3404e7c-a3e8-448f-b43d-f3e160a05d7f",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Windsor",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/timnath-vs-windsor/1-22-2027/?c=23cb8b77-4976-4c53-9e63-e08c3f4a0ec1",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Greeley West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/greeley-west-vs-timnath/1-26-2027/?c=92f73601-7c5a-45ba-a60e-1e506eb0bffa",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-28",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/northridge-greeley-vs-timnath/1-28-2027/?c=e3ba29d5-bc25-48f4-86bd-a322be0ffe3b",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-02",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/mountain-view-loveland-vs-timnath/2-2-2027/?c=8118ee7d-fd7a-419f-b317-e0826f9cd634",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-02-04",
+          "opponent": "Mead",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/mead-longmont-vs-timnath/2-4-2027/?c=34001b60-4f3d-49bc-a46b-bafe65bfe9e2",
+          "time": "18:30"
+        },
+        {
+          "date": "2027-02-06",
+          "opponent": "Skyline",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/skyline-longmont-vs-timnath/2-6-2027/?c=6e204e88-2b37-49a4-9207-da8cd2295048",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-02-09",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/thompson-valley-loveland-vs-timnath/2-9-2027/?c=dc6da0d5-9d4d-4307-8659-0f38fe333504",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-02-11",
+          "opponent": "Poudre",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/poudre-fort-collins-vs-timnath/2-11-2027/?c=24bcdaa4-3b0a-459a-bd66-27a464bfa7fc",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-02-16",
+          "opponent": "Loveland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-timnath/2-16-2027/?c=b986a08a-028f-4831-a7db-ea08c707202c",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-19",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/greeley-central-vs-timnath/2-19-2027/?c=388ede45-8969-4996-9131-0b27300981b5",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-02-23",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/severance-vs-timnath/2-23-2027/?c=6bd3de26-063a-40cd-9ce4-c556fc85f740",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-02-25",
+          "opponent": "Peak to Peak",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/peak-to-peak-lafayette-vs-timnath/2-25-2027/?c=a1c98567-2062-4ed2-a0c5-0c69a03ac91f",
+          "time": "19:30"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "girls-basketball",
+      "name": "Girls basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/basketball/girls/",
+      "fetched": "2026-10-25T02:30:15.184Z",
+      "maxprepsUpdated": "2026-10-25T02:31:08",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "6A/5A/4A Northern",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-12-01",
+          "opponent": "Berthoud",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-timnath/12-1-2026/?c=47754e7b-4209-4f33-a4a7-0bd4a57256ec",
+          "time": "17:30"
+        },
+        {
+          "date": "2026-12-16",
+          "opponent": "University",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/timnath-vs-university-greeley/12-16-2026/?c=cc6e4992-b8bb-43e0-b60e-b74441f5f9fe",
+          "time": "17:30"
+        },
+        {
+          "date": "2026-12-18",
+          "opponent": "Liberty Common",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/liberty-common-fort-collins-vs-timnath/12-18-2026/?c=d4e84e4e-dd65-40aa-94c4-b826790cdb06",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-19",
+          "opponent": "Wellington",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/timnath-vs-wellington/12-19-2026/?c=75f775ea-78ed-4df0-bc42-96026e0aeecc",
+          "neutral": true,
+          "venue": "Moby Madness"
+        },
+        {
+          "date": "2027-01-05",
+          "opponent": "Kent Denver",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/kent-denver-englewood-vs-timnath/1-5-2027/?c=cfe4150c-7f4f-42d9-8fa3-e4a617f9b4e6",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-08",
+          "opponent": "Colorado Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/colorado-academy-denver-vs-timnath/1-8-2027/?c=2e49e64b-07e9-4db1-96aa-f60ce5185c88",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-12",
+          "opponent": "Eaton",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/eaton-fightin-reds-vs-timnath/1-12-2027/?c=8f31fa79-d3b4-4f84-9d95-e7cbc22ad02b",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-16",
+          "opponent": "Frederick",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/frederick-vs-timnath/1-16-2027/?c=ad33c5b6-7ba4-4ed9-9e85-3eb2698ca4e6",
+          "time": "11:30"
+        },
+        {
+          "date": "2027-01-19",
+          "opponent": "Roosevelt",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/roosevelt-johnstown-vs-timnath/1-19-2027/?c=01b72d7a-264a-4e3a-bb07-c276bca479e7",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Windsor",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/timnath-vs-windsor/1-22-2027/?c=9acf1e21-2327-4332-b18d-dfc793693b21",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Greeley West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/greeley-west-vs-timnath/1-26-2027/?c=ddaeed35-60d1-4872-b627-9c8a36da25c8",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-28",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/northridge-greeley-vs-timnath/1-28-2027/?c=bd2478a2-0a84-4fae-872a-fa0e799e7747",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-02",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/mountain-view-loveland-vs-timnath/2-2-2027/?c=68fd64bf-d855-46a2-9f33-573e7f203a00",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-04",
+          "opponent": "Mead",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/mead-longmont-vs-timnath/2-4-2027/?c=130f808b-b691-41b2-a47c-fd4a554c5653",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-02-09",
+          "opponent": "Thompson Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/thompson-valley-loveland-vs-timnath/2-9-2027/?c=7983d61c-9249-4f35-b6d7-b4971c7903cf",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-11",
+          "opponent": "Poudre",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/poudre-fort-collins-vs-timnath/2-11-2027/?c=a238ef86-b5c2-4fa3-ba80-b06d9d84fa98",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-16",
+          "opponent": "Loveland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/loveland-vs-timnath/2-16-2027/?c=975128e6-1b84-4b15-8bc6-720d02656058",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-19",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/greeley-central-vs-timnath/2-19-2027/?c=7e3ddf2b-8166-48e2-a675-48c6abb281d7",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-23",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/severance-vs-timnath/2-23-2027/?c=60580e8e-11a1-491e-aa43-7a84f4531476",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-25",
+          "opponent": "Peak to Peak",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/peak-to-peak-lafayette-vs-timnath/2-25-2027/?c=f2953944-3c20-4829-a375-24e00a1f2cb9",
+          "time": "18:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "wrestling",
+      "name": "Wrestling",
+      "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/wrestling/",
+      "fetched": "2026-10-25T02:30:15.184Z",
+      "maxprepsUpdated": "2026-10-25T01:42:18",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-swimming",
+      "name": "Girls swimming",
+      "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/swimming/girls/",
+      "fetched": "2026-10-25T02:30:15.184Z",
+      "maxprepsUpdated": "2026-10-25T01:42:24",
       "results": [],
       "upcoming": [],
       "held": [],

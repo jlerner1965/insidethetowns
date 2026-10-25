@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-24T17:16:14.619Z",
+  "generated": "2026-10-25T02:42:31.755Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/football/",
-      "fetched": "2026-10-24T17:16:14.619Z",
-      "maxprepsUpdated": "2026-10-24T17:07:10",
+      "fetched": "2026-10-25T02:42:31.755Z",
+      "maxprepsUpdated": "2026-10-25T01:17:48",
       "overall": "5-3",
       "league": {
         "record": "3-2",
@@ -121,8 +121,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/volleyball/",
-      "fetched": "2026-10-24T17:16:14.619Z",
-      "maxprepsUpdated": "2026-10-24T16:47:26",
+      "fetched": "2026-10-25T02:42:31.755Z",
+      "maxprepsUpdated": "2026-10-25T02:36:59",
       "overall": "15-5",
       "league": {
         "record": "9-0",
@@ -256,6 +256,7 @@
           "opponent": "Vail Christian",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/lyons-vs-vail-christian-edwards/9-12-2026/?c=f63398a8-f289-4b2b-b747-8007c13bfddc",
+          "stage": "Tournament",
           "neutral": true,
           "result": "L",
           "score": {
@@ -268,6 +269,7 @@
           "opponent": "Byers",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/byers-vs-lyons/9-12-2026/?c=37822df5-a4f9-4ce6-8bfe-f4da4e73d1a9",
+          "stage": "Tournament",
           "neutral": true,
           "result": "W",
           "score": {
@@ -280,6 +282,7 @@
           "opponent": "Denver Christian",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/denver-christian-vs-lyons/9-12-2026/?c=25367a18-5f26-4107-bf5c-88bfbfce8d07",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "DC Thunder Volleyball Tournament",
           "result": "W",
@@ -380,9 +383,9 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/softball/fall/",
-      "fetched": "2026-10-24T17:16:14.619Z",
-      "maxprepsUpdated": "2026-10-24T16:39:57",
-      "overall": "20-6",
+      "fetched": "2026-10-25T02:42:31.755Z",
+      "maxprepsUpdated": "2026-10-25T01:16:48",
+      "overall": "22-6",
       "league": {
         "record": "4-5",
         "name": "4A/3A Patriot Peaks",
@@ -390,10 +393,39 @@
       },
       "results": [
         {
+          "date": "2026-10-24",
+          "opponent": "Brush",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/brush-vs-lyons/10-24-2026/?c=e9d6cc70-e24a-4359-8cb6-da11c8c07b52",
+          "stage": "State Softball Tournaments",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "result": "W",
+          "score": {
+            "us": 14,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "D'Evelyn",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/develyn-denver-vs-lyons/10-24-2026/?c=2e32275b-abe3-4851-8c5a-e73c69a4da8b",
+          "stage": "State Softball Tournaments",
+          "neutral": true,
+          "venue": "Aurora Sports Park",
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 3
+          }
+        },
+        {
           "date": "2026-10-23",
           "opponent": "Rocky Ford",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-rocky-ford/10-23-2026/?c=75f5a50a-e728-4b8a-ac49-2cc54f9c544b",
+          "stage": "State Softball Tournaments",
           "neutral": true,
           "venue": "Aurora Sports Park",
           "result": "W",
@@ -407,6 +439,7 @@
           "opponent": "Berthoud",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-lyons/10-23-2026/?c=cabb6773-afd8-4d13-a6e7-f16bbb13652f",
+          "stage": "State Softball Tournaments",
           "neutral": true,
           "venue": "Aurora Sports Park",
           "result": "W",
@@ -420,6 +453,7 @@
           "opponent": "Wray",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-wray/10-17-2026/?c=f0071574-1894-42ef-b2cf-398b4399fd43",
+          "stage": "Tournament",
           "neutral": true,
           "result": "W",
           "score": {
@@ -432,6 +466,7 @@
           "opponent": "The Academy",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/lyons-vs-the-academy-westminster/10-17-2026/?c=d83429bf-7a89-4a43-ba84-16cb850ebe29",
+          "stage": "Tournament",
           "neutral": true,
           "result": "W",
           "score": {
@@ -682,17 +717,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-24",
-          "opponent": "Brush",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/softball/game/brush-vs-lyons/10-24-2026/?c=e9d6cc70-e24a-4359-8cb6-da11c8c07b52",
-          "neutral": true,
-          "venue": "Aurora Sports Park",
-          "time": "10:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -702,8 +727,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/cross-country/",
-      "fetched": "2026-10-24T17:16:14.619Z",
-      "maxprepsUpdated": "2026-10-24T17:16:40",
+      "fetched": "2026-10-25T02:42:31.755Z",
+      "maxprepsUpdated": "2026-10-25T01:41:39",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -716,8 +741,145 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/cross-country/girls/",
-      "fetched": "2026-10-24T17:16:14.619Z",
-      "maxprepsUpdated": "2026-10-24T17:16:45",
+      "fetched": "2026-10-25T02:42:31.755Z",
+      "maxprepsUpdated": "2026-10-25T02:43:02",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "boys-basketball",
+      "name": "Boys basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/basketball/",
+      "fetched": "2026-10-25T02:42:31.755Z",
+      "maxprepsUpdated": "2026-10-25T02:43:07",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "3A/2A/1A Mile High",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-12-01",
+          "opponent": "Brush",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/brush-vs-lyons/12-1-2026/?c=149d855a-3cb0-466b-b96b-896f5f45f764"
+        },
+        {
+          "date": "2027-01-12",
+          "opponent": "Front Range Baptist",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/front-range-baptist-fort-collins-vs-lyons/1-12-2027/?c=21aa969a-c649-4928-a949-900d7f578a99",
+          "time": "18:30"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Belleview Christian",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/belleview-christian-westminster-vs-lyons/1-22-2027/?c=af892086-3826-4143-af9b-fe115de02d02",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-05",
+          "opponent": "Dawson School",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/dawson-school-lafayette-vs-lyons/2-5-2027/?c=fa4a5be3-33cf-431c-bacc-5f60294be87f",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-19",
+          "opponent": "Estes Park",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/estes-park-vs-lyons/2-19-2027/?c=1c2bc944-9996-4326-8aed-53ace31f56bf",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-20",
+          "opponent": "Arrupe Jesuit",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/arrupe-jesuit-denver-vs-lyons/2-20-2027/?c=cbba7a9b-a853-4e38-95f8-0dee669e4db0",
+          "time": "13:00"
+        },
+        {
+          "date": "2027-02-23",
+          "opponent": "Union Colony Prep",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/lyons-vs-union-colony-prep-greeley/2-23-2027/?c=14e22d38-6cba-4b0d-82e6-962cd898fda6",
+          "time": "18:30"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "girls-basketball",
+      "name": "Girls basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/basketball/girls/",
+      "fetched": "2026-10-25T02:42:31.755Z",
+      "maxprepsUpdated": "2026-10-25T02:43:16",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "3A/2A/1A Mile High",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-12-08",
+          "opponent": "Wiggins",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/lyons-vs-wiggins/12-8-2026/?c=ed667846-420d-412a-b66a-352ab2423f19",
+          "time": "16:00"
+        },
+        {
+          "date": "2027-01-12",
+          "opponent": "Front Range Baptist",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/front-range-baptist-fort-collins-vs-lyons/1-12-2027/?c=dadeb620-75cc-4a1e-b270-20f84fe36c55",
+          "time": "17:00"
+        },
+        {
+          "date": "2027-02-05",
+          "opponent": "Dawson School",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/dawson-school-lafayette-vs-lyons/2-5-2027/?c=3c4fbfb4-ce34-43ea-b1bf-be3a3f25a0ea",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-19",
+          "opponent": "Estes Park",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/estes-park-vs-lyons/2-19-2027/?c=4bede02a-3837-444c-a5f7-22b7552d57e1",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-20",
+          "opponent": "Arrupe Jesuit",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/arrupe-jesuit-denver-vs-lyons/2-20-2027/?c=18c08790-bc79-4f98-9069-b006fba45e80",
+          "time": "11:30"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "wrestling",
+      "name": "Wrestling",
+      "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/wrestling/",
+      "fetched": "2026-10-25T02:42:31.755Z",
+      "maxprepsUpdated": "2026-10-25T01:46:25",
       "results": [],
       "upcoming": [],
       "held": [],

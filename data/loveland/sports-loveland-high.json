@@ -1,19 +1,30 @@
 {
-  "generated": "2026-10-24T17:12:25.568Z",
+  "generated": "2026-10-25T02:35:09.372Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/football/",
-      "fetched": "2026-10-24T17:12:25.568Z",
-      "maxprepsUpdated": "2026-10-24T16:32:41",
-      "overall": "7-1",
+      "fetched": "2026-10-25T02:35:09.372Z",
+      "maxprepsUpdated": "2026-10-25T01:17:08",
+      "overall": "8-1",
       "league": {
-        "record": "4-1",
+        "record": "5-1",
         "name": "4A Northern",
-        "place": "3rd"
+        "place": "2nd"
       },
       "results": [
+        {
+          "date": "2026-10-24",
+          "opponent": "Longmont",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/longmont-vs-loveland/10-24-2026/?c=90487db8-541b-4b55-bc70-60e3b4b92e9b",
+          "result": "W",
+          "score": {
+            "us": 61,
+            "them": 10
+          }
+        },
         {
           "date": "2026-10-16",
           "opponent": "Roosevelt",
@@ -105,13 +116,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-24",
-          "opponent": "Longmont",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/football/game/longmont-vs-loveland/10-24-2026/?c=90487db8-541b-4b55-bc70-60e3b4b92e9b",
-          "time": "13:00"
-        },
-        {
           "date": "2026-10-29",
           "opponent": "Frederick",
           "site": "away",
@@ -128,8 +132,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/soccer/",
-      "fetched": "2026-10-24T17:12:25.568Z",
-      "maxprepsUpdated": "2026-10-24T17:12:34",
+      "fetched": "2026-10-25T02:35:09.372Z",
+      "maxprepsUpdated": "2026-10-25T01:33:54",
       "overall": "9-4-2",
       "league": {
         "record": "6-3-1",
@@ -313,8 +317,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/volleyball/",
-      "fetched": "2026-10-24T17:12:25.568Z",
-      "maxprepsUpdated": "2026-10-24T13:50:59",
+      "fetched": "2026-10-25T02:35:09.372Z",
+      "maxprepsUpdated": "2026-10-25T01:32:46",
       "overall": "5-15",
       "league": {
         "record": "1-7",
@@ -382,6 +386,7 @@
           "opponent": "Riverdale Ridge",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/loveland-vs-riverdale-ridge-thornton/10-3-2026/?c=ce768124-4778-4f1c-a9e1-1bc78ff3dd6a",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "Roosevelt Tournament",
           "result": "L",
@@ -395,6 +400,7 @@
           "opponent": "Eagle Valley",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/eagle-valley-gypsum-vs-loveland/10-2-2026/?c=55ddd752-870a-4b0a-8441-7a6ae6b2935f",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "Played at Roosevelt High School",
           "result": "L",
@@ -408,6 +414,7 @@
           "opponent": "Silver Creek",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/loveland-vs-silver-creek-longmont/10-2-2026/?c=d8c4644e-1f60-4e4c-872a-f9472901cb5d",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "Roosevelt High School",
           "result": "W",
@@ -476,6 +483,7 @@
           "opponent": "Centauri",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/centauri-la-jara-vs-loveland/9-12-2026/?c=cb8b5728-9234-4b39-9fac-a90aa3b984b6",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "Lewis Palmer Tournament Invitational",
           "result": "L",
@@ -489,6 +497,7 @@
           "opponent": "Montrose",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/loveland-vs-montrose/9-12-2026/?c=7a9a5480-3ff3-4201-a7e7-418905c86049",
+          "stage": "Tournament",
           "neutral": true,
           "result": "L",
           "score": {
@@ -501,6 +510,7 @@
           "opponent": "Alamosa",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/alamosa-vs-loveland/9-12-2026/?c=095f094c-79ac-46c9-aeca-266a31cc0fb5",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "Lewis Palmer Tournament",
           "result": "L",
@@ -514,6 +524,7 @@
           "opponent": "Bayfield",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/bayfield-vs-loveland/9-12-2026/?c=504af97f-9ebd-4fec-83ab-61e1d9d100bb",
+          "stage": "Tournament",
           "neutral": true,
           "result": "W",
           "score": {
@@ -580,8 +591,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/softball/fall/",
-      "fetched": "2026-10-24T17:12:25.568Z",
-      "maxprepsUpdated": "2026-10-24T17:12:52",
+      "fetched": "2026-10-25T02:35:09.372Z",
+      "maxprepsUpdated": "2026-10-25T02:16:24",
       "overall": "7-16",
       "league": {
         "record": "4-6",
@@ -804,6 +815,7 @@
           "opponent": "Dakota Ridge",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/dakota-ridge-littleton-vs-loveland/8-28-2026/?c=54f64dad-1a8f-47f1-a32e-234f5be9723c",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "Loveland High School",
           "result": "L",
@@ -867,8 +879,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/cross-country/",
-      "fetched": "2026-10-24T17:12:25.568Z",
-      "maxprepsUpdated": "2026-10-24T17:13:00",
+      "fetched": "2026-10-25T02:35:09.372Z",
+      "maxprepsUpdated": "2026-10-25T02:35:44",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -881,8 +893,334 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/cross-country/girls/",
-      "fetched": "2026-10-24T17:12:25.568Z",
-      "maxprepsUpdated": "2026-10-24T17:13:05",
+      "fetched": "2026-10-25T02:35:09.372Z",
+      "maxprepsUpdated": "2026-10-25T02:35:48",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "boys-basketball",
+      "name": "Boys basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/basketball/",
+      "fetched": "2026-10-25T02:35:09.372Z",
+      "maxprepsUpdated": "2026-10-25T01:44:00",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "6A/5A/4A Northern",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-12-03",
+          "opponent": "Legend",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/game/legend-parker-vs-loveland/12-3-2026/?c=43b337da-1683-43fd-96b8-cca807490b5b",
+          "stage": "Tournament",
+          "neutral": true,
+          "time": "18:30"
+        },
+        {
+          "date": "2026-12-08",
+          "opponent": "Erie",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-loveland/12-8-2026/?c=abb96615-8215-4d1a-adee-181b2c985c55",
+          "time": "19:30"
+        },
+        {
+          "date": "2026-12-10",
+          "opponent": "Palisade",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-palisade/12-10-2026/?c=1a7eb53f-60e3-4b67-b583-f9decdb21738",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "STEAMBOAT SPRINGS HIGH SCHOOL",
+          "time": "20:15"
+        },
+        {
+          "date": "2026-12-15",
+          "opponent": "Rocky Mountain",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-rocky-mountain-fort-collins/12-15-2026/?c=ff1f3db4-8d97-40eb-9053-52040f5941ef",
+          "time": "19:30"
+        },
+        {
+          "date": "2026-12-17",
+          "opponent": "Summit",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-summit-frisco/12-17-2026/?c=2bb901e7-609a-4dc9-a40c-c4fa1988fa8b",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-08",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-thompson-valley-loveland/1-8-2027/?c=ba4fb920-131b-4332-b411-2bce41c53d69",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-12",
+          "opponent": "Standley Lake",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-standley-lake-westminster/1-12-2027/?c=86275bc8-fa6e-451b-8a5b-6e3a9cd24ea2",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-15",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-severance/1-15-2027/?c=fb3c1187-cb53-4992-8eb6-a5da28436af0",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-21",
+          "opponent": "Berthoud",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-loveland/1-21-2027/?c=f3f233b5-95bc-4eb0-bcb5-4f27a4414ac8",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Greeley Central",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/greeley-central-vs-loveland/1-22-2027/?c=e191ed81-9108-4950-b708-a655baced68c",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Poudre",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-poudre-fort-collins/1-26-2027/?c=706011e4-cc70-49b1-9e6e-c81cf6b87b65",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Roosevelt",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-roosevelt-johnstown/1-29-2027/?c=69a61187-a929-413c-bdc5-2c74772f5307",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-30",
+          "opponent": "Fort Collins",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/fort-collins-vs-loveland/1-30-2027/?c=f060258a-2b40-459c-8d66-a0cdee101092",
+          "time": "16:00"
+        },
+        {
+          "date": "2027-02-02",
+          "opponent": "Windsor",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-windsor/2-2-2027/?c=cf06ad66-a82a-4572-bb85-6d63151ed7f3",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-05",
+          "opponent": "Greeley West",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/greeley-west-vs-loveland/2-5-2027/?c=ad54c3e2-c7bc-4357-abd8-98f0dcc3e94e",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-09",
+          "opponent": "Northridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-northridge-greeley/2-9-2027/?c=f687e034-3a53-42d1-beb4-9d6ab237e2c4",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-02-11",
+          "opponent": "Mountain View",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-mountain-view-loveland/2-11-2027/?c=1be17797-7255-4927-8cf7-edc35c88f5fb",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-16",
+          "opponent": "Timnath",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-timnath/2-16-2027/?c=b986a08a-028f-4831-a7db-ea08c707202c",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-19",
+          "opponent": "Thompson Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-thompson-valley-loveland/2-19-2027/?c=e4c2e95e-f70e-4653-a8bd-f0ddac187ff5",
+          "time": "19:30"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "girls-basketball",
+      "name": "Girls basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/basketball/girls/",
+      "fetched": "2026-10-25T02:35:09.372Z",
+      "maxprepsUpdated": "2026-10-25T02:36:02",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "6A/5A/4A Northern",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-12-08",
+          "opponent": "Erie",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-loveland/12-8-2026/?c=0aa6b765-7942-448b-991d-909903ca3ec6",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-15",
+          "opponent": "Rocky Mountain",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/loveland-vs-rocky-mountain-fort-collins/12-15-2026/?c=e8c08f45-7af6-4ff5-9792-07ae4c0246fc",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-05",
+          "opponent": "George Washington",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/george-washington-denver-vs-loveland/1-5-2027/?c=80ad74d4-8de9-4ae0-8792-d6f286354cd7",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-08",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/loveland-vs-thompson-valley-loveland/1-8-2027/?c=041624b9-4ae9-4b09-ae39-ddc901a111c3",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-12",
+          "opponent": "Standley Lake",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/loveland-vs-standley-lake-westminster/1-12-2027/?c=2cc22da7-5021-45cc-9c22-7403c9e592b0",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-15",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/loveland-vs-severance/1-15-2027/?c=c940dde1-8a61-46e5-aedd-3d85b92c08c0",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-21",
+          "opponent": "Berthoud",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-loveland/1-21-2027/?c=d4328569-c11b-415d-b235-9577333e3136",
+          "time": "11:30"
+        },
+        {
+          "date": "2027-01-21",
+          "opponent": "Greeley Central",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/greeley-central-vs-loveland/1-21-2027/?c=17048f58-09e8-4d9a-9621-68505587b585",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Poudre",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/loveland-vs-poudre-fort-collins/1-26-2027/?c=f05d8e04-a010-4009-b828-f13764252bc4",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Roosevelt",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/loveland-vs-roosevelt-johnstown/1-29-2027/?c=9791ef9e-4975-4f47-b825-6260dfb75c8d",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-30",
+          "opponent": "Fort Collins",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/fort-collins-vs-loveland/1-30-2027/?c=4e27b8ad-84a5-4354-b270-273d09699eab",
+          "time": "14:30"
+        },
+        {
+          "date": "2027-02-02",
+          "opponent": "Windsor",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/loveland-vs-windsor/2-2-2027/?c=c3cf937e-06ef-490a-8650-6798903d28e4",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-05",
+          "opponent": "Greeley West",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/greeley-west-vs-loveland/2-5-2027/?c=6e5b6bc3-e83d-470a-8536-6d7433a27522",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-09",
+          "opponent": "Northridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/loveland-vs-northridge-greeley/2-9-2027/?c=e3e07e0f-5625-437c-837f-202567bd4917",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-11",
+          "opponent": "Mountain View",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/loveland-vs-mountain-view-loveland/2-11-2027/?c=ae8c8fdd-92fe-49b9-b715-62922ac27954",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-16",
+          "opponent": "Timnath",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/loveland-vs-timnath/2-16-2027/?c=975128e6-1b84-4b15-8bc6-720d02656058",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-19",
+          "opponent": "Thompson Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/loveland-vs-thompson-valley-loveland/2-19-2027/?c=6dbd441c-5018-4d30-b4fb-43858674fb4d",
+          "time": "17:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against",
+        "MaxPreps page: a game in the glance card could not be read (3beb0d54-bdda-46db-93cd-cb93a73f93d2)"
+      ]
+    },
+    {
+      "key": "wrestling",
+      "name": "Wrestling",
+      "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/wrestling/",
+      "fetched": "2026-10-25T02:35:09.372Z",
+      "maxprepsUpdated": "2026-10-25T01:44:07",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-swimming",
+      "name": "Girls swimming",
+      "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/swimming/girls/",
+      "fetched": "2026-10-25T02:35:09.372Z",
+      "maxprepsUpdated": "2026-10-25T01:44:14",
       "results": [],
       "upcoming": [],
       "held": [],

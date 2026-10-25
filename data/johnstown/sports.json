@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-24T17:10:42.688Z",
+  "generated": "2026-10-25T02:32:33.088Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/football/",
-      "fetched": "2026-10-24T17:10:42.688Z",
-      "maxprepsUpdated": "2026-10-24T16:26:36",
+      "fetched": "2026-10-25T02:32:33.088Z",
+      "maxprepsUpdated": "2026-10-25T01:17:47",
       "overall": "8-1",
       "league": {
         "record": "6-0",
@@ -130,8 +130,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/soccer/",
-      "fetched": "2026-10-24T17:10:42.688Z",
-      "maxprepsUpdated": "2026-10-24T13:42:55",
+      "fetched": "2026-10-25T02:32:33.088Z",
+      "maxprepsUpdated": "2026-10-25T02:10:26",
       "overall": "3-11-1",
       "league": {
         "record": "2-7-1",
@@ -313,9 +313,9 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/volleyball/",
-      "fetched": "2026-10-24T17:10:42.688Z",
-      "maxprepsUpdated": "2026-10-24T17:11:04",
-      "overall": "10-10",
+      "fetched": "2026-10-25T02:32:33.088Z",
+      "maxprepsUpdated": "2026-10-25T01:26:41",
+      "overall": "11-11",
       "league": {
         "record": "4-5",
         "name": "4A/3A Northern",
@@ -323,10 +323,38 @@
       },
       "results": [
         {
+          "date": "2026-10-24",
+          "opponent": "Ponderosa",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/ponderosa-jaguars-parker-vs-roosevelt-johnstown/10-24-2026/?c=4f17dd39-30bf-4c1b-b629-728690483a56",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Mustang Classic",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-10-24",
+          "opponent": "Falcon",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/falcon-vs-roosevelt-johnstown/10-24-2026/?c=5edf2afb-21bb-44b7-b946-bfd670930448",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
           "date": "2026-10-23",
           "opponent": "Erie",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/erie-vs-roosevelt-johnstown/10-23-2026/?c=399ff5bf-afed-4f0b-86f6-7deb95cf5854",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "Mustang Classic",
           "result": "W",
@@ -340,6 +368,7 @@
           "opponent": "Pine Creek",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/pine-creek-colorado-springs-vs-roosevelt-johnstown/10-23-2026/?c=65eeaa3a-5b85-4774-8cfe-8cfd2d944ca5",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "Ponderosa Tournament",
           "result": "L",
@@ -419,6 +448,7 @@
           "opponent": "Riverdale Ridge",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/riverdale-ridge-thornton-vs-roosevelt-johnstown/10-3-2026/?c=af7b3a61-fc0d-4f50-95ca-337b0ded89a6",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "Roosevelt Volleyball Tournament",
           "result": "W",
@@ -454,6 +484,7 @@
           "opponent": "Valley",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/roosevelt-johnstown-vs-valley-gilcrest/10-2-2026/?c=5fb7c0c6-2e27-49a6-9f3f-d78586a66ebc",
+          "stage": "Tournament",
           "neutral": true,
           "result": "W",
           "score": {
@@ -552,23 +583,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-24",
-          "opponent": "Ponderosa",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/ponderosa-jaguars-parker-vs-roosevelt-johnstown/10-24-2026/?c=4f17dd39-30bf-4c1b-b629-728690483a56",
-          "neutral": true,
-          "venue": "Mustang Classic",
-          "time": "09:45"
-        },
-        {
-          "date": "2026-10-24",
-          "opponent": "Falcon",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/falcon-vs-roosevelt-johnstown/10-24-2026/?c=5edf2afb-21bb-44b7-b946-bfd670930448",
-          "neutral": true,
-          "time": "11:05"
-        },
-        {
           "date": "2026-10-27",
           "opponent": "Loveland",
           "site": "away",
@@ -577,17 +591,14 @@
         }
       ],
       "held": [],
-      "notes": [
-        "2026-10-24 at Ponderosa is not on the school calendar (published on MaxPreps's word alone)",
-        "2026-10-24 at Falcon is not on the school calendar (published on MaxPreps's word alone)"
-      ]
+      "notes": []
     },
     {
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/softball/fall/",
-      "fetched": "2026-10-24T17:10:42.688Z",
-      "maxprepsUpdated": "2026-10-24T13:38:49",
+      "fetched": "2026-10-25T02:32:33.088Z",
+      "maxprepsUpdated": "2026-10-25T01:40:43",
       "overall": "19-7",
       "league": {
         "record": "8-2",
@@ -600,6 +611,7 @@
           "opponent": "Green Mountain",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/green-mountain-lakewood-vs-roosevelt-johnstown/10-17-2026/?c=123e33da-469e-4421-bcae-26c9bab015bf",
+          "stage": "Tournament",
           "neutral": true,
           "result": "W",
           "score": {
@@ -612,6 +624,7 @@
           "opponent": "Pueblo County",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/pueblo-county-vs-roosevelt-johnstown/10-17-2026/?c=dfa4fe46-1f85-4c72-aa69-b3152768c428",
+          "stage": "Tournament",
           "neutral": true,
           "result": "L",
           "score": {
@@ -624,6 +637,7 @@
           "opponent": "Green Mountain",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/green-mountain-lakewood-vs-roosevelt-johnstown/10-17-2026/?c=e3bad251-a5fc-4775-b625-8483202a183c",
+          "stage": "Tournament",
           "neutral": true,
           "result": "L",
           "score": {
@@ -748,6 +762,7 @@
           "opponent": "Berthoud",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-roosevelt-johnstown/9-5-2026/?c=eed4f939-c769-4d22-aef5-b152acfd22db",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "Barnes Complex/Fairgrounds Park",
           "result": "L",
@@ -761,6 +776,7 @@
           "opponent": "Rifle",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/rifle-vs-roosevelt-johnstown/9-4-2026/?c=5b233f39-dda8-45e2-9e96-00d570223e3c",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "Barnes Complex/Fairgrounds Park",
           "result": "W",
@@ -837,6 +853,7 @@
           "opponent": "Northfield",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/northfield-denver-vs-roosevelt-johnstown/8-28-2026/?c=ab97f920-4c8f-4c6b-906e-dc11c794f5df",
+          "stage": "Tournament",
           "neutral": true,
           "result": "W",
           "score": {
@@ -860,6 +877,7 @@
           "opponent": "Brush",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/brush-vs-roosevelt-johnstown/8-15-2026/?c=28bc5a95-10d0-47c7-81c2-eb508b850049",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "Roosevelt High School Tournament",
           "result": "W",
@@ -910,8 +928,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/cross-country/",
-      "fetched": "2026-10-24T17:10:42.688Z",
-      "maxprepsUpdated": "2026-10-24T17:11:33",
+      "fetched": "2026-10-25T02:32:33.088Z",
+      "maxprepsUpdated": "2026-10-25T02:33:23",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -924,8 +942,400 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/cross-country/girls/",
-      "fetched": "2026-10-24T17:10:42.688Z",
-      "maxprepsUpdated": "2026-10-24T17:11:37",
+      "fetched": "2026-10-25T02:32:33.088Z",
+      "maxprepsUpdated": "2026-10-25T02:33:27",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "boys-basketball",
+      "name": "Boys basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/basketball/",
+      "fetched": "2026-10-25T02:32:33.088Z",
+      "maxprepsUpdated": "2026-10-24T23:01:45",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "6A/5A/4A Northern",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-12-01",
+          "opponent": "Fort Morgan",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/fort-morgan-vs-roosevelt-johnstown/12-1-2026/?c=2d323e2c-b419-4e56-8dee-2c55bc658309",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-02",
+          "opponent": "DSST: Green Valley Ranch",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/game/dsst-green-valley-ranch-denver-vs-roosevelt-johnstown/12-2-2026/?c=e9a722d7-7c78-4d78-beb4-453fca10f107",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Kent Denver Tournament",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-07",
+          "opponent": "Longmont",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/longmont-vs-roosevelt-johnstown/12-7-2026/?c=c0659e8f-d1b5-4a85-aed2-325396a0ee00",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-11",
+          "opponent": "Evergreen",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/evergreen-vs-roosevelt-johnstown/12-11-2026/?c=512a9f23-cd4d-45a4-b4c0-5c82ffbef376",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-15",
+          "opponent": "Regis Groff",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/regis-groff-denver-vs-roosevelt-johnstown/12-15-2026/?c=4972f472-3871-4fd8-9a74-beea086155b6",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-17",
+          "opponent": "Berthoud",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-roosevelt-johnstown/12-17-2026/?c=69696e27-8283-4a76-b7bd-4650554ea6c0",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-19",
+          "opponent": "University",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/roosevelt-johnstown-vs-university-greeley/12-19-2026/?c=d4162508-3c51-40f4-8a12-a4c0e5d9b76a",
+          "time": "13:00"
+        },
+        {
+          "date": "2027-01-05",
+          "opponent": "Vista PEAK Prep",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/roosevelt-johnstown-vs-vista-peak-prep-aurora/1-5-2027/?c=6db273f6-ecfe-486b-8094-687bce380109",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-07",
+          "opponent": "Denver North",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/denver-north-vs-roosevelt-johnstown/1-7-2027/?c=578ce1e1-9c9d-4bcb-9e66-6790104768cb",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-08",
+          "opponent": "Resurrection Christian",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/resurrection-christian-loveland-vs-roosevelt-johnstown/1-8-2027/?c=e7f7b228-61bd-4f1f-97a4-408475fe628a",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-12",
+          "opponent": "Banning Lewis Academy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/banning-lewis-academy-colorado-springs-vs-roosevelt-johnstown/1-12-2027/?c=db051078-4951-4a8f-bb77-d12481cc6198",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-15",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/mountain-view-loveland-vs-roosevelt-johnstown/1-15-2027/?c=b9fe38bd-10e1-4c83-83ae-1cf65e70a88a",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-19",
+          "opponent": "Timnath",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/roosevelt-johnstown-vs-timnath/1-19-2027/?c=b3404e7c-a3e8-448f-b43d-f3e160a05d7f",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/roosevelt-johnstown-vs-thompson-valley-loveland/1-22-2027/?c=1a762b35-2d25-4d72-b4b1-093fc229fe1b",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/roosevelt-johnstown-vs-severance/1-26-2027/?c=823647c8-1d98-4024-a169-655ef4adae4d",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Loveland",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-roosevelt-johnstown/1-29-2027/?c=69a61187-a929-413c-bdc5-2c74772f5307",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-02",
+          "opponent": "Greeley Central",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/greeley-central-vs-roosevelt-johnstown/2-2-2027/?c=fbfdbfa8-b5d5-4de7-a473-d78bfec01ded",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-05",
+          "opponent": "Poudre",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/poudre-fort-collins-vs-roosevelt-johnstown/2-5-2027/?c=5b66a775-af37-4d80-9892-4b2121765212",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-12",
+          "opponent": "Windsor",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/roosevelt-johnstown-vs-windsor/2-12-2027/?c=10b4aa16-6948-4fd8-9cfc-3b3f9ab69a80",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-16",
+          "opponent": "Greeley West",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/greeley-west-vs-roosevelt-johnstown/2-16-2027/?c=7ada152d-8198-400c-b5b7-33c61b3d7fd8",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-19",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/northridge-greeley-vs-roosevelt-johnstown/2-19-2027/?c=e35f54cd-e229-42ea-8e69-96ef35169c53",
+          "time": "19:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "2026-12-02 at DSST: Green Valley Ranch is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-07 at Longmont is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-11 at Evergreen is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-15 vs Regis Groff is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-17 at Berthoud is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-19 vs University is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-05 vs Vista PEAK Prep is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-07 at Denver North is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-08 vs Resurrection Christian is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-12 at Banning Lewis Academy is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-15 vs Mountain View is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-19 at Timnath is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-22 vs Thompson Valley is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-26 vs Severance is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-29 vs Loveland is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-02 at Greeley Central is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-05 vs Poudre is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-12 at Windsor is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-16 vs Greeley West is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-19 at Northridge is not on the school calendar (published on MaxPreps's word alone)"
+      ]
+    },
+    {
+      "key": "girls-basketball",
+      "name": "Girls basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/basketball/girls/",
+      "fetched": "2026-10-25T02:32:33.088Z",
+      "maxprepsUpdated": "2026-10-25T01:43:08",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "6A/5A/4A Northern",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-12-03",
+          "opponent": "Palisade",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/palisade-vs-roosevelt-johnstown/12-3-2026/?c=4c7463a9-d99f-476f-a2c1-27e86d755590",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Frederick Tournament",
+          "time": "18:30"
+        },
+        {
+          "date": "2026-12-08",
+          "opponent": "Mead",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/mead-longmont-vs-roosevelt-johnstown/12-8-2026/?c=12814728-f119-4acc-8944-43d0e1c573b0",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-09",
+          "opponent": "Lakewood",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/lakewood-vs-roosevelt-johnstown/12-9-2026/?c=1a77f20e-a6e5-4cec-950e-6c0d0c69aef7",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Lakewood High School",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-11",
+          "opponent": "D'Evelyn",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/develyn-denver-vs-roosevelt-johnstown/12-11-2026/?c=744e9643-c34b-4841-aa2d-b9f45e88b934",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "D' Evelyn Jr/Sr High School",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-12",
+          "opponent": "Dakota Ridge",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/dakota-ridge-littleton-vs-roosevelt-johnstown/12-12-2026/?c=e4cc92c3-6b83-4d80-9d01-f8bd39e4cfb3",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Kindness Classic - Lakewood",
+          "time": "11:30"
+        },
+        {
+          "date": "2026-12-15",
+          "opponent": "Regis Groff",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/regis-groff-denver-vs-roosevelt-johnstown/12-15-2026/?c=c7e207d4-e326-404b-8b75-fea1c0fdcee9",
+          "time": "17:30"
+        },
+        {
+          "date": "2026-12-17",
+          "opponent": "Berthoud",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-roosevelt-johnstown/12-17-2026/?c=9fb9d6c7-8a37-4f59-bec3-22806975054d",
+          "time": "17:30"
+        },
+        {
+          "date": "2026-12-19",
+          "opponent": "University",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/roosevelt-johnstown-vs-university-greeley/12-19-2026/?c=59e0c237-4e6c-4cde-b8ba-306d3be0d73e",
+          "time": "12:00"
+        },
+        {
+          "date": "2027-01-15",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/mountain-view-loveland-vs-roosevelt-johnstown/1-15-2027/?c=1462e9a4-d8d9-4d66-a929-cb1d6e6eed89",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-19",
+          "opponent": "Timnath",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/roosevelt-johnstown-vs-timnath/1-19-2027/?c=01b72d7a-264a-4e3a-bb07-c276bca479e7",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Thompson Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/roosevelt-johnstown-vs-thompson-valley-loveland/1-22-2027/?c=a0af0962-2334-47e4-92df-734180bd019e",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/roosevelt-johnstown-vs-severance/1-26-2027/?c=d38bda53-ad00-4bf5-bc05-b940a103d0da",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Loveland",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/loveland-vs-roosevelt-johnstown/1-29-2027/?c=9791ef9e-4975-4f47-b825-6260dfb75c8d",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-02",
+          "opponent": "Greeley Central",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/greeley-central-vs-roosevelt-johnstown/2-2-2027/?c=670664a6-5d71-4ec9-bb17-a9a389c76d5b",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-05",
+          "opponent": "Poudre",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/poudre-fort-collins-vs-roosevelt-johnstown/2-5-2027/?c=7b700c8c-faf7-48c9-96fc-bc76c1ae0baa",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-12",
+          "opponent": "Windsor",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/roosevelt-johnstown-vs-windsor/2-12-2027/?c=3a95da6c-8117-4bd7-a40f-d3ea206aba4e",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-16",
+          "opponent": "Greeley West",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/greeley-west-vs-roosevelt-johnstown/2-16-2027/?c=443314b4-f50c-4243-98a2-b82d4a1f8914",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-19",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/northridge-greeley-vs-roosevelt-johnstown/2-19-2027/?c=6dbb9f28-3a71-4ca9-8417-21fb118c3488",
+          "time": "17:30"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "2026-12-03 at Palisade is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-08 vs Mead is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-09 at Lakewood is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-11 at D'Evelyn is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-12 at Dakota Ridge is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-15 vs Regis Groff is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-17 at Berthoud is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-19 vs University is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-15 vs Mountain View is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-19 at Timnath is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-22 at Thompson Valley is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-26 vs Severance is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-29 vs Loveland is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-02 at Greeley Central is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-05 vs Poudre is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-12 at Windsor is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-16 vs Greeley West is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-19 at Northridge is not on the school calendar (published on MaxPreps's word alone)"
+      ]
+    },
+    {
+      "key": "wrestling",
+      "name": "Wrestling",
+      "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/wrestling/",
+      "fetched": "2026-10-25T02:32:33.088Z",
+      "maxprepsUpdated": "2026-10-24T22:45:37",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-swimming",
+      "name": "Girls swimming",
+      "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/swimming/girls/",
+      "fetched": "2026-10-25T02:32:33.088Z",
+      "maxprepsUpdated": "2026-10-25T01:43:19",
       "results": [],
       "upcoming": [],
       "held": [],

@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-25T02:07:58.667Z",
+  "generated": "2026-10-25T02:41:21.333Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/football/",
-      "fetched": "2026-10-25T02:07:58.667Z",
+      "fetched": "2026-10-25T02:41:21.333Z",
       "maxprepsUpdated": "2026-10-25T01:19:53",
       "overall": "0-9",
       "league": {
@@ -132,7 +132,7 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/soccer/",
-      "fetched": "2026-10-25T02:07:58.667Z",
+      "fetched": "2026-10-25T02:41:21.333Z",
       "maxprepsUpdated": "2026-10-25T01:19:46",
       "overall": "12-1-2",
       "league": {
@@ -317,7 +317,7 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/volleyball/",
-      "fetched": "2026-10-25T02:07:58.667Z",
+      "fetched": "2026-10-25T02:41:21.333Z",
       "maxprepsUpdated": "2026-10-25T01:46:52",
       "overall": "10-11",
       "league": {
@@ -585,7 +585,7 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/softball/fall/",
-      "fetched": "2026-10-25T02:07:58.667Z",
+      "fetched": "2026-10-25T02:41:21.333Z",
       "maxprepsUpdated": "2026-10-25T01:19:11",
       "overall": "22-6",
       "league": {
@@ -932,7 +932,7 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/cross-country/",
-      "fetched": "2026-10-25T02:07:58.667Z",
+      "fetched": "2026-10-25T02:41:21.333Z",
       "maxprepsUpdated": "2026-10-25T01:46:59",
       "results": [],
       "upcoming": [],
@@ -946,8 +946,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/cross-country/girls/",
-      "fetched": "2026-10-25T02:07:58.667Z",
-      "maxprepsUpdated": "2026-10-24T22:09:10",
+      "fetched": "2026-10-25T02:41:21.333Z",
+      "maxprepsUpdated": "2026-10-25T02:42:00",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -960,7 +960,7 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/basketball/",
-      "fetched": "2026-10-25T02:07:58.667Z",
+      "fetched": "2026-10-25T02:41:21.333Z",
       "maxprepsUpdated": "2026-10-25T01:47:06",
       "overall": "0-0",
       "league": {
@@ -1126,7 +1126,7 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/basketball/girls/",
-      "fetched": "2026-10-25T02:07:58.667Z",
+      "fetched": "2026-10-25T02:41:21.333Z",
       "maxprepsUpdated": "2026-10-25T02:03:00",
       "overall": "0-0",
       "league": {
@@ -1293,7 +1293,7 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/wrestling/",
-      "fetched": "2026-10-25T02:07:58.667Z",
+      "fetched": "2026-10-25T02:41:21.333Z",
       "maxprepsUpdated": "2026-10-25T01:47:13",
       "results": [],
       "upcoming": [],
@@ -1307,7 +1307,7 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/swimming/girls/",
-      "fetched": "2026-10-25T02:07:58.667Z",
+      "fetched": "2026-10-25T02:41:21.333Z",
       "maxprepsUpdated": "2026-10-25T01:47:20",
       "results": [],
       "upcoming": [],

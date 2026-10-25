@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-24T17:07:31.253Z",
+  "generated": "2026-10-25T02:27:37.555Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/football/",
-      "fetched": "2026-10-24T17:07:31.253Z",
-      "maxprepsUpdated": "2026-10-24T16:31:31",
+      "fetched": "2026-10-25T02:27:37.555Z",
+      "maxprepsUpdated": "2026-10-25T01:19:10",
       "overall": "7-2",
       "league": {
         "record": "4-1",
@@ -130,8 +130,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/soccer/",
-      "fetched": "2026-10-24T17:07:31.253Z",
-      "maxprepsUpdated": "2026-10-24T15:18:48",
+      "fetched": "2026-10-25T02:27:37.555Z",
+      "maxprepsUpdated": "2026-10-25T01:20:12",
       "overall": "8-7",
       "league": {
         "record": "6-2",
@@ -313,8 +313,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/volleyball/",
-      "fetched": "2026-10-24T17:07:31.253Z",
-      "maxprepsUpdated": "2026-10-24T16:50:06",
+      "fetched": "2026-10-25T02:27:37.555Z",
+      "maxprepsUpdated": "2026-10-25T01:41:48",
       "overall": "15-5",
       "league": {
         "record": "3-1",
@@ -494,6 +494,7 @@
           "opponent": "Mountain View",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-mountain-view-loveland/8-28-2026/?c=f1b2b182-b14b-42f7-a791-9c6ea995280d",
+          "stage": "Tournament",
           "neutral": true,
           "result": "L",
           "score": {
@@ -577,8 +578,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/softball/fall/",
-      "fetched": "2026-10-24T17:07:31.253Z",
-      "maxprepsUpdated": "2026-10-24T13:31:16",
+      "fetched": "2026-10-25T02:27:37.555Z",
+      "maxprepsUpdated": "2026-10-25T01:22:56",
       "overall": "17-10",
       "league": {
         "record": "2-7",
@@ -591,6 +592,7 @@
           "opponent": "Delta",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-delta/10-23-2026/?c=2824efb1-a490-4092-8967-075ee31246dd",
+          "stage": "State Softball Tournaments",
           "neutral": true,
           "venue": "Aurora Sports Park",
           "result": "W",
@@ -604,6 +606,7 @@
           "opponent": "Lyons",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-lyons/10-23-2026/?c=cabb6773-afd8-4d13-a6e7-f16bbb13652f",
+          "stage": "State Softball Tournaments",
           "neutral": true,
           "venue": "Aurora Sports Park",
           "result": "L",
@@ -617,6 +620,7 @@
           "opponent": "Alamosa",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/alamosa-vs-berthoud/10-17-2026/?c=81ef8aed-e02a-4f44-958e-28f8239695cd",
+          "stage": "Tournament",
           "neutral": true,
           "result": "W",
           "score": {
@@ -629,6 +633,7 @@
           "opponent": "The Classical Academy",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-the-classical-academy-colorado-springs/10-17-2026/?c=b9b9048f-b2a4-433e-af88-d29bb424c171",
+          "stage": "Tournament",
           "neutral": true,
           "result": "W",
           "score": {
@@ -775,6 +780,7 @@
           "opponent": "Roosevelt",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-roosevelt-johnstown/9-5-2026/?c=eed4f939-c769-4d22-aef5-b152acfd22db",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "Barnes Complex/Fairgrounds Park",
           "result": "W",
@@ -788,6 +794,7 @@
           "opponent": "Silver Creek",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-silver-creek-longmont/9-4-2026/?c=be5bf438-88c7-4d1c-b2ca-2da2ab09e97d",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "Barnes Complex/Fairgrounds Park",
           "result": "W",
@@ -801,6 +808,7 @@
           "opponent": "Meeker",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/berthoud-vs-meeker/9-4-2026/?c=9e206cf3-f132-487e-807d-bdedabf75694",
+          "stage": "Tournament",
           "neutral": true,
           "venue": "Barnes Complex/Fairgrounds Park",
           "result": "W",
@@ -906,8 +914,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/",
-      "fetched": "2026-10-24T17:07:31.253Z",
-      "maxprepsUpdated": "2026-10-24T16:00:33",
+      "fetched": "2026-10-25T02:27:37.555Z",
+      "maxprepsUpdated": "2026-10-25T02:28:29",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -920,8 +928,311 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/girls/",
-      "fetched": "2026-10-24T17:07:31.253Z",
-      "maxprepsUpdated": "2026-10-24T17:08:26",
+      "fetched": "2026-10-25T02:27:37.555Z",
+      "maxprepsUpdated": "2026-10-25T00:18:22",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "boys-basketball",
+      "name": "Boys basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/basketball/",
+      "fetched": "2026-10-25T02:27:37.555Z",
+      "maxprepsUpdated": "2026-10-25T01:41:15",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "4A/3A Patriot Peaks",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-11-30",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-mountain-view-loveland/11-30-2026/?c=21c75107-9795-47ab-b032-c43a12008dd0",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-01",
+          "opponent": "Timnath",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-timnath/12-1-2026/?c=de371872-2185-48a1-b0f1-fecc72239419",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-10",
+          "opponent": "Greeley Central",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-greeley-central/12-10-2026/?c=f51a8dae-5d88-47fd-bd41-2fc77be60348",
+          "time": "17:30"
+        },
+        {
+          "date": "2026-12-15",
+          "opponent": "Thompson Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-thompson-valley-loveland/12-15-2026/?c=bc76b849-e33f-46d8-ae65-84b5eb2c965b",
+          "time": "19:30"
+        },
+        {
+          "date": "2026-12-17",
+          "opponent": "Roosevelt",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-roosevelt-johnstown/12-17-2026/?c=69696e27-8283-4a76-b7bd-4650554ea6c0",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-18",
+          "opponent": "Skyline",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-skyline-longmont/12-18-2026/?c=560f4522-6344-4187-b007-ba47568ccfa1",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-21",
+          "opponent": "Denver Christian",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-denver-christian/1-21-2027/?c=fa30400e-3bae-43fd-bd9f-83be17babdca",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-21",
+          "opponent": "Loveland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-loveland/1-21-2027/?c=f3f233b5-95bc-4eb0-bcb5-4f27a4414ac8",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Denver Christian",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-denver-christian/1-22-2027/?c=8432e176-d30b-47e8-90ac-948258a65f0e",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Fort Morgan",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-fort-morgan/1-29-2027/?c=f3954b85-cbfa-46e3-a185-d64b3b01df8d",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-06",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-northridge-greeley/2-6-2027/?c=45e38512-f662-4c30-a624-05dfcfc7ebb1",
+          "time": "16:00"
+        },
+        {
+          "date": "2027-02-09",
+          "opponent": "Eaton",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-eaton-fightin-reds/2-9-2027/?c=704a680d-71e3-436b-9682-60f6be0983aa",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-11",
+          "opponent": "Liberty Common",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-liberty-common-fort-collins/2-11-2027/?c=37254ceb-095e-44f6-8ecb-03b517115dc9",
+          "time": "19:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "2026-11-30 vs Mountain View is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-10 vs Greeley Central is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-15 at Thompson Valley is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-17 vs Roosevelt is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-18 at Skyline is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-21 vs Denver Christian is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-21 at Loveland is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-22 at Denver Christian is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-29 vs Fort Morgan is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-06 at Northridge is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-09 vs Eaton is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-11 vs Liberty Common is not on the school calendar (published on MaxPreps's word alone)"
+      ]
+    },
+    {
+      "key": "girls-basketball",
+      "name": "Girls basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/basketball/girls/",
+      "fetched": "2026-10-25T02:27:37.555Z",
+      "maxprepsUpdated": "2026-10-25T02:25:54",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "4A/3A Patriot Peaks",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-11-30",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-mountain-view-loveland/11-30-2026/?c=62610fdc-c508-43c7-90d7-46dabaebb75e",
+          "time": "19:30"
+        },
+        {
+          "date": "2026-12-01",
+          "opponent": "Timnath",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-timnath/12-1-2026/?c=47754e7b-4209-4f33-a4a7-0bd4a57256ec",
+          "time": "17:30"
+        },
+        {
+          "date": "2026-12-08",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-severance/12-8-2026/?c=f8a7e236-4d04-4ca4-831b-60d046ec2098",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-10",
+          "opponent": "Kennedy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-kennedy-denver/12-10-2026/?c=c81809d5-2b94-43fa-8b33-646435c6a545",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-15",
+          "opponent": "Thompson Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-thompson-valley-loveland/12-15-2026/?c=f309e147-1195-43ba-b34b-83651b444d24",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-17",
+          "opponent": "Roosevelt",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-roosevelt-johnstown/12-17-2026/?c=9fb9d6c7-8a37-4f59-bec3-22806975054d",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-02",
+          "opponent": "Poudre",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-poudre-fort-collins/1-2-2027/?c=8c06d367-f5cf-43ea-9222-bb3c9583a861",
+          "time": "13:30"
+        },
+        {
+          "date": "2027-01-14",
+          "opponent": "Wellington",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-wellington/1-14-2027/?c=ee089454-40de-4427-9a61-a7356f4cddf8",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-19",
+          "opponent": "Windsor Charter Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-windsor-charter-academy/1-19-2027/?c=f671e001-10b6-4e25-a917-3e0db8073666"
+        },
+        {
+          "date": "2027-01-21",
+          "opponent": "Loveland",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-loveland/1-21-2027/?c=d4328569-c11b-415d-b235-9577333e3136",
+          "time": "11:30"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Denver Christian",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-denver-christian/1-22-2027/?c=30855e1f-b93e-47f2-a6df-dc22b533672d",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "University",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-university-greeley/1-26-2027/?c=126ea196-1746-424a-8bf7-eb574c370098",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Fort Morgan",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-fort-morgan/1-29-2027/?c=bb6ba439-96ec-4e32-9e95-421637e1b9a8",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-04",
+          "opponent": "Resurrection Christian",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-resurrection-christian-loveland/2-4-2027/?c=564b4bc2-b9eb-441d-ab5f-08e9488549a3",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-06",
+          "opponent": "Northridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-northridge-greeley/2-6-2027/?c=5242c1d4-81ef-44e7-974c-ad6e06cfa614",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-09",
+          "opponent": "Eaton",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-eaton-fightin-reds/2-9-2027/?c=98981ca6-5257-4bab-9ba7-05bb270bc168",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-11",
+          "opponent": "Liberty Common",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-liberty-common-fort-collins/2-11-2027/?c=e6a62064-0484-4b84-bc9c-d89cae8aa4ee",
+          "time": "19:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "2026-11-30 vs Mountain View is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-08 vs Severance is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-10 vs Kennedy is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-15 at Thompson Valley is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-12-17 vs Roosevelt is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-02 at Poudre is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-14 at Wellington is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-19 vs Windsor Charter Academy is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-21 at Loveland is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-22 at Denver Christian is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-26 vs University is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-29 vs Fort Morgan is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-04 vs Resurrection Christian is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-06 at Northridge is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-09 at Eaton is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-11 at Liberty Common is not on the school calendar (published on MaxPreps's word alone)"
+      ]
+    },
+    {
+      "key": "wrestling",
+      "name": "Wrestling",
+      "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/wrestling/",
+      "fetched": "2026-10-25T02:27:37.555Z",
+      "maxprepsUpdated": "2026-10-25T01:41:22",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-swimming",
+      "name": "Girls swimming",
+      "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/swimming/girls/",
+      "fetched": "2026-10-25T02:27:37.555Z",
+      "maxprepsUpdated": "2026-10-25T01:41:29",
       "results": [],
       "upcoming": [],
       "held": [],

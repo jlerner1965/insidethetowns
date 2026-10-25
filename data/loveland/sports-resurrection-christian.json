@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-24T17:14:55.720Z",
+  "generated": "2026-10-25T02:38:59.785Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/football/",
-      "fetched": "2026-10-24T17:14:55.720Z",
-      "maxprepsUpdated": "2026-10-24T16:31:54",
+      "fetched": "2026-10-25T02:38:59.785Z",
+      "maxprepsUpdated": "2026-10-25T01:21:57",
       "overall": "2-7",
       "league": {
         "record": "2-3",
@@ -124,8 +124,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/volleyball/",
-      "fetched": "2026-10-24T17:14:55.720Z",
-      "maxprepsUpdated": "2026-10-24T16:45:57",
+      "fetched": "2026-10-25T02:38:59.785Z",
+      "maxprepsUpdated": "2026-10-25T01:37:32",
       "overall": "18-1",
       "league": {
         "record": "6-1",
@@ -363,8 +363,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/softball/fall/",
-      "fetched": "2026-10-24T17:14:55.720Z",
-      "maxprepsUpdated": "2026-10-24T13:46:09",
+      "fetched": "2026-10-25T02:38:59.785Z",
+      "maxprepsUpdated": "2026-10-25T01:51:30",
       "overall": "13-12",
       "league": {
         "record": "0-5",
@@ -378,6 +378,7 @@
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/softball/game/resurrection-christian-loveland-vs-valley-gilcrest/10-17-2026/?c=c304c621-b4fa-48b6-9ec2-f1fa64cabcc8",
           "neutral": true,
+          "stage": "Class 3A Softball Round of 32",
           "result": "L",
           "score": {
             "us": 8,
@@ -450,8 +451,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/cross-country/",
-      "fetched": "2026-10-24T17:14:55.720Z",
-      "maxprepsUpdated": "2026-10-24T17:15:22",
+      "fetched": "2026-10-25T02:38:59.785Z",
+      "maxprepsUpdated": "2026-10-24T23:09:12",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -464,8 +465,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/cross-country/girls/",
-      "fetched": "2026-10-24T17:14:55.720Z",
-      "maxprepsUpdated": "2026-10-24T17:15:26",
+      "fetched": "2026-10-25T02:38:59.785Z",
+      "maxprepsUpdated": "2026-10-25T02:39:30",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -473,6 +474,451 @@
         "MaxPreps lists no schedule or results for this team"
       ],
       "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "boys-basketball",
+      "name": "Boys basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/basketball/",
+      "fetched": "2026-10-25T02:38:59.785Z",
+      "maxprepsUpdated": "2026-10-25T02:39:35",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "4A/3A Patriot Peaks",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-12-04",
+          "opponent": "Denver Christian",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/denver-christian-vs-resurrection-christian-loveland/12-4-2026/?c=2e7844de-c0e2-4c8b-a592-156f58e7bafa",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-08",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/resurrection-christian-loveland-vs-thompson-valley-loveland/12-8-2026/?c=e50e2df2-eaab-4aca-a37c-6bf29b4f44a6",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-10",
+          "opponent": "Monte Vista",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/monte-vista-vs-resurrection-christian-loveland/12-10-2026/?c=7ff01c84-1d64-441d-abae-25a4cc671823",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-11",
+          "opponent": "Manitou Springs",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/manitou-springs-vs-resurrection-christian-loveland/12-11-2026/?c=e1e0eb90-e4f4-407e-8dfe-93b0fc0dd532",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-12",
+          "opponent": "Alamosa",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/alamosa-vs-resurrection-christian-loveland/12-12-2026/?c=97a65884-f4ab-45fc-9a38-fecd5ba07cbe",
+          "time": "14:30"
+        },
+        {
+          "date": "2027-01-05",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/mountain-view-loveland-vs-resurrection-christian-loveland/1-5-2027/?c=072c88ae-a092-4008-bcb5-f0a0ef319ec8",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-08",
+          "opponent": "Roosevelt",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/resurrection-christian-loveland-vs-roosevelt-johnstown/1-8-2027/?c=e7f7b228-61bd-4f1f-97a4-408475fe628a",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-15",
+          "opponent": "Strasburg",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/resurrection-christian-loveland-vs-strasburg/1-15-2027/?c=f274febb-d8e9-404e-b4a5-3dc34b98efa3",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Fort Morgan",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/fort-morgan-vs-resurrection-christian-loveland/1-22-2027/?c=a1353ae8-b229-42bd-9332-dd303d378611",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Liberty Common",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/liberty-common-fort-collins-vs-resurrection-christian-loveland/1-26-2027/?c=86cb649b-6a45-4f38-861c-1542960b04a2",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Eaton",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/eaton-fightin-reds-vs-resurrection-christian-loveland/1-29-2027/?c=35ca4207-594e-41f1-adf5-f515abbc4f48",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-05",
+          "opponent": "Kent Denver",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/kent-denver-englewood-vs-resurrection-christian-loveland/2-5-2027/?c=cf95134f-3f4b-4666-bf9b-aba48ea8e0e7",
+          "time": "19:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "girls-basketball",
+      "name": "Girls basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/basketball/girls/",
+      "fetched": "2026-10-25T02:38:59.785Z",
+      "maxprepsUpdated": "2026-10-25T02:27:58",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "4A/3A Patriot Peaks",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-11-30",
+          "opponent": "Highland",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/highland-ault-vs-resurrection-christian-loveland/11-30-2026/?c=35631096-efb8-40c1-b963-fd2b3da5dc6d",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-02",
+          "opponent": "Eagle Ridge Academy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/eagle-ridge-academy-brighton-vs-resurrection-christian-loveland/12-2-2026/?c=b0922bd6-7319-4065-bab6-b893cd2558f4",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-04",
+          "opponent": "Denver Christian",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/denver-christian-vs-resurrection-christian-loveland/12-4-2026/?c=adaee8d6-8084-4b4f-a7a0-86b0a38d4f3a",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-08",
+          "opponent": "Thompson Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/resurrection-christian-loveland-vs-thompson-valley-loveland/12-8-2026/?c=8d1c92f2-bbfa-4da1-9e47-d7f6d1aaedb6",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-10",
+          "opponent": "Monte Vista",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/monte-vista-vs-resurrection-christian-loveland/12-10-2026/?c=625f280f-56f7-44cf-aec3-5ce95189d82c",
+          "time": "17:30"
+        },
+        {
+          "date": "2026-12-11",
+          "opponent": "Manitou Springs",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/manitou-springs-vs-resurrection-christian-loveland/12-11-2026/?c=6bb761cf-a515-4ee3-b40e-bceba8bd2ad0",
+          "time": "17:30"
+        },
+        {
+          "date": "2026-12-12",
+          "opponent": "Alamosa",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/alamosa-vs-resurrection-christian-loveland/12-12-2026/?c=066641a5-68bf-4f62-9f51-0e7b071b8216",
+          "time": "11:00"
+        },
+        {
+          "date": "2026-12-19",
+          "opponent": "Holy Family",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/holy-family-broomfield-vs-resurrection-christian-loveland/12-19-2026/?c=c50d046b-fa8d-4324-97e4-0402ea435f79",
+          "time": "10:00"
+        },
+        {
+          "date": "2027-01-05",
+          "opponent": "Severance",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/resurrection-christian-loveland-vs-severance/1-5-2027/?c=5da51d64-984d-4a99-bf50-366c64f6df30",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-13",
+          "opponent": "Forge Christian",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/forge-christian-eagles-arvada-vs-resurrection-christian-loveland/1-13-2027/?c=04561550-5cd1-4868-bc1f-2f344d961346",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-15",
+          "opponent": "Strasburg",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/resurrection-christian-loveland-vs-strasburg/1-15-2027/?c=c05e057d-0e6c-4319-832c-a85cfb94e04a",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-19",
+          "opponent": "University",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/resurrection-christian-loveland-vs-university-greeley/1-19-2027/?c=1b5f8e4a-43e8-4cfc-92a7-b6fc6da164e5",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-20",
+          "opponent": "Peak to Peak",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/peak-to-peak-lafayette-vs-resurrection-christian-loveland/1-20-2027/?c=056d6b63-8bf8-49ae-9743-0ff6211b6577",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Fort Morgan",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/fort-morgan-vs-resurrection-christian-loveland/1-22-2027/?c=6094383e-abf7-462d-a4c1-25280b13d3d0",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Liberty Common",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/liberty-common-fort-collins-vs-resurrection-christian-loveland/1-26-2027/?c=5746e334-57f1-4b17-8eab-350fb214b549",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-28",
+          "opponent": "Prospect Ridge Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/prospect-ridge-academy-broomfield-vs-resurrection-christian-loveland/1-28-2027/?c=ff261cf7-a1b8-473c-9ce6-2887de29b6e6",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Eaton",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/eaton-fightin-reds-vs-resurrection-christian-loveland/1-29-2027/?c=dee1ae56-0dc2-40df-94e5-943805a4b738",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-04",
+          "opponent": "Berthoud",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-resurrection-christian-loveland/2-4-2027/?c=564b4bc2-b9eb-441d-ab5f-08e9488549a3",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-09",
+          "opponent": "Windsor Charter Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/resurrection-christian-loveland-vs-windsor-charter-academy/2-9-2027/?c=95d2e364-5562-4415-b257-86af171ef64d",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-11",
+          "opponent": "Wellington",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/resurrection-christian-loveland-vs-wellington/2-11-2027/?c=c1ec79f6-ab27-4d74-b6ef-83085fbe52c4",
+          "time": "18:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "wrestling",
+      "name": "Wrestling",
+      "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/wrestling/",
+      "fetched": "2026-10-25T02:38:59.785Z",
+      "maxprepsUpdated": "2026-10-24T23:41:37",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-swimming",
+      "name": "Girls swimming",
+      "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/swimming/girls/",
+      "fetched": "2026-10-25T02:38:59.785Z",
+      "maxprepsUpdated": "2026-10-25T02:39:57",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "ice-hockey",
+      "name": "Ice hockey",
+      "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/ice-hockey/",
+      "fetched": "2026-10-25T02:38:59.785Z",
+      "maxprepsUpdated": "2026-10-25T02:10:21",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "4A Metro",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-11-20",
+          "opponent": "Grandview",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/grandview-aurora-vs-resurrection-christian-loveland/11-20-2026/?c=9a568093-e5ed-4c44-b825-f6a78b9c6712",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-11-21",
+          "opponent": "Standley Lake",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/resurrection-christian-loveland-vs-standley-lake-westminster/11-21-2026/?c=cb40589e-4464-47ea-957d-083717af41d2",
+          "time": "20:45"
+        },
+        {
+          "date": "2026-12-04",
+          "opponent": "Glenwood Springs",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/glenwood-springs-vs-resurrection-christian-loveland/12-4-2026/?c=cc1c03a9-9fe9-479e-8bdf-e743cd720b9e",
+          "time": "19:30"
+        },
+        {
+          "date": "2026-12-05",
+          "opponent": "Aspen",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/aspen-vs-resurrection-christian-loveland/12-5-2026/?c=fa9478b9-7bec-4849-aba3-b9e03feeffba",
+          "time": "17:50"
+        },
+        {
+          "date": "2026-12-10",
+          "opponent": "Poudre School District",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/poudre-school-district-fort-collins-vs-resurrection-christian-loveland/12-10-2026/?c=2063ae01-29f2-4b17-8ffd-9b097ae14de7",
+          "time": "19:30"
+        },
+        {
+          "date": "2026-12-11",
+          "opponent": "Colorado Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/colorado-academy-denver-vs-resurrection-christian-loveland/12-11-2026/?c=269b378c-48a0-4e24-94b1-49311adacf6d",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-17",
+          "opponent": "Mullen",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/mullen-denver-vs-resurrection-christian-loveland/12-17-2026/?c=2031f646-126c-4d59-8377-19a063e1d16a",
+          "time": "14:30"
+        },
+        {
+          "date": "2026-12-19",
+          "opponent": "Grandview",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/grandview-aurora-vs-resurrection-christian-loveland/12-19-2026/?c=596a79ec-c5c4-456e-8f62-117f6bc292ef",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-02",
+          "opponent": "Kent Denver",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/kent-denver-englewood-vs-resurrection-christian-loveland/1-2-2027/?c=621d7125-4c4a-49ad-9840-679747f197d2",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-08",
+          "opponent": "Kent Denver",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/kent-denver-englewood-vs-resurrection-christian-loveland/1-8-2027/?c=8672e4be-a4a8-4f54-9c68-345a16b517f5",
+          "time": "20:15"
+        },
+        {
+          "date": "2027-01-16",
+          "opponent": "Lewis-Palmer",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/lewis-palmer-monument-vs-resurrection-christian-loveland/1-16-2027/?c=c89cc86f-e976-43db-b734-37e28b6ca8cc",
+          "time": "20:30"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Pueblo County",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/pueblo-county-vs-resurrection-christian-loveland/1-22-2027/?c=8fe1a650-b8fd-4017-90b8-607a6fed6990",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-23",
+          "opponent": "Middle Park",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/middle-park-granby-vs-resurrection-christian-loveland/1-23-2027/?c=3c794bf6-6c40-4ffc-b06a-acde85f0d234",
+          "time": "20:45"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Colorado Academy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/colorado-academy-denver-vs-resurrection-christian-loveland/1-26-2027/?c=f60baacd-6386-45bf-96ee-61345ade4bce",
+          "time": "14:45"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Cheyenne Mountain",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/cheyenne-mountain-colorado-springs-vs-resurrection-christian-loveland/1-29-2027/?c=86dcec06-4d2a-4043-b9b5-315e71378bac",
+          "time": "20:15"
+        },
+        {
+          "date": "2027-01-30",
+          "opponent": "Lewis-Palmer",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/lewis-palmer-monument-vs-resurrection-christian-loveland/1-30-2027/?c=a070159a-b558-4617-b6f8-84f1e5395739",
+          "time": "13:45"
+        },
+        {
+          "date": "2027-02-05",
+          "opponent": "Cheyenne Mountain",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/cheyenne-mountain-colorado-springs-vs-resurrection-christian-loveland/2-5-2027/?c=d820fe7b-f493-4ee5-a018-285dd87e1826",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-02-06",
+          "opponent": "Rampart",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/rampart-colorado-springs-vs-resurrection-christian-loveland/2-6-2027/?c=e245dae5-c5b1-4066-8f11-f6dd9532547b",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-02-12",
+          "opponent": "Woodland Park",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/resurrection-christian-loveland-vs-woodland-park/2-12-2027/?c=675afa40-b3e0-42a5-9c69-7c672639d0d3",
+          "time": "14:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
     }
   ]
 }
