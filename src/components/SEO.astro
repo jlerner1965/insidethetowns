@@ -10,6 +10,12 @@ import { pageTitle } from '@/lib/titles';
 
 interface Props {
   title?: string;
+  /**
+   * The whole <title>, used as it is, in place of "[Page] | Inside [Town]":
+   * the sports pages write theirs the way people search ("Berthoud Spartans
+   * Football Schedule, Scores & Record 2026 · Inside Berthoud").
+   */
+  fullTitle?: string;
   description?: string;
   /** Absolute or site-relative URL of the share image. Falls back to the hero. */
   image?: string;
@@ -21,7 +27,7 @@ interface Props {
 
 const site = getSite();
 const { title, description = site.tagline, type = 'website', jsonLd, noindex = false } = Astro.props;
-const fullTitle = pageTitle(site, title);
+const fullTitle = Astro.props.fullTitle ?? pageTitle(site, title);
 
 /**
  * Search results cut a description around 155 characters. Page copy is written
@@ -71,7 +77,7 @@ const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 
 <meta property="og:site_name" content={site.siteTitle} />
 <meta property="og:type" content={type} />
-<meta property="og:title" content={title ?? site.siteTitle} />
+<meta property="og:title" content={Astro.props.fullTitle ?? title ?? site.siteTitle} />
 <meta property="og:description" content={metaDescription} />
 <meta property="og:url" content={canonical} />
 <meta property="og:image" content={ogImageUrl} />
@@ -81,7 +87,7 @@ const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 <meta property="og:locale" content="en_US" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={title ?? site.siteTitle} />
+<meta name="twitter:title" content={Astro.props.fullTitle ?? title ?? site.siteTitle} />
 <meta name="twitter:description" content={metaDescription} />
 <meta name="twitter:image" content={ogImageUrl} />
 

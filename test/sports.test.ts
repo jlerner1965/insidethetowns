@@ -654,7 +654,7 @@ test('every school carries the winter list after its fall list, ice hockey only 
   const now = new Date('2026-10-25T15:00:00Z');
   // Football still has a game: fall. Only basketball left to play: winter. Nothing to play, football the last result: fall. No games at all: the build's fall.
   const fall: SportsData = { generated: '', sports: [team('football', [], [game('2026-10-30', 'Severance')]), team('boys-basketball', [], [game('2026-12-01', 'Eaton')])] };
-  assert.deepEqual(seasonOf(fall, teams, now), { season: 'Fall', year: 2026, label: 'Fall 2026' });
+  assert.deepEqual(seasonOf(fall, teams, now), { season: 'Fall', year: 2026, years: '2026', label: 'Fall 2026' });
   const winter: SportsData = { generated: '', sports: [team('football', [{ ...game('2026-10-30', 'Severance'), result: 'W' as const, score: { us: 1, them: 0 } }], []), team('boys-basketball', [], [game('2026-12-01', 'Eaton')])] };
   assert.equal(seasonOf(winter, teams, new Date('2026-11-20T15:00:00Z')).label, 'Winter 2026–27');
   const january: SportsData = { generated: '', sports: [team('boys-basketball', [], [game('2027-01-12', 'Eaton')])] };
@@ -685,4 +685,24 @@ test('a result from last season on the wall of a team that is 0-0 is not this se
     'Erie Tigers Basketball Overall 0-1 Schedule at a Glance',
   );
   assert.equal(parseTeamPage(same, us).results.length, 1);
+});
+
+test('titles and descriptions come from the data: the school, the mascot, the sports with data, the season’s year, the record and the next game', async () => {
+  const { schoolPageTitle, sportList, teamDescription, teamPageTitle, shortWhen } = await import('../src/lib/school-sports.ts');
+  const now = new Date('2026-10-25T15:00:00Z');
+  const team = (name: string, overall?: string, upcoming: SportsData['sports'][number]['upcoming'] = [], results: SportsData['sports'][number]['results'] = []) => ({ key: name.toLowerCase().replace(/ /g, '-'), name, maxprepsUrl: '', fetched: 'x', overall, upcoming, results, held: [], notes: [] });
+  const football = team('Football', '7-2', [{ date: '2026-10-30', time: '19:00', opponent: 'Severance', site: 'away', url: 'u' }], [{ date: '2026-10-23', opponent: 'Mountain View', site: 'away', result: 'W', score: { us: 50, them: 0 }, url: 'r' }]);
+  assert.equal(teamPageTitle(berthoud, football, '2026'), 'Berthoud Spartans Football Schedule, Scores & Record 2026');
+  assert.equal(teamPageTitle(berthoud, team('Boys basketball'), '2026–27'), 'Berthoud Spartans Boys Basketball Schedule, Scores & Record 2026–27');
+  assert.equal(teamDescription(berthoud, football, 'fall', now), 'Berthoud High football is 7-2 this fall. Next: at Severance, Friday Oct 30, 7 pm. Every score and the full schedule, from MaxPreps.');
+  const softball = team('Softball', '17-10', [], [{ date: '2026-10-17', opponent: 'X', site: 'neutral', result: 'L', score: { us: 1, them: 4 }, url: 'r' }]);
+  assert.equal(teamDescription(berthoud, softball, 'fall', now), 'Berthoud High softball is 17-10 this fall. Regular season complete. Every score and the full schedule, from MaxPreps.');
+  const state = team('Softball', '27-0', [{ date: '2026-10-31', time: '10:00', opponent: 'Fruita Monument', site: 'neutral', neutral: true, venue: 'Aurora Sports Park', stage: 'State Softball Tournaments', url: 'u' }]);
+  assert.equal(teamDescription(schoolSportsFor('windsor')!, state, 'fall', now), 'Windsor High softball is 27-0 this fall. Next: vs Fruita Monument, Saturday Oct 31, 10 am, State Softball Tournaments. Every score and the full schedule, from MaxPreps.');
+  assert.equal(shortWhen({ date: '2026-11-07', opponent: 'x', site: 'home', url: 'u' }), 'Saturday Nov 7', 'no time, no comma');
+  // The school's title lists the sports with data; a lone boys' team drops its gender, a pair keeps both.
+  assert.deepEqual(sportList([team('Football'), team('Boys soccer'), team('Volleyball'), team('Softball')]), ['Football', 'Soccer', 'Volleyball', 'Softball']);
+  assert.deepEqual(sportList([team('Boys basketball'), team('Girls basketball')]), ['Boys Basketball', 'Girls Basketball']);
+  assert.equal(schoolPageTitle(berthoud, [team('Football'), team('Boys soccer'), team('Volleyball'), team('Softball')]), 'Berthoud High School Spartans Scores & Schedules — Football, Soccer, Volleyball, Softball');
+  assert.equal(schoolPageTitle(berthoud, []), 'Berthoud High School Spartans Scores & Schedules', 'no data yet, no list');
 });

@@ -35,6 +35,8 @@ import { PAPERS, categoryCss, primaryHover } from '@/config/palette';
 
 interface Props {
   title?: string;
+  /** The whole <title>, as it is (SEO.astro). */
+  fullTitle?: string;
   description?: string;
   image?: string;
   imageAlt?: string;

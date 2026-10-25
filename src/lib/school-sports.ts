@@ -5,7 +5,7 @@
  */
 import { sportsDataFile, type SchoolSports, type SportConfig, type SportData, type SportGame, type SportsData } from '../config/school-sports.ts';
 import { primaryHover } from '../config/palette.ts';
-import { dayKey, formatDayLong, formatTime, fromWallClock } from './dates.ts';
+import { dayKey, formatDayLong, formatTime, fromWallClock, TIME_ZONE } from './dates.ts';
 
 /**
  * The school's colour as the page's primary, for a `style` on the element
@@ -272,7 +272,7 @@ export function seasonComplete(data: SportsData, now = new Date()): boolean {
  * on (no games at all): the fall of the build's year, which is what the
  * eyebrow said before the winter list existed.
  */
-export function seasonOf(data: SportsData, teams: Array<Pick<SportConfig, 'key' | 'season'>>, now = new Date()): { season: 'Fall' | 'Winter'; year: number; label: string } {
+export function seasonOf(data: SportsData, teams: Array<Pick<SportConfig, 'key' | 'season'>>, now = new Date()): { season: 'Fall' | 'Winter'; year: number; years: string; label: string } {
   const seasonOfTeam = (key: string) => teams.find((t) => t.key === key)?.season ?? 'fall';
   const game = bigGame(data, now) ?? latestResult(data);
   const season = game && seasonOfTeam(game.team.key) === 'winter' ? 'Winter' : 'Fall';
@@ -280,8 +280,71 @@ export function seasonOf(data: SportsData, teams: Array<Pick<SportConfig, 'key' 
   // A winter season runs across the new year and is named for the school
   // year it belongs to: a January game is "Winter 2026–27", not 2027's.
   const year = season === 'Winter' && m < 8 ? y - 1 : y;
-  const label = season === 'Winter' ? `Winter ${year}–${String(year + 1).slice(-2)}` : `Fall ${year}`;
-  return { season, year, label };
+  const years = season === 'Winter' ? `${year}–${String(year + 1).slice(-2)}` : String(year);
+  return { season, year, years, label: `${season} ${years}` };
+}
+
+/** "Boys soccer" as a title writes it: "Boys Soccer". */
+export function titleCase(name: string): string {
+  return name.replace(/\b[a-z]/g, (c) => c.toUpperCase());
+}
+
+/** "Berthoud High", "Resurrection Christian", "Lyons Middle/Senior High": the school without the word "School". */
+export function schoolShortName(school: string): string {
+  return school.replace(/ School$/, '');
+}
+
+/**
+ * The sports a school page's title lists, from the teams with data, in
+ * the data's order: "Football, Soccer, Volleyball, Softball". A boys' or
+ * girls' team drops the gender where it is the only team of its sport
+ * ("Boys soccer" is "Soccer"); where both have data both are named ("Boys
+ * Basketball, Girls Basketball").
+ */
+export function sportList(teams: Array<Pick<SportData, 'name'>>): string[] {
+  const bare = (name: string) => name.replace(/^(Boys|Girls) /, '');
+  const counts = new Map<string, number>();
+  for (const t of teams) counts.set(bare(t.name), (counts.get(bare(t.name)) ?? 0) + 1);
+  return teams.map((t) => titleCase((counts.get(bare(t.name)) ?? 0) > 1 ? t.name : bare(t.name)));
+}
+
+/** "Berthoud High School Spartans Scores & Schedules — Football, Soccer, Volleyball, Softball". */
+export function schoolPageTitle(school: Pick<SchoolSports, 'school' | 'mascot'>, teams: Array<Pick<SportData, 'name'>>): string {
+  const sports = sportList(teams);
+  return `${school.school} ${school.mascot} Scores & Schedules${sports.length ? ` — ${sports.join(', ')}` : ''}`;
+}
+
+/** "Berthoud Spartans Football Schedule, Scores & Record 2026". */
+export function teamPageTitle(school: Pick<SchoolSports, 'school' | 'mascot'>, team: Pick<SportData, 'name'>, years: string): string {
+  return `${school.school.replace(/ (High )?School$/, '')} ${school.mascot} ${titleCase(team.name)} Schedule, Scores & Record ${years}`;
+}
+
+/** "Friday Oct 30, 7 pm" / "Saturday Oct 31": the next game's moment, short, for a description. */
+export function shortWhen(g: SportGame): string {
+  const d = gameDay(g);
+  const day = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, weekday: 'long' }).format(d);
+  const date = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, month: 'short', day: 'numeric' }).format(d);
+  return `${day} ${date}${g.time ? `, ${formatTime(d)}` : ''}`;
+}
+
+/**
+ * The team page's meta description, built from the data: "Berthoud High
+ * football is 7-2 this fall. Next: at Severance, Friday Oct 30, 7 pm.
+ * Every score and the full schedule, from MaxPreps." With nothing to come
+ * and games played, "Regular season complete." stands where the next game
+ * would; a stage MaxPreps gives follows the game.
+ */
+export function teamDescription(school: Pick<SchoolSports, 'school'>, team: SportData, seasonWord: string, now = new Date()): string {
+  const today = dayKey(now);
+  const next = team.upcoming.find((g) => g.date >= today);
+  const name = team.name.toLowerCase();
+  const record = team.overall ? `${schoolShortName(school.school)} ${name} is ${team.overall} this ${seasonWord}.` : `${schoolShortName(school.school)} ${name} this ${seasonWord}.`;
+  const then = next
+    ? `Next: ${where(next)} ${next.opponent}, ${shortWhen(next)}${next.stage ? `, ${next.stage}` : ''}.`
+    : team.results.length
+      ? 'Regular season complete.'
+      : '';
+  return [record, then, 'Every score and the full schedule, from MaxPreps.'].filter(Boolean).join(' ');
 }
 
 /** The most recent result across the teams. */

@@ -15,7 +15,7 @@ import TeamSeason from '@/components/TeamSeason.astro';
 import { getTown } from '@/config';
 import { schoolSportsFor, schoolsFor, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
 import { dayKey, formatShortDate } from '@/lib/dates';
-import { coming, hasData, schoolCssVars, seasonComplete, seasonOf, sportsDataFor, teamsWithData } from '@/lib/school-sports';
+import { coming, hasData, schoolCssVars, seasonComplete, seasonOf, sportsDataFor, teamDescription, teamPageTitle, teamsWithData } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -39,7 +39,7 @@ const schoolStyle = schools.length === 1 ? schoolCssVars(cfg) : undefined;
 
 const now = new Date();
 const today = dayKey(now);
-const { season: seasonName, label: seasonLabel } = seasonOf({ generated: data.generated, sports: [team] }, cfg.teams, now);
+const { season: seasonName, years, label: seasonLabel } = seasonOf({ generated: data.generated, sports: [team] }, cfg.teams, now);
 const seasonWord = seasonName.toLowerCase();
 const own: SportsData = { generated: data.generated, sports: [team] };
 const ahead = coming(own).filter((c) => c.game.date >= today);
@@ -50,10 +50,14 @@ const read = team.fetched ? new Date(team.fetched) : undefined;
 const newest = data.sports.map((s) => s.fetched).filter(Boolean).sort().at(-1);
 const stale = !!newest && !!team.fetched && new Date(newest).getTime() - new Date(team.fetched).getTime() > 3 * 86_400_000;
 
+// The H1 ("Berthoud Spartans football"), the <title> as people search
+// ("Berthoud Spartans Football Schedule, Scores & Record 2026 · Inside
+// Berthoud") and the description, every word of them from the data.
 const title = `${shortSchool} ${mascot} ${team.name.toLowerCase()}`;
-const description = `${school} ${team.name.toLowerCase()}${team.overall ? ` is ${team.overall} this ${seasonWord}` : ` this ${seasonWord}`}: every score and the full schedule, from MaxPreps${calendar ? ', checked against the school calendar' : ''}.`;
+const fullTitle = `${teamPageTitle(cfg, team, years)} · ${town.siteTitle}`;
+const description = teamDescription(cfg, team, seasonWord, now);
 const jsonLd = [
-  collectionPageJsonLd(town, { name: `${title} schedule and scores`, description, path }),
+  collectionPageJsonLd(town, { name: teamPageTitle(cfg, team, years), description, path }),
   breadcrumbJsonLd(town, [
     { name: town.name, path: '/' },
     { name: 'Sports', path: '/sports/' },
@@ -62,7 +66,7 @@ const jsonLd = [
   ]),
 ];
 ---
-<Base title={`${title} schedule and scores`} {description} {jsonLd}>
+<Base title={teamPageTitle(cfg, team, years)} {fullTitle} {description} {jsonLd}>
   <div style={schoolStyle}>
   <header class="border-b-2 border-accent bg-raised">
     <div class="container-page py-10 md:py-14">

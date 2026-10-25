@@ -39,7 +39,7 @@ import TeamSeason from '@/components/TeamSeason.astro';
 import { getTown } from '@/config';
 import { schoolSportsFor, schoolsFor, sportsPath, teamPath, type SportData, type SportsData } from '@/config/school-sports';
 import { dayKey, formatDayShort, formatShortDate } from '@/lib/dates';
-import { bigGame, coming, gameDay as day, latestResult, recentResults, RESULT_WORD, placeText, schoolCssVars, seasonComplete, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
+import { bigGame, coming, gameDay as day, latestResult, recentResults, RESULT_WORD, placeText, schoolCssVars, schoolPageTitle, seasonComplete, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -96,8 +96,11 @@ const PILL = {
 
 const shortName = (s: { school: string }) => s.school.replace(/ (High )?School$/, '');
 const indexName = `${town.name} high school sports`;
+// "Berthoud High School Spartans Scores & Schedules — Football, Soccer,
+// Volleyball, Softball": the sports from the teams with data, never typed.
+const pageTitle = schoolPageTitle(cfg, teams);
 const jsonLd = [
-  collectionPageJsonLd(town, { name: `${school} ${mascot} scores and schedules`, description, path }),
+  collectionPageJsonLd(town, { name: pageTitle, description, path }),
   breadcrumbJsonLd(town, [
     { name: town.name, path: '/' },
     { name: 'Sports', path: '/sports/' },
@@ -105,7 +108,7 @@ const jsonLd = [
   ]),
 ];
 ---
-<Base title={`${school} ${mascot} scores and schedules`} {description} {jsonLd}>
+<Base title={pageTitle} fullTitle={`${pageTitle} · ${town.siteTitle}`} {description} {jsonLd}>
   {/* The school's colour from here to the foot, where the guide follows one school: see SchoolSports.colors. */}
   <div style={schoolStyle}>
   <header class="border-b-2 border-accent bg-raised">
