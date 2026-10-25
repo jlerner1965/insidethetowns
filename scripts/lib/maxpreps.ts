@@ -103,6 +103,8 @@ interface MpTeam {
 }
 interface MpContest {
   contestId: string;
+  /** The school year the contest belongs to, "26-27": the wall carries last season's results under a team that is 0-0. */
+  year?: string;
   hasResult: boolean;
   canonicalUrl: string;
   /** Kickoff, local wall clock, for a game to come; the score's entry time (GMT) once played. */
@@ -231,10 +233,18 @@ export function parseTeamPage(html: string, us: Team): TeamPage {
     else page.warnings.push(`a game in the glance card could not be read (${c.contestId})`);
   }
 
+  // The season the page is for, as the team's own data names it
+  // (teamContext.data.year, "26-27"; else the glance card's contests). The
+  // wall's Game Results posts reach back into the previous season: Erie's
+  // basketball pages, 0-0 for 2026–27 on 25 October 2026, carried four
+  // results from February. A post from another year is not this season's
+  // and is left out; with nothing to name the season, nothing is filtered.
+  const seasonYear: string | undefined = (typeof ctx?.data?.year === 'string' && ctx.data.year) || glance.find((c) => c.year)?.year;
   const posts: MpPost[] = pp?.wallPosts ?? [];
   const seen = new Set<string>();
   for (const p of posts) {
     if (p.title !== 'Game Results' || !p.data?.contestId || seen.has(p.data.contestId)) continue;
+    if (seasonYear && p.data.year && p.data.year !== seasonYear) continue;
     seen.add(p.data.contestId);
     const g = toGame(p.data as MpContest, us, p.timeStamp);
     if (g?.result || g?.place) page.results.push(g);

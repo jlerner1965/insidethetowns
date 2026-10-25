@@ -649,3 +649,26 @@ test('every school carries the winter list after its fall list, ice hockey only 
   assert.equal(seasonOf(done, teams, new Date('2026-11-20T15:00:00Z')).label, 'Fall 2026');
   assert.equal(seasonOf({ generated: '', sports: [] }, teams, now).label, 'Fall 2026');
 });
+
+test('a result from last season on the wall of a team that is 0-0 is not this season’s: Erie basketball', () => {
+  const us = { url: 'https://www.maxpreps.com/co/erie/erie-tigers/basketball/', schoolName: 'Erie' };
+  const c = (id: string, url: string, year: string, played?: { us: number; them: number; result: 'W' | 'L' }, kickoff?: string) => ({
+    contestId: id, year, hasResult: !!played, canonicalUrl: `${url}?c=${id}`, timestamp: played ? '2026-02-28T04:00:00' : kickoff, homeAwayType: 0, isTimeTba: false, isDateTba: false,
+    teams: [{ schoolName: 'Erie', score: played?.us ?? 0, result: played?.result ?? null, teamCanonicalUrl: us.url }, { schoolName: 'Poudre', score: played?.them ?? 0, result: played ? (played.result === 'W' ? 'L' : 'W') : null, teamCanonicalUrl: 'https://www.maxpreps.com/co/x/' }],
+  });
+  const poudre = c('n1', 'https://www.maxpreps.com/co/basketball/game/erie-vs-poudre-fort-collins/12-1-2026/', '26-27', undefined, '2026-12-01T19:00:00');
+  const rangeview = c('o1', 'https://www.maxpreps.com/co/basketball/game/erie-vs-rangeview-aurora/2-27-2026/', '25-26', { us: 37, them: 73, result: 'L' });
+  const html = page(
+    { teamContext: { standingsData: { overallStanding: { overallWinLossTies: '0-0' } } }, wallCards: { schedule: { data: [poudre] } }, wallPosts: [{ type: 9, title: 'Game Results', timeStamp: '2026-02-28T04:00:00', data: rangeview }] },
+    'Erie Tigers Basketball Overall 0-0 Schedule at a Glance',
+  );
+  const p = parseTeamPage(html, us);
+  assert.deepEqual(p.results, [], 'February’s game belongs to 25-26');
+  assert.equal(p.glance[0]!.opponent, 'Poudre');
+  // The same post with the season's own year stays.
+  const same = page(
+    { teamContext: { standingsData: { overallStanding: { overallWinLossTies: '0-1' } } }, wallCards: { schedule: { data: [poudre] } }, wallPosts: [{ type: 9, title: 'Game Results', timeStamp: '2026-12-02T04:00:00', data: { ...rangeview, year: '26-27' } }] },
+    'Erie Tigers Basketball Overall 0-1 Schedule at a Glance',
+  );
+  assert.equal(parseTeamPage(same, us).results.length, 1);
+});
