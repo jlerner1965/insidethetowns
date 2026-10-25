@@ -466,3 +466,30 @@ test('a result MaxPreps lists twice is shown once; a doubleheader stays two game
   assert.equal(dedupeResults([g('a', 6, 22), g('b', 6, 22)]).length, 1, 'the same game under two contest ids');
   assert.equal(dedupeResults([g('a', 4, 15), g('b', 9, 17)]).length, 2, 'a doubleheader');
 });
+
+test('the strip keeps the week’s football game however many matches come before it: Berthoud’s week of 26 October 2026', async () => {
+  const { stripGames, weekGames } = await import('../src/lib/school-sports.ts');
+  const game = (date: string, time: string, opponent: string, site: 'home' | 'away') => ({ date, time, opponent, site, url: `https://www.maxpreps.com/co/x/${opponent.toLowerCase().replace(/ /g, '-')}/${date}/` });
+  const team = (key: string, name: string, overall: string, upcoming: ReturnType<typeof game>[]) => ({ key, name, maxprepsUrl: '', fetched: '2026-10-24T17:07:31.253Z', overall, results: [], upcoming, held: [], notes: [] });
+  // data/berthoud/sports.json as the 24 October run wrote it: three volleyball
+  // matches on Monday, Tuesday and Thursday, football on Friday.
+  const berthoud: SportsData = {
+    generated: '2026-10-24T17:07:31.253Z',
+    sports: [
+      team('football', 'Football', '7-2', [game('2026-10-30', '19:00', 'Severance', 'away')]),
+      team('boys-soccer', 'Boys soccer', '8-7', []),
+      team('volleyball', 'Volleyball', '15-5', [game('2026-10-26', '18:30', 'University', 'home'), game('2026-10-27', '18:30', 'Windsor Charter Academy', 'away'), game('2026-10-29', '18:30', 'Frederick', 'home')]),
+      team('softball', 'Softball', '17-10', []),
+    ],
+  };
+  const now = new Date('2026-10-25T15:00:00Z');
+  assert.deepEqual(weekGames(berthoud, now).map((c) => c.game.opponent), ['University', 'Windsor Charter Academy', 'Frederick', 'Severance'], 'the week, soonest first');
+  assert.deepEqual(stripGames(berthoud, now, 3).map((c) => `${c.team.name} ${c.game.opponent}`), ['Football Severance', 'Volleyball University', 'Volleyball Windsor Charter Academy'], 'football first, then the slots by date');
+  assert.deepEqual(stripGames(berthoud, now).map((c) => c.game.opponent), ['Severance', 'University', 'Windsor Charter Academy', 'Frederick'], 'no limit: the whole week, football still first');
+  // No football in the week (its season over, or a bye): the slots are the soonest games, as before.
+  const bye = { ...berthoud, sports: berthoud.sports.filter((s) => s.key !== 'football') };
+  assert.deepEqual(stripGames(bye, now, 3).map((c) => c.game.opponent), ['University', 'Windsor Charter Academy', 'Frederick']);
+  // Football a week out is not this week's game and takes no slot.
+  const later = { ...berthoud, sports: [team('football', 'Football', '7-2', [game('2026-11-06', '19:00', 'Playoff', 'away')]), ...bye.sports] };
+  assert.deepEqual(stripGames(later, now, 3).map((c) => c.game.opponent), ['University', 'Windsor Charter Academy', 'Frederick']);
+});

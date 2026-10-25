@@ -130,13 +130,10 @@ export function dedupeResults(results: SportGame[]): SportGame[] {
 }
 
 /**
- * The week's games, every team, soonest first: what the home page's compact
- * sports module lists. Teams are in the config's order of what the town
- * turns out for, so with two games on one day football's leads; a team out
- * of season has no games to come and never appears. Nothing is featured for
- * being football: a Tuesday soccer match in the week is here, and in
- * November, when the fall teams are done, the module shows whatever is next
- * or nothing at all.
+ * The week's games, every team, soonest first: the sports page's list and
+ * the raw material of the home page's strip. Teams are in the config's order
+ * of what the town turns out for, so with two games on one day football's
+ * leads; a team out of season has no games to come and never appears.
  */
 export function weekGames(data: SportsData, now = new Date(), days = 7): TeamGame[] {
   const today = dayKey(now);
@@ -145,6 +142,26 @@ export function weekGames(data: SportsData, now = new Date(), days = 7): TeamGam
   return coming(data)
     .filter((c) => c.game.date >= today && c.game.date <= until)
     .sort((a, b) => a.game.date.localeCompare(b.game.date) || (order.get(a.team.key) ?? 0) - (order.get(b.team.key) ?? 0));
+}
+
+/** The team the town turns out for: its game is never cut from a short list of the week. */
+export const FLAGSHIP_TEAM = 'football';
+
+/**
+ * The week's games as the home page's strip, This week and the Thursday
+ * email list them, cut to `limit`: the week's football game first, when
+ * there is one, then the rest soonest first. The strip sliced the
+ * chronological list to three, so three volleyball matches early in the
+ * week pushed Friday's football off it (Berthoud and Lyons, the week of 26
+ * October 2026). A second football game in the week (a Saturday playoff
+ * after a Friday) takes a slot only by date, as any other game does. With
+ * no limit the whole week comes back, football still first.
+ */
+export function stripGames(data: SportsData, now = new Date(), limit = Infinity, days = 7): TeamGame[] {
+  const week = weekGames(data, now, days);
+  const football = week.find((c) => c.team.key === FLAGSHIP_TEAM);
+  if (!football) return week.slice(0, limit);
+  return [football, ...week.filter((c) => c !== football)].slice(0, limit);
 }
 
 /**
