@@ -790,3 +790,12 @@ test('the sports pages’ CollectionPage carries dateModified from the run, and 
   assert.match(record.text!, /Spartans.*Severance/);
   assert.match(recordHtml(record), /data-pagefind-meta="kind:Sports"/);
 });
+
+test('a league place is shown only once a league game is played: MaxPreps ranks every 0-0 team first', async () => {
+  const { leaguePlace } = await import('../src/lib/school-sports.ts');
+  assert.equal(leaguePlace({ league: { record: '0-0', name: '6A Front Range', place: '1st' } }), undefined, 'Erie basketball, 25 October 2026');
+  assert.equal(leaguePlace({ league: { record: '0-0-0', name: 'x', place: '1st' } }), undefined);
+  assert.equal(leaguePlace({ league: { record: '3-1', name: '3A Cache la Poudre', place: '3rd' } }), '3rd');
+  assert.equal(leaguePlace({ league: { record: '0-2', name: 'x', place: '7th' } }), '7th', 'a winless team that has played has a place');
+  assert.equal(leaguePlace({}), undefined);
+});

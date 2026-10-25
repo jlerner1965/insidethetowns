@@ -10,7 +10,7 @@
 import SeasonTable from './SeasonTable.astro';
 import type { SportData } from '@/config/school-sports';
 import { formatDayShort, formatShortDate } from '@/lib/dates';
-import { dedupeResults, gameDay as day, outcome, RESULT_WORD, season } from '@/lib/school-sports';
+import { dedupeResults, gameDay as day, leaguePlace, outcome, RESULT_WORD, season } from '@/lib/school-sports';
 
 interface Props {
   team: SportData;
@@ -48,7 +48,7 @@ const lead = ahead.length > 0 ? ahead.slice(0, 5) : results.slice(0, 3);
         <span class="display-md whitespace-nowrap text-[2.75rem] text-primary md:text-5xl">{s.overall ?? '—'}</span>
         {s.league && (
           <span class="text-[0.9375rem] leading-snug text-ink-muted">
-            {s.league.record} in the {s.league.name}{s.league.place && <Fragment>, <strong class="font-semibold text-ink">{s.league.place}</strong></Fragment>}
+            {s.league.record} in the {s.league.name}{leaguePlace(s) && <Fragment>, <strong class="font-semibold text-ink">{leaguePlace(s)}</strong></Fragment>}
           </span>
         )}
       </p>

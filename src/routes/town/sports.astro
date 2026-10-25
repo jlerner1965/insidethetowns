@@ -39,7 +39,7 @@ import TeamSeason from '@/components/TeamSeason.astro';
 import { getTown } from '@/config';
 import { schoolSportsFor, schoolsFor, shareImagePath, sportsPath, teamPath, type SportData, type SportsData } from '@/config/school-sports';
 import { dayKey, formatDayShort, formatShortDate } from '@/lib/dates';
-import { bigGame, coming, gameDay as day, latestResult, recentResults, RESULT_WORD, placeText, schoolCssVars, schoolPageTitle, seasonComplete, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
+import { bigGame, coming, gameDay as day, latestResult, recentResults, RESULT_WORD, leaguePlace, placeText, schoolCssVars, schoolPageTitle, seasonComplete, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd, sportsEventJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -154,14 +154,14 @@ const jsonLd = [
                     <span class="eyebrow block">{s.name}</span>
                     {s.league && (
                       <span class="mt-0.5 block text-[0.875rem] leading-snug text-ink-muted sm:hidden">
-                        {s.league.place ? `${s.league.place} in the ` : ''}{s.league.name}
+                        {leaguePlace(s) ? `${leaguePlace(s)} in the ` : ''}{s.league.name}
                       </span>
                     )}
                   </span>
                   <span class="display-md shrink-0 whitespace-nowrap text-[2.25rem] text-primary group-hover:underline sm:mt-1 sm:block md:text-5xl">{s.overall ?? '—'}</span>
                   {s.league && (
                     <span class="mt-1 hidden whitespace-nowrap text-[0.875rem] text-ink-muted sm:block">
-                      {s.league.place ? `${s.league.place} in the ` : ''}{s.league.name}
+                      {leaguePlace(s) ? `${leaguePlace(s)} in the ` : ''}{s.league.name}
                     </span>
                   )}
                 </a>

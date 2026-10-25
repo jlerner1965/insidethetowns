@@ -73,6 +73,18 @@ export function hasData(team: SportData): boolean {
   return !!team.fetched && !team.empty;
 }
 
+/**
+ * The team's place in its league, where it means something: MaxPreps ranks
+ * every team that has not played a league game "1st" (Erie basketball,
+ * 0-0, "1st in the 6A Front Range", 25 October 2026), so with no league
+ * game played there is no place to show.
+ */
+export function leaguePlace(team: Pick<SportData, 'league'>): string | undefined {
+  const league = team.league;
+  if (!league?.place) return undefined;
+  return /^0-0(?:-0)?$/.test(league.record.trim()) ? undefined : league.place;
+}
+
 /** The teams with data, in the config's order. */
 export function teamsWithData(data: SportsData | undefined): SportData[] {
   return (data?.sports ?? []).filter(hasData);

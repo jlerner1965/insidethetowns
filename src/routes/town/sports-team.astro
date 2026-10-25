@@ -15,7 +15,7 @@ import TeamSeason from '@/components/TeamSeason.astro';
 import { getTown } from '@/config';
 import { schoolSportsFor, schoolsFor, shareImagePath, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
 import { dayKey, formatShortDate } from '@/lib/dates';
-import { coming, hasData, schoolCssVars, seasonComplete, seasonOf, sportsDataFor, teamDescription, teamPageTitle, teamsWithData } from '@/lib/school-sports';
+import { coming, hasData, leaguePlace, schoolCssVars, seasonComplete, seasonOf, sportsDataFor, teamDescription, teamPageTitle, teamsWithData } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd, sportsEventJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -89,7 +89,7 @@ const jsonLd = [
         <p class="eyebrow mb-3">{seasonLabel}</p>
         <h1 class="display-md text-[2.25rem] sm:text-5xl md:text-6xl">{title}</h1>
         <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted md:text-xl">
-          {team.overall ? <Fragment>The {mascot} are <strong class="font-semibold text-ink">{team.overall}</strong>{team.league ? `, ${team.league.record} in the ${team.league.name}${team.league.place ? ` (${team.league.place})` : ''}` : ''}. </Fragment> : null}
+          {team.overall ? <Fragment>The {mascot} are <strong class="font-semibold text-ink">{team.overall}</strong>{team.league ? `, ${team.league.record} in the ${team.league.name}${leaguePlace(team) ? ` (${leaguePlace(team)})` : ''}` : ''}. </Fragment> : null}
           Every score and the full schedule this {seasonWord}.
         </p>
       </div>
