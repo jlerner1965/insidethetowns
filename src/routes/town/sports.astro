@@ -53,9 +53,13 @@ const data: SportsData = sportsDataFor(cfg, files) ?? { generated: '', sports: [
 const sports: SportData[] = data.sports;
 const MAXPREPS_SCHOOL = cfg.maxpreps;
 const { school, mascot, calendar } = cfg;
-// "football, boys soccer, volleyball, softball and cross country": the teams followed, the two cross country teams as one.
-const followed = [...new Set(cfg.teams.map((t) => t.name.toLowerCase().replace(/^(boys|girls) (cross country)$/, '$2')))];
-const description = `${school} ${mascot} scores, schedules and records this fall: ${followed.slice(0, -1).join(', ')} and ${followed.at(-1)}, from MaxPreps${calendar ? ', checked against the school calendar' : ''}.`;
+// "football, boys soccer, volleyball and softball": the teams the page has
+// something for, a boys' and a girls' team of one sport as one. From the
+// data, not the config's list: the description promised cross country,
+// which every page left off because MaxPreps had nothing for it.
+const followed = [...new Set(sports.filter((t) => t.fetched && !t.empty).map((t) => t.name.toLowerCase().replace(/^(boys|girls) (cross country)$/, '$2')))];
+const teamList = followed.length > 1 ? `${followed.slice(0, -1).join(', ')} and ${followed.at(-1)}` : followed[0] ?? 'every team';
+const description = `${school} ${mascot} scores, schedules and records this fall: ${teamList}, from MaxPreps${calendar ? ', checked against the school calendar' : ''}.`;
 // One guide, one colour: a guide that follows one school wears it; a guide
 // that follows several (Loveland) keeps its own on every school's page.
 const schoolStyle = schools.length === 1 ? schoolCssVars(cfg) : undefined;
