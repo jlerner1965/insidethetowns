@@ -134,6 +134,9 @@ for (const site of allSites) {
   // The Away pill's outline and words, and the Home pill's fill, on the paper and on white.
   want(`${who}: the band on white`, ratio(band, WHITE), 4.5);
   want(`${who}: the band on its ${site.colors.paper} paper`, ratio(band, page), 4.5);
+  // The masthead's wordmark: its light "Inside" is white at 70% at 28px
+  // and up, display size, so 3:1, as in the footer.
+  want(`${who}: the wordmark's white/70 on the band`, ratio(mix(WHITE, 0.7, band), band), 3);
   // The losing side, white at 72%: the team's name at 2rem and the score
   // far larger, both display size, so 3:1.
   want(`${who}: the losing score, white at 72% on the band`, ratio(mix(WHITE, 0.72, band), band), 3);
