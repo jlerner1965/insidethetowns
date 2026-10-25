@@ -6126,3 +6126,49 @@ the school's colour throughout.
 - **"20 guides", not "20 towns"**, wherever the hub counts the live list;
   the hub's headline now has one line and the picker under it, with where
   the towns are and the task buttons below the names.
+
+## Signing up in one press, 25 October
+
+*25 October 2026.* The owner: the signup is "complicated, too many steps,
+lose people". It was: tick a town, type the address, press, a new tab on
+Buttondown's page, "Verify and Subscribe" there, then the confirmation
+email. The 8 October audit asked for an inline signup and it was left,
+because Buttondown's embed form cannot be finished from the page and the
+only other way is a function holding the API key.
+
+- **A function at `/api/subscribe`** (`api/subscribe.ts`, the rules in
+  `src/lib/subscribe.ts`), deployed with every site. It takes the form's
+  address and towns, checks them (an address, at least one town, only towns
+  the email covers), and hands them to Buttondown's API. No subscriber type
+  is sent, so double opt-in stays: Buttondown sends its confirmation email
+  and nobody is on the list until they click it. The page says "One last
+  step: check your email", with the address it went to. Only the site's own
+  pages may post; the reader's IP goes to Buttondown for its firewall; the
+  address is in no log.
+- **It switches on with the key.** A build that sees `BUTTONDOWN_API_KEY`
+  marks its forms to post to the function; one that does not keeps the new
+  tab, so nothing changes until the owner adds the key in Vercel, once, as a
+  shared variable (DEPLOY.md, "Signing up without leaving the page").
+- **Nothing is lost when it fails.** No key, Buttondown down, or its limit
+  of 100 subscriber requests a day reached: the page offers "Continue on
+  Buttondown", the old new-tab form, from the reader's own press. An address
+  already on the list is told so and offered the same, since adding towns to
+  an existing address, or resubscribing someone who left, is Buttondown's
+  form's to do with its own checks, not a public page's.
+- **On a guide the address comes first.** The town is ticked already, so
+  it follows the address; the usual signup is an address and a press. The
+  hub keeps the towns first, since there is no town to assume.
+- **Caught on the way.** The form first carried `data-day`, which the
+  freshness script (`src/lib/expiry.ts`) reads as a day of listings and
+  removed as empty: the signup vanished from /this-week/ in the browser
+  before it shipped. It is `data-send-day`, and a test keeps the form clear
+  of the attributes the pruning reads. And on a Lyons preview the function
+  crashed on load: Vercel compiles it to JavaScript but kept its
+  `../src/config/index.ts` import, so `tsconfig.json` now has
+  `rewriteRelativeImportExtensions`, which Vercel's compile honours; the
+  preview then answered as the tests do (a refusal for another site, a
+  bad town or a bad address; "unavailable" with no key). The page calls
+  `/api/subscribe/` with the slash, which the sites redirect to.
+- **Not changed.** Double opt-in: the confirmation email is what makes the
+  list a list of real, willing readers, which is what a sponsor pays for.
+  Turning it off is a Buttondown setting and the owner's call.

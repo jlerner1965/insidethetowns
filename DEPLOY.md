@@ -425,3 +425,35 @@ Nothing about the weekly email renders until `newsletter` is set on
 Do them the other way round and `npm run validate` fails with the origin to
 add, which is the point. Past issues go in `content/hub/issues/` as markdown
 and appear at `/newsletter/<slug>/` and in the archive.
+
+## Signing up without leaving the page
+
+Every signup box can take an address in one press, on the page, instead of
+sending the reader to Buttondown's "Verify and Subscribe" page in a new tab.
+It needs Buttondown's API key in Vercel, once, for every site:
+
+1. **Vercel → Team Settings → Environment Variables → Add** (a *shared*
+   variable, so one entry covers every project). Key
+   `BUTTONDOWN_API_KEY`, value the same key GitHub holds for the Thursday
+   send (Buttondown → Settings → API). Environments: Production and Preview.
+   Link it to all projects.
+2. **Rebuild.** Nothing to change in the code: each site's build sees the key
+   is set and switches its forms over (`src/lib/signup.ts`, `inlineSignup`).
+   The nightly rebuild does it by morning; the Redeploy button on a project
+   does it now.
+
+Each site then has a function at `/api/subscribe` (`api/subscribe.ts`). It
+checks the address and the towns, and hands them to Buttondown's API with
+no subscriber type, so Buttondown still sends its confirmation email and
+nobody is on the list until they click it. The page says exactly that. If
+the call fails (no key, Buttondown down, or its limit reached), the reader
+is offered Buttondown's own form in a new tab, the way every form worked
+before.
+
+Buttondown's API takes **100 subscriber-creating requests a day** by
+default, raised as the account builds reputation, or on request to its
+support. A day past the limit falls back to Buttondown's own form, so no
+signup is lost; the function's logs (Vercel → project → Logs, filter
+`subscribe`) show `unavailable: HTTP 429` when it happens.
+
+To switch it off, delete the variable and rebuild.

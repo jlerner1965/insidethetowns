@@ -12,7 +12,7 @@
 #   content/<slug>/                      the site's own content
 #   data/<slug>/                         the site's own data files (sports.json)
 #   src/config/towns/*.ts                any town's config: every site builds
-#   the rest of src/, public/,           shared: every site builds
+#   the rest of src/, public/, api/,     shared: every site builds
 #     package.json, package-lock.json,
 #     astro.config.mjs, tsconfig.json,
 #     vercel.json, scripts/run.ts,
@@ -70,7 +70,7 @@ while IFS= read -r path; do
       build "$path" ;;
     src/config/towns/*.ts)
       build "$path (every site reads every town's config)" ;;
-    src/* | public/* | package.json | package-lock.json | astro.config.mjs | tsconfig.json | vercel.json | scripts/run.ts | scripts/lib/search-index.ts)
+    src/* | public/* | api/* | package.json | package-lock.json | astro.config.mjs | tsconfig.json | vercel.json | scripts/run.ts | scripts/lib/search-index.ts)
       build "$path (shared)" ;;
   esac
 done <<<"$changed"

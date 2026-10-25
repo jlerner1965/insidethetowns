@@ -6,7 +6,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { SIGNUP_MESSAGES, signupOutcome } from '../src/lib/signup.ts';
+import { inlineSignup, panelFor, readAnswer, SIGNUP_MESSAGES, signupOutcome } from '../src/lib/signup.ts';
 
 test('a form with a town ticked is left to the browser to send', () => {
   assert.equal(signupOutcome({ towns: ['erie'], sending: false }), 'send');
@@ -81,4 +81,51 @@ test('the signup promises what the partnership page sells: labeled sponsors, nev
   }
   // The partnership page does sell the email line, so the promise has to allow it.
   assert.match(readFileSync('src/routes/hub/advertise.astro', 'utf8'), /sponsor line in the \{sendDay\} email/);
+});
+
+test('a build signs up from the page only when its project has a Buttondown key, and never sees the key itself', () => {
+  assert.equal(inlineSignup({ BUTTONDOWN_API_KEY: 'k-123' }), true);
+  assert.equal(inlineSignup({ BUTTONDOWN_API_KEY: '  ' }), false);
+  assert.equal(inlineSignup({}), false);
+  const component = readFileSync('src/components/NewsletterSignup.astro', 'utf8');
+  const script = component.slice(component.indexOf('<script>'));
+  assert.doesNotMatch(script, /import\.meta\.env/, 'the browser script reads no environment');
+  assert.match(component, /data-inline=\{inline \? '' : undefined\}/);
+});
+
+test('every answer from the page’s own call has a panel; anything unexpected offers Buttondown’s own form', () => {
+  assert.equal(readAnswer({ status: 'confirm' }), 'confirm');
+  assert.equal(readAnswer({ status: 'already' }), 'already');
+  assert.equal(readAnswer({ status: 'invalid' }), 'invalid');
+  for (const odd of [null, {}, { status: 'refused' }, { status: 'unavailable' }, 'text']) assert.equal(readAnswer(odd), 'unavailable');
+  assert.equal(panelFor('confirm'), 'confirm');
+  assert.equal(panelFor('already'), 'already');
+  assert.equal(panelFor('unavailable'), 'fallback');
+  // The page says what is left to do, with the address it went to.
+  assert.match(SIGNUP_MESSAGES.confirm, /check your email/);
+  assert.match(SIGNUP_MESSAGES.confirmHelp, /\{email\}/);
+  assert.equal(SIGNUP_MESSAGES.continue, 'Continue on Buttondown');
+});
+
+test('on a guide the address comes before the towns; on the hub the towns come first', () => {
+  const component = readFileSync('src/components/NewsletterSignup.astro', 'utf8');
+  const email = component.indexOf('type="email"');
+  const townFieldset = component.indexOf('{town && (\n        <fieldset');
+  const hubFieldset = component.indexOf('{!town && (\n        <fieldset');
+  assert.ok(hubFieldset > 0 && hubFieldset < email, 'hub: towns, then the address');
+  assert.ok(townFieldset > email, 'guide: the address, then its ticked town');
+});
+
+test('the form carries no attribute the freshness script prunes by', () => {
+  // src/lib/expiry.ts removes every [data-day] group it finds empty; a form
+  // marked data-day="Thursday" vanished from /this-week/ on load (caught in
+  // the browser before it shipped, 25 October 2026).
+  const component = readFileSync('src/components/NewsletterSignup.astro', 'utf8');
+  const form = component.match(/<form[^>]*data-signup[^>]*>/)![0];
+  for (const attr of ['data-day=', 'data-day-link', 'data-end=', 'data-event-day', 'data-hide-when-empty']) assert.ok(!form.includes(attr), attr);
+});
+
+test('the page calls the function at its own path, with the slash the sites redirect to', () => {
+  const component = readFileSync('src/components/NewsletterSignup.astro', 'utf8');
+  assert.match(component, /fetch\('\/api\/subscribe\/'/);
 });

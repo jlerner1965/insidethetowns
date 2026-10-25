@@ -18,10 +18,18 @@
  * signed up, and the rest sit behind "Show all towns"; elsewhere a shared
  * edition's box posts its lead town's tag, and on the hub nothing is ticked. No
  * form sends without at least one town, the hub's rule everywhere: an
- * untagged subscriber gets no issue at all. It posts to the provider's hosted
- * flow in a new tab (no key in the page, no address in a URL), and this page
- * then says what is left to do there and never that the reader is subscribed,
- * which it cannot see (src/lib/signup.ts).
+ * untagged subscriber gets no issue at all.
+ *
+ * On a guide the address comes first and the town is already ticked, so
+ * the usual signup is an address and a press. Where the site's build has a
+ * Buttondown key, the press posts to the site's own /api/subscribe and the
+ * page stays put: Buttondown sends its confirmation email and the page says
+ * to click it (src/lib/subscribe.ts). Without a key, or when that call does
+ * not go through, the form posts to the provider's hosted flow in a new tab
+ * (no key in the page, no address in a URL), its "Verify and Subscribe"
+ * page and then the email, as every form did before (owner, 25 October
+ * 2026: too many steps lost readers). Either way the page never says the
+ * reader is subscribed, which it cannot see (src/lib/signup.ts).
  *
  * Dark until `newsletter` is set on the hub config, so nothing here is a
  * half-built promise while the provider account is being sorted. Dark too
@@ -30,7 +38,7 @@
  * and that guide is not being covered weekly.
  */
 import { editionFor, emailEditions, getNetworkHub, type TownConfig } from '@/config';
-import { SIGNUP_MESSAGES } from '@/lib/signup';
+import { inlineSignup, SIGNUP_MESSAGES } from '@/lib/signup';
 import { EMAIL_PROMISE, PRIVACY_LINE } from '@/lib/privacy';
 
 interface Props {
@@ -67,6 +75,12 @@ const where = mine ? mine.name : 'the towns';
 const variant = id ?? (compact ? 'compact' : 'main');
 const inputId = `newsletter-email-${variant}-${town?.slug ?? 'network'}`;
 const errorId = `newsletter-towns-${variant}-${town?.slug ?? 'network'}`;
+const emailErrorId = `newsletter-email-error-${variant}-${town?.slug ?? 'network'}`;
+// Sign up from the page where the build has a Buttondown key; only whether
+// it is set is read here (src/lib/signup.ts). From the build's own
+// environment: Astro's import.meta.env carries only the variables it knows
+// of, and a reference to this one would write its value into the build.
+const inline = inlineSignup(process.env);
 const field =
   'mt-1.5 block h-12 w-full rounded-md border border-line bg-raised px-3 text-[1.0625rem] font-normal text-ink';
 const muted = dark ? 'text-white/80' : 'text-ink-muted';
@@ -90,7 +104,7 @@ const box = 'size-5 shrink-0 rounded border-line';
       allowlist names, which validate-content.ts checks against the config
       on every build.
     */}
-    <form action={config.action} method="POST" target="_blank" class="max-w-xl" data-signup data-hub={town ? undefined : ''}>
+    <form action={config.action} method="POST" target="_blank" class="max-w-xl" data-signup data-hub={town ? undefined : ''} data-inline={inline ? '' : undefined} data-send-day={day}>
       <h2 class="display-md text-[1.75rem] leading-tight">{dark ? `${day} email: the week, the scores, what closed.` : `What’s on in ${where}, every ${day}`}</h2>
       <p class:list={['mt-2 text-[0.9375rem] leading-relaxed', muted]}>
         {/* The same promise /advertise/, /for-businesses/ and the privacy
@@ -101,9 +115,62 @@ const box = 'size-5 shrink-0 rounded border-line';
         {dark ? EMAIL_PROMISE : 'One email a week: the weekend’s events, places new to the guide or closed, and a new article when there is one.'}
       </p>
 
-      <fieldset class="mt-5" aria-describedby={errorId}>
-        <legend class:list={['eyebrow', dark && 'text-white']}>Which towns?</legend>
-        {town ? (
+      {/* On the hub the towns come first: there is no town to assume. */}
+      {!town && (
+        <fieldset class="mt-5" aria-describedby={errorId}>
+          <legend class:list={['eyebrow', dark && 'text-white']}>Which towns?</legend>
+          <Fragment>
+            <p class="mt-1 text-[0.875rem] text-ink-muted">Pick as many as you like, or take the lot.</p>
+            {/* "All towns" first and set apart, since it is not a town; the
+                towns in columns, A to Z, each a full-height row to tap. */}
+            {config.allTag && (
+              <label class:list={[row, 'mt-3 border-b border-primary-line pb-2 font-semibold']}>
+                <input type="checkbox" name={tagField} value={config.allTag} class={box} />
+                All towns
+              </label>
+            )}
+            <div class="mt-2 grid grid-cols-2 gap-x-5 sm:grid-cols-3">
+              {others.map((e) => (
+                <label class={row}>
+                  <input type="checkbox" name={tagField} value={e.towns[0]!.slug} class={box} data-towns={covers(e)} />
+                  {e.name}
+                </label>
+              ))}
+            </div>
+            <p id={errorId} data-towns-error hidden aria-live="polite" class="mt-2 text-[0.9375rem] font-semibold text-ink">
+              {SIGNUP_MESSAGES['need-town-hub']}
+            </p>
+          </Fragment>
+        </fieldset>
+      )}
+
+      <div class="mt-5 sm:flex sm:items-end sm:gap-3">
+        <div class="sm:flex-1">
+          <label for={inputId} class:list={['block text-sm font-semibold', dark && 'eyebrow text-white']}>{dark ? 'Email' : 'Your email'}</label>
+          <input
+            id={inputId}
+            type="email"
+            name={emailField}
+            required
+            autocomplete="email"
+            placeholder="you@example.com"
+            aria-describedby={emailErrorId}
+            class={field}
+          />
+        </div>
+        {/* The same height as the field beside it: the pill was 40px against a
+            52px field, aligned at the bottom only. */}
+        <button type="submit" data-signup-button class:list={['btn mt-3 h-12 w-full justify-center px-6 sm:mt-0 sm:w-auto', dark ? 'bg-highlight text-ink hover:bg-highlight-ink' : 'btn-primary']}>Send me {dark ? `${day}’s` : `the ${day}`} email</button>
+      </div>
+      <p id={emailErrorId} data-email-error hidden aria-live="polite" class="mt-2 text-[0.9375rem] font-semibold">
+        {SIGNUP_MESSAGES.invalid}
+      </p>
+
+      {/* On a guide its own town is ticked, so it follows the address: the
+          usual answer needs nothing done, and the rest are one press away. */}
+      {town && (
+        <fieldset class="mt-4" aria-describedby={errorId}>
+          <legend class:list={['eyebrow', dark && 'text-white']}>Which towns?</legend>
           <Fragment>
             <label class:list={[row, 'mt-2 font-semibold']}>
               <input type="checkbox" name={tagField} value={town.slug} checked class={box} data-towns={covers(mine!)} />
@@ -135,49 +202,8 @@ const box = 'size-5 shrink-0 rounded border-line';
               {SIGNUP_MESSAGES['need-town']}
             </p>
           </Fragment>
-        ) : (
-          <Fragment>
-            <p class="mt-1 text-[0.875rem] text-ink-muted">Pick as many as you like, or take the lot.</p>
-            {/* "All towns" first and set apart, since it is not a town; the
-                towns in columns, A to Z, each a full-height row to tap. */}
-            {config.allTag && (
-              <label class:list={[row, 'mt-3 border-b border-primary-line pb-2 font-semibold']}>
-                <input type="checkbox" name={tagField} value={config.allTag} class={box} />
-                All towns
-              </label>
-            )}
-            <div class="mt-2 grid grid-cols-2 gap-x-5 sm:grid-cols-3">
-              {others.map((e) => (
-                <label class={row}>
-                  <input type="checkbox" name={tagField} value={e.towns[0]!.slug} class={box} data-towns={covers(e)} />
-                  {e.name}
-                </label>
-              ))}
-            </div>
-            <p id={errorId} data-towns-error hidden aria-live="polite" class="mt-2 text-[0.9375rem] font-semibold text-ink">
-              {SIGNUP_MESSAGES['need-town-hub']}
-            </p>
-          </Fragment>
-        )}
-      </fieldset>
-
-      <div class="mt-5 sm:flex sm:items-end sm:gap-3">
-        <div class="sm:flex-1">
-          <label for={inputId} class:list={['block text-sm font-semibold', dark && 'eyebrow text-white']}>{dark ? 'Email' : 'Your email'}</label>
-          <input
-            id={inputId}
-            type="email"
-            name={emailField}
-            required
-            autocomplete="email"
-            placeholder="you@example.com"
-            class={field}
-          />
-        </div>
-        {/* The same height as the field beside it: the pill was 40px against a
-            52px field, aligned at the bottom only. */}
-        <button type="submit" class:list={['btn mt-3 h-12 w-full justify-center px-6 sm:mt-0 sm:w-auto', dark ? 'bg-highlight text-ink hover:bg-highlight-ink' : 'btn-primary']}>Send me {dark ? `${day}’s` : `the ${day}`} email</button>
-      </div>
+        </fieldset>
+      )}
 
       <p class:list={['mt-3 text-[0.8125rem] leading-relaxed', muted]}>
         Free. One email a week. Unsubscribe any time. {PRIVACY_LINE} See the
@@ -187,16 +213,17 @@ const box = 'size-5 shrink-0 rounded border-line';
           inside the card rather than loose underneath it. */}
       <slot />
     </form>
-    {/* Shown in place of the form once it has gone to the provider. The
-        provider's page, in a new tab, is where the signup actually finishes
-        (a "Verify and Subscribe" step, then an email to confirm), so this
-        says that rather than claiming a success this page cannot see, and
-        keeps the way back: the tab again, or the form. */}
+    {/* Shown in place of the form once it has been sent. Its words are the
+        answer's (src/lib/signup.ts, SIGNUP_MESSAGES): check your email when
+        the page signed the reader up; already signed up; or finish on
+        Buttondown's own page, in a new tab, when that is where it went or
+        the page's own call did not go through. Never a success this page
+        cannot see, and always the way back to the form. */}
     <div data-signup-done hidden tabindex="-1" class="max-w-xl text-[1.0625rem] leading-relaxed">
-      <p class="font-semibold">{SIGNUP_MESSAGES.opened}</p>
-      <p class:list={['mt-2 text-[0.9375rem]', muted]}>{SIGNUP_MESSAGES.openedHelp}</p>
+      <p class="font-semibold" data-signup-title>{SIGNUP_MESSAGES.opened}</p>
+      <p class:list={['mt-2 text-[0.9375rem]', muted]} data-signup-help>{SIGNUP_MESSAGES.openedHelp}</p>
       <p class="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-[0.9375rem]">
-        <button type="button" class:list={['inline-flex min-h-11 items-center font-semibold', link]} data-signup-reopen>Open the signup tab again</button>
+        <button type="button" class:list={['inline-flex min-h-11 items-center font-semibold', link]} data-signup-reopen>{SIGNUP_MESSAGES.reopen}</button>
         <button type="button" class:list={['inline-flex min-h-11 items-center font-semibold', link]} data-signup-edit>Change your details</button>
       </p>
     </div>
@@ -204,25 +231,60 @@ const box = 'size-5 shrink-0 rounded border-line';
 )}
 
 <script>
-  import { signupOutcome } from '@/lib/signup';
+  import { panelFor, readAnswer, SIGNUP_MESSAGES, signupOutcome, type SignupPanel } from '@/lib/signup';
 
-  // The provider's hosted page opens in a new tab and finishes the signup;
-  // this page says what is left to do there. No form sends without a town.
+  const PANEL: Record<SignupPanel, { title: string; help: string; button?: string }> = {
+    confirm: { title: SIGNUP_MESSAGES.confirm, help: SIGNUP_MESSAGES.confirmHelp },
+    already: { title: SIGNUP_MESSAGES.already, help: SIGNUP_MESSAGES.alreadyHelp, button: SIGNUP_MESSAGES.continue },
+    fallback: { title: SIGNUP_MESSAGES.fallback, help: SIGNUP_MESSAGES.fallbackHelp, button: SIGNUP_MESSAGES.continue },
+    opened: { title: SIGNUP_MESSAGES.opened, help: SIGNUP_MESSAGES.openedHelp, button: SIGNUP_MESSAGES.reopen },
+  };
+
+  // No form sends without a town. Where the build has a Buttondown key
+  // (data-inline) the press goes to the site's own /api/subscribe and the
+  // page says what is left; otherwise, and whenever that call does not go
+  // through, the browser posts the form to Buttondown's page in a new tab.
   for (const form of document.querySelectorAll<HTMLFormElement>('form[data-signup]')) {
     const boxes = () => [...form.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')];
+    const email = form.querySelector<HTMLInputElement>('input[type="email"]');
+    const button = form.querySelector<HTMLButtonElement>('[data-signup-button]');
     const error = form.querySelector<HTMLElement>('[data-towns-error]');
+    const emailError = form.querySelector<HTMLElement>('[data-email-error]');
     const done = form.parentElement?.querySelector<HTMLElement>('[data-signup-done]');
+    const inline = form.dataset.inline !== undefined;
     let sending = false;
+    // The next send goes to Buttondown's own page: the panel's button, or no key.
+    let direct = false;
     const showForm = () => {
       if (done) done.hidden = true;
       form.hidden = false;
+    };
+    const showPanel = (panel: SignupPanel) => {
+      if (!done) return;
+      const words = PANEL[panel];
+      const fill = (text: string) => text.replace('{email}', email?.value.trim() || 'your address').replace('{day}', form.dataset.sendDay ?? 'Thursday');
+      const title = done.querySelector<HTMLElement>('[data-signup-title]');
+      const help = done.querySelector<HTMLElement>('[data-signup-help]');
+      const reopen = done.querySelector<HTMLButtonElement>('[data-signup-reopen]');
+      if (title) title.textContent = fill(words.title);
+      if (help) help.textContent = fill(words.help);
+      if (reopen) {
+        reopen.hidden = !words.button;
+        reopen.textContent = words.button ?? '';
+      }
+      form.hidden = true;
+      done.hidden = false;
+      done.focus();
     };
     for (const box of boxes()) {
       box.addEventListener('change', () => {
         if (error && boxes().some((b) => b.checked)) error.hidden = true;
       });
     }
-    form.addEventListener('submit', (event) => {
+    email?.addEventListener('input', () => {
+      if (emailError) emailError.hidden = true;
+    });
+    form.addEventListener('submit', async (event) => {
       const outcome = signupOutcome({ towns: boxes().filter((b) => b.checked).map((b) => b.value), sending });
       if (outcome === 'busy') {
         event.preventDefault();
@@ -235,19 +297,49 @@ const box = 'size-5 shrink-0 rounded border-line';
         boxes()[0]?.focus();
         return;
       }
-      // Sent: the browser posts the form into a new tab once this returns.
-      // The page changes after that, so nothing here can get in the post's
-      // way, and `sending` turns away the second press of a double click.
       sending = true;
-      setTimeout(() => {
-        form.hidden = true;
-        if (done) {
-          done.hidden = false;
-          done.focus();
+      if (inline && !direct) {
+        // From the page: the form's own fields, and the page it was on for
+        // Buttondown's referrer. No answer at all is `unavailable`.
+        event.preventDefault();
+        const label = button?.textContent ?? '';
+        if (button) {
+          button.disabled = true;
+          button.textContent = 'Sending…';
         }
-      });
+        const body = new URLSearchParams();
+        for (const [name, value] of new FormData(form)) if (typeof value === 'string') body.append(name, value);
+        body.set('page', location.href.split('#')[0]!);
+        let answer = readAnswer(null);
+        try {
+          // With the slash: the sites redirect a path without one (vercel.json trailingSlash).
+          const res = await fetch('/api/subscribe/', { method: 'POST', body, headers: { Accept: 'application/json' } });
+          answer = readAnswer(await res.json());
+        } catch {
+          // No answer: Buttondown's own form is offered below.
+        }
+        sending = false;
+        if (button) {
+          button.disabled = false;
+          button.textContent = label;
+        }
+        if (answer === 'invalid') {
+          if (emailError) emailError.hidden = false;
+          email?.focus();
+          return;
+        }
+        showPanel(panelFor(answer));
+        return;
+      }
+      // To Buttondown's page: the browser posts the form into a new tab once
+      // this returns. The page changes after that, so nothing here can get in
+      // the post's way, and `sending` turns away the second press of a
+      // double click.
+      direct = false;
+      setTimeout(() => showPanel('opened'));
     });
-    // Sent: open the provider's tab again, or go back to the form.
+    // The panel's button: the same form, to Buttondown's own page, from the
+    // press itself, so the browser opens the tab as it would for a link.
     done?.querySelector('[data-signup-reopen]')?.addEventListener('click', () => {
       sending = false;
       if (!form.checkValidity()) {
@@ -255,13 +347,13 @@ const box = 'size-5 shrink-0 rounded border-line';
         form.reportValidity();
         return;
       }
-      // From the press itself, so the browser opens the tab as it did the first time.
+      direct = true;
       form.requestSubmit();
     });
     done?.querySelector('[data-signup-edit]')?.addEventListener('click', () => {
       sending = false;
       showForm();
-      form.querySelector<HTMLInputElement>('input[type="email"]')?.focus();
+      email?.focus();
     });
   }
 </script>
