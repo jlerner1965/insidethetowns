@@ -11,8 +11,8 @@ category: family
 recurring: "Mondays at 1"
 source: "https://johnstownmillikenpubliclibraries.us/event/music-movement-storytime-9/2026-10-19/2/"
 sourceId: "johnstownmillikenpubliclibraries-us"
-verified: "2026-10-19"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Music &#038; Movement Storytime\" at 1 pm on 19 October in the page's structured data"
+verified: "2026-10-25"
+verifiedBy: "recheck-events (the nightly re-check workflow): 26 October and 1 pm on the page"
 ---
 
 Stories, songs and movement for little ones, Monday afternoons at 1 at the Johnstown library, through November 30. The library also runs the session at 10 am, listed on its own.

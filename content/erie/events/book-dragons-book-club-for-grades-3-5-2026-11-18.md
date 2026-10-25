@@ -9,7 +9,8 @@ cost: "Free; registration required"
 category: family
 recurring: "Monthly, usually second Wednesdays; November’s is the third"
 source: "https://highplains.libcal.com/event/17380772"
-verified: "2026-10-03"
+verified: "2026-10-25"
+verifiedBy: "recheck-events (the nightly re-check workflow): 18 November and 4:15 pm on the page"
 ---
 
 Book club for children in grades 3 to 5, with discussion and activities. Copies of the month’s book can be collected at the library. Registration required.

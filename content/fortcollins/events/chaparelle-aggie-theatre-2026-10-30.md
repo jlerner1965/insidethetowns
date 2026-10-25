@@ -9,7 +9,7 @@ performers:
 url: "https://www.tixr.com/groups/aggietheatre/events/chaparelle-with-shovelin-stone-199467"
 category: music
 source: "https://www.z2ent.com/venues-we-book/aggie-theatre"
-verified: "2026-10-24"
+verified: "2026-10-25"
 verifiedBy: "recheck-events (the nightly re-check workflow): 30 October and 8 pm on the page"
 ---
 

@@ -8,7 +8,8 @@ url: "https://johnstownmillikenpubliclibraries.us/event/creative-journaling/"
 cost: "Free"
 category: arts
 source: "https://johnstownmillikenpubliclibraries.us/event/creative-journaling/"
-verified: "2026-10-03"
+verified: "2026-10-25"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Creative Journaling\" at 10 am on 7 November in the page's structured data"
 ---
 
 Try a range of techniques and materials to make a journal your own. For adults.

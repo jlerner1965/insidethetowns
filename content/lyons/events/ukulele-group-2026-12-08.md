@@ -8,7 +8,8 @@ url: "https://lyons.librarycalendar.com/event/lyons-library-ukulele-group-11711"
 category: music
 recurring: "Monthly on a Tuesday"
 source: "https://lyons.librarycalendar.com/event/lyons-library-ukulele-group-11711"
-verified: "2026-10-03"
+verified: "2026-10-25"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Lyons Library Ukulele Group\" at 6:30 pm on 8 December on the lyons.librarycalendar.com feed"
 ---
 
 Group singing and strumming with Kay Miller of the Rocky Mountain Ukulele Orchestra, with a short chord review before the songs. Newer players welcome; bring a ukulele or borrow one of the library's few. Ages 16 and up. Registration is appreciated.

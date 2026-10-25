@@ -12,7 +12,7 @@ organizer: "Georgetown Loop Railroad"
 organizerUrl: "https://www.georgetownlooprr.com/"
 source: "https://www.georgetownlooprr.com/events/"
 sourceId: "georgetownlooprr-com"
-verified: "2026-10-24"
+verified: "2026-10-25"
 verifiedBy: "recheck-events (the nightly re-check workflow): 30 October on the page"
 timeNote: "Departure times and prices on the railroad's booking calendar"
 ---

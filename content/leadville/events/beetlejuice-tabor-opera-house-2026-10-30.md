@@ -8,7 +8,7 @@ cost: "$5 plus a $1 fee; ages 18 and under free"
 category: arts
 organizer: "Tabor Opera House"
 source: "https://taboroperahouse.org/events/calendar"
-verified: "2026-10-24"
+verified: "2026-10-25"
 verifiedBy: "recheck-events (the nightly re-check workflow): 30 October and 7 pm on the page"
 ---
 

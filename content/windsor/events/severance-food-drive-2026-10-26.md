@@ -15,7 +15,7 @@ source: "https://www.townofseverance.org/calendar.aspx?EID=1325"
 sourceId: "townofseverance-org-events"
 sourceUid: "1325"
 sourceHash: "5d62e5893dba"
-verified: "2026-10-24"
+verified: "2026-10-25"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Severance Food Drive\" on 26 October on the Town of Severance: Community Events calendar feed"
 ---
 

@@ -11,7 +11,7 @@ organizer: "Fort Lupton Public & School Library"
 source: "https://highplains.libcal.com/event/17650873"
 sourceId: "highplains-libcal-com-fort-lupton"
 sourceUid: "libcal:17650873"
-verified: "2026-10-24"
+verified: "2026-10-25"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen Laser Tag at the Fort Lupton High School Library\" at 6 pm on 30 October on the Fort Lupton Public & School Library (High Plains Library District), LibCal feed"
 ---
 

@@ -10,8 +10,8 @@ category: family
 organizer: "Clear Creek Metropolitan Recreation District"
 source: "https://clearcreekrecreation.com/events/"
 sourceId: "clearcreekrecreation-com"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-25"
+verifiedBy: "recheck-events (the nightly re-check workflow): 7 November and 12 pm on the page"
 ---
 
 "Pumpkins don't belong in the trash: smash them for fun and compost instead." The recreation district, with Scraps-to-Soil, turns Halloween pumpkins into compost at the Sports and Events Complex on East Idaho Springs Road. Volunteers can sign up at https://volunteersignup.org/EKF8W. Read on the district's events page on 10 October 2026.
