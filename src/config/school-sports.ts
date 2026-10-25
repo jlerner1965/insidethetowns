@@ -346,6 +346,31 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     teams: TEAMS(),
   },
   {
+    town: 'erie',
+    // CHSAANow: Erie High School, St Vrain Valley RE1J; football 5A, 5A Front Range (2026–28, read 25 October 2026).
+    school: 'Erie High School',
+    mascot: 'Tigers',
+    maxpreps: 'https://www.maxpreps.com/co/erie/erie-tigers/',
+    maxprepsName: 'Erie',
+    // Tiger orange, from Erie High's own stylesheet (ehs.svvsd.org, theme
+    // `--color-primary: #f26b21`, read from the runner 25 October 2026): the
+    // brand shade is 2.85:1 on the paper and cannot carry text, so this is
+    // the site's own darkest step of it (`--color-primary-700: #983c0e`),
+    // 6.6:1 on the paper. MaxPreps's D5350B is 4.5:1 and was not used. The
+    // guide's own primary is a brick red and stays.
+    colors: { primary: '#983C0E' },
+    // St. Vrain Valley keeps Erie's schedules on ArbiterLive
+    // (arbiterlive.com/Teams?entityId=7041, linked from the school's
+    // athletics page), whose robots.txt disallows every automated reader,
+    // as Niwot's and Frederick's.
+    calendarNote: 'Erie’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
+    // Every fall and winter path exists on MaxPreps (the runner, 25 October
+    // 2026): football 0-9, boys soccer 12-1-2, volleyball 10-11, softball
+    // 22-6, both cross country pages with no schedule; basketball's two
+    // with schedules, wrestling and girls' swimming without yet.
+    teams: TEAMS(),
+  },
+  {
     town: 'lyons',
     school: 'Lyons Middle/Senior High School',
     mascot: 'Lions',

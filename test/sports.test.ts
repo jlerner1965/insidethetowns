@@ -429,7 +429,8 @@ test('a town with one school keeps /sports/ and sports.json; Loveland’s four e
   assert.equal(sportsPath(berthoud), '/sports/');
   assert.equal(sportsDataFile(berthoud), 'data/berthoud/sports.json');
   assert.deepEqual(sportsRoutes('berthoud'), [['/sports', 'sports.astro']]);
-  assert.deepEqual(sportsRoutes('erie'), [], 'a town without a school has no page');
+  assert.deepEqual(sportsRoutes('longmont'), [], 'a town without a school has no page');
+  assert.deepEqual(sportsRoutes('erie'), [['/sports', 'sports.astro']], 'Erie follows Erie High (25 October 2026)');
 
   const loveland = schoolsFor('loveland');
   assert.deepEqual(loveland.map((s) => s.slug), ['loveland-high', 'thompson-valley', 'mountain-view', 'resurrection-christian']);

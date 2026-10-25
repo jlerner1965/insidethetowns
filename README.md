@@ -25,8 +25,9 @@ scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
 
 ## High-school sports
 
-A town that follows its high school (Berthoud and Niwot, in
-`src/config/school-sports.ts`) has `/sports/`: each followed team's record, the
+A town that follows its high school (Berthoud, Niwot, Lyons, Timnath,
+Elizabeth, Johnstown, Windsor, Carbon Valley and Erie, and Loveland's four
+schools, in `src/config/school-sports.ts`) has `/sports/`: each followed team's record, the
 whole season's results and the games to come, read from the team's MaxPreps
 home page and its `/schedule/` page (the full season, used only where it
 agrees with the home page on every game both carry) by
