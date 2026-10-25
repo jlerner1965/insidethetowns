@@ -13,7 +13,7 @@ source: "https://www.latinochamberco.org/event-details/feria-del-tamal-2026"
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10004341-1792857600-1792872000@bouldercounty.gov"
 sourceHash: "401ee0ed3638"
-verified: "2026-10-23"
+verified: "2026-10-24"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Feria Del Tamal\" at 4 pm on 24 October on the Boulder County Fairgrounds feed"
 ---
 

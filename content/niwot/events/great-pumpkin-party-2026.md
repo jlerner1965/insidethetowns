@@ -14,7 +14,7 @@ source: "https://niwot.com/events/niwot-great-pumpkin-party/?occurrence=2026-10-
 verified: "2026-10-21"
 verifiedBy: "The Business Association's own event page, read 21 October 2026, gives Saturday, October 31, 10 am to 1:30 pm; the schedule below is the Left Hand Valley Courier's of October 14"
 changeFlag: true
-changeNote: "recheck 2026-10-23: the Niwot Business Association (niwot.com) feed lists \"Niwot’s Great Pumpkin Party\" 10 am–2 pm on 31 October; the listing ends 1:30 pm"
+changeNote: "recheck 2026-10-24: the Niwot Business Association (niwot.com) feed lists \"Niwot’s Great Pumpkin Party\" 10 am–2 pm on 31 October; the listing ends 1:30 pm"
 ---
 
 Halloween morning in Old Town, the Business Association's annual party: its page lists Saturday, October 31 from 10 am to 1:30 pm, free and open to everyone.

@@ -8,7 +8,8 @@ url: "https://johnstownmillikenpubliclibraries.us/event/paint-n-sip-3/"
 cost: "Free"
 category: arts
 source: "https://johnstownmillikenpubliclibraries.us/event/paint-n-sip-3/"
-verified: "2026-10-03"
+verified: "2026-10-24"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Paint &#8216;n Sip\" at 6:30 pm on 6 November in the page's structured data"
 ---
 
 The library's guided painting evening for adults, this time a gnome with his pumpkin. Participants must be 21 or older, and Johnstown-Milliken library cardholders may attend one Paint 'n Sip per three-month period.

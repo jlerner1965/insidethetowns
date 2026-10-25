@@ -9,7 +9,7 @@ url: "https://citystarbrewing.com/event/candy-and-beer-pairing/"
 cost: "$20 for the flight and goody bag"
 category: food
 source: "https://citystarbrewing.com/event/candy-and-beer-pairing/"
-verified: "2026-10-23"
+verified: "2026-10-24"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Candy and Beer Pairing\" on 25 October in the page's structured data"
 ---
 

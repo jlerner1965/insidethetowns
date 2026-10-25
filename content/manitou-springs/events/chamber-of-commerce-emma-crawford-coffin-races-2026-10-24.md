@@ -10,7 +10,7 @@ source: "https://manitouspringsheritagecenter.org/event/chamber-of-commerce-emma
 sourceId: "manitouspringsheritagecenter-org"
 sourceUid: "12953-1792836000-1792861200@manitouspringsheritagecenter.org"
 sourceHash: "97c6a31e386c"
-verified: "2026-10-23"
+verified: "2026-10-24"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Chamber of Commerce - Emma Crawford Coffin Races\" at 10 am on 24 October on the Manitou Springs Heritage Museum calendar feed"
 ---
 

@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/17327714"
 cost: "Free; registration required"
 category: family
 source: "https://highplains.libcal.com/event/17327714"
-verified: "2026-10-23"
+verified: "2026-10-24"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Science Explorers! K-2\" at 4:15 pm on 27 October in the page's structured data"
 ---
 

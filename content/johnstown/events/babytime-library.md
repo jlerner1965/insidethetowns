@@ -11,7 +11,7 @@ cost: "Free"
 category: family
 recurring: "Thursdays at 11"
 source: "https://johnstownmillikenpubliclibraries.us/"
-verified: "2026-10-23"
+verified: "2026-10-24"
 verifiedBy: "recheck-events (the nightly re-check workflow): 29 October and 11 am on the page"
 ---
 

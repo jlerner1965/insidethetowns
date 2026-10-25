@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/spooky-watercolor-2/"
 cost: "Free"
 category: arts
 source: "https://johnstownmillikenpubliclibraries.us/event/spooky-watercolor-2/"
-verified: "2026-10-23"
+verified: "2026-10-24"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Spooky Watercolor\" at 11:15 am on 24 October in the page's structured data"
 ---
 

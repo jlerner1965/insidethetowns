@@ -7,7 +7,7 @@ url: "https://www.lyonsclassicpinball.com/events"
 cost: "$10"
 category: sports
 source: "https://www.lyonsclassicpinball.com/events"
-verified: "2026-10-23"
+verified: "2026-10-24"
 verifiedBy: "recheck-events (the nightly re-check workflow): 25 October and 1 pm on the page"
 ---
 

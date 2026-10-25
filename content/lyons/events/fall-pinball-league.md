@@ -8,7 +8,7 @@ address: "339 Main St, Lyons, CO 80540"
 cost: "$40 league fee"
 category: sports
 source: "https://www.lyonsclassicpinball.com/events"
-verified: "2026-10-23"
+verified: "2026-10-24"
 verifiedBy: "recheck-events (the nightly re-check workflow): 29 October and 7:30 pm on the page"
 ---
 

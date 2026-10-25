@@ -9,7 +9,8 @@ cost: "Free"
 category: family
 timeNote: "Hours to be announced"
 source: "https://jhsco.org/events/2026-holiday-open-house/"
-verified: "2026-10-02"
+verified: "2026-10-24"
+verifiedBy: "recheck-events (the nightly re-check workflow): 5 December on the page"
 ---
 
 The Historical Society decorates the 1914 Parish House room by room in holiday themes from years past and opens it with refreshments, cookies and crafts for children and adults. Free, donations welcome, no registration; hours to be announced.

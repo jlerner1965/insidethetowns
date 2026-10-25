@@ -9,7 +9,7 @@ cost: "Free"
 category: family
 featured: true
 source: "https://www.visitdowntownjohnstown.com/trickortreatstreet"
-verified: "2026-10-23"
+verified: "2026-10-24"
 verifiedBy: "recheck-events (the nightly re-check workflow): 31 October and 10 am on the page"
 ---
 
