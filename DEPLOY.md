@@ -456,4 +456,12 @@ support. A day past the limit falls back to Buttondown's own form, so no
 signup is lost; the function's logs (Vercel → project → Logs, filter
 `subscribe`) show `unavailable: HTTP 429` when it happens.
 
+**Done, 25 October 2026.** The key is set on each of the 26 projects
+(`insidethetowns`, every `inside…` guide and `carbonvalleyguide`), as a
+project variable rather than a shared one: type Sensitive, Production and
+Preview. All 26 were redeployed the same day, and every signup page (the
+hub's and the nine guides' with the email) was checked live with the form
+switched over. **A new project needs the variable added too**, with the
+key from Buttondown → Settings → API, or its signup keeps the new-tab form.
+
 To switch it off, delete the variable and rebuild.
