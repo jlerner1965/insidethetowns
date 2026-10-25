@@ -27,6 +27,9 @@ const rows = schools.map((school) => {
 // The season, from the first school's data (seasonOf): the four share a calendar.
 const { label: seasonLabel, season } = seasonOf(sportsDataFor(schools[0]!, files) ?? { generated: '', sports: [] }, schools[0]!.teams, now);
 const seasonWord = season.toLowerCase();
+// The newest run among the schools' files: the page's dateModified and its sitemap lastmod.
+const stamps = schools.map((school) => Date.parse(sportsDataFor(school, files)?.generated ?? '')).filter((t) => !Number.isNaN(t));
+const generated = stamps.length ? new Date(Math.max(...stamps)) : undefined;
 const reads = rows.map((r) => r.read).filter(Boolean) as Date[];
 const newest = reads.length ? new Date(Math.max(...reads.map((d) => d.getTime()))) : undefined;
 const names = schools.map((s) => s.school);
@@ -38,6 +41,7 @@ const jsonLd = [
     description,
     path: '/sports/',
     items: schools.map((s) => ({ name: `${s.school} ${s.mascot}`, path: sportsPath(s) })),
+    updated: generated,
   }),
   breadcrumbJsonLd(town, [
     { name: town.name, path: '/' },

@@ -252,6 +252,8 @@ export function collectionPageJsonLd(
     path: string;
     /** `path` is relative to this site; `url` is absolute, for the hub linking across domains. */
     items?: Array<{ name: string; path?: string; url?: string }>;
+    /** When the page's data last changed: the sports pages' run (`generated`). Nothing when unknown. */
+    updated?: Date;
   },
 ) {
   const url = `https://${site.domain}/`;
@@ -265,6 +267,7 @@ export function collectionPageJsonLd(
     description: page.description,
     isPartOf: { '@id': `${url}#website` },
     inLanguage: 'en-US',
+    ...(page.updated && !Number.isNaN(page.updated.getTime()) ? { dateModified: toIsoLocal(page.updated) } : {}),
     ...(items.length > 0 && {
       mainEntity: {
         '@type': 'ItemList',

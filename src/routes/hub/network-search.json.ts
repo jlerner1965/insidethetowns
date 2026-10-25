@@ -15,14 +15,18 @@
  *   still attend (pickCanonical, as the event page and sitemap use it), and
  *   not one that is over;
  * - each guide's home, so a search for a town or one of its sub-towns finds
- *   the guide itself.
+ *   the guide itself;
+ * - each school's sports page and each team's, where the guide follows a
+ *   school and the run has written its data file (src/config/school-sports.ts).
  */
 import type { APIRoute } from 'astro';
 import { countyLabel, liveTowns, type TownConfig } from '@/config';
 import { getNetworkEntries, type NetworkEntry } from '@/lib/content';
 import { dayKey, formatDayLong, formatDayRange, formatMonthDay } from '@/lib/dates';
 import { finalDay, isCanceled, isInProgress, isMultiDay, isOver, nextOccurrence } from '@/lib/events';
-import { escapeHtml, plainText, recordHtml, type NetworkRecord } from '@/lib/network-search';
+import { escapeHtml, plainText, recordHtml, sportsRecord, type NetworkRecord } from '@/lib/network-search';
+import { schoolsFor, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
+import { schoolPageTitle, seasonOf, sportsDataFor, teamDescription, teamPageTitle, teamsWithData } from '@/lib/school-sports';
 import { pickCanonical } from '@/lib/series';
 import { subTownList } from '@/lib/sub-towns';
 import { EVENT_STATUS_LABELS, PLACE_TYPE_LABELS } from '@/content/schemas';
@@ -117,6 +121,32 @@ function eventRecord(event: NetworkEntry<'events'>): NetworkRecord {
   };
 }
 
+/** The sports pages: one record per school with data and one per team with data, as the town's own pages title them. */
+const sportsFiles = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
+function sportsRecords(town: TownConfig, now = new Date()): NetworkRecord[] {
+  const out: NetworkRecord[] = [];
+  for (const school of schoolsFor(town.slug)) {
+    const data = sportsDataFor(school, sportsFiles);
+    const teams = data ? teamsWithData(data) : [];
+    if (!data || teams.length === 0) continue;
+    const seasonWord = seasonOf(data, school.teams, now).season.toLowerCase();
+    const rows = teams.map((t) => ({ name: t.name, overall: t.overall, opponents: [...new Set([...t.upcoming, ...t.results].map((g) => g.opponent))].slice(0, 12) }));
+    const names = rows.map((t) => t.name.toLowerCase());
+    out.push(
+      sportsRecord(town, school, {
+        path: sportsPath(school),
+        title: schoolPageTitle(school, teams),
+        description: `${school.school} ${school.mascot} scores, schedules and records this ${seasonWord}: ${names.join(', ')}, from MaxPreps.`,
+      }, rows),
+    );
+    for (const team of teams) {
+      const { years } = seasonOf({ generated: data.generated, sports: [team] }, school.teams, now);
+      out.push(sportsRecord(town, school, { path: teamPath(school, team.key), title: teamPageTitle(school, team, years), description: teamDescription(school, team, seasonWord, now) }, rows.filter((r) => r.name === team.name)));
+    }
+  }
+  return out;
+}
+
 /** The events whose own page is indexed, per town, as the event page decides it. */
 function indexedEvents(events: NetworkEntry<'events'>[]): NetworkEntry<'events'>[] {
   const today = dayKey(new Date());
@@ -147,6 +177,7 @@ export const GET: APIRoute = async () => {
     ...places.filter((p) => !p.delisted).map(placeRecord),
     ...articles.map(articleRecord),
     ...indexedEvents(events).map(eventRecord),
+    ...liveTowns().flatMap((t) => sportsRecords(t)),
   ];
   return new Response(JSON.stringify(records.map((r) => ({ url: r.url, html: recordHtml(r) }))), {
     headers: { 'Content-Type': 'application/json' },

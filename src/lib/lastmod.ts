@@ -5,11 +5,15 @@
  * the sitemap is built while Astro's config is loading and the collections
  * do not exist yet. An event or place changed when it was last checked; an
  * article when it was last checked, else updated, else published; an issue
- * on its send day. Every other page is as new as the build.
+ * on its send day; a sports page (the school's, each team's, and the index
+ * of a town's several schools) when the run last wrote its data file
+ * (`generated`). Every other page is as new as the build.
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseLocal } from './dates.ts';
+import { schoolsFor, sportsDataFile, sportsPath, teamPath, type SportsData } from '../config/school-sports.ts';
+import { teamsWithData } from './school-sports.ts';
 
 const FIELD = (name: string) => new RegExp(`^${name}:\\s*"?([^"\\n]+?)"?\\s*$`, 'm');
 
@@ -33,14 +37,42 @@ function read(dir: string, fields: string[], path: (slug: string) => string, out
   }
 }
 
+/**
+ * The sports pages' dates: every page a school's data file builds, dated by
+ * the file's `generated`; /sports/ on a town with several schools by the
+ * newest of theirs. A school with no file dates nothing.
+ */
+function sportsDates(town: string, repoRoot: string, out: Map<string, string>): void {
+  const schools = schoolsFor(town);
+  let newest: string | undefined;
+  for (const school of schools) {
+    const file = join(repoRoot, sportsDataFile(school));
+    if (!existsSync(file)) continue;
+    let data: SportsData;
+    try {
+      data = JSON.parse(readFileSync(file, 'utf8')) as SportsData;
+    } catch {
+      continue;
+    }
+    const generated = Date.parse(data.generated ?? '');
+    if (Number.isNaN(generated)) continue;
+    const iso = new Date(generated).toISOString();
+    out.set(sportsPath(school), iso);
+    for (const team of teamsWithData(data)) out.set(teamPath(school, team.key), iso);
+    if (!newest || iso > newest) newest = iso;
+  }
+  if (schools.length > 1 && newest) out.set('/sports/', newest);
+}
+
 /** Path ("/events/x/") to the ISO instant that page last changed, for the pages that carry a date. */
-export function contentDates(site: { kind: 'town' | 'hub'; slug: string }, contentRoot = 'content'): Map<string, string> {
+export function contentDates(site: { kind: 'town' | 'hub'; slug: string }, contentRoot = 'content', repoRoot = '.'): Map<string, string> {
   const out = new Map<string, string>();
   const root = join(contentRoot, site.slug);
   if (site.kind === 'town') {
     read(join(root, 'events'), ['verified'], (slug) => `/events/${slug}/`, out);
     read(join(root, 'places'), ['verified'], (slug) => `/places/${slug}/`, out);
     read(join(root, 'articles'), ['verified', 'updated', 'date'], (slug) => `/articles/${slug}/`, out);
+    sportsDates(site.slug, repoRoot, out);
   } else {
     read(join(root, 'issues'), ['date'], (slug) => `/newsletter/${slug}/`, out);
   }

@@ -775,3 +775,18 @@ test('a share card is a 1200×630 PNG in the school’s colour, named for the sc
   assert.equal(shareImagePath(schoolsFor('loveland')[2]!), '/sports/share/mountain-view.png');
   assert.ok(sportsRoutes('berthoud').some(([p, f]) => p === '/sports/share/[image].png' && f === 'sports-share.png.ts'));
 });
+
+test('the sports pages’ CollectionPage carries dateModified from the run, and the hub’s index gets a record per school and team page', async () => {
+  const { collectionPageJsonLd } = await import('../src/lib/seo.ts');
+  const { sportsRecord, recordHtml } = await import('../src/lib/network-search.ts');
+  const town = findTown('berthoud')!;
+  const page = collectionPageJsonLd(town, { name: 'x', description: 'y', path: '/sports/', updated: new Date('2026-10-24T17:07:31.253Z') });
+  assert.equal(page.dateModified, '2026-10-24T11:07:31-06:00', 'the run’s instant, in Denver’s offset');
+  assert.equal('dateModified' in collectionPageJsonLd(town, { name: 'x', description: 'y', path: '/sports/' }), false, 'nothing when the date is unknown');
+  const record = sportsRecord(town, berthoud, { path: '/sports/football/', title: 'Berthoud Spartans Football Schedule, Scores & Record 2026', description: 'Berthoud High football is 7-2 this fall.' }, [{ name: 'Football', overall: '7-2', opponents: ['Severance', 'Mountain View'] }]);
+  assert.equal(record.url, 'https://insideberthoud.com/sports/football/');
+  assert.equal(record.kind, 'Sports');
+  assert.equal(record.lead, 'Football 7-2');
+  assert.match(record.text!, /Spartans.*Severance/);
+  assert.match(recordHtml(record), /data-pagefind-meta="kind:Sports"/);
+});

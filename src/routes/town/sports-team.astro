@@ -57,7 +57,7 @@ const title = `${shortSchool} ${mascot} ${team.name.toLowerCase()}`;
 const fullTitle = `${teamPageTitle(cfg, team, years)} · ${town.siteTitle}`;
 const description = teamDescription(cfg, team, seasonWord, now);
 const jsonLd = [
-  collectionPageJsonLd(town, { name: teamPageTitle(cfg, team, years), description, path }),
+  collectionPageJsonLd(town, { name: teamPageTitle(cfg, team, years), description, path, updated: data.generated ? new Date(data.generated) : undefined }),
   breadcrumbJsonLd(town, [
     { name: town.name, path: '/' },
     { name: 'Sports', path: '/sports/' },

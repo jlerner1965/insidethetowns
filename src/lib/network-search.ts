@@ -25,8 +25,8 @@
  * route that gathers the entries is src/routes/hub/network-search.json.ts.
  */
 
-/** What a result is, as the town's own search labels it (Base.astro `kind`), plus the guide itself and its Moving Here page. */
-export type NetworkKind = 'Town' | 'Moving here' | 'Place' | 'Guide' | 'Event';
+/** What a result is, as the town's own search labels it (Base.astro `kind`), plus the guide itself, its Moving Here page and its sports pages. */
+export type NetworkKind = 'Town' | 'Moving here' | 'Place' | 'Guide' | 'Event' | 'Sports';
 
 export interface NetworkRecord {
   /** Absolute, on the town's own domain: "https://insideniwot.com/places/niwot-tavern/". */
@@ -96,4 +96,27 @@ export function plainText(markdown: string): string {
     .replace(/^\s*:?-{3,}:?(\s+:?-{3,}:?)*\s*$/gm, ' ')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+/**
+ * A school's sports page, or one team's, as a record: the title the page
+ * carries, the records as the lead, and the teams' names, the mascot and
+ * the next opponents as the words to find it by. Pure, so the hub route
+ * (src/routes/hub/network-search.json.ts) only gathers the data files.
+ */
+export function sportsRecord(
+  town: { name: string; domain: string },
+  school: { school: string; mascot: string; slug?: string },
+  page: { path: string; title: string; description: string },
+  teams: Array<{ name: string; overall?: string; opponents: string[] }>,
+): NetworkRecord {
+  return {
+    url: `https://${town.domain}${page.path}`,
+    kind: 'Sports',
+    title: page.title,
+    town: town.name,
+    domain: town.domain,
+    lead: teams.filter((t) => t.overall).map((t) => `${t.name} ${t.overall}`).join(' · ') || undefined,
+    text: [page.description, `${school.school} ${school.mascot}.`, ...teams.map((t) => `${t.name}${t.opponents.length ? `: ${t.opponents.join(', ')}` : ''}.`)].join(' '),
+  };
 }

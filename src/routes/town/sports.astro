@@ -100,7 +100,8 @@ const indexName = `${town.name} high school sports`;
 // Volleyball, Softball": the sports from the teams with data, never typed.
 const pageTitle = schoolPageTitle(cfg, teams);
 const jsonLd = [
-  collectionPageJsonLd(town, { name: pageTitle, description, path }),
+  // dateModified: when the run last wrote the data file, the sitemap's lastmod for the page too (src/lib/lastmod.ts).
+  collectionPageJsonLd(town, { name: pageTitle, description, path, updated: data.generated ? new Date(data.generated) : undefined }),
   breadcrumbJsonLd(town, [
     { name: town.name, path: '/' },
     { name: 'Sports', path: '/sports/' },
