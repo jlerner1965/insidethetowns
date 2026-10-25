@@ -62,7 +62,11 @@ const searchable = !seo.noindex;
 const structured = [siteJsonLd(site), ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
 // Search Console and Bing verification, from the Vercel project's environment
 // (src/lib/verification.ts; docs/SEARCH-VISIBILITY.md). Nothing unless set.
-const verification = verificationTags(import.meta.env);
+// From the build's own environment, where Vercel puts the project's
+// variables: Astro's import.meta.env carries only the variables it knows
+// of, so a token set in Vercel never reached the page this way (found 25
+// October 2026, when the signup's key switch met the same wall).
+const verification = verificationTags(process.env);
 const cssVars = [
   `--town-primary:${site.colors.primary}`,
   `--town-primary-hover:${primaryHover(site.colors.primary)}`,

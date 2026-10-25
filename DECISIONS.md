@@ -6172,3 +6172,15 @@ only other way is a function holding the API key.
 - **Not changed.** Double opt-in: the confirmation email is what makes the
   list a list of real, willing readers, which is what a sponsor pays for.
   Turning it off is a Buttondown setting and the owner's call.
+
+## Search engine verification reads the build's environment, 25 October
+
+*25 October 2026.* `src/layouts/Base.astro` handed `import.meta.env` to
+`verificationTags`, and Astro's object holds only the variables it knows
+of, so a `GOOGLE_SITE_VERIFICATION` or `BING_SITE_VERIFICATION` set in a
+Vercel project never reached the page (found while building the signup's
+key switch, which met the same wall). It reads `process.env` now; a build
+with both set carries both tags, one without carries neither, and a test
+holds the layout to it. No guide's project had either code set yet, so
+nothing had been relying on it; docs/SEARCH-VISIBILITY.md's steps stand
+as written.

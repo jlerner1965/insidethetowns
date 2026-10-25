@@ -39,3 +39,12 @@ test('no verification token is written into the repository', () => {
   }
   assert.deepEqual(Object.keys(VERIFICATION_VARS), ['GOOGLE_SITE_VERIFICATION', 'BING_SITE_VERIFICATION']);
 });
+
+test('the layout reads the tokens from the build’s environment, where Vercel puts them', async () => {
+  const { readFileSync } = await import('node:fs');
+  const layout = readFileSync('src/layouts/Base.astro', 'utf8');
+  // import.meta.env as a whole object holds only the variables Astro knows
+  // of; a token set in a Vercel project never reached the page that way.
+  assert.match(layout, /verificationTags\(process\.env\)/);
+  assert.doesNotMatch(layout, /verificationTags\(import\.meta\.env\)/);
+});
