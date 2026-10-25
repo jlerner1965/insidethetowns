@@ -58,6 +58,11 @@ route), and each has a sitemap submitted, as `/sitemap.xml` or
 which does not exist; resubmit it when the site launches. The Google
 connection is read-only, so submitting stays a Search Console task, and
 Bing is not connected (it needs a Bing Webmaster API key in the plugin).
+Inside Grand Lake (insidegrandlake.com) was the one live guide missing; it
+is a URL-prefix property, `https://insidegrandlake.com/`, verified by the
+HTML tag: its code is `GOOGLE_SITE_VERIFICATION` on the `insidegrandlake`
+project (Production), set and deployed on 25 October 2026, the tag checked
+live on the page. Keep the variable: removing it unverifies the property.
 The Performance figures in the weekly table below can be read through the
 plugin; the Pages report's indexed count cannot, and stays a person's job.
 The first read of the data is docs/SEARCH-CONSOLE-2026-10-20.md.
