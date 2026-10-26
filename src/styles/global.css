@@ -1,16 +1,6 @@
 @import "tailwindcss";
 
 /*
- * Utilities the flagship home page of 21 October 2026 used, kept in the
- * shared stylesheet after it was replaced (25 October 2026) so that every
- * page of every other guide is byte for byte what it was. The new page has
- * its own stylesheet (src/components/home/flagship-home.css). Nothing uses
- * these now: dropping this line is a change to every guide's stylesheet,
- * best made on its own.
- */
-@source inline("band-tint pt-10! md:pt-14! md:py-10 leading-[1.05] hover:bg-paper xl:block lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] xl:grid-cols-[minmax(0,5fr)_minmax(0,3fr)_minmax(0,4fr)]");
-
-/*
  * Design tokens: Color System 2.0 (src/config/palette.ts).
  *
  * Per-guide values (primary, its hover, accent, paper) are set as CSS
@@ -35,11 +25,6 @@
   --color-accent: var(--town-accent);
   /* The accent at placeholder strength, behind an image while it loads. */
   --color-accent-soft: var(--t-accent-soft);
-  /* The primary at wash strength, on the paper: a band or a tile that is
-     the town's colour without being dark, for the flagship home page's
-     sections to tell apart. Only the inks go on it as text; check-colors
-     proves both clear 4.5:1 on every site. */
-  --color-primary-soft: var(--t-primary-soft);
 
   /* One warm amber across the network, for what it means rather than as
      decoration: a notice to be read, and "Our pick". A fill, never text. */
@@ -72,7 +57,6 @@
   --t-line-soft: color-mix(in srgb, var(--town-paper) 88%, #243137 12%);
   --t-primary-line: color-mix(in srgb, var(--town-primary) 25%, #ffffff);
   --t-accent-soft: color-mix(in srgb, var(--town-accent) 16%, #ffffff);
-  --t-primary-soft: color-mix(in srgb, var(--town-primary) 9%, var(--town-paper));
 }
 
 
@@ -178,9 +162,6 @@
   background-color: var(--color-primary);
   color: #fff;
 }
-/* The town's colour at wash strength: a third surface between the paper
-   and the dark band, so the flagship home page's sections read apart. */
-@utility band-tint { background-color: var(--color-primary-soft); }
 
 /* Small caps-style label above headings: "This week in Niwot", "Market".
    It names its face: set on an <h2> or inside a display heading it used to

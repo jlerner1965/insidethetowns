@@ -362,9 +362,6 @@ function checkImageCredits() {
 
   for (const site of allSites) {
     checkCaption(`src/config/towns/${site.slug}.ts (hero)`, `content/${site.slug}/images/${site.hero.image}`, site.hero.credit);
-    // The flagship home's photograph, where a guide has one, under the same rule as the hero.
-    const photo = site.kind === 'town' ? site.home?.photo : undefined;
-    if (photo) checkCaption(`src/config/towns/${site.slug}.ts (home.photo)`, `content/${site.slug}/images/${photo.image}`, photo.credit);
   }
 }
 

@@ -45,25 +45,8 @@ export const niwot: TownConfig = {
   social: {
     email: 'hello@insideniwot.com',
   },
-  /**
-   * The flagship layout (21 October 2026): the week first, Around Niwot and
-   * Get Involved as the signature sections, Second Avenue beside the
-   * introduction. Terracotta is the brick accent the palette already has.
-   */
-  home: {
-    signature: 'get-involved',
-    purpose: 'What’s on this week, who runs what, and how to take part.',
-    secondary: { label: 'Get involved', href: '/get-involved/' },
-    accentName: 'terracotta',
-    // Second Avenue, the photograph the flagship brief named for this spot
-    // (docs/FLAGSHIPS-2026-10-21.md); Jeffrey Beall's, CC BY-SA 2.0, with
-    // the credit the licence asks for under it.
-    photo: {
-      image: 'second-avenue-street.jpg',
-      alt: 'Second Avenue in Old Town Niwot on a summer morning: the Niwot Tribune building’s white porch and hanging flower baskets, the brick storefronts beyond it, and cars parked along the curb',
-      credit: 'Jeffrey Beall, CC BY-SA 2.0',
-    },
-  },
+  // The flagship home page (src/components/home/FlagshipHome.astro), since 21 October 2026.
+  home: true,
   participation: {
     label: 'Get involved',
     intro: 'The associations, clubs and groups that run Niwot, and how to join each.',

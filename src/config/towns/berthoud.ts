@@ -48,26 +48,8 @@ export const berthoud: TownConfig = {
   social: {
     email: 'hello@insideberthoud.com',
   },
-  /**
-   * The flagship layout (21 October 2026): the week first, Families as the
-   * signature section, the Town's own playground photograph beside the
-   * introduction. Gold is the accent the palette already has; the layout
-   * uses it as a rule, never as text.
-   */
-  home: {
-    signature: 'families',
-    purpose: 'What’s on this week, what your family can join, and who handles what in town.',
-    secondary: { label: 'Berthoud Families', href: '/families/' },
-    accentName: 'gold',
-    // The Town's own playground photograph, which the flagship brief named
-    // for this spot (docs/FLAGSHIPS-2026-10-21.md): supplied by the Town of
-    // Berthoud on 21 September 2026, use authorized, credit optional.
-    photo: {
-      image: 'berthoud-town-park-playground.webp',
-      alt: 'The playground at Berthoud Town Park on a sunny day: a tall green climbing tower with a tube slide, rope nets and a ring-climber, families on the rubber surface, cottonwoods and blue sky behind',
-      credit: 'Town of Berthoud',
-    },
-  },
+  // The flagship home page (src/components/home/FlagshipHome.astro), since 21 October 2026.
+  home: true,
   /**
    * Berthoud High's colours, read from its own site 25 October 2026
    * (bhs.tsd.org): the theme's `--primary-color` is #572932, the maroon

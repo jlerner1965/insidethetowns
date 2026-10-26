@@ -45,17 +45,8 @@ export const johnstown: TownConfig = {
   social: {
     email: 'hello@insidejohnstown.com',
   },
-  /**
-   * The flagship layout (22 October 2026), as Berthoud's and Lyons's: the
-   * week as the page, Families as the signature hub, every other hub one
-   * link. The owner's call, for Elizabeth, Windsor, Erie and Johnstown together.
-   */
-  home: {
-    signature: 'families',
-    purpose: 'What’s on this week, what your family can join, and who handles what in town.',
-    secondary: { label: 'Johnstown Families', href: '/families/' },
-    accentName: 'gold',
-  },
+  // The flagship home page (src/components/home/FlagshipHome.astro), since 22 October 2026.
+  home: true,
   /**
    * Roosevelt High's colours, read from its own site 25 October 2026
    * (rhs.weldre5j.org): the theme's `--primary-color` is #C41230, the

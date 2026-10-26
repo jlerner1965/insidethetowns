@@ -49,17 +49,8 @@ export const erie: TownConfig = {
   social: {
     email: 'hello@insideerie.com',
   },
-  /**
-   * The flagship layout (22 October 2026), as Berthoud's and Lyons's: the
-   * week as the page, Families as the signature hub, every other hub one
-   * link. The owner's call, for Elizabeth, Windsor, Erie and Johnstown together.
-   */
-  home: {
-    signature: 'families',
-    purpose: 'What’s on this week, what your family can join, and who handles what in town.',
-    secondary: { label: 'Erie Families', href: '/families/' },
-    accentName: 'open-sky blue',
-  },
+  // The flagship home page (src/components/home/FlagshipHome.astro), since 22 October 2026.
+  home: true,
   /**
    * Erie High's colours, read from its own site 25 October 2026
    * (ehs.svvsd.org): the theme's `--color-primary` is #F26B21, the Tiger

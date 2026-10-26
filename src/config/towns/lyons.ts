@@ -40,16 +40,8 @@ export const lyons: TownConfig = {
   social: {
     email: 'hello@insidelyons.com',
   },
-  /**
-   * The flagship layout (22 October 2026), as Berthoud's: the week as the
-   * page, Families as the signature hub, every other hub one link.
-   */
-  home: {
-    signature: 'families',
-    purpose: 'What’s on this week, what your family can join, and who handles what in town.',
-    secondary: { label: 'Lyons Families', href: '/families/' },
-    accentName: 'sandstone',
-  },
+  // The flagship home page (src/components/home/FlagshipHome.astro), since 22 October 2026.
+  home: true,
   /**
    * Lyons Middle/Senior High's colours, read from its own site 25 October
    * 2026 (lmshs.svvsd.org): the theme's `--color-primary` is #0054A6, the

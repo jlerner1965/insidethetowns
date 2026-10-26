@@ -125,36 +125,6 @@ export interface LivingHereConfig {
 }
 
 /**
- * The home page's flagship layout (src/components/home/FlagshipHome.astro),
- * for a guide the owner has decided to give the effort: since 25 October
- * 2026 a scoreboard-led page on the school's band (`school`), the week as
- * seven days, three things to know beside the email, the school's teams,
- * the hubs and a closing band. A guide without it has the classic home.
- * That page reads none of the fields below: `signature`, `purpose`,
- * `secondary` and `photo` are kept from the layout of 21 October and
- * shown nowhere now.
- */
-export interface HomeConfig {
-  /** Which resident hub leads "On this guide" on the home page. */
-  signature: 'families' | 'get-involved';
-  /** The enduring line under the town's name: what the guide is for, never a dated topic. */
-  purpose: string;
-  /** The second button under the introduction, after "This week". */
-  secondary: { label: string; href: string };
-  /** The accent's name, for the design notes and nothing else: the colour itself is `colors.accent`. */
-  accentName?: string;
-  /**
-   * A photograph of the town beside the introduction, on a wide screen
-   * only, so it adds a sense of the place without pushing the week down
-   * a phone. A file in content/<slug>/images/ with its row in
-   * IMAGE_LICENSES.csv; `credit` is shown under it and must name the
-   * licence the register records (the validator checks, as for the hero).
-   * None means none: no stand-in, no stock.
-   */
-  photo?: { image: string; alt: string; credit?: string };
-}
-
-/**
  * The town's high school as the flagship home page shows it: the masthead
  * band, the closing band and the Home and Away pills are in its colours,
  * and nothing else is. The guide's own palette (`colors`) is untouched by
@@ -376,7 +346,13 @@ export interface TownConfig {
    * switching on a route or a layout only for the guide that sets it. The
    * shared chassis is unchanged for every guide without them.
    */
-  home?: HomeConfig;
+  /**
+   * The flagship home page (src/components/home/FlagshipHome.astro, built
+   * from src/routes/town/home-flagship.astro), for a guide the owner has
+   * decided to give the effort; it also puts the inner pages' header on a
+   * band in the guide's colour. A guide without it has the classic home.
+   */
+  home?: true;
   /** The high school the flagship home page leads with: see SchoolConfig. */
   school?: SchoolConfig;
   livingHere?: LivingHereConfig;
