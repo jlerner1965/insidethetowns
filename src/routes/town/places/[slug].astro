@@ -12,7 +12,7 @@ import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { breadcrumbJsonLd, localBusinessJsonLd } from '@/lib/seo';
 import { EAT_DRINK_TYPES, LAND_TYPES, PLACE_STATUS_LABELS, PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, THINGS_TO_DO_TYPES } from '@/content/schemas';
 import { formatDate } from '@/lib/dates';
-import { hoursLines, hoursWithMeridiem, openingHoursOf } from '@/lib/hours';
+import { hoursDataAttr, hoursLines, hoursWithMeridiem } from '@/lib/hours';
 import { byProminence, isOpen } from '@/lib/places';
 import { articlesMentioning } from '@/lib/mentions';
 import { placeTitle } from '@/lib/titles';
@@ -78,7 +78,8 @@ const destination = /,\s*CO\b/.test(data.address) ? data.address : `${data.addre
 const directions = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
 // A park, a trail or a trailhead has no one to write in as its owner; everything else does.
 const hasOperator = !LAND_TYPES.includes(data.type);
-const hours = openingHoursOf(data);
+// The schedule and the days it leaves unsettled, for the open-now badge (OpenStatus.astro).
+const hours = hoursDataAttr(data);
 // The gate (src/lib/content.ts) has already stripped the hours of a closed
 // place and of one whose check is older than the hours window; here the page
 // says so rather than leaving the row out, because "no hours" reads as "we
@@ -144,7 +145,7 @@ const correct = `/correct/?item=${encodeURIComponent(`place/${place.slug}`)}&tit
 const facts = [
   { label: 'Address', value: data.area ? `${data.address} · ${data.area}` : data.address },
   { label: 'Directions', value: 'Open in Google Maps', href: directions },
-  { label: 'Hours', value: hoursValue, lines: hoursValue && hoursValue === data.hours ? hoursLines(hoursWithMeridiem(hoursValue)) : undefined, hours: hours ?? undefined },
+  { label: 'Hours', value: hoursValue, lines: hoursValue && hoursValue === data.hours ? hoursLines(hoursWithMeridiem(hoursValue)) : undefined, hours },
   { label: 'Season', value: seasonValue },
   { label: 'Phone', value: data.phone, href: data.phone ? `tel:${data.phone.replace(/[^\d+]/g, '')}` : undefined },
   { label: 'Website', value: data.url ? new URL(data.url).hostname.replace(/^www\./, '') : undefined, href: data.url },
@@ -238,7 +239,7 @@ const facts = [
       <aside class="order-2">
         <dl class="divide-y divide-line-soft border-y border-line-soft">
           {facts.map((f) => (
-            <div class="py-4" data-hours={f.hours ? JSON.stringify(f.hours) : undefined}>
+            <div class="py-4" data-hours={f.hours}>
               <dt class="eyebrow">{f.label}</dt>
               <dd class="mt-1.5 leading-snug">
                 {f.href ? (
