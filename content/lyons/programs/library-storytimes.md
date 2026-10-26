@@ -14,6 +14,10 @@ season: "A break October 27 to November 11; baby storytime is back November 17 a
 price: "Free"
 registration: { required: false }
 beginners: true
+status: paused
+statusFrom: "2026-10-27"
+statusUntil: "2026-11-11"
+statusNote: "Storytime takes a break"
 nextEvent: baby-storytime-november
 contact: "303-823-5165, info@lyonslibrary.com"
 featured: true
