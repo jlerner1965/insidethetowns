@@ -125,10 +125,9 @@ export interface LivingHereConfig {
 }
 
 /**
- * The town's high school as the flagship home page shows it: the masthead
- * band, the closing band and the Home and Away pills are in its colours,
- * and nothing else is. The guide's own palette (`colors`) is untouched by
- * it. Each colour is the one the school's own site or athletics page
+ * The town's high school as the home page's scoreboard shows it: the
+ * scoreboard's band is in its colours, and nothing else is. The guide's own
+ * palette (`colors`) is untouched by it. Each colour is the one the school's own site or athletics page
  * publishes, with a comment saying where it was read; where the exact hex
  * is not published, the nearest standard shade, and the comment says so.
  *
@@ -347,13 +346,14 @@ export interface TownConfig {
    * shared chassis is unchanged for every guide without them.
    */
   /**
-   * The flagship home page (src/components/home/FlagshipHome.astro, built
-   * from src/routes/town/home-flagship.astro), for a guide the owner has
-   * decided to give the effort; it also puts the inner pages' header on a
-   * band in the guide's colour. A guide without it has the classic home.
+   * A resident guide, one the owner has decided to give the effort: its
+   * home page (src/components/home/TownHome.astro, the same file for every
+   * guide) carries the week's local changes beside the email and closes on
+   * the ways a resident takes part, where a visitor guide's closes on
+   * moving here. The header and footer are the same on every guide.
    */
   home?: true;
-  /** The high school the flagship home page leads with: see SchoolConfig. */
+  /** The high school the home page's scoreboard and the sports pages lead with: see SchoolConfig. */
   school?: SchoolConfig;
   livingHere?: LivingHereConfig;
   participation?: ParticipationConfig;

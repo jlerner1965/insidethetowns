@@ -55,15 +55,12 @@ interface Props {
    */
   dark?: boolean;
   /**
-   * The flagship home page's two (the homepage brief, 25 October 2026),
-   * styled by its own stylesheet (src/components/home/flagship-home.css):
-   * `card`, beside "Three things to know", the reader's own town only and
-   * no town picker, with `anchor` as its id for the masthead's button;
-   * `band`, inside the closing band, the form and the towns without a
-   * heading of its own, the band's being the heading. The same form, the
-   * same post and the same script as every other.
+   * The home page's card (the homepage brief, 25 October 2026; the design
+   * pass, 26 October 2026): beside "Things to know", the reader's own town
+   * only and no town picker, with `anchor` as its id for the week's email
+   * item. The same form, the same post and the same script as every other.
    */
-  variant?: 'card' | 'band';
+  variant?: 'card';
   anchor?: string;
 }
 
@@ -79,7 +76,6 @@ const others = mine ? editions.filter((e) => e !== mine) : editions;
 const covers = (e: (typeof editions)[number]) => e.towns.map((t) => t.slug).join(' ');
 const day = config?.sendDay ?? 'Thursday';
 const card = variant === 'card';
-const band = variant === 'band';
 const sendTime = config?.sendTime;
 const emailField = config?.emailField ?? 'email';
 const tagField = config?.tagField ?? 'tag';
@@ -97,9 +93,8 @@ const emailErrorId = `newsletter-email-error-${fieldKey}-${town?.slug ?? 'networ
 const inline = inlineSignup(process.env);
 const field =
   'mt-1.5 block h-12 w-full rounded-md border border-line bg-raised px-3 text-[1.0625rem] font-normal text-ink';
-// The closing band is dark like the `dark` panel.
-const muted = dark || band ? 'text-white/80' : 'text-ink-muted';
-const link = dark || band ? 'text-white underline' : 'text-primary underline';
+const muted = dark ? 'text-white/80' : 'text-ink-muted';
+const link = dark ? 'text-white underline' : 'text-primary underline';
 // Every row a full 44px to tap, the box itself 20px.
 const row = 'flex min-h-11 items-center gap-2.5 text-[0.9375rem]';
 const box = 'size-5 shrink-0 rounded border-line';
@@ -108,7 +103,7 @@ const box = 'size-5 shrink-0 rounded border-line';
     on the home page, the full width of the events page with its right half
     empty, and left at 715px on This Weekend. */}
 {config && (!town || mine) && (
-  <section id={anchor} class:list={variant ? ['fh-signup', `fh-signup-${variant}`, band && 'on-dark'] : ['max-w-3xl rounded-lg p-6 md:p-8', dark ? 'on-dark bg-primary text-white' : ['bg-raised ring-1', compact ? 'ring-line-soft' : 'ring-primary-line']]}>
+  <section id={anchor} class:list={['max-w-3xl rounded-lg p-6 md:p-8', card && 'scroll-mt-6', dark ? 'on-dark bg-primary text-white' : ['bg-raised ring-1', compact ? 'ring-line-soft' : 'ring-primary-line']]}>
     {/*
       A new tab keeps the reader on the page they were reading, and the
       browser opens it from target="_blank" itself (src/lib/signup.ts says
@@ -119,19 +114,22 @@ const box = 'size-5 shrink-0 rounded border-line';
       allowlist names, which validate-content.ts checks against the config
       on every build.
     */}
-    <form action={config.action} method="POST" target="_blank" class={variant ? 'fh-signup-form' : 'max-w-xl'} data-signup data-hub={town ? undefined : ''} data-inline={inline ? '' : undefined} data-send-day={day}>
+    <form action={config.action} method="POST" target="_blank" class="max-w-xl" data-signup data-hub={town ? undefined : ''} data-inline={inline ? '' : undefined} data-send-day={day}>
       {card ? (
         <Fragment>
-          <p class="fh-signup-eyebrow">Every {day}{sendTime && `, ${sendTime}`}</p>
-          <h2 class="fh-signup-title">Friday’s score. The week ahead. What opened, what closed.</h2>
-          <p class="fh-signup-line">One email for {town?.name}, written by people who checked.</p>
+          <p class="eyebrow">Every {day}{sendTime && `, ${sendTime}`}</p>
+          <h2 class="display-md mt-2 text-[1.75rem] leading-tight">The week ahead in {town?.name}, in one email.</h2>
+          {/* What the email is and how often, in plain words: the week, the
+              scores where the guide follows a school, what opened and
+              closed. No claim about coverage the edition does not make. */}
+          <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">Once a week, every {day}: the week’s events{town?.school ? ', the scores' : ''}, and what opened or closed in {town?.name}. Written by people who checked.</p>
           {/* The card is this town's email and nothing else: its one tag
               rides as a checked box the reader is not asked about, so the
               form's rule (no send without a town) holds as it does
               everywhere. */}
           {town && mine && <input type="checkbox" name={tagField} value={town.slug} checked hidden data-towns={covers(mine)} />}
         </Fragment>
-      ) : band ? null : (
+      ) : (
         <Fragment><h2 class="display-md text-[1.75rem] leading-tight">{dark ? `${day} email: the week, the scores, what closed.` : `What’s on in ${where}, every ${day}`}</h2>
       <p class:list={['mt-2 text-[0.9375rem] leading-relaxed', muted]}>
         {/* The same promise /advertise/, /for-businesses/ and the privacy
@@ -172,9 +170,9 @@ const box = 'size-5 shrink-0 rounded border-line';
         </fieldset>
       )}
 
-      <div class={variant ? 'fh-signup-row' : 'mt-5 sm:flex sm:items-end sm:gap-3'}>
-        <div class={variant ? 'fh-signup-field' : 'sm:flex-1'}>
-          <label for={inputId} class:list={variant ? 'fh-signup-label' : ['block text-sm font-semibold', dark && 'eyebrow text-white']}>{dark || band ? 'Email' : 'Your email'}</label>
+      <div class="mt-5 sm:flex sm:items-end sm:gap-3">
+        <div class="sm:flex-1">
+          <label for={inputId} class:list={['block text-sm font-semibold', dark && 'eyebrow text-white']}>{dark ? 'Email' : 'Your email'}</label>
           <input
             id={inputId}
             type="email"
@@ -188,7 +186,7 @@ const box = 'size-5 shrink-0 rounded border-line';
         </div>
         {/* The same height as the field beside it: the pill was 40px against a
             52px field, aligned at the bottom only. */}
-        <button type="submit" data-signup-button class:list={variant ? ['btn fh-signup-button', card ? 'btn-primary' : 'bg-highlight text-ink hover:bg-highlight-ink'] : ['btn mt-3 h-12 w-full justify-center px-6 sm:mt-0 sm:w-auto', dark ? 'bg-highlight text-ink hover:bg-highlight-ink' : 'btn-primary']}>Send me {dark || variant ? `${day}’s` : `the ${day}`} email</button>
+        <button type="submit" data-signup-button class:list={['btn mt-3 h-12 w-full justify-center px-6 sm:mt-0 sm:w-auto', dark ? 'bg-highlight text-ink hover:bg-highlight-ink' : 'btn-primary']}>Send me {dark || card ? `${day}’s` : `the ${day}`} email</button>
       </div>
       <p id={emailErrorId} data-email-error hidden aria-live="polite" class="mt-2 text-[0.9375rem] font-semibold">
         {SIGNUP_MESSAGES.invalid}
@@ -198,7 +196,7 @@ const box = 'size-5 shrink-0 rounded border-line';
           usual answer needs nothing done, and the rest are one press away. */}
       {town && !card && (
         <fieldset class="mt-4" aria-describedby={errorId}>
-          <legend class:list={['eyebrow', (dark || band) && 'text-white', band && 'fh-signup-legend']}>Which towns?</legend>
+          <legend class:list={['eyebrow', dark && 'text-white']}>Which towns?</legend>
           <Fragment>
             <label class:list={[row, 'mt-2 font-semibold']}>
               <input type="checkbox" name={tagField} value={town.slug} checked class={box} data-towns={covers(mine!)} />
@@ -233,20 +231,10 @@ const box = 'size-5 shrink-0 rounded border-line';
         </fieldset>
       )}
 
-      {card ? (
-        <p class="fh-signup-small">
-          {/* The short form of PRIVACY_LINE: the address does go to
-              Buttondown, which sends the email, so "never shared" would
-              not be true. */}
-          Free. One email a week. Unsubscribe any time. We don’t sell your address or share it for advertising. See the
-          <a href={`https://${hub.domain}/privacy/`}>privacy page</a>.
-        </p>
-      ) : (
-      <p class:list={band ? 'fh-signup-small' : ['mt-3 text-[0.8125rem] leading-relaxed', muted]}>
+      <p class:list={['mt-3 text-[0.875rem] leading-relaxed', muted]}>
         Free. One email a week. Unsubscribe any time. {PRIVACY_LINE} See the
-        <a href={`https://${hub.domain}/privacy/`} class:list={band ? undefined : ['inline-block -my-3 py-3', link]}>privacy page</a>.
+        <a href={`https://${hub.domain}/privacy/`} class:list={['inline-block -my-3 py-3', link]}>privacy page</a>.
       </p>
-      )}
       {/* A page's own line about the email (the hub's "See a sample issue"),
           inside the card rather than loose underneath it. */}
       <slot />

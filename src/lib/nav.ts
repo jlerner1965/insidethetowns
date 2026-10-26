@@ -16,8 +16,9 @@
  *
  * Every other section (This weekend, Guides, the directory, Get involved,
  * Updates, and whichever of the pairs above is not in the menu) is in the
- * footer on every page. Sentence case throughout; the classic masthead sets
- * the row in small capitals with CSS, so the words are the same everywhere.
+ * footer on every page. Sentence case throughout, in the row and in the
+ * phone panel alike (design pass, 26 October 2026: the row was set in small
+ * capitals, and the flagship home page ran a second menu of its own).
  */
 import { schoolsFor } from '../config/school-sports.ts';
 import type { NavItem, SiteConfig, TownConfig } from '../config/towns/types.ts';
@@ -39,25 +40,6 @@ export function townNav(town: Pick<TownConfig, 'slug' | 'families' | 'livingHere
     ...(sports ? [{ label: sports, href: '/sports/' }] : []),
     { label: 'Eat & drink', href: '/eat-drink/' },
     town.families ? { label: 'Families', href: '/families/' } : { label: 'Things to do', href: '/things-to-do/' },
-    town.livingHere ? { label: 'Living here', href: '/living-here/' } : { label: 'Moving here', href: '/moving-here/' },
-  ];
-}
-
-/**
- * The flagship home page's masthead menu (the homepage brief, 25 October
- * 2026): This week · <Mascot> · Town · Eat & drink · Families · Living here.
- * The mascot alone names the school's page there, in the school's own
- * band; "Town" is Things to do, the parks, trails and places in and around
- * it. Every other page keeps townNav's menu.
- */
-export function homeNav(town: Pick<TownConfig, 'slug' | 'families' | 'livingHere' | 'school'>): NavItem[] {
-  const mascot = town.school && schoolsFor(town.slug).length > 0 ? town.school.mascot : undefined;
-  return [
-    { label: 'This week', href: '/this-week/' },
-    ...(mascot ? [{ label: mascot, href: '/sports/' }] : []),
-    { label: 'Town', href: '/things-to-do/' },
-    { label: 'Eat & drink', href: '/eat-drink/' },
-    ...(town.families ? [{ label: 'Families', href: '/families/' }] : []),
     town.livingHere ? { label: 'Living here', href: '/living-here/' } : { label: 'Moving here', href: '/moving-here/' },
   ];
 }

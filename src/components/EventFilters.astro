@@ -46,6 +46,12 @@ const when = [
 ];
 const pill =
   'rounded-full border border-primary-line bg-raised px-4 py-2 text-sm sm:py-1.5 font-medium text-ink-muted transition-colors hover:border-primary hover:text-primary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-white';
+// Which rows a phone folds away (design pass, 26 October 2026): the "when"
+// row is always out, it being what a reader asks first; the category and
+// town rows sit behind one "Filter by type" button below the sm width, and
+// open on their own when a shared link has one of them set. From sm up
+// every row is out, as before.
+const foldable = categories.length > 1 || subTowns.length > 1;
 ---
 <div class="mb-8 space-y-3 md:mb-10" data-event-filters>
   <div class="filter-row" role="group" aria-label="Filter events by time">
@@ -57,6 +63,14 @@ const pill =
       ))}
     </div>
   </div>
+  {foldable && (
+    <p class="sm:hidden">
+      <button type="button" class="inline-flex min-h-11 items-center gap-1.5 text-[0.9375rem] font-semibold text-primary underline" aria-expanded="false" aria-controls="event-filter-more" data-filter-more>
+        Filter by type<span data-filter-more-count></span>
+      </button>
+    </p>
+  )}
+  <div id="event-filter-more" class:list={['space-y-3', foldable && 'max-sm:hidden']} data-filter-fold>
   <div class="filter-row" role="group" aria-label="Filter events by category">
     <span class="eyebrow text-ink-muted">What</span>
     <div class="filter-pills">
@@ -79,6 +93,14 @@ const pill =
       </div>
     </div>
   )}
+  </div>
+  {/* What is set, and the way back to the whole list, in view whenever a
+      filter is on: the only reset was in the empty state before, so a reader
+      with a shared "free music this weekend" link had to find the pressed
+      pills to undo it. */}
+  <p class="text-[0.9375rem] text-ink-muted" data-filter-active hidden aria-live="polite">
+    Showing <span data-filter-active-words></span>. <button type="button" class="inline-block -my-2 py-2 font-semibold text-primary underline" data-filter-reset>Clear filters</button>
+  </p>
   <p class="sr-only" role="status" data-filter-status></p>
 </div>
 
@@ -101,6 +123,16 @@ const pill =
     const freeButton = bar.querySelector<HTMLButtonElement>('[data-free]');
     const whereButtons = bar.querySelectorAll<HTMLButtonElement>('[data-where]');
     const status = bar.querySelector<HTMLElement>('[data-filter-status]');
+    const active = bar.querySelector<HTMLElement>('[data-filter-active]');
+    const activeWords = bar.querySelector<HTMLElement>('[data-filter-active-words]');
+    const fold = bar.querySelector<HTMLElement>('[data-filter-fold]');
+    const more = bar.querySelector<HTMLButtonElement>('[data-filter-more]');
+    const moreCount = bar.querySelector<HTMLElement>('[data-filter-more-count]');
+    const setFold = (open: boolean) => {
+      fold?.classList.toggle('max-sm:hidden', !open);
+      more?.setAttribute('aria-expanded', String(open));
+    };
+    more?.addEventListener('click', () => setFold(more.getAttribute('aria-expanded') !== 'true'));
 
     const WHEN = new Set([...whenButtons].map((b) => b.dataset.when));
     const CATS = new Set([...catButtons].map((b) => b.dataset.category));
@@ -156,13 +188,23 @@ const pill =
       }
       const empty = root.querySelector<HTMLElement>('[data-filter-empty]');
       if (empty) empty.hidden = !!root.querySelector(`${ITEM}:not([hidden])`);
+      const whenLabel = bar.querySelector(`[data-when="${when}"]`)?.textContent?.trim().toLowerCase() ?? '';
+      const catLabel = category === 'all' ? 'all categories' : (bar.querySelector(`[data-category="${category}"]`)?.textContent?.trim().toLowerCase() ?? category);
+      const whereLabel = where === 'all' ? '' : `, in ${bar.querySelector(`[data-where="${where}"]`)?.textContent?.trim() ?? where}`;
+      const on = when !== 'any' || category !== 'all' || free || where !== 'all';
       if (status) {
         const shown = root.querySelectorAll(`${ITEM}:not([hidden])`).length;
-        const whenLabel = bar.querySelector(`[data-when="${when}"]`)?.textContent?.trim().toLowerCase() ?? '';
-        const catLabel = category === 'all' ? 'all categories' : category;
-        const whereLabel = where === 'all' ? '' : `, in ${bar.querySelector(`[data-where="${where}"]`)?.textContent?.trim() ?? where}`;
         status.textContent = `${shown} ${shown === 1 ? 'event' : 'events'}, ${whenLabel}, ${catLabel}${free ? ', free' : ''}${whereLabel}`;
       }
+      // The line under the pills: what is set, and the way back.
+      if (active) active.hidden = !on;
+      if (activeWords) activeWords.textContent = [when !== 'any' ? whenLabel : '', category !== 'all' ? catLabel : '', free ? 'free' : '', whereLabel.replace(/^, /, '')].filter(Boolean).join(', ');
+      // The highlights lead the whole list only; a filtered list is the list alone.
+      const highlights = root.querySelector<HTMLElement>('[data-filter-highlights]');
+      if (highlights) highlights.hidden = on;
+      // A phone's folded rows: how many of them are set, on the button.
+      const folded = (category !== 'all' ? 1 : 0) + (free ? 1 : 0) + (where !== 'all' ? 1 : 0);
+      if (moreCount) moreCount.textContent = folded > 0 ? ` (${folded} on)` : '';
       if (push) {
         const url = new URL(location.href);
         if (when === 'any') url.searchParams.delete('when');
@@ -205,14 +247,17 @@ const pill =
       });
     }
 
-    // "Everything, any time" means exactly that.
-    root.querySelector<HTMLButtonElement>('[data-filter-reset]')?.addEventListener('click', () => {
-      when = 'any';
-      category = 'all';
-      free = false;
-      where = 'all';
-      apply(when, category, free, where, true);
-    });
+    // "Everything, any time" means exactly that, from either button.
+    for (const reset of root.querySelectorAll<HTMLButtonElement>('[data-filter-reset]')) {
+      reset.addEventListener('click', () => {
+        when = 'any';
+        category = 'all';
+        free = false;
+        where = 'all';
+        apply(when, category, free, where, true);
+        whenButtons[0]?.focus();
+      });
+    }
 
     // A shared or bookmarked link. Unknown values fall back to the defaults
     // rather than pressing nothing. ?when=free is the old spelling of ?free=1;
@@ -225,6 +270,7 @@ const pill =
     if (w === 'free' || params.get('free') === '1') free = true;
     if (c && CATS.has(c)) category = c;
     if (sub && WHERE.has(sub)) where = sub;
+    if (category !== 'all' || free || where !== 'all') setFold(true);
     apply(when, category, free, where, false);
   }
 </script>

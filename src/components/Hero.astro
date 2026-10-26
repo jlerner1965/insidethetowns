@@ -2,12 +2,19 @@
 /**
  * Full-bleed town photograph with the town name set large in Fraunces.
  * The photo is the town's identity; the type stays the same across sites.
+ *
+ * Sized by what is in it (design pass, 26 October 2026): the county, the
+ * name, the town's own line and three ways in, with the photograph behind
+ * them, and no minimum height. It was capped at about half the screen and
+ * still pushed the week below the fold on a phone; now the week starts
+ * where the type ends, and a long name or enlarged text makes the panel
+ * taller rather than clipping or shrinking the buttons.
  */
 import { Image } from 'astro:assets';
 import { countyLabel, getSite } from '@/config';
 import { resolveSiteImage } from '@/lib/images';
 import { getTownEntries } from '@/lib/content';
-import { heroSecondLink } from '@/lib/places';
+import { heroSecondLink, heroThirdLink } from '@/lib/places';
 import { EAT_DRINK_TYPES, THINGS_TO_DO_TYPES } from '@/content/schemas';
 import { shorten } from '@/lib/text';
 
@@ -33,7 +40,11 @@ const {
   // every width, which read as a truncation error on the first line of
   // the site. The full tagline stays in the meta description and the footer.
   subtitle = site.kind === 'town' ? site.shortTagline ?? site.tagline : site.tagline,
-  links = site.kind === 'town' ? [{ label: 'This week', href: '/this-week/', primary: true }, second] : [],
+  // This week, then the bigger of the two place sections, then the
+  // resident's page the guide has: Living here where it exists, else Moving
+  // here. The same three everywhere, so a reader who knows one guide knows
+  // them all; which pages they are is the guide's.
+  links = site.kind === 'town' ? [{ label: 'This week', href: '/this-week/', primary: true }, second, heroThirdLink(site)] as NonNullable<Props['links']> : [],
 } = Astro.props;
 const hero = resolveSiteImage(site.slug, site.hero.image);
 // The tagline in two lines at most, shortened at a phrase (src/lib/text.ts)
@@ -82,11 +93,8 @@ const subtitleLong = shorten(subtitle, 88);
   */}
   <div class="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.5)_55%,rgba(0,0,0,0.36)_86%,transparent_100%)]"></div>
   <div class="absolute inset-0 -z-10 bg-primary/20 mix-blend-multiply"></div>
-  {/* Capped as well as proportional, and kept to about half the screen so
-      "What’s on" and the first row of events are in view before any scroll:
-      at 1440×900 the old 78svh hero pushed the section heading off the
-      bottom. A phone gets a smaller share still. */}
-  <div class="container-page relative flex min-h-[min(44svh,400px)] flex-col justify-end pb-8 pt-16 md:min-h-[min(50svh,560px)] md:pb-10">
+  {/* No minimum height: the padding and the type set it. */}
+  <div class="container-page relative flex flex-col justify-end pb-7 pt-12 sm:pt-16 md:pb-9 md:pt-20">
     {/*
       White, as on every band. The amber this line once shared with the
       other bands came in between 2.88:1 and 3.90:1 against the rendered
@@ -94,20 +102,21 @@ const subtitleLong = shorten(subtitle, 88);
       of them. Since Color System 2.0 the bands' eyebrows are white too.
     */}
     <p class="eyebrow text-white">{eyebrow}</p>
-    {/* A third smaller than it was, so "Carbon Valley" and "Fort Collins"
-        hold one line at desktop width. The whole tagline is in the meta
-        description and the footer. */}
-    <h1 class="display mt-3 text-[2.875rem] sm:text-[4rem] lg:text-[6rem]">{title}</h1>
-    <p class="mt-4 line-clamp-2 max-w-xl text-lg leading-snug text-white/85 md:text-2xl">
+    {/* Smaller than the poster size it was (6rem on a desktop), so "Carbon
+        Valley" and "Manitou Springs" hold one line on a tablet and wrap
+        cleanly on a phone, and the week is a scroll closer. The whole
+        tagline is in the meta description and the footer. */}
+    <h1 class="display mt-2 text-[2.5rem] [overflow-wrap:anywhere] sm:text-[3.25rem] lg:text-[4.25rem]">{title}</h1>
+    <p class="mt-3 max-w-xl text-[1.0625rem] leading-snug text-white/85 md:text-xl">
       <span class="sm:hidden">{subtitleShort}</span><span class="hidden sm:inline">{subtitleLong}</span>
     </p>
     {links.length > 0 && (
-      <div class="mt-6 flex flex-wrap gap-3 md:mt-7">
+      <div class="mt-5 flex flex-wrap gap-2.5 md:mt-6">
         {links.map((l) => (
           <a href={l.href} class:list={['btn', l.primary ? 'btn-light' : 'btn-outline text-white']}>{l.label}</a>
         ))}
       </div>
     )}
-    {site.hero.credit && <p class="mt-5 text-xs text-white/70">Photo: {site.hero.credit}</p>}
+    {site.hero.credit && <p class="mt-4 text-[0.875rem] text-white/80">Photo: {site.hero.credit}</p>}
   </div>
 </section>

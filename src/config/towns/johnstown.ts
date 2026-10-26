@@ -45,7 +45,7 @@ export const johnstown: TownConfig = {
   social: {
     email: 'hello@insidejohnstown.com',
   },
-  // The flagship home page (src/components/home/FlagshipHome.astro), since 22 October 2026.
+  // A resident guide (TownConfig.home), since 22 October 2026.
   home: true,
   /**
    * Roosevelt High's colours, read from its own site 25 October 2026
