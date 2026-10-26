@@ -42,9 +42,12 @@ test('a condition the exported file cannot express stops the build', () => {
 test('the real vercel.json gives Lyons the old explorelyons paths and Niwot none of them', () => {
   const real = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8'));
   const lyons = redirectsFor('insidelyons.com', real);
-  for (const path of ['/explore', '/eat-shop', '/stay', '/outdoors', '/itineraries', '/plan-a-visit', '/our-story', '/civic', '/community']) {
+  for (const path of ['/explore', '/eat-shop', '/outdoors', '/itineraries', '/plan-a-visit', '/our-story', '/civic', '/community']) {
     assert.match(lyons, new RegExp(`^${path} `, 'm'), path);
   }
+  // /stay/ is a page on every guide with lodging since 20 October 2026, so the
+  // old explorelyons /stay/ rule is gone: a host rule would answer before the page.
+  assert.doesNotMatch(lyons, /^\/stay /m);
   assert.doesNotMatch(redirectsFor('insideniwot.com', real), /eat-shop|our-story|civic/);
 });
 
