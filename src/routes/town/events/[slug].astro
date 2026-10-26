@@ -15,6 +15,8 @@ import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 import Provenance from '@/components/Provenance.astro';
 import EventCard from '@/components/EventCard.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
+import ReadableSessionLinks from '@/components/ReadableSessionLinks.astro';
+import { organizerLink, sessionLinks, sittingWord } from '@/lib/session-links';
 
 export async function getStaticPaths() {
   const events = await getTownEntries('events');
@@ -76,8 +78,13 @@ const statusLabel = data.status !== 'scheduled' ? EVENT_STATUS_LABELS[data.statu
 const allShows = data.performances ? occurrences([event], { horizonDays: 400 }) : [];
 const showsLeft = upcoming(allShows);
 const shows = showsLeft.length > 0 ? showsLeft : allShows;
+/**
+ * A play's dates are performances; a storytime's are sessions, a council's
+ * meetings, a market's dates (src/lib/session-links.ts, `sittingWord`).
+ */
+const sittings = sittingWord(data.category, data.performances?.length ?? 2);
 const repeatNote = data.performances
-  ? `${data.performances.length} performances, ${formatDayRange(data.start, data.performances.at(-1)!.start)}`
+  ? `${data.performances.length} ${sittings}, ${formatDayRange(data.start, data.performances.at(-1)!.start)}`
   : data.recurring ??
     (data.repeat === 'weekly' && data.until && !event.seriesCut ? `Every ${formatWeekday(data.start)} through ${formatDate(data.until)}` : undefined);
 const url = new URL(Astro.url.pathname, Astro.site).toString();
@@ -144,12 +151,34 @@ const googleUrl = googleFor(next);
 // page is offered as a check rather than as the next step.
 const offList = isCanceled(event);
 /**
+ * The main button: the organizer's page for the session a reader can still
+ * attend. A listing of several sessions often keeps the first session's page
+ * as its `url` and every session's page in its body; once the first is over,
+ * the button follows the body to the next one rather than to an expired
+ * page (audit, 26 October 2026). A series page stands as it is.
+ */
+const organizerHref = organizerLink(data.url, sessionLinks(event.body), when.start);
+/**
+ * Two listings of one program at one place: the 10 am and the 1 pm storytime,
+ * a title and the same title "(afternoon)". Each says where the other is in
+ * its own words; as a recommendation it would spend a slot on the program
+ * the reader is already looking at (audit, 26 October 2026).
+ */
+const programWords = (title: string) =>
+  new Set(title.toLowerCase().replace(/&/g, ' and ').replace(/[’']/g, '').split(/[^a-z0-9]+/).filter((w) => w && !['the', 'a', 'an', 'and', 'at', 'of', 'in', 'on'].includes(w)));
+const sameProgram = (other: TownEntry<'events'>) => {
+  if (other.data.venue !== data.venue) return false;
+  const [x, y] = [programWords(other.data.title), programWords(data.title)];
+  const [small, big] = x.size <= y.size ? [x, y] : [y, x];
+  return small.size >= 2 && [...small].every((w) => big.has(w));
+};
+/**
  * Three more things on soon, the same venue's first. A listing with a short
  * description and no picture left a wide empty column beside the facts, and
  * every event page ended at the back link.
  */
 const soon = uniqueByEvent(upcoming(occurrences(await getTownEntries('events'), { horizonDays: 30 }))).filter(
-  (e) => e.slug !== event.slug && e.data.title !== data.title && !isCanceled(e),
+  (e) => e.slug !== event.slug && e.data.title !== data.title && !sameProgram(e) && !isCanceled(e),
 );
 const alsoOn = [...soon.filter((e) => e.data.venue === data.venue), ...soon.filter((e) => e.data.venue !== data.venue)].slice(0, 3);
 const facts = [
@@ -190,57 +219,33 @@ const facts = [
   ]}
 >
   {/*
-    Two columns on a wide screen, one on a phone, and on a phone the order
-    changes: the notice, then When and Where, then the picture and the
-    description. The facts used to come after the whole description and the
-    back link, a screen or two down. Each column's wrapper is `contents`
-    below lg, so its children take part in the outer column's `order`.
+    Two columns on a wide screen, one on a phone. The source order is the
+    phone's reading order, so a screen reader and the keyboard meet the same
+    sequence the eye does: the notice, then When and Where with the
+    organizer's button, the calendar links and the check date, then the
+    picture and the description, and only after them the other listings and
+    the email signup. Until 26 October 2026 the facts came last in the source
+    and were moved up with `order`, so a phone's screen reader read the
+    recommendations and the signup form before the date (audit, 26 October
+    2026). On a wide screen the facts take the right-hand column from the
+    top, beside the notice and the description, as before.
   */}
-  <div class="flex flex-col gap-10 lg:grid lg:grid-cols-[1fr_20rem] lg:items-start lg:gap-16">
-    <div class="contents lg:block">
-      {statusLabel && (
-        <div class="order-1 max-w-[40rem] rounded-r-lg border-l-4 border-highlight bg-highlight-soft p-5 lg:mb-10" role="note">
-          <p class="eyebrow text-ink">{statusLabel}</p>
-          <p class="mt-2 leading-relaxed">
-            {data.statusNote}
-            {data.statusSource && (
-              <Fragment>
-                {' '}<a href={data.statusSource} rel="noopener" class="text-primary underline">Source →</a>
-              </Fragment>
-            )}
-          </p>
-        </div>
-      )}
-      <div class="order-3">
-        {data.image && (
-          <figure class="mb-10">
-            <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
-            {data.imageCredit && (
-              <figcaption class="mt-2 text-[0.8125rem] text-ink-muted">Photo: {data.imageCredit}</figcaption>
-            )}
-          </figure>
-        )}
-        <div class="prose">
-          <Content />
-        </div>
-        {alsoOn.length > 0 && (
-          <section class="mt-14" aria-labelledby="also-on" data-hide-when-empty data-pagefind-ignore>
-            <h2 id="also-on" class="eyebrow border-b-2 border-accent pb-3">Also coming up in {town.name}</h2>
-            <div class="border-b border-line-soft">
-              {alsoOn.map((e) => <EventCard event={e} />)}
-            </div>
-          </section>
-        )}
-        {/* Search lands people here, not on the home page; the one ask the
-            guide makes goes where the readers are. */}
-        <div class="mt-14">
-          <NewsletterSignup town={town} compact id="event-signup" />
-        </div>
+  <div class="flex flex-col gap-10 lg:grid lg:grid-cols-[1fr_20rem] lg:items-start lg:gap-x-16 lg:gap-y-0">
+    {statusLabel && (
+      <div class="max-w-[40rem] rounded-r-lg border-l-4 border-highlight bg-highlight-soft p-5 lg:col-start-1 lg:row-start-1 lg:mb-10" role="note">
+        <p class="eyebrow text-ink">{statusLabel}</p>
+        <p class="mt-2 leading-relaxed">
+          {data.statusNote}
+          {data.statusSource && (
+            <Fragment>
+              {' '}<a href={data.statusSource} rel="noopener" class="text-primary underline">Source →</a>
+            </Fragment>
+          )}
+        </p>
       </div>
-      <p class="order-5 text-[0.9375rem] lg:mt-12"><a href="/events/" class="inline-block -my-1 py-1 font-semibold text-primary underline">← All events</a></p>
-    </div>
-    <div class="contents lg:block lg:pt-1">
-      <aside class="order-2">
+    )}
+    <div class="flex flex-col gap-10 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:block lg:pt-1">
+      <aside>
         <dl class="divide-y divide-line-soft border-y border-line-soft">
           {facts.map((f) => (
             <div class="py-4">
@@ -261,13 +266,13 @@ const facts = [
             </div>
           ))}
         </dl>
-        {data.url && (
-          <a href={data.url} rel="noopener" class:list={['btn mt-6', offList ? 'btn-outline text-primary' : 'btn-primary']}>Organizer’s page →</a>
+        {organizerHref && (
+          <a href={organizerHref} rel="noopener" class:list={['btn mt-6', offList ? 'btn-outline text-primary' : 'btn-primary']}>Organizer’s page →</a>
         )}
         {/* Two buttons, not two 20px text links a middot apart. */}
         {!offList && showsLeft.length > 0 && (
           <div class="mt-6" data-hide-when-empty>
-            <p class="eyebrow" id="shows">Performances · add one to your calendar</p>
+            <p class="eyebrow" id="shows">{sittings[0]!.toUpperCase()}{sittings.slice(1)} · add one to your calendar</p>
             <ul class="mt-2 divide-y divide-line-soft border-y border-line-soft" aria-labelledby="shows">
               {showsLeft.map((show) => {
                 const label = `${formatDayShort(show.data.start)}, ${show.data.timeNote ?? formatTime(show.data.start)}`;
@@ -294,7 +299,7 @@ const facts = [
           </div>
         )}
       </aside>
-      <div class="order-4 -mt-4 lg:mt-0">
+      <div class="-mt-4 lg:mt-0">
         <Provenance
           verified={data.verified}
           source={data.source}
@@ -304,6 +309,33 @@ const facts = [
           note="Times can change; the organizer’s page is the record."
         />
       </div>
+    </div>
+    <div class:list={['lg:col-start-1', statusLabel ? 'lg:row-start-2' : 'lg:row-start-1']}>
+      {data.image && (
+        <figure class="mb-10">
+          <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
+          {data.imageCredit && (
+            <figcaption class="mt-2 text-[0.8125rem] text-ink-muted">Photo: {data.imageCredit}</figcaption>
+          )}
+        </figure>
+      )}
+      <div class="prose">
+        <ReadableSessionLinks><Content /></ReadableSessionLinks>
+      </div>
+      {alsoOn.length > 0 && (
+        <section class="mt-14" aria-labelledby="also-on" data-hide-when-empty data-pagefind-ignore>
+          <h2 id="also-on" class="eyebrow border-b-2 border-accent pb-3">Also coming up in {town.name}</h2>
+          <div class="border-b border-line-soft">
+            {alsoOn.map((e) => <EventCard event={e} />)}
+          </div>
+        </section>
+      )}
+      {/* Search lands people here, not on the home page; the one ask the
+          guide makes goes where the readers are. */}
+      <div class="mt-14">
+        <NewsletterSignup town={town} compact id="event-signup" />
+      </div>
+      <p class="mt-10 text-[0.9375rem] lg:mt-12"><a href="/events/" class="inline-block -my-1 py-1 font-semibold text-primary underline">← All events</a></p>
     </div>
   </div>
 </Page>

@@ -11,6 +11,8 @@ import { createHash } from 'node:crypto';
 import type { Source } from '../../src/content/schemas.ts';
 import { dayKey, toWallClock } from '../../src/lib/dates.ts';
 import { INGEST } from '../../src/config/ingest.ts';
+import { sameAddress } from '../../src/lib/address.ts';
+import { normalizeUrl } from '../../src/lib/session-links.ts';
 import type { FeedEvent } from './feeds/types.ts';
 import { eventSlug } from './event-files.ts';
 
@@ -28,6 +30,15 @@ export interface ExistingEvent {
   sourceHash?: string;
   /** The host of the page the file was read from, without "www.": the site whose ids `sourceUid` belongs to. */
   sourceHost?: string;
+  /** The street address the file gives, for telling one venue written two ways ("400 S Parish Ave", "400 South Parish Avenue"). */
+  address?: string;
+  /**
+   * The organizer's pages this date of the file cites: its `url` and
+   * `source`, and the session's own page where the body lists one
+   * (src/lib/session-links.ts). The feed's link for an item is the
+   * organizer's id for it, where the file carries no `sourceUid`.
+   */
+  urls?: string[];
 }
 
 /** "https://www.firestoneco.gov/calendar.aspx?EID=2690" -> "firestoneco.gov". */
@@ -198,8 +209,11 @@ export function fingerprint(item: FeedEvent, venue: string | undefined): string 
   return createHash('sha1').update(parts.join('|')).digest('hex').slice(0, 12);
 }
 
-/** Feed item -> the file it would become in staging. */
-export function toStaged(item: FeedEvent, source: Source, _town: string, today: string): StagedEvent {
+/**
+ * Feed item -> the file it would become in staging. `dupes`, the published
+ * listings it may repeat (`possibleDuplicates`), lead the review line.
+ */
+export function toStaged(item: FeedEvent, source: Source, _town: string, today: string, dupes: PossibleDuplicate[] = []): StagedEvent {
   const guesses: string[] = [];
   const { venue, address, guessed: venueGuessed } = venueFrom(item.location, source);
   const { category, guessed: categoryGuessed } = guessCategory(item);
@@ -207,7 +221,8 @@ export function toStaged(item: FeedEvent, source: Source, _town: string, today: 
   if (!venue) guesses.push('the feed gives no venue');
   else if (venueGuessed) guesses.push(`venue read from "${item.location}"`);
   if (categoryGuessed) guesses.push(`category guessed (${category})`);
-  const reason = [`Ingested from ${source.name}; check against the organizer's page`, ...guesses, 'description is the feed\'s text: rewrite'].join('. ');
+  const dupe = duplicateNote(dupes);
+  const reason = [...(dupe ? [dupe] : []), `Ingested from ${source.name}; check against the organizer's page`, ...guesses, 'description is the feed\'s text: rewrite'].join('. ');
   const frontmatter: Record<string, unknown> = {
     title: item.title,
     // On a multi-town guide the feed's registry entry says which town it is
@@ -240,23 +255,46 @@ export function toStaged(item: FeedEvent, source: Source, _town: string, today: 
 export type Match =
   | { kind: 'none' }
   | { kind: 'staged'; existing: ExistingEvent }
-  | { kind: 'published'; existing: ExistingEvent };
+  | { kind: 'published'; existing: ExistingEvent }
+  /**
+   * Two or more published files are each this item, by the organizer's link
+   * or by day, time and title: the guide lists one event twice. No rule
+   * merges them; the files are flagged for a person to merge.
+   */
+  | { kind: 'ambiguous'; candidates: ExistingEvent[]; why: string };
+
+/** Within half an hour: the same sitting, as far as a feed can say. */
+const HALF_HOUR = 30 * 60_000;
+
+/** The first entry of each file, in order. */
+function byFile<T extends { file: string }>(list: T[]): T[] {
+  const seen = new Set<string>();
+  return list.filter((e) => (seen.has(e.file) ? false : (seen.add(e.file), true)));
+}
 
 /**
  * The existing file a feed item is about, if any. The feed's own id wins;
- * failing that, the same Denver day and a title sharing most of its words.
- * Two different events on one day at one venue with near-identical titles
- * (two storytimes) are told apart by their start time.
- */
-/**
+ * then the organizer's page for the item (its link), which a file cites as
+ * its `url` or `source` or lists in its body; failing those, the same Denver
+ * day and a title sharing most of its words. Two different events on one day
+ * at one venue with near-identical titles (two storytimes) are told apart by
+ * their start time.
+ *
  * `claimed`: every feed id in this run, so that a file another current item
- * owns by id is never taken over by title.
+ * owns by id is never taken over by title or link.
  *
  * `siblings`: how many items in the same feed share this item's title and
  * day. One (the usual case) means a listing with that title on that day is
  * this event, whatever time it says, so a moved time is detected as a
  * change. Two or more (a morning and an afternoon storytime) means the time
  * is what tells them apart, and only the nearest within half an hour matches.
+ *
+ * Where two published files both answer, the item is given to neither: the
+ * guide lists the event twice (Johnstown's 1 pm storytime, in two files from
+ * two handoffs, until 26 October 2026), and which one stays is an editor's
+ * call. A published file within half an hour is preferred to one that is
+ * not, so a series at 10 and its twin at 1 are not taken for a pair on a day
+ * the feed lists only one of them.
  */
 export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblings = 1, claimed?: ReadonlySet<string>, host?: string): Match {
   // A site's ids are its own: CivicPlus numbers its events from 1 on every
@@ -269,22 +307,103 @@ export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblin
   const byUid = existing.find((e) => e.sourceUid && e.sourceUid === item.uid && (!host || !e.sourceHost || sameSite(e.sourceHost, host)));
   if (byUid) return { kind: byUid.staged ? 'staged' : 'published', existing: byUid };
   const day = dayKey(item.start);
-  const sameDay = existing.filter((e) => dayKey(e.start) === day);
-  let best: { e: ExistingEvent; score: number } | undefined;
+  const near = (e: ExistingEvent) => item.allDay || Math.abs(e.start.getTime() - item.start.getTime()) <= HALF_HOUR;
+  // A file whose own feed id is still in this run belongs to that item.
+  // "Council at Longmont Farmers Market" shares most of its words with the
+  // market itself, and once took over the market's file; an id that has
+  // gone from the feed (the County's change when a time moves) can still
+  // be found by its title, which is how a moved event is noticed.
+  const free = (e: ExistingEvent) => !(claimed && e.sourceUid && e.sourceUid !== item.uid && claimed.has(e.sourceUid));
+  const sameDay = existing.filter((e) => dayKey(e.start) === day && free(e));
+  const decide = (found: ExistingEvent[], why: string): Match | undefined => {
+    if (!found.length) return undefined;
+    const published = byFile(found.filter((e) => !e.staged));
+    if (published.length > 1) {
+      const close = published.filter(near);
+      if (close.length === 1) return { kind: 'published', existing: close[0]! };
+      return { kind: 'ambiguous', candidates: close.length > 1 ? close : published, why };
+    }
+    const best = found[0]!;
+    return { kind: best.staged ? 'staged' : 'published', existing: best };
+  };
+  // The organizer's page for this date: the id a file without the feed's
+  // own carries. A file that cites another session's page (the 10 am
+  // listing linking the 1 pm page) is not this item, so with a sibling that
+  // day the time still has to agree.
+  const link = item.url ? normalizeUrl(item.url) : undefined;
+  if (link) {
+    const found = sameDay.filter((e) => e.urls?.some((u) => normalizeUrl(u) === link) && (siblings <= 1 || near(e)));
+    const hit = decide(found, `each cites the organizer's page for it, ${item.url}`);
+    if (hit) return hit;
+  }
+  const scored: Array<{ e: ExistingEvent; score: number }> = [];
   for (const e of sameDay) {
-    // A file whose own feed id is still in this run belongs to that item.
-    // "Council at Longmont Farmers Market" shares most of its words with the
-    // market itself, and once took over the market's file; an id that has
-    // gone from the feed (the County's change when a time moves) can still
-    // be found by its title, which is how a moved event is noticed.
-    if (claimed && e.sourceUid && e.sourceUid !== item.uid && claimed.has(e.sourceUid)) continue;
     const score = titleSimilarity(item.title, e.title);
     if (score < INGEST.titleMatch) continue;
-    if (siblings > 1 && !item.allDay && Math.abs(e.start.getTime() - item.start.getTime()) > 30 * 60_000) continue;
-    if (!best || score > best.score) best = { e, score };
+    if (siblings > 1 && !item.allDay && !near(e)) continue;
+    scored.push({ e, score });
   }
-  if (!best) return { kind: 'none' };
-  return { kind: best.e.staged ? 'staged' : 'published', existing: best.e };
+  // Highest first; the sort is stable, so a tie goes to the file found first, as before.
+  scored.sort((a, b) => b.score - a.score);
+  return decide(scored.map((s) => s.e), 'the same day and nearly the same title') ?? { kind: 'none' };
+}
+
+/** A published file the review should rule on before a staged item is approved beside it. */
+export interface PossibleDuplicate {
+  existing: ExistingEvent;
+  /** Why, in words for the review line. */
+  why: string;
+}
+
+/** Below this share of words, two titles at one place and time are two events (a storytime and a board meeting). */
+export const DUPLICATE_TITLE_FLOOR = 0.3;
+
+/** One venue, by its name or by its street address written either way. */
+export function sameVenue(a: { venue?: string; address?: string }, b: { venue?: string; address?: string }): boolean {
+  if (a.venue && b.venue && normalizeVenue(a.venue) === normalizeVenue(b.venue)) return true;
+  return sameAddress(a.address, b.address);
+}
+
+/**
+ * Published files a new item may repeat though it matched none of them: the
+ * same day, a start within half an hour, the same venue (by name, or by
+ * address with "400 S Parish Ave" read as "400 South Parish Avenue"), and
+ * titles that share some words without sharing most ("Music & Movement
+ * Storytime" and "Afternoon Sessions: Music and Movement"). Neither merged
+ * nor dropped: the item goes to staging with the files named, and the
+ * standing rules leave it for a person (scripts/lib/auto-review.ts).
+ */
+export function possibleDuplicates(
+  item: FeedEvent,
+  place: { venue?: string; address?: string },
+  existing: ExistingEvent[],
+  claimed?: ReadonlySet<string>,
+): PossibleDuplicate[] {
+  const day = dayKey(item.start);
+  const out: PossibleDuplicate[] = [];
+  for (const e of existing) {
+    if (e.staged || dayKey(e.start) !== day) continue;
+    if (claimed && e.sourceUid && e.sourceUid !== item.uid && claimed.has(e.sourceUid)) continue;
+    if (!item.allDay && Math.abs(e.start.getTime() - item.start.getTime()) > HALF_HOUR) continue;
+    if (!sameVenue(place, e)) continue;
+    const score = titleSimilarity(item.title, e.title);
+    if (score < DUPLICATE_TITLE_FLOOR) continue;
+    out.push({ existing: e, why: `same day, start within half an hour, same venue, titles ${Math.round(score * 100)}% alike` });
+  }
+  return byFile(out.map((d) => ({ ...d, file: d.existing.file }))).map(({ existing: e, why }) => ({ existing: e, why }));
+}
+
+/** The review line a staged item carries while it may repeat a published listing. */
+export function duplicateNote(dupes: PossibleDuplicate[]): string | undefined {
+  if (!dupes.length) return undefined;
+  const list = dupes.map((d) => `${d.existing.slug} ("${d.existing.title}": ${d.why})`).join(' and ');
+  return `Possible duplicate of ${list}. Merge it into that listing or reject it; do not approve it as a new one`;
+}
+
+/** The flag a published file carries while another published file lists the same event. */
+export function ambiguousNote(item: FeedEvent, candidates: ExistingEvent[], why: string, sourceName: string, today: string): string {
+  const files = candidates.map((c) => c.slug).join(' and ');
+  return `Possible duplicate listings: ${files} are each "${item.title}" on ${toWallClock(item.start)} in ${sourceName} (${why}; read ${today}). Keep one, merge the other's facts into it and redirect its URL, or dismiss`;
 }
 
 /** For each item, how many items in the same feed share its title and day. */

@@ -815,6 +815,39 @@
       ],
       "destination": "/things-to-do/",
       "permanent": true
+    },
+    {
+      "source": "/events/music-and-movement-afternoon-sessions-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidejohnstown.com"
+        }
+      ],
+      "destination": "/events/music-and-movement-storytime-afternoon/",
+      "permanent": true
+    },
+    {
+      "source": "/events/music-and-movement-afternoon-sessions-2026.ics",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidejohnstown.com"
+        }
+      ],
+      "destination": "/events/music-and-movement-storytime-afternoon.ics",
+      "permanent": true
+    },
+    {
+      "source": "/events/music-and-movement-afternoon-sessions-2026/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidejohnstown.com"
+        }
+      ],
+      "destination": "/events/music-and-movement-storytime-afternoon.ics",
+      "permanent": true
     }
   ]
 }

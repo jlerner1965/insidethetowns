@@ -125,6 +125,8 @@ export function decideEvent(text: string, ctx: EventContext): Verdict {
   if (ctx.town.subTowns && !d.subTown) reasons.push(`a ${ctx.town.name} listing needs a subTown`);
   const dup = ctx.published.find((p) => dayKey(p.start) === startDay && titleSimilarity(p.title, d.title) >= INGEST.titleMatch);
   if (dup) reasons.push(`may be ${dup.file} ("${dup.title}", the same day)`);
+  // Ingest's own duplicate check (same place and time, a looser title): a person merges or rejects.
+  if (/^Possible duplicate of /.test(review.reason ?? '')) reasons.push('ingest flagged it as a possible duplicate of a published listing');
   if (ctx.targetExists) reasons.push('a published file with this slug already exists');
   if (reasons.length) return { approve: false, reasons };
 
