@@ -1,10 +1,12 @@
 # The flagship design
 
 The home page, header and navigation of the seven flagship guides (Berthoud,
-Niwot, Lyons, Erie, Johnstown, Elizabeth, Windsor), as the owner signed them
-off on 26 October 2026. Any later fix follows this page. The values here are
-the ones in the code; `test/design.test.ts` reads them back from the code and
-fails `npm test` when the two disagree.
+Niwot, Lyons, Erie, Johnstown, Elizabeth, Windsor), as put to the owner for
+sign-off on 26 October 2026 with before-and-after captures of Berthoud and
+Niwot at phone and desktop widths. Once signed off, it is final: any later
+fix follows this page. The values here are the ones in the code;
+`test/design.test.ts` reads them back from the code and fails `npm test` when
+the two disagree.
 
 Where things live:
 
