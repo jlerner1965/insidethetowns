@@ -15,8 +15,8 @@ import TeamSeason from '@/components/TeamSeason.astro';
 import { getTown } from '@/config';
 import { schoolSportsFor, schoolsFor, shareImagePath, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
 import { dayKey, formatShortDate } from '@/lib/dates';
-import { coming, hasData, leaguePlace, schoolCssVars, seasonComplete, seasonOf, sportsDataFor, teamDescription, teamPageTitle, teamsWithData } from '@/lib/school-sports';
-import { breadcrumbJsonLd, collectionPageJsonLd, sportsEventJsonLd } from '@/lib/seo';
+import { coming, hasData, leaguePlace, schoolCssVars, seasonComplete, seasonOf, sportsDataFor, sportsFullTitle, teamDescription, teamPageTitle, teamsWithData } from '@/lib/school-sports';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
 const files = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
@@ -52,10 +52,10 @@ const newest = data.sports.map((s) => s.fetched).filter(Boolean).sort().at(-1);
 const stale = !!newest && !!team.fetched && new Date(newest).getTime() - new Date(team.fetched).getTime() > 3 * 86_400_000;
 
 // The H1 ("Berthoud Spartans football"), the <title> as people search
-// ("Berthoud Spartans Football Schedule, Scores & Record 2026 · Inside
-// Berthoud") and the description, every word of them from the data.
+// ("Berthoud Spartans Football Scores & Schedule 2026 · Inside Berthoud")
+// and the description, every word of them from the data.
 const title = `${shortSchool} ${mascot} ${team.name.toLowerCase()}`;
-const fullTitle = `${teamPageTitle(cfg, team, years)} · ${town.siteTitle}`;
+const fullTitle = sportsFullTitle(teamPageTitle(cfg, team, years), town.siteTitle);
 const description = teamDescription(cfg, team, seasonWord, now);
 const jsonLd = [
   collectionPageJsonLd(town, { name: teamPageTitle(cfg, team, years), description, path, updated: data.generated ? new Date(data.generated) : undefined }),
@@ -65,8 +65,7 @@ const jsonLd = [
     ...(cfg.slug ? [{ name: school, path: schoolPath }] : []),
     { name: team.name, path },
   ]),
-  // One SportsEvent per game to come (src/lib/seo.ts).
-  ...ahead.map((c) => sportsEventJsonLd(town, cfg, team, c.game, path)).filter((e): e is NonNullable<typeof e> => !!e),
+  // No SportsEvent per game: see the school page (sports.astro) for why.
 ];
 ---
 <Base title={teamPageTitle(cfg, team, years)} {fullTitle} {description} {jsonLd} image={shareImagePath(cfg, key)} imageAlt={`${title}: scores and schedules on ${town.siteTitle}`}>

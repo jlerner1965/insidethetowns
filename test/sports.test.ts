@@ -689,70 +689,42 @@ test('a result from last season on the wall of a team that is 0-0 is not this se
 });
 
 test('titles and descriptions come from the data: the school, the mascot, the sports with data, the season’s year, the record and the next game', async () => {
-  const { schoolPageTitle, sportList, teamDescription, teamPageTitle, shortWhen } = await import('../src/lib/school-sports.ts');
+  const { schoolPageTitle, sportsFullTitle, teamDescription, teamPageTitle, shortWhen } = await import('../src/lib/school-sports.ts');
   const now = new Date('2026-10-25T15:00:00Z');
   const team = (name: string, overall?: string, upcoming: SportsData['sports'][number]['upcoming'] = [], results: SportsData['sports'][number]['results'] = []) => ({ key: name.toLowerCase().replace(/ /g, '-'), name, maxprepsUrl: '', fetched: 'x', overall, upcoming, results, held: [], notes: [] });
   const football = team('Football', '7-2', [{ date: '2026-10-30', time: '19:00', opponent: 'Severance', site: 'away', url: 'u' }], [{ date: '2026-10-23', opponent: 'Mountain View', site: 'away', result: 'W', score: { us: 50, them: 0 }, url: 'r' }]);
-  assert.equal(teamPageTitle(berthoud, football, '2026'), 'Berthoud Spartans Football Schedule, Scores & Record 2026');
-  assert.equal(teamPageTitle(berthoud, team('Boys basketball'), '2026–27'), 'Berthoud Spartans Boys Basketball Schedule, Scores & Record 2026–27');
+  assert.equal(teamPageTitle(berthoud, football, '2026'), 'Berthoud Spartans Football Scores & Schedule 2026');
+  assert.equal(teamPageTitle(berthoud, team('Boys basketball'), '2026–27'), 'Berthoud Spartans Boys Basketball Scores & Schedule 2026–27');
   assert.equal(teamDescription(berthoud, football, 'fall', now), 'Berthoud High football is 7-2 this fall. Next: at Severance, Friday Oct 30, 7 pm. Every score and the full schedule, from MaxPreps.');
   const softball = team('Softball', '17-10', [], [{ date: '2026-10-17', opponent: 'X', site: 'neutral', result: 'L', score: { us: 1, them: 4 }, url: 'r' }]);
   assert.equal(teamDescription(berthoud, softball, 'fall', now), 'Berthoud High softball is 17-10 this fall. Regular season complete. Every score and the full schedule, from MaxPreps.');
   const state = team('Softball', '27-0', [{ date: '2026-10-31', time: '10:00', opponent: 'Fruita Monument', site: 'neutral', neutral: true, venue: 'Aurora Sports Park', stage: 'State Softball Tournaments', url: 'u' }]);
   assert.equal(teamDescription(schoolSportsFor('windsor')!, state, 'fall', now), 'Windsor High softball is 27-0 this fall. Next: vs Fruita Monument, Saturday Oct 31, 10 am, State Softball Tournaments. Every score and the full schedule, from MaxPreps.');
   assert.equal(shortWhen({ date: '2026-11-07', opponent: 'x', site: 'home', url: 'u' }), 'Saturday Nov 7', 'no time, no comma');
-  // The school's title lists the sports with data; a lone boys' team drops its gender, a pair keeps both.
-  assert.deepEqual(sportList([team('Football'), team('Boys soccer'), team('Volleyball'), team('Softball')]), ['Football', 'Soccer', 'Volleyball', 'Softball']);
-  assert.deepEqual(sportList([team('Boys basketball'), team('Girls basketball')]), ['Boys Basketball', 'Girls Basketball']);
-  assert.equal(schoolPageTitle(berthoud, [team('Football'), team('Boys soccer'), team('Volleyball'), team('Softball')]), 'Berthoud High School Spartans Scores & Schedules — Football, Soccer, Volleyball, Softball');
-  assert.equal(schoolPageTitle(berthoud, []), 'Berthoud High School Spartans Scores & Schedules', 'no data yet, no list');
+  // The school's title names the school, not every sport: each has its own page (audit, 26 October 2026).
+  assert.equal(schoolPageTitle(berthoud), 'Berthoud High School Spartans Scores & Schedules');
+  // The guide's name goes on where the whole fits in 70; the longest school and sport names go without it.
+  assert.equal(sportsFullTitle('Berthoud Spartans Football Scores & Schedule 2026', 'Inside Berthoud'), 'Berthoud Spartans Football Scores & Schedule 2026 · Inside Berthoud');
+  assert.equal(sportsFullTitle('Mountain View Mountain Lions Girls Basketball Scores & Schedule 2026–27', 'Inside Loveland'), 'Mountain View Mountain Lions Girls Basketball Scores & Schedule 2026–27');
+  // Every school and team title in the network, as the pages write it, stays inside 75 characters (it ran to 91).
+  for (const school of SCHOOL_SPORTS) {
+    const guide = findTown(school.town)!.siteTitle;
+    const titles = [schoolPageTitle(school), ...school.teams.map((t) => teamPageTitle(school, t, t.season === 'winter' ? '2026–27' : '2026'))];
+    for (const title of titles) assert.ok(sportsFullTitle(title, guide).length <= 75, sportsFullTitle(title, guide));
+  }
 });
 
 /*
- * schema.org's SportsEvent, as its page lists the type (schema.org/SportsEvent,
- * read 25 October 2026): its own properties, then Event's, then Thing's.
- * Every key the builder writes has to be one of them, and the nested
- * types have to be what the properties take.
+ * No SportsEvent on the sports pages: a schedule of many games is not the
+ * page per event Google's guidelines ask for, and games among minors on a
+ * school's premises are named there as ineligible (26 October 2026).
  */
-const SPORTS_EVENT_PROPERTIES = new Set([
-  'awayTeam', 'competitor', 'homeTeam', 'referee', 'sport',
-  'about', 'actor', 'aggregateRating', 'attendee', 'audience', 'composer', 'contributor', 'director', 'doorTime', 'duration', 'endDate', 'eventAttendanceMode', 'eventSchedule', 'eventStatus', 'funder', 'funding', 'hasParticipationOffer', 'hasSponsorshipOffer', 'inLanguage', 'isAccessibleForFree', 'keywords', 'location', 'maximumAttendeeCapacity', 'maximumPhysicalAttendeeCapacity', 'maximumVirtualAttendeeCapacity', 'offers', 'organizer', 'performer', 'previousStartDate', 'recordedIn', 'remainingAttendeeCapacity', 'review', 'sponsor', 'startDate', 'subEvent', 'superEvent', 'translator', 'typicalAgeRange', 'workFeatured', 'workPerformed',
-  'additionalType', 'alternateName', 'description', 'disambiguatingDescription', 'identifier', 'image', 'mainEntityOfPage', 'name', 'owner', 'potentialAction', 'sameAs', 'subjectOf', 'url',
-]);
-
-test('a game to come is a SportsEvent with only schema.org’s fields, Denver’s offset, the two sides and a place nothing is invented for', async () => {
-  const { sportsEventJsonLd } = await import('../src/lib/seo.ts');
-  const town = findTown('berthoud')!;
-  const football = { name: 'Football' };
-  const away = sportsEventJsonLd(town, berthoud, football, { date: '2026-10-30', time: '19:00', opponent: 'Severance', site: 'away', url: 'https://www.maxpreps.com/g/1' }, '/sports/football/')!;
-  for (const key of Object.keys(away)) assert.ok(key.startsWith('@') || SPORTS_EVENT_PROPERTIES.has(key), `${key} is a SportsEvent property`);
-  assert.equal(away['@type'], 'SportsEvent');
-  assert.equal(away.name, 'Berthoud at Severance — football');
-  assert.equal(away.sport, 'Football');
-  assert.equal(away.startDate, '2026-10-30T19:00:00-06:00', 'Denver, still on daylight time');
-  assert.equal(away.eventStatus, 'https://schema.org/EventScheduled');
-  assert.deepEqual(away.homeTeam, { '@type': 'SportsTeam', name: 'Severance', sport: 'Football' });
-  assert.deepEqual(away.awayTeam, { '@type': 'SportsTeam', name: 'Berthoud', sport: 'Football' });
-  assert.deepEqual(away.location, { '@type': 'Place', name: 'Severance' }, 'the opponent’s school, no address');
-  assert.equal(away.url, 'https://insideberthoud.com/sports/football/');
-  assert.equal(away.sameAs, 'https://www.maxpreps.com/g/1');
-
-  const home = sportsEventJsonLd(town, berthoud, { name: 'Volleyball' }, { date: '2026-11-07', opponent: 'University', site: 'home', url: 'u' }, '/sports/')!;
-  assert.equal(home.startDate, '2026-11-07', 'no time: the date alone');
-  assert.equal(home.name, 'Berthoud vs University — volleyball');
-  assert.deepEqual(home.location, { '@type': 'Place', name: 'Berthoud High School' });
-  assert.equal(home.homeTeam!.name, 'Berthoud');
-  const november = sportsEventJsonLd(town, berthoud, football, { date: '2026-11-13', time: '19:00', opponent: 'X', site: 'home', url: 'u' }, '/sports/')!;
-  assert.equal(november.startDate, '2026-11-13T19:00:00-07:00', 'standard time after the clocks go back');
-
-  const neutral = sportsEventJsonLd(town, schoolSportsFor('windsor')!, { name: 'Softball' }, { date: '2026-10-24', time: '10:00', opponent: 'Fruita Monument', site: 'neutral', neutral: true, venue: 'Aurora Sports Park', stage: 'State Softball Tournaments', url: 'u' }, '/sports/softball/')!;
-  assert.deepEqual(neutral.location, { '@type': 'Place', name: 'Aurora Sports Park' });
-  assert.equal(neutral.homeTeam, undefined, 'a neutral game has no home side');
-  assert.equal(neutral.competitor!.length, 2);
-  assert.match(neutral.description!, /^State Softball Tournaments: Windsor High School softball vs Fruita Monument\.$/);
-  const unknownVenue = sportsEventJsonLd(town, berthoud, football, { date: '2026-11-13', opponent: 'X', site: 'neutral', neutral: true, url: 'u' }, '/sports/')!;
-  assert.equal(unknownVenue.location, undefined, 'no venue, no place invented');
-  assert.equal(sportsEventJsonLd(town, berthoud, football, { date: '', opponent: 'X', site: 'home', url: 'u' }, '/sports/'), undefined, 'no date, nothing');
+test('the sports pages carry no Event markup per game', async () => {
+  const seo = await import('../src/lib/seo.ts');
+  assert.equal('sportsEventJsonLd' in seo, false, 'the builder is gone');
+  for (const route of ['src/routes/town/sports.astro', 'src/routes/town/sports-team.astro']) {
+    assert.doesNotMatch(readFileSync(route, 'utf8'), /SportsEvent'|sportsEventJsonLd\(/, route);
+  }
 });
 
 test('a share card is a 1200×630 PNG in the school’s colour, named for the school or the team', async () => {
@@ -783,7 +755,7 @@ test('the sports pages’ CollectionPage carries dateModified from the run, and 
   const page = collectionPageJsonLd(town, { name: 'x', description: 'y', path: '/sports/', updated: new Date('2026-10-24T17:07:31.253Z') });
   assert.equal(page.dateModified, '2026-10-24T11:07:31-06:00', 'the run’s instant, in Denver’s offset');
   assert.equal('dateModified' in collectionPageJsonLd(town, { name: 'x', description: 'y', path: '/sports/' }), false, 'nothing when the date is unknown');
-  const record = sportsRecord(town, berthoud, { path: '/sports/football/', title: 'Berthoud Spartans Football Schedule, Scores & Record 2026', description: 'Berthoud High football is 7-2 this fall.' }, [{ name: 'Football', overall: '7-2', opponents: ['Severance', 'Mountain View'] }]);
+  const record = sportsRecord(town, berthoud, { path: '/sports/football/', title: 'Berthoud Spartans Football Scores & Schedule 2026', description: 'Berthoud High football is 7-2 this fall.' }, [{ name: 'Football', overall: '7-2', opponents: ['Severance', 'Mountain View'] }]);
   assert.equal(record.url, 'https://insideberthoud.com/sports/football/');
   assert.equal(record.kind, 'Sports');
   assert.equal(record.lead, 'Football 7-2');
@@ -821,7 +793,7 @@ test('a school’s teams are called by its short name and mascot, as people sear
   assert.equal(schoolTeamName(schoolSportsFor('timnath')!), 'Timnath Cubs', 'not "Timnath Middle-High Cubs"');
   assert.equal(schoolTeamName(schoolSportsFor('johnstown')!), 'Roosevelt Roughriders');
   assert.equal(schoolTeamName(schoolSportsFor('loveland', 'resurrection-christian')!), 'Resurrection Christian Cougars');
-  assert.equal(teamPageTitle(schoolSportsFor('lyons')!, { name: 'Football' }, '2026'), 'Lyons Lions Football Schedule, Scores & Record 2026');
+  assert.equal(teamPageTitle(schoolSportsFor('lyons')!, { name: 'Football' }, '2026'), 'Lyons Lions Football Scores & Schedule 2026');
   for (const s of SCHOOL_SPORTS) assert.doesNotMatch(schoolTeamName(s), /School|Middle|Senior|\//, s.school);
 });
 
