@@ -4,6 +4,7 @@ kind: program
 topic: sports
 audience: [preschool, elementary, teens, families]
 organizer: "Thompson Rivers Parks and Recreation"
+organizerUrl: "https://www.trpr.org/"
 url: "https://anc.apm.activecommunities.com/trpr/activity/search?activity_select_param=2&viewMode=list"
 summary: "Morning Day Off Discovery Camps for ages 5 to 8 on three of Weld RE-5J’s days off this fall, $25, and seasonal classes: cheer and fencing at the Johnstown Activity Center, jiu-jitsu and a 6th–8th grade Makers Club at the Milliken Athletic Complex."
 ages: "By program: day camps 5–8; cheer 4–7 and 8–11; youth jiu-jitsu 4–11; fencing 12 and up; Makers Club grades 6–8"
