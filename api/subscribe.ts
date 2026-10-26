@@ -30,7 +30,7 @@ export async function POST(request: Request): Promise<Response> {
   const result = await subscribe(signup, { key: process.env.BUTTONDOWN_API_KEY, ip: clientIp(request.headers) });
   // The reason goes to the function's log, never to the page; the address does not go to either.
   if (result.detail) console.log(`subscribe (${site.slug}): ${result.status}: ${result.detail}`);
-  return json(result.status, result.status === 'confirm' ? 201 : result.status === 'unavailable' ? 503 : 200);
+  return json(result.status, result.status === 'confirm' || result.status === 'added' ? 201 : result.status === 'unavailable' ? 503 : 200);
 }
 
 export function GET(): Response {

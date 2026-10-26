@@ -96,6 +96,8 @@ test('a build signs up from the page only when its project has a Buttondown key,
 test('every answer from the page’s own call has a panel; anything unexpected offers Buttondown’s own form', () => {
   assert.equal(readAnswer({ status: 'confirm' }), 'confirm');
   assert.equal(readAnswer({ status: 'already' }), 'already');
+  assert.equal(readAnswer({ status: 'added' }), 'added');
+  assert.equal(panelFor('added'), 'added');
   assert.equal(readAnswer({ status: 'invalid' }), 'invalid');
   for (const odd of [null, {}, { status: 'refused' }, { status: 'unavailable' }, 'text']) assert.equal(readAnswer(odd), 'unavailable');
   assert.equal(panelFor('confirm'), 'confirm');
@@ -105,6 +107,19 @@ test('every answer from the page’s own call has a panel; anything unexpected o
   assert.match(SIGNUP_MESSAGES.confirm, /check your email/);
   assert.match(SIGNUP_MESSAGES.confirmHelp, /\{email\}/);
   assert.equal(SIGNUP_MESSAGES.continue, 'Continue on Buttondown');
+});
+
+test('each panel says only what Buttondown’s answer supports', () => {
+  // A confirmation email is promised only for `confirm`, an active
+  // subscription only for `added`; "already" is not "signed up", since an
+  // unconfirmed or unsubscribed address is "already" too.
+  assert.match(SIGNUP_MESSAGES.confirmHelp, /confirmation email/);
+  assert.doesNotMatch(`${SIGNUP_MESSAGES.added} ${SIGNUP_MESSAGES.addedHelp}`, /confirm|check your email/i);
+  assert.doesNotMatch(`${SIGNUP_MESSAGES.already} ${SIGNUP_MESSAGES.alreadyHelp}`, /signed up|\bsubscribed\b/i);
+  assert.match(SIGNUP_MESSAGES.alreadyHelp, /never clicked the confirmation link/);
+  assert.doesNotMatch(SIGNUP_MESSAGES.fallbackHelp, /will take it/, 'Buttondown’s form is offered, not promised');
+  const component = readFileSync('src/components/NewsletterSignup.astro', 'utf8');
+  for (const panel of ['confirm', 'added', 'already', 'fallback', 'opened']) assert.match(component, new RegExp(`\\b${panel}: \\{ title: SIGNUP_MESSAGES`), panel);
 });
 
 test('on a guide the address comes before the towns; on the hub the towns come first', () => {
