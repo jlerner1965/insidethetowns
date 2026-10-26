@@ -69,23 +69,22 @@ const list = (names: string[]) => (names.length > 1 ? `${names.slice(0, -1).join
   title="Advertise & partner"
   eyebrow="Work with us"
   description={`Reach residents and visitors across Colorado’s Front Range and mountain towns through the ${live.length} Inside the Towns guides.`}
-  intro={`${live.length} independent guides to Colorado towns, on the Front Range and in the mountains, that people read when they are deciding where to go this weekend, or whether to move here at all. Two ways to work with them: a labeled sponsorship, or a community partnership that costs nothing.`}
+  intro={`${live.length} independent guides to Colorado towns, on the Front Range and in the mountains, written for people deciding where to go this weekend, or whether to move here at all. Two ways to work with them: a labeled sponsorship, or a community partnership that costs nothing.`}
   narrow
 >
   <div class="prose">
     <p>
-      Inside the Towns reaches people who live in, visit, or are about to move to towns and cities on Colorado’s
+      The guides are written for people who live in, visit, or are about to move to towns and cities on Colorado’s
       Front Range and in its mountains, from Fort Collins in the north to Elizabeth south-east of Denver and up to
       Leadville at 10,000 feet. Placements are clearly labeled and never mixed into the editorial listings.
     </p>
 
     <h2>What isn’t for sale</h2>
     <p>
-      A place in the listings. Every guide tells its readers that nobody pays to be listed and nobody can pay to be
-      ranked higher, and that promise is worth more to both of us than a featured slot would be — it is the reason
-      anyone believes the listings in the first place. Sponsorship sits beside the editorial, labeled, never inside
-      it. This is not a policy we will quietly change later; it is written into the
-      <a href="/editorial/">editorial policy</a>.
+      A place in the listings. Nobody pays to be listed, to be ranked higher, to be called a pick or to change what a
+      guide writes, and that is the reason anyone believes the listings. Sponsorship sits beside the editorial,
+      labeled, never inside it. It is written into the <a href="/editorial/">editorial policy</a>, and it applies to
+      partners and sponsors alike.
     </p>
   </div>
 
@@ -116,7 +115,7 @@ const list = (names: string[]) => (names.length > 1 ? `${names.slice(0, -1).join
       <li>
         <strong>Start small.</strong> <a href={communityMailto}>Email {hub.social.email}</a> with your town and
         one thing you would like to try first: a season, a calendar, a correction. We reply with what the guide can
-        do and what we would need from you.
+        do and what we would need from you. The <a href="#pilot-example">example below</a> shows one shape that could take.
       </li>
     </ul>
     <p>
@@ -126,6 +125,45 @@ const list = (names: string[]) => (names.length > 1 ? `${names.slice(0, -1).join
       organization, which the <a href="/editorial/">editorial policy</a> says and each guide's About page repeats.
     </p>
   </div>
+
+  {/* A worked example of a first community pilot (audit priority 10, 26
+      October 2026), labeled as an example twice over, in the eyebrow and
+      the first line, so it cannot be read as a partnership that exists.
+      It names no organization, promises no result, and costs nothing: every
+      line is something a guide already does by email and by hand. */}
+  <aside id="pilot-example" class="mt-10 max-w-2xl rounded-lg bg-raised p-6 ring-1 ring-line-soft md:p-8" aria-labelledby="pilot-example-title">
+    <p class="eyebrow">Example only · not an existing partnership</p>
+    <h3 id="pilot-example-title" class="display-md mt-2 text-[1.5rem] leading-snug">What a small first pilot could look like</h3>
+    <p class="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">
+      An illustration of the shape a first pilot could take with a chamber, a library or a volunteer group. It
+      describes no real organization and no agreement, and no outcome is promised.
+    </p>
+    <dl class="mt-5 grid gap-x-6 gap-y-3 text-[0.9375rem] leading-relaxed sm:grid-cols-[9.5rem_1fr]">
+      <dt class="font-semibold">Length</dt>
+      <dd>Eight weeks in one town: for instance, mid-November through the holidays.</dd>
+      <dt class="font-semibold">The organization</dt>
+      <dd>
+        Sends its public events, or a link to its calendar, by email each Monday; passes on openings, moves and
+        closures its members mention; and names one person who can answer a question about a date.
+      </dd>
+      <dt class="font-semibold">The guide</dt>
+      <dd>
+        Lists each event that checks out against the organizer’s own page, with the source named; checks and fixes
+        each correction, logged on its corrections page; and writes one seasonal page, such as the town’s holiday
+        markets, from the organizers’ own pages.
+      </dd>
+      <dt class="font-semibold">Cost</dt>
+      <dd>None either way. No fee, no placement, no logo, no endorsement, and no say over what the guide writes.</dd>
+      <dt class="font-semibold">At the end</dt>
+      <dd>
+        A plain count from the guide’s own records: events sent, events listed, corrections made. Then both decide to
+        carry on, change it or stop. Either side can stop at any time with an email.
+      </dd>
+    </dl>
+    <p class="mt-5 text-[0.9375rem]">
+      <a href={communityMailto} class="font-semibold text-primary underline">Suggest a pilot for your town</a>
+    </p>
+  </aside>
 
   {rates.length > 0 ? (
     <section class="mt-14">
@@ -191,8 +229,8 @@ const list = (names: string[]) => (names.length > 1 ? `${names.slice(0, -1).join
   <div class="prose mt-14">
     <h2>What’s available</h2>
     <ul>
-      <li>A labeled “presented by” slot on a town’s events page — the page people come back to weekly.</li>
-      <li>A sponsor block on a town’s Moving here page, which is where agents, lenders and movers are looked for.</li>
+      <li>A labeled “presented by” slot on a town’s events page, which lists what is on each week.</li>
+      <li>A sponsor block on a town’s Moving here page, the guide’s page for people about to move there.</li>
       <li>
         Network-wide sponsorship across {live.length === 1 ? 'the live guide' : `all ${live.length} live guides`}, for
         anyone serving the whole corridor rather than one town.
@@ -210,8 +248,10 @@ const list = (names: string[]) => (names.length > 1 ? `${names.slice(0, -1).join
     <h2>Audience</h2>
     {measured ? (
       <p>
-        Current figures are in the media kit, sent on request: readers per town, email subscribers, and what people
-        actually open, counted since {formatDate(since!)}. The numbers are what we measured, not what we hope.
+        Counting began {formatDate(since!)}. Ask, and we will send what has actually been counted for the towns you
+        care about, with the dates it covers: visits to the guides and, for the weekly email, subscribers and opens.
+        Small towns are small, and the figures will say so. Nothing is projected or estimated, and no number goes on
+        this page until it can be dated and checked.
       </p>
     ) : counting ? (
       <p>
@@ -223,8 +263,8 @@ const list = (names: string[]) => (names.length > 1 ? `${names.slice(0, -1).join
     ) : (
       <p>
         We are not going to quote an audience number we have not measured. Traffic reporting is being set up now, and
-        the moment there are real figures they go here and in the media kit — per town, dated, and honest about which
-        towns are small. If you would rather wait for numbers before talking, that is the right instinct, and we will
+        the moment there are real figures they go here and to anyone who asks — per town, dated, and honest about
+        which towns are small. If you would rather wait for numbers before talking, that is the right instinct, and we will
         come to you when they exist.
       </p>
     )}

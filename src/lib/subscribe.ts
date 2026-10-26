@@ -68,13 +68,51 @@ export function readSignup(form: URLSearchParams, allowed = allowedTags()): Sign
 
 /**
  * What the page does with the answer:
- * - `confirm`: Buttondown took the address and sent its confirmation email.
- * - `already`: the address is on the list already (confirmed or not).
- * - `invalid`: Buttondown would not take the address.
- * - `unavailable`: no key, a limit reached, Buttondown down, or no answer;
- *   the page offers Buttondown's own form instead.
+ * - `confirm`: Buttondown made the subscriber `unactivated` and sent its
+ *   confirmation email; nobody is on the list until they click it.
+ * - `added`: Buttondown made the subscriber `regular` at once, which it only
+ *   does when double opt-in is off in the account's settings. No
+ *   confirmation email is coming, so the page must not say one is.
+ * - `already`: Buttondown has the address already, in some state: confirmed,
+ *   never confirmed, or unsubscribed. Not "subscribed".
+ * - `invalid`: Buttondown says the address itself is not valid.
+ * - `unavailable`: no key, a limit reached, the firewall, Buttondown down,
+ *   or no answer; the page offers Buttondown's own form instead.
  */
-export type SubscribeStatus = 'confirm' | 'already' | 'invalid' | 'unavailable';
+export type SubscribeStatus = 'confirm' | 'added' | 'already' | 'invalid' | 'unavailable';
+
+/**
+ * Buttondown's 400 codes for a new subscriber (its OpenAPI schema,
+ * SubscriberInputValidationErrorCode, read 26 October 2026). Only these two
+ * groups mean something the reader can act on from this page; every other
+ * code (email_blocked, ip_address_spammy, subscriber_blocked,
+ * subscriber_suppressed, rate_limited, tag_invalid…) is `unavailable`, and
+ * the page hands the reader to Buttondown's own form, which says why in its
+ * own words. Matching on the human text instead read "email_blocked" as a
+ * typo in the address.
+ */
+const ALREADY_CODES = new Set(['email_already_exists', 'subscriber_already_exists']);
+const INVALID_CODES = new Set(['email_invalid', 'email_empty']);
+
+/** The `code` of a Buttondown error body, or undefined if there is none. */
+function errorCode(body: string): string | undefined {
+  try {
+    const code = (JSON.parse(body) as { code?: unknown } | null)?.code;
+    return typeof code === 'string' ? code : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+/** The subscriber's `type` from a 201's body, or undefined if it cannot be read. */
+function subscriberType(body: string): string | undefined {
+  try {
+    const type = (JSON.parse(body) as { type?: unknown } | null)?.type;
+    return typeof type === 'string' ? type : undefined;
+  } catch {
+    return undefined;
+  }
+}
 
 export interface SubscribeResult {
   status: SubscribeStatus;
@@ -105,16 +143,33 @@ export async function subscribe(
   } catch (e) {
     return { status: 'unavailable', detail: `no answer from Buttondown (${(e as Error).name})` };
   }
-  if (res.ok) return { status: 'confirm' };
   const body = await res.text().catch(() => '');
+  if (res.ok) {
+    // The 201 carries the new subscriber. `unactivated` is the double
+    // opt-in state, and the default; `regular` means the account has double
+    // opt-in switched off, so no confirmation email is on its way. A body
+    // that cannot be read is taken as the default, which is what no `type`
+    // in the request asks for.
+    const type = subscriberType(body);
+    if (type === 'regular') return { status: 'added', detail: 'subscriber created as regular: double opt-in is off in Buttondown' };
+    return { status: 'confirm' };
+  }
   const detail = `HTTP ${res.status}: ${body.slice(0, 300)}`;
   // An address already on the list is a 400 unless a collision behaviour is
   // asked for, and none is: adding towns to someone else's address, or
   // resubscribing someone who left, is not something a form on a public
   // page should be able to do. Buttondown's own form does that, with its
   // own checks, and the page offers it.
-  if (res.status === 400 && /already|exist|duplicate/i.test(body)) return { status: 'already', detail };
-  if (res.status === 400 && /email/i.test(body)) return { status: 'invalid', detail };
+  if (res.status !== 400) return { status: 'unavailable', detail };
+  const code = errorCode(body);
+  if (code !== undefined) {
+    if (ALREADY_CODES.has(code)) return { status: 'already', detail };
+    if (INVALID_CODES.has(code)) return { status: 'invalid', detail };
+    return { status: 'unavailable', detail };
+  }
+  // A 400 with no code (Buttondown's older answers): only its plainest words.
+  if (/already (?:exists|subscribed)/i.test(body)) return { status: 'already', detail };
+  if (/not a valid email|invalid email|email (?:address )?is (?:not valid|invalid)/i.test(body)) return { status: 'invalid', detail };
   return { status: 'unavailable', detail };
 }
 

@@ -12,6 +12,7 @@ import { Image } from 'astro:assets';
 import Page from '@/layouts/Page.astro';
 import { getSite } from '@/config';
 import { getCreditedPhotos } from '@/lib/photo-credits';
+import { PHOTO_NOT_COPIED } from '@/lib/photo-policy';
 
 const site = getSite();
 const photos = (await getCreditedPhotos()).sort((a, b) => {
@@ -36,9 +37,13 @@ const wide = (i: number) => i === 0 && photos.length % 3 === 1;
     <p>
       Openly licensed photographs are used under the license linked beside them. Where a license asks for changes to
       be noted, the note says what we did; resizing for the web is the usual one. A photograph marked
-      “used with permission” is published with the owner’s written consent, and one marked “all rights reserved” is
-      ours. How photographs are chosen is set out in the <a href="/editorial/">editorial policy</a>. If one of these is
-      yours and the credit is wrong, <a href="/contact/">tell us</a>.
+      “used with permission” was sent or granted to us in writing by whoever holds its rights, and is credited to them
+      or as they asked; one marked “all rights reserved” is ours. {PHOTO_NOT_COPIED}
+    </p>
+    <p>
+      What is accepted, the permission it needs and how credit works are set out under
+      <a href="/editorial/#photographs">Photographs</a> in the editorial policy. If one of these is yours and the
+      credit is wrong, or you want it taken down, <a href="/contact/">tell us</a>.
     </p>
   </div>
 

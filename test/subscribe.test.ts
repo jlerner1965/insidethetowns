@@ -52,6 +52,22 @@ test('Buttondown’s answers become what the page can act on, and no key is neve
   assert.equal((await subscribe(request, { key: 'k', fetch: answer(400, '{"code":"email_already_exists","detail":"This email address already exists."}') })).status, 'already');
   assert.equal((await subscribe(request, { key: 'k', fetch: answer(400, '{"code":"email_invalid","detail":"That email address is not valid."}') })).status, 'invalid');
   assert.equal((await subscribe(request, { key: 'k', fetch: answer(429, 'slow down') })).status, 'unavailable', 'the daily limit: Buttondown’s own form instead');
+  // By code, not by the words: a blocked address, a spam-scored IP or an
+  // unsubscribed address is not a typo and not "already signed up".
+  assert.equal((await subscribe(request, { key: 'k', fetch: answer(400, '{"code":"subscriber_already_exists","detail":"x"}') })).status, 'already');
+  assert.equal((await subscribe(request, { key: 'k', fetch: answer(400, '{"code":"email_empty","detail":"x"}') })).status, 'invalid');
+  for (const code of ['email_blocked', 'ip_address_spammy', 'subscriber_blocked', 'rate_limited', 'tag_invalid', 'newsletter_not_accepting_subscribers']) {
+    assert.equal((await subscribe(request, { key: 'k', fetch: answer(400, `{"code":"${code}","detail":"This email address is blocked."}`) })).status, 'unavailable', code);
+  }
+  assert.equal(
+    (await subscribe(request, { key: 'k', fetch: answer(400, '{"code":"subscriber_suppressed","detail":"That subscriber has already unsubscribed."}') })).status,
+    'unavailable',
+    'an unsubscribed address is not told it is signed up',
+  );
+  assert.equal((await subscribe(request, { key: 'k', fetch: answer(403, '{"code":"feature_disabled","detail":"Tags need a paid plan."}') })).status, 'unavailable');
+  // A 400 with no code: only the plainest words count.
+  assert.equal((await subscribe(request, { key: 'k', fetch: answer(400, 'That email address already exists.') })).status, 'already');
+  assert.equal((await subscribe(request, { key: 'k', fetch: answer(400, 'Your email is blocked by the firewall.') })).status, 'unavailable');
   assert.equal((await subscribe(request, { key: 'k', fetch: answer(500, '') })).status, 'unavailable');
   assert.equal((await subscribe(request, { key: 'k', fetch: (async () => { throw new TypeError('fetch failed'); }) as typeof fetch })).status, 'unavailable');
   let called = false;
@@ -61,6 +77,17 @@ test('Buttondown’s answers become what the page can act on, and no key is neve
   // The log line carries Buttondown's reason; the address is not in it.
   const logged = await subscribe(request, { key: 'k', fetch: answer(500, 'boom') });
   assert.doesNotMatch(logged.detail ?? '', /reader@example\.com/);
+});
+
+test('a confirmation email is said to be coming only when Buttondown made the subscriber unactivated', async () => {
+  const created = (body: string) => (async () => new Response(body, { status: 201 })) as typeof fetch;
+  const request = { email: 'reader@example.com', tags: ['erie'] };
+  assert.equal((await subscribe(request, { key: 'k', fetch: created('{"id":"s1","type":"unactivated"}') })).status, 'confirm');
+  assert.equal((await subscribe(request, { key: 'k', fetch: created('') })).status, 'confirm', 'no body: the default, double opt-in');
+  // Double opt-in switched off in Buttondown: active at once, no email coming.
+  const added = await subscribe(request, { key: 'k', fetch: created('{"id":"s1","type":"regular"}') });
+  assert.equal(added.status, 'added');
+  assert.match(added.detail ?? '', /double opt-in is off/, 'the log says why, for the owner');
 });
 
 test('only the site’s own pages may post, over https', () => {
