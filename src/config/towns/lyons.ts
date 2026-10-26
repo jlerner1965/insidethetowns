@@ -50,6 +50,14 @@ export const lyons: TownConfig = {
     secondary: { label: 'Lyons Families', href: '/families/' },
     accentName: 'sandstone',
   },
+  /**
+   * Lyons Middle/Senior High's colours, read from its own site 25 October
+   * 2026 (lmshs.svvsd.org): the theme's `--color-primary` is #0054A6, the
+   * blue of the school's logo (lmshs-logo.svg), whose other colours are
+   * white and the black ring every St. Vrain school's logo has, so the
+   * second colour is white. MaxPreps's navy (#022C66) stays on /sports/.
+   */
+  school: { name: 'Lyons Middle/Senior High School', mascot: 'Lions', teamName: 'Lyons Lions', primary: '#0054A6', secondary: '#FFFFFF' },
   families: {
     label: 'Lyons Families',
     intro: 'What Lyons kids can join, what closes soon, and the school days off.',

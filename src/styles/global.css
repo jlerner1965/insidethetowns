@@ -1,6 +1,16 @@
 @import "tailwindcss";
 
 /*
+ * Utilities the flagship home page of 21 October 2026 used, kept in the
+ * shared stylesheet after it was replaced (25 October 2026) so that every
+ * page of every other guide is byte for byte what it was. The new page has
+ * its own stylesheet (src/components/home/flagship-home.css). Nothing uses
+ * these now: dropping this line is a change to every guide's stylesheet,
+ * best made on its own.
+ */
+@source inline("band-tint pt-10! md:pt-14! md:py-10 leading-[1.05] hover:bg-paper xl:block lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] xl:grid-cols-[minmax(0,5fr)_minmax(0,3fr)_minmax(0,4fr)]");
+
+/*
  * Design tokens: Color System 2.0 (src/config/palette.ts).
  *
  * Per-guide values (primary, its hover, accent, paper) are set as CSS

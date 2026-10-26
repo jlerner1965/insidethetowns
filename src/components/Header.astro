@@ -11,10 +11,23 @@
  * usual way to do this and it puts every link in the page twice, which is
  * duplicate anchor text on four hundred pages and two things to keep in step.
  */
-import { getNetworkHub, getSite, liveTowns, neighborsOf } from '@/config';
+import { editionFor, emailEditions, getNetworkHub, getSite, liveTowns, neighborsOf } from '@/config';
 import Wordmark from './Wordmark.astro';
-import { siteNav } from '@/lib/nav';
+import { homeNav, siteNav } from '@/lib/nav';
 import { wordmarkEm as titleEm } from '@/lib/titles';
+import { schoolTheme } from '@/config/school-colors';
+
+interface Props {
+  /**
+   * The flagship home page's masthead (Base `chrome="home"`): the band in
+   * the school's colour, which the page's masthead continues below it, the
+   * home menu (homeNav), search, and the Thursday email button to the
+   * page's signup. The phone is the same as every guide's: the wordmark,
+   * search and the menu button, the list one panel. Its look is the home
+   * page's own stylesheet (src/components/home/flagship-home.css).
+   */
+  home?: boolean;
+}
 
 const site = getSite();
 const hub = getNetworkHub();
@@ -65,11 +78,66 @@ const rowLink = (on: boolean) =>
 const summaryClass = dark
   ? 'site-nav-link cursor-pointer whitespace-nowrap text-ink transition-colors xl:inline-flex xl:min-h-11 xl:items-center xl:rounded-full xl:px-4 xl:text-[0.9375rem] xl:font-semibold xl:text-white xl:ring-1 xl:ring-white/35 xl:hover:bg-white/15'
   : 'site-nav-link cursor-pointer whitespace-nowrap text-[0.8125rem] font-semibold uppercase tracking-[0.1em] text-ink-muted transition-colors hover:text-ink';
+// The home page's masthead: the school's band where the guide has a school,
+// else the guide's primary, and the pill's colours from the same rule.
+const homeTown = Astro.props.home && site.kind === 'town' && site.home ? site : undefined;
+const theme = homeTown?.school ? schoolTheme(homeTown.school) : undefined;
+const homeStyle = homeTown
+  ? [`--fh-band:${theme?.band ?? site.colors.primary}`, `--fh-pill:${theme?.pill.fill ?? '#ffffff'}`, `--fh-pill-ink:${theme?.pill.text ?? 'var(--color-ink)'}`, `--wordmark-em:${wordmarkEm}`].join(';')
+  : undefined;
+const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
+// Only where the page has a signup to go to: a guide the email covers.
+const emailOn = !!homeTown && !!hub.newsletter && !!editionFor(homeTown.slug, emailEditions());
 ---
 {/* The first thing on every page is a band of the town's colours, the
    primary running into the accent. It costs six pixels and it is what stops
    the site opening on plain paper. A rule, so the accent may be in it. */}
 <div class="h-1.5 bg-gradient-to-r from-primary to-accent"></div>
+{homeTown ? (
+  <header class="fh-header relative on-dark" style={homeStyle} data-pagefind-ignore>
+    <div class="container-page">
+      <div class="fh-header-row flex items-center justify-between gap-4 py-4 md:py-5 xl:gap-8">
+        <Wordmark class="site-wordmark whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" tone="light" />
+
+        <div class="flex items-center gap-1 xl:order-last xl:gap-2">
+          <a
+            href="/search/"
+            aria-label="Search"
+            class="site-search-link flex size-11 shrink-0 items-center justify-center rounded-full no-underline bg-white/15 text-white hover:bg-white/25"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="m20 20-3.5-3.5"></path>
+            </svg>
+          </a>
+          {/* To the signup on this page; on a phone the signup is a short
+              scroll down, and the row has room for search and the menu only. */}
+          {emailOn && <a href="#signup" class="fh-email-button">{sendDay} email</a>}
+          <button
+            type="button"
+            class="nav-toggle -mr-2 xl:hidden text-white"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            aria-label="Menu"
+            data-nav-toggle
+          >
+            <span class="nav-toggle-bars" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
+          <ul class="site-nav-list container-page xl:px-0 xl:gap-2">
+            {homeNav(homeTown).map((item) => (
+              <li>
+                <a href={item.href} class="site-nav-link fh-nav-link block whitespace-nowrap no-underline transition-colors text-ink xl:text-white">{item.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+) : (
 <header class:list={['relative', dark ? 'on-dark bg-primary text-white' : 'bg-paper']} data-pagefind-ignore>
   <div class="container-page">
     <div class:list={['flex items-center justify-between gap-4', dark ? 'py-4 md:py-5 xl:gap-8' : 'py-5 sm:gap-6 md:py-7']} style={`--wordmark-em:${wordmarkEm}`}>
@@ -141,6 +209,7 @@ const summaryClass = dark
   </div>
   {!dark && <div class="h-px bg-line-soft"></div>}
 </header>
+)}
 
 <script>
   const button = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');

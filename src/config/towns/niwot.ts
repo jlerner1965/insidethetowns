@@ -68,6 +68,17 @@ export const niwot: TownConfig = {
     label: 'Get involved',
     intro: 'The associations, clubs and groups that run Niwot, and how to join each.',
   },
+  /**
+   * Niwot High's colours, read from its own site 25 October 2026
+   * (nhs.svvsd.org): the school's logo (nhs-logo.svg) is the green #008462
+   * with white, inside the black ring every St. Vrain school's logo has,
+   * and the theme publishes the green as a scale of shades. White is
+   * 4.7:1 on #008462, short of the 7:1 the masthead needs, and white
+   * cannot be the band, so this is the theme's own darker step
+   * (`--color-primary-700`, #126637), 7.04:1. The nearest shade the school
+   * publishes, not one picked here.
+   */
+  school: { name: 'Niwot High School', mascot: 'Cougars', teamName: 'Niwot Cougars', primary: '#126637', secondary: '#FFFFFF' },
   families: {
     label: 'Niwot Families',
     intro: 'Youth sports, schools, children’s events and the St. Vrain school breaks for Niwot.',

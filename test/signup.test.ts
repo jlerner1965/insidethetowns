@@ -110,7 +110,8 @@ test('every answer from the page’s own call has a panel; anything unexpected o
 test('on a guide the address comes before the towns; on the hub the towns come first', () => {
   const component = readFileSync('src/components/NewsletterSignup.astro', 'utf8');
   const email = component.indexOf('type="email"');
-  const townFieldset = component.indexOf('{town && (\n        <fieldset');
+  // The home page's card has no towns to pick (variant="card"); every other guide's form does.
+  const townFieldset = component.indexOf('{town && !card && (\n        <fieldset');
   const hubFieldset = component.indexOf('{!town && (\n        <fieldset');
   assert.ok(hubFieldset > 0 && hubFieldset < email, 'hub: towns, then the address');
   assert.ok(townFieldset > email, 'guide: the address, then its ticked town');

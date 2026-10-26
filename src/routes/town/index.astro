@@ -1,18 +1,13 @@
 ---
 /**
- * The town home page. A guide whose config carries `home` (the two
- * flagships, 21 October 2026) gets the flagship layout: a compact split
- * masthead, the week first with its supporting column, a signature
- * section, the places, the email, resident resources and the neighbours.
- * Every other guide keeps the shared page as it was.
+ * The town home page for every guide without the flagship layout: the
+ * shared page. A guide whose config carries `home` is built from
+ * home-flagship.astro instead (src/integrations/town-routes.ts, homeRoute),
+ * so nothing of the flagship's reaches this page's build. The markup is on
+ * one line so the page is byte for byte what it was when this file chose
+ * between the two layouts, whitespace included.
  */
 import Base from '@/layouts/Base.astro';
 import ClassicHome from '@/components/home/ClassicHome.astro';
-import FlagshipHome from '@/components/home/FlagshipHome.astro';
-import { getTown } from '@/config';
-
-const town = getTown();
 ---
-<Base>
-  {town.home ? <FlagshipHome town={town} /> : <ClassicHome />}
-</Base>
+<Base><ClassicHome /></Base>

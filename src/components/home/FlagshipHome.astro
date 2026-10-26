@@ -1,157 +1,308 @@
 ---
 /**
- * The flagship home page (TownConfig.home), on the one recipe every guide's
- * home now follows (navigation audit, 22 October 2026): first, what the site
- * is and where, with the town's games beside it; then the week; then the
- * rest of the guide, one link each; then the email.
+ * The flagship home page (TownConfig.home), built for two readers (the
+ * homepage brief, 25 October 2026): the parent or student back for the
+ * scores and the week, and the reader who should sign up for the Thursday
+ * email. Top to bottom:
  *
- * - The introduction, kept short (home audit, 22 October 2026: it took
- *   most of a desktop's first screen, and the week began at its foot): the
- *   county, the town as the page's one h1, the config's purpose line, one
- *   line on the week's lead with its date, one button to the signature hub
- *   and a text link to the week (the masthead's pills already say "This
- *   week"), the school's games in the week (SportsStrip) beside it on a
- *   wide screen and under it on a phone, and on a desktop the town's own
- *   photograph (`home.photo`) between the two, never on a phone, where it
- *   would push the week down.
- * - The week is the shared This week block (ThisWeek, compact), the same as
- *   the classic home's, so the two cannot drift; a week with nothing listed
- *   leads with what is next on the calendar, never with an apology.
- * - "On this guide": every hub as one link with one line of reason, the
- *   signature hub (`home.signature`) first. The sports row and the civic
- *   notice are not here: the strip above and the week's Things to know
- *   carry them.
- * - The email, on its own band at the foot.
+ * 1. The masthead, on the school's band (HomeMasthead): the latest final,
+ *    what is next, the week's line, when it was checked.
+ * 2. The week, Monday to Sunday, one column a day: the events, the
+ *    school's games and the email's day (src/lib/flagship-home.ts,
+ *    weekDays), three a day and a count of the rest.
+ * 3. Three things to know, the local changes newest first, beside the
+ *    email's card, which signs a reader up for this town alone.
+ * 4. The school: one row for each team in season.
+ * 5. The guide's four hubs, one tile each.
+ * 6. The closing band, on the school's colour: the email, with every town.
+ *
+ * The school's colours are in the masthead, the closing band and the Home
+ * and Away pills and nowhere else; everything else is the guide's own
+ * palette. The look is ./flagship-home.css, which only this page loads.
+ * Every date, score, opponent and count is the data's; an empty section
+ * says so.
  */
-import { Image } from 'astro:assets';
+import '@fontsource-variable/fraunces/opsz-italic.css';
+import './flagship-home.css';
+import HomeMasthead from './HomeMasthead.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
-import SportsStrip from '@/components/SportsStrip.astro';
-import ThisWeek from '@/components/ThisWeek.astro';
-import { countyLabel, type TownConfig } from '@/config';
-import { schoolsFor } from '@/config/school-sports';
+import { editionFor, emailEditions, getNetworkHub, type TownConfig } from '@/config';
+import { schoolSportsFor, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
+import { schoolTheme } from '@/config/school-colors';
+import { INK } from '@/config/palette';
+import { EAT_DRINK_TYPES } from '@/content/schemas';
 import { getTownEntries } from '@/lib/content';
-import { formatDayShort, monthDay, toIsoLocal } from '@/lib/dates';
-import { highlights, occurrences } from '@/lib/events';
-import { resolveSiteImage } from '@/lib/images';
-import { deadlineTitle, onePerProgram, upcomingDeadlines } from '@/lib/programs';
-import { isOpen } from '@/lib/places';
-import { shorten } from '@/lib/text';
-import { briefingUpdates, currentPick, weekEvents } from '@/lib/weekly';
+import { formatDate, formatDayLong, formatDayRange } from '@/lib/dates';
+import { isCanceled, occurrences, upcoming } from '@/lib/events';
+import { clock, leadGame, nextGame, resultSentence, scoreboardResult, siteWord, teamRows, weekDays } from '@/lib/flagship-home';
+import { gameDay, hasData, sportsDataFor, where } from '@/lib/school-sports';
 import { currentUpdates } from '@/lib/updates';
+import { briefingUpdates, currentNotes, weekEvents, weekWindow } from '@/lib/weekly';
 
 interface Props {
   town: TownConfig;
 }
 
 const { town } = Astro.props;
-const home = town.home!;
 const now = new Date();
-const hasSchool = schoolsFor(town.slug).length > 0;
-const photo = home.photo ? { ...home.photo, src: resolveSiteImage(town.slug, home.photo.image) } : undefined;
+const hub = getNetworkHub();
 
-const programs = await getTownEntries('programs');
-const nextDeadline = town.families ? onePerProgram(upcomingDeadlines(programs, { now, days: 45 }))[0] : undefined;
-const deadlineDay = (on: Date) => {
-  const b = monthDay(on);
-  return `${b.weekday} ${b.month} ${b.day}`;
+// The school, its data and its colours. A guide with no school, or one
+// whose file has never been written, has the masthead's right column alone,
+// on the guide's own primary.
+const school = schoolSportsFor(town.slug);
+const files = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
+const data = school ? sportsDataFor(school, files) : undefined;
+const theme = town.school && school ? schoolTheme(town.school) : undefined;
+const bandVars = [
+  `--fh-band:${theme?.band ?? town.colors.primary}`,
+  `--fh-eyebrow:${theme?.eyebrow ?? '#ffffff'}`,
+  `--fh-mark:${theme?.mark ?? town.colors.accent}`,
+  `--fh-pill:${theme?.pill.fill ?? '#ffffff'}`,
+  `--fh-pill-ink:${theme?.pill.text ?? INK}`,
+].join(';');
+const mascot = town.school?.mascot ?? school?.mascot;
+const teamName = town.school?.teamName;
+const teamHref = (key: string) => {
+  const team = data?.sports.find((t) => t.key === key);
+  return school && team && hasData(team) ? teamPath(school, key) : '/sports/';
 };
-const places = (await getTownEntries('places')).filter(isOpen);
-// One line on what is current, under the purpose line, the same choice the
-// week block makes below: the featured local change (an election day), else
-// the editor's pick for the week, else the top of the week's listings. The
-// week itself is one screen down; this is the reason to scroll.
-const calendar = occurrences(await getTownEntries('events'), { now, horizonDays: 30 });
-const featured = briefingUpdates(currentUpdates(await getTownEntries('updates'), now), now).find((u) => u.data.featured);
-const pick = currentPick(await getTownEntries('weekly'), calendar, now).thisWeek;
-const top = pick?.event ?? highlights(weekEvents(calendar, now), { now, limit: 1 })[0];
-const lead = featured
-  ? { label: 'Now', text: featured.data.title, href: '/updates/', when: undefined }
-  : top
-    ? { label: 'This week', text: pick?.title ?? top.data.title, href: `/events/${top.slug}/`, when: top.data.start }
+
+// 1. The masthead.
+const result = data ? scoreboardResult(data, now) : undefined;
+const lead = data && !result ? leadGame(data, now) : undefined;
+const next = data ? nextGame(data, now, lead) : undefined;
+const { monday, sunday } = weekWindow(now);
+const notes = currentNotes(await getTownEntries('weekly'), now);
+// The week's own file only: last week's line is not this week's.
+const thisWeeks = notes && notes.data.weekOf.getTime() === monday.getTime() ? notes.data : undefined;
+const allEvents = await getTownEntries('events');
+const calendar = occurrences(allEvents, { now, horizonDays: 30 });
+const soonest = data ? undefined : upcoming(calendar.filter((e) => !isCanceled(e)), { now, limit: 1 })[0];
+const nextEvent = soonest
+  ? { title: soonest.data.title, start: soonest.data.start, allDay: soonest.data.allDay, venue: soonest.data.venue, href: `/events/${soonest.slug}/` }
+  : undefined;
+const listingChecks = weekEvents(calendar, now).flatMap((e) => (e.data.verified ? [e.data.verified] : []));
+const checked = data?.generated
+  ? { at: new Date(data.generated), withTime: true }
+  : listingChecks.length > 0
+    ? { at: new Date(Math.max(...listingChecks.map((d) => d.getTime()))), withTime: false }
     : undefined;
-const families = town.families
-  ? { key: 'families', href: '/families/', label: town.families.label, line: nextDeadline ? deadlineTitle(nextDeadline, deadlineDay(nextDeadline.on)) : shorten(town.families.intro, 70) }
+
+// 2. The week.
+const edition = editionFor(town.slug, emailEditions());
+const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
+const emailOn = !!hub.newsletter && !!edition;
+const days = weekDays({
+  events: occurrences(allEvents, { now, horizonDays: 8 }),
+  sports: data,
+  teamHref,
+  email: emailOn ? { day: sendDay, time: hub.newsletter?.sendTime } : undefined,
+  now,
+});
+const weekday = (d: Date) => new Intl.DateTimeFormat('en-US', { timeZone: 'America/Denver', weekday: 'short' }).format(d);
+const dayNum = (d: Date) => new Intl.DateTimeFormat('en-US', { timeZone: 'America/Denver', day: 'numeric' }).format(d);
+
+// 3. Three things to know: the week's local changes, newest first.
+const updates = await getTownEntries('updates');
+const know = briefingUpdates(currentUpdates(updates, now), now)
+  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime() || b.data.effective.getTime() - a.data.effective.getTime())
+  .slice(0, 3);
+const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
+
+// 4. The school's teams in season.
+const rows = data ? teamRows(data, now) : [];
+const scheduleNote = school && data
+  ? `Schedules and scores from MaxPreps${school.calendar ? `, cross-checked against ${school.calendar.label}` : ''}. Checked ${formatDate(new Date(data.generated))}.`
   : undefined;
-const involved = town.participation
-  ? { key: 'get-involved', href: '/get-involved/', label: town.participation.label, line: shorten(town.participation.intro, 70) }
-  : undefined;
-const hubs = [families, involved].filter((h): h is NonNullable<typeof h> => !!h).sort((a, b) => Number(b.key === home.signature) - Number(a.key === home.signature));
-const guide: Array<{ href: string; label: string; line: string }> = [
-  ...hubs,
-  ...(town.livingHere ? [{ href: '/living-here/', label: 'Living here: who handles what', line: town.livingHere.sections.map((s) => s.title).join(', ') }] : []),
-  { href: '/eat-drink/', label: 'Eat & drink', line: `${places.length} places, with what’s open now` },
-  { href: '/events/', label: 'Every event', line: 'The whole calendar, by date, with the weekend on its own page' },
+
+// 5. The guide.
+const places = (await getTownEntries('places')).filter((p) => !p.delisted && (EAT_DRINK_TYPES.includes(p.data.type) || p.data.type === 'shop'));
+const strip = (line: string) => line.replace(/\.\s*$/, '');
+const tiles = [
+  ...(town.families ? [{ href: '/families/', eyebrow: 'For families', title: town.families.label, line: strip(town.families.intro) }] : []),
+  { href: '/eat-drink/', eyebrow: 'Places', title: 'Eat & drink', line: `${places.length} places, with what’s open right now` },
+  ...(town.livingHere ? [{ href: '/living-here/', eyebrow: 'Town services', title: 'Living here', line: strip(town.livingHere.intro) }] : []),
+  town.participation
+    ? { href: '/get-involved/', eyebrow: 'Taking part', title: town.participation.label, line: strip(town.participation.intro) }
+    : { href: '/things-to-do/', eyebrow: 'Out and about', title: 'Things to do', line: `Trails, parks and places worth an afternoon in and around ${town.name}` },
 ];
-// Three columns on a desktop when there is a photograph and a school
-// (introduction, photograph, games); two without one of them; one on a phone.
-const columns = hasSchool && photo
-  ? 'lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] xl:grid-cols-[minmax(0,5fr)_minmax(0,3fr)_minmax(0,4fr)]'
-  : hasSchool || photo
-    ? 'lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]'
-    : '';
+
+const sendTime = hub.newsletter?.sendTime;
 ---
-<section class="band-paper py-8 md:py-10">
-  <div class:list={['container-page grid gap-6 lg:items-start lg:gap-8', columns]}>
-    <div>
-      <p class="eyebrow">{countyLabel(town)}, Colorado</p>
-      <h1 class="display-md mt-2 text-[2.25rem] leading-[1.05] md:text-5xl">{town.name}</h1>
-      <p class="mt-3 max-w-xl text-lg leading-snug text-ink-muted">{home.purpose}</p>
-      {lead && (
-        <p class="mt-4 max-w-xl text-[0.9375rem] leading-snug">
-          <span class="eyebrow text-ink-muted">{lead.label}</span>{' '}
-          <a href={lead.href} class="font-semibold text-ink underline decoration-primary-line underline-offset-4 hover:text-primary">{lead.text}</a>
-          {lead.when && <Fragment>, <time datetime={toIsoLocal(lead.when)} class="text-ink-muted">{formatDayShort(lead.when)}</time></Fragment>}
-        </p>
+<div class="fh" style={bandVars}>
+  <HomeMasthead
+    title={`${town.siteTitle}: ${town.name}, Colorado, this week`}
+    mascot={mascot}
+    teamName={teamName}
+    result={result}
+    lead={lead}
+    next={next}
+    nextEvent={nextEvent}
+    teamHref={teamHref}
+    origin={`https://${town.domain}`}
+    weekOf={thisWeeks?.headline ? thisWeeks.weekOf : undefined}
+    headline={thisWeeks?.headline}
+    checked={checked}
+  />
+
+  <section class="fh-paper fh-section" aria-labelledby="fh-week">
+    <div class="container-page">
+      <SectionHeader eyebrow={formatDayRange(monday, sunday)} title="This week, day by day" href="/events/" linkLabel="Every event" id="fh-week" />
+      <ol class="fh-week">
+        {days.map((day) => (
+          <li class="fh-day">
+            <h3 class="fh-day-head">
+              <span class="eyebrow" aria-hidden="true">{weekday(day.date)}</span>
+              <span class="fh-day-num" aria-hidden="true">{dayNum(day.date)}</span>
+              <span class="sr-only">{formatDayLong(day.date)}</span>
+            </h3>
+            <div class="fh-day-items">
+              {day.items.map((item) => (
+                <a href={item.href} class="fh-item">
+                  <span class="fh-item-dot" style={`background:${item.dot}`} aria-hidden="true"></span>
+                  <span>
+                    <span class="fh-item-title">{item.title}</span>
+                    <span class="fh-item-meta">{item.meta}</span>
+                  </span>
+                </a>
+              ))}
+              {day.items.length === 0 && (
+                day.past ? (
+                  <p class="fh-day-empty">Nothing listed.</p>
+                ) : (
+                  <Fragment>
+                    <p class="fh-day-empty">Nothing listed yet.</p>
+                    <a href="/submit-event/" class="fh-link">Add an event →</a>
+                  </Fragment>
+                )
+              )}
+              {day.more > 0 && (
+                day.past
+                  ? <p class="fh-day-empty">and {day.more} more</p>
+                  : <a href={`/events/#day-${day.key}`} class="fh-link">+{day.more} more →</a>
+              )}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="fh-white fh-section" aria-labelledby="fh-know">
+    <div class="container-page fh-know-grid">
+      <div>
+        <p class="eyebrow">Three things to know</p>
+        <h2 id="fh-know" class="fh-know-title">{thisWeeks?.knowTitle ?? 'This week'}</h2>
+        {know.length > 0 ? (
+          <ol class="fh-know-list">
+            {know.map((u) => (
+              <li>
+                <div>
+                  <h3 class="fh-know-head">{u.data.title}</h3>
+                  <p class="fh-know-line">{u.data.summary}</p>
+                  <p class="fh-know-sources">
+                    {u.data.source && <a href={u.data.source} rel="noopener">Source: {u.data.sourceLabel ?? host(u.data.source)}</a>}
+                    {u.data.alsoSource && <a href={u.data.alsoSource} rel="noopener">{u.data.alsoSourceLabel ?? host(u.data.alsoSource)}</a>}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        ) : (
+          <p class="fh-know-empty">No local changes on the guide for the week of {formatDayRange(monday, sunday)}. When the Town or a business changes something residents need to know, it goes here with its source.</p>
+        )}
+        {updates.length > 0 && <a href="/updates/" class="fh-link">Every local change →</a>}
+      </div>
+      {emailOn && (
+        <div>
+          <NewsletterSignup town={town} id="home-card" variant="card" anchor="signup" />
+        </div>
       )}
-      <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
-        <a href={home.secondary.href} class="btn btn-primary">{home.secondary.label}</a>
-        <a href="/this-week/" class="inline-block -my-2 py-2 font-semibold text-primary underline">The full week →</a>
+    </div>
+  </section>
+
+  {school && data && (
+    <section class="fh-paper fh-section" aria-labelledby="fh-school">
+      <div class="container-page">
+        <SectionHeader eyebrow={school.school} title={mascot ?? school.mascot} href={sportsPath(school)} linkLabel="All teams and schedules" id="fh-school" />
+        {rows.length > 0 ? (
+          <ul class="fh-teams">
+            {rows.map((row) => (
+              <li class="fh-team">
+                <div>
+                  <h3 class="eyebrow">{row.team.name}</h3>
+                  {row.football ? (
+                    <Fragment>
+                      <p class="fh-team-num">{row.football.record ?? '–'}</p>
+                      <p class="fh-team-caption">Regular season</p>
+                    </Fragment>
+                  ) : (
+                    <Fragment>
+                      <p class="fh-team-num">{row.games.length}</p>
+                      <p class="fh-team-caption">{row.games.length === 1 ? 'Match this week' : 'Matches this week'}</p>
+                    </Fragment>
+                  )}
+                </div>
+                <div>
+                  {row.football ? (
+                    <Fragment>
+                      {row.football.last && <p class="fh-team-sentence">{resultSentence(row.football.last)}</p>}
+                      <p class="fh-team-note">Friday’s results are posted here by Saturday morning and go out in {sendDay}’s email.</p>
+                    </Fragment>
+                  ) : (
+                    <ul class="fh-matches">
+                      {row.games.map((g) => (
+                        <li>
+                          <span>{where(g)} {g.opponent} · <time datetime={g.time ? `${g.date}T${g.time}` : g.date}>{formatDayLong(gameDay(g))}{g.time && ` · ${clock(gameDay(g))}`}</time>{g.stage && ` · ${g.stage}`}</span>
+                          <span class:list={['fh-site', siteWord(g) === 'Home' ? 'fh-site-home' : 'fh-site-away']}>{siteWord(g)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+                <a href={teamHref(row.team.key)} class="fh-link">{row.football ? 'Season →' : 'Schedule →'}</a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="fh-know-empty">No {school.mascot} games in the next seven days.</p>
+        )}
+        {scheduleNote && <p class="fh-school-note">{scheduleNote}</p>}
+      </div>
+    </section>
+  )}
+
+  <section class="fh-white fh-section" aria-labelledby="fh-guide">
+    <div class="container-page">
+      <SectionHeader eyebrow="The guide" title={`Living in ${town.name}`} id="fh-guide" />
+      <ul class="fh-tiles">
+        {tiles.map((t) => (
+          <li>
+            <a href={t.href} class="fh-tile">
+              <span class="eyebrow">{t.eyebrow}</span>
+              <h3 class="fh-tile-title">{t.title}</h3>
+              <p class="fh-tile-line">{t.line} →</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="fh-band fh-cta on-dark" aria-labelledby="fh-cta">
+    <div class="container-page fh-cta-grid">
+      <div>
+        <p class="eyebrow">The {sendDay} email</p>
+        <h2 id="fh-cta" class="fh-cta-title">Know what’s happening <em>before</em> it happens.</h2>
+      </div>
+      <div>
+        <p class="fh-cta-text">
+          Every {sendDay}{sendTime && ` at ${sendTime}`}: the scores, the week ahead, and what opened and closed in {town.name}. Clearly labeled sponsors, and no list sharing.
+        </p>
+        {emailOn && <NewsletterSignup town={town} id="home-band" variant="band" />}
       </div>
     </div>
-    {photo && (
-      <figure class="hidden xl:block">
-        <Image
-          src={photo.src}
-          alt={photo.alt}
-          widths={[480, 720, 960]}
-          sizes="(min-width: 80rem) 20rem, 0px"
-          class="aspect-[4/3] w-full rounded-lg object-cover ring-1 ring-line-soft"
-        />
-        {photo.credit && <figcaption class="mt-1.5 text-[0.75rem] text-ink-muted">Photo: {photo.credit}</figcaption>}
-      </figure>
-    )}
-    {hasSchool && <SportsStrip town={town.slug} limit={3} />}
-  </div>
-</section>
-
-<section class="band band-white pt-10! md:pt-14!">
-  <div class="container-page">
-    <ThisWeek town={town} compact signup={false} />
-  </div>
-</section>
-
-<section class="band band-tint" aria-labelledby="guide-h">
-  <div class="container-page">
-    <SectionHeader eyebrow="The rest of the guide" title="On this guide" id="guide-h" />
-    <ul class="max-w-3xl divide-y divide-line-soft rounded-lg bg-raised ring-1 ring-line-soft">
-      {guide.map((g) => (
-        <li>
-          <a href={g.href} class="flex items-center justify-between gap-4 px-4 py-3.5 no-underline hover:bg-paper">
-            <span class="min-w-0">
-              <span class="block font-semibold leading-snug text-ink">{g.label}</span>
-              <span class="mt-0.5 block text-[0.875rem] leading-snug text-ink-muted">{g.line}</span>
-            </span>
-            <span class="shrink-0 text-primary" aria-hidden="true">→</span>
-          </a>
-        </li>
-      ))}
-    </ul>
-  </div>
-</section>
-
-<section class="band band-paper">
-  <div class="container-page">
-    <NewsletterSignup town={town} id="home" dark />
-  </div>
-</section>
+  </section>
+</div>

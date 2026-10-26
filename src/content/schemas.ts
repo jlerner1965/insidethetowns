@@ -744,6 +744,17 @@ export function weeklySchema() {
   return z.object({
     /** The Monday the file is for. The file name is the same date. */
     weekOf: localDate,
+    /**
+     * The week in two or three plain sentences, under "The week of …" in
+     * the flagship home page's masthead. Every fact in it is one the week's
+     * listings or sources carry. Blank, the masthead leaves the block out.
+     */
+    headline: blank(z.string().min(1)),
+    /**
+     * The flagship home page's title over "Three things to know": a few
+     * words for the week ("A vote, a park, a deadline"). Blank, "This week".
+     */
+    knowTitle: blank(z.string().min(1)),
     pick: z
       .object({
         title: blank(z.string().min(1)),

@@ -68,6 +68,15 @@ export const berthoud: TownConfig = {
       credit: 'Town of Berthoud',
     },
   },
+  /**
+   * Berthoud High's colours, read from its own site 25 October 2026
+   * (bhs.tsd.org): the theme's `--primary-color` is #572932, the maroon
+   * the guide's primary already is. The theme's `--secondary-color` is a
+   * second maroon (#7F3035), a web shade rather than a school colour, and
+   * the school's logo (bhs-both.png) is maroon, white and black, so the
+   * second colour is white.
+   */
+  school: { name: 'Berthoud High School', mascot: 'Spartans', teamName: 'Berthoud Spartans', primary: '#572932', secondary: '#FFFFFF' },
   families: {
     label: 'Berthoud Families',
     intro: 'What Berthoud kids can join, what closes soon, and the school days off.',

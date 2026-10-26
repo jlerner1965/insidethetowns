@@ -14,8 +14,18 @@ import { openPlaceTypeCounts } from '../lib/raw-places.ts';
 import { schoolsFor, sportsDataFile, sportsPath, teamPath, type SportsData } from '../config/school-sports.ts';
 import { teamsWithData } from '../lib/school-sports.ts';
 
+/**
+ * The home page: the flagship layout for a guide whose config carries
+ * `home` (src/components/home/FlagshipHome.astro), the shared one for every
+ * other. Two route files rather than one that picks, so the flagship's
+ * stylesheet, its italic face and its script are in a flagship's build and
+ * nowhere else: a classic guide's pages are byte for byte what they were.
+ */
+export function homeRoute(site: Pick<TownConfig, 'home'>): [pattern: string, file: string] {
+  return ['/', site.home ? 'home-flagship.astro' : 'index.astro'];
+}
+
 const TOWN_ROUTES: Array<[pattern: string, file: string]> = [
-  ['/', 'index.astro'],
   ['/events', 'events/index.astro'],
   ['/this-weekend', 'this-weekend.astro'],
   ['/this-week', 'this-week.astro'],
@@ -162,6 +172,7 @@ export function townRoutes(site: SiteConfig): AstroIntegration {
             ? HUB_ROUTES
             : site.status === 'live'
               ? [
+                  homeRoute(site),
                   ...TOWN_ROUTES,
                   ...(site.subTowns?.length ? SUB_TOWN_ROUTES : []),
                   ...sportsRoutes(site.slug),

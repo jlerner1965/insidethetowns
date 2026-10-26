@@ -56,6 +56,14 @@ export const johnstown: TownConfig = {
     secondary: { label: 'Johnstown Families', href: '/families/' },
     accentName: 'gold',
   },
+  /**
+   * Roosevelt High's colours, read from its own site 25 October 2026
+   * (rhs.weldre5j.org): the theme's `--primary-color` is #C41230, the
+   * Roughrider red, and its `--secondary-color` #000000. White is 6.0:1 on
+   * the red, short of the 7:1 the masthead needs, so the two swap: the
+   * black is the band and the red the accent (src/config/school-colors.ts).
+   */
+  school: { name: 'Roosevelt High School', mascot: 'Roughriders', teamName: 'Roosevelt Roughriders', primary: '#C41230', secondary: '#000000' },
   families: {
     label: 'Johnstown Families',
     intro: 'What Johnstown kids can join, what closes soon, and the school days off.',

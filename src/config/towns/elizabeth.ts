@@ -66,6 +66,14 @@ export const elizabeth = {
     secondary: { label: "Elizabeth Families", href: "/families/" },
     accentName: "gold",
   },
+  /**
+   * Elizabeth High's colours, read from its own site 25 October 2026
+   * (ehs.elizabethschooldistrict.org): the theme's `--primary-color` is
+   * #8D181B, the cardinal red, and its `--secondary-color` #000000. Black
+   * does not read on the red (2.3:1), so the masthead's eyebrows and pills
+   * are white (src/config/school-colors.ts).
+   */
+  school: { name: "Elizabeth High School", mascot: "Cardinals", teamName: "Elizabeth Cardinals", primary: "#8D181B", secondary: "#000000" },
   families: {
     label: "Elizabeth Families",
     intro: "What Elizabeth kids can join, what closes soon, and the school days off.",

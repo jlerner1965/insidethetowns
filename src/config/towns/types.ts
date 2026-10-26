@@ -126,10 +126,13 @@ export interface LivingHereConfig {
 
 /**
  * The home page's flagship layout (src/components/home/FlagshipHome.astro),
- * for a guide the owner has decided to give the effort: the header as a
- * band in the town's colour, the introduction with the purpose line and
- * the school's games, the week, every other hub as one link, the email. A
- * guide without it has the classic home, on the same recipe.
+ * for a guide the owner has decided to give the effort: since 25 October
+ * 2026 a scoreboard-led page on the school's band (`school`), the week as
+ * seven days, three things to know beside the email, the school's teams,
+ * the hubs and a closing band. A guide without it has the classic home.
+ * That page reads none of the fields below: `signature`, `purpose`,
+ * `secondary` and `photo` are kept from the layout of 21 October and
+ * shown nowhere now.
  */
 export interface HomeConfig {
   /** Which resident hub leads "On this guide" on the home page. */
@@ -149,6 +152,32 @@ export interface HomeConfig {
    * None means none: no stand-in, no stock.
    */
   photo?: { image: string; alt: string; credit?: string };
+}
+
+/**
+ * The town's high school as the flagship home page shows it: the masthead
+ * band, the closing band and the Home and Away pills are in its colours,
+ * and nothing else is. The guide's own palette (`colors`) is untouched by
+ * it. Each colour is the one the school's own site or athletics page
+ * publishes, with a comment saying where it was read; where the exact hex
+ * is not published, the nearest standard shade, and the comment says so.
+ *
+ * `npm run check-colors` proves the band: white on it at 7:1 or better. A
+ * primary too light for that (an orange, a gold) swaps with the secondary,
+ * which is then the band, and the primary is the accent
+ * (src/config/school-colors.ts says how each role is chosen).
+ */
+export interface SchoolConfig {
+  /** "Berthoud High School". */
+  name: string;
+  /** "Spartans". */
+  mascot: string;
+  /** "Berthoud Spartans": how people say the team's name. */
+  teamName: string;
+  /** Hex: the school's main colour. */
+  primary: string;
+  /** Hex: its second colour. */
+  secondary: string;
 }
 
 /**
@@ -348,6 +377,8 @@ export interface TownConfig {
    * shared chassis is unchanged for every guide without them.
    */
   home?: HomeConfig;
+  /** The high school the flagship home page leads with: see SchoolConfig. */
+  school?: SchoolConfig;
   livingHere?: LivingHereConfig;
   participation?: ParticipationConfig;
   families?: FamiliesConfig;
@@ -550,6 +581,8 @@ export interface NewsletterConfig {
   allTag?: string;
   /** The day it goes out, for the copy. */
   sendDay?: string;
+  /** The hour it goes out, for the copy ("7 am"). Unset, the pages name the day alone. */
+  sendTime?: string;
   /**
    * Guides that share one weekly issue, one signup box and one sponsor line,
    * while each keeps its own site, pages and town tag. Every other guide the
