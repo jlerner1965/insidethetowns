@@ -8,10 +8,15 @@
  * combines with both rows (free music this weekend is a real thing to ask
  * for).
  *
- * There is no switch between the one-offs and everything any more. The date
- * list holds the one-time events and the town meetings (under Civic); the
- * weekly regulars live in their own section below it, once each, so the list
- * never has to hide them.
+ * Unfiltered, the date list holds the one-time events and the town meetings
+ * (under Civic), each run once at its next open day, and the weekly
+ * regulars sit in their own section below it, once each. A date ("Today",
+ * "This weekend", "Next 7 days") shows every occurrence that falls in it,
+ * the regulars' and a run's every night included, and puts the directory
+ * aside: on Monday 26 October 2026 Erie's "Today" left out the Monday chess
+ * club its home page showed, and listed a Thursday-to-Sunday corn maze.
+ * The rule is `eventRowShown` in src/lib/filters.ts; a row's occurrence
+ * comes from `occurrences` in src/lib/events.ts, which every page reads.
  *
  * "Today" and "This weekend" are decided in the reader's browser from the
  * Denver date, not at build time, for the reason Freshness.astro gives: a
@@ -29,8 +34,13 @@
  * The older ?when=free is still read.
  *
  * Works with EventList's markup: [data-filter-item] rows carrying
- * data-category, data-start-day, data-event-day and data-free, grouped in
- * [data-filter-group] sections inside the nearest [data-filter-root].
+ * data-category, data-start-day, data-event-day and data-free (and
+ * data-regular or data-repeat on a row held back unfiltered, data-directory
+ * on a row of "Every week"), grouped in [data-filter-group] sections inside
+ * the nearest [data-filter-root].
+ *
+ * Kept tight: two rows of pills and the day strip above the first listing,
+ * with small gaps, so the results start within a phone's first screen.
  */
 interface Props {
   categories: Array<{ value: string; label: string }>;
@@ -47,7 +57,7 @@ const when = [
 const pill =
   'rounded-full border border-primary-line bg-raised px-4 py-2 text-sm sm:py-1.5 font-medium text-ink-muted transition-colors hover:border-primary hover:text-primary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-white';
 ---
-<div class="mb-8 space-y-3 md:mb-10" data-event-filters>
+<div class="mb-4 space-y-2 md:mb-5" data-event-filters>
   <div class="filter-row" role="group" aria-label="Filter events by time">
     <span class="eyebrow text-ink-muted">When</span>
     <div class="filter-pills">
@@ -83,8 +93,7 @@ const pill =
 </div>
 
 <script>
-  import { dayKey, addDays, startOfDay } from '@/lib/dates';
-  import { weekendWindow } from '@/lib/events';
+  import { eventRowShown } from '@/lib/filters';
   import { initScrollRows } from '@/lib/scroll-rows';
 
   // Edge fades, and the chosen button kept in view, on a phone's one-line rows.
@@ -106,33 +115,23 @@ const pill =
     const CATS = new Set([...catButtons].map((b) => b.dataset.category));
     const WHERE = new Set([...whereButtons].map((b) => b.dataset.where));
 
-    // Denver days, as the listings store them. `now` is read once per apply so
-    // a page left open overnight recomputes on the next click.
-    const windowFor = (when: string) => {
-      const now = new Date();
-      const today = dayKey(startOfDay(now));
-      if (when === 'today') return { from: today, to: today };
-      if (when === 'week') return { from: today, to: dayKey(addDays(startOfDay(now), 6)) };
-      if (when === 'weekend') {
-        const { start, sunday } = weekendWindow(now);
-        return { from: dayKey(start), to: dayKey(sunday) };
-      }
-      return null;
-    };
-
-    const matches = (item: HTMLElement, when: string, category: string, free: boolean, where: string) => {
-      if (category !== 'all' && item.dataset.category !== category) return false;
-      if (free && item.dataset.free !== 'true') return false;
-      if (where !== 'all' && item.dataset.subTown !== where) return false;
-      const window = windowFor(when);
-      if (!window) return true;
-      // An event overlaps the window when it starts no later than the window
-      // ends and is still on when the window begins — so a ten-day run shows
-      // under Today, and Saturday's fair shows under This weekend.
-      const start = item.dataset.startDay ?? '';
-      const last = item.dataset.eventDay ?? start;
-      return start <= window.to && last >= window.from;
-    };
+    // The rule is src/lib/filters.ts's, on the row's own marks. `now` is
+    // read at each apply, so a page left open overnight moves with the clock.
+    const matches = (item: HTMLElement, when: string, category: string, free: boolean, where: string) =>
+      eventRowShown(
+        {
+          category: item.dataset.category,
+          free: item.dataset.free === 'true',
+          subTown: item.dataset.subTown,
+          startDay: item.dataset.startDay ?? '',
+          lastDay: item.dataset.eventDay,
+          regular: item.dataset.regular !== undefined,
+          repeat: item.dataset.repeat !== undefined,
+          directory: item.dataset.directory !== undefined,
+        },
+        { when, category, free, where },
+        new Date(),
+      );
 
     const apply = (when: string, category: string, free: boolean, where: string, push: boolean) => {
       for (const b of whenButtons) b.setAttribute('aria-pressed', String(b.dataset.when === when));
@@ -157,7 +156,8 @@ const pill =
       const empty = root.querySelector<HTMLElement>('[data-filter-empty]');
       if (empty) empty.hidden = !!root.querySelector(`${ITEM}:not([hidden])`);
       if (status) {
-        const shown = root.querySelectorAll(`${ITEM}:not([hidden])`).length;
+        // Dates, not the directory's series: "4 events" under Today is four things on today.
+        const shown = root.querySelectorAll(`${ITEM}:not([hidden]):not([data-directory])`).length;
         const whenLabel = bar.querySelector(`[data-when="${when}"]`)?.textContent?.trim().toLowerCase() ?? '';
         const catLabel = category === 'all' ? 'all categories' : category;
         const whereLabel = where === 'all' ? '' : `, in ${bar.querySelector(`[data-where="${where}"]`)?.textContent?.trim() ?? where}`;

@@ -18,8 +18,8 @@
  */
 import { Image } from 'astro:assets';
 import type { TownEntry } from '@/lib/content';
-import { dayKey, formatDate, formatDayRange, formatMonthDay, formatTime, formatTimeRange, formatWeekday, monthDay, toIsoLocal } from '@/lib/dates';
-import { isCanceled, isInProgress, lastDay, listedUntil } from '@/lib/events';
+import { dayKey, formatDate, formatDayRange, formatMonthDay, formatTime, formatWeekday, monthDay, toIsoLocal } from '@/lib/dates';
+import { clockText, displayTitle, isCanceled, isInProgress, lastDay, listedUntil } from '@/lib/events';
 import { isTentative } from '@/lib/confidence';
 import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 import { subTownLabel } from '@/lib/sub-towns';
@@ -28,9 +28,18 @@ interface Props {
   event: TownEntry<'events'>;
   /** Show the calendar date in the left column; off when under a day heading. */
   showDate?: boolean;
+  /**
+   * Held back from the unfiltered list, and shown under a date filter
+   * (src/lib/filters.ts, `eventRowShown`): a weekly regular's date, which
+   * "Every week" carries once, or a run's later night, the run being shown
+   * at its next one. Rendered hidden, so a reader without the script sees
+   * the list as before.
+   */
+  regular?: boolean;
+  repeat?: boolean;
 }
 
-const { event, showDate = true } = Astro.props;
+const { event, showDate = true, regular = false, repeat = false } = Astro.props;
 const { data, slug } = event;
 const href = `/events/${slug}/`;
 const canceled = isCanceled(event);
@@ -49,7 +58,7 @@ const time =
     ? `Now through ${formatMonthDay(data.end!)}`
     : multiDay && data.allDay
       ? formatDayRange(data.start, data.end!)
-      : formatTimeRange(data.start, data.end, data.allDay));
+      : clockText(event));
 // Under a day heading the time sits in a 4.5rem column. "7 pm" and "to 9 pm"
 // fit it; "Now through October 31" did not, and as one unbreakable line it ran
 // over the category. A run of days is given there as short words that wrap
@@ -66,6 +75,8 @@ const [cellTime, cellTo] = data.timeNote
         : data.end && !data.allDay
           ? [formatTime(data.start), `to ${formatTime(data.end)}`]
           : [time];
+// The row's title: the listing's own, less an "at <venue>" the line under it repeats.
+const title = displayTitle(event);
 // A free-text time ("Evening; time on the ticket page", "During library
 // hours, through October 22") stacked five and six lines deep in that column,
 // taller than the event. A long one goes on the line under the title; the
@@ -95,6 +106,9 @@ const note =
   data-free={/^free\b/i.test(data.cost ?? '') ? 'true' : undefined}
   data-status={statusLabel ? data.status : undefined}
   data-sub-town={data.subTown}
+  data-regular={regular ? '' : undefined}
+  data-repeat={repeat ? '' : undefined}
+  hidden={regular || repeat}
 >
   {showDate ? (
     <time datetime={toIsoLocal(data.start)} class="flex flex-col pt-0.5">
@@ -139,7 +153,7 @@ const note =
       </p>
     )}
     <h3 class="text-xl font-medium leading-tight md:text-2xl">
-      <a href={href} class:list={['stretch no-underline group-hover:text-primary', canceled && 'line-through decoration-ink-muted decoration-2']}>{data.title}</a>
+      <a href={href} class:list={['stretch no-underline group-hover:text-primary', canceled && 'line-through decoration-ink-muted decoration-2']}>{title}</a>
     </h3>
     <p class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">
       {showDate ? <span>{time} · </span> : longNote && <span class="hidden sm:inline">{time} · </span>}{data.venue}{data.subTown && <span>, {subTownLabel(data.subTown)}</span>}{data.cost && <span> · {data.cost}</span>}
