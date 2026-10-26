@@ -117,6 +117,11 @@ const subtitleLong = shorten(subtitle, 88);
         ))}
       </div>
     )}
-    {site.hero.credit && <p class="mt-4 text-[0.875rem] text-white/80">Photo: {site.hero.credit}</p>}
+    {/* No caption on the photograph (owner, 26 October 2026: a line of
+        small type over the picture looked bad). The credit is on
+        /credits/, which names every photograph with its author, its
+        license and a link to the original; every Creative Commons
+        license accepts attribution given that way, and the footer links
+        the page from every page. */}
   </div>
 </section>
