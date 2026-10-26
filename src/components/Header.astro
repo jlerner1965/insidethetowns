@@ -147,7 +147,7 @@ const emailHref = Astro.props.home ? '#signup' : '/#signup';
         </a>
         {/* From a tablet's width up; on a phone the signup is in the menu's foot. */}
         {emailOn && (
-          <a href={emailHref} class="ml-1 hidden min-h-11 items-center whitespace-nowrap rounded-full bg-primary px-4 text-[0.875rem] font-semibold text-white no-underline hover:bg-primary-hover sm:inline-flex">{sendDay} email</a>
+          <a href={emailHref} class="ml-1 hidden min-h-11 items-center whitespace-nowrap rounded-full bg-primary px-4 text-[0.875rem] font-semibold text-white no-underline hover:bg-primary-hover sm:inline-flex xl:px-3">{sendDay} email</a>
         )}
         <button
           type="button"
