@@ -10,7 +10,6 @@ url: "https://www.berthoudcommunitylibrary.org/events-classes"
 cost: "Free"
 category: other
 recurring: "Tuesday to Thursday, 11 to 1, through mid-December; not November 11 or 26 (library closed)"
-timeNote: "11 am to 1 pm, Tuesday to Thursday"
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
 verified: "2026-10-03"
 ---

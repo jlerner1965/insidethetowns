@@ -8,7 +8,7 @@ performers:
   - { name: "Sugar Britches", kind: group }
 url: "https://citystarbrewing.com/event/deadwood-imperial-red/"
 category: music
-timeNote: "Beer release from 3 pm; live music 6 to 8:30 pm."
+timeNote: "From 3 pm; live music 6–8:30 pm"
 source: "https://citystarbrewing.com/event/deadwood-imperial-red/"
 verified: "2026-10-17"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Beer Release: Deadwood Imperial Red\" at 3 pm on 18 December in the page's structured data"
