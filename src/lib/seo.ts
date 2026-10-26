@@ -56,11 +56,11 @@ const EVENT_IMAGE_MIN_PIXELS = 50_000;
  * that is a link preview, not a claim about the event.
  */
 const OUTDOOR_PLACES: ReadonlySet<string> = new Set(['park', 'trail', 'trailhead']);
-export function eventImage(
-  own: ImageCandidate | undefined,
-  venue: { image?: ImageCandidate; type: string } | undefined,
-): ImageCandidate | undefined {
-  const fits = (i: ImageCandidate | undefined): i is ImageCandidate =>
+export function eventImage<T extends ImageCandidate>(
+  own: T | undefined,
+  venue: { image?: T; type: string } | undefined,
+): T | undefined {
+  const fits = (i: T | undefined): i is T =>
     !!i && i.width >= EVENT_IMAGE_MIN_WIDTH && i.width * i.height >= EVENT_IMAGE_MIN_PIXELS;
   if (fits(own)) return own;
   if (venue && !OUTDOOR_PLACES.has(venue.type) && fits(venue.image)) return venue.image;
