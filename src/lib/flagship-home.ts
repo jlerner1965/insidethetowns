@@ -10,7 +10,7 @@
 import type { CollectionEntry } from 'astro:content';
 import type { SportGame, SportsData } from '../config/school-sports.ts';
 import { addDays, dayKey, formatDayLong, formatTime, formatTimeRange, startOfDay, toIsoLocal } from './dates.ts';
-import { isCanceled, lastDay, listedUntil, sortByStart } from './events.ts';
+import { displayTitle as titleLessVenue, isCanceled, lastDay, listedUntil, sortByStart } from './events.ts';
 import { FLAGSHIP_TEAM, RESULT_WORD, bigGame, dedupeResults, gameDay, stripGames, weekGames, where, type TeamGame } from './school-sports.ts';
 import { weekWindow } from './weekly.ts';
 
@@ -182,6 +182,16 @@ export function displayTitle(title: string, max = 56): string {
   return m && m.index !== undefined ? t.slice(0, 12 + m.index).trim() : t;
 }
 
+/**
+ * An agenda row's title: the events page's rule first (a closing "at <the
+ * venue>" goes when the venue line under it says the venue), then the cut
+ * above. "Trivia Night at The Wheel House" over "The Wheel House" read the
+ * bar twice on the home page and once on /events/; the two pages agree.
+ */
+export function agendaTitle(title: string, venue: string): string {
+  return displayTitle(titleLessVenue({ data: { title, venue } }));
+}
+
 /** The longest time note the agenda's time column holds; a longer one goes on the venue line. */
 export const NOTE_IN_COLUMN = 20;
 
@@ -197,7 +207,7 @@ function eventItem(e: EventLike): DayItem {
   const place = [longNote ? timeNote : undefined, venue, cost].filter(Boolean).join(' · ');
   return {
     kind: 'event',
-    title: displayTitle(title),
+    title: agendaTitle(title, venue),
     fullTitle: title,
     when,
     where: place,

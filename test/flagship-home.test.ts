@@ -8,7 +8,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseLocal } from '../src/lib/dates.ts';
-import { clockKey, dashed, displayTitle, gameHeading, leadGame, nextGame, resultSentence, scoreboardResult, teamRows, weekDays } from '../src/lib/flagship-home.ts';
+import { agendaTitle, clockKey, dashed, displayTitle, gameHeading, leadGame, nextGame, resultSentence, scoreboardResult, teamRows, weekDays } from '../src/lib/flagship-home.ts';
 import { contrast, schoolTheme } from '../src/config/school-colors.ts';
 import { towns } from '../src/config/towns/registry.ts';
 import { schoolSportsFor, schoolTeamName, type SportGame, type SportsData } from '../src/config/school-sports.ts';
@@ -175,6 +175,10 @@ test('the email is not one of the week’s things on, and a called-off event is 
 });
 
 test('a long title is cut at a natural break for the agenda, never mid-word; a short one is left whole', () => {
+  // The venue line under the row says the venue, so the title does not (the events page's rule).
+  assert.equal(agendaTitle('Trivia Night at The Wheel House', 'The Wheel House'), 'Trivia Night');
+  assert.equal(agendaTitle('Murder at Shade Hallow Manor', 'Berthoud Community Library'), 'Murder at Shade Hallow Manor');
+  assert.equal(agendaTitle('Berthoud Area Chamber of Commerce Business After Hours: Halloween edition at the museum', 'Berthoud Historical Society Museum'), 'Berthoud Area Chamber of Commerce Business After Hours');
   assert.equal(displayTitle('Macaroon Stout release, with Steepland String Band'), 'Macaroon Stout release, with Steepland String Band');
   assert.equal(displayTitle('Berthoud Area Chamber of Commerce Business After Hours: Halloween edition at the museum'), 'Berthoud Area Chamber of Commerce Business After Hours');
   const long = 'A very long title with no natural break in it anywhere at all for the agenda';
