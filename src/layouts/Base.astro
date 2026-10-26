@@ -46,8 +46,9 @@ interface Props {
   /** What the page is, for the site search's result list: "Event", "Place", "Guide". */
   kind?: string;
   /**
-   * The flagship home page's own masthead and footer (Header and Footer,
-   * `home`), which its stylesheet styles; every other page leaves it unset.
+   * The flagship home page: the header is the same as every page's, and
+   * only its email button points at this page's own signup (#signup)
+   * rather than the home page's. Every other page leaves it unset.
    */
   chrome?: 'home';
 }
@@ -113,7 +114,7 @@ const cssVars = [
     <main id="main" class="flex-1" data-pagefind-body={searchable ? '' : undefined} data-pagefind-meta={searchable && kind ? `kind:${kind}` : undefined}>
       <slot />
     </main>
-    <Footer home={home} />
+    <Footer />
     <Freshness />
     {analytics && <Analytics />}
     {plausible && <Plausible domain={site.domain} />}

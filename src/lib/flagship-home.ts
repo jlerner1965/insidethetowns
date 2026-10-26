@@ -8,10 +8,9 @@
  * so.
  */
 import type { CollectionEntry } from 'astro:content';
-import { HIGHLIGHT } from '../config/palette.ts';
 import type { SportGame, SportsData } from '../config/school-sports.ts';
-import { addDays, dayKey, formatDayLong, formatTime, formatTimeRange, startOfDay } from './dates.ts';
-import { isCanceled, sortByStart } from './events.ts';
+import { addDays, dayKey, formatDayLong, formatTime, formatTimeRange, startOfDay, toIsoLocal } from './dates.ts';
+import { isCanceled, lastDay, listedUntil, sortByStart } from './events.ts';
 import { FLAGSHIP_TEAM, RESULT_WORD, bigGame, dedupeResults, gameDay, stripGames, weekGames, where, type TeamGame } from './school-sports.ts';
 import { weekWindow } from './weekly.ts';
 
@@ -89,17 +88,27 @@ export function siteWord(g: SportGame): 'Home' | 'Away' | 'Neutral site' {
 // ------------------------------------------------------------- the week
 
 export interface DayItem {
-  kind: 'event' | 'game' | 'email';
+  kind: 'event' | 'game';
+  /** The title as the agenda sets it: shortened at a natural break when it runs long (displayTitle). */
   title: string;
-  /** One line: "6:30 pm · Home", "7 pm · City Star Brewing · Free". */
+  /** The listing's own title, whole. */
+  fullTitle: string;
+  /** "6:30 pm", "All day", the listing's own time note, or a played game's result ("Won 50–0"). */
+  when: string;
+  /** The venue and the cost, or the game's stage and venue: "City Star Brewing · Free". */
+  where: string;
+  /** One line, both: "6:30 pm · Home", "7 pm · City Star Brewing · Free". */
   meta: string;
+  /** A game's Home, Away or Neutral site pill. */
+  site?: 'Home' | 'Away' | 'Neutral site';
   href: string;
-  /** A CSS colour for the dot: a category's, or the amber for the email. */
+  /** A CSS colour for the dot: the category's. */
   dot: string;
-  /** "HH:MM" for the order within the day; untimed things after the timed ones. */
+  /** "HH:MM" for the order within the day; all-day and untimed things after the timed ones. */
   time: string;
-  /** Which of a full day's items keep their place: football, then the email, then the rest by time. */
-  rank: number;
+  /** The last Denver day it is on, and the instant it comes off: the marks the browser's pruning reads (src/lib/expiry.ts). */
+  eventDay: string;
+  end?: string;
 }
 
 export interface WeekDay {
@@ -117,14 +126,17 @@ export interface WeekInput<E extends EventLike> {
   sports?: SportsData;
   /** The team pages that exist, by team key, for the games' links. */
   teamHref?: (key: string) => string;
-  /** The email's day ("Thursday") and hour ("7 am"), from the newsletter config; no day, no email item. */
-  email?: { day: string; time?: string };
   now?: Date;
   /** Items a day shows before "+N more". */
   limit?: number;
+  /**
+   * The first day: the week's Monday (weekWindow), as the seven columns
+   * had it, or today, the agenda's seven days from the day the page was
+   * built (the 26 October 2026 audit: on a Sunday six of the Monday week's
+   * seven days had gone, and the first screen showed what was over).
+   */
+  from?: 'monday' | 'today';
 }
-
-const WEEKDAY = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Denver', weekday: 'long' });
 
 /** "7 am" as "07:00", "6:30 pm" as "18:30", for the order within a day; anything else first. */
 export function clockKey(time: string | undefined): string {
@@ -135,17 +147,40 @@ export function clockKey(time: string | undefined): string {
 }
 const hhmm = (d: Date) => new Intl.DateTimeFormat('en-GB', { timeZone: 'America/Denver', hour: '2-digit', minute: '2-digit', hour12: false }).format(d);
 
+/**
+ * A listing's title as the agenda sets it: whole up to `max` characters;
+ * past that, cut at the first natural break (a dash, a colon, a comma
+ * before "with", an opening bracket) that leaves at least a dozen
+ * characters, else whole and left to the stylesheet's two-line clamp.
+ * Never cut mid-word and never given an ellipsis that reads as a typo: the
+ * whole title is on the listing the row links to.
+ */
+export function displayTitle(title: string, max = 56): string {
+  const t = title.trim();
+  if (t.length <= max) return t;
+  const m = t.slice(12).match(/\s[—–-]\s|:\s|,\s(?=with\b)|\s\(/);
+  return m && m.index !== undefined ? t.slice(0, 12 + m.index).trim() : t;
+}
+
+const nbsp = (s: string) => s.replace(/ (am|pm)/g, ' $1');
+
 function eventItem(e: EventLike): DayItem {
   const { title, start, end, allDay, timeNote, venue, cost, category } = e.data;
-  const when = timeNote ?? formatTimeRange(start, end && dayKey(end) === dayKey(start) ? end : undefined, allDay).replace(/ (am|pm)/g, '\u00a0$1');
+  const when = timeNote ?? (allDay ? 'All day' : nbsp(formatTime(start)));
+  const fullWhen = timeNote ?? nbsp(formatTimeRange(start, end && dayKey(end) === dayKey(start) ? end : undefined, allDay));
+  const place = [venue, cost].filter(Boolean).join(' · ');
   return {
     kind: 'event',
-    title,
-    meta: [when, venue, cost].filter(Boolean).join(' · '),
+    title: displayTitle(title),
+    fullTitle: title,
+    when,
+    where: place,
+    meta: [fullWhen, place].filter(Boolean).join(' · '),
     href: `/events/${e.slug ?? e.id}/`,
     dot: `var(--cat-${category}-dot)`,
-    time: allDay ? '99:98' : hhmm(start),
-    rank: 2,
+    time: allDay || timeNote ? '99:98' : hhmm(start),
+    eventDay: lastDay(e),
+    end: toIsoLocal(listedUntil(e)),
   };
 }
 
@@ -153,46 +188,50 @@ function gameItem({ team, game }: TeamGame, href: string): DayItem {
   const result = game.result ? `${RESULT_WORD[game.result]}${game.score ? ` ${game.score.us}–${game.score.them}` : game.forfeit ? ' by forfeit' : ''}` : game.place;
   const time = game.time ? clock(gameDay(game)) : undefined;
   const place = game.venue ?? (game.neutral ? undefined : game.site === 'home' ? 'Home' : game.site === 'away' ? 'Away' : undefined);
+  const title = `${team.name} ${where(game)} ${game.opponent}`;
   return {
     kind: 'game',
-    title: `${team.name} ${where(game)} ${game.opponent}`,
+    title: displayTitle(title),
+    fullTitle: title,
+    when: result ?? time ?? 'Time to be set',
+    where: [game.stage, game.venue].filter(Boolean).join(' · '),
     meta: [result ?? time, game.stage, place].filter(Boolean).join(' · '),
+    site: siteWord(game),
     href,
     dot: 'var(--cat-sports-dot)',
     time: game.time ?? '99:99',
-    rank: team.key === FLAGSHIP_TEAM ? 0 : 2,
+    eventDay: game.date,
   };
 }
 
 /**
- * The current week (weekWindow: Monday to Sunday, Denver), one entry a
- * day: the events that start that day and are not called off, the school's
- * games that day (the result once it is played, the time before), and the
- * Thursday email on its day from today on. A run that began on an earlier
- * day is filed under its first day only, as the events page files it, so a
- * month-long trail does not fill every day. A day shows `limit` items,
- * football first, then the email, then the rest by time; the rest are
- * counted in `more`.
+ * Seven days, one entry a day: the events that start that day and are not
+ * called off, and the school's games that day (the result once it is
+ * played, the time before). A run that began on an earlier day is filed
+ * under its first day only, as the events page files it, so a month-long
+ * trail does not fill every day. A day's items are in the order of the
+ * clock, games and events alike, all-day and untimed last (the audit of 26
+ * October 2026: football had led every day it was played, ahead of a
+ * morning story time); a day shows `limit` of them and counts the rest in
+ * `more`. The Thursday email is not one of the week's things on: the page
+ * promotes it on its own.
  */
-export function weekDays<E extends EventLike>({ events, sports, teamHref = () => '/sports/', email, now = new Date(), limit = 3 }: WeekInput<E>): WeekDay[] {
-  const { monday } = weekWindow(now);
+export function weekDays<E extends EventLike>({ events, sports, teamHref = () => '/sports/', now = new Date(), limit = 3, from = 'monday' }: WeekInput<E>): WeekDay[] {
+  const first = from === 'today' ? startOfDay(now) : weekWindow(now).monday;
   const today = dayKey(now);
   const listed = sortByStart([...events]).filter((e) => !isCanceled(e));
   const games: TeamGame[] = (sports?.sports ?? []).flatMap((team) => [...dedupeResults(team.results), ...team.upcoming].map((game) => ({ team, game })));
   return Array.from({ length: 7 }, (_, i) => {
-    const date = addDays(monday, i);
+    const date = addDays(first, i);
     const key = dayKey(date);
     const items: DayItem[] = [
       ...games.filter((g) => g.game.date === key).map((g) => gameItem(g, teamHref(g.team.key))),
       ...listed.filter((e) => dayKey(e.data.start) === key).map(eventItem),
     ];
-    if (email && WEEKDAY.format(date) === email.day && key >= today) {
-      items.push({ kind: 'email', title: `${email.day} email`, meta: `${email.time ? `${email.time}, in` : 'In'} your inbox`, href: '#signup', dot: HIGHLIGHT, time: clockKey(email.time), rank: 1 });
-    }
     // One row per listing a day: a series with two sittings on one day is one thing on.
     const seen = new Set<string>();
-    const unique = items.filter((it) => (seen.has(it.href + it.title) ? false : (seen.add(it.href + it.title), true)));
-    const kept = [...unique].sort((a, b) => a.rank - b.rank || a.time.localeCompare(b.time)).slice(0, limit);
+    const unique = items.filter((it) => (seen.has(it.href + it.fullTitle) ? false : (seen.add(it.href + it.fullTitle), true)));
+    const kept = [...unique].sort((a, b) => a.time.localeCompare(b.time)).slice(0, limit);
     return {
       key,
       date,
@@ -208,7 +247,7 @@ export function weekDays<E extends EventLike>({ events, sports, teamHref = () =>
 export interface TeamRow {
   team: SportsData['sports'][number];
   /** Football: its season so far. */
-  football?: { record?: string; last?: SportGame };
+  football?: { record?: string; last?: SportGame; next?: SportGame };
   /** Every other team: its games in the next seven days. */
   games: SportGame[];
 }
@@ -230,7 +269,8 @@ export function teamRows(data: SportsData, now = new Date()): TeamRow[] {
       const recent = results.some((g) => g.date >= before && g.date <= today);
       const soon = team.upcoming.some((g) => g.date >= today && g.date <= after);
       if (!recent && !soon) return [];
-      return [{ team, football: { record: team.overall ? dashed(team.overall) : undefined, last: results.find((g) => g.result || g.place) }, games: [] }];
+      const next = team.upcoming.find((g) => g.date >= today);
+      return [{ team, football: { record: team.overall ? dashed(team.overall) : undefined, last: results.find((g) => g.result || g.place), next }, games: [] }];
     }
     const games = week.filter((c) => c.team === team).map((c) => c.game);
     return games.length > 0 ? [{ team, games }] : [];

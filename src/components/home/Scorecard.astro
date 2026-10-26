@@ -1,0 +1,139 @@
+---
+/**
+ * The flagship home page's scoreboard card (the owner's direction of 26
+ * October 2026, docs/DESIGN.md "The scoreboard card"): on the paper, not on
+ * a band of the school's colour. The school's colour is its trim only: the
+ * 4px rule along its top, the eyebrow, the home side's score and the Home
+ * and Away pills.
+ *
+ * - The final: the latest in the last eight days, football's first
+ *   (src/lib/flagship-home.ts, scoreboardResult), as two rows, our side
+ *   then theirs, each score at the same size whoever won, and the result
+ *   said in a word ("Won", "Lost", "Tied") so nothing is told by dimming.
+ * - With no final in that window: the next game, its day and time set
+ *   large in the score's place, the two sides under it.
+ * - Next up: one line, the next game after anything above.
+ * - Nothing to show (no school, no data, nothing played or to come): the
+ *   card is not drawn and the page closes the gap (FlagshipHome.astro).
+ *
+ * Every word comes from the data. "Today" is never written: a page can be
+ * older than the day it was built, so a heading names the weekday.
+ */
+import { formatDayLong, formatTime } from '@/lib/dates';
+import { clock, dashed, siteWord } from '@/lib/flagship-home';
+import { RESULT_WORD, gameDay, where, type TeamGame } from '@/lib/school-sports';
+
+interface Props {
+  mascot?: string;
+  teamName?: string;
+  /** The final the card shows. */
+  result?: TeamGame;
+  /** With no final: the game set large instead. */
+  lead?: TeamGame;
+  /** The next game after `lead`. */
+  next?: TeamGame;
+  /** The team page a game links to. */
+  teamHref: (key: string) => string;
+  /** The guide's address, for the shared result's link. */
+  origin: string;
+  checked?: { at: Date; withTime: boolean };
+}
+
+const { mascot, teamName, result, lead, next, teamHref, origin, checked } = Astro.props;
+const short = (d: Date) => new Intl.DateTimeFormat('en-US', { timeZone: 'America/Denver', weekday: 'short', month: 'short', day: 'numeric' }).format(d);
+const weekdayLong = (d: Date) => new Intl.DateTimeFormat('en-US', { timeZone: 'America/Denver', weekday: 'long' }).format(d);
+// "At Mountain View", "Home", the venue of a neutral game.
+const placeLine = (g: TeamGame['game']) => (g.venue ? g.venue : g.site === 'home' && !g.neutral ? 'Home' : g.site === 'away' && !g.neutral ? `At ${g.opponent}` : 'Neutral site');
+const shareText = result?.game.score
+  ? `${teamName} ${result.game.score.us}, ${result.game.opponent} ${result.game.score.them}. Final, ${result.team.name.toLowerCase()}, ${formatDayLong(gameDay(result.game))}.`
+  : undefined;
+const shareUrl = result ? `${origin}${teamHref(result.team.key)}` : undefined;
+const pill = (g: TeamGame['game']) => siteWord(g);
+const record = (result ?? lead)?.team.overall;
+---
+<section class="fh-card" aria-labelledby="fh-card-title">
+  {result?.game.score && (
+    <Fragment>
+      <h2 id="fh-card-title" class="fh-card-eyebrow">{mascot} {result.team.name.toLowerCase()} · Final</h2>
+      <p class="fh-card-when">
+        <strong>{result.game.result ? RESULT_WORD[result.game.result] : 'Played'}</strong> · <time datetime={result.game.date}>{formatDayLong(gameDay(result.game))}</time> · {placeLine(result.game)}
+      </p>
+      <div class="fh-board" role="group" aria-label={`Final score: ${teamName} ${result.game.score.us}, ${result.game.opponent} ${result.game.score.them}`}>
+        <p class="fh-score-row fh-us">
+          <span class="fh-score-team">{teamName}</span>
+          <span class="fh-score">{result.game.score.us}</span>
+        </p>
+        <p class="fh-score-row">
+          <span class="fh-score-team">{result.game.opponent}</span>
+          <span class="fh-score">{result.game.score.them}</span>
+        </p>
+      </div>
+      <p class="fh-card-foot">
+        {record && <span>Season {dashed(record)}</span>}
+        <a href="/sports/" class="fh-link">All scores →</a>
+        {shareText && (
+          <span>
+            <button type="button" class="fh-link fh-share" data-share data-share-text={shareText} data-share-url={shareUrl} hidden>Share →</button>
+            <span class="fh-share-status" data-share-status role="status"></span>
+          </span>
+        )}
+      </p>
+    </Fragment>
+  )}
+  {!result && lead && (
+    <Fragment>
+      <h2 id="fh-card-title" class="fh-card-eyebrow">{mascot} {lead.team.name.toLowerCase()} · Next game</h2>
+      <p class="fh-card-big"><time datetime={lead.game.time ? `${lead.game.date}T${lead.game.time}` : lead.game.date}>{weekdayLong(gameDay(lead.game))}{lead.game.time && `, ${clock(gameDay(lead.game))}`}</time></p>
+      <p class="fh-card-match">
+        <span>{teamName} {where(lead.game)} {lead.game.opponent}{lead.game.stage && ` · ${lead.game.stage}`}</span>
+        <span class:list={['fh-site', pill(lead.game) === 'Home' ? 'fh-site-home' : 'fh-site-away']}>{pill(lead.game)}</span>
+      </p>
+      <p class="fh-card-foot">
+        {record && <span>Season {dashed(record)}</span>}
+        <a href="/sports/" class="fh-link">All scores →</a>
+      </p>
+    </Fragment>
+  )}
+  {next && (
+    <p class="fh-card-next">
+      <span class="fh-card-next-label">Next up</span>
+      <span>
+        <a href={teamHref(next.team.key)} class="fh-card-next-link"><time datetime={next.game.time ? `${next.game.date}T${next.game.time}` : next.game.date}>{short(gameDay(next.game))}{next.game.time && `, ${clock(gameDay(next.game))}`}</time> · {next.team.name} {where(next.game)} {next.game.opponent}</a>{next.game.stage && ` · ${next.game.stage}`}
+        {' '}<span class:list={['fh-site', pill(next.game) === 'Home' ? 'fh-site-home' : 'fh-site-away']}>{pill(next.game)}</span>
+      </span>
+    </p>
+  )}
+  {!next && (result || lead) && <p class="fh-card-next fh-card-quiet">No other game on the schedule yet.</p>}
+  {checked && (
+    <p class="fh-card-checked">Scores checked <time datetime={checked.at.toISOString()}>{short(checked.at)}{checked.withTime && `, ${formatTime(checked.at)}`}</time></p>
+  )}
+</section>
+
+<script>
+  // Share the final: the phone's own sheet where there is one, else the
+  // words and the link onto the clipboard. Shown only once this has run,
+  // so a page without the script has no button that does nothing.
+  for (const button of document.querySelectorAll<HTMLButtonElement>('[data-share]')) {
+    const status = button.parentElement?.querySelector<HTMLElement>('[data-share-status]');
+    const text = button.dataset.shareText ?? '';
+    const url = button.dataset.shareUrl ?? location.href;
+    if (!navigator.share && !navigator.clipboard) continue;
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      if (navigator.share) {
+        try {
+          await navigator.share({ text, url });
+        } catch {
+          // Closed without sharing: nothing to say.
+        }
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(`${text} ${url}`);
+        if (status) status.textContent = ' Copied';
+      } catch {
+        if (status) status.textContent = ' Could not copy';
+      }
+    });
+  }
+</script>
