@@ -82,8 +82,11 @@ const browse =
 </Page>
 
 <script>
-  type Result = { url: string; meta: { title?: string; kind?: string; town?: string; domain?: string }; excerpt: string };
+  import { SEARCH_RANKING } from '@/lib/network-search';
+
+  type Result = { url: string; meta: { title?: string; kind?: string; town?: string; domain?: string; summary?: string }; excerpt: string };
   type Pagefind = {
+    options: (o: object) => Promise<void>;
     init: () => Promise<void>;
     search: (q: string) => Promise<{ results: Array<{ data: () => Promise<Result> }> }>;
   };
@@ -110,6 +113,8 @@ const browse =
       // to resolve a file that exists only after the build.
       const indexUrl = '/pagefind/pagefind.js';
       const mod = (await import(/* @vite-ignore */ indexUrl)) as Pagefind;
+      // A place's name over the events at it; the summary shown, not searched (SEARCH_RANKING).
+      await mod.options({ ranking: SEARCH_RANKING });
       await mod.init();
       pagefind = mod;
       return mod;
@@ -144,8 +149,16 @@ const browse =
     }
     const excerpt = document.createElement('p');
     excerpt.className = 'mt-2 text-[0.9375rem] leading-relaxed text-ink-muted';
-    // Pagefind's excerpt carries <mark> around the matched words and nothing else.
-    excerpt.innerHTML = r.excerpt;
+    // A place, an event or a guide says what it is in its own words: its
+    // summary (the page's description: a place's, an event's day, time,
+    // venue and first sentence, an article's excerpt), not the forty words
+    // that happened to sit around the match, which on a venue were its
+    // upcoming events (audit, 26 October 2026). Any other page, a list or
+    // a section, shows where on it the words are, as Pagefind's excerpt,
+    // which carries <mark> around the matched words and nothing else.
+    const summary = r.meta.kind ? r.meta.summary : undefined;
+    if (summary) excerpt.textContent = summary;
+    else excerpt.innerHTML = r.excerpt;
     li.append(excerpt);
     return li;
   }

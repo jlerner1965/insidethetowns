@@ -22,7 +22,8 @@
 import type { APIRoute } from 'astro';
 import { countyLabel, liveTowns, type TownConfig } from '@/config';
 import { getNetworkEntries, type NetworkEntry } from '@/lib/content';
-import { dayKey, formatDayLong, formatDayRange, formatMonthDay } from '@/lib/dates';
+import { dayKey, formatDayLong, formatDayRange, formatMonthDay, formatTimeRange } from '@/lib/dates';
+import { clampText, markdownToText } from '@/lib/plain-text';
 import { finalDay, isCanceled, isInProgress, isMultiDay, isOver, nextOccurrence } from '@/lib/events';
 import { escapeHtml, plainText, recordHtml, sportsRecord, type NetworkRecord } from '@/lib/network-search';
 import { schoolsFor, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
@@ -60,6 +61,7 @@ function townRecord(town: TownConfig): NetworkRecord {
     town: town.name,
     domain: town.domain,
     lead: countyLabel(town),
+    summary: town.tagline,
     text: [town.tagline, town.shortTagline, covers && `Covers ${covers}.`].filter(Boolean).join(' '),
   };
 }
@@ -72,6 +74,7 @@ function movingRecord(page: NetworkEntry<'pages'>): NetworkRecord {
     title: data.title,
     town: town.name,
     domain: town.domain,
+    summary: data.description,
     ...words([data.description], page),
   };
 }
@@ -85,6 +88,7 @@ function placeRecord(place: NetworkEntry<'places'>): NetworkRecord {
     town: town.name,
     domain: town.domain,
     lead: [PLACE_TYPE_LABELS[data.type], data.area, data.address].filter(Boolean).join(' · '),
+    summary: data.summary,
     ...words([data.summary], place, [data.tags.join(', ')]),
   };
 }
@@ -98,6 +102,7 @@ function articleRecord(article: NetworkEntry<'articles'>): NetworkRecord {
     town: town.name,
     domain: town.domain,
     lead: data.category,
+    summary: data.excerpt,
     ...words([data.excerpt], article),
   };
 }
@@ -117,6 +122,12 @@ function eventRecord(event: NetworkEntry<'events'>): NetworkRecord {
     town: town.name,
     domain: town.domain,
     lead: [status, day, data.venue].filter(Boolean).join(' · '),
+    // As the event page's own description reads: the day, the time and the
+    // venue, then the listing's first words as plain text.
+    summary: clampText(
+      `${status ? `${status}. ` : ''}${day}, ${next.data.timeNote ?? formatTimeRange(next.data.start, next.data.end, data.allDay)} at ${data.venue}. ${markdownToText(event.body)}`,
+      200,
+    ),
     ...words([], event),
   };
 }

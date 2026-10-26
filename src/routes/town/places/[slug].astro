@@ -235,7 +235,7 @@ const facts = [
       <p class="order-5 text-[0.9375rem] lg:mt-12"><a href={back.href} class="inline-block -my-1 py-1 font-semibold text-primary underline">← {back.label}</a></p>
     </div>
     <div class="contents lg:block lg:pt-1">
-      <aside class="order-2">
+      <aside class="order-2" data-pagefind-meta={`name:${data.title}`}>
         <dl class="divide-y divide-line-soft border-y border-line-soft">
           {facts.map((f) => (
             <div class="py-4" data-hours={f.hours ? JSON.stringify(f.hours) : undefined}>
@@ -327,7 +327,7 @@ const facts = [
   </div>
 
   {here.length > 0 && (
-    <section class="mt-20 md:mt-24">
+    <section class="mt-20 md:mt-24" data-pagefind-ignore>
       <SectionHeader eyebrow={`On at ${data.title}`} title="What’s coming up" href="/events/" linkLabel="All events" />
       <div class="border-b border-line-soft">
         {here.map((event) => <EventCard event={event} />)}
@@ -336,7 +336,7 @@ const facts = [
   )}
 
   {inGuides.length > 0 && (
-    <section class="mt-20 md:mt-24" aria-labelledby="in-guides">
+    <section class="mt-20 md:mt-24" aria-labelledby="in-guides" data-pagefind-ignore>
       <SectionHeader eyebrow="In the guides" title={`Read about ${data.title}`} href="/guides/" linkLabel="All guides" id="in-guides" />
       <ul class="divide-y divide-line-soft border-y border-line-soft">
         {inGuides.map((a) => (

@@ -55,7 +55,9 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
 const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 ---
 <title>{fullTitle}</title>
-<meta name="description" content={metaDescription} />
+{/* `summary` is the site search's line under a result (src/pages/search.astro):
+    the page's own description, rather than whatever words sat near the match. */}
+<meta name="description" content={metaDescription} data-pagefind-meta="summary[content]" />
 {/* A page kept out of the index has nothing to be canonical for; the 404
     page in particular was declaring /404/, a URL that itself 404s. */}
 {!noindex && <link rel="canonical" href={canonical} />}
