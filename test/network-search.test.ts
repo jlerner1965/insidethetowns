@@ -68,6 +68,7 @@ test('buildSearchIndex: town records keep their URL and meta, and the records fi
         '<p><span data-open-status hidden>Opens at noon</span></p>' +
         '<p><a href="/correct/?item=x">Report a correction</a> · <a href="mailto:x@example.com">Know something opening or closing? Tell us</a></p>' +
         '<p><a href="#day-2026-10-26">Jump to Monday</a></p>' +
+        '<section data-up-the-hill><p>Halloween Costume Ball at the Stanley</p></section>' +
         '</main></body></html>',
     );
     writeFileSync(join(dist, NETWORK_SEARCH_FILE), JSON.stringify([{ url: tavern.url, html: recordHtml(tavern) }]));
@@ -90,7 +91,7 @@ test('buildSearchIndex: town records keep their URL and meta, and the records fi
     const about = fragments.find((f) => f.url === '/about/');
     assert.equal(about.meta.summary, 'The network’s own page.', 'the description is the summary');
     assert.match(about.content, /Independent guides\./);
-    for (const words of ['Finish signing up in the new tab', 'Enter a valid email', 'We don’t sell your address', 'Show all towns', 'Report a correction', 'Know something opening or closing', 'Thursday email', 'Jump to Monday', 'Opens at noon']) {
+    for (const words of ['Finish signing up in the new tab', 'Enter a valid email', 'We don’t sell your address', 'Show all towns', 'Report a correction', 'Know something opening or closing', 'Thursday email', 'Jump to Monday', 'Opens at noon', 'Costume Ball']) {
       assert.doesNotMatch(about.content, new RegExp(words), `${words} is not indexed`);
     }
   } finally {

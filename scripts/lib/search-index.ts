@@ -38,9 +38,12 @@ import { NETWORK_SEARCH_FILE } from '../../src/lib/network-search.ts';
  *   that jumps to the signup), which repeat words the page already has;
  * - the correction link and the "opening or closing? Tell us" mail link on
  *   every listing, and the newsletter signup and its privacy line, also
- *   named here in case one is ever rendered outside its <form>.
+ *   named here in case one is ever rendered outside its <form>;
+ * - "Up the hill this weekend" (UpTheHill.astro), the mountain guides'
+ *   listings on This week: another guide's events, which matched a Lyons
+ *   search for "music" with a Halloween ball in Estes Park.
  *
- * Exported so the test can hold the list to what it says.
+ * test/network-search.test.ts builds an index from a page holding each.
  */
 export const EXCLUDE_SELECTORS = [
   '[hidden]',
@@ -57,6 +60,7 @@ export const EXCLUDE_SELECTORS = [
   '[data-signup-done]',
   'a[href^="/correct/"]',
   'a[href^="mailto:"]',
+  '[data-up-the-hill]',
 ];
 
 export async function buildSearchIndex(dist = 'dist'): Promise<{ pages: number; records: number }> {
