@@ -8,6 +8,7 @@ image: ../images/old-town-walk-charlotte-street.jpg
 imageAlt: "The Charlotte Street sidewalk under autumn trees at Fremont Avenue, beside the Historic Parish House and Museum sign where the walk begins"
 imageCredit: "Courtesy of the Johnstown Historical Society, Ltd"
 tags: [walk, history, free]
+featured: true
 summary: "The Historical Society's self-guided 25-stop walk through Old Town: the 1902 hardware store that was the first business, the 1904 and 1922 schools, the churches, the Masonic Temple and the site of the opera house."
 source: "https://jhsco.org/historicwalkingtour/"
 verified: "2026-10-02"

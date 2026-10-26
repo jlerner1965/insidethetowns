@@ -13,4 +13,4 @@ verified: "2026-10-03"
 added: "2026-09-17"
 ---
 
-The Johnstown Community YMCA on Settler Way is the town's recreation center: a fitness floor, a basketball gym, an indoor running track, a lap pool and a leisure pool with slides and diving boards, sauna and steam room, group classes from Zumba to yoga, child watch, a preschool, multipurpose fields and an event space. Memberships and guest passes through the YMCA of Northern Colorado.
+The Johnstown Community YMCA on Settler Way is the town's recreation center: a fitness floor, a basketball gym, an indoor running track, a lap pool and a leisure pool with slides and diving boards, sauna and steam room, group classes from Zumba to yoga, child watch, a preschool, multipurpose fields and an event space. Memberships and guest passes through the YMCA of Northern Colorado. On Weld RE-5J's days off the Y runs an all-day camp for kindergarten to 5th grade; the dates are on [Johnstown Families' no-school days list](/families/#breaks).

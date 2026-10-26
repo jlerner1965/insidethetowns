@@ -4,7 +4,7 @@ description: "What it is like to move to a coal town of about 30,000 at the 2020
 image: ../images/community-center.jpg
 imageAlt: "The west entrance of the Erie Community Center on Powers Street"
 imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
-updated: "2026-10-02"
+updated: "2026-10-26"
 ---
 
 ## What you are moving to
@@ -17,7 +17,7 @@ Mostly single-family homes in master-planned neighborhoods: Vista Ridge, Erie Hi
 
 ## Schools
 
-Most of Erie is in [St. Vrain Valley Schools](https://www.svvsd.org/), based in Longmont: Erie, Red Hawk and Black Rock elementaries, Soaring Heights PK-8, Erie Middle School and Erie High School (the Tigers), plus Aspen Ridge Preparatory charter. The Boulder County side is in the [Boulder Valley School District](https://www.bvsd.org/), which runs Meadowlark PK-8 in Erie, whose students go on to Centaurus High in Lafayette. The Town's [schools page](https://www.erieco.gov/302/Schools) lists them all, with the private options.
+Most of Erie is in [St. Vrain Valley Schools](https://www.svvsd.org/), based in Longmont: Erie, Red Hawk and Black Rock elementaries, Soaring Heights PK-8, Erie Middle School and Erie High School (the Tigers), plus Aspen Ridge Preparatory charter. Part of Erie is in the [Boulder Valley School District](https://www.bvsd.org/), which runs Meadowlark PK-8 in Erie, whose students go on to Centaurus High in Lafayette. The district line is not County Line Road: check an address with [St. Vrain's boundary lookup](https://www.svvsd.org/schools/maps-boundaries/) and [Boulder Valley's school finder](https://www.bvsd.org/departments/enrollment/k-12-school-finder). The Town's [schools page](https://www.erieco.gov/302/Schools) lists them all, with the private options.
 
 ## Getting around
 

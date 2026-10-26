@@ -1,30 +1,26 @@
 ---
-title: "Johnstown with kids: a Ferris wheel in a shop, a pool with slides, and Old Town's parks"
+title: "Johnstown with kids: Old Town's parks and library, a pool with slides, and a Ferris wheel at 2534"
 date: "2026-09-27"
-excerpt: "Where to take children in Johnstown, from the attractions at 2534 to the library's Messy Art and the skate park, with hours and what each costs."
+excerpt: "Where to take children in Johnstown, from Old Town's parks, library and free museum to the pool and the attractions at 2534, with hours, what each costs, and where the school days off are listed."
 category: "Families"
 tags: [families, kids, playgrounds, guide]
 verified: "2026-09-27"
+updated: "2026-10-26"
 sources:
   - { label: "Town of Johnstown: Parks", url: "https://www.johnstownco.gov/240/Parks" }
   - { label: "Scheels Johnstown: store attractions", url: "https://www.scheels.com/stores/colorado/johnstown/features/johnstown-store-attractions.html" }
   - { label: "YMCA of Northern Colorado: Johnstown", url: "https://www.ymcanoco.org/membership/locations/johnstown-ymca" }
+  - { label: "YMCA of Northern Colorado: School Day Off Camps", url: "https://www.ymcanoco.org/before-after-care/school-day-off-camps" }
   - { label: "Johnstown Milliken Public Libraries", url: "https://johnstownmillikenpubliclibraries.us/" }
   - { label: "Johnstown Historical Society: visit", url: "https://jhsco.org/visit/" }
   - { label: "Duck Donuts, Johnstown", url: "https://www.duckdonuts.com/menu/4842-larimer-parkway-johnstown-co-80534" }
 ---
 
-Johnstown has two halves for a family: the interchange at 2534, where the big attractions are, and Old Town, where the parks and the library are. A good day uses both.
+Johnstown has two halves for a family: Old Town, where the parks, the library and the museum are, and the interchange at 2534, where the big attractions are. A good day uses both.
 
-## The Ferris wheel: Scheels
+## No school today?
 
-[Scheels](/places/scheels/) at the 2534 interchange is a 250,000-square-foot sporting-goods store that is as much an attraction as a shop: a 65-foot indoor Ferris wheel, a 16,000-gallon saltwater aquarium, a wildlife mountain, an arcade, a candy factory and Ginna's Café. Weekdays 9:30 to 9, Saturday from 9, Sunday 10 to 6. It costs nothing to walk around; the wheel and the arcade charge.
-
-Two doors along, [Duck Donuts](/places/duck-donuts/) fries cake donuts to order and dresses them while you wait, weekdays 6 to noon and weekends 6 to 6, and [Urban Egg](/places/urban-egg/) does pancakes and skillets from 7 with gluten-free and dairy-free options marked.
-
-## The pool: the YMCA
-
-The [Johnstown Community YMCA](/places/johnstown-ymca/) on Settler Way, north of Old Town, is the town's recreation center: a lap pool and a leisure pool with slides and diving boards, a gym, an indoor track and fitness classes. Weekdays from 5 am, Saturday 7 to 7, Sunday 8 to 7.
+Weld RE-5J's days off, with what is open on each, are on [Johnstown Families' no-school days list](/families/#breaks). The YMCA runs a School Day Off Camp at the [Johnstown Y](/places/johnstown-ymca/) on the district's days off, 7 am to 6 pm, and registration for each day closes at midnight on the Wednesday before (the Y's camps page, read October 26).
 
 ## The library
 
@@ -43,3 +39,13 @@ The [Historic Parish House & Museum](/places/parish-house-museum/) is town found
 ## Crepes in Old Town
 
 [Black Sheep Coffee & Crepes](/places/black-sheep-coffee-and-crepes/) on Parish Avenue is the family-friendly creperie and coffee shop: sweet and savoury crepes, weekdays 7 to 2 and weekends from 8.
+
+## The pool: the YMCA
+
+The [Johnstown Community YMCA](/places/johnstown-ymca/) on Settler Way, north of Old Town, is the town's recreation center: a lap pool and a leisure pool with slides and diving boards, a gym, an indoor track and fitness classes. Weekdays from 5 am, Saturday 7 to 7, Sunday 8 to 7.
+
+## The Ferris wheel: Scheels
+
+[Scheels](/places/scheels/) at the 2534 interchange is a 250,000-square-foot sporting-goods store that is as much an attraction as a shop: a 65-foot indoor Ferris wheel, a 16,000-gallon saltwater aquarium, a wildlife mountain, an arcade, a candy factory and Ginna's Café. Weekdays 9:30 to 9, Saturday from 9, Sunday 10 to 6. It costs nothing to walk around; the wheel and the arcade charge.
+
+Two doors along, [Duck Donuts](/places/duck-donuts/) fries cake donuts to order and dresses them while you wait, weekdays 6 to noon and weekends 6 to 6, and [Urban Egg](/places/urban-egg/) does pancakes and skillets from 7 with gluten-free and dairy-free options marked.
