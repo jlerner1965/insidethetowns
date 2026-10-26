@@ -31,8 +31,8 @@ import { schoolTheme } from '@/config/school-colors';
 import { EAT_DRINK_TYPES } from '@/content/schemas';
 import { getCollection } from 'astro:content';
 import { getTownEntries } from '@/lib/content';
-import { formatDate, formatDayLong, formatDayRange, formatMonthDay, toIsoLocal } from '@/lib/dates';
-import { isCanceled, lastDay, listedUntil, occurrences } from '@/lib/events';
+import { dayKey, formatDate, formatDayLong, formatDayRange, formatMonthDay, toIsoLocal } from '@/lib/dates';
+import { isCanceled, lastDay, listedUntil, occurrences, weeklyTest } from '@/lib/events';
 import { clock, leadGame, nextGame, resultSentence, scoreboardResult, siteWord, teamRows, weekDays } from '@/lib/flagship-home';
 import { resolveSiteImage } from '@/lib/images';
 import { SOON_DAYS, deadlineTitle, onePerProgram, upcomingDeadlines } from '@/lib/programs';
@@ -89,6 +89,10 @@ const headline = thisWeeks?.headline;
 const pick = currentPick(weeklyEntries, calendar.filter((e) => !isCanceled(e)), now);
 const picked = pick.thisWeek ?? pick.comingUp;
 const pickKey = picked ? `${picked.event.slug}@${picked.event.data.start.getTime()}` : undefined;
+// Registration openings and deadlines in the next fourteen days: those in
+// the agenda's seven days go on their day, the rest under Worth knowing.
+const programs = town.families ? await getTownEntries('programs') : [];
+const soonDeadlines = upcomingDeadlines(programs, { now, days: SOON_DAYS });
 const days = weekDays({
   events: occurrences(allEvents, { now, horizonDays: 8 }).filter((e) => `${e.slug}@${e.data.start.getTime()}` !== pickKey),
   sports: data,
@@ -96,7 +100,10 @@ const days = weekDays({
   now,
   from: 'today',
   limit: 3,
+  isSeries: weeklyTest(allEvents),
+  deadlines: soonDeadlines.map((d) => ({ on: d.on, what: d.what, title: d.program.data.title, href: d.program.data.registration?.url ?? '/families/' })),
 });
+const agendaKeys = new Set(days.map((d) => d.key));
 const shown = days.filter((d) => d.items.length > 0);
 const quiet = days.filter((d) => d.items.length === 0);
 const weekday = (d: Date) => new Intl.DateTimeFormat('en-US', { timeZone: 'America/Denver', weekday: 'short' }).format(d);
@@ -123,8 +130,7 @@ const updates = await getTownEntries('updates');
 const know = briefingUpdates(currentUpdates(updates, now), now)
   .sort((a, b) => b.data.published.getTime() - a.data.published.getTime() || b.data.effective.getTime() - a.data.effective.getTime())
   .slice(0, 3);
-const programs = town.families ? await getTownEntries('programs') : [];
-const deadlines = onePerProgram(upcomingDeadlines(programs, { now, days: SOON_DAYS })).slice(0, 3);
+const deadlines = onePerProgram(soonDeadlines.filter((d) => !agendaKeys.has(dayKey(d.on)))).slice(0, 3);
 const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
 const knowTitle = thisWeeks?.knowTitle ?? `Worth knowing in ${town.name}`;
 
@@ -190,7 +196,7 @@ const photo = resolveSiteImage(town.slug, town.hero.image);
                 <ul class="fh-agenda-items">
                   {day.items.map((item) => (
                     <li data-event-day={item.eventDay} data-end={item.end}>
-                      <a href={item.href} class="fh-agenda-item" title={item.title !== item.fullTitle ? item.fullTitle : undefined}>
+                      <a href={item.href} class="fh-agenda-item" rel={item.href.startsWith('http') ? 'noopener' : undefined} data-track={item.kind === 'deadline' ? 'registration' : undefined} title={item.title !== item.fullTitle ? item.fullTitle : undefined}>
                         <span class="fh-agenda-time">{item.when}</span>
                         <span class="fh-agenda-body">
                           <span class="fh-agenda-title"><span class="fh-agenda-dot" style={`background:${item.dot}`} aria-hidden="true"></span>{item.title}</span>
@@ -260,7 +266,7 @@ const photo = resolveSiteImage(town.slug, town.hero.image);
           )}
           {deadlines.length > 0 && (
             <div>
-              <p class="fh-eyebrow">Sign-up dates, next two weeks</p>
+              <p class="fh-eyebrow">Sign-up dates after this week</p>
               <ul class="fh-know-list">
                 {deadlines.map((d) => (
                   <li>

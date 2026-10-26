@@ -146,7 +146,7 @@ template switches its colour.
 4. **The email**, promoted on its own: the day and hour, one button to the
    form, and the latest issue sent to this town, only where one exists.
 5. **Worth knowing in <Town>** (or the notes' `knowTitle`): the local changes
-   and the sign-up dates in the next 14 days. No number in the heading. Left
+   and the sign-up dates after the agenda's seven days, up to 14 days out. No number in the heading. Left
    off the page when there are none.
 6. **<Mascot> sports in season**: one row a team (name, record, what is next);
    no score the card already shows. Left off when no team is in season.
@@ -187,9 +187,14 @@ template switches its colour.
   the venue and cost, or a game's Home or Away pill. Phones (below 40rem): the
   time over the title. From 40rem: a 5.5rem time column. From 64rem the agenda
   sits in the 7fr column beside the card.
-- Items in the order of the clock, games and events alike; all-day and
-  time-note items after the timed ones. Three a day, then "N more on
-  <weekday> →" to the events page.
+- Registration openings and deadlines from the programs are on their day
+  ("Sign-ups open", "Last day to sign up"), so a day with one is never
+  "Nothing listed".
+- Three a day, then "N more on <weekday> →" to the events page. On a full
+  day the weekly series give up the slots first, so one-off and civic
+  listings, games and sign-up dates are chosen before them; the chosen ones
+  are shown in the order of the clock, games and events alike, all-day,
+  sign-up and time-note items after the timed ones.
 - Days with nothing: one line, "Nothing listed yet on Wed, Sun. Add an event".
   A week with nothing: "Nothing listed for the next seven days yet", with Add
   an event and the events page.

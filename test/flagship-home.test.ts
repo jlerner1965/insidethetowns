@@ -126,6 +126,37 @@ test('a game is placed by its time among the events, never ahead of an earlier o
   assert.equal(friday.items[1]!.site, 'Away');
 });
 
+test('on a full day the weekly series give up the visible slots first: a civic meeting is never hidden behind regulars', () => {
+  const regulars = new Set(['trivia', 'cribbage']);
+  const [tuesday] = weekDays({
+    events: [ev('trivia', '2026-10-27T18:00'), ev('cribbage', '2026-10-27T18:15'), ev('storytime', '2026-10-27T10:30'), ev('town-board', '2026-10-27T18:30', { category: 'civic' })],
+    sports: data([{ key: 'volleyball', name: 'Volleyball', upcoming: [game('2026-10-27', 'Windsor Charter Academy', { time: '18:30', site: 'away' })] }]),
+    now: at('2026-10-27T08:00'),
+    from: 'today',
+    isSeries: (e) => regulars.has(e.slug!),
+  });
+  assert.deepEqual(tuesday!.items.map((i) => i.title), ['storytime', 'Volleyball at Windsor Charter Academy', 'town-board'], 'chosen first, then shown by the clock');
+  assert.equal(tuesday!.more, 2);
+});
+
+test('a registration opening or deadline is on its day, so a day with one is not "Nothing listed"', () => {
+  const days = weekDays({
+    events: [],
+    now: at('2026-10-26T09:00'),
+    from: 'today',
+    deadlines: [
+      { on: at('2026-11-01T00:00'), what: 'opens', title: 'Berthoud Recreation youth sports', href: 'https://example.com/register' },
+      { on: at('2026-11-01T00:00'), what: 'closes', title: 'Youth futsal clinic', href: '/families/' },
+    ],
+  });
+  const sunday = days.find((d) => d.key === '2026-11-01')!;
+  assert.deepEqual(sunday.items.map((i) => [i.kind, i.when, i.title]), [
+    ['deadline', 'Sign-ups open', 'Berthoud Recreation youth sports'],
+    ['deadline', 'Last day to sign up', 'Youth futsal clinic'],
+  ]);
+  assert.equal(sunday.items[0]!.eventDay, '2026-11-01');
+});
+
 test('the email is not one of the week’s things on, and a called-off event is left off', () => {
   const days = weekDays({ events: [ev('gone', '2026-10-21T10:00', { status: 'canceled' })], now: at('2026-10-20T12:00') });
   assert.ok(days.every((d) => d.items.every((i) => !/email/i.test(i.title))));

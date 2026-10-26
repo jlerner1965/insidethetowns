@@ -88,7 +88,7 @@ export function siteWord(g: SportGame): 'Home' | 'Away' | 'Neutral site' {
 // ------------------------------------------------------------- the week
 
 export interface DayItem {
-  kind: 'event' | 'game';
+  kind: 'event' | 'game' | 'deadline';
   /** The title as the agenda sets it: shortened at a natural break when it runs long (displayTitle). */
   title: string;
   /** The listing's own title, whole. */
@@ -109,6 +109,18 @@ export interface DayItem {
   /** The last Denver day it is on, and the instant it comes off: the marks the browser's pruning reads (src/lib/expiry.ts). */
   eventDay: string;
   end?: string;
+  /** A weekly series (the caller's `isSeries`): the first to give up a visible slot on a full day. */
+  series?: boolean;
+}
+
+/** A registration opening or closing on a day, from the programs (src/lib/programs.ts, upcomingDeadlines). */
+export interface WeekDeadline {
+  on: Date;
+  what: 'opens' | 'closes';
+  /** The program's name. */
+  title: string;
+  /** Where to sign up: the organizer's registration page, else the family hub. */
+  href: string;
 }
 
 export interface WeekDay {
@@ -136,6 +148,14 @@ export interface WeekInput<E extends EventLike> {
    * seven days had gone, and the first screen showed what was over).
    */
   from?: 'monday' | 'today';
+  /**
+   * Which listings are weekly series (events.ts, weeklyTest, built over the
+   * whole calendar). On a day with more than `limit` things, one-off and
+   * civic listings, games and sign-up dates take the visible slots first.
+   */
+  isSeries?: (e: E) => boolean;
+  /** Registration openings and deadlines, each on its day. */
+  deadlines?: readonly WeekDeadline[];
 }
 
 /** "7 am" as "07:00", "6:30 pm" as "18:30", for the order within a day; anything else first. */
@@ -204,19 +224,40 @@ function gameItem({ team, game }: TeamGame, href: string): DayItem {
   };
 }
 
+function deadlineItem(d: WeekDeadline): DayItem {
+  const when = d.what === 'opens' ? 'Sign-ups open' : 'Last day to sign up';
+  return {
+    kind: 'deadline',
+    title: displayTitle(d.title),
+    fullTitle: d.title,
+    when,
+    where: 'Registration',
+    meta: `${when} · Registration`,
+    href: d.href,
+    dot: 'var(--cat-family-dot)',
+    time: '99:97',
+    eventDay: dayKey(d.on),
+  };
+}
+
 /**
  * Seven days, one entry a day: the events that start that day and are not
- * called off, and the school's games that day (the result once it is
- * played, the time before). A run that began on an earlier day is filed
- * under its first day only, as the events page files it, so a month-long
- * trail does not fill every day. A day's items are in the order of the
- * clock, games and events alike, all-day and untimed last (the audit of 26
- * October 2026: football had led every day it was played, ahead of a
- * morning story time); a day shows `limit` of them and counts the rest in
- * `more`. The Thursday email is not one of the week's things on: the page
- * promotes it on its own.
+ * called off, the school's games that day (the result once it is played,
+ * the time before), and the registration openings and deadlines that fall
+ * on it. A run that began on an earlier day is filed under its first day
+ * only, as the events page files it, so a month-long trail does not fill
+ * every day.
+ *
+ * A day shows `limit` things and counts the rest in `more`. Which ones: on a
+ * full day the weekly series give way first (a Town Board meeting was hidden
+ * behind "+2 more" by two weekly regulars, 26 October 2026), so one-off and
+ * civic listings, games and sign-up dates are chosen before them; the chosen
+ * ones are then shown in the order of the clock, games and events alike,
+ * all-day and untimed last (football had led every day it was played,
+ * ahead of a morning story time). The Thursday email is not one of the
+ * week's things on: the page promotes it on its own.
  */
-export function weekDays<E extends EventLike>({ events, sports, teamHref = () => '/sports/', now = new Date(), limit = 3, from = 'monday' }: WeekInput<E>): WeekDay[] {
+export function weekDays<E extends EventLike>({ events, sports, teamHref = () => '/sports/', now = new Date(), limit = 3, from = 'monday', isSeries = () => false, deadlines = [] }: WeekInput<E>): WeekDay[] {
   const first = from === 'today' ? startOfDay(now) : weekWindow(now).monday;
   const today = dayKey(now);
   const listed = sortByStart([...events]).filter((e) => !isCanceled(e));
@@ -226,12 +267,15 @@ export function weekDays<E extends EventLike>({ events, sports, teamHref = () =>
     const key = dayKey(date);
     const items: DayItem[] = [
       ...games.filter((g) => g.game.date === key).map((g) => gameItem(g, teamHref(g.team.key))),
-      ...listed.filter((e) => dayKey(e.data.start) === key).map(eventItem),
+      ...listed.filter((e) => dayKey(e.data.start) === key).map((e) => ({ ...eventItem(e), series: isSeries(e) })),
+      ...deadlines.filter((d) => dayKey(d.on) === key).map(deadlineItem),
     ];
     // One row per listing a day: a series with two sittings on one day is one thing on.
     const seen = new Set<string>();
     const unique = items.filter((it) => (seen.has(it.href + it.fullTitle) ? false : (seen.add(it.href + it.fullTitle), true)));
-    const kept = [...unique].sort((a, b) => a.time.localeCompare(b.time)).slice(0, limit);
+    const byClock = (a: DayItem, b: DayItem) => a.time.localeCompare(b.time);
+    const chosen = [...unique].sort((a, b) => Number(!!a.series) - Number(!!b.series) || byClock(a, b)).slice(0, limit);
+    const kept = chosen.sort(byClock);
     return {
       key,
       date,
