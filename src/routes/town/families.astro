@@ -25,7 +25,7 @@ import CheckedLine from '@/components/CheckedLine.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { dayKey, formatDayRange, formatDayShort, formatShortDate, parseLocal } from '@/lib/dates';
+import { dayKey, daysBetween, formatDayRange, formatDayShort, formatShortDate, parseLocal } from '@/lib/dates';
 import { SOON_DAYS, ageText, byActionable, familyAgeGroups, familySection, freePrograms, isDropIn, isEnded, isForFamilies, programStatus, splitDeadlines } from '@/lib/programs';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
@@ -57,6 +57,9 @@ const breaks = [...families.breaks]
     ...b,
     open: programs.flatMap((p) => (p.data.openOn ?? []).filter((o) => o.from.getTime() <= b.toDate.getTime() && o.to.getTime() >= b.fromDate.getTime()).map((o) => ({ program: p, note: o.note })))[0],
   }));
+// The next day off, when it is within the fortnight, is said at the top
+// with a link to the list and what is open on it.
+const nextBreak = breaks[0] && daysBetween(now, breaks[0].fromDate) <= SOON_DAYS ? breaks[0] : undefined;
 const breakSources = [...new Map(breaks.map((b) => [b.source, b])).values()];
 // The town's own outing guide, where it has one: the newest article filed under Families.
 const outing = (await getTownEntries('articles')).filter((a) => a.data.category === 'Families').sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
@@ -64,10 +67,12 @@ const description = `${families.label}: what a child can join in ${town.name}, C
 const chips = [
   ...(closingSoon.length > 0 ? [{ id: 'closing', label: 'Closing soon' }] : []),
   ...(openingSoon.length > 0 ? [{ id: 'opening', label: 'Opening soon' }] : []),
+  // The school days off come before the ages: the Johnstown audit (26
+  // October 2026) found the list useful and hard to find at the foot.
+  ...(breaks.length > 0 ? [{ id: 'breaks', label: 'Days off' }] : []),
   ...groups.map((g) => ({ id: `age-${g.group.id}`, label: g.group.label.replace('Ages ', '') })),
   ...(parents.length > 0 ? [{ id: 'parents', label: 'Parents' }] : []),
   ...(organizations.length > 0 ? [{ id: 'organizations', label: 'Organizations' }] : []),
-  ...(breaks.length > 0 ? [{ id: 'breaks', label: 'Days off' }] : []),
   ...(free.length > 0 ? [{ id: 'free', label: 'Free' }] : []),
   ...(later.length > 0 ? [{ id: 'later', label: 'Coming up' }] : []),
   ...(ended.length > 0 ? [{ id: 'ended', label: 'Ended' }] : []),
@@ -93,6 +98,14 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
       {chips.map((c) => <li><a href={`#${c.id}`} class={chip}>{c.label}</a></li>)}
     </ul>
   </nav>
+
+  {nextBreak && (
+    <p class="mt-6 rounded-lg bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-snug ring-1 ring-highlight">
+      <span class="font-semibold">Next day off:</span>{' '}
+      <time datetime={nextBreak.from}>{nextBreak.from === nextBreak.to ? formatDayShort(nextBreak.fromDate) : formatDayRange(nextBreak.fromDate, nextBreak.toDate)}</time>, {nextBreak.label}.{' '}
+      <a href="#breaks" class="font-semibold text-primary underline">{nextBreak.open ? `${nextBreak.open.note}; every day off this year` : 'Every day off this year'} →</a>
+    </p>
+  )}
 
   {closingSoon.length > 0 && (
     <section id="closing" class="mt-10 scroll-mt-20" aria-labelledby="closing-h">

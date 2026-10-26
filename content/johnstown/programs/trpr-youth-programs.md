@@ -14,7 +14,6 @@ price: "Day camps and Park Discovery Days $25; cheer $75 for the season; youth j
 registration: { required: true, how: "Online through TRPR’s ActiveNet registration site", url: "https://anc.apm.activecommunities.com/trpr/activity/search?activity_select_param=2&viewMode=list" }
 equipment: "Day camps: a packed lunch and clothes that can get messy; fencing: closed-toed shoes, own gear if you have it"
 openOn:
-  - { from: "2026-10-30", to: "2026-10-30", note: "TRPR day camp 9–noon" }
   - { from: "2026-11-09", to: "2026-11-09", note: "TRPR day camp 9–noon" }
   - { from: "2026-12-04", to: "2026-12-04", note: "TRPR day camp 9–noon" }
 source: "https://anc.apm.activecommunities.com/trpr/activity/search?activity_select_param=2&viewMode=list"
