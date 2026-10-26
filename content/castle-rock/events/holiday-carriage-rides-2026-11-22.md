@@ -12,6 +12,10 @@ source: "https://www.downtowncastlerock.com/holidaycarriagerides"
 sourceId: "downtowncastlerock-com"
 recurring: "Wednesday to Sunday, November 22 to January 3"
 timeNote: "Wed–Fri 4:30 to 8:30 pm, Sat–Sun 5 to 8 pm; none on Nov 26, Dec 24, 25 or 31"
+schedule:
+  - { days: [wed, thu, fri], start: "16:30", end: "20:30" }
+  - { days: [sat, sun], start: "17:00", end: "20:00" }
+except: ["2026-11-26", "2026-12-24", "2026-12-25", "2026-12-31"]
 verified: "2026-10-07"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---

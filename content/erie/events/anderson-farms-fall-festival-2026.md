@@ -9,6 +9,8 @@ url: "https://andersonfarms.com/pricing-and-hours/"
 cost: "$13.50–$50 by day and ticket type; 3 and under free"
 category: family
 recurring: "Daily except Tuesdays, through October 31"
+schedule:
+  - { days: [mon, wed, thu, fri, sat, sun] }
 featured: true
 source: "https://andersonfarms.com/pricing-and-hours/"
 verified: "2026-10-03"
