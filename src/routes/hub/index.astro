@@ -62,10 +62,16 @@ const now = new Date();
 const network = occurrences(await getNetworkEntries('events'), { now, horizonDays: 30 });
 const sections = weekendSections(network, { now, horizonDays: 15 });
 const onThisWeekend = [...sections.now, ...sections.weekend];
-const picks = highlights(oneOffs(onThisWeekend, network), { now, limit: 6 });
-const weekend = picks.length >= 3 ? picks : highlights(onThisWeekend, { now, limit: 6 });
+// Six picks from across the towns, at most two from one town while others
+// have something on (the weekend of 24 October led with four from
+// Johnstown); with fewer towns on, the best of the rest fill in, and with
+// less than six there are fewer cards, never blank ones. The whole
+// regional list is /this-weekend/, linked from the heading.
+const spread = { now, limit: 6, group: (e: (typeof network)[number]) => e.town.slug, perGroup: 2 };
+const picks = highlights(oneOffs(onThisWeekend, network), spread);
+const weekend = picks.length >= 3 ? picks : highlights(onThisWeekend, spread);
 const leadIsWeekend = weekend.length > 0;
-const lead = leadIsWeekend ? weekend : highlights(sections.next, { now, limit: 6 });
+const lead = leadIsWeekend ? weekend : highlights(sections.next, spread);
 const { start: weekendStart, sunday } = weekendWindow(now);
 /**
  * The hub's own snippet. Without it the page falls back to `hub.tagline`,
