@@ -2,8 +2,10 @@
 /**
  * Living Here (/living-here/): which body handles what, as links to the
  * right page of each official site, from the town's config
- * (TownConfig.livingHere). The layout is shared; every word is the town's,
- * and the day the links were read is said once, under the title. Nothing here
+ * (TownConfig.livingHere). The layout is shared; every word is the town's.
+ * Each section says the day its links were read, under its heading, and
+ * the line under the title gives the span, so no section is dated by
+ * another's check (Lyons audit, 26 October 2026). Nothing here
  * restates what an official page says, because a copied closure is wrong by
  * the time it is read; it links.
  */
@@ -15,6 +17,7 @@ import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { currentUpdates } from '@/lib/updates';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+import { formatShortDate, parseLocal } from '@/lib/dates';
 
 const town = getTown();
 const living = town.livingHere!;
@@ -30,7 +33,7 @@ const structured = [
 ];
 ---
 <Page title={`Living in ${town.name}`} seoTitle={`Living in ${town.name}, CO: utilities, schools, who to call`} eyebrow="Living here" {description} intro={living.intro} jsonLd={structured} kind="Guide">
-  <CheckedLine slot="after-header" dates={living.sections.map((s) => s.verified)} />
+  <CheckedLine slot="after-header" perItem dates={living.sections.map((s) => s.verified)} />
   <nav slot="after-header" aria-label="On this page" class="mt-6 flex flex-wrap gap-x-5 gap-y-1 text-[0.9375rem]">
     {living.sections.map((s) => <a href={`#${slug(s.title)}`} class="inline-block -my-1 py-1 font-semibold text-primary underline">{s.title}</a>)}
     {updates.length > 0 && <a href="#changes" class="inline-block -my-1 py-1 font-semibold text-primary underline">What changed</a>}
@@ -41,6 +44,7 @@ const structured = [
         <section id={slug(s.title)} class:list={['scroll-mt-4', i > 0 && 'mt-12']} aria-labelledby={`${slug(s.title)}-h`}>
           <SectionHeader id={`${slug(s.title)}-h`} title={s.title} />
           {s.note && <p class="-mt-4 mb-2 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">{s.note}</p>}
+          <p class:list={['mb-2 text-[0.8125rem] text-ink-muted', !s.note && '-mt-4']}>Links read <time datetime={s.verified}>{formatShortDate(parseLocal(s.verified))}</time></p>
           <ul class="divide-y divide-line-soft">
             {s.items.map((item) => (
               <li class="py-3 text-[0.9375rem] leading-snug">

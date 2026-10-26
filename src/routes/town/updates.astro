@@ -29,7 +29,7 @@ const structured = [
 ];
 ---
 <Page title="Local changes" seoTitle={`Local changes in ${town.name}, CO`} eyebrow={town.name} {description} intro={`What changed in ${town.name}, who it affects, and what to do.`} jsonLd={structured} kind="Guide" narrow>
-  <CheckedLine slot="after-header" dates={current.map((u) => u.data.verified)} />
+  <CheckedLine slot="after-header" perItem dates={current.map((u) => u.data.verified)} />
   {current.length === 0 && archive.length === 0 ? (
     <p class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">Nothing logged yet.</p>
   ) : (

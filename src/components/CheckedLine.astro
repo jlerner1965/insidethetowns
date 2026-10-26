@@ -1,37 +1,33 @@
 ---
 /**
- * A list page's one provenance line, under its title: "Checked by James,
- * October 21, 2026", or "Checked by James, October 7 to October 21, 2026"
- * when the items were read on different days. Each row keeps its own
- * source link; the date is said once rather than under every row
- * (navigation audit, 22 October 2026, item 5: fifteen "checked Oct 21"
- * lines on one page read like an audit log).
+ * A list page's one provenance line, under its title: "Checked October
+ * 22, 2026: every item here was read against its own source that day", or
+ * "Checked item by item, October 7 to October 22, 2026, not all on one
+ * day; each row gives the day its source was read" when the items were
+ * read on different days. Each row keeps its own source link, and its own
+ * date where the row shows one (`perItem`); the line never speaks for a
+ * row as if it had been read the day the page was (navigation audit, 22
+ * October 2026, item 5; Lyons audit, 26 October 2026). The wording is
+ * src/lib/checked.ts.
  *
  * The dates are the items' own `verified` days, never the build's: a page
  * whose items were read last week says last week.
  */
-import { formatDate, formatMonthDay, parseLocal } from '@/lib/dates';
-import { checkedBy } from '@/lib/editor';
+import { checkedLineText } from '@/lib/checked';
 
 interface Props {
   /** Each item's check date: a Date, or "2026-10-21" from a config. */
   dates: (Date | string | undefined)[];
+  /** Each row on the page shows its own check date. */
+  perItem?: boolean;
   class?: string;
 }
 
-const { dates, class: className } = Astro.props;
-const days = dates
-  .filter((d): d is Date | string => !!d)
-  .map((d) => (typeof d === 'string' ? parseLocal(d) : d))
-  .sort((a, b) => a.getTime() - b.getTime());
-const first = days[0];
-const last = days.at(-1);
-const sameDay = first && last && formatDate(first) === formatDate(last);
-const sameYear = first && last && first.getFullYear() === last.getFullYear();
-const text = !first || !last ? undefined : sameDay ? formatDate(last) : `${sameYear ? formatMonthDay(first) : formatDate(first)} to ${formatDate(last)}`;
+const { dates, perItem = false, class: className } = Astro.props;
+const text = checkedLineText(dates, { perItem });
 ---
 {text && (
   <p class:list={['mt-3 text-[0.875rem] text-ink-muted', className]}>
-    {checkedBy(text)} · <a href="/editorial/" class="underline">How we check</a>
+    {text} <a href="/editorial/" class="underline">How we check</a>
   </p>
 )}

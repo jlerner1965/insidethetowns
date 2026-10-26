@@ -45,7 +45,7 @@ const structured = [
 ];
 ---
 <Page title={`${participation.label} in ${town.name}`} seoTitle={`${participation.label} in ${town.name}, CO: clubs, volunteering, meetings`} eyebrow={town.name} {description} intro={participation.intro} jsonLd={structured} kind="Guide">
-  <CheckedLine slot="after-header" dates={programs.map((p) => p.data.verified)} />
+  <CheckedLine slot="after-header" perItem dates={programs.map((p) => p.data.verified)} />
   <nav slot="after-header" aria-label="On this page" class="mt-6 flex flex-wrap gap-x-5 gap-y-1 text-[0.9375rem]">
     {groups.map((g) => <a href={`#${g.kind}`} class="inline-block -my-1 py-1 font-semibold text-primary underline">{GROUP_LABELS[g.kind] ?? PROGRAM_KIND_LABELS[g.kind]}</a>)}
   </nav>
