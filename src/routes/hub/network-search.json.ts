@@ -146,7 +146,7 @@ function sportsRecords(town: TownConfig, now = new Date()): NetworkRecord[] {
     out.push(
       sportsRecord(town, school, {
         path: sportsPath(school),
-        title: schoolPageTitle(school, teams),
+        title: schoolPageTitle(school),
         description: `${school.school} ${school.mascot} scores, schedules and records this ${seasonWord}: ${names.join(', ')}, from MaxPreps.`,
       }, rows),
     );

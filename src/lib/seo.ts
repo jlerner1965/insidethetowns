@@ -6,7 +6,7 @@ import type { CollectionEntry } from 'astro:content';
 // Relative rather than the '@/…' alias so the module loads in plain Node and
 // its builders can be unit-tested; Vite resolves both the same way.
 import { getNetworkHub, liveTowns, type SiteConfig, type TownConfig } from '../config/index.ts';
-import { dayKey, fromWallClock, toIsoLocal } from './dates.ts';
+import { dayKey, toIsoLocal } from './dates.ts';
 import { exportWhen } from './events.ts';
 import { isPlaceholder } from './editor.ts';
 import { clampText, markdownToText } from './plain-text.ts';
@@ -339,56 +339,6 @@ export function collectionPageJsonLd(
         })),
       },
     }),
-  };
-}
-
-/**
- * One high-school game to come as a SportsEvent, for the sports pages.
- *
- * Only what the data states: the game's day, and its start where MaxPreps
- * gives one, in Denver's offset (date alone otherwise); the two sides as
- * SportsTeams named as MaxPreps names the schools; the place as a Place
- * named for the school at a home game, for the opponent's school at an
- * away game, and for the venue at a neutral-site game that has one, with
- * no address, since none is in the data. A neutral game names no home or
- * away side, only competitors. A game without a date gets nothing.
- */
-export function sportsEventJsonLd(
-  site: SiteConfig,
-  school: { school: string; maxprepsName: string },
-  team: { name: string },
-  game: { date: string; time?: string; opponent: string; site: 'home' | 'away' | 'neutral'; venue?: string; stage?: string; url: string },
-  pagePath: string,
-) {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(game.date)) return undefined;
-  const us = { '@type': 'SportsTeam', name: school.maxprepsName, sport: team.name };
-  const them = { '@type': 'SportsTeam', name: game.opponent, sport: team.name };
-  const [y, m, d] = game.date.split('-').map(Number) as [number, number, number];
-  const [hh, mm] = (game.time ?? '00:00').split(':').map(Number) as [number, number];
-  const startDate = game.time ? toIsoLocal(fromWallClock(y, m, d, hh, mm)) : game.date;
-  const location =
-    game.site === 'home'
-      ? { '@type': 'Place', name: school.school }
-      : game.site === 'away'
-        ? { '@type': 'Place', name: game.opponent }
-        : game.venue
-          ? { '@type': 'Place', name: game.venue }
-          : undefined;
-  const sport = team.name.toLowerCase();
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'SportsEvent',
-    name: `${school.maxprepsName} ${game.site === 'away' ? 'at' : 'vs'} ${game.opponent} — ${sport}`,
-    ...(game.stage ? { description: `${game.stage}: ${school.school} ${sport} ${game.site === 'away' ? 'at' : 'vs'} ${game.opponent}.` } : {}),
-    sport: team.name,
-    startDate,
-    eventStatus: 'https://schema.org/EventScheduled',
-    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-    ...(game.site === 'home' ? { homeTeam: us, awayTeam: them } : game.site === 'away' ? { homeTeam: them, awayTeam: us } : {}),
-    competitor: [us, them],
-    ...(location ? { location } : {}),
-    url: `https://${site.domain}${pagePath}`,
-    sameAs: game.url,
   };
 }
 
