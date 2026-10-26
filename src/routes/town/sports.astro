@@ -203,7 +203,7 @@ const jsonLd = [
             return (
               // Three on a phone, where six ran 1,100px before any schedule; six from 40rem.
               <li class:list={['rounded-lg bg-paper p-5 ring-1 ring-line-soft', i >= 3 && 'hidden sm:block']}>
-                <p class="flex items-baseline justify-between gap-3 text-[0.8125rem] text-ink-muted">
+                <p class="flex items-baseline justify-between gap-3 text-[0.875rem] text-ink-muted">
                   <span class="eyebrow">{team.name}</span>
                   <span><time datetime={game.date}>{formatDayShort(day(game))}</time>{game.stage && ` · ${game.stage}`} · {placeText(game)}</span>
                 </p>

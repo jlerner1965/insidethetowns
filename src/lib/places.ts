@@ -48,3 +48,13 @@ export function heroSecondLink({ eatDrink, thingsToDo }: { eatDrink: number; thi
     ? { label: 'Things to do', href: '/things-to-do/' }
     : { label: 'Eat & drink', href: '/eat-drink/' };
 }
+
+/**
+ * The hero's third button, the resident's page (design pass, 26 October
+ * 2026): Living here on a guide that has the page, Moving here on every
+ * other. The two are different pages for different readers and are never
+ * swapped for one another; the button is whichever one the guide has.
+ */
+export function heroThirdLink(town: { livingHere?: unknown }): { label: string; href: string } {
+  return town.livingHere ? { label: 'Living here', href: '/living-here/' } : { label: 'Moving here', href: '/moving-here/' };
+}

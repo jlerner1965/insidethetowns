@@ -22,7 +22,7 @@ const mixed = new Set(places.map((p) => p.data.type)).size > 1;
 {places.length > 0 && (
   <ul class="grid gap-x-12 sm:grid-cols-2">
     {places.map((place) => (
-      <li class="group flex items-baseline justify-between gap-4 border-b border-line-soft py-3.5">
+      <li class="group flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-line-soft py-3.5">
         <a href={`/places/${place.slug}/`} class="flex items-baseline gap-2.5 text-[1.0625rem] font-medium no-underline group-hover:text-primary">
           <span
             class="inline-block size-2 shrink-0 translate-y-[-0.15em] rounded-full"
@@ -30,7 +30,7 @@ const mixed = new Set(places.map((p) => p.data.type)).size > 1;
             aria-hidden="true"></span>
           {place.data.title}
         </a>
-        {mixed && <span class="eyebrow shrink-0" style={`color:var(--cat-${PLACE_HUE[place.data.type]}-ink)`}>{PLACE_TYPE_LABELS[place.data.type]}</span>}
+        {mixed && <span class="eyebrow" style={`color:var(--cat-${PLACE_HUE[place.data.type]}-ink)`}>{PLACE_TYPE_LABELS[place.data.type]}</span>}
       </li>
     ))}
   </ul>

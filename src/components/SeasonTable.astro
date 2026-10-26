@@ -58,7 +58,7 @@ const scoreline = (g: SportGame) => (g.score ? `${g.score.us}–${g.score.them}`
             </a>
             {isNext && <span class="ml-2 rounded-full bg-primary px-2 py-0.5 text-[0.6875rem] font-bold uppercase tracking-eyebrow text-white">Next</span>}
             {/* A playoff or tournament game says so under the opponent, as MaxPreps labels it. */}
-            {g.stage && <span class="block text-[0.8125rem] leading-snug text-ink-muted">{g.stage}</span>}
+            {g.stage && <span class="block text-[0.875rem] leading-snug text-ink-muted">{g.stage}</span>}
           </td>
           <td class="hidden py-3 pr-3 align-baseline text-ink-muted sm:table-cell">{placeText(g)}</td>
           <td class="whitespace-nowrap py-3 text-right align-baseline">

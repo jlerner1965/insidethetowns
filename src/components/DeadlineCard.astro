@@ -59,7 +59,7 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
     {!reg?.url && !listing?.data.url && data.url && <a href={data.url} rel="noopener" data-track={track} class="btn btn-outline text-primary">The organizer’s page</a>}
   </div>
   {data.source && (
-    <p class="mt-4 text-[0.8125rem] text-ink-muted">
+    <p class="mt-4 text-[0.875rem] text-ink-muted">
       <a href={data.source} rel="noopener" class="underline">{host(data.source)}</a>
     </p>
   )}

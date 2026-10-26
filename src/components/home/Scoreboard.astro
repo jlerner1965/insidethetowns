@@ -1,0 +1,108 @@
+---
+/**
+ * The school's scoreboard in brief, on the home page of a guide that
+ * follows one school (design pass, 26 October 2026): the latest result and
+ * the next game, each with the sport, the opponent, the day and whether it
+ * is final or still to come, on the school's band. The full scoreboard, the
+ * schedules and every team are on the sports page; this is the strip a
+ * parent checks on the way past.
+ *
+ * It took over from a masthead the size of the screen (the homepage brief,
+ * 25 October 2026) and from a card in the guide's colour beside the week.
+ * The school's colours are here and on the sports pages, where they mean
+ * the school; the guide's own palette carries the rest of the page. The
+ * band is the school's primary, or its secondary when white cannot be read
+ * on the primary at 7:1 (src/config/school-colors.ts, proven by
+ * `npm run check-colors`); a guide without `school` in its config is on its
+ * own primary.
+ *
+ * Honest about what the data has: no result in the last fourteen days says
+ * so, no game to come says so, and the day the file was read is always on
+ * the strip. MaxPreps gives no word for a game called off or moved, so
+ * nothing here can; a game that disappears from the schedule disappears
+ * from the strip on the next read.
+ */
+import { schoolsFor, sportsPath, type SportsData } from '@/config/school-sports';
+import { schoolTheme } from '@/config/school-colors';
+import type { TownConfig } from '@/config';
+import { formatDate, formatDayLong } from '@/lib/dates';
+import { clock, dashed, nextGame, scoreboardResult, siteWord } from '@/lib/flagship-home';
+import { gameDay, latestResult, RESULT_WORD, sportsDataFor, where } from '@/lib/school-sports';
+
+interface Props {
+  town: TownConfig;
+}
+
+const { town } = Astro.props;
+const now = new Date();
+const schools = schoolsFor(town.slug);
+const school = schools.length === 1 ? schools[0] : undefined;
+const files = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
+const data = school ? sportsDataFor(school, files) : undefined;
+const theme = town.school && school ? schoolTheme(town.school) : undefined;
+const vars = [`--board:${theme?.band ?? town.colors.primary}`, `--board-eyebrow:${theme?.eyebrow ?? '#ffffff'}`].join(';');
+const name = town.school?.teamName ?? (school ? `${town.name} ${school.mascot}` : undefined);
+
+/** The latest final inside two weeks; older than that, the last one the file has, dated. */
+const RESULT_DAYS = 14;
+const result = data ? (scoreboardResult(data, now, RESULT_DAYS) ?? latestResult(data)) : undefined;
+const recent = !!result && !!scoreboardResult(data!, now, RESULT_DAYS);
+const next = data ? nextGame(data, now, result) : undefined;
+const checked = data ? new Date(data.generated) : undefined;
+const stale = checked ? now.getTime() - checked.getTime() > 7 * 86_400_000 : false;
+
+const scoreLine = (g: NonNullable<typeof result>['game']) =>
+  g.result
+    ? `${RESULT_WORD[g.result]}${g.score ? ` ${dashed(`${g.score.us}-${g.score.them}`)}` : g.forfeit ? ' by forfeit' : ''}`
+    : g.place ? `Placed ${g.place}` : 'Played';
+---
+{school && (
+  <section class="on-dark text-white" style={vars} aria-labelledby="scoreboard" data-pagefind-ignore>
+    <div class="bg-[var(--board)]">
+      <div class="container-page py-5 md:py-6">
+        <h2 id="scoreboard" class="eyebrow text-[var(--board-eyebrow)]">{name}</h2>
+        {data ? (
+          <dl class="mt-3 grid gap-x-10 gap-y-4 sm:grid-cols-2">
+            <div class="min-w-0">
+              <dt class="text-[0.875rem] font-medium text-white/80">{recent ? 'Latest result' : 'Last result'} <span class="text-white/60">· Final</span></dt>
+              {result ? (
+                <dd class="mt-1">
+                  <p class="font-heading text-[1.5rem] font-medium leading-tight md:text-[1.75rem]">
+                    <span class="text-white/85">{result.team.name}</span> {scoreLine(result.game)}
+                  </p>
+                  <p class="mt-1 text-[0.9375rem] leading-snug text-white/85">
+                    {where(result.game)} {result.game.opponent} · <time datetime={result.game.date}>{formatDayLong(gameDay(result.game))}</time>{result.team.overall && ` · ${dashed(result.team.overall)} this season`}
+                  </p>
+                </dd>
+              ) : (
+                <dd class="mt-1 text-[1.0625rem] text-white/85">No results posted yet this season.</dd>
+              )}
+            </div>
+            <div class="min-w-0">
+              <dt class="text-[0.875rem] font-medium text-white/80">Next game <span class="text-white/60">· Upcoming</span></dt>
+              {next ? (
+                <dd class="mt-1">
+                  <p class="font-heading text-[1.5rem] font-medium leading-tight md:text-[1.75rem]">
+                    <span class="text-white/85">{next.team.name}</span> {where(next.game)} {next.game.opponent}
+                  </p>
+                  <p class="mt-1 text-[0.9375rem] leading-snug text-white/85">
+                    <time datetime={next.game.time ? `${next.game.date}T${next.game.time}` : next.game.date}>{formatDayLong(gameDay(next.game))}{next.game.time && `, ${clock(gameDay(next.game))}`}</time>
+                    {' · '}{next.game.venue ?? siteWord(next.game)}{next.game.stage && ` · ${next.game.stage}`}
+                  </p>
+                </dd>
+              ) : (
+                <dd class="mt-1 text-[1.0625rem] text-white/85">No games on the schedule. Off-season, or the schedule is not out yet.</dd>
+              )}
+            </div>
+          </dl>
+        ) : (
+          <p class="mt-2 text-[1.0625rem] text-white/85">No schedule or scores posted for the {school.mascot} yet.</p>
+        )}
+        <p class="mt-3 flex flex-wrap items-baseline gap-x-6 gap-y-1 text-[0.875rem] text-white/70">
+          <a href={sportsPath(school)} class="inline-block -my-2 py-2 text-[0.9375rem] font-semibold text-white underline decoration-white/50 underline-offset-2 hover:decoration-white">Full scoreboard and schedules →</a>
+          {checked && <span>Scores and schedules from MaxPreps{school.calendar ? `, cross-checked against ${school.calendar.label}` : ''}. {stale ? 'Last checked' : 'Checked'} {formatDate(checked)}.</span>}
+        </p>
+      </div>
+    </div>
+  </section>
+)}

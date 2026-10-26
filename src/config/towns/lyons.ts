@@ -40,7 +40,7 @@ export const lyons: TownConfig = {
   social: {
     email: 'hello@insidelyons.com',
   },
-  // The flagship home page (src/components/home/FlagshipHome.astro), since 22 October 2026.
+  // A resident guide (TownConfig.home), since 22 October 2026.
   home: true,
   /**
    * Lyons Middle/Senior High's colours, read from its own site 25 October

@@ -189,6 +189,13 @@ const facts = [
     ]),
   ]}
 >
+  {/* The one line a reader came for, under the title (design pass, 26
+     October 2026): the day, the time and the venue. Struck through when the
+     event is off, with the status pill in the masthead above saying why. */}
+  <p slot="after-header" class="page-lede">
+    <span class:list={['font-semibold', offList && 'text-ink-muted line-through decoration-ink-muted']}><time datetime={toIsoLocal(when.start)}>{dayText}</time> · {timeText}</span>
+    <span class="text-ink-muted"> · {data.venue}</span>
+  </p>
   {/*
     Two columns on a wide screen, one on a phone, and on a phone the order
     changes: the notice, then When and Where, then the picture and the
@@ -216,7 +223,7 @@ const facts = [
           <figure class="mb-10">
             <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
             {data.imageCredit && (
-              <figcaption class="mt-2 text-[0.8125rem] text-ink-muted">Photo: {data.imageCredit}</figcaption>
+              <figcaption class="mt-2 text-[0.875rem] text-ink-muted">Photo: {data.imageCredit}</figcaption>
             )}
           </figure>
         )}
@@ -241,24 +248,24 @@ const facts = [
     </div>
     <div class="contents lg:block lg:pt-1">
       <aside class="order-2">
-        <dl class="divide-y divide-line-soft border-y border-line-soft">
+        <dl class="facts border-t border-line-soft pt-4">
           {facts.map((f) => (
-            <div class="py-4">
-              <dt class="eyebrow">{f.label}</dt>
-              <dd class="mt-1.5 leading-snug">
+            <Fragment>
+              <dt>{f.label}</dt>
+              <dd>
                 {f.value.map((line, i) => (
-                  <span class:list={['block', i > 0 && 'text-[0.9375rem] text-ink-muted', offList && i === 0 && (f.label === 'When' || f.label === 'Next') && 'text-ink-muted line-through decoration-ink-muted']}>
+                  <span class:list={['block', i > 0 && 'text-ink-muted', offList && i === 0 && (f.label === 'When' || f.label === 'Next') && 'text-ink-muted line-through decoration-ink-muted']}>
                     {i === 0 && (f.label === 'When' || f.label === 'Next') ? (
                       <time datetime={toIsoLocal(when.start)}>{line}</time>
                     ) : i === 0 && f.label === 'Where' && venueListing ? (
-                      <a href={`/places/${venueListing.slug}/`} class="text-primary underline">{line}</a>
+                      <a href={`/places/${venueListing.slug}/`}>{line}</a>
                     ) : (
                       line
                     )}
                   </span>
                 ))}
               </dd>
-            </div>
+            </Fragment>
           ))}
         </dl>
         {data.url && (

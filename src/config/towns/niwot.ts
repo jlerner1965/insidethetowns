@@ -45,7 +45,7 @@ export const niwot: TownConfig = {
   social: {
     email: 'hello@insideniwot.com',
   },
-  // The flagship home page (src/components/home/FlagshipHome.astro), since 21 October 2026.
+  // A resident guide (TownConfig.home), since 21 October 2026.
   home: true,
   participation: {
     label: 'Get involved',

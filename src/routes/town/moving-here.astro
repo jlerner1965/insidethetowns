@@ -51,7 +51,7 @@ const structured = [
     <figure class:list={['mb-12', image.width < 1000 && 'max-w-2xl']}>
       <Image src={image} alt={page?.data.imageAlt ?? ''} width={1600} height={900} class:list={['w-full rounded-lg object-cover', image.width >= 1000 && 'lg:h-[32rem]!']} />
       {page?.data.imageCredit && (
-        <figcaption class="mt-2 text-[0.8125rem] text-ink-muted">Photo: {page.data.imageCredit}</figcaption>
+        <figcaption class="mt-2 text-[0.875rem] text-ink-muted">Photo: {page.data.imageCredit}</figcaption>
       )}
     </figure>
   )}
@@ -87,32 +87,24 @@ const structured = [
           </p>
         </div>
       )}
-      <dl class="order-1 divide-y divide-line-soft border-y border-line-soft text-[0.9375rem] lg:order-none">
-        <div class="py-4">
-          <dt class="eyebrow">County</dt>
-          <dd class="mt-1.5 leading-snug">
-            {countyLabel(town)}
-            {countySplit && (
-              <>
-                <span class="mt-1.5 block text-ink-muted">{countySplit.note}</span>
-                <span class="mt-1.5 block text-[0.8125rem] text-ink-muted">
-                  <a href={countySplit.source} class="text-primary underline" rel="nofollow">Source</a>
-                  {' · checked '}
-                  <time datetime={countySplit.verified}>{formatDate(parseLocal(countySplit.verified))}</time>
-                </span>
-              </>
-            )}
-          </dd>
-        </div>
-        {schoolDistrict && (
-          <div class="py-4"><dt class="eyebrow">Schools</dt><dd class="mt-1.5 leading-snug">{schoolDistrict}</dd></div>
-        )}
-        {commuteNotes && (
-          <div class="py-4"><dt class="eyebrow">Commute</dt><dd class="mt-1.5 leading-snug">{commuteNotes}</dd></div>
-        )}
-        {town.population && (
-          <div class="py-4"><dt class="eyebrow">Population</dt><dd class="mt-1.5 leading-snug">{town.population.toLocaleString('en-US')} at the 2020 census</dd></div>
-        )}
+      <dl class="facts order-1 border-y border-line-soft py-4 lg:order-none">
+        <dt>County</dt>
+        <dd>
+          {countyLabel(town)}
+          {countySplit && (
+            <>
+              <span class="mt-1.5 block text-ink-muted">{countySplit.note}</span>
+              <span class="mt-1.5 block text-[0.875rem] text-ink-muted">
+                <a href={countySplit.source} class="text-primary underline" rel="nofollow">Source</a>
+                {' · checked '}
+                <time datetime={countySplit.verified}>{formatDate(parseLocal(countySplit.verified))}</time>
+              </span>
+            </>
+          )}
+        </dd>
+        {schoolDistrict && <Fragment><dt>Schools</dt><dd>{schoolDistrict}</dd></Fragment>}
+        {commuteNotes && <Fragment><dt>Commute</dt><dd>{commuteNotes}</dd></Fragment>}
+        {town.population && <Fragment><dt>Population</dt><dd>{town.population.toLocaleString('en-US')} at the 2020 census</dd></Fragment>}
       </dl>
       {listingsLinks.length > 0 && (
         <div class="order-4 lg:order-none">

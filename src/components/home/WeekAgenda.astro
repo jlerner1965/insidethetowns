@@ -1,0 +1,104 @@
+---
+/**
+ * The week as an agenda (design pass, 26 October 2026): seven days from
+ * today, each day under its own full date, its listings in time order with
+ * the school's games among them. Not seven columns, which put Monday's one
+ * meeting and Saturday's six things in boxes the same size and read as a
+ * calendar grid with most of its cells empty; and not the calendar week,
+ * which on a Saturday opened with five days gone by.
+ *
+ * On a wide screen the first three days stand on the left and the four
+ * after them on the right, in one column each; the DOM is the seven days
+ * in order, and every day is named in full ("Today · Monday,
+ * October 26"), so a reader, a screen reader and a search engine all see
+ * one week, not two lists. "Today" and "Tomorrow" are said only of the days
+ * that are those days, and are never written on the next day that has
+ * something listed.
+ *
+ * A day with nothing says "No events listed", which is a fact about this
+ * guide, not a claim about the town. A listing the organizer has called
+ * off or moved stays on its day with the word beside it, so the reader
+ * who planned around it learns so here. The editor's pick carries its
+ * word too, in a different style from a cancellation: one is a
+ * recommendation and one is a warning, and they are never the same slot.
+ *
+ * The rows come from src/lib/flagship-home.ts (weekDays), the same reading
+ * the Thursday email uses, so the two never disagree about a day.
+ */
+import SectionHeader from '@/components/SectionHeader.astro';
+import type { TownConfig } from '@/config';
+import { addDays, formatDayLong, formatDayRange, startOfDay, toIsoLocal } from '@/lib/dates';
+import type { WeekDay } from '@/lib/flagship-home';
+
+interface Props {
+  town: TownConfig;
+  days: WeekDay[];
+  now: Date;
+  /** Listings on the calendar beyond the week, for the empty week's line. */
+  laterCount?: number;
+}
+
+const { town, days, now, laterCount = 0 } = Astro.props;
+const today = startOfDay(now);
+const range = formatDayRange(today, addDays(today, 6));
+const lead = days.slice(0, 3);
+const rest = days.slice(3);
+const total = days.reduce((n, d) => n + d.items.length + d.more, 0);
+const heading = (day: WeekDay) => (day.relative ? `${day.relative} · ${formatDayLong(day.date)}` : formatDayLong(day.date));
+const label = (status: 'canceled' | 'postponed') => (status === 'canceled' ? 'Canceled' : 'Postponed');
+---
+<section class="band band-white" aria-labelledby="week-agenda" data-pagefind-ignore>
+  <div class="container-page">
+    <SectionHeader eyebrow={range} title={`This week in ${town.name}`} href="/events/" linkLabel="Every event" id="week-agenda" />
+    {total === 0 ? (
+      <div class="rounded-lg border border-dashed border-line px-6 py-8 text-ink-muted">
+        <p class="text-[1.0625rem]">No events listed for the next seven days.</p>
+        <p class="mt-2 text-[0.9375rem]">
+          {laterCount > 0 && <Fragment><a href="/events/" class="inline-block -my-2 py-2 font-semibold text-primary underline">{laterCount} coming up later →</a> · </Fragment>}
+          Know of something? <a href="/submit-event/" class="inline-block -my-2 py-2 text-primary underline">Add an event</a>; it goes up once it is checked.
+        </p>
+      </div>
+    ) : (
+      <div class="grid gap-y-8 lg:grid-cols-2 lg:gap-x-14">
+        {[lead, rest].map((group) => (
+          <ol class="grid content-start gap-y-7">
+            {group.map((day) => (
+              <li>
+                <h3 class="flex flex-wrap items-baseline gap-x-2 border-b border-line-soft pb-2 text-[1.0625rem] leading-tight">
+                  <time datetime={toIsoLocal(day.date).slice(0, 10)} class="font-semibold">{heading(day)}</time>
+                </h3>
+                {day.items.length > 0 ? (
+                  <ul class="divide-y divide-line-soft">
+                    {day.items.map((item) => (
+                      <li class="grid grid-cols-[0.625rem_minmax(0,1fr)] items-baseline gap-x-3 py-2.5">
+                        <span class="inline-block size-2.5 translate-y-[-0.05em] rounded-full" style={`background:${item.dot}`} aria-hidden="true"></span>
+                        <div class="min-w-0">
+                          <p class="text-[1.0625rem] leading-snug">
+                            <a href={item.href} class:list={['font-medium no-underline hover:text-primary hover:underline', item.status && 'text-ink-muted']}>{item.title}</a>
+                            {item.status && <span class="ml-2 inline-block rounded-sm border border-line px-1.5 py-px align-[0.1em] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink">{label(item.status)}</span>}
+                            {item.pick && !item.status && <span class="ml-2 inline-block rounded-sm bg-highlight-soft px-1.5 py-px align-[0.1em] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink ring-1 ring-highlight">Our pick</span>}
+                          </p>
+                          {item.meta && <p class="mt-0.5 text-[0.9375rem] leading-snug text-ink-muted">{item.meta}</p>}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p class="py-2.5 text-[0.9375rem] text-ink-muted">No events listed.</p>
+                )}
+                {day.more > 0 && (
+                  <p class="text-[0.9375rem]"><a href={`/events/#day-${day.key}`} class="inline-block -my-2 py-2 font-semibold text-primary underline">{day.more} more that day →</a></p>
+                )}
+              </li>
+            ))}
+          </ol>
+        ))}
+      </div>
+    )}
+    {total > 0 && (
+      <p class="mt-8 text-[0.9375rem] text-ink-muted">
+        Know of something missing? <a href="/submit-event/" class="inline-block -my-2 py-2 text-primary underline">Add an event</a>; it goes up once it is checked.
+      </p>
+    )}
+  </div>
+</section>

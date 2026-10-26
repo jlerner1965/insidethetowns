@@ -1,7 +1,7 @@
 /**
- * The flagship home page (the homepage brief, 25 October 2026): which final
- * the scoreboard shows, what is next, the week as seven days, the school's
- * rows, the school's colours and the home menu. Every case is one a parent
+ * The home page (the homepage brief, 25 October 2026; the design pass, 26
+ * October 2026): which final the scoreboard shows, what is next, the week
+ * as seven days, the school's rows, the school's colours and the route. Every case is one a parent
  * would notice: last week's score on the board, Friday's game missing from
  * Friday, a school orange that white cannot be read on.
  */
@@ -12,7 +12,7 @@ import { clockKey, dashed, gameHeading, leadGame, nextGame, resultSentence, scor
 import { contrast, schoolTheme } from '../src/config/school-colors.ts';
 import { towns } from '../src/config/towns/registry.ts';
 import { schoolSportsFor, schoolTeamName, type SportGame, type SportsData } from '../src/config/school-sports.ts';
-import { homeNav, townNav } from '../src/lib/nav.ts';
+import { townNav } from '../src/lib/nav.ts';
 import { homeRoute } from '../src/integrations/town-routes.ts';
 
 const at = (s: string) => parseLocal(s);
@@ -114,7 +114,7 @@ test('the week is seven days, Monday to Sunday, and a day shows three things wit
   assert.equal(days[6]!.past, false, 'today is not past');
 });
 
-test('the Thursday email is on its day from today on, never on a Thursday gone by; a called-off event is left off', () => {
+test('the Thursday email is on its day from today on, never on a Thursday gone by; a called-off event is kept and marked', () => {
   const email = { day: 'Thursday', time: '7 am' };
   const thisWeek = weekDays({ events: [], email, now: at('2026-10-20T12:00') });
   const thursday = thisWeek[3]!;
@@ -123,9 +123,30 @@ test('the Thursday email is on its day from today on, never on a Thursday gone b
   assert.equal(thursday.items[0]?.href, '#signup');
   assert.equal(weekDays({ events: [], email, now: SUNDAY })[3]!.items.length, 0);
   const off = weekDays({ events: [ev('gone', '2026-10-21T10:00', { status: 'canceled' })], now: at('2026-10-20T12:00') });
-  assert.equal(off[2]!.items.length, 0);
+  assert.equal(off[2]!.items.length, 1, 'a reader who planned around it sees it called off, not missing');
+  assert.equal(off[2]!.items[0]?.status, 'canceled');
+  assert.equal(off[2]!.items[0]?.pick, undefined);
   assert.equal(clockKey('6:30 pm'), '18:30');
   assert.equal(clockKey('7 am'), '07:00');
+});
+
+test('the agenda runs seven days from today, names today and tomorrow, marks the pick and gives each day its own limit', () => {
+  const days = weekDays({
+    events: [ev('a', '2026-10-26T09:00'), ev('b', '2026-10-26T10:00'), ev('c', '2026-10-27T11:00'), ev('d', '2026-11-01T12:00')],
+    now: SUNDAY,
+    start: 'today',
+    picked: new Set(['c']),
+    limit: (i) => (i < 2 ? 1 : 3),
+  });
+  assert.deepEqual(days.map((d) => d.key), ['2026-10-25', '2026-10-26', '2026-10-27', '2026-10-28', '2026-10-29', '2026-10-30', '2026-10-31']);
+  assert.equal(days[0]!.relative, 'Today');
+  assert.equal(days[1]!.relative, 'Tomorrow');
+  assert.equal(days[2]!.relative, undefined, 'only the two days a reader calls by name');
+  assert.equal(days[0]!.past, false);
+  assert.deepEqual(days[1]!.items.map((i) => i.title), ['a'], 'the first two days keep one item each here');
+  assert.equal(days[1]!.more, 1);
+  assert.equal(days[2]!.items[0]?.pick, true);
+  assert.equal(days.some((d) => d.items.some((i) => i.title === 'd')), false, 'next Sunday is outside the seven days');
 });
 
 test('a game to come shows its time and where; one played shows the result', () => {
@@ -184,13 +205,12 @@ test('a primary white cannot be read on at 7:1 swaps with the secondary; a secon
 
 // ------------------------------------------------------- the menu and the route
 
-test('the home page’s menu is the brief’s; every other page keeps the shared one', () => {
+test('every page of a guide, its home included, has the one shared menu', () => {
   const berthoud = towns.find((t) => t.slug === 'berthoud')!;
-  assert.deepEqual(homeNav(berthoud).map((n) => n.label), ['This week', 'Spartans', 'Town', 'Eat & drink', 'Families', 'Living here']);
-  assert.equal(homeNav(berthoud).find((n) => n.label === 'Spartans')?.href, '/sports/');
   assert.deepEqual(townNav(berthoud).map((n) => n.label), ['This week', 'Events', 'Spartans sports', 'Eat & drink', 'Families', 'Living here']);
+  assert.equal(townNav(berthoud).find((n) => n.label === 'Spartans sports')?.href, '/sports/');
 });
 
-test('a flagship’s home page is its own route file, so a classic guide’s build never imports it', () => {
-  for (const t of towns) assert.deepEqual(homeRoute(t), ['/', t.home ? 'home-flagship.astro' : 'index.astro'], t.slug);
+test('every guide builds its home from the one route file; `home` only changes what the page leads with', () => {
+  for (const t of towns) assert.deepEqual(homeRoute(t), ['/', 'index.astro'], t.slug);
 });

@@ -31,6 +31,8 @@
       slot.textContent = status.label;
       slot.dataset.open = String(status.open);
       slot.hidden = false;
+      // A line that exists only to carry the status (the place page's lede).
+      slot.closest<HTMLElement>('[data-open-wrap]')?.removeAttribute('hidden');
     }
     const item = el.closest<HTMLElement>('[data-filter-item]');
     if (item) item.dataset.open = String(status.open);
