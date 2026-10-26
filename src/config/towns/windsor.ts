@@ -63,17 +63,8 @@ export const windsor: TownConfig = {
   social: {
     email: 'hello@insidewindsorco.com',
   },
-  /**
-   * The flagship layout (22 October 2026), as Berthoud's and Lyons's: the
-   * week as the page, Families as the signature hub, every other hub one
-   * link. The owner's call, for Elizabeth, Windsor, Erie and Johnstown together.
-   */
-  home: {
-    signature: 'families',
-    purpose: 'What’s on this week, what your family can join, and who handles what in town.',
-    secondary: { label: 'Windsor Families', href: '/families/' },
-    accentName: 'brass',
-  },
+  // The flagship home page (src/components/home/FlagshipHome.astro), since 22 October 2026.
+  home: true,
   /**
    * Windsor High's colours, read from its own site 25 October 2026
    * (whs.weldre4.org), which names them "Maroon and Gold": the page's

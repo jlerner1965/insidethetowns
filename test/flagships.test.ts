@@ -26,10 +26,6 @@ test('each flagship has the flagship layout and the three hubs; no other guide d
     if (!flagship) assert.equal(!!t.participation, false, `${t.slug}: participation`);
     assert.equal(!!t.families, flagship, `${t.slug}: families`);
   }
-  assert.equal(by('berthoud').home!.signature, 'families');
-  assert.equal(by('niwot').home!.signature, 'get-involved');
-  assert.equal(by('lyons').home!.signature, 'families');
-  for (const slug of ['elizabeth', 'windsor', 'erie', 'johnstown']) assert.equal(by(slug).home!.signature, 'families', slug);
 });
 
 test('every guide has the same menu, built from what it has: the week, events, its school, the places, its hub and Living here or Moving here', () => {
@@ -53,10 +49,10 @@ test('every guide has the same menu, built from what it has: the week, events, i
   assert.deepEqual(townNav(towns.find((t) => t.slug === 'longmont')!).map((n) => n.label), ['This week', 'Events', 'Eat & drink', 'Things to do', 'Moving here']);
 });
 
-test('the purpose line is enduring: no dated civic topic in the masthead or the short tagline', () => {
+test('the short tagline is enduring: no dated civic topic in it or in the town’s one line', () => {
   for (const slug of FLAGSHIPS) {
     const t = by(slug);
-    for (const line of [t.home!.purpose, t.shortTagline ?? '', t.character ?? '']) {
+    for (const line of [t.shortTagline ?? '', t.character ?? '']) {
       assert.doesNotMatch(line, /\b(vote|ballot|election|bond)\b/i, `${slug}: "${line}"`);
       assert.doesNotMatch(line, /\b20\d\d\b/, `${slug}: a year in "${line}"`);
     }
@@ -125,26 +121,4 @@ test('the hub pages open on an intro of fifteen words or fewer', () => {
       assert.ok(words <= 15, `${town.slug} /${page}/ intro is ${words} words: ${intro}`);
     }
   }
-});
-
-test('a flagship’s home photograph is a real file with a licence row, and its credit names the licence the register records', async () => {
-  const { readFileSync } = await import('node:fs');
-  const { licenseName, parseLedger } = await import('../src/lib/credits.ts');
-  const ledger = new Map(parseLedger(readFileSync('IMAGE_LICENSES.csv', 'utf8')).map((r) => [r.path, r]));
-  for (const slug of FLAGSHIPS) {
-    const photo = by(slug).home!.photo;
-    if (!photo) continue;
-    const path = `content/${slug}/images/${photo.image}`;
-    assert.ok(existsSync(path), `${slug}: ${path} exists`);
-    const row = ledger.get(path);
-    assert.ok(row, `${slug}: ${path} has a licence row`);
-    assert.ok(photo.alt.length > 20, `${slug}: the photograph is described`);
-    if (row!.creditRequired) assert.ok(photo.credit, `${slug}: ${photo.image} requires a credit`);
-    const name = licenseName(row!);
-    if (name && photo.credit) assert.ok(photo.credit.includes(name), `${slug}: credit "${photo.credit}" names ${name}`);
-    assert.doesNotMatch(row!.license, /placeholder|stock|generated/i, `${slug}: a real photograph of the town`);
-  }
-  // The two the brief named (docs/FLAGSHIPS-2026-10-21.md): Second Avenue and the Town's playground.
-  assert.equal(by('niwot').home!.photo?.image, 'second-avenue-street.jpg');
-  assert.equal(by('berthoud').home!.photo?.image, 'berthoud-town-park-playground.webp');
 });

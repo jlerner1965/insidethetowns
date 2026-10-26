@@ -6248,3 +6248,21 @@ made inside it:
 - **The old home's fields stay in the configs.** `signature`, `purpose`,
   `secondary` and `photo` are read by nothing on the new page; the credits
   page no longer says the photograph is on the home page.
+
+## The old flagship home page's leftovers removed, 26 October 2026
+
+*26 October 2026.* The scoreboard home page (25 October) left three things
+from the page it replaced, kept so that change could leave every classic
+guide byte for byte as it was:
+
+- **The safelist line** at the top of `global.css`, which kept nine
+  utilities only the old page used. Gone, with them; every guide's
+  stylesheet is smaller by those rules and nothing else.
+- **The primary wash** (`band-tint`, `--color-primary-soft`,
+  `--t-primary-soft`), the old page's third surface. Nothing used it, so it
+  and its two check-colors proofs are gone.
+- **`home`'s fields.** `signature`, `purpose`, `secondary`, `accentName` and
+  `photo` were read by nothing. `home` is now `true` on the seven flagships,
+  the switch for the flagship route and the inner pages' banded header. The
+  two photographs stay in `content/` with their licence rows; the guide no
+  longer shows them, so /credits/ no longer lists them.

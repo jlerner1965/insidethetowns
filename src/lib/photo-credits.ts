@@ -64,8 +64,8 @@ export async function getCreditedPhotos(): Promise<CreditedPhoto[]> {
 
   // The hero is on the home page and, as the share image every page without
   // a photograph of its own falls back to, on the link preview of all of them.
-  // The flagship home page (25 October 2026) shows no photograph, its own
-  // (`home.photo`) included, so there the hero is the link preview alone.
+  // The flagship home page (25 October 2026) shows no photograph, so there
+  // the hero is the link preview alone.
   const flagship = site.kind === 'town' && !!site.home;
   use(site.hero.image, site.hero.alt, flagship
     ? { title: 'the link preview of every page without its own photograph', href: '/' }
