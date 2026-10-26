@@ -55,7 +55,7 @@ const host = source ? new URL(source).hostname.replace(/^www\./, '') : undefined
     </p>
     {source && (
       <p class="mt-1 text-sm">
-        <a href={source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline">Source: {host}</a>
+        <a href={source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline [overflow-wrap:anywhere]">Source: {host}</a>
       </p>
     )}
   </div>

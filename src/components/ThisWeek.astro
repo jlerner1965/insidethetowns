@@ -314,7 +314,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
             <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{c.detail}</p>
             {c.source && (
               <p class="mt-1 text-sm">
-                <a href={c.source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline">Source: {new URL(c.source).hostname.replace(/^www\./, '')}</a>
+                <a href={c.source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline [overflow-wrap:anywhere]">Source: {new URL(c.source).hostname.replace(/^www\./, '')}</a>
               </p>
             )}
           </li>
@@ -346,8 +346,8 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
             <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{u.data.summary}</p>
             {u.data.action && <p class="mt-1 text-[0.9375rem] leading-snug"><span class="eyebrow text-ink-muted">Now</span> {u.data.action}</p>}
             <p class="mt-1 flex flex-wrap gap-x-4 text-sm">
-              {u.data.source && <a href={u.data.source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline">Source: {u.data.sourceLabel ?? new URL(u.data.source).hostname.replace(/^www\./, '')}</a>}
-              {u.data.item && <a href={u.data.item} class="inline-block -my-3 py-3 text-primary underline">On this guide</a>}
+              {u.data.source && <a href={u.data.source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline [overflow-wrap:anywhere]">Source: {u.data.sourceLabel ?? new URL(u.data.source).hostname.replace(/^www\./, '')}</a>}
+              {u.data.item && <a href={u.data.item} class="inline-block -my-3 py-3 text-primary underline [overflow-wrap:anywhere]">On this guide</a>}
             </p>
           </li>
         ))}
@@ -358,7 +358,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
             <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{c.detail}</p>
             {c.source && (
               <p class="mt-1 text-sm">
-                <a href={c.source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline">Source: {new URL(c.source).hostname.replace(/^www\./, '')}</a>
+                <a href={c.source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline [overflow-wrap:anywhere]">Source: {new URL(c.source).hostname.replace(/^www\./, '')}</a>
               </p>
             )}
           </li>
@@ -377,7 +377,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
         <p class="text-xl font-medium leading-tight md:text-2xl">{qa.question}</p>
         <p class="mt-3 text-[1.0625rem] leading-relaxed">{qa.answer}</p>
         {qa.source && (
-          <p class="mt-2 text-sm text-ink-muted"><a href={qa.source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline">Source: {qa.sourceLabel ?? new URL(qa.source).hostname.replace(/^www\./, '')}</a></p>
+          <p class="mt-2 text-sm text-ink-muted"><a href={qa.source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline [overflow-wrap:anywhere]">Source: {qa.sourceLabel ?? new URL(qa.source).hostname.replace(/^www\./, '')}</a></p>
         )}
       </div>
     </section>

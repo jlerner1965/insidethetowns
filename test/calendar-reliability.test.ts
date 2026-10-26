@@ -213,7 +213,8 @@ test('8. the home page week, the filtered agenda and the feed agree about the sa
   const entries = [terror, festival, chess];
   // The home page: FlagshipHome passes occurrences() to weekDays.
   const week = weekDays({ events: occurrences(entries, { now: MONDAY, horizonDays: 8 }), now: MONDAY });
-  const homeDays = week.filter((d) => d.items.some((i) => i.title === terror.data.title)).map((d) => d.key);
+  // A row's shown title may drop "at Anderson Farms" (agendaTitle); fullTitle is the listing's own.
+  const homeDays = week.filter((d) => d.items.some((i) => i.fullTitle === terror.data.title)).map((d) => d.key);
   // The events page, filtered to the next seven days.
   const rows = agenda(entries, { now: MONDAY }).fortnight;
   const filtered = rows
@@ -228,7 +229,7 @@ test('8. the home page week, the filtered agenda and the feed agree about the sa
   assert.deepEqual(filtered, homeDays);
   assert.deepEqual(feed, homeDays);
   // And Monday is Monday everywhere: the chess club, the festival, no Terror.
-  const mondayHome = week.find((d) => d.key === '2026-10-26')!.items.map((i) => i.title).sort();
+  const mondayHome = week.find((d) => d.key === '2026-10-26')!.items.map((i) => i.fullTitle).sort();
   const mondayRows = rows
     .filter((r) => eventRowShown(marks(r), { when: 'today', category: 'all', free: false, where: 'all' }, MONDAY))
     .map((r) => r.event.data.title)
