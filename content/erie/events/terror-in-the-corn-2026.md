@@ -9,6 +9,9 @@ cost: "Timed tickets: general admission $43 Thursday, $50 Friday or Saturday, $4
 category: other
 recurring: "Thursday to Sunday nights through October 31"
 timeNote: "Thu & Sun 7–10 pm, Fri & Sat 7–11 pm, through Oct 31"
+schedule:
+  - { days: [thu, sun], start: "19:00", end: "22:00" }
+  - { days: [fri, sat], start: "19:00", end: "23:00" }
 source: "https://tickets.andersonfarms.com/p/terror-in-the-corn"
 verified: "2026-10-03"
 ---

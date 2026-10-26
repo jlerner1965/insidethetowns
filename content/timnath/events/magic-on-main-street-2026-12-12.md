@@ -2,6 +2,7 @@
 title: "Magic on Main Street"
 start: "2026-12-12"
 allDay: true
+timeTbd: true
 venue: "Old Town Main Street"
 address: "Main Street, Timnath, CO 80547"
 url: "https://timnathfarmersmarket.org/about/"

@@ -16,8 +16,9 @@
  * *publishable* entry is: sourced, dated, and inside its freshness window.
  */
 import { z } from 'astro/zod';
-import { parseLocal } from '../lib/dates.ts';
+import { dayKey, parseLocal } from '../lib/dates.ts';
 import { OPENING_HOURS_RE } from '../lib/hours.ts';
+import { CLOCK_RE, WEEKDAYS, isDayOff, runSittings, weekdayOf } from '../lib/schedule.ts';
 
 /** Astro passes its image() helper (typed to ImageMetadata); the validator passes a plain string check. */
 export type ImageSchema = () => z.ZodType;
@@ -183,6 +184,21 @@ const performance = z
   .union([localDateTime, z.object({ start: localDateTime, note: z.string().min(1).optional() }).strict()])
   .transform((p) => (p instanceof Date ? { start: p } : p));
 
+/**
+ * One line of a run's week: the weekdays it opens and, where the organizer
+ * gives them, that day's hours as Denver clock times. A closing time before
+ * the opening one is after midnight. See src/lib/schedule.ts.
+ */
+const clockTime = z.string().regex(CLOCK_RE, 'a time of day as "19:00" (24-hour, quoted)');
+const scheduleEntry = z
+  .object({
+    days: z.array(z.enum(WEEKDAYS)).min(1),
+    start: clockTime.optional(),
+    end: clockTime.optional(),
+  })
+  .strict()
+  .refine((s) => !s.end || !!s.start, { message: 'a closing time needs its opening time', path: ['end'] });
+
 const slug = z
   .string()
   .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'slug must be lowercase letters, numbers and hyphens')
@@ -271,6 +287,39 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
        * show's own note ("Sold out") goes on that show.
        */
       performances: z.array(performance).min(2).optional(),
+      /**
+       * For a run (`start` to `end` on a later day) that is not on every
+       * day of its range: the weekdays it opens, each with its hours where
+       * the source gives them, written from the same source as the rest.
+       *
+       *   schedule:
+       *     - { days: [thu, sun], start: "19:00", end: "22:00" }
+       *     - { days: [fri, sat], start: "19:00", end: "23:00" }
+       *
+       * Every page, filter, count and calendar file then has the run on
+       * those days only, each with its own hours (src/lib/events.ts,
+       * `occurrences`). Until 26 October 2026 the days were prose alone,
+       * and Erie's "Today" showed a Thursday-to-Sunday attraction on a
+       * Monday. `recurring` and `timeNote` stay as the run's own words.
+       * A day without hours takes the run's start and end times, or stays
+       * all day on an all-day run. `start` and `end` fall on open days.
+       */
+      schedule: z.array(scheduleEntry).min(1).optional(),
+      /**
+       * Days inside a run or a weekly series that it is not on, as the
+       * organizer lists them: "none on Nov 26, Dec 24, 25 or 31", a week
+       * called off. Left out of every page and feed. One a run or series
+       * could never have had (outside its range, or another weekday) is an
+       * error, so a typo cannot pass for a cancellation.
+       */
+      except: z.array(localDate).min(1).optional(),
+      /**
+       * The date is set and the time is not announced yet. With `allDay`,
+       * which keeps the date arithmetic whole-day; the cards say "Time to
+       * be announced" rather than "All day", a day lists it after its timed
+       * and all-day listings, and the calendar files say so.
+       */
+      timeTbd: z.boolean().optional(),
       /** Replaces the computed time range on cards, e.g. "Time to be confirmed" or "Doors 6 pm, music 7 pm". */
       timeNote: z.string().optional(),
       /**
@@ -358,6 +407,56 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
     .refine((e) => !e.performances || !e.end || e.end.getTime() - e.start.getTime() < 24 * 3_600_000, {
       message: 'with performances, end closes the first show: one sitting, under 24 hours',
       path: ['end'],
+    })
+    .refine((e) => !e.schedule || (!!e.end && dayKey(e.end) !== dayKey(e.start) && !e.repeat && !e.performances), {
+      message: 'schedule is for a run: an end on a later day than start, and no repeat or performances',
+      path: ['schedule'],
+    })
+    .refine((e) => !e.schedule || e.schedule.flatMap((s) => s.days).length === new Set(e.schedule.flatMap((s) => s.days)).size, {
+      message: 'each weekday goes in one schedule line only',
+      path: ['schedule'],
+    })
+    .refine(
+      (e) => {
+        if (!e.schedule || !e.end) return true;
+        // The run's first open day is its start's, and its last sitting ends
+        // on its end's day: the sitemap reads `end` from the raw file
+        // (src/lib/series.ts), the pages read the sittings, and the two must
+        // name the same last day.
+        const sittings = runSittings({ ...e, except: undefined });
+        const first = sittings[0];
+        const last = sittings[sittings.length - 1];
+        if (!first || !last) return false;
+        const endDay = (at: Date, whole: boolean) => (whole ? dayKey(at) : dayKey(new Date(at.getTime() - 1)));
+        const lastDay = last.end ? endDay(last.end, false) : dayKey(last.start);
+        return dayKey(first.start) === dayKey(e.start) && lastDay === endDay(e.end, e.allDay);
+      },
+      {
+        message: 'a scheduled run starts and ends on days it is open: start on a schedule weekday, and end when its last open day closes',
+        path: ['schedule'],
+      },
+    )
+    .refine(
+      (e) => {
+        if (!e.except) return true;
+        const days = e.except.map((d) => dayKey(d));
+        if (e.repeat === 'weekly' && e.until) {
+          // A week of the series, not its first or its last.
+          const dow = weekdayOf(e.start);
+          return days.every((d, i) => weekdayOf(e.except![i]!) === dow && d > dayKey(e.start) && d < dayKey(e.until!));
+        }
+        if (!e.end || dayKey(e.end) === dayKey(e.start) || e.performances) return false;
+        // A day inside the run, strictly: the run starts and ends on days it is on.
+        return days.every((d, i) => d > dayKey(e.start) && d < dayKey(e.end!) && !isDayOff({ schedule: e.schedule, start: e.start }, e.except![i]!));
+      },
+      {
+        message: 'except names days a weekly series or a run would otherwise have: inside its range, on its weekday or a schedule day, not its first or last',
+        path: ['except'],
+      },
+    )
+    .refine((e) => !e.timeTbd || e.allDay, {
+      message: 'timeTbd goes with allDay: a date with no time announced yet',
+      path: ['timeTbd'],
     })
     .refine((e) => !e.image || !!e.imageAlt, {
       message: 'imageAlt is required when image is set',

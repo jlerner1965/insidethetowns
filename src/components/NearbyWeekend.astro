@@ -23,7 +23,7 @@ import NetworkEventCard from './NetworkEventCard.astro';
 import SectionHeader from './SectionHeader.astro';
 import SponsorLine from './SponsorLine.astro';
 import { getNetworkHub, neighborsOf, type TownConfig } from '@/config';
-import { getNeighborEntries } from '@/lib/content';
+import { getNeighborEntries, type NetworkEntry } from '@/lib/content';
 import { formatDayRange } from '@/lib/dates';
 import { nearbyPicks, occurrences, weekendWindow } from '@/lib/events';
 
@@ -33,15 +33,22 @@ interface Props {
   sponsor?: boolean;
   /** How many picks at most; the default is nearbyPicks's six. */
   limit?: number;
+  /**
+   * The picks, where the page has chosen them already (by the same
+   * `nearbyPicks`) so that another block can leave them out: /this-week/
+   * passes them here and keeps them out of the hill's strip. Otherwise
+   * chosen here.
+   */
+  picks?: NetworkEntry<'events'>[];
   class?: string;
 }
 
-const { town, sponsor = true, limit = 6, class: className } = Astro.props;
+const { town, sponsor = true, limit = 6, picks: given, class: className } = Astro.props;
 const hub = getNetworkHub();
 const neighbors = neighborsOf(town);
 const now = new Date();
-const all = occurrences(await getNeighborEntries('events', neighbors), { now, horizonDays: 30 });
-const picks = nearbyPicks(all, neighbors.map((t) => t.slug), { now, limit });
+const picks =
+  given ?? nearbyPicks(occurrences(await getNeighborEntries('events', neighbors), { now, horizonDays: 30 }), neighbors.map((t) => t.slug), { now, limit });
 const { start, sunday } = weekendWindow(now);
 const sponsorLine = sponsor ? hub.sponsors?.network : undefined;
 // The signup preselects the towns named in `towns` (src/routes/hub/newsletter.astro).

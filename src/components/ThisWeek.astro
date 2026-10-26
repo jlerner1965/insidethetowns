@@ -42,10 +42,10 @@ import CheckedLine from './CheckedLine.astro';
 import UpdateRow from './UpdateRow.astro';
 import UpTheHill from './UpTheHill.astro';
 import WeekEventRow from './WeekEventRow.astro';
-import type { TownConfig } from '@/config';
-import { getTownEntries } from '@/lib/content';
+import { neighborsOf, type TownConfig } from '@/config';
+import { getNeighborEntries, getTownEntries } from '@/lib/content';
 import { formatDate, formatDayLong, formatDayRange, toIsoLocal } from '@/lib/dates';
-import { highlights, isMultiDay, lastDay, listedUntil, occurrences, timeText, weekendWindow } from '@/lib/events';
+import { highlights, isMultiDay, lastDay, listedUntil, nearbyPicks, occurrences, recommendationKeys, timeText, weekendWindow } from '@/lib/events';
 import { activeChanges, briefingUpdates, corrections, currentNotes, currentPick, isWeekend, weekEvents, weekWindow } from '@/lib/weekly';
 import { currentUpdates, isLateNotice } from '@/lib/updates';
 import { subTownLabel } from '@/lib/sub-towns';
@@ -142,6 +142,15 @@ const schoolWeeks = compact
 // Under the page's own h1 the sections are h2s, in the site's one h2 style
 // (SectionHeader); under the home page's section heading they step down one.
 const Heading = compact ? SubHeading : SectionHeader;
+
+// The neighbours' weekend and the hill, on the full page: chosen here so the
+// hill's strip leaves out what Nearby already shows. One event was both on
+// Lyons' page, the Stanley's DeVotchKa ball (audit, 26 October 2026).
+const neighbors = neighborsOf(town);
+const nearby = compact
+  ? []
+  : nearbyPicks(occurrences(await getNeighborEntries('events', neighbors), { now, horizonDays: 30 }), neighbors.map((t) => t.slug), { now, limit: 4 });
+const shownNearby = new Set(nearby.flatMap(recommendationKeys));
 const block = compact ? 'mt-10' : 'mt-12 md:mt-14';
 const v = compact ? 'compact' : 'full';
 const hubHref = town.families ? '/families/' : town.participation ? '/get-involved/' : undefined;
@@ -390,8 +399,8 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
   {/* The neighbours' weekend and the hill, after everything of the town's
      own, on the full page only: the neighbours as "nearby", the mountain
      guides as the day trips they are. Each renders nothing with nothing on. */}
-  {!compact && <NearbyWeekend town={town} class={block} limit={4} />}
-  {!compact && <UpTheHill town={town} class={block} label="Day trips up the hill" />}
+  {!compact && <NearbyWeekend town={town} class={block} limit={4} picks={nearby} />}
+  {!compact && <UpTheHill town={town} class={block} label="Day trips up the hill" exclude={shownNearby} />}
 
   {signup && (
     <div class={block}>

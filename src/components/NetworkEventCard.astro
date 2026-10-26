@@ -10,8 +10,8 @@
  * glance that the farmers market you want is in Lyons and not in Erie.
  */
 import type { NetworkEntry } from '@/lib/content';
-import { dayKey, formatDayRange, formatDayShort, formatMonthDay, formatTimeRange, toIsoLocal } from '@/lib/dates';
-import { isCanceled, isInProgress, lastDay, listedUntil } from '@/lib/events';
+import { dayKey, formatDayRange, formatDayShort, formatMonthDay, toIsoLocal } from '@/lib/dates';
+import { clockText, displayTitle, isCanceled, isInProgress, lastDay, listedUntil } from '@/lib/events';
 import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 
 interface Props {
@@ -48,7 +48,7 @@ const when =
     ? `Now through ${formatMonthDay(data.end!)}`
     : multiDay && data.allDay
       ? formatDayRange(data.start, data.end!)
-      : formatTimeRange(data.start, data.end, data.allDay));
+      : clockText(event));
 // "Other" is filed but not labelled, as on a town's own list (EventCard).
 const categoryLabel = shownCategoryLabel(data.category);
 // A multi-day time range already names its days, and a run says "Now through".
@@ -82,7 +82,7 @@ const time = showDay && !running && !multiDay ? `${formatDayShort(data.start)} �
       </p>
     )}
     <h3 class="text-xl font-medium leading-tight md:text-2xl">
-      <a href={href} data-track={track} data-track-town={track ? town.slug : undefined} class:list={['stretch no-underline group-hover:text-primary', canceled && 'line-through decoration-ink-muted decoration-2']}>{data.title}</a>
+      <a href={href} data-track={track} data-track-town={track ? town.slug : undefined} class:list={['stretch no-underline group-hover:text-primary', canceled && 'line-through decoration-ink-muted decoration-2']}>{displayTitle(event)}</a>
     </h3>
     <p class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">
       <time datetime={toIsoLocal(data.start)}>{time}</time> · {data.venue}{data.cost && <span> · {data.cost}</span>}

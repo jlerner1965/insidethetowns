@@ -7,11 +7,19 @@
  * under two hundred rows. Here it appears once, under the day it happens,
  * with its time and venue, linking to its page. The date list above holds
  * the one-time events and the town meetings. Decided by `weeklyTest` in
- * src/lib/events.ts.
+ * src/lib/events.ts: a weekly repeat, or files a week apart; a monthly
+ * club's "Second Mondays" is not every Monday, and is listed by date.
+ *
+ * It sits inside the events page's filters: a category or "Free" narrows it
+ * like the list above, and a date ("Today", "This weekend") puts it aside,
+ * because the date list then carries the regulars' own dates for that day
+ * and a directory of every weekday is not what was asked for
+ * (src/lib/filters.ts, `eventRowShown`).
  */
 import { isTentative } from '@/lib/confidence';
 import type { TownEntry } from '@/lib/content';
-import { formatDate, formatTimeRange, formatWeekday } from '@/lib/dates';
+import { dayKey, formatDate, formatWeekday } from '@/lib/dates';
+import { clockText, displayTitle } from '@/lib/events';
 import { shownCategoryLabel } from '@/content/schemas';
 import SectionHeader from './SectionHeader.astro';
 
@@ -32,7 +40,7 @@ const days = ORDER.filter((d) => byDay.has(d)).map((d) => ({ day: d, events: byD
 const through = (e: TownEntry<'events'>) => (e.data.until && !e.seriesCut ? `through ${formatDate(e.data.until)}` : e.data.recurring);
 ---
 {days.length > 0 && (
-  <section id="every-week" class="mt-16 scroll-mt-4 md:mt-24" aria-labelledby="every-week-heading">
+  <section id="every-week" class="mt-16 scroll-mt-4 md:mt-24" data-filter-section data-filter-directory aria-labelledby="every-week-heading">
     {/* A section of the page with its own title, like "Further out": as a
         12px label over a rule it was outranked by the 36px day names under
         it, and the change of section was easy to miss. */}
@@ -43,12 +51,20 @@ const through = (e: TownEntry<'events'>) => (e.data.until && !e.seriesCut ? `thr
     </p>
     <div class="space-y-8">
       {days.map(({ day, events: list }) => (
-        <section class="md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
+        <section data-filter-group class="md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
           <h3 class="eyebrow mb-3 text-primary md:mb-0 md:pt-5">{day}s</h3>
           <ul class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
             {list.map((e) => (
-              <li class="group relative grid gap-x-6 gap-y-1 border-b border-line-soft py-4 last:border-b-0 sm:grid-cols-[minmax(7rem,9rem)_1fr]">
-                <p class="text-sm font-semibold tabular-nums text-ink-muted sm:pt-0.5">{e.data.timeNote ?? formatTimeRange(e.data.start, e.data.end, e.data.allDay)}</p>
+              <li
+                class="group relative grid gap-x-6 gap-y-1 border-b border-line-soft py-4 last:border-b-0 sm:grid-cols-[minmax(7rem,9rem)_1fr]"
+                data-filter-item
+                data-directory
+                data-category={e.data.category}
+                data-start-day={dayKey(e.data.start)}
+                data-free={/^free\b/i.test(e.data.cost ?? '') ? 'true' : undefined}
+                data-sub-town={e.data.subTown}
+              >
+                <p class="text-sm font-semibold tabular-nums text-ink-muted sm:pt-0.5">{e.data.timeNote ?? clockText(e)}</p>
                 <div class="min-w-0">
                   {shownCategoryLabel(e.data.category) && (
                     <p class="eyebrow mb-1 flex items-center gap-2" style={`color:var(--cat-${e.data.category}-ink)`}>
@@ -57,7 +73,7 @@ const through = (e: TownEntry<'events'>) => (e.data.until && !e.seriesCut ? `thr
                     </p>
                   )}
                   <h4 class="text-lg font-medium leading-tight">
-                    <a href={`/events/${e.slug}/`} class="stretch no-underline group-hover:text-primary">{e.data.title}</a>
+                    <a href={`/events/${e.slug}/`} class="stretch no-underline group-hover:text-primary">{displayTitle(e)}</a>
                   </h4>
                   <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">
                     {e.data.venue}{e.data.cost && <span> · {e.data.cost}</span>}{through(e) && <span class="text-ink-muted"> · {through(e)}</span>}{isTentative(e) && <span class="italic text-ink-muted"> · {e.confidence!.short}</span>}

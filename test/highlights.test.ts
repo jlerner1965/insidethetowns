@@ -213,9 +213,10 @@ test('what has passed is out, and a weekly series appears once', () => {
   assert.equal(picked[1]!.data.start.toISOString(), parseLocal('2026-09-29T09:00').toISOString(), 'the next Tuesday, not the first');
 });
 
-test('a weekly regular is a repeat, a recurring note, or three dates on one weekday; a pair or a civic series is not', () => {
+test('a weekly regular is a repeat or three dates on one weekday a week apart; a note, a pair or a civic series is not', () => {
   const list = [
     ev('Trivia', '2026-09-22T18:00', { repeat: 'weekly', until: '2026-12-15', venue: 'The Tap' }),
+    // One verified date with a monthly note: shown on its date, not under "Every week" (calendar audit, 26 October 2026).
     ev('Open mic', '2026-10-15T19:00', { recurring: 'Third Thursdays' }),
     ev('Storytime', '2026-10-06T10:30', { slug: 'storytime-1' }),
     ev('Storytime', '2026-10-13T10:30', { slug: 'storytime-2' }),
@@ -230,9 +231,9 @@ test('a weekly regular is a repeat, a recurring note, or three dates on one week
     ev('Terror in the Corn', '2026-09-25T19:00', { end: '2026-10-31T23:00', recurring: 'Thursday to Sunday nights through October 31', slug: 'corn' }),
   ];
   const isWeekly = weeklyTest(list);
-  assert.deepEqual(list.filter(isWeekly).map((e) => e.slug), ['trivia', 'open-mic', 'storytime-1', 'storytime-2', 'storytime-3']);
+  assert.deepEqual(list.filter(isWeekly).map((e) => e.slug), ['trivia', 'storytime-1', 'storytime-2', 'storytime-3']);
   // Once each, on the next date to come, the one-offs and meetings left to the date list.
   const regulars = weeklyRegulars(list, parseLocal('2026-10-01T12:00'));
-  assert.deepEqual(new Set(titles(regulars)), new Set(['Trivia', 'Storytime', 'Open mic']));
+  assert.deepEqual(new Set(titles(regulars)), new Set(['Trivia', 'Storytime']));
   assert.equal(regulars.find((e) => e.data.title === 'Trivia')!.data.start.toISOString(), parseLocal('2026-10-06T18:00').toISOString(), 'the next Tuesday');
 });
