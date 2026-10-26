@@ -110,6 +110,11 @@ test('the About page names who runs the guide, in verified words: James Lerner, 
   assert.match(berthoud, /James Lerner/);
   assert.match(berthoud, /not a Berthoud resident/);
   assert.match(berthoud, /Lerner Works/);
+  // "Twenty minutes down the Diagonal" (audit, 26 October 2026): the Diagonal
+  // runs from Boulder to Longmont, not to Berthoud, and a reader new to the
+  // area cannot decode road shorthand. Where he grew up is said plainly.
+  assert.doesNotMatch(berthoud, /Diagonal/);
+  assert.match(berthoud, /grew up in Niwot, in Boulder County/);
   assert.equal(by('niwot').about!.photo, undefined, 'no portrait exists; none is invented');
 });
 

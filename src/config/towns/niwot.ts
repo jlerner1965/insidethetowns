@@ -23,9 +23,11 @@ export const niwot: TownConfig = {
   lng: -105.1708,
   population: 4306, // 2020 census, Niwot CDP
   elevationFt: 5168,
-  // Unincorporated; a CDP under Boulder County. Incorporation went to a vote
-  // on 3 November 2026 — if it passed, this becomes the year of incorporation
-  // and /articles/2026-incorporation-election/ needs rewriting with the result.
+  // Unincorporated; a CDP under Boulder County. Incorporation is on the ballot
+  // of 3 November 2026 (Boulder County Elections and the Niwot Election
+  // Commission, read 26 October 2026). Only if the count certifies a yes and
+  // the district court enters its order does this become a year, and
+  // /articles/2026-incorporation-election/ is then rewritten with the result.
   incorporated: null,
   driveToDenver: '45–50 min',
   population2010: 4006, // 2010 census, for census-to-census growth
@@ -64,7 +66,7 @@ export const niwot: TownConfig = {
   school: { name: 'Niwot High School', mascot: 'Cougars', teamName: 'Niwot Cougars', primary: '#126637', secondary: '#FFFFFF' },
   families: {
     label: 'Niwot Families',
-    intro: 'Youth sports, schools, children’s events and the St. Vrain school breaks for Niwot.',
+    intro: 'Preschool, care, youth sports, school breaks, and storytimes nearby in Longmont.',
     schools: [
       {
         district: 'St. Vrain Valley Schools',
@@ -73,12 +75,18 @@ export const niwot: TownConfig = {
         note: 'Niwot Elementary, Sunset Middle (Longmont) and Niwot High; open enrollment across the district is common',
       },
     ],
+    // Read again 26 October 2026 against the district's PDF, which marks
+    // each of these as schools closed or a non-student contact day; the two
+    // Monday holidays and the April days were added then.
     breaks: [
-      { district: 'St. Vrain', label: 'Thanksgiving break', from: '2026-11-23', to: '2026-11-27', source: 'https://svvsd.org/wp-content/uploads/2026/06/26-27-SVVSD-4_8_26-2.pdf', verified: '2026-10-21' },
-      { district: 'St. Vrain', label: 'Winter break', from: '2026-12-21', to: '2027-01-01', source: 'https://svvsd.org/wp-content/uploads/2026/06/26-27-SVVSD-4_8_26-2.pdf', verified: '2026-10-21' },
-      { district: 'St. Vrain', label: 'Non-student contact day', from: '2027-01-04', to: '2027-01-04', source: 'https://svvsd.org/wp-content/uploads/2026/06/26-27-SVVSD-4_8_26-2.pdf', verified: '2026-10-21' },
-      { district: 'St. Vrain', label: 'Non-student contact day', from: '2027-02-12', to: '2027-02-12', source: 'https://svvsd.org/wp-content/uploads/2026/06/26-27-SVVSD-4_8_26-2.pdf', verified: '2026-10-21' },
-      { district: 'St. Vrain', label: 'Spring break', from: '2027-03-15', to: '2027-03-19', source: 'https://svvsd.org/wp-content/uploads/2026/06/26-27-SVVSD-4_8_26-2.pdf', verified: '2026-10-21' },
+      { district: 'St. Vrain', label: 'Thanksgiving break', from: '2026-11-23', to: '2026-11-27', source: 'https://svvsd.org/wp-content/uploads/2026/06/26-27-SVVSD-4_8_26-2.pdf', verified: '2026-10-26' },
+      { district: 'St. Vrain', label: 'Winter break', from: '2026-12-21', to: '2027-01-01', source: 'https://svvsd.org/wp-content/uploads/2026/06/26-27-SVVSD-4_8_26-2.pdf', verified: '2026-10-26' },
+      { district: 'St. Vrain', label: 'Non-student contact day', from: '2027-01-04', to: '2027-01-04', source: 'https://svvsd.org/wp-content/uploads/2026/06/26-27-SVVSD-4_8_26-2.pdf', verified: '2026-10-26' },
+      { district: 'St. Vrain', label: 'Martin Luther King Jr. Day', from: '2027-01-18', to: '2027-01-18', source: 'https://svvsd.org/wp-content/uploads/2026/06/26-27-SVVSD-4_8_26-2.pdf', verified: '2026-10-26' },
+      { district: 'St. Vrain', label: 'Non-student contact day', from: '2027-02-12', to: '2027-02-12', source: 'https://svvsd.org/wp-content/uploads/2026/06/26-27-SVVSD-4_8_26-2.pdf', verified: '2026-10-26' },
+      { district: 'St. Vrain', label: 'Presidents’ Day', from: '2027-02-15', to: '2027-02-15', source: 'https://svvsd.org/wp-content/uploads/2026/06/26-27-SVVSD-4_8_26-2.pdf', verified: '2026-10-26' },
+      { district: 'St. Vrain', label: 'Spring break', from: '2027-03-15', to: '2027-03-19', source: 'https://svvsd.org/wp-content/uploads/2026/06/26-27-SVVSD-4_8_26-2.pdf', verified: '2026-10-26' },
+      { district: 'St. Vrain', label: 'Non-student contact days', from: '2027-04-26', to: '2027-04-27', source: 'https://svvsd.org/wp-content/uploads/2026/06/26-27-SVVSD-4_8_26-2.pdf', verified: '2026-10-26' },
     ],
   },
   livingHere: {

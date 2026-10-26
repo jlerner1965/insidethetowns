@@ -1,22 +1,31 @@
 ---
 title: "Niwot Great Pumpkin Party"
 start: "2026-10-31T10:00"
-end: "2026-10-31T13:30"
+end: "2026-10-31T14:00"
 venue: "Old Town and Cottonwood Square"
 address: "Second Avenue and Cottonwood Square"
-url: "https://niwot.com/events/niwot-great-pumpkin-party/?occurrence=2026-10-31"
-cost: "Free"
+url: "https://niwot.com/events/niwots-great-pumpkin-party-2/?occurrence=2026-10-31"
 category: family
 featured: true
 organizer: "Niwot Business Association"
 organizerUrl: "https://niwot.com/"
-source: "https://niwot.com/events/niwot-great-pumpkin-party/?occurrence=2026-10-31"
-verified: "2026-10-21"
-verifiedBy: "The Business Association's own event page, read 21 October 2026, gives Saturday, October 31, 10 am to 1:30 pm; the schedule below is the Left Hand Valley Courier's of October 14"
-changeFlag: true
-changeNote: "recheck 2026-10-25: the Niwot Business Association (niwot.com) feed lists \"Niwot’s Great Pumpkin Party\" 10 am–2 pm on 31 October; the listing ends 1:30 pm"
+source: "https://niwot.com/events/niwots-great-pumpkin-party-2/?occurrence=2026-10-31"
+verified: "2026-10-26"
+verifiedBy: "Claude, for the 26 October content pass, from the Niwot Business Association's own event page read 26 October 2026: Saturday, October 31, 10 am to 2 pm, and the schedule below; the same times are on its annual events page. The re-check's flag of 25 October (2 pm, not 1:30) is settled by that page."
 ---
 
-Halloween morning in Old Town, the Business Association's annual party: its page lists Saturday, October 31 from 10 am to 1:30 pm, free and open to everyone.
+Halloween in Old Town, the Business Association's annual party: Saturday, October 31, from 10 am to 2 pm. Its page says to bring the kids and the dog and come in costume, and to look out for the scarecrows around town.
 
-The schedule, as the [Left Hand Valley Courier](https://www.lhvc.com/story/2026/10/14/events/the-great-pumpkin-party-returns-on-halloween/12649.html) reported it on October 14: trick-or-treating at the businesses on Second Avenue and in Cottonwood Square from 10 am, with much of Second Avenue closed to cars until 1 pm; children in costume gather at 11 in the Left Hand Corner lot for a performance by Niwot Elementary students, where the Golden Hammer Award goes to a community volunteer; the parade down Second Avenue steps off at 11:30 behind the Niwot Community Semi-Marching Free Grange Band, and a dog costume contest follows outside The Old Oak Coffeehouse. Hayrides board at Franklin Street and Second Avenue; there is a petting zoo, live music, a magic show, and a haunted house run by the Niwot High School Key Club in the former Excel Electric building at Second and Murray. The Niwot Local Improvement District approved $5,885 toward the cost on October 6.
+The schedule, as the Business Association's [event page](https://niwot.com/events/niwots-great-pumpkin-party-2/?occurrence=2026-10-31) gives it:
+
+| Time | What | Where |
+|---|---|---|
+| 10 am–1:30 pm | Trick-or-treating at local businesses | Downtown and Cottonwood Square |
+| 10 am–1:30 pm | Hayrides | Not given on the page |
+| 10 am–1 pm | Petting zoo | The Niwot Group at Compass, 7915 Niwot Rd. |
+| 10 am–2 pm | Haunted house by the Niwot High Key Club | 2nd Ave. and Murray St. |
+| 10:15 am, 11 am and 12:15 pm | Magic shows | Cottonwood Square |
+| 11:30 am | Costume parade | Line up at 11:20 at Niwot Liquor, 2nd Ave. and Niwot Rd. |
+| After the parade | Dog costume contest | Old Oak Coffee Shop |
+
+The party is sponsored by the Niwot Business Association and the Niwot Local Improvement District. The page does not mention a cost.

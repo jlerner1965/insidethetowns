@@ -6,6 +6,9 @@ venue: "Berthoud Recreation Center"
 address: "1000 N Berthoud Pkwy, Berthoud, CO 80513"
 url: "https://www.berthoud.org/Calendar.aspx?EID=6319"
 category: family
+image: ../images/berthoud-recreation-center.webp
+imageAlt: "The Berthoud Recreation Center at sunset: the red barn-style building and its blue outdoor waterslides, with people sitting on the low walls and the covered patio out front"
+imageCredit: "Town of Berthoud"
 timeNote: "All day; the Town has not posted a schedule"
 source: "https://www.berthoud.org/Calendar.aspx?EID=6319"
 verified: "2026-10-21"

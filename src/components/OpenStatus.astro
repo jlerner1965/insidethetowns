@@ -3,7 +3,8 @@
  * Fills in "Open · closes 7 pm" wherever a page carries a listing's hours.
  *
  * Include once on a page. Every element with data-hours (a JSON array of
- * schema.org openingHours strings) gets its status written into the
+ * schema.org openingHours strings, or `{ spec, unknown }` with the days the
+ * listing does not settle; src/lib/hours.ts, hoursDataAttr) gets its status written into the
  * [data-open-status] inside it, and the nearest [data-filter-item] is marked
  * data-open so a filter can offer "Open now". The clock is Denver's, not the
  * reader's, because the hours are.
@@ -14,17 +15,16 @@
  */
 ---
 <script>
-  import { openingStatus } from '@/lib/hours';
+  import { openingStatus, readHoursDataAttr } from '@/lib/hours';
 
   const now = new Date();
   for (const el of document.querySelectorAll<HTMLElement>('[data-hours]')) {
-    let spec: string[] = [];
-    try {
-      spec = JSON.parse(el.dataset.hours ?? '[]');
-    } catch {
-      continue;
-    }
-    const status = openingStatus(spec, now);
+    // The schedule, and the days the listing leaves unsettled
+    // (hoursDataAttr): on those the badge says nothing, because unknown
+    // hours are never "Closed".
+    const hours = readHoursDataAttr(el.dataset.hours);
+    if (!hours) continue;
+    const status = openingStatus(hours.spec, now, undefined, hours.unknown);
     if (!status) continue;
     const slot = el.querySelector<HTMLElement>('[data-open-status]');
     if (slot) {

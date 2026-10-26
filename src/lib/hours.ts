@@ -194,6 +194,14 @@ function hhmm(minutes: number): string {
  * of it is not something to be confident about.
  */
 export function parseHoursText(text: string | undefined): string[] | null {
+  return readHoursText(text)?.spec ?? null;
+}
+
+/**
+ * The line read in full: the schedule, and the days it names as "by
+ * appointment", which are neither open nor closed to a reader walking up.
+ */
+function readHoursText(text: string | undefined): { spec: string[]; appointmentDays: number[] } | null {
   if (!text) return null;
   const tokens = tokenize(text);
   if (!tokens || tokens.length === 0) return null;
@@ -229,16 +237,23 @@ export function parseHoursText(text: string | undefined): string[] | null {
   }
 
   const out: string[] = [];
+  const appointmentDays: number[] = [];
   const timed = segments.filter((s) => s.times.length > 0);
   for (const seg of segments) {
-    if (seg.closed || seg.appointment) continue;
+    if (seg.closed) continue;
+    if (seg.appointment) {
+      // "Mon, Thu, Fri by appointment" names its days; a trailing ", or by
+      // appointment" names none and leaves the posted hours as they are.
+      appointmentDays.push(...seg.days);
+      continue;
+    }
     if (seg.times.length === 0) return null;
     // A bare time with no day ("10–5") is every day only when it is all there is.
     const days = seg.days.length > 0 ? seg.days : timed.length === 1 && segments.length === 1 ? [0, 1, 2, 3, 4, 5, 6] : null;
     if (!days) return null;
     for (const t of seg.times) out.push(`${formatDays(days)} ${hhmm(t.open)}-${hhmm(t.close > 24 * 60 ? t.close - 24 * 60 : t.close)}`);
   }
-  return out.length > 0 ? out : null;
+  return out.length > 0 ? { spec: out, appointmentDays: [...new Set(appointmentDays)] } : null;
 }
 
 /**
@@ -268,6 +283,72 @@ export function openingHoursOf(data: { hours?: string; openingHours?: string[]; 
   // text is kept for the day it reopens, but nothing may say "Open now".
   if (data.status && data.status !== 'open') return null;
   return data.openingHours ?? parseHoursText(data.hours);
+}
+
+/**
+ * The days a listing's hours say nothing certain about: neither open nor
+ * closed. Unknown is never closed (audit of 26 October 2026), so on these
+ * days the badge says nothing, the "Open now" filter counts the row as
+ * unknown, and no "opens Mon 11 am" skips over them.
+ *
+ * - Days the line names "by appointment".
+ * - Where an editor set `openingHours` because the line itself cannot be
+ *   read ("Mon–Fri 11 am–5 pm; weekend hours not posted", "Sun 11–3 some
+ *   weeks", a summer season), every day that schedule leaves out: the
+ *   line's words about those days are what the parser could not read, so
+ *   the schedule is no evidence they are closed.
+ *
+ * A line read in full that leaves a day out ("Wed–Sat 1–4 pm") is how
+ * businesses post their hours, and those days stay closed.
+ */
+export function unknownHoursDays(data: { hours?: string; openingHours?: string[]; status?: string }): number[] {
+  if (data.status && data.status !== 'open') return [];
+  const read = readHoursText(data.hours);
+  if (data.openingHours) {
+    if (read || !data.hours) return [];
+    const covered = new Set(parseOpeningHours(data.openingHours).flatMap((s) => s.days));
+    return [0, 1, 2, 3, 4, 5, 6].filter((d) => !covered.has(d));
+  }
+  return read ? [...read.appointmentDays].sort((a, b) => a - b) : [];
+}
+
+/** What a page puts in `data-hours` for OpenStatus.astro: the schedule, and the unknown days when there are any. */
+export interface HoursData {
+  spec: string[];
+  unknown?: number[];
+}
+
+/**
+ * The `data-hours` attribute for a listing, or undefined when there is no
+ * schedule to be open by. A plain array (the schedule alone) when every day
+ * is known, so a listing without unknown days renders as it always has.
+ */
+export function hoursDataAttr(data: { hours?: string; openingHours?: string[]; status?: string }): string | undefined {
+  const spec = openingHoursOf(data);
+  if (!spec) return undefined;
+  const unknown = unknownHoursDays(data);
+  return JSON.stringify(unknown.length > 0 ? { spec, unknown } : spec);
+}
+
+/** Read a `data-hours` attribute back; null when it is missing or not one of the two shapes. */
+export function readHoursDataAttr(raw: string | undefined): HoursData | null {
+  if (!raw) return null;
+  let value: unknown;
+  try {
+    value = JSON.parse(raw);
+  } catch {
+    return null;
+  }
+  const strings = (v: unknown): v is string[] => Array.isArray(v) && v.every((s) => typeof s === 'string');
+  if (strings(value)) return { spec: value };
+  if (value && typeof value === 'object' && strings((value as HoursData).spec)) {
+    const unknown = (value as HoursData).unknown;
+    return {
+      spec: (value as HoursData).spec,
+      unknown: Array.isArray(unknown) ? unknown.filter((d) => Number.isInteger(d) && d >= 0 && d <= 6) : [],
+    };
+  }
+  return null;
 }
 
 /** Read `openingHours` strings back into spans. Malformed strings are skipped. */
@@ -314,18 +395,24 @@ export function clockLabel(minutes: number): string {
 
 export interface OpenStatus {
   open: boolean;
-  /** "Open · closes 7 pm", "Closed · opens 10 am", "Closed · opens Tue 10 am". */
+  /** "Open · closes 7 pm", "Closed · opens 10 am", "Closed · opens Tue 10 am", or "Closed now" when an unknown day comes before the next opening. */
   label: string;
 }
 
 /**
  * Whether a place is open at `now`, and what happens next. Null when the
  * spec has nothing to say — the page then shows the text and nothing else.
+ *
+ * `unknownDays` (Sunday 0) are days the listing does not settle either way
+ * (`unknownHoursDays`): on one of them the answer is null, never "Closed",
+ * and a next opening is not named past one, since the place may open first.
  */
-export function openingStatus(spec: readonly string[], now: Date, tz = TIME_ZONE): OpenStatus | null {
+export function openingStatus(spec: readonly string[], now: Date, tz = TIME_ZONE, unknownDays: readonly number[] = []): OpenStatus | null {
   const spans = parseOpeningHours(spec);
   if (spans.length === 0) return null;
   const { day, minutes } = localClock(now, tz);
+  // A clock the browser could not read is not a day of the week.
+  if (day < 0 || Number.isNaN(minutes)) return null;
   const yesterday = (day + 6) % 7;
 
   // Open now: a span on today that covers the minute, or one from yesterday
@@ -348,9 +435,14 @@ export function openingStatus(spec: readonly string[], now: Date, tz = TIME_ZONE
     return { open: true, label: `Open · closes ${clockLabel(closesAt)}` };
   }
 
+  // Not open by the schedule, on a day the listing does not settle: no claim.
+  if (unknownDays.includes(day)) return null;
+
   // Closed: the next opening, today or on a later day.
   for (let ahead = 0; ahead < 8; ahead++) {
     const d = (day + ahead) % 7;
+    // Today's hours are known and over; a later day nobody knows comes first.
+    if (ahead > 0 && unknownDays.includes(d)) return { open: false, label: 'Closed now' };
     const opens = spans.filter((s) => s.days.includes(d) && (ahead > 0 || s.open > minutes)).map((s) => s.open);
     if (opens.length === 0) continue;
     const at = Math.min(...opens);
