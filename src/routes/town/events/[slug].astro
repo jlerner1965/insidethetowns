@@ -9,7 +9,8 @@ import { dayKey, formatDate, formatDayLong, formatDayRange, formatDayShort, form
 import { exportWhen, finalDay, isCanceled, isInProgress, isMultiDay, isOver, lastDay, listedUntil, nextOccurrence, occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { googleCalendarUrl, showKey } from '@/lib/ics';
 import { pickCanonical } from '@/lib/series';
-import { breadcrumbJsonLd, eventImage, eventJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, eventImage, eventJsonLd, eventPageDescription } from '@/lib/seo';
+import { firstSentence as firstSentenceOf, markdownToText } from '@/lib/plain-text';
 import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 import Provenance from '@/components/Provenance.astro';
 import EventCard from '@/components/EventCard.astro';
@@ -112,12 +113,12 @@ const dayText = isMultiDay(next)
 /**
  * Date, time and venue alone say nothing about the event and collide with
  * every other listing at the same place. Lead with the particulars, which are
- * what a searcher needs, then the body's first sentence. SEO.astro clamps the
- * result, so the sentence is what gets shortened, not the specifics.
+ * what a searcher needs, then the body's first sentence as plain text, cut
+ * to fit beside them (eventPageDescription, src/lib/seo.ts).
  */
-const firstSentence = (event.body ?? '').trim().split(/(?<=[.!?])\s+/)[0]?.trim() ?? '';
 const particulars = `${statusLabel ? `${statusLabel}. ` : ''}${dayText}, ${timeText} at ${data.venue}, ${town.name}.`;
-const description = firstSentence.length > 30 ? `${particulars} ${firstSentence}` : particulars;
+const description = eventPageDescription(particulars, event.body);
+const firstSentence = firstSentenceOf(markdownToText(event.body));
 /**
  * Two ways into a reader's own calendar, neither needing a script: the
  * single-event .ics that Apple and Outlook open, and Google's template link.

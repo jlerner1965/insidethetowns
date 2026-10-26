@@ -44,6 +44,27 @@ function decodeEntities(text: string): string {
   });
 }
 
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+/**
+ * A link's words as a reader would say them. A series lists its sittings
+ * as links written `[2026-10-19 at 13:00](url)`, one per occurrence
+ * (content/<town>/events/*.md): the machine form is for the file, so in
+ * text it reads "October 19 at 1 pm". Any other link keeps its words.
+ */
+function readableLinkText(words: string): string {
+  const m = words.match(/^(\d{4})-(\d{2})-(\d{2}) at (\d{1,2}):(\d{2})$/);
+  if (!m) return words;
+  const month = MONTHS[Number(m[2]) - 1];
+  const day = Number(m[3]);
+  const hour = Number(m[4]);
+  const minute = m[5];
+  if (!month || day < 1 || day > 31 || hour > 23) return words;
+  const h12 = hour % 12 || 12;
+  const time = hour === 0 && minute === '00' ? 'midnight' : hour === 12 && minute === '00' ? 'noon' : `${h12}${minute === '00' ? '' : `:${minute}`} ${hour < 12 ? 'am' : 'pm'}`;
+  return `${month} ${day} at ${time}`;
+}
+
 /**
  * The words of a piece of Markdown, as one line of plain text.
  *
@@ -70,7 +91,7 @@ export function markdownToText(markdown: string | undefined): string {
   text = text
     .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
     .replace(/!\[[^\]]*\]\[[^\]]*\]/g, ' ')
-    .replace(/\[([^\]]*)\]\((?:[^()\s]|\([^)]*\))*(?:\s+"[^"]*")?\)/g, '$1')
+    .replace(/\[([^\]]*)\]\((?:[^()\s]|\([^)]*\))*(?:\s+"[^"]*")?\)/g, (_, words: string) => readableLinkText(words))
     .replace(/\[([^\]]+)\]\[[^\]]*\]/g, '$1')
     // A link already cut short (a sentence split inside one): its words, no URL.
     .replace(/\[([^\]\n]*)\]\([^)\n]*$/gm, '$1')
@@ -131,6 +152,16 @@ export function markdownToText(markdown: string | undefined): string {
 
 /** A full stop that ends an abbreviation, not a sentence: "St. Vrain", "Mt. Evans", "U.S. 36", an initial. */
 const ABBREVIATION = /(?:\b(?:St|Mt|Dr|Mr|Mrs|Ms|Ave|Rd|Blvd|Hwy|No|vs|Co|Inc|Jr|Sr|a\.m|p\.m)|\b[A-Z]|\b[A-Z]\.[A-Z])$/;
+
+/** Where the first sentence of plain text ends, or the whole text when none does. */
+export function firstSentence(text: string): string {
+  const flat = text.replace(/\s+/g, ' ').trim();
+  for (const m of flat.matchAll(/[.!?]["'”’)]?(?= )/g)) {
+    if (m[0].startsWith('.') && ABBREVIATION.test(flat.slice(0, m.index))) continue;
+    return flat.slice(0, m.index + m[0].length);
+  }
+  return flat;
+}
 
 /**
  * Text cut to a budget of characters, never inside a word.

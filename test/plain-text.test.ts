@@ -7,8 +7,8 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { clampText, markdownToText } from '../src/lib/plain-text.ts';
-import { eventDescription, eventImage, eventJsonLd, EVENT_DESCRIPTION_LIMIT } from '../src/lib/seo.ts';
+import { clampText, firstSentence, markdownToText } from '../src/lib/plain-text.ts';
+import { eventDescription, eventImage, eventJsonLd, eventPageDescription, EVENT_DESCRIPTION_LIMIT, META_DESCRIPTION_LIMIT } from '../src/lib/seo.ts';
 
 test('Markdown links keep their words and lose their URLs, whole or already cut short', () => {
   assert.equal(
@@ -39,6 +39,42 @@ test('headings, list items and paragraphs become sentences; a soft-wrapped line 
   assert.equal(markdownToText('| Area | Dogs |\n| --- | --- |\n| Hall Ranch | No |'), 'Area, Dogs. Hall Ranch, No');
   assert.equal(markdownToText('```\ncode block\n```\nAfter.'), 'After.');
   assert.equal(markdownToText(undefined), '');
+});
+
+test('a series’ session links read as a day and a time, never as raw Markdown', () => {
+  const body =
+    'Stories, songs and movement for children at the Johnstown library, Mondays from 1 to 2 pm.\n\n' +
+    '- [2026-10-12 at 13:00](https://example.org/event/8/2026-10-12/2/)\n' +
+    '- [2026-11-02 at 10:30](https://example.org/event/11/2026-11-02/2/)\n' +
+    '- [2026-12-08 at 17:00](https://example.org/calendar.aspx?EID=738)\n' +
+    '- [2026-12-22 at 12:00](https://example.org/calendar.aspx?EID=774)';
+  assert.equal(
+    markdownToText(body),
+    'Stories, songs and movement for children at the Johnstown library, Mondays from 1 to 2 pm. October 12 at 1 pm. November 2 at 10:30 am. December 8 at 5 pm. December 22 at noon',
+  );
+  assert.equal(eventDescription(body)!.includes('](') || eventDescription(body)!.includes('2026-'), false);
+  assert.equal(markdownToText('[2026-13-40 at 99:00](u)'), '2026-13-40 at 99:00', 'not a date: the words as written');
+});
+
+test('firstSentence stops at the first real sentence end', () => {
+  assert.equal(firstSentence('Meet at St. Vrain Market at 9 a.m. sharp. Then the walk.'), 'Meet at St. Vrain Market at 9 a.m. sharp.');
+  assert.equal(firstSentence('No end here'), 'No end here');
+  assert.equal(firstSentence('Ready?  Then go.'), 'Ready?');
+});
+
+test('an event page’s description keeps the body’s first sentence beside a long lead, within the budget', () => {
+  const lead = 'Monday, November 2, 1 pm – 2 pm at Glenn A. Jones, M.D. Memorial Library, Johnstown.';
+  const body = 'Stories, songs and movement for little ones, Monday afternoons at 1 at the Johnstown library, through November 30. The library also runs the session at 10 am.';
+  const out = eventPageDescription(lead, body);
+  assert.ok(out.length <= META_DESCRIPTION_LIMIT, out);
+  assert.ok(out.startsWith(`${lead} Stories, songs and movement`), out);
+  assert.match(out, /…$/, 'the sentence is cut at a word, not dropped');
+  // A short lead and sentence fit whole; a trivial sentence is left off; a lead with no room stands alone.
+  assert.equal(eventPageDescription('Tuesday, October 27, 6 pm at City Star Brewing, Berthoud.', 'Pub trivia every Tuesday evening in the **City Star** taproom. Free to play.'), 'Tuesday, October 27, 6 pm at City Star Brewing, Berthoud. Pub trivia every Tuesday evening in the City Star taproom.');
+  assert.equal(eventPageDescription('Tuesday, October 27, 6 pm at City Star Brewing, Berthoud.', 'Pub trivia.'), 'Tuesday, October 27, 6 pm at City Star Brewing, Berthoud.');
+  const huge = `Now through December 31, All day at ${'A very long venue name indeed '.repeat(5).trim()}, Berthoud.`;
+  assert.equal(eventPageDescription(huge, body), clampText(huge, META_DESCRIPTION_LIMIT));
+  assert.equal(eventPageDescription(lead, undefined), lead);
 });
 
 test('clampText cuts at a sentence past half the budget, else at a word, never inside one', () => {

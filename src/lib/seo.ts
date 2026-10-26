@@ -9,7 +9,7 @@ import { getNetworkHub, liveTowns, type SiteConfig, type TownConfig } from '../c
 import { dayKey, toIsoLocal } from './dates.ts';
 import { exportWhen } from './events.ts';
 import { isPlaceholder } from './editor.ts';
-import { clampText, markdownToText } from './plain-text.ts';
+import { clampText, firstSentence, markdownToText } from './plain-text.ts';
 
 /**
  * An Event's `description`: the listing's words as plain text, cut at a
@@ -23,6 +23,34 @@ export const EVENT_DESCRIPTION_LIMIT = 300;
 export function eventDescription(body: string | undefined, limit = EVENT_DESCRIPTION_LIMIT): string | undefined {
   const text = clampText(markdownToText(body), limit);
   return text || undefined;
+}
+
+/**
+ * An event page's meta description: the particulars a searcher needs (the
+ * day, the time, the venue and the town, as the page builds them), then
+ * the body's first sentence, within the snippet's budget.
+ *
+ * The page used to hand SEO.astro the two joined and let its clamp cut
+ * them, and the clamp cuts at the last sentence end past half the budget,
+ * which for a long lead ("Monday, November 2, 1 pm – 2 pm at Glenn A.
+ * Jones, M.D. Memorial Library, Johnstown.") is the lead's own full stop:
+ * the description was the date and the venue and nothing about the event.
+ * So the sentence is cut here, at a word, to what the lead leaves room
+ * for; it goes only when the lead leaves no room for a few words of it. A
+ * body sentence too short to say anything (under 30 characters, as
+ * before) is left off. Nothing when the lead itself is over the budget
+ * but what the clamp allows.
+ */
+export const META_DESCRIPTION_LIMIT = 155;
+export function eventPageDescription(lead: string, body: string | undefined, limit = META_DESCRIPTION_LIMIT): string {
+  const flatLead = lead.replace(/\s+/g, ' ').trim();
+  const sentence = firstSentence(markdownToText(body));
+  if (sentence.length <= 30) return clampText(flatLead, limit);
+  const whole = `${flatLead} ${sentence}`;
+  if (whole.length <= limit) return whole;
+  const room = limit - flatLead.length - 1;
+  if (room < 16) return clampText(flatLead, limit);
+  return `${flatLead} ${clampText(sentence, room)}`;
 }
 
 /** An image as the build knows it: Astro's ImageMetadata has these three. */
