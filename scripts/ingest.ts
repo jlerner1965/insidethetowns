@@ -42,7 +42,7 @@ import { z } from 'astro/zod';
 import { allTowns, LIVE_TOWNS } from '../src/config/index.ts';
 import { INGEST } from '../src/config/ingest.ts';
 import { changeSchema, eventSchema, type Change, type Source } from '../src/content/schemas.ts';
-import { addDays, dayKey, startOfDay } from '../src/lib/dates.ts';
+import { addDays, dayKey, startOfDay, toWallClock } from '../src/lib/dates.ts';
 import { readRegistry } from '../src/lib/sources.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
 import { eventFile } from './lib/event-files.ts';
@@ -51,7 +51,8 @@ import { readRss } from './lib/feeds/rss.ts';
 import { isShowareFeed, readShowarePage, showareHasMore, showarePage, type ShowarePage } from './lib/feeds/showare.ts';
 import { readTribePage, tribeFirstPage, type TribePage } from './lib/feeds/tribe.ts';
 import type { FeedEvent, Horizon } from './lib/feeds/types.ts';
-import { detectChanges, excludedTitle, hostOf, matchExisting, passesLocationFilter, siblingCounts, toStaged, venueFrom, type ExistingEvent, passesCategoryFilter } from './lib/ingest.ts';
+import { ambiguousNote, detectChanges, excludedTitle, hostOf, matchExisting, passesLocationFilter, possibleDuplicates, siblingCounts, toStaged, venueFrom, type ExistingEvent, passesCategoryFilter } from './lib/ingest.ts';
+import { normalizeUrl, sessionLinks } from '../src/lib/session-links.ts';
 import { isAllowed } from './lib/robots.ts';
 import { robotsFor, TIMEOUT, UA } from './lib/probe.ts';
 
@@ -102,8 +103,11 @@ function existingEvents(town: string): ExistingEvent[] {
       if (!name.endsWith('.md') || name.startsWith('_')) continue;
       const file = join(dir, name);
       let parsed;
+      let body = '';
       try {
-        parsed = schema.safeParse(parseFrontmatter(readFileSync(file, 'utf8')).data);
+        const read = parseFrontmatter(readFileSync(file, 'utf8'));
+        body = read.body;
+        parsed = schema.safeParse(read.data);
       } catch {
         continue;
       }
@@ -120,6 +124,17 @@ function existingEvents(town: string): ExistingEvent[] {
         const lastStart = addDays(startOfDay(d.until), 1).getTime();
         for (let t = addDays(d.start, 7); t.getTime() < lastStart; t = addDays(t, 7)) starts.push(t);
       }
+      // A file of several dates (`performances`) is every one of them. Read
+      // as its first date alone, a storytime's afternoon sessions were new
+      // to the matcher every week after the first, were staged again, and
+      // became a second listing of the same sessions (Johnstown, 15 October
+      // 2026; audit, 26 October).
+      if (d.performances?.length) starts.splice(0, starts.length, ...d.performances.map((p) => p.start));
+      // The organizer's pages the file cites, the feed's link for an item
+      // being its id where the file has no sourceUid: the file's own, for
+      // every date, and each session's own page for its date.
+      const fileUrls = [d.url, d.source].filter((u): u is string => !!u);
+      const sessions = sessionLinks(body);
       for (const start of starts) {
         out.push({
           file,
@@ -133,6 +148,8 @@ function existingEvents(town: string): ExistingEvent[] {
           sourceUid: d.sourceUid,
           sourceHash: d.sourceHash,
           sourceHost: hostOf(d.source ?? d.url),
+          address: d.address,
+          urls: [...fileUrls, ...sessions.filter((s) => (s.timed ? s.start.getTime() === start.getTime() : dayKey(s.start) === dayKey(start))).map((s) => s.url)],
         });
       }
     }
@@ -223,7 +240,26 @@ function setFrontmatterLine(file: string, key: string, value: string) {
   write(file, updated + rest);
 }
 
-const totals = { sources: 0, items: 0, staged: 0, updated: 0, unchanged: 0, changes: 0, cancellations: 0, skipped: 0 };
+/**
+ * Flag a published file as one of two listings of the same event, for the
+ * review's queue of flags (`changeFlag` with the note; no change file, since
+ * no fact of the event changed). A flag already there for another reason
+ * keeps its note, with this one added. The pair is named once, not once for
+ * each week of a series or each run.
+ */
+function flagDuplicate(file: string, note: string) {
+  let current = '';
+  try {
+    current = String(parseFrontmatter(readFileSync(file, 'utf8')).data.changeNote ?? '');
+  } catch {
+    // Unreadable now: the note below stands alone.
+  }
+  if (current.includes(note.split(' are each ')[0]!)) return;
+  setFrontmatterLine(file, 'changeFlag', 'true');
+  setFrontmatterLine(file, 'changeNote', JSON.stringify(current ? `${current} Also: ${note}` : note));
+}
+
+const totals = { sources: 0, items: 0, staged: 0, updated: 0, unchanged: 0, changes: 0, cancellations: 0, ambiguous: 0, skipped: 0 };
 
 for (const town of towns) {
   const registry = readRegistry(town.slug, contentDir);
@@ -261,12 +297,35 @@ for (const town of towns) {
     let merged = 0;
     let unchanged = 0;
     let changed = 0;
+    let ambiguous = 0;
     const siblings = siblingCounts(inScope);
     const thisRun = new Set<ExistingEvent>();
+    // An item's link is the organizer's id for it only when no other item in
+    // the feed shares it: a feed that gives every item its calendar's front
+    // page names no event by it.
+    const links = new Map<string, number>();
+    for (const item of result.items) if (item.url) links.set(normalizeUrl(item.url), (links.get(normalizeUrl(item.url)) ?? 0) + 1);
     for (const item of inScope) {
       totals.items++;
-      const match = matchExisting(item, existing, siblings.get(item), claimed, hostOf(item.url ?? source.feedUrl ?? source.url));
-      const prepared = toStaged(item, source, town.slug, today);
+      const byLink = !!item.url && links.get(normalizeUrl(item.url)) === 1;
+      const match = matchExisting(byLink ? item : { ...item, url: undefined }, existing, siblings.get(item), claimed, hostOf(item.url ?? source.feedUrl ?? source.url));
+      if (match.kind === 'ambiguous') {
+        // Two published listings are this one item. Neither is compared or
+        // merged into: each is flagged, and the review asks a person to keep
+        // one (audit, 26 October 2026).
+        ambiguous++;
+        const note = ambiguousNote(item, match.candidates, match.why, source.name, today);
+        for (const c of match.candidates) flagDuplicate(c.file, note);
+        console.log(`    POSSIBLE DUPLICATES, flagged for review: ${match.candidates.map((c) => relative(root, c.file)).join(' and ')} are each "${item.title}" ${toWallClock(item.start)} (${match.why})`);
+        continue;
+      }
+      // A new item, or one already staged, that may repeat a published
+      // listing it did not match: the review line names the listing, and
+      // nothing approves it by rule.
+      const place = venueFrom(item.location, source);
+      const dupes = match.kind === 'published' ? [] : possibleDuplicates(item, place, existing, claimed);
+      if (dupes.length) console.log(`    possible duplicate, staged for review: "${item.title}" ${toWallClock(item.start)} and ${dupes.map((d) => relative(root, d.existing.file)).join(', ')} (${dupes[0]!.why})`);
+      const prepared = toStaged(item, source, town.slug, today, dupes);
       if (match.kind === 'staged' && thisRun.has(match.existing)) {
         // The feed carries the same event twice (two rooms, two listings):
         // one staged file, and a line saying so rather than a silent drop.
@@ -284,7 +343,7 @@ for (const town of towns) {
         } else {
           write(file, eventFile(prepared.frontmatter, prepared.body));
         }
-        const created: ExistingEvent = { file, slug: prepared.slug, staged: true, title: item.title, start: item.start, end: item.end, venue: String(prepared.frontmatter.venue), sourceUid: item.uid, sourceHost: hostOf(item.url ?? source.feedUrl ?? source.url) };
+        const created: ExistingEvent = { file, slug: prepared.slug, staged: true, title: item.title, start: item.start, end: item.end, venue: String(prepared.frontmatter.venue), sourceUid: item.uid, sourceHost: hostOf(item.url ?? source.feedUrl ?? source.url), address: place.address, urls: item.url ? [item.url] : [] };
         existing.push(created);
         thisRun.add(created);
         staged++;
@@ -293,15 +352,19 @@ for (const town of towns) {
       if (match.kind === 'staged') {
         // Refresh the staged file with the feed's current facts; the review
         // block keeps the day it first arrived.
-        const since = (() => {
+        const review = (() => {
           try {
-            const r = parseFrontmatter(readFileSync(match.existing.file, 'utf8')).data.review as { since?: string } | undefined;
-            return r?.since ?? today;
+            return (parseFrontmatter(readFileSync(match.existing.file, 'utf8')).data.review ?? {}) as { since?: string; reason?: string };
           } catch {
-            return today;
+            return {};
           }
         })();
-        if (match.existing.sourceHash === prepared.frontmatter.sourceHash) {
+        const since = review.since ?? today;
+        // Unchanged only if the feed's facts are and the duplicate question is
+        // where it was: a listing published since the item was staged puts
+        // the question on the staged file; one gone takes it off.
+        const flagged = /^Possible duplicate of /.test(review.reason ?? '');
+        if (match.existing.sourceHash === prepared.frontmatter.sourceHash && flagged === dupes.length > 0) {
           unchanged++;
           continue;
         }
@@ -343,14 +406,17 @@ for (const town of towns) {
     totals.updated += updated;
     totals.unchanged += unchanged;
     totals.changes += changed;
+    totals.ambiguous += ambiguous;
     console.log(
-      `    ${staged} new to staging, ${updated} staged files refreshed, ${merged ? `${merged} feed duplicates merged, ` : ''}${unchanged} already known and unchanged, ${changed} published events changed`,
+      `    ${staged} new to staging, ${updated} staged files refreshed, ${merged ? `${merged} feed duplicates merged, ` : ''}${unchanged} already known and unchanged, ${changed} published events changed` +
+        (ambiguous ? `, ${ambiguous} matching two published listings (flagged)` : ''),
     );
   }
 }
 
 console.log(
   `\ningest${dryRun ? ' (dry run, nothing written)' : ''}: ${totals.sources} source${totals.sources === 1 ? '' : 's'}, ${totals.items} items; ` +
-    `${totals.staged} staged, ${totals.updated} refreshed, ${totals.unchanged} unchanged, ${totals.changes} changes to published events (${totals.cancellations} cancellations). ` +
-    (totals.staged || totals.changes ? 'Next: npm run review.' : ''),
+    `${totals.staged} staged, ${totals.updated} refreshed, ${totals.unchanged} unchanged, ${totals.changes} changes to published events (${totals.cancellations} cancellations)` +
+    `${totals.ambiguous ? `, ${totals.ambiguous} items matching two published listings (flagged as possible duplicates)` : ''}. ` +
+    (totals.staged || totals.changes || totals.ambiguous ? 'Next: npm run review.' : ''),
 );
