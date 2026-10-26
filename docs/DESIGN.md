@@ -184,6 +184,8 @@ template switches its colour.
 - Seven days from the day the page was built, only the days with something on.
   A day is a row: a 3rem date column (weekday 15px, day number 1.75rem in the
   primary) beside its items.
+- A time note longer than 20 characters (`NOTE_IN_COLUMN`) is not put in the
+  time column; it opens the venue line in full.
 - Each item: the time, then the title (a dot in the category's colour; two
   lines at most; a long title cut at a natural break by `displayTitle`), then
   the venue and cost, or a game's Home or Away pill. Phones (below 40rem): the

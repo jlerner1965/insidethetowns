@@ -182,13 +182,19 @@ export function displayTitle(title: string, max = 56): string {
   return m && m.index !== undefined ? t.slice(0, 12 + m.index).trim() : t;
 }
 
+/** The longest time note the agenda's time column holds; a longer one goes on the venue line. */
+export const NOTE_IN_COLUMN = 20;
+
 const nbsp = (s: string) => s.replace(/ (am|pm)/g, ' $1');
 
 function eventItem(e: EventLike): DayItem {
   const { title, start, end, allDay, timeNote, venue, cost, category } = e.data;
-  const when = timeNote ?? (allDay ? 'All day' : nbsp(formatTime(start)));
+  // A time note longer than the time column ("Drop-off bins October 26 to
+  // November 6; …") goes on the venue line in full rather than down the column.
+  const longNote = !!timeNote && timeNote.length > NOTE_IN_COLUMN;
+  const when = longNote ? '' : timeNote ?? (allDay ? 'All day' : nbsp(formatTime(start)));
   const fullWhen = timeNote ?? nbsp(formatTimeRange(start, end && dayKey(end) === dayKey(start) ? end : undefined, allDay));
-  const place = [venue, cost].filter(Boolean).join(' · ');
+  const place = [longNote ? timeNote : undefined, venue, cost].filter(Boolean).join(' · ');
   return {
     kind: 'event',
     title: displayTitle(title),

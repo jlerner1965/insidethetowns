@@ -157,6 +157,15 @@ test('a registration opening or deadline is on its day, so a day with one is not
   assert.equal(sunday.items[0]!.eventDay, '2026-11-01');
 });
 
+test('a long time note goes on the venue line in full, not down the time column', () => {
+  const note = 'Drop-off bins October 26 to November 6; drive-through drop-off November 7, 10 am to noon';
+  const [day] = weekDays({ events: [ev('food-drive', '2026-10-26T08:00', { timeNote: note, venue: 'Severance Town Hall' }), ev('club', '2026-10-26T14:30', { timeNote: '2:30 pm' })], now: at('2026-10-26T07:00'), from: 'today' });
+  const drive = day!.items.find((i) => i.fullTitle === 'food-drive')!;
+  assert.equal(drive.when, '');
+  assert.equal(drive.where, `${note} · Severance Town Hall`);
+  assert.equal(day!.items.find((i) => i.fullTitle === 'club')!.when, '2:30 pm');
+});
+
 test('the email is not one of the week’s things on, and a called-off event is left off', () => {
   const days = weekDays({ events: [ev('gone', '2026-10-21T10:00', { status: 'canceled' })], now: at('2026-10-20T12:00') });
   assert.ok(days.every((d) => d.items.every((i) => !/email/i.test(i.title))));
