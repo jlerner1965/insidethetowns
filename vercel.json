@@ -102,17 +102,6 @@
       "permanent": true
     },
     {
-      "source": "/stay{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidelyons.com"
-        }
-      ],
-      "destination": "/things-to-do/",
-      "permanent": true
-    },
-    {
       "source": "/outdoors{/}?",
       "has": [
         {
