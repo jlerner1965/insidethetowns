@@ -30,7 +30,7 @@ export const GET: APIRoute = async ({ props, site }) => {
         title: data.title,
         ...exportWhen(next),
         location: [data.venue, data.address, `${town.name}, CO`].filter(Boolean).join(', '),
-        description: [data.timeNote, data.cost ? `Cost: ${data.cost}` : undefined, data.recurring, `More: ${pageUrl}`]
+        description: [data.timeNote ?? (data.timeTbd ? 'Time not yet announced.' : undefined), data.cost ? `Cost: ${data.cost}` : undefined, data.recurring, `More: ${pageUrl}`]
           .filter(Boolean)
           .join('\n'),
         url: data.url ?? pageUrl,

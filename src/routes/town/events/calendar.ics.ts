@@ -1,33 +1,17 @@
 /**
- * /events/calendar.ics — every upcoming event for this town, weekly repeats
- * expanded for the next 120 days, as an iCalendar feed people can subscribe to.
+ * /events/calendar.ics — every upcoming occurrence for this town for the next
+ * 120 days, as an iCalendar feed people can subscribe to: weekly repeats and
+ * productions expanded, a scheduled run on its open days only. The rows are
+ * `feedEvents` (src/lib/ics.ts), from the same `occurrences` the pages read.
  */
 import type { APIRoute } from 'astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { exportWhen, isCanceled, occurrences, upcoming } from '@/lib/events';
-import { buildIcs, occurrenceUid, type IcsEvent } from '@/lib/ics';
+import { buildIcs, feedEvents } from '@/lib/ics';
 
 export const GET: APIRoute = async ({ site }) => {
   const town = getTown();
-  const all = occurrences(await getTownEntries('events'), { horizonDays: 120 });
-  const list = upcoming(all);
-  const events: IcsEvent[] = list.map((e) => {
-    const pageUrl = new URL(`/events/${e.slug}/`, site).toString();
-    const location = [e.data.venue, e.data.address].filter(Boolean).join(', ');
-    const parts = [e.data.timeNote, e.data.cost ? `Cost: ${e.data.cost}` : undefined, e.data.recurring, `More: ${pageUrl}`].filter(Boolean);
-    return {
-      uid: occurrenceUid(e.slug, e.data, town.domain),
-      title: e.data.title,
-      ...exportWhen(e),
-      location,
-      description: [e.data.statusNote, ...parts].filter(Boolean).join('\n'),
-      url: e.data.url ?? pageUrl,
-      // A subscriber's calendar already holds the date; a cancellation has
-      // to reach it as a cancellation, not as a quiet disappearance.
-      cancelled: isCanceled(e),
-    };
-  });
+  const events = feedEvents(await getTownEntries('events'), { site: site!, domain: town.domain });
   const body = buildIcs(events, { name: `${town.siteTitle} events`, domain: town.domain });
   return new Response(body, {
     headers: {

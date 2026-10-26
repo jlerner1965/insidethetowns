@@ -5,6 +5,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { TIME_ZONE, addDays, dayKey, formatDayRange, formatMonthDay, formatTime, formatTimeRange, startOfDay } from './dates.ts';
 import { isTentative } from './confidence.ts';
+import { runSittings } from './schedule.ts';
 
 type EventLike = { data: CollectionEntry<'events'>['data']; slug?: string; id?: string };
 
@@ -29,10 +30,18 @@ export function isFlagged(event: { data: { changeFlag?: boolean } }): boolean {
 }
 
 /**
- * Expand weekly repeats and productions into one entry per occurrence, up to
- * `horizonDays` ahead of `now`. Everything else passes through untouched.
- * Occurrences share the source entry's slug, so they all link to the same
- * page.
+ * Expand every listing into its occurrences, up to `horizonDays` ahead of
+ * `now`: each week of a weekly repeat, each show of a production, each open
+ * day of a run with a `schedule` (or `except` days), and otherwise the
+ * listing itself. Occurrences share the source entry's slug, so they all
+ * link to the same page.
+ *
+ * This is the one place a series becomes dates. The events page and its
+ * filters, the home page's week, this week and this weekend, the counts and
+ * the calendar files all read it, so they cannot disagree about whether
+ * something is on (calendar audit, 26 October 2026: Erie's "Today" listed a
+ * Thursday-to-Sunday attraction on a Monday and missed the Monday chess club
+ * its home page showed).
  */
 export function occurrences<T extends EventLike>(
   events: T[],
@@ -42,14 +51,24 @@ export function occurrences<T extends EventLike>(
   return sortByStart(events.flatMap((event) => expand(event, horizon)));
 }
 
+/** True when a listing is a run whose days are given (`schedule` or `except`), and so expands day by day. */
+export function isScheduledRun(event: EventLike): boolean {
+  const { schedule, except, end, repeat, performances } = event.data;
+  return !!end && !repeat && !performances?.length && (!!schedule?.length || !!except?.length) && dayKey(end) !== dayKey(event.data.start);
+}
+
 /**
  * Every date one listing has, as entries of their own: each week of a weekly
- * repeat through `until`, each show of a production, or the listing itself.
- * `horizon` stops a long repeat; `finalDay` passes none, since it wants the
- * last date however far off.
+ * repeat through `until`, each show of a production, each open day of a
+ * scheduled run, or the listing itself. `horizon` stops a long repeat;
+ * `finalDay` passes none, since it wants the last date however far off.
+ *
+ * Nothing goes past the listing's own bounds: a weekly repeat stops at
+ * `until`, a run at `end`, and a day named in `except` is left out, so no
+ * page or feed carries a date the organizer did not give.
  */
 function expand<T extends EventLike>(event: T, horizon = Infinity): T[] {
-  const { repeat, until, start, end, performances } = event.data;
+  const { repeat, until, start, end, performances, except } = event.data;
   // Each occurrence is as long as the first: `end` closes the first sitting.
   const duration = end ? end.getTime() - start.getTime() : 0;
   const at = (occStart: Date, timeNote = event.data.timeNote): T => ({
@@ -63,15 +82,30 @@ function expand<T extends EventLike>(event: T, horizon = Infinity): T[] {
       .filter((p) => p.start.getTime() <= horizon)
       .map((p) => at(p.start, p.note ? `${formatTime(p.start)}; ${p.note}` : undefined));
   }
+  if (isScheduledRun(event)) {
+    // A run on some days of its range: one entry per open day, with that
+    // day's hours. The run's time note ("Thu & Sun 7–10 pm, Fri & Sat 7–11
+    // pm") describes the run, not the night, so a night with its own hours
+    // drops it; one without keeps it.
+    const schedule = event.data.schedule?.length
+      ? event.data.schedule
+      : [{ days: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'] as const }];
+    return runSittings({ ...event.data, schedule }, horizon).map((s) => ({
+      ...event,
+      data: { ...event.data, start: s.start, end: s.end, allDay: s.allDay, timeNote: s.ownHours ? undefined : event.data.timeNote },
+    }));
+  }
   if (repeat !== 'weekly' || !until) return [event];
   // Step by wall-clock weeks, not 7×24 hours: a 6 pm Tuesday repeat stays
   // at 6 pm Denver time across the November and March clock changes. The
   // `until` day is inclusive (the schema's word), so a 7 pm session on that
-  // day is the last one, not the first one left out.
+  // day is the last one, not the first one left out. A week named in
+  // `except` (a holiday, a night called off) is skipped.
+  const skip = new Set((except ?? []).map((d) => dayKey(d)));
   const out: T[] = [];
   const lastStart = addDays(startOfDay(until), 1).getTime();
   for (let occStart = start; occStart.getTime() < lastStart && occStart.getTime() <= horizon; occStart = addDays(occStart, 7)) {
-    out.push(at(occStart));
+    if (!skip.has(dayKey(occStart))) out.push(at(occStart));
   }
   return out;
 }
@@ -223,7 +257,47 @@ export function timeText(event: EventLike, now = new Date()): string {
     if (isInProgress(event, now)) return `Now through ${formatMonthDay(end)}`;
     if (allDay) return formatDayRange(start, end);
   }
+  return clockText(event);
+}
+
+/**
+ * The title a list row prints: the listing's own, less a closing "at <the
+ * venue>" when the row prints that venue under it anyway. "Terror in the
+ * Corn at Anderson Farms" over "Anderson Farms" said the farm twice in a
+ * line a phone had room for once (calendar audit, 26 October 2026). Only
+ * a trailing "at" whose words begin the venue's name goes, so "Murder at
+ * Shade Hallow Manor" (a play at the library) and "Storybook Explorers at
+ * the Cubz Den: …" keep theirs, as does every qualifier before it. The
+ * event's own page keeps the whole title.
+ */
+export function displayTitle(event: { data: { title: string; venue: string } }): string {
+  const { title, venue } = event.data;
+  const m = /^(.{3,})\s+at\s+(.+)$/i.exec(title);
+  if (!m) return title;
+  const bare = (s: string) => s.trim().toLowerCase().replace(/^the\s+/, '').replace(/[’']/g, "'");
+  const place = bare(m[2]!);
+  const where = bare(venue);
+  if (!place || !(where === place || where.startsWith(`${place} `) || where.startsWith(`${place},`))) return title;
+  return m[1]!.replace(/[\s:–—-]+$/, '');
+}
+
+/** The text a time column prints for a listing's clock times, telling "All day" from a time nobody has announced. */
+export const TIME_TBD = 'Time to be announced';
+
+/**
+ * "7 pm", "10 am – 2 pm", "All day", or "Time to be announced": the clock
+ * line for one sitting. An all-day fair and a parade whose start the Town
+ * has not posted were both "All day" (calendar audit, 26 October 2026).
+ */
+export function clockText(event: EventLike): string {
+  const { start, end, allDay } = event.data;
+  if (isTimeTbd(event)) return TIME_TBD;
   return formatTimeRange(start, end, allDay);
+}
+
+/** A listing with its date and no time yet (`timeTbd`, always with `allDay`). */
+export function isTimeTbd(event: EventLike): boolean {
+  return !!(event.data as { timeTbd?: boolean }).timeTbd;
 }
 
 /**
@@ -243,8 +317,24 @@ export function splitOngoing<T extends EventLike>(events: T[], now = new Date())
   return { ongoing, dated };
 }
 
+/**
+ * Date order, and within a Denver day clock order: the timed listings by
+ * their start, then the all-day ones, then the ones whose time is not yet
+ * announced (`timeTbd`). An all-day fair is stored at midnight and used to
+ * lead every day it was on, above a 10 am talk, and a parade with no time
+ * yet read as if it were the first thing that morning. Nothing else ranks
+ * here: a football game never comes before an earlier talk for being a game.
+ */
 export function sortByStart<T extends EventLike>(events: T[]): T[] {
-  return [...events].sort((a, b) => a.data.start.getTime() - b.data.start.getTime());
+  const keyed = events.map((e) => ({ e, day: dayKey(e.data.start), tier: timeTier(e) }));
+  keyed.sort((a, b) => (a.day < b.day ? -1 : a.day > b.day ? 1 : a.tier - b.tier || a.e.data.start.getTime() - b.e.data.start.getTime()));
+  return keyed.map((k) => k.e);
+}
+
+/** 0 for a timed listing, 1 for an all-day one, 2 for one with a date and no time yet. */
+function timeTier(event: EventLike): number {
+  if (!event.data.allDay) return 0;
+  return isTimeTbd(event) ? 2 : 1;
 }
 
 /**
@@ -264,7 +354,7 @@ export function upcoming<T extends EventLike>(
 
 export type DayGroup<T> = { key: string; date: Date; events: T[] };
 
-/** Group sorted events by Denver calendar day. */
+/** Group events by Denver calendar day, each day in clock order (`sortByStart`). */
 export function groupByDay<T extends EventLike>(events: T[]): DayGroup<T>[] {
   const groups = new Map<string, DayGroup<T>>();
   for (const event of sortByStart(events)) {
@@ -376,7 +466,24 @@ export function sectionCount<T>(sections: WeekendSections<T>): number {
  */
 export function highlights<T extends EventLike>(
   events: T[],
-  { now = new Date(), limit = 6 }: { now?: Date; limit?: number } = {},
+  {
+    now = new Date(),
+    limit = 6,
+    group,
+    perGroup = 2,
+  }: {
+    now?: Date;
+    limit?: number;
+    /**
+     * What to spread the picks across, such as the town on the hub: no more
+     * than `perGroup` from one group while other groups have something left
+     * to pick, and only then more, so a short list is never padded with
+     * nothing and never invents a pick (the hub's six weekend picks were
+     * four from Johnstown: audit, 26 October 2026).
+     */
+    group?: (e: T) => string;
+    perGroup?: number;
+  } = {},
 ): T[] {
   const { start, end } = weekendWindow(now);
   const isRegular = regularTest(events);
@@ -411,7 +518,23 @@ export function highlights<T extends EventLike>(
     seen.set(key, x.turn + 1);
   }
   live.sort((a, b) => a.rank - b.rank || a.turn - b.turn || a.i - b.i);
-  return sortByStart(live.slice(0, limit).map((x) => x.e));
+  if (!group) return sortByStart(live.slice(0, limit).map((x) => x.e));
+  const taken = new Map<string, number>();
+  const chosen: T[] = [];
+  const over: T[] = [];
+  for (const { e } of live) {
+    if (chosen.length >= limit) break;
+    const g = group(e);
+    if ((taken.get(g) ?? 0) >= perGroup) {
+      over.push(e);
+      continue;
+    }
+    taken.set(g, (taken.get(g) ?? 0) + 1);
+    chosen.push(e);
+  }
+  // Too few groups to fill the list within the cap: the best of the rest, in rank order.
+  chosen.push(...over.slice(0, Math.max(0, limit - chosen.length)));
+  return sortByStart(chosen);
 }
 
 /**
@@ -447,39 +570,70 @@ export function regularTest<T extends EventLike>(all: readonly T[]): (event: T) 
   };
 }
 
+/**
+ * A single dated file whose note says it recurs ("Every Friday", "Third
+ * Thursdays"): one verified date of something regular. Shown on its date,
+ * since nothing else is verified (`weeklyTest`), but no more a pick to cross
+ * a town line for than a weekly repeat. A run's note ("Thursday to Sunday
+ * nights") does not count: a run is an event.
+ */
+function notedRegular(e: EventLike): boolean {
+  const { recurring, repeat, schedule, except, end, start, performances } = e.data;
+  return !!recurring && !repeat && !schedule?.length && !except?.length && !performances?.length && !(end && dayKey(end) !== dayKey(start));
+}
+
 /** The Denver weekday, not UTC's: a 6 pm Thursday is already Friday in UTC. */
 function denverWeekday(date: Date): string {
   return new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, weekday: 'short' }).format(date);
 }
 
 /**
- * Whether a listing happens every week: a weekly repeat, one carrying a
- * "Third Fridays" note, or a series stored as a file per date with three or
- * more dates on one weekday. Two dates on a Thursday is a pair of listings;
- * a council meeting twice a month is civic and listed by date either way.
+ * Whether a listing happens every week: a weekly repeat, or a series stored
+ * as a file per date with three or more dates on one weekday, a week apart.
+ * Two dates on a Thursday is a pair of listings; a council meeting twice a
+ * month is civic and listed by date either way.
  *
  * This is what the events page's "Every week in [Town]" section holds, once
- * each, and what its date list leaves out. Narrower than `regularTest` on
- * purpose: a three-day residency is a series but not a regular.
+ * each, and what its unfiltered date list leaves out. Narrower than
+ * `regularTest` on purpose: a three-day residency is a series but not a
+ * regular.
+ *
+ * A note alone does not make a weekly regular. "Second Mondays" on a file
+ * per session put a monthly club under "Every week: Mondays", showing its
+ * session a month out, and kept it off the dated list (calendar audit, 26
+ * October 2026); a single file saying "Every Saturday" with no `repeat` has
+ * one verified date and is shown on it, not stretched to every Saturday.
+ * Three files on one weekday a month apart are a monthly series, so the
+ * dates must be a week apart, twice at least.
  */
 export function weeklyTest<T extends EventLike>(all: readonly T[]): (event: T) => boolean {
-  const weekdaysByKey = new Map<string, Map<string, Set<string>>>();
-  for (const e of all) {
+  // Files, not occurrences: a run open every Thursday is one listing, and
+  // `all` may already be expanded. One date per file, its first on that weekday.
+  const daysByKey = new Map<string, Map<string, Map<string, string>>>();
+  for (const e of sortByStart([...all])) {
     const key = `${e.data.title}|${e.data.venue}`;
     const dow = denverWeekday(e.data.start);
-    const slugs = weekdaysByKey.get(key) ?? new Map<string, Set<string>>();
-    slugs.set(dow, (slugs.get(dow) ?? new Set()).add(e.slug ?? e.id ?? e.data.title));
-    weekdaysByKey.set(key, slugs);
+    const byDow = daysByKey.get(key) ?? new Map<string, Map<string, string>>();
+    const files = byDow.get(dow) ?? new Map<string, string>();
+    const file = e.slug ?? e.id ?? e.data.title;
+    if (!files.has(file)) files.set(file, dayKey(e.data.start));
+    byDow.set(dow, files);
+    daysByKey.set(key, byDow);
+  }
+  const WEEK = 7 * 86_400_000;
+  const noon = (day: string) => Date.parse(`${day}T12:00:00Z`);
+  const weeklyKeys = new Set<string>();
+  for (const [key, byDow] of daysByKey) {
+    for (const files of byDow.values()) {
+      const sorted = [...new Set(files.values())].sort();
+      const weekApart = sorted.filter((d, i) => i > 0 && noon(d) - noon(sorted[i - 1]!) === WEEK).length;
+      if (sorted.length >= 3 && weekApart >= 2) weeklyKeys.add(key);
+    }
   }
   return (e) => {
     if (e.data.category === 'civic') return false;
     if (e.data.repeat === 'weekly') return true;
-    // A date range with a note ("Thursday to Sunday nights through October
-    // 31") is a seasonal run, shown by date as "Now through…", not a regular.
-    const multiDay = !!e.data.end && dayKey(e.data.end) !== dayKey(e.data.start);
-    if (e.data.recurring && !multiDay) return true;
-    const byDow = weekdaysByKey.get(`${e.data.title}|${e.data.venue}`);
-    return !!byDow && [...byDow.values()].some((slugs) => slugs.size >= 3);
+    return weeklyKeys.has(`${e.data.title}|${e.data.venue}`);
   };
 }
 
@@ -500,6 +654,47 @@ export function weeklyRegulars<T extends EventLike>(entries: readonly T[], now =
     out.push(e);
   }
   return out;
+}
+
+export interface AgendaRow<T> {
+  /** One occurrence. */
+  event: T;
+  /** A weekly regular: in the unfiltered list it is in "Every week" instead, once. */
+  regular: boolean;
+  /** A scheduled run's second and later open days in the fortnight: the unfiltered list shows the run once, at its next day. */
+  repeat: boolean;
+}
+
+/**
+ * The events page's lists, from one expansion: the fortnight as every
+ * occurrence in date and clock order, the months after it once per
+ * listing, and the weekly regulars once each.
+ *
+ * The fortnight holds everything, regulars included, so that "Today" or
+ * "This weekend" on the page finds the Monday chess club the home page
+ * shows; each row says whether the unfiltered view keeps it back (a regular,
+ * which has its own directory, or a run's later nights), and the filter
+ * (src/lib/filters.ts, `eventRowShown`) brings those rows out under a date.
+ */
+export function agenda<T extends EventLike>(
+  entries: readonly T[],
+  { now = new Date(), days = 14, horizonDays = 400 }: { now?: Date; days?: number; horizonDays?: number } = {},
+): { fortnight: AgendaRow<T>[]; later: T[]; weekly: T[] } {
+  const isWeekly = weeklyTest(entries);
+  const runs = new Set(entries.filter(isScheduledRun).map((e) => e.slug ?? e.id ?? e.data.title));
+  const all = occurrences([...entries], { now, horizonDays });
+  const nextDays = upcoming(all, { now, days });
+  const seen = new Set<string>();
+  const fortnight = nextDays.map((event) => {
+    const key = event.slug ?? event.id ?? event.data.title;
+    const regular = isWeekly(event);
+    const repeat = !regular && runs.has(key) && seen.has(key);
+    seen.add(key);
+    return { event, regular, repeat };
+  });
+  const inFortnight = new Set(nextDays);
+  const later = uniqueByEvent(upcoming(all, { now }).filter((e) => !inFortnight.has(e) && !isWeekly(e)));
+  return { fortnight, later, weekly: weeklyRegulars(entries, now) };
 }
 
 /**
@@ -555,16 +750,42 @@ const PLAN_YOUR_DAY: ReadonlySet<string> = new Set(['festival', 'market', 'music
 export function upTheHillPicks<T extends EventLike & { town: { slug: string } }>(
   all: readonly T[],
   order: readonly string[],
-  { now = new Date(), limit = 3 }: { now?: Date; limit?: number } = {},
+  { now = new Date(), limit = 3, exclude }: { now?: Date; limit?: number; exclude?: ReadonlySet<string> } = {},
 ): T[] {
-  return nearbyPicks(all, order, { now, limit, perTown: 1 });
+  return nearbyPicks(all, order, { now, limit, perTown: 1, exclude });
+}
+
+/**
+ * What makes two recommendations the same thing, as strings: the listing's
+ * page on its own guide, and its series there (one title at one venue, a
+ * file per night). The cards' links carry campaign tags, which are not
+ * part of either, so a strip's tagged link and the block's plain one match.
+ */
+export function recommendationKeys(e: { slug?: string; id?: string; town: { slug: string }; data: { title: string; venue: string } }): string[] {
+  return [`${e.town.slug}/events/${e.slug ?? e.id ?? ''}`, `${e.town.slug}|${e.data.title}|${e.data.venue}`];
 }
 
 export function nearbyPicks<T extends EventLike & { town: { slug: string } }>(
   all: readonly T[],
   order: readonly string[],
-  { now = new Date(), limit = 6, perTown = 2 }: { now?: Date; limit?: number; perTown?: number } = {},
+  {
+    now = new Date(),
+    limit = 6,
+    perTown = 2,
+    exclude,
+  }: {
+    now?: Date;
+    limit?: number;
+    perTown?: number;
+    /**
+     * Recommendation keys (`recommendationKeys`) another block on the page
+     * already shows: on Lyons' /this-week/ the Stanley's DeVotchKa ball was
+     * both "Nearby" and a "Day trip up the hill" (audit, 26 October 2026).
+     */
+    exclude?: ReadonlySet<string>;
+  } = {},
 ): T[] {
+  const shownElsewhere = (e: T) => !!exclude && recommendationKeys(e).some((k) => exclude.has(k));
   const { start, end } = weekendWindow(now);
   const friday = dayKey(start);
   const isWeekly = weeklyTest(all);
@@ -575,7 +796,7 @@ export function nearbyPicks<T extends EventLike & { town: { slug: string } }>(
   };
   const seen = new Set<string>();
   const candidates = sortByStart([...all]).filter((e) => {
-    if (isPast(e, now) || isCanceled(e) || isTentative(e) || isFlagged(e) || e.data.category === 'civic' || isWeekly(e) || !onThisWeekend(e)) return false;
+    if (isPast(e, now) || isCanceled(e) || isTentative(e) || isFlagged(e) || e.data.category === 'civic' || isWeekly(e) || notedRegular(e) || !onThisWeekend(e) || shownElsewhere(e)) return false;
     // One card per series: the same title at the same venue is the same thing on another date.
     const key = `${e.town.slug}|${e.data.title}|${e.data.venue}`;
     if (seen.has(key)) return false;
