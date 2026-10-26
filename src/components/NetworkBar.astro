@@ -25,13 +25,6 @@
  */
 import { getNetworkHub, getSite, liveTowns, neighborsOf } from '@/config';
 
-interface Props {
-  /** On the flagship home page: its stylesheet sets the strip at the page's reading sizes (fh-netbar). */
-  home?: boolean;
-}
-
-const { home = false } = Astro.props;
-
 const site = getSite();
 const hub = getNetworkHub();
 // A to Z on the hub as on the guides, so a town is in the same place in both lists.
@@ -50,7 +43,7 @@ const link = 'inline-block py-2 no-underline hover:text-white hover:underline sm
 // matters most, the hub's name.
 const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-white/70';
 ---
-<div class:list={['border-t border-white/15 bg-black/30 text-[0.8125rem] text-white/70', home && 'fh-netbar']}>
+<div class="border-t border-white/15 bg-black/30 text-[0.8125rem] text-white/70">
   <div class="container-page flex flex-wrap items-center gap-x-5 gap-y-1 py-3.5">
     {site.kind === 'hub' ? (
       <nav aria-label="The guides" class="flex flex-col sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-4">

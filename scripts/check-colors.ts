@@ -124,15 +124,14 @@ for (const site of allSites) {
   const mark = primaryClears ? school.secondary : school.primary;
   if (theme.band.toLowerCase() !== band.toLowerCase()) failures.push(`${who}: the page's band is ${theme.band}, the rule gives ${band}`);
   want(`${who}: white on the band (${band})`, ratio(WHITE, band), 7);
-  // The Away pill's outline and words, and the Home pill's fill, on the paper and on white.
   want(`${who}: the band on white`, ratio(band, WHITE), 4.5);
   want(`${who}: the band on its ${site.colors.paper} paper`, ratio(band, page), 4.5);
-  // The masthead's wordmark: its light "Inside" is white at 70% at 28px
-  // and up, display size, so 3:1, as in the footer.
-  want(`${who}: the wordmark's white/70 on the band`, ratio(mix(WHITE, 0.7, band), band), 3);
-  // The losing side, white at 72%: the team's name at 2rem and the score
-  // far larger, both display size, so 3:1.
-  want(`${who}: the losing score, white at 72% on the band`, ratio(mix(WHITE, 0.72, band), band), 3);
+  // The school's ink on the paper and on white (docs/DESIGN.md, 26 October
+  // 2026): the scorecard's eyebrows and home score, the Away pill's outline
+  // and words; and white on it, the Home pill.
+  want(`${who}: the ink (${theme.ink}) on white`, ratio(theme.ink, WHITE), 4.5);
+  want(`${who}: the ink (${theme.ink}) on its ${site.colors.paper} paper`, ratio(theme.ink, page), 4.5);
+  want(`${who}: white on the ink (${theme.ink}), the Home pill`, ratio(WHITE, theme.ink), 4.5);
   const legible = ratio(mark, band) >= 4.5;
   if (legible) {
     want(`${who}: eyebrows (${mark}) on the band`, ratio(theme.eyebrow, band), 4.5);

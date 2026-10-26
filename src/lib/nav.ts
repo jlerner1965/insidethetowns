@@ -16,7 +16,10 @@
  *
  * Every other section (This weekend, Guides, the directory, Get involved,
  * Updates, and whichever of the pairs above is not in the menu) is in the
- * footer on every page. Sentence case throughout; the classic masthead sets
+ * footer on every page, and the ones a resident asks for by name are under
+ * "More" in the header (moreNav). The flagship home page has no menu of its
+ * own any more (the 26 October 2026 audit: its "Town" went to Things to do
+ * and its mascot-only label changed name inside the site); docs/DESIGN.md. Sentence case throughout; the classic masthead sets
  * the row in small capitals with CSS, so the words are the same everywhere.
  */
 import { schoolsFor } from '../config/school-sports.ts';
@@ -44,22 +47,20 @@ export function townNav(town: Pick<TownConfig, 'slug' | 'families' | 'livingHere
 }
 
 /**
- * The flagship home page's masthead menu (the homepage brief, 25 October
- * 2026): This week · <Mascot> · Town · Eat & drink · Families · Living here.
- * The mascot alone names the school's page there, in the school's own
- * band; "Town" is Things to do, the parks, trails and places in and around
- * it. Every other page keeps townNav's menu.
+ * The flagship guides' second tier (the 26 October 2026 audit, priority 6):
+ * the sections the six-item menu leaves out but a resident looks for by
+ * name, Things to do and Get involved first, each under its own label. In
+ * the row they sit behind "More", with the nearby guides; in the phone
+ * panel they are listed open under the six. The footer still names them.
  */
-export function homeNav(town: Pick<TownConfig, 'slug' | 'families' | 'livingHere' | 'school'>): NavItem[] {
-  const mascot = town.school && schoolsFor(town.slug).length > 0 ? town.school.mascot : undefined;
+export function moreNav(town: Pick<TownConfig, 'slug' | 'families' | 'livingHere' | 'participation'>, opts: { updates?: boolean } = {}): NavItem[] {
+  const inMenu = new Set(townNav(town).map((n) => n.href));
   return [
-    { label: 'This week', href: '/this-week/' },
-    ...(mascot ? [{ label: mascot, href: '/sports/' }] : []),
-    { label: 'Town', href: '/things-to-do/' },
-    { label: 'Eat & drink', href: '/eat-drink/' },
-    ...(town.families ? [{ label: 'Families', href: '/families/' }] : []),
-    town.livingHere ? { label: 'Living here', href: '/living-here/' } : { label: 'Moving here', href: '/moving-here/' },
-  ];
+    { label: 'Things to do', href: '/things-to-do/' },
+    ...(town.participation ? [{ label: 'Get involved', href: '/get-involved/' }] : []),
+    { label: 'This weekend', href: '/this-weekend/' },
+    ...(opts.updates ? [{ label: 'Local changes', href: '/updates/' }] : []),
+  ].filter((n) => !inMenu.has(n.href));
 }
 
 /** The site's menu: the rule above on a guide, the hub's own list on the hub. */

@@ -62,14 +62,11 @@ export async function getCreditedPhotos(): Promise<CreditedPhoto[]> {
     if (!photo.usedOn.some((u) => u.href === usage.href)) photo.usedOn.push(usage);
   };
 
-  // The hero is on the home page and, as the share image every page without
-  // a photograph of its own falls back to, on the link preview of all of them.
-  // The flagship home page (25 October 2026) shows no photograph, so there
-  // the hero is the link preview alone.
-  const flagship = site.kind === 'town' && !!site.home;
-  use(site.hero.image, site.hero.alt, flagship
-    ? { title: 'the link preview of every page without its own photograph', href: '/' }
-    : { title: 'the home page, and the link preview of every page without its own photograph', href: '/' });
+  // The hero is on the home page (on a flagship guide, beside the guide's
+  // routes, since 26 October 2026) and, as the share image every page
+  // without a photograph of its own falls back to, on the link preview of
+  // all of them.
+  use(site.hero.image, site.hero.alt, { title: 'the home page, and the link preview of every page without its own photograph', href: '/' });
 
   const read = site.kind === 'hub' ? getHubEntries : getTownEntries;
   for (const collection of Object.keys(COLLECTION_PATHS) as Collection[]) {

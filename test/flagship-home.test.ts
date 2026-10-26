@@ -8,11 +8,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseLocal } from '../src/lib/dates.ts';
-import { clockKey, dashed, gameHeading, leadGame, nextGame, resultSentence, scoreboardResult, teamRows, weekDays } from '../src/lib/flagship-home.ts';
+import { clockKey, dashed, displayTitle, gameHeading, leadGame, nextGame, resultSentence, scoreboardResult, teamRows, weekDays } from '../src/lib/flagship-home.ts';
 import { contrast, schoolTheme } from '../src/config/school-colors.ts';
 import { towns } from '../src/config/towns/registry.ts';
 import { schoolSportsFor, schoolTeamName, type SportGame, type SportsData } from '../src/config/school-sports.ts';
-import { homeNav, townNav } from '../src/lib/nav.ts';
+import { moreNav, townNav } from '../src/lib/nav.ts';
 import { homeRoute } from '../src/integrations/town-routes.ts';
 
 const at = (s: string) => parseLocal(s);
@@ -98,34 +98,93 @@ function ev(slug: string, start: string, extra: Record<string, unknown> = {}) {
   return { slug, data: { title: slug, start: at(start), allDay: false, venue: 'Library', category: 'family', ...extra } as never };
 }
 
-test('the week is seven days, Monday to Sunday, and a day shows three things with a count of the rest', () => {
+test('the week is seven days, Monday to Sunday by default, and a day shows three things in the order of the clock, with a count of the rest', () => {
   const days = weekDays({
-    events: [ev('a', '2026-10-23T09:00'), ev('b', '2026-10-23T10:00'), ev('c', '2026-10-23T11:00'), ev('d', '2026-10-23T12:00')],
-    sports: data([{ key: 'football', name: 'Football', results: [won('2026-10-23', 'Mountain View', 50, 0, 'away')] }]),
+    events: [ev('a', '2026-10-23T09:00'), ev('b', '2026-10-23T10:00'), ev('c', '2026-10-23T11:00'), ev('d', '2026-10-23T20:00')],
+    sports: data([{ key: 'football', name: 'Football', results: [won('2026-10-23', 'Mountain View', 50, 0, 'away')], upcoming: [] }]),
     now: SUNDAY,
   });
   assert.deepEqual(days.map((d) => d.key), ['2026-10-19', '2026-10-20', '2026-10-21', '2026-10-22', '2026-10-23', '2026-10-24', '2026-10-25']);
   const friday = days[4]!;
-  assert.equal(friday.items[0]?.title, 'Football at Mountain View', 'football keeps its place and leads the day');
-  assert.equal(friday.items[0]?.meta, 'Won 50–0 · Away');
-  assert.deepEqual(friday.items.slice(1).map((i) => i.title), ['a', 'b']);
+  assert.deepEqual(friday.items.map((i) => i.title), ['a', 'b', 'c'], 'football has no time on file, so it does not jump the morning');
   assert.equal(friday.more, 2);
   assert.equal(friday.past, true);
   assert.equal(days[6]!.past, false, 'today is not past');
 });
 
-test('the Thursday email is on its day from today on, never on a Thursday gone by; a called-off event is left off', () => {
-  const email = { day: 'Thursday', time: '7 am' };
-  const thisWeek = weekDays({ events: [], email, now: at('2026-10-20T12:00') });
-  const thursday = thisWeek[3]!;
-  assert.equal(thursday.items[0]?.title, 'Thursday email');
-  assert.equal(thursday.items[0]?.meta, '7 am, in your inbox');
-  assert.equal(thursday.items[0]?.href, '#signup');
-  assert.equal(weekDays({ events: [], email, now: SUNDAY })[3]!.items.length, 0);
-  const off = weekDays({ events: [ev('gone', '2026-10-21T10:00', { status: 'canceled' })], now: at('2026-10-20T12:00') });
-  assert.equal(off[2]!.items.length, 0);
+test('a game is placed by its time among the events, never ahead of an earlier one because it is sport', () => {
+  const days = weekDays({
+    events: [ev('story-time', '2026-10-30T10:30'), ev('trivia', '2026-10-30T20:00')],
+    sports: data([{ key: 'football', name: 'Football', upcoming: [game('2026-10-30', 'Severance', { time: '19:00', site: 'away' })] }]),
+    now: at('2026-10-26T09:00'),
+    from: 'today',
+  });
+  assert.equal(days[0]!.key, '2026-10-26', 'the agenda starts on the day the page was built');
+  const friday = days.find((d) => d.key === '2026-10-30')!;
+  assert.deepEqual(friday.items.map((i) => i.title), ['story-time', 'Football at Severance', 'trivia']);
+  assert.equal(friday.items[1]!.when, '7 pm');
+  assert.equal(friday.items[1]!.site, 'Away');
+});
+
+test('on a full day the weekly series give up the visible slots first: a civic meeting is never hidden behind regulars', () => {
+  const regulars = new Set(['trivia', 'cribbage']);
+  const [tuesday] = weekDays({
+    events: [ev('trivia', '2026-10-27T18:00'), ev('cribbage', '2026-10-27T18:15'), ev('storytime', '2026-10-27T10:30'), ev('town-board', '2026-10-27T18:30', { category: 'civic' })],
+    sports: data([{ key: 'volleyball', name: 'Volleyball', upcoming: [game('2026-10-27', 'Windsor Charter Academy', { time: '18:30', site: 'away' })] }]),
+    now: at('2026-10-27T08:00'),
+    from: 'today',
+    isSeries: (e) => regulars.has(e.slug!),
+  });
+  assert.deepEqual(tuesday!.items.map((i) => i.title), ['storytime', 'Volleyball at Windsor Charter Academy', 'town-board'], 'chosen first, then shown by the clock');
+  assert.equal(tuesday!.more, 2);
+});
+
+test('a registration opening or deadline is on its day, so a day with one is not "Nothing listed"', () => {
+  const days = weekDays({
+    events: [],
+    now: at('2026-10-26T09:00'),
+    from: 'today',
+    deadlines: [
+      { on: at('2026-11-01T00:00'), what: 'opens', title: 'Berthoud Recreation youth sports', href: 'https://example.com/register' },
+      { on: at('2026-11-01T00:00'), what: 'closes', title: 'Youth futsal clinic', href: '/families/' },
+    ],
+  });
+  const sunday = days.find((d) => d.key === '2026-11-01')!;
+  assert.deepEqual(sunday.items.map((i) => [i.kind, i.when, i.title]), [
+    ['deadline', 'Sign-ups open', 'Berthoud Recreation youth sports'],
+    ['deadline', 'Last day to sign up', 'Youth futsal clinic'],
+  ]);
+  assert.equal(sunday.items[0]!.eventDay, '2026-11-01');
+});
+
+test('a long time note goes on the venue line in full, not down the time column', () => {
+  const note = 'Drop-off bins October 26 to November 6; drive-through drop-off November 7, 10 am to noon';
+  const [day] = weekDays({ events: [ev('food-drive', '2026-10-26T08:00', { timeNote: note, venue: 'Severance Town Hall' }), ev('club', '2026-10-26T14:30', { timeNote: '2:30 pm' })], now: at('2026-10-26T07:00'), from: 'today' });
+  const drive = day!.items.find((i) => i.fullTitle === 'food-drive')!;
+  assert.equal(drive.when, '');
+  assert.equal(drive.where, `${note} · Severance Town Hall`);
+  assert.equal(day!.items.find((i) => i.fullTitle === 'club')!.when, '2:30 pm');
+});
+
+test('the email is not one of the week’s things on, and a called-off event is left off', () => {
+  const days = weekDays({ events: [ev('gone', '2026-10-21T10:00', { status: 'canceled' })], now: at('2026-10-20T12:00') });
+  assert.ok(days.every((d) => d.items.every((i) => !/email/i.test(i.title))));
+  assert.equal(days[2]!.items.length, 0);
   assert.equal(clockKey('6:30 pm'), '18:30');
   assert.equal(clockKey('7 am'), '07:00');
+});
+
+test('a long title is cut at a natural break for the agenda, never mid-word; a short one is left whole', () => {
+  assert.equal(displayTitle('Macaroon Stout release, with Steepland String Band'), 'Macaroon Stout release, with Steepland String Band');
+  assert.equal(displayTitle('Berthoud Area Chamber of Commerce Business After Hours: Halloween edition at the museum'), 'Berthoud Area Chamber of Commerce Business After Hours');
+  const long = 'A very long title with no natural break in it anywhere at all for the agenda';
+  assert.equal(displayTitle(long), long, 'left whole, for the stylesheet’s two-line clamp');
+});
+
+test('every agenda row carries the marks the browser uses to take it down once it is over', () => {
+  const [day] = weekDays({ events: [ev('talk', '2026-10-26T18:00', { end: at('2026-10-26T19:30') })], now: at('2026-10-26T09:00'), from: 'today' });
+  assert.equal(day!.items[0]!.eventDay, '2026-10-26');
+  assert.match(day!.items[0]!.end!, /^2026-10-26T19:30/);
 });
 
 test('a game to come shows its time and where; one played shows the result', () => {
@@ -184,11 +243,14 @@ test('a primary white cannot be read on at 7:1 swaps with the secondary; a secon
 
 // ------------------------------------------------------- the menu and the route
 
-test('the home page’s menu is the brief’s; every other page keeps the shared one', () => {
+test('every page of a guide has one menu; a flagship’s "More" names Things to do and Get involved', () => {
   const berthoud = towns.find((t) => t.slug === 'berthoud')!;
-  assert.deepEqual(homeNav(berthoud).map((n) => n.label), ['This week', 'Spartans', 'Town', 'Eat & drink', 'Families', 'Living here']);
-  assert.equal(homeNav(berthoud).find((n) => n.label === 'Spartans')?.href, '/sports/');
   assert.deepEqual(townNav(berthoud).map((n) => n.label), ['This week', 'Events', 'Spartans sports', 'Eat & drink', 'Families', 'Living here']);
+  assert.deepEqual(moreNav(berthoud, { updates: true }).map((n) => n.label), ['Things to do', 'Get involved', 'This weekend', 'Local changes']);
+  const lyons = towns.find((t) => t.slug === 'lyons')!;
+  assert.deepEqual(moreNav(lyons).map((n) => n.label), ['Things to do', 'This weekend'], 'no participation hub, no Get involved');
+  const longmont = towns.find((t) => t.slug === 'longmont')!;
+  assert.deepEqual(moreNav(longmont).map((n) => n.label), ['This weekend'], 'Things to do is in its menu already');
 });
 
 test('a flagship’s home page is its own route file, so a classic guide’s build never imports it', () => {
