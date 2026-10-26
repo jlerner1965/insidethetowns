@@ -9,6 +9,63 @@ import { getNetworkHub, liveTowns, type SiteConfig, type TownConfig } from '../c
 import { dayKey, fromWallClock, toIsoLocal } from './dates.ts';
 import { exportWhen } from './events.ts';
 import { isPlaceholder } from './editor.ts';
+import { clampText, markdownToText } from './plain-text.ts';
+
+/**
+ * An Event's `description`: the listing's words as plain text, cut at a
+ * sentence or a word. Markdown first becomes text (src/lib/plain-text.ts),
+ * so no link, URL or emphasis mark is cut in half. Nothing when the body
+ * has no words. Google asks for the event's details and not the date or
+ * place again, which have properties of their own; the body is the page's
+ * own description of the event, the words a reader sees under its facts.
+ */
+export const EVENT_DESCRIPTION_LIMIT = 300;
+export function eventDescription(body: string | undefined, limit = EVENT_DESCRIPTION_LIMIT): string | undefined {
+  const text = clampText(markdownToText(body), limit);
+  return text || undefined;
+}
+
+/** An image as the build knows it: Astro's ImageMetadata has these three. */
+export interface ImageCandidate {
+  src: string;
+  width: number;
+  height: number;
+}
+
+/** Google's floor for an event image: 720 pixels wide and 50,000 pixels in all. */
+export const EVENT_IMAGE_MIN_WIDTH = 720;
+const EVENT_IMAGE_MIN_PIXELS = 50_000;
+
+/**
+ * The picture an Event's structured data may carry, or none.
+ *
+ * Google: "Images must represent the marked up content." The town's hero
+ * (a view of Main Street, a reservoir at dusk) went on every event without
+ * a picture of its own, 960 of them (10 October 2026), which is scenery,
+ * not the trivia night. So: the listing's own picture; else the photograph
+ * on the venue's own listing in the guide when the venue is a building,
+ * the room the event is in (the library, the theatre, the taproom: a
+ * venue, restaurant, bar, coffee house, shop, lodging or service), matched
+ * by the page on the venue's exact name; else nothing. A park's, a
+ * trail's or a trailhead's photograph is landscape, the same fault as the
+ * hero: Berthoud Town Park's is its playground, which says nothing about
+ * the Oktoberfest held there. The property is recommended, not required,
+ * and an Event without one is still an Event. A picture under Google's
+ * floor (720 wide, 50,000 pixels) is left out rather than sent to be
+ * refused. The share card (og:image) keeps its own fallback to the hero;
+ * that is a link preview, not a claim about the event.
+ */
+const OUTDOOR_PLACES: ReadonlySet<string> = new Set(['park', 'trail', 'trailhead']);
+export function eventImage(
+  own: ImageCandidate | undefined,
+  venue: { image?: ImageCandidate; type: string } | undefined,
+): ImageCandidate | undefined {
+  const fits = (i: ImageCandidate | undefined): i is ImageCandidate =>
+    !!i && i.width >= EVENT_IMAGE_MIN_WIDTH && i.width * i.height >= EVENT_IMAGE_MIN_PIXELS;
+  if (fits(own)) return own;
+  if (venue && !OUTDOOR_PLACES.has(venue.type) && fits(venue.image)) return venue.image;
+  return undefined;
+}
 
 /**
  * The publisher graph: who runs this site, and how the domains relate.
@@ -211,7 +268,7 @@ export function eventJsonLd(
           })),
         }
       : {}),
-    description: event.body?.slice(0, 300),
+    ...(eventDescription(event.body) ? { description: eventDescription(event.body) } : {}),
     url,
     ...(data.cost ? { offers: offer(data.cost, data.url ?? url) } : {}),
   };

@@ -7,13 +7,14 @@ import { getImage } from 'astro:assets';
 import { getSite } from '@/config';
 import { resolveSiteImage } from '@/lib/images';
 import { pageTitle } from '@/lib/titles';
+import { clampText, markdownToText } from '@/lib/plain-text';
 
 interface Props {
   title?: string;
   /**
    * The whole <title>, used as it is, in place of "[Page] | Inside [Town]":
    * the sports pages write theirs the way people search ("Berthoud Spartans
-   * Football Schedule, Scores & Record 2026 · Inside Berthoud").
+   * Football Scores & Schedule 2026 · Inside Berthoud").
    */
   fullTitle?: string;
   description?: string;
@@ -34,27 +35,12 @@ const fullTitle = Astro.props.fullTitle ?? pageTitle(site, title);
  * for the page, not for the snippet, so clamp here rather than shortening the
  * copy itself: at the end of a sentence when one closes past the halfway
  * mark, so the snippet reads as a whole thought, else at a word with an
- * ellipsis. Every article and section page used to end "…" mid-sentence
- * (network audit, 14 October 2026).
+ * ellipsis (network audit, 14 October 2026). A description is plain text:
+ * some pages build theirs from a listing's Markdown (an event's first
+ * sentence), so any link, emphasis or escape in it becomes its words first
+ * (src/lib/plain-text.ts; audit, 26 October 2026).
  */
-function clamp(text: string, limit = 155): string {
-  const flat = text.replace(/\s+/g, ' ').trim();
-  if (flat.length <= limit) return flat;
-  const cut = flat.slice(0, limit);
-  // The last full stop that ends a sentence: not "St. Vrain", "Mt. Evans",
-  // "Hwy. 86", "U.S. 36" or an initial.
-  const ABBREVIATION = /(?:\b(?:St|Mt|Dr|Mr|Mrs|Ms|Ave|Rd|Blvd|Hwy|No|vs|Co|Inc|Jr|Sr)|\b[A-Z]|\b[A-Z]\.[A-Z])$/;
-  let sentence = -1;
-  for (const m of cut.matchAll(/[.!?] /g)) {
-    if (m[0] === '. ' && ABBREVIATION.test(cut.slice(0, m.index))) continue;
-    sentence = m.index;
-  }
-  if (sentence > limit * 0.5) return cut.slice(0, sentence + 1);
-  const short = cut.slice(0, limit - 1);
-  const space = short.lastIndexOf(' ');
-  return `${(space > limit * 0.6 ? short.slice(0, space) : short).replace(/[\s,;:.]+$/, '')}…`;
-}
-const metaDescription = clamp(description);
+const metaDescription = clampText(markdownToText(description), 155);
 const canonical = new URL(Astro.url.pathname, Astro.site);
 
 let ogImage = Astro.props.image;
