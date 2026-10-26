@@ -848,6 +848,28 @@
       ],
       "destination": "/events/music-and-movement-storytime-afternoon.ics",
       "permanent": true
+    },
+    {
+      "source": "/events/messy-art{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidejohnstown.com"
+        }
+      ],
+      "destination": "/events/messy-art-2026-10-28/",
+      "permanent": true
+    },
+    {
+      "source": "/events/messy-art.ics",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidejohnstown.com"
+        }
+      ],
+      "destination": "/events/messy-art-2026-10-28.ics",
+      "permanent": true
     }
   ]
 }
