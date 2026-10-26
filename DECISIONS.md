@@ -6267,6 +6267,318 @@ guide byte for byte as it was:
   two photographs stay in `content/` with their licence rows; the guide no
   longer shows them, so /credits/ no longer lists them.
 
+## The 26 October audit: the five flagships made dependable, 26 October 2026
+
+*26 October 2026.* An outside audit of insideberthoud.com, insideniwot.com,
+insidelyons.com, insideerie.com and insidejohnstown.com, with the hub where
+the three share code, listed eleven priorities. Each was reproduced on a
+build of main at 274fcb86 before anything changed, fixed centrally where the
+code is shared, and checked on the other guides. The findings and the rules
+they settled, in the audit's order.
+
+### 1. The calendar tells series from occurrences
+
+Erie's "Today" on Monday 26 October showed Terror in the Corn, a run that is
+open Thursday to Sunday, and left out the Monday chess club, which sat under
+"Every week" and on the home page but not in the dated list. The cause was
+the event model: a run was a start and an end with its open days only in
+prose, and the "Every week" directory took any note that sounded weekly.
+
+- **Three optional fields on an event** (`src/lib/schedule.ts`, the schema):
+  `schedule`, the weekdays a run is open, with that day's hours where the
+  source gives them; `except`, dates a run or weekly series is not on; and
+  `timeTbd`, a date whose time is not announced, which goes with `allDay`.
+  The schema refuses an `except` day the series could not have had, and a
+  run whose first or last open day does not match its `start` and `end`.
+- **`occurrences()` expands a scheduled run into one entry per open day**,
+  with that day's hours, skipping `except` days and never past `until` or
+  `end`. A run with no schedule stays one "Now through…" row: the engine
+  never guesses open days from prose. An overnight close counts to the next
+  morning. Nothing is extrapolated past a verified bound.
+- **"Weekly" needs a weekly repeat or three dated files a week apart.** A
+  note like "Second Mondays" or "Every Friday" on a single file no longer
+  makes it weekly: it shows on its one verified date. Erie's directory went
+  from 22 entries to 5; 102 monthly and fortnightly files in seven towns now
+  show on their own dates.
+- **Each day is in clock order**: timed events, then all-day, then time to
+  be announced. No category outranks an earlier start, so a game never sits
+  above the morning's events.
+- **One occurrence logic everywhere.** `agenda()` builds the events page,
+  `eventRowShown()` is the one filter rule for the server render and the
+  browser script, `feedEvents()` the calendar feed; the home page's week
+  calls the same `occurrences()` and `weekEvents()` with unchanged
+  signatures. `test/calendar-reliability.test.ts` holds the audit's eight
+  cases on a fixed clock (the Erie Monday; a daily-except-Tuesdays festival
+  on a Tuesday; a verified Monday series in Monday's results; a
+  second-Monday series on other Mondays; cancelled and excluded dates;
+  overnight; the 1 November clock change; home, agenda and feed agreeing)
+  and passes under UTC and Pacific/Auckland too.
+- **Re-encoded from their own prose, `verified` unchanged:** Erie's Terror
+  in the Corn and Anderson Farms Fall Festival; Castle Rock's winter
+  trolley, carriage rides (four excepted dates) and Ghostly Stories;
+  Evergreen's Nightmare at 1520; Fort Collins's Garden of Lights (24 and 25
+  December excepted, time to be announced); `timeTbd` on Timnath's Magic on
+  Main, Carbon Valley's Festival of Lights and Johnstown's Holiday Open
+  House. Left as they are because the prose is ambiguous: Golden's Polar
+  Express ("several evenings a week"), Johnstown's two Candlelight runs
+  ("see box office"), Berthoud's rec-center anniversary ("all day", no
+  schedule posted).
+- **The feed's IDs changed** for the re-encoded runs: one per night instead
+  of one per run, so a subscriber's calendar sees the run replaced by its
+  nights once.
+
+### 2. Johnstown's afternoon storytime is one record
+
+Two files described the same Monday 1 pm Music and Movement session at the
+library, recommended each other and shared a meta description. The weekly
+series file (`music-and-movement-storytime-afternoon`) is canonical: it
+matches the library's own weekly rule, its address does not go stale, and it
+has the shape of the 10 am listing. The dated file's organizer, address,
+status and weekly themes (through 30 November, each session's library page)
+moved into it; the dated file is gone and `vercel.json` sends its page, its
+`.ics` and its per-session `.ics` files to the series, on insidejohnstown.com
+only. The 10 am listing was corrected to the library's page: weekly, through
+30 November, and without "Free" and "No registration", which the library
+does not say. Messy Art went the other way, since the library lists each
+session on its own: the series file is gone and `/events/messy-art/` goes to
+the 28 October session.
+
+- **Session links stay in the content as `[YYYY-MM-DD at HH:MM](url)`**, so
+  ingest can read them as organizer IDs; the page shows "Mon, Oct 12, 1 pm"
+  in a `<time>` (`ReadableSessionLinks.astro`), which also fixed ten files in
+  Grand Lake, Manitou Springs and Windsor.
+- **The word for a date comes from the category:** performances for music
+  and arts, meetings for civic, dates for markets and festivals, sessions for
+  everything else. No new field.
+- **The main button never lands on an expired session page.** When a
+  listing's `url` is one of its own session pages, the button follows the
+  body's link for the next session; a series page is left alone.
+- **The detail page's source order is facts, button, calendar links, check
+  date, description, recommendations, signup**, so a screen reader and the
+  keyboard meet the date before the signup form. The screen order was
+  already right; the source was not.
+- **Ingest matches every date of a file, not only the first.** That was the
+  root cause of the re-staging. Organizer IDs come first (the feed's own ID,
+  then the organizer's session page). When two published files both match a
+  feed item, both get `changeFlag` and a note; nothing is merged. A looser
+  match (same day, start within 30 minutes, same venue by name or address,
+  titles 30–60% alike) is staged as "Possible duplicate of …", which the
+  automatic review holds. `src/lib/address.ts` treats "400 S Parish Ave" and
+  "400 South Parish Avenue" as the same.
+
+### 3. The search index holds page copy, not interface text
+
+On Berthoud, nine of the top fifteen "City Star" excerpts carried the
+signup's hidden "Finish signing up in the new tab" panel, which sits outside
+the `<form>`, and the venue's excerpt was its event list. Search is Pagefind
+1.5.2 through its Node API in `scripts/lib/search-index.ts`.
+
+- **The exclusions live in one place**, Pagefind's `excludeSelectors`:
+  `[hidden]`, `aria-hidden`, live regions, status and alert roles, buttons,
+  in-page links, nav, footer, forms, the signup and its done panel, the
+  correction and mail links, and the mountain guides' weekend strip.
+- **A typed result shows the page's own description** (the meta description,
+  carried as `summary`): a place its description, an event its day, time,
+  venue and first sentence, a guide its excerpt. List pages keep Pagefind's
+  excerpt so the match is visible.
+- **A place's name outweighs titles** (`metaWeights` title 5, name 15,
+  summary 0), so City Star Brewing stays first for "City Star" once its
+  event list is out of its text. The summary is shown, not searched.
+
+Proof: 788 snippets over about fifty queries on the five guides and the hub's
+1,438 records; the only flags are genuine copy on untyped pages.
+
+### 4. Structured data describes the event, in plain text
+
+Event descriptions were the body's first 300 raw characters, Markdown and
+all; the Niwot Great Pumpkin Party and the Johnstown storytime showed it.
+
+- **`src/lib/plain-text.ts`** turns Markdown into text (links to their words,
+  session links to "October 19 at 1 pm", emphasis, code, HTML, entities and
+  escapes resolved, list items closed as sentences) and clamps at a sentence
+  or a word, never inside one. Every Event description and every meta
+  description goes through it. An event's meta description keeps at least
+  part of the body's first sentence beside a long date-and-place lead.
+- **An Event's image is its own picture, else its venue's photograph when
+  the venue is a building** (not a park, trail or trailhead, whose photos
+  are landscape), else none; anything under Google's 720 px / 50,000-pixel
+  floor is skipped. The town hero is never an event image. This replaces the
+  10 October rule that every event gets a picture; `og:image` keeps the hero
+  as a link preview.
+- **SportsEvent markup is gone** from both sports routes, reversing 25
+  October: Google's event guidance (8 September 2026) wants one event per
+  page and names school spectator events among minors as ineligible, and a
+  page per game would be the thin pages the audit rules out.
+- **Sports titles are short:** the school page "Berthoud High School
+  Spartans Scores & Schedules", a team "Berthoud Spartans Football Scores &
+  Schedule 2026", the guide's name only when the whole fits in 70
+  characters. The longest went from 91 to 73.
+- Checked on 450 event pages across the five guides: every offset matches
+  America/Denver on both sides of 1 November, canonical and `url` match,
+  every location has a name and address, no description holds Markdown,
+  HTML or a cut URL. The noindex on correction and utility routes is
+  unchanged and nothing was padded.
+
+### 5 and 6. The flagship home page and one header, and the design frozen
+
+The desktop masthead ran about 724 px on a saturated school-colour band,
+half of it empty, with 140 px scores; on a phone it filled the whole first
+screen. The owner had already said the colour was too much. The scores-first
+page stays; the colour becomes trim.
+
+- **The masthead and hero are the guide's paper.** The school colour is
+  trim: the 6 px rule above every page's header, the card's 4 px rule and
+  eyebrow, the home side's score, the Home and Away pills. The closing band
+  is the page's one full-colour moment.
+- **The scoreboard card** (`Scorecard.astro`) is two rows, scores 56 px on
+  a phone and 72 px from 64rem, "Next up" one line inside it. Both scores
+  the same size and the result said in a word ("Won", "Lost", "Tied"): a
+  loss is never dimmed. The team rows under it no longer repeat the card's
+  score. With no score and no game the card is not drawn.
+- **The page's order**: town and purpose (H1 "This week in <Town>" and the
+  tagline), the card, the pick and the agenda, the email on its own with
+  the latest issue sent to that town where one exists, "Worth knowing",
+  sports in season, the routes beside the town's licensed photograph, the
+  closing band. At 1440 × 900 the first screen holds the purpose, the card
+  and the week (which starts at y=291; it was 731); on a 390 px phone the
+  week starts at y≈751 (was 873).
+- **The agenda runs seven days from today**, not Monday to Sunday: past
+  days wasted the first screen. Three a day in clock order; on a full day
+  the weekly series give up their slots first, so a one-off civic listing,
+  a game or a sign-up date is never hidden behind "+2 more" by a regular.
+  Registration openings and deadlines sit on their day, so a day with one
+  is never "Nothing listed". The Thursday email is not a week item. A
+  quiet week says so, with the two links. A row's title follows the events
+  page's rule (`agendaTitle`): a closing "at <the venue>" goes when the
+  venue line under it says the venue.
+- **"Three things to know" is "Worth knowing in <Town>"** (or the notes'
+  `knowTitle`), left off when empty. Nothing is manufactured to fill it.
+- **One header on every page of every guide.** The per-template colour
+  switch, the home-only menu ("Town", mascot-only) and the home footer are
+  gone: the complaint was the jump between templates, so the switch went
+  rather than being restyled. The menu is **This week, Events, <Mascot>
+  sports, Eat & drink, Families, Living here**; "More" is a native
+  disclosure with Things to do, Get involved, This weekend, Local changes
+  and the nearby guides (eight items and the email button do not fit at
+  1280 px). The current page is in the primary with an underline and
+  `aria-current`. Search and the email button sit in the same place on
+  every page. The phone menu opens to its first link, closes on Escape with
+  focus back on the button, on a link and on tabbing out; its label becomes
+  "Close menu". Classic guides show "More" where they showed "Towns".
+- **School ink.** Text and pills on light grounds use the school's primary
+  where it reads at 4.5:1 (Johnstown's red), else the band colour (Erie's
+  orange is 3:1 on white, so Erie's ink is black); the top rule is the
+  unswapped primary, so Erie's orange and Roosevelt's red still show.
+  `check-colors` proves every pair.
+- **The design is frozen in `docs/DESIGN.md`**: type, colour roles, space,
+  breakpoints, the header, the card, the agenda, tiles, buttons and the
+  band, with exact values and the file each lives in, ending with
+  "Changing this": a change needs the owner's sign-off and an entry here
+  first. `test/design.test.ts` enforces it: the nav order and labels for
+  flagship and classic guides, one `<header>` and no colour switch, the
+  school colour as a background only on the band, every `/* spec */` value
+  in the stylesheet matching `DESIGN_SPEC` in `src/config/design.ts`, and
+  DESIGN.md carrying those values.
+- **Photographs.** Each town's licensed hero sits beside the routes with
+  its credit; nothing was fabricated. Wanted from the owner or the Towns,
+  with written permission: a Main Street or community-event photograph for
+  each of the five (Niwot's hero is fields, Johnstown's and Erie's roads,
+  Lyons's the canyon), and a school-supplied sports photo for any of them.
+
+### 7 and 8. Presentation, and recommendations that do not repeat
+
+- On `/events/`, the next fourteen days hold every occurrence in clock
+  order. Unfiltered, weekly regulars and a run's later nights are rendered
+  hidden, so the page opens on the one-offs as before and a reader without
+  JavaScript sees that view; "Today", "This weekend" and "Next 7 days" show
+  every occurrence in the window and the "Every week" directory steps
+  aside. The status line counts dates, not series. An unknown time reads
+  "Time to be announced", not "All day". A row drops its closing "at
+  <venue>" when the line under it prints the venue. An empty section is
+  left out rather than announced.
+- `ThisWeek.astro` chooses the Nearby picks and hands their keys (page path
+  plus title-and-venue series, so tracking parameters do not matter) to the
+  day-trips strip, which leaves them out: Lyons showed the Stanley's
+  DeVotchKa night twice.
+- The hub's weekend six take at most two per town when there is enough
+  inventory (`highlights`' per-town cap); the best of the rest fill in,
+  never a blank card. Before: Johnstown four times. After: Johnstown 2, Fort
+  Collins 2, Carbon Valley, Longmont. The whole list stays on
+  `/this-weekend/`.
+
+### 9. The towns' content
+
+- **Unknown hours are never "Closed."** A listing with an editor-set
+  `openingHours` over an hours line the parser cannot read counted the days
+  it leaves out as closed, and so did "by appointment" days. The badge now
+  makes no claim on a day the listing does not settle, and never names a
+  "next opening" past an unknown day. A line the parser reads in full keeps
+  the usual convention: "Wed–Sat 1–4 pm" means closed Sunday to Tuesday.
+- **Program status is never assumed.** Programs carry optional `starts`,
+  `ends`, `status`, `statusFrom`, `statusUntil` and `statusNote`;
+  `programStatus()` works it out from the dates and says nothing when the
+  file says nothing. Ended programs leave the age sections for one "Ended
+  for now" list; full ones sort last; a break within fourteen days is a
+  notice. Lyons: Backer Football ended 7 October, the Town's youth
+  recreation 18 October, the storytime break 27 October to 11 November.
+- **A page's "Checked" line says every item was read that day only when
+  that is true**; otherwise it gives the range and says they were not all
+  read together, and each program, update, Living Here section and district
+  calendar shows its own read date (`src/lib/checked.ts`).
+- **A nearby town's program is labelled in its title** ("(in Longmont)"),
+  since programs have no area field. **An event's timetable is a Markdown
+  table in its body**, because `SeasonTable` is for games. **When a
+  directory drops a listing's only source**, the listing gets `changeFlag`
+  and the evidence, not a closed status (Berthoud's Trailhead Cafe and
+  B-Rad's Arcade). **Breaks take the district's schools-closed holidays as
+  well as its breaks.**
+- Berthoud: the futsal clinic's 1 November registration deadline is the
+  next actionable one, from the Town's fall guide; the About page no longer
+  says "twenty minutes down the Diagonal", and a test keeps the shorthand
+  out. Niwot: the under-fives section has the St. Vrain preschool at Niwot
+  Elementary, the Longmont library's storytimes and the school's care, from
+  their own pages; the incorporation explainer was re-read against the
+  election commission, the county and the Secretary of State with no
+  outcome assumed, and Moving Here no longer says the vote "could change
+  all of it". Erie: the two-county note no longer says County Line Road
+  decides the school district or the sheriff, which the Town's page does
+  not say; an `updates/` folder with the 2027 budget and the Briggs and
+  Maxwell building; Cristos Coffee and Bridge Refill Market. Johnstown: Wing
+  Shack and Animal Crackers Feed on Parish Avenue; Old Town leads the
+  featured places; the school-day-off guide is linked from the kids' guide
+  and the family hub.
+
+### 10. The business pages lead with what a business can do
+
+`/for-businesses/` opens with three actions: correct a listing, submit an
+event, send a photograph (by email, with the permission questions already in
+it, because the forms take no files). Editorial independence is four
+bullets. The photo policy is written once (`src/lib/photo-policy.ts`) and
+used by the editorial, credits and business pages, which had contradicted
+each other: the rule is about copying, and an owner's own photograph is
+welcome with written permission on file. The claims with nothing behind them
+are gone, "media kit" among them: `/advertise/` offers what has actually
+been counted, dated, nothing projected. Its pilot example is labelled twice
+as an illustration, names no organization, money or result.
+
+The signup reads Buttondown's answer by its error code, not its wording:
+only `email_already_exists` and `subscriber_already_exists` are "already",
+only `email_invalid` and `email_empty` are "invalid", anything else hands
+the reader to Buttondown's own form. "Done" is said only when Buttondown
+reports the subscriber active; an `unactivated` answer still says "check
+your email"; a press or an opened tab never counts as a subscription.
+Double opt-in is unchanged.
+
+### 11. Speed
+
+Lighthouse on the live sites, phone settings: largest paint 1.5–1.6 s on
+every page tested, lab blocking time 0–180 ms (not INP), server first byte
+0.2–0.5 s. The largest paint is a line of text that redraws when the 67 KB
+Fraunces opsz file arrives: without the fonts it is 1.1 s, without the
+stylesheets 1.4 s. A tighter character subset saves 5 KB; the size is the
+two axes. The choice between keeping it, `font-display: optional`, and the
+36 KB file without the optical-size axis is the owner's, since each changes
+how the type looks.
 ## Lyons's lodging page unblocked, and two listings made one, 26 October 2026
 
 *26 October 2026, from the weekly site health check.*

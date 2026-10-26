@@ -2,6 +2,7 @@
 title: "Holiday Open House at the Parish House"
 start: "2026-12-05"
 allDay: true
+timeTbd: true
 venue: "Historic Parish House & Museum"
 address: "701 Charlotte St"
 url: "https://jhsco.org/events/2026-holiday-open-house/"

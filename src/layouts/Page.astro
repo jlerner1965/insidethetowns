@@ -8,6 +8,11 @@
  * guide allows only the two papers and white as surfaces, and the eyebrow in
  * the primary sits on it, which Golden's primary can do on white (5.07:1) and
  * on its paper (4.66:1) but not on anything darker.
+ *
+ * Compact since 26 October 2026 (the audit, priority 7: the results began
+ * below the first screen on a phone): the band's padding 1.5rem (2.25rem
+ * from md), the title 2.25rem (3rem from md), the intro at reading size,
+ * and the content 2rem under it.
  */
 import Base from './Base.astro';
 
@@ -36,7 +41,7 @@ const { title, seoTitle, eyebrow, status, intro, narrow = false, ...seo } = Astr
 ---
 <Base title={seoTitle ?? title} {...seo}>
   <header class="border-b-2 border-accent bg-raised">
-    <div class="container-page py-10 md:py-14">
+    <div class="container-page py-6 md:py-9">
       <div class="max-w-3xl">
         {(eyebrow || status) && (
           <p class="eyebrow mb-3 flex flex-wrap items-center gap-x-2 gap-y-1">
@@ -44,13 +49,13 @@ const { title, seoTitle, eyebrow, status, intro, narrow = false, ...seo } = Astr
             {eyebrow}
           </p>
         )}
-        <h1 class="display-md text-[2.75rem] md:text-6xl">{title}</h1>
-        {intro && <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted md:text-xl">{intro}</p>}
+        <h1 class="display-md text-[2.25rem] md:text-5xl">{title}</h1>
+        {intro && <p class="mt-3 max-w-2xl text-[1.0625rem] leading-relaxed text-ink-muted md:text-lg">{intro}</p>}
         <slot name="after-header" />
       </div>
     </div>
   </header>
-  <div class="container-page pb-8 pt-10 md:pt-14">
+  <div class="container-page pb-8 pt-8 md:pt-10">
     <div class:list={[narrow && 'max-w-2xl']}>
       <slot />
     </div>

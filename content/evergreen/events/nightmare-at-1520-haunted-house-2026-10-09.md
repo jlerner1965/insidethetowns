@@ -11,6 +11,8 @@ cost: "$20 general admission; $50 unlimited; more at the door"
 category: other
 recurring: "October 9, 10, 15, 16, 17, 22, 23, 24, 29, 30 and 31"
 timeNote: "7 to 9:30 pm on selected nights"
+schedule:
+  - { days: [thu, fri, sat], start: "19:00", end: "21:30" }
 source: "https://events.humanitix.com/nightmare-at-1520-haunted-house-9xkkkt3u"
 sourceId: "evergreenrecreation-com-events"
 verified: "2026-10-07"

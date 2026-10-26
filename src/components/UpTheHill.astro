@@ -40,10 +40,16 @@ interface Props {
   town: TownConfig;
   /** The heading: "Up the hill this weekend" unless the page says what it is (a day trip). */
   label?: string;
+  /**
+   * Recommendation keys another block on the page shows already
+   * (`recommendationKeys`): on /this-week/ the Nearby block's, so one event
+   * is not both a nearby pick and a day trip.
+   */
+  exclude?: ReadonlySet<string>;
   class?: string;
 }
 
-const { town, label = 'Up the hill this weekend', class: className } = Astro.props;
+const { town, label = 'Up the hill this weekend', exclude, class: className } = Astro.props;
 const site = getSite();
 const hills = town.variant === 'mountain' ? [] : mountainTowns();
 const now = new Date();
@@ -51,7 +57,7 @@ const { start, sunday, end } = weekendWindow(now);
 const { monday } = weekWindow(now);
 const order = hills.map((t) => t.slug);
 const all = hills.length ? occurrences(await getNeighborEntries('events', hills), { now, horizonDays: 14 }) : [];
-const events = upTheHillPicks(all, order, { now, limit: 3 });
+const events = upTheHillPicks(all, order, { now, limit: 3, exclude });
 
 /**
  * A season opening up the hill: a place on a mountain guide whose `opens`

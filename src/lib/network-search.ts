@@ -24,6 +24,7 @@
  * Pure string work, no content collections, so it can be unit-tested; the
  * route that gathers the entries is src/routes/hub/network-search.json.ts.
  */
+import { markdownToText } from './plain-text.ts';
 
 /** What a result is, as the town's own search labels it (Base.astro `kind`), plus the guide itself, its Moving Here page and its sports pages. */
 export type NetworkKind = 'Town' | 'Moving here' | 'Place' | 'Guide' | 'Event' | 'Sports';
@@ -39,11 +40,34 @@ export interface NetworkRecord {
   domain: string;
   /** One short line under the title: a place's type and street, an event's day and venue. */
   lead?: string;
+  /**
+   * What the result list shows under the title (src/pages/search.astro), as
+   * the town's own page's description says it: a place's summary, an event's
+   * day, time and venue with its first words, an article's excerpt. Plain
+   * text; meta, so it is shown and not searched twice.
+   */
+  summary?: string;
   /** Plain text, escaped here. Ignored when `html` is given. */
   text?: string;
   /** The entry's own rendered HTML, from our own content; trusted and not escaped. */
   html?: string;
 }
+
+/**
+ * How the search page asks Pagefind to rank (pagefind.app/docs/ranking),
+ * on every site, the hub's network search included.
+ *
+ * - `name`, carried only by a place's own page (and a place's record on the
+ *   hub), counts a match on the place's name three times the title's: a
+ *   search for "City Star" is a search for the brewery, and its events,
+ *   whose titles say "at City Star" and whose pages are shorter, had come
+ *   to outrank it once the venue page stopped repeating every event's
+ *   name (audit, 26 October 2026).
+ * - `summary` is shown, not searched: it repeats the page's own words, and
+ *   an event's names its venue, which would lift every event at a place
+ *   over the place itself.
+ */
+export const SEARCH_RANKING = { metaWeights: { title: 5, name: 15, summary: 0 } } as const;
 
 /** The file the hub build writes into dist/ for the indexing step, which reads and deletes it. */
 export const NETWORK_SEARCH_FILE = 'network-search.json';
@@ -75,6 +99,8 @@ export function recordHtml(record: NetworkRecord): string {
   return (
     `<!doctype html><html lang="en"><head><title>${escapeHtml(record.title)}</title></head><body>` +
     `<main data-pagefind-body>${meta('kind', record.kind)}${meta('town', record.town)}${meta('domain', record.domain)}` +
+    (record.summary ? meta('summary', record.summary) : '') +
+    (record.kind === 'Place' ? meta('name', record.title) : '') +
     `<h1>${escapeHtml(record.title)}</h1>${lead}${body}` +
     `</main></body></html>`
   );
@@ -82,20 +108,11 @@ export function recordHtml(record: NetworkRecord): string {
 
 /**
  * Markdown to the words in it, for an entry whose rendered HTML is not to
- * hand. Links keep their text, images and markup go; it only has to be good
- * enough to search, never to show.
+ * hand: the one plain-text builder the structured data and the page head
+ * use too (src/lib/plain-text.ts).
  */
 export function plainText(markdown: string): string {
-  return markdown
-    .replace(/```[\s\S]*?```/g, ' ')
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/^\s{0,3}(#{1,6}|>|[-*+]|\d+\.)\s+/gm, '')
-    .replace(/[*_`|~]+/g, ' ')
-    .replace(/^\s*:?-{3,}:?(\s+:?-{3,}:?)*\s*$/gm, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+  return markdownToText(markdown);
 }
 
 /**
@@ -117,6 +134,7 @@ export function sportsRecord(
     town: town.name,
     domain: town.domain,
     lead: teams.filter((t) => t.overall).map((t) => `${t.name} ${t.overall}`).join(' · ') || undefined,
+    summary: page.description,
     text: [page.description, `${school.school} ${school.mascot}.`, ...teams.map((t) => `${t.name}${t.opponents.length ? `: ${t.opponents.join(', ')}` : ''}.`)].join(' '),
   };
 }

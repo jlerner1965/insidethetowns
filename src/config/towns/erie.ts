@@ -16,9 +16,14 @@ export const erie: TownConfig = {
   // 2020 census: 17,387 residents (58 per cent) in Weld, 12,651 (42 per cent) in Boulder.
   counties: ['Weld', 'Boulder'],
   countySplit: {
-    note: 'County Line Road is the boundary: streets west of it are in Boulder County, streets east of it in Weld. It decides your school district, your sheriff and which county you file with — check the address, not the town.',
-    source: 'https://erieco.gov/2505/Regional-Partners',
-    verified: '2026-09-20',
+    // Corrected 26 October 2026: the note had said the county line decides
+    // the school district and the sheriff. The Town's page says only that
+    // the line divides the counties; the districts draw their own lines
+    // (Boulder Valley serves "part of Erie" by its address finder), Erie has
+    // its own police, and electricity and gas go by the Town's address map.
+    note: 'County Line Road is the county line: the parts of Erie west of it are in Boulder County, the parts east of it in Weld. The county decides your assessor, your ballot and which county maintains the county roads. The school district, the electric and gas company and the trash hauler are separate questions, each answered by the address.',
+    source: 'https://www.erieco.gov/2505/Regional-Partners',
+    verified: '2026-10-26',
   },
   state: 'CO',
   lat: 40.0503,
@@ -192,7 +197,7 @@ export const erie: TownConfig = {
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Erie_CO' },
     ],
     schoolDistrict:
-      'Mostly St. Vrain Valley Schools (Erie, Red Hawk and Black Rock elementaries, Soaring Heights PK-8, Erie Middle, Erie High); the Boulder County side is Boulder Valley (Meadowlark PK-8).',
+      'Mostly St. Vrain Valley Schools (Erie, Red Hawk and Black Rock elementaries, Soaring Heights PK-8, Erie Middle, Erie High); part of Erie is Boulder Valley (Meadowlark PK-8). The district goes by the address, not the county: check it with each district’s finder.',
     commuteNotes:
       'About 20 minutes to Boulder on Arapahoe Road or Colorado 7, 35 to Denver and 35 to Denver International Airport by I-25 and E-470. Most commutes are by car.',
   },

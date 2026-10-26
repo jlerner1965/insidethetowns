@@ -6,7 +6,7 @@
  * the guide noticed long after the fact says so.
  */
 import type { TownEntry } from '@/lib/content';
-import { formatDate, formatDayRange, toIsoLocal } from '@/lib/dates';
+import { formatDate, formatDayRange, formatShortDate, toIsoLocal } from '@/lib/dates';
 import { isLateNotice, stageLabel, timing } from '@/lib/updates';
 import { UPDATE_KIND_LABELS } from '@/content/schemas';
 
@@ -52,7 +52,13 @@ const H = 'h3';
   )}
   {compact && data.action && <p class="mt-1.5 text-[0.9375rem] leading-snug text-ink-muted">{data.action}</p>}
   <p class="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[0.875rem] text-ink-muted">
-    {data.source && <a href={data.source} rel="noopener" class="inline-block -my-2 py-2 underline">Source: {data.sourceLabel ?? host(data.source)}</a>}
+    {data.source && (
+      <span>
+        <a href={data.source} rel="noopener" class="inline-block -my-2 py-2 underline">Source: {data.sourceLabel ?? host(data.source)}</a>{data.verified && (
+          <Fragment>, read <time datetime={toIsoLocal(data.verified).slice(0, 10)}>{formatShortDate(data.verified)}</time></Fragment>
+        )}
+      </span>
+    )}
     {data.alsoSource && <a href={data.alsoSource} rel="noopener" class="inline-block -my-2 py-2 underline">{data.alsoSourceLabel}</a>}
     {data.item && <a href={data.item} class="inline-block -my-2 py-2 text-primary underline">On this guide</a>}
     {!compact && <a href={`/updates/#${slug}`} class="inline-block -my-2 py-2 underline">Link</a>}

@@ -16,8 +16,9 @@
  * *publishable* entry is: sourced, dated, and inside its freshness window.
  */
 import { z } from 'astro/zod';
-import { parseLocal } from '../lib/dates.ts';
+import { dayKey, parseLocal } from '../lib/dates.ts';
 import { OPENING_HOURS_RE } from '../lib/hours.ts';
+import { CLOCK_RE, WEEKDAYS, isDayOff, runSittings, weekdayOf } from '../lib/schedule.ts';
 
 /** Astro passes its image() helper (typed to ImageMetadata); the validator passes a plain string check. */
 export type ImageSchema = () => z.ZodType;
@@ -183,6 +184,21 @@ const performance = z
   .union([localDateTime, z.object({ start: localDateTime, note: z.string().min(1).optional() }).strict()])
   .transform((p) => (p instanceof Date ? { start: p } : p));
 
+/**
+ * One line of a run's week: the weekdays it opens and, where the organizer
+ * gives them, that day's hours as Denver clock times. A closing time before
+ * the opening one is after midnight. See src/lib/schedule.ts.
+ */
+const clockTime = z.string().regex(CLOCK_RE, 'a time of day as "19:00" (24-hour, quoted)');
+const scheduleEntry = z
+  .object({
+    days: z.array(z.enum(WEEKDAYS)).min(1),
+    start: clockTime.optional(),
+    end: clockTime.optional(),
+  })
+  .strict()
+  .refine((s) => !s.end || !!s.start, { message: 'a closing time needs its opening time', path: ['end'] });
+
 const slug = z
   .string()
   .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'slug must be lowercase letters, numbers and hyphens')
@@ -271,6 +287,39 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
        * show's own note ("Sold out") goes on that show.
        */
       performances: z.array(performance).min(2).optional(),
+      /**
+       * For a run (`start` to `end` on a later day) that is not on every
+       * day of its range: the weekdays it opens, each with its hours where
+       * the source gives them, written from the same source as the rest.
+       *
+       *   schedule:
+       *     - { days: [thu, sun], start: "19:00", end: "22:00" }
+       *     - { days: [fri, sat], start: "19:00", end: "23:00" }
+       *
+       * Every page, filter, count and calendar file then has the run on
+       * those days only, each with its own hours (src/lib/events.ts,
+       * `occurrences`). Until 26 October 2026 the days were prose alone,
+       * and Erie's "Today" showed a Thursday-to-Sunday attraction on a
+       * Monday. `recurring` and `timeNote` stay as the run's own words.
+       * A day without hours takes the run's start and end times, or stays
+       * all day on an all-day run. `start` and `end` fall on open days.
+       */
+      schedule: z.array(scheduleEntry).min(1).optional(),
+      /**
+       * Days inside a run or a weekly series that it is not on, as the
+       * organizer lists them: "none on Nov 26, Dec 24, 25 or 31", a week
+       * called off. Left out of every page and feed. One a run or series
+       * could never have had (outside its range, or another weekday) is an
+       * error, so a typo cannot pass for a cancellation.
+       */
+      except: z.array(localDate).min(1).optional(),
+      /**
+       * The date is set and the time is not announced yet. With `allDay`,
+       * which keeps the date arithmetic whole-day; the cards say "Time to
+       * be announced" rather than "All day", a day lists it after its timed
+       * and all-day listings, and the calendar files say so.
+       */
+      timeTbd: z.boolean().optional(),
       /** Replaces the computed time range on cards, e.g. "Time to be confirmed" or "Doors 6 pm, music 7 pm". */
       timeNote: z.string().optional(),
       /**
@@ -358,6 +407,56 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
     .refine((e) => !e.performances || !e.end || e.end.getTime() - e.start.getTime() < 24 * 3_600_000, {
       message: 'with performances, end closes the first show: one sitting, under 24 hours',
       path: ['end'],
+    })
+    .refine((e) => !e.schedule || (!!e.end && dayKey(e.end) !== dayKey(e.start) && !e.repeat && !e.performances), {
+      message: 'schedule is for a run: an end on a later day than start, and no repeat or performances',
+      path: ['schedule'],
+    })
+    .refine((e) => !e.schedule || e.schedule.flatMap((s) => s.days).length === new Set(e.schedule.flatMap((s) => s.days)).size, {
+      message: 'each weekday goes in one schedule line only',
+      path: ['schedule'],
+    })
+    .refine(
+      (e) => {
+        if (!e.schedule || !e.end) return true;
+        // The run's first open day is its start's, and its last sitting ends
+        // on its end's day: the sitemap reads `end` from the raw file
+        // (src/lib/series.ts), the pages read the sittings, and the two must
+        // name the same last day.
+        const sittings = runSittings({ ...e, except: undefined });
+        const first = sittings[0];
+        const last = sittings[sittings.length - 1];
+        if (!first || !last) return false;
+        const endDay = (at: Date, whole: boolean) => (whole ? dayKey(at) : dayKey(new Date(at.getTime() - 1)));
+        const lastDay = last.end ? endDay(last.end, false) : dayKey(last.start);
+        return dayKey(first.start) === dayKey(e.start) && lastDay === endDay(e.end, e.allDay);
+      },
+      {
+        message: 'a scheduled run starts and ends on days it is open: start on a schedule weekday, and end when its last open day closes',
+        path: ['schedule'],
+      },
+    )
+    .refine(
+      (e) => {
+        if (!e.except) return true;
+        const days = e.except.map((d) => dayKey(d));
+        if (e.repeat === 'weekly' && e.until) {
+          // A week of the series, not its first or its last.
+          const dow = weekdayOf(e.start);
+          return days.every((d, i) => weekdayOf(e.except![i]!) === dow && d > dayKey(e.start) && d < dayKey(e.until!));
+        }
+        if (!e.end || dayKey(e.end) === dayKey(e.start) || e.performances) return false;
+        // A day inside the run, strictly: the run starts and ends on days it is on.
+        return days.every((d, i) => d > dayKey(e.start) && d < dayKey(e.end!) && !isDayOff({ schedule: e.schedule, start: e.start }, e.except![i]!));
+      },
+      {
+        message: 'except names days a weekly series or a run would otherwise have: inside its range, on its weekday or a schedule day, not its first or last',
+        path: ['except'],
+      },
+    )
+    .refine((e) => !e.timeTbd || e.allDay, {
+      message: 'timeTbd goes with allDay: a date with no time announced yet',
+      path: ['timeTbd'],
     })
     .refine((e) => !e.image || !!e.imageAlt, {
       message: 'imageAlt is required when image is set',
@@ -1024,6 +1123,27 @@ export const PROGRAM_ACCESS_LABELS: Record<ProgramAccess, string> = {
   private: 'Private',
 };
 
+/**
+ * Where a program stands (Lyons audit, 26 October 2026: a football season
+ * that ended on October 7 and a storytime break read the same as an open
+ * league). `open`: running or taking sign-ups now. `upcoming`: announced,
+ * not yet started or not yet taking sign-ups. `full`: the organizer says
+ * the places are taken. `paused`: a break the organizer has announced, with
+ * its dates. `ended`: the season or session is over and the next one is
+ * not posted. The page derives what it can from the file's dates
+ * (src/lib/programs.ts, programStatus); `status` is for what only the
+ * organizer's words can say, and it is never assumed.
+ */
+export const PROGRAM_STATUSES = ['open', 'upcoming', 'full', 'paused', 'ended'] as const;
+export type ProgramStatusState = (typeof PROGRAM_STATUSES)[number];
+export const PROGRAM_STATUS_LABELS: Record<ProgramStatusState, string> = {
+  open: 'Open now',
+  upcoming: 'Not started yet',
+  full: 'Full',
+  paused: 'On a break',
+  ended: 'Ended',
+};
+
 export function programSchema<I extends z.ZodType>(image: () => I) {
   return z
     .object({
@@ -1111,6 +1231,22 @@ export function programSchema<I extends z.ZodType>(image: () => I) {
             .refine((o) => o.from.getTime() <= o.to.getTime(), { message: 'openOn: from is after to' }),
         )
         .optional(),
+      /**
+       * The current or next session's first and last days, where the
+       * organizer gives them. Before `starts` the program reads as not
+       * started yet; after `ends` it reads as ended until the file names
+       * the next session, so a finished season never passes for an open one.
+       */
+      starts: localDate.optional(),
+      ends: localDate.optional(),
+      /** Where the program stands, on the organizer's word: see PROGRAM_STATUSES. Unset, the dates decide, or nothing is said. */
+      status: z.enum(PROGRAM_STATUSES).optional(),
+      /** The first day `status` holds (a break that starts next week). Unset, it holds from now. */
+      statusFrom: localDate.optional(),
+      /** The last day `status` holds (a break's last day); after it the program reads as running again. */
+      statusUntil: localDate.optional(),
+      /** The organizer's words on the status: "Storytime takes a break", "The fall session filled; wait list open". */
+      statusNote: z.string().min(1).optional(),
       /** A need the organizer has published, in their words: "Parent volunteers needed". */
       volunteerNeed: z.string().min(1).optional(),
       /** How to make a first inquiry: an email, a phone, a form. */
@@ -1134,6 +1270,19 @@ export function programSchema<I extends z.ZodType>(image: () => I) {
     .refine((p) => p.ageFrom === undefined || p.ageTo === undefined || p.ageFrom <= p.ageTo, {
       message: 'ageFrom is greater than ageTo',
       path: ['ageTo'],
+    })
+    .refine((p) => !p.starts || !p.ends || p.starts.getTime() <= p.ends.getTime(), { message: 'starts is after ends', path: ['ends'] })
+    .refine((p) => !p.statusFrom || !p.statusUntil || p.statusFrom.getTime() <= p.statusUntil.getTime(), {
+      message: 'statusFrom is after statusUntil',
+      path: ['statusUntil'],
+    })
+    .refine((p) => !!p.status || (!p.statusFrom && !p.statusUntil && !p.statusNote), {
+      message: 'statusFrom, statusUntil and statusNote need a status',
+      path: ['status'],
+    })
+    .refine((p) => p.status !== 'paused' || !!p.statusUntil, {
+      message: 'a paused program says when it is back: statusUntil is its last day off',
+      path: ['statusUntil'],
     });
 }
 export type ProgramData = z.infer<ReturnType<typeof programSchema>>;

@@ -1,6 +1,6 @@
 ---
 title: "Moving to Niwot"
-description: "What it is like to live in an unincorporated town of about 4,300 at the 2020 census, between Boulder and Longmont: housing, schools, the commute, who provides the water and the fire trucks, and the November 2026 vote that could change all of it."
+description: "What it is like to live in an unincorporated town of about 4,300 at the 2020 census, between Boulder and Longmont: housing, schools, the commute, who provides the water and the fire trucks, and the November 3, 2026 vote on whether it becomes a town."
 image: ../images/second-avenue-street.jpg
 imageAlt: "Second Avenue in old-town Niwot on an August morning in 2017: the Niwot Tribune building with its shingled awning and hanging flowers, and a row of brick and painted storefronts down the block"
 imageCredit: "Jeffrey Beall, Flickr, CC BY-SA 2.0"
@@ -9,7 +9,7 @@ updated: "2026-10-02"
 
 ## What you are moving to
 
-Niwot is a census-designated place of about 4,300 people at the 2020 census, in Boulder County, off the Diagonal Highway roughly halfway between Boulder and Longmont. Two blocks of railroad-era brick storefronts on [Second Avenue](/places/old-town-second-avenue/), a second cluster of shops at Cottonwood Square around [Niwot Market](/places/niwot-market/), neighborhoods of mostly single-family homes around them, and open space and farmland where the sidewalks stop. It has no town government, no mayor and no town hall; Boulder County and a set of special districts provide the services, and volunteer groups run the calendar. That is subject to the incorporation vote of November 3, 2026 among electors inside a proposed boundary. [The election guide](/articles/2026-incorporation-election/) sets out each question without taking a side, and links the official result.
+Niwot is a census-designated place of about 4,300 people at the 2020 census, in Boulder County, off the Diagonal Highway roughly halfway between Boulder and Longmont. Two blocks of railroad-era brick storefronts on [Second Avenue](/places/old-town-second-avenue/), a second cluster of shops at Cottonwood Square around [Niwot Market](/places/niwot-market/), neighborhoods of mostly single-family homes around them, and open space and farmland where the sidewalks stop. It has no town government, no mayor and no town hall; Boulder County and a set of special districts provide the services, and volunteer groups run the calendar. That is subject to the incorporation vote of November 3, 2026 among electors inside a proposed boundary. [The election guide](/articles/2026-incorporation-election/) sets out each question without taking a side, and links Boulder County Elections, which publishes the official count.
 
 ## Housing
 

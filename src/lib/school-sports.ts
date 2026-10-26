@@ -319,28 +319,41 @@ export function schoolShortName(school: string): string {
 }
 
 /**
- * The sports a school page's title lists, from the teams with data, in
- * the data's order: "Football, Soccer, Volleyball, Softball". A boys' or
- * girls' team drops the gender where it is the only team of its sport
- * ("Boys soccer" is "Soccer"); where both have data both are named ("Boys
- * Basketball, Girls Basketball").
+ * "Berthoud High School Spartans Scores & Schedules": the school's page,
+ * which leads to a page per team. It listed every sport with data after a
+ * dash ("— Football, Soccer, Volleyball, Softball"), 90 characters and more
+ * with the guide's name, which a result cuts in the middle of the list
+ * (audit, 26 October 2026); each sport's own page carries its name, and the
+ * description lists them.
  */
-export function sportList(teams: Array<Pick<SportData, 'name'>>): string[] {
-  const bare = (name: string) => name.replace(/^(Boys|Girls) /, '');
-  const counts = new Map<string, number>();
-  for (const t of teams) counts.set(bare(t.name), (counts.get(bare(t.name)) ?? 0) + 1);
-  return teams.map((t) => titleCase((counts.get(bare(t.name)) ?? 0) > 1 ? t.name : bare(t.name)));
+export function schoolPageTitle(school: Pick<SchoolSports, 'school' | 'mascot'>): string {
+  return `${school.school} ${school.mascot} Scores & Schedules`;
 }
 
-/** "Berthoud High School Spartans Scores & Schedules — Football, Soccer, Volleyball, Softball". */
-export function schoolPageTitle(school: Pick<SchoolSports, 'school' | 'mascot'>, teams: Array<Pick<SportData, 'name'>>): string {
-  const sports = sportList(teams);
-  return `${school.school} ${school.mascot} Scores & Schedules${sports.length ? ` — ${sports.join(', ')}` : ''}`;
-}
-
-/** "Berthoud Spartans Football Schedule, Scores & Record 2026". */
+/**
+ * "Berthoud Spartans Football Scores & Schedule 2026": the words a search
+ * for the team uses, the sport and the season, without the third noun
+ * ("Schedule, Scores & Record") that pushed it past 70 characters with the
+ * guide's name; the record is the page's first line and the description's.
+ */
 export function teamPageTitle(school: Pick<SchoolSports, 'maxprepsName' | 'mascot'>, team: Pick<SportData, 'name'>, years: string): string {
-  return `${schoolTeamName(school)} ${titleCase(team.name)} Schedule, Scores & Record ${years}`;
+  return `${schoolTeamName(school)} ${titleCase(team.name)} Scores & Schedule ${years}`;
+}
+
+/** Past this a result cuts the title, wherever the cut falls. */
+export const SPORTS_TITLE_LIMIT = 70;
+
+/**
+ * The whole <title> of a sports page: the page's title and the guide's name
+ * ("… · Inside Berthoud") where both fit in 70 characters, else the page's
+ * title alone. Loveland's and Carbon Valley's long school names ("Mountain
+ * View Mountain Lions Girls Basketball …") ran to 90 with the guide's name,
+ * and it is the team, not the guide, that a reader searched for; the guide
+ * is still the page's og:site_name and its masthead.
+ */
+export function sportsFullTitle(title: string, siteTitle: string): string {
+  const full = `${title} · ${siteTitle}`;
+  return full.length <= SPORTS_TITLE_LIMIT ? full : title;
 }
 
 /** "Friday Oct 30, 7 pm" / "Saturday Oct 31": the next game's moment, short, for a description. */

@@ -2,18 +2,19 @@
 title: "Breakfast in Erie: beignets, burritos, brunch and the 6 am window"
 seoTitle: "Breakfast in Erie, CO: cafés, burritos, brunch and the 6 am window"
 date: "2026-09-27"
-excerpt: "Four places for breakfast or brunch in Erie, from the Creole cafe with the famous weekend line to the drive-through that opens at six."
+excerpt: "Five places for breakfast or brunch in Erie that this guide has checked, from the Creole cafe with the famous weekend line to the two that open at six."
 category: "Food & drink"
 tags: [breakfast, brunch, coffee, guide]
 verified: "2026-10-02"
-updated: "2026-10-02"
+updated: "2026-10-26"
 sources:
   - { label: "Lucile's Creole Cafe, Erie", url: "https://www.luciles.com/erie-location-menu/" }
   - { label: "FOX•DOG Coffee", url: "https://www.foxdogcoffee.com/" }
+  - { label: "Cristos Coffee", url: "https://www.cristoscoffeeco.com/" }
   - { label: "Erie Chamber of Commerce: restaurants", url: "https://members.eriechamber.org/list/ql/restaurants-food-beverages-22" }
 ---
 
-Downtown Erie is a breakfast town, and the line outside Lucile's on a Saturday is the proof. Four places, and when to go to each.
+Downtown Erie is a breakfast town, and the line outside Lucile's on a Saturday is the proof. Five places this guide has checked against their own pages, and when to go to each; it is not every breakfast in town, and the [Eat & Drink](/eat-drink/) page lists the rest of what is on the guide.
 
 ## The famous one: Lucile's Creole Cafe
 
@@ -27,9 +28,11 @@ Downtown Erie is a breakfast town, and the line outside Lucile's on a Saturday i
 
 [24 Carrot Bistro](/places/24-carrot-bistro/) is the downtown dinner place, but on Saturday and Sunday it opens at 9 for brunch, with a seasonal New American menu and a cocktail list built on housemade syrups. Closed Mondays.
 
-## From 6: Ziggi's
+## From 6: Ziggi's and Cristos
 
 [Ziggi's](/places/ziggis-coffee/) on Milan Place off Erie Parkway is the drive-through: espresso, blended drinks, breakfast burritos and paninis, open at 6 every day.
+
+[Cristos Coffee](/places/cristos-coffee/) at 149 South Briggs, the sit-down option at the south end of downtown, opens at 6 on weekdays and 7:30 on weekends, with espresso, pastries and beans roasted with a Boulder roaster (its own page, read October 26).
 
 ## Open right now
 

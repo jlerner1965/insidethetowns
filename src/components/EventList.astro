@@ -18,11 +18,20 @@ interface Props {
   emptyMessage?: string;
   /** Smaller day names, for the months-ahead list under "Further out". */
   compact?: boolean;
+  /**
+   * Rows the unfiltered list holds back, shown under a date filter: a weekly
+   * regular's dates and a run's later nights (src/lib/events.ts, `agenda`).
+   * A day with nothing else in it is rendered hidden too.
+   */
+  held?: ReadonlyMap<TownEntry<'events'>, { regular: boolean; repeat: boolean }>;
 }
 
-const { events, emptyMessage = 'No events listed yet. Check back soon.', compact = false } = Astro.props;
+const { events, emptyMessage = 'No events listed yet. Check back soon.', compact = false, held } = Astro.props;
 const { ongoing, dated } = splitOngoing(events);
 const days = groupByDay(dated);
+const mark = (e: TownEntry<'events'>) => held?.get(e) ?? { regular: false, repeat: false };
+const heldBack = (e: TownEntry<'events'>) => mark(e).regular || mark(e).repeat;
+const allHeld = (list: TownEntry<'events'>[]) => list.length > 0 && list.every(heldBack);
 // On a phone the day heading sticks while its listings scroll under it. It
 // was two lines and about 95px, an eighth of the screen, with nothing to
 // separate it from the cards sliding beneath; it is one line now, over a
@@ -35,7 +44,7 @@ const stuck =
 ) : (
   <div class="space-y-10 md:space-y-12">
     {ongoing.length > 0 && (
-      <section id="now-on" data-filter-group data-hide-when-empty class="scroll-mt-4 md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
+      <section id="now-on" data-filter-group data-hide-when-empty hidden={allHeld(ongoing)} class="scroll-mt-4 md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
         <h2 class={stuck}>
           <span class:list={['display-md flex items-baseline gap-3 text-2xl text-primary md:block', compact ? 'md:text-[1.75rem]' : 'md:text-[2.25rem]']}>
             <span class="eyebrow md:mb-2 md:block">Under way</span>
@@ -43,12 +52,12 @@ const stuck =
           </span>
         </h2>
         <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-          {ongoing.map((event) => <EventCard event={event} showDate={false} />)}
+          {ongoing.map((event) => <EventCard event={event} showDate={false} {...mark(event)} />)}
         </div>
       </section>
     )}
     {days.map((day) => (
-      <section id={`day-${dayKey(day.date)}`} data-filter-group data-day={dayKey(day.date)} class="scroll-mt-4 md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
+      <section id={`day-${dayKey(day.date)}`} data-filter-group data-day={dayKey(day.date)} hidden={allHeld(day.events)} class="scroll-mt-4 md:grid md:grid-cols-[15rem_1fr] md:gap-8 lg:gap-10">
         {/* On a phone the day heading sticks to the top while its listings
            scroll under it, so a reader halfway down a long Saturday still
            knows it is Saturday. On wide screens it sits in its own column and
@@ -63,7 +72,7 @@ const stuck =
         {/* White under the listings, paper around them: the day's events read
            as one block instead of dissolving into the page. */}
         <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-          {day.events.map((event) => <EventCard event={event} showDate={false} />)}
+          {day.events.map((event) => <EventCard event={event} showDate={false} {...mark(event)} />)}
         </div>
       </section>
     ))}

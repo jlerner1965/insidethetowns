@@ -15,7 +15,7 @@ import type { TownEntry } from '@/lib/content';
 import { LAND_TYPES, PLACE_STATUS_LABELS, PLACE_TYPE_LABELS } from '@/content/schemas';
 import { PLACE_HUE } from '@/config/palette';
 import { seasonLabel } from '@/lib/freshness';
-import { hoursLines, hoursWithMeridiem, openingHoursOf } from '@/lib/hours';
+import { hoursDataAttr, hoursLines, hoursWithMeridiem, openingHoursOf } from '@/lib/hours';
 import { isOpen } from '@/lib/places';
 import { subTownLabel } from '@/lib/sub-towns';
 import { shorten } from '@/lib/text';
@@ -80,7 +80,7 @@ const season = open ? seasonLabel(data.seasonal) : undefined;
   </div>
   {/* The check date left the rows (design pass, 26 October 2026): it is a
       fact about the guide, on the place's own page with its source. */}
-  <div class="grid content-start gap-1 text-[0.9375rem] leading-snug text-ink-muted" data-hours={hours ? JSON.stringify(hours) : undefined}>
+  <div class="grid content-start gap-1 text-[0.9375rem] leading-snug text-ink-muted" data-hours={hoursDataAttr(data)}>
     {/* The state stays with its ZIP: "Firestone, CO / 80504" was the usual break. */}
     {data.address && <p class="text-ink">{data.address.replace(/ (\d{5})$/, '\u00a0$1')}</p>}
     {/* A closed place's old hours are the one thing a reader must not act on. */}

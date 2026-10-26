@@ -11,6 +11,10 @@ cost: "Free; donations encouraged; reservations required"
 category: outdoors
 recurring: "Nine tours, October 7 to 31"
 timeNote: "Oct 7, 8, 14, 21, 22, 28 and 29 at 7 pm; Oct 17 and 31 at 1 pm"
+schedule:
+  - { days: [wed, thu], start: "19:00" }
+  - { days: [sat], start: "13:00" }
+except: ["2026-10-10", "2026-10-15", "2026-10-24"]
 source: "https://www.castlerockhistoricalsociety.org/calendar/"
 sourceId: "castlerockhistoricalsociety-org"
 verified: "2026-10-07"

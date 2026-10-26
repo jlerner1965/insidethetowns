@@ -9,7 +9,82 @@
  * attribute of its own that the stylesheet never matched, so "City Star"
  * left all thirty-five rows up; and the hub's town filter counted a match it
  * then left folded inside "Show 20 more".
+ *
+ * And the decisions behind the events page's EventFilters.astro, first:
+ * which occurrences a "When" pill shows (`eventRowShown`).
  */
+import { addDays, dayKey, startOfDay } from './dates.ts';
+import { weekendWindow } from './events.ts';
+
+// ------------------------------------------------------- the events page
+
+/** The events page's "When" pills. */
+export type WhenFilter = 'any' | 'today' | 'weekend' | 'week';
+
+/**
+ * The Denver days a "When" pill covers, inclusive, or null for any time:
+ * today; the weekend under way or next (`weekendWindow`); today and the six
+ * days after it. Read at each click in the browser, so a page left open
+ * overnight moves with the clock.
+ */
+export function whenWindow(when: string, now = new Date()): { from: string; to: string } | null {
+  const today = startOfDay(now);
+  if (when === 'today') return { from: dayKey(today), to: dayKey(today) };
+  if (when === 'week') return { from: dayKey(today), to: dayKey(addDays(today, 6)) };
+  if (when === 'weekend') {
+    const { start, sunday } = weekendWindow(now);
+    return { from: dayKey(start), to: dayKey(sunday) };
+  }
+  return null;
+}
+
+/** What an events-page row carries for the filter (EventCard's and WeeklyRegulars' data attributes). */
+export interface EventRowMarks {
+  category?: string;
+  free?: boolean;
+  subTown?: string;
+  /** `data-start-day`: the Denver day the occurrence starts. */
+  startDay: string;
+  /** `data-event-day`: the last Denver day it is on. */
+  lastDay?: string;
+  /** A weekly regular's occurrence in the date list (`AgendaRow.regular`). */
+  regular?: boolean;
+  /** A scheduled run's later night in the date list (`AgendaRow.repeat`). */
+  repeat?: boolean;
+  /** A row of the "Every week" directory: a series, not a date. */
+  directory?: boolean;
+}
+
+export interface EventFilterState {
+  when: string;
+  category: string;
+  free: boolean;
+  where: string;
+}
+
+/**
+ * Whether the events page shows a row under the chosen filters. One rule
+ * for the server's first render and the browser's script, tested here.
+ *
+ * Unfiltered by date, the list shows each one-off on its date and each run
+ * once, and the regulars sit in their directory below it, once each. Under
+ * a date (Today, This weekend, Next 7 days) the list shows every occurrence
+ * that falls in it, the regulars' included, so Monday's chess club is in
+ * Monday's results; and the directory, which is not a list of that day's
+ * events, steps aside. An occurrence matches a window when it starts by the
+ * window's last day and is still on at its first: a run with no schedule is
+ * on every day of its range, a scheduled one is a row per open day already.
+ */
+export function eventRowShown(row: EventRowMarks, state: EventFilterState, now = new Date()): boolean {
+  if (state.category !== 'all' && row.category !== state.category) return false;
+  if (state.free && !row.free) return false;
+  if (state.where !== 'all' && row.subTown !== state.where) return false;
+  const window = whenWindow(state.when, now);
+  if (row.directory) return !window;
+  if (!window) return !row.regular && !row.repeat;
+  const last = row.lastDay ?? row.startDay;
+  return row.startDay <= window.to && last >= window.from;
+}
 
 export interface FilterRow {
   /** What the row is filed under: a place type, or on the hub a town. */

@@ -2,6 +2,7 @@
 title: "Which side of County Line Road you buy on"
 seoTitle: "Erie, CO: Boulder County or Weld County? County Line Road decides"
 date: "2026-09-20"
+updated: "2026-10-26"
 excerpt: "Erie is in two counties, and the boundary decides more than an address: the school district, the library card, the ballot, the assessor — and, since the town took over half of them, who fixes the streetlight. What to check before you make an offer."
 category: "Moving here"
 tags: [living-here, schools]
@@ -26,7 +27,7 @@ That is not trivia. At the 2020 census 58 percent of Erie's residents lived on t
 
 ## The school boundary is a separate line
 
-Most of Erie is [St. Vrain Valley Schools](https://www.svvsd.org/), based in Longmont — Erie, Red Hawk and Black Rock elementaries, Soaring Heights PK-8, Erie Middle and Erie High. The Boulder County side is [Boulder Valley](https://bvsd.org/), where Meadowlark PK-8 is the neighborhood school.
+Most of Erie is [St. Vrain Valley Schools](https://www.svvsd.org/), based in Longmont — Erie, Red Hawk and Black Rock elementaries, Soaring Heights PK-8, Erie Middle and Erie High. Part of Erie is [Boulder Valley](https://bvsd.org/), where Meadowlark PK-8 is the district's school in town. Neither district describes its Erie boundary as County Line Road; each has an address lookup ([St. Vrain's maps and boundaries](https://www.svvsd.org/schools/maps-boundaries/), [Boulder Valley's school finder](https://www.bvsd.org/departments/enrollment/k-12-school-finder)), and Boulder Valley asks families near a boundary to confirm this year's school with its enrollment office.
 
 The important part: the school boundary and the county line are drawn by different authorities and are not the same line. "I am in Boulder County" is not by itself an answer about schools. Ask the district to confirm a specific address. A listing is not a source, and neither is this page.
 
@@ -63,4 +64,4 @@ Four questions, each answerable by the body that owns it:
 3. Is it in a metropolitan district, and at what levy? — the [state district map](https://gis.dola.colorado.gov/CO_SpecialDistrict) and the county assessor.
 4. What else is levied on the parcel? — the assessor's record for that address.
 
-Checked against each body's own site on September 20, 2026. Boundaries move; where it matters, confirm with the body itself. [Tell us if something here is out of date](/contact/).
+Checked against each body's own site on September 20, 2026; the school paragraph was corrected on October 26, 2026, against the Town's regional partners page and both districts' boundary pages. Boundaries move; where it matters, confirm with the body itself. [Tell us if something here is out of date](/contact/).

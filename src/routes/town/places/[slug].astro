@@ -12,7 +12,7 @@ import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { breadcrumbJsonLd, localBusinessJsonLd } from '@/lib/seo';
 import { EAT_DRINK_TYPES, LAND_TYPES, PLACE_STATUS_LABELS, PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, THINGS_TO_DO_TYPES } from '@/content/schemas';
 import { formatDate } from '@/lib/dates';
-import { hoursLines, hoursWithMeridiem, openingHoursOf } from '@/lib/hours';
+import { hoursDataAttr, hoursLines, hoursWithMeridiem } from '@/lib/hours';
 import { byProminence, isOpen } from '@/lib/places';
 import { articlesMentioning } from '@/lib/mentions';
 import { placeTitle } from '@/lib/titles';
@@ -77,7 +77,8 @@ const destination = /,\s*CO\b/.test(data.address) ? data.address : `${data.addre
 const directions = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
 // A park, a trail or a trailhead has no one to write in as its owner; everything else does.
 const hasOperator = !LAND_TYPES.includes(data.type);
-const hours = openingHoursOf(data);
+// The schedule and the days it leaves unsettled, for the open-now badge (OpenStatus.astro).
+const hours = hoursDataAttr(data);
 // The gate (src/lib/content.ts) has already stripped the hours of a closed
 // place and of one whose check is older than the hours window; here the page
 // says so rather than leaving the row out, because "no hours" reads as "we
@@ -158,7 +159,7 @@ const lede = !open || place.hoursHidden
 const facts = [
   { label: 'Address', value: data.area ? `${data.address} · ${data.area}` : data.address },
   { label: 'Directions', value: 'Open in Google Maps', href: directions },
-  { label: 'Hours', value: hoursValue, lines: hoursValue && hoursValue === data.hours ? hoursLines(hoursWithMeridiem(hoursValue)) : undefined, hours: hours ?? undefined },
+  { label: 'Hours', value: hoursValue, lines: hoursValue && hoursValue === data.hours ? hoursLines(hoursWithMeridiem(hoursValue)) : undefined, hours },
   { label: 'Season', value: seasonValue },
   { label: 'Phone', value: data.phone, href: data.phone ? `tel:${data.phone.replace(/[^\d+]/g, '')}` : undefined },
   { label: 'Website', value: data.url ? new URL(data.url).hostname.replace(/^www\./, '') : undefined, href: data.url },
@@ -186,7 +187,7 @@ const facts = [
   ]}
 >
   {lede?.kind === 'hours' && (
-    <p slot="after-header" class="page-lede" data-hours={JSON.stringify(hours)} data-open-wrap hidden>
+    <p slot="after-header" class="page-lede" data-hours={hours} data-open-wrap hidden>
       <span class="open-status" data-open-status hidden></span>
       <span class="text-[0.9375rem] text-ink-muted"> · by the published hours</span>
     </p>
@@ -245,12 +246,12 @@ const facts = [
       <p class="order-5 text-[0.9375rem] lg:mt-12"><a href={back.href} class="inline-block -my-1 py-1 font-semibold text-primary underline">← {back.label}</a></p>
     </div>
     <div class="contents lg:block lg:pt-1">
-      <aside class="order-2">
+      <aside class="order-2" data-pagefind-meta={`name:${data.title}`}>
         <dl class="facts border-t border-line-soft pt-4">
           {facts.map((f) => (
             <Fragment>
               <dt>{f.label}</dt>
-              <dd data-hours={f.hours ? JSON.stringify(f.hours) : undefined}>
+              <dd data-hours={f.hours}>
                 {f.href ? (
                   <a href={f.href} rel={f.href.startsWith('http') ? 'noopener' : undefined} class="inline-block -my-1 py-1">{f.value}</a>
                 ) : f.lines ? (
@@ -320,7 +321,7 @@ const facts = [
   </div>
 
   {here.length > 0 && (
-    <section class="mt-20 md:mt-24">
+    <section class="mt-20 md:mt-24" data-pagefind-ignore>
       <SectionHeader eyebrow={`On at ${data.title}`} title="What’s coming up" href="/events/" linkLabel="All events" />
       <div class="border-b border-line-soft">
         {here.map((event) => <EventCard event={event} />)}
@@ -329,7 +330,7 @@ const facts = [
   )}
 
   {inGuides.length > 0 && (
-    <section class="mt-20 md:mt-24" aria-labelledby="in-guides">
+    <section class="mt-20 md:mt-24" aria-labelledby="in-guides" data-pagefind-ignore>
       <SectionHeader eyebrow="In the guides" title={`Read about ${data.title}`} href="/guides/" linkLabel="All guides" id="in-guides" />
       <ul class="divide-y divide-line-soft border-y border-line-soft">
         {inGuides.map((a) => (

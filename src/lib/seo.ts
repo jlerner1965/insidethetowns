@@ -6,9 +6,94 @@ import type { CollectionEntry } from 'astro:content';
 // Relative rather than the '@/…' alias so the module loads in plain Node and
 // its builders can be unit-tested; Vite resolves both the same way.
 import { getNetworkHub, liveTowns, type SiteConfig, type TownConfig } from '../config/index.ts';
-import { dayKey, fromWallClock, toIsoLocal } from './dates.ts';
+import { dayKey, toIsoLocal } from './dates.ts';
 import { exportWhen } from './events.ts';
 import { isPlaceholder } from './editor.ts';
+import { clampText, firstSentence, markdownToText } from './plain-text.ts';
+
+/**
+ * An Event's `description`: the listing's words as plain text, cut at a
+ * sentence or a word. Markdown first becomes text (src/lib/plain-text.ts),
+ * so no link, URL or emphasis mark is cut in half. Nothing when the body
+ * has no words. Google asks for the event's details and not the date or
+ * place again, which have properties of their own; the body is the page's
+ * own description of the event, the words a reader sees under its facts.
+ */
+export const EVENT_DESCRIPTION_LIMIT = 300;
+export function eventDescription(body: string | undefined, limit = EVENT_DESCRIPTION_LIMIT): string | undefined {
+  const text = clampText(markdownToText(body), limit);
+  return text || undefined;
+}
+
+/**
+ * An event page's meta description: the particulars a searcher needs (the
+ * day, the time, the venue and the town, as the page builds them), then
+ * the body's first sentence, within the snippet's budget.
+ *
+ * The page used to hand SEO.astro the two joined and let its clamp cut
+ * them, and the clamp cuts at the last sentence end past half the budget,
+ * which for a long lead ("Monday, November 2, 1 pm – 2 pm at Glenn A.
+ * Jones, M.D. Memorial Library, Johnstown.") is the lead's own full stop:
+ * the description was the date and the venue and nothing about the event.
+ * So the sentence is cut here, at a word, to what the lead leaves room
+ * for; it goes only when the lead leaves no room for a few words of it. A
+ * body sentence too short to say anything (under 30 characters, as
+ * before) is left off. Nothing when the lead itself is over the budget
+ * but what the clamp allows.
+ */
+export const META_DESCRIPTION_LIMIT = 155;
+export function eventPageDescription(lead: string, body: string | undefined, limit = META_DESCRIPTION_LIMIT): string {
+  const flatLead = lead.replace(/\s+/g, ' ').trim();
+  const sentence = firstSentence(markdownToText(body));
+  if (sentence.length <= 30) return clampText(flatLead, limit);
+  const whole = `${flatLead} ${sentence}`;
+  if (whole.length <= limit) return whole;
+  const room = limit - flatLead.length - 1;
+  if (room < 16) return clampText(flatLead, limit);
+  return `${flatLead} ${clampText(sentence, room)}`;
+}
+
+/** An image as the build knows it: Astro's ImageMetadata has these three. */
+export interface ImageCandidate {
+  src: string;
+  width: number;
+  height: number;
+}
+
+/** Google's floor for an event image: 720 pixels wide and 50,000 pixels in all. */
+export const EVENT_IMAGE_MIN_WIDTH = 720;
+const EVENT_IMAGE_MIN_PIXELS = 50_000;
+
+/**
+ * The picture an Event's structured data may carry, or none.
+ *
+ * Google: "Images must represent the marked up content." The town's hero
+ * (a view of Main Street, a reservoir at dusk) went on every event without
+ * a picture of its own, 960 of them (10 October 2026), which is scenery,
+ * not the trivia night. So: the listing's own picture; else the photograph
+ * on the venue's own listing in the guide when the venue is a building,
+ * the room the event is in (the library, the theatre, the taproom: a
+ * venue, restaurant, bar, coffee house, shop, lodging or service), matched
+ * by the page on the venue's exact name; else nothing. A park's, a
+ * trail's or a trailhead's photograph is landscape, the same fault as the
+ * hero: Berthoud Town Park's is its playground, which says nothing about
+ * the Oktoberfest held there. The property is recommended, not required,
+ * and an Event without one is still an Event. A picture under Google's
+ * floor (720 wide, 50,000 pixels) is left out rather than sent to be
+ * refused. The share card (og:image) keeps its own fallback to the hero;
+ * that is a link preview, not a claim about the event.
+ */
+const OUTDOOR_PLACES: ReadonlySet<string> = new Set(['park', 'trail', 'trailhead']);
+export function eventImage<T extends ImageCandidate>(
+  own: T | undefined,
+  venue: { image?: T; type: string } | undefined,
+): T | undefined {
+  const fits = (i: T | undefined): i is T =>
+    !!i && i.width >= EVENT_IMAGE_MIN_WIDTH && i.width * i.height >= EVENT_IMAGE_MIN_PIXELS;
+  if (fits(own)) return own;
+  if (venue && !OUTDOOR_PLACES.has(venue.type) && fits(venue.image)) return venue.image;
+  return undefined;
+}
 
 /**
  * The publisher graph: who runs this site, and how the domains relate.
@@ -211,7 +296,7 @@ export function eventJsonLd(
           })),
         }
       : {}),
-    description: event.body?.slice(0, 300),
+    ...(eventDescription(event.body) ? { description: eventDescription(event.body) } : {}),
     url,
     ...(data.cost ? { offers: offer(data.cost, data.url ?? url) } : {}),
   };
@@ -282,56 +367,6 @@ export function collectionPageJsonLd(
         })),
       },
     }),
-  };
-}
-
-/**
- * One high-school game to come as a SportsEvent, for the sports pages.
- *
- * Only what the data states: the game's day, and its start where MaxPreps
- * gives one, in Denver's offset (date alone otherwise); the two sides as
- * SportsTeams named as MaxPreps names the schools; the place as a Place
- * named for the school at a home game, for the opponent's school at an
- * away game, and for the venue at a neutral-site game that has one, with
- * no address, since none is in the data. A neutral game names no home or
- * away side, only competitors. A game without a date gets nothing.
- */
-export function sportsEventJsonLd(
-  site: SiteConfig,
-  school: { school: string; maxprepsName: string },
-  team: { name: string },
-  game: { date: string; time?: string; opponent: string; site: 'home' | 'away' | 'neutral'; venue?: string; stage?: string; url: string },
-  pagePath: string,
-) {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(game.date)) return undefined;
-  const us = { '@type': 'SportsTeam', name: school.maxprepsName, sport: team.name };
-  const them = { '@type': 'SportsTeam', name: game.opponent, sport: team.name };
-  const [y, m, d] = game.date.split('-').map(Number) as [number, number, number];
-  const [hh, mm] = (game.time ?? '00:00').split(':').map(Number) as [number, number];
-  const startDate = game.time ? toIsoLocal(fromWallClock(y, m, d, hh, mm)) : game.date;
-  const location =
-    game.site === 'home'
-      ? { '@type': 'Place', name: school.school }
-      : game.site === 'away'
-        ? { '@type': 'Place', name: game.opponent }
-        : game.venue
-          ? { '@type': 'Place', name: game.venue }
-          : undefined;
-  const sport = team.name.toLowerCase();
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'SportsEvent',
-    name: `${school.maxprepsName} ${game.site === 'away' ? 'at' : 'vs'} ${game.opponent} — ${sport}`,
-    ...(game.stage ? { description: `${game.stage}: ${school.school} ${sport} ${game.site === 'away' ? 'at' : 'vs'} ${game.opponent}.` } : {}),
-    sport: team.name,
-    startDate,
-    eventStatus: 'https://schema.org/EventScheduled',
-    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-    ...(game.site === 'home' ? { homeTeam: us, awayTeam: them } : game.site === 'away' ? { homeTeam: them, awayTeam: us } : {}),
-    competitor: [us, them],
-    ...(location ? { location } : {}),
-    url: `https://${site.domain}${pagePath}`,
-    sameAs: game.url,
   };
 }
 

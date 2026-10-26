@@ -9,7 +9,7 @@ priceRange: "$"
 tags: [coffee, tea]
 summary: "A woman-owned, family-run drive-thru coffee shop on Meadowlark Drive, going since 1996."
 source: "https://www.joyfulbrews.com/contact-8"
-verified: "2026-10-03"
+verified: "2026-10-26"
 added: "2026-09-17"
 ---
 

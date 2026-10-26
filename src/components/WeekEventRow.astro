@@ -11,7 +11,7 @@
  */
 import type { TownEntry } from '@/lib/content';
 import { monthDay, parseLocal, startOfDay, toIsoLocal } from '@/lib/dates';
-import { isMultiDay, lastDay, listedUntil, timeText } from '@/lib/events';
+import { displayTitle, isMultiDay, lastDay, listedUntil, timeText } from '@/lib/events';
 import { shownCategoryLabel } from '@/content/schemas';
 import { subTownLabel } from '@/lib/sub-towns';
 
@@ -48,14 +48,14 @@ const host = source ? new URL(source).hostname.replace(/^www\./, '') : undefined
       </p>
     )}
     <h3 class="text-xl font-medium leading-tight">
-      <a href={`/events/${slug}/`} class="inline-block -my-2 py-2 no-underline hover:text-primary">{data.title}</a>
+      <a href={`/events/${slug}/`} class="inline-block -my-2 py-2 no-underline hover:text-primary">{displayTitle(event)}</a>
     </h3>
     <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">
       {timeText(event)} · {data.venue}{data.subTown && <span>, {subTownLabel(data.subTown)}</span>}{data.cost && <span> · {data.cost}</span>}
     </p>
     {source && (
       <p class="mt-1 text-sm">
-        <a href={source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline">Source: {host}</a>
+        <a href={source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline [overflow-wrap:anywhere]">Source: {host}</a>
       </p>
     )}
   </div>

@@ -10,7 +10,6 @@ image: ../images/scheels.jpg
 imageAlt: "The brick Scheels All Sports store at Johnstown Plaza on a summer day"
 imageCredit: "Tony Webster, Wikimedia Commons, CC BY 2.0"
 tags: [shopping, ferris wheel, aquarium, kids]
-featured: true
 summary: "The 250,000-square-foot sporting-goods store at 2534 with a 65-foot indoor Ferris wheel, a 16,000-gallon saltwater aquarium, a wildlife mountain, an arcade, a candy factory and Ginna's Café."
 source: "https://www.scheels.com/stores/colorado/johnstown/features/johnstown-store-attractions.html"
 verified: "2026-09-18"

@@ -81,9 +81,13 @@ Do not repeat these. The searches are recorded in `DECISIONS.md`.
 - **KartaView street-level imagery.** Four frames near Elizabeth's Main Street,
   all windshield dashcam shots of roadway with dashboard glare. No storefronts.
 - **Mapillary.** Requires an API token this project does not have.
-- **Yelp, Google Business, TripAdvisor and the businesses' own marketing
-  photographs.** All copyrighted by their uploaders, and scraping them breaches
-  those sites' terms as well. Not an option at any volume.
+- **Copying from Yelp, Google Business, TripAdvisor or a business's own
+  website and social media.** All copyrighted by their uploaders, and scraping
+  them breaches those sites' terms as well. Not an option at any volume. A
+  business's own photograph is fine when the business sends it with
+  permission (route 2 below); what is ruled out is taking it unasked. The
+  public wording of this rule is `src/lib/photo-policy.ts`, used by the
+  editorial policy, the credits page and /for-businesses/.
 
 ## What works
 
@@ -117,11 +121,13 @@ in person:
 
 > Hello — I run Inside <Town>, a free local guide at inside<town>.com. You have
 > a listing on it already, with your address and hours; nobody pays to be
-> listed and we do not sell advertising.
+> listed or to be placed higher, and any sponsorship is labeled and kept apart
+> from the listings.
 >
 > The listing has no photograph. Could we either use one of yours, or take one
-> of the front of the shop? If you send one, we will credit it to you and we
-> will take it down the moment you ask.
+> of the front of the shop? If you send one you took or hold the rights to,
+> please say we may publish it on the guide and how to credit it; we will
+> credit it that way and take it down the moment you ask.
 >
 > Either way the listing stays, photograph or not.
 

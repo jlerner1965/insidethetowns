@@ -8,7 +8,7 @@ performers:
   - { name: "Mike Finders Duo", kind: group }
 url: "https://citystarbrewing.com/event/beer-release-time-machine/"
 category: music
-timeNote: "Beer release from 3 pm; live music 6 to 8:30 pm."
+timeNote: "From 3 pm; live music 6–8:30 pm"
 source: "https://citystarbrewing.com/event/beer-release-time-machine/"
 verified: "2026-10-03"
 ---

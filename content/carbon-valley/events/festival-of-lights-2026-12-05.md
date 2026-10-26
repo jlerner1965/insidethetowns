@@ -3,6 +3,7 @@ title: "Festival of Lights"
 subTown: frederick
 start: "2026-12-05"
 allDay: true
+timeTbd: true
 venue: "Crist Park"
 address: "105 Fifth St, Frederick, CO 80530"
 url: "https://www.frederickco.gov/237/Festival-of-Lights"

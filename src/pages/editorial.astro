@@ -10,6 +10,7 @@
 import Page from '@/layouts/Page.astro';
 import TipsLink from '@/components/TipsLink.astro';
 import { getNetworkHub, getSite, liveTowns } from '@/config';
+import { PHOTO_ACCEPTED, PHOTO_CREDIT, PHOTO_NOT_COPIED, PHOTO_PERMISSION } from '@/lib/photo-policy';
 
 const site = getSite();
 const publisher = getNetworkHub().publisher;
@@ -65,16 +66,17 @@ const live = liveTowns();
       organizer’s own page. Past events drop off on their own.
     </p>
 
-    <h2>Photographs</h2>
+    {/* One policy in one set of words (src/lib/photo-policy.ts). This said
+        businesses' own marketing photographs "are not used" while the
+        business page asked owners for theirs; the rule was always about
+        copying, and an owner's photograph sent with permission is welcome. */}
+    <h2 id="photographs">Photographs</h2>
     <p>
-      Every photograph on these sites is public domain, openly licensed, taken by us, or published with the owner’s
-      written permission — and every one is recorded with its source, its terms and whether credit is required.
-      Credit is shown wherever the license or the owner asks for it; a photograph whose record says credit is
-      required and whose page does not show one fails the build. Every photograph the site shows is also listed,
-      with its photographer and license, on the <a href="/credits/">photo credits</a> page, which covers the cards
-      and link previews where a caption will not fit. Businesses’ own marketing photographs, and photographs from
-      review sites, are not used.
+      {PHOTO_ACCEPTED} Each one is recorded with its source, its terms and whether credit is required, and a
+      photograph whose record says credit is required and whose page does not show one fails the build.
     </p>
+    <p>{PHOTO_NOT_COPIED} {PHOTO_PERMISSION}</p>
+    <p>{PHOTO_CREDIT} <a href="/credits/">See the photo credits</a>.</p>
 
     <h2>Independence</h2>
     <p>

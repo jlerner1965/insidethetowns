@@ -4,7 +4,9 @@
  * (matching what the site shows) rather than emitted as RRULEs, so calendar
  * apps and the pages agree on the dates.
  */
+import type { CollectionEntry } from 'astro:content';
 import { TIME_ZONE, dayKey, addDays, startOfDay } from './dates.ts';
+import { exportWhen, isCanceled, occurrences, upcoming } from './events.ts';
 
 export type IcsEvent = {
   uid: string;
@@ -168,4 +170,42 @@ export function googleCalendarUrl(e: Omit<IcsEvent, 'uid'>): string {
   const details = [e.description, e.url].filter(Boolean).join('\n');
   if (details) params.set('details', details);
   return `https://calendar.google.com/calendar/render?${params}`;
+}
+
+type FeedEntry = { slug: string; data: CollectionEntry<'events'>['data'] };
+
+/**
+ * The calendar feed's events (/events/calendar.ics): every occurrence still
+ * to come within `horizonDays`, from `occurrences`, the expansion every page
+ * reads, so a run open Thursday to Sunday is in a reader's calendar on those
+ * nights with each night's hours, a day named in `except` is not there at
+ * all, and a weekly repeat stops at `until`. A cancelled listing keeps its
+ * dates, marked STATUS:CANCELLED, so it reaches a subscriber as a
+ * cancellation rather than a quiet disappearance. A listing with its date
+ * and no time yet goes as that day, saying so.
+ */
+export function feedEvents<T extends FeedEntry>(
+  entries: readonly T[],
+  { now = new Date(), site, domain, horizonDays = 120 }: { now?: Date; site: string | URL; domain: string; horizonDays?: number },
+): IcsEvent[] {
+  const list = upcoming(occurrences([...entries], { now, horizonDays }), { now });
+  return list.map((e) => {
+    const pageUrl = new URL(`/events/${e.slug}/`, site).toString();
+    const location = [e.data.venue, e.data.address].filter(Boolean).join(', ');
+    const parts = [
+      e.data.timeNote ?? (e.data.timeTbd ? 'Time not yet announced.' : undefined),
+      e.data.cost ? `Cost: ${e.data.cost}` : undefined,
+      e.data.recurring,
+      `More: ${pageUrl}`,
+    ].filter(Boolean);
+    return {
+      uid: occurrenceUid(e.slug, e.data, domain),
+      title: e.data.title,
+      ...exportWhen(e),
+      location,
+      description: [e.data.statusNote, ...parts].filter(Boolean).join('\n'),
+      url: e.data.url ?? pageUrl,
+      cancelled: isCanceled(e),
+    };
+  });
 }

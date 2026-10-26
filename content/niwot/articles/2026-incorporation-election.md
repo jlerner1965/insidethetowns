@@ -2,8 +2,8 @@
 title: "The 2026 Niwot incorporation election, plainly"
 seoTitle: "The 2026 Niwot incorporation election: a local guide"
 date: "2026-09-17"
-updated: "2026-10-10"
-verified: "2026-10-10"
+updated: "2026-10-26"
+verified: "2026-10-26"
 excerpt: "The November 3, 2026 ballot inside the proposed boundary: whether Niwot becomes a town, whether to form a nine-member charter commission and who would sit on it, and five fiscal measures that would fund it. What each question does, without an argument for or against."
 category: "Civic"
 tags: [civic, election]
@@ -20,9 +20,11 @@ related:
   - { label: "Moving to Niwot", href: "/moving-here/", note: "Water, sewer, fire and schools as they stand, for anyone deciding whether to buy here before the result." }
 ---
 
+**Checked again October 26, 2026,** against the commission's ballot, candidates and FAQ pages and Boulder County Elections: the questions, figures and dates below still match them, and the county's mail deadline is added. Niwot is still unincorporated, and the commission's pages still speak of a proposed municipality; nothing here is a result.
+
 **Updated October 10, 2026:** the commission certified the ballot titles on September 11, 2026, by Resolution 2026-07. This summary now matches the certified text, and the descriptions of Questions 1 to 3 and Issues 1 to 5 have been corrected to it.
 
-This guide describes the measures as filed, without commentary on whether they are advisable. The [Niwot Election Commission](https://niwotelection.org/ballot) certified the ballot titles on September 11, 2026 (Resolution 2026-07), and the certified ballot language controls; everything here is a plain-language summary of it, checked against the certified text on October 10, 2026. Campaign material is labeled as advocacy wherever it appears, and the commission is never presented as an advocate.
+This guide describes the measures as filed, without commentary on whether they are advisable. The [Niwot Election Commission](https://niwotelection.org/ballot) certified the ballot titles on September 11, 2026 (Resolution 2026-07), and the certified ballot language controls; everything here is a plain-language summary of it, checked against the certified text on October 10, 2026 and again on October 26. Campaign material is labeled as advocacy wherever it appears, and the commission is never presented as an advocate.
 
 ## What you can do now
 
@@ -36,9 +38,11 @@ This guide describes the measures as filed, without commentary on whether they a
 |---|---|
 | Ballots mailed, 24-hour drop boxes open | October 2, 2026 |
 | Vote centers open | October 19, 2026 |
+| Last recommended day to return a ballot by mail, and to ask for a replacement by mail | October 26, 2026 |
+| From then on: a 24-hour drop box or a vote center | October 27 to November 3, 2026 |
 | Election Day; ballots must be received by 7 pm | November 3, 2026 |
 
-Colorado has no registration deadline: an eligible voter can register and vote through Election Day. Dates are from [Boulder County Elections](https://bouldercounty.gov/elections/information/), checked October 10, 2026.
+Colorado has no registration deadline: an eligible voter can register and vote through Election Day. Dates are from [Boulder County Elections](https://bouldercounty.gov/elections/information/), checked October 26, 2026; the [Secretary of State's office](https://www.coloradosos.gov/pubs/newsRoom/pressReleases/2026/PR20261023VoteEarly.html) gives the same advice statewide, that from October 27 a ballot should go to a drop box or a voter center rather than the mail.
 
 ## Who decides what
 
@@ -72,11 +76,12 @@ The proposed boundary is not the same as the Niwot census designated place. The 
 
 ## What happens after the vote
 
-1. If incorporation is rejected, no municipality is created and the fiscal authorizations have nothing to apply to. The charter commission contest is still decided, but the commission has no charter to write. The process ends.
-2. If incorporation is approved, the court enters an order of incorporation, and the fiscal measures that also passed take effect on the dates in the ballot text.
-3. If the charter commission question is also approved, the nine elected commissioners draft a proposed home rule charter. The commission has a charter to write only if incorporation is approved.
-4. The proposed charter returns to voters at a later election.
-5. No charter is being approved in the November 3, 2026 election.
+1. The commission certifies the canvassed results to the Boulder County District Court, as its [FAQ](https://niwotelection.org/faq) describes. Boulder County's calendar has the canvass board's sign-off on November 24.
+2. If incorporation is rejected, no municipality is created and the fiscal authorizations have nothing to apply to. The charter commission contest is still decided, but the commission has no charter to write. The process ends.
+3. If incorporation is approved, the court enters an order of incorporation, and the fiscal measures that also passed take effect on the dates in the ballot text.
+4. If the charter commission question is also approved, the nine elected commissioners draft a proposed home rule charter. The commission has a charter to write only if incorporation is approved.
+5. The proposed charter returns to voters at a later election.
+6. No charter is being approved in the November 3, 2026 election.
 
 ## Official sources
 
@@ -97,4 +102,4 @@ Every registered campaign committee, listed together and labeled identically. No
 
 ## Standards for this page
 
-Nothing here argues for or against incorporation. Anything that cannot be supported by a filed document or an official publication is removed rather than softened. The summaries follow the certified ballot text on the commission’s ballot page and in the amended attachment to Resolution 2026-05, checked on October 10, 2026; where a summary and the ballot language differ, the ballot language governs. Corrections are published with their date. [Report one](/contact/).
+Nothing here argues for or against incorporation. Anything that cannot be supported by a filed document or an official publication is removed rather than softened. The summaries follow the certified ballot text on the commission’s ballot page and in the amended attachment to Resolution 2026-05, checked on October 10, 2026 and against the ballot page again on October 26; where a summary and the ballot language differ, the ballot language governs. Corrections are published with their date. [Report one](/contact/).

@@ -39,8 +39,8 @@ import TeamSeason from '@/components/TeamSeason.astro';
 import { getTown } from '@/config';
 import { schoolSportsFor, schoolsFor, shareImagePath, sportsPath, teamPath, type SportData, type SportsData } from '@/config/school-sports';
 import { dayKey, formatDayShort, formatShortDate } from '@/lib/dates';
-import { bigGame, coming, gameDay as day, latestResult, recentResults, RESULT_WORD, leaguePlace, placeText, schoolCssVars, schoolPageTitle, seasonComplete, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
-import { breadcrumbJsonLd, collectionPageJsonLd, sportsEventJsonLd } from '@/lib/seo';
+import { bigGame, coming, gameDay as day, latestResult, recentResults, RESULT_WORD, leaguePlace, placeText, schoolCssVars, schoolPageTitle, seasonComplete, sportsFullTitle, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
 // Every town's file is in the bundle; the route exists only for towns in the config.
@@ -97,9 +97,9 @@ const PILL = {
 // "Mountain View", "Resurrection Christian": the school as its teams are called (schoolTeamName).
 const shortName = (s: { maxprepsName: string }) => s.maxprepsName;
 const indexName = `${town.name} high school sports`;
-// "Berthoud High School Spartans Scores & Schedules — Football, Soccer,
-// Volleyball, Softball": the sports from the teams with data, never typed.
-const pageTitle = schoolPageTitle(cfg, teams);
+// "Berthoud High School Spartans Scores & Schedules": each sport is named
+// on its own page and in the description, not in this title.
+const pageTitle = schoolPageTitle(cfg);
 const jsonLd = [
   // dateModified: when the run last wrote the data file, the sitemap's lastmod for the page too (src/lib/lastmod.ts).
   collectionPageJsonLd(town, { name: pageTitle, description, path, updated: data.generated ? new Date(data.generated) : undefined }),
@@ -108,14 +108,20 @@ const jsonLd = [
     { name: 'Sports', path: '/sports/' },
     ...(cfg.slug ? [{ name: school, path }] : []),
   ]),
-  // One SportsEvent per game to come, every team, from the data alone (src/lib/seo.ts).
-  ...coming(data)
-    .filter((c) => c.game.date >= today)
-    .map((c) => sportsEventJsonLd(town, cfg, c.team, c.game, path))
-    .filter((e): e is NonNullable<typeof e> => !!e),
+  /*
+   * No SportsEvent per game (they were here from 25 October to 26 October
+   * 2026). Google's event guidelines (developers.google.com/search/docs/
+   * appearance/structured-data/event, updated 8 September 2026) make these
+   * games ineligible twice over: an event needs its own page with its own
+   * markup, not a schedule of many, and "spectator events where the primary
+   * participants and audience are minors" on a school's premises are named
+   * as not eligible. Thirty-odd Events on a schedule page claim what the
+   * page is not; a page per game, made for the markup alone, would be the
+   * thin pages the guide does not build. The page is a CollectionPage.
+   */
 ];
 ---
-<Base title={pageTitle} fullTitle={`${pageTitle} · ${town.siteTitle}`} {description} {jsonLd} image={shareImagePath(cfg)} imageAlt={`${mascot} sports: scores and schedules on ${town.siteTitle}`}>
+<Base title={pageTitle} fullTitle={sportsFullTitle(pageTitle, town.siteTitle)} {description} {jsonLd} image={shareImagePath(cfg)} imageAlt={`${mascot} sports: scores and schedules on ${town.siteTitle}`}>
   {/* The school's colour from here to the foot, where the guide follows one school: see SchoolSports.colors. */}
   <div style={schoolStyle}>
   <header class="border-b-2 border-accent bg-raised">

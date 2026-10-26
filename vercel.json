@@ -804,6 +804,61 @@
       ],
       "destination": "/things-to-do/",
       "permanent": true
+    },
+    {
+      "source": "/events/music-and-movement-afternoon-sessions-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidejohnstown.com"
+        }
+      ],
+      "destination": "/events/music-and-movement-storytime-afternoon/",
+      "permanent": true
+    },
+    {
+      "source": "/events/music-and-movement-afternoon-sessions-2026.ics",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidejohnstown.com"
+        }
+      ],
+      "destination": "/events/music-and-movement-storytime-afternoon.ics",
+      "permanent": true
+    },
+    {
+      "source": "/events/music-and-movement-afternoon-sessions-2026/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidejohnstown.com"
+        }
+      ],
+      "destination": "/events/music-and-movement-storytime-afternoon.ics",
+      "permanent": true
+    },
+    {
+      "source": "/events/messy-art{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidejohnstown.com"
+        }
+      ],
+      "destination": "/events/messy-art-2026-10-28/",
+      "permanent": true
+    },
+    {
+      "source": "/events/messy-art.ics",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidejohnstown.com"
+        }
+      ],
+      "destination": "/events/messy-art-2026-10-28.ics",
+      "permanent": true
     }
   ]
 }

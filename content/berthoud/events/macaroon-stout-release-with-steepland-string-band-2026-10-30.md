@@ -8,7 +8,7 @@ performers:
   - { name: "Steepland String Band", kind: group }
 url: "https://citystarbrewing.com/event/beer-release-macaroon-stout/"
 category: music
-timeNote: "Beer release from 3 pm; live music 6 to 8:30 pm."
+timeNote: "From 3 pm; live music 6–8:30 pm"
 source: "https://citystarbrewing.com/event/beer-release-macaroon-stout/"
 verified: "2026-10-25"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Beer Release: Macaroon Stout\" at 3 pm on 30 October in the page's structured data"

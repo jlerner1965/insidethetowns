@@ -14,8 +14,57 @@ import { join } from 'node:path';
 import * as pagefind from 'pagefind';
 import { NETWORK_SEARCH_FILE } from '../../src/lib/network-search.ts';
 
+/**
+ * What is never a page's words, on any page, kept out of the index here in
+ * one place rather than marked component by component (audit, 26 October
+ * 2026: a search for "City Star" on Berthoud returned excerpts that ended
+ * "Finish signing up in the new tab, then confirm by email", the signup's
+ * hidden panel, on every event).
+ *
+ * Pagefind already skips <nav>, <footer>, <form>, <script> and <style>, and
+ * honours `data-pagefind-ignore` (the site header, footer, ArticleStrip and
+ * the "More in …" modules carry it). It does not know what the browser
+ * would not show, nor what is interface rather than content, so these go
+ * too (Pagefind's `excludeSelectors`, the Node API's form of the CLI's
+ * --exclude-selectors; pagefind.app/docs/config-options):
+ *
+ * - anything `hidden` at build: the signup's "finish in the new tab" panel,
+ *   its validation errors, an open-or-closed line the script fills in, the
+ *   "nothing matches" lines of the filters, a notice not yet in effect;
+ * - live regions and alerts, which hold status and error text;
+ * - buttons, which are controls ("Show all towns", "Change your details"),
+ *   and links to a place on the same page (the day strip's chips, an
+ *   article's contents, the home page's "Thursday email, in your inbox"
+ *   that jumps to the signup), which repeat words the page already has;
+ * - the correction link and the "opening or closing? Tell us" mail link on
+ *   every listing, and the newsletter signup and its privacy line, also
+ *   named here in case one is ever rendered outside its <form>;
+ * - "Up the hill this weekend" (UpTheHill.astro), the mountain guides'
+ *   listings on This week: another guide's events, which matched a Lyons
+ *   search for "music" with a Halloween ball in Estes Park.
+ *
+ * test/network-search.test.ts builds an index from a page holding each.
+ */
+export const EXCLUDE_SELECTORS = [
+  '[hidden]',
+  '[aria-hidden="true"]',
+  '[aria-live]',
+  '[role="status"]',
+  '[role="alert"]',
+  'button',
+  'a[href^="#"]',
+  'nav',
+  'footer',
+  'form',
+  '[data-signup]',
+  '[data-signup-done]',
+  'a[href^="/correct/"]',
+  'a[href^="mailto:"]',
+  '[data-up-the-hill]',
+];
+
 export async function buildSearchIndex(dist = 'dist'): Promise<{ pages: number; records: number }> {
-  const { index, errors } = await pagefind.createIndex({});
+  const { index, errors } = await pagefind.createIndex({ excludeSelectors: EXCLUDE_SELECTORS });
   if (!index) throw new Error(`pagefind: ${errors.join('; ')}`);
   try {
     const site = await index.addDirectory({ path: dist });

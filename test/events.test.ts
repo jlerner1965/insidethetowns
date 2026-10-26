@@ -248,7 +248,8 @@ test('a one-off before the weekend is not "still running"', () => {
   ];
   const s = weekendSections(list, { now: at('2026-10-05T12:00') });
   assert.deepEqual(titles(s.continuing), ['Wed–Sat festival'], 'only a multi-day run lasting into Friday');
-  assert.deepEqual(titles(s.before), ['Tue–Thu workshop', 'Tuesday meeting', 'Wednesday lecture', 'Thursday trivia']);
+  // Within a day, the timed listing before the all-day one (sortByStart).
+  assert.deepEqual(titles(s.before), ['Tuesday meeting', 'Tue–Thu workshop', 'Wednesday lecture', 'Thursday trivia']);
   assert.equal(sectionCount(s), 1, 'what no weekend page shows is not counted as on');
 });
 

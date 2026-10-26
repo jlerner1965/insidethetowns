@@ -8,7 +8,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { clockLabel, hoursLines, hoursTextByDesign, hoursWithMeridiem, openingStatus, parseHoursText, parseOpeningHours } from '../src/lib/hours.ts';
+import { clockLabel, hoursDataAttr, hoursLines, hoursTextByDesign, hoursWithMeridiem, openingStatus, parseHoursText, parseOpeningHours, readHoursDataAttr, unknownHoursDays } from '../src/lib/hours.ts';
 
 test('a plain range with am and pm stated', () => {
   assert.deepEqual(parseHoursText('Mon–Sat 6 am–9 pm, Sun 7 am–8 pm'), ['Mo-Sa 06:00-21:00', 'Su 07:00-20:00']);
@@ -174,4 +174,63 @@ test('a place open round the clock says so, rather than closing at midnight', ()
   assert.deepEqual(openingStatus(spec, denver('2026-10-01T14:00', '-06:00')), { open: true, label: 'Open 24 hours' });
   // Open all day on Saturday only: at midnight it really does close.
   assert.deepEqual(openingStatus(['Sa 00:00-24:00'], denver('2026-10-03T14:00', '-06:00')), { open: true, label: 'Open · closes midnight' });
+});
+
+/**
+ * Unknown hours are never "Closed" (audit of 26 October 2026). Every case is
+ * one the content has: Sando's Subs in Loveland ("weekend hours not
+ * posted"), the Parish House Museum in Johnstown (three days by
+ * appointment), Little Bird in Niwot (Sundays between Thanksgiving and
+ * Christmas), and listings with no hours or unreadable ones.
+ */
+test('unknown hours never read "Closed": the days a listing does not settle', () => {
+  // An editor's schedule over a line the parser cannot read: the days it leaves out are unknown.
+  const sandos = { hours: 'Mon–Fri 11 am–5 pm; weekend hours not posted', openingHours: ['Mo-Fr 11:00-17:00'] };
+  assert.deepEqual(unknownHoursDays(sandos), [0, 6]);
+  // Days named "by appointment" are unknown; a day the line leaves out (Sunday) is closed.
+  const parish = { hours: 'Tue, Wed, Sat 9–12; Mon, Thu, Fri by appointment' };
+  assert.deepEqual(parseHoursText(parish.hours), ['Tu,We,Sa 09:00-12:00']);
+  assert.deepEqual(unknownHoursDays(parish), [1, 4, 5]);
+  // A trailing "or by appointment" names no day; the posted hours stand.
+  assert.deepEqual(unknownHoursDays({ hours: 'Tue–Sat 10–5, or by appointment' }), []);
+  // A line read in full: the days it leaves out are closed, as businesses post them.
+  assert.deepEqual(unknownHoursDays({ hours: 'Wed–Sat 1–4 pm' }), []);
+  assert.deepEqual(unknownHoursDays({ hours: 'Tue–Sat 10–5; closed Sun–Mon' }), []);
+  // A closed place has no hours to be unknown.
+  assert.deepEqual(unknownHoursDays({ ...sandos, status: 'temporarily-closed' }), []);
+  const littleBird = { hours: 'Mon–Sat 10–5; closed Sun, except Sun 11–3 between Thanksgiving and Christmas', openingHours: ['Mo-Sa 10:00-17:00'] };
+  assert.deepEqual(unknownHoursDays(littleBird), [0]);
+});
+
+test('on an unknown day the badge says nothing, and no next opening is named past one', () => {
+  const spec = ['Mo-Fr 11:00-17:00'];
+  const unknown = [0, 6];
+  // Saturday 3 October 2026: the weekend is not posted, so no claim either way.
+  assert.equal(openingStatus(spec, denver('2026-10-03T14:00', '-06:00'), undefined, unknown), null);
+  assert.equal(openingStatus(spec, denver('2026-10-04T09:00', '-06:00'), undefined, unknown), null);
+  // Without the unknown days, the same listing said "Closed · opens Mon 11 am" all weekend.
+  assert.deepEqual(openingStatus(spec, denver('2026-10-03T14:00', '-06:00')), { open: false, label: 'Closed · opens Mon 11 am' });
+  // Friday evening is known and closed; Saturday may open before Monday, so no "opens Mon".
+  assert.deepEqual(openingStatus(spec, denver('2026-10-02T18:00', '-06:00'), undefined, unknown), { open: false, label: 'Closed now' });
+  // A known day reads as it always has.
+  assert.deepEqual(openingStatus(spec, denver('2026-10-01T14:00', '-06:00'), undefined, unknown), { open: true, label: 'Open · closes 5 pm' });
+  assert.deepEqual(openingStatus(spec, denver('2026-10-01T08:00', '-06:00'), undefined, unknown), { open: false, label: 'Closed · opens 11 am' });
+  // A bar's Friday still running past midnight on an unknown Saturday is open.
+  assert.deepEqual(openingStatus(['Fr 16:00-01:00'], denver('2026-10-03T00:30', '-06:00'), undefined, [6]), { open: true, label: 'Open · closes 1 am' });
+});
+
+test('no hours, or hours that cannot be read, give no data-hours and so no badge', () => {
+  assert.equal(hoursDataAttr({}), undefined);
+  assert.equal(hoursDataAttr({ hours: 'Open daily, dawn to dusk' }), undefined);
+  assert.equal(hoursDataAttr({ hours: 'Hours vary; call ahead' }), undefined);
+  assert.equal(hoursDataAttr({ hours: 'Tue–Sat 10–5', status: 'closed' }), undefined);
+  // Every day known: the plain array, as pages have always carried.
+  assert.equal(hoursDataAttr({ hours: 'Tue–Sat 10–5; closed Sun–Mon' }), '["Tu-Sa 10:00-17:00"]');
+  // Unknown days travel with the schedule, and read back.
+  const attr = hoursDataAttr({ hours: 'Mon–Fri 11 am–5 pm; weekend hours not posted', openingHours: ['Mo-Fr 11:00-17:00'] });
+  assert.deepEqual(readHoursDataAttr(attr), { spec: ['Mo-Fr 11:00-17:00'], unknown: [0, 6] });
+  assert.deepEqual(readHoursDataAttr('["Tu-Sa 10:00-17:00"]'), { spec: ['Tu-Sa 10:00-17:00'] });
+  assert.equal(readHoursDataAttr('not json'), null);
+  assert.equal(readHoursDataAttr(undefined), null);
+  assert.equal(readHoursDataAttr('{"unknown":[0]}'), null);
 });
