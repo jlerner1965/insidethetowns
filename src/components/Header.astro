@@ -83,34 +83,6 @@ const emailHref = Astro.props.home ? '#signup' : '/#signup';
     <div class="flex items-center justify-between gap-4 py-5 sm:gap-6 md:py-7 xl:gap-4" style={`--wordmark-em:${wordmarkEm}`}>
       <Wordmark class="site-wordmark whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" tone="ink" />
 
-      <div class="flex items-center gap-1 xl:order-last xl:gap-2">
-        <a
-          href="/search/"
-          aria-label="Search"
-          aria-current={path.startsWith('/search') ? 'page' : undefined}
-          class="site-search-link flex size-11 shrink-0 items-center justify-center rounded-full text-ink-muted no-underline hover:bg-raised hover:text-primary"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="11" cy="11" r="7"></circle>
-            <path d="m20 20-3.5-3.5"></path>
-          </svg>
-        </a>
-        {/* From a tablet's width up; on a phone the signup is in the menu's foot. */}
-        {emailOn && (
-          <a href={emailHref} class="ml-1 hidden min-h-11 items-center whitespace-nowrap rounded-full bg-primary px-4 text-[0.875rem] font-semibold text-white no-underline hover:bg-primary-hover sm:inline-flex">{sendDay} email</a>
-        )}
-        <button
-          type="button"
-          class="nav-toggle -mr-2 xl:hidden"
-          aria-expanded="false"
-          aria-controls="site-nav"
-          aria-label="Menu"
-          data-nav-toggle
-        >
-          <span class="nav-toggle-bars" aria-hidden="true"></span>
-        </button>
-      </div>
-
       <nav id="site-nav" class="site-nav" aria-label="Primary">
         <ul class="site-nav-list container-page xl:gap-2.5 xl:px-0 2xl:gap-5">
           {nav.map((item) => (
@@ -159,6 +131,35 @@ const emailHref = Astro.props.home ? '#signup' : '/#signup';
           )}
         </ul>
       </nav>
+
+      {/* After the menu in the source, so the tab order is the order on screen: the wordmark, the menu, search, the email, and on a phone the menu button. */}
+      <div class="flex items-center gap-1 xl:gap-2">
+        <a
+          href="/search/"
+          aria-label="Search"
+          aria-current={path.startsWith('/search') ? 'page' : undefined}
+          class="site-search-link flex size-11 shrink-0 items-center justify-center rounded-full text-ink-muted no-underline hover:bg-raised hover:text-primary"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m20 20-3.5-3.5"></path>
+          </svg>
+        </a>
+        {/* From a tablet's width up; on a phone the signup is in the menu's foot. */}
+        {emailOn && (
+          <a href={emailHref} class="ml-1 hidden min-h-11 items-center whitespace-nowrap rounded-full bg-primary px-4 text-[0.875rem] font-semibold text-white no-underline hover:bg-primary-hover sm:inline-flex">{sendDay} email</a>
+        )}
+        <button
+          type="button"
+          class="nav-toggle -mr-2 xl:hidden"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Menu"
+          data-nav-toggle
+        >
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
   </div>
   <div class="h-px bg-line-soft"></div>

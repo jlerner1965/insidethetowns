@@ -126,6 +126,8 @@ template switches its colour.
   (`moreNav`); then the nearby guides; then "All N guides". In the row it opens
   under itself and closes on Escape (focus back on "More"), a click or a tab
   elsewhere. In the phone panel it is listed open.
+- The tab order is the order on screen: wordmark, the menu and More, search,
+  the email button, and on a phone the menu button.
 - The current page: the primary, with a 2px underline 0.6em under the word in
   the row; `aria-current="page"`.
 - The phone menu: the button opens a panel under the header and puts focus on
