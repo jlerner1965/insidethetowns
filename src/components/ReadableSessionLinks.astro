@@ -1,0 +1,11 @@
+---
+/**
+ * The event page's description, with each session link the body writes as
+ * "2026-10-26 at 13:00" shown as "Mon, Oct 26, 1 pm" (src/lib/session-links.ts).
+ * Used only by src/routes/town/events/[slug].astro.
+ */
+import { readableSessionLinks } from '@/lib/session-links';
+
+const html = Astro.slots.has('default') ? await Astro.slots.render('default') : '';
+---
+<Fragment set:html={readableSessionLinks(html)} />
