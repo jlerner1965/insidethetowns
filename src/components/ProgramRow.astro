@@ -4,11 +4,16 @@
  * where, what it costs, how to register, and the source with its check
  * date. Every fact is the organizer's; a line the organizer did not give
  * is not drawn. The deadline is said plainly, and said to have passed when
- * it has.
+ * it has. Where the program stands (open, not started yet, full, on a
+ * break, ended) is a labelled pill beside the title, in words, with the
+ * date that decides it (src/lib/programs.ts, programStatus); a program the
+ * file says nothing about gets no pill rather than a guessed "open". The
+ * row's own check date sits with its source, so a page's "Checked" line
+ * never has to speak for every row (Lyons audit, 26 October 2026).
  */
 import type { TownEntry } from '@/lib/content';
-import { formatDate, formatDayShort, toIsoLocal } from '@/lib/dates';
-import { ageText, deadlinePassed } from '@/lib/programs';
+import { formatDate, formatDayShort, formatShortDate, toIsoLocal } from '@/lib/dates';
+import { ageText, breakAhead, deadlinePassed, programStatus } from '@/lib/programs';
 import { PROGRAM_ACCESS_LABELS, PROGRAM_KIND_LABELS } from '@/content/schemas';
 import { getTownEntries } from '@/lib/content';
 import { occurrences, upcoming } from '@/lib/events';
@@ -23,6 +28,17 @@ const { program, showKind = true } = Astro.props;
 const { data } = program;
 const now = new Date();
 const passed = deadlinePassed(program, now);
+const status = programStatus(program, now);
+const pause = breakAhead(program, now);
+// Words carry the meaning; the colour only groups them: a notice (full, a
+// break) on the amber wash, ended greyed, the rest plain.
+const pill = {
+  open: 'bg-raised text-primary ring-primary-line',
+  upcoming: 'bg-raised text-ink ring-line',
+  full: 'bg-highlight-soft text-ink ring-highlight',
+  paused: 'bg-highlight-soft text-ink ring-highlight',
+  ended: 'bg-paper text-ink-muted ring-line',
+}[status?.state ?? 'upcoming'];
 // The next date of the listing the program points at, so "next" is a date
 // the calendar agrees with rather than a line typed here.
 const next = data.nextEvent ? (await getTownEntries('events')).find((e) => e.slug === data.nextEvent) : undefined;
@@ -43,13 +59,22 @@ const reg = data.registration;
 const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
 const track = data.kind === 'league' || data.kind === 'class' || data.kind === 'program' ? 'registration' : 'participation';
 ---
-<article id={`program-${program.slug}`} class="min-w-0 scroll-mt-20 border-t border-line-soft py-5 first:border-t-0 md:py-6 [overflow-wrap:anywhere]">
+<article id={`program-${program.slug}`} data-status={status?.state} class="min-w-0 scroll-mt-20 border-t border-line-soft py-5 first:border-t-0 md:py-6 [overflow-wrap:anywhere]">
   {showKind && (
     <p class="eyebrow text-ink-muted">{PROGRAM_KIND_LABELS[data.kind]} · {data.organizer}</p>
   )}
-  <h3 class="mt-1 text-xl font-medium leading-tight md:text-[1.375rem]">
+  <h3 class:list={['mt-1 text-xl font-medium leading-tight md:text-[1.375rem]', status?.state === 'ended' && 'text-ink-muted']}>
     {data.url ? <a href={data.url} rel="noopener" data-track={track} class="no-underline hover:text-primary hover:underline">{data.title}</a> : data.title}
   </h3>
+  {status && (
+    <p class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.9375rem]">
+      <span class:list={['rounded-full px-2.5 py-0.5 text-[0.8125rem] font-semibold ring-1', pill]}><span class="sr-only">Status: </span>{status.label}</span>
+      {status.detail && <span class="text-ink-muted">{status.detail}</span>}
+    </p>
+  )}
+  {pause && (
+    <p class="mt-2 rounded-md bg-highlight-soft px-3 py-1.5 text-[0.9375rem] ring-1 ring-highlight">{pause}</p>
+  )}
   <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">{data.summary}</p>
   {shown.length > 0 && (
     <dl class="mt-3 grid gap-x-6 gap-y-1.5 text-[0.9375rem] leading-snug sm:grid-cols-[6rem_1fr]">
@@ -86,7 +111,9 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
     {data.contact && <span>Contact: {data.contact}</span>}
     {data.source && (
       <span>
-        <a href={data.source} rel="noopener" class="inline-block -my-2 py-2 underline">Source: {host(data.source)}</a>
+        <a href={data.source} rel="noopener" class="inline-block -my-2 py-2 underline">Source: {host(data.source)}</a>{data.verified && (
+          <Fragment>, read <time datetime={toIsoLocal(data.verified).slice(0, 10)}>{formatShortDate(data.verified)}</time></Fragment>
+        )}
       </span>
     )}
   </p>

@@ -9,13 +9,15 @@
  */
 import {
   PROGRAM_AUDIENCES,
+  PROGRAM_STATUS_LABELS,
   PROGRAM_TOPICS,
   type ProgramAudience,
   type ProgramData,
   type ProgramKind,
+  type ProgramStatusState,
   type ProgramTopic,
 } from '../content/schemas.ts';
-import { dayKey, daysBetween } from './dates.ts';
+import { dayKey, daysBetween, formatDate, formatMonthDay } from './dates.ts';
 
 export type ProgramLike = { data: ProgramData; slug?: string; id?: string };
 
@@ -328,4 +330,95 @@ export function isDropIn(p: ProgramLike): boolean | undefined {
 export function freePrograms<T extends ProgramLike>(list: readonly T[]): T[] {
   const rank = (p: T) => (isDropIn(p) === true ? 0 : isDropIn(p) === false ? 1 : 2);
   return byName(list.filter((p) => isFree(p) && familySection(p) !== 'organizations' && p.data.kind !== 'volunteer')).sort((a, b) => rank(a) - rank(b));
+}
+
+/**
+ * Where a program stands on the day the page is built: open, not started
+ * yet, full, on a break or ended (Lyons audit, 26 October 2026). Read in
+ * this order, each from the file's own dates or the organizer's word:
+ *
+ * 1. A session whose last day (`ends`) has gone by is ended, unless the
+ *    next session's sign-ups are already dated ahead.
+ * 2. The organizer's `status`, while it holds (from `statusFrom`, through
+ *    `statusUntil`); a break that is over reads as running again.
+ * 3. A start (`starts`) or a sign-up opening (`registration.opens`) still
+ *    ahead is not started yet.
+ * 4. Sign-ups open now (an opening behind us, or none, and a deadline
+ *    ahead), or a session under way between `starts` and `ends`, is open.
+ *
+ * Anything else says nothing: a weekly storytime with no dates is not
+ * called open because the file is silent, and a passed deadline is the
+ * row's to say. `detail` is one short line with the date that decides it.
+ */
+export interface ProgramStatus {
+  state: ProgramStatusState;
+  label: string;
+  detail?: string;
+}
+
+/** "October 7", or "January 11, 2027" when the year is not this one. */
+function dayText(d: Date, now: Date): string {
+  return d.getFullYear() === now.getFullYear() ? formatMonthDay(d) : formatDate(d);
+}
+
+const join = (...parts: Array<string | undefined>) => parts.filter(Boolean).join('. ') || undefined;
+
+export function programStatus(p: ProgramLike, now = new Date()): ProgramStatus | undefined {
+  const d = p.data;
+  const today = dayKey(now);
+  const ahead = (x?: Date) => !!x && dayKey(x) > today;
+  const behind = (x?: Date) => !!x && dayKey(x) < today;
+  const make = (state: ProgramStatusState, detail?: string): ProgramStatus => ({ state, label: PROGRAM_STATUS_LABELS[state], detail });
+  const r = d.registration;
+
+  // 1. The session is over, and the next one is not dated.
+  if (behind(d.ends) && !ahead(r?.opens)) {
+    return make('ended', join(`Ended ${dayText(d.ends!, now)}`, d.status === 'ended' ? d.statusNote : undefined));
+  }
+  // 2. The organizer's word, while it holds.
+  if (d.status && !ahead(d.statusFrom) && !behind(d.statusUntil)) {
+    if (d.status === 'paused') return make('paused', join(d.statusNote, `Back after ${dayText(d.statusUntil!, now)}`));
+    if (d.status === 'upcoming' && ahead(d.starts)) return make('upcoming', join(d.statusNote, `Starts ${dayText(d.starts!, now)}`));
+    return make(d.status, d.statusNote);
+  }
+  // 3. Not started, or not taking sign-ups, yet.
+  if (ahead(d.starts)) return make('upcoming', `Starts ${dayText(d.starts!, now)}`);
+  if (ahead(r?.opens)) return make('upcoming', `Sign-ups open ${dayText(r!.opens!, now)}`);
+  // 4. Taking sign-ups, or under way.
+  if (r?.deadline && !behind(r.deadline)) return make('open', `Sign up by ${dayText(r.deadline, now)}`);
+  if (d.starts && d.ends && !ahead(d.starts) && !behind(d.ends)) return make('open', `Runs through ${dayText(d.ends, now)}`);
+  return undefined;
+}
+
+/**
+ * A break the organizer has announced that has not begun, within the next
+ * `days` days: "A break October 27 to November 11", so a parent reading on
+ * the Monday is not sent to Tuesday's storytime.
+ */
+export function breakAhead(p: ProgramLike, now = new Date(), days = SOON_DAYS): string | undefined {
+  const d = p.data;
+  if (d.status !== 'paused' || !d.statusFrom || !d.statusUntil) return undefined;
+  const until = daysBetween(now, d.statusFrom);
+  if (until <= 0 || until > days) return undefined;
+  const span = `${dayText(d.statusFrom, now)} to ${dayText(d.statusUntil, now)}`;
+  return d.statusNote ? `${d.statusNote}, ${span}` : `A break ${span}`;
+}
+
+/** Ended for the season: kept off the age sections and the free list, and listed once at the foot of the hub. */
+export function isEnded(p: ProgramLike, now = new Date()): boolean {
+  return programStatus(p, now)?.state === 'ended';
+}
+
+/**
+ * The order within a section by what a reader can still act on: the full
+ * ones after the rest, the ended ones last (the hub lists those apart).
+ * Stable, so the section's own order (age, featured, name) stands within
+ * each rank.
+ */
+export function byActionable<T extends ProgramLike>(list: readonly T[], now = new Date()): T[] {
+  const rank = (p: T) => {
+    const s = programStatus(p, now)?.state;
+    return s === 'ended' ? 2 : s === 'full' ? 1 : 0;
+  };
+  return [...list].sort((a, b) => rank(a) - rank(b));
 }

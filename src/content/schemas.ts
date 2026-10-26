@@ -1024,6 +1024,27 @@ export const PROGRAM_ACCESS_LABELS: Record<ProgramAccess, string> = {
   private: 'Private',
 };
 
+/**
+ * Where a program stands (Lyons audit, 26 October 2026: a football season
+ * that ended on October 7 and a storytime break read the same as an open
+ * league). `open`: running or taking sign-ups now. `upcoming`: announced,
+ * not yet started or not yet taking sign-ups. `full`: the organizer says
+ * the places are taken. `paused`: a break the organizer has announced, with
+ * its dates. `ended`: the season or session is over and the next one is
+ * not posted. The page derives what it can from the file's dates
+ * (src/lib/programs.ts, programStatus); `status` is for what only the
+ * organizer's words can say, and it is never assumed.
+ */
+export const PROGRAM_STATUSES = ['open', 'upcoming', 'full', 'paused', 'ended'] as const;
+export type ProgramStatusState = (typeof PROGRAM_STATUSES)[number];
+export const PROGRAM_STATUS_LABELS: Record<ProgramStatusState, string> = {
+  open: 'Open now',
+  upcoming: 'Not started yet',
+  full: 'Full',
+  paused: 'On a break',
+  ended: 'Ended',
+};
+
 export function programSchema<I extends z.ZodType>(image: () => I) {
   return z
     .object({
@@ -1111,6 +1132,22 @@ export function programSchema<I extends z.ZodType>(image: () => I) {
             .refine((o) => o.from.getTime() <= o.to.getTime(), { message: 'openOn: from is after to' }),
         )
         .optional(),
+      /**
+       * The current or next session's first and last days, where the
+       * organizer gives them. Before `starts` the program reads as not
+       * started yet; after `ends` it reads as ended until the file names
+       * the next session, so a finished season never passes for an open one.
+       */
+      starts: localDate.optional(),
+      ends: localDate.optional(),
+      /** Where the program stands, on the organizer's word: see PROGRAM_STATUSES. Unset, the dates decide, or nothing is said. */
+      status: z.enum(PROGRAM_STATUSES).optional(),
+      /** The first day `status` holds (a break that starts next week). Unset, it holds from now. */
+      statusFrom: localDate.optional(),
+      /** The last day `status` holds (a break's last day); after it the program reads as running again. */
+      statusUntil: localDate.optional(),
+      /** The organizer's words on the status: "Storytime takes a break", "The fall session filled; wait list open". */
+      statusNote: z.string().min(1).optional(),
       /** A need the organizer has published, in their words: "Parent volunteers needed". */
       volunteerNeed: z.string().min(1).optional(),
       /** How to make a first inquiry: an email, a phone, a form. */
@@ -1134,6 +1171,19 @@ export function programSchema<I extends z.ZodType>(image: () => I) {
     .refine((p) => p.ageFrom === undefined || p.ageTo === undefined || p.ageFrom <= p.ageTo, {
       message: 'ageFrom is greater than ageTo',
       path: ['ageTo'],
+    })
+    .refine((p) => !p.starts || !p.ends || p.starts.getTime() <= p.ends.getTime(), { message: 'starts is after ends', path: ['ends'] })
+    .refine((p) => !p.statusFrom || !p.statusUntil || p.statusFrom.getTime() <= p.statusUntil.getTime(), {
+      message: 'statusFrom is after statusUntil',
+      path: ['statusUntil'],
+    })
+    .refine((p) => !!p.status || (!p.statusFrom && !p.statusUntil && !p.statusNote), {
+      message: 'statusFrom, statusUntil and statusNote need a status',
+      path: ['status'],
+    })
+    .refine((p) => p.status !== 'paused' || !!p.statusUntil, {
+      message: 'a paused program says when it is back: statusUntil is its last day off',
+      path: ['statusUntil'],
     });
 }
 export type ProgramData = z.infer<ReturnType<typeof programSchema>>;
