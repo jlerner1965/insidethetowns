@@ -219,10 +219,14 @@ search rankings, and a paused or deleted domain hands over nothing.
 Retired 19 September 2026. Since 4 October 2026 `explorelyons.com` and
 `www.explorelyons.com` are domains on the **insidelyons** project, each a 308
 redirect to `insidelyons.com` that keeps the path: one hop, no project of its
-own. insidelyons.com answers the nine old paths that changed name (`/explore/`,
-`/eat-shop/`, `/stay/`, `/outdoors/`, `/itineraries/`, `/plan-a-visit/`,
-`/our-story/`, `/civic/`, `/community/`) itself, from `vercel.json`, scoped to
-the `insidelyons.com` host so no other town gets them. So `/civic/` goes to
+own. insidelyons.com answers the eight old paths that changed name (`/explore/`,
+`/eat-shop/`, `/outdoors/`, `/itineraries/`, `/plan-a-visit/`, `/our-story/`,
+`/civic/`, `/community/`) itself, from `vercel.json`, scoped to the
+`insidelyons.com` host so no other town gets them. `/stay/` was the ninth until
+26 October 2026: since 20 October every guide with lodging has a `/stay/` page
+of its own, and a host rule is applied before the page is served, so the
+redirect was hiding Lyons's lodging page and had to go. The old
+explorelyons.com/stay/ now lands on that page. So `/civic/` goes to
 insidelyons.com/civic/ and on to `/articles/who-governs-lyons/`; everything
 else lands on the same path. All 16 of the old site's redirects were checked
 on both hostnames when the domains moved.

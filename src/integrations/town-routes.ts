@@ -15,14 +15,15 @@ import { schoolsFor, sportsDataFile, sportsPath, teamPath, type SportsData } fro
 import { teamsWithData } from '../lib/school-sports.ts';
 
 /**
- * The home page: the flagship layout for a guide whose config carries
- * `home` (src/components/home/FlagshipHome.astro), the shared one for every
- * other. Two route files rather than one that picks, so the flagship's
- * stylesheet, its italic face and its script are in a flagship's build and
- * nowhere else: a classic guide's pages are byte for byte what they were.
+ * The home page: one route file for every guide (design pass, 26 October
+ * 2026). It was two, a flagship layout for a guide whose config carries
+ * `home` and the classic one for the rest; the one page now reads `home`
+ * itself (src/components/home/TownHome.astro) to decide what the guide
+ * closes on. Kept as a function so the route list and its test say the
+ * same thing in one place.
  */
-export function homeRoute(site: Pick<TownConfig, 'home'>): [pattern: string, file: string] {
-  return ['/', site.home ? 'home-flagship.astro' : 'index.astro'];
+export function homeRoute(_site: Pick<TownConfig, 'home'>): [pattern: string, file: string] {
+  return ['/', 'index.astro'];
 }
 
 const TOWN_ROUTES: Array<[pattern: string, file: string]> = [

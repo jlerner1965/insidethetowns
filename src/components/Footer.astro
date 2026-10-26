@@ -1,4 +1,10 @@
 ---
+/**
+ * The footer, the same on every page of a site (design pass, 26 October
+ * 2026: the flagship home page had a shorter one of its own). The sections
+ * the menu leaves out, how to get in touch, what the guide is, and the
+ * independence line, then the network strip.
+ */
 import { getNetworkHub, getSite } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { siteNav } from '@/lib/nav';
@@ -45,7 +51,7 @@ const sections = site.kind === 'town'
         {/* The address itself, on every page: it was on /about/ and the
             contact form alone (network audit, 14 October 2026). The
             network's one address, which is where every town's mail goes. */}
-        <li><a href={`mailto:${hub.social.email}`} class={linkClass}>{hub.social.email}</a></li>
+        <li><a href={`mailto:${hub.social.email}`} class:list={[linkClass, '[overflow-wrap:anywhere]']}>{hub.social.email}</a></li>
         {site.kind === 'town' && (
           <li><a href="/submit-event/" class={linkClass}>Submit an event</a></li>
         )}

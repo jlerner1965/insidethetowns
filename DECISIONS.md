@@ -6579,3 +6579,31 @@ stylesheets 1.4 s. A tighter character subset saves 5 KB; the size is the
 two axes. The choice between keeping it, `font-display: optional`, and the
 36 KB file without the optical-size axis is the owner's, since each changes
 how the type looks.
+## Lyons's lodging page unblocked, and two listings made one, 26 October 2026
+
+*26 October 2026, from the weekly site health check.*
+
+- **The `/stay/` rule on insidelyons.com is gone.** It was one of the nine
+  explorelyons.com paths insidelyons.com answers itself (4 October), sending
+  `/stay/` to `/things-to-do/`. Since 20 October every guide with lodging
+  builds a `/stay/` page, and Lyons listed its own in the sitemap, but a
+  host-scoped rule in `vercel.json` is applied by Vercel before any page is
+  served, so the page could not be reached and its sitemap entry answered
+  308 with Things to Do's title. The other eight rules stay;
+  `test/host-files.test.ts` now holds that `/stay/` is not among them. The
+  old explorelyons.com/stay/ lands on the lodging page, which is the better
+  answer anyway.
+- **One file per event.** The Fort Lupton library's Día de los Muertos on
+  2 November had three files on the Carbon Valley guide: the handoff's
+  (11 October), the Town page's ofrenda viewing night (10 October, same
+  evening since its move) and the LibCal feed's (15 October). The feed's
+  file is the one kept, because the ingest matches on its `sourceUid` and
+  would stage the event again without it; the address, organizer and the
+  other two bodies' details (the fifth year of community ofrendas, the
+  candlelight, the altars on display 26 October to 9 November, the Town's
+  page) are folded into it. Johnstown's Monday 1 pm Music & Movement
+  storytime likewise had the handoff's per-date file beside the weekly
+  series; the series stays, with the themes carried over. The ingest's
+  title match did not catch either because the files came from different
+  sources, and the nightly re-check confirmed both copies against the same
+  page. Deleted files stay in git history, as the accuracy system says.

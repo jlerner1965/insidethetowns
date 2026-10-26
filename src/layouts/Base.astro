@@ -45,19 +45,12 @@ interface Props {
   noindex?: boolean;
   /** What the page is, for the site search's result list: "Event", "Place", "Guide". */
   kind?: string;
-  /**
-   * The flagship home page: the header is the same as every page's, and
-   * only its email button points at this page's own signup (#signup)
-   * rather than the home page's. Every other page leaves it unset.
-   */
-  chrome?: 'home';
 }
 
 const site = getSite();
 const analytics = getNetworkHub().analytics === true;
 const plausible = site.kind === 'town' && site.plausible === true;
-const { jsonLd, kind, chrome, ...props } = Astro.props;
-const home = chrome === 'home';
+const { jsonLd, kind, ...props } = Astro.props;
 // A town that has not launched serves a holding page; nothing on it, nor the
 // shared pages around it, should be indexed before the guide exists.
 const seo = site.kind === 'town' && site.status !== 'live' ? { ...props, noindex: true } : props;
@@ -110,7 +103,7 @@ const cssVars = [
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-raised focus:px-4 focus:py-2">
       Skip to content
     </a>
-    <Header home={home} />
+    <Header />
     <main id="main" class="flex-1" data-pagefind-body={searchable ? '' : undefined} data-pagefind-meta={searchable && kind ? `kind:${kind}` : undefined}>
       <slot />
     </main>

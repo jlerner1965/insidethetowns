@@ -1,13 +1,10 @@
 ---
 /**
- * The town home page for every guide without the flagship layout: the
- * shared page. A guide whose config carries `home` is built from
- * home-flagship.astro instead (src/integrations/town-routes.ts, homeRoute),
- * so nothing of the flagship's reaches this page's build. The markup is on
- * one line so the page is byte for byte what it was when this file chose
- * between the two layouts, whitespace included.
+ * The town home page, the same file for every guide (design pass, 26
+ * October 2026): src/components/home/TownHome.astro reads the guide's
+ * config for what to lead with and what to close on.
  */
 import Base from '@/layouts/Base.astro';
-import ClassicHome from '@/components/home/ClassicHome.astro';
+import TownHome from '@/components/home/TownHome.astro';
 ---
-<Base><ClassicHome /></Base>
+<Base><TownHome /></Base>

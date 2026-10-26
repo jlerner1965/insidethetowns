@@ -120,18 +120,6 @@
     outline-color: #fff;
     box-shadow: 0 0 0 3px rgb(0 0 0 / 0.6);
   }
-  /* The flagship masthead is dark, but its phone menu and its towns panel
-     are on the paper: there the ring is the ordinary one. */
-  .on-dark .site-nav-panel :focus-visible {
-    outline-color: var(--color-primary);
-    box-shadow: 0 0 0 3px #fff;
-  }
-  @media (width < 80rem) {
-    .on-dark .site-nav :focus-visible {
-      outline-color: var(--color-primary);
-      box-shadow: 0 0 0 3px #fff;
-    }
-  }
   ::selection {
     background: color-mix(in srgb, var(--color-primary) 20%, #fff);
   }
@@ -339,16 +327,14 @@
     display: block;
     padding-block: 0.25rem 1rem;
   }
-  /* Full-width rows, comfortably over the 44px minimum, and set at reading
-     size rather than as the small caps that suit a row across the top. */
+  /* Full-width rows, comfortably over the 44px minimum, at reading size. */
   .site-nav-link {
     padding-block: 0.95rem;
     font-size: 1.0625rem;
     font-weight: 500;
-    text-transform: none;
-    letter-spacing: normal;
     border-block-start: 1px solid var(--color-line-soft);
   }
+  .site-nav-email-link { color: var(--color-primary); font-weight: 600; }
   .site-nav li:first-child .site-nav-link { border-block-start: 0; }
   /* The switcher's list opens in place under its row, indented a step. */
   .site-nav-panel { padding: 0 0 1rem 1rem; }
@@ -389,6 +375,8 @@
   .site-nav { flex: 1; }
   .site-nav-list { max-inline-size: none; }
   .site-nav-switch { position: relative; margin-inline-start: auto; }
+  /* The email link, a small pill after the switcher, beside search. */
+  .site-nav-email { margin-inline-start: 0.25rem; }
   .site-nav-panel {
     position: absolute;
     inset-inline-end: 0;
@@ -524,6 +512,43 @@
   /* A sentence is not right-aligned under its label but set below it. */
   .compare:not(.compare-pair) tbody td.text { flex-direction: column; gap: 0.25rem; }
   .compare:not(.compare-pair) tbody td.text > span { text-align: left; }
+}
+
+/*
+ * A list of facts (address, hours, phone; when, where, cost): the label in
+ * the supporting ink, sentence case, in a narrow column, the value beside
+ * it. The labels were small capitals in the primary (design pass, 26
+ * October 2026): eleven of them on a place page, and a listing read as a
+ * form. Small capitals are kept for the two jobs they do well, the label
+ * over a section's title and the category on a row.
+ */
+@layer components {
+  .facts {
+    display: grid;
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: 0.6rem 1rem;
+    font-size: 0.9375rem;
+    line-height: 1.45;
+  }
+  .facts dt {
+    color: var(--color-ink-muted);
+    font-weight: 500;
+  }
+  .facts dd { min-width: 0; }
+  .facts dd a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+  .facts .lines > span { display: block; }
+  .facts .lines { font-variant-numeric: tabular-nums; }
+  /* The one fact a reader came for, under a page's title: "Open · closes
+     9 pm", or the day, time and venue of an event. Reading size, in the ink. */
+  .page-lede {
+    margin-top: 1rem;
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+  .page-lede .open-status { font-weight: 600; }
 }
 
 @layer components {

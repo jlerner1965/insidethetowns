@@ -1,42 +1,39 @@
 ---
 /**
- * The masthead: wordmark, the navigation, search and, on a flagship guide,
- * the email button. One treatment on every page of every guide (docs/
- * DESIGN.md, "The header", fixed by the owner on 26 October 2026): the
- * guide's paper, the wordmark in ink and the town's primary, the menu in
- * small capitals. There is no per-template colour switch: the flagship
- * home page and its inner pages had a band in two different colours (the
- * 26 October audit, priority 6), and test/design.test.ts keeps it one.
- *
- * - The rule above it is the town's: the primary running into the accent,
- *   or, on a guide that follows a school, the school's main colour, a line
- *   with no words on it (src/config/school-colors.ts, `rule`).
- * - The menu is src/lib/nav.ts's: the six destinations (townNav), then
- *   "More", a native disclosure holding the sections a resident looks for
- *   by name (moreNav: Things to do, Get involved, This weekend, Local
- *   changes) and the nearby guides. On a phone the panel lists "More" open.
- * - Search, then the email button, at the end of the row; on a phone,
- *   search and the menu button beside the wordmark.
+ * The masthead: wordmark, and the navigation. One masthead on every page of
+ * every site (design pass, 26 October 2026): the paper, the wordmark with
+ * the town's name in its primary, the menu in sentence case, the town
+ * switcher at the end of the row, search. It used to come in three: this
+ * one, a dark band with pills on the flagship guides' interior pages, and
+ * the school's band with its own menu on their home pages. The school's
+ * colour is on the home page's scoreboard and the sports pages now, where
+ * it means something, and the menu is the same list everywhere
+ * (src/lib/nav.ts).
  *
  * The list is rendered once. Below the xl breakpoint (80rem) it becomes a
- * panel that drops from under the header on a button; at and above it, it
- * is a row. Rendering it twice (a desktop copy and a mobile copy, one
- * hidden) puts every link in the page twice.
+ * panel that drops from under the header on a button; at and above it, it is
+ * a row. Not lg: at 1024px the row, with the longer titles beside it, was
+ * wider than the screen on ten of the thirteen sites and pushed the search
+ * button off the edge. Inside Carbon Valley's needs about 1,150px.
+ * Rendering it twice — a desktop copy and a mobile copy, one hidden — is the
+ * usual way to do this and it puts every link in the page twice, which is
+ * duplicate anchor text on four hundred pages and two things to keep in step.
  */
 import { editionFor, emailEditions, getNetworkHub, getSite, liveTowns, neighborsOf } from '@/config';
 import Wordmark from './Wordmark.astro';
-import { moreNav, siteNav } from '@/lib/nav';
+import { siteNav } from '@/lib/nav';
 import { wordmarkEm as titleEm } from '@/lib/titles';
-import { schoolTheme } from '@/config/school-colors';
-import { getTownEntries } from '@/lib/content';
-
-interface Props {
-  /** On the home page itself: the email button goes to the signup on this page. */
-  home?: boolean;
-}
 
 const site = getSite();
 const hub = getNetworkHub();
+/**
+ * On a guide, the last item in the row is a switcher: the neighbouring
+ * guides, then the hub's full list. The primary navigation was all about
+ * the current town and the sister guides sat only in the footer, two
+ * screens of taglines down on a phone (follow-up audit, 8 October 2026). A
+ * native disclosure, so it opens without the script and the script only
+ * closes it: on Escape, on a click elsewhere, and on a width change.
+ */
 const nearby = site.kind === 'town' ? neighborsOf(site) : [];
 const guideCount = liveTowns().length;
 const path = Astro.url.pathname;
@@ -55,85 +52,34 @@ const isActive = (href: string) => {
  */
 const wordmarkEm = titleEm(site.siteTitle).toFixed(1);
 const nav = siteNav(site);
-const hasUpdates = site.kind === 'town' && (await getTownEntries('updates')).length > 0;
-const more = site.kind === 'town' ? moreNav(site, { updates: hasUpdates }) : [];
-// The current page, in the row and in the panel: the primary, and in the
-// row a 2px underline under the word.
+// Sentence case at reading weight, the current section in the primary. In
+// the row the words are what the phone panel shows, at the row's size.
 const rowLink = (on: boolean) => [
-  'site-nav-link block whitespace-nowrap text-[0.8125rem] font-semibold uppercase tracking-[0.1em] no-underline transition-colors xl:tracking-[0.07em]',
-  on ? 'text-primary xl:underline xl:decoration-2 xl:underline-offset-[0.6em]' : 'text-ink-muted hover:text-ink',
+  'site-nav-link block whitespace-nowrap no-underline transition-colors xl:text-[0.9375rem] xl:font-medium',
+  on ? 'text-primary xl:font-semibold' : 'text-ink-muted hover:text-ink',
 ];
-const panelLink = (on: boolean) => [
-  'inline-block py-1.5 text-[0.9375rem] normal-case tracking-normal no-underline hover:text-primary hover:underline',
-  on ? 'font-semibold text-primary' : 'font-medium text-ink',
-];
-// The rule along the top: the school's colour where the guide follows one.
-const school = site.kind === 'town' && site.school ? schoolTheme(site.school) : undefined;
-const ruleStyle = school ? `background:${school.rule}` : undefined;
-// The email button, on a flagship guide the email covers: to the signup at
-// the foot of the home page, from every page.
+const summaryClass = 'site-nav-link cursor-pointer whitespace-nowrap text-ink-muted transition-colors hover:text-ink xl:text-[0.9375rem] xl:font-medium';
+/**
+ * The weekly email, as one small link in the masthead of every page of a
+ * guide the email covers (the newsletter rule of 26 October 2026: a header
+ * link to the signup, and at most one form on a page). It goes to the hub's
+ * signup page with this town ticked, so it is the same destination from
+ * every page, whether or not the page carries a form of its own.
+ */
 const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
-const emailOn = site.kind === 'town' && !!site.home && !!hub.newsletter && !!editionFor(site.slug, emailEditions());
-const emailHref = Astro.props.home ? '#signup' : '/#signup';
+const emailOn = site.kind === 'town' && !!hub.newsletter && !!editionFor(site.slug, emailEditions());
+const emailHref = site.kind === 'town' ? `https://${hub.domain}/newsletter/?towns=${site.slug}` : '/newsletter/';
 ---
-{/* The first thing on every page is a 6px rule in the town's colours. */}
-<div class:list={['h-1.5', !school && 'bg-gradient-to-r from-primary to-accent']} style={ruleStyle} data-site-rule></div>
-<header class="relative bg-paper" data-pagefind-ignore data-site-header>
+{/* The first thing on every page is a band of the town's colours, the
+   primary running into the accent. It costs six pixels and it is what stops
+   the site opening on plain paper. A rule, so the accent may be in it. */}
+<div class="h-1.5 bg-gradient-to-r from-primary to-accent"></div>
+<header class="relative bg-paper" data-pagefind-ignore>
   <div class="container-page">
-    <div class="flex items-center justify-between gap-4 py-5 sm:gap-6 md:py-7 xl:gap-4" style={`--wordmark-em:${wordmarkEm}`}>
+    <div class="flex items-center justify-between gap-4 py-5 sm:gap-6 md:py-6" style={`--wordmark-em:${wordmarkEm}`}>
       <Wordmark class="site-wordmark whitespace-nowrap text-[1.75rem] leading-none md:text-[2rem]" tone="ink" />
 
-      <nav id="site-nav" class="site-nav" aria-label="Primary">
-        <ul class="site-nav-list container-page xl:gap-2.5 xl:px-0 2xl:gap-5">
-          {nav.map((item) => (
-            <li>
-              <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined} class:list={rowLink(isActive(item.href))}>{item.label}</a>
-            </li>
-          ))}
-          {site.kind === 'town' && (
-            <li class="site-nav-switch">
-              <details data-town-switch>
-                <summary class:list={['site-nav-link cursor-pointer whitespace-nowrap text-[0.8125rem] font-semibold uppercase tracking-[0.1em] transition-colors xl:tracking-[0.07em] hover:text-ink', more.some((m) => isActive(m.href)) ? 'text-primary' : 'text-ink-muted']}>More</summary>
-                <div class="site-nav-panel text-ink">
-                  {more.length > 0 && (
-                    <Fragment>
-                      <p class="eyebrow text-ink-muted">In {site.name}</p>
-                      <ul class="mt-2 grid gap-1">
-                        {more.map((m) => (
-                          <li><a href={m.href} aria-current={isActive(m.href) ? 'page' : undefined} class:list={panelLink(isActive(m.href))}>{m.label}</a></li>
-                        ))}
-                      </ul>
-                    </Fragment>
-                  )}
-                  {nearby.length > 0 && (
-                    <Fragment>
-                      <p class:list={['eyebrow text-ink-muted', more.length > 0 && 'mt-3 border-t border-line-soft pt-3']}>Nearby guides</p>
-                      <ul class="mt-2 grid gap-1">
-                        {nearby.map((t) => (
-                          <li>
-                            <a href={`https://${t.domain}/`} class:list={panelLink(false)}>{t.siteTitle}</a>
-                          </li>
-                        ))}
-                      </ul>
-                    </Fragment>
-                  )}
-                  <p class="mt-3 border-t border-line-soft pt-3 text-[0.9375rem]">
-                    <a href={`https://${hub.domain}/#towns`} class="inline-block py-1.5 font-semibold normal-case tracking-normal text-primary underline">All {guideCount} guides →</a>
-                  </p>
-                  {emailOn && (
-                    <p class="mt-3 border-t border-line-soft pt-3 sm:hidden">
-                      <a href={emailHref} class="inline-flex min-h-11 items-center rounded-full bg-primary px-4 text-[0.9375rem] font-semibold normal-case tracking-normal text-white no-underline">Get the {sendDay} email</a>
-                    </p>
-                  )}
-                </div>
-              </details>
-            </li>
-          )}
-        </ul>
-      </nav>
-
-      {/* After the menu in the source, so the tab order is the order on screen: the wordmark, the menu, search, the email, and on a phone the menu button. */}
-      <div class="flex items-center gap-1 xl:gap-2">
+      <div class="flex items-center gap-1 xl:order-last xl:gap-2">
         <a
           href="/search/"
           aria-label="Search"
@@ -145,10 +91,6 @@ const emailHref = Astro.props.home ? '#signup' : '/#signup';
             <path d="m20 20-3.5-3.5"></path>
           </svg>
         </a>
-        {/* From a tablet's width up; on a phone the signup is in the menu's foot. */}
-        {emailOn && (
-          <a href={emailHref} class="ml-1 hidden min-h-11 items-center whitespace-nowrap rounded-full bg-primary px-4 text-[0.875rem] font-semibold text-white no-underline hover:bg-primary-hover sm:inline-flex xl:px-3">{sendDay} email</a>
-        )}
         <button
           type="button"
           class="nav-toggle -mr-2 xl:hidden"
@@ -160,6 +102,49 @@ const emailHref = Astro.props.home ? '#signup' : '/#signup';
           <span class="nav-toggle-bars" aria-hidden="true"></span>
         </button>
       </div>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <ul class="site-nav-list container-page xl:gap-4 xl:px-0 2xl:gap-6">
+          {nav.map((item) => (
+            <li>
+              <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined} class:list={rowLink(isActive(item.href))}>{item.label}</a>
+            </li>
+          ))}
+          {site.kind === 'town' && (
+            <li class="site-nav-switch">
+              <details data-town-switch>
+                {/* "Towns" in the row, where every pixel counts; "Other towns"
+                    in the phone menu, where it reads better. */}
+                <summary class={summaryClass}><span class="xl:hidden">Other towns</span><span class="hidden xl:inline">Towns</span></summary>
+                <div class="site-nav-panel text-ink">
+                  {nearby.length > 0 && (
+                    <Fragment>
+                      <p class="eyebrow text-ink-muted">Nearby</p>
+                      <ul class="mt-2 grid gap-1">
+                        {nearby.map((t) => (
+                          <li>
+                            <a href={`https://${t.domain}/`} class="inline-block py-1.5 text-[0.9375rem] font-medium text-ink no-underline hover:text-primary hover:underline">{t.siteTitle}</a>
+                          </li>
+                        ))}
+                      </ul>
+                    </Fragment>
+                  )}
+                  <p class:list={['text-[0.9375rem]', nearby.length > 0 && 'mt-3 border-t border-line-soft pt-3']}>
+                    <a href={`https://${hub.domain}/#towns`} class="inline-block py-1.5 font-semibold text-primary underline">All {guideCount} guides →</a>
+                  </p>
+                </div>
+              </details>
+            </li>
+          )}
+          {emailOn && (
+            <li class="site-nav-email">
+              <a href={emailHref} class="site-nav-link site-nav-email-link block whitespace-nowrap no-underline xl:inline-flex xl:min-h-10 xl:items-center xl:rounded-full xl:border xl:border-primary-line xl:px-3.5 xl:text-[0.875rem] xl:font-semibold xl:text-primary xl:hover:border-primary">
+                {sendDay} email
+              </a>
+            </li>
+          )}
+        </ul>
+      </nav>
     </div>
   </div>
   <div class="h-px bg-line-soft"></div>
@@ -168,19 +153,10 @@ const emailHref = Astro.props.home ? '#signup' : '/#signup';
 <script>
   const button = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
   const nav = document.getElementById('site-nav');
-  const header = document.querySelector<HTMLElement>('[data-site-header]');
-  const wide = window.matchMedia('(min-width: 80rem)');
-  const switcher = document.querySelector<HTMLDetailsElement>('[data-town-switch]');
-  // In the phone panel "More" is listed open under the six, so what it
-  // holds is in plain sight; in the row it is a disclosure that starts shut.
-  const settleMore = () => switcher?.toggleAttribute('open', !wide.matches);
-  settleMore();
-
   if (button && nav) {
     const open = () => button.getAttribute('aria-expanded') === 'true';
     const set = (next: boolean) => {
       button.setAttribute('aria-expanded', String(next));
-      button.setAttribute('aria-label', next ? 'Close menu' : 'Menu');
       // The lock lives on <html> so the panel's own rules and the scroll lock
       // are one state, not two that can disagree.
       document.documentElement.classList.toggle('nav-open', next);
@@ -190,8 +166,8 @@ const emailHref = Astro.props.home ? '#signup' : '/#signup';
       set(next);
       if (next) nav.querySelector<HTMLAnchorElement>('a')?.focus();
     });
-    // Following a link closes it; so does Escape, which puts focus back on
-    // the button rather than at the top of the document.
+    // Following a link closes it; so does Escape, which puts focus back where
+    // it came from rather than at the top of the document.
     nav.addEventListener('click', (event) => {
       if ((event.target as HTMLElement).closest('a')) set(false);
     });
@@ -201,24 +177,18 @@ const emailHref = Astro.props.home ? '#signup' : '/#signup';
         button.focus();
       }
     });
-    // Tabbing out of the header (past the last link of the panel) closes the
-    // panel, so focus never moves on under a dimmed, scroll-locked page.
-    header?.addEventListener('focusout', (event) => {
-      if (open() && !header.contains(event.relatedTarget as Node | null) && event.relatedTarget) set(false);
-    });
     // Rotating to a width that shows the row must not leave the page locked.
+    const wide = window.matchMedia('(min-width: 80rem)');
     wide.addEventListener('change', (event) => {
       if (event.matches) set(false);
     });
   }
 
-  // "More" in the row opens on its own; this only closes it, the way a menu
+  // The town switcher opens on its own; this only closes it, the way a menu
   // is expected to close: Escape (focus back on its button), a click or a
-  // tab anywhere else. In the phone panel it stays open.
-  if (switcher) {
-    const close = () => {
-      if (wide.matches) switcher.removeAttribute('open');
-    };
+  // tab anywhere else, and the row-to-panel width change.
+  for (const switcher of document.querySelectorAll<HTMLDetailsElement>('[data-town-switch]')) {
+    const close = () => switcher.removeAttribute('open');
     document.addEventListener('click', (event) => {
       if (switcher.open && !switcher.contains(event.target as Node)) close();
     });
@@ -226,11 +196,11 @@ const emailHref = Astro.props.home ? '#signup' : '/#signup';
       if (switcher.open && !switcher.contains(event.target as Node)) close();
     });
     switcher.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && switcher.open && wide.matches) {
+      if (event.key === 'Escape' && switcher.open) {
         close();
         switcher.querySelector<HTMLElement>('summary')?.focus();
       }
     });
-    wide.addEventListener('change', settleMore);
+    window.matchMedia('(min-width: 80rem)').addEventListener('change', close);
   }
 </script>

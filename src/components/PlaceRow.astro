@@ -17,7 +17,6 @@ import { PLACE_HUE } from '@/config/palette';
 import { seasonLabel } from '@/lib/freshness';
 import { hoursDataAttr, hoursLines, hoursWithMeridiem, openingHoursOf } from '@/lib/hours';
 import { isOpen } from '@/lib/places';
-import Provenance from './Provenance.astro';
 import { subTownLabel } from '@/lib/sub-towns';
 import { shorten } from '@/lib/text';
 
@@ -79,15 +78,19 @@ const season = open ? seasonLabel(data.seasonal) : undefined;
       <span class="sm:hidden" data-pagefind-ignore>{shorten(data.summary, 110)}</span><span class="hidden sm:inline">{data.summary}</span>
     </p>
   </div>
-  <div class="grid content-start gap-1 text-[0.875rem] leading-snug text-ink-muted" data-hours={hoursDataAttr(data)}>
+  {/* The check date left the rows (design pass, 26 October 2026): it is a
+      fact about the guide, on the place's own page with its source. */}
+  <div class="grid content-start gap-1 text-[0.9375rem] leading-snug text-ink-muted" data-hours={hoursDataAttr(data)}>
     {/* The state stays with its ZIP: "Firestone, CO / 80504" was the usual break. */}
     {data.address && <p class="text-ink">{data.address.replace(/ (\d{5})$/, '\u00a0$1')}</p>}
     {/* A closed place's old hours are the one thing a reader must not act on. */}
     {open ? data.hours && hoursLines(hoursWithMeridiem(data.hours)).map((line) => <p>{line}</p>) : <p class="text-ink">{data.statusNote}</p>}
     {open && place.hoursHidden === 'stale' && <p class="text-ink-muted">Hours not recently checked; call ahead</p>}
     {season && <p class:list={[place.hoursHidden === 'season' ? 'text-ink' : 'text-ink-muted']}>{season}</p>}
-    {hoursUnknown && <p class="text-ink-muted">Hours unknown</p>}
+    {/* No hours on the guide: said as what to do, not as a shrug. The row
+        is not counted by "Open now" either way (OpenStatus marks only rows
+        with hours), so the uncertainty still shows where it decides something. */}
+    {hoursUnknown && <p class="text-ink-muted">Check current hours</p>}
     {hours && <p class="open-status font-semibold" data-open-status hidden></p>}
-    <p class="text-[0.75rem]"><Provenance compact verified={data.verified} item={`place/${slug}`} title={data.title} /></p>
   </div>
 </li>

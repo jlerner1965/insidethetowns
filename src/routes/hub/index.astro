@@ -172,20 +172,19 @@ const task = 'btn btn-outline min-h-11 px-4 text-[0.9375rem] text-ink';
   <section id="towns" class="band band-paper">
     <div class="container-page">
     <SectionHeader eyebrow="The network" title="The towns" />
-    <div class="grid items-start gap-10 lg:grid-cols-[3fr_2fr] lg:gap-14">
-      {/* Not on a phone: at 375px its labels are too small to read or tap. */}
-      {/* Held in view beside the cards on a wide screen: it ended some 2,700px
-          before they did, leaving an empty column. */}
-      <div class="hidden sm:block lg:sticky lg:top-8">
-        <TownMap towns={live} />
-      </div>
-      <div class="grid content-start gap-8 sm:gap-10">
+    {/* The cards in a grid, three across on a wide screen and two on a
+        tablet, under their regions (design pass, 26 October 2026): one
+        column beside a sticky map ran to some 4,000px on a laptop. The map
+        follows the cards, for the reader who wants to see where a town is
+        once they have its name; not on a phone, where at 375px its labels
+        are too small to read or tap. */}
+    <div class="grid content-start gap-8 sm:gap-10">
         {regions.map(({ region, towns }) => (
           <div>
             <h3 class="mb-4 text-xl sm:mb-5 sm:text-2xl">{region}</h3>
             {/* A phone gets name and county only, two across, the names level along
                each row however the county line wraps; the card is still the link. */}
-            <div class="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-1 [&>:last-child:nth-child(odd)]:col-span-2 lg:[&>:last-child:nth-child(odd)]:col-span-1">
+            <div class="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 [&>:last-child:nth-child(odd)]:col-span-2 lg:[&>:last-child:nth-child(odd)]:col-span-1">
               {towns.map((t) => { const title = wordmarkParts(t.siteTitle); return (
                 <a
                   href={`https://${t.domain}/`}
@@ -210,7 +209,10 @@ const task = 'btn btn-outline min-h-11 px-4 text-[0.9375rem] text-ink';
             </div>
           </div>
         ))}
-      </div>
+    </div>
+    <div class="mt-12 hidden sm:block">
+      <h3 class="mb-4 text-xl sm:text-2xl">Where they are</h3>
+      <TownMap towns={live} />
     </div>
     </div>
   </section>

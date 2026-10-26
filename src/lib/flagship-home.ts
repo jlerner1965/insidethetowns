@@ -1,16 +1,17 @@
 /**
- * The flagship home page's readings of the data (the homepage brief, 25
- * October 2026): which result the scoreboard shows, what is next up, the
- * week as seven days, and which of the school's teams get a row. Pure
- * functions over the sports file, the calendar and the clock, so the
- * rules can be tested without Astro. Every line they produce comes from
- * the data; where there is nothing, they return nothing and the page says
- * so.
+ * The home page's readings of the data (the homepage brief, 25 October
+ * 2026; the design pass, 26 October 2026): which result the scoreboard
+ * shows, what is next up, the week as seven days, and which of the
+ * school's teams get a row. Pure functions over the sports file, the
+ * calendar and the clock, so the rules can be tested without Astro. Every
+ * line they produce comes from the data; where there is nothing, they
+ * return nothing and the page says so.
  */
 import type { CollectionEntry } from 'astro:content';
+import { HIGHLIGHT } from '../config/palette.ts';
 import type { SportGame, SportsData } from '../config/school-sports.ts';
 import { addDays, dayKey, formatDayLong, formatTime, formatTimeRange, startOfDay, toIsoLocal } from './dates.ts';
-import { displayTitle as titleLessVenue, isCanceled, lastDay, listedUntil, sortByStart } from './events.ts';
+import { displayTitle as titleLessVenue, lastDay, listedUntil, sortByStart } from './events.ts';
 import { FLAGSHIP_TEAM, RESULT_WORD, bigGame, dedupeResults, gameDay, stripGames, weekGames, where, type TeamGame } from './school-sports.ts';
 import { weekWindow } from './weekly.ts';
 
@@ -88,7 +89,7 @@ export function siteWord(g: SportGame): 'Home' | 'Away' | 'Neutral site' {
 // ------------------------------------------------------------- the week
 
 export interface DayItem {
-  kind: 'event' | 'game' | 'deadline';
+  kind: 'event' | 'game' | 'deadline' | 'email';
   /** The title as the agenda sets it: shortened at a natural break when it runs long (displayTitle). */
   title: string;
   /** The listing's own title, whole. */
@@ -97,6 +98,14 @@ export interface DayItem {
   when: string;
   /** The venue and the cost, or the game's stage and venue: "City Star Brewing · Free". */
   where: string;
+  /**
+   * Called off or moved, by the organizer's word (the listing's status):
+   * shown with the label, never silently dropped from a day a reader
+   * planned around (design pass, 26 October 2026).
+   */
+  status?: 'canceled' | 'postponed';
+  /** The editor's pick for the week: one word beside the title. */
+  pick?: boolean;
   /** One line, both: "6:30 pm · Home", "7 pm · City Star Brewing · Free". */
   meta: string;
   /** A game's Home, Away or Neutral site pill. */
@@ -128,6 +137,8 @@ export interface WeekDay {
   date: Date;
   /** Before today: what was listed and played, never an invitation to add to it. */
   past: boolean;
+  /** "Today" or "Tomorrow" when the day is one of them; the agenda's heading says so. */
+  relative?: 'Today' | 'Tomorrow';
   items: DayItem[];
   /** Listed that day beyond the ones shown. */
   more: number;
@@ -139,15 +150,20 @@ export interface WeekInput<E extends EventLike> {
   /** The team pages that exist, by team key, for the games' links. */
   teamHref?: (key: string) => string;
   now?: Date;
-  /** Items a day shows before "+N more". */
-  limit?: number;
+  /** The email's day ("Thursday") and hour ("7 am"), from the newsletter config; no day, no email item. */
+  email?: { day: string; time?: string };
+  /** Items a day shows before "+N more"; a function gives each day its own. */
+  limit?: number | ((dayIndex: number) => number);
   /**
-   * The first day: the week's Monday (weekWindow), as the seven columns
-   * had it, or today, the agenda's seven days from the day the page was
-   * built (the 26 October 2026 audit: on a Sunday six of the Monday week's
-   * seven days had gone, and the first screen showed what was over).
+   * Which seven days: the calendar week, Monday to Sunday (`monday`), or
+   * the seven from today (`today`), the agenda's choice: a reader on a
+   * Saturday wants Saturday first, not a column of days gone by (the 26
+   * October 2026 audit: on a Sunday six of the Monday week's seven days had
+   * gone, and the first screen showed what was over).
    */
-  from?: 'monday' | 'today';
+  start?: 'monday' | 'today';
+  /** The slugs of the editor's picks, for the word beside the title. */
+  picked?: ReadonlySet<string>;
   /**
    * Which listings are weekly series (events.ts, weeklyTest, built over the
    * whole calendar). On a day with more than `limit` things, one-off and
@@ -165,6 +181,7 @@ export function clockKey(time: string | undefined): string {
   const hour = (Number(m[1]) % 12) + (m[3]!.toLowerCase() === 'pm' ? 12 : 0);
   return `${String(hour).padStart(2, '0')}:${m[2] ?? '00'}`;
 }
+const WEEKDAY = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Denver', weekday: 'long' });
 const hhmm = (d: Date) => new Intl.DateTimeFormat('en-GB', { timeZone: 'America/Denver', hour: '2-digit', minute: '2-digit', hour12: false }).format(d);
 
 /**
@@ -197,8 +214,9 @@ export const NOTE_IN_COLUMN = 20;
 
 const nbsp = (s: string) => s.replace(/ (am|pm)/g, ' $1');
 
-function eventItem(e: EventLike): DayItem {
-  const { title, start, end, allDay, timeNote, venue, cost, category } = e.data;
+function eventItem(e: EventLike, picked?: ReadonlySet<string>): DayItem {
+  const { title, start, end, allDay, timeNote, venue, cost, category, status } = e.data;
+  const slug = e.slug ?? e.id ?? '';
   // A time note longer than the time column ("Drop-off bins October 26 to
   // November 6; …") goes on the venue line in full rather than down the column.
   const longNote = !!timeNote && timeNote.length > NOTE_IN_COLUMN;
@@ -212,11 +230,13 @@ function eventItem(e: EventLike): DayItem {
     when,
     where: place,
     meta: [fullWhen, place].filter(Boolean).join(' · '),
-    href: `/events/${e.slug ?? e.id}/`,
+    href: `/events/${slug}/`,
     dot: `var(--cat-${category}-dot)`,
     time: allDay || timeNote ? '99:98' : hhmm(start),
     eventDay: lastDay(e),
     end: toIsoLocal(listedUntil(e)),
+    ...(status === 'canceled' || status === 'postponed' ? { status } : {}),
+    ...(picked?.has(slug) ? { pick: true } : {}),
   };
 }
 
@@ -257,45 +277,52 @@ function deadlineItem(d: WeekDeadline): DayItem {
 }
 
 /**
- * Seven days, one entry a day: the events that start that day and are not
- * called off, the school's games that day (the result once it is played,
- * the time before), and the registration openings and deadlines that fall
- * on it. A run that began on an earlier day is filed under its first day
- * only, as the events page files it, so a month-long trail does not fill
- * every day.
+ * Seven days (the calendar week Monday to Sunday, or from today, Denver),
+ * one entry a day: the events that start that day, a called-off one kept
+ * and marked, the school's games that day (the result once it is played,
+ * the time before), the registration openings and deadlines that fall on
+ * it, and the Thursday email on its day from today on. A run that began on
+ * an earlier day is filed under its first day only, as the events page
+ * files it, so a month-long trail does not fill every day.
  *
  * A day shows `limit` things and counts the rest in `more`. Which ones: on a
  * full day the weekly series give way first (a Town Board meeting was hidden
  * behind "+2 more" by two weekly regulars, 26 October 2026), so one-off and
- * civic listings, games and sign-up dates are chosen before them; the chosen
- * ones are then shown in the order of the clock, games and events alike,
- * all-day and untimed last (football had led every day it was played,
- * ahead of a morning story time). The Thursday email is not one of the
- * week's things on: the page promotes it on its own.
+ * civic listings, games, sign-up dates and the email are chosen before the
+ * regulars; the chosen ones are then shown in the order of the clock, games
+ * and events alike, all-day and untimed last (football had led every day it
+ * was played, ahead of a morning story time).
  */
-export function weekDays<E extends EventLike>({ events, sports, teamHref = () => '/sports/', now = new Date(), limit = 3, from = 'monday', isSeries = () => false, deadlines = [] }: WeekInput<E>): WeekDay[] {
-  const first = from === 'today' ? startOfDay(now) : weekWindow(now).monday;
+export function weekDays<E extends EventLike>({ events, sports, teamHref = () => '/sports/', email, now = new Date(), limit = 3, start = 'monday', picked, isSeries = () => false, deadlines = [] }: WeekInput<E>): WeekDay[] {
+  const first = start === 'today' ? startOfDay(now) : weekWindow(now).monday;
   const today = dayKey(now);
-  const listed = sortByStart([...events]).filter((e) => !isCanceled(e));
+  const tomorrow = dayKey(addDays(startOfDay(now), 1));
+  const listed = sortByStart([...events]);
   const games: TeamGame[] = (sports?.sports ?? []).flatMap((team) => [...dedupeResults(team.results), ...team.upcoming].map((game) => ({ team, game })));
+  const limitFor = typeof limit === 'function' ? limit : () => limit;
   return Array.from({ length: 7 }, (_, i) => {
     const date = addDays(first, i);
     const key = dayKey(date);
     const items: DayItem[] = [
       ...games.filter((g) => g.game.date === key).map((g) => gameItem(g, teamHref(g.team.key))),
-      ...listed.filter((e) => dayKey(e.data.start) === key).map((e) => ({ ...eventItem(e), series: isSeries(e) })),
+      ...listed.filter((e) => dayKey(e.data.start) === key).map((e) => ({ ...eventItem(e, picked), series: isSeries(e) })),
       ...deadlines.filter((d) => dayKey(d.on) === key).map(deadlineItem),
     ];
+    if (email && WEEKDAY.format(date) === email.day && key >= today) {
+      const title = `${email.day} email`;
+      items.push({ kind: 'email', title, fullTitle: title, when: email.time ?? '', where: 'In your inbox', meta: `${email.time ? `${email.time}, in` : 'In'} your inbox`, href: '#signup', dot: HIGHLIGHT, time: clockKey(email.time), eventDay: key });
+    }
     // One row per listing a day: a series with two sittings on one day is one thing on.
     const seen = new Set<string>();
     const unique = items.filter((it) => (seen.has(it.href + it.fullTitle) ? false : (seen.add(it.href + it.fullTitle), true)));
     const byClock = (a: DayItem, b: DayItem) => a.time.localeCompare(b.time);
-    const chosen = [...unique].sort((a, b) => Number(!!a.series) - Number(!!b.series) || byClock(a, b)).slice(0, limit);
+    const chosen = [...unique].sort((a, b) => Number(!!a.series) - Number(!!b.series) || byClock(a, b)).slice(0, limitFor(i));
     const kept = chosen.sort(byClock);
     return {
       key,
       date,
       past: key < today,
+      ...(key === today ? { relative: 'Today' as const } : key === tomorrow ? { relative: 'Tomorrow' as const } : {}),
       items: kept,
       more: unique.length - kept.length,
     };

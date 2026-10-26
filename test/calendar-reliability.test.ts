@@ -211,7 +211,7 @@ test('7. the 1 November 2026 clock change keeps local times', () => {
 
 test('8. the home page week, the filtered agenda and the feed agree about the same occurrence', () => {
   const entries = [terror, festival, chess];
-  // The home page: FlagshipHome passes occurrences() to weekDays.
+  // The home page: TownHome passes occurrences() to weekDays.
   const week = weekDays({ events: occurrences(entries, { now: MONDAY, horizonDays: 8 }), now: MONDAY });
   // A row's shown title may drop "at Anderson Farms" (agendaTitle); fullTitle is the listing's own.
   const homeDays = week.filter((d) => d.items.some((i) => i.fullTitle === terror.data.title)).map((d) => d.key);

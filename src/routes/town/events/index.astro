@@ -1,6 +1,7 @@
 ---
 import Page from '@/layouts/Page.astro';
 import SponsorLine from '@/components/SponsorLine.astro';
+import EventCard from '@/components/EventCard.astro';
 import EventList from '@/components/EventList.astro';
 import EventFilters from '@/components/EventFilters.astro';
 import DayStrip from '@/components/DayStrip.astro';
@@ -12,7 +13,7 @@ import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
-import { agenda, categoriesIn, groupByDay, occurrences, splitOngoing, uniqueByEvent } from '@/lib/events';
+import { agenda, categoriesIn, groupByDay, highlights, occurrences, splitOngoing, uniqueByEvent } from '@/lib/events';
 import { bigDates } from '@/lib/big-dates';
 import { formatDate, formatDayLong, toIsoLocal } from '@/lib/dates';
 import { CATEGORY_LABELS, EVENT_CATEGORIES, type EventCategory } from '@/content/schemas';
@@ -52,6 +53,18 @@ const subTowns = subTownsOf(town);
 // name months out, linked from here so each has a permanent way in
 // (src/lib/big-dates.ts). Beyond the fortnight the list already shows.
 const big = bigDates(all, { now: refreshedAt });
+/**
+ * A few to lead with (design pass, 26 October 2026): the fortnight's
+ * picks by the home page's ranking (src/lib/events.ts, highlights: the
+ * featured, then the weekend's one-offs, a regular last and a meeting
+ * after everything), labelled as a selection, above the full list in date
+ * order. Only where there is something to select from: a fortnight of six
+ * listings is its own highlights, and the section is not drawn. Nothing is
+ * hidden behind it, and the filters hide it, since a reader who has asked
+ * for free music this weekend wants that list alone.
+ */
+const picks = nextTwoWeeks.length >= 8 ? highlights(nextTwoWeeks, { now: refreshedAt, limit: 4 }) : [];
+const highlighted = picks.length >= 2 ? picks : [];
 
 const structured = [
   collectionPageJsonLd(town, {
@@ -72,7 +85,7 @@ const structured = [
   jsonLd={structured}
   eyebrow={`What’s on in ${town.name}`}
   description={`What’s on in ${town.name} this week and next: markets, music, festivals, trails and more.`}
-  intro={`Everything on in ${town.name}: the next two weeks first, then further out.`}
+  intro={`What’s listed in ${town.name}: the next two weeks first, then further out, and the weekly regulars once each.`}
 >
   <p slot="after-header" class="mt-4 text-[0.9375rem] text-ink-muted">
     Just the weekend? <a href="/this-weekend/" class="font-semibold text-primary underline">This weekend in {town.name}</a>.
@@ -93,11 +106,22 @@ const structured = [
         ...(weekly.length > 0 ? [{ href: '#every-week', label: 'Every week' }] : []),
       ]}
     />
+    {highlighted.length > 0 && (
+      <section class="mb-12 md:mb-16" data-filter-ignore data-filter-highlights aria-labelledby="highlights-heading">
+        <div class="mb-6 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-line-soft pb-3">
+          <h2 id="highlights-heading" class="text-2xl font-medium">Highlights</h2>
+          <p class="text-[0.875rem] text-ink-muted">A few from the next two weeks; the full list is below.</p>
+        </div>
+        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+          {highlighted.map((event) => <EventCard event={event} />)}
+        </div>
+      </section>
+    )}
     {/* An empty fortnight is not a module: with later dates or regulars to
         show, it is left out rather than announcing its absence. */}
     {(nextTwoWeeks.length > 0 || (later.length === 0 && weekly.length === 0)) && (
       <div data-filter-section hidden={nextTwoWeeks.length > 0 && shownUnfiltered.length === 0}>
-        <h2 class="sr-only">Next 14 days</h2>
+        <h2 id="all-listings" class="mb-6 scroll-mt-4 border-b border-line-soft pb-3 text-2xl font-medium">Next 14 days, by day</h2>
         <EventList events={nextTwoWeeks} held={held} emptyMessage="Nothing listed for the next two weeks yet." />
       </div>
     )}

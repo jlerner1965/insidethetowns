@@ -16,11 +16,9 @@
  *
  * Every other section (This weekend, Guides, the directory, Get involved,
  * Updates, and whichever of the pairs above is not in the menu) is in the
- * footer on every page, and the ones a resident asks for by name are under
- * "More" in the header (moreNav). The flagship home page has no menu of its
- * own any more (the 26 October 2026 audit: its "Town" went to Things to do
- * and its mascot-only label changed name inside the site); docs/DESIGN.md. Sentence case throughout; the classic masthead sets
- * the row in small capitals with CSS, so the words are the same everywhere.
+ * footer on every page. Sentence case throughout, in the row and in the
+ * phone panel alike (design pass, 26 October 2026: the row was set in small
+ * capitals, and the flagship home page ran a second menu of its own).
  */
 import { schoolsFor } from '../config/school-sports.ts';
 import type { NavItem, SiteConfig, TownConfig } from '../config/towns/types.ts';
@@ -44,23 +42,6 @@ export function townNav(town: Pick<TownConfig, 'slug' | 'families' | 'livingHere
     town.families ? { label: 'Families', href: '/families/' } : { label: 'Things to do', href: '/things-to-do/' },
     town.livingHere ? { label: 'Living here', href: '/living-here/' } : { label: 'Moving here', href: '/moving-here/' },
   ];
-}
-
-/**
- * The flagship guides' second tier (the 26 October 2026 audit, priority 6):
- * the sections the six-item menu leaves out but a resident looks for by
- * name, Things to do and Get involved first, each under its own label. In
- * the row they sit behind "More", with the nearby guides; in the phone
- * panel they are listed open under the six. The footer still names them.
- */
-export function moreNav(town: Pick<TownConfig, 'slug' | 'families' | 'livingHere' | 'participation'>, opts: { updates?: boolean } = {}): NavItem[] {
-  const inMenu = new Set(townNav(town).map((n) => n.href));
-  return [
-    { label: 'Things to do', href: '/things-to-do/' },
-    ...(town.participation ? [{ label: 'Get involved', href: '/get-involved/' }] : []),
-    { label: 'This weekend', href: '/this-weekend/' },
-    ...(opts.updates ? [{ label: 'Local changes', href: '/updates/' }] : []),
-  ].filter((n) => !inMenu.has(n.href));
 }
 
 /** The site's menu: the rule above on a guide, the hub's own list on the hub. */

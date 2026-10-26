@@ -54,7 +54,7 @@ export const erie: TownConfig = {
   social: {
     email: 'hello@insideerie.com',
   },
-  // The flagship home page (src/components/home/FlagshipHome.astro), since 22 October 2026.
+  // A resident guide (TownConfig.home), since 22 October 2026.
   home: true,
   /**
    * Erie High's colours, read from its own site 25 October 2026
