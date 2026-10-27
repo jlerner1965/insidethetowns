@@ -4,7 +4,7 @@ type: venue
 address: "200 Highway 72 North, Nederland, CO 80466"
 url: "https://nederland.colibraries.org/"
 source: "https://nederland.colibraries.org/location-and-hours/"
-verified: "2026-10-06"
+verified: "2026-10-27"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "303-258-1101"

@@ -5,7 +5,7 @@ address: "333 E Wonderview Ave, Estes Park, CO 80517"
 area: "Wonderview Avenue"
 url: "https://www.stanleyhotel.com/"
 source: "https://www.stanleyhotel.com/faqs/"
-verified: "2026-10-06"
+verified: "2026-10-27"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 image: ../images/the-stanley-hotel.jpg
