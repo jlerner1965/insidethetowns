@@ -5,11 +5,11 @@ address: "390 W Riverside Drive, Estes Park, CO"
 area: "Riverside Drive"
 url: "https://www.rockcutbrewing.com/"
 source: "https://www.rockcutbrewing.com/"
-verified: "2026-10-06"
+verified: "2026-10-27"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "970-586-7300"
-hours: "Daily 11 am–10 pm"
+hours: "Mon–Thu 12–9 pm; Fri 12–10 pm; Sat 11 am–10 pm; Sun 11 am–9 pm"
 tags: [brewery, taproom, trivia, dog-friendly, patio]
 summary: "Brewery and taproom at the foot of Prospect Mountain, an easy walk from downtown. Indoor and outdoor seating, a dog-friendly patio, crowlers to go and trivia on Tuesdays, 7 to 9 pm."
 ---
