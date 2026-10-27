@@ -28,6 +28,7 @@ photographs. Nothing is drawn from an image generator.
 | Grand Lake | `grand-lake.py` | The forested mountain rising from the lake with gold aspen stands, the bare summit at the head of the lake, the boathouses and docks, a green-roofed log cabin, Grand Avenue's boardwalk false fronts and flags, the log Kauffman House, Lakefront Park's beach and pedal boats |
 | Nederland | `nederland.py` | Barker Reservoir under timbered hills with gold aspens, Eldora's ski runs and the snowy peaks of the Divide, the Mining Museum's Bucyrus steam shovel, Mountain People's Co-op and the Rustic Moose |
 | Carbon Valley | `carbon-valley.py` | Frederick's stepped-parapet brick corner at Fifth and Oak, Firestone's former Town Hall with the mine car in its gable, the Carbon Valley Regional Library's rotunda, Fort Lupton's Ottesen Grain Co. mill, Bald Eagle Pond and the St. Vrain State Park sign |
+| Estes Park | `estes-park.py` | West Elkhorn Avenue's storefronts and green lamp posts, the Stanley Hotel on its rise, the Big Thompson past the riverwalk into Lake Estes, Longs Peak with the Diamond and Mount Meeker, traced from the hero photo |
 
 ## Making the image
 
