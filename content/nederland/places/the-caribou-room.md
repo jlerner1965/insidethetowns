@@ -4,7 +4,7 @@ type: venue
 address: "55 Indian Peaks Dr, Nederland, CO 80466"
 url: "https://www.thecaribouroom.com/"
 source: "https://www.thecaribouroom.com/contact-us"
-verified: "2026-10-06"
+verified: "2026-10-27"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "303-258-3637"

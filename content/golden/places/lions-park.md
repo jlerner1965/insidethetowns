@@ -5,7 +5,7 @@ address: "1300 10th Street, Golden, CO"
 area: "Clear Creek"
 url: "https://www.cityofgolden.gov/business_detail_T31_R17.php"
 source: "https://www.cityofgolden.gov/business_detail_T31_R17.php"
-verified: "2026-10-06"
+verified: "2026-10-27"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 image: ../images/lions-park.jpg
@@ -14,7 +14,7 @@ imageCredit: "Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0"
 hours: "Daily, 1 hour before dawn to 1 hour after dusk"
 tags: [playground, picnic, dogs-on-leash, creek]
 summary: "City park next to the Golden Community Center, just north of Clear Creek, with a large accessible playground, shaded picnic tables and two rentable pavilions. Known for its community Fourth of July celebration."
-access: { parking: "Parking at the drop-in point by Lions Park carries a fee; the city's parking rules, run by Interstate Parking, are at parkgoldenco.com.", source: "https://www.cityofgolden.gov/community/parks_trails/park_rules/index.php", verified: "2026-10-06" }
+access: { parking: "Parking at the drop-in point by Lions Park carries a fee; the city's parking rules, run by Interstate Parking, are at parkgoldenco.com.", source: "https://www.cityofgolden.gov/community/parks_trails/park_rules/index.php", verified: "2026-10-27" }
 ---
 
 The Lions Club built this park in the 1960s beside the Golden Community Center, just north of Clear Creek. It is known for the community Fourth of July celebration and its large playground with accessible features, and it has shaded picnic tables, a multi-use field, a volleyball pit, a dog hydration station and restrooms. It connects to the Clear Creek Trail.

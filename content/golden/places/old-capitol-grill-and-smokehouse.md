@@ -5,7 +5,7 @@ address: "1122 Washington Ave, Golden, CO 80401"
 area: "Washington Avenue"
 url: "https://oldcapitolgrill-smokehouse.com/"
 source: "https://oldcapitolgrill-smokehouse.com/"
-verified: "2026-10-06"
+verified: "2026-10-27"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 image: ../images/old-capitol-grill-and-smokehouse.jpg

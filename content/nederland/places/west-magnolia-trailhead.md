@@ -4,10 +4,10 @@ type: trailhead
 address: "County Road 132W, off Colorado Highway 119, 2.8 miles south of Nederland"
 url: "https://www.fs.usda.gov/r02/arp/recreation/west-magnolia-trailhead"
 source: "https://www.fs.usda.gov/r02/arp/recreation/west-magnolia-trailhead"
-verified: "2026-10-06"
+verified: "2026-10-27"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
-access: { parking: "Limited parking just off the highway; the main lot is one mile west, south through the second Forest Service gate", closures: "The area’s Forest roads are open seasonally; recreational shooting closures exist in the area", conditionsUrl: "https://www.fs.usda.gov/r02/arp/conditions", conditionsLabel: "Boulder Ranger District conditions and road status", source: "https://www.fs.usda.gov/r02/arp/recreation/west-magnolia-trailhead", verified: "2026-10-06" }
+access: { parking: "Limited parking just off the highway; the main lot is one mile west, south through the second Forest Service gate", closures: "The area’s Forest roads are open seasonally; recreational shooting closures exist in the area", conditionsUrl: "https://www.fs.usda.gov/r02/arp/conditions", conditionsLabel: "Boulder Ranger District conditions and road status", source: "https://www.fs.usda.gov/r02/arp/recreation/west-magnolia-trailhead", verified: "2026-10-27" }
 tags: [hiking, mountain-biking, horseback, camping]
 summary: "Forest Service trailhead south of Nederland for about eight miles of singletrack for hiking, biking and riding, with free first-come designated campsites along the Forest roads."
 ---
