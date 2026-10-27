@@ -23,7 +23,8 @@ Last revised: 27 October 2026, evening.
 | Lyons | Confirm The Rock Garden as a source (`npm run sources -- confirm lyons rockgardenlyons-com`) | Five events wait on it | Owner |
 | Lyons and Niwot | Re-list three weekly series that ended in October once the organizer confirms the next dates: the library's baby and toddler storytimes (Lyons), the Rotary Club breakfast (Niwot) | Their files stayed when the past one-offs were deleted on 27 October; a series with no next date shows nothing | Owner confirms, assistant re-lists |
 | Niwot | Call Belle Terre Floral, (303) 652-0419, and The Nook: hours | On no page of their own since 12 October | Owner |
-| All three | Fill the 90-day scorecard for the weeks of 19 and 26 October (`docs/90-DAY-TEST.md`) | Nobody has kept score since 20 October | Assistant, once Search Console and Buttondown are authorized |
+| All three | Fill the 90-day scorecard for the week of 26 October (`docs/90-DAY-TEST.md`) on Tuesday 3 November | Search Console settles a Sunday about two days later; the week of 19 October is filled | Assistant |
+| Lyons | Get the first subscriber: nobody has signed up on insidelyons.com, so the 22 October edition did not send | Its target is 150 by 20 January; the chamber's distribution ask is the drafted way in | Owner |
 | Network | Fix the dead and moved outbound links the 27 October audit lists per town (Lyons done; Erie, Evergreen, Fort Collins, Golden, Johnstown, Windsor, Idaho Springs, Estes Park remain) | | Assistant |
 
 ## Decisions due
@@ -31,7 +32,6 @@ Last revised: 27 October 2026, evening.
 | By | Decision | Who |
 |---|---|---|
 | Now | Scheduled assistant sessions for the Monday scorecard and the weekly audit: yes or no | Owner |
-| Now | Authorize Search Console (GSC Wizard) and Buttondown for the assistant, so the scorecard can be filled | Owner |
 | 19 November | The quiet guides (Elizabeth, Fort Collins, Grand Lake, Leadville, Longmont, Loveland, Nederland): keep each, or retire it to a holding page | Owner |
 | 20 January | The 90-day test's verdict (`docs/90-DAY-TEST.md`) | Owner |
 
