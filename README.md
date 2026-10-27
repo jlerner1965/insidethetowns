@@ -96,7 +96,7 @@ guide's own palette is everything else.
 
 ## The weekly content session
 
-The standing routine is `docs/AUDIT-2026-10-02.md`'s: one town at a time on a
+The standing routine is `docs/archive/AUDIT-2026-10-02.md`'s: one town at a time on a
 fixed day, every event in the next 14 days confirmed against the organizer's
 own page, and every listing re-checked within 30 days (about nine a town a
 week, against the business's own site, by phone when the site is unclear).
@@ -392,23 +392,26 @@ and placements to a business owner.
 - `src/config/towns/` — one file per town; `index.ts` exports `getSite()` / `getTown()`
 - `content/<town>/` — events, places, articles, pages, images, and `staging/` for what is not yet publishable (see the README in each)
 - `src/config/freshness.ts` — how long a checked fact stays publishable; `src/lib/freshness.ts` decides, `src/lib/content.ts` applies, on every page
-- `docs/CHASSIS_TWEAKS.md` — where the shared template did not fit a town, logged for the owner to pick from
-- `docs/ACCURACY-SYSTEM.md` — the accuracy brief: what the build enforces and why, phase by phase
+- `HOW-IT-WORKS.md` — the rules in force, in one place; where it and any other document disagree, it wins
+- `TODO.md` — the one list of what is open and whose it is
+- `docs/archive/` — dated audits, design passes, handoffs and sent email drafts; records, not rules
+- `docs/archive/CHASSIS_TWEAKS.md` — where the shared template did not fit a town, logged for the owner to pick from
+- `docs/archive/ACCURACY-SYSTEM.md` — the accuracy brief: what the build enforces and why, phase by phase
 - `IMAGE_LICENSES.csv` — every image, its source and licence
 - `docs/PHOTOS.md` — how to get the missing photographs, and what has been ruled out
 - `docs/PHOTO-CONTACTS.csv` — every open listing without one (610 on 11 October 2026), with phone, website, the shot wanted and permission status
-- `docs/CALL-LIST.md` — the listings that need a phone call, and the question to ask
-- `docs/VERIFICATION-QUEUE-2026-10-11.csv` — every staged record as of 11 October 2026, what was decided and what is still open
-- `docs/PARK-PHOTO-EMAILS.md` — ten ready-to-send requests covering 41 parks and trails
-- `docs/VENUE-PHOTO-EMAILS.md` — fourteen more covering the 21 venues, and how to reach the 139 businesses at once
-- `docs/INDUSTRY-EMAILS.md` — twelve messages to the trade bodies that reach those 139 businesses, with verified addresses
-- `docs/ALL-PHOTO-EMAILS.md` — all 36 of those messages in one file, in the order to send them, with one tracking table
+- `docs/archive/CALL-LIST.md` — the call list of 3 to 12 October, every town; the three towns' open rows are in `TODO.md`
+- `docs/archive/VERIFICATION-QUEUE-2026-10-11.csv` — every staged record as of 11 October 2026, what was decided and what is still open
+- `docs/archive/emails/PARK-PHOTO-EMAILS.md` — ten ready-to-send requests covering 41 parks and trails
+- `docs/archive/emails/VENUE-PHOTO-EMAILS.md` — fourteen more covering the 21 venues, and how to reach the 139 businesses at once
+- `docs/archive/emails/INDUSTRY-EMAILS.md` — twelve messages to the trade bodies that reach those 139 businesses, with verified addresses
+- `docs/archive/emails/ALL-PHOTO-EMAILS.md` — all 36 of those messages in one file, in the order to send them, with one tracking table
 - `docs/BACKLINKS.md` — verified local link targets per town, and the two domains not to touch
 - `docs/SEARCH-VISIBILITY.md` — Search Console verification (tokens come from each Vercel project’s environment, never the repo), the sitemap URLs, the permanent events pages, and the weekly measurement table
 - `docs/PHOTO-PRIORITIES.md` — the photographs the three flagship guides (Lyons, Niwot, Golden) need first, with the subject and alt-text guidance for each
-- `docs/OUTREACH-FLAGSHIPS.md` — the human partnership tasks for the three flagships: who to ask for a link, a source, distribution or a calendar; nothing on it has been done
-- `docs/LAUNCH-AUDIT.md` — the launch audit: what was fixed, what is left, what needs the owner
-- `docs/AUDIT-2026-10-02.md` — the October site audit: every finding and what was done with it, the phone list, and the weekly routine and event standard the guides are held to
-- `docs/EXPANSION-WINDSOR-FORT-COLLINS.md` — the plan for the two northern guides: what to settle first, what changes beyond the scaffold, the sources checked
+- `docs/archive/OUTREACH-FLAGSHIPS.md` — the human partnership tasks for the three flagships: who to ask for a link, a source, distribution or a calendar; nothing on it has been done
+- `docs/archive/LAUNCH-AUDIT.md` — the launch audit: what was fixed, what is left, what needs the owner
+- `docs/archive/AUDIT-2026-10-02.md` — the October site audit: every finding and what was done with it, the phone list, and the weekly routine and event standard the guides are held to
+- `docs/archive/EXPANSION-WINDSOR-FORT-COLLINS.md` — the plan for the two northern guides: what to settle first, what changes beyond the scaffold, the sources checked
 
 Requires Node 22.18+ (scripts use Node's built-in TypeScript support).

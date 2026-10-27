@@ -287,7 +287,7 @@ Two northern neighbours of Timnath: insidewindsorco.com (Windsor, Weld and
 Larimer counties, 32,716 people) and insidefortcollins.com (Fort Collins, Larimer
 County, 169,810 people — the network’s first city; both domains are
 already zones on Cloudflare). The working plan is
-`docs/EXPANSION-WINDSOR-FORT-COLLINS.md`: the decisions taken (the domain, the
+`docs/archive/EXPANSION-WINDSOR-FORT-COLLINS.md`: the decisions taken (the domain, the
 hub drops "small" and keeps "towns", Fort Collins is a curated guide of about
 sixty places), the nine files beyond the scaffold that know the towns by name
 or count, the config facts as read on 1 October 2026, the sources and their

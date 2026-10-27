@@ -59,7 +59,7 @@ frontmatter. A file whose name starts with `_` is a draft and is never built.
 - **Listings** are written by hand, one file each, against the business's
   own site. The October rotation (`DECISIONS.md`, 3 October) re-checked 192
   of them in a day; 42 that cannot be checked online sit in
-  `docs/CALL-LIST.md` for the owner to phone.
+  `docs/archive/CALL-LIST.md` for the owner to phone.
 - **Rules at entry** (README, every content README): the business's own site
   is the source, never a review site, aggregator or directory; a business
   with no site gets no hours; every item carries a status.

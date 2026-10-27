@@ -15,7 +15,7 @@ import type { TownConfig } from './types.ts';
 export const golden: TownConfig = {
   kind: 'town',
   // Live 7 October 2026, on the owner's word, after the first review cleared
-  // the launch threshold (docs/ACCURACY-SYSTEM.md).
+  // the launch threshold (docs/archive/ACCURACY-SYSTEM.md).
   status: 'live',
   // A visitor guide from 20 October 2026, owner's word, with Estes Park,
   // Golden and Evergreen together (DECISIONS.md, "The other mountain guides,

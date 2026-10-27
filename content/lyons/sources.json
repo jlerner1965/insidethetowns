@@ -77,7 +77,7 @@
       },
       "robots": "subscribe",
       "defaultVenue": "Lyons Regional Library",
-      "notes": "Its iCal feed (feedUrl) is offered to readers to subscribe to in a calendar app. The site's robots.txt disallows every path for agents it does not name, so the event pages are not read; the feed is, under robots: subscribe, by the nightly re-check only, once a night, to confirm listings already on the guide (decided 17 October 2026 under the owner's delegation; the permission request of docs/SOURCE-PERMISSION-EMAILS.md stands as a courtesy). Type stays manual: ingest does not read it until the library answers. Found 4 October 2026; about 120 events, UTC times."
+      "notes": "Its iCal feed (feedUrl) is offered to readers to subscribe to in a calendar app. The site's robots.txt disallows every path for agents it does not name, so the event pages are not read; the feed is, under robots: subscribe, by the nightly re-check only, once a night, to confirm listings already on the guide (decided 17 October 2026 under the owner's delegation; the permission request of docs/archive/emails/SOURCE-PERMISSION-EMAILS.md stands as a courtesy). Type stays manual: ingest does not read it until the library answers. Found 4 October 2026; about 120 events, UTC times."
     },
     {
       "id": "rockgardenlyons-com",

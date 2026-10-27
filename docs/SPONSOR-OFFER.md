@@ -46,7 +46,7 @@ Then stop talking. The objection is the data.
 ## Who to ask first, from the search data
 
 The businesses people already search for on each guide, from Search
-Console, 20 September to 17 October 2026 (docs/SEARCH-CONSOLE-2026-10-20.md):
+Console, 20 September to 17 October 2026 (docs/archive/SEARCH-CONSOLE-2026-10-20.md):
 
 | Town | Searched by name | Why they would care |
 |---|---|---|

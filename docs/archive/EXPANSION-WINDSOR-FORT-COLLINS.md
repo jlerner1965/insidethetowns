@@ -303,7 +303,7 @@ decision 3.
   past year's date rolled forward is the invention the Elizabeth tree lighting
   was refused for.
 - Photographs: Commons is rich for Fort Collins (Old Town, the Avery Block,
-  Horsetooth), the first town where it is. But docs/PARK-PHOTO-EMAILS.md:
+  Horsetooth), the first town where it is. But docs/archive/emails/PARK-PHOTO-EMAILS.md:
   commercial photography in a Fort Collins natural area needs a Commercial Use
   Permit, $50 and up to 15 business days. Do not shoot there without it.
 
@@ -334,7 +334,7 @@ Per domain, in this order, from DEPLOY.md:
 6. **`LIVE_TOWNS`, push.** CI builds ten sites; the hub, the map, the
    comparison table, the network bar and the newsletter draft pick the town up
    on the next build.
-7. **The launch-audit checks** (docs/LAUNCH-AUDIT.md): headers, robots, the
+7. **The launch-audit checks** (docs/archive/LAUNCH-AUDIT.md): headers, robots, the
    sitemap, Lighthouse on `/` and `/events/`.
 
 Both projects fit the one Vercel Pro seat, and analytics events bill against

@@ -28,7 +28,7 @@ export const idahoSprings: TownConfig = {
   kind: 'town',
   // Live 10 October 2026, on the owner's word, under its launch threshold:
   // it publishes what is verified, and the validator and the weekly report
-  // say what it is short of (docs/ACCURACY-SYSTEM.md). Georgetown and Black
+  // say what it is short of (docs/archive/ACCURACY-SYSTEM.md). Georgetown and Black
   // Hawk joined on 20 October 2026.
   status: 'live',
   variant: 'mountain',

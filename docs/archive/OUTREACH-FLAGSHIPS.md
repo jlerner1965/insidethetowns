@@ -22,7 +22,7 @@ draft email and the two domains never to write to.
 |---|---|---|---|
 | Chamber or merchant association link | Lyons Area Chamber of Commerce | No website of its own found; operates through Facebook and the Boulder Chamber directory (docs/BACKLINKS.md) | Contacted: the owner has spoken with them (reported 20 October 2026; date and content to log). The distribution ask is drafted in docs/relationships/drafts/lyons-chamber-2026-10-20.md |
 | Municipality link | Town of Lyons (government and visitor sites, one relationship) | https://www.townoflyons.com/ · https://www.lyonscolorado.com/ | Not contacted |
-| Library link | Lyons Regional Library District | https://lyons.colibraries.org/ | Permission email drafted in docs/SOURCE-PERMISSION-EMAILS.md; not sent |
+| Library link | Lyons Regional Library District | https://lyons.colibraries.org/ | Permission email drafted in docs/archive/emails/SOURCE-PERMISSION-EMAILS.md; not sent |
 | Museum or historical society link | Lyons Redstone Museum / Lyons Historical Society | https://www.lyonsredstonemuseum.com/ | Not contacted |
 | Community nonprofits | LEAF (mutual aid), Lyons Community Foundation | https://leaflyons.org/ · https://lyonscf.org/ | Cited in the Moving Here guide; not contacted |
 | Event organizers | Planet Bluegrass (RockyGrass, Folks Festival); the Town's events office | Planet Bluegrass's own site is on the listing /places/planet-bluegrass/; https://www.lyonscolorado.com/ | Not contacted |
@@ -71,7 +71,7 @@ have not been done for Golden and should be before anyone writes.
 ## Order of work
 
 1. Send the library and photo-permission emails already drafted
-   (docs/SOURCE-PERMISSION-EMAILS.md, docs/ALL-PHOTO-EMAILS.md); a reply
+   (docs/archive/emails/SOURCE-PERMISSION-EMAILS.md, docs/archive/emails/ALL-PHOTO-EMAILS.md); a reply
    that grants a photograph is a relationship to ask a link of.
 2. Ask the eight organisations that have already granted photographs
    (PERMISSIONS.md) for a link; none has been asked.
