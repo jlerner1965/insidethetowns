@@ -1,69 +1,63 @@
 ---
 /**
- * The town home page, one for every guide (design pass, 26 October 2026).
- * It replaced two: the classic page (hero, the week with the games beside
- * it, places, articles, the guide's map of itself, the email, a moving-here
- * band) and the flagship page of the 25 October brief (a scoreboard the
- * size of the screen on the school's band, the week in seven columns, the
- * email twice). Top to bottom:
+ * The town home page, one for every guide: a front door, not the whole
+ * site (the homepage redesign brief, 27 October 2026). Each section shows
+ * two or three things and one link to its page; the page's two jobs are
+ * this week's events and the Thursday email. Top to bottom:
  *
- * 1. The photograph, the county, the name, the town's own line and three
- *    ways in (Hero), sized by what is in it.
- * 2. The scoreboard in brief, on the school's band, for a guide that
- *    follows one school (Scoreboard); the shared strip for one that follows
- *    several.
- * 3. The week as an agenda, seven days from today (WeekAgenda), the games
- *    among the listings and the editor's pick marked; a third closer to the
- *    strip than one band to the next, the two being one subject.
- * 4. Things to know, the week's local changes with their sources, beside
- *    the email's card: the page's one form, for this town alone, where the
- *    email covers the town. A guide with neither skips the band.
- * 5. Where to go: three picks, a place to eat or drink, a place outdoors
- *    and a place of the town's own culture, then the rest as rows.
- * 6. From the guide: the latest two articles, before anything from next
- *    door. The town's own stories come first.
- * 7. Nearby this weekend: the neighbours' picks, their names as plain
- *    labels.
- * 8. The guide's own map of itself: one short band of links, no copy.
- * 9. The close: for a resident guide (`home` in the config) one short
- *    invitation to take part; for every other, moving here.
+ * 1. The photograph, the county, the name and the town's own line (Hero,
+ *    compact): a short band on a phone, the type under the picture.
+ * 2. The school's strip (SportsBar): the mark, the nickname, the latest
+ *    result, the next game and the scores, in the school's colours. A
+ *    guide that follows several schools keeps the shared strip; a guide
+ *    with no sports data has none.
+ * 3. What's happening (WhatsHappening): Today, Tomorrow and This weekend
+ *    as tabs, five listings each, the games among them, then All events
+ *    and Add an event.
+ * 4. The Thursday email (NewsletterSignup, home): the heading, one line,
+ *    the field and the button. The page's one form, where the email covers
+ *    the town.
+ * 5. Find your next stop (NextStop): Eat & drink, Things to do and Living
+ *    here (or Moving here) as three photographs.
+ * 6. Worth knowing: the two newest local changes as links, and the rest on
+ *    the updates page. Hidden where there are none.
+ * 7. The footer, one block on this page (Footer).
  *
- * The order of 5 to 9, the picks, the plain labels and the short band are
- * the owner's revisions of 26 October 2026 to the design pass of that day.
+ * The seven-day agenda, the scoreboard, the changes' summaries and sources,
+ * the place cards and the list of eight, the articles, the neighbours'
+ * weekend, the grid of links and the closing bands came off the page on
+ * 27 October 2026; every one of their pages is still one click away from
+ * the menu or the footer. It replaced the design pass of 26 October 2026,
+ * which on a phone ran to fourteen screens on Berthoud; this runs to about
+ * five.
  *
  * Which of these a guide shows is the config's and the content's: a guide
- * with no school has no scoreboard, one the email does not cover has no
- * form, one with no updates folder has no Things to know. Every date,
- * score and count is the data's, and an empty section says so.
+ * with no school has no strip, one the email does not cover has no form,
+ * one with no local changes has no Worth knowing. Every date, score and
+ * count is the data's, and an empty tab says so.
  */
 import Hero from '@/components/Hero.astro';
-import SectionHeader from '@/components/SectionHeader.astro';
-import PlaceCard from '@/components/PlaceCard.astro';
-import PlaceFeature from '@/components/PlaceFeature.astro';
-import PlaceIndex from '@/components/PlaceIndex.astro';
-import ArticleCard from '@/components/ArticleCard.astro';
-import NearbyWeekend from '@/components/NearbyWeekend.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import SportsStrip from '@/components/SportsStrip.astro';
-import Scoreboard from './Scoreboard.astro';
-import WeekAgenda from './WeekAgenda.astro';
-import { editionFor, emailEditions, getNetworkHub, getTown, neighborsOf } from '@/config';
+import NextStop from './NextStop.astro';
+import SportsBar from './SportsBar.astro';
+import WhatsHappening from './WhatsHappening.astro';
+import { editionFor, emailEditions, getNetworkHub, getTown } from '@/config';
 import { schoolsFor, teamPath, type SportsData } from '@/config/school-sports';
-import { EAT_DRINK_TYPES, LAND_TYPES } from '@/content/schemas';
-import { getNeighborEntries, getTownEntries, type TownEntry } from '@/lib/content';
-import { formatDayRange } from '@/lib/dates';
-import { nearbyPicks, occurrences } from '@/lib/events';
+import { getTownEntries } from '@/lib/content';
+import { occurrences } from '@/lib/events';
 import { weekDays } from '@/lib/flagship-home';
+import { defaultTab, homeTabs } from '@/lib/home-tabs';
 import { isOpen } from '@/lib/places';
 import { hasData, sportsDataFor } from '@/lib/school-sports';
 import { currentUpdates } from '@/lib/updates';
-import { briefingUpdates, currentPick, weekWindow } from '@/lib/weekly';
+import { currentPick } from '@/lib/weekly';
 
 const town = getTown();
 const now = new Date();
 const hub = getNetworkHub();
 
-// 2. The school. One school: the scoreboard on its band. Several: the strip.
+// 2. The school. One school: its strip. Several: the shared one.
 const schools = schoolsFor(town.slug);
 const files = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
 const school = schools.length === 1 ? schools[0] : undefined;
@@ -76,230 +70,55 @@ const teamHref = (key: string) => {
 // 4. The email: one form on the page, where the email covers the town.
 const emailOn = !!hub.newsletter && !!editionFor(town.slug, emailEditions());
 
-// 3. The week: the next seven days, the first two with room for four
-// things, the rest three, the pick marked. The town's events and games
-// only: the email's own day used to sit among them as a listing, the
-// third of five mentions of the email on one page (owner, 26 October 2026);
-// the card in the next band is where the email is offered.
+// 3. The week from today, uncapped: the tabs choose their five
+// (src/lib/home-tabs.ts), the editor's pick marked.
 const allEvents = await getTownEntries('events');
 const calendar = occurrences(allEvents, { now, horizonDays: 30 });
 const notes = await getTownEntries('weekly');
 const { thisWeek: pick } = currentPick(notes, calendar, now);
 const picked = new Set(pick ? [pick.event.slug] : []);
-const days = weekDays({
-  events: occurrences(allEvents, { now, horizonDays: 8 }),
-  sports: data,
-  teamHref,
-  now,
-  start: 'today',
-  limit: (i) => (i < 2 ? 4 : 3),
-  picked,
-});
-const weekEnd = days[6]!.date.getTime() + 86_400_000;
-const laterCount = new Set(calendar.filter((e) => e.data.start.getTime() >= weekEnd).map((e) => e.slug)).size;
+const days = weekDays({ events: occurrences(allEvents, { now, horizonDays: 8 }), sports: data, teamHref, now, start: 'today', limit: 99, picked });
+const tabs = homeTabs(days, now);
+const open = defaultTab(now);
 
-// 4. Things to know: the week's local changes, newest first, with sources.
-const updates = await getTownEntries('updates');
-const know = briefingUpdates(currentUpdates(updates, now), now)
+// 6. Worth knowing: the two newest local changes still current.
+const know = currentUpdates(await getTownEntries('updates'), now)
   .sort((a, b) => b.data.published.getTime() - a.data.published.getTime() || b.data.effective.getTime() - a.data.effective.getTime())
-  .slice(0, 3);
-const hasUpdates = updates.length > 0;
-const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
-const { monday, sunday } = weekWindow(now);
+  .slice(0, 2);
 
-// 5. The places. The home page recommends; a place that has closed is
-// listed, not recommended. "Eat, drink, wander" is three picks that are what
-// it says (owner, 26 October 2026: a park, a lake and a museum over a row of
-// restaurant names did not match the promise): one place to eat or drink,
-// one outdoors, one of the town's culture (a venue: the museum, the library,
-// the arts centre), each the best its kind has, the editor's pick with a
-// photograph first, then any photograph, then the editor's pick. A guide
-// short of one kind fills the three from what it has. A pick without a
-// photograph is a panel of facts (PlaceCard); the rest of the section is an
-// index of names, not a grid of tiles.
+// 5. The places with a photograph, for the three tiles; a closed place is not a next stop.
 const places = (await getTownEntries('places')).filter(isOpen);
-type Place = TownEntry<'places'>;
-const rank = (p: Place) => (p.data.featured && p.data.image ? 0 : p.data.image ? 1 : p.data.featured ? 2 : 3);
-const best = (list: Place[]) => [...list].sort((a, b) => rank(a) - rank(b))[0];
-const ofKind = (types: readonly string[]) => best(places.filter((p) => types.includes(p.data.type)));
-const kinds = [ofKind(EAT_DRINK_TYPES), ofKind(LAND_TYPES), ofKind(['venue'])].filter((p): p is Place => !!p);
-const chosen = new Set(kinds.map((p) => p.slug));
-const placeCards = [...kinds, ...[...places].filter((p) => !chosen.has(p.slug)).sort((a, b) => rank(a) - rank(b))].slice(0, 3);
-const carded = new Set(placeCards.map((p) => p.slug));
-const pickedFirst = (list: Place[]) => [...list.filter((p) => p.data.featured), ...list.filter((p) => !p.data.featured)];
-const placeIndex = pickedFirst(places.filter((p) => !carded.has(p.slug))).slice(0, 8);
-
-// 7. The neighbours' weekend, chosen here so the band is drawn only when
-// there is something in it.
-const neighbors = neighborsOf(town);
-const nearby = nearbyPicks(occurrences(await getNeighborEntries('events', neighbors), { now, horizonDays: 30 }), neighbors.map((t) => t.slug), { now });
-
-// 6. The guide's latest.
-const articles = (await getTownEntries('articles')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 2);
-const [leadArticle, secondArticle] = articles;
-
-// 8. The guide's own map of itself: the pages, as links and nothing more.
-// Each had a line of copy under it, which said again what the menu, the
-// footer and the pages' own introductions say (owner, 26 October 2026).
-// Families and Things to do are different pages, as are Living here and
-// Moving here; a guide shows the ones it has.
-const around = [
-  { label: `Events`, href: '/events/' },
-  { label: 'This weekend', href: '/this-weekend/' },
-  ...(school ? [{ label: `${school.mascot} sports`, href: '/sports/' }] : []),
-  { label: 'Eat & drink', href: '/eat-drink/' },
-  { label: 'Things to do', href: '/things-to-do/' },
-  ...(town.families ? [{ label: town.families.label, href: '/families/' }] : []),
-  ...(town.livingHere ? [{ label: 'Living here', href: '/living-here/' }] : []),
-  ...(town.participation ? [{ label: town.participation.label, href: '/get-involved/' }] : []),
-  { label: 'Guides', href: '/guides/' },
-  { label: 'Every place, A to Z', href: '/directory/' },
-  { label: 'Local changes', href: '/updates/' },
-  { label: `Moving to ${town.name}`, href: '/moving-here/' },
-];
-
-// 9. The close. A resident guide ends on taking part, said once in a
-// sentence or two with the three ways in it (owner, 26 October 2026: the
-// three cards made one invitation three); a visitor guide on moving here.
-const resident = !!town.home;
 ---
-<Hero />
+<Hero compact />
 
-{school ? <Scoreboard town={town} /> : schools.length > 1 && (
-  <section class="band band-paper">
-    <div class="container-page"><SportsStrip town={town.slug} class="max-w-3xl" /></div>
+{school ? <SportsBar town={town} /> : schools.length > 1 && (
+  <section class="band-compact band-paper">
+    <div class="container-page"><SportsStrip town={town.slug} class="max-w-3xl" limit={2} /></div>
   </section>
 )}
 
-<WeekAgenda town={town} days={days} now={now} laterCount={laterCount} follows={!!school || schools.length > 1} />
+<WhatsHappening town={town} tabs={tabs} open={open} />
 
-{(hasUpdates || emailOn) && (
-  <section class="band band-paper" aria-labelledby={hasUpdates ? 'know' : undefined}>
-    <div class:list={['container-page grid gap-10', hasUpdates && emailOn && 'lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start lg:gap-14']}>
-      {hasUpdates && (
-        <div>
-          <SectionHeader eyebrow={formatDayRange(monday, sunday)} title="Things to know" id="know" href="/updates/" linkLabel="Every local change" />
-          {know.length > 0 ? (
-            <ol class="grid gap-6">
-              {know.map((u) => (
-                <li class="border-t border-line-soft pt-4 first:border-t-0 first:pt-0">
-                  <h3 class="text-xl font-medium leading-tight">{u.data.title}</h3>
-                  <p class="mt-1.5 text-[1.0625rem] leading-relaxed text-ink-muted">{u.data.summary}</p>
-                  {(u.data.source || u.data.alsoSource) && (
-                    <p class="mt-1.5 flex flex-wrap gap-x-4 text-[0.875rem]">
-                      {u.data.source && <a href={u.data.source} rel="noopener" class="inline-block -my-2 py-2 text-primary underline">Source: {u.data.sourceLabel ?? host(u.data.source)}</a>}
-                      {u.data.alsoSource && <a href={u.data.alsoSource} rel="noopener" class="inline-block -my-2 py-2 text-primary underline">{u.data.alsoSourceLabel ?? host(u.data.alsoSource)}</a>}
-                    </p>
-                  )}
-                </li>
-              ))}
-            </ol>
-          ) : (
-            <p class="text-[1.0625rem] leading-relaxed text-ink-muted">No local changes on the guide for the week of {formatDayRange(monday, sunday)}. When the Town or a business changes something residents need to know, it goes here with its source.</p>
-          )}
-        </div>
-      )}
-      {emailOn && (
-        <div class:list={[!hasUpdates && 'max-w-3xl']}>
-          <NewsletterSignup town={town} id="home" variant="card" anchor="signup" />
-        </div>
-      )}
-    </div>
-  </section>
-)}
-
-<section class="band band-white">
-  <div class="container-page">
-    {/* The section shows every kind of place, not only food, so the link goes
-       to the directory, which lists them all. */}
-    <SectionHeader eyebrow="Eat, drink, wander" title="Where to go" href="/directory/" linkLabel="All places" />
-    {places.length === 0 ? (
-      <p class="text-ink-muted">Places are on their way.</p>
-    ) : (
-      <>
-        {placeCards.length === 1 && (placeCards[0]!.data.image ? <PlaceFeature place={placeCards[0]!} /> : <div class="max-w-xl"><PlaceCard place={placeCards[0]!} /></div>)}
-        {placeCards.length > 1 && (
-          <div class:list={['grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:gap-x-8', placeCards.length > 2 && 'lg:grid-cols-3']}>
-            {placeCards.map((place) => <PlaceCard place={place} />)}
-          </div>
-        )}
-        {placeIndex.length > 0 && (
-          <div class:list={[placeCards.length > 0 && 'mt-12 border-t border-line-soft pt-2']}>
-            <PlaceIndex places={placeIndex} />
-          </div>
-        )}
-      </>
-    )}
-  </div>
-</section>
-
-{leadArticle && (
-  <section class="band band-paper">
+{emailOn && (
+  <section class="band-compact band-paper">
     <div class="container-page">
-      <SectionHeader eyebrow="Latest" title="From the guide" href="/guides/" linkLabel="All guides" />
-      <ArticleCard article={leadArticle} feature />
-      {secondArticle && (
-        <div class="mt-12 border-t border-line-soft pt-8">
-          <ArticleCard article={secondArticle} row />
-        </div>
-      )}
+      <NewsletterSignup town={town} id="home" variant="home" anchor="signup" />
     </div>
   </section>
 )}
 
-{/* The neighbours, after everything of the town's own. The block renders
-    nothing when they have nothing on, and the band with it; the email's link
-    under it is off, the card above being the page's one offer of the email. */}
-{nearby.length > 0 && (
-  <section class:list={['band', leadArticle ? 'band-white' : 'band-paper']} data-hide-when-empty>
+<NextStop town={town} places={places} />
+
+{know.length > 0 && (
+  <section class="band-compact band-paper" aria-labelledby="know">
     <div class="container-page">
-      <NearbyWeekend town={town} picks={nearby} signup={false} />
-    </div>
-  </section>
-)}
-
-<section class:list={['band-compact', leadArticle ? 'band-paper' : 'band-white']}>
-  <nav class="container-page" aria-labelledby="around">
-    <h2 id="around" class="eyebrow">More of {town.siteTitle}</h2>
-    <ul class="mt-4 grid grid-cols-2 gap-x-6 gap-y-1 sm:grid-cols-3 lg:grid-cols-4">
-      {around.map((item) => (
-        <li><a href={item.href} class="inline-block py-1.5 text-[1.0625rem] font-semibold text-primary underline">{item.label}</a></li>
-      ))}
-    </ul>
-  </nav>
-</section>
-
-{resident ? (
-  <section class="on-dark bg-primary text-white">
-    <div class="container-page grid gap-6 py-12 md:grid-cols-[2fr_3fr] md:items-start md:gap-12 md:py-16">
-      <div>
-        <p class="eyebrow text-white">Part of {town.name}?</p>
-        <h2 class="display-md mt-3 text-3xl lg:text-4xl">This guide is kept by the people who use it.</h2>
-      </div>
-      <p class="text-lg leading-relaxed md:pt-1">
-        Know of a meeting, a market or a game night? <a href="/submit-event/" class="font-semibold text-white underline decoration-white/50 underline-offset-2 hover:decoration-white">Add an event</a> and it goes up once it is checked.
-        New hours, a closure, a wrong fact? <a href="/correct/" class="font-semibold text-white underline decoration-white/50 underline-offset-2 hover:decoration-white">Suggest an update</a>.
-        {town.livingHere ? (
-          <Fragment>And for who handles what in town, <a href="/living-here/" class="font-semibold text-white underline decoration-white/50 underline-offset-2 hover:decoration-white">resident resources</a>.</Fragment>
-        ) : (
-          <Fragment>Thinking of moving? <a href="/moving-here/" class="font-semibold text-white underline decoration-white/50 underline-offset-2 hover:decoration-white">Read the guide</a>.</Fragment>
-        )}
-      </p>
-    </div>
-  </section>
-) : (
-  <section class="on-dark bg-primary text-white">
-    <div class="container-page grid gap-8 py-16 md:grid-cols-[3fr_2fr] md:items-end md:py-24">
-      <div>
-        <p class="eyebrow text-white">Moving here</p>
-        <h2 class="display-md mt-4 text-4xl lg:text-6xl">Thinking of making {town.name} home?</h2>
-      </div>
-      <div>
-        <p class="text-lg leading-relaxed">
-          Schools, commutes, what the housing market looks like, and what nobody tells you until you live here.
-        </p>
-        <a href="/moving-here/" class="btn btn-light mt-6">Read the guide</a>
-      </div>
+      <h2 id="know" class="display-md text-[2rem] md:text-[2.5rem]">Worth knowing</h2>
+      <ul class="mt-3 divide-y divide-line-soft">
+        {know.map((u) => (
+          <li class="py-3 text-[1.0625rem] leading-snug"><a href={`/updates/#${u.slug}`} class="font-medium no-underline hover:text-primary hover:underline">{u.data.title}</a></li>
+        ))}
+      </ul>
+      <p class="mt-3 text-[1.0625rem]"><a href="/updates/" class="inline-block -my-2 py-2 font-semibold text-primary underline">Every local change →</a></p>
     </div>
   </section>
 )}

@@ -6675,3 +6675,64 @@ Reservoir until the Town or a resident sends one, which docs/PHOTO-PRIORITIES.md
 already asks for; Longmont (McIntosh Lake), Loveland (Lake Loveland) and Carbon
 Valley (St. Vrain State Park in Firestone), whose photographs are in the town
 even if not on Main Street.
+
+## The home page is a front door, not the whole site, 27 October 2026
+
+*The owner's brief of 27 October 2026: "Sites are way too overwhelming, too
+much info at once." The shared town home now shows each thing two or three
+times at most and sends the reader on; its two jobs are this week's events
+and the Thursday email.*
+
+Measured before the change on a 390 px phone, the Berthoud home was 11,643 px
+tall, fourteen screens, with 49 event rows, 66 links and about a thousand
+words; Golden was ten screens. After it Berthoud is 2,974 px, three and a
+half screens, and What's happening begins 608 px down, inside the first
+screen. The brief asked for about five.
+
+The page, top to bottom, the same on every guide and on a phone as on a
+desktop: the hero as a short band (the photograph at a fixed height with the
+name under it on a phone; the type over the picture from a tablet up), the
+three buttons gone and the town's one line kept; the school's strip, one bar
+in the school's own colours with the mark, the nickname, the latest result,
+the next game and "Scores & schedules" (a phone sees the result alone; a
+guide that follows several schools keeps the shared strip; a guide with no
+scores or schedule has none); What's happening, three tabs, Today, Tomorrow
+and This weekend, up to five listings each with the games among them, "All
+events" and "Add an event" under them; the Thursday email, "Your Thursday
+local.", one line, the field, the button, "Free. Unsubscribe anytime." with
+the word Privacy linked and the privacy paragraph left to the privacy page;
+Find your next stop, three photographs for Eat & drink, Things to do and
+Living here (Moving here on a guide without a residents' page), each the
+best-placed listing's photograph of that kind and the hero where none has
+one; Worth knowing, the two newest local changes as titles and "Every local
+change"; and the footer as one block, the links in a row, the sections the
+menu leaves out in a second row, the independence line and "Part of Inside
+the Towns · 20 guides". The neighbours are in the menu's Towns list and not
+in the footer again.
+
+Off the home, and on their own pages still: the seven-day agenda
+(/this-week/, /events/), the scoreboard (/sports/), the changes' summaries
+and sources (/updates/), the three place cards and the list of eight
+(/directory/, /eat-drink/, /things-to-do/), From the guide (/guides/),
+Nearby this weekend (the Towns menu and /this-weekend/), the "More of"
+grid, the "kept by the people who use it" band (Add an event is under the
+events; Suggest an update is in the footer) and the network strip. Every
+link the removed sections carried resolves from the menu or the footer.
+
+The tabs are built from the same `weekDays` reading the Thursday email and
+the events page use (src/lib/home-tabs.ts), so the three never disagree with
+either about a day. The weekend is `weekendWindow`'s: the one under way on a
+Friday, Saturday or Sunday, else the one coming. A full tab gives the weekly
+series up first, as a full day does on the events page. The tab that opens
+is Today, or This weekend from Friday to Sunday; the page is built once and
+read for days, so a few lines of script (no framework, bundled as a file for
+the CSP) choose the tab again by the reader's own day in Denver, and the
+freshness pruning takes a row off once its day is over, with "Nothing listed
+for today" standing in. An empty tab keeps its tab.
+
+Not changed: any other page, the newsletter wiring, the sports data, the
+verification system, and no per-town variant. Where a guide has no
+photograph of a kind, the tile shows the hero, as the brief says; Berthoud's
+Eat & drink tile is the Town Park water feature until a restaurant or bar
+listing carries a photograph. Berthoud screenshots before and after, phone
+and desktop, are in docs/screenshots/2026-10-27-home/.

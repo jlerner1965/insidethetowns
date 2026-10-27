@@ -1,0 +1,66 @@
+---
+/**
+ * The school's strip on the home page (the homepage redesign brief, 27
+ * October 2026): one thin bar in the school's own colours, the mark, the
+ * nickname, the latest result ("Football · Won 50–0"), the next game
+ * ("Volleyball vs Frederick · Thu 6:30 pm") and the way to the scores. On a
+ * phone the latest result alone, the next game being on the sports page.
+ * It replaced the scoreboard in brief (two columns, the day the file was
+ * read), which is now the sports page's alone.
+ *
+ * Drawn for a guide that follows one school and has a result or a game to
+ * show; a guide with no data has no strip. The band is the school's primary
+ * or, where white does not read on it at 7:1, its secondary
+ * (src/config/school-colors.ts, proven by `npm run check-colors`).
+ */
+import type { TownConfig } from '@/config';
+import { schoolsFor, sportsPath, type SportsData } from '@/config/school-sports';
+import { schoolTheme } from '@/config/school-colors';
+import { clock, dashed, nextGame, scoreboardResult } from '@/lib/flagship-home';
+import { gameDay, latestResult, RESULT_WORD, sportsDataFor, where } from '@/lib/school-sports';
+import { TIME_ZONE } from '@/lib/dates';
+
+interface Props {
+  town: TownConfig;
+}
+
+const { town } = Astro.props;
+const now = new Date();
+const schools = schoolsFor(town.slug);
+const school = schools.length === 1 ? schools[0] : undefined;
+const files = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
+const data = school ? sportsDataFor(school, files) : undefined;
+const theme = town.school ? schoolTheme(town.school) : undefined;
+const vars = [`--board:${theme?.band ?? town.colors.primary}`, `--board-mark:${theme?.mark ?? '#ffffff'}`, `--board-eyebrow:${theme?.eyebrow ?? '#ffffff'}`].join(';');
+const nickname = town.school?.mascot ?? school?.mascot;
+
+/** The latest final inside two weeks, else the last one the file has. */
+const result = data ? (scoreboardResult(data, now, 14) ?? latestResult(data)) : undefined;
+const next = data ? nextGame(data, now, result) : undefined;
+const shown = !!school && (!!result?.game.result || !!next);
+
+const resultLine = result?.game.result
+  ? `${RESULT_WORD[result.game.result]}${result.game.score ? ` ${dashed(`${result.game.score.us}–${result.game.score.them}`)}` : result.game.forfeit ? ' by forfeit' : ''}`
+  : undefined;
+const SHORT_DAY = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, weekday: 'short' });
+const nextWhen = next ? `${SHORT_DAY.format(gameDay(next.game))}${next.game.time ? ` ${clock(gameDay(next.game))}` : ''}` : '';
+---
+{shown && school && (
+  <section class="on-dark text-white" style={vars} aria-label={`${nickname} sports`} data-pagefind-ignore>
+    <div class="bg-[var(--board)]">
+      <div class="container-page flex flex-wrap items-center gap-x-4 gap-y-1 py-2.5 text-[0.9375rem] leading-snug md:gap-x-6">
+        <span class="inline-flex items-center gap-2">
+          <span class="inline-block size-3 shrink-0 rounded-full bg-[var(--board-mark)] ring-2 ring-white/60" aria-hidden="true"></span>
+          <span class="eyebrow text-[var(--board-eyebrow)]">{nickname}</span>
+        </span>
+        {resultLine && result && (
+          <span><span class="text-white/80">{result.team.name}</span> · <span class="font-semibold">{resultLine}</span><span class="hidden sm:inline text-white/80"> {where(result.game)} {result.game.opponent}</span></span>
+        )}
+        {next && (
+          <span class="hidden sm:inline"><span class="text-white/80">{next.team.name}</span> {where(next.game)} {next.game.opponent} · <time datetime={next.game.time ? `${next.game.date}T${next.game.time}` : next.game.date}>{nextWhen}</time></span>
+        )}
+        <a href={sportsPath(school)} class="ml-auto inline-block -my-1 py-1 font-semibold text-white underline decoration-white/50 underline-offset-2 hover:decoration-white">Scores &amp; schedules →</a>
+      </div>
+    </div>
+  </section>
+)}

@@ -9,6 +9,13 @@
  * still pushed the week below the fold on a phone; now the week starts
  * where the type ends, and a long name or enlarged text makes the panel
  * taller rather than clipping or shrinking the buttons.
+ *
+ * `compact` (the homepage redesign brief, 27 October 2026): the three ways
+ * in become the one subhead line, and on a phone the hero is a band, not
+ * a screen: the photograph at a fixed short height with the name and the
+ * line under it on the town's colour, so What's happening starts within
+ * the first screen and a half. On a wide screen the type stays over the
+ * photograph, with less room above it.
  */
 import { Image } from 'astro:assets';
 import { countyLabel, getSite } from '@/config';
@@ -23,6 +30,8 @@ interface Props {
   title?: string;
   subtitle?: string;
   links?: Array<{ label: string; href: string; primary?: boolean }>;
+  /** No links, and on a phone the photograph as a short band with the type below it. */
+  compact?: boolean;
 }
 
 const site = getSite();
@@ -44,7 +53,8 @@ const {
   // resident's page the guide has: Living here where it exists, else Moving
   // here. The same three everywhere, so a reader who knows one guide knows
   // them all; which pages they are is the guide's.
-  links = site.kind === 'town' ? [{ label: 'This week', href: '/this-week/', primary: true }, second, heroThirdLink(site)] as NonNullable<Props['links']> : [],
+  compact = false,
+  links = site.kind === 'town' && !compact ? [{ label: 'This week', href: '/this-week/', primary: true }, second, heroThirdLink(site)] as NonNullable<Props['links']> : [],
 } = Astro.props;
 const hero = resolveSiteImage(site.slug, site.hero.image);
 // The tagline in two lines at most, shortened at a phrase (src/lib/text.ts)
@@ -55,6 +65,7 @@ const subtitleShort = shorten(subtitle, 64);
 const subtitleLong = shorten(subtitle, 88);
 ---
 <section class="on-dark relative isolate overflow-hidden bg-primary text-white">
+  <div class:list={[compact ? 'relative h-52 overflow-hidden sm:absolute sm:inset-0 sm:-z-20 sm:h-auto' : 'contents']}>
   <Image
     src={hero}
     alt={site.hero.alt}
@@ -69,6 +80,7 @@ const subtitleLong = shorten(subtitle, 88);
     priority
     class="absolute inset-0 -z-20 h-full! w-full object-cover"
   />
+  </div>
   {/*
     Two layers, and the second one is the reason a hero without a bright sky
     used to read as a coloured panel rather than a photograph: the town's
@@ -91,10 +103,12 @@ const subtitleLong = shorten(subtitle, 88);
     hero was cut to half the screen: the type then fills more of the frame,
     and the eyebrow went from three quarters of the way up to four fifths.
   */}
-  <div class="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.5)_55%,rgba(0,0,0,0.36)_86%,transparent_100%)]"></div>
-  <div class="absolute inset-0 -z-10 bg-primary/20 mix-blend-multiply"></div>
-  {/* No minimum height: the padding and the type set it. */}
-  <div class="container-page relative flex flex-col justify-end pb-7 pt-12 sm:pt-16 md:pb-9 md:pt-20">
+  <div class:list={['absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.5)_55%,rgba(0,0,0,0.36)_86%,transparent_100%)]', compact && 'max-sm:hidden']}></div>
+  <div class:list={['absolute inset-0 -z-10 bg-primary/20 mix-blend-multiply', compact && 'max-sm:hidden']}></div>
+  {/* No minimum height: the padding and the type set it. In the compact
+      band the type sits under the photograph on a phone, on the town's
+      colour, and over it from a tablet up. */}
+  <div class:list={['container-page relative flex flex-col justify-end', compact ? 'pb-6 pt-5 sm:pb-8 sm:pt-20 md:pb-9 md:pt-24' : 'pb-7 pt-12 sm:pt-16 md:pb-9 md:pt-20']}>
     {/*
       White, as on every band. The amber this line once shared with the
       other bands came in between 2.88:1 and 3.90:1 against the rendered
@@ -106,7 +120,7 @@ const subtitleLong = shorten(subtitle, 88);
         Valley" and "Manitou Springs" hold one line on a tablet and wrap
         cleanly on a phone, and the week is a scroll closer. The whole
         tagline is in the meta description and the footer. */}
-    <h1 class="display mt-2 text-[2.5rem] [overflow-wrap:anywhere] sm:text-[3.25rem] lg:text-[4.25rem]">{title}</h1>
+    <h1 class:list={['display mt-2 [overflow-wrap:anywhere] sm:text-[3.25rem] lg:text-[4.25rem]', compact ? 'text-[2.25rem]' : 'text-[2.5rem]']}>{title}</h1>
     <p class="mt-3 max-w-xl text-[1.0625rem] leading-snug text-white/85 md:text-xl">
       <span class="sm:hidden">{subtitleShort}</span><span class="hidden sm:inline">{subtitleLong}</span>
     </p>
