@@ -4,7 +4,7 @@ type: bar
 address: "16401 Table Mountain Parkway, Golden, CO 80403"
 url: "https://newterrainbrewing.com/golden/"
 source: "https://newterrainbrewing.com/golden/"
-verified: "2026-10-06"
+verified: "2026-10-27"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "720-697-7848"

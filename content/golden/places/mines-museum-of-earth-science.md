@@ -4,7 +4,7 @@ type: venue
 address: "1310 Maple St., Golden, CO 80401"
 url: "https://museum.mines.edu/"
 source: "https://museum.mines.edu/"
-verified: "2026-10-06"
+verified: "2026-10-27"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 image: ../images/mines-museum-of-earth-science.jpg

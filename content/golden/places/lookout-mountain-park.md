@@ -4,7 +4,7 @@ type: park
 address: "987 1/2 Lookout Mountain Road, Golden, CO 80401"
 url: "https://buffalobill.org/visit-us/park-amenities-and-things-to-do/"
 source: "https://buffalobill.org/visit-us/park-amenities-and-things-to-do/"
-verified: "2026-10-06"
+verified: "2026-10-27"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 image: ../images/lookout-mountain-park.jpg
@@ -13,7 +13,7 @@ imageCredit: "Cathy Cline, Wikimedia Commons, CC BY-SA 3.0"
 hours: "Daily, 1 hour before sunrise to 1 hour after sunset"
 tags: [views, picnic, history, hiking]
 summary: "City and County of Denver park on Lookout Mountain, open year-round: Buffalo Bill's grave, a free observation deck with views of the Front Range and plains, picnic tables and a trail to the Lookout Mountain Nature Center."
-access: { parking: "Free parking for cars, campers, trailers, buses and bicycles; no overnight parking.", source: "https://buffalobill.org/visit-us/park-amenities-and-things-to-do/", verified: "2026-10-06" }
+access: { parking: "Free parking for cars, campers, trailers, buses and bicycles; no overnight parking.", source: "https://buffalobill.org/visit-us/park-amenities-and-things-to-do/", verified: "2026-10-27" }
 ---
 
 Lookout Mountain Park surrounds the Buffalo Bill Museum and Grave, which the museum's Hours and Admission page says is part of the City and County of Denver's Department of Parks and Recreation. The park is open all year from one hour before sunrise to one hour after sunset. William F. "Buffalo Bill" Cody and Louisa Cody are buried about 200 yards from the Buffalo Bill Museum along a paved path with a 20-foot climb, and the museum's observation deck, free and open park hours, looks over the Front Range and the Great Plains.
