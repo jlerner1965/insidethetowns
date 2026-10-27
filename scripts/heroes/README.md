@@ -29,6 +29,7 @@ photographs. Nothing is drawn from an image generator.
 | Nederland | `nederland.py` | Barker Reservoir under timbered hills with gold aspens, Eldora's ski runs and the snowy peaks of the Divide, the Mining Museum's Bucyrus steam shovel, Mountain People's Co-op and the Rustic Moose |
 | Carbon Valley | `carbon-valley.py` | Frederick's stepped-parapet brick corner at Fifth and Oak, Firestone's former Town Hall with the mine car in its gable, the Carbon Valley Regional Library's rotunda, Fort Lupton's Ottesen Grain Co. mill, Bald Eagle Pond and the St. Vrain State Park sign |
 | Estes Park | `estes-park.py` | West Elkhorn Avenue's storefronts and green lamp posts, the Stanley Hotel on its rise, the Big Thompson past the riverwalk into Lake Estes, Longs Peak with the Diamond and Mount Meeker, traced from the hero photo |
+| Manitou Springs | `manitou-springs.py` | Manitou Avenue's brick storefronts and the cream block with its red cornice, Miramont Castle on the hill, the Cliff House, the 7 Minute Spring's pavilion and red sumac, the Incline, the red cog train on Pikes Peak's bare upper slopes |
 
 ## Making the image
 

@@ -86,10 +86,12 @@ export const manitouSprings: TownConfig = {
     paper: 'cool',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'Manitou Avenue in Manitou Springs: brick storefronts on the left and traffic heading down the tree-lined street',
-    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 10 October 2026.
-    credit: 'John Lloyd, Wikimedia Commons, CC BY 2.0',
+    image: 'hero-painted.jpg',
+    alt: 'An ink-and-watercolour illustration of Manitou Springs on an autumn morning: the brick storefronts of Manitou Avenue and the cream block with its red cornice, Miramont Castle on the hill above, the Cliff House and its tower, the Incline climbing the timbered mountain behind, the red cog train high on the bare slopes of Pikes Peak, and the 7 Minute Spring’s pavilion among red sumac in front',
+    credit: 'Illustration, Inside the Towns',
+    painted: true,
+    // Phone: the town from the castle to the Cliff House in frame; wide screen: the avenue's base just above the band's foot.
+    position: '100% 55%',
   },
   social: {
     email: 'hello@insidemanitousprings.com',
