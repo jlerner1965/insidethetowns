@@ -13,15 +13,23 @@
  *    follows one school (Scoreboard); the shared strip for one that follows
  *    several.
  * 3. The week as an agenda, seven days from today (WeekAgenda), the games
- *    among the listings and the editor's pick marked.
+ *    among the listings and the editor's pick marked; a third closer to the
+ *    strip than one band to the next, the two being one subject.
  * 4. Things to know, the week's local changes with their sources, beside
  *    the email's card: the page's one form, for this town alone, where the
  *    email covers the town. A guide with neither skips the band.
- * 5. Where to go: the places with photographs as cards, the rest as rows.
- * 6. From the guide: the latest two articles.
- * 7. What the guide covers: one line a page, the resident hubs included.
- * 8. The close: for a resident guide (`home` in the config) the ways a
- *    resident takes part; for every other, moving here.
+ * 5. Where to go: three picks, a place to eat or drink, a place outdoors
+ *    and a place of the town's own culture, then the rest as rows.
+ * 6. From the guide: the latest two articles, before anything from next
+ *    door. The town's own stories come first.
+ * 7. Nearby this weekend: the neighbours' picks, their names as plain
+ *    labels.
+ * 8. The guide's own map of itself: one short band of links, no copy.
+ * 9. The close: for a resident guide (`home` in the config) one short
+ *    invitation to take part; for every other, moving here.
+ *
+ * The order of 5 to 9, the picks, the plain labels and the short band are
+ * the owner's revisions of 26 October 2026 to the design pass of that day.
  *
  * Which of these a guide shows is the config's and the content's: a guide
  * with no school has no scoreboard, one the email does not cover has no
@@ -39,11 +47,12 @@ import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import SportsStrip from '@/components/SportsStrip.astro';
 import Scoreboard from './Scoreboard.astro';
 import WeekAgenda from './WeekAgenda.astro';
-import { editionFor, emailEditions, getNetworkHub, getTown } from '@/config';
+import { editionFor, emailEditions, getNetworkHub, getTown, neighborsOf } from '@/config';
 import { schoolsFor, teamPath, type SportsData } from '@/config/school-sports';
-import { getTownEntries } from '@/lib/content';
+import { EAT_DRINK_TYPES, LAND_TYPES } from '@/content/schemas';
+import { getNeighborEntries, getTownEntries, type TownEntry } from '@/lib/content';
 import { formatDayRange } from '@/lib/dates';
-import { occurrences } from '@/lib/events';
+import { nearbyPicks, occurrences } from '@/lib/events';
 import { weekDays } from '@/lib/flagship-home';
 import { isOpen } from '@/lib/places';
 import { hasData, sportsDataFor } from '@/lib/school-sports';
@@ -66,10 +75,12 @@ const teamHref = (key: string) => {
 
 // 4. The email: one form on the page, where the email covers the town.
 const emailOn = !!hub.newsletter && !!editionFor(town.slug, emailEditions());
-const sendDay = hub.newsletter?.sendDay ?? 'Thursday';
 
 // 3. The week: the next seven days, the first two with room for four
-// things, the rest three, the pick marked.
+// things, the rest three, the pick marked. The town's events and games
+// only: the email's own day used to sit among them as a listing, the
+// third of five mentions of the email on one page (owner, 26 October 2026);
+// the card in the next band is where the email is offered.
 const allEvents = await getTownEntries('events');
 const calendar = occurrences(allEvents, { now, horizonDays: 30 });
 const notes = await getTownEntries('weekly');
@@ -79,7 +90,6 @@ const days = weekDays({
   events: occurrences(allEvents, { now, horizonDays: 8 }),
   sports: data,
   teamHref,
-  email: emailOn ? { day: sendDay, time: hub.newsletter?.sendTime } : undefined,
   now,
   start: 'today',
   limit: (i) => (i < 2 ? 4 : 3),
@@ -98,48 +108,60 @@ const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
 const { monday, sunday } = weekWindow(now);
 
 // 5. The places. The home page recommends; a place that has closed is
-// listed, not recommended. Cards are for photographs: a card with none is
-// an empty box, and most of these towns have a handful of licensed images,
-// so the rest of the section is an index of names, not a grid of tiles.
+// listed, not recommended. "Eat, drink, wander" is three picks that are what
+// it says (owner, 26 October 2026: a park, a lake and a museum over a row of
+// restaurant names did not match the promise): one place to eat or drink,
+// one outdoors, one of the town's culture (a venue: the museum, the library,
+// the arts centre), each the best its kind has, the editor's pick with a
+// photograph first, then any photograph, then the editor's pick. A guide
+// short of one kind fills the three from what it has. A pick without a
+// photograph is a panel of facts (PlaceCard); the rest of the section is an
+// index of names, not a grid of tiles.
 const places = (await getTownEntries('places')).filter(isOpen);
-const pickedFirst = <T extends { data: { featured: boolean } }>(list: T[]) => [
-  ...list.filter((p) => p.data.featured),
-  ...list.filter((p) => !p.data.featured),
-];
-const placeCards = pickedFirst(places.filter((p) => p.data.image)).slice(0, 3);
+type Place = TownEntry<'places'>;
+const rank = (p: Place) => (p.data.featured && p.data.image ? 0 : p.data.image ? 1 : p.data.featured ? 2 : 3);
+const best = (list: Place[]) => [...list].sort((a, b) => rank(a) - rank(b))[0];
+const ofKind = (types: readonly string[]) => best(places.filter((p) => types.includes(p.data.type)));
+const kinds = [ofKind(EAT_DRINK_TYPES), ofKind(LAND_TYPES), ofKind(['venue'])].filter((p): p is Place => !!p);
+const chosen = new Set(kinds.map((p) => p.slug));
+const placeCards = [...kinds, ...[...places].filter((p) => !chosen.has(p.slug)).sort((a, b) => rank(a) - rank(b))].slice(0, 3);
 const carded = new Set(placeCards.map((p) => p.slug));
+const pickedFirst = (list: Place[]) => [...list.filter((p) => p.data.featured), ...list.filter((p) => !p.data.featured)];
 const placeIndex = pickedFirst(places.filter((p) => !carded.has(p.slug))).slice(0, 8);
+
+// 7. The neighbours' weekend, chosen here so the band is drawn only when
+// there is something in it.
+const neighbors = neighborsOf(town);
+const nearby = nearbyPicks(occurrences(await getNeighborEntries('events', neighbors), { now, horizonDays: 30 }), neighbors.map((t) => t.slug), { now });
 
 // 6. The guide's latest.
 const articles = (await getTownEntries('articles')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 2);
 const [leadArticle, secondArticle] = articles;
 
-// 7. What the guide covers: one short line a page, the resident hubs where
-// the guide has them. Families and Things to do are different pages, as are
-// Living here and Moving here; a guide shows the ones it has.
-const strip = (line: string) => line.replace(/\.\s*$/, '');
-const startHere = [
-  { label: `Events in ${town.name}`, href: '/events/', text: 'Every event with a date, the weekly regulars once each.' },
-  { label: 'This weekend', href: '/this-weekend/', text: `Friday to Sunday in ${town.name}.` },
-  ...(school ? [{ label: `${school.mascot} sports`, href: '/sports/', text: 'Scores, schedules and every team, from MaxPreps.' }] : []),
-  { label: 'Eat & drink', href: '/eat-drink/', text: 'Restaurants, bars, coffee and shops, with their hours.' },
-  { label: 'Things to do', href: '/things-to-do/', text: 'Trails, parks, venues and places to stay.' },
-  ...(town.families ? [{ label: town.families.label, href: '/families/', text: strip(town.families.intro) + '.' }] : []),
-  ...(town.livingHere ? [{ label: 'Living here', href: '/living-here/', text: strip(town.livingHere.intro) + '.' }] : []),
-  ...(town.participation ? [{ label: town.participation.label, href: '/get-involved/', text: strip(town.participation.intro) + '.' }] : []),
-  { label: 'Guides', href: '/guides/', text: 'Longer reads: a walking route, the history, the town with kids.' },
-  { label: `Moving to ${town.name}`, href: '/moving-here/', text: 'Housing, schools, the commute and the utilities.' },
+// 8. The guide's own map of itself: the pages, as links and nothing more.
+// Each had a line of copy under it, which said again what the menu, the
+// footer and the pages' own introductions say (owner, 26 October 2026).
+// Families and Things to do are different pages, as are Living here and
+// Moving here; a guide shows the ones it has.
+const around = [
+  { label: `Events`, href: '/events/' },
+  { label: 'This weekend', href: '/this-weekend/' },
+  ...(school ? [{ label: `${school.mascot} sports`, href: '/sports/' }] : []),
+  { label: 'Eat & drink', href: '/eat-drink/' },
+  { label: 'Things to do', href: '/things-to-do/' },
+  ...(town.families ? [{ label: town.families.label, href: '/families/' }] : []),
+  ...(town.livingHere ? [{ label: 'Living here', href: '/living-here/' }] : []),
+  ...(town.participation ? [{ label: town.participation.label, href: '/get-involved/' }] : []),
+  { label: 'Guides', href: '/guides/' },
+  { label: 'Every place, A to Z', href: '/directory/' },
+  { label: 'Local changes', href: '/updates/' },
+  { label: `Moving to ${town.name}`, href: '/moving-here/' },
 ];
 
-// 8. The close. A resident guide ends on taking part; a visitor guide on moving here.
+// 9. The close. A resident guide ends on taking part, said once in a
+// sentence or two with the three ways in it (owner, 26 October 2026: the
+// three cards made one invitation three); a visitor guide on moving here.
 const resident = !!town.home;
-const residentLinks = [
-  { label: 'Add an event', href: '/submit-event/', text: 'A meeting, a market, a game night: it goes up once it is checked.' },
-  { label: 'Suggest an update', href: '/correct/', text: 'New hours, a closure, a wrong fact: tell the guide and it is fixed.' },
-  town.livingHere
-    ? { label: 'Resident resources', href: '/living-here/', text: strip(town.livingHere.intro) + '.' }
-    : { label: `Moving to ${town.name}`, href: '/moving-here/', text: 'Housing, schools, the commute and the utilities.' },
-];
 ---
 <Hero />
 
@@ -149,7 +171,7 @@ const residentLinks = [
   </section>
 )}
 
-<WeekAgenda town={town} days={days} now={now} laterCount={laterCount} />
+<WeekAgenda town={town} days={days} now={now} laterCount={laterCount} follows={!!school || schools.length > 1} />
 
 {(hasUpdates || emailOn) && (
   <section class="band band-paper" aria-labelledby={hasUpdates ? 'know' : undefined}>
@@ -195,7 +217,7 @@ const residentLinks = [
       <p class="text-ink-muted">Places are on their way.</p>
     ) : (
       <>
-        {placeCards.length === 1 && <PlaceFeature place={placeCards[0]} />}
+        {placeCards.length === 1 && (placeCards[0]!.data.image ? <PlaceFeature place={placeCards[0]!} /> : <div class="max-w-xl"><PlaceCard place={placeCards[0]!} /></div>)}
         {placeCards.length > 1 && (
           <div class:list={['grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:gap-x-8', placeCards.length > 2 && 'lg:grid-cols-3']}>
             {placeCards.map((place) => <PlaceCard place={place} />)}
@@ -208,7 +230,6 @@ const residentLinks = [
         )}
       </>
     )}
-    <NearbyWeekend town={town} class="mt-14" />
   </div>
 </section>
 
@@ -226,36 +247,44 @@ const residentLinks = [
   </section>
 )}
 
-{/* The guide's map of itself, after the real content rather than before it. */}
-<section class:list={['band', leadArticle ? 'band-white' : 'band-paper']}>
-  <div class="container-page">
-    <SectionHeader eyebrow="Start here" title={`What ${town.siteTitle} covers`} />
-    <ul class="grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-      {startHere.map((item) => (
-        <li class="border-t border-line-soft pt-4">
-          <a href={item.href} class="inline-block -my-1 py-1 text-lg font-semibold text-primary underline">{item.label}</a>
-          <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{item.text}</p>
-        </li>
+{/* The neighbours, after everything of the town's own. The block renders
+    nothing when they have nothing on, and the band with it; the email's link
+    under it is off, the card above being the page's one offer of the email. */}
+{nearby.length > 0 && (
+  <section class:list={['band', leadArticle ? 'band-white' : 'band-paper']} data-hide-when-empty>
+    <div class="container-page">
+      <NearbyWeekend town={town} picks={nearby} signup={false} />
+    </div>
+  </section>
+)}
+
+<section class:list={['band-compact', leadArticle ? 'band-paper' : 'band-white']}>
+  <nav class="container-page" aria-labelledby="around">
+    <h2 id="around" class="eyebrow">More of {town.siteTitle}</h2>
+    <ul class="mt-4 grid grid-cols-2 gap-x-6 gap-y-1 sm:grid-cols-3 lg:grid-cols-4">
+      {around.map((item) => (
+        <li><a href={item.href} class="inline-block py-1.5 text-[1.0625rem] font-semibold text-primary underline">{item.label}</a></li>
       ))}
     </ul>
-  </div>
+  </nav>
 </section>
 
 {resident ? (
   <section class="on-dark bg-primary text-white">
-    <div class="container-page grid gap-8 py-16 md:grid-cols-[2fr_3fr] md:items-start md:py-20">
+    <div class="container-page grid gap-6 py-12 md:grid-cols-[2fr_3fr] md:items-start md:gap-12 md:py-16">
       <div>
         <p class="eyebrow text-white">Part of {town.name}?</p>
-        <h2 class="display-md mt-4 text-4xl lg:text-5xl">This guide is kept by the people who use it.</h2>
+        <h2 class="display-md mt-3 text-3xl lg:text-4xl">This guide is kept by the people who use it.</h2>
       </div>
-      <ul class="grid gap-6 sm:grid-cols-3 md:pt-2">
-        {residentLinks.map((item) => (
-          <li class="border-t border-white/30 pt-4">
-            <a href={item.href} class="inline-block -my-1 py-1 text-lg font-semibold text-white underline">{item.label}</a>
-            <p class="mt-1 text-[0.9375rem] leading-snug text-white/80">{item.text}</p>
-          </li>
-        ))}
-      </ul>
+      <p class="text-lg leading-relaxed md:pt-1">
+        Know of a meeting, a market or a game night? <a href="/submit-event/" class="font-semibold text-white underline decoration-white/50 underline-offset-2 hover:decoration-white">Add an event</a> and it goes up once it is checked.
+        New hours, a closure, a wrong fact? <a href="/correct/" class="font-semibold text-white underline decoration-white/50 underline-offset-2 hover:decoration-white">Suggest an update</a>.
+        {town.livingHere ? (
+          <Fragment>And for who handles what in town, <a href="/living-here/" class="font-semibold text-white underline decoration-white/50 underline-offset-2 hover:decoration-white">resident resources</a>.</Fragment>
+        ) : (
+          <Fragment>Thinking of moving? <a href="/moving-here/" class="font-semibold text-white underline decoration-white/50 underline-offset-2 hover:decoration-white">Read the guide</a>.</Fragment>
+        )}
+      </p>
     </div>
   </section>
 ) : (

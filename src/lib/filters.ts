@@ -60,6 +60,13 @@ export interface EventFilterState {
   category: string;
   free: boolean;
   where: string;
+  /**
+   * "Show weekly regulars on their days" (owner, 26 October 2026): the
+   * date list carries the regulars' dates among the one-offs, as the home
+   * page's agenda does, and the "Every week" directory steps aside. Off,
+   * the list is the one-offs and the directory lists the regulars once.
+   */
+  regulars?: boolean;
 }
 
 /**
@@ -74,14 +81,19 @@ export interface EventFilterState {
  * events, steps aside. An occurrence matches a window when it starts by the
  * window's last day and is still on at its first: a run with no schedule is
  * on every day of its range, a scheduled one is a row per open day already.
+ *
+ * With `regulars` on and no date, the regulars' dates join the list (the
+ * same rows a date filter brings out) and the directory steps aside, so
+ * the page's Monday is the home page's Monday; a run's later nights stay
+ * held either way, the run being shown once at its next.
  */
 export function eventRowShown(row: EventRowMarks, state: EventFilterState, now = new Date()): boolean {
   if (state.category !== 'all' && row.category !== state.category) return false;
   if (state.free && !row.free) return false;
   if (state.where !== 'all' && row.subTown !== state.where) return false;
   const window = whenWindow(state.when, now);
-  if (row.directory) return !window;
-  if (!window) return !row.regular && !row.repeat;
+  if (row.directory) return !window && !state.regulars;
+  if (!window) return (!row.regular || !!state.regulars) && !row.repeat;
   const last = row.lastDay ?? row.startDay;
   return row.startDay <= window.to && last >= window.from;
 }

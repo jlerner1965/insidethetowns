@@ -46,9 +46,16 @@ interface Props {
   categories: Array<{ value: string; label: string }>;
   /** On a multi-town guide, the places a reader can narrow to: a third row, "Where". */
   subTowns?: Array<{ slug: string; label: string }>;
+  /**
+   * The guide has weekly regulars (owner, 26 October 2026): a labelled
+   * switch puts their dates into the list by day, as the home page's agenda
+   * shows them, instead of once each under "Every week". Off by default,
+   * kept in the URL as ?regulars=1; the rule is `eventRowShown`.
+   */
+  regulars?: boolean;
 }
 
-const { categories, subTowns = [] } = Astro.props;
+const { categories, subTowns = [], regulars = false } = Astro.props;
 const when = [
   { value: 'today', label: 'Today' },
   { value: 'weekend', label: 'This weekend' },
@@ -104,6 +111,12 @@ const foldable = categories.length > 1 || subTowns.length > 1;
     </div>
   )}
   </div>
+  {regulars && (
+    <label class="flex w-fit cursor-pointer items-start gap-2.5 py-1.5 text-[0.9375rem] leading-snug" data-regulars-toggle>
+      <input type="checkbox" class="mt-0.5 size-5 shrink-0 rounded border-line accent-primary" data-regulars />
+      <span><span class="font-semibold">Show the weekly regulars on their days</span><span class="text-ink-muted"> (storytimes, trivia, classes; otherwise once each under “Every week”)</span></span>
+    </label>
+  )}
   {/* What is set, and the way back to the whole list, in view whenever a
       filter is on: the only reset was in the empty state before, so a reader
       with a shared "free music this weekend" link had to find the pressed
@@ -137,6 +150,9 @@ const foldable = categories.length > 1 || subTowns.length > 1;
     const fold = bar.querySelector<HTMLElement>('[data-filter-fold]');
     const more = bar.querySelector<HTMLButtonElement>('[data-filter-more]');
     const moreCount = bar.querySelector<HTMLElement>('[data-filter-more-count]');
+    const regularsBox = bar.querySelector<HTMLInputElement>('[data-regulars]');
+    // The day strip's "Every week" chip points at a section the switch puts aside.
+    const everyWeekChip = root.querySelector<HTMLElement>('[data-day-strip] a[href="#every-week"]')?.closest('li');
     const setFold = (open: boolean) => {
       fold?.classList.toggle('max-sm:hidden', !open);
       more?.setAttribute('aria-expanded', String(open));
@@ -149,7 +165,7 @@ const foldable = categories.length > 1 || subTowns.length > 1;
 
     // The rule is src/lib/filters.ts's, on the row's own marks. `now` is
     // read at each apply, so a page left open overnight moves with the clock.
-    const matches = (item: HTMLElement, when: string, category: string, free: boolean, where: string) =>
+    const matches = (item: HTMLElement, when: string, category: string, free: boolean, where: string, regulars: boolean) =>
       eventRowShown(
         {
           category: item.dataset.category,
@@ -161,17 +177,19 @@ const foldable = categories.length > 1 || subTowns.length > 1;
           repeat: item.dataset.repeat !== undefined,
           directory: item.dataset.directory !== undefined,
         },
-        { when, category, free, where },
+        { when, category, free, where, regulars },
         new Date(),
       );
 
-    const apply = (when: string, category: string, free: boolean, where: string, push: boolean) => {
+    const apply = (when: string, category: string, free: boolean, where: string, regulars: boolean, push: boolean) => {
       for (const b of whenButtons) b.setAttribute('aria-pressed', String(b.dataset.when === when));
       for (const b of catButtons) b.setAttribute('aria-pressed', String(b.dataset.category === category));
       freeButton?.setAttribute('aria-pressed', String(free));
       for (const b of whereButtons) b.setAttribute('aria-pressed', String(b.dataset.where === where));
       const items = root.querySelectorAll<HTMLElement>(ITEM);
-      for (const item of items) item.hidden = !matches(item, when, category, free, where);
+      if (regularsBox) regularsBox.checked = regulars;
+      if (everyWeekChip) everyWeekChip.hidden = regulars;
+      for (const item of items) item.hidden = !matches(item, when, category, free, where, regulars);
       for (const group of root.querySelectorAll<HTMLElement>('[data-filter-group]')) {
         group.hidden = !group.querySelector(`${ITEM}:not([hidden])`);
       }
@@ -215,6 +233,8 @@ const foldable = categories.length > 1 || subTowns.length > 1;
         else url.searchParams.delete('free');
         if (where === 'all') url.searchParams.delete('where');
         else url.searchParams.set('where', where);
+        if (regulars) url.searchParams.set('regulars', '1');
+        else url.searchParams.delete('regulars');
         history.replaceState(null, '', url);
       }
     };
@@ -224,28 +244,34 @@ const foldable = categories.length > 1 || subTowns.length > 1;
     let free = false;
     // Which of a multi-town guide's towns; 'all' on every other guide.
     let where = 'all';
+    // The weekly regulars on their days, among the one-offs; off, they are a directory below.
+    let regulars = false;
     for (const b of whenButtons) {
       b.addEventListener('click', () => {
         when = b.dataset.when ?? 'any';
-        apply(when, category, free, where, true);
+        apply(when, category, free, where, regulars, true);
       });
     }
     for (const b of catButtons) {
       b.addEventListener('click', () => {
         category = b.dataset.category ?? 'all';
-        apply(when, category, free, where, true);
+        apply(when, category, free, where, regulars, true);
       });
     }
     freeButton?.addEventListener('click', () => {
       free = !free;
-      apply(when, category, free, where, true);
+      apply(when, category, free, where, regulars, true);
     });
     for (const b of whereButtons) {
       b.addEventListener('click', () => {
         where = b.dataset.where ?? 'all';
-        apply(when, category, free, where, true);
+        apply(when, category, free, where, regulars, true);
       });
     }
+    regularsBox?.addEventListener('change', () => {
+      regulars = regularsBox.checked;
+      apply(when, category, free, where, regulars, true);
+    });
 
     // "Everything, any time" means exactly that, from either button.
     for (const reset of root.querySelectorAll<HTMLButtonElement>('[data-filter-reset]')) {
@@ -254,7 +280,7 @@ const foldable = categories.length > 1 || subTowns.length > 1;
         category = 'all';
         free = false;
         where = 'all';
-        apply(when, category, free, where, true);
+        apply(when, category, free, where, regulars, true);
         whenButtons[0]?.focus();
       });
     }
@@ -270,7 +296,8 @@ const foldable = categories.length > 1 || subTowns.length > 1;
     if (w === 'free' || params.get('free') === '1') free = true;
     if (c && CATS.has(c)) category = c;
     if (sub && WHERE.has(sub)) where = sub;
+    if (regularsBox && params.get('regulars') === '1') regulars = true;
     if (category !== 'all' || free || where !== 'all') setFold(true);
-    apply(when, category, free, where, false);
+    apply(when, category, free, where, regulars, false);
   }
 </script>

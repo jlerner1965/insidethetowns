@@ -229,7 +229,11 @@ function eventItem(e: EventLike, picked?: ReadonlySet<string>): DayItem {
     fullTitle: title,
     when,
     where: place,
-    meta: [fullWhen, place].filter(Boolean).join(' · '),
+    // The note once: `where` carries a long note for the renderers whose time
+    // column is blank, and `fullWhen` is the note itself, so the meta line is
+    // built from the parts, not from both ("Sessions at 2:30 and 6:30 pm ·
+    // Sessions at 2:30 and 6:30 pm · the library", Berthoud, 26 October 2026).
+    meta: [fullWhen, venue, cost].filter(Boolean).join(' · '),
     href: `/events/${slug}/`,
     dot: `var(--cat-${category}-dot)`,
     time: allDay || timeNote ? '99:98' : hhmm(start),

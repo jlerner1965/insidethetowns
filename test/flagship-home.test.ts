@@ -283,3 +283,11 @@ test('every page of a guide, its home included, has the one shared menu', () => 
 test('every guide builds its home from the one route file; `home` only changes what the page leads with', () => {
   for (const t of towns) assert.deepEqual(homeRoute(t), ['/', 'index.astro'], t.slug);
 });
+
+test('a long time note is said once on the agenda’s meta line, not before and after the venue', () => {
+  const note = 'Sessions at 2:30 and 6:30 pm';
+  const [day] = weekDays({ events: [ev('book-club', '2026-10-28T14:30', { timeNote: note, venue: 'Berthoud Community Library', cost: 'Free' })], now: at('2026-10-28T07:00'), start: 'today' });
+  const club = day!.items.find((i) => i.fullTitle === 'book-club')!;
+  assert.equal(club.meta, `${note} · Berthoud Community Library · Free`);
+  assert.equal(club.where, `${note} · Berthoud Community Library · Free`, 'the renderers with a blank time column still get the note');
+});

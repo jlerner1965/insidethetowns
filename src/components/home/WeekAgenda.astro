@@ -36,9 +36,11 @@ interface Props {
   now: Date;
   /** Listings on the calendar beyond the week, for the empty week's line. */
   laterCount?: number;
+  /** Under the school's strip: a third less space above, the week and the games being one subject. */
+  follows?: boolean;
 }
 
-const { town, days, now, laterCount = 0 } = Astro.props;
+const { town, days, now, laterCount = 0, follows = false } = Astro.props;
 const today = startOfDay(now);
 const range = formatDayRange(today, addDays(today, 6));
 const lead = days.slice(0, 3);
@@ -47,7 +49,7 @@ const total = days.reduce((n, d) => n + d.items.length + d.more, 0);
 const heading = (day: WeekDay) => (day.relative ? `${day.relative} · ${formatDayLong(day.date)}` : formatDayLong(day.date));
 const label = (status: 'canceled' | 'postponed') => (status === 'canceled' ? 'Canceled' : 'Postponed');
 ---
-<section class="band band-white" aria-labelledby="week-agenda" data-pagefind-ignore>
+<section class:list={[follows ? 'band-close' : 'band', 'band-white']} aria-labelledby="week-agenda" data-pagefind-ignore>
   <div class="container-page">
     <SectionHeader eyebrow={range} title={`This week in ${town.name}`} href="/events/" linkLabel="Every event" id="week-agenda" />
     {total === 0 ? (
