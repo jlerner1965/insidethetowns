@@ -12,6 +12,8 @@ sourceUid: "10004506-1793088000-1793091600@bouldercounty.gov"
 sourceHash: "94abcd18bcea"
 verified: "2026-10-25"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Vote Early Day - Happy Day Plants - 2026 General Election\" at 8 am on 27 October on the Boulder County feed"
+changeFlag: true
+changeNote: "recheck 2026-10-27: the Boulder County feed lists \"Vote Early Day and Election Champion Training - Relish Food Hall - 2026 General Election\" at 5:45 pm on 27 October, not 8 am"
 ---
 
 Vote Early Day - Happy Day Plants - 2026 General Election at Happy Day Plants, Tuesday, October 27, 8 am – 9 am. Listed by Boulder County; the organizer's page has the details and any registration.

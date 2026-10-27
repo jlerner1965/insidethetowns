@@ -8,7 +8,8 @@ cost: "Free"
 category: other
 recurring: "First Saturday of the month"
 source: "https://www.elizabethmainstreet.org/calendar/"
-verified: "2026-09-18"
+verified: "2026-10-27"
+verifiedBy: "recheck-events (the nightly re-check workflow): 7 November and 10 am on the page"
 ---
 
 The library's Heritage Crew meets the first Saturday morning of the month at 10 to work on local family and Elbert County history: census records, photographs, obituaries and the county's homestead papers. Free, and useful whether you are three generations in or new to the county.

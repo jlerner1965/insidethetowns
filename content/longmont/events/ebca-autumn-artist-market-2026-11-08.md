@@ -11,8 +11,8 @@ source: "https://ebcacolorado.org/autumn-artist-market"
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10004311-1794132000-1794153600@bouldercounty.gov"
 sourceHash: "328416c30ee0"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-27"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"EBCA Autumn Artist Market\" at 10 am on 8 November on the Boulder County Fairgrounds feed"
 ---
 
 East Boulder County Artists' autumn artist market in Barn A at the Boulder County Fairgrounds, Saturday 7 November 10 am to 5 pm and Sunday 8 November 10 am to 4 pm. Entry is free.

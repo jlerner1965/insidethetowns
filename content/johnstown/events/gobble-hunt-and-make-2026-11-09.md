@@ -10,8 +10,8 @@ source: "https://johnstownmillikenpubliclibraries.us/event/gobble-hunt-make/"
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10487"
 sourceHash: "66a12fd62f02"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the johnstownmillikenpubliclibraries.us feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-27"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Gobble, Hunt, &#038; Make\" at 2 pm on 9 November in the page's structured data"
 ---
 
 Gobble, Hunt, & Make at Glenn A. Jones, M.D. Memorial Library, Monday, November 9, 2 pm – 4 pm. Listed by johnstownmillikenpubliclibraries.us; the organizer's page has the details and any registration.

@@ -8,7 +8,8 @@ cost: "Free for veterans and their families; RSVP required"
 category: other
 featured: true
 source: "https://www.elizabethmainstreet.org/events/"
-verified: "2026-09-18"
+verified: "2026-10-27"
+verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 11:30 am on the page"
 ---
 
 The third annual lunch for Elbert County veterans and their families at the pavilion on Highway 86, the Friday before Veterans Day. Organized locally through the Main Street program; watch its events page for the RSVP.

@@ -10,7 +10,7 @@ source: "https://johnstownmillikenpubliclibraries.us/event/fall-leaf-hair-clips/
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10614"
 sourceHash: "a70e9dc2cfed"
-verified: "2026-10-25"
+verified: "2026-10-27"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Fall Leaf Hair Clips\" at 4:30 pm on 4 November in the page's structured data"
 ---
 

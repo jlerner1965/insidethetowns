@@ -11,7 +11,8 @@ category: music
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=166"
 sourceId: "rialtotheatercenter-org"
 sourceUid: "showare:262"
-verified: "2026-10-04"
+verified: "2026-10-27"
+verifiedBy: "recheck-events (the nightly re-check workflow): 30 January and 7:30 pm on the page"
 ---
 
 The South African a cappella group, singing in the isicathamiya tradition for more than 65 years, at the Rialto in the theater's own series.

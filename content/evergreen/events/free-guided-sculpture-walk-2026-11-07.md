@@ -9,7 +9,7 @@ cost: "Free"
 category: arts
 source: "https://evergreenarts.org/cae/sculpture-tours/"
 sourceId: "evergreenarts-org"
-verified: "2026-10-25"
+verified: "2026-10-27"
 verifiedBy: "recheck-events (the nightly re-check workflow): 7 November and 10:30 am on the page"
 ---
 

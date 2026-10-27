@@ -8,7 +8,7 @@ url: "https://berthoudhistoricalsociety.org/event/holiday-card-art-contest-artwo
 cost: "Free to enter"
 category: arts
 source: "https://berthoudhistoricalsociety.org/event/holiday-card-art-contest-artwork-due/"
-verified: "2026-10-25"
+verified: "2026-10-27"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Holiday Card Art Contest – Artwork Due\" on 7 November in the page's structured data"
 ---
 

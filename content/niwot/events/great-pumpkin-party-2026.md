@@ -10,8 +10,8 @@ featured: true
 organizer: "Niwot Business Association"
 organizerUrl: "https://niwot.com/"
 source: "https://niwot.com/events/niwots-great-pumpkin-party-2/?occurrence=2026-10-31"
-verified: "2026-10-26"
-verifiedBy: "Claude, for the 26 October content pass, from the Niwot Business Association's own event page read 26 October 2026: Saturday, October 31, 10 am to 2 pm, and the schedule below; the same times are on its annual events page. The re-check's flag of 25 October (2 pm, not 1:30) is settled by that page."
+verified: "2026-10-27"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Niwot’s Great Pumpkin Party\" at 10 am on 31 October on the Niwot Business Association (niwot.com) feed"
 ---
 
 Halloween in Old Town, the Business Association's annual party: Saturday, October 31, from 10 am to 2 pm. Its page says to bring the kids and the dog and come in costume, and to look out for the scarecrows around town.

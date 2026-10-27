@@ -12,7 +12,7 @@ category: music
 timeNote: "Cocktails 6:30 pm, Concert Hall doors 8:45 pm, DeVotchKa 9:30 pm"
 source: "https://www.stanleyhotel.com/event/devotchka/"
 sourceId: "stanleyhotel-com"
-verified: "2026-10-25"
+verified: "2026-10-27"
 verifiedBy: "recheck-events (the nightly re-check workflow): 30 October and 6:30 pm on the page"
 ---
 

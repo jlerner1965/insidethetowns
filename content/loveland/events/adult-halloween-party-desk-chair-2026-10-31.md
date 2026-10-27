@@ -9,7 +9,7 @@ cost: "$11.97; VIP $27.95"
 category: other
 source: "https://events.deskchairworkspace.com/e/halloweenparty/tickets"
 sourceId: "loveland-org"
-verified: "2026-10-25"
+verified: "2026-10-27"
 verifiedBy: "recheck-events (the nightly re-check workflow): 31 October and 7 pm on the page"
 ---
 

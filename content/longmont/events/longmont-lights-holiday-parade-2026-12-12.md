@@ -10,8 +10,8 @@ source: "https://longmontcolorado.gov/event/longmont-lights-holiday-parade-2/"
 sourceId: "longmontcolorado-gov-recreation"
 sourceUid: "10009016-1797094800-1797102000@longmontcolorado.gov"
 sourceHash: "969ab92ef8f1"
-verified: "2026-10-04"
-verifiedBy: "James Lerner"
+verified: "2026-10-27"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Longmont Lights Holiday Parade\" at 5 pm on 12 December on the Longmont Recreation Services (City of Longmont calendar) feed"
 ---
 
 The lighted holiday parade down Main Street at 5 pm: glowing floats, bands and dancers. The holiday lights in Roosevelt Park are on nightly from late November into early January.

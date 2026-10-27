@@ -12,8 +12,8 @@ recurring: "Mondays at 10"
 organizer: "Johnstown Milliken Public Libraries"
 source: "https://johnstownmillikenpubliclibraries.us/"
 sourceId: "johnstownmillikenpubliclibraries-us"
-verified: "2026-10-26"
-verifiedBy: "Claude Code, delegated by James Lerner: the library's home page, its events feed and its Music & Movement Storytime series page, read 26 October 2026"
+verified: "2026-10-27"
+verifiedBy: "recheck-events (the nightly re-check workflow): 2 November and 10 am on the page"
 ---
 
 Stories, songs and movement for young children every Monday from 10 to 11 am at the Johnstown library, through November 30. Each week has its own theme: numbers on November 2, Munch on November 9, drums on November 16, giving thanks on November 23 and feelings on November 30.
