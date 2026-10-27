@@ -1,6 +1,12 @@
 # Decisions
 
-Choices not covered by PLAN.md, with the reasoning. Newest first.
+*This file is the log, not the rulebook. Every entry stays as it was written,
+including the ones later entries undid. The rules in force today are in
+`HOW-IT-WORKS.md`; where an entry here and that file disagree, that file
+wins. Add an entry when a rule changes and change the rule there the same
+day.*
+
+Choices not covered by PLAN.md, with the reasoning. Entries run oldest to newest.
 
 ## Phase 1
 
