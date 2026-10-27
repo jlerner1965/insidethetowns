@@ -33,6 +33,19 @@ export interface HeroConfig {
   image: string;
   alt: string;
   credit?: string;
+  /**
+   * The hero is a painting drawn for the guide (scripts/heroes/), not a
+   * photograph. Its type sits on a soft dark pool behind the words instead
+   * of the photograph's full-width scrim and colour wash, which turned the
+   * painting to mud (HOW-IT-WORKS.md, section 6; 27 October 2026).
+   */
+  painted?: boolean;
+  /**
+   * CSS object-position for the hero, when the middle is the wrong crop. The
+   * horizontal value acts on a phone, where the band is narrower than the
+   * picture; the vertical one on a wide screen, where it is shorter.
+   */
+  position?: string;
 }
 
 export interface SocialLinks {

@@ -100,6 +100,15 @@ One wrong fact costs more than ten missing ones.
   recorded in `PERMISSIONS.md` and credited as they ask. A paid editorial
   licence of a real photograph of the real place, credited, is acceptable
   too. Generic stock and generated images are not.
+- The hero may instead be a painting drawn for the guide (27 October 2026):
+  ink and watercolour, drawn in code by `scripts/heroes/`, of the town's
+  real landmarks taken from the guide's own reference photographs. It is
+  a composition, not a view: its alt text says "illustration" and names
+  what is in it, and nothing in it is invented to stand for a real
+  building. Image-generator pictures stay out, because they invent the
+  places they claim to show. Listings, tiles and articles keep
+  photographs. Lyons, Niwot and Berthoud have one; the other guides wait
+  for the end of the 90-day test.
 - Never copied from a business's website, its social pages or a review
   site, however good the picture.
 - The hero is the town itself, not the county or a lake outside it, and a
