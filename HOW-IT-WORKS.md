@@ -107,8 +107,8 @@ One wrong fact costs more than ten missing ones.
   what is in it, and nothing in it is invented to stand for a real
   building. Image-generator pictures stay out, because they invent the
   places they claim to show. Listings, tiles and articles keep
-  photographs. Lyons, Niwot and Berthoud have one; the other guides wait
-  for the end of the 90-day test.
+  photographs. Every live guide has one, so the network reads as one
+  family; a new guide gets its painting before it launches.
 - Never copied from a business's website, its social pages or a review
   site, however good the picture.
 - The hero is the town itself, not the county or a lake outside it, and a

@@ -34,9 +34,12 @@ export const timnath: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'sunrise.jpg',
-    alt: 'Sunrise through bare cottonwoods over a frozen pond in Timnath',
-    credit: 'USFWS Mountain-Prairie, Wikimedia Commons, CC BY 2.0',
+    image: 'hero-painted.jpg',
+    alt: 'An ink-and-watercolour illustration of Timnath in autumn: the 1888 Presbyterian church on Main Street with its fish-scale gable, white belfry and brown spire beside a tall pine, the buff-brick corner building with its corbelled band and gooseneck lamp, a white garage-front building and a two-storey red-brick block under gold cottonwoods, and the river bending below the town past a split-rail fence, with low hazy foothills on the horizon',
+    credit: 'Illustration, Inside the Towns',
+    painted: true,
+    // Phone: the town in frame; wide screen: the town's base above the sports strip.
+    position: '85% 58%',
   },
   social: {
     email: 'hello@insidetimnath.com',

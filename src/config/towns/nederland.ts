@@ -86,10 +86,12 @@ export const nederland: TownConfig = {
     paper: 'cool',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'Mountain People’s Co-op and the Rustic Moose on East First Street in Nederland, under a grey mountain sky',
-    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 7 October 2026.
-    credit: 'Tony Webster, Wikimedia Commons, CC BY-SA 2.0',
+    image: 'hero-painted.jpg',
+    alt: 'An ink-and-watercolour illustration of Nederland in autumn: Mountain People’s Co-op with its white porch and navy sign beside the blue Rustic Moose, the Mining Museum’s old Bucyrus steam shovel with its boom raised, gold aspens on the timbered hills above Barker Reservoir, and Eldora’s ski runs and the snow-capped peaks of the Continental Divide behind',
+    credit: 'Illustration, Inside the Towns',
+    painted: true,
+    // Phone: the town in frame; wide screen: the town's base above the sports strip.
+    position: '82% 57%',
   },
   social: {
     email: 'hello@insidenederland.com',

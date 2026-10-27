@@ -61,9 +61,12 @@ export const loveland: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'Sunset over Lake Loveland, framed by two trees on the shore, with a person sitting in silhouette at the water and the mountains beyond',
-    credit: 'Paul Dineen, Wikimedia Commons, CC BY 3.0',
+    image: 'hero-painted.jpg',
+    alt: 'An ink-and-watercolour illustration of Loveland on an autumn morning: Lake Loveland with gold cottonwoods along its shore, Fourth Street on the far side with the red brick block, Henry’s and the cream terra cotta Rialto with its three arches, the buff brick Colorado and Southern depot with its LOVELAND. board, and beyond them the sandstone fins and Keyhole of the Devil’s Backbone and the Front Range',
+    credit: 'Illustration, Inside the Towns',
+    painted: true,
+    // Phone: the town and the Keyhole in frame; wide screen: the town's base above the sports strip.
+    position: '93% 58%',
   },
   social: {
     email: 'hello@insidelovelandco.com',

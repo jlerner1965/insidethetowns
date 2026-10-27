@@ -54,11 +54,12 @@ export const windsor: TownConfig = {
     paper: 'cool',
   },
   hero: {
-    image: 'windsor-lake-aerial.jpg',
-    // A June aerial, in place of the frozen lake that fronted the site in
-    // October. The winter view now illustrates the lake trail.
-    alt: 'Windsor Lake from the air in June: the lake trail and houses along the near shore, downtown Windsor among its trees on the far one, and the Front Range along the horizon',
-    credit: 'Ssullivan1564, Wikimedia Commons, CC BY-SA 4.0',
+    image: 'hero-painted.jpg',
+    alt: 'An ink-and-watercolour illustration of Windsor on an autumn morning, across Windsor Lake from the trail on the near shore: red sandstone riprap at the water’s edge; on the far shore the buff-brick old town hall, now the Art & Heritage Center, the white elevator and brick mill of the Windsor Mill, the tall stack and a white grain elevator among gold cottonwoods and red-orange trees; and the Front Range beyond with Longs Peak and the snow of the Mummy Range',
+    credit: 'Illustration, Inside the Towns',
+    painted: true,
+    // Phone: the town in frame; wide screen: the town's base and a band of the lake above the sports strip.
+    position: '85% 66%',
   },
   social: {
     email: 'hello@insidewindsorco.com',
