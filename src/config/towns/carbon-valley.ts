@@ -79,9 +79,12 @@ export const carbonValley: TownConfig = {
     paper: 'cool',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'Bald Eagle Pond at St. Vrain State Park in Firestone on an August afternoon, with a campground loop on the far shore under a wide sky',
-    credit: 'Jeffrey Beall, Wikimedia Commons, CC BY 4.0',
+    image: 'hero-painted.jpg',
+    alt: 'An ink-and-watercolour illustration of the Carbon Valley in autumn: Frederick’s red-brick corner building at Fifth and Oak with its stepped parapet, Firestone’s former Town Hall with its blue roof and the mine car in its gable, the stone rotunda of the Carbon Valley Regional Library and Fort Lupton’s Ottesen Grain Co. feed mill with its tile silos, all under gold cottonwoods, and Bald Eagle Pond at St. Vrain State Park in front, with its tall cottonwoods, willows and the park’s sign',
+    credit: 'Illustration, Inside the Towns',
+    painted: true,
+    // Phone: the four towns' buildings in frame; wide screen: their base above the sports strip.
+    position: '97% 58%',
   },
   social: {
     email: 'hello@carbonvalleyguide.com',

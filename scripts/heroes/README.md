@@ -27,6 +27,7 @@ photographs. Nothing is drawn from an image generator.
 | Fort Collins | `fortcollins.py` | Horsetooth Rock above the red-rimmed hogback, the Northern Hotel and its sign, the Old Town Square building and its star, the Opera House Block, the C&S Freight Depot, cottonwoods along the Poudre, a pond with reeds and a prairie trail |
 | Grand Lake | `grand-lake.py` | The forested mountain rising from the lake with gold aspen stands, the bare summit at the head of the lake, the boathouses and docks, a green-roofed log cabin, Grand Avenue's boardwalk false fronts and flags, the log Kauffman House, Lakefront Park's beach and pedal boats |
 | Nederland | `nederland.py` | Barker Reservoir under timbered hills with gold aspens, Eldora's ski runs and the snowy peaks of the Divide, the Mining Museum's Bucyrus steam shovel, Mountain People's Co-op and the Rustic Moose |
+| Carbon Valley | `carbon-valley.py` | Frederick's stepped-parapet brick corner at Fifth and Oak, Firestone's former Town Hall with the mine car in its gable, the Carbon Valley Regional Library's rotunda, Fort Lupton's Ottesen Grain Co. mill, Bald Eagle Pond and the St. Vrain State Park sign |
 
 ## Making the image
 
