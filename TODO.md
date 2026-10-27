@@ -87,4 +87,5 @@ Severance, Fort Lupton, Nederland, Estes Park, Fort Collins: 92 rows) stay in
 record is `docs/archive/VERIFICATION-QUEUE-2026-10-11.csv`. Forty mountain
 access notes fall out of their 30-day window in November (the network
 audit of 27 October); one monthly pass over the land managers' pages, or a
-longer winter window, keeps them.
+longer winter window, keeps them. The painted heroes (`scripts/heroes/`) reach the other guides after the
+test too, one town at a time, each from the guide's own reference photographs.

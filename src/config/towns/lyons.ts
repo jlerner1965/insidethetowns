@@ -33,9 +33,12 @@ export const lyons: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'Colorado 7 running between granite walls in the narrows of the South St. Vrain canyon above Lyons',
-    credit: 'Footwarrior, Wikimedia Commons, CC BY-SA 3.0',
+    image: 'hero-painted.jpg',
+    alt: 'An ink-and-watercolour illustration of Lyons on an autumn morning: the hill behind Main Street with its band of red sandstone and pines along the crest, the stone church, the 1881 depot and the sandstone storefronts, and the St. Vrain with its red slabs and boulders in front',
+    credit: 'Illustration, Inside the Towns',
+    painted: true,
+    // Phone: the town in frame; wide screen: the town's base above the sports strip.
+    position: '50% 55%',
   },
   social: {
     email: 'hello@insidelyons.com',

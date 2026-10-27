@@ -41,9 +41,12 @@ export const niwot: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'second-avenue-street.jpg',
-    alt: 'Second Avenue in Old Town Niwot on a summer morning: the Niwot Tribune storefront with its porch and hanging baskets, the brick blocks beyond it, and cars parked along the street',
-    credit: 'Jeffrey Beall, Flickr, CC BY-SA 2.0',
+    image: 'hero-painted.jpg',
+    alt: 'An ink-and-watercolour illustration of Niwot in autumn: the brick blocks of Second Avenue and the Niwot Tribune with its porch and purple trim, the railroad and a red caboose, and the Front Range beyond the fields with snow on Longs Peak',
+    credit: 'Illustration, Inside the Towns',
+    painted: true,
+    // Phone: the town in frame; wide screen: the town's base above the sports strip.
+    position: '88% 56%',
   },
   social: {
     email: 'hello@insideniwot.com',

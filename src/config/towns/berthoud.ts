@@ -41,9 +41,12 @@ export const berthoud: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'berthoud-town-park-water-play.webp',
-    alt: 'The natural-stone water feature at Berthoud Town Park on a summer afternoon: children in the shallow water among sandstone blocks, parents on the rocks, cottonwoods and the park pavilion behind',
-    credit: 'Town of Berthoud',
+    image: 'hero-painted.jpg',
+    alt: 'An ink-and-watercolour illustration of Berthoud in autumn: the sandstone Bimson Blacksmith Shop and brick storefronts on Mountain Avenue under gold cottonwoods, grain bins and a red barn in the fields, the pond and fountain at Pioneer Park, and Longs Peak and Mount Meeker on the horizon',
+    credit: 'Illustration, Inside the Towns',
+    painted: true,
+    // Phone: the town in frame; wide screen: the town's base above the sports strip.
+    position: '85% 58%',
   },
   social: {
     email: 'hello@insideberthoud.com',

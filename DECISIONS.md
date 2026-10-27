@@ -6813,3 +6813,35 @@ session and to the assistant's share of the audit's link fixes.*
   moved to a page nobody has read. Estes Park's Whiskey Vault page is a 404
   that the hotel's own dining page and sitemap still link, so the listing
   stays and the call goes on the list.
+
+## The three heroes are paintings, 27 October 2026
+
+*The owner's word, after three rounds of mock-ups the same day: "keep
+current for find picture or use the storybook feel for all towns", the
+assistant's call asked for and given, and "fix on desktop and mobile for
+all then PR".*
+
+- **Why a painting.** The heroes were 2010 to 2014 Wikimedia photographs,
+  Lyons's of the highway canyon rather than the town, against the rule that
+  the hero is the town itself. A current, licensable photograph of each town
+  on a good day is the job that never gets done; a painting gets done, makes
+  the guides one family, and costs nothing per town after the first.
+- **Why drawn in code and not generated.** An image generator invents the
+  buildings and storefronts of the place it claims to show, which breaks the
+  guide's one promise. The paintings are composed from the guide's own
+  reference photographs: the Lyons church, depot and sandstone band; the
+  Niwot Tribune and Second Avenue, with the range traced from the owner's
+  photo from the fields; the Bimson Blacksmith Shop and Pioneer Park in
+  Berthoud. Each is a composition, not a single view, and its alt text says
+  "illustration". `scripts/heroes/` holds the scripts and how to render them.
+- **Photographs everywhere else.** Listings, the home tiles and articles
+  keep photographs; people choosing where to go need the real place.
+- **The hero band for a painting.** `painted: true` drops the photograph's
+  full-width scrim and town-colour wash, which turned a painting to mud, for
+  a soft shade behind the words only. White type on it measured at least
+  6.2:1 at 768, 1,024, 1,280, 1,440 and 1,920 px on all three. `position`
+  sets each painting's focus: the town in frame on a phone, and on a wide
+  screen, where the band shows only a third of the picture's height, the
+  town's buildings above the sports strip.
+- **The other guides** keep their photographs until the 90-day test ends on
+  20 January 2027.
