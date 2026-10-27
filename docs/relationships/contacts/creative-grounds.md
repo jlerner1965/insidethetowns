@@ -1,5 +1,6 @@
 # Creative Grounds
-**Type:** local business   **Town:** Lyons   **Status:** contacted
+**Type:** local business (nonprofit café, art studio and youth third space, per its site)   **Town:** Lyons   **Status:** contacted
+**Contact:** hello@creativegrounds.art (its site), 160 E Main St, Wed–Sun 8–4:30
 **People:** Casey (role not stated; may be a publicist rather than the owner) — emailed James, 27 Oct 2026
 **What they want:** their pottery classes (through December) on community calendars, weekend roundups and family things-to-do coverage
 **What James wants:** 
