@@ -6607,3 +6607,37 @@ how the type looks.
   title match did not catch either because the files came from different
   sources, and the nightly re-check confirmed both copies against the same
   page. Deleted files stay in git history, as the accuracy system says.
+
+## The 27 October audit: every guide, the hub, and the checks that run on their own, 27 October 2026
+
+*27 October 2026, the first full network audit since 2 October: content, design,
+accuracy, links, coverage, the business side and the automation, one report per
+guide under docs/audits/2026-10-27/ and a network summary beside them.*
+
+- **Two of the eight scheduled runs had failed and nobody had been told.** The
+  Monday ingest of 26 October died on one LibCal item (the Fort Lupton library's
+  Thanksgiving closure, entered as 9 pm to 8 pm): the reader wrote an end before
+  the start, the strict validate refused it, and the 164 events the run had
+  approved were never pushed. The LibCal reader now drops an end before its
+  start, as the iCal reader does; `toStaged` guards every feed the same way and
+  says so on the review line; a test holds the case. The Wednesday research run
+  of 21 October threw on Windsor when the model asked for a tool it had not been
+  given, so Windsor had no draft, the editor published nothing for it, and its
+  This Week page stayed on the week of 19 October. The agent now answers such a
+  call with "no such tool" and carries on, and its prompt states the week's date
+  window, because Grand Lake's draft picked the Saturday before the week and the
+  editor rightly dropped it, which left that page blank.
+- **The manager's weekly audit was never created**, as far as the repo can tell:
+  `manager/config.json`, which setup writes, does not exist. Whether it should is
+  the owner's call; `npm run weekly`, the nightly re-check and an audit in this
+  form cover the same ground.
+- **Accuracy held.** 293 facts read against the business's or organizer's own
+  page: 269 matched, 13 wrong (hours that changed with the season on the
+  mountain guides, Birdhouse's closed day in Erie, the Argo Mill's phone), 44
+  unreadable because the source blocks machines. Every wrong fact has its
+  replacement text in the guide's report; nothing under `content/` was changed by
+  the audit.
+- **What is chassis-wide:** page titles over 70 characters on a fifth of pages;
+  forty mountain access notes going stale together in the next fortnight; a
+  staging queue of 233 items the weekly automation cannot drain at ten places a
+  week. Each is argued in the network summary.

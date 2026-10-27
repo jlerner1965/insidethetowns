@@ -208,7 +208,12 @@ function readLibCalItem(item: string, rawTitle: string, link: string | undefined
     endClock = null;
   }
   const start = fromWallClock(y, mo, d, startClock?.[0] ?? 0, startClock?.[1] ?? 0, 0, TIME_ZONE);
-  const end = endClock ? fromWallClock(y, mo, d, endClock[0], endClock[1], 0, TIME_ZONE) : undefined;
+  let end = endClock ? fromWallClock(y, mo, d, endClock[0], endClock[1], 0, TIME_ZONE) : undefined;
+  // LibCal lets a closure be entered as "9:00pm - 8:00pm" (Fort Lupton's
+  // Thanksgiving closure, read 26 October 2026): an end before the start is
+  // no end, as the iCal reader takes it, not a staged file the schema
+  // refuses and a Monday ingest lost to it.
+  if (end && end.getTime() < start.getTime()) end = undefined;
   if (start.getTime() >= horizon.to.getTime() || (end ?? start).getTime() < horizon.from.getTime()) return null;
   const cancelled = /^cancell?ed:\s*/i.test(rawTitle);
   const title = rawTitle.replace(/^cancell?ed:\s*/i, '').trim();

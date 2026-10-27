@@ -88,7 +88,7 @@ async function buildTasks(mode, town, args) {
       return [{
         label: `week of ${weekOf}`,
         outFile: path.join(outDir, `weekly-${weekOf}.md`),
-        prompt: `Draft the weekly notes file for ${town.name} for the week of Monday ${weekOf} (today is ${todayLong}). Guide domain: ${town.domain}.
+        prompt: `Draft the weekly notes file for ${town.name} for the week of Monday ${weekOf} (today is ${todayLong}). Guide domain: ${town.domain}. The pick must be a listing that happens between Monday ${weekOf} and the Sunday after it, never before ${weekOf}: a weekend already past when the notes publish is dropped by the editor and the page goes out blank (Grand Lake, 26 October 2026).
 
 Research: search for ${where} news from the past 10 days and events in the next 14 days. Start with these sources the guide already trusts, then widen to local news and business pages:
 ${sources || '(no source registry yet — find the town site, chamber, library and local paper yourself)'}
@@ -180,6 +180,7 @@ async function runAgent(userPrompt, town) {
   ];
   const messages = [{ role: 'user', content: userPrompt }];
   let searches = 0;
+  let clientToolAsks = 0;
   const usage = { input: 0, output: 0 };
 
   for (let turn = 0; turn < MAX_TURNS; turn++) {
@@ -194,7 +195,22 @@ async function runAgent(userPrompt, town) {
     }
     messages.push({ role: 'assistant', content: res.content }); // keep encrypted search content intact
     if (res.stop_reason === 'pause_turn') continue;
-    if (res.stop_reason === 'tool_use') throw new Error('model asked for a client tool; none are defined');
+    if (res.stop_reason === 'tool_use') {
+      // The model now and then answers with a tool_use for a tool it was
+      // not given (Windsor, 21 October 2026: the run threw here, the guide
+      // had no draft that week, and the Wednesday editor published nothing
+      // for it). Say there is no such tool and let it carry on with the
+      // server tools; only a model that keeps asking ends the run.
+      const asked = res.content.filter((b) => b.type === 'tool_use');
+      const names = asked.map((b) => b.name).join(', ') || '(unnamed)';
+      if (++clientToolAsks > 3) throw new Error(`model kept asking for a client tool (${names}); none are defined`);
+      console.warn(`   ! model asked for a client tool (${names}); told it there is none`);
+      messages.push({
+        role: 'user',
+        content: asked.map((b) => ({ type: 'tool_result', tool_use_id: b.id, is_error: true, content: `No tool named "${b.name}" is available here. Use web_search and web_fetch only, then write the finished document.` })),
+      });
+      continue;
+    }
     if (res.stop_reason === 'max_tokens') console.warn('   ! hit max_tokens; draft may be truncated');
     const text = res.content.filter((b) => b.type === 'text').map((b) => b.text).join('').trim();
     return { text: stripFence(text), searches, usage };

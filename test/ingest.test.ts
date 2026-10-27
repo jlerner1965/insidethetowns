@@ -224,6 +224,21 @@ test("LibCal RSS: the libcal elements carry the facts; a room and its branch mak
   assert.equal(passesLocationFilter(hunt, { locationFilter: ['Carbon Valley'] }), false);
 });
 
+// The Fort Lupton branch's Thanksgiving closure as LibCal published it on 26 October 2026: start 21:00, end 20:00.
+const LIBCAL_BACKWARDS = `<?xml version="1.0" encoding="utf-8"?><rss version="2.0" xmlns:libcal="https://libcal.com/rss_xmlns.php"><channel>
+<item><title>FTL CLOSED</title><link>https://highplains.libcal.com/event/17089939</link>
+<guid>https://highplains.libcal.com/event/17089939</guid>
+<libcal:eventid>17089939</libcal:eventid><libcal:date>2026-11-26</libcal:date><libcal:start>21:00:00</libcal:start><libcal:end>20:00:00</libcal:end>
+<libcal:campus>Fort Lupton Public &#x26; School Library - Public Branch</libcal:campus><libcal:location></libcal:location></item>
+</channel></rss>`;
+
+test('LibCal RSS: an end before the start is no end, so the staged file is one the schema accepts', () => {
+  const { events } = readRss(LIBCAL_BACKWARDS, { from: new Date('2026-10-26T06:00:00Z'), to: new Date('2027-01-26T06:00:00Z') });
+  assert.equal(events.length, 1);
+  assert.equal(toWallClock(events[0]!.start), '2026-11-26T21:00');
+  assert.equal(events[0]!.end, undefined, 'the feed\'s 8 pm end is before its 9 pm start');
+});
+
 // Modern Events Calendar's /events/feed/ (niwot.com), shortened from the feed as read on 20 October 2026.
 const MEC = `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:mec="http://webnus.net/rss/mec/"><channel>
 <item><title>Tree Carving Fundraiser- ongoing</title><link>https://niwot.com/events/tree-carving-fundraiser-ongoing/?occurrence=2026-10-20</link>
