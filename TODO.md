@@ -23,15 +23,15 @@ Last revised: 27 October 2026, evening.
 | Lyons | Confirm The Rock Garden as a source (`npm run sources -- confirm lyons rockgardenlyons-com`) | Five events wait on it | Owner |
 | Lyons and Niwot | Re-list three weekly series that ended in October once the organizer confirms the next dates: the library's baby and toddler storytimes (Lyons), the Rotary Club breakfast (Niwot) | Their files stayed when the past one-offs were deleted on 27 October; a series with no next date shows nothing | Owner confirms, assistant re-lists |
 | Niwot | Call Belle Terre Floral, (303) 652-0419, and The Nook: hours | On no page of their own since 12 October | Owner |
-| All three | Fill the 90-day scorecard for the week of 26 October (`docs/90-DAY-TEST.md`) on Tuesday 3 November | Search Console settles a Sunday about two days later; the week of 19 October is filled | Assistant |
+| All three | Fill the 90-day scorecard for the week of 26 October (`docs/90-DAY-TEST.md`) on Tuesday 3 November | The scheduled session does it every Tuesday at 11:17; Search Console settles a Sunday about two days later | Assistant (scheduled) |
 | Lyons | Get the first subscriber: nobody has signed up on insidelyons.com, so the 22 October edition did not send | Its target is 150 by 20 January; the chamber's distribution ask is the drafted way in | Owner |
-| Network | Fix the dead and moved outbound links the 27 October audit lists per town (Lyons done; Erie, Evergreen, Fort Collins, Golden, Johnstown, Windsor, Idaho Springs, Estes Park remain) | | Assistant |
+| Golden | The history article cites the museum's walking tour eight times; goldenhistory.org took the page down. Relink to the archived copy (web.archive.org, 22 June 2026) once someone can read it and confirm it holds the facts cited, or re-source them | The archive could not be reached from the assistant's container on 27 October | Assistant, or owner in a browser |
 
 ## Decisions due
 
 | By | Decision | Who |
 |---|---|---|
-| Now | Scheduled assistant sessions for the Monday scorecard and the weekly audit: yes or no | Owner |
+| Now | A scheduled assistant session for the weekly audit: yes or no (the scorecard's was set up 27 October) | Owner |
 | 19 November | The quiet guides (Elizabeth, Fort Collins, Grand Lake, Leadville, Longmont, Loveland, Nederland): keep each, or retire it to a holding page | Owner |
 | 20 January | The 90-day test's verdict (`docs/90-DAY-TEST.md`) | Owner |
 
@@ -82,7 +82,7 @@ The other guides run on automation: the Monday ingest, the nightly
 re-check, the daily rebuild. Their open calls (Georgetown, Black Hawk,
 Grand Lake, Leadville, Idaho Springs, Manitou Springs, Elizabeth, Timnath,
 Johnstown, Erie, Carbon Valley, Evergreen, Golden, Longmont, Windsor,
-Severance, Fort Lupton, Nederland: 90 rows) stay in
+Severance, Fort Lupton, Nederland, Estes Park, Fort Collins: 92 rows) stay in
 `docs/archive/CALL-LIST.md`; the 11 October register of every staged
 record is `docs/archive/VERIFICATION-QUEUE-2026-10-11.csv`. Forty mountain
 access notes fall out of their 30-day window in November (the network
