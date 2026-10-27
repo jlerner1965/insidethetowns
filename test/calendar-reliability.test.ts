@@ -269,3 +269,18 @@ test('the filter windows are Denver days on a fixed clock', () => {
   // Late on a Sunday evening in Denver it is already Monday in UTC.
   assert.deepEqual(whenWindow('today', at('2026-11-01T22:30')), { from: '2026-11-01', to: '2026-11-01' });
 });
+
+// ------------------------------------------------------------ the switch
+
+test('"Show the weekly regulars on their days": the regular joins the dated list and the directory steps aside; a run’s later nights stay held', () => {
+  const rows = agenda([chess, terror, festival], { now: MONDAY }).fortnight;
+  const on = { when: 'any', category: 'all', free: false, where: 'all', regulars: true };
+  const shown = rows.filter((r) => eventRowShown(marks(r), on, MONDAY));
+  assert.ok(shown.some((r) => r.event.slug === 'chess-club-for-grades-3-5'), 'Monday’s chess club is on Monday, as the home page has it');
+  assert.ok(!shown.some((r) => r.repeat), 'a run is still shown once, at its next night');
+  assert.equal(eventRowShown({ startDay: '2026-10-26', directory: true }, on, MONDAY), false, 'the "Every week" row would say the regular twice');
+  assert.equal(eventRowShown({ startDay: '2026-10-26', directory: true }, { ...on, regulars: false }, MONDAY), true);
+  // Under a date the switch changes nothing: the date already brings the regulars out.
+  const today = rows.filter((r) => eventRowShown(marks(r), { ...on, when: 'today' }, MONDAY)).map((r) => r.event.slug);
+  assert.deepEqual(today.sort(), rows.filter((r) => eventRowShown(marks(r), { ...on, when: 'today', regulars: false }, MONDAY)).map((r) => r.event.slug).sort());
+});

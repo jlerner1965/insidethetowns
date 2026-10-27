@@ -84,6 +84,11 @@ const title = displayTitle(event);
 const longNote = !!data.timeNote && data.timeNote.length > 14;
 const firstClause = data.timeNote?.split(/[;,(]/)[0].trim();
 const cell = longNote ? (firstClause && firstClause.length <= 14 ? [firstClause] : []) : [cellTime, cellTo];
+// What the line under the title says of a long note on a wide screen: the
+// whole note where the column is empty, else the part after the clause the
+// column has ("From 3 pm" in the column, "live music 6–8:30 pm" in the line),
+// so no words are printed twice in one row.
+const noteRest = longNote && cell.length > 0 ? data.timeNote!.slice(firstClause!.length).replace(/^\s*[;,(]\s*/, '').replace(/\)\s*$/, '').trim() : data.timeNote;
 // "Other" is filed but not labelled; a status still shows on its own.
 const categoryLabel = shownCategoryLabel(data.category);
 const note =
@@ -156,7 +161,7 @@ const note =
       <a href={href} class:list={['stretch no-underline group-hover:text-primary', canceled && 'line-through decoration-ink-muted decoration-2']}>{title}</a>
     </h3>
     <p class="mt-2 text-[0.9375rem] leading-snug text-ink-muted">
-      {showDate ? <span>{time} · </span> : longNote && <span class="hidden sm:inline">{time} · </span>}{data.venue}{data.subTown && <span>, {subTownLabel(data.subTown)}</span>}{data.cost && <span> · {data.cost}</span>}
+      {showDate ? <span>{time} · </span> : longNote && noteRest && <span class="hidden sm:inline">{noteRest} · </span>}{data.venue}{data.subTown && <span>, {subTownLabel(data.subTown)}</span>}{data.cost && <span> · {data.cost}</span>}
     </p>
     {statusLabel && data.statusNote && <p class="mt-1 text-sm text-ink">{data.statusNote}</p>}
     {note && !canceled && <p class="mt-1 text-sm text-ink-muted">{note}</p>}

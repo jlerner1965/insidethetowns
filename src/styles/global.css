@@ -144,6 +144,19 @@
   padding-block: 4rem;
   @media (width >= 48rem) { padding-block: 6rem; }
 }
+/* A band that carries on from the one above it (the week's agenda under the
+   school's strip): a third less above, the same below, so related content
+   sits together and a change of subject keeps the full band (owner,
+   26 October 2026). */
+@utility band-close {
+  padding-block: 2.75rem 4rem;
+  @media (width >= 48rem) { padding-block: 4rem 6rem; }
+}
+/* A short band: the guide's own navigation, one line a link. */
+@utility band-compact {
+  padding-block: 2.5rem;
+  @media (width >= 48rem) { padding-block: 3.5rem; }
+}
 @utility band-white { background-color: var(--color-raised); }
 @utility band-paper { background-color: var(--color-paper); }
 @utility band-dark {

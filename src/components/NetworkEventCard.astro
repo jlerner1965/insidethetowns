@@ -31,9 +31,16 @@ interface Props {
   query?: string;
   /** A name for the click, read by the strip's script and sent as a custom event. */
   track?: string;
+  /**
+   * The town's name as a plain label in the page's own ink, not a lozenge
+   * in that town's colour (owner, 26 October 2026): on a guide's own pages
+   * the neighbours' palettes competed with the guide's. The hub, where the
+   * towns are the subject, keeps the colours.
+   */
+  neutral?: boolean;
 }
 
-const { event, showDay = false, showTagline = false, query, track } = Astro.props;
+const { event, showDay = false, showTagline = false, query, track, neutral = false } = Astro.props;
 const { data, slug, town } = event;
 const href = `https://${town.domain}/events/${slug}/${query ? `?${query}` : ''}`;
 const canceled = isCanceled(event);
@@ -63,10 +70,14 @@ const time = showDay && !running && !multiDay ? `${formatDayShort(data.start)} Â
   data-end={toIsoLocal(listedUntil(event))}
 >
   <p class="mb-1.5 sm:mb-0 sm:pt-1">
-    <span
-      class="inline-block whitespace-nowrap rounded-full px-2.5 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-white"
-      style={`background:${town.colors.primary}`}
-    >{town.name}</span>
+    {neutral ? (
+      <span class="eyebrow inline-block whitespace-nowrap text-ink">{town.name}</span>
+    ) : (
+      <span
+        class="inline-block whitespace-nowrap rounded-full px-2.5 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-white"
+        style={`background:${town.colors.primary}`}
+      >{town.name}</span>
+    )}
     {showTagline && town.shortTagline && <span class="mt-1 block text-[0.875rem] leading-snug text-ink-muted">{town.shortTagline}</span>}
   </p>
   <div class="min-w-0">

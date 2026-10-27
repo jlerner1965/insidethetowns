@@ -40,10 +40,16 @@ interface Props {
    * chosen here.
    */
   picks?: NetworkEntry<'events'>[];
+  /**
+   * The "Get your nearby towns every Thursday" link under the picks. Off on
+   * a page that carries the email's form already (the home page, the events
+   * page), so the email is offered once there, not three times.
+   */
+  signup?: boolean;
   class?: string;
 }
 
-const { town, sponsor = true, limit = 6, picks: given, class: className } = Astro.props;
+const { town, sponsor = true, limit = 6, picks: given, signup: signupOn = true, class: className } = Astro.props;
 const hub = getNetworkHub();
 const neighbors = neighborsOf(town);
 const now = new Date();
@@ -52,9 +58,14 @@ const picks =
 const { start, sunday } = weekendWindow(now);
 const sponsorLine = sponsor ? hub.sponsors?.network : undefined;
 // The signup preselects the towns named in `towns` (src/routes/hub/newsletter.astro).
-const signup = hub.newsletter
+const signup = signupOn && hub.newsletter
   ? `https://${hub.domain}/newsletter/?towns=${[town.slug, ...neighbors.map((t) => t.slug)].join(',')}`
   : undefined;
+// The town's line ("Main Street, the St. Vrain Greenway and the breweries")
+// under its first pick only; it was under every one, so Longmont's was read
+// twice in a row.
+const firstOf = new Set<string>();
+const introduces = (slug: string) => (firstOf.has(slug) ? false : (firstOf.add(slug), true));
 ---
 {picks.length > 0 && (
   <section class={className} data-hide-when-empty data-pagefind-ignore aria-labelledby="nearby-weekend">
@@ -63,7 +74,7 @@ const signup = hub.newsletter
       <SectionHeader id="nearby-weekend" eyebrow={formatDayRange(start, sunday)} title="Nearby this weekend" />
     </div>
     <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-      {picks.map((event) => <NetworkEventCard event={event} showDay showTagline />)}
+      {picks.map((event) => <NetworkEventCard event={event} showDay showTagline={introduces(event.town.slug)} neutral />)}
     </div>
     {signup && (
       <p class="mt-4 text-[0.9375rem]">
