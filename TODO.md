@@ -7,7 +7,7 @@ reports, checks). Three towns get the work until 20 January 2027
 Remove a row when it is done; the dated audits in `docs/audits/` say what
 was found and when.
 
-Last revised: 27 October 2026.
+Last revised: 27 October 2026, evening.
 
 ## This week
 
@@ -20,13 +20,11 @@ Last revised: 27 October 2026.
 | Berthoud | Two new local changes for `/updates/` before 3 November: the election result on Issue 3G; the rec-centre anniversary on 20 November | Worth knowing hides itself when its two items expire | Assistant drafts, owner confirms |
 | Berthoud | Add November's one-off events: the Historical Society's talk, the Town's and Main Street's holiday events, the winter home games | The week of 2 to 5 November has no one-off event listed | Assistant |
 | Lyons | Open lyonsfire.org in a browser; it answered 503 to the crawler from Moving here and Living here | Fix-now item, 27 October audit | Owner |
-| Lyons | Relink the election-day listing from bouldercountyvotes.gov to the county's vote-centers page, before 3 November | The old domain now redirects | Assistant |
 | Lyons | Decide the staged queue: 22 events and 2 places waiting since 6–21 October (`npm run review -- --town=lyons`) | A month deep; the editor works 25 a week network-wide | Owner |
 | Lyons | Confirm The Rock Garden as a source (`npm run sources -- confirm lyons rockgardenlyons-com`) | Five events wait on it | Owner |
+| Lyons and Niwot | Re-list three weekly series that ended in October once the organizer confirms the next dates: the library's baby and toddler storytimes (Lyons), the Rotary Club breakfast (Niwot) | Their files stayed when the past one-offs were deleted on 27 October; a series with no next date shows nothing | Owner confirms, assistant re-lists |
 | Niwot | Call Belle Terre Floral, (303) 652-0419, and The Nook: hours | On no page of their own since 12 October | Owner |
-| All three | Delete the past event files: Berthoud 31, Lyons 54, Niwot 14 (`npm run weekly` lists them) | Hidden on the site; they slow the validator and confuse the editor | Assistant |
 | All three | Fill the 90-day scorecard for the weeks of 19 and 26 October (`docs/90-DAY-TEST.md`) | Nobody has kept score since 20 October | Assistant, once Search Console and Buttondown are authorized |
-| Network | Shorten the 36 page titles over 70 characters (the " \| Inside Town" suffix plus the date) | Search results cut at about 60 | Assistant |
 | Network | Fix the 14 dead and 12 moved outbound links the 27 October audit lists per town | | Assistant |
 
 ## Decisions due
