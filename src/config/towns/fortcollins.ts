@@ -69,9 +69,9 @@ export const fortcollins: TownConfig = {
       'Transfort runs the city buses and the MAX line down Mason Street; Bustang runs to Denver Union Station from the Downtown Transit Center. By car, I-25 is on the east edge: Loveland in twenty minutes, Greeley in thirty-five, Cheyenne in forty-five and Denver in about an hour and ten minutes off-peak.',
   },
   officialLinks: {
-    townSite: 'https://www.fcgov.com/',
+    townSite: 'https://www.fortcollins.gov/',
     townSiteLabel: 'the City of Fort Collins',
-    policeNonEmergency: 'https://www.fcgov.com/police/',
+    policeNonEmergency: 'https://www.fortcollins.gov/Services/Police-and-Public-Safety/Police-Services',
     policeNonEmergencyLabel: 'Fort Collins Police Services',
   },
   formspreeId: 'mgavbjyp',

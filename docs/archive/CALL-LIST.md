@@ -102,6 +102,8 @@ The business has no website of its own, or its site gives no days or times, or t
 | Berthoud | Happy Eating, 506 Welch Ave | Its ordering page carries two hours tables that disagree: one closed Tuesdays and open to 9:30 or 10:30, the other closed Mondays with lunch and dinner Tue–Sat to 8:30 | Which days, and closing time |
 | Berthoud | Indigo Sky Trading, 212 Mountain Ave | Facebook only | Hours, phone |
 | Berthoud | Log Cabin Liquors, 443 Mountain Ave | No site of its own | Hours, phone |
+| Estes Park | The Whiskey Vault at The Stanley, (970) 577-4001 | Its page is a 404 since 27 October, though the hotel's dining page and sitemap still link it | Hours |
+| Fort Collins | Jax Outdoor Gear, 970-221-0544 | Its store page (stores.jaxgoods.com) has an expired certificate; jaxgoods.com gives no hours | Hours |
 | Elizabeth | Coffee House on Main | No site; directory only, at 341 S Main | Hours, phone, website |
 | Elizabeth | Randy's Antiques and Art, 232 S Main | No site | Hours, phone |
 | Elizabeth | The Nest at the 1897 House | Facebook only | Hours, phone |

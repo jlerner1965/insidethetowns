@@ -6769,3 +6769,47 @@ alone, done the evening the owner said "start on yours".*
 - **Lyons's election-day listing** points at the county's own vote-centers
   page (bouldercountyvotes.gov now redirects there); the hours it gives
   match the listing.
+
+## The scorecard fills itself on Tuesdays; the audit's link list, 27 October 2026
+
+*The owner connected GSC Wizard and put Buttondown's key in the cloud
+environment the same afternoon, and said yes to a scheduled scorecard
+session and to the assistant's share of the audit's link fixes.*
+
+- **The scorecard is a scheduled session, Tuesday 11:17 Denver, 3 November
+  to 19 January.** Tuesday rather than Monday because Search Console
+  settles a Sunday about two days later; a week not yet settled is not
+  written half-filled. It reads GSC Wizard and Buttondown (GET only),
+  writes counts and never an address, and opens a pull request. It runs in
+  the session that holds the GSC Wizard connection, because a fresh
+  session started by a schedule does not carry connectors. Buttondown's
+  subscriber objects come back with an empty `tags` list, so subscribers
+  are counted by filtering on each town's tag id.
+- **Erie:** the 3 November Town Council study session is gone from the
+  Town's calendar feed (which lists a liquor-license hearing that day) and
+  its event page now sends readers to a login, so the listing is removed;
+  the two 7 October files behind the same login go too.
+- **Evergreen:** the Chamber's Santa Breakfast page now lists two dates,
+  not four: Sunday 6 December at Hiwan Barn and Saturday 19 December at
+  The Wild Game, two seatings each, $28. The 28 November, 5 and 12
+  December listings are removed (the 28 November detail page still
+  answers, but the Chamber's own series page says "both dates"); 19
+  December is corrected and 6 December added, from the four seating pages.
+- **Fort Collins:** the City link and the police link in the guide's
+  config move to fortcollins.gov. Jax Outdoor Gear stays as it is: the
+  only page with its hours has an expired certificate.
+- **Johnstown:** Thanksgiving Place Cards (24 November) is removed; the
+  library's API says the event is no longer available. The Weld RE-5J
+  calendar keeps the district's own link, which redirects to a versioned
+  file on finalsite's CDN: the district's link survives a re-upload, the
+  CDN's does not.
+- **Windsor:** the Severance article's Property Portal link goes straight
+  to apps.weld.gov.
+- **Idaho Springs:** the two staged Black Hawk places whose City sources
+  are now 404s say so in their review note; they wait on a call.
+- **Left, and why:** Golden's history article still cites the museum's
+  walking tour, which is gone; an archived copy of 22 June 2026 exists but
+  could not be read from the assistant's container, and a citation is not
+  moved to a page nobody has read. Estes Park's Whiskey Vault page is a 404
+  that the hotel's own dining page and sitemap still link, so the listing
+  stays and the call goes on the list.

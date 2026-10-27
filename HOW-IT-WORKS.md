@@ -27,7 +27,7 @@ the email and on the site, three months minimum.
 the work; everything else runs on automation. No new towns, no new
 features, no search-engine projects until the test ends. The targets and
 the weekly scorecard are in `docs/90-DAY-TEST.md`; the scorecard is filled
-every Monday.
+every Tuesday, once Search Console has settled the Sunday.
 
 | Town | Why |
 |---|---|
@@ -178,8 +178,11 @@ Scheduled jobs (Denver time), all in `.github/workflows/`:
 | Thursday 06:10 | Draft the Thursday email from the listings | a draft, as a pull request; merging sends it |
 | Sat and Sun 08:00, Wed 06:20 | Read the scores from MaxPreps | `data/<town>/sports.json`, committed straight to main |
 
-The Monday scorecard fill and the weekly audit are the assistant's, not a
-workflow's, until a scheduled session is set up for them.
+The scorecard fill is a scheduled assistant session, Tuesday 11:17, from
+3 November 2026 to 19 January 2027: it reads Search Console (GSC Wizard)
+and Buttondown, adds the week's three rows to `docs/90-DAY-TEST.md`, and
+opens a pull request. The weekly audit is the assistant's, not a
+workflow's, until a scheduled session is set up for it.
 
 ## 10. Conflicts this file settles
 
@@ -204,8 +207,8 @@ Where the dated documents disagree, this is the reading in force:
   retire it to a holding page.
 - Berthoud: B-Rad's Arcade and Trailhead Cafe, dropped by their only
   source on 26 October; keep after a call, re-source, or mark closed.
-- Whether to set up scheduled assistant sessions for the Monday scorecard
-  and the weekly audit (section 4).
+- Whether to set up a scheduled assistant session for the weekly audit
+  (section 4); the scorecard's was set up on 27 October 2026.
 
 ## 12. Where things are
 
