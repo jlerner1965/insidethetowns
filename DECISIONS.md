@@ -6641,3 +6641,37 @@ guide under docs/audits/2026-10-27/ and a network summary beside them.*
   forty mountain access notes going stale together in the next fortnight; a
   staging queue of 233 items the weekly automation cannot drain at ten places a
   week. Each is argued in the network summary.
+
+## The hero photographs: the town, not the county, 27 October 2026
+
+*27 October 2026, the owner's word after the audit: keep the hero, make the
+photograph the town's.*
+
+The hero stays on every guide at the size the 26 October pass gave it (328 px
+on a phone, 330 on a desktop, the week a scroll below), because it is the one
+photograph most home pages have. What changed is the picture on the four
+guides whose hero was not the town. Niwot's grassland "near Niwot" is Second
+Avenue, the Niwot Tribune storefront (Jeffrey Beall, CC BY-SA 2.0). Berthoud's
+Carter Lake is the stone water feature at Town Park (the Town's own
+photograph, permission of 21 September). Johnstown's 2010 "road in the
+Colorado heartland", which is not in Johnstown, is the Jared L. Brush Barn of
+1865, on the National Register a mile northeast of town (Jeffrey Beall,
+CC BY-SA 3.0). Erie's Baseline Road is Town Hall, the 1906 Lincoln School on
+Holbrook Street (Erie Bard, CC BY-SA 4.0). Each photograph was already
+licensed and in `IMAGE_LICENSES.csv`; the old heroes stay in the folders. The
+share image of every page without a photograph of its own changes with the
+hero.
+
+The validator's rule that a hero and a listing's card never share a
+photograph decided three of the four: the Town Park playground, the Parish
+House and The Old Mine's 1889 block, each the better picture, are the cards
+of their own listings, and a listing keeps its photograph. The barn is a
+judgement; the Parish House is the alternative if its listing gives the
+photograph up.
+
+Not changed: Timnath, whose only photograph of the town itself is 717 px wide
+(a full-width hero would be soft at any desktop width), keeps Fossil Creek
+Reservoir until the Town or a resident sends one, which docs/PHOTO-PRIORITIES.md
+already asks for; Longmont (McIntosh Lake), Loveland (Lake Loveland) and Carbon
+Valley (St. Vrain State Park in Firestone), whose photographs are in the town
+even if not on Main Street.

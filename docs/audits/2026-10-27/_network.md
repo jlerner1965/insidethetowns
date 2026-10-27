@@ -106,4 +106,4 @@ The gaps that stand out: Johnstown without a bar; Nederland without a coffee lis
 
 ## Changed in this branch
 
-`scripts/lib/feeds/rss.ts`, `scripts/lib/ingest.ts`, `test/ingest.test.ts` (the ingest fix and its test), `agent/agent.mjs` (the research agent's tool-call fix and the date window), these reports under `docs/audits/2026-10-27/`, and one entry in DECISIONS.md. Nothing under `content/` was touched; every content fix is a proposal in its guide's report.
+`scripts/lib/feeds/rss.ts`, `scripts/lib/ingest.ts`, `test/ingest.test.ts` (the ingest fix and its test), `agent/agent.mjs` (the research agent's tool-call fix and the date window), these reports under `docs/audits/2026-10-27/`, and two entries in DECISIONS.md. After the audit, at the owner's word, the hero photographs of Niwot, Berthoud, Johnstown and Erie were changed to photographs of the town already licensed in the repo (`src/config/towns/*.ts`; the second DECISIONS entry). Nothing under `content/` was touched; every content fix is a proposal in its guide's report.

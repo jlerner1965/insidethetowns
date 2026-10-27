@@ -47,9 +47,9 @@ export const erie: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'Baseline Road, Colorado 7, running west toward the snow-covered Front Range on a December morning',
-    credit: 'Jeffrey Beall, Wikimedia Commons, CC BY 4.0',
+    image: 'town-hall-lincoln-school.jpg',
+    alt: 'Erie Town Hall, the 1906 Lincoln School on Holbrook Street: a red-brick schoolhouse with a hipped roof and its newer wing, under a clear October sky',
+    credit: 'Erie Bard, Wikimedia Commons, CC BY-SA 4.0',
   },
   social: {
     email: 'hello@insideerie.com',

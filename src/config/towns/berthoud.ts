@@ -41,9 +41,9 @@ export const berthoud: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'Carter Lake, the Larimer County reservoir in the foothills west of Berthoud, on a June afternoon: pines along the near shore, the hogback across the water, and a high cloud sky',
-    credit: 'KimonBerlin, Wikimedia Commons, CC BY-SA 2.0',
+    image: 'berthoud-town-park-water-play.webp',
+    alt: 'The natural-stone water feature at Berthoud Town Park on a summer afternoon: children in the shallow water among sandstone blocks, parents on the rocks, cottonwoods and the park pavilion behind',
+    credit: 'Town of Berthoud',
   },
   social: {
     email: 'hello@insideberthoud.com',
