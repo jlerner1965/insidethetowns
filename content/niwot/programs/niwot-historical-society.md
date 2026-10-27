@@ -18,4 +18,4 @@ source: "https://niwothistoricalsociety.org/join-and-give/"
 verified: "2026-10-21"
 ---
 
-The Society keeps the 150-year timeline, the photograph and artifact collections, the [Old Fire House Museum](/places/old-fire-house-museum/) and the walking tours, and runs the Niwot, Now & Then lecture series at [Niwot Hall](/places/niwot-hall/); the [October 21 talk](/events/niwot-cemetery-talk-2026-10-21/) was on the Niwot Cemetery, and the next had not been posted when this was checked. Its Join & Give page lists nine volunteer jobs and says a little or a lot is welcome. Members get the quarterly Niwot Gazette and free entry to the lectures.
+The Society keeps the 150-year timeline, the photograph and artifact collections, the [Old Fire House Museum](/places/old-fire-house-museum/) and the walking tours, and runs the Niwot, Now & Then lecture series at [Niwot Hall](/places/niwot-hall/); the October 21 talk was on the Niwot Cemetery, and the next had not been posted when this was checked. Its Join & Give page lists nine volunteer jobs and says a little or a lot is welcome. Members get the quarterly Niwot Gazette and free entry to the lectures.

@@ -6742,3 +6742,30 @@ photograph of a kind, the tile shows the hero, as the brief says; Berthoud's
 Eat & drink tile is the Town Park water feature until a restaurant or bar
 listing carries a photograph. Berthoud screenshots before and after, phone
 and desktop, are in docs/screenshots/2026-10-27-home/.
+
+## Title tags fit in 70 characters, and the past one-offs come off, 27 October 2026
+
+*The 27 October audit's two network findings the assistant could act on
+alone, done the evening the owner said "start on yours".*
+
+- **The guide's name rides on a title only where it fits.** 163 of 531
+  event titles and 31 of 259 place titles across seven guides ran past 70
+  characters as "[Page] — October 13, 2026 | Inside Berthoud"; search
+  results cut at about 60, so the guide's name was what got cut, after the
+  date. The sports pages had settled this on 21 October (`sportsFullTitle`,
+  70): the full form where it fits, the page's own title alone where it
+  does not. `pageTitle` now does the same for every page (`fitTitle`,
+  `TITLE_LIMIT` in `src/lib/titles.ts`), and an event's title date is
+  "Oct 13", with the year only when it is another year (`titleDate`). On
+  Berthoud: 2 of 139 title tags over 70, both the page's own long words,
+  from 20 of 75. The name is still in `og:site_name` and the wordmark.
+- **96 past one-off event files deleted** in Berthoud (31), Lyons (51)
+  and Niwot (13), the ones `npm run weekly` had listed as "already past"
+  for a week or more; the four program pages and one correction that
+  linked to them say the same thing without the link. Three weekly series
+  whose last date passed (the Lyons library's two storytimes, Niwot's
+  Rotary breakfast) stay, on the to-do list to re-list once the organizer
+  gives the next dates: a series is not over because its calendar ran out.
+- **Lyons's election-day listing** points at the county's own vote-centers
+  page (bouldercountyvotes.gov now redirects there); the hours it gives
+  match the listing.

@@ -21,4 +21,4 @@ source: "https://www.berthoudcommunitylibrary.org/events-classes"
 verified: "2026-10-21"
 ---
 
-The [Writers Group](/events/writers-group-library/) meets Monday mornings through mid-December: free-writing and critique, bring pages if you want them read. The [Knit & Crochet drop-in](/events/library-knit-and-crochet-drop-in-2026-10-23/) is on the October calendar for Friday the 23rd. The library's monthly **book club** meets in two sittings, 2:30 and 6:30 pm, with the next on October 28 reading *Kin*; the library's page gives the title.
+The [Writers Group](/events/writers-group-library/) meets Monday mornings through mid-December: free-writing and critique, bring pages if you want them read. The Knit & Crochet drop-in was on the October calendar for Friday the 23rd. The library's monthly **book club** meets in two sittings, 2:30 and 6:30 pm, with the next on October 28 reading *Kin*; the library's page gives the title.

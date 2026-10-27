@@ -6,6 +6,7 @@ import { getTown } from '@/config';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { isOpen } from '@/lib/places';
 import { dayKey, formatDate, formatDayLong, formatDayRange, formatDayShort, formatMonthDay, formatTime, formatTimeRange, formatWeekday, toIsoLocal } from '@/lib/dates';
+import { titleDate } from '@/lib/titles';
 import { exportWhen, finalDay, isCanceled, isInProgress, isMultiDay, isOver, lastDay, listedUntil, nextOccurrence, occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { googleCalendarUrl, showKey } from '@/lib/ics';
 import { pickCanonical } from '@/lib/series';
@@ -188,7 +189,7 @@ const facts = [
 <Page
   kind="Event"
   title={data.title}
-  seoTitle={`${statusLabel ? `${statusLabel}: ` : ''}${data.title} — ${formatDate(when.start)}${sameDayTwin && !when.allDay ? `, ${formatTime(when.start)}` : ''}`}
+  seoTitle={`${statusLabel ? `${statusLabel}: ` : ''}${data.title} — ${titleDate(when.start)}${sameDayTwin && !when.allDay ? `, ${formatTime(when.start)}` : ''}`}
   eyebrow={shownCategoryLabel(data.category)}
   status={statusLabel}
   description={description}

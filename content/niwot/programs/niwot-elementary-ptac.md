@@ -19,4 +19,4 @@ source: "https://www.niwotptac.com/"
 verified: "2026-10-21"
 ---
 
-The council's year runs from the [Niwot Trot](/events/niwot-trot-5k-2026/) 5K in October, which funds it, to the Cougar Carnival and the community nights its site lists without dates. Its 2026–27 board is named on the site; the volunteer page and interest form are the way in for a new family, and the meeting minutes are posted for anyone who wants to see what it is working on. The haunted house at the Great Pumpkin Party is the high school's Key Club, not the PTAC.
+The council's year runs from the Niwot Trot 5K in October, which funds it, to the Cougar Carnival and the community nights its site lists without dates. Its 2026–27 board is named on the site; the volunteer page and interest form are the way in for a new family, and the meeting minutes are posted for anyone who wants to see what it is working on. The haunted house at the Great Pumpkin Party is the high school's Key Club, not the PTAC.

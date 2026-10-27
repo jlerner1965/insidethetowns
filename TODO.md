@@ -7,7 +7,7 @@ reports, checks). Three towns get the work until 20 January 2027
 Remove a row when it is done; the dated audits in `docs/audits/` say what
 was found and when.
 
-Last revised: 27 October 2026.
+Last revised: 27 October 2026, evening.
 
 ## This week
 
@@ -17,17 +17,14 @@ Last revised: 27 October 2026.
 | Berthoud | Call Kofe House, (970) 344-5391: confirm the seven-day hours and the Thursday 5–8 pm dinner | The listing's hours are wrong against its own page | Owner |
 | Berthoud | Call the library, (970) 532-2757: a calendar feed, or a monthly hours check for its six series | Its site rate-limits the nightly check; six series read as unverifiable | Owner |
 | Berthoud | Photographs: City Star front, Town Hall, the Bike Park, Fickel Park, the Reservoir Loop, then Kofe House, Berthoud Brewing, Grandpa's, Cornerstone, Rise | The three home tiles and the eat-and-drink page have no photograph of a business; the shot list and sources are in the 27 October session notes and `docs/PHOTO-PRIORITIES.md` | Owner (hire or shoot) |
-| Berthoud | Two new local changes for `/updates/` before 3 November: the election result on Issue 3G; the rec-centre anniversary on 20 November | Worth knowing hides itself when its two items expire | Assistant drafts, owner confirms |
-| Berthoud | Add November's one-off events: the Historical Society's talk, the Town's and Main Street's holiday events, the winter home games | The week of 2 to 5 November has no one-off event listed | Assistant |
+| Berthoud | A local change for `/updates/` on 3 November: the result on Issue 3G, from the county's returns | Worth knowing hides itself when its two items expire; the rec-centre anniversary is now a full listing (20 November, 4–8 pm) | Assistant drafts, owner confirms |
 | Lyons | Open lyonsfire.org in a browser; it answered 503 to the crawler from Moving here and Living here | Fix-now item, 27 October audit | Owner |
-| Lyons | Relink the election-day listing from bouldercountyvotes.gov to the county's vote-centers page, before 3 November | The old domain now redirects | Assistant |
 | Lyons | Decide the staged queue: 22 events and 2 places waiting since 6–21 October (`npm run review -- --town=lyons`) | A month deep; the editor works 25 a week network-wide | Owner |
 | Lyons | Confirm The Rock Garden as a source (`npm run sources -- confirm lyons rockgardenlyons-com`) | Five events wait on it | Owner |
+| Lyons and Niwot | Re-list three weekly series that ended in October once the organizer confirms the next dates: the library's baby and toddler storytimes (Lyons), the Rotary Club breakfast (Niwot) | Their files stayed when the past one-offs were deleted on 27 October; a series with no next date shows nothing | Owner confirms, assistant re-lists |
 | Niwot | Call Belle Terre Floral, (303) 652-0419, and The Nook: hours | On no page of their own since 12 October | Owner |
-| All three | Delete the past event files: Berthoud 31, Lyons 54, Niwot 14 (`npm run weekly` lists them) | Hidden on the site; they slow the validator and confuse the editor | Assistant |
 | All three | Fill the 90-day scorecard for the weeks of 19 and 26 October (`docs/90-DAY-TEST.md`) | Nobody has kept score since 20 October | Assistant, once Search Console and Buttondown are authorized |
-| Network | Shorten the 36 page titles over 70 characters (the " \| Inside Town" suffix plus the date) | Search results cut at about 60 | Assistant |
-| Network | Fix the 14 dead and 12 moved outbound links the 27 October audit lists per town | | Assistant |
+| Network | Fix the dead and moved outbound links the 27 October audit lists per town (Lyons done; Erie, Evergreen, Fort Collins, Golden, Johnstown, Windsor, Idaho Springs, Estes Park remain) | | Assistant |
 
 ## Decisions due
 

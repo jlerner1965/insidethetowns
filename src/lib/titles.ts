@@ -1,6 +1,7 @@
 /**
  * Page titles. Pure string work, no config lookup, so it can be unit-tested.
  */
+import { monthDay, TIME_ZONE } from './dates.ts';
 
 /** Just enough of a site config to title its home page. */
 export interface TitleSite {
@@ -66,9 +67,38 @@ export function wordmarkEm(siteTitle: string): number {
   return Math.max(name.length, after.length * WORDMARK_AFTER_SCALE) * 0.5;
 }
 
-/** "[Page] | Inside [Town]", or the home title when there is no page title. */
+/**
+ * The longest a <title> is let run. Search results cut at about 60
+ * characters, and a page's own words come before the guide's name: a title
+ * that fits with " | Inside [Town]" keeps it, one that does not stands
+ * alone (the sports pages' rule since 21 October 2026, SPORTS_TITLE_LIMIT,
+ * applied everywhere on 27 October: 163 of 531 event titles and 31 of 259
+ * place titles ran past 70 with the suffix). The guide's name is still in
+ * og:site_name and the wordmark.
+ */
+export const TITLE_LIMIT = 70;
+
+/** "[Page] | Inside [Town]" where that fits in TITLE_LIMIT, else "[Page]". */
+export function fitTitle(title: string, siteTitle: string): string {
+  const full = `${title} | ${siteTitle}`;
+  return full.length <= TITLE_LIMIT ? full : title;
+}
+
+/**
+ * "Oct 13" for a title tag, with the year only when it is not this year
+ * (a title is read on the day; "October 13, 2026" cost ten characters that
+ * pushed most event titles past the limit).
+ */
+export function titleDate(date: Date, now = new Date()): string {
+  const { month, day } = monthDay(date);
+  const year = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, year: 'numeric' }).format(date);
+  const thisYear = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, year: 'numeric' }).format(now);
+  return year === thisYear ? `${month} ${day}` : `${month} ${day}, ${year}`;
+}
+
+/** "[Page] | Inside [Town]" (or "[Page]" when that runs long), or the home title when there is no page title. */
 export function pageTitle(site: TitleSite, title?: string): string {
-  return title ? `${title} | ${site.siteTitle}` : homeTitle(site);
+  return title ? fitTitle(title, site.siteTitle) : homeTitle(site);
 }
 
 /**
