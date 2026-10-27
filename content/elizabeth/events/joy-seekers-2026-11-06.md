@@ -8,7 +8,8 @@ cost: "Free"
 category: arts
 recurring: "First Friday of the month"
 source: "https://www.elizabethmainstreet.org/calendar/"
-verified: "2026-09-18"
+verified: "2026-10-27"
+verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 11 am on the page"
 ---
 
 A free art class at the library with Courtney, first Friday mornings at 11. Materials are provided and no experience is wanted; the class fills, so call the branch to put your name down.

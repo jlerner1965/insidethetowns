@@ -11,7 +11,8 @@ category: music
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=165"
 sourceId: "rialtotheatercenter-org"
 sourceUid: "showare:261"
-verified: "2026-10-04"
+verified: "2026-10-27"
+verifiedBy: "recheck-events (the nightly re-check workflow): 3 December and 7:30 pm on the page"
 ---
 
 Singer Kalani Pe‘a's holiday show, Christmas songs from both western and Hawaiian traditions, at the Rialto in the theater's own series.

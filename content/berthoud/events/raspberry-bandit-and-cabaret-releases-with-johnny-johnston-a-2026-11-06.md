@@ -11,7 +11,7 @@ url: "https://citystarbrewing.com/event/beer-release-raspberry-bandit/"
 category: music
 timeNote: "From 3 pm; live music 6–8:30 pm"
 source: "https://citystarbrewing.com/event/beer-release-raspberry-bandit/"
-verified: "2026-10-25"
+verified: "2026-10-27"
 verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 3 pm on the page"
 ---
 

@@ -8,8 +8,8 @@ url: "https://lyons.librarycalendar.com/events/upcoming"
 category: arts
 recurring: "Second Mondays"
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-10-16"
-verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 16 October 2026"
+verified: "2026-10-27"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Monday Makerspace\" at 3 pm on 9 November on the lyons.librarycalendar.com feed"
 ---
 
 Open studio in the library makerspace on the second Monday of the month, with art and craft materials out for all ages. The library's calendar lists it monthly, not weekly; confirm the date there before you go.

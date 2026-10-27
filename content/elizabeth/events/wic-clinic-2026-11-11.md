@@ -8,7 +8,8 @@ cost: "Free for qualifying families; appointment required"
 category: other
 recurring: "Monthly, second Wednesday"
 source: "https://www.elizabethmainstreet.org/events/"
-verified: "2026-09-18"
+verified: "2026-10-27"
+verifiedBy: "recheck-events (the nightly re-check workflow): 11 November and 9:30 am on the page"
 ---
 
 The Elbert County WIC clinic runs out of the library building on Beverly Street from 9:30: nutrition appointments, benefit loading and breastfeeding support for pregnant people, new parents and children under five. Appointments are made through the county health department; walk-ins are fitted in when there is room.

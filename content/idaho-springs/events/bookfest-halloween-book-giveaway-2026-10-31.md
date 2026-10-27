@@ -12,7 +12,7 @@ organizer: "Friends of the Georgetown Library and Friends of the Idaho Springs L
 organizerUrl: "https://cccld.org/friends-of-the-georgetown-library/"
 source: "https://cccld.org/events/"
 sourceId: "cccld-org"
-verified: "2026-10-25"
+verified: "2026-10-27"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"ISPL & JTML BOOkfest\" at 5 pm on 31 October on the Clear Creek County Library District calendar feed"
 ---
 

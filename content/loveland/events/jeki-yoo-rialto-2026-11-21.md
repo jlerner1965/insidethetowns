@@ -9,7 +9,8 @@ category: family
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=164"
 sourceId: "rialtotheatercenter-org"
 sourceUid: "showare:260"
-verified: "2026-10-04"
+verified: "2026-10-27"
+verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 7:30 pm on the page"
 ---
 
 Close-up magic and quick costume changes from Jeki Yoo, who has appeared on America's Got Talent and Penn & Teller: Fool Us, in the Rialto's own series.

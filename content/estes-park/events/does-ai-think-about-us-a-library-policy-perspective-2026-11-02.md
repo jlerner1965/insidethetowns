@@ -9,7 +9,7 @@ source: "https://calendar.estesvalleylibrary.org/event/17731082"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17731082"
 sourceHash: "ecdf5118f804"
-verified: "2026-10-25"
+verified: "2026-10-27"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Does AI Think About Us? A Library Policy Perspective\" at 5:30 pm on 2 November on the Estes Valley Library feed"
 ---
 
