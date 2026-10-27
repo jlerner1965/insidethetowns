@@ -221,6 +221,12 @@ export function toStaged(item: FeedEvent, source: Source, _town: string, today: 
   if (!venue) guesses.push('the feed gives no venue');
   else if (venueGuessed) guesses.push(`venue read from "${item.location}"`);
   if (categoryGuessed) guesses.push(`category guessed (${category})`);
+  // The schema refuses an end before the start, and the workflow's strict
+  // validate then fails the whole week's ingest (26 October 2026, one LibCal
+  // closure entered as 9 pm to 8 pm). Whatever the feed, the end is dropped
+  // here and the review line says so; the start stands.
+  const endBeforeStart = !!item.end && item.end.getTime() < item.start.getTime();
+  if (endBeforeStart) guesses.push(`the feed's end (${toWallClock(item.end!)}) was before its start and was dropped`);
   const dupe = duplicateNote(dupes);
   const reason = [...(dupe ? [dupe] : []), `Ingested from ${source.name}; check against the organizer's page`, ...guesses, 'description is the feed\'s text: rewrite'].join('. ');
   const frontmatter: Record<string, unknown> = {
@@ -230,7 +236,7 @@ export function toStaged(item: FeedEvent, source: Source, _town: string, today: 
     subTown: source.subTown,
     review: { reason, since: today, from: 'ingest' },
     start: item.start,
-    end: item.end,
+    end: endBeforeStart ? undefined : item.end,
     allDay: item.allDay || undefined,
     venue: finalVenue,
     address,

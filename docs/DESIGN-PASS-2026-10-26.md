@@ -1,5 +1,12 @@
 # Design pass, 26 October 2026
 
+*The home page described under Stage 2 was replaced on 27 October 2026 by
+the front-door home of the homepage redesign brief (DECISIONS.md, "The home
+page is a front door, not the whole site"): `Scoreboard.astro` and
+`WeekAgenda.astro` are gone, and the home is the hero as a short band, the
+school's strip, What's happening as three tabs, the email, three
+photographs and Worth knowing. The rest of this record stands.*
+
 The owner's brief of 26 October: audit and implement the design proposal
 of the same day ("Inside the Towns Design Proposal"), keeping the design
 system and applying his revisions; check the repository before accepting

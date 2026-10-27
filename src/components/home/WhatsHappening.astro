@@ -1,0 +1,111 @@
+---
+/**
+ * What's happening (the homepage redesign brief, 27 October 2026): three
+ * tabs, Today, Tomorrow and This weekend, up to five listings each, one
+ * row a listing, the school's games among them as on the events page. It
+ * replaced the seven-day agenda, which put forty rows on a phone before
+ * the email.
+ *
+ * The rows come from src/lib/home-tabs.ts over the same `weekDays` reading
+ * the Thursday email and the events page use. The tab that opens is Today,
+ * or This weekend from Friday to Sunday; the page is built once and read
+ * for days, so a few lines of script choose the tab again by the reader's
+ * own day, and the browser's pruning (src/lib/expiry.ts) takes a row off
+ * once its day is over, the "Nothing listed" line standing in. An empty
+ * tab keeps its tab: a Tuesday with nothing on is a fact about this guide.
+ *
+ * Native buttons with the tab roles, so the keyboard and a screen reader
+ * get the three as one control; with no script the opening tab is shown
+ * and the other two are reached from the links under the list.
+ */
+import type { TownConfig } from '@/config';
+import type { HomeTab, TabKey } from '@/lib/home-tabs';
+
+interface Props {
+  town: TownConfig;
+  tabs: HomeTab[];
+  open: TabKey;
+}
+
+const { town, tabs, open } = Astro.props;
+const label = (status: 'canceled' | 'postponed') => (status === 'canceled' ? 'Canceled' : 'Postponed');
+---
+<section class="band-close band-white" aria-labelledby="happening" data-pagefind-ignore>
+  <div class="container-page">
+    <h2 id="happening" class="display-md text-[2rem] md:text-[2.5rem]">What’s happening in {town.name}</h2>
+    <div role="tablist" aria-label="When" class="mt-5 flex gap-x-1 border-b border-line-soft" data-home-tabs>
+      {tabs.map((t) => (
+        <button
+          type="button"
+          role="tab"
+          id={`tab-${t.key}`}
+          aria-selected={t.key === open ? 'true' : 'false'}
+          aria-controls={`panel-${t.key}`}
+          tabindex={t.key === open ? 0 : -1}
+          data-tab={t.key}
+          class="-mb-px inline-flex min-h-11 items-center border-b-2 border-transparent px-3 text-[0.9375rem] font-semibold text-ink-muted hover:text-ink aria-selected:border-primary aria-selected:text-ink first:pl-0"
+        >{t.label}</button>
+      ))}
+    </div>
+    {tabs.map((t) => (
+      <div role="tabpanel" id={`panel-${t.key}`} aria-labelledby={`tab-${t.key}`} hidden={t.key !== open} tabindex="0" data-events-scope>
+        {t.rows.length > 0 && (
+          <ol class="divide-y divide-line-soft">
+            {t.rows.map((row) => (
+              <li class="grid grid-cols-[5.75rem_minmax(0,1fr)] gap-x-3 py-3 sm:grid-cols-[7rem_minmax(0,1fr)_auto] sm:items-baseline sm:gap-x-4" data-event-day={row.eventDay} data-end={row.end}>
+                <span class="text-[0.875rem] font-semibold leading-snug tabular-nums text-ink">{row.dayWord && `${row.dayWord} `}{row.when}</span>
+                <p class="min-w-0 text-[1.0625rem] leading-snug">
+                  <a href={row.href} class:list={['font-medium no-underline hover:text-primary hover:underline', row.status && 'text-ink-muted']}>{row.title}</a>
+                  {row.status && <span class="ml-2 inline-block rounded-sm border border-line px-1.5 py-px align-[0.1em] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink">{label(row.status)}</span>}
+                  {row.pick && !row.status && <span class="ml-2 inline-block rounded-sm bg-highlight-soft px-1.5 py-px align-[0.1em] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink ring-1 ring-highlight">Our pick</span>}
+                </p>
+                {row.where && <p class="col-start-2 text-[0.9375rem] leading-snug text-ink-muted sm:col-start-3 sm:max-w-[18rem] sm:text-right">{row.where}</p>}
+              </li>
+            ))}
+          </ol>
+        )}
+        <p data-events-empty hidden={t.rows.length > 0} class="py-3 text-[1.0625rem] text-ink-muted">{t.empty}</p>
+        {t.more > 0 && (
+          <p class="mt-1 text-[0.9375rem]"><a href={t.href} class="inline-block -my-2 py-2 font-semibold text-primary underline">{t.more} more {t.key === 'weekend' ? 'this weekend' : t.key === 'today' ? 'today' : 'tomorrow'} →</a></p>
+        )}
+      </div>
+    ))}
+    <p class="mt-5 flex flex-wrap items-baseline gap-x-6 gap-y-1 border-t border-line-soft pt-4 text-[1.0625rem]">
+      <a href="/events/" class="inline-block -my-2 py-2 font-semibold text-primary underline">All events →</a>
+      <a href="/submit-event/" class="inline-block -my-2 py-2 text-primary underline">Add an event</a>
+    </p>
+  </div>
+</section>
+
+<script>
+  // The three tabs, and the one that opens: Today, or This weekend on a
+  // Friday, Saturday or Sunday in Denver, by the reader's own clock rather
+  // than the build's (src/lib/home-tabs.ts, defaultTab).
+  for (const list of document.querySelectorAll<HTMLElement>('[data-home-tabs]')) {
+    const tabs = [...list.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const show = (tab: HTMLButtonElement) => {
+      for (const t of tabs) {
+        const on = t === tab;
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+        const panel = document.getElementById(t.getAttribute('aria-controls') ?? '');
+        if (panel) panel.hidden = !on;
+      }
+    };
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => show(tab));
+      tab.addEventListener('keydown', (e) => {
+        const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (!step) return;
+        e.preventDefault();
+        const next = tabs[(i + step + tabs.length) % tabs.length]!;
+        next.focus();
+        show(next);
+      });
+    });
+    const day = new Date().toLocaleDateString('en-US', { timeZone: 'America/Denver', weekday: 'short' });
+    const key = /^(Fri|Sat|Sun)/.test(day) ? 'weekend' : 'today';
+    const open = tabs.find((t) => t.dataset.tab === key);
+    if (open && open.getAttribute('aria-selected') !== 'true') show(open);
+  }
+</script>

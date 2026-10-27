@@ -41,8 +41,9 @@ export const niwot: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'front-range-from-the-fields.jpg',
-    alt: 'Open grassland under a wide Colorado sky near Niwot, the Front Range running along the western horizon',
+    image: 'second-avenue-street.jpg',
+    alt: 'Second Avenue in Old Town Niwot on a summer morning: the Niwot Tribune storefront with its porch and hanging baskets, the brick blocks beyond it, and cars parked along the street',
+    credit: 'Jeffrey Beall, Flickr, CC BY-SA 2.0',
   },
   social: {
     email: 'hello@insideniwot.com',

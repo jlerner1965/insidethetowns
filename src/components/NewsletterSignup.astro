@@ -59,8 +59,13 @@ interface Props {
    * pass, 26 October 2026): beside "Things to know", the reader's own town
    * only and no town picker, with `anchor` as its id for the week's email
    * item. The same form, the same post and the same script as every other.
+   *
+   * `home` (the homepage redesign brief, 27 October 2026): the card with
+   * the short words: "Your Thursday local.", one line, the field, the
+   * button and "Free. Unsubscribe anytime." with the word privacy linked;
+   * the privacy paragraph is the privacy page's.
    */
-  variant?: 'card';
+  variant?: 'card' | 'home';
   anchor?: string;
 }
 
@@ -75,7 +80,8 @@ const others = mine ? editions.filter((e) => e !== mine) : editions;
 // Which towns a box stands for, for the hub's ?towns= link to tick it.
 const covers = (e: (typeof editions)[number]) => e.towns.map((t) => t.slug).join(' ');
 const day = config?.sendDay ?? 'Thursday';
-const card = variant === 'card';
+const card = variant === 'card' || variant === 'home';
+const home = variant === 'home';
 const sendTime = config?.sendTime;
 const emailField = config?.emailField ?? 'email';
 const tagField = config?.tagField ?? 'tag';
@@ -115,7 +121,13 @@ const box = 'size-5 shrink-0 rounded border-line';
       on every build.
     */}
     <form action={config.action} method="POST" target="_blank" class="max-w-xl" data-signup data-hub={town ? undefined : ''} data-inline={inline ? '' : undefined} data-send-day={day}>
-      {card ? (
+      {home ? (
+        <Fragment>
+          <h2 class="display-md text-[1.75rem] leading-tight md:text-[2rem]">Your {day} local.</h2>
+          <p class="mt-2 text-[1.0625rem] leading-snug text-ink-muted">The week’s events{town?.school ? ', the scores' : ''} and what opened or closed in {town?.name}, every {day}.</p>
+          {town && mine && <input type="checkbox" name={tagField} value={town.slug} checked hidden data-towns={covers(mine)} />}
+        </Fragment>
+      ) : card ? (
         <Fragment>
           <p class="eyebrow">Every {day}{sendTime && `, ${sendTime}`}</p>
           <h2 class="display-md mt-2 text-[1.75rem] leading-tight">The week ahead in {town?.name}, in one email.</h2>
@@ -231,10 +243,16 @@ const box = 'size-5 shrink-0 rounded border-line';
         </fieldset>
       )}
 
-      <p class:list={['mt-3 text-[0.875rem] leading-relaxed', muted]}>
-        Free. One email a week. Unsubscribe any time. {PRIVACY_LINE} See the
-        <a href={`https://${hub.domain}/privacy/`} class:list={['inline-block -my-3 py-3', link]}>privacy page</a>.
-      </p>
+      {home ? (
+        <p class:list={['mt-3 text-[0.875rem] leading-relaxed', muted]}>
+          Free. Unsubscribe anytime. <a href={`https://${hub.domain}/privacy/`} class:list={['inline-block -my-3 py-3', link]}>Privacy</a>.
+        </p>
+      ) : (
+        <p class:list={['mt-3 text-[0.875rem] leading-relaxed', muted]}>
+          Free. One email a week. Unsubscribe any time. {PRIVACY_LINE} See the
+          <a href={`https://${hub.domain}/privacy/`} class:list={['inline-block -my-3 py-3', link]}>privacy page</a>.
+        </p>
+      )}
       {/* A page's own line about the email (the hub's "See a sample issue"),
           inside the card rather than loose underneath it. */}
       <slot />

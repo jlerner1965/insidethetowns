@@ -38,9 +38,9 @@ export const johnstown: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'A county road on the northern Colorado plains running west toward the snow-covered Front Range in April',
-    credit: 'Maarten Heerlien, Wikimedia Commons, CC BY 2.0',
+    image: 'brush-barn.jpg',
+    alt: 'The Jared L. Brush Barn of 1865 on County Road 17 northeast of Johnstown, on the National Register: weathered board-and-batten siding, a steep gable with arched louvred vents, a corral fence in front',
+    credit: 'Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0',
   },
   social: {
     email: 'hello@insidejohnstown.com',

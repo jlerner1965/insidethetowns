@@ -4,8 +4,15 @@
  * 2026: the flagship home page had a shorter one of its own). The sections
  * the menu leaves out, how to get in touch, what the guide is, and the
  * independence line, then the network strip.
+ *
+ * On a guide's home page (the homepage redesign brief, 27 October 2026)
+ * one block instead of four columns: the wordmark, the tagline, the links
+ * in a row, the sections the menu leaves out in a second, the independence
+ * line and one line to the network. The neighbours are in the menu's Towns
+ * list and not here again, so the strip is left off. Nothing is reachable
+ * from the old home that is not reachable from this block or the menu.
  */
-import { getNetworkHub, getSite } from '@/config';
+import { getNetworkHub, getSite, liveTowns } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { siteNav } from '@/lib/nav';
 import NetworkBar from './NetworkBar.astro';
@@ -14,6 +21,8 @@ import Wordmark from './Wordmark.astro';
 const site = getSite();
 const hub = getNetworkHub();
 const year = new Date().getFullYear();
+const home = site.kind === 'town' && Astro.url.pathname === '/';
+const guides = liveTowns().length;
 // A phone gets a taller line to tap: the links were 19px high, under the 24px
 // minimum, a few pixels apart.
 const linkClass = 'inline-block py-1 no-underline text-white hover:underline sm:py-0';
@@ -32,7 +41,46 @@ const sections = site.kind === 'town'
       ...(hasUpdates ? [{ label: 'Local changes', href: '/updates/' }] : []),
     ].filter((l) => !inMenu.has(l.href))
   : [];
+const homeLinks = [
+  { label: 'About', href: '/about/' },
+  { label: 'Contact', href: '/contact/' },
+  { label: 'Submit an event', href: '/submit-event/' },
+  { label: 'Suggest an update', href: '/correct/' },
+  { label: 'For businesses', href: '/for-businesses/' },
+  { label: 'Privacy', href: '/privacy/' },
+  { label: 'Editorial policy', href: '/editorial/' },
+  { label: 'Photo credits', href: '/credits/' },
+  ...(site.social.instagram ? [{ label: 'Instagram', href: site.social.instagram }] : []),
+  ...(site.social.facebook ? [{ label: 'Facebook', href: site.social.facebook }] : []),
+];
 ---
+{home ? (
+<footer class="on-dark bg-primary text-white" data-pagefind-ignore>
+  <div class="container-page py-10 md:py-12">
+    <Wordmark class="text-2xl leading-none" tone="light" />
+    <p class="mt-3 max-w-2xl text-[0.9375rem] leading-relaxed">{site.tagline}</p>
+    <ul class="mt-5 flex flex-wrap gap-x-5 gap-y-0.5 text-[0.9375rem] font-semibold">
+      {homeLinks.map((l) => <li><a href={l.href} rel={l.href.startsWith('http') ? 'noopener' : undefined} class={linkClass}>{l.label}</a></li>)}
+    </ul>
+    {sections.length > 0 && (
+      <ul class="mt-2 flex flex-wrap gap-x-5 gap-y-0.5 text-[0.9375rem]">
+        {sections.map((l) => <li><a href={l.href} class={linkClass}>{l.label}</a></li>)}
+      </ul>
+    )}
+    <p class="mt-5 max-w-2xl text-[0.875rem] leading-relaxed">
+      {site.siteTitle} is an independent community guide, not a government website.
+      For official information see
+      <a href={site.officialLinks.townSite} rel="noopener" class="text-white underline">{site.officialLinks.townSiteLabel ?? `the official ${site.name} site`}</a>{(site.officialLinks.also ?? []).map((g, i, all) => (
+        <Fragment>{i === all.length - 1 ? ' and ' : ', '}<a href={g.url} rel="noopener" class="text-white underline">{g.label}</a></Fragment>
+      ))}.
+      Write to <a href={`mailto:${hub.social.email}`} class:list={['text-white underline', '[overflow-wrap:anywhere]']}>{hub.social.email}</a>.
+    </p>
+    <p class="mt-3 text-[0.875rem]">
+      <a href={`https://${hub.domain}/`} class="text-white underline">Part of {hub.siteTitle} · {guides} guides</a> · © {year} {site.siteTitle}
+    </p>
+  </div>
+</footer>
+) : (
 <footer class="on-dark mt-24 bg-primary text-white" data-pagefind-ignore>
   <div class="container-page grid gap-10 py-14 sm:grid-cols-2 md:py-20 lg:grid-cols-[1.5fr_1fr_1fr_1.3fr] lg:gap-12">
     <div>
@@ -99,3 +147,4 @@ const sections = site.kind === 'town'
   </div>
   <NetworkBar />
 </footer>
+)}
