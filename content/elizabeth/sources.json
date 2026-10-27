@@ -55,7 +55,7 @@
       },
       "robots": "honor",
       "defaultVenue": "Elizabeth Library",
-      "notes": "Manual until the library answers: the activities page embeds five public Google calendars and this feedUrl is the one named 'Elizabeth Events' (647 events, 177 recurring, America/Denver), but calendar.google.com's robots.txt disallows unlisted agents, and the editor is asking the library for permission before ingest reads it (docs/SOURCE-PERMISSION-EMAILS.md). Set type back to ical and robots to subscribe when it comes. Found 4 October 2026."
+      "notes": "Manual until the library answers: the activities page embeds five public Google calendars and this feedUrl is the one named 'Elizabeth Events' (647 events, 177 recurring, America/Denver), but calendar.google.com's robots.txt disallows unlisted agents, and the editor is asking the library for permission before ingest reads it (docs/archive/emails/SOURCE-PERMISSION-EMAILS.md). Set type back to ical and robots to subscribe when it comes. Found 4 October 2026."
     },
     {
       "id": "pplibraries-org-district",

@@ -186,7 +186,7 @@ workflow's, until a scheduled session is set up for them.
 Where the dated documents disagree, this is the reading in force:
 
 - The home page is the 27 October front door, not the 25 or 26 October
-  layouts. `docs/DESIGN-PASS-2026-10-26.md` stands for everything but its
+  layouts. `docs/archive/DESIGN-PASS-2026-10-26.md` stands for everything but its
   Stage 2 home page and its rule 9's "beside Things to know".
 - A paid editorial photograph of the real place is allowed (section 6);
   `docs/PHOTO-PRIORITIES.md`'s "no stock" means generic or generated
@@ -213,8 +213,9 @@ Where the dated documents disagree, this is the reading in force:
 |---|---|
 | Why a rule is what it is | `DECISIONS.md` (the log; entries run oldest to newest) |
 | How to deploy, redirect, verify a domain | `DEPLOY.md` |
+| What is open, and whose it is | `TODO.md` |
 | Photo permissions and the asks | `PERMISSIONS.md`, `docs/PHOTOS.md`, `docs/PHOTO-CONTACTS.csv` |
 | The 90-day test and its scorecard | `docs/90-DAY-TEST.md` |
 | The latest audit per town | `docs/audits/<date>/<town>.md` |
 | Editorial formats and the voice | `.claude/skills/inside-the-towns-editor/SKILL.md` |
-| Dated reports and past designs | `docs/` (to move to `docs/archive/`) |
+| Dated reports, past designs, sent email drafts | `docs/archive/` |

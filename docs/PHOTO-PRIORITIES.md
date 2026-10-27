@@ -78,4 +78,4 @@ Golden's pages with a photograph already are mostly Commons images of the
 big landmarks (Washington Avenue, the Table Mountains, the railroad museum);
 what is missing is the businesses and the small parks, which only an original
 photograph or an owner's permission can supply. The ask to each business is
-already written in docs/VENUE-PHOTO-EMAILS.md and docs/PHOTO-CONTACTS.csv.
+already written in docs/archive/emails/VENUE-PHOTO-EMAILS.md and docs/PHOTO-CONTACTS.csv.

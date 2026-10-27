@@ -21,7 +21,7 @@ import type { TownConfig } from './types.ts';
 export const fortLupton: TownConfig = {
   kind: 'town',
   // Live 7 October 2026, on the owner's word, after the first review cleared
-  // the launch threshold (docs/ACCURACY-SYSTEM.md); folded into Carbon Valley
+  // the launch threshold (docs/archive/ACCURACY-SYSTEM.md); folded into Carbon Valley
   // on 12 October 2026.
   status: 'redirect',
   foldedInto: { town: 'carbon-valley', path: '/fort-lupton/', since: '2026-10-12' },

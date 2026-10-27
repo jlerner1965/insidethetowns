@@ -5,7 +5,7 @@ import type { TownConfig } from './types.ts';
  * 5,904 at the 2020 census at the east entrance to Rocky Mountain National
  * Park, 7,743 feet up, where a season closes roads and kitchens: the
  * mountain chassis, with its 30-day freshness windows, seasonal hours and
- * access notes (docs/ACCURACY-SYSTEM.md, phase 9). The road and closure
+ * access notes (docs/archive/ACCURACY-SYSTEM.md, phase 9). The road and closure
  * links below are the official pages, linked rather than restated.
  *
  * Figures are from the Wikipedia infobox (census and GNIS), read 6 October
@@ -16,7 +16,7 @@ import type { TownConfig } from './types.ts';
 export const estesPark: TownConfig = {
   kind: 'town',
   // Live 7 October 2026, on the owner's word, after the first review cleared
-  // the launch threshold (docs/ACCURACY-SYSTEM.md).
+  // the launch threshold (docs/archive/ACCURACY-SYSTEM.md).
   status: 'live',
   // A visitor guide from 20 October 2026, owner's word, with Estes Park,
   // Golden and Evergreen together (DECISIONS.md, "The other mountain guides,

@@ -16,7 +16,7 @@ export const manitouSprings: TownConfig = {
   kind: 'town',
   // Live 10 October 2026, on the owner's word, under its launch threshold:
   // it publishes what is verified, and the validator and the weekly report
-  // say what it is short of (docs/ACCURACY-SYSTEM.md).
+  // say what it is short of (docs/archive/ACCURACY-SYSTEM.md).
   status: 'live',
   // A visitor guide from 12 October 2026, owner's word: kept current, no weekly
   // email (DECISIONS.md, "Regional editions and visitor guides").

@@ -4,7 +4,7 @@ import type { TownConfig } from './types.ts';
  * The network's first city. 169,810 people at the 2020 census, the
  * fourth-largest in Colorado, and the place Timnath's, Berthoud's and
  * Johnstown's guides measure themselves against. The guide is a curated
- * selection rather than a directory — see docs/EXPANSION-WINDSOR-FORT-COLLINS.md,
+ * selection rather than a directory — see docs/archive/EXPANSION-WINDSOR-FORT-COLLINS.md,
  * decision 3 — and every listing carries `area`, because a city reader
  * navigates by neighborhood.
  */

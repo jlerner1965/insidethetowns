@@ -15,7 +15,7 @@ import type { TownConfig } from './types.ts';
 export const castleRock: TownConfig = {
   kind: 'town',
   // Not live: the domain serves a noindex holding page until the owner flips
-  // this after the first review (docs/ACCURACY-SYSTEM.md, launch threshold).
+  // this after the first review (docs/archive/ACCURACY-SYSTEM.md, launch threshold).
   status: 'wave2',
   variant: 'front-range',
   region: 'South Metro',

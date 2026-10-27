@@ -6,7 +6,7 @@ account, one at a time, after reading each. The relationships skill
 store is not mounted in the session that wrote them, so they sit here until
 they are sent and logged.
 
-Why these seven first: docs/OUTREACH-FLAGSHIPS.md, "Order of work", step 2.
+Why these seven first: docs/archive/OUTREACH-FLAGSHIPS.md, "Order of work", step 2.
 Each organisation below has already said yes to something (PERMISSIONS.md),
 so the email picks up a thread rather than opening one, and the ask is small:
 a link from a page they already keep. Nobody is asked for anything in
@@ -214,7 +214,7 @@ kept.
 
 ## 7. Lyons Regional Library District (the feed permission, then the link)
 
-The feed-permission email in docs/SOURCE-PERMISSION-EMAILS.md goes first,
+The feed-permission email in docs/archive/emails/SOURCE-PERMISSION-EMAILS.md goes first,
 unchanged. The link ask waits for the reply: a library that has just said
 yes to a weekly feed read is the one to ask, and asking both at once reads
 as a bargain. When the yes comes, the follow-up is three lines:
@@ -229,7 +229,7 @@ as a bargain. When the yes comes, the follow-up is three lines:
 ## Not drafted, on purpose
 
 - **Niwot Business Association, Golden Chamber of Commerce, Visit Golden.**
-  No relationship yet. Each needs the Golden research docs/OUTREACH-FLAGSHIPS.md
+  No relationship yet. Each needs the Golden research docs/archive/OUTREACH-FLAGSHIPS.md
   asks for first, and the Business Association's two core sources confirmed
   (`npm run sources -- --town=niwot`) so the email can say the calendar is
   read with their leave.

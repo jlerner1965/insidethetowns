@@ -20,7 +20,7 @@ import type { TownConfig } from './types.ts';
 export const severance: TownConfig = {
   kind: 'town',
   // Live 7 October 2026, on the owner's word, after the first review cleared
-  // the launch threshold (docs/ACCURACY-SYSTEM.md); folded into Windsor on
+  // the launch threshold (docs/archive/ACCURACY-SYSTEM.md); folded into Windsor on
   // 12 October 2026.
   status: 'redirect',
   foldedInto: { town: 'windsor', path: '/severance/', since: '2026-10-12' },

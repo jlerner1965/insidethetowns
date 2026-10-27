@@ -15,7 +15,7 @@ export const grandLake: TownConfig = {
   kind: 'town',
   // Live 10 October 2026, on the owner's word, under its launch threshold:
   // it publishes what is verified, and the validator and the weekly report
-  // say what it is short of (docs/ACCURACY-SYSTEM.md).
+  // say what it is short of (docs/archive/ACCURACY-SYSTEM.md).
   status: 'live',
   // Quiet from 20 October 2026, owner's word, with the other small mountain
   // guides (DECISIONS.md, "The other mountain guides, 20 October"): pages

@@ -18,7 +18,7 @@
 - [design] 7/74 pages have a <title> over 70 characters (search results cut at about 60) (a chassis fix: the " | Inside Niwot" suffix plus the date; see the network summary)
 
 ## Since last audit
-- Still open from the 12 October re-check (docs/CALL-LIST.md): Sachi Sushi hours, The Nook's phone, Niwot Liquor Store, the gateway sculpture, Belle Terre Floral. Each is now past 30 days; the first hours start hiding around 8 November and the listings themselves around 8 December.
+- Still open from the 12 October re-check (docs/archive/CALL-LIST.md): Sachi Sushi hours, The Nook's phone, Niwot Liquor Store, the gateway sculpture, Belle Terre Floral. Each is now past 30 days; the first hours start hiding around 8 November and the listings themselves around 8 December.
 - Fixed since 2 October: the 26 October audit's family hub, the incorporation explainer re-read against the election commission and the county, the Election Day listing.
 
 ## Couldn't verify

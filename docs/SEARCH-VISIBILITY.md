@@ -68,7 +68,7 @@ property is in GSC Wizard with the others. Keep the variable: removing it
 unverifies the property.
 The Performance figures in the weekly table below can be read through the
 plugin; the Pages report's indexed count cannot, and stays a person's job.
-The first read of the data is docs/SEARCH-CONSOLE-2026-10-20.md.
+The first read of the data is docs/archive/SEARCH-CONSOLE-2026-10-20.md.
 
 ## Sitemap URLs
 
@@ -126,7 +126,7 @@ is the honest starting point.
 ending the Sunday of the row; "indexed pages" from the Pages report. A
 non-brand query is one that does not contain "inside" with the town's name.
 The 12 October row was read through the Search Console API on 20 October
-2026 (docs/SEARCH-CONSOLE-2026-10-20.md): no query that week contained the
+2026 (docs/archive/SEARCH-CONSOLE-2026-10-20.md): no query that week contained the
 brand, so the non-brand count is every query Google listed; the Pages report
 is not in the API, so indexed pages stay unknown until read by hand.
 ² Hand-counted from Search Console's Links report or any link tool the owner
@@ -166,7 +166,7 @@ Trot, Trick or Treat Street, Old Dogapalooza), which argues for the big
 dates ahead on /events/ and for a permanent page per annual event, not
 yet built. Golden's home page sits at position 48 on 31 impressions and
 the guide's section pages barely show; Golden's problem is authority, so
-its outreach (docs/OUTREACH-FLAGSHIPS.md) matters more than its pages.
+its outreach (docs/archive/OUTREACH-FLAGSHIPS.md) matters more than its pages.
 
 Baseline, for comparison only and not from Search Console: Vercel Web
 Analytics, 19 September to 15 October 2026, read on 15 October. Niwot 292
@@ -184,7 +184,7 @@ nothing moves to "done" here until it is.
 |---|---|---|---|
 | 1 | Pages answer the searcher: Start here, refreshed date and big dates on /events/, place titles and "In the guides", Article and Moving Here structured data, flagship `related` links, verification from the environment | Repository | Shipped, PR #132 |
 | 2 | Signal over noise: past events as one count in the validator (`--past` lists them), a second daily rebuild at 17:10 UTC, About titles not doubled, Golden's commute line, the hub snippet ending at its full stop, outbound links on the three flagships checked (0 dead) | Repository | This phase |
-| 3 | Editorial, needs a person or a business's facts: ~~verify the Search Console properties and submit the sitemaps~~ (done, 20 October 2026: owner's word, and read through GSC Wizard the same day; Castle Rock's resubmit at launch, docs/SEARCH-CONSOLE-2026-10-20.md); fix the Buttondown description and send the first issue; confirm the core event sources for Lyons, Niwot and Golden; roll forward or delete the 169 past events; reword or source the 13 unreadable hours lines; the photo list (docs/PHOTO-PRIORITIES.md); the outreach list (docs/OUTREACH-FLAGSHIPS.md); extend `related` links to the other nineteen guides' articles; verify the 2026 Holiday Parade date with the Business Association | Owner, with the weekly session | Each line struck through here with a date |
+| 3 | Editorial, needs a person or a business's facts: ~~verify the Search Console properties and submit the sitemaps~~ (done, 20 October 2026: owner's word, and read through GSC Wizard the same day; Castle Rock's resubmit at launch, docs/archive/SEARCH-CONSOLE-2026-10-20.md); fix the Buttondown description and send the first issue; confirm the core event sources for Lyons, Niwot and Golden; roll forward or delete the 169 past events; reword or source the 13 unreadable hours lines; the photo list (docs/PHOTO-PRIORITIES.md); the outreach list (docs/archive/OUTREACH-FLAGSHIPS.md); extend `related` links to the other nineteen guides' articles; verify the 2026 Holiday Parade date with the Business Association | Owner, with the weekly session | Each line struck through here with a date |
 | 4 | Measurement and commercial proof, after four weeks of Search Console and sends: fill the weekly table above, decide the three flagships' sponsor placements from real numbers, publish a rate card only if they hold | Owner | First rate card, or a dated decision not to publish one yet |
 
 ## Done in this phase, in the code
@@ -244,7 +244,7 @@ repository supplies the pages to share and the campaign tags to count them.
   a post to the neighbourhoods around the poster, which for Niwot and
   Lyons is the whole town.
 - **The chamber's and the library's own newsletters.** Ask once, in the
-  outreach emails (docs/OUTREACH-DRAFTS-2026-10-20.md), whether they would
+  outreach emails (docs/archive/OUTREACH-DRAFTS-2026-10-20.md), whether they would
   carry one line a month pointing at the kind page their members are on
   (/restaurants/ for the chamber, /events/ for the library).
 - **A Google Business Profile for each flagship guide** is not worth it:

@@ -8,7 +8,7 @@
  *
  * Field names are the repo's, not the accuracy brief's (`source` here is the
  * brief's `sourceUrl`, `verified` its `verifiedAt`, and so on). The mapping
- * is written out once, in docs/ACCURACY-SYSTEM.md, "Field names".
+ * is written out once, in docs/archive/ACCURACY-SYSTEM.md, "Field names".
  *
  * Two layers decide what publishes. This file says what a *valid* entry is,
  * and an invalid one is excluded from the build with a warning rather than

@@ -1,7 +1,7 @@
 # Design revisions, 27 October 2026
 
 The owner's critique of 26 October, written over the Berthoud guide after
-the design pass of that day (docs/DESIGN-PASS-2026-10-26.md), applied to
+the design pass of that day (docs/archive/DESIGN-PASS-2026-10-26.md), applied to
 the shared components, so every guide gets the same changes. Nothing here
 touches the design system, a URL or any metadata.
 

@@ -40,7 +40,7 @@ so what permits publication here is this grant from an officer authorised to
 give it — which is why the sentence is recorded rather than summarised.
 
 **Update, 2 October 2026.** Asked about the five parks and the Singletrack
-that had no photograph on erieco.gov (`docs/ALL-PHOTO-EMAILS.md`, D2), she
+that had no photograph on erieco.gov (`docs/archive/emails/ALL-PHOTO-EMAILS.md`, D2), she
 replied the same morning with direct links to the five park pages, each of
 which now carries a photograph, and a Google Drive folder of five Singletrack
 photographs that are not on the site yet:
@@ -142,7 +142,7 @@ they do not need it.
 
 **Granted** 2 October 2026 by **Billie, for the museum director**, Johnstown
 Historical Society, Ltd (jhscomuseum@gmail.com), by email, in reply to the
-request in `docs/ALL-PHOTO-EMAILS.md` (C8) for photographs of the Parish House
+request in `docs/archive/emails/ALL-PHOTO-EMAILS.md` (C8) for photographs of the Parish House
 rooms, the meteorite fragment and the walking tour's stops.
 
 Her wording, in full, on the walking tour:
@@ -184,7 +184,7 @@ attendees.
 
 **Answered** 2 October 2026 by **Tim Hoos, Public Works Director**, Town of
 Johnstown (thoos@johnstownco.gov), by email, copied to Samantha Knowlton,
-Communications Manager, in reply to the request in `docs/ALL-PHOTO-EMAILS.md`
+Communications Manager, in reply to the request in `docs/archive/emails/ALL-PHOTO-EMAILS.md`
 (B3) for photographs of the eight Town parks, and whether a permit is needed
 to take our own.
 
@@ -238,7 +238,7 @@ would produce.
 
 **Granted** by 8 October 2026: the owner supplied the photograph that day
 with the words "Permission given to use", in answer to the request in
-`docs/VENUE-PHOTO-EMAILS.md` (1) and `docs/ALL-PHOTO-EMAILS.md` (C1), which
+`docs/archive/emails/VENUE-PHOTO-EMAILS.md` (1) and `docs/archive/emails/ALL-PHOTO-EMAILS.md` (C1), which
 offered to credit the library and to take the photograph down the day it
 asks.
 
@@ -266,7 +266,7 @@ was dropped on import.
 **Granted** 6 October 2026 by the **Open Space & Natural Resources team**,
 Douglas County, by email from the department's mailbox, copied to Caroline
 (Caroline Frizell, Director of Communication and Public Affairs, was copied
-on the request), in reply to the request in `docs/ALL-PHOTO-EMAILS.md` (B9)
+on the request), in reply to the request in `docs/archive/emails/ALL-PHOTO-EMAILS.md` (B9)
 for a photograph of Bayou Gulch or the Two Bridges Trail for Inside
 Elizabeth, credited to Douglas County.
 

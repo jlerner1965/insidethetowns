@@ -1066,7 +1066,7 @@ against nothing for the whole of the site's life — the loop over
 `liveTowns()` had no town with a `formspreeId` to test. It now has eight, and
 `https://formspree.io` was already in the CSP, so it passes for real.
 
-The audit line "No contact form ships" in `docs/LAUNCH-AUDIT.md` is no longer
+The audit line "No contact form ships" in `docs/archive/LAUNCH-AUDIT.md` is no longer
 true and has been moved out of **Knowingly left**.
 
 ### The contact form's three missing pieces
@@ -1119,7 +1119,7 @@ is a real `<button type="submit">`.
 
 ## Writing to the trade bodies, and the address that does not exist
 
-`docs/INDUSTRY-EMAILS.md` is the batch route out of the photo problem: twelve
+`docs/archive/emails/INDUSTRY-EMAILS.md` is the batch route out of the photo problem: twelve
 messages — eight emails and four contact forms — to the Main Street programmes,
 chambers, downtown associations and two local papers, each asking one
 organisation to carry a request that would otherwise be 145 cold emails. `VENUE-PHOTO-EMAILS.md` Part 2 had sketched this
@@ -1680,7 +1680,7 @@ events in future.
 
 ## Phase 9 — Windsor and Fort Collins
 
-The plan is `docs/EXPANSION-WINDSOR-FORT-COLLINS.md`; these are the choices made
+The plan is `docs/archive/EXPANSION-WINDSOR-FORT-COLLINS.md`; these are the choices made
 while carrying it out, on 1 October 2026.
 
 - **Both towns are scaffolded in one session, not one after the other.** The
@@ -1872,7 +1872,7 @@ while carrying it out, on 1 October 2026.
 
 ## The October audit, and what the build learned from it
 
-`docs/AUDIT-2026-10-02.md` is the record of the audit itself: every finding,
+`docs/archive/AUDIT-2026-10-02.md` is the record of the audit itself: every finding,
 what was done with it, the phone list. These are the decisions behind the
 changes that were not simply corrections.
 
@@ -2077,7 +2077,7 @@ by Google Drive folder ahead of the Town's own page.
 ## The re-check, and a third fire
 
 *3 October 2026.* The audit's own re-check, a day on, was checked against
-main (`docs/AUDIT-2026-10-02.md`, last section). Two decisions came out of
+main (`docs/archive/AUDIT-2026-10-02.md`, last section). Two decisions came out of
 it.
 
 - **A rebuild fire sized to the lateness, not the schedule.** The two
@@ -2138,7 +2138,7 @@ shopping district on West Elizabeth.
 ## The open-licence photo search, and what it could not find
 
 *3 October 2026.* Every listing without a photograph was searched against
-Commons and Flickr's Creative Commons corner (`docs/PHOTO-SEARCH-2026-10-03.md`).
+Commons and Flickr's Creative Commons corner (`docs/archive/PHOTO-SEARCH-2026-10-03.md`).
 Sixteen photographs went in, fifteen of them on Fort Collins; the rest of
 the network's 257 came back empty.
 
@@ -2233,7 +2233,7 @@ check against, 10 behind a captcha or bot check.
   Street, Chamber and niwot.com directories were used to find a business's
   own page and for nothing else. Where the only web presence is such a
   directory, or Facebook, the listing is unchanged and goes on the call
-  list (`docs/CALL-LIST.md`): 26 businesses whose hours only a phone
+  list (`docs/archive/CALL-LIST.md`): 26 businesses whose hours only a phone
   call or a visit can confirm. The audit's rule for new listings, that
   nothing publishes without hours from the business itself, was not
   applied backwards to these; that is a decision for the publisher, listing
@@ -2313,7 +2313,7 @@ are rows on that list.
 ## The accuracy system, phase 2: a gate, a staging folder, and a build that does not fail
 
 *3 October 2026.* The accuracy brief's second phase, on the answers in
-`docs/ACCURACY-SYSTEM.md` section 7. Five choices worth recording.
+`docs/archive/ACCURACY-SYSTEM.md` section 7. Five choices worth recording.
 
 - **The build excludes a bad entry rather than failing.** Every town loads
   into one collection, so one bad frontmatter field in Erie used to fail the
@@ -2354,7 +2354,7 @@ are rows on that list.
 The eight listings that had no source went to staging, each with the
 question the call list already asks. One article linked one of them and
 repeated its hours; the link and the hours came out. Field names are the
-repo's, mapped to the brief's in `docs/ACCURACY-SYSTEM.md` section 8.
+repo's, mapped to the brief's in `docs/archive/ACCURACY-SYSTEM.md` section 8.
 
 ## The accuracy system, phase 3: what a stale or closed listing may still show
 
@@ -2605,7 +2605,7 @@ feed), and the DNS and email changes; the DNS could not be made (below).
 
 - **Longmont's events are the feeds', and wait for the review.** Ingest staged
   65; nothing it writes publishes, as designed. Before staging, the event
-  standard (docs/AUDIT-2026-10-02.md) was applied through each source's
+  standard (docs/archive/AUDIT-2026-10-02.md) was applied through each source's
   `excludeTitles`: storytimes, clubs, drop-ins, classes, pre-sessions, the
   museum's Discovery Days, the recreation centre's preschool playtime and
   fitness, club horse shows and gymkhanas, the Agricultural Heritage Center's
@@ -3287,7 +3287,7 @@ flips it.
 - **The scaffold's placeholder hero row is tolerated while a town is not
   live.** `publicCredit` still refuses a placeholder; the validator and the
   credits test skip the row only on a holding-page town, and it is an error
-  again the day the town is flipped (docs/CHASSIS_TWEAKS.md, row 5, the one
+  again the day the town is flipped (docs/archive/CHASSIS_TWEAKS.md, row 5, the one
   fix in that log). The scaffold's invented sample event, place and article
   were deleted from each new town rather than left for the gate to exclude.
 - **Sources were seeded, all proposed, from a robots-honouring read of each
@@ -3389,7 +3389,7 @@ clears its threshold.
 
 - **The review, delegated as for Carbon Valley.** One agent per town
   re-read every staged event on the organizer's own page that day, applied
-  the event standard (docs/AUDIT-2026-10-02.md), rewrote each body in the
+  the event standard (docs/archive/AUDIT-2026-10-02.md), rewrote each body in the
   guide's words and approved through the review's own `approveText`, so
   every approval carries `verifiedBy: "Claude Code, delegated by James
   Lerner"`. Where staging ran short, more events were hand-read from the
@@ -3999,7 +3999,7 @@ and the twenty-one ledger rows re-read against Commons in one pass.
 
 *8 October 2026.* The owner's last ask of the day: one pass through every
 site to make sure nothing was missed. The method and the findings are in
-`docs/PRELAUNCH-AUDIT-2026-10-08.md`: every built page read by a script
+`docs/archive/PRELAUNCH-AUDIT-2026-10-08.md`: every built page read by a script
 (1,986 pages, every internal and cross-domain link resolved in the sister
 builds, every image, every JSON-LD block, the day's features present), all
 nineteen live domains fetched, and a sample screenshotted and measured for
@@ -4505,7 +4505,7 @@ pack set the method: the packet is a set of leads, not a source.
   answered this afternoon; their configs say so, and Leadville's
   `leadville-co.gov` is confirmed as the City's by its own footer. Lake
   County's site answered too, which published the Mineral Belt Trail.
-- **For the owner.** `docs/CALL-LIST.md` has a new section: every staged
+- **For the owner.** `docs/archive/CALL-LIST.md` has a new section: every staged
   listing from this import with its number and question, and the
   published ones left with a question. Decisions only the owner can make:
   whether a business with no phone may publish (World's End Brewpub, the
@@ -4737,7 +4737,7 @@ files resolved.
   on the rest.
 - **Not taken.** The handoff's own report (`docs/CONTENT-COMPLETION-2026-10-11.md`)
   stays out of the repo, like the earlier briefs. Its verification register
-  (`docs/VERIFICATION-QUEUE-2026-10-11.csv`), the rebuilt photo contacts sheet
+  (`docs/archive/VERIFICATION-QUEUE-2026-10-11.csv`), the rebuilt photo contacts sheet
   (now every open listing without a photograph) and its call-list rows are
   kept, the call list rewritten for the new rules.
 
@@ -5291,7 +5291,7 @@ Association's site, to be a source, on the editor's judgment.
 - **Why the appeal stays off.** It is a donation drive for the carvings'
   shelter on the Lobo Trail, which the calendar repeats every Tuesday as an
   all-day entry with no time or place. That is not an event under the
-  standard (docs/AUDIT-2026-10-02.md). It is excluded by title.
+  standard (docs/archive/AUDIT-2026-10-02.md). It is excluded by title.
 - **The feed.** The calendar is Modern Events Calendar. Its site-wide iCal
   feed is switched off, but /events/feed/ is RSS with the plugin's own
   elements (`mec:startDate`, `mec:startHour`, `mec:endDate`, `mec:endHour`,
@@ -5573,7 +5573,7 @@ candidate was read against them and against the live Commons record.
 ## Search Console, 20 October 2026
 
 - **Annual-event pages stay on the expired-event rule, for now.** The first
-  Search Console read (docs/SEARCH-CONSOLE-2026-10-20.md) showed that the
+  Search Console read (docs/archive/SEARCH-CONSOLE-2026-10-20.md) showed that the
   name of an annual event is the biggest single query on most guides, and
   that the page is noindexed the day after. A permanent page per festival
   would carry its ranking from year to year, but the numbers do not yet earn
@@ -5583,7 +5583,7 @@ candidate was read against them and against the live Commons record.
   does not mark the annual ones (Pumpkin Pie Days is a `market`, Boo on
   Briggs a `festival`), the schema has no annual flag, an indexed past page
   needs a visible "this edition is over" notice, and the expired-event rule
-  is an acceptance criterion in docs/ACCURACY-SYSTEM.md. Revisit with a year
+  is an acceptance criterion in docs/archive/ACCURACY-SYSTEM.md. Revisit with a year
   of data, when the second edition of each festival can be compared with the
   first. Until then the interim is editorial: file next year's occurrence as
   soon as the organizer names the date, and `src/lib/big-dates.ts` links it
