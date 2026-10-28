@@ -33,12 +33,14 @@ export const lyons: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'hero-painted.jpg',
-    alt: 'An ink-and-watercolour illustration of Lyons on an autumn morning: the hill behind Main Street with its band of red sandstone and pines along the crest, the stone church, the 1881 depot and the sandstone storefronts, and the St. Vrain with its red slabs and boulders in front',
-    credit: 'Illustration, Inside the Towns',
-    painted: true,
-    // Phone: the town in frame; wide screen: the town's base above the sports strip.
-    position: '50% 55%',
+    // Main Street in place of the Colorado 7 canyon (28 October 2026): the
+    // hero is the town itself. The Main Street listing gives the photograph
+    // up, as Elizabeth's did, until the hero is replaced.
+    image: 'downtown.jpg',
+    alt: 'Main Street in Lyons looking west on a summer evening in 2010: the stone drug-store building and shop signs on the right, parked cars, and the red sandstone hogback with pines along its crest closing the view',
+    credit: 'Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0',
+    // Wide screen: the hogback's sandstone band and the storefronts, not the parked cars.
+    position: '50% 22%',
   },
   social: {
     email: 'hello@insidelyons.com',

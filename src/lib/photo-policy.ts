@@ -17,7 +17,7 @@
 
 /** What may appear at all. */
 export const PHOTO_ACCEPTED =
-  'Every photograph on these sites is public domain, openly licensed under terms that allow this use, taken by us, or sent to us by whoever holds its rights, with permission to publish it.';
+  'Every photograph on these sites is public domain, openly licensed under terms that allow this use, taken by us, licensed from a photo agency as a photograph of the place itself, or sent to us by whoever holds its rights, with permission to publish it.';
 
 /** The rule that the old "marketing photographs are not used" line was getting at. */
 export const PHOTO_NOT_COPIED =

@@ -51,12 +51,9 @@ export const fortcollins: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'hero-painted.jpg',
-    alt: 'An ink-and-watercolour illustration of Fort Collins on an autumn morning: the white Northern Hotel with its vertical HOTEL sign, a brick storefront, the Old Town Square building with its star, the buff-brick Opera House Block and the C&S Freight Depot under gold trees, Horsetooth Rock on the foothills beyond a hogback rimmed with red sandstone, and in front cottonwoods, a pond with reeds and a trail through the prairie grass',
-    credit: 'Illustration, Inside the Towns',
-    painted: true,
-    // Phone: the town and Horsetooth Rock in frame; wide screen: the town's base above the sports strip.
-    position: '92% 56%',
+    image: 'hero.jpg',
+    alt: 'The Northern Hotel on College Avenue in Old Town Fort Collins, its vertical neon sign and white art-deco front beside a brick storefront under a deep blue sky',
+    credit: 'Xnatedawgx, Wikimedia Commons, CC BY-SA 4.0',
   },
   social: {
     email: 'hello@insidefortcollins.com',

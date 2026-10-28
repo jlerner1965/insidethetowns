@@ -57,21 +57,6 @@ const {
   links = site.kind === 'town' && !compact ? [{ label: 'This week', href: '/this-week/', primary: true }, second, heroThirdLink(site)] as NonNullable<Props['links']> : [],
 } = Astro.props;
 const hero = resolveSiteImage(site.slug, site.hero.image);
-// A painting drawn for the guide (scripts/heroes/) keeps its colour: no
-// scrim across the frame and no wash of the town's colour, only a soft dark
-// pool behind the words, which follows the text column at any width.
-const painted = site.hero.painted === true;
-// And a soft shade under the eyebrow and the tagline themselves, the width of
-// their words. The pool is centred on the name, and the tagline ran past its
-// edge onto the gold trees and pale meadows of the seventeen paintings drawn
-// on 27 October: Erie's measured 3.9:1 at 1,024 px. With the shade every line
-// of all twenty paintings measured at least 6.37:1 at 768 to 1,920 px, and
-// the painting beyond the words is untouched. Off on a phone in the compact
-// band, where the type is on the town's colour.
-const lineShade = painted && [
-  'relative w-fit before:pointer-events-none before:absolute before:-inset-x-8 before:-inset-y-2 before:-z-10 before:rounded-[2rem] before:bg-black/40 before:blur-[18px]',
-  compact && 'max-sm:before:hidden',
-];
 // The tagline in two lines at most, shortened at a phrase (src/lib/text.ts)
 // rather than by the clamp alone, which put its ellipsis wherever the second
 // line ran out. A phone's budget is smaller than a wide screen's, so there
@@ -119,39 +104,25 @@ const subtitleLong = shorten(subtitle, 88);
     hero was cut to half the screen: the type then fills more of the frame,
     and the eyebrow went from three quarters of the way up to four fifths.
   */}
-  {!painted && (
-    <>
-      <div class:list={['absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.5)_55%,rgba(0,0,0,0.36)_86%,transparent_100%)]', compact && 'max-sm:hidden']}></div>
-      <div class:list={['absolute inset-0 -z-10 bg-primary/20 mix-blend-multiply', compact && 'max-sm:hidden']}></div>
-    </>
-  )}
+  <div class:list={['absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.5)_55%,rgba(0,0,0,0.36)_86%,transparent_100%)]', compact && 'max-sm:hidden']}></div>
+  <div class:list={['absolute inset-0 -z-10 bg-primary/20 mix-blend-multiply', compact && 'max-sm:hidden']}></div>
   {/* No minimum height: the padding and the type set it. In the compact
       band the type sits under the photograph on a phone, on the town's
       colour, and over it from a tablet up. */}
   <div class:list={['container-page relative flex flex-col justify-end', compact ? 'pb-6 pt-5 sm:pb-8 sm:pt-20 md:pb-9 md:pt-24' : 'pb-7 pt-12 sm:pt-16 md:pb-9 md:pt-20']}>
-    {/* The painted hero's pool: darkest behind the name and the line under
-        it, gone well before the middle of the picture. On a phone the type
-        sits under the painting on the town's colour and needs none. */}
-    {painted && (
-      <div
-        aria-hidden="true"
-        class:list={['pointer-events-none absolute bottom-0 -left-[17rem] -z-10 h-full w-[64rem]', compact && 'max-sm:hidden']}
-        style="background: radial-gradient(ellipse 50% 78% at 50% 68%, rgba(0, 0, 0, 0.66) 0%, rgba(0, 0, 0, 0.56) 48%, rgba(0, 0, 0, 0.26) 76%, rgba(0, 0, 0, 0) 100%)"
-      ></div>
-    )}
     {/*
       White, as on every band. The amber this line once shared with the
       other bands came in between 2.88:1 and 3.90:1 against the rendered
       heroes, at 12.75px, which is a fail; white clears 4.69:1 on the worst
       of them. Since Color System 2.0 the bands' eyebrows are white too.
     */}
-    <p class:list={['eyebrow text-white', lineShade]}>{eyebrow}</p>
+    <p class="eyebrow text-white">{eyebrow}</p>
     {/* Smaller than the poster size it was (6rem on a desktop), so "Carbon
         Valley" and "Manitou Springs" hold one line on a tablet and wrap
         cleanly on a phone, and the week is a scroll closer. The whole
         tagline is in the meta description and the footer. */}
     <h1 class:list={['display mt-2 [overflow-wrap:anywhere] sm:text-[3.25rem] lg:text-[4.25rem]', compact ? 'text-[2.25rem]' : 'text-[2.5rem]']}>{title}</h1>
-    <p class:list={['mt-3 max-w-xl text-[1.0625rem] leading-snug text-white/85 md:text-xl', lineShade]}>
+    <p class="mt-3 max-w-xl text-[1.0625rem] leading-snug text-white/85 md:text-xl">
       <span class="sm:hidden">{subtitleShort}</span><span class="hidden sm:inline">{subtitleLong}</span>
     </p>
     {links.length > 0 && (

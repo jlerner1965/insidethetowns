@@ -85,12 +85,10 @@ export const estesPark: TownConfig = {
     paper: 'cool',
   },
   hero: {
-    image: 'hero-painted.jpg',
-    alt: 'An ink-and-watercolour illustration of Estes Park on an autumn morning: the storefronts of West Elkhorn Avenue with green lamp posts under gold and red trees, the white Stanley Hotel with its red roofs and cupola on its rise, the Big Thompson running past the riverwalk between granite boulders into Lake Estes, and Longs Peak and Mount Meeker with early snow above the timbered ridges',
-    credit: 'Illustration, Inside the Towns',
-    painted: true,
-    // Phone: the town in frame; wide screen: the town's base above the sports strip, with Longs Peak's summit in.
-    position: '88% 53%',
+    image: 'hero.jpg',
+    alt: 'Estes Park from the Gem Lake trail: the town in its valley of pines, with snow on Longs Peak above',
+    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 7 October 2026.
+    credit: 'KimonBerlin, Wikimedia Commons, CC BY-SA 2.0',
   },
   social: {
     email: 'hello@insideestespark.com',

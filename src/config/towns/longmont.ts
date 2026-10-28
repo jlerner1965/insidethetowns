@@ -71,12 +71,9 @@ export const longmont: TownConfig = {
     paper: 'cool',
   },
   hero: {
-    image: 'hero-painted.jpg',
-    alt: 'An ink-and-watercolour illustration of Longmont on an autumn morning: Main Street’s brick storefronts with the 1881 Dickens Opera House, its black cornice and striped awnings, and the three-storey arched-window block across the intersection, Left Hand Brewing’s tasting room and white silos, McIntosh Lake with dry cattails in front, and Longs Peak and Mount Meeker with their first snow beyond',
-    credit: 'Illustration, Inside the Towns',
-    painted: true,
-    // Phone: the peaks, the lake's end and all of downtown in frame; wide screen: the town's base above the sports strip.
-    position: '98% 55%',
+    image: 'hero.jpg',
+    alt: 'Sunset over McIntosh Lake in north-west Longmont: dry cattails in the foreground and the sun dropping behind the snow-covered mountains to the west',
+    credit: 'Tyler Cipriani, Wikimedia Commons, CC BY-SA 4.0',
   },
   social: {
     email: 'hello@insidelongmontco.com',

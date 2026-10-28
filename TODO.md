@@ -7,7 +7,7 @@ reports, checks). Three towns get the work until 20 January 2027
 Remove a row when it is done; the dated audits in `docs/audits/` say what
 was found and when.
 
-Last revised: 27 October 2026, evening.
+Last revised: 28 October 2026.
 
 ## This week
 
@@ -18,6 +18,8 @@ Last revised: 27 October 2026, evening.
 | Berthoud | Call the library, (970) 532-2757: a calendar feed, or a monthly hours check for its six series | Its site rate-limits the nightly check; six series read as unverifiable | Owner |
 | Berthoud | Photographs: City Star front, Town Hall, the Bike Park, Fickel Park, the Reservoir Loop, then Kofe House, Berthoud Brewing, Grandpa's, Cornerstone, Rise | The three home tiles and the eat-and-drink page have no photograph of a business; the shot list and sources are in the 27 October session notes and `docs/PHOTO-PRIORITIES.md` | Owner (hire or shoot) |
 | Berthoud | A local change for `/updates/` on 3 November: the result on Issue 3G, from the county's returns | Worth knowing hides itself when its two items expire; the rec-centre anniversary is now a full listing (20 November, 4–8 pm) | Assistant drafts, owner confirms |
+| All | Buy the hero photographs in `docs/HERO-PHOTOS.md`: one month of iStock (Berthoud, Longmont, then the upgrades), Adobe Stock credits (Lyons, Loveland, then the upgrades), Shutterstock packs if wanted; about $190. Send the files and receipts to the assistant | The paintings are gone; Berthoud's, Longmont's and Loveland's heroes are a park or a lake rather than the town, and Lyons's Main Street listing waits to get its photograph back | Owner buys, assistant installs |
+| Johnstown, Timnath | Shoot the hero: Parish Avenue north from 1st Street; Old Town Main Street north toward the church | Nothing exists to buy for either (`docs/HERO-PHOTOS.md`) | Owner |
 | Lyons | Open lyonsfire.org in a browser; it answered 503 to the crawler from Moving here and Living here | Fix-now item, 27 October audit | Owner |
 | Lyons | Decide the staged queue: 22 events and 2 places waiting since 6–21 October (`npm run review -- --town=lyons`) | A month deep; the editor works 25 a week network-wide | Owner |
 | Lyons | Confirm The Rock Garden as a source (`npm run sources -- confirm lyons rockgardenlyons-com`) | Five events wait on it | Owner |
@@ -73,7 +75,8 @@ which keeps every town). A row comes off once the listing carries a
 
 `docs/PHOTO-CONTACTS.csv` is the ledger of every listing without a
 photograph and who to ask; `docs/PHOTO-PRIORITIES.md` is the shot list for
-Lyons, Niwot and Golden; Berthoud's is in the row above. Permissions
+Lyons, Niwot and Golden; Berthoud's is in the row above; `docs/HERO-PHOTOS.md`
+is the heroes' buy and shoot list. Permissions
 received go in `PERMISSIONS.md`.
 
 ## On hold until 20 January 2027
@@ -87,6 +90,4 @@ Severance, Fort Lupton, Nederland, Estes Park, Fort Collins: 92 rows) stay in
 record is `docs/archive/VERIFICATION-QUEUE-2026-10-11.csv`. Forty mountain
 access notes fall out of their 30-day window in November (the network
 audit of 27 October); one monthly pass over the land managers' pages, or a
-longer winter window, keeps them. Every live guide's hero is a painting
-now (`scripts/heroes/`); a guide that launches gets one from its own
-reference photographs before it goes live.
+longer winter window, keeps them.
