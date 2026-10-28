@@ -6845,3 +6845,38 @@ all then PR".*
   town's buildings above the sports strip.
 - **The other guides** keep their photographs until the 90-day test ends on
   20 January 2027.
+
+## Every guide's hero is a painting, 27 October 2026
+
+*The owner's word, on the Lyons, Niwot and Berthoud paintings:
+"Looks really good do for all towns so brand is consistent."*
+
+- **The other seventeen live guides get one now**, not after the 90-day
+  test. That bullet in the entry above is superseded: the paintings are
+  the network's look, and one family of three among twenty read as an
+  experiment rather than a brand. Castle Rock, on hold, is not live and
+  gets its painting before it launches; the four redirect guides have no
+  home page to put one on.
+- **Same rules as the three.** Each scene is composed from the guide's own
+  reference photographs in `content/<town>/images/`, and its script's
+  docstring and alt text say what is in it and that it is a composition.
+  Where the guide has no photograph of a landmark, the landmark is left
+  out rather than invented: Nederland's Carousel of Happiness, Timnath's
+  grain elevator and reservoir, Leadville's Mount Elbert and Mount
+  Massive, Dacono and the rebuilt fort in Carbon Valley, Pikes Peak in
+  Elizabeth, and every elk in a tagline. A licensed photograph of any of
+  them lets the script add it later. Golden's painting leaves out the
+  Coors brewery on purpose: it is a brand, and a big pale block where the
+  type sits.
+- **The type.** Measured on the built pages at 768, 1,024, 1,280, 1,440
+  and 1,920 px, against all but the brightest 5% of the painting behind
+  each line, the pool alone left four of the seventeen taglines under
+  4.5:1 and six more under the 6.2:1 the first three had. The pool is
+  centred on the name, and the longer tagline ran past its edge onto gold
+  trees and pale meadows (Erie 3.86:1 at 1,024 px, Golden 4.32:1 at 1,920).
+  A bigger pool fixed the numbers and darkened Lyons's church and Erie's
+  Town Hall, which is the mud the painted hero exists to avoid. Instead the
+  eyebrow and the tagline each carry a soft shade the width of their words
+  (`src/components/Hero.astro`), and every line of all twenty paintings,
+  the first three included, now measures at least 6.37:1 at every width.
+- **The hub** keeps its aerial photograph: it is the network, not a town.
