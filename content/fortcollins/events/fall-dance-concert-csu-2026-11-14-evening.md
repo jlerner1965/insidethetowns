@@ -10,7 +10,7 @@ category: arts
 source: "https://dance.colostate.edu/events/2026-fall-dance-concert/"
 verified: "2026-10-03"
 changeFlag: true
-changeNote: "recheck 2026-10-27: the dance.colostate.edu feed lists \"2026 Fall Dance Concert\" at 2 pm on 14 November, not 7:30 pm"
+changeNote: "recheck 2026-10-28: the dance.colostate.edu feed lists \"2026 Fall Dance Concert\" at 2 pm on 14 November, not 7:30 pm"
 ---
 
 The dance program's fall concert at the University Center for the Arts: original works by faculty, guest artists and selected student choreographers, three performances over the weekend.

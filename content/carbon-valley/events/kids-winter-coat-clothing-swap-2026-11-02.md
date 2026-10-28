@@ -10,7 +10,7 @@ source: "https://highplains.libcal.com/event/17809123"
 sourceId: "highplains-libcal-com-fort-lupton"
 sourceUid: "libcal:17809123"
 sourceHash: "c281969ab7d4"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Kids Winter Coat/Clothing Swap\" at 4 pm on 2 November on the Fort Lupton Public & School Library (High Plains Library District), LibCal feed"
 ---
 

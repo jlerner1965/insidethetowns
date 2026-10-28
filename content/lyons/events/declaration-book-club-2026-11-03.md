@@ -6,7 +6,7 @@ venue: "Lyons Regional Library"
 address: "451 4th Ave, Lyons, CO 80540"
 category: other
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Declaration Book Club\" at 6:30 pm on 3 November on the lyons.librarycalendar.com feed"
 ---
 

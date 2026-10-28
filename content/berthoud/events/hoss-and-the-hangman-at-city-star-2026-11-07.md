@@ -9,7 +9,8 @@ performers:
 url: "https://citystarbrewing.com/event/hoss-and-the-hangman/"
 category: music
 source: "https://citystarbrewing.com/event/hoss-and-the-hangman/"
-verified: "2026-10-27"
+verified: "2026-10-28"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Hoss and the Hangman\" at 6 pm on 7 November in the page's structured data"
 ---
 
 Hoss and the Hangman, a Northern Colorado folk, country and Americana duo of Ben on guitar and vocals and Anthony on stand-up bass, play the City Star taproom from 6 to 8:30 pm.

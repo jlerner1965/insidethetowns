@@ -8,7 +8,7 @@ url: "https://www.etix.com/ticket/p/52682146/dinosaur-jr-fort-collins-washington
 cost: "$44.04"
 category: music
 source: "https://bohemianlivemusic.org/"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): 30 October and 8 pm on the page"
 ---
 

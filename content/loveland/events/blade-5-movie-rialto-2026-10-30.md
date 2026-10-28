@@ -9,7 +9,7 @@ category: arts
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=173"
 sourceId: "rialtotheatercenter-org"
 sourceUid: "showare:269"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): 30 October and 7 pm on the page"
 ---
 

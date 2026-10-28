@@ -10,7 +10,7 @@ category: family
 organizer: "Clear Creek Metropolitan Recreation District"
 source: "https://clearcreekrecreation.com/events/"
 sourceId: "clearcreekrecreation-com"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): 7 November and 12 pm on the page"
 ---
 

@@ -11,7 +11,7 @@ source: "https://cccld.org/event/ispl-book-group-16-2-2/2026-11-09/"
 sourceId: "cccld-org"
 sourceUid: "10006893-1794240000-1794243600@cccld.org"
 sourceHash: "1d5698771193"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"ISPL Book Group\" at 4 pm on 9 November on the Clear Creek County Library District calendar feed"
 ---
 

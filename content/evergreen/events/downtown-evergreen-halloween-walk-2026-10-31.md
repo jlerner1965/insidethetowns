@@ -10,7 +10,7 @@ category: family
 organizer: "Evergreen Downtown Business Association"
 source: "https://downtownevergreen.com/events/halloween-walk"
 sourceId: "downtownevergreen-com"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): 31 October and 4 pm on the page"
 ---
 
