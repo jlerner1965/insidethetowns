@@ -94,12 +94,10 @@ export const grandLake: TownConfig = {
     paper: 'cool',
   },
   hero: {
-    image: 'hero-painted.jpg',
-    alt: 'An ink-and-watercolour illustration of Grand Lake on an autumn morning: the forested mountain rising from the lake with gold aspen groves in its timber, the bare summit at the head of the lake, the boathouses and white docks on the shore, a green-roofed log cabin, the boardwalk false fronts of Grand Avenue with their flags, the log Kauffman House, a pontoon heading out, and the pedal boats at the beach in Gene Stover Lakefront Park',
-    credit: 'Illustration, Inside the Towns',
-    painted: true,
-    // Phone: the town in frame, held to the right so the Kauffman House shows; wide screen: the town's base above the sports strip.
-    position: '100% 55%',
+    image: 'hero.jpg',
+    alt: 'A rainbow over the forested mountains above Grand Lake, with cabins and moored boats along the shore below',
+    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 10 October 2026.
+    credit: 'Muttnick, Wikimedia Commons, CC BY-SA 4.0',
   },
   social: {
     email: 'hello@insidegrandlake.com',

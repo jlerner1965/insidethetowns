@@ -97,18 +97,11 @@ One wrong fact costs more than ten missing ones.
   and under what terms. No row, no image; the validator enforces it.
 - Acceptable: public domain; an open licence that allows this use; taken
   by us; or sent by whoever holds the rights with written permission,
-  recorded in `PERMISSIONS.md` and credited as they ask. A paid editorial
-  licence of a real photograph of the real place, credited, is acceptable
-  too. Generic stock and generated images are not.
-- The hero may instead be a painting drawn for the guide (27 October 2026):
-  ink and watercolour, drawn in code by `scripts/heroes/`, of the town's
-  real landmarks taken from the guide's own reference photographs. It is
-  a composition, not a view: its alt text says "illustration" and names
-  what is in it, and nothing in it is invented to stand for a real
-  building. Image-generator pictures stay out, because they invent the
-  places they claim to show. Listings, tiles and articles keep
-  photographs. Every live guide has one, so the network reads as one
-  family; a new guide gets its painting before it launches.
+  recorded in `PERMISSIONS.md` and credited as they ask. A paid stock
+  licence, standard or editorial, of a real photograph of the real place,
+  credited and with its receipt in `PERMISSIONS.md`, is acceptable too
+  (`docs/HERO-PHOTOS.md` is the list for the heroes). Generic stock,
+  generated images and drawn or painted heroes are not (28 October 2026).
 - Never copied from a business's website, its social pages or a review
   site, however good the picture.
 - The hero is the town itself, not the county or a lake outside it, and a

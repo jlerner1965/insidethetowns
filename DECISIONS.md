@@ -6880,3 +6880,49 @@ all then PR".*
   (`src/components/Hero.astro`), and every line of all twenty paintings,
   the first three included, now measures at least 6.37:1 at every width.
 - **The hub** keeps its aerial photograph: it is the network, not a town.
+
+## The heroes are photographs again, 28 October 2026
+
+*The owner's word, the morning after: the painted heroes "turned out to be
+eh not great"; use the photograph plan instead (`docs/HERO-PHOTOS.md`, the
+owner's research of the same day).*
+
+- **The two entries above are undone.** Every guide's hero is a
+  photograph again: the seventeen that had one on 27 October go back to
+  it, and Lyons, Niwot and Berthoud go back to theirs, with the two
+  changes below. The paintings, `scripts/heroes/` and their twenty rows
+  in `IMAGE_LICENSES.csv` are removed; they are in the history at
+  838d5b5 if a painting is ever wanted for something other than a hero.
+  `Hero.astro` drops the painted band (no scrim, the pool, the line
+  shade) and keeps `position`, which works for a photograph too.
+- **Two free swaps from the plan, now that Commons answers.** The plan
+  could not open Commons; it does open through `thumb.php`, as
+  `docs/PHOTOS.md` says. Carbon Valley's hero is Jared Winkler's Fifth
+  Street at Oak in old-town Frederick (2018, CC BY-SA 4.0), at 2,400 px,
+  in place of St. Vrain State Park's pond. Lyons's is Billy Hathorn's
+  Main Street looking west to the hogback (2010, CC BY-SA 3.0), at
+  2,400 px, in place of the Colorado 7 canyon, which was not the town.
+  The Main Street listing gives that photograph up, as Elizabeth's Main
+  Street did on 4 October, until the hero the plan picks for Lyons is
+  bought; then the listing gets it back.
+- **Looked at and left.** Longmont's Main Street at 5th (Billy Hathorn,
+  2010, 4,000 px) has a median tree in the middle of the frame and a
+  Winchell's sign. Loveland's Rialto and 4th Street photographs, and
+  Windsor's Town Hall, are listing cards. Niwot's hero, Second Avenue and
+  the Niwot Tribune under CC BY-SA 2.0, is the Old Town photograph the
+  plan says does not exist, and stays.
+- **Bought photographs have a ledger shape.** A row that starts with the
+  agency and the kind of licence (`iStock editorial licence (John M.
+  Chase; 2021); bought … — see PERMISSIONS.md, section: Stock licences`)
+  reads as "John M. Chase, iStock editorial licence" on `/credits/`, and
+  the caption must name the agency (`src/lib/credits.ts`). The rule in
+  `HOW-IT-WORKS.md` now says a standard licence is as acceptable as an
+  editorial one for a real photograph of the real place, and that drawn
+  or painted heroes are out. The public policy line (`PHOTO_ACCEPTED`)
+  and the credits page say so too, so they stay true the day the first
+  one is bought. `PERMISSIONS.md` has an empty *Stock licences* section
+  for the receipts.
+- **What is left is the owner's:** about $190 of iStock, Adobe Stock and
+  Shutterstock downloads, and the shots for Johnstown, Timnath, Niwot
+  and Berthoud. `docs/HERO-PHOTOS.md` says which, town by town, and how
+  each goes in.

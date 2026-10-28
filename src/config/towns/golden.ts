@@ -74,12 +74,10 @@ export const golden: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'hero-painted.jpg',
-    alt: 'An ink-and-watercolour illustration of Golden on an autumn morning: South Table Mountain with Castle Rock, Mount Zion with its white M and North Table Mountain’s basalt cliffs, the Welcome to Golden arch over Washington Avenue between brick and painted storefronts, The Rose and the bronze bison, the tower of Guggenheim Hall behind, and a kayaker on Clear Creek in front',
-    credit: 'Illustration, Inside the Towns',
-    painted: true,
-    // Phone: the town in frame; wide screen: the town's base above the sports strip.
-    position: '82% 58%',
+    image: 'hero.jpg',
+    alt: 'Clear Creek east of the Washington Avenue bridge in Golden, kayakers in the current and North Table Mountain behind the town',
+    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 7 October 2026.
+    credit: 'Dough4872, Wikimedia Commons, CC BY-SA 4.0',
   },
   social: {
     email: 'hello@insidegolden.com',

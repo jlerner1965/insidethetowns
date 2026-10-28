@@ -83,6 +83,26 @@ test('internal notes never reach the reader', () => {
   for (const c of [erie, berthoud, own, johnstown, johnstownTown, douglas]) assert.doesNotMatch(JSON.stringify(c), /PERMISSIONS|EXIF|confirm/);
 });
 
+test('a bought stock photograph credits the photographer and the agency, not the receipt', () => {
+  const editorial = publicCredit(
+    row(
+      'iStock editorial licence (John M. Chase; 2021); bought 2026-11-02 — see PERMISSIONS.md, section: Stock licences; resized to 2400px',
+      'https://www.istockphoto.com/photo/downtown-berthoud-colorado-gm1417954947-464839137',
+    ),
+  );
+  assert.deepEqual(editorial, {
+    author: 'John M. Chase',
+    license: 'iStock editorial licence',
+    sourceUrl: 'https://www.istockphoto.com/photo/downtown-berthoud-colorado-gm1417954947-464839137',
+    changes: 'resized',
+  });
+  assert.equal(publicCredit(row('Adobe Stock licence (Jacob Boomsma; 2021); bought 2026-11-02')).license, 'Adobe Stock licence');
+  assert.equal(licenseName(row('Shutterstock editorial licence (Rachel Rose Boucher; 2024)')), 'Shutterstock');
+  assert.doesNotMatch(JSON.stringify(editorial), /PERMISSIONS|bought/);
+  // A generic stock picture of somewhere else never had a row shape to fit.
+  assert.throws(() => publicCredit(row('stock photo, royalty free')), /cannot turn the licence/);
+});
+
 test('a row it cannot read is an error, not a blank credit', () => {
   assert.throws(() => publicCredit(row('mystery terms')), /cannot turn the licence/);
   assert.throws(() => publicCredit(row('CC0 placeholder — never ship on a live site')), /cannot turn the licence/);

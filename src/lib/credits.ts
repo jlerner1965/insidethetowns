@@ -71,6 +71,16 @@ export function parseLedger(csv: string): LedgerRow[] {
 
 const CC = /^(CC0|CC BY(?:-SA)? \d\.\d|Public Domain Mark 1\.0|Public domain)\b/;
 
+/**
+ * A photograph bought from a stock agency: allowed for a real photograph of
+ * the real place (HOW-IT-WORKS.md, section 6), editorial licences included.
+ * The row starts with the agency and the kind of licence, then the
+ * photographer and year, then the receipt: "iStock editorial licence (John M.
+ * Chase; 2021); bought 2026-11-02 — see PERMISSIONS.md, section: Stock
+ * licences; resized to 2400px".
+ */
+const STOCK = /^(iStock|Adobe Stock|Shutterstock|Getty Images)( editorial)? licen[cs]e\b/;
+
 function licenseUrl(name: string): string | undefined {
   if (name === 'CC0') return 'https://creativecommons.org/publicdomain/zero/1.0/';
   if (name === 'Public Domain Mark 1.0') return 'https://creativecommons.org/publicdomain/mark/1.0/';
@@ -150,6 +160,10 @@ export function publicCredit(row: LedgerRow): PublicCredit {
   if (/^client-supplied for townofniwot\.com; use on insideniwot\.com confirmed/i.test(license)) {
     return { author: 'townofniwot.com', license: 'Used with permission' };
   }
+  const stock = STOCK.exec(license);
+  if (stock) {
+    return { author: authorFrom(license), license: `${stock[1]}${stock[2] ?? ''} licence`, sourceUrl, changes };
+  }
   throw new Error(
     `IMAGE_LICENSES.csv: cannot turn the licence for ${row.path} into a public credit: "${license}". ` +
       'Start it with the licence name (e.g. "CC BY-SA 4.0 (Author; year)") or add the grant to GRANTS in src/lib/credits.ts.',
@@ -159,5 +173,7 @@ export function publicCredit(row: LedgerRow): PublicCredit {
 /** The one-line form used in captions: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0". */
 export function licenseName(row: LedgerRow): string | undefined {
   const cc = CC.exec(row.license)?.[1];
-  return cc && cc !== 'Public domain' ? cc : undefined;
+  if (cc) return cc !== 'Public domain' ? cc : undefined;
+  // A stock photograph's caption names the agency, as its licence asks.
+  return STOCK.exec(row.license)?.[1];
 }

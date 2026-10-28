@@ -80,12 +80,10 @@ export const evergreen: TownConfig = {
     paper: 'cool',
   },
   hero: {
-    image: 'hero-painted.jpg',
-    alt: 'An ink-and-watercolour illustration of Evergreen on an autumn morning: Evergreen Lake with the boardwalk and the log Lake House on its far shore between blue spruces and gold aspens, the Highway 74 storefronts beside it, from the timber Little Bear with its balcony and bunting to the green clapboard buildings under rusty tin roofs, and behind them the timbered hills, one with a bare granite crown, and blue peaks up the valley',
-    credit: 'Illustration, Inside the Towns',
-    painted: true,
-    // Phone: the Lake House and downtown in frame; wide screen: the town's base above the sports strip.
-    position: '100% 56%',
+    image: 'hero.jpg',
+    alt: 'Downtown Evergreen on Highway 74: wooden storefronts with tin roofs and awnings, pickups parked along the boardwalk',
+    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 7 October 2026.
+    credit: 'E10ddie, Wikimedia Commons, CC BY-SA 3.0',
   },
   social: {
     email: 'hello@insideevergreenco.com',

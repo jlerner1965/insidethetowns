@@ -47,12 +47,9 @@ export const erie: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'hero-painted.jpg',
-    alt: 'An ink-and-watercolour illustration of Erie in autumn: Town Hall, the 1906 Lincoln School, with its cupola and the coal miners’ memorial in front, the 1930 City Hall with its bell cupola, the 1889 Davis Building and the brick block beside it with its striped awning on Briggs Street, Anderson Farms’ red barn, windmill and pumpkin patch, Coal Creek and its footbridge, and the Front Range with the first snow on its high peaks',
-    credit: 'Illustration, Inside the Towns',
-    painted: true,
-    // Phone: the town in frame; wide screen: the town's base above the sports strip.
-    position: '86% 56%',
+    image: 'town-hall-lincoln-school.jpg',
+    alt: 'Erie Town Hall, the 1906 Lincoln School on Holbrook Street: a red-brick schoolhouse with a hipped roof and its newer wing, under a clear October sky',
+    credit: 'Erie Bard, Wikimedia Commons, CC BY-SA 4.0',
   },
   social: {
     email: 'hello@insideerie.com',

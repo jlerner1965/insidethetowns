@@ -49,12 +49,10 @@ export const elizabeth = {
     paper: "warm",
   },
   hero: {
-    image: "hero-painted.jpg",
-    alt: "An ink-and-watercolour illustration of Elizabeth in autumn: Main Street with the white block and its crenellated parapet, the white false-front store, the buff-brick 1907 First National Bank with its arches, the Huber-Carlson Building and Town Hall with its flag, under gold cottonwoods; in front, the Elizabeth Stampede arena with its announcer’s booth, grandstand and a rider, and ponderosas on the prairie",
-    credit: "Illustration, Inside the Towns",
-    painted: true,
-    // Phone: the town in frame; wide screen: the town's base above the sports strip.
-    position: "98% 57%",
+    image: "hero.jpg",
+    alt: "Main Street in Elizabeth, Colorado: the 1907 First National Bank building with its arched openings and the white false-front store beyond, under a clear winter sky",
+    // Attribution required by the photograph's CC BY-SA license; see IMAGE_LICENSES.csv.
+    credit: "ERoss99, Wikimedia Commons, CC BY-SA 3.0",
   },
   social: { email: "hello@insideelizabeth.com" },
   // A resident guide (TownConfig.home), since 22 October 2026.

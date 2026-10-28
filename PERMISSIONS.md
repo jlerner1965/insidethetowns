@@ -337,3 +337,23 @@ the Longmont logo with the words, in full:
 It was on the listing for part of 14 October 2026 and is no longer
 published; the file was removed from the repository when the photograph
 replaced it.
+
+---
+
+## Stock licences — bought photographs
+
+None bought yet. `docs/HERO-PHOTOS.md` is the list of heroes worth buying.
+
+One entry per photograph, written the day it is bought: the agency, the
+asset number and its page, the photographer, the licence bought (standard
+or editorial, and the size), the order or invoice number, the date and the
+plan or pack it came from. Its row in `IMAGE_LICENSES.csv` starts with the
+agency and the kind of licence, then the photographer and the year, and
+cites this section: `iStock editorial licence (John M. Chase; 2021);
+bought 2026-11-02 — see PERMISSIONS.md, section: Stock licences; resized to
+2400px`. The validator reads that into the credit on `/credits/` and fails
+a row that does not start that way.
+
+An editorial licence covers the guide's pages, the share image included,
+and nothing promotional: not a sponsor's post, an ad or a printed card.
+Cropping and the hero's overlay are fine; retouching is not.
