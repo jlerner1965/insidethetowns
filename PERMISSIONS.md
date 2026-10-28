@@ -469,8 +469,8 @@ sent on 28 October 2026. Adobe's terms are not recorded here yet.
   name of iStock, the content's identification number and any other
   information that may be embedded in the electronic file".
 
-**Open, 28 October 2026:** this repository is public on GitHub, so the three
-files as uploaded can be downloaded by anyone, which 3(c) and 5 do not
-allow. The owner decided the same day to make the repository private;
-this note changes to a date once it is.
+**Made private, 28 October 2026.** The repository was public on GitHub
+when the three files were uploaded, so for a few hours anyone could
+download them, which 3(c) and 5 do not allow. The owner made it private
+the same day. Keep it private while it holds bought files.
 

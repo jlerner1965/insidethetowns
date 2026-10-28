@@ -7000,10 +7000,10 @@ and uploaded them to `main`, and sent iStock's Content License Agreement.*
   two Adobe photographs' standard licence asks for none.
 - **The Berthoud crop stays centred.** Higher, to take in the whole
   mural, the dentist's sign sat behind the town's name on a wide screen.
-- **Open: the repository is public.** iStock's 3(c) forbids use "that
+- **The repository is private now.** iStock's 3(c) forbids use "that
   allows others to download, extract, or redistribute content as a
   standalone file", and its section 5 storage "on a server" that more than
-  one person can reach. Anyone can download all three files from GitHub.
-  The owner decided the same day to make the repository private.
+  one person can reach, and the repository was public when the files were
+  uploaded. The owner made it private the same day.
 - **Not in:** the Bimson Blacksmith Shop, which is the Pioneer Museum
   listing's free Commons photograph.
