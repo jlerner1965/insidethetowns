@@ -109,10 +109,12 @@ export const idahoSprings: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'The red Argo gold mill on the hillside above Idaho Springs, its name painted high on the mill, under a blue sky',
-    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 10 October 2026.
-    credit: 'D&RG Railfan, Wikimedia Commons, CC BY-SA 4.0',
+    image: 'hero-painted.jpg',
+    alt: 'An ink-and-watercolour illustration of Idaho Springs in autumn: wooded hillsides with pines, granite outcrops and gold aspen, the Charlie Tayler waterwheel, the Miner Street blocks with Beau Jo’s, the 1890 Hanchett Building and the tile-roofed building at 1401 Miner Street, the red Argo Gold Mine and Mill stepping up its hill, and Clear Creek in front',
+    credit: 'Illustration, Inside the Towns',
+    painted: true,
+    // Phone: the town in frame; wide screen: the town's base above the sports strip.
+    position: '94% 57%',
   },
   social: {
     email: 'hello@insideidahosprings.com',

@@ -38,9 +38,12 @@ export const johnstown: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'brush-barn.jpg',
-    alt: 'The Jared L. Brush Barn of 1865 on County Road 17 northeast of Johnstown, on the National Register: weathered board-and-batten siding, a steep gable with arched louvred vents, a corral fence in front',
-    credit: 'Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0',
+    image: 'hero-painted.jpg',
+    alt: 'An ink-and-watercolour illustration of Johnstown in autumn: the buff-brick Masonic Temple with its great arch and twin doors, the Historic Parish House bungalow behind its iron fence and sign, and Town Hall with its rotunda and flags, under gold and red trees; the weathered Brush Barn and a pumpjack out in the fields; and the Front Range beyond with snow on Longs Peak',
+    credit: 'Illustration, Inside the Towns',
+    painted: true,
+    // Phone: the town, the barn and the pumpjack in frame; wide screen: the town's base above the sports strip.
+    position: '88% 60%',
   },
   social: {
     email: 'hello@insidejohnstown.com',
