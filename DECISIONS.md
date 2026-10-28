@@ -7052,3 +7052,9 @@ Measured against all but the brightest 5% of the picture behind it, with
 the shadow left out: 5.22:1 at 1,280 px and 5.55:1 at 1,920 (the box gave
 8.96 and 9.44), and 4.65:1 on a phone, over the light road, where the shade
 is darker.
+
+Later the same day the owner asked for it half the size. Half is 7px, which
+reads as a smudge rather than a credit, and the licence needs a credit; it
+is 10px instead (from 14, under the 14px floor for supporting text by the
+owner's call), letter-spaced a little, with the shade a touch darker on a
+phone: 5.27:1 on a phone, 5.08 at 1,280 px, 5.31 at 1,920.
