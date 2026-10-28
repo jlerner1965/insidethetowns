@@ -6926,3 +6926,42 @@ owner's research of the same day).*
   Shutterstock downloads, and the shots for Johnstown, Timnath, Niwot
   and Berthoud. `docs/HERO-PHOTOS.md` says which, town by town, and how
   each goes in.
+
+## Creative Grounds: a confirmed source for Lyons, its classes and its photographs, 28 October 2026
+
+*The owner's word, forwarding Casey's reply and three photographs: "add to
+Lyons and include all events from their website and in rules allow the
+site to be a source for events."*
+
+- **The source.** `creativegroundslyons-com` is in `content/lyons/sources.json`
+  as a confirmed, core venue source. Its class calendar is a Squarespace
+  events list; the site's robots.txt disallows `?format=ical` and
+  `?format=json` for every agent, so there is no feed to read and the
+  type is html, read by hand and by the nightly re-check.
+- **Every class is listed**, 11 files for the 33 dates from 28 October to
+  18 December. The four five-week courses and the Friday wheel class are
+  weekly series with the weeks off in `except`; the Friday handbuilding
+  nights change theme (sculpting, trays, ornaments), so each is its own
+  listing. The Wednesday course is listed though Creative Grounds marks it
+  sold out, with the words in its cost line.
+- **Where the site disagrees with itself, the listing says so.** The
+  Thursday course takes Casey's 1:30 to 4:30 (`confirmed`, by email), not
+  the 1:30 to 4 its pages still show. The Sunday course takes the calendar
+  and sign-up's 2:30 to 5 with a "to be confirmed" time note, because the
+  description says 2 to 4:30 and December 13's entry 2 to 5:30. The Friday
+  handbuilding nights give both age ranges their page does (12–21 in the
+  title, 14–21 in the description). Both questions are on Casey's
+  follow-up.
+- **The café is a listing** (coffee, so it is on Eat & drink), with the
+  building front as its card and the studio and the patio in the page.
+  Casey's photographs are recorded under *Creative Grounds* in
+  `PERMISSIONS.md` and credited "Creative Grounds" through a new grant in
+  `src/lib/credits.ts`, with Casey's email quoted in full. Casey offered
+  them "for the Creative Grounds page", so they are on that page and
+  nowhere else: not on the class listings, and not in the Thursday email
+  until Casey says yes. Casey calls Creative Grounds "the client", so the
+  contact record now has Casey as probably an agency or publicist.
+- **Not changed:** Western Stars Gallery & Studio's listing has the same
+  address, 160 E Main St, and its signs are in the windows of Casey's
+  photograph of the building. Whether it is still there is a question for
+  Casey, not a guess.

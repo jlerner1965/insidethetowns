@@ -140,6 +140,7 @@ const GRANTS: Array<[RegExp, string]> = [
   [/^Douglas County photograph/, 'Douglas County'],
   [/^Courtesy of the Berthoud Community Library District/, 'Berthoud Community Library District'],
   [/^Courtesy of CyclErie/, 'CyclErie'],
+  [/^Courtesy of Creative Grounds/, 'Creative Grounds'],
 ];
 
 export function publicCredit(row: LedgerRow): PublicCredit {

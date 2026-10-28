@@ -340,6 +340,56 @@ replaced it.
 
 ---
 
+## Creative Grounds — café, studio and patio
+
+**Sent** by **Casey**, writing for Creative Grounds (Casey calls it "the
+client", so probably from an agency or publicist working for it), in
+reply to the owner's email of 27 October
+(`docs/relationships/drafts/creative-grounds-2026-10-27.md`), which asked
+for "two or three you have the rights to (the studio, the café, a class at
+the wheel)" for the listing and the Thursday email, "credited however you
+like". Forwarded by the owner on 28 October 2026. Three photographs came
+with it: the building front at 160 E Main St with its lion mural and sign,
+the pottery studio with its wheels, and the patio. The owner put them on
+the Creative Grounds listing the same day.
+
+Casey's wording, in full, as the owner forwarded it (the first line in a
+separate message from the rest):
+
+> **SORRY, 1:30pm-4:30pm! Apologies!
+>
+> Also, sharing some images you're free to use for the Creative Grounds
+> page... let us know of any questions!
+>
+> Lastly, we will definitely share this with the client to encourage
+> sign-ups! We really appreciate your support and spreading the word about
+> this beautiful new space!
+>
+> Thanks James, and please let me know if you have any other questions!
+> Best,
+> Casey
+
+The first line answers the owner's question about the Thursday
+handbuilding class's hours.
+
+| | |
+|---|---|
+| **Scope** | The three photographs, on the Creative Grounds page on insidelyons.com ("free to use for the Creative Grounds page") |
+| **Not covered** | The class listings, the Thursday email, and anything else of Creative Grounds's; ask before using them there |
+| **Credit** | Not asked for. We credit "Creative Grounds" |
+| **Standing** | For the Creative Grounds page |
+| **Contact** | Casey, by reply to the owner's thread; Creative Grounds itself at hello@creativegrounds.art |
+
+"Free to use" is Casey's phrase, not a named licence, and Casey writes for
+the client rather than as its owner; the rights are taken to be the
+client's to give, as the owner's email asked for photographs "you have the
+rights to".
+
+Each file is the 1200 × 800 JPEG Casey sent, re-saved with the EXIF
+dropped. They come down the day Creative Grounds asks.
+
+---
+
 ## Stock licences — bought photographs
 
 None bought yet. `docs/HERO-PHOTOS.md` is the list of heroes worth buying.
