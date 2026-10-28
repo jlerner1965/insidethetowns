@@ -111,12 +111,17 @@ const subtitleLong = shorten(subtitle, 88);
   <div class:list={['absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,0,0,0.35)_0%,transparent_40%)]', compact && 'max-sm:hidden']}></div>
   {/* The one exception to "no caption on the photograph": a licence that
       wants its credit beside the picture (an editorial stock photograph;
-      heroCreditOnImage). Small, on its own shade, in the photograph's
-      bottom corner: on a phone in the compact band that is the foot of the
-      13rem photograph above the type, elsewhere the foot of the band. It
-      sits outside the photograph's layer, which the shades cover. */}
+      heroCreditOnImage). In the photograph's bottom corner: on a phone in
+      the compact band that is the foot of the 13rem photograph above the
+      type, elsewhere the foot of the band. It sits outside the
+      photograph's layer, which the shades cover. No box around it (the
+      owner, 28 October 2026: the dark box looked bad); a soft glow behind
+      the words and a faint shadow keep it legible on a light patch, the
+      way a magazine credits a photograph. 8px, the owner's call (28
+      October): far under the 14px floor for supporting text, and as small
+      as it goes while it still reads as the credit the licence needs. */}
   {creditOnImage && (
-    <p class:list={['absolute right-2 z-10 rounded-sm bg-black/55 px-1.5 py-0.5 text-[0.875rem] leading-tight text-white/90 sm:right-3', compact ? 'top-52 -translate-y-[calc(100%+0.5rem)] sm:top-auto sm:bottom-3 sm:translate-y-0' : 'bottom-2 sm:bottom-3']}>{creditOnImage}</p>
+    <p class:list={['absolute right-2 z-10 text-[0.5rem] leading-tight tracking-wide text-white/90 [text-shadow:0_1px_2px_rgb(0_0_0/0.7)] before:pointer-events-none before:absolute before:-inset-x-1.5 before:-inset-y-0.5 before:-z-10 before:rounded-full before:bg-black/35 before:blur-[6px] max-sm:before:bg-black/70 sm:right-3', compact ? 'top-52 -translate-y-[calc(100%+0.5rem)] sm:top-auto sm:bottom-3 sm:translate-y-0' : 'bottom-2 sm:bottom-3']}>{creditOnImage}</p>
   )}
   {/* No minimum height: the padding and the type set it. In the compact
       band the type sits under the photograph on a phone, on the town's

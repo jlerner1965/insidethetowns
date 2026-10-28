@@ -7038,3 +7038,27 @@ gloss over? your call."*
   found the tagline, white at 85% on the town's colour, under 4.5:1 on
   three guides: Golden 4.17, Niwot 4.27, Timnath 4.31. On the phone band it
   is full white now, 5.07:1 or more on every guide.
+
+## The hero's photo credit without its box, 28 October 2026
+
+*The owner: the credit on the hero "looks bad"; make it not visible.*
+
+It cannot go: the Berthoud photograph's editorial licence requires
+"iStock.com/Artist's Member Name" adjacent to it (iStock's agreement,
+section 7), and a credit nobody can see is no credit. The owner chose a
+subtler one. The dark box is gone; the words sit on a soft, blurred
+shade with a faint shadow, the way a magazine credits a photograph.
+Measured against all but the brightest 5% of the picture behind it, with
+the shadow left out: 5.22:1 at 1,280 px and 5.55:1 at 1,920 (the box gave
+8.96 and 9.44), and 4.65:1 on a phone, over the light road, where the shade
+is darker.
+
+Later the same day the owner asked for it half the size. Half is 7px, which
+reads as a smudge rather than a credit, and the licence needs a credit; it
+is 10px instead (from 14, under the 14px floor for supporting text by the
+owner's call), letter-spaced a little, with the shade a touch darker on a
+phone: 5.27:1 on a phone, 5.08 at 1,280 px, 5.31 at 1,920.
+
+Then smaller again, at the owner's word: 8px, with a tighter shade. 4.52:1
+on a phone, 4.95 at 1,280 px, 5.25 at 1,920. That is the floor; smaller
+than this it stops reading as the credit the licence asks for.
