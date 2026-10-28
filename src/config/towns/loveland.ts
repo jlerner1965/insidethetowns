@@ -61,9 +61,14 @@ export const loveland: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'Sunset over Lake Loveland, framed by two trees on the shore, with a person sitting in silhouette at the water and the mountains beyond',
-    credit: 'Paul Dineen, Wikimedia Commons, CC BY 3.0',
+    // Bought from Adobe Stock on 28 October 2026 (docs/HERO-PHOTOS.md), in
+    // place of the lake at sunset: the hero is the town itself. A standard
+    // licence, so no credit on the photograph; /credits/ names it.
+    image: 'AdobeStock_412335350.jpeg',
+    alt: 'Downtown Loveland from the air on a clear winter day: the brick blocks and new apartment buildings along the downtown streets, houses and bare trees all around, Lake Loveland beyond the rooftops and the foothills on the horizon',
+    credit: 'Jacob Boomsma, Adobe Stock',
+    // Wide screen: Lake Loveland, the foothills and the top of downtown, not rooftops alone.
+    position: '50% 22%',
   },
   social: {
     email: 'hello@insidelovelandco.com',

@@ -41,9 +41,12 @@ export const berthoud: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'berthoud-town-park-water-play.webp',
-    alt: 'The natural-stone water feature at Berthoud Town Park on a summer afternoon: children in the shallow water among sandstone blocks, parents on the rocks, cottonwoods and the park pavilion behind',
-    credit: 'Town of Berthoud',
+    // Bought from iStock on 28 October 2026 (docs/HERO-PHOTOS.md). Its
+    // editorial licence wants this credit beside the photograph, so the
+    // hero prints it (PERMISSIONS.md, Stock licences).
+    image: 'iStock-1417954947.jpg',
+    alt: 'Downtown Berthoud on a sunny July morning in 2021: flower planters on a street corner, a stone-and-brick storefront and the brick block beside it, and the old grain elevator, painted with a mural of a farm family, at the end of the street',
+    credit: 'iStock.com/JuniperCreek',
   },
   social: {
     email: 'hello@insideberthoud.com',

@@ -102,6 +102,9 @@ One wrong fact costs more than ten missing ones.
   credited and with its receipt in `PERMISSIONS.md`, is acceptable too
   (`docs/HERO-PHOTOS.md` is the list for the heroes). Generic stock,
   generated images and drawn or painted heroes are not (28 October 2026).
+  An editorial stock licence wants its credit beside the photograph, in
+  the agency's own form (iStock's is "iStock.com/<member name>"); the
+  hero prints it for those, and only those.
 - Never copied from a business's website, its social pages or a review
   site, however good the picture.
 - The hero is the town itself, not the county or a lake outside it, and a

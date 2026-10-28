@@ -24,6 +24,7 @@ import { getTownEntries } from '@/lib/content';
 import { heroSecondLink, heroThirdLink } from '@/lib/places';
 import { EAT_DRINK_TYPES, THINGS_TO_DO_TYPES } from '@/content/schemas';
 import { shorten } from '@/lib/text';
+import { heroCreditOnImage } from '@/lib/photo-credits';
 
 interface Props {
   eyebrow?: string;
@@ -57,6 +58,7 @@ const {
   links = site.kind === 'town' && !compact ? [{ label: 'This week', href: '/this-week/', primary: true }, second, heroThirdLink(site)] as NonNullable<Props['links']> : [],
 } = Astro.props;
 const hero = resolveSiteImage(site.slug, site.hero.image);
+const creditOnImage = heroCreditOnImage();
 // The tagline in two lines at most, shortened at a phrase (src/lib/text.ts)
 // rather than by the clamp alone, which put its ellipsis wherever the second
 // line ran out. A phone's budget is smaller than a wide screen's, so there
@@ -106,6 +108,15 @@ const subtitleLong = shorten(subtitle, 88);
   */}
   <div class:list={['absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.5)_55%,rgba(0,0,0,0.36)_86%,transparent_100%)]', compact && 'max-sm:hidden']}></div>
   <div class:list={['absolute inset-0 -z-10 bg-primary/20 mix-blend-multiply', compact && 'max-sm:hidden']}></div>
+  {/* The one exception to "no caption on the photograph": a licence that
+      wants its credit beside the picture (an editorial stock photograph;
+      heroCreditOnImage). Small, on its own shade, in the photograph's
+      bottom corner: on a phone in the compact band that is the foot of the
+      13rem photograph above the type, elsewhere the foot of the band. It
+      sits outside the photograph's layer, which the scrim covers. */}
+  {creditOnImage && (
+    <p class:list={['absolute right-2 z-10 rounded-sm bg-black/55 px-1.5 py-0.5 text-[0.875rem] leading-tight text-white/90 sm:right-3', compact ? 'top-52 -translate-y-[calc(100%+0.5rem)] sm:top-auto sm:bottom-3 sm:translate-y-0' : 'bottom-2 sm:bottom-3']}>{creditOnImage}</p>
+  )}
   {/* No minimum height: the padding and the type set it. In the compact
       band the type sits under the photograph on a phone, on the town's
       colour, and over it from a tablet up. */}

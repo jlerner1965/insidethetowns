@@ -10,12 +10,12 @@ since and is kept current. A row comes off when its hero is replaced.
 
 | Guide | Hero now | Next | Who |
 |---|---|---|---|
-| Berthoud | Town Park's stone water feature (Town of Berthoud, 1,800 px) | Buy iStock 1417954947, Mountain Avenue with the silo (editorial, $33), or shoot Mountain Avenue west from 4th Street | Owner |
-| Lyons | **New today:** Main Street looking west to the hogback (Billy Hathorn, 2010, CC BY-SA 3.0, 2,400 px), in place of the Colorado 7 canyon | Buy Adobe 754641294, the town from above (1 credit). When it lands, `downtown.jpg` goes back on the Main Street listing, which gave it up for the hero | Owner buys, assistant installs |
+| Berthoud | **Bought 28 October:** iStock 1417954947, downtown on Mountain Avenue with the painted grain elevator (John M. Chase, 2021, editorial, 4,015 px). Its licence wants "iStock.com/JuniperCreek" beside the photo, so the hero prints it | Done. Paste the order number into `PERMISSIONS.md` | Owner |
+| Lyons | **Bought 28 October:** Adobe Stock 754641294, the foothills across the valley in March 2024 (LD Productions, standard licence, 5,472 px). Main Street's photo is back on its listing | Done. Paste the order number into `PERMISSIONS.md`. It shows the setting more than the town; Adobe 636832312 (street and downtown) is the alternative if it reads as too distant | Owner |
 | Niwot | Second Avenue and the Niwot Tribune (Jeffrey Beall, Flickr, CC BY-SA 2.0, 1,600 px) | The plan missed this one: it is Old Town under an open licence, and the hero since 27 October. Keep it; shoot Second Avenue east from Cottonwood Square for a sharper, current frame | Owner (shoot) |
 | Carbon Valley | **New today:** Fifth Street at Oak in old-town Frederick, under snow (Jared Winkler, 2018, CC BY-SA 4.0, 2,400 px), in place of the state park's pond | Done. It is also the Moving here guide's photograph, which the rules allow (only listings may not share the hero's) | — |
 | Longmont | McIntosh Lake at sunset | Buy iStock 2170237583, the downtown aerial ($33). Commons' Main Street at 5th Avenue (Billy Hathorn, 2010, 4,000 px) was looked at and passed over: a median tree in the middle of the frame and a Winchell's sign | Owner |
-| Loveland | Lake Loveland at sunset | Buy Adobe 412335350, Boomsma's downtown aerial (1 credit). The Commons Rialto and 4th Street photographs are the Rialto's and Henry's listing cards | Owner |
+| Loveland | **Bought 28 October:** Adobe Stock 412335350, Jacob Boomsma's winter aerial of downtown with Lake Loveland and the foothills beyond (standard licence, 5,458 px) | Done. Paste the order number into `PERMISSIONS.md` | Owner |
 | Johnstown | The Brush Barn, a mile out of town | Shoot Parish Avenue north from 1st Street; nothing exists to buy | Owner |
 | Timnath | A frozen pond at sunrise, 960 px | Shoot Old Town Main Street north toward the church; nothing exists to buy | Owner |
 | Windsor | Windsor Lake from the air, downtown on the far shore | Keep. The Commons Town Hall the plan offers is the Art & Heritage Center listing's card | — |
@@ -29,8 +29,12 @@ last paragraph, when files are fetched through
 
 Send the downloaded file and the receipt to the assistant, or:
 
-1. Save the largest size to `content/<town>/images/`, named for what it
-   shows (`mountain-avenue.jpg`), resized to 2,400 px wide.
+1. Save the file to `content/<town>/images/` exactly as the agency
+   delivered it: its own name (`iStock-1417954947.jpg`), full size, its
+   embedded record kept, which iStock's licence requires (section 11(d)).
+   The site makes its own smaller copies at build. While this repository
+   is public, see the open question under *Stock licences* in
+   `PERMISSIONS.md` first.
 2. Write its receipt in `PERMISSIONS.md`, under *Stock licences*.
 3. Add its row to `IMAGE_LICENSES.csv`: the asset's page as the source,
    the licence starting with the agency and its kind (`iStock editorial

@@ -7,7 +7,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { towns } from '../src/config/towns/registry.ts';
-import { licenseName, parseLedger, publicCredit, sourcePhoto, type LedgerRow } from '../src/lib/credits.ts';
+import { creditBeside, licenseName, parseLedger, publicCredit, sourcePhoto, type LedgerRow } from '../src/lib/credits.ts';
 
 const row = (license: string, source = 'https://commons.wikimedia.org/wiki/File:X.jpg'): LedgerRow => ({
   path: 'content/erie/images/x.jpg',
@@ -99,6 +99,10 @@ test('a bought stock photograph credits the photographer and the agency, not the
   assert.equal(publicCredit(row('Adobe Stock licence (Jacob Boomsma; 2021); bought 2026-11-02')).license, 'Adobe Stock licence');
   assert.equal(licenseName(row('Shutterstock editorial licence (Rachel Rose Boucher; 2024)')), 'Shutterstock');
   assert.doesNotMatch(JSON.stringify(editorial), /PERMISSIONS|bought/);
+  // An editorial licence wants its credit beside the photograph; a standard one and an open licence do not.
+  assert.equal(creditBeside(row('iStock editorial licence (John M. Chase; 2021); bought 2026-10-28')), true);
+  assert.equal(creditBeside(row('Adobe Stock licence (Jacob Boomsma; 2021); bought 2026-11-02')), false);
+  assert.equal(creditBeside(row('CC BY-SA 3.0 (Jeffrey Beall; 2012)')), false);
   // A generic stock picture of somewhere else never had a row shape to fit.
   assert.throws(() => publicCredit(row('stock photo, royalty free')), /cannot turn the licence/);
 });

@@ -392,7 +392,7 @@ dropped. They come down the day Creative Grounds asks.
 
 ## Stock licences — bought photographs
 
-None bought yet. `docs/HERO-PHOTOS.md` is the list of heroes worth buying.
+`docs/HERO-PHOTOS.md` is the list of heroes worth buying.
 
 One entry per photograph, written the day it is bought: the agency, the
 asset number and its page, the photographer, the licence bought (standard
@@ -407,3 +407,70 @@ a row that does not start that way.
 An editorial licence covers the guide's pages, the share image included,
 and nothing promotional: not a sponsor's post, an ad or a printed card.
 Cropping and the hero's overlay are fine; retouching is not.
+
+### Berthoud hero: iStock 1417954947, "Downtown Berthoud Colorado"
+
+| | |
+|---|---|
+| **Agency and asset** | iStock 1417954947, [its page](https://www.istockphoto.com/photo/downtown-berthoud-colorado-gm1417954947-464839137) |
+| **Photographer** | John M. Chase; iStock member name JuniperCreek |
+| **Caption on the page** | "Berthoud, Colorado, USA - July 17, 2021: Berthoud’s historic downtown district on a sunny summer morning." |
+| **Licence** | iStock's standard licence, marked "Editorial use only" on the page |
+| **File** | `content/berthoud/images/iStock-1417954947.jpg`, the 4015 × 3011 JPEG as iStock delivered it, uploaded by the owner on 28 October 2026. Not renamed, resized or stripped: section 11(d) of the licence asks that the embedded record (photographer, caption, iStock's identification) stay in the file. The site's own renditions are made from it at build |
+| **Bought** | 28 October 2026 (the day the owner uploaded it). Order number and price not recorded yet: paste them here from the receipt |
+| **Used as** | The Berthoud hero, from 28 October 2026 |
+| **Credit** | iStock's licence: editorial use "must include the following credit adjacent to the content … 'iStock.com/Artist's Member Name.'" The hero shows "iStock.com/JuniperCreek" on the photograph (`src/components/Hero.astro`), and /credits/ names John M. Chase |
+
+### Loveland hero: Adobe Stock 412335350, "Aerial View of Downtown Loveland, Colorado during Winter"
+
+| | |
+|---|---|
+| **Agency and asset** | Adobe Stock 412335350, [its page](https://stock.adobe.com/images/aerial-view-of-downtown-loveland-colorado-during-winter/412335350) |
+| **Photographer** | Jacob Boomsma, as the hero plan of 28 October read the page (the file's embedded record gives the title, not the name) |
+| **Licence** | Adobe Stock standard licence, as the plan read the page; not marked editorial |
+| **File** | `content/loveland/images/AdobeStock_412335350.jpeg`, the 5458 × 3634 JPEG as Adobe delivered it, uploaded by the owner on 28 October 2026, kept as delivered |
+| **Bought** | 28 October 2026 (the day the owner uploaded it). Order number and price not recorded yet: paste them here from the receipt |
+| **Used as** | The Loveland hero, from 28 October 2026 |
+| **Credit** | Not required by a standard licence. /credits/ names Jacob Boomsma and Adobe Stock |
+
+### Lyons hero: Adobe Stock 754641294, "View of Lyons, Colorado from Boulder mountain range"
+
+| | |
+|---|---|
+| **Agency and asset** | Adobe Stock 754641294, [its page](https://stock.adobe.com/images/view-of-lyons-colorado-from-boulder-mountain-range/754641294) (title as the hero plan of 28 October read it) |
+| **Photographer** | LD Productions, the artist and copyright holder in the file's embedded record; the plan read the contributor as "Dylan" |
+| **Taken** | 8 March 2024, Canon EOS R6 with a 100–400 mm lens (the file's EXIF) |
+| **Licence** | Adobe Stock standard licence, as the plan read the page; not marked editorial |
+| **File** | `content/lyons/images/AdobeStock_754641294.jpeg`, the 5472 × 3648 JPEG as Adobe delivered it, uploaded by the owner on 28 October 2026, kept as delivered |
+| **Bought** | 28 October 2026 (the day the owner uploaded it). Order number and price not recorded yet: paste them here from the receipt |
+| **Used as** | The Lyons hero, from 28 October 2026 |
+| **Credit** | Not required by a standard licence. /credits/ names LD Productions and Adobe Stock |
+
+### What the iStock licence asks of us
+
+From iStock's Content License Agreement, June 2026 version, which the owner
+sent on 28 October 2026. Adobe's terms are not recorded here yet.
+
+- **Editorial use only (3b).** Content marked so may not be used "for any
+  commercial, promotional, advertorial, endorsement, advertising, gambling
+  … or merchandising purpose"; it is for "descriptive purposes such as …
+  human interest topics (for example, in a blog …)". The Berthoud hero
+  describes the town on the guide's own pages. It never goes in an ad, a
+  sponsor's post, a promotion of the guide itself or printed matter.
+- **No standalone file (3c).** No use "that allows others to download,
+  extract, or redistribute content as a standalone file".
+- **One user; not on a shared server (5).** Bought with credits, the file
+  "may only be available to one person at any one time", and without an
+  extended licence it may not be stored "on a server (giving more than
+  one person simultaneous access to the content)".
+- **Credit beside an editorial photograph (7):** "iStock.com/Artist's
+  Member Name". The hero prints it.
+- **Keep the embedded record (11d):** "retain the copyright symbol, the
+  name of iStock, the content's identification number and any other
+  information that may be embedded in the electronic file".
+
+**Made private, 28 October 2026.** The repository was public on GitHub
+when the three files were uploaded, so for a few hours anyone could
+download them, which 3(c) and 5 do not allow. The owner made it private
+the same day. Keep it private while it holds bought files.
+
