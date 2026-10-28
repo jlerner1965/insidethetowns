@@ -1,0 +1,1165 @@
+{
+  "generated": "2026-10-28T23:42:47.108Z",
+  "sports": [
+    {
+      "key": "football",
+      "name": "Football",
+      "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/football/",
+      "fetched": "2026-10-28T23:42:47.108Z",
+      "maxprepsUpdated": "2026-10-28T22:30:25",
+      "overall": "8-1",
+      "league": {
+        "record": "7-0",
+        "name": "4A Front Range",
+        "place": "1st"
+      },
+      "results": [
+        {
+          "date": "2026-10-23",
+          "opponent": "Westminster",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/golden-vs-westminster/10-23-2026/?c=8c066b36-2007-4b72-be08-714a6c667f4a",
+          "result": "W",
+          "score": {
+            "us": 21,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Centaurus",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/centaurus-lafayette-vs-golden/10-15-2026/?c=3a73da92-968f-4495-a0eb-46ba014187d5",
+          "result": "W",
+          "score": {
+            "us": 40,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-09",
+          "opponent": "Bear Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/bear-creek-lakewood-vs-golden/10-9-2026/?c=66954322-a4e7-4b23-a289-1ebc5be96338",
+          "result": "W",
+          "score": {
+            "us": 34,
+            "them": 31
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Mountain Range",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/golden-vs-mountain-range-westminster/10-1-2026/?c=cc9478b8-f634-4c7b-8fe5-0fad9f13a490",
+          "result": "W",
+          "score": {
+            "us": 45,
+            "them": 8
+          }
+        },
+        {
+          "date": "2026-09-25",
+          "opponent": "Boulder",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/boulder-vs-golden/9-25-2026/?c=4bd6ed6c-899c-453d-a28e-e0c4928ddf1e",
+          "result": "W",
+          "score": {
+            "us": 49,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-09-18",
+          "opponent": "Dakota Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/dakota-ridge-littleton-vs-golden/9-18-2026/?c=99cb2ecf-6ffd-4ecc-87ba-86e5c27c0776",
+          "result": "W",
+          "score": {
+            "us": 42,
+            "them": 27
+          }
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Thomas Jefferson",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/golden-vs-thomas-jefferson-denver/9-11-2026/?c=b1095927-a1b6-4502-a548-60d7ca9bf2b5",
+          "result": "W",
+          "score": {
+            "us": 42,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Highlands Ranch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/golden-vs-highlands-ranch/9-4-2026/?c=4ad717a3-789d-4b47-9753-020d82e3f371",
+          "result": "W",
+          "score": {
+            "us": 49,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Frederick",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/frederick-vs-golden/8-27-2026/?c=08b150f9-f1e2-4e61-936b-d2dba499fd4c",
+          "result": "L",
+          "score": {
+            "us": 14,
+            "them": 15
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Monarch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/golden-vs-monarch-louisville/10-30-2026/?c=90ccecbd-f675-48f8-8f51-e802a7d20ad7",
+          "time": "19:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "boys-soccer",
+      "name": "Boys soccer",
+      "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/soccer/",
+      "fetched": "2026-10-28T23:42:47.108Z",
+      "maxprepsUpdated": "2026-10-28T23:02:06",
+      "overall": "12-1-2",
+      "league": {
+        "record": "9-0-1",
+        "name": "4A/3A Jefferson County",
+        "place": "1st"
+      },
+      "results": [
+        {
+          "date": "2026-10-22",
+          "opponent": "Pomona",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/golden-vs-pomona-arvada/10-22-2026/?c=655452fa-92bf-4cd2-be4a-d571e0f7c3d1",
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-19",
+          "opponent": "Dakota Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/dakota-ridge-littleton-vs-golden/10-19-2026/?c=cd87331e-f361-4430-ac11-43d2d38407e9",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-15",
+          "opponent": "Green Mountain",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/golden-vs-green-mountain-lakewood/10-15-2026/?c=b3a8311e-8419-4b4d-8210-1af09c273ef1",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Evergreen",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/evergreen-vs-golden/10-8-2026/?c=a71825d2-179f-45e7-b22e-b04f53bb2523",
+          "result": "T",
+          "score": {
+            "us": 0,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Standley Lake",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/golden-vs-standley-lake-westminster/10-1-2026/?c=c705c52d-ee62-478b-b522-6c9cfa61c86a",
+          "result": "W",
+          "score": {
+            "us": 7,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-29",
+          "opponent": "Bear Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/bear-creek-lakewood-vs-golden/9-29-2026/?c=33514098-19f9-4e97-b175-3eeb2359e06d",
+          "result": "W",
+          "score": {
+            "us": 5,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Conifer",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/conifer-vs-golden/9-24-2026/?c=72c3639f-9096-4ad7-8d43-48ae04608042",
+          "result": "W",
+          "score": {
+            "us": 5,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "D'Evelyn",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/develyn-denver-vs-golden/9-22-2026/?c=9d47f8a2-bbea-4b96-a11a-230b0d959422",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "Wheat Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/golden-vs-wheat-ridge/9-17-2026/?c=e0e70bc1-5b7b-42a8-8a48-fcd33da03da6",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Silver Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/golden-vs-silver-creek-longmont/9-15-2026/?c=710ae6b3-e09e-465e-be9f-3822ce3f1531",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Littleton",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/golden-vs-littleton/9-10-2026/?c=82a48759-4a65-4dd3-9273-97fa325de8dc",
+          "result": "W",
+          "score": {
+            "us": 6,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Valor Christian",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/golden-vs-valor-christian-highlands-ranch/9-8-2026/?c=0cba9ea0-6f1c-4309-964d-15379b92b511",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-09-02",
+          "opponent": "Columbine",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/columbine-littleton-vs-golden/9-2-2026/?c=a43a89f8-8da2-464a-a42a-8f2f6c3fe304",
+          "result": "T",
+          "score": {
+            "us": 0,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Centaurus",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/soccer/match/centaurus-lafayette-vs-golden/8-27-2026/?c=b0caacb9-809d-4876-af49-f85be62ce2f5",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Chatfield",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/soccer/match/chatfield-littleton-vs-golden/8-25-2026/?c=f4ca939a-16b9-4aea-8950-41a5b6390a2d",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-29",
+          "opponent": "Monarch",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/soccer/match/golden-vs-monarch-louisville/10-29-2026/?c=49827793-9e28-4b31-adb0-86242ecc6d0e",
+          "stage": "Boys Soccer State Championships",
+          "neutral": true,
+          "venue": "North Area Athletic Complex",
+          "time": "18:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "volleyball",
+      "name": "Volleyball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/volleyball/",
+      "fetched": "2026-10-28T23:42:47.108Z",
+      "maxprepsUpdated": "2026-10-28T19:48:47",
+      "overall": "18-1",
+      "league": {
+        "record": "9-0",
+        "name": "4A/3A Jeffco",
+        "place": "1st"
+      },
+      "results": [
+        {
+          "date": "2026-10-26",
+          "opponent": "Evergreen",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/evergreen-vs-golden/10-26-2026/?c=e655e440-0c25-4614-8f90-9516fdffedad",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-22",
+          "opponent": "Bear Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/bear-creek-lakewood-vs-golden/10-22-2026/?c=8f6b6a8c-132f-4fc6-9713-5dc7c58b48b6",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-20",
+          "opponent": "D'Evelyn",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/develyn-denver-vs-golden/10-20-2026/?c=3eee8671-cca8-4b65-9851-39d54b4190ab",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-16",
+          "opponent": "Dakota Ridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/dakota-ridge-littleton-vs-golden/10-16-2026/?c=5304412c-45bc-498b-9c0e-638d02842f5b",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-14",
+          "opponent": "Conifer",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/conifer-vs-golden/10-14-2026/?c=2d738560-c6cf-4393-9f70-5762efdc1f54",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "opponent": "Pomona",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-pomona-arvada/10-8-2026/?c=45b76758-e38b-481a-910c-c700d03bc65f",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "opponent": "Littleton",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-littleton/10-6-2026/?c=15b23a4a-fa91-42c1-83e7-9a8f599ccdf6",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-01",
+          "opponent": "Standley Lake",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-standley-lake-westminster/10-1-2026/?c=ed99c799-5f06-4ad5-b87f-7371217b014d",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-26",
+          "opponent": "George Washington",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/george-washington-denver-vs-golden/9-26-2026/?c=31e91936-89cf-4be6-878b-6ba250bfc064",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Northfield High School",
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-26",
+          "opponent": "Northfield",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-northfield-denver/9-26-2026/?c=6b84009a-73c3-44a1-955a-df4a626ca135",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Northfield Varsity Tournament",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-26",
+          "opponent": "Littleton",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-littleton/9-26-2026/?c=fe9c2a9b-2c17-4582-a136-fd0e4fc59569",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-26",
+          "opponent": "Vista PEAK Prep",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-vista-peak-prep-aurora/9-26-2026/?c=ecb2d047-3fde-4258-a023-908fb62c587c",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 2,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Green Mountain",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-green-mountain-lakewood/9-24-2026/?c=afaa79ab-7edf-4b36-b565-374977f68d37",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "ThunderRidge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-thunderridge-highlands-ranch/9-17-2026/?c=c8715926-4a7d-4151-953f-f56da3de5b73",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-14",
+          "opponent": "Centaurus",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/centaurus-lafayette-vs-golden/9-14-2026/?c=20ed4ded-3b2e-49bc-8f6f-9f5c97df657a",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Mullen",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-mullen-denver/9-10-2026/?c=dbebedce-da21-40a8-9f51-326a21d2724f",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-03",
+          "opponent": "Poudre",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-poudre-fort-collins/9-3-2026/?c=8e8c21ec-468b-4700-98c4-8a45900f8f84",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Regis Jesuit",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-regis-jesuit-aurora/9-1-2026/?c=c88b48a4-2ce5-457c-9e8a-b6b518f7e397",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Brighton",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/brighton-vs-golden/8-27-2026/?c=2d1462f6-2e22-49da-aca2-9718fc80934f",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-10-28",
+          "opponent": "Wheat Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-wheat-ridge/10-28-2026/?c=75957108-556d-4d74-aa3e-54857a851af8",
+          "time": "18:30"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "softball",
+      "name": "Softball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/softball/fall/",
+      "fetched": "2026-10-28T23:42:47.108Z",
+      "maxprepsUpdated": "2026-10-28T23:43:14",
+      "overall": "9-12",
+      "league": {
+        "record": "5-9",
+        "name": "4A/3A Jeffco",
+        "place": "6th"
+      },
+      "results": [
+        {
+          "date": "2026-10-09",
+          "opponent": "Pomona",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/golden-vs-pomona-arvada/10-9-2026/?c=2a70c13b-0f5f-4b08-b733-951319984181",
+          "result": "W",
+          "score": {
+            "us": 19,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-10-07",
+          "opponent": "Dakota Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/dakota-ridge-littleton-vs-golden/10-7-2026/?c=616b9995-4844-40ba-8205-c16854161144",
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-10-05",
+          "opponent": "D'Evelyn",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/develyn-denver-vs-golden/10-5-2026/?c=2f7f8bce-a22c-46ca-9087-09812c080dc7",
+          "result": "L",
+          "score": {
+            "us": 2,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Wheat Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/golden-vs-wheat-ridge/10-3-2026/?c=62e98ba7-9f2a-418a-8d3c-aa6323fae240",
+          "result": "W",
+          "score": {
+            "us": 10,
+            "them": 4
+          }
+        },
+        {
+          "date": "2026-09-30",
+          "opponent": "Green Mountain",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/golden-vs-green-mountain-lakewood/9-30-2026/?c=7c4fee72-09d8-45eb-983f-35a8e82c1d15",
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-09-28",
+          "opponent": "Bear Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/bear-creek-lakewood-vs-golden/9-28-2026/?c=65d09cc6-8361-4796-adea-e7d063dc6ba3",
+          "result": "L",
+          "score": {
+            "us": 11,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-09-26",
+          "opponent": "Conifer",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/conifer-vs-golden/9-26-2026/?c=c6480e3b-44d3-4987-9b29-80847692e5d0",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 13
+          }
+        },
+        {
+          "date": "2026-09-24",
+          "opponent": "Pomona",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/golden-vs-pomona-arvada/9-24-2026/?c=5cbf6617-05e0-4ac0-ab18-a3baa5d76352",
+          "result": "W",
+          "score": {
+            "us": 16,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-09-22",
+          "opponent": "Dakota Ridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/dakota-ridge-littleton-vs-golden/9-22-2026/?c=e24162ec-4bbc-4afe-844d-556f2c223486",
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 7
+          }
+        },
+        {
+          "date": "2026-09-17",
+          "opponent": "D'Evelyn",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/develyn-denver-vs-golden/9-17-2026/?c=5b55893c-01df-480f-8393-bdf1b7a7a8cf",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 15
+          }
+        },
+        {
+          "date": "2026-09-15",
+          "opponent": "Wheat Ridge",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/golden-vs-wheat-ridge/9-15-2026/?c=9a796e96-85be-4d95-acea-fc4aede7c8f6",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 2
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Resurrection Christian",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/golden-vs-resurrection-christian-loveland/9-12-2026/?c=a2f2a9d4-f3f4-4ce5-b6b2-10a8a25ea100",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 19
+          }
+        },
+        {
+          "date": "2026-09-12",
+          "opponent": "Denver East",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/denver-east-vs-golden/9-12-2026/?c=c33812db-45ef-4d21-9a17-6a736ad0556c",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Brush Tournament (520 Ellsworth St. Brush 80723",
+          "result": "W",
+          "score": {
+            "us": 13,
+            "them": 12
+          }
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Limon",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/golden-vs-limon/9-11-2026/?c=44a71cc8-6060-4420-a99c-4a180f7bf4a5",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 9,
+            "them": 6
+          }
+        },
+        {
+          "date": "2026-09-11",
+          "opponent": "Severance",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/softball/game/golden-vs-severance/9-11-2026/?c=bdf00817-500f-4d10-b848-c19bfbf21028",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Brush Tournament",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 16
+          }
+        },
+        {
+          "date": "2026-09-10",
+          "opponent": "Green Mountain",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/golden-vs-green-mountain-lakewood/9-10-2026/?c=bf04e2a1-ba1f-4761-9821-ae5a2c8b75c0",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 13
+          }
+        },
+        {
+          "date": "2026-09-08",
+          "opponent": "Bear Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/bear-creek-lakewood-vs-golden/9-8-2026/?c=94225f59-2d70-4255-8f22-bb1cb1782ede",
+          "result": "L",
+          "score": {
+            "us": 4,
+            "them": 14
+          }
+        },
+        {
+          "date": "2026-09-04",
+          "opponent": "Conifer",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/conifer-vs-golden/9-4-2026/?c=b3f8b00f-1a46-4bf1-9487-cf74282bb30f",
+          "result": "L",
+          "score": {
+            "us": 6,
+            "them": 22
+          }
+        },
+        {
+          "date": "2026-09-01",
+          "opponent": "Arvada West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/arvada-west-vs-golden/9-1-2026/?c=c5b621a3-08aa-41af-8c77-fddff767b8d3",
+          "result": "L",
+          "score": {
+            "us": 18,
+            "them": 28
+          }
+        },
+        {
+          "date": "2026-08-27",
+          "opponent": "Lakewood",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/softball/game/golden-vs-lakewood/8-27-2026/?c=238b47e6-0b43-474c-9e07-2634feeafc6e",
+          "result": "W",
+          "score": {
+            "us": 15,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-08-25",
+          "opponent": "Highlands Ranch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/softball/game/golden-vs-highlands-ranch/8-25-2026/?c=f6a267ec-1242-4480-b455-1eb1251e09dd",
+          "result": "W",
+          "score": {
+            "us": 21,
+            "them": 11
+          }
+        }
+      ],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "boys-cross-country",
+      "name": "Boys cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/cross-country/",
+      "fetched": "2026-10-28T23:42:47.108Z",
+      "maxprepsUpdated": "2026-10-28T23:30:59",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-cross-country",
+      "name": "Girls cross country",
+      "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/cross-country/girls/",
+      "fetched": "2026-10-28T23:42:47.108Z",
+      "maxprepsUpdated": "2026-10-28T23:43:27",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "boys-basketball",
+      "name": "Boys basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/basketball/",
+      "fetched": "2026-10-28T23:42:47.108Z",
+      "maxprepsUpdated": "2026-10-28T21:22:44",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "5A Jeffco",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-11-28",
+          "opponent": "Eagle Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/eagle-valley-gypsum-vs-golden/11-28-2026/?c=878b6ace-5934-494f-8701-740d0b1c1736"
+        },
+        {
+          "date": "2026-12-01",
+          "opponent": "George Washington",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/george-washington-denver-vs-golden/12-1-2026/?c=51a23525-05e0-4049-b311-f48dca2f7304",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-05",
+          "opponent": "ThunderRidge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/golden-vs-thunderridge-highlands-ranch/12-5-2026/?c=2fe41a34-83b7-45f1-9fab-6373ecc875c9",
+          "time": "15:00"
+        },
+        {
+          "date": "2026-12-08",
+          "opponent": "Thomas Jefferson",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/golden-vs-thomas-jefferson-denver/12-8-2026/?c=4ba93131-a788-4a07-8de9-b3fbd238ba91",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-11",
+          "opponent": "Palmer",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/golden-vs-palmer-colorado-springs/12-11-2026/?c=04a6f2f9-3cbd-4c92-b85a-b5bae2f1a71e",
+          "time": "19:00"
+        },
+        {
+          "date": "2026-12-12",
+          "opponent": "Discovery Canyon",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/game/discovery-canyon-colorado-springs-vs-golden/12-12-2026/?c=4203e919-8d93-4ce8-aedf-931499d39969",
+          "neutral": true,
+          "venue": "At Green Mountain High School"
+        },
+        {
+          "date": "2027-01-07",
+          "opponent": "Pueblo West",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/golden-vs-pueblo-west/1-7-2027/?c=d3b2af7f-888f-41ec-88b9-3a3720cfe30d",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-12",
+          "opponent": "Regis Groff",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/golden-vs-regis-groff-denver/1-12-2027/?c=422c34a8-8b89-4a91-a934-0a41453c4723",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-15",
+          "opponent": "Wheat Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/golden-vs-wheat-ridge/1-15-2027/?c=980ab2df-8fe1-455e-b03f-ef748253b574",
+          "time": "19:30"
+        },
+        {
+          "date": "2027-01-20",
+          "opponent": "Columbine",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/columbine-littleton-vs-golden/1-20-2027/?c=96c65fc8-76e9-4c65-91aa-427bd4d936f8",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Arvada West",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/arvada-west-vs-golden/1-22-2027/?c=2d058f72-fc8b-4abf-bbe9-27b06fc8cb01",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-27",
+          "opponent": "Chatfield",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/chatfield-littleton-vs-golden/1-27-2027/?c=e29d0fd2-254e-462d-8823-5018b2e07f15",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Ralston Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/golden-vs-ralston-valley-arvada/1-29-2027/?c=135f8f6c-6e1b-4982-855f-202b2e7a7c5d",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-02",
+          "opponent": "Valor Christian",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/golden-vs-valor-christian-highlands-ranch/2-2-2027/?c=0fb6cdb6-9272-4c11-ad94-460bf213a89c",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-05",
+          "opponent": "Standley Lake",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/golden-vs-standley-lake-westminster/2-5-2027/?c=e23dcb1c-08ba-4735-a52f-76151f8b0e21",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-09",
+          "opponent": "Evergreen",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/evergreen-vs-golden/2-9-2027/?c=1c3876f1-b94a-4bdf-97e6-df1786c0edf1",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-13",
+          "opponent": "Pueblo County",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/golden-vs-pueblo-county/2-13-2027/?c=9036c807-ad58-47f0-a697-560ac8d1298c",
+          "time": "17:30"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "girls-basketball",
+      "name": "Girls basketball",
+      "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/basketball/girls/",
+      "fetched": "2026-10-28T23:42:47.108Z",
+      "maxprepsUpdated": "2026-10-28T21:38:10",
+      "overall": "0-0",
+      "league": {
+        "record": "0-0",
+        "name": "5A Jeffco",
+        "place": "1st"
+      },
+      "results": [],
+      "upcoming": [
+        {
+          "date": "2026-11-28",
+          "opponent": "Mountain Vista",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/golden-vs-mountain-vista-highlands-ranch/11-28-2026/?c=de3ee79f-6187-4fe3-bbec-d70af1acb2be",
+          "time": "13:35"
+        },
+        {
+          "date": "2026-11-28",
+          "opponent": "Doherty",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/doherty-colorado-springs-vs-golden/11-28-2026/?c=76ac0f79-4b43-4c64-814b-8e60bb03e17c",
+          "time": "17:20"
+        },
+        {
+          "date": "2026-12-03",
+          "opponent": "Fort Collins",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/fort-collins-vs-golden/12-3-2026/?c=66acd02c-55fe-482a-a91b-a4f342c4ce33",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Frederick Tournament",
+          "time": "15:30"
+        },
+        {
+          "date": "2027-01-12",
+          "opponent": "Columbine",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/columbine-littleton-vs-golden/1-12-2027/?c=14ffbb67-b1cd-424f-a7ad-cf3d3066ed22",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-15",
+          "opponent": "Wheat Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/golden-vs-wheat-ridge/1-15-2027/?c=e14b8a57-5d9a-424b-8eec-3fe3f75fb494",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-19",
+          "opponent": "D'Evelyn",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/develyn-denver-vs-golden/1-19-2027/?c=8daf7710-4789-4867-8b51-c0bedd07a0c1",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-22",
+          "opponent": "Evergreen",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/evergreen-vs-golden/1-22-2027/?c=9657b73d-d3b4-43b3-b7e6-58a2bff8fdc6",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Bear Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/bear-creek-lakewood-vs-golden/1-26-2027/?c=544f0b40-a935-4c28-b84d-b0929891b225",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-29",
+          "opponent": "Chatfield",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/chatfield-littleton-vs-golden/1-29-2027/?c=3da5ae03-3a1c-4c72-87dc-0836462ccda9",
+          "time": "17:30"
+        },
+        {
+          "date": "2027-02-03",
+          "opponent": "Lakewood",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/golden-vs-lakewood/2-3-2027/?c=187f9ad6-6b84-4fff-b9c4-afea191bdff2",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-05",
+          "opponent": "D'Evelyn",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/develyn-denver-vs-golden/2-5-2027/?c=4567dc65-cee7-43e7-b53e-09b8c2f8fc4e",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-08",
+          "opponent": "Evergreen",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/evergreen-vs-golden/2-8-2027/?c=592248f1-3e31-4b26-b13f-46661c3bcb5a",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-10",
+          "opponent": "Bear Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/bear-creek-lakewood-vs-golden/2-10-2027/?c=b7f0344c-0b0a-4311-a00d-3b72b269e0e1",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-11",
+          "opponent": "Ponderosa",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/golden-vs-ponderosa-jaguars-parker/2-11-2027/?c=4e36227d-2b22-4a5e-be39-c8c170d9865c"
+        },
+        {
+          "date": "2027-02-16",
+          "opponent": "Chatfield",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/chatfield-littleton-vs-golden/2-16-2027/?c=f28b531b-cacf-49b5-858d-019728117ea8",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-02-20",
+          "opponent": "Lakewood",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/golden-vs-lakewood/2-20-2027/?c=fb962ebd-1054-4bd4-be1b-673c69d8a97d",
+          "time": "19:00"
+        }
+      ],
+      "held": [],
+      "notes": [
+        "no school calendar to check against"
+      ]
+    },
+    {
+      "key": "wrestling",
+      "name": "Wrestling",
+      "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/wrestling/",
+      "fetched": "2026-10-28T23:42:47.108Z",
+      "maxprepsUpdated": "2026-10-28T23:43:50",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    },
+    {
+      "key": "girls-swimming",
+      "name": "Girls swimming",
+      "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/swimming/girls/",
+      "fetched": "2026-10-28T23:42:47.108Z",
+      "maxprepsUpdated": "2026-10-28T23:43:54",
+      "results": [],
+      "upcoming": [],
+      "held": [],
+      "notes": [
+        "MaxPreps lists no schedule or results for this team"
+      ],
+      "empty": "MaxPreps has no schedule or results for this team yet."
+    }
+  ]
+}
