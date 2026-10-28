@@ -7058,3 +7058,7 @@ reads as a smudge rather than a credit, and the licence needs a credit; it
 is 10px instead (from 14, under the 14px floor for supporting text by the
 owner's call), letter-spaced a little, with the shade a touch darker on a
 phone: 5.27:1 on a phone, 5.08 at 1,280 px, 5.31 at 1,920.
+
+Then smaller again, at the owner's word: 8px, with a tighter shade. 4.52:1
+on a phone, 4.95 at 1,280 px, 5.25 at 1,920. That is the floor; smaller
+than this it stops reading as the credit the licence asks for.

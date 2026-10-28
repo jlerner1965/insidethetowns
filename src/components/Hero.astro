@@ -117,11 +117,11 @@ const subtitleLong = shorten(subtitle, 88);
       photograph's layer, which the shades cover. No box around it (the
       owner, 28 October 2026: the dark box looked bad); a soft glow behind
       the words and a faint shadow keep it legible on a light patch, the
-      way a magazine credits a photograph. 10px, the owner's call (28
-      October): smaller than the 14px floor for supporting text, and the
-      smallest that still reads as a credit, which the licence needs. */}
+      way a magazine credits a photograph. 8px, the owner's call (28
+      October): far under the 14px floor for supporting text, and as small
+      as it goes while it still reads as the credit the licence needs. */}
   {creditOnImage && (
-    <p class:list={['absolute right-2 z-10 text-[0.625rem] leading-tight tracking-wide text-white/90 [text-shadow:0_1px_2px_rgb(0_0_0/0.7)] before:pointer-events-none before:absolute before:-inset-x-2 before:-inset-y-1 before:-z-10 before:rounded-full before:bg-black/35 before:blur-[8px] max-sm:before:bg-black/70 sm:right-3', compact ? 'top-52 -translate-y-[calc(100%+0.5rem)] sm:top-auto sm:bottom-3 sm:translate-y-0' : 'bottom-2 sm:bottom-3']}>{creditOnImage}</p>
+    <p class:list={['absolute right-2 z-10 text-[0.5rem] leading-tight tracking-wide text-white/90 [text-shadow:0_1px_2px_rgb(0_0_0/0.7)] before:pointer-events-none before:absolute before:-inset-x-1.5 before:-inset-y-0.5 before:-z-10 before:rounded-full before:bg-black/35 before:blur-[6px] max-sm:before:bg-black/70 sm:right-3', compact ? 'top-52 -translate-y-[calc(100%+0.5rem)] sm:top-auto sm:bottom-3 sm:translate-y-0' : 'bottom-2 sm:bottom-3']}>{creditOnImage}</p>
   )}
   {/* No minimum height: the padding and the type set it. In the compact
       band the type sits under the photograph on a phone, on the town's
