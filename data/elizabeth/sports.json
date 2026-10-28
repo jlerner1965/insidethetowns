@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-25T17:26:44.103Z",
+  "generated": "2026-10-28T18:27:37.029Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/football/",
-      "fetched": "2026-10-25T17:26:44.103Z",
-      "maxprepsUpdated": "2026-10-25T15:44:44",
+      "fetched": "2026-10-28T18:27:37.029Z",
+      "maxprepsUpdated": "2026-10-28T14:52:25",
       "overall": "9-0",
       "league": {
         "record": "5-0",
@@ -118,15 +118,15 @@
       "held": [],
       "notes": [
         "no school calendar to check against",
-        "MaxPreps page: a game in the glance card could not be read (39f3ec7d-44ce-4915-8703-dd0d5b2220b8)"
+        "MaxPreps page: a Class 2A bracket game with its date and opponent still to be set"
       ]
     },
     {
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/soccer/",
-      "fetched": "2026-10-25T17:26:44.103Z",
-      "maxprepsUpdated": "2026-10-25T14:24:50",
+      "fetched": "2026-10-28T18:27:37.029Z",
+      "maxprepsUpdated": "2026-10-28T18:27:45",
       "overall": "5-8-2",
       "league": {
         "record": "0-4",
@@ -310,8 +310,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/volleyball/",
-      "fetched": "2026-10-25T17:26:44.103Z",
-      "maxprepsUpdated": "2026-10-25T16:33:40",
+      "fetched": "2026-10-28T18:27:37.029Z",
+      "maxprepsUpdated": "2026-10-28T15:52:26",
       "overall": "12-11",
       "league": {
         "record": "2-6",
@@ -590,8 +590,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/softball/fall/",
-      "fetched": "2026-10-25T17:26:44.103Z",
-      "maxprepsUpdated": "2026-10-25T15:57:22",
+      "fetched": "2026-10-28T18:27:37.029Z",
+      "maxprepsUpdated": "2026-10-28T15:23:51",
       "overall": "16-10",
       "league": {
         "record": "7-1",
@@ -925,8 +925,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/cross-country/",
-      "fetched": "2026-10-25T17:26:44.103Z",
-      "maxprepsUpdated": "2026-10-25T17:27:18",
+      "fetched": "2026-10-28T18:27:37.029Z",
+      "maxprepsUpdated": "2026-10-28T15:41:47",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -939,8 +939,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/cross-country/girls/",
-      "fetched": "2026-10-25T17:26:44.103Z",
-      "maxprepsUpdated": "2026-10-25T13:42:19",
+      "fetched": "2026-10-28T18:27:37.029Z",
+      "maxprepsUpdated": "2026-10-28T15:41:47",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -953,8 +953,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/basketball/",
-      "fetched": "2026-10-25T17:26:44.103Z",
-      "maxprepsUpdated": "2026-10-25T14:33:34",
+      "fetched": "2026-10-28T18:27:37.029Z",
+      "maxprepsUpdated": "2026-10-28T14:42:48",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1122,8 +1122,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/basketball/girls/",
-      "fetched": "2026-10-25T17:26:44.103Z",
-      "maxprepsUpdated": "2026-10-25T15:03:31",
+      "fetched": "2026-10-28T18:27:37.029Z",
+      "maxprepsUpdated": "2026-10-28T16:27:27",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1203,6 +1203,13 @@
           "time": "17:30"
         },
         {
+          "date": "2027-02-05",
+          "opponent": "Heritage",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/elizabeth-vs-heritage-littleton/2-5-2027/?c=dd9c4f93-642a-4d1b-b292-c7b247d1e053",
+          "time": "18:00"
+        },
+        {
           "date": "2027-02-09",
           "opponent": "Ponderosa",
           "site": "away",
@@ -1215,13 +1222,6 @@
           "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/elizabeth-vs-the-classical-academy-colorado-springs/2-12-2027/?c=137e0742-987a-47fb-96da-a5e387724642",
           "time": "17:30"
-        },
-        {
-          "date": "2027-02-15",
-          "opponent": "Heritage",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/basketball/girls/game/elizabeth-vs-heritage-littleton/2-15-2027/?c=dd9c4f93-642a-4d1b-b292-c7b247d1e053",
-          "time": "18:00"
         },
         {
           "date": "2027-02-16",
@@ -1240,8 +1240,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/wrestling/",
-      "fetched": "2026-10-25T17:26:44.103Z",
-      "maxprepsUpdated": "2026-10-25T17:27:45",
+      "fetched": "2026-10-28T18:27:37.029Z",
+      "maxprepsUpdated": "2026-10-28T16:45:01",
       "results": [],
       "upcoming": [],
       "held": [],

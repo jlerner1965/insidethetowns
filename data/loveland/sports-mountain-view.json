@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-25T17:32:54.484Z",
+  "generated": "2026-10-28T18:33:41.617Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/football/",
-      "fetched": "2026-10-25T17:32:54.484Z",
-      "maxprepsUpdated": "2026-10-25T16:17:47",
+      "fetched": "2026-10-28T18:33:41.617Z",
+      "maxprepsUpdated": "2026-10-28T15:55:51",
       "overall": "0-9",
       "league": {
         "record": "0-5",
@@ -130,8 +130,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/soccer/",
-      "fetched": "2026-10-25T17:32:54.484Z",
-      "maxprepsUpdated": "2026-10-25T16:55:14",
+      "fetched": "2026-10-28T18:33:41.617Z",
+      "maxprepsUpdated": "2026-10-28T14:46:16",
       "overall": "6-7-2",
       "league": {
         "record": "2-6-2",
@@ -313,15 +313,26 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/volleyball/",
-      "fetched": "2026-10-25T17:32:54.484Z",
-      "maxprepsUpdated": "2026-10-25T16:02:01",
-      "overall": "13-8",
+      "fetched": "2026-10-28T18:33:41.617Z",
+      "maxprepsUpdated": "2026-10-28T15:21:34",
+      "overall": "13-9",
       "league": {
-        "record": "5-4",
+        "record": "5-5",
         "name": "4A/3A Northern",
         "place": "6th"
       },
       "results": [
+        {
+          "date": "2026-10-27",
+          "opponent": "Windsor",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-windsor/10-27-2026/?c=c4bdc5c3-c390-4daf-93fc-d7f3eb6c9643",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
         {
           "date": "2026-10-22",
           "opponent": "Timnath",
@@ -576,13 +587,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-27",
-          "opponent": "Windsor",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-windsor/10-27-2026/?c=c4bdc5c3-c390-4daf-93fc-d7f3eb6c9643",
-          "time": "18:30"
-        },
-        {
           "date": "2026-10-29",
           "opponent": "Silver Creek",
           "site": "away",
@@ -597,8 +601,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/softball/fall/",
-      "fetched": "2026-10-25T17:32:54.484Z",
-      "maxprepsUpdated": "2026-10-25T16:57:09",
+      "fetched": "2026-10-28T18:33:41.617Z",
+      "maxprepsUpdated": "2026-10-28T18:34:24",
       "overall": "8-15-1",
       "league": {
         "record": "2-8",
@@ -901,8 +905,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/cross-country/",
-      "fetched": "2026-10-25T17:32:54.484Z",
-      "maxprepsUpdated": "2026-10-25T17:33:46",
+      "fetched": "2026-10-28T18:33:41.617Z",
+      "maxprepsUpdated": "2026-10-28T18:34:33",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -915,8 +919,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/cross-country/girls/",
-      "fetched": "2026-10-25T17:32:54.484Z",
-      "maxprepsUpdated": "2026-10-25T17:20:48",
+      "fetched": "2026-10-28T18:33:41.617Z",
+      "maxprepsUpdated": "2026-10-28T18:34:38",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -929,8 +933,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/basketball/",
-      "fetched": "2026-10-25T17:32:54.484Z",
-      "maxprepsUpdated": "2026-10-25T17:33:55",
+      "fetched": "2026-10-28T18:33:41.617Z",
+      "maxprepsUpdated": "2026-10-28T18:15:15",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -994,15 +998,17 @@
           "url": "https://www.maxpreps.com/co/basketball/game/george-washington-denver-vs-mountain-view-loveland/12-16-2026/?c=9800f776-f4d2-4410-b9fc-f91f4e29613d",
           "stage": "Tournament",
           "neutral": true,
+          "venue": "Longmont High School",
           "time": "17:00"
         },
         {
           "date": "2026-12-18",
           "opponent": "Longmont",
           "site": "neutral",
-          "url": "https://www.maxpreps.com/co/basketball/game/longmont-vs-mountain-view-loveland/12-18-2026/?c=fb37f416-4fbf-4937-8914-e6447ae0de4c",
+          "url": "https://www.maxpreps.com/co/basketball/game/longmont-vs-mountain-view-loveland/12-18-2026/?c=e0e212db-2c86-4682-885f-0e3ccf7749af",
           "stage": "Tournament",
           "neutral": true,
+          "venue": "Trojan Classic Tournament",
           "time": "20:00"
         },
         {
@@ -1012,6 +1018,7 @@
           "url": "https://www.maxpreps.com/co/basketball/game/bear-creek-lakewood-vs-mountain-view-loveland/12-19-2026/?c=f0b5d0f1-1c81-49c0-8fa3-2b05693830f5",
           "stage": "Tournament",
           "neutral": true,
+          "venue": "Longmont High School",
           "time": "11:30"
         },
         {
@@ -1144,8 +1151,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/basketball/girls/",
-      "fetched": "2026-10-25T17:32:54.484Z",
-      "maxprepsUpdated": "2026-10-25T17:34:03",
+      "fetched": "2026-10-28T18:33:41.617Z",
+      "maxprepsUpdated": "2026-10-28T16:07:20",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1200,7 +1207,7 @@
           "url": "https://www.maxpreps.com/co/basketball/girls/game/longmont-vs-mountain-view-loveland/12-18-2026/?c=74a8c4e1-134d-4ed6-9082-fe08fa8fbb3e",
           "stage": "Tournament",
           "neutral": true,
-          "venue": "Trojan Classic Invitational",
+          "venue": "Longmont High School",
           "time": "18:30"
         },
         {
@@ -1210,7 +1217,7 @@
           "url": "https://www.maxpreps.com/co/basketball/girls/game/bear-creek-lakewood-vs-mountain-view-loveland/12-19-2026/?c=11bd720a-d2b7-4385-98a3-a3aa7e56a6ec",
           "stage": "Tournament",
           "neutral": true,
-          "venue": "Longmont Tournament",
+          "venue": "Longmont High School",
           "time": "10:00"
         },
         {
@@ -1301,8 +1308,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/wrestling/",
-      "fetched": "2026-10-25T17:32:54.484Z",
-      "maxprepsUpdated": "2026-10-25T17:34:12",
+      "fetched": "2026-10-28T18:33:41.617Z",
+      "maxprepsUpdated": "2026-10-28T18:35:00",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1315,8 +1322,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/swimming/girls/",
-      "fetched": "2026-10-25T17:32:54.484Z",
-      "maxprepsUpdated": "2026-10-25T17:34:17",
+      "fetched": "2026-10-28T18:33:41.617Z",
+      "maxprepsUpdated": "2026-10-28T18:35:04",
       "results": [],
       "upcoming": [],
       "held": [],

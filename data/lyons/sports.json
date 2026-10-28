@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-25T17:37:52.895Z",
+  "generated": "2026-10-28T18:38:40.998Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/football/",
-      "fetched": "2026-10-25T17:37:52.895Z",
-      "maxprepsUpdated": "2026-10-25T16:16:09",
+      "fetched": "2026-10-28T18:38:40.998Z",
+      "maxprepsUpdated": "2026-10-28T15:42:41",
       "overall": "5-3",
       "league": {
         "record": "3-2",
@@ -121,15 +121,26 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/volleyball/",
-      "fetched": "2026-10-25T17:37:52.895Z",
-      "maxprepsUpdated": "2026-10-25T16:44:16",
-      "overall": "15-5",
+      "fetched": "2026-10-28T18:38:40.998Z",
+      "maxprepsUpdated": "2026-10-28T16:43:20",
+      "overall": "16-5",
       "league": {
-        "record": "9-0",
+        "record": "10-0",
         "name": "2A/1A Mile High",
         "place": "1st"
       },
       "results": [
+        {
+          "date": "2026-10-27",
+          "opponent": "Dayspring Christian Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/dayspring-christian-academy-greeley-vs-lyons/10-27-2026/?c=cb4d0af4-4725-4261-a026-5c247423f1f3",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-22",
           "opponent": "Front Range Christian",
@@ -360,13 +371,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-27",
-          "opponent": "Dayspring Christian Academy",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/dayspring-christian-academy-greeley-vs-lyons/10-27-2026/?c=cb4d0af4-4725-4261-a026-5c247423f1f3",
-          "time": "18:00"
-        },
-        {
           "date": "2026-10-29",
           "opponent": "Estes Park",
           "site": "away",
@@ -383,8 +387,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/softball/fall/",
-      "fetched": "2026-10-25T17:37:52.895Z",
-      "maxprepsUpdated": "2026-10-25T15:50:47",
+      "fetched": "2026-10-28T18:38:40.998Z",
+      "maxprepsUpdated": "2026-10-28T15:03:46",
       "overall": "22-6",
       "league": {
         "record": "4-5",
@@ -727,8 +731,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/cross-country/",
-      "fetched": "2026-10-25T17:37:52.895Z",
-      "maxprepsUpdated": "2026-10-25T17:38:19",
+      "fetched": "2026-10-28T18:38:40.998Z",
+      "maxprepsUpdated": "2026-10-28T18:39:07",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -741,8 +745,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/cross-country/girls/",
-      "fetched": "2026-10-25T17:37:52.895Z",
-      "maxprepsUpdated": "2026-10-25T15:21:12",
+      "fetched": "2026-10-28T18:38:40.998Z",
+      "maxprepsUpdated": "2026-10-28T18:39:11",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -755,8 +759,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/basketball/",
-      "fetched": "2026-10-25T17:37:52.895Z",
-      "maxprepsUpdated": "2026-10-25T17:38:28",
+      "fetched": "2026-10-28T18:38:40.998Z",
+      "maxprepsUpdated": "2026-10-28T16:45:07",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -777,6 +781,13 @@
           "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/game/front-range-baptist-fort-collins-vs-lyons/1-12-2027/?c=21aa969a-c649-4928-a949-900d7f578a99",
           "time": "18:30"
+        },
+        {
+          "date": "2027-01-19",
+          "opponent": "Gilpin County",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/gilpin-county-black-hawk-vs-lyons/1-19-2027/?c=8253e131-8c02-451b-9cb0-3dac2af93404",
+          "time": "19:00"
         },
         {
           "date": "2027-01-22",
@@ -823,8 +834,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/basketball/girls/",
-      "fetched": "2026-10-25T17:37:52.895Z",
-      "maxprepsUpdated": "2026-10-25T17:38:37",
+      "fetched": "2026-10-28T18:38:40.998Z",
+      "maxprepsUpdated": "2026-10-28T14:41:48",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -878,8 +889,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/wrestling/",
-      "fetched": "2026-10-25T17:37:52.895Z",
-      "maxprepsUpdated": "2026-10-25T17:38:46",
+      "fetched": "2026-10-28T18:38:40.998Z",
+      "maxprepsUpdated": "2026-10-28T16:46:53",
       "results": [],
       "upcoming": [],
       "held": [],

@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-25T17:29:15.503Z",
+  "generated": "2026-10-28T18:30:10.262Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/football/",
-      "fetched": "2026-10-25T17:29:15.503Z",
-      "maxprepsUpdated": "2026-10-25T15:57:51",
+      "fetched": "2026-10-28T18:30:10.262Z",
+      "maxprepsUpdated": "2026-10-28T14:46:20",
       "overall": "4-5",
       "league": {
         "record": "4-1",
@@ -132,8 +132,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/soccer/",
-      "fetched": "2026-10-25T17:29:15.503Z",
-      "maxprepsUpdated": "2026-10-25T16:42:08",
+      "fetched": "2026-10-28T18:30:10.262Z",
+      "maxprepsUpdated": "2026-10-28T16:45:08",
       "overall": "10-1-4",
       "league": {
         "record": "8-1-1",
@@ -307,7 +307,17 @@
           }
         }
       ],
-      "upcoming": [],
+      "upcoming": [
+        {
+          "date": "2026-10-29",
+          "opponent": "Rampart",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/soccer/match/rampart-colorado-springs-vs-windsor/10-29-2026/?c=20eeeccb-5fbb-48d2-b3e7-081ba8f58da0",
+          "stage": "Boys Soccer State Championships",
+          "neutral": true,
+          "time": "18:00"
+        }
+      ],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -317,15 +327,26 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/volleyball/",
-      "fetched": "2026-10-25T17:29:15.503Z",
-      "maxprepsUpdated": "2026-10-25T16:22:23",
-      "overall": "12-6",
+      "fetched": "2026-10-28T18:30:10.262Z",
+      "maxprepsUpdated": "2026-10-28T15:04:06",
+      "overall": "13-6",
       "league": {
-        "record": "8-1",
+        "record": "9-1",
         "name": "4A/3A Northern",
         "place": "2nd"
       },
       "results": [
+        {
+          "date": "2026-10-27",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-windsor/10-27-2026/?c=c4bdc5c3-c390-4daf-93fc-d7f3eb6c9643",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-22",
           "opponent": "Roosevelt",
@@ -538,13 +559,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-27",
-          "opponent": "Mountain View",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-windsor/10-27-2026/?c=c4bdc5c3-c390-4daf-93fc-d7f3eb6c9643",
-          "time": "18:30"
-        },
-        {
           "date": "2026-10-30",
           "opponent": "Legend",
           "site": "away",
@@ -554,15 +568,16 @@
       ],
       "held": [],
       "notes": [
-        "no school calendar to check against"
+        "no school calendar to check against",
+        "MaxPreps page: a game in the glance card could not be read (be4df3e3-4dde-4814-993c-607f3d8844bb)"
       ]
     },
     {
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/softball/fall/",
-      "fetched": "2026-10-25T17:29:15.503Z",
-      "maxprepsUpdated": "2026-10-25T15:54:37",
+      "fetched": "2026-10-28T18:30:10.262Z",
+      "maxprepsUpdated": "2026-10-28T15:23:09",
       "overall": "29-0",
       "league": {
         "record": "10-0",
@@ -934,8 +949,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/cross-country/",
-      "fetched": "2026-10-25T17:29:15.503Z",
-      "maxprepsUpdated": "2026-10-25T17:29:53",
+      "fetched": "2026-10-28T18:30:10.262Z",
+      "maxprepsUpdated": "2026-10-28T18:30:44",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -948,8 +963,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/cross-country/girls/",
-      "fetched": "2026-10-25T17:29:15.503Z",
-      "maxprepsUpdated": "2026-10-25T17:29:58",
+      "fetched": "2026-10-28T18:30:10.262Z",
+      "maxprepsUpdated": "2026-10-28T15:52:53",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -962,8 +977,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/basketball/",
-      "fetched": "2026-10-25T17:29:15.503Z",
-      "maxprepsUpdated": "2026-10-25T16:06:29",
+      "fetched": "2026-10-28T18:30:10.262Z",
+      "maxprepsUpdated": "2026-10-28T18:05:52",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -979,6 +994,7 @@
           "url": "https://www.maxpreps.com/co/basketball/game/rocky-mountain-fort-collins-vs-windsor/12-2-2026/?c=220082ff-6324-483b-ab49-649ed779fc22",
           "stage": "Tournament",
           "neutral": true,
+          "venue": "Fort Collins High School",
           "time": "18:00"
         },
         {
@@ -1116,8 +1132,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/basketball/girls/",
-      "fetched": "2026-10-25T17:29:15.503Z",
-      "maxprepsUpdated": "2026-10-25T16:20:00",
+      "fetched": "2026-10-28T18:30:10.262Z",
+      "maxprepsUpdated": "2026-10-28T14:32:13",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1176,6 +1192,12 @@
           "time": "19:00"
         },
         {
+          "date": "2027-01-09",
+          "opponent": "Legend",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/legend-parker-vs-windsor/1-9-2027/?c=32901f3d-c9c1-43ed-9320-44536c9de890"
+        },
+        {
           "date": "2027-01-12",
           "opponent": "Highlands Ranch",
           "site": "home",
@@ -1232,8 +1254,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/wrestling/",
-      "fetched": "2026-10-25T17:29:15.503Z",
-      "maxprepsUpdated": "2026-10-25T17:30:21",
+      "fetched": "2026-10-28T18:30:10.262Z",
+      "maxprepsUpdated": "2026-10-28T16:43:15",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1246,8 +1268,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/swimming/girls/",
-      "fetched": "2026-10-25T17:29:15.503Z",
-      "maxprepsUpdated": "2026-10-25T17:30:26",
+      "fetched": "2026-10-28T18:30:10.262Z",
+      "maxprepsUpdated": "2026-10-28T14:59:34",
       "results": [],
       "upcoming": [],
       "held": [],

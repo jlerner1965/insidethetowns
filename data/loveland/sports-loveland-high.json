@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-25T17:30:30.349Z",
+  "generated": "2026-10-28T18:31:20.182Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/football/",
-      "fetched": "2026-10-25T17:30:30.349Z",
-      "maxprepsUpdated": "2026-10-25T15:58:16",
+      "fetched": "2026-10-28T18:31:20.182Z",
+      "maxprepsUpdated": "2026-10-28T18:23:27",
       "overall": "8-1",
       "league": {
         "record": "5-1",
@@ -132,8 +132,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/soccer/",
-      "fetched": "2026-10-25T17:30:30.349Z",
-      "maxprepsUpdated": "2026-10-25T17:11:41",
+      "fetched": "2026-10-28T18:31:20.182Z",
+      "maxprepsUpdated": "2026-10-28T15:01:53",
       "overall": "9-4-2",
       "league": {
         "record": "6-3-1",
@@ -307,7 +307,17 @@
           }
         }
       ],
-      "upcoming": [],
+      "upcoming": [
+        {
+          "date": "2026-10-29",
+          "opponent": "Cheyenne Mountain",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/soccer/match/cheyenne-mountain-colorado-springs-vs-loveland/10-29-2026/?c=eec5f404-b456-488e-a9fe-9c2949ed86e2",
+          "stage": "Boys Soccer State Championships",
+          "neutral": true,
+          "time": "18:30"
+        }
+      ],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -317,15 +327,26 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/volleyball/",
-      "fetched": "2026-10-25T17:30:30.349Z",
-      "maxprepsUpdated": "2026-10-25T16:12:01",
-      "overall": "5-15",
+      "fetched": "2026-10-28T18:31:20.182Z",
+      "maxprepsUpdated": "2026-10-28T15:51:56",
+      "overall": "5-17",
       "league": {
-        "record": "1-7",
+        "record": "1-8",
         "name": "4A/3A Northern",
         "place": "9th"
       },
       "results": [
+        {
+          "date": "2026-10-27",
+          "opponent": "Roosevelt",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/loveland-vs-roosevelt-johnstown/10-27-2026/?c=12efc48b-f52f-4512-9e55-6738f38de911",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
         {
           "date": "2026-10-22",
           "opponent": "Severance",
@@ -378,6 +399,18 @@
           "result": "L",
           "score": {
             "us": 0,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-03",
+          "opponent": "Prairie View",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/loveland-vs-prairie-view-henderson/10-3-2026/?c=f2ad5eec-0459-4167-9858-db72c624bcad",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 2,
             "them": 3
           }
         },
@@ -568,13 +601,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-27",
-          "opponent": "Roosevelt",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/loveland-vs-roosevelt-johnstown/10-27-2026/?c=12efc48b-f52f-4512-9e55-6738f38de911",
-          "time": "18:30"
-        },
-        {
           "date": "2026-10-28",
           "opponent": "Northridge",
           "site": "home",
@@ -591,8 +617,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/softball/fall/",
-      "fetched": "2026-10-25T17:30:30.349Z",
-      "maxprepsUpdated": "2026-10-25T17:23:45",
+      "fetched": "2026-10-28T18:31:20.182Z",
+      "maxprepsUpdated": "2026-10-28T18:02:34",
       "overall": "7-16",
       "league": {
         "record": "4-6",
@@ -879,8 +905,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/cross-country/",
-      "fetched": "2026-10-25T17:30:30.349Z",
-      "maxprepsUpdated": "2026-10-25T17:31:06",
+      "fetched": "2026-10-28T18:31:20.182Z",
+      "maxprepsUpdated": "2026-10-28T18:31:55",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -893,8 +919,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/cross-country/girls/",
-      "fetched": "2026-10-25T17:30:30.349Z",
-      "maxprepsUpdated": "2026-10-25T17:31:10",
+      "fetched": "2026-10-28T18:31:20.182Z",
+      "maxprepsUpdated": "2026-10-28T18:31:59",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -907,8 +933,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/basketball/",
-      "fetched": "2026-10-25T17:30:30.349Z",
-      "maxprepsUpdated": "2026-10-25T15:46:13",
+      "fetched": "2026-10-28T18:31:20.182Z",
+      "maxprepsUpdated": "2026-10-28T15:54:53",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -932,6 +958,13 @@
           "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/game/erie-vs-loveland/12-8-2026/?c=abb96615-8215-4d1a-adee-181b2c985c55",
           "time": "19:30"
+        },
+        {
+          "date": "2026-12-10",
+          "opponent": "Colorado Academy",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/colorado-academy-denver-vs-loveland/12-10-2026/?c=590fd9a1-39f2-48fc-8457-c29cd5440361",
+          "time": "16:45"
         },
         {
           "date": "2026-12-10",
@@ -1065,8 +1098,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/basketball/girls/",
-      "fetched": "2026-10-25T17:30:30.349Z",
-      "maxprepsUpdated": "2026-10-25T17:31:24",
+      "fetched": "2026-10-28T18:31:20.182Z",
+      "maxprepsUpdated": "2026-10-28T14:52:19",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1118,10 +1151,10 @@
           "time": "18:00"
         },
         {
-          "date": "2027-01-21",
+          "date": "2027-01-16",
           "opponent": "Berthoud",
           "site": "home",
-          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-loveland/1-21-2027/?c=d4328569-c11b-415d-b235-9577333e3136",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-loveland/1-16-2027/?c=d4328569-c11b-415d-b235-9577333e3136",
           "time": "11:30"
         },
         {
@@ -1205,8 +1238,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/wrestling/",
-      "fetched": "2026-10-25T17:30:30.349Z",
-      "maxprepsUpdated": "2026-10-25T17:31:33",
+      "fetched": "2026-10-28T18:31:20.182Z",
+      "maxprepsUpdated": "2026-10-28T15:34:00",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1219,8 +1252,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/loveland-red-wolves/swimming/girls/",
-      "fetched": "2026-10-25T17:30:30.349Z",
-      "maxprepsUpdated": "2026-10-25T16:32:00",
+      "fetched": "2026-10-28T18:31:20.182Z",
+      "maxprepsUpdated": "2026-10-28T15:00:05",
       "results": [],
       "upcoming": [],
       "held": [],

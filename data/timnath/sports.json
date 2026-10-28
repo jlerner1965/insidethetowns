@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-25T17:25:34.249Z",
+  "generated": "2026-10-28T18:26:27.113Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/football/",
-      "fetched": "2026-10-25T17:25:34.249Z",
-      "maxprepsUpdated": "2026-10-25T15:51:27",
+      "fetched": "2026-10-28T18:26:27.113Z",
+      "maxprepsUpdated": "2026-10-28T14:44:48",
       "overall": "7-2",
       "league": {
         "record": "3-2",
@@ -132,8 +132,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/soccer/",
-      "fetched": "2026-10-25T17:25:34.249Z",
-      "maxprepsUpdated": "2026-10-25T14:31:48",
+      "fetched": "2026-10-28T18:26:27.113Z",
+      "maxprepsUpdated": "2026-10-28T18:26:35",
       "overall": "5-8-2",
       "league": {
         "record": "3-7",
@@ -317,15 +317,26 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/volleyball/",
-      "fetched": "2026-10-25T17:25:34.249Z",
-      "maxprepsUpdated": "2026-10-25T16:43:53",
-      "overall": "15-3",
+      "fetched": "2026-10-28T18:26:27.113Z",
+      "maxprepsUpdated": "2026-10-28T14:50:51",
+      "overall": "16-3",
       "league": {
-        "record": "9-0",
+        "record": "10-0",
         "name": "4A/3A Northern",
         "place": "1st"
       },
       "results": [
+        {
+          "date": "2026-10-27",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/thompson-valley-loveland-vs-timnath/10-27-2026/?c=310adae0-ca8b-4f01-a331-6e477fded2e3",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-22",
           "opponent": "Mountain View",
@@ -529,13 +540,6 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-27",
-          "opponent": "Thompson Valley",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/thompson-valley-loveland-vs-timnath/10-27-2026/?c=310adae0-ca8b-4f01-a331-6e477fded2e3",
-          "time": "18:30"
-        },
-        {
           "date": "2026-10-30",
           "opponent": "Palmer Ridge",
           "site": "neutral",
@@ -548,15 +552,16 @@
       ],
       "held": [],
       "notes": [
-        "no school calendar to check against"
+        "no school calendar to check against",
+        "MaxPreps page: a game in the glance card could not be read (e3ce45fb-c8e9-4856-aaea-9d6e2c1650f4)"
       ]
     },
     {
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/softball/fall/",
-      "fetched": "2026-10-25T17:25:34.249Z",
-      "maxprepsUpdated": "2026-10-25T15:05:26",
+      "fetched": "2026-10-28T18:26:27.113Z",
+      "maxprepsUpdated": "2026-10-28T16:38:24",
       "overall": "5-18",
       "league": {
         "record": "2-8",
@@ -841,8 +846,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/cross-country/",
-      "fetched": "2026-10-25T17:25:34.249Z",
-      "maxprepsUpdated": "2026-10-25T17:26:08",
+      "fetched": "2026-10-28T18:26:27.113Z",
+      "maxprepsUpdated": "2026-10-28T18:27:02",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -855,8 +860,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/cross-country/girls/",
-      "fetched": "2026-10-25T17:25:34.249Z",
-      "maxprepsUpdated": "2026-10-25T17:26:13",
+      "fetched": "2026-10-28T18:26:27.113Z",
+      "maxprepsUpdated": "2026-10-28T18:27:06",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -869,8 +874,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/basketball/",
-      "fetched": "2026-10-25T17:25:34.249Z",
-      "maxprepsUpdated": "2026-10-25T16:41:56",
+      "fetched": "2026-10-28T18:26:27.113Z",
+      "maxprepsUpdated": "2026-10-28T15:48:49",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1030,8 +1035,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/basketball/girls/",
-      "fetched": "2026-10-25T17:25:34.249Z",
-      "maxprepsUpdated": "2026-10-25T16:30:47",
+      "fetched": "2026-10-28T18:26:27.113Z",
+      "maxprepsUpdated": "2026-10-28T15:38:36",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1048,6 +1053,36 @@
           "time": "17:30"
         },
         {
+          "date": "2026-12-10",
+          "opponent": "Castle View",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/castle-view-castle-rock-vs-timnath/12-10-2026/?c=2a8a1349-9fd5-4891-851b-8bbe556eb431",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Winter Classic at Timnath High School",
+          "time": "18:30"
+        },
+        {
+          "date": "2026-12-11",
+          "opponent": "Air Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/air-academy-us-air-force-academy-vs-timnath/12-11-2026/?c=a7fca6f0-2984-4046-818e-8496a4097408",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Winter Classic at Timnath High School",
+          "time": "20:00"
+        },
+        {
+          "date": "2026-12-12",
+          "opponent": "Prospect Ridge Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/prospect-ridge-academy-broomfield-vs-timnath/12-12-2026/?c=be359d59-76cf-48a9-b261-24fcd6132139",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Winter Classic at Timnath High School",
+          "time": "13:00"
+        },
+        {
           "date": "2026-12-16",
           "opponent": "University",
           "site": "away",
@@ -1062,12 +1097,13 @@
           "time": "18:00"
         },
         {
-          "date": "2026-12-19",
+          "date": "2026-12-21",
           "opponent": "Wellington",
           "site": "neutral",
-          "url": "https://www.maxpreps.com/co/basketball/girls/game/timnath-vs-wellington/12-19-2026/?c=75f775ea-78ed-4df0-bc42-96026e0aeecc",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/timnath-vs-wellington/12-21-2026/?c=75f775ea-78ed-4df0-bc42-96026e0aeecc",
           "neutral": true,
-          "venue": "Moby Madness"
+          "venue": "Moby Madness",
+          "time": "17:30"
         },
         {
           "date": "2027-01-05",
@@ -1177,7 +1213,7 @@
         {
           "date": "2027-02-25",
           "opponent": "Peak to Peak",
-          "site": "home",
+          "site": "away",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/peak-to-peak-lafayette-vs-timnath/2-25-2027/?c=f2953944-3c20-4829-a375-24e00a1f2cb9",
           "time": "18:00"
         }
@@ -1191,8 +1227,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/wrestling/",
-      "fetched": "2026-10-25T17:25:34.249Z",
-      "maxprepsUpdated": "2026-10-25T17:26:35",
+      "fetched": "2026-10-28T18:26:27.113Z",
+      "maxprepsUpdated": "2026-10-28T18:27:28",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1205,8 +1241,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/swimming/girls/",
-      "fetched": "2026-10-25T17:25:34.249Z",
-      "maxprepsUpdated": "2026-10-25T17:26:39",
+      "fetched": "2026-10-28T18:26:27.113Z",
+      "maxprepsUpdated": "2026-10-28T18:27:32",
       "results": [],
       "upcoming": [],
       "held": [],
