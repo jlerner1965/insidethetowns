@@ -340,6 +340,33 @@ replaced it.
 
 ---
 
+## Creative Grounds — café, studio and patio
+
+**Sent** 28 October 2026 by **Casey, Creative Grounds** (role not stated),
+in reply to the owner's email of 27 October
+(`docs/relationships/drafts/creative-grounds-2026-10-27.md`), which asked
+for "two or three you have the rights to (the studio, the café, a class at
+the wheel)" for the listing and the Thursday email, "credited however you
+like". Three photographs came back: the building front at 160 E Main St
+with its lion mural and sign, the pottery studio with its wheels, and the
+patio. The owner put them on the Creative Grounds listing the same day.
+
+The email's wording is not recorded here yet. When the owner forwards it,
+paste it in full here with the sender, their role and the date.
+
+| | |
+|---|---|
+| **Scope** | The three photographs, on Creative Grounds's listing and its classes on insidelyons.com, and in the Thursday Inside Lyons email |
+| **Not covered** | Anything else of Creative Grounds's, and any use outside Inside Lyons |
+| **Credit** | Not asked for. We credit "Creative Grounds" |
+| **Standing** | For this listing and its classes |
+| **Contact** | hello@creativegrounds.art |
+
+Each file is the 1200 × 800 JPEG Casey sent, re-saved with the EXIF
+dropped. They come down the day Creative Grounds asks.
+
+---
+
 ## Stock licences — bought photographs
 
 None bought yet. `docs/HERO-PHOTOS.md` is the list of heroes worth buying.
