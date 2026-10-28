@@ -6956,8 +6956,11 @@ site to be a source for events."*
   building front as its card and the studio and the patio in the page.
   Casey's photographs are recorded under *Creative Grounds* in
   `PERMISSIONS.md` and credited "Creative Grounds" through a new grant in
-  `src/lib/credits.ts`; the email's own wording is to be pasted in when
-  the owner forwards it, as CyclErie's was.
+  `src/lib/credits.ts`, with Casey's email quoted in full. Casey offered
+  them "for the Creative Grounds page", so they are on that page and
+  nowhere else: not on the class listings, and not in the Thursday email
+  until Casey says yes. Casey calls Creative Grounds "the client", so the
+  contact record now has Casey as probably an agency or publicist.
 - **Not changed:** Western Stars Gallery & Studio's listing has the same
   address, 160 E Main St, and its signs are in the windows of Casey's
   photograph of the building. Whether it is still there is a question for
