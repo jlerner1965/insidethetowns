@@ -449,8 +449,11 @@ It needs Buttondown's API key in Vercel, once, for every site:
 Each site then has a function at `/api/subscribe` (`api/subscribe.ts`). It
 checks the address and the towns, and hands them to Buttondown's API with
 no subscriber type, so Buttondown still sends its confirmation email and
-nobody is on the list until they click it. The page says exactly that. If
-the call fails (no key, Buttondown down, or its limit reached), the reader
+nobody is on the list until they click it. The page says exactly that. An
+address Buttondown already has is settled on the page too: on the list,
+its new towns are added; never confirmed, the confirmation email goes
+again; unsubscribed, it must confirm to come back. If the call fails (no
+key, Buttondown down, its limit reached, or a blocked address), the reader
 is offered Buttondown's own form in a new tab, the way every form worked
 before.
 

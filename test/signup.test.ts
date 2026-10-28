@@ -110,16 +110,19 @@ test('every answer from the page’s own call has a panel; anything unexpected o
 });
 
 test('each panel says only what Buttondown’s answer supports', () => {
-  // A confirmation email is promised only for `confirm`, an active
-  // subscription only for `added`; "already" is not "signed up", since an
-  // unconfirmed or unsubscribed address is "already" too.
+  // A confirmation email is promised only for `confirm`; an active
+  // subscription only for `added` and `already`, which Buttondown reports
+  // (an unconfirmed or unsubscribed address is `confirm`).
   assert.match(SIGNUP_MESSAGES.confirmHelp, /confirmation email/);
   assert.doesNotMatch(`${SIGNUP_MESSAGES.added} ${SIGNUP_MESSAGES.addedHelp}`, /confirm|check your email/i);
-  assert.doesNotMatch(`${SIGNUP_MESSAGES.already} ${SIGNUP_MESSAGES.alreadyHelp}`, /signed up|\bsubscribed\b/i);
-  assert.match(SIGNUP_MESSAGES.alreadyHelp, /never clicked the confirmation link/);
+  assert.doesNotMatch(`${SIGNUP_MESSAGES.already} ${SIGNUP_MESSAGES.alreadyHelp}`, /confirm|check your email|Buttondown’s own form/i);
+  assert.match(SIGNUP_MESSAGES.alreadyHelp, /\{email\}/);
   assert.doesNotMatch(SIGNUP_MESSAGES.fallbackHelp, /will take it/, 'Buttondown’s form is offered, not promised');
   const component = readFileSync('src/components/NewsletterSignup.astro', 'utf8');
   for (const panel of ['confirm', 'added', 'already', 'fallback', 'opened']) assert.match(component, new RegExp(`\\b${panel}: \\{ title: SIGNUP_MESSAGES`), panel);
+  // A new tab only when the page's own call could not settle it: never for
+  // an address already on the list (owner, 28 October 2026).
+  assert.match(component, /already: \{ title: SIGNUP_MESSAGES\.already, help: SIGNUP_MESSAGES\.alreadyHelp \}/);
 });
 
 test('on a guide the address comes before the towns; on the hub the towns come first', () => {

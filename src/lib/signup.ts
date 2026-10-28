@@ -6,15 +6,17 @@
  * Two ways a form can send. Where the site's build has a Buttondown key
  * (`inlineSignup`), the page posts the form to its own /api/subscribe
  * (src/lib/subscribe.ts) and stays where it is: the next step is the
- * confirmation email, and the page says so. Otherwise, and whenever that
+ * confirmation email, and the page says so. An address Buttondown already
+ * has is settled there too, without a new tab. Otherwise, and whenever that
  * call does not go through, the form posts to Buttondown's hosted page in a
  * new tab, which asks for "Verify and Subscribe" before it sends the email.
  * Neither way can see the reader click the confirmation link, so the page
  * never says the reader is subscribed on the strength of a press or an
  * opened tab: it says what is left to do, and keeps a way to send again or
- * change the details. The one exception is Buttondown's own answer that the
- * subscriber is active (`added`, double opt-in off in its settings), and
- * then the page says that and no more.
+ * change the details. The exceptions are Buttondown's own answer that the
+ * subscriber is active (`added`, double opt-in off in its settings; and
+ * `already`, an address that was on the list before), and then the page
+ * says that and no more.
  *
  * The browser opens that tab itself, from the form's target="_blank", the
  * way it opens a link's. The script used to open an empty tab first and
@@ -91,10 +93,11 @@ export const SIGNUP_MESSAGES = {
   added: 'Done: Buttondown has added your address.',
   addedHelp: 'The {day} email will go to {email}. Every issue has a link to unsubscribe.',
   invalid: 'That address doesn’t look right. Check it for a typo.',
-  // Buttondown has the address in some state: confirmed, never confirmed, or
-  // unsubscribed. The page cannot tell which, so it does not say "signed up".
-  already: 'Buttondown already has that address.',
-  alreadyHelp: 'If you confirmed it before, there is nothing more to do. If you never clicked the confirmation link, unsubscribed, or want to add towns, Buttondown’s own form can take it from here.',
+  // Buttondown says the address is an active subscriber, and the form's
+  // towns have been added to it (src/lib/subscribe.ts, `existing`). An
+  // address never confirmed, or unsubscribed, is `confirm` instead.
+  already: 'You’re already on the list.',
+  alreadyHelp: 'The {day} email goes to {email}, and the towns you ticked are on it now. Nothing more to do.',
   // The function could not take it. Buttondown's own form may: it is not
   // promised, since a blocked address or a firewall refusal fails there too,
   // and that page says why.

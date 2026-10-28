@@ -259,8 +259,8 @@ const box = 'size-5 shrink-0 rounded border-line';
     </form>
     {/* Shown in place of the form once it has been sent. Its words are the
         answer's (src/lib/signup.ts, SIGNUP_MESSAGES): check your email when
-        Buttondown sent its confirmation; added, only when Buttondown says
-        the subscriber is active; Buttondown has the address already; or finish on
+        Buttondown sent its confirmation; added, or already on the list,
+        only when Buttondown says the subscriber is active; or finish on
         Buttondown's own page, in a new tab, when that is where it went or
         the page's own call did not go through. Never a success this page
         cannot see, and always the way back to the form. */}
@@ -281,7 +281,7 @@ const box = 'size-5 shrink-0 rounded border-line';
   const PANEL: Record<SignupPanel, { title: string; help: string; button?: string }> = {
     confirm: { title: SIGNUP_MESSAGES.confirm, help: SIGNUP_MESSAGES.confirmHelp },
     added: { title: SIGNUP_MESSAGES.added, help: SIGNUP_MESSAGES.addedHelp },
-    already: { title: SIGNUP_MESSAGES.already, help: SIGNUP_MESSAGES.alreadyHelp, button: SIGNUP_MESSAGES.continue },
+    already: { title: SIGNUP_MESSAGES.already, help: SIGNUP_MESSAGES.alreadyHelp },
     fallback: { title: SIGNUP_MESSAGES.fallback, help: SIGNUP_MESSAGES.fallbackHelp, button: SIGNUP_MESSAGES.continue },
     opened: { title: SIGNUP_MESSAGES.opened, help: SIGNUP_MESSAGES.openedHelp, button: SIGNUP_MESSAGES.reopen },
   };
