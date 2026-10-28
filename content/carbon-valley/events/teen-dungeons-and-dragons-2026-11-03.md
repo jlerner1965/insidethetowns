@@ -13,7 +13,7 @@ sourceHash: "7bc7b20e8ca0"
 address: "7 Park Ave, Firestone, CO 80504"
 organizer: "High Plains Library District"
 organizerUrl: "https://www.mylibrary.us/"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen Dungeons & Dragons\" at 3:45 pm on 3 November on the Carbon Valley Regional Library (High Plains Library District), LibCal feed"
 ---
 

@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/17553996"
 cost: "Free"
 category: family
 source: "https://highplains.libcal.com/event/17553996"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"DINOvember!\" at 2:30 pm on 7 November in the page's structured data"
 ---
 

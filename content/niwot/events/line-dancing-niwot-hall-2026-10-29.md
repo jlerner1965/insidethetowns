@@ -8,7 +8,7 @@ url: "https://niwothall.org/events/line-dancing-lessons-with-lindy-b-dance/"
 cost: "$20 per class"
 category: other
 source: "https://niwothall.org/events/line-dancing-lessons-with-lindy-b-dance/"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Line Dancing Lessons with Lindy B Dance\" at 6:45 pm on 29 October on the Niwot Hall (Left Hand Grange) feed"
 ---
 

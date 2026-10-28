@@ -10,7 +10,7 @@ organizer: "Jefferson County Public Library"
 organizerUrl: "https://jeffcolibrary.org/"
 source: "https://jeffcolibrary.bibliocommons.com/events/6ab1b8f36074830038289974"
 sourceId: "jeffcolibrary-bibliocommons-com"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Sugar Skulls & Calaveras\" at 5 pm on 29 October in the page's structured data"
 ---
 

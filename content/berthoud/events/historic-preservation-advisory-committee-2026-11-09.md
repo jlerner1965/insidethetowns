@@ -8,7 +8,8 @@ url: "https://www.berthoud.org/Calendar.aspx"
 cost: "Free"
 category: civic
 source: "https://www.berthoud.org/Calendar.aspx"
-verified: "2026-10-27"
+verified: "2026-10-28"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Historic Preservation Advisory Committee Meeting\" at 5:30 pm on 9 November on the berthoud.org feed"
 ---
 
 Meeting of the Town's Historic Preservation Advisory Committee at Town Hall, 5:30 to 7:30 pm, as listed on the Town's calendar.

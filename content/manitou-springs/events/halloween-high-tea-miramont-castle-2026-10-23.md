@@ -26,7 +26,7 @@ category: food
 organizer: "Manitou Springs Historical Society"
 organizerUrl: "https://miramontcastle.org/"
 source: "https://www.miramontcastle.org/upcoming-events"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): 30 October and 11 am on the page"
 ---
 

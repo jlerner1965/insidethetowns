@@ -12,7 +12,7 @@ category: music
 timeNote: "Shows at 6, 8 and 10 pm"
 featured: true
 source: "https://music.colostate.edu/events/halloween-organ-extravaganza-5/"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Halloween Organ Extravaganza\" at 6 pm on 31 October on the music.colostate.edu feed"
 ---
 

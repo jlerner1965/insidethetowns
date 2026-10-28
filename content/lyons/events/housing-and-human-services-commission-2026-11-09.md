@@ -7,7 +7,7 @@ address: "451 4th Ave, Lyons, CO 80540"
 category: civic
 recurring: "Second Mondays"
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Housing and Human Services Commission\" at 4:30 pm on 9 November on the lyons.librarycalendar.com feed"
 ---
 

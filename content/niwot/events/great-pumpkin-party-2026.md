@@ -10,7 +10,7 @@ featured: true
 organizer: "Niwot Business Association"
 organizerUrl: "https://niwot.com/"
 source: "https://niwot.com/events/niwots-great-pumpkin-party-2/?occurrence=2026-10-31"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Niwot’s Great Pumpkin Party\" at 10 am on 31 October on the Niwot Business Association (niwot.com) feed"
 ---
 

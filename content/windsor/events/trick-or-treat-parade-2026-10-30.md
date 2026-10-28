@@ -14,7 +14,7 @@ source: "https://www.townofseverance.org/calendar.aspx?EID=1323"
 sourceId: "townofseverance-org-events"
 sourceUid: "1323"
 sourceHash: "cf9c9caf6731"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Trick or Treat Parade\" at 3 pm on 30 October on the Town of Severance: Community Events calendar feed"
 ---
 

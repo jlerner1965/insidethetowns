@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/apple-cinnamon-breakfast
 cost: "Free"
 category: other
 source: "https://johnstownmillikenpubliclibraries.us/event/apple-cinnamon-breakfast-jars/"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Apple Cinnamon Breakfast Jars\" at 2 pm on 6 November in the page's structured data"
 ---
 

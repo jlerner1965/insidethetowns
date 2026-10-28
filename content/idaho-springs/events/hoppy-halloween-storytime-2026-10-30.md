@@ -11,7 +11,7 @@ organizer: "Clear Creek County Library District"
 organizerUrl: "https://cccld.org/"
 source: "https://cccld.org/events/"
 sourceId: "cccld-org"
-verified: "2026-10-27"
+verified: "2026-10-28"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"JTML Hoppy Halloween Storytime\" at 10 am on 30 October on the Clear Creek County Library District calendar feed"
 ---
 
