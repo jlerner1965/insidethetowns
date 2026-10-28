@@ -7007,3 +7007,34 @@ and uploaded them to `main`, and sent iStock's Content License Agreement.*
   uploaded. The owner made it private the same day.
 - **Not in:** the Bimson Blacksmith Shop, which is the Pioneer Museum
   listing's free Commons photograph.
+
+## The heroes at full colour, shaded only behind the words, 28 October 2026
+
+*The owner: "would hero images look better if more bright less of black
+gloss over? your call."*
+
+- **What was over every photograph.** A black scrim across the whole band
+  (0.88 at the foot, 0.5 at 55%, 0.36 at 86%) and the town's colour at 20%
+  multiplied over every pixel. The type read at 9:1 to 15:1 on most guides,
+  well past the 4.5:1 it needs, and the photographs read as dusk.
+- **What is there now** (`Hero.astro`): the tint is gone; a light shade
+  along the foot (0.35, gone by 40% of the height) where the band meets the
+  sports strip; a pool behind the text column, darkest behind the name and
+  clear well before the middle of the picture; and a soft shade the width
+  of its words under the eyebrow and the tagline. On a phone the type is on
+  the town's colour under the photograph, as before, and none of it shows.
+- **Measured, not judged.** Every live guide's home page was built and
+  rendered at 768, 1,024, 1,280, 1,440 and 1,920 px; for each line of type
+  the contrast was taken against all but the brightest 5% of the picture
+  behind it. Before: eyebrow at least 4.66:1 (Niwot, 1,024 px), name 5.90,
+  tagline 8.58, and the picture away from the type at a mean relative
+  luminance of 0.057. After: eyebrow at least 6.11:1, name 4.95 (Carbon
+  Valley's long name over its snowy sky; large type needs 3:1), tagline
+  6.24, and the picture at 0.150, about two and a half times as bright. A
+  lighter setting (pool 0.5, line shade 0.38) added almost no brightness
+  (0.160) and took the eyebrow to 4.82 and the name to 3.70, so it was not
+  used.
+- **The phone tagline is full white.** The same measurement on a phone
+  found the tagline, white at 85% on the town's colour, under 4.5:1 on
+  three guides: Golden 4.17, Niwot 4.27, Timnath 4.31. On the phone band it
+  is full white now, 5.07:1 or more on every guide.

@@ -59,6 +59,13 @@ const {
 } = Astro.props;
 const hero = resolveSiteImage(site.slug, site.hero.image);
 const creditOnImage = heroCreditOnImage();
+// A soft shade under the eyebrow and the tagline, the width of their words,
+// so a bright patch of sky or a white wall behind a line cannot wash it out;
+// off on a phone in the compact band, where the type is on the town's colour.
+const lineShade = [
+  'relative w-fit before:pointer-events-none before:absolute before:-inset-x-8 before:-inset-y-2 before:-z-10 before:rounded-[2rem] before:bg-black/40 before:blur-[18px]',
+  compact && 'max-sm:before:hidden',
+];
 // The tagline in two lines at most, shortened at a phrase (src/lib/text.ts)
 // rather than by the clamp alone, which put its ellipsis wherever the second
 // line ran out. A phone's budget is smaller than a wide screen's, so there
@@ -85,35 +92,29 @@ const subtitleLong = shorten(subtitle, 88);
   />
   </div>
   {/*
-    Two layers, and the second one is the reason a hero without a bright sky
-    used to read as a coloured panel rather than a photograph: the town's
-    dark colour at 35%, multiplied over every pixel, pulls every hue in the
-    frame toward one navy. It is the primary at 20% now — enough to tie the
-    picture to the palette, not enough to repaint it. Some 2.0 primaries
-    (Golden's copper-gold, Lyons's sandstone) are lighter than the dark
-    shades they replaced, so the wash darkens a little less; the scrim
-    below is what the type relies on, and it is unchanged.
-
-    The scrim is what carries legibility, so it is not simply lightened to
-    match. Its stops are set so that (1 − scrim) × wash is never greater than
-    it was at any height the type reaches — the eyebrow tops out around four
-    fifths of the way up — which is the property that matters: no line of
-    type sits on a lighter background than it did before. Above that band it
-    clears completely, so the top of the frame is the photograph rather than
-    the photograph under a 5% black veil.
-
-    The stops moved up (0.5 at 55%, 0.36 at 86%, from 50% and 74%) when the
-    hero was cut to half the screen: the type then fills more of the frame,
-    and the eyebrow went from three quarters of the way up to four fifths.
+    The photograph at full colour, shaded only where the type is (28
+    October 2026, the owner: "more bright, less of black gloss over").
+    Until then a black scrim covered the whole band, 0.88 at the foot, and
+    the town's colour sat over every pixel at 20%: the type read at 9:1 to
+    15:1 and the pictures read as dusk. Now there are three soft shades: a
+    light one along the foot, where the band meets the sports strip; a pool
+    behind the text column, darkest behind the name and gone well before
+    the middle of the picture, which follows the column at any width; and
+    a shade the width of its words under the eyebrow and under the tagline
+    (lineShade). Measured on all twenty guides' built home pages at 768,
+    1,024, 1,280, 1,440 and 1,920 px, against all but the brightest 5% of
+    the picture behind each line: eyebrow at least 6.1:1, tagline 6.2:1,
+    the name 4.9:1 (large type needs 3:1), and the picture away from the
+    type about two and a half times as bright as before. On a phone the
+    type is on the town's colour and none of this shows.
   */}
-  <div class:list={['absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.5)_55%,rgba(0,0,0,0.36)_86%,transparent_100%)]', compact && 'max-sm:hidden']}></div>
-  <div class:list={['absolute inset-0 -z-10 bg-primary/20 mix-blend-multiply', compact && 'max-sm:hidden']}></div>
+  <div class:list={['absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgba(0,0,0,0.35)_0%,transparent_40%)]', compact && 'max-sm:hidden']}></div>
   {/* The one exception to "no caption on the photograph": a licence that
       wants its credit beside the picture (an editorial stock photograph;
       heroCreditOnImage). Small, on its own shade, in the photograph's
       bottom corner: on a phone in the compact band that is the foot of the
       13rem photograph above the type, elsewhere the foot of the band. It
-      sits outside the photograph's layer, which the scrim covers. */}
+      sits outside the photograph's layer, which the shades cover. */}
   {creditOnImage && (
     <p class:list={['absolute right-2 z-10 rounded-sm bg-black/55 px-1.5 py-0.5 text-[0.875rem] leading-tight text-white/90 sm:right-3', compact ? 'top-52 -translate-y-[calc(100%+0.5rem)] sm:top-auto sm:bottom-3 sm:translate-y-0' : 'bottom-2 sm:bottom-3']}>{creditOnImage}</p>
   )}
@@ -121,19 +122,28 @@ const subtitleLong = shorten(subtitle, 88);
       band the type sits under the photograph on a phone, on the town's
       colour, and over it from a tablet up. */}
   <div class:list={['container-page relative flex flex-col justify-end', compact ? 'pb-6 pt-5 sm:pb-8 sm:pt-20 md:pb-9 md:pt-24' : 'pb-7 pt-12 sm:pt-16 md:pb-9 md:pt-20']}>
+    {/* The pool behind the text column (see the shades above). */}
+    <div
+      aria-hidden="true"
+      class:list={['pointer-events-none absolute bottom-0 -left-[17rem] -z-10 h-full w-[64rem]', compact && 'max-sm:hidden']}
+      style="background: radial-gradient(ellipse 50% 78% at 50% 68%, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.5) 48%, rgba(0, 0, 0, 0.22) 76%, rgba(0, 0, 0, 0) 100%)"
+    ></div>
     {/*
       White, as on every band. The amber this line once shared with the
       other bands came in between 2.88:1 and 3.90:1 against the rendered
       heroes, at 12.75px, which is a fail; white clears 4.69:1 on the worst
       of them. Since Color System 2.0 the bands' eyebrows are white too.
     */}
-    <p class="eyebrow text-white">{eyebrow}</p>
+    <p class:list={['eyebrow text-white', lineShade]}>{eyebrow}</p>
     {/* Smaller than the poster size it was (6rem on a desktop), so "Carbon
         Valley" and "Manitou Springs" hold one line on a tablet and wrap
         cleanly on a phone, and the week is a scroll closer. The whole
         tagline is in the meta description and the footer. */}
     <h1 class:list={['display mt-2 [overflow-wrap:anywhere] sm:text-[3.25rem] lg:text-[4.25rem]', compact ? 'text-[2.25rem]' : 'text-[2.5rem]']}>{title}</h1>
-    <p class="mt-3 max-w-xl text-[1.0625rem] leading-snug text-white/85 md:text-xl">
+    {/* Full white on the town's colour in the phone band: at 85% the line
+        measured 4.17:1 on Golden's colour, 4.27:1 on Niwot's and 4.31:1 on
+        Timnath's, under the 4.5:1 it needs; full white is 5.07:1 or more. */}
+    <p class:list={['mt-3 max-w-xl text-[1.0625rem] leading-snug text-white/85 md:text-xl', compact && 'max-sm:text-white', lineShade]}>
       <span class="sm:hidden">{subtitleShort}</span><span class="hidden sm:inline">{subtitleLong}</span>
     </p>
     {links.length > 0 && (
