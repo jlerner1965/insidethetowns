@@ -471,6 +471,6 @@ sent on 28 October 2026. Adobe's terms are not recorded here yet.
 
 **Open, 28 October 2026:** this repository is public on GitHub, so the three
 files as uploaded can be downloaded by anyone, which 3(c) and 5 do not
-allow. The owner decides the fix: make the repository private, or keep
-bought files out of it.
+allow. The owner decided the same day to make the repository private;
+this note changes to a date once it is.
 

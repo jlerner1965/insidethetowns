@@ -7003,8 +7003,7 @@ and uploaded them to `main`, and sent iStock's Content License Agreement.*
 - **Open: the repository is public.** iStock's 3(c) forbids use "that
   allows others to download, extract, or redistribute content as a
   standalone file", and its section 5 storage "on a server" that more than
-  one person can reach. Anyone can download all three files from GitHub. The
-  owner decides: make the repository private, or keep bought files out of
-  it and out of its history.
+  one person can reach. Anyone can download all three files from GitHub.
+  The owner decided the same day to make the repository private.
 - **Not in:** the Bimson Blacksmith Shop, which is the Pioneer Museum
   listing's free Commons photograph.
