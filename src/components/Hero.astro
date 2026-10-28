@@ -61,6 +61,17 @@ const hero = resolveSiteImage(site.slug, site.hero.image);
 // scrim across the frame and no wash of the town's colour, only a soft dark
 // pool behind the words, which follows the text column at any width.
 const painted = site.hero.painted === true;
+// And a soft shade under the eyebrow and the tagline themselves, the width of
+// their words. The pool is centred on the name, and the tagline ran past its
+// edge onto the gold trees and pale meadows of the seventeen paintings drawn
+// on 27 October: Erie's measured 3.9:1 at 1,024 px. With the shade every line
+// of every painting measured at least 6.4:1 at 768 to 1,920 px, and the
+// painting beyond the words is untouched. Off on a phone in the compact band,
+// where the type is on the town's colour.
+const lineShade = painted && [
+  'relative w-fit before:pointer-events-none before:absolute before:-inset-x-8 before:-inset-y-2 before:-z-10 before:rounded-[2rem] before:bg-black/40 before:blur-[18px]',
+  compact && 'max-sm:before:hidden',
+];
 // The tagline in two lines at most, shortened at a phrase (src/lib/text.ts)
 // rather than by the clamp alone, which put its ellipsis wherever the second
 // line ran out. A phone's budget is smaller than a wide screen's, so there
@@ -134,13 +145,13 @@ const subtitleLong = shorten(subtitle, 88);
       heroes, at 12.75px, which is a fail; white clears 4.69:1 on the worst
       of them. Since Color System 2.0 the bands' eyebrows are white too.
     */}
-    <p class="eyebrow text-white">{eyebrow}</p>
+    <p class:list={['eyebrow text-white', lineShade]}>{eyebrow}</p>
     {/* Smaller than the poster size it was (6rem on a desktop), so "Carbon
         Valley" and "Manitou Springs" hold one line on a tablet and wrap
         cleanly on a phone, and the week is a scroll closer. The whole
         tagline is in the meta description and the footer. */}
     <h1 class:list={['display mt-2 [overflow-wrap:anywhere] sm:text-[3.25rem] lg:text-[4.25rem]', compact ? 'text-[2.25rem]' : 'text-[2.5rem]']}>{title}</h1>
-    <p class="mt-3 max-w-xl text-[1.0625rem] leading-snug text-white/85 md:text-xl">
+    <p class:list={['mt-3 max-w-xl text-[1.0625rem] leading-snug text-white/85 md:text-xl', lineShade]}>
       <span class="sm:hidden">{subtitleShort}</span><span class="hidden sm:inline">{subtitleLong}</span>
     </p>
     {links.length > 0 && (

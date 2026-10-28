@@ -40,7 +40,7 @@ same script always draws the same picture.
 python3 scripts/heroes/niwot.py /tmp/niwot.svg
 # Render with the Chromium that Playwright installs, 2400 x 1000 (Playwright
 # is not a dependency of this repo; NODE_PATH points at a global install):
-NODE_PATH=$(npm root -g) node -e "const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:2400,height:1000}});await p.goto('file:///tmp/niwot.svg');await p.screenshot({path:'/tmp/niwot.png'});await b.close()})()"
+NODE_PATH=$(npm root -g) node -e "const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:2400,height:1000}});await p.goto('file:///tmp/niwot.svg');await p.screenshot({path:'/tmp/niwot.png',timeout:240000});await b.close()})()"
 node -e "require('sharp')('/tmp/niwot.png').jpeg({quality:84,mozjpeg:true}).toFile('content/niwot/images/hero-painted.jpg')"
 ```
 
@@ -62,4 +62,10 @@ laid out for both:
   the town to the right of that and let fields or hills fill the left.
 
 `painted: true` in the town's `hero` config swaps the photograph's scrim and
-colour wash for a soft shade behind the words only (`src/components/Hero.astro`).
+colour wash for a soft shade behind the words only (`src/components/Hero.astro`):
+a pool centred on the name, and a softer shade the width of the eyebrow and
+of the tagline, which run past the pool's edge.
+
+The heavier scenes take 30 to 45 seconds to render, longer on a busy machine,
+which is past Playwright's default screenshot timeout; hence the `timeout`
+in the command above. It does not change the picture.
