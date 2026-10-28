@@ -390,16 +390,18 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
   {
     town: 'golden',
     // CHSAANow: Golden High School, Jefferson County R-1, Jeffco League;
-    // football 4A, basketball 5A (2026–28, read 28 October 2026). The
-    // mascot is MaxPreps's (its school path, golden-demons).
+    // football 4A, basketball 5A (2026–28, read 28 October 2026); MaxPreps
+    // has football in 4A Front Range. The mascot is MaxPreps's (its school
+    // path, golden-demons).
     school: 'Golden High School',
     mascot: 'Demons',
     maxpreps: 'https://www.maxpreps.com/co/golden/golden-demons/',
     maxprepsName: 'Golden',
-    // No school colour yet: MaxPreps refuses the cloud address this was
-    // written from and Jeffco's school sites did not answer it, so the
-    // pages keep the guide's copper until the colour is read from the
-    // school's own site (and town.school can be set with it).
+    // Demon crimson, MaxPreps's first school colour (schoolColor1 8F0018,
+    // then FFFFFF and 222222), read by the sports probe from the runner on
+    // 28 October 2026 (run 40789110242): MaxPreps refuses the cloud address
+    // and Jeffco's school sites did not answer it. 9.6:1 under white.
+    colors: { primary: '#8F0018' },
     calendarNote: 'Golden High’s schedules are not yet checked against a school calendar, so games to come are published on MaxPreps’s word alone.',
     // CHSAANow lists every fall and winter team the default lists follow
     // (football, boys soccer, volleyball, softball, both cross country;

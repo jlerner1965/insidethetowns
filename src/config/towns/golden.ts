@@ -17,13 +17,11 @@ export const golden: TownConfig = {
   // Live 7 October 2026, on the owner's word, after the first review cleared
   // the launch threshold (docs/archive/ACCURACY-SYSTEM.md).
   status: 'live',
-  // A visitor guide from 20 October 2026, owner's word, with Estes Park,
-  // Golden and Evergreen together (DECISIONS.md, "The other mountain guides,
-  // 20 October"): kept current on the sixty-day check, no weekly email.
-  visitorGuide: {
-    since: '2026-10-20',
-    reason: 'a college and visitor town with Visit Golden, the DDA and the City behind the official calendar, and a home page at position 48 in search; the guide stays live and in the search plan, but the weekly effort goes to Niwot, Lyons, Erie and Berthoud',
-  },
+  // A visitor guide from 20 October 2026, and a flagship again from 28
+  // October, owner's word ("bring golden back… I believe golden has huge
+  // potential"): its first week of Plausible counted 106 visitors, rising
+  // to 28 a day, and two readers had signed up for a Golden email that no
+  // longer went out (DECISIONS.md, "Golden as a flagship, 28 October").
   variant: 'mountain',
   region: 'Mountains & Foothills',
   neighbors: ['evergreen', 'idaho-springs'],
@@ -82,6 +80,16 @@ export const golden: TownConfig = {
   social: {
     email: 'hello@insidegolden.com',
   },
+  // A resident guide (TownConfig.home), since 28 October 2026.
+  home: true,
+  /**
+   * Golden High's colours as MaxPreps carries them (schoolColor1 8F0018,
+   * schoolColor2 FFFFFF), read by the sports probe from the GitHub runner
+   * on 28 October 2026: crimson and white. Jeffco's school sites did not
+   * answer the cloud address, so the school's own hex is not yet checked;
+   * src/config/school-sports.ts gives the sports pages the same crimson.
+   */
+  school: { name: 'Golden High School', mascot: 'Demons', teamName: 'Golden Demons', primary: '#8F0018', secondary: '#FFFFFF' },
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Golden,-CO_rb/' },
