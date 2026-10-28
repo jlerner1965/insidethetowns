@@ -42,31 +42,28 @@ test('a signup goes to Buttondown with the towns as tags and no subscriber type,
   const sent = JSON.parse(String(calls[0]!.init.body));
   assert.deepEqual(sent, { email_address: 'reader@example.com', tags: ['erie', 'all-towns'], referrer_url: 'https://insideerie.com/sports/', ip_address: '203.0.113.9' });
   assert.equal('type' in sent, false, 'no type: double opt-in stays');
-  assert.equal((calls[0]!.init.headers as Record<string, string>)['X-Buttondown-Collision-Behavior'], undefined, 'an existing address is never changed from here');
+  assert.equal((calls[0]!.init.headers as Record<string, string>)['X-Buttondown-Collision-Behavior'], undefined, 'the first call never merges into an existing address');
   assert.equal((calls[0]!.init.headers as Record<string, string>)['X-Buttondown-Bypass-Firewall'], undefined, 'the firewall stays on');
 });
 
 test('Buttondown’s answers become what the page can act on, and no key is never a call', async () => {
   const answer = (status: number, body: string) => (async () => new Response(body, { status })) as typeof fetch;
   const request = { email: 'reader@example.com', tags: ['erie'] };
-  assert.equal((await subscribe(request, { key: 'k', fetch: answer(400, '{"code":"email_already_exists","detail":"This email address already exists."}') })).status, 'already');
   assert.equal((await subscribe(request, { key: 'k', fetch: answer(400, '{"code":"email_invalid","detail":"That email address is not valid."}') })).status, 'invalid');
   assert.equal((await subscribe(request, { key: 'k', fetch: answer(429, 'slow down') })).status, 'unavailable', 'the daily limit: Buttondown’s own form instead');
-  // By code, not by the words: a blocked address, a spam-scored IP or an
-  // unsubscribed address is not a typo and not "already signed up".
-  assert.equal((await subscribe(request, { key: 'k', fetch: answer(400, '{"code":"subscriber_already_exists","detail":"x"}') })).status, 'already');
+  // By code, not by the words: a blocked address or a spam-scored IP is not
+  // a typo and not "already signed up".
   assert.equal((await subscribe(request, { key: 'k', fetch: answer(400, '{"code":"email_empty","detail":"x"}') })).status, 'invalid');
   for (const code of ['email_blocked', 'ip_address_spammy', 'subscriber_blocked', 'rate_limited', 'tag_invalid', 'newsletter_not_accepting_subscribers']) {
     assert.equal((await subscribe(request, { key: 'k', fetch: answer(400, `{"code":"${code}","detail":"This email address is blocked."}`) })).status, 'unavailable', code);
   }
-  assert.equal(
-    (await subscribe(request, { key: 'k', fetch: answer(400, '{"code":"subscriber_suppressed","detail":"That subscriber has already unsubscribed."}') })).status,
-    'unavailable',
-    'an unsubscribed address is not told it is signed up',
-  );
+  // An address Buttondown has, whose lookup then fails, is not told anything it cannot see.
+  for (const code of ['email_already_exists', 'subscriber_already_exists', 'subscriber_suppressed']) {
+    assert.equal((await subscribe(request, { key: 'k', fetch: answer(400, `{"code":"${code}","detail":"x"}`) })).status, 'unavailable', code);
+  }
   assert.equal((await subscribe(request, { key: 'k', fetch: answer(403, '{"code":"feature_disabled","detail":"Tags need a paid plan."}') })).status, 'unavailable');
   // A 400 with no code: only the plainest words count.
-  assert.equal((await subscribe(request, { key: 'k', fetch: answer(400, 'That email address already exists.') })).status, 'already');
+  assert.equal((await subscribe(request, { key: 'k', fetch: answer(400, 'That email address is not valid.') })).status, 'invalid');
   assert.equal((await subscribe(request, { key: 'k', fetch: answer(400, 'Your email is blocked by the firewall.') })).status, 'unavailable');
   assert.equal((await subscribe(request, { key: 'k', fetch: answer(500, '') })).status, 'unavailable');
   assert.equal((await subscribe(request, { key: 'k', fetch: (async () => { throw new TypeError('fetch failed'); }) as typeof fetch })).status, 'unavailable');
@@ -88,6 +85,85 @@ test('a confirmation email is said to be coming only when Buttondown made the su
   const added = await subscribe(request, { key: 'k', fetch: created('{"id":"s1","type":"regular"}') });
   assert.equal(added.status, 'added');
   assert.match(added.detail ?? '', /double opt-in is off/, 'the log says why, for the owner');
+});
+
+/**
+ * A fake Buttondown that answers by method and URL, and keeps every call:
+ * `routes` maps "POST subscribers" (the create call; the nth answer for the
+ * nth such call), "GET one", "POST reminder" to [status, body].
+ */
+function buttondown(routes: Record<string, Array<[number, string]>>) {
+  const calls: Array<{ key: string; url: string; headers: Record<string, string>; body: Record<string, unknown> | undefined }> = [];
+  const fake = (async (url: string | URL | Request, init?: RequestInit) => {
+    const u = String(url);
+    const key = `${init?.method} ${u === BUTTONDOWN_SUBSCRIBERS ? 'subscribers' : u.endsWith('/send-reminder') ? 'reminder' : 'one'}`;
+    calls.push({ key, url: u, headers: init?.headers as Record<string, string>, body: init?.body ? JSON.parse(String(init.body)) : undefined });
+    const [status, body] = routes[key]?.shift() ?? [500, 'no route'];
+    return new Response(body, { status });
+  }) as typeof fetch;
+  return { fake, calls };
+}
+
+const ALREADY: [number, string] = [400, '{"code":"email_already_exists","detail":"This email address already exists."}'];
+
+test('an address already on the list gets the form’s towns added, on the page, never taken away', async () => {
+  const bd = buttondown({ 'POST subscribers': [ALREADY, [201, '{"type":"regular"}']], 'GET one': [[200, '{"type":"regular","tags":[]}']] });
+  const result = await subscribe({ email: 'reader+news@example.com', tags: ['lyons'] }, { key: 'k', ip: '203.0.113.9', fetch: bd.fake });
+  assert.equal(result.status, 'already');
+  assert.deepEqual(bd.calls.map((c) => c.key), ['POST subscribers', 'GET one', 'POST subscribers']);
+  assert.equal(bd.calls[1]!.url, `${BUTTONDOWN_SUBSCRIBERS}/reader%2Bnews%40example.com`, 'the address is one path segment');
+  const merge = bd.calls[2]!;
+  // Buttondown merges the towns itself: its subscriber objects come back
+  // with no tags, so a list sent with a PATCH would replace the reader's.
+  assert.equal(merge.headers['X-Buttondown-Collision-Behavior'], 'add');
+  assert.deepEqual(merge.body!.tags, ['lyons']);
+  assert.equal('type' in merge.body!, false, 'an active subscriber’s state is left as it is');
+  assert.ok(!bd.calls.some((c) => c.key.startsWith('PATCH')), 'nothing is overwritten');
+});
+
+test('an address never confirmed gets its confirmation email again; one that unsubscribed must confirm to come back', async () => {
+  const unconfirmed = buttondown({ 'POST subscribers': [ALREADY], 'GET one': [[200, '{"type":"unactivated"}']], 'POST reminder': [[200, '']] });
+  assert.equal((await subscribe({ email: 'reader@example.com', tags: ['erie'] }, { key: 'k', fetch: unconfirmed.fake })).status, 'confirm');
+  assert.deepEqual(unconfirmed.calls.map((c) => c.key), ['POST subscribers', 'GET one', 'POST reminder']);
+
+  const failed = buttondown({ 'POST subscribers': [ALREADY], 'GET one': [[200, '{"type":"unactivated"}']], 'POST reminder': [[429, 'slow down']] });
+  assert.equal((await subscribe({ email: 'reader@example.com', tags: ['erie'] }, { key: 'k', fetch: failed.fake })).status, 'unavailable');
+
+  const left = buttondown({
+    'POST subscribers': [[400, '{"code":"subscriber_suppressed","detail":"That subscriber has already unsubscribed."}'], [200, '{"type":"unactivated"}']],
+    'GET one': [[200, '{"type":"unsubscribed"}']],
+  });
+  assert.equal((await subscribe({ email: 'reader@example.com', tags: ['erie'] }, { key: 'k', fetch: left.fake })).status, 'confirm');
+  const back = left.calls[2]!;
+  assert.equal(back.headers['X-Buttondown-Collision-Behavior'], 'add');
+  assert.equal(back.body!.type, 'unactivated', 'back only once they click the new confirmation email');
+});
+
+test('a blocked, bounced or complaining address is not touched, and the page offers Buttondown’s form', async () => {
+  for (const type of ['blocked', 'complained', 'undeliverable', 'removed']) {
+    const bd = buttondown({ 'POST subscribers': [ALREADY], 'GET one': [[200, `{"type":"${type}"}`]] });
+    assert.equal((await subscribe({ email: 'reader@example.com', tags: ['erie'] }, { key: 'k', fetch: bd.fake })).status, 'unavailable', type);
+    assert.equal(bd.calls.length, 2, type);
+  }
+  const lost = buttondown({ 'POST subscribers': [ALREADY], 'GET one': [[404, '{"detail":"Not found"}']] });
+  assert.equal((await subscribe({ email: 'reader@example.com', tags: ['erie'] }, { key: 'k', fetch: lost.fake })).status, 'unavailable');
+  const refused = buttondown({ 'POST subscribers': [ALREADY, [400, '{"code":"ip_address_spammy"}']], 'GET one': [[200, '{"type":"regular"}']] });
+  assert.equal((await subscribe({ email: 'reader@example.com', tags: ['erie'] }, { key: 'k', fetch: refused.fake })).status, 'unavailable', 'towns not added: not said to be');
+});
+
+test('a spam-scored IP is tried once more past the firewall, still with the confirmation email', async () => {
+  const spammy: [number, string] = [400, '{"code":"ip_address_spammy","detail":"x"}'];
+  const bd = buttondown({ 'POST subscribers': [spammy, [201, '{"type":"unactivated"}']] });
+  assert.equal((await subscribe({ email: 'reader@example.com', tags: ['erie'] }, { key: 'k', ip: '172.225.1.1', fetch: bd.fake })).status, 'confirm');
+  assert.equal(bd.calls[0]!.headers['X-Buttondown-Bypass-Firewall'], undefined);
+  assert.equal(bd.calls[1]!.headers['X-Buttondown-Bypass-Firewall'], 'true');
+  assert.equal('type' in bd.calls[1]!.body!, false, 'double opt-in holds past the firewall');
+  const twice = buttondown({ 'POST subscribers': [spammy, spammy] });
+  assert.equal((await subscribe({ email: 'reader@example.com', tags: ['erie'] }, { key: 'k', fetch: twice.fake })).status, 'unavailable');
+  assert.equal(twice.calls.length, 2, 'once more, not again and again');
+  const blocked = buttondown({ 'POST subscribers': [[400, '{"code":"email_blocked"}']] });
+  await subscribe({ email: 'reader@example.com', tags: ['erie'] }, { key: 'k', fetch: blocked.fake });
+  assert.equal(blocked.calls.length, 1, 'an address the owner blocked is not retried');
 });
 
 test('only the site’s own pages may post, over https', () => {

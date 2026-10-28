@@ -7062,3 +7062,42 @@ phone: 5.27:1 on a phone, 5.08 at 1,280 px, 5.31 at 1,920.
 Then smaller again, at the owner's word: 8px, with a tighter shade. 4.52:1
 on a phone, 4.95 at 1,280 px, 5.25 at 1,920. That is the floor; smaller
 than this it stops reading as the credit the licence asks for.
+
+## No new tab for an address Buttondown already has, 28 October 2026
+
+*The owner, urgently: the newsletter signup "opens new window", needs a
+confirmation there, and "has too many steps".*
+
+The in-page signup (25 October) handled a new address on the page, but an
+address Buttondown already had was told "Buttondown already has that
+address" and offered "Continue on Buttondown": a new tab, its "Verify and
+Subscribe" page, then the email. The live function, tried with an address
+on the list, answered `already`, which is that panel. A second way to the
+same tab: Buttondown's firewall scoring the reader's IP as spammy, which a
+shared or relayed IP (iCloud Private Relay on an iPhone, a VPN) can do.
+
+- **An address already on the list is settled on the page**
+  (`src/lib/subscribe.ts`, `existing`). The function looks the address up
+  and acts on its state. Active: the form's towns are added
+  (`X-Buttondown-Collision-Behavior: add`, which Buttondown documents as
+  combining tags), and the page says "You're already on the list" with no
+  button. Never confirmed: Buttondown sends the confirmation email again
+  and the page says to check it. Unsubscribed: resubscribed as
+  `unactivated`, so they are back only once they click a new confirmation
+  email. Blocked, complained, undeliverable or removed: untouched, and the
+  page offers Buttondown's form as before.
+- **This reverses one line of 25 October**, which left adding towns to an
+  existing address to Buttondown's own form. A stranger can now add towns
+  to someone's subscription from a public page; towns are only ever added,
+  never removed, to an email that person already takes, and every issue
+  carries the link to leave. Tags are not sent with a PATCH: Buttondown's
+  subscriber objects come back with an empty tag list, so a list sent that
+  way would replace the reader's towns.
+- **A spam-scored IP is tried once more past the firewall**
+  (`X-Buttondown-Bypass-Firewall`, five an hour per newsletter), still with
+  no subscriber type, so the confirmation email stands between the address
+  and the list. A blocked address is not retried.
+- **Not changed.** The confirmation email for a new address: double opt-in
+  is Buttondown's setting and the owner's call (25 October). Buttondown's
+  own form in a new tab stays as the last resort, when the page's call
+  cannot settle it.
