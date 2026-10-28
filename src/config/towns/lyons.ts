@@ -33,14 +33,14 @@ export const lyons: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    // Main Street in place of the Colorado 7 canyon (28 October 2026): the
-    // hero is the town itself. The Main Street listing gives the photograph
-    // up, as Elizabeth's did, until the hero is replaced.
-    image: 'downtown.jpg',
-    alt: 'Main Street in Lyons looking west on a summer evening in 2010: the stone drug-store building and shop signs on the right, parked cars, and the red sandstone hogback with pines along its crest closing the view',
-    credit: 'Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0',
-    // Wide screen: the hogback's sandstone band and the storefronts, not the parked cars.
-    position: '50% 22%',
+    // Bought from Adobe Stock on 28 October 2026 (docs/HERO-PHOTOS.md), in
+    // place of Main Street, which goes back to its own listing. A standard
+    // licence, so no credit on the photograph; /credits/ names it.
+    image: 'AdobeStock_754641294.jpeg',
+    alt: 'The foothills around Lyons on a March afternoon in 2024, seen across the valley from a grassy hillside: rock outcrops and tan slopes in low sun, cottonwoods and scattered houses on the valley floor, and a grey plume rising on the right',
+    credit: 'LD Productions, Adobe Stock',
+    // Wide screen: the foothills and the valley floor, not the sky or the near hillside.
+    position: '50% 62%',
   },
   social: {
     email: 'hello@insidelyons.com',

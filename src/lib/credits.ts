@@ -171,6 +171,17 @@ export function publicCredit(row: LedgerRow): PublicCredit {
   );
 }
 
+/**
+ * The licence wants the credit beside the photograph itself, not only on
+ * /credits/. iStock's editorial licence does: editorial use "must include
+ * the following credit adjacent to the content", "iStock.com/Artist's
+ * Member Name" (its licence agreement, read 28 October 2026). The hero,
+ * which otherwise carries no caption, shows the credit for these.
+ */
+export function creditBeside(row: LedgerRow): boolean {
+  return !!STOCK.exec(row.license)?.[2];
+}
+
 /** The one-line form used in captions: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0". */
 export function licenseName(row: LedgerRow): string | undefined {
   const cc = CC.exec(row.license)?.[1];

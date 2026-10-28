@@ -12,7 +12,7 @@ import type { ImageMetadata } from 'astro';
 import { getSite } from '@/config';
 import { getHubEntries, getTownEntries } from '@/lib/content';
 import { resolveSiteImage } from '@/lib/images';
-import { parseLedger, publicCredit, type LedgerRow, type PublicCredit } from '@/lib/credits';
+import { creditBeside, parseLedger, publicCredit, type LedgerRow, type PublicCredit } from '@/lib/credits';
 
 export interface PhotoUsage {
   title: string;
@@ -83,4 +83,16 @@ export async function getCreditedPhotos(): Promise<CreditedPhoto[]> {
   }
 
   return [...photos.values()];
+}
+
+/**
+ * The credit to print on the hero photograph, when its licence asks for one
+ * beside the picture (an editorial stock licence; see creditBeside), and
+ * otherwise nothing: every other hero is credited on /credits/ only, as the
+ * owner decided on 26 October 2026.
+ */
+export function heroCreditOnImage(): string | undefined {
+  const site = getSite();
+  const row = parseLedger(readFileSync('IMAGE_LICENSES.csv', 'utf8')).find((r) => r.path === `content/${site.slug}/images/${site.hero.image}`);
+  return row && creditBeside(row) ? site.hero.credit : undefined;
 }

@@ -6965,3 +6965,46 @@ site to be a source for events."*
   address, 160 E Main St, and its signs are in the windows of Casey's
   photograph of the building. Whether it is still there is a question for
   Casey, not a guess.
+
+## The first bought heroes: Berthoud, Loveland and Lyons, 28 October 2026
+
+*The owner bought iStock 1417954947 and Adobe Stock 412335350 and 754641294
+and uploaded them to `main`, and sent iStock's Content License Agreement.*
+
+- **The photographs.** Berthoud: John M. Chase's "Downtown Berthoud
+  Colorado", 17 July 2021, Mountain Avenue with its planters, the
+  storefronts and the grain elevator painted with a farm family, under
+  iStock's licence marked "Editorial use only". Loveland: Jacob Boomsma's
+  winter aerial of downtown with Lake Loveland and the foothills beyond,
+  under Adobe's standard licence. Lyons: LD Productions' view across the
+  valley to the foothills, 8 March 2024, under Adobe's standard licence;
+  it shows the town's setting more than the town, which the owner has
+  seen, and the Main Street listing gets its photograph back. All three
+  are the plan's picks
+  (`docs/HERO-PHOTOS.md`). The uploads had no rows in
+  `IMAGE_LICENSES.csv`, which fails the validator and every build on
+  `main`; this change adds them.
+- **The files stay as the agencies delivered them.** Section 11(d) of
+  iStock's agreement asks that the embedded record (the photographer,
+  iStock's name, the content's identification number) stay in the file,
+  so no file is renamed, resized or stripped; the site makes its own
+  renditions at build. A first pass had resized and stripped the
+  Berthoud file; it was replaced before merging.
+- **The credit goes on the photograph when the licence says so.** iStock's
+  section 7: editorial use "must include the following credit adjacent to
+  the content", "iStock.com/Artist's Member Name"; the photographer's
+  member name is JuniperCreek. The hero has carried no caption since 26
+  October, so `creditBeside` in `src/lib/credits.ts` names the licences
+  that need one (an editorial stock licence) and `Hero.astro` prints that
+  credit, small, in the photograph's corner, for those heroes only. The
+  two Adobe photographs' standard licence asks for none.
+- **The Berthoud crop stays centred.** Higher, to take in the whole
+  mural, the dentist's sign sat behind the town's name on a wide screen.
+- **Open: the repository is public.** iStock's 3(c) forbids use "that
+  allows others to download, extract, or redistribute content as a
+  standalone file", and its section 5 storage "on a server" that more than
+  one person can reach. Anyone can download all three files from GitHub. The
+  owner decides: make the repository private, or keep bought files out of
+  it and out of its history.
+- **Not in:** the Bimson Blacksmith Shop, which is the Pioneer Museum
+  listing's free Commons photograph.
