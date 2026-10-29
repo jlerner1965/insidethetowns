@@ -29,7 +29,6 @@ Last revised: 28 October 2026.
 | Lyons | Get the first subscriber: nobody has signed up on insidelyons.com, so the 22 October edition did not send | Its target is 150 by 20 January; the chamber's distribution ask is the drafted way in | Owner |
 | Golden | 20 November: Foothills Art Center's galleries reopen for the Holiday Art Market; once its home page says so, take `status: temporarily-closed` (and `closed`, `statusNote`, `statusSource`) off `content/golden/places/foothills-art-center.md` | Marked closed on 28 October; nothing reopens a listing on its own | Assistant |
 | Golden | Calls for the held queue (`npm run review -- --town=golden`): store hours from Sherpa House (303-278-7939), Table Mountain Grill (303-216-8040), YoColorado (303-278-2796) and Peak Cycles (303-216-1616); current closing times from Golden City Brewery ((303) 279-8092); a public phone for the Golden Mill and the Coors tour; the choir's date (GoldenConcertChoir@gmail.com) | Each listing's own site gives everything else; the 28 October re-read is in each file's review note | Owner |
-| Golden | The history article cites the museum's walking tour eight times; goldenhistory.org took the page down. Relink to the archived copy (web.archive.org, 22 June 2026) once someone can read it and confirm it holds the facts cited, or re-source them | The archive could not be reached from the assistant's container on 27 October | Assistant, or owner in a browser |
 
 ## Decisions due
 
