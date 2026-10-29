@@ -90,6 +90,97 @@ export const golden: TownConfig = {
    * src/config/school-sports.ts gives the sports pages the same crimson.
    */
   school: { name: 'Golden High School', mascot: 'Demons', teamName: 'Golden Demons', primary: '#8F0018', secondary: '#FFFFFF' },
+  // Read from the City's, the county's, RTD's and Jeffco Public Schools' own
+  // pages on 28 October 2026. Rooney Road Recycling Center's robots.txt and
+  // the City's Granicus portal ask automated readers to stay out, and the
+  // City's Fix It! and registration pages refused them (403), so those items
+  // link the City pages that describe them.
+  participation: {
+    label: 'Get involved',
+    intro: 'Boards, volunteering, clubs and groups in Golden, and how to join each.',
+  },
+  livingHere: {
+    intro: 'Who handles what in Golden, with the official page for each.',
+    sections: [
+      {
+        title: 'Utilities',
+        note: 'Water and wastewater are the City’s; electricity is Xcel Energy. Not every Golden mailing address is inside city limits, the City says, so check the address before counting on City services.',
+        verified: '2026-10-28',
+        items: [
+          { label: 'City of Golden water and wastewater billing', url: 'https://www.cityofgolden.gov/services/water_service.php', note: 'Utility Billing, City Hall, 911 10th St, 303-384-8026, weekdays 8–5; to move in or out use the Start, Stop or Transfer form ($25 for a final bill); the title company usually handles it in a sale' },
+          { label: 'Xcel Energy', url: 'https://www.xcelenergy.com/', note: 'Electricity; the City’s energy figures for Golden’s natural gas use come from Xcel too' },
+        ],
+      },
+      {
+        title: 'Trash and recycling',
+        note: 'The City contracts one hauler, 5280 Waste Solutions, for its Pay-As-You-Throw program: you pay by trash-cart size, and recycling and compost carts come with it.',
+        verified: '2026-10-28',
+        items: [
+          { label: 'Trash, recycling and compost: the City’s program', url: 'https://www.cityofgolden.gov/services/trash_recycling_compost/index.php', note: '5280 Waste Solutions, 303-277-8727; $9.24 a month for a 32-gallon trash cart, $18.16 for 64 gallons, $30.06 for 96; carts out by 7 am; one free large-item pickup a year' },
+          { label: 'When is trash day?', url: 'https://www.cityofgolden.gov/services/trash_recycling_compost/when_is_trash_day_.php', note: 'Collection-day maps by neighborhood and the 2026 calendar; a holiday moves pickup back one day' },
+          { label: 'Yard Waste Collection Days', url: 'https://www.cityofgolden.gov/services/trash_recycling_compost/yard_waste_collection_days.php', note: 'Spring and fall; this fall November 2–6, on your trash day by 7 am, up to 3 cubic yards in the organics cart, bundled or in compostable bags' },
+          { label: 'Hard-to-recycle items guide', url: 'https://www.cityofgolden.gov/community/sustainable_golden/waste_diversion/hard_to_recycle_items_guide.php', note: 'Where appliances, batteries, electronics and paint go; household chemicals to the Rooney Road Recycling Center, by appointment, fees may apply' },
+        ],
+      },
+      {
+        title: 'Getting around',
+        verified: '2026-10-28',
+        items: [
+          { label: 'Ore Cart: the free shuttle', url: 'https://www.cityofgolden.gov/services/ore_cart_shuttle_service/index.php', note: 'Run by the City with Colorado School of Mines: three routes about every 15 minutes, weekdays 7 am–6:30 pm and Saturdays 8–5, the Tungsten route to the W Line station; no service Sundays or on Mines holidays; 303-384-2278' },
+          { label: 'Light rail and buses, as the City lists them', url: 'https://www.cityofgolden.gov/community/getting_around/ride.php', note: 'The W Line to Union Station from Jefferson County Government Center–Golden Station every half hour; bus 17 from 10th & Washington to Federal Center Station daily; RTD’s schedules also list the GS, Golden/Boulder' },
+          { label: 'Golden FlexRide', url: 'https://www.rtd-denver.com/routes-services/other-services/flexride/flexride-service-areas/golden', note: 'RTD’s on-demand rides in most of the city, weekdays 5:30 am–7 pm and Saturdays 8–7, none on Sundays or holidays; book at 303-299-6000 or online; Golden Heights, Golden Hills and the Coors Technology Center are outside the area' },
+          { label: 'Street maintenance and snow plowing', url: 'https://www.cityofgolden.gov/services/street_maintenance.php', note: 'Snow and ice control on all city streets in a storm, primary roads first and residential last, with a live plow map; fall sweeping October 1 through November' },
+          { label: 'CDOT road conditions', url: 'https://www.cotrip.org/', note: 'US 6 through Clear Creek Canyon, CO 93, CO 58 and I-70' },
+        ],
+      },
+      {
+        title: 'Recreation',
+        note: 'The City runs the Community Center, the parks and the classes; Jefferson County Parks & Open Space runs the mountain parks around the town.',
+        verified: '2026-10-28',
+        items: [
+          { label: 'City recreation: class registration', url: 'https://www.cityofgolden.gov/community/recreation/index.php', note: 'The City’s page links its online registration for classes, camps, dance and pottery; or call the Community Center, 303-384-8100', track: 'registration' },
+          { label: 'Golden Community Center, 1470 10th St', url: 'https://www.cityofgolden.gov/community/golden_community_center/index.php', note: 'Pools, gym, track and fitness; Mon–Thu 5:30 am–8 pm, Fri 5:30–7, Sat 7–6, Sun 8–4; Equity & Access financial help with programs for Golden residents: apply at least a month before enrollment opens' },
+          { label: 'Front Porch, for older adults', url: 'https://www.cityofgolden.gov/community/golden_community_center/front_porch.php', note: 'Upstairs at the Community Center, weekdays 8 am–2 pm: drop-in activities, clubs and day trips; 303-384-8130' },
+          { label: 'City parks and trails', url: 'https://www.cityofgolden.gov/community/parks_trails/index.php', note: '19 parks and 42 miles of paved trails, as the City counts them; pavilion rentals 303-384-8100' },
+          { label: 'Jeffco Parks & Open Space', url: 'https://www.jeffco.us/4867/Open-Space', note: '27 county parks, more than 58,000 acres and 275 trail miles; headquarters at 700 Jefferson County Parkway, 303-271-5925' },
+        ],
+      },
+      {
+        title: 'Schools',
+        note: 'Golden is in Jeffco Public Schools, the county-wide district. The neighborhood school goes by the address, and choice enrollment lets a student apply to any Jeffco school with room.',
+        verified: '2026-10-28',
+        items: [
+          { label: 'Jeffco Public Schools: School Finder and boundary maps', url: 'https://www.jeffcopublicschools.org/about/articulation-areas', note: 'The Golden area is Kyffin, Mitchell, Ralston, Shelton and Welchester elementaries, Bell Middle and Golden High' },
+          { label: 'Jeffco: enrollment and choice enrollment', url: 'https://www.jeffcopublicschools.org/enroll', note: 'Round 1 for 2027–28 runs December 1, 2026 to January 15, 2027 in EnrollJeffco, up to three schools a student; results January 26', track: 'registration' },
+          { label: 'Golden articulation area', url: 'https://golden.jeffcopublicschools.org/about/articulation-area', note: 'Golden High’s page for the area’s seven schools; the high school is at 701 24th St, 303-982-4200' },
+        ],
+      },
+      {
+        title: 'Reporting a problem',
+        verified: '2026-10-28',
+        items: [
+          { label: 'Fix It!: report a problem to the City', url: 'https://www.cityofgolden.gov/services/contact_us.php', note: 'Potholes, streetlights, damaged signs and code enforcement, reported and tracked online; the City’s contact page links it and lists every department’s number' },
+          { label: 'Golden Police Department', url: 'https://www.cityofgolden.gov/police/contact_us.php', note: '911 10th St, 303-384-8045; non-emergency dispatch through Jeffcom, 303-980-7300, or its online form; emergency 911' },
+          { label: 'Golden Fire Department', url: 'https://www.cityofgolden.gov/services/fire_department/index.php', note: 'A City department of staff and volunteers; administration 303-384-8094, weekdays 8–5; after hours and weekends 303-980-7300' },
+          { label: 'Water or sewer emergency', url: 'https://www.cityofgolden.gov/services/water_service.php', note: '303-384-8158, answered around the clock' },
+          { label: 'LookoutAlert emergency notifications', url: 'https://www.cityofgolden.gov/community/health_safety/emergency_preparedness.php', note: 'Jefferson County’s alerts by text, email or voice for wildfire, evacuation and other emergencies; sign up from the City’s page' },
+        ],
+      },
+      {
+        title: 'City meetings and participation',
+        note: 'The City holds its own elections on the first Tuesday of November in odd-numbered years; Jefferson County runs the rest, by mail ballot.',
+        verified: '2026-10-28',
+        items: [
+          { label: 'City Council', url: 'https://www.cityofgolden.gov/government/city_leadership/city_council.php', note: '2nd and 4th Tuesdays in Council Chambers, City Hall, 911 10th St; sign up at the meeting to speak, or email a comment on an agenda item by 3 pm on the day', track: 'participation' },
+          { label: 'Agendas, minutes and recordings', url: 'https://www.cityofgolden.gov/government/public_meetings.php', note: 'Council and board meetings, with each agenda once it is posted' },
+          { label: 'Serve on a board or commission', url: 'https://www.cityofgolden.gov/government/city_leadership/boards_commissions/vacancies.php', note: 'Applications open early February to mid-March, interviews the last Tuesday of March; most seats are for city residents; City Clerk 303-384-8014', track: 'participation' },
+          { label: 'Guiding Golden: City projects open for comment', url: 'https://www.guidinggolden.com/', note: 'The City’s engagement site; register to follow projects and give feedback', track: 'participation' },
+          { label: 'Volunteer with the City', url: 'https://www.cityofgolden.gov/community/get_involved/volunteer.php', note: 'Habitat Helpers at DeLong Park, Adopt-A-Street, the History Museum & Park, and a list of local groups that take volunteers', track: 'participation' },
+          { label: 'Jefferson County Elections', url: 'https://www.jeffco.us/4947/Elections', note: 'General election November 3, 2026, last day to vote by 7 pm; drop boxes, vote centers and what is on the ballot; 3500 Illinois St, Suite 1100, 303-271-8111' },
+        ],
+      },
+    ],
+  },
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Golden,-CO_rb/' },
