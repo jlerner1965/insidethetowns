@@ -7101,3 +7101,53 @@ shared or relayed IP (iCloud Private Relay on an iPhone, a VPN) can do.
   is Buttondown's setting and the owner's call (25 October). Buttondown's
   own form in a new tab stays as the last resort, when the page's call
   cannot settle it.
+
+## Golden as a flagship, 28 October 2026
+
+*The owner, after Golden's first week in Plausible (106 visitors, rising
+from about 10 a day to 28): "bring golden back and enhance anything
+needed I want flagship such as berthoud… I believe golden has huge
+potential."*
+
+Golden had been a visitor guide since 20 October ("The other mountain
+guides"): no email, no signup box. Two readers had signed up for it on 17
+and 20 October and were tagged `golden` in Buttondown, so nothing went to
+them on Thursdays; they get the Golden edition again from its next send.
+
+- **The same flagship as the others.** `visitorGuide` comes off and `home`
+  goes on; Golden gets a Families hub (fifteen programs, Jeffco Public
+  Schools' days off for 2026–27), Living here (seven sections) and Get
+  involved (eleven ways in), every item from the City's, the county's,
+  RTD's, Jeffco's or the organizer's own page, read 28 October. Its first
+  local update is the City's scam alert. `test/flagships.test.ts` holds
+  eight.
+- **Golden High, the Demons.** Followed on MaxPreps with the default fall
+  and winter teams (CHSAANow lists them all). MaxPreps refuses the cloud
+  address, so the colour and the first data file came from the runner: the
+  sports probe on this branch (run 40789110242) read MaxPreps's school
+  colours, crimson 8F0018 and white, and the full run wrote
+  data/golden/sports.json (football 8-1, boys soccer 12-1-2, volleyball
+  18-1). The scoreboard band is the crimson, 9.6:1 under white; the guide
+  keeps its copper. No school calendar is checked yet (Jeffco's school
+  sites did not answer the cloud address), so games to come are on
+  MaxPreps's word, and the page says so.
+- **Its own edition again**, nine in all. The mountain chassis stays: Golden
+  is still "up the hill" for the Front Range guides' day trips.
+- **What the sources would not give.** The City's Fix It! and registration
+  pages refused automated readers (403), so their items link the City
+  pages that describe them; swim-lesson and class fees are "Not stated".
+  Rooney Road Recycling Center's and the City's Granicus portal's
+  robots.txt ask readers to stay out. Kiwanis of Golden refused (403) and
+  has no entry; Golden Youth Football's league site refused too. Jeffco's
+  online school calendar is disallowed; the breaks are from the district's
+  family-calendar PDF. Summer break is not listed: the calendar gives the
+  last day of school, May 27, but no end to the summer.
+- **Conflicts left for a person.** The City's trash pages name 5280 Waste
+  Solutions as its hauler, its water page and contact list Republic
+  Services with the same phone number; the guide follows the trash pages.
+  The Parks page counts 19 parks and 42 miles of paved trail, the New
+  Resident Guide 21 and 24. The Ore Cart page says it doesn't run on Mines
+  holidays, the City's Ride page says federal holidays.
+- **The owner's.** A Formspree form for insidegolden.com (its contact and
+  event forms are email until then), and the photographs on the
+  photo-priority list.
