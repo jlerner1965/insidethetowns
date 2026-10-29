@@ -1,6 +1,6 @@
 ---
 title: "Coors Brewery Tour"
-review: { reason: "coorsbrewerytour.com gives no phone number (contact form only), so the business rule fails. Its hours block is also headed '2025 Hours of Operation' above a 2026 closures list. Find a public phone for the tour on a Molson Coors page and confirm the 2026 hours (Thu–Mon 10 am–4 pm) before publishing.", since: "2026-10-06", from: manual }
+review: { reason: "Re-read 28 October: coorsbrewerytour.com now answers 403 on every page, so nothing could be re-checked. On 6 October it gave no phone number (contact form only), so the business rule fails, and its hours block was headed 2025 above a 2026 closures list. Find a public phone for the tour on a Molson Coors page and confirm the 2026 hours (Thu–Mon 10 am–4 pm) before publishing.", since: "2026-10-06", from: manual }
 type: venue
 address: "502 14th St., Golden, CO 80401"
 area: "Downtown"

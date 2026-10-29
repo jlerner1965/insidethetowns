@@ -281,5 +281,6 @@ export const golden: TownConfig = {
     policeNonEmergency: 'https://www.cityofgolden.gov/police/contact_us.php',
     policeNonEmergencyLabel: 'Golden Police Department (non-emergency dispatch 303-980-7300)',
   },
+  formspreeId: 'xljjlrkd',
   plausible: true,
 };

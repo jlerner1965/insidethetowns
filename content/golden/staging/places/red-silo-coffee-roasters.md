@@ -1,6 +1,6 @@
 ---
 title: "Red Silo Coffee Roasters"
-review: { reason: "robots.txt at redsilocoffee.com disallows our reader for every path, so nothing was read from it; the domain itself is unconfirmed as the roaster's. Check the site by hand (or call) for its cafe's address, phone and hours before publishing.", since: "2026-10-06", from: manual }
+review: { reason: "Re-read 28 October: redsilocoffee.com no longer serves a site (its TLS handshake fails, and the name resolves to what looks like a domain-parking server), so the domain is not the roaster's and nothing was read. Find the roaster's own site or social page, or call, for the cafe's address, phone and hours before publishing; if it has closed, reject.", since: "2026-10-06", from: manual }
 type: coffee
 address: "Golden, CO"
 tags: [coffee, roaster]

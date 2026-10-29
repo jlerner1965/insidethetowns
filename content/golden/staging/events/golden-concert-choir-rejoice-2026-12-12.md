@@ -1,6 +1,6 @@
 ---
 title: "Rejoice: Golden Concert Choir Holiday Concert"
-review: { reason: "The choir's two pages disagree on the date: its concert page says Saturday, December 12 at 4 pm (as does Visit Golden), but the ticket button on its home page reads \"Rejoice - December 26\". Publish once the choir confirms December 12.", since: "2026-10-28", from: manual }
+review: { reason: "Re-read 28 October: the choir's pages still disagree. Its concert page says Saturday, December 12 at 4 pm, the ticket button on its home page still reads \"Rejoice - December 26\", and its tickets page shows nothing to an automated reader. Publish once the choir confirms December 12 (GoldenConcertChoir@gmail.com, on its site).", since: "2026-10-28", from: manual }
 start: "2026-12-12T16:00"
 venue: "Common Flame Unitarian Universalist Congregation"
 address: "14350 W. 32nd Ave, Golden, CO 80401"

@@ -1,6 +1,6 @@
 ---
 title: "Table Mountain Grill & Cantina"
-review: { reason: "Neither tmigrillandcantina.com nor the Table Mountain Inn's dining page gives the restaurant's opening hours; they list only happy hour (Mon–Fri 2–5 pm), a late-night happy hour and in-room dining (7 am–9 pm). Call 303-216-8040 for brunch, lunch and dinner hours before publishing.", since: "2026-10-06", from: manual }
+review: { reason: "Re-read 28 October: neither tmigrillandcantina.com nor the Table Mountain Inn's dining page gives the restaurant's opening hours; they list happy hour (Mon–Fri 2–5 pm) and room service (daily 7 am–9 pm) only. Call 303-216-8040 for brunch, lunch and dinner hours before publishing.", since: "2026-10-06", from: manual }
 type: restaurant
 address: "1310 Washington Ave., Golden, CO 80401"
 area: "Washington Avenue"

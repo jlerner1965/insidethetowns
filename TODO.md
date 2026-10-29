@@ -27,6 +27,7 @@ Last revised: 28 October 2026.
 | Niwot | Call Belle Terre Floral, (303) 652-0419, and The Nook: hours | On no page of their own since 12 October | Owner |
 | All three | Fill the 90-day scorecard for the week of 26 October (`docs/90-DAY-TEST.md`) on Tuesday 3 November | The scheduled session does it every Tuesday at 11:17; Search Console settles a Sunday about two days later | Assistant (scheduled) |
 | Lyons | Get the first subscriber: nobody has signed up on insidelyons.com, so the 22 October edition did not send | Its target is 150 by 20 January; the chamber's distribution ask is the drafted way in | Owner |
+| Golden | Calls for the held queue (`npm run review -- --town=golden`): store hours from Sherpa House (303-278-7939), Table Mountain Grill (303-216-8040), YoColorado (303-278-2796) and Peak Cycles (303-216-1616); current closing times from Golden City Brewery ((303) 279-8092); a public phone for the Golden Mill and the Coors tour; the choir's date (GoldenConcertChoir@gmail.com) | Each listing's own site gives everything else; the 28 October re-read is in each file's review note | Owner |
 | Golden | The history article cites the museum's walking tour eight times; goldenhistory.org took the page down. Relink to the archived copy (web.archive.org, 22 June 2026) once someone can read it and confirm it holds the facts cited, or re-source them | The archive could not be reached from the assistant's container on 27 October | Assistant, or owner in a browser |
 
 ## Decisions due
