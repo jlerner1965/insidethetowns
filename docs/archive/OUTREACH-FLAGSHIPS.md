@@ -50,22 +50,24 @@ centre.
 
 ## Inside Golden
 
-Golden has no entry in docs/BACKLINKS.md yet. The URLs below answered on 15
-October 2026; the "cited" counts and the research behind the other two towns
-have not been done for Golden and should be before anyone writes.
+Golden's entry in docs/BACKLINKS.md was researched on 28 October 2026: cited
+counts, front doors, link pages, contact routes and robots.txt. The URLs below
+answered on 15 October 2026, and again on 28 October unless marked. First
+emails to the library, the City, the museum and the Chamber are drafted in
+docs/relationships/drafts/. None has been sent.
 
 | Task | Organisation | URL | Status |
 |---|---|---|---|
-| Chamber link | Golden Chamber of Commerce | https://goldenchamber.org/ (goldencochamber.org redirects there) | Not contacted; not yet reviewed as a source |
-| Municipality link | City of Golden | https://www.cityofgolden.gov/ | The guide's official link; not contacted |
-| Tourism link | Visit Golden (the City's tourism office) | https://www.visitgolden.com/ | Cited in the Moving Here guide; not contacted |
-| Library link | Jefferson County Public Library, Golden Library | https://jeffcolibrary.org/locations/GN/ | Cited in the Moving Here guide; not contacted |
-| Museum or historical society link | Golden History Museum (City-run) | https://www.goldenhistory.org/ | Cited; not contacted |
-| Open space | Jefferson County Open Space (headquartered in Golden) | https://www.jeffco.us/4867/Open-Space | The guide links its alerts page on every trail; not contacted |
-| Community nonprofits | Foothills Art Center; the breweries' and downtown groups | /places/foothills-art-center/ carries the center's site | Not researched |
-| Event organizers | Golden's confirmed sources (15 of 16 in `content/golden/sources.json`), the Downtown Development Authority (block party listing) | see the registry | Sources confirmed for ingest; no one contacted about linking |
-| Newspaper coverage | Golden Transcript | https://www.thegoldentranscript.com/ (goldentranscript.net redirects there) | Not contacted |
-| Partner distribution of the roundup | Chamber, Visit Golden | as above | Nothing sent yet |
+| Chamber link | Golden Chamber of Commerce | https://goldenchamber.org/ (goldencochamber.org redirects there) | Researched 28 October 2026 (cited 14); first email drafted in docs/relationships/drafts/golden-chamber-2026-10-28.md. Not contacted |
+| Municipality link | City of Golden | https://www.cityofgolden.gov/ | The guide's official link. Researched 28 October 2026 (cited 184); first email drafted in docs/relationships/drafts/golden-city-2026-10-28.md, covering Visit Golden and the DDA. Not contacted |
+| Tourism link | Visit Golden (the City's tourism office) | https://www.visitgolden.com/ | Researched 28 October 2026 (cited 18). No draft of its own: it is the City's marketing arm, part of the City email. Not contacted |
+| Library link | Jefferson County Public Library, Golden Library | https://jeffcolibrary.org/locations/GN/ | Researched 28 October 2026 (cited 55); first email drafted in docs/relationships/drafts/golden-library-2026-10-28.md. Not contacted |
+| Museum or historical society link | Golden History Museum (City-run) | https://www.goldenhistory.org/ | Researched 28 October 2026 (cited 43); first message drafted in docs/relationships/drafts/golden-history-museum-2026-10-28.md, to send a week or more after the City's. Not contacted |
+| Open space | Jefferson County Open Space (headquartered in Golden) | https://www.jeffco.us/4867/Open-Space | The guide links its alerts page on every trail. Researched 28 October 2026 (cited 92). No draft: a county agency, the least likely to link. Not contacted |
+| Community nonprofits | Foothills Art Center; the breweries' and downtown groups | /places/foothills-art-center/ carries the center's site | Foothills Art Center researched 28 October 2026 (https://foothillsartcenter.org/, cited 18), no draft. The breweries' and downtown groups are not researched. Not contacted |
+| Event organizers | Golden's confirmed sources (15 of 16 in `content/golden/sources.json`), the Downtown Development Authority (block party listing) | see the registry | Sources confirmed for ingest. The DDA, researched 28 October 2026, has no site; it is a section of the City's Economic Development page and part of the City email. No one contacted about linking |
+| Newspaper coverage | Golden Transcript | https://www.thegoldentranscript.com/ (goldentranscript.net now redirects to coloradocommunitymedia.com/golden-transcript/; not re-read) | Researched 28 October 2026. Its robots.txt refuses AI agents, so nothing was read and any relationship is by hand. No draft. Not contacted |
+| Partner distribution of the roundup | Chamber, Visit Golden | as above | Not part of the 28 October drafts. Nothing sent yet |
 | Embeddable calendar or widget | Visit Golden, the Chamber | as above | Not offered |
 
 ## Order of work
@@ -77,8 +79,10 @@ have not been done for Golden and should be before anyone writes.
    (PERMISSIONS.md) for a link; none has been asked.
 3. Confirm the two Niwot core sources and the Lyons library feed, then offer
    each the Thursday roundup for their members.
-4. Research Golden to the standard of docs/BACKLINKS.md before writing to
-   anyone there.
+4. **Done 28 October 2026.** Research Golden to the standard of
+   docs/BACKLINKS.md before writing to anyone there. The Golden section is in
+   docs/BACKLINKS.md; four first emails are in
+   docs/relationships/drafts/golden-*-2026-10-28.md. None is sent.
 
 Record every message sent, with the date, in docs/BACKLINKS.md under the
 town, so nobody writes twice.

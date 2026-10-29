@@ -1,8 +1,9 @@
 # Local backlink targets
 
-Every URL below was fetched and confirmed on **20 September 2026**. Two domains
-that look like obvious targets are traps and are listed under *Do not link to
-these* — read that section before you write to anybody.
+Every URL below was fetched and confirmed on **20 September 2026**, except
+Golden's, verified on 28 October 2026. Three domains that look like obvious
+targets are traps and are listed under *Do not link to these* — read that
+section before you write to anybody.
 
 This is a target list, not a campaign. Nobody at Inside the Towns has a
 relationship with any of these organisations yet, and this document does not
@@ -24,6 +25,11 @@ So the order of effort is:
    local link footprint. These four gain the most per link, and Windsor most
    of all.
 2. **Lyons, Timnath** — ambiguous or new enough to be worth the effort.
+   **Golden** belongs here as well (added 28 October 2026). Golden, British
+   Columbia has its own tourism board and a chamber with the same name, and
+   there are Goldens in Illinois and Missouri. The guide launched in October
+   2026 and its home page sits around position 48 (docs/SEARCH-VISIBILITY.md).
+   Its local link footprint is large, so it is not a tier-1 town.
 3. **Niwot, Berthoud, Fort Collins** — names are effectively unique; links
    help, but they are not solving a disambiguation problem.
 
@@ -301,6 +307,158 @@ and loads for a person. Do not automate against `oldfirehousebooks.com`,
 crawlers with `Disallow: /`; the bookshop is listed from the DDA's page
 without hours, and the other five are not listed. A person can.
 
+### Golden — insidegolden.com
+
+Researched and verified 28 October 2026. Nobody from the guide has written to
+any of these organisations.
+
+| Organisation | URL | Cited |
+|---|---|---|
+| City of Golden | https://www.cityofgolden.gov/ | 184 |
+| Visit Golden (the City's marketing arm) | https://www.visitgolden.com/ | 18 |
+| Golden History Museum & Park (City-run) | https://www.goldenhistory.org/ | 43 |
+| Downtown Development Authority (a section of the City's site) | https://www.cityofgolden.gov/business/economic_development/index.php#dda | 0 |
+| Jefferson County Public Library, Golden Library | https://jeffcolibrary.org/locations/GN/ | 55 |
+| Jefferson County Parks & Open Space | https://www.jeffco.us/4867/Open-Space | 92 |
+| Golden Chamber of Commerce | https://goldenchamber.org/ | 14 |
+| Foothills Art Center | https://foothillsartcenter.org/ | 18 |
+| Golden Transcript (Colorado Community Media) | https://www.thegoldentranscript.com/ (not read, see below) | 0 |
+
+Cited counts the links on pages the guide serves: every occurrence of the
+domain in `content/golden/`, dots escaped, leaving out `sources.json` (the
+editor's registry, never built), staged files and events that have ended,
+counted on 28 October 2026 after that day's new listings and the history
+article's re-sourcing were in. The City is `cityofgolden.gov` (its `b2b.`
+subdomain included) plus `cityofgolden.net`, its old domain, which some source
+fields still carry; its ArcGIS map tours are not counted. The library is
+`jeffcolibrary.org`, `jeffcolibrary.bibliocommons.com` (its events and
+catalogue) and `gateway.bibliocommons.com`. Open Space is every `jeffco.us`
+link but the county home page and the assessor's valuation page: its park,
+alert, regulation, map and volunteer pages, its calendar's events and
+`offero.jeffco.us`, its volunteer sign-up. The DDA and the Transcript have no
+link on a live page (the DDA's one is on an ended event; the Transcript is only
+in the registry). Counted the earlier way, with the dot unescaped and the
+registry included, the figures run higher (the City 209, the library 78);
+the drafts quote the table's figures, which a reader of the site can click.
+
+The City, Visit Golden, the museum and the DDA are one relationship. Visit
+Golden is "the marketing arm of the City of Golden" in the Golden Welcome
+Center's words, and its Community Marketing Board was created by City
+Ordinance 2267. The museum is City-run: its accessibility notice is the City's,
+and the City's department list sends museum questions to its contact page. The
+DDA has no website; it is a section of the City's Economic Development page.
+Write to the City first, and to the museum, which has its own staff, form and
+links page, a week or more later. Visit Golden and the DDA are not separate
+emails.
+
+Where a link would go and how each organisation asks to be reached. Each front
+door that was read answered 200 with the title given, and each body is Golden,
+Colorado (Golden, CO 80401, or Jefferson County):
+
+- **City**, "City of Golden, Colorado". No community-links page. The nearest is
+  the [New Resident Guide](https://www.cityofgolden.gov/community/new_resident_guide.php),
+  which already sends newcomers to VisitGolden.com, the Golden Library and
+  Guiding Golden. Write to Communications, `communications@cityofgolden.gov`,
+  303-384-8000, from the department list on
+  [Contact Us](https://www.cityofgolden.gov/services/contact_us.php). No
+  robots.txt (404). Its calendar is the guide's core event source (council
+  meetings, Cookies with Councilors, the wildfire-plan open house), Living here
+  is built from its pages, and the guide's first local update was its 9 October
+  scam alert. Draft: `docs/relationships/drafts/golden-city-2026-10-28.md`.
+- **Visit Golden**, "Home - Golden, CO". No links page in its sitemap. Business
+  listings are for City of Golden businesses, and events go through
+  [Submit an Event](https://www.visitgolden.com/events/submit-an-event/). Write
+  through the form on [Contact](https://www.visitgolden.com/contact/); the
+  addresses there are hidden from automated readers, and the page names a media
+  contact. Ten upcoming events on the guide come from its calendar, among them
+  the Candlelight Walk, the Holiday Parade and Jingle on the Avenue.
+- **Golden History Museum & Park**, "History museum open five days per week,
+  Golden, Colo." The one real links page among these:
+  [Resources we trust](https://www.goldenhistory.org/discover-golden/resources/),
+  local, county and state history sites "in no particular order", the Golden
+  Landmarks Association and Jeffco Stories among them. The guide's
+  [history article](https://insidegolden.com/articles/golden-history/) is the
+  thing to offer it. No email is published: use the
+  [contact form](https://www.goldenhistory.org/about/contact/), or call
+  303-278-3557 on weekdays, 9 to 5. robots.txt disallows `/calendar` and nothing
+  the guide reads. Draft:
+  `docs/relationships/drafts/golden-history-museum-2026-10-28.md`.
+- **DDA**, "Economic Development". Its contact, as that page gives it, is
+  `edcomm@cityofgolden.net`, 303-384-8065; the page also names an Economic
+  Development Manager. The guide carried its 10 October block party from the
+  City calendar. Fold it into the City conversation.
+- **Library**, "Golden Library | Jefferson County Public Library", 1019 10th St.
+  No Golden links page. JCPL's
+  [Community Resources](https://jeffcolibrary.org/community-resources/) is
+  county-wide services (food, crisis lines, older adults), a weak fit. No
+  general address is published: use the Email Us form linked from
+  [Contact Us](https://jeffcolibrary.org/contact-us/), or the call center,
+  303-235-5275. [News](https://jeffcolibrary.org/news/) lists media contacts
+  (the site names a Director of Communications and Engagement). The Golden
+  branch's events are a confirmed source, read by hand (nine on the calendar now), and builds its
+  storytimes listing from the library's storytime schedule. `jeffcolibrary.bibliocommons.com`
+  sets `Crawl-delay: 120`. Draft:
+  `docs/relationships/drafts/golden-library-2026-10-28.md`.
+- **Open Space**, "Open Space | Jefferson County, CO". No community-links page
+  ("Helpful Links" is its own navigation). Use the
+  [Open Space contact form](https://www.jeffco.us/FormCenter/Open-Space-15/Contact-Jeffco-Open-Space-144),
+  or call 303-271-5925, Monday to Thursday, 8 to 5; the county's contact page
+  names a Director of Public Affairs for media. Its Alerts & Closures page is on
+  every trail page in the guide. A county agency is the least likely of these
+  to link to a town guide, so the honest offer is a correction channel.
+  `jeffco.us` sets `Crawl-delay: 10`, and since 21 October it bars a group of AI
+  and SEO crawlers (`ClaudeBot`, `Claude-SearchBot`, `GPTBot` and others) from
+  `calendar.aspx`, `RSSFeed.aspx` and the iCalendar module, but not from the
+  park pages.
+- **Chamber**, "Golden Chamber of Commerce -Golden Chamber of Commerce", 1010
+  Washington Ave. No community-links page: its menu's Community heading holds
+  Job Search and Visiting Golden (a link to visitgolden.com), and
+  [Business Resources](https://goldenchamber.org/business-resources/) lists
+  outside help for businesses. Write through the
+  [contact form](https://business.goldenchamber.org/contact/) or call
+  303-279-3113. The general address in the footer is hidden from automated
+  readers; the guide's listing gives it as `info@goldenchamber.org`, so confirm
+  it in a browser. Its calendar is a confirmed source, read by hand, though no event on the
+  guide cites it today, and Get Involved lists its event volunteers and Golden Young
+  Professionals. The Golden Welcome Center at the same address is a separate
+  501(c)(3), cited once. Its [Partnerships](https://www.goldenwelcomecenter.org/partnerships)
+  page lists the community groups it works with (`info@goldenwelcomecenter.org`).
+  Draft: `docs/relationships/drafts/golden-chamber-2026-10-28.md`.
+- **Foothills Art Center**, "Foothills Art Center - Golden's Cultural Community
+  Hub", at the Astor House, 1133 Arapahoe St.
+  [Our Partners](https://foothillsartcenter.org/our-partners/) is a sponsor
+  list, not community links. Its contact is `info@foothillsartcenter.org`,
+  303-279-3922. Its event source is still proposed in `sources.json`. The guide
+  has its listing, three of its events and a 28 October correction (the Astor
+  House galleries are closed until 20 November).
+- **Golden Transcript**, not read. The robots.txt files of
+  `thegoldentranscript.com` and `coloradocommunitymedia.com` give `ClaudeBot`,
+  `Claude-Web`, `anthropic-ai` and about thirty other AI agents `Disallow: /`,
+  so neither front door was opened. `goldentranscript.net` redirects to
+  `coloradocommunitymedia.com/golden-transcript/` (seen on a robots.txt
+  request). Open it as a person to confirm which address is the paper's own.
+  It is a peer publication, like the Courier and the Recorder: offer a
+  correction channel and a calendar to check, by hand. Its proposed registry
+  entry should stay by hand as well.
+
+**Lookalikes.** `goldenchamber.bc.ca` is Golden, British Columbia, and its
+title, "Home | Golden Chamber of Commerce", is this chamber's name exactly;
+`tourismgolden.com` is Tourism Golden, BC. The BC chamber's robots.txt gives
+`ClaudeBot`, `Claude-Web` and `anthropic-ai` `Disallow: /`. These domains are
+parked and are not the organisations: `goldentranscript.com`,
+`goldenhistory.com` and `downtowngolden.com` (GoDaddy parking; the last two
+are for sale), and `goldenchamber.com` and `foothillsartcenter.com` (for sale
+at HugeDomains). `goldendda.org` and `downtowngolden.org` resolve to GoDaddy
+hosting and reset the connection over HTTPS, so what they serve is unverified;
+the City links neither, so treat neither as the DDA's. These redirects are
+safe: `goldencochamber.org` and `business.goldenchamber.org/` go to
+`goldenchamber.org`; `cityofgolden.net`, `.com` and `.org` go to
+`cityofgolden.gov`; `visitgolden.org` goes to `visitgolden.com`.
+
+These checks used the guide's own agent (`InsideTheTowns-linkcheck/1.0`)
+through a robots-aware reader, not the browser user-agent in the loop below.
+For every target, robots.txt was read first, AI-agent groups included.
+
 ## Do not link to these
 
 - **`johnstownmillikenchamber.com`** — the chamber's old domain. It now serves
@@ -312,8 +470,12 @@ without hours, and the other five are not listed. A person can.
   `johnstownco.gov`; there is no site to link to and no site to be linked from.
 - **`lyons-chamber.com`** — Lyons, **Kansas**. Its title reads "lyonskschamber".
   General web search conflates it with the Colorado town.
+- **`goldenchamber.bc.ca`** — Golden, **British Columbia**. Its title, "Home |
+  Golden Chamber of Commerce", is the Colorado chamber's name exactly, and
+  `tourismgolden.com` is that town's tourism board. Golden, Colorado's chamber
+  is `goldenchamber.org`. See the Golden section.
 
-A `200` response is not verification. Both of these return one. Check the title
+A `200` response is not verification. Each of these returns one. Check the title
 and the body text of anything before it goes in a page or an email.
 
 ## What to actually ask for
