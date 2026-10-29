@@ -7205,3 +7205,31 @@ should.
   left alone. If CivicPlus or a town says it means the subscription links
   too, that is the answer, and the events come from the sites' own
   calendar pages, which their robots.txt still allows.
+
+## Golden's review queue, 28 October 2026
+
+*The owner: "review golden's queue".* Fifteen items were waiting: thirteen
+staged places from 6 October, the choir's concert from the day before, and
+one flagged event. Each was re-read on its own site the same evening, under
+the event standard and the entry rule (a phone, a website and hours from the
+business itself), and approved through the review's own `approveText`.
+
+- **Approved: three places.** Bentgate Mountaineering, whose hours page now
+  gives new weekday hours and says "Closed Saturdays" twice, in the table and
+  in its description, so the closure is meant rather than a slip. The
+  Buffalo Rose, read at buffalorosegolden.com (as its events are since 28
+  October), which gives the address, the phone and the hours; filed as a
+  restaurant, since its hours are the kitchen's and its shows are on the
+  calendar. Miners Alley, whose site now answers: address, phone, history and
+  parking from its own pages. It posts no box office hours, so the listing
+  has none and says so, as the Fort Collins theaters' do.
+- **Removed: the past Yoga with a Ranger** (24 October), as the 27 October
+  audit proposed; the 21 November session is listed.
+- **Held, each with what it needs:** the choir's concert (its pages still
+  give December 12 and December 26); Coors (now 403); Golden City Brewery
+  (address now from its own site, hours still summer last calls); the
+  Golden Mill (hours now agree, still no phone); Peak Cycles, Sherpa House,
+  Table Mountain Grill and YoColorado (no store hours of their own); Abejas
+  (403); Red Silo (the domain no longer serves a site); Windy Saddle (the
+  name does not resolve). YoColorado's body loses its airport store: its
+  About page calls Basecamp its one and only.

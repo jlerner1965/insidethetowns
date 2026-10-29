@@ -1,6 +1,6 @@
 ---
 title: "The Golden Mill"
-review: { reason: "thegoldenmill.com gives no phone number. Its hours also disagree on the same site: the Location and Hours page says 'Open EVERY DAY 11:00 AM - 10:00 PM', while that page's footer and the Contact page say Sun–Thu 11 am–9 pm and Fri–Sat 11 am–10 pm. Call or email to get a phone number and confirm which hours are current.", since: "2026-10-06", from: manual }
+review: { reason: "Re-read 28 October: the hours now agree across the site (Sun–Thu 11 am–9 pm, Fri–Sat 11 am–10 pm, with Tacos al Chile and Happy Cones open until 10 pm), but no page of thegoldenmill.com gives a phone number. Find a public phone for the hall before publishing.", since: "2026-10-06", from: manual }
 type: restaurant
 address: "1012 Ford St, Golden, CO 80401"
 area: "Downtown"

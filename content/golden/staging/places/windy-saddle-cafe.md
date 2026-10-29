@@ -1,6 +1,6 @@
 ---
 title: "Windy Saddle Cafe"
-review: { reason: "The cafe's site could not be reached (https://windysaddlecafe.com/ failed twice on 6 October 2026), so its domain, address, phone and hours are unconfirmed. Find its own site by hand, or call, and source every field from it before publishing.", since: "2026-10-06", from: manual }
+review: { reason: "Re-read 28 October: windysaddlecafe.com still does not answer (the name does not resolve), so its domain, address, phone and hours are unconfirmed. Find its own site or social page, or call, and source every field from it before publishing; if it has closed, reject.", since: "2026-10-06", from: manual }
 type: coffee
 address: "Golden, CO"
 tags: [coffee, cafe]

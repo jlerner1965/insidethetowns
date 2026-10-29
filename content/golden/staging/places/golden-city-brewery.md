@@ -1,8 +1,9 @@
 ---
 title: "Golden City Brewery"
-review: { reason: "Its own site (gcbrewery.com) gives the phone, (303) 279-8092, but no street address on any page read, and its hours are partial: 'We open at 11am every day' plus 'SUMMER HOURS: Last Call Sun–Thurs 8:30p, Friday & Saturday 9:30pm', with no closing time, still labelled summer in October. Call to confirm the address and current opening and closing hours before publishing.", since: "2026-10-06", from: manual }
+review: { reason: "Re-read 28 October: the address, 920 12th Street, now comes from the brewery's own site (the business details in its home page's structured data, with the same phone). The hours are still only \"We open at 11am every day\" and last calls posted as SUMMER HOURS (Sun–Thu 8:30 pm, Fri–Sat 9:30 pm), with no closing time. Call (303) 279-8092 for the current hours before publishing.", since: "2026-10-06", from: manual }
 type: bar
-address: "Golden, CO"
+address: "920 12th Street, Golden, CO 80401"
+area: "Downtown"
 url: "https://www.gcbrewery.com/"
 source: "https://www.gcbrewery.com/"
 phone: "303-279-8092"
