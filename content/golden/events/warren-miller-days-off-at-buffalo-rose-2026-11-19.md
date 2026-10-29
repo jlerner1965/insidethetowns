@@ -1,5 +1,5 @@
 ---
-title: "Warren Miller's "Days Off" at the Buffalo Rose"
+title: "Warren Miller’s “Days Off” at the Buffalo Rose"
 start: "2026-11-19T19:30"
 end: "2026-11-19T21:30"
 venue: "Buffalo Rose"

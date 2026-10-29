@@ -7151,3 +7151,20 @@ them on Thursdays; they get the Golden edition again from its next send.
 - **The owner's.** A Formspree form for insidegolden.com (its contact and
   event forms are email until then), and the photographs on the
   photo-priority list.
+
+*The same day, the events.* Golden's calendar went from 12 upcoming
+events to 79, each read from its organizer's page on 28 October: City
+Council meetings and Cookies with Councilors, the museums, the library's
+one-off programs, the Buffalo Rose, Miners Alley, Foothills Art Center,
+Mines home games and talks, the Home and Mineral shows, the Great Turkey
+Chase and the holiday season; nine listed ones were corrected or
+re-checked. The library's weekly storytimes were written as repeating
+listings and then left out, as Golden's launch review and the 2 October
+rule on regulars say; the Families hub carries them in full. Miners
+Alley's box office refuses automated readers, so its dates are Visit
+Golden's; the Buffalo Rose is read at buffalorosegolden.com, since
+buffalorose.net resets the connection. **For the owner:** Jefferson
+County's robots.txt added, on 21 October, a disallow for its iCal feed
+path written in lowercase; the ingest's check matches paths by case, as
+the robots standard does, so it still reads the feed. Whether to stop
+reading it is a call about what the county meant.
