@@ -95,6 +95,85 @@ export const golden: TownConfig = {
   // the City's Granicus portal ask automated readers to stay out, and the
   // City's Fix It! and registration pages refused them (403), so those items
   // link the City pages that describe them.
+  // Read 28 October 2026. The schools are the Golden articulation area as
+  // Jeffco lists it (Bell Middle's "Golden Articulation Area" page and the
+  // district's articulation-areas page); addresses from each school's own
+  // site. The breaks are every no-school day left in 2026–27 on Jeffco
+  // Public Schools' District Family Calendar (the English PDF linked from
+  // /calendar, dated 5/22/26). February 12, March 29 and April 30 are the
+  // calendar's potential snow make-up days, so each says so. Individual
+  // schools may add modified contact days on their own calendars; those are
+  // not here.
+  families: {
+    label: 'Golden Families',
+    intro: 'What Golden kids can join, what closes soon, and the school days off.',
+    schools: [
+      {
+        district: 'Jeffco Public Schools',
+        label: 'Jeffco Public Schools: School Finder',
+        url: 'https://enrolljeffco.my.site.com/Find/s/',
+        note: 'Find a school by name, by distance or by program; Jeffco also takes choice enrollment at any school with space',
+      },
+      {
+        district: 'Jeffco Public Schools',
+        label: 'Jeffco: articulation areas and boundary maps',
+        url: 'https://www.jeffcopublicschools.org/about/articulation-areas',
+        note: 'The Golden area: a boundary map for each of its seven schools',
+      },
+      {
+        district: 'Jeffco Public Schools',
+        label: 'Golden High School',
+        url: 'https://golden.jeffcopublicschools.org/',
+        note: '701 24th Street',
+      },
+      {
+        district: 'Jeffco Public Schools',
+        label: 'Bell Middle School',
+        url: 'https://bell.jeffcopublicschools.org/',
+        note: '1001 Ulysses Street',
+      },
+      {
+        district: 'Jeffco Public Schools',
+        label: 'Kyffin Elementary',
+        url: 'https://kyffin.jeffcopublicschools.org/',
+        note: '205 Flora Way',
+      },
+      {
+        district: 'Jeffco Public Schools',
+        label: 'Mitchell Elementary',
+        url: 'https://mitchell.jeffcopublicschools.org/',
+        note: '201 Rubey Drive',
+      },
+      {
+        district: 'Jeffco Public Schools',
+        label: 'Ralston Elementary',
+        url: 'https://ralston.jeffcopublicschools.org/',
+        note: '25856 Columbine Glen Avenue',
+      },
+      {
+        district: 'Jeffco Public Schools',
+        label: 'Shelton Elementary',
+        url: 'https://shelton.jeffcopublicschools.org/',
+        note: '420 Crawford Street',
+      },
+      {
+        district: 'Jeffco Public Schools',
+        label: 'Welchester Elementary',
+        url: 'https://welchester.jeffcopublicschools.org/',
+        note: '13000 West 10th Avenue',
+      },
+    ],
+    breaks: [
+      { district: 'Jeffco Public Schools', label: 'Thanksgiving break', from: '2026-11-23', to: '2026-11-27', source: 'https://www.jeffcopublicschools.org/fs/resource-manager/view/91311db1-8491-4cca-8464-a9bf419bf216', verified: '2026-10-28' },
+      { district: 'Jeffco Public Schools', label: 'Winter break; January 4 and 5 are staff development days, and school resumes January 6', from: '2026-12-21', to: '2027-01-05', source: 'https://www.jeffcopublicschools.org/fs/resource-manager/view/91311db1-8491-4cca-8464-a9bf419bf216', verified: '2026-10-28' },
+      { district: 'Jeffco Public Schools', label: 'Martin Luther King Jr. Day', from: '2027-01-18', to: '2027-01-18', source: 'https://www.jeffcopublicschools.org/fs/resource-manager/view/91311db1-8491-4cca-8464-a9bf419bf216', verified: '2026-10-28' },
+      { district: 'Jeffco Public Schools', label: 'Staff development day (no students); a snow make-up day if needed', from: '2027-02-12', to: '2027-02-12', source: 'https://www.jeffcopublicschools.org/fs/resource-manager/view/91311db1-8491-4cca-8464-a9bf419bf216', verified: '2026-10-28' },
+      { district: 'Jeffco Public Schools', label: 'Presidents’ Day', from: '2027-02-15', to: '2027-02-15', source: 'https://www.jeffcopublicschools.org/fs/resource-manager/view/91311db1-8491-4cca-8464-a9bf419bf216', verified: '2026-10-28' },
+      { district: 'Jeffco Public Schools', label: 'Spring break', from: '2027-03-22', to: '2027-03-26', source: 'https://www.jeffcopublicschools.org/fs/resource-manager/view/91311db1-8491-4cca-8464-a9bf419bf216', verified: '2026-10-28' },
+      { district: 'Jeffco Public Schools', label: 'Staff development day (no students); a snow make-up day if needed', from: '2027-03-29', to: '2027-03-29', source: 'https://www.jeffcopublicschools.org/fs/resource-manager/view/91311db1-8491-4cca-8464-a9bf419bf216', verified: '2026-10-28' },
+      { district: 'Jeffco Public Schools', label: 'No school; a snow make-up day if needed', from: '2027-04-30', to: '2027-04-30', source: 'https://www.jeffcopublicschools.org/fs/resource-manager/view/91311db1-8491-4cca-8464-a9bf419bf216', verified: '2026-10-28' },
+    ],
+  },
   participation: {
     label: 'Get involved',
     intro: 'Boards, volunteering, clubs and groups in Golden, and how to join each.',
