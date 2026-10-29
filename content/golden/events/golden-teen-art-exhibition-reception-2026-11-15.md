@@ -10,7 +10,7 @@ organizer: "Jefferson County Public Library"
 organizerUrl: "https://jeffcolibrary.org/"
 source: "https://jeffcolibrary.bibliocommons.com/events/6abe73eec6cddb00459545bc"
 sourceId: "jeffcolibrary-bibliocommons-com"
-verified: "2026-10-07"
+verified: "2026-10-28"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 
