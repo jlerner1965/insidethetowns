@@ -19,4 +19,4 @@ verified: "2026-10-28"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 
-Joe Landry's adaptation of the Frank Capra film returns to Miners Alley after last year's run, directed by Len Matheo: a 1940s radio studio where a small cast voices dozens of characters and makes the sound effects in front of the audience. Visit Golden lists shows Wednesday to Sunday from November 25 to December 20, with 2 pm and 7:30 pm curtains; check the theater's box office for the day you want.
+Joe Landry's adaptation of the Frank Capra film returns to Miners Alley after last year's run, directed by Len Matheo: a 1940s radio studio where the cast voices dozens of characters and makes the sound effects in front of the audience. Visit Golden lists shows Wednesday to Sunday from November 25 to December 20, with 2 pm and 7:30 pm curtains; check the theater's box office for the day you want.
