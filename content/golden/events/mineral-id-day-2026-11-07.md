@@ -10,7 +10,7 @@ category: other
 organizer: "Mines Museum of Earth Science"
 source: "https://calendar.mines.edu/live/events/15702-mineral-id-day"
 sourceId: "calendar-mines-edu"
-verified: "2026-10-07"
+verified: "2026-10-28"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 

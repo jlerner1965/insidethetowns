@@ -7,7 +7,7 @@ url: "https://www.cityofgolden.gov/calendar.php"
 category: family
 source: "https://www.cityofgolden.gov/calendar.php"
 sourceId: "cityofgolden-gov"
-verified: "2026-10-07"
+verified: "2026-10-28"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 
