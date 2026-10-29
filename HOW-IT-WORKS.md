@@ -46,9 +46,9 @@ The config flag decides what a guide is; nothing is per-town in code.
 
 | Kind | Flag | Towns | What it means |
 |---|---|---|---|
-| Resident guide | `home: true` | Berthoud, Elizabeth, Erie, Johnstown, Lyons, Niwot, Windsor | Follows a school; has Families, Living here and Updates; gets the Thursday email |
+| Resident guide | `home: true` | Berthoud, Elizabeth, Erie, Golden, Johnstown, Lyons, Niwot, Windsor | Follows a school; has Families, Living here and Updates; gets the Thursday email |
 | Plain guide | none | Timnath, Carbon Valley, Idaho Springs (Clear Creek) | In the email and the weekly rotation |
-| Visitor guide | `visitorGuide` | Estes Park, Evergreen, Golden, Manitou Springs | Checked on the 60-day cycle; no email, no signup box |
+| Visitor guide | `visitorGuide` | Estes Park, Evergreen, Manitou Springs | Checked on the 60-day cycle; no email, no signup box |
 | Quiet guide | `quiet` | Elizabeth, Fort Collins, Grand Lake, Leadville, Longmont, Loveland, Nederland | Pages up and indexed; listings checked as the rotation reaches them; no email, no signup, no Thursday draft. Each has a decide-by date in its config |
 | Folded | redirect | Severance (into Windsor), Fort Lupton (into a neighbour), Georgetown and Black Hawk (into Clear Creek) | A holding page or a redirect; the content lives on the neighbour's guide |
 | Held | not live | Castle Rock | Built but not launched until it clears its threshold |
