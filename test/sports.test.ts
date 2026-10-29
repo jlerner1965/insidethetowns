@@ -787,6 +787,52 @@ test('the email’s "Last week" is a result from the past seven days: football�
   assert.equal(recentResult(busy, now)!.game.opponent, 'Erie');
 });
 
+test('the email’s games carry their day in full, and a shared edition gives them a section of their own (29 October 2026)', async () => {
+  const { weekAhead } = await import('../src/lib/school-sports.ts');
+  const { schoolWeekLines, sharedGames, townGames } = await import('../scripts/lib/email-sports.ts');
+  const send = new Date('2026-10-29T06:00:00Z'); // Thursday, midnight in Denver
+  const game = (date: string, opponent: string, site: 'home' | 'away' | 'neutral', time: string, extra = {}) => ({ date, opponent, site, time, url: `u-${opponent}`, ...extra });
+  const team = (key: string, name: string, overall: string, upcoming: unknown[], results: unknown[] = []) => ({ key, name, overall, maxprepsUrl: '', fetched: 'x', results, upcoming, held: [], notes: [] });
+  const windsor = { generated: '', sports: [
+    team('football', 'Football', '4-5', [game('2026-10-29', 'Greeley Central', 'away', '19:00')], [{ date: '2026-10-22', opponent: 'Thompson Valley', site: 'away', url: 'u-tv', result: 'W', score: { us: 56, them: 14 } }]),
+    team('boys-soccer', 'Boys soccer', '10-1-4', [game('2026-10-29', 'Rampart', 'neutral', '18:00', { stage: 'Boys Soccer State Championships', neutral: true })]),
+    team('volleyball', 'Volleyball', '13-6', [game('2026-10-30', 'Legend', 'away', '08:00')]),
+  ] } as SportsData;
+  const timnath = { generated: '', sports: [team('football', 'Football', '7-2', [game('2026-10-30', 'Fort Morgan', 'away', '19:00')])] } as SportsData;
+  const quiet = { generated: '', sports: [team('football', 'Football', '3-6', [])] } as SportsData;
+  const week = (school: ReturnType<typeof schoolSportsFor>, data: SportsData) => ({ school: school!, week: weekAhead(data, send) });
+
+  const lines = schoolWeekLines(week(schoolSportsFor('windsor'), windsor), 'S');
+  assert.equal(lines[0], '- **Thursday, October 29 · 7 pm · Away** [Football at Greeley Central](u-Greeley Central) · 4-5 this season', 'football first, its day in full');
+  assert.equal(lines[1], '- **Thursday, October 29 · 6 pm · Boys Soccer State Championships** [Boys soccer vs Rampart](u-Rampart) · 10-1-4 this season');
+  assert.equal(lines[2], '- **Friday, October 30 · 8 am · Away** [Volleyball at Legend](u-Legend) · 13-6 this season');
+  assert.ok(lines.includes('Last week: football won 56-14 at Thompson Valley, 4-5 this season.'));
+  assert.doesNotMatch(lines.join('\n'), /Today|Tomorrow/, 'merged on the Friday, or read in the archive, "Today" would be wrong');
+  assert.equal(townGames([week(schoolSportsFor('windsor'), windsor)], 'S')[0], '## Windsor Wizards this week');
+
+  // Windsor, Severance and Timnath: the games are their own section, split by town like the edition's others.
+  const shared = sharedGames([
+    { heading: 'Windsor and Severance', sports: [week(schoolSportsFor('windsor'), windsor)], scores: 'W' },
+    { heading: 'Timnath', sports: [week(schoolSportsFor('timnath'), timnath)], scores: 'T' },
+  ]);
+  assert.deepEqual(shared.filter((l) => l.startsWith('#')), ['## Windsor Wizards and Timnath Cubs this week', '### Windsor and Severance', '### Timnath'], 'not under "This weekend"');
+  assert.ok(shared.includes('[Scores and schedules](T)'));
+  // A town following two schools names each.
+  const [loveland, , mountainView] = schoolsFor('loveland');
+  const two = sharedGames([{ heading: 'Loveland', sports: [week(loveland, timnath), week(mountainView, timnath)], scores: 'L' }]);
+  assert.deepEqual(two.filter((l) => l.startsWith('###')), [`### Loveland: ${schoolTeamName(loveland!)}`, `### Loveland: ${schoolTeamName(mountainView!)}`]);
+
+  // A school with no games and no result this week: no heading, and a section only where another has something.
+  assert.deepEqual(schoolWeekLines(week(schoolSportsFor('niwot'), quiet), 'S'), []);
+  assert.deepEqual(townGames([week(schoolSportsFor('niwot'), quiet)], 'S'), []);
+  assert.deepEqual(sharedGames([{ heading: 'Timnath', sports: [week(schoolSportsFor('timnath'), quiet)], scores: 'T' }]), []);
+  const one = sharedGames([
+    { heading: 'Windsor and Severance', sports: [week(schoolSportsFor('windsor'), quiet)], scores: 'W' },
+    { heading: 'Timnath', sports: [week(schoolSportsFor('timnath'), timnath)], scores: 'T' },
+  ]);
+  assert.deepEqual(one.filter((l) => l.startsWith('#')), ['## Timnath Cubs this week', '### Timnath']);
+});
+
 test('a school’s teams are called by its short name and mascot, as people search for them', async () => {
   const { teamPageTitle } = await import('../src/lib/school-sports.ts');
   assert.equal(schoolTeamName(schoolSportsFor('lyons')!), 'Lyons Lions', 'not "Lyons Middle/Senior Lions"');

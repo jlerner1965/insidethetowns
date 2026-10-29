@@ -107,10 +107,14 @@ export function formatGameTime(g: SportGame): string {
 
 export const RESULT_WORD = { W: 'Won', L: 'Lost', T: 'Tied' } as const;
 
-/** "Today", "Tomorrow", or the day in full. */
-export function when(g: SportGame, now = new Date()): string {
-  if (g.date === dayKey(now)) return 'Today';
-  if (g.date === dayKey(new Date(now.getTime() + 86_400_000))) return 'Tomorrow';
+/**
+ * "Today", "Tomorrow", or the day in full; always the day in full where
+ * `relative` is off, for words read on other days than they were written
+ * (the Thursday email).
+ */
+export function when(g: SportGame, now = new Date(), relative = true): string {
+  if (relative && g.date === dayKey(now)) return 'Today';
+  if (relative && g.date === dayKey(new Date(now.getTime() + 86_400_000))) return 'Tomorrow';
   return formatDayLong(gameDay(g));
 }
 
@@ -239,10 +243,11 @@ export function weekAhead(data: SportsData, now = new Date(), limit = Infinity, 
  * One game as a plain line, for the email and the research drafts:
  * "Football at Severance · Friday, October 30 · 7 pm · Away", the stage
  * where MaxPreps gives one, the venue for a neutral game that has one.
+ * "Today" and "Tomorrow" stand for the day unless `relative` is off.
  */
-export function gameText({ team, game }: TeamGame, now = new Date()): string {
+export function gameText({ team, game }: TeamGame, now = new Date(), { relative = true } = {}): string {
   const place = game.venue ?? (game.site === 'home' ? 'Home' : game.site === 'away' ? 'Away' : undefined);
-  return [`${team.name} ${where(game)} ${game.opponent}`, when(game, now), game.time ? formatGameTime(game) : undefined, game.stage, place].filter(Boolean).join(' · ');
+  return [`${team.name} ${where(game)} ${game.opponent}`, when(game, now, relative), game.time ? formatGameTime(game) : undefined, game.stage, place].filter(Boolean).join(' · ');
 }
 
 /** "Football won 22-0 vs Greeley Central, 7-2 this season" / "Volleyball lost 1-3 at Windsor". */
