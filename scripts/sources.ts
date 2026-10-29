@@ -31,7 +31,7 @@ import { allTowns, findTown } from '../src/config/index.ts';
 import { CORE_CATEGORIES, type Source } from '../src/content/schemas.ts';
 import { dayKey } from '../src/lib/dates.ts';
 import { guessCategory, idFromHost, isCore, readRegistry, writeRegistry } from '../src/lib/sources.ts';
-import { probe, type Verdict } from './lib/probe.ts';
+import { check, probe, type Verdict } from './lib/probe.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'content');
@@ -184,7 +184,8 @@ async function checkAll() {
     if (due.length === 0) continue;
     console.log(`${town.slug}: checking ${due.length} confirmed source${due.length === 1 ? '' : 's'}`);
     for (const source of due) {
-      const result = await probe(source.feedUrl ?? source.url);
+      // A feed the editor reads under `robots: subscribe` is checked as ingest reads it.
+      const result = source.robots === 'subscribe' && source.feedUrl ? await check(source.feedUrl) : await probe(source.feedUrl ?? source.url);
       source.lastChecked = new Date();
       source.lastStatus = verdictToStatus[result.verdict];
       source.lastNote = result.note || undefined;

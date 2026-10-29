@@ -53,6 +53,17 @@ test('the longest matching rule wins, and allow wins a tie', () => {
   assert.equal(isAllowed(rules, '/x'), true);
 });
 
+test('a disallow is read whatever its letter case; an allow only as written', () => {
+  // CivicPlus's rule of 20-21 October 2026, against the feed path its sites serve.
+  const civic = parseRobots(['User-agent: *', 'Disallow: /rss.aspx', 'Disallow: /common/modules/icalendar/'].join('\n'), TOKEN);
+  assert.equal(isAllowed(civic, '/common/modules/iCalendar/iCalendar.aspx?catID=26&feed=calendar'), false);
+  assert.equal(isAllowed(civic, '/RSS.aspx'), false);
+  assert.equal(isAllowed(civic, '/RSSFeed.aspx?ModID=58&CID=All-calendar.xml'), true, 'a different file is not caught');
+  const opened = parseRobots(['User-agent: *', 'Disallow: /private', 'Allow: /private/open'].join('\n'), TOKEN);
+  assert.equal(isAllowed(opened, '/private/open/page'), true);
+  assert.equal(isAllowed(opened, '/Private/Open/page'), false, 'case never widens an allow');
+});
+
 test('* matches any run of characters and a trailing $ anchors the end', () => {
   const rules = parseRobots(['User-agent: *', 'Disallow: /*.pdf$', 'Disallow: /*?author='].join('\n'), TOKEN);
   assert.equal(isAllowed(rules, '/maps/trail.pdf'), false);

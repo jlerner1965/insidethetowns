@@ -7168,3 +7168,40 @@ County's robots.txt added, on 21 October, a disallow for its iCal feed
 path written in lowercase; the ingest's check matches paths by case, as
 the robots standard does, so it still reads the feed. Whether to stop
 reading it is a call about what the county meant.
+
+## CivicPlus's calendar feeds: read as meant, and subscribed to on purpose, 29 October 2026
+
+*The owner, on Jefferson County's new robots.txt rule: "not sure, decision
+yours."*
+
+The rule was not the county's alone. On 20 and 21 October CivicPlus
+added the same block to every town site it hosts ("# added 2026-10-21 by
+Add-RobotsRules": Berthoud, Erie, Frederick, Windsor's recreation site,
+Jefferson County and more): `Disallow: /rss.aspx` beside the old
+`/RSS.aspx`, and `Disallow: /common/modules/icalendar/`. The feeds live at
+`/common/modules/iCalendar/`, on servers that ignore case. Read by the
+letter of RFC 9309, the rule kept nobody out, and the import had gone on
+reading thirteen of these feeds on eight sites without anyone deciding it
+should.
+
+- **A disallow is now read whatever its case** (`scripts/lib/robots.ts`),
+  for every script that asks: the import, the nightly re-check, the link
+  checker, the source check, the sports reader. Allow rules still match
+  exactly, so case never opens more than a site wrote. Measured first
+  against every registered feed: the only ones it closes are these
+  thirteen.
+- **Those thirteen are read on purpose, under `robots: subscribe`.** Each
+  is the feed the site itself offers residents as a calendar subscription
+  ("Subscribe to iCalendar"), and one nightly read is what any subscribed
+  phone calendar does, which is the case the 2026-10 rule on
+  `robots: subscribe` was written for. Carbon Valley's eight (Dacono,
+  Firestone, Frederick, Fort Lupton), Windsor's four (Severance, Windsor's
+  recreation calendar), Black Hawk's for Clear Creek, and Jefferson
+  County's Open Space calendar for Golden and Evergreen. Each source's
+  notes say so, and ingest prints "read under the editor's robots:
+  subscribe" whenever it uses one. The weekly source check now checks such
+  a feed as ingest reads it, rather than reporting it skipped.
+- **Undoing it** is one field per source: `robots: honor` and the feed is
+  left alone. If CivicPlus or a town says it means the subscription links
+  too, that is the answer, and the events come from the sites' own
+  calendar pages, which their robots.txt still allows.

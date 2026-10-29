@@ -11,6 +11,16 @@
  *
  * Other lines (sitemap, crawl-delay, content signals) are ignored, as the RFC
  * says they may be.
+ *
+ * One departure, on the side of staying out: a disallow rule matches
+ * without regard to letter case. The RFC matches paths by case, but the
+ * servers these guides read mostly do not: on 20 and 21 October 2026
+ * CivicPlus added `Disallow: /common/modules/icalendar/` to every town site
+ * it hosts, and the feeds are at /common/modules/iCalendar/, the same files
+ * on a server that ignores case. Read by the letter, the rule kept nobody
+ * out; read as meant, it is a no, and a no is answered by the editor's
+ * `robots: subscribe` on the source or not at all (scripts/ingest.ts).
+ * Allow rules still match exactly, so case never widens what a site opens.
  */
 
 export interface RobotsRules {
@@ -61,13 +71,13 @@ export function parseRobots(text: string, token: string): RobotsRules {
   return { allow: chosen.flatMap((g) => g.allow), disallow: chosen.flatMap((g) => g.disallow) };
 }
 
-function matches(rule: string, path: string): boolean {
+function matches(rule: string, path: string, anyCase = false): boolean {
   const anchored = rule.endsWith('$');
   const pattern = (anchored ? rule.slice(0, -1) : rule)
     .split('*')
     .map((part) => part.replace(/[.+?^${}()|[\]\\]/g, '\\$&'))
     .join('.*');
-  return new RegExp(`^${pattern}${anchored ? '$' : ''}`).test(path);
+  return new RegExp(`^${pattern}${anchored ? '$' : ''}`, anyCase ? 'i' : '').test(path);
 }
 
 /** Whether `path` (pathname plus query string) may be fetched under `rules`. */
@@ -76,7 +86,7 @@ export function isAllowed(rules: RobotsRules, path: string): boolean {
   let longest = -1;
   let allowed = true;
   for (const rule of rules.disallow) {
-    if (rule.length > longest && matches(rule, path)) [longest, allowed] = [rule.length, false];
+    if (rule.length > longest && matches(rule, path, true)) [longest, allowed] = [rule.length, false];
   }
   for (const rule of rules.allow) {
     if (rule.length >= longest && matches(rule, path)) [longest, allowed] = [rule.length, true];
