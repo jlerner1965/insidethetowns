@@ -7323,7 +7323,8 @@ row in `IMAGE_LICENSES.csv`, which failed the validator and every build.*
 - **Kept as delivered**, as Berthoud's, Loveland's and Lyons's: the file's
   own name, full size, its embedded record kept; the site makes its own
   renditions at build. Credited "Noel, Adobe Stock" on /credits/ only.
-- **Open for the owner:** Adobe's page answers 403 to the assistant, so
-  the licence is taken as standard, as for Loveland and Lyons, without
-  reading it. The receipt settles it; an editorial licence would want the
-  credit on the photograph. Paste the order number into `PERMISSIONS.md`.
+- **The licence is standard.** Adobe's page answers 403 to the assistant;
+  the owner sent Adobe's licence record the same day, which lists asset
+  #511199397 at 5460 × 3637 under the "Standard" licence, 30 October 2026,
+  4:44 pm. So nothing goes on the photograph. The record has no order
+  number or price; `PERMISSIONS.md` says so.
