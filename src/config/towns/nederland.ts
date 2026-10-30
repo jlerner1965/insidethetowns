@@ -19,11 +19,16 @@ export const nederland: TownConfig = {
   // Quiet from 20 October 2026, owner's word, with the other small mountain
   // guides (DECISIONS.md, "The other mountain guides, 20 October"): pages
   // up, listings checked as the rotation reaches them, no weekly promise.
-  // 19 November is before any listing's hours expire (45 days from its check
-  // on the mountain chassis; the quiet-towns test holds the order).
+  // The date stays before any listing's hours expire (45 days from its check
+  // on the mountain chassis; the quiet-towns test holds the order). Kept on
+  // 30 October 2026 until the 90-day verdict (DECISIONS.md, "Six quiet guides
+  // kept"); 15 listings were re-checked that day, so the date moves from 19
+  // November to 3 December, the day before the three checked on 20 October
+  // lose their hours. A full pass in the week of 7 December takes it to 20
+  // January.
   quiet: {
     since: '2026-10-20',
-    decideBy: '2026-11-19',
+    decideBy: '2026-12-03',
     reason: 'seventeen events and no guide to fold into (Boulder has none); with the other small mountain guides it leaves the weekly routine so the effort goes to the Front Range towns that can be won',
   },
   variant: 'mountain',

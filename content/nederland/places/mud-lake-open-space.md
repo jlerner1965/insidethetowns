@@ -4,11 +4,11 @@ type: park
 address: "2034 County Road 126"
 url: "https://bouldercounty.gov/open-space/parks-and-trails/mud-lake/"
 source: "https://bouldercounty.gov/open-space/parks-and-trails/mud-lake/"
-verified: "2026-10-20"
+verified: "2026-10-30"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 hours: "Sunrise to sunset"
-access: { parking: "31 car spaces, 2 ADA spaces and 4 horse-trailer spots at the trailhead", conditionsUrl: "https://bouldercounty.gov/open-space/parks-and-trails/trail-closures/", conditionsLabel: "Boulder County trail closures and alerts", source: "https://bouldercounty.gov/open-space/parks-and-trails/mud-lake/", verified: "2026-10-20" }
+access: { parking: "31 car spaces, 2 ADA spaces and 4 horse-trailer spots at the trailhead", conditionsUrl: "https://bouldercounty.gov/open-space/parks-and-trails/trail-closures/", conditionsLabel: "Boulder County trail closures and alerts", source: "https://bouldercounty.gov/open-space/parks-and-trails/mud-lake/", verified: "2026-10-30" }
 mapUrl: "https://assets.bouldercounty.gov/wp-content/uploads/2017/03/mud-lake-map.pdf"
 tags: [hiking, family, picnic, dogs-on-leash]
 summary: "Boulder County open space with a lake, five easy trails, restrooms, picnic tables and a 50-person group shelter. Day use only; leashed dogs allowed."
@@ -19,3 +19,5 @@ Boulder County Parks & Open Space runs Mud Lake, 231 acres between 8,250 and 8,6
 The rules: day use only, pets on leash, bikes on designated trails only, ice skating allowed, and no swimming, open fires, hunting or camping. Fishing is allowed, but the county notes the lake is not stocked. The Wild Bear Center for Nature Discovery, a nonprofit, owns a 5-acre parcel at the site that it uses for daytime education programs.
 
 The street address is from the Town of Nederland's Trails & Open Spaces page (https://nederlandco.org/1446/Trails-Open-Spaces), which also lists Mud Lake. The hours are the county's general rule that its parks are open sunrise to sunset.
+
+Trails, rules and parking were read on Boulder County's Mud Lake page on 30 October 2026, when the county's closure feed said all trails were open.
