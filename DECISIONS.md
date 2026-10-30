@@ -7378,3 +7378,31 @@ the validator again.*
 - **A credit fixed:** the ledger reads a photographer's name up to the first
   comma, so Fort Collins's "Schrodington, LLC" showed on /credits/ as
   "Schrodington". The row and the config now read "Schrodington LLC".
+
+## Five domains held, 30 October 2026
+
+*The owner holds insidemead.com, insidelafayette.com,
+insidesteamboatsprings.com, insidesalida.com and insidefrederickco.com and
+asked whether any were worth an exception to the 90-day test. The answer,
+which the owner shared: hold all five. No new guide, and no redirect, before
+the test's verdict on 20 January 2027.*
+
+- **Why.** The test puts the hand work into Niwot, Lyons and Berthoud
+  under a ten-hour weekly cap; the city and small mountain guides were
+  quieted on 20 October, and a pass means repeating the model in Golden
+  and Erie, not opening towns. A guide is not a config file: it opens with
+  fifteen events and twenty checked listings and is kept accurate after.
+- **For the January decision**, as discussed:
+  - Lafayette is the one real candidate for a guide: a sizeable town next
+    to Erie with an Old Town and a civic calendar, which suits an
+    Erie-and-Lafayette edition if the test passes.
+  - Frederick is already covered by Carbon Valley; the domain would
+    redirect there, as Fort Lupton's does.
+  - Mead sits between the Johnstown, Berthoud and Longmont guides; if it
+    is added, it is a sub-town of one of them, with its domain redirected.
+  - Steamboat Springs and Salida are off the model: hours from the Front
+    Range, resort towns with established papers and tourism bureaus, and
+    the kind of small mountain guide just quieted. Renew if cheap, or let
+    them lapse.
+- **Nothing in the repository** names the five yet: no config, no
+  redirect, no row in manager/towns.json.

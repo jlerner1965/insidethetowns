@@ -38,6 +38,7 @@ Last revised: 28 October 2026.
 | Now | A scheduled assistant session for the weekly audit: yes or no (the scorecard's was set up 27 October) | Owner |
 | 19 November | The quiet guides (Elizabeth, Fort Collins, Grand Lake, Leadville, Longmont, Loveland, Nederland): keep each, or retire it to a holding page | Owner |
 | 20 January | The 90-day test's verdict (`docs/90-DAY-TEST.md`) | Owner |
+| 20 January, after the verdict | The five held domains (`DECISIONS.md`, "Five domains held, 30 October"): Lafayette first if the test passes; Frederick and Mead into their neighbours; Steamboat Springs and Salida renewed or let go | Owner |
 
 ## Calls still open in the three towns
 
