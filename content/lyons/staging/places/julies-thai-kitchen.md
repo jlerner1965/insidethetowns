@@ -1,6 +1,6 @@
 ---
 title: "Julie’s Thai Kitchen"
-review: { reason: "No source: its domain now serves gambling spam and there is no other site. Still open at 138 Main? Hours, phone, website.", since: "2026-10-03", from: migration }
+review: { reason: "Rechecked 30 October 2026: the Town's Restaurants in Lyons page (townoflyons.com/761, undated) still lists Julie's Thai at 138 Main with these hours and juliesthaikitchen.com, which serves gambling spam. Nothing of its own and nothing dated says it is open. Call (303-823-2327, from a directory, not printed): still open, hours, a page of its own.", since: "2026-10-30", from: migration }
 type: restaurant
 address: "138 Main St"
 area: "East Main"
