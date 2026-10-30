@@ -127,7 +127,7 @@ test('each guide names the neighbours the owner set, in that order', () => {
     severance: [],
     'fort-lupton': [],
     'castle-rock': ['elizabeth', 'manitou-springs'],
-    'estes-park': ['lyons', 'loveland', 'grand-lake'],
+    'estes-park': ['lyons', 'loveland'],
     golden: ['evergreen', 'idaho-springs'],
     evergreen: ['golden', 'idaho-springs'],
     nederland: ['lyons', 'niwot', 'idaho-springs'],
@@ -135,11 +135,12 @@ test('each guide names the neighbours the owner set, in that order', () => {
     // Leadville has none within an afternoon's drive; Manitou Springs names
     // Castle Rock, which has not launched. Georgetown and Black Hawk are
     // sections of the Idaho Springs guide since 20 October 2026, so Nederland's
-    // Peak to Peak neighbour is that guide now and the two name nobody.
+    // Peak to Peak neighbour is that guide now and the two name nobody. Grand
+    // Lake was retired on 30 October 2026, so it and Estes Park drop each other.
     'black-hawk': [],
     'idaho-springs': ['evergreen', 'golden', 'nederland'],
     georgetown: [],
-    'grand-lake': ['estes-park'],
+    'grand-lake': [],
     'manitou-springs': ['castle-rock'],
     leadville: [],
   };

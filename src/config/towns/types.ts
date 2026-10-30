@@ -54,7 +54,8 @@ export interface SocialLinks {
  * are the launch order in the accuracy brief, `redirect` is a guide that
  * has been folded into another one and whose domain only forwards (see
  * `foldedInto`; insidefirestone.com, which never had a guide, forwards the
- * same way from the Carbon Valley project).
+ * same way from the Carbon Valley project), or one retired with no guide to
+ * take it, whose domain forwards to the hub (see `retired`).
  */
 export const TOWN_STATUSES = ['live', 'wave1', 'wave2', 'wave3', 'wave4', 'redirect'] as const;
 export type TownStatus = (typeof TOWN_STATUSES)[number];
@@ -233,6 +234,15 @@ export interface TownConfig {
    * still builds says where it went.
    */
   foldedInto?: { town: string; path: string; since: string };
+  /**
+   * A live guide closed on the owner's word with no neighbouring guide to
+   * take it (`status: 'redirect'`, and no `foldedInto`): every path on its
+   * domain redirects to the hub's home page (vercel.json), its content has
+   * left its folder (git history keeps it, should it reopen), and the
+   * holding page the old project still builds says it has closed. The
+   * domain stays the owner's. Grand Lake, from 30 October 2026.
+   */
+  retired?: { since: string; reason: string };
   /**
    * A live guide taken out of the weekly routine on the owner's word while
    * it is decided whether to keep it: the day it went quiet, the day to

@@ -7378,3 +7378,115 @@ the validator again.*
 - **A credit fixed:** the ledger reads a photographer's name up to the first
   comma, so Fort Collins's "Schrodington, LLC" showed on /credits/ as
   "Schrodington". The row and the config now read "Schrodington LLC".
+
+## Five domains held, 30 October 2026
+
+*The owner holds insidemead.com, insidelafayette.com,
+insidesteamboatsprings.com, insidesalida.com and insidefrederickco.com and
+asked whether any were worth an exception to the 90-day test. The answer,
+which the owner shared: hold all five. No new guide, and no redirect, before
+the test's verdict on 20 January 2027.*
+
+- **Why.** The test puts the hand work into Niwot, Lyons and Berthoud
+  under a ten-hour weekly cap; the city and small mountain guides were
+  quieted on 20 October, and a pass means repeating the model in Golden
+  and Erie, not opening towns. A guide is not a config file: it opens with
+  fifteen events and twenty checked listings and is kept accurate after.
+- **For the January decision**, as discussed:
+  - Lafayette is the one real candidate for a guide: a sizeable town next
+    to Erie with an Old Town and a civic calendar, which suits an
+    Erie-and-Lafayette edition if the test passes.
+  - Frederick is already covered by Carbon Valley; the domain would
+    redirect there, as Fort Lupton's does.
+  - Mead sits between the Johnstown, Berthoud and Longmont guides; if it
+    is added, it is a sub-town of one of them, with its domain redirected.
+  - Steamboat Springs and Salida are off the model: hours from the Front
+    Range, resort towns with established papers and tourism bureaus, and
+    the kind of small mountain guide just quieted. Renew if cheap, or let
+    them lapse.
+- **Nothing in the repository** names the five yet: no config, no
+  redirect, no row in manager/towns.json.
+
+## Six quiet guides kept; Grand Lake open, 30 October 2026
+
+*Asked ahead of the 19 November decision, the owner kept Elizabeth, Fort
+Collins, Leadville, Longmont, Loveland and Nederland, and is not sure about
+Grand Lake.*
+
+- **Kept means quiet until the 90-day verdict, and accurate meanwhile.**
+  They stay out of the weekly email and the weekly session, as since 12
+  and 20 October; nothing about the test changes. But a quiet guide's
+  decide-by must come before its listings lose their hours
+  (`test/quiet-towns.test.ts`), so each guide's 2026 listings are
+  re-checked against their own sites before its first expiry, and only
+  then does its `decideBy` move to 20 January 2027. The dates, from the
+  oldest `verified` plus 60 days (Front Range) or 45 (mountain): Elizabeth
+  17 November; Nederland 21 November; Leadville 24 November; Fort Collins
+  30 November; Longmont and Loveland 3 December. 226 listings in all; the
+  mountain two need a second pass in early January. The assistant does the
+  checks; a listing whose site refuses automated reads goes to the owner as
+  a call, or shows without hours.
+- **Grand Lake is the owner's call by 19 November.** The case against it:
+  the smallest guide (410 people), under its launch threshold (6 events
+  against 10 at the 27 October audit), the Town's site refuses automated
+  reads, three of seven listings checked that day had the wrong (summer)
+  hours, and its readers are visitors to a resort whose season turns over
+  with Trail Ridge Road. The case for: the domain and 21 checked listings
+  cost little to keep, and the summer visitor is real. Retiring it would be
+  the Severance shape with no neighbour: a holding page and a redirect to
+  the hub, the domain kept.
+
+## Grand Lake retired, 30 October 2026
+
+*Given the case each way (the entry above), the owner retired Grand Lake the
+same day rather than wait for 19 November.*
+
+- **The shape.** No neighbouring guide could take it, so it is not a fold:
+  a new `retired` field on the config (since, reason), beside `foldedInto`,
+  with `status: 'redirect'`. A redirect guide is folded or retired, one of
+  the two, and `test/retired-towns.test.ts` holds the rest: no neighbours
+  either way (Estes Park drops it), out of every list the email and the
+  scripts read, its content gone, and every path on its domain sent to the
+  hub.
+- **The redirects.** Two rules in vercel.json, host-scoped to
+  insidegrandlake.com: `/` and `/(.*)` to insidethetowns.com/, permanent.
+  Nothing on the hub matches a Grand Lake path, so the home page it is.
+  docs/REDIRECTS.md and DEPLOY.md list it.
+- **The content is removed, not moved.** Its events, places, staged items,
+  articles, pages, weekly notes and sources.json are deleted; git history
+  keeps them should it reopen, which is a decision first and then a revert.
+  `images/` stays with its rows, the hero because the config names it.
+- **The holding page** the `insidegrandlake` project still builds says the
+  guide has closed and points to the hub, noindex; the rules answer first.
+- **What follows.** The hub's Moving page loses its Grand Lake paragraph;
+  the network now covers nine counties, Grand gone; manager/towns.json keeps
+  an entry, not live, "retired 2026-10-30", which its test checks.
+- **The owner's, and not done:** the Search Console property is a
+  URL-prefix one verified by a tag on a page that is no longer served, so
+  it will lose verification (docs/SEARCH-VISIBILITY.md); Buttondown
+  subscribers tagged `grand-lake` stay tagged, and nothing was ever sent to
+  them while it was quiet. The domain stays the owner's.
+
+## Elizabeth re-checked, 30 October 2026
+
+The first of the six kept quiet guides (the entry above). All 25 listings
+were read against their own sources the same day, in three parallel passes,
+and the editor checked the passes' biggest claims before any edit.
+
+- **21 re-checked and stamped 30 October**, with what changed: Small Town
+  Mini Donuts has new owners and new hours (a correction); Antelope Alpacas
+  no longer teaches (a correction); the Stampede's 2027 dates are out and
+  the Chamber now hosts the parade; the tea room is 392-B; and wording no
+  source supports came out (the library's Friday evenings, Evans Park's
+  "square feet", the bank's January 2023 date and its Elbert County Bank
+  line, three shops' unconfirmed descriptions).
+- **86 & Main is staged:** the directory confirms a name and an address,
+  nothing says what it sells or that it is open.
+- **Three wait for a call:** Catrina's (nothing dated shows it open), Town
+  Hall and Running Creek Park (the Town's site refuses automated reads).
+  Catrina's, last checked 2 October, loses its hours on 1 December, so the
+  decide-by moves from 15 to 30 November, not to 20 January; the calls move
+  it the rest of the way.
+- **Found on the way:** The Carriage Shoppes' site has a spam page in place
+  of its About page, which is worth telling them; Powder River's address is
+  211 on its own site and 232 in the directory.

@@ -26,7 +26,7 @@ since and is kept current. A row comes off when its hero is replaced.
 | Fort Collins | **Bought 30 October:** Adobe Stock 419314122, Old Town Square in July 2020, the splash pad, the umbrellas and the sandstone blocks (Schrodington, LLC, standard licence, 5,151 px), in place of the Northern Hotel | Done. Adobe's licence record says Standard | — |
 | Golden | **Bought 30 October:** Adobe Stock 504466744, Jacob Boomsma's August 2021 aerial of Washington Avenue under the Welcome to Golden arch, North Table Mountain above (standard licence, 4,096 px), in place of Clear Creek and its kayakers | Done. Adobe's licence record says Standard | — |
 | Estes Park | **Bought 30 October:** Adobe Stock 2151219980, Elkhorn Avenue from above in autumn, the cottonwoods yellow (Josh-Lehew, standard licence, 4,024 px), in place of the town from the Gem Lake trail | Done. Adobe's licence record says Standard | — |
-| Elizabeth, Evergreen, Nederland, Grand Lake | Their October Commons photographs | Fine as they are; the plan's picks are upgrades if the month's iStock and Adobe downloads have room | Owner |
+| Elizabeth, Evergreen, Nederland | Their October Commons photographs | Fine as they are; the plan's picks are upgrades if the month's iStock and Adobe downloads have room | Owner |
 
 Commons does load from the assistant's container, contrary to the plan's
 last paragraph, when files are fetched through
@@ -262,6 +262,8 @@ Two is all that exists. The photographer sells direct at larrybraunphotography.c
 Also seen: Shutterstock 1184521150 (Jillian Cain, downtown shopping district, 2018, standard) as a backup; Pexels 7489377 (Andrew Patrick, town with Lake Estes, 4327 px, free) as a second free option. Unsplash's Estes Park results are all park scenery with no town in them. Visit Estes Park keeps a [media folder on Brandfolder](https://brandfolder.com/visitestespark/media_trade) with no terms stated; contact press@visitestespark.com before using anything from it.
 
 ### Grand Lake
+
+*Retired 30 October 2026 (DECISIONS.md, "Grand Lake retired"); kept here in case it reopens.*
 
 **Pick:** the Shutterstock autumn aerial of the village with the lake and shoreline in frame. It is the only clean-licence shot of the town itself; every street-level Grand Avenue and boardwalk photo found is editorial-only.
 

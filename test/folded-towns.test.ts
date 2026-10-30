@@ -16,7 +16,8 @@ import { towns } from '../src/config/towns/registry.ts';
 const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8')) as {
   redirects: Array<{ source: string; destination: string; permanent?: boolean; has?: Array<{ type: string; value?: string }> }>;
 };
-const folded = towns.filter((t) => t.status === 'redirect');
+// A retired guide redirects too, but to the hub, with no guide to take it: test/retired-towns.test.ts.
+const folded = towns.filter((t) => t.status === 'redirect' && !t.retired);
 const rulesFor = (domain: string) => vercel.redirects.filter((r) => r.has?.some((h) => h.type === 'host' && h.value === domain));
 
 test('Severance, Fort Lupton, Georgetown and Black Hawk are the folded guides', () => {

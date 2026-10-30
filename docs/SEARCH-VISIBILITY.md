@@ -67,6 +67,11 @@ live on the page. The owner verified it and submitted
 `/sitemap-index.xml` the same day; Google read it with no errors, and the
 property is in GSC Wizard with the others. Keep the variable: removing it
 unverifies the property.
+Since 30 October 2026 the guide is retired and every path redirects to
+insidethetowns.com, so the page that carried the tag is never served, and
+Google drops the property's verification the next time it checks. To watch
+the redirects take, add `insidegrandlake.com` as a domain property (the DNS
+route, as the others are); otherwise let it lapse.
 The Performance figures in the weekly table below can be read through the
 plugin; the Pages report's indexed count cannot, and stays a person's job.
 The first read of the data is docs/archive/SEARCH-CONSOLE-2026-10-20.md.
