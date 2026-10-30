@@ -51,7 +51,7 @@ export const erie: TownConfig = {
     // place of Town Hall: Old Town's main street rather than one building.
     // A standard licence, so no credit on the photograph; /credits/ names it.
     image: 'AdobeStock_511199397.jpeg',
-    alt: 'Briggs Street in Old Town Erie from just above the rooftops on a June morning in 2022, looking south: a brick two-storey building and a restaurant patio on the left, houses and tall trees on the right, parked cars, and the street running straight out to the plains under a big cloudy sky',
+    alt: 'Briggs Street in Old Town Erie from just above the rooftops on a June morning in 2022, looking south: a brick two-storey building and a covered patio on the left, houses and tall trees on the right, parked cars, and the street running straight out to the plains under a big cloudy sky',
     credit: 'Noel, Adobe Stock',
     // Wide screen: the street, its buildings and the plains on the horizon, not the sky.
     position: '50% 58%',
