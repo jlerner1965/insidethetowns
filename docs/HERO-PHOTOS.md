@@ -20,7 +20,9 @@ since and is kept current. A row comes off when its hero is replaced.
 | Johnstown | The Brush Barn, a mile out of town | Shoot Parish Avenue north from 1st Street; nothing exists to buy | Owner |
 | Timnath | A frozen pond at sunrise, 960 px | Shoot Old Town Main Street north toward the church; nothing exists to buy | Owner |
 | Windsor | Windsor Lake from the air, downtown on the far shore | Keep. The Commons Town Hall the plan offers is the Art & Heritage Center listing's card | — |
-| Elizabeth, Evergreen, Nederland, Golden, Fort Collins, Estes Park, Grand Lake, Clear Creek, Leadville, Manitou Springs | Their October Commons photographs | Fine as they are; the plan's picks are upgrades if the month's iStock and Adobe downloads have room | Owner |
+| Clear Creek | **Bought 30 October:** Adobe Stock 413103868, Jacob Boomsma's winter aerial of Idaho Springs, January 2021: the Argo mill, the creek and the town climbing the canyon (standard licence, 5,462 px), in place of the mill alone | Send Adobe's licence record | Owner |
+| Leadville | **Bought 30 October:** Adobe Stock 1111460584, Joe Sohm's drone view up Harrison Avenue, October 2023 (standard as the plan read the page, 5,272 px), in place of the town among the aspens | Send Adobe's licence record: the caption is dated, as editorial ones are, so check it says Standard | Owner |
+| Elizabeth, Evergreen, Nederland, Golden, Fort Collins, Estes Park, Grand Lake, Manitou Springs | Their October Commons photographs | Fine as they are; the plan's picks are upgrades if the month's iStock and Adobe downloads have room | Owner |
 
 Commons does load from the assistant's container, contrary to the plan's
 last paragraph, when files are fetched through

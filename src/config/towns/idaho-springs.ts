@@ -109,10 +109,14 @@ export const idahoSprings: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'The red Argo gold mill on the hillside above Idaho Springs, its name painted high on the mill, under a blue sky',
-    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 10 October 2026.
-    credit: 'D&RG Railfan, Wikimedia Commons, CC BY-SA 4.0',
+    // Bought from Adobe Stock on 30 October 2026 (docs/HERO-PHOTOS.md), in
+    // place of the Argo mill alone: the mill with the town and the creek. A
+    // standard licence, so no credit on the photograph; /credits/ names it.
+    image: 'AdobeStock_413103868.jpeg',
+    alt: 'Idaho Springs from the air on a January morning in 2021: the red Argo Gold Mine and Mill on the hillside at the right, Clear Creek and a riverside park below it, the town’s streets and houses climbing the canyon at the left, and dry, pine-dotted mountainsides all around',
+    credit: 'Jacob Boomsma, Adobe Stock',
+    // Wide screen: the houses, the creek and the top of the mill, not the near parking lots.
+    position: '50% 45%',
   },
   social: {
     email: 'hello@insideidahosprings.com',

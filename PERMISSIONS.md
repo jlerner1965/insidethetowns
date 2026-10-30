@@ -498,6 +498,33 @@ Cropping and the hero's overlay are fine; retouching is not.
 | **Used as** | The Erie hero, from 30 October 2026 |
 | **Credit** | Not required by a standard licence. /credits/ names Noel and Adobe Stock |
 
+### Clear Creek hero: Adobe Stock 413103868, "Aerial View of Downtown Idaho Springs, Colorado in Winter"
+
+| | |
+|---|---|
+| **Agency and asset** | Adobe Stock 413103868, [its page](https://stock.adobe.com/images/aerial-view-of-downtown-idaho-springs-colorado-in-winter/413103868) |
+| **Photographer** | Jacob Boomsma, as the hero plan of 28 October read the page; the file's credit line reads "Jacob - stock.adobe.com" |
+| **Taken** | 25 January 2021, 9:55 am, from a drone (Hasselblad L1D-20c) at 39.7411° N, 105.5056° W: OpenStreetMap places that at the Argo Mill, Miner Street (the file's EXIF) |
+| **Licence** | Adobe Stock standard licence, as the plan read the page; Adobe's licence record not yet seen |
+| **File** | `content/idaho-springs/images/AdobeStock_413103868.jpeg`, the 5462 × 3639 JPEG as Adobe delivered it, uploaded by the owner on 30 October 2026, kept as delivered |
+| **Bought** | 30 October 2026 (the day the owner uploaded it) |
+| **Used as** | The Inside Clear Creek hero, from 30 October 2026 |
+| **Credit** | Not required by a standard licence. /credits/ names Jacob Boomsma and Adobe Stock |
+
+### Leadville hero: Adobe Stock 1111460584, aerial down Harrison Avenue
+
+| | |
+|---|---|
+| **Agency and asset** | Adobe Stock 1111460584, [its page](https://stock.adobe.com/images/october-2-2023-leadville-co-aerial-view-down-main-street-historic-leadville-colorado-mining-town/1111460584) |
+| **Photographer** | Joe Sohm (the file's artist and copyright, "copyright joe sohm 2023, all rights reserved"); Adobe contributor name spiritofamerica |
+| **Caption in the file** | "OCTOBER 2, 2023 - LEADVILLE, CO. - aerial view down Main Street historic Leadville Colorado mining town - highest elevation USA a town" |
+| **Taken** | 2 October 2023, 8:38 am, from a drone (Hasselblad L2D-20c) about 34 m up, at 39.2460° N, 106.2909° W, over the 300 block of Harrison Avenue (the file's EXIF and DJI record) |
+| **Licence** | Adobe Stock standard licence, as the plan read the page ("the caption carries a date but the page shows no editorial restriction"); Adobe's licence record not yet seen. A dated caption is how editorial photographs are usually captioned, so this is the one to check |
+| **File** | `content/leadville/images/AdobeStock_1111460584.jpeg`, the 5272 × 2962 JPEG as Adobe delivered it, uploaded by the owner on 30 October 2026, kept as delivered |
+| **Bought** | 30 October 2026 (the day the owner uploaded it) |
+| **Used as** | The Leadville hero, from 30 October 2026 |
+| **Credit** | Not required by a standard licence. /credits/ names Joe Sohm and Adobe Stock. If the licence record says editorial, the ledger row becomes "Adobe Stock editorial licence" and the hero prints the credit on the photograph |
+
 ### What the iStock licence asks of us
 
 From iStock's Content License Agreement, June 2026 version, which the owner

@@ -7328,3 +7328,26 @@ row in `IMAGE_LICENSES.csv`, which failed the validator and every build.*
   #511199397 at 5460 × 3637 under the "Standard" licence, 30 October 2026,
   4:44 pm. So nothing goes on the photograph. The record has no order
   number or price; `PERMISSIONS.md` says so.
+
+## Clear Creek's and Leadville's bought heroes, 30 October 2026
+
+*The owner bought Adobe Stock 413103868 and 1111460584, two of the seven
+credits' worth suggested that afternoon, and uploaded them to `main` with no
+rows in `IMAGE_LICENSES.csv`, which failed the validator again.*
+
+- **Clear Creek:** Jacob Boomsma's aerial of Idaho Springs on 25 January
+  2021: the Argo Gold Mine and Mill on its hillside, Clear Creek and the
+  riverside park, the town climbing the canyon. The hero was the mill
+  alone; now it is the mill with the town. GPS: the Argo Mill on Miner
+  Street. Cropped at 50% 45% for the wide band.
+- **Leadville:** Joe Sohm's drone frame up Harrison Avenue on 2 October
+  2023, from above a copper cupola: the brick blocks, the aspens turning,
+  the mountains. The hero was the town among aspens from a distance. GPS:
+  the 300 block of Harrison Avenue. Cropped high, at 50% 20%, so the band
+  keeps the mountains and the blocks rather than the cupola.
+- **Kept as delivered**, as the other bought heroes; credited on /credits/
+  only, under the standard licence the plan read on each page.
+- **Open for the owner:** Adobe's licence records for both. Leadville's
+  caption is dated ("OCTOBER 2, 2023 - LEADVILLE, CO."), the way editorial
+  photographs are captioned; if its record says editorial, the ledger row
+  changes and the hero prints the credit on the photograph.
