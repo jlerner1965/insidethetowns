@@ -7512,3 +7512,28 @@ winter closures. 15 files, read against their own sources.
 - **The decide-by** moves from 19 November to 3 December, the day before
   the three listings checked on 20 October lose their hours. The full pass
   in the week of 7 December moves it to 20 January.
+
+## Leadville re-checked, 30 October 2026
+
+All 26 listings and the six trail-access notes, since 21 listings lost
+their hours on 24 November and every access note on 9 November; three
+parallel passes, the biggest claims checked again before editing.
+
+- **Changed:** the visitor center is on winter hours (Thursday to Monday,
+  10 to 4); FREIGHT's Boxcar Bar posts Thursday to Sunday, 5 to 9, and the
+  Motherlode Holiday Market has dates; the railroad's ride lengths were
+  swapped and the Holiday Express starts 14 November; the Tabor's
+  calendar and the ranger district's alerts are current again; Ice Palace
+  Park is dog-free; the Elbert, Massive and Turquoise Lake notes carry the
+  Forest's winter road facts (North Elbert's road snowmobiles, hikers and
+  skiers only; Forest Road 125.B impassable; the Halfmoon Road unmaintained;
+  campgrounds May to September).
+- **Confirmed:** the rest, among them Ski Cooper's 9 December opening.
+- **Two wait for a call:** Healy House (History Colorado's page refused the
+  read) and the fish hatchery, where the Service's page shows it open and
+  the county tourism site says it remains closed for the Willow Fire; the
+  listing now shows both. So the decide-by moves only from 19 to 23
+  November; the calls take it to 13 December, and the full pass in the
+  week of 7 December to 20 January.
+- **The City's merchant pages** (leadville-co.gov) refused automated reads,
+  so the sentences citing them keep their 10 October date.
