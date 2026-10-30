@@ -7406,3 +7406,32 @@ the test's verdict on 20 January 2027.*
     them lapse.
 - **Nothing in the repository** names the five yet: no config, no
   redirect, no row in manager/towns.json.
+
+## Six quiet guides kept; Grand Lake open, 30 October 2026
+
+*Asked ahead of the 19 November decision, the owner kept Elizabeth, Fort
+Collins, Leadville, Longmont, Loveland and Nederland, and is not sure about
+Grand Lake.*
+
+- **Kept means quiet until the 90-day verdict, and accurate meanwhile.**
+  They stay out of the weekly email and the weekly session, as since 12
+  and 20 October; nothing about the test changes. But a quiet guide's
+  decide-by must come before its listings lose their hours
+  (`test/quiet-towns.test.ts`), so each guide's 2026 listings are
+  re-checked against their own sites before its first expiry, and only
+  then does its `decideBy` move to 20 January 2027. The dates, from the
+  oldest `verified` plus 60 days (Front Range) or 45 (mountain): Elizabeth
+  17 November; Nederland 21 November; Leadville 24 November; Fort Collins
+  30 November; Longmont and Loveland 3 December. 226 listings in all; the
+  mountain two need a second pass in early January. The assistant does the
+  checks; a listing whose site refuses automated reads goes to the owner as
+  a call, or shows without hours.
+- **Grand Lake is the owner's call by 19 November.** The case against it:
+  the smallest guide (410 people), under its launch threshold (6 events
+  against 10 at the 27 October audit), the Town's site refuses automated
+  reads, three of seven listings checked that day had the wrong (summer)
+  hours, and its readers are visitors to a resort whose season turns over
+  with Trail Ridge Road. The case for: the domain and 21 checked listings
+  cost little to keep, and the summer visitor is real. Retiring it would be
+  the Severance shape with no neighbour: a holding page and a redirect to
+  the hub, the domain kept.

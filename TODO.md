@@ -36,7 +36,8 @@ Last revised: 28 October 2026.
 | By | Decision | Who |
 |---|---|---|
 | Now | A scheduled assistant session for the weekly audit: yes or no (the scorecard's was set up 27 October) | Owner |
-| 19 November | The quiet guides (Elizabeth, Fort Collins, Grand Lake, Leadville, Longmont, Loveland, Nederland): keep each, or retire it to a holding page | Owner |
+| 19 November | Grand Lake: keep it (re-check its 21 listings by 24 November) or retire it to a holding page. The other six quiet guides are kept (`DECISIONS.md`, "Six quiet guides kept") | Owner |
+| Before each guide's first expiry | Re-check the kept quiet guides' listings against their own sites, then move `decideBy` to 20 January: Elizabeth (25) by 17 November; Nederland (26) by 21 November; Leadville (26) by 24 November; Fort Collins (67) by 30 November; Longmont (40) and Loveland (42) by 3 December. The mountain two need a second pass in early January (45-day hours). Listings whose sites refuse automated reads go to the owner as calls | Assistant checks, owner calls |
 | 20 January | The 90-day test's verdict (`docs/90-DAY-TEST.md`) | Owner |
 | 20 January, after the verdict | The five held domains (`DECISIONS.md`, "Five domains held, 30 October"): Lafayette first if the test passes; Frederick and Mead into their neighbours; Steamboat Springs and Salida renewed or let go | Owner |
 
