@@ -7303,3 +7303,28 @@ as dated it was in neither issue. `added` now reads 30 October, a few
 hours later than the truth, and `npm run newsletter -- --town=golden
 --date=2026-11-05` lists it under New on the guide. Nothing else reads the
 field.
+
+## Erie's bought hero: Briggs Street from above, 30 October 2026
+
+*The owner bought Adobe Stock 511199397 and uploaded it to `main` with no
+row in `IMAGE_LICENSES.csv`, which failed the validator and every build.*
+
+- **The photograph.** Noel's drone frame of Briggs Street, Old Town Erie's
+  main street, from about 14 m up on 6 June 2022, looking south: a brick
+  two-storey building and a patio on the left, houses and tall trees on
+  the right, the street running out to the plains. It replaces Town Hall
+  (the 1906 Lincoln School), one building, with the street; the Town Hall
+  photograph stays on the Explore Erie article.
+- **Not the wrong place.** The hero plan set this asset aside because
+  Adobe keywords it church, castle, cathedral, europa. The file's GPS
+  record (40.0511° N, 105.0474° W) is 660 Briggs Street by OpenStreetMap,
+  and the drone faced south (yaw 180°), which is what the frame shows.
+  `docs/HERO-PHOTOS.md` says so now.
+- **Kept as delivered**, as Berthoud's, Loveland's and Lyons's: the file's
+  own name, full size, its embedded record kept; the site makes its own
+  renditions at build. Credited "Noel, Adobe Stock" on /credits/ only.
+- **The licence is standard.** Adobe's page answers 403 to the assistant;
+  the owner sent Adobe's licence record the same day, which lists asset
+  #511199397 at 5460 × 3637 under the "Standard" licence, 30 October 2026,
+  4:44 pm. So nothing goes on the photograph. The record has no order
+  number or price; `PERMISSIONS.md` says so.
