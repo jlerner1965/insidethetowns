@@ -7363,7 +7363,8 @@ the validator again.*
   the band is taller.
 - **Kept as delivered**, as the other bought heroes; credited on /credits/
   only, under the standard licence the plan read on each page.
-- **Open for the owner:** Adobe's licence records for all five. Leadville's
-  caption is dated ("OCTOBER 2, 2023 - LEADVILLE, CO."), the way editorial
-  photographs are captioned; if its record says editorial, the ledger row
-  changes and the hero prints the credit on the photograph.
+- **The licences are standard.** The owner sent Adobe's licence records the
+  same day for Leadville, Manitou Springs, Fort Collins and Golden: each
+  says "Standard", Leadville's too, though its caption is dated the way
+  editorial photographs are. Nothing goes on any photograph. Still to
+  come: Clear Creek's record (asset #413103868).
