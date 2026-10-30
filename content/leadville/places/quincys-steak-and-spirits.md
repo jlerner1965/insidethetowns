@@ -5,7 +5,7 @@ address: "416 Harrison Avenue, Leadville, CO 80461"
 area: "Harrison Avenue"
 url: "https://www.quincyssteakandspirits.com/"
 source: "https://www.quincyssteakandspirits.com/quincys-locations"
-verified: "2026-10-10"
+verified: "2026-10-30"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "719-486-9765"
@@ -18,4 +18,4 @@ Quincys opened in October 1997 in the Quincy block on Harrison Avenue, built in 
 
 Walk-ins are seated first come, first served. In peak season, June to September, the restaurant takes no reservations, except that parties of six or more may reserve a table at 4:00, no later than 4:30.
 
-Hours, phone and address were read on the restaurant's [locations page](https://www.quincyssteakandspirits.com/quincys-locations), the menu on its [menu page](https://www.quincyssteakandspirits.com/steakhouse-menu), on 10 October 2026. The site carries no dated post, so the second source is the City of Leadville's [Restaurants & Bars page](https://www.leadville-co.gov/visitors/page/restaurants-bars), which lists it; that page carries no date of its own.
+Hours, phone and address were read on the restaurant's [locations page](https://www.quincyssteakandspirits.com/quincys-locations), the menu on its [menu page](https://www.quincyssteakandspirits.com/steakhouse-menu), on 30 October 2026. The site carries no dated post, so the second source is the City of Leadville's [Restaurants & Bars page](https://www.leadville-co.gov/visitors/page/restaurants-bars), which listed it when read on 10 October; that page carries no date of its own, and refused automated reads on 30 October.

@@ -21,11 +21,18 @@ export const leadville: TownConfig = {
   // Quiet from 20 October 2026, owner's word, with the other small mountain
   // guides (DECISIONS.md, "The other mountain guides, 20 October"): pages
   // up, listings checked as the rotation reaches them, no weekly promise.
-  // 19 November is before any listing's hours expire (45 days from its check
-  // on the mountain chassis; the quiet-towns test holds the order).
+  // The date stays before any listing's hours expire (45 days from its check
+  // on the mountain chassis; the quiet-towns test holds the order). Kept on
+  // 30 October 2026 until the 90-day verdict (DECISIONS.md, "Six quiet guides
+  // kept"); 24 of its 26 listings were re-checked that day. Healy House
+  // (10 October; History Colorado refused the read) and the fish hatchery
+  // (17 October; sources disagree on whether it is open) wait for a call, so
+  // the date moves only from 19 to 23 November, the day before Healy House
+  // loses its hours. The calls move it to 13 December; a full pass in the
+  // week of 7 December takes it to 20 January.
   quiet: {
     since: '2026-10-20',
-    decideBy: '2026-11-19',
+    decideBy: '2026-11-23',
     reason: 'the farthest guide from the rest of the network and a dozen events; a visitor guide from 12 October, and out of the weekly report too from 20 October, with the small mountain guides',
   },
   variant: 'mountain',
