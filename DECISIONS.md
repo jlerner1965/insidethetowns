@@ -7270,3 +7270,26 @@ as: list the studio on Inside Golden.*
   the site and its email, as their words say.
 - **Not done.** No source registry entry: their events will come through
   the event form, which is what they said they would do.
+
+## Golden Hour Pilates, re-filed and announced, 29 October 2026
+
+*The owner, after the listing went live: "I don't see any update on them
+on site".* The page was live, but only the directory, the search and the
+sitemap linked it: a `service` is listed under the directory alone, and the
+27 October home page shows no new places.
+
+- **A venue, not a service.** Every recreation and community center on the
+  network is a `venue` (Berthoud, Carbon Valley, Erie, Estes Park,
+  Evergreen's two), and `service` holds visitor centers, libraries, town
+  offices and transit. The studio is now a venue, so it is on Things to do
+  and the Venues page. This undoes the "A service" bullet of the entry
+  above.
+- **Added to the guide.** Golden's notes for the week of 26 October carry
+  an `added-to-guide` item for the studio, so it is under New & closed on
+  This week until 9 November (the default fourteen days from the week).
+- **Not changed: `added`.** The listing went on the guide on the evening of
+  29 October, after that morning's email, whose window ran 23 to 29
+  October; the next issue's starts on 30 October, so as dated the studio is
+  in neither issue's New on the guide. Moving `added` to 30 October would
+  put it in the 5 November issue at the cost of a date that is a few hours
+  wrong; that is the owner's call.
