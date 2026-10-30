@@ -390,6 +390,45 @@ dropped. They come down the day Creative Grounds asks.
 
 ---
 
+## Golden Hour Pilates — the studio and two classes
+
+**Sent** by **Bailey and Christy**, the co-founders of Golden Hour Pilates
+(their own email, and the About Us page of goldenhourpilatesco.com), in
+reply to the owner's email asking for the studio's details for Inside
+Golden. The owner passed it on on 29 October 2026. Three photographs came
+with it: the empty studio with its mats laid out and its sun logo in the
+mirror, and two frames from video of full classes, one standing with hand
+weights and one on the mats.
+
+Their wording on the photographs, in full:
+
+> All pictures we have sent may be used in the publication of Inside
+> Golden.
+
+The fourth of their numbered answers is "photos attached below", and the
+email closes "Best, Bailey and Christy".
+
+| | |
+|---|---|
+| **Scope** | The three photographs, anywhere in Inside Golden: insidegolden.com and the Inside Golden email ("the publication of Inside Golden") |
+| **Not covered** | The other guides in the network, and any photograph of theirs they did not send |
+| **Credit** | Not asked for. We credit "Golden Hour Pilates" |
+| **Standing** | For Inside Golden |
+| **Contact** | Bailey and Christy, by reply to the owner's thread; the studio at hello@goldenhourpilatesco.com and 720-248-7586 |
+
+The rights are taken to be theirs to give: they are the owners, and the
+photographs are of their own studio and classes. The two class photographs
+show their clients, some with faces visible; whether the clients agreed to
+be photographed is the studio's to settle, and either picture comes down
+the day the studio or anyone in it asks.
+
+The studio photograph is cropped from the 1934 × 2000 original to
+1200 × 800. The class photographs came as phone screenshots, a 920 × 516
+landscape frame inside black bars; each is that frame alone, not
+enlarged. All three are re-saved with the EXIF dropped.
+
+---
+
 ## Stock licences — bought photographs
 
 `docs/HERO-PHOTOS.md` is the list of heroes worth buying.
