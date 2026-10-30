@@ -7293,3 +7293,13 @@ sitemap linked it: a `service` is listed under the directory alone, and the
   in neither issue's New on the guide. Moving `added` to 30 October would
   put it in the 5 November issue at the cost of a date that is a few hours
   wrong; that is the owner's call.
+
+## Golden Hour Pilates dated into the 5 November email, 29 October 2026
+
+*The owner: "yes", to moving the studio's `added` to 30 October so it is
+in the next Thursday email.* The listing went on the guide on the evening
+of 29 October, after that morning's issue (window 23 to 29 October), so
+as dated it was in neither issue. `added` now reads 30 October, a few
+hours later than the truth, and `npm run newsletter -- --town=golden
+--date=2026-11-05` lists it under New on the guide. Nothing else reads the
+field.
