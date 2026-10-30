@@ -5,7 +5,7 @@ address: "120 West 9th Street, Leadville, CO 80461"
 area: "West 9th Street"
 url: "https://mininghalloffame.org/"
 source: "https://mininghalloffame.org/museum/"
-verified: "2026-10-10"
+verified: "2026-10-30"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "719-486-1229"
@@ -19,6 +19,6 @@ imageCredit: "Craig Talbert, Wikimedia Commons, CC BY 3.0"
 
 The National Mining Hall of Fame and Museum is open year-round, Tuesday through Sunday from 10 am to 4 pm and closed on Mondays. Its Museum page lists a $20 combo ticket with the Matchless Mine Historic Site, free admission for Lake County residents, and discounts for students, seniors and military with a valid ID at the front desk; tickets are sold online or at the desk. The page says a "Sesquisemiquincentennial" gallery on Colorado's 150th anniversary of statehood opened on August 1, 2026.
 
-The museum's Events page (https://mininghalloffame.org/events/) lists a temporary exhibit, "Spectra and Strata: The Observatory at Climax," running October 8, 2026 to January 10, 2027 and included with admission, along with autumn talks and the Silver Social in November; those are on the events calendar.
+The museum's Events page (https://mininghalloffame.org/events/) lists a temporary exhibit, "Spectra and Strata: The Observatory at Climax," running October 8, 2026 to January 10, 2027 and included with admission, and the Silver Social, a year-end celebration, on Saturday, November 14, 2026, 5 to 8 pm; those are on the events calendar.
 
-Hours and admission from the museum's [Museum page](https://mininghalloffame.org/museum/), the phone from its [contact page](https://mininghalloffame.org/contact/), both read 10 October 2026.
+Hours and admission from the museum's [Museum page](https://mininghalloffame.org/museum/), the phone from its [contact page](https://mininghalloffame.org/contact-us/), both read 30 October 2026; neither mentions holiday closures.
