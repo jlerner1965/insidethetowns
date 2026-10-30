@@ -57,7 +57,7 @@ export const fortcollins: TownConfig = {
     // /credits/ names it.
     image: 'AdobeStock_419314122.jpeg',
     alt: 'Old Town Square in Fort Collins on a summer afternoon in 2020: sandstone and brick buildings, string lights overhead, orange and blue café umbrellas, a flower bed, and children running through the splash pad',
-    credit: 'Schrodington, LLC, Adobe Stock',
+    credit: 'Schrodington LLC, Adobe Stock',
     // Wide screen: the umbrellas, the people and the splash pad, with the buildings above.
     position: '50% 55%',
   },

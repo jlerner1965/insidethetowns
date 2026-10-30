@@ -7363,7 +7363,18 @@ the validator again.*
   the band is taller.
 - **Kept as delivered**, as the other bought heroes; credited on /credits/
   only, under the standard licence the plan read on each page.
-- **Open for the owner:** Adobe's licence records for all five. Leadville's
-  caption is dated ("OCTOBER 2, 2023 - LEADVILLE, CO."), the way editorial
-  photographs are captioned; if its record says editorial, the ledger row
-  changes and the hero prints the credit on the photograph.
+- **The licences are standard.** The owner sent Adobe's licence records for
+  all five the same day: each says "Standard", Leadville's too, though its
+  caption is dated the way editorial photographs are. Nothing goes on any
+  photograph.
+- **Estes Park, the same afternoon:** Josh-Lehew's aerial of Elkhorn Avenue
+  in autumn (Adobe 2151219980), in place of the town from the Gem Lake
+  trail. The file has no date and no GPS; the avenue is identified by The
+  Wheel Bar's sign (132 East Elkhorn) and the street itself. Cropped at
+  50% 28%, along the avenue to the hills. Its licence record, sent the
+  same afternoon, says Standard.
+  Lyons keeps its hero: the owner looked at Adobe 636832312 and it has no
+  street in it.
+- **A credit fixed:** the ledger reads a photographer's name up to the first
+  comma, so Fort Collins's "Schrodington, LLC" showed on /credits/ as
+  "Schrodington". The row and the config now read "Schrodington LLC".
