@@ -51,12 +51,22 @@ test('nothing is listed live that the configs do not deploy', () => {
 });
 
 test("a folded town's domain is an alternate of the guide that took it, and is not its own entry", () => {
-  for (const t of towns.filter((t) => t.status === 'redirect')) {
+  for (const t of towns.filter((t) => t.status === 'redirect' && !t.retired)) {
     assert.ok(t.foldedInto, `${t.slug} redirects but says not where`);
     const host = listed.get(t.foldedInto.town);
     assert.ok(host, `${t.foldedInto.town} is missing from manager/towns.json`);
     assert.ok(host.alternate_domains?.includes(t.domain), `${t.domain} should be an alternate domain of ${t.foldedInto.town}`);
     assert.equal(listed.get(t.slug), undefined, `${t.slug} was folded into ${t.foldedInto.town} and should not have an entry of its own`);
+  }
+});
+
+test('a retired guide keeps its own entry, not live, and its notes say it was retired', () => {
+  for (const t of towns.filter((t) => t.retired)) {
+    const m = listed.get(t.slug);
+    assert.ok(m, `${t.slug} is retired and missing from manager/towns.json`);
+    assert.equal(m.live, false, `${t.slug} is retired and listed live`);
+    assert.equal(m.domain, t.domain, `${t.slug}: domain`);
+    assert.match(m.notes ?? '', new RegExp(`retired ${t.retired.since}`), `${t.slug}: notes should say "retired ${t.retired.since}"`);
   }
 });
 

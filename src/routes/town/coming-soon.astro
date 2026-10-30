@@ -9,9 +9,9 @@
  * a failed build would leave whatever deployed before.
  *
  * A guide folded into another (`foldedInto`, status `redirect`) builds this
- * page too, saying where it went. vercel.json sends every path on its
- * domain to the new guide first, so a reader should never see it; it is
- * here for the request that gets past the rules.
+ * page too, saying where it went, and a retired one (`retired`) says it has
+ * closed. vercel.json sends every path on its domain on first, so a reader
+ * should never see it; it is here for the request that gets past the rules.
  */
 import Page from '@/layouts/Page.astro';
 import { findTown, getNetworkHub, getTown } from '@/config';
@@ -25,7 +25,24 @@ const area = covers ? `${covers}, Colorado` : `${town.name}, Colorado`;
 const home = town.foldedInto && findTown(town.foldedInto.town);
 const moved = home && `https://${home.domain}${town.foldedInto!.path}`;
 ---
-{home && moved ? (
+{town.retired ? (
+  <Page
+    title={`${town.siteTitle} has closed`}
+    seoTitle={`${town.siteTitle} has closed`}
+    eyebrow={town.name}
+    description={`${town.siteTitle} is no longer published. ${hub.siteTitle} lists the guides that are.`}
+    intro={`${town.siteTitle} stopped publishing in ${new Date(`${town.retired.since}T12:00:00Z`).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })}. Its listings are no longer checked, so they are no longer shown.`}
+    noindex
+    narrow
+  >
+    <div class="prose">
+      <p>
+        The other guides in the network, on the Front Range and in the mountains, are on
+        <a href={`https://${hub.domain}/`}>{hub.siteTitle}</a>.
+      </p>
+    </div>
+  </Page>
+) : home && moved ? (
   <Page
     title={`${town.name} is now on ${home.siteTitle}`}
     seoTitle={`${town.name} is now on ${home.siteTitle}`}

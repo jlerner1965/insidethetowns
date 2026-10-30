@@ -7435,3 +7435,34 @@ Grand Lake.*
   cost little to keep, and the summer visitor is real. Retiring it would be
   the Severance shape with no neighbour: a holding page and a redirect to
   the hub, the domain kept.
+
+## Grand Lake retired, 30 October 2026
+
+*Given the case each way (the entry above), the owner retired Grand Lake the
+same day rather than wait for 19 November.*
+
+- **The shape.** No neighbouring guide could take it, so it is not a fold:
+  a new `retired` field on the config (since, reason), beside `foldedInto`,
+  with `status: 'redirect'`. A redirect guide is folded or retired, one of
+  the two, and `test/retired-towns.test.ts` holds the rest: no neighbours
+  either way (Estes Park drops it), out of every list the email and the
+  scripts read, its content gone, and every path on its domain sent to the
+  hub.
+- **The redirects.** Two rules in vercel.json, host-scoped to
+  insidegrandlake.com: `/` and `/(.*)` to insidethetowns.com/, permanent.
+  Nothing on the hub matches a Grand Lake path, so the home page it is.
+  docs/REDIRECTS.md and DEPLOY.md list it.
+- **The content is removed, not moved.** Its events, places, staged items,
+  articles, pages, weekly notes and sources.json are deleted; git history
+  keeps them should it reopen, which is a decision first and then a revert.
+  `images/` stays with its rows, the hero because the config names it.
+- **The holding page** the `insidegrandlake` project still builds says the
+  guide has closed and points to the hub, noindex; the rules answer first.
+- **What follows.** The hub's Moving page loses its Grand Lake paragraph;
+  the network now covers nine counties, Grand gone; manager/towns.json keeps
+  an entry, not live, "retired 2026-10-30", which its test checks.
+- **The owner's, and not done:** the Search Console property is a
+  URL-prefix one verified by a tag on a page that is no longer served, so
+  it will lose verification (docs/SEARCH-VISIBILITY.md); Buttondown
+  subscribers tagged `grand-lake` stay tagged, and nothing was ever sent to
+  them while it was quiet. The domain stays the owner's.

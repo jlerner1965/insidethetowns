@@ -773,6 +773,28 @@
       "permanent": true
     },
     {
+      "source": "/",
+      "destination": "https://insidethetowns.com/",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegrandlake.com"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "destination": "https://insidethetowns.com/",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegrandlake.com"
+        }
+      ]
+    },
+    {
       "source": "/places/arapaho-bend-natural-area{/}?",
       "has": [
         {

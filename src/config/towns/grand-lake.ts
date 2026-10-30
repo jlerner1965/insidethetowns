@@ -10,30 +10,28 @@ import type { TownConfig } from './types.ts';
  * Figures are from the Wikipedia infobox (census and GNIS), read 10 October
  * 2026, as for every other town; the comments say which. The domain,
  * insidegrandlake.com, is the owner's, named 10 October 2026.
+ *
+ * Retired on 30 October 2026 (DECISIONS.md, "Grand Lake retired"): no
+ * guide to fold into, so every path on insidegrandlake.com redirects to
+ * the hub (vercel.json) and its content has left content/grand-lake/. The
+ * config stays so the Vercel project keeps building, and keeps serving
+ * those redirects.
  */
 export const grandLake: TownConfig = {
   kind: 'town',
-  // Live 10 October 2026, on the owner's word, under its launch threshold:
-  // it publishes what is verified, and the validator and the weekly report
-  // say what it is short of (docs/archive/ACCURACY-SYSTEM.md).
-  status: 'live',
-  // Quiet from 20 October 2026, owner's word, with the other small mountain
-  // guides (DECISIONS.md, "The other mountain guides, 20 October"): pages
-  // up, listings checked as the rotation reaches them, no weekly promise.
-  // 19 November is before any listing's hours expire (45 days from its check
-  // on the mountain chassis; the quiet-towns test holds the order).
-  quiet: {
-    since: '2026-10-20',
-    decideBy: '2026-11-19',
-    reason: 'the smallest guide left after the Clear Creek fold, 410 people and sixteen events, with Estes Park a closed pass away for half the year; its readers are visitors, and nothing about it combines',
+  // Live 10 October 2026, on the owner's word, under its launch threshold;
+  // quiet from 20 October with the other small mountain guides; retired on
+  // 30 October, owner's word, ahead of its 19 November decision.
+  status: 'redirect',
+  retired: {
+    since: '2026-10-30',
+    reason: 'the smallest guide, 410 people, under its launch threshold with six events against ten; the Town\'s site refuses automated reads, three of seven listings checked on 27 October had summer hours, and its readers are visitors to a resort that turns over with Trail Ridge Road',
   },
   variant: 'mountain',
   region: 'Mountains & Foothills',
-  // Estes Park, the other side of the national park: two hours over Trail
-  // Ridge Road in summer and a long way round in winter, when the road is
-  // closed. Nothing else is within an afternoon's drive. Set when the town
-  // went live, 10 October 2026; Estes Park names Grand Lake back.
-  neighbors: ['estes-park'],
+  // Retired 30 October 2026: it names no neighbour, and Estes Park, which
+  // named it back, no longer does.
+  neighbors: [],
   slug: 'grand-lake',
   name: 'Grand Lake',
   // Named by the owner on 10 October 2026, and on the owner's Cloudflare

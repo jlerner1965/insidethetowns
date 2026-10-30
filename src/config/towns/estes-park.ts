@@ -27,7 +27,7 @@ export const estesPark: TownConfig = {
   },
   variant: 'mountain',
   region: 'Mountains & Foothills',
-  neighbors: ['lyons', 'loveland', 'grand-lake'],
+  neighbors: ['lyons', 'loveland'],
   // Set with the brief, 6 October 2026: upcoming events / open listings.
   launchThreshold: { events: 20, listings: 30 },
   slug: 'estes-park',

@@ -70,8 +70,10 @@ test('the network counts every county it covers, not every town', () => {
   // and Evergreen). Windsor, Fort Collins and the other new guides add no county.
   // The six mountain guides of 10 October 2026 add five: Gilpin (Black Hawk),
   // Clear Creek (Idaho Springs and Georgetown), Grand, El Paso (Manitou
-  // Springs) and Lake (Leadville).
-  assert.deepEqual(countiesCovered(live).sort(), ['Boulder', 'Clear Creek', 'El Paso', 'Elbert', 'Gilpin', 'Grand', 'Jefferson', 'Lake', 'Larimer', 'Weld']);
+  // Springs) and Lake (Leadville). Grand left with Grand Lake, retired on
+  // 30 October 2026; Gilpin stays, Black Hawk being a section of the Idaho
+  // Springs guide.
+  assert.deepEqual(countiesCovered(live).sort(), ['Boulder', 'Clear Creek', 'El Paso', 'Elbert', 'Gilpin', 'Jefferson', 'Lake', 'Larimer', 'Weld']);
 });
 
 test('no guide claims a single school district for a town that has two', () => {
