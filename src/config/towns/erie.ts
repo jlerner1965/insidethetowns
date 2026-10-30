@@ -47,9 +47,14 @@ export const erie: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'town-hall-lincoln-school.jpg',
-    alt: 'Erie Town Hall, the 1906 Lincoln School on Holbrook Street: a red-brick schoolhouse with a hipped roof and its newer wing, under a clear October sky',
-    credit: 'Erie Bard, Wikimedia Commons, CC BY-SA 4.0',
+    // Bought from Adobe Stock on 30 October 2026 (docs/HERO-PHOTOS.md), in
+    // place of Town Hall: Old Town's main street rather than one building.
+    // A standard licence, so no credit on the photograph; /credits/ names it.
+    image: 'AdobeStock_511199397.jpeg',
+    alt: 'Briggs Street in Old Town Erie from just above the rooftops on a June morning in 2022, looking south: a brick two-storey building and a restaurant patio on the left, houses and tall trees on the right, parked cars, and the street running straight out to the plains under a big cloudy sky',
+    credit: 'Noel, Adobe Stock',
+    // Wide screen: the street, its buildings and the plains on the horizon, not the sky.
+    position: '50% 58%',
   },
   social: {
     email: 'hello@insideerie.com',

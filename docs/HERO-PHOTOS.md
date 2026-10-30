@@ -16,10 +16,11 @@ since and is kept current. A row comes off when its hero is replaced.
 | Carbon Valley | **New today:** Fifth Street at Oak in old-town Frederick, under snow (Jared Winkler, 2018, CC BY-SA 4.0, 2,400 px), in place of the state park's pond | Done. It is also the Moving here guide's photograph, which the rules allow (only listings may not share the hero's) | — |
 | Longmont | McIntosh Lake at sunset | Buy iStock 2170237583, the downtown aerial ($33). Commons' Main Street at 5th Avenue (Billy Hathorn, 2010, 4,000 px) was looked at and passed over: a median tree in the middle of the frame and a Winchell's sign | Owner |
 | Loveland | **Bought 28 October:** Adobe Stock 412335350, Jacob Boomsma's winter aerial of downtown with Lake Loveland and the foothills beyond (standard licence, 5,458 px) | Done. Paste the order number into `PERMISSIONS.md` | Owner |
+| Erie | **Bought 30 October:** Adobe Stock 511199397, Briggs Street in Old Town from just above the rooftops, looking south, June 2022 (Noel, standard licence, 5,460 px), in place of Town Hall | Done. Paste the order number into `PERMISSIONS.md`, and check the receipt says standard, not editorial | Owner |
 | Johnstown | The Brush Barn, a mile out of town | Shoot Parish Avenue north from 1st Street; nothing exists to buy | Owner |
 | Timnath | A frozen pond at sunrise, 960 px | Shoot Old Town Main Street north toward the church; nothing exists to buy | Owner |
 | Windsor | Windsor Lake from the air, downtown on the far shore | Keep. The Commons Town Hall the plan offers is the Art & Heritage Center listing's card | — |
-| Erie, Elizabeth, Evergreen, Nederland, Golden, Fort Collins, Estes Park, Grand Lake, Clear Creek, Leadville, Manitou Springs | Their October Commons photographs | Fine as they are; the plan's picks are upgrades if the month's iStock and Adobe downloads have room | Owner |
+| Elizabeth, Evergreen, Nederland, Golden, Fort Collins, Estes Park, Grand Lake, Clear Creek, Leadville, Manitou Springs | Their October Commons photographs | Fine as they are; the plan's picks are upgrades if the month's iStock and Adobe downloads have room | Owner |
 
 Commons does load from the assistant's container, contrary to the plan's
 last paragraph, when files are fetched through
@@ -179,7 +180,7 @@ Also seen: Shutterstock 2406984531 (museum, winter, portrait), 2406987053 (the g
 | 2 | Shutterstock | "Old town Erie in Colorado", November 2022; filed under Nature / Parks, so look before buying | Des2916 | Standard | Not shown | $29 for a 2-image pack | [Shutterstock 2222095765](https://www.shutterstock.com/image-photo/2222095765) |
 | 3 | Adobe Stock (Premium) | Canada geese on a pond with Erie's pumpkin water tower behind, summer | Travel 'n' Lifestyle | Standard, Premium collection | 4000×3000 | $499.99 large, $249.99 small | [Adobe 2191959659](https://stock.adobe.com/images/x/2191959659) |
 
-Also seen: the same photographer's editorial set is a ready-made backup list: 2429669365 (Lucille's and the businesses with cars on the street), 2363583043 (the Coal Park building), 2366109521 (a two-storey brick downtown building at the crosswalk), 2363574043 (the post office with the coal car). Adobe 511199397 ("Erie CO") is keyworded church, castle, cathedral, europa: wrong place. Getty is Denver Post news (fracking, the velodrome). Commons has only the Town Hall / Lincoln School files you use now.
+Also seen: the same photographer's editorial set is a ready-made backup list: 2429669365 (Lucille's and the businesses with cars on the street), 2363583043 (the Coal Park building), 2366109521 (a two-storey brick downtown building at the crosswalk), 2363574043 (the post office with the coal car). Adobe 511199397 ("Erie CO") is keyworded church, castle, cathedral, europa, and was set aside here as the wrong place; it is not: its GPS record puts it over 660 Briggs Street, and it is the hero from 30 October. Getty is Denver Post news (fracking, the velodrome). Commons has only the Town Hall / Lincoln School files you use now.
 
 ### Golden
 

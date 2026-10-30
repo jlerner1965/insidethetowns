@@ -485,6 +485,19 @@ Cropping and the hero's overlay are fine; retouching is not.
 | **Used as** | The Lyons hero, from 28 October 2026 |
 | **Credit** | Not required by a standard licence. /credits/ names LD Productions and Adobe Stock |
 
+### Erie hero: Adobe Stock 511199397, "Erie CO"
+
+| | |
+|---|---|
+| **Agency and asset** | Adobe Stock 511199397, [its page](https://stock.adobe.com/images/x/511199397) (title as the hero plan of 28 October read it; Adobe answers 403 to the assistant, so the page was not read again) |
+| **Photographer** | Noel, from the file's embedded credit line, "Noel - stock.adobe.com" |
+| **Taken** | 6 June 2022, 9:12 am, from a DJI drone (Hasselblad L1D-20c) about 14 m up, at 40.0511° N, 105.0474° W, facing south: OpenStreetMap places that at 660 Briggs Street, Old Town Erie (the file's EXIF and DJI record) |
+| **Licence** | Adobe Stock standard licence, as for Loveland and Lyons; not read from the page. Check the receipt says standard, not editorial: an editorial one would want its credit on the photograph |
+| **File** | `content/erie/images/AdobeStock_511199397.jpeg`, the 5460 × 3637 JPEG as Adobe delivered it, uploaded by the owner on 30 October 2026, kept as delivered |
+| **Bought** | 30 October 2026 (the day the owner uploaded it). Order number and price not recorded yet: paste them here from the receipt |
+| **Used as** | The Erie hero, from 30 October 2026 |
+| **Credit** | Not required by a standard licence. /credits/ names Noel and Adobe Stock |
+
 ### What the iStock licence asks of us
 
 From iStock's Content License Agreement, June 2026 version, which the owner
