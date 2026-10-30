@@ -549,7 +549,7 @@ Cropping and the hero's overlay are fine; retouching is not.
 | **File** | `content/fortcollins/images/AdobeStock_419314122.jpeg`, the 5151 × 3434 JPEG as Adobe delivered it, uploaded by the owner on 30 October 2026, kept as delivered |
 | **Bought** | 30 October 2026, 5:17 pm, by James Lerner (the licence record, titled "Fort Collins"). The record carries no order number or price |
 | **Used as** | The Fort Collins hero, from 30 October 2026 |
-| **Credit** | Not required by a standard licence. /credits/ names Schrodington, LLC and Adobe Stock |
+| **Credit** | Not required by a standard licence. /credits/ names Schrodington LLC (written without its comma, which the ledger reads as the end of the name) and Adobe Stock |
 
 ### Golden hero: Adobe Stock 504466744, aerial of downtown Golden's main street and Table Mountain
 
@@ -563,6 +563,19 @@ Cropping and the hero's overlay are fine; retouching is not.
 | **Bought** | 30 October 2026, 5:13 pm, by James Lerner (the licence record, titled "Golden"). The record carries no order number or price |
 | **Used as** | The Golden hero, from 30 October 2026 |
 | **Credit** | Not required by a standard licence. /credits/ names Jacob Boomsma and Adobe Stock |
+
+### Estes Park hero: Adobe Stock 2151219980, aerial of Elkhorn Avenue
+
+| | |
+|---|---|
+| **Agency and asset** | Adobe Stock 2151219980, [its page](https://stock.adobe.com/images/aerial-view-of-elkhorn-avenue-in-downtown-estes-park/2151219980) |
+| **Photographer** | Josh-Lehew, the Adobe contributor name in the file's credit line, "Josh-Lehew - stock.adobe.com" |
+| **Taken** | Not in the file: no date, no GPS. Elkhorn Avenue by what is in the frame: The Wheel Bar's sign, which the guide lists at 132 East Elkhorn Avenue, the cottonwoods along the street and the rock outcrops either side. Autumn, by the leaves |
+| **Licence** | Adobe Stock standard licence: Adobe's licence record, which the owner sent the same day, lists asset #2151219980, photo, JPEG, 4024 × 2260 px, licence "Standard" |
+| **File** | `content/estes-park/images/AdobeStock_2151219980.jpeg`, the 4024 × 2260 JPEG as Adobe delivered it, uploaded by the owner on 30 October 2026, kept as delivered |
+| **Bought** | 30 October 2026, 5:52 pm, by James Lerner (the licence record, titled "Estes Park"). The record carries no order number or price |
+| **Used as** | The Estes Park hero, from 30 October 2026 |
+| **Credit** | Not required by a standard licence. /credits/ names Josh-Lehew and Adobe Stock |
 
 ### What the iStock licence asks of us
 

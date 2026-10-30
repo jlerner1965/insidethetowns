@@ -7367,3 +7367,14 @@ the validator again.*
   all five the same day: each says "Standard", Leadville's too, though its
   caption is dated the way editorial photographs are. Nothing goes on any
   photograph.
+- **Estes Park, the same afternoon:** Josh-Lehew's aerial of Elkhorn Avenue
+  in autumn (Adobe 2151219980), in place of the town from the Gem Lake
+  trail. The file has no date and no GPS; the avenue is identified by The
+  Wheel Bar's sign (132 East Elkhorn) and the street itself. Cropped at
+  50% 28%, along the avenue to the hills. Its licence record, sent the
+  same afternoon, says Standard.
+  Lyons keeps its hero: the owner looked at Adobe 636832312 and it has no
+  street in it.
+- **A credit fixed:** the ledger reads a photographer's name up to the first
+  comma, so Fort Collins's "Schrodington, LLC" showed on /credits/ as
+  "Schrodington". The row and the config now read "Schrodington LLC".

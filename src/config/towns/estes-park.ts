@@ -85,10 +85,14 @@ export const estesPark: TownConfig = {
     paper: 'cool',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'Estes Park from the Gem Lake trail: the town in its valley of pines, with snow on Longs Peak above',
-    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 7 October 2026.
-    credit: 'KimonBerlin, Wikimedia Commons, CC BY-SA 2.0',
+    // Bought from Adobe Stock on 30 October 2026 (docs/HERO-PHOTOS.md), in
+    // place of the town seen from the Gem Lake trail: Elkhorn Avenue itself.
+    // A standard licence, so no credit on the photograph; /credits/ names it.
+    image: 'AdobeStock_2151219980.jpeg',
+    alt: 'Elkhorn Avenue in downtown Estes Park from above in autumn: cottonwoods in full yellow along the street, shopfronts and rooftops on both sides, rock outcrops at the edges, and the avenue running on toward the pine-covered hills',
+    credit: 'Josh-Lehew, Adobe Stock',
+    // Wide screen: the avenue running back to the hills, not the rooftops in the foreground.
+    position: '50% 28%',
   },
   social: {
     email: 'hello@insideestespark.com',
