@@ -17,7 +17,8 @@ export const elizabeth = {
   // quiet guides kept"): 21 of its 24 listings were re-checked that day, so
   // the date moves from 15 to 30 November, the day before Catrina's (last
   // checked 2 October) loses its hours. Catrina's, Town Hall and Running
-  // Creek Park need a call before it can move to 20 January.
+  // Creek Park need a call, and the guide a second pass on or after 21
+  // November (60-day hours), before it can move to 20 January.
   quiet: {
     since: '2026-10-12',
     decideBy: '2026-11-30',
