@@ -525,6 +525,32 @@ Cropping and the hero's overlay are fine; retouching is not.
 | **Used as** | The Leadville hero, from 30 October 2026 |
 | **Credit** | Not required by a standard licence. /credits/ names Joe Sohm and Adobe Stock. If the licence record says editorial, the ledger row becomes "Adobe Stock editorial licence" and the hero prints the credit on the photograph |
 
+### Manitou Springs hero: Adobe Stock 357829842, "Aerial View of Downtown Manitou Springs"
+
+| | |
+|---|---|
+| **Agency and asset** | Adobe Stock 357829842, [its page](https://stock.adobe.com/images/aerial-view-of-downtown-manitou-springs/357829842) |
+| **Photographer** | Jacob Boomsma, as the hero plan of 28 October read the page; the file's credit line reads "Jacob - stock.adobe.com" |
+| **Taken** | 12 June 2020, from a drone (Hasselblad L1D-20c) at 38.8561° N, 104.9146° W: OpenStreetMap places that over Pawnee Avenue, above downtown (the file's EXIF) |
+| **Licence** | Adobe Stock standard licence, as the plan read the page; Adobe's licence record not yet seen |
+| **File** | `content/manitou-springs/images/AdobeStock_357829842.jpeg`, the 5460 × 3636 JPEG as Adobe delivered it, uploaded by the owner on 30 October 2026, kept as delivered |
+| **Bought** | 30 October 2026 (the day the owner uploaded it) |
+| **Used as** | The Manitou Springs hero, from 30 October 2026 |
+| **Credit** | Not required by a standard licence. /credits/ names Jacob Boomsma and Adobe Stock |
+
+### Fort Collins hero: Adobe Stock 419314122, "Downtown_Fort Collins Colorado"
+
+| | |
+|---|---|
+| **Agency and asset** | Adobe Stock 419314122, [its page](https://stock.adobe.com/images/downtown-fort-collins-colorado/419314122) |
+| **Photographer** | Schrodington, LLC (the file's credit line, "Schrodington, LLC - stock.adobe.com") |
+| **Taken** | 24 July 2020, Canon EOS 7D (the file's EXIF). No GPS in the file: Old Town Square by what is in the frame, the splash pad, the string lights and the sandstone blocks the listing describes |
+| **Licence** | Adobe Stock standard licence, as the plan read the page; Adobe's licence record not yet seen |
+| **File** | `content/fortcollins/images/AdobeStock_419314122.jpeg`, the 5151 × 3434 JPEG as Adobe delivered it, uploaded by the owner on 30 October 2026, kept as delivered |
+| **Bought** | 30 October 2026 (the day the owner uploaded it) |
+| **Used as** | The Fort Collins hero, from 30 October 2026 |
+| **Credit** | Not required by a standard licence. /credits/ names Schrodington, LLC and Adobe Stock |
+
 ### What the iStock licence asks of us
 
 From iStock's Content License Agreement, June 2026 version, which the owner

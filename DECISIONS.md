@@ -7329,11 +7329,12 @@ row in `IMAGE_LICENSES.csv`, which failed the validator and every build.*
   4:44 pm. So nothing goes on the photograph. The record has no order
   number or price; `PERMISSIONS.md` says so.
 
-## Clear Creek's and Leadville's bought heroes, 30 October 2026
+## Clear Creek's, Leadville's, Manitou Springs's and Fort Collins's bought heroes, 30 October 2026
 
-*The owner bought Adobe Stock 413103868 and 1111460584, two of the seven
-credits' worth suggested that afternoon, and uploaded them to `main` with no
-rows in `IMAGE_LICENSES.csv`, which failed the validator again.*
+*The owner bought Adobe Stock 413103868, 1111460584, 357829842 and
+419314122, four of the seven credits' worth suggested that afternoon, and
+uploaded them to `main` with no rows in `IMAGE_LICENSES.csv`, which failed
+the validator again.*
 
 - **Clear Creek:** Jacob Boomsma's aerial of Idaho Springs on 25 January
   2021: the Argo Gold Mine and Mill on its hillside, Clear Creek and the
@@ -7345,9 +7346,18 @@ rows in `IMAGE_LICENSES.csv`, which failed the validator again.*
   the mountains. The hero was the town among aspens from a distance. GPS:
   the 300 block of Harrison Avenue. Cropped high, at 50% 20%, so the band
   keeps the mountains and the blocks rather than the cupola.
+- **Manitou Springs:** Jacob Boomsma's aerial of 12 June 2020: Manitou
+  Avenue curving through the downtown blocks, the slopes, the red rock and
+  the mountains. The hero was Manitou Avenue at street level, which was
+  already the town; this is the town in its canyon. GPS: over Pawnee
+  Avenue, above downtown. Cropped at 50% 66%, on the street and the blocks.
+- **Fort Collins:** Schrodington, LLC's Old Town Square, 24 July 2020: the
+  splash pad, the string lights, the café umbrellas and the sandstone
+  blocks. The hero was the Northern Hotel, one building. The file has no
+  GPS; the square is identified by what is in the frame. Cropped at 50% 55%.
 - **Kept as delivered**, as the other bought heroes; credited on /credits/
   only, under the standard licence the plan read on each page.
-- **Open for the owner:** Adobe's licence records for both. Leadville's
+- **Open for the owner:** Adobe's licence records for all four. Leadville's
   caption is dated ("OCTOBER 2, 2023 - LEADVILLE, CO."), the way editorial
   photographs are captioned; if its record says editorial, the ledger row
   changes and the hero prints the credit on the photograph.

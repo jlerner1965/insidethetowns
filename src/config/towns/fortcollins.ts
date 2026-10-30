@@ -51,9 +51,15 @@ export const fortcollins: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'The Northern Hotel on College Avenue in Old Town Fort Collins, its vertical neon sign and white art-deco front beside a brick storefront under a deep blue sky',
-    credit: 'Xnatedawgx, Wikimedia Commons, CC BY-SA 4.0',
+    // Bought from Adobe Stock on 30 October 2026 (docs/HERO-PHOTOS.md), in
+    // place of the Northern Hotel, one building: the square downtown is
+    // arranged around. A standard licence, so no credit on the photograph;
+    // /credits/ names it.
+    image: 'AdobeStock_419314122.jpeg',
+    alt: 'Old Town Square in Fort Collins on a summer afternoon in 2020: sandstone and brick buildings, string lights overhead, orange and blue café umbrellas, a flower bed, and children running through the splash pad',
+    credit: 'Schrodington, LLC, Adobe Stock',
+    // Wide screen: the umbrellas, the people and the splash pad, with the buildings above.
+    position: '50% 55%',
   },
   social: {
     email: 'hello@insidefortcollins.com',
