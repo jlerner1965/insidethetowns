@@ -7233,3 +7233,40 @@ business itself), and approved through the review's own `approveText`.
   (403); Red Silo (the domain no longer serves a site); Windy Saddle (the
   name does not resolve). YoColorado's body loses its airport store: its
   About page calls Basecamp its one and only.
+
+## Golden Hour Pilates on Inside Golden, 29 October 2026
+
+*The owner passed on Bailey and Christy's reply to his request for the
+studio's details, with three photographs, and no instruction beyond it; read
+as: list the studio on Inside Golden.*
+
+- **The listing** is `content/golden/places/golden-hour-pilates.md`, read
+  against the studio's own site (the FAQ, pricing, method and about pages,
+  rendered in a browser, since the Canva-built site serves an empty shell to
+  a plain fetch) and the owners' email. The address takes the owners' Suite
+  114, which the site leaves out; the site disagrees with itself on the rest
+  (its footer reads "10 Golden Ridge Rd" on two pages and 710 on the
+  others, and its FAQ gives the ZIP as 80439 against the footer's 80401),
+  so the listing says 710 and no ZIP, as Golden's other listings do.
+- **A service.** It is the first `service` in Golden: a studio is neither
+  a venue in the guide's sense (a room where the town's events happen) nor
+  a shop. It is in the directory; Golden gets a Services page at three.
+- **The hours line is the owners' pattern, not times.** The owners: "up
+  to 3 classes per day, 7 days a week. The times change." There are no
+  fixed times that would stay true, so `hours` reads "Up to three classes a
+  day, seven days a week; times change" (left empty, the page said "Hours
+  unknown", which was less true), and the page sends the reader to the
+  schedule. The parser cannot read it as a schedule, so the page claims no
+  open-or-closed status and the validator counts it with the other text
+  lines, as it does the Caribou Room's "Show nights only". The Walla
+  schedule widget renders nothing to a headless browser, so no class times
+  were read and none are listed; the classes are not events.
+- **The photographs.** The owners' line, "All pictures we have sent may be
+  used in the publication of Inside Golden", is recorded under *Golden Hour
+  Pilates* in `PERMISSIONS.md` and credited "Golden Hour Pilates" through a
+  new grant in `src/lib/credits.ts`. The empty studio is the card; the two
+  class frames, which came as phone screenshots, are cropped to the
+  picture, not enlarged, and sit in the page. The scope is Inside Golden,
+  the site and its email, as their words say.
+- **Not done.** No source registry entry: their events will come through
+  the event form, which is what they said they would do.
