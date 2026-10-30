@@ -1,6 +1,6 @@
 ---
 title: "Golden Hour Pilates"
-type: service
+type: venue
 address: "710 Golden Ridge Rd, Suite 114, Golden, CO"
 area: "Golden Ridge Shopping Center"
 url: "https://goldenhourpilatesco.com/"
