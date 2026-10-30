@@ -7537,3 +7537,19 @@ parallel passes, the biggest claims checked again before editing.
   week of 7 December to 20 January.
 - **The City's merchant pages** (leadville-co.gov) refused automated reads,
   so the sentences citing them keep their 10 October date.
+
+## The re-check timing, corrected, 30 October 2026
+
+A listing's hours last 60 days on a Front Range guide and 45 on a mountain
+one, so a check reaches 20 January only if it is made on or after 21
+November (Front Range) or 7 December (mountain). The Elizabeth entry above
+said its three calls would move its decide-by to 20 January; they cannot,
+since its 30 October checks run out on 29 December. The plan, then:
+
+- **Week of 23 November:** Fort Collins, Longmont and Loveland in one pass
+  each, and Elizabeth a second time. None of the three city guides loses
+  hours before 30 November, so starting them sooner would mean doing them
+  twice.
+- **Week of 7 December:** Nederland and Leadville in full.
+- **Owner calls before then:** Elizabeth's three by 30 November, Leadville's
+  two by 23 November.
