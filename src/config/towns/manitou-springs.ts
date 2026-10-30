@@ -86,10 +86,14 @@ export const manitouSprings: TownConfig = {
     paper: 'cool',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'Manitou Avenue in Manitou Springs: brick storefronts on the left and traffic heading down the tree-lined street',
-    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 10 October 2026.
-    credit: 'John Lloyd, Wikimedia Commons, CC BY 2.0',
+    // Bought from Adobe Stock on 30 October 2026 (docs/HERO-PHOTOS.md), in
+    // place of a street-level Manitou Avenue: the town in its canyon. A
+    // standard licence, so no credit on the photograph; /credits/ names it.
+    image: 'AdobeStock_357829842.jpeg',
+    alt: 'Downtown Manitou Springs from the air on a June day in 2020: Manitou Avenue curving between brick and stone blocks and a church, houses among green trees on the slopes, red rock and a highway bridge above, and the mountains under summer cloud',
+    credit: 'Jacob Boomsma, Adobe Stock',
+    // Wide screen: Manitou Avenue and the downtown blocks, not the sky and the far slopes.
+    position: '50% 66%',
   },
   social: {
     email: 'hello@insidemanitousprings.com',

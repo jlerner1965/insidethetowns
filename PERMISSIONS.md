@@ -498,6 +498,72 @@ Cropping and the hero's overlay are fine; retouching is not.
 | **Used as** | The Erie hero, from 30 October 2026 |
 | **Credit** | Not required by a standard licence. /credits/ names Noel and Adobe Stock |
 
+### Clear Creek hero: Adobe Stock 413103868, "Aerial View of Downtown Idaho Springs, Colorado in Winter"
+
+| | |
+|---|---|
+| **Agency and asset** | Adobe Stock 413103868, [its page](https://stock.adobe.com/images/aerial-view-of-downtown-idaho-springs-colorado-in-winter/413103868) |
+| **Photographer** | Jacob Boomsma, as the hero plan of 28 October read the page; the file's credit line reads "Jacob - stock.adobe.com" |
+| **Taken** | 25 January 2021, 9:55 am, from a drone (Hasselblad L1D-20c) at 39.7411° N, 105.5056° W: OpenStreetMap places that at the Argo Mill, Miner Street (the file's EXIF) |
+| **Licence** | Adobe Stock standard licence, as the plan read the page; Adobe's licence record not yet seen |
+| **File** | `content/idaho-springs/images/AdobeStock_413103868.jpeg`, the 5462 × 3639 JPEG as Adobe delivered it, uploaded by the owner on 30 October 2026, kept as delivered |
+| **Bought** | 30 October 2026 (the day the owner uploaded it) |
+| **Used as** | The Inside Clear Creek hero, from 30 October 2026 |
+| **Credit** | Not required by a standard licence. /credits/ names Jacob Boomsma and Adobe Stock |
+
+### Leadville hero: Adobe Stock 1111460584, aerial down Harrison Avenue
+
+| | |
+|---|---|
+| **Agency and asset** | Adobe Stock 1111460584, [its page](https://stock.adobe.com/images/october-2-2023-leadville-co-aerial-view-down-main-street-historic-leadville-colorado-mining-town/1111460584) |
+| **Photographer** | Joe Sohm (the file's artist and copyright, "copyright joe sohm 2023, all rights reserved"); Adobe contributor name spiritofamerica |
+| **Caption in the file** | "OCTOBER 2, 2023 - LEADVILLE, CO. - aerial view down Main Street historic Leadville Colorado mining town - highest elevation USA a town" |
+| **Taken** | 2 October 2023, 8:38 am, from a drone (Hasselblad L2D-20c) about 34 m up, at 39.2460° N, 106.2909° W, over the 300 block of Harrison Avenue (the file's EXIF and DJI record) |
+| **Licence** | Adobe Stock standard licence, as the plan read the page ("the caption carries a date but the page shows no editorial restriction"); Adobe's licence record not yet seen. A dated caption is how editorial photographs are usually captioned, so this is the one to check |
+| **File** | `content/leadville/images/AdobeStock_1111460584.jpeg`, the 5272 × 2962 JPEG as Adobe delivered it, uploaded by the owner on 30 October 2026, kept as delivered |
+| **Bought** | 30 October 2026 (the day the owner uploaded it) |
+| **Used as** | The Leadville hero, from 30 October 2026 |
+| **Credit** | Not required by a standard licence. /credits/ names Joe Sohm and Adobe Stock. If the licence record says editorial, the ledger row becomes "Adobe Stock editorial licence" and the hero prints the credit on the photograph |
+
+### Manitou Springs hero: Adobe Stock 357829842, "Aerial View of Downtown Manitou Springs"
+
+| | |
+|---|---|
+| **Agency and asset** | Adobe Stock 357829842, [its page](https://stock.adobe.com/images/aerial-view-of-downtown-manitou-springs/357829842) |
+| **Photographer** | Jacob Boomsma, as the hero plan of 28 October read the page; the file's credit line reads "Jacob - stock.adobe.com" |
+| **Taken** | 12 June 2020, from a drone (Hasselblad L1D-20c) at 38.8561° N, 104.9146° W: OpenStreetMap places that over Pawnee Avenue, above downtown (the file's EXIF) |
+| **Licence** | Adobe Stock standard licence, as the plan read the page; Adobe's licence record not yet seen |
+| **File** | `content/manitou-springs/images/AdobeStock_357829842.jpeg`, the 5460 × 3636 JPEG as Adobe delivered it, uploaded by the owner on 30 October 2026, kept as delivered |
+| **Bought** | 30 October 2026 (the day the owner uploaded it) |
+| **Used as** | The Manitou Springs hero, from 30 October 2026 |
+| **Credit** | Not required by a standard licence. /credits/ names Jacob Boomsma and Adobe Stock |
+
+### Fort Collins hero: Adobe Stock 419314122, "Downtown_Fort Collins Colorado"
+
+| | |
+|---|---|
+| **Agency and asset** | Adobe Stock 419314122, [its page](https://stock.adobe.com/images/downtown-fort-collins-colorado/419314122) |
+| **Photographer** | Schrodington, LLC (the file's credit line, "Schrodington, LLC - stock.adobe.com") |
+| **Taken** | 24 July 2020, Canon EOS 7D (the file's EXIF). No GPS in the file: Old Town Square by what is in the frame, the splash pad, the string lights and the sandstone blocks the listing describes |
+| **Licence** | Adobe Stock standard licence, as the plan read the page; Adobe's licence record not yet seen |
+| **File** | `content/fortcollins/images/AdobeStock_419314122.jpeg`, the 5151 × 3434 JPEG as Adobe delivered it, uploaded by the owner on 30 October 2026, kept as delivered |
+| **Bought** | 30 October 2026 (the day the owner uploaded it) |
+| **Used as** | The Fort Collins hero, from 30 October 2026 |
+| **Credit** | Not required by a standard licence. /credits/ names Schrodington, LLC and Adobe Stock |
+
+### Golden hero: Adobe Stock 504466744, aerial of downtown Golden's main street and Table Mountain
+
+| | |
+|---|---|
+| **Agency and asset** | Adobe Stock 504466744, [its page](https://stock.adobe.com/images/aerial-view-of-downtown-golden-s-main-street-and-table-mountain-colorado/504466744) |
+| **Photographer** | Jacob Boomsma, as the hero plan of 28 October read the page; the file's credit line reads "Jacob - stock.adobe.com" |
+| **Taken** | 30 August 2021, from a drone about 53 m up, at 39.7536° N, 105.2205° W, facing north-north-west: OpenStreetMap places that over the Table Mountain Inn, 1310 Washington Avenue (the file's EXIF and DJI record) |
+| **Licence** | Adobe Stock standard licence, as the plan read the page; Adobe's licence record not yet seen |
+| **File** | `content/golden/images/AdobeStock_504466744.jpeg`, the 4096 × 2684 JPEG as Adobe delivered it, uploaded by the owner on 30 October 2026, kept as delivered |
+| **Bought** | 30 October 2026 (the day the owner uploaded it) |
+| **Used as** | The Golden hero, from 30 October 2026 |
+| **Credit** | Not required by a standard licence. /credits/ names Jacob Boomsma and Adobe Stock |
+
 ### What the iStock licence asks of us
 
 From iStock's Content License Agreement, June 2026 version, which the owner

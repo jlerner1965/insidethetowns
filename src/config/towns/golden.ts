@@ -72,10 +72,15 @@ export const golden: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'Clear Creek east of the Washington Avenue bridge in Golden, kayakers in the current and North Table Mountain behind the town',
-    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 7 October 2026.
-    credit: 'Dough4872, Wikimedia Commons, CC BY-SA 4.0',
+    // Bought from Adobe Stock on 30 October 2026 (docs/HERO-PHOTOS.md), in
+    // place of Clear Creek and its kayakers: downtown on Washington Avenue.
+    // A standard licence, so no credit on the photograph; /credits/ names it.
+    image: 'AdobeStock_504466744.jpeg',
+    alt: 'Downtown Golden from the air on a hazy August morning in 2021: Washington Avenue running through the brick blocks under the Welcome to Golden arch, the rimrock of North Table Mountain above the town on the right, and the foothills beyond',
+    credit: 'Jacob Boomsma, Adobe Stock',
+    // Wide screen: North Table Mountain, the foothills and the top of downtown;
+    // the arch sits lower in the frame and shows where the band is taller.
+    position: '50% 15%',
   },
   social: {
     email: 'hello@insidegolden.com',

@@ -87,10 +87,14 @@ export const leadville: TownConfig = {
     paper: 'cool',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'Leadville in autumn among yellow aspens, with Turquoise Lake and the mountains beyond under a cloudy sky',
-    // Attribution required by the photograph’s licence; see IMAGE_LICENSES.csv. Chosen 10 October 2026.
-    credit: 'Clyde Charles Brown, Wikimedia Commons, CC BY-SA 4.0',
+    // Bought from Adobe Stock on 30 October 2026 (docs/HERO-PHOTOS.md), in
+    // place of the town among aspens seen from afar: Harrison Avenue itself.
+    // A standard licence, so no credit on the photograph; /credits/ names it.
+    image: 'AdobeStock_1111460584.jpeg',
+    alt: 'Harrison Avenue in Leadville from above on an October morning in 2023, looking up the street past a green copper cupola: Victorian brick and painted storefronts, aspens turning gold among the houses, and bare mountains on the horizon under white cloud',
+    credit: 'Joe Sohm, Adobe Stock',
+    // Wide screen: the mountains, the brick blocks and the street, not the cupola in the foreground.
+    position: '50% 20%',
   },
   social: {
     email: 'hello@insideleadville.com',
