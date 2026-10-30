@@ -7490,3 +7490,25 @@ and the editor checked the passes' biggest claims before any edit.
 - **Found on the way:** The Carriage Shoppes' site has a spam page in place
   of its About page, which is worth telling them; Powder River's address is
   211 on its own site and 232 in the directory.
+
+## Nederland re-checked in part, 30 October 2026
+
+A mountain guide's listings keep their hours for 45 days, so a check made
+now lasts to mid-December whatever is done; reaching 20 January needs a
+pass on or after 7 December regardless. So this pass took only what could
+not wait: the 11 listings last checked 7–13 October and all 8 trail-access
+notes, which hide after 30 days (Hessie's on 5 November) and carry the
+winter closures. 15 files, read against their own sources.
+
+- **Changed:** Busey Brews closes at 5 pm Monday to Wednesday and starts
+  happy hour at 2, and Crosscut closes at 8 pm on its early-close days (a
+  correction each); the Hessie Shuttle has ended for 2026 and resumes
+  Memorial Day weekend 2027; Brainard's October road closure has passed and
+  the road past the entrance gate is closed to cars for the season; the
+  Community Center's page no longer posts separate weekday office hours.
+- **Confirmed:** the other nine, among them NedRink (still "closed for the
+  season", schedule coming) and the West Magnolia gates, which the Forest
+  Service's August road table still shows open.
+- **The decide-by** moves from 19 November to 3 December, the day before
+  the three listings checked on 20 October lose their hours. The full pass
+  in the week of 7 December moves it to 20 January.

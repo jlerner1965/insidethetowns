@@ -5,7 +5,7 @@ address: "20 Lakeview Dr, Nederland, CO 80466"
 area: "Caribou Village Shopping Center"
 url: "https://carouselofhappiness.org/"
 source: "https://carouselofhappiness.org/visit-the-carousel/"
-verified: "2026-10-13"
+verified: "2026-10-30"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "303-258-3457"
@@ -19,3 +19,5 @@ The Carousel of Happiness is a nonprofit arts and culture organization running a
 Rides are $3, infants under 9 months ride free, and a 10-ride punch card is $25; the last ride is at 4:45 pm. Visiting and hearing the carousel's story is free. Upstairs is a puppet theater with a window onto the carousel's gears; the carousel's page does not say whether the upstairs is step-free. Pets are not allowed in the building; a service animal may enter the gift shop and stays outside the carousel room except to help its owner on or off. The carousel says it is open year-round with days that vary by season, generally seven days a week from Memorial Day to Labor Day and weekends otherwise, and late on Halloween; the hours here are the regular hours it posts.
 
 The carousel publishes what it provides for riders who need it: a wheelchair ramp, step stools and a walker-friendly floor, several stationary benches and easy-to-ride seats, restrooms that are accessible and have diaper-changing stations, headphones for sensitive ears, and the music turned off entirely for a rider who needs quiet.
+
+Hours, prices, address and phone were read on the carousel's Visit page on 30 October 2026; its holiday hours were not yet posted.

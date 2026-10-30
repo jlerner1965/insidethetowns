@@ -5,7 +5,7 @@ address: "35 E 1st St, Nederland, CO 80466"
 area: "First Street"
 url: "https://www.decentbagel.com/"
 source: "https://www.decentbagel.com/location"
-verified: "2026-10-13"
+verified: "2026-10-30"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "720-882-6063"
@@ -17,3 +17,5 @@ summary: "Bagel shop and mercantile on East 1st Street, open daily. Bagel sales 
 Decent Bagel has shops in Boulder and Nederland; the Nederland one is on East 1st Street. It is open daily 7:30 am to 5:30 pm, but bagel sales stop at 2 pm, after which the mercantile side stays open.
 
 Online ordering for the Nederland shop is on its site.
+
+Hours, address and phone were read on Decent Bagel's own site on 30 October 2026; it posted no holiday hours.
