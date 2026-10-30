@@ -1,6 +1,6 @@
 ---
 title: "Christian Promise Fellowship fall festival"
-review: { reason: "Drafted 2026-10-21 from the Lyons Recorder's 15 October listings, a secondary source that gives the date, the preorder email and the $6 cabbage burgers but no time or address. The church's site (cpfchurch.org) could not be reached. Confirm the hours and the venue with the church, cite that, and publish.", since: "2026-10-21", from: manual }
+review: { reason: "Rechecked 30 October 2026: cpfchurch.org answers 503 or drops the connection, and the festival is not on the Recorder's November calendar; the Recorder's 15 October roundup is the only word, with no hours or address. Ask the church for the hours and the address (the preorder address, pdmf.cpfchurch@gmail.com, is in the listing), then `npm run confirm -- lyons christian-promise --how=email --with=\"Christian Promise Fellowship\"` after adding them.", since: "2026-10-30", from: manual }
 start: "2026-11-07"
 allDay: true
 timeNote: "Hours to be confirmed"

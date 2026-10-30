@@ -1,6 +1,6 @@
 ---
 title: "Lyons Dairy Bar"
-review: { reason: "No source: its domain redirects to lottery spam, and it shares 138 Main with Julie's Thai Kitchen. Still open, and which business is at 138 Main?", since: "2026-10-03", from: migration }
+review: { reason: "Rechecked 30 October 2026: the Town's Restaurants in Lyons page (townoflyons.com/761, undated) still lists it at 138 Main, daily 11 am to 7 pm, with thenewlyonsdairybar.com, which now redirects to an unrelated Oregon site. Nothing of its own and nothing dated says it is open. Call (303-823-5800, from a directory, not printed): open, and its winter hours.", since: "2026-10-30", from: migration }
 type: restaurant
 address: "138 Main St"
 area: "East Main"

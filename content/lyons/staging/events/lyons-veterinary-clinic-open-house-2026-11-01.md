@@ -1,6 +1,6 @@
 ---
 title: "Open house at Lyons Veterinary Clinic: meet the new owners"
-review: { reason: "Drafted 2026-10-21 from the Lyons Recorder's 15 October article, a secondary source. The clinic's own site (lyonsvetclinic.com) does not mention the open house. A business event needs the owner's own announcement: confirm with the clinic (303-823-6767), cite that, and publish.", since: "2026-10-21", from: manual }
+review: { reason: "Rechecked 30 October 2026: the clinic's site (lyonsvetclinic.com) still says nothing of the open house, and its Facebook page cannot be read automatically; the Recorder's 15 October article is the only word. Call the clinic (303-823-6767) before Sunday 1 November, then `npm run confirm -- lyons lyons-veterinary-clinic --how=phone --with=\"Lyons Veterinary Clinic\"`. Delete it after 1 November if no call is made.", since: "2026-10-30", from: manual }
 start: "2026-11-01T12:00"
 end: "2026-11-01T15:00"
 venue: "Lyons Veterinary Clinic"
