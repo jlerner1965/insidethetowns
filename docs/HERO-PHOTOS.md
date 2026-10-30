@@ -24,7 +24,8 @@ since and is kept current. A row comes off when its hero is replaced.
 | Leadville | **Bought 30 October:** Adobe Stock 1111460584, Joe Sohm's drone view up Harrison Avenue, October 2023 (standard as the plan read the page, 5,272 px), in place of the town among the aspens | Send Adobe's licence record: the caption is dated, as editorial ones are, so check it says Standard | Owner |
 | Manitou Springs | **Bought 30 October:** Adobe Stock 357829842, Jacob Boomsma's June 2020 aerial of downtown along Manitou Avenue, the red rock and the mountains above (standard licence, 5,460 px), in place of Manitou Avenue at street level | Send Adobe's licence record | Owner |
 | Fort Collins | **Bought 30 October:** Adobe Stock 419314122, Old Town Square in July 2020, the splash pad, the umbrellas and the sandstone blocks (Schrodington, LLC, standard licence, 5,151 px), in place of the Northern Hotel | Send Adobe's licence record | Owner |
-| Elizabeth, Evergreen, Nederland, Golden, Estes Park, Grand Lake | Their October Commons photographs | Fine as they are; the plan's picks are upgrades if the month's iStock and Adobe downloads have room | Owner |
+| Golden | **Bought 30 October:** Adobe Stock 504466744, Jacob Boomsma's August 2021 aerial of Washington Avenue under the Welcome to Golden arch, North Table Mountain above (standard licence, 4,096 px), in place of Clear Creek and its kayakers | Send Adobe's licence record | Owner |
+| Elizabeth, Evergreen, Nederland, Estes Park, Grand Lake | Their October Commons photographs | Fine as they are; the plan's picks are upgrades if the month's iStock and Adobe downloads have room | Owner |
 
 Commons does load from the assistant's container, contrary to the plan's
 last paragraph, when files are fetched through

@@ -551,6 +551,19 @@ Cropping and the hero's overlay are fine; retouching is not.
 | **Used as** | The Fort Collins hero, from 30 October 2026 |
 | **Credit** | Not required by a standard licence. /credits/ names Schrodington, LLC and Adobe Stock |
 
+### Golden hero: Adobe Stock 504466744, aerial of downtown Golden's main street and Table Mountain
+
+| | |
+|---|---|
+| **Agency and asset** | Adobe Stock 504466744, [its page](https://stock.adobe.com/images/aerial-view-of-downtown-golden-s-main-street-and-table-mountain-colorado/504466744) |
+| **Photographer** | Jacob Boomsma, as the hero plan of 28 October read the page; the file's credit line reads "Jacob - stock.adobe.com" |
+| **Taken** | 30 August 2021, from a drone about 53 m up, at 39.7536° N, 105.2205° W, facing north-north-west: OpenStreetMap places that over the Table Mountain Inn, 1310 Washington Avenue (the file's EXIF and DJI record) |
+| **Licence** | Adobe Stock standard licence, as the plan read the page; Adobe's licence record not yet seen |
+| **File** | `content/golden/images/AdobeStock_504466744.jpeg`, the 4096 × 2684 JPEG as Adobe delivered it, uploaded by the owner on 30 October 2026, kept as delivered |
+| **Bought** | 30 October 2026 (the day the owner uploaded it) |
+| **Used as** | The Golden hero, from 30 October 2026 |
+| **Credit** | Not required by a standard licence. /credits/ names Jacob Boomsma and Adobe Stock |
+
 ### What the iStock licence asks of us
 
 From iStock's Content License Agreement, June 2026 version, which the owner

@@ -7329,10 +7329,10 @@ row in `IMAGE_LICENSES.csv`, which failed the validator and every build.*
   4:44 pm. So nothing goes on the photograph. The record has no order
   number or price; `PERMISSIONS.md` says so.
 
-## Clear Creek's, Leadville's, Manitou Springs's and Fort Collins's bought heroes, 30 October 2026
+## Five more bought heroes: Clear Creek, Leadville, Manitou Springs, Fort Collins and Golden, 30 October 2026
 
-*The owner bought Adobe Stock 413103868, 1111460584, 357829842 and
-419314122, four of the seven credits' worth suggested that afternoon, and
+*The owner bought Adobe Stock 413103868, 1111460584, 357829842, 419314122
+and 504466744, five of the seven credits' worth suggested that afternoon, and
 uploaded them to `main` with no rows in `IMAGE_LICENSES.csv`, which failed
 the validator again.*
 
@@ -7355,9 +7355,15 @@ the validator again.*
   splash pad, the string lights, the café umbrellas and the sandstone
   blocks. The hero was the Northern Hotel, one building. The file has no
   GPS; the square is identified by what is in the frame. Cropped at 50% 55%.
+- **Golden:** Jacob Boomsma's aerial of 30 August 2021 from above the
+  Table Mountain Inn: Washington Avenue under the Welcome to Golden arch,
+  North Table Mountain's rimrock, the foothills. The hero was Clear Creek
+  and its kayakers. Cropped high, at 50% 15%, for the mesa and the
+  foothills over downtown; the arch is lower in the frame and shows where
+  the band is taller.
 - **Kept as delivered**, as the other bought heroes; credited on /credits/
   only, under the standard licence the plan read on each page.
-- **Open for the owner:** Adobe's licence records for all four. Leadville's
+- **Open for the owner:** Adobe's licence records for all five. Leadville's
   caption is dated ("OCTOBER 2, 2023 - LEADVILLE, CO."), the way editorial
   photographs are captioned; if its record says editorial, the ledger row
   changes and the hero prints the credit on the photograph.
