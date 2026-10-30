@@ -7466,3 +7466,27 @@ same day rather than wait for 19 November.*
   it will lose verification (docs/SEARCH-VISIBILITY.md); Buttondown
   subscribers tagged `grand-lake` stay tagged, and nothing was ever sent to
   them while it was quiet. The domain stays the owner's.
+
+## Elizabeth re-checked, 30 October 2026
+
+The first of the six kept quiet guides (the entry above). All 25 listings
+were read against their own sources the same day, in three parallel passes,
+and the editor checked the passes' biggest claims before any edit.
+
+- **21 re-checked and stamped 30 October**, with what changed: Small Town
+  Mini Donuts has new owners and new hours (a correction); Antelope Alpacas
+  no longer teaches (a correction); the Stampede's 2027 dates are out and
+  the Chamber now hosts the parade; the tea room is 392-B; and wording no
+  source supports came out (the library's Friday evenings, Evans Park's
+  "square feet", the bank's January 2023 date and its Elbert County Bank
+  line, three shops' unconfirmed descriptions).
+- **86 & Main is staged:** the directory confirms a name and an address,
+  nothing says what it sells or that it is open.
+- **Three wait for a call:** Catrina's (nothing dated shows it open), Town
+  Hall and Running Creek Park (the Town's site refuses automated reads).
+  Catrina's, last checked 2 October, loses its hours on 1 December, so the
+  decide-by moves from 15 to 30 November, not to 20 January; the calls move
+  it the rest of the way.
+- **Found on the way:** The Carriage Shoppes' site has a spam page in place
+  of its About page, which is worth telling them; Powder River's address is
+  211 on its own site and 232 in the directory.

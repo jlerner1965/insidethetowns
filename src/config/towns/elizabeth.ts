@@ -11,13 +11,17 @@ export const elizabeth = {
   // (DECISIONS.md, "Elizabeth stays"). It stays quiet, with no weekly
   // promise, because the reason it went quiet (an hour from every other
   // guide, so nothing about it combines) has not changed. What is left to
-  // decide on 15 November is only whether it rejoins the weekly email; the
-  // date stays before any listing's hours expire (the five checked on 18
-  // September lose them on 17 November, and the test holds the order).
+  // decide is only whether it rejoins the weekly email; the date stays
+  // before any listing's hours expire, and the test holds the order. Kept
+  // again on 30 October 2026, until the 90-day verdict (DECISIONS.md, "Six
+  // quiet guides kept"): 21 of its 24 listings were re-checked that day, so
+  // the date moves from 15 to 30 November, the day before Catrina's (last
+  // checked 2 October) loses its hours. Catrina's, Town Hall and Running
+  // Creek Park need a call before it can move to 20 January.
   quiet: {
     since: '2026-10-12',
-    decideBy: '2026-11-15',
-    reason: 'kept on 15 October 2026 on its reader numbers, but an hour from the other guides, so it stays out of the weekly email; 15 November decides whether it rejoins',
+    decideBy: '2026-11-30',
+    reason: 'kept on 15 October and again on 30 October 2026, but an hour from the other guides, so it stays out of the weekly email until the 90-day verdict',
   },
   variant: 'front-range',
   region: 'South Metro',

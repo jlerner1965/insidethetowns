@@ -36,9 +36,17 @@ Last revised: 28 October 2026.
 | By | Decision | Who |
 |---|---|---|
 | Now | A scheduled assistant session for the weekly audit: yes or no (the scorecard's was set up 27 October) | Owner |
-| Before each guide's first expiry | Re-check the kept quiet guides' listings against their own sites, then move `decideBy` to 20 January: Elizabeth (25) by 17 November; Nederland (26) by 21 November; Leadville (26) by 24 November; Fort Collins (67) by 30 November; Longmont (40) and Loveland (42) by 3 December. The mountain two need a second pass in early January (45-day hours). Listings whose sites refuse automated reads go to the owner as calls | Assistant checks, owner calls |
+| Before each guide's first expiry | Re-check the kept quiet guides' listings against their own sites, then move `decideBy` to 20 January: Elizabeth done 30 October (21 of 25 confirmed or corrected, 86 & Main staged; three calls below), decide-by now 30 November; Nederland (26) by 21 November; Leadville (26) by 24 November; Fort Collins (67) by 30 November; Longmont (40) and Loveland (42) by 3 December. The mountain two need a second pass in early January (45-day hours). Listings whose sites refuse automated reads go to the owner as calls | Assistant checks, owner calls |
 | 20 January | The 90-day test's verdict (`docs/90-DAY-TEST.md`) | Owner |
 | 20 January, after the verdict | The five held domains (`DECISIONS.md`, "Five domains held, 30 October"): Lafayette first if the test passes; Frederick and Mead into their neighbours; Steamboat Springs and Salida renewed or let go | Owner |
+
+## Elizabeth: calls from the 30 October re-check
+
+| By | What | Who |
+|---|---|---|
+| By 30 November | Elizabeth, three calls so its decide-by can move to 20 January (the Town's site refuses automated reads, and nothing dated shows Catrina's open): Catrina's Latin Food, (719) 751-8789, still open and the hours Mon–Sat 6:30 am–8 pm, Sun 8 am–2 pm?; Town Hall, the office hours (the Main Street program says Mon–Fri 8 am–5 pm); Running Creek Park, still as listed. And 86 & Main, 122 S Main: what is it, and is it open? (staged) | Owner |
+| Soon | Elizabeth: tell The Carriage Shoppes their site's About page (thecarriageshoppes.com/about-the-carriage-shoppes/) now serves a gambling spam page; the site looks compromised. A goodwill email, and a reason to be in touch | Owner |
+| Soon | Elizabeth: Powder River Custom Hat Company's site says 211 Main; the Main Street directory says 232, the address it also gives Randy's. One call settles it | Owner |
 
 ## Calls still open in the three towns
 
