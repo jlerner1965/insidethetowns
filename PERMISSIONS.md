@@ -505,9 +505,9 @@ Cropping and the hero's overlay are fine; retouching is not.
 | **Agency and asset** | Adobe Stock 413103868, [its page](https://stock.adobe.com/images/aerial-view-of-downtown-idaho-springs-colorado-in-winter/413103868) |
 | **Photographer** | Jacob Boomsma, as the hero plan of 28 October read the page; the file's credit line reads "Jacob - stock.adobe.com" |
 | **Taken** | 25 January 2021, 9:55 am, from a drone (Hasselblad L1D-20c) at 39.7411° N, 105.5056° W: OpenStreetMap places that at the Argo Mill, Miner Street (the file's EXIF) |
-| **Licence** | Adobe Stock standard licence, as the plan read the page; Adobe's licence record not yet seen |
+| **Licence** | Adobe Stock standard licence: Adobe's licence record, which the owner sent the same day, lists asset #413103868, photo, JPEG, 5462 × 3639 px, licence "Standard" |
 | **File** | `content/idaho-springs/images/AdobeStock_413103868.jpeg`, the 5462 × 3639 JPEG as Adobe delivered it, uploaded by the owner on 30 October 2026, kept as delivered |
-| **Bought** | 30 October 2026 (the day the owner uploaded it) |
+| **Bought** | 30 October 2026, 5:13 pm, by James Lerner (the licence record, titled "Idaho springs"). The record carries no order number or price |
 | **Used as** | The Inside Clear Creek hero, from 30 October 2026 |
 | **Credit** | Not required by a standard licence. /credits/ names Jacob Boomsma and Adobe Stock |
 

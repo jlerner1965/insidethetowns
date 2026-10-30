@@ -7363,8 +7363,7 @@ the validator again.*
   the band is taller.
 - **Kept as delivered**, as the other bought heroes; credited on /credits/
   only, under the standard licence the plan read on each page.
-- **The licences are standard.** The owner sent Adobe's licence records the
-  same day for Leadville, Manitou Springs, Fort Collins and Golden: each
-  says "Standard", Leadville's too, though its caption is dated the way
-  editorial photographs are. Nothing goes on any photograph. Still to
-  come: Clear Creek's record (asset #413103868).
+- **The licences are standard.** The owner sent Adobe's licence records for
+  all five the same day: each says "Standard", Leadville's too, though its
+  caption is dated the way editorial photographs are. Nothing goes on any
+  photograph.
