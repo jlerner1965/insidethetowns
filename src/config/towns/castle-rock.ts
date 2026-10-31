@@ -42,7 +42,9 @@ export const castleRock: TownConfig = {
   siteTitle: 'Inside Castle Rock',
   tagline:
     'An independent guide to Castle Rock, Colorado: downtown under the Rock, Philip S. Miller Park, the trails, and life between Denver and Colorado Springs.',
-  shortTagline: 'Downtown under the Rock, Philip S. Miller Park and the open space',
+  // 61 characters: within the hero's 64 on a phone, so it is never shortened
+  // (it was 66, and the cut landed on the initial in "Philip S.", 31 October 2026).
+  shortTagline: 'Downtown under the Rock, Philip S. Miller Park and the trails',
   seoTagline: 'Events and places in Castle Rock, Colorado',
   counties: ['Douglas'],
   state: 'CO',

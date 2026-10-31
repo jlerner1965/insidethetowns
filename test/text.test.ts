@@ -18,3 +18,9 @@ test('shorten: never ends inside a word', () => {
   assert.ok(text.startsWith(out.slice(0, -1)));
   assert.match(text.slice(out.length - 1), /^[\s,;:.]/);
 });
+
+test('shorten: a period after an initial is not a sentence break', () => {
+  // Castle Rock's tagline on a phone, 31 October 2026: the cut had landed on "Philip S".
+  assert.equal(shorten('Downtown under the Rock, Philip S. Miller Park and the open space', 64), 'Downtown under the Rock, Philip S. Miller Park and the open…');
+  assert.equal(shorten('Downtown under the Rock, Philip S. Miller Park and the trails', 64), 'Downtown under the Rock, Philip S. Miller Park and the trails');
+});
