@@ -1,6 +1,6 @@
 ---
 title: "Glacier Homemade Ice Cream & Gelato of Castle Rock"
-review: { reason: "The shop’s own site gives address and phone but no hours: its Hours & Location page says ‘See Up to Date Hours on Google’ (read 6 October). Note also that the site gives (303) 386-3751 while the Chamber directory lists (303) 803-3257. Get hours and the right number from the shop and publish.", since: "2026-10-06", from: manual }
+review: { reason: "The shop’s own site gives address and phone but no hours: its Hours & Location page says ‘See Up to Date Hours on Google’ (read 6 October). Note also that the site gives (303) 386-3751 while the Chamber directory lists (303) 803-3257. Get hours and the right number from the shop and publish. Re-read 31 October 2026: unchanged; the location page still sends readers to Google for hours.", since: "2026-10-06", from: manual }
 type: coffee
 address: "115 Wilcox St., Unit 110B, Castle Rock, CO 80104"
 area: "Wilcox Street, Riverwalk"

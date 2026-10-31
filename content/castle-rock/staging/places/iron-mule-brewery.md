@@ -1,6 +1,6 @@
 ---
 title: "Iron Mule Brewery"
-review: { reason: "The brewery’s own site gives the address and phone (contact page) but no hours on its home, contact or about pages, read 6 October. Get the taproom hours from the brewery (taproom@ironmulebrewery.com or 720-328-9008) and publish.", since: "2026-10-06", from: manual }
+review: { reason: "The brewery’s own site gives the address and phone (contact page) but no hours on its home, contact or about pages, read 6 October. Get the taproom hours from the brewery (taproom@ironmulebrewery.com or 720-328-9008) and publish. Re-read 31 October 2026: home, events and contact pages give the address, 720-328-9008 and taproom@ironmulebrewery.com, no hours; the events page has headings and no entries.", since: "2026-10-06", from: manual }
 type: bar
 address: "514 Perry Street, Castle Rock, CO 80104"
 area: "Perry Street, downtown"

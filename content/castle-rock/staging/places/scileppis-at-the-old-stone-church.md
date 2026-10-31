@@ -1,6 +1,6 @@
 ---
 title: "Scileppi’s at The Old Stone Church"
-review: { reason: "scileppis.com, the site the Chamber and Visit Castle Rock both list for it, answered the robots-aware fetch with 403 (Cloudflare challenge) on 6 October; not worked around. The older domain oldstonechurch.com is now a for-sale page. Address and phone here are from the Chamber directory (business.castlerock.org/list/ql/restaurant-99), existence only. Open scileppis.com in a browser, confirm phone and hours, and publish.", since: "2026-10-06", from: manual }
+review: { reason: "scileppis.com, the site the Chamber and Visit Castle Rock both list for it, answered the robots-aware fetch with 403 (Cloudflare challenge) on 6 October; not worked around. The older domain oldstonechurch.com is now a for-sale page. Address and phone here are from the Chamber directory (business.castlerock.org/list/ql/restaurant-99), existence only. Open scileppis.com in a browser, confirm phone and hours, and publish. Still 403 on 31 October 2026, robots.txt included.", since: "2026-10-06", from: manual }
 type: restaurant
 address: "210 Third Street, Castle Rock, CO 80104"
 area: "Third Street, downtown"

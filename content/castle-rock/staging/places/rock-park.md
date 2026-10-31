@@ -1,6 +1,6 @@
 ---
 title: "Rock Park"
-review: { reason: "crgov.com refuses automated reads; check the Town’s page by hand. The Town runs Rock Park and crgov.com answered 403 on 6 October; no other official page states its address, hours or trail details. Draft text is from Visit Castle Rock (visitcastlerock.org/play/parks-recreation/), a chamber site. Read address, trailhead parking, hours and the trail length on the Town’s page.", since: "2026-10-06", from: manual }
+review: { reason: "crgov.com refuses automated reads; check the Town’s page by hand. The Town runs Rock Park and crgov.com answered 403 on 6 October; no other official page states its address, hours or trail details. Draft text is from Visit Castle Rock (visitcastlerock.org/play/parks-recreation/), a chamber site. Read address, trailhead parking, hours and the trail length on the Town’s page. crgov.com still answered 403 on 31 October 2026.", since: "2026-10-06", from: manual }
 type: park
 address: "Rock Park, Castle Rock, CO"
 tags: [hiking, landmark, views]

@@ -1,6 +1,6 @@
 ---
 title: "Lost Coffee"
-review: { reason: "lostcoffee.com answered the robots-aware fetch with 403 (Cloudflare challenge) on 6 October; not worked around. The street number (390 Perry St) came only from a web search result, not from any source, so the address here is the street alone. Open lostcoffee.com in a browser, confirm the Castle Rock shop’s address, phone and hours, and publish.", since: "2026-10-06", from: manual }
+review: { reason: "lostcoffee.com answered the robots-aware fetch with 403 (Cloudflare challenge) on 6 October; not worked around. The street number (390 Perry St) came only from a web search result, not from any source, so the address here is the street alone. Open lostcoffee.com in a browser, confirm the Castle Rock shop’s address, phone and hours, and publish. Still 403 on the home page on 31 October 2026.", since: "2026-10-06", from: manual }
 type: coffee
 address: "Perry Street, Castle Rock, CO 80104"
 area: "Perry Street, downtown"

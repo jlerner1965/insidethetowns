@@ -1,6 +1,6 @@
 ---
 title: "Philip S. Miller Park"
-review: { reason: "crgov.com refuses automated reads; check the Town’s page by hand. The Town runs the park and its page (crgov.com/2051/Philip-S-Miller-Park, linked from Visit Castle Rock) answered 403 on 6 October; no other official page states its facts. Draft text is from Visit Castle Rock (visitcastlerock.org/play/parks-recreation/), a chamber site, and the address from The Edge Ziplines’ plan-your-visit page (The Edge operates inside the park). Confirm address, hours and the trail figures on the Town’s page.", since: "2026-10-06", from: manual }
+review: { reason: "crgov.com refuses automated reads; check the Town’s page by hand. The Town runs the park and its page (crgov.com/2051/Philip-S-Miller-Park, linked from Visit Castle Rock) answered 403 on 6 October; no other official page states its facts. Draft text is from Visit Castle Rock (visitcastlerock.org/play/parks-recreation/), a chamber site, and the address from The Edge Ziplines’ plan-your-visit page (The Edge operates inside the park). Confirm address, hours and the trail figures on the Town’s page. crgov.com still answered 403 on 31 October 2026.", since: "2026-10-06", from: manual }
 type: park
 address: "1375 West Plum Creek Parkway, Castle Rock, CO 80109"
 url: "https://www.crgov.com/2051/Philip-S-Miller-Park"

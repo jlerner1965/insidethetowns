@@ -50,6 +50,17 @@ Last revised: 31 October 2026.
 | Soon | Elizabeth: tell The Carriage Shoppes their site's About page (thecarriageshoppes.com/about-the-carriage-shoppes/) now serves a gambling spam page; the site looks compromised. A goodwill email, and a reason to be in touch | Owner |
 | Soon | Elizabeth: Powder River Custom Hat Company's site says 211 Main; the Main Street directory says 232, the address it also gives Randy's. One call settles it | Owner |
 
+## Castle Rock: before and after launch, from the 31 October completion
+
+| By | What | Who |
+|---|---|---|
+| Before merging | Read six Town pages in a browser and send what they say (address, hours, fees, trail lengths): Philip S. Miller Park (crgov.com/2051/Philip-S-Miller-Park), Festival Park, Rock Park, Ridgeline Open Space, the Recreation Center and the MAC. crgov.com refuses automated reads; these are the guide's headline parks, and all six are drafted in `staging/places/` | Owner |
+| Soon | Browser reads where the fetch is refused: Alidade Brewing (alidadebrewing.com, hours and phone), Lost Coffee (lostcoffee.com, the Perry Street address, hours), Scileppi's (scileppis.com, hours), Crowfoot Valley Coffee (crowfootvalleycoffee.com: is the casino spam gone, and the hours), Guadalajara Family Restaurant (guadalajaramexfood.com, hours), Hideaway Bar & Grill (hideawaybarandgrill.com, hours) | Owner |
+| Soon | Calls for hours: Castle View Cafe, 303-942-1155; Cuba Cuba, (720) 639-2719 (are the posted summer hours current?); Iron Mule Brewery, 720-328-9008 or taproom@ironmulebrewery.com; Ecclesia Market (hours and a phone; its contact page is a form); Glacier Ice Cream, (303) 386-3751; Mod Mountain Boutique (confirm open; nothing dated on its site); Sudden Fiction Books, (303) 856-8181 (published without hours; its site states none) | Owner |
+| By 15 December | St. Francis of Assisi, 303-688-3025: the time of the Christmas Eve service at the Events Center (staged) | Owner |
+| By 29 November | Confirm or decline Sudden Fiction Books as a source (`npm run sources -- confirm castle-rock suddenfictionbooks-com`); three of its events are published on its own page (`DECISIONS.md`, "Castle Rock completed before launch") | Owner |
+| Soon | A Formspree form id for the contact page (it falls back to mailto), and a bought hero for the home page (`docs/HERO-PHOTOS.md`) | Owner |
+
 ## Leadville: calls from the 30 October re-check
 
 | By | What | Who |

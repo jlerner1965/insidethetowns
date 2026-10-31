@@ -1,6 +1,6 @@
 ---
 title: "Castle Rock Recreation Center"
-review: { reason: "crgov.com refuses automated reads; check the Town’s page by hand. The Town runs the Recreation Center and crgov.com answered 403 on 6 October; no other official page states its address, phone or hours. Draft text is from Visit Castle Rock (visitcastlerock.org/play/parks-recreation/), a chamber site. Read address, phone, hours and fees on the Town’s page.", since: "2026-10-06", from: manual }
+review: { reason: "crgov.com refuses automated reads; check the Town’s page by hand. The Town runs the Recreation Center and crgov.com answered 403 on 6 October; no other official page states its address, phone or hours. Draft text is from Visit Castle Rock (visitcastlerock.org/play/parks-recreation/), a chamber site. Read address, phone, hours and fees on the Town’s page. crgov.com still answered 403 on 31 October 2026.", since: "2026-10-06", from: manual }
 type: venue
 address: "Castle Rock Recreation Center, Castle Rock, CO"
 tags: [recreation, pool, fitness, climbing]

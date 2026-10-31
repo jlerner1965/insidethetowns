@@ -1,6 +1,6 @@
 ---
 title: "Ridgeline Open Space"
-review: { reason: "crgov.com refuses automated reads; check the Town’s page by hand. The Town owns Ridgeline Open Space and crgov.com answered 403 on 6 October; no other official page states its trailheads, hours or trail length. Draft text is from Visit Castle Rock (visitcastlerock.org/play/parks-recreation/), a chamber site. Read trailhead address, hours and rules on the Town’s page.", since: "2026-10-06", from: manual }
+review: { reason: "crgov.com refuses automated reads; check the Town’s page by hand. The Town owns Ridgeline Open Space and crgov.com answered 403 on 6 October; no other official page states its trailheads, hours or trail length. Draft text is from Visit Castle Rock (visitcastlerock.org/play/parks-recreation/), a chamber site. Read trailhead address, hours and rules on the Town’s page. crgov.com still answered 403 on 31 October 2026.", since: "2026-10-06", from: manual }
 type: trail
 address: "Ridgeline Open Space, Castle Rock, CO"
 tags: [hiking, mountain-biking, open-space]

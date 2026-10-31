@@ -17,9 +17,10 @@ export const castleRock: TownConfig = {
   // Live from 31 October 2026, the owner's word ("lets get castle rock off
   // staged"), after a holding page since 6 October. It opens quiet, as the
   // other city guides have been since 20 October (DECISIONS.md, "Castle Rock
-  // live, quiet, 31 October"), and under its events threshold (18 of 25 that
-  // day): pages up and indexed, listings checked as the rotation reaches
-  // them, no weekly email. 29 November is before any listing's hours expire
+  // live, quiet, 31 October"). It was 18 of 25 upcoming events that morning
+  // and 27 of 25 by evening, once the guide was completed ("Castle Rock
+  // completed before launch"): pages up and indexed, listings checked as
+  // the rotation reaches them, no weekly email. 29 November is before any listing's hours expire
   // (60 days from the 6 October checks: 5 December); the quiet-towns test
   // holds the order.
   status: 'live',
@@ -53,6 +54,9 @@ export const castleRock: TownConfig = {
   // 14 April 1881, per the Wikipedia infobox (founded 1874).
   incorporated: 1881,
   population2010: 48231, // 2010 census, for census-to-census growth
+  // No official page read for the guide gives a drive time to Denver, and
+  // the Town's own site refuses automated reads, so none is claimed here.
+  character: 'The Douglas County seat, 73,158 at the 2020 census, downtown under the rhyolite butte that named it, between Denver and Colorado Springs on I-25.',
   colors: {
     // Not in Color System 2.0 (9 October 2026), which covers the guides
     // then live or launching. A placeholder in its roles until the owner
@@ -79,8 +83,11 @@ export const castleRock: TownConfig = {
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Castle-Rock_CO' },
     ],
     // Douglas County School District (dcsdk12.org, read 6 October 2026).
-    // commuteNotes are written at launch with the rest of the Moving Here guide.
     schoolDistrict: 'Douglas County School District RE-1, based in Castle Rock.',
+    // From the guide's Moving Here page (CDOT, RTD and Bustang pages read 6
+    // October 2026); Bustang's own schedule pages need a browser.
+    commuteNotes:
+      'By car, on I-25: north to Denver, or south through the rebuilt I-25 South Gap, two free lanes and an Express Lane each way to Monument, tolled since 2024; US 85 (Santa Fe Drive) is the other road north. Transit is limited: RTD puts parts of Douglas County in its district without naming Castle Rock, and CDOT’s Bustang runs the I-25 corridor; check ridebustang.com for the current stops.',
   },
   officialLinks: {
     townSite: 'https://www.crgov.com/',

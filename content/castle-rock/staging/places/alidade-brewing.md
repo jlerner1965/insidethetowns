@@ -1,6 +1,6 @@
 ---
 title: "Alidade Brewing"
-review: { reason: "alidadebrewing.com answered the robots-aware fetch with 403 (Cloudflare challenge) on 6 October; not worked around. Address and phone here are from the Chamber directory (business.castlerock.org/list/ql/restaurant-99), existence only. Open the site in a browser, confirm phone and taproom hours, and publish.", since: "2026-10-06", from: manual }
+review: { reason: "alidadebrewing.com answered the robots-aware fetch with 403 (Cloudflare challenge) on 6 October; not worked around. Address and phone here are from the Chamber directory (business.castlerock.org/list/ql/restaurant-99), existence only. Open the site in a browser, confirm phone and taproom hours, and publish. Still 403 on 31 October 2026, robots.txt included.", since: "2026-10-06", from: manual }
 type: bar
 address: "680 Atchison Way, Suite 800, Castle Rock, CO 80109"
 area: "Atchison Way"

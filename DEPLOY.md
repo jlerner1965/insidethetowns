@@ -64,8 +64,9 @@ Ignored Build Step, Node 22.x, preview deployments off, one deploy hook on
 `main`). Their apex and `www` domains (`www` a 308 to the apex) were
 attached later the same day, once the owner said so; DNS at Cloudflare is
 the owner's. Six went live on 7 October 2026; Castle Rock built its holding
-page from `main` until 31 October 2026, when the owner took it live, quiet
-and under its events threshold (DECISIONS.md, "Castle Rock live, quiet").
+page from `main` until 31 October 2026, when the owner took it live, quiet,
+and had it completed first (DECISIONS.md, "Castle Rock live, quiet" and
+"Castle Rock completed before launch").
 
 `node scripts/live-towns.ts` prints the list of sites that must have a project.
 

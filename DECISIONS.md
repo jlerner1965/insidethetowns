@@ -7589,3 +7589,71 @@ meant, the holding page or the staged queue, they chose to launch it quiet.*
   Web Analytics in the `insidecastlerockco` project if it is not already.
   The Vercel project, domain, `hello@` routing and deploy hook were set up
   on 6 and 7 October, so merging to `main` is the launch.
+
+## Castle Rock completed before launch, 31 October 2026
+
+*The owner, after the flip above: "What are your thoughts on completing the
+page like the others rather then test it", and then "yes go ahead and start
+your part". The guide was two pages thinner than any other live guide and
+seven events short of its threshold, so the assistant's part was done the
+same day, on the branch, before anything was merged.*
+
+- **Events, 18 to 27 upcoming (30 published).** Ingest was run on the
+  guide's two feeds for the first time since 7 October (23 items staged),
+  and every confirmed source re-read by hand. Published, each from its
+  organizer's own page read that day: the County's Veterans Day Tribute
+  and the Heroes Hall groundbreaking with its World Trade Center steel
+  (both 7 November); the Outlets' tree lighting, concert and drone show
+  (14 November); the library's Jingle Jam sing-along (29 November), its
+  embroidery workshop (21 January) and its cuff-bracelet workshop (25
+  January, two sessions as one listing); and Sudden Fiction Books' book
+  bingo at Sinners & Saints (11 November), holiday book wrapping (7
+  December) and release party (11 January). The library's three Santa
+  sessions on 10 December, two of them newly staged, became `performances`
+  on the listing already published. Starlighting, the carriage rides, the
+  trolley and the museum's Santa were re-read and re-dated.
+- **Out, under the event standard:** Battle of the Books (ten dates, a
+  school-team competition), Epic Reads and the bookshop's Final Draft club
+  (book clubs), a library teardown entry, the Windish RV show (a dealer's
+  sale), the Outlets' Black Friday and Jingle Bucks (a sales day and a
+  promotion), and the Chamber's leads groups, ribbon cuttings and
+  seminars. Held: the Colorado Classic gymnastics meet (no hours), the
+  Chamber's Veterans Alliance talk (not said to be public), and St.
+  Francis's Christmas Eve service, still without a time. Two past expos
+  were removed from staging. The queue went from 3 to 1.
+- **Sudden Fiction Books is not a confirmed source**, and three of its
+  events are published. The README's rule is that a listing publishes on
+  its own `source` and `verified` whatever the registry says, and the
+  shop's own events page is the organizer's own page; the 7 October launch
+  review had kept to confirmed sources as a way of avoiding aggregators,
+  which this is not. It is in sources.json as `proposed`, with the three
+  listings named, for the owner to confirm or to say otherwise.
+- **Places, 30 to 33; staged 21 to 18.** Castle Cafe's site, a Cloudflare
+  wall on 6 October, now answers, and gave hours and phone; B&B Cafe's
+  contact page gave 324 Wilcox (the Chamber directory had said 322), a
+  phone and hours; Sudden Fiction's own events, dated November to January,
+  show it open, so it is published without hours, which its site no longer
+  states. Every other staged place was re-read or re-probed and its review
+  note dated: six Town facilities still behind crgov.com's 403; Alidade,
+  Lost Coffee and Scileppi's still 403; Guadalajara's robots.txt still 500;
+  Hideaway's certificate does not match its hostname; Crowfoot Valley
+  answered with an empty page; Castle View Cafe, Cuba Cuba, Iron Mule,
+  Ecclesia Market, Glacier and Mod Mountain still lack hours or a dated
+  sign of being open on their own pages. All go to the owner as browser
+  reads or calls (TODO.md).
+- **Config.** `character` and `commuteNotes` written from the Moving Here
+  page's sources; `plausible` was set that morning. No `driveToDenver`: no
+  official page read gives one and the Town's site cannot be read, so the
+  cell is left empty rather than guessed. The hero stays the Wikimedia
+  photograph of Wilcox Street and the colours the placeholder rose, both
+  the owner's to change; no Formspree form yet.
+- **The first weekly notes** (`weekly/2026-11-02.md`): the Veterans Day
+  Tribute as the pick, three additions to the guide, and editor's notes
+  listing what was found and not listed, what is unverified (whether
+  Bustang stops in town) and every page read. **A third article**, the
+  holiday season in date order, every fact from a page read that day.
+- **Still the owner's:** the six Town pages read in a browser (Philip S.
+  Miller Park, Festival Park, Rock Park, Ridgeline, the Recreation Center,
+  the MAC), the calls and browser reads above, St. Francis's service time,
+  the palette, a bought hero, a Formspree id, and the Plausible, Search
+  Console and Web Analytics steps from the entry above.
