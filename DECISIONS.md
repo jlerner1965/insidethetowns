@@ -7710,3 +7710,28 @@ museum at 224. The event and the Society's family program were corrected
 from the Society's event and contest pages, with an entry on Berthoud's
 corrections log; the event keeps its file name, since a slug is a URL.
 "Free to enter" came off both, since no page of the Society's says it.
+
+## An empty home tab says what is next, 31 October 2026
+
+The owner sent a screenshot of Niwot's home page on the Saturday
+afternoon: "Nothing listed for today", and the same on Tomorrow and This
+weekend, with 22 events on the calendar from Tuesday. Nothing was broken.
+The Great Pumpkin Party (10 am to 2 pm) was the day's one listing, the
+browser's pruning took it off at 2 pm as it should, and Niwot has nothing
+listed for Saturday evening, Sunday or Monday. But the page stopped there,
+and on a quiet guide all three tabs can be empty at once, which reads as a
+guide with no events.
+
+An empty tab keeps its tab and its "Nothing listed" line, as decided on
+27 October, and now goes on to "Next in <Town>": up to three listings after
+the tab's last day (after today, after tomorrow, after Sunday), each at its
+next date with the date before the time, one row a listing (a weekly series
+once), nothing canceled or postponed, drawn from the next 60 days
+(`laterRows` and `nextAfter` in src/lib/home-tabs.ts). Every panel carries
+its block, and the stylesheet shows it only while the panel's empty line
+is showing, so it appears whether the tab was built empty or was emptied in
+the browser after the build, which is what happened in Niwot. Its rows
+carry the same `data-end` marks, so they come off when they end, and the
+block goes once none are left. With nothing in the next 60 days a tab says
+only "Nothing listed", as before. Every guide's home page, not only
+Niwot's.

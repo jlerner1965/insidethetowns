@@ -5,7 +5,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { defaultTab, homeTabs, pickRows, TAB_LIMIT } from '../src/lib/home-tabs.ts';
+import { defaultTab, homeTabs, laterRows, NEXT_LIMIT, nextAfter, pickRows, TAB_LIMIT } from '../src/lib/home-tabs.ts';
 import { weekDays } from '../src/lib/flagship-home.ts';
 import { parseLocal } from '../src/lib/dates.ts';
 
@@ -67,4 +67,43 @@ test('an empty tab keeps its line and its link', () => {
   assert.equal(today!.empty, 'Nothing listed for today.');
   assert.equal(tomorrow!.empty, 'Nothing listed for tomorrow.');
   assert.equal(weekend!.href, '/this-weekend/');
+});
+
+test('an empty tab offers what is next after its days: Niwot on the Saturday afternoon of 31 October 2026', () => {
+  // The Great Pumpkin Party (10 am to 2 pm) was the day's only listing; the
+  // next were on Tuesday. The build of that morning still had the party on
+  // Today; the browser took it off at 2 pm, so every tab carries its next.
+  const now = at('2026-10-31T05:10');
+  const events = [
+    ev('great-pumpkin-party', '2026-10-31T10:00', { end: at('2026-10-31T14:00') }),
+    ev('trivia-night', '2026-11-03T18:30'),
+    ev('lid-meeting', '2026-11-03T19:00'),
+    ev('election-day', '2026-11-03T07:00'),
+    ev('trivia-night', '2026-11-10T18:30'),
+    ev('line-dancing', '2026-11-05T18:45'),
+  ];
+  const days = weekDays({ events, now, start: 'today', limit: 99 });
+  const [today, tomorrow, weekend] = homeTabs(days, now, TAB_LIMIT, laterRows(events));
+  assert.deepEqual(today!.rows.map((r) => r.fullTitle), ['great-pumpkin-party']);
+  assert.deepEqual(today!.next.map((r) => r.fullTitle), ['election-day', 'trivia-night', 'lid-meeting'], 'after today, nothing on Sunday or Monday: Tuesday, in the order of the clock');
+  assert.equal(today!.next[0]!.dayWord, 'Tue, Nov 3', 'the date before the time, since the next may be any day');
+  assert.deepEqual(tomorrow!.next.map((r) => r.fullTitle), today!.next.map((r) => r.fullTitle));
+  assert.deepEqual(weekend!.next.map((r) => r.fullTitle), ['election-day', 'trivia-night', 'lid-meeting'], 'after Sunday');
+  assert.ok(today!.next.every((r) => r.end && r.eventDay), 'the next rows carry the marks the pruning reads');
+});
+
+test('next: one row a listing, nothing called off, at most three, and only after the day', () => {
+  const events = [
+    ev('today-thing', '2026-10-27T18:00'),
+    ev('trivia', '2026-10-28T18:30'),
+    ev('trivia', '2026-11-04T18:30'),
+    ev('canceled-show', '2026-10-29T19:00', { status: 'canceled' }),
+    ev('market', '2026-10-31T09:00'),
+    ev('concert', '2026-11-01T19:00'),
+    ev('brunch', '2026-11-02T10:00'),
+  ];
+  const next = nextAfter(laterRows(events), '2026-10-27');
+  assert.equal(next.length, NEXT_LIMIT);
+  assert.deepEqual(next.map((r) => r.fullTitle), ['trivia', 'market', 'concert'], 'the weekly series once, the canceled show left out, today not repeated');
+  assert.deepEqual(nextAfter([], '2026-10-27'), [], 'nothing on the calendar: nothing next, and the tab says only "Nothing listed"');
 });

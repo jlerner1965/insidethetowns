@@ -14,6 +14,14 @@
  * once its day is over, the "Nothing listed" line standing in. An empty
  * tab keeps its tab: a Tuesday with nothing on is a fact about this guide.
  *
+ * Under the empty line, "Next in <Town>": up to three listings after the
+ * tab's days (src/lib/home-tabs.ts, `next`). It is in every panel and shown
+ * by the stylesheet only while the empty line is, so it appears whether the
+ * tab was built empty or emptied in the browser after the build (Niwot, 31
+ * October 2026: the day's one event ended at 2 pm and all three tabs went
+ * blank). Its rows carry the same marks and come off the same way; the
+ * block goes once none are left.
+ *
  * Native buttons with the tab roles, so the keyboard and a screen reader
  * get the three as one control; with no script the opening tab is shown
  * and the other two are reached from the links under the list.
@@ -48,7 +56,8 @@ const label = (status: 'canceled' | 'postponed') => (status === 'canceled' ? 'Ca
       ))}
     </div>
     {tabs.map((t) => (
-      <div role="tabpanel" id={`panel-${t.key}`} aria-labelledby={`tab-${t.key}`} hidden={t.key !== open} tabindex="0" data-events-scope>
+      <div role="tabpanel" id={`panel-${t.key}`} aria-labelledby={`tab-${t.key}`} hidden={t.key !== open} tabindex="0">
+        <div data-events-scope>
         {t.rows.length > 0 && (
           <ol class="divide-y divide-line-soft">
             {t.rows.map((row) => (
@@ -68,6 +77,24 @@ const label = (status: 'canceled' | 'postponed') => (status === 'canceled' ? 'Ca
         {t.more > 0 && (
           <p class="mt-1 text-[0.9375rem]"><a href={t.href} class="inline-block -my-2 py-2 font-semibold text-primary underline">{t.more} more {t.key === 'weekend' ? 'this weekend' : t.key === 'today' ? 'today' : 'tomorrow'} →</a></p>
         )}
+        </div>
+        {t.next.length > 0 && (
+          <div data-next-up data-hide-when-empty class="pb-1">
+            <h3 class="text-[0.9375rem] font-semibold text-ink">Next in {town.name}</h3>
+            <ol class="divide-y divide-line-soft">
+              {t.next.map((row) => (
+                <li class="grid grid-cols-[5.75rem_minmax(0,1fr)] gap-x-3 py-3 sm:grid-cols-[7rem_minmax(0,1fr)_auto] sm:items-baseline sm:gap-x-4" data-event-day={row.eventDay} data-end={row.end}>
+                  <span class="text-[0.875rem] font-semibold leading-snug tabular-nums text-ink"><span class="block">{row.dayWord}</span>{row.when}</span>
+                  <p class="min-w-0 text-[1.0625rem] leading-snug">
+                    <a href={row.href} class="font-medium no-underline hover:text-primary hover:underline">{row.title}</a>
+                    {row.pick && <span class="ml-2 inline-block rounded-sm bg-highlight-soft px-1.5 py-px align-[0.1em] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink ring-1 ring-highlight">Our pick</span>}
+                  </p>
+                  {row.where && <p class="col-start-2 text-[0.9375rem] leading-snug text-ink-muted sm:col-start-3 sm:max-w-[18rem] sm:text-right">{row.where}</p>}
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
       </div>
     ))}
     <p class="mt-5 flex flex-wrap items-baseline gap-x-6 gap-y-1 border-t border-line-soft pt-4 text-[1.0625rem]">
@@ -76,6 +103,14 @@ const label = (status: 'canceled' | 'postponed') => (status === 'canceled' ? 'Ca
     </p>
   </div>
 </section>
+
+<style is:global>
+  /* "Next in <Town>" only while its tab says "Nothing listed": the empty
+     line's `hidden` is set at build and cleared by the browser's pruning,
+     so one rule covers both. */
+  [data-next-up] { display: none; }
+  [data-events-scope]:has(> [data-events-empty]:not([hidden])) + [data-next-up] { display: block; }
+</style>
 
 <script>
   // The three tabs, and the one that opens: Today, or This weekend on a
