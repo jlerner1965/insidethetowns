@@ -54,7 +54,6 @@ Last revised: 31 October 2026.
 
 | By | What | Who |
 |---|---|---|
-| Before merging | Read six Town pages in a browser and send what they say (address, hours, fees, trail lengths): Philip S. Miller Park (crgov.com/2051/Philip-S-Miller-Park), Festival Park, Rock Park, Ridgeline Open Space, the Recreation Center and the MAC. crgov.com refuses automated reads; these are the guide's headline parks, and all six are drafted in `staging/places/` | Owner |
 | Soon | Browser reads where the fetch is refused: Alidade Brewing (alidadebrewing.com, hours and phone), Lost Coffee (lostcoffee.com, the Perry Street address, hours), Scileppi's (scileppis.com, hours), Crowfoot Valley Coffee (crowfootvalleycoffee.com: is the casino spam gone, and the hours), Guadalajara Family Restaurant (guadalajaramexfood.com, hours), Hideaway Bar & Grill (hideawaybarandgrill.com, hours) | Owner |
 | Soon | Calls for hours: Castle View Cafe, 303-942-1155; Cuba Cuba, (720) 639-2719 (are the posted summer hours current?); Iron Mule Brewery, 720-328-9008 or taproom@ironmulebrewery.com; Ecclesia Market (hours and a phone; its contact page is a form); Glacier Ice Cream, (303) 386-3751; Mod Mountain Boutique (confirm open; nothing dated on its site); Sudden Fiction Books, (303) 856-8181 (published without hours; its site states none) | Owner |
 | By 15 December | St. Francis of Assisi, 303-688-3025: the time of the Christmas Eve service at the Events Center (staged) | Owner |

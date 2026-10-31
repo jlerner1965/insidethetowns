@@ -7657,3 +7657,21 @@ same day, on the branch, before anything was merged.*
   the MAC), the calls and browser reads above, St. Francis's service time,
   the palette, a bought hero, a Formspree id, and the Plausible, Search
   Console and Web Analytics steps from the entry above.
+
+## The six Town pages, read by the owner, 31 October 2026
+
+crgov.com refuses every automated request, so the owner opened the Town's
+pages in a browser the same evening and pasted their text, and the six
+listings the tagline depends on went up from the Town's own words: Philip
+S. Miller Park (300 acres, 8 miles of single-track, Challenge Hill's 200
+steps and 178 feet), the Miller Activity Complex, Rock Park (1.5 miles,
+difficult, no bikes, the Town's trail map linked), the Recreation Center
+(hours, holiday hours, child-watch; no phone yet), Festival Park (its
+amenities and the Town's 2026 event dates, including the Season of the
+Star to 23 January) and Ridgeline (13.5 miles, moderate). Each file says
+in a comment that the owner read the page and the assistant wrote it up,
+and `verifiedBy` says the same. The chamber's draft figures were wrong
+in places (270 acres and 7.4 miles for Philip S. Miller), which is why the
+parks had waited. Castle Rock stands at 30 events (27 upcoming) and 38
+listings, 1 and 13 staged, with every listing on the guide checked on
+6 or 31 October.
