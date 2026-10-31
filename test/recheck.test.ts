@@ -210,3 +210,34 @@ test('a weekly series about to run out of confirmed weeks is a call, even one co
   assert.equal(call({ until: at('2026-10-27'), level: 'confirmed', basis: 'phone' }), 'series shown only through 2026-10-27');
   assert.equal(call({ until: at('2026-11-20') }), undefined, 'three weeks of dates in hand is not yet a call');
 });
+
+// The call list's phone numbers (placeFor): which listing on the guide an event's venue is.
+
+import { placeFor } from '../scripts/lib/recheck.ts';
+
+const listings = (...titles: string[]) => titles.map((title) => ({ title }));
+const placeOf = (venue: string, titles: string[], town: string) => placeFor(venue, listings(...titles), town)?.title;
+
+test('a venue is the listing whose name it holds whole, or that holds it whole', () => {
+  assert.equal(placeOf('Oskar Blues', ['A-Lodge Lyons', 'Oskar Blues Grill & Brew'], 'Lyons'), 'Oskar Blues Grill & Brew');
+  assert.equal(placeOf('Lyons Regional Library, Effie Banta Room', ['Lyons Regional Library', 'Hall Ranch'], 'Lyons'), 'Lyons Regional Library');
+  assert.equal(placeOf('Castorena’s Equine Center, The Ranch Events Complex', ['The Ranch Events Complex & Blue Arena'], 'Loveland'), 'The Ranch Events Complex & Blue Arena', 'a part between commas is a name of its own');
+  assert.equal(placeOf('Erie Town Hall Council Chambers', ['Erie Community Center', 'Erie Town Hall (Lincoln School)'], 'Erie'), 'Erie Town Hall (Lincoln School)', 'a parenthesis is set aside');
+});
+
+test('one word in common is not a match: the call list would print the wrong number', () => {
+  assert.equal(placeOf('Lyons Town Hall', ['Hall Ranch', 'A-Lodge Lyons'], 'Lyons'), undefined);
+  assert.equal(placeOf('Harmony Library', ["Austin's American Grill, Harmony"], 'Fort Collins'), undefined);
+  assert.equal(placeOf('Golden Community Center', ['Foothills Art Center'], 'Golden'), undefined);
+  assert.equal(placeOf('Council Chambers, City Hall', ['City Park'], 'Fort Collins'), undefined);
+});
+
+test('a name left with one word matches only that word', () => {
+  assert.equal(placeOf('Niwot Hall', ['Niwot Hall', 'Niwot Inn & Spa'], 'Niwot'), 'Niwot Hall');
+  assert.equal(placeOf('Downtown Fort Collins', ['Downtown Transit Center (Transfort)'], 'Fort Collins'), undefined);
+});
+
+test('the closest fit wins when more than one listing holds the name', () => {
+  assert.equal(placeOf('Windsor Town Hall', ['Severance Town Hall', 'Windsor Town Hall'], 'Windsor'), 'Windsor Town Hall');
+  assert.equal(placeOf('Wildflower Pavilion, Planet Bluegrass', ['Planet Bluegrass', 'Wildflower Pavilion, Planet Bluegrass'], 'Lyons'), 'Wildflower Pavilion, Planet Bluegrass');
+});

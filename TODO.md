@@ -52,12 +52,12 @@ other guides (57 on 31 October) wait with the rest until 20 January.
 | Mon 9 Nov | Niwot | Rebuilding Seminars, Bob Manthy, 720-600-2763 | The introductory evening, Thursday 12 November, 6:30–8 pm: where in Niwot, and is it free? | Add venue and cost to the staged file, then `npm run confirm -- niwot rebuilding-evening-workshop --how=phone --with="Rebuilding Seminars"` |
 | Mon 9 Nov | Lyons | The library, (303) 823-5165 | The blood drive, Wednesday 18 November, donations 3–6 pm: still on? (its calendar no longer lists it; last confirmed 18 September.) And when the toddler and preschool storytime starts again (it stopped 21 October with no next date) | `npm run confirm -- lyons blood-drive --how=phone --with="Lyons Regional Library"`; the storytime dates to the assistant to re-list |
 
-No call needed (read 31 October): the Holiday Card Art Contest's own page
-now says artwork is due Saturday 14 November, not 7 November (a correction
-for the assistant to make, and "Free to enter" comes off, since the page
-does not say it); the Lyons library board's page lists 17 November at 6 pm;
-the Lyons trustees' meetings (the call list files them under Hall Ranch, a
-mismatch on "Hall") and Election Day rest on the Town's and the county's
+No call needed (read 31 October): the Holiday Card Art Contest's own pages
+say artwork is due Saturday 14 November, not 7 November, in person at 228
+Mountain Ave; corrected that day, with an entry on Berthoud's corrections
+log, and "free to enter" came off, since no page of the Society's says it.
+The Lyons library board's page lists 17 November at 6 pm; the Lyons
+trustees' meetings and Election Day rest on the Town's and the county's
 pages; the Lyons Veterinary Clinic open house is above. Already done: the
 Niwot Rotary breakfasts (5 to 19 November) and the Lyons baby storytime (17
 and 24 November) were re-listed and confirmed by the nightly re-check.

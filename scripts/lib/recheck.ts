@@ -442,3 +442,43 @@ export function callReason(c: CallInput): string | undefined {
   if (c.verdict === 'unconfirmed' && !/does not reach/.test(c.note)) return 'page does not show it';
   return undefined;
 }
+
+/** A place on the guide, as far as matching a venue to it needs. */
+export interface PlaceName {
+  title: string;
+}
+
+/**
+ * The guide's own listing for an event's venue, so the call list can give
+ * its phone number, or undefined when the guide has none. One name must hold
+ * the other whole: "Oskar Blues" is "Oskar Blues Grill & Brew", and "Lyons
+ * Regional Library, Effie Banta Room" is "Lyons Regional Library". A word in
+ * common is not enough, since a wrong match prints the wrong number: "Lyons
+ * Town Hall" is not "Hall Ranch", "Harmony Library" is not "Austin's
+ * American Grill, Harmony". Each part of a venue between commas is tried as
+ * a name of its own ("Castorena's Equine Center, The Ranch Events Complex");
+ * a parenthesis is set aside on both sides ("Erie Town Hall (Lincoln
+ * School)"); the town's own name does not count ("Lyons Town Hall" is not
+ * "A-Lodge Lyons"); and a name left with one word matches only that word
+ * ("Niwot Hall" is the Niwot Hall listing, "Downtown Fort Collins" no
+ * listing at all). The closest fit wins: "Windsor Town Hall" over "Severance
+ * Town Hall".
+ */
+export function placeFor<P extends PlaceName>(venue: string, list: readonly P[], townName: string): P | undefined {
+  const skip = titleTokens(townName);
+  const words = (s: string) => new Set([...titleTokens(s.replace(/\([^)]*\)/g, ' '))].filter((w) => !skip.has(w)));
+  const names = [venue, ...(venue.includes(',') ? venue.split(',') : [])].map(words).filter((s) => s.size);
+  let best: { p: P; fit: number } | undefined;
+  for (const v of names) {
+    for (const p of list) {
+      const t = words(p.title);
+      if (!t.size) continue;
+      const [small, big] = v.size <= t.size ? [v, t] : [t, v];
+      if (![...small].every((w) => big.has(w))) continue;
+      if (small.size === 1 && big.size > 1) continue;
+      const fit = small.size / big.size;
+      if (!best || fit > best.fit) best = { p, fit };
+    }
+  }
+  return best?.p;
+}

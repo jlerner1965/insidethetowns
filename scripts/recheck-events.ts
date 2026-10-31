@@ -56,10 +56,9 @@ import { readRss } from './lib/feeds/rss.ts';
 import type { FeedEvent, Horizon } from './lib/feeds/types.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
 import { yamlString } from './lib/event-files.ts';
-import { titleTokens } from './lib/ingest.ts';
 import { hostOf, robotsFor, TIMEOUT, UA } from './lib/probe.ts';
 import { isAllowed } from './lib/robots.ts';
-import { callReason, judgeFeed, judgePage, occurrences, occurrenceUrl, pageText, type Judgement, type RecheckEvent } from './lib/recheck.ts';
+import { callReason, judgeFeed, judgePage, occurrences, occurrenceUrl, pageText, placeFor, type Judgement, type PlaceName, type RecheckEvent } from './lib/recheck.ts';
 import { getField, removeField, setField } from './lib/review.ts';
 
 const run = promisify(execFile);
@@ -302,8 +301,7 @@ function flagChanged(text: string, note: string): string {
 
 // ---------------------------------------------------------------- the call list
 
-interface Place {
-  title: string;
+interface Place extends PlaceName {
   phone?: string;
   slug: string;
 }
@@ -323,26 +321,6 @@ function places(town: string): Place[] {
     }
   }
   return out;
-}
-
-/**
- * The guide's own listing for a venue, on the words of its name: "Oskar Blues
- * Grill & Brew" for "Oskar Blues". The town's name is not a match ("Lyons
- * Town Hall" is not "A-Lodge Lyons").
- */
-function placeFor(venue: string, list: Place[], townName: string): Place | undefined {
-  const skip = titleTokens(townName);
-  const words = (s: string) => new Set([...titleTokens(s)].filter((w) => !skip.has(w)));
-  const v = words(venue.replace(/\(.*\)/, ''));
-  if (!v.size) return undefined;
-  let best: { p: Place; score: number } | undefined;
-  for (const p of list) {
-    const t = words(p.title);
-    const shared = [...v].filter((w) => t.has(w)).length;
-    const score = shared / Math.min(v.size, t.size || 1);
-    if (shared && score >= 0.5 && (!best || score > best.score)) best = { p, score };
-  }
-  return best?.p;
 }
 
 /** The shortest start of a file name that picks out a series: "old-time-jam-at-oskar-blues" for its five dates. */

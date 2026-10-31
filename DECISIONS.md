@@ -7675,3 +7675,33 @@ in places (270 acres and 7.4 miles for Philip S. Miller), which is why the
 parks had waited. Castle Rock stands at 30 events (27 upcoming) and 38
 listings, 1 and 13 staged, with every listing on the guide checked on
 6 or 31 October.
+
+## The call list's venue match, and the contest's date, 31 October 2026
+
+A 21-day re-check run for the owner's November calls listed the Lyons
+trustees' meetings under Hall Ranch. The call list finds a venue's phone
+number by matching the venue to a listing on the guide, and it matched
+when half the words of the shorter name were shared: "Lyons Town Hall"
+(the town's name set aside) and "Hall Ranch" share "hall". Run over every
+venue in every guide (316), the old rule tied 67 of them to a listing,
+many of them wrong, and the wrong ones print the wrong number: Harmony
+Library to Austin's American Grill, Windsor Town Hall to Severance Town
+Hall, Golden Community Center to Foothills Art Center, Fort Collins's
+Council Chambers to City Park. The rule now (`placeFor`, moved to
+`scripts/lib/recheck.ts` with its tests): one name must hold the other
+whole, each part of a venue between commas counts as a name of its own, a
+parenthesis is set aside on both sides, a name left with one word matches
+only that word, and the closest fit wins. That keeps the right matches and
+gains three (Erie Town Hall for its Council Chambers and Community Room,
+Windsor's own Town Hall); four borderline ones now say "no listing on the
+guide" instead (the Niwot Inn's conference room, the Castle Rock Museum,
+the Evergreen Lake House, Niwot Hall and Downtown Niwot). A number left
+for the owner to look up is better than a wrong one.
+
+The same run found that the Berthoud Historical Society's pages now give
+14 November for the Holiday Card Art Contest's artwork, not 7 November,
+and that entries in person go to the Society at 228 Mountain Ave, not the
+museum at 224. The event and the Society's family program were corrected
+from the Society's event and contest pages, with an entry on Berthoud's
+corrections log; the event keeps its file name, since a slug is a URL.
+"Free to enter" came off both, since no page of the Society's says it.
