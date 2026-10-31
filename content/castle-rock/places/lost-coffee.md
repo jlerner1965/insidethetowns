@@ -11,9 +11,10 @@ source: "https://www.lostcoffee.com/"
 verified: "2026-10-31"
 added: "2026-10-31"
 verifiedBy: "James Lerner, from the roaster's site in a browser; written up by Claude Code"
-hours: "6 am–6 pm"
+# The site gives 6 to 6 without days; its Google listing, which the owner also read, says every day.
+hours: "Daily 6 am–6 pm"
 tags: [coffee, roaster, downtown]
 summary: "The local roaster's own shop on Perry Street downtown, open 6 am to 6 pm; its beans are what COFF33 pours up the street."
 ---
 
-The downtown shop of Lost Coffee, the Castle Rock roaster whose beans COFF33 on Wilcox Street also pours. Open 6 am to 6 pm; the site gives the hours without naming days, so a Sunday visit is worth a check.
+The downtown shop of Lost Coffee, the Castle Rock roaster whose beans COFF33 on Wilcox Street also pours. Specialty espresso drinks and seasonal selections, open 6 am to 6 pm every day.
