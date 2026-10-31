@@ -10,8 +10,8 @@ source: "https://highplains.libcal.com/event/17123919"
 sourceId: "highplains-libcal-com-fort-lupton"
 sourceUid: "libcal:17123919"
 sourceHash: "1574537bb60c"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"FTL Closed for Veterans Day\" on 11 November on the Fort Lupton Public & School Library (High Plains Library District), LibCal feed"
 ---
 
 <!-- The organizer's own text, from the feed. Rewrite in the guide's words before approving. -->

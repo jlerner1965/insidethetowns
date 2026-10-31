@@ -7,7 +7,7 @@ address: "321 Mountain Ave, Berthoud, CO 80513"
 url: "https://citystarbrewing.com/event/beer-release-dead-or-alive-2/"
 category: food
 source: "https://citystarbrewing.com/event/beer-release-dead-or-alive-2/"
-verified: "2026-10-17"
+verified: "2026-10-31"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Beer Release: Dead or Alive\" at 3 pm on 13 November in the page's structured data"
 ---
 

@@ -7,7 +7,8 @@ address: "451 4th Ave, Lyons, CO 80540"
 category: civic
 recurring: "Second Thursdays"
 source: "https://lyons.librarycalendar.com/event/sustainable-futures-commission-12738"
-verified: "2026-10-21"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Sustainable Futures Commission\" at 6:30 pm on 12 November on the lyons.librarycalendar.com feed"
 ---
 
 Evening meeting of the Town of Lyons Sustainable Futures Commission in the library's Effie Banta Meeting Room. The library's calendar lists October 8 and November 12; agendas are on the Town's site.

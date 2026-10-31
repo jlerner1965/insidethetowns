@@ -14,8 +14,8 @@ recurring: "Five Sundays: Nov 8, 22, 29, Dec 6 and 13"
 timeNote: "2:30–5 pm by its calendar; time to be confirmed"
 source: "https://creativegroundslyons.com/classes"
 sourceId: "creativegroundslyons-com"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): 8 November and 2:30 pm on the page"
 ---
 
 A five-week wheel-throwing course for anyone 14 and up: centering, throwing, trimming and glazing. It meets Sundays on November 8, 22 and 29 and December 6 and 13, with no class on November 15. Creative Grounds's calendar and sign-up give 2:30 to 5 pm, its description says 2 to 4:30, and the December 13 entry says 2 to 5:30; ask when you sign up.

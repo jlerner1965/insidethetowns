@@ -8,8 +8,8 @@ organizerUrl: "https://www.a4aevergreen.org/"
 url: "https://www.a4aevergreen.org/lake-plunge"
 category: outdoors
 source: "https://www.a4aevergreen.org/lake-plunge"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): 1 January and 10 am on the page"
 ---
 
 Active4All's New Year's Day plunge into Evergreen Lake, 10 am to noon. Come in costume and warm up afterward with hot drinks and treats; most of the money raised goes to INSPIRE, Evergreen's inclusive recreation program for people with disabilities. Registration opens November 10 on Active4All's page, which gives no price yet.

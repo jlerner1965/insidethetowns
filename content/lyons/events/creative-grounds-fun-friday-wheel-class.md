@@ -13,8 +13,8 @@ cost: "$30 a class"
 recurring: "Fridays through December 18, none on November 27"
 source: "https://creativegroundslyons.com/classes"
 sourceId: "creativegroundslyons-com"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 4 pm on the page"
 ---
 
 A one-time evening on the pottery wheel for ages 14 to 21: learn to center the clay and throw a pot. Tools, clay, glazing and firing are included. Each Friday is its own class, signed up for on its own page, 4 to 6:30 pm from October 30 to December 18, with none the day after Thanksgiving.

@@ -9,7 +9,7 @@ cost: "Free; registration required"
 category: family
 recurring: "Monthly, first Saturdays"
 source: "https://highplains.libcal.com/event/15672136"
-verified: "2026-10-28"
+verified: "2026-10-31"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Adaptive Storytime\" at 9:30 am on 7 November in the page's structured data"
 ---
 

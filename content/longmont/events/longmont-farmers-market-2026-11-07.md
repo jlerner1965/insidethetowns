@@ -10,7 +10,7 @@ source: "https://bouldercounty.gov/event/longmont-farmers-market-2/2026-11-07/"
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10003336-1794038400-1794056400@bouldercounty.gov"
 sourceHash: "f48c6d57425c"
-verified: "2026-10-28"
+verified: "2026-10-31"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Longmont Farmers Market\" at 8 am on 7 November on the Boulder County Fairgrounds feed"
 ---
 

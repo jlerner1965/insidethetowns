@@ -10,8 +10,8 @@ cost: "$15 adults, $10 children per day; two-day $25 adults, $15 children; VIP $
 category: market
 timeNote: "Saturday 10 am to 5 pm, Sunday 10 am to 4 pm"
 source: "https://www.douglasco.gov/fairground-events/all-american-collectors-expo-10312026/"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): 31 October and 10 am on the page"
 ---
 
 A weekend collectibles show at the fairgrounds with hundreds of vendor tables: trading cards and card games, sports memorabilia, comics, toys and action figures, LEGO, Funko Pops, video game and anime merchandise, vintage pieces and hobby supplies. There are giveaways, food trucks, face painting and special guests, voice actors among them; VIP tickets add Friday-evening access and early entry on Saturday.

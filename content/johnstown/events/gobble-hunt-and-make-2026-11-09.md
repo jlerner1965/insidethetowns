@@ -10,7 +10,7 @@ source: "https://johnstownmillikenpubliclibraries.us/event/gobble-hunt-make/"
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10487"
 sourceHash: "66a12fd62f02"
-verified: "2026-10-28"
+verified: "2026-10-31"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Gobble, Hunt, &#038; Make\" at 2 pm on 9 November in the page's structured data"
 ---
 

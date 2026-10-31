@@ -11,8 +11,8 @@ organizer: "Town of Estes Park"
 organizerUrl: "https://estespark.colorado.gov/"
 source: "https://eventsinestes.com/tree-lighting/"
 sourceId: "eventsinestes-com"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 3:30 pm on the page"
 ---
 
 The Town opens the holiday season in Bond Park, on Elkhorn Avenue next to Town Hall, with carolers and local performers, hot cocoa, candy canes, ornament-making to take home, Santa and Mrs. Claus, carriage rides and a train ride. The big spruce is lit at 5:30 pm. Free.

@@ -15,7 +15,7 @@ source: "https://coloradorailroadmuseum.org/polar-express/"
 sourceId: "coloradorailroadmuseum-org"
 sourceUid: "10001580-1793984400-1793995200@coloradorailroadmuseum.org"
 sourceHash: "b28c5cc7650e"
-verified: "2026-10-28"
+verified: "2026-10-31"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"THE POLAR EXPRESS™ Train Ride\" on 6 November on the Colorado Railroad Museum feed"
 ---
 

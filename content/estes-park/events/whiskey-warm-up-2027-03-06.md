@@ -10,8 +10,8 @@ organizer: "Town of Estes Park"
 organizerUrl: "https://estespark.colorado.gov/"
 source: "https://eventsinestes.com/whiskey-warm-up/"
 sourceId: "eventsinestes-com"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): 6 March and 1 pm on the page"
 ---
 
 An outdoor afternoon of Colorado whiskey on the riverside plaza downtown: a commemorative glass for tasting from more than 20 distilleries, live music and local vendors. For ages 21 and over; tickets are limited and the Town says they sell out quickly. It is held outside in March, so dress for the weather.
