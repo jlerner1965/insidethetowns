@@ -15,22 +15,52 @@ Last revised: 31 October 2026.
 |---|---|---|---|
 | Berthoud | Call B-Rad's Arcade and Trailhead Cafe: still open, hours | Dropped by their only source on 26 October; hours hide in 60 days | Owner |
 | Berthoud | Call Kofe House, (970) 344-5391: confirm the seven-day hours and the Thursday 5–8 pm dinner | The listing's hours are wrong against its own page | Owner |
-| Berthoud | Call the library, (970) 532-2757: a calendar feed, or a monthly hours check for its six series | Its site rate-limits the nightly check; six series read as unverifiable | Owner |
 | Berthoud | Photographs: City Star front, Town Hall, the Bike Park, Fickel Park, the Reservoir Loop, then Kofe House, Berthoud Brewing, Grandpa's, Cornerstone, Rise | The three home tiles and the eat-and-drink page have no photograph of a business; the shot list and sources are in the 27 October session notes and `docs/PHOTO-PRIORITIES.md` | Owner (hire or shoot) |
 | Berthoud | A local change for `/updates/` on 3 November: the result on Issue 3G, from the county's returns | Worth knowing hides itself when its two items expire; the rec-centre anniversary is now a full listing (20 November, 4–8 pm) | Assistant drafts, owner confirms |
 | All | Buy the hero photographs in `docs/HERO-PHOTOS.md` (Berthoud's, Loveland's and Lyons's are in, 28 October: paste their order numbers into `PERMISSIONS.md`; Erie's, 30 October, is in with its licence record; Clear Creek's, Leadville's, Manitou Springs's, Fort Collins's, Golden's and Estes Park's, 30 October, are in with theirs): iStock (Longmont, then the upgrades), Adobe Stock (the upgrades), Shutterstock packs if wanted; about $190. Send the files and receipts to the assistant | The paintings are gone; Longmont's hero is a lake rather than the town | Owner buys, assistant installs |
 | Johnstown, Timnath | Shoot the hero: Parish Avenue north from 1st Street; Old Town Main Street north toward the church | Nothing exists to buy for either (`docs/HERO-PHOTOS.md`) | Owner |
 | Lyons | Open lyonsfire.org in a browser; it answered 503 to the crawler from Moving here and Living here | Fix-now item, 27 October audit | Owner |
-| Lyons | Call Lyons Veterinary Clinic, 303-823-6767, before Sunday 1 November: is the open house noon to 3 pm? Then `npm run confirm` (the line is in the staged file) | The queue was cleared on 30 October; this and the church festival are the two events left, each on the Recorder's word alone | Owner |
-| Lyons | Ask Christian Promise Fellowship for the hours and address of its 7 November festival | Its site has been down since 21 October | Owner |
+| Lyons | 2 November: delete `content/lyons/staging/events/lyons-veterinary-clinic-open-house-2026-11-01.md` unless the owner confirmed it | The clinic is open Monday to Friday, so no call could reach it before the Sunday open house; the file says to delete it after 1 November if no call is made. It was never on the site | Assistant |
 | Lyons | Confirm The Rock Garden as a source (`npm run sources -- confirm lyons rockgardenlyons-com`) before spring | Nothing waits on it now: its season's last show was 24 October | Owner |
-| Lyons and Niwot | Re-list three weekly series that ended in October once the organizer confirms the next dates: the library's baby and toddler storytimes (Lyons), the Rotary Club breakfast (Niwot) | Their files stayed when the past one-offs were deleted on 27 October; a series with no next date shows nothing | Owner confirms, assistant re-lists |
 | Niwot | Call Belle Terre Floral, (303) 652-0419, and The Nook: hours | On no page of their own since 12 October | Owner |
 | All three | Fill the 90-day scorecard for the week of 26 October (`docs/90-DAY-TEST.md`) on Tuesday 3 November | The scheduled session does it every Tuesday at 11:17; Search Console settles a Sunday about two days later | Assistant (scheduled) |
 | Lyons | Get the first subscriber: nobody has signed up on insidelyons.com, so the 22 October edition did not send | Its target is 150 by 20 January; the chamber's distribution ask is the drafted way in | Owner |
 | Golden | 20 November: Foothills Art Center's galleries reopen for the Holiday Art Market; once its home page says so, take `status: temporarily-closed` (and `closed`, `statusNote`, `statusSource`) off `content/golden/places/foothills-art-center.md` | Marked closed on 28 October; nothing reopens a listing on its own | Assistant |
 | Castle Rock | Live and quiet from 31 October: add insidecastlerockco.com as a site in Plausible; resubmit its Search Console sitemap as `/sitemap-index.xml` (it was submitted as `/site.xml`); switch on Web Analytics in the `insidecastlerockco` Vercel project if it is off | The guide counts readers only once these are on (`DECISIONS.md`, "Castle Rock live, quiet") | Owner |
 | Golden | Calls for the held queue (`npm run review -- --town=golden`): store hours from Sherpa House (303-278-7939), Table Mountain Grill (303-216-8040), YoColorado (303-278-2796) and Peak Cycles (303-216-1616); current closing times from Golden City Brewery ((303) 279-8092); a public phone for the Golden Mill and the Coors tour; the choir's date (GoldenConcertChoir@gmail.com); and from the 28 October additions, which hours are current at Cafe 13 ((303) 278-2225), Golden Goods ((303) 216-2123) and Trailhead Taphouse (720-638-9009), and a phone and hours for Stay Golden Mercantile | Each listing's own site gives everything else; the 28 October re-read is in each file's review note | Owner |
+
+## Event calls, 2 to 20 November
+
+From a 21-day re-check run on 31 October (`npm run recheck -- --days=21`,
+report only): every event in the three towns dated 1 to 21 November that
+no machine could confirm. One call settles a venue's whole list; the
+`npm run confirm` line records it, and a different time, day or price is
+edited into the file first. The nightly re-check's pull request adds new
+calls as the feeds roll forward; read it on 9 and 16 November. Calls in the
+other guides (57 on 31 October) wait with the rest until 20 January.
+
+| By | Town | Call | Ask | Then |
+|---|---|---|---|---|
+| Mon 2 Nov | Lyons | MainStage Brewing, (303) 823-2331 | Tuesday trivia: 6:30 or 7 pm? (its page now shows 6:30 near 3 November; the guide says 7.) The First Friday art opening, 6 November, 6–8 pm? (on the Recorder's calendar only) | `npm run confirm -- lyons trivia-mainstage-brewing art-opening-at-mainstage-brewing --how=phone --with="MainStage Brewing Company"` |
+| Mon 2 Nov | Lyons | Planet Bluegrass, (303) 823-0848, or the Eventim ticket page in a browser | Country Music: Explored, Wednesday 4 November: doors 6, show 7? (its page shows the day, not the time) | `npm run confirm -- lyons country-music-explored-wildflower --how=phone --with="Planet Bluegrass"` |
+| Mon 2 Nov | Lyons | Oskar Blues Grill & Brew (no number on the guide; its site has one) | Sunday Serenade, Sundays 5–7 pm, no cover, through 20 December? The old-time jam, second and fourth Wednesdays at 6 (next 11 November)? And the listing's open ask: still open, and which closing times are current | `npm run confirm -- lyons sunday-serenade-oskar-blues old-time-jam-at-oskar-blues --how=phone --with="Oskar Blues Grill & Brew"`, and tell the assistant the hours |
+| Mon 2 Nov | Lyons | Email pdmf.cpfchurch@gmail.com (its site has been down since 21 October) | The hours and the address of the fall festival, Saturday 7 November | Add them to `content/lyons/staging/events/christian-promise-fellowship-festival-2026-11-07.md`, then `npm run confirm -- lyons christian-promise --how=email --with="Christian Promise Fellowship"` |
+| Mon 2 Nov | Berthoud | The library, (970) 532-2757 | Its six weekly series as listed through December: Musical Moments and Writers Group (Mondays), Bouncing Baby Storytime and Digital Navigator (Tuesdays), Perky Pre-K (Wednesdays), Terrific Toddler (Fridays)? And a calendar feed we may read, or a monthly check by phone (its site rate-limits the nightly check) | `npm run confirm -- berthoud musical-moments-library writers-group-library bouncing-baby-storytime digital-navigator-drop-in-library perky-pre-k-storytime terrific-toddler-storytime --how=phone --with="Berthoud Community Library"` |
+| Mon 2 Nov | Berthoud | Wildfire Arts Center, (970) 532-5497 | U-Create Open Studio, Saturdays 10–noon, $5, none on 28 November; Brush & Banter, Mondays 6–8 pm, $5, through 21 December: both still running? | `npm run confirm -- berthoud u-create-open-studio-at-wildfire-arts-center brush-and-banter-class-and-open-studio --how=phone --with="Wildfire Arts Center"` |
+| Tue 3 Nov | Niwot | Open the Zeffy page in a browser (it refuses automated reads), or ask Niwot Hall | Line dancing with Lindy B Dance, Thursday 5 November: $20 a class? | `npm run confirm -- niwot line-dancing-niwot-hall --how=phone --with="Niwot Hall"` (publishes it from staging) |
+| Mon 9 Nov | Berthoud | City Star Brewing, (970) 532-7827 | Cribbage night, second and fourth Wednesdays, 6–8:30 pm, free (next 11 and 25 November)? Its page shows 11 November at later times; last confirmed 18 September | `npm run confirm -- berthoud cribbage-night --how=phone --with="City Star Brewing"` |
+| Mon 9 Nov | Niwot | Rebuilding Seminars, Bob Manthy, 720-600-2763 | The introductory evening, Thursday 12 November, 6:30–8 pm: where in Niwot, and is it free? | Add venue and cost to the staged file, then `npm run confirm -- niwot rebuilding-evening-workshop --how=phone --with="Rebuilding Seminars"` |
+| Mon 9 Nov | Lyons | The library, (303) 823-5165 | The blood drive, Wednesday 18 November, donations 3–6 pm: still on? (its calendar no longer lists it; last confirmed 18 September.) And when the toddler and preschool storytime starts again (it stopped 21 October with no next date) | `npm run confirm -- lyons blood-drive --how=phone --with="Lyons Regional Library"`; the storytime dates to the assistant to re-list |
+
+No call needed (read 31 October): the Holiday Card Art Contest's own pages
+say artwork is due Saturday 14 November, not 7 November, in person at 228
+Mountain Ave; corrected that day, with an entry on Berthoud's corrections
+log, and "free to enter" came off, since no page of the Society's says it.
+The Lyons library board's page lists 17 November at 6 pm; the Lyons
+trustees' meetings and Election Day rest on the Town's and the county's
+pages; the Lyons Veterinary Clinic open house is above. Already done: the
+Niwot Rotary breakfasts (5 to 19 November) and the Lyons baby storytime (17
+and 24 November) were re-listed and confirmed by the nightly re-check.
 
 ## Decisions due
 
