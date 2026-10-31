@@ -7683,20 +7683,25 @@ trustees' meetings under Hall Ranch. The call list finds a venue's phone
 number by matching the venue to a listing on the guide, and it matched
 when half the words of the shorter name were shared: "Lyons Town Hall"
 (the town's name set aside) and "Hall Ranch" share "hall". Run over every
-venue in every guide (316), the old rule tied 67 of them to a listing,
-many of them wrong, and the wrong ones print the wrong number: Harmony
-Library to Austin's American Grill, Windsor Town Hall to Severance Town
-Hall, Golden Community Center to Foothills Art Center, Fort Collins's
-Council Chambers to City Park. The rule now (`placeFor`, moved to
+venue in every guide (316 on 31 October), the old rule tied 213 to a
+listing, and most of the ones it should not have print the wrong number:
+Harmony Library as Austin's American Grill, Windsor Town Hall as Severance
+Town Hall, Golden Community Center as Foothills Art Center, Fort Collins's
+Council Chambers as City Park. The rule now (`placeFor`, moved to
 `scripts/lib/recheck.ts` with its tests): one name must hold the other
 whole, each part of a venue between commas counts as a name of its own, a
 parenthesis is set aside on both sides, a name left with one word matches
-only that word, and the closest fit wins. That keeps the right matches and
-gains three (Erie Town Hall for its Council Chambers and Community Room,
-Windsor's own Town Hall); four borderline ones now say "no listing on the
-guide" instead (the Niwot Inn's conference room, the Castle Rock Museum,
-the Evergreen Lake House, Niwot Hall and Downtown Niwot). A number left
-for the owner to look up is better than a wrong one.
+only that word, and the closest fit wins. It ties 156. Eight venues move
+to a closer listing (Erie Town Hall for its Community Room, Windsor's own
+Town Hall, the Wildflower Pavilion's own listing, Evergreen Lake rather
+than its trail). Of the 57 it lets go, about ten were probably right and
+now say "no listing on the guide" (the Niwot Inn's conference room, Niwot
+Hall and Downtown Niwot, the Castle Rock Museum, the Evergreen Lake House,
+the Fort Lupton high school's library, the Manitou Springs Heritage
+Museum, the corner outside Tommyknocker, Boardwalk Community Park). A
+number left for the owner to look up is better than a wrong one; allowing
+one-word names back would recover four of those and add five wrong ones
+(three "Downtown" venues among them).
 
 The same run found that the Berthoud Historical Society's pages now give
 14 November for the Holiday Card Art Contest's artwork, not 7 November,
