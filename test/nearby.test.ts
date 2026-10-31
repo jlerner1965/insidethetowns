@@ -133,7 +133,7 @@ test('each guide names the neighbours the owner set, in that order', () => {
     nederland: ['lyons', 'niwot', 'idaho-springs'],
     // The six mountain guides, live 10 October 2026, each pair both ways.
     // Leadville has none within an afternoon's drive; Manitou Springs names
-    // Castle Rock, which has not launched. Georgetown and Black Hawk are
+    // Castle Rock, live since 31 October 2026. Georgetown and Black Hawk are
     // sections of the Idaho Springs guide since 20 October 2026, so Nederland's
     // Peak to Peak neighbour is that guide now and the two name nobody. Grand
     // Lake was retired on 30 October 2026, so it and Estes Park drop each other.
@@ -157,11 +157,11 @@ test('neighbours are real guides, never the town itself, and go both ways', () =
   }
 });
 
-test('Elizabeth, Manitou Springs and Leadville have no live neighbours, so their block is never built', () => {
-  // Castle Rock is on Elizabeth's and Manitou's lists but not live; neighborsOf
-  // leaves it out until it is. Leadville names nobody: nothing in the network
-  // is an afternoon's drive away.
-  const ALONE = ['elizabeth', 'manitou-springs', 'leadville'];
+test('Leadville has no live neighbours, so its block is never built', () => {
+  // Leadville names nobody: nothing in the network is an afternoon's drive
+  // away. Elizabeth and Manitou Springs were alone too until Castle Rock,
+  // on both their lists, went live on 31 October 2026.
+  const ALONE = ['leadville'];
   for (const slug of ALONE) assert.deepEqual(neighborsOf(findTown(slug)!), [], slug);
   for (const t of liveTowns().filter((t) => !ALONE.includes(t.slug))) assert.ok(neighborsOf(t).length > 0, t.slug);
 });

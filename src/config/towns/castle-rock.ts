@@ -14,9 +14,20 @@ import type { TownConfig } from './types.ts';
  */
 export const castleRock: TownConfig = {
   kind: 'town',
-  // Not live: the domain serves a noindex holding page until the owner flips
-  // this after the first review (docs/archive/ACCURACY-SYSTEM.md, launch threshold).
-  status: 'wave2',
+  // Live from 31 October 2026, the owner's word ("lets get castle rock off
+  // staged"), after a holding page since 6 October. It opens quiet, as the
+  // other city guides have been since 20 October (DECISIONS.md, "Castle Rock
+  // live, quiet, 31 October"), and under its events threshold (18 of 25 that
+  // day): pages up and indexed, listings checked as the rotation reaches
+  // them, no weekly email. 29 November is before any listing's hours expire
+  // (60 days from the 6 October checks: 5 December); the quiet-towns test
+  // holds the order.
+  status: 'live',
+  quiet: {
+    since: '2026-10-31',
+    decideBy: '2026-11-29',
+    reason: "a town of 73,000 between Denver and Colorado Springs with the Town's own calendar, the Chamber and Visit Castle Rock behind it, an hour from every guide in the email; it opens to be read and counted, like the other city guides, until the 90-day test decides what the network keeps",
+  },
   variant: 'front-range',
   region: 'South Metro',
   neighbors: ['elizabeth', 'manitou-springs'],
@@ -46,8 +57,9 @@ export const castleRock: TownConfig = {
     // Not in Color System 2.0 (9 October 2026), which covers the guides
     // then live or launching. A placeholder in its roles until the owner
     // gives Castle Rock a palette: the rhyolite rose it had, its dark shade
-    // as the primary, on warm paper. Choose one before launch; it sits
-    // close to Black Hawk, Johnstown and Loveland.
+    // as the primary, on warm paper. It launched with it on 31 October 2026;
+    // choosing one is the owner's, by the 29 November decision (it sits
+    // close to Johnstown and Loveland).
     primary: '#6E3647',
     accent: '#A0546A',
     paper: 'warm',
@@ -79,4 +91,8 @@ export const castleRock: TownConfig = {
     policeNonEmergency: 'https://www.crgov.com/3454/Castle-Rock-Police',
     policeNonEmergencyLabel: 'Castle Rock Police Department',
   },
+  // Counted from launch, as every live guide has been since 22 October 2026;
+  // the site has to be added in Plausible's dashboard before the first view
+  // lands.
+  plausible: true,
 };

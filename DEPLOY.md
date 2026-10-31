@@ -19,7 +19,7 @@ insidelovelandco.com TOWN=loveland
 carbonvalleyguide.com TOWN=carbon-valley   (project `carbonvalleyguide`; Frederick, Firestone, Dacono and Fort Lupton on one site)
 insideseverance.com  TOWN=severance      (folded into Windsor 12 Oct 2026; serves redirects only, docs/REDIRECTS.md)
 insidefortlupton.com TOWN=fort-lupton    (folded into Carbon Valley 12 Oct 2026; serves redirects only)
-insidecastlerockco.com TOWN=castle-rock   (not live; holding page; insidecastlerock.com is someone else's)
+insidecastlerockco.com TOWN=castle-rock   (live 31 Oct 2026, quiet; insidecastlerock.com is someone else's)
 insideestespark.com  TOWN=estes-park      (mountain variant)
 insidegolden.com     TOWN=golden          (mountain variant)
 insideevergreenco.com TOWN=evergreen      (mountain variant; insideevergreen.com is someone else's)
@@ -63,8 +63,9 @@ by the REST API with the same settings (framework, repository, `TOWN`, the
 Ignored Build Step, Node 22.x, preview deployments off, one deploy hook on
 `main`). Their apex and `www` domains (`www` a 308 to the apex) were
 attached later the same day, once the owner said so; DNS at Cloudflare is
-the owner's. Six went live on 7 October 2026; Castle Rock still builds its
-holding page from `main`, until it clears its events threshold.
+the owner's. Six went live on 7 October 2026; Castle Rock built its holding
+page from `main` until 31 October 2026, when the owner took it live, quiet
+and under its events threshold (DECISIONS.md, "Castle Rock live, quiet").
 
 `node scripts/live-towns.ts` prints the list of sites that must have a project.
 

@@ -7553,3 +7553,39 @@ since its 30 October checks run out on 29 December. The plan, then:
 - **Week of 7 December:** Nederland and Leadville in full.
 - **Owner calls before then:** Elizabeth's three by 30 November, Leadville's
   two by 23 November.
+
+## Castle Rock live, quiet, 31 October 2026
+
+*The owner's words: "lets get castle rock off staged". Asked which they
+meant, the holding page or the staged queue, they chose to launch it quiet.*
+
+- **The shape.** `status: 'live'` with a `quiet` block, like Fort Collins,
+  Longmont and Loveland since 20 October: pages up and indexed, listings
+  checked as the rotation reaches them, no weekly email, no signup box on
+  its pages or anyone else's, no Thursday draft, out of the weekly report.
+  This supersedes the 12 and 20 October entries that kept it `wave2`:
+  quiet makes no weekly promise, so it does not undo the reason Elizabeth
+  went quiet, and the 90-day test's three towns keep the hand work.
+- **Under its threshold, on the owner's word**, as the six of 10 October
+  were: 18 of 25 upcoming events and 30 of 29 listings on the day. The
+  validator says so on every run.
+- **Decide by 29 November**, with the other city guides. All 30 listings
+  but one were checked on 6 October, so their hours go on 5 December (60
+  days, Front Range); the re-check belongs in the week of 23 November with
+  Fort Collins, Longmont and Loveland, which is what moves the date on.
+- **What it changes elsewhere.** Elizabeth and Manitou Springs each name
+  Castle Rock as a neighbour, so their Nearby block now builds; Leadville is
+  the one live guide with none. Douglas becomes the tenth county the network
+  covers, and the hub map drops Castle Rock's faint reference label for its
+  pin. `plausible: true`, as on every live guide since 22 October.
+- **Left as it was.** The colours are still the placeholder rhyolite rose
+  (no palette was chosen in Color System 2.0) and the hero is still the
+  Wikimedia photograph of Wilcox Street; neither blocks a launch. The
+  staged queue (3 events, 21 places, most waiting on crgov.com, which
+  refuses automated reads, or on a call) stays staged.
+- **The owner's, and not done:** add insidecastlerockco.com as a site in
+  Plausible; resubmit its sitemap in Search Console as
+  `/sitemap-index.xml` (it was submitted as `/site.xml`); switch on Vercel
+  Web Analytics in the `insidecastlerockco` project if it is not already.
+  The Vercel project, domain, `hello@` routing and deploy hook were set up
+  on 6 and 7 October, so merging to `main` is the launch.

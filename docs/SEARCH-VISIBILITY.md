@@ -56,7 +56,8 @@ plugin connected the same day reads the Google side: every guide, the hub
 and carbonvalleyguide.com has a verified `sc-domain:` property (the DNS
 route), and each has a sitemap submitted, as `/sitemap.xml` or
 `/sitemap-index.xml`. Inside Castle Rock's was submitted as `/site.xml`,
-which does not exist; resubmit it when the site launches. The Google
+which does not exist; resubmit it as `/sitemap-index.xml` now the site is
+live (31 October 2026). The Google
 connection is read-only, so submitting stays a Search Console task, and
 Bing is not connected (it needs a Bing Webmaster API key in the plugin).
 Inside Grand Lake (insidegrandlake.com) was the one live guide missing; it

@@ -14,12 +14,13 @@ import { FRESHNESS } from '../src/config/freshness.ts';
 
 const quiet = towns.filter((t) => t.quiet);
 
-test('Elizabeth, two small mountain guides and the three city guides are quiet, and still live', () => {
+test('Elizabeth, two small mountain guides and the four city guides are quiet, and still live', () => {
   // Elizabeth from 12 October 2026; Grand Lake, Leadville and Nederland, then
   // Fort Collins, Longmont and Loveland, from 20 October (DECISIONS.md, "The
   // other mountain guides" and "The city guides"). Grand Lake was retired on
   // 30 October ("Grand Lake retired"); the other six were kept the same day.
-  assert.deepEqual(quiet.map((t) => t.slug).sort(), ['elizabeth', 'fortcollins', 'leadville', 'longmont', 'loveland', 'nederland']);
+  // Castle Rock went live quiet on 31 October ("Castle Rock live, quiet").
+  assert.deepEqual(quiet.map((t) => t.slug).sort(), ['castle-rock', 'elizabeth', 'fortcollins', 'leadville', 'longmont', 'loveland', 'nederland']);
   for (const t of quiet) assert.equal(t.status, 'live', `${t.slug}: a quiet guide stays up`);
 });
 

@@ -72,8 +72,8 @@ test('the network counts every county it covers, not every town', () => {
   // Clear Creek (Idaho Springs and Georgetown), Grand, El Paso (Manitou
   // Springs) and Lake (Leadville). Grand left with Grand Lake, retired on
   // 30 October 2026; Gilpin stays, Black Hawk being a section of the Idaho
-  // Springs guide.
-  assert.deepEqual(countiesCovered(live).sort(), ['Boulder', 'Clear Creek', 'El Paso', 'Elbert', 'Gilpin', 'Jefferson', 'Lake', 'Larimer', 'Weld']);
+  // Springs guide. Castle Rock, live on 31 October 2026, adds Douglas.
+  assert.deepEqual(countiesCovered(live).sort(), ['Boulder', 'Clear Creek', 'Douglas', 'El Paso', 'Elbert', 'Gilpin', 'Jefferson', 'Lake', 'Larimer', 'Weld']);
 });
 
 test('no guide claims a single school district for a town that has two', () => {
