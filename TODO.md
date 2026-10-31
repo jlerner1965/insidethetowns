@@ -47,7 +47,6 @@ other guides (57 on 31 October) wait with the rest until 20 January.
 | Mon 2 Nov | Lyons | Email pdmf.cpfchurch@gmail.com (its site has been down since 21 October) | The hours and the address of the fall festival, Saturday 7 November | Add them to `content/lyons/staging/events/christian-promise-fellowship-festival-2026-11-07.md`, then `npm run confirm -- lyons christian-promise --how=email --with="Christian Promise Fellowship"` |
 | Mon 2 Nov | Berthoud | The library, (970) 532-2757 | Its six weekly series as listed through December: Musical Moments and Writers Group (Mondays), Bouncing Baby Storytime and Digital Navigator (Tuesdays), Perky Pre-K (Wednesdays), Terrific Toddler (Fridays)? And a calendar feed we may read, or a monthly check by phone (its site rate-limits the nightly check) | `npm run confirm -- berthoud musical-moments-library writers-group-library bouncing-baby-storytime digital-navigator-drop-in-library perky-pre-k-storytime terrific-toddler-storytime --how=phone --with="Berthoud Community Library"` |
 | Mon 2 Nov | Berthoud | Wildfire Arts Center, (970) 532-5497 | U-Create Open Studio, Saturdays 10–noon, $5, none on 28 November; Brush & Banter, Mondays 6–8 pm, $5, through 21 December: both still running? | `npm run confirm -- berthoud u-create-open-studio-at-wildfire-arts-center brush-and-banter-class-and-open-studio --how=phone --with="Wildfire Arts Center"` |
-| Tue 3 Nov | Niwot | Open the Zeffy page in a browser (it refuses automated reads), or ask Niwot Hall | Line dancing with Lindy B Dance, Thursday 5 November: $20 a class? | `npm run confirm -- niwot line-dancing-niwot-hall --how=phone --with="Niwot Hall"` (publishes it from staging) |
 | Mon 9 Nov | Berthoud | City Star Brewing, (970) 532-7827 | Cribbage night, second and fourth Wednesdays, 6–8:30 pm, free (next 11 and 25 November)? Its page shows 11 November at later times; last confirmed 18 September | `npm run confirm -- berthoud cribbage-night --how=phone --with="City Star Brewing"` |
 | Mon 9 Nov | Niwot | Rebuilding Seminars, Bob Manthy, 720-600-2763 | The introductory evening, Thursday 12 November, 6:30–8 pm: where in Niwot, and is it free? | Add venue and cost to the staged file, then `npm run confirm -- niwot rebuilding-evening-workshop --how=phone --with="Rebuilding Seminars"` |
 | Mon 9 Nov | Lyons | The library, (303) 823-5165 | The blood drive, Wednesday 18 November, donations 3–6 pm: still on? (its calendar no longer lists it; last confirmed 18 September.) And when the toddler and preschool storytime starts again (it stopped 21 October with no next date) | `npm run confirm -- lyons blood-drive --how=phone --with="Lyons Regional Library"`; the storytime dates to the assistant to re-list |
@@ -61,6 +60,10 @@ trustees' meetings and Election Day rest on the Town's and the county's
 pages; the Lyons Veterinary Clinic open house is above. Already done: the
 Niwot Rotary breakfasts (5 to 19 November) and the Lyons baby storytime (17
 and 24 November) were re-listed and confirmed by the nightly re-check.
+The Niwot line dancing (5 November) was published on 31 October from Niwot
+Hall's own page, without a price: the page gives none and the Zeffy page
+refuses automated reads (Niwot Hall's `/events/lindy-b-dance/` page is the
+2022 Tuesday series, expired).
 
 ## Decisions due
 
