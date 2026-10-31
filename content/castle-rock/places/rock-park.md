@@ -11,6 +11,7 @@ verified: "2026-10-31"
 added: "2026-10-31"
 verifiedBy: "James Lerner, from the Town's page in a browser; written up by Claude Code"
 phone: "720-733-2260"
+mapUrl: "https://www.crgov.com/DocumentCenter/View/46283/Rock-Park-Trail-Map-PDF"
 tags: [hiking, landmark, views, picnic, no-bikes]
 featured: true
 summary: "The 1.5-mile looped single-track trail up the butte the town is named for, rated difficult: short and steep, 370 feet from bottom to top, with views of downtown, I-25, Pikes Peak and the Front Range. No bikes. Trailhead lot on Front Street."
