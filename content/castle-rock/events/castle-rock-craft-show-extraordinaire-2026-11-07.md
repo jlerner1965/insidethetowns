@@ -11,8 +11,8 @@ category: market
 organizer: "Castle Rock Senior Activity Center"
 organizerUrl: "https://www.castlerockseniorcenter.org/"
 source: "https://www.douglasco.gov/fairground-events/castle-rock-craft-show-extraordinaire-11072026/"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): 7 November and 9 am on the page"
 ---
 
 The 34th annual craft show in the Events Center: handmade gifts, home decor, artwork and seasonal pieces from local and regional crafters. Admission is free, and the proceeds pay for activities and programs for older adults in the Castle Rock area; the Senior Activity Center is on 303-688-9498.

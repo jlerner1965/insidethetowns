@@ -11,7 +11,7 @@ organizer: "Very Nice Brewing Company"
 organizerUrl: "https://www.verynicebrewing.com/"
 source: "https://www.verynicebrewing.com/event-details/halloween-at-the-vault-live-music-with-chris-myth-scott-spanbauer"
 sourceId: "verynicebrewing-com"
-verified: "2026-10-28"
+verified: "2026-10-31"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Halloween at The Vault & Live Music with Chris Myth & Scott Spanbauer\" at 5 pm on 31 October in the page's structured data"
 ---
 

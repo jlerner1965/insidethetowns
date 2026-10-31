@@ -13,7 +13,7 @@ source: "https://gardenofthecats.com/page20.html"
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10002969-1793437200-1793458800@bouldercounty.gov"
 sourceHash: "09dcea3a0910"
-verified: "2026-10-28"
+verified: "2026-10-31"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"The Hiss-terical Haunting\" at 9 am on 31 October on the Boulder County Fairgrounds feed"
 ---
 

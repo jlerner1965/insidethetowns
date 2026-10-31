@@ -10,8 +10,8 @@ source: "https://highplains.libcal.com/event/17076977"
 sourceId: "highplains-libcal-com-fort-lupton"
 sourceUid: "libcal:17076977"
 sourceHash: "8806605402c3"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the Fort Lupton Public & School Library (High Plains Library District), LibCal feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Community Game Night\" at 4 pm on 12 November on the Fort Lupton Public & School Library (High Plains Library District), LibCal feed"
 ---
 
 Community Game Night at Fort Lupton Public & School Library, Thursday, November 12, 4 pm – 7:30 pm. Listed by Fort Lupton Public & School Library (High Plains Library District), LibCal; the organizer's page has the details and any registration.

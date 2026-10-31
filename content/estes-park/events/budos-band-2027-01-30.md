@@ -13,8 +13,8 @@ category: music
 timeNote: "Doors 7 pm, band 8 to 9:45 pm"
 source: "https://www.stanleyhotel.com/event/budos-band/"
 sourceId: "stanleyhotel-com"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): 30 January and 7 pm on the page"
 ---
 
 Two nights of the Budos Band at the Stanley, each recorded live, with The Gaslamp Killer added to the weekend's lineup. A pizza party and DJ set follow each show (the Stanley says after-parties are free for its hotel guests), and on Saturday from 11 am to 2 pm the band members' art is shown in the hotel's Wine Bar. Standing general admission, 21 and over.

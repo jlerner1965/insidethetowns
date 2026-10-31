@@ -11,8 +11,8 @@ url: "https://buffalorosegolden.com/events/message-in-a-bottle-with-sons-of-gene
 category: music
 source: "https://buffalorosegolden.com/events/message-in-a-bottle-with-sons-of-genesis/"
 sourceId: "buffalorose-net"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 7 pm on the page"
 ---
 
 Two Colorado tribute bands on one bill: Message in a Bottle plays the Police at 7 pm and Sons of Genesis plays Genesis, from the Peter Gabriel years to Phil Collins, at 8:50. 18 and over, or under 18 with a parent or guardian.

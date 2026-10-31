@@ -8,7 +8,7 @@ cost: "Free for qualifying families; appointment required"
 category: other
 recurring: "Monthly, second Wednesday"
 source: "https://www.elizabethmainstreet.org/events/"
-verified: "2026-10-27"
+verified: "2026-10-31"
 verifiedBy: "recheck-events (the nightly re-check workflow): 11 November and 9:30 am on the page"
 ---
 

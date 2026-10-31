@@ -10,8 +10,8 @@ source: "https://johnstownmillikenpubliclibraries.us/event/holiday-wreaths/"
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10476"
 sourceHash: "89ca40e7f94d"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the johnstownmillikenpubliclibraries.us feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Holiday Wreaths\" at 1:30 pm on 13 November in the page's structured data"
 ---
 
 Holiday Wreaths at Glenn A. Jones, M.D. Memorial Library, Friday, November 13, 1:30 pm – 3 pm. Listed by johnstownmillikenpubliclibraries.us; the organizer's page has the details and any registration.

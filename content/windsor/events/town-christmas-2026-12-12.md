@@ -13,8 +13,8 @@ source: "https://www.townofseverance.org/calendar.aspx?EID=1324"
 sourceId: "townofseverance-org-events"
 sourceUid: "1324"
 sourceHash: "9b6fae59abcb"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Town Christmas\" at 2 pm on 12 December on the Town of Severance: Community Events calendar feed"
 ---
 
 The Town of Severance's Christmas afternoon at Community Park on Waterfowl Way, from 2 to 5 pm: Santa and Ms. Claus, vendor booths, horse-drawn carriage rides, the Grinch, reindeer, crafts and caroling, with a fireworks show planned to close. The park was still under construction in early October, with the Town expecting it to open in late fall, so check the Town's page nearer the day.

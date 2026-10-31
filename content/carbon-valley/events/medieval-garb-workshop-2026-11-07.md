@@ -10,7 +10,7 @@ source: "https://highplains.libcal.com/event/17767481"
 sourceId: "highplains-libcal-com"
 sourceUid: "libcal:17767481"
 sourceHash: "3e1a12519869"
-verified: "2026-10-28"
+verified: "2026-10-31"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Medieval Garb Workshop\" at 1 pm on 7 November on the Carbon Valley Regional Library (High Plains Library District), LibCal feed"
 ---
 

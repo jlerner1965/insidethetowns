@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/16845714"
 cost: "Free; registration required"
 category: arts
 source: "https://highplains.libcal.com/event/16845714"
-verified: "2026-10-17"
+verified: "2026-10-31"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Mini Bookshelf and Origami Books\" at 4:30 pm on 12 November in the page's structured data"
 ---
 

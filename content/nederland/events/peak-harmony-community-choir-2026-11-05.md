@@ -11,7 +11,7 @@ category: music
 organizer: "Nederland Community Library"
 source: "https://nederland.colibraries.org/peak-harmony-choir/"
 sourceId: "nederlandlibrary-org"
-verified: "2026-10-28"
+verified: "2026-10-31"
 verifiedBy: "recheck-events (the nightly re-check workflow): 5 November and 6:30 pm on the page"
 ---
 

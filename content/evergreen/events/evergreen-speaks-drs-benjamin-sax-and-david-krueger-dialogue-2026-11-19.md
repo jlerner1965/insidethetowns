@@ -12,8 +12,8 @@ url: "https://evergreennewcomers.com/evergreen-speaks/"
 cost: "Free"
 category: other
 source: "https://evergreennewcomers.com/evergreen-speaks/"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): 19 November and 7 pm on the page"
 ---
 
 A free talk in the Evergreen Speaks series on holding difficult conversations across religious and political lines, what is and is not antisemitism in arguments over the Israeli-Palestinian conflict, and how to listen better when tempers run high. The poster on the Evergreen Newcomers and Neighbors page names Dr. Benjamin E. Sax of the Institute for Islamic, Christian, and Jewish Studies in Baltimore; the chamber's listing also names Dr. David Krueger. A short presentation, then questions and discussion.

@@ -11,7 +11,7 @@ source: "https://www.firestoneco.gov/calendar.aspx?EID=2764"
 sourceId: "firestoneco-gov"
 sourceUid: "2764"
 sourceHash: "e5211216650b"
-verified: "2026-10-28"
+verified: "2026-10-31"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Low-Sensory Blue Heart Social\" at 10 am on 7 November on the Town of Firestone: Town calendar feed"
 ---
 

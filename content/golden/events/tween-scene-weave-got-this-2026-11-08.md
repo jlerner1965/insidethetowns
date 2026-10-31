@@ -10,8 +10,8 @@ organizer: "Jefferson County Public Library"
 organizerUrl: "https://jeffcolibrary.org/"
 source: "https://jeffcolibrary.bibliocommons.com/events/6abb500b0f56a0002cd4c592"
 sourceId: "jeffcolibrary-bibliocommons-com"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Tween Scene: Weave Got This!\" at 2 pm on 8 November in the page's structured data"
 ---
 
 A craft hour for tweens at the Golden Library: build your own loom and learn simple weaving to make a bookmark to take home. No experience is needed; registration is required.

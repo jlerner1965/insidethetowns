@@ -10,8 +10,8 @@ category: family
 organizer: "Emmaus Anglican Church"
 organizerUrl: "https://emmausanglican.org/christmas"
 source: "https://www.douglasco.gov/fairground-events/christmas-eve-service-12242026/"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): 24 December and 5 pm on the page"
 ---
 
 Emmaus Anglican Church's Christmas Eve service in a heated barn at the fairgrounds, held there since 2012: the Christmas story is read and acted out with live animals, angels, shepherds and kings, with carols, a choir and a bell choir, and ends with Holy Communion. Free, and the church says everyone is welcome.

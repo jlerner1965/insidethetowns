@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/puppets-popcorn-2/"
 cost: "Free"
 category: family
 source: "https://johnstownmillikenpubliclibraries.us/event/puppets-popcorn-2/"
-verified: "2026-10-28"
+verified: "2026-10-31"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Puppets &#038; Popcorn\" at 11 am on 7 November in the page's structured data"
 ---
 

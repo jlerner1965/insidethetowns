@@ -9,8 +9,8 @@ url: "https://creativegroundslyons.com/classes/fridays-4-8pm-youth-handbuilding-
 cost: "$30"
 source: "https://creativegroundslyons.com/classes/fridays-4-8pm-youth-handbuilding-5-weeks-ages-14-21-962nf"
 sourceId: "creativegroundslyons-com"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Fun Friday One Time Tray Making Class (Ages 12-21)  — Creative Grounds\" at 4 pm on 13 November in the page's structured data"
 ---
 
 A one-time handbuilding evening: make a tray from a slab of clay, for jewelry or keys. For young people: the title says ages 12 to 21, the description 14 to 21. Tools, clay, glazing and firing are included.

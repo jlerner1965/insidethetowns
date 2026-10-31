@@ -9,7 +9,7 @@ cost: "Free"
 category: civic
 recurring: "Monthly"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5472"
-verified: "2026-10-28"
+verified: "2026-10-31"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Personal Safety and Situational Awareness | Safety Information Series\" at 1 pm on 4 November on the erieco.gov feed"
 ---
 

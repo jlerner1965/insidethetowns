@@ -9,7 +9,7 @@ cost: "Free"
 category: festival
 timeNote: "Live music from 5:30; countdown at 6:30"
 source: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q4/Downtown-Holiday-Lighting-Ceremony"
-verified: "2026-10-28"
+verified: "2026-10-31"
 featured: true
 verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 5:30 pm on the page"
 ---

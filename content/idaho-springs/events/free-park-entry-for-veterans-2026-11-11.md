@@ -12,8 +12,8 @@ organizer: "Colorado Parks and Wildlife"
 organizerUrl: "https://cpw.state.co.us/"
 source: "https://cpw.state.co.us/event/2026/11/free-park-entry-veterans-and-active-military"
 sourceId: "cpw-state-co-us"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Free Park Entry for Veterans and Active Military\" at 8 am on 11 November in the page's structured data"
 ---
 
 On Veterans Day, Wednesday, November 11, 2026, veterans, active-duty military and National Guard members get into every Colorado state park free, Golden Gate Canyon included; the park's own page lists the day from 8 am to 10 pm. Bring a DD214, a DD Form 2 or 2765, a military ID card, a Colorado driver's license or ID marked "Veteran", or a VA medical card. Camping, fishing and other fees still apply.

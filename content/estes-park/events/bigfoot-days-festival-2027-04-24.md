@@ -11,8 +11,8 @@ organizer: "Town of Estes Park"
 organizerUrl: "https://estespark.colorado.gov/"
 source: "https://eventsinestes.com/bigfoot-days/"
 sourceId: "eventsinestes-com"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): 24 April and 10 am on the page"
 ---
 
 The Town's free spring festival about all things Bigfoot, in Bond Park: talks and appearances by Bigfoot television personalities, Colorado Bigfoot stories, film screenings, live music, craft and food vendors, family activities and a Bigfoot calling contest, with a half-marathon and 5K run the same weekend. A ticketed Bigfoot BBQ dinner with the guests is the evening before, Friday, April 23. The 2027 guests and schedule are not posted yet.

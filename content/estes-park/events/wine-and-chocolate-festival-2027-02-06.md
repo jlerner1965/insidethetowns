@@ -12,8 +12,8 @@ organizer: "Town of Estes Park"
 organizerUrl: "https://estespark.colorado.gov/"
 source: "https://eventsinestes.com/wine-chocolate-festival/"
 sourceId: "eventsinestes-com"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): 6 February and 12 pm on the page"
 ---
 
 The Town's winter tasting festival at the Event Center. It opened to all ages in 2026, when it widened beyond wine and chocolate to breweries, bakers and other sweet-treat vendors, and the Town lists the 2027 festival as all ages too. The Town says ticket prices vary.

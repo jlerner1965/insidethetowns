@@ -10,8 +10,8 @@ cost: "Free"
 category: arts
 source: "https://evergreenarts.org/cae/sculpture-tours/"
 sourceId: "evergreenarts-org"
-verified: "2026-10-07"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): 5 December and 10:30 am on the page"
 ---
 
 The last of the Center for the Arts Evergreen's free monthly sculpture walks for 2026, meeting at the Center and led by a trained docent; plan on about an hour on foot. All ages, no RSVP. Winterfest is at the Center the same day.
