@@ -1,19 +1,30 @@
 {
-  "generated": "2026-10-28T18:37:30.441Z",
+  "generated": "2026-10-31T18:19:11.596Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/football/",
-      "fetched": "2026-10-28T18:37:30.441Z",
-      "maxprepsUpdated": "2026-10-28T18:37:30",
-      "overall": "0-9",
+      "fetched": "2026-10-31T18:19:11.596Z",
+      "maxprepsUpdated": "2026-10-31T17:53:12",
+      "overall": "0-10",
       "league": {
-        "record": "0-5",
+        "record": "0-6",
         "name": "5A Front Range",
         "place": "7th"
       },
       "results": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Fairview",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/erie-vs-fairview-boulder/10-30-2026/?c=1e577622-530f-4f2a-8c21-4cde64a00852",
+          "result": "L",
+          "score": {
+            "us": 41,
+            "them": 52
+          }
+        },
         {
           "date": "2026-10-23",
           "opponent": "Fossil Ridge",
@@ -114,15 +125,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-30",
-          "opponent": "Fairview",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/football/game/erie-vs-fairview-boulder/10-30-2026/?c=1e577622-530f-4f2a-8c21-4cde64a00852",
-          "time": "18:30"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -132,15 +135,28 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/soccer/",
-      "fetched": "2026-10-28T18:37:30.441Z",
-      "maxprepsUpdated": "2026-10-28T15:43:24",
-      "overall": "12-1-2",
+      "fetched": "2026-10-31T18:19:11.596Z",
+      "maxprepsUpdated": "2026-10-31T18:16:36",
+      "overall": "13-1-2",
       "league": {
         "record": "5-1-1",
         "name": "5A Front Range",
         "place": "1st"
       },
       "results": [
+        {
+          "date": "2026-10-28",
+          "opponent": "ThunderRidge",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/soccer/match/erie-vs-thunderridge-highlands-ranch/10-28-2026/?c=23f8dace-b301-4fe7-a9cd-eb2e829e3170",
+          "stage": "Boys Soccer State Championships",
+          "neutral": true,
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 1
+          }
+        },
         {
           "date": "2026-10-22",
           "opponent": "Broomfield",
@@ -309,12 +325,13 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-28",
-          "opponent": "ThunderRidge",
+          "date": "2026-11-03",
+          "opponent": "Grand Junction",
           "site": "neutral",
-          "url": "https://www.maxpreps.com/co/soccer/match/erie-vs-thunderridge-highlands-ranch/10-28-2026/?c=23f8dace-b301-4fe7-a9cd-eb2e829e3170",
+          "url": "https://www.maxpreps.com/co/soccer/match/erie-vs-grand-junction/11-3-2026/?c=658a030c-6fc8-4b18-9eec-007089b5b61d",
           "stage": "Boys Soccer State Championships",
           "neutral": true,
+          "venue": "Tiger Stadium",
           "time": "18:00"
         }
       ],
@@ -327,8 +344,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/volleyball/",
-      "fetched": "2026-10-28T18:37:30.441Z",
-      "maxprepsUpdated": "2026-10-28T15:09:59",
+      "fetched": "2026-10-31T18:19:11.596Z",
+      "maxprepsUpdated": "2026-10-31T15:43:35",
       "overall": "10-13",
       "league": {
         "record": "7-7",
@@ -611,8 +628,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/softball/fall/",
-      "fetched": "2026-10-28T18:37:30.441Z",
-      "maxprepsUpdated": "2026-10-28T16:48:52",
+      "fetched": "2026-10-31T18:19:11.596Z",
+      "maxprepsUpdated": "2026-10-31T15:18:46",
       "overall": "22-6",
       "league": {
         "record": "12-2",
@@ -958,8 +975,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/cross-country/",
-      "fetched": "2026-10-28T18:37:30.441Z",
-      "maxprepsUpdated": "2026-10-28T18:38:06",
+      "fetched": "2026-10-31T18:19:11.596Z",
+      "maxprepsUpdated": "2026-10-31T18:19:48",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -972,8 +989,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/cross-country/girls/",
-      "fetched": "2026-10-28T18:37:30.441Z",
-      "maxprepsUpdated": "2026-10-28T18:38:10",
+      "fetched": "2026-10-31T18:19:11.596Z",
+      "maxprepsUpdated": "2026-10-31T18:19:53",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -986,8 +1003,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/basketball/",
-      "fetched": "2026-10-28T18:37:30.441Z",
-      "maxprepsUpdated": "2026-10-28T18:05:12",
+      "fetched": "2026-10-31T18:19:11.596Z",
+      "maxprepsUpdated": "2026-10-31T14:44:54",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1152,8 +1169,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/basketball/girls/",
-      "fetched": "2026-10-28T18:37:30.441Z",
-      "maxprepsUpdated": "2026-10-28T16:23:19",
+      "fetched": "2026-10-31T18:19:11.596Z",
+      "maxprepsUpdated": "2026-10-31T16:37:10",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1182,6 +1199,22 @@
           "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-pueblo-east/12-10-2026/?c=094d408d-341c-4e4e-b56e-2657b47ecd08",
           "time": "17:30"
+        },
+        {
+          "date": "2026-12-11",
+          "opponent": "Fountain-Fort Carson",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-fountain-fort-carson/12-11-2026/?c=3ab2d723-2312-4121-9622-a5ef2c30707b",
+          "time": "17:30"
+        },
+        {
+          "date": "2026-12-12",
+          "opponent": "The Classical Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/erie-vs-the-classical-academy-colorado-springs/12-12-2026/?c=93727d41-0718-483f-85c7-07708441a3a4",
+          "neutral": true,
+          "venue": "Fountain Ft Carson Tournament",
+          "time": "11:30"
         },
         {
           "date": "2026-12-16",
@@ -1319,8 +1352,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/wrestling/",
-      "fetched": "2026-10-28T18:37:30.441Z",
-      "maxprepsUpdated": "2026-10-28T18:38:32",
+      "fetched": "2026-10-31T18:19:11.596Z",
+      "maxprepsUpdated": "2026-10-31T18:20:18",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1333,8 +1366,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/erie/erie-tigers/swimming/girls/",
-      "fetched": "2026-10-28T18:37:30.441Z",
-      "maxprepsUpdated": "2026-10-28T18:38:36",
+      "fetched": "2026-10-31T18:19:11.596Z",
+      "maxprepsUpdated": "2026-10-31T18:20:23",
       "results": [],
       "upcoming": [],
       "held": [],

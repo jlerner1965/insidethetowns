@@ -1,19 +1,30 @@
 {
-  "generated": "2026-10-28T18:23:50.870Z",
+  "generated": "2026-10-31T18:05:10.068Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/football/",
-      "fetched": "2026-10-28T18:23:50.870Z",
-      "maxprepsUpdated": "2026-10-28T14:58:06",
-      "overall": "7-2",
+      "fetched": "2026-10-31T18:05:10.068Z",
+      "maxprepsUpdated": "2026-10-31T17:42:43",
+      "overall": "7-3",
       "league": {
-        "record": "4-1",
+        "record": "4-2",
         "name": "3A Cache la Poudre",
         "place": "3rd"
       },
       "results": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Severance",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-severance/10-30-2026/?c=44ee4e4d-38a3-4422-89a5-a346fd2f328c",
+          "result": "L",
+          "score": {
+            "us": 14,
+            "them": 32
+          }
+        },
         {
           "date": "2026-10-23",
           "opponent": "Mountain View",
@@ -114,15 +125,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-30",
-          "opponent": "Severance",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-severance/10-30-2026/?c=44ee4e4d-38a3-4422-89a5-a346fd2f328c",
-          "time": "19:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": []
     },
@@ -130,8 +133,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/soccer/",
-      "fetched": "2026-10-28T18:23:50.870Z",
-      "maxprepsUpdated": "2026-10-28T17:03:07",
+      "fetched": "2026-10-31T18:05:10.068Z",
+      "maxprepsUpdated": "2026-10-31T17:42:11",
       "overall": "8-7",
       "league": {
         "record": "6-2",
@@ -313,15 +316,26 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/volleyball/",
-      "fetched": "2026-10-28T18:23:50.870Z",
-      "maxprepsUpdated": "2026-10-28T14:28:42",
-      "overall": "16-6",
+      "fetched": "2026-10-31T18:05:10.068Z",
+      "maxprepsUpdated": "2026-10-31T14:50:35",
+      "overall": "17-6",
       "league": {
         "record": "4-2",
         "name": "4A/3A Patriots Peak",
         "place": "3rd"
       },
       "results": [
+        {
+          "date": "2026-10-29",
+          "opponent": "Frederick",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-frederick/10-29-2026/?c=c77b92ce-5eb0-4ac2-8391-1ca60a73fed6",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-27",
           "opponent": "Windsor Charter Academy",
@@ -570,15 +584,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-29",
-          "opponent": "Frederick",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-frederick/10-29-2026/?c=c77b92ce-5eb0-4ac2-8391-1ca60a73fed6",
-          "time": "18:30"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": []
     },
@@ -586,8 +592,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/softball/fall/",
-      "fetched": "2026-10-28T18:23:50.870Z",
-      "maxprepsUpdated": "2026-10-28T16:08:36",
+      "fetched": "2026-10-31T18:05:10.068Z",
+      "maxprepsUpdated": "2026-10-31T14:25:42",
       "overall": "17-10",
       "league": {
         "record": "2-7",
@@ -922,8 +928,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/",
-      "fetched": "2026-10-28T18:23:50.870Z",
-      "maxprepsUpdated": "2026-10-28T18:24:41",
+      "fetched": "2026-10-31T18:05:10.068Z",
+      "maxprepsUpdated": "2026-10-31T18:06:02",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -936,8 +942,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/girls/",
-      "fetched": "2026-10-28T18:23:50.870Z",
-      "maxprepsUpdated": "2026-10-28T18:24:46",
+      "fetched": "2026-10-31T18:05:10.068Z",
+      "maxprepsUpdated": "2026-10-31T18:06:07",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -950,8 +956,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/basketball/",
-      "fetched": "2026-10-28T18:23:50.870Z",
-      "maxprepsUpdated": "2026-10-28T18:06:00",
+      "fetched": "2026-10-31T18:05:10.068Z",
+      "maxprepsUpdated": "2026-10-31T16:29:44",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1072,8 +1078,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/basketball/girls/",
-      "fetched": "2026-10-28T18:23:50.870Z",
-      "maxprepsUpdated": "2026-10-28T18:24:59",
+      "fetched": "2026-10-31T18:05:10.068Z",
+      "maxprepsUpdated": "2026-10-31T14:41:17",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1225,8 +1231,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/wrestling/",
-      "fetched": "2026-10-28T18:23:50.870Z",
-      "maxprepsUpdated": "2026-10-28T18:25:08",
+      "fetched": "2026-10-31T18:05:10.068Z",
+      "maxprepsUpdated": "2026-10-31T18:06:30",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1239,8 +1245,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/swimming/girls/",
-      "fetched": "2026-10-28T18:23:50.870Z",
-      "maxprepsUpdated": "2026-10-28T18:25:12",
+      "fetched": "2026-10-31T18:05:10.068Z",
+      "maxprepsUpdated": "2026-10-31T18:06:34",
       "results": [],
       "upcoming": [],
       "held": [],

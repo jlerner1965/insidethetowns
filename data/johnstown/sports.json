@@ -1,19 +1,30 @@
 {
-  "generated": "2026-10-28T18:28:43.174Z",
+  "generated": "2026-10-31T18:10:11.047Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/football/",
-      "fetched": "2026-10-28T18:28:43.174Z",
-      "maxprepsUpdated": "2026-10-28T18:13:40",
-      "overall": "8-1",
+      "fetched": "2026-10-31T18:10:11.047Z",
+      "maxprepsUpdated": "2026-10-31T17:32:54",
+      "overall": "9-1",
       "league": {
-        "record": "6-0",
+        "record": "7-0",
         "name": "4A Northern",
         "place": "1st"
       },
       "results": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Grand Junction",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/grand-junction-vs-roosevelt-johnstown/10-30-2026/?c=ade770f1-4a04-4fc2-941f-e1c2b54c94cf",
+          "result": "W",
+          "score": {
+            "us": 48,
+            "them": 10
+          }
+        },
         {
           "date": "2026-10-23",
           "opponent": "Frederick",
@@ -114,15 +125,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-30",
-          "opponent": "Grand Junction",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/football/game/grand-junction-vs-roosevelt-johnstown/10-30-2026/?c=ade770f1-4a04-4fc2-941f-e1c2b54c94cf",
-          "time": "19:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": []
     },
@@ -130,8 +133,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/soccer/",
-      "fetched": "2026-10-28T18:28:43.174Z",
-      "maxprepsUpdated": "2026-10-28T17:41:19",
+      "fetched": "2026-10-31T18:10:11.047Z",
+      "maxprepsUpdated": "2026-10-31T17:42:08",
       "overall": "3-11-1",
       "league": {
         "record": "2-7-1",
@@ -313,8 +316,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/volleyball/",
-      "fetched": "2026-10-28T18:28:43.174Z",
-      "maxprepsUpdated": "2026-10-28T15:07:24",
+      "fetched": "2026-10-31T18:10:11.047Z",
+      "maxprepsUpdated": "2026-10-31T16:53:52",
       "overall": "12-11",
       "league": {
         "record": "5-5",
@@ -600,8 +603,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/softball/fall/",
-      "fetched": "2026-10-28T18:28:43.174Z",
-      "maxprepsUpdated": "2026-10-28T15:19:58",
+      "fetched": "2026-10-31T18:10:11.047Z",
+      "maxprepsUpdated": "2026-10-31T14:25:13",
       "overall": "19-7",
       "league": {
         "record": "8-2",
@@ -931,8 +934,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/cross-country/",
-      "fetched": "2026-10-28T18:28:43.174Z",
-      "maxprepsUpdated": "2026-10-28T15:27:51",
+      "fetched": "2026-10-31T18:10:11.047Z",
+      "maxprepsUpdated": "2026-10-31T16:32:02",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -945,8 +948,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/cross-country/girls/",
-      "fetched": "2026-10-28T18:28:43.174Z",
-      "maxprepsUpdated": "2026-10-28T18:29:39",
+      "fetched": "2026-10-31T18:10:11.047Z",
+      "maxprepsUpdated": "2026-10-31T18:11:07",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -959,8 +962,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/basketball/",
-      "fetched": "2026-10-28T18:28:43.174Z",
-      "maxprepsUpdated": "2026-10-28T17:08:51",
+      "fetched": "2026-10-31T18:10:11.047Z",
+      "maxprepsUpdated": "2026-10-31T17:22:28",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1103,7 +1106,7 @@
           "opponent": "Windsor",
           "site": "away",
           "url": "https://www.maxpreps.com/co/basketball/game/roosevelt-johnstown-vs-windsor/2-12-2027/?c=10b4aa16-6948-4fd8-9cfc-3b3f9ab69a80",
-          "time": "19:00"
+          "time": "19:30"
         },
         {
           "date": "2027-02-16",
@@ -1148,8 +1151,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/basketball/girls/",
-      "fetched": "2026-10-28T18:28:43.174Z",
-      "maxprepsUpdated": "2026-10-28T16:29:41",
+      "fetched": "2026-10-31T18:10:11.047Z",
+      "maxprepsUpdated": "2026-10-31T16:37:56",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1280,7 +1283,7 @@
           "opponent": "Windsor",
           "site": "away",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/roosevelt-johnstown-vs-windsor/2-12-2027/?c=3a95da6c-8117-4bd7-a40f-d3ea206aba4e",
-          "time": "17:30"
+          "time": "18:00"
         },
         {
           "date": "2027-02-16",
@@ -1323,8 +1326,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/wrestling/",
-      "fetched": "2026-10-28T18:28:43.174Z",
-      "maxprepsUpdated": "2026-10-28T15:34:20",
+      "fetched": "2026-10-31T18:10:11.047Z",
+      "maxprepsUpdated": "2026-10-31T15:44:34",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1337,8 +1340,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/johnstown/roosevelt-roughriders/swimming/girls/",
-      "fetched": "2026-10-28T18:28:43.174Z",
-      "maxprepsUpdated": "2026-10-28T18:30:05",
+      "fetched": "2026-10-31T18:10:11.047Z",
+      "maxprepsUpdated": "2026-10-31T18:11:34",
       "results": [],
       "upcoming": [],
       "held": [],

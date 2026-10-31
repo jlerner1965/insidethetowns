@@ -1,19 +1,30 @@
 {
-  "generated": "2026-10-28T18:32:30.439Z",
+  "generated": "2026-10-31T18:14:03.918Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/football/",
-      "fetched": "2026-10-28T18:32:30.439Z",
-      "maxprepsUpdated": "2026-10-28T15:20:08",
-      "overall": "2-7",
+      "fetched": "2026-10-31T18:14:03.918Z",
+      "maxprepsUpdated": "2026-10-31T17:48:53",
+      "overall": "3-7",
       "league": {
-        "record": "2-3",
+        "record": "3-3",
         "name": "3A Cache la Poudre",
         "place": "4th"
       },
       "results": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Mountain View",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/mountain-view-loveland-vs-thompson-valley-loveland/10-30-2026/?c=6b3a965f-195d-4d9c-846f-2d235f576f2a",
+          "result": "W",
+          "score": {
+            "us": 53,
+            "them": 7
+          }
+        },
         {
           "date": "2026-10-22",
           "opponent": "Windsor",
@@ -114,15 +125,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-30",
-          "opponent": "Mountain View",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/football/game/mountain-view-loveland-vs-thompson-valley-loveland/10-30-2026/?c=6b3a965f-195d-4d9c-846f-2d235f576f2a",
-          "time": "19:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -132,8 +135,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/soccer/",
-      "fetched": "2026-10-28T18:32:30.439Z",
-      "maxprepsUpdated": "2026-10-28T18:14:36",
+      "fetched": "2026-10-31T18:14:03.918Z",
+      "maxprepsUpdated": "2026-10-31T18:12:18",
       "overall": "0-14-1",
       "league": {
         "record": "0-10",
@@ -317,15 +320,43 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/volleyball/",
-      "fetched": "2026-10-28T18:32:30.439Z",
-      "maxprepsUpdated": "2026-10-28T15:23:51",
-      "overall": "10-9",
+      "fetched": "2026-10-31T18:14:03.918Z",
+      "maxprepsUpdated": "2026-10-31T14:53:47",
+      "overall": "11-10",
       "league": {
         "record": "6-4",
         "name": "4A/3A Northern",
         "place": "4th"
       },
       "results": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Denver South",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/denver-south-vs-thompson-valley-loveland/10-30-2026/?c=20757418-e00a-4498-8ba8-32571f221554",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Cheyenne Mountain Tournament",
+          "result": "L",
+          "score": {
+            "us": 1,
+            "them": 3
+          }
+        },
+        {
+          "date": "2026-10-30",
+          "opponent": "Pueblo West",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/pueblo-west-vs-thompson-valley-loveland/10-30-2026/?c=8a87ebfb-9bf9-4c54-b38a-b0aaabfa1f5b",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Cheyenne Mountain Tournament",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-27",
           "opponent": "Timnath",
@@ -538,28 +569,27 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-30",
-          "opponent": "Denver South",
+          "date": "2026-10-31",
+          "opponent": "Longmont",
           "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/denver-south-vs-thompson-valley-loveland/10-30-2026/?c=20757418-e00a-4498-8ba8-32571f221554",
+          "url": "https://www.maxpreps.com/co/volleyball/match/longmont-vs-thompson-valley-loveland/10-31-2026/?c=3f6d9ef8-8c79-4166-a631-f9b8cac6541e",
           "stage": "Tournament",
-          "neutral": true,
-          "venue": "Cheyenne Mountain Tournament",
-          "time": "11:30"
+          "neutral": true
         }
       ],
       "held": [],
       "notes": [
         "no school calendar to check against",
-        "MaxPreps page: a game in the glance card could not be read (8a87ebfb-9bf9-4c54-b38a-b0aaabfa1f5b)"
+        "MaxPreps page: a game in the glance card could not be read (8babcd62-3896-40cd-9250-1f77e99ec0e3)",
+        "MaxPreps page: a game in the glance card could not be read (be7ca551-3851-459f-9414-e6d669c501d4)"
       ]
     },
     {
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/softball/fall/",
-      "fetched": "2026-10-28T18:32:30.439Z",
-      "maxprepsUpdated": "2026-10-28T15:52:42",
+      "fetched": "2026-10-31T18:14:03.918Z",
+      "maxprepsUpdated": "2026-10-31T15:55:12",
       "overall": "14-12",
       "league": {
         "record": "4-6",
@@ -889,8 +919,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/cross-country/",
-      "fetched": "2026-10-28T18:32:30.439Z",
-      "maxprepsUpdated": "2026-10-28T18:33:06",
+      "fetched": "2026-10-31T18:14:03.918Z",
+      "maxprepsUpdated": "2026-10-31T18:14:39",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -903,8 +933,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/cross-country/girls/",
-      "fetched": "2026-10-28T18:32:30.439Z",
-      "maxprepsUpdated": "2026-10-28T18:33:10",
+      "fetched": "2026-10-31T18:14:03.918Z",
+      "maxprepsUpdated": "2026-10-31T18:14:44",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -917,8 +947,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/basketball/",
-      "fetched": "2026-10-28T18:32:30.439Z",
-      "maxprepsUpdated": "2026-10-28T17:08:51",
+      "fetched": "2026-10-31T18:14:03.918Z",
+      "maxprepsUpdated": "2026-10-31T18:14:48",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -927,13 +957,6 @@
       },
       "results": [],
       "upcoming": [
-        {
-          "date": "2026-12-01",
-          "opponent": "Monarch",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/basketball/game/monarch-louisville-vs-thompson-valley-loveland/12-1-2026/?c=8f02b1f9-7f30-40d9-aed9-5a276acf220d",
-          "time": "18:30"
-        },
         {
           "date": "2026-12-04",
           "opponent": "Standley Lake",
@@ -965,8 +988,10 @@
         {
           "date": "2026-12-12",
           "opponent": "Air Academy",
-          "site": "home",
+          "site": "neutral",
           "url": "https://www.maxpreps.com/co/basketball/game/air-academy-us-air-force-academy-vs-thompson-valley-loveland/12-12-2026/?c=3af51dc9-c41f-46d4-a666-7fa9d2290106",
+          "neutral": true,
+          "venue": "Game at FREDERICK",
           "time": "13:00"
         },
         {
@@ -1003,6 +1028,13 @@
           "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/game/greeley-central-vs-thompson-valley-loveland/1-15-2027/?c=6fdf99b3-1857-4c99-8c04-8e0abef16696",
           "time": "19:30"
+        },
+        {
+          "date": "2027-01-19",
+          "opponent": "Poudre",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/poudre-fort-collins-vs-thompson-valley-loveland/1-19-2027/?c=3c60d0e6-155a-498e-8c57-4862029a9ce6",
+          "time": "18:30"
         },
         {
           "date": "2027-01-21",
@@ -1047,6 +1079,20 @@
           "time": "19:30"
         },
         {
+          "date": "2027-02-12",
+          "opponent": "Monarch",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/monarch-louisville-vs-thompson-valley-loveland/2-12-2027/?c=8f02b1f9-7f30-40d9-aed9-5a276acf220d",
+          "time": "18:30"
+        },
+        {
+          "date": "2027-02-16",
+          "opponent": "Severance",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/severance-vs-thompson-valley-loveland/2-16-2027/?c=46464efe-8854-4c67-926c-67a1ccbe3768",
+          "time": "19:30"
+        },
+        {
           "date": "2027-02-19",
           "opponent": "Loveland",
           "site": "home",
@@ -1063,8 +1109,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/basketball/girls/",
-      "fetched": "2026-10-28T18:32:30.439Z",
-      "maxprepsUpdated": "2026-10-28T16:08:19",
+      "fetched": "2026-10-31T18:14:03.918Z",
+      "maxprepsUpdated": "2026-10-31T18:14:57",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1098,10 +1144,54 @@
           "time": "18:00"
         },
         {
+          "date": "2026-12-10",
+          "opponent": "Air Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/air-academy-us-air-force-academy-vs-thompson-valley-loveland/12-10-2026/?c=ebd36bc1-0b42-4da9-a8b4-9b49989f3b5b",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Timnath Winter Classic @ Timnath HS",
+          "time": "17:00"
+        },
+        {
+          "date": "2026-12-11",
+          "opponent": "Prospect Ridge Academy",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/prospect-ridge-academy-broomfield-vs-thompson-valley-loveland/12-11-2026/?c=4bbd271f-9b18-45d5-b028-61e20e419f8f",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Timnath Winter Classic @ Timnath HS",
+          "time": "18:30"
+        },
+        {
+          "date": "2026-12-12",
+          "opponent": "Castle View",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/castle-view-castle-rock-vs-thompson-valley-loveland/12-12-2026/?c=50293517-9b8f-4098-835b-582a47a1c47f",
+          "stage": "Tournament",
+          "neutral": true,
+          "venue": "Timnath Winter Classic @ Timnath HS",
+          "time": "10:00"
+        },
+        {
           "date": "2026-12-15",
           "opponent": "Berthoud",
           "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-thompson-valley-loveland/12-15-2026/?c=f309e147-1195-43ba-b34b-83651b444d24",
+          "time": "18:00"
+        },
+        {
+          "date": "2026-12-22",
+          "opponent": "Mead",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/mead-longmont-vs-thompson-valley-loveland/12-22-2026/?c=59db350c-a883-461b-b38d-4f8dfad9e0bc",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-06",
+          "opponent": "Eagle Ridge Academy",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/eagle-ridge-academy-brighton-vs-thompson-valley-loveland/1-6-2027/?c=8aa600e5-f5e9-4384-8362-bb8766767946",
           "time": "18:00"
         },
         {
@@ -1112,6 +1202,13 @@
           "time": "18:00"
         },
         {
+          "date": "2027-01-12",
+          "opponent": "Douglas County",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/douglas-county-castle-rock-vs-thompson-valley-loveland/1-12-2027/?c=3cf2fc3c-0fad-465b-b56d-0a6c5f97f197",
+          "time": "19:00"
+        },
+        {
           "date": "2027-01-15",
           "opponent": "Greeley Central",
           "site": "away",
@@ -1119,10 +1216,24 @@
           "time": "17:30"
         },
         {
+          "date": "2027-01-19",
+          "opponent": "Poudre",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/poudre-fort-collins-vs-thompson-valley-loveland/1-19-2027/?c=843236b0-5f45-47cd-969b-4c9e67380353",
+          "time": "18:00"
+        },
+        {
           "date": "2027-01-22",
           "opponent": "Roosevelt",
           "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/roosevelt-johnstown-vs-thompson-valley-loveland/1-22-2027/?c=a0af0962-2334-47e4-92df-734180bd019e",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "Windsor",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/thompson-valley-loveland-vs-windsor/1-26-2027/?c=f05a2d42-42be-4233-ab07-ac569dc7af22",
           "time": "18:00"
         },
         {
@@ -1140,10 +1251,24 @@
           "time": "19:00"
         },
         {
+          "date": "2027-02-05",
+          "opponent": "Mountain View",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/mountain-view-loveland-vs-thompson-valley-loveland/2-5-2027/?c=a5a46de1-bbbf-43c7-8803-7a4b36f5799e",
+          "time": "19:30"
+        },
+        {
           "date": "2027-02-09",
           "opponent": "Timnath",
           "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/thompson-valley-loveland-vs-timnath/2-9-2027/?c=7983d61c-9249-4f35-b6d7-b4971c7903cf",
+          "time": "18:00"
+        },
+        {
+          "date": "2027-02-16",
+          "opponent": "Severance",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/severance-vs-thompson-valley-loveland/2-16-2027/?c=a21f9df2-d7a1-4918-a0b4-fe70c741fd18",
           "time": "18:00"
         },
         {
@@ -1163,8 +1288,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/wrestling/",
-      "fetched": "2026-10-28T18:32:30.439Z",
-      "maxprepsUpdated": "2026-10-28T18:33:33",
+      "fetched": "2026-10-31T18:14:03.918Z",
+      "maxprepsUpdated": "2026-10-31T16:25:42",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1177,8 +1302,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/swimming/girls/",
-      "fetched": "2026-10-28T18:32:30.439Z",
-      "maxprepsUpdated": "2026-10-28T18:33:37",
+      "fetched": "2026-10-31T18:14:03.918Z",
+      "maxprepsUpdated": "2026-10-31T18:15:11",
       "results": [],
       "upcoming": [],
       "held": [],

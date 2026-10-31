@@ -1,19 +1,30 @@
 {
-  "generated": "2026-10-28T23:42:47.108Z",
+  "generated": "2026-10-31T18:21:25.007Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/football/",
-      "fetched": "2026-10-28T23:42:47.108Z",
-      "maxprepsUpdated": "2026-10-28T22:30:25",
-      "overall": "8-1",
+      "fetched": "2026-10-31T18:21:25.007Z",
+      "maxprepsUpdated": "2026-10-31T17:33:40",
+      "overall": "8-2",
       "league": {
-        "record": "7-0",
+        "record": "6-1",
         "name": "4A Front Range",
-        "place": "1st"
+        "place": "2nd"
       },
       "results": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Monarch",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/football/game/golden-vs-monarch-louisville/10-30-2026/?c=90ccecbd-f675-48f8-8f51-e802a7d20ad7",
+          "result": "L",
+          "score": {
+            "us": 7,
+            "them": 49
+          }
+        },
         {
           "date": "2026-10-23",
           "opponent": "Westminster",
@@ -114,15 +125,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-30",
-          "opponent": "Monarch",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/football/game/golden-vs-monarch-louisville/10-30-2026/?c=90ccecbd-f675-48f8-8f51-e802a7d20ad7",
-          "time": "19:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -132,15 +135,29 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/soccer/",
-      "fetched": "2026-10-28T23:42:47.108Z",
-      "maxprepsUpdated": "2026-10-28T23:02:06",
-      "overall": "12-1-2",
+      "fetched": "2026-10-31T18:21:25.007Z",
+      "maxprepsUpdated": "2026-10-31T15:53:13",
+      "overall": "13-1-2",
       "league": {
         "record": "9-0-1",
         "name": "4A/3A Jefferson County",
         "place": "1st"
       },
       "results": [
+        {
+          "date": "2026-10-29",
+          "opponent": "Monarch",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/soccer/match/golden-vs-monarch-louisville/10-29-2026/?c=49827793-9e28-4b31-adb0-86242ecc6d0e",
+          "stage": "Boys Soccer State Championships",
+          "neutral": true,
+          "venue": "North Area Athletic Complex",
+          "result": "W",
+          "score": {
+            "us": 4,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-22",
           "opponent": "Pomona",
@@ -309,13 +326,12 @@
       ],
       "upcoming": [
         {
-          "date": "2026-10-29",
-          "opponent": "Monarch",
+          "date": "2026-11-04",
+          "opponent": "Steamboat Springs",
           "site": "neutral",
-          "url": "https://www.maxpreps.com/co/soccer/match/golden-vs-monarch-louisville/10-29-2026/?c=49827793-9e28-4b31-adb0-86242ecc6d0e",
+          "url": "https://www.maxpreps.com/co/soccer/match/golden-vs-steamboat-springs/11-4-2026/?c=90263c85-0cab-4003-8351-a08edf34de6c",
           "stage": "Boys Soccer State Championships",
           "neutral": true,
-          "venue": "North Area Athletic Complex",
           "time": "18:00"
         }
       ],
@@ -328,15 +344,26 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/volleyball/",
-      "fetched": "2026-10-28T23:42:47.108Z",
-      "maxprepsUpdated": "2026-10-28T19:48:47",
-      "overall": "18-1",
+      "fetched": "2026-10-31T18:21:25.007Z",
+      "maxprepsUpdated": "2026-10-31T14:50:03",
+      "overall": "19-1",
       "league": {
-        "record": "9-0",
+        "record": "10-0",
         "name": "4A/3A Jeffco",
         "place": "1st"
       },
       "results": [
+        {
+          "date": "2026-10-28",
+          "opponent": "Wheat Ridge",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-wheat-ridge/10-28-2026/?c=75957108-556d-4d74-aa3e-54857a851af8",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-26",
           "opponent": "Evergreen",
@@ -557,15 +584,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-28",
-          "opponent": "Wheat Ridge",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/volleyball/match/golden-vs-wheat-ridge/10-28-2026/?c=75957108-556d-4d74-aa3e-54857a851af8",
-          "time": "18:30"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -575,8 +594,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/softball/fall/",
-      "fetched": "2026-10-28T23:42:47.108Z",
-      "maxprepsUpdated": "2026-10-28T23:43:14",
+      "fetched": "2026-10-31T18:21:25.007Z",
+      "maxprepsUpdated": "2026-10-31T18:18:54",
       "overall": "9-12",
       "league": {
         "record": "5-9",
@@ -836,8 +855,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/cross-country/",
-      "fetched": "2026-10-28T23:42:47.108Z",
-      "maxprepsUpdated": "2026-10-28T23:30:59",
+      "fetched": "2026-10-31T18:21:25.007Z",
+      "maxprepsUpdated": "2026-10-31T14:59:44",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -850,8 +869,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/cross-country/girls/",
-      "fetched": "2026-10-28T23:42:47.108Z",
-      "maxprepsUpdated": "2026-10-28T23:43:27",
+      "fetched": "2026-10-31T18:21:25.007Z",
+      "maxprepsUpdated": "2026-10-31T18:22:05",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -864,8 +883,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/basketball/",
-      "fetched": "2026-10-28T23:42:47.108Z",
-      "maxprepsUpdated": "2026-10-28T21:22:44",
+      "fetched": "2026-10-31T18:21:25.007Z",
+      "maxprepsUpdated": "2026-10-31T17:36:28",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -874,12 +893,6 @@
       },
       "results": [],
       "upcoming": [
-        {
-          "date": "2026-11-28",
-          "opponent": "Eagle Valley",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/basketball/game/eagle-valley-gypsum-vs-golden/11-28-2026/?c=878b6ace-5934-494f-8701-740d0b1c1736"
-        },
         {
           "date": "2026-12-01",
           "opponent": "George Washington",
@@ -1003,8 +1016,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/basketball/girls/",
-      "fetched": "2026-10-28T23:42:47.108Z",
-      "maxprepsUpdated": "2026-10-28T21:38:10",
+      "fetched": "2026-10-31T18:21:25.007Z",
+      "maxprepsUpdated": "2026-10-31T16:02:39",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1137,8 +1150,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/wrestling/",
-      "fetched": "2026-10-28T23:42:47.108Z",
-      "maxprepsUpdated": "2026-10-28T23:43:50",
+      "fetched": "2026-10-31T18:21:25.007Z",
+      "maxprepsUpdated": "2026-10-31T18:22:28",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1151,8 +1164,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/golden/golden-demons/swimming/girls/",
-      "fetched": "2026-10-28T23:42:47.108Z",
-      "maxprepsUpdated": "2026-10-28T23:43:54",
+      "fetched": "2026-10-31T18:21:25.007Z",
+      "maxprepsUpdated": "2026-10-31T14:41:00",
       "results": [],
       "upcoming": [],
       "held": [],

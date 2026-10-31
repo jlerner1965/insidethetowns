@@ -1,19 +1,30 @@
 {
-  "generated": "2026-10-28T18:33:41.617Z",
+  "generated": "2026-10-31T18:15:15.343Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/football/",
-      "fetched": "2026-10-28T18:33:41.617Z",
-      "maxprepsUpdated": "2026-10-28T15:55:51",
-      "overall": "0-9",
+      "fetched": "2026-10-31T18:15:15.343Z",
+      "maxprepsUpdated": "2026-10-31T18:15:32",
+      "overall": "0-10",
       "league": {
-        "record": "0-5",
+        "record": "0-6",
         "name": "3A Cache la Poudre",
         "place": "7th"
       },
       "results": [
+        {
+          "date": "2026-10-30",
+          "opponent": "Thompson Valley",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/football/game/mountain-view-loveland-vs-thompson-valley-loveland/10-30-2026/?c=6b3a965f-195d-4d9c-846f-2d235f576f2a",
+          "result": "L",
+          "score": {
+            "us": 7,
+            "them": 53
+          }
+        },
         {
           "date": "2026-10-23",
           "opponent": "Berthoud",
@@ -114,15 +125,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-30",
-          "opponent": "Thompson Valley",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/football/game/mountain-view-loveland-vs-thompson-valley-loveland/10-30-2026/?c=6b3a965f-195d-4d9c-846f-2d235f576f2a",
-          "time": "19:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": []
     },
@@ -130,8 +133,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/soccer/",
-      "fetched": "2026-10-28T18:33:41.617Z",
-      "maxprepsUpdated": "2026-10-28T14:46:16",
+      "fetched": "2026-10-31T18:15:15.343Z",
+      "maxprepsUpdated": "2026-10-31T16:21:44",
       "overall": "6-7-2",
       "league": {
         "record": "2-6-2",
@@ -313,15 +316,26 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/volleyball/",
-      "fetched": "2026-10-28T18:33:41.617Z",
-      "maxprepsUpdated": "2026-10-28T15:21:34",
-      "overall": "13-9",
+      "fetched": "2026-10-31T18:15:15.343Z",
+      "maxprepsUpdated": "2026-10-31T14:51:12",
+      "overall": "14-9",
       "league": {
         "record": "5-5",
         "name": "4A/3A Northern",
         "place": "6th"
       },
       "results": [
+        {
+          "date": "2026-10-29",
+          "opponent": "Silver Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-silver-creek-longmont/10-29-2026/?c=a61514ba-347f-4fda-b31f-33e13723a11f",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-27",
           "opponent": "Windsor",
@@ -585,15 +599,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-29",
-          "opponent": "Silver Creek",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-silver-creek-longmont/10-29-2026/?c=a61514ba-347f-4fda-b31f-33e13723a11f",
-          "time": "18:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": []
     },
@@ -601,8 +607,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/softball/fall/",
-      "fetched": "2026-10-28T18:33:41.617Z",
-      "maxprepsUpdated": "2026-10-28T18:34:24",
+      "fetched": "2026-10-31T18:15:15.343Z",
+      "maxprepsUpdated": "2026-10-31T15:21:50",
       "overall": "8-15-1",
       "league": {
         "record": "2-8",
@@ -905,8 +911,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/cross-country/",
-      "fetched": "2026-10-28T18:33:41.617Z",
-      "maxprepsUpdated": "2026-10-28T18:34:33",
+      "fetched": "2026-10-31T18:15:15.343Z",
+      "maxprepsUpdated": "2026-10-31T18:16:08",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -919,8 +925,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/cross-country/girls/",
-      "fetched": "2026-10-28T18:33:41.617Z",
-      "maxprepsUpdated": "2026-10-28T18:34:38",
+      "fetched": "2026-10-31T18:15:15.343Z",
+      "maxprepsUpdated": "2026-10-31T18:16:13",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -933,8 +939,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/basketball/",
-      "fetched": "2026-10-28T18:33:41.617Z",
-      "maxprepsUpdated": "2026-10-28T18:15:15",
+      "fetched": "2026-10-31T18:15:15.343Z",
+      "maxprepsUpdated": "2026-10-31T17:48:34",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -971,6 +977,7 @@
           "url": "https://www.maxpreps.com/co/basketball/game/mountain-view-loveland-vs-pueblo-central/12-10-2026/?c=de359f3b-7175-443c-be2b-bdca9a67793a",
           "stage": "Tournament",
           "neutral": true,
+          "venue": "Jim Ranson Classic",
           "time": "18:00"
         },
         {
@@ -1151,8 +1158,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/basketball/girls/",
-      "fetched": "2026-10-28T18:33:41.617Z",
-      "maxprepsUpdated": "2026-10-28T16:07:20",
+      "fetched": "2026-10-31T18:15:15.343Z",
+      "maxprepsUpdated": "2026-10-31T16:05:27",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1228,6 +1235,13 @@
           "time": "18:00"
         },
         {
+          "date": "2027-01-07",
+          "opponent": "Skyline",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/mountain-view-loveland-vs-skyline-longmont/1-7-2027/?c=d4c63bc6-b42b-4f1d-9b2b-066cf29b132d",
+          "time": "17:30"
+        },
+        {
           "date": "2027-01-15",
           "opponent": "Roosevelt",
           "site": "away",
@@ -1270,6 +1284,13 @@
           "time": "18:00"
         },
         {
+          "date": "2027-02-05",
+          "opponent": "Thompson Valley",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/mountain-view-loveland-vs-thompson-valley-loveland/2-5-2027/?c=a5a46de1-bbbf-43c7-8803-7a4b36f5799e",
+          "time": "19:30"
+        },
+        {
           "date": "2027-02-11",
           "opponent": "Loveland",
           "site": "home",
@@ -1294,12 +1315,14 @@
         "2026-12-18 at Longmont is not on the school calendar (published on MaxPreps's word alone)",
         "2026-12-19 at Bear Creek is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-05 at Hinkley is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-07 vs Skyline is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-15 at Roosevelt is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-19 vs Windsor is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-20 at Fort Morgan is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-22 at Greeley West is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-26 vs Northridge is not on the school calendar (published on MaxPreps's word alone)",
         "2027-02-02 at Timnath is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-02-05 vs Thompson Valley is not on the school calendar (published on MaxPreps's word alone)",
         "2027-02-11 vs Loveland is not on the school calendar (published on MaxPreps's word alone)",
         "2027-02-16 at Greeley Central is not on the school calendar (published on MaxPreps's word alone)"
       ]
@@ -1308,8 +1331,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/wrestling/",
-      "fetched": "2026-10-28T18:33:41.617Z",
-      "maxprepsUpdated": "2026-10-28T18:35:00",
+      "fetched": "2026-10-31T18:15:15.343Z",
+      "maxprepsUpdated": "2026-10-31T18:16:35",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1322,8 +1345,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/swimming/girls/",
-      "fetched": "2026-10-28T18:33:41.617Z",
-      "maxprepsUpdated": "2026-10-28T18:35:04",
+      "fetched": "2026-10-31T18:15:15.343Z",
+      "maxprepsUpdated": "2026-10-31T18:16:40",
       "results": [],
       "upcoming": [],
       "held": [],
