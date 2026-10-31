@@ -7,7 +7,7 @@ reports, checks). Three towns get the work until 20 January 2027
 Remove a row when it is done; the dated audits in `docs/audits/` say what
 was found and when.
 
-Last revised: 28 October 2026.
+Last revised: 31 October 2026.
 
 ## This week
 
@@ -29,6 +29,7 @@ Last revised: 28 October 2026.
 | All three | Fill the 90-day scorecard for the week of 26 October (`docs/90-DAY-TEST.md`) on Tuesday 3 November | The scheduled session does it every Tuesday at 11:17; Search Console settles a Sunday about two days later | Assistant (scheduled) |
 | Lyons | Get the first subscriber: nobody has signed up on insidelyons.com, so the 22 October edition did not send | Its target is 150 by 20 January; the chamber's distribution ask is the drafted way in | Owner |
 | Golden | 20 November: Foothills Art Center's galleries reopen for the Holiday Art Market; once its home page says so, take `status: temporarily-closed` (and `closed`, `statusNote`, `statusSource`) off `content/golden/places/foothills-art-center.md` | Marked closed on 28 October; nothing reopens a listing on its own | Assistant |
+| Castle Rock | Live and quiet from 31 October: add insidecastlerockco.com as a site in Plausible; resubmit its Search Console sitemap as `/sitemap-index.xml` (it was submitted as `/site.xml`); switch on Web Analytics in the `insidecastlerockco` Vercel project if it is off | The guide counts readers only once these are on (`DECISIONS.md`, "Castle Rock live, quiet") | Owner |
 | Golden | Calls for the held queue (`npm run review -- --town=golden`): store hours from Sherpa House (303-278-7939), Table Mountain Grill (303-216-8040), YoColorado (303-278-2796) and Peak Cycles (303-216-1616); current closing times from Golden City Brewery ((303) 279-8092); a public phone for the Golden Mill and the Coors tour; the choir's date (GoldenConcertChoir@gmail.com); and from the 28 October additions, which hours are current at Cafe 13 ((303) 278-2225), Golden Goods ((303) 216-2123) and Trailhead Taphouse (720-638-9009), and a phone and hours for Stay Golden Mercantile | Each listing's own site gives everything else; the 28 October re-read is in each file's review note | Owner |
 
 ## Decisions due
@@ -36,7 +37,8 @@ Last revised: 28 October 2026.
 | By | Decision | Who |
 |---|---|---|
 | Now | A scheduled assistant session for the weekly audit: yes or no (the scorecard's was set up 27 October) | Owner |
-| Before each guide's first expiry | Re-check the kept quiet guides' listings against their own sites, then move `decideBy` to 20 January: Elizabeth done 30 October (21 of 25 confirmed or corrected, 86 & Main staged; three calls below), decide-by now 30 November, and again with the city guides in the week of 23 November, since a 30 October check lasts only to 29 December; Nederland done in part 30 October (15 re-checked, decide-by now 3 December), all 26 again in the week of 7 December, which mountain hours need to reach 20 January; Leadville done 30 October (24 of 26; two calls below), decide-by now 23 November, all 26 again in the week of 7 December; Fort Collins (67), Longmont (40) and Loveland (42), with Elizabeth's second pass, all in the week of 23 November: a check on or after 21 November is what lasts to 20 January on the 60-day hours, and none of the three loses hours before 30 November. The mountain two need a second pass in early January (45-day hours). Listings whose sites refuse automated reads go to the owner as calls | Assistant checks, owner calls |
+| Before each guide's first expiry | Re-check the kept quiet guides' listings against their own sites, then move `decideBy` to 20 January: Elizabeth done 30 October (21 of 25 confirmed or corrected, 86 & Main staged; three calls below), decide-by now 30 November, and again with the city guides in the week of 23 November, since a 30 October check lasts only to 29 December; Nederland done in part 30 October (15 re-checked, decide-by now 3 December), all 26 again in the week of 7 December, which mountain hours need to reach 20 January; Leadville done 30 October (24 of 26; two calls below), decide-by now 23 November, all 26 again in the week of 7 December; Fort Collins (67), Longmont (40), Loveland (42) and Castle Rock (30, live and quiet from 31 October, decide-by 29 November, hours from 5 December), with Elizabeth's second pass, all in the week of 23 November: a check on or after 21 November is what lasts to 20 January on the 60-day hours, and none of the three loses hours before 30 November. The mountain two need a second pass in early January (45-day hours). Listings whose sites refuse automated reads go to the owner as calls | Assistant checks, owner calls |
+| 29 November | Castle Rock: its colours (still the placeholder rhyolite rose, near Johnstown's and Loveland's), and whether it joins the email or goes, with the other city guides | Owner |
 | 20 January | The 90-day test's verdict (`docs/90-DAY-TEST.md`) | Owner |
 | 20 January, after the verdict | The five held domains (`DECISIONS.md`, "Five domains held, 30 October"): Lafayette first if the test passes; Frederick and Mead into their neighbours; Steamboat Springs and Salida renewed or let go | Owner |
 
@@ -47,6 +49,16 @@ Last revised: 28 October 2026.
 | By 30 November | Elizabeth, three calls, needed before its decide-by can pass 30 November (the Town's site refuses automated reads, and nothing dated shows Catrina's open): Catrina's Latin Food, (719) 751-8789, still open and the hours Mon–Sat 6:30 am–8 pm, Sun 8 am–2 pm?; Town Hall, the office hours (the Main Street program says Mon–Fri 8 am–5 pm); Running Creek Park, still as listed. And 86 & Main, 122 S Main: what is it, and is it open? (staged) | Owner |
 | Soon | Elizabeth: tell The Carriage Shoppes their site's About page (thecarriageshoppes.com/about-the-carriage-shoppes/) now serves a gambling spam page; the site looks compromised. A goodwill email, and a reason to be in touch | Owner |
 | Soon | Elizabeth: Powder River Custom Hat Company's site says 211 Main; the Main Street directory says 232, the address it also gives Randy's. One call settles it | Owner |
+
+## Castle Rock: before and after launch, from the 31 October completion
+
+| By | What | Who |
+|---|---|---|
+| Soon | Browser reads where the fetch is refused: Alidade Brewing (alidadebrewing.com, hours and phone), Lost Coffee (lostcoffee.com, the Perry Street address, hours), Scileppi's (scileppis.com, hours), Crowfoot Valley Coffee (crowfootvalleycoffee.com: is the casino spam gone, and the hours), Guadalajara Family Restaurant (guadalajaramexfood.com, hours), Hideaway Bar & Grill (hideawaybarandgrill.com, hours) | Owner |
+| Soon | Calls for hours: Castle View Cafe, 303-942-1155; Cuba Cuba, (720) 639-2719 (are the posted summer hours current?); Iron Mule Brewery, 720-328-9008 or taproom@ironmulebrewery.com; Ecclesia Market (hours and a phone; its contact page is a form); Glacier Ice Cream, (303) 386-3751; Mod Mountain Boutique (confirm open; nothing dated on its site); Sudden Fiction Books, (303) 856-8181 (published without hours; its site states none) | Owner |
+| By 15 December | St. Francis of Assisi, 303-688-3025: the time of the Christmas Eve service at the Events Center (staged) | Owner |
+| By 29 November | Confirm or decline Sudden Fiction Books as a source (`npm run sources -- confirm castle-rock suddenfictionbooks-com`); three of its events are published on its own page (`DECISIONS.md`, "Castle Rock completed before launch") | Owner |
+| Soon | A Formspree form id for the contact page (it falls back to mailto), and a bought hero for the home page (`docs/HERO-PHOTOS.md`) | Owner |
 
 ## Leadville: calls from the 30 October re-check
 

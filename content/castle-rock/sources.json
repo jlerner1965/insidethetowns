@@ -220,6 +220,18 @@
       "status": "proposed",
       "robots": "honor",
       "notes": "Checked 6 October 2026: BLOX CMS weekly, found from coloradocommunitymedia.com (sister title douglascountynewspress.com). The article RSS read successfully: 50 items, newest 4 Oct 2026, titles such as 'Get to know the candidates running for Castle Rock Town Council', 'Castle Rock Water seeks customer input on resource plan', 'Meet the three candidates running for Castle Rock mayor'. News, not events; /local-events/ is an Evvnt-powered aggregator calendar ('Place Your Event With Evvnt') and should not be used as an event source."
+    },
+    {
+      "id": "suddenfictionbooks-com",
+      "name": "Sudden Fiction Books events",
+      "url": "https://suddenfictionbooks.com/upcoming-events",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Sudden Fiction Books, Ecclesia Market",
+      "notes": "Found 31 October 2026 while completing the guide for launch: the shop's own Upcoming Events page lists dated in-store events (book bingo at Sinners & Saints, holiday book wrapping, a release party) and a third-Monday book club; read by hand, no feed. Three events were published from it the same day on the README rule that a listing publishes on its own source and date, whatever the registry says; confirm to have it read with the weekly check.",
+      "sampleUrl": "https://suddenfictionbooks.com/upcoming-events"
     }
   ]
 }

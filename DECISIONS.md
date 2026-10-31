@@ -7553,3 +7553,125 @@ since its 30 October checks run out on 29 December. The plan, then:
 - **Week of 7 December:** Nederland and Leadville in full.
 - **Owner calls before then:** Elizabeth's three by 30 November, Leadville's
   two by 23 November.
+
+## Castle Rock live, quiet, 31 October 2026
+
+*The owner's words: "lets get castle rock off staged". Asked which they
+meant, the holding page or the staged queue, they chose to launch it quiet.*
+
+- **The shape.** `status: 'live'` with a `quiet` block, like Fort Collins,
+  Longmont and Loveland since 20 October: pages up and indexed, listings
+  checked as the rotation reaches them, no weekly email, no signup box on
+  its pages or anyone else's, no Thursday draft, out of the weekly report.
+  This supersedes the 12 and 20 October entries that kept it `wave2`:
+  quiet makes no weekly promise, so it does not undo the reason Elizabeth
+  went quiet, and the 90-day test's three towns keep the hand work.
+- **Under its threshold, on the owner's word**, as the six of 10 October
+  were: 18 of 25 upcoming events and 30 of 29 listings on the day. The
+  validator says so on every run.
+- **Decide by 29 November**, with the other city guides. All 30 listings
+  but one were checked on 6 October, so their hours go on 5 December (60
+  days, Front Range); the re-check belongs in the week of 23 November with
+  Fort Collins, Longmont and Loveland, which is what moves the date on.
+- **What it changes elsewhere.** Elizabeth and Manitou Springs each name
+  Castle Rock as a neighbour, so their Nearby block now builds; Leadville is
+  the one live guide with none. Douglas becomes the tenth county the network
+  covers, and the hub map drops Castle Rock's faint reference label for its
+  pin. `plausible: true`, as on every live guide since 22 October.
+- **Left as it was.** The colours are still the placeholder rhyolite rose
+  (no palette was chosen in Color System 2.0) and the hero is still the
+  Wikimedia photograph of Wilcox Street; neither blocks a launch. The
+  staged queue (3 events, 21 places, most waiting on crgov.com, which
+  refuses automated reads, or on a call) stays staged.
+- **The owner's, and not done:** add insidecastlerockco.com as a site in
+  Plausible; resubmit its sitemap in Search Console as
+  `/sitemap-index.xml` (it was submitted as `/site.xml`); switch on Vercel
+  Web Analytics in the `insidecastlerockco` project if it is not already.
+  The Vercel project, domain, `hello@` routing and deploy hook were set up
+  on 6 and 7 October, so merging to `main` is the launch.
+
+## Castle Rock completed before launch, 31 October 2026
+
+*The owner, after the flip above: "What are your thoughts on completing the
+page like the others rather then test it", and then "yes go ahead and start
+your part". The guide was two pages thinner than any other live guide and
+seven events short of its threshold, so the assistant's part was done the
+same day, on the branch, before anything was merged.*
+
+- **Events, 18 to 27 upcoming (30 published).** Ingest was run on the
+  guide's two feeds for the first time since 7 October (23 items staged),
+  and every confirmed source re-read by hand. Published, each from its
+  organizer's own page read that day: the County's Veterans Day Tribute
+  and the Heroes Hall groundbreaking with its World Trade Center steel
+  (both 7 November); the Outlets' tree lighting, concert and drone show
+  (14 November); the library's Jingle Jam sing-along (29 November), its
+  embroidery workshop (21 January) and its cuff-bracelet workshop (25
+  January, two sessions as one listing); and Sudden Fiction Books' book
+  bingo at Sinners & Saints (11 November), holiday book wrapping (7
+  December) and release party (11 January). The library's three Santa
+  sessions on 10 December, two of them newly staged, became `performances`
+  on the listing already published. Starlighting, the carriage rides, the
+  trolley and the museum's Santa were re-read and re-dated.
+- **Out, under the event standard:** Battle of the Books (ten dates, a
+  school-team competition), Epic Reads and the bookshop's Final Draft club
+  (book clubs), a library teardown entry, the Windish RV show (a dealer's
+  sale), the Outlets' Black Friday and Jingle Bucks (a sales day and a
+  promotion), and the Chamber's leads groups, ribbon cuttings and
+  seminars. Held: the Colorado Classic gymnastics meet (no hours), the
+  Chamber's Veterans Alliance talk (not said to be public), and St.
+  Francis's Christmas Eve service, still without a time. Two past expos
+  were removed from staging. The queue went from 3 to 1.
+- **Sudden Fiction Books is not a confirmed source**, and three of its
+  events are published. The README's rule is that a listing publishes on
+  its own `source` and `verified` whatever the registry says, and the
+  shop's own events page is the organizer's own page; the 7 October launch
+  review had kept to confirmed sources as a way of avoiding aggregators,
+  which this is not. It is in sources.json as `proposed`, with the three
+  listings named, for the owner to confirm or to say otherwise.
+- **Places, 30 to 33; staged 21 to 18.** Castle Cafe's site, a Cloudflare
+  wall on 6 October, now answers, and gave hours and phone; B&B Cafe's
+  contact page gave 324 Wilcox (the Chamber directory had said 322), a
+  phone and hours; Sudden Fiction's own events, dated November to January,
+  show it open, so it is published without hours, which its site no longer
+  states. Every other staged place was re-read or re-probed and its review
+  note dated: six Town facilities still behind crgov.com's 403; Alidade,
+  Lost Coffee and Scileppi's still 403; Guadalajara's robots.txt still 500;
+  Hideaway's certificate does not match its hostname; Crowfoot Valley
+  answered with an empty page; Castle View Cafe, Cuba Cuba, Iron Mule,
+  Ecclesia Market, Glacier and Mod Mountain still lack hours or a dated
+  sign of being open on their own pages. All go to the owner as browser
+  reads or calls (TODO.md).
+- **Config.** `character` and `commuteNotes` written from the Moving Here
+  page's sources; `plausible` was set that morning. No `driveToDenver`: no
+  official page read gives one and the Town's site cannot be read, so the
+  cell is left empty rather than guessed. The hero stays the Wikimedia
+  photograph of Wilcox Street and the colours the placeholder rose, both
+  the owner's to change; no Formspree form yet.
+- **The first weekly notes** (`weekly/2026-11-02.md`): the Veterans Day
+  Tribute as the pick, three additions to the guide, and editor's notes
+  listing what was found and not listed, what is unverified (whether
+  Bustang stops in town) and every page read. **A third article**, the
+  holiday season in date order, every fact from a page read that day.
+- **Still the owner's:** the six Town pages read in a browser (Philip S.
+  Miller Park, Festival Park, Rock Park, Ridgeline, the Recreation Center,
+  the MAC), the calls and browser reads above, St. Francis's service time,
+  the palette, a bought hero, a Formspree id, and the Plausible, Search
+  Console and Web Analytics steps from the entry above.
+
+## The six Town pages, read by the owner, 31 October 2026
+
+crgov.com refuses every automated request, so the owner opened the Town's
+pages in a browser the same evening and pasted their text, and the six
+listings the tagline depends on went up from the Town's own words: Philip
+S. Miller Park (300 acres, 8 miles of single-track, Challenge Hill's 200
+steps and 178 feet), the Miller Activity Complex, Rock Park (1.5 miles,
+difficult, no bikes, the Town's trail map linked), the Recreation Center
+(hours, holiday hours, child-watch; no phone yet), Festival Park (its
+amenities and the Town's 2026 event dates, including the Season of the
+Star to 23 January) and Ridgeline (13.5 miles, moderate). Each file says
+in a comment that the owner read the page and the assistant wrote it up,
+and `verifiedBy` says the same. The chamber's draft figures were wrong
+in places (270 acres and 7.4 miles for Philip S. Miller), which is why the
+parks had waited. Castle Rock stands at 30 events (27 upcoming) and 38
+listings, 1 and 13 staged, with every listing on the guide checked on
+6 or 31 October.

@@ -1,6 +1,6 @@
 ---
 title: "Ecclesia Market"
-review: { reason: "The market’s own site gives the address but no phone and no overall hours; its contact page is a form (read 6 October). Only some tenants post hours (Apres Coffee: closed Mon, Tue–Sun 6:30 am–3:30 pm, phone ‘coming soon’). Get the building’s phone and hours and publish.", since: "2026-10-06", from: manual }
+review: { reason: "The market’s own site gives the address but no phone and no overall hours; its contact page is a form (read 6 October). Only some tenants post hours (Apres Coffee: closed Mon, Tue–Sun 6:30 am–3:30 pm, phone ‘coming soon’). Get the building’s phone and hours and publish. Re-read 31 October 2026: the contact page gives the address only; seven tenants listed (Sinners & Saints, Wild + Blume, Arayes Grill, BAGL, Apres Coffee, The Compas, Sudden Fiction Books), none with hours on the market's pages.", since: "2026-10-06", from: manual }
 type: restaurant
 address: "221 Perry St, Castle Rock, CO 80104"
 area: "Perry Street, downtown"

@@ -15,7 +15,7 @@ recurring: "Mondays and Tuesdays, November 23 to December 29"
 timeNote: "Mondays and Tuesdays, 5:30 to 7:30 pm"
 schedule:
   - { days: [mon, tue], start: "17:30", end: "19:30" }
-verified: "2026-10-07"
+verified: "2026-10-31"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 

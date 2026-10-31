@@ -26,9 +26,9 @@ export const manitouSprings: TownConfig = {
   },
   variant: 'mountain',
   region: 'Mountains & Foothills',
-  // Castle Rock, the nearest guide, an hour up I-25; it has not launched, so
-  // the Nearby block stays empty until it does, as Elizabeth's does. Set when
-  // the town went live, 10 October 2026; Castle Rock names Manitou back.
+  // Castle Rock, the nearest guide, an hour up I-25. Set when the town went
+  // live, 10 October 2026; Castle Rock names Manitou back, and the Nearby
+  // block has had it since Castle Rock went live on 31 October 2026.
   neighbors: ['castle-rock'],
   // Set with the brief, 10 October 2026, at Evergreen's level: a town of
   // nearly five thousand with a year-round tourist street.

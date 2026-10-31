@@ -30,7 +30,7 @@
     { "slug": "manitou-springs","name": "Manitou Springs","domain": "insidemanitousprings.com","live": true, "notes": "mountain town; visitor guide since 2026-10-12: no weekly email or signup box expected; its This Week page and weekly notes carry on like every live guide's" },
     { "slug": "leadville",   "name": "Leadville",    "domain": "insideleadville.com",    "live": true,  "notes": "mountain town; quiet since 2026-10-20: out of the weekly email and the weekly report, no signup box on its pages or anyone else's and no Thursday draft; its This Week page and weekly notes carry on like every live guide's. The owner decides by 2026-11-19 whether it rejoins or goes" },
 
-    { "slug": "castle-rock", "name": "Castle Rock",  "domain": "insidecastlerockco.com", "live": false, "notes": "wave 2: domain serves a noindex holding page until the owner flips it live. insidecastlerock.com is someone else's" },
+    { "slug": "castle-rock", "name": "Castle Rock",  "domain": "insidecastlerockco.com", "live": true,  "notes": "quiet since 2026-10-31, the day it went live: out of the weekly email and the weekly report, no signup box on its pages or anyone else's and no Thursday draft; its This Week page and weekly notes carry on like every live guide's. The owner decides by 2026-11-29 whether it joins the email or goes. insidecastlerock.com is someone else's" },
     { "slug": "summit-county","name": "Summit County","domain": "insidesummitcounty.com", "live": false, "notes": "undecided whether to use; not in the repo yet" }
   ]
 }

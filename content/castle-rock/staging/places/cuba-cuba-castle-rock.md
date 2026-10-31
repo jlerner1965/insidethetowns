@@ -1,6 +1,6 @@
 ---
 title: "Cuba Cuba Cafe & Bar, Castle Rock"
-review: { reason: "The restaurant’s own Castle Rock page gives its hours as ‘Summer Hours’ (Sun–Thu 11 am–9 pm, Fri–Sat 11 am–10 pm), read 6 October; it is not clear whether they still apply. Confirm current hours and publish.", since: "2026-10-06", from: manual }
+review: { reason: "The restaurant’s own Castle Rock page gives its hours as ‘Summer Hours’ (Sun–Thu 11 am–9 pm, Fri–Sat 11 am–10 pm), read 6 October; it is not clear whether they still apply. Confirm current hours and publish. Re-read 31 October 2026: unchanged, still headed Summer Hours.", since: "2026-10-06", from: manual }
 type: restaurant
 address: "6375 Promenade Parkway Suite 120, Castle Rock, CO 80108"
 area: "Promenade Parkway"

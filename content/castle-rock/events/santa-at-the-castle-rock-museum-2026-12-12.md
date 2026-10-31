@@ -10,7 +10,7 @@ url: "https://www.castlerockhistoricalsociety.org/calendar/"
 category: family
 source: "https://www.castlerockhistoricalsociety.org/calendar/"
 sourceId: "castlerockhistoricalsociety-org"
-verified: "2026-10-07"
+verified: "2026-10-31"
 verifiedBy: "Claude Code, delegated by James Lerner"
 ---
 

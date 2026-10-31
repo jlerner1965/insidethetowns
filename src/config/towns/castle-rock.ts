@@ -14,9 +14,21 @@ import type { TownConfig } from './types.ts';
  */
 export const castleRock: TownConfig = {
   kind: 'town',
-  // Not live: the domain serves a noindex holding page until the owner flips
-  // this after the first review (docs/archive/ACCURACY-SYSTEM.md, launch threshold).
-  status: 'wave2',
+  // Live from 31 October 2026, the owner's word ("lets get castle rock off
+  // staged"), after a holding page since 6 October. It opens quiet, as the
+  // other city guides have been since 20 October (DECISIONS.md, "Castle Rock
+  // live, quiet, 31 October"). It was 18 of 25 upcoming events that morning
+  // and 27 of 25 by evening, once the guide was completed ("Castle Rock
+  // completed before launch"): pages up and indexed, listings checked as
+  // the rotation reaches them, no weekly email. 29 November is before any listing's hours expire
+  // (60 days from the 6 October checks: 5 December); the quiet-towns test
+  // holds the order.
+  status: 'live',
+  quiet: {
+    since: '2026-10-31',
+    decideBy: '2026-11-29',
+    reason: "a town of 73,000 between Denver and Colorado Springs with the Town's own calendar, the Chamber and Visit Castle Rock behind it, an hour from every guide in the email; it opens to be read and counted, like the other city guides, until the 90-day test decides what the network keeps",
+  },
   variant: 'front-range',
   region: 'South Metro',
   neighbors: ['elizabeth', 'manitou-springs'],
@@ -42,12 +54,16 @@ export const castleRock: TownConfig = {
   // 14 April 1881, per the Wikipedia infobox (founded 1874).
   incorporated: 1881,
   population2010: 48231, // 2010 census, for census-to-census growth
+  // No official page read for the guide gives a drive time to Denver, and
+  // the Town's own site refuses automated reads, so none is claimed here.
+  character: 'The Douglas County seat, 73,158 at the 2020 census, downtown under the rhyolite butte that named it, between Denver and Colorado Springs on I-25.',
   colors: {
     // Not in Color System 2.0 (9 October 2026), which covers the guides
     // then live or launching. A placeholder in its roles until the owner
     // gives Castle Rock a palette: the rhyolite rose it had, its dark shade
-    // as the primary, on warm paper. Choose one before launch; it sits
-    // close to Black Hawk, Johnstown and Loveland.
+    // as the primary, on warm paper. It launched with it on 31 October 2026;
+    // choosing one is the owner's, by the 29 November decision (it sits
+    // close to Johnstown and Loveland).
     primary: '#6E3647',
     accent: '#A0546A',
     paper: 'warm',
@@ -67,8 +83,11 @@ export const castleRock: TownConfig = {
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Castle-Rock_CO' },
     ],
     // Douglas County School District (dcsdk12.org, read 6 October 2026).
-    // commuteNotes are written at launch with the rest of the Moving Here guide.
     schoolDistrict: 'Douglas County School District RE-1, based in Castle Rock.',
+    // From the guide's Moving Here page (CDOT, RTD and Bustang pages read 6
+    // October 2026); Bustang's own schedule pages need a browser.
+    commuteNotes:
+      'By car, on I-25: north to Denver, or south through the rebuilt I-25 South Gap, two free lanes and an Express Lane each way to Monument, tolled since 2024; US 85 (Santa Fe Drive) is the other road north. Transit is limited: RTD puts parts of Douglas County in its district without naming Castle Rock, and CDOT’s Bustang runs the I-25 corridor; check ridebustang.com for the current stops.',
   },
   officialLinks: {
     townSite: 'https://www.crgov.com/',
@@ -79,4 +98,8 @@ export const castleRock: TownConfig = {
     policeNonEmergency: 'https://www.crgov.com/3454/Castle-Rock-Police',
     policeNonEmergencyLabel: 'Castle Rock Police Department',
   },
+  // Counted from launch, as every live guide has been since 22 October 2026;
+  // the site has to be added in Plausible's dashboard before the first view
+  // lands.
+  plausible: true,
 };
