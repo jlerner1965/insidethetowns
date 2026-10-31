@@ -1,8 +1,15 @@
 ---
 title: "Castle Rock Recreation Center"
-review: { reason: "crgov.com refuses automated reads; check the Town’s page by hand. The Town runs the Recreation Center and crgov.com answered 403 on 6 October; no other official page states its address, phone or hours. Draft text is from Visit Castle Rock (visitcastlerock.org/play/parks-recreation/), a chamber site. Read address, phone, hours and fees on the Town’s page. crgov.com still answered 403 on 31 October 2026.", since: "2026-10-06", from: manual }
 type: venue
-address: "Castle Rock Recreation Center, Castle Rock, CO"
+address: "2301 Woodlands Blvd., Castle Rock, CO 80104"
+area: "Woodlands Boulevard"
+url: "https://www.crgov.com/2054/Recreation-Center"
+# The Town's site refuses automated reads; the owner read the page in a
+# browser on 31 October 2026 and passed its text on, and this is written from that.
+source: "https://www.crgov.com/2054/Recreation-Center"
+verified: "2026-10-31"
+added: "2026-10-31"
+verifiedBy: "James Lerner, from the Town's page in a browser; written up by Claude Code"
 hours: "Mon–Thu 5 am–9 pm; Fri 5 am–8 pm; Sat 7 am–8 pm; Sun 7 am–6 pm"
 tags: [indoor, pool, gym, fitness, track, recreation]
 summary: "The Town's recreation center: a 25-yard lap pool and a leisure pool, a gym, an indoor track, cardio, weights and strength areas, fitness studios, racquetball and wallyball courts, a steam room and child-watch for ages 1 to 8. Separate passes from the MAC."
