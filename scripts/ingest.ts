@@ -51,7 +51,7 @@ import { readRss } from './lib/feeds/rss.ts';
 import { isShowareFeed, readShowarePage, showareHasMore, showarePage, type ShowarePage } from './lib/feeds/showare.ts';
 import { readTribePage, tribeFirstPage, type TribePage } from './lib/feeds/tribe.ts';
 import type { FeedEvent, Horizon } from './lib/feeds/types.ts';
-import { ambiguousNote, detectChanges, excludedTitle, hostOf, matchExisting, passesLocationFilter, possibleDuplicates, siblingCounts, toStaged, venueFrom, type ExistingEvent, passesCategoryFilter } from './lib/ingest.ts';
+import { ambiguousNote, detectChanges, excludedTitle, excludingEntry, hostOf, matchExisting, passesLocationFilter, possibleDuplicates, siblingCounts, toStaged, venueFrom, type ExistingEvent, passesCategoryFilter } from './lib/ingest.ts';
 import { normalizeUrl, sessionLinks } from '../src/lib/session-links.ts';
 import { isAllowed } from './lib/robots.ts';
 import { robotsFor, TIMEOUT, UA } from './lib/probe.ts';
@@ -284,6 +284,14 @@ for (const town of towns) {
     }
     const located = result.items.filter((item) => passesLocationFilter(item, source));
     const inScope = located.filter((item) => !excludedTitle(item, source) && passesCategoryFilter(item, source));
+    // Every title a rule kept out, once each with the entry that did it, so
+    // the weekly log shows a rule that has started catching a real event.
+    const keptOut = new Map<string, string>();
+    for (const item of located) {
+      const entry = excludingEntry(item, source);
+      if (entry && !keptOut.has(item.title)) keptOut.set(item.title, `excludeTitles "${entry}"`);
+      else if (!entry && !passesCategoryFilter(item, source) && !keptOut.has(item.title)) keptOut.set(item.title, `category ${item.categories.join(', ') || '(none)'}`);
+    }
     const filtered = result.items.length - located.length;
     const excluded = located.length - inScope.length;
     console.log(
@@ -292,6 +300,7 @@ for (const town of towns) {
         (excluded ? `, ${excluded} excluded by title` : '') +
         (result.note ? ` — ${result.note}` : ''),
     );
+    if (keptOut.size) console.log(`    kept out: ${[...keptOut].map(([title, why]) => `"${title}" (${why})`).join('; ')}`);
     let staged = 0;
     let updated = 0;
     let merged = 0;
@@ -326,6 +335,20 @@ for (const town of towns) {
       const dupes = match.kind === 'published' ? [] : possibleDuplicates(item, place, existing, claimed);
       if (dupes.length) console.log(`    possible duplicate, staged for review: "${item.title}" ${toWallClock(item.start)} and ${dupes.map((d) => relative(root, d.existing.file)).join(', ')} (${dupes[0]!.why})`);
       const prepared = toStaged(item, source, town.slug, today, dupes);
+      // One item the site could not build is set aside with a line saying
+      // why; written, it failed the run's validation and took the whole
+      // week's staging with it (26 October 2026: a Fort Lupton closure whose
+      // feed end came before its start, and no town's new events were
+      // staged that week).
+      if (match.kind === 'none' || match.kind === 'staged') {
+        const check = schema.safeParse(prepared.frontmatter);
+        if (!check.success) {
+          totals.skipped++;
+          const why = check.error.issues.map((i) => `${i.path.join('.') || 'file'}: ${i.message}`).join('; ');
+          console.log(`    NOT STAGED, would not validate: "${item.title}" ${toWallClock(item.start)} (${item.uid}): ${why}`);
+          continue;
+        }
+      }
       if (match.kind === 'staged' && thisRun.has(match.existing)) {
         // The feed carries the same event twice (two rooms, two listings):
         // one staged file, and a line saying so rather than a silent drop.
@@ -417,6 +440,7 @@ for (const town of towns) {
 console.log(
   `\ningest${dryRun ? ' (dry run, nothing written)' : ''}: ${totals.sources} source${totals.sources === 1 ? '' : 's'}, ${totals.items} items; ` +
     `${totals.staged} staged, ${totals.updated} refreshed, ${totals.unchanged} unchanged, ${totals.changes} changes to published events (${totals.cancellations} cancellations)` +
-    `${totals.ambiguous ? `, ${totals.ambiguous} items matching two published listings (flagged as possible duplicates)` : ''}. ` +
+    `${totals.ambiguous ? `, ${totals.ambiguous} items matching two published listings (flagged as possible duplicates)` : ''}` +
+    `${totals.skipped ? `, ${totals.skipped} not staged because the file would not validate (each named above)` : ''}. ` +
     (totals.staged || totals.changes || totals.ambiguous ? 'Next: npm run review.' : ''),
 );
