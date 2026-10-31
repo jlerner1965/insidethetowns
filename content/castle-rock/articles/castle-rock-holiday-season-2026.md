@@ -20,6 +20,7 @@ sources:
   - { label: "Douglas County Libraries: A Visit with Santa, December 10", url: "https://go.dcl.org/event/14463389" }
   - { label: "Castle Rock Historical Society: calendar", url: "https://www.castlerockhistoricalsociety.org/calendar/" }
   - { label: "Sudden Fiction Books: upcoming events", url: "https://suddenfictionbooks.com/upcoming-events" }
+  - { label: "Town of Castle Rock: Festival Park (read by the owner in a browser; the Town's site refuses automated reads)", url: "https://www.crgov.com/facilities/facility/details/festivalpark" }
 related:
   - { label: "Castle Rock Starlighting", href: "/events/castle-rock-starlighting-2026-11-21/", note: "The Chamber's opener, Saturday, November 21." }
   - { label: "Holiday Carriage Rides", href: "/events/holiday-carriage-rides-2026-11-22/", note: "Online tickets from noon on November 18." }
@@ -38,7 +39,7 @@ The Outlets at Castle Rock light what they call Colorado's tallest Christmas tre
 
 ## Saturday, November 21: Starlighting
 
-The Chamber of Commerce has opened the holidays this way since 1962; the star on the Rock itself was first lit in 1936. Downtown is closed to cars from 6 am to 8 pm (Perry Street from 5th to 2nd, North Wilcox from 5th to 3rd, 4th from Jerry to Perry, and 3rd and 2nd from Wilcox to Perry) and the event runs from 2 to 6 pm around Historic Wilcox Square and Festival Park, free. Santa is in Festival Park from 2 to 4:15. Biff Gore plays the main stage at 4th and Wilcox, where the ceremony begins at 5; the star is lit at about 5:30 and fireworks follow immediately, weather permitting. The Castle Rock Professional Firefighters serve their 90th annual chili supper at Fire Station 151: beef chili, nachos, hot dogs, drinks and desserts.
+The Chamber of Commerce has opened the holidays this way since 1962; the star on the Rock itself was first lit in 1936. Downtown is closed to cars from 6 am to 8 pm (Perry Street from 5th to 2nd, North Wilcox from 5th to 3rd, 4th from Jerry to Perry, and 3rd and 2nd from Wilcox to Perry) and the event runs from 2 to 6 pm around Historic Wilcox Square and Festival Park, free. Santa is in Festival Park from 2 to 4:15. Biff Gore plays the main stage at 4th and Wilcox, where the ceremony begins at 5; the star is lit at about 5:30 and fireworks follow immediately, weather permitting. The Castle Rock Professional Firefighters serve their 90th annual chili supper at Fire Station 151: beef chili, nachos, hot dogs, drinks and desserts. The Town calls the weeks that follow the Season of the Star: the star stays lit from Starlighting night through Saturday, January 23, the end of the National Western Stock Show.
 
 Free shuttles run from 1:30 to 8 pm from three lots, each dropping at Fifth and Wilcox or nearby: the Alexander lot at AdventHealth Castle Rock, 2350 Meadows Boulevard; the south building at Douglas County High School, 2842 Front Street; and Lot 5 at the fairgrounds, 500 Fairgrounds Drive. Return shuttles pick up where they dropped off. Chamber events take cards only, no cash. The event map, booth list and entertainment schedule were still marked coming soon at the end of October.
 
