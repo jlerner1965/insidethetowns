@@ -1,6 +1,6 @@
 ---
 title: "Crowfoot Valley Coffee"
-review: { reason: "The business’s own site gives address, phone and hours (read 6 October), but the site has been compromised: the home page carries injected paragraphs promoting Hungarian online casinos, and the contact page lists German and French casino posts. Linking it would send readers to spam. Tell the owner, confirm the hours, and publish once the site is clean (or decide to publish without a url). 31 October 2026: the home page answered 200 with an empty body to the fetch, so neither the hours nor the injected text could be re-read; open it in a browser.", since: "2026-10-06", from: manual }
+review: { reason: "The business’s own site gives address, phone and hours (read 6 October), but the site has been compromised: the home page carries injected paragraphs promoting Hungarian online casinos, and the contact page lists German and French casino posts. Linking it would send readers to spam. Tell the owner, confirm the hours, and publish once the site is clean (or decide to publish without a url). 31 October 2026: the home page answered 200 with an empty body to the fetch, so neither the hours nor the injected text could be re-read; open it in a browser. The owner opened it in a browser the same day and got a blank page, so the site is down or broken rather than blocking reads; the shop's own Facebook or Instagram, or a call to (303) 814-0999, is the way to its hours.", since: "2026-10-06", from: manual }
 type: coffee
 address: "734 Wilcox St STE 102, Castle Rock, CO 80104"
 area: "Wilcox Street, downtown"
