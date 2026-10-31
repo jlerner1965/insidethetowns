@@ -14,7 +14,7 @@ phone: "720-733-2260"
 mapUrl: "https://www.crgov.com/DocumentCenter/View/296/Ridgeline-Open-Space-Map-PDF"
 tags: [hiking, mountain-biking, trails, wildlife]
 featured: true
-summary: "367 acres of ridge and valley above The Meadows with 13.5 miles of trail in four colored loops, the 9.5-mile Stewart Trail the outer one; moderate, heavily used, and connected to Philip S. Miller Park by a footbridge over Wolfensberger Road. Parking on Coachline Road and at Bison Park."
+summary: "367 acres of ridge and valley above The Meadows: 13.5 miles of trail in four colored loops, the 9.5-mile Stewart Trail the outer one, moderate and busy, joined to Philip S. Miller Park by a footbridge. Parking on Coachline Road and at Bison Park."
 ---
 The Town's 367-acre open space on the ridge above The Meadows, named Best Hiking/Biking Trail by Colorado Community Media. The soft-surface single-track runs through valleys, ridgelines, open grassland and dense Gambel oak in four interconnected, color-coded loops of moderate difficulty, 13.5 miles in all with the feeders and connections; the outer loop, Stewart Trail, is 9.5 miles with a marker every half mile. Paved connections lead into the neighborhoods, and the system joins the paved trails and open space of The Meadows and Red Hawk. There are views of the Front Range to the west and the Town below. The Town calls the traffic heavy and names rattlesnakes and bluebirds as the wildlife to expect.
 
