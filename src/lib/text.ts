@@ -9,7 +9,10 @@
 export function shorten(text: string, budget: number): string {
   if (text.length <= budget) return text;
   const cut = text.slice(0, budget);
-  const phrase = Math.max(cut.lastIndexOf(', '), cut.lastIndexOf(': '), cut.lastIndexOf('; '), cut.lastIndexOf('. '));
+  // A period after a lone capital is an initial ("Philip S. Miller"), not a sentence's end.
+  let stop = cut.lastIndexOf('. ');
+  while (stop > 0 && /(^|\s)[A-Z]$/.test(cut.slice(0, stop))) stop = cut.lastIndexOf('. ', stop - 1);
+  const phrase = Math.max(cut.lastIndexOf(', '), cut.lastIndexOf(': '), cut.lastIndexOf('; '), stop);
   // A cut that falls exactly at the end of a word keeps the word.
   const end = phrase >= budget * 0.5 ? phrase : /\s/.test(text[budget] ?? '') ? budget : cut.lastIndexOf(' ');
   return `${cut.slice(0, end > 0 ? end : budget).replace(/[\s,;:.]+$/, '')}…`;
