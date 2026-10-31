@@ -33,11 +33,7 @@
         "Planning Commission Meeting",
         "Advisory Board Meeting",
         "Downtown Development Authority",
-        "Veterans Day",
-        "Juneteenth",
-        "New Year's Day",
-        "Christmas Day",
-        "Independence Day"
+        "^(Thanksgiving|Christmas( Eve| Day)?|New Year[’']s( Eve| Day)?|Veterans[’']? Day|Independence Day|Memorial Day|Labor Day|Martin Luther King.*|Presidents[’']? Day|Juneteenth|Columbus Day|Indigenous Peoples[’']? Day)( \\(observed\\))?$"
       ],
       "defaultVenue": "Nederland Community Center, 750 Highway 72 North",
       "notes": "Read 6 October 2026. nederlandco.org is a CivicPlus (CivicEngage) site titled 'Nederland, CO | Official Website'; www.nederlandco.gov serves the same site (a guessed /community-center path returned the CivicPlus custom 404 there). Calendar.aspx offers only three calendars: Federal Holidays, Public Space Rentals and Town Board Meetings. October 2026 shows six items, all under Town Board Meetings: Board of Trustees 6 and 20 Oct 7-10 pm, Downtown Development Authority 14 Oct 6-8 pm, Parks, Recreation & Open Space Advisory Board 15 Oct 5:30-7 pm, Sustainability Advisory Board 22 Oct 7-10 pm (Multipurpose Room of the Nederland Community Center) and Planning Commission 28 Oct 6-9 pm; every location is 750 Highway 72 North, Nederland CO 80466. The home-page widget said 'There are no published events in current month'. The CivicPlus calendar RSS (feedUrl) failed with a connection error on the first attempt and read successfully on the retry: 3 items (Board of Trustees Meeting, Downtown Development Authority, Parks Recreation & Open Space Advisory Board Meeting), pubDates 18 Aug 2026 -0700, structured event dates and the 750 Highway 72 North location. The CivicPlus iCalendar endpoint with catID=14 (/common/modules/iCalendar/iCalendar.aspx?catID=14&feed=calendar) returned the Federal Holidays calendar: 47 VEVENT, 2 RRULE, 2024-11-03 to 2035-11-11, TZ America/Denver, with CivicPlus placeholder locations 'Manhattan KS 66502'; other catIDs were not probed. So the Town feed is essentially civic meetings and holidays; it is useful for the meetings section and as a Community Center venue reference, not for community events. The Town's older Colorado.gov site (townofnederland.colorado.gov/explore-nederland/event-calendar) still ranks in search but answered CloudFront 403 'Request blocked' on 6 October. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."

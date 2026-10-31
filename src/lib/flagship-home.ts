@@ -15,7 +15,7 @@ import { displayTitle as titleLessVenue, lastDay, listedUntil, sortByStart } fro
 import { FLAGSHIP_TEAM, RESULT_WORD, bigGame, dedupeResults, gameDay, stripGames, weekGames, where, type TeamGame } from './school-sports.ts';
 import { weekWindow } from './weekly.ts';
 
-type EventLike = { data: CollectionEntry<'events'>['data']; slug?: string; id?: string };
+export type EventLike = { data: CollectionEntry<'events'>['data']; slug?: string; id?: string };
 
 /** The scoreboard's window: a result this many days old or newer leads the masthead. */
 export const RESULT_DAYS = 8;
@@ -214,7 +214,7 @@ export const NOTE_IN_COLUMN = 20;
 
 const nbsp = (s: string) => s.replace(/ (am|pm)/g, ' $1');
 
-function eventItem(e: EventLike, picked?: ReadonlySet<string>): DayItem {
+export function eventItem(e: EventLike, picked?: ReadonlySet<string>): DayItem {
   const { title, start, end, allDay, timeNote, venue, cost, category, status } = e.data;
   const slug = e.slug ?? e.id ?? '';
   // A time note longer than the time column ("Drop-off bins October 26 to

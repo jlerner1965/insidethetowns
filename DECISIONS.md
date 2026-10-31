@@ -7710,3 +7710,69 @@ museum at 224. The event and the Society's family program were corrected
 from the Society's event and contest pages, with an entry on Berthoud's
 corrections log; the event keeps its file name, since a slug is a URL.
 "Free to enter" came off both, since no page of the Society's says it.
+
+## An empty home tab says what is next, 31 October 2026
+
+The owner sent a screenshot of Niwot's home page on the Saturday
+afternoon: "Nothing listed for today", and the same on Tomorrow and This
+weekend, with 22 events on the calendar from Tuesday. Nothing was broken.
+The Great Pumpkin Party (10 am to 2 pm) was the day's one listing, the
+browser's pruning took it off at 2 pm as it should, and Niwot has nothing
+listed for Saturday evening, Sunday or Monday. But the page stopped there,
+and on a quiet guide all three tabs can be empty at once, which reads as a
+guide with no events.
+
+An empty tab keeps its tab and its "Nothing listed" line, as decided on
+27 October, and now goes on to "Next in <Town>": up to three listings after
+the tab's last day (after today, after tomorrow, after Sunday), each at its
+next date with the date before the time, one row a listing (a weekly series
+once), nothing canceled or postponed, drawn from the next 60 days
+(`laterRows` and `nextAfter` in src/lib/home-tabs.ts). Every panel carries
+its block, and the stylesheet shows it only while the panel's empty line
+is showing, so it appears whether the tab was built empty or was emptied in
+the browser after the build, which is what happened in Niwot. Its rows
+carry the same `data-end` marks, so they come off when they end, and the
+block goes once none are left. With nothing in the next 60 days a tab says
+only "Nothing listed", as before. Every guide's home page, not only
+Niwot's.
+
+## Where an event can be lost on the way in, checked, 31 October 2026
+
+The owner asked whether the rules miss events by accident, as the call
+list's venue match did (Lyons Town Hall as Hall Ranch), festivals and music
+above all. Every rule ingest applies was replayed over that day's feeds for
+every live guide (48 sources, 1,557 items, every feed read).
+
+- **One bad item lost a week, for every guide.** The 26 October weekly
+  ingest staged a Fort Lupton closure whose feed end came before its start;
+  validation failed and the run was thrown away, so nothing new was staged
+  for any town that week. On 31 October 246 items in the confirmed feeds
+  were on no guide, published or staged. Ingest now checks each item
+  against the event schema before writing it and sets aside one that fails,
+  with a line naming it, so the rest of the run stands.
+- **The title exclusions.** 839 items were kept out by title. Every one read
+  was a closure, a meeting, a regular the editor excluded on purpose, or a
+  holiday marker. But an entry is a piece of the title, so Black Hawk's
+  "Christmas" and Nederland's "Independence Day", meant for the calendar's
+  holiday markers, would also have kept out a tree lighting or a parade. An
+  entry starting with `^` is now a pattern over the whole title, and those
+  two sources' holidays are one exact-title pattern. The closure patterns
+  four sources had carried since October had been read as plain text and
+  matched nothing; they now work. The weekly log lists every title a rule
+  kept out, once, with the entry that did it.
+- **The venue-blind match.** An item that shares a day and most of its
+  title with a listing is taken for that listing whatever its venue. Eleven
+  items matched a listing at a venue written differently; all eleven were
+  the same event ("Downtown Niwot" and "Old Town and Cottonwood Square").
+  Left as it is; a venue rule would have made eleven false duplicates.
+- **The location and category filters** (214 and 71 items) kept out other
+  towns' branches, county closures and the hall's private bookings; no event
+  of the guide's own was among them.
+- **Not changed, for the owner:** 30 upcoming events wait in staging for a
+  person, 14 of them music, festivals, markets, arts or food (the Stanley's
+  Buckethead, Magic City Hippies and Reverend Horton Heat shows for a show
+  time; Estes Park's Day of the Dead; the Idaho Springs tree lighting), and
+  auto-review deletes a staged event once its date has passed. And 210
+  sources are html or manual, which ingest never reads: a venue with its
+  own calendar and no feed (The Wheel House, found the same day) is read
+  only when someone looks.

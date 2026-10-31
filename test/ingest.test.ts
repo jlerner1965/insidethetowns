@@ -588,3 +588,21 @@ test('a staged file round-trips through the frontmatter reader and the event sch
   assert.equal(canceled.frontmatter.status, 'canceled');
   assert.match(String(canceled.frontmatter.statusNote), /marks this canceled/);
 });
+
+test('a title exclusion starting with ^ is a pattern over the whole title; a holiday pattern does not catch the festival named for it', async () => {
+  const { excludingEntry } = await import('../scripts/lib/ingest.ts');
+  const holidays = { excludeTitles: ["^(Thanksgiving|Christmas( Eve| Day)?|New Year[’']s( Eve| Day)?|Veterans[’']? Day|Independence Day)$"] };
+  for (const title of ['Christmas', 'Thanksgiving', "New Year's Eve", 'New Year’s Day', 'Veterans Day', 'Independence Day']) {
+    assert.equal(excludedTitle({ title }, holidays), true, title);
+  }
+  for (const title of ['Christmas Tree Lighting', 'Independence Day Parade and Fireworks', 'Thanksgiving Turkey Trot', 'Veterans Day Ceremony']) {
+    assert.equal(excludedTitle({ title }, holidays), false, `${title} is an event, not the holiday marker`);
+  }
+  // The closure patterns four sources had carried as plain text since October, matching nothing.
+  const closures = { excludeTitles: ['^(?:.*office.*clos(?:ed|ure)|.*city hall.*closed|.*holiday closure|.*town hall.*closed).*$'] };
+  assert.equal(excludedTitle({ title: 'City Hall Closed for Thanksgiving' }, closures), true);
+  assert.equal(excludedTitle({ title: 'Holiday Lighting Festival' }, closures), false);
+  // Plain entries are still pieces of the title, and the report names the entry.
+  assert.equal(excludingEntry({ title: 'Toddler Storytime' }, { excludeTitles: ['Storytime'] }), 'Storytime');
+  assert.equal(excludingEntry({ title: 'Toddler Storytime' }, { excludeTitles: ['^(unclosed'] }), undefined, 'a broken pattern excludes nothing');
+});

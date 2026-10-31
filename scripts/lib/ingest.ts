@@ -114,11 +114,33 @@ export function passesCategoryFilter(item: Pick<FeedEvent, 'categories'>, source
   return !have.some((c) => exclude.includes(c));
 }
 
-/** Whether the editor has excluded this title from the source. */
+/**
+ * Whether the editor has excluded this title from the source. An entry is a
+ * case-insensitive piece of the title ("Storytime"), or, when it starts with
+ * `^`, a regular expression over the whole title ("^Christmas$"). A piece is
+ * blunt: "Christmas", meant for the City's holiday marker, would also drop a
+ * Christmas tree lighting, so a holiday or a closure is written as a pattern.
+ * Until 31 October 2026 the patterns four sources carried were read as
+ * pieces and matched nothing.
+ */
 export function excludedTitle(item: Pick<FeedEvent, 'title'>, source: Pick<Source, 'excludeTitles'>): boolean {
-  if (!source.excludeTitles?.length) return false;
-  const title = item.title.replace(/\s+/g, ' ').toLowerCase();
-  return source.excludeTitles.some((t) => title.includes(t.replace(/\s+/g, ' ').toLowerCase()));
+  return !!excludingEntry(item, source);
+}
+
+/** The entry that excludes this title, for the report, or undefined. */
+export function excludingEntry(item: Pick<FeedEvent, 'title'>, source: Pick<Source, 'excludeTitles'>): string | undefined {
+  if (!source.excludeTitles?.length) return undefined;
+  const title = item.title.replace(/\s+/g, ' ');
+  return source.excludeTitles.find((t) => {
+    if (t.startsWith('^')) {
+      try {
+        return new RegExp(t, 'i').test(title);
+      } catch {
+        return false;
+      }
+    }
+    return title.toLowerCase().includes(t.replace(/\s+/g, ' ').toLowerCase());
+  });
 }
 
 /**

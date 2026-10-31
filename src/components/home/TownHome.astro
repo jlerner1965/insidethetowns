@@ -47,7 +47,7 @@ import { schoolsFor, teamPath, type SportsData } from '@/config/school-sports';
 import { getTownEntries } from '@/lib/content';
 import { occurrences } from '@/lib/events';
 import { weekDays } from '@/lib/flagship-home';
-import { defaultTab, homeTabs } from '@/lib/home-tabs';
+import { defaultTab, homeTabs, laterRows, TAB_LIMIT } from '@/lib/home-tabs';
 import { isOpen } from '@/lib/places';
 import { hasData, sportsDataFor } from '@/lib/school-sports';
 import { currentUpdates } from '@/lib/updates';
@@ -78,7 +78,10 @@ const notes = await getTownEntries('weekly');
 const { thisWeek: pick } = currentPick(notes, calendar, now);
 const picked = new Set(pick ? [pick.event.slug] : []);
 const days = weekDays({ events: occurrences(allEvents, { now, horizonDays: 8 }), sports: data, teamHref, now, start: 'today', limit: 99, picked });
-const tabs = homeTabs(days, now);
+// What an empty tab offers next: the listings of the next two months, so a
+// quiet guide's next date three weeks out is still found.
+const later = laterRows(occurrences(allEvents, { now, horizonDays: 60 }), picked);
+const tabs = homeTabs(days, now, TAB_LIMIT, later);
 const open = defaultTab(now);
 
 // 6. Worth knowing: the two newest local changes still current.

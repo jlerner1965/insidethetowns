@@ -998,8 +998,27 @@ export const sourceSchema = z
      * Feed items whose title matches one of these (case-insensitive) are not
      * staged. A recreation centre's calendar lists lap swim and open gym every
      * day; the guide's event standard does not list them. Set by the editor.
+     * A plain entry is a piece of the title; one starting with `^` is a
+     * regular expression, for a holiday or closure marker that must not
+     * catch a festival named after the same day ("^Christmas$", not
+     * "Christmas"). See scripts/lib/ingest.ts, excludedTitle.
      */
-    excludeTitles: z.array(z.string().min(1)).optional(),
+    excludeTitles: z
+      .array(
+        z
+          .string()
+          .min(1)
+          .refine((t) => {
+            if (!t.startsWith('^')) return true;
+            try {
+              new RegExp(t, 'i');
+              return true;
+            } catch {
+              return false;
+            }
+          }, 'an entry starting with ^ must be a valid regular expression'),
+      )
+      .optional(),
     /**
      * Keep only feed items carrying one of these feed categories (case-
      * insensitive, exact), or drop items carrying one of these. A hall's

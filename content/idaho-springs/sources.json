@@ -332,18 +332,7 @@
       "lastNote": "Cloudflare answered 403 to the feed and the calendar page on 11 October 2026. The content handoff of the same day reported reading this feed; confirm it once it answers.",
       "feedUrl": "https://www.cityofblackhawk.org/common/modules/iCalendar/iCalendar.aspx?catID=24&feed=calendar",
       "excludeTitles": [
-        "Thanksgiving",
-        "Christmas",
-        "New Year's",
-        "Veterans Day",
-        "Independence Day",
-        "Memorial Day",
-        "Labor Day",
-        "Martin Luther King",
-        "Presidents",
-        "Juneteenth",
-        "Columbus Day",
-        "Indigenous Peoples"
+        "^(Thanksgiving|Christmas( Eve| Day)?|New Year[’']s( Eve| Day)?|Veterans[’']? Day|Independence Day|Memorial Day|Labor Day|Martin Luther King.*|Presidents[’']? Day|Juneteenth|Columbus Day|Indigenous Peoples[’']? Day)( \\(observed\\))?$"
       ],
       "sampleUrl": "https://www.cityofblackhawk.org/calendar.aspx?EID=812"
     },
