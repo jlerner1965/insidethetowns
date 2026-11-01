@@ -7971,3 +7971,24 @@ Tockify, whose robots.txt asks automated clients to stay out of `/api/`,
 where the feeds are; the registry reads them only if the editor sets
 `robots: subscribe`, as the schema allows for a feed published for
 calendar subscriptions, which these are. Both stay proposed until then.
+
+The same day every html and manual source (271, on 240 hosts) was probed
+for a feed it does not use (docs/sources-probe-2026-11-01.md). Twenty-four
+readable feeds were found that no source reads; seventeen need nothing but
+their entry changed. Two, both event calendars of an organizer on a
+priority guide, are now typed as the feeds they are and stay proposed:
+the Berthoud Historical Society's (its four coming events all already
+listed, so confirming it catches the next ones) and Foothills Art
+Center's in Golden (37 to come, 35 of them classes the guide would
+exclude by title first). The rest, among them three confirmed sources
+whose feed would change what the Monday ingest reads (Erie's High Plains
+library calendar, 73 to come, mostly storytimes; Windsor's Clearview
+library, 351 in thirty days; the Colorado School of Mines, campus-wide),
+are the owner's. Thirty-four more feeds exist behind a robots.txt that
+keeps automated clients out (Google Calendar, Tockify, Squarespace, which
+covers Niwot's Wheel House and Lyons's Rock Garden and Creative Grounds,
+LibraryCalendar, Finalsite); each is read only if the editor sets
+`robots: subscribe`. Four sources have lapsed to other owners
+(visitlovelandco.org now a betting page, savellis.com, nederlandchamber.org,
+periodicbrewing.com); no page links them, and they are the owner's to
+retire. No Lyons source has a feed a machine may read.

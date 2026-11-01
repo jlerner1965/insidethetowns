@@ -113,7 +113,7 @@
       "name": "berthoudhistoricalsociety.org",
       "url": "https://berthoudhistoricalsociety.org/",
       "sampleUrl": "https://www.berthoudhistoricalsociety.org/",
-      "type": "html",
+      "type": "ical",
       "category": "venue",
       "status": "proposed",
       "cites": {
@@ -121,7 +121,8 @@
         "places": 2
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. Its iCal feed (The Events Calendar, the \"event\" category) found by the sources probe of 1 November 2026 (docs/sources-probe-2026-11-01.md): 4 events to come, among them the Holiday Card Art Contest due 14 November. Type ical from that day, still proposed: npm run sources -- confirm berthoud berthoudhistoricalsociety-org.",
+      "feedUrl": "https://berthoudhistoricalsociety.org/?post_type=tribe_events&ical=1&eventDisplay=list&tribe_events_cat=event"
     },
     {
       "id": "berthoudparadeoflights-com",
