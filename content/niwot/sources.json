@@ -64,13 +64,14 @@
       "robots": "honor",
       "excludeTitles": [
         "Rotary Club",
-        "Election Commission"
+        "Election Commission",
+        "Rebuilding Seminars"
       ],
       "includeCategories": [
         "Featured Event"
       ],
       "defaultVenue": "Niwot Hall",
-      "notes": "The hall's rental calendar (Modern Events Calendar), read 20 October 2026 at /events/feed/: ten items, the coming week only (the plugin ignores paging and its iCal export is off), mixing public events with band practice, rehearsals and private bookings. The hall marks the public ones 'Featured Event', which is the include filter; the Rotary's weekly breakfast is already listed as a regular and the election commission's meetings are civic notices. No location element: the hall is the venue. A one-week window read on Mondays lists that week's talks and seminars; longer notice has to come from the organizers' own pages. Confirmed 20 October 2026 on the owner's delegation; 16 published events already cite the site.",
+      "notes": "The hall's rental calendar (Modern Events Calendar), read 20 October 2026 at /events/feed/: ten items, the coming week only (the plugin ignores paging and its iCal export is off), mixing public events with band practice, rehearsals and private bookings. The hall marks the public ones 'Featured Event', which is the include filter; the Rotary's weekly breakfast is already listed as a regular and the election commission's meetings are civic notices. No location element: the hall is the venue. A one-week window read on Mondays lists that week's talks and seminars; longer notice has to come from the organizers' own pages. Confirmed 20 October 2026 on the owner's delegation; 16 published events already cite the site. \"Rebuilding Seminars\" excluded 1 November 2026: the hall marks the Sunday 5 to 8 pm sessions a featured event, but they are the ten-week divorce-recovery course, a closed group that enrolls in advance (checked 21 October); the 1 November ingest published one under the rules and it came straight off. The course's public introductory evening is a separate listing.",
       "lastChecked": "2026-11-01",
       "lastStatus": "ok"
     },
