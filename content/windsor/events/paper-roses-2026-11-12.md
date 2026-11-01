@@ -12,7 +12,7 @@ organizer: "Clearview Library District"
 organizerUrl: "https://clearviewlibrary.org/"
 source: "https://clearview.libnet.info/event/17452872"
 sourceId: "clearviewlibrary-org"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Paper Roses\" at 5 pm on 12 November in the page's structured data"
 ---
 

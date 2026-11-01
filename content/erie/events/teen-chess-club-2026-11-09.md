@@ -9,7 +9,7 @@ cost: "Free; registration required"
 category: family
 recurring: "Monthly, second Mondays"
 source: "https://highplains.libcal.com/event/14991692"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen Chess Club\" at 5:15 pm on 9 November in the page's structured data"
 ---
 

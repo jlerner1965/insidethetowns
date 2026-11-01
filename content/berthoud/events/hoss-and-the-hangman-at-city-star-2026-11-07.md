@@ -9,7 +9,7 @@ performers:
 url: "https://citystarbrewing.com/event/hoss-and-the-hangman/"
 category: music
 source: "https://citystarbrewing.com/event/hoss-and-the-hangman/"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Hoss and the Hangman\" at 6 pm on 7 November in the page's structured data"
 ---
 

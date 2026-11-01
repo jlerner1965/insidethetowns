@@ -27,8 +27,8 @@ organizerUrl: "https://openstage.com/"
 source: "https://www.lctix.com/shows-tickets/dracula-2/"
 sourceId: "lctix-com"
 sourceUid: "showare:5599"
-verified: "2026-10-31"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Dracula\" at 7:30 pm on 31 October in the page's structured data"
+verified: "2026-11-01"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Dracula\" at 7:30 pm on 6 November in the page's structured data"
 ---
 
 OpenStage Theatre's production of Steven Dietz's adaptation of Bram Stoker's novel, opening on Halloween night in the Magnolia Theatre and running Fridays and Saturdays at 7:30 and Sundays at 2 through November 28 (no show November 1).

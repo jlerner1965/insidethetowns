@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/17002119"
 cost: "Free; registration required"
 category: family
 source: "https://highplains.libcal.com/event/17002119"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Demo Dungeons & Dragons: Campaign\" at 5:30 pm on 12 November in the page's structured data"
 ---
 

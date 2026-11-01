@@ -11,7 +11,7 @@ category: market
 organizer: "Castle Rock Senior Activity Center"
 organizerUrl: "https://www.castlerockseniorcenter.org/"
 source: "https://www.douglasco.gov/fairground-events/castle-rock-craft-show-extraordinaire-11072026/"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): 7 November and 9 am on the page"
 ---
 

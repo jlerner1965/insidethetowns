@@ -11,7 +11,7 @@ source: "https://ebcacolorado.org/autumn-artist-market"
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10004310-1794045600-1794070800@bouldercounty.gov"
 sourceHash: "a589574e92f7"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"EBCA Autumn Artist Market\" at 10 am on 7 November on the Boulder County Fairgrounds feed"
 ---
 

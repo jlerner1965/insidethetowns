@@ -11,7 +11,7 @@ cost: "Free"
 category: civic
 recurring: "First three Thursdays of the month"
 source: "https://www.niwotrotary.org/Events/Cards?searchTypes=All"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): 5 November and 7:30 am on the page"
 ---
 

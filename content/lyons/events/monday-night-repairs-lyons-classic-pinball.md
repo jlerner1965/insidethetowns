@@ -9,7 +9,7 @@ url: "https://www.lyonsclassicpinball.com/events/repair-night/02-november-2026"
 cost: "$20, or free with a monthly membership"
 category: other
 source: "https://www.lyonsclassicpinball.com/events/repair-night/02-november-2026"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Monday Night Repairs with Russ\" at 7:30 pm on 2 November in the page's structured data"
 ---
 

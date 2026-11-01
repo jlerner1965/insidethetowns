@@ -8,7 +8,7 @@ url: "https://bouldercounty.gov/elections/"
 category: civic
 featured: true
 source: "https://niwotelection.org/"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): 3 November on the page"
 ---
 

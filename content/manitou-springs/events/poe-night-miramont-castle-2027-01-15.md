@@ -16,8 +16,8 @@ category: arts
 organizer: "Manitou Springs Historical Society"
 organizerUrl: "https://miramontcastle.org/"
 source: "https://www.miramontcastle.org/upcoming-events"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-01"
+verifiedBy: "recheck-events (the nightly re-check workflow): 15 January and 6 pm on the page"
 ---
 
 An evening of Edgar Allan Poe in the castle, in 90-minute sittings: 6 pm and 8 pm on Friday, January 15 and Saturday, January 16, 2027, and 6 pm on Sunday, January 17. $65 a ticket, reservations required through OpenTable. Not marked sold out when read.

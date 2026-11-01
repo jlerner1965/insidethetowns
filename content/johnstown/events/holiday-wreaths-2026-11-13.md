@@ -10,7 +10,7 @@ source: "https://johnstownmillikenpubliclibraries.us/event/holiday-wreaths/"
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10476"
 sourceHash: "89ca40e7f94d"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Holiday Wreaths\" at 1:30 pm on 13 November in the page's structured data"
 ---
 

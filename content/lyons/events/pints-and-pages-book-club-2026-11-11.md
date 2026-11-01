@@ -8,7 +8,7 @@ category: other
 recurring: "Second Wednesdays"
 url: "https://lyons.librarycalendar.com/event/pints-pages-book-club-mainstage-brewing-11082"
 source: "https://lyons.librarycalendar.com/event/pints-pages-book-club-mainstage-brewing-11082"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Pints & Pages Book Club at MainStage Brewing\" at 6 pm on 11 November on the lyons.librarycalendar.com feed"
 ---
 

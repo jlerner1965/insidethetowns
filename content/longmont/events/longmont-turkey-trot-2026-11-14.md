@@ -11,7 +11,7 @@ source: "https://longmontcolorado.gov/event/longmont-turkey-trot-2/"
 sourceId: "longmontcolorado-gov-recreation"
 sourceUid: "10009012-1794646800-1794657600@longmontcolorado.gov"
 sourceHash: "5fd3d1a41b66"
-verified: "2026-10-27"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Longmont Turkey Trot\" at 9 am on 14 November on the Longmont Recreation Services (City of Longmont calendar) feed"
 ---
 

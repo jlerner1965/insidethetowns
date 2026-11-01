@@ -11,7 +11,7 @@ source: "https://hgbsale.org/"
 sourceId: "bouldercounty-gov-fairgrounds"
 sourceUid: "10004337-1794045600-1794074400@bouldercounty.gov"
 sourceHash: "bd09b0c69742"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Handweavers Guild of Boulder, Fiber Art Show and Sale\" at 10 am on 7 November on the Boulder County Fairgrounds feed"
 ---
 

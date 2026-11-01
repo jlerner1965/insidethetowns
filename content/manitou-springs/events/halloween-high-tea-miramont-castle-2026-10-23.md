@@ -26,8 +26,8 @@ category: food
 organizer: "Manitou Springs Historical Society"
 organizerUrl: "https://miramontcastle.org/"
 source: "https://www.miramontcastle.org/upcoming-events"
-verified: "2026-10-31"
-verifiedBy: "recheck-events (the nightly re-check workflow): 31 October and 11 am on the page"
+verified: "2026-11-01"
+verifiedBy: "recheck-events (the nightly re-check workflow): 1 November and 11 am on the page"
 ---
 
 Halloween high tea in the castle, in 90-minute seatings: 10:30 am, 12:30 pm and 2:30 pm on October 23, 24 and 25, 2026, and 11 am and 1 pm on October 30 and 31 and November 1. $65 a ticket, reservations required through OpenTable. The castle's events page lists every seating as sold out on 10 October 2026; it stays here for the reader who booked.

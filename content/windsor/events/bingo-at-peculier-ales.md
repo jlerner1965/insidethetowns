@@ -11,7 +11,7 @@ url: "https://peculierales.com/events/bingo/"
 category: other
 recurring: "Every Wednesday, 6 to 8 pm"
 source: "https://peculierales.com/events/bingo/"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Bingo!\" at 6 pm on 4 November on the Peculier Ales (Windsor) feed"
 ---
 

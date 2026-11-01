@@ -10,7 +10,7 @@ performers:
 url: "https://citystarbrewing.com/event/dylan-mccarthy-and-eric-wiggs/"
 category: music
 source: "https://citystarbrewing.com/event/dylan-mccarthy-and-eric-wiggs/"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Eric Wiggs and Dylan McCarthy\" at 6 pm on 13 November in the page's structured data"
 ---
 

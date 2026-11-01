@@ -10,7 +10,7 @@ url: "https://highplains.libcal.com/event/17606458"
 cost: "Free"
 category: arts
 source: "https://highplains.libcal.com/event/17606458"
-verified: "2026-10-17"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Centennial State Ballet Presents \"The Nutcracker\"\" at 10:30 am on 14 November in the page's structured data"
 ---
 

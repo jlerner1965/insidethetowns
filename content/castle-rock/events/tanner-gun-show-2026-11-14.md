@@ -12,7 +12,7 @@ organizer: "Tanner Gun Show"
 organizerUrl: "https://tannergunshow.com/event/castle-rock-gun-show-nov-14-15-2026/"
 timeNote: "Saturday 9 am to 5 pm, Sunday 10 am to 4 pm"
 source: "https://www.douglasco.gov/fairground-events/tanner-gun-show-11142026/"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 9 am on the page"
 ---
 

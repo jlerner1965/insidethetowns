@@ -8,7 +8,7 @@ url: "https://lyons.librarycalendar.com/event/lyons-library-ukulele-group-11711"
 category: music
 recurring: "Monthly on a Tuesday"
 source: "https://lyons.librarycalendar.com/event/lyons-library-ukulele-group-11711"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Lyons Library Ukulele Group\" at 6:30 pm on 10 November on the lyons.librarycalendar.com feed"
 ---
 
