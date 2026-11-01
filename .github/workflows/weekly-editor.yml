@@ -42,6 +42,8 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  # The failure alert (.github/actions/alert-failure) opens an issue.
+  issues: write
 
 concurrency:
   group: weekly-editor
@@ -129,3 +131,13 @@ jobs:
           body-path: ${{ runner.temp }}/body.md
           draft: ${{ steps.checks.outcome != 'success' }}
           labels: editor
+      # The editor's own step may fail (no API key, the budget reached, a
+      # crash) and leave the job green with nothing to merge: the flags and
+      # the staged events it was to rule on then wait another week, which is
+      # past the date for most of them.
+      - name: Say so where the owner will see it
+        if: ${{ failure() || steps.editor.outcome == 'failure' }}
+        uses: ./.github/actions/alert-failure
+        with:
+          meaning: The editor did not finish, so this week's flags and staged events were not ruled on, and some will pass their dates first; the nightly re-check's pull request lists the ones dated in the next fortnight.
+          remedy: Read the log (an API key, the $10 budget or a failed check are the usual causes), then run Weekly editor again from the Actions tab, or decide the dated items with npm run review.

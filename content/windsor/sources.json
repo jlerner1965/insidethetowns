@@ -342,15 +342,17 @@
       "name": "tockify.com",
       "url": "https://tockify.com/",
       "sampleUrl": "https://tockify.com/api/feeds/ics/mighty.river.brewing",
-      "type": "html",
-      "category": "other",
+      "type": "ical",
+      "category": "venue",
       "status": "proposed",
       "cites": {
         "events": 7,
         "places": 0
       },
       "robots": "honor",
-      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
+      "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found. The sample is Mighty River Brewing's own Tockify calendar, an iCal feed (553 entries, 500 to come, read 1 November 2026): type ical and category venue from that day, still proposed. Its trivia and poker nights are weekly regulars; exclude them by title before confirming (npm run sources -- confirm windsor tockify-com).",
+      "feedUrl": "https://tockify.com/api/feeds/ics/mighty.river.brewing",
+      "defaultVenue": "Mighty River Brewing"
     },
     {
       "id": "weldre4-org",

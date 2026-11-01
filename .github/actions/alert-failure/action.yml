@@ -1,0 +1,52 @@
+# One open issue per workflow that has stopped doing its job, so a failed
+# run is seen the day it happens. The weekly ingest of 26 October 2026 failed
+# on one bad item and nothing new was staged for any guide that week; nobody
+# knew until 31 October. The nightly re-check failed on 29 and 30 October
+# (a runner fault, then a photograph pushed to main without its licence row)
+# and both nights' findings were thrown away. GitHub's own failure email goes
+# to whoever last edited the schedule, and is easy to miss.
+#
+# The issue is opened by the workflow's own token (the job needs
+# `issues: write`) and the repository's owner is notified as for any issue.
+# A second failure while it is open adds a comment rather than a second
+# issue. Close it once the run has been put right; the next failure opens a
+# new one.
+name: Say a scheduled job failed
+description: Open or update an issue labelled automation-failure for this workflow
+inputs:
+  meaning:
+    description: What the failure means for the guides, in one sentence
+    required: true
+  remedy:
+    description: What to do about it
+    required: false
+    default: Read the log, fix what it names, then run the workflow again from the Actions tab (Run workflow).
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
+        REPO: ${{ github.repository }}
+        WORKFLOW: ${{ github.workflow }}
+        RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        MEANING: ${{ inputs.meaning }}
+        REMEDY: ${{ inputs.remedy }}
+      run: |
+        day="$(TZ=America/Denver date +'%A %-d %B %Y')"
+        title="Automation failed: ${WORKFLOW}"
+        body="$(printf '%s\n\n%s\n\n%s\n\n%s\n\n---\n_Opened by the %s workflow._' \
+          "The **${WORKFLOW}** run of ${day} failed: ${RUN_URL}" \
+          "${MEANING}" \
+          "${REMEDY}" \
+          "Close this issue once a run has passed; another failure while it is open is added here." \
+          "${WORKFLOW}")"
+        gh label create automation-failure --repo "$REPO" --color B60205 \
+          --description "A scheduled job failed; its work for that run was not kept" >/dev/null 2>&1 || true
+        n="$(gh issue list --repo "$REPO" --state open --label automation-failure --limit 50 --json number,title \
+          --jq ".[] | select(.title == \"${title}\") | .number" | head -1)"
+        if [ -n "$n" ]; then
+          gh issue comment "$n" --repo "$REPO" --body "$body"
+        else
+          gh issue create --repo "$REPO" --title "$title" --label automation-failure --body "$body"
+        fi

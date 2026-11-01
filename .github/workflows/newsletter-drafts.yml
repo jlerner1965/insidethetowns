@@ -32,6 +32,8 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  # The failure alert (.github/actions/alert-failure) opens an issue.
+  issues: write
 
 concurrency:
   group: newsletter-drafts
@@ -103,3 +105,9 @@ jobs:
         run: |
           echo "::warning::This week's issues are on the automation/newsletter branch, but this workflow is not allowed to open a pull request. Allow it (Settings → Actions → General → Workflow permissions → Allow GitHub Actions to create and approve pull requests) or add a WORKFLOW_PAT secret (DEPLOY.md), then open it by hand: https://github.com/${{ github.repository }}/compare/main...automation/newsletter"
           exit 1
+      - name: Say so where the owner will see it
+        if: failure()
+        uses: ./.github/actions/alert-failure
+        with:
+          meaning: This Thursday's email drafts were not written or their pull request was not opened, so nothing will send until they are.
+          remedy: Read the log, fix what it names, then run Thursday drafts again from the Actions tab; merging its pull request sends the issues.

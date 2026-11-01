@@ -7,6 +7,7 @@
  *   npm run ingest -- --town=erie          # one town
  *   npm run ingest -- --source=erieco-gov  # one source
  *   npm run ingest -- --dry-run            # say what would be written, write nothing
+ *   npm run ingest -- --report=/tmp/ingest.md   # also write what went wrong, for the pull request
  *
  * The rules, in the order they bite:
  *
@@ -64,6 +65,15 @@ const opt = (name: string) => args.find((a) => a.startsWith(`--${name}=`))?.spli
 const dryRun = args.includes('--dry-run');
 const onlyTown = opt('town');
 const onlySource = opt('source');
+const reportPath = opt('report');
+/**
+ * What kept a feed's events out of this run, each in one line: a feed not
+ * read, a source set aside, an item that would not validate. In the log
+ * alone these were lines among hundreds; the weekly pull request opens with
+ * them, since a feed that stops answering stops its events arriving and
+ * nothing else says so (1 November 2026).
+ */
+const problems: string[] = [];
 
 const now = new Date();
 const today = dayKey(now);
@@ -135,8 +145,9 @@ function existingEvents(town: string): ExistingEvent[] {
       // every date, and each session's own page for its date.
       const fileUrls = [d.url, d.source].filter((u): u is string => !!u);
       const sessions = sessionLinks(body);
-      for (const start of starts) {
+      for (const [i, start] of starts.entries()) {
         out.push({
+          ...(d.performances?.length && i > 0 ? { laterShow: true } : {}),
           file,
           slug: d.slug ?? name.slice(0, -3),
           staged,
@@ -274,12 +285,14 @@ for (const town of towns) {
   // --source the others are read for their ids only.
   const feeds: Array<[Source, Awaited<ReturnType<typeof readFeed>>]> = [];
   for (const source of feedSources) feeds.push([source, await readFeed(source)]);
-  const claimed = new Set<string>();
-  for (const [, result] of feeds) if (!('error' in result)) for (const item of result.items) claimed.add(item.uid);
+  // Each id with its item's title, so a production's later show is known by its first show's title (lib/ingest.ts, Claimed).
+  const claimed = new Map<string, string>();
+  for (const [, result] of feeds) if (!('error' in result)) for (const item of result.items) claimed.set(item.uid, item.title);
   for (const [source, result] of feeds.filter(([s]) => sources.includes(s))) {
     totals.sources++;
     if ('error' in result) {
       console.log(`  ${source.id}: not read — ${result.error}`);
+      problems.push(`${town.name}: \`${source.id}\` not read — ${result.error}`);
       continue;
     }
     // On a multi-town guide every listing names its town, and a staged
@@ -289,6 +302,7 @@ for (const town of towns) {
     // with a line saying what to add; npm run validate says the same.
     if (town.subTowns && !source.subTown) {
       console.log(`  ${source.id}: not staged — ${town.name} covers ${town.subTowns.join(', ')}, and this source has no subTown; set one in content/${town.slug}/sources.json`);
+      problems.push(`${town.name}: \`${source.id}\` set aside — no subTown on a ${town.name} source; set one in content/${town.slug}/sources.json`);
       continue;
     }
     const located = result.items.filter((item) => passesLocationFilter(item, source));
@@ -355,6 +369,7 @@ for (const town of towns) {
           totals.skipped++;
           const why = check.error.issues.map((i) => `${i.path.join('.') || 'file'}: ${i.message}`).join('; ');
           console.log(`    NOT STAGED, would not validate: "${item.title}" ${toWallClock(item.start)} (${item.uid}): ${why}`);
+          problems.push(`${town.name}: "${item.title}" ${toWallClock(item.start)} from \`${source.id}\` not staged — would not validate: ${why}`);
           continue;
         }
       }
@@ -453,3 +468,14 @@ console.log(
     `${totals.skipped ? `, ${totals.skipped} not staged because the file would not validate (each named above)` : ''}. ` +
     (totals.staged || totals.changes || totals.ambiguous ? 'Next: npm run review.' : ''),
 );
+
+if (reportPath) {
+  const md = [`### Ingest, ${today}`, ''];
+  md.push(`${totals.sources} confirmed feed${totals.sources === 1 ? '' : 's'} read, ${totals.items} items: ${totals.staged} new to staging, ${totals.changes} change${totals.changes === 1 ? '' : 's'} to published events.`);
+  if (problems.length) {
+    md.push('', `**What kept events out (${problems.length}).** A feed that is not read stages nothing this week; run the workflow again once it answers.`, '');
+    for (const p of problems) md.push(`- ${p}`);
+  } else md.push('', 'Every confirmed feed was read.');
+  md.push('');
+  writeFileSync(reportPath, md.join('\n'));
+}
