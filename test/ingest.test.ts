@@ -606,3 +606,38 @@ test('a title exclusion starting with ^ is a pattern over the whole title; a hol
   assert.equal(excludingEntry({ title: 'Toddler Storytime' }, { excludeTitles: ['Storytime'] }), 'Storytime');
   assert.equal(excludingEntry({ title: 'Toddler Storytime' }, { excludeTitles: ['^(unclosed'] }), undefined, 'a broken pattern excludes nothing');
 });
+
+test('a timed iCal entry from midnight to the same midnight, or to the next, is a day', () => {
+  const ics = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:audition@example
+DTSTART;TZID=America/Denver:20261112T000000
+DTEND;TZID=America/Denver:20261112T000000
+SUMMARY:Visit and Audition Day
+END:VEVENT
+BEGIN:VEVENT
+UID:nextday@example
+DTSTART;TZID=America/Denver:20261113T000000
+DTEND;TZID=America/Denver:20261114T000000
+SUMMARY:Open House
+END:VEVENT
+BEGIN:VEVENT
+UID:midnightshow@example
+DTSTART;TZID=America/Denver:20261114T000000
+DTEND;TZID=America/Denver:20261114T020000
+SUMMARY:Midnight Movie
+END:VEVENT
+END:VCALENDAR`;
+  const events = readIcal(ics, horizon);
+  const audition = events.find((e) => e.uid === 'audition@example')!;
+  assert.equal(audition.allDay, true, 'CSU writes a day-long event as 00:00 to 00:00');
+  assert.equal(toWallClock(audition.start), '2026-11-12');
+  assert.equal(audition.end, undefined, 'a zero-length end is no end, so the day is not over before it begins');
+  const next = events.find((e) => e.uid === 'nextday@example')!;
+  assert.equal(next.allDay, true, 'midnight to the next midnight is one day');
+  assert.equal(next.end, undefined);
+  const show = events.find((e) => e.uid === 'midnightshow@example')!;
+  assert.equal(show.allDay, false, 'a timed event that happens to start at midnight keeps its time');
+  assert.equal(toWallClock(show.end!), '2026-11-14T02:00');
+});

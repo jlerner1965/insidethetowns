@@ -13,7 +13,7 @@
  * every feed here means by them.
  */
 import ICAL from 'ical.js';
-import { TIME_ZONE, fromWallClock } from '../../../src/lib/dates.ts';
+import { TIME_ZONE, addDays, dayKey, fromWallClock, toWallClock } from '../../../src/lib/dates.ts';
 import { plainText, type FeedEvent, type Horizon } from './types.ts';
 
 /** Windows and other non-IANA zone names that turn up in feeds. */
@@ -106,13 +106,22 @@ export function readIcal(ics: string, horizon: Horizon): FeedEvent[] {
     // which would land before the start: no end at all is what that means.
     let lastDay = endAt && start.isDate ? new Date(endAt.getTime() - 86_400_000) : endAt;
     if (lastDay && lastDay.getTime() < startAt.getTime()) lastDay = undefined;
+    // A timed entry at local midnight that ends at that same instant, or at
+    // the next midnight, is a day, not a moment: CSU's calendar writes a
+    // day-long event as 00:00 to 00:00 (its Spring Dance audition day, 1
+    // November 2026), and read as a timed event ending at 00:00 it was over
+    // before it began, so the page and the sitemap disagreed on its last day.
+    // toWallClock writes a midnight as the bare date, with no time part.
+    const atMidnight = (d: Date) => !toWallClock(d).includes('T');
+    const midnightDay = !start.isDate && atMidnight(startAt) && (!endAt || endAt.getTime() === startAt.getTime() || (atMidnight(endAt) && dayKey(endAt) === dayKey(addDays(startAt, 1))));
+    if (midnightDay) lastDay = undefined;
     const { url, description } = urlAndDescription(text(component, 'url'), item.description?.trim() || undefined);
     out.push({
       uid: `${item.uid}${uidSuffix}`,
       title: item.summary?.trim() || '(untitled)',
       start: startAt,
       end: lastDay,
-      allDay: start.isDate,
+      allDay: start.isDate || midnightDay,
       location: civicPlusLocation(item.location?.trim() || undefined),
       url,
       description,

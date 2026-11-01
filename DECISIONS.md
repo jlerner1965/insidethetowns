@@ -7776,3 +7776,32 @@ every live guide (48 sources, 1,557 items, every feed read).
   sources are html or manual, which ingest never reads: a venue with its
   own calendar and no feed (The Wheel House, found the same day) is read
   only when someone looks.
+
+## The first ingest in two weeks, and the three things that stopped it, 1 November 2026
+
+The owner merged the week's work and asked for the weekly ingest to run at
+once rather than wait for Monday. It ran three times before it passed, and
+each failure was the kind that loses the whole week's staging.
+
+- **Run 1: sixteen files with no `subTown`.** The Idaho Springs library
+  source was the one confirmed feed on a multi-town guide without one, so
+  every file it staged failed validation. The source now says
+  `idaho-springs`; ingest sets aside such a source with a line naming the
+  field; the validator fails a confirmed feed in that state, so the next
+  one is caught at a pull request. (Pull request #253.)
+- **Run 2: two tests.** Validation passed, 202 events were approved, and
+  `npm test` failed twice. Johnstown: the library's feed had reached 7
+  December, past the two Music & Movement series' `until` of 30 November,
+  so ingest staged the date as new and the rules published a one-off beside
+  the 10 am series. The series are extended to 7 December, the last Monday
+  the feed lists, and auto-review now leaves for a person a staged item
+  with a weekly series' title, weekday and hour within six weeks of its
+  last day ("extend its until"). Fort Collins: CSU's calendar writes a
+  day-long event as 00:00 to 00:00, which the iCal reader took as a timed
+  event ending at midnight, over before it began; a timed entry from a
+  midnight to that midnight or the next is now a day. The event itself, a
+  prospective-student audition day, is excluded from that source alongside
+  its Visit Day.
+- **What the run does when it passes:** about 200 events published under
+  the standing rules and about 70 staged for review, from feeds last read
+  on 19 October.
