@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-31T18:11:38.705Z",
+  "generated": "2026-11-01T18:50:14.787Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/football/",
-      "fetched": "2026-10-31T18:11:38.705Z",
-      "maxprepsUpdated": "2026-10-31T17:57:27",
+      "fetched": "2026-11-01T18:50:14.787Z",
+      "maxprepsUpdated": "2026-11-01T18:26:27",
       "overall": "5-5",
       "league": {
         "record": "5-1",
@@ -125,7 +125,18 @@
           }
         }
       ],
-      "upcoming": [],
+      "upcoming": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Silver Creek",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/football/game/silver-creek-longmont-vs-windsor/11-6-2026/?c=e39a1d7f-01c6-42c8-a563-c612beb23066",
+          "stage": "State Football Playoffs",
+          "neutral": true,
+          "venue": "State Playoffs Round 1",
+          "time": "19:00"
+        }
+      ],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -135,8 +146,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/soccer/",
-      "fetched": "2026-10-31T18:11:38.705Z",
-      "maxprepsUpdated": "2026-10-31T15:32:38",
+      "fetched": "2026-11-01T18:50:14.787Z",
+      "maxprepsUpdated": "2026-11-01T15:31:58",
       "overall": "11-1-4",
       "league": {
         "record": "8-1-1",
@@ -344,15 +355,28 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/volleyball/",
-      "fetched": "2026-10-31T18:11:38.705Z",
-      "maxprepsUpdated": "2026-10-31T16:40:19",
-      "overall": "15-7",
+      "fetched": "2026-11-01T18:50:14.787Z",
+      "maxprepsUpdated": "2026-11-01T18:29:25",
+      "overall": "15-8",
       "league": {
         "record": "9-1",
         "name": "4A/3A Northern",
         "place": "2nd"
       },
       "results": [
+        {
+          "date": "2026-10-31",
+          "opponent": "Cherry Creek",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/cherry-creek-greenwood-village-vs-windsor/10-31-2026/?c=3eaf257f-236f-4a11-a172-a6157e6df15d",
+          "stage": "Tournament",
+          "neutral": true,
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
         {
           "date": "2026-10-31",
           "opponent": "Resurrection Christian",
@@ -614,28 +638,18 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-10-31",
-          "opponent": "Cherry Creek",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/cherry-creek-greenwood-village-vs-windsor/10-31-2026/?c=3eaf257f-236f-4a11-a172-a6157e6df15d",
-          "stage": "Tournament",
-          "neutral": true
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
-        "no school calendar to check against",
-        "MaxPreps page: a game in the glance card could not be read (37764186-5f44-44d6-b636-23d29f25b80e)"
+        "no school calendar to check against"
       ]
     },
     {
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/softball/fall/",
-      "fetched": "2026-10-31T18:11:38.705Z",
-      "maxprepsUpdated": "2026-10-31T17:07:45",
+      "fetched": "2026-11-01T18:50:14.787Z",
+      "maxprepsUpdated": "2026-11-01T14:51:10",
       "overall": "29-0",
       "league": {
         "record": "10-0",
@@ -1007,8 +1021,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/cross-country/",
-      "fetched": "2026-10-31T18:11:38.705Z",
-      "maxprepsUpdated": "2026-10-31T18:12:15",
+      "fetched": "2026-11-01T18:50:14.787Z",
+      "maxprepsUpdated": "2026-11-01T18:50:50",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1021,8 +1035,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/cross-country/girls/",
-      "fetched": "2026-10-31T18:11:38.705Z",
-      "maxprepsUpdated": "2026-10-31T18:12:19",
+      "fetched": "2026-11-01T18:50:14.787Z",
+      "maxprepsUpdated": "2026-11-01T18:50:54",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1035,8 +1049,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/basketball/",
-      "fetched": "2026-10-31T18:11:38.705Z",
-      "maxprepsUpdated": "2026-10-31T17:28:47",
+      "fetched": "2026-11-01T18:50:14.787Z",
+      "maxprepsUpdated": "2026-11-01T17:35:20",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1191,8 +1205,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/basketball/girls/",
-      "fetched": "2026-10-31T18:11:38.705Z",
-      "maxprepsUpdated": "2026-10-31T16:40:06",
+      "fetched": "2026-11-01T18:50:14.787Z",
+      "maxprepsUpdated": "2026-11-01T17:22:50",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1336,8 +1350,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/wrestling/",
-      "fetched": "2026-10-31T18:11:38.705Z",
-      "maxprepsUpdated": "2026-10-31T18:12:42",
+      "fetched": "2026-11-01T18:50:14.787Z",
+      "maxprepsUpdated": "2026-11-01T18:51:17",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1350,8 +1364,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/windsor/windsor-wizards/swimming/girls/",
-      "fetched": "2026-10-31T18:11:38.705Z",
-      "maxprepsUpdated": "2026-10-31T18:12:46",
+      "fetched": "2026-11-01T18:50:14.787Z",
+      "maxprepsUpdated": "2026-11-01T18:51:21",
       "results": [],
       "upcoming": [],
       "held": [],

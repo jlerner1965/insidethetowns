@@ -1,12 +1,12 @@
 {
-  "generated": "2026-10-31T18:05:10.068Z",
+  "generated": "2026-11-01T18:43:50.868Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/football/",
-      "fetched": "2026-10-31T18:05:10.068Z",
-      "maxprepsUpdated": "2026-10-31T17:42:43",
+      "fetched": "2026-11-01T18:43:50.868Z",
+      "maxprepsUpdated": "2026-11-01T18:24:08",
       "overall": "7-3",
       "league": {
         "record": "4-2",
@@ -125,16 +125,28 @@
           }
         }
       ],
-      "upcoming": [],
+      "upcoming": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Pueblo South",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-pueblo-south/11-6-2026/?c=c2f8bd71-60b5-4656-9508-ede6d6305eab",
+          "stage": "Playoffs",
+          "neutral": true,
+          "time": "19:00"
+        }
+      ],
       "held": [],
-      "notes": []
+      "notes": [
+        "2026-11-06 at Pueblo South is not on the school calendar (published on MaxPreps's word alone)"
+      ]
     },
     {
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/soccer/",
-      "fetched": "2026-10-31T18:05:10.068Z",
-      "maxprepsUpdated": "2026-10-31T17:42:11",
+      "fetched": "2026-11-01T18:43:50.868Z",
+      "maxprepsUpdated": "2026-11-01T15:06:54",
       "overall": "8-7",
       "league": {
         "record": "6-2",
@@ -316,8 +328,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/volleyball/",
-      "fetched": "2026-10-31T18:05:10.068Z",
-      "maxprepsUpdated": "2026-10-31T14:50:35",
+      "fetched": "2026-11-01T18:43:50.868Z",
+      "maxprepsUpdated": "2026-11-01T18:44:23",
       "overall": "17-6",
       "league": {
         "record": "4-2",
@@ -592,8 +604,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/softball/fall/",
-      "fetched": "2026-10-31T18:05:10.068Z",
-      "maxprepsUpdated": "2026-10-31T14:25:42",
+      "fetched": "2026-11-01T18:43:50.868Z",
+      "maxprepsUpdated": "2026-11-01T15:27:20",
       "overall": "17-10",
       "league": {
         "record": "2-7",
@@ -928,8 +940,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/",
-      "fetched": "2026-10-31T18:05:10.068Z",
-      "maxprepsUpdated": "2026-10-31T18:06:02",
+      "fetched": "2026-11-01T18:43:50.868Z",
+      "maxprepsUpdated": "2026-11-01T17:48:38",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -942,8 +954,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/girls/",
-      "fetched": "2026-10-31T18:05:10.068Z",
-      "maxprepsUpdated": "2026-10-31T18:06:07",
+      "fetched": "2026-11-01T18:43:50.868Z",
+      "maxprepsUpdated": "2026-11-01T18:44:46",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -956,8 +968,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/basketball/",
-      "fetched": "2026-10-31T18:05:10.068Z",
-      "maxprepsUpdated": "2026-10-31T16:29:44",
+      "fetched": "2026-11-01T18:43:50.868Z",
+      "maxprepsUpdated": "2026-11-01T18:18:38",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1061,10 +1073,6 @@
       "held": [],
       "notes": [
         "2026-11-30 vs Mountain View is not on the school calendar (published on MaxPreps's word alone)",
-        "2026-12-10 vs Greeley Central is not on the school calendar (published on MaxPreps's word alone)",
-        "2026-12-15 at Thompson Valley is not on the school calendar (published on MaxPreps's word alone)",
-        "2026-12-17 vs Roosevelt is not on the school calendar (published on MaxPreps's word alone)",
-        "2026-12-18 at Skyline is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-21 vs Denver Christian is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-21 at Loveland is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-22 at Denver Christian is not on the school calendar (published on MaxPreps's word alone)",
@@ -1078,8 +1086,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/basketball/girls/",
-      "fetched": "2026-10-31T18:05:10.068Z",
-      "maxprepsUpdated": "2026-10-31T14:41:17",
+      "fetched": "2026-11-01T18:43:50.868Z",
+      "maxprepsUpdated": "2026-11-01T16:18:05",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1108,13 +1116,6 @@
           "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-severance/12-8-2026/?c=f8a7e236-4d04-4ca4-831b-60d046ec2098",
           "time": "18:00"
-        },
-        {
-          "date": "2026-12-10",
-          "opponent": "Kennedy",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-kennedy-denver/12-10-2026/?c=c81809d5-2b94-43fa-8b33-646435c6a545",
-          "time": "19:00"
         },
         {
           "date": "2026-12-15",
@@ -1207,14 +1208,20 @@
           "time": "19:00"
         }
       ],
-      "held": [],
+      "held": [
+        {
+          "game": {
+            "date": "2026-12-10",
+            "opponent": "Kennedy",
+            "site": "home",
+            "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-kennedy-denver/12-10-2026/?c=c81809d5-2b94-43fa-8b33-646435c6a545",
+            "time": "19:00"
+          },
+          "reason": "2026-12-10 vs Kennedy: the school calendar lists \"Girls Varsity Basketball vs John F. Kennedy\" that day instead"
+        }
+      ],
       "notes": [
         "2026-11-30 vs Mountain View is not on the school calendar (published on MaxPreps's word alone)",
-        "2026-12-08 vs Severance is not on the school calendar (published on MaxPreps's word alone)",
-        "2026-12-10 vs Kennedy is not on the school calendar (published on MaxPreps's word alone)",
-        "2026-12-15 at Thompson Valley is not on the school calendar (published on MaxPreps's word alone)",
-        "2026-12-17 vs Roosevelt is not on the school calendar (published on MaxPreps's word alone)",
-        "2027-01-02 at Poudre is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-14 at Wellington is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-16 at Loveland is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-19 vs Windsor Charter Academy is not on the school calendar (published on MaxPreps's word alone)",
@@ -1231,8 +1238,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/wrestling/",
-      "fetched": "2026-10-31T18:05:10.068Z",
-      "maxprepsUpdated": "2026-10-31T18:06:30",
+      "fetched": "2026-11-01T18:43:50.868Z",
+      "maxprepsUpdated": "2026-11-01T18:45:08",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1245,8 +1252,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/swimming/girls/",
-      "fetched": "2026-10-31T18:05:10.068Z",
-      "maxprepsUpdated": "2026-10-31T18:06:34",
+      "fetched": "2026-11-01T18:43:50.868Z",
+      "maxprepsUpdated": "2026-11-01T18:45:13",
       "results": [],
       "upcoming": [],
       "held": [],
