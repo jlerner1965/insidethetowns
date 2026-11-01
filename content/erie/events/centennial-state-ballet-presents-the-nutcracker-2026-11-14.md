@@ -1,5 +1,5 @@
 ---
-title: "Centennial State Ballet presents The Nutcracker"
+title: "Nutcracker excerpts with Centennial State Ballet"
 start: "2026-11-14T10:30"
 end: "2026-11-14T11:00"
 venue: "Erie Community Library"
@@ -14,4 +14,4 @@ verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Centennial State Ballet Presents \"The Nutcracker\"\" at 10:30 am on 14 November in the page's structured data"
 ---
 
-Centennial State Ballet performs excerpts from The Nutcracker, with a reading of the story between the dance sections. All ages; seating may be limited.
+A half-hour library program, not the full ballet: Centennial State Ballet dances excerpts from The Nutcracker, with the story read between the dance sections. All ages; seating may be limited.

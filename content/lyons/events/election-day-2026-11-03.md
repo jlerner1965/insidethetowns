@@ -5,6 +5,7 @@ end: "2026-11-03T19:00"
 venue: "Lyons Regional Library, Community Room"
 address: "451 4th Ave, Lyons, CO 80540"
 url: "https://bouldercounty.gov/elections/vote-centers/"
+cost: "Free"
 category: civic
 featured: true
 source: "https://bouldercounty.gov/elections/vote-centers/"

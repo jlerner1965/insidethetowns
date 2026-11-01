@@ -5,7 +5,6 @@ end: "2026-12-05T21:00"
 venue: "Niwot Hall"
 address: "195 2nd Avenue, Niwot, CO 80544"
 url: "https://niwothall.org/events/holiday-magic-concert-with-rebecca-folsom-932-146-171/"
-cost: "Not yet announced"
 category: music
 source: "https://niwothall.org/events/holiday-magic-concert-with-rebecca-folsom-932-146-171/"
 verified: "2026-10-21"

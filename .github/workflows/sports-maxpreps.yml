@@ -21,6 +21,10 @@ on:
     - cron: '0 14 * * 6'
     - cron: '0 14 * * 0'
     - cron: '20 12 * * 3'
+    # Monday 14:00 UTC in November and December: the playoff brackets came
+    # out after Sunday's read (1 November 2026: Johnstown, 9-1, and Lyons
+    # had empty football lists until Wednesday).
+    - cron: '0 14 * 11,12 1'
   workflow_dispatch:
     inputs:
       town:

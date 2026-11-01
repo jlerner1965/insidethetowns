@@ -10,6 +10,8 @@ url: "https://citystarbrewing.com/event/taproom-release-sweater-weather/"
 category: music
 timeNote: "From 3 pm; live music 6–8:30 pm"
 source: "https://citystarbrewing.com/event/taproom-release-sweater-weather/"
+sourceId: "citystarbrewing-com"
+sourceUid: "10010572"
 verified: "2026-10-17"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Beer Release: Sweater Weather\" at 3 pm on 20 November in the page's structured data"
 ---

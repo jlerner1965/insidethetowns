@@ -17,6 +17,7 @@ it to be kept; nothing here is done until a row says so.
   which have no updates, so Worth knowing never shows. Both have changes in
   their weekly notes (the Lyons ballot box moved; the Johnstown hospital
   closed) that never became updates.
+    → Done 1 November 2026: the line promises changes only when Worth knowing is on the page, and both changes are updates now, so both guides have the block.
 - **Election Day is Tuesday and only Niwot and Lyons list it.** Berthoud has
   the ballot issue in Worth knowing; Erie, Golden and Johnstown say nothing.
 - **This week on a Sunday night is last week**, with "nothing verified for the
@@ -32,7 +33,8 @@ it to be kept; nothing here is done until a row says so.
   state semifinal is Tuesday and nothing on the home treats it as the week's
   event.
 - Golden's This week shows Buffalo Bill's winter hours twice (last week's note
-  and this week's). "Nothing listed for the weekend yet" on a Sunday night.
+  and this week's).
+    → Done 1 November 2026: New & closed lists a change once (item 7); both notes name it the same way. "Nothing listed for the weekend yet" on a Sunday night.
   "Nearby this weekend" lists 11 am events at 7 pm.
 
 ## Pass 2: simple improvements missed
@@ -63,6 +65,7 @@ Fix once in code, every guide gets it:
    Niwot's Wellness Holiday Panel against `wellness-lecture-2026-12-02` the
    same. Retitle the files to the organizer's words, or add the feed's
    `sourceUid`, and they match.
+    → Done 1 November 2026: the nine Cribbage Night files carry the feed’s title and its ids; the Wellness Holiday Panel is merged into the lecture listing.
 5. "Nothing listed for the weekend yet" keyed to the day: after Sunday's
    listings are over, "Nothing more this weekend".
     → Done 1 November 2026: "Nothing more listed this weekend." on the Sunday.
@@ -74,45 +77,56 @@ Fix once in code, every guide gets it:
     → Done 1 November 2026.
 8. "Nearby this weekend" on This week drops finished listings in the browser,
    as the home tabs do (`data-end`).
-    → Checked 1 November 2026: the block already carries the marks and the script runs on every page; the rows that stood were timed listings with no end, which stay for their day by rule (`listedUntil`). An end time in each file is the fix; not a code change.
+    → Corrected 1 November 2026: the block carries the marks and the script runs on every page, and every Golden listing on 1 November had an end time. The rows stood because this pass read the pages as text, where the browser’s pruning never runs. An observation error; nothing to change.
 
 Content, a file or two each:
 
 9. An Election Day listing on Berthoud, Erie, Golden and Johnstown, from each
    county's page: ballots due 7 pm Tuesday 3 November, the drop boxes.
+    → Done 1 November 2026, from each county’s own page.
 10. Doubled events: Berthoud's Sugar Britches on 20 November and 18 December,
     each already inside a release-night listing; Lyons's "Fifth Sunday
     Classics" and "Fifth Sunday Classics pinball tournament" on 29 November.
+    → Done 1 November 2026: the two Sugar Britches files deleted and their feed ids put on the release nights; the generic Fifth Sunday file deleted.
 11. Berthoud's Digital Navigator says "Tuesday to Thursday, 11 to 1" and is
     listed on Tuesdays only.
+    → Done 1 November 2026: three weekly files, the library’s closed days excepted.
 12. Editor's notes in public fields: Niwot's "Niwot Community Connection"
     shows "Hall booked 9 am to noon; the October session ran 10 to 11:30" as
     its time; the Rebecca Folsom concert shows "Not yet announced" as its
     price; the Scouts entry cites a room booking on 26 October.
+    → Done 1 November 2026.
 13. The Lyons Redstone Museum lists June-to-September hours in November with
     no closed-for-the-season line (Niwot's flower cart has one: `season`).
+    → Done 1 November 2026: a `seasonal` block, May through September.
 14. Venue names that do not match the place, so the event and the place page
     stop linking: "The Dugout Grill and Bar" (Erie events) vs "The Dugout
     Grill & Bar"; "Lyons Community Library" vs "Lyons Regional Library".
+    → Done 1 November 2026: the karaoke night names The Dugout Grill & Bar; the library is the Lyons Regional Library throughout, the building’s sign (Lyons Community Library) noted on its page.
 15. The About pages call every flagship "an independent community and visitor
     guide"; "community guide" on a resident guide.
     → Done 1 November 2026.
 16. Berthoud's Cribbage Night is eight one-off files with the cost on some and
     "sign up by 5:45" on one: one biweekly series, or consistent.
+    → Done 1 November 2026, with item 4.
 17. The Historical Society's 17 November talk names no topic; Erie's
     "Centennial State Ballet presents The Nutcracker" is a 30-minute library
     preview titled as the ballet.
+    → Done 1 November 2026: both retitled.
 
 Worth a decision:
 
 18. The phone strip shows the latest result only (rule 8), so Erie's state
     semifinal on Tuesday is invisible on the phone home. Show the next game
     instead when it is within three days or a playoff.
+    → Done 1 November 2026: the next game takes the phone’s line when it is within three days or a postseason game.
 19. Playoff brackets came out after Sunday's 8 am MaxPreps read: Johnstown
     (9-1) and Lyons have empty football lists. A manual run, or a Monday run
     during playoffs.
+    → Done 1 November 2026: a Monday run in November and December, and a run by hand tonight for Johnstown and Lyons.
 20. Hero photographs: Johnstown's barn and Lyons's distant view show no town
     (both already on the owner's shoot list).
+    → Open: needs a shoot.
 
 ## Pass 3: first impressions, as a visitor who will leave in ten seconds
 
@@ -149,6 +163,7 @@ not even the rows.
     line, the fire districts) are reached from a tile or the footer. A
     visitor who leaves from the first screen never learns they exist. One
     nav slot for Things to do or Guides, or the week's article on the home.
+    → Done 1 November 2026: Guides is the menu’s last item on every guide.
 24. **Nothing on the first screen says what this is or why to trust it.**
     "Independent", "free", "checked against the source" are in the footer
     and the About page. The Events page carries "Refreshed November 1,
@@ -176,10 +191,12 @@ not even the rows.
     Thursday local: the week's events". A visitor who has just seen none is
     the wrong moment to ask. Worth a decision: on a thin day, the tiles
     before the form.
+    → Done 1 November 2026: on a thin day the tiles come before the form.
 28. **The hero photograph is the first impression, and two fail it.**
     Johnstown's barn says farm; Lyons's distant hills say nowhere in
     particular. Erie, Niwot, Golden and Berthoud say a town. Both are on the
     owner's shoot list; this pass puts them first on it.
+    → Open: needs a shoot.
 29. **Event pages land well.** Title, day, time, venue, Next, Where, Cost,
     the organizer's button and Add to calendar are all in the first phone
     screen, and "Checked November 1, 2026 against coloradorailroadmuseum.org"
@@ -187,7 +204,7 @@ not even the rows.
     does not get: a directions link on the event's Where (the place page has
     one), and, on the Polar Express page tonight, "Also coming up" listing
     three Sunday events that were over (the same pruning as item 8).
-    → Done 1 November 2026 for the directions link. "Also coming up" already carries the pruning marks; the three Sunday rows were timed listings with no end, kept for their day by rule (item 8).
+    → Done 1 November 2026 for the directions link. "Also coming up" carries the pruning marks and the Sunday rows had end times; they stood in a text read, not in a browser (item 8, corrected).
 30. **Place pages land well.** "Open · closes 9 pm" under the name, then
     address, directions, hours, phone, website, the photograph, the events
     at the place, the articles that mention it. Nothing to add; this is the
@@ -198,6 +215,7 @@ not even the rows.
     news between the photograph and the point of the site. Not a change to
     make now; a thing to measure, since the strip is the one element the
     home cannot hide.
+    → Open: a thing to measure, not to change.
 
 The thread through 21 to 27: the home's first screen is built for a reader
 who already knows the site and comes back for this week; a stranger needs

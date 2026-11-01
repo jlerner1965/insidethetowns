@@ -3,13 +3,13 @@ title: "Digital Navigator drop-in tech help"
 start: "2026-09-22T11:00"
 end: "2026-09-22T13:00"
 repeat: weekly
-until: "2026-12-10"
+until: "2026-12-08"
 venue: "Berthoud Community Library"
 address: "236 Welch Ave"
 url: "https://www.berthoudcommunitylibrary.org/events-classes"
 cost: "Free"
 category: other
-recurring: "Tuesday to Thursday, 11 to 1, through mid-December; not November 11 or 26 (library closed)"
+recurring: "Tuesdays, Wednesdays and Thursdays, 11 to 1, through December 10; not November 11 or 26 (library closed)"
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
 verified: "2026-10-03"
 ---

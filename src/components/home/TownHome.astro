@@ -84,6 +84,13 @@ const later = laterRows(occurrences(allEvents, { now, horizonDays: 60 }), picked
 const tabs = homeTabs(days, now, TAB_LIMIT, later);
 const open = defaultTab(now);
 
+// A thin day: the tab that opens has fewer than three rows at the build, so
+// the signup would follow a near-empty list. The three tiles go first then,
+// and the form after them (the reader pass, 1 November 2026: Johnstown's
+// phone read "Nothing listed", three library rows, then the email ask).
+const THIN = 3;
+const thin = (tabs.find((t) => t.key === open)?.rows.length ?? 0) < THIN;
+
 // 6. Worth knowing: the two newest local changes still current.
 const know = currentUpdates(await getTownEntries('updates'), now)
   .sort((a, b) => b.data.published.getTime() - a.data.published.getTime() || b.data.effective.getTime() - a.data.effective.getTime())
@@ -102,7 +109,7 @@ const places = (await getTownEntries('places')).filter(isOpen);
 
 <WhatsHappening town={town} tabs={tabs} open={open} />
 
-{emailOn && (
+{emailOn && !thin && (
   <section class="band-compact band-paper">
     <div class="container-page">
       <NewsletterSignup town={town} id="home" variant="home" anchor="signup" />
@@ -111,6 +118,14 @@ const places = (await getTownEntries('places')).filter(isOpen);
 )}
 
 <NextStop town={town} places={places} />
+
+{emailOn && thin && (
+  <section class="band-compact band-paper">
+    <div class="container-page">
+      <NewsletterSignup town={town} id="home" variant="home" anchor="signup" />
+    </div>
+  </section>
+)}
 
 {know.length > 0 && (
   <section class="band-compact band-paper" aria-labelledby="know">
