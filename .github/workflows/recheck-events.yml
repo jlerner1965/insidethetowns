@@ -30,6 +30,8 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  # The failure alert (.github/actions/alert-failure) opens an issue.
+  issues: write
 
 concurrency:
   group: recheck-events
@@ -57,6 +59,13 @@ jobs:
         run: npm install --no-save --no-audit --no-fund playwright@1.56.1 && npx playwright install --with-deps chromium
       - name: Re-check and write what was found
         run: npm run recheck -- --write --by="the nightly re-check workflow" --report=/tmp/recheck.md
+      # What waits for a person and has a date in the next fortnight: staged
+      # events (deleted unlisted once their date passes), staged changes and
+      # flagged listings (the old fact shows until someone rules). Read only;
+      # the list opens the pull request, so the decisions are made in time.
+      - name: What waits for a person before its date
+        continue-on-error: true
+        run: npm run auto-review -- --due=14 --report=/tmp/due.md
       - run: npm run validate
       - run: npm test
       - name: The report, for the pull request
@@ -69,8 +78,10 @@ jobs:
             echo 'A confirmed listing has its check date moved and `verifiedBy` saying what was read where. A listing the source now contradicts carries `changeFlag` and the evidence in `changeNote`: merge, and the Wednesday editor run (weekly-editor.yml) judges each flag against the source and opens a pull request with its rulings; to decide one yourself first, check it out, `npm run review`, push, merge. What could not be read by a machine is listed for a browser or a phone.'
             echo
             # GitHub refuses a body over 65,536 characters; the run's log holds the whole report.
-            head -c 60000 /tmp/recheck.md
-            if [ "$(wc -c < /tmp/recheck.md)" -gt 60000 ]; then echo; echo; echo "_The report runs on; the rest is in this run's log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}_"; fi
+            room=60000
+            if [ -s /tmp/due.md ]; then head -c 20000 /tmp/due.md; echo; room=$((room - $(head -c 20000 /tmp/due.md | wc -c))); fi
+            head -c "$room" /tmp/recheck.md
+            if [ "$(wc -c < /tmp/recheck.md)" -gt "$room" ]; then echo; echo; echo "_The report runs on; the rest is in this run's log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}_"; fi
             echo EOF
           } >> "$GITHUB_OUTPUT"
       - name: Open or update the pull request
@@ -90,3 +101,9 @@ jobs:
         run: |
           echo "::warning::The re-check's changes are on the automation/recheck branch, but this workflow is not allowed to open a pull request. Either allow it (Settings → Actions → General → Workflow permissions → Allow GitHub Actions to create and approve pull requests) or add a WORKFLOW_PAT secret (DEPLOY.md), then open it by hand: https://github.com/${{ github.repository }}/compare/main...automation/recheck"
           exit 1
+      - name: Say so where the owner will see it
+        if: failure()
+        uses: ./.github/actions/alert-failure
+        with:
+          meaning: Tonight's confirmations and the changes found at the sources were not written, and the list of what waits for a person before its date was not sent. Tomorrow's run reads the same fortnight again, so one night is caught up; two in a row means listings due this week go unchecked.
+          remedy: Read the log. If validation failed on something already on main (a file pushed without its licence row, say), fix main, then run Nightly event re-check again from the Actions tab.

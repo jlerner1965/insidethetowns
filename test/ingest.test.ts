@@ -11,7 +11,7 @@ import assert from 'node:assert/strict';
 import { z } from 'astro/zod';
 import { civicPlusLocation, readIcal, urlAndDescription } from '../scripts/lib/feeds/ical.ts';
 import { parseClock, parseLongDate, readRss } from '../scripts/lib/feeds/rss.ts';
-import { isShowareFeed, readShowarePage, showareHasMore, showarePage, showareTitle } from '../scripts/lib/feeds/showare.ts';
+import { isLivestream, isShowareFeed, readShowarePage, showareHasMore, showarePage, showareTitle } from '../scripts/lib/feeds/showare.ts';
 import { readTribePage, tribeFirstPage } from '../scripts/lib/feeds/tribe.ts';
 import { plainText } from '../scripts/lib/feeds/types.ts';
 import { detectChanges, excludedTitle, fingerprint, guessCategory, hostOf, matchExisting, passesCategoryFilter, passesLocationFilter, sameSite, siblingCounts, titleSimilarity, toStaged, venueFrom } from '../scripts/lib/ingest.ts';
@@ -335,6 +335,37 @@ test('ShoWare performance list: the venue clock, the cleaned title, the cancelle
   assert.equal(showareHasMore({ performance: [], perfCount: 55 }, 20), false, 'an empty page ends the read');
   assert.equal(showareTitle('COMPLEXIONS CONTEMPORARY BALLET: LOVE ROCKS | Presented by The Lincoln Center'), 'COMPLEXIONS CONTEMPORARY BALLET: LOVE ROCKS');
   assert.equal(showareTitle('Debut Theatre Company | The Legend of Sleepy Hollow'), 'Debut Theatre Company | The Legend of Sleepy Hollow', 'a company credit stays');
+});
+
+test('ShoWare: a livestream ticket is not a performance; the hall’s own row is read', () => {
+  // The Lincoln Center's rows for the Symphony's 7 November concert, as the feed gave them on 1 November 2026.
+  const page = {
+    performance: [
+      {
+        EventID: 2248, PerformanceID: 5555, Event: 'Fort Collins Symphony | Signature Concert 2 - Dance & Music in Motion',
+        PerformanceName: 'Signature Concert 2 - Dance & Music in Motion LIVESTREAM Sat-11/7 7:30p',
+        PerformanceDateTime: 'Saturday, November 7, 2026 6:30:00 PM', PerformanceEndDateTime: 'Saturday, November 7, 2026 10:00:00 PM',
+        Venue: 'The Lincoln Center Performance Hall', ManualStatus: 1,
+      },
+      {
+        EventID: 2248, PerformanceID: 5483, Event: 'Fort Collins Symphony | Signature Concert 2 - Dance & Music in Motion',
+        PerformanceName: 'Signature Concert 2 - Dance & Music in Motion Sat-11/7 7:30p',
+        PerformanceDateTime: 'Saturday, November 7, 2026 7:30:00 PM', PerformanceEndDateTime: 'Saturday, November 7, 2026 9:30:00 PM',
+        Venue: 'The Lincoln Center Performance Hall', ManualStatus: 1,
+      },
+    ],
+    perfCount: 2,
+  };
+  const wide = { from: new Date('2026-11-01T00:00:00-06:00'), to: new Date('2027-01-01T00:00:00-07:00') };
+  const events = readShowarePage(page, 'https://tickets.lctix.com', wide);
+  assert.equal(events.length, 1, 'the stream is not a second listing');
+  assert.equal(events[0]!.uid, 'showare:5483');
+  assert.equal(toWallClock(events[0]!.start), '2026-11-07T19:30', 'the hall’s time, not the stream’s');
+  assert.equal(toWallClock(events[0]!.end!), '2026-11-07T21:30');
+  assert.equal(isLivestream({ PerformanceName: 'The Nutcracker LIVESTREAM Fri-12/11 7:00p' }), true);
+  assert.equal(isLivestream({ PerformanceName: 'Live-streamed recital' }), true);
+  assert.equal(isLivestream({ PerformanceName: 'Live at the Rialto: Stray Cats' }), false, 'a live show is not a stream');
+  assert.equal(showareHasMore(page, 2), false, 'the paging counts the rows read, the stream included');
 });
 
 test("a source's category lists: include keeps only the feed's marked items, exclude drops the marked ones", () => {

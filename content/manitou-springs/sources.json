@@ -281,6 +281,18 @@
       "status": "proposed",
       "robots": "honor",
       "notes": "The proxy could not connect on 10 October 2026 (CONNECT 502). Nothing read, nothing listed; the domain itself is a guess."
+    },
+    {
+      "id": "manitouarmadilloranch-com",
+      "name": "Armadillo Ranch: live music",
+      "url": "https://www.manitouarmadilloranch.com/events",
+      "feedUrl": "https://tockify.com/api/feeds/ics/dilloranch",
+      "type": "ical",
+      "category": "venue",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Armadillo Ranch",
+      "notes": "Found by the sweep of the sources no feed reads, 1 November 2026 (docs/sweep-2026-11-01-report.md), when every show listed here was published by hand. Proposed, so ingest does not read it until the owner confirms it (npm run sources -- confirm manitou-springs manitouarmadilloranch-com). The events page embeds the Tockify calendar \"dilloranch\"; its iCal feed read 1 November 2026: 166 entries, 139 to come, live music most nights, $3.50 entertainment fee on the page, not in the feed. 962 Manitou Ave, 719-374-5580, closed Wednesdays; the guide has no place file for it yet."
     }
   ]
 }

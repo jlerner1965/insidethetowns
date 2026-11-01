@@ -260,14 +260,15 @@
       "name": "Foothills Art Center - Art & Events",
       "url": "https://foothillsartcenter.org/art-events/",
       "sampleUrl": "https://foothillsartcenter.org/exhibits/51st-holiday-art-market/",
-      "type": "html",
+      "type": "json",
       "category": "venue",
       "status": "proposed",
       "lastChecked": "2026-10-28",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Foothills Art Center, Astor House, 1133 Arapahoe St, Golden",
-      "notes": "Read 2026-10-28. The nonprofit art center in the Astor House (1133 Arapahoe St) with a Creative Campus for classes at 809 15th St. WordPress with The Events Calendar; the homepage links an iCal export (events/?ical=1, not read, so the type stays html until it is) and the REST API (/wp-json/tribe/events/v1/events) answered with 37 items from 29 October to 21 December, nearly all paid classes and monthly meetups (Art 101, Collage Collective, Art Sprouts, SPARK!, Make or Mend). Public events worth a listing: the Holiday Art Market (HART), 20 November to 29 December, and holiday workshops. robots.txt allows us with Crawl-delay 10. Proposed: an events feed would need excludeTitles for the classes before ingest reads it."
+      "notes": "Read 2026-10-28. The nonprofit art center in the Astor House (1133 Arapahoe St) with a Creative Campus for classes at 809 15th St. WordPress with The Events Calendar; the homepage links an iCal export (events/?ical=1, not read, so the type stays html until it is) and the REST API (/wp-json/tribe/events/v1/events) answered with 37 items from 29 October to 21 December, nearly all paid classes and monthly meetups (Art 101, Collage Collective, Art Sprouts, SPARK!, Make or Mend). Public events worth a listing: the Holiday Art Market (HART), 20 November to 29 December, and holiday workshops. robots.txt allows us with Crawl-delay 10. Proposed: an events feed would need excludeTitles for the classes before ingest reads it. Its The Events Calendar REST API found by the sources probe of 1 November 2026 (docs/sources-probe-2026-11-01.md): 37 events to come, most of them classes. Type json from that day, still proposed; exclude the classes by title before confirming (npm run sources -- confirm golden foothillsartcenter-org).",
+      "feedUrl": "https://foothillsartcenter.org/wp-json/tribe/events/v1/events"
     },
     {
       "id": "thegoldenmill-com",

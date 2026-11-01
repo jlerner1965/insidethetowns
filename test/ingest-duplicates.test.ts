@@ -106,6 +106,37 @@ test('the same place and time with a looser title is a possible duplicate, by na
   assert.deepEqual(possibleDuplicates(item(), place, [{ ...published, sourceUid: 'other' }], new Set(['other'])), [], "a file another item in this run owns is that item's");
 });
 
+test("a production's later show is the file's, though its first show's id is still in the feed", () => {
+  // Castle Rock's Santa sessions, 10 December 2026: one file, three shows, the 10 am show's id.
+  const santa = (start: string, laterShow?: boolean): ExistingEvent => ({
+    file: 'santa.md', slug: 'booked-for-the-holidays-2026-12-10', staged: false,
+    title: 'Booked for the Holidays', start: parseLocal(start), venue: 'Philip S. Miller Library',
+    sourceUid: '14463389', ...(laterShow ? { laterShow } : {}),
+  });
+  const shows = [santa('2026-12-10T10:00'), santa('2026-12-10T14:00', true), santa('2026-12-10T18:00', true)];
+  const session = (uid: string, at: string) => item({ uid, title: 'Booked for the Holidays', start: parseLocal(at), end: undefined, url: undefined });
+  const claimed = new Set(['14463389', '14463412', '14463461']);
+  const two = matchExisting(session('14463412', '2026-12-10T14:00'), shows, 3, claimed);
+  assert.equal(two.kind, 'published', 'the 2 pm session is the file’s 2 pm show, not a new listing');
+  assert.equal(two.kind === 'published' && two.existing.start.getTime(), parseLocal('2026-12-10T14:00').getTime());
+  assert.equal(matchExisting(session('14463389', '2026-12-10T10:00'), shows, 3, claimed).kind, 'published', 'the first show still matches by its id');
+  // Without the mark, the file belonged to the 10 am item and the 6 pm session was new.
+  const unmarked = shows.map(({ laterShow: _, ...e }) => e);
+  assert.equal(matchExisting(session('14463461', '2026-12-10T18:00'), unmarked, 3, claimed).kind, 'none');
+  // A looser title at the same place and time is still put to a person.
+  const retitled = shows.map((e) => ({ ...e, title: 'Booked for the Holidays: A Visit with Santa', address: '100 S. Wilcox Street' }));
+  const later = session('14463461', '2026-12-10T18:00');
+  assert.equal(matchExisting(later, retitled, 3, claimed).kind, 'none', 'two words of four is not the same title');
+  assert.equal(possibleDuplicates(later, { venue: 'Philip S. Miller Library' }, retitled, claimed).length, 1, 'so it is staged as a possible duplicate, not approved');
+  // Given the feed's title for each id, the retitled file's later show is known by its first show's title.
+  const titled = new Map([...claimed].map((uid) => [uid, 'Booked for the Holidays']));
+  const known = matchExisting(later, retitled, 3, titled);
+  assert.equal(known.kind, 'published', 'the feed calls the first show what it calls this one');
+  assert.equal(known.kind === 'published' && known.existing.start.getTime(), parseLocal('2026-12-10T18:00').getTime());
+  const other = new Map([...titled, ['14463389', 'Teen Tech Help']]);
+  assert.equal(matchExisting(later, retitled, 3, other).kind, 'none', 'a first show of another name proves nothing');
+});
+
 const library: Source = sourceSchema.parse({
   id: 'lib',
   name: 'Johnstown Milliken Public Libraries',

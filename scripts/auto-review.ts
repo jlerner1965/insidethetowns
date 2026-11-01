@@ -15,6 +15,21 @@
  *   npm run auto-review -- --town=lyons
  *   npm run auto-review -- --by="the weekly ingest workflow"   # who stands behind the run (verifiedBy)
  *   npm run auto-review -- --report=/tmp/auto-review.md         # the same report as Markdown, for a pull request
+ *   npm run auto-review -- --due=14 --report=/tmp/due.md        # only what waits for a person and is dated in the next 14 days; writes nothing
+ *
+ * A listing the re-check or the ingest flagged (`changeFlag`) is a
+ * person's call and is never touched here. Until 1 November 2026 the queue's
+ * flagged listings fell through to the staged-event branch, and a flagged
+ * listing whose date had passed was deleted from the published folder (five
+ * that day: two Erie meetings, Longmont's Vote Early Day, Windsor's two
+ * cemetery tours, each flagged and never ruled on).
+ *
+ * `--due` is the list the nightly re-check's pull request opens with: every
+ * staged event, staged change and flagged listing with a date in the window,
+ * soonest first, with the reasons the rules would not approve it. A staged
+ * event whose date passes is deleted without ever being listed, and a flag
+ * left past its date means the guide showed the old fact on the day, so the
+ * list is what a person decides before the date or loses.
  *
  * Staged places are never approved here: each is held for a reason that
  * needs a site read. Then `npm run validate`, commit.
@@ -25,11 +40,12 @@ import { fileURLToPath } from 'node:url';
 import { z } from 'astro/zod';
 import { allTowns, LIVE_TOWNS } from '../src/config/index.ts';
 import { eventSchema, type Source } from '../src/content/schemas.ts';
-import { addDays, dayKey, parseLocal, startOfDay } from '../src/lib/dates.ts';
+import { addDays, dayKey, formatDayLong, parseLocal, startOfDay } from '../src/lib/dates.ts';
 import { isOver } from '../src/lib/events.ts';
 import { readRegistry } from '../src/lib/sources.ts';
 import { decideChange, decideEvent, type PublishedEvent } from './lib/auto-review.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
+import { occurrences } from './lib/recheck.ts';
 import { readQueue } from './lib/review.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -40,6 +56,13 @@ const dryRun = args.includes('--dry-run');
 const onlyTown = opt('town');
 const by = opt('by') ?? process.env.REVIEWER ?? 'standing rules (scripts/auto-review.ts)';
 const reportPath = opt('report');
+const dueDays = opt('due') !== undefined ? Number(opt('due')) : undefined;
+if (dueDays !== undefined && !(Number.isInteger(dueDays) && dueDays > 0)) {
+  console.error('auto-review: --due wants a number of days, as --due=14');
+  process.exit(2);
+}
+// The due list reads; it never writes.
+const writing = !dryRun && dueDays === undefined;
 const today = dayKey(new Date());
 
 const towns = allTowns.filter((t) => (onlyTown ? t.slug === onlyTown : LIVE_TOWNS.includes(t.slug)));
@@ -72,6 +95,10 @@ function publishedEvents(town: string): PublishedEvent[] {
       const lastStart = addDays(startOfDay(d.until), 1).getTime();
       for (let t = addDays(d.start, 7); t.getTime() < lastStart; t = addDays(t, 7)) starts.push(t);
     }
+    // Every show of a production is a date it holds: read as its first show
+    // alone, a later show staged from the feed looked new and was published
+    // beside the file that lists it (Castle Rock, 1 November 2026).
+    if (d.performances?.length) starts.splice(0, starts.length, ...d.performances.map((p) => p.start));
     const seriesUntil = d.repeat === 'weekly' && d.until ? d.until : undefined;
     for (const start of starts) out.push({ file: relative(root, file), title: d.title, start, ...(seriesUntil ? { seriesUntil } : {}) });
   }
@@ -91,6 +118,31 @@ function stagedIsOver(text: string): boolean {
   const start = date(raw.start);
   if (!start) return false;
   return isOver({ data: { start, end: date(raw.end), until: date(raw.until), repeat: raw.repeat, allDay: raw.allDay === true } } as never);
+}
+
+/** A thing a person has to rule on before its date, for the due list. */
+interface Due {
+  day: string;
+  town: string;
+  what: string;
+  why: string;
+  file: string;
+}
+const due: Due[] = [];
+const dueFrom = startOfDay(new Date());
+const dueTo = addDays(dueFrom, dueDays ?? 0);
+
+/** The listing's first date in the due window, if it has one there. */
+function nextDue(text: string): string | undefined {
+  if (dueDays === undefined) return undefined;
+  const parsed = schema.safeParse(parseFrontmatter(text).data);
+  if (!parsed.success) {
+    const raw = String(parseFrontmatter(text).data.start ?? '').slice(0, 10);
+    return raw >= dayKey(dueFrom) && raw < dayKey(dueTo) ? raw : undefined;
+  }
+  const d = parsed.data;
+  const at = occurrences({ slug: '', title: d.title, start: d.start, end: d.end, allDay: d.allDay, repeat: d.repeat, until: d.until, status: d.status, performances: d.performances?.map((p) => p.start) }, dueFrom, dueTo)[0];
+  return at ? dayKey(at) : undefined;
 }
 
 interface TownReport {
@@ -122,6 +174,12 @@ for (const town of towns) {
       report.places++;
       continue;
     }
+    if (item.kind === 'flag') {
+      // A person's call: the source said something else (the note says what). Never approved, never deleted here.
+      const day = nextDue(readFileSync(item.file, 'utf8'));
+      if (day) due.push({ day, town: town.name, what: `flagged listing · ${String(item.data.title ?? basename(item.file))}`, why: item.note || 'flagged for review', file: relative(root, item.file) });
+      continue;
+    }
     if (item.kind === 'change') {
       const eventText = readFileSync(item.eventFile, 'utf8');
       const title = String(parseFrontmatter(eventText).data.title ?? item.change.slug);
@@ -129,9 +187,11 @@ for (const town of towns) {
       const verdict = decideChange(eventText, item.change, { source: sourceById(item.change.sourceId), today, by });
       if (!verdict.approve) {
         report.left.push({ what: `change · ${what}`, why: verdict.reasons });
+        const day = nextDue(eventText);
+        if (day) due.push({ day, town: town.name, what: `change waiting · ${what}`, why: verdict.reasons.join('; '), file: relative(root, item.eventFile) });
         continue;
       }
-      if (!dryRun) {
+      if (writing) {
         writeFileSync(item.eventFile, verdict.text);
         unlinkSync(item.file);
       }
@@ -143,7 +203,7 @@ for (const town of towns) {
     const target = join(contentDir, town.slug, 'events', basename(item.file));
     const what = `${item.data.title} (${String(item.data.start ?? '').slice(0, 10)})`;
     if (stagedIsOver(text)) {
-      if (!dryRun) unlinkSync(item.file);
+      if (writing) unlinkSync(item.file);
       report.dropped.push(`${what} (${relative(root, item.file)})`);
       continue;
     }
@@ -157,9 +217,12 @@ for (const town of towns) {
     });
     if (!verdict.approve) {
       report.left.push({ what: `event · ${what}`, why: verdict.reasons });
+      const day = nextDue(text);
+      if (day) due.push({ day, town: town.name, what: `staged event · ${item.data.title}`, why: verdict.reasons.join('; '), file: relative(root, item.file) });
       continue;
     }
-    if (!dryRun) {
+    // Approvable: the rules publish it on a run that writes, so it is not on the due list.
+    if (writing) {
       mkdirSync(dirname(target), { recursive: true });
       writeFileSync(target, verdict.text);
       unlinkSync(item.file);
@@ -176,6 +239,36 @@ for (const town of towns) {
   totals.leftEvents += report.left.filter((l) => l.what.startsWith('event')).length;
   totals.leftChanges += report.left.filter((l) => l.what.startsWith('change')).length;
   totals.places += report.places;
+}
+
+// ---- the due list ---------------------------------------------------------
+
+if (dueDays !== undefined) {
+  due.sort((a, b) => a.day.localeCompare(b.day) || a.town.localeCompare(b.town) || a.what.localeCompare(b.what));
+  const md: string[] = [];
+  md.push(`## Waiting for a person, dated in the next ${dueDays} days (${due.length})`, '');
+  if (!due.length) md.push('Nothing in staging or flagged has a date in the window.');
+  else {
+    md.push(
+      'Decide each before its date. A staged event whose date passes is deleted without ever being listed; a flagged listing shows its old fact until someone rules. ' +
+        'Publish, decline or fix with `npm run review -- --town=<town>`; the reason after each is why the standing rules would not.',
+      '',
+    );
+    // A trash day, a closure, a meeting the feed gave no room for: rarely a listing, and a page of them hid the shows and markets.
+    const notice = (d: Due) => d.what.startsWith('staged event') && /service schedule|closure notice|the feed gives no venue|is not a place/.test(d.why) && !/held by the editor/.test(d.why);
+    const row = (d: Due) => `- **${formatDayLong(parseLocal(d.day))}**, ${d.town}: ${d.what} — ${d.why} (\`${d.file}\`)`;
+    for (const d of due.filter((x) => !notice(x))) md.push(row(d));
+    const notices = due.filter(notice);
+    if (notices.length) {
+      md.push('', `Notices and listings with no place (${notices.length}): the rules let these lapse unless someone gives one a venue.`, '');
+      for (const d of notices) md.push(`- ${formatDayLong(parseLocal(d.day))}, ${d.town}: ${d.what.replace(/^staged event · /, '')} (${d.why})`);
+    }
+  }
+  md.push('');
+  const out = md.join('\n');
+  console.log(out);
+  if (reportPath) writeFileSync(reportPath, out);
+  process.exit(0);
 }
 
 // ---- the report ---------------------------------------------------------

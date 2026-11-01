@@ -83,6 +83,20 @@ export function parseShowareDate(text: string | undefined): Date | undefined {
 
 const CANCELLED_RE = /\*?\s*cancell?ed\s*\*?/i;
 
+/**
+ * A ticket for watching at home, not a seat in the hall. The Lincoln Center
+ * sells the Fort Collins Symphony's concerts twice, "Signature Concert 2 …
+ * Sat-11/7 7:30p" and "Signature Concert 2 … LIVESTREAM Sat-11/7 7:30p", and
+ * the stream's row opens an hour early (6:30 to 10 pm against the hall's 7:30
+ * to 9:30). Read as a performance, it put the 7 November concert on the guide
+ * at 6:30 and held the hall's own row as a duplicate (1 November 2026). Every
+ * stream row on both box offices that day had an in-person twin; the guide
+ * lists what a reader can walk into, so the stream is not read.
+ */
+export function isLivestream(p: ShowarePerformance): boolean {
+  return /\blive[\s-]?stream(?:ed|ing)?\b/i.test(`${p.PerformanceName ?? ''} ${p.Event ?? ''}`);
+}
+
 /** The series title without the box office's labels: the presenter, the rental tag, the month. */
 export function showareTitle(event: string): string {
   return plainText(event)
@@ -113,7 +127,7 @@ export function readShowarePage(page: ShowarePage, origin: string, horizon: Hori
   for (const p of page.performance ?? []) {
     const rawTitle = p.Event ?? p.PerformanceName ?? '';
     const start = parseShowareDate(p.PerformanceDateTime);
-    if (!rawTitle || !start || p.PerformanceID == null) continue;
+    if (!rawTitle || !start || p.PerformanceID == null || isLivestream(p)) continue;
     const endParsed = parseShowareDate(p.PerformanceEndDateTime);
     const end = endParsed && endParsed.getTime() > start.getTime() ? endParsed : undefined;
     if (start.getTime() >= horizon.to.getTime() || (end ?? start).getTime() < horizon.from.getTime()) continue;

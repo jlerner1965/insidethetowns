@@ -2,7 +2,7 @@
 title: "Josh Blackburn live"
 start: "2026-12-04T18:00"
 end: "2026-12-04T21:00"
-venue: "Honnibrook Craft Meadery Castle Rock"
+venue: "Honnibrook Craft Meadery"
 address: "2276 Manatt Court, Unit B9, Castle Rock, CO 80104"
 url: "https://www.honnibrook.com/event/josh-blackburn-live-in-castle-rock/2026-12-04/"
 category: music

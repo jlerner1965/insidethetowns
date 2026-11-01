@@ -39,6 +39,15 @@ export interface ExistingEvent {
    * organizer's id for it, where the file carries no `sourceUid`.
    */
   urls?: string[];
+  /**
+   * A later show of a file that lists its shows as `performances`. The
+   * file's `sourceUid` is its first show's, so this date carries the file's
+   * id without being that item: the id names the first show alone. Read as
+   * the first show's, the file was "owned" by it while it stayed in the
+   * feed, and every later show came in as new (1 November 2026: Castle
+   * Rock's Santa sessions at 2 and 6, one of them published twice).
+   */
+  laterShow?: boolean;
 }
 
 /** "https://www.firestoneco.gov/calendar.aspx?EID=2690" -> "firestoneco.gov". */
@@ -324,7 +333,15 @@ function byFile<T extends { file: string }>(list: T[]): T[] {
  * not, so a series at 10 and its twin at 1 are not taken for a pair on a day
  * the feed lists only one of them.
  */
-export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblings = 1, claimed?: ReadonlySet<string>, host?: string): Match {
+/**
+ * The run's feed ids. A map from each id to its item's title also lets a
+ * production's later show be known by the title the feed gives its first
+ * show, where an editor has retitled the file ("Booked for the Holidays" in
+ * the feed, "Booked for the Holidays: A Visit with Santa" on the guide).
+ */
+export type Claimed = ReadonlySet<string> | ReadonlyMap<string, string>;
+
+export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblings = 1, claimed?: Claimed, host?: string): Match {
   // A site's ids are its own: CivicPlus numbers its events from 1 on every
   // site, so Firestone's 2690 and Dacono's 2690 are two events on one guide.
   // The site, not the registry entry, is the scope: Longmont's council and
@@ -332,7 +349,7 @@ export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblin
   // event. A file whose host is unknown still matches any id, as before.
   // tickets.lctix.com and www.lctix.com are one site: the comparison is on
   // the registrable domain, not the hostname.
-  const byUid = existing.find((e) => e.sourceUid && e.sourceUid === item.uid && (!host || !e.sourceHost || sameSite(e.sourceHost, host)));
+  const byUid = existing.find((e) => e.sourceUid && !e.laterShow && e.sourceUid === item.uid && (!host || !e.sourceHost || sameSite(e.sourceHost, host)));
   if (byUid) return { kind: byUid.staged ? 'staged' : 'published', existing: byUid };
   const day = dayKey(item.start);
   const near = (e: ExistingEvent) => item.allDay || Math.abs(e.start.getTime() - item.start.getTime()) <= HALF_HOUR;
@@ -341,7 +358,8 @@ export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblin
   // market itself, and once took over the market's file; an id that has
   // gone from the feed (the County's change when a time moves) can still
   // be found by its title, which is how a moved event is noticed.
-  const free = (e: ExistingEvent) => !(claimed && e.sourceUid && e.sourceUid !== item.uid && claimed.has(e.sourceUid));
+  // A later show is free whoever holds the file's id: the id is its first show's.
+  const free = (e: ExistingEvent) => e.laterShow || !(claimed && e.sourceUid && e.sourceUid !== item.uid && claimed.has(e.sourceUid));
   const sameDay = existing.filter((e) => dayKey(e.start) === day && free(e));
   const decide = (found: ExistingEvent[], why: string): Match | undefined => {
     if (!found.length) return undefined;
@@ -366,7 +384,10 @@ export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblin
   }
   const scored: Array<{ e: ExistingEvent; score: number }> = [];
   for (const e of sameDay) {
-    const score = titleSimilarity(item.title, e.title);
+    // A later show answers to the feed's title for its first show too: the
+    // same production in the same feed, on a day the file lists a show.
+    const own = e.laterShow && e.sourceUid && claimed instanceof Map ? claimed.get(e.sourceUid) : undefined;
+    const score = Math.max(titleSimilarity(item.title, e.title), own ? titleSimilarity(item.title, own) : 0);
     if (score < INGEST.titleMatch) continue;
     if (siblings > 1 && !item.allDay && !near(e)) continue;
     scored.push({ e, score });
@@ -405,13 +426,13 @@ export function possibleDuplicates(
   item: FeedEvent,
   place: { venue?: string; address?: string },
   existing: ExistingEvent[],
-  claimed?: ReadonlySet<string>,
+  claimed?: Claimed,
 ): PossibleDuplicate[] {
   const day = dayKey(item.start);
   const out: PossibleDuplicate[] = [];
   for (const e of existing) {
     if (e.staged || dayKey(e.start) !== day) continue;
-    if (claimed && e.sourceUid && e.sourceUid !== item.uid && claimed.has(e.sourceUid)) continue;
+    if (!e.laterShow && claimed && e.sourceUid && e.sourceUid !== item.uid && claimed.has(e.sourceUid)) continue;
     if (!item.allDay && Math.abs(e.start.getTime() - item.start.getTime()) > HALF_HOUR) continue;
     if (!sameVenue(place, e)) continue;
     const score = titleSimilarity(item.title, e.title);

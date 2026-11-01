@@ -232,6 +232,18 @@
       "status": "proposed",
       "robots": "honor",
       "notes": "Checked 6 October 2026: BLOX CMS weekly, found from coloradocommunitymedia.com (sister title douglascountynewspress.com). The article RSS read successfully: 50 items, newest 4 Oct 2026, titles such as 'Get to know the candidates running for Castle Rock Town Council', 'Castle Rock Water seeks customer input on resource plan', 'Meet the three candidates running for Castle Rock mayor'. News, not events; /local-events/ is an Evvnt-powered aggregator calendar ('Place Your Event With Evvnt') and should not be used as an event source."
+    },
+    {
+      "id": "honnibrook-com",
+      "name": "Honnibrook Craft Meadery: events",
+      "url": "https://www.honnibrook.com/events/",
+      "feedUrl": "https://www.honnibrook.com/events/?ical=1",
+      "type": "ical",
+      "category": "venue",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Honnibrook Craft Meadery",
+      "notes": "Found by the sweep of the sources no feed reads, 1 November 2026 (docs/sweep-2026-11-01-report.md), when every show listed here was published by hand. Proposed, so ingest does not read it until the owner confirms it (npm run sources -- confirm castle-rock honnibrook-com). The Events Calendar (WordPress) at /events/; ?ical=1 read 1 November 2026. The Tribe REST API (/wp-json/tribe/events/v1/events) is there too, if json reads it better."
     }
   ]
 }

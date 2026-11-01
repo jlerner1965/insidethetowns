@@ -39,6 +39,8 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  # The failure alert (.github/actions/alert-failure) opens an issue.
+  issues: write
 
 concurrency:
   group: weekly-ingest
@@ -63,8 +65,10 @@ jobs:
       # honoured by the script.
       - name: Ask each confirmed source whether it still answers
         run: npm run sources -- check
+      # The report names every feed not read and every item set aside, for the
+      # top of the pull request: a feed that stops answering stops its events.
       - name: Read the confirmed feeds into staging
-        run: npm run ingest
+        run: npm run ingest -- --report=/tmp/ingest.md
       # The unattended review: what the standing rules allow is published
       # (moved out of staging) with the run named in verifiedBy; the rest
       # waits for a person, and the report says why.
@@ -80,6 +84,8 @@ jobs:
           {
             echo 'body<<EOF'
             echo 'Read by the weekly ingest workflow. Nothing in it reaches a site until this pull request is merged: the build never reads staging, and the files the standing rules approved (below) are in the published folders of this branch only.'
+            echo
+            cat /tmp/ingest.md
             echo
             echo 'Merge it and what the rules approved is published; what waits stays in staging, and the Wednesday editor run (weekly-editor.yml) reads each item against its organizer and opens a pull request with what holds up. To decide them yourself first: `git fetch origin automation/ingest && git checkout automation/ingest`, `npm run review`, `npm run validate`, push, merge. Close it unmerged and nothing changes.'
             echo
@@ -113,3 +119,9 @@ jobs:
         run: |
           echo "::warning::The staged items are on the automation/ingest branch, but this workflow is not allowed to open a pull request. Either allow it (Settings → Actions → General → Workflow permissions → Allow GitHub Actions to create and approve pull requests) or add a WORKFLOW_PAT secret (DEPLOY.md), then open this week's by hand: https://github.com/${{ github.repository }}/compare/main...automation/ingest"
           exit 1
+      - name: Say so where the owner will see it
+        if: failure()
+        uses: ./.github/actions/alert-failure
+        with:
+          meaning: Nothing this run read was kept, so no new events were staged or published from any feed this week, for any guide. The next scheduled run is next Monday.
+          remedy: Read the log, fix what it names (one bad file or one source is the usual cause), then run Weekly ingest again from the Actions tab (Run workflow) rather than wait for Monday.

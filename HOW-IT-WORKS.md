@@ -6,7 +6,7 @@ changes and the old wording goes; the history of why lives in
 other document disagree, this file wins. Where this file and a test
 disagree, fix one of them the same day.
 
-Last revised: 27 October 2026.
+Last revised: 1 November 2026.
 
 ## 1. What this is
 
@@ -175,12 +175,22 @@ Scheduled jobs (Denver time), all in `.github/workflows/`:
 
 | When | Job | Writes |
 |---|---|---|
-| Daily 05:10 | Rebuild every site | nothing; Vercel redeploys |
-| Daily 05:40 | Re-check the next 14 days of events against their sources | stamps and flags, as a pull request |
+| Daily 05:10 | Rebuild every site; restart a dropped ingest or re-check | nothing; Vercel redeploys |
+| Daily 05:40 | Re-check the next 14 days of events against their sources; list what waits for a person before its date | stamps and flags, as a pull request |
 | Monday 07:10 | Ingest the confirmed feeds; auto-review the safe ones | staged and published events, as a pull request |
 | Wednesday 06:20 | The research agent: one week's findings per flagship | a report, as a pull request |
 | Thursday 06:10 | Draft the Thursday email from the listings | a draft, as a pull request; merging sends it |
 | Sat and Sun 08:00, Wed 06:20 | Read the scores from MaxPreps | `data/<town>/sports.json`, committed straight to main |
+
+A job that fails opens an issue labelled `automation-failure` (one per
+workflow, commented on while it stays open), saying what the failure cost
+and how to run it again. The nightly re-check's pull request opens with
+every staged event, staged change and flagged listing dated in the next 14
+days: a staged event is deleted unlisted once its date passes, and a flag
+left past its date means the guide showed the old fact on the day. The
+weekly ingest's opens with every feed it could not read. A listing that
+has been flagged is ruled on by a person or the Wednesday editor, never by
+the standing rules.
 
 The scorecard fill is a scheduled assistant session, Tuesday 11:17, from
 3 November 2026 to 19 January 2027: it reads Search Console (GSC Wizard)

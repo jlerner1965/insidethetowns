@@ -111,3 +111,44 @@ jobs:
             failed=1
           fi
           exit $failed
+
+  # GitHub drops some scheduled runs altogether, and a dropped run fails
+  # nothing: the weekly ingest that never starts stages nothing, and no one
+  # is told. This job runs with the rebuild, twice a day, and starts again
+  # any event job that has gone quiet: the weekly ingest after eight days
+  # without a passing run, the nightly re-check after thirty-six hours. A job
+  # whose latest run failed is not restarted: its failure opened an issue
+  # (.github/actions/alert-failure), and a run that fails on its own content
+  # fails again until someone fixes it. Nothing here writes to a site; a
+  # started job opens its pull request as usual (1 November 2026).
+  watch:
+    name: Start any event job that has stopped running
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: read
+    steps:
+      - name: Look for a dropped ingest or re-check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          now=$(date -u +%s)
+          check() {
+            wf="$1"; max_hours="$2"; label="$3"
+            last_ok="$(gh run list -R "$REPO" -w "$wf" -s success -L 1 --json createdAt -q '.[0].createdAt // ""')"
+            latest="$(gh run list -R "$REPO" -w "$wf" -L 1 --json status,conclusion -q '.[0] | "\(.status)/\(.conclusion)"')"
+            if [ -n "$last_ok" ]; then hours=$(( (now - $(date -u -d "$last_ok" +%s)) / 3600 )); else hours=99999; fi
+            if [ "$hours" -le "$max_hours" ]; then echo "$label: last passed ${hours} hours ago"; return; fi
+            case "$latest" in
+              completed/failure)
+                echo "::warning::$label has not passed in ${hours} hours and its latest run failed; not restarted (see the automation-failure issue)" ;;
+              completed/*|"")
+                gh workflow run "$wf" -R "$REPO" --ref main
+                echo "::warning::$label had not run in ${hours} hours (latest: ${latest:-none}); started it again" ;;
+              *)
+                echo "$label: a run is under way (${latest})" ;;
+            esac
+          }
+          check weekly-ingest.yml 192 "The weekly ingest"
+          check recheck-events.yml 36 "The nightly re-check"
