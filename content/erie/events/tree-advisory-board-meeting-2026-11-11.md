@@ -8,7 +8,7 @@ cost: "Free"
 category: civic
 recurring: "Second Wednesdays"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5332"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Tree Advisory Board Meeting - In Person\" at 6:30 pm on 11 November on the erieco.gov feed"
 ---
 

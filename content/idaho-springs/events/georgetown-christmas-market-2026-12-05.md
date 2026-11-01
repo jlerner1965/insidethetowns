@@ -13,8 +13,8 @@ organizer: "Historic Georgetown, Inc. and the Town of Georgetown"
 organizerUrl: "https://historicgeorgetown.org/"
 source: "https://historicgeorgetown.org/georgetown-christmas-market-2/"
 sourceId: "historicgeorgetown-org"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-01"
+verifiedBy: "recheck-events (the nightly re-check workflow): 5 December on the page"
 timeNote: "Stage entertainment 11 am–4 pm; Santa Lucia procession at noon each day"
 ---
 

@@ -8,7 +8,7 @@ cost: "Free"
 category: arts
 recurring: "First Fridays, 6–9 pm"
 source: "https://downtownfortcollins.com/play/first-friday-art-walk"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 6 pm on the page"
 ---
 

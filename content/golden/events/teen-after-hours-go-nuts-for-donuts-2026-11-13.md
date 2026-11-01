@@ -10,7 +10,7 @@ organizer: "Jefferson County Public Library"
 organizerUrl: "https://jeffcolibrary.org/"
 source: "https://jeffcolibrary.bibliocommons.com/events/6abb486d0f56a0002cd4c55e"
 sourceId: "jeffcolibrary-bibliocommons-com"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen After Hours: Go Nuts for Donuts!\" at 6 pm on 13 November in the page's structured data"
 ---
 

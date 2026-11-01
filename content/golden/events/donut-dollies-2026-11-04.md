@@ -13,7 +13,7 @@ organizer: "Golden History Museum & Park"
 organizerUrl: "https://www.goldenhistory.org/"
 source: "https://www.goldenhistory.org/event/donut-dollies/"
 sourceId: "goldenhistory-org"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Donut Dollies\" at 6 pm on 4 November on the Golden History Museum & Park feed"
 ---
 

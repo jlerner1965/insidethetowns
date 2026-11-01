@@ -12,7 +12,7 @@ source: "https://go.dcl.org/event/17268967"
 sourceId: "dcl-org"
 sourceUid: "17268967"
 sourceHash: "626fbc917e20"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Booked for the Holidays\" at 10:30 am on 7 November on the Douglas County Libraries - Castle Rock (Philip S. Miller) events feed"
 ---
 

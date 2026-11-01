@@ -12,7 +12,7 @@ url: "https://buffalorosegolden.com/events/sunday-swing-copy/"
 category: music
 source: "https://buffalorosegolden.com/events/sunday-swing-copy/"
 sourceId: "buffalorose-net"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): 8 November and 4 pm on the page"
 ---
 

@@ -14,7 +14,7 @@ recurring: "Five Thursdays: Oct 29, Nov 5, 12, 19 and Dec 3"
 source: "https://creativegroundslyons.com/classes"
 confirmed: { how: email, with: "Casey, Creative Grounds", on: "2026-10-28", note: "The class runs 1:30 to 4:30 pm; the class pages say 1:30 to 4" }
 sourceId: "creativegroundslyons-com"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): 5 November and 1:30 pm on the page"
 ---
 

@@ -8,7 +8,7 @@ url: "https://www.berthoud.org/Calendar.aspx"
 cost: "Free"
 category: civic
 source: "https://www.berthoud.org/Calendar.aspx"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Historic Preservation Advisory Committee Meeting\" at 5:30 pm on 9 November on the berthoud.org feed"
 ---
 

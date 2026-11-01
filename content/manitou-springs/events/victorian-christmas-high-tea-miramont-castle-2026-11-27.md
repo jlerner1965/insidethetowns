@@ -20,8 +20,8 @@ category: food
 organizer: "Manitou Springs Historical Society"
 organizerUrl: "https://miramontcastle.org/"
 source: "https://www.miramontcastle.org/upcoming-events"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-01"
+verifiedBy: "recheck-events (the nightly re-check workflow): 27 November and 10:30 am on the page"
 ---
 
 Christmas high tea in the castle over Thanksgiving weekend, in 90-minute seatings at 10:30 am, 12:30 pm and 2:30 pm on Friday, November 27, Saturday, November 28 and Sunday, November 29, 2026. $65 a ticket, reservations required through OpenTable. The castle's events page listed every seating as sold out on 10 October 2026.

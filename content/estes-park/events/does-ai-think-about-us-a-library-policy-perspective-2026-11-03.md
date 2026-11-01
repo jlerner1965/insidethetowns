@@ -9,7 +9,7 @@ source: "https://calendar.estesvalleylibrary.org/event/17731129"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17731129"
 sourceHash: "844781b1a1d4"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"CANCELED: Does AI Think About Us? A Library Policy Perspective\" at 10 am on 3 November on the Estes Valley Library feed"
 ---
 

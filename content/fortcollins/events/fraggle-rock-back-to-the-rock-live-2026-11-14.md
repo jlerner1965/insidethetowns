@@ -9,7 +9,7 @@ category: family
 source: "https://www.lctix.com/shows-tickets/fraggle-rock/"
 sourceId: "lctix-com"
 sourceUid: "showare:5529"
-verified: "2026-10-23"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Jim Henson&#8217;s Fraggle Rock: Back to the Rock LIVE\" at 7:30 pm on 14 November in the page's structured data"
 ---
 

@@ -13,7 +13,7 @@ cost: "$150 for all five; sold out"
 recurring: "Five Wednesdays: Oct 28, Nov 4, 11, 18 and Dec 2"
 source: "https://creativegroundslyons.com/classes"
 sourceId: "creativegroundslyons-com"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): 4 November and 6 pm on the page"
 ---
 

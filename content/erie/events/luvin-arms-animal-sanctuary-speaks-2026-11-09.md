@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/17476890"
 cost: "Free; registration required"
 category: other
 source: "https://highplains.libcal.com/event/17476890"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Luvin Arms Animal Sanctuary Speaks!\" at 6 pm on 9 November in the page's structured data"
 ---
 

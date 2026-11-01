@@ -8,7 +8,7 @@ url: "https://lyons.librarycalendar.com/events/upcoming"
 category: arts
 recurring: "Second Mondays"
 source: "https://lyons.librarycalendar.com/events/upcoming"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Monday Makerspace\" at 3 pm on 9 November on the lyons.librarycalendar.com feed"
 ---
 

@@ -8,8 +8,8 @@ url: "https://www.skicooper.com/events/"
 category: other
 organizer: "Ski Cooper"
 source: "https://www.skicooper.com/events/"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-01"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"10th Mountain Day\" at 9 am on 26 February in the page's structured data"
 ---
 
 Ski Cooper honors the 10th Mountain Division soldiers who trained here before serving in World War II. Friday, February 26, 2027, 9 am to 4 pm, with a flag parade down the Molly Mayfield trail at 1:30 pm.

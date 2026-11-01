@@ -12,8 +12,8 @@ source: "https://www.douglasco.gov/event/veterans-day-tribute-3/"
 sourceId: "douglasco-gov"
 sourceUid: "189612"
 sourceHash: "9d7aa21974c5"
-verified: "2026-10-31"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-01"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Veterans Day Tribute\" at 11 am on 7 November in the page's structured data"
 ---
 
 The County's Veterans Day ceremony, honoring veterans past and present, at the Veterans Monument Plaza at 301 Wilcox Street downtown, the Saturday before Veterans Day. This year's program is linked from the County's page, which lists no admission. The Heroes Hall steel dedication and groundbreaking follows at 1 pm at the fairgrounds.

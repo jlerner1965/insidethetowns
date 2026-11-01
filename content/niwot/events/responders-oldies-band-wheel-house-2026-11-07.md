@@ -9,8 +9,8 @@ performers:
 url: "https://www.niwotwheelhouse.com/events/wbgutmtyqnra71ko3ihhe95lf9waws-njw6h-5bmxm-b3a34"
 category: music
 source: "https://www.niwotwheelhouse.com/events/wbgutmtyqnra71ko3ihhe95lf9waws-njw6h-5bmxm-b3a34"
-verified: "2026-10-31"
-verifiedBy: "Claude Code for James Lerner, against The Wheel House's own event page and calendar, 31 October 2026: Saturday 7 November, 7 to 9 pm. No price on the page"
+verified: "2026-11-01"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Responders Oldies Band — The Wheel House\" at 7 pm on 7 November in the page's structured data"
 ---
 
 Three musicians who play 1960s rock and roll, from 7 to 9 pm at the taproom on Second Avenue.

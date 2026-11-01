@@ -9,7 +9,7 @@ cost: "Free"
 category: civic
 recurring: "Second and fourth Thursdays"
 source: "https://www.berthoud.org/Calendar.aspx"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Planning Commission Meeting\" at 6 pm on 12 November on the berthoud.org feed"
 ---
 

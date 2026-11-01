@@ -11,7 +11,7 @@ url: "https://buffalorosegolden.com/events/message-in-a-bottle-with-sons-of-gene
 category: music
 source: "https://buffalorosegolden.com/events/message-in-a-bottle-with-sons-of-genesis/"
 sourceId: "buffalorose-net"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 7 pm on the page"
 ---
 

@@ -10,7 +10,7 @@ source: "https://highplains.libcal.com/event/17076977"
 sourceId: "highplains-libcal-com-fort-lupton"
 sourceUid: "libcal:17076977"
 sourceHash: "8806605402c3"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Community Game Night\" at 4 pm on 12 November on the Fort Lupton Public & School Library (High Plains Library District), LibCal feed"
 ---
 

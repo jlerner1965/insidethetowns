@@ -12,7 +12,7 @@ organizer: "Colorado Parks and Wildlife"
 organizerUrl: "https://cpw.state.co.us/"
 source: "https://cpw.state.co.us/event/2026/11/free-park-entry-veterans-and-active-military"
 sourceId: "cpw-state-co-us"
-verified: "2026-10-31"
+verified: "2026-11-01"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Free Park Entry for Veterans and Active Military\" at 8 am on 11 November in the page's structured data"
 ---
 

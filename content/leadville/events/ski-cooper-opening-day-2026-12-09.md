@@ -8,8 +8,8 @@ url: "https://www.skicooper.com/events/"
 category: outdoors
 organizer: "Ski Cooper"
 source: "https://www.skicooper.com/events/"
-verified: "2026-10-10"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-01"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Opening Day &#8211; Weather Permitting\" at 9 am on 9 December in the page's structured data"
 ---
 
 Ski Cooper lists Wednesday, December 9, 9 am to 4 pm, as the kick-off to the 2026–27 season, "weather permitting." Check the ski area's site before driving up.
