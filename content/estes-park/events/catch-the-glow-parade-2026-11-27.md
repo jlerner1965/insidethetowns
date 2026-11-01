@@ -11,6 +11,8 @@ source: "https://eventsinestes.com/catch-the-glow-parade/"
 sourceId: "eventsinestes-com"
 verified: "2026-10-21"
 verifiedBy: "Claude Code, delegated by James Lerner"
+changeFlag: true
+changeNote: "Estes Valley Library now says: venue Elkhorn Avenue, downtown Estes Park → Estes Valley Library (read 2026-11-01; see staging/changes/catch-the-glow-parade-2026-11-27.json)"
 ---
 
 The Town's lighted holiday parade down Elkhorn Avenue at 5:30 pm on the day after Thanksgiving: more than 40 entries, including floats built by the Town and local nonprofits, marching bands, fire trucks and specialty vehicles. The Town says up to 30,000 people line the route, so expect crowds downtown. Free.

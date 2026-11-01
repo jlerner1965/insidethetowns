@@ -11,7 +11,7 @@
       "category": "county",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "cites": {
         "events": 3,
@@ -43,12 +43,15 @@
         "Trivia Night",
         "Hormone Health"
       ],
-      "notes": "The Niwot Business Association's site, added as a source on the owner's word, 20 October 2026. Its calendar (Modern Events Calendar) publishes /events/feed/: one item per event at its next date, with mec:startDate, mec:startHour, mec:endDate, mec:endHour, mec:location and mec:category; the plugin's site-wide iCal feed is switched off. The feed holds ten items, the next ten events in date order, which on 20 October reached July 2027. Filed as chamber, not venue: the board also carries other groups' events, so nothing from it is approved without a person, and another group's event is confirmed on that group's own page. Excluded: the Tree Carving Fundraiser, a donation appeal the calendar repeats every Tuesday with no time or place; Trivia Night, The Wheel House's weekly regular, which the guide lists from the venue; and the Hormone Health Small Group Medical Program, an enrollment clinic program at a day spa, which is a promotion, not an event."
+      "notes": "The Niwot Business Association's site, added as a source on the owner's word, 20 October 2026. Its calendar (Modern Events Calendar) publishes /events/feed/: one item per event at its next date, with mec:startDate, mec:startHour, mec:endDate, mec:endHour, mec:location and mec:category; the plugin's site-wide iCal feed is switched off. The feed holds ten items, the next ten events in date order, which on 20 October reached July 2027. Filed as chamber, not venue: the board also carries other groups' events, so nothing from it is approved without a person, and another group's event is confirmed on that group's own page. Excluded: the Tree Carving Fundraiser, a donation appeal the calendar repeats every Tuesday with no time or place; Trivia Night, The Wheel House's weekly regular, which the guide lists from the venue; and the Hormone Health Small Group Medical Program, an enrollment clinic program at a day spa, which is a promotion, not an event.",
+      "lastChecked": "2026-11-01",
+      "lastStatus": "ok"
     },
     {
       "id": "niwothall-org",
       "name": "Niwot Hall (Left Hand Grange)",
       "url": "https://niwothall.org/",
+      "feedUrl": "https://niwothall.org/events/feed/",
       "sampleUrl": "https://niwothall.org/events/artists-in-the-hall-3/",
       "type": "rss",
       "category": "venue",
@@ -59,16 +62,29 @@
         "places": 1
       },
       "robots": "honor",
-      "notes": "The hall's rental calendar (Modern Events Calendar), read 20 October 2026 at /events/feed/: ten items, the coming week only (the plugin ignores paging and its iCal export is off), mixing public events with band practice, rehearsals and private bookings. The hall marks the public ones 'Featured Event', which is the include filter; the Rotary's weekly breakfast is already listed as a regular and the election commission's meetings are civic notices. No location element: the hall is the venue. A one-week window read on Mondays lists that week's talks and seminars; longer notice has to come from the organizers' own pages. Confirmed 20 October 2026 on the owner's delegation; 16 published events already cite the site.",
-      "feedUrl": "https://niwothall.org/events/feed/",
-      "defaultVenue": "Niwot Hall",
-      "includeCategories": [
-        "Featured Event"
-      ],
       "excludeTitles": [
         "Rotary Club",
         "Election Commission"
-      ]
+      ],
+      "includeCategories": [
+        "Featured Event"
+      ],
+      "defaultVenue": "Niwot Hall",
+      "notes": "The hall's rental calendar (Modern Events Calendar), read 20 October 2026 at /events/feed/: ten items, the coming week only (the plugin ignores paging and its iCal export is off), mixing public events with band practice, rehearsals and private bookings. The hall marks the public ones 'Featured Event', which is the include filter; the Rotary's weekly breakfast is already listed as a regular and the election commission's meetings are civic notices. No location element: the hall is the venue. A one-week window read on Mondays lists that week's talks and seminars; longer notice has to come from the organizers' own pages. Confirmed 20 October 2026 on the owner's delegation; 16 published events already cite the site.",
+      "lastChecked": "2026-11-01",
+      "lastStatus": "ok"
+    },
+    {
+      "id": "niwotwheelhouse-com",
+      "name": "The Wheel House",
+      "url": "https://www.niwotwheelhouse.com/",
+      "sampleUrl": "https://www.niwotwheelhouse.com/events1",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "proposed",
+      "robots": "honor",
+      "notes": "Added 31 October 2026, when a check for missed Niwot events found the bar's calendar carried a band every Friday and Saturday, a Halloween party and a weekly euchre night, none of them on the guide, which had only its Tuesday trivia (from niwot.com). The calendar is a Squarespace calendar block (collection 67cc8d31ad15874647ad995d) that the page fills by script; the page's own data call, /api/open/GetItemsByMonth?month=MM-YYYY&collectionId=67cc8d31ad15874647ad995d, returns each month's items with start and end, and each item's page answers ?format=json with its description. Ingest has no Squarespace reader, so this is read by hand until one is written. The calendar entries' times are sometimes an hour where the description gives longer (trivia shows 6:30 to 7:30; niwot.com gives 6:30 to 8:30)."
     },
     {
       "id": "niwotarts-org",
@@ -177,18 +193,6 @@
       },
       "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
-    },
-    {
-      "id": "niwotwheelhouse-com",
-      "name": "The Wheel House",
-      "url": "https://www.niwotwheelhouse.com/",
-      "sampleUrl": "https://www.niwotwheelhouse.com/events1",
-      "type": "html",
-      "category": "venue",
-      "priority": "core",
-      "status": "proposed",
-      "robots": "honor",
-      "notes": "Added 31 October 2026, when a check for missed Niwot events found the bar's calendar carried a band every Friday and Saturday, a Halloween party and a weekly euchre night, none of them on the guide, which had only its Tuesday trivia (from niwot.com). The calendar is a Squarespace calendar block (collection 67cc8d31ad15874647ad995d) that the page fills by script; the page's own data call, /api/open/GetItemsByMonth?month=MM-YYYY&collectionId=67cc8d31ad15874647ad995d, returns each month's items with start and end, and each item's page answers ?format=json with its description. Ingest has no Squarespace reader, so this is read by hand until one is written. The calendar entries' times are sometimes an hour where the description gives longer (trivia shows 6:30 to 7:30; niwot.com gives 6:30 to 8:30)."
     }
   ]
 }

@@ -11,7 +11,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "cites": {
         "events": 21,
@@ -71,7 +71,7 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "cites": {
         "events": 8,
@@ -84,6 +84,7 @@
       "id": "citystarbrewing-com",
       "name": "City Star Brewing",
       "url": "https://citystarbrewing.com/",
+      "feedUrl": "https://citystarbrewing.com/wp-json/tribe/events/v1/events?per_page=50",
       "sampleUrl": "https://citystarbrewing.com/event/blind-date-with-a-book-2/",
       "type": "json",
       "category": "venue",
@@ -94,17 +95,18 @@
         "places": 1
       },
       "robots": "honor",
-      "notes": "The brewery's own calendar, 321 Mountain Ave. WordPress with The Events Calendar; the REST feed read 20 October 2026: 133 occurrences in the next 120 days, every one with an empty venue (the taproom is the venue, so defaultVenue), cost empty, categories Events, Food Trucks, Taproom Events, Live Music, Beer Releases. The daily food-truck rota (category Food Trucks), the weekly trivia and the social run are the taproom's regulars, which the standard puts on the listing, so they are excluded; beer releases and live music stage. Confirmed 20 October 2026 on the owner's delegation; 27 published events already cite the site.",
-      "feedUrl": "https://citystarbrewing.com/wp-json/tribe/events/v1/events?per_page=50",
-      "defaultVenue": "City Star Brewing",
-      "excludeCategories": [
-        "Food Trucks"
-      ],
       "excludeTitles": [
         "Trivia",
         "Social Run",
         "Run Club"
-      ]
+      ],
+      "excludeCategories": [
+        "Food Trucks"
+      ],
+      "defaultVenue": "City Star Brewing",
+      "notes": "The brewery's own calendar, 321 Mountain Ave. WordPress with The Events Calendar; the REST feed read 20 October 2026: 133 occurrences in the next 120 days, every one with an empty venue (the taproom is the venue, so defaultVenue), cost empty, categories Events, Food Trucks, Taproom Events, Live Music, Beer Releases. The daily food-truck rota (category Food Trucks), the weekly trivia and the social run are the taproom's regulars, which the standard puts on the listing, so they are excluded; beer releases and live music stage. Confirmed 20 October 2026 on the owner's delegation; 27 published events already cite the site.",
+      "lastChecked": "2026-11-01",
+      "lastStatus": "ok"
     },
     {
       "id": "berthoudhistoricalsociety-org",

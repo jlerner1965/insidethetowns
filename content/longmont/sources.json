@@ -11,7 +11,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
@@ -33,7 +33,7 @@
       "category": "county",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "locationFilter": [
@@ -54,7 +54,7 @@
       "category": "chamber",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Checked 4 October 2026: Craft CMS. The calendar page reads as plain HTML (Downtown and Creative District events, many at businesses: Kuper Wine Bar, The Blackbird House), with pages for the annuals (Day of the Dead, Costume Crawl, Wine Walk, summer concerts, holidays). robots.txt disallows /_feeds/, where a feed would live, so none is proposed. Read by hand."
@@ -68,10 +68,11 @@
       "category": "chamber",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
-      "lastStatus": "ok",
+      "lastChecked": "2026-11-01",
+      "lastStatus": "blocked",
       "robots": "honor",
-      "notes": "Checked 4 October 2026: GrowthZone. Two calendars, the chamber's own (my.longmontchamber.org/calendar: networking, ribbon cuttings) and a community calendar; neither offers a calendar feed, only a .ics per event, and the WordPress RSS at longmontchamber.org/feed/ is news posts. The community calendar carries events outside Longmont (the first one opened was a gala in Loveland), so each item needs its location checked. Read by hand."
+      "notes": "Checked 4 October 2026: GrowthZone. Two calendars, the chamber's own (my.longmontchamber.org/calendar: networking, ribbon cuttings) and a community calendar; neither offers a calendar feed, only a .ics per event, and the WordPress RSS at longmontchamber.org/feed/ is news posts. The community calendar carries events outside Longmont (the first one opened was a gala in Loveland), so each item needs its location checked. Read by hand.",
+      "lastNote": "Cloudflare bot challenge"
     },
     {
       "id": "longmontcolorado-gov-library",
@@ -83,7 +84,7 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
@@ -116,7 +117,7 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Checked 4 October 2026: the source for park, greenway and open-space listings (the directory of parks and trails, the greenways and trails page, the trail status map). Its category on the City calendar had no events, so there is no feed to read; parks events come through longmontcolorado-gov-recreation."
@@ -131,7 +132,7 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
@@ -153,7 +154,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
@@ -172,7 +173,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "blocked",
       "lastNote": "refused an automated request",
       "robots": "honor",
@@ -188,7 +189,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
@@ -210,7 +211,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Checked 4 October 2026: Squarespace, and the season page reads as plain HTML (the 60th season: 17 October, 14 November, the Nutcracker 5 and 6 December, 12 December, then 2027). Squarespace's robots.txt disallows ?format=, so its iCal export is not read. Concerts are at Vance Brand Civic Auditorium on the Skyline High campus, which has no site of its own."
