@@ -92,7 +92,7 @@ const know = currentUpdates(await getTownEntries('updates'), now)
 // 5. The places with a photograph, for the three tiles; a closed place is not a next stop.
 const places = (await getTownEntries('places')).filter(isOpen);
 ---
-<Hero compact />
+<Hero compact pick={!!pick} />
 
 {school ? <SportsBar town={town} /> : schools.length > 1 && (
   <section class="band-compact band-paper">

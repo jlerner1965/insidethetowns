@@ -8056,3 +8056,39 @@ Checked and left alone: the title exclusions (every festive, music or
 market title kept out this week was kept out by an entry meant for it), and
 the matcher's title threshold (no match this week paired two different
 events). The explain flag stays for the next such question.
+
+## A town guide's hero says what it does this week, 1 November 2026
+
+The owner, on the line under the town's name in the hero: it should carry
+the tone of "your week in Erie: what's happening, what's changing, and what
+you don't want to miss", in the guide's own words, and not say "random
+things on the town", because a town guide is for the people who live
+there. The lines were descriptions of the place ("Briggs Street, the
+trails, and a coal town that grew by two-thirds"), which is a visitor
+guide's job: a resident knows the street, and the line gave no reason to
+read on.
+
+A town guide's line now says what the page under it does, and each part
+names a section the home page has (`heroLine`, src/lib/hero-line.ts):
+
+- A resident guide: "What's on in Erie this week, what's new in town, and
+  the one we'd go to" (What's happening; Worth knowing and /updates/; Our
+  pick), and on a phone "What's on in Erie this week, and what's new in
+  town". The pick's clause is there only in a week with a pick on the page:
+  the Wednesday editor leaves it out when nothing holds up.
+- Any other town guide, which has no Updates: "What's on in Fort Collins
+  this week, and where to eat and drink" (What's happening; the Eat & drink
+  tile).
+- A visitor guide keeps its place line, since a visitor wants to know what
+  the place is.
+
+Each line is written whole for the hero's two widths (64 characters on a
+phone, 88 above) for the longest name it has to carry, so neither is cut
+with an ellipsis; `test/hero-line.test.ts` holds every live guide to that.
+The descriptive lines (`shortTagline`) stay where they still belong: beside
+a guide's name in another guide's footer and in Nearby this weekend, and in
+a visitor guide's hero. The tagline, the meta description and the title are
+unchanged, so search sees nothing new. The cost, accepted: every town
+guide's line is now the same sentence with its name, as its three hero
+links already were; the photograph, the county and the listings carry the
+town.

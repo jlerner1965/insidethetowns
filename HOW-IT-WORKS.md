@@ -124,7 +124,7 @@ names who said it. Every page says what it is and when it was checked.
 
 **The town home** is a front door, not the whole site (27 October 2026).
 Top to bottom, the same on a phone and a desktop: nav; the hero as a short
-band (photo, county, name, one line); the school's strip in the school's
+band (photo, county, name, one line: on a town guide, what the guide does this week, "What’s on in Erie this week, what’s new in town, and the one we’d go to", with the pick only in a week that has one; on a visitor guide, what the place is); the school's strip in the school's
 colours; What's happening as Today, Tomorrow and This weekend tabs, five
 rows each; the Thursday signup; three photo tiles (Eat & drink, Things to
 do, Living here or Moving here); Worth knowing, two links; the footer as
