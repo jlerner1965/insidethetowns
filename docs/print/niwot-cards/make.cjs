@@ -28,6 +28,7 @@ const css = `
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:8.5in;height:11in;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 body{position:relative;font-family:Instrument,sans-serif;color:${INK}}
+.sheet{position:relative;width:8.5in;height:11in;page-break-after:always;overflow:hidden}.sheet:last-child{page-break-after:auto}
 .label{position:absolute;left:.75in;top:.2in;font-size:7pt;color:#888}
 .card{position:absolute;width:3.5in;height:2in;padding:.19in .2in .17in .2in;display:flex;gap:.12in}
 .outline .card{outline:.5pt solid #bbb;outline-offset:-.25pt}
@@ -48,6 +49,7 @@ body{position:relative;font-family:Instrument,sans-serif;color:${INK}}
 `;
 const front = (svg) => `<div class="bar"></div><div class="l"><div class="brand"><i>Inside</i> <b>Niwot</b></div><div class="h">What’s happening in Niwot this weekend?</div><div class="sub">Events, places to eat and things to do, checked every week.</div><div class="url">insideniwot.com</div></div><div class="r">${svg}<div class="cta">Scan to see<br>what’s on</div></div>`;
 const back = `<div class="bar"></div><div class="l back"><div class="brand"><i>Inside</i> <b>Niwot</b></div><div class="h">The week in Niwot, every Thursday.</div><div class="sub">The week’s events, the scores and what opened or closed, free by email. Sign up at <b style="color:${GREEN}">insideniwot.com</b></div><div class="rule"></div><div class="ask"><b>Know of an event?</b> Tell us at <span>insideniwot.com/submit-event</span></div><div class="fine">An independent community guide.</div></div>`;
+const sheet = (cards, label) => `<div class="sheet"><div class="label">${label}</div>${pos.map(([x, y]) => `<div class="card" style="left:${x}in;top:${y}in">${cards}</div>`).join('')}</div>`;
 const page = (cards, label = '', cls = '') => `<!doctype html><html><head><meta charset="utf-8"><style>${css}</style></head><body class="${cls}">${label ? `<div class="label">${label}</div>` : ''}${pos.map(([x, y]) => `<div class="card" style="left:${x}in;top:${y}in">${cards}</div>`).join('')}</body></html>`;
 (async () => {
   const b = await chromium.launch(); const p = await b.newPage();
@@ -56,13 +58,12 @@ const page = (cards, label = '', cls = '') => `<!doctype html><html><head><meta 
     const url = `https://insideniwot.com/?ref=${ref}`;
     const q = QR.create(url, { errorCorrectionLevel: 'M' });
     const svg = await QR.toString(url, { type: 'svg', errorCorrectionLevel: 'M', margin: 4, color: { dark: '#000000', light: '#ffffff' } });
-    await pdf(page(front(svg), `Side 1 · ${name} · ${url} · Avery 8371/5874 · print at Actual size (100%)`), `front-${slug}.pdf`);
+    await pdf(`<!doctype html><html><head><meta charset="utf-8"><style>${css} html,body{height:auto}</style></head><body>${sheet(front(svg), `Page 1, side 1 · ${name} · ${url} · Avery 8371/5874 · Actual size (100%)`)}${sheet(back, `Page 2, side 2 · ${name} · turn the sheet over and feed it again`)}</body></html>`, `${slug}.pdf`);
     console.log(slug, 'QR version', q.version, url);
     if (slug === 'oldoak') {
       fs.writeFileSync('/tmp/cards/one.html', `<!doctype html><html><head><meta charset="utf-8"><style>${css} body{width:7.4in;height:2.4in;background:#e9e6df} .card{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.25)}</style></head><body><div class="card" style="left:.15in;top:.2in">${front(svg)}</div><div class="card" style="left:3.75in;top:.2in">${back}</div></body></html>`);
     }
   }
-  await pdf(page(back, 'Side 2 · same for every location · print after side 1, sheet turned over'), 'back.pdf');
   await pdf(page('', 'Alignment test · print on PLAIN paper at Actual size, hold over a card sheet against a window', 'outline'), 'alignment-test.pdf');
   await p.setViewportSize({ width: 711, height: 230 }); await p.goto('file:///tmp/cards/one.html'); await p.evaluate(() => document.fonts.ready);
   await p.screenshot({ path: path.join(OUT, 'preview.png'), scale: 'device' });

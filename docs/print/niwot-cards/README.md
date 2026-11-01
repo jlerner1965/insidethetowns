@@ -6,8 +6,7 @@ Made 1 November 2026.
 | File | What it is |
 |---|---|
 | `alignment-test.pdf` | Card outlines. Print once on plain paper first |
-| `front-<place>.pdf` | Side 1: ten cards whose QR code names that place |
-| `back.pdf` | Side 2: the same for every place |
+| `<place>.pdf` | Two pages: page 1 is side 1, ten cards whose QR code names that place; page 2 is side 2, the back |
 | `preview.png` | One front and the back, on screen |
 
 ## Each place has its own code
@@ -15,7 +14,7 @@ Made 1 November 2026.
 Every front sheet's QR code opens the home page with `?ref=card-<place>`.
 Plausible reads `ref` as the visit's source, so **Sources** on the Plausible
 dashboard shows `card-oldoak`, `card-winot` and so on: which counter gets
-scans. `front-general.pdf` (`?ref=card`) is for anywhere else. Leave one
+scans. `general.pdf` (`?ref=card`) is for anywhere else. Leave one
 place's sheet at one place.
 
 | Sheet | Place | Shows in Plausible as |
@@ -47,10 +46,10 @@ were saved.
 3. **One sheet at a time** through the manual or rear tray, paper guides
    snug against the sheet. The first sheet printed on 31 October went in at
    a slight angle; snug guides stop that.
-4. **Side 1:** print the place's `front-…pdf`, printed side as Avery marks it
-   ("SIDE 1").
+4. **Side 1:** open the place's PDF (`oldoak.pdf`, say) and print **page 1
+   only**, on the side Avery marks "SIDE 1".
 5. **Side 2:** put the same sheet back in turned over, top edge first again,
-   and print `back.pdf`. Every back is the same, so if a sheet goes in the
+   and print **page 2 only**. Every back is the same, so if a sheet goes in the
    other way round the cards still match; check that the backs aren't upside
    down on the first sheet before printing more.
 6. **Scan one card from a corner of the sheet** with a phone before snapping
