@@ -1,15 +1,15 @@
 ---
 title: "CSU Fall Dance Concert"
 start: "2026-11-14T19:30"
-end: "2026-11-14T21:30"
+end: "2026-11-14T21:00"
 venue: "University Center for the Arts"
 address: "1400 Remington St"
 url: "https://dance.colostate.edu/events/2026-fall-dance-concert/"
 cost: "$20; seniors $15; under 18 $10; CSU students free"
 category: arts
 source: "https://dance.colostate.edu/events/2026-fall-dance-concert/"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-01"
+verifiedBy: "auto-review from the dance.colostate.edu feed read 2026-11-01, the weekly ingest workflow"
 ---
 
 The dance program's fall concert at the University Center for the Arts: original works by faculty, guest artists and selected student choreographers, three performances over the weekend.

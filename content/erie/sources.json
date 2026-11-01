@@ -11,7 +11,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "cites": {
         "events": 47,
@@ -45,7 +45,7 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "cites": {
         "events": 86,

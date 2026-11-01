@@ -9,7 +9,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "blocked",
       "lastNote": "refused an automated request",
       "robots": "honor",
@@ -25,7 +25,7 @@
       "category": "county",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "locationFilter": [
@@ -55,7 +55,7 @@
       "category": "chamber",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Checked 6 October 2026: castlerock.org (WordPress/Avada) links its 'Chamber Calendar' to a ChamberMaster/GrowthZone site at business.castlerock.org/events ('Event List | Castle Rock Chamber of Commerce'). The page carried about ten October 2026 items: Breakfast Club Leads Group, Leads Referral Group, Power Partners Leads Group, Rock Solid Leads Group, Chamber 101, Business Unwind at FirstTier Bank, Ribbon Cutting at Equity Title of Colorado, Women of Influence Luncheon. The HTML contains the comment 'link for rss not inserted' and /events/rss answered 404, so no feed; html scrape of /events or /events/calendar/<date>. Mostly member networking; the Chamber's public signature events (Artfest at Festival Park in September, Starlighting, Sip and Savor, Douglas County Fair Parade) are listed on castlerock.org menu pages. Phone (303) 688-4597. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
@@ -69,7 +69,7 @@
       "category": "chamber",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Downtown Castle Rock",
@@ -85,7 +85,7 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
@@ -121,7 +121,7 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "blocked",
       "lastNote": "refused an automated request",
       "robots": "honor",
@@ -136,7 +136,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "105 West Brewing Company",
@@ -151,7 +151,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Castle Rock Museum",
@@ -166,7 +166,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Douglas County Fairgrounds & Events Center",
@@ -181,7 +181,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Outlets at Castle Rock",
@@ -210,6 +210,18 @@
       "notes": "Checked 6 October 2026: www.rockyard.com failed twice with a curl connection error through the proxy (no HTTP status), so unreachable from here. Named in Visit Castle Rock nightlife as the longest-running brewpub in Douglas County (1999). Unverified."
     },
     {
+      "id": "suddenfictionbooks-com",
+      "name": "Sudden Fiction Books events",
+      "url": "https://suddenfictionbooks.com/upcoming-events",
+      "sampleUrl": "https://suddenfictionbooks.com/upcoming-events",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Sudden Fiction Books, Ecclesia Market",
+      "notes": "Found 31 October 2026 while completing the guide for launch: the shop's own Upcoming Events page lists dated in-store events (book bingo at Sinners & Saints, holiday book wrapping, a release party) and a third-Monday book club; read by hand, no feed. Three events were published from it the same day on the README rule that a listing publishes on its own source and date, whatever the registry says; confirm to have it read with the weekly check."
+    },
+    {
       "id": "castlerocknewspress-net",
       "name": "Castle Rock News-Press (Colorado Community Media)",
       "url": "https://www.castlerocknewspress.net/",
@@ -220,18 +232,6 @@
       "status": "proposed",
       "robots": "honor",
       "notes": "Checked 6 October 2026: BLOX CMS weekly, found from coloradocommunitymedia.com (sister title douglascountynewspress.com). The article RSS read successfully: 50 items, newest 4 Oct 2026, titles such as 'Get to know the candidates running for Castle Rock Town Council', 'Castle Rock Water seeks customer input on resource plan', 'Meet the three candidates running for Castle Rock mayor'. News, not events; /local-events/ is an Evvnt-powered aggregator calendar ('Place Your Event With Evvnt') and should not be used as an event source."
-    },
-    {
-      "id": "suddenfictionbooks-com",
-      "name": "Sudden Fiction Books events",
-      "url": "https://suddenfictionbooks.com/upcoming-events",
-      "type": "html",
-      "category": "venue",
-      "status": "proposed",
-      "robots": "honor",
-      "defaultVenue": "Sudden Fiction Books, Ecclesia Market",
-      "notes": "Found 31 October 2026 while completing the guide for launch: the shop's own Upcoming Events page lists dated in-store events (book bingo at Sinners & Saints, holiday book wrapping, a release party) and a third-Monday book club; read by hand, no feed. Three events were published from it the same day on the README rule that a listing publishes on its own source and date, whatever the registry says; confirm to have it read with the weekly check.",
-      "sampleUrl": "https://suddenfictionbooks.com/upcoming-events"
     }
   ]
 }

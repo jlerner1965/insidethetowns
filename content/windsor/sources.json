@@ -12,7 +12,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "subscribe",
       "excludeTitles": [
@@ -30,7 +30,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Severance Town Hall, 3 S Timber Ridge Parkway, Severance",
@@ -86,7 +86,7 @@
       "category": "chamber",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Attempted on 6 October 2026: https://severancechamber.com/ failed twice at the connection (curl error, not a robots refusal) and is unreachable from here; not read. The URL comes from two pages that were read: the Colorado Sun article of 29 August 2026 (https://coloradosun.com/2026/08/29/rural-chamber-of-commerce-timnath-severence/), which links https://severancechamber.com/severance-chamber and says Dustin Peyser is president of both the Timnath and Severance chambers, and the Clearview Library District event page https://clearview.libnet.info/event/16880333 (Business Spotlight, Vecinos Mexican Grill and Cantina, 15 July), which links https://severancechamber.com/ and describes monthly Business Spotlight evenings run with the library. A 'Towns Connecting Over Coffee' quarterly event for Timnath, Severance, Eaton and Evans is listed on timnathchamber.com. Platform and feed unknown until the site can be reached; there is no downtown association. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
@@ -101,7 +101,7 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "changed",
       "lastNote": "now lands on clearview.libnet.info",
       "robots": "honor",
@@ -129,10 +129,25 @@
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
     },
     {
+      "id": "townofseverance-org-parks",
+      "subTown": "severance",
+      "name": "Town of Severance: Parks & Recreation",
+      "url": "https://www.townofseverance.org/209/Parks-Recreation",
+      "type": "html",
+      "category": "parks",
+      "priority": "core",
+      "status": "confirmed",
+      "lastChecked": "2026-11-01",
+      "lastStatus": "ok",
+      "robots": "honor",
+      "notes": "Found and read once on 6 October 2026. Parks & Recreation sits under Public Works on the CivicPlus site (3 S Timber Ridge Parkway, 970-686-1218). The page lists the Town's parks: Severance Shores Park, Hunter's Crossing Park, Overlook Park (650 Audubon Boulevard), Hidden Valley Park 1 and 2, Community Park (100 Waterfowl Way), Dog Park, Tailholt Park, Lakeview Park (513 1/2 Broadview Drive), Karen Suman Park (400 S Timber Ridge Parkway), Summit View Park (270 Audubon Boulevard), Blue Spruce Park (50 S Timber Ridge Parkway), plus a Park Reservation Request and 'Parks Master Plan coming soon'. No recreation programs, classes or a recreation centre are listed; the Town has no separate parks calendar, so park events arrive through the Community Events iCal. The regional recreation provider is the Town of Windsor's Community Recreation Center (250 11th Street, Windsor), but https://www.windsorgov.com/Calendar.aspx returned HTTP 403 on 6 October 2026 and is unreachable from here. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+    },
+    {
       "id": "recreationliveshere-com",
       "subTown": "windsor",
       "name": "Windsor Parks, Recreation & Culture (recreationliveshere.com)",
       "url": "https://recreationliveshere.com/",
+      "feedUrl": "https://www.recreationliveshere.com/common/modules/iCalendar/iCalendar.aspx?catID=14&feed=calendar",
       "sampleUrl": "https://www.recreationliveshere.com/Calendar.aspx?EID=1335",
       "type": "ical",
       "category": "parks",
@@ -143,28 +158,15 @@
         "places": 10
       },
       "robots": "subscribe",
-      "notes": "The Town's parks, recreation and culture department on its own CivicPlus site (the Town's main site, windsorco.gov, blocks the reader behind Cloudflare; this one answers). Read 20 October 2026: the iCalendar page lists eleven calendars; catID 14 is the Main Calendar, 101 VEVENTs from 2019 to holiday closures expanded to 2049, 23 in the next 120 days, every one with a LOCATION (the Halloween Carnival at Boardwalk Community Park, the Twilight Tours of Lakeview Cemetery, Homeschool Day at the Windsor History Museum). Excluded: the recreation centre's holiday closures and the Leaf & Branch Drop, a service schedule. Calendars 26 to 35 (Treasure Island, Summer Concert Series, Farmers Market, Movies in the Park, Special Events) were empty or unread on 20 October; worth a look in spring. The host resets connections now and then; a failed weekly read is retried the next week. The all-calendar RSS carries the same near-term items. Confirmed 20 October 2026 on the owner's delegation; 16 published events cite the site, most from department pages rather than the calendar. The Twilight Tours of Lakeview Cemetery are excluded for this run: the feed sells two slots a night and the guide lists each night once, read by hand. robots: subscribe from 29 October 2026, the editor's call delegated by the owner: CivicPlus added `Disallow: /common/modules/icalendar/` to every site it hosts on 20-21 October, which the check now reads case-blind, and this feed is the one the site offers residents as a calendar subscription; one nightly read is what a subscribed calendar does (DECISIONS.md, \"CivicPlus's calendar feeds\").",
-      "feedUrl": "https://www.recreationliveshere.com/common/modules/iCalendar/iCalendar.aspx?catID=14&feed=calendar",
       "excludeTitles": [
         "Closed for",
         "Leaf & Branch Drop",
         "Leaf and Branch Drop",
         "Twilight Tour"
-      ]
-    },
-    {
-      "id": "townofseverance-org-parks",
-      "subTown": "severance",
-      "name": "Town of Severance: Parks & Recreation",
-      "url": "https://www.townofseverance.org/209/Parks-Recreation",
-      "type": "html",
-      "category": "parks",
-      "priority": "core",
-      "status": "confirmed",
-      "lastChecked": "2026-10-19",
-      "lastStatus": "ok",
-      "robots": "honor",
-      "notes": "Found and read once on 6 October 2026. Parks & Recreation sits under Public Works on the CivicPlus site (3 S Timber Ridge Parkway, 970-686-1218). The page lists the Town's parks: Severance Shores Park, Hunter's Crossing Park, Overlook Park (650 Audubon Boulevard), Hidden Valley Park 1 and 2, Community Park (100 Waterfowl Way), Dog Park, Tailholt Park, Lakeview Park (513 1/2 Broadview Drive), Karen Suman Park (400 S Timber Ridge Parkway), Summit View Park (270 Audubon Boulevard), Blue Spruce Park (50 S Timber Ridge Parkway), plus a Park Reservation Request and 'Parks Master Plan coming soon'. No recreation programs, classes or a recreation centre are listed; the Town has no separate parks calendar, so park events arrive through the Community Events iCal. The regional recreation provider is the Town of Windsor's Community Recreation Center (250 11th Street, Windsor), but https://www.windsorgov.com/Calendar.aspx returned HTTP 403 on 6 October 2026 and is unreachable from here. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
+      ],
+      "notes": "The Town's parks, recreation and culture department on its own CivicPlus site (the Town's main site, windsorco.gov, blocks the reader behind Cloudflare; this one answers). Read 20 October 2026: the iCalendar page lists eleven calendars; catID 14 is the Main Calendar, 101 VEVENTs from 2019 to holiday closures expanded to 2049, 23 in the next 120 days, every one with a LOCATION (the Halloween Carnival at Boardwalk Community Park, the Twilight Tours of Lakeview Cemetery, Homeschool Day at the Windsor History Museum). Excluded: the recreation centre's holiday closures and the Leaf & Branch Drop, a service schedule. Calendars 26 to 35 (Treasure Island, Summer Concert Series, Farmers Market, Movies in the Park, Special Events) were empty or unread on 20 October; worth a look in spring. The host resets connections now and then; a failed weekly read is retried the next week. The all-calendar RSS carries the same near-term items. Confirmed 20 October 2026 on the owner's delegation; 16 published events cite the site, most from department pages rather than the calendar. The Twilight Tours of Lakeview Cemetery are excluded for this run: the feed sells two slots a night and the guide lists each night once, read by hand. robots: subscribe from 29 October 2026, the editor's call delegated by the owner: CivicPlus added `Disallow: /common/modules/icalendar/` to every site it hosts on 20-21 October, which the check now reads case-blind, and this feed is the one the site offers residents as a calendar subscription; one nightly read is what a subscribed calendar does (DECISIONS.md, \"CivicPlus's calendar feeds\").",
+      "lastChecked": "2026-11-01",
+      "lastStatus": "ok"
     },
     {
       "id": "brucesbar123-com",
@@ -176,7 +178,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Bruce's Bar, 123 1st Street, Severance",
@@ -192,7 +194,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Severance High School, 1200 Hidden Valley Parkway, Severance",
@@ -270,6 +272,7 @@
       "subTown": "windsor",
       "name": "Peculier Ales (Windsor)",
       "url": "https://peculierales.com/",
+      "feedUrl": "https://peculierales.com/events/feed/",
       "sampleUrl": "https://peculierales.com/events/bingo/",
       "type": "rss",
       "category": "venue",
@@ -279,9 +282,6 @@
         "places": 1
       },
       "robots": "honor",
-      "notes": "The brewery's own calendar (Modern Events Calendar) at /events/feed/, read 20 October 2026: the next ten occurrences, about a week ahead, with mec:location on most (live music carries none, so the taproom at 301 Main Street is the default venue). The feed mixes in the Fort Collins taproom, whose items name it in the title or the address, so 'Fort Collins' is excluded by title and a Mulberry Street address would show as a venue guess for the editor. The weekly regulars (Member Mondays, Teacher Tuesdays, Industry Night, the Thursday beer release, bingo) are excluded; live music stages. Confirmed 20 October 2026 on the owner's delegation; 3 published events cite the site.",
-      "feedUrl": "https://peculierales.com/events/feed/",
-      "defaultVenue": "Peculier Ales",
       "excludeTitles": [
         "Fort Collins",
         "Member Monday",
@@ -289,7 +289,11 @@
         "Industry Night",
         "Beer Release Day",
         "Bingo"
-      ]
+      ],
+      "defaultVenue": "Peculier Ales",
+      "notes": "The brewery's own calendar (Modern Events Calendar) at /events/feed/, read 20 October 2026: the next ten occurrences, about a week ahead, with mec:location on most (live music carries none, so the taproom at 301 Main Street is the default venue). The feed mixes in the Fort Collins taproom, whose items name it in the title or the address, so 'Fort Collins' is excluded by title and a Mulberry Street address would show as a venue guess for the editor. The weekly regulars (Member Mondays, Teacher Tuesdays, Industry Night, the Thursday beer release, bingo) are excluded; live music stages. Confirmed 20 October 2026 on the owner's delegation; 3 published events cite the site.",
+      "lastChecked": "2026-11-01",
+      "lastStatus": "ok"
     },
     {
       "id": "northfortynews-com",

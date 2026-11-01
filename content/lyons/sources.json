@@ -27,7 +27,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "cites": {
         "events": 14,
@@ -46,7 +46,7 @@
       "category": "county",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "cites": {
         "events": 0,
@@ -68,9 +68,8 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-19",
-      "lastStatus": "skipped",
-      "lastNote": "robots.txt asks automated clients not to fetch it",
+      "lastChecked": "2026-11-01",
+      "lastStatus": "ok",
       "cites": {
         "events": 74,
         "places": 0
@@ -78,6 +77,21 @@
       "robots": "subscribe",
       "defaultVenue": "Lyons Regional Library",
       "notes": "Its iCal feed (feedUrl) is offered to readers to subscribe to in a calendar app. The site's robots.txt disallows every path for agents it does not name, so the event pages are not read; the feed is, under robots: subscribe, by the nightly re-check only, once a night, to confirm listings already on the guide (decided 17 October 2026 under the owner's delegation; the permission request of docs/archive/emails/SOURCE-PERMISSION-EMAILS.md stands as a courtesy). Type stays manual: ingest does not read it until the library answers. Found 4 October 2026; about 120 events, UTC times."
+    },
+    {
+      "id": "creativegroundslyons-com",
+      "name": "Creative Grounds",
+      "url": "https://creativegroundslyons.com/classes",
+      "sampleUrl": "https://creativegroundslyons.com/classes/thursdays-130pm-4pm-adult-hand-building-5-weeks-18",
+      "type": "html",
+      "category": "venue",
+      "priority": "core",
+      "status": "confirmed",
+      "lastChecked": "2026-11-01",
+      "lastStatus": "ok",
+      "robots": "honor",
+      "defaultVenue": "Creative Grounds",
+      "notes": "Confirmed 28 October 2026 at the owner's direction: Creative Grounds (160 E Main St) is a source for Lyons events, and every class on its calendar is listed. A Squarespace events list at /classes, one page per class date with its time, price and sign-up. Its robots.txt disallows ?format=ical and ?format=json for every agent, so there is no feed to read; type stays html and the pages are read by hand. Casey at Creative Grounds is the contact (docs/relationships/contacts/creative-grounds.md)."
     },
     {
       "id": "rockgardenlyons-com",
@@ -139,21 +153,6 @@
       },
       "robots": "honor",
       "notes": "Seeded 2026-10-04 from the sources the content cites. Category guessed from the host name; type html until a feed is found."
-    },
-    {
-      "id": "creativegroundslyons-com",
-      "name": "Creative Grounds",
-      "url": "https://creativegroundslyons.com/classes",
-      "sampleUrl": "https://creativegroundslyons.com/classes/thursdays-130pm-4pm-adult-hand-building-5-weeks-18",
-      "type": "html",
-      "category": "venue",
-      "priority": "core",
-      "status": "confirmed",
-      "lastChecked": "2026-10-28",
-      "lastStatus": "ok",
-      "robots": "honor",
-      "defaultVenue": "Creative Grounds",
-      "notes": "Confirmed 28 October 2026 at the owner's direction: Creative Grounds (160 E Main St) is a source for Lyons events, and every class on its calendar is listed. A Squarespace events list at /classes, one page per class date with its time, price and sign-up. Its robots.txt disallows ?format=ical and ?format=json for every agent, so there is no feed to read; type stays html and the pages are read by hand. Casey at Creative Grounds is the contact (docs/relationships/contacts/creative-grounds.md)."
     }
   ]
 }

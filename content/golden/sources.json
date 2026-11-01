@@ -10,7 +10,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-28",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
@@ -32,7 +32,7 @@
       "category": "county",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-28",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "locationFilter": [
@@ -52,7 +52,7 @@
       "category": "chamber",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-28",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Read 2026-10-06. goldenchamber.org (200) links to a ChamberMaster/GrowthZone calendar at business.goldenchamber.org/events/calendar (200, 'Greater Golden Chamber of Commerce'), showing 61 results for October-November 2026 with categories (Arts & Culture, Business After Hours, Festivals & Celebrations, Ribbon Cuttings, Recreation & Sports...); first visible item 'Sovrn's Run Club'. No iCal or RSS link on the page, only a print view and a date-range search, so type html. Member-hosted items mix with chamber networking events. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Read 2026-10-28: robots.txt disallows /events/search (the old sampleUrl), so the sampleUrl is now a month page; /events/calendar/2026-11-01 and /2026-12-01 answer with that month's events (the ?calendarMonth= parameter is ignored). Useful items were the Jefferson Symphony's holiday concert (13 December, Green Center) and its dinner at the Buffalo Rose (14 December); the rest were networking groups, ribbon cuttings and recurring member events."
@@ -66,10 +66,11 @@
       "category": "chamber",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-28",
-      "lastStatus": "ok",
+      "lastChecked": "2026-11-01",
+      "lastStatus": "blocked",
       "robots": "honor",
-      "notes": "Read 2026-10-06. Category chamber because this is the destination marketing body and runs the Golden Welcome Center (nav: Plan Your Visit > Golden Welcome Center; also 'Road Construction Updates' and 'Information and Alerts' pages, not opened). WordPress; the homepage (200) has an Events section (Holiday Events, Candlelight Walk, Holiday Parades, Jingle on the Avenue, Buffalo Bill Days, Goldens in Golden, Colorado Cowboy Gathering, Live Music, Submit an Event). The city calendar links event pages at visitgolden.com/event/..., so it is The Events Calendar, but /events/?ical=1 returned 403 (bot block), so no feed; the /events/ page itself was not opened within the fetch budget. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Read 2026-10-28 without a challenge: /events/ answered 200, and so did The Events Calendar's REST API (/wp-json/tribe/events/v1/events?start_date=2026-10-28&end_date=2026-12-21&per_page=50, 396 items over 8 pages), mostly bars' and restaurants' weekly specials, trivia and live music. The Olde Golden Holidays pages (candlelight-walk, holiday-parades, jingle-on-the-avenue under /events/holiday-events/olde-golden-holidays/) carry the holiday details. Miners Alley's show dates were read here because the theater's own box office refuses automated requests; Visit Golden's listing for Who's Holiday gives 7:30 am, an evident slip for pm."
+      "notes": "Read 2026-10-06. Category chamber because this is the destination marketing body and runs the Golden Welcome Center (nav: Plan Your Visit > Golden Welcome Center; also 'Road Construction Updates' and 'Information and Alerts' pages, not opened). WordPress; the homepage (200) has an Events section (Holiday Events, Candlelight Walk, Holiday Parades, Jingle on the Avenue, Buffalo Bill Days, Goldens in Golden, Colorado Cowboy Gathering, Live Music, Submit an Event). The city calendar links event pages at visitgolden.com/event/..., so it is The Events Calendar, but /events/?ical=1 returned 403 (bot block), so no feed; the /events/ page itself was not opened within the fetch budget. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Read 2026-10-28 without a challenge: /events/ answered 200, and so did The Events Calendar's REST API (/wp-json/tribe/events/v1/events?start_date=2026-10-28&end_date=2026-12-21&per_page=50, 396 items over 8 pages), mostly bars' and restaurants' weekly specials, trivia and live music. The Olde Golden Holidays pages (candlelight-walk, holiday-parades, jingle-on-the-avenue under /events/holiday-events/olde-golden-holidays/) carry the holiday details. Miners Alley's show dates were read here because the theater's own box office refuses automated requests; Visit Golden's listing for Who's Holiday gives 7:30 am, an evident slip for pm.",
+      "lastNote": "Cloudflare bot challenge"
     },
     {
       "id": "jeffcolibrary-bibliocommons-com",
@@ -80,7 +81,7 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-28",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "locationFilter": [
@@ -97,7 +98,7 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-28",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Read 2026-10-06. The Parks & Trails page (200) is an A-Z list of city parks with amenities and no calendar; it records that Rooney Road Sports Complex was turned over to Jefferson County Open Space on 1/1/2025. No separate city open-space page or trail-conditions page was found in the site nav (nav items: Parks & Trails, Park Rules, City Tree Map, Clear Creek RV Park, Fossil Trace Golf Club, Splash). Recreation registration is a Vermont Systems WebTrac at web2.myvscloud.com (linked from the homepage, not a feed). Community Center programs appear in the city JSON feed under primary_calendar_name 'Community Center' (e.g. Friends of the Front Porch), so this entry is for places and the Movies & Music in the Park page (community/movies_music_park.php, linked, not opened). The sampleUrl was linked from the homepage, not opened. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Read 2026-10-28: Parks & Trails and Golden Community Center pages answered; no events on either."
@@ -111,7 +112,7 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-28",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Read 2026-10-06. Both denvergov.org URLs returned 200 with the same Mountain Parks page: 'Lookout Mountain Park & Pahaska Tepee', 'home to the popular Buffalo Bill Museum and Grave ... 12 miles west of downtown Denver', Genesee bison herd, Chief Hosa Campground, forest-health work. Informational page with no calendar or feed; land agency for Lookout Mountain Park above Golden, category parks. Buffalo Bill Museum & Grave is registered as a venue below. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Read 2026-10-28: the url now redirects to the sampleUrl's /Parks/Mountain-Parks path; volunteer and youth-corps programs only, no events."
@@ -126,8 +127,8 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-28",
-      "lastStatus": "skipped",
+      "lastChecked": "2026-11-01",
+      "lastStatus": "ok",
       "robots": "subscribe",
       "locationFilter": [
         "Lookout Mountain",
@@ -140,8 +141,7 @@
         "Preschool Nature Nuts",
         "Nature Journal Club"
       ],
-      "notes": "Read 2026-10-06. Land agency for North Table Mountain, Lookout Mountain Preserve and Nature Center, Clear Creek Canyon Park, Windy Saddle, Apex, Centennial Cone and (since 2025) Rooney Road; category parks. The Open Space page (200, CivicPlus) links its own calendar (calendar.aspx?CID=26) and /1531/Alerts-Closures. The CivicPlus iCal for CID 26 read once: 10 VEVENT, 2 RRULE, 2024-11-03 to 2026-10-27, TZID America/Denver, locations as HTML fragments (Lookout Mountain Preserve and Nature Center 910 Colorow Rd; Jefferson County Fairgrounds; Alderfer/Three Sisters; Lakewood Library); titles Full Moon Night Hike, Yoga With a Ranger, Boo-Logical Adaptations Night Hike, Night at the Observatory, Preschool Nature Nuts, open houses; programs not meetings, county-wide, so filter on Lookout Mountain / North Table / Clear Creek Canyon locations. The Alerts & Closures page (200) is the live closures page to link from the town config: current notices (Meyer Ranch closure from 10/19, Deer Creek Canyon Meadowlark Trail, South Valley Prairie Falcon Trail, Tiers of Zion) and seasonal closures including Clear Creek Canyon Park near MM 270 uphill of US 6 closed Feb 1-Jul 31 for nesting eagles and Centennial Cone Elk Range Trail Feb 1-mid June; also /AlertCenter.aspx?CID=25 (Notify Me). The feed index /RSS.aspx is robots-disallowed. locationFilter set on confirmation, 6 October 2026, to the parks around Golden named above. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Exclusions added 7 October 2026 from the launch review, where each was rejected under the event standard in docs/archive/AUDIT-2026-10-02.md (a regular preschool program, like a storytime); remove any to have it staged again. \"Nature Journal Club\" excluded 7 October 2026: a club, under the event standard. Read 2026-10-28: Jeffco's robots.txt, changed 2026-10-21, disallows /common/modules/icalendar/ for every agent. Paths are case-sensitive under RFC 9309 and the feed is /common/modules/iCalendar/, so a literal check still passes, but the rule plainly means this feed, and it was not used. The list view (Calendar.aspx?view=list&CID=26) and the event pages (calendar.aspx?EID=...) are allowed and were read instead: near Golden, only Yoga With a Ranger (21 November) and the excluded Preschool Nature Nuts and Nature Journal Club through 24 November. The owner should decide whether ingest keeps reading this feed. robots: subscribe from 29 October 2026, the editor's call delegated by the owner: CivicPlus added `Disallow: /common/modules/icalendar/` to every site it hosts on 20-21 October, which the check now reads case-blind, and this feed is the one the site offers residents as a calendar subscription; one nightly read is what a subscribed calendar does (DECISIONS.md, \"CivicPlus's calendar feeds\").",
-      "lastNote": "robots.txt now disallows /common/modules/icalendar/ (lowercase); calendar pages read instead"
+      "notes": "Read 2026-10-06. Land agency for North Table Mountain, Lookout Mountain Preserve and Nature Center, Clear Creek Canyon Park, Windy Saddle, Apex, Centennial Cone and (since 2025) Rooney Road; category parks. The Open Space page (200, CivicPlus) links its own calendar (calendar.aspx?CID=26) and /1531/Alerts-Closures. The CivicPlus iCal for CID 26 read once: 10 VEVENT, 2 RRULE, 2024-11-03 to 2026-10-27, TZID America/Denver, locations as HTML fragments (Lookout Mountain Preserve and Nature Center 910 Colorow Rd; Jefferson County Fairgrounds; Alderfer/Three Sisters; Lakewood Library); titles Full Moon Night Hike, Yoga With a Ranger, Boo-Logical Adaptations Night Hike, Night at the Observatory, Preschool Nature Nuts, open houses; programs not meetings, county-wide, so filter on Lookout Mountain / North Table / Clear Creek Canyon locations. The Alerts & Closures page (200) is the live closures page to link from the town config: current notices (Meyer Ranch closure from 10/19, Deer Creek Canyon Meadowlark Trail, South Valley Prairie Falcon Trail, Tiers of Zion) and seasonal closures including Clear Creek Canyon Park near MM 270 uphill of US 6 closed Feb 1-Jul 31 for nesting eagles and Centennial Cone Elk Range Trail Feb 1-mid June; also /AlertCenter.aspx?CID=25 (Notify Me). The feed index /RSS.aspx is robots-disallowed. locationFilter set on confirmation, 6 October 2026, to the parks around Golden named above. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Exclusions added 7 October 2026 from the launch review, where each was rejected under the event standard in docs/archive/AUDIT-2026-10-02.md (a regular preschool program, like a storytime); remove any to have it staged again. \"Nature Journal Club\" excluded 7 October 2026: a club, under the event standard. Read 2026-10-28: Jeffco's robots.txt, changed 2026-10-21, disallows /common/modules/icalendar/ for every agent. Paths are case-sensitive under RFC 9309 and the feed is /common/modules/iCalendar/, so a literal check still passes, but the rule plainly means this feed, and it was not used. The list view (Calendar.aspx?view=list&CID=26) and the event pages (calendar.aspx?EID=...) are allowed and were read instead: near Golden, only Yoga With a Ranger (21 November) and the excluded Preschool Nature Nuts and Nature Journal Club through 24 November. The owner should decide whether ingest keeps reading this feed. robots: subscribe from 29 October 2026, the editor's call delegated by the owner: CivicPlus added `Disallow: /common/modules/icalendar/` to every site it hosts on 20-21 October, which the check now reads case-blind, and this feed is the one the site offers residents as a calendar subscription; one nightly read is what a subscribed calendar does (DECISIONS.md, \"CivicPlus's calendar feeds\")."
     },
     {
       "id": "buffalobill-org",
@@ -152,7 +152,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-28",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Buffalo Bill Museum & Grave, 987 1/2 Lookout Mountain Rd, Golden",
@@ -162,15 +162,15 @@
       "id": "buffalorose-net",
       "name": "Buffalo Rose",
       "url": "https://buffalorosegolden.com/shows/",
+      "sampleUrl": "https://buffalorosegolden.com/events/shakedown-street-my-blue-sky/",
       "type": "html",
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-28",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
-      "notes": "Read 2026-10-06. Two attempts ended in a connection error from the helper (curl failed with no HTTP status), so the site is unreachable from here; no page or feed was read. Confirm the domain and the show calendar by hand. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Read 2026-10-28: buffalorose.net still resets the connection, but the venue's site is buffalorosegolden.com (robots.txt allows us; contact address information@buffalorose.net). /shows/ lists the event center's calendar into January 2027, and each /events/<slug>/ page gives the date, show times, doors and age limit; prices are behind the ticket links. The Events Calendar REST route does not exist there. Type changed from manual to html, as it is now readable.",
-      "sampleUrl": "https://buffalorosegolden.com/events/shakedown-street-my-blue-sky/"
+      "notes": "Read 2026-10-06. Two attempts ended in a connection error from the helper (curl failed with no HTTP status), so the site is unreachable from here; no page or feed was read. Confirm the domain and the show calendar by hand. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Read 2026-10-28: buffalorose.net still resets the connection, but the venue's site is buffalorosegolden.com (robots.txt allows us; contact address information@buffalorose.net). /shows/ lists the event center's calendar into January 2027, and each /events/<slug>/ page gives the date, show times, doors and age limit; prices are behind the ticket links. The Events Calendar REST route does not exist there. Type changed from manual to html, as it is now readable."
     },
     {
       "id": "coloradorailroadmuseum-org",
@@ -182,7 +182,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-28",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
@@ -205,7 +205,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-28",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Read 2026-10-06. mines.edu/events/ returned 404 but links calendar.mines.edu (200, WordPress/Divi, 1500 Illinois St., Golden, CO 80401, 303-273-3000). The page body is 'Featured Events' with no visible items in the fetched HTML and no .ics, RSS or API link; one All-in-One Event Calendar CSS reference, but the ai1ec export URL on calendar.mines.edu returned the HTML page, not a feed. Public events (lectures, Geology Museum, athletics) need a manual look; type html. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Read 2026-10-28: the LiveWhale JSON API answers, e.g. https://calendar.mines.edu/live/json/v2/events/start_date/2026-10-28/end_date/2026-12-21/response_fields/location,event_types,tags,group_title,summary/paginate/100/?page=1 (page with ?page=N; /page/N is ignored), 1,049 items to 21 December, nine in ten in the 'Student Activities & Events' group. The groups 'Public' and 'Varsity Athletics' hold what the guide uses. Event pages render by script but carry the event as JSON-LD."
@@ -220,7 +220,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-28",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
@@ -237,11 +237,10 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-28",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
-      "notes": "Read 2026-10-06. The homepage returned 202 with a SiteGround captcha challenge (meta refresh to /.well-known/sgcaptcha/), so nothing could be read and no feed was found. Not retried by other means. Season listings must be checked by hand. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Read 2026-10-28: minersalley.com answered 200 without the captcha, but show pages hold no dates: they embed the Spektrix box office (tickets.minersalley.com), which answered 403 with a Cloudflare block, and Spektrix's API host (system.spektrix.com) disallows everything in robots.txt. Show dates for the guide were read from Visit Golden.",
-      "lastNote": "no show dates on its pages; the box office refuses automated requests"
+      "notes": "Read 2026-10-06. The homepage returned 202 with a SiteGround captcha challenge (meta refresh to /.well-known/sgcaptcha/), so nothing could be read and no feed was found. Not retried by other means. Season listings must be checked by hand. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Read 2026-10-28: minersalley.com answered 200 without the captcha, but show pages hold no dates: they embed the Spektrix box office (tickets.minersalley.com), which answered 403 with a Cloudflare block, and Spektrix's API host (system.spektrix.com) disallows everything in robots.txt. Show dates for the guide were read from Visit Golden."
     },
     {
       "id": "cotrip-org",
@@ -251,7 +250,7 @@
       "category": "other",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-10-28",
+      "lastChecked": "2026-11-01",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Read 2026-10-06. Returned 200 but is a JavaScript app ('COtrip Traveler Information Loading'); nothing to ingest. Link only, from the town config, for US 6 / Clear Creek Canyon, US 40 / Lookout Mountain and I-70 conditions. The City's own Road Closures link is an ArcGIS web app (cityofgolden.maps.arcgis.com/apps/webappviewer/index.html?id=122dee1893c7494fb39afdadbe23eb0e, seen on the homepage, not opened). Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own). Read 2026-10-28: still the JavaScript app shell; link only."
