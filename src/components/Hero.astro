@@ -24,6 +24,7 @@ import { getTownEntries } from '@/lib/content';
 import { heroSecondLink, heroThirdLink } from '@/lib/places';
 import { EAT_DRINK_TYPES, THINGS_TO_DO_TYPES } from '@/content/schemas';
 import { shorten } from '@/lib/text';
+import { heroLine } from '@/lib/hero-line';
 import { heroCreditOnImage } from '@/lib/photo-credits';
 
 interface Props {
@@ -33,6 +34,8 @@ interface Props {
   links?: Array<{ label: string; href: string; primary?: boolean }>;
   /** No links, and on a phone the photograph as a short band with the type below it. */
   compact?: boolean;
+  /** This week has an editor's pick on the page, so the line may name it (src/lib/hero-line.ts). */
+  pick?: boolean;
 }
 
 const site = getSite();
@@ -45,10 +48,11 @@ const second: NonNullable<Props['links']>[number] = heroSecondLink({
 const {
   eyebrow = site.kind === 'town' ? `${countyLabel(site)}, Colorado` : 'Colorado’s Front Range and mountains',
   title = site.name,
-  // The short tagline, written to fit, when the site has one; the full
-  // tagline is a sentence with a colon clause and clipped with "…" at
-  // every width, which read as a truncation error on the first line of
+  // A visitor guide's short tagline, written to fit, when the site has one;
+  // the full tagline is a sentence with a colon clause and clipped with "…"
+  // at every width, which read as a truncation error on the first line of
   // the site. The full tagline stays in the meta description and the footer.
+  // A town guide says what it does this week instead (heroLine, below).
   subtitle = site.kind === 'town' ? site.shortTagline ?? site.tagline : site.tagline,
   // This week, then the bigger of the two place sections, then the
   // resident's page the guide has: Living here where it exists, else Moving
@@ -70,8 +74,11 @@ const lineShade = [
 // rather than by the clamp alone, which put its ellipsis wherever the second
 // line ran out. A phone's budget is smaller than a wide screen's, so there
 // are two; the clamp stays as a net.
-const subtitleShort = shorten(subtitle, 64);
-const subtitleLong = shorten(subtitle, 88);
+// A town guide's line is written whole for each width (src/lib/hero-line.ts);
+// a page that passes its own subtitle, and a visitor guide, are shortened.
+const week = site.kind === 'town' && Astro.props.subtitle === undefined ? heroLine(site, { pick: Astro.props.pick === true }) : undefined;
+const subtitleShort = week?.short ?? shorten(subtitle, 64);
+const subtitleLong = week?.long ?? shorten(subtitle, 88);
 ---
 <section class="on-dark relative isolate overflow-hidden bg-primary text-white">
   <div class:list={[compact ? 'relative h-52 overflow-hidden sm:absolute sm:inset-0 sm:-z-20 sm:h-auto' : 'contents']}>

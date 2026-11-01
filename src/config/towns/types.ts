@@ -275,13 +275,14 @@ export interface TownConfig {
   domain: string;
   /** "Inside Lyons" */
   siteTitle: string;
-  /** One sentence. Shown in the hero and meta description. */
+  /** One sentence. Shown in the meta description and the footer. */
   tagline: string;
   /**
    * A few words on what the town is, shown beside its name wherever another
-   * site links to it (the footer's sister guides, Nearby this weekend):
-   * "Sandstone, the river, and a music festival". Not the tagline, which is
-   * a sentence.
+   * site links to it (the footer's sister guides, Nearby this weekend), and
+   * in a visitor guide's hero: "Sandstone, the river, and a music festival".
+   * Not the tagline, which is a sentence. A town guide's hero says what the
+   * guide does this week instead (src/lib/hero-line.ts).
    */
   shortTagline?: string;
   /** Used in <title> when the full tagline would be truncated mid-phrase. */
