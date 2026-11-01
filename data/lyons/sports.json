@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-01T18:58:52.494Z",
+  "generated": "2026-11-01T22:12:57.439Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/football/",
-      "fetched": "2026-11-01T18:58:52.494Z",
-      "maxprepsUpdated": "2026-11-01T15:45:44",
+      "fetched": "2026-11-01T22:12:57.439Z",
+      "maxprepsUpdated": "2026-11-01T20:58:53",
       "overall": "6-3",
       "league": {
         "record": "3-2",
@@ -21,7 +21,7 @@
           "url": "https://www.maxpreps.com/co/football/game/lyons-vs-soroco-oak-creek/10-30-2026/?c=55b2871c-8f9e-49bd-a8af-2e9465a48e49",
           "result": "W",
           "score": {
-            "us": 55,
+            "us": 56,
             "them": 20
           }
         },
@@ -124,7 +124,7 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/volleyball/",
-      "fetched": "2026-11-01T18:58:52.494Z",
+      "fetched": "2026-11-01T22:12:57.439Z",
       "maxprepsUpdated": "2026-11-01T18:59:01",
       "overall": "17-5",
       "league": {
@@ -393,8 +393,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/softball/fall/",
-      "fetched": "2026-11-01T18:58:52.494Z",
-      "maxprepsUpdated": "2026-11-01T17:10:17",
+      "fetched": "2026-11-01T22:12:57.439Z",
+      "maxprepsUpdated": "2026-11-01T21:14:58",
       "overall": "22-6",
       "league": {
         "record": "4-5",
@@ -737,7 +737,7 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/cross-country/",
-      "fetched": "2026-11-01T18:58:52.494Z",
+      "fetched": "2026-11-01T22:12:57.439Z",
       "maxprepsUpdated": "2026-11-01T18:59:19",
       "results": [],
       "upcoming": [],
@@ -751,7 +751,7 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/cross-country/girls/",
-      "fetched": "2026-11-01T18:58:52.494Z",
+      "fetched": "2026-11-01T22:12:57.439Z",
       "maxprepsUpdated": "2026-11-01T18:59:23",
       "results": [],
       "upcoming": [],
@@ -765,8 +765,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/basketball/",
-      "fetched": "2026-11-01T18:58:52.494Z",
-      "maxprepsUpdated": "2026-11-01T15:21:28",
+      "fetched": "2026-11-01T22:12:57.439Z",
+      "maxprepsUpdated": "2026-11-01T20:25:17",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -920,7 +920,7 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/basketball/girls/",
-      "fetched": "2026-11-01T18:58:52.494Z",
+      "fetched": "2026-11-01T22:12:57.439Z",
       "maxprepsUpdated": "2026-11-01T18:54:36",
       "overall": "0-0",
       "league": {
@@ -985,7 +985,7 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/wrestling/",
-      "fetched": "2026-11-01T18:58:52.494Z",
+      "fetched": "2026-11-01T22:12:57.439Z",
       "maxprepsUpdated": "2026-11-01T18:59:45",
       "results": [],
       "upcoming": [],
