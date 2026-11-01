@@ -105,3 +105,87 @@ Worth a decision:
     during playoffs.
 20. Hero photographs: Johnstown's barn and Lyons's distant view show no town
     (both already on the owner's shoot list).
+
+## Pass 3: first impressions, as a visitor who will leave in ten seconds
+
+Read on the desktop first screen (1366 by 768) of all six homes, the phone
+first screen of an event page, a place page, This week and Events, and two
+landing pages to the bottom. The sites run above a 70 per cent bounce rate;
+this pass asks what the first screen gives a stranger.
+
+What the first screen is, on every home: the nav, the photograph with the
+name and the line, the sports strip, "What's happening in <Town>", three
+tabs, and one to three rows or "Nothing listed for the weekend yet" over
+"Next in <Town>". Nothing else is above the fold on a desktop; on a phone
+not even the rows.
+
+21. **The default tab opens on a weekend that is over.** On a Sunday evening
+    every home opens on This weekend: Golden's shows an 11 am home show at
+    9 pm; Johnstown's, Niwot's and Berthoud's show "Nothing listed for the
+    weekend yet". `defaultTab(now)` picks the weekend on Saturday and Sunday;
+    after Sunday afternoon it should open on Tomorrow, or on the week.
+22. **A thin day shows the thinnest things.** "Next in <Town>" is the next
+    three listings in time order, which on a Sunday night are Monday's
+    storytimes and a council meeting (Johnstown, Berthoud) or Tuesday's
+    trivia and a committee (Niwot). The same guides hold the Parade of
+    Lights, Enchanted Evening, the Holiday Market, the Polar Express, all in
+    "Big dates ahead" on the Events page and invisible on the home. When the
+    tabs are thin, the home should show the next festivals, markets, music
+    and the pick, not the next three regulars: rank by kind, meetings and
+    storytimes last.
+23. **The best writing is two clicks down.** The desktop nav is This week,
+    Events, sports, Eat & drink, Families, Living here, Towns, Thursday
+    email. Things to do and Guides (the articles: the dog rules, the county
+    line, the fire districts) are reached from a tile or the footer. A
+    visitor who leaves from the first screen never learns they exist. One
+    nav slot for Things to do or Guides, or the week's article on the home.
+24. **Nothing on the first screen says what this is or why to trust it.**
+    "Independent", "free", "checked against the source" are in the footer
+    and the About page. The Events page carries "Refreshed November 1,
+    2026"; the home carries nothing. One line under What's happening, "Every
+    listing checked against its source; refreshed November 1", is the
+    cheapest trust the page can buy.
+25. **This week's first screen leads with its own age.** Lyons: "October 26
+    – November 1 · Checked October 17, 2026: the item here was read against
+    its own source that day", then one Sunday event under way. The first
+    substantive line a visitor reads is a fifteen-day-old check date for a
+    week that ends today. The week's dates and the pick first; the check
+    line after the content, and never older than the week.
+26. **The Events page's first screen is all controls.** Title, two buttons
+    (Submit an event, Subscribe to calendar), "Just the weekend?", the When
+    filters, the type filter, the regulars checkbox, Jump to, then
+    Highlights. On a phone the first event is below the fold. Submit and
+    Subscribe belong at the bottom; the first listing belongs in the first
+    screen.
+27. **The email ask follows an empty list.** On a phone the signup box comes
+    straight after What's happening (rule 9); on Johnstown tonight that is
+    "Nothing listed for the weekend yet", three library rows, then "Your
+    Thursday local: the week's events". A visitor who has just seen none is
+    the wrong moment to ask. Worth a decision: on a thin day, the tiles
+    before the form.
+28. **The hero photograph is the first impression, and two fail it.**
+    Johnstown's barn says farm; Lyons's distant hills say nowhere in
+    particular. Erie, Niwot, Golden and Berthoud say a town. Both are on the
+    owner's shoot list; this pass puts them first on it.
+29. **Event pages land well.** Title, day, time, venue, Next, Where, Cost,
+    the organizer's button and Add to calendar are all in the first phone
+    screen, and "Checked November 1, 2026 against coloradorailroadmuseum.org"
+    is the right line to have. Two things a visitor from a search wants and
+    does not get: a directions link on the event's Where (the place page has
+    one), and, on the Polar Express page tonight, "Also coming up" listing
+    three Sunday events that were over (the same pruning as item 8).
+30. **Place pages land well.** "Open · closes 9 pm" under the name, then
+    address, directions, hours, phone, website, the photograph, the events
+    at the place, the articles that mention it. Nothing to add; this is the
+    template the event page's first screen should copy for its venue.
+31. **The sports strip is the second thing on every page**, above the week,
+    for every visitor, and tonight on three guides it is wrong (item 1). For
+    a visitor who is not following the team it is a band of someone else's
+    news between the photograph and the point of the site. Not a change to
+    make now; a thing to measure, since the strip is the one element the
+    home cannot hide.
+
+The thread through 21 to 27: the home's first screen is built for a reader
+who already knows the site and comes back for this week; a stranger needs
+the week's best thing, a reason to trust it and a way to the depth, in the
+first screen, on a thin day as much as a full one.
