@@ -505,6 +505,12 @@ if (!existsSync(contentDir)) {
           if (source.subTown && !config?.subTowns?.includes(source.subTown)) {
             errors.push(`content/${town}/sources.json: ${source.id}: subTown "${source.subTown}" is not one of ${town}'s subTowns`);
           }
+          // A feed ingest reads on a multi-town guide must say which town its
+          // items are in, or every file it stages fails this validator and the
+          // run is lost (1 November 2026, the Idaho Springs library).
+          if (config?.subTowns && !source.subTown && source.status === 'confirmed' && ['ical', 'rss', 'json'].includes(source.type) && source.feedUrl) {
+            errors.push(`content/${town}/sources.json: ${source.id}: a confirmed feed on a multi-town guide needs a subTown (${config.subTowns.join(', ')}), or ingest cannot stage its items`);
+          }
         }
       } catch {
         // reported above

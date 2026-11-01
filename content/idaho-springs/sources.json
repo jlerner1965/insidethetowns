@@ -71,12 +71,13 @@
       "locationFilter": [
         "Idaho Springs Public Library"
       ],
+      "subTown": "idaho-springs",
       "excludeTitles": [
         "LIBRARY CLOSED",
         "Board of directors",
         "Library District Board"
       ],
-      "notes": "Use the named branch to keep the two town calendars separate. Exclude library closures and district meetings whose actual venue is missing. The feed contains explicitly dated book groups through December; children’s programs are checked on their individual pages."
+      "notes": "Use the named branch to keep the two town calendars separate. Exclude library closures and district meetings whose actual venue is missing. The feed contains explicitly dated book groups through December; children’s programs are checked on their individual pages. subTown set 1 November 2026: the 1 November ingest staged 16 of its items without one and failed validation, so the whole week's run was lost; a Clear Creek listing needs one. The feed puts the JTML winter craft workshops of 5, 6, 12 and 13 December at the Idaho Springs library though their title says Georgetown Christmas Market: the review decides which."
     },
     {
       "id": "clearcreekrecreation-com",

@@ -282,6 +282,15 @@ for (const town of towns) {
       console.log(`  ${source.id}: not read — ${result.error}`);
       continue;
     }
+    // On a multi-town guide every listing names its town, and a staged
+    // file without one fails validation; written, it fails the run and the
+    // week's staging with it (1 November 2026: sixteen Idaho Springs
+    // library items, no subTown on the source). The source is set aside
+    // with a line saying what to add; npm run validate says the same.
+    if (town.subTowns && !source.subTown) {
+      console.log(`  ${source.id}: not staged — ${town.name} covers ${town.subTowns.join(', ')}, and this source has no subTown; set one in content/${town.slug}/sources.json`);
+      continue;
+    }
     const located = result.items.filter((item) => passesLocationFilter(item, source));
     const inScope = located.filter((item) => !excludedTitle(item, source) && passesCategoryFilter(item, source));
     // Every title a rule kept out, once each with the entry that did it, so
