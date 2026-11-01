@@ -7879,3 +7879,95 @@ markets and theater first.
   Evergreen Christmas Bird Count's two dates; First Peoples Festival in
   Estes Park (14 to 17 January, venue to be posted). A staged event is
   deleted once its date passes.
+
+## Where events still slipped through, closed, 1 November 2026
+
+The owner asked, after the day's ingest and sweep, how the events stood and
+what would stop anything slipping through. Every job's last three weeks of
+runs were read, every staged and flagged item, and the ingest replayed dry
+over all 48 feeds. The guides list 1,035 upcoming events. Eight cracks were
+found; seven are closed in code and one is the owner's.
+
+- **The Lincoln Center's livestream tickets were read as shows.** The box
+  office sells each Fort Collins Symphony concert twice, a seat and a
+  stream, and the stream's row opens an hour early. The ingest published
+  the stream's row for the 7 November and 6 February concerts (6:30 pm on
+  the guide; the hall's own rows say 7:30 to 9:30, $33–87) and held the
+  hall's rows as duplicates. Every one of the ten stream rows on both box
+  offices that day had an in-person twin; a stream row is no longer read
+  (`isLivestream`, scripts/lib/feeds/showare.ts). Both concerts corrected,
+  with entries on Fort Collins's corrections log, and the Nutcracker of
+  11 December moved to the hall's row ($35, not the stream's $40).
+- **A second show the same day was taken for a duplicate, or published
+  twice.** A listing that holds its shows as `performances` carries its
+  first show's feed id. While that show was still in the feed the matcher
+  treated the whole file as the first show's, so every later show came in
+  as new: held as a "possible duplicate" where the titles matched (seven
+  evening and afternoon shows at the Lincoln Center, two at the Rialto,
+  CSU's Capstone at 7:30; each would have been deleted unlisted after its
+  date), and published as a second listing where the editor had retitled
+  the file (Castle Rock's 6 pm Santa session and 6 pm bracelet workshop,
+  both published twice by the morning's ingest). A later show is now
+  marked (`laterShow`, scripts/lib/ingest.ts) and matches the file's show
+  at that time, by the file's title or by the title the feed gives the
+  file's first show; auto-review's duplicate check reads every show, not
+  the first alone. The held shows are on their listings as performances,
+  and the two duplicates are gone. A dry run over every feed afterwards:
+  405 of 410 items known and unchanged, nothing new but what was already
+  waiting.
+- **Auto-review deleted flagged listings.** The review queue includes the
+  published listings the re-check flagged, and auto-review read anything
+  that was not a place or a change as a staged event, so a flagged
+  listing whose date had passed was deleted from the published folder:
+  five on 1 November (two Erie meetings, Longmont's Vote Early Day,
+  Windsor's two cemetery tours). None of the five flags had been ruled on
+  before its date; the Windsor tour of 24 October showed 5:30 pm on the
+  day while its own feed said 7. The rules now never touch a flagged
+  listing. The five were over and already hidden, so they are not
+  restored.
+- **Nothing said what would be lost before its date.** A staged event is
+  deleted once its date passes, and a flag left past its date means the
+  old fact showed on the day; the queue was counted by town, not by date,
+  and only events an editor had held were on the call list. `npm run
+  auto-review -- --due=14` lists every staged event, staged change and
+  flagged listing dated in the next fortnight, events first and notices
+  (trash days, closures, meetings the feed gave no room) after, each with
+  the reason the rules would not approve it, and the nightly re-check's
+  pull request now opens with it: 39 on 1 November, 19 of them events.
+- **A failed run was silent, and its work was thrown away.** The weekly
+  ingest of 26 October failed on one bad item and staged nothing for any
+  guide that week, unnoticed for five days; the nightly re-check failed on
+  29 October (a runner fault) and 30 October (a photograph pushed to main
+  without its licence row), and both nights' findings were lost. The
+  ingest, the re-check, the Wednesday editor and the Thursday drafts now
+  open an issue labelled `automation-failure` when they fail
+  (.github/actions/alert-failure), one per workflow, saying what the
+  failure cost and how to run it again; the editor does so too when its
+  own step fails inside a green job.
+- **A dropped run fails nothing.** GitHub starts scheduled runs hours late
+  and drops some. The daily rebuild now has a second job that starts the
+  weekly ingest again after eight days without a passing run and the
+  re-check after thirty-six hours, unless the latest run failed (the
+  issue covers that) or one is under way.
+- **A feed that could not be read was a line in the log.** The ingest's
+  pull request now opens with every confirmed feed not read, every source
+  set aside and every item that would not validate (`--report`).
+- **A listing that cites another show's page is checked against that
+  show.** CSU's 7:30 pm dance concert of 14 November cited the 2 pm
+  matinee's page, so the re-check flagged it as moved to 2 pm. Both
+  evening shows now cite their own pages, and the flag is dismissed.
+
+Measured and left alone: whether a weekly ingest misses events posted at
+short notice. Of 69 civic and library feed items created in the four weeks
+to 1 November, one was posted under a week before it began; of 162 items
+created in 60 days on two venues' music calendars, eight. Weekly is enough.
+
+The owner's, and in TODO.md: the sweep's sources. Honnibrook's events feed
+is in Castle Rock's registry, proposed (a dry run: its two Josh Blackburn
+nights already listed, and three regulars, poker, trivia and a role-playing
+night, new). Armadillo Ranch's feed (Manitou Springs) and Mighty River
+Brewing's (Windsor, its seeded entry now typed as the feed it is) are on
+Tockify, whose robots.txt asks automated clients to stay out of `/api/`,
+where the feeds are; the registry reads them only if the editor sets
+`robots: subscribe`, as the schema allows for a feed published for
+calendar subscriptions, which these are. Both stay proposed until then.
