@@ -193,12 +193,13 @@
         "places": 0
       },
       "robots": "honor",
-      "notes": "CSU Dance, University Dance Theatre at the UCA, 1400 Remington St. Same stack; /events/ical/ read 20 October 2026: 11 VEVENTs, 8 in the next 120 days, every one with a LOCATION. Visit days start at midnight; cross-posts as in the music feed. Confirmed 20 October 2026 on the owner's delegation.",
+      "notes": "CSU Dance, University Dance Theatre at the UCA, 1400 Remington St. Same stack; /events/ical/ read 20 October 2026: 11 VEVENTs, 8 in the next 120 days, every one with a LOCATION. Visit days start at midnight; cross-posts as in the music feed. Confirmed 20 October 2026 on the owner's delegation. \"Audition Day\" excluded 1 November 2026: the 2027 Spring Dance Experience: Visit and Audition Day is a prospective-student day like the Visit Day already excluded, and the rules published it.",
       "feedUrl": "https://dance.colostate.edu/events/ical/",
       "excludeTitles": [
         "Democracy Summit",
         "Scholarships Fair",
-        "Visit Day"
+        "Visit Day",
+        "Audition Day"
       ]
     },
     {

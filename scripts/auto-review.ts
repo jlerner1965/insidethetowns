@@ -72,7 +72,8 @@ function publishedEvents(town: string): PublishedEvent[] {
       const lastStart = addDays(startOfDay(d.until), 1).getTime();
       for (let t = addDays(d.start, 7); t.getTime() < lastStart; t = addDays(t, 7)) starts.push(t);
     }
-    for (const start of starts) out.push({ file: relative(root, file), title: d.title, start });
+    const seriesUntil = d.repeat === 'weekly' && d.until ? d.until : undefined;
+    for (const start of starts) out.push({ file: relative(root, file), title: d.title, start, ...(seriesUntil ? { seriesUntil } : {}) });
   }
   return out;
 }

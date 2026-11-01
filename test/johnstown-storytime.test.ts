@@ -32,12 +32,17 @@ test('each Monday session of Music & Movement is listed once: one at 10, one at 
   const byStart = new Map<string, string[]>();
   for (const s of sessions) byStart.set(toWallClock(s.data.start), [...(byStart.get(toWallClock(s.data.start)) ?? []), s.slug]);
   for (const [start, slugs] of byStart) assert.equal(slugs.length, 1, `${start}: ${slugs.join(', ')}`);
-  const mondays = ['2026-10-26', '2026-11-02', '2026-11-09', '2026-11-16', '2026-11-23', '2026-11-30'];
+  // The last Monday the library's feed lists: 30 November when this was
+  // written, 7 December from 1 November 2026, when the feed carried it and
+  // both series were extended rather than a one-off file published beside
+  // them (auto-review's series rule came from that morning's run).
+  const LAST_LISTED = '2026-12-07';
+  const mondays = ['2026-10-26', '2026-11-02', '2026-11-09', '2026-11-16', '2026-11-23', '2026-11-30', LAST_LISTED];
   for (const day of mondays) {
     assert.ok(byStart.has(`${day}T10:00`), `${day} 10 am`);
     assert.ok(byStart.has(`${day}T13:00`), `${day} 1 pm`);
   }
-  assert.ok(![...byStart.keys()].some((k) => k > '2026-11-30T23:59'), 'nothing after the last date the library lists');
+  assert.ok(![...byStart.keys()].some((k) => k > `${LAST_LISTED}T23:59`), 'nothing after the last date the library lists');
 });
 
 test('the retired page is gone and its address goes to the series kept, on Johnstown’s domain only', () => {

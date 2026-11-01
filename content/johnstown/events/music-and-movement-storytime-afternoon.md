@@ -3,7 +3,7 @@ title: "Music & Movement Storytime (afternoon)"
 start: "2026-10-12T13:00"
 end: "2026-10-12T14:00"
 repeat: weekly
-until: "2026-11-30"
+until: "2026-12-07"
 venue: "Glenn A. Jones, M.D. Memorial Library"
 address: "400 South Parish Avenue, Johnstown, CO 80534"
 url: "https://johnstownmillikenpubliclibraries.us/series/music-movement-storytime/"
@@ -13,8 +13,8 @@ organizer: "Johnstown Milliken Public Libraries"
 source: "https://johnstownmillikenpubliclibraries.us/event/music-movement-storytime-10/2026-10-26/2/"
 sourceId: "johnstownmillikenpubliclibraries-us"
 status: "scheduled"
-verified: "2026-10-31"
-verifiedBy: "recheck-events (the nightly re-check workflow): 2 November and 1 pm on the page"
+verified: "2026-11-01"
+verifiedBy: "Claude Code for James Lerner, against the library's own feed (tribe/events/v1), 1 November 2026: the 1 pm Monday session is listed every week through 7 December and no further; the series ran to 30 November here, and the 1 November ingest had staged 7 December as a new event"
 ---
 
 Stories, songs and movement for young children at the Johnstown library, every Monday from 1 to 2 pm through November 30. The library runs the same program at 10 am each Monday, which this guide lists separately. Each week has its own theme, from pumpkins on October 26 to feelings on November 30.

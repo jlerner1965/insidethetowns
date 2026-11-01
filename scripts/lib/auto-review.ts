@@ -22,7 +22,7 @@ import { z } from 'astro/zod';
 import type { TownConfig } from '../../src/config/towns/types.ts';
 import { INGEST } from '../../src/config/ingest.ts';
 import { eventSchema, type Change, type Source, type SourceCategory } from '../../src/content/schemas.ts';
-import { dayKey, formatDayLong, formatTimeRange } from '../../src/lib/dates.ts';
+import { dayKey, formatDayLong, formatTimeRange, formatWeekday, toWallClock } from '../../src/lib/dates.ts';
 import { parseFrontmatter } from './frontmatter.ts';
 import { hostOf, titleSimilarity } from './ingest.ts';
 import { applyChangeText, approveText, setField } from './review.ts';
@@ -64,7 +64,12 @@ export interface PublishedEvent {
   file: string;
   title: string;
   start: Date;
+  /** A weekly series' last listed day, on each of its entries: a date after it at the same hour is the series going on, not a new event. */
+  seriesUntil?: Date;
 }
+
+/** How far past a weekly series' end a same-hour, same-weekday item still reads as that series continuing. */
+export const SERIES_CONTINUES_DAYS = 42;
 
 export interface EventContext {
   town: TownConfig;
@@ -125,6 +130,21 @@ export function decideEvent(text: string, ctx: EventContext): Verdict {
   if (ctx.town.subTowns && !d.subTown) reasons.push(`a ${ctx.town.name} listing needs a subTown`);
   const dup = ctx.published.find((p) => dayKey(p.start) === startDay && titleSimilarity(p.title, d.title) >= INGEST.titleMatch);
   if (dup) reasons.push(`may be ${dup.file} ("${dup.title}", the same day)`);
+  // The next date of a weekly series whose `until` has been reached: the
+  // same title, weekday and hour as the series, a few weeks after its last
+  // day. The listing to change is the series (extend its until); a one-off
+  // file beside it lists the storytime twice (Johnstown's Music & Movement,
+  // 7 December, published by the rules on 1 November 2026).
+  const goesOn = ctx.published.find(
+    (p) =>
+      p.seriesUntil &&
+      d.start.getTime() > p.seriesUntil.getTime() &&
+      (d.start.getTime() - p.seriesUntil.getTime()) / 86_400_000 <= SERIES_CONTINUES_DAYS &&
+      formatWeekday(p.start) === formatWeekday(d.start) &&
+      toWallClock(p.start).slice(11) === toWallClock(d.start).slice(11) &&
+      titleSimilarity(p.title, d.title) >= INGEST.titleMatch,
+  );
+  if (goesOn) reasons.push(`continues the weekly series ${goesOn.file} ("${goesOn.title}", through ${dayKey(goesOn.seriesUntil!)}): extend its until rather than list the date alone`);
   // Ingest's own duplicate check (same place and time, a looser title): a person merges or rejects.
   if (/^Possible duplicate of /.test(review.reason ?? '')) reasons.push('ingest flagged it as a possible duplicate of a published listing');
   if (ctx.targetExists) reasons.push('a published file with this slug already exists');

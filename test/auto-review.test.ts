@@ -228,3 +228,24 @@ test('a change the listing’s own feed made to its time, venue or status is wri
   assert.equal(decideChange(PUBLISHED, change(), { ...cctx, source: { ...library, status: 'proposed' } }).approve, false);
   assert.equal(decideChange(PUBLISHED, change(), { ...cctx, source: { ...library, category: 'news' } }).approve, false);
 });
+
+test('the next date of a weekly series whose until has passed is left for a person to extend the series, not published alone', () => {
+  const series = (file: string, title: string, firstMonday: string, hhmm: string, until: string) => {
+    const out = [];
+    for (let d = new Date(`${firstMonday}T${hhmm}:00-07:00`); d.getTime() <= new Date(`${until}T23:59:00-07:00`).getTime(); d = new Date(d.getTime() + 7 * 86_400_000)) {
+      out.push({ file, title, start: d, seriesUntil: new Date(`${until}T00:00:00-07:00`) });
+    }
+    return out;
+  };
+  const published = [...series('content/johnstown/events/music-and-movement-storytime.md', 'Music & Movement Storytime', '2026-11-02', '10:00', '2026-11-30')];
+  const monday = staged({ title: '"Music & Movement Storytime"', start: '"2026-12-07T10:00"', end: '"2026-12-07T11:00"', venue: '"Glenn A. Jones, M.D. Memorial Library"' });
+  refused(monday, ctx({ published, today: '2026-11-01' }), /continues the weekly series .*music-and-movement-storytime\.md.*extend its until/);
+  // A different hour is the afternoon session, not this series; a different weekday is another thing.
+  const afternoon = staged({ title: '"Music & Movement Storytime"', start: '"2026-12-07T13:00"', end: '"2026-12-07T14:00"', venue: '"Glenn A. Jones, M.D. Memorial Library"' });
+  const v1 = decideEvent(afternoon, ctx({ published, today: '2026-11-01' }));
+  assert.ok(v1.approve || !v1.reasons.some((r) => /continues the weekly series/.test(r)), `reasons were: ${v1.approve ? 'approved' : v1.reasons.join(' | ')}`);
+  // Two months after the series ended it is a new run, and the rules may approve it as before.
+  const later = staged({ title: '"Music & Movement Storytime"', start: '"2027-02-01T10:00"', end: '"2027-02-01T11:00"', venue: '"Glenn A. Jones, M.D. Memorial Library"' });
+  const v2 = decideEvent(later, ctx({ published, today: '2027-01-20' }));
+  assert.ok(v2.approve || !v2.reasons.some((r) => /continues the weekly series/.test(r)), `reasons were: ${v2.approve ? 'approved' : v2.reasons.join(' | ')}`);
+});
