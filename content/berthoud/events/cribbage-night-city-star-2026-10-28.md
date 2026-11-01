@@ -1,5 +1,5 @@
 ---
-title: "Cribbage Night at City Star"
+title: "Cribbage Night"
 start: "2026-10-28T18:00"
 end: "2026-10-28T20:30"
 venue: "City Star Brewing"

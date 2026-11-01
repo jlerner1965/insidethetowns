@@ -48,11 +48,26 @@ test('a line promises only what the guide has: changes on a resident guide, the 
     short: 'What’s on in Erie this week, and what’s new in town',
     long: 'What’s on in Erie this week, what’s new in town, and the one we’d go to',
   });
+  // A week with no current change: Worth knowing is not on the page, so the
+  // line promises the Eat & drink tile instead (the reader pass, 1 November 2026).
+  assert.deepEqual(heroLine(erie, { pick: true, changes: false }), {
+    short: 'What’s on in Erie this week, and where to eat and drink',
+    long: 'What’s on in Erie this week, where to eat and drink, and the one we’d go to',
+  });
+  assert.deepEqual(heroLine(erie, { changes: false }), {
+    short: 'What’s on in Erie this week, and where to eat and drink',
+    long: 'What’s on in Erie this week, and where to eat and drink',
+  });
+  for (const t of live) {
+    if (t.visitorGuide) continue;
+    const line = heroLine(t, { pick: true, changes: false })!;
+    assert.ok(line.short.length <= HERO_LINE_SHORT && line.long.length <= HERO_LINE_LONG, `${t.slug}: the line without Updates fits: ${line.long}`);
+  }
 });
 
-test('the hero uses the line, and the home tells it whether this week has a pick', () => {
+test('the hero uses the line, and the home tells it whether this week has a pick and Worth knowing has a change', () => {
   const hero = readFileSync('src/components/Hero.astro', 'utf8');
-  assert.match(hero, /heroLine\(site, \{ pick: Astro\.props\.pick === true \}\)/);
+  assert.match(hero, /heroLine\(site, \{ pick: Astro\.props\.pick === true, changes: Astro\.props\.changes !== false \}\)/);
   const home = readFileSync('src/components/home/TownHome.astro', 'utf8');
-  assert.match(home, /<Hero compact pick=\{!!pick\} \/>/);
+  assert.match(home, /<Hero compact pick=\{!!pick\} changes=\{know\.length > 0\} \/>/);
 });

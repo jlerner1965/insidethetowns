@@ -5,7 +5,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { defaultTab, homeTabs, laterRows, NEXT_LIMIT, nextAfter, pickRows, TAB_LIMIT } from '../src/lib/home-tabs.ts';
+import { defaultTab, homeTabs, laterRows, NEXT_LIMIT, nextAfter, nextRank, pickRows, TAB_LIMIT } from '../src/lib/home-tabs.ts';
 import { weekDays } from '../src/lib/flagship-home.ts';
 import { parseLocal } from '../src/lib/dates.ts';
 
@@ -19,7 +19,10 @@ test('the default tab is Today on a weekday and This weekend from Friday to Sund
   assert.equal(defaultTab(at('2026-10-27T09:00')), 'today', 'a Tuesday');
   assert.equal(defaultTab(at('2026-10-29T23:30')), 'today', 'a Thursday night');
   assert.equal(defaultTab(at('2026-10-30T06:00')), 'weekend', 'a Friday');
-  assert.equal(defaultTab(at('2026-11-01T20:00')), 'weekend', 'a Sunday');
+  assert.equal(defaultTab(at('2026-11-01T12:00')), 'weekend', 'a Sunday at noon');
+  assert.equal(defaultTab(at('2026-11-01T16:59')), 'weekend', 'a Sunday before five');
+  assert.equal(defaultTab(at('2026-11-01T17:00')), 'tomorrow', 'a Sunday evening: the weekend is over, Tomorrow opens');
+  assert.equal(defaultTab(at('2026-11-01T20:00')), 'tomorrow', 'a Sunday night');
 });
 
 test('today and tomorrow are their own days; the weekend is Friday to Sunday in one list with the day before the time', () => {
@@ -106,4 +109,56 @@ test('next: one row a listing, nothing called off, at most three, and only after
   assert.equal(next.length, NEXT_LIMIT);
   assert.deepEqual(next.map((r) => r.fullTitle), ['trivia', 'market', 'concert'], 'the weekly series once, the canceled show left out, today not repeated');
   assert.deepEqual(nextAfter([], '2026-10-27'), [], 'nothing on the calendar: nothing next, and the tab says only "Nothing listed"');
+});
+
+test('on the Sunday the weekend tab’s empty line says "Nothing more", not "yet"', () => {
+  const weekend = (when: string) => homeTabs(weekDays({ events: [], now: at(when), start: 'today', limit: 99 }), at(when))[2]!;
+  assert.equal(weekend('2026-10-31T09:00').empty, 'Nothing listed for the weekend yet.', 'a Saturday');
+  assert.equal(weekend('2026-11-01T09:00').empty, 'Nothing more listed this weekend.', 'the Sunday');
+  assert.equal(weekend('2026-11-03T09:00').empty, 'Nothing listed for the weekend yet.', 'a Tuesday, the coming weekend');
+});
+
+test('next on a thin day: the pick, then a festival, a market or music, then the civic calendar and the regulars, each in the order of the days', () => {
+  // Johnstown on a Sunday night, 1 November 2026: in time order the next
+  // three were Monday's storytime, a council meeting and Tuesday's storytime,
+  // and the Parade of Lights was a page away.
+  const events = [
+    ev('storytime', '2026-11-02T10:30', { category: 'family' }),
+    ev('council', '2026-11-02T19:00', { category: 'civic' }),
+    ev('storytime', '2026-11-09T10:30', { category: 'family' }),
+    ev('storytime', '2026-11-16T10:30', { category: 'family' }),
+    ev('trivia', '2026-11-03T18:30', { category: 'food' }),
+    ev('trivia', '2026-11-10T18:30', { category: 'food' }),
+    ev('trivia', '2026-11-17T18:30', { category: 'food' }),
+    ev('author-talk', '2026-11-05T18:00', { category: 'arts' }),
+    ev('holiday-market', '2026-11-21T09:00', { category: 'market' }),
+    ev('parade-of-lights', '2026-12-05T17:30', { category: 'festival' }),
+    ev('tree-lighting', '2026-12-04T18:00', { category: 'festival' }),
+  ];
+  const weekly = (e: { slug: string }) => e.slug === 'storytime' || e.slug === 'trivia';
+  const rows = laterRows(events, new Set(['holiday-market']), weekly);
+  assert.deepEqual(nextAfter(rows, '2026-11-01').map((r) => r.fullTitle), ['holiday-market', 'author-talk', 'tree-lighting'], 'the pick first, then the one-off outings by date; the regulars and the meeting after');
+  assert.deepEqual(nextAfter(rows, '2026-11-01', 6).map((r) => r.fullTitle), ['holiday-market', 'author-talk', 'tree-lighting', 'parade-of-lights', 'storytime', 'council'], 'then the rest in the order of the clock, a weekly series once');
+  assert.equal(nextRank({ pick: true }), 0);
+  assert.equal(nextRank({ category: 'music' }), 1);
+  assert.equal(nextRank({ category: 'arts' }), 1);
+  assert.equal(nextRank({ category: 'music', series: true }), 2, 'a weekly open mic is a regular');
+  assert.equal(nextRank({ category: 'civic' }), 2);
+  assert.equal(nextRank({ category: 'sports' }), 2);
+  // Johnstown as built on 1 November 2026: three library one-offs this week
+  // and the Jingle in December. The last slot is the Jingle's.
+  const crafts = [
+    ev('sugar-skulls', '2026-11-03T14:00', { category: 'family' }),
+    ev('paint-n-sip', '2026-11-06T18:30', { category: 'arts' }),
+    ev('journaling', '2026-11-07T10:00', { category: 'family' }),
+    ev('jingle', '2026-12-06T14:00', { category: 'festival' }),
+    ev('open-mic', '2026-11-04T19:00', { category: 'music' }),
+    ev('open-mic', '2026-11-11T19:00', { category: 'music' }),
+  ];
+  const craftRows = laterRows(crafts, undefined, (e) => e.slug === 'open-mic');
+  assert.deepEqual(nextAfter(craftRows, '2026-11-01').map((r) => r.fullTitle), ['sugar-skulls', 'paint-n-sip', 'jingle'], 'the next two outings and the next festival; the weekly open mic is a regular, not the festival');
+  assert.deepEqual(nextAfter(craftRows, '2026-11-01', 1).map((r) => r.fullTitle), ['sugar-skulls'], 'one slot: the nearest');
+  assert.deepEqual(nextAfter(craftRows.filter((r) => r.fullTitle !== 'jingle'), '2026-11-01').map((r) => r.fullTitle), ['sugar-skulls', 'paint-n-sip', 'journaling'], 'no festival listed: the three nearest');
+  const civic = [ev('meeting', '2026-11-02T19:00'), ev('hearing', '2026-11-03T19:00'), ev('board', '2026-11-04T19:00')];
+  assert.deepEqual(nextAfter(laterRows(civic), '2026-11-01').map((r) => r.fullTitle), ['meeting', 'hearing', 'board'], 'all of a kind: the order of the days, as before');
 });

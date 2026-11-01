@@ -8092,3 +8092,145 @@ unchanged, so search sees nothing new. The cost, accepted: every town
 guide's line is now the same sentence with its name, as its three hero
 links already were; the photograph, the county and the listings carry the
 town.
+
+## The flagships read as a reader: the code items, 1 November 2026
+
+The owner read the six flagships (Berthoud, Erie, Niwot, Lyons, Golden,
+Johnstown) three times on the evening of Sunday 1 November 2026, the third
+time as a first-time visitor on a site with a bounce rate above 70 per
+cent, and kept every finding in `docs/audits/2026-11-01/flagships-reader-pass.md`.
+The items that are code, fixed once for every guide, in this entry; the
+content items (an Election Day listing, doubled events, editor's notes in
+public fields, out-of-season hours, retitles) and the two decisions kept
+for the owner (a nav slot for the writing, item 23; the email box after an
+empty list, item 27) stay open in that file.
+
+- **The sports strip prints the date once a game is beyond six days**
+  (`SportsBar.astro`). "Thu 6 pm" for a playoff two weeks out read as the
+  coming Thursday; it is "Sat, Nov 14 6 pm" now, the day's name alone
+  inside the week.
+- **"Check current hours" only under a business with a door**
+  (`PlaceRow.astro`): restaurant, bar, coffee, shop, service. It sat under
+  a mural walk, a sculpture, a town hall, a museum, a pavilion and an inn.
+  A park or a trail keeps daylight, a venue opens for its events, lodging
+  has a check-in.
+- **The hero promises "what's new in town" only when Worth knowing is on
+  the page** (`heroLine`'s `changes`, passed by `TownHome.astro` as the
+  pick is). With no current change the line says "where to eat and drink",
+  the Eat & drink tile every home has, and the pick's clause is kept on any
+  town guide whose week has one. Johnstown's hero promised changes above a
+  page with none.
+- **The weekend is over at five on the Sunday afternoon** (`defaultTab`,
+  `WEEKEND_OVER_HOUR`, and the same rule in `WhatsHappening.astro`'s
+  script, which chooses by the reader's clock): Tomorrow opens then. Every
+  home opened on This weekend at 9 pm on the Sunday, four of them reading
+  "Nothing listed for the weekend yet" and one an 11 am show. On the Sunday
+  the empty line is "Nothing more listed this weekend."; "yet" belongs to
+  a weekend still coming.
+- **"Next in <Town>" on an empty tab ranks by kind** (`nextAfter`,
+  `nextRank`): the week's pick, then the one-off outings (a festival, a
+  market, music, the arts, a family day, food, the outdoors) in the order
+  of the days, then the civic calendar and the weekly regulars, and the
+  last of the three slots kept for the next festival, market or music when
+  none fell inside them. In time order alone a Sunday night offered
+  Monday's storytimes and a council meeting while the Parade of Lights and
+  the Johnstown Jingle sat a page away in Big dates ahead. `laterRows` now
+  takes the weekly test (`weeklyTest`) so a regular is known as one, and
+  `DayItem` carries the category. Considered and not done: the big dates
+  first, outright; Johnstown's three would then have been 30 November,
+  6 December and 22 January, with Tuesday's library class gone.
+- **One line of trust under What's happening**: "Every listing checked
+  against its source · refreshed <build date>" (`WhatsHappening.astro`).
+  "Independent", "free" and "checked" were all in the footer and About; a
+  visitor deciding in ten seconds never reached them.
+- **This week leads with the week, not with its check**
+  (`ThisWeek.astro`): the dates, then the content, and the "Checked" line
+  after the town's own sections, before Nearby. Lyons's first line was a
+  fifteen-day-old check date. On the Sunday, "Next on the calendar" is on
+  the page whatever the week still holds (`lastDayOfWeek`); it showed only
+  when the week was empty, so Lyons and Johnstown ended their week on one
+  Sunday event and nothing after it.
+- **New & closed lists a change once** (`activeChanges`): the same name
+  and tag in two weeks' notes is one row, at its newest check; another tag
+  on the same name is another change.
+- **The Events page's first screen is the list** (`events/index.astro`):
+  Submit an event and Subscribe to calendar, buttons under the title since
+  26 October, are after the list now, above the email form. With them, the
+  filters and the jump links, a phone's first screen held no event.
+- **An event's Where carries Directions** (`events/[slug].astro`), the
+  same Google URL as the place page, now one function (`directionsUrl`,
+  src/lib/places.ts), which also stops sending "Johnstown, Johnstown" when
+  the address already ends with the town.
+- **A resident guide's About calls it a community guide**
+  (`about.astro`): "community and visitor guide" stays on the other town
+  guides.
+- **Not changed: finished listings under Nearby this weekend and Also
+  coming up** (items 8 and 29's second half). Both blocks carry the
+  pruning marks and the script runs on every page already; the rows that
+  stood at 9 pm were timed listings with no end given, which by the rule
+  (`listedUntil`, src/lib/events.ts) stay for the whole of their day. The
+  rule stands; the fix for those rows is an end time in the file.
+
+## The flagships read as a reader: the rest of the list, 1 November 2026
+
+The owner's "do all" on the open items of the reader pass. What changed:
+
+- **Content, a file or two each.** City Star's nine Cribbage Night files are
+  one shape (the feed's title, address, "Free", the feed's own id on the
+  four the ingest kept re-staging, the sign-up-by-5:45 line on the fourth
+  Wednesdays whose pages say it). The two Sugar Britches files the feed
+  made are gone; the release nights they were inside carry the feed's ids
+  instead, so the ingest finds them there. Lyons's generic Fifth Sunday
+  Classics file is gone in favour of the one written from the hall's page.
+  Berthoud's Digital Navigator is three weekly files (Tuesday, Wednesday,
+  Thursday) with the library's closed days as `except`. Niwot's hall-booking
+  note is out of a time field, "Not yet announced" out of a cost, and a
+  dated room booking out of the Scouts' schedule. The Redstone Museum has a
+  `seasonal` block (May through September), so November says "Closed for
+  the season". The Dugout's karaoke names the place as the place file does.
+  The Historical Society's talk is titled by its topic, and the library
+  Nutcracker as the half-hour of excerpts it is. Niwot's staged Wellness
+  Holiday Panel is merged into the lecture-series listing it duplicated.
+- **The Lyons library's name.** The district is the Lyons Regional Library
+  District and the building is signed Lyons Community Library. The guide
+  uses the district's name throughout, as its place file does, so the one
+  feed event and the notes that said "Community" now match the place; the
+  place page says both names.
+- **Election Day on the four guides that had none**, from each county's own
+  page: Berthoud at the recreation center (Larimer), Erie at the community
+  center (Boulder and Weld together), Golden at City Hall and the Laramie
+  Building (Jefferson), Johnstown at the Senior Center (Weld; no drop box
+  in town from either county). Each names the drop boxes, the 7 pm rule and
+  the county's page.
+- **Two changes that were only in the notes are updates now**, so Lyons
+  and Johnstown have an /updates/ page and a Worth knowing block: the Lyons
+  drop box moved to the library (Town notice of 24 October) and the
+  Johnstown long-term acute hospital closed (1 October).
+- **The phone strip shows the next game instead of the result when it is
+  within three days or a postseason game** (`SportsBar.astro`, `phoneNext`,
+  the game's `stage` named). Erie's state semifinal was invisible on the
+  phone home behind an old score.
+- **Guides is the menu's last item** on every guide (`townNav`). The best
+  writing was two clicks down. At the 1280 breakpoint the row's gap drops
+  from 16 to 12 pixels so the search button stays inside the viewport.
+- **On a thin day the tiles come before the signup** (`TownHome.astro`,
+  `thin`: the opening tab has fewer than three rows at the build). A reader
+  who has just seen "Nothing listed" is not asked for an email first.
+- **The sports workflow also runs on Mondays in November and December**
+  (playoff brackets come out after Sunday's read), and was run by hand
+  tonight for Johnstown and Lyons. Both runs found no game to add: Lyons
+  (4-3) is not in the 8-man bracket, so its empty list is the season's end,
+  and the earlier entry was wrong to count it with Johnstown; Roosevelt is
+  the 4A No. 1 seed with a first-round bye, its first game 13 November
+  against the Montbello–George Washington winner (chsaanow.com), which
+  MaxPreps holds as an undated TBA row the reader cannot use yet.
+- **Corrected from the earlier entry:** the Sunday rows that stood under
+  Nearby this weekend and Also coming up at 9 pm were not listings with no
+  end. Every Golden listing on 1 November carried an end time; the pass
+  read the pages as text, where the browser's pruning never ran. Items 8
+  and 29's second half were observation errors, and nothing in the files
+  needed changing.
+- **Not done:** the two hero photographs (Johnstown, Lyons) need a shoot;
+  item 31 (the strip's place on the home) is a thing to measure, not
+  change; Johnstown's thin calendar and Golden's one-item Worth knowing are
+  coverage, for the Wednesday editor and the source list.

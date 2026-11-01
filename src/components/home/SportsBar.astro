@@ -18,7 +18,7 @@ import { schoolsFor, sportsPath, type SportsData } from '@/config/school-sports'
 import { schoolTheme } from '@/config/school-colors';
 import { clock, dashed, nextGame, scoreboardResult } from '@/lib/flagship-home';
 import { gameDay, latestResult, RESULT_WORD, sportsDataFor, where } from '@/lib/school-sports';
-import { TIME_ZONE } from '@/lib/dates';
+import { dayKey, formatDayShort, TIME_ZONE } from '@/lib/dates';
 
 interface Props {
   town: TownConfig;
@@ -43,7 +43,21 @@ const resultLine = result?.game.result
   ? `${RESULT_WORD[result.game.result]}${result.game.score ? ` ${dashed(`${result.game.score.us}–${result.game.score.them}`)}` : result.game.forfeit ? ' by forfeit' : ''}`
   : undefined;
 const SHORT_DAY = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, weekday: 'short' });
-const nextWhen = next ? `${SHORT_DAY.format(gameDay(next.game))}${next.game.time ? ` ${clock(gameDay(next.game))}` : ''}` : '';
+// The day's name alone is this week's: "Thu" for a game two weeks out reads
+// as the coming Thursday (the reader pass, 1 November 2026, a playoff round
+// not yet drawn). Beyond six days the date goes with it, "Sat, Nov 14".
+const WEEK_AHEAD = 6;
+const gameOn = next ? gameDay(next.game) : undefined;
+const thisWeek = gameOn ? dayKey(gameOn) <= dayKey(new Date(now.getTime() + WEEK_AHEAD * 86_400_000)) : true;
+const nextDay = gameOn ? (thisWeek ? SHORT_DAY.format(gameOn) : formatDayShort(gameOn)) : '';
+const nextWhen = next ? `${nextDay}${next.game.time ? ` ${clock(gameDay(next.game))}` : ''}` : '';
+// On a phone the strip has one line (rule 8: the latest result alone), which
+// hid Erie's state semifinal behind an old score (the reader pass, 1 November
+// 2026). The next game takes the phone's line instead when it is within
+// three days or a postseason game (`stage`); the result keeps it otherwise.
+const SOON_DAYS = 3;
+const nextSoon = !!gameOn && dayKey(gameOn) <= dayKey(new Date(now.getTime() + SOON_DAYS * 86_400_000));
+const phoneNext = !!next && (nextSoon || !!next.game.stage);
 ---
 {shown && school && (
   <section class="on-dark text-white" style={vars} aria-label={`${nickname} sports`} data-pagefind-ignore>
@@ -54,10 +68,10 @@ const nextWhen = next ? `${SHORT_DAY.format(gameDay(next.game))}${next.game.time
           <span class="eyebrow text-[var(--board-eyebrow)]">{nickname}</span>
         </span>
         {resultLine && result && (
-          <span><span class="text-white/80">{result.team.name}</span> · <span class="font-semibold">{resultLine}</span><span class="hidden sm:inline text-white/80"> {where(result.game)} {result.game.opponent}</span></span>
+          <span class:list={[phoneNext && 'hidden sm:inline']}><span class="text-white/80">{result.team.name}</span> · <span class="font-semibold">{resultLine}</span><span class="hidden sm:inline text-white/80"> {where(result.game)} {result.game.opponent}</span></span>
         )}
         {next && (
-          <span class="hidden sm:inline"><span class="text-white/80">{next.team.name}</span> {where(next.game)} {next.game.opponent} · <time datetime={next.game.time ? `${next.game.date}T${next.game.time}` : next.game.date}>{nextWhen}</time></span>
+          <span class:list={[!phoneNext && 'hidden sm:inline']}><span class="text-white/80">{next.team.name}</span> {where(next.game)} {next.game.opponent}{next.game.stage && <span class="text-white/80"> · {next.game.stage}</span>} · <time datetime={next.game.time ? `${next.game.date}T${next.game.time}` : next.game.date}>{nextWhen}</time></span>
         )}
         <a href={sportsPath(school)} class="ml-auto inline-block -my-1 py-1 font-semibold text-white underline decoration-white/50 underline-offset-2 hover:decoration-white">Scores &amp; schedules →</a>
       </div>

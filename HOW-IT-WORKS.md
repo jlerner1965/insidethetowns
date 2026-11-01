@@ -124,17 +124,37 @@ names who said it. Every page says what it is and when it was checked.
 
 **The town home** is a front door, not the whole site (27 October 2026).
 Top to bottom, the same on a phone and a desktop: nav; the hero as a short
-band (photo, county, name, one line: on a town guide, what the guide does this week, "What’s on in Erie this week, what’s new in town, and the one we’d go to", with the pick only in a week that has one; on a visitor guide, what the place is); the school's strip in the school's
-colours; What's happening as Today, Tomorrow and This weekend tabs, five
-rows each; the Thursday signup; three photo tiles (Eat & drink, Things to
-do, Living here or Moving here); Worth knowing, two links; the footer as
-one block. Sections with no data hide. On a phone the sports strip shows
-the latest result only; nothing else on the home is hidden on a phone.
+band (photo, county, name, one line: on a town guide, what the guide does this week, "What’s on in Erie this week, what’s new in town, and the one we’d go to", with the pick only in a week that has one and "what's new in town" only when Worth knowing is on the page; on a visitor guide, what the place is); the school's strip in the school's
+colours (the next game with its date once it is beyond six days); What's
+happening as Today, Tomorrow and This weekend tabs, five rows each, with
+one line of trust under the heading ("Every listing checked against its
+source · refreshed <date>"); the tab that opens is Today, the weekend from
+Friday, and Tomorrow from five on the Sunday afternoon; an empty tab offers
+"Next in <Town>": the pick, then the one-off outings by date, the civic
+calendar and the regulars last, the last slot kept for the next festival,
+market or music; the Thursday signup; three photo tiles (Eat & drink, Things to
+do, Living here or Moving here), the tiles before the signup on a thin day
+(the tab that opens has fewer than three rows at the build); Worth knowing,
+two links; the footer as one block. Sections with no data hide. On a phone
+the sports strip shows the latest result only, except when the next game is
+within three days or a postseason game, when it shows that instead; nothing
+else on the home is hidden on a phone. The menu on every page is This week,
+Events, the school's sports, Eat & drink, Families or Things to do, Living
+here or Moving here, and Guides (src/lib/nav.ts).
 
 **Every other page** keeps its full content: `/this-week/` the whole week,
 `/events/` everything, `/sports/` the full scoreboard with the "checked"
 line, `/updates/` every change with its sources, `/guides/` the articles,
-`/directory/` every place.
+`/directory/` every place. On `/this-week/` the week's dates lead and the
+"Checked" line follows the week's own content; on the Sunday, "Next on the
+calendar" is on the page whatever the week still holds; New & closed lists
+a change once, at its newest check. On `/events/` the first screen is the
+list: Submit an event and Subscribe to calendar are buttons after it. An
+event page's Where carries a Directions link, as a place page does.
+"Check current hours" is printed only under a business with a door
+(restaurant, bar, coffee, shop, service), never under a park, a trail, a
+venue, lodging or a landmark. A resident guide's About calls it a
+community guide; the other town guides are community and visitor guides.
 
 **Visual rules** (the ten from the 26 October pass, still in force):
 

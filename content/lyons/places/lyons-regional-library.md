@@ -13,4 +13,4 @@ verified: "2026-10-03"
 added: "2026-09-17"
 ---
 
-Built in 2019 after the flood put the old Depot library out of use. Story times, a makerspace, chess for kids, ukulele classes, talks and the room where the Town's commissions meet. Cards are free to district residents.
+The Lyons Regional Library District’s building, signed at the door as the Lyons Community Library; this guide uses the district’s name throughout. Built in 2019 after the flood put the old Depot library out of use. Story times, a makerspace, chess for kids, ukulele classes, talks and the room where the Town's commissions meet. Cards are free to district residents.

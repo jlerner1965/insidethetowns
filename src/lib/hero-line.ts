@@ -9,12 +9,14 @@
  * - "What's on in <Town> this week": What's happening (Today, Tomorrow, This
  *   weekend) and /this-week/, on every guide.
  * - "what's new in town": Worth knowing and /updates/, which only a resident
- *   guide (`home`) has.
+ *   guide (`home`) has, and only in a week with a current change to show
+ *   (`changes`): with none, Worth knowing is not on the page, and the line
+ *   says "where to eat and drink" instead (the reader pass, 1 November 2026).
  * - "the one we'd go to": the week's pick, "Our pick" in What's happening,
  *   from the resident guides' weekly notes. Only in a week that has one:
  *   the editor leaves the pick out when nothing holds up, and the line
  *   never promises what the page below it does not show.
- * - "where to eat and drink": the Eat & drink tile, on the other town guides.
+ * - "where to eat and drink": the Eat & drink tile, on every town guide.
  *
  * A visitor guide keeps its place line (`shortTagline`): a visitor wants to
  * know what the place is. So does every other use of `shortTagline`, beside a
@@ -37,13 +39,17 @@ export interface HeroLine {
 export const HERO_LINE_SHORT = 64;
 export const HERO_LINE_LONG = 88;
 
-export function heroLine(town: Pick<TownConfig, 'name' | 'home' | 'visitorGuide'>, { pick = false }: { pick?: boolean } = {}): HeroLine | undefined {
+export interface HeroLineOptions {
+  /** This week has an editor's pick on the page. */
+  pick?: boolean;
+  /** Worth knowing has a current change on the page (a resident guide; the default assumes so). */
+  changes?: boolean;
+}
+
+export function heroLine(town: Pick<TownConfig, 'name' | 'home' | 'visitorGuide'>, { pick = false, changes = true }: HeroLineOptions = {}): HeroLine | undefined {
   if (town.visitorGuide) return undefined;
   const on = `What’s on in ${town.name} this week`;
-  if (town.home) {
-    const short = `${on}, and what’s new in town`;
-    return { short, long: pick ? `${on}, what’s new in town, and the one we’d go to` : short };
-  }
-  const line = `${on}, and where to eat and drink`;
-  return { short: line, long: line };
+  const more = town.home && changes ? 'what’s new in town' : 'where to eat and drink';
+  const short = `${on}, and ${more}`;
+  return { short, long: pick ? `${on}, ${more}, and the one we’d go to` : short };
 }

@@ -58,3 +58,19 @@ export function heroSecondLink({ eatDrink, thingsToDo }: { eatDrink: number; thi
 export function heroThirdLink(town: { livingHere?: unknown }): { label: string; href: string } {
   return town.livingHere ? { label: 'Living here', href: '/living-here/' } : { label: 'Moving here', href: '/moving-here/' };
 }
+
+/**
+ * Directions without a map: Google's universal directions URL opens the app
+ * on a phone that has one and the site on one that does not, and costs the
+ * page no script and no third-party embed, which the CSP would refuse anyway.
+ * The town and state are appended unless the address already carries a
+ * state; the town alone, when the address already ends with it ("400 S
+ * Parish Ave, Johnstown"), so Google is not sent "Johnstown, Johnstown".
+ * Looking for the town's name anywhere else would not do, since Niwot Road
+ * runs through Niwot and "7960 Niwot Road" is not a full address.
+ */
+export function directionsUrl(address: string, townName: string): string {
+  const endsWithTown = new RegExp(`,\\s*${townName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\.?$`, 'i');
+  const destination = /,\s*CO\b/.test(address) ? address : endsWithTown.test(address) ? `${address}, CO` : `${address}, ${townName}, CO`;
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
+}

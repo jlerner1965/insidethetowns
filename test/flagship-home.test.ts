@@ -276,7 +276,7 @@ test('a primary white cannot be read on at 7:1 swaps with the secondary; a secon
 
 test('every page of a guide, its home included, has the one shared menu', () => {
   const berthoud = towns.find((t) => t.slug === 'berthoud')!;
-  assert.deepEqual(townNav(berthoud).map((n) => n.label), ['This week', 'Events', 'Spartans sports', 'Eat & drink', 'Families', 'Living here']);
+  assert.deepEqual(townNav(berthoud).map((n) => n.label), ['This week', 'Events', 'Spartans sports', 'Eat & drink', 'Families', 'Living here', 'Guides']);
   assert.equal(townNav(berthoud).find((n) => n.label === 'Spartans sports')?.href, '/sports/');
 });
 

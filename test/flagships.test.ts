@@ -29,7 +29,7 @@ test('each flagship has the flagship layout and the three hubs; no other guide d
   }
 });
 
-test('every guide has the same menu, built from what it has: the week, events, its school, the places, its hub and Living here or Moving here', () => {
+test('every guide has the same menu, built from what it has: the week, events, its school, the places, its hub, Living here or Moving here, and Guides', () => {
   for (const t of towns) {
     const nav = townNav(t);
     const labels = nav.map((n) => n.label);
@@ -39,15 +39,16 @@ test('every guide has the same menu, built from what it has: the week, events, i
     if (sports) assert.match(sports.label, /\bsports$/, `${t.slug}: "${sports.label}" says sports`);
     assert.ok(nav.some((n) => n.href === (t.families ? '/families/' : '/things-to-do/')), `${t.slug}: hub or things to do`);
     assert.ok(nav.some((n) => n.href === (t.livingHere ? '/living-here/' : '/moving-here/')), `${t.slug}: living or moving here`);
+    assert.equal(nav.at(-1)?.href, '/guides/', `${t.slug}: Guides last (the reader pass, 1 November 2026)`);
     for (const l of labels) assert.equal(l, l[0] + l.slice(1).replace(/\b[A-Z][a-z]/g, (w) => (/^(Golden|Eagles|Frederick)$/.test(w) ? w : w.toLowerCase())), `${t.slug}: "${l}" is in sentence case`);
   }
-  assert.deepEqual(townNav(by('berthoud')).map((n) => n.label), ['This week', 'Events', 'Spartans sports', 'Eat & drink', 'Families', 'Living here']);
+  assert.deepEqual(townNav(by('berthoud')).map((n) => n.label), ['This week', 'Events', 'Spartans sports', 'Eat & drink', 'Families', 'Living here', 'Guides']);
   assert.equal(townNav(by('lyons')).find((n) => n.href === '/sports/')?.label, 'Lions sports');
   assert.equal(townNav(towns.find((t) => t.slug === 'carbon-valley')!).find((n) => n.href === '/sports/')?.label, 'Frederick sports');
   assert.equal(townNav(towns.find((t) => t.slug === 'loveland')!).find((n) => n.href === '/sports/')?.label, 'High school sports');
   // Erie follows Erie High since 25 October 2026, so its menu carries the Tigers in the third slot.
-  assert.deepEqual(townNav(towns.find((t) => t.slug === 'erie')!).map((n) => n.label), ['This week', 'Events', 'Tigers sports', 'Eat & drink', 'Families', 'Living here']);
-  assert.deepEqual(townNav(towns.find((t) => t.slug === 'longmont')!).map((n) => n.label), ['This week', 'Events', 'Eat & drink', 'Things to do', 'Moving here']);
+  assert.deepEqual(townNav(towns.find((t) => t.slug === 'erie')!).map((n) => n.label), ['This week', 'Events', 'Tigers sports', 'Eat & drink', 'Families', 'Living here', 'Guides']);
+  assert.deepEqual(townNav(towns.find((t) => t.slug === 'longmont')!).map((n) => n.label), ['This week', 'Events', 'Eat & drink', 'Things to do', 'Moving here', 'Guides']);
 });
 
 test('the short tagline is enduring: no dated civic topic in it or in the town’s one line', () => {

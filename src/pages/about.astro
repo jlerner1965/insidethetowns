@@ -43,6 +43,9 @@ const allEvents = await getTownEntries('events');
 const totals = eventTotals(allEvents);
 // The guide's own account of who runs it, where the config carries one.
 const who = site.kind === 'town' ? site.about : undefined;
+// A resident guide (`home`) is written for the people who live there; the
+// other town guides are read by visitors too (the reader pass, 1 November 2026).
+const guideKind = site.kind === 'town' && site.home ? 'community guide' : 'community and visitor guide';
 const people = site.kind === 'town' ? await getTownEntries('profiles') : [];
 // The most recent check on any listing: the one number that says the guide is
 // being kept rather than published once and left.
@@ -70,7 +73,7 @@ const panelTitle = 'eyebrow border-b border-line-soft pb-3';
     <div class="mt-14 grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
       <div class="prose">
         <p>
-          {site.siteTitle} is an independent community and visitor guide to {site.name}, {site.state}: what’s on this
+          {site.siteTitle} is an independent {guideKind} to {site.name}, {site.state}: what’s on this
           week, where to eat and drink, where to walk, and what it’s like to live here.
         </p>
         {who && (

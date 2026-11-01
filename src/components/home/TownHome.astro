@@ -45,7 +45,7 @@ import WhatsHappening from './WhatsHappening.astro';
 import { editionFor, emailEditions, getNetworkHub, getTown } from '@/config';
 import { schoolsFor, teamPath, type SportsData } from '@/config/school-sports';
 import { getTownEntries } from '@/lib/content';
-import { occurrences } from '@/lib/events';
+import { occurrences, weeklyTest } from '@/lib/events';
 import { weekDays } from '@/lib/flagship-home';
 import { defaultTab, homeTabs, laterRows, TAB_LIMIT } from '@/lib/home-tabs';
 import { isOpen } from '@/lib/places';
@@ -80,9 +80,16 @@ const picked = new Set(pick ? [pick.event.slug] : []);
 const days = weekDays({ events: occurrences(allEvents, { now, horizonDays: 8 }), sports: data, teamHref, now, start: 'today', limit: 99, picked });
 // What an empty tab offers next: the listings of the next two months, so a
 // quiet guide's next date three weeks out is still found.
-const later = laterRows(occurrences(allEvents, { now, horizonDays: 60 }), picked);
+const later = laterRows(occurrences(allEvents, { now, horizonDays: 60 }), picked, weeklyTest(allEvents));
 const tabs = homeTabs(days, now, TAB_LIMIT, later);
 const open = defaultTab(now);
+
+// A thin day: the tab that opens has fewer than three rows at the build, so
+// the signup would follow a near-empty list. The three tiles go first then,
+// and the form after them (the reader pass, 1 November 2026: Johnstown's
+// phone read "Nothing listed", three library rows, then the email ask).
+const THIN = 3;
+const thin = (tabs.find((t) => t.key === open)?.rows.length ?? 0) < THIN;
 
 // 6. Worth knowing: the two newest local changes still current.
 const know = currentUpdates(await getTownEntries('updates'), now)
@@ -92,7 +99,7 @@ const know = currentUpdates(await getTownEntries('updates'), now)
 // 5. The places with a photograph, for the three tiles; a closed place is not a next stop.
 const places = (await getTownEntries('places')).filter(isOpen);
 ---
-<Hero compact pick={!!pick} />
+<Hero compact pick={!!pick} changes={know.length > 0} />
 
 {school ? <SportsBar town={town} /> : schools.length > 1 && (
   <section class="band-compact band-paper">
@@ -102,7 +109,7 @@ const places = (await getTownEntries('places')).filter(isOpen);
 
 <WhatsHappening town={town} tabs={tabs} open={open} />
 
-{emailOn && (
+{emailOn && !thin && (
   <section class="band-compact band-paper">
     <div class="container-page">
       <NewsletterSignup town={town} id="home" variant="home" anchor="signup" />
@@ -111,6 +118,14 @@ const places = (await getTownEntries('places')).filter(isOpen);
 )}
 
 <NextStop town={town} places={places} />
+
+{emailOn && thin && (
+  <section class="band-compact band-paper">
+    <div class="container-page">
+      <NewsletterSignup town={town} id="home" variant="home" anchor="signup" />
+    </div>
+  </section>
+)}
 
 {know.length > 0 && (
   <section class="band-compact band-paper" aria-labelledby="know">

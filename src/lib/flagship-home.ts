@@ -10,6 +10,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { HIGHLIGHT } from '../config/palette.ts';
 import type { SportGame, SportsData } from '../config/school-sports.ts';
+import type { EventCategory } from '../content/schemas.ts';
 import { addDays, dayKey, formatDayLong, formatTime, formatTimeRange, startOfDay, toIsoLocal } from './dates.ts';
 import { displayTitle as titleLessVenue, lastDay, listedUntil, sortByStart } from './events.ts';
 import { FLAGSHIP_TEAM, RESULT_WORD, bigGame, dedupeResults, gameDay, stripGames, weekGames, where, type TeamGame } from './school-sports.ts';
@@ -120,6 +121,8 @@ export interface DayItem {
   end?: string;
   /** A weekly series (the caller's `isSeries`): the first to give up a visible slot on a full day. */
   series?: boolean;
+  /** The listing's category, for the rank of what is next on a thin day (src/lib/home-tabs.ts, nextRank). */
+  category?: EventCategory;
 }
 
 /** A registration opening or closing on a day, from the programs (src/lib/programs.ts, upcomingDeadlines). */
@@ -236,6 +239,7 @@ export function eventItem(e: EventLike, picked?: ReadonlySet<string>): DayItem {
     meta: [fullWhen, venue, cost].filter(Boolean).join(' · '),
     href: `/events/${slug}/`,
     dot: `var(--cat-${category}-dot)`,
+    category,
     time: allDay || timeNote ? '99:98' : hhmm(start),
     eventDay: lastDay(e),
     end: toIsoLocal(listedUntil(e)),

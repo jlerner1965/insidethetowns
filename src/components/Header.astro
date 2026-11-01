@@ -104,7 +104,7 @@ const emailHref = site.kind === 'town' ? `https://${hub.domain}/newsletter/?town
       </div>
 
       <nav id="site-nav" class="site-nav" aria-label="Primary">
-        <ul class="site-nav-list container-page xl:gap-4 xl:px-0 2xl:gap-6">
+        <ul class="site-nav-list container-page xl:gap-3 xl:px-0 2xl:gap-6">
           {nav.map((item) => (
             <li>
               <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined} class:list={rowLink(isActive(item.href))}>{item.label}</a>

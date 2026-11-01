@@ -1,5 +1,5 @@
 ---
-title: "Berthoud Historical Society Fall Speaker Series"
+title: "Historic Preservation in Berthoud: the Historical Society’s November talk"
 start: "2026-11-17T19:00"
 end: "2026-11-17T21:00"
 venue: "Berthoud Recreation Center Community Room"

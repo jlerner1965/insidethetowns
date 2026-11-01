@@ -33,10 +33,14 @@ const Heading = `h${level}` as 'h3' | 'h4';
 const hue = PLACE_HUE[data.type];
 const open = isOpen(place);
 const hours = openingHoursOf(data);
-// A park or a trail keeps daylight or no hours; "Hours unknown" is a
-// business's line, and is not put on open ground.
+// "Check current hours" is the line for a business with a door that opens
+// and shuts. A park or a trail keeps daylight, a venue opens for its events,
+// lodging has a check-in, and a mural walk, a sculpture or a town hall has
+// no hours to check (the reader pass, 1 November 2026, where the line sat
+// under all of those).
+const DOOR_TYPES = ['restaurant', 'bar', 'coffee', 'shop', 'service'];
 const land = LAND_TYPES.includes(data.type);
-const hoursUnknown = open && !data.hours && !place.hoursHidden && !land;
+const hoursUnknown = open && !data.hours && !place.hoursHidden && DOOR_TYPES.includes(data.type);
 // The season in one line, from the months or dates the operator gave:
 // "Open May–Oct", or "Closed for the season" once the gate has taken the
 // hours away (src/lib/freshness.ts, seasonLabel). A season the block cannot

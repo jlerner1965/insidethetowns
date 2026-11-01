@@ -3,7 +3,7 @@ title: "Karaoke night at The Dugout"
 start: "2026-09-25T17:00"
 repeat: weekly
 until: "2026-12-25"
-venue: "The Dugout Grill and Bar"
+venue: "The Dugout Grill & Bar"
 address: "149 S Briggs Street, Erie, CO 80516"
 url: "https://members.eriechamber.org/events/details/karaoke-night-10-09-2026-853720"
 cost: "Free"
