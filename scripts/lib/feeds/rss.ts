@@ -28,7 +28,7 @@
  * (a comma list). Its site-wide iCal feed is switched off on niwot.com.
  */
 import { TIME_ZONE, fromWallClock } from '../../../src/lib/dates.ts';
-import { plainText, type FeedEvent, type Horizon } from './types.ts';
+import { plainText, type FeedEvent, type Horizon, titleStatus } from './types.ts';
 
 const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
 
@@ -117,9 +117,11 @@ export function readRss(xml: string, horizon: Horizon): RssReadResult {
     if (start.getTime() >= horizon.to.getTime() || (end ?? start).getTime() < horizon.from.getTime()) continue;
     // CivicPlus's guid is "<link>/<ticks>"; the event id is the EID in the link.
     const eid = link?.match(/EID=(\d+)/i)?.[1];
+    // "Planning Commission Meeting - CANCELED": the calendar's only word on it (Erie, 1 November 2026).
+    const marked = titleStatus(title);
     events.push({
       uid: eid ? `EID=${eid}` : (guid ?? link ?? title),
-      title,
+      title: marked.title,
       start,
       end,
       allDay,
@@ -135,7 +137,7 @@ export function readRss(xml: string, horizon: Horizon): RssReadResult {
       // The description is the dates and the location again; nothing to keep.
       description: description && !/Event dates?:/i.test(plainText(description)) ? plainText(description) : undefined,
       categories: [],
-      status: 'confirmed',
+      status: marked.status ?? 'confirmed',
     });
   }
   return { events, skipped };
@@ -175,9 +177,10 @@ function readMecItem(item: string, rawTitle: string, link: string | undefined, d
     .filter(Boolean);
   // The guid names the event; a repeating one has an item per date, so the date is part of the id.
   const id = element(item, 'guid') ?? link?.replace(/\?.*$/, '') ?? rawTitle;
+  const marked = titleStatus(rawTitle);
   return {
     uid: `mec:${plainText(id)}#${date.trim()}`,
-    title: rawTitle,
+    title: marked.title,
     start,
     end,
     allDay,
@@ -185,7 +188,7 @@ function readMecItem(item: string, rawTitle: string, link: string | undefined, d
     url: link,
     description: description ? plainText(description) || undefined : undefined,
     categories,
-    status: 'confirmed',
+    status: marked.status ?? 'confirmed',
   };
 }
 
@@ -215,8 +218,8 @@ function readLibCalItem(item: string, rawTitle: string, link: string | undefined
   // refuses and a Monday ingest lost to it.
   if (end && end.getTime() < start.getTime()) end = undefined;
   if (start.getTime() >= horizon.to.getTime() || (end ?? start).getTime() < horizon.from.getTime()) return null;
-  const cancelled = /^cancell?ed:\s*/i.test(rawTitle);
-  const title = rawTitle.replace(/^cancell?ed:\s*/i, '').trim();
+  const marked = titleStatus(rawTitle.trim());
+  const title = marked.title;
   const room = plainText(element(item, 'libcal:location') ?? '');
   const campus = plainText(element(item, 'libcal:campus') ?? '');
   const location = [room, campus].filter(Boolean).join(', ') || undefined;
@@ -233,6 +236,6 @@ function readLibCalItem(item: string, rawTitle: string, link: string | undefined
     url: link,
     description: description ? plainText(description) : undefined,
     categories,
-    status: cancelled ? 'cancelled' : 'confirmed',
+    status: marked.status ?? 'confirmed',
   };
 }

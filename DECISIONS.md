@@ -7992,3 +7992,67 @@ LibraryCalendar, Finalsite); each is read only if the editor sets
 (visitlovelandco.org now a betting page, savellis.com, nederlandchamber.org,
 periodicbrewing.com); no page links them, and they are the owner's to
 retire. No Lyons source has a feed a machine may read.
+
+## The other side of a duplicate: a different event swallowed as the same, 1 November 2026
+
+The owner asked, after the duplicates were closed, about the opposite
+mistake: an event not listed because something similar but not the same
+was taken for it, or a listing checked against the wrong thing. Every
+title and page match the ingest makes across the 48 feeds was logged
+(`npm run ingest -- --dry-run --explain`, 115 of 410 items; the rest match
+by the feed's own id) and read: each pairs the same event. The re-check was
+run report-only over the three flagship guides. Four places were found
+where a similar thing stood in for the real one, and each is closed.
+
+- **A cancellation written into the title was read as part of the title.**
+  CivicPlus and LibCal calendars say it only there ("Planning Commission
+  Meeting - CANCELED" in Erie and Johnstown, "Canceled-Board of Trustees"
+  in Frederick, "CANCELED: Does AI Think About Us?" at the Estes Valley
+  Library). The item still matched its listing by title, nothing else
+  differed, and the listing stayed "scheduled": Erie's Planning Commission
+  of 4 November and the Estes library's talk on 2 and 3 November were on
+  their guides as on. The readers now take a cancellation or postponement
+  marker off the title and carry it as the status, so the listing is
+  flagged and, from the organizer's own feed, canceled by the standing
+  rules (`titleStatus`, scripts/lib/feeds/types.ts). The three were
+  canceled that day by that path. A dry run over every feed afterwards
+  found no fourth.
+- **The re-check took the first same-named item of the day.** A matinee
+  and an evening show, or two storytimes, share a title and a day; the
+  first in feed order was checked against, whatever its time, which is how
+  CSU's 7:30 pm concert was flagged as moved to 2 pm. It now takes the item
+  at the listing's time, then the one whose page the listing cites, then
+  the one within half an hour; with several at other times the note names
+  them all. The time comes before the page because a production's file
+  cites one show's page for every show.
+- **Another calendar's copy of an event read as the event moving.** The
+  Estes Valley Library lists the Town's Catch the Glow Parade as an
+  "Offsite Event"; the source's default venue is the library, and the
+  ingest flagged the parade as moved there. "Offsite Event" is now the
+  guess that a bare "Offsite" already was, so no venue is read from it. And
+  where a title match comes from a calendar that is not the listing's
+  source and puts the event at a confidently different place, the item is
+  now staged with the question ("another event of the same name, or that
+  one on another calendar") rather than written up as the listing moving:
+  two holiday markets on one Saturday are two listings, and neither is
+  lost. The parade's flag is dismissed.
+- **A file's first show stood for its later ones.** A feed item at a
+  file's second show matched the file's first, and the second read as a
+  time change. The matcher now takes the file's show at the item's hour,
+  and a later show answers only to an item near its time, never to a
+  same-named item at another hour.
+
+Lyons's storytelling workshop of 10 November, the one flag on a flagship
+guide, was this confusion in content: the library runs two sessions with
+two entries ("Homeschool Community Meetup: Family Story Telling Through
+Art" at 2, "Family Story Telling Through Art … (After School Program)" at
+3) and the guide had them as one 2 to 4 pm block spelled "storytelling",
+so the 2 pm entry never matched and the 3 pm page was checked against
+2 pm. The listing is now the library's two sessions, each with its own
+note, under the library's spelling, and the re-check confirms both; "Free"
+came off it, since neither page says so.
+
+Checked and left alone: the title exclusions (every festive, music or
+market title kept out this week was kept out by an entry meant for it), and
+the matcher's title threshold (no match this week paired two different
+events). The explain flag stays for the next such question.

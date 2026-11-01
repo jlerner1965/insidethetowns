@@ -185,7 +185,10 @@ export function venueFrom(location: string | undefined, source: Pick<Source, 've
     // LibCal writes "Offsite" beside the branch that runs an event held
     // somewhere else (Fort Lupton's teen laser tag, at the high school): the
     // building is the organizer, not the venue, so the default is only a guess.
-    if (parts.some((p) => /^off-?site$/i.test(p))) return { venue: source.defaultVenue, address: addressIn(parts), guessed: true };
+    // "Offsite Event" (the Estes Valley Library's wording for the Town's
+    // parade on its calendar) is the same guess, read as a room until
+    // 1 November 2026, when the parade was flagged as moved to the library.
+    if (parts.some((p) => /^off-?site\b/i.test(p))) return { venue: source.defaultVenue, address: addressIn(parts), guessed: true };
     const named = parts.some((p) => p.toLowerCase().includes(source.defaultVenue!.toLowerCase()));
     // A department's feed is at its own building unless the location names
     // another place: the library's film at the museum ("Longmont Museum,
@@ -244,7 +247,7 @@ export function fingerprint(item: FeedEvent, venue: string | undefined): string 
  * Feed item -> the file it would become in staging. `dupes`, the published
  * listings it may repeat (`possibleDuplicates`), lead the review line.
  */
-export function toStaged(item: FeedEvent, source: Source, _town: string, today: string, dupes: PossibleDuplicate[] = []): StagedEvent {
+export function toStaged(item: FeedEvent, source: Source, _town: string, today: string, dupes: PossibleDuplicate[] = [], elsewhere?: string): StagedEvent {
   const guesses: string[] = [];
   const { venue, address, guessed: venueGuessed } = venueFrom(item.location, source);
   const { category, guessed: categoryGuessed } = guessCategory(item);
@@ -258,7 +261,7 @@ export function toStaged(item: FeedEvent, source: Source, _town: string, today: 
   // here and the review line says so; the start stands.
   const endBeforeStart = !!item.end && item.end.getTime() < item.start.getTime();
   if (endBeforeStart) guesses.push(`the feed's end (${toWallClock(item.end!)}) was before its start and was dropped`);
-  const dupe = duplicateNote(dupes);
+  const dupe = elsewhere ?? duplicateNote(dupes);
   const reason = [...(dupe ? [dupe] : []), `Ingested from ${source.name}; check against the organizer's page`, ...guesses, 'description is the feed\'s text: rewrite'].join('. ');
   const frontmatter: Record<string, unknown> = {
     title: item.title,
@@ -274,9 +277,9 @@ export function toStaged(item: FeedEvent, source: Source, _town: string, today: 
     url: item.url,
     cost: item.cost,
     category,
-    status: item.status === 'cancelled' ? 'canceled' : undefined,
-    statusNote: item.status === 'cancelled' ? `${source.name} marks this canceled (feed read ${today}).` : undefined,
-    statusSource: item.status === 'cancelled' ? item.url ?? source.feedUrl ?? source.url : undefined,
+    status: item.status === 'cancelled' ? 'canceled' : item.status === 'postponed' ? 'postponed' : undefined,
+    statusNote: item.status !== 'confirmed' ? `${source.name} marks this ${item.status === 'cancelled' ? 'canceled' : 'postponed'} (feed read ${today}).` : undefined,
+    statusSource: item.status !== 'confirmed' ? item.url ?? source.feedUrl ?? source.url : undefined,
     source: item.url ?? source.url,
     sourceId: source.id,
     sourceUid: item.uid,
@@ -289,10 +292,13 @@ export function toStaged(item: FeedEvent, source: Source, _town: string, today: 
   return { slug, frontmatter, body, guesses };
 }
 
+/** What tied the item to the file: the feed's own id, the organizer's page for it, or the day and the title. */
+export type MatchHow = 'uid' | 'link' | 'title';
+
 export type Match =
   | { kind: 'none' }
-  | { kind: 'staged'; existing: ExistingEvent }
-  | { kind: 'published'; existing: ExistingEvent }
+  | { kind: 'staged'; existing: ExistingEvent; how: MatchHow }
+  | { kind: 'published'; existing: ExistingEvent; how: MatchHow }
   /**
    * Two or more published files are each this item, by the organizer's link
    * or by day, time and title: the guide lists one event twice. No rule
@@ -350,7 +356,7 @@ export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblin
   // tickets.lctix.com and www.lctix.com are one site: the comparison is on
   // the registrable domain, not the hostname.
   const byUid = existing.find((e) => e.sourceUid && !e.laterShow && e.sourceUid === item.uid && (!host || !e.sourceHost || sameSite(e.sourceHost, host)));
-  if (byUid) return { kind: byUid.staged ? 'staged' : 'published', existing: byUid };
+  if (byUid) return { kind: byUid.staged ? 'staged' : 'published', existing: byUid, how: 'uid' };
   const day = dayKey(item.start);
   const near = (e: ExistingEvent) => item.allDay || Math.abs(e.start.getTime() - item.start.getTime()) <= HALF_HOUR;
   // A file whose own feed id is still in this run belongs to that item.
@@ -361,16 +367,18 @@ export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblin
   // A later show is free whoever holds the file's id: the id is its first show's.
   const free = (e: ExistingEvent) => e.laterShow || !(claimed && e.sourceUid && e.sourceUid !== item.uid && claimed.has(e.sourceUid));
   const sameDay = existing.filter((e) => dayKey(e.start) === day && free(e));
-  const decide = (found: ExistingEvent[], why: string): Match | undefined => {
+  const decide = (found: ExistingEvent[], why: string, how: MatchHow): Match | undefined => {
     if (!found.length) return undefined;
     const published = byFile(found.filter((e) => !e.staged));
     if (published.length > 1) {
       const close = published.filter(near);
-      if (close.length === 1) return { kind: 'published', existing: close[0]! };
+      if (close.length === 1) return { kind: 'published', existing: close[0]!, how };
       return { kind: 'ambiguous', candidates: close.length > 1 ? close : published, why };
     }
-    const best = found[0]!;
-    return { kind: best.staged ? 'staged' : 'published', existing: best };
+    // Of a file's own dates, the one at this hour: a two-session day's second
+    // item is its second session, not its first moved (Lyons, 1 November 2026).
+    const best = found.find(near) ?? found[0]!;
+    return { kind: best.staged ? 'staged' : 'published', existing: best, how };
   };
   // The organizer's page for this date: the id a file without the feed's
   // own carries. A file that cites another session's page (the 10 am
@@ -378,8 +386,8 @@ export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblin
   // day the time still has to agree.
   const link = item.url ? normalizeUrl(item.url) : undefined;
   if (link) {
-    const found = sameDay.filter((e) => e.urls?.some((u) => normalizeUrl(u) === link) && (siblings <= 1 || near(e)));
-    const hit = decide(found, `each cites the organizer's page for it, ${item.url}`);
+    const found = sameDay.filter((e) => e.urls?.some((u) => normalizeUrl(u) === link) && ((siblings <= 1 && !e.laterShow) || near(e)));
+    const hit = decide(found, `each cites the organizer's page for it, ${item.url}`, 'link');
     if (hit) return hit;
   }
   const scored: Array<{ e: ExistingEvent; score: number }> = [];
@@ -389,12 +397,14 @@ export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblin
     const own = e.laterShow && e.sourceUid && claimed instanceof Map ? claimed.get(e.sourceUid) : undefined;
     const score = Math.max(titleSimilarity(item.title, e.title), own ? titleSimilarity(item.title, own) : 0);
     if (score < INGEST.titleMatch) continue;
-    if (siblings > 1 && !item.allDay && !near(e)) continue;
+    // A later show is a time, not a day: a same-named item at another hour
+    // is another show (or another company's), never this one moved.
+    if ((siblings > 1 || e.laterShow) && !item.allDay && !near(e)) continue;
     scored.push({ e, score });
   }
   // Highest first; the sort is stable, so a tie goes to the file found first, as before.
   scored.sort((a, b) => b.score - a.score);
-  return decide(scored.map((s) => s.e), 'the same day and nearly the same title') ?? { kind: 'none' };
+  return decide(scored.map((s) => s.e), 'the same day and nearly the same title', 'title') ?? { kind: 'none' };
 }
 
 /** A published file the review should rule on before a staged item is approved beside it. */
@@ -449,6 +459,18 @@ export function duplicateNote(dupes: PossibleDuplicate[]): string | undefined {
   return `Possible duplicate of ${list}. Merge it into that listing or reject it; do not approve it as a new one`;
 }
 
+/**
+ * The review line for an item that shares a listing's day and title but
+ * not its venue, from a calendar that is not the listing's own source: the
+ * same name at another place is another organizer's event (two holiday
+ * markets on one Saturday), or the listing reposted by a library or a
+ * chamber with its own building as the place. Until 1 November 2026 such an
+ * item was written up as the listing moving, and was never staged itself.
+ */
+export function elsewhereNote(existing: ExistingEvent, venue: string, feedName: string): string {
+  return `Possible duplicate of ${existing.slug} ("${existing.title}", at ${existing.venue}), which ${feedName} lists the same day at ${venue}. Another event of the same name, or that one on another calendar: publish it as its own listing or reject it; it is not that listing moving`;
+}
+
 /** The flag a published file carries while another published file lists the same event. */
 export function ambiguousNote(item: FeedEvent, candidates: ExistingEvent[], why: string, sourceName: string, today: string): string {
   const files = candidates.map((c) => c.slug).join(' and ');
@@ -483,5 +505,7 @@ export function detectChanges(item: FeedEvent, existing: ExistingEvent, venue: s
   }
   const wasCanceled = existing.status === 'canceled' || existing.status === 'postponed';
   if (item.status === 'cancelled' && !wasCanceled) changes.push({ field: 'status', was: existing.status ?? 'scheduled', now: 'canceled' });
+  // A postponement is a status change too; the rules leave it for a person (decideChange), but the listing is flagged.
+  if (item.status === 'postponed' && !wasCanceled) changes.push({ field: 'status', was: existing.status ?? 'scheduled', now: 'postponed' });
   return changes;
 }

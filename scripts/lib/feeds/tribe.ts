@@ -8,7 +8,7 @@
  * its own zone rules; the wall clock is the fallback.
  */
 import { TIME_ZONE, fromWallClock } from '../../../src/lib/dates.ts';
-import { plainText, type FeedEvent, type Horizon } from './types.ts';
+import { plainText, type FeedEvent, type Horizon, titleStatus } from './types.ts';
 
 interface TribeEvent {
   id: number;
@@ -75,9 +75,10 @@ export function readTribePage(page: TribePage, horizon: Horizon): FeedEvent[] {
     const location = venue
       ? [venue.venue, venue.address, venue.city].filter((x) => typeof x === 'string' && x.trim()).join(', ') || undefined
       : undefined;
+    const marked = titleStatus(plainText(e.title));
     out.push({
       uid: String(e.id),
-      title: plainText(e.title),
+      title: marked.title,
       start,
       end,
       allDay,
@@ -86,7 +87,7 @@ export function readTribePage(page: TribePage, horizon: Horizon): FeedEvent[] {
       description: e.description ? plainText(e.description) : undefined,
       categories: (e.categories ?? []).map((c) => plainText(c.name ?? '')).filter(Boolean),
       cost: e.cost?.trim() || undefined,
-      status: e.status && e.status !== 'publish' ? 'cancelled' : 'confirmed',
+      status: e.status && e.status !== 'publish' ? 'cancelled' : (marked.status ?? 'confirmed'),
       lastModified: e.modified ? wall(e.modified, tz) : undefined,
     });
   }

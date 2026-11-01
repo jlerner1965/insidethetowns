@@ -11,7 +11,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { duplicateNote, matchExisting, possibleDuplicates, sameVenue, toStaged, type ExistingEvent } from '../scripts/lib/ingest.ts';
+import { duplicateNote, elsewhereNote, matchExisting, possibleDuplicates, sameVenue, toStaged, venueFrom, type ExistingEvent } from '../scripts/lib/ingest.ts';
 import { decideEvent } from '../scripts/lib/auto-review.ts';
 import type { FeedEvent } from '../scripts/lib/feeds/types.ts';
 import { sourceSchema, type Source } from '../src/content/schemas.ts';
@@ -135,6 +135,39 @@ test("a production's later show is the file's, though its first show's id is sti
   assert.equal(known.kind === 'published' && known.existing.start.getTime(), parseLocal('2026-12-10T18:00').getTime());
   const other = new Map([...titled, ['14463389', 'Teen Tech Help']]);
   assert.equal(matchExisting(later, retitled, 3, other).kind, 'none', 'a first show of another name proves nothing');
+});
+
+test('a later show answers only to an item near its time; a same-named item at another hour is not it', () => {
+  const santa = (start: string, laterShow?: boolean): ExistingEvent => ({
+    file: 'santa.md', slug: 'booked-for-the-holidays-2026-12-10', staged: false,
+    title: 'Booked for the Holidays', start: parseLocal(start), venue: 'Philip S. Miller Library', sourceUid: '14463389', ...(laterShow ? { laterShow } : {}),
+  });
+  const shows = [santa('2026-12-10T10:00'), santa('2026-12-10T14:00', true)];
+  const session = (uid: string, at: string) => item({ uid, title: 'Booked for the Holidays', start: parseLocal(at), end: undefined, url: undefined });
+  // Siblings 1: by day and title alone a first show would be matched whatever the hour; a later show is not.
+  const m = matchExisting(session('999', '2026-12-10T18:00'), shows, 1, new Set(['14463389']));
+  assert.equal(m.kind, 'none', 'a 6 pm item is not the 2 pm show');
+  const near = matchExisting(session('14463412', '2026-12-10T14:15'), shows, 1, new Set(['14463389', '14463412']));
+  assert.equal(near.kind, 'published');
+  assert.equal(near.kind === 'published' && near.how, 'title');
+  assert.equal(matchExisting(session('14463389', '2026-12-10T10:00'), shows, 1).kind === 'published' && matchExisting(session('14463389', '2026-12-10T10:00'), shows, 1).how, 'uid');
+});
+
+test("a location that is only 'Offsite Event' makes the default venue a guess, not the feed's word", () => {
+  const src = { defaultVenue: 'Estes Valley Library' };
+  assert.equal(venueFrom('Offsite Event', src).guessed, true, 'the library says the parade is not at the library');
+  assert.equal(venueFrom('Offsite', src).guessed, true);
+  assert.equal(venueFrom('Hondius Room', src).guessed, false, 'a room is in the building');
+  assert.equal(venueFrom('Hondius Room', src).venue, 'Estes Valley Library');
+});
+
+test('the note for a same-named event another calendar puts somewhere else holds it for a person', () => {
+  const parade = file({ file: 'p.md', slug: 'catch-the-glow-parade-2026-11-27', title: 'Catch the Glow Parade', venue: 'Elkhorn Avenue, downtown Estes Park' });
+  const note = elsewhereNote(parade, 'Estes Valley Library', 'the Estes Valley Library calendar');
+  assert.match(note, /^Possible duplicate of catch-the-glow-parade-2026-11-27 /, 'the standing rules hold anything so marked');
+  assert.match(note, /it is not that listing moving/);
+  const staged = toStaged(item({ title: 'Catch the Glow Parade' }), library, 'johnstown', '2026-11-01', [], note);
+  assert.ok((staged.frontmatter.review as { reason: string }).reason.startsWith(note));
 });
 
 const library: Source = sourceSchema.parse({

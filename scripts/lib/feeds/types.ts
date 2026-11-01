@@ -18,8 +18,32 @@ export interface FeedEvent {
   description?: string;
   categories: string[];
   cost?: string;
-  status: 'confirmed' | 'cancelled';
+  status: 'confirmed' | 'cancelled' | 'postponed';
   lastModified?: Date;
+}
+
+/**
+ * A cancellation or postponement written into the title, which is how
+ * CivicPlus and LibCal calendars say it: "Planning Commission Meeting -
+ * CANCELED" (Erie, Johnstown), "Canceled-Board of Trustees Work Session"
+ * (Frederick), "Cancelled: Storytime" (LibCal), "**CANCELLED** Aly & AJ"
+ * (a box office), "Workshop (Postponed)". The word comes off the title and
+ * the status carries it, so the item still matches its listing by title
+ * and the listing is flagged. Read as part of the title, Erie's canceled
+ * 4 November meeting matched its listing and was "unchanged" (1 November
+ * 2026). The word has to stand at the start with a separator after it, or
+ * at the end after one, or in brackets: "Cancelled Flights, a talk" is a
+ * title.
+ */
+const MARK_START = /^\W*(cancell?ed|postponed)\s*[:\-–—*]+\s*/i;
+const MARK_END = /[\s\-–—:]+(cancell?ed|postponed)[\s*!.]*$/i;
+const MARK_BRACKET = /\s*[(\[]\s*(cancell?ed|postponed)\s*[)\]]/i;
+export function titleStatus(raw: string): { title: string; status?: 'cancelled' | 'postponed' } {
+  const m = raw.match(MARK_START) ?? raw.match(MARK_END) ?? raw.match(MARK_BRACKET);
+  if (!m) return { title: raw };
+  const title = raw.replace(m[0], ' ').replace(/\s+/g, ' ').trim();
+  if (!title) return { title: raw };
+  return { title, status: /^postponed$/i.test(m[1]!) ? 'postponed' : 'cancelled' };
 }
 
 export interface Horizon {

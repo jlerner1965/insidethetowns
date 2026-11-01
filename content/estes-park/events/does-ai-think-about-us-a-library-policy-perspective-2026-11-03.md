@@ -10,7 +10,10 @@ sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17731129"
 sourceHash: "844781b1a1d4"
 verified: "2026-11-01"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"CANCELED: Does AI Think About Us? A Library Policy Perspective\" at 10 am on 3 November on the Estes Valley Library feed"
+verifiedBy: "auto-review from the Estes Valley Library feed read 2026-11-01, Claude Code for James Lerner"
+status: canceled
+statusNote: "Estes Valley Library lists this as canceled (read 2026-11-01)."
+statusSource: "https://calendar.estesvalleylibrary.org/event/17731129"
 ---
 
 Does AI Think About Us? A Library Policy Perspective at Estes Valley Library, Tuesday, November 3, 10 am – 11 am. Listed by Estes Valley Library; the organizer's page has the details and any registration.

@@ -9,7 +9,10 @@ category: civic
 recurring: "First and third Wednesdays"
 source: "https://www.erieco.gov/338/Planning-Commission"
 verified: "2026-11-01"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Planning Commission Meeting - CANCELED\" at 6:30 pm on 4 November on the erieco.gov feed"
+verifiedBy: "auto-review from the erieco.gov feed read 2026-11-01, Claude Code for James Lerner"
+status: canceled
+statusNote: "erieco.gov lists this as canceled (read 2026-11-01)."
+statusSource: "https://www.erieco.gov/Calendar.aspx?EID=5209"
 ---
 
 Regular meeting of the Erie Planning Commission in the Council Chambers at Town Hall, first and third Wednesdays at 6:30 pm, on development applications, annexations and the comprehensive plan. Streamed live; agendas post 24 hours ahead.

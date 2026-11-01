@@ -386,8 +386,27 @@ export function judgeFeed(e: RecheckEvent, occurrence: Date, items: FeedEvent[],
       asides,
     };
   }
-  const item = onDay.find((i) => i.url && e.url && normUrl(i.url) === normUrl(e.url)) ?? onDay[0]!;
-  if (item.status === 'cancelled') return { verdict: 'changed', note: `${feedName} marks "${item.title}" on ${when(occurrence)} cancelled`, asides };
+  // Which of the day's items is this one: the one at this time; else the
+  // one whose page the listing cites; else the one within half an hour. A
+  // matinee and an evening show, or two storytimes, share a title and a
+  // day, and taking the first in feed order read CSU's 7:30 pm concert as
+  // moved to 2 pm (1 November 2026). The time comes before the page because
+  // a production's file cites one show's page for every show (that concert
+  // cited the matinee's). With several left at other times, the note names
+  // them all rather than one of them as the new time.
+  const minutes = (d: Date) => {
+    const [h, m] = wall(d).hm.split(':').map(Number);
+    return h! * 60 + m!;
+  };
+  const byPage = onDay.find((i) => i.url && e.url && normUrl(i.url) === normUrl(e.url));
+  const exact = onDay.find((i) => !i.allDay && wall(i.start).hm === hm);
+  const close = onDay.filter((i) => !i.allDay && Math.abs(minutes(i.start) - minutes(occurrence)) <= 30);
+  const item = exact ?? byPage ?? (close.length === 1 ? close[0]! : onDay.length === 1 ? onDay[0]! : undefined);
+  if (!item) {
+    const times = [...new Set(onDay.map((i) => (i.allDay ? 'all day' : formatTime(i.start))))];
+    return { verdict: 'changed', note: `${feedName} lists "${onDay[0]!.title}" at ${times.join(' and ')} on ${when(occurrence)}, not ${formatTime(occurrence)}`, asides };
+  }
+  if (item.status !== 'confirmed') return { verdict: 'changed', note: `${feedName} marks "${item.title}" on ${when(occurrence)} ${item.status}`, asides };
   if (e.allDay || item.allDay) return { verdict: 'confirmed', note: `"${item.title}" on ${when(occurrence)} on ${feedName}`, asides };
   const found = wall(item.start).hm;
   if (found !== hm) {

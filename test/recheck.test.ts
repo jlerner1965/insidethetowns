@@ -125,6 +125,25 @@ test('a feed that carries the event on other days but not this one is a change; 
   assert.match(past.note, /has nothing by this title/);
 });
 
+test('two same-named items on one day: the one at this time confirms, and the note names both when neither does', () => {
+  // CSU's dance concert, 14 November 2026: a 2 pm matinee and a 7:30 pm show, each its own feed item; the file is the evening show.
+  const matinee = item({ title: 'Pints & Pages', start: at('2026-11-11T14:00'), end: at('2026-11-11T15:00'), url: 'https://x.org/e/1' });
+  const evening = item({ title: 'Pints & Pages', start: at('2026-11-11T18:00'), end: at('2026-11-11T19:00'), url: 'https://x.org/e/2' });
+  const file = event({ url: undefined });
+  const j = judgeFeed(file, at('2026-11-11T18:00'), [matinee, evening], 'the feed');
+  assert.equal(j.verdict, 'confirmed', 'the 6 pm show, though the matinee comes first in the feed');
+  assert.match(j.note, /6 pm/);
+  const seven = judgeFeed(event({ url: undefined, start: at('2026-11-11T19:00'), end: at('2026-11-11T20:00') }), at('2026-11-11T19:00'), [matinee, evening], 'the feed');
+  assert.equal(seven.verdict, 'changed');
+  assert.match(seven.note, /at 2 pm and 6 pm on 11 November, not 7 pm/, 'both times, not the first one as the new time');
+  // A production's file cites one show's page for every show: the time decides before the page.
+  const cited = judgeFeed(event({ url: 'https://x.org/e/1' }), at('2026-11-11T18:00'), [matinee, evening], 'the feed');
+  assert.equal(cited.verdict, 'confirmed', 'a file at 6 pm citing the matinee’s page is still the 6 pm show');
+  // With no item at this time, the cited page decides.
+  const pageOnly = judgeFeed(event({ url: 'https://x.org/e/1', start: at('2026-11-11T19:00'), end: at('2026-11-11T20:00') }), at('2026-11-11T19:00'), [matinee, evening], 'the feed');
+  assert.match(pageOnly.note, /at 2 pm on 11 November, not 7 pm/);
+});
+
 test('a cancelled feed item is a change', () => {
   assert.match(judgeFeed(event(), at('2026-11-11T18:00'), [item({ status: 'cancelled' })], 'the feed').note, /cancelled/);
 });

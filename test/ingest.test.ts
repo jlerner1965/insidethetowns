@@ -13,7 +13,7 @@ import { civicPlusLocation, readIcal, urlAndDescription } from '../scripts/lib/f
 import { parseClock, parseLongDate, readRss } from '../scripts/lib/feeds/rss.ts';
 import { isLivestream, isShowareFeed, readShowarePage, showareHasMore, showarePage, showareTitle } from '../scripts/lib/feeds/showare.ts';
 import { readTribePage, tribeFirstPage } from '../scripts/lib/feeds/tribe.ts';
-import { plainText } from '../scripts/lib/feeds/types.ts';
+import { plainText, titleStatus } from '../scripts/lib/feeds/types.ts';
 import { detectChanges, excludedTitle, fingerprint, guessCategory, hostOf, matchExisting, passesCategoryFilter, passesLocationFilter, sameSite, siblingCounts, titleSimilarity, toStaged, venueFrom } from '../scripts/lib/ingest.ts';
 import { eventFile, slugify } from '../scripts/lib/event-files.ts';
 import { parseFrontmatter } from '../scripts/lib/frontmatter.ts';
@@ -335,6 +335,28 @@ test('ShoWare performance list: the venue clock, the cleaned title, the cancelle
   assert.equal(showareHasMore({ performance: [], perfCount: 55 }, 20), false, 'an empty page ends the read');
   assert.equal(showareTitle('COMPLEXIONS CONTEMPORARY BALLET: LOVE ROCKS | Presented by The Lincoln Center'), 'COMPLEXIONS CONTEMPORARY BALLET: LOVE ROCKS');
   assert.equal(showareTitle('Debut Theatre Company | The Legend of Sleepy Hollow'), 'Debut Theatre Company | The Legend of Sleepy Hollow', 'a company credit stays');
+});
+
+test('a cancellation or postponement written into a title comes off it and becomes the status', () => {
+  assert.deepEqual(titleStatus('Planning Commission Meeting - CANCELED'), { title: 'Planning Commission Meeting', status: 'cancelled' }, 'CivicPlus, Erie');
+  assert.deepEqual(titleStatus('Veterans Wall of Honor Ceremony- canceled'), { title: 'Veterans Wall of Honor Ceremony', status: 'cancelled' });
+  assert.deepEqual(titleStatus('Canceled-Board of Trustees Work Session'), { title: 'Board of Trustees Work Session', status: 'cancelled' }, 'Frederick');
+  assert.deepEqual(titleStatus('Cancelled: Storytime'), { title: 'Storytime', status: 'cancelled' }, 'LibCal');
+  assert.deepEqual(titleStatus('**CANCELLED** ALY & AJ – Places to Run Tour 2026'), { title: 'ALY & AJ – Places to Run Tour 2026', status: 'cancelled' });
+  assert.deepEqual(titleStatus('Shadow Puppetry Workshop (Postponed)'), { title: 'Shadow Puppetry Workshop', status: 'postponed' });
+  assert.deepEqual(titleStatus('Town Board Meeting - POSTPONED'), { title: 'Town Board Meeting', status: 'postponed' });
+  assert.deepEqual(titleStatus('Cancelled Flights: a talk on air travel'), { title: 'Cancelled Flights: a talk on air travel' }, 'a word in a title, no separator after it');
+  assert.deepEqual(titleStatus('Why the Fair Was Canceled in 1918'), { title: 'Why the Fair Was Canceled in 1918' }, 'mid-title');
+  assert.deepEqual(titleStatus('CANCELED'), { title: 'CANCELED' }, 'nothing left: the title stands');
+});
+
+test('a feed item marked cancelled or postponed in its title changes a published listing', () => {
+  const existing = { file: 'a.md', slug: 'a', staged: false, title: 'Planning Commission meeting', start: parseLocal('2026-11-04T18:30'), venue: 'Erie Town Hall' };
+  const base = { uid: '1', title: 'Planning Commission Meeting', start: parseLocal('2026-11-04T18:30'), allDay: false, categories: [] as string[] };
+  assert.deepEqual(detectChanges({ ...base, status: 'cancelled' }, existing, 'Erie Town Hall'), [{ field: 'status', was: 'scheduled', now: 'canceled' }]);
+  assert.deepEqual(detectChanges({ ...base, status: 'postponed' }, existing, 'Erie Town Hall'), [{ field: 'status', was: 'scheduled', now: 'postponed' }]);
+  assert.deepEqual(detectChanges({ ...base, status: 'confirmed' }, existing, 'Erie Town Hall'), []);
+  assert.deepEqual(detectChanges({ ...base, status: 'cancelled' }, { ...existing, status: 'canceled' }, 'Erie Town Hall'), [], 'already canceled on the guide');
 });
 
 test('ShoWare: a livestream ticket is not a performance; the hall’s own row is read', () => {

@@ -14,7 +14,7 @@
  */
 import ICAL from 'ical.js';
 import { TIME_ZONE, addDays, dayKey, fromWallClock, toWallClock } from '../../../src/lib/dates.ts';
-import { plainText, type FeedEvent, type Horizon } from './types.ts';
+import { plainText, type FeedEvent, type Horizon, titleStatus } from './types.ts';
 
 /** Windows and other non-IANA zone names that turn up in feeds. */
 const ZONE_ALIASES: Record<string, string> = {
@@ -116,9 +116,10 @@ export function readIcal(ics: string, horizon: Horizon): FeedEvent[] {
     const midnightDay = !start.isDate && atMidnight(startAt) && (!endAt || endAt.getTime() === startAt.getTime() || (atMidnight(endAt) && dayKey(endAt) === dayKey(addDays(startAt, 1))));
     if (midnightDay) lastDay = undefined;
     const { url, description } = urlAndDescription(text(component, 'url'), item.description?.trim() || undefined);
+    const marked = titleStatus(item.summary?.trim() || '(untitled)');
     out.push({
       uid: `${item.uid}${uidSuffix}`,
-      title: item.summary?.trim() || '(untitled)',
+      title: marked.title,
       start: startAt,
       end: lastDay,
       allDay: start.isDate || midnightDay,
@@ -126,7 +127,7 @@ export function readIcal(ics: string, horizon: Horizon): FeedEvent[] {
       url,
       description,
       categories: categories(component),
-      status: status === 'CANCELLED' ? 'cancelled' : 'confirmed',
+      status: status === 'CANCELLED' ? 'cancelled' : (marked.status ?? 'confirmed'),
       lastModified: lastModified instanceof ICAL.Time ? lastModified.toJSDate() : undefined,
     });
   };
