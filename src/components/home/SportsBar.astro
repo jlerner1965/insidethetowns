@@ -18,7 +18,7 @@ import { schoolsFor, sportsPath, type SportsData } from '@/config/school-sports'
 import { schoolTheme } from '@/config/school-colors';
 import { clock, dashed, nextGame, scoreboardResult } from '@/lib/flagship-home';
 import { gameDay, latestResult, RESULT_WORD, sportsDataFor, where } from '@/lib/school-sports';
-import { TIME_ZONE } from '@/lib/dates';
+import { dayKey, formatDayShort, TIME_ZONE } from '@/lib/dates';
 
 interface Props {
   town: TownConfig;
@@ -43,7 +43,14 @@ const resultLine = result?.game.result
   ? `${RESULT_WORD[result.game.result]}${result.game.score ? ` ${dashed(`${result.game.score.us}–${result.game.score.them}`)}` : result.game.forfeit ? ' by forfeit' : ''}`
   : undefined;
 const SHORT_DAY = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, weekday: 'short' });
-const nextWhen = next ? `${SHORT_DAY.format(gameDay(next.game))}${next.game.time ? ` ${clock(gameDay(next.game))}` : ''}` : '';
+// The day's name alone is this week's: "Thu" for a game two weeks out reads
+// as the coming Thursday (the reader pass, 1 November 2026, a playoff round
+// not yet drawn). Beyond six days the date goes with it, "Sat, Nov 14".
+const WEEK_AHEAD = 6;
+const gameOn = next ? gameDay(next.game) : undefined;
+const thisWeek = gameOn ? dayKey(gameOn) <= dayKey(new Date(now.getTime() + WEEK_AHEAD * 86_400_000)) : true;
+const nextDay = gameOn ? (thisWeek ? SHORT_DAY.format(gameOn) : formatDayShort(gameOn)) : '';
+const nextWhen = next ? `${nextDay}${next.game.time ? ` ${clock(gameDay(next.game))}` : ''}` : '';
 ---
 {shown && school && (
   <section class="on-dark text-white" style={vars} aria-label={`${nickname} sports`} data-pagefind-ignore>

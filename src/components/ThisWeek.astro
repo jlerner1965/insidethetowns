@@ -44,7 +44,7 @@ import UpTheHill from './UpTheHill.astro';
 import WeekEventRow from './WeekEventRow.astro';
 import { neighborsOf, type TownConfig } from '@/config';
 import { getNeighborEntries, getTownEntries } from '@/lib/content';
-import { formatDate, formatDayLong, formatDayRange, toIsoLocal } from '@/lib/dates';
+import { dayKey, formatDate, formatDayLong, formatDayRange, toIsoLocal } from '@/lib/dates';
 import { highlights, isMultiDay, lastDay, listedUntil, nearbyPicks, occurrences, recommendationKeys, timeText, weekendWindow } from '@/lib/events';
 import { activeChanges, briefingUpdates, corrections, currentNotes, currentPick, isWeekend, weekEvents, weekWindow } from '@/lib/weekly';
 import { currentUpdates, isLateNotice } from '@/lib/updates';
@@ -112,9 +112,13 @@ const hasUpdates = updateEntries.length > 0;
 // instead, so a page never opens on an apology (Niwot's home did); the line
 // saying the week is empty shows only when nothing later is listed either.
 const quiet = !pick && allEvents.length === 0;
+// And on the Sunday, whatever is left of the week: a reader on the week's
+// last evening is planning the next one (the reader pass, 1 November 2026:
+// three guides showed one Sunday event and nothing after it).
+const lastDayOfWeek = dayKey(now) === dayKey(sunday);
 const sundayEnd = new Date(sunday.getTime() + 86_400_000);
 const seen = new Set<string>();
-const later = quiet
+const later = quiet || lastDayOfWeek
   ? [...calendar]
       .sort((x, y) => x.data.start.getTime() - y.data.start.getTime())
       .filter((e) => e.data.start.getTime() >= sundayEnd.getTime() && !seen.has(e.slug) && seen.add(e.slug))
@@ -159,10 +163,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
   {compact ? (
     <SectionHeader eyebrow={`This week in ${town.name}`} title={range} href="/this-week/" linkLabel="See the full week" />
   ) : (
-    <div>
-      <p class="eyebrow">{range}</p>
-      <CheckedLine dates={[...allEvents.map((e) => e.data.verified), ...know.map((u) => u.data.verified)]} class="mt-2" />
-    </div>
+    <p class="eyebrow">{range}</p>
   )}
 
   {know.length > 0 && (
@@ -395,6 +396,11 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
       </div>
     </section>
   )}
+
+  {/* When the week's items were last read against their sources: after the
+     week itself, not before it, so the first line a reader meets is the
+     week's and not the age of its check (the reader pass, 1 November 2026). */}
+  {!compact && <CheckedLine dates={[...allEvents.map((e) => e.data.verified), ...know.map((u) => u.data.verified)]} class={block} />}
 
   {/* The neighbours' weekend and the hill, after everything of the town's
      own, on the full page only: the neighbours as "nearby", the mountain

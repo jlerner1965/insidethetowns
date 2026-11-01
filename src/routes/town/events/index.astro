@@ -87,17 +87,15 @@ const structured = [
   description={`What’s on in ${town.name} this week and next: markets, music, festivals, trails and more.`}
   intro={`What’s listed in ${town.name}: the next two weeks, then further out, and the weekly regulars.`}
 >
-  {/* The two things a reader does here besides read, as buttons on one row
-      (owner, 26 October 2026: the sentences of links were one more layer
-      before the list); the weekend's page and the refresh date beside them
-      in small type. */}
-  <div slot="after-header" class="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2.5">
-    <a href="/submit-event/" class="btn btn-outline py-2.5 text-primary">Submit an event</a>
-    <a href="/events/calendar.ics" class="btn btn-outline py-2.5 text-primary">Subscribe to calendar</a>
-    <p class="text-[0.875rem] text-ink-muted sm:ml-2">
-      <a href="/this-weekend/" class="font-semibold text-primary underline">Just the weekend?</a> · Refreshed <time datetime={toIsoLocal(refreshedAt)}>{formatDate(refreshedAt)}</time>
-    </p>
-  </div>
+  {/* The weekend's page and the refresh date under the title in small type.
+      The two things a reader does here besides read, Submit an event and
+      Subscribe to calendar, were buttons here (owner, 26 October 2026) and
+      are now after the list: with them, the filters and the jump links, a
+      phone's first screen held no event at all (the reader pass, 1 November
+      2026). */}
+  <p slot="after-header" class="mt-4 text-[0.875rem] text-ink-muted">
+    <a href="/this-weekend/" class="font-semibold text-primary underline">Just the weekend?</a> · Refreshed <time datetime={toIsoLocal(refreshedAt)}>{formatDate(refreshedAt)}</time>
+  </p>
   <SubTownLinks slot="after-header" class="mt-3" hrefFor={(slug) => `/${slug}/`} />
   <SponsorLine slot="after-header" sponsor={town.sponsors?.events} />
 
@@ -163,7 +161,11 @@ const structured = [
       page is the town's first. The filters above are this town's and leave
       the nearby block alone (data-filter-ignore).
     */}
-    <div class="mt-16 md:mt-20">
+    <div class="mt-16 flex flex-wrap gap-3 md:mt-20">
+      <a href="/submit-event/" class="btn btn-outline py-2.5 text-primary">Submit an event</a>
+      <a href="/events/calendar.ics" class="btn btn-outline py-2.5 text-primary">Subscribe to calendar</a>
+    </div>
+    <div class="mt-10">
       <NewsletterSignup town={town} />
     </div>
     <div data-filter-ignore>

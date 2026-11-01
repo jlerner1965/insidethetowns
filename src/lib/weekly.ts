@@ -150,7 +150,18 @@ export function activeChanges(entries: readonly NotesLike[], now = new Date()): 
       out.push({ ...c, expires, label: changeLabel(c.tag), backlog: isBacklog(c) });
     }
   }
-  return out.sort((a, b) => b.checked.getTime() - a.checked.getTime());
+  // The same change written into two weeks' notes (a closing carried over,
+  // then checked again) is one row, at its newest check (the reader pass,
+  // 1 November 2026).
+  const seen = new Set<string>();
+  return out
+    .sort((a, b) => b.checked.getTime() - a.checked.getTime())
+    .filter((c) => {
+      const key = `${c.name.trim().toLowerCase()}|${c.tag}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
 }
 
 export function changeLabel(tag: ChangeTag): string {

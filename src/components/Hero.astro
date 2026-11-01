@@ -36,6 +36,8 @@ interface Props {
   compact?: boolean;
   /** This week has an editor's pick on the page, so the line may name it (src/lib/hero-line.ts). */
   pick?: boolean;
+  /** Worth knowing has a current change on the page, so the line may promise "what's new in town"; false when the block is not there. */
+  changes?: boolean;
 }
 
 const site = getSite();
@@ -76,7 +78,7 @@ const lineShade = [
 // are two; the clamp stays as a net.
 // A town guide's line is written whole for each width (src/lib/hero-line.ts);
 // a page that passes its own subtitle, and a visitor guide, are shortened.
-const week = site.kind === 'town' && Astro.props.subtitle === undefined ? heroLine(site, { pick: Astro.props.pick === true }) : undefined;
+const week = site.kind === 'town' && Astro.props.subtitle === undefined ? heroLine(site, { pick: Astro.props.pick === true, changes: Astro.props.changes !== false }) : undefined;
 const subtitleShort = week?.short ?? shorten(subtitle, 64);
 const subtitleLong = week?.long ?? shorten(subtitle, 88);
 ---

@@ -45,6 +45,7 @@ Fix once in code, every guide gets it:
 
 1. The sports strip prints the date once a game is beyond this week
    (`SportsBar.astro`, `nextGame`).
+    → Done 1 November 2026.
 2. "Check current hours" prints under things with no hours by nature: the
    Berthoud mural walk, Erie's and Johnstown's historic walking tours, Niwot's
    gateway sculpture, Niwot Hall, the Old Fire House Museum, "Old Town, Second
@@ -52,8 +53,10 @@ Fix once in code, every guide gets it:
    Pavilion, Miners Alley, the Niwot Inn. `PlaceRow.astro` line 39 applies it
    to anything that is not a park or trail; it should apply to a business with
    a door (restaurant, bar, coffee, shop), and never to lodging.
+    → Done 1 November 2026: restaurant, bar, coffee, shop, service only.
 3. The hero says "what's new in town" only when Worth knowing has something
    (`TownHome.astro` passes `know.length > 0`, as it passes the pick).
+    → Done 1 November 2026.
 4. Regulars that clog the morning list: Berthoud's Cribbage Night is staged
    again every week because the published files are "Cribbage Night at City
    Star" and the feed says "Cribbage Night" (three of today's 19 due items);
@@ -62,12 +65,16 @@ Fix once in code, every guide gets it:
    `sourceUid`, and they match.
 5. "Nothing listed for the weekend yet" keyed to the day: after Sunday's
    listings are over, "Nothing more this weekend".
+    → Done 1 November 2026: "Nothing more listed this weekend." on the Sunday.
 6. This week on a Sunday always shows "Next on the calendar" (Berthoud's did,
    having no weekend event left; Lyons's and Johnstown's showed only the one
    Sunday event).
+    → Done 1 November 2026.
 7. New & closed dedupes by name and tag, newest wins.
+    → Done 1 November 2026.
 8. "Nearby this weekend" on This week drops finished listings in the browser,
    as the home tabs do (`data-end`).
+    → Checked 1 November 2026: the block already carries the marks and the script runs on every page; the rows that stood were timed listings with no end, which stay for their day by rule (`listedUntil`). An end time in each file is the fix; not a code change.
 
 Content, a file or two each:
 
@@ -89,6 +96,7 @@ Content, a file or two each:
     Grill & Bar"; "Lyons Community Library" vs "Lyons Regional Library".
 15. The About pages call every flagship "an independent community and visitor
     guide"; "community guide" on a resident guide.
+    → Done 1 November 2026.
 16. Berthoud's Cribbage Night is eight one-off files with the cost on some and
     "sign up by 5:45" on one: one biweekly series, or consistent.
 17. The Historical Society's 17 November talk names no topic; Erie's
@@ -124,6 +132,7 @@ not even the rows.
     9 pm; Johnstown's, Niwot's and Berthoud's show "Nothing listed for the
     weekend yet". `defaultTab(now)` picks the weekend on Saturday and Sunday;
     after Sunday afternoon it should open on Tomorrow, or on the week.
+    → Done 1 November 2026: Tomorrow opens from five on the Sunday afternoon, by the reader's clock.
 22. **A thin day shows the thinnest things.** "Next in <Town>" is the next
     three listings in time order, which on a Sunday night are Monday's
     storytimes and a council meeting (Johnstown, Berthoud) or Tuesday's
@@ -133,6 +142,7 @@ not even the rows.
     tabs are thin, the home should show the next festivals, markets, music
     and the pick, not the next three regulars: rank by kind, meetings and
     storytimes last.
+    → Done 1 November 2026: the pick, then one-off outings by date, the regulars and the civic calendar last, the third slot kept for the next festival, market or music.
 23. **The best writing is two clicks down.** The desktop nav is This week,
     Events, sports, Eat & drink, Families, Living here, Towns, Thursday
     email. Things to do and Guides (the articles: the dog rules, the county
@@ -145,18 +155,21 @@ not even the rows.
     2026"; the home carries nothing. One line under What's happening, "Every
     listing checked against its source; refreshed November 1", is the
     cheapest trust the page can buy.
+    → Done 1 November 2026: one line under What's happening.
 25. **This week's first screen leads with its own age.** Lyons: "October 26
     – November 1 · Checked October 17, 2026: the item here was read against
     its own source that day", then one Sunday event under way. The first
     substantive line a visitor reads is a fifteen-day-old check date for a
     week that ends today. The week's dates and the pick first; the check
     line after the content, and never older than the week.
+    → Done 1 November 2026: the dates lead and the Checked line follows the week's content. The check dates themselves are what they are; a check older than the week is a thing for the Wednesday editor, not the template.
 26. **The Events page's first screen is all controls.** Title, two buttons
     (Submit an event, Subscribe to calendar), "Just the weekend?", the When
     filters, the type filter, the regulars checkbox, Jump to, then
     Highlights. On a phone the first event is below the fold. Submit and
     Subscribe belong at the bottom; the first listing belongs in the first
     screen.
+    → Done 1 November 2026: the two buttons are after the list.
 27. **The email ask follows an empty list.** On a phone the signup box comes
     straight after What's happening (rule 9); on Johnstown tonight that is
     "Nothing listed for the weekend yet", three library rows, then "Your
@@ -174,6 +187,7 @@ not even the rows.
     does not get: a directions link on the event's Where (the place page has
     one), and, on the Polar Express page tonight, "Also coming up" listing
     three Sunday events that were over (the same pruning as item 8).
+    → Done 1 November 2026 for the directions link. "Also coming up" already carries the pruning marks; the three Sunday rows were timed listings with no end, kept for their day by rule (item 8).
 30. **Place pages land well.** "Open · closes 9 pm" under the name, then
     address, directions, hours, phone, website, the photograph, the events
     at the place, the articles that mention it. Nothing to add; this is the

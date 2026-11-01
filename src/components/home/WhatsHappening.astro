@@ -28,6 +28,7 @@
  */
 import type { TownConfig } from '@/config';
 import type { HomeTab, TabKey } from '@/lib/home-tabs';
+import { formatDate, toIsoLocal } from '@/lib/dates';
 
 interface Props {
   town: TownConfig;
@@ -36,11 +37,18 @@ interface Props {
 }
 
 const { town, tabs, open } = Astro.props;
+// One line of trust on the first screen (the reader pass, 1 November 2026:
+// "independent", "free" and "checked" were all in the footer): the build's
+// date, since the page is rebuilt nightly and on every push.
+const refreshed = new Date();
 const label = (status: 'canceled' | 'postponed') => (status === 'canceled' ? 'Canceled' : 'Postponed');
 ---
 <section class="band-close band-white" aria-labelledby="happening" data-pagefind-ignore>
   <div class="container-page">
     <h2 id="happening" class="display-md text-[2rem] md:text-[2.5rem]">What’s happening in {town.name}</h2>
+    <p class="mt-2 text-[0.9375rem] text-ink-muted">
+      Every listing checked against its source · refreshed <time datetime={toIsoLocal(refreshed)}>{formatDate(refreshed)}</time>
+    </p>
     <div role="tablist" aria-label="When" class="mt-5 flex gap-x-1 border-b border-line-soft" data-home-tabs>
       {tabs.map((t) => (
         <button
@@ -114,8 +122,9 @@ const label = (status: 'canceled' | 'postponed') => (status === 'canceled' ? 'Ca
 
 <script>
   // The three tabs, and the one that opens: Today, or This weekend on a
-  // Friday, Saturday or Sunday in Denver, by the reader's own clock rather
-  // than the build's (src/lib/home-tabs.ts, defaultTab).
+  // Friday, Saturday or Sunday in Denver, or Tomorrow from five on the
+  // Sunday afternoon, by the reader's own clock rather than the build's
+  // (src/lib/home-tabs.ts, defaultTab and WEEKEND_OVER_HOUR).
   for (const list of document.querySelectorAll<HTMLElement>('[data-home-tabs]')) {
     const tabs = [...list.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
     const show = (tab: HTMLButtonElement) => {
@@ -138,8 +147,10 @@ const label = (status: 'canceled' | 'postponed') => (status === 'canceled' ? 'Ca
         show(next);
       });
     });
-    const day = new Date().toLocaleDateString('en-US', { timeZone: 'America/Denver', weekday: 'short' });
-    const key = /^(Fri|Sat|Sun)/.test(day) ? 'weekend' : 'today';
+    const now = new Date();
+    const day = now.toLocaleDateString('en-US', { timeZone: 'America/Denver', weekday: 'short' });
+    const hour = Number(now.toLocaleString('en-US', { timeZone: 'America/Denver', hour: 'numeric', hourCycle: 'h23' }));
+    const key = /^Sun/.test(day) && hour >= 17 ? 'tomorrow' : /^(Fri|Sat|Sun)/.test(day) ? 'weekend' : 'today';
     const open = tabs.find((t) => t.dataset.tab === key);
     if (open && open.getAttribute('aria-selected') !== 'true') show(open);
   }

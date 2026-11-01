@@ -218,6 +218,18 @@ test('an opening, closing, new-hours or move with no source is skipped; a guide 
   assert.deepEqual(activeChanges(files, at('2026-10-14')).map((c) => c.name), ['Sourced move', 'Guide addition']);
 });
 
+test('the same change in two weeks’ notes is one row, at its newest check', () => {
+  const files = [
+    notes('2026-10-05', undefined, [{ tag: 'closed', name: 'Old café', source: 'https://x.test/', checked: '2026-10-06', detail: 'first word' }]),
+    notes('2026-10-12', undefined, [
+      { tag: 'closed', name: 'Old Café', source: 'https://x.test/', checked: '2026-10-13', detail: 'checked again' },
+      { tag: 'new-hours', name: 'Old café', source: 'https://x.test/', checked: '2026-10-13' },
+    ]),
+  ];
+  const rows = activeChanges(files, at('2026-10-14'));
+  assert.deepEqual(rows.map((c) => [c.name, c.tag, c.detail]), [['Old Café', 'closed', 'checked again'], ['Old café', 'new-hours', 'Detail']], 'the name and the tag make the key, case aside; another tag on the same name is another change');
+});
+
 test('added-to-guide is never labelled as an opening', () => {
   const files = [notes('2026-10-12', undefined, [{ tag: 'added-to-guide', name: 'Guide addition' }, { tag: 'opening', name: 'Opening', source: 'https://x.test/' }])];
   const labels = Object.fromEntries(activeChanges(files, at('2026-10-14')).map((c) => [c.name, c.label]));
