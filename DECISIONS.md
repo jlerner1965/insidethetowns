@@ -7805,3 +7805,24 @@ each failure was the kind that loses the whole week's staging.
 - **What the run does when it passes:** about 200 events published under
   the standing rules and about 70 staged for review, from feeds last read
   on 19 October.
+## A confirmed date is listed, time to be announced, 1 November 2026
+
+The owner's rule, given while the staging queue was being worked through:
+when the organizer's own page gives the date and the venue, publish, with
+the time marked to be announced (`allDay` with `timeTbd` and a
+`timeNote`), as the Frederick Festival of Lights listing already did.
+"Many sporting events don't even list a time a week before." Holding a
+dated show for its time had kept the Stanley's three November and
+December concerts, Boulder Ballet's Nutcracker at the Stanley and the St.
+Francis Christmas Eve service out of their guides since 7 October, and a
+staged event is deleted once its date passes. Eleven published on this
+rule and on re-reads the same day: the four at the Stanley; the Evergreen
+Children's Chorale, whose ticket page now answers and gives three
+showtimes; the Christmas Eve service; the Idaho Springs tree lighting from
+Visit Clear Creek's page; Estes Park's Day of the Dead from the Chamber's
+page; the last Longmont farmers market of the season; and Cousins Maine
+Lobster's two remaining dates at Timnath Beerwerks, whose hold had only
+been the October date passing (the taproom's calendar gives 10 am to 6 pm,
+not the draft's noon to 8). A missing venue is a different matter and
+still holds a listing: Dacono's Veterans Wall of Honor ceremony waits for
+the City to say where.
