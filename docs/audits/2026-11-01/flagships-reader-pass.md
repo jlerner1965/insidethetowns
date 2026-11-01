@@ -123,7 +123,7 @@ Worth a decision:
 19. Playoff brackets came out after Sunday's 8 am MaxPreps read: Johnstown
     (9-1) and Lyons have empty football lists. A manual run, or a Monday run
     during playoffs.
-    → Done 1 November 2026: a Monday run in November and December, and a run by hand tonight for Johnstown and Lyons.
+    → Done 1 November 2026: a Monday run in November and December, and a run by hand tonight for Johnstown and Lyons. Corrected the same night: Lyons (4-3) is not in the 8-man bracket, so its empty list is the season’s end, not a late read. Roosevelt is the 4A No. 1 seed with a first-round bye; its first game is 13 November against the Montbello–George Washington winner (chsaanow.com), and MaxPreps carries only an undated TBA row, so the strip cannot show it until MaxPreps dates it.
 20. Hero photographs: Johnstown's barn and Lyons's distant view show no town
     (both already on the owner's shoot list).
     → Open: needs a shoot.

@@ -8218,7 +8218,12 @@ The owner's "do all" on the open items of the reader pass. What changed:
   who has just seen "Nothing listed" is not asked for an email first.
 - **The sports workflow also runs on Mondays in November and December**
   (playoff brackets come out after Sunday's read), and was run by hand
-  tonight for Johnstown and Lyons.
+  tonight for Johnstown and Lyons. Both runs found no game to add: Lyons
+  (4-3) is not in the 8-man bracket, so its empty list is the season's end,
+  and the earlier entry was wrong to count it with Johnstown; Roosevelt is
+  the 4A No. 1 seed with a first-round bye, its first game 13 November
+  against the Montbello–George Washington winner (chsaanow.com), which
+  MaxPreps holds as an undated TBA row the reader cannot use yet.
 - **Corrected from the earlier entry:** the Sunday rows that stood under
   Nearby this weekend and Also coming up at 9 pm were not listings with no
   end. Every Golden listing on 1 November carried an end time; the pass
