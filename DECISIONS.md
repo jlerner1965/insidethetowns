@@ -7826,3 +7826,56 @@ been the October date passing (the taproom's calendar gives 10 am to 6 pm,
 not the draft's noon to 8). A missing venue is a different matter and
 still holds a listing: Dacono's Veterans Wall of Honor ceremony waits for
 the City to say where.
+
+## The sweep of the sources no feed reads, 1 November 2026
+
+The owner asked, after Niwot's Wheel House, whether other towns were
+missing events the same way. The 1 November ingest had just landed (202
+events from the 48 feed sources). The 210 sources without a feed, and the
+venues' own sites, were then read by hand for every live guide but Niwot,
+six workers in parallel, three or four towns each, under one brief: the
+organizer's own page gives the date and the venue, or it waits; a time not
+posted is listed as to be announced; festivals, music, holiday events,
+markets and theater first.
+
+- **229 events published, 21 staged for a person, 13 listings corrected
+  or extended.** Fort Collins 80 (the Aggie's whole winter, 33 shows;
+  Avogadro's Number's 22; Downtown's Santa and the Old Town Square rink;
+  the Larimer Chorale); Manitou Springs 38 (Armadillo Ranch, live music
+  most nights, none listed; the Chamber's holiday season); Golden 31 (the
+  Buffalo Rose through January, the Golden Mill, New Terrain, Mountain
+  Toad); Longmont 20 (the Symphony's whole season; Light Up Longmont, 21
+  November; the brewery nights); Nederland 14 (Very Nice Brewing's nine
+  music nights; A Very Caribou Xmas); Loveland 12 (the Festival of Lights,
+  20 November); Estes Park 9 (the Stanley's winter: Central City Opera,
+  Dead Pioneers, Fire in the Mountains, WAR); Windsor 5 (Bruce's Bar's
+  Saturday band, every week to March); Evergreen 5; Leadville 4; Castle
+  Rock 3; Idaho Springs 3; Timnath 2; Berthoud, Erie and Johnstown 1.
+- **Corrections found on the way:** Timnath's Holiday Festival is 11 to 1,
+  not noon to 2; Leadville's Silver Social is 5 to 8, not 6 to 9;
+  Johnstown's Holiday Open House is 1 to 4; the Gardens on Spring Creek
+  have posted Garden of Lights hours and prices; the Nutcracker Suite at
+  the Stanley has its three times and prices. Three duplicates the
+  morning's import had published (two City Star listings in Berthoud
+  repeating a combined one; Windsor's flag placing) came off, and a fourth
+  (Bahamas at Washington's) that the feed matcher missed because the feed
+  writes the apostrophe as an entity.
+- **Sources to act on** (each group's report has the rest): Armadillo
+  Ranch publishes an iCal feed (tockify.com/api/feeds/ics/dilloranch) and
+  Honnibrook one (honnibrook.com/events/?ical=1); both should be feeds,
+  and Armadillo Ranch needs a place file. Domains that have lapsed or now
+  point at unrelated sites, which the guides should stop linking:
+  nederlandchamber.org, jessupfarmbarrelhouse.com, periodicbrewing.com,
+  leadvilleskijoring.us, johnstownmillikenchamber.com, elizabethchamber.org,
+  the Armory's. Ski Joring 2027 is 6 and 7 March. Burly Brewing in Castle
+  Rock has closed. Unreadable from the container, and so unread: the town
+  sites of Castle Rock, Elizabeth and Idaho Springs, the Dickens Opera
+  House, Visit Golden, Visit Loveland, the Foundry, Westbound & Down, Little
+  Bear, and the Facebook-only calendars.
+- **Staged, for the owner:** Leadville's Parade of Lights (4 December, 6
+  pm, Visit Leadville's calendar only); the Holiday Mountain Market in
+  Nederland (5 and 6 December); Longmont's Dickens Opera House La Traviata;
+  Salt & Acres' Santa days, whose page gives Sundays that are Mondays; the
+  Evergreen Christmas Bird Count's two dates; First Peoples Festival in
+  Estes Park (14 to 17 January, venue to be posted). A staged event is
+  deleted once its date passes.

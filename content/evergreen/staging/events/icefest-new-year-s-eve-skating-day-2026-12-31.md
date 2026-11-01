@@ -1,6 +1,6 @@
 ---
 title: "Icefest: New Year's Eve Skating Day"
-review: { reason: "Re-read 7 October 2026: the chamber listing (posted by the recreation district) gives 31 December, noon to 6 pm, $25 on the day, but the district's own site still has no Icefest page and its events menu does not list it. Needs: the district's own Icefest 2026 page.", since: "2026-10-06", from: manual }
+review: { reason: "Re-read 1 November 2026: the recreation district's own site still has no Icefest page (evergreenrecreation.com/icefest returns 404 and its events and public-ice-skating pages list nothing dated), and the chamber now carries two conflicting listings posted for the district: Icefest, 31 December noon to 6 pm, $25 on the day; and Skate the Lake: New Year's Eve Party, 31 December 10 am to 8 pm, $30 at the door, alcohol-free, 25th annual, at the Evergreen Lake House, 29612 Upper Bear Creek Rd. Needs: the district's own page or a call (720-880-1391 skating hotline) to settle the hours and price.", since: "2026-10-06", from: manual }
 start: "2026-12-31T12:00"
 end: "2026-12-31T18:00"
 venue: "Evergreen Lake"
