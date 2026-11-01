@@ -8,6 +8,7 @@
  *   npm run ingest -- --source=erieco-gov  # one source
  *   npm run ingest -- --dry-run            # say what would be written, write nothing
  *   npm run ingest -- --report=/tmp/ingest.md   # also write what went wrong, for the pull request
+ *   npm run ingest -- --dry-run --explain       # say which file each item was tied to by its title or its page, not the feed's id
  *
  * The rules, in the order they bite:
  *
@@ -52,7 +53,7 @@ import { readRss } from './lib/feeds/rss.ts';
 import { isShowareFeed, readShowarePage, showareHasMore, showarePage, type ShowarePage } from './lib/feeds/showare.ts';
 import { readTribePage, tribeFirstPage, type TribePage } from './lib/feeds/tribe.ts';
 import type { FeedEvent, Horizon } from './lib/feeds/types.ts';
-import { ambiguousNote, detectChanges, excludedTitle, excludingEntry, hostOf, matchExisting, passesLocationFilter, possibleDuplicates, siblingCounts, toStaged, venueFrom, type ExistingEvent, passesCategoryFilter } from './lib/ingest.ts';
+import { ambiguousNote, detectChanges, elsewhereNote, excludedTitle, excludingEntry, hostOf, matchExisting, passesLocationFilter, possibleDuplicates, sameSite, sameVenue, siblingCounts, toStaged, venueFrom, type ExistingEvent, type Match, passesCategoryFilter } from './lib/ingest.ts';
 import { normalizeUrl, sessionLinks } from '../src/lib/session-links.ts';
 import { isAllowed } from './lib/robots.ts';
 import { robotsFor, TIMEOUT, UA } from './lib/probe.ts';
@@ -66,6 +67,7 @@ const dryRun = args.includes('--dry-run');
 const onlyTown = opt('town');
 const onlySource = opt('source');
 const reportPath = opt('report');
+const explain = args.includes('--explain');
 /**
  * What kept a feed's events out of this run, each in one line: a feed not
  * read, a source set aside, an item that would not validate. In the log
@@ -340,7 +342,24 @@ for (const town of towns) {
     for (const item of inScope) {
       totals.items++;
       const byLink = !!item.url && links.get(normalizeUrl(item.url)) === 1;
-      const match = matchExisting(byLink ? item : { ...item, url: undefined }, existing, siblings.get(item), claimed, hostOf(item.url ?? source.feedUrl ?? source.url));
+      const itemHost = hostOf(item.url ?? source.feedUrl ?? source.url);
+      let match: Match = matchExisting(byLink ? item : { ...item, url: undefined }, existing, siblings.get(item), claimed, itemHost);
+      // A title match where this calendar is not the listing's source and
+      // puts the event somewhere else: not the listing moving, but another
+      // event of the same name, or the listing reposted (Estes Park's
+      // parade on the library's calendar, 1 November 2026). It is staged
+      // with the question, for a person; the listing is not flagged.
+      let elsewhere: string | undefined;
+      if (match.kind === 'published' && match.how === 'title' && match.existing.sourceHost && itemHost && !sameSite(match.existing.sourceHost, itemHost)) {
+        const read = venueFrom(item.location, source);
+        if (read.venue && !read.guessed && !read.silent && !sameVenue({ venue: read.venue, address: read.address }, match.existing)) {
+          elsewhere = elsewhereNote(match.existing, read.venue, source.name);
+          match = { kind: 'none' };
+        }
+      }
+      if (explain && match.kind !== 'none' && match.kind !== 'ambiguous' && match.how !== 'uid') {
+        console.log(`    by ${match.how}: "${item.title}" ${toWallClock(item.start)} ↔ ${relative(root, match.existing.file)} ("${match.existing.title}" ${toWallClock(match.existing.start)}, ${match.existing.venue})`);
+      }
       if (match.kind === 'ambiguous') {
         // Two published listings are this one item. Neither is compared or
         // merged into: each is flagged, and the review asks a person to keep
@@ -357,7 +376,8 @@ for (const town of towns) {
       const place = venueFrom(item.location, source);
       const dupes = match.kind === 'published' ? [] : possibleDuplicates(item, place, existing, claimed);
       if (dupes.length) console.log(`    possible duplicate, staged for review: "${item.title}" ${toWallClock(item.start)} and ${dupes.map((d) => relative(root, d.existing.file)).join(', ')} (${dupes[0]!.why})`);
-      const prepared = toStaged(item, source, town.slug, today, dupes);
+      if (elsewhere) console.log(`    same name, another place, staged for review: "${item.title}" ${toWallClock(item.start)} at ${place.venue}`);
+      const prepared = toStaged(item, source, town.slug, today, dupes, elsewhere);
       // One item the site could not build is set aside with a line saying
       // why; written, it failed the run's validation and took the whole
       // week's staging with it (26 October 2026: a Fort Lupton closure whose
