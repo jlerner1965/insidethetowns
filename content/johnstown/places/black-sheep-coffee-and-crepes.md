@@ -11,7 +11,7 @@ tags: [coffee, crepes, breakfast]
 featured: true
 summary: "Old Town's coffee house: sweet and savory crepes, espresso, a rotating craft-beer tap and local makers' goods on the shelves. 7 to 2 on weekdays."
 source: "https://www.blacksheepjohnstown.com/"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
