@@ -4,11 +4,11 @@ type: shop
 address: "311 Mountain Ave"
 area: "Downtown, Mountain Avenue"
 url: "https://www.houseofrossiboutique.com/"
-hours: "Tue–Sat 10–6, Sun 1–5; closed Mon"
+hours: "Tue 1–6, Wed–Sat 10–6, Sun 1–6; closed Mon"
 tags: [clothing, boutique]
 summary: "Women's clothing boutique on Mountain Avenue for everyday fashion and accessories."
 source: "https://www.houseofrossiboutique.com/pages/about-us"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
