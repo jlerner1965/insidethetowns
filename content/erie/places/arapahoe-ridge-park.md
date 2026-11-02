@@ -11,7 +11,7 @@ hours: "Open daily, sunrise to sunset"
 tags: [playground, shade, picnic]
 summary: "Shady park on the south side with a nautical-themed playground and picnic areas."
 source: "https://erieco.gov/2272/Arapahoe-Ridge-Park"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
