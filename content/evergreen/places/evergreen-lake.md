@@ -15,7 +15,7 @@ image: ../images/evergreen-lake.jpg
 imageAlt: "Paddleboards, a canoe and a small yellow sailboat on Evergreen Lake in summer, the forested hillside behind"
 imageCredit: "Chris Light, Wikimedia Commons, CC BY-SA 4.0"
 tags: [lake, ice-skating, boating, fishing, picnic]
-summary: "The 55-acre lake on Upper Bear Creek Road, owned by Denver as part of Dedisse Park and run by the recreation district: boat rentals in summer, skating in winter, a 1.3-mile trail and the Lake House."
+summary: "The lake on Upper Bear Creek Road, owned by Denver as part of Dedisse Park and run by the recreation district: boat rentals in summer, skating in winter, a trail around the shore and the Lake House."
 seasonal: { season: "Seasonal boating and ice skating; hours are weather permitting and set daily on the boating/skating hotline, 720-880-1391" }
 access: { parking: "Groups such as camps, school outings and clubs must file an EPRD Park Permit Application before parking at Evergreen Lake Park.", permit: "Commercial photo shoots need an Evergreen Lake photography permit ($25).", source: "https://www.evergreenrecreation.com/evergreen-lake", verified: "2026-11-02" }
 ---
