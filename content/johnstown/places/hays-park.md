@@ -8,7 +8,7 @@ hours: "Daily 5 am–10 pm"
 tags: [basketball, volleyball, shelters]
 summary: "Neighborhood park with a basketball court, sand volleyball, shelters with electricity and a playground; the only Town park where alcohol is allowed, by permit."
 source: "https://www.johnstownco.gov/572/Hays-Park"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
