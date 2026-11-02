@@ -6,7 +6,7 @@ address: "7985 Highland Meadows Pkwy"
 area: "Highland Meadows, west Windsor"
 url: "https://www.recreationliveshere.com/Facilities/Facility/Details/Windsor-Highlands-Park-21"
 source: "https://www.recreationliveshere.com/Facilities/Facility/Details/Windsor-Highlands-Park-21"
-verified: "2026-11-02"
+verified: "2026-10-01"
 added: "2026-10-01"
 phone: "970-674-3500"
 tags: [playground, sand-volleyball, basketball, shelters, trails]
