@@ -12,7 +12,7 @@ imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
 tags: [library, kids, programs]
 summary: "The High Plains Library District's Erie branch on Powers Street, open seven days, with storytimes, programs and a community room."
 source: "https://www.mylibrary.us/locations-and-hours/"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 

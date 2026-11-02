@@ -1,15 +1,16 @@
 ---
 title: "Pho-ever"
 type: restaurant
-address: "680 Mitchell Way"
+address: "680 Mitchell Way, #120"
 area: "Erie Parkway, Mitchell Way"
 url: "https://www.phoevererie.com/"
+phone: "(720) 900-1319"
 hours: "Daily 11–8:30"
 priceRange: "$$"
 tags: [vietnamese, pho, takeout]
 summary: "Vietnamese pho, grilled plates, banh mi and boba on Mitchell Way, open every day."
 source: "https://www.phoevererie.com/"
-verified: "2026-10-02"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 

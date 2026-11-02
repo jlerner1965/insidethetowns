@@ -8,7 +8,7 @@ hours: "Daily 5 am–10 pm"
 tags: [playground, shelter]
 summary: "Neighborhood park in the Clearview subdivision with a playground and a reservable shelter with electricity."
 source: "https://www.johnstownco.gov/618/Clearview-Park"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 

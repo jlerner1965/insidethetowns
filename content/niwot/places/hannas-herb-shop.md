@@ -8,7 +8,7 @@ hours: "Tue–Fri 10–6, Sat 10–4; closed Sun–Mon"
 tags: [herbs, apothecary]
 summary: "Herbal apothecary, in Niwot since November 2025 after decades in Boulder. Next door to WiNot Coffee."
 source: "https://www.hannasherbshop.com/pages/contact-us"
-verified: "2026-10-02"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 

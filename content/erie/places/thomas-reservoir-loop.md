@@ -9,10 +9,10 @@ imageAlt: "Afternoon sun off the water at Thomas Reservoir, seen from the fishin
 imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [loop, easy, fishing, birds]
-summary: "About 1.15 miles of flat trail, under half of it hard-surfaced, around a 10-acre stocked reservoir in the middle of town; bank fishing, benches and birds."
+summary: "About 1.15 miles of trail, under half of it hard-surfaced, around a 10-acre stocked reservoir on the west side of town; fishing, a picnic shelter and benches."
 source: "https://erieco.gov/2295/32276/Thomas-Reservoir"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
-A 28-acre Town open space around a 10.7-acre reservoir on 119th Street: about 1.15 miles of mostly flat trail by the Town’s count (a quarter-mile of concrete, a quarter-mile of crusher fines and two-thirds of a mile of soft surface), with bank fishing for stocked rainbow trout, bluegill and largemouth bass, benches and grass. Dogs on a six-foot leash and out of the water.
+A 28-acre Town open space around a 10.7-acre reservoir at 119th Street and Austin Avenue: about 1.15 miles of trail by the Town’s count (a quarter-mile of concrete, a quarter-mile of crusher fines and 0.65 miles of soft surface). Colorado Parks and Wildlife stocks the reservoir, and the Town’s page gives bag limits for largemouth bass, bluegill and crappie, rainbow trout and channel catfish; there is ADA fishing access, a picnic shelter, a pollinator garden and benches. Dogs on a six-foot leash and out of the water.

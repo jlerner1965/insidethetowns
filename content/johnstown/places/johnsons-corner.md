@@ -9,7 +9,7 @@ priceRange: "$$"
 tags: [diner, truck stop, breakfast, cinnamon rolls]
 summary: "The I-25 landmark that has run as a truck stop since 1952: its famous diner reopened as a Black Bear Diner in May 2025, open 6 am to 10 pm every day."
 source: "https://blackbeardiner.com/location/johnstown/"
-verified: "2026-10-02"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 

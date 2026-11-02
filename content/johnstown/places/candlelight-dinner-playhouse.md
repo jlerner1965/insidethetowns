@@ -10,7 +10,7 @@ tags: [theater, musicals, dinner]
 featured: true
 summary: "Colorado's largest professional dinner theater, a 350-seat house at the 2534 interchange doing Broadway musicals with dinner service; Les Misérables through mid-November, Holiday Inn from late November."
 source: "https://coloradocandlelight.com/about/"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 

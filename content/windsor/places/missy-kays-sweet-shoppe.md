@@ -6,9 +6,9 @@ address: "503 Main St"
 area: "5th and Main, downtown"
 url: "https://www.missykays.com/"
 source: "https://www.missykays.com/"
-verified: "2026-10-01"
+verified: "2026-11-02"
 added: "2026-10-01"
-hours: "Mon–Thu 10–6, Fri–Sat 10 am–9 pm, Sun 11–5"
+hours: "Mon–Thu 10–6, Fri–Sat 10 am–8 pm, Sun 11–5"
 tags: [cookies, candy, soda, gifts, kids]
 summary: "The candy and cookie shop behind the pink door at Main and 5th: cookies baked on site, more than 60 bottled sodas, classic and obscure candy, popsicles, toys and fudge from Eaton."
 ---

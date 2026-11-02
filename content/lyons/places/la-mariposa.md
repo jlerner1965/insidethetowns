@@ -4,13 +4,13 @@ type: restaurant
 address: "112 E Main St"
 area: "East Main"
 url: "https://www.lamariposarestaurants.com/"
-phone: "(303) 823-6512"
+phone: "(303) 823-7406"
 hours: "Daily 11 am–9 pm"
 tags: [mexican, patio, margaritas]
-summary: "Classic Mexican kitchen at the east end of Main: molcajetes, margaritas and a patio."
+summary: "Classic Mexican kitchen at the east end of Main: margaritas and a patio."
 source: "https://www.lamariposarestaurants.com/"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
-The Mexican restaurant at the east junction. Molcajetes and margaritas, a patio for the warm months, and a menu long enough for a table that cannot agree.
+The Mexican restaurant at the east junction. Margaritas, a patio for the warm months, and a menu long enough for a table that cannot agree.

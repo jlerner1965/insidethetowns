@@ -6,7 +6,7 @@ address: "200 E Chestnut St"
 area: "East Chestnut Street"
 url: "https://www.recreationliveshere.com/166/Chimney-Park-Pool"
 source: "https://www.recreationliveshere.com/Facilities/Facility/Details/Chimney-Park-6"
-verified: "2026-10-01"
+verified: "2026-11-02"
 added: "2026-10-01"
 phone: "970-674-3533"
 tags: [pool, ball-fields, playground, shelters, summer]
