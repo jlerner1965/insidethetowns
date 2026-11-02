@@ -9,7 +9,7 @@ hours: "Tue–Thu 4–8:30 pm, Fri–Sat 11 am–9 pm, Sun 11 am–8:30 pm; clos
 tags: [tacos, bar]
 summary: "Regional Mexican flavors, tacos and a busy bar; dinner most nights, lunch on weekends."
 source: "https://mojotaqueria.com/"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 

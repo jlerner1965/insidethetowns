@@ -9,7 +9,7 @@ hours: "Mon–Thu 10–7, Fri 10–5, Sat 10–2; closed Sun"
 tags: [library, programs, families]
 summary: "The library district’s 2019 building: books, meeting rooms, programs most days and the Effie Banta Room for public meetings."
 source: "https://lyons.colibraries.org/"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 

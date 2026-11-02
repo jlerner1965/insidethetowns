@@ -10,7 +10,7 @@ tags: [brewery, pizza, trivia, live-music]
 featured: true
 summary: "Brewery and pizza kitchen with a stage in the name for a reason: trivia, art openings and an open bluegrass pick on the weekly calendar."
 source: "https://www.mainstagebrewing.com/"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
