@@ -9,10 +9,10 @@ imageAlt: "The wooden treehouse playground at Serene Park, swings behind it and 
 imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [fitness, playground, views]
-summary: "Outdoor fitness park and treehouse-style playground with a hillside slide and mountain views."
+summary: "Outdoor fitness park on Colliers Boulevard with a wooden treehouse playground, a picnic shelter and a multi-purpose field."
 source: "https://erieco.gov/2318/Serene-Park"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
-A park on Colliers Boulevard with an outdoor fitness area, a treehouse structure, rope obstacles, a bumblebee bouncer, a hillside slide and mountain views.
+A 6.6-acre park on Colliers Boulevard with outdoor fitness equipment, a small playground with a wooden treehouse, a shelter with two picnic tables and a grill, a multi-purpose field and walking trails. It is named for the Columbine Mine camp at Serene, which had its own post office, dance hall, bandstand and schoolhouse.

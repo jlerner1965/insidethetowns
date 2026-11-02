@@ -9,10 +9,10 @@ imageAlt: "The shelter at Star Meadows Park at dusk, with the moon-phase sundial
 imageCredit: "Town of Erie"
 hours: "Open daily, sunrise to sunset"
 tags: [playground, kids]
-summary: "Space-themed park in Flatiron Meadows with a climbable moon, a human sundial and a mister button for hot days."
+summary: "Space-themed park in Flatiron Meadows with a human sundial, mister boulders for hot days and a large picnic shelter."
 source: "https://erieco.gov/2319/Star-Meadows-Park"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
-A nature-and-space-themed park in Flatiron Meadows: a climbable moon structure, a moon-phase learning area, a human sundial, nature-themed play equipment and a mister button for cooling off.
+An 8.2-acre park in Flatiron Meadows with a space-themed playground, a human sundial, mister boulders for cooling off and a lighted concrete path, plus a ballfield, a multi-purpose field, a large shelter and a paved parking lot. It is named for the Star Mine, worked by the Boulder Valley Coal Company.
