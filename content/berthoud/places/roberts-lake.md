@@ -2,15 +2,15 @@
 title: "Roberts Lake"
 type: park
 address: "Bunyan Ave & N 10th St"
-area: "Bunyan Court"
+area: "Bunyan Avenue"
 url: "https://berthoud.org/facilities/facility/details/Roberts-Lake-6"
 tags: [fishing, walking, birds]
 summary: "Small lake park with a walking path, open grass, birds and an accessible fishing dock."
 source: "https://berthoud.org/facilities/facility/details/Roberts-Lake-6"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
-A neighborhood lake off Bunyan Court with a walking trail around it, open grass, and a renovated ADA-accessible dock for shore fishing under state regulations.
+A neighborhood lake at Bunyan Avenue and North 10th Street with a walking trail around it, open grass, and a renovated ADA-accessible dock for shore fishing under state regulations.
 
 Boating and swimming are not allowed. There are picnic tables and a pavilion, but no restrooms.
