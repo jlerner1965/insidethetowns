@@ -1,18 +1,11 @@
-# Black Hawk: covered by Inside Clear Creek
+# Inside Black Hawk (closed)
 
-Inside Black Hawk was folded into Inside Clear Creek, the guide at
-insideidahosprings.com, on 20 October 2026 (DECISIONS.md, *Georgetown and
-Black Hawk join Idaho Springs on one Clear Creek guide*). Black Hawk's events,
-places, staged items, articles and sources are in `content/idaho-springs/`,
-each event and place with `subTown: black-hawk`, and the section page is
-insideidahosprings.com/black-hawk/. Its Moving Here page is now the article
-`content/idaho-springs/articles/moving-to-black-hawk.md`.
+Black Hawk had a guide of its own from 10 to 20 October 2026, then was a
+section of Inside Clear Creek, the Idaho Springs guide, until the owner
+retired it on 2 November 2026 (DECISIONS.md, "Black Hawk and Carbon Valley
+close; Lafayette and Frederick open"). Its listings, articles and sources left
+`content/idaho-springs/` that day; git history keeps them. `images/` stays
+with its row in IMAGE_LICENSES.csv, because the config still names the hero.
 
-Every path on insideblackhawk.com redirects to the same page on
-insideidahosprings.com (vercel.json, docs/REDIRECTS.md). The Vercel project
-for insideblackhawk.com still builds with `TOWN=black-hawk` so it keeps serving
-those rules; what it builds is one holding page, and `images/hero.jpg` stays
-here because that page uses it.
-
-Add new Black Hawk content to `content/idaho-springs/` with `subTown: black-hawk`,
-not here.
+Every path on insideblackhawk.com redirects to insidethetowns.com
+(vercel.json). Nothing here is built or audited.

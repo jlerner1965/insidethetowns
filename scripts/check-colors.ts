@@ -148,8 +148,12 @@ for (const site of allSites) {
 }
 
 // Every guide's primary is its own: it is what tells one tab from another.
+// A retired guide builds one holding page and keeps the colour it had, so it
+// does not hold a shade against the guide that took its place: Frederick kept
+// Carbon Valley's Golden Eagle navy on 2 November 2026.
 const seen = new Map<string, string>();
 for (const site of allSites) {
+  if (site.kind === 'town' && site.retired) continue;
   const key = site.colors.primary.toLowerCase();
   const clash = seen.get(key);
   if (clash) failures.push(`${site.slug} has the same primary as ${clash} (${site.colors.primary})`);

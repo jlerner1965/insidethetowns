@@ -13,13 +13,14 @@ test('a single-town guide has no sub-towns and no list', () => {
   assert.equal(subTownList({}), '');
 });
 
-test('Carbon Valley covers Frederick, Firestone and Dacono, and Fort Lupton since 12 October', () => {
-  const cv = towns.find((t) => t.slug === 'carbon-valley');
-  assert.ok(cv, 'carbon-valley is configured');
-  assert.deepEqual([...cv.subTowns!], ['frederick', 'firestone', 'dacono', 'fort-lupton']);
-  assert.equal(subTownList(cv), 'Frederick, Firestone, Dacono and Fort Lupton');
-  assert.deepEqual(cv.launchThreshold, { events: 15, listings: 20 });
-  assert.equal(cv.domain, 'carbonvalleyguide.com');
+test('Clear Creek covers Idaho Springs and Georgetown; the closed Carbon Valley guide lists no sections, and Frederick is one town', () => {
+  const cc = towns.find((t) => t.slug === 'idaho-springs');
+  assert.ok(cc, 'idaho-springs is configured');
+  assert.deepEqual([...cc.subTowns!], ['idaho-springs', 'georgetown']);
+  assert.equal(subTownList(cc), 'Idaho Springs and Georgetown');
+  // Carbon Valley (Frederick, Firestone, Dacono and Fort Lupton) closed on 2 November 2026.
+  assert.equal(towns.find((t) => t.slug === 'carbon-valley')!.subTowns, undefined);
+  assert.equal(subTownList(towns.find((t) => t.slug === 'frederick')!), '');
 });
 
 test('Windsor covers itself and Severance', () => {

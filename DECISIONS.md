@@ -8234,3 +8234,72 @@ The owner's "do all" on the open items of the reader pass. What changed:
   item 31 (the strip's place on the home) is a thing to measure, not
   change; Johnstown's thin calendar and Golden's one-item Worth knowing are
   coverage, for the Wednesday editor and the source list.
+
+## Black Hawk and Carbon Valley close; Lafayette and Frederick open, 2 November 2026
+
+*The owner, 2 November 2026: "remove inside Blackhawk and inside carbon
+valley, add 2 new flagships insidelafayette.com insidefrederickco.com. I am
+fine that Firestone and Dacono are left out." This reverses the 30 October
+hold on the five domains ("Five domains held") for two of them; Mead,
+Steamboat Springs and Salida stay held.*
+
+- **Black Hawk is retired**, the Grand Lake shape: `retired` on its config,
+  `status: 'redirect'`, every path on insideblackhawk.com to the hub's home
+  page. It had been a section of Inside Clear Creek since 20 October; its
+  17 events, 20 places, 11 staged places, 4 articles, 13 sources and the
+  tramway correction left `content/idaho-springs/` (git history keeps
+  them), and the Clear Creek guide is Idaho Springs and Georgetown again:
+  one county, 2,900 people at the 2020 census, "since 1868" from
+  Georgetown's incorporation, no county-split note. Gilpin County leaves the
+  network's list.
+- **Carbon Valley is retired, and Fort Lupton with it.** A flagship is one
+  town's, and the owner left Firestone and Dacono out in so many words. Fort
+  Lupton was not named; it is eight miles east across I-25 with its own
+  library and school district (the old guide's own words), was a section
+  only because it was too small for a guide, and no neighbour takes it, so
+  it is retired the same way rather than carried into a Frederick guide as a
+  second town. Its 22 events and 20 places, Firestone's 28 and 11, Dacono's
+  1 and 7, the 18 staged items, the seven articles, the four weekly notes
+  and the source registry left `content/carbon-valley/`; git history keeps
+  them. carbonvalleyguide.com, insidefirestone.com and insidefortlupton.com
+  go to the hub's home page, because a Firestone, Dacono or Fort Lupton
+  path has no page anywhere; `docs/REDIRECTS.md` has the rules. Carbon
+  Valley's edition of the email ends; Buttondown subscribers tagged
+  `carbon-valley` and `fort-lupton` stay tagged and get nothing, which is
+  the owner's to resolve (a note to them, or a re-tag to `frederick`).
+- **Frederick carries over.** Its 3 events, 9 places, 4 staged items, the
+  Town's two CivicPlus feeds, its parks page and the five shared sources
+  (Weld County, the Carbon Valley Chamber, CVPRD, the Carbon Valley Regional
+  Library's LibCal, two news sites) moved to `content/frederick/` with their
+  slugs and without `subTown`; the Fifth Street hero moved with its licence
+  row; the Frederick High sports entry and `data/frederick/sports.json` are
+  the Carbon Valley ones under the new slug, so the Golden Eagles' records
+  carry on. The guide keeps the Golden Eagle navy; the retired Carbon Valley
+  config keeps it too, and `check-colors` no longer counts a retired guide's
+  primary against a live one.
+- **Two flagships from the start**, the Golden shape: `home`, Families,
+  Living here, Get involved, the scoreboard, updates, and an edition of the
+  email each. The content was read from the City's, the Town's, the
+  districts', the library's and the organizers' own pages on 2 November
+  2026 (the detail is in each file's `source` and in the weekly notes'
+  Editor's notes); the counts are below.
+- **Figures.** Lafayette: 30,411 at the 2020 census, 24,453 in 2010, 5,266
+  feet, incorporated 1890 (the State Demography Office's file and the
+  Wikipedia infobox agree), GNIS 40.00333, -105.10694, Boulder County, a
+  home rule city. Frederick: 14,513 and 8,679, 4,938 feet, GNIS 40.11389,
+  -105.01111 (the Carbon Valley config's -104.937 disagreed with its own
+  comment and is corrected), Weld County, a statutory town; the state file
+  gives its incorporation year as 1908 and the Wikipedia infobox 26
+  December 1907, so the config carries 1908 with the infobox date noted, as
+  Black Hawk's did.
+- **Lafayette's neighbours** are Erie, Longmont and Niwot, each naming it
+  back; Frederick's are Erie and Longmont, in Carbon Valley's place. The
+  hub lists Lafayette under Boulder County and Frederick under Carbon Valley
+  & I-25.
+- **The owner's, and not done:** the Vercel projects `insidelafayette` and
+  `insidefrederickco` (DEPLOY.md), DNS and Email Routing, Plausible sites
+  and Search Console properties for the two domains, a Formspree form each
+  (contact and event forms are email until then), a real Lafayette hero
+  (the placeholder is in the folder with its licence row), and the
+  Buttondown re-tag above. The Search Console properties for
+  carbonvalleyguide.com and insideblackhawk.com will show only redirects.

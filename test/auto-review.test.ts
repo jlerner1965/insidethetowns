@@ -14,7 +14,8 @@ import { changeSchema, eventSchema, type Source } from '../src/content/schemas.t
 import { towns } from '../src/config/towns/registry.ts';
 
 const lyons = towns.find((t) => t.slug === 'lyons')!;
-const carbonValley = towns.find((t) => t.slug === 'carbon-valley')!;
+// A multi-town guide: Windsor, whose sections are Windsor and Severance (Carbon Valley was the example until it closed on 2 November 2026).
+const multiTown = towns.find((t) => t.slug === 'windsor')!;
 const TODAY = '2026-10-15';
 const schema = eventSchema(() => z.string());
 
@@ -111,8 +112,8 @@ test('what stays for a person: the editor’s own holds, sources that are not th
   refused(staged({}, 'POSTPONED to a new date. Songs and stories.'), ctx(), /says "POSTPONED"/);
   // A CivicPlus calendar says it in the title alone, with no status and no description.
   refused(staged({ title: '"Open Space and Trails Advisory Board Meeting  - CANCELED"' }, ''), ctx(), /says "CANCELED"/);
-  refused(staged(), ctx({ town: carbonValley }), /needs a subTown/);
-  assert.equal(decideEvent(staged({ subTown: 'firestone' }), ctx({ town: carbonValley })).approve, true);
+  refused(staged(), ctx({ town: multiTown }), /needs a subTown/);
+  assert.equal(decideEvent(staged({ subTown: 'severance' }), ctx({ town: multiTown })).approve, true);
   refused(staged(), ctx({ published: [{ file: 'content/lyons/events/toddler-storytime.md', title: 'Toddler Storytime', start: new Date('2026-11-07T16:00:00Z') }] }), /may be content\/lyons\/events\/toddler-storytime\.md/);
   // Same title on another day is another date, not a duplicate.
   assert.equal(decideEvent(staged(), ctx({ published: [{ file: 'x.md', title: 'Toddler Storytime', start: new Date('2026-11-14T16:00:00Z') }] })).approve, true);

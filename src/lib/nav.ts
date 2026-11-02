@@ -10,7 +10,7 @@
  * - "<Mascot> sports" only where the guide follows a school
  *   (src/config/school-sports.ts); "High school sports" where it follows
  *   several; a school's `navLabel` where the mascot alone would not say
- *   whose team it is (Carbon Valley's Golden Eagles are Frederick High's).
+ *   whose team it is (the Carbon Valley guide's Golden Eagles were Frederick High's).
  * - The hub: Families where the guide has the family hub, else Things to do.
  * - Living here where the guide has that page, else Moving here.
  *

@@ -32,8 +32,10 @@ test('the four towns that straddle a county line name both counties', () => {
 
 test('single-county towns are unchanged', () => {
   assert.deepEqual([...by('niwot').counties], ['Boulder']);
-  // Frederick, Firestone and Dacono are all Weld County municipalities.
+  // Frederick is a Weld County municipality; so were the three of the closed Carbon Valley guide.
+  assert.deepEqual([...by('frederick').counties], ['Weld']);
   assert.deepEqual([...by('carbon-valley').counties], ['Weld']);
+  assert.deepEqual([...by('lafayette').counties], ['Boulder']);
   assert.deepEqual([...by('lyons').counties], ['Boulder']);
   assert.deepEqual([...by('elizabeth').counties], ['Elbert']);
   assert.deepEqual([...by('timnath').counties], ['Larimer']);
@@ -71,9 +73,9 @@ test('the network counts every county it covers, not every town', () => {
   // The six mountain guides of 10 October 2026 add five: Gilpin (Black Hawk),
   // Clear Creek (Idaho Springs and Georgetown), Grand, El Paso (Manitou
   // Springs) and Lake (Leadville). Grand left with Grand Lake, retired on
-  // 30 October 2026; Gilpin stays, Black Hawk being a section of the Idaho
-  // Springs guide. Castle Rock, live on 31 October 2026, adds Douglas.
-  assert.deepEqual(countiesCovered(live).sort(), ['Boulder', 'Clear Creek', 'Douglas', 'El Paso', 'Elbert', 'Gilpin', 'Jefferson', 'Lake', 'Larimer', 'Weld']);
+  // 30 October 2026, and Gilpin with Black Hawk, retired on 2 November 2026.
+  // Castle Rock, live on 31 October 2026, adds Douglas.
+  assert.deepEqual(countiesCovered(live).sort(), ['Boulder', 'Clear Creek', 'Douglas', 'El Paso', 'Elbert', 'Jefferson', 'Lake', 'Larimer', 'Weld']);
 });
 
 test('no guide claims a single school district for a town that has two', () => {
@@ -98,10 +100,11 @@ test('no guide claims a single school district for a town that has two', () => {
 });
 
 test('every live town is configured and every config is complete enough to build', () => {
-  // One guide's domain is not an "inside" one: Carbon Valley covers three
-  // towns at carbonvalleyguide.com. Its title is still "Inside Carbon
-  // Valley", as every guide's is, whatever the domain (owner, 5 October 2026).
-  const OWN_DOMAIN = new Map([['carbon-valley', 'carbonvalleyguide.com']]);
+  // One guide's domain was not an "inside" one: Carbon Valley covered three
+  // towns at carbonvalleyguide.com until 2 November 2026. Its title was still
+  // "Inside Carbon Valley", as every guide's is, whatever the domain (owner,
+  // 5 October 2026). No live guide departs from the pattern today.
+  const OWN_DOMAIN = new Map<string, string>([]);
   // One guide's title is not "Inside …": a local magazine already publishes
   // as Inside Longmont, so Longmont's guide is named for the network instead
   // (owner, October 2026). Its domain is unchanged.
@@ -120,9 +123,9 @@ test('the hub groups every guide under the region the owner set', () => {
   // The owner's grouping for the hub home page, 6 October 2026, five regions
   // in this order. A reader's grouping, not a county one: Erie is mostly Weld.
   const REGIONS: Record<string, string[]> = {
-    'Boulder County': ['niwot', 'lyons', 'erie', 'longmont'],
+    'Boulder County': ['niwot', 'lyons', 'erie', 'longmont', 'lafayette'],
     'Northern Colorado': ['fortcollins', 'windsor', 'timnath', 'loveland', 'berthoud', 'johnstown', 'severance'],
-    'Carbon Valley & I-25': ['carbon-valley', 'fort-lupton'],
+    'Carbon Valley & I-25': ['carbon-valley', 'fort-lupton', 'frederick'],
     'Mountains & Foothills': ['estes-park', 'golden', 'evergreen', 'nederland', 'black-hawk', 'idaho-springs', 'georgetown', 'grand-lake', 'manitou-springs', 'leadville'],
     'South Metro': ['castle-rock', 'elizabeth'],
   };

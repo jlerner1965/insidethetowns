@@ -1,43 +1,41 @@
 import type { TownConfig } from './types.ts';
 
 /**
- * Three municipalities on one guide: the Town of Frederick, the Town of
- * Firestone and the City of Dacono, the coal towns northeast of Erie that
- * their own pages call the Tri-Towns or the Carbon Valley
- * (firestoneco.gov/281/History-of-Firestone). They share a library (the
- * Carbon Valley Regional Library, High Plains Library District), a parks
- * district (CVPRD), a chamber and a holiday festival (Frederick and
- * Firestone share a fire district too; Dacono's is Mountain View Fire
- * Rescue), and none is large enough for a guide of its own, so every event and place here
- * carries a `subTown` and the site has a section page per town.
+ * Three municipalities on one guide, 5 October to 2 November 2026: the Town
+ * of Frederick, the Town of Firestone and the City of Dacono, the coal towns
+ * northeast of Erie that their own pages call the Tri-Towns or the Carbon
+ * Valley (firestoneco.gov/281/History-of-Firestone), with Fort Lupton as a
+ * fourth section from 12 October. The name never followed the "Inside
+ * <Town>" pattern: carbonvalleyguide.com is the owner's domain for it.
  *
- * The name does not follow the "Inside <Town>" pattern: carbonvalleyguide.com
- * is the owner's domain for it. The masthead and the holding page name the
- * network instead (src/components/Header.astro).
+ * Retired on 2 November 2026 on the owner's word (DECISIONS.md, "Black Hawk
+ * and Carbon Valley close; Lafayette and Frederick open"): Frederick has a
+ * flagship guide of its own at insidefrederickco.com (src/config/towns/
+ * frederick.ts), and the Frederick listings, the Frederick High sports file
+ * and the Fifth Street hero moved there; the Firestone, Dacono and Fort
+ * Lupton listings left this folder, and git history keeps them. Every path on
+ * carbonvalleyguide.com, insidefirestone.com and insidefortlupton.com
+ * redirects to the hub's home page (vercel.json): the old guide's slugs do
+ * not all exist on the Frederick guide, and a Firestone or Dacono path has
+ * no page anywhere. The config stays so the Vercel project keeps building,
+ * and keeps serving those redirects.
  *
- * Figures are each town's own, read 5 October 2026 from the Wikipedia infobox
- * (census and GNIS), and summed where the config wants one number; the
- * comments say which. The retired insidefirestone.com points at /firestone/
- * (docs/REDIRECTS.md).
- *
- * Fort Lupton, eight miles east across I-25, joined as a fourth section on
- * 12 October 2026 after five days as a guide of its own; the retired
- * insidefortlupton.com points at /fort-lupton/. It is not one of the coal
- * towns and has its own library and school district, so the figures below
- * stay the three Carbon Valley towns' and the name stays; Fort Lupton's
- * figures are in its Moving Here article.
+ * Figures are the three towns' own, read 5 October 2026 from the Wikipedia
+ * infobox (census and GNIS), and summed where the config wants one number;
+ * the comments say which.
  */
 export const carbonValley: TownConfig = {
   kind: 'town',
   // Live on 5 October 2026, at the owner's direction, after the first review
-  // (16 of 15 upcoming events, 27 of 20 listings).
-  status: 'live',
+  // (16 of 15 upcoming events, 27 of 20 listings); retired 2 November 2026.
+  status: 'redirect',
+  retired: {
+    since: '2026-11-02',
+    reason: 'The owner closed the four-town guide on 2 November 2026 and opened Inside Frederick in its place, leaving Firestone, Dacono and Fort Lupton out; a flagship is one town’s.',
+  },
   variant: 'front-range',
   region: 'Carbon Valley & I-25',
-  neighbors: ['erie', 'longmont'],
-  subTowns: ['frederick', 'firestone', 'dacono', 'fort-lupton'],
-  // Three towns' worth of content before it opens; set with the brief.
-  launchThreshold: { events: 15, listings: 20 },
+  neighbors: [],
   slug: 'carbon-valley',
   name: 'Carbon Valley',
   domain: 'carbonvalleyguide.com',
@@ -79,11 +77,12 @@ export const carbonValley: TownConfig = {
     paper: 'cool',
   },
   hero: {
-    // Old-town Frederick in place of the state park's pond (28 October 2026):
-    // the hero is the town itself. Also the Moving here guide's photograph.
-    image: 'fifth-street-at-oak.jpg',
-    alt: 'Fifth Street in old-town Frederick at Oak Street under snow in 2018: a two-storey red-brick corner building with a stepped parapet, frosted bare trees, a black lamppost and a few cars on the plowed street',
-    credit: 'Jared Winkler, Wikimedia Commons, CC BY-SA 4.0',
+    // The state park's pond, the hero from 5 to 28 October 2026; old-town
+    // Frederick's Fifth Street, the hero after that, went to the Frederick
+    // guide with the town on 2 November.
+    image: 'hero.jpg',
+    alt: 'St. Vrain State Park: a still pond ringed with cottonwoods and cattails under a wide sky, the Front Range low on the horizon',
+    credit: 'Jeffrey Beall, Wikimedia Commons, CC BY 4.0',
   },
   social: {
     email: 'hello@carbonvalleyguide.com',
@@ -114,5 +113,4 @@ export const carbonValley: TownConfig = {
     policeNonEmergency: 'https://www.frederickco.gov/360/Police',
     policeNonEmergencyLabel: 'Frederick Police Department (720-652-4222 dispatches for Firestone too; Dacono Police: 303-833-3095)',
   },
-  plausible: true,
 };

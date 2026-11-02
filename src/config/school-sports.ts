@@ -5,7 +5,8 @@
  *
  * Berthoud was the test site (October 2026); Niwot followed, then six more
  * guides on 22 October 2026 (Timnath, Elizabeth, Johnstown, Windsor,
- * Loveland and Carbon Valley), the same page and the same reader. One entry
+ * Loveland and Carbon Valley, whose Frederick High entry is Frederick's
+ * since 2 November), the same page and the same reader. One entry
  * per school, one data file (data/<town>/sports.json, or
  * data/<town>/sports-<slug>.json where a town follows several schools), one
  * page (/sports/, or /sports/<slug>/ with /sports/ listing the schools) and
@@ -68,16 +69,17 @@ export interface SchoolSports {
   school: string;
   /**
    * One line the page says once, under its introduction, where the school
-   * serves more than the town the guide is named for: Carbon Valley's
-   * Frederick High takes Dacono's and Firestone's students too.
+   * serves more than the town the guide is named for: Frederick High takes
+   * Dacono's and Firestone's students too.
    */
   note?: string;
   /** "Spartans": how the pages name the teams. */
   mascot: string;
   /**
    * The menu's word for the sports page where "<mascot> sports" would not
-   * say whose team it is (src/lib/nav.ts): Carbon Valley is four towns and
-   * the Golden Eagles are Frederick High's.
+   * say whose team it is (src/lib/nav.ts): Carbon Valley was four towns and
+   * the Golden Eagles were Frederick High's, so its menu said "Frederick
+   * sports". No guide needs it today.
    */
   navLabel?: string;
   /** The school's MaxPreps URL; each team's page is `maxpreps` + its path + "/". */
@@ -328,11 +330,13 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     teams: TEAMS(FALL_WITHOUT('boys-soccer'), [...WINTER(), ICE_HOCKEY]),
   },
   {
-    town: 'carbon-valley',
+    // The Carbon Valley guide's entry from 22 October 2026, Frederick's own
+    // from 2 November, when that guide closed and Inside Frederick opened; the
+    // data file moved with it (data/frederick/sports.json).
+    town: 'frederick',
     // CHSAANow: Frederick Senior High School, St Vrain Valley RE1J; football 4A, 4A Northern (2026–28).
     school: 'Frederick High School',
     mascot: 'Golden Eagles',
-    navLabel: 'Frederick sports',
     note: 'Dacono’s and Firestone’s students attend Frederick High too, so the Golden Eagles are the whole valley’s team.',
     maxpreps: 'https://www.maxpreps.com/co/frederick/frederick-golden-eagles/',
     maxprepsName: 'Frederick',

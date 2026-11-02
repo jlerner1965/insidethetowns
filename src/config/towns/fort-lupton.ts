@@ -12,19 +12,24 @@ import type { TownConfig } from './types.ts';
  * thirteen), confirmed 6 October 2026.
  *
  * Folded into Inside Carbon Valley on 12 October 2026 (DECISIONS.md,
- * "Severance and Fort Lupton become sections"): its events, places,
- * articles and sources are in content/carbon-valley/ with
- * `subTown: fort-lupton`, and every path on insidefortlupton.com redirects
- * there (vercel.json). The config stays so the Vercel project keeps
- * building, and keeps serving those redirects.
+ * "Severance and Fort Lupton become sections"), and retired with that guide
+ * on 2 November 2026 (DECISIONS.md, "Black Hawk and Carbon Valley close;
+ * Lafayette and Frederick open"): no neighbouring guide took it, its
+ * listings left the Carbon Valley folder (git history keeps them), and every
+ * path on insidefortlupton.com redirects to the hub's home page
+ * (vercel.json). The config stays so the Vercel project keeps building, and
+ * keeps serving those redirects.
  */
 export const fortLupton: TownConfig = {
   kind: 'town',
   // Live 7 October 2026, on the owner's word, after the first review cleared
   // the launch threshold (docs/archive/ACCURACY-SYSTEM.md); folded into Carbon Valley
-  // on 12 October 2026.
+  // on 12 October 2026; retired with it on 2 November 2026.
   status: 'redirect',
-  foldedInto: { town: 'carbon-valley', path: '/fort-lupton/', since: '2026-10-12' },
+  retired: {
+    since: '2026-11-02',
+    reason: 'Retired with the Carbon Valley guide on 2 November 2026, on the owner’s word: Frederick alone went on to a guide of its own, and no neighbouring guide takes Fort Lupton.',
+  },
   variant: 'front-range',
   region: 'Carbon Valley & I-25',
   neighbors: [],

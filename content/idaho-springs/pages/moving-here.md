@@ -7,7 +7,7 @@ imageCredit: "Chris Light, Wikimedia Commons, CC BY-SA 4.0"
 updated: "2026-10-11"
 ---
 
-Idaho Springs is a small downtown on a major interstate corridor, surrounded by mountains. Looking at Georgetown, up I-70 in the same school district, or Black Hawk, over Virginia Canyon in Gilpin County? Each has its own guide: [Moving to Georgetown](/articles/moving-to-georgetown/) and [Moving to Black Hawk](/articles/moving-to-black-hawk/). A weekend on Miner Street will not answer the utility, school, parking or commute questions for a particular home; the places below can.
+Idaho Springs is a small downtown on a major interstate corridor, surrounded by mountains. Looking at Georgetown, up I-70 in the same school district? It has its own guide: [Moving to Georgetown](/articles/moving-to-georgetown/). A weekend on Miner Street will not answer the utility, school, parking or commute questions for a particular home; the places below can.
 
 ## City services and the property
 

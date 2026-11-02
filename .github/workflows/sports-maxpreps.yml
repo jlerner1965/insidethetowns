@@ -28,7 +28,7 @@ on:
   workflow_dispatch:
     inputs:
       town:
-        description: 'One town only (berthoud, niwot, lyons, timnath, elizabeth, johnstown, windsor, loveland, carbon-valley, erie, golden); every configured town when empty.'
+        description: 'One town only (berthoud, niwot, lyons, timnath, elizabeth, johnstown, windsor, loveland, frederick, erie, golden, lafayette); every configured town when empty.'
         required: false
       school:
         description: 'One of a town’s several schools (Loveland: loveland-high, thompson-valley, mountain-view, resurrection-christian). Needs town.'

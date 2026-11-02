@@ -23,7 +23,8 @@ export const longmont: TownConfig = {
   },
   variant: 'front-range',
   region: 'Boulder County',
-  neighbors: ['niwot', 'lyons', 'erie', 'carbon-valley', 'berthoud'],
+  // Frederick in Carbon Valley's place and Lafayette beside Erie, 2 November 2026.
+  neighbors: ['niwot', 'lyons', 'erie', 'lafayette', 'frederick', 'berthoud'],
   launchThreshold: { events: 25, listings: 30 },
   slug: 'longmont',
   name: 'Longmont',

@@ -11,7 +11,8 @@ import { towns } from '../src/config/towns/registry.ts';
 
 test('an edition goes to its towns and to the towns folded into them', () => {
   assert.deepEqual(recipientTags(['windsor', 'timnath'], towns, 'all-towns').sort(), ['severance', 'timnath', 'windsor']);
-  assert.deepEqual(recipientTags(['carbon-valley'], towns, 'all-towns').sort(), ['carbon-valley', 'fort-lupton']);
+  // Fort Lupton rode on Carbon Valley's edition until both were retired on 2 November 2026; Frederick's goes to Frederick alone.
+  assert.deepEqual(recipientTags(['frederick'], towns, 'all-towns'), ['frederick']);
   assert.deepEqual(recipientTags(['lyons'], towns, 'all-towns'), ['lyons']);
 });
 

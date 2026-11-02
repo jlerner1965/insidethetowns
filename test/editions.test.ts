@@ -40,20 +40,22 @@ test('an edition of one carries its town’s email sponsor; a shared one its own
   assert.equal(shared!.sponsor, own);
 });
 
-test('the one shared edition left, and nine in all', () => {
+test('the one shared edition left, and ten in all', () => {
   // Three shared and fifteen in all until 20 October 2026: Idaho Springs and
   // Georgetown became one guide, Inside Clear Creek, an edition of one under
   // the Idaho Springs slug; Estes Park, Golden and Evergreen became visitor
   // guides and Grand Lake, Leadville and Nederland went quiet; then Fort
   // Collins, Longmont and Loveland went quiet, which left Johnstown an
   // edition of its own. Golden came back as an edition of its own on 28
-  // October 2026, a flagship.
+  // October 2026, a flagship. On 2 November 2026 Carbon Valley's edition
+  // closed with the guide and Lafayette's and Frederick's opened, flagships
+  // from the start: ten.
   const editions = emailEditions();
   const shared = editions.filter((e) => e.shared).map((e) => [e.slug, e.towns.map((x) => x.slug)]);
   assert.deepEqual(shared, [
     ['windsor-timnath', ['windsor', 'timnath']],
   ]);
-  assert.equal(editions.length, 9);
+  assert.equal(editions.length, 10);
   // Every covered guide in exactly one edition.
   const placed = editions.flatMap((e) => e.towns.map((x) => x.slug)).sort();
   assert.deepEqual(placed, emailTowns().map((x) => x.slug).sort());
