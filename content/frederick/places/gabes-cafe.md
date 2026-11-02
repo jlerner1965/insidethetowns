@@ -1,6 +1,5 @@
 ---
 title: "Gabe’s Cafe"
-subTown: frederick
 type: restaurant
 address: "214 5th St, Frederick, CO 80530"
 area: "Fifth Street"

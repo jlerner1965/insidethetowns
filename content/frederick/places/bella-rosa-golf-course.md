@@ -1,6 +1,5 @@
 ---
 title: "Bella Rosa Golf Course"
-subTown: frederick
 type: venue
 address: "5830 Bella Rosa Pkwy, Frederick, CO 80504"
 url: "https://bellarosagolf.com/"

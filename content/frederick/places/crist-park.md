@@ -1,6 +1,5 @@
 ---
 title: "Crist Park"
-subTown: frederick
 type: park
 address: "105 5th St, Frederick, CO 80530"
 area: "Fifth Street"

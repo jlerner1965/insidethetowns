@@ -1,6 +1,5 @@
 ---
 title: "Frederick Recreation Area and Milavec Lake"
-subTown: frederick
 type: park
 address: "8201 Colorado Blvd, Frederick, CO 80530"
 url: "https://www.frederickco.gov/Facilities/Facility/Details/2"

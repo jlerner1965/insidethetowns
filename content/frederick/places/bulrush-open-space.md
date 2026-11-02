@@ -1,6 +1,5 @@
 ---
 title: "Bulrush Open Space"
-subTown: frederick
 type: trail
 address: "6140 Wetland Park Rd, Frederick, CO 80516"
 url: "https://www.frederickco.gov/Facilities/Facility/Details/6"

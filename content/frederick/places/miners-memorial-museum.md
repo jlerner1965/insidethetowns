@@ -1,6 +1,5 @@
 ---
 title: "Miners Memorial Museum"
-subTown: frederick
 type: venue
 address: "Crist Park, 105 5th St, Frederick, CO 80530"
 area: "Fifth Street"

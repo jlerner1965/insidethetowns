@@ -1,6 +1,5 @@
 ---
 title: "Harvest & Holly Market"
-subTown: frederick
 start: "2026-11-15T11:00"
 end: "2026-11-15T15:00"
 venue: "Carbon Valley Recreation Center"

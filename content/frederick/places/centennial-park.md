@@ -1,6 +1,5 @@
 ---
 title: "Centennial Park"
-subTown: frederick
 type: park
 address: "630 8th St, Frederick, CO 80530"
 url: "https://www.frederickco.gov/Facilities/Facility/Details/8"

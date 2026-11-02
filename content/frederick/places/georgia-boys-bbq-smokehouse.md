@@ -1,6 +1,5 @@
 ---
 title: "Georgia Boys BBQ Smokehouse"
-subTown: frederick
 type: restaurant
 address: "141 Fifth St, Frederick, CO 80530"
 area: "Fifth Street"

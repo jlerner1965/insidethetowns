@@ -1,6 +1,5 @@
 ---
 title: "Carbon Valley Recreation Center"
-subTown: frederick
 type: venue
 address: "701 5th St, Frederick, CO 80530"
 area: "Fifth Street"

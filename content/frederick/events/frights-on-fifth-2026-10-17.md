@@ -1,6 +1,5 @@
 ---
 title: "Frights on Fifth"
-subTown: frederick
 start: "2026-10-17"
 allDay: true
 venue: "Downtown Frederick"

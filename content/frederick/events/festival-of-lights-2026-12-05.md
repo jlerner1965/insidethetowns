@@ -1,6 +1,5 @@
 ---
 title: "Festival of Lights"
-subTown: frederick
 start: "2026-12-05"
 allDay: true
 timeTbd: true

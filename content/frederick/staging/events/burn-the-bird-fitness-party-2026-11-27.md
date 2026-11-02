@@ -1,6 +1,5 @@
 ---
 title: "Burn the Bird Fitness Party"
-subTown: frederick
 review: { reason: "Re-checked 5 October: still only the date on the district’s schedule. Publish when the fitness page gives the time, place and fee.", since: "2026-10-05", from: manual }
 start: "2026-11-27"
 allDay: true
