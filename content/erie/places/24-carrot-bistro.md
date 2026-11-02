@@ -11,8 +11,8 @@ tags: [new american, brunch, cocktails]
 featured: true
 summary: "Farm-to-table New American on Briggs Street: a seasonal menu, weekend brunch, and craft cocktails with housemade ingredients."
 source: "https://www.24carrotbistro.com/"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
-The downtown dinner spot: a seasonal New American menu (duck confit and brick chicken are the dishes people cite), a cocktail list built on housemade syrups and shrubs, lunch on weekdays and brunch on weekends. Closed Mondays; reservations on OpenTable or Tock.
+The downtown dinner spot: a seasonal New American menu (duck confit and brick chicken are the dishes people cite), a cocktail list built on housemade syrups and shrubs, lunch on weekdays and brunch on weekends. Closed Mondays; reservations on OpenTable.

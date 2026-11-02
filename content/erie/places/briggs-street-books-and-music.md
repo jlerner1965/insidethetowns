@@ -8,7 +8,7 @@ phone: "(303) 578-9528"
 tags: [books, records, gifts]
 summary: "Independent bookshop and record store in the 615 Briggs building: new books, vinyl and gifts."
 source: "https://briggsstreetbooks.com/pages/contact"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
