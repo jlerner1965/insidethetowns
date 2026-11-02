@@ -12,7 +12,7 @@ hours: "Open daily, sunrise to sunset"
 tags: [hiking, dogs, views, early-season]
 summary: "The low, dry, early-season option north-east of town, with the big view back to Longs Peak. Leashed dogs welcome."
 source: "https://bouldercounty.gov/open-space/parks-and-trails/ron-stewart-preserve-rabbit-mountain/"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 

@@ -16,7 +16,7 @@ imageCredit: "Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0"
 tags: [museum, history, free]
 summary: "Local history in the 1881 sandstone schoolhouse, run by the Lyons Historical Society since 1979. Free; open in the summer season."
 source: "https://www.lyonsredstonemuseum.com/"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 

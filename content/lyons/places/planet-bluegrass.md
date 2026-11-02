@@ -12,7 +12,7 @@ tags: [festivals, bluegrass, concerts]
 featured: true
 summary: "The 20-acre riverside ranch that hosts RockyGrass and the Rocky Mountain Folks Festival, plus the Wildflower Pavilion concerts through the year."
 source: "https://bluegrass.com/planet/get-in-touch/contact-us"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 

@@ -10,7 +10,7 @@ tags: [bakery, coffee, bread]
 featured: true
 summary: "Moxie Bread Co.’s Lyons outpost: coffee, pastries and loaves from the Louisville bakery."
 source: "https://moxiebreadco.com/"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 

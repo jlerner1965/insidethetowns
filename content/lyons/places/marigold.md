@@ -9,7 +9,7 @@ tags: [italian, french, dinner, date-night]
 featured: true
 summary: "Northern Italian and southern French cooking in a small dining room; the town’s dinner-out address."
 source: "https://www.marigoldlyons.com/"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 

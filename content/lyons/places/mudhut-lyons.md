@@ -8,7 +8,7 @@ hours: "Daily 7 am–3 pm"
 tags: [drive-through, coffee]
 summary: "Drive-through coffee on the way into town from Longmont."
 source: "https://www.mudhutlyons.com/contact-us"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
