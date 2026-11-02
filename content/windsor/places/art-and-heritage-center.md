@@ -9,7 +9,7 @@ imageAlt: "The tan-brick 1909 former Windsor City Hall on 5th Street, now the Ar
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0"
 url: "https://www.recreationliveshere.com/183/Art-Heritage-Center"
 source: "https://www.recreationliveshere.com/Facilities/Facility/Details/Art-Heritage-Center-37"
-verified: "2026-10-02"
+verified: "2026-11-02"
 added: "2026-10-01"
 phone: "970-674-3502"
 hours: "Thu 3–7 pm, Fri–Sun 12–4 pm; closed Mon–Wed"
@@ -20,4 +20,4 @@ summary: "The Town's free art and history gallery in the 1909 former Town Hall o
 
 Windsor's 1909 Town Hall, which once held every town office with the fire station on the lower floor and the hall above, was restored in 2008 after the tornado and is now the Art & Heritage Center, a two-story municipal building with an old vehicle out front. It is the Town's hub for art, culture and history: rotating exhibitions through the year, programs and events, and the heritage side of the Town of Windsor Museums, which also run the History Museum at Boardwalk Park, the Eaton House and the Historic Halfway Homestead.
 
-Admission is always free. The Town's facility page gives Thursday afternoon and evening and Friday to Sunday afternoons; its Culture page has listed different summer hours in the past, so check the current exhibition page before a visit.
+Admission is always free. The Town's facility page gives Thursday 3 to 7 pm and Friday to Sunday noon to 4 pm; the Center's own page in the Town's Culture section gives Friday to Sunday, noon to 4 pm, with no Thursday hours (both read 2 November 2026), so check the current exhibition page before a visit.
