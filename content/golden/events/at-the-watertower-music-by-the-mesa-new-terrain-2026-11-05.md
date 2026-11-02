@@ -10,8 +10,8 @@ category: music
 performers:
   - { name: "At The Watertower", kind: group }
 source: "https://newterrainbrewing.com/event/at-the-watertower-music-by-the-mesa/"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against New Terrain Brewing's event page and calendar, 1 November 2026: Thursday, November 5, 2026, 6 to 9 pm; Music by the Mesa is described as free"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"At The Watertower @ Music By The Mesa\" at 6 pm on 5 November in the page's structured data"
 ---
 
 At The Watertower, a roots and Americana string band, plays New Terrain Brewing's Music by the Mesa series on Thursday, November 5 from 6 to 9 pm. The brewery's events page describes Music by the Mesa as free live music every Thursday, year round, in the taproom on Table Mountain Parkway.

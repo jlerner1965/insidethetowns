@@ -9,8 +9,8 @@ source: "https://calendar.estesvalleylibrary.org/event/17835556"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17835556"
 sourceHash: "603f98b8b16f"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the Estes Valley Library feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Spice Metals\" at 6 pm on 11 November on the Estes Valley Library feed"
 ---
 
 Spice Metals at Estes Valley Library, Wednesday, November 11, 6 pm – 7 pm. Listed by Estes Valley Library; the organizer's page has the details and any registration.

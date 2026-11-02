@@ -10,8 +10,8 @@ source: "https://cccld.org/event/ispl-pajama-storytime/"
 sourceId: "cccld-org"
 sourceUid: "10007090-1793959200-1793962800@cccld.org"
 sourceHash: "8ee102492e85"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the Clear Creek County Library District calendar feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"ISPL Pajama Storytime\" at 10 am on 6 November on the Clear Creek County Library District calendar feed"
 ---
 
 ISPL Pajama Storytime at Idaho Springs Public Library, Friday, November 6, 10 am – 11 am. Listed by Clear Creek County Library District calendar; the organizer's page has the details and any registration.

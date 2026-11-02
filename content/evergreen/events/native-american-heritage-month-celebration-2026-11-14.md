@@ -10,8 +10,8 @@ source: "https://www.jeffco.us/calendar.aspx?EID=16939"
 sourceId: "jeffco-us-open-space"
 sourceUid: "16939"
 sourceHash: "d53f099ffe1c"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the Jeffco Open Space – Open Space Master Calendar, parks and alerts feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Native American Heritage Month Celebration\" at 10 am on 14 November on the Jeffco Open Space – Open Space Master Calendar, parks and alerts feed"
 ---
 
 Native American Heritage Month Celebration at Hiwan Heritage Park & Museum, Saturday, November 14, 10 am – 3 pm. Listed by Jeffco Open Space – Open Space Master Calendar, parks and alerts; the organizer's page has the details and any registration.

@@ -11,8 +11,8 @@ source: "https://www.recreationliveshere.com/calendar.aspx?EID=1319"
 sourceId: "recreationliveshere-com"
 sourceUid: "1319"
 sourceHash: "e5782b331858"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the Windsor Parks, Recreation & Culture (recreationliveshere.com) feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Homeschool Day at the Museum: Ride the Rails\" at 10 am on 12 November on the Windsor Parks, Recreation & Culture (recreationliveshere.com) feed"
 ---
 
 Homeschool Day at the Museum: Ride the Rails at Windsor History Museum, Thursday, November 12, 10 am – 2 pm. Listed by Windsor Parks, Recreation & Culture (recreationliveshere.com); the organizer's page has the details and any registration.

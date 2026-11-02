@@ -10,8 +10,8 @@ category: "music"
 performers:
   - { name: "Sam Robbins", kind: person }
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against Avogadro's Number's events page, 1 November 2026: 2026-11-08, 18:00-20:00, $25"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): 8 November and 6 pm on the page"
 ---
 
 Nashville singer-songwriter Sam Robbins, 6 to 8 p.m. At Avogadro's Number, 605 South Mason Street.

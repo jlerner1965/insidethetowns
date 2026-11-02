@@ -10,8 +10,8 @@ source: "https://bouldercounty.gov/event/story-in-the-rocks-geologic-history-of-
 sourceId: "bouldercounty-gov"
 sourceUid: "10004401-1794333600-1794339000@bouldercounty.gov"
 sourceHash: "0987bc34ab48"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the Boulder County feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Story in the Rocks: Geologic History of Boulder County\" at 6 pm on 10 November on the Boulder County feed"
 ---
 
 Story in the Rocks: Geologic History of Boulder County at Ron Stewart Parks & Open Space Building, Tuesday, November 10, 6 pm – 7:30 pm. Listed by Boulder County; the organizer's page has the details and any registration.

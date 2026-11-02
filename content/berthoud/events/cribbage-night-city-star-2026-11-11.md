@@ -11,8 +11,8 @@ recurring: "Second and fourth Wednesdays"
 source: "https://citystarbrewing.com/event/cribbage-night-2-2/2026-11-11/"
 sourceId: "citystarbrewing-com"
 sourceUid: "10007794"
-verified: "2026-11-01"
-verifiedBy: "the City Star Brewing feed read 1 November 2026 (the feed’s own id matched to this file by hand), the reader pass"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Cribbage Night\" at 6 pm on 11 November in the page's structured data"
 ---
 
 Cribbage in the City Star taproom on the second and fourth Wednesdays, 6 to 8:30 pm: free to enter, beer prizes, bring a board and a deck of cards.

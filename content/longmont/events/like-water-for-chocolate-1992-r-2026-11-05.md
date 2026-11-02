@@ -10,8 +10,8 @@ source: "https://longmontcolorado.gov/event/like-water-for-chocolate-1992-r/"
 sourceId: "longmontcolorado-gov-museum"
 sourceUid: "10008867-1793905200-1793912400@longmontcolorado.gov"
 sourceHash: "0d7d7b3ef9df"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the Longmont Museum (City of Longmont calendar) feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Like Water for Chocolate (1992, R)\" at 7 pm on 5 November on the Longmont Museum (City of Longmont calendar) feed"
 ---
 
 Like Water for Chocolate (1992, R) at Longmont Museum, Thursday, November 5, 7 pm – 9 pm. Listed by Longmont Museum (City of Longmont calendar); the organizer's page has the details and any registration.

@@ -9,8 +9,8 @@ source: "https://calendar.estesvalleylibrary.org/event/17842596"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17842596"
 sourceHash: "5f44ead449be"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the Estes Valley Library feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Reclaiming Your Inner Wisdom: Sacred Indigenous Teachings with Asha Frost\" at 12 pm on 3 November on the Estes Valley Library feed"
 ---
 
 Reclaiming Your Inner Wisdom: Sacred Indigenous Teachings with Asha Frost at Estes Valley Library, Tuesday, November 3, 12 pm – 1 pm. Listed by Estes Valley Library; the organizer's page has the details and any registration.

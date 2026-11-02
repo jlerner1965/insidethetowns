@@ -9,8 +9,8 @@ source: "https://calendar.estesvalleylibrary.org/event/17019228"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17019228"
 sourceHash: "5db5d3150e05"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the Estes Valley Library feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Storybook Explorers at Estes Valley Library: The Busy Little Squirrel\" at 11:15 am on 12 November on the Estes Valley Library feed"
 ---
 
 Storybook Explorers at Estes Valley Library: The Busy Little Squirrel at Estes Valley Library, Thursday, November 12, 11:15 am – 12 pm. Listed by Estes Valley Library; the organizer's page has the details and any registration.

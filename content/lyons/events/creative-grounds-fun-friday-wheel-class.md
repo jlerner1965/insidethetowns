@@ -13,7 +13,7 @@ cost: "$30 a class"
 recurring: "Fridays through December 18, none on November 27"
 source: "https://creativegroundslyons.com/classes"
 sourceId: "creativegroundslyons-com"
-verified: "2026-11-01"
+verified: "2026-11-02"
 verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 4 pm on the page"
 ---
 

@@ -10,8 +10,8 @@ source: "https://co-nederland.civicplus.com/Calendar.aspx?EID=1118"
 sourceId: "nederlandco-org"
 sourceUid: "EID=1118"
 sourceHash: "d78a332b0501"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the Town of Nederland calendar (nederlandco.org) feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Zero Waste Subcommittee Meeting\" at 3 pm on 4 November on the Town of Nederland calendar (nederlandco.org) feed"
 ---
 
 Zero Waste Subcommittee Meeting at Nederland Community Center, 750 Highway 72 North, Wednesday, November 4, 3 pm – 4 pm. Listed by Town of Nederland calendar (nederlandco.org); the organizer's page has the details and any registration.

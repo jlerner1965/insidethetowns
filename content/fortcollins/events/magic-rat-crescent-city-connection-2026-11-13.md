@@ -9,8 +9,8 @@ category: "music"
 performers:
   - { name: "Crescent City Connection", kind: group }
 source: "https://www.theelizabethcolorado.com/the-hotel/events-calendar/"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against The Elizabeth Hotel's events calendar, 1 November 2026: 2026-11-13, 20:00-22:00; no cover listed"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): 13 November and 8 pm on the page"
 ---
 
 Crescent City Connection plays Magic Rat, the live music room inside The Elizabeth Hotel on Firehouse Alley, 8 to 10 p.m. Enter through the hotel lobby or the side entrance; no cover was listed.

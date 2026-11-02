@@ -12,8 +12,8 @@ performers:
 organizer: "Evergreen Chamber Orchestra"
 organizerUrl: "https://evergreenchamberorch.org/"
 source: "https://evergreenchamberorch.org/current-season/"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against the Evergreen Chamber Orchestra's season page and event page, 1 November 2026: Saturday, November 14, 2026, 3 pm at Rockland Community Church; general $35, senior $30, student/teacher/military $20, youth free"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 3 pm on the page"
 ---
 
 The Evergreen Chamber Orchestra's fall Masterworks program, the second of its 45th season, at Rockland Community Church on Lookout Mountain on Saturday, November 14 at 3 pm, with the world premiere of The Intangibles by Colorado composer Cindi Hsu. The same program repeats Sunday, November 15 at 3 pm at First Universalist Church of Denver. Tickets on the orchestra's site: $35 general, $30 seniors, $20 students, teachers and military, free for 18 and under.

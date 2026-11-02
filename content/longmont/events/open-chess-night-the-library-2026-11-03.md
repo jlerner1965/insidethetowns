@@ -10,8 +10,8 @@ source: "https://longmontcolorado.gov/event/open-chess-night/2026-11-03/"
 sourceId: "longmontcolorado-gov-library"
 sourceUid: "10007369-1793727000-1793734200@longmontcolorado.gov"
 sourceHash: "b43e13604a8f"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the Longmont Public Library (City of Longmont calendar) feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Open Chess Night @ the Library\" at 5:30 pm on 3 November on the Longmont Public Library (City of Longmont calendar) feed"
 ---
 
 Open Chess Night @ the Library at Longmont Public Library, Tuesday, November 3, 5:30 pm – 7:30 pm. Listed by Longmont Public Library (City of Longmont calendar); the organizer's page has the details and any registration.

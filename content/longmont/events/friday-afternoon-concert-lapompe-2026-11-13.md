@@ -10,8 +10,8 @@ source: "https://longmontcolorado.gov/event/friday-afternoon-concert-lapompe/"
 sourceId: "longmontcolorado-gov-museum"
 sourceUid: "10008922-1794580200-1794587400@longmontcolorado.gov"
 sourceHash: "919be19b3a51"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the Longmont Museum (City of Longmont calendar) feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Friday Afternoon Concert: LAPOMPE\" at 2:30 pm on 13 November on the Longmont Museum (City of Longmont calendar) feed"
 ---
 
 Friday Afternoon Concert: LAPOMPE at Longmont Museum, Friday, November 13, 2:30 pm – 4:30 pm. Listed by Longmont Museum (City of Longmont calendar); the organizer's page has the details and any registration.

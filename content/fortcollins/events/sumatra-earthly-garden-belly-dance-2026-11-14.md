@@ -8,8 +8,8 @@ url: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
 cost: "$20"
 category: "arts"
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against Avogadro's Number's events page, 1 November 2026: 2026-11-14, 19:00-21:00, $20"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 7 pm on the page"
 ---
 
 Sumatra's Earthly Garden belly dance showcase, 7 to 9 p.m. At Avogadro's Number, 605 South Mason Street.

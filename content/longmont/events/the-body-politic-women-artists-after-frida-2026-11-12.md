@@ -10,8 +10,8 @@ source: "https://longmontcolorado.gov/event/the-body-politic-women-artists-after
 sourceId: "longmontcolorado-gov-museum"
 sourceUid: "10008886-1794510000-1794517200@longmontcolorado.gov"
 sourceHash: "a0b55e2c49c5"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the Longmont Museum (City of Longmont calendar) feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"The Body Politic: Women Artists After Frida\" at 7 pm on 12 November on the Longmont Museum (City of Longmont calendar) feed"
 ---
 
 The Body Politic: Women Artists After Frida at Longmont Museum, Thursday, November 12, 7 pm – 9 pm. Listed by Longmont Museum (City of Longmont calendar); the organizer's page has the details and any registration.
