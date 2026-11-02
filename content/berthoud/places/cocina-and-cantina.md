@@ -10,7 +10,7 @@ priceRange: "$$"
 tags: [mexican, breakfast, cantina]
 summary: "Breakfast, lunch and dinner with a Mexican slant on the main block; the downtown Saturday-breakfast spot."
 source: "https://berthoud.cocinaandcantina.com/"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 

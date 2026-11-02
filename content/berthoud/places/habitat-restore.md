@@ -7,10 +7,10 @@ url: "https://www.berthoudhabitat.org/restore/restore.html"
 phone: "(970) 532-2870"
 hours: "Tue–Sat 10–5; closed Sun–Mon"
 tags: [thrift, furniture, nonprofit]
-summary: "Thrift store for furniture, building materials and home goods at the east end of Mountain Avenue; proceeds build homes."
+summary: "Thrift store for furniture, home goods, clothing and tools at the east end of Mountain Avenue; proceeds build homes."
 source: "https://www.berthoudhabitat.org/restore/restore.html"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
-The Habitat for Humanity thrift store at the east end of Mountain Avenue: furniture, appliances, doors, tile, tools and home goods, donated and resold to fund the nonprofit's home building.
+The Habitat for Humanity thrift store at the east end of Mountain Avenue: furniture, household and kitchen items, small appliances, tools and hardware, clothing, books and more, donated and resold to fund affordable homes in Berthoud. It does not take building materials or large appliances.
