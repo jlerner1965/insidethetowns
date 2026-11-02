@@ -7,7 +7,7 @@ url: "https://www.arcanahouse.com/"
 tags: [gifts, workshops]
 summary: "Ritual goods, botanicals, workshops and a design studio on Massachusetts Avenue."
 source: "https://www.arcanahouse.com/"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
