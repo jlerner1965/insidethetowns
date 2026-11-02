@@ -9,7 +9,7 @@ hours: "Sun–Thu 11 am–8 pm, Fri–Sat 11 am–8:30 pm"
 tags: [indian, takeout]
 summary: "Fresh curries, biryani and saag, for eating in or taking to the park."
 source: "https://indianbitesco.com/"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
