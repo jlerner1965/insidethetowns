@@ -11,10 +11,10 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "subscribe",
-      "notes": "Found and read once on 5 October 2026. CivicPlus, like Lyons, Berthoud, Erie and Johnstown. The Town keeps two public calendars; this is \"Frederick Events Calendar\" (CID 34), the Town-run community events: 2 items on 5 October (Frights on Fifth, 17 October, Downtown Frederick; Festival of Lights, 5 December, Crist Park, 105 Fifth Street), both all-day in the feed where the event pages give times. The iCal reaches further than the CivicPlus RSS (RSSFeed.aspx?ModID=58&CID=34, 1 item, current month only). The Town's signature events (Miners Day in September, Frederick in Flight in June, Chainsaws & Chuckwagons in July, Music in the Park on summer second Wednesdays, the Memorial Day ceremony) each have a page under /234/Events and reach the calendar only as the date nears, so the events page is read by hand as well. www.frederickco.gov/robots.txt is a Cloudflare content-signals stub with no rules; frederickco.gov's (CivicPlus) disallows /RSS.aspx and /CurrentEvents*.aspx, neither of which this reads. America/Denver times. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. robots: subscribe from 29 October 2026, the editor's call delegated by the owner: CivicPlus added `Disallow: /common/modules/icalendar/` to every site it hosts on 20-21 October, which the check now reads case-blind, and this feed is the one the site offers residents as a calendar subscription; one nightly read is what a subscribed calendar does (DECISIONS.md, \"CivicPlus's calendar feeds\")."
+      "notes": "Found and read once on 5 October 2026. CivicPlus, like Lyons, Berthoud, Erie and Johnstown. The Town keeps two public calendars; this is \"Frederick Events Calendar\" (CID 34), the Town-run community events: 2 items on 5 October (Frights on Fifth, 17 October, Downtown Frederick; Festival of Lights, 5 December, Crist Park, 105 Fifth Street), both all-day in the feed where the event pages give times. The iCal reaches further than the CivicPlus RSS (RSSFeed.aspx?ModID=58&CID=34, 1 item, current month only). The Town's signature events (Miners Day in September, Frederick in Flight in June, Chainsaws & Chuckwagons in July, Music in the Park on summer second Wednesdays, the Memorial Day ceremony) each have a page under /234/Events and reach the calendar only as the date nears, so the events page is read by hand as well. www.frederickco.gov/robots.txt is a Cloudflare content-signals stub with no rules; frederickco.gov's (CivicPlus) disallows /RSS.aspx and /CurrentEvents*.aspx, neither of which this reads. America/Denver times. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. robots: subscribe from 29 October 2026, the editor's call delegated by the owner: CivicPlus added `Disallow: /common/modules/icalendar/` to every site it hosts on 20-21 October, which the check now reads case-blind, and this feed is the one the site offers residents as a calendar subscription; one nightly read is what a subscribed calendar does (DECISIONS.md, \"CivicPlus's calendar feeds\"). Found and read on 2 November 2026 by the Frederick build agent for the Frederick flagship build: the catID=34 feed carried one item, Festival of Lights (UID 4287, 5 December, all-day in the feed); the event page now gives 5:30 to 8 pm, and the listing was updated. The Events page (/234/Events) lists the 2026 season's seven Town events, all past but the Festival, and links the Frederick Market (four market dates a year), Music in the Park and the Memorial Day ceremony. The Town's news feed (/civicalerts.aspx) is registered separately below. The museum's first-Friday openings (6 November, 4 December) come from /717, not the feed."
     },
     {
       "id": "frederickco-gov-meetings",
@@ -26,7 +26,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "subscribe",
       "excludeTitles": [
@@ -40,7 +40,7 @@
         "Youth Commission",
         "Urban Renewal"
       ],
-      "notes": "Found and read once on 5 October 2026. The Town's second public calendar (CID 38): 77 items to December 2030 on 5 October, every one a board or commission meeting (Board of Trustees regular and work sessions, Planning Commission, Parks, Recreation, Open Space & Trails Commission, Historic Preservation Committee, Frederick Arts Committee, Youth Commission, Urban Renewal Authority), with no LOCATION. The two titles excluded are the calendar's own placeholders (\"One Time Event\" on 31 December 2030, \"Parking Lot for Agenda Items\" on 30 December 2027), not meetings. Under the event standard (docs/archive/AUDIT-2026-10-02.md) routine meetings are not events; whether to confirm this feed at all, or exclude the regular sessions as Longmont's registry does, is the editor's call. The Town's nine other iCal categories (Centennial Park, Crist Park, Frederick Recreation Area, Downtown Activities, each board on its own) were each read once and are empty. Left proposed 5 October 2026: every item is a routine meeting, which the event standard excludes; confirm it only to have the meetings staged. Confirmed 6 October 2026 at the owner’s direction (an official Town calendar). Its routine board and commission meetings are excluded by title under the event standard, as Firestone’s and Dacono’s are, so it stages only what is not a regular meeting; remove an exclusion to have that body’s meetings staged. robots: subscribe from 29 October 2026, the editor's call delegated by the owner: CivicPlus added `Disallow: /common/modules/icalendar/` to every site it hosts on 20-21 October, which the check now reads case-blind, and this feed is the one the site offers residents as a calendar subscription; one nightly read is what a subscribed calendar does (DECISIONS.md, \"CivicPlus's calendar feeds\")."
+      "notes": "Found and read once on 5 October 2026. The Town's second public calendar (CID 38): 77 items to December 2030 on 5 October, every one a board or commission meeting (Board of Trustees regular and work sessions, Planning Commission, Parks, Recreation, Open Space & Trails Commission, Historic Preservation Committee, Frederick Arts Committee, Youth Commission, Urban Renewal Authority), with no LOCATION. The two titles excluded are the calendar's own placeholders (\"One Time Event\" on 31 December 2030, \"Parking Lot for Agenda Items\" on 30 December 2027), not meetings. Under the event standard (docs/archive/AUDIT-2026-10-02.md) routine meetings are not events; whether to confirm this feed at all, or exclude the regular sessions as Longmont's registry does, is the editor's call. The Town's nine other iCal categories (Centennial Park, Crist Park, Frederick Recreation Area, Downtown Activities, each board on its own) were each read once and are empty. Left proposed 5 October 2026: every item is a routine meeting, which the event standard excludes; confirm it only to have the meetings staged. Confirmed 6 October 2026 at the owner’s direction (an official Town calendar). Its routine board and commission meetings are excluded by title under the event standard, as Firestone’s and Dacono’s are, so it stages only what is not a regular meeting; remove an exclusion to have that body’s meetings staged. robots: subscribe from 29 October 2026, the editor's call delegated by the owner: CivicPlus added `Disallow: /common/modules/icalendar/` to every site it hosts on 20-21 October, which the check now reads case-blind, and this feed is the one the site offers residents as a calendar subscription; one nightly read is what a subscribed calendar does (DECISIONS.md, \"CivicPlus's calendar feeds\"). Read 2 November 2026 by the Frederick build agent: 42 items from 2 November to 28 February, every one a board, commission or committee meeting (the Board's work sessions of 18 November and 16 December and the Urban Renewal Authority's 18 November meeting marked Canceled-) except the two developer neighborhood meetings on Teams (UIDs 4404 and 4405, already staged; left there, since the feed's LOCATION is a Teams join block). The Youth Commission meets second Saturdays 9 to 10 am; used for the Youth Commission program's schedule line."
     },
     {
       "id": "weld-gov",
@@ -51,10 +51,10 @@
       "category": "county",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
-      "notes": "Found and read once on 5 October 2026. Granicus OpenCities (weldgov.com redirects here). The county's events listing filters by location, with Dacono, Firestone and Frederick each a choice, but only through an ASP.NET form post, and neither it, the County Calendar nor an event's own page offers iCal, RSS or JSON. Its 614-line robots.txt disallows several of the sub-calendars (holiday closures, the Health and Environment calendar, the commissioners' hearings calendar, job-seeker events) and allows the listing and the County Calendar. On 5 October the first page (5 to 15 October) had nothing in the three towns. Core as Boulder County is for Niwot and Lyons, but read by a person who sets the location filter; the county's offices and fairgrounds are in Greeley, thirty miles off. Confirmed 5 October 2026 on the owner's word that the choice was the editor's."
+      "notes": "Found and read once on 5 October 2026. Granicus OpenCities (weldgov.com redirects here). The county's events listing filters by location, with Dacono, Firestone and Frederick each a choice, but only through an ASP.NET form post, and neither it, the County Calendar nor an event's own page offers iCal, RSS or JSON. Its 614-line robots.txt disallows several of the sub-calendars (holiday closures, the Health and Environment calendar, the commissioners' hearings calendar, job-seeker events) and allows the listing and the County Calendar. On 5 October the first page (5 to 15 October) had nothing in the three towns. Core as Boulder County is for Niwot and Lyons, but read by a person who sets the location filter; the county's offices and fairgrounds are in Greeley, thirty miles off. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Read 2 November 2026 by the Frederick build agent: page 1 of the events listing (10 of 33) had nothing in Frederick (job-seeker classes in Greeley and Fort Lupton, a mobile health unit in Dacono on 5 November). The county's Elections Department page and its 2026 General Election voting and drop-box locations PDF were read for the Election Day listing (the rec center is a Voter Service and Polling Center on 2 and 3 November and a 24-hour drop box); the PDF answered 403 to curl but was read through WebFetch, and apps.weld.gov (wait times, maps) answers 403."
     },
     {
       "id": "carbonvalleychamber-com",
@@ -64,10 +64,10 @@
       "category": "chamber",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
-      "lastStatus": "ok",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "blocked",
       "robots": "honor",
-      "notes": "Found and read once on 5 October 2026: not readable. Every path on carbonvalleychamber.com, robots.txt included, answers automated requests with HTTP 202 and a SiteGround captcha page, so neither the site's robots rules nor its calendar could be read, and its CMS is unknown; the old GrowthZone calendar at business.carbonvalleychamber.com answers 410 Gone. The chamber is real (Firestone's History page and the Carbon Valley Parks and Recreation District both name it; CVPRD lists its Chamber Open golf tournament on 17 August). The host name is the obvious one and was not confirmed from an official page. Read by a person in a browser, or ask the chamber for its calendar. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. A manual source: confirming it puts it on the weekly check, where it will report blocked until the chamber's site admits readers."
+      "notes": "Found and read once on 5 October 2026: not readable. Every path on carbonvalleychamber.com, robots.txt included, answers automated requests with HTTP 202 and a SiteGround captcha page, so neither the site's robots rules nor its calendar could be read, and its CMS is unknown; the old GrowthZone calendar at business.carbonvalleychamber.com answers 410 Gone. The chamber is real (Firestone's History page and the Carbon Valley Parks and Recreation District both name it; CVPRD lists its Chamber Open golf tournament on 17 August). The host name is the obvious one and was not confirmed from an official page. Read by a person in a browser, or ask the chamber for its calendar. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. A manual source: confirming it puts it on the weekly check, where it will report blocked until the chamber's site admits readers. Read 2 November 2026 by the Frederick build agent: the home page now answers 200 and lists three events without venues (Business After Hours 5 November 5 pm, a Panda Express ribbon cutting 6 November 9 am, Business Connectors 10 November 8:30 am), phone 303-833-5933 and info@carbonvalleychamber.com; /about-us/ came back empty; the calendar and member directory on cca.carbonvalleychamber.com (EvtListingMainSearch.aspx, businesssearch.aspx) answer 403. Still read by a person."
     },
     {
       "id": "highplains-libcal-com",
@@ -79,7 +79,7 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
       "locationFilter": [
@@ -110,7 +110,7 @@
         "Golden Ponds"
       ],
       "defaultVenue": "Carbon Valley Regional Library",
-      "notes": "Found and read once on 5 October 2026. One branch serves all three towns: 7 Park Avenue, Firestone (Mon to Thu 9 am to 8 pm, Fri and Sat 10 am to 5 pm, Sun 1 to 5 pm, per mylibrary.us/locations-and-hours/). The district's LibCal is the same one the Windsor and Johnstown work found: its public iCal (ical_subscribe.php?src=p&cid=8181) is the district's 500 oldest items, 4 August to 25 September 2026 on 5 October, and no parameter (cal, cm, inc, d, t) narrows it to the branch or moves it forward, re-tested three ways. The district-wide RSS (rss.php?iid=4057&m=month&cid=8181; m=upcoming answers \"invalid mode\") does carry the coming fortnight, 300 items on 5 October of which 19 were at the Carbon Valley Regional Library (Drop-in Chess, English Class, Tween Craft Club, Sketch Club, Page Turner's Book Club), but its dates, times and building are inside each item's description, which the repo's RSS reader does not read (it reads CivicPlus's calendarEvent elements), so ingest would stage nothing from it: reading LibCal RSS would be a new feed reader, which is a feature to ask about. Until then the branch's calendar page, linked above with the building preselected, is read in a browser. robots.txt names a 10-second crawl delay for everyone and disallows the /process_ endpoints the page loads events from, so the page cannot be read by script either. The locationFilter is set for the day a reader exists. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Read as RSS from 5 October 2026: scripts/lib/feeds/rss.ts now reads LibCal's own libcal:date, libcal:time, libcal:location and libcal:campus elements (the district-wide feed covers the coming fortnight or so, 300 items on 5 October), and the locationFilter keeps the branch's. Exclusions set 5 October 2026 from the event standard in docs/archive/AUDIT-2026-10-02.md (routine meetings, the court and office closures are not events), at the owner's direction that the sources be settled on the editor's judgment; remove any to have it staged again. Storytimes, clubs, drop-ins, the English class and the advisory board are excluded; what remains is the one-off programs (a science afternoon, a teen improv session, an adult D&D one-shot, a 3D-modelling class). The feed marks a called-off session by prefixing \"Cancelled:\" to the title, as Longmont's does. The branch is in Firestone, so staged items carry subTown firestone. Excluded on 5 October 2026 at the review: \"Let’s Draw!\" and \"Science Fun\", monthly after-school sessions for elementary pupils (a class in all but name, under the event standard). \"Ageless Grace\" was already excluded; its cancelled session reached staging because the feed wrote a non-breaking space in the title, which the readers now treat as a space. Feed narrowed on 5 October 2026 to the branch with cam=4554 (the calendar's own building filter): 62 items, all at Carbon Valley, reaching about a month ahead where the district feed's 300 reach a fortnight. The locationFilter stays as a guard. Further exclusions on 5 October 2026, with the branch feed: the baby storytime (Twinkle Babies), the job-help drop-in, the legal clinic, Library 101, the monthly Paws to Read, make-and-take craft classes (Cricut, tote bags, looming), as Longmont excludes them, and the bird walk at Golden Ponds, which is in Longmont. Moved to the Frederick guide on 2 November 2026 when Carbon Valley closed: the branch is at 7 Park Avenue in Firestone and is the Frederick area's library (High Plains Library District), so its programs are listed where a Frederick family would look for them."
+      "notes": "Found and read once on 5 October 2026. One branch serves all three towns: 7 Park Avenue, Firestone (Mon to Thu 9 am to 8 pm, Fri and Sat 10 am to 5 pm, Sun 1 to 5 pm, per mylibrary.us/locations-and-hours/). The district's LibCal is the same one the Windsor and Johnstown work found: its public iCal (ical_subscribe.php?src=p&cid=8181) is the district's 500 oldest items, 4 August to 25 September 2026 on 5 October, and no parameter (cal, cm, inc, d, t) narrows it to the branch or moves it forward, re-tested three ways. The district-wide RSS (rss.php?iid=4057&m=month&cid=8181; m=upcoming answers \"invalid mode\") does carry the coming fortnight, 300 items on 5 October of which 19 were at the Carbon Valley Regional Library (Drop-in Chess, English Class, Tween Craft Club, Sketch Club, Page Turner's Book Club), but its dates, times and building are inside each item's description, which the repo's RSS reader does not read (it reads CivicPlus's calendarEvent elements), so ingest would stage nothing from it: reading LibCal RSS would be a new feed reader, which is a feature to ask about. Until then the branch's calendar page, linked above with the building preselected, is read in a browser. robots.txt names a 10-second crawl delay for everyone and disallows the /process_ endpoints the page loads events from, so the page cannot be read by script either. The locationFilter is set for the day a reader exists. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Read as RSS from 5 October 2026: scripts/lib/feeds/rss.ts now reads LibCal's own libcal:date, libcal:time, libcal:location and libcal:campus elements (the district-wide feed covers the coming fortnight or so, 300 items on 5 October), and the locationFilter keeps the branch's. Exclusions set 5 October 2026 from the event standard in docs/archive/AUDIT-2026-10-02.md (routine meetings, the court and office closures are not events), at the owner's direction that the sources be settled on the editor's judgment; remove any to have it staged again. Storytimes, clubs, drop-ins, the English class and the advisory board are excluded; what remains is the one-off programs (a science afternoon, a teen improv session, an adult D&D one-shot, a 3D-modelling class). The feed marks a called-off session by prefixing \"Cancelled:\" to the title, as Longmont's does. The branch is in Firestone, so staged items carry subTown firestone. Excluded on 5 October 2026 at the review: \"Let’s Draw!\" and \"Science Fun\", monthly after-school sessions for elementary pupils (a class in all but name, under the event standard). \"Ageless Grace\" was already excluded; its cancelled session reached staging because the feed wrote a non-breaking space in the title, which the readers now treat as a space. Feed narrowed on 5 October 2026 to the branch with cam=4554 (the calendar's own building filter): 62 items, all at Carbon Valley, reaching about a month ahead where the district feed's 300 reach a fortnight. The locationFilter stays as a guard. Further exclusions on 5 October 2026, with the branch feed: the baby storytime (Twinkle Babies), the job-help drop-in, the legal clinic, Library 101, the monthly Paws to Read, make-and-take craft classes (Cricut, tote bags, looming), as Longmont excludes them, and the bird walk at Golden Ponds, which is in Longmont. Moved to the Frederick guide on 2 November 2026 when Carbon Valley closed: the branch is at 7 Park Avenue in Firestone and is the Frederick area's library (High Plains Library District), so its programs are listed where a Frederick family would look for them. Read 2 November 2026 by the Frederick build agent: the branch RSS (cam=4554) carried about 70 items from 1 November to 1 December; the d= parameter does not move it forward and the month page loads by script, so December is unread until the feed reaches it. Published from it as events: the one-offs (Decorative Mandala Tote Bag 4 November, Medieval Garb Workshop 7 November, Bubble Tea Social 16 November, Create with Canva 18 November, Adult D&D one-shot 28 November), the monthly evening Wiggle Worms yoga storytime (10 November, 8 December), Teen D&D (3 November, 1 December) and Science Fun (12 November, 10 December); the storytimes, clubs, book groups, Paws to Read, LEGO Club, Let's Draw!, the quilters, the genealogy drop-in and the English class are programs on the Families and Get involved pages. Many LibCal event pages carry a boilerplate 'this is an online event' note under an in-person title and room; the listings say so."
     },
     {
       "id": "cvprd-com",
@@ -121,10 +121,10 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
-      "notes": "Found and read once on 5 October 2026. The special district (established 1983, 45 square miles: Dacono, Firestone, Frederick and the country between) that runs the Carbon Valley Recreation Center, 701 Fifth Street, Frederick, the Community (Active Adults) Center and the Gymnastics Center, and the recreation programming for all three towns. Streamline (CivicPlus) site with no events module, no calendar page and no feed; the Special Events page is a hand-written list (\"2026 Schedule of Events\": Carbon Valley Kids Day 6 June in Firestone, Boot Scoot'n Bash 12 June in Dacono, the Chamber Open 17 August, Miners Day 19 September in Frederick, Zumba Glow Party 16 October, Eye of Freedom Encounter 28 October, Harvest & Holly Market 15 November 11 am to 3 pm at the Recreation Center, Burn the Bird Fitness Party 27 November) and the Active Adults page another (Senior Resource Fair, Empty Bowls Painting Party 12 October). Programs register through CivicRec (secure.rec1.com), which has no feed. The monthly Rec Connect newsletter PDF (/rec-connect-newsletter) is the fullest schedule. robots.txt allows everything but the SEO bots. Read by hand; each event's subTown is where it is held, not the district. Confirmed 5 October 2026 on the owner's word that the choice was the editor's."
+      "notes": "Found and read once on 5 October 2026. The special district (established 1983, 45 square miles: Dacono, Firestone, Frederick and the country between) that runs the Carbon Valley Recreation Center, 701 Fifth Street, Frederick, the Community (Active Adults) Center and the Gymnastics Center, and the recreation programming for all three towns. Streamline (CivicPlus) site with no events module, no calendar page and no feed; the Special Events page is a hand-written list (\"2026 Schedule of Events\": Carbon Valley Kids Day 6 June in Firestone, Boot Scoot'n Bash 12 June in Dacono, the Chamber Open 17 August, Miners Day 19 September in Frederick, Zumba Glow Party 16 October, Eye of Freedom Encounter 28 October, Harvest & Holly Market 15 November 11 am to 3 pm at the Recreation Center, Burn the Bird Fitness Party 27 November) and the Active Adults page another (Senior Resource Fair, Empty Bowls Painting Party 12 October). Programs register through CivicRec (secure.rec1.com), which has no feed. The monthly Rec Connect newsletter PDF (/rec-connect-newsletter) is the fullest schedule. robots.txt allows everything but the SEO bots. Read by hand; each event's subTown is where it is held, not the district. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Read 2 November 2026 by the Frederick build agent: Special Events still lists Harvest & Holly Market (15 November, 11 to 3, now with Wichita Run, the Legacy Dancers and a sold-out vendor list) and Burn the Bird (27 November, date only; the Fitness & Wellness page it links does not mention it, so it stays staged). The home page added a Red Cross blood drive on 25 November (9 to 2), listed. The district's program pages (youth basketball, swim lessons, camps, gymnastics, open gym, Kid Zone, toddler social time, adult sports, active adults, volunteer coaches, residency, rates, hours, pool schedule and rules) were read for the programs and places."
     },
     {
       "id": "frederickco-gov-parks",
@@ -135,10 +135,10 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
-      "notes": "Found and read once on 5 October 2026. The Town's Parks, Open Space and Trails Division (Town-owned parks, open space, trails) and Golf Division (Bella Rosa Golf Course, the Frederick Recreation Area). No calendar of its own: park events go on the Frederick Events Calendar above, and recreation programming for Frederick is the Carbon Valley Parks and Recreation District's (cvprd-com). The facilities directory lists the parks (Centennial Park, 630 Eighth Street; Crist Park, 105 Fifth Street; Coalridge, Confluence, Countryside, Bulrush Open Space, the skate park at the Frederick Recreation Area); its later pages load by script, so read it in a browser. Confirmed 5 October 2026 on the owner's word that the choice was the editor's."
+      "notes": "Found and read once on 5 October 2026. The Town's Parks, Open Space and Trails Division (Town-owned parks, open space, trails) and Golf Division (Bella Rosa Golf Course, the Frederick Recreation Area). No calendar of its own: park events go on the Frederick Events Calendar above, and recreation programming for Frederick is the Carbon Valley Parks and Recreation District's (cvprd-com). The facilities directory lists the parks (Centennial Park, 630 Eighth Street; Crist Park, 105 Fifth Street; Coalridge, Confluence, Countryside, Bulrush Open Space, the skate park at the Frederick Recreation Area); its later pages load by script, so read it in a browser. Confirmed 5 October 2026 on the owner's word that the choice was the editor's. Read 2 November 2026 by the Frederick build agent: the department page names no parks (it gives the three divisions, the staff and 7301 Eagle Boulevard); /Facilities lists five (Bulrush, Centennial, Coalridge at 301 Warwick St, Confluence at 5549 Drake Way, Countryside at 7244 Forest Dr) and ?page=2 repeats page 1, so Crist Park (7), the Frederick Recreation Area (2) and the skate park (/733) were read by id. The four existing park listings were re-checked and three parks and the skate park added. The demographics page counts 26 developed parks, 594 acres of open space and 21 miles of trails."
     },
     {
       "id": "longmontleader-com",
@@ -149,7 +149,9 @@
       "category": "news",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Found and read once on 5 October 2026. Village Media; robots.txt allows everything. Site-wide RSS at /rss (20 items a page, paginated) and an Events section feed at /rss/colorado/events (20 items, press-release style); neither mentioned Frederick, Firestone, Dacono or Carbon Valley on 5 October, and a news feed carries no event dates for ingest to read. For the editor's reading, not the pipeline."
+      "notes": "Found and read once on 5 October 2026. Village Media; robots.txt allows everything. Site-wide RSS at /rss (20 items a page, paginated) and an Events section feed at /rss/colorado/events (20 items, press-release style); neither mentioned Frederick, Firestone, Dacono or Carbon Valley on 5 October, and a news feed carries no event dates for ingest to read. For the editor's reading, not the pipeline. Not read on 2 November 2026 (news is a lead source; nothing was needed from it for the build).",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "skipped"
     },
     {
       "id": "timescall-com",
@@ -159,7 +161,133 @@
       "category": "news",
       "status": "proposed",
       "robots": "honor",
-      "notes": "Found and read once on 5 October 2026, by hand only. The paper covers the three towns under a Carbon Valley tag (4 October: \"Dacono cancels City Council election, reelects two members\"; \"Colo. 52 to close for construction east of I-25\"). Its main feed (/feed/) answers our user agent 403, which the repo treats as a site that blocks automated reads, and its robots.txt header forbids text and data mining and commercial reuse; the tag feed happened to answer 200 in the same batch and is not used. Link, never fetch. The Greeley Tribune (Weld County's paper) answered the same way."
+      "notes": "Found and read once on 5 October 2026, by hand only. The paper covers the three towns under a Carbon Valley tag (4 October: \"Dacono cancels City Council election, reelects two members\"; \"Colo. 52 to close for construction east of I-25\"). Its main feed (/feed/) answers our user agent 403, which the repo treats as a site that blocks automated reads, and its robots.txt header forbids text and data mining and commercial reuse; the tag feed happened to answer 200 in the same batch and is not used. Link, never fetch. The Greeley Tribune (Weld County's paper) answered the same way. Not read on 2 November 2026 (link, never fetch).",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "skipped"
+    },
+    {
+      "id": "frederickco-gov-news",
+      "name": "Town of Frederick: News Flash (CivicAlerts)",
+      "url": "https://www.frederickco.gov/civicalerts.aspx",
+      "sampleUrl": "https://www.frederickco.gov/CivicAlerts.aspx?AID=775",
+      "type": "html",
+      "category": "other",
+      "priority": "core",
+      "status": "confirmed",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "ok",
+      "robots": "honor",
+      "notes": "Found and read on 2 November 2026 by the Frederick build agent. The Town's CivicPlus news list: four items on 2 November, one since September (Election Day Is November 3, posted 21 October, the source for the ballot deadline), plus the CDOT Highway 52 resurfacing notice (9 April 2026), Construction & Roadwork Updates (a standing page, /716) and the Water Use Guidance update (21 May 2026, Stage 1). The home page also carried the Thanksgiving Dinner in a Box and Santa Cops promotions. The CivicPlus RSS at /RSS.aspx is disallowed by frederickco.gov's robots.txt, so the list page is read by hand. Confirmed as a core official source for the Updates collection."
+    },
+    {
+      "id": "svvsd-org",
+      "name": "St. Vrain Valley Schools: calendar, feeders and enrollment",
+      "url": "https://svvsd.org/schools/school-calendar/",
+      "sampleUrl": "https://svvsd.org/wp-content/uploads/2026/06/26-27-SVVSD-4_8_26-2.pdf",
+      "type": "html",
+      "category": "other",
+      "priority": "core",
+      "status": "confirmed",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "ok",
+      "robots": "honor",
+      "checkFrequency": "monthly",
+      "notes": "Found and read on 2 November 2026 by the Frederick build agent. The district's calendar page links only the 2026-27 PDF (dated 8 April 2026, one landscape page), which gives every no-school day: 23-27 November, 21 December-1 January, 4 January (non-student contact, split day), 18 January, 12 February (non-student), 15 February, 15-19 March, 26-27 April, last day 27 May 2027, Frederick High graduation 29 May. The school-feeders page lists the Frederick feeder (Frederick High, Coal Ridge Middle, Thunder Valley K-8, Centennial, Legacy and Prairie Ridge elementaries, Spark! Discovery Preschool); the maps-boundaries page links the ArcGIS address lookup; open enrollment for 2027-28 is 1-15 December 2026. Each school's site gave its address. Carbon Valley Academy is not in the district directory; its address came from CDE's SchoolView profile (its own site answered 503). Frederick High's calendar page is 404; athletics schedules are on ArbiterLive, which this network does not read. Used for the families config, not for events."
+    },
+    {
+      "id": "fffd-us",
+      "name": "Frederick-Firestone Fire District: event calendar",
+      "url": "https://www.fffd.us/calendar",
+      "sampleUrl": "https://www.fffd.us/2026-11-07-fall-babysitting-class",
+      "type": "html",
+      "category": "other",
+      "priority": "core",
+      "status": "confirmed",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "ok",
+      "robots": "honor",
+      "notes": "Found and read on 2 November 2026 by the Frederick build agent. Streamline site, like CVPRD's; the calendar is a month grid (?month=YYYY-MM) with each event on its own page, no feed. November 2026: a CPR/AED/first-aid class (4 November, 6 pm, no price), Story Time at the Firehouse (5 November, Station 4, full), a babysitting class (7 November, 9:30-3:30, $50) and a board meeting; December: a board meeting only; January 2027 empty. The Santa Run page (three evenings in December from about 5 pm) promises the 2026 routes in late November. The district office is at 8426 Kosmerl Place, Frederick, 303-833-2742. Confirmed as a core official source: the district's classes and story times are Frederick events."
+    },
+    {
+      "id": "carbonvalleyhelpcenter-org",
+      "name": "Carbon Valley Help Center: events",
+      "url": "https://carbonvalleyhelpcenter.org/events/",
+      "sampleUrl": "https://carbonvalleyhelpcenter.org/event/12th-annual-carbon-valley-help-center-empty-bowls-fundraiser/",
+      "type": "html",
+      "category": "other",
+      "status": "proposed",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "ok",
+      "robots": "honor",
+      "notes": "Found and read on 2 November 2026 by the Frederick build agent. The valley's food pantry and assistance nonprofit, 150 Buchanan Ave, Firestone, 303-833-6626; its site lists Tuesday and Thursday office hours as events and the 12th Empty Bowls fundraiser (14 November 2026, 11-2, Frederick High School, $15/$20 adults), which was listed. It partners in the Town's Thanksgiving Dinner in a Box. WordPress events plugin; no feed URL found on the pages read. Proposed: one or two public events a year."
+    },
+    {
+      "id": "carbonvalleyrotary-org",
+      "name": "Carbon Valley Rotary Club",
+      "url": "http://www.carbonvalleyrotary.org/",
+      "type": "manual",
+      "category": "other",
+      "status": "proposed",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "ok",
+      "robots": "honor",
+      "checkFrequency": "monthly",
+      "notes": "Found and read on 2 November 2026 by the Frederick build agent (linked from the Town's What Matters page). ClubRunner site: meetings Tuesdays 7-8 am at the Carbon Valley Recreation Center, a last-Tuesday breakfast at a restaurant named on the club calendar (events/calendar, not read), an Easter egg hunt at Hart Park in April and a peach sale. Listed as a Get involved program. Manual: the calendar is a ClubRunner page with no feed."
+    },
+    {
+      "id": "mirrorimagebrewco-com",
+      "name": "Mirror Image Brewing",
+      "url": "https://www.mirrorimagebrewco.com/",
+      "type": "html",
+      "category": "venue",
+      "status": "proposed",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "ok",
+      "robots": "honor",
+      "checkFrequency": "monthly",
+      "notes": "Found and read on 2 November 2026 by the Frederick build agent. The brewery at 5969 Iris Parkway, Unit C (the former Echo Brewing taproom; Echo's own site now gives an Erie address), hours Mon-Thu 3-9, Fri 12-10, Sat 12-9, Sun 11-8. The site lists no regular events; its one dated event is the Patchwork Project music festival (26 September 2026, $20). Place listed; proposed as a venue source for next September."
+    },
+    {
+      "id": "bellarosagolf-com",
+      "name": "Bella Rosa Golf Course: events calendar",
+      "url": "https://bellarosagolf.com/events-calendar/",
+      "feedUrl": "https://bellarosagolf.com/?post_type=tribe_events&ical=1&eventDisplay=list",
+      "sampleUrl": "https://bellarosagolf.com/events/list/?shortcode=cc150c85",
+      "type": "ical",
+      "category": "venue",
+      "status": "proposed",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "ok",
+      "robots": "honor",
+      "checkFrequency": "monthly",
+      "notes": "Found and read on 2 November 2026 by the Frederick build agent. The Town-owned course's site (foreUP) runs The Events Calendar plugin, which exposes an iCal export (the feedUrl, offered on the page as a webcal: link; not fetched). The list view showed only holiday closures from November to February (Christmas, New Year's Day, St. Patrick's Day) though the page claims 42 events; the course's scrambles, glow-ball nights and the Santa Cops golf tournament are summer and fall. Rates page read for the place listing. Proposed; confirm before next spring."
+    },
+    {
+      "id": "cpw-state-co-us",
+      "name": "Colorado Parks and Wildlife: St. Vrain State Park",
+      "url": "https://cpw.state.co.us/state-parks/st-vrain-state-park",
+      "type": "html",
+      "category": "parks",
+      "status": "proposed",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "ok",
+      "robots": "honor",
+      "checkFrequency": "monthly",
+      "notes": "Found and read on 2 November 2026 by the Frederick build agent. The state park at Exit 240 in Firestone, the nearest to Frederick; the page gave hours (5 am-10 pm), fees ($10-12 a Colorado car), acreage, campsites and the current closures (south campground road, some pond trails through November) for the place listing, plus free-entry days (11 and 27 November). Proposed: a place source with occasional programs, read monthly for closures."
+    },
+    {
+      "id": "weld-gov-elections",
+      "name": "Weld County Clerk and Recorder: elections",
+      "url": "https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Elections-Department",
+      "sampleUrl": "https://www.weld.gov/files/sharedassets/public/v/1/departments/clerk-and-recorder/documents/elections/2026-general-voting-and-drop-box-locations.pdf",
+      "type": "manual",
+      "category": "county",
+      "status": "proposed",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "ok",
+      "robots": "honor",
+      "checkFrequency": "monthly",
+      "notes": "Found and read on 2 November 2026 by the Frederick build agent. The department page gives dates and phone (970-304-6525) and links the voting-locations PDF, the ArcGIS map and the apps.weld.gov pages; the PDF (read through WebFetch; 403 to curl) lists the Carbon Valley Recreation Center, 701 5th St, as a Voter Service and Polling Center on 2-3 November and a 24-hour drop box, and the Southwest Weld complex at 4209 CR 24 1/2. apps.weld.gov answers 403. Manual: read before each election for the Election Day listing."
     }
   ]
 }

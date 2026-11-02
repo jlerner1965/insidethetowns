@@ -80,7 +80,7 @@ refuses automated reads (Niwot Hall's `/events/lindy-b-dance/` page is the
 | 29 November | Castle Rock: its colours (still the placeholder rhyolite rose, near Johnstown's and Loveland's), and whether it joins the email or goes, with the other city guides | Owner |
 | 20 January | The 90-day test's verdict (`docs/90-DAY-TEST.md`) | Owner |
 | 20 January, after the verdict | The three domains still held (`DECISIONS.md`, "Five domains held, 30 October"; Lafayette and Frederick opened 2 November, "Black Hawk and Carbon Valley close; Lafayette and Frederick open"): Mead into a neighbour; Steamboat Springs and Salida renewed or let go | Owner |
-| Now | Inside Lafayette and Inside Frederick: the Vercel projects `insidelafayette` and `insidefrederickco` (DEPLOY.md), DNS, Email Routing, Plausible sites, Search Console properties, a Formspree form each, Buttondown tags, and a real Lafayette hero (the placeholder is in the folder) | Owner |
+| Now | Inside Lafayette and Inside Frederick: the Vercel projects `insidelafayette` and `insidefrederickco` (DEPLOY.md), DNS, Email Routing, Plausible sites, Search Console properties, a Formspree form each, and Buttondown tags (re-tag `carbon-valley` and `fort-lupton` subscribers or write to them) | Owner |
 
 ## Elizabeth: calls from the 30 October re-check
 

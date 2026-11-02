@@ -1,6 +1,6 @@
 ---
 title: "Burn the Bird Fitness Party"
-review: { reason: "Re-checked 5 October: still only the date on the district’s schedule. Publish when the fitness page gives the time, place and fee.", since: "2026-10-05", from: manual }
+review: { reason: "Re-checked 2 November 2026: the district’s Special Events page still gives only the date (Friday 27 November) and links the Fitness & Wellness page, which does not mention the party at all. Publish when the district posts the time, place and fee.", since: "2026-10-05", from: manual }
 start: "2026-11-27"
 allDay: true
 venue: "Carbon Valley Recreation Center"

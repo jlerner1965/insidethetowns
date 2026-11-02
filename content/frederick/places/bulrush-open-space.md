@@ -4,8 +4,9 @@ type: trail
 address: "6140 Wetland Park Rd, Frederick, CO 80516"
 url: "https://www.frederickco.gov/Facilities/Facility/Details/6"
 source: "https://www.frederickco.gov/Facilities/Facility/Details/6"
-verified: "2026-10-05"
+verified: "2026-11-02"
 added: "2026-10-05"
+verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 phone: "720-382-5805"
 hours: "By appointment only, sunrise to sunset"
 tags: [wetland, birding, open-space, trails]

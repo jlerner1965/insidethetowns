@@ -334,7 +334,11 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // from 2 November, when that guide closed and Inside Frederick opened; the
     // data file moved with it (data/frederick/sports.json).
     town: 'frederick',
-    // CHSAANow: Frederick Senior High School, St Vrain Valley RE1J; football 4A, 4A Northern (2026–28).
+    // CHSAANow: Frederick Senior High School, St Vrain Valley RE1J; football
+    // 4A (2026–28). Its profile named the league 4A Northern on 22 October
+    // 2026 and Granite Peaks on 2 November; MaxPreps's data file still
+    // carries "4A Northern" as the football league's name, and the page
+    // shows what the file says.
     school: 'Frederick High School',
     mascot: 'Golden Eagles',
     note: 'Dacono’s and Firestone’s students attend Frederick High too, so the Golden Eagles are the whole valley’s team.',
@@ -411,6 +415,37 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // (football, boys soccer, volleyball, softball, both cross country;
     // both basketball, wrestling, girls' swimming). A team MaxPreps has
     // nothing for is left off the page by the run.
+    teams: TEAMS(),
+  },
+  {
+    town: 'lafayette',
+    // CHSAANow: Centaurus High School, Boulder Valley Re 2, Granite Peaks;
+    // football 4A, basketball 6A (2026–28, read 2 November 2026). The
+    // mascot is MaxPreps's school path (centaurus-warriors) and the
+    // school's own "Warrior Weekly"; the site never states it in a sentence.
+    school: 'Centaurus High School',
+    mascot: 'Warriors',
+    maxpreps: 'https://www.maxpreps.com/co/lafayette/centaurus-warriors/',
+    maxprepsName: 'Centaurus',
+    // Warrior blue: the darker blue of the school's own Finalsite theme
+    // stylesheet (ceh.bvsd.org/uploaded/themes/madison/css/centaurus-high-school.css,
+    // read 2 November 2026), 11:1 under white; the shade the theme uses
+    // most, #3a5fcd, is 5.7:1 and would not clear the home page's band
+    // (src/config/school-colors.ts), so the guide's school colour is the
+    // darker one throughout. MaxPreps refused the cloud address and gave no
+    // colour to the reader; the runner's first probe can compare.
+    colors: { primary: '#003399' },
+    // BVSD's Finalsite site: `?cal_date=YYYY-MM-01` shows a month, and the
+    // school's robots.txt (read 2 November 2026) allows /about/calendar. The
+    // athletics calendar proper is ArbiterLive, which refuses automated
+    // readers, so this grid is the cross-check; its dance-team rows carry
+    // placeholder times and an out-of-state address, which the check treats
+    // as not on the calendar.
+    calendar: { kind: 'finalsite', url: 'https://ceh.bvsd.org/about/calendar', label: 'the Centaurus calendar' },
+    // CHSAANow lists every fall and winter team the default lists follow
+    // (girls' wrestling and gymnastics are Broomfield co-ops, not followed).
+    // No data file yet: the first Saturday or Wednesday run writes
+    // data/lafayette/sports.json, and the page waits for it.
     teams: TEAMS(),
   },
 ];

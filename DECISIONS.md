@@ -8281,17 +8281,32 @@ Steamboat Springs and Salida stay held.*
   Living here, Get involved, the scoreboard, updates, and an edition of the
   email each. The content was read from the City's, the Town's, the
   districts', the library's and the organizers' own pages on 2 November
-  2026 (the detail is in each file's `source` and in the weekly notes'
-  Editor's notes); the counts are below.
+  2026 by two build agents (the detail is in each file's `source`, in the
+  weekly notes' Editor's notes and in the agents' reports kept with the
+  session). Lafayette opens with 33 upcoming events, 33 listings, 25
+  programs, 5 local updates, three articles and a registry of 17 sources
+  (the City's CivicPlus feed and the library's LibCal both `robots:
+  subscribe`); Frederick with 20 upcoming events, 25 listings, 24 programs,
+  4 updates, three articles and 18 sources. Both clear their thresholds
+  (Lafayette's set at Golden's 20 and 25, Frederick's the default). Two
+  Frederick library files for Science Fun, a monthly after-school session,
+  were dropped before the commit: the registry excluded it on 5 October as a
+  class in all but name, and the call stands. Each guide's weekly notes
+  list what was found and not listed (Centaurus's untitled theater week,
+  the chamber's three events with no venue, the Santa Run without routes),
+  the sources that refused automated readers (MaxPreps, the chamber's
+  calendar, several Fifth Street and Public Road businesses) and the
+  conflicts left for a person (Frederick High's address on CHSAANow, the
+  museum's two phone numbers, Ras Kassa's two hours schedules).
 - **Figures.** Lafayette: 30,411 at the 2020 census, 24,453 in 2010, 5,266
   feet, incorporated 1890 (the State Demography Office's file and the
   Wikipedia infobox agree), GNIS 40.00333, -105.10694, Boulder County, a
   home rule city. Frederick: 14,513 and 8,679, 4,938 feet, GNIS 40.11389,
   -105.01111 (the Carbon Valley config's -104.937 disagreed with its own
-  comment and is corrected), Weld County, a statutory town; the state file
-  gives its incorporation year as 1908 and the Wikipedia infobox 26
-  December 1907, so the config carries 1908 with the infobox date noted, as
-  Black Hawk's did.
+  comment and is corrected), Weld County, a statutory town; the Town's own
+  history page and the Wikipedia infobox (26 December 1907) say 1907 and
+  the state file says 1908, so the config keeps 1907, the Town's own word,
+  with the state file's year noted as the odd one out.
 - **Lafayette's neighbours** are Erie, Longmont and Niwot, each naming it
   back; Frederick's are Erie and Longmont, in Carbon Valley's place. The
   hub lists Lafayette under Boulder County and Frederick under Carbon Valley
@@ -8299,7 +8314,9 @@ Steamboat Springs and Salida stay held.*
 - **The owner's, and not done:** the Vercel projects `insidelafayette` and
   `insidefrederickco` (DEPLOY.md), DNS and Email Routing, Plausible sites
   and Search Console properties for the two domains, a Formspree form each
-  (contact and event forms are email until then), a real Lafayette hero
-  (the placeholder is in the folder with its licence row), and the
-  Buttondown re-tag above. The Search Console properties for
+  (contact and event forms are email until then), and the Buttondown
+  re-tag above. Lafayette's hero is Commons' photograph of East Simpson
+  Street under snow (Jared Winkler, 2018, CC BY-SA 4.0): a live guide may
+  not ship the scaffold's placeholder, and Old Town is the town itself; a
+  bought or shot frame can replace it (docs/HERO-PHOTOS.md). The Search Console properties for
   carbonvalleyguide.com and insideblackhawk.com will show only redirects.
