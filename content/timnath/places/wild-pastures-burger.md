@@ -10,7 +10,7 @@ priceRange: "$$"
 tags: [burgers, grass fed, counter]
 summary: "Grass-fed burgers and organic fries from the Boulder regenerative-ranch brand, in the Harmony Road center at I-25, open daily 11 to 8."
 source: "https://wildpasturesburger.com/contact"
-verified: "2026-10-02"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
