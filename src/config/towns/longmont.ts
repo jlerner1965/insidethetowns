@@ -71,9 +71,14 @@ export const longmont: TownConfig = {
     paper: 'cool',
   },
   hero: {
-    image: 'hero.jpg',
-    alt: 'Sunset over McIntosh Lake in north-west Longmont: dry cattails in the foreground and the sun dropping behind the snow-covered mountains to the west',
-    credit: 'Tyler Cipriani, Wikimedia Commons, CC BY-SA 4.0',
+    // Main Street at Third Avenue, from 2 November 2026, in place of
+    // McIntosh Lake, which showed cattails and Longs Peak and no town (the
+    // reader pass, 1 November 2026). The history article keeps the same
+    // photograph as its header; an article is not a listing's card.
+    image: 'main-street-at-third-avenue.jpg',
+    alt: 'Main Street at Third Avenue in downtown Longmont: the three-storey brick Imperial block on the corner, the Dickens Opera House on the right and the storefronts running north under a spring sky',
+    credit: 'David Shankbone, Wikimedia Commons, CC BY 3.0',
+    position: '50% 45%',
   },
   social: {
     email: 'hello@insidelongmontco.com',

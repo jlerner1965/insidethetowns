@@ -33,14 +33,16 @@ export const lyons: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    // Bought from Adobe Stock on 28 October 2026 (docs/HERO-PHOTOS.md), in
-    // place of Main Street, which goes back to its own listing. A standard
-    // licence, so no credit on the photograph; /credits/ names it.
-    image: 'AdobeStock_754641294.jpeg',
-    alt: 'The foothills around Lyons on a March afternoon in 2024, seen across the valley from a grassy hillside: rock outcrops and tan slopes in low sun, cottonwoods and scattered houses on the valley floor, and a grey plume rising on the right',
-    credit: 'LD Productions, Adobe Stock',
-    // Wide screen: the foothills and the valley floor, not the sky or the near hillside.
-    position: '50% 62%',
+    // Main Street again, from 2 November 2026: the Adobe Stock foothills
+    // bought on 28 October (docs/HERO-PHOTOS.md, still licensed, in the
+    // images folder) showed no town, and a visitor leaving in ten seconds
+    // never learned where they were (the reader pass, 1 November 2026).
+    // The Main Street listing is a row while this is the hero.
+    image: 'downtown.jpg',
+    alt: 'Main Street in Lyons looking west on a summer evening: the stone drug-store building and the Lyons banners on the right, parked cars, the highway signs at the junction ahead and the red sandstone hogback above the town',
+    credit: 'Billy Hathorn, Wikimedia Commons, CC BY-SA 3.0',
+    // Wide screen: the storefronts and the hogback, not the road.
+    position: '50% 40%',
   },
   social: {
     email: 'hello@insidelyons.com',
