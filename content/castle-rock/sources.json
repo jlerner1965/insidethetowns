@@ -9,7 +9,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "blocked",
       "lastNote": "refused an automated request",
       "robots": "honor",
@@ -25,7 +25,7 @@
       "category": "county",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
       "locationFilter": [
@@ -55,7 +55,7 @@
       "category": "chamber",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
       "notes": "Checked 6 October 2026: castlerock.org (WordPress/Avada) links its 'Chamber Calendar' to a ChamberMaster/GrowthZone site at business.castlerock.org/events ('Event List | Castle Rock Chamber of Commerce'). The page carried about ten October 2026 items: Breakfast Club Leads Group, Leads Referral Group, Power Partners Leads Group, Rock Solid Leads Group, Chamber 101, Business Unwind at FirstTier Bank, Ribbon Cutting at Equity Title of Colorado, Women of Influence Luncheon. The HTML contains the comment 'link for rss not inserted' and /events/rss answered 404, so no feed; html scrape of /events or /events/calendar/<date>. Mostly member networking; the Chamber's public signature events (Artfest at Festival Park in September, Starlighting, Sip and Savor, Douglas County Fair Parade) are listed on castlerock.org menu pages. Phone (303) 688-4597. Confirmed 6 October 2026 at the owner’s direction (all core sources whose feed, if any, is the official organizer’s own)."
@@ -69,7 +69,7 @@
       "category": "chamber",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Downtown Castle Rock",
@@ -85,7 +85,7 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
       "excludeTitles": [
@@ -121,7 +121,7 @@
       "category": "parks",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "blocked",
       "lastNote": "refused an automated request",
       "robots": "honor",
@@ -136,7 +136,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "105 West Brewing Company",
@@ -151,7 +151,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Castle Rock Museum",
@@ -166,7 +166,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Douglas County Fairgrounds & Events Center",
@@ -181,7 +181,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Outlets at Castle Rock",
@@ -197,6 +197,18 @@
       "status": "proposed",
       "robots": "honor",
       "notes": "Checked 6 October 2026: WordPress with Modern Events Calendar (mec-), run by the Chamber ('Visit Castle Rock' is in the chamber menu). October items read: Town Council Candidate Forum (Oct 5), Women of Influence Luncheon at Union an American Bistro (Oct 20), Ribbon Cutting at Equity Title (Oct 22), Chamber Luncheon Series, Castle Rock Starlighting, plus chamber office closures and a PACE Center lecture in Parker. Largely duplicates business.castlerock.org, so 'other' and dedupe against it. No iCal/RSS link found in the page; MEC has per-event iCal only, not probed."
+    },
+    {
+      "id": "honnibrook-com",
+      "name": "Honnibrook Craft Meadery: events",
+      "url": "https://www.honnibrook.com/events/",
+      "feedUrl": "https://www.honnibrook.com/events/?ical=1",
+      "type": "ical",
+      "category": "venue",
+      "status": "proposed",
+      "robots": "honor",
+      "defaultVenue": "Honnibrook Craft Meadery",
+      "notes": "Found by the sweep of the sources no feed reads, 1 November 2026 (docs/sweep-2026-11-01-report.md), when every show listed here was published by hand. Proposed, so ingest does not read it until the owner confirms it (npm run sources -- confirm castle-rock honnibrook-com). The Events Calendar (WordPress) at /events/; ?ical=1 read 1 November 2026. The Tribe REST API (/wp-json/tribe/events/v1/events) is there too, if json reads it better."
     },
     {
       "id": "rockyard-com",
@@ -232,18 +244,6 @@
       "status": "proposed",
       "robots": "honor",
       "notes": "Checked 6 October 2026: BLOX CMS weekly, found from coloradocommunitymedia.com (sister title douglascountynewspress.com). The article RSS read successfully: 50 items, newest 4 Oct 2026, titles such as 'Get to know the candidates running for Castle Rock Town Council', 'Castle Rock Water seeks customer input on resource plan', 'Meet the three candidates running for Castle Rock mayor'. News, not events; /local-events/ is an Evvnt-powered aggregator calendar ('Place Your Event With Evvnt') and should not be used as an event source."
-    },
-    {
-      "id": "honnibrook-com",
-      "name": "Honnibrook Craft Meadery: events",
-      "url": "https://www.honnibrook.com/events/",
-      "feedUrl": "https://www.honnibrook.com/events/?ical=1",
-      "type": "ical",
-      "category": "venue",
-      "status": "proposed",
-      "robots": "honor",
-      "defaultVenue": "Honnibrook Craft Meadery",
-      "notes": "Found by the sweep of the sources no feed reads, 1 November 2026 (docs/sweep-2026-11-01-report.md), when every show listed here was published by hand. Proposed, so ingest does not read it until the owner confirms it (npm run sources -- confirm castle-rock honnibrook-com). The Events Calendar (WordPress) at /events/; ?ical=1 read 1 November 2026. The Tribe REST API (/wp-json/tribe/events/v1/events) is there too, if json reads it better."
     }
   ]
 }

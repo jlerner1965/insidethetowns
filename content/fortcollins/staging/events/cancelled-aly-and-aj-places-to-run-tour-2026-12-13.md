@@ -1,5 +1,5 @@
 ---
-title: "**CANCELLED** ALY & AJ – Places to Run Tour 2026"
+title: "ALY & AJ – Places to Run Tour 2026"
 review: { reason: "Ingested from bohemianlivemusic.org; check against the organizer's page. venue read from \"Washington&#8217;s, 132 Laporte Ave, Fort Collins\". category guessed (music). description is the feed's text: rewrite", since: "2026-11-01", from: ingest }
 start: "2026-12-13T19:00"
 end: "2026-12-13T19:00"
@@ -8,10 +8,13 @@ address: "132 Laporte Ave, Fort Collins"
 url: "https://bohemianlivemusic.org/event/aly-aj-places-to-run-tour-2026/"
 cost: "Not&nbsp;for&nbsp;Sale"
 category: music
+status: canceled
+statusNote: "bohemianlivemusic.org marks this canceled (feed read 2026-11-02)."
+statusSource: "https://bohemianlivemusic.org/event/aly-aj-places-to-run-tour-2026/"
 source: "https://bohemianlivemusic.org/event/aly-aj-places-to-run-tour-2026/"
 sourceId: "bohemianlivemusic-org"
 sourceUid: "52047"
-sourceHash: "d5e6af72716a"
+sourceHash: "046de2230e09"
 ---
 
 <!-- The organizer's own text, from the feed. Rewrite in the guide's words before approving. -->
