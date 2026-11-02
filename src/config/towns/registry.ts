@@ -28,6 +28,8 @@ import { georgetown } from './georgetown.ts';
 import { grandLake } from './grand-lake.ts';
 import { manitouSprings } from './manitou-springs.ts';
 import { leadville } from './leadville.ts';
+import { lafayette } from './lafayette.ts';
+import { frederick } from './frederick.ts';
 // new-town:imports
 
 export const towns: TownConfig[] = [
@@ -56,5 +58,7 @@ export const towns: TownConfig[] = [
   grandLake,
   manitouSprings,
   leadville,
+  lafayette,
+  frederick,
   // new-town:entries
 ];

@@ -2,29 +2,34 @@ import type { TownConfig } from './types.ts';
 
 /**
  * A Gilpin County home rule city of 127 at the 2020 census, 8,058 feet up
- * in Gregory Gulch below Central City, and the smallest guide in the
- * network by population: the town is its casinos, the hills around them and
- * the Peak to Peak Highway. Mountain chassis; the default launch threshold.
+ * in Gregory Gulch below Central City, and the smallest guide the network
+ * ever had by population: the town is its casinos, the hills around them and
+ * the Peak to Peak Highway.
  *
  * Figures are from the Wikipedia infobox (census and GNIS), read 10 October
  * 2026, as for every other town; the comments say which. The domain,
  * insideblackhawk.com, is the owner's, named 10 October 2026.
  *
- * Folded into Inside Clear Creek, the Idaho Springs guide, on 20 October 2026
- * (DECISIONS.md, "Georgetown and Black Hawk join Idaho Springs on one Clear
- * Creek guide"): its events, places, articles, corrections and sources are
- * in content/idaho-springs/ with `subTown: black-hawk`, and every path on
- * insideblackhawk.com redirects there (vercel.json). The config stays so the
- * Vercel project keeps building, and keeps serving those redirects. It was a
- * visitor guide from 12 to 20 October (no weekly email); the guide it joined
- * is in the email, so that flag went with the fold.
+ * Its own guide from 10 to 20 October 2026 (a visitor guide, no weekly
+ * email), then a section of Inside Clear Creek, the Idaho Springs guide,
+ * from 20 October (DECISIONS.md, "Georgetown and Black Hawk join Idaho
+ * Springs on one Clear Creek guide"). Retired on 2 November 2026 on the
+ * owner's word (DECISIONS.md, "Black Hawk and Carbon Valley close; Lafayette
+ * and Frederick open"): its events, places, articles and sources left the
+ * Clear Creek folder (git history keeps them), the Clear Creek guide is two
+ * towns again, and every path on insideblackhawk.com redirects to the hub's
+ * home page (vercel.json). The config stays so the Vercel project keeps
+ * building, and keeps serving those redirects.
  */
 export const blackHawk: TownConfig = {
   kind: 'town',
   // Live 10 October 2026, on the owner's word, under its launch threshold;
-  // folded into the Idaho Springs guide on 20 October 2026.
+  // folded into the Idaho Springs guide on 20 October 2026; retired 2 November.
   status: 'redirect',
-  foldedInto: { town: 'idaho-springs', path: '/black-hawk/', since: '2026-10-20' },
+  retired: {
+    since: '2026-11-02',
+    reason: 'The owner closed the Black Hawk coverage on 2 November 2026, with the Carbon Valley guide, to put the hand work into Lafayette and Frederick instead; Clear Creek keeps Idaho Springs and Georgetown.',
+  },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   neighbors: [],
@@ -53,24 +58,6 @@ export const blackHawk: TownConfig = {
   // record, as for Nederland; the infobox date is noted here as the odd one out.
   incorporated: 1864,
   population2010: 118, // 2010 census, State Demography Office file
-  /**
-   * Where a reader checks the roads before setting out. Official pages,
-   * linked live on Things to Do and every trail, trailhead and park page;
-   * the guide never restates what they say. Each URL answered 200 to a
-   * request on 10 October 2026.
-   */
-  conditionsLinks: [
-    {
-      label: 'CDOT road conditions (COtrip)',
-      url: 'https://www.cotrip.org/',
-      note: 'Live state highway conditions and closures, including Colorado 119 (Clear Creek and Boulder canyons) and Colorado 72 (the Peak to Peak).',
-    },
-    {
-      label: 'Arapaho and Roosevelt National Forests: alerts',
-      url: 'https://www.fs.usda.gov/r02/arp/alerts',
-      note: 'The Forest Service’s closures and fire restrictions on the national forest around Black Hawk and Central City.',
-    },
-  ],
   colors: {
     // Burgundy + brass, on warm paper: Color System 2.0, 9 October 2026.
     primary: '#652B38',
@@ -91,17 +78,15 @@ export const blackHawk: TownConfig = {
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Black-Hawk,-CO_rb/' },
       { label: 'Homes for sale on Realtor.com', url: 'https://www.realtor.com/realestateandhomes-search/Black-Hawk_CO' },
     ],
-    // The district as the guide's Moving Here page names it (13 October
-    // 2026, audit F05). The comparison table shows only the words before
-    // the colon. commuteNotes waits on a sourced drive time.
+    // The district as the guide's Moving Here page named it (13 October
+    // 2026, audit F05).
     schoolDistrict:
       'Gilpin County School District RE-1: one campus at 10595 Highway 119 for preschool through 12th grade (Gilpin County Preschool, Elementary and Secondary).',
   },
   officialLinks: {
     // The infobox's official site. It answered automated requests with 403
     // when the town was scaffolded on 10 October 2026, then 200 to the
-    // robots-aware reader later that day, when its pages, news and 2026
-    // agendas were read for the listings.
+    // robots-aware reader later that day.
     townSite: 'https://www.cityofblackhawk.org/',
     townSiteLabel: 'the City of Black Hawk',
   },

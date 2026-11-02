@@ -1,10 +1,11 @@
 /**
  * The places a multi-town guide covers.
  *
- * Carbon Valley is three municipalities under one domain, and every event
- * and place on such a guide says which one it is in (`subTown`, one of the
- * config's `subTowns`). The config holds slugs; the pages need names, and
- * the three here are one word each, so the label is the slug with its
+ * Clear Creek is two municipalities under one domain (Carbon Valley was
+ * four, until 2 November 2026), and every event and place on such a guide
+ * says which one it is in (`subTown`, one of the config's `subTowns`). The
+ * config holds slugs; the pages need names, and the slugs are a word or two
+ * each, so the label is the slug with its
  * initial raised and hyphens made spaces. Pure string work, no config
  * lookup, so it can be unit-tested.
  */

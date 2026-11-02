@@ -60,6 +60,7 @@ test('a catch-all redirect also matches the trailing-slash URLs every page has',
   for (const r of real.redirects as Array<{ source: string }>) {
     assert.doesNotMatch(r.source, /:[A-Za-z_]\w*\*$/, `${r.source}: use "/(.*)" so a trailing slash still matches`);
   }
+  // Since 2 November 2026 the Carbon Valley guide is closed and Firestone's domain goes to the hub.
   const firestone = redirectsFor('insidefirestone.com', real);
-  assert.match(firestone, /^\/\* {2}https:\/\/carbonvalleyguide\.com\/firestone\/ {2}301$/m);
+  assert.match(firestone, /^\/\* {2}https:\/\/insidethetowns\.com\/ {2}301$/m);
 });

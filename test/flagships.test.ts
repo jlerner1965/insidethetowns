@@ -1,7 +1,7 @@
 /**
  * The flagship guides (Berthoud and Niwot, 21 October 2026; Lyons, 22
  * October; Elizabeth, Windsor, Erie and Johnstown, later that day; Golden, 28
- * October): what their
+ * October; Lafayette and Frederick, 2 November): what their
  * configs promise the pages, checked so a config edit cannot quietly break
  * a hub. Every link on Living Here is an official page or a path on the
  * guide, every school break names its source and its check date, and the
@@ -15,7 +15,7 @@ import { existsSync } from 'node:fs';
 import { towns } from '../src/config/towns/registry.ts';
 import { hubRoutes } from '../src/integrations/town-routes.ts';
 
-const FLAGSHIPS = ['berthoud', 'niwot', 'lyons', 'elizabeth', 'windsor', 'erie', 'johnstown', 'golden'];
+const FLAGSHIPS = ['berthoud', 'niwot', 'lyons', 'elizabeth', 'windsor', 'erie', 'johnstown', 'golden', 'lafayette', 'frederick'];
 const by = (slug: string) => towns.find((t) => t.slug === slug)!;
 
 test('each flagship has the flagship layout and the three hubs; no other guide does', () => {
@@ -40,11 +40,13 @@ test('every guide has the same menu, built from what it has: the week, events, i
     assert.ok(nav.some((n) => n.href === (t.families ? '/families/' : '/things-to-do/')), `${t.slug}: hub or things to do`);
     assert.ok(nav.some((n) => n.href === (t.livingHere ? '/living-here/' : '/moving-here/')), `${t.slug}: living or moving here`);
     assert.equal(nav.at(-1)?.href, '/guides/', `${t.slug}: Guides last (the reader pass, 1 November 2026)`);
-    for (const l of labels) assert.equal(l, l[0] + l.slice(1).replace(/\b[A-Z][a-z]/g, (w) => (/^(Golden|Eagles|Frederick)$/.test(w) ? w : w.toLowerCase())), `${t.slug}: "${l}" is in sentence case`);
+    // A proper noun inside a label keeps its capital: Frederick High's Golden Eagles.
+    for (const l of labels) assert.equal(l, l[0] + l.slice(1).replace(/\b[A-Z][a-z]+/g, (w) => (/^(Golden|Eagles|Frederick)$/.test(w) ? w : w.toLowerCase())), `${t.slug}: "${l}" is in sentence case`);
   }
   assert.deepEqual(townNav(by('berthoud')).map((n) => n.label), ['This week', 'Events', 'Spartans sports', 'Eat & drink', 'Families', 'Living here', 'Guides']);
   assert.equal(townNav(by('lyons')).find((n) => n.href === '/sports/')?.label, 'Lions sports');
-  assert.equal(townNav(towns.find((t) => t.slug === 'carbon-valley')!).find((n) => n.href === '/sports/')?.label, 'Frederick sports');
+  // Frederick High's Golden Eagles were "Frederick sports" on the four-town Carbon Valley guide; on Frederick's own guide the mascot says whose they are.
+  assert.equal(townNav(towns.find((t) => t.slug === 'frederick')!).find((n) => n.href === '/sports/')?.label, 'Golden Eagles sports');
   assert.equal(townNav(towns.find((t) => t.slug === 'loveland')!).find((n) => n.href === '/sports/')?.label, 'High school sports');
   // Erie follows Erie High since 25 October 2026, so its menu carries the Tigers in the third slot.
   assert.deepEqual(townNav(towns.find((t) => t.slug === 'erie')!).map((n) => n.label), ['This week', 'Events', 'Tigers sports', 'Eat & drink', 'Families', 'Living here', 'Guides']);

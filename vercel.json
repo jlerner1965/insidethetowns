@@ -172,39 +172,6 @@
       "has": [
         {
           "type": "host",
-          "value": "insidefirestone.com"
-        }
-      ],
-      "destination": "https://carbonvalleyguide.com/firestone/",
-      "permanent": true
-    },
-    {
-      "source": "/events{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidefirestone.com"
-        }
-      ],
-      "destination": "https://carbonvalleyguide.com/events/?where=firestone",
-      "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidefirestone.com"
-        }
-      ],
-      "destination": "https://carbonvalleyguide.com/firestone/",
-      "permanent": true
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
           "value": "insideseverance.com"
         }
       ],
@@ -341,149 +308,6 @@
         }
       ],
       "destination": "https://insidewindsorco.com/severance/",
-      "permanent": true
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidefortlupton.com"
-        }
-      ],
-      "destination": "https://carbonvalleyguide.com/fort-lupton/",
-      "permanent": true
-    },
-    {
-      "source": "/events{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidefortlupton.com"
-        }
-      ],
-      "destination": "https://carbonvalleyguide.com/events/?where=fort-lupton",
-      "permanent": true
-    },
-    {
-      "source": "/events/calendar.ics",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidefortlupton.com"
-        }
-      ],
-      "destination": "https://carbonvalleyguide.com/events/calendar.ics",
-      "permanent": true
-    },
-    {
-      "source": "/events/:slug{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidefortlupton.com"
-        }
-      ],
-      "destination": "https://carbonvalleyguide.com/events/:slug/",
-      "permanent": true
-    },
-    {
-      "source": "/places/:slug{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidefortlupton.com"
-        }
-      ],
-      "destination": "https://carbonvalleyguide.com/places/:slug/",
-      "permanent": true
-    },
-    {
-      "source": "/articles/:slug{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidefortlupton.com"
-        }
-      ],
-      "destination": "https://carbonvalleyguide.com/articles/:slug/",
-      "permanent": true
-    },
-    {
-      "source": "/moving-here{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidefortlupton.com"
-        }
-      ],
-      "destination": "https://carbonvalleyguide.com/articles/moving-to-fort-lupton/",
-      "permanent": true
-    },
-    {
-      "source": "/eat-drink{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidefortlupton.com"
-        }
-      ],
-      "destination": "https://carbonvalleyguide.com/eat-drink/?where=fort-lupton",
-      "permanent": true
-    },
-    {
-      "source": "/things-to-do{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidefortlupton.com"
-        }
-      ],
-      "destination": "https://carbonvalleyguide.com/things-to-do/?where=fort-lupton",
-      "permanent": true
-    },
-    {
-      "source": "/directory{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidefortlupton.com"
-        }
-      ],
-      "destination": "https://carbonvalleyguide.com/directory/?where=fort-lupton",
-      "permanent": true
-    },
-    {
-      "source": "/rss.xml",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidefortlupton.com"
-        }
-      ],
-      "destination": "https://carbonvalleyguide.com/rss.xml",
-      "permanent": true
-    },
-    {
-      "source": "/events.rss",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidefortlupton.com"
-        }
-      ],
-      "destination": "https://carbonvalleyguide.com/events.rss",
-      "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidefortlupton.com"
-        }
-      ],
-      "destination": "https://carbonvalleyguide.com/fort-lupton/",
       "permanent": true
     },
     {
@@ -631,134 +455,35 @@
     },
     {
       "source": "/",
+      "destination": "https://insidethetowns.com/",
+      "permanent": true,
       "has": [
         {
           "type": "host",
-          "value": "insideblackhawk.com"
+          "value": "insidegrandlake.com"
         }
-      ],
-      "destination": "https://insideidahosprings.com/black-hawk/",
-      "permanent": true
+      ]
     },
     {
-      "source": "/events{/}?",
+      "source": "/(.*)",
+      "destination": "https://insidethetowns.com/",
+      "permanent": true,
       "has": [
         {
           "type": "host",
-          "value": "insideblackhawk.com"
+          "value": "insidegrandlake.com"
         }
-      ],
-      "destination": "https://insideidahosprings.com/events/?where=black-hawk",
-      "permanent": true
+      ]
     },
     {
-      "source": "/events/calendar.ics",
+      "source": "/",
       "has": [
         {
           "type": "host",
-          "value": "insideblackhawk.com"
+          "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insideidahosprings.com/events/calendar.ics",
-      "permanent": true
-    },
-    {
-      "source": "/events/:slug{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideblackhawk.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/events/:slug/",
-      "permanent": true
-    },
-    {
-      "source": "/places/:slug{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideblackhawk.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/places/:slug/",
-      "permanent": true
-    },
-    {
-      "source": "/articles/:slug{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideblackhawk.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/articles/:slug/",
-      "permanent": true
-    },
-    {
-      "source": "/moving-here{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideblackhawk.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/articles/moving-to-black-hawk/",
-      "permanent": true
-    },
-    {
-      "source": "/eat-drink{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideblackhawk.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/eat-drink/?where=black-hawk",
-      "permanent": true
-    },
-    {
-      "source": "/things-to-do{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideblackhawk.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/things-to-do/?where=black-hawk",
-      "permanent": true
-    },
-    {
-      "source": "/directory{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideblackhawk.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/directory/?where=black-hawk",
-      "permanent": true
-    },
-    {
-      "source": "/rss.xml",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideblackhawk.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/rss.xml",
-      "permanent": true
-    },
-    {
-      "source": "/events.rss",
-      "has": [
-        {
-          "type": "host",
-          "value": "insideblackhawk.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/events.rss",
+      "destination": "https://insidethetowns.com/",
       "permanent": true
     },
     {
@@ -766,33 +491,77 @@
       "has": [
         {
           "type": "host",
-          "value": "insideblackhawk.com"
+          "value": "carbonvalleyguide.com"
         }
       ],
-      "destination": "https://insideidahosprings.com/black-hawk/",
+      "destination": "https://insidethetowns.com/",
       "permanent": true
     },
     {
       "source": "/",
-      "destination": "https://insidethetowns.com/",
-      "permanent": true,
       "has": [
         {
           "type": "host",
-          "value": "insidegrandlake.com"
+          "value": "insidefirestone.com"
         }
-      ]
+      ],
+      "destination": "https://insidethetowns.com/",
+      "permanent": true
     },
     {
       "source": "/(.*)",
-      "destination": "https://insidethetowns.com/",
-      "permanent": true,
       "has": [
         {
           "type": "host",
-          "value": "insidegrandlake.com"
+          "value": "insidefirestone.com"
         }
-      ]
+      ],
+      "destination": "https://insidethetowns.com/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefortlupton.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideblackhawk.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideblackhawk.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/",
+      "permanent": true
     },
     {
       "source": "/places/arapaho-bend-natural-area{/}?",

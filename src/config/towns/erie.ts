@@ -5,7 +5,8 @@ export const erie: TownConfig = {
   status: 'live',
   variant: 'front-range',
   region: 'Boulder County',
-  neighbors: ['longmont', 'carbon-valley', 'niwot'],
+  // Frederick in Carbon Valley's place and Lafayette beside it, 2 November 2026.
+  neighbors: ['longmont', 'lafayette', 'frederick', 'niwot'],
   slug: 'erie',
   name: 'Erie',
   domain: 'insideerie.com',

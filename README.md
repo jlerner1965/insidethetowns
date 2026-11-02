@@ -26,7 +26,7 @@ scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
 ## High-school sports
 
 A town that follows its high school (Berthoud, Niwot, Lyons, Timnath,
-Elizabeth, Johnstown, Windsor, Carbon Valley and Erie, and Loveland's four
+Elizabeth, Johnstown, Windsor, Frederick, Erie and Lafayette, and Loveland's four
 schools, in `src/config/school-sports.ts`) has `/sports/`: each followed team's record, the
 whole season's results and the games to come, read from the team's MaxPreps
 home page and its `/schedule/` page (the full season, used only where it
@@ -206,8 +206,12 @@ folder with a `subTown` on every event and place, the neighbour lists it in
 config takes `status: 'redirect'` and `foldedInto`, and host-scoped rules in
 `vercel.json` send every path on its old domain to the same page on the new
 one (docs/REDIRECTS.md). `test/folded-towns.test.ts` holds the four in step.
-New Severance content goes in `content/windsor/` with `subTown: severance`;
-new Fort Lupton content in `content/carbon-valley/` with `subTown: fort-lupton`.
+New Severance content goes in `content/windsor/` with `subTown: severance`.
+A guide the owner closes with no neighbour to take it is **retired** (`retired`
+on its config: since, why; `status: 'redirect'`), as Grand Lake was on 30
+October 2026 and Black Hawk, Carbon Valley and Fort Lupton on 2 November: its
+content leaves its folder (git history keeps it) and every path on its domain
+goes to the hub's home page. `test/retired-towns.test.ts` holds that shape.
 
 A guide the owner wants out of the weekly routine while deciding whether to
 keep it is made **quiet** (`quiet` on its config: since, decide by, why), as
@@ -217,8 +221,9 @@ email signup on its pages or box for it on any other, no Thursday draft, and
 one line in the weekly report counting the days to the decision.
 
 A **visitor guide** (`visitorGuide` on its config: since, why) is a destination
-people plan a trip around, kept current but not published weekly: Black Hawk,
-Leadville and Manitou Springs, from 12 October 2026. It has no weekly email,
+people plan a trip around, kept current but not published weekly: Estes
+Park, Evergreen and Manitou Springs (Black Hawk, Leadville and Manitou
+Springs were the first, from 12 October 2026). It has no weekly email,
 signup or Thursday draft, but unlike a quiet guide it stays in the weekly
 report, labeled, because a mountain listing still expires sixty days from its
 check; about a monthly pass keeps it whole.

@@ -110,13 +110,17 @@ test('each guide names the neighbours the owner set, in that order', () => {
   // A town that is not live is filtered out by neighborsOf, so nothing shows
   // on a live guide until the owner flips its neighbour. Severance and Fort
   // Lupton were folded into Windsor and Carbon Valley on 12 October 2026 and
-  // name nobody; nobody names them.
+  // name nobody; nobody names them. Carbon Valley and Fort Lupton were
+  // retired on 2 November 2026, when Frederick took Carbon Valley's place
+  // beside Erie and Longmont and Lafayette joined the Boulder County guides.
   const NEIGHBORS: Record<string, string[]> = {
-    niwot: ['longmont', 'lyons', 'erie', 'nederland'],
+    niwot: ['longmont', 'lyons', 'erie', 'lafayette', 'nederland'],
     lyons: ['longmont', 'niwot', 'estes-park', 'nederland'],
-    longmont: ['niwot', 'lyons', 'erie', 'carbon-valley', 'berthoud'],
-    erie: ['longmont', 'carbon-valley', 'niwot'],
-    'carbon-valley': ['erie', 'longmont'],
+    longmont: ['niwot', 'lyons', 'erie', 'lafayette', 'frederick', 'berthoud'],
+    erie: ['longmont', 'lafayette', 'frederick', 'niwot'],
+    lafayette: ['erie', 'longmont', 'niwot'],
+    frederick: ['erie', 'longmont'],
+    'carbon-valley': [],
     berthoud: ['loveland', 'longmont', 'johnstown'],
     loveland: ['berthoud', 'johnstown', 'fortcollins', 'estes-park'],
     johnstown: ['loveland', 'windsor', 'berthoud'],
