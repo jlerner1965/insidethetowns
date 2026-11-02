@@ -10,7 +10,7 @@ priceRange: "$$"
 tags: [burgers, beer]
 summary: "Creative burgers, gluten-free buns and a long tap list at Johnstown Plaza."
 source: "https://www.baddaddysburgerbar.com/find-us"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 

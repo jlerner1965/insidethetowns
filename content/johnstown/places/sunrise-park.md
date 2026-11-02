@@ -11,7 +11,7 @@ imageCredit: "Town of Johnstown"
 tags: [walking, shelters, playground]
 summary: "Park on North 6th Street with a walking path, a shaded picnic structure, two reservable shelters and, new in 2026, a replacement playground."
 source: "https://www.johnstownco.gov/240/Parks"
-verified: "2026-10-02"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
