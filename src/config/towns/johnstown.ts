@@ -38,9 +38,14 @@ export const johnstown: TownConfig = {
     paper: 'warm',
   },
   hero: {
-    image: 'brush-barn.jpg',
-    alt: 'The Jared L. Brush Barn of 1865 on County Road 17 northeast of Johnstown, on the National Register: weathered board-and-batten siding, a steep gable with arched louvred vents, a corral fence in front',
-    credit: 'Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0',
+    // The Charlotte Street sidewalk in Old Town, in place of the Brush Barn
+    // a mile out of town (the reader pass, 1 November 2026: the barn said
+    // farm). The Historical Society's photograph, permission on file; an
+    // own shot of Parish Avenue is still the plan (docs/HERO-PHOTOS.md).
+    image: 'old-town-walk-charlotte-street.jpg',
+    alt: 'The Charlotte Street sidewalk in Old Town Johnstown under autumn trees at Fremont Avenue, a Town of Johnstown street sign above and the Historic Parish House and Museum sign at the fence',
+    credit: 'Courtesy of the Johnstown Historical Society, Ltd',
+    position: 'center 55%',
   },
   social: {
     email: 'hello@insidejohnstown.com',
