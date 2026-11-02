@@ -11,7 +11,7 @@ hours: "Open daily, sunrise to sunset"
 tags: [loop, fishing, birds]
 summary: "Walking loop and ADA fishing access around the Town's drinking-water reservoir on the southwest edge of town. No swimming, boats or dogs in the water."
 source: "https://www.erieco.gov/2294/Erie-Lake"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 

@@ -12,7 +12,7 @@ tags: [mountain bike, singletrack, views]
 featured: true
 summary: "3.15 miles of purpose-built mountain-bike singletrack with rollers, jumps and tabletops, graded beginner to advanced, on 50 acres of Town open space with Front Range views."
 source: "https://www.erieco.gov/1672/Erie-Singletrack-Trails-at-Sunset-Open-S"
-verified: "2026-10-03"
+verified: "2026-11-02"
 added: "2026-09-17"
 ---
 
