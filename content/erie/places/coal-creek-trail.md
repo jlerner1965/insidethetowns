@@ -12,7 +12,7 @@ tags: [regional trail, walking, cycling, open space]
 featured: true
 summary: "The regional trail along Coal Creek through 400 acres of Town open space, about 10 miles of concrete, soft-surface and crusher-fine trail from Reliance Park south to the Boulder County trail toward Lafayette, Louisville and Superior."
 source: "https://www.erieco.gov/2368/Coal-Creek-Open-Space"
-verified: "2026-11-02"
+verified: "2026-10-03"
 added: "2026-09-17"
 ---
 

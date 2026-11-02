@@ -11,7 +11,7 @@ tags: [coffee, breakfast, wifi]
 featured: true
 summary: "Family-owned independent coffee shop at Briggs and Moffat: espresso, burritos, quiche and baked goods, and the room where downtown works in the morning."
 source: "https://www.foxdogcoffee.com/"
-verified: "2026-11-02"
+verified: "2026-10-02"
 added: "2026-09-17"
 ---
 
