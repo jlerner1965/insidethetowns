@@ -82,7 +82,12 @@ One wrong fact costs more than ten missing ones.
   chamber's or a paper's calendar lists other people's events and waits
   for the organizer's own.
 - Nothing is guessed. Can't confirm it: leave it out, or mark it
-  unverified with what was found.
+  unverified with what was found, in the draft. A published page states
+  facts or leaves them out: no "unverified", "reportedly" or "this guide
+  could not confirm" ever goes live, and doubt is settled before
+  publishing, not handed to the reader. Attribution is a source at the
+  foot of the page, not a hedge in the sentence; the `verified` date is a
+  fact about the page, not a doubt about it (3 November 2026).
 - A listing is re-checked within 30 days. At 60 days its hours hide. A
   listing whose only source dropped it carries a `changeFlag` and gets a
   call before the hours hide.
