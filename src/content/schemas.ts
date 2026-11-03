@@ -236,6 +236,16 @@ const provenance = {
   sourceId: z.string().min(1).optional(),
   /** The feed's own identifier for the item (iCal UID, RSS guid), so a re-ingest finds it again. */
   sourceUid: z.string().min(1).optional(),
+  /**
+   * The feed's other ids for the same outing, where an editor has merged
+   * the feed's separate items into this one listing (City Star posts a
+   * Friday's beer release and its band as two items; the guide lists the
+   * afternoon once). Ingest matches each id to this file and never stages
+   * it on its own again; the parts keep their own times, so only a
+   * cancellation or a new venue is reported (3 November 2026: the release
+   * and the band each came back as a listing beside the merged one).
+   */
+  mergedUids: z.array(z.string().min(1)).optional(),
   /** Fingerprint of the fields as last read from the source, so a re-ingest can see what changed. */
   sourceHash: z.string().min(1).optional(),
   /** Set by ingest when the source changed an approved item; cleared at the next approval. */

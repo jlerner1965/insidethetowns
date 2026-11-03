@@ -8320,3 +8320,54 @@ Steamboat Springs and Salida stay held.*
   not ship the scaffold's placeholder, and Old Town is the town itself; a
   bought or shot frame can replace it (docs/HERO-PHOTOS.md). The Search Console properties for
   carbonvalleyguide.com and insideblackhawk.com will show only redirects.
+
+## An outside review of Berthoud, Erie and Johnstown, acted on, 3 November 2026
+
+An outside brief asked for more search traffic, repeat visits and finished
+signups on the three guides. It was checked against the code and the live
+sites before anything changed; about a third of it was already done (the
+one-press signup of 25–28 October, Erie's district-labeled days off, the
+Families page's Who/When/Where/Cost blocks, the rec center's swim hours
+apart from the building's, the tabs' Denver day boundaries). What changed:
+
+- **A listing can hold the feed items an editor merged into it.** City Star
+  posts a Friday's beer release (3–10 pm) and its band (6–8:30) as two
+  items; the guide lists the afternoon once. Nothing let that merge stick:
+  the feed's other item matched no file, was staged as new, approved by the
+  standing rules, and the weekend tab gave two of its five slots to one
+  outing (November 6; November 20 and December 18 the same). An event file
+  may now carry `mergedUids`, the feed's other ids for it. Ingest matches
+  each to that file ("by merged") and compares only status and venue, since
+  a part keeps its own hour; a staged file's ids claim nothing. The three
+  Fridays are one listing each, anchored on the release, and a dry run of
+  the City Star feed stages nothing. The other Fridays, where the release
+  and the band were always two listings, are left as they are.
+- **A canceled listing gives up its slot first** on a full home tab, and is
+  not one of the "N more"; with room, it keeps its line (src/lib/home-tabs.ts,
+  pickRows). "Next in <Town>" putting the pick ahead of an earlier listing
+  is the 1 November reader pass's rule and stays.
+- **What became of a signup is counted.** `newsletter-signup` counts every
+  press, a press with no town and a double click's second among them.
+  `newsletter-result` now carries /api/subscribe's answer (`confirm`,
+  `added`, `already`, `invalid`, `unavailable`) or `handed-off` for a send
+  to Buttondown's page, with the page path: two properties, Vercel's limit
+  without Plus. A confirmed subscriber is still only Buttondown's to count;
+  the site never sees the click in the email.
+- **Erie's home page has "For families"** (`families.onHome`, Erie only):
+  the next school break a program keeps hours on, named by district, a
+  deadline within the fortnight for another program, and one free family
+  listing this weekend, each with its date, ages and cost, and the block
+  gone when none is left (src/lib/family-home.ts). It sits above Find your
+  next stop and adds about one phone screen.
+- **Content.** Berthoud's breakfast article has a weekday/weekend table and
+  each menu; two claims the Main Street page no longer makes are gone, and
+  Trailhead Cafe is said plainly to be unconfirmed. Ziggi's is flagged: its
+  page and store locator no longer post hours. Johnstown has a breakfast
+  guide, Old Town, 2534 and the I-25 diner, from five listings read the
+  same day.
+- **Not done, and why.** Trailhead Cafe needs a call: its own site and its
+  ordering page refuse automated readers. Johnstown's events are still
+  mostly the library's; broadening them is source work for `npm run
+  sources`, not a code change. Venue, directions and tickets on the sports
+  pages, and the Thursday email's family section, are left for a later
+  pass. No photographs were added.

@@ -6,10 +6,10 @@ area: "Meadowlark Drive, by the Kwik Korner"
 url: "https://www.joyfulbrews.com/"
 phone: "(970) 532-9963"
 priceRange: "$"
-tags: [coffee, tea]
+tags: [coffee, tea, drive-through]
 summary: "A woman-owned, family-run drive-thru coffee shop on Meadowlark Drive, going since 1996."
 source: "https://www.joyfulbrews.com/contact-8"
-verified: "2026-10-26"
+verified: "2026-11-03"
 added: "2026-09-17"
 ---
 

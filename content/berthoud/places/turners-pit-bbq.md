@@ -16,4 +16,4 @@ added: "2026-09-17"
 
 Barbecue on Welch Avenue, across from the library: brisket, pulled pork and smoked sausage by the half pound or pound, ribs by the half or full slab, brisket burgers and sandwiches, and the sides, with catering for a crowd. The meats are served until sold out.
 
-The full menu runs Tuesday to Sunday, 11 am to 9 pm; on Mondays the kitchen serves only wings, fries, onion rings, fried pickles, fried mushrooms and mozzarella sticks.
+The doors are open later than the kitchen: until 9:30 pm Sunday to Wednesday and midnight Thursday to Saturday. The full menu runs Tuesday to Sunday, 11 am to 9 pm; on Mondays the kitchen serves only wings, fries, onion rings, fried pickles, fried mushrooms and mozzarella sticks.

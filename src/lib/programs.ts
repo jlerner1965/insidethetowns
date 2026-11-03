@@ -206,9 +206,13 @@ export function ageText(p: ProgramLike): string | undefined {
  */
 export function deadlineTitle(d: Deadline, day: string, eventTitle?: string): string {
   const title = (eventTitle ?? d.program.data.title).replace(/\s*(?:[:·-]\s*)?(?:deadline|(?:\w+\s+)?due|registration (?:opens|closes))\s*$/i, '');
-  const entries = /\bentr(?:y|ies)\b/i.test(d.program.data.registration?.how ?? '');
-  const action = d.what === 'opens' ? 'registration opens' : entries ? 'entries due' : 'register by';
+  const action = d.what === 'opens' ? 'registration opens' : deadlineAction(d.program).toLowerCase();
   return `${title}: ${action} ${day}`;
+}
+
+/** "Entries due" where the organizer's words on how to register are about entries, else "Register by". */
+export function deadlineAction(p: ProgramLike): string {
+  return /\bentr(?:y|ies)\b/i.test(p.data.registration?.how ?? '') ? 'Entries due' : 'Register by';
 }
 
 /** The audience a program is filed under on a page that lists it once: the first of its audiences in the page's order. */

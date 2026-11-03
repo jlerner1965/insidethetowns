@@ -159,6 +159,7 @@ function existingEvents(town: string): ExistingEvent[] {
           venue: d.venue,
           status: d.status,
           sourceUid: d.sourceUid,
+          mergedUids: d.mergedUids,
           sourceHash: d.sourceHash,
           sourceHost: hostOf(d.source ?? d.url),
           address: d.address,
@@ -442,7 +443,9 @@ for (const town of towns) {
       }
       // Published. Compare, and file the difference for the review.
       const { venue, guessed, silent } = venueFrom(item.location, source);
-      const changes = detectChanges(item, match.existing, venue, !guessed && !silent);
+      // A part merged into a listing keeps its own hour, so only its
+      // cancellation or a new venue says anything about the listing.
+      const changes = detectChanges(item, match.existing, venue, !guessed && !silent).filter((c) => match.how !== 'merged' || (c.field !== 'start' && c.field !== 'end'));
       if (changes.length === 0) {
         unchanged++;
         continue;

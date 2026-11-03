@@ -9,8 +9,8 @@ priceRange: "$"
 tags: [breakfast, diner, lunch]
 summary: "Diner breakfast and lunch on the corner of Mountain and 3rd, at the heart of downtown."
 source: "https://www.newfreedomministry.com/page/cornerstone-cafe"
-verified: "2026-10-12"
+verified: "2026-11-03"
 added: "2026-09-17"
 ---
 
-A classic breakfast-and-lunch cafe on the corner at 3rd and Mountain: eggs, hash browns, chicken-fried steak.
+A classic breakfast-and-lunch cafe on the corner at 3rd and Mountain: eggs, hash browns, French toast, chicken-fried steak, with breakfast served all day.
