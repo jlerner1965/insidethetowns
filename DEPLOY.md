@@ -17,8 +17,8 @@ insidefortcollins.com TOWN=fortcollins
 insidelongmontco.com TOWN=longmont
 insidelovelandco.com TOWN=loveland
 carbonvalleyguide.com TOWN=carbon-valley   (project `carbonvalleyguide`; retired 2 Nov 2026; serves redirects to insidethetowns.com only, docs/REDIRECTS.md; insidefirestone.com is a domain on it)
-insidefrederickco.com TOWN=frederick      (a flagship from 2 Nov 2026, Frederick alone, in the Carbon Valley guide's place; project to be created, see below)
-insidelafayette.com  TOWN=lafayette      (a flagship from 2 Nov 2026; project to be created, see below)
+insidefrederickco.com TOWN=frederick      (a flagship from 2 Nov 2026, Frederick alone, in the Carbon Valley guide's place; project `insidefrederickco`)
+insidelafayette.com  TOWN=lafayette      (a flagship from 2 Nov 2026; project `insidelafayette`)
 insideseverance.com  TOWN=severance      (folded into Windsor 12 Oct 2026; serves redirects only, docs/REDIRECTS.md)
 insidefortlupton.com TOWN=fort-lupton    (folded into Carbon Valley 12 Oct 2026, retired with it 2 Nov 2026; serves redirects to insidethetowns.com only)
 insidecastlerockco.com TOWN=castle-rock   (live 31 Oct 2026, quiet; insidecastlerock.com is someone else's)
@@ -73,13 +73,18 @@ and had it completed first (DECISIONS.md, "Castle Rock live, quiet" and
 `node scripts/live-towns.ts` prints the list of sites that must have a project.
 
 The two flagships of 2 November 2026 (DECISIONS.md, "Black Hawk and Carbon
-Valley close; Lafayette and Frederick open") need projects `insidelafayette`
-and `insidefrederickco` made the same way as the 6 October seven (`TOWN=
-lafayette`, `TOWN=frederick`), their apex and `www` attached, DNS at
-Cloudflare, Email Routing for each `hello@`, a "Scheduled rebuild" hook in
-`VERCEL_DEPLOY_HOOKS`, Web Analytics on by hand, and a Plausible site for each
-domain. Until a project exists the configs build nowhere; nothing else
-waits on them.
+Valley close; Lafayette and Frederick open") have projects `insidefrederickco`
+and `insidelafayette`, created by the owner on 2 November and set the same
+way as Golden's through the API: `TOWN`, Node 22.x, the Ignored Build Step,
+preview deployments off, the apex with `www` 308ing to it, and a "Scheduled
+rebuild" hook on `main` (3 November). The owner added the DNS at Cloudflare;
+Lafayette's certificate came at once and Frederick's overnight, and both
+answer over HTTPS from 3 November, as do the hub's links to them. Web
+Analytics was already on for both. Still the owner's: the two hooks' lines
+in `VERCEL_DEPLOY_HOOKS` (until then the nightly rebuild names both as
+missing), Email Routing for each `hello@` (the Cloudflare token in the
+cloud environment was rejected as invalid on 3 November), a Plausible site
+for each domain, Search Console properties, and a Formspree form each.
 
 ## One-time: the production branch
 
