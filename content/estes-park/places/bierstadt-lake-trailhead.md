@@ -5,7 +5,7 @@ address: "Bear Lake Road, 6.8 miles from Trail Ridge Road, Rocky Mountain Nation
 area: "Bear Lake Road"
 url: "https://www.nps.gov/romo/planyourvisit/exploring-the-bear-lake-road-corridor.htm"
 source: "https://www.nps.gov/romo/planyourvisit/exploring-the-bear-lake-road-corridor.htm"
-verified: "2026-10-13"
+verified: "2026-11-03"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 image: ../images/bierstadt-lake-trailhead.jpg
@@ -14,7 +14,7 @@ imageCredit: "K. Lee, Wikimedia Commons, CC BY-SA 4.0"
 mapUrl: "https://www.nps.gov/romo/planyourvisit/upload/Bear-Lake-Road-Digital-Map_large-2023-01.png"
 tags: [rmnp, hiking, aspens, shuttle]
 summary: "Small lot, shuttle stop and vault toilet on Bear Lake Road, at the foot of the steep 1.5-mile climb to Bierstadt Lake through aspens."
-access: { parking: "A small parking area; a Bear Lake shuttle stop (2026 season: May 22 to October 18).", permit: "Out of season: the 2026 Timed Entry + Bear Lake Road reservation (5 am–6 pm) ran May 22 to October 18, so none is needed now. A park entrance pass is needed 24 hours a day, all year.", conditionsUrl: "https://www.nps.gov/romo/planyourvisit/conditions.htm", conditionsLabel: "RMNP current conditions", source: "https://www.nps.gov/romo/planyourvisit/exploring-the-bear-lake-road-corridor.htm", verified: "2026-10-20" }
+access: { parking: "A small parking area; a Bear Lake shuttle stop (2026 season: May 22 to October 18).", permit: "Out of season: the 2026 Timed Entry + Bear Lake Road reservation (5 am–6 pm) ran May 22 to October 18, so none is needed now. A park entrance pass is needed 24 hours a day, all year.", conditionsUrl: "https://www.nps.gov/romo/planyourvisit/conditions.htm", conditionsLabel: "RMNP current conditions", source: "https://www.nps.gov/romo/planyourvisit/exploring-the-bear-lake-road-corridor.htm", verified: "2026-11-03" }
 ---
 
 A shuttle stop, trailhead and vault toilet 6.8 miles up Bear Lake Road, at 8,840 feet. The trail to Bierstadt Lake climbs steeply for 1.5 miles and about 500 feet, with views over aspens, Sprague Lake and Longs Peak; the park notes that many hikers start from Bear Lake Trailhead instead, which the park lists at 2 miles with 290 feet of gain.
