@@ -33,7 +33,8 @@ export const nederland: TownConfig = {
   },
   variant: 'mountain',
   region: 'Mountains & Foothills',
-  neighbors: ['lyons', 'niwot', 'idaho-springs'],
+  // Clear Creek dropped out on 3 November 2026, when it retired.
+  neighbors: ['lyons', 'niwot'],
   // Set with the brief, 6 October 2026: upcoming events / open listings.
   launchThreshold: { events: 10, listings: 15 },
   slug: 'nederland',

@@ -8320,3 +8320,50 @@ Steamboat Springs and Salida stay held.*
   not ship the scaffold's placeholder, and Old Town is the town itself; a
   bought or shot frame can replace it (docs/HERO-PHOTOS.md). The Search Console properties for
   carbonvalleyguide.com and insideblackhawk.com will show only redirects.
+
+## Evergreen, Manitou Springs and Clear Creek retired, 3 November 2026
+
+*The owner, 3 November 2026: "this is meant to be town guide site so feel
+like Estes Nederland evergreen Idaho springs all those ones are not a fit",
+then, given the case each way: "keep Estes Park remove evergreen manto
+springs and Idaho springs and all of clear creek". The editor agreed: the
+guides that work are for the people who live in a town (Families, Living
+here, the scoreboard, the Thursday email), and these three were read as
+places to visit, as the city guides were "the wrong fight" on 20 October.
+Estes Park stays, the largest of the mountain guides and the Rocky Mountain
+National Park town; Nederland and Leadville stay quiet until their own
+decide-by dates; Golden stays a flagship.*
+
+- **The shape is Grand Lake's** (DECISIONS.md, "Grand Lake retired"):
+  `retired` on each config, `status: 'redirect'`, no neighbours, and `/` and
+  `/(.*)` on each domain to insidethetowns.com, permanent (vercel.json).
+  Evergreen and Manitou Springs were visitor guides; that field comes off.
+- **Clear Creek goes whole.** Inside Clear Creek (insideidahosprings.com)
+  loses its sections, so Georgetown, folded into it on 20 October, can no
+  longer point at `/georgetown/`: its thirteen section rules are replaced by
+  the same two hub rules, and it is retired, not folded, on its config and
+  in manager/towns.json (its own entry, insidegeorgetownco.com no longer an
+  alternate of Idaho Springs'). Severance is the one folded guide left.
+- **The content is removed, not moved:** Evergreen's 34 events, 27 places,
+  4 articles and 18 staged items; Manitou Springs' 63, 26, 3 and 10; Clear
+  Creek's 47, 47 (Georgetown's among them), 8 and 20; with each guide's
+  page, weekly notes and sources.json. Git history keeps them. Each
+  folder keeps its README (now saying it is retired) and `images/` with
+  their licence rows, among them the Adobe heroes bought for Clear Creek
+  and Manitou Springs on 30 October.
+- **Neighbours.** Golden named Evergreen and Clear Creek and no one else, so
+  it has none now: its Nearby block is not built until the owner names new
+  ones (Lafayette, Erie or Nederland are the nearest live guides).
+  Nederland keeps Lyons and Niwot; Castle Rock keeps Elizabeth.
+- **What follows.** The email is nine editions (Clear Creek's ended), Estes
+  Park is the one visitor guide, and the network covers seven counties
+  (Clear Creek and El Paso left; Jefferson stays with Golden). The hub's
+  Moving page loses the three towns' paragraphs and the governance lines
+  for Evergreen and Clear Creek. The hub's past newsletter issues stay as
+  they were sent.
+- **The owner's, and not done:** the Search Console properties for the four
+  domains will show only redirects; Buttondown subscribers tagged
+  `idaho-springs` (the last edition went out 29 October), `evergreen` and
+  `manitou-springs` stay tagged and get nothing, which is the owner's to
+  resolve; the domains and Vercel projects stay the owner's, each still
+  building its holding page so it keeps serving the rules.

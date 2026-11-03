@@ -11,25 +11,30 @@ import type { TownConfig } from './types.ts';
  * Figures are from the Wikipedia infobox (census and GNIS), read 10 October
  * 2026, as for every other town; the comments say which. The domain,
  * insidemanitousprings.com, is the owner's, named 10 October 2026.
+ *
+ * Retired on 3 November 2026 on the owner's word (DECISIONS.md, "Evergreen,
+ * Manitou Springs and Clear Creek retired"): no guide to fold into, so every
+ * path on insidemanitousprings.com redirects to the hub (vercel.json) and
+ * its content has left content/manitou-springs/ (git history keeps it). The
+ * config stays so the Vercel project keeps building, and keeps serving
+ * those redirects.
  */
 export const manitouSprings: TownConfig = {
   kind: 'town',
   // Live 10 October 2026, on the owner's word, under its launch threshold:
   // it publishes what is verified, and the validator and the weekly report
   // say what it is short of (docs/archive/ACCURACY-SYSTEM.md).
-  status: 'live',
-  // A visitor guide from 12 October 2026, owner's word: kept current, no weekly
-  // email (DECISIONS.md, "Regional editions and visitor guides").
-  visitorGuide: {
-    since: '2026-10-12',
-    reason: 'an hour or more from the other live guides, so a weekly issue costs more than it returns; its visitors plan a trip around the Incline, the springs and the seasons',
+  // A visitor guide from 12 October 2026; retired 3 November 2026, owner's word.
+  status: 'redirect',
+  retired: {
+    since: '2026-11-03',
+    reason: 'The owner closed the guide on 3 November 2026: the network is a set of town guides for the people who live there, and Manitou Springs, an hour or more from the other guides, was read as a visitor guide to the Incline, the springs and the Peak.',
   },
   variant: 'mountain',
   region: 'Mountains & Foothills',
-  // Castle Rock, the nearest guide, an hour up I-25. Set when the town went
-  // live, 10 October 2026; Castle Rock names Manitou back, and the Nearby
-  // block has had it since Castle Rock went live on 31 October 2026.
-  neighbors: ['castle-rock'],
+  // Retired 3 November 2026: it names no neighbour, and Castle Rock, which
+  // named it back, no longer does.
+  neighbors: [],
   // Set with the brief, 10 October 2026, at Evergreen's level: a town of
   // nearly five thousand with a year-round tourist street.
   launchThreshold: { events: 15, listings: 20 },

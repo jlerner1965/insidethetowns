@@ -312,149 +312,6 @@
     },
     {
       "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidegeorgetownco.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/georgetown/",
-      "permanent": true
-    },
-    {
-      "source": "/events{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidegeorgetownco.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/events/?where=georgetown",
-      "permanent": true
-    },
-    {
-      "source": "/events/calendar.ics",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidegeorgetownco.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/events/calendar.ics",
-      "permanent": true
-    },
-    {
-      "source": "/events/:slug{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidegeorgetownco.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/events/:slug/",
-      "permanent": true
-    },
-    {
-      "source": "/places/:slug{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidegeorgetownco.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/places/:slug/",
-      "permanent": true
-    },
-    {
-      "source": "/articles/:slug{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidegeorgetownco.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/articles/:slug/",
-      "permanent": true
-    },
-    {
-      "source": "/moving-here{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidegeorgetownco.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/articles/moving-to-georgetown/",
-      "permanent": true
-    },
-    {
-      "source": "/eat-drink{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidegeorgetownco.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/eat-drink/?where=georgetown",
-      "permanent": true
-    },
-    {
-      "source": "/things-to-do{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidegeorgetownco.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/things-to-do/?where=georgetown",
-      "permanent": true
-    },
-    {
-      "source": "/directory{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidegeorgetownco.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/directory/?where=georgetown",
-      "permanent": true
-    },
-    {
-      "source": "/rss.xml",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidegeorgetownco.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/rss.xml",
-      "permanent": true
-    },
-    {
-      "source": "/events.rss",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidegeorgetownco.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/events.rss",
-      "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidegeorgetownco.com"
-        }
-      ],
-      "destination": "https://insideidahosprings.com/georgetown/",
-      "permanent": true
-    },
-    {
-      "source": "/",
       "destination": "https://insidethetowns.com/",
       "permanent": true,
       "has": [
@@ -558,6 +415,94 @@
         {
           "type": "host",
           "value": "insideblackhawk.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideevergreenco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideevergreenco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemanitousprings.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidemanitousprings.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideidahosprings.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideidahosprings.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegeorgetownco.com"
+        }
+      ],
+      "destination": "https://insidethetowns.com/",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegeorgetownco.com"
         }
       ],
       "destination": "https://insidethetowns.com/",
@@ -580,17 +525,6 @@
         {
           "type": "host",
           "value": "insideelizabeth.com"
-        }
-      ],
-      "destination": "/things-to-do/",
-      "permanent": true
-    },
-    {
-      "source": "/places/garden-of-the-gods{/}?",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidemanitousprings.com"
         }
       ],
       "destination": "/things-to-do/",

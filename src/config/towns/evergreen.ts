@@ -11,22 +11,29 @@ import type { TownConfig } from './types.ts';
  * 2026, as for every other town; the comments say which. The domain is the
  * one on the owner's Cloudflare nameservers (the same pair as the other
  * thirteen), confirmed 6 October 2026.
+ *
+ * Retired on 3 November 2026 on the owner's word (DECISIONS.md, "Evergreen,
+ * Manitou Springs and Clear Creek retired"): no guide to fold into, so every
+ * path on insideevergreenco.com redirects to the hub (vercel.json) and its
+ * content has left content/evergreen/ (git history keeps it). The config
+ * stays so the Vercel project keeps building, and keeps serving those
+ * redirects.
  */
 export const evergreen: TownConfig = {
   kind: 'town',
   // Live 7 October 2026, on the owner's word, after the first review cleared
-  // the launch threshold (docs/archive/ACCURACY-SYSTEM.md).
-  status: 'live',
-  // A visitor guide from 20 October 2026, owner's word, with Estes Park,
-  // Golden and Evergreen together (DECISIONS.md, "The other mountain guides,
-  // 20 October"): kept current on the sixty-day check, no weekly email.
-  visitorGuide: {
-    since: '2026-10-20',
-    reason: 'an unincorporated foothills community whose readers come for the lake, the trails and the seasons; a guide to visit by, not a weekly',
+  // the launch threshold (docs/archive/ACCURACY-SYSTEM.md); a visitor guide
+  // from 20 October; retired 3 November 2026, owner's word.
+  status: 'redirect',
+  retired: {
+    since: '2026-11-03',
+    reason: 'The owner closed the guide on 3 November 2026: the network is a set of town guides for the people who live there, and Evergreen\'s readers came for the lake, the trails and the seasons; a visitor guide, not a town guide.',
   },
   variant: 'mountain',
   region: 'Mountains & Foothills',
-  neighbors: ['golden', 'idaho-springs'],
+  // Retired 3 November 2026: it names no neighbour, and Golden, which named
+  // it back, no longer does.
+  neighbors: [],
   // Set with the brief, 6 October 2026: upcoming events / open listings.
   launchThreshold: { events: 15, listings: 20 },
   slug: 'evergreen',

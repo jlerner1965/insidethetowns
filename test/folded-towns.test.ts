@@ -2,7 +2,8 @@
  * A guide folded into another: Severance into Windsor and Fort Lupton into
  * Carbon Valley, 12 October 2026; Georgetown and Black Hawk into the Idaho
  * Springs guide, Inside Clear Creek, 20 October 2026. Fort Lupton and Black
- * Hawk were retired on 2 November 2026 with the Carbon Valley guide
+ * Hawk were retired on 2 November 2026 with the Carbon Valley guide, and
+ * Georgetown on 3 November 2026 with the Clear Creek guide
  * (test/retired-towns.test.ts). Four things have to agree for the move to
  * hold, and each lives in a different file: the config says where the town
  * went, the receiving guide lists it as a section, its content has left its
@@ -22,8 +23,8 @@ const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url
 const folded = towns.filter((t) => t.status === 'redirect' && !t.retired);
 const rulesFor = (domain: string) => vercel.redirects.filter((r) => r.has?.some((h) => h.type === 'host' && h.value === domain));
 
-test('Severance and Georgetown are the folded guides', () => {
-  assert.deepEqual(folded.map((t) => t.slug).sort(), ['georgetown', 'severance']);
+test('Severance is the folded guide', () => {
+  assert.deepEqual(folded.map((t) => t.slug).sort(), ['severance']);
 });
 
 test('a folded guide names a live guide that lists it as a section, and nobody lists it as a neighbour', () => {

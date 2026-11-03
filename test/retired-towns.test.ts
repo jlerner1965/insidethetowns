@@ -3,7 +3,10 @@
  * (DECISIONS.md, "Grand Lake retired"); Black Hawk, Carbon Valley and Fort
  * Lupton, 2 November 2026 (DECISIONS.md, "Black Hawk and Carbon Valley
  * close; Lafayette and Frederick open"), Frederick alone going on to a guide
- * of its own with new slugs. Unlike a folded guide it has no
+ * of its own with new slugs; Evergreen, Manitou Springs and Clear Creek
+ * (Idaho Springs, with Georgetown, its folded section), 3 November 2026
+ * (DECISIONS.md, "Evergreen, Manitou Springs and Clear Creek retired").
+ * Unlike a folded guide it has no
  * section anywhere, so its domain forwards to the hub. Four things have to
  * agree, each in a different file: the config says it is retired and not
  * where it went, no guide names it as a neighbour, its content has left its
@@ -24,18 +27,27 @@ const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url
 const retired = towns.filter((t) => t.retired);
 const rulesFor = (domain: string) => vercel.redirects.filter((r) => r.has?.some((h) => h.type === 'host' && h.value === domain));
 
-test('Grand Lake, Black Hawk, Carbon Valley and Fort Lupton are the retired guides', () => {
-  assert.deepEqual(retired.map((t) => t.slug).sort(), ['black-hawk', 'carbon-valley', 'fort-lupton', 'grand-lake']);
+test('Grand Lake, Black Hawk, Carbon Valley, Fort Lupton, Evergreen, Manitou Springs, Clear Creek and Georgetown are the retired guides', () => {
+  assert.deepEqual(retired.map((t) => t.slug).sort(), ['black-hawk', 'carbon-valley', 'evergreen', 'fort-lupton', 'georgetown', 'grand-lake', 'idaho-springs', 'manitou-springs']);
 });
 
 test('a retired multi-town guide lists no sections, and nothing is tagged with a retired section anywhere', () => {
   for (const t of retired) assert.equal(t.subTowns, undefined, `${t.slug}: no sections`);
-  // Black Hawk left the Clear Creek guide on 2 November 2026 (Gilpin County with it).
-  assert.deepEqual([...towns.find((t) => t.slug === 'idaho-springs')!.subTowns!], ['idaho-springs', 'georgetown']);
-  for (const coll of ['events', 'places', 'staging/events', 'staging/places']) {
-    const dir = new URL(`../content/idaho-springs/${coll}/`, import.meta.url);
-    if (!existsSync(dir)) continue;
-    for (const f of readdirSync(dir)) assert.ok(!readFileSync(new URL(f, dir), 'utf8').includes('subTown: black-hawk'), `idaho-springs/${coll}/${f} is still tagged black-hawk`);
+  // Black Hawk left the Clear Creek guide on 2 November 2026 (Gilpin County
+  // with it), and the guide itself retired on 3 November, Georgetown with it;
+  // Windsor is the one multi-town guide left, and nothing in it is tagged
+  // with a retired section.
+  const retiredSlugs = new Set(retired.map((t) => t.slug));
+  for (const t of towns.filter((t) => t.subTowns)) {
+    for (const s of t.subTowns!) assert.ok(!retiredSlugs.has(s) || s === t.slug, `${t.slug}: lists the retired ${s}`);
+    for (const coll of ['events', 'places', 'staging/events', 'staging/places']) {
+      const dir = new URL(`../content/${t.slug}/${coll}/`, import.meta.url);
+      if (!existsSync(dir)) continue;
+      for (const f of readdirSync(dir)) {
+        const body = readFileSync(new URL(f, dir), 'utf8');
+        for (const s of retiredSlugs) assert.ok(!body.includes(`subTown: ${s}\n`), `${t.slug}/${coll}/${f} is still tagged ${s}`);
+      }
+    }
   }
 });
 
