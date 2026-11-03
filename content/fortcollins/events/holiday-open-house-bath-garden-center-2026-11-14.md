@@ -9,8 +9,8 @@ cost: "Free"
 category: "family"
 timeNote: "Saturday and Sunday, 10 a.m. to 4 p.m."
 source: "https://www.bathgardencenter.com/event-details/holiday-open-house-2026"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against Bath Garden Center's event page, 1 November 2026: Nov 14 and 15, 10 a.m.-4 p.m., no RSVP needed, free"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Holiday Open House 2026\" at 10 am on 14 November in the page's structured data"
 ---
 
 Bath's annual holiday open house, Saturday and Sunday, November 14 and 15, 10 a.m. to 4 p.m. The holiday shop and decorations are out, there are treats and apple cider, and visitors can enter a drawing for one of three $100 gift cards. No RSVP needed.

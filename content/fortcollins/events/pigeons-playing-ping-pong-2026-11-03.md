@@ -11,8 +11,8 @@ source: "https://bohemianlivemusic.org/event/pigeons-playing-ping-pong/"
 sourceId: "bohemianlivemusic-org"
 sourceUid: "53769"
 sourceHash: "992336e908b0"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the bohemianlivemusic.org feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Pigeons Playing Ping Pong\" at 7 pm on 3 November in the page's structured data"
 ---
 
 Pigeons Playing Ping Pong at Washington&#8217;s, Tuesday, November 3, 7 pm – 7 pm. Listed by bohemianlivemusic.org; the organizer's page has the details and any registration.

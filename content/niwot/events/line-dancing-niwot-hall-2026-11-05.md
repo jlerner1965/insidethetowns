@@ -7,7 +7,7 @@ address: "195 Second Avenue"
 url: "https://niwothall.org/events/line-dancing-lessons-with-lindy-b-dance/?occurrence=2026-11-05"
 category: other
 source: "https://niwothall.org/events/line-dancing-lessons-with-lindy-b-dance/?occurrence=2026-11-05"
-verified: "2026-11-01"
+verified: "2026-11-02"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Line Dancing Lessons with Lindy B Dance\" at 6:45 pm on 5 November on the Niwot Hall (Left Hand Grange) feed"
 ---
 

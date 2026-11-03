@@ -9,8 +9,8 @@ performers:
   - { name: "Cat Clyde", kind: person }
   - { name: "Dean Johnson", kind: person }
 source: "https://www.z2ent.com/events/detail/cat-clyde-dean-johnson-2026-agg"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against Z2 Entertainment's Aggie Theatre page (z2ent.com), 1 November 2026: 2026-11-12, doors 7:00 pm, show 8:00 pm, all ages; no price shown on the page"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): 12 November and 8 pm on the page"
 ---
 
 A double bill of songwriters Cat Clyde and Dean Johnson. Doors at 7 pm, show at 8 pm. All ages. Presented by The Aggie Theatre. Ticket prices are on the Aggie's page; none was posted in the listing text when checked.

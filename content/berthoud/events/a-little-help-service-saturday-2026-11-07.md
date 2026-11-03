@@ -9,8 +9,8 @@ source: "https://citystarbrewing.com/event/a-little-help-service-saturday/"
 sourceId: "citystarbrewing-com"
 sourceUid: "15090"
 sourceHash: "7f07d2d5c7c3"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the City Star Brewing feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"A Little Help &#8211; Service Saturday\" at 9 am on 7 November in the page's structured data"
 ---
 
 A Little Help – Service Saturday at City Star Brewing, Saturday, November 7, 9 am – 1 pm. Listed by City Star Brewing; the organizer's page has the details and any registration.

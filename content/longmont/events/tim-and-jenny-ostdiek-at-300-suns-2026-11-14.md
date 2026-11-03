@@ -9,8 +9,8 @@ category: music
 performers:
   - { name: "Tim and Jenny Ostdiek", kind: group }
 source: "https://300sunsbrewing.com/events/tim-jenny-ostdiek/"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against 300 Suns Brewing's event page, 1 November 2026: Sat, Nov 14, 6-8 PM; no cover mentioned"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 6 pm on the page"
 ---
 
 Colorado folk duo Tim and Jenny Ostdiek play harmonies, originals and covers at 300 Suns Brewing, Saturday, November 14 from 6 to 8 pm. The brewery pairs the night with its harvest food specials; no cover is mentioned on the event page.

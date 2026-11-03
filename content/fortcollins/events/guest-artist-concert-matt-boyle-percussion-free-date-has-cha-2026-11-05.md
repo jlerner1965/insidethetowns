@@ -10,8 +10,8 @@ source: "https://music.colostate.edu/events/guest-artist-concert-matt-boyle-perc
 sourceId: "music-colostate-edu"
 sourceUid: "17-19470@music.colostate.edu"
 sourceHash: "75c2a04ba788"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the music.colostate.edu feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Guest Artist Concert: Matt Boyle, Percussion / FREE  DATE HAS CHANGED\" at 7:30 pm on 5 November on the music.colostate.edu feed"
 ---
 
 Guest Artist Concert: Matt Boyle, Percussion / FREE  DATE HAS CHANGED at Organ Recital Hall, Thursday, November 5, 7:30 pm – 9:30 pm. Listed by music.colostate.edu; the organizer's page has the details and any registration.

@@ -10,8 +10,8 @@ source: "https://music.colostate.edu/events/jazz-combos-i-ii-concert/"
 sourceId: "music-colostate-edu"
 sourceUid: "17-19469@music.colostate.edu"
 sourceHash: "ef70af90f802"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the music.colostate.edu feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Jazz Combos I & II Concert\" at 7:30 pm on 4 November on the music.colostate.edu feed"
 ---
 
 Jazz Combos I & II Concert at Griffin Concert Hall, Wednesday, November 4, 7:30 pm – 9:30 pm. Listed by music.colostate.edu; the organizer's page has the details and any registration.

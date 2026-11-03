@@ -8,8 +8,8 @@ url: "https://business.esteschamber.org/events/details/edwc-latino-alliance-este
 category: festival
 source: "https://business.esteschamber.org/events/details/edwc-latino-alliance-estes-arts-district-national-hispanic-heritage-month-15422"
 sourceId: "esteschamber-org"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against the Estes Chamber's Hispanic Heritage Month page, 1 November 2026, which lists it in one line: Day of the Dead Event, November 4th, 5-7pm, Estes Park Event Center. No organizer's own page was found"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): 4 November and 5 pm on the page"
 ---
 
 A Day of the Dead gathering at the Estes Park Event Center on Wednesday, November 4, from 5 to 7 pm, the close of the Hispanic Heritage Month program the Chamber's Latino Alliance and the Estes Arts District put on together, which included a month-long Día de los Muertos art crawl through town. The Chamber's page gives the date, time and place and no more.

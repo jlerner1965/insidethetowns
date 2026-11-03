@@ -10,8 +10,8 @@ source: "https://bouldercounty.gov/event/community-meeting-prescribed-fire-proje
 sourceId: "bouldercounty-gov"
 sourceUid: "10004507-1794668400-1794673800@bouldercounty.gov"
 sourceHash: "cc1780271099"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the bouldercounty.gov feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Community Meeting for Prescribed Fire Projects\" at 3 pm on 14 November on the bouldercounty.gov feed"
 ---
 
 Community Meeting for Prescribed Fire Projects at the Lyons Regional Library, Saturday, November 14, 3 pm – 4:30 pm. Listed by bouldercounty.gov; the organizer's page has the details and any registration.

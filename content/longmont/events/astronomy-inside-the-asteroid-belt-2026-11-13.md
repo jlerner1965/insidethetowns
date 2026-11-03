@@ -10,8 +10,8 @@ source: "https://bouldercounty.gov/event/astronomy-inside-the-asteroid-belt/"
 sourceId: "bouldercounty-gov"
 sourceUid: "10004402-1794587400-1794596400@bouldercounty.gov"
 sourceHash: "4a103ae94d74"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the Boulder County feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Astronomy: Inside the Asteroid Belt\" at 4:30 pm on 13 November on the Boulder County feed"
 ---
 
 Astronomy: Inside the Asteroid Belt at Ron Stewart Preserve at Rabbit Mountain, Friday, November 13, 4:30 pm – 7 pm. Listed by Boulder County; the organizer's page has the details and any registration.

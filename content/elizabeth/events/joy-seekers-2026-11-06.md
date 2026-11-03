@@ -8,7 +8,7 @@ cost: "Free"
 category: arts
 recurring: "First Friday of the month"
 source: "https://www.elizabethmainstreet.org/calendar/"
-verified: "2026-11-01"
+verified: "2026-11-02"
 verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 11 am on the page"
 ---
 

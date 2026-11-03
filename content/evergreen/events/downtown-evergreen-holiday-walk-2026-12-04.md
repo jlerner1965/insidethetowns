@@ -8,8 +8,8 @@ url: "https://downtownevergreen.com/events/holiday-walk"
 category: "festival"
 source: "https://downtownevergreen.com/events/holiday-walk"
 sourceId: "downtownevergreen-com"
-verified: "2026-10-11"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): 4 December and 5 pm on the page"
 status: "scheduled"
 ---
 

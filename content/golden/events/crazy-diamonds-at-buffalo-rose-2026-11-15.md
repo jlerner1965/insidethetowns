@@ -10,8 +10,8 @@ url: "https://buffalorosegolden.com/events/crazy-diamonds/"
 category: music
 source: "https://buffalorosegolden.com/events/crazy-diamonds/"
 sourceId: "buffalorose-net"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Crazy Diamonds\" at 6 pm on 15 November in the page's structured data"
 ---
 
 Crazy Diamonds, a 10-piece Colorado Pink Floyd tribute with a female chorus and saxophone, whose sets often include all of The Dark Side of the Moon. 18 and over, or under 18 with a parent or guardian.

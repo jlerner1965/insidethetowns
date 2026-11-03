@@ -9,8 +9,8 @@ category: music
 performers:
   - { name: "Spork", kind: group }
 source: "https://www.verynicebrewing.com/event-details/live-music-with-spork-6"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against Very Nice Brewing's Nederland events page and this event's own page, 1 November 2026: Friday, November 6, 5 to 7 pm; no price given"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 5 pm on the page"
 ---
 
 Spork plays the Very Nice Brewing taproom in Nederland on Friday, November 6, 5 to 7 pm. The brewery describes the act as an acoustic jukebox of old favorites and upbeat new tunes. No cover was posted.

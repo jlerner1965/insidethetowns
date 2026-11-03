@@ -10,8 +10,8 @@ source: "https://music.colostate.edu/events/virtuoso-series-concert-faculty-cham
 sourceId: "music-colostate-edu"
 sourceUid: "17-19473@music.colostate.edu"
 sourceHash: "10d7fa2cbb88"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the music.colostate.edu feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Virtuoso Series Concert: Faculty Chamber Music\" at 7:30 pm on 9 November on the music.colostate.edu feed"
 ---
 
 Virtuoso Series Concert: Faculty Chamber Music at Organ Recital Hall, Monday, November 9, 7:30 pm – 9:30 pm. Listed by music.colostate.edu; the organizer's page has the details and any registration.

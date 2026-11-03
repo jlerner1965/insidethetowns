@@ -10,8 +10,8 @@ category: "music"
 performers:
   - { name: "Harmony Hotshots", kind: group }
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against Avogadro's Number's events page, 1 November 2026: 2026-11-15, 15:00-17:30, $20; NoCO Trad Jazz Society members $15; students $10"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): 15 November and 3 pm on the page"
 ---
 
 The Harmony Hotshots' monthly third-Sunday traditional jazz matinee at 3 p.m. Cash or check only at the door. At Avogadro's Number, 605 South Mason Street.

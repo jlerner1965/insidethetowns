@@ -15,7 +15,7 @@ cost: "Free"
 category: music
 timeNote: "Noon to 8 pm; music from 12:30 pm"
 source: "https://citystarbrewing.com/event/berthoud-blues-bash/"
-verified: "2026-11-01"
+verified: "2026-11-02"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Berthoud Blues Bash\" at 12 pm on 14 November in the page's structured data"
 ---
 

@@ -9,8 +9,8 @@ category: music
 performers:
   - { name: "Denny Driscoll", kind: person }
 source: "https://300sunsbrewing.com/events/"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against 300 Suns Brewing's events page, 1 November 2026: Thur, Nov 12, 6-8pm; no cover mentioned"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): 12 November and 6 pm on the page"
 ---
 
 Longmont acoustic fixture Denny Driscoll plays covers and originals from Americana to zydeco at 300 Suns Brewing on 1st Avenue, Thursday, November 12 from 6 to 8 pm, with GypsyWould and Boog'loo Revival also on the bill. The brewery's events page lists no cover charge.

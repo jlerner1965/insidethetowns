@@ -10,8 +10,8 @@ performers:
   - { name: "North Fork Crossing", kind: group }
   - { name: "A Brother's Fountain", kind: group }
 source: "https://www.z2ent.com/events/detail/the-brothers-comatose-2026-agg"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against Z2 Entertainment's Aggie Theatre page (z2ent.com), 1 November 2026: 2026-11-13, doors 7:00 pm, show 8:00 pm, all ages; no price shown on the page"
+verified: "2026-11-02"
+verifiedBy: "recheck-events (the nightly re-check workflow): 13 November and 8 pm on the page"
 ---
 
 Bay Area string band The Brothers Comatose, with North Fork Crossing and A Brother's Fountain opening. Doors at 7 pm, show at 8 pm. All ages. Presented by Maxline Brewing. Ticket prices are on the Aggie's page; none was posted in the listing text when checked.
