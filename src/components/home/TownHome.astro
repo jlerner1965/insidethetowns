@@ -17,11 +17,14 @@
  * 4. The Thursday email (NewsletterSignup, home): the heading, one line,
  *    the field and the button. The page's one form, where the email covers
  *    the town.
- * 5. Find your next stop (NextStop): Eat & drink, Things to do and Living
+ * 5. For families, where the config switches it on (`families.onHome`):
+ *    up to three lines from the family hub, each with its date, ages and
+ *    cost, and one link to /families/ (src/lib/family-home.ts).
+ * 6. Find your next stop (NextStop): Eat & drink, Things to do and Living
  *    here (or Moving here) as three photographs.
- * 6. Worth knowing: the two newest local changes as links, and the rest on
+ * 7. Worth knowing: the two newest local changes as links, and the rest on
  *    the updates page. Hidden where there are none.
- * 7. The footer, one block on this page (Footer).
+ * 8. The footer, one block on this page (Footer).
  *
  * The seven-day agenda, the scoreboard, the changes' summaries and sources,
  * the place cards and the list of eight, the articles, the neighbours'
@@ -46,6 +49,7 @@ import { editionFor, emailEditions, getNetworkHub, getTown } from '@/config';
 import { schoolsFor, teamPath, type SportsData } from '@/config/school-sports';
 import { getTownEntries } from '@/lib/content';
 import { occurrences, weeklyTest } from '@/lib/events';
+import { familyLines } from '@/lib/family-home';
 import { weekDays } from '@/lib/flagship-home';
 import { defaultTab, homeTabs, laterRows, TAB_LIMIT } from '@/lib/home-tabs';
 import { isOpen } from '@/lib/places';
@@ -96,7 +100,12 @@ const know = currentUpdates(await getTownEntries('updates'), now)
   .sort((a, b) => b.data.published.getTime() - a.data.published.getTime() || b.data.effective.getTime() - a.data.effective.getTime())
   .slice(0, 2);
 
-// 5. The places with a photograph, for the three tiles; a closed place is not a next stop.
+// 5. For families: the hub's three timeliest lines, where the town has them on.
+const familyRows = town.families?.onHome
+  ? familyLines({ programs: await getTownEntries('programs'), breaks: town.families.breaks, events: occurrences(allEvents, { now, horizonDays: 10 }), now, isSeries: weeklyTest(allEvents) })
+  : [];
+
+// 6. The places with a photograph, for the three tiles; a closed place is not a next stop.
 const places = (await getTownEntries('places')).filter(isOpen);
 ---
 <Hero compact pick={!!pick} changes={know.length > 0} />
@@ -113,6 +122,24 @@ const places = (await getTownEntries('places')).filter(isOpen);
   <section class="band-compact band-paper">
     <div class="container-page">
       <NewsletterSignup town={town} id="home" variant="home" anchor="signup" />
+    </div>
+  </section>
+)}
+
+{familyRows.length > 0 && (
+  <section class="band-compact band-paper" aria-labelledby="families-home" data-hide-when-empty>
+    <div class="container-page">
+      <h2 id="families-home" class="display-md text-[2rem] md:text-[2.5rem]">For families</h2>
+      <ul class="mt-3 divide-y divide-line-soft">
+        {familyRows.map((r) => (
+          <li class="py-3" data-event-day={r.day} data-end={r.end}>
+            <p class="text-[0.9375rem] font-semibold text-ink-muted">{r.when}</p>
+            <p class="text-[1.0625rem] leading-snug"><a href={r.href} class="font-medium no-underline hover:text-primary hover:underline" data-track="family-home">{r.title}</a></p>
+            {r.facts.length > 0 && <p class="mt-0.5 text-[0.9375rem] leading-snug text-ink-muted">{r.facts.join(' · ')}</p>}
+          </li>
+        ))}
+      </ul>
+      <p class="mt-3 text-[1.0625rem]"><a href="/families/" class="inline-block -my-2 py-2 font-semibold text-primary underline">Everything for families →</a></p>
     </div>
   </section>
 )}

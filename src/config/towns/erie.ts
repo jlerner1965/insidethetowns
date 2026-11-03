@@ -75,6 +75,7 @@ export const erie: TownConfig = {
   families: {
     label: 'Erie Families',
     intro: 'What Erie kids can join, what closes soon, and the school days off.',
+    onHome: true,
     schools: [
       {
         district: 'St. Vrain Valley Schools',

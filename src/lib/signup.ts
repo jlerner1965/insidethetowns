@@ -63,6 +63,41 @@ export function inlineSignup(env: Record<string, unknown>): boolean {
 /** /api/subscribe's answer, as the page reads it (src/lib/subscribe.ts). Anything else is `unavailable`. */
 export type SubscribeAnswer = 'confirm' | 'added' | 'already' | 'invalid' | 'unavailable';
 
+/**
+ * What happened to a send, for the guide's own analytics: the answer from
+ * /api/subscribe, or `handed-off` when the form went to Buttondown's page
+ * in a new tab, which this page cannot see the end of.
+ *
+ * Counted beside `newsletter-signup`, which TrackClicks counts on every
+ * press (a press with no town ticked and the second press of a double click
+ * among them), so the two together say how many presses Buttondown took:
+ *
+ * - `confirm`: Buttondown has the address and has sent its confirmation
+ *   email. Not a subscriber yet; only Buttondown sees the click that makes
+ *   one, so confirmed subscribers are counted there, not here.
+ * - `added`: active at once, only with double opt-in off in Buttondown.
+ * - `already`: an address already on the list; its towns were added.
+ * - `invalid`: the address was refused, by the site's own check or by Buttondown.
+ * - `unavailable`: no usable answer; the page offered Buttondown's own form.
+ * - `handed-off`: sent to Buttondown's page in a new tab.
+ */
+export type SignupResult = SubscribeAnswer | 'handed-off';
+
+/** The DOM event the form raises with each result, for TrackClicks to count. */
+export const SIGNUP_RESULT_EVENT = 'newsletter-result';
+
+/**
+ * The analytics properties for a result: the result and the page path, the
+ * two Vercel Web Analytics keeps on a custom event without the Plus add-on
+ * (DEPLOY.md). The town is the site itself, each guide its own project and
+ * its own Plausible domain; on the hub, the towns ticked are the
+ * subscriber's tags in Buttondown. Never the address, and never a query
+ * string, which can carry one back from a provider's redirect.
+ */
+export function signupResultProps(result: SignupResult, path: string): Record<string, string> {
+  return { result, from: path.split(/[?#]/)[0] || '/' };
+}
+
 export function readAnswer(body: unknown): SubscribeAnswer {
   const status = (body as { status?: unknown } | null)?.status;
   return status === 'confirm' || status === 'added' || status === 'already' || status === 'invalid' ? status : 'unavailable';

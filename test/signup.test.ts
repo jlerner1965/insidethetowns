@@ -6,7 +6,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { inlineSignup, panelFor, readAnswer, SIGNUP_MESSAGES, signupOutcome } from '../src/lib/signup.ts';
+import { inlineSignup, panelFor, readAnswer, SIGNUP_MESSAGES, SIGNUP_RESULT_EVENT, signupOutcome, signupResultProps } from '../src/lib/signup.ts';
 
 test('a form with a town ticked is left to the browser to send', () => {
   assert.equal(signupOutcome({ towns: ['erie'], sending: false }), 'send');
@@ -147,4 +147,24 @@ test('the form carries no attribute the freshness script prunes by', () => {
 test('the page calls the function at its own path, with the slash the sites redirect to', () => {
   const component = readFileSync('src/components/NewsletterSignup.astro', 'utf8');
   assert.match(component, /fetch\('\/api\/subscribe\/'/);
+});
+
+test("what became of a send is counted with the page, never the address", () => {
+  // A press is not a signup (3 November 2026): newsletter-signup counts the
+  // press, newsletter-result what Buttondown said to it.
+  assert.deepEqual(signupResultProps('confirm', '/articles/breakfast-and-coffee-in-berthoud/'), {
+    result: 'confirm',
+    from: '/articles/breakfast-and-coffee-in-berthoud/',
+  });
+  const props = signupResultProps('handed-off', '/families/?email=reader%40example.com#signup');
+  assert.ok(Object.keys(props).length <= 2, 'Vercel keeps two properties on a custom event (DEPLOY.md)');
+  assert.equal(props.from, '/families/', 'no query string, which could carry an address back');
+  assert.ok(!Object.values(props).some((v) => v.includes('@') || v.includes('%40')));
+  const component = readFileSync('src/components/NewsletterSignup.astro', 'utf8');
+  assert.match(component, /report\(answer\)/, "the page's own send reports Buttondown's answer");
+  assert.match(component, /report\('handed-off'\)/, "a send to Buttondown's page is counted as handed off, not as a signup");
+  assert.doesNotMatch(component, /detail: \{[^}]*email/, 'the event carries no address');
+  const tracker = readFileSync('src/components/TrackClicks.astro', 'utf8');
+  assert.match(tracker, /SIGNUP_RESULT_EVENT/);
+  assert.equal(SIGNUP_RESULT_EVENT, 'newsletter-result');
 });
