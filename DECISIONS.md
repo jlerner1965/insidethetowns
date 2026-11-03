@@ -8451,3 +8451,33 @@ stuff then second guessing themselves."*
   Google's own suggestions show people searching "berthoud development
   map", "berthoud zoning map", "berthoud new construction", and nothing on
   the guide could rank for them before.
+
+## The development tracker is re-read every night, 3 November 2026
+
+*"What's being built in Berthoud" is true on the day it is read and
+drifts from the first meeting after. The owner agreed the morning it was
+published that the Town's map should be read again after every meeting
+without anyone remembering to.*
+
+- **What runs.** `scripts/recheck-development.ts`, a step in the nightly
+  re-check (recheck-events.yml), reads the Town's Development Activity
+  layer (the ArcGIS feature service behind berthoud.org's map), compares
+  it with `data/berthoud/development.json`, keeps the new read as the
+  snapshot, and puts in the pull request every row that changed: status,
+  hearing dates, submittal, notes, a project new on the map or gone from
+  it. Nothing moved: one line saying so, so the reader knows it was
+  looked at. The pure part (shaping a row, the diff, the report) is
+  `scripts/lib/development.ts`, under test.
+- **The machine never edits the article.** The Town's record says a plat
+  was approved; what to say about it, and whether a row gone from the map
+  was withdrawn or just not entered, is a person's call, made against the
+  agenda. The report names the article and the rows to update and asks
+  for the `verified` date to move.
+- **Why a snapshot in git.** The diff and the report then travel in one
+  pull request, and the record of what the Town's map said on each day is
+  kept, which the Town's own map does not do.
+- **Any town can have one.** A `data/<town>/development.json` with the
+  layer's URL and the article's path is the whole setup; the script reads
+  every town that has one. Berthoud is the first. The rest of the
+  growth-fast towns (Johnstown, Timnath, Windsor and Severance, Erie) are
+  candidates once each has a tracker page to keep true.
