@@ -32,6 +32,7 @@
     "agent": "node agent/agent.mjs",
     "auto-review": "node scripts/auto-review.ts",
     "recheck": "node scripts/recheck-events.ts",
+    "recheck-development": "node scripts/recheck-development.ts",
     "confirm": "node scripts/confirm-events.ts",
     "sports": "node scripts/sports.ts"
   },

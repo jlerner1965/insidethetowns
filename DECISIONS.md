@@ -8419,3 +8419,65 @@ decide-by dates; Golden stays a flagship.*
   `manitou-springs` stay tagged and get nothing, which is the owner's to
   resolve; the domains and Vercel projects stay the owner's, each still
   building its holding page so it keeps serving the rules.
+
+## No warnings on a published page, 3 November 2026
+
+*The owner, reading two Berthoud drafts on growth and zoning: "no
+warnings. It makes people not think it's good... why are they publishing
+stuff then second guessing themselves."*
+
+- **The rule.** A published page states facts or leaves them out. No
+  "unverified", "reportedly", "by X's account" or "this guide could not
+  confirm" goes live. A warning on a live page says "we weren't sure and
+  published anyway," which is worse than either printing the fact or
+  omitting it. HOW-IT-WORKS.md, Accuracy, carries the rule; the content
+  skill's "What not to do" list repeats it.
+- **Where doubt lives.** In the draft and the hand-off note, where the
+  owner sees it and decides. The editor skill's `[UNVERIFIED]` markers are
+  for that stage and never survive into `content/`. A fact that rests only
+  on a second-hand summary is cut, not softened.
+- **What is not a hedge.** A source at the foot of the page, and the
+  `verified` date the chassis shows beside the article date: both are
+  facts about the page. Attribution goes there, not into the sentence.
+- **Applied the same day** to the two drafts that prompted it, published
+  as `content/berthoud/articles/whats-being-built-in-berthoud.md` (every
+  sizable project on the Town's Development Activity Map, read from the
+  Town's own data layer, with the votes and ordinances behind each) and
+  `revere-property-what-the-april-vote-decided.md` (the 38 acres at US 287
+  and Mountain Avenue, Ordinance 1363, the two petitions, the April 7, 2026
+  results and what they mean). Four lines that rested on Citizen Portal
+  and KFKA summaries this session could not open were removed rather than
+  marked. The tracker is the first growth-and-zoning page on any guide;
+  Google's own suggestions show people searching "berthoud development
+  map", "berthoud zoning map", "berthoud new construction", and nothing on
+  the guide could rank for them before.
+
+## The development tracker is re-read every night, 3 November 2026
+
+*"What's being built in Berthoud" is true on the day it is read and
+drifts from the first meeting after. The owner agreed the morning it was
+published that the Town's map should be read again after every meeting
+without anyone remembering to.*
+
+- **What runs.** `scripts/recheck-development.ts`, a step in the nightly
+  re-check (recheck-events.yml), reads the Town's Development Activity
+  layer (the ArcGIS feature service behind berthoud.org's map), compares
+  it with `data/berthoud/development.json`, keeps the new read as the
+  snapshot, and puts in the pull request every row that changed: status,
+  hearing dates, submittal, notes, a project new on the map or gone from
+  it. Nothing moved: one line saying so, so the reader knows it was
+  looked at. The pure part (shaping a row, the diff, the report) is
+  `scripts/lib/development.ts`, under test.
+- **The machine never edits the article.** The Town's record says a plat
+  was approved; what to say about it, and whether a row gone from the map
+  was withdrawn or just not entered, is a person's call, made against the
+  agenda. The report names the article and the rows to update and asks
+  for the `verified` date to move.
+- **Why a snapshot in git.** The diff and the report then travel in one
+  pull request, and the record of what the Town's map said on each day is
+  kept, which the Town's own map does not do.
+- **Any town can have one.** A `data/<town>/development.json` with the
+  layer's URL and the article's path is the whole setup; the script reads
+  every town that has one. Berthoud is the first. The rest of the
+  growth-fast towns (Johnstown, Timnath, Windsor and Severance, Erie) are
+  candidates once each has a tracker page to keep true.

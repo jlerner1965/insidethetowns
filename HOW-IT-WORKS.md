@@ -82,7 +82,12 @@ One wrong fact costs more than ten missing ones.
   chamber's or a paper's calendar lists other people's events and waits
   for the organizer's own.
 - Nothing is guessed. Can't confirm it: leave it out, or mark it
-  unverified with what was found.
+  unverified with what was found, in the draft. A published page states
+  facts or leaves them out: no "unverified", "reportedly" or "this guide
+  could not confirm" ever goes live, and doubt is settled before
+  publishing, not handed to the reader. Attribution is a source at the
+  foot of the page, not a hedge in the sentence; the `verified` date is a
+  fact about the page, not a doubt about it (3 November 2026).
 - A listing is re-checked within 30 days. At 60 days its hours hide. A
   listing whose only source dropped it carries a `changeFlag` and gets a
   call before the hours hide.
@@ -196,7 +201,7 @@ Scheduled jobs (Denver time), all in `.github/workflows/`:
 | When | Job | Writes |
 |---|---|---|
 | Daily 05:10 | Rebuild every site; restart a dropped ingest or re-check | nothing; Vercel redeploys |
-| Daily 05:40 | Re-check the next 14 days of events against their sources; list what waits for a person before its date | stamps and flags, as a pull request |
+| Daily 05:40 | Re-check the next 14 days of events against their sources; list what waits for a person before its date; re-read each town's development map and list every row that moved | stamps and flags, and `data/<town>/development.json`, as a pull request |
 | Monday 07:10 | Ingest the confirmed feeds; auto-review the safe ones | staged and published events, as a pull request |
 | Wednesday 06:20 | The research agent: one week's findings per flagship | a report, as a pull request |
 | Thursday 06:10 | Draft the Thursday email from the listings | a draft, as a pull request; merging sends it |

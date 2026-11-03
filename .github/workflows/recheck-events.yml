@@ -59,6 +59,16 @@ jobs:
         run: npm install --no-save --no-audit --no-fund playwright@1.56.1 && npx playwright install --with-deps chromium
       - name: Re-check and write what was found
         run: npm run recheck -- --write --by="the nightly re-check workflow" --report=/tmp/recheck.md
+      # A town's development tracker ("What's being built in Berthoud") is
+      # written from the Town's own development map. Read the map again,
+      # keep the new read as data/<town>/development.json, and list every row
+      # that moved, so the page is updated the morning after a meeting rather
+      # than found wrong a month later. The article itself is never edited
+      # by a machine. A map that cannot be read is reported and the night's
+      # re-check goes on without it.
+      - name: Re-read each town's development map and list what moved
+        continue-on-error: true
+        run: npm run recheck-development -- --write --report=/tmp/development.md
       # What waits for a person and has a date in the next fortnight: staged
       # events (deleted unlisted once their date passes), staged changes and
       # flagged listings (the old fact shows until someone rules). Read only;
@@ -80,6 +90,7 @@ jobs:
             # GitHub refuses a body over 65,536 characters; the run's log holds the whole report.
             room=60000
             if [ -s /tmp/due.md ]; then head -c 20000 /tmp/due.md; echo; room=$((room - $(head -c 20000 /tmp/due.md | wc -c))); fi
+            if [ -s /tmp/development.md ]; then head -c 8000 /tmp/development.md; echo; room=$((room - $(head -c 8000 /tmp/development.md | wc -c))); fi
             head -c "$room" /tmp/recheck.md
             if [ "$(wc -c < /tmp/recheck.md)" -gt "$room" ]; then echo; echo; echo "_The report runs on; the rest is in this run's log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}_"; fi
             echo EOF

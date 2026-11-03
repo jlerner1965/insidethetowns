@@ -39,3 +39,4 @@ Before drafting anything:
 - Don't add sections the sibling pages don't have.
 - Don't produce three versions unless asked. One good draft.
 - Don't write about a business, event or person you couldn't find a source for.
+- Don't hedge on the page. `[UNVERIFIED]` markers, "reportedly", "by X's account" and "this guide could not confirm" belong in the draft and the hand-off note, never in `content/`. If a fact isn't good enough to state flat, cut it (HOW-IT-WORKS.md, Accuracy, 3 November 2026).
