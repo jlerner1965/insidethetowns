@@ -2,15 +2,16 @@
 title: "Trailhead Cafe"
 type: restaurant
 address: "375 Meadowlark Dr"
-area: "Meadowlark Drive, near the bike park"
-priceRange: "$$"
-tags: [cafe, breakfast, bikes]
-summary: "Casual cafe on Meadowlark Drive near the bike park and Waggener Farm Park, for breakfast, sandwiches and coffee after a ride."
-source: "https://berthoudmainstreet.org/dine-drink-berthoud/"
-verified: "2026-09-18"
-changeFlag: true
-changeNote: "26 October 2026: Berthoud Main Street's Dine & Drink page, this listing's only source, no longer lists Trailhead Cafe; no site of the business's own is on file. Not evidence it has closed: call or walk past before the listing's check runs out, then re-source it or mark it closed."
+area: "Meadowlark Drive"
+url: "https://www.trailhead.cafe/"
+phone: "(970) 532-3826"
+hours: "Daily 7 am–2 pm"
+priceRange: "$"
+tags: [cafe, breakfast, lunch, coffee]
+summary: "Breakfast and lunch cafe on Meadowlark Drive, open every day 7 am to 2 pm: pancakes and eggs, burgers, salads and espresso."
+source: "https://www.trailhead.cafe/"
+verified: "2026-11-03"
 added: "2026-09-17"
 ---
 
-A casual cafe on Meadowlark Drive on the north side of town, handy for the bike park and the rec center: breakfast, sandwiches, salads and coffee.
+A breakfast-and-lunch cafe on Meadowlark Drive, open every day from 7 am to 2 pm. The menu, as its site describes it, runs from pancakes and eggs to burgers and salads, with espresso drinks and seasonal specials, and the cafe says it buys local where it can. It takes orders online and does catering.
