@@ -4,7 +4,7 @@ type: "lodging"
 address: "175 Spruce Drive, Estes Park, CO 80517"
 url: "https://www.silvermooninn.com/"
 source: "https://www.silvermooninn.com/"
-verified: "2026-10-11"
+verified: "2026-11-03"
 added: "2026-10-11"
 verifiedBy: "Claude Code, delegated by James Lerner"
 status: "open"
@@ -25,4 +25,4 @@ Check-in is 4–9 pm and check-out 11 am; call before arriving after 9 pm. There
 
 Parking is one vehicle per room unless the inn agrees otherwise in advance. Pets are accepted, for a fee, only in rooms labeled Pet Friendly, and cannot be left alone in guest rooms; the inn updated its pet policy on March 9, 2026. Cancellation terms differ by suite type.
 
-Policies and check-in times were read on the inn’s [reservation policies](https://www.silvermooninn.com/) and [contact](https://www.silvermooninn.com/Contact.html) pages on 11 October 2026.
+Policies and check-in times were read on the inn’s [reservation policies](https://www.silvermooninn.com/) and [contact](https://www.silvermooninn.com/Contact.html) pages on 3 November 2026.
