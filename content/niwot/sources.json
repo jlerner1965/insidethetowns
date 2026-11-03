@@ -11,7 +11,7 @@
       "category": "county",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "cites": {
         "events": 3,
@@ -33,6 +33,8 @@
       "category": "chamber",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "ok",
       "cites": {
         "events": 9,
         "places": 7
@@ -43,9 +45,7 @@
         "Trivia Night",
         "Hormone Health"
       ],
-      "notes": "The Niwot Business Association's site, added as a source on the owner's word, 20 October 2026. Its calendar (Modern Events Calendar) publishes /events/feed/: one item per event at its next date, with mec:startDate, mec:startHour, mec:endDate, mec:endHour, mec:location and mec:category; the plugin's site-wide iCal feed is switched off. The feed holds ten items, the next ten events in date order, which on 20 October reached July 2027. Filed as chamber, not venue: the board also carries other groups' events, so nothing from it is approved without a person, and another group's event is confirmed on that group's own page. Excluded: the Tree Carving Fundraiser, a donation appeal the calendar repeats every Tuesday with no time or place; Trivia Night, The Wheel House's weekly regular, which the guide lists from the venue; and the Hormone Health Small Group Medical Program, an enrollment clinic program at a day spa, which is a promotion, not an event.",
-      "lastChecked": "2026-11-01",
-      "lastStatus": "ok"
+      "notes": "The Niwot Business Association's site, added as a source on the owner's word, 20 October 2026. Its calendar (Modern Events Calendar) publishes /events/feed/: one item per event at its next date, with mec:startDate, mec:startHour, mec:endDate, mec:endHour, mec:location and mec:category; the plugin's site-wide iCal feed is switched off. The feed holds ten items, the next ten events in date order, which on 20 October reached July 2027. Filed as chamber, not venue: the board also carries other groups' events, so nothing from it is approved without a person, and another group's event is confirmed on that group's own page. Excluded: the Tree Carving Fundraiser, a donation appeal the calendar repeats every Tuesday with no time or place; Trivia Night, The Wheel House's weekly regular, which the guide lists from the venue; and the Hormone Health Small Group Medical Program, an enrollment clinic program at a day spa, which is a promotion, not an event."
     },
     {
       "id": "niwothall-org",
@@ -57,6 +57,8 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "ok",
       "cites": {
         "events": 16,
         "places": 1
@@ -71,9 +73,7 @@
         "Featured Event"
       ],
       "defaultVenue": "Niwot Hall",
-      "notes": "The hall's rental calendar (Modern Events Calendar), read 20 October 2026 at /events/feed/: ten items, the coming week only (the plugin ignores paging and its iCal export is off), mixing public events with band practice, rehearsals and private bookings. The hall marks the public ones 'Featured Event', which is the include filter; the Rotary's weekly breakfast is already listed as a regular and the election commission's meetings are civic notices. No location element: the hall is the venue. A one-week window read on Mondays lists that week's talks and seminars; longer notice has to come from the organizers' own pages. Confirmed 20 October 2026 on the owner's delegation; 16 published events already cite the site. \"Rebuilding Seminars\" excluded 1 November 2026: the hall marks the Sunday 5 to 8 pm sessions a featured event, but they are the ten-week divorce-recovery course, a closed group that enrolls in advance (checked 21 October); the 1 November ingest published one under the rules and it came straight off. The course's public introductory evening is a separate listing.",
-      "lastChecked": "2026-11-01",
-      "lastStatus": "ok"
+      "notes": "The hall's rental calendar (Modern Events Calendar), read 20 October 2026 at /events/feed/: ten items, the coming week only (the plugin ignores paging and its iCal export is off), mixing public events with band practice, rehearsals and private bookings. The hall marks the public ones 'Featured Event', which is the include filter; the Rotary's weekly breakfast is already listed as a regular and the election commission's meetings are civic notices. No location element: the hall is the venue. A one-week window read on Mondays lists that week's talks and seminars; longer notice has to come from the organizers' own pages. Confirmed 20 October 2026 on the owner's delegation; 16 published events already cite the site. \"Rebuilding Seminars\" excluded 1 November 2026: the hall marks the Sunday 5 to 8 pm sessions a featured event, but they are the ten-week divorce-recovery course, a closed group that enrolls in advance (checked 21 October); the 1 November ingest published one under the rules and it came straight off. The course's public introductory evening is a separate listing."
     },
     {
       "id": "niwotwheelhouse-com",

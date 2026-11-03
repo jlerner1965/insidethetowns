@@ -27,7 +27,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "cites": {
         "events": 14,
@@ -46,7 +46,7 @@
       "category": "county",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "cites": {
         "events": 0,
@@ -68,7 +68,7 @@
       "category": "library",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "cites": {
         "events": 74,
@@ -87,7 +87,7 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "ok",
       "robots": "honor",
       "defaultVenue": "Creative Grounds",

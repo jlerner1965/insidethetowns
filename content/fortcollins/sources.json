@@ -10,7 +10,7 @@
       "category": "city-calendar",
       "priority": "core",
       "status": "confirmed",
-      "lastChecked": "2026-11-01",
+      "lastChecked": "2026-11-02",
       "lastStatus": "blocked",
       "lastNote": "refused an automated request",
       "cites": {
@@ -126,6 +126,8 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "ok",
       "cites": {
         "events": 5,
         "places": 0
@@ -147,9 +149,7 @@
         "Spur Music Lab",
         "Parade of Lights Preview"
       ],
-      "notes": "CSU Department of Music, University Center for the Arts, 1400 Remington St. WordPress with the Events Manager plugin; /events/ical/ is iCalendar (America/Denver), read 20 October 2026: 50 VEVENTs, 43 in the next 120 days, 45 with a LOCATION (the five without are webinars and information sessions), no RRULEs. The plugin caps the export at 50 items, so the far end can be cut off when the department lists more than 50 ahead. Noise to hold back: an umbrella 'Fall 2026 Student Recitals' spanning October to December, and the college's cross-posts (CLA Democracy Summit, CSU Scholarships Fair), which appear identically in the theatre and dance feeds too. Confirmed 20 October 2026 on the owner's delegation. Excluded by title: the department's studio and area recitals and chamber-ensemble class recitals (student coursework, not the ensemble concerts), webinars and information sessions, the honor band festival (schools), the Spur Music Lab (at CSU Spur in Denver) and the Parade of Lights preview (no place given).",
-      "lastChecked": "2026-11-01",
-      "lastStatus": "ok"
+      "notes": "CSU Department of Music, University Center for the Arts, 1400 Remington St. WordPress with the Events Manager plugin; /events/ical/ is iCalendar (America/Denver), read 20 October 2026: 50 VEVENTs, 43 in the next 120 days, 45 with a LOCATION (the five without are webinars and information sessions), no RRULEs. The plugin caps the export at 50 items, so the far end can be cut off when the department lists more than 50 ahead. Noise to hold back: an umbrella 'Fall 2026 Student Recitals' spanning October to December, and the college's cross-posts (CLA Democracy Summit, CSU Scholarships Fair), which appear identically in the theatre and dance feeds too. Confirmed 20 October 2026 on the owner's delegation. Excluded by title: the department's studio and area recitals and chamber-ensemble class recitals (student coursework, not the ensemble concerts), webinars and information sessions, the honor band festival (schools), the Spur Music Lab (at CSU Spur in Denver) and the Parade of Lights preview (no place given)."
     },
     {
       "id": "lctix-com",
@@ -161,14 +161,14 @@
       "category": "venue",
       "priority": "core",
       "status": "confirmed",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "ok",
       "cites": {
         "events": 18,
         "places": 1
       },
       "robots": "honor",
-      "notes": "The City of Fort Collins' performing arts centre, 417 W. Magnolia St. Its own site (WordPress) has no events feed; its box office, tickets.lctix.com, is ShoWare, like the Rialto's, and the ticket site's event list is drawn by script from /include/widgets/events/performancelist.asp?action=perf&page=N, twenty performances a page (132 on 20 October 2026, to July 2027), read by scripts/lib/feeds/showare.ts; robots.txt allows it. Every row names the hall (Performance Hall, Magnolia Theatre) and the address. A few rows are untitled placeholders with no price, which the reader skips. Presenters' shows (the Fort Collins Symphony, OpenStage, Debut Theatre) are sold by the Center's own box office, which the standard counts as the organizer's ticket page. Confirmed 20 October 2026 on the owner's delegation; 18 published events already cite the box office.",
-      "lastChecked": "2026-11-01",
-      "lastStatus": "ok"
+      "notes": "The City of Fort Collins' performing arts centre, 417 W. Magnolia St. Its own site (WordPress) has no events feed; its box office, tickets.lctix.com, is ShoWare, like the Rialto's, and the ticket site's event list is drawn by script from /include/widgets/events/performancelist.asp?action=perf&page=N, twenty performances a page (132 on 20 October 2026, to July 2027), read by scripts/lib/feeds/showare.ts; robots.txt allows it. Every row names the hall (Performance Hall, Magnolia Theatre) and the address. A few rows are untitled placeholders with no price, which the reader skips. Presenters' shows (the Fort Collins Symphony, OpenStage, Debut Theatre) are sold by the Center's own box office, which the standard counts as the organizer's ticket page. Confirmed 20 October 2026 on the owner's delegation; 18 published events already cite the box office."
     },
     {
       "id": "bathgardencenter-com",
@@ -194,14 +194,14 @@
       "type": "json",
       "category": "venue",
       "status": "confirmed",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "ok",
       "cites": {
         "events": 3,
         "places": 0
       },
       "robots": "honor",
-      "notes": "Bohemian Live Music, the Bohemian Foundation's programme at Washington's (132 Laporte Ave) and The Armory (314 E Mountain Ave): ticketed club shows, not the free concerts. WordPress with The Events Calendar; the page advertises an iCal export that answers 410 Gone, but the REST feed /wp-json/tribe/events/v1/events answers, read 20 October 2026: 30 events, 22 in the next 120 days, a venue with address on every one, costs as the feed gives them ('$44.04', 'Sold Out'). Confirmed 20 October 2026 on the owner's delegation.",
-      "lastChecked": "2026-11-01",
-      "lastStatus": "ok"
+      "notes": "Bohemian Live Music, the Bohemian Foundation's programme at Washington's (132 Laporte Ave) and The Armory (314 E Mountain Ave): ticketed club shows, not the free concerts. WordPress with The Events Calendar; the page advertises an iCal export that answers 410 Gone, but the REST feed /wp-json/tribe/events/v1/events answers, read 20 October 2026: 30 events, 22 in the next 120 days, a venue with address on every one, costs as the feed gives them ('$44.04', 'Sold Out'). Confirmed 20 October 2026 on the owner's delegation."
     },
     {
       "id": "dance-colostate-edu",
@@ -212,6 +212,8 @@
       "type": "ical",
       "category": "venue",
       "status": "confirmed",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "ok",
       "cites": {
         "events": 1,
         "places": 0
@@ -223,9 +225,7 @@
         "Visit Day",
         "Audition Day"
       ],
-      "notes": "CSU Dance, University Dance Theatre at the UCA, 1400 Remington St. Same stack; /events/ical/ read 20 October 2026: 11 VEVENTs, 8 in the next 120 days, every one with a LOCATION. Visit days start at midnight; cross-posts as in the music feed. Confirmed 20 October 2026 on the owner's delegation. \"Audition Day\" excluded 1 November 2026: the 2027 Spring Dance Experience: Visit and Audition Day is a prospective-student day like the Visit Day already excluded, and the rules published it.",
-      "lastChecked": "2026-11-01",
-      "lastStatus": "ok"
+      "notes": "CSU Dance, University Dance Theatre at the UCA, 1400 Remington St. Same stack; /events/ical/ read 20 October 2026: 11 VEVENTs, 8 in the next 120 days, every one with a LOCATION. Visit days start at midnight; cross-posts as in the music feed. Confirmed 20 October 2026 on the owner's delegation. \"Audition Day\" excluded 1 November 2026: the 2027 Spring Dance Experience: Visit and Audition Day is a prospective-student day like the Visit Day already excluded, and the rules published it."
     },
     {
       "id": "focofallfest-com",
@@ -296,6 +296,8 @@
       "type": "ical",
       "category": "venue",
       "status": "confirmed",
+      "lastChecked": "2026-11-02",
+      "lastStatus": "ok",
       "cites": {
         "events": 1,
         "places": 0
@@ -307,9 +309,7 @@
         "Visit Day",
         "Alice by Heart"
       ],
-      "notes": "CSU Theatre, University Theatre and Studio Theatre at the UCA, 1400 Remington St. Same Events Manager stack as the music department; /events/ical/ read 20 October 2026: 22 VEVENTs, 12 in the next 120 days, every one with a LOCATION. Each performance is its own VEVENT, but a run's first VEVENT carries DTEND at closing night (Alice by Heart: 6 to 13 November), so a multi-day end on a performance is the run, not the night. Visit days start at midnight. Cross-posts as in the music feed. Confirmed 20 October 2026 on the owner's delegation. Alice by Heart is excluded for this run: the guide lists it once as a run (6 to 15 November, from the department's page), and the feed would stage each night.",
-      "lastChecked": "2026-11-01",
-      "lastStatus": "ok"
+      "notes": "CSU Theatre, University Theatre and Studio Theatre at the UCA, 1400 Remington St. Same Events Manager stack as the music department; /events/ical/ read 20 October 2026: 22 VEVENTs, 12 in the next 120 days, every one with a LOCATION. Each performance is its own VEVENT, but a run's first VEVENT carries DTEND at closing night (Alice by Heart: 6 to 13 November), so a multi-day end on a performance is the run, not the night. Visit days start at midnight. Cross-posts as in the music feed. Confirmed 20 October 2026 on the owner's delegation. Alice by Heart is excluded for this run: the guide lists it once as a run (6 to 15 November, from the department's page), and the feed would stage each night."
     },
     {
       "id": "tourdecorgi-org",
