@@ -303,7 +303,11 @@ On 10 October the same went on the six mountain domains
 (insideblackhawk.com, insideidahosprings.com, insidegeorgetownco.com,
 insidegrandlake.com, insidemanitousprings.com, insideleadville.com), with
 the rule copied from insidenederland.com's, again with a token the owner
-supplied. All twenty-six guide domains now receive `hello@`.
+supplied. On 3 November the same went on the two flagships added
+2 November, insidelafayette.com and insidefrederickco.com, with the rule
+copied from insidegolden.com's and a token the owner supplied;
+insidelafayette.com already had routing on, so it needed only the rule and
+`_dmarc`. All twenty-eight guide domains now receive `hello@`.
 
 On each domain (Cloudflare → the domain → Email → Email Routing):
 
