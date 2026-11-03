@@ -5,12 +5,15 @@
  * custom event named for what it is (registration, participation, service)
  * through Vercel Web Analytics and, on a guide that has it, Plausible. Both
  * are no-ops where their script is not on the page. The newsletter form's
- * own submit is counted the same way from NewsletterSignup.astro.
+ * own submit is counted the same way from NewsletterSignup.astro, and so is
+ * what became of it (`newsletter-result`, src/lib/signup.ts): Buttondown's
+ * answer and the page, never the address.
  */
 ---
 <script>
   import { track as vercel } from '@vercel/analytics';
   import { track as plausible } from '@plausible-analytics/tracker';
+  import { SIGNUP_RESULT_EVENT, signupResultProps, type SignupResult } from '@/lib/signup';
 
   const send = (name: string, props: Record<string, string>) => {
     try {
@@ -32,4 +35,8 @@
   for (const form of document.querySelectorAll<HTMLFormElement>('form[data-signup]')) {
     form.addEventListener('submit', () => send('newsletter-signup', { from: location.pathname }));
   }
+  document.addEventListener(SIGNUP_RESULT_EVENT, (event) => {
+    const detail = (event as CustomEvent<{ result?: SignupResult }>).detail;
+    if (detail?.result) send(SIGNUP_RESULT_EVENT, signupResultProps(detail.result, location.pathname));
+  });
 </script>

@@ -72,11 +72,20 @@ export interface HomeTab {
 
 const SHORT_DAY = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, weekday: 'short' });
 
-/** Up to `limit` of a list: one-off and civic listings before the weekly series, then back in day and clock order. */
+/**
+ * Up to `limit` of a list: one-off and civic listings before the weekly
+ * series, a listing called off or postponed after both, then back in day and
+ * clock order. A cancellation is worth its line while the tab has room; on
+ * a full tab it gives up its slot first, and the count of the rest is of
+ * listings still on (Erie, 3 November 2026: a canceled workshop held one of
+ * the weekend's five slots).
+ */
 export function pickRows(items: TabRow[], limit = TAB_LIMIT): { rows: TabRow[]; more: number } {
   const byClock = (a: TabRow, b: TabRow) => a.dayKey.localeCompare(b.dayKey) || a.time.localeCompare(b.time);
-  const chosen = [...items].sort((a, b) => Number(!!a.series) - Number(!!b.series) || byClock(a, b)).slice(0, limit);
-  return { rows: chosen.sort(byClock), more: items.length - chosen.length };
+  const rank = (r: TabRow) => (r.status ? 2 : r.series ? 1 : 0);
+  const chosen = [...items].sort((a, b) => rank(a) - rank(b) || byClock(a, b)).slice(0, limit);
+  const on = (list: TabRow[]) => list.filter((r) => !r.status).length;
+  return { rows: chosen.sort(byClock), more: on(items) - on(chosen) };
 }
 
 /**

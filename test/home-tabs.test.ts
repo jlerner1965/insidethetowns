@@ -162,3 +162,17 @@ test('next on a thin day: the pick, then a festival, a market or music, then the
   const civic = [ev('meeting', '2026-11-02T19:00'), ev('hearing', '2026-11-03T19:00'), ev('board', '2026-11-04T19:00')];
   assert.deepEqual(nextAfter(laterRows(civic), '2026-11-01').map((r) => r.fullTitle), ['meeting', 'hearing', 'board'], 'all of a kind: the order of the days, as before');
 });
+
+test('a canceled listing keeps its line while there is room, gives up its slot on a full tab, and is not one of the rest', () => {
+  // Erie's weekend, 3 November 2026: a canceled shadow-puppetry workshop held one of five slots.
+  const now = at('2026-10-27T09:00');
+  const row = (slug: string, time: string, extra: Record<string, unknown> = {}) => ({ ...weekDays({ events: [ev(slug, `2026-10-27T${time}`, extra)], now, start: 'today', limit: 99 })[0]!.items[0]!, dayWord: '', dayKey: '2026-10-27' });
+  const off = row('workshop', '08:00', { status: 'canceled' });
+  assert.equal(off.status, 'canceled');
+  const full = pickRows([off, row('a', '09:00'), row('b', '10:00'), row('c', '11:00'), row('d', '12:00'), row('e', '13:00'), row('f', '14:00')]);
+  assert.deepEqual(full.rows.map((r) => r.fullTitle), ['a', 'b', 'c', 'd', 'e']);
+  assert.equal(full.more, 1, 'the one listing still on, not the canceled one');
+  const room = pickRows([off, row('a', '09:00'), row('b', '10:00')]);
+  assert.deepEqual(room.rows.map((r) => r.fullTitle), ['workshop', 'a', 'b'], 'with room, the cancellation is news worth a line, in clock order');
+  assert.equal(room.more, 0);
+});

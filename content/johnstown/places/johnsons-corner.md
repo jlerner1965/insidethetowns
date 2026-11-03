@@ -4,12 +4,13 @@ type: restaurant
 address: "2842 SE Frontage Rd"
 area: "I-25 frontage road, west edge"
 url: "https://blackbeardiner.com/location/johnstown/"
+phone: "(970) 667-2069"
 hours: "Daily 6 am–10 pm"
 priceRange: "$$"
 tags: [diner, truck stop, breakfast, cinnamon rolls]
 summary: "The I-25 landmark that has run as a truck stop since 1952: its famous diner reopened as a Black Bear Diner in May 2025, open 6 am to 10 pm every day."
 source: "https://blackbeardiner.com/location/johnstown/"
-verified: "2026-11-02"
+verified: "2026-11-03"
 added: "2026-09-17"
 ---
 

@@ -181,6 +181,14 @@ export interface FamiliesConfig {
   schools: ReadonlyArray<ResourceLink & { district: string }>;
   /** Published break dates, from the district calendar. */
   breaks: ReadonlyArray<{ district: string; label: string; from: string; to: string; source: string; verified: string }>;
+  /**
+   * Up to three lines from the hub on the home page, above Find your next
+   * stop: the next school break with a camp on it, a deadline within the
+   * fortnight, a free family listing this weekend (src/lib/family-home.ts).
+   * Off unless set; Erie first (3 November 2026), where the hub had the
+   * most a parent could act on and the home said none of it.
+   */
+  onHome?: boolean;
 }
 
 /**

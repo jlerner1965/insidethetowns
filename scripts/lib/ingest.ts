@@ -27,6 +27,8 @@ export interface ExistingEvent {
   venue: string;
   status?: string;
   sourceUid?: string;
+  /** The feed's other ids this listing already includes (the file's `mergedUids`). */
+  mergedUids?: string[];
   sourceHash?: string;
   /** The host of the page the file was read from, without "www.": the site whose ids `sourceUid` belongs to. */
   sourceHost?: string;
@@ -292,8 +294,12 @@ export function toStaged(item: FeedEvent, source: Source, _town: string, today: 
   return { slug, frontmatter, body, guesses };
 }
 
-/** What tied the item to the file: the feed's own id, the organizer's page for it, or the day and the title. */
-export type MatchHow = 'uid' | 'link' | 'title';
+/**
+ * What tied the item to the file: the feed's own id, one of the ids an
+ * editor merged into the listing (`mergedUids`: a part of it with its own
+ * time), the organizer's page for it, or the day and the title.
+ */
+export type MatchHow = 'uid' | 'merged' | 'link' | 'title';
 
 export type Match =
   | { kind: 'none' }
@@ -357,6 +363,11 @@ export function matchExisting(item: FeedEvent, existing: ExistingEvent[], siblin
   // the registrable domain, not the hostname.
   const byUid = existing.find((e) => e.sourceUid && !e.laterShow && e.sourceUid === item.uid && (!host || !e.sourceHost || sameSite(e.sourceHost, host)));
   if (byUid) return { kind: byUid.staged ? 'staged' : 'published', existing: byUid, how: 'uid' };
+  // An id an editor merged into a published listing: that listing, whatever
+  // time the item gives, since the part (the band at 6) is not the
+  // listing's start (the release at 3).
+  const byMerged = existing.find((e) => !e.staged && !e.laterShow && e.mergedUids?.includes(item.uid) && (!host || !e.sourceHost || sameSite(e.sourceHost, host)));
+  if (byMerged) return { kind: 'published', existing: byMerged, how: 'merged' };
   const day = dayKey(item.start);
   const near = (e: ExistingEvent) => item.allDay || Math.abs(e.start.getTime() - item.start.getTime()) <= HALF_HOUR;
   // A file whose own feed id is still in this run belongs to that item.

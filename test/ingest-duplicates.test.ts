@@ -194,3 +194,24 @@ test('a possible duplicate is staged with the question first, and the standing r
   assert.equal(v.approve, false);
   assert.ok(!v.approve && v.reasons.some((r) => /possible duplicate/.test(r)), !v.approve ? v.reasons.join(' | ') : '');
 });
+
+test("a feed item an editor merged into a listing (mergedUids) is that listing, whatever its hour", () => {
+  // City Star posts a Friday's beer release (3 pm) and its band (6 pm) as
+  // two items; the guide lists the afternoon once. Before mergedUids each
+  // part came back as its own listing beside the merged one (Berthoud,
+  // 3 November 2026).
+  const star = 'https://citystarbrewing.com/event/';
+  const merged = file({
+    file: 'merged.md', slug: 'merged', title: 'Raspberry Bandit and Cabaret releases with Johnny Johnston and Felonius Smith',
+    start: parseLocal('2026-11-06T15:00'), venue: 'City Star Brewing', sourceUid: '6667', mergedUids: ['7637', '12493'],
+    sourceHost: 'citystarbrewing.com', urls: [`${star}beer-release-raspberry-bandit/`],
+  });
+  const band = item({ uid: '12493', title: 'Johnny Johnston and Felonius Smith', start: parseLocal('2026-11-06T18:00'), end: parseLocal('2026-11-06T20:30'), url: `${star}johnny-johnston-and-felonius-smith/`, location: '' });
+  const m = matchExisting(band, [merged], 1, new Set(['6667', '7637', '12493']), 'citystarbrewing.com');
+  assert.equal(m.kind, 'published');
+  assert.equal(m.kind === 'published' && m.how, 'merged');
+  // Another site's id 12493 is another event.
+  assert.equal(matchExisting(band, [merged], 1, undefined, 'example.org').kind, 'none');
+  // A staged file's merged ids claim nothing: only an editor's published merge counts.
+  assert.equal(matchExisting(band, [{ ...merged, staged: true }], 1, undefined, 'citystarbrewing.com').kind, 'none');
+});

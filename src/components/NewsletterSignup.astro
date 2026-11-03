@@ -276,7 +276,7 @@ const box = 'size-5 shrink-0 rounded border-line';
 )}
 
 <script>
-  import { panelFor, readAnswer, SIGNUP_MESSAGES, signupOutcome, type SignupPanel } from '@/lib/signup';
+  import { panelFor, readAnswer, SIGNUP_MESSAGES, SIGNUP_RESULT_EVENT, signupOutcome, type SignupPanel, type SignupResult } from '@/lib/signup';
 
   const PANEL: Record<SignupPanel, { title: string; help: string; button?: string }> = {
     confirm: { title: SIGNUP_MESSAGES.confirm, help: SIGNUP_MESSAGES.confirmHelp },
@@ -299,6 +299,9 @@ const box = 'size-5 shrink-0 rounded border-line';
     const done = form.parentElement?.querySelector<HTMLElement>('[data-signup-done]');
     const inline = form.dataset.inline !== undefined;
     let sending = false;
+    // What became of a send, for TrackClicks to count (src/lib/signup.ts,
+    // SignupResult): the result alone, never the address.
+    const report = (result: SignupResult) => form.dispatchEvent(new CustomEvent(SIGNUP_RESULT_EVENT, { bubbles: true, detail: { result } }));
     // The next send goes to Buttondown's own page: the panel's button, or no key.
     let direct = false;
     const showForm = () => {
@@ -369,6 +372,7 @@ const box = 'size-5 shrink-0 rounded border-line';
           button.disabled = false;
           button.textContent = label;
         }
+        report(answer);
         if (answer === 'invalid') {
           if (emailError) emailError.hidden = false;
           email?.focus();
@@ -382,6 +386,7 @@ const box = 'size-5 shrink-0 rounded border-line';
       // the post's way, and `sending` turns away the second press of a
       // double click.
       direct = false;
+      report('handed-off');
       setTimeout(() => showPanel('opened'));
     });
     // The panel's button: the same form, to Buttondown's own page, from the
