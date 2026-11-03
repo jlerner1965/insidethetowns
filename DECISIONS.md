@@ -8402,9 +8402,10 @@ decide-by dates; Golden stays a flagship.*
   folder keeps its README (now saying it is retired) and `images/` with
   their licence rows, among them the Adobe heroes bought for Clear Creek
   and Manitou Springs on 30 October.
-- **Neighbours.** Golden named Evergreen and Clear Creek and no one else, so
-  it has none now: its Nearby block is not built until the owner names new
-  ones (Lafayette, Erie or Nederland are the nearest live guides).
+- **Neighbours.** Golden named Evergreen and Clear Creek and no one else.
+  The owner named Lafayette and Erie in their place the same day ("add
+  Lafayette and erie and golden neighbours"), so Golden's Nearby block reads
+  those two, and each names Golden back, last on its list as the farthest.
   Nederland keeps Lyons and Niwot; Castle Rock keeps Elizabeth.
 - **What follows.** The email is nine editions (Clear Creek's ended), Estes
   Park is the one visitor guide, and the network covers seven counties

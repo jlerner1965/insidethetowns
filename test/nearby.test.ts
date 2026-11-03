@@ -117,8 +117,8 @@ test('each guide names the neighbours the owner set, in that order', () => {
     niwot: ['longmont', 'lyons', 'erie', 'lafayette', 'nederland'],
     lyons: ['longmont', 'niwot', 'estes-park', 'nederland'],
     longmont: ['niwot', 'lyons', 'erie', 'lafayette', 'frederick', 'berthoud'],
-    erie: ['longmont', 'lafayette', 'frederick', 'niwot'],
-    lafayette: ['erie', 'longmont', 'niwot'],
+    erie: ['longmont', 'lafayette', 'frederick', 'niwot', 'golden'],
+    lafayette: ['erie', 'longmont', 'niwot', 'golden'],
     frederick: ['erie', 'longmont'],
     'carbon-valley': [],
     berthoud: ['loveland', 'longmont', 'johnstown'],
@@ -133,8 +133,8 @@ test('each guide names the neighbours the owner set, in that order', () => {
     'castle-rock': ['elizabeth'],
     'estes-park': ['lyons', 'loveland'],
     // Evergreen and Clear Creek were Golden's two until both retired on 3
-    // November 2026; its new ones are the owner's to name.
-    golden: [],
+    // November 2026; the owner named Lafayette and Erie the same day.
+    golden: ['lafayette', 'erie'],
     evergreen: [],
     nederland: ['lyons', 'niwot'],
     // The six mountain guides, live 10 October 2026, each pair both ways.
@@ -165,13 +165,13 @@ test('neighbours are real guides, never the town itself, and go both ways', () =
   }
 });
 
-test('Leadville and Golden have no live neighbours, so their blocks are never built', () => {
+test('Leadville has no live neighbours, so its block is never built', () => {
   // Leadville names nobody: nothing in the network is an afternoon's drive
   // away. Elizabeth and Manitou Springs were alone too until Castle Rock,
-  // on both their lists, went live on 31 October 2026. Golden lost both of
-  // its own when Evergreen and Clear Creek retired on 3 November 2026, until
-  // the owner names new ones.
-  const ALONE = ['leadville', 'golden'];
+  // on both their lists, went live on 31 October 2026. Golden was alone for
+  // part of 3 November 2026, between its neighbours' retirement and the
+  // owner naming Lafayette and Erie.
+  const ALONE = ['leadville'];
   for (const slug of ALONE) assert.deepEqual(neighborsOf(findTown(slug)!), [], slug);
   for (const t of liveTowns().filter((t) => !ALONE.includes(t.slug))) assert.ok(neighborsOf(t).length > 0, t.slug);
 });
