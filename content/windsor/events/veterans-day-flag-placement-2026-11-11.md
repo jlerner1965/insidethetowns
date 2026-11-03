@@ -11,8 +11,8 @@ source: "https://www.recreationliveshere.com/calendar.aspx?EID=1353"
 sourceId: "recreationliveshere-com"
 sourceUid: "1353"
 sourceHash: "05a2860eda97"
-verified: "2026-11-02"
-verifiedBy: "auto-review from the Windsor Parks, Recreation & Culture (recreationliveshere.com) feed read 2026-11-02, the weekly ingest workflow"
+verified: "2026-11-03"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Veterans Day Flag Placement\" at 10 am on 11 November on the Windsor Parks, Recreation & Culture (recreationliveshere.com) feed"
 ---
 
 Veterans Day Flag Placement at Lakeview Cemetery, Wednesday, November 11, 10 am – 11 am. Listed by Windsor Parks, Recreation & Culture (recreationliveshere.com); the organizer's page has the details and any registration.

@@ -9,7 +9,7 @@ source: "https://calendar.estesvalleylibrary.org/event/17835556"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17835556"
 sourceHash: "603f98b8b16f"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Spice Metals\" at 6 pm on 11 November on the Estes Valley Library feed"
 ---
 

@@ -8,7 +8,7 @@ url: "https://www.berthoud.org/Calendar.aspx"
 cost: "Free"
 category: civic
 source: "https://www.berthoud.org/Calendar.aspx"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Youth Advisory Commission Meeting\" at 7:30 am on 4 November on the berthoud.org feed"
 ---
 

@@ -9,7 +9,7 @@ performers:
   - { name: "Thee Sinseers", kind: group }
   - { name: "The Charities", kind: group }
 source: "https://www.z2ent.com/events/detail/thee-sinseers-with-the-charities"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): 3 November and 8 pm on the page"
 ---
 

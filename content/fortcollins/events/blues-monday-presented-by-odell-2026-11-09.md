@@ -7,7 +7,7 @@ address: "605 South Mason Street, Fort Collins, CO 80524"
 url: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
 category: "music"
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): 9 November and 6 pm on the page"
 ---
 

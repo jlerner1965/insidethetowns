@@ -9,7 +9,7 @@ source: "https://citystarbrewing.com/event/a-little-help-service-saturday/"
 sourceId: "citystarbrewing-com"
 sourceUid: "15090"
 sourceHash: "7f07d2d5c7c3"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"A Little Help &#8211; Service Saturday\" at 9 am on 7 November in the page's structured data"
 ---
 

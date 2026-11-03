@@ -10,7 +10,7 @@ url: "https://buffalorosegolden.com/events/creedence-colorado-revival-swingtown/
 category: music
 source: "https://buffalorosegolden.com/events/creedence-colorado-revival-swingtown/"
 sourceId: "buffalorose-net"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Creedence Colorado Revival &amp;amp; Swingtown\" at 7 pm on 12 November in the page's structured data"
 ---
 

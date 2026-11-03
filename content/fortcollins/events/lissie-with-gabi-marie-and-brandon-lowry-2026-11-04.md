@@ -10,7 +10,7 @@ performers:
   - { name: "Gabi Marie", kind: person }
   - { name: "Brandon Lowry", kind: person }
 source: "https://www.z2ent.com/events/detail/lissie-2026-agg"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): 4 November and 8 pm on the page"
 ---
 

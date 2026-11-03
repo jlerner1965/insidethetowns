@@ -9,8 +9,8 @@ source: "https://lafayettepubliclibrary.libcal.com/calendar/main/histsocietyboar
 sourceId: "lafayettepubliclibrary-libcal"
 sourceUid: "LibCal-10144-15036497"
 sourceHash: "cf54efb103f4"
-verified: "2026-11-02"
-verifiedBy: "auto-review from the Lafayette Public Library - LibCal calendar feed read 2026-11-02, the weekly ingest workflow"
+verified: "2026-11-03"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Lafayette Historical Society Annual Members Meeting\" at 10:30 am on 7 November on the Lafayette Public Library - LibCal calendar feed"
 ---
 
 Lafayette Historical Society Annual Members Meeting at Lafayette Library, Saturday, November 7, 10:30 am – 12 pm. Listed by Lafayette Public Library - LibCal calendar; the organizer's page has the details and any registration.

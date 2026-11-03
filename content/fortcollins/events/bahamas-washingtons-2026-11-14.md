@@ -8,7 +8,7 @@ url: "https://www.etix.com/ticket/p/40847199/bahamas-fort-collins-washingtons"
 cost: "$29.25"
 category: music
 source: "https://bohemianlivemusic.org/"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 8 pm on the page"
 ---
 

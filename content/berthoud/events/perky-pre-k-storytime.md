@@ -10,8 +10,8 @@ cost: "Free"
 category: family
 recurring: "Wednesdays at 10:30; no storytime November 11 (library closed)"
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-10-28"
-verifiedBy: "recheck-events (the nightly re-check workflow): 28 October and 10:30 am on the page"
+verified: "2026-11-03"
+verifiedBy: "recheck-events (the nightly re-check workflow): 4 November and 10:30 am on the page"
 ---
 
 Stories, songs, movement and a craft for preschoolers, every Wednesday morning at the library. No registration.

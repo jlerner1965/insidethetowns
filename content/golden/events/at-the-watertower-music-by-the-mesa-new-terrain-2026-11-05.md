@@ -10,7 +10,7 @@ category: music
 performers:
   - { name: "At The Watertower", kind: group }
 source: "https://newterrainbrewing.com/event/at-the-watertower-music-by-the-mesa/"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"At The Watertower @ Music By The Mesa\" at 6 pm on 5 November in the page's structured data"
 ---
 

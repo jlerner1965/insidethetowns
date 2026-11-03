@@ -11,7 +11,7 @@ cost: "Free"
 category: other
 recurring: "Tuesdays at 6"
 source: "https://citystarbrewing.com/events/"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Humdinger Trivia\" at 6 pm on 3 November in the page's structured data"
 ---
 
