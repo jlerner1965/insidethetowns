@@ -25,9 +25,9 @@ export const golden: TownConfig = {
   variant: 'mountain',
   region: 'Mountains & Foothills',
   // Evergreen and Clear Creek were its neighbours until both retired on 3
-  // November 2026. Which guides take their place is the owner's call
-  // (Lafayette, Erie or Nederland are the nearest live ones); empty until then.
-  neighbors: [],
+  // November 2026; the owner named Lafayette and Erie in their place the same
+  // day, up 93 and the Northwest Parkway. Each names Golden back.
+  neighbors: ['lafayette', 'erie'],
   // Set with the brief, 6 October 2026: upcoming events / open listings.
   launchThreshold: { events: 20, listings: 25 },
   slug: 'golden',
