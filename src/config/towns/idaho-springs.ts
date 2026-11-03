@@ -25,21 +25,32 @@ import type { TownConfig } from './types.ts';
  * census file read 20 October 2026, summed where the config wants one
  * number; the comments say which. The point, the elevation, the colours and
  * the hero stay Idaho Springs's.
+ *
+ * Retired on 3 November 2026 on the owner's word, the whole Clear Creek guide
+ * with it (DECISIONS.md, "Evergreen, Manitou Springs and Clear Creek
+ * retired"): no guide to fold into, so every path on insideidahosprings.com
+ * and on insidegeorgetownco.com redirects to the hub (vercel.json), the guide
+ * has no sections, and its content has left content/idaho-springs/ (git
+ * history keeps it). The config stays so the Vercel project keeps building,
+ * and keeps serving those redirects.
  */
 export const idahoSprings: TownConfig = {
   kind: 'town',
   // Live 10 October 2026, on the owner's word, under its launch threshold:
   // it publishes what is verified, and the validator and the weekly report
   // say what it is short of (docs/archive/ACCURACY-SYSTEM.md). Georgetown and Black
-  // Hawk joined on 20 October 2026; Black Hawk left on 2 November.
-  status: 'live',
+  // Hawk joined on 20 October 2026; Black Hawk left on 2 November; the
+  // guide retired 3 November 2026, owner's word.
+  status: 'redirect',
+  retired: {
+    since: '2026-11-03',
+    reason: 'The owner closed the Clear Creek guide, Idaho Springs and Georgetown, on 3 November 2026: the network is a set of town guides for the people who live there, and the I-70 towns were read as places to visit on the way up the mountains.',
+  },
   variant: 'mountain',
   region: 'Mountains & Foothills',
-  // Evergreen over Floyd Hill and Golden down the canyon, as before; Nederland
-  // by the Peak to Peak. Georgetown is no longer a neighbour: it is a section
-  // of this guide.
-  neighbors: ['evergreen', 'golden', 'nederland'],
-  subTowns: ['idaho-springs', 'georgetown'],
+  // Retired 3 November 2026: it names no neighbour and has no sections, and
+  // Golden and Nederland, which named it back, no longer do.
+  neighbors: [],
   slug: 'idaho-springs',
   name: 'Clear Creek',
   // Named by the owner on 10 October 2026, and on the owner's Cloudflare

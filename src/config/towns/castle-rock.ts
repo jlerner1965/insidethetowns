@@ -31,7 +31,8 @@ export const castleRock: TownConfig = {
   },
   variant: 'front-range',
   region: 'South Metro',
-  neighbors: ['elizabeth', 'manitou-springs'],
+  // Manitou Springs dropped out on 3 November 2026, when it retired.
+  neighbors: ['elizabeth'],
   // Set with the brief, 6 October 2026: upcoming events / open listings.
   // Listings lowered from 30 to 29 by the owner on 6 October 2026, the Town's own
   // parks and facilities being unreadable by automated means.

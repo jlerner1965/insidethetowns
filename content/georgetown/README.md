@@ -1,18 +1,15 @@
-# Georgetown: covered by Inside Clear Creek
+# Georgetown: retired
 
 Inside Georgetown was folded into Inside Clear Creek, the guide at
-insideidahosprings.com, on 20 October 2026 (DECISIONS.md, *Georgetown and
-Black Hawk join Idaho Springs on one Clear Creek guide*). Georgetown's events,
-places, staged items, articles and sources are in `content/idaho-springs/`,
-each event and place with `subTown: georgetown`, and the section page is
-insideidahosprings.com/georgetown/. Its Moving Here page is now the article
-`content/idaho-springs/articles/moving-to-georgetown.md`.
+insideidahosprings.com, on 20 October 2026, and retired with that guide on
+3 November 2026 (DECISIONS.md, *Evergreen, Manitou Springs and Clear Creek
+retired*). Its listings left `content/idaho-springs/` with the rest of the
+guide; git history keeps them.
 
-Every path on insidegeorgetownco.com redirects to the same page on
-insideidahosprings.com (vercel.json, docs/REDIRECTS.md). The Vercel project
-for insidegeorgetownco.com still builds with `TOWN=georgetown` so it keeps serving
-those rules; what it builds is one holding page, and `images/hero.jpg` stays
-here because that page uses it.
+Every path on insidegeorgetownco.com redirects to insidethetowns.com
+(vercel.json, docs/REDIRECTS.md). The Vercel project for
+insidegeorgetownco.com still builds with `TOWN=georgetown` so it keeps
+serving those rules; what it builds is one holding page, and
+`images/hero.jpg` stays here because that page uses it.
 
-Add new Georgetown content to `content/idaho-springs/` with `subTown: georgetown`,
-not here.
+Do not add content here. Reopening is a decision first, then a revert.

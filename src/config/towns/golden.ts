@@ -24,7 +24,10 @@ export const golden: TownConfig = {
   // longer went out (DECISIONS.md, "Golden as a flagship, 28 October").
   variant: 'mountain',
   region: 'Mountains & Foothills',
-  neighbors: ['evergreen', 'idaho-springs'],
+  // Evergreen and Clear Creek were its neighbours until both retired on 3
+  // November 2026. Which guides take their place is the owner's call
+  // (Lafayette, Erie or Nederland are the nearest live ones); empty until then.
+  neighbors: [],
   // Set with the brief, 6 October 2026: upcoming events / open listings.
   launchThreshold: { events: 20, listings: 25 },
   slug: 'golden',

@@ -15,15 +15,23 @@ import type { TownConfig } from './types.ts';
  * (DECISIONS.md, "Georgetown and Black Hawk join Idaho Springs on one Clear
  * Creek guide"): its events, places, articles and sources are in
  * content/idaho-springs/ with `subTown: georgetown`, and every path on
- * insidegeorgetownco.com redirects there (vercel.json). The config stays so
- * the Vercel project keeps building, and keeps serving those redirects.
+ * insidegeorgetownco.com redirected there (vercel.json). Retired with the
+ * Clear Creek guide on 3 November 2026 (DECISIONS.md, "Evergreen, Manitou
+ * Springs and Clear Creek retired"): with nothing left to point at, every
+ * path on insidegeorgetownco.com now redirects to the hub's home page. The
+ * config stays so the Vercel project keeps building, and keeps serving
+ * those redirects.
  */
 export const georgetown: TownConfig = {
   kind: 'town',
   // Live 10 October 2026, on the owner's word, under its launch threshold;
-  // folded into the Idaho Springs guide on 20 October 2026.
+  // folded into the Idaho Springs guide on 20 October 2026; retired with it
+  // on 3 November 2026.
   status: 'redirect',
-  foldedInto: { town: 'idaho-springs', path: '/georgetown/', since: '2026-10-20' },
+  retired: {
+    since: '2026-11-03',
+    reason: 'A section of the Clear Creek guide from 20 October 2026; the owner closed that guide, Idaho Springs and Georgetown both, on 3 November 2026, so there is no section left for the domain to point at.',
+  },
   variant: 'mountain',
   region: 'Mountains & Foothills',
   neighbors: [],

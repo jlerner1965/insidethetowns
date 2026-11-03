@@ -14,7 +14,8 @@ export const hub: HubConfig = {
   // on one of them. Not "Front Range" alone since 10 October 2026 either:
   // Grand Lake, Leadville and the Clear Creek towns are in the mountains,
   // and two of the guides cover a few neighbouring communities together
-  // (audit of 13 October 2026, F06).
+  // (audit of 13 October 2026, F06). Grand Lake and Clear Creek have since
+  // retired; Estes Park, Nederland and Leadville keep the mountains in it.
   tagline: 'Independent community guides to Colorado’s towns, on the Front Range and in the mountains.',
   // "to", not "&": a text fetch showed the title's "&amp;" raw (navigation
   // audit, 22 October 2026), and "and" runs the title past 65 characters.
@@ -58,7 +59,8 @@ export const hub: HubConfig = {
     // The Idaho Springs and Georgetown edition ended on 20 October 2026 when
     // the two became one guide, Inside Clear Creek, an edition of its own;
     // the Loveland and Johnstown edition the same day, when Loveland went
-    // quiet, so Johnstown is an edition of its own.
+    // quiet, so Johnstown is an edition of its own. Clear Creek's own edition
+    // ended on 3 November 2026, when the owner retired the guide.
     editions: [
       { slug: 'windsor-timnath', name: 'Windsor, Severance and Timnath', towns: ['windsor', 'timnath'] },
     ],

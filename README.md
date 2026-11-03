@@ -222,8 +222,8 @@ one line in the weekly report counting the days to the decision.
 
 A **visitor guide** (`visitorGuide` on its config: since, why) is a destination
 people plan a trip around, kept current but not published weekly: Estes
-Park, Evergreen and Manitou Springs (Black Hawk, Leadville and Manitou
-Springs were the first, from 12 October 2026). It has no weekly email,
+Park (Black Hawk, Leadville and Manitou Springs were the first, from 12
+October 2026; Evergreen and Manitou Springs were retired on 3 November). It has no weekly email,
 signup or Thursday draft, but unlike a quiet guide it stays in the weekly
 report, labeled, because a mountain listing still expires sixty days from its
 check; about a monthly pass keeps it whole.
@@ -233,8 +233,8 @@ check; about a monthly pass keeps it whole.
 The weekly email goes out as editions (`src/lib/editions.ts`). Most are one
 guide's. `newsletter.editions` on the hub config names the few that share one
 issue, one signup box and one sponsor line while each keeps its own site:
-Windsor, Severance and Timnath; Idaho Springs and Georgetown; Loveland and
-Johnstown. A shared edition's draft has each town's listings under its own
+Windsor, Severance and Timnath (Idaho Springs and Georgetown, and Loveland
+and Johnstown, shared one until 20 October 2026). A shared edition's draft has each town's listings under its own
 heading. Subscribers are still tagged by town, so in Buttondown a shared
 edition is sent to everyone tagged with any of its towns (one email each,
 however many of them they ticked), and an edition of one to its town's tag.

@@ -130,22 +130,26 @@ test('each guide names the neighbours the owner set, in that order', () => {
     elizabeth: ['castle-rock'],
     severance: [],
     'fort-lupton': [],
-    'castle-rock': ['elizabeth', 'manitou-springs'],
+    'castle-rock': ['elizabeth'],
     'estes-park': ['lyons', 'loveland'],
-    golden: ['evergreen', 'idaho-springs'],
-    evergreen: ['golden', 'idaho-springs'],
-    nederland: ['lyons', 'niwot', 'idaho-springs'],
+    // Evergreen and Clear Creek were Golden's two until both retired on 3
+    // November 2026; its new ones are the owner's to name.
+    golden: [],
+    evergreen: [],
+    nederland: ['lyons', 'niwot'],
     // The six mountain guides, live 10 October 2026, each pair both ways.
     // Leadville has none within an afternoon's drive; Manitou Springs names
     // Castle Rock, live since 31 October 2026. Georgetown and Black Hawk are
     // sections of the Idaho Springs guide since 20 October 2026, so Nederland's
     // Peak to Peak neighbour is that guide now and the two name nobody. Grand
     // Lake was retired on 30 October 2026, so it and Estes Park drop each other.
+    // Clear Creek and Manitou Springs were retired on 3 November 2026, with
+    // Evergreen, so Golden, Nederland and Castle Rock drop them.
     'black-hawk': [],
-    'idaho-springs': ['evergreen', 'golden', 'nederland'],
+    'idaho-springs': [],
     georgetown: [],
     'grand-lake': [],
-    'manitou-springs': ['castle-rock'],
+    'manitou-springs': [],
     leadville: [],
   };
   for (const t of towns) assert.deepEqual([...t.neighbors], NEIGHBORS[t.slug], t.slug);
@@ -161,11 +165,13 @@ test('neighbours are real guides, never the town itself, and go both ways', () =
   }
 });
 
-test('Leadville has no live neighbours, so its block is never built', () => {
+test('Leadville and Golden have no live neighbours, so their blocks are never built', () => {
   // Leadville names nobody: nothing in the network is an afternoon's drive
   // away. Elizabeth and Manitou Springs were alone too until Castle Rock,
-  // on both their lists, went live on 31 October 2026.
-  const ALONE = ['leadville'];
+  // on both their lists, went live on 31 October 2026. Golden lost both of
+  // its own when Evergreen and Clear Creek retired on 3 November 2026, until
+  // the owner names new ones.
+  const ALONE = ['leadville', 'golden'];
   for (const slug of ALONE) assert.deepEqual(neighborsOf(findTown(slug)!), [], slug);
   for (const t of liveTowns().filter((t) => !ALONE.includes(t.slug))) assert.ok(neighborsOf(t).length > 0, t.slug);
 });

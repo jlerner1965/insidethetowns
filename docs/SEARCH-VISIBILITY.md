@@ -57,7 +57,9 @@ and carbonvalleyguide.com has a verified `sc-domain:` property (the DNS
 route), and each has a sitemap submitted, as `/sitemap.xml` or
 `/sitemap-index.xml`. **2 November 2026:** carbonvalleyguide.com and
 insideblackhawk.com now redirect to the hub, so their properties will show
-the redirects and nothing else; insidefrederickco.com and insidelafayette.com
+the redirects and nothing else; **3 November 2026:** so will
+insideevergreenco.com, insidemanitousprings.com, insideidahosprings.com and
+insidegeorgetownco.com, retired that day; insidefrederickco.com and insidelafayette.com
 need properties and sitemaps of their own once their projects serve. Inside Castle Rock's was submitted as `/site.xml`,
 which does not exist; resubmit it as `/sitemap-index.xml` now the site is
 live (31 October 2026). The Google

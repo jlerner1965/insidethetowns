@@ -27,7 +27,7 @@ since and is kept current. A row comes off when its hero is replaced.
 | Fort Collins | **Bought 30 October:** Adobe Stock 419314122, Old Town Square in July 2020, the splash pad, the umbrellas and the sandstone blocks (Schrodington, LLC, standard licence, 5,151 px), in place of the Northern Hotel | Done. Adobe's licence record says Standard | — |
 | Golden | **Bought 30 October:** Adobe Stock 504466744, Jacob Boomsma's August 2021 aerial of Washington Avenue under the Welcome to Golden arch, North Table Mountain above (standard licence, 4,096 px), in place of Clear Creek and its kayakers | Done. Adobe's licence record says Standard | — |
 | Estes Park | **Bought 30 October:** Adobe Stock 2151219980, Elkhorn Avenue from above in autumn, the cottonwoods yellow (Josh-Lehew, standard licence, 4,024 px), in place of the town from the Gem Lake trail | Done. Adobe's licence record says Standard | — |
-| Elizabeth, Evergreen, Nederland | Their October Commons photographs | Fine as they are; the plan's picks are upgrades if the month's iStock and Adobe downloads have room | Owner |
+| Elizabeth, Nederland | Their October Commons photographs (Evergreen's too, until it retired on 3 November 2026) | Fine as they are; the plan's picks are upgrades if the month's iStock and Adobe downloads have room | Owner |
 
 Commons does load from the assistant's container, contrary to the plan's
 last paragraph, when files are fetched through
@@ -215,6 +215,8 @@ Also seen: the newest and sharpest arch shot, iStock 2212504972 (April 2025, 7,4
 
 ### Evergreen
 
+*Retired 3 November 2026 (DECISIONS.md, "Evergreen, Manitou Springs and Clear Creek retired"); kept here in case it reopens.*
+
 **Pick:** the iStock Lake House on Evergreen Lake with its reflection: the in-town landmark, standard licence, 5,548 px. It's a 2012 upload shot at dusk, so check it isn't too dark for the band; the 2024 dam photo (#2) is the fresher standard-licence alternative. No standard-licence daylight photo of the downtown storefront row exists on any reachable site.
 
 | # | Source | What it shows | Photographer | Licence | Max size | Price | Link |
@@ -278,6 +280,8 @@ Also seen: the boardwalk shots (iStock 2276366028, Shutterstock 2781430579) are 
 
 ### Clear Creek (Idaho Springs / Georgetown)
 
+*Retired 3 November 2026 (DECISIONS.md, "Evergreen, Manitou Springs and Clear Creek retired"); the bought hero stays in `content/idaho-springs/images/` with its licence row, in case it reopens.*
+
 **Pick:** the Adobe winter aerial of downtown Idaho Springs (#2): standard licence, 5,462 px, the town grid between the canyon walls. The 8,256 px storefront frame (#1) is bigger but its tags are generic ("italy, europa, palace"), so open the preview and confirm it is Miner Street before paying.
 
 | # | Source | What it shows | Photographer | Licence | Max size | Price | Link |
@@ -301,6 +305,8 @@ Also seen: Shutterstock 2607119149 (Kristi Blokhin, winter skyline with mountain
 Also seen: Shutterstock 2409622177 (Jacob Boomsma, autumn aerial, standard, 2024) and Adobe 704621653 are strong alternatives if you'd rather buy there. iStock 495910564 (Harrison Avenue in summer, chapin31) is editorial-only, as are most Shutterstock storefront shots (the Delaware Hotel, the Silver Dollar, the Golden Burro). Pexels has mountains only.
 
 ### Manitou Springs
+
+*Retired 3 November 2026 (DECISIONS.md, "Evergreen, Manitou Springs and Clear Creek retired"); the bought hero stays in `content/manitou-springs/images/` with its licence row, in case it reopens.*
 
 **Pick:** the Adobe aerial of downtown Manitou, the Manitou Avenue corridor with the red-rock foothills: 5,460 px, standard licence. Every street-level Manitou Avenue shot with Pikes Peak behind it is editorial-only.
 

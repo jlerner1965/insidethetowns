@@ -13,11 +13,9 @@ test('a single-town guide has no sub-towns and no list', () => {
   assert.equal(subTownList({}), '');
 });
 
-test('Clear Creek covers Idaho Springs and Georgetown; the closed Carbon Valley guide lists no sections, and Frederick is one town', () => {
-  const cc = towns.find((t) => t.slug === 'idaho-springs');
-  assert.ok(cc, 'idaho-springs is configured');
-  assert.deepEqual([...cc.subTowns!], ['idaho-springs', 'georgetown']);
-  assert.equal(subTownList(cc), 'Idaho Springs and Georgetown');
+test('the closed Clear Creek and Carbon Valley guides list no sections, and Frederick is one town', () => {
+  // Clear Creek (Idaho Springs and Georgetown) closed on 3 November 2026.
+  assert.equal(towns.find((t) => t.slug === 'idaho-springs')!.subTowns, undefined);
   // Carbon Valley (Frederick, Firestone, Dacono and Fort Lupton) closed on 2 November 2026.
   assert.equal(towns.find((t) => t.slug === 'carbon-valley')!.subTowns, undefined);
   assert.equal(subTownList(towns.find((t) => t.slug === 'frederick')!), '');
