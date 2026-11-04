@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-02T22:50:12.237Z",
+  "generated": "2026-11-04T20:09:21.515Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/lafayette/centaurus-warriors/football/",
-      "fetched": "2026-11-02T22:50:12.237Z",
-      "maxprepsUpdated": "2026-11-02T19:08:23",
+      "fetched": "2026-11-04T20:09:21.515Z",
+      "maxprepsUpdated": "2026-11-04T17:22:52",
       "overall": "5-5",
       "league": {
         "record": "3-4",
@@ -133,8 +133,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/lafayette/centaurus-warriors/soccer/",
-      "fetched": "2026-11-02T22:50:12.237Z",
-      "maxprepsUpdated": "2026-11-02T20:24:11",
+      "fetched": "2026-11-04T20:09:21.515Z",
+      "maxprepsUpdated": "2026-11-04T18:13:20",
       "overall": "7-7-2",
       "league": {
         "record": "5-1-1",
@@ -207,8 +207,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lafayette/centaurus-warriors/volleyball/",
-      "fetched": "2026-11-02T22:50:12.237Z",
-      "maxprepsUpdated": "2026-11-02T19:31:35",
+      "fetched": "2026-11-04T20:09:21.515Z",
+      "maxprepsUpdated": "2026-11-04T18:32:35",
       "overall": "12-10",
       "league": {
         "record": "7-7",
@@ -459,16 +459,38 @@
           }
         }
       ],
-      "upcoming": [],
+      "upcoming": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Cherry Creek",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/centaurus-lafayette-vs-cherry-creek-greenwood-village/11-6-2026/?c=449661f1-78df-45f3-9e30-ab697d626980",
+          "stage": "Playoffs",
+          "neutral": true,
+          "time": "16:00"
+        },
+        {
+          "date": "2026-11-06",
+          "opponent": "Ralston Valley",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/centaurus-lafayette-vs-ralston-valley-arvada/11-6-2026/?c=e9f8b2d4-9816-4a90-9b72-9ec1c87aefd6",
+          "stage": "Playoffs",
+          "neutral": true,
+          "time": "17:30"
+        }
+      ],
       "held": [],
-      "notes": []
+      "notes": [
+        "2026-11-06 at Cherry Creek is not on the school calendar (published on MaxPreps's word alone)",
+        "2026-11-06 at Ralston Valley is not on the school calendar (published on MaxPreps's word alone)"
+      ]
     },
     {
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lafayette/centaurus-warriors/softball/fall/",
-      "fetched": "2026-11-02T22:50:12.237Z",
-      "maxprepsUpdated": "2026-11-02T20:52:59",
+      "fetched": "2026-11-04T20:09:21.515Z",
+      "maxprepsUpdated": "2026-11-04T17:04:09",
       "overall": "7-15",
       "league": {
         "record": "1-13",
@@ -727,8 +749,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/lafayette/centaurus-warriors/cross-country/",
-      "fetched": "2026-11-02T22:50:12.237Z",
-      "maxprepsUpdated": "2026-11-02T22:51:03",
+      "fetched": "2026-11-04T20:09:21.515Z",
+      "maxprepsUpdated": "2026-11-04T18:27:03",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -741,8 +763,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/lafayette/centaurus-warriors/cross-country/girls/",
-      "fetched": "2026-11-02T22:50:12.237Z",
-      "maxprepsUpdated": "2026-11-02T22:51:08",
+      "fetched": "2026-11-04T20:09:21.515Z",
+      "maxprepsUpdated": "2026-11-04T20:10:18",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -755,8 +777,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lafayette/centaurus-warriors/basketball/",
-      "fetched": "2026-11-02T22:50:12.237Z",
-      "maxprepsUpdated": "2026-11-02T20:15:21",
+      "fetched": "2026-11-04T20:09:21.515Z",
+      "maxprepsUpdated": "2026-11-04T18:44:37",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -926,8 +948,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lafayette/centaurus-warriors/basketball/girls/",
-      "fetched": "2026-11-02T22:50:12.237Z",
-      "maxprepsUpdated": "2026-11-02T20:01:08",
+      "fetched": "2026-11-04T20:09:21.515Z",
+      "maxprepsUpdated": "2026-11-04T19:39:15",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -995,7 +1017,7 @@
         {
           "date": "2027-01-04",
           "opponent": "Fairview",
-          "site": "away",
+          "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/centaurus-lafayette-vs-fairview-boulder/1-4-2027/?c=8d8a61af-1b8c-4c95-8199-3754a814dc0b",
           "time": "17:30"
         },
@@ -1107,7 +1129,7 @@
         "2026-12-12 at George Washington is not on the school calendar (published on MaxPreps's word alone)",
         "2026-12-15 vs Boulder is not on the school calendar (published on MaxPreps's word alone)",
         "2026-12-18 at Skyline is not on the school calendar (published on MaxPreps's word alone)",
-        "2027-01-04 at Fairview is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-04 vs Fairview is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-05 vs Silver Creek is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-08 at Monarch is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-12 vs Longmont is not on the school calendar (published on MaxPreps's word alone)",
@@ -1128,8 +1150,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/lafayette/centaurus-warriors/wrestling/",
-      "fetched": "2026-11-02T22:50:12.237Z",
-      "maxprepsUpdated": "2026-11-02T22:51:29",
+      "fetched": "2026-11-04T20:09:21.515Z",
+      "maxprepsUpdated": "2026-11-04T19:41:21",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1142,8 +1164,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/lafayette/centaurus-warriors/swimming/girls/",
-      "fetched": "2026-11-02T22:50:12.237Z",
-      "maxprepsUpdated": "2026-11-02T20:01:29",
+      "fetched": "2026-11-04T20:09:21.515Z",
+      "maxprepsUpdated": "2026-11-04T20:10:44",
       "results": [],
       "upcoming": [],
       "held": [],

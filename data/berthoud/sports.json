@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-02T22:33:26.254Z",
+  "generated": "2026-11-04T19:52:23.480Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/football/",
-      "fetched": "2026-11-02T22:33:26.254Z",
-      "maxprepsUpdated": "2026-11-02T19:27:19",
+      "fetched": "2026-11-04T19:52:23.480Z",
+      "maxprepsUpdated": "2026-11-04T17:07:13",
       "overall": "7-3",
       "league": {
         "record": "4-2",
@@ -133,6 +133,7 @@
           "url": "https://www.maxpreps.com/co/football/game/berthoud-vs-pueblo-south/11-6-2026/?c=c2f8bd71-60b5-4656-9508-ede6d6305eab",
           "stage": "State Football Playoffs",
           "neutral": true,
+          "venue": "Max Marr Stadium",
           "time": "19:00"
         }
       ],
@@ -145,8 +146,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/soccer/",
-      "fetched": "2026-11-02T22:33:26.254Z",
-      "maxprepsUpdated": "2026-11-02T20:03:50",
+      "fetched": "2026-11-04T19:52:23.480Z",
+      "maxprepsUpdated": "2026-11-04T16:03:56",
       "overall": "8-7",
       "league": {
         "record": "6-2",
@@ -328,8 +329,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/volleyball/",
-      "fetched": "2026-11-02T22:33:26.254Z",
-      "maxprepsUpdated": "2026-11-02T19:40:18",
+      "fetched": "2026-11-04T19:52:23.480Z",
+      "maxprepsUpdated": "2026-11-04T19:14:29",
       "overall": "17-6",
       "league": {
         "record": "4-2",
@@ -605,15 +606,28 @@
           "time": "11:00"
         }
       ],
-      "held": [],
+      "held": [
+        {
+          "game": {
+            "date": "2026-11-07",
+            "opponent": "Prospect Ridge Academy",
+            "site": "neutral",
+            "url": "https://www.maxpreps.com/co/volleyball/match/berthoud-vs-prospect-ridge-academy-broomfield/11-7-2026/?c=7f9976a6-a165-4018-ae5a-06f1468f9db3",
+            "stage": "Playoffs",
+            "neutral": true,
+            "time": "14:00"
+          },
+          "reason": "2026-11-07 at Prospect Ridge Academy: MaxPreps says 2 pm, the school calendar says 3 pm (\"Girls Varsity Volleyball vs PROSPECT RIDGE ACADEMY\")"
+        }
+      ],
       "notes": []
     },
     {
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/softball/fall/",
-      "fetched": "2026-11-02T22:33:26.254Z",
-      "maxprepsUpdated": "2026-11-02T21:34:02",
+      "fetched": "2026-11-04T19:52:23.480Z",
+      "maxprepsUpdated": "2026-11-04T17:08:39",
       "overall": "17-10",
       "league": {
         "record": "2-7",
@@ -948,8 +962,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/",
-      "fetched": "2026-11-02T22:33:26.254Z",
-      "maxprepsUpdated": "2026-11-02T22:34:15",
+      "fetched": "2026-11-04T19:52:23.480Z",
+      "maxprepsUpdated": "2026-11-04T18:30:35",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -962,8 +976,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/cross-country/girls/",
-      "fetched": "2026-11-02T22:33:26.254Z",
-      "maxprepsUpdated": "2026-11-02T22:34:20",
+      "fetched": "2026-11-04T19:52:23.480Z",
+      "maxprepsUpdated": "2026-11-04T17:28:04",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -976,8 +990,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/basketball/",
-      "fetched": "2026-11-02T22:33:26.254Z",
-      "maxprepsUpdated": "2026-11-02T22:28:03",
+      "fetched": "2026-11-04T19:52:23.480Z",
+      "maxprepsUpdated": "2026-11-04T17:39:54",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1029,6 +1043,13 @@
           "time": "19:00"
         },
         {
+          "date": "2027-01-20",
+          "opponent": "Loveland",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-loveland/1-20-2027/?c=f3f233b5-95bc-4eb0-bcb5-4f27a4414ac8",
+          "time": "19:30"
+        },
+        {
           "date": "2027-01-21",
           "opponent": "Denver Christian",
           "site": "home",
@@ -1036,17 +1057,17 @@
           "time": "17:30"
         },
         {
-          "date": "2027-01-21",
-          "opponent": "Loveland",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-loveland/1-21-2027/?c=f3f233b5-95bc-4eb0-bcb5-4f27a4414ac8",
-          "time": "19:30"
-        },
-        {
           "date": "2027-01-22",
           "opponent": "Denver Christian",
           "site": "away",
           "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-denver-christian/1-22-2027/?c=8432e176-d30b-47e8-90ac-948258a65f0e",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-26",
+          "opponent": "University",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/game/berthoud-vs-university-greeley/1-26-2027/?c=cb6fc42f-ce82-4f79-a966-f77b78ac83e1",
           "time": "19:00"
         },
         {
@@ -1088,9 +1109,10 @@
       "held": [],
       "notes": [
         "2026-11-30 vs Mountain View is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-20 vs Loveland is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-21 vs Denver Christian is not on the school calendar (published on MaxPreps's word alone)",
-        "2027-01-21 at Loveland is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-22 at Denver Christian is not on the school calendar (published on MaxPreps's word alone)",
+        "2027-01-26 at University is not on the school calendar (published on MaxPreps's word alone)",
         "2027-01-29 vs Fort Morgan is not on the school calendar (published on MaxPreps's word alone)",
         "2027-02-04 at Resurrection Christian is not on the school calendar (published on MaxPreps's word alone)",
         "2027-02-06 at Northridge is not on the school calendar (published on MaxPreps's word alone)",
@@ -1102,8 +1124,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/basketball/girls/",
-      "fetched": "2026-11-02T22:33:26.254Z",
-      "maxprepsUpdated": "2026-11-02T22:31:44",
+      "fetched": "2026-11-04T19:52:23.480Z",
+      "maxprepsUpdated": "2026-11-04T18:35:05",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1112,6 +1134,13 @@
       },
       "results": [],
       "upcoming": [
+        {
+          "date": "2026-11-24",
+          "opponent": "Silver Creek",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/berthoud-vs-silver-creek-longmont/11-24-2026/?c=9af657c3-d0f4-4bd5-b7a1-ea1242455ef1",
+          "time": "11:30"
+        },
         {
           "date": "2026-11-30",
           "opponent": "Mountain View",
@@ -1254,8 +1283,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/wrestling/",
-      "fetched": "2026-11-02T22:33:26.254Z",
-      "maxprepsUpdated": "2026-11-02T22:34:41",
+      "fetched": "2026-11-04T19:52:23.480Z",
+      "maxprepsUpdated": "2026-11-04T19:53:40",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1268,8 +1297,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/berthoud/berthoud-spartans/swimming/girls/",
-      "fetched": "2026-11-02T22:33:26.254Z",
-      "maxprepsUpdated": "2026-11-02T19:05:22",
+      "fetched": "2026-11-04T19:52:23.480Z",
+      "maxprepsUpdated": "2026-11-04T19:53:44",
       "results": [],
       "upcoming": [],
       "held": [],

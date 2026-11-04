@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-02T22:37:08.722Z",
+  "generated": "2026-11-04T19:56:09.265Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/football/",
-      "fetched": "2026-11-02T22:37:08.722Z",
-      "maxprepsUpdated": "2026-11-02T19:09:37",
+      "fetched": "2026-11-04T19:56:09.265Z",
+      "maxprepsUpdated": "2026-11-04T19:56:09",
       "overall": "9-0",
       "league": {
         "record": "5-0",
@@ -134,8 +134,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/soccer/",
-      "fetched": "2026-11-02T22:37:08.722Z",
-      "maxprepsUpdated": "2026-11-02T20:35:26",
+      "fetched": "2026-11-04T19:56:09.265Z",
+      "maxprepsUpdated": "2026-11-04T19:56:18",
       "overall": "5-8-2",
       "league": {
         "record": "0-4",
@@ -319,8 +319,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/volleyball/",
-      "fetched": "2026-11-02T22:37:08.722Z",
-      "maxprepsUpdated": "2026-11-02T20:23:51",
+      "fetched": "2026-11-04T19:56:09.265Z",
+      "maxprepsUpdated": "2026-11-04T18:45:49",
       "overall": "12-11",
       "league": {
         "record": "2-6",
@@ -589,7 +589,24 @@
           }
         }
       ],
-      "upcoming": [],
+      "upcoming": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Fort Lupton",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-fort-lupton/11-7-2026/?c=b8e4f92b-e730-4291-8af2-520591ff0933",
+          "stage": "Playoffs",
+          "neutral": true,
+          "time": "11:30"
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Forge Christian",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/elizabeth-vs-forge-christian-eagles-arvada/11-7-2026/?c=9cef18f4-a268-41e7-81bb-a928b471acaa",
+          "time": "14:00"
+        }
+      ],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -599,8 +616,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/softball/fall/",
-      "fetched": "2026-11-02T22:37:08.722Z",
-      "maxprepsUpdated": "2026-11-02T20:09:58",
+      "fetched": "2026-11-04T19:56:09.265Z",
+      "maxprepsUpdated": "2026-11-04T18:15:01",
       "overall": "16-10",
       "league": {
         "record": "7-1",
@@ -934,8 +951,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/cross-country/",
-      "fetched": "2026-11-02T22:37:08.722Z",
-      "maxprepsUpdated": "2026-11-02T21:03:28",
+      "fetched": "2026-11-04T19:56:09.265Z",
+      "maxprepsUpdated": "2026-11-04T19:32:08",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -948,8 +965,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/cross-country/girls/",
-      "fetched": "2026-11-02T22:37:08.722Z",
-      "maxprepsUpdated": "2026-11-02T20:44:33",
+      "fetched": "2026-11-04T19:56:09.265Z",
+      "maxprepsUpdated": "2026-11-04T19:05:27",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -962,8 +979,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/basketball/",
-      "fetched": "2026-11-02T22:37:08.722Z",
-      "maxprepsUpdated": "2026-11-02T21:04:00",
+      "fetched": "2026-11-04T19:56:09.265Z",
+      "maxprepsUpdated": "2026-11-04T19:56:53",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1038,10 +1055,10 @@
           "time": "19:00"
         },
         {
-          "date": "2027-01-19",
+          "date": "2027-01-20",
           "opponent": "Douglas County",
           "site": "home",
-          "url": "https://www.maxpreps.com/co/basketball/game/douglas-county-castle-rock-vs-elizabeth/1-19-2027/?c=519af114-9eb4-4d0d-861c-07667d85ca3c",
+          "url": "https://www.maxpreps.com/co/basketball/game/douglas-county-castle-rock-vs-elizabeth/1-20-2027/?c=519af114-9eb4-4d0d-861c-07667d85ca3c",
           "time": "19:00"
         },
         {
@@ -1138,8 +1155,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/basketball/girls/",
-      "fetched": "2026-11-02T22:37:08.722Z",
-      "maxprepsUpdated": "2026-11-02T22:37:21",
+      "fetched": "2026-11-04T19:56:09.265Z",
+      "maxprepsUpdated": "2026-11-04T18:50:35",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1148,6 +1165,13 @@
       },
       "results": [],
       "upcoming": [
+        {
+          "date": "2026-12-01",
+          "opponent": "Lotus School For Excellence",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/elizabeth-vs-lotus-school-for-excellence-aurora/12-1-2026/?c=e33bdfd2-e344-40d2-80f4-49dc78dfc865",
+          "time": "17:30"
+        },
         {
           "date": "2026-12-03",
           "opponent": "Cheyenne Mountain",
@@ -1159,7 +1183,8 @@
           "date": "2026-12-04",
           "opponent": "Lewis-Palmer",
           "site": "home",
-          "url": "https://www.maxpreps.com/co/basketball/girls/game/elizabeth-vs-lewis-palmer-monument/12-4-2026/?c=b766030d-50d4-483f-ba5b-519790a743d0"
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/elizabeth-vs-lewis-palmer-monument/12-4-2026/?c=b766030d-50d4-483f-ba5b-519790a743d0",
+          "time": "19:00"
         },
         {
           "date": "2026-12-08",
@@ -1167,13 +1192,6 @@
           "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/elizabeth-vs-the-pinnacle-federal-heights/12-8-2026/?c=91841792-a50a-4e25-ae79-8da8bfb59278",
           "time": "17:30"
-        },
-        {
-          "date": "2026-12-08",
-          "opponent": "Canon City",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/basketball/girls/game/canon-city-vs-elizabeth/12-8-2026/?c=0e8a02b1-7402-4bfc-8d66-196f04168358",
-          "time": "19:00"
         },
         {
           "date": "2026-12-10",
@@ -1201,16 +1219,38 @@
           "time": "10:00"
         },
         {
+          "date": "2027-01-12",
+          "opponent": "Canon City",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/canon-city-vs-elizabeth/1-12-2027/?c=0e8a02b1-7402-4bfc-8d66-196f04168358",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-20",
+          "opponent": "Douglas County",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/douglas-county-castle-rock-vs-elizabeth/1-20-2027/?c=79a2e4a3-fc09-4ea8-842b-d66a22388bdd",
+          "time": "19:00"
+        },
+        {
           "date": "2027-01-22",
           "opponent": "Heritage",
           "site": "home",
-          "url": "https://www.maxpreps.com/co/basketball/girls/game/elizabeth-vs-heritage-littleton/1-22-2027/?c=0c231aba-6d3d-4d82-828b-a7098190273e"
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/elizabeth-vs-heritage-littleton/1-22-2027/?c=650b8fb2-ed82-41cd-8b8c-f79e97c2d726",
+          "time": "19:00"
         },
         {
           "date": "2027-01-26",
           "opponent": "Ponderosa",
           "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/elizabeth-vs-ponderosa-jaguars-parker/1-26-2027/?c=067027a4-6fc9-49fd-a27d-0c17efe6def8",
+          "time": "19:00"
+        },
+        {
+          "date": "2027-01-28",
+          "opponent": "Sand Creek",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/elizabeth-vs-sand-creek-colorado-springs/1-28-2027/?c=40a05cb6-3798-4e75-97c7-18fedc127e8a",
           "time": "19:00"
         },
         {
@@ -1228,18 +1268,25 @@
           "time": "17:30"
         },
         {
+          "date": "2027-02-04",
+          "opponent": "Fort Lupton",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/elizabeth-vs-fort-lupton/2-4-2027/?c=26a48d28-60a9-453f-bcef-a3f05622455d",
+          "time": "17:30"
+        },
+        {
           "date": "2027-02-05",
           "opponent": "Heritage",
           "site": "away",
-          "url": "https://www.maxpreps.com/co/basketball/girls/game/elizabeth-vs-heritage-littleton/2-5-2027/?c=dd9c4f93-642a-4d1b-b292-c7b247d1e053",
-          "time": "18:00"
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/elizabeth-vs-heritage-littleton/2-5-2027/?c=f85a5492-2712-41f1-b7a3-037d4ace8913",
+          "time": "19:00"
         },
         {
           "date": "2027-02-09",
           "opponent": "Ponderosa",
           "site": "away",
-          "url": "https://www.maxpreps.com/co/basketball/girls/game/elizabeth-vs-ponderosa-jaguars-parker/2-9-2027/?c=8495bdb4-6f0b-4e44-9bef-1ae42d4bd832",
-          "time": "19:00"
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/elizabeth-vs-ponderosa-jaguars-parker/2-9-2027/?c=c04aa636-843a-44e9-9f6a-56d451990e6b",
+          "time": "17:30"
         },
         {
           "date": "2027-02-12",
@@ -1254,6 +1301,13 @@
           "site": "away",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/elizabeth-vs-fort-morgan/2-16-2027/?c=993eb926-9207-4a21-a466-0e773ddc6c43",
           "time": "19:30"
+        },
+        {
+          "date": "2027-02-19",
+          "opponent": "Douglas County",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/basketball/girls/game/douglas-county-castle-rock-vs-elizabeth/2-19-2027/?c=b6b0df2d-bdd7-4e39-a42f-a3d0ad0457ec",
+          "time": "19:00"
         },
         {
           "date": "2027-02-25",
@@ -1272,8 +1326,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/elizabeth/elizabeth-cardinals/wrestling/",
-      "fetched": "2026-11-02T22:37:08.722Z",
-      "maxprepsUpdated": "2026-11-02T22:30:08",
+      "fetched": "2026-11-04T19:56:09.265Z",
+      "maxprepsUpdated": "2026-11-04T19:57:12",
       "results": [],
       "upcoming": [],
       "held": [],

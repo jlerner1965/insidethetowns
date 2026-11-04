@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-02T22:35:59.795Z",
+  "generated": "2026-11-04T19:54:59.503Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/football/",
-      "fetched": "2026-11-02T22:35:59.795Z",
-      "maxprepsUpdated": "2026-11-02T19:57:44",
+      "fetched": "2026-11-04T19:54:59.503Z",
+      "maxprepsUpdated": "2026-11-04T17:18:00",
       "overall": "7-3",
       "league": {
         "record": "3-3",
@@ -136,8 +136,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/soccer/",
-      "fetched": "2026-11-02T22:35:59.795Z",
-      "maxprepsUpdated": "2026-11-02T21:22:41",
+      "fetched": "2026-11-04T19:54:59.503Z",
+      "maxprepsUpdated": "2026-11-04T19:55:08",
       "overall": "5-8-2",
       "league": {
         "record": "3-7",
@@ -321,8 +321,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/volleyball/",
-      "fetched": "2026-11-02T22:35:59.795Z",
-      "maxprepsUpdated": "2026-11-02T20:37:29",
+      "fetched": "2026-11-04T19:54:59.503Z",
+      "maxprepsUpdated": "2026-11-04T19:43:29",
       "overall": "19-4",
       "league": {
         "record": "10-0",
@@ -351,7 +351,7 @@
           "url": "https://www.maxpreps.com/co/volleyball/match/thompson-valley-loveland-vs-timnath/10-31-2026/?c=8babcd62-3896-40cd-9250-1f77e99ec0e3",
           "stage": "Tournament",
           "neutral": true,
-          "venue": "Cheyenne Mountain Tournament",
+          "venue": "Colorado Invite Tournament @ World Arena",
           "result": "W",
           "score": {
             "us": 3,
@@ -598,7 +598,28 @@
           }
         }
       ],
-      "upcoming": [],
+      "upcoming": [
+        {
+          "date": "2026-11-06",
+          "opponent": "Fort Morgan",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/fort-morgan-vs-timnath/11-6-2026/?c=2a093bd7-75dd-46c2-8fde-ef75ccca6e40",
+          "stage": "Playoffs",
+          "neutral": true,
+          "venue": "4A Region 8 Playoffs",
+          "time": "15:00"
+        },
+        {
+          "date": "2026-11-06",
+          "opponent": "Glenwood Springs",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/glenwood-springs-vs-timnath/11-6-2026/?c=2c005a69-baf8-4e8b-a7ca-3dcc1b670bc4",
+          "stage": "Playoffs",
+          "neutral": true,
+          "venue": "4A Region 8 Playoffs",
+          "time": "18:00"
+        }
+      ],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -608,8 +629,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/softball/fall/",
-      "fetched": "2026-11-02T22:35:59.795Z",
-      "maxprepsUpdated": "2026-11-02T20:59:02",
+      "fetched": "2026-11-04T19:54:59.503Z",
+      "maxprepsUpdated": "2026-11-04T19:37:34",
       "overall": "5-18",
       "league": {
         "record": "2-8",
@@ -894,8 +915,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/cross-country/",
-      "fetched": "2026-11-02T22:35:59.795Z",
-      "maxprepsUpdated": "2026-11-02T22:36:34",
+      "fetched": "2026-11-04T19:54:59.503Z",
+      "maxprepsUpdated": "2026-11-04T18:30:16",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -908,8 +929,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/cross-country/girls/",
-      "fetched": "2026-11-02T22:35:59.795Z",
-      "maxprepsUpdated": "2026-11-02T22:36:38",
+      "fetched": "2026-11-04T19:54:59.503Z",
+      "maxprepsUpdated": "2026-11-04T19:55:38",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -922,8 +943,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/basketball/",
-      "fetched": "2026-11-02T22:35:59.795Z",
-      "maxprepsUpdated": "2026-11-02T22:36:42",
+      "fetched": "2026-11-04T19:54:59.503Z",
+      "maxprepsUpdated": "2026-11-04T17:26:11",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1083,8 +1104,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/basketball/girls/",
-      "fetched": "2026-11-02T22:35:59.795Z",
-      "maxprepsUpdated": "2026-11-02T21:14:38",
+      "fetched": "2026-11-04T19:54:59.503Z",
+      "maxprepsUpdated": "2026-11-04T17:42:12",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1275,8 +1296,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/wrestling/",
-      "fetched": "2026-11-02T22:35:59.795Z",
-      "maxprepsUpdated": "2026-11-02T22:34:26",
+      "fetched": "2026-11-04T19:54:59.503Z",
+      "maxprepsUpdated": "2026-11-04T19:56:00",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1289,8 +1310,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/timnath/timnath-cubs/swimming/girls/",
-      "fetched": "2026-11-02T22:35:59.795Z",
-      "maxprepsUpdated": "2026-11-02T22:37:04",
+      "fetched": "2026-11-04T19:54:59.503Z",
+      "maxprepsUpdated": "2026-11-04T19:56:05",
       "results": [],
       "upcoming": [],
       "held": [],
