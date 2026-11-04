@@ -12,4 +12,4 @@ verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Monday Makerspace\" at 3 pm on 9 November on the lyons.librarycalendar.com feed"
 ---
 
-Open studio in the library makerspace on the second Monday of the month, with art and craft materials out for all ages. The library's calendar lists it monthly, not weekly; confirm the date there before you go.
+Open studio in the library makerspace on the second Monday of the month, with art and craft materials out for all ages. The library lists November 9 and December 14.

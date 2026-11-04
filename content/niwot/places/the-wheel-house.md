@@ -10,7 +10,7 @@ tags: [taproom, live-music, trivia, patio, bike-shop]
 featured: true
 summary: "Neighborhood bar and taproom with a back patio and live music. Opened September 2020; its own kitchen opened in February 2026."
 source: "https://www.niwotwheelhouse.com/"
-verified: "2026-10-13"
+verified: "2026-11-03"
 added: "2026-09-17"
 ---
 

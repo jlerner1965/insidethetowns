@@ -9,7 +9,8 @@ cost: "$40 through November 10, $45 November 11–24, $50 on November 25, plus a
 category: sports
 timeNote: "Waves at 9:00, 9:01 and 9:02"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5197"
-verified: "2026-09-18"
+verified: "2026-11-04"
+verifiedBy: "Claude Code, flagship audit: Thursday, November 26, 9 am–12 pm, waves 9:00/9:01/9:02, Erie Community Center, on the Town calendar (EID=5197); fees not on that page"
 ---
 
 A Thanksgiving morning 2 mile and 4 mile run organized by Recess Factory, on courses that are about 90 percent paved trail. Chip-timed 4 mile starts at 9:00, untimed 4 mile at 9:01 and the 2 mile at 9:02.

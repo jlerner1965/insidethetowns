@@ -5,14 +5,14 @@ address: "1122 Washington Ave, Golden, CO 80401"
 area: "Washington Avenue"
 url: "https://oldcapitolgrill-smokehouse.com/"
 source: "https://oldcapitolgrill-smokehouse.com/"
-verified: "2026-10-27"
+verified: "2026-11-03"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 image: ../images/old-capitol-grill-and-smokehouse.jpg
 imageAlt: "The brick frontage of Old Capitol Grill & Smokehouse on Washington Avenue, its name over the windows and patio tables and tulips in front"
 imageCredit: "Michael Stokes, Wikimedia Commons, CC BY 2.0"
 phone: "303-279-6390"
-hours: "Mon–Thu 11 am–8 pm; Fri 11 am–9 pm; Sat 10:30 am–9 pm; Sun 10:30 am–8 pm"
+hours: "Sun–Thu 11 am–8 pm; Fri–Sat 11 am–9 pm"
 tags: [smokehouse, american, bar, dog-friendly-patio]
 summary: "House-smoked meats, classic American food and cocktails at the corner of 12th Street and Washington Avenue, open seven days. Walk-ins welcome; dog-friendly patios."
 ---

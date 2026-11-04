@@ -10,7 +10,8 @@ priceRange: "$$"
 tags: [mexican, latin, takeout, catering]
 summary: "Family-owned Mexican and Latin American kitchen a block off Main Street on Elizabeth Street, from 6:30 am Monday to Saturday: breakfast burritos, tacos, pupusas and Cuban sandwiches."
 source: "https://elizabethfamilyrestaurant.com/contact"
-verified: "2026-10-02"
+verified: "2026-11-03"
+verifiedBy: "Claude Code site audit, against elizabethfamilyrestaurant.com/contact"
 added: "2026-09-17"
 ---
 

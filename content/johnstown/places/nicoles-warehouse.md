@@ -9,7 +9,8 @@ hours: "Wed–Sat 10–5; closed Sun–Tue"
 tags: [antiques, vintage]
 summary: "Multi-booth antique market at the north end of Old Town, in business for more than fifteen years."
 source: "https://nicoleswarehouse.com/"
-verified: "2026-10-03"
+verified: "2026-11-03"
+verifiedBy: "Flagship audit, 3 November 2026, against nicoleswarehouse.com"
 added: "2026-09-17"
 ---
 

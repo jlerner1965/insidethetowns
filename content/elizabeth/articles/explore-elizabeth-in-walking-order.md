@@ -36,7 +36,7 @@ Breakfast on Elizabeth Street. [Catrina's](/places/catrinas-latin-food/) at 210 
 
 ## 02 · Historic Main Street
 
-Cross to [Main Street](/places/historic-main-street/) and walk it from north to south. The three blocks of 1880s and 1890s storefronts carry interpretive plaques, installed in 2012; start at the 1907 [First National Bank building](/places/first-national-bank-building/) at 188 South Main, on the National Register of Historic Places since January 2023, and read as you go. The 1890 Huber-Carlson Building at 239, on the State Register since 1995, is the brewery at stop 05. [Small Town Mini Donuts](/places/small-town-mini-donuts/) fries to order at 166 South Main from 6 am most days, closed Thursdays; [The Carriage Shoppes](/places/the-carriage-shoppes/) at 392 marks the south end.
+Cross to [Main Street](/places/historic-main-street/) and walk it from north to south. The three blocks of 1880s and 1890s storefronts carry interpretive plaques, installed in 2012; start at the 1907 [First National Bank building](/places/first-national-bank-building/) at 188 South Main, on the National Register of Historic Places since January 2023, and read as you go. The 1890 Huber-Carlson Building at 239, on the State Register since 1995, is the brewery at stop 05. [Small Town Mini Donuts](/places/small-town-mini-donuts/) fries to order at 166 South Main from 7 am on weekdays and 8 at weekends; [The Carriage Shoppes](/places/the-carriage-shoppes/) at 392 marks the south end.
 
 *Getting there:* on foot. *Best for:* the plaques, the hat shop and the antique rooms; a donut on the way.
 

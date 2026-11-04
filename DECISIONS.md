@@ -8481,3 +8481,48 @@ without anyone remembering to.*
   every town that has one. Berthoud is the first. The rest of the
   growth-fast towns (Johnstown, Timnath, Windsor and Severance, Erie) are
   candidates once each has a tracker page to keep true.
+
+## Every article has a section page, 4 November 2026
+
+*The flagship audit of 4 November found thirteen articles on the ten
+flagships reachable from /guides/ alone: the town histories on six guides,
+three breakfast-and-coffee guides, Erie's county-line and Johnstown's
+fire-district explainers, Niwot's who-runs-what and how-it-got-here. The
+1 November pass had put Guides in the menu because "the best writing is
+two clicks down"; the section pages still did not name their own articles,
+and Windsor's Families page showed Severance's outing guide and not
+Windsor's.*
+
+- **Eat & drink lists the Food & drink articles** under its directory,
+  "From the guide: Eating out, in depth", the block Things to do has
+  carried for its Outdoors articles since October.
+- **Moving here lists the History, Civic, Moving here and Community
+  articles** under the guide, "The town, in depth", newest first. The
+  prose links some of them; the block lists all, so a civic article is on
+  the page the day it is published without an edit to the prose.
+- **Families lists every outing guide**, not the newest alone.
+- **Why in code and not in the prose.** Ten pages edited by hand drift the
+  next time an article is published, and the category is already on every
+  article. The category is the rule: an article filed under anything else
+  is on /guides/ alone until it is refiled, which is how Lafayette's
+  walking-order guide ("Explore", the only one on the network) was found
+  and refiled as Outdoors the same day.
+
+## Two rules from the flagship audit, 4 November 2026
+
+*Ten town agents read every flagship against primary sources on the
+evening of 3 November (docs/audits/2026-11-04/). Two rules came out of
+applying what they found.*
+
+- **A past event linked from a sent Thursday email stays.** A past
+  event's page is still served (200, noindex), so deleting the file turns
+  a link in a reader's inbox into a 404. The weekly report's "delete or
+  update" applies to past files nothing links; the rest wait for a
+  redirect rule that does not yet exist. Thirty such files on Berthoud,
+  Erie, Lyons and Niwot were kept on this ground.
+- **The validator warns about editor's doubt on a page.** "When this was
+  checked", "could not be read", "for this reader", "looks like an
+  error": the audit found them in summaries, hours fields and bodies on
+  five guides, the build agents' notes to themselves. `npm run validate`
+  now names each file (`HEDGE_PHRASES`, a warning, not an error). The
+  rule it enforces is the Accuracy rule of 3 November.

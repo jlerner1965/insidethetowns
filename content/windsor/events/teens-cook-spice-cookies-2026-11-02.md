@@ -15,4 +15,4 @@ verified: "2026-11-02"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Teens Cook\" at 4:30 pm on 2 November in the page's structured data"
 ---
 
-The library's monthly cooking session for ages 12 to 18 returns in November with teams baking and frosting pumpkin spice cookies. Registration is required and the class is capped at 16; four places were taken when this was checked on October 3. The library cannot accommodate severe gluten, dairy or nut allergies. Questions to amy@clearviewlibrary.org.
+The library's monthly cooking session for ages 12 to 18 returns in November with teams baking and frosting pumpkin spice cookies. Registration is required and the class is capped at 16. The library cannot accommodate severe gluten, dairy or nut allergies. Questions to amy@clearviewlibrary.org.

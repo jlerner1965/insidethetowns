@@ -46,6 +46,9 @@ Sent = the edition went out that Thursday (merge of the drafts pull request).
 | 2026-10-19 | Niwot | sent 22 Oct, 2 delivered | 2 | 0 | 530 | 14 | 0 | none reported | first automated send (merge of #197); search clicks led by the home page and /events/ (3 each), the Holiday Parade (2) |
 | 2026-10-19 | Lyons | not sent: no subscriber carries the `lyons` tag | 0 | no send | 978 | 14 | 0 | none reported | no one has signed up on insidelyons.com; impressions more than doubled, clicks flat; the dog-friendly hikes article (5) and /events/ (4) led clicks |
 | 2026-10-19 | Berthoud | not sent: no subscriber carried the `berthoud` tag on 22 Oct | 1 | no send | 1,369 | 34 | 0 | none reported | first subscriber confirmed 25 Oct, through the site's own signup; Trick or Treat Street (12) and /updates/ (7) led clicks |
+| 2026-10-26 | Niwot | sent 29 Oct, 2 delivered | 2 | 0 | unknown | unknown | 0 | none reported | no new subscriber; search not read (see below) |
+| 2026-10-26 | Lyons | sent 29 Oct, 1 delivered | 1 | 0 | unknown | unknown | 0 | none reported | first Lyons subscriber and first Lyons send |
+| 2026-10-26 | Berthoud | sent 29 Oct, 3 delivered | 3 | 0 | unknown | unknown | 0 | none reported | two new subscribers since 25 Oct |
 
 Week of 19 October, read 27 October 2026. Search: GSC Wizard, web search,
 19 to 25 October, settled. Sends and opens: Buttondown's API and the log of
@@ -55,6 +58,18 @@ days after the send. Subscribers are the confirmed (`regular`) addresses
 carrying the town's tag, confirmed by the end of 25 October; any test
 address the owner signed up is counted until the owner says which to
 strike.
+
+Week of 26 October, read 3 November 2026. Search columns unknown: GSC
+Wizard refused every call that day (its trial had ended), and Search
+Console was not read another way. Search Console keeps the week for 16
+months, so the two columns can be filled later. Sends: the 29 October run
+of "Send the Thursday email" (merge of #232 at 5:37 pm Denver time), so
+that week's issues went out in the evening, not at the 7 am the guides
+promise. Opens: Buttondown has counted no open on any of the 11 deliveries
+since 22 October, including the 22 October issues read twelve days on;
+whether open tracking is on is the owner's to check in Buttondown before
+opens go in a sponsor report. Subscribers: as before, confirmed by the end
+of 1 November, Denver time.
 
 ## Outreach and sponsor log
 

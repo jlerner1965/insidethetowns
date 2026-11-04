@@ -5,11 +5,11 @@ end: "2026-11-06T20:30"
 venue: "Glenn A. Jones, M.D. Memorial Library"
 address: "400 S. Parish Ave, Johnstown, CO 80534"
 url: "https://johnstownmillikenpubliclibraries.us/event/paint-n-sip-3/"
-cost: "Free"
+cost: "Free; full, with a waiting list; 21 and over"
 category: arts
 source: "https://johnstownmillikenpubliclibraries.us/event/paint-n-sip-3/"
 verified: "2026-11-03"
-verifiedBy: "recheck-events (the nightly re-check workflow): \"Paint &#8216;n Sip\" at 6:30 pm on 6 November in the page's structured data"
+verifiedBy: "Flagship audit, against the library's event page, 3 November 2026: Fri, Nov 6, 6:30–8:30 pm, Johnstown Location; 21 and older; registration limit reached, 0 of 14 spaces, waiting list offered"
 ---
 
-The library's guided painting evening for adults, this time a gnome with his pumpkin. Participants must be 21 or older, and Johnstown-Milliken library cardholders may attend one Paint 'n Sip per three-month period.
+The library's guided painting evening for adults, this time a gnome with his pumpkin. Participants must be 21 or older, and Johnstown-Milliken library cardholders may attend one Paint 'n Sip per three-month period. Registration is required and the class is full; the library's page takes a waiting list.

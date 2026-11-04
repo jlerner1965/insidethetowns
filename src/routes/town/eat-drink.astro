@@ -2,6 +2,8 @@
 import Page from '@/layouts/Page.astro';
 import PlaceDirectory from '@/components/PlaceDirectory.astro';
 import SubTownLinks from '@/components/SubTownLinks.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import ArticleCard from '@/components/ArticleCard.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
@@ -13,6 +15,14 @@ const all = (await getTownEntries('places')).filter((p) => !p.delisted);
 const places = all.filter((p) => EAT_DRINK_TYPES.includes(p.data.type)).sort(byProminence);
 const shops = all.filter((p) => p.data.type === 'shop').sort(byProminence);
 const listing = [...places, ...shops].map((p) => ({ name: p.data.title, path: `/places/${p.slug}/` }));
+// The guide's own articles on eating out (breakfast, coffee, patios), filed
+// under Food & drink. They were reachable from /guides/ alone, which the
+// menu reaches last; Things to do has listed its Outdoors articles under the
+// directory since October, and this is the same block (flagship audit,
+// 4 November 2026).
+const articles = (await getTownEntries('articles'))
+  .filter((a) => a.data.category === 'Food & drink')
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 /**
  * Written once and used for both the meta description and the CollectionPage
  * markup, which have to agree. The old line ran to 48 characters on Erie and
@@ -39,4 +49,16 @@ const structured = [
      count and filter button. As a separate section under a small label they
      were a third style of header, and the filters above left them alone. */}
   <PlaceDirectory places={[...places, ...shops]} heading="Places to eat, drink and shop" filterable emptyMessage="No places listed yet." />
+  {articles.length > 0 && (
+    <section class="mt-20">
+      <SectionHeader eyebrow="From the guide" title="Eating out, in depth" href="/guides/" linkLabel="All guides" />
+      {articles.length === 1 ? (
+        <ArticleCard article={articles[0]} row />
+      ) : (
+        <div class="grid gap-x-8 gap-y-10 md:grid-cols-2">
+          {articles.map((article) => <ArticleCard article={article} />)}
+        </div>
+      )}
+    </section>
+  )}
 </Page>

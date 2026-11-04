@@ -2,7 +2,7 @@
 title: "Explore Old Town Lafayette: six places in walking order"
 date: "2026-11-02"
 excerpt: "Park at the north end of Public Road and walk south: The Collective’s free gallery, a pub with 400 whiskies, the children’s museum and a bookstore cafe on Harrison, the coal miner’s cottage that is the history museum, Odd13’s taproom, and brunch across from Festival Plaza. About a mile, mostly flat."
-category: "Explore"
+category: "Outdoors"
 tags: [explore, old-town, walking]
 verified: "2026-11-02"
 glance:

@@ -10,7 +10,8 @@ priceRange: "$"
 tags: [lunch, sandwiches]
 summary: "Sandwich and lunch counter a block off Parish Avenue in Old Town."
 source: "https://johnstownlunchbox.com/"
-verified: "2026-10-03"
+verified: "2026-11-03"
+verifiedBy: "Flagship audit, 3 November 2026, against johnstownlunchbox.com"
 added: "2026-09-17"
 ---
 

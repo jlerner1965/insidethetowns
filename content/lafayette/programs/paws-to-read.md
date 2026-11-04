@@ -5,7 +5,7 @@ topic: learning
 audience: [elementary]
 organizer: "Lafayette Public Library with the Alliance of Therapy Dogs"
 organizerUrl: "https://www.lafayetteco.gov/library"
-url: "https://www.lafayetteco.gov/LibraryPawsCalendar"
+url: "https://lafayettepubliclibrary.libcal.com/calendar/main?t=g&q=paws&cid=10144&cal=10144&inc=0"
 summary: "Kids ages 5 to 10 read for 15 minutes to a therapy dog in the library’s Kid Zone, one Sunday afternoon a month: November 8, December 13, January 10 and January 24, 1:30 to 2:30 pm. Drop in."
 ages: "Ages 5–10"
 ageFrom: 5

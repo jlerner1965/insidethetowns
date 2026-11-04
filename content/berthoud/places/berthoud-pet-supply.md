@@ -9,7 +9,7 @@ hours: "Mon–Wed 10–6, Thu–Sat 10–7, Sun 11–3"
 tags: [pets]
 summary: "Independent pet supply store on Turner Avenue, the neighborhood hub for feed, treats and advice."
 source: "https://berthoudpetsupply.com/"
-verified: "2026-10-03"
+verified: "2026-11-03"
 added: "2026-09-17"
 ---
 

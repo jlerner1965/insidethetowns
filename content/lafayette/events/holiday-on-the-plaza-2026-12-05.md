@@ -14,4 +14,4 @@ verified: "2026-11-02"
 verifiedBy: "the Lafayette build agent, read from the source on 2 November 2026"
 ---
 
-The Chamber’s holiday market on Festival Plaza, Saturday, December 5, from 2 to 6 pm, with a small, hand-picked set of vendors in 10-by-10 booths: handmade goods, specialty foods, food trucks and Public Road storefronts. The Chamber calls it an intimate event and had vendor applications open on its site when this was read; it has not posted a program of music or activities, and the page does not mention an admission charge. Questions to events@lafayettecolorado.com or 303-666-9555.
+The Chamber’s holiday market on Festival Plaza, Saturday, December 5, from 2 to 6 pm, with a small, hand-picked set of vendors in 10-by-10 booths: handmade goods, specialty foods, food trucks and Public Road storefronts. The Chamber calls it an intimate event, with vendor applications open on its site. Questions to events@lafayettecolorado.com or 303-666-9555.

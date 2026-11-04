@@ -8,7 +8,7 @@ phone: "(970) 587-7744"
 hours: "Mon–Thu 11–11, Fri–Sat 11–12, Sun 11–11"
 priceRange: "$$"
 tags: [sports bar, burgers, late]
-summary: "Old Town's sports bar and grill on Parish Avenue: burgers, wings, the games on, open until midnight on weekends. Call to check the hours; see the note below."
+summary: "Old Town's sports bar and grill on Parish Avenue: burgers, wings, the games on, open until midnight on weekends."
 source: "https://www.instagram.com/cassidyssportsgrill/"
 verified: "2026-10-20"
 verifiedBy: "James Lerner (open, 20 October 2026); hours as they stood on the restaurant's former site, 18 September 2026"

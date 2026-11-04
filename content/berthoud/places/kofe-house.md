@@ -4,7 +4,7 @@ type: coffee
 address: "434 Mountain Ave"
 area: "Downtown, Mountain Avenue"
 phone: "(970) 344-5391"
-hours: "Daily 7:30–2:30"
+hours: "Daily 7:30 am–2:30 pm; Thu also 5–8 pm"
 priceRange: "$"
 tags: [coffee, espresso, pastries]
 featured: true

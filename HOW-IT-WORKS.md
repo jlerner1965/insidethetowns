@@ -150,7 +150,11 @@ here or Moving here, and Guides (src/lib/nav.ts).
 **Every other page** keeps its full content: `/this-week/` the whole week,
 `/events/` everything, `/sports/` the full scoreboard with the "checked"
 line, `/updates/` every change with its sources, `/guides/` the articles,
-`/directory/` every place. On `/this-week/` the week's dates lead and the
+`/directory/` every place. Each section page also lists the articles of
+its kind under its directory, newest first: Outdoors under Things to do,
+Food & drink under Eat & drink, History, Civic, Moving here and Community
+under Moving here, every Families article on Families; an article is
+never reachable from `/guides/` alone. On `/this-week/` the week's dates lead and the
 "Checked" line follows the week's own content; on the Sunday, "Next on the
 calendar" is on the page whatever the week still holds; New & closed lists
 a change once, at its newest check. On `/events/` the first screen is the

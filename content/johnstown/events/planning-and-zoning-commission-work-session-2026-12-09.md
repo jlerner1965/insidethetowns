@@ -8,7 +8,8 @@ url: "https://johnstownco.gov/calendar.aspx?CID=14"
 cost: "Free"
 category: civic
 source: "https://johnstownco.gov/calendar.aspx?CID=14"
-verified: "2026-09-18"
+verified: "2026-11-03"
+verifiedBy: "Flagship audit, 3 November 2026, against the Town's calendar feed"
 ---
 
 Work session of the Johnstown Planning and Zoning Commission, listed on the Town calendar alongside the regular commission meeting the same evening.

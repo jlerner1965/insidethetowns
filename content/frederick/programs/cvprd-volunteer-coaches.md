@@ -13,7 +13,7 @@ schedule: "One or two practices a week plus games during the season"
 season: "Each sport’s season; the winter basketball leagues start the week of January 5"
 price: "Free; a head coach’s own child plays the sport free"
 free: true
-registration: { required: true, how: "Go to the district’s registration page, search for Volunteer Coaches, pick the sport and register as a coach; then the concussion course and background check", url: "https://bit.ly/YouthSportsCVPRD" }
+registration: { required: true, how: "Go to the district’s registration page, search for Volunteer Coaches, pick the sport and register as a coach; then the concussion course and background check", url: "https://secure.rec1.com/CO/carbon-valley-park-recreation-district-co/catalog/index?filter=dGFiJTVCMTI4MDElNUQ9MSZzZWFyY2g9JnJlbnRhbCU1QmZyb20lNUQ9JnJlbnRhbCU1QnRvJTVEPSYzM2IzODY1MWI2ZTg4ZGFlMzYxNGNjZDRlYWQ4YzVhYj1kZmYwZjhjZTcwYTM0N2VlNmMwNzY4Njg2NGU5M2M3ZA==" }
 beginners: true
 volunteerNeed: "Head and assistant coaches for every league"
 contact: "Darren Duplechin, Sports Coordinator, 303-833-3660 x127, dduplechin@cvprd.com"

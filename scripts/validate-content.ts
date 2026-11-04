@@ -49,6 +49,8 @@ const townsDir = join(root, 'src/config/towns');
 const buildMode = process.argv.includes('--build');
 const errors: string[] = [];
 const warnings: string[] = [];
+/** Editor's doubt that never belongs on a page: the phrases the 4 November 2026 audit found live. */
+const HEDGE_PHRASES = /when this (?:was|listing was) (?:checked|read)|could not be read|for this reader|had not been posted when|not yet posted when|looks? like an error|gives no usable|this guide could not|could not confirm/i;
 /** Events whose last date has passed: reported as one count, listed with --past. */
 const pastEvents: string[] = [];
 /** Per town: what publishes, what the build holds back and why, what waits in staging. */
@@ -177,6 +179,18 @@ function validateFile(collection: CollectionName, file: string, town: string, st
   // A weekly notes file is all frontmatter; a corrections entry is one line.
   if (!['pages', 'weekly', 'corrections', 'programs', 'updates'].includes(collection) && parsed.body.trim() === '') {
     warnings.push(`${rel}: body is empty`);
+  }
+  // A published page states facts or leaves them out (HOW-IT-WORKS.md,
+  // Accuracy, 3 November 2026). These phrases are the editor talking to
+  // the editor, and the flagship audit of 4 November found them in
+  // summaries, bodies and hours fields on five guides. A warning, not an
+  // error: the pages still build, and the line names the file to fix.
+  // The weekly notes are the editor's hand-off, with their own [UNVERIFIED] convention; not scanned.
+  if (collection !== 'weekly') {
+    const d = result.data as Record<string, unknown>;
+    const publicText = [d.summary, d.hours, d.timeNote, d.statusNote, d.action, parsed.body].filter((v): v is string => typeof v === 'string').join('\n');
+    const hedge = publicText.match(HEDGE_PHRASES);
+    if (hedge) warnings.push(`${rel}: "${hedge[0]}" is a note to the editor on a public page; state the fact or leave it out`);
   }
   if (collection === 'places') {
     const data = result.data as { hours?: string; openingHours?: string[]; status: string; featured: boolean; title: string };

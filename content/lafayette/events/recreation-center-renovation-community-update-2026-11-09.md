@@ -1,6 +1,9 @@
 ---
 title: "Bob L. Burger Recreation Center renovation: community update"
 start: "2026-11-09T18:30"
+end: "2026-11-09T20:00"
+sourceId: "lafayetteco-gov"
+sourceUid: "12265"
 timeNote: "Doors 6:30 pm; the program begins at 6:45"
 venue: "Lafayette Public Library, Meeting Room"
 address: "775 W Baseline Rd, Lafayette, CO 80026"

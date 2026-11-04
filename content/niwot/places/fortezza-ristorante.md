@@ -10,7 +10,7 @@ tags: [italian, steak, wine, dinner]
 featured: true
 summary: "Northern Italian steakhouse: house-made pasta, Wagyu steaks and a long wine list. Opened August 2025."
 source: "https://fortezzaristorante.com/"
-verified: "2026-10-03"
+verified: "2026-11-03"
 added: "2026-09-17"
 ---
 

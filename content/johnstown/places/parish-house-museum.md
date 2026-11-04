@@ -13,7 +13,8 @@ tags: [museum, history, free]
 featured: true
 summary: "Town founder Harvey Parish's 1914 Craftsman bungalow, kept by the Johnstown Historical Society with the family's furnishings and a piece of the 1924 Johnstown meteorite. Free; Tue, Wed and Sat mornings."
 source: "https://jhsco.org/visit/"
-verified: "2026-10-03"
+verified: "2026-11-03"
+verifiedBy: "Flagship audit, 3 November 2026, against jhsco.org/visit"
 added: "2026-09-17"
 ---
 

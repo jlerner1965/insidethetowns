@@ -6,13 +6,13 @@ address: "513 1/2 Broadview Drive, Severance, CO 80546"
 area: "Lakeview, off South 1st Street"
 url: "https://www.townofseverance.org/Facilities/Facility/Details/Lakeview-Park-4"
 source: "https://www.townofseverance.org/Facilities/Facility/Details/Lakeview-Park-4"
-verified: "2026-10-10"
+verified: "2026-11-04"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 tags: [playground, skate park, basketball, picnic shelters, restrooms]
 status: temporarily-closed
 closed: "2026-10-10"
-statusNote: "The Town posted on August 19, 2026 that Lakeview Park is closed from Monday, August 17, 2026 while new playground equipment is installed, and that it will post the reopening date on its website; none had been posted when its pages were read on 10 October 2026."
+statusNote: "The Town posted on August 19, 2026 that Lakeview Park is closed from Monday, August 17, 2026 while new playground equipment is installed, and that it will post the reopening date on its website; none had been posted when its pages were read on 4 November 2026."
 statusSource: "https://www.townofseverance.org/m/newsflash/home/detail/79"
 summary: "A large Town park at the south end of the Lakeview neighborhood, off South 1st Street, with picnic shelters, restrooms, grills, a playground, a skate park and basketball courts; closed since August 17, 2026 for new playground equipment."
 ---

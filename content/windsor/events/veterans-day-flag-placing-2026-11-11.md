@@ -11,7 +11,10 @@ category: civic
 organizer: "Town of Windsor Parks, Recreation & Culture"
 organizerUrl: "https://www.recreationliveshere.com/"
 source: "https://www.recreationliveshere.com/314/Veterans-Day"
-verified: "2026-10-01"
+sourceId: "recreationliveshere-com"
+sourceUid: "1353"
+sourceHash: "05a2860eda97"
+verified: "2026-11-04"
 ---
 
 Volunteers of all ages place American flags at the graves of veterans in the Town's cemetery at Highways 392 and 257, 10 to 11 on Veterans Day. The Town's page gives the date and hour without a year; Veterans Day is fixed, and the Town's companion page for the December wreath-laying gives December 19, which is a Saturday in 2026.

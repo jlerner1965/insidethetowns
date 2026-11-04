@@ -9,7 +9,7 @@ hours: "Tue–Wed 9–3, Thu 9–2, Fri 10–3"
 tags: [arts, classes, kids]
 summary: "Community arts center on Massachusetts Avenue with classes, youth programs, summer camps, Art in the Park and the StreetFest."
 source: "https://www.wildfirearts.org/contact-us"
-verified: "2026-10-03"
+verified: "2026-11-03"
 added: "2026-09-17"
 ---
 

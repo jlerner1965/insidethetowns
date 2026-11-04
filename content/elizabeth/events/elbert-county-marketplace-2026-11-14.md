@@ -6,7 +6,7 @@ venue: "Casey Jones Park Pavilion"
 address: "4189 S Highway 86"
 url: "https://marketspread.com/market/21488/elbert-county-marketplace/"
 category: market
-recurring: "Alternate Saturdays, April to December"
+recurring: "Every other Saturday, April to December, and every Saturday in November"
 source: "https://marketspread.com/market/21488/elbert-county-marketplace/"
 verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 9 am on the page"

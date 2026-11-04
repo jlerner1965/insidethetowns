@@ -12,7 +12,7 @@ tags: [patio, families]
 featured: true
 summary: "The neighborhood tavern on the corner of Cottonwood Square, with a covered patio beside the bronze bears."
 source: "https://www.niwottavern.com/location/niwot-tavern/"
-verified: "2026-10-03"
+verified: "2026-11-03"
 added: "2026-09-17"
 ---
 

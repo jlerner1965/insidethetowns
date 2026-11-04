@@ -95,10 +95,11 @@ const open = defaultTab(now);
 const THIN = 3;
 const thin = (tabs.find((t) => t.key === open)?.rows.length ?? 0) < THIN;
 
-// 6. Worth knowing: the two newest local changes still current.
-const know = currentUpdates(await getTownEntries('updates'), now)
-  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime() || b.data.effective.getTime() - a.data.effective.getTime())
-  .slice(0, 2);
+// 6. Worth knowing: the two local changes still current, in currentUpdates'
+// order: a featured change first, then the newest. A re-sort by published
+// alone sat here and put two routine notices above Berthoud's featured
+// election result (flagship audit, 4 November 2026).
+const know = currentUpdates(await getTownEntries('updates'), now).slice(0, 2);
 
 // 5. For families: the hub's three timeliest lines, where the town has them on.
 const familyRows = town.families?.onHome

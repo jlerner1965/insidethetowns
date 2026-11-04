@@ -13,4 +13,4 @@ verified: "2026-11-02"
 verifiedBy: "the Lafayette build agent, read from the source on 2 November 2026"
 ---
 
-Make a holiday wreath from natural materials at the Collective on Thursday, December 10, at 5:30 pm. When this was read, the City’s Engage registration showed only a waitlist button, so the workshop is full; join the list in case a place opens.
+Make a holiday wreath from natural materials at the Collective on Thursday, December 10, at 5:30 pm. The workshop is full on the City’s Engage registration; join the waitlist in case a place opens.

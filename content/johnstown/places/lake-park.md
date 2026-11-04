@@ -9,7 +9,8 @@ tags: [fishing, walking, shelters]
 featured: true
 summary: "The park on the Town's reservoir off Highway 60: a walking path, shelters, a playground, restrooms, and permit fishing for bass, trout, catfish and crappie."
 source: "https://www.johnstownco.gov/573/Lake-Park"
-verified: "2026-10-03"
+verified: "2026-11-03"
+verifiedBy: "Flagship audit, 3 November 2026, against johnstownco.gov/240/Parks"
 added: "2026-09-17"
 ---
 

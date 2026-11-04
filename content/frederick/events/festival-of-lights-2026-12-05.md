@@ -1,6 +1,6 @@
 ---
 title: "Festival of Lights"
-start: "2026-12-05"
+start: "2026-12-05T17:30"
 end: "2026-12-05T20:00"
 venue: "Crist Park"
 address: "105 5th St, Frederick, CO 80530"

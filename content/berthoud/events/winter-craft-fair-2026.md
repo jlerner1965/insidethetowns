@@ -8,7 +8,7 @@ url: "https://www.berthoud.org/1530/Upcoming-Events"
 cost: "Free admission"
 category: market
 source: "https://www.berthoud.org/1530/Upcoming-Events"
-verified: "2026-09-18"
+verified: "2026-11-03"
 ---
 
 The fifth annual Winter Craft Fair fills the Recreation Center with more than 50 Colorado artists and makers from the Front Range: jewelry, home decor, fine art, candles, woodwork, sewn and knitted goods. Free to browse, indoors, and the same day as A Very Merry Berthoud downtown.

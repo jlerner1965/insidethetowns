@@ -9,7 +9,8 @@ hours: "Mon 9–5, Tue–Thu 9–8, Fri 9–5, Sat 9–1; closed Sun"
 tags: [library, kids, classes]
 summary: "The Johnstown-Milliken library district's Johnstown branch on South Parish Avenue: storytimes, classes, a makerspace and a library of things. Open six days."
 source: "https://johnstownmillikenpubliclibraries.us/"
-verified: "2026-10-03"
+verified: "2026-11-03"
+verifiedBy: "Flagship audit, 3 November 2026, against johnstownmillikenpubliclibraries.us"
 added: "2026-09-17"
 ---
 

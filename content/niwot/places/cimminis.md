@@ -12,7 +12,7 @@ tags: [patio, italian, dinner]
 featured: true
 summary: "Italian cooking made from scratch on the 300 block, with a heated front patio. Open since January 2022."
 source: "https://cimminisniwot.com/"
-verified: "2026-10-03"
+verified: "2026-11-03"
 added: "2026-09-17"
 ---
 
