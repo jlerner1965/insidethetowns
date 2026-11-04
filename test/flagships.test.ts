@@ -104,7 +104,13 @@ test('the hub routes follow the config and the content: both hubs, local changes
     // Every profile is still a draft, so there is no people page to build.
     assert.ok(!patterns.includes('/people'), `${slug}: no profile is published yet`);
   }
-  assert.deepEqual(hubRoutes(by('longmont')), [], 'a guide without the hubs gets no hub routes');
+  // Longmont switches on no hub; its only route is the changes page, which
+  // follows its updates folder like every other guide's.
+  assert.deepEqual(
+    hubRoutes(by('longmont')),
+    existsSync('content/longmont/updates') ? [['/updates', 'updates.astro']] : [],
+    'a guide without the hubs gets no hub routes beyond the changes page its updates folder gives it',
+  );
 });
 
 test('the About page names who runs the guide, in verified words: James Lerner, Lerner Works, and Niwot as where he grew up', () => {

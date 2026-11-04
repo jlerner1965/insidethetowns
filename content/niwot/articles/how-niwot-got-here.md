@@ -1,6 +1,7 @@
 ---
 title: "How Niwot got here: a railroad and no town hall"
 date: "2026-09-17"
+updated: "2026-11-04"
 excerpt: "A rail line, an 1875 plat, a preserved main street, and a century and a half without a municipal government. The short history, with each claim resting on a source you can open."
 category: "History"
 tags: [history]
@@ -15,7 +16,7 @@ related:
 
 Niwot exists because a rail line was built through the Left Hand valley in the 1870s. The town plat was recorded in 1875, and the street grid still follows the tracks rather than the county roads that came later. The brick block on Second Avenue is what remains of that decision.
 
-It has never been an incorporated municipality. There is no mayor and no town hall, which is part of why the place feels the way it does: what happens here is organized by the people who live here, through the business association, the arts groups and the neighbors who show up. In November 2026 that may change; [the election guide](/articles/2026-incorporation-election/) explains what is on the ballot.
+It has never been an incorporated municipality. There is no mayor and no town hall, which is part of why the place feels the way it does: what happens here is organized by the people who live here, through the business association, the arts groups and the neighbors who show up. On November 3, 2026 voters inside the proposed boundary turned incorporation down in Boulder County's unofficial count, so Niwot stays unincorporated ([the result](/updates/#incorporation-vote-result)); [the election guide](/articles/2026-incorporation-election/) explains what was on the ballot.
 
 ## 1870s: the railroad, and the 1875 plat
 
@@ -35,7 +36,7 @@ Residential development spread around the original plat while the historic comme
 
 ## Today: about four thousand people, still unincorporated
 
-The census designated place recorded a population of 4,306 in 2020. Niwot remains unincorporated, with county and district services, subject to the incorporation vote of November 3, 2026 among electors inside a proposed boundary. *Source: U.S. Census Bureau, 2020 Census, Niwot CDP.*
+The census designated place recorded a population of 4,306 in 2020. Niwot remains unincorporated, with county and district services: on November 3, 2026 voters inside the proposed boundary voted against incorporation in Boulder County's unofficial count ([the result](/updates/#incorporation-vote-result)). *Source: U.S. Census Bureau, 2020 Census, Niwot CDP.*
 
 ## Still visible today
 

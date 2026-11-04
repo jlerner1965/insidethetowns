@@ -1,20 +1,20 @@
 ---
-title: "Frederick voted November 3 on a one percent transportation sales tax, 2D, and up to $26 million of road bonds, 2E"
+title: "Frederick voters turned down the transportation sales tax, 2D, and the road bonds, 2E"
 kind: decision
-stage: proposed
-summary: "Frederick voters decided on November 3 on 2D, a 1.0 percent increase in the Town’s sales and use tax from January 1, 2027 for streets, intersections, paving, sidewalks and regional projects such as Highway 52 (about $3.8 million in its first full year, about $10 a month for the average household), and 2E, which, if 2D passes, lets the Town borrow up to $26 million for street projects."
+stage: complete
+summary: "Both Town questions failed in Weld County's unofficial count. 2D, a 1 percent sales and use tax increase from January 1, 2027 for streets, intersections, sidewalks and regional projects such as Highway 52, had 2,855 votes for and 3,541 against. 2E, up to $26 million of road bonds, had 2,263 for and 4,061 against."
 affects: "Everyone who shops in Frederick, and every driver on the Town’s roads"
-action: "Weld County posts the unofficial count at apps.weld.gov/clerkrecorder/elections/results/ from 7:10 pm on November 3; the tax, if approved, starts January 1, 2027."
+action: "Nothing to do: neither the tax nor the bonds goes ahead. The count is unofficial until Weld County certifies it, and the county's results page carries it until then."
 effective: "2026-11-03"
-effectiveNote: "Decided November 3, 2026; the tax, if approved, starts January 1, 2027"
-published: "2026-11-02"
-verified: "2026-11-02"
-verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
-source: "https://www.frederickco.gov/393/Elections"
-sourceLabel: "Town of Frederick: Elections (ballot issues 2D and 2E)"
-alsoSource: "https://www.frederickco.gov/1256/2026-Transportation-Tax-Frederick-Safety"
-alsoSourceLabel: "Town of Frederick: 2026 Transportation Tax information page"
+effectiveNote: "Decided November 3, 2026; the count is unofficial until Weld County certifies it"
+published: "2026-11-04"
+verified: "2026-11-04"
+verifiedBy: "Claude Code, delegated by James Lerner: Weld County's unofficial results, summary report of November 3, 2026, 11:35 pm (page refreshed November 4, 9:10 am), and the Town's Elections page, both read November 4, 2026"
+source: "https://apps.weld.gov/clerkrecorder/elections/results/"
+sourceLabel: "Weld County: 2026 General Election unofficial results, summary report of November 3, 2026, 11:35 pm"
+alsoSource: "https://www.frederickco.gov/393/Elections"
+alsoSourceLabel: "Town of Frederick: Elections (ballot issues 2D and 2E, and the preliminary result)"
 expires: "2026-12-31"
 ---
 
-The Town's information page puts the tax at about $1 on a $100 taxable purchase and estimates about $4 million a year, aimed at four priorities: Highway 52, congestion and safety, road quality, and sidewalks, crossings and trails. Bonding, the page says, would let larger projects start sooner; its ranked list of 35 potential projects, in 2026 dollars, is headed by a $19 million mill-and-overlay of Bella Rosa Parkway with shoulder improvements, the Colorado Boulevard and Bella Rosa Parkway intersection ($1.6 million) and work on Silver Birch Boulevard, and totals about $88.6 million. The Town says the revenue would be spent notwithstanding the state revenue limit. Voters moved regular Town elections to November of even-numbered years; the next is November 7, 2028. Weld County's unofficial count is at [apps.weld.gov](https://apps.weld.gov/clerkrecorder/elections/results/).
+Weld County's unofficial count, in its summary report of 11:35 pm on November 3, had Ballot Issue 2D at 2,855 votes for and 3,541 against, and Ballot Issue 2E at 2,263 for and 4,061 against. The Town's Elections page says the preliminary results indicate voters have not approved either measure. 2D asked to raise the Town's sales and use tax by 1.0 percent from January 1, 2027, estimated at about $3.8 million in the first full year, for streets, intersections, paving, sidewalks and regional projects such as State Highway 52 and its frontage roads; the Town's information page put it at about $1 on a $100 taxable purchase and about $10 a month for the average household. 2E, which depended on 2D passing, would have let the Town borrow up to $26 million, with a maximum repayment cost of up to $57 million, in general obligation bonds for street and transportation projects. The count stays unofficial until the county certifies it.
