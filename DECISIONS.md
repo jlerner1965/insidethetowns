@@ -8481,3 +8481,29 @@ without anyone remembering to.*
   every town that has one. Berthoud is the first. The rest of the
   growth-fast towns (Johnstown, Timnath, Windsor and Severance, Erie) are
   candidates once each has a tracker page to keep true.
+
+## Every article has a section page, 4 November 2026
+
+*The flagship audit of 4 November found thirteen articles on the ten
+flagships reachable from /guides/ alone: the town histories on six guides,
+three breakfast-and-coffee guides, Erie's county-line and Johnstown's
+fire-district explainers, Niwot's who-runs-what and how-it-got-here. The
+1 November pass had put Guides in the menu because "the best writing is
+two clicks down"; the section pages still did not name their own articles,
+and Windsor's Families page showed Severance's outing guide and not
+Windsor's.*
+
+- **Eat & drink lists the Food & drink articles** under its directory,
+  "From the guide: Eating out, in depth", the block Things to do has
+  carried for its Outdoors articles since October.
+- **Moving here lists the History, Civic, Moving here and Community
+  articles** under the guide, "The town, in depth", newest first. The
+  prose links some of them; the block lists all, so a civic article is on
+  the page the day it is published without an edit to the prose.
+- **Families lists every outing guide**, not the newest alone.
+- **Why in code and not in the prose.** Ten pages edited by hand drift the
+  next time an article is published, and the category is already on every
+  article. The category is the rule: an article filed under anything else
+  is on /guides/ alone until it is refiled, which is how Lafayette's
+  walking-order guide ("Explore", the only one on the network) was found
+  and refiled as Outdoors the same day.
