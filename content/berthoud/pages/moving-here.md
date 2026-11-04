@@ -3,7 +3,7 @@ title: "Moving to Berthoud"
 description: "What it is like to live in a farm town of ten thousand at the 2020 census that doubled in a decade: housing, Thompson schools, the US 287 and I-25 commutes, a Town that runs its own water, and the lakes ten minutes up the road."
 image: ../images/welcome-sign.jpg
 imageAlt: "The Town of Berthoud welcome sign, 'The Garden Spot of Colorado', on a grey winter day"
-updated: "2026-10-02"
+updated: "2026-11-04"
 ---
 
 ## What you are moving to
@@ -12,7 +12,7 @@ Berthoud is a statutory town of about 10,300 people (2020 census) on the Larimer
 
 ## Housing
 
-Mostly single-family homes: the older grid around Mountain Avenue and the 7th Street historic neighborhood, ranchettes on the county roads, and the large newer subdivisions (Heron Lakes and TPC Colorado around Lonetree Reservoir, Berthoud Harvest, Prairiestar, Hammond Farm and others) that account for most of what is on the market. The 2020 census counted 3,879 households; the median household income of $95,872 is an American Community Survey estimate rather than a census count, the figure the Census Bureau's QuickFacts gave in 2023 as [Wikipedia](https://en.wikipedia.org/wiki/Berthoud,_Colorado) cites it. The listings sites linked in the sidebar show what is for sale today. Most of the new subdivisions have metropolitan districts and homeowners' associations with their own fees; ask for the mill levy before you fall for the house.
+Mostly single-family homes: the older grid around Mountain Avenue and the 7th Street historic neighborhood, ranchettes on the county roads, and the large newer subdivisions (Heron Lakes and TPC Colorado around Lonetree Reservoir, Berthoud Harvest, Prairiestar, Hammond Farm and others) that account for most of what is on the market. More are on the way: [what's being built in Berthoud](/articles/whats-being-built-in-berthoud/) lists every project on the Town's development map, from the 439 lots of Legacy Park's first filing to the Mountain View annexation of up to 618 homes, and where each one stands. The 2020 census counted 3,879 households; the median household income of $95,872 is an American Community Survey estimate rather than a census count, the figure the Census Bureau's QuickFacts gave in 2023 as [Wikipedia](https://en.wikipedia.org/wiki/Berthoud,_Colorado) cites it. The listings sites linked in the sidebar show what is for sale today. Most of the new subdivisions have metropolitan districts and homeowners' associations with their own fees; ask for the mill levy before you fall for the house.
 
 ## Schools
 
@@ -34,7 +34,7 @@ US 287 skirts the west side of town since the 2007 bypass, which is why downtown
 
 ## Government
 
-A mayor and six trustees, elected at large, make up the Board of Trustees, which meets on the [second and fourth Tuesdays](/events/) at 6:30 pm at Town Hall. A Planning Commission, a Parks, Open Space, Recreation and Trails committee, a Tree Advisory Committee, a Historic Preservation Commission and a Youth Advisory Board are filled by application. Berthoud was the first Colorado municipality to ban the retail sale of puppy-mill dogs, in 2019.
+A mayor and six trustees, elected at large, make up the Board of Trustees, which meets on the [second and fourth Tuesdays](/events/) at 6:30 pm at Town Hall. A Planning Commission, a Parks, Open Space, Recreation and Trails committee, a Tree Advisory Committee, a Historic Preservation Commission and a Youth Advisory Board are filled by application. Residents can send an ordinance to the voters by petition within 30 days of its passage, with signatures from five per cent of registered voters, and in April 2026 they did: the town overturned the Board's rezoning of the 38-acre Revere property at US 287 and Mountain Avenue and capped it at one home per 2.29 acres ([what the April vote decided](/articles/revere-property-what-the-april-vote-decided/)). Berthoud was the first Colorado municipality to ban the retail sale of puppy-mill dogs, in 2019.
 
 ## Living here
 

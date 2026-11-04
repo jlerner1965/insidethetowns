@@ -6,6 +6,7 @@ excerpt: "Every sizable project on the Town's development map, from the 439-lot 
 category: "Civic"
 tags: [civic, growth, housing, guide]
 verified: "2026-11-03"
+updated: "2026-11-04"
 sources:
   - { label: "Town of Berthoud: Current Development Review Projects", url: "https://berthoud.org/180/Current-Development-Review-Projects" }
   - { label: "Town of Berthoud: Development Activity Map (ArcGIS story map)", url: "https://storymaps.arcgis.com/stories/61d88749b58a490b8926dabc1465d363" }
@@ -28,6 +29,8 @@ sources:
   - { label: "BizWest: Berthoud Legacy Park (September 1, 2024)", url: "https://bizwest.com/2024/09/01/berthouds-magic-a-not-so-well-kept-secret/berthoudlegacypark" }
   - { label: "1310 KFKA: Berthoud begins planning ahead for data-center impacts (October 27, 2026)", url: "https://1310kfka.com/news/10/berthoud-begins-planning-ahead-for-data-center-impacts/" }
   - { label: "Colorado Citizen Observers: Town of Berthoud governance report, January to May 2026 (May 29, 2026)", url: "https://coloradocitizenobservers.substack.com/p/town-of-berthoud-governance-report" }
+  - { label: "Town of Berthoud: Board of Trustees packet, October 27, 2026 (Heron Lakes Marina staff report)", url: "https://berthoudco.portal.civicclerk.com/event/739/files" }
+  - { label: "Town of Berthoud: Board of Trustees packet, November 10, 2026 (October 27 minutes)", url: "https://berthoudco.portal.civicclerk.com/event/727/files" }
 related:
   - { label: "The Revere property: what the April vote decided", href: "/articles/revere-property-what-the-april-vote-decided/", note: "The one project Berthoud voters settled themselves, and what the two ballot questions changed." }
   - { label: "Moving to Berthoud", href: "/moving-here/", note: "Housing, the metro districts and their fees, and which Town departments handle permits." }
@@ -52,7 +55,6 @@ These have an application in front of Town staff or referral agencies, or are be
 | **Lewis Valley East** | West side of County Road 15, about 1,300 feet south of County Road 6C | Preliminary plat for 67 single-family lots, 4 agricultural lots, and tracts for parks, trails and open space | First submittal. The 105-acre Lewis Valley annexation and zoning passed the Board 6–1 on April 14, 2026 (Ordinance 1378); the Surveyor's account of the Planning Commission hearing put the whole at 109 lots, 10 of them for affordable housing, with the land along the Little Thompson left as open space |
 | **Heron Lakes 19th Filing** | Northwest corner of Grand Market Avenue and North Berthoud Parkway | Master plan and preliminary plat for a mixed-use development | Third submittal |
 | **Heron Lakes 21st Filing (Northridge)** | About 500 feet north of Grand Market Avenue and TPC Parkway | Final plat for 48 single-family lots | Third submittal received July 21, 2026 |
-| **Heron Lakes Marina** | County Road 14 between Rabbit Run and Pine Hill Drive | Neighborhood master plan | Hearings were scheduled for the Planning Commission on August 13 and the Board on September 22, 2026; it remains under review |
 | **Gateway Apartments** | Northwest corner of Mountain Avenue and North Berthoud Parkway | Master plan and rezoning for apartments | Fifth submittal received February 4, 2026 |
 | **Farmstead Acres** | South of Mountain Avenue, about 570 feet west of Dorothy Drive and Remuda Road | Final plat for 37 residential lots | Second submittal; staff review was due April 22, 2026 |
 | **Majestic View** | — | Master plan, preliminary plat and rezoning for 11 single-family lots, by Berthoud Habitat for Humanity | First submittal |
@@ -64,6 +66,7 @@ Smaller items under review: an expansion of the BioChar Now plant at 19500 Count
 
 | Project | Where | What was approved | When |
 |---|---|---|---|
+| **Heron Lakes Marina (22nd Filing)** | South of County Road 14 and north of Lonetree Reservoir, between Rabbit Run Lane and Heron Lakes Parkway | Neighborhood master plan for 105 lots, 49 single-family and 56 paired homes, on about 38.7 acres (Resolution 2026-25, 4–2, Trustees Olbricht and Wing against), on condition that the water provider is named with the preliminary plat. The hearing opened on September 22 and was continued over questions about the metropolitan district | October 27, 2026 |
 | **Legacy Park, Filing 1** | South of Mountain Avenue, between Meadowlark Drive and South Berthoud Parkway | Final plat for 439 residential lots, with tracts for later filings and outlots for parks and open space. BizWest described the whole former Ludlow tract in 2024 as 1,500 homes and 40 commercial acres | August 2026 |
 | **Fickel Farm 5th Filing** | South of Mountain Avenue at Pyramid Peak Street | Final plat for 154 residential lots | August 2026. The Board approved the preliminary plat 5–1 on February 10, reduced from 165 attached units |
 | **River Trails** | Southeast corner of South 1st Street and East County Road 6C, north of the Little Thompson | Annexation of about 106 acres (Ordinance 1360, 6–0), a neighborhood master plan (Resolution 2025-18, 5–1, Mayor Karspeck against) and zoning (Ordinance 1361, 6–0). The plan heard in June 2025 was 344 homes of mixed types on 94 acres, with homes set back at least 300 feet from the river; the Board's conditions include native planting in that buffer and a pedestrian link along 1st Street. An earlier 416-lot version was denied in 2024 | August 26, 2025 |
