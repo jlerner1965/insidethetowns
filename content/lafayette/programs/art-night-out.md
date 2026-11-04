@@ -16,7 +16,7 @@ free: true
 dropIn: true
 registration: { required: false, how: "Just come; vendors apply through the City" }
 status: ended
-statusNote: "“Thank you for a great 2026 season!” the City’s page says; the 2027 dates were not posted when this was read."
+statusNote: "“Thank you for a great 2026 season!” the City’s page says."
 contact: "arts@lafayetteco.gov; 303-661-1261"
 source: "https://www.lafayetteco.gov/565/Art-Night-Out"
 verified: "2026-11-02"

@@ -12,7 +12,7 @@ cost: "Free"
 category: other
 recurring: "Tuesdays, Wednesdays and Thursdays, 11 to 1, through December 10; not November 11 or 26 (library closed)"
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-10-03"
+verified: "2026-11-03"
 ---
 
 Fifteen- to twenty-minute one-on-one help with phones, laptops, email and online forms, Tuesday through Thursday at the library, no appointment needed. Longer in-person appointments at 2 and 3 pm the same days.

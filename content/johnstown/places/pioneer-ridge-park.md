@@ -8,7 +8,8 @@ hours: "Daily 5 am–10 pm"
 tags: [disc golf, playground]
 summary: "Park by Pioneer Ridge Elementary with a free nine-hole disc golf course, opened in June 2021."
 source: "https://www.johnstownco.gov/576/Pioneer-Ridge-Park"
-verified: "2026-10-03"
+verified: "2026-11-03"
+verifiedBy: "Flagship audit, 3 November 2026, against johnstownco.gov/240/Parks"
 added: "2026-09-17"
 ---
 

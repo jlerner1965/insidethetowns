@@ -12,7 +12,7 @@ imageCredit: "Berthoud Community Library District"
 tags: [library, kids, classes]
 summary: "The library district on Welch Avenue: storytimes three mornings a week, a writers group, classes, tech help, and the September literary festival."
 source: "https://www.berthoudcommunitylibrary.org/hours"
-verified: "2026-10-03"
+verified: "2026-11-03"
 added: "2026-09-17"
 ---
 

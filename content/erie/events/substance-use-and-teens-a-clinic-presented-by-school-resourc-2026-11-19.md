@@ -8,7 +8,8 @@ url: "https://www.erieco.gov/Calendar.aspx?EID=5465"
 cost: "Free; RSVP required"
 category: civic
 source: "https://www.erieco.gov/Calendar.aspx?EID=5465"
-verified: "2026-09-18"
+verified: "2026-11-04"
+verifiedBy: "Claude Code, flagship audit: Thursday, November 19, 5:30–7:30 pm, Erie Police Department, 1000 Telleen Avenue, RSVPs required, on the Town calendar (EID=5465)"
 ---
 
 Erie school resource officers present a clinic for parents and carers on substance use among teenagers.

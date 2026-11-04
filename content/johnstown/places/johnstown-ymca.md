@@ -9,7 +9,8 @@ hours: "Mon–Fri 5 am–9 pm, Sat 7–7, Sun 8–7"
 tags: [pool, gym, classes, kids]
 summary: "The YMCA of Northern Colorado's Johnstown branch: lap and leisure pools with slides and diving boards, a gym, an indoor track, fitness classes, a preschool and fields."
 source: "https://www.ymcanoco.org/membership/facility-hours"
-verified: "2026-10-03"
+verified: "2026-11-03"
+verifiedBy: "Flagship audit, 3 November 2026, against ymcanoco.org"
 added: "2026-09-17"
 ---
 

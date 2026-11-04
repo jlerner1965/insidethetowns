@@ -7,13 +7,13 @@ address: "923 10th St, Golden, CO 80401"
 performers:
   - { name: "Terre Deegan-Young", kind: person }
 url: "https://www.goldenhistory.org/event/donut-dollies/"
-cost: "$12; $5 for museum members and military veterans"
+cost: "$12; $5 for museum members; military veterans free"
 category: other
 organizer: "Golden History Museum & Park"
 organizerUrl: "https://www.goldenhistory.org/"
 source: "https://www.goldenhistory.org/event/donut-dollies/"
 sourceId: "goldenhistory-org"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Donut Dollies\" at 6 pm on 4 November on the Golden History Museum & Park feed"
 ---
 

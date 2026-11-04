@@ -15,13 +15,13 @@ schedule: "Classes weekday afternoons and Saturday mornings (times in the catalo
 season: "Session 3 runs August 31 to November 23, 2026; 2027 sessions not posted on November 2"
 ends: "2026-11-23"
 price: "Classes: not listed on the page (10% off for paying a session in full); open gym $5 district / $7 non-district, 20 visits $70 / $98"
-registration: { required: true, how: "Online in the CivicRec catalog or by calling 303-833-2765; district residents three weeks before a session, others two weeks before; open gym opens seven days before each slot", url: "https://bit.ly/GymnasticsCVPRD" }
+registration: { required: true, how: "Online in the CivicRec catalog or by calling 303-833-2765; district residents three weeks before a session, others two weeks before; open gym opens seven days before each slot", url: "https://secure.rec1.com/CO/carbon-valley-park-recreation-district-co/catalog/index?filter=dGFiJTVCMTI4MDMlNUQ9MSZzZWFyY2g9JnJlbnRhbCU1QmZyb20lNUQ9JnJlbnRhbCU1QnRvJTVEPSZkNDhkNzllNjI3ODA0YThjOThiM2IzOTQ4NjlmYjcyMz1lNmY4MDRmNjc5YjM3OTk5OWMyM2ExOWYzYjBmN2EyZA==" }
 contact: "Roberta Friend, Gymnastics Coordinator, 303-833-3660 x129, rfriend@cvprd.com; the gym 303-833-2765"
 source: "https://www.cvprd.com/gymnastics-classes"
 verified: "2026-11-02"
 verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
 ---
 
-Classes at the [Gymnastics Center](/places/carbon-valley-gymnastics-center/) run in twelve-week sessions: Parent Tot for 2 to 4-year-olds with a parent on the floor, Little Explorers (3 to 4), Little Stars (5 to 6), Beginners for 7 to 16 and, with an instructor's consent, advanced beginners, intermediates, pre-team and a girls' team that competes in the CARA league from April to July. Mid-session sign-ups are allowed if there is space; payment is for the whole session, in full for 10 percent off or monthly, and withdrawals must reach the coordinator by the 25th of the previous month. The fall session ends November 23 and the 2027 calendar was not up when this was read.
+Classes at the [Gymnastics Center](/places/carbon-valley-gymnastics-center/) run in twelve-week sessions: Parent Tot for 2 to 4-year-olds with a parent on the floor, Little Explorers (3 to 4), Little Stars (5 to 6), Beginners for 7 to 16 and, with an instructor's consent, advanced beginners, intermediates, pre-team and a girls' team that competes in the CARA league from April to July. Mid-session sign-ups are allowed if there is space; payment is for the whole session, in full for 10 percent off or monthly, and withdrawals must reach the coordinator by the 25th of the previous month. The fall session ends November 23.
 
 [Open gym](https://www.cvprd.com/open-gym) is unstructured time on the equipment, the 40-foot trampoline track into the foam pit included, in age slots on Friday mornings and Saturday at noon; reserve online or by phone, up to seven days ahead, and cancel at least two hours before or pay the drop-in fee. No zippers, snaps or buttons.

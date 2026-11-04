@@ -5,11 +5,11 @@ address: "228 Main St"
 area: "Main Street"
 url: "https://lyons.smokindavesbbq.com/"
 phone: "(303) 823-7427"
-hours: "Daily 11 am–8 pm"
+hours: "Mon–Thu 11 am–7 pm, Fri–Sun 11 am–8 pm"
 tags: [barbecue, beer, families]
 summary: "Slow-smoked barbecue and a long tap list, mid-block on Main."
 source: "https://lyons.smokindavesbbq.com/"
-verified: "2026-10-03"
+verified: "2026-11-03"
 added: "2026-09-17"
 ---
 

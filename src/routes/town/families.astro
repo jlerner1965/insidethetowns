@@ -61,8 +61,10 @@ const breaks = [...families.breaks]
 // with a link to the list and what is open on it.
 const nextBreak = breaks[0] && daysBetween(now, breaks[0].fromDate) <= SOON_DAYS ? breaks[0] : undefined;
 const breakSources = [...new Map(breaks.map((b) => [b.source, b])).values()];
-// The town's own outing guide, where it has one: the newest article filed under Families.
-const outing = (await getTownEntries('articles')).filter((a) => a.data.category === 'Families').sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
+// The town's own outing guides, newest first: every article filed under
+// Families. It was the newest one alone, which on Windsor showed Severance's
+// and hid Windsor's (flagship audit, 4 November 2026).
+const outings = (await getTownEntries('articles')).filter((a) => a.data.category === 'Families').sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 const description = `${families.label}: what a child can join in ${town.name}, Colorado, by age, with prices, registration deadlines and school-break dates, each from the organizer's own page.`;
 const chips = [
   ...(closingSoon.length > 0 ? [{ id: 'closing', label: 'Closing soon' }] : []),
@@ -212,27 +214,29 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
             </a>
           </li>
         ))}
-        {outing && (
+        {outings.map((outing) => (
           <li>
             <a href={`/articles/${outing.slug}/`} class={card}>
               <span class="font-semibold leading-snug">{outing.data.title}</span>
               <span class="mt-1 block text-[0.875rem] leading-snug text-ink-muted">The guide: parks, playgrounds and trails</span>
             </a>
           </li>
-        )}
+        ))}
       </ul>
     </section>
   )}
 
-  {/* The town's outing guide on its own when nothing free is listed, so the
-      one page of parks and playgrounds does not leave with the section. */}
-  {free.length === 0 && outing && (
-    <p class="mt-6">
-      <a href={`/articles/${outing.slug}/`} class="flex items-center justify-between rounded-lg bg-raised px-5 py-4 font-semibold no-underline ring-1 ring-line-soft hover:ring-primary-line">
-        <span>{outing.data.title} <span class="block text-[0.875rem] font-normal text-ink-muted">The guide: parks, playgrounds and trails</span></span>
-        <span aria-hidden="true" class="text-primary">→</span>
-      </a>
-    </p>
+  {/* The town's outing guides on their own when nothing free is listed, so the
+      page of parks and playgrounds does not leave with the section. */}
+  {free.length === 0 && outings.length > 0 && (
+    <div class="mt-6 space-y-3">
+      {outings.map((outing) => (
+        <a href={`/articles/${outing.slug}/`} class="flex items-center justify-between rounded-lg bg-raised px-5 py-4 font-semibold no-underline ring-1 ring-line-soft hover:ring-primary-line">
+          <span>{outing.data.title} <span class="block text-[0.875rem] font-normal text-ink-muted">The guide: parks, playgrounds and trails</span></span>
+          <span aria-hidden="true" class="text-primary">→</span>
+        </a>
+      ))}
+    </div>
   )}
 
   {later.length > 0 && (

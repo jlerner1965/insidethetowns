@@ -10,7 +10,7 @@ tags: [brewery, lagers, dogs, kids]
 featured: true
 summary: "Family-run brewery pouring German-style lagers and ales. Kids welcome; dogs on the patio."
 source: "https://www.fritzfamilybrewers.com/"
-verified: "2026-10-03"
+verified: "2026-11-03"
 added: "2026-09-17"
 ---
 

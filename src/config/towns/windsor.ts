@@ -166,7 +166,7 @@ export const windsor: TownConfig = {
         items: [
           { label: 'Windsor recreation: register for programs', url: 'https://cowindsorweb.myvscloud.com/webtrac/web/splash.html', note: 'Youth sports, swim lessons, day camps, classes and memberships; or call 970-674-3500', track: 'registration' },
           { label: 'Windsor Activity Guide', url: 'https://www.recreationliveshere.com/160/Activity-Guide', note: 'Each activity’s registration deadline is listed with it', track: 'registration' },
-          { label: 'Community Recreation Center', url: 'https://www.recreationliveshere.com/167/Community-Recreation-Center', note: '250 N 11th St; Mon–Fri 5 am–9 pm, Sat 8 am–7 pm, Sun noon–6 pm; closed on major holidays' },
+          { label: 'Community Recreation Center', url: 'https://www.recreationliveshere.com/167/Community-Recreation-Center', note: '250 N 11th St; Mon–Fri 5 am–9 pm, Sat 8 am–6:45 pm, Sun noon–6:35 pm; closed on major holidays' },
           { label: 'Reduced Fee Program and Severance youth scholarships', url: 'https://www.recreationliveshere.com/172/Reduced-Fee-Program', note: 'Reduced rates for Windsor residents who qualify by income; up to $100 toward youth sports for Severance residents under 18, while funds last', track: 'registration' },
           { label: 'Windsor parks and shelter reservations', url: 'https://www.recreationliveshere.com/27/Parks', note: 'Only shelters can be reserved; 970-674-3500' },
           { label: 'Severance: parks and park reservations', url: 'https://www.townofseverance.org/209/Parks-Recreation', note: 'The Town’s twelve parks and its reservation request form; 970-686-1218' },

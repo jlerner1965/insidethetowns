@@ -6,8 +6,9 @@ address: "514 Main St"
 area: "Main Street, downtown"
 url: "https://williamolivers.com/locations/windsor/"
 source: "https://williamolivers.com/locations/windsor/"
-verified: "2026-11-02"
+verified: "2026-11-04"
 added: "2026-10-01"
+hours: "Daily 11 am–2 am"
 tags: [whiskey, pub, biergarten, dog-friendly]
 summary: "A whiskey-and-bacon pub on Main Street with no loud TVs, no reservations and no phone: a long whiskey list, Colorado-made spirits and beer, a snug for small groups and a rear biergarten where dogs are welcome."
 ---

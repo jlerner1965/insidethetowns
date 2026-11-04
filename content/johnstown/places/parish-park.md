@@ -9,7 +9,8 @@ tags: [playground, shelters, events]
 featured: true
 summary: "Old Town's park at Charlotte and Raymond, beside the Parish House Museum: shelters with power, a playground, restrooms, volleyball and walking paths. Home of BBQ Day."
 source: "https://www.johnstownco.gov/574/Parish-Park"
-verified: "2026-10-03"
+verified: "2026-11-03"
+verifiedBy: "Flagship audit, 3 November 2026, against johnstownco.gov/240/Parks"
 added: "2026-09-17"
 ---
 

@@ -159,9 +159,9 @@ export const elizabeth = {
       },
       {
         title: "Meetings and elections",
-        verified: "2026-10-22",
+        verified: "2026-11-03",
         items: [
-          { label: "Elbert County elections", url: "https://www.elbertcounty-co.gov/290/Elections", note: "A ballot drop box at the Town of Elizabeth, 151 South Banner Street, until 7 pm November 3; the same address is a voter service center on Election Day only, 7 am–7 pm", track: "participation" },
+          { label: "Elbert County elections", url: "https://www.elbertcounty-co.gov/290/Elections", note: "Elbert County runs the town’s elections by mail ballot; its Elections page lists the drop boxes and voter service centers for each one. Elections office: 440 Comanche Street, Kiowa, 303-621-3127, Monday to Thursday 7:30 am–5 pm", track: "participation" },
           { label: "Board of Education meetings", url: "https://www.elizabethschooldistrict.org/board-of-education/board-meetings", note: "Second and/or fourth Tuesdays at 6 pm, with exceptions, at the district offices, 634 S. Elbert St; livestreamed on the district’s YouTube channel", track: "participation" },
           { label: "Park and Recreation District board", url: "https://www.elizabethpr.com/board-meetings", note: "Usually the third Tuesday at 7 pm, at the Casey Jones Pavilion or the park office; the 2027 budget hearing is December 8", track: "participation" },
           { label: "Fire Protection District board", url: "https://elizabethfpd.colorado.gov/about-us/board-of-directors/board-meetings-and-other-documents", note: "Second Tuesdays at 5 pm, 155 W Kiowa Ave, and by video call", track: "participation" },
@@ -172,7 +172,7 @@ export const elizabeth = {
   movingHere: {
     listingsLinks: [
       { label: "Homes for sale on Zillow", url: "https://www.zillow.com/elizabeth-co/" },
-      { label: "Homes for sale on Redfin", url: "https://www.redfin.com/city/5866/CO/Elizabeth" },
+      { label: "Homes for sale on Redfin", url: "https://www.redfin.com/city/6117/CO/Elizabeth" },
       { label: "Homes for sale on Realtor.com", url: "https://www.realtor.com/realestateandhomes-search/Elizabeth_CO" },
     ],
     schoolDistrict: "Elizabeth School District C-1: Running Creek and Singing Hills elementaries, Elizabeth Middle School and Elizabeth High School.",

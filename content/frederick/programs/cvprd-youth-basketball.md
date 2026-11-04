@@ -15,7 +15,7 @@ starts: "2027-01-05"
 ends: "2027-02-27"
 price: "$127 district / $191 non-district"
 equipment: "Jerseys are included; players bring their own basketball shoes and any other gear named in the parent letter"
-registration: { required: true, how: "Online in the district’s CivicRec catalog, or at the rec center front desk, 701 5th St", url: "https://bit.ly/YouthSportsCVPRD", deadline: "2026-12-07", note: "District registration opened September 21 and non-district October 5; team requests are first come, first served and not guaranteed" }
+registration: { required: true, how: "Online in the district’s CivicRec catalog, or at the rec center front desk, 701 5th St", url: "https://secure.rec1.com/CO/carbon-valley-park-recreation-district-co/catalog/index?filter=dGFiJTVCMTI4MDElNUQ9MSZzZWFyY2g9JnJlbnRhbCU1QmZyb20lNUQ9JnJlbnRhbCU1QnRvJTVEPSYzM2IzODY1MWI2ZTg4ZGFlMzYxNGNjZDRlYWQ4YzVhYj1kZmYwZjhjZTcwYTM0N2VlNmMwNzY4Njg2NGU5M2M3ZA==", deadline: "2026-12-07", note: "District registration opened September 21 and non-district October 5; team requests are first come, first served and not guaranteed" }
 volunteerNeed: "Volunteer head coaches are needed every season; a head coach’s child plays that sport free"
 contact: "Darren Duplechin, Sports Coordinator, 303-833-3660 x127, dduplechin@cvprd.com; weather line 720-531-3373"
 featured: true

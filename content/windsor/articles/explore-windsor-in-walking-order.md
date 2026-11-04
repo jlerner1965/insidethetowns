@@ -8,7 +8,7 @@ verified: "2026-10-07"
 glance:
   start: "The Boardwalk Park lot at 100 N 5th Street, a block north of Main Street"
   by: "On foot from one parking spot; only the river trail at the end needs the car again"
-  bestDay: "Friday to Sunday for the Art & Heritage Center, closed Monday to Wednesday; Hearth opens for lunch only Friday to Sunday"
+  bestDay: "Friday to Sunday for the Art & Heritage Center, closed Monday to Thursday; Hearth opens for lunch only Friday to Sunday"
   caveat: "The History Museum buildings open only in summer; the 2026 season ran May 22 to September 6, and the boat rentals have closed for 2026"
 sources:
   - { label: "Windsor Parks, Recreation & Culture: Windsor Lake", url: "https://www.recreationliveshere.com/206/Windsor-Lake" }
@@ -35,7 +35,7 @@ The five relocated buildings of the [Windsor History Museum](/places/windsor-his
 
 ## 02 · The Art & Heritage Center
 
-A block south on 5th Street is Windsor's 1909 town hall, the two-story building with the old fire truck out front, which held every town office and the fire station until it was restored after the 2008 tornado as the [Art & Heritage Center](/places/art-and-heritage-center/). It is the Town's gallery for art and local history, with rotating exhibitions and free admission. The Town's page gives its hours as Friday to Sunday, noon–4 pm; its facility listing has also shown Thursday afternoon and evening hours, so check the current exhibition page before counting on a Thursday. It is closed Monday to Wednesday.
+A block south on 5th Street is Windsor's 1909 town hall, the two-story building with the old fire truck out front, which held every town office and the fire station until it was restored after the 2008 tornado as the [Art & Heritage Center](/places/art-and-heritage-center/). It is the Town's gallery for art and local history, with rotating exhibitions and free admission. The Town's page gives its hours as Friday to Sunday, noon–4 pm; it is closed Monday to Thursday.
 
 *Getting there:* 116 5th Street, a two-minute walk from the park lot. *Best for:* a free half hour indoors between the lake and lunch, Friday to Sunday.
 

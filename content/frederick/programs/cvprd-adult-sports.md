@@ -13,7 +13,7 @@ location: "Carbon Valley Recreation Center, 701 5th St, and district fields"
 schedule: "Seven-week seasons; dates for each sport on its page"
 season: "Year-round, sport by sport; the 2026 dates are on each league’s page and 2027’s were not posted on November 2"
 price: "Team fees are not stated on the overview page; 50 percent is due at registration and the balance by the second week"
-registration: { required: true, how: "Online in the district’s adult sports catalog", url: "https://bit.ly/AdultSportsCVPRD" }
+registration: { required: true, how: "Online in the district’s adult sports catalog", url: "https://secure.rec1.com/CO/carbon-valley-park-recreation-district-co/catalog/index?filter=dGFiJTVCMTI4MDIlNUQ9MSZzZWFyY2g9JnJlbnRhbCU1QmZyb20lNUQ9JnJlbnRhbCU1QnRvJTVEPSYxYTU1MDNkOWFjMTFmNWIwYTRkZWQ5YTJkNjQ2NjU2MD05ZDc1NDc2YmNhZTg0YjFhNjU5ZTNhODZhNDVkNDM5NA==" }
 contact: "Kelly Gray, Sports Supervisor, 303-833-3660 x124, kgray@cvprd.com; weather line 303-833-3660 x119"
 source: "https://www.cvprd.com/adult-sports"
 verified: "2026-11-02"

@@ -23,4 +23,4 @@ verified: "2026-11-02"
 
 Snow Angels pairs a volunteer with a Lafayette resident aged 55 or older whose household cannot shovel safely and for whom hiring help would be a hardship. The volunteer clears the sidewalk, the driveway and a safe path to the main entrance within 24 hours of any snowfall over two inches, with their own shovel or blower, for the full season, shoveling onto the resident’s own property as City ordinance requires. Sign up with the seasonal volunteer agreement and release form on the City’s site. The City’s general volunteer page adds that the need is most urgent along the 95th Street corridor between Arapahoe and Baseline.
 
-Residents who need the help sign up at lafayetteco.gov/SnowRemovalSignup or with the paper form; when this was read the City said it had reached capacity "based on the number of volunteers available" and was keeping a waitlist. More volunteers is how the list gets shorter.
+Residents who need the help sign up at lafayetteco.gov/SnowRemovalSignup or with the paper form; the City says it has reached capacity "based on the number of volunteers available" and keeps a waitlist. More volunteers is how the list gets shorter.

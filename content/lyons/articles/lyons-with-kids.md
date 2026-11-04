@@ -29,7 +29,7 @@ Across the river, [Bohn Park](/places/bohn-park/) on the south bank has the ball
 
 ## After the water
 
-The walk-up window at the east end of Main, long the Lyons Dairy Bar, has changed hands more than once; check that it is open before promising soft-serve. [Smokin Dave's](/places/smokin-daves-bbq-taphouse/) mid-block on Main is the answer for a hungry group, and [Oskar Blues](/places/oskar-blues-grill-brew/) has been feeding families on Main Street since 1997.
+[Smokin Dave's](/places/smokin-daves-bbq-taphouse/) mid-block on Main is the answer for a hungry group, and [Oskar Blues](/places/oskar-blues-grill-brew/) has been feeding families on Main Street since 1997.
 
 ## Any season: the library
 

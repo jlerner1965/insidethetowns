@@ -8,7 +8,8 @@ cost: "Free"
 category: civic
 recurring: "Second and fourth Wednesdays"
 source: "https://johnstownco.gov/Calendar.aspx"
-verified: "2026-09-18"
+verified: "2026-11-03"
+verifiedBy: "Flagship audit, 3 November 2026, against the Town's calendar feed"
 ---
 
 Regular meeting of the Planning and Zoning Commission at Town Hall, second and fourth Wednesdays at 6 pm, on subdivisions, annexations and development applications. Meetings are sometimes canceled when there is no business; check the Town calendar.

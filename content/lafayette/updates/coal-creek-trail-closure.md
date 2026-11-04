@@ -4,11 +4,11 @@ kind: construction
 stage: underway
 summary: "A section of the Coal Creek Trail by the Lafayette Water Reclamation Facility closed on Tuesday, September 8 for construction of floodplain improvements and a retaining wall, which the City expected to take about eight weeks. A signed detour runs around it; part of it is ungroomed and uneven, so riders are asked to walk their bikes there."
 affects: "Anyone walking or riding the Coal Creek Trail through Lafayette"
-action: "Follow the posted detour and check the City’s ConeZone map (lafayetteco.gov/ConeZone) before setting out; eight weeks from September 8 is early November, and the City had not posted a reopening when this was read. Questions to B2 Excavating, 720-703-9716."
+action: "Follow the posted detour and check the City’s Cone Zone map (lafayetteco.gov/ConeZone) before setting out: on November 4 the map still listed the closure as a current impact, past the eight weeks the City gave. Questions to B2 Excavating, 720-703-9716."
 effective: "2026-09-08"
 effectiveNote: "From September 8 for approximately eight weeks, per the City"
 published: "2026-11-02"
-verified: "2026-11-02"
+verified: "2026-11-04"
 source: "https://www.lafayetteco.gov/CivicAlerts.aspx?AID=10228"
 sourceLabel: "City of Lafayette news, September 3, 2026 (updated September 22)"
 alsoSource: "https://www.bouldercounty.gov/open-space/parks-and-trails/coal-creek-trail/"

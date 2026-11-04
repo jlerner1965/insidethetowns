@@ -3,9 +3,11 @@ import { getImage, Image } from 'astro:assets';
 import { render } from 'astro:content';
 import Page from '@/layouts/Page.astro';
 import ContentsList from '@/components/ContentsList.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import ArticleCard from '@/components/ArticleCard.astro';
 import { countyLabel, getNetworkHub, getTown, liveTowns } from '@/config';
 import { formatDate, parseLocal } from '@/lib/dates';
-import { getTownEntry } from '@/lib/content';
+import { getTownEntries, getTownEntry } from '@/lib/content';
 import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -16,6 +18,15 @@ const Content = rendered?.Content ?? null;
 // double as the contents list. It also gives the column beside the text
 // something to hold all the way down, instead of a page-length empty margin.
 const contents = (rendered?.headings ?? []).filter((h) => h.depth === 2);
+// The articles a mover reads next: the town's history, who governs it, what
+// is being built, which side of a line a house is on. The guide's prose links
+// some of them; this lists every one filed under History, Civic, Moving here
+// or Community, newest first, so none is reachable from /guides/ alone
+// (flagship audit, 4 November 2026).
+const MOVER_CATEGORIES = ['History', 'Civic', 'Moving here', 'Community'];
+const articles = (await getTownEntries('articles'))
+  .filter((a) => MOVER_CATEGORIES.includes(a.data.category))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 const { listingsLinks, schoolDistrict, commuteNotes } = town.movingHere;
 const { countySplit } = town;
 const hub = getNetworkHub();
@@ -136,4 +147,16 @@ const structured = [
       )}
     </div>
   </div>
+  {articles.length > 0 && (
+    <section class="mt-20">
+      <SectionHeader eyebrow="From the guide" title="The town, in depth" href="/guides/" linkLabel="All guides" />
+      {articles.length === 1 ? (
+        <ArticleCard article={articles[0]} row />
+      ) : (
+        <div class="grid gap-x-8 gap-y-10 md:grid-cols-2">
+          {articles.map((article) => <ArticleCard article={article} />)}
+        </div>
+      )}
+    </section>
+  )}
 </Page>

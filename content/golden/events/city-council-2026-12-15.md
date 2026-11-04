@@ -7,7 +7,6 @@ address: "911 10th St., Golden, CO 80401"
 url: "https://www.cityofgolden.gov/government/public_meetings.php"
 cost: "Free"
 category: civic
-recurring: "Second and fourth Tuesdays"
 organizer: "City of Golden"
 organizerUrl: "https://www.cityofgolden.gov/"
 source: "https://www.cityofgolden.gov/calendar.php"

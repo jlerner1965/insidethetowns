@@ -14,7 +14,7 @@ season: "Winter session November 2 to December 14, 2026, no class November 23"
 starts: "2026-11-02"
 ends: "2026-12-14"
 price: "Toddler Social Time $35 district / $52.50 non-district; Kid Zone $4 an hour district / $6 non-district, 10-hour pass $40 / $60"
-registration: { required: true, how: "Online in the district’s youth catalog; this session’s registration closed October 29, so ask about the next one", url: "https://bit.ly/YouthCVPRD", deadline: "2026-10-29" }
+registration: { required: true, how: "Online in the district’s youth catalog; this session’s registration closed October 29, so ask about the next one", url: "https://secure.rec1.com/CO/carbon-valley-park-recreation-district-co/catalog/index?filter=Y2F0ZWdvcnklNUIyMjQyOCU1RD0xJmNhdGVnb3J5JTVCMjI0MzAlNUQ9MSZzZWFyY2g9JnJlbnRhbCU1QmZyb20lNUQ9JnJlbnRhbCU1QnRvJTVEPSYzZTM1NGFkNTJhMGEzOWU0YjU2MTI1NDNiZTFmM2ZjND04ZWE4YzQwZWNhZDNkYjAwOWU5ZTg5NjUyMWFkNDY4NA==", deadline: "2026-10-29" }
 status: full
 statusNote: "Registration for the winter session closed on October 29; the district has not posted the next session."
 contact: "Mika Segura, Youth Programs Supervisor, 303-833-3660 x128, msegura@cvprd.com"

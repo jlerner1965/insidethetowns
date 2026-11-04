@@ -9,7 +9,7 @@ url: "https://www.recreationliveshere.com/185/Upcoming-Exhibitions"
 cost: "Free"
 category: arts
 source: "https://www.recreationliveshere.com/185/Upcoming-Exhibitions"
-verified: "2026-10-03"
+verified: "2026-11-04"
 ---
 
-Opening night for Floral Alchemy, Faith Parks's show of painting, photography, floral portraiture and botanical installations that the Art & Heritage Center describes as a celebration of transformation and the artist's own journey of becoming. The show hangs from Friday, November 6 to Sunday, November 15, following Trifecta!!! in the galleries; admission to the center is always free, and the Center's own page gives its hours as Thursday 3 to 7 and Friday to Sunday noon to 4. The Town lists the show's dates without a year on its upcoming-exhibitions page, in sequence after the autumn community art show.
+Opening night for Floral Alchemy, Faith Parks's show of painting, photography, floral portraiture and botanical installations that the Art & Heritage Center describes as a celebration of transformation and the artist's own journey of becoming. The show hangs from Friday, November 6 to Sunday, November 15, following Trifecta!!! in the galleries; admission to the center is always free, and the gallery is open Friday to Sunday, noon to 4, for the show.

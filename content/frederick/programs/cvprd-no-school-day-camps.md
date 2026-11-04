@@ -16,7 +16,7 @@ season: "Camp Gobble Gobble November 23–25, 2026; Camp Frost December 28–30,
 starts: "2026-11-23"
 ends: "2026-12-30"
 price: "$180 district / $270 non-district per camp"
-registration: { required: true, how: "Online in the district’s youth catalog", url: "https://bit.ly/YouthCVPRD", opens: "2026-11-02", deadline: "2026-12-09", note: "Camp Gobble Gobble closed November 11; Camp Frost opens November 2 for district residents and November 9 for others" }
+registration: { required: true, how: "Online in the district’s youth catalog", url: "https://secure.rec1.com/CO/carbon-valley-park-recreation-district-co/catalog/index?filter=Y2F0ZWdvcnklNUIyMjQyOCU1RD0xJmNhdGVnb3J5JTVCMjI0MzAlNUQ9MSZzZWFyY2g9JnJlbnRhbCU1QmZyb20lNUQ9JnJlbnRhbCU1QnRvJTVEPSYzZTM1NGFkNTJhMGEzOWU0YjU2MTI1NDNiZTFmM2ZjND04ZWE4YzQwZWNhZDNkYjAwOWU5ZTg5NjUyMWFkNDY4NA==", opens: "2026-11-02", deadline: "2026-12-09", note: "Camp Gobble Gobble closed November 11; Camp Frost opens November 2 for district residents and November 9 for others" }
 openOn:
   - { from: "2026-11-23", to: "2026-11-25", note: "Camp Gobble Gobble, 8:30–4:30" }
   - { from: "2026-12-28", to: "2026-12-30", note: "Camp Frost, 8:30–4:30" }
