@@ -8,7 +8,7 @@ url: "https://business.esteschamber.org/events/details/edwc-latino-alliance-este
 category: festival
 source: "https://business.esteschamber.org/events/details/edwc-latino-alliance-estes-arts-district-national-hispanic-heritage-month-15422"
 sourceId: "esteschamber-org"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): 4 November and 5 pm on the page"
 ---
 

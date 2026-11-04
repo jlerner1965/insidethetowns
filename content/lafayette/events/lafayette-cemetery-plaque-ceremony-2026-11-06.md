@@ -11,7 +11,7 @@ organizer: "City of Lafayette"
 organizerUrl: "https://www.lafayetteco.gov/"
 featured: true
 source: "https://www.lafayetteco.gov/Calendar.aspx?EID=12264"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Lafayette Cemetery Name Plaque Installation Ceremony\" at 4:30 pm on 6 November on the City of Lafayette - City Calendar feed"
 ---
 

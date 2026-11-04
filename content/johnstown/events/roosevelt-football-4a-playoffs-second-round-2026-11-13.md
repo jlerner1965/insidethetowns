@@ -8,8 +8,8 @@ url: "https://chsaanow.com/brackets/football/2026/state/4a"
 category: sports
 featured: true
 source: "https://chsaanow.com/brackets/football/2026/state/4a"
-verified: "2026-11-03"
-verifiedBy: "Flagship audit, 3 November 2026, against chsaanow.com 4A bracket"
+verified: "2026-11-04"
+verifiedBy: "recheck-events (the nightly re-check workflow): 13 November on the page"
 ---
 
 The Roughriders (9-1) are the No. 1 seed in the 4A state bracket CHSAA released on November 1, which gives them a bye through the first round (November 5 to 7). Their first playoff game is in the second round, listed for Friday, November 13, against the winner of Montbello and George Washington. CHSAA’s bracket shows no kickoff time or site yet; the sports page here picks the game up once MaxPreps lists it. The quarterfinals follow on November 20 and 21.

@@ -9,7 +9,7 @@ source: "https://calendar.estesvalleylibrary.org/event/17846616"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17846616"
 sourceHash: "340f0f34552e"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"A City on Mars: The Science and Absurdities of Space Settlement with Kelly and Zach Weinersmith\" at 12 pm on 10 November on the Estes Valley Library feed"
 ---
 

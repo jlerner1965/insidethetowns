@@ -8,6 +8,8 @@ category: other
 source: "https://lyons.librarycalendar.com/events/upcoming"
 verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Explore Resources with the BoCo Area Agency on Aging\" at 10 am on 4 November on the lyons.librarycalendar.com feed"
+changeFlag: true
+changeNote: "recheck 2026-11-04: not on the lyons.librarycalendar.com feed on 4 November; it has \"Explore Resources with the BoCo Area Agency on Aging\" on 18 November, 2 December, 16 December"
 ---
 
 Drop-in session with a Boulder County Area Agency on Aging representative to discuss benefits, services and support for older adults.

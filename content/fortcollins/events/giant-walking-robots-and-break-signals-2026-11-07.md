@@ -10,7 +10,7 @@ performers:
   - { name: "Giant Walking Robots", kind: group }
   - { name: "Break Signals", kind: group }
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): 7 November and 8 pm on the page"
 ---
 

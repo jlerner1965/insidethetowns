@@ -10,7 +10,7 @@ source: "https://music.colostate.edu/events/percussion-ensemble-concert-9/"
 sourceId: "music-colostate-edu"
 sourceUid: "17-19471@music.colostate.edu"
 sourceHash: "e454ddb81a0a"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Percussion Ensemble Concert\" at 6 pm on 8 November on the music.colostate.edu feed"
 ---
 

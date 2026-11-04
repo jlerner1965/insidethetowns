@@ -7,8 +7,8 @@ address: "451 4th Ave, Lyons, CO 80540"
 category: civic
 recurring: "Third Tuesdays"
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6511"
-verified: "2026-10-16"
-verifiedBy: "Claude Code for James Lerner, against the organizer's own page, 16 October 2026"
+verified: "2026-11-04"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Ecology Advisory Board\" at 6:30 pm on 17 November on the townoflyons.com feed"
 ---
 
 Regular meeting of the Town of Lyons Ecology Advisory Board in the library's Effie Banta Meeting Room.

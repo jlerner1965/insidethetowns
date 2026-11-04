@@ -8,8 +8,8 @@ url: "https://johnstownmillikenpubliclibraries.us/event/creative-journaling/"
 cost: "Free; full, with a waiting list"
 category: arts
 source: "https://johnstownmillikenpubliclibraries.us/event/creative-journaling/"
-verified: "2026-11-03"
-verifiedBy: "Flagship audit, against the library's event page, 3 November 2026: Sat, Nov 7, 10:00 am–12:00 pm, Johnstown Location; registration limit reached, 0 of 10 spaces, waiting list offered"
+verified: "2026-11-04"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Creative Journaling\" at 10 am on 7 November in the page's structured data"
 ---
 
 Try a range of techniques and materials to make a journal your own. For adults. Registration is required and the class is full; the library's page takes a waiting list.

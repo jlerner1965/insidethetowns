@@ -11,7 +11,7 @@ source: "https://bohemianlivemusic.org/event/kurt-vile-and-the-violators/"
 sourceId: "bohemianlivemusic-org"
 sourceUid: "53013"
 sourceHash: "29cd1e419c7e"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Kurt Vile and The Violators\" at 8 pm on 13 November in the page's structured data"
 ---
 

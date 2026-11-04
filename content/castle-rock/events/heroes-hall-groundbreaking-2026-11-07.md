@@ -12,7 +12,7 @@ source: "https://www.douglasco.gov/event/world-trade-center-steel-dedication-and
 sourceId: "douglasco-gov"
 sourceUid: "189837"
 sourceHash: "715486e8d64a"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"World Trade Center steel dedication and ceremonial groundbreaking at Heroes Hall\" at 1 pm on 7 November in the page's structured data"
 ---
 

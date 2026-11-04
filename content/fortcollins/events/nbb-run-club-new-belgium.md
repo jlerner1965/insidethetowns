@@ -10,7 +10,7 @@ cost: "Free"
 category: sports
 recurring: "Wednesdays at 6"
 source: "https://events.humanitix.com/nbb-run-club"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): 4 November and 6 pm on the page"
 ---
 

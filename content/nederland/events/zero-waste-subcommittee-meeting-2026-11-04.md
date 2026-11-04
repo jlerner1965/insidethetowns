@@ -10,7 +10,7 @@ source: "https://co-nederland.civicplus.com/Calendar.aspx?EID=1118"
 sourceId: "nederlandco-org"
 sourceUid: "EID=1118"
 sourceHash: "d78a332b0501"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Zero Waste Subcommittee Meeting\" at 3 pm on 4 November on the Town of Nederland calendar (nederlandco.org) feed"
 ---
 

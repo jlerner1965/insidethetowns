@@ -10,7 +10,7 @@ category: family
 organizer: "Lafayette Public Library with Clinica Family Health & Wellness"
 organizerUrl: "https://www.lafayetteco.gov/library"
 source: "https://lafayettepubliclibrary.libcal.com/calendar/main/WellnessAugDec2026"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Wellness Crafts: Sensory Jar\" at 3:30 pm on 4 November on the Lafayette Public Library - LibCal calendar feed"
 ---
 

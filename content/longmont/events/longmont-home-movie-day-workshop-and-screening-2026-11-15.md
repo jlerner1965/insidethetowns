@@ -10,7 +10,7 @@ source: "https://longmontcolorado.gov/event/longmont-home-movie-day-workshop-scr
 sourceId: "longmontcolorado-gov-museum"
 sourceUid: "10008913-1794747600-1794760200@longmontcolorado.gov"
 sourceHash: "54f9b234f687"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Longmont Home Movie Day: Workshop & Screening\" at 1 pm on 15 November on the Longmont Museum (City of Longmont calendar) feed"
 ---
 

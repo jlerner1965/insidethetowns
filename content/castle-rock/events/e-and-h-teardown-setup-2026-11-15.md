@@ -8,7 +8,7 @@ source: "https://go.dcl.org/events?l=castle+rock&r=months&n=1"
 sourceId: "dcl-org"
 sourceUid: "17789724"
 sourceHash: "0577a829ba8b"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"E&H Teardown/Setup\" at 5 pm on 15 November on the Douglas County Libraries - Castle Rock (Philip S. Miller) events feed"
 ---
 

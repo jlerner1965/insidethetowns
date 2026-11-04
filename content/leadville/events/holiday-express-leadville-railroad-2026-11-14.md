@@ -11,7 +11,7 @@ category: family
 organizer: "Leadville Railroad"
 organizerUrl: "https://leadvillerailroad.com/"
 source: "https://leadvillerailroad.com/train-rides/holidayexpress/"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): 14 November on the page"
 ---
 

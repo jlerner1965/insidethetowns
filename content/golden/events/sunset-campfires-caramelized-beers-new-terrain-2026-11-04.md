@@ -7,7 +7,7 @@ address: "16401 Table Mountain Parkway, Golden, CO 80403"
 url: "https://newterrainbrewing.com/event/sunset-campfires-w-caramelized-beers-smores/2026-11-04/"
 category: food
 source: "https://newterrainbrewing.com/event/sunset-campfires-w-caramelized-beers-smores/2026-11-04/"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Sunset Campfires w/ Caramelized Beers &#038; S&#8217;mores\" at 5 pm on 4 November in the page's structured data"
 ---
 
