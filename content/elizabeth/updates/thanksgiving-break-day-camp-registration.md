@@ -15,7 +15,6 @@ sourceLabel: "Elizabeth Park and Recreation District: Thanksgiving Break Day Cam
 alsoSource: "https://www.elizabethpr.com/kids-club-offered-at-running-creek-singing-hills"
 alsoSourceLabel: "Elizabeth Park and Recreation District: Kids Club day camps"
 expires: "2026-11-18"
-item: "/families/#program-thanksgiving-break-day-camp"
 ---
 
 The Park and Recreation District's Kids Club runs a day camp on each school break, and the Thanksgiving one is at Singing Hills Elementary for ages 5 to 12, with registration open from October 21 to November 18 and space limited. The Kids Club's break camps run 7 am to 6 pm at $55 a day, more on a field-trip day, and a child needs the Kids Club's 2026–27 registration packet on file before booking; one packet covers the school year, August to August. Elizabeth School District's calendar has no school from Monday, November 23 through Monday, November 30.

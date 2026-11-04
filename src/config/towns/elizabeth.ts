@@ -4,6 +4,12 @@ import type { TownConfig } from './types.ts';
 export const elizabeth = {
   kind: 'town',
   status: 'live',
+  // Not a flagship from 4 November 2026, on the owner's word ("quiet;
+  // Elizabeth should not be a flagship anyway"): the Town's site and the
+  // library's both block automated reads, so a resident guide's promise
+  // could not be kept there (DECISIONS.md, "Elizabeth is a quiet guide, not
+  // a flagship"). Its Families and Living here configs are parked below as
+  // `elizabethHubs`; `home: true` and the two blocks put it back.
   // Out of the weekly routine from 12 October 2026 on the owner's word
   // (DECISIONS.md, "Severance and Fort Lupton become sections"). Kept, on
   // the owner's word of 15 October 2026, on its readers: 148 visitors in the
@@ -22,7 +28,7 @@ export const elizabeth = {
   quiet: {
     since: '2026-10-12',
     decideBy: '2026-11-30',
-    reason: 'kept on 15 October and again on 30 October 2026, but an hour from the other guides, so it stays out of the weekly email until the 90-day verdict',
+    reason: 'kept on 15 and 30 October 2026 and taken off the flagship list on 4 November: accurate where a machine can read it, but the Town and the library block automated reads, so it stays a quiet guide until the 90-day verdict',
   },
   variant: 'front-range',
   region: 'South Metro',
@@ -60,8 +66,34 @@ export const elizabeth = {
     credit: "ERoss99, Wikimedia Commons, CC BY-SA 3.0",
   },
   social: { email: "hello@insideelizabeth.com" },
-  // A resident guide (TownConfig.home), since 22 October 2026.
-  home: true,
+  movingHere: {
+    listingsLinks: [
+      { label: "Homes for sale on Zillow", url: "https://www.zillow.com/elizabeth-co/" },
+      { label: "Homes for sale on Redfin", url: "https://www.redfin.com/city/6117/CO/Elizabeth" },
+      { label: "Homes for sale on Realtor.com", url: "https://www.realtor.com/realestateandhomes-search/Elizabeth_CO" },
+    ],
+    schoolDistrict: "Elizabeth School District C-1: Running Creek and Singing Hills elementaries, Elizabeth Middle School and Elizabeth High School.",
+    commuteNotes: "About 45 minutes to the Denver Tech Center via Parker Road."
+  },
+  officialLinks: {
+    townSite: "https://www.townofelizabeth.org",
+    townSiteLabel: "the Town of Elizabeth",
+    policeNonEmergency: "https://www.townofelizabeth.org/police",
+    policeNonEmergencyLabel: "Elizabeth Police Department",
+  },
+  formspreeId: "xyezejwk",
+  plausible: true,
+} satisfies TownConfig;
+
+export default elizabeth;
+
+/**
+ * The Families and Living here hubs Elizabeth carried as a flagship, 22
+ * October to 4 November 2026, and its school's colours, parked here
+ * unchanged. To restore the resident guide: `home: true`, and these three
+ * blocks back into the config.
+ */
+export const elizabethHubs = {
   /**
    * Elizabeth High's colours, read from its own site 25 October 2026
    * (ehs.elizabethschooldistrict.org): the theme's `--primary-color` is
@@ -169,23 +201,4 @@ export const elizabeth = {
       },
     ],
   },
-  movingHere: {
-    listingsLinks: [
-      { label: "Homes for sale on Zillow", url: "https://www.zillow.com/elizabeth-co/" },
-      { label: "Homes for sale on Redfin", url: "https://www.redfin.com/city/6117/CO/Elizabeth" },
-      { label: "Homes for sale on Realtor.com", url: "https://www.realtor.com/realestateandhomes-search/Elizabeth_CO" },
-    ],
-    schoolDistrict: "Elizabeth School District C-1: Running Creek and Singing Hills elementaries, Elizabeth Middle School and Elizabeth High School.",
-    commuteNotes: "About 45 minutes to the Denver Tech Center via Parker Road."
-  },
-  officialLinks: {
-    townSite: "https://www.townofelizabeth.org",
-    townSiteLabel: "the Town of Elizabeth",
-    policeNonEmergency: "https://www.townofelizabeth.org/police",
-    policeNonEmergencyLabel: "Elizabeth Police Department",
-  },
-  formspreeId: "xyezejwk",
-  plausible: true,
-} satisfies TownConfig;
-
-export default elizabeth;
+};
