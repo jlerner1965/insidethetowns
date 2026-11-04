@@ -2,6 +2,7 @@
 
 Newest first.
 
+- 2026-11-04 — BluPoetry (Superior, about Erie): Ben Umansky, co-owner of a Superior film studio, emailed hello@insideerie.com asking whether a brief introduction would be welcome (a templated commercial outreach with an opt-out line). Contact file started; reply drafted, not sent.
 - 2026-10-30 — Mountain Girl Magic (Evergreen): James flagged Shannon Huffman's maker and dog-treat business as a possible opportunity. Contact file started from her own site (found online, unconfirmed); intro drafted, not sent. Her market calendar led to Mountain of Thanks' own site, so that Evergreen listing came out of staging with the organizer's 1–4 pm.
 - 2026-10-29 — Golden Hour Pilates (Golden): Bailey and Christy sent the studio's details, three photos and permission to use them in Inside Golden; events to follow through the event form. Listing drafted; reply drafted.
 - 2026-10-28 — Creative Grounds (Lyons): Casey confirmed the Thursday class runs 1:30–4:30 pm and sent three photos. Listed the café and its 11 classes on Inside Lyons; creativegroundslyons.com confirmed as an event source.
