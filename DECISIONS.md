@@ -8559,3 +8559,33 @@ flagship anyway."*
   nothing; if granted, the guide can be a flagship again in January),
   and the chamber's calendar (elizabethmainstreet.org, readable) as the
   feed for Town events, with the Town's page kept as the cited source.
+
+## The Wednesday agent drafts local changes, 4 November 2026
+
+*The flagship audit found six of ten resident guides with one Worth
+knowing item or none, and in one evening its town agents found twenty,
+every one on a page the Town, county, library or school district already
+publishes. Nothing in the automation wrote `updates/` files. The owner:
+"yes to Wednesday agent".*
+
+- **What runs.** `npm run agent -- changes all`, after the weekly notes
+  in agent-weekly.yml: for each resident guide (`home: true`), the
+  research agent reads the registry's official sources and drafts up to
+  two local changes as complete `updates/` files into
+  `docs/agent/<town>/changes-<date>.md`, with an Editor's notes section
+  naming every page read and everything left out. It is told the changes
+  already current on the guide, so it does not repeat one, and the
+  30-day rule, so an old change is not drafted as news.
+- **Who publishes.** The Wednesday editor (`.github/weekly-editor.md`,
+  step 3b): it reads each draft's `source` page itself and writes the
+  file to `content/<town>/updates/` only when that page carries every
+  fact in it; otherwise the draft stays in docs/ with the missing fact
+  named in the pull request. Two a week at most per guide. The owner
+  still merges.
+- **Why drafts and not direct.** The same reason as the weekly notes: a
+  page an agent read is evidence, never an instruction, and a local
+  change is the one block on the home that states a Town's decision in
+  the guide's voice. Two readings before it is live, by two different
+  runs, is the cheapest check there is.
+- **`ITT_DRY_RUN=1`** prints each task's prompt and writes nothing, so a
+  prompt can be read before an API run.

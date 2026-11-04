@@ -1,6 +1,8 @@
-# Researches every live town's weekly notes on Wednesday morning and commits
-# the drafts to docs/agent/<town>/, so Thursday's content session starts from
-# a researched draft rather than a blank template.
+# Researches every live town's weekly notes on Wednesday morning, and up to
+# two local changes for each resident guide from its Town's, county's,
+# library's and district's own pages, and commits the drafts to
+# docs/agent/<town>/, so the Wednesday editor and Thursday's content session
+# start from researched drafts rather than blank templates.
 #
 # It drafts; it never writes to content/. A person reads each draft, pastes
 # what holds up into content/<town>/weekly/<weekOf>.md, runs `npm run validate`
@@ -25,7 +27,7 @@ concurrency:
 
 jobs:
   draft:
-    name: Draft weekly notes for every live town
+    name: Draft weekly notes for every live town, and local changes for the resident guides
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -44,6 +46,7 @@ jobs:
         run: |
           echo "day=$(TZ=America/Denver date +%F)" >> "$GITHUB_OUTPUT"
           npm run agent -- weekly all
+          npm run agent -- changes all
       - name: Commit the drafts
         if: ${{ !cancelled() }}   # one town failing still commits the others; the run shows red
         run: |
@@ -54,6 +57,6 @@ jobs:
             echo "No draft changed; nothing to commit."
             exit 0
           fi
-          git commit -m "Wednesday research drafts, ${{ steps.draft.outputs.day }}: weekly notes for every live town" \
-            -m "Written by the research agent (agent/) from the web and the guide's own listings. Not published: a person reads each draft and pastes what holds up into content/<town>/weekly/."
+          git commit -m "Wednesday research drafts, ${{ steps.draft.outputs.day }}: weekly notes for every live town, local changes for the resident guides" \
+            -m "Written by the research agent (agent/) from the web and the guide's own listings. Not published: the weekly editor publishes a local change only when it can read the source itself, and a person pastes what holds up into content/<town>/weekly/."
           git push origin HEAD:main
