@@ -13,4 +13,4 @@ verified: "2026-11-01"
 verifiedBy: "Claude Code for James Lerner, against the Gardens on Spring Creek's Garden of Lights page, 1 November 2026: Thu Dec 10, adults-only evening kicking off the lights season; 'more information coming soon'; no time or price"
 ---
 
-New this year, the Gardens open the Garden of Lights season with an adults-only evening on Thursday, December 10, the night before the public run begins. The Gardens' page says more information is coming; no time or price had been posted when this was checked. General Garden of Lights tickets go on sale Monday, November 2 at noon.
+New this year, the Gardens open the Garden of Lights season with an adults-only evening on Thursday, December 10, the night before the public run begins. The Gardens have not posted a time or price; their page says more information is coming. General Garden of Lights tickets go on sale Monday, November 2 at noon.

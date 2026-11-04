@@ -12,7 +12,7 @@ The Town government runs most day-to-day services inside the town limits, and it
 
 ## Housing
 
-The State Demography Office counted 31,234 housing units in Castle Rock in 2024, up from 17,697 in 2010, with 29,808 of them occupied, a vacancy rate of 4.57 percent and 2.78 people per household ([municipal population and housing file](https://storage.googleapis.com/co-publicdata/muni-pop-housing.csv), vintage 2024). No government source read for this guide publishes current sale prices for the town, so none are given here; the listings in the sidebar show what is for sale.
+The State Demography Office counted 31,234 housing units in Castle Rock in 2024, up from 17,697 in 2010, with 29,808 of them occupied, a vacancy rate of 4.57 percent and 2.78 people per household ([municipal population and housing file](https://storage.googleapis.com/co-publicdata/muni-pop-housing.csv), vintage 2024). This page gives no sale prices; the listings in the sidebar show what is for sale now.
 
 The [County Assessor](https://www.douglasco.gov/assessor/residential-property/) values homes by the market approach only, and for tax years 2025 and 2026 uses sales between 1 January 2023 and 30 June 2024; its Residential Sales Search is on the same page. The Assessor also explains [taxing authorities](https://www.douglasco.gov/assessor/taxing-authorities/): the county, towns, schools and special districts each have a separate mill levy, which appears on the annual tax bill from the County Treasurer, and the office publishes a listing of tax districts and the authorities in each one, so a house's full set of districts can be looked up before you buy.
 
@@ -31,7 +31,7 @@ Schools are assigned by address. To attend another district school, [open enroll
 
 By car, on I-25. The 18-mile [I-25 South Gap](https://www.codot.gov/projects/archives/i25southgap), from south of Castle Rock to Monument, was rebuilt between September 2018 and November 2022 with an Express Lane in each direction beside two free lanes; CDOT calls it the only four-lane section of I-25 connecting Denver and Colorado Springs, and tolling began in 2024. US 85 (Santa Fe Drive) runs north from Castle Rock toward Denver; CDOT's [fiber project](https://www.codot.gov/projects/archives/us-85-from-hampden-avenue-to-castle-rock-intelligent-transportation-system-installation) covered it from Hampden Avenue to Castle Rock.
 
-Transit is limited. [RTD](https://www.rtd-denver.com/about-rtd) says its district covers parts of Douglas County, and does not say there whether Castle Rock is one of them. [Bustang](https://www.codot.gov/travel/bustang), CDOT's interregional express bus, runs along I-25 and I-70; its schedule site could not be read for this guide, so check ridebustang.com for the current stops.
+Transit is limited. [RTD](https://www.rtd-denver.com/about-rtd) says its district covers parts of Douglas County, and does not say there whether Castle Rock is one of them. [Bustang](https://www.codot.gov/travel/bustang), CDOT's interregional express bus, runs along I-25 and I-70; its current stops and schedules are at ridebustang.com.
 
 ## Services
 
