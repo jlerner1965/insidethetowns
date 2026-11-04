@@ -8507,3 +8507,22 @@ Windsor's.*
   is on /guides/ alone until it is refiled, which is how Lafayette's
   walking-order guide ("Explore", the only one on the network) was found
   and refiled as Outdoors the same day.
+
+## Two rules from the flagship audit, 4 November 2026
+
+*Ten town agents read every flagship against primary sources on the
+evening of 3 November (docs/audits/2026-11-04/). Two rules came out of
+applying what they found.*
+
+- **A past event linked from a sent Thursday email stays.** A past
+  event's page is still served (200, noindex), so deleting the file turns
+  a link in a reader's inbox into a 404. The weekly report's "delete or
+  update" applies to past files nothing links; the rest wait for a
+  redirect rule that does not yet exist. Thirty such files on Berthoud,
+  Erie, Lyons and Niwot were kept on this ground.
+- **The validator warns about editor's doubt on a page.** "When this was
+  checked", "could not be read", "for this reader", "looks like an
+  error": the audit found them in summaries, hours fields and bodies on
+  five guides, the build agents' notes to themselves. `npm run validate`
+  now names each file (`HEDGE_PHRASES`, a warning, not an error). The
+  rule it enforces is the Accuracy rule of 3 November.

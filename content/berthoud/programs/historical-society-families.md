@@ -18,4 +18,4 @@ source: "https://www.berthoudhistoricalsociety.org/"
 verified: "2026-10-22"
 ---
 
-The [Pioneer Museum](/places/pioneer-museum/) is open Wednesday to Saturday afternoons and children 11 and under are free. This fall's **Holiday Card Art Contest** has a Winter Wonderland theme, the winning artwork becomes Berthoud's holiday card, and the museum has an art station with forms so children can make an entry there; [artwork is due November 14](/events/holiday-card-art-contest-deadline-2026-11-07/). Members get a discount on the Society's summer day camp tuition; the Society's site had not posted the 2027 camp when this was checked.
+The [Pioneer Museum](/places/pioneer-museum/) is open Wednesday to Saturday afternoons and children 11 and under are free. This fall's **Holiday Card Art Contest** has a Winter Wonderland theme, the winning artwork becomes Berthoud's holiday card, and the museum has an art station with forms so children can make an entry there; [artwork is due November 14](/events/holiday-card-art-contest-deadline-2026-11-07/). Members get a discount on the Society's summer day camp tuition.
