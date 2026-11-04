@@ -10,7 +10,7 @@ organizer: "Carbon Valley Regional Library (High Plains Library District)"
 organizerUrl: "https://www.mylibrary.us/cvrl/"
 source: "https://highplains.libcal.com/event/17540998"
 sourceId: "highplains-libcal-com"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Decorative Mandala Tote Bag\" at 5 pm on 4 November on the Carbon Valley Regional Library (High Plains Library District), LibCal feed"
 ---
 

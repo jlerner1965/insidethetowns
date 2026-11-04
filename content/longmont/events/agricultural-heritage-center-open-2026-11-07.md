@@ -10,7 +10,7 @@ source: "https://bouldercounty.gov/event/ahc-open-nov-7/"
 sourceId: "bouldercounty-gov"
 sourceUid: "10004375-1794045600-1794070800@bouldercounty.gov"
 sourceHash: "79ca9801bf41"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Agricultural Heritage Center Open\" at 10 am on 7 November on the Boulder County feed"
 ---
 

@@ -9,7 +9,7 @@ category: music
 performers:
   - { name: "Spork", kind: group }
 source: "https://www.verynicebrewing.com/event-details/live-music-with-spork-6"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 5 pm on the page"
 ---
 

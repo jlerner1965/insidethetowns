@@ -10,7 +10,7 @@ category: outdoors
 organizer: "City of Lafayette Open Space"
 organizerUrl: "https://www.lafayetteco.gov/160/Open-Space"
 source: "https://www.lafayetteco.gov/Calendar.aspx?EID=12129"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Wild Turkeys of Coal Creek\" at 1 pm on 14 November on the City of Lafayette - City Calendar feed"
 ---
 

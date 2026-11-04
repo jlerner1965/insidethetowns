@@ -7,7 +7,7 @@ address: "26 CO-119, Nederland, CO 80466"
 url: "https://www.verynicebrewing.com/event-details/first-thursday-open-mic-5"
 category: music
 source: "https://www.verynicebrewing.com/event-details/first-thursday-open-mic-5"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"First Thursday Open Mic\" at 6 pm on 5 November in the page's structured data"
 ---
 

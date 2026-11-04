@@ -8,8 +8,8 @@ url: "https://johnstownmillikenpubliclibraries.us/event/apple-cinnamon-breakfast
 cost: "Free; full, with a waiting list"
 category: other
 source: "https://johnstownmillikenpubliclibraries.us/event/apple-cinnamon-breakfast-jars/"
-verified: "2026-11-03"
-verifiedBy: "Flagship audit, against the library's event page, 3 November 2026: Fri, Nov 6, 2:00–3:00 pm, Johnstown Location; registration limit reached, 0 of 12 spaces, waiting list offered"
+verified: "2026-11-04"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Apple Cinnamon Breakfast Jars\" at 2 pm on 6 November in the page's structured data"
 ---
 
 Put together an apple cinnamon breakfast jar to take home. For adults. Registration is required and the class is full; the library's page takes a waiting list.

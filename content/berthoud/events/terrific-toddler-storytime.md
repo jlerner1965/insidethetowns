@@ -10,7 +10,7 @@ cost: "Free"
 category: family
 recurring: "Fridays at 10:30; no storytime November 27 (library closed)"
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 10:30 am on the page"
 ---
 

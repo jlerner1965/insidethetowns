@@ -10,7 +10,7 @@ category: family
 organizer: "Lafayette Public Library"
 organizerUrl: "https://www.lafayetteco.gov/library"
 source: "https://lafayettepubliclibrary.libcal.com/event/15600043"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Paws to Read - Drop In\" at 1:30 pm on 8 November on the Lafayette Public Library - LibCal calendar feed"
 ---
 

@@ -9,7 +9,7 @@ cost: "Free"
 category: other
 organizer: "City of Lafayette and Vitalant"
 source: "https://lafayettepubliclibrary.libcal.com/calendar/main/BloodDrives2026"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Blood Drive - Drop In or Register\" at 11 am on 4 November on the Lafayette Public Library - LibCal calendar feed"
 ---
 

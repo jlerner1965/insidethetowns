@@ -13,7 +13,7 @@ cost: "$150 for all five"
 recurring: "Five Sundays: Nov 8, 22, 29, Dec 6 and 13"
 source: "https://creativegroundslyons.com/classes"
 sourceId: "creativegroundslyons-com"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): 8 November and 2:30 pm on the page"
 ---
 

@@ -10,7 +10,7 @@ category: family
 organizer: "Frederick-Firestone Fire District"
 organizerUrl: "https://www.fffd.us/"
 source: "https://www.fffd.us/story-time-at-the-firehouse"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): 5 November and 10 am on the page"
 ---
 

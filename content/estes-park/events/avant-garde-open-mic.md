@@ -13,7 +13,7 @@ performances:
   - "2026-12-02T17:30"
   - "2026-12-16T17:30"
 source: "https://avantgardealeworks.com/events/6fmqkvtib9ur5u2v81kl11tn9t_20261105T003000Z-open-mic"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): 4 November and 5:30 pm on the page"
 ---
 

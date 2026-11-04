@@ -9,7 +9,7 @@ performers:
 url: "https://www.niwotwheelhouse.com/events/wbgutmtyqnra71ko3ihhe95lf9waws-njw6h-5bmxm-b3a34"
 category: music
 source: "https://www.niwotwheelhouse.com/events/wbgutmtyqnra71ko3ihhe95lf9waws-njw6h-5bmxm-b3a34"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Responders Oldies Band — The Wheel House\" at 7 pm on 7 November in the page's structured data"
 ---
 

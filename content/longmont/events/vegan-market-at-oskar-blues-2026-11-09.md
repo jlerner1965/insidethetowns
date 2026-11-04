@@ -9,7 +9,7 @@ category: market
 organizer: "Flora + Fauna Experiences"
 organizerUrl: "https://oskarblues.com/event/vegan-market-november-2026-11-09/"
 source: "https://oskarblues.com/event/vegan-market-november-2026-11-09/"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): 9 November and 5:30 pm on the page"
 ---
 

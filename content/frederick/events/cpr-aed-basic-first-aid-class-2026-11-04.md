@@ -8,7 +8,7 @@ category: other
 organizer: "Frederick-Firestone Fire District"
 organizerUrl: "https://www.fffd.us/"
 source: "https://www.fffd.us/2026-11-04-cpr-aed-basic-first-aid-class"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): 4 November and 6 pm on the page"
 ---
 

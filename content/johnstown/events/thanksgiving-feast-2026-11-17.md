@@ -11,8 +11,8 @@ source: "https://johnstownmillikenpubliclibraries.us/event/thanksgiving-feast/"
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10539"
 sourceHash: "45f282f4b986"
-verified: "2026-11-03"
-verifiedBy: "Flagship audit, against the library's event page, 3 November 2026: Tue, Nov 17, 6:30–8:30 pm, Johnstown Location, adults; registration open, 36 of 40 spaces"
+verified: "2026-11-04"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Thanksgiving Feast\" at 6:30 pm on 17 November in the page's structured data"
 ---
 
 Thanksgiving Feast at Glenn A. Jones, M.D. Memorial Library, Tuesday, November 17, 6:30 pm – 8:30 pm. Listed by johnstownmillikenpubliclibraries.us; the organizer's page has the details and any registration.

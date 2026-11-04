@@ -10,7 +10,7 @@ organizer: "Carbon Valley Parks and Recreation District"
 organizerUrl: "https://www.cvprd.com/"
 source: "https://www.cvprd.com/special-events"
 sourceId: "cvprd-com"
-verified: "2026-11-03"
+verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): 15 November and 11 am on the page"
 ---
 
