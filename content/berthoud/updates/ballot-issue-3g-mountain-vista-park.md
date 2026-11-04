@@ -6,7 +6,7 @@ summary: "On the counties' unofficial election-night returns, Berthoud voters tu
 affects: "Registered voters in the Town of Berthoud; anyone who uses the Town's parks and pools"
 effective: "2026-11-03"
 effectiveNote: "Election Day; unofficial returns that evening"
-published: "2026-10-21"
+published: "2026-11-03"
 verified: "2026-11-03"
 verifiedBy: "Claude Code, delegated by James Lerner: both counties' election-night results, read at 7:45 pm"
 source: "https://results.enr.clarityelections.com/CO/Larimer/127443/"

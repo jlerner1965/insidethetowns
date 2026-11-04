@@ -12,7 +12,8 @@ imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0"
 tags: [government, meetings]
 summary: "The Town's offices and Council Chambers at the south end of Parish Avenue; fishing permits, utility billing and the first-and-third-Monday Council meetings."
 source: "https://johnstownco.gov/"
-verified: "2026-10-03"
+verified: "2026-11-03"
+verifiedBy: "Flagship audit, 3 November 2026, against johnstownco.gov"
 added: "2026-09-17"
 ---
 

@@ -5,12 +5,13 @@ end: "2026-12-05T11:00"
 venue: "Glenn A. Jones, M.D. Memorial Library"
 address: "400 S Parish Ave, Johnstown"
 url: "https://johnstownmillikenpubliclibraries.us/event/pancakes-in-a-jar/"
-category: outdoors
+category: food
+cost: "Not stated; registration opens November 21 at 7 pm"
 source: "https://johnstownmillikenpubliclibraries.us/event/pancakes-in-a-jar/"
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10916"
 sourceHash: "5447f4d19a51"
-verified: "2026-11-01"
+verified: "2026-11-03"
 verifiedBy: "auto-review from the johnstownmillikenpubliclibraries.us feed read 2026-11-01, the weekly ingest workflow"
 ---
 

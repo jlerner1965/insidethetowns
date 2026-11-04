@@ -11,7 +11,7 @@ cost: "Free"
 category: arts
 recurring: "Mondays at 10:30"
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-10-03"
+verified: "2026-11-03"
 ---
 
 Free-writing and critique for adult writers, Monday mornings at the library. No registration; bring pages if you want them read.

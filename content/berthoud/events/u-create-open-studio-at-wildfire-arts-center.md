@@ -11,7 +11,7 @@ cost: "$5 drop-in"
 category: arts
 recurring: "Saturdays through 19 December, no session 28 November"
 source: "https://tockify.com/wildfire/detail/623/1791043200000"
-verified: "2026-10-03"
+verified: "2026-11-03"
 ---
 
 A drop-in open studio where Wildfire supplies the materials and an instructor suggests an art activity, or you can bring your own project. Open to all ages with an adult, and to ages 11 and up on their own.

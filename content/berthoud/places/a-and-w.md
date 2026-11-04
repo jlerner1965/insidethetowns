@@ -10,7 +10,7 @@ priceRange: "$"
 tags: [burgers, root beer, drive-through]
 summary: "The A&W on west Mountain Avenue near Town Hall, root beer floats included."
 source: "https://awrestaurants.com/locations/colorado/berthoud/802-mountain-avenue/"
-verified: "2026-10-03"
+verified: "2026-11-03"
 added: "2026-09-17"
 ---
 
