@@ -9,7 +9,7 @@ performers:
 url: "https://www.niwotwheelhouse.com/events/wandering-roads-band-db3yj-pekh9"
 category: music
 source: "https://www.niwotwheelhouse.com/events/wandering-roads-band-db3yj-pekh9"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Wandering Roads Band  — The Wheel House\" at 7 pm on 6 November in the page's structured data"
 ---
 

@@ -10,7 +10,7 @@ url: "https://www.wildcraftmarkets.com/"
 category: market
 recurring: "Saturdays from November 7"
 source: "https://www.wildcraftmarkets.com/"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): 7 November and 10 am on the page"
 ---
 

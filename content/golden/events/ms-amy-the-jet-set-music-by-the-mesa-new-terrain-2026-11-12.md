@@ -10,7 +10,7 @@ category: music
 performers:
   - { name: "Ms Amy and The Jet Set", kind: group }
 source: "https://newterrainbrewing.com/event/ms-amy-the-jet-set-music-by-the-mesa/"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Ms Amy &#8211; The Jet Set @ Music By The Mesa\" at 6 pm on 12 November in the page's structured data"
 ---
 

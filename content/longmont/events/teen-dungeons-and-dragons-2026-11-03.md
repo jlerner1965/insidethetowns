@@ -10,7 +10,7 @@ source: "https://longmontcolorado.gov/event/dungeons-dragons/2026-11-03/"
 sourceId: "longmontcolorado-gov-library"
 sourceUid: "10008100-1793728800-1793734200@longmontcolorado.gov"
 sourceHash: "f1241e5c7e65"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Teen Dungeons & Dragons\" at 6 pm on 3 November on the Longmont Public Library (City of Longmont calendar) feed"
 ---
 

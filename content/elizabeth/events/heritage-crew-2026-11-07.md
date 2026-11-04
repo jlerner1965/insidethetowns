@@ -8,7 +8,7 @@ cost: "Free"
 category: other
 recurring: "First Saturday of the month"
 source: "https://www.elizabethmainstreet.org/calendar/"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): 7 November and 10 am on the page"
 ---
 

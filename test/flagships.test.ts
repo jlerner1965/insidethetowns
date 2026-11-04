@@ -1,7 +1,8 @@
 /**
  * The flagship guides (Berthoud and Niwot, 21 October 2026; Lyons, 22
  * October; Elizabeth, Windsor, Erie and Johnstown, later that day; Golden, 28
- * October; Lafayette and Frederick, 2 November): what their
+ * October; Lafayette and Frederick, 2 November; Elizabeth left the list on
+ * 4 November, a quiet guide): what their
  * configs promise the pages, checked so a config edit cannot quietly break
  * a hub. Every link on Living Here is an official page or a path on the
  * guide, every school break names its source and its check date, and the
@@ -15,7 +16,7 @@ import { existsSync } from 'node:fs';
 import { towns } from '../src/config/towns/registry.ts';
 import { hubRoutes } from '../src/integrations/town-routes.ts';
 
-const FLAGSHIPS = ['berthoud', 'niwot', 'lyons', 'elizabeth', 'windsor', 'erie', 'johnstown', 'golden', 'lafayette', 'frederick'];
+const FLAGSHIPS = ['berthoud', 'niwot', 'lyons', 'windsor', 'erie', 'johnstown', 'golden', 'lafayette', 'frederick'];
 const by = (slug: string) => towns.find((t) => t.slug === slug)!;
 
 test('each flagship has the flagship layout and the three hubs; no other guide does', () => {

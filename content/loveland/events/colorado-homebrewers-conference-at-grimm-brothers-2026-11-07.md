@@ -7,7 +7,7 @@ address: "815 14th St SW B100, Loveland, CO 80537"
 url: "https://grimmbrothersbrewing.com/event/colorado-homebrewers-conference-2026/"
 category: food
 source: "https://grimmbrothersbrewing.com/event/colorado-homebrewers-conference-2026/"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): 7 November and 12 pm on the page"
 ---
 

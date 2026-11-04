@@ -10,7 +10,7 @@ performers:
   - { name: "Bywater Call", kind: group }
   - { name: "The Buzz Brothers Acoustic Trio", kind: group }
 source: "https://www.z2ent.com/events/detail/joanne-shaw-taylor"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 8 pm on the page"
 ---
 
