@@ -9,7 +9,7 @@ tags: [breakfast, brunch, lunch]
 featured: true
 summary: "Breakfast and lunch daily: benedicts, farmhouse plates and Southwest specials."
 source: "https://niwot.com/listing/the-garden-gate-cafe/"
-verified: "2026-09-18"
+verified: "2026-11-03"
 added: "2026-09-17"
 ---
 

@@ -100,7 +100,7 @@ export const niwot: TownConfig = {
         items: [
           { label: 'Boulder County road maintenance', url: 'https://bouldercounty.gov/transportation/road-maintenance/', note: 'Snow removal, grading, chip seal on county roads; report a problem through Ask Boulder County, 303-441-3962' },
           { label: 'Ask Boulder County: report a road problem', url: 'https://bouldercountyco.comcate.com/en' },
-          { label: 'CDOT: CO 119 Diagonal project', url: 'https://www.codot.gov/projects/co119-mobility/about', note: 'The week’s closures on the Diagonal, through spring 2027' },
+          { label: 'CDOT: CO 119 Diagonal project', url: 'https://www.codot.gov/projects/co119mobility/about', note: 'The week’s closures on the Diagonal, through spring 2027' },
           { label: 'CDOT road conditions', url: 'https://www.cotrip.org/' },
         ],
       },
@@ -111,7 +111,7 @@ export const niwot: TownConfig = {
         items: [
           { label: 'Left Hand Water District', url: 'https://lefthandwater.gov/', note: 'Drinking water, rates and meters' },
           { label: 'Niwot Sanitation District', url: 'https://niwotsd.colorado.gov/', note: 'Sewer, where its lines run; check the address' },
-          { label: 'Trash and recycling', url: 'https://bouldercounty.gov/environment/recycling/', note: 'Arranged household by household with a private hauler; the county’s page lists the recycling centers' },
+          { label: 'Trash and recycling', url: 'https://bouldercounty.gov/environment/recycle/recycling-center/', note: 'Arranged household by household with a private hauler; the county’s page lists the recycling centers' },
         ],
       },
       {

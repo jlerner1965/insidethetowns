@@ -10,7 +10,7 @@ tags: [espresso, baked-goods, panini]
 featured: true
 summary: "Specialty coffee, house-made baked goods and panini, seven days a week on Second Avenue."
 source: "https://www.theoldoakcoffeehouse.com/"
-verified: "2026-10-03"
+verified: "2026-11-03"
 added: "2026-09-17"
 ---
 

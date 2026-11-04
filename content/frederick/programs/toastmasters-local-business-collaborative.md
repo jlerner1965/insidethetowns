@@ -5,7 +5,7 @@ topic: community
 audience: [adults]
 organizer: "The Local Business Collaborative (Toastmasters International club 00873616)"
 organizerUrl: "https://www.toastmasters.org/Find-a-Club/00873616-the-local-business-collaborative"
-url: "http://ranchraconteurs.toastmastersclubs.org/"
+url: "https://ranchraconteurs.toastmastersclubs.org/"
 summary: "A Toastmasters public-speaking club that meets Thursdays from 11:30 to 12:30 at 501 Walnut Street in Frederick, and on Zoom. Guests visit free and the club is open to anyone."
 ages: "Adults"
 location: "501 Walnut Street, Frederick"

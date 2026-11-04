@@ -9,7 +9,7 @@ effective: "2026-10-18"
 effectiveEnd: "2026-10-25"
 published: "2026-10-21"
 verified: "2026-10-21"
-source: "https://www.codot.gov/projects/co119-mobility/about"
+source: "https://www.codot.gov/projects/co119mobility/about"
 sourceLabel: "CDOT: CO 119 Safety, Mobility and Bikeway project"
 ---
 

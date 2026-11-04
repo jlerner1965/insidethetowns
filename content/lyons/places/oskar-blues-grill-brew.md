@@ -16,4 +16,4 @@ verified: "2026-09-17"
 added: "2026-09-17"
 ---
 
-The restaurant that put Lyons on the map twice: first as a Cajun kitchen on Main Street in 1997, then in 2002 as the first American craft brewery to put its beer in cans, a decision that changed the industry. Downstairs is the grill and the taps; upstairs is the room where the Tuesday bluegrass pick and the Sunday serenade happen. Music most weeks and no cover for the regulars.
+The restaurant that put Lyons on the map twice: first as a Cajun kitchen on Main Street in 1997, then in 2002 as the first American craft brewery to put its beer in cans, a decision that changed the industry. Downstairs is the grill and the taps; upstairs is the room where the Sunday Serenade and the old-time jam happen. Music most weeks and no cover for the regulars.

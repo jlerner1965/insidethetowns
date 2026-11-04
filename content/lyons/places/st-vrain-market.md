@@ -5,12 +5,12 @@ address: "455 Main St"
 area: "Main Street"
 url: "https://stvrainmarket.com/"
 phone: "(303) 747-5661"
-hours: "Tue 11 am–8 pm, Wed–Sun 8 am–8 pm; closed Mon"
+hours: "Tue 11 am–7 pm, Wed–Sun 9 am–7 pm; closed Mon"
 tags: [grocery, deli, picnic]
 featured: true
 summary: "Deli, bakery and grocery: sandwiches and picnic supplies before the trail, staples after."
 source: "https://www.stvrainmarket.com/"
-verified: "2026-10-03"
+verified: "2026-11-03"
 added: "2026-09-17"
 ---
 

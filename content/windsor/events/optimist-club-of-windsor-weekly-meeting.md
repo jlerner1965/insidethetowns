@@ -13,7 +13,7 @@ recurring: "Every Thursday, 7:30 to 8:30 am"
 organizer: "Optimist Club of Windsor"
 organizerUrl: "https://windsoroptimistclub.org/"
 source: "https://business.windsorchamber.net/events/calendar/2026-12-01"
-verified: "2026-10-03"
+verified: "2026-11-04"
 ---
 
 The service club behind the town's Easter egg hunt, bike night, Duck Derby, Halloween party, Santa's Toy Shop, speech contest and scholarships meets Thursday mornings at the recreation center; guests are welcome to sit in and find out what it does. The Chamber's calendar lists the meetings weekly through December 31.
