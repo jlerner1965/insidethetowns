@@ -13,4 +13,4 @@ verifiedBy: "Claude Code, delegated by James Lerner"
 featured: true
 ---
 
-Northern Colorado's biggest Thanksgiving-morning race: a four-mile run and walk through Old Town starting on College Avenue at about 9, after a kids' run at about 8:45. Presented by Raymond James; register on RunSignup. The race's own site was not readable when this was checked, so details come from its registration page.
+Northern Colorado's biggest Thanksgiving-morning race: a four-mile run and walk through Old Town starting on College Avenue at about 9, after a kids' run at about 8:45. Presented by Raymond James; register on RunSignup.

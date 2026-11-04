@@ -42,7 +42,7 @@ sources:
   - { label: "Douglas County: Recreation opportunities for kids expand (Gold Crown Field House)", url: "https://www.douglasco.gov/recreation-opportunities-for-kids-expand-thanks-to-voter-funding-and-partnerships/" }
 ---
 
-Castle Rock's outings for children gather in three places: downtown, where the library, the depot museum and the holiday events are; Philip S. Miller Park, home of The Edge; and the County's land at the fairgrounds and out on the open space. One gap first. The Town of Castle Rock runs its own parks and recreation, and its website, crgov.com, could not be read for this guide, so the Town's parks, pools and recreation centers have no hours or prices here; check them there. The rest follows, with the hours, ages and prices each operator publishes.
+Castle Rock's outings for children gather in three places: downtown, where the library, the depot museum and the holiday events are; Philip S. Miller Park, home of The Edge; and the County's land at the fairgrounds and out on the open space. The Town of Castle Rock runs its own parks, pools and recreation centers; their hours and prices are on the Town's website, crgov.com, and are not repeated here. The rest follows, with the hours, ages and prices each operator publishes.
 
 ## The library: storytime and The Ranch
 
