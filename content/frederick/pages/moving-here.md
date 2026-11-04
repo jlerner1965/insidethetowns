@@ -4,7 +4,7 @@ description: "Frederick, Colorado: a statutory town in Weld County on I-25 and C
 image: ../images/fifth-street-at-oak.jpg
 imageAlt: "Fifth Street in old-town Frederick at Oak Street under snow in 2018: a two-story red-brick corner building with a stepped parapet, frosted bare trees, a black lamppost and a few cars on the plowed street."
 imageCredit: "Jared Winkler, Wikimedia Commons, CC BY-SA 4.0"
-updated: "2026-11-02"
+updated: "2026-11-04"
 ---
 
 ## Who lives here
@@ -49,7 +49,7 @@ Transit is thin. No bus route serves Frederick: the three towns' state-funded [t
 - **Wells.** Check the Town's well map for any address, and read the K.P. Kauffman timeline above.
 - **Water restrictions.** The Town declared a Stage 1 water shortage for its customers east of I-25 on May 20, 2026: no watering 10 to 6, three days a week at most, as guidance ([Water Use Guidance](https://www.frederickco.gov/1260/Water-Use-Guidance-and-Current-Condition)). Read the rules before seeding a lawn.
 - **Which district.** Confirm on the county's property portal whether the address pays the parks district, the Town's metropolitan district and an HOA.
-- **The ballot.** On November 3, 2026 Frederick votes on a one percent transportation sales tax (2D) and up to $26 million of road bonds (2E) ([the update](/updates/#transportation-sales-tax-on-the-november-ballot)).
+- **The ballot.** On November 3, 2026 Frederick voters turned down a one percent transportation sales tax (2D) and up to $26 million of road bonds (2E), in Weld County's unofficial count ([the result](/updates/#transportation-sales-tax-on-the-november-ballot)).
 - **Traffic.** The I-25 and Colorado 52 interchange is the Town's front door and, by its own account, one of the busiest in northern Colorado.
 
 Spend a Saturday here first. [Explore Frederick: five places in walking order](/articles/explore-frederick-in-walking-order/) is Fifth Street, [Frederick with kids](/articles/frederick-with-kids/) the version with children, and [what's on this week](/events/) the calendar.
