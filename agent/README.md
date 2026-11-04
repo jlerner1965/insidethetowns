@@ -7,6 +7,8 @@ cd agent && npm install && cp .env.example .env   # then paste your key into .en
 cd ..
 npm run agent -- weekly lyons                       # content/lyons/weekly/<next Monday>.md, drafted
 npm run agent -- weekly all
+npm run agent -- changes berthoud                   # up to two local changes (content/berthoud/updates/), drafted from official pages
+npm run agent -- changes all                        # every resident guide
 npm run agent -- verify lyons places/a-lodge-lyons.md
 npm run agent -- verify lyons --stale=60            # places not verified in 60 days, 8 per run
 npm run agent -- write lyons "Where to park for Folks Fest"

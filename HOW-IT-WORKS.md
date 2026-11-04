@@ -207,7 +207,7 @@ Scheduled jobs (Denver time), all in `.github/workflows/`:
 | Daily 05:10 | Rebuild every site; restart a dropped ingest or re-check | nothing; Vercel redeploys |
 | Daily 05:40 | Re-check the next 14 days of events against their sources; list what waits for a person before its date; re-read each town's development map and list every row that moved | stamps and flags, and `data/<town>/development.json`, as a pull request |
 | Monday 07:10 | Ingest the confirmed feeds; auto-review the safe ones | staged and published events, as a pull request |
-| Wednesday 06:20 | The research agent: one week's findings per flagship | a report, as a pull request |
+| Wednesday 06:20 | The research agent: one week's findings per live town, and up to two local changes per resident guide from official pages | drafts in `docs/agent/`; the weekly editor publishes a local change only when it can read its source |
 | Thursday 06:10 | Draft the Thursday email from the listings | a draft, as a pull request; merging sends it |
 | Sat and Sun 08:00, Wed 06:20 | Read the scores from MaxPreps | `data/<town>/sports.json`, committed straight to main |
 

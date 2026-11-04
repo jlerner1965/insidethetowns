@@ -46,6 +46,31 @@ changes:
 
 After the front matter, add an **Editor's notes** section (it is for the reviewer and is stripped before publishing): town news worth a listing, events found that are not yet on the guide (title, date, time, venue, source URL), everything `[UNVERIFIED]`, and every URL you read, including ones that yielded nothing.
 
+### Local change — `content/<town>/updates/<slug>.md`
+A change a resident needs to know, from an official page: a decision or vote, a closure, an opening, a programme with dates, a notice. The home page shows the two newest current ones under "Worth knowing" and /updates/ keeps them all. One shows as current until `expires`, else `effectiveEnd`, else 60 days after `effective`; a change written up more than 30 days after it happened is a correction, not news, and is not drafted. `kind` is one of `opening`, `closure`, `move`, `construction`, `park`, `decision`, `program`, `notice`; `stage` one of `proposed`, `approved`, `underway`, `complete`, `scheduled`. `summary` is under 400 characters. `source` is the official page you read (the Town's, the county's, the library's, the district's); `alsoSource` a second page where the first is a report rather than the original, with `alsoSourceLabel`. `item` is a page on this guide the change is about, if one exists ("/places/<slug>/", "/living-here/"). `featured: true` only for the one change that leads the week. The body is one paragraph in the house voice, every fact from the source; a fact you could not read stays out of the file and goes in your notes. Nothing in the file hedges: no "unverified", "reportedly", "when this was checked".
+
+```
+---
+title: "What changed, as a plain headline"
+kind: decision
+stage: approved
+summary: "What changed and what it means, in one or two sentences, under 400 characters."
+affects: "Who it affects: 'Anyone who drives County Road 46', 'Families with children in Thompson schools'"
+action: "What a resident should do, in a sentence; leave the field out where there is nothing to do."
+effective: "2026-11-10"
+effectiveEnd: "2026-12-01"          # the last day of a run, inclusive; leave out for a single day
+effectiveNote: "The organizer's words where a date alone misleads"
+published: "<today>"
+verified: "<the day you read the source>"
+source: "https://…"
+sourceLabel: "Town of X: page name"
+expires: "2026-12-01"               # the last day it shows as current, where the change has a natural end
+item: "/places/<slug>/"
+---
+
+One paragraph: what the official page says, in order, with the dates, numbers and names it gives, and nothing it does not.
+```
+
 ### Verification report
 For a content file you are given (place, event or article), check every checkable claim in the front matter and body.
 

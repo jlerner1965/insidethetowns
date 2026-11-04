@@ -5,12 +5,15 @@
  *
  *   npm run agent -- weekly lyons                     # weekly notes draft for next Monday
  *   npm run agent -- weekly all                       # every live town
+ *   npm run agent -- changes berthoud                 # up to two local changes (updates/) drafted from official pages
+ *   npm run agent -- changes all                      # every resident guide (the ones whose home shows Worth knowing)
  *   npm run agent -- verify lyons places/a-lodge-lyons.md   # one file, relative to content/lyons/
  *   npm run agent -- verify lyons --stale=60          # places not verified in 60 days (max 8 per run)
  *   npm run agent -- write lyons "Where to park for Folks Fest"
  *
  * Env: ANTHROPIC_API_KEY (required; agent/.env is read when present),
- *      ITT_MODEL (default claude-sonnet-5-5), ITT_MAX_SEARCHES (10), ITT_MAX_FETCHES (20), ITT_CONCURRENCY (4).
+ *      ITT_MODEL (default claude-sonnet-5-5), ITT_MAX_SEARCHES (10), ITT_MAX_FETCHES (20), ITT_CONCURRENCY (4),
+ *      ITT_DRY_RUN=1 (print each task's prompt and write nothing).
  * The rules it follows live in .claude/skills/inside-the-towns-editor/SKILL.md.
  */
 
@@ -35,8 +38,9 @@ const CONCURRENCY = Number(process.env.ITT_CONCURRENCY ?? 4);
 const MAX_TURNS = 24;
 const STALE_BATCH = 8;
 
-if (!process.env.ANTHROPIC_API_KEY) die('ANTHROPIC_API_KEY is not set (put it in agent/.env).');
-const client = new Anthropic();
+const DRY_RUN = process.env.ITT_DRY_RUN === '1';
+if (!DRY_RUN && !process.env.ANTHROPIC_API_KEY) die('ANTHROPIC_API_KEY is not set (put it in agent/.env).');
+const client = DRY_RUN ? null : new Anthropic();
 const skill = await readFile(skillPath, 'utf8');
 
 // ---------- arguments ----------
@@ -59,6 +63,7 @@ await Promise.all(Array.from({ length: Math.min(CONCURRENCY, queue.length) }, as
   for (let job; (job = queue.shift()); ) {
     const { town, label, prompt, outFile } = job;
     console.log(`▶ ${mode} · ${town.name} · ${label} · ${MODEL}`);
+    if (DRY_RUN) { console.log(`--- ${path.relative(root, outFile)}\n${prompt}\n---`); continue; }
     try {
       const { text, searches, usage } = await runAgent(prompt, town);
       await mkdir(path.dirname(outFile), { recursive: true });
@@ -100,6 +105,32 @@ High-school sports, from the guide's own data (MaxPreps, read by the sports run;
 ${sports}
 ` : ''}
 Produce the "Weekly notes" file format from your instructions, front matter first, then the Editor's notes section. checked: ${today}. expires: 14 days after weekOf unless the item is dated sooner.`,
+      }];
+    }
+
+    case 'changes': {
+      // Worth knowing on a resident guide's home is the two newest current
+      // local changes (content/<town>/updates/). The flagship audit of 4
+      // November 2026 found six of ten homes with one item or none while the
+      // Towns' own pages held twenty; nothing in the automation wrote them.
+      // This drafts up to two per week from official pages, into docs/, for
+      // the Wednesday editor to publish when it can read the source itself.
+      if (!town.home) { console.log(`  ${town.name}: no Worth knowing on its home; skipped`); return []; }
+      const current = await currentChanges(contentDir);
+      return [{
+        label: `local changes, ${today}`,
+        outFile: path.join(outDir, `changes-${today}.md`),
+        prompt: `Find up to TWO real local changes for Inside ${town.name} (${town.domain}) and draft each as a complete local-change file. Today is ${todayLong}. Setting: ${where}.
+
+A local change is something a resident needs to know that an official body has published: a decision or vote (council, board, the county, the school district), a road or trail closure, a park or facility opening or closing, a programme or registration with dates, a notice (holiday hours, a rate change, a permit rule). It took effect or was decided in the last 30 days, or is scheduled in the next 60. A change written up more than 30 days after it happened is not news and must not be drafted. Election results are stated as the county's unofficial count, labelled so, until certified.
+
+Read these first, official pages before anything else (the Town's news and agendas, the county, the library, the school district, CDOT, the parks and recreation department); a news story is a lead, never the source of a fact. The registry below lists the pages the guide reads for events; a Town's news page, its agenda portal (CivicClerk, CivicPlus or Granicus) and its public-works or road-closure notices are often not in it and are where decisions and closures appear, so find them on the Town's own site:
+${sources || '(no source registry yet — find the Town, county, library and school district pages yourself)'}
+
+Already on the guide (do not draft these again, or anything that only restates them):
+${current || '(none current)'}
+
+Use the "Local change" format from your instructions for each file, published "${today}" and verified the day you read the source. Output one <file path="content/${town.slug}/updates/<slug>.md"> block per change, the whole file inside it, then an "Editor's notes" section: what you read (every URL, including those that gave nothing), what you considered and left out and why, and anything a person must check before publishing. Two is the most; one, or none with a note saying the official pages carried nothing new, is a fine answer. Never pad, never guess, and never write a doubt into the file itself: a fact you cannot read on the source stays out of the file and goes in the notes.`,
       }];
     }
 
@@ -265,6 +296,20 @@ async function upcomingEvents(contentDir, days) {
     .join('\n');
 }
 
+/** The guide's local changes still current, so the draft does not repeat one: title, when, and when it leaves the home. */
+async function currentChanges(contentDir) {
+  const rows = await listFrontmatter(path.join(contentDir, 'updates'), ['title', 'effective', 'effectiveEnd', 'expires', 'published']);
+  return rows
+    .filter((u) => u.effective)
+    .filter((u) => {
+      const end = u.expires ?? u.effectiveEnd ?? new Date(new Date(u.effective + 'T12:00').getTime() + 60 * 86400000).toISOString().slice(0, 10);
+      return end >= today;
+    })
+    .sort((a, b) => (b.published ?? '').localeCompare(a.published ?? ''))
+    .map((u) => `- ${u.title} (effective ${u.effective}${u.expires ? `, until ${u.expires}` : u.effectiveEnd ? `, until ${u.effectiveEnd}` : ''}) — /updates/#${u.slug}`)
+    .join('\n');
+}
+
 async function staleFiles(contentDir, days) {
   const cutoff = new Date(Date.now() - days * 86400000).toISOString().slice(0, 10);
   const rows = await listFrontmatter(path.join(contentDir, 'places'), ['verified']);
@@ -316,6 +361,7 @@ function loadDotenv(file) {
 function printUsage() {
   console.error(`Usage:
   npm run agent -- weekly <town|all>
+  npm run agent -- changes <town|all>
   npm run agent -- verify <town> <file relative to content/<town>/> | --stale=60
   npm run agent -- write  <town> "<topic>"`);
   process.exit(1);
