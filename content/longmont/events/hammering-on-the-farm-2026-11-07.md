@@ -10,7 +10,7 @@ source: "https://bouldercounty.gov/event/hammering-on-the-farm-nov-7/"
 sourceId: "bouldercounty-gov"
 sourceUid: "10004356-1794045600-1794052800@bouldercounty.gov"
 sourceHash: "7dffbd2ab1bb"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Hammering on the Farm\" at 10 am on 7 November on the Boulder County feed"
 ---
 

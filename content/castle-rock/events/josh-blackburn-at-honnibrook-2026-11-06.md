@@ -9,7 +9,7 @@ category: music
 performers:
   - { name: "Josh Blackburn", kind: person }
 source: "https://www.honnibrook.com/events/"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 6 pm on the page"
 ---
 

@@ -10,7 +10,7 @@ category: "civic"
 organizer: "City of Fort Collins"
 organizerUrl: "https://www.fortcollins.gov/"
 source: "https://www.fortcollins.gov/Event-Folder/2026-Events/2026-Q4/Native-American-Heritage-Month-Reception"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): 3 November and 4 pm on the page"
 ---
 

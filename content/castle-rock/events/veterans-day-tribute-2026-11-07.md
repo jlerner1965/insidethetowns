@@ -12,7 +12,7 @@ source: "https://www.douglasco.gov/event/veterans-day-tribute-3/"
 sourceId: "douglasco-gov"
 sourceUid: "189612"
 sourceHash: "9d7aa21974c5"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Veterans Day Tribute\" at 11 am on 7 November in the page's structured data"
 ---
 

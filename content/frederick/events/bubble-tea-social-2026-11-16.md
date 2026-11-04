@@ -10,8 +10,8 @@ organizer: "Carbon Valley Regional Library (High Plains Library District)"
 organizerUrl: "https://www.mylibrary.us/cvrl/"
 source: "https://highplains.libcal.com/event/15736252"
 sourceId: "highplains-libcal-com"
-verified: "2026-11-02"
-verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
+verified: "2026-11-03"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Bubble Tea Social\" at 4 pm on 16 November on the Carbon Valley Regional Library (High Plains Library District), LibCal feed"
 ---
 
 Teens 12 to 18 make bubble tea and hang out with games, conversation starters and a photo booth, Monday, November 16 from 4 to 5:30 pm in Meeting Room 1. Registration is required and opens at 4 pm on Monday, November 2 on the library's calendar. The library holds the social quarterly, on the third Monday of February, May, August and November.

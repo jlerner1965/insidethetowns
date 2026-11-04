@@ -10,7 +10,7 @@ source: "https://music.colostate.edu/events/guest-artist-concert-matt-boyle-perc
 sourceId: "music-colostate-edu"
 sourceUid: "17-19470@music.colostate.edu"
 sourceHash: "75c2a04ba788"
-verified: "2026-11-02"
+verified: "2026-11-03"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Guest Artist Concert: Matt Boyle, Percussion / FREE  DATE HAS CHANGED\" at 7:30 pm on 5 November on the music.colostate.edu feed"
 ---
 

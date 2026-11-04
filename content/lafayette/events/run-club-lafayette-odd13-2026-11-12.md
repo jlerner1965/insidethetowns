@@ -9,8 +9,8 @@ category: sports
 organizer: "Odd13 Brewing"
 organizerUrl: "https://www.odd13brewing.com/"
 source: "https://www.odd13brewing.com/events"
-verified: "2026-11-02"
-verifiedBy: "the Lafayette build agent, read from the source on 2 November 2026"
+verified: "2026-11-03"
+verifiedBy: "recheck-events (the nightly re-check workflow): 12 November and 6 pm on the page"
 ---
 
 A group run that ends at the Odd13 taproom on East Simpson Street, followed by beers with friends, on Thursday, November 12, at 6 pm, as the brewery’s events page lists it. The page gives no distance, pace or cost.
