@@ -15,7 +15,7 @@ ends: "2027-11-30"
 price: "Residents: 20×20 ft $80, 10×20 $70, 10×10 $65, 6×12 $55, 2×8 raised bed $40; non-residents $96, $84, $77, $66 and $48; a 50 percent deposit is returned in November to gardeners who follow the rules"
 registration: { required: true, how: "Online through the WebTrac link on the page, or in person at the Bob L. Burger Recreation Center; unreserved plots are first come, first served", url: "https://www.lafayetteco.gov/WilsonGardens", opens: "2027-01-07", note: "Opens January 7 for residents and January 14 for non-residents; plots must show work by April 15 or may be reassigned" }
 status: upcoming
-statusNote: "The 2026 season ends November 30; 2027 plots go on sale January 7."
+statusNote: "The 2026 season ends November 30; 2027 plots go on sale January 7"
 contact: "recreation@lafayetteco.gov; 303-665-0469; weekend water problems to the Parks on-call line, 303-589-9632"
 source: "https://www.lafayetteco.gov/WilsonGardens"
 verified: "2026-11-02"

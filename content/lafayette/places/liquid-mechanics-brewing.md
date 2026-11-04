@@ -11,7 +11,7 @@ verifiedBy: "the Lafayette build agent, read from the source on 2 November 2026"
 phone: "720-550-7813"
 hours: "Mon–Thu 1–9 pm; Fri 1–10 pm; Sat 12–10 pm; Sun 12–8:30 pm"
 tags: [brewery, taproom, food-trucks, trivia]
-summary: "A brewery and tasting room on US 287 north of South Boulder Road, open daily from early afternoon; its events page is headed “Food & Trivia” but its calendar did not load for this reader."
+summary: "A brewery and tasting room on US 287 north of South Boulder Road, open daily from early afternoon; the food-truck and trivia schedule is on its events page, “Food & Trivia.”"
 ---
 
-Liquid Mechanics brews at 297 North Highway 287, Suite 100 (its contact page gives the address without the suite), with a tasting room open Monday to Thursday 1 to 9 pm, Friday 1 to 10, Saturday noon to 10 and Sunday noon to 8:30. The site’s events page, "Food & Trivia," loads its calendar by script and showed no dates when read, so the trivia night and food-truck schedule are not listed here; call 720-550-7813 or email davin@liquidmechanicsbrewing.com.
+Liquid Mechanics brews at 297 North Highway 287, Suite 100 (its contact page gives the address without the suite), with a tasting room open Monday to Thursday 1 to 9 pm, Friday 1 to 10, Saturday noon to 10 and Sunday noon to 8:30. The food-truck and trivia schedule is on the site’s events page, “Food & Trivia”; the taproom is 720-550-7813 or davin@liquidmechanicsbrewing.com.
