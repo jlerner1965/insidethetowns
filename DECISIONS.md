@@ -8526,3 +8526,36 @@ applying what they found.*
   five guides, the build agents' notes to themselves. `npm run validate`
   now names each file (`HEDGE_PHRASES`, a warning, not an error). The
   rule it enforces is the Accuracy rule of 3 November.
+
+## Elizabeth is a quiet guide, not a flagship, 4 November 2026
+
+*The owner, on the audit's advice: "quiet; Elizabeth should not be a
+flagship anyway."*
+
+- **What the audit found.** Accurate where a machine can read it (18 of
+  20 facts matched), but the Town's site sits behind Cloudflare's bot
+  challenge and the library's robots.txt asks automated clients out, so
+  the nightly re-check, the Monday ingest and the Wednesday agent reach
+  none of its civic listings or programs. A resident guide promises what
+  only a monthly hand pass could keep there, on the smallest town with
+  the thinnest calendar.
+- **What changes.** `home: true`, `families`, `livingHere` and the
+  `school` colours come out of `src/config/towns/elizabeth.ts`; the three
+  blocks are parked in the same file as `elizabethHubs`, unchanged, so
+  the resident guide comes back with one edit. The sports pages keep
+  running from the school-sports config, as Loveland's do. The home is the visitor layout, the menu Things to
+  do and Moving here, the About page "community and visitor guide". The
+  nine programs stay in `content/elizabeth/programs/` for the day the
+  hub returns; nothing links `/families/` meanwhile. `quiet.decideBy`
+  stays 30 November: the test holds it before the first listing's hours
+  expire (6 December), and a re-check pass on or after 21 November is
+  what lets it move to the 90-day verdict of 20 January.
+- **What does not change.** The site, its listings, its sports pages,
+  its Worth knowing (two items from this audit) and its place in the
+  rotation. The weekly research agent still drafts its notes, since it
+  runs for every live town.
+- **Two things worth doing.** An email to the Town clerk asking that the
+  checker be allowed past the Cloudflare challenge (the request costs
+  nothing; if granted, the guide can be a flagship again in January),
+  and the chamber's calendar (elizabethmainstreet.org, readable) as the
+  feed for Town events, with the Town's page kept as the cited source.
