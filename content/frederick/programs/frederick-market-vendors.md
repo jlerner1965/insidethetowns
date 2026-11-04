@@ -12,7 +12,7 @@ location: "Centennial Park, 630 8th St, and Crist Park, 105 5th St"
 schedule: "2026: Frederick in Flight June 27, 5–9 pm; Chainsaws & Chuckwagons July 18, noon–6 pm; Miners Day September 19, 11 am–4 pm; Festival of Lights December 5, 5:30–8 pm"
 season: "Four events a year, June to December"
 price: "Not stated on the Town’s page"
-registration: { required: true, how: "The Town’s online Market Vendor Application; vendors fit one of three categories, grower/producer/food, artisan/crafter or non-profit, and other businesses can take part as sponsors", url: "https://frederickco.gov/FormCenter/Events-13/2026-Market-Vendor-Application-416", opens: "2027-01-01", note: "The Festival of Lights page says the application opens January 1" }
+registration: { required: true, how: "The Town’s online Market Vendor Application, linked from its Frederick Market page when it opens; vendors fit one of three categories, grower/producer/food, artisan/crafter or non-profit, and other businesses can take part as sponsors", url: "https://www.frederickco.gov/241/Frederick-Market", opens: "2027-01-01", note: "The Festival of Lights page says the application opens January 1" }
 contact: "Event Manager, events@frederickco.gov"
 source: "https://www.frederickco.gov/241/Frederick-Market"
 verified: "2026-11-02"

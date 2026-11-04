@@ -13,7 +13,7 @@ location: "Carbon Valley Community Center, 151 Grant Ave, Firestone; fitness at 
 schedule: "Center open Mon–Fri 8 am–4 pm; drop-in days and times in the district’s schedule image; Book Club Tuesday November 3, 9:30–10:30 am; Friendly Fork lunch Tue and Thu at noon"
 season: "Year-round"
 price: "Most drop-ins free; the Friendly Fork lunch asks a $4 donation from diners 60 and over ($14 under 60); day trips and some classes charge"
-registration: { required: false, how: "Drop in, or register for dated programs online through CivicRec, by phone at 303-833-3660 x123 or at the front desk; lunch reservations by 11 am the prior business day", url: "https://bit.ly/register-active-adults" }
+registration: { required: false, how: "Drop in, or register for dated programs online through CivicRec, by phone at 303-833-3660 x123 or at the front desk; lunch reservations by 11 am the prior business day", url: "https://secure.rec1.com/CO/carbon-valley-park-recreation-district-co/catalog/index/468a0df7b47fea7c6915d5196332d04e?filter=c2VhcmNoPSZjYXRlZ29yeSU1QjIyNDM3JTVEPTEmY2F0ZWdvcnklNUIyMjQzOCU1RD0xJmNhdGVnb3J5JTVCMjI0MzklNUQ9MSZjYXRlZ29yeSU1QjIyNDQwJTVEPTEmY2F0ZWdvcnklNUIyMjQ0MSU1RD0xJmNhdGVnb3J5JTVCMjcwNzIlNUQ9MSZjYXRlZ29yeSU1QjI3MDczJTVEPTEmY2F0ZWdvcnklNUIzMTY2MyU1RD0x" }
 newcomers: true
 contact: "Sarah Spriggs, Active Adults Supervisor, 303-833-3660 x117, sspriggs@cvprd.com; seniors@cvprd.com"
 source: "https://www.cvprd.com/active-adults-programs-classes"

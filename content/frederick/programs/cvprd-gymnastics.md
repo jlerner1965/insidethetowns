@@ -15,7 +15,7 @@ schedule: "Classes weekday afternoons and Saturday mornings (times in the catalo
 season: "Session 3 runs August 31 to November 23, 2026; 2027 sessions not posted on November 2"
 ends: "2026-11-23"
 price: "Classes: not listed on the page (10% off for paying a session in full); open gym $5 district / $7 non-district, 20 visits $70 / $98"
-registration: { required: true, how: "Online in the CivicRec catalog or by calling 303-833-2765; district residents three weeks before a session, others two weeks before; open gym opens seven days before each slot", url: "https://bit.ly/GymnasticsCVPRD" }
+registration: { required: true, how: "Online in the CivicRec catalog or by calling 303-833-2765; district residents three weeks before a session, others two weeks before; open gym opens seven days before each slot", url: "https://secure.rec1.com/CO/carbon-valley-park-recreation-district-co/catalog/index?filter=dGFiJTVCMTI4MDMlNUQ9MSZzZWFyY2g9JnJlbnRhbCU1QmZyb20lNUQ9JnJlbnRhbCU1QnRvJTVEPSZkNDhkNzllNjI3ODA0YThjOThiM2IzOTQ4NjlmYjcyMz1lNmY4MDRmNjc5YjM3OTk5OWMyM2ExOWYzYjBmN2EyZA==" }
 contact: "Roberta Friend, Gymnastics Coordinator, 303-833-3660 x129, rfriend@cvprd.com; the gym 303-833-2765"
 source: "https://www.cvprd.com/gymnastics-classes"
 verified: "2026-11-02"

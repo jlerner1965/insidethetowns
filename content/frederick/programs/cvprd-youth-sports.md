@@ -14,7 +14,7 @@ location: "Carbon Valley Recreation Center, 701 5th St, and fields and gyms arou
 schedule: "Varies by sport and season; coaches’ meetings one or two weeks before the first practice"
 season: "Year-round, sport by sport"
 price: "Varies by sport; the current basketball season is $127 district / $191 non-district for the Junior Nuggets leagues"
-registration: { required: true, how: "Online any time in the district’s CivicRec youth sports catalog; district residents get a two-week head start on each season", url: "https://bit.ly/YouthSportsCVPRD" }
+registration: { required: true, how: "Online any time in the district’s CivicRec youth sports catalog; district residents get a two-week head start on each season", url: "https://secure.rec1.com/CO/carbon-valley-park-recreation-district-co/catalog/index?filter=dGFiJTVCMTI4MDElNUQ9MSZzZWFyY2g9JnJlbnRhbCU1QmZyb20lNUQ9JnJlbnRhbCU1QnRvJTVEPSYzM2IzODY1MWI2ZTg4ZGFlMzYxNGNjZDRlYWQ4YzVhYj1kZmYwZjhjZTcwYTM0N2VlNmMwNzY4Njg2NGU5M2M3ZA==" }
 volunteerNeed: "Volunteer coaches run every team; the district gives them practice drills and a free season for their own child"
 contact: "Kelly Gray, Sports Supervisor, 303-833-3660 x124, kgray@cvprd.com; Darren Duplechin, Sports Coordinator, x127"
 source: "https://www.cvprd.com/youth-sports"
