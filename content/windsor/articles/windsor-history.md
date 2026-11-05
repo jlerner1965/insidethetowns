@@ -1,5 +1,6 @@
 ---
 title: "Windsor history: a halfway house, a sugar factory, a tornado and a town that kept growing"
+seoTitle: "Windsor history: a sugar factory, a tornado, a growing town"
 date: "2026-10-01"
 excerpt: "A stage stop halfway between Greeley and Fort Collins, a railroad in 1882, a beet factory that ran 60 years, Kodak on the same ground, the costliest tornado in Colorado's history, a mill burned and rebuilt, and a town of 18,644 that became 32,716 in a decade. The short history of Windsor, Colorado, with sources."
 category: "History"

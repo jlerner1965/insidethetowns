@@ -1,5 +1,6 @@
 ---
 title: "Johnstown with kids: Old Town's parks and library, a pool with slides, and a Ferris wheel at 2534"
+seoTitle: "Johnstown with kids: parks, library, pool and a Ferris wheel"
 date: "2026-09-27"
 excerpt: "Where to take children in Johnstown, from Old Town's parks, library and free museum to the pool and the attractions at 2534, with hours, what each costs, and where the school days off are listed."
 category: "Families"

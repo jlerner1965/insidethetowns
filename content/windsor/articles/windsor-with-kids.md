@@ -1,5 +1,6 @@
 ---
 title: "Windsor with kids: the lake, two pools, the library and the river trail"
+seoTitle: "Windsor with kids: lake, pools, library, river trail"
 date: "2026-10-01"
 excerpt: "Where to take children in Windsor, Colorado: Boardwalk Park and the swim beach on Windsor Lake, the rec center's lazy river and the summer pool at Chimney Park, the library's storytimes, Eastman Park and the Poudre River Trail, and the free museums on the lake shore."
 category: "Families"

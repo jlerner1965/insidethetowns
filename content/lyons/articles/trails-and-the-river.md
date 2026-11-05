@@ -2,7 +2,7 @@
 title: "Trails and the river: five areas inside fifteen minutes"
 seoTitle: "Lyons, Colorado: river walks and nearby trails inside fifteen minutes"
 date: "2026-09-18"
-excerpt: "Two creeks, one whitewater park, and five trail areas within fifteen minutes of Main Street. Start with the river gauge: the number decides what kind of day it is."
+excerpt: "Two creeks, one whitewater park, and five trail areas within fifteen minutes of Main Street. Read the river gauge first: the number sets the day."
 category: "Outdoors"
 tags: [outdoors, trails, river]
 image: ../images/button-rock-dam-trail.jpg

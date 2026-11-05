@@ -1,5 +1,6 @@
 ---
 title: "Lafayette with kids: a children’s museum, a lake with paddleboats, storytimes and therapy dogs"
+seoTitle: "Lafayette with kids: a children’s museum, a lake and storytimes"
 date: "2026-11-02"
 excerpt: "WOW!’s thirty-year-old museum, the library’s storytimes and makerspace, the recreation center’s $4 youth admission, Waneka Lake’s boathouse and disc golf, the Coal Creek Trail, School’s Out camps on the days off, and the fall and winter dates. Where to go with children in Lafayette."
 category: "Families"

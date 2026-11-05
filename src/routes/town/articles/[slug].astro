@@ -9,7 +9,7 @@ import { getTownEntries, type TownEntry } from '@/lib/content';
 import { dayKey, formatDate, toIsoLocal } from '@/lib/dates';
 import { checkedBy } from '@/lib/editor';
 import { getTown } from '@/config';
-import { articleJsonLd, breadcrumbJsonLd } from '@/lib/seo';
+import { articleJsonLd, breadcrumbJsonLd, excerptDescription } from '@/lib/seo';
 
 export async function getStaticPaths() {
   const articles = await getTownEntries('articles');
@@ -41,7 +41,7 @@ const glance: Array<[string, string]> = data.glance
     ).filter((pair): pair is [string, string] => !!pair[1])
   : [];
 ---
-<Page title={data.title} seoTitle={data.seoTitle} kind="Guide" eyebrow={data.category} intro={data.excerpt} description={data.excerpt} image={shareImage} imageAlt={data.imageAlt} type="article"
+<Page title={data.title} seoTitle={data.seoTitle} kind="Guide" eyebrow={data.category} intro={data.excerpt} description={excerptDescription(data.excerpt)} image={shareImage} imageAlt={data.imageAlt} type="article"
   jsonLd={[
     articleJsonLd(town, article, url, shareImage ? new URL(shareImage, Astro.site).toString() : undefined),
     breadcrumbJsonLd(town, [

@@ -1,5 +1,6 @@
 ---
 title: "Frederick with kids: a lazy river, a foam pit, a 30,000-square-foot skate park, storytimes and Santa in Crist Park"
+seoTitle: "Frederick with kids: lazy river, skate park, storytimes"
 date: "2026-11-02"
 excerpt: "The rec center pools and their rules, Kid Zone, gymnastics open gym, the winter basketball and swim-lesson dates, the library's storytimes and clubs, the playgrounds, the skate park and Milavec Lake, and this fall's dates from Empty Bowls to the Festival of Lights. Where to go with children in Frederick."
 category: "Families"

@@ -1,5 +1,6 @@
 ---
 title: "Estes Park history: the Circle, the earl's hunting ground, the Stanley, a national park and three floods"
+seoTitle: "Estes Park history: the Circle, the Stanley and three floods"
 date: "2026-10-07"
 excerpt: "Arapaho and Ute summers in the Circle, Joel Estes in 1859, Isabella Bird and the Earl of Dunraven, F.O. Stanley's hotel, Enos Mills and the national park of 1915, a water tunnel under the Divide, and the floods of 1976, 1982 and 2013. The short history of Estes Park, with sources."
 category: "History"

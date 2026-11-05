@@ -1,7 +1,8 @@
 ---
 title: "Erie with kids: nine playgrounds, a lazy river, a pump track and the library that never stops"
+seoTitle: "Erie with kids: playgrounds, lazy river and pump track"
 date: "2026-09-27"
-excerpt: "Erie's themed neighborhood playgrounds, two splash pads, a pump track and a library with a program most days. Where to go with children, by age and by weather."
+excerpt: "Erie's themed neighborhood playgrounds, two splash pads, a pump track and a library with a program most days. Where to take children, by age and weather."
 category: "Families"
 tags: [families, kids, playgrounds, guide]
 image: ../images/community-center-south.jpg

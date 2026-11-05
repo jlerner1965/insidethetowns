@@ -1,5 +1,6 @@
 ---
 title: "Timnath with kids: the splash pad, the new park, a fishing pond and a soda fountain"
+seoTitle: "Timnath with kids: splash pad, park and soda fountain"
 date: "2026-09-27"
 excerpt: "Where to take children in Timnath: the Community Park splash pad and its hours, WildWing Park, the pond at Weitzel Park, the reservoir beach and the soda fountain on Main Street."
 category: "Families"

@@ -183,11 +183,30 @@ export function clampText(text: string, limit: number): string {
     sentence = m.index + m[0].length;
   }
   if (sentence > limit * 0.5) return cut.slice(0, sentence);
+  return clampAtWord(flat, limit);
+}
+
+/** Text cut to the budget at the last whole word, with an ellipsis; text within the budget as it is. */
+export function clampAtWord(text: string, limit: number): string {
+  const flat = text.replace(/\s+/g, ' ').trim();
+  if (flat.length <= limit) return flat;
   // Room for the ellipsis; a cut that lands on the end of a word keeps it.
   const room = flat.slice(0, limit - 1);
   const space = /\s/.test(flat[limit - 1] ?? '') ? limit - 1 : room.lastIndexOf(' ');
   const words = space > 0 ? room.slice(0, space) : room;
   return `${words.replace(/[\s,;:.([{“‘"'–—-]+$/, '')}…`;
+}
+
+/** The text as whole sentences, in order, by the same rule as firstSentence. */
+export function sentences(text: string): string[] {
+  const out: string[] = [];
+  let rest = text.replace(/\s+/g, ' ').trim();
+  while (rest) {
+    const s = firstSentence(rest);
+    out.push(s);
+    rest = rest.slice(s.length).trim();
+  }
+  return out;
 }
 
 /**

@@ -8,7 +8,7 @@ import ArticleCard from '@/components/ArticleCard.astro';
 import { countyLabel, getNetworkHub, getTown, liveTowns } from '@/config';
 import { formatDate, parseLocal } from '@/lib/dates';
 import { getTownEntries, getTownEntry } from '@/lib/content';
-import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, excerptDescription, webPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
 const page = await getTownEntry('pages', 'moving-here');
@@ -37,7 +37,8 @@ const others = liveTowns().length - 1;
 const image = page?.data.image;
 const shareImage = image ? (await getImage({ src: image, width: 1200, height: 630, format: 'jpg' })).src : undefined;
 const title = page?.data.title ?? `Moving to ${town.name}`;
-const description = page?.data.description ?? `Schools, commutes, housing and what to expect when you move to ${town.name}, ${town.state}.`;
+// The page's own line, its sentences as they fit the snippet (excerptDescription, src/lib/seo.ts).
+const description = excerptDescription(page?.data.description ?? `Schools, commutes, housing and what to expect when you move to ${town.name}, ${town.state}.`);
 // The guide carried only the site's Organization and WebSite; as a WebPage
 // of the site, dated by its `updated`, with its place in the breadcrumb.
 const structured = [

@@ -1,5 +1,6 @@
 ---
 title: "Castle Rock history: the county seat by the butte, a stone depot, the star on the Rock, and a town of 741 that became 73,158"
+seoTitle: "Castle Rock history: the county seat, the depot and the star"
 date: "2026-10-07"
 excerpt: "Jeremiah Gould's 120 acres, the county seat that came in 1874, the 1875 depot built of local rhyolite, the courthouse lost to fire in 1978, the star first lit in 1936, and a town of 1,152 in 1960 that counted 73,158 in 2020. The short history of Castle Rock, with sources."
 category: "History"
