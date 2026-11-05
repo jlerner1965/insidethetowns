@@ -9,7 +9,7 @@ cost: "Free"
 category: "family"
 timeNote: "Saturday and Sunday, 10 a.m. to 4 p.m."
 source: "https://www.bathgardencenter.com/event-details/holiday-open-house-2026"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Holiday Open House 2026\" at 10 am on 14 November in the page's structured data"
 ---
 

@@ -12,8 +12,8 @@ category: music
 performers:
   - { name: "Chrispy", kind: person }
 source: "https://www.mountaintoadbrewing.com/events"
-verified: "2026-11-04"
-verifiedBy: "recheck-events (the nightly re-check workflow): 4 November and 6 pm on the page"
+verified: "2026-11-05"
+verifiedBy: "recheck-events (the nightly re-check workflow): 11 November and 6 pm on the page"
 ---
 
 Chrispy, the one-man looping band, plays all genres at Mountain Toad Brewing on Washington Avenue every Wednesday from 6 to 8 pm, rain or shine. The brewery's calendar listed dates through December 2 when read; no cover is stated.

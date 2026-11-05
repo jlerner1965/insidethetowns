@@ -9,7 +9,7 @@ category: "music"
 performers:
   - { name: "Wildlove Tigress", kind: group }
 source: "https://www.theelizabethcolorado.com/the-hotel/events-calendar/"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "recheck-events (the nightly re-check workflow): 7 November and 8 pm on the page"
 ---
 

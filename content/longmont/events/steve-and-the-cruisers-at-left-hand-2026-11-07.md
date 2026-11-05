@@ -10,7 +10,7 @@ category: music
 performers:
   - { name: "Steve and the Cruisers", kind: group }
 source: "https://lefthandbrewing.com/events/"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "recheck-events (the nightly re-check workflow): 7 November and 5:30 pm on the page"
 ---
 

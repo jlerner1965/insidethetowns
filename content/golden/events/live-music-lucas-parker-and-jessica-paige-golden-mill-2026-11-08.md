@@ -9,7 +9,7 @@ category: music
 performers:
   - { name: "Lucas Parker and Jessica Paige", kind: group }
 source: "https://www.thegoldenmill.com/events/live-music-with-lucas-parker-and-jessica-paige-2"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Live Music with Lucas Parker and Jessica Paige\" at 3 pm on 8 November in the page's structured data"
 ---
 

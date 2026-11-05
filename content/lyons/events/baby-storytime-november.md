@@ -9,7 +9,7 @@ address: "451 4th Ave, Lyons, CO 80540"
 url: "https://lyons.librarycalendar.com/event/baby-storytime-stay-and-play-11882"
 category: family
 source: "https://lyons.librarycalendar.com/event/baby-storytime-stay-and-play-11882"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Baby Storytime & Stay-and-Play\" at 10:30 am on 17 November on the lyons.librarycalendar.com feed"
 ---
 

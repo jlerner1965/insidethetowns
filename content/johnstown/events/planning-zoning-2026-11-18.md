@@ -8,8 +8,8 @@ url: "https://johnstownco.gov/Calendar.aspx"
 cost: "Free"
 category: civic
 source: "https://johnstownco.gov/Calendar.aspx"
-verified: "2026-11-03"
-verifiedBy: "Flagship audit, against the Town's calendar feed (Johnstown Commission Meetings), 3 November 2026: 18 November, 6 to 7 pm; the 11 November meeting marked canceled; nothing on 25 November"
+verified: "2026-11-05"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Planning and Zoning Commission Meeting\" at 6 pm on 18 November on the johnstownco.gov feed"
 ---
 
 The Commission's November meeting, at Town Hall at 6 pm, on subdivisions, annexations and development applications. The Commission normally meets on the second and fourth Wednesdays; this month the Town's calendar marks the November 11 meeting canceled, lists this one on the third Wednesday, and lists none on November 25.

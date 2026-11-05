@@ -10,7 +10,7 @@ category: "music"
 performers:
   - { name: "Poudre River Irregulars", kind: group }
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 4 pm on the page"
 ---
 

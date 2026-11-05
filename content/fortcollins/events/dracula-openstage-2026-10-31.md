@@ -27,7 +27,7 @@ organizerUrl: "https://openstage.com/"
 source: "https://www.lctix.com/shows-tickets/dracula-2/"
 sourceId: "lctix-com"
 sourceUid: "showare:5599"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Dracula\" at 7:30 pm on 6 November in the page's structured data"
 ---
 
