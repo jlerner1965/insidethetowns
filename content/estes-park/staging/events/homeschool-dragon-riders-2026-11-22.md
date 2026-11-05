@@ -1,6 +1,6 @@
 ---
 title: "Homeschool Dragon Riders Oneshot- Cooking Catastrophe!"
-review: { reason: "Ingested from Estes Valley Library; check against the organizer's page. venue read from \"Makerspace\". category guessed (other). description is the feed's text: rewrite", since: "2026-10-14", from: ingest }
+review: { reason: "Reject?: the library's page (calendar.estesvalleylibrary.org/event/17478717), read 5 November 2026, confirms 'Sunday, November 22, 2026', '9:30 AM - 11:30 AM', 'Location: Makerspace', In-Person (though a line also says 'Please note this is an online event'), audience Kids (6-10), Tweens and Teens, and 'Registration is required. There are no seats available but a waiting list is available'; its text says 'This month we will be helping a town baker', and the page links a further date on Sunday, November 29 (event 17478720), so it is a monthly homeschool D&D club, a regular rather than a one-off programme, and it is already full.", since: "2026-10-14", from: ingest }
 start: "2026-11-22T09:30"
 end: "2026-11-22T11:30"
 venue: "Makerspace"
