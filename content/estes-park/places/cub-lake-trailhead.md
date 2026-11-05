@@ -5,7 +5,7 @@ address: "Fern Lake Road along the edge of Moraine Park, off Bear Lake Road, Roc
 area: "Moraine Park"
 url: "https://www.nps.gov/romo/planyourvisit/exploring-the-bear-lake-road-corridor.htm"
 source: "https://www.nps.gov/romo/planyourvisit/exploring-the-bear-lake-road-corridor.htm"
-verified: "2026-10-13"
+verified: "2026-11-05"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 mapUrl: "https://www.nps.gov/romo/planyourvisit/upload/Bear-Lake-Road-Digital-Map_large-2023-01.png"
@@ -14,7 +14,7 @@ imageAlt: "On the trail to Cub Lake: a pond in the meadow grass, red boulders in
 imageCredit: "NPS / Karen Battle-Sanborn, Wikimedia Commons, public domain"
 tags: [rmnp, hiking, moraine-park, shuttle]
 summary: "Trailhead on the road along Moraine Park for the 2.4-mile walk to Cub Lake, starting at 8,080 feet with about 540 feet of gain."
-access: { parking: "Trailhead parking on the Moraine Park road; a Moraine Park shuttle stop at Cub Lake Trailhead (2026 season: May 22 to October 18).", permit: "Out of season: the 2026 Timed Entry + Bear Lake Road reservation (5 am–6 pm) ran May 22 to October 18, so none is needed now. A park entrance pass is needed 24 hours a day, all year.", conditionsUrl: "https://www.nps.gov/romo/planyourvisit/conditions.htm", conditionsLabel: "RMNP current conditions", source: "https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm", verified: "2026-10-20" }
+access: { parking: "Trailhead parking on the Moraine Park road; a Moraine Park shuttle stop at Cub Lake Trailhead (2026 season: May 22 to October 18).", permit: "Out of season: the 2026 Timed Entry + Bear Lake Road reservation (5 am–6 pm) ran May 22 to October 18, so none is needed now. A park entrance pass is needed 24 hours a day, all year.", conditionsUrl: "https://www.nps.gov/romo/planyourvisit/conditions.htm", conditionsLabel: "RMNP current conditions", source: "https://www.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm", verified: "2026-11-05" }
 ---
 
 The Cub Lake trail leaves from the road that runs along the edge of Moraine Park, an area the park recommends for elk watching in spring and fall. The park lists Cub Lake at 2.4 miles one way with 540 feet of gain. To get there, take Bear Lake Road 1.3 miles, turn right on Moraine Park Campground Road, then left at the sign for the riding stable and trailheads.
