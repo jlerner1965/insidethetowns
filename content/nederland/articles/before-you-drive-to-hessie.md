@@ -2,7 +2,7 @@
 title: "Before you drive to Hessie: parking, the shuttle, and conditions"
 seoTitle: "Hessie Trailhead: parking, the shuttle and seasonal access"
 date: "2026-10-07"
-excerpt: "The Hessie Trailhead beyond Eldora has a dirt road, almost no parking and $50 fines on Fourth of July Road. How the free Boulder County shuttle works through its last day, October 11, 2026, the trails and their distances, the Indian Peaks Wilderness rules, and where to check the road and fire status before you go."
+excerpt: "The Hessie Trailhead beyond Eldora has a dirt road, almost no parking and $50 fines on Fourth of July Road. Boulder County runs a free shuttle in season. How it ran through its last day, October 11, 2026, the trails and their distances, the wilderness rules, and where to check the road and fire status first."
 category: "Outdoors"
 tags: [outdoors, hiking, indian-peaks, shuttle, guide]
 verified: "2026-10-07"

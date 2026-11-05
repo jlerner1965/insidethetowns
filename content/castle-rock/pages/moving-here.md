@@ -1,6 +1,6 @@
 ---
 title: "Moving to Castle Rock"
-description: "Castle Rock, Colorado: the Douglas County seat, 73,158 people in 2020 and 83,497 by the state's 2024 estimate. Schools, roads, county services, what to check."
+description: "Castle Rock, Colorado: the Douglas County seat, 73,158 people in 2020 and 83,497 by the state's 2024 estimate. Schools, roads and county services. What to check before you move."
 updated: "2026-10-06"
 ---
 

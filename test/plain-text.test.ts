@@ -7,8 +7,8 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { addFirstFitting, clampText, firstSentence, listWords, markdownToText } from '../src/lib/plain-text.ts';
-import { eventDescription, eventImage, eventJsonLd, eventMetaDescription, eventPageDescription, EVENT_DESCRIPTION_LIMIT, fillDescription, listDescription, META_DESCRIPTION_LIMIT, META_DESCRIPTION_MIN, placeDescription, topUpDescription } from '../src/lib/seo.ts';
+import { addFirstFitting, clampAtWord, clampText, firstSentence, listWords, markdownToText, sentences } from '../src/lib/plain-text.ts';
+import { eventDescription, eventImage, eventJsonLd, eventMetaDescription, eventPageDescription, EVENT_DESCRIPTION_LIMIT, excerptDescription, fillDescription, listDescription, META_DESCRIPTION_LIMIT, META_DESCRIPTION_MIN, placeDescription, topUpDescription } from '../src/lib/seo.ts';
 
 test('Markdown links keep their words and lose their URLs, whole or already cut short', () => {
   assert.equal(
@@ -192,7 +192,7 @@ test('an event with no words of its own says what it is and what the page offers
   assert.ok(bare.length >= META_DESCRIPTION_MIN && bare.length <= META_DESCRIPTION_LIMIT, String(bare.length));
   // Called off: no calendar link is promised; the name is not said twice.
   const off = eventMetaDescription({ title: 'Shadow Puppetry Workshop', lead: `Canceled. ${lead}`, body: 'A Shadow Puppetry Workshop for families.', directions: false, calendar: false });
-  assert.equal(off, `Canceled. ${lead} A Shadow Puppetry Workshop for families.`);
+  assert.equal(off, `Canceled. ${lead} A Shadow Puppetry Workshop for families. Checked against its source.`);
   // The body's second sentence comes before anything generic.
   const two = eventMetaDescription({ title: 'Trivia', lead, body: 'Pub trivia in the taproom every Monday at six. Teams of up to six play for a bar tab.', directions: true, calendar: true });
   assert.equal(two, `${lead} Pub trivia in the taproom every Monday at six. Teams of up to six play for a bar tab.`);
@@ -200,6 +200,10 @@ test('an event with no words of its own says what it is and what the page offers
   const saturday = 'Saturday, November 21, 9 pm at Aggie Theatre, Fort Collins.';
   const latin = eventMetaDescription({ title: 'Latin Night', lead: saturday, body: 'A Latin dance night at the Aggie.', directions: true, calendar: true });
   assert.equal(latin, `${saturday} A Latin dance night at the Aggie. Latin Night. Add it to your calendar.`);
+  // Nothing of its own, and the lead leaves no room for the calendar line: the one thing true of every listing.
+  const thin = eventMetaDescription({ title: 'Twin Fin', lead: 'Thursday, January 21, 8 pm at Aggie Theatre, Fort Collins.', body: '', directions: true, calendar: true });
+  assert.equal(thin, 'Thursday, January 21, 8 pm at Aggie Theatre, Fort Collins. Twin Fin. Directions, and a link to add it to your calendar. Checked against its source.');
+  assert.ok(thin.length >= META_DESCRIPTION_MIN && thin.length <= META_DESCRIPTION_LIMIT, String(thin.length));
   // A description already long enough is the one the page always had.
   const long = 'Saturday, December 5, 9 am – 3 pm at Berthoud Recreation Center, Berthoud. The fair fills the gym with sixty makers, a bake sale and a visit from Santa at noon.';
   assert.equal(eventMetaDescription({ title: 'Winter Craft Fair', lead: long.slice(0, 74), body: long.slice(75), directions: true, calendar: true }), eventPageDescription(long.slice(0, 74), long.slice(75)));
@@ -212,4 +216,21 @@ test('a list page adds as many of its names as fit', () => {
   assert.ok(out.length <= META_DESCRIPTION_LIMIT);
   // A first name too long to fit is skipped, not the end of the list.
   assert.equal(listDescription(base, ['A Name So Long It Will Not Fit Alongside The Base At All', 'Lake Loop']), `${base} Including Lake Loop.`);
+});
+
+test('an excerpt is cut at whole sentences as they fit, and at a word only when the sentences leave it short', () => {
+  assert.deepEqual(sentences('One here. Two, with St. Vrain in it. Three'), ['One here.', 'Two, with St. Vrain in it.', 'Three']);
+  assert.equal(clampAtWord('alpha beta gamma delta', 12), 'alpha beta…');
+  // McIntosh versus Union, Longmont: cut to its first sentence, 84 characters, when the second did not fit (all-sites check, 5 November 2026).
+  const two = 'McIntosh Lake is free, has a 3.5-mile loop and takes carry-in boats but no swimmers. Union Reservoir charges $10 a vehicle, allows wakeless boating, has a year-round dog beach and closes the water December 1 to February 28.';
+  const out = excerptDescription(two);
+  assert.ok(out.endsWith('…') && out.length >= META_DESCRIPTION_MIN && out.length <= META_DESCRIPTION_LIMIT, out);
+  assert.ok(out.startsWith('McIntosh Lake is free, has a 3.5-mile loop and takes carry-in boats but no swimmers. Union Reservoir charges'), out);
+  // Two sentences that fit together are used whole, and a third that does not is left off.
+  const three = 'Longmont has two lakes you can put a boat on, and the City runs them differently. One is free and one charges at the gate. The third sentence is long enough that it will not fit inside the budget beside the other two.';
+  assert.equal(excerptDescription(three), 'Longmont has two lakes you can put a boat on, and the City runs them differently. One is free and one charges at the gate.');
+  // An excerpt within the snippet is used whole, short or not.
+  assert.equal(excerptDescription('Short and whole.'), 'Short and whole.');
+  // A single sentence over the budget is cut at a word.
+  assert.equal(excerptDescription('word '.repeat(40).trim(), 24), 'word word word word…');
 });

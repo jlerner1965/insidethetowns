@@ -1,5 +1,6 @@
 ---
 title: "Lyons with kids: the river park, the library, soft-serve and a bike park"
+seoTitle: "Lyons with kids: the river park, library and bike park"
 date: "2026-09-27"
 excerpt: "A summer day and a winter one in Lyons with children: where to tube, where to splash, where the storytimes are, and where to eat in wet shoes."
 category: "Families"

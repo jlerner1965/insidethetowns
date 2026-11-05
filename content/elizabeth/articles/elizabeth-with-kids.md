@@ -1,5 +1,6 @@
 ---
 title: "Elizabeth with kids: the splash pad at Evans Park, story time, mini donuts and disc golf in the pines"
+seoTitle: "Elizabeth with kids: splash pad, story time and disc golf"
 date: "2026-09-27"
 excerpt: "Where to take children in Elizabeth: the two big district parks and what is in each, the library's calendar, the donut counter on Main Street and the summer Friday market."
 category: "Families"

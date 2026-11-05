@@ -1,5 +1,6 @@
 ---
 title: "Frederick: a coal camp called McKissick, three daughters, a lake the town dug itself, and the boom up I-25"
+seoTitle: "Frederick history: a coal camp, three daughters and a lake"
 date: "2026-11-02"
 excerpt: "Named McKissick for a mine owner, laid out in 1907 by Frederick A. Clark's daughters and named for their father, built by Italian immigrant miners, flooded in 1957 and 2013, and grown from 8,679 people to 14,513 between the 2010 and 2020 censuses. The short history of Frederick, with sources."
 category: "History"

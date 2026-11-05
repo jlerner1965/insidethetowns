@@ -9,7 +9,7 @@ import { getNetworkHub, liveTowns, type SiteConfig, type TownConfig } from '../c
 import { dayKey, toIsoLocal } from './dates.ts';
 import { exportWhen } from './events.ts';
 import { isPlaceholder } from './editor.ts';
-import { addFirstFitting, clampText, firstSentence, listWords, markdownToText } from './plain-text.ts';
+import { addFirstFitting, clampAtWord, clampText, firstSentence, listWords, markdownToText, sentences } from './plain-text.ts';
 
 /**
  * An Event's `description`: the listing's words as plain text, cut at a
@@ -134,9 +134,36 @@ export function eventMetaDescription(
         event.calendar ? 'Add it to your calendar.' : undefined,
         event.directions ? 'Directions to the venue.' : undefined,
       ],
+      // Every published listing has a source it was read against (the validator holds back one without).
+      'Checked against its source.',
     ],
     limit,
   );
+}
+
+/**
+ * An article's excerpt, or a page's own description line, as the meta
+ * description: its sentences in order, as many as fit the budget. The
+ * clamp in SEO.astro cuts at the last sentence that ends past half the
+ * budget, and an excerpt written as one short sentence and one long one
+ * ("McIntosh Lake is free, has a 3.5-mile loop and takes carry-in boats
+ * but no swimmers." and then 132 characters on Union) was cut to the
+ * short one, 84 characters, on seven articles across the network (all-
+ * sites check, 5 November 2026). Where whole sentences still leave it
+ * under the floor, the excerpt is cut at a word with an ellipsis instead:
+ * more of the page's own words, which is what the floor is for. An
+ * excerpt within the budget is used whole, whatever its length.
+ */
+export function excerptDescription(text: string, limit = META_DESCRIPTION_LIMIT, min = META_DESCRIPTION_MIN): string {
+  const flat = markdownToText(text);
+  if (flat.length <= limit) return flat;
+  let out = '';
+  for (const s of sentences(flat)) {
+    const next = out ? `${out} ${s}` : s;
+    if (next.length > limit) break;
+    out = next;
+  }
+  return out.length >= min ? out : clampAtWord(flat, limit);
 }
 
 /**

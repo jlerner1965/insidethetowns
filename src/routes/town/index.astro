@@ -6,5 +6,11 @@
  */
 import Base from '@/layouts/Base.astro';
 import TownHome from '@/components/home/TownHome.astro';
+import { getTown } from '@/config';
+import { fillDescription } from '@/lib/seo';
+
+// The tagline, and where it is short (Niwot's is 113 characters), the line
+// of trust the page prints under What's happening.
+const description = fillDescription(getTown().tagline, ['Every listing checked against its source.']);
 ---
-<Base><TownHome /></Base>
+<Base {description}><TownHome /></Base>

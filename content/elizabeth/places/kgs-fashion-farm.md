@@ -4,7 +4,7 @@ type: shop
 address: "271 S Main St"
 area: "Historic Main Street"
 tags: [clothing]
-summary: "A clothing shop on Main Street."
+summary: "A clothing shop at 271 S Main Street, on Elizabeth's historic main block."
 source: "https://www.elizabethmainstreet.org/connections/42067-kgs-fashion-farm/"
 verified: "2026-10-30"
 verifiedBy: "Claude Code, delegated by James Lerner"

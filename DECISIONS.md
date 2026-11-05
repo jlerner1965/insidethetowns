@@ -8652,3 +8652,35 @@ its pages read for what Search Console and Bing flag.*
 - **Left as it is:** titles over 70 (mostly the "with kids" and history
   articles); the 27 October rule already drops the guide's name from
   them, and an article can carry a shorter `seoTitle`, an editorial call.
+
+## The guides' own words, lengthened for the snippet, 5 November 2026
+
+*After the all-sites check, the owner: "do all articles things or any
+left over tasks you can do". What was listed for him is done, within
+what each file already said.*
+
+- **Excerpts.** The article page now cuts the excerpt at whole sentences
+  as they fit the snippet, and at a word with an ellipsis only where the
+  sentences leave it under 120 (`excerptDescription`, `src/lib/seo.ts`);
+  Moving here's own line the same. Seven excerpts whose second sentence
+  could not fit beside the first were reworded so the two fit together,
+  with nothing said that the article does not (McIntosh or Union, Trails
+  and the river, Hessie, How Niwot got here, Erie with kids, the two
+  Windsor walks).
+- **Place summaries.** Five one-line summaries now carry the address,
+  the hours or the phone the listing already holds (KG's Fashion Farm,
+  Randy's Antiques and Art, Gatherings of a Lifetime, Niwot Liquor
+  Store, Niwot Jewelry & Gifts). A summary is also the page's intro, so
+  each reads as one.
+- **Search titles.** Every article whose title ran past 70 characters,
+  21 of them (the "with kids" and history pieces), has a `seoTitle` of
+  60 or fewer, made of the title's own words. The h1 keeps the full
+  title; the tab and the search result take the short one.
+- **Home and Guides.** A short tagline (Niwot's, 113) is followed in the
+  home page's description by the trust line the page prints, "Every
+  listing checked against its source"; a Guides page whose article names
+  are too long to list adds "Each one carries its date". An event with no
+  words of its own ends with "Checked against its source", which every
+  published listing is.
+- **Not done:** the tagline itself (the owner's line, left as written);
+  event titles over 70, which are the organizers' own.

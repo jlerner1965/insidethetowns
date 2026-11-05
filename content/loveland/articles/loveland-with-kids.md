@@ -1,5 +1,6 @@
 ---
 title: "Loveland with kids: two sculpture parks, Boyd Lake, the nature center, the library and the fair"
+seoTitle: "Loveland with kids: sculpture parks, Boyd Lake and the fair"
 date: "2026-10-05"
 excerpt: "Where to take children in Loveland, Colorado: the Benson and Chapungu sculpture parks, the swim beach and trails at Boyd Lake State Park, the High Plains Environmental Center, the library's summer program and bookstore, the county fair at The Ranch and the children's museum on the way."
 category: "Families"

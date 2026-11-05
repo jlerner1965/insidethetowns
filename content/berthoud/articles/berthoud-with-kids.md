@@ -1,5 +1,6 @@
 ---
 title: "Berthoud with kids: the inclusive playground, the bike park, three storytimes a week"
+seoTitle: "Berthoud with kids: playground, bike park, storytimes"
 date: "2026-09-27"
 updated: "2026-10-08"
 excerpt: "Where to take children in Berthoud, by the kind of day it is: a hot one, a rainy one, a winter one, and a Saturday downtown."

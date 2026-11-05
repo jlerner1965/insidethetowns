@@ -1,5 +1,6 @@
 ---
 title: "Fort Collins history: a flooded camp, a sugar town, 73 dry years and a city of 170,000"
+seoTitle: "Fort Collins history: a camp, a sugar town and 73 dry years"
 date: "2026-10-01"
 excerpt: "A cavalry camp moved out of a flood in 1864, a town incorporated in 1873, a college that became CSU, a sugar factory, a streetcar, a liquor ban from 1896 to 1969, an Old Town on the National Register and the breweries. The short history of Fort Collins, each claim resting on a source."
 category: "History"

@@ -1,5 +1,6 @@
 ---
 title: "Longmont with kids: the museum, the leisure pool, the library, the lakes and the greenway"
+seoTitle: "Longmont with kids: museum, leisure pool, library and lakes"
 date: "2026-10-05"
 excerpt: "Where to take children in Longmont, Colorado: the museum's new DreamLab gallery, storytimes at the library, the Recreation Center's leisure pool and the summer activity pools, the Ice Pavilion, splash pads, McIntosh Lake, Union Reservoir, the St. Vrain Greenway and the County's farm museum."
 category: "Families"

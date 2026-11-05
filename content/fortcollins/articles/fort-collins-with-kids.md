@@ -1,5 +1,6 @@
 ---
 title: "Fort Collins with kids: the museum, the farm, the pool, the trails and Horsetooth"
+seoTitle: "Fort Collins with kids: museum, farm, pool and the trails"
 date: "2026-10-01"
 excerpt: "Where to take children in Fort Collins: the Museum of Discovery and its dome, the Gardens on Spring Creek, the farm at Lee Martinez Park, City Park and its pool, the Spring Creek and Poudre trails, storytimes at three libraries, and the swim beaches and trails at Horsetooth, with hours and prices from each operator."
 category: "Families"

@@ -1,5 +1,6 @@
 ---
 title: "Golden with kids: a dinosaur dig, a 130-foot indoor slide, trains, chickens and a free rock"
+seoTitle: "Golden with kids: dinosaur dig, indoor slide and trains"
 date: "2026-10-07"
 excerpt: "The Community Center's leisure pool and its rules, The Splash in summer, Discovery Park's dinosaur dig, the library's storytimes, trains, free museums, Lookout Mountain's nature center and this fall's Halloween and holiday dates. Where to go with children in Golden."
 category: "Families"

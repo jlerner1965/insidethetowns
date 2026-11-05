@@ -1,5 +1,6 @@
 ---
 title: "Castle Rock with kids: storytime and The Ranch, The Edge, the county parks, the depot museum and the holidays downtown"
+seoTitle: "Castle Rock with kids: The Ranch, the parks and the museum"
 date: "2026-10-07"
 excerpt: "Where to take children in Castle Rock, Colorado: storytimes and The Ranch play space at the library, ziplines, Sky Trek and the ninja course at The Edge, the playground at Fairgrounds Regional Park, two county trails, the depot museum, and the fall and holiday events downtown."
 category: "Families"

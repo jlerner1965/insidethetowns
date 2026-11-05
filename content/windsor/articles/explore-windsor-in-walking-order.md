@@ -1,7 +1,7 @@
 ---
 title: "Explore Windsor: five places in walking order"
 date: "2026-10-07"
-excerpt: "The lake and Boardwalk Park first, then the 1909 town hall and the Main Street blocks, with Main Park at the end. Four stops from one parking spot, and a drive to the river trail if there is time."
+excerpt: "The lake and Boardwalk Park first, then the 1909 town hall and the Main Street blocks, with Main Park at the end. Four stops from one parking spot. The river trail is a drive away, if there is time."
 category: "Outdoors"
 tags: [outdoors, walking, visiting]
 verified: "2026-10-07"

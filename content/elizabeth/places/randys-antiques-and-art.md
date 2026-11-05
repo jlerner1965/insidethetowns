@@ -5,7 +5,7 @@ address: "232 S Main St"
 area: "Historic Main Street"
 phone: "(720) 343-7266"
 tags: [antiques, art]
-summary: "Antiques and art on the main block."
+summary: "An antique and art shop at 232 S Main Street, on Elizabeth's historic main block."
 source: "https://www.elizabethmainstreet.org/connections/42063-randys-antiques-and-art/"
 verified: "2026-10-30"
 verifiedBy: "Claude Code, delegated by James Lerner"

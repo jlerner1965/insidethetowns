@@ -1,5 +1,6 @@
 ---
 title: "Longmont history: a Chicago colony, a sugar town, its own power plant, a flood and a city of nearly 100,000"
+seoTitle: "Longmont history: a Chicago colony, a sugar town and a flood"
 date: "2026-10-05"
 excerpt: "A stage stop called Burlington, a Chicago colony's square-mile town of 1871, a pea cannery and a sugar factory, a city that built its own power plant in 1912, a Klan council voted out, IBM, the 2013 flood, a fiber network and a city of 98,885. The short history of Longmont, Colorado, with sources."
 category: "History"
