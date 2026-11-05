@@ -11,9 +11,10 @@ hours: "Open daily, sunrise to sunset"
 tags: [walking, running, dogs, easy]
 summary: "The flat Boulder County loop around the edge of town, from the trailhead on 79th Street, joined to the LoBo Trail."
 source: "https://bouldercounty.gov/open-space/parks-and-trails/niwot-trails/"
-verified: "2026-10-13"
+verified: "2026-11-05"
+verifiedBy: "Claude Code, delegated by James Lerner"
 added: "2026-09-17"
-access: { parking: "13 car spaces and one van-accessible space at the Niwot Loop trailhead; 30 at the Lefthand Valley Grange trailhead, with two van-accessible spaces, a restroom and a 50-person group shelter; 10 at the Monarch trailhead, with one horse-trailer space. No parking between sunset and sunrise.", closures: "The County says the Lefthand Valley Grange shelter will close for repairs in October; the start date and how long are not yet published.", conditionsUrl: "https://bouldercounty.gov/open-space/parks-and-trails/niwot-trails/", conditionsLabel: "Boulder County Niwot trails page", source: "https://bouldercounty.gov/open-space/parks-and-trails/niwot-trails/", verified: "2026-10-13" }
+access: { parking: "13 car spaces and one van-accessible space at the Niwot Loop trailhead; 30 at the Lefthand Valley Grange trailhead, with two van-accessible spaces, a restroom and a 50-person group shelter; 10 at the Monarch trailhead, with one horse-trailer space. No parking between sunset and sunrise.", closures: "None posted on the County's Niwot trails page on 5 November 2026; the October notice of shelter repairs at the Lefthand Valley Grange trailhead is gone.", conditionsUrl: "https://bouldercounty.gov/open-space/parks-and-trails/niwot-trails/", conditionsLabel: "Boulder County Niwot trails page", source: "https://bouldercounty.gov/open-space/parks-and-trails/niwot-trails/", verified: "2026-11-05" }
 ---
 
 A flat, easy loop on Boulder County trails around the edge of town, starting from the county’s Niwot Loop Trailhead on 79th Street south of Niwot Road. It links to the LoBo Regional Trail and crosses the open fields east of the built-up blocks. The county’s Niwot trails map shows the connections. (The Niwot Trot 5K, which used these trails for years, has run a different course through downtown since 2024.)
