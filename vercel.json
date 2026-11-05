@@ -584,6 +584,105 @@
       ],
       "destination": "/events/messy-art-2026-10-28.ics",
       "permanent": true
+    },
+    {
+      "source": "/events/trick-or-treat-street-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/places/chelos-modern-mexican{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "/eat-drink/",
+      "permanent": true
+    },
+    {
+      "source": "/events/neon-nights-dodgeball-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/zombie-fun-run-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/berthoud-oktoberfest-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/niwot-trot-5k-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/niwot-cougars-football-vs-skyview-2026-10-16{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/daniel-rodriguez-string-band-wildflower{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/old-dogapalooza-rock-garden{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
     }
   ]
 }
