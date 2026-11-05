@@ -1,5 +1,8 @@
 ---
 title: "Deadwood Imperial Red release with Sugar Britches"
+formerSlugs:
+  - beer-release-deadwood-imperial-red-2026-12-18
+  - sugar-britches-2026-12-18
 start: "2026-12-18T15:00"
 end: "2026-12-18T22:00"
 venue: "City Star Brewing"

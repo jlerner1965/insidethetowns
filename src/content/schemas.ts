@@ -343,6 +343,13 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
        */
       organizer: z.string().min(1).optional(),
       /** The organizer's own site, when they have one distinct from `url`. */
+      /**
+       * Slugs this listing used to live at, each built as a redirect to it
+       * (src/lib/former-slugs.ts). Set when a listing is re-filed or merged
+       * under a new slug, so the old URL, which a search engine may still
+       * hold, lands here rather than on a 404 (5 November 2026).
+       */
+      formerSlugs: z.array(z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)).optional(),
       organizerUrl: httpUrl.optional(),
       /**
        * Who performs, where the listing names them: a concert's act, a
@@ -615,6 +622,13 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
        * checked against the source.
        */
       mapUrl: httpUrl.optional(),
+      /**
+       * Slugs this listing used to live at, each built as a redirect to it
+       * (src/lib/former-slugs.ts). Set when a listing is re-filed or merged
+       * under a new slug, so the old URL, which a search engine may still
+       * hold, lands here rather than on a 404 (5 November 2026).
+       */
+      formerSlugs: z.array(z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)).optional(),
       priceRange: z.enum(['$', '$$', '$$$', '$$$$']).optional(),
       image: image().optional(),
       imageAlt: z.string().optional(),

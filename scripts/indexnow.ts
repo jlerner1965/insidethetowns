@@ -89,7 +89,7 @@ function writeState(slug: string, snapshot: Snapshot): void {
   writeFileSync(join(stateDir, `${slug}.json`), `${JSON.stringify(Object.fromEntries(snapshot), null, 1)}\n`);
 }
 
-async function send(host: string, urls: string[]): Promise<'sent' | 'pending'> {
+async function send(site: string, host: string, urls: string[]): Promise<'sent' | 'pending'> {
   for (let i = 0; i < urls.length; i += INDEXNOW_BATCH) {
     const batch = urls.slice(i, i + INDEXNOW_BATCH);
     const res = await fetch(INDEXNOW_ENDPOINT, {
@@ -101,6 +101,15 @@ async function send(host: string, urls: string[]): Promise<'sent' | 'pending'> {
     if (!accepted(res.status)) {
       const text = (await res.text()).slice(0, 300).replace(/\s+/g, ' ');
       if (verificationPending(res.status, text)) return 'pending';
+      // Any other 403 is the engine saying it could not verify the key for this
+      // host, after this script has just read the key file from the host itself
+      // (four hosts of nineteen on the second run, 5 November 2026, with the
+      // same file every other host passed on). The engine's view, not ours: a
+      // warning naming the host, no record kept, and the next run tries again.
+      if (res.status === 403) {
+        console.warn(`::warning::${site}: IndexNow refused ${host} (${text}). The key file is served; check the site is verified in Bing Webmaster Tools. Tried again next run.`);
+        return 'pending';
+      }
       throw new Error(`IndexNow refused ${batch.length} URL(s) for ${host}: HTTP ${res.status}${text ? ` (${text})` : ''}`);
     }
     console.log(`  sent ${batch.length} URL(s): HTTP ${res.status}`);
@@ -127,9 +136,9 @@ async function run(site: SiteConfig): Promise<boolean> {
       for (const url of urls) console.log(`  would send ${url}`);
       return true;
     }
-    if (urls.length > 0 && (await send(host, urls)) === 'pending') {
+    if (urls.length > 0 && (await send(site.slug, host, urls)) === 'pending') {
       // No record written: the next run sends everything for this host again.
-      console.warn(`::warning::${site.slug}: IndexNow has not finished verifying the key for ${host} yet; nothing sent, tried again next run.`);
+      console.warn(`::warning::${site.slug}: IndexNow has not accepted ${host} yet; nothing recorded, so the next run sends everything for it again.`);
       return true;
     }
     writeState(site.slug, current);
