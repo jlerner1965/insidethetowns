@@ -8630,3 +8630,25 @@ per-town variant.*
   fit 155 with the longest guide name ("Longmont · Inside the Towns").
   After: every indexable Berthoud page between 120 and 155. A summary or
   excerpt that is long enough is left exactly as it was.
+
+## Every site checked after the descriptions change, 5 November 2026
+
+*The owner: "do the same for all sites". Search Console could not be read
+(GSC Wizard's subscription had lapsed), so every live site was built and
+its pages read for what Search Console and Bing flag.*
+
+- **Descriptions.** A description over 155 is cut first and the cut
+  filled; event pages add the next sentence, the event's name and what
+  the page offers; list and Guides pages add names that fit. What is left
+  under 120 is the guides' own words (a one-line place summary, a short
+  article excerpt, Niwot's tagline), listed for the owner, not rewritten.
+- **Broken internal links.** Frederick and Lafayette linked programs at
+  `/programs/<slug>/`, a page that has never existed: 22 files, every
+  link a 404. Each now points at the program's anchor on the page that
+  lists it (`/families/#program-<slug>`, or `/get-involved/` for a club,
+  organization or volunteer role), as the other guides already do.
+- **Clean everywhere:** no duplicate titles or descriptions, one H1 a
+  page, a canonical on every indexable page, alt text on every image.
+- **Left as it is:** titles over 70 (mostly the "with kids" and history
+  articles); the 27 October rule already drops the guide's name from
+  them, and an article can carry a shorter `seoTitle`, an editorial call.

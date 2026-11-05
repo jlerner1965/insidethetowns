@@ -196,6 +196,10 @@ test('an event with no words of its own says what it is and what the page offers
   // The body's second sentence comes before anything generic.
   const two = eventMetaDescription({ title: 'Trivia', lead, body: 'Pub trivia in the taproom every Monday at six. Teams of up to six play for a bar tab.', directions: true, calendar: true });
   assert.equal(two, `${lead} Pub trivia in the taproom every Monday at six. Teams of up to six play for a bar tab.`);
+  // A name that leaves no room for the longer line takes the shorter one.
+  const saturday = 'Saturday, November 21, 9 pm at Aggie Theatre, Fort Collins.';
+  const latin = eventMetaDescription({ title: 'Latin Night', lead: saturday, body: 'A Latin dance night at the Aggie.', directions: true, calendar: true });
+  assert.equal(latin, `${saturday} A Latin dance night at the Aggie. Latin Night. Add it to your calendar.`);
   // A description already long enough is the one the page always had.
   const long = 'Saturday, December 5, 9 am – 3 pm at Berthoud Recreation Center, Berthoud. The fair fills the gym with sixty makers, a bake sale and a visit from Santa at noon.';
   assert.equal(eventMetaDescription({ title: 'Winter Craft Fair', lead: long.slice(0, 74), body: long.slice(75), directions: true, calendar: true }), eventPageDescription(long.slice(0, 74), long.slice(75)));

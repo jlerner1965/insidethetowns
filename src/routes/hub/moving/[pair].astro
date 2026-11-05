@@ -42,6 +42,7 @@ const rows = [
 // The census figures the table leads with, where the sentence alone is short.
 const description = fillDescription(`${a.name} and ${b.name} compared on growth, commute, schools and what each town is actually like to live in.`, [
   a.population && b.population ? `${a.name} had ${num(a.population)} people in 2020, ${b.name} ${num(b.population)}.` : undefined,
+  a.population && b.population ? `Population in 2020: ${num(a.population)} and ${num(b.population)}.` : undefined,
 ]);
 ---
 <Page

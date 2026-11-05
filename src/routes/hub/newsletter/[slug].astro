@@ -33,7 +33,7 @@ const { Content } = await render(issue);
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const towns = data.towns.map((slug) => findTown(slug)).filter(Boolean);
 // A one-line excerpt ("1 thing on in Niwot this weekend…") says which email it is, where it is short.
-const description = fillDescription(data.excerpt, [`The weekly email from ${hub.siteTitle}, ${formatDate(data.date)}.`]);
+const description = fillDescription(data.excerpt, [`The weekly email from ${hub.siteTitle}, ${formatDate(data.date)}.`, `From the ${hub.siteTitle} weekly email.`]);
 ---
 <Page
   title={data.title}

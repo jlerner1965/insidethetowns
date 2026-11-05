@@ -92,14 +92,15 @@ export function fillDescription(
  */
 export function topUpDescription(
   base: string,
-  sentences: ReadonlyArray<string | undefined>,
+  sentences: ReadonlyArray<string | ReadonlyArray<string | undefined> | undefined>,
   limit = META_DESCRIPTION_LIMIT,
   min = META_DESCRIPTION_MIN,
 ): string {
   let out = clampText(base, limit);
   for (const sentence of sentences) {
     if (out.length >= min) break;
-    out = addFirstFitting(out, [sentence], limit);
+    // A slot may offer a longer and a shorter wording: the first that fits.
+    out = addFirstFitting(out, typeof sentence === 'string' || sentence === undefined ? [sentence] : sentence, limit);
   }
   return out;
 }
@@ -128,13 +129,11 @@ export function eventMetaDescription(
     [
       base.includes(first) && second.length > 30 ? second : undefined,
       named ? undefined : `${event.title.replace(/[.!?]+$/, '')}.`,
-      event.directions && event.calendar
-        ? 'Directions, and a link to add it to your calendar.'
-        : event.calendar
-          ? 'A link to add it to your calendar.'
-          : event.directions
-            ? 'Directions to the venue.'
-            : undefined,
+      [
+        event.directions && event.calendar ? 'Directions, and a link to add it to your calendar.' : undefined,
+        event.calendar ? 'Add it to your calendar.' : undefined,
+        event.directions ? 'Directions to the venue.' : undefined,
+      ],
     ],
     limit,
   );

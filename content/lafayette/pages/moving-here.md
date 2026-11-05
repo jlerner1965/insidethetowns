@@ -33,7 +33,7 @@ Lafayette sits where US 287 crosses Baseline Road and South Boulder Road, betwee
 ## Before you decide
 
 - **Water.** The City has been in Drought Stage 1 since April and asked in October that lawn watering stop for the season; its draft Water Efficiency and Drought Response Plan will set what later stages mean ([Water Resources](https://www.lafayetteco.gov/2780/Water-Resources)).
-- **Snow.** Not every street is plowed, and your sidewalk is your job within 24 hours ([Snow and Ice Control](https://www.lafayetteco.gov/222/Snow-and-Ice-Control)); the Senior Center’s [Snow Angels](/programs/snow-angels/) shovel for residents 55 and over who cannot.
+- **Snow.** Not every street is plowed, and your sidewalk is your job within 24 hours ([Snow and Ice Control](https://www.lafayetteco.gov/222/Snow-and-Ice-Control)); the Senior Center’s [Snow Angels](/get-involved/#program-snow-angels) shovel for residents 55 and over who cannot.
 - **The airport.** The City is challenging FAA flight-path changes at Rocky Mountain Metropolitan Airport and tells residents how to file noise complaints ([City news](https://www.lafayetteco.gov/CivicAlerts.aspx?AID=9934)).
 - **Construction.** Intrepid Fiber, a private company, is laying about 30 miles of fiber through town ([City news](https://www.lafayetteco.gov/CivicAlerts.aspx?AID=9596)), and the recreation center rebuild starts in 2027.
 

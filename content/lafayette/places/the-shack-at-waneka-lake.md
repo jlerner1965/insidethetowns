@@ -13,4 +13,4 @@ tags: [nature, kids, free, volunteers, birds]
 summary: "The City Open Space program’s volunteer-staffed interpretive station at Waneka Lake and the Greenlee Wildlife Preserve, open weekend afternoons from September to April and weekend mornings in summer, with activities on local ecosystems, history and sustainability."
 ---
 
-The Shack is a small interpretive education center at Waneka Lake and the Greenlee Wildlife Preserve, staffed by the City’s Open Space volunteers. From September through April it opens Saturdays and Sundays from 1 to 3 pm, and from May through August from 9 to 11 am, subject to volunteer availability and weather. The City recruits [Shack volunteers](/programs/open-space-volunteers/) through its Engage site.
+The Shack is a small interpretive education center at Waneka Lake and the Greenlee Wildlife Preserve, staffed by the City’s Open Space volunteers. From September through April it opens Saturdays and Sundays from 1 to 3 pm, and from May through August from 9 to 11 am, subject to volunteer availability and weather. The City recruits [Shack volunteers](/get-involved/#program-open-space-volunteers) through its Engage site.
