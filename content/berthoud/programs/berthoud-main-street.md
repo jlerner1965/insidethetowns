@@ -11,7 +11,6 @@ ages: "Adults"
 location: "Downtown Berthoud, Mountain Avenue"
 price: "Not stated"
 registration: { required: false, how: "Its site does not describe membership or volunteer sign-up; use the contact form or its Facebook and Instagram pages" }
-nextEvent: trick-or-treat-street-2026
 contact: "https://berthoudmainstreet.org/contact/"
 source: "https://berthoudmainstreet.org/"
 verified: "2026-10-21"

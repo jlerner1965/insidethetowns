@@ -89,3 +89,15 @@ export function submission(host: string, urls: readonly string[]) {
 export function accepted(status: number): boolean {
   return status === 200 || status === 202;
 }
+
+/**
+ * A 403 whose body says `SiteVerificationNotCompleted`: IndexNow has the
+ * host's key file but has not finished checking it, and asks the sender to
+ * wait and try again. The first run for the network got it on one host of
+ * nineteen (Fort Collins, 5 November 2026) and opened a failure issue for
+ * what was a wait. It is reported as a warning, the host keeps no record so
+ * the next run sends everything for it again, and the run does not fail.
+ */
+export function verificationPending(status: number, body: string): boolean {
+  return status === 403 && /SiteVerificationNotCompleted/i.test(body);
+}

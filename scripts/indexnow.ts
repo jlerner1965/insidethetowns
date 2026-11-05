@@ -19,7 +19,9 @@
  * Before sending anything for a site it fetches that site's key file. An
  * engine that cannot read the key discards the batch without saying so, so
  * a site whose deploy does not yet carry public/<key>.txt is reported and
- * skipped, and its record is left alone for the next run.
+ * skipped, and its record is left alone for the next run. A host whose key
+ * IndexNow is still verifying (a 403 that says so) is a warning, not a
+ * failure, and is likewise left for the next run.
  *
  * Run by .github/workflows/indexnow.yml twice a day, after the rebuilds.
  * Exits 1 when any site could not be read or was refused.
@@ -30,6 +32,7 @@ import { allSites, LIVE_TOWNS, type SiteConfig } from '../src/config/index.ts';
 import { contentDates } from '../src/lib/lastmod.ts';
 import {
   accepted,
+  verificationPending,
   INDEXNOW_BATCH,
   INDEXNOW_ENDPOINT,
   INDEXNOW_KEY,
@@ -86,7 +89,7 @@ function writeState(slug: string, snapshot: Snapshot): void {
   writeFileSync(join(stateDir, `${slug}.json`), `${JSON.stringify(Object.fromEntries(snapshot), null, 1)}\n`);
 }
 
-async function send(host: string, urls: string[]): Promise<void> {
+async function send(host: string, urls: string[]): Promise<'sent' | 'pending'> {
   for (let i = 0; i < urls.length; i += INDEXNOW_BATCH) {
     const batch = urls.slice(i, i + INDEXNOW_BATCH);
     const res = await fetch(INDEXNOW_ENDPOINT, {
@@ -97,10 +100,12 @@ async function send(host: string, urls: string[]): Promise<void> {
     });
     if (!accepted(res.status)) {
       const text = (await res.text()).slice(0, 300).replace(/\s+/g, ' ');
+      if (verificationPending(res.status, text)) return 'pending';
       throw new Error(`IndexNow refused ${batch.length} URL(s) for ${host}: HTTP ${res.status}${text ? ` (${text})` : ''}`);
     }
     console.log(`  sent ${batch.length} URL(s): HTTP ${res.status}`);
   }
+  return 'sent';
 }
 
 async function run(site: SiteConfig): Promise<boolean> {
@@ -122,7 +127,11 @@ async function run(site: SiteConfig): Promise<boolean> {
       for (const url of urls) console.log(`  would send ${url}`);
       return true;
     }
-    if (urls.length > 0) await send(host, urls);
+    if (urls.length > 0 && (await send(host, urls)) === 'pending') {
+      // No record written: the next run sends everything for this host again.
+      console.warn(`::warning::${site.slug}: IndexNow has not finished verifying the key for ${host} yet; nothing sent, tried again next run.`);
+      return true;
+    }
     writeState(site.slug, current);
     return true;
   } catch (error) {

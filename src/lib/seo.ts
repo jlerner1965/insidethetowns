@@ -274,13 +274,18 @@ export function eventImage<T extends ImageCandidate>(
  * (Lerner Works): the hub's `parentOrganization`, so every town leads to
  * the hub and the hub leads to the organisation accountable for it.
  *
- * No `logo`: the only mark that exists is an SVG favicon, and pointing at
- * something that may not validate is worse than leaving the property out.
+ * `logo` is the 180-pixel PNG of the mark every site serves at
+ * /apple-touch-icon.png (src/pages/apple-touch-icon.png.ts): a PNG of at
+ * least 112 pixels, which is what Google asks of an Organization's logo.
+ * It was left out while the only mark was the SVG favicon; the Search
+ * Console read of every live site flagged the gap on every page (5
+ * November 2026).
  */
 export function siteJsonLd(site: SiteConfig) {
   const url = `https://${site.domain}/`;
   const hubUrl = `https://${getNetworkHub().domain}/`;
   const publisher = getNetworkHub().publisher;
+  const logo = { '@type': 'ImageObject', url: `${url}apple-touch-icon.png`, width: 180, height: 180 };
   const organization =
     site.kind === 'hub'
       ? {
@@ -289,6 +294,7 @@ export function siteJsonLd(site: SiteConfig) {
           name: site.siteTitle,
           url,
           description: site.tagline,
+          logo,
           ...(publisher ? { parentOrganization: { '@type': 'Organization', name: publisher.name, url: publisher.url } } : {}),
           subOrganization: liveTowns().map((t) => ({
             '@type': 'Organization',
@@ -303,6 +309,7 @@ export function siteJsonLd(site: SiteConfig) {
           name: site.siteTitle,
           url,
           description: site.tagline,
+          logo,
           parentOrganization: {
             '@type': 'Organization',
             '@id': `${hubUrl}#org`,

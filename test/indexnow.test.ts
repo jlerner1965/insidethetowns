@@ -6,7 +6,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
-import { accepted, CALENDAR_PATHS, INDEXNOW_KEY, sitemapEntries, sitemapLocs, submission, urlsToSubmit } from '../scripts/lib/indexnow.ts';
+import { accepted, CALENDAR_PATHS, verificationPending, INDEXNOW_KEY, sitemapEntries, sitemapLocs, submission, urlsToSubmit } from '../scripts/lib/indexnow.ts';
 
 test('the key file is in public/, so every site serves it, and holds the key and nothing else', () => {
   assert.match(INDEXNOW_KEY, /^[a-zA-Z0-9-]{8,128}$/, 'the protocol’s form for a key');
@@ -59,4 +59,7 @@ test('a submission names the host and where its key is, and only 200 or 202 is a
   });
   assert.ok(accepted(200) && accepted(202));
   assert.ok(!accepted(403) && !accepted(422) && !accepted(429));
+  // The one 403 that means "wait": the key file is there and not yet checked (Fort Collins, first run, 5 November 2026).
+  assert.ok(verificationPending(403, '{"errorCode":"SiteVerificationNotCompleted","message":"Site Verification is not completed."}'));
+  assert.ok(!verificationPending(403, '{"errorCode":"InvalidKey"}') && !verificationPending(422, 'SiteVerificationNotCompleted'));
 });
