@@ -34,7 +34,11 @@
         "places": 0
       },
       "robots": "honor",
-      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location; lists the next few weeks (13 items on 4 October)."
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location; lists the next few weeks (13 items on 4 October).",
+      "excludeTitles": [
+        "LCF Meeting",
+        "Planning and Community Development Commission"
+      ]
     },
     {
       "id": "bouldercounty-gov",

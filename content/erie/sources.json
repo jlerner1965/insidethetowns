@@ -18,7 +18,11 @@
         "places": 14
       },
       "robots": "honor",
-      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (14 items on 4 October)."
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (14 items on 4 October).",
+      "excludeTitles": [
+        "Advising Hours",
+        "Liquor License Hearing"
+      ]
     },
     {
       "id": "members-eriechamber-org",

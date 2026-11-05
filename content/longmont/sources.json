@@ -41,7 +41,8 @@
       ],
       "excludeTitles": [
         "AHC Open",
-        "Election Champion"
+        "Election Champion",
+        "LONGMONT OFFICE"
       ],
       "notes": "Found and read once on 4 October 2026; the same feed Niwot's and Lyons' registries confirm with their own location filter. County-wide, 30 upcoming items; the ones naming Longmont are mostly County open space and the Agricultural Heritage Center with Longmont addresses outside the city limits (Pella Crossing, Rabbit Mountain, 8348 Ute Hwy), which the guide's parks and outdoors scope takes in. Fairgrounds events also carry Longmont and are proposed separately below; ingest merges an item two feeds share. Exclusions set 4 October 2026 from the event standard in docs/archive/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again. \"Election Champion\" (a volunteer training) excluded on 5 October 2026: the owner rejected it at the 4 October review, and a rejected feed item is staged again unless its title is excluded."
     },
@@ -197,7 +198,8 @@
         "Studio Series",
         "Craft & Create Club",
         "Advisory Board",
-        "Art & Sip"
+        "Art & Sip",
+        "closed for"
       ],
       "defaultVenue": "Longmont Museum",
       "notes": "Found and read once on 4 October 2026. The museum, 400 Quail Rd., is a City department; its Stewart Auditorium programme (Friday afternoon concerts, films co-presented with the Sundance Film Festival, talks) and its classes are on the City's calendar. 30 items reached 22 October, including the Grand Reopening Celebration on 17 October. Like the council calendar it marks changes in the title (\"Postponed: ...\"). Daily Discovery Days sessions are regulars. Exclusions set 4 October 2026 from the event standard in docs/archive/AUDIT-2026-10-02.md (storytimes, clubs, drop-ins, classes and routine meetings are not events), with the owner's go-ahead to make Longmont review-ready; remove any to have it staged again. Art & Sip excluded on 4 October 2026 at the review, where the owner rejected the three staged: ticketed craft classes, which the event standard leaves out."

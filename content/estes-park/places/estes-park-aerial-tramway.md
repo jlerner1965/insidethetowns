@@ -5,12 +5,12 @@ address: "420 East Riverside Drive, Estes Park, CO 80517"
 area: "Riverside Drive"
 url: "https://estestram.com/"
 source: "https://estestram.com/faq"
-verified: "2026-10-20"
+verified: "2026-11-05"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "(970) 235-9083"
 hours: "Daily 9 am–7 pm to Oct 11; daily 9 am–6 pm Oct 12–Nov 1"
-seasonal: { season: "May 9 to November 1, 2026", hours: "Daily 9 am–7 pm to Oct 11; daily 9 am–6 pm Oct 12–Nov 1", opens: "2026-05-09", closes: "2026-11-01" }
+seasonal: { season: "May 9 to November 1, 2026; the tramway says it generally opens in mid-May, and had posted no 2027 date on November 5", hours: "Daily 9 am–7 pm to Oct 11; daily 9 am–6 pm Oct 12–Nov 1", opens: "2026-05-09", closes: "2026-11-01" }
 image: ../images/estes-park-aerial-tramway.jpg
 imageAlt: "A red tram car at the summit station on Prospect Mountain, with Lake Estes and the valley below"
 imageCredit: "Jerrye and Roy Klotz MD, Wikimedia Commons, CC BY-SA 3.0"

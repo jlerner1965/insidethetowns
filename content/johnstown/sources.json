@@ -18,7 +18,11 @@
         "places": 9
       },
       "robots": "honor",
-      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (6 items on 4 October)."
+      "notes": "Feed found by autodiscovery on 4 October 2026 and read successfully once. CivicPlus calendar RSS with structured event dates, times and location (6 items on 4 October).",
+      "excludeTitles": [
+        "Trash",
+        "Planning and Zoning Commission"
+      ]
     },
     {
       "id": "visitdowntownjohnstown-com",
