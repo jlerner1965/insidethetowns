@@ -1,5 +1,8 @@
 ---
 title: "Raspberry Bandit and Cabaret releases with Johnny Johnston and Felonius Smith"
+formerSlugs:
+  - beer-release-cabaret-2026-11-06
+  - johnny-johnston-and-felonius-smith-2026-11-06
 start: "2026-11-06T15:00"
 end: "2026-11-06T22:00"
 venue: "City Star Brewing"

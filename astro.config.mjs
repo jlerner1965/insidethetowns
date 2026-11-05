@@ -10,6 +10,7 @@ import { tableLabels } from './src/integrations/table-labels.ts';
 import { pastEventSlugs, repeatOccurrenceSlugs } from './src/lib/series.ts';
 import { closedPlaceSlugs } from './src/lib/raw-places.ts';
 import { contentDates, lastmodFor } from './src/lib/lastmod.ts';
+import { formerSlugRedirects } from './src/lib/former-slugs.ts';
 import vercelConfig from './vercel.json' with { type: 'json' };
 
 // Which site to build is decided by the TOWN env var (see src/config/index.ts).
@@ -43,10 +44,15 @@ const indexable = (/** @type {string} */ url) => {
   return !repeats.has(m[1]) && !expired.has(m[1]);
 };
 
+// A listing re-filed under a new slug keeps its old URL as a redirect page
+// (src/lib/former-slugs.ts); a static build writes each as a meta-refresh page.
+const redirects = site.kind === 'town' ? formerSlugRedirects(site.slug) : {};
+
 export default defineConfig({
   site: `https://${site.domain}`,
   output: 'static',
   trailingSlash: 'always',
+  redirects,
   // Keep HTML-aware whitespace handling (Astro 7 defaults to JSX-style, which
   // drops the space between adjacent inline elements in prose).
   compressHTML: true,

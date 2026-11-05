@@ -1,5 +1,8 @@
 ---
 title: "Sweater Weather release with Sugar Britches"
+formerSlugs:
+  - beer-release-sweater-weather-2026-11-20
+  - sugar-britches-2026-11-20
 start: "2026-11-20T15:00"
 end: "2026-11-20T22:00"
 venue: "City Star Brewing"

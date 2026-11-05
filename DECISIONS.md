@@ -8684,3 +8684,30 @@ what each file already said.*
   published listing is.
 - **Not done:** the tagline itself (the owner's line, left as written);
   event titles over 70, which are the organizers' own.
+
+## Old URLs redirect, and IndexNow's refusals are warnings, 5 November 2026
+
+*The owner: "you decide what to do on each". The Search Console read of
+every site found nine 404s with traffic, most of them events the editor's
+sweeps had merged into one listing under a new slug (two beer releases and
+the band playing them became one page; the two old URLs went to 404 while
+Google still listed them).*
+
+- **`formerSlugs`.** An event or place re-filed under a new slug carries
+  its old slugs, and the build writes a redirect page at each old path
+  (`src/lib/former-slugs.ts`, Astro `redirects`; a static build's redirect
+  is a meta-refresh page, which Google follows). A former slug that is
+  also a live listing is skipped with a warning. The editor's instructions
+  carry the rule, and the rule that a published listing is never deleted
+  because its date passed. The nine hand-written redirects in vercel.json
+  stay for the URLs whose listings no longer exist in the repo at all.
+- **IndexNow 403s.** On the second run four hosts of nineteen were refused
+  with `UserForbiddedToAccessSite`, with the same key file every other
+  host passed on and after the script itself had read it. A 403 is now a
+  warning naming the host, the host keeps no record so the next run sends
+  it again, and the run passes; only a refusal that is not a 403 fails
+  it. The likely cause is Bing-side site verification: the four hosts
+  should be added in Bing Webmaster Tools (import from Search Console).
+- **Left as they are:** titles of 61 to 70 characters (the 27 October
+  limit stands); articles without a photograph (a photograph needs a
+  licence or permission, section 6); the Niwot tagline.

@@ -118,3 +118,7 @@ Body in Markdown. Start with the useful thing. Length to fit the topic; do not p
 
 ## Scope
 Do the task asked. Do not propose extra sections, features, phases or follow-ups unless asked.
+
+## Re-filing a listing
+
+When a published event or place is merged into another or moved to a new slug, the surviving file carries every old slug in `formerSlugs:` (a YAML list), and the build turns each into a redirect to it. A published listing is never deleted only because its date passed: the build hides, noindexes and drops it from the sitemap, and search engines keep sending readers to the URL for weeks (nine 404s with traffic, 5 November 2026).

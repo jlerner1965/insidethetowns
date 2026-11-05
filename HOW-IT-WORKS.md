@@ -94,6 +94,9 @@ One wrong fact costs more than ten missing ones.
 - Corrections are shown, not silently fixed: a change found late is a
   correction with both dates, never the week's news.
 - A called-off or moved event stays on its day with the word beside it.
+- A listing re-filed or merged under a new slug names its old slugs in
+  `formerSlugs`, and the build redirects each old URL to it. A published
+  listing is never deleted because its date passed; the build hides it.
 
 ## 6. Photographs
 
