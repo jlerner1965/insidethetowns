@@ -13,7 +13,7 @@ import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import { findTown, getHub } from '@/config';
 import { getHubEntries, type TownEntry } from '@/lib/content';
 import { formatDate, toIsoLocal } from '@/lib/dates';
-import { articleJsonLd, breadcrumbJsonLd } from '@/lib/seo';
+import { articleJsonLd, breadcrumbJsonLd, fillDescription } from '@/lib/seo';
 
 export async function getStaticPaths() {
   // No provider, no sent issues, and no reason to read an empty collection.
@@ -32,12 +32,14 @@ const { data } = issue;
 const { Content } = await render(issue);
 const url = new URL(Astro.url.pathname, Astro.site).toString();
 const towns = data.towns.map((slug) => findTown(slug)).filter(Boolean);
+// A one-line excerpt ("1 thing on in Niwot this weekend…") says which email it is, where it is short.
+const description = fillDescription(data.excerpt, [`The weekly email from ${hub.siteTitle}, ${formatDate(data.date)}.`]);
 ---
 <Page
   title={data.title}
   eyebrow={`The weekly email · ${formatDate(data.date)}`}
   intro={data.excerpt}
-  description={data.excerpt}
+  {description}
   type="article"
   jsonLd={[
     articleJsonLd(hub, issue as never, url),

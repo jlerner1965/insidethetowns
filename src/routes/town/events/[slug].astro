@@ -10,7 +10,7 @@ import { titleDate } from '@/lib/titles';
 import { exportWhen, finalDay, isCanceled, isInProgress, isMultiDay, isOver, lastDay, listedUntil, nextOccurrence, occurrences, uniqueByEvent, upcoming } from '@/lib/events';
 import { googleCalendarUrl, showKey } from '@/lib/ics';
 import { pickCanonical } from '@/lib/series';
-import { breadcrumbJsonLd, eventImage, eventJsonLd, eventPageDescription } from '@/lib/seo';
+import { breadcrumbJsonLd, eventImage, eventJsonLd, eventMetaDescription } from '@/lib/seo';
 import { firstSentence as firstSentenceOf, markdownToText } from '@/lib/plain-text';
 import { EVENT_STATUS_LABELS, shownCategoryLabel } from '@/content/schemas';
 import Provenance from '@/components/Provenance.astro';
@@ -125,7 +125,6 @@ const dayText = isMultiDay(next)
  * to fit beside them (eventPageDescription, src/lib/seo.ts).
  */
 const particulars = `${statusLabel ? `${statusLabel}. ` : ''}${dayText}, ${timeText} at ${data.venue}, ${town.name}.`;
-const description = eventPageDescription(particulars, event.body);
 const firstSentence = firstSentenceOf(markdownToText(event.body));
 /**
  * Two ways into a reader's own calendar, neither needing a script: the
@@ -181,6 +180,9 @@ const alsoOn = [...soon.filter((e) => e.data.venue === data.venue), ...soon.filt
 // a visitor from a search wants the way there from the event itself (the
 // reader pass, 1 November 2026).
 const directions = data.address ? directionsUrl(data.address, town.name) : undefined;
+// The particulars and the body's first sentence; where that is short, the
+// next sentence, the event's name and what the page offers (eventMetaDescription).
+const description = eventMetaDescription({ title: data.title, lead: particulars, body: event.body, directions: !!directions, calendar: !offList });
 interface Fact {
   label: string;
   value: (string | undefined)[];

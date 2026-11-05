@@ -8,7 +8,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { addFirstFitting, clampText, firstSentence, listWords, markdownToText } from '../src/lib/plain-text.ts';
-import { eventDescription, eventImage, eventJsonLd, eventPageDescription, EVENT_DESCRIPTION_LIMIT, fillDescription, listDescription, META_DESCRIPTION_LIMIT, META_DESCRIPTION_MIN, placeDescription } from '../src/lib/seo.ts';
+import { eventDescription, eventImage, eventJsonLd, eventMetaDescription, eventPageDescription, EVENT_DESCRIPTION_LIMIT, fillDescription, listDescription, META_DESCRIPTION_LIMIT, META_DESCRIPTION_MIN, placeDescription, topUpDescription } from '../src/lib/seo.ts';
 
 test('Markdown links keep their words and lose their URLs, whole or already cut short', () => {
   assert.equal(
@@ -175,9 +175,37 @@ test('a place page names the place, the town and only what the page shows', () =
   assert.equal(placeDescription({ title: 'Berthoud Brewing', summary: enough, hoursShown: true }, town), enough);
 });
 
+test('a summary too long for the snippet is cut first, then filled, so the cut is never left short', () => {
+  // Rock Cut Brewing, Estes Park: 186 characters, cut at its first full stop to 81, and never filled (all-sites check, 5 November 2026).
+  const summary = 'Brewery and taproom at the foot of Prospect Mountain, an easy walk from downtown. Indoor and outdoor seating, a dog-friendly patio, crowlers to go and trivia on Tuesdays, 7 to 9 pm.';
+  const out = placeDescription({ title: 'Rock Cut Brewing Company', summary, address: 'x', phone: 'x', url: 'x', hoursShown: true }, { name: 'Estes Park', state: 'CO' });
+  assert.equal(out, 'Brewery and taproom at the foot of Prospect Mountain, an easy walk from downtown. Rock Cut Brewing Company in Estes Park, CO.');
+  assert.ok(out.length >= META_DESCRIPTION_MIN && out.length <= META_DESCRIPTION_LIMIT);
+  // Sentences that add up, each only while still short and only where it fits.
+  assert.equal(topUpDescription('Short.', ['One more.', 'x'.repeat(200), 'Last.']), 'Short. One more. Last.');
+});
+
+test('an event with no words of its own says what it is and what the page offers', () => {
+  const lead = 'Friday, November 27, 9 pm at Aggie Theatre, Fort Collins.';
+  const bare = eventMetaDescription({ title: '2000s Rave', lead, body: '', directions: true, calendar: true });
+  assert.equal(bare, `${lead} 2000s Rave. Directions, and a link to add it to your calendar.`);
+  assert.ok(bare.length >= META_DESCRIPTION_MIN && bare.length <= META_DESCRIPTION_LIMIT, String(bare.length));
+  // Called off: no calendar link is promised; the name is not said twice.
+  const off = eventMetaDescription({ title: 'Shadow Puppetry Workshop', lead: `Canceled. ${lead}`, body: 'A Shadow Puppetry Workshop for families.', directions: false, calendar: false });
+  assert.equal(off, `Canceled. ${lead} A Shadow Puppetry Workshop for families.`);
+  // The body's second sentence comes before anything generic.
+  const two = eventMetaDescription({ title: 'Trivia', lead, body: 'Pub trivia in the taproom every Monday at six. Teams of up to six play for a bar tab.', directions: true, calendar: true });
+  assert.equal(two, `${lead} Pub trivia in the taproom every Monday at six. Teams of up to six play for a bar tab.`);
+  // A description already long enough is the one the page always had.
+  const long = 'Saturday, December 5, 9 am – 3 pm at Berthoud Recreation Center, Berthoud. The fair fills the gym with sixty makers, a bake sale and a visit from Santa at noon.';
+  assert.equal(eventMetaDescription({ title: 'Winter Craft Fair', lead: long.slice(0, 74), body: long.slice(75), directions: true, calendar: true }), eventPageDescription(long.slice(0, 74), long.slice(75)));
+});
+
 test('a list page adds as many of its names as fit', () => {
   const base = '3 trails in and around Berthoud, CO: where each one starts, what it is like and who looks after it.';
   const out = listDescription(base, ['Pelican Trail', 'Lake Loop', 'A Name So Long It Will Not Fit Alongside The Others At All']);
   assert.equal(out, `${base} Including Pelican Trail and Lake Loop.`);
   assert.ok(out.length <= META_DESCRIPTION_LIMIT);
+  // A first name too long to fit is skipped, not the end of the list.
+  assert.equal(listDescription(base, ['A Name So Long It Will Not Fit Alongside The Base At All', 'Lake Loop']), `${base} Including Lake Loop.`);
 });

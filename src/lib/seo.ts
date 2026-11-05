@@ -67,6 +67,12 @@ export const META_DESCRIPTION_MIN = 120;
  * `extras` that fits in the budget. A description already long enough is
  * left as it is, so this only ever adds to the short ones, and only with
  * what the caller knows the page shows.
+ *
+ * The base is cut to the budget first, as SEO.astro would cut it. A
+ * summary of 186 characters is cut at its last full stop inside 155,
+ * which can be its first sentence and 81 characters (Rock Cut Brewing,
+ * Estes Park), and a description that long was never filled; it is the
+ * cut that has to be filled (all-sites check, 5 November 2026).
  */
 export function fillDescription(
   base: string,
@@ -74,9 +80,64 @@ export function fillDescription(
   limit = META_DESCRIPTION_LIMIT,
   min = META_DESCRIPTION_MIN,
 ): string {
-  const flat = base.replace(/\s+/g, ' ').trim();
-  if (flat.length >= min) return flat;
-  return addFirstFitting(flat, extras, limit);
+  const cut = clampText(base, limit);
+  if (cut.length >= min) return cut;
+  return addFirstFitting(cut, extras, limit);
+}
+
+/**
+ * Like fillDescription, but the sentences add up: each in turn goes on
+ * while the description is still short and the sentence fits. For pages
+ * with several true things to say and no one of them long enough alone.
+ */
+export function topUpDescription(
+  base: string,
+  sentences: ReadonlyArray<string | undefined>,
+  limit = META_DESCRIPTION_LIMIT,
+  min = META_DESCRIPTION_MIN,
+): string {
+  let out = clampText(base, limit);
+  for (const sentence of sentences) {
+    if (out.length >= min) break;
+    out = addFirstFitting(out, [sentence], limit);
+  }
+  return out;
+}
+
+/**
+ * An event page's meta description, where the particulars and the body's
+ * first sentence leave it short. A listing with no body (a theatre's
+ * calendar entry: "Friday, November 27, 9 pm at Aggie Theatre, Fort
+ * Collins.", 57 characters) never said what the event was. So: the body's
+ * next sentence; the event's name, where the description does not have
+ * it; and what the page offers besides, as it offers them (Directions
+ * where the listing has an address; the calendar links unless the event
+ * is called off or postponed).
+ */
+export function eventMetaDescription(
+  event: { title: string; lead: string; body: string | undefined; directions: boolean; calendar: boolean },
+  limit = META_DESCRIPTION_LIMIT,
+): string {
+  const base = eventPageDescription(event.lead, event.body, limit);
+  const text = markdownToText(event.body);
+  const first = firstSentence(text);
+  const second = firstSentence(text.slice(first.length).trim());
+  const named = base.toLowerCase().includes(event.title.toLowerCase());
+  return topUpDescription(
+    base,
+    [
+      base.includes(first) && second.length > 30 ? second : undefined,
+      named ? undefined : `${event.title.replace(/[.!?]+$/, '')}.`,
+      event.directions && event.calendar
+        ? 'Directions, and a link to add it to your calendar.'
+        : event.calendar
+          ? 'A link to add it to your calendar.'
+          : event.directions
+            ? 'Directions to the venue.'
+            : undefined,
+    ],
+    limit,
+  );
 }
 
 /**
@@ -118,14 +179,19 @@ export function placeDescription(
 }
 
 /**
- * A list page's meta description (/parks/, /trails/), where the count and
- * the kind leave it short: some of the names on the list, as many as fit,
- * in the list's own order.
+ * A list page's meta description (/parks/, /trails/, /guides/), where the
+ * count and the kind leave it short: some of the names on the list, as
+ * many as fit, in the list's own order.
  */
-export function listDescription(base: string, names: readonly string[]): string {
-  const extras: string[] = [];
-  for (let n = Math.min(names.length, 5); n >= 1; n--) extras.push(`Including ${listWords(names.slice(0, n))}.`);
-  return fillDescription(base, extras);
+export function listDescription(base: string, names: readonly string[], limit = META_DESCRIPTION_LIMIT): string {
+  const cut = clampText(base, limit);
+  // Names in the list's order, skipping one too long to fit beside the rest.
+  const chosen: string[] = [];
+  for (const name of names.slice(0, 12)) {
+    if (chosen.length === 5) break;
+    if (`${cut} Including ${listWords([...chosen, name])}.`.length <= limit) chosen.push(name);
+  }
+  return fillDescription(cut, [chosen.length ? `Including ${listWords(chosen)}.` : undefined], limit);
 }
 
 /** An image as the build knows it: Astro's ImageMetadata has these three. */
