@@ -12,7 +12,7 @@ import Page from '@/layouts/Page.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import { censusGrowth, countyLabel, findTown, getHub } from '@/config';
 import { comparisonSlug, liveComparisons, type Comparison } from '@/content/comparisons';
-import { breadcrumbJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, fillDescription } from '@/lib/seo';
 
 export function getStaticPaths() {
   return liveComparisons().map((comparison) => ({
@@ -39,12 +39,17 @@ const rows = [
   { label: 'To Denver', get: (t: typeof a) => t.driveToDenver ?? '—' },
   { label: 'Schools', get: (t: typeof a) => (t.movingHere.schoolDistrict?.split(/[:(]/)[0] ?? '—').trim() },
 ];
+// The census figures the table leads with, where the sentence alone is short.
+const description = fillDescription(`${a.name} and ${b.name} compared on growth, commute, schools and what each town is actually like to live in.`, [
+  a.population && b.population ? `${a.name} had ${num(a.population)} people in 2020, ${b.name} ${num(b.population)}.` : undefined,
+  a.population && b.population ? `Population in 2020: ${num(a.population)} and ${num(b.population)}.` : undefined,
+]);
 ---
 <Page
   title={`${a.name} or ${b.name}?`}
   seoTitle={`${a.name} vs ${b.name}: which Colorado town to move to`}
   eyebrow="Moving here"
-  description={`${a.name} and ${b.name} compared on growth, commute, schools and what each town is actually like to live in.`}
+  {description}
   intro={comparison.question}
   jsonLd={breadcrumbJsonLd(hub, [
     { name: 'Which Colorado town?', path: '/moving/' },

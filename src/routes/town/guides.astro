@@ -12,7 +12,7 @@ import SectionHeader from '@/components/SectionHeader.astro';
 import ArticleCard from '@/components/ArticleCard.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, collectionPageJsonLd, listDescription } from '@/lib/seo';
 
 const town = getTown();
 const articles = (await getTownEntries('articles')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
@@ -40,7 +40,8 @@ const SUBJECT: Record<string, string> = {
 };
 const subjects = categories.map((c) => SUBJECT[c] ?? c.toLowerCase());
 const subjectList = subjects.length > 1 ? `${subjects.slice(0, -1).join(', ')}, and ${subjects[subjects.length - 1]}` : subjects.join('');
-const description = `Guides to ${town.name}, ${town.state}: ${subjectList}. ${articles.length} so far, each with its sources.`;
+// Where the subjects leave it short, the meta description names some of the guides (listDescription).
+const description = listDescription(`Guides to ${town.name}, ${town.state}: ${subjectList}. ${articles.length} so far, each with its sources.`, articles.map((a) => a.data.title));
 const structured = [
   collectionPageJsonLd(town, {
     name: `Guides to ${town.name}, Colorado`,
