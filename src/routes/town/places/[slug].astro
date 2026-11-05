@@ -9,7 +9,7 @@ import PlaceIndex from '@/components/PlaceIndex.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import { getTownEntries, type TownEntry } from '@/lib/content';
 import { occurrences, uniqueByEvent, upcoming } from '@/lib/events';
-import { breadcrumbJsonLd, localBusinessJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, localBusinessJsonLd, placeDescription } from '@/lib/seo';
 import { EAT_DRINK_TYPES, LAND_TYPES, PLACE_STATUS_LABELS, PLACE_TYPE_LABELS, PLACE_TYPE_PLURALS, THINGS_TO_DO_TYPES } from '@/content/schemas';
 import { formatDate } from '@/lib/dates';
 import { hoursDataAttr, hoursLines, hoursWithMeridiem } from '@/lib/hours';
@@ -157,6 +157,11 @@ const facts = [
   { label: 'Website', value: data.url ? new URL(data.url).hostname.replace(/^www\./, '') : undefined, href: data.url },
   { label: 'Trail map', value: data.mapUrl ? 'PDF, from the land manager' : undefined, href: data.mapUrl },
 ].filter((f) => f.value);
+// The summary, and where it is short, the name, the town and what the facts above give (src/lib/seo.ts).
+const description = placeDescription(
+  { title: data.title, summary: data.summary, status: statusLabel, address: data.address, phone: data.phone, url: data.url, hoursShown: !!data.hours && hoursValue === data.hours },
+  town,
+);
 ---
 <Page
   title={data.title}
@@ -165,7 +170,7 @@ const facts = [
   eyebrow={eyebrow}
   status={statusLabel}
   intro={data.summary}
-  description={statusLabel ? `${statusLabel}. ${data.summary}` : data.summary}
+  {description}
   noindex={place.delisted}
   image={shareImage}
   imageAlt={data.imageAlt}

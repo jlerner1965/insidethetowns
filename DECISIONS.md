@@ -8589,3 +8589,44 @@ publishes. Nothing in the automation wrote `updates/` files. The owner:
   runs, is the cheapest check there is.
 - **`ITT_DRY_RUN=1`** prints each task's prompt and writes nothing, so a
   prompt can be read before an API run.
+
+## IndexNow, and no meta description under 120 characters, 5 November 2026
+
+*Bing Webmaster Tools' top two recommendations for Berthoud: "Set up
+IndexNow" and "Meta descriptions on many pages are too short." The owner
+asked for both. Section 2's "no search-engine projects until the test
+ends" yields to the owner's own request; neither change adds a page or a
+per-town variant.*
+
+- **IndexNow.** One key, `public/<key>.txt`, served by every site. A
+  workflow (`indexnow.yml`, 12:40 and 18:40 UTC, an hour and a half after
+  each rebuild fires) reads each deployed site's live sitemap and sends
+  what changed since the last run: pages that are new, pages that are
+  gone, pages whose own date moved (an event's or a place's check, an
+  article's update, a sports run), and the four calendar pages (home,
+  events, this week, this weekend). Pages dated by the build alone
+  (/about/, /privacy/) go only when new, because their date moves twice a
+  day whether they did or not. The last run's sitemaps are kept in the
+  Actions cache; with none, everything goes, which is the first run. A
+  site whose deploy does not serve the key is skipped rather than sent,
+  since an engine discards a batch it cannot verify without saying so.
+  Every live site, not Berthoud alone: the key is in `public/`, and a
+  Berthoud-only switch would be a per-town variant.
+- **Why not GSC Wizard's IndexNow tools.** Its subscription had lapsed
+  on the day, and the key file has to be on the sites either way. Once it
+  is renewed, its `submit_indexnow_urls` can send a URL by hand with the
+  same key.
+- **Meta descriptions.** Bing publishes no figure; 120 is the one most
+  often given, and Google's snippet ends near 155, so a page aims between
+  the two (`META_DESCRIPTION_MIN`, `src/lib/seo.ts`). Berthoud had 33 of
+  138 indexable pages under 110. A place page whose summary is short now
+  adds the place's name, the town, and what the page gives (address,
+  hours only when shown, phone, website, directions); a list page (/parks/,
+  /trails/) adds names from its list; a team page keeps its closing line
+  by using a shorter one when a playoff game's stage runs long, and names
+  the last game once the season is over; the fixed pages (About, Privacy,
+  Contact, Corrections, Credits, Editorial, Submit an event, Events, For
+  businesses, This week) were rewritten from what each page says, and
+  fit 155 with the longest guide name ("Longmont · Inside the Towns").
+  After: every indexable Berthoud page between 120 and 155. A summary or
+  excerpt that is long enough is left exactly as it was.

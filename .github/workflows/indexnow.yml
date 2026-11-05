@@ -1,0 +1,66 @@
+# Tells IndexNow (Bing, and the engines that share with it) which pages on
+# each live site changed, so they are recrawled soon rather than in turn.
+# Bing Webmaster Tools recommended it for Berthoud on 5 November 2026.
+#
+# The key is public/<key>.txt, served by every site (scripts/lib/indexnow.ts).
+# What changed is worked out against the sitemaps as the last run read them,
+# kept in the Actions cache: the first run, and any run after the cache has
+# gone (seven days unused), sends every URL. A site whose deploy does not
+# serve the key yet is skipped and tried again next run.
+#
+# Run it by hand from the Actions tab; tick "all" to send every URL again.
+name: IndexNow
+
+on:
+  schedule:
+    # An hour and a half after each scheduled rebuild fires
+    # (scheduled-rebuild.yml: 11:10 and 17:10 UTC), when the sites have
+    # deployed. A run that starts early or late only moves a change to the
+    # next run; nothing is lost.
+    - cron: '40 12 * * *'
+    - cron: '40 18 * * *'
+  workflow_dispatch:
+    inputs:
+      all:
+        description: Send every URL in the sitemaps, not only what changed
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  # The failure alert (.github/actions/alert-failure) opens an issue.
+  issues: write
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  submit:
+    name: Send changed URLs to IndexNow
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/cache/restore@v4
+        with:
+          path: .cache/indexnow
+          key: indexnow-${{ github.run_id }}
+          restore-keys: indexnow-
+      - name: Send what changed
+        run: node scripts/indexnow.ts ${{ inputs.all && '--all' || '' }}
+      # Saved even when a site failed: the sites that were sent keep their
+      # record, and the one that failed keeps its old one and is retried.
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: .cache/indexnow
+          key: indexnow-${{ github.run_id }}
+      - name: Say so where the owner will see it
+        if: failure()
+        uses: ./.github/actions/alert-failure
+        with:
+          meaning: Bing and the other IndexNow engines were not told about this run's changed pages for the sites the log names. They still find them on their own crawl, only later; the next run sends what this one did not.
+          remedy: Read the log. "does not serve the key yet" means that site's latest deploy predates public/<key>.txt; redeploy it. An HTTP 403 or 422 from IndexNow means the key or the host was refused; check the key file opens in a browser. Then run IndexNow again from the Actions tab.

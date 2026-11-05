@@ -66,10 +66,11 @@ const big = bigDates(all, { now: refreshedAt });
 const picks = nextTwoWeeks.length >= 8 ? highlights(nextTwoWeeks, { now: refreshedAt, limit: 4 }) : [];
 const highlighted = picks.length >= 2 ? picks : [];
 
+const description = `What’s on in ${town.name} this week and next: markets, music, festivals, trails and more, then the big dates further out and the weekly regulars.`;
 const structured = [
   collectionPageJsonLd(town, {
     name: `${town.name}, Colorado events`,
-    description: `What’s on in ${town.name} this week and next: markets, music, festivals, trails and more.`,
+    description,
     path: '/events/',
     items: uniqueByEvent(shown).map((e) => ({ name: e.data.title, path: `/events/${e.slug}/` })),
   }),
@@ -84,7 +85,7 @@ const structured = [
   seoTitle={`${town.name}, Colorado events`}
   jsonLd={structured}
   eyebrow={`What’s on in ${town.name}`}
-  description={`What’s on in ${town.name} this week and next: markets, music, festivals, trails and more.`}
+  {description}
   intro={`What’s listed in ${town.name}: the next two weeks, then further out, and the weekly regulars.`}
 >
   {/* The weekend's page and the refresh date under the title in small type.

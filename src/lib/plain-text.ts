@@ -189,3 +189,28 @@ export function clampText(text: string, limit: number): string {
   const words = space > 0 ? room.slice(0, space) : room;
   return `${words.replace(/[\s,;:.([{“‘"'–—-]+$/, '')}…`;
 }
+
+/**
+ * `base`, then the first of `extras` that still fits in `limit`, as one
+ * more sentence; `base` alone when none fits. Each extra is a whole
+ * sentence, tried longest-first by the caller, so the result is never cut
+ * mid-thought the way clampText would cut it. A base that does not end a
+ * sentence gets its full stop first.
+ */
+export function addFirstFitting(base: string, extras: ReadonlyArray<string | undefined>, limit: number): string {
+  const flat = base.replace(/\s+/g, ' ').trim();
+  const ended = flat === '' || /[.!?…]["'”’)]?$/.test(flat) ? flat : `${flat}.`;
+  for (const extra of extras) {
+    const more = extra?.replace(/\s+/g, ' ').trim();
+    if (!more) continue;
+    const whole = ended ? `${ended} ${more}` : more;
+    if (whole.length <= limit) return whole;
+  }
+  return flat;
+}
+
+/** "a", "a and b", "a, b and c": the guide writes no serial comma. */
+export function listWords(words: readonly string[]): string {
+  if (words.length <= 1) return words.join('');
+  return `${words.slice(0, -1).join(', ')} and ${words.at(-1)}`;
+}

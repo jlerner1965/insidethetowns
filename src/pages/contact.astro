@@ -26,7 +26,7 @@ const email = site.social.email;
 const subject = (s: string) => `mailto:${email}?subject=${encodeURIComponent(`${s} — ${site.siteTitle}`)}`;
 const formAction = site.formspreeId ? `https://formspree.io/f/${site.formspreeId}` : undefined;
 ---
-<Page title="Contact" eyebrow="Say hello" description={`Corrections, event submissions and questions for ${site.siteTitle}.`} narrow>
+<Page title="Contact" eyebrow="Say hello" description={`Corrections, event submissions and questions for ${site.siteTitle}: email the guide, submit an event, or report a listing that is wrong.`} narrow>
   <div class="prose">
     <p>Email <a href={`mailto:${email}`}>{email}</a>, or use the shortcuts below.</p>
 

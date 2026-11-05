@@ -7,8 +7,8 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { clampText, firstSentence, markdownToText } from '../src/lib/plain-text.ts';
-import { eventDescription, eventImage, eventJsonLd, eventPageDescription, EVENT_DESCRIPTION_LIMIT, META_DESCRIPTION_LIMIT } from '../src/lib/seo.ts';
+import { addFirstFitting, clampText, firstSentence, listWords, markdownToText } from '../src/lib/plain-text.ts';
+import { eventDescription, eventImage, eventJsonLd, eventPageDescription, EVENT_DESCRIPTION_LIMIT, fillDescription, listDescription, META_DESCRIPTION_LIMIT, META_DESCRIPTION_MIN, placeDescription } from '../src/lib/seo.ts';
 
 test('Markdown links keep their words and lose their URLs, whole or already cut short', () => {
   assert.equal(
@@ -139,4 +139,45 @@ test('an Event’s image is its own, else its venue’s where the venue is a bui
   assert.equal('image' in none, false, 'no image property when there is no picture');
   const withImage = eventJsonLd(town, { data, body: 'Pub trivia.' } as never, 'https://insideberthoud.com/events/trivia/', 'https://insideberthoud.com/_astro/venue.jpg') as { image?: string[] };
   assert.deepEqual(withImage.image, ['https://insideberthoud.com/_astro/venue.jpg']);
+});
+
+/*
+ * Bing Webmaster Tools, 5 November 2026, on Berthoud: "Meta descriptions on
+ * many pages are too short." 33 of its 138 indexable pages were under 110
+ * characters, most of them place pages carrying a one-line summary.
+ */
+test('a short description takes one more whole sentence, the first that fits; a long enough one is left alone', () => {
+  assert.equal(addFirstFitting('Short', ['Too long for the budget at all.', 'Fits.'], 14), 'Short. Fits.', 'a full stop first, then the first extra that fits');
+  assert.equal(addFirstFitting('Short.', ['Too long for this.'], 10), 'Short.', 'nothing fits: the base alone');
+  assert.equal(listWords(['a']), 'a');
+  assert.equal(listWords(['a', 'b', 'c']), 'a, b and c');
+  const long = 'x'.repeat(META_DESCRIPTION_MIN) + '.';
+  assert.equal(fillDescription(long, ['More.']), long, 'at the minimum already: nothing added');
+  assert.equal(fillDescription('A short line.', ['More here.']), 'A short line. More here.');
+});
+
+test('a place page names the place, the town and only what the page shows', () => {
+  const town = { name: 'Berthoud', state: 'CO' };
+  const summary = 'Poke bowls and quick healthy lunches on Mountain Avenue, order at the counter.';
+  const full = placeDescription({ title: 'Aussie’s Poke Pitstop', summary, address: '1 Main St', phone: '970', url: 'https://x', hoursShown: true }, town);
+  // The whole list would run past 155 here, so the website gives way and the name stays.
+  assert.equal(full, `${summary} Aussie’s Poke Pitstop in Berthoud, CO: address, hours, phone and directions.`);
+  assert.equal(
+    placeDescription({ title: 'A&W', summary: 'Root beer floats.', address: '1 Main St', phone: '970', url: 'https://x', hoursShown: true }, town),
+    'Root beer floats. A&W in Berthoud, CO: address, hours, phone, website and directions.',
+  );
+  assert.ok(full.length >= META_DESCRIPTION_MIN && full.length <= META_DESCRIPTION_LIMIT, String(full.length));
+  // Hours hidden for age or season are not promised; a closed place says so first.
+  const closed = placeDescription({ title: 'B-Rad’s Arcade', summary: 'Retro arcade.', status: 'Temporarily closed', address: '1 Main St', hoursShown: false }, town);
+  assert.equal(closed, 'Temporarily closed. Retro arcade. B-Rad’s Arcade in Berthoud, CO: address and directions.');
+  // A summary already long enough is the description as it was.
+  const enough = 'Family-owned brewery and taproom on 8th Street with a large covered patio, food trucks, dogs welcome, and beer to go, open every day.';
+  assert.equal(placeDescription({ title: 'Berthoud Brewing', summary: enough, hoursShown: true }, town), enough);
+});
+
+test('a list page adds as many of its names as fit', () => {
+  const base = '3 trails in and around Berthoud, CO: where each one starts, what it is like and who looks after it.';
+  const out = listDescription(base, ['Pelican Trail', 'Lake Loop', 'A Name So Long It Will Not Fit Alongside The Others At All']);
+  assert.equal(out, `${base} Including Pelican Trail and Lake Loop.`);
+  assert.ok(out.length <= META_DESCRIPTION_LIMIT);
 });
