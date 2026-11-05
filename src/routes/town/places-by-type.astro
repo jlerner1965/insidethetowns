@@ -19,7 +19,7 @@ import PlaceDirectory from '@/components/PlaceDirectory.astro';
 import SubTownLinks from '@/components/SubTownLinks.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+import { breadcrumbJsonLd, collectionPageJsonLd, listDescription } from '@/lib/seo';
 import { byProminence } from '@/lib/places';
 import { PLACE_TYPE_PAGES, countByType, placeTypeOfPath, placeTypePages, siblingTypePages } from '@/lib/place-types';
 import { subTownList, subTownsOf } from '@/lib/sub-towns';
@@ -36,11 +36,13 @@ const places = all.filter((p) => p.data.type === type).sort(byProminence);
 const coverage = subTownsOf(town).length > 1 ? subTownList(town) : town.name;
 const where = { name: coverage, state: town.state };
 const description = page.describe(where, places.length);
+// The intro is the count and the kind; the meta description adds names from the list where that is short.
+const metaDescription = listDescription(description, places.map((p) => p.data.title));
 const siblings = siblingTypePages(type, placeTypePages(countByType(all)));
 const structured = [
   collectionPageJsonLd(town, {
     name: page.title(where),
-    description,
+    description: metaDescription,
     path: page.path,
     items: places.map((p) => ({ name: p.data.title, path: `/places/${p.slug}/` })),
   }),
@@ -55,7 +57,7 @@ const structured = [
   title={`${page.heading} in ${coverage}`}
   seoTitle={page.title(where)}
   eyebrow={page.parent.name}
-  {description}
+  description={metaDescription}
   intro={places.length > 0 ? description : `Nothing of this kind is listed in ${coverage} at the moment.`}
   jsonLd={structured}
   noindex={places.length === 0}

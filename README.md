@@ -20,6 +20,7 @@ npm run auto-review -- --dry-run   # what the standing rules would approve witho
 npm run recheck -- --town=lyons    # the next 14 days of events read against their sources again; --write stamps and flags (see below)
 npm run confirm -- lyons old-time-jam --how=phone --with="Oskar Blues"   # record a call to an organizer
 npm run sports -- --write          # high-school scores from MaxPreps for each town that follows a school (see below)
+node scripts/indexnow.ts --dry-run # which changed pages the next IndexNow run would send (.github/workflows/indexnow.yml)
 scripts/screenshot.sh out/ / /events/   # phone/tablet/desktop captures of dist/
 ```
 

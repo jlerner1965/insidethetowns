@@ -19,7 +19,7 @@ const entries = (site.kind === 'hub' ? await getHubEntries('corrections') : awai
 <Page
   title="Corrections"
   eyebrow={site.kind === 'town' ? site.name : 'Inside the Towns'}
-  description={`Every change made to ${site.siteTitle} in response to a reader report, with its date.`}
+  description={`Every change made to ${site.siteTitle} in response to a reader report, newest first: the date, what changed, and the page it was on.`}
   intro="Every change made because a reader told us something was wrong, newest first: the date, what changed, and the page it was on."
   narrow
 >

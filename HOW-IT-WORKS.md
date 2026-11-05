@@ -6,7 +6,7 @@ changes and the old wording goes; the history of why lives in
 other document disagree, this file wins. Where this file and a test
 disagree, fix one of them the same day.
 
-Last revised: 1 November 2026.
+Last revised: 5 November 2026.
 
 ## 1. What this is
 
@@ -210,6 +210,7 @@ Scheduled jobs (Denver time), all in `.github/workflows/`:
 | Wednesday 06:20 | The research agent: one week's findings per live town, and up to two local changes per resident guide from official pages | drafts in `docs/agent/`; the weekly editor publishes a local change only when it can read its source |
 | Thursday 06:10 | Draft the Thursday email from the listings | a draft, as a pull request; merging sends it |
 | Sat and Sun 08:00, Wed 06:20 | Read the scores from MaxPreps | `data/<town>/sports.json`, committed straight to main |
+| Daily 06:40 and 12:40 | Tell IndexNow (Bing) which pages changed since the last run | nothing; the last run's sitemaps are kept in the Actions cache |
 
 A job that fails opens an issue labelled `automation-failure` (one per
 workflow, commented on while it stays open), saying what the failure cost

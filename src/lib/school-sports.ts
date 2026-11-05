@@ -6,6 +6,7 @@
 import { schoolTeamName, sportsDataFile, type SchoolSports, type SportConfig, type SportData, type SportGame, type SportsData } from '../config/school-sports.ts';
 import { primaryHover } from '../config/palette.ts';
 import { dayKey, formatDayLong, formatTime, fromWallClock, TIME_ZONE } from './dates.ts';
+import { addFirstFitting } from './plain-text.ts';
 
 /**
  * The school's colour as the page's primary, for a `style` on the element
@@ -374,7 +375,8 @@ export function shortWhen(g: SportGame): string {
  * football is 7-2 this fall. Next: at Severance, Friday Oct 30, 7 pm.
  * Every score and the full schedule, from MaxPreps." With nothing to come
  * and games played, "Regular season complete." stands where the next game
- * would; a stage MaxPreps gives follows the game.
+ * would, with the last game after it; a stage MaxPreps gives follows the
+ * game. Kept within the snippet's 155 characters.
  */
 export function teamDescription(school: Pick<SchoolSports, 'school'>, team: SportData, seasonWord: string, now = new Date()): string {
   const today = dayKey(now);
@@ -386,7 +388,16 @@ export function teamDescription(school: Pick<SchoolSports, 'school'>, team: Spor
     : team.results.length
       ? 'Regular season complete.'
       : '';
-  return [record, then, 'Every score and the full schedule, from MaxPreps.'].filter(Boolean).join(' ');
+  // With nothing to come, the last game played says more than the record alone.
+  // A meet without a place to report ("at Sterling") is left out.
+  const final = next ? undefined : team.results[0];
+  const word = final?.result ? RESULT_WORD[final.result].toLowerCase() : final?.place ? 'placed' : undefined;
+  const last = final && word ? `Last game: ${word} ${outcome(final)}.` : undefined;
+  // The closing line in the shorter wording where the longer one would push
+  // the whole past the snippet's 155 and the clamp would drop it (a playoff
+  // game's stage runs long), so no page ends without it.
+  const sources = ['Every score and the full schedule, from MaxPreps.', 'Scores and schedule from MaxPreps.'];
+  return addFirstFitting([record, then].filter(Boolean).join(' '), [...(last ? sources.map((s) => `${last} ${s}`) : []), ...sources], 155);
 }
 
 /** The most recent result across the teams. */

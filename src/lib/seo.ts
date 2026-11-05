@@ -9,7 +9,7 @@ import { getNetworkHub, liveTowns, type SiteConfig, type TownConfig } from '../c
 import { dayKey, toIsoLocal } from './dates.ts';
 import { exportWhen } from './events.ts';
 import { isPlaceholder } from './editor.ts';
-import { clampText, firstSentence, markdownToText } from './plain-text.ts';
+import { addFirstFitting, clampText, firstSentence, listWords, markdownToText } from './plain-text.ts';
 
 /**
  * An Event's `description`: the listing's words as plain text, cut at a
@@ -51,6 +51,81 @@ export function eventPageDescription(lead: string, body: string | undefined, lim
   const room = limit - flatLead.length - 1;
   if (room < 16) return clampText(flatLead, limit);
   return `${flatLead} ${clampText(sentence, room)}`;
+}
+
+/**
+ * The shortest meta description a page should carry. Bing Webmaster Tools
+ * flags descriptions as "too short" and asks for more context (Berthoud,
+ * 5 November 2026); it publishes no figure, and around 120 characters is
+ * the one most often given. Google's snippet runs to about 155, so a page
+ * aims between the two.
+ */
+export const META_DESCRIPTION_MIN = 120;
+
+/**
+ * A description under the minimum, given one more sentence: the first of
+ * `extras` that fits in the budget. A description already long enough is
+ * left as it is, so this only ever adds to the short ones, and only with
+ * what the caller knows the page shows.
+ */
+export function fillDescription(
+  base: string,
+  extras: ReadonlyArray<string | undefined>,
+  limit = META_DESCRIPTION_LIMIT,
+  min = META_DESCRIPTION_MIN,
+): string {
+  const flat = base.replace(/\s+/g, ' ').trim();
+  if (flat.length >= min) return flat;
+  return addFirstFitting(flat, extras, limit);
+}
+
+/**
+ * A place page's meta description: the listing's summary, and where that
+ * is short, the name and town with what the page gives a reader, as the
+ * page gives it. The summary is written for the page's intro and is often
+ * one line ("Poke bowls and quick healthy lunches on Mountain Avenue, order
+ * at the counter.", 78 characters), which Bing flags as too short and which
+ * never names the place or the town. Hours are named only when the page
+ * prints them, not when they are hidden for age or season; directions are
+ * always on the page.
+ */
+export function placeDescription(
+  place: { title: string; summary: string; status?: string; address?: string; phone?: string; url?: string; hoursShown: boolean },
+  town: { name: string; state: string },
+): string {
+  const base = place.status ? `${place.status}. ${place.summary}` : place.summary;
+  const facts = (drop: string[]) =>
+    listWords(
+      [
+        place.address ? 'address' : undefined,
+        place.hoursShown ? 'hours' : undefined,
+        place.phone ? 'phone' : undefined,
+        place.url ? 'website' : undefined,
+        'directions',
+      ].filter((w): w is string => !!w && !drop.includes(w)),
+    );
+  const where = `${town.name}, ${town.state}`;
+  // The name and the town matter more than the list, so the website and
+  // then the phone give way first.
+  return fillDescription(base, [
+    `${place.title} in ${where}: ${facts([])}.`,
+    `${place.title} in ${where}: ${facts(['website'])}.`,
+    `${place.title} in ${where}: ${facts(['website', 'phone'])}.`,
+    `${place.title} in ${where}.`,
+    `In ${where}: ${facts(['website', 'phone'])}.`,
+    `In ${where}.`,
+  ]);
+}
+
+/**
+ * A list page's meta description (/parks/, /trails/), where the count and
+ * the kind leave it short: some of the names on the list, as many as fit,
+ * in the list's own order.
+ */
+export function listDescription(base: string, names: readonly string[]): string {
+  const extras: string[] = [];
+  for (let n = Math.min(names.length, 5); n >= 1; n--) extras.push(`Including ${listWords(names.slice(0, n))}.`);
+  return fillDescription(base, extras);
 }
 
 /** An image as the build knows it: Astro's ImageMetadata has these three. */

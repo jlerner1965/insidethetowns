@@ -11,3 +11,6 @@ npm-debug.log*
 
 # agent/ has its own install (see agent/README.md)
 agent/node_modules/
+
+# scripts/indexnow.ts: the last run's sitemaps (kept in the Actions cache)
+.cache/

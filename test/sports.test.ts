@@ -697,9 +697,13 @@ test('titles and descriptions come from the data: the school, the mascot, the sp
   assert.equal(teamPageTitle(berthoud, team('Boys basketball'), '2026–27'), 'Berthoud Spartans Boys Basketball Scores & Schedule 2026–27');
   assert.equal(teamDescription(berthoud, football, 'fall', now), 'Berthoud High football is 7-2 this fall. Next: at Severance, Friday Oct 30, 7 pm. Every score and the full schedule, from MaxPreps.');
   const softball = team('Softball', '17-10', [], [{ date: '2026-10-17', opponent: 'X', site: 'neutral', result: 'L', score: { us: 1, them: 4 }, url: 'r' }]);
-  assert.equal(teamDescription(berthoud, softball, 'fall', now), 'Berthoud High softball is 17-10 this fall. Regular season complete. Every score and the full schedule, from MaxPreps.');
+  // With nothing to come, the last game played follows the record.
+  assert.equal(teamDescription(berthoud, softball, 'fall', now), 'Berthoud High softball is 17-10 this fall. Regular season complete. Last game: lost 1-4 vs X. Every score and the full schedule, from MaxPreps.');
   const state = team('Softball', '27-0', [{ date: '2026-10-31', time: '10:00', opponent: 'Fruita Monument', site: 'neutral', neutral: true, venue: 'Aurora Sports Park', stage: 'State Softball Tournaments', url: 'u' }]);
-  assert.equal(teamDescription(schoolSportsFor('windsor')!, state, 'fall', now), 'Windsor High softball is 27-0 this fall. Next: vs Fruita Monument, Saturday Oct 31, 10 am, State Softball Tournaments. Every score and the full schedule, from MaxPreps.');
+  // A playoff game's stage runs long: the shorter closing line, so the whole stays inside 155 rather than
+  // being clamped back to the game (it ran to 168, and the page's description lost its last sentence).
+  assert.equal(teamDescription(schoolSportsFor('windsor')!, state, 'fall', now), 'Windsor High softball is 27-0 this fall. Next: vs Fruita Monument, Saturday Oct 31, 10 am, State Softball Tournaments. Scores and schedule from MaxPreps.');
+  for (const t of [football, softball, state]) assert.ok(teamDescription(berthoud, t, 'fall', now).length <= 155);
   assert.equal(shortWhen({ date: '2026-11-07', opponent: 'x', site: 'home', url: 'u' }), 'Saturday Nov 7', 'no time, no comma');
   // The school's title names the school, not every sport: each has its own page (audit, 26 October 2026).
   assert.equal(schoolPageTitle(berthoud), 'Berthoud High School Spartans Scores & Schedules');
