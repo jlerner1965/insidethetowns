@@ -1,6 +1,6 @@
 ---
 title: "Election Information With the League of Women Voters of Estes Park"
-review: { reason: "Ingested from Estes Valley Library; check against the organizer's page. venue read from \"Atrium\". category guessed (civic). description is the feed's text: rewrite", since: "2026-10-14", from: ingest }
+review: { reason: "Reject?: the library's page for this date (calendar.estesvalleylibrary.org/event/16228161) now answers 'Event not found.' (HTTP 400, tried twice on 5 November 2026, the day of the listing), so the organizer has removed it; and with the identical 3 December listing (event 16228162, the next id) it is a monthly first-Thursday drop-in information table, a regular rather than a one-off programme.", since: "2026-10-14", from: ingest }
 start: "2026-11-05T10:30"
 end: "2026-11-05T12:30"
 venue: "Atrium"
