@@ -8765,3 +8765,42 @@ publishes on the report's word alone.*
   with only a Facebook page (programs have no staging folder); and the
   aggregator-only leads (TPC Colorado's restaurants, County Line Vet, NoCo
   Spay & Neuter, the clinic at 406 10th St).
+
+## Loveland, Windsor and Castle Rock: the 5 November gap reports, 6 November 2026
+
+*The owner sent the three reports with "3 more": add what holds up,
+say what needs more. Every published file was read again on the day
+from the business's own page; where that page could not be read, the
+file waits in staging, the Lyons rule. The chains rule of the same day
+applies: none of the six excluded brands came up.*
+
+- **Loveland: 9 published.** Loveland Museum (its own site's hours, not
+  the Chamber's older ones; thelovelandmuseum.org, not the Ohio
+  museum's domain), Sylvan Dale Guest Ranch, Pourhouse Bar & Grill
+  (address and hours from the Chamber's member page, the rest from its
+  site in a browser; it now says live music Friday and Saturday, not
+  four nights), The Promenade Shops at Centerra, Santiago's, Taste
+  Local, Blackjack Pizza & Salads, My Place Hotel and Microtel, the
+  guide's first lodging. Staged: both King Soopers and Embassy Suites.
+- **Windsor: 9 published.** Safeway, Twin Staves, Windsor Community
+  Playhouse, Main Event (its page in a browser now shows the address
+  and phone), Windsor Ace Hardware, PizzaVino, Esh's Grocery Market,
+  Lil Monsters Playground and Roma. Staged: King Soopers and Windsor
+  Mill Tavern (its site refuses every reader). The Playhouse's Holmes
+  run (20 November to 13 December) falls on the right weekdays for
+  2026, but the same page dates the next show January 2026, so it is
+  not listed as an event until the year is confirmed.
+- **Castle Rock: 5 published.** Castlewood Canyon State Park (state
+  land reached from town, which the 6 October rule keeps), Glacier
+  Homemade Ice Cream & Gelato, Los Dos Potrillos (its own page gives
+  (720) 769-5474, not Visit Castle Rock's number), Crave Real Burgers
+  and Chick-fil-A. Staged: both King Soopers and Best Western Plus.
+- **Left as leads** (own page not read, or only a directory): the other
+  Chamber hotels in Loveland, The 120, McGraff's, Arte, Biaggi's, Epic
+  Egg, Slice House and the coffee leads; the City's facilities
+  (lovgov.org still refuses); in Windsor, Tiho's, Sweetheart Winery,
+  the Main Street gift shops, La Patrona, The Swing Lab, The Bottled
+  Olive and the chain leads; in Castle Rock, Hideaway, Bucket List,
+  Trestles, Wing Daddy's, Trifecta, Dream Dinners, Dairy Queen,
+  Culver's, Shake Shack, Holiday Inn Express, Hampton Inn and the
+  Town's amphitheater and skatepark (crgov.com refuses).
