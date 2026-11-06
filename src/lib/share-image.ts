@@ -1,6 +1,6 @@
 /**
  * The sports pages' share cards, 1200×630, drawn at build with sharp: the
- * school's colour as the ground, "<Mascot> <team>" or "<Mascot> sports",
+ * school's colour as the ground, "<School> <team>" or "<School> athletics",
  * the record, and "Scores and schedules · Inside <Town>", all set in
  * Instrument Sans from src/assets/fonts/ (sharp's text input takes a font
  * file, so the build depends on no system font). Text only: no logos and
@@ -18,7 +18,7 @@ const FONT_FILE = resolve('src/assets/fonts/InstrumentSans-Variable.ttf');
 export interface ShareCard {
   /** The school's colour, "#572932": white type goes on it (check-colors proves 4.5:1). */
   color: string;
-  /** "Spartans football", "Spartans sports". */
+  /** "Berthoud football", "Berthoud athletics". */
   title: string;
   /** "7-2 this fall · 3-1 in the 3A Cache la Poudre", or the teams' records for the school. */
   record?: string;
@@ -35,7 +35,7 @@ function line(markup: string, size: number): Promise<Buffer> {
 }
 
 export async function renderShareCard(card: ShareCard): Promise<Buffer> {
-  // The title at 96 fits "Resurrection Christian Cougars sports" on two lines; the record wraps where it must.
+  // The title at 96 fits "Resurrection Christian athletics" on two lines; the record wraps where it must.
   const title = await line(`<span foreground="#ffffff" weight="bold">${escape(card.title)}</span>`, card.title.length > 26 ? 72 : 96);
   const record = card.record ? await line(`<span foreground="#ffffff">${escape(card.record)}</span>`, 44) : undefined;
   const footer = await line(`<span foreground="#ffffff" alpha="80%">${escape(card.footer)}</span>`, 34);

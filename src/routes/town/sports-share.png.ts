@@ -6,7 +6,7 @@
  */
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getTown } from '@/config';
-import { schoolsFor, shareImageName, type SchoolSports, type SportData, type SportsData } from '@/config/school-sports';
+import { schoolAthletics, schoolsFor, shareImageName, type SchoolSports, type SportData, type SportsData } from '@/config/school-sports';
 import { seasonOf, sportsDataFor, teamsWithData } from '@/lib/school-sports';
 import { renderShareCard } from '@/lib/share-image';
 
@@ -38,7 +38,7 @@ export const GET: APIRoute = async ({ props }) => {
   const teams = teamsWithData(data);
   const body = await renderShareCard({
     color: school.colors?.primary ?? town.colors.primary,
-    title: team ? `${school.mascot} ${team.name.toLowerCase()}` : `${school.mascot} sports`,
+    title: team ? `${school.maxprepsName} ${team.name.toLowerCase()}` : schoolAthletics(school),
     record: team ? recordLine(team, seasonWord) : teams.filter((t) => t.overall).slice(0, 4).map((t) => `${t.name} ${t.overall}`).join(' · ') || undefined,
     footer: `Scores and schedules · ${town.siteTitle}`,
   });

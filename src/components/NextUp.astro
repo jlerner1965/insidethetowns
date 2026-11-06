@@ -10,6 +10,9 @@ import { formatDayLong, formatDayShort, formatTime } from '@/lib/dates';
 import { gameDay as day, outcome, placeText, RESULT_WORD, when, where, type TeamGame } from '@/lib/school-sports';
 
 interface Props {
+  /** "Niwot": the school as its side of a game is named, against the opponent's name. */
+  school: string;
+  /** "Cougars": for the record sentence. */
   mascot: string;
   /** The next game, whichever team plays it. */
   next?: TeamGame;
@@ -24,7 +27,7 @@ interface Props {
   today: string;
 }
 
-const { mascot, next, then, latest, complete, seasonHref, today } = Astro.props;
+const { school, mascot, next, then, latest, complete, seasonHref, today } = Astro.props;
 ---
 {next ? (
   <section class="on-dark bg-primary text-white" aria-labelledby="next-up">
@@ -32,7 +35,7 @@ const { mascot, next, then, latest, complete, seasonHref, today } = Astro.props;
       <div>
         <p class="eyebrow text-white/80">Next up · {next.team.name}{next.game.stage && ` · ${next.game.stage}`}</p>
         <h2 id="next-up" class="display mt-4 text-[2.75rem] sm:text-6xl lg:text-7xl">
-          {mascot} {where(next.game)} {next.game.opponent}
+          {school} {where(next.game)} {next.game.opponent}
         </h2>
         <p class="mt-5 text-xl leading-snug md:text-2xl">
           <time datetime={next.game.time ? `${next.game.date}T${next.game.time}` : next.game.date}>

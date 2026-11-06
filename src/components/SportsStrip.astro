@@ -17,7 +17,7 @@
  * In the guide's own colours: a guide that follows one school is in that
  * school's colour already, and a guide that follows several is in one.
  */
-import { schoolsFor, schoolTeamName, sportsPath, type SchoolSports, type SportGame, type SportsData } from '@/config/school-sports';
+import { schoolAthletics, schoolsFor, schoolTeamName, sportsPath, type SchoolSports, type SportGame, type SportsData } from '@/config/school-sports';
 import { formatGameTime, latestResult, outcome, RESULT_WORD, sportsDataFor, stripGames, weekGames, when, where } from '@/lib/school-sports';
 
 interface Props {
@@ -38,7 +38,7 @@ const read = (school: SchoolSports) => {
 };
 const rows = schools.map(read);
 const single = rows.length === 1 ? rows[0] : undefined;
-const title = single ? `${single.school.mascot} this week` : 'High school sports this week';
+const title = single ? `${schoolAthletics(single.school)} this week` : 'High school sports this week';
 const shown = single ? single.games.length > 0 || !!single.last?.game.result : rows.some((r) => r.games.length > 0 || r.last?.game.result);
 // " · Home", " · Away", " · Aurora Sports Park" for a neutral game with a venue, nothing for one without.
 const placeWord = (g: SportGame) => (g.venue ? ` · ${g.venue}` : g.site === 'home' ? ' · Home' : g.site === 'away' ? ' · Away' : '');

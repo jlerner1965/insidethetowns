@@ -14,7 +14,7 @@
  * (src/config/school-colors.ts, proven by `npm run check-colors`).
  */
 import type { TownConfig } from '@/config';
-import { schoolsFor, sportsPath, type SportsData } from '@/config/school-sports';
+import { schoolAthletics, schoolsFor, sportsPath, type SportsData } from '@/config/school-sports';
 import { schoolTheme } from '@/config/school-colors';
 import { clock, dashed, nextGame, scoreboardResult } from '@/lib/flagship-home';
 import { gameDay, latestResult, RESULT_WORD, sportsDataFor, where } from '@/lib/school-sports';
@@ -32,7 +32,8 @@ const files = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eag
 const data = school ? sportsDataFor(school, files) : undefined;
 const theme = town.school ? schoolTheme(town.school) : undefined;
 const vars = [`--board:${theme?.band ?? town.colors.primary}`, `--board-mark:${theme?.mark ?? '#ffffff'}`, `--board-eyebrow:${theme?.eyebrow ?? '#ffffff'}`].join(';');
-const nickname = town.school?.mascot ?? school?.mascot;
+// "Niwot athletics": the school's name, not the mascot's, since 6 November 2026 (schoolAthletics).
+const label = school ? schoolAthletics(school) : undefined;
 
 /** The latest final inside two weeks, else the last one the file has. */
 const result = data ? (scoreboardResult(data, now, 14) ?? latestResult(data)) : undefined;
@@ -60,12 +61,12 @@ const nextSoon = !!gameOn && dayKey(gameOn) <= dayKey(new Date(now.getTime() + S
 const phoneNext = !!next && (nextSoon || !!next.game.stage);
 ---
 {shown && school && (
-  <section class="on-dark text-white" style={vars} aria-label={`${nickname} sports`} data-pagefind-ignore>
+  <section class="on-dark text-white" style={vars} aria-label={label} data-pagefind-ignore>
     <div class="bg-[var(--board)]">
       <div class="container-page flex flex-wrap items-center gap-x-4 gap-y-1 py-2.5 text-[0.9375rem] leading-snug md:gap-x-6">
         <span class="inline-flex items-center gap-2">
           <span class="inline-block size-3 shrink-0 rounded-full bg-[var(--board-mark)] ring-2 ring-white/60" aria-hidden="true"></span>
-          <span class="eyebrow text-[var(--board-eyebrow)]">{nickname}</span>
+          <span class="eyebrow text-[var(--board-eyebrow)]">{label}</span>
         </span>
         {resultLine && result && (
           <span class:list={[phoneNext && 'hidden sm:inline']}><span class="text-white/80">{result.team.name}</span> · <span class="font-semibold">{resultLine}</span><span class="hidden sm:inline text-white/80"> {where(result.game)} {result.game.opponent}</span></span>

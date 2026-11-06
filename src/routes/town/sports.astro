@@ -37,7 +37,7 @@ import NextUp from '@/components/NextUp.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import TeamSeason from '@/components/TeamSeason.astro';
 import { getTown } from '@/config';
-import { schoolSportsFor, schoolsFor, shareImagePath, sportsPath, teamPath, type SportData, type SportsData } from '@/config/school-sports';
+import { schoolAthletics, schoolSportsFor, schoolsFor, shareImagePath, sportsPath, teamPath, type SportData, type SportsData } from '@/config/school-sports';
 import { dayKey, formatDayShort, formatShortDate } from '@/lib/dates';
 import { bigGame, coming, gameDay as day, latestResult, recentResults, RESULT_WORD, leaguePlace, placeText, schoolCssVars, schoolPageTitle, seasonComplete, sportsFullTitle, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
@@ -121,7 +121,7 @@ const jsonLd = [
    */
 ];
 ---
-<Base title={pageTitle} fullTitle={sportsFullTitle(pageTitle, town.siteTitle)} {description} {jsonLd} image={shareImagePath(cfg)} imageAlt={`${mascot} sports: scores and schedules on ${town.siteTitle}`}>
+<Base title={pageTitle} fullTitle={sportsFullTitle(pageTitle, town.siteTitle)} {description} {jsonLd} image={shareImagePath(cfg)} imageAlt={`${schoolAthletics(cfg)}: scores and schedules on ${town.siteTitle}`}>
   {/* The school's colour from here to the foot, where the guide follows one school: see SchoolSports.colors. */}
   <div style={schoolStyle}>
   <header class="border-b-2 border-accent bg-raised">
@@ -194,7 +194,7 @@ const jsonLd = [
   {/* The one thing most readers came for: the next game, big, in the
       school's colour, with the rest of the week beside it; off season, the
       last result (NextUp). */}
-  <NextUp {mascot} {next} {then} {latest} complete={seasonComplete(data, now)} seasonHref={(t) => `#${t.key}`} {today} />
+  <NextUp school={cfg.maxprepsName} {mascot} {next} {then} {latest} complete={seasonComplete(data, now)} seasonHref={(t) => `#${t.key}`} {today} />
 
   {/* The scoreboard: the latest scores across the teams, each as the two
       lines a scores ticker shows, the winner in the heavier ink. */}
@@ -216,7 +216,7 @@ const jsonLd = [
                 {game.score ? (
                   <dl class="mt-4 space-y-1.5">
                     <div class="flex items-baseline justify-between gap-4">
-                      <dt class:list={['text-lg leading-tight', won ? 'font-semibold text-ink' : 'text-ink-muted']}>{mascot}</dt>
+                      <dt class:list={['text-lg leading-tight', won ? 'font-semibold text-ink' : 'text-ink-muted']}>{cfg.maxprepsName}</dt>
                       <dd class:list={['display-md text-[2rem] tabular-nums', won ? 'text-primary' : 'text-ink-muted']}>{game.score.us}</dd>
                     </div>
                     <div class="flex items-baseline justify-between gap-4">
