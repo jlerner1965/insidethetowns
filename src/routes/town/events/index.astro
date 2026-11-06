@@ -128,9 +128,12 @@ const structured = [
       </section>
     )}
     {/* The Thursday email once here, after the picks and before the long
-        list; the foot keeps its own form. Left out of the filtering. */}
+        list, in the home page's short form (the heading, one line, the
+        field, the button, "Free. Unsubscribe anytime."; the town pre-ticked,
+        no town picker: the owner, 6 November 2026); the foot keeps the full
+        form with the picker. Left out of the filtering. */}
     <div class="mb-12 md:mb-16" data-filter-ignore>
-      <NewsletterSignup town={town} compact id="events-mid" />
+      <NewsletterSignup town={town} id="events-mid" variant="home" />
     </div>
     {/* An empty fortnight is not a module: with later dates or regulars to
         show, it is left out rather than announcing its absence. */}
