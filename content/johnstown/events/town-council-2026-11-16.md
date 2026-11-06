@@ -8,7 +8,7 @@ cost: "Free"
 category: civic
 recurring: "First and third Mondays"
 source: "https://johnstownco.gov/Calendar.aspx"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Town Council Regular Meeting\" at 7 pm on 16 November on the johnstownco.gov feed"
 ---
 

@@ -10,8 +10,8 @@ category: arts
 organizer: "Lafayette Public Library and Lafayette Senior Services"
 organizerUrl: "https://www.lafayetteco.gov/265/Senior-Services"
 source: "https://lafayettepubliclibrary.libcal.com/calendar/main/SLC2026"
-verified: "2026-11-02"
-verifiedBy: "the Lafayette build agent, read from the source on 2 November 2026"
+verified: "2026-11-06"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Older Adult Learning Club: Cricut Stickers - Register\" at 1 pm on 19 November on the Lafayette Public Library - LibCal calendar feed"
 ---
 
 A monthly workshop for adults 50 and older in the library’s makerspace. On Thursday, November 19, from 1 to 3 pm, it is custom stickers on the Cricut cutter; December 17 is winter ornaments on the Glowforge laser cutter, and January 21 an introduction to 3D printing. Sign up through the Senior Center’s online registration, or call 303-665-9052 or email olderadults@lafayetteco.gov.

@@ -10,8 +10,8 @@ source: "https://johnstownmillikenpubliclibraries.us/event/drink-charms-napkin-r
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10577"
 sourceHash: "f416bfb516e0"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the johnstownmillikenpubliclibraries.us feed read 2026-10-14, run by Claude Code for James Lerner"
+verified: "2026-11-06"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Drink Charms &#038; Napkin Rings\" at 9:30 am on 21 November in the page's structured data"
 ---
 
 Drink Charms & Napkin Rings at Glenn A. Jones, M.D. Memorial Library, Saturday, November 21, 9:30 am – 12:30 pm. Listed by johnstownmillikenpubliclibraries.us; the organizer's page has the details and any registration.

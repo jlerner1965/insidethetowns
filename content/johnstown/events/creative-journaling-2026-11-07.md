@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/creative-journaling/"
 cost: "Free; full, with a waiting list"
 category: arts
 source: "https://johnstownmillikenpubliclibraries.us/event/creative-journaling/"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Creative Journaling\" at 10 am on 7 November in the page's structured data"
 ---
 

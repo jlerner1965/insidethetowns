@@ -11,7 +11,7 @@ category: civic
 organizer: "The Golden Mill and The Miracle Shop"
 organizerUrl: "https://www.thegoldenmill.com/events/the-miracle-shop-toy-drive"
 source: "https://www.thegoldenmill.com/events/the-miracle-shop-toy-drive"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"The Miracle Shop Toy Drive\" on 15 November in the page's structured data"
 ---
 

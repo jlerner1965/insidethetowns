@@ -10,7 +10,7 @@ category: music
 performers:
   - { name: "The Crones", kind: group }
 source: "https://oskarblues.com/event/longmont-live-music-the-crones-2026-11-07/"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): 7 November and 5 pm on the page"
 ---
 

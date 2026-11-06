@@ -10,8 +10,8 @@ category: music
 performers:
   - { name: "Zambi String Band", kind: group }
 source: "https://newterrainbrewing.com/event/zambi-string-band-music-by-the-mesa/"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against New Terrain Brewing's event page and calendar, 1 November 2026: Thursday, November 19, 2026, 6 to 9 pm; Music by the Mesa is described as free"
+verified: "2026-11-06"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Zambi String Band @ Music By The Mesa\" at 6 pm on 19 November in the page's structured data"
 ---
 
 Zambi String Band, a Denver acoustic jam-grass group that plays Grateful Dead, Billy Strings and Sturgill Simpson covers alongside bluegrass and Americana, plays New Terrain Brewing's Music by the Mesa series on Thursday, November 19 from 6 to 9 pm. The series is free live music every Thursday in the taproom on Table Mountain Parkway.

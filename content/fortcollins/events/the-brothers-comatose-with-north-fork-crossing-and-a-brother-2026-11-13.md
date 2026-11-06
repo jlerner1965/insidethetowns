@@ -10,7 +10,7 @@ performers:
   - { name: "North Fork Crossing", kind: group }
   - { name: "A Brother's Fountain", kind: group }
 source: "https://www.z2ent.com/events/detail/the-brothers-comatose-2026-agg"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): 13 November and 8 pm on the page"
 ---
 

@@ -12,6 +12,8 @@ sourceUid: "10009584-1796916600-1796931000@longmontcolorado.gov"
 sourceHash: "35c1f052c577"
 verified: "2026-10-15"
 verifiedBy: "auto-review from the Longmont Recreation Services (City of Longmont calendar) feed read 2026-10-04, run by Claude Code for James Lerner"
+changeFlag: true
+changeNote: "recheck 2026-11-06: not on the Longmont Recreation Services (City of Longmont calendar) feed on 10 December; it has \"Lottery Open: Santa Visit at Callahan House\" on 9 November"
 ---
 
 Santa Visit at Callahan House at Callahan House, Thursday, December 10, 3:30 pm – 7:30 pm. Listed by Longmont Recreation Services (City of Longmont calendar); the organizer's page has the details and any registration.

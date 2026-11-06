@@ -8,8 +8,8 @@ source: "https://go.dcl.org/events?l=castle+rock&r=months&n=1"
 sourceId: "dcl-org"
 sourceUid: "17007122"
 sourceHash: "42946ae01e05"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the Douglas County Libraries - Castle Rock (Philip S. Miller) events feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-06"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Epic Reads\" at 4:30 pm on 19 November on the Douglas County Libraries - Castle Rock (Philip S. Miller) events feed"
 ---
 
 Epic Reads at Douglas County Libraries - Castle Rock (Philip S. Miller), Thursday, November 19, 4:30 pm – 5:30 pm. Listed by Douglas County Libraries - Castle Rock (Philip S. Miller) events; the organizer's page has the details and any registration.

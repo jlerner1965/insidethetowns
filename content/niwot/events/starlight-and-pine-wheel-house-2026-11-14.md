@@ -9,7 +9,7 @@ performers:
 url: "https://www.niwotwheelhouse.com/events/startlight-and-pine-band-agbfr-6xxe9-zp9t4"
 category: music
 source: "https://www.niwotwheelhouse.com/events/startlight-and-pine-band-agbfr-6xxe9-zp9t4"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 7 pm on the page"
 ---
 

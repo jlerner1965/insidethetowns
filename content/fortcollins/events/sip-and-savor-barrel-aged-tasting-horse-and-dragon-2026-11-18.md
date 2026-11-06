@@ -7,7 +7,7 @@ address: "124 Racquette Drive, Fort Collins, CO 80524"
 url: "https://www.horseanddragonbrewing.com/"
 category: "food"
 source: "https://www.horseanddragonbrewing.com/"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): 18 November and 5:30 pm on the page"
 ---
 
