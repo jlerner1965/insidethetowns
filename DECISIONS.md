@@ -8785,7 +8785,14 @@ applies: none of the six excluded brands came up.*
   The Loveland Public Library followed the same day, written from the
   page text the owner copied out of the library's site in a browser
   (the Festival Park method; the site refuses automated reads); the
-  WiFi passwords on that page are left to the library's site.
+  WiFi passwords on that page are left to the library's site. North
+  Lake Park the same way, from the City's park page and a photograph of
+  its brochure; the two disagree on the number of playgrounds (two or
+  three) and the court and field line (962-9432 or 962-2432), so the
+  listing gives neither, and the train's fares and daily hours, from a
+  brochure of unknown date, are left out. Chilson Recreation Center waits
+  in staging: the page text had no address, phone or hours, and its
+  holiday notice dated Thanksgiving to November 25 (2026's is the 26th).
 - **Windsor: 9 published.** Safeway, Twin Staves, Windsor Community
   Playhouse, Main Event (its page in a browser now shows the address
   and phone), Windsor Ace Hardware, PizzaVino, Esh's Grocery Market,
