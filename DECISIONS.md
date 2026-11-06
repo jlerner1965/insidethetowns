@@ -8790,9 +8790,11 @@ applies: none of the six excluded brands came up.*
   its brochure; the two disagree on the number of playgrounds (two or
   three) and the court and field line (962-9432 or 962-2432), so the
   listing gives neither, and the train's fares and daily hours, from a
-  brochure of unknown date, are left out. Chilson Recreation Center waits
-  in staging: the page text had no address, phone or hours, and its
-  holiday notice dated Thanksgiving to November 25 (2026's is the 26th).
+  brochure of unknown date, are left out. Chilson Recreation Center
+  published once the owner sent its Hours & Fees page too (address,
+  phone, every day's hours); the page's dated holiday notice puts
+  Thanksgiving on November 25 (2026's is the 26th), so the listing uses
+  the page's standing holiday list instead.
 - **Windsor: 9 published.** Safeway, Twin Staves, Windsor Community
   Playhouse, Main Event (its page in a browser now shows the address
   and phone), Windsor Ace Hardware, PizzaVino, Esh's Grocery Market,
