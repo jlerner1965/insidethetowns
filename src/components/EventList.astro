@@ -24,9 +24,11 @@ interface Props {
    * A day with nothing else in it is rendered hidden too.
    */
   held?: ReadonlyMap<TownEntry<'events'>, { regular: boolean; repeat: boolean }>;
+  /** The slugs of the week's picks: each row of one is tagged "Our pick" (EventCard). */
+  picks?: ReadonlySet<string>;
 }
 
-const { events, emptyMessage = 'No events listed yet. Check back soon.', compact = false, held } = Astro.props;
+const { events, emptyMessage = 'No events listed yet. Check back soon.', compact = false, held, picks } = Astro.props;
 const { ongoing, dated } = splitOngoing(events);
 const days = groupByDay(dated);
 const mark = (e: TownEntry<'events'>) => held?.get(e) ?? { regular: false, repeat: false };
@@ -52,7 +54,7 @@ const stuck =
           </span>
         </h2>
         <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-          {ongoing.map((event) => <EventCard event={event} showDate={false} {...mark(event)} />)}
+          {ongoing.map((event) => <EventCard event={event} showDate={false} {...mark(event)} pick={picks?.has(event.slug)} />)}
         </div>
       </section>
     )}
@@ -72,7 +74,7 @@ const stuck =
         {/* White under the listings, paper around them: the day's events read
            as one block instead of dissolving into the page. */}
         <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-          {day.events.map((event) => <EventCard event={event} showDate={false} {...mark(event)} />)}
+          {day.events.map((event) => <EventCard event={event} showDate={false} {...mark(event)} pick={picks?.has(event.slug)} />)}
         </div>
       </section>
     ))}

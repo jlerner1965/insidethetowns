@@ -8,6 +8,7 @@
  */
 import { formatDayLong, formatDayShort, formatTime } from '@/lib/dates';
 import { gameDay as day, outcome, placeText, RESULT_WORD, when, where, type TeamGame } from '@/lib/school-sports';
+import { dashed } from '@/lib/flagship-home';
 
 interface Props {
   /** "Niwot": the school as its side of a game is named, against the opponent's name. */
@@ -79,7 +80,7 @@ const { school, mascot, next, then, latest, complete, seasonHref, today } = Astr
         {RESULT_WORD[latest.game.result ?? 'T']} {outcome(latest.game)}
       </h2>
       <p class="mt-5 text-xl leading-snug md:text-2xl">
-        <time datetime={latest.game.date}>{formatDayLong(day(latest.game))}</time><span class="text-white/70"> · {latest.game.stage && `${latest.game.stage} · `}{placeText(latest.game)} · {complete ? 'regular season complete' : 'nothing scheduled yet'}</span>
+        <time datetime={latest.game.date}>{formatDayLong(day(latest.game))}</time><span class="text-white/70"> · {latest.game.stage && `${latest.game.stage} · `}{placeText(latest.game)} · {complete ? (latest.team.overall ? `season over · final record ${dashed(latest.team.overall)}` : 'season over') : 'nothing scheduled yet'}</span>
       </p>
     </div>
   </section>

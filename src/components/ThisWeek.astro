@@ -105,7 +105,11 @@ const changes = compact ? fresh.slice(0, 2) : fresh;
 const updateEntries = await getTownEntries('updates');
 const allUpdates = currentUpdates(updateEntries, now);
 const updates = briefingUpdates(allUpdates, now);
-const know = compact ? updates.slice(0, 2) : updates.slice(0, 5);
+// The full page leads with one local change, the most important
+// (briefingUpdates's first), and links the rest (the owner's brief, 6
+// November 2026: five rows of changes stood between the reader and the
+// week); the home page's block keeps its two.
+const know = compact ? updates.slice(0, 2) : updates.slice(0, 1);
 // Corrections to the guide: the late-noticed changes and the notes'
 // backlog, each business once (src/lib/weekly.ts, corrections).
 const corrected = corrections(backlog, allUpdates.filter((u) => isLateNotice(u)));
@@ -170,6 +174,14 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
     <p class="eyebrow">{range}</p>
   )}
 
+  {/* The reading order (the owner's brief, 6 November 2026), on the full
+     page: one local change, the pick, this weekend, the Thursday email, the
+     games, the registration deadlines, what is ahead, then the rest of the
+     week's notes, the nearby towns and the day trips. The home page's block
+     (compact) keeps its own order: the home is unchanged. Every section is
+     written once; the two orders only arrange them. */}
+  {compact ? (
+    <Fragment>
   {know.length > 0 && (
     <section class={block} aria-labelledby={`know-${v}`}>
       <Heading id={`know-${v}`} title="Things to know this week" />
@@ -182,9 +194,6 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
     </section>
   )}
 
-  {/* What is on this week, in one scope: the browser clears what has ended
-     from a build older than it (Freshness.astro), and once nothing is left
-     the empty line shows instead. */}
   <div data-events-scope>
   {later.length > 0 && (
     <section class={block} data-hide-when-empty aria-labelledby={`later-${v}-cal`}>
@@ -202,7 +211,6 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
       Know something that should be here? <a href="/submit-event/" class="inline-block -my-2 py-2 text-primary underline">Send it in</a> and it goes up once it is checked.
     </p>
   </div>
-
   {pick && (
     <section class={block} aria-labelledby={`pick-${v}`} data-event-day={lastDay(pick.event)} data-end={toIsoLocal(listedUntil(pick.event))}>
       <Heading id={`pick-${v}`} title="Our pick" />
@@ -215,7 +223,6 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
       </div>
     </section>
   )}
-
   {highlight && (
     <section class={block} aria-labelledby={`highlight-${v}`} data-event-day={lastDay(highlight)} data-end={toIsoLocal(listedUntil(highlight))}>
       <Heading id={`highlight-${v}`} title="Highlight" />
@@ -230,7 +237,6 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
       </div>
     </section>
   )}
-
   {schoolWeeks.length > 0 && (
     <section class={block} aria-labelledby={`games-${v}`}>
       <Heading id={`games-${v}`} title="Games this week" />
@@ -260,7 +266,6 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
       <p class="mt-4 text-[0.9375rem]"><a href="/sports/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">Scores and schedules →</a></p>
     </section>
   )}
-
   {events.length > 0 && (
     <section class={block} data-hide-when-empty aria-labelledby={`weekend-${v}`}>
       <Heading id={`weekend-${v}`} title={listingsLabel} eyebrow={listingsRange} />
@@ -277,7 +282,6 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
     </section>
   )}
   </div>
-
   {/* The editor's pick for a later date: kept, but under its own label and
      date, outside the week's heading it does not belong to. */}
   {comingUp && (
@@ -292,22 +296,6 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
       </div>
     </section>
   )}
-
-  {!compact && programs.length > 0 && (
-    <section class={block} aria-labelledby={`deadlines-${v}`}>
-      <Heading id={`deadlines-${v}`} title="Registration deadlines and ways to join" />
-      <DeadlineList programs={programs} limit={5} class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" moreHref={hubHref} />
-      {hubHref && (
-        <p class="mt-4 text-[0.9375rem]">
-          <a href={hubHref} class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">{town.families ? town.families.label : town.participation!.label} →</a>
-          {town.families && town.participation && (
-            <Fragment>{' · '}<a href="/get-involved/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">{town.participation.label} →</a></Fragment>
-          )}
-        </p>
-      )}
-    </section>
-  )}
-
   {changes.length > 0 && (
     <section class={block} aria-labelledby={`changes-${v}`}>
       <Heading id={`changes-${v}`} title="New & closed" />
@@ -334,7 +322,172 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
       )}
     </section>
   )}
+  {signup && (
+    <div class={block}>
+      <NewsletterSignup town={town} compact id={compact ? 'this-week-compact' : 'this-week'} />
+    </div>
+  )}
+    </Fragment>
+  ) : (
+    <Fragment>
+  {know.length > 0 && (
+    <section class={block} aria-labelledby={`know-${v}`}>
+      <Heading id={`know-${v}`} title="Things to know this week" />
+      <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {know.map((u) => <UpdateRow update={u} compact />)}
+      </div>
+      {updates.length > know.length && (
+        <p class="mt-4 text-[0.9375rem]"><a href="/updates/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">All {updates.length} current changes →</a></p>
+      )}
+    </section>
+  )}
 
+  <div data-events-scope>
+  <div data-events-empty hidden={!quiet || later.length > 0} class="mt-8 rounded-lg border border-dashed border-line px-6 py-8 text-center text-ink-muted">
+    {/* "Nothing listed" is a fact about this guide; "nothing happening" would be a claim about the town. */}
+    <p>Nothing verified on the {town.name} calendar for the rest of this week yet.</p>
+    <p class="mt-2 text-[0.9375rem]">
+      Know something that should be here? <a href="/submit-event/" class="inline-block -my-2 py-2 text-primary underline">Send it in</a> and it goes up once it is checked.
+    </p>
+  </div>
+  {pick && (
+    <section class={block} aria-labelledby={`pick-${v}`} data-event-day={lastDay(pick.event)} data-end={toIsoLocal(listedUntil(pick.event))}>
+      <Heading id={`pick-${v}`} title="Our pick" />
+      <div class="mt-5 max-w-2xl">
+        <p class="display-md text-[1.75rem] md:text-[2rem]">
+          {pick.url ? <a href={pick.url} rel="noopener" class="inline-block -my-2 py-2 no-underline hover:text-primary">{pick.title}</a> : pick.title}
+        </p>
+        <p class="mt-2 font-medium"><time datetime={toIsoLocal(pick.event.data.start)}>{when(pick.event)}</time></p>
+        {pick.body && <p class="mt-3 text-[1.0625rem] leading-relaxed text-ink-muted">{pick.body}</p>}
+      </div>
+    </section>
+  )}
+  {highlight && (
+    <section class={block} aria-labelledby={`highlight-${v}`} data-event-day={lastDay(highlight)} data-end={toIsoLocal(listedUntil(highlight))}>
+      <Heading id={`highlight-${v}`} title="Highlight" />
+      <div class="mt-5 max-w-2xl">
+        <p class="display-md text-[1.75rem] md:text-[2rem]">
+          <a href={`/events/${highlight.slug}/`} class="inline-block -my-2 py-2 no-underline hover:text-primary">{highlight.data.title}</a>
+        </p>
+        <p class="mt-2 font-medium"><time datetime={toIsoLocal(highlight.data.start)}>{when(highlight)}</time></p>
+        <p class="mt-3 text-[1.0625rem] leading-relaxed text-ink-muted">
+          {highlight.data.venue}{highlight.data.subTown && <span>, {subTownLabel(highlight.data.subTown)}</span>}{highlight.data.cost && <span> · {highlight.data.cost}</span>}
+        </p>
+      </div>
+    </section>
+  )}
+  {events.length > 0 && (
+    <section class={block} data-hide-when-empty aria-labelledby={`weekend-${v}`}>
+      <Heading id={`weekend-${v}`} title={listingsLabel} eyebrow={listingsRange} />
+      <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {events.map((event) => <WeekEventRow event={event} />)}
+      </div>
+      {compact && rows.length > events.length && (
+        <p class="mt-4 text-[0.9375rem]">
+          <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">
+            All {allEvents.length} {onWeekend ? 'this weekend' : 'this week'} →
+          </a>
+        </p>
+      )}
+    </section>
+  )}
+  {/* The Thursday email once mid-page, after the weekend (the owner's brief,
+     6 November 2026); the foot keeps its own. */}
+  {signup && (
+    <div class={block}>
+      <NewsletterSignup town={town} compact id="this-week-mid" />
+    </div>
+  )}
+  {schoolWeeks.length > 0 && (
+    <section class={block} aria-labelledby={`games-${v}`}>
+      <Heading id={`games-${v}`} title="Games this week" />
+      {schoolWeeks.map(({ school, week }) => (
+        <div class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+          {schoolWeeks.length > 1 && <p class="eyebrow pt-4"><a href={sportsPath(school)} class="underline underline-offset-2">{schoolTeamName(school)}</a></p>}
+          <ul>
+            {week.games.map(({ team, game }) => (
+              <li class="border-t border-line-soft py-4 first:border-t-0">
+                <p class="text-xl font-medium leading-tight">
+                  <a href={game.url} rel="noopener" class="no-underline hover:text-primary">{team.name} {where(game)} {game.opponent}</a>
+                  {team.overall && <span class="ml-2 text-[0.9375rem] font-normal text-ink-muted">{team.overall}</span>}
+                </p>
+                <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">
+                  <time datetime={game.time ? `${game.date}T${game.time}` : game.date}>{gameWhen(game, now)}{game.time && ` · ${formatGameTime(game)}`}</time>
+                  {game.stage && ` · ${game.stage}`}
+                  {game.venue ? ` · ${game.venue}` : game.site === 'home' ? ' · Home' : game.site === 'away' ? ' · Away' : ''}
+                </p>
+              </li>
+            ))}
+          </ul>
+          {week.last?.game.result && (
+            <p class="border-t border-line-soft py-4 text-[0.9375rem] text-ink-muted">Last out: {resultText(week.last)}.</p>
+          )}
+        </div>
+      ))}
+      <p class="mt-4 text-[0.9375rem]"><a href="/sports/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">Scores and schedules →</a></p>
+    </section>
+  )}
+  {!compact && programs.length > 0 && (
+    <section class={block} aria-labelledby={`deadlines-${v}`}>
+      <Heading id={`deadlines-${v}`} title="Registration deadlines and ways to join" />
+      <DeadlineList programs={programs} limit={5} class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" moreHref={hubHref} />
+      {hubHref && (
+        <p class="mt-4 text-[0.9375rem]">
+          <a href={hubHref} class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">{town.families ? town.families.label : town.participation!.label} →</a>
+          {town.families && town.participation && (
+            <Fragment>{' · '}<a href="/get-involved/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">{town.participation.label} →</a></Fragment>
+          )}
+        </p>
+      )}
+    </section>
+  )}
+  {(comingUp || later.length > 0) && (
+    <section class={block} aria-labelledby={`ahead-${v}`}>
+      <Heading id={`ahead-${v}`} title="Looking ahead" />
+      {comingUp && (
+        <div class="mt-5 max-w-2xl" data-event-day={lastDay(comingUp.event)} data-end={toIsoLocal(listedUntil(comingUp.event))}>
+          <p class="font-medium"><time datetime={toIsoLocal(comingUp.event.data.start)}>{when(comingUp.event)}</time></p>
+          <p class="display-md mt-1 text-[1.5rem] md:text-[1.75rem]">
+            {comingUp.url ? <a href={comingUp.url} rel="noopener" class="inline-block -my-2 py-2 no-underline hover:text-primary">{comingUp.title}</a> : comingUp.title}
+          </p>
+          {comingUp.body && <p class="mt-3 text-[1.0625rem] leading-relaxed text-ink-muted">{comingUp.body}</p>}
+        </div>
+      )}
+      {later.length > 0 && (
+        <div class:list={[comingUp ? 'mt-6' : 'mt-2', 'rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7']} data-hide-when-empty>
+          {later.map((event) => <WeekEventRow event={event} />)}
+        </div>
+      )}
+      <p class="mt-4 text-[0.9375rem]"><a href="/events/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">Every event →</a></p>
+    </section>
+  )}
+  </div>
+  {changes.length > 0 && (
+    <section class={block} aria-labelledby={`changes-${v}`}>
+      <Heading id={`changes-${v}`} title="New & closed" />
+      <ul class="mt-2 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {changes.map((c) => (
+          <li class="border-t border-line-soft py-4 first:border-t-0">
+            <p class="eyebrow">{c.label}{c.effective && <span class="ml-2 font-medium normal-case tracking-normal text-ink-muted">{formatDate(c.effective)}</span>}</p>
+            <p class="mt-1 text-xl font-medium leading-tight">{c.name}</p>
+            <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{c.detail}</p>
+            {c.source && (
+              <p class="mt-1 text-sm">
+                <a href={c.source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline [overflow-wrap:anywhere]">Source: {new URL(c.source).hostname.replace(/^www\./, '')}</a>
+              </p>
+            )}
+          </li>
+        ))}
+      </ul>
+      {compact && fresh.length > changes.length && (
+        <p class="mt-4 text-[0.9375rem]">
+          <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">
+            All {fresh.length} new &amp; closed →
+          </a>
+        </p>
+      )}
+    </section>
+  )}
   {/* An old change the guide only just caught: a correction to the guide,
      with the day it happened, the day it was noticed and the day its source
      was read, never the week's news. On the full page only; each leaves with
@@ -374,7 +527,6 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
       )}
     </section>
   )}
-
   {!compact && qa && (
     <section class={block} aria-labelledby={`qa-${v}`}>
       <Heading id={`qa-${v}`} title="A resident asks" />
@@ -387,7 +539,6 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
       </div>
     </section>
   )}
-
   {!compact && feature && (
     <section class={block} aria-labelledby={`feature-${v}`}>
       <Heading id={`feature-${v}`} title={`From around ${town.name}`} />
@@ -400,21 +551,20 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
       </div>
     </section>
   )}
-
   {/* When the week's items were last read against their sources: after the
      week itself, not before it, so the first line a reader meets is the
      week's and not the age of its check (the reader pass, 1 November 2026). */}
   {!compact && <CheckedLine dates={[...allEvents.map((e) => e.data.verified), ...know.map((u) => u.data.verified)]} class={block} />}
-
   {/* The neighbours' weekend and the hill, after everything of the town's
      own, on the full page only: the neighbours as "nearby", the mountain
      guides as the day trips they are. Each renders nothing with nothing on. */}
   {!compact && <NearbyWeekend town={town} class={block} limit={4} picks={nearby} />}
   {!compact && <UpTheHill town={town} class={block} label="Day trips up the hill" exclude={shownNearby} />}
-
   {signup && (
     <div class={block}>
       <NewsletterSignup town={town} compact id={compact ? 'this-week-compact' : 'this-week'} />
     </div>
+  )}
+    </Fragment>
   )}
 </section>

@@ -13,7 +13,8 @@ import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
-import { agenda, categoriesIn, groupByDay, highlights, occurrences, splitOngoing, uniqueByEvent } from '@/lib/events';
+import { agenda, categoriesIn, groupByDay, occurrences, splitOngoing, uniqueByEvent } from '@/lib/events';
+import { currentPicks } from '@/lib/weekly';
 import { bigDates } from '@/lib/big-dates';
 import { formatDate, formatDayLong, toIsoLocal } from '@/lib/dates';
 import { CATEGORY_LABELS, EVENT_CATEGORIES, type EventCategory } from '@/content/schemas';
@@ -54,17 +55,18 @@ const subTowns = subTownsOf(town);
 // (src/lib/big-dates.ts). Beyond the fortnight the list already shows.
 const big = bigDates(all, { now: refreshedAt });
 /**
- * A few to lead with (design pass, 26 October 2026): the fortnight's
- * picks by the home page's ranking (src/lib/events.ts, highlights: the
- * featured, then the weekend's one-offs, a regular last and a meeting
- * after everything), labelled as a selection, above the full list in date
- * order. Only where there is something to select from: a fortnight of six
- * listings is its own highlights, and the section is not drawn. Nothing is
- * hidden behind it, and the filters hide it, since a reader who has asked
- * for free music this weekend wants that list alone.
+ * Our picks this week (the owner's brief, 6 November 2026): the editor's
+ * three to five for the next seven days, named in the week's notes
+ * (content/<town>/weekly/, `picks`) or flagged `featured` on the listing
+ * (src/lib/weekly.ts, currentPicks), above the full list, each tagged
+ * again in the list so no listing appears twice. Nothing is picked by a
+ * machine: with none flagged the section is not drawn. It replaced the
+ * "Highlights" block of 26 October, which ranked the fortnight itself.
+ * The filters hide it, since a reader who has asked for free music this
+ * weekend wants that list alone.
  */
-const picks = nextTwoWeeks.length >= 8 ? highlights(nextTwoWeeks, { now: refreshedAt, limit: 4 }) : [];
-const highlighted = picks.length >= 2 ? picks : [];
+const picks = currentPicks(await getTownEntries('weekly'), nextTwoWeeks, refreshedAt);
+const pickSlugs = new Set(picks.map((e) => e.slug));
 
 const description = `What’s on in ${town.name} this week and next: markets, music, festivals, trails and more, then the big dates further out and the weekly regulars.`;
 const structured = [
@@ -101,32 +103,41 @@ const structured = [
   <SponsorLine slot="after-header" sponsor={town.sponsors?.events} />
 
   <div data-filter-root>
-    <EventFilters categories={options} subTowns={subTowns} regulars={weekly.length > 0} />
-    <DayStrip
-      days={fortnightDays}
-      hiddenDays={hiddenDays}
-      more={[
-        ...(later.length > 0 ? [{ href: '#further-out', label: 'Further out' }] : []),
-        ...(weekly.length > 0 ? [{ href: '#every-week', label: 'Every week' }] : []),
-      ]}
-    />
-    {highlighted.length > 0 && (
-      <section class="mb-12 md:mb-16" data-filter-ignore data-filter-highlights aria-labelledby="highlights-heading">
+    {/* The order of the top (the owner's brief, 6 November 2026): the time
+        filters out, the rest of the filters and the day strip behind one
+        control, then the picks, the Thursday email, and the calendar. */}
+    <EventFilters categories={options} subTowns={subTowns} regulars={weekly.length > 0}>
+      <DayStrip
+        days={fortnightDays}
+        hiddenDays={hiddenDays}
+        more={[
+          ...(later.length > 0 ? [{ href: '#further-out', label: 'Further out' }] : []),
+          ...(weekly.length > 0 ? [{ href: '#every-week', label: 'Every week' }] : []),
+        ]}
+      />
+    </EventFilters>
+    {picks.length > 0 && (
+      <section class="mb-10 md:mb-12" data-filter-ignore data-filter-highlights aria-labelledby="picks-heading">
         <div class="mb-6 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-line-soft pb-3">
-          <h2 id="highlights-heading" class="text-2xl font-medium">Highlights</h2>
-          <p class="text-[0.875rem] text-ink-muted">A few from the next two weeks; the full list is below.</p>
+          <h2 id="picks-heading" class="text-2xl font-medium">Our picks this week</h2>
+          <p class="text-[0.875rem] text-ink-muted">The editor's choice for the next seven days; everything is below.</p>
         </div>
         <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-          {highlighted.map((event) => <EventCard event={event} />)}
+          {picks.map((event) => <EventCard event={event} pick />)}
         </div>
       </section>
     )}
+    {/* The Thursday email once here, after the picks and before the long
+        list; the foot keeps its own form. Left out of the filtering. */}
+    <div class="mb-12 md:mb-16" data-filter-ignore>
+      <NewsletterSignup town={town} compact id="events-mid" />
+    </div>
     {/* An empty fortnight is not a module: with later dates or regulars to
         show, it is left out rather than announcing its absence. */}
     {(nextTwoWeeks.length > 0 || (later.length === 0 && weekly.length === 0)) && (
       <div data-filter-section hidden={nextTwoWeeks.length > 0 && shownUnfiltered.length === 0}>
         <h2 id="all-listings" class="mb-6 scroll-mt-4 border-b border-line-soft pb-3 text-2xl font-medium">Next 14 days, by day</h2>
-        <EventList events={nextTwoWeeks} held={held} emptyMessage="Nothing listed for the next two weeks yet." />
+        <EventList events={nextTwoWeeks} held={held} picks={pickSlugs} emptyMessage="Nothing listed for the next two weeks yet." />
       </div>
     )}
     {big.length > 0 && (

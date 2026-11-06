@@ -1,7 +1,7 @@
 ---
 title: "Niwot voted against incorporation, 1,922 to 670 in the county's unofficial count"
 kind: decision
-stage: complete
+stage: unofficial
 summary: "Boulder County's unofficial results, last updated at 5:06 pm on November 5, show the incorporation question failing, 670 for to 1,922 against, with the charter commission question and all five fiscal issues also behind. The county updates the count through November 13 and certifies it on November 24."
 affects: "Every household in Niwot: the area stays unincorporated, with Boulder County and the special districts providing its services"
 action: "Nothing to do. The county posts updated unofficial counts on November 6 if needed and around mid-day on November 13 at electionresults.bouldercounty.gov; the canvass board certifies the result on November 24."

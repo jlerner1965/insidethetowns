@@ -37,9 +37,11 @@ interface Props {
    */
   regular?: boolean;
   repeat?: boolean;
+  /** One of the week's picks (src/lib/weekly.ts, currentPicks): tagged "Our pick" in the list. */
+  pick?: boolean;
 }
 
-const { event, showDate = true, regular = false, repeat = false } = Astro.props;
+const { event, showDate = true, regular = false, repeat = false, pick = false } = Astro.props;
 const { data, slug } = event;
 const href = `/events/${slug}/`;
 const canceled = isCanceled(event);
@@ -146,12 +148,15 @@ const note =
     </time>
   )}
   <div class="min-w-0">
-    {(categoryLabel || statusLabel) && (
+    {(categoryLabel || statusLabel || pick) && (
       <p class="eyebrow mb-1.5 flex flex-wrap items-center gap-2" style={`color:var(--cat-${data.category}-ink)`}>
         {categoryLabel && (
           <span class="inline-block size-2 shrink-0 rounded-full" style={`background:var(--cat-${data.category}-dot)`} aria-hidden="true"></span>
         )}
         {categoryLabel}
+        {pick && !canceled && (
+          <span class="rounded-sm bg-highlight-soft px-1.5 py-px text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink ring-1 ring-highlight">Our pick</span>
+        )}
         {statusLabel && (
           <span class="rounded-full bg-ink px-2 py-0.5 text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-raised">{statusLabel}</span>
         )}

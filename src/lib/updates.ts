@@ -64,5 +64,6 @@ export function stageLabel(stage: UpdateStage): string {
  */
 export function isLateNotice(u: UpdateLike, days = 30): boolean {
   const gap = (startOfDay(u.data.published).getTime() - startOfDay(u.data.effective).getTime()) / 86_400_000;
-  return u.data.stage === 'complete' && gap > days;
+  // An unofficial result is a thing that happened too (6 November 2026).
+  return (u.data.stage === 'complete' || u.data.stage === 'unofficial') && gap > days;
 }

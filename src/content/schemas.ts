@@ -623,6 +623,14 @@ export function placeSchema<I extends z.ZodType>(image: () => I) {
        */
       mapUrl: httpUrl.optional(),
       /**
+       * The menu, where the place's own site or ordering page shows one:
+       * linked beside the hours and carried as `hasMenu` in the structured
+       * data, and the <title> says "Menu & Hours" only when it is set
+       * (Berthoud owner brief, 6 November 2026). The place's own page, not
+       * a delivery app's copy of it; left unset where none was found.
+       */
+      menuUrl: httpUrl.optional(),
+      /**
        * Slugs this listing used to live at, each built as a redirect to it
        * (src/lib/former-slugs.ts). Set when a listing is re-filed or merged
        * under a new slug, so the old URL, which a search engine may still
@@ -890,6 +898,19 @@ export function weeklySchema() {
         url: blank(httpUrl),
       })
       .optional(),
+    /**
+     * Our picks this week (the owner's brief, 6 November 2026): three to
+     * five listings for the next seven days, a family / free / music mix,
+     * each as its listing's url on this guide, proposed in the draft and
+     * approved by leaving them in. The events page shows them under "Our
+     * picks this week" and tags each in the list; with none, and no listing
+     * flagged `featured`, the section is not drawn: nothing is picked by a
+     * machine (src/lib/weekly.ts, currentPicks). A blank line is dropped.
+     */
+    picks: z.preprocess(
+      (v) => (Array.isArray(v) ? v.filter((u) => typeof u === 'string' && u.trim() !== '') : v),
+      z.array(z.string().regex(/^(\/|https?:\/\/)/, 'a path on this guide or a full URL')).default([]),
+    ),
     // The template's blank item is dropped, not an error; a half-filled one is.
     changes: z.preprocess(
       (v) => (Array.isArray(v) ? v.filter((c) => !isBlankChange(c)) : v),
@@ -1177,12 +1198,21 @@ export const PROGRAM_ACCESS_LABELS: Record<ProgramAccess, string> = {
  * (src/lib/programs.ts, programStatus); `status` is for what only the
  * organizer's words can say, and it is never assumed.
  */
-export const PROGRAM_STATUSES = ['open', 'upcoming', 'full', 'paused', 'ended'] as const;
+/**
+ * `closed`: registration has closed and the session is not over or not yet
+ * under way, by the organizer's word or, from the dates, by a deadline that
+ * has passed (src/lib/programs.ts, programStatus). Until 6 November 2026 a
+ * row past its deadline said "Registration required · deadline was November
+ * 1" in muted type and still sat among the open ones (Berthoud's futsal
+ * clinic, the owner's brief); now it is labelled and sorts with the full.
+ */
+export const PROGRAM_STATUSES = ['open', 'upcoming', 'full', 'closed', 'paused', 'ended'] as const;
 export type ProgramStatusState = (typeof PROGRAM_STATUSES)[number];
 export const PROGRAM_STATUS_LABELS: Record<ProgramStatusState, string> = {
   open: 'Open now',
   upcoming: 'Not started yet',
   full: 'Full',
+  closed: 'Registration closed',
   paused: 'On a break',
   ended: 'Ended',
 };
@@ -1358,7 +1388,14 @@ export const UPDATE_KIND_LABELS: Record<UpdateKind, string> = {
   program: 'Program announcement',
   notice: 'Notice',
 };
-export const UPDATE_STAGES = ['proposed', 'approved', 'underway', 'complete', 'scheduled'] as const;
+/**
+ * `unofficial`: a count or a result that is in but not yet certified (an
+ * election night's numbers until the clerks certify them). "Complete" said
+ * the opposite of a summary that called the count unofficial (Berthoud's
+ * Ballot Issue 3G, 6 November 2026), and the validator now refuses that
+ * pair (scripts/validate-content.ts).
+ */
+export const UPDATE_STAGES = ['proposed', 'approved', 'underway', 'complete', 'scheduled', 'unofficial'] as const;
 export type UpdateStage = (typeof UPDATE_STAGES)[number];
 export const UPDATE_STAGE_LABELS: Record<UpdateStage, string> = {
   proposed: 'Proposed',
@@ -1366,6 +1403,7 @@ export const UPDATE_STAGE_LABELS: Record<UpdateStage, string> = {
   underway: 'Under way',
   complete: 'Complete',
   scheduled: 'Scheduled',
+  unofficial: 'Unofficial result',
 };
 
 export function updateSchema<I extends z.ZodType>(image: () => I) {

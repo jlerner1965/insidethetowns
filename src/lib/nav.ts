@@ -5,14 +5,21 @@
  * mascot's name). The items follow from what the guide has, so a new school
  * or a new hub reaches the menu without anyone editing a list:
  *
- *   This week · Events · <School> athletics · Eat & drink · <hub> · <living> · Guides
+ *   This week · Things to do · <School> athletics · Eat & drink · <hub> · <living> · Guides
+ *
+ * - Things to do took the second slot from Events on 6 November 2026 (the
+ *   owner's brief: parks, the rec center and the trails are what Search
+ *   Console says people come for, and the events are a click away on the
+ *   home page, This week and the footer). Every guide has the page
+ *   (src/integrations/town-routes.ts); where the hub slot would repeat it,
+ *   a guide without the family hub, Events keeps that slot instead.
  *
  * - "<School> athletics" only where the guide follows a school
  *   (src/config/school-sports.ts, schoolAthletics: "Niwot athletics",
  *   "Roosevelt athletics", the school's name rather than the mascot's since
  *   6 November 2026); "High school sports" where it follows several; a
  *   school's `navLabel` where neither would do.
- * - The hub: Families where the guide has the family hub, else Things to do.
+ * - The hub: Families where the guide has the family hub, else Events (Things to do already being in the menu).
  * - Living here where the guide has that page, else Moving here.
  *
  * - Guides, the articles (the dog rules, the county line, the fire
@@ -42,10 +49,10 @@ export function townNav(town: Pick<TownConfig, 'slug' | 'families' | 'livingHere
   const sports = sportsNavLabel(town.slug);
   return [
     { label: 'This week', href: '/this-week/' },
-    { label: 'Events', href: '/events/' },
+    { label: 'Things to do', href: '/things-to-do/' },
     ...(sports ? [{ label: sports, href: '/sports/' }] : []),
     { label: 'Eat & drink', href: '/eat-drink/' },
-    town.families ? { label: 'Families', href: '/families/' } : { label: 'Things to do', href: '/things-to-do/' },
+    town.families ? { label: 'Families', href: '/families/' } : { label: 'Events', href: '/events/' },
     town.livingHere ? { label: 'Living here', href: '/living-here/' } : { label: 'Moving here', href: '/moving-here/' },
     { label: 'Guides', href: '/guides/' },
   ];

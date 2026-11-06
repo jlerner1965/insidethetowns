@@ -438,6 +438,11 @@ export function programStatus(p: ProgramLike, now = new Date()): ProgramStatus |
   // 4. Taking sign-ups, or under way.
   if (r?.deadline && !behind(r.deadline)) return make('open', `Sign up by ${dayText(r.deadline, now)}`);
   if (d.starts && d.ends && !ahead(d.starts) && !behind(d.ends)) return make('open', `Runs through ${dayText(d.ends, now)}`);
+  // 5. The deadline has passed and nothing says the session is on: closed,
+  // said so, rather than a muted "deadline was" among the open rows (the
+  // owner's brief, 6 November 2026). A program that names its next opening
+  // was caught by rule 3; one that has started is "open" by rule 4.
+  if (r?.deadline && behind(r.deadline)) return make('closed', `Registration closed ${dayText(r.deadline, now)}`);
   return undefined;
 }
 
@@ -469,7 +474,7 @@ export function isEnded(p: ProgramLike, now = new Date()): boolean {
 export function byActionable<T extends ProgramLike>(list: readonly T[], now = new Date()): T[] {
   const rank = (p: T) => {
     const s = programStatus(p, now)?.state;
-    return s === 'ended' ? 2 : s === 'full' ? 1 : 0;
+    return s === 'ended' ? 2 : s === 'full' || s === 'closed' ? 1 : 0;
   };
   return [...list].sort((a, b) => rank(a) - rank(b));
 }

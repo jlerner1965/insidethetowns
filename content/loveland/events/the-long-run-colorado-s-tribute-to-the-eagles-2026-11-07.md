@@ -6,7 +6,7 @@ venue: "The Rialto Theater"
 address: "228 E 4th St, Loveland"
 url: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=176"
 cost: "$39–49"
-category: sports
+category: music
 source: "https://tickets.rialtotheatercenter.org/eventperformances.asp?evt=176"
 sourceId: "rialtotheatercenter-org"
 sourceUid: "showare:279"

@@ -192,6 +192,17 @@ function validateFile(collection: CollectionName, file: string, town: string, st
     const hedge = publicText.match(HEDGE_PHRASES);
     if (hedge) warnings.push(`${rel}: "${hedge[0]}" is a note to the editor on a public page; state the fact or leave it out`);
   }
+  // A local change whose stage says "complete" while its own words say the
+  // count or the decision is unofficial or pending is two claims at once
+  // (Berthoud's Ballot Issue 3G, 6 November 2026: stage complete, "the
+  // count is unofficial"). The stage for that is `unofficial`.
+  if (collection === 'updates') {
+    const d = result.data as { stage: string; summary?: string; title?: string; effectiveNote?: string };
+    const words = [d.title, d.summary, d.effectiveNote, parsed.body].filter((v): v is string => typeof v === 'string').join('\n');
+    if (d.stage === 'complete' && /\b(unofficial|pending)\b/i.test(words)) {
+      errors.push(`${rel}: stage "complete" with text that says unofficial or pending; use stage "unofficial" until it is certified, or "scheduled"/"underway" while it is pending`);
+    }
+  }
   if (collection === 'places') {
     const data = result.data as { hours?: string; openingHours?: string[]; status: string; featured: boolean; title: string };
     // Not an error: the text still shows. But the page makes no open-or-closed
