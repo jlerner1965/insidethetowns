@@ -8732,9 +8732,14 @@ publishes on the report's word alone.*
   and Jessie's behind an 18+ one). Berthoud Drug: registries only, with
   two addresses. Each reason says what settles it; Osito's and Jessie's
   also settle La Casita and Glass of Art.
-- **Left out, for the owner.** Chains (Subway downtown and the
-  Grand Market Avenue fast food) until the guide decides whether it lists
-  them; Bank of Colorado (confirmed, but the guide lists no banks); the
+- **No chains added.** The owner's answer when asked: Subway downtown and
+  the Grand Market Avenue fast food (Starbucks, McDonald's, Taco Bell,
+  Domino's, Taco John's, the 7-Eleven, O'Reilly) are not added. He then
+  asked what a no-chains rule would cost the guides already published,
+  with Buc-ee's as the exception: 9 national-chain listings and 12
+  Colorado-chain listings across 11 guides, Johnstown the most (7 of 30).
+  No published listing has been changed while he decides which version.
+- **Left out, for the owner.** Bank of Colorado (confirmed, but the guide lists no banks); the
   Activity Hall (a hall for hire); salons, skin care, dog grooming,
   printing, design, dentists, physical therapy, real estate, law and
   energy consulting from Main Street's services page; the Surveyor, a
