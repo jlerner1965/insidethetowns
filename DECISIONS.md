@@ -8817,3 +8817,31 @@ applies: none of the six excluded brands came up.*
   Trestles, Wing Daddy's, Trifecta, Dream Dinners, Dairy Queen,
   Culver's, Shake Shack, Holiday Inn Express, Hampton Inn and the
   Town's amphitheater and skatepark (crgov.com refuses).
+
+## The sports label is the school's name, not the mascot's, 6 November 2026
+
+- **"Niwot athletics", not "Cougars sports".** The owner's call: the menu
+  item, the home page's strip heading and scoreboard band, the share
+  image, the sports page's image alt and the team page's breadcrumb name
+  the school with "athletics" after it (`schoolAthletics` in
+  src/config/school-sports.ts). "Demons sports" on Inside Golden and
+  "Wizards sports" on Inside Windsor told a newcomer nothing; two schools
+  followed are Cougars (Niwot and Resurrection Christian); Carbon Valley
+  had needed a special label because "Golden Eagles sports" did not say
+  whose; and "athletics" reads as the school's teams rather than the rec
+  leagues on the Families page, where "Niwot sports" could be either.
+- **The school's short name, not the town's.** Johnstown's guide follows
+  Roosevelt High, Lafayette's Centaurus, so the word is MaxPreps's short
+  name for the school ("Roosevelt athletics", "Centaurus athletics"), the
+  same one the team names use. Loveland's four schools keep "High school
+  sports". Lowercase "athletics": the guides say "sports" in sentence
+  case everywhere, and a capital would read as the department's own name.
+- **The mascot stays where it works.** The page titles, descriptions and
+  the network search text keep "Niwot Cougars Football Scores & Schedule
+  2026": those are the words people search for, and MaxPreps names the
+  teams that way. The page's own sentences keep it too ("The Cougars are
+  16-7", "The Cougars this season", "Every Cougars team"). The home side
+  of a score row and the "Next up" headline now name the school ("Niwot
+  vs Fruita Monument", "Niwot 28"), against the opponent's school name.
+- The `navLabel` override stays for a guide where neither word would do;
+  no guide needs it.

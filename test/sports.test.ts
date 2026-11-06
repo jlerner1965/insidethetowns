@@ -471,7 +471,7 @@ test('every school is one entry with its own file, and its town’s menu carries
     assert.ok(sluggish === 0 ? schools.length === 1 : sluggish === schools.length, `${town}: either one school without a slug or several each with one`);
     const nav = townNav(findTown(town)!);
     assert.equal(nav[2]?.href, '/sports/', `${town}: the school is the third menu item`);
-    assert.equal(nav[2]?.label, schools.length === 1 ? (schools[0]!.navLabel ?? `${schools[0]!.mascot} sports`) : 'High school sports', `${town}: the label says sports`);
+    assert.equal(nav[2]?.label, schools.length === 1 ? (schools[0]!.navLabel ?? `${schools[0]!.maxprepsName} athletics`) : 'High school sports', `${town}: the label names the school`);
     for (const s of schools) assert.ok(s.calendar || s.calendarNote, `${s.school}: a calendar to check against, or a note saying why not`);
   }
 });
@@ -734,7 +734,7 @@ test('the sports pages carry no Event markup per game', async () => {
 test('a share card is a 1200×630 PNG in the school’s colour, named for the school or the team', async () => {
   const { renderShareCard, SHARE_HEIGHT, SHARE_WIDTH } = await import('../src/lib/share-image.ts');
   const sharp = (await import('sharp')).default;
-  const png = await renderShareCard({ color: '#572932', title: 'Spartans football', record: '7-2 this fall · 3-1 in the 3A Cache la Poudre', footer: 'Scores and schedules · Inside Berthoud' });
+  const png = await renderShareCard({ color: '#572932', title: 'Berthoud football', record: '7-2 this fall · 3-1 in the 3A Cache la Poudre', footer: 'Scores and schedules · Inside Berthoud' });
   const meta = await sharp(png).metadata();
   assert.equal(meta.format, 'png');
   assert.equal(meta.width, SHARE_WIDTH);

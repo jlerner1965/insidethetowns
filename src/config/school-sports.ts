@@ -76,10 +76,11 @@ export interface SchoolSports {
   /** "Spartans": how the pages name the teams. */
   mascot: string;
   /**
-   * The menu's word for the sports page where "<mascot> sports" would not
-   * say whose team it is (src/lib/nav.ts): Carbon Valley was four towns and
-   * the Golden Eagles were Frederick High's, so its menu said "Frederick
-   * sports". No guide needs it today.
+   * The menu's word for the sports page where "<school> athletics"
+   * (schoolAthletics) would not do (src/lib/nav.ts). The menu said
+   * "<mascot> sports" until 6 November 2026, and Carbon Valley, four towns
+   * whose Golden Eagles were Frederick High's, needed "Frederick sports";
+   * the school's name says whose the teams are, and no guide needs it today.
    */
   navLabel?: string;
   /** The school's MaxPreps URL; each team's page is `maxpreps` + its path + "/". */
@@ -475,6 +476,22 @@ export function schoolSportsFor(town: string, slug?: string): SchoolSports | und
  */
 export function schoolTeamName(school: Pick<SchoolSports, 'maxprepsName' | 'mascot'>): string {
   return `${school.maxprepsName} ${school.mascot}`;
+}
+
+/**
+ * The school's sports as the guide labels them: "Niwot athletics",
+ * "Roosevelt athletics". The menu, the home page's strip and scoreboard
+ * band, the share image and the breadcrumb said "<mascot> sports" until 6
+ * November 2026 ("Demons sports", "Wizards sports"), which told a newcomer
+ * nothing, and two schools followed are Cougars. The school's short name,
+ * not the town's (Johnstown's school is Roosevelt), and "athletics" rather
+ * than "sports" so it reads as the school's teams and not the rec leagues
+ * on the Families page. The mascot stays in the page titles and search
+ * text, the words people search for (teamPageTitle), and in the page's own
+ * sentences ("The Cougars are 5-3").
+ */
+export function schoolAthletics(school: Pick<SchoolSports, 'maxprepsName'>): string {
+  return `${school.maxprepsName} athletics`;
 }
 
 /** The school's page: "/sports/", or "/sports/<slug>/" where the town follows several. */

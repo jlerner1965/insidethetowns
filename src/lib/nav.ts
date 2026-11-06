@@ -5,12 +5,13 @@
  * mascot's name). The items follow from what the guide has, so a new school
  * or a new hub reaches the menu without anyone editing a list:
  *
- *   This week · Events · <Mascot> sports · Eat & drink · <hub> · <living> · Guides
+ *   This week · Events · <School> athletics · Eat & drink · <hub> · <living> · Guides
  *
- * - "<Mascot> sports" only where the guide follows a school
- *   (src/config/school-sports.ts); "High school sports" where it follows
- *   several; a school's `navLabel` where the mascot alone would not say
- *   whose team it is (the Carbon Valley guide's Golden Eagles were Frederick High's).
+ * - "<School> athletics" only where the guide follows a school
+ *   (src/config/school-sports.ts, schoolAthletics: "Niwot athletics",
+ *   "Roosevelt athletics", the school's name rather than the mascot's since
+ *   6 November 2026); "High school sports" where it follows several; a
+ *   school's `navLabel` where neither would do.
  * - The hub: Families where the guide has the family hub, else Things to do.
  * - Living here where the guide has that page, else Moving here.
  *
@@ -25,7 +26,7 @@
  * phone panel alike (design pass, 26 October 2026: the row was set in small
  * capitals, and the flagship home page ran a second menu of its own).
  */
-import { schoolsFor } from '../config/school-sports.ts';
+import { schoolAthletics, schoolsFor } from '../config/school-sports.ts';
 import type { NavItem, SiteConfig, TownConfig } from '../config/towns/types.ts';
 
 /** The menu's word for the sports page, or nothing where the guide follows no school. */
@@ -34,7 +35,7 @@ export function sportsNavLabel(town: string): string | undefined {
   if (schools.length === 0) return undefined;
   if (schools.length > 1) return 'High school sports';
   const [school] = schools;
-  return school!.navLabel ?? `${school!.mascot} sports`;
+  return school!.navLabel ?? schoolAthletics(school!);
 }
 
 export function townNav(town: Pick<TownConfig, 'slug' | 'families' | 'livingHere'>): NavItem[] {

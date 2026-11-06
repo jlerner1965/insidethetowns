@@ -13,7 +13,7 @@ import CtaBand from '@/components/CtaBand.astro';
 import NextUp from '@/components/NextUp.astro';
 import TeamSeason from '@/components/TeamSeason.astro';
 import { getTown } from '@/config';
-import { schoolSportsFor, schoolsFor, shareImagePath, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
+import { schoolAthletics, schoolSportsFor, schoolsFor, shareImagePath, sportsPath, teamPath, type SportsData } from '@/config/school-sports';
 import { dayKey, formatShortDate } from '@/lib/dates';
 import { coming, hasData, leaguePlace, schoolCssVars, seasonComplete, seasonOf, sportsDataFor, sportsFullTitle, teamDescription, teamPageTitle, teamsWithData } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
@@ -75,7 +75,7 @@ const jsonLd = [
       <div class="max-w-3xl">
         <nav aria-label="Breadcrumb" class="mb-3">
           <ol class="eyebrow flex flex-wrap items-center gap-x-2">
-            <li><a href="/sports/" class="underline underline-offset-2">{cfg.slug ? `${town.name} high school sports` : `${mascot} sports`}</a></li>
+            <li><a href="/sports/" class="underline underline-offset-2">{cfg.slug ? `${town.name} high school sports` : schoolAthletics(cfg)}</a></li>
             {cfg.slug && (
               <Fragment>
                 <li aria-hidden="true">›</li>
@@ -106,7 +106,7 @@ const jsonLd = [
     </div>
   </header>
 
-  <NextUp {mascot} {next} {then} {latest} complete={seasonComplete(own, now)} seasonHref={() => '#season'} {today} />
+  <NextUp school={cfg.maxprepsName} {mascot} {next} {then} {latest} complete={seasonComplete(own, now)} seasonHref={() => '#season'} {today} />
 
   <section class="band band-paper" id="season">
     <div class="container-page">
