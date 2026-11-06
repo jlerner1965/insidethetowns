@@ -1,13 +1,14 @@
 ---
 title: "Performance Park"
 type: venue
-address: "Estes Park, CO (address not yet read from a Town page)"
-area: "Downtown"
-url: "https://estespark.colorado.gov/"
-source: "https://eventsinestes.com/"
+address: "West Elkhorn Avenue, between the Silver Moon Inn and the Big Horn Restaurant, Estes Park, CO 80517"
+area: "West Elkhorn Avenue"
+url: "https://estespark.colorado.gov/townparks"
+source: "https://estespark.colorado.gov/townparks"
+verified: "2026-11-06"
 tags: [amphitheater, concerts, town-venue]
-summary: "Town of Estes Park venue booked through the Town's Events Division; its own Town page could not be read."
-review: { reason: "Still needs: estespark.colorado.gov (home and /performancepark) still answered HTTP 403 (CloudFront 'Request blocked') on 5 November 2026; the Town Events Division's own venue page, eventsinestes.com/performance-park, was read and calls it 'an outdoor amphitheater' 'tucked away just outside of downtown', 'flanked by Fall River on two sides, and nestled against a towering rock face', used for 'regular concert series' on summer evenings and bookable for private and public events, but gives no street address, season or hours; a person must take the address from the Town's page in a browser or from the Events Division (970-577-3900, events@estes.org) before publishing.", since: "2026-10-06", from: manual }
+summary: "The Town's outdoor amphitheater on West Elkhorn Avenue, against the mountains between the Silver Moon Inn and the Big Horn Restaurant, with a full stage, lighting and sound, and parking beside it."
+review: { reason: "The Town's parks page (estespark.colorado.gov/townparks) was read on 6 November 2026 and gives the location, stage, lighting, sound, parking and its 2003 opening, but no street number, season or hours; the Events Division (970-577-3900, events@estes.org) can give those before publishing.", since: "2026-10-06", from: manual }
 ---
 
-Listed by the Town's Events Division among the Town venues it books for events, alongside Bond Park and George Hix Riverside Plaza.
+The Town's outdoor amphitheater, tucked against the mountains on West Elkhorn Avenue between the Silver Moon Inn and the Big Horn Restaurant, with a full stage, lighting and sound equipment and parking beside the theater. It opened in 2003 and is booked through the Town's Events Division, alongside Bond Park and George Hix Riverside Plaza.

@@ -1,6 +1,6 @@
 ---
 title: "Teocalli Cocina"
-review: { reason: "Drafted by Claude on 2026-11-05; check before publishing.", since: "2026-11-05", from: manual }
+review: { reason: "Drafted by Claude on 2026-11-05. Re-checked 6 November 2026: teocallicocina.com answered HTTP 403 to every read (its home and contact pages), as it did on 2 November, so nothing in this file has been confirmed on the restaurant's own page. Open the site in a browser, or call (303) 284-6597, for address, hours and holiday closures before publishing.", since: "2026-11-05", from: manual }
 type: restaurant
 address: "103 N Public Rd, Unit C, Lafayette, CO 80026"
 area: "Old Town, Public Road"
