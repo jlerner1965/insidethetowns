@@ -50,7 +50,7 @@
     { "weekday": "sun", "week": 1, "poolCloses": "17:00", "note": "lifeguard training" }
   ],
   "exceptions": [
-    { "date": "2026-11-11", "note": "Veterans Day", "facility": ["05:00", "21:00"], "source": "https://www.berthoud.org/Calendar.aspx?EID=5892" },
+    { "date": "2026-11-11", "note": "Veterans Day", "facility": ["05:00", "21:00"], "source": "https://www.berthoud.org/Calendar.aspx?EID=5892", "openSwim": [["16:00", "20:00"]], "lapSwim": [["05:00", "16:00"]] },
     { "date": "2026-11-23", "note": "Fall break", "openSwim": [["12:00", "20:00"]] },
     { "date": "2026-11-24", "note": "Fall break", "openSwim": [["12:00", "20:00"]] },
     { "date": "2026-11-25", "note": "Fall break", "openSwim": [["12:00", "20:00"]] },

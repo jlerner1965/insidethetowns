@@ -183,7 +183,8 @@ function formatDays(days: number[]): string {
   return runs.map((r) => (r.length > 2 ? `${DAY_CODES[r[0]!]}-${DAY_CODES[r[r.length - 1]!]}` : r.map((d) => DAY_CODES[d]).join(','))).join(',');
 }
 
-function hhmm(minutes: number): string {
+/** "09:00", "17:30": the 24-hour clock of schema.org's opening hours. */
+export function hhmm(minutes: number): string {
   const h = Math.floor(minutes / 60);
   const m = minutes % 60;
   return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;

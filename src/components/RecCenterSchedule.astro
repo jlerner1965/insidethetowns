@@ -1,0 +1,88 @@
+---
+/**
+ * The rec center's schedule and prices on its own listing (the Berthoud
+ * owner's brief, 6 November 2026): the week's table (RecCenterWeek), the
+ * Town's standing notes, the holiday hours and closures still to come,
+ * and the day-pass and membership prices, every figure from
+ * data/<town>/rec-center.json with the day it was read and the Town pages
+ * it was read from. A dated row carries `data-event-day`, so the browser
+ * takes it off once its day is past (src/lib/expiry.ts), as it does an
+ * event's.
+ *
+ * `data-pagefind-weight` on the section: a search for "pool", "swim" or
+ * "rec center" is a search for this page, and these are the words that
+ * say so (the h1 says "Recreation Center", which is not what people type).
+ */
+import RecCenterWeek from './RecCenterWeek.astro';
+import { exceptionLabel, upcomingExceptions, type RecCenterData } from '@/lib/rec-center';
+import { formatDate, parseLocal } from '@/lib/dates';
+
+interface Props {
+  data: RecCenterData;
+  class?: string;
+}
+
+const { data, class: cls } = Astro.props;
+const coming = upcomingExceptions(data, new Date()).slice(0, 10);
+const season = `${formatDate(parseLocal(data.season.from))} to ${formatDate(parseLocal(data.season.to))}`;
+---
+<section class:list={['border-t border-line-soft pt-8', cls]} aria-labelledby="pool-schedule" data-pagefind-weight="7">
+  <h2 id="pool-schedule" class="display-md text-[1.5rem] md:text-[1.75rem]">Pool schedule and rec center hours</h2>
+  <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">
+    The rec center’s hours, open swim and lap swim by day for the {data.season.label.toLowerCase()} ({season}), as the Town posts them. Family swim, water walking, the spa and open gym are on the Town’s page.
+  </p>
+  <RecCenterWeek data={data} class="mt-4" />
+  {data.notes && data.notes.length > 0 && (
+    <ul class="mt-3 grid gap-1 text-[0.875rem] leading-relaxed text-ink-muted">
+      {data.notes.map((n) => <li>{n}</li>)}
+    </ul>
+  )}
+  {coming.length > 0 && (
+    <div class="mt-6" data-hide-when-empty>
+      <h3 class="eyebrow">Holiday hours and closures</h3>
+      <ul class="mt-2 divide-y divide-line-soft text-[0.9375rem] leading-snug">
+        {coming.map((e) => (
+          <li class="grid grid-cols-[7.5rem_minmax(0,1fr)] gap-x-3 py-2" data-event-day={e.date}>
+            <span class="font-semibold tabular-nums">{formatDate(parseLocal(e.date))}</span>
+            <span>{exceptionLabel(e)} <span class="text-ink-muted">· {e.note}</span></span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+  {data.prices && (
+    <div class="mt-8" id="day-passes">
+      <h3 class="eyebrow">Day passes and memberships</h3>
+      <div class="mt-3 grid gap-6 sm:grid-cols-2">
+        <dl class="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 gap-y-1 text-[0.9375rem] leading-snug">
+          <dt class="col-span-2 mb-1 font-semibold">Day pass</dt>
+          {data.prices.dayPass.map((p) => (
+            <Fragment>
+              <dt class="text-ink-muted">{p.label}</dt>
+              <dd class="text-right tabular-nums">{p.price}</dd>
+            </Fragment>
+          ))}
+        </dl>
+        <dl class="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 gap-y-1 text-[0.9375rem] leading-snug">
+          <dt class="col-span-2 mb-1 font-semibold">Membership</dt>
+          {data.prices.memberships.map((p) => (
+            <Fragment>
+              <dt class="text-ink-muted">{p.label}</dt>
+              <dd class="text-right tabular-nums">{p.price}</dd>
+            </Fragment>
+          ))}
+        </dl>
+      </div>
+      {data.prices.note && <p class="mt-3 text-[0.875rem] leading-relaxed text-ink-muted">{data.prices.note}</p>}
+      <p class="mt-2 text-[0.875rem] leading-relaxed text-ink-muted">
+        Prices from <a href={data.prices.source} rel="noopener" class="underline">the Town’s memberships page</a>, checked {formatDate(parseLocal(data.prices.checked))}.
+      </p>
+    </div>
+  )}
+  <p class="mt-6 text-[0.875rem] leading-relaxed text-ink-muted">
+    Schedule checked {formatDate(parseLocal(data.checked))} against
+    {data.sources.map((s, i) => (
+      <Fragment>{i > 0 && (i === data.sources.length - 1 ? ' and ' : ', ')}<a href={s.url} rel="noopener" class="underline">{s.label}</a></Fragment>
+    ))}. The Town’s <a href={data.scheduleUrl} rel="noopener" class="underline">facility schedules page</a> is the record for any day.
+  </p>
+</section>

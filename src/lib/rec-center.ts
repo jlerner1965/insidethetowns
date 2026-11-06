@@ -14,7 +14,8 @@
  * is right on Thursday; the pure date logic is here so a test can pass a
  * date. Nothing here invents an hour: a day the data does not settle (an
  * exception with no hours, a day past the season) sends the reader to the
- * Town's page.
+ * Town's page, and a holiday with its own facility hours says nothing
+ * about a swim the Town did not list for it.
  */
 import { clockLabel } from './hours.ts';
 import { dayKey, TIME_ZONE } from './dates.ts';
@@ -77,7 +78,7 @@ export interface RecCenterData {
 
 /** The town's file from an `import.meta.glob` over data/*\/rec-center.json, or nothing. */
 export function recCenterFor(files: Record<string, RecCenterData>, town: string): RecCenterData | undefined {
-  const entry = Object.entries(files).find(([path]) => path.endsWith(`/data/${town}/rec-center.json`) || path.includes(`/${town}/rec-center.json`));
+  const entry = Object.entries(files).find(([path]) => path.endsWith(`/${town}/rec-center.json`));
   return entry?.[1];
 }
 
@@ -98,19 +99,17 @@ export function rangeLabel([open, close]: Range): string {
   return `${a}–${b}`;
 }
 
-/** "5 am–4:15 pm & 7–8 pm"; undefined for no runs. */
-export function rangesLabel(ranges: readonly Range[]): string | undefined {
-  return ranges.length > 0 ? ranges.map(rangeLabel).join(' & ') : undefined;
+/** "5 am–4:15 pm & 7–8 pm"; null for a day with no runs listed. */
+export function rangesLabel(ranges: readonly Range[]): string | null {
+  return ranges.length > 0 ? ranges.map(rangeLabel).join(' & ') : null;
 }
 
 export type RecCenterStatus =
-  | { kind: 'open'; facility: string; openSwim?: string; lapSwim?: string; note?: string }
+  /** A swim is a label, null when the Town lists none that day, undefined when the day's notice says nothing about it. */
+  | { kind: 'open'; facility: string; openSwim?: string | null; lapSwim?: string | null; note?: string }
   | { kind: 'closed'; note?: string }
   /** Nothing settled for the day: outside the season, or an exception with no hours. */
   | { kind: 'check'; note?: string };
-
-const WEEKDAY_FORMAT = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, weekday: 'short' });
-const DAY_OF_MONTH = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, day: 'numeric' });
 
 export function weekdayOf(date: Date, tz = TIME_ZONE): Weekday {
   const word = new Intl.DateTimeFormat('en-US', { timeZone: tz, weekday: 'short' }).format(date).toLowerCase().slice(0, 3);
@@ -126,18 +125,31 @@ function weekOfMonth(date: Date, tz = TIME_ZONE): number {
 /**
  * The day as the data settles it. In order: a day outside the season is
  * not settled; a dated exception is read before the weekday (a closure
- * first, then its own hours and swims over the weekday's, and an exception
- * with neither is not settled); the monthly rule caps the pool on its day;
- * a weekday the facility does not open is closed.
+ * first; then its own facility hours, with only the swims it names, since
+ * a noon opening makes the weekday's 5 am lap swim impossible; a swim-only
+ * notice keeps the weekday's facility hours; an exception that names
+ * nothing is not settled); the monthly rule caps the pool on its day; a
+ * weekday the facility does not open is closed.
  */
 export function recCenterToday(data: RecCenterData, now: Date, tz = TIME_ZONE): RecCenterStatus {
   const key = dayKey(now, tz);
-  if (key < data.season.from || key > data.season.to) return { kind: 'check', note: `The ${data.season.label} schedule ran ${data.season.from < key ? 'to' : 'from'} ${data.season.from < key ? data.season.to : data.season.from}` };
+  if (key < data.season.from || key > data.season.to) {
+    return { kind: 'check', note: `The ${data.season.label} schedule runs ${data.season.from} to ${data.season.to}` };
+  }
   const weekday = weekdayOf(now, tz);
   const exception = data.exceptions.find((e) => e.date === key);
   if (exception?.closed) return { kind: 'closed', note: exception.note };
-  const facility = exception?.facility ?? data.facility[weekday];
   if (exception && !exception.facility && !exception.openSwim && !exception.lapSwim) return { kind: 'check', note: exception.note };
+  if (exception?.facility) {
+    return {
+      kind: 'open',
+      facility: rangeLabel(exception.facility),
+      ...(exception.openSwim ? { openSwim: rangesLabel(exception.openSwim) } : {}),
+      ...(exception.lapSwim ? { lapSwim: rangesLabel(exception.lapSwim) } : {}),
+      note: exception.note,
+    };
+  }
+  const facility = data.facility[weekday];
   if (!facility) return { kind: 'closed' };
   let openSwim = exception?.openSwim ?? data.openSwim[weekday];
   const lapSwim = exception?.lapSwim ?? data.lapSwim[weekday];
@@ -155,15 +167,15 @@ export function recCenterToday(data: RecCenterData, now: Date, tz = TIME_ZONE): 
  * The line: "Rec center 5 am–9 pm · Open swim 4–8 pm · Lap swim 5 am–4 pm",
  * "Rec center closed today · Thanksgiving Day", or "Check today’s hours"
  * (the component puts the Town's link after it). "No open swim" is said
- * on a Tuesday or Thursday because the Town's schedule says so; a lap
- * swim the day does not have is left off.
+ * on a Tuesday or Thursday because the Town's schedule says so; a swim
+ * the day's notice does not mention is left off.
  */
 export function todayLine(status: RecCenterStatus, data: Pick<RecCenterData, 'shortName'>): string {
   if (status.kind === 'check') return 'Check today’s hours';
   if (status.kind === 'closed') return `${data.shortName} closed today${status.note ? ` · ${status.note}` : ''}`;
   return [
     `${data.shortName} ${status.facility}`,
-    status.openSwim ? `Open swim ${status.openSwim}` : 'No open swim',
+    status.openSwim === null ? 'No open swim' : status.openSwim ? `Open swim ${status.openSwim}` : undefined,
     status.lapSwim ? `Lap swim ${status.lapSwim}` : undefined,
     status.note,
   ]
@@ -182,7 +194,7 @@ export function weekRows(data: RecCenterData): Array<{ day: string; facility: st
   }));
 }
 
-/** The exceptions still to come from `now` (today included), for the list under the table. */
+/** The exceptions still to come from `now` (today included), soonest first, for the list under the table. */
 export function upcomingExceptions(data: RecCenterData, now: Date, tz = TIME_ZONE): RecCenterException[] {
   const key = dayKey(now, tz);
   return data.exceptions.filter((e) => e.date >= key).sort((a, b) => a.date.localeCompare(b.date));
@@ -192,7 +204,7 @@ export function upcomingExceptions(data: RecCenterData, now: Date, tz = TIME_ZON
 export function exceptionLabel(e: RecCenterException): string {
   if (e.closed) return 'Closed';
   const parts = [
-    e.facility ? `Open ${rangeLabel(e.facility)}` : undefined,
+    e.facility ? `open ${rangeLabel(e.facility)}` : undefined,
     e.openSwim ? (e.openSwim.length ? `open swim ${rangesLabel(e.openSwim)}` : 'no open swim') : undefined,
     e.lapSwim ? (e.lapSwim.length ? `lap swim ${rangesLabel(e.lapSwim)}` : 'no lap swim') : undefined,
   ].filter((p): p is string => !!p);
@@ -200,7 +212,3 @@ export function exceptionLabel(e: RecCenterException): string {
   const line = parts.join(', ');
   return line.charAt(0).toUpperCase() + line.slice(1);
 }
-
-// Unused formatters kept private to this module's tests; the component formats the date itself.
-void WEEKDAY_FORMAT;
-void DAY_OF_MONTH;

@@ -18,6 +18,9 @@ import { articlesMentioning } from '@/lib/mentions';
 import { placeTitle } from '@/lib/titles';
 import OpenStatus from '@/components/OpenStatus.astro';
 import Provenance from '@/components/Provenance.astro';
+import RecCenterSchedule from '@/components/RecCenterSchedule.astro';
+import RecCenterToday from '@/components/RecCenterToday.astro';
+import { recCenterFor, type RecCenterData } from '@/lib/rec-center';
 import { accessFresh, ageDays, openMonthsLabel, seasonLabel, seasonalHoursApply } from '@/lib/freshness';
 
 export async function getStaticPaths() {
@@ -60,8 +63,15 @@ const nearby = nearbyAll.length > 2 && nearbyAll.length % 2 === 1 ? nearbyAll.sl
 // The guide articles that link this listing, newest first (src/lib/mentions.ts):
 // the way from the address and hours to the piece that says why to go.
 const inGuides = articlesMentioning(await getTownEntries('articles'), place.slug).slice(0, 3);
-// "Hall Ranch — Trail in Lyons, CO" in the tab and the search result; the h1 stays the name.
-const seoTitle = placeTitle(data.title, PLACE_TYPE_LABELS[data.type], town);
+/**
+ * The town's recreation center schedule (data/<town>/rec-center.json), on
+ * the listing it names: the today line at the top, the week's table and
+ * the prices below the description (src/lib/rec-center.ts). Nothing on
+ * any other listing, and nothing in a town without the file.
+ */
+const recFiles = import.meta.glob<RecCenterData>('../../../../data/*/rec-center.json', { eager: true, import: 'default' });
+const recAll = recCenterFor(recFiles, town.slug);
+const rec = recAll?.place === place.slug ? recAll : undefined;
 const here = uniqueByEvent(upcoming(occurrences(await getTownEntries('events'))))
   .filter((e) => e.data.venue === data.title)
   .slice(0, 3);
@@ -75,7 +85,7 @@ const hours = hoursDataAttr(data);
 // place and of one whose check is older than the hours window; here the page
 // says so rather than leaving the row out, because "no hours" reads as "we
 // never had them" and the truth is "we are not sure they still hold".
-const hoursValue =
+const hoursValue: string | undefined =
   place.hoursHidden === 'stale' && data.verified
     ? `Not shown: last checked ${ageDays(data.verified)} days ago. Call to confirm.`
     : place.hoursHidden === 'season'
@@ -148,18 +158,51 @@ const lede = !open || place.hoursHidden
     : hasOperator
       ? { kind: 'check' as const }
       : undefined;
+/** The page prints the listing's hours: not hidden for age or season, not a closed place's. */
+const hoursShown = !!data.hours && hoursValue === data.hours;
+/**
+ * "Berthoud Recreation Center Hours, Pool Schedule & Day Pass Prices",
+ * "Cornerstone Cafe: Menu & Hours", "Bein Park: Soccer Fields, Playground
+ * & Dog Park": the title says what the page answers, and only that
+ * (src/lib/titles.ts; the Berthoud owner's brief, 6 November 2026). Other
+ * kinds keep "Hall Ranch — Trail in Lyons, CO". The h1 stays the name.
+ */
+const seoTitle = placeTitle(data.title, PLACE_TYPE_LABELS[data.type], town, {
+  type: data.type,
+  hours: hoursShown,
+  menu: !!data.menuUrl,
+  poolSchedule: !!rec,
+  dayPassPrices: !!rec?.prices,
+  amenities: data.tags,
+});
+// The menu beside the hours, and the Town's live schedule on the rec center: the one link a reader came for.
 const facts = [
   { label: 'Address', value: data.area ? `${data.address} · ${data.area}` : data.address },
   { label: 'Directions', value: 'Open in Google Maps', href: directions },
-  { label: 'Hours', value: hoursValue, lines: hoursValue && hoursValue === data.hours ? hoursLines(hoursWithMeridiem(hoursValue)) : undefined, hours },
+  { label: 'Hours', value: hoursValue, lines: hoursShown && hoursValue ? hoursLines(hoursWithMeridiem(hoursValue)) : undefined, hours },
+  { label: 'Menu', value: data.menuUrl ? 'See the menu' : undefined, href: data.menuUrl },
+  { label: 'Schedule', value: rec ? 'Pool, gym and holiday hours, from the Town' : undefined, href: rec?.scheduleUrl },
   { label: 'Season', value: seasonValue },
   { label: 'Phone', value: data.phone, href: data.phone ? `tel:${data.phone.replace(/[^\d+]/g, '')}` : undefined },
   { label: 'Website', value: data.url ? new URL(data.url).hostname.replace(/^www\./, '') : undefined, href: data.url },
   { label: 'Trail map', value: data.mapUrl ? 'PDF, from the land manager' : undefined, href: data.mapUrl },
 ].filter((f) => f.value);
-// The summary, and where it is short, the name, the town and what the facts above give (src/lib/seo.ts).
+// One sentence: the hours as printed above, or what is there, then what else the page has (src/lib/seo.ts).
 const description = placeDescription(
-  { title: data.title, summary: data.summary, status: statusLabel, address: data.address, phone: data.phone, url: data.url, hoursShown: !!data.hours && hoursValue === data.hours },
+  {
+    title: data.title,
+    summary: data.summary,
+    status: statusLabel,
+    address: data.address,
+    phone: data.phone,
+    url: data.url,
+    hoursShown,
+    hours: data.hours,
+    menu: !!data.menuUrl,
+    poolSchedule: !!rec,
+    dayPassPrices: !!rec?.prices,
+    trailMap: !!data.mapUrl,
+  },
   town,
 );
 ---
@@ -194,6 +237,9 @@ const description = placeDescription(
       Check current hours{data.url ? <Fragment> on <a href={data.url} rel="noopener" class="text-primary underline">the business’s own page</a></Fragment> : ' before you go'}.
     </p>
   )}
+  {/* "Today at the rec center", written in the browser from the schedule
+      below; the week's table is on the page already, so no fallback here. */}
+  {rec && <RecCenterToday slot="after-header" data={rec} class="mt-3" />}
   {/*
     Two columns on a wide screen, one on a phone, and on a phone the order
     changes: the notice, then the address, hours and phone, then the picture
@@ -231,6 +277,7 @@ const description = placeDescription(
         <div class="prose">
           <Content />
         </div>
+        {rec && <RecCenterSchedule data={rec} class="mt-10" />}
         {/* Read as words, not as the bordered pills they were, which looked
             like filter buttons and showed the raw slugs ("no-dogs"). */}
         {data.tags.length > 0 && (

@@ -45,6 +45,8 @@ import SportsStrip from '@/components/SportsStrip.astro';
 import NextStop from './NextStop.astro';
 import SportsBar from './SportsBar.astro';
 import WhatsHappening from './WhatsHappening.astro';
+import RecCenterToday from '@/components/RecCenterToday.astro';
+import { recCenterFor, type RecCenterData } from '@/lib/rec-center';
 import { editionFor, emailEditions, getNetworkHub, getTown } from '@/config';
 import { schoolsFor, teamPath, type SportsData } from '@/config/school-sports';
 import { getTownEntries } from '@/lib/content';
@@ -93,6 +95,13 @@ const later = laterRows(general(60), picked, weeklyTest(allEvents));
 const tabs = homeTabs(days, now, TAB_LIMIT, later);
 const open = defaultTab(now);
 
+// 3a. "Today at the rec center" at the top of the Today tab, for a town with
+// a schedule file (data/<town>/rec-center.json; src/lib/rec-center.ts). The
+// day is the reader's, worked out in the browser; without script the week's
+// table stands in. A town without the file shows nothing, by the data alone.
+const recFiles = import.meta.glob<RecCenterData>('../../../data/*/rec-center.json', { eager: true, import: 'default' });
+const rec = recCenterFor(recFiles, town.slug);
+
 // A thin day: the tab that opens has fewer than three rows at the build, so
 // the signup would follow a near-empty list. The three tiles go first then,
 // and the form after them (the reader pass, 1 November 2026: Johnstown's
@@ -122,7 +131,9 @@ const places = (await getTownEntries('places')).filter(isOpen);
   </section>
 )}
 
-<WhatsHappening town={town} tabs={tabs} open={open} />
+<WhatsHappening town={town} tabs={tabs} open={open}>
+  {rec && <RecCenterToday slot="today" data={rec} fallback href={`/places/${rec.place}/`} />}
+</WhatsHappening>
 
 {emailOn && !thin && (
   <section class="band-compact band-paper">

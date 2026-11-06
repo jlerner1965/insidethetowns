@@ -8967,3 +8967,67 @@ items are content and data.
   and Events stays on the home page, This week and the footer. A guide
   without the family hub keeps Events in the hub slot rather than listing
   Things to do twice.
+
+## Place pages answer the search, and the rec center says what today holds, 6 November 2026
+
+- **The place title claims what the page has** (src/lib/titles.ts,
+  `placeTitle` with the page's facts): a venue whose hours are printed is
+  "Berthoud Town Hall Hours", the rec center "Berthoud Recreation Center
+  Hours, Pool Schedule & Day Pass Prices" (the pool schedule only where
+  there is schedule data, the prices only where sourced prices are on the
+  page); a restaurant or coffee house "Cornerstone Cafe: Menu & Hours"
+  with a menu link and "…: Hours & Location" without; a park its first
+  two or three tags, "Bein Park: Soccer Fields, Playground & Dog Park".
+  Hours hidden for age or season are not claimed, and a title that would
+  pass 70 even cut back keeps "Hall Ranch — Trail in Lyons, CO". Every
+  other type keeps that form.
+- **The description is one sentence** (src/lib/seo.ts, `placeDescription`):
+  the hours as printed ("… is open Mon–Thu 7 am–5:30 pm, closed Fri–Sun"),
+  else what is there from the summary's own "with" clause ("Pioneer Park
+  in Berthoud, CO has a playground, a basketball court…"), else the summary
+  as a predicate where it opens with an article, and then what else the
+  page has, as many of the menu, the pool schedule, the prices, the
+  address, the phone and directions as fit in 155. A list that runs long
+  loses its last items at a comma, never an ellipsis. It replaced the
+  summary followed by a list ("A&W in Berthoud, CO: address, hours,
+  phone, website and directions."), two fragments with the hours nowhere.
+- **`menuUrl`** on a place (src/content/schemas.ts): the place's own menu
+  or ordering page, a "Menu" row beside the hours and `hasMenu` in the
+  structured data, on food places only. Berthoud: Happy Eating's ordering
+  page and Cornerstone Cafe's page under New Freedom Ministry, both read
+  today. Not a delivery app's copy.
+- **Structured data** (`localBusinessJsonLd`): a venue is a Library, a
+  GovernmentOffice or a SportsActivityLocation by its tags; `url` is the
+  place's own site and the page is `mainEntityOfPage` (the page had been
+  `url` and the site `sameAs`); `openingHoursSpecification` from the same
+  parsed schedule as the badge, so no hour is claimed that the line does
+  not state; a Park gets none. test/place-jsonld.test.ts round-trips it.
+- **The rec center schedule is data** (data/berthoud/rec-center.json,
+  src/lib/rec-center.ts): facility hours, open swim and lap swim by
+  weekday for the school year, the Town's holiday hours and closures and
+  school-break swims as dated exceptions, and the prices, each with its
+  Town source and the day it was read. "Today at the rec center" (RecCenterToday)
+  is written in the browser on Denver's clock from the data on the page:
+  "Rec center 5 am–9 pm · Open swim 4–8 pm · Lap swim 5 am–4 pm", "Rec
+  center closed today · Thanksgiving Day", or "Check today’s hours" with
+  the Town's link on a day the data does not settle or past the season.
+  Without script the home page shows the week's table; the listing has it
+  below anyway. A holiday with its own facility hours says nothing about a
+  swim the Town did not list for it (a noon opening makes a 5 am lap swim
+  impossible). Only a town with the file renders any of it: the data, not
+  a flag.
+- **Prices** on the listing and in content/berthoud/programs/rec-center-passes.md
+  are the Town's memberships page's, checked today: day pass $3 under 6,
+  $5.50 youth 6–15, $7 adult, $5.50 at 60 and over; family $65 a month.
+  The Town's web page ($780 a year for a family) and its winter 2026–27
+  guide ($715) disagree on the annual prices, so neither is repeated.
+  The Thanksgiving-week swims are the winter guide's (noon to 8 on
+  November 23, 24 and 25; closed the 26th; the 27th open noon to 6, open
+  swim to 5), which differ from the fall guide the program file had used.
+- **Search**: the schedule section carries `data-pagefind-weight="7"` and
+  the words "pool", "swim" and "rec center" the h1 lacks; "pool", "swim"
+  and "rec center" each return the listing first (checked on the built
+  Berthoud site in Chrome).
+- Bein Park's tags now lead with its soccer fields and dog park, and the
+  Bike Park is filed as a park rather than a trail: it is the Town's bike
+  park, and the trail title said nothing of the pump track.
