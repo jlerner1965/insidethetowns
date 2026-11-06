@@ -10,8 +10,8 @@ source: "https://johnstownmillikenpubliclibraries.us/event/watercolor-trees-leav
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10673"
 sourceHash: "0a6527ebda11"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the johnstownmillikenpubliclibraries.us feed read 2026-10-15, the weekly ingest workflow"
+verified: "2026-11-06"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Watercolor Trees &#038; Leaves\" at 10 am on 20 November in the page's structured data"
 ---
 
 Watercolor Trees & Leaves at Glenn A. Jones, M.D. Memorial Library, Friday, November 20, 10 am – 11 am. Listed by johnstownmillikenpubliclibraries.us; the organizer's page has the details and any registration.

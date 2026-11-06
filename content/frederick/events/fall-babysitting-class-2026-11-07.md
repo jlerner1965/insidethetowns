@@ -10,7 +10,7 @@ category: other
 organizer: "Frederick-Firestone Fire District"
 organizerUrl: "https://www.fffd.us/"
 source: "https://www.fffd.us/2026-11-07-fall-babysitting-class"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): 7 November and 9:30 am on the page"
 ---
 

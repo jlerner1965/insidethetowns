@@ -14,7 +14,7 @@ performers:
   - { name: "Buckethead", kind: person }
 source: "https://www.stanleyhotel.com/event/buckethead-live-at-the-stanley/"
 sourceId: "stanleyhotel-com"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): 6 November on the page"
 ---
 

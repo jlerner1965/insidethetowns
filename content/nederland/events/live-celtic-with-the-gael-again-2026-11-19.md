@@ -9,8 +9,8 @@ category: music
 performers:
   - { name: "The Gael Again", kind: group }
 source: "https://www.verynicebrewing.com/event-details/live-celtic-with-the-gael-again-19"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against Very Nice Brewing's Nederland events page and this event's own page, 1 November 2026: Thursday, November 19, 6 to 8 pm; no price given"
+verified: "2026-11-06"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Live Celtic with The Gael Again\" at 6 pm on 19 November in the page's structured data"
 ---
 
 The Gael Again plays traditional Celtic tunes at the Very Nice Brewing taproom in Nederland on Thursday, November 19, 6 to 8 pm. No cover was posted.

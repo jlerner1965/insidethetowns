@@ -10,7 +10,7 @@ source: "https://bouldercounty.gov/event/community-meeting-prescribed-fire-proje
 sourceId: "bouldercounty-gov"
 sourceUid: "10004507-1794668400-1794673800@bouldercounty.gov"
 sourceHash: "cc1780271099"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Community Meeting for Prescribed Fire Projects\" at 3 pm on 14 November on the bouldercounty.gov feed"
 ---
 

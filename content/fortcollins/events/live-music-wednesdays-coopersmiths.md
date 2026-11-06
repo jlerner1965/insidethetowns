@@ -12,7 +12,7 @@ cost: "Free"
 category: "music"
 recurring: "Wednesdays, 7-9 p.m."
 source: "https://coopersmithspub.com/live-music/"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): 11 November and 7 pm on the page"
 ---
 

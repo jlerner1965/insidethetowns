@@ -9,7 +9,7 @@ performers:
   - { name: "Cat Clyde", kind: person }
   - { name: "Dean Johnson", kind: person }
 source: "https://www.z2ent.com/events/detail/cat-clyde-dean-johnson-2026-agg"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): 12 November and 8 pm on the page"
 ---
 

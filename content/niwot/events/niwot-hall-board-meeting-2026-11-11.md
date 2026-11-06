@@ -8,7 +8,7 @@ url: "https://niwothall.org/events/niwot-hall-meeting/"
 category: civic
 recurring: "second Wednesday of the month"
 source: "https://niwothall.org/events/"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Niwot Hall Meeting\" at 4:30 pm on 11 November on the Niwot Hall (Left Hand Grange) feed"
 ---
 

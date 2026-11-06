@@ -10,8 +10,8 @@ source: "https://johnstownmillikenpubliclibraries.us/event/makesgiving-tea-towel
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10817"
 sourceHash: "697651adf874"
-verified: "2026-10-15"
-verifiedBy: "auto-review from the johnstownmillikenpubliclibraries.us feed read 2026-10-15, the weekly ingest workflow"
+verified: "2026-11-06"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Makesgiving: Tea Towels\" at 11 am on 24 November in the page's structured data"
 ---
 
 Makesgiving: Tea Towels at Glenn A. Jones, M.D. Memorial Library, Tuesday, November 24, 11 am – 1 pm. Listed by johnstownmillikenpubliclibraries.us; the organizer's page has the details and any registration.

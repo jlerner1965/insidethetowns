@@ -8,7 +8,7 @@ url: "https://chsaanow.com/brackets/football/2026/state/4a"
 category: sports
 featured: true
 source: "https://chsaanow.com/brackets/football/2026/state/4a"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): 13 November on the page"
 ---
 

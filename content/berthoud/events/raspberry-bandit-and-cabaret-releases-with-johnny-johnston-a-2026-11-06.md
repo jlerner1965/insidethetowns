@@ -17,7 +17,7 @@ source: "https://citystarbrewing.com/event/beer-release-raspberry-bandit/"
 sourceId: "citystarbrewing-com"
 sourceUid: "6667"
 mergedUids: ["7637", "12493"]
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 3 pm on the page"
 ---
 

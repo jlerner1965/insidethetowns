@@ -9,7 +9,7 @@ category: music
 performers:
   - { name: "Concrete Feedback", kind: group }
 source: "https://www.verynicebrewing.com/event-details/live-music-with-concrete-feedback-8"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Live Music with Concrete Feedback\" at 5 pm on 14 November in the page's structured data"
 ---
 
