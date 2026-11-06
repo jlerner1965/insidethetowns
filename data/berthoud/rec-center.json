@@ -1,0 +1,93 @@
+{
+  "place": "berthoud-recreation-center",
+  "name": "Berthoud Recreation Center",
+  "shortName": "Rec center",
+  "scheduleUrl": "https://www.berthoud.org/1521/Facility-Schedules",
+  "checked": "2026-11-06",
+  "sources": [
+    { "label": "Town of Berthoud: Facility Schedules", "url": "https://www.berthoud.org/1521/Facility-Schedules" },
+    { "label": "Berthoud Recreation Winter Activity Guide 2026–27, page 4 and page 12", "url": "https://www.berthoud.org/DocumentCenter/View/7956/Berthoud-Recreation-Winter-Activity-Guide-2026-27" },
+    { "label": "Academic-year pool schedule, August 20, 2026 to May 28, 2027", "url": "https://www.berthoud.org/DocumentCenter/View/7879/NEW-POOL-SCHEDULE-2026pdf" },
+    { "label": "Town of Berthoud: Memberships / Admission", "url": "https://www.berthoud.org/244/Memberships-Admission" }
+  ],
+  "season": {
+    "label": "School year 2026–27",
+    "from": "2026-08-20",
+    "to": "2027-05-28"
+  },
+  "facility": {
+    "mon": ["05:00", "21:00"],
+    "tue": ["05:00", "21:00"],
+    "wed": ["05:00", "21:00"],
+    "thu": ["05:00", "21:00"],
+    "fri": ["05:00", "21:00"],
+    "sat": ["07:00", "20:00"],
+    "sun": ["11:00", "20:00"]
+  },
+  "openSwim": {
+    "mon": [["16:00", "20:00"]],
+    "tue": [],
+    "wed": [["16:00", "20:00"]],
+    "thu": [],
+    "fri": [["16:00", "20:00"]],
+    "sat": [["11:00", "19:00"]],
+    "sun": [["11:00", "19:00"]]
+  },
+  "lapSwim": {
+    "mon": [["05:00", "16:00"]],
+    "tue": [["05:00", "16:15"], ["19:00", "20:00"]],
+    "wed": [["05:00", "16:00"]],
+    "thu": [["05:00", "16:15"], ["19:00", "20:00"]],
+    "fri": [["05:00", "16:00"]],
+    "sat": [["07:00", "11:00"]],
+    "sun": []
+  },
+  "notes": [
+    "One lap lane only on Wednesday and Friday, 10:45–11:45 am, for programs.",
+    "The whole pool closes at 5 pm on the first Sunday of each month for lifeguard training; the spa closes at 6 pm on the second and fourth Thursday for cleaning."
+  ],
+  "monthly": [
+    { "weekday": "sun", "week": 1, "poolCloses": "17:00", "note": "lifeguard training" }
+  ],
+  "exceptions": [
+    { "date": "2026-11-11", "note": "Veterans Day", "facility": ["05:00", "21:00"], "source": "https://www.berthoud.org/Calendar.aspx?EID=5892", "openSwim": [["16:00", "20:00"]], "lapSwim": [["05:00", "16:00"]] },
+    { "date": "2026-11-23", "note": "Fall break", "openSwim": [["12:00", "20:00"]] },
+    { "date": "2026-11-24", "note": "Fall break", "openSwim": [["12:00", "20:00"]] },
+    { "date": "2026-11-25", "note": "Fall break", "openSwim": [["12:00", "20:00"]] },
+    { "date": "2026-11-26", "note": "Thanksgiving Day", "closed": true, "source": "https://www.berthoud.org/Calendar.aspx?EID=4503" },
+    { "date": "2026-11-27", "note": "Day after Thanksgiving; no child watch", "facility": ["12:00", "18:00"], "openSwim": [["12:00", "17:00"]] },
+    { "date": "2026-12-24", "note": "Christmas Eve", "closed": true },
+    { "date": "2026-12-25", "note": "Christmas Day", "closed": true },
+    { "date": "2026-12-26", "note": "Winter break", "openSwim": [["12:00", "19:00"]] },
+    { "date": "2026-12-27", "note": "Winter break", "openSwim": [["12:00", "19:00"]] },
+    { "date": "2026-12-31", "note": "New Year’s Eve; no evening child watch", "facility": ["05:00", "18:00"], "openSwim": [["12:00", "17:00"]] },
+    { "date": "2027-01-01", "note": "New Year’s Day; no child watch", "facility": ["12:00", "18:00"], "openSwim": [["12:00", "17:00"]] },
+    { "date": "2027-01-04", "note": "Winter break", "openSwim": [["12:00", "20:00"]] },
+    { "date": "2027-01-05", "note": "Winter break", "openSwim": [["12:00", "20:00"]] },
+    { "date": "2027-01-18", "note": "Martin Luther King Jr. Day", "openSwim": [["12:00", "20:00"]] },
+    { "date": "2027-01-19", "note": "School day off", "openSwim": [["12:00", "16:00"]] },
+    { "date": "2027-02-12", "note": "School day off", "openSwim": [["12:00", "20:00"]] },
+    { "date": "2027-02-15", "note": "Presidents’ Day", "openSwim": [["12:00", "20:00"]] },
+    { "date": "2027-03-04", "note": "School day off", "openSwim": [["12:00", "16:00"]] },
+    { "date": "2027-03-05", "note": "School day off", "openSwim": [["12:00", "20:00"]] },
+    { "date": "2027-03-07", "note": "Pool closed for cleaning", "openSwim": [], "lapSwim": [] }
+  ],
+  "prices": {
+    "source": "https://www.berthoud.org/244/Memberships-Admission",
+    "checked": "2026-11-06",
+    "dayPass": [
+      { "label": "Adult (16–59)", "price": "$7" },
+      { "label": "Senior (60 and over)", "price": "$5.50" },
+      { "label": "Youth (6–15)", "price": "$5.50" },
+      { "label": "Child (5 and under)", "price": "$3" },
+      { "label": "20-visit punch pass", "price": "$126" }
+    ],
+    "memberships": [
+      { "label": "Family (1–2 adults, up to 4 children)", "price": "$65 a month" },
+      { "label": "Adult (16–59)", "price": "$45 a month" },
+      { "label": "Senior (60 and over)", "price": "$27 a month" },
+      { "label": "Youth", "price": "$27 a month" }
+    ],
+    "note": "New memberships pay an application fee: $60 for a family, $30 for an individual. Annual prices are on the Town’s page; its web page and its winter guide give different figures, so none is repeated here. SilverSneakers, Renew Active, One Pass and Silver&Fit are accepted."
+  }
+}

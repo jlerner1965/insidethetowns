@@ -897,3 +897,13 @@ test('a bracket slot MaxPreps has not filled is named as one, not as an unreadab
   assert.deepEqual(p.warnings, ['a Class 2A bracket game with its date and opponent still to be set']);
   assert.equal(p.glance.length, 1, 'nothing invented for the slot');
 });
+
+test('a team’s season is over once nothing is to come and the last result is more than a week behind', async () => {
+  const { seasonOver } = await import('../src/lib/school-sports.ts');
+  const g = (date: string) => ({ date, opponent: 'X', site: 'home' as const, url: '', result: 'W' as const });
+  const soccer = { overall: '8-7', results: [g('2026-10-22'), g('2026-10-15')], upcoming: [] };
+  assert.equal(seasonOver(soccer, '2026-11-06'), true, 'boys soccer, two weeks on');
+  assert.equal(seasonOver(soccer, '2026-10-26'), false, 'four days on: a playoff draw may still name a date');
+  assert.equal(seasonOver({ ...soccer, upcoming: [{ date: '2026-11-10', opponent: 'Y', site: 'away' as const, url: '' }] }, '2026-11-06'), false, 'a game to come');
+  assert.equal(seasonOver({ overall: undefined, results: [], upcoming: [] }, '2026-11-06'), false, 'no record, nothing to say');
+});

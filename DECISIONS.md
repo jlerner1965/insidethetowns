@@ -8895,3 +8895,139 @@ applies: none of the six excluded brands came up.*
   Wednesdays, Thursdays and Saturdays · Free · every session and its hours
   →"; the hub's front page has none; a Berthoud newsletter draft to a
   scratch folder names no storytime.
+
+## Berthoud: the best reasons to come back, easy to find, 6 November 2026
+
+The owner's brief for the 90-day test (to 20 January 2027), judged on
+repeat visits and Thursday-email signups: Search Console (15 September to
+4 November) showed the event pages earning most clicks, the practical
+searches (the rec center and pool, the parks, restaurants and menus) on
+page one with almost no clicks because the result did not show the
+answer, and sports at about one percent of searches. One pass, nine
+items; the shared-template changes apply to every guide, the Berthoud
+items are content and data.
+
+- **Accuracy (Berthoud).** Ballot Issue 3G is `unofficial`, a new stage
+  ("Unofficial result") for a count that is in but not certified; the same
+  stage went on the six other towns' election-night updates the validator
+  then caught. The winter activity guide is out (the Town's Activity Guide
+  page, read 6 November: registration opened 1 November, early bird through
+  November), so its update reads in the past tense and is under way; the
+  Step Challenge's stage is under way (registration open, the Town's
+  Upcoming Events page). The futsal clinic reads as closed (see the rule
+  below) and the youth-sports entry no longer says the winter guide is to
+  come. Perky Pre-K Storytime skips 11 November and Terrific Toddler 27
+  November, from the library's closures page. Every Living here section
+  was read again and dated 6 November, with the corrections the pages
+  forced (the Larimer landfill has closed; the squad page prints no phone,
+  the sheriff's does; the advisory committees as the form lists them). The
+  Bein Park hero was not Carter Lake on the current build: the page has no
+  image and its share image is the town's bought hero. Johnstown's Paint
+  'n Sip says it is full in its title (the event schema has no "full"
+  status); The Long Run is music, not sports; Buckethead's times are the
+  ticket page's. Softball's season is complete: CHSAA's 3A bracket has the
+  12–0 win over Delta and the 2–3 quarterfinal loss to Lyons, both 23
+  October, and MaxPreps nothing later. The data holds both; the file
+  orders the win first, so "latest result" reads as the win. Not fixed by
+  hand: the sports run writes that file.
+- **Rules so nothing looks current when it is not (shared).** A program
+  whose deadline has passed and whose session is not under way reads
+  "Registration closed <date>" (programStatus rule 5; `closed` is a status
+  too), sorts with the full ones, and the nightly rebuild drops it from
+  Closing soon. A team with no game to come and its last result more than
+  a week behind says "Season over · final record 8–7" on its card and on
+  the band (`seasonOver`); a week, so a playoff draw does not get called
+  finished the morning after a win. The validator refuses stage `complete`
+  on an update whose words say unofficial or pending.
+- **The events page top (shared).** Title, the time filters, "Our picks
+  this week", the Thursday email, the calendar. The picks are the editor's
+  (the week's notes `picks`, or a listing's `featured`), three to five for
+  the next seven days, nothing chosen by a machine: with none the section
+  is not drawn, and the weekly template asks the drafter to propose a
+  family / free / music mix for James to approve. The Highlights block of
+  26 October, which ranked the fortnight itself, is gone; each pick is
+  tagged "Our pick" in the calendar and no listing appears twice. The
+  category and town rows, the regulars switch and the day strip sit behind
+  one native details, "Filter / Jump to date", at every width, so on a
+  390px phone the first screen is the title, the time filters and the
+  first pick; a shared link with a filter set opens it.
+- **This week's reading order (shared).** One local change (the most
+  important) with "All N current changes →", the pick, this weekend, the
+  Thursday email, the games, the registration deadlines, "Looking ahead"
+  (the editor's later pick and, on a quiet week or a Sunday, the next
+  listings), then New & closed, the corrections, the resident's question
+  and the feature, the checked line, the nearby towns and the day trips.
+  Every section is written once; the home page's block keeps its own
+  order, the home being out of the brief.
+- **The Thursday email mid-page (shared).** The same form, the town
+  pre-ticked, once more on Events (after the picks), This week (after the
+  weekend) and Families (after the deadlines); the foot keeps its own.
+- **The menu (shared).** "Things to do" takes the second slot from Events:
+  the parks, the rec center and the trails are what the searches are for,
+  and Events stays on the home page, This week and the footer. A guide
+  without the family hub keeps Events in the hub slot rather than listing
+  Things to do twice.
+
+## Place pages answer the search, and the rec center says what today holds, 6 November 2026
+
+- **The place title claims what the page has** (src/lib/titles.ts,
+  `placeTitle` with the page's facts): a venue whose hours are printed is
+  "Berthoud Town Hall Hours", the rec center "Berthoud Recreation Center
+  Hours, Pool Schedule & Day Pass Prices" (the pool schedule only where
+  there is schedule data, the prices only where sourced prices are on the
+  page); a restaurant or coffee house "Cornerstone Cafe: Menu & Hours"
+  with a menu link and "…: Hours & Location" without; a park its first
+  two or three tags, "Bein Park: Soccer Fields, Playground & Dog Park".
+  Hours hidden for age or season are not claimed, and a title that would
+  pass 70 even cut back keeps "Hall Ranch — Trail in Lyons, CO". Every
+  other type keeps that form.
+- **The description is one sentence** (src/lib/seo.ts, `placeDescription`):
+  the hours as printed ("… is open Mon–Thu 7 am–5:30 pm, closed Fri–Sun"),
+  else what is there from the summary's own "with" clause ("Pioneer Park
+  in Berthoud, CO has a playground, a basketball court…"), else the summary
+  as a predicate where it opens with an article, and then what else the
+  page has, as many of the menu, the pool schedule, the prices, the
+  address, the phone and directions as fit in 155. A list that runs long
+  loses its last items at a comma, never an ellipsis. It replaced the
+  summary followed by a list ("A&W in Berthoud, CO: address, hours,
+  phone, website and directions."), two fragments with the hours nowhere.
+- **`menuUrl`** on a place (src/content/schemas.ts): the place's own menu
+  or ordering page, a "Menu" row beside the hours and `hasMenu` in the
+  structured data, on food places only. Berthoud: Happy Eating's ordering
+  page and Cornerstone Cafe's page under New Freedom Ministry, both read
+  today. Not a delivery app's copy.
+- **Structured data** (`localBusinessJsonLd`): a venue is a Library, a
+  GovernmentOffice or a SportsActivityLocation by its tags; `url` is the
+  place's own site and the page is `mainEntityOfPage` (the page had been
+  `url` and the site `sameAs`); `openingHoursSpecification` from the same
+  parsed schedule as the badge, so no hour is claimed that the line does
+  not state; a Park gets none. test/place-jsonld.test.ts round-trips it.
+- **The rec center schedule is data** (data/berthoud/rec-center.json,
+  src/lib/rec-center.ts): facility hours, open swim and lap swim by
+  weekday for the school year, the Town's holiday hours and closures and
+  school-break swims as dated exceptions, and the prices, each with its
+  Town source and the day it was read. "Today at the rec center" (RecCenterToday)
+  is written in the browser on Denver's clock from the data on the page:
+  "Rec center 5 am–9 pm · Open swim 4–8 pm · Lap swim 5 am–4 pm", "Rec
+  center closed today · Thanksgiving Day", or "Check today’s hours" with
+  the Town's link on a day the data does not settle or past the season.
+  Without script the home page shows the week's table; the listing has it
+  below anyway. A holiday with its own facility hours says nothing about a
+  swim the Town did not list for it (a noon opening makes a 5 am lap swim
+  impossible). Only a town with the file renders any of it: the data, not
+  a flag.
+- **Prices** on the listing and in content/berthoud/programs/rec-center-passes.md
+  are the Town's memberships page's, checked today: day pass $3 under 6,
+  $5.50 youth 6–15, $7 adult, $5.50 at 60 and over; family $65 a month.
+  The Town's web page ($780 a year for a family) and its winter 2026–27
+  guide ($715) disagree on the annual prices, so neither is repeated.
+  The Thanksgiving-week swims are the winter guide's (noon to 8 on
+  November 23, 24 and 25; closed the 26th; the 27th open noon to 6, open
+  swim to 5), which differ from the fall guide the program file had used.
+- **Search**: the schedule section carries `data-pagefind-weight="7"` and
+  the words "pool", "swim" and "rec center" the h1 lacks; "pool", "swim"
+  and "rec center" each return the listing first (checked on the built
+  Berthoud site in Chrome).
+- Bein Park's tags now lead with its soccer fields and dog park, and the
+  Bike Park is filed as a park rather than a trail: it is the Town's bike
+  park, and the trail title said nothing of the pump track.

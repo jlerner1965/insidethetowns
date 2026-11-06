@@ -1,7 +1,7 @@
 ---
 title: "Ballot Issue 3G: Mountain Vista Park bonds fail in the counties' unofficial count"
 kind: decision
-stage: complete
+stage: unofficial
 summary: "In the counties' unofficial counts, Berthoud voters turned down $28 million in sales-tax revenue bonds for Mountain Vista Park: 4,513 against and 3,082 for, 59 percent no, across Larimer and Weld counties. The count is unofficial until the county clerks certify it later in November."
 affects: "Registered voters in the Town of Berthoud; anyone who uses the Town's parks and pools"
 effective: "2026-11-03"

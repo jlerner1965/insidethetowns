@@ -1,7 +1,7 @@
 ---
 title: "Frederick voters turned down the transportation sales tax, 2D, and the road bonds, 2E"
 kind: decision
-stage: complete
+stage: unofficial
 summary: "Both Town questions failed in Weld County's unofficial count. 2D, a 1 percent sales and use tax increase from January 1, 2027 for streets, intersections, sidewalks and regional projects such as Highway 52, had 3,485 votes for and 4,516 against. 2E, up to $26 million of road bonds, had 2,740 for and 5,162 against."
 affects: "Everyone who shops in Frederick, and every driver on the Town’s roads"
 action: "Nothing to do: neither the tax nor the bonds goes ahead. The count is unofficial until Weld County certifies it, and the county's results page carries it until then."

@@ -1,7 +1,7 @@
 ---
 title: "Four Board of Trustees seats: the county's updated unofficial count of November 4"
 kind: decision
-stage: complete
+stage: unofficial
 summary: "Elbert County's updated unofficial count for the Town of Elizabeth's four open Board of Trustees seats, posted at 4:56 pm on November 4, puts Tracy J. Hutchins, Ryan McKenna, Paul Schwarzkopf and Ramon Anthony Atencio in the top four, with Paula B. Ray six votes behind Atencio and Deborah Kula sixth. 1,230 ballots were cast in the race."
 affects: "Everyone in the Town of Elizabeth: the Board of Trustees is the town's governing body"
 action: "Check the county's results page for the count as it stands; the county labels it unofficial."

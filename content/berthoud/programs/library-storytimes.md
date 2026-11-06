@@ -20,7 +20,8 @@ nextEvent: perky-pre-k-storytime
 contact: "970-532-2757"
 featured: true
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-10-21"
+verified: "2026-11-06"
+verifiedBy: "Claude Code, delegated by James Lerner: the four weekly sessions and their times on the library's events page, and the November 11 and 26–27 closures on its 2026 closures page, read November 6, 2026"
 ---
 
 The library's weekly sessions for the youngest children, no registration: **Bouncing Baby Storytime** on Tuesdays at 10:30 for babies under two and their grown-ups; **Perky Pre-K Storytime** on Wednesdays at 10:30, stories, songs, movement and a craft; **Terrific Toddler Storytime** on Fridays at 10:30; and **Musical Moments**, a music program for preschoolers, on Mondays at 4. Each is on the calendar as its own listing with the next date: [baby](/events/bouncing-baby-storytime/), [pre-K](/events/perky-pre-k-storytime/), [toddler](/events/terrific-toddler-storytime/), [Musical Moments](/events/musical-moments-library/).

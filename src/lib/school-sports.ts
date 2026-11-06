@@ -288,6 +288,25 @@ export function season(team: SportData): SportGame[] {
  * football, 9-0, 25 October 2026); a playoff round not yet on MaxPreps is
  * the same from here. Nothing is said about a team with no results at all.
  */
+/** The last result more than this many days behind, with nothing to come: the season is over (seasonOver). */
+export const SEASON_OVER_DAYS = 7;
+
+/**
+ * One team's season is over: at least one result, no game to come, and the
+ * last result more than SEASON_OVER_DAYS behind `today` (a day key), so a
+ * team waiting on a playoff draw is not called finished the morning after
+ * a win. The team cards and the team page then say "Season over · final
+ * record" rather than leaving the next game blank (the owner's brief, 6
+ * November 2026).
+ */
+export function seasonOver(team: Pick<SportData, 'results' | 'upcoming' | 'overall'>, today: string): boolean {
+  if (!team.overall || team.results.length === 0) return false;
+  if (team.upcoming.some((g) => g.date >= today)) return false;
+  const last = [...team.results].map((g) => g.date).sort().at(-1)!;
+  const gap = (Date.parse(`${today}T12:00:00Z`) - Date.parse(`${last}T12:00:00Z`)) / 86_400_000;
+  return gap > SEASON_OVER_DAYS;
+}
+
 export function seasonComplete(data: SportsData, now = new Date()): boolean {
   const today = dayKey(now);
   const played = data.sports.filter((t) => t.results.length > 0);

@@ -140,6 +140,13 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
     </section>
   )}
 
+  {/* The Thursday email, once, after the deadlines and before the long
+      part of the page (the owner's brief, 6 November 2026: the signup sat
+      at the foot of a page few reach the foot of); the foot keeps its own. */}
+  <div class="mt-10">
+    <NewsletterSignup town={town} compact id="families-mid" />
+  </div>
+
   {groups.map(({ topic, programs: list }) => (
     <section id={`topic-${topic}`} class="mt-12 scroll-mt-20" aria-labelledby={`topic-${topic}-h`}>
       <SectionHeader id={`topic-${topic}-h`} title={TOPIC_HEADING[topic] ?? PROGRAM_TOPIC_LABELS[topic]} />

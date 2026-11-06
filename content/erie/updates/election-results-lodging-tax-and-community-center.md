@@ -1,7 +1,7 @@
 ---
 title: "Erie voters back a 3.5 percent lodging tax and turn down the Community Center sales tax"
 kind: decision
-stage: complete
+stage: unofficial
 summary: "In Boulder and Weld counties' unofficial counts of November 5, Ballot Issue 3E, a 3.5 percent lodging tax on hotel and short-term rental stays from January 1, 2027, passed 10,954 to 8,020. Ballot Issue 3F, a 0.501 percent sales and use tax and up to $32.5 million in debt to expand the Erie Community Center, failed 7,789 to 11,205."
 affects: "Anyone who books or lets a hotel room or short-term rental in Erie; everyone who uses the Erie Community Center"
 action: "Nothing to do. The two counties finish counting and the Canvass Board approves the results in late November; the counties' results pages carry the updates."

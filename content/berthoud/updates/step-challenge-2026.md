@@ -1,7 +1,7 @@
 ---
 title: "Step Challenge: free, November 15 to December 15, registration open"
 kind: program
-stage: scheduled
+stage: underway
 summary: "Berthoud Recreation's Step Challenge runs November 15 to December 15: track your daily steps in the department's free app, compete with neighbors on a live leaderboard, prizes for the top finishers. Free and open to everyone; register online, by phone at 970-532-1600, or at the Recreation Center front desk."
 affects: "Anyone in Berthoud who wants a reason to keep walking through the holidays; no membership needed"
 action: "Register online, call 970-532-1600 or stop by the front desk at 1000 N. Berthoud Parkway; the app instructions arrive after you register."
@@ -9,7 +9,8 @@ effective: "2026-11-15"
 effectiveEnd: "2026-12-15"
 effectiveNote: "Registration is open now; the challenge runs November 15 to December 15"
 published: "2026-11-04"
-verified: "2026-11-03"
+verified: "2026-11-06"
+verifiedBy: "Claude Code, delegated by James Lerner: the Town's Berthoud Recreation upcoming-events page read November 6, 2026, with its Step Challenge registration link live"
 source: "https://www.berthoud.org/1530/Upcoming-Events"
 sourceLabel: "Town of Berthoud: Berthoud Recreation upcoming events"
 alsoSource: "https://www.berthoud.org/CivicAlerts.aspx"

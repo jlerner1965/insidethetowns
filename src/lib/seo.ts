@@ -1,7 +1,8 @@
 /**
  * JSON-LD builders. Keep these pure so they are easy to eyeball in tests.
  */
-import { openingHoursOf } from './hours.ts';
+import { hhmm, hoursWithMeridiem, openingHoursOf, parseOpeningHours } from './hours.ts';
+import { namesTown } from './titles.ts';
 import type { CollectionEntry } from 'astro:content';
 // Relative rather than the '@/…' alias so the module loads in plain Node and
 // its builders can be unit-tested; Vite resolves both the same way.
@@ -167,41 +168,105 @@ export function excerptDescription(text: string, limit = META_DESCRIPTION_LIMIT,
 }
 
 /**
- * A place page's meta description: the listing's summary, and where that
- * is short, the name and town with what the page gives a reader, as the
- * page gives it. The summary is written for the page's intro and is often
- * one line ("Poke bowls and quick healthy lunches on Mountain Avenue, order
- * at the counter.", 78 characters), which Bing flags as too short and which
- * never names the place or the town. Hours are named only when the page
- * prints them, not when they are hidden for age or season; directions are
- * always on the page.
+ * A place page's meta description: one complete sentence, within the
+ * snippet's budget, that leads with the practical fact and promises only
+ * what the page shows (the Berthoud owner's brief, 6 November 2026). Until
+ * then it was the listing's summary and then a list: "Chinese takeout on
+ * Welch Avenue: the standard menu, done quickly, a few tables inside. Happy
+ * Eating Asian Cafe in Berthoud, CO: address, hours, phone and
+ * directions.", two fragments and the hours themselves nowhere.
+ *
+ * In order, the first that fits:
+ * - a closed place says so first, and that the page keeps what is known;
+ * - with the hours printed on the page (not hidden for age or season), the
+ *   hours: "Happy Eating Asian Cafe in Berthoud, CO is open Mon, Wed 10:30
+ *   am–9:30 pm, Thu–Sun 10:30 am–10:30 pm, closed Tue", with am and pm on
+ *   every time as the page prints them (hoursWithMeridiem);
+ * - else what is there, read off the summary's own "with" clause: "Pioneer
+ *   Park in Berthoud, CO has a playground, a basketball court, a roller
+ *   hockey rink, a fishing pond and three large picnic pavilions";
+ * - else the summary as a predicate, where it begins with an article:
+ *   "Waggener Farm Park in Berthoud, CO is the big park on the north side:
+ *   farm-themed playground, ...";
+ * - else only what the page gives.
+ * Then, while there is room, what else the page has (", with the menu,
+ * the address and directions on this page"), the menu, the pool schedule
+ * and the prices before the address and the phone; a shorter list where
+ * the whole does not fit, none where nothing fits. A name that carries the
+ * town's ("Berthoud Town Park") is not placed in it again (namesTown).
  */
-export function placeDescription(
-  place: { title: string; summary: string; status?: string; address?: string; phone?: string; url?: string; hoursShown: boolean },
-  town: { name: string; state: string },
-): string {
-  const base = place.status ? `${place.status}. ${place.summary}` : place.summary;
-  const facts = (drop: string[]) =>
-    listWords(
-      [
-        place.address ? 'address' : undefined,
-        place.hoursShown ? 'hours' : undefined,
-        place.phone ? 'phone' : undefined,
-        place.url ? 'website' : undefined,
-        'directions',
-      ].filter((w): w is string => !!w && !drop.includes(w)),
-    );
-  const where = `${town.name}, ${town.state}`;
-  // The name and the town matter more than the list, so the website and
-  // then the phone give way first.
-  return fillDescription(base, [
-    `${place.title} in ${where}: ${facts([])}.`,
-    `${place.title} in ${where}: ${facts(['website'])}.`,
-    `${place.title} in ${where}: ${facts(['website', 'phone'])}.`,
-    `${place.title} in ${where}.`,
-    `In ${where}: ${facts(['website', 'phone'])}.`,
-    `In ${where}.`,
-  ]);
+export interface PlaceDescriptionFacts {
+  title: string;
+  summary: string;
+  /** "Temporarily closed", "Permanently closed": said first. */
+  status?: string;
+  address?: string;
+  phone?: string;
+  url?: string;
+  /** Whether the page prints the hours; false when they are hidden for age or season. */
+  hoursShown: boolean;
+  /** The hours line as the listing carries it, used only when `hoursShown`. */
+  hours?: string;
+  menu?: boolean;
+  poolSchedule?: boolean;
+  dayPassPrices?: boolean;
+  trailMap?: boolean;
+}
+
+export function placeDescription(place: PlaceDescriptionFacts, town: { name: string; state: string }, limit = META_DESCRIPTION_LIMIT): string {
+  const subject = namesTown(place.title, town.name) ? place.title : `${place.title} in ${town.name}, ${town.state}`;
+  const features = [
+    place.menu ? 'the menu' : undefined,
+    place.poolSchedule ? 'the pool schedule' : undefined,
+    place.dayPassPrices ? 'day pass prices' : undefined,
+    place.trailMap ? 'a trail map' : undefined,
+    place.address ? 'the address' : undefined,
+    place.phone ? 'phone' : undefined,
+    place.url ? 'website' : undefined,
+    'directions',
+  ].filter((f): f is string => !!f);
+  // A lead that runs long loses the last of its list, at a comma, and the
+  // one before it takes "and": a whole sentence, not a cut one.
+  const shorten = (lead: string): string | undefined => {
+    const items = lead.split(/,\s+/);
+    while (lead.length + 1 > limit && items.length > 2) {
+      items.pop();
+      const last = items[items.length - 1]!;
+      lead = `${items.slice(0, -1).join(', ')}${/^and\s/.test(last) ? ', ' : ' and '}${last}`;
+    }
+    return lead.length + 1 <= limit ? lead : undefined;
+  };
+  // The lead, then as many of the page's offerings as fit after it.
+  const withFeatures = (long: string): string | undefined => {
+    const lead = shorten(long);
+    if (!lead) return undefined;
+    for (let n = features.length; n >= 1; n--) {
+      const line = `${lead}, with ${listWords(features.slice(0, n))} on this page.`;
+      if (line.length <= limit) return line;
+    }
+    return `${lead}.`;
+  };
+  if (place.status) {
+    return clampText(`${subject} is ${place.status.toLowerCase()}; this page keeps the address and what is known about it.`, limit);
+  }
+  if (place.hoursShown && place.hours) {
+    const line = hoursWithMeridiem(place.hours).replace(/;\s*/g, ', ').replace(/[.\s]+$/, '');
+    // The hours are not shortened: a day dropped is an hour not stated.
+    const lead = `${subject} is open ${line}`;
+    if (lead.length + 1 <= limit) return withFeatures(lead)!;
+  }
+  const first = firstSentence(markdownToText(place.summary)).replace(/[.!?]+$/, '');
+  // "Neighborhood park on Indiana Avenue with a playground, …": the clause after the first "with".
+  const clause = first.match(/^(.{12,}?),?\s+with\s+(.{20,})$/i);
+  if (clause) {
+    const out = withFeatures(`${subject} has ${clause[2]}`);
+    if (out) return out;
+  }
+  if (/^(the|a|an|this)\s/i.test(first)) {
+    const out = withFeatures(`${subject} is ${first.charAt(0).toLowerCase()}${first.slice(1)}`);
+    if (out) return out;
+  }
+  return withFeatures(`${subject} is listed here`) ?? clampText(`${subject}.`, limit);
 }
 
 /**
@@ -633,14 +698,15 @@ export function webPageJsonLd(
   };
 }
 
-export function localBusinessJsonLd(
-  town: TownConfig,
-  place: CollectionEntry<'places'>,
-  url: string,
-  imageUrl?: string,
-) {
-  const { data } = place;
-  const hours = openingHoursOf(data);
+/**
+ * The schema.org type a listing's `type` maps to. A venue is told apart by
+ * its tags (6 November 2026): a library, a town hall and a recreation
+ * center are not event venues to a search engine, and the types it does
+ * read (Library, GovernmentOffice, SportsActivityLocation) are what put
+ * "Berthoud Recreation Center hours" in a result with the hours on it.
+ * A venue with none of those tags stays an EventVenue, as before.
+ */
+export function placeSchemaType(type: string, tags: readonly string[] = []): string {
   const typeMap: Record<string, string> = {
     restaurant: 'Restaurant',
     bar: 'BarOrPub',
@@ -653,17 +719,67 @@ export function localBusinessJsonLd(
     venue: 'EventVenue',
     service: 'LocalBusiness',
   };
+  if (type === 'venue') {
+    const has = (word: string) => tags.some((t) => t.toLowerCase() === word);
+    if (has('library')) return 'Library';
+    if (has('government')) return 'GovernmentOffice';
+    if (['pool', 'gym', 'recreation', 'fitness', 'climbing wall'].some(has)) return 'SportsActivityLocation';
+    if (has('museum')) return 'Museum';
+  }
+  return typeMap[type] ?? 'LocalBusiness';
+}
+
+const SCHEMA_DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] as const;
+
+/**
+ * The listing's hours as OpeningHoursSpecification nodes, one per run,
+ * from the same parsed schedule as the open-now badge (src/lib/hours.ts):
+ * nothing when the line cannot be read in full, so no node claims an hour
+ * the listing does not state. A run past midnight closes at its clock
+ * time ("02:00"), which is how schema.org reads it.
+ */
+export function openingHoursSpecification(spec: readonly string[]) {
+  return parseOpeningHours(spec).map((span) => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: span.days.map((d) => SCHEMA_DAYS[d]),
+    opens: hhmm(span.open),
+    closes: hhmm(span.close >= 24 * 60 ? span.close - 24 * 60 : span.close),
+  }));
+}
+
+/** The types that may carry `hasMenu`: schema.org's FoodEstablishment and its kinds. */
+const FOOD_TYPES: ReadonlySet<string> = new Set(['restaurant', 'bar', 'coffee']);
+
+/**
+ * A listing's structured data. `url` is the place's own site where the
+ * listing has one, and this page is `mainEntityOfPage` (6 November 2026;
+ * until then the page was `url` and the site `sameAs`, which told a search
+ * engine the guide was the business). The hours go out twice, as
+ * `openingHours` strings and as OpeningHoursSpecification, both from the
+ * one parsed schedule; `hasMenu` only with a menu link and only on a food
+ * place, where the vocabulary has it.
+ */
+export function localBusinessJsonLd(
+  town: TownConfig,
+  place: CollectionEntry<'places'>,
+  url: string,
+  imageUrl?: string,
+) {
+  const { data } = place;
+  const hours = openingHoursOf(data);
+  const menuUrl = (data as { menuUrl?: string }).menuUrl;
   return {
     '@context': 'https://schema.org',
-    '@type': typeMap[data.type] ?? 'LocalBusiness',
+    '@type': placeSchemaType(data.type, data.tags),
     name: data.title,
     description: data.summary,
     address: postalAddress(data.address, town),
-    ...(data.url ? { sameAs: data.url } : {}),
+    url: data.url ?? url,
+    mainEntityOfPage: url,
     ...(data.phone ? { telephone: data.phone } : {}),
     ...(data.priceRange ? { priceRange: data.priceRange } : {}),
-    ...(hours ? { openingHours: hours } : {}),
+    ...(hours ? { openingHours: hours, openingHoursSpecification: openingHoursSpecification(hours) } : {}),
+    ...(menuUrl && FOOD_TYPES.has(data.type) ? { hasMenu: menuUrl } : {}),
     ...(imageUrl ? { image: imageUrl } : {}),
-    url,
   };
 }

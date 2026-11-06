@@ -1,7 +1,7 @@
 ---
 title: "Castle Rock's mayor and two Council seats: Douglas County's unofficial count"
 kind: decision
-stage: complete
+stage: unofficial
 summary: "Douglas County's unofficial count, last updated at 5:16 pm on November 5, has Laura Cavey leading the race for mayor with 18,177 votes, ahead of Amelia Thomas with 10,473 and Stu Butler with 7,458. Matt Smith leads Tiffany Coyle by 184 votes in Council District 3, and Mitchell Sawin leads Patrick Reilly in District 5."
 affects: "Everyone in the Town of Castle Rock, and voters in Council Districts 3 and 5"
 action: "Check the county's results page for the count as it stands; the county labels it unofficial."

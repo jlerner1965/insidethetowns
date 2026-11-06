@@ -65,6 +65,10 @@ const label = (status: 'canceled' | 'postponed') => (status === 'canceled' ? 'Ca
     </div>
     {tabs.map((t) => (
       <div role="tabpanel" id={`panel-${t.key}`} aria-labelledby={`tab-${t.key}`} hidden={t.key !== open} tabindex="0">
+        {/* Above the day's listings on the Today tab, where the home passes one: "Today at the rec center" (RecCenterToday). */}
+        {t.key === 'today' && Astro.slots.has('today') && (
+          <div class="mt-4 border-b border-line-soft pb-3"><slot name="today" /></div>
+        )}
         <div data-events-scope>
         {t.rows.length > 0 && (
           <ol class="divide-y divide-line-soft">

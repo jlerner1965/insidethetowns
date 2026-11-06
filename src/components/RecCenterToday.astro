@@ -1,0 +1,86 @@
+---
+/**
+ * "Today at the rec center" (the Berthoud owner's brief, 6 November 2026):
+ * one line, "Rec center 5 am–9 pm · Open swim 4–8 pm · Lap swim 5 am–4 pm",
+ * at the top of the listing and in the home page's Today tab. The day is
+ * worked out in the browser on Denver's clock from the schedule the page
+ * carries (src/lib/rec-center.ts, recCenterToday), so a page built on
+ * Wednesday says Thursday's hours on Thursday without a rebuild. On a
+ * closure it says so and why ("Rec center closed today · Thanksgiving
+ * Day"); on a day the Town has not settled, or past the season's last
+ * day, it says "Check today’s hours" and links the Town's page.
+ *
+ * Without script the line stays hidden: `fallback` puts the week's table
+ * in its place (the home page), and the listing, which has the table
+ * below, shows nothing here. Only a town with a schedule file renders it
+ * at all, which is the data's doing and not a flag's.
+ */
+import RecCenterWeek from './RecCenterWeek.astro';
+import type { RecCenterData } from '@/lib/rec-center';
+
+interface Props {
+  data: RecCenterData;
+  /** The week's table until the browser writes the line. */
+  fallback?: boolean;
+  /** The listing's own page, linked after the line where this is not it. */
+  href?: string;
+  class?: string;
+}
+
+const { data, fallback = false, href, class: cls } = Astro.props;
+// Only what the day needs, so the home page does not carry the prices and the sources twice.
+const payload = JSON.stringify({
+  shortName: data.shortName,
+  season: data.season,
+  facility: data.facility,
+  openSwim: data.openSwim,
+  lapSwim: data.lapSwim,
+  monthly: data.monthly ?? [],
+  exceptions: data.exceptions.map(({ source, ...e }) => e),
+});
+---
+<div data-rec-center data-rec={payload} class:list={cls}>
+  <p data-rec-line hidden class="text-[1.0625rem] leading-snug">
+    <span data-rec-text class="font-semibold text-ink"></span>
+    {/* The Town's link: the line's end on the listing; on the home, only when the day needs it (closed, or not settled), since the listing's link follows. */}
+    <span data-rec-town hidden={!!href}>{' '}<a href={data.scheduleUrl} rel="noopener" class="text-primary underline" data-rec-town-link>Full schedule →</a></span>
+    {href && <span>{' '}<a href={href} class="text-primary underline">Schedule &amp; passes →</a></span>}
+  </p>
+  {fallback && (
+    <div data-rec-week class="mb-4">
+      <p class="text-[0.9375rem] font-semibold text-ink">This week at the rec center</p>
+      <RecCenterWeek data={data} class="mt-2" />
+      <p class="mt-2 text-[0.9375rem]">
+        <a href={data.scheduleUrl} rel="noopener" class="text-primary underline">The Town’s schedule page</a>
+        {href && <Fragment>{' · '}<a href={href} class="text-primary underline">Schedule &amp; passes</a></Fragment>}
+      </p>
+    </div>
+  )}
+</div>
+
+<script>
+  import { recCenterToday, todayLine, type RecCenterData } from '@/lib/rec-center';
+
+  for (const el of document.querySelectorAll<HTMLElement>('[data-rec-center]')) {
+    let data: RecCenterData;
+    try {
+      data = JSON.parse(el.dataset.rec ?? '') as RecCenterData;
+    } catch {
+      continue;
+    }
+    const status = recCenterToday(data, new Date());
+    const text = el.querySelector<HTMLElement>('[data-rec-text]');
+    const line = el.querySelector<HTMLElement>('[data-rec-line]');
+    const townLink = el.querySelector<HTMLAnchorElement>('[data-rec-town-link]');
+    if (!text || !line) continue;
+    text.textContent = todayLine(status, data);
+    // "Check today’s hours on the Town’s page →": the link is the sentence's end.
+    if (townLink) {
+      townLink.textContent = status.kind === 'check' ? 'on the Town’s page →' : status.kind === 'closed' ? 'Holiday hours →' : 'Full schedule →';
+      if (status.kind !== 'open') townLink.closest<HTMLElement>('[data-rec-town]')?.removeAttribute('hidden');
+    }
+    el.dataset.recKind = status.kind;
+    line.hidden = false;
+    el.querySelector<HTMLElement>('[data-rec-week]')?.setAttribute('hidden', '');
+  }
+</script>

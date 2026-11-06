@@ -102,6 +102,41 @@ export function pageTitle(site: TitleSite, title?: string): string {
 }
 
 /**
+ * What a place page shows, for a title that claims only what is there
+ * (the Berthoud owner's brief, 6 November 2026: "show the answer in search
+ * results"). `hours` is whether the page prints the hours, not whether
+ * the listing has them: hidden for age or season, they are not promised.
+ */
+export interface PlacePageFacts {
+  type: string;
+  hours: boolean;
+  menu: boolean;
+  /** A weekly pool schedule on the page (src/lib/rec-center.ts). */
+  poolSchedule: boolean;
+  /** Sourced day-pass prices on the page. */
+  dayPassPrices: boolean;
+  /** The listing's tags, in the editor's order: a park's top amenities. */
+  amenities: readonly string[];
+}
+
+/** "ball fields" → "Ball Fields"; "no-dogs" → "No Dogs"; "of" and "and" stay small after the first word. */
+export function amenityLabel(tag: string): string {
+  const small = new Set(['and', 'of', 'the', 'for', 'to', 'in', 'on', 'at']);
+  return tag
+    .replace(/-/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .map((w, i) => (i > 0 && small.has(w.toLowerCase()) ? w.toLowerCase() : w.charAt(0).toUpperCase() + w.slice(1)))
+    .join(' ');
+}
+
+/** "Hours", "Hours & Pool Schedule", "Hours, Pool Schedule & Day Pass Prices". */
+function ampersandList(parts: readonly string[]): string {
+  if (parts.length <= 1) return parts.join('');
+  return `${parts.slice(0, -1).join(', ')} & ${parts[parts.length - 1]}`;
+}
+
+/**
  * The <title> of a place page, before the site title is appended: what the
  * place is and where. "Hall Ranch | Inside Lyons" told a search result
  * nothing about which Hall Ranch or what kind of place it is; "Hall Ranch —
@@ -109,8 +144,55 @@ export function pageTitle(site: TitleSite, title?: string): string {
  * is shown (search-visibility phase 1, 15 October 2026). A place whose
  * name already carries the town's ("Niwot Market") is not told twice where
  * it is. The h1 on the page stays the bare name.
+ *
+ * With `facts`, the title says what the page answers (6 November 2026),
+ * and only that:
+ * - a venue with its hours shown: "{Name} Hours", then ", Pool Schedule"
+ *   where the page has the weekly pool schedule and " & Day Pass Prices"
+ *   where it has sourced prices;
+ * - a restaurant or a coffee house: "{Name}: Menu & Hours" with a menu
+ *   link and the hours, "{Name}: Hours & Location" with the hours alone,
+ *   "{Name}: Menu & Location" with the menu alone;
+ * - a park: "{Name}: {two or three of its tags}", "Bein Park: Soccer
+ *   Fields, Playground & Dog Park", from the listing's tags in the
+ *   editor's order.
+ * Any other type, a venue whose hours are hidden, a park with one tag, or
+ * a title that would run past TITLE_LIMIT even cut back, keeps the kind-
+ * and-town form. The guide's name is still added where it fits (fitTitle).
  */
-export function placeTitle(name: string, kind: string, town: { name: string; state: string }): string {
-  const named = new RegExp(`\\b${town.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(name);
-  return named ? `${name} — ${kind}` : `${name} — ${kind} in ${town.name}, ${town.state}`;
+/** Whether a place's name already carries the town's ("Niwot Market"), as a whole word: "Goldenrod" is not Golden. */
+export function namesTown(name: string, town: string): boolean {
+  return new RegExp(`\\b${town.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(name);
+}
+
+export function placeTitle(name: string, kind: string, town: { name: string; state: string }, facts?: PlacePageFacts): string {
+  const named = namesTown(name, town.name);
+  const plain = named ? `${name} — ${kind}` : `${name} — ${kind} in ${town.name}, ${town.state}`;
+  if (!facts) return plain;
+  const fits = (t: string) => t.length <= TITLE_LIMIT;
+  if (facts.type === 'venue' && facts.hours) {
+    const parts = ['Hours', ...(facts.poolSchedule ? ['Pool Schedule'] : []), ...(facts.dayPassPrices ? ['Day Pass Prices'] : [])];
+    // Over the limit, the last claim gives way first: the hours are the title's point.
+    for (let n = parts.length; n >= 1; n--) {
+      const title = `${name} ${ampersandList(parts.slice(0, n))}`;
+      if (fits(title)) return title;
+    }
+    return plain;
+  }
+  if (facts.type === 'restaurant' || facts.type === 'coffee') {
+    const tail = facts.menu && facts.hours ? 'Menu & Hours' : facts.hours ? 'Hours & Location' : facts.menu ? 'Menu & Location' : undefined;
+    if (!tail) return plain;
+    const title = `${name}: ${tail}`;
+    return fits(title) ? title : plain;
+  }
+  if (facts.type === 'park') {
+    const labels = facts.amenities.map(amenityLabel).filter(Boolean);
+    for (const n of [3, 2]) {
+      if (labels.length < n) continue;
+      const title = `${name}: ${ampersandList(labels.slice(0, n))}`;
+      if (fits(title)) return title;
+    }
+    return plain;
+  }
+  return plain;
 }

@@ -80,7 +80,8 @@ test('full, open and not started yet, each from its own evidence', () => {
 
   const signUps = program('Camp', { registration: { required: true, deadline: at('2026-11-13') } });
   assert.deepEqual(programStatus(signUps, now), { state: 'open', label: 'Open now', detail: 'Sign up by November 13' });
-  assert.equal(programStatus(signUps, at('2026-11-14')), undefined, 'a passed deadline is the row’s to say, not a status');
+  // Until 6 November 2026 a passed deadline was the row's to say in muted type; now it is a state, with the full, so it sorts after what a reader can still join.
+  assert.deepEqual(programStatus(signUps, at('2026-11-14')), { state: 'closed', label: 'Registration closed', detail: 'Registration closed November 13' }, 'a passed deadline reads as closed');
 
   const opening = program('Basketball', { registration: { required: true, opens: at('2026-11-02'), deadline: at('2026-11-16') } });
   assert.equal(programStatus(opening, now)?.state, 'upcoming');

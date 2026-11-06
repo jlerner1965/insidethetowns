@@ -1,0 +1,39 @@
+---
+/**
+ * The rec center's week as a table: the facility's hours, open swim and
+ * lap swim by day, from data/<town>/rec-center.json (src/lib/rec-center.ts).
+ * The no-script fallback under "Today at the rec center" on the home page
+ * and the schedule on the listing itself; one table, so the two cannot
+ * disagree.
+ */
+import { weekRows, type RecCenterData } from '@/lib/rec-center';
+
+interface Props {
+  data: RecCenterData;
+  class?: string;
+}
+
+const { data, class: cls } = Astro.props;
+const rows = weekRows(data);
+---
+<table class:list={['w-full border-collapse text-[0.9375rem] leading-snug', cls]}>
+  <caption class="sr-only">{data.name}: hours, open swim and lap swim by day, {data.season.label}</caption>
+  <thead>
+    <tr class="border-b border-line text-left text-[0.8125rem] uppercase tracking-[0.08em] text-ink-muted">
+      <th scope="col" class="py-2 pr-3 font-semibold">Day</th>
+      <th scope="col" class="py-2 pr-3 font-semibold">Hours</th>
+      <th scope="col" class="py-2 pr-3 font-semibold">Open swim</th>
+      <th scope="col" class="py-2 font-semibold">Lap swim</th>
+    </tr>
+  </thead>
+  <tbody class="divide-y divide-line-soft">
+    {rows.map((r) => (
+      <tr class="align-top">
+        <th scope="row" class="py-2 pr-3 text-left font-semibold">{r.day}</th>
+        <td class="py-2 pr-3 tabular-nums">{r.facility}</td>
+        <td class="py-2 pr-3 tabular-nums">{r.openSwim}</td>
+        <td class="py-2 tabular-nums">{r.lapSwim}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>

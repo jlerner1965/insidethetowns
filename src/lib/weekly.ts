@@ -69,14 +69,42 @@ export interface WeekPick<T extends EventLike = EventLike> {
   comingUp?: Pick<T>;
 }
 
-/** The listing a pick's URL names, "/events/<slug>/", or undefined for any other link. */
+/** The listing a pick's URL names, "/events/<slug>/" (a path on this guide or the full URL), or undefined for any other link. */
 export function pickSlug(url: string | undefined): string | undefined {
   if (!url) return undefined;
   try {
-    return new URL(url).pathname.match(/^\/events\/([^/]+)\/?$/)?.[1];
+    return new URL(url, 'https://guide.invalid').pathname.match(/^\/events\/([^/]+)\/?$/)?.[1];
   } catch {
     return undefined;
   }
+}
+
+/** How far ahead "Our picks this week" reaches: the next seven days. */
+export const PICKS_DAYS = 7;
+
+/**
+ * Our picks this week (the owner's brief, 6 November 2026): the listings
+ * the current week's notes name under `picks`, and any listing flagged
+ * `featured`, that start within the next seven days and are neither over
+ * nor called off, once each, soonest first, at most `limit`. Nothing else:
+ * a quiet week has no picks, and the events page draws no section rather
+ * than choosing for the editor. Pass occurrences, so a run is at its next day.
+ */
+export function currentPicks<T extends EventLike>(entries: readonly NotesLike[], events: readonly T[], now = new Date(), limit = 5): T[] {
+  const urls = currentNotes(entries, now)?.data.picks ?? [];
+  const named = new Set(urls.map(pickSlug).filter((s): s is string => !!s));
+  const end = startOfDay(now).getTime() + PICKS_DAYS * 86_400_000;
+  const seen = new Set<string>();
+  return sortByStart(
+    events.filter((e) => {
+      const slug = e.slug ?? e.id;
+      if (!slug || !(named.has(slug) || e.data.featured)) return false;
+      if (isCanceled(e) || isPast(e, now) || e.data.start.getTime() >= end) return false;
+      if (seen.has(slug)) return false;
+      seen.add(slug);
+      return true;
+    }),
+  ).slice(0, limit);
 }
 
 /**

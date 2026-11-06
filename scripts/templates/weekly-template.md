@@ -19,6 +19,12 @@ pick:
   title: ""
   body: ""
   url: ""
+# Our picks this week: propose 3 to 5 listings for the next 7 days, a family /
+# free / music mix, each as its url on this guide; James approves by leaving
+# them in. The events page shows them as "Our picks this week" and tags each
+# "Our pick" in the list. None, and no listing flagged featured: no section.
+picks:
+  - ""
 changes:              # New & closed
   - tag: opening      # opening | closed | new-hours | moved | added-to-guide
     name: ""

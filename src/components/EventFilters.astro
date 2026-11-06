@@ -63,12 +63,13 @@ const when = [
 ];
 const pill =
   'rounded-full border border-primary-line bg-raised px-4 py-2 text-sm sm:py-1.5 font-medium text-ink-muted transition-colors hover:border-primary hover:text-primary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-white';
-// Which rows a phone folds away (design pass, 26 October 2026): the "when"
-// row is always out, it being what a reader asks first; the category and
-// town rows sit behind one "Filter by type" button below the sm width, and
-// open on their own when a shared link has one of them set. From sm up
-// every row is out, as before.
-const foldable = categories.length > 1 || subTowns.length > 1;
+// The "when" row is always out, it being what a reader asks first. The
+// category and town rows, the weekly-regulars switch and the day strip (the
+// page passes it in the slot) sit behind one "Filter / Jump to date"
+// control at every width (the owner's brief, 6 November 2026: on a phone
+// the first screen is the title, the time filters and the first pick), a
+// native details, so it opens from the keyboard and without the script. A
+// shared link with one of those filters set opens it (the script below).
 ---
 <div class="mb-4 space-y-2 md:mb-5" data-event-filters>
   <div class="filter-row" role="group" aria-label="Filter events by time">
@@ -80,14 +81,12 @@ const foldable = categories.length > 1 || subTowns.length > 1;
       ))}
     </div>
   </div>
-  {foldable && (
-    <p class="sm:hidden">
-      <button type="button" class="inline-flex min-h-11 items-center gap-1.5 text-[0.9375rem] font-semibold text-primary underline" aria-expanded="false" aria-controls="event-filter-more" data-filter-more>
-        Filter by type<span data-filter-more-count></span>
-      </button>
-    </p>
-  )}
-  <div id="event-filter-more" class:list={['space-y-3', foldable && 'max-sm:hidden']} data-filter-fold>
+  <details class="group" data-filter-details>
+    <summary class="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 text-[0.9375rem] font-semibold text-primary underline [&::-webkit-details-marker]:hidden">
+      <span aria-hidden="true" class="transition-transform group-open:rotate-90">›</span>
+      <span class="group-open:hidden">Filter / Jump to date</span><span class="hidden group-open:inline">Hide the filters</span><span data-filter-more-count></span>
+    </summary>
+  <div class="mt-3 space-y-3">
   <div class="filter-row" role="group" aria-label="Filter events by category">
     <span class="eyebrow text-ink-muted">What</span>
     <div class="filter-pills">
@@ -110,13 +109,16 @@ const foldable = categories.length > 1 || subTowns.length > 1;
       </div>
     </div>
   )}
-  </div>
   {regulars && (
     <label class="flex w-fit cursor-pointer items-start gap-2.5 py-1.5 text-[0.9375rem] leading-snug" data-regulars-toggle>
       <input type="checkbox" class="mt-0.5 size-5 shrink-0 rounded border-line accent-primary" data-regulars />
       <span><span class="font-semibold">Show the weekly regulars on their days</span><span class="text-ink-muted"> (storytimes, trivia, classes; otherwise once each under “Every week”)</span></span>
     </label>
   )}
+  {/* The day strip, "Jump to Fri Nov 6 · Sat Nov 7 …", where the page passes it. */}
+  <slot />
+  </div>
+  </details>
   {/* What is set, and the way back to the whole list, in view whenever a
       filter is on: the only reset was in the empty state before, so a reader
       with a shared "free music this weekend" link had to find the pressed
@@ -147,18 +149,11 @@ const foldable = categories.length > 1 || subTowns.length > 1;
     const status = bar.querySelector<HTMLElement>('[data-filter-status]');
     const active = bar.querySelector<HTMLElement>('[data-filter-active]');
     const activeWords = bar.querySelector<HTMLElement>('[data-filter-active-words]');
-    const fold = bar.querySelector<HTMLElement>('[data-filter-fold]');
-    const more = bar.querySelector<HTMLButtonElement>('[data-filter-more]');
+    const details = bar.querySelector<HTMLDetailsElement>('[data-filter-details]');
     const moreCount = bar.querySelector<HTMLElement>('[data-filter-more-count]');
     const regularsBox = bar.querySelector<HTMLInputElement>('[data-regulars]');
     // The day strip's "Every week" chip points at a section the switch puts aside.
     const everyWeekChip = root.querySelector<HTMLElement>('[data-day-strip] a[href="#every-week"]')?.closest('li');
-    const setFold = (open: boolean) => {
-      fold?.classList.toggle('max-sm:hidden', !open);
-      more?.setAttribute('aria-expanded', String(open));
-    };
-    more?.addEventListener('click', () => setFold(more.getAttribute('aria-expanded') !== 'true'));
-
     const WHEN = new Set([...whenButtons].map((b) => b.dataset.when));
     const CATS = new Set([...catButtons].map((b) => b.dataset.category));
     const WHERE = new Set([...whereButtons].map((b) => b.dataset.where));
@@ -220,8 +215,8 @@ const foldable = categories.length > 1 || subTowns.length > 1;
       // The highlights lead the whole list only; a filtered list is the list alone.
       const highlights = root.querySelector<HTMLElement>('[data-filter-highlights]');
       if (highlights) highlights.hidden = on;
-      // A phone's folded rows: how many of them are set, on the button.
-      const folded = (category !== 'all' ? 1 : 0) + (free ? 1 : 0) + (where !== 'all' ? 1 : 0);
+      // The folded rows: how many of them are set, on the control.
+      const folded = (category !== 'all' ? 1 : 0) + (free ? 1 : 0) + (where !== 'all' ? 1 : 0) + (regulars ? 1 : 0);
       if (moreCount) moreCount.textContent = folded > 0 ? ` (${folded} on)` : '';
       if (push) {
         const url = new URL(location.href);
@@ -297,7 +292,7 @@ const foldable = categories.length > 1 || subTowns.length > 1;
     if (c && CATS.has(c)) category = c;
     if (sub && WHERE.has(sub)) where = sub;
     if (regularsBox && params.get('regulars') === '1') regulars = true;
-    if (category !== 'all' || free || where !== 'all') setFold(true);
+    if (details && (category !== 'all' || free || where !== 'all' || regulars)) details.open = true;
     apply(when, category, free, where, regulars, false);
   }
 </script>

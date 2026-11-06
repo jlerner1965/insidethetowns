@@ -1,5 +1,5 @@
 ---
-title: "Paint 'n Sip"
+title: "Paint 'n Sip (full; waiting list)"
 start: "2026-11-06T18:30"
 end: "2026-11-06T20:30"
 venue: "Glenn A. Jones, M.D. Memorial Library"

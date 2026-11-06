@@ -8,6 +8,8 @@
  * its own under its masthead.
  */
 import SeasonTable from './SeasonTable.astro';
+import { seasonOver } from '@/lib/school-sports';
+import { dashed } from '@/lib/flagship-home';
 import type { SportData } from '@/config/school-sports';
 import { formatDayShort, formatShortDate } from '@/lib/dates';
 import { dedupeResults, gameDay as day, leaguePlace, outcome, RESULT_WORD, season } from '@/lib/school-sports';
@@ -37,6 +39,12 @@ const form = [...results].reverse();
 const wins = results.filter((g) => g.result === 'W').length;
 const ahead = s.upcoming.filter((g) => g.date >= today);
 const lead = ahead.length > 0 ? ahead.slice(0, 5) : results.slice(0, 3);
+// Nothing left to play and the last game more than a week behind: the
+// season is over, and the card says so with the final record instead of a
+// "next game" that is blank (the owner's brief, 6 November 2026). A week,
+// because a playoff draw can leave a team with no next date for a few days
+// after a win (Berthoud softball, October 2026) and that is not over.
+const over = seasonOver(s, today);
 ---
 <article id={s.key} class:list={['scroll-mt-24 rounded-lg bg-raised p-5 ring-1 ring-primary-line sm:p-7', className]} aria-labelledby={`${s.key}-title`}>
   <header class="grid gap-5 border-b-2 border-accent pb-5 md:grid-cols-[1fr_auto] md:items-end">
@@ -75,6 +83,9 @@ const lead = ahead.length > 0 ? ahead.slice(0, 5) : results.slice(0, 3);
     )}
   </header>
 
+  {over && (
+    <p class="mt-5 text-[1.0625rem] font-semibold">Season over · final record {dashed(s.overall!)}{s.league ? <span class="font-normal text-ink-muted">, {dashed(s.league.record)} in the {s.league.name}</span> : null}</p>
+  )}
   {lead.length > 0 && (
     <SeasonTable
       games={lead}

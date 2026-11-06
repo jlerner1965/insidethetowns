@@ -156,31 +156,41 @@ test('a short description takes one more whole sentence, the first that fits; a 
   assert.equal(fillDescription('A short line.', ['More here.']), 'A short line. More here.');
 });
 
-test('a place page names the place, the town and only what the page shows', () => {
+test('a place page is one sentence that leads with the hours and promises only what the page shows', () => {
+  // Rewritten 6 November 2026 (the Berthoud owner's brief): the summary and
+  // then a list ("Aussie’s Poke Pitstop in Berthoud, CO: address, hours,
+  // phone and directions.") was two fragments with the hours nowhere.
   const town = { name: 'Berthoud', state: 'CO' };
   const summary = 'Poke bowls and quick healthy lunches on Mountain Avenue, order at the counter.';
-  const full = placeDescription({ title: 'Aussie’s Poke Pitstop', summary, address: '1 Main St', phone: '970', url: 'https://x', hoursShown: true }, town);
-  // The whole list would run past 155 here, so the website gives way and the name stays.
-  assert.equal(full, `${summary} Aussie’s Poke Pitstop in Berthoud, CO: address, hours, phone and directions.`);
-  assert.equal(
-    placeDescription({ title: 'A&W', summary: 'Root beer floats.', address: '1 Main St', phone: '970', url: 'https://x', hoursShown: true }, town),
-    'Root beer floats. A&W in Berthoud, CO: address, hours, phone, website and directions.',
-  );
+  const full = placeDescription({ title: 'Aussie’s Poke Pitstop', summary, address: '1 Main St', phone: '970', url: 'https://x', hoursShown: true, hours: 'Mon–Sat 11–8; closed Sun' }, town);
+  assert.equal(full, 'Aussie’s Poke Pitstop in Berthoud, CO is open Mon–Sat 11 am–8 pm, closed Sun, with the address, phone, website and directions on this page.');
   assert.ok(full.length >= META_DESCRIPTION_MIN && full.length <= META_DESCRIPTION_LIMIT, String(full.length));
-  // Hours hidden for age or season are not promised; a closed place says so first.
+  // The menu, the pool schedule and the prices come before the address; a long hours line keeps fewer of them.
+  const menu = placeDescription({ title: 'Happy Eating Asian Cafe', summary, address: 'x', phone: 'x', hoursShown: true, hours: 'Mon, Wed 10:30 am–9:30 pm; Thu–Sun 10:30 am–10:30 pm; closed Tue', menu: true }, town);
+  assert.equal(menu, 'Happy Eating Asian Cafe in Berthoud, CO is open Mon, Wed 10:30 am–9:30 pm, Thu–Sun 10:30 am–10:30 pm, closed Tue, with the menu on this page.');
+  // A name that carries the town is not placed in it again.
+  const rec = placeDescription({ title: 'Berthoud Recreation Center', summary, address: 'x', phone: 'x', url: 'x', hoursShown: true, hours: 'Mon–Fri 5 am–9 pm, Sat 7–8, Sun 11–8', poolSchedule: true, dayPassPrices: true }, town);
+  assert.equal(rec, 'Berthoud Recreation Center is open Mon–Fri 5 am–9 pm, Sat 7 am–8 pm, Sun 11 am–8 pm, with the pool schedule, day pass prices and the address on this page.');
+  // Hours hidden for age or season are not promised, nor stated; a closed place says so first.
+  const stale = placeDescription({ title: 'A&W', summary: 'Root beer floats.', address: '1 Main St', phone: '970', url: 'https://x', hoursShown: false, hours: 'Mon–Sun 11–8' }, town);
+  assert.equal(stale, 'A&W in Berthoud, CO is listed here, with the address, phone, website and directions on this page.');
   const closed = placeDescription({ title: 'B-Rad’s Arcade', summary: 'Retro arcade.', status: 'Temporarily closed', address: '1 Main St', hoursShown: false }, town);
-  assert.equal(closed, 'Temporarily closed. Retro arcade. B-Rad’s Arcade in Berthoud, CO: address and directions.');
-  // A summary already long enough is the description as it was.
-  const enough = 'Family-owned brewery and taproom on 8th Street with a large covered patio, food trucks, dogs welcome, and beer to go, open every day.';
-  assert.equal(placeDescription({ title: 'Berthoud Brewing', summary: enough, hoursShown: true }, town), enough);
+  assert.equal(closed, 'B-Rad’s Arcade in Berthoud, CO is temporarily closed; this page keeps the address and what is known about it.');
 });
 
-test('a summary too long for the snippet is cut first, then filled, so the cut is never left short', () => {
-  // Rock Cut Brewing, Estes Park: 186 characters, cut at its first full stop to 81, and never filled (all-sites check, 5 November 2026).
-  const summary = 'Brewery and taproom at the foot of Prospect Mountain, an easy walk from downtown. Indoor and outdoor seating, a dog-friendly patio, crowlers to go and trivia on Tuesdays, 7 to 9 pm.';
-  const out = placeDescription({ title: 'Rock Cut Brewing Company', summary, address: 'x', phone: 'x', url: 'x', hoursShown: true }, { name: 'Estes Park', state: 'CO' });
-  assert.equal(out, 'Brewery and taproom at the foot of Prospect Mountain, an easy walk from downtown. Rock Cut Brewing Company in Estes Park, CO.');
-  assert.ok(out.length >= META_DESCRIPTION_MIN && out.length <= META_DESCRIPTION_LIMIT);
+test('a place with no hours says what is there, from the summary’s own "with" clause or its opening article', () => {
+  const town = { name: 'Berthoud', state: 'CO' };
+  const park = placeDescription({ title: 'Pioneer Park', summary: 'Neighborhood park on Indiana Avenue with a playground, a basketball court, a roller hockey rink, a fishing pond and three large picnic pavilions.', address: 'x', url: 'x', hoursShown: false }, town);
+  assert.equal(park, 'Pioneer Park in Berthoud, CO has a playground, a basketball court, a roller hockey rink, a fishing pond and three large picnic pavilions.');
+  // A list too long for the budget loses its last items at a comma and stays a whole sentence; never an ellipsis.
+  const bike = placeDescription({ title: 'Berthoud Bike Park', summary: '20-acre bike park with two jump and flow lines, a dual-slalom track, a mile of cross-country trail, a kids’ bicycle playground and a 20,000 sq ft pump track. Dawn to dusk, free.', address: 'x', url: 'x', hoursShown: false }, town);
+  assert.equal(bike, 'Berthoud Bike Park has two jump and flow lines, a dual-slalom track and a mile of cross-country trail, with the address and website on this page.');
+  const big = placeDescription({ title: 'Waggener Farm Park', summary: 'The big park on the north side: farm-themed playground, full basketball court, skate park, fields, and the Recreation Center on the same site.', address: 'x', url: 'x', hoursShown: false }, town);
+  assert.equal(big, 'Waggener Farm Park in Berthoud, CO is the big park on the north side: farm-themed playground, full basketball court, skate park and fields.');
+  // Rock Cut Brewing, Estes Park: once cut to its first sentence and never filled (all-sites check, 5 November 2026); now its hours lead.
+  const out = placeDescription({ title: 'Rock Cut Brewing Company', summary: 'Brewery and taproom at the foot of Prospect Mountain, an easy walk from downtown.', address: 'x', phone: 'x', url: 'x', hoursShown: true, hours: 'Daily noon–9' }, { name: 'Estes Park', state: 'CO' });
+  assert.equal(out, 'Rock Cut Brewing Company in Estes Park, CO is open Daily noon–9 pm, with the address, phone, website and directions on this page.');
+  for (const d of [park, bike, big, out]) assert.ok(d.length <= META_DESCRIPTION_LIMIT && /\.$/.test(d) && !d.includes('…'), d);
   // Sentences that add up, each only while still short and only where it fits.
   assert.equal(topUpDescription('Short.', ['One more.', 'x'.repeat(200), 'Last.']), 'Short. One more. Last.');
 });

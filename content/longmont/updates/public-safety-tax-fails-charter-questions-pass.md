@@ -1,7 +1,7 @@
 ---
 title: "Longmont voters turned down the public-safety tax, 3A, and passed the three charter questions"
 kind: decision
-stage: complete
+stage: unofficial
 summary: "In Boulder and Weld counties' unofficial counts, 3A, a sales and property tax increase for fire and police, failed 14,417 to 27,416. The three charter amendments passed: 3B, a public vote before the City sells open space, 33,699 to 8,116; 3C, ranked-choice voting from 2029, 23,032 to 18,124; and 3D, realigned council election cycles, 23,543 to 15,919."
 affects: "Everyone in Longmont: the City's taxes, its open space, and how the mayor and council are elected"
 action: "Nothing to do. The counts are unofficial: Boulder County posts updates through November 13, and its canvass board meets on November 24."

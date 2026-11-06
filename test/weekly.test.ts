@@ -9,7 +9,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { dayKey, parseLocal } from '../src/lib/dates.ts';
 import { occurrences } from '../src/lib/events.ts';
-import { activeChanges, briefingUpdates, corrections, currentNotes, currentPick, hasEnded, isBacklog, isWeekend, pickSlug, upcomingEvents, weekEvents, weekWindow, weekendEvents } from '../src/lib/weekly.ts';
+import { activeChanges, briefingUpdates, corrections, currentNotes, currentPick, currentPicks, hasEnded, isBacklog, isWeekend, pickSlug, upcomingEvents, weekEvents, weekWindow, weekendEvents } from '../src/lib/weekly.ts';
 import type { UpdateData } from '../src/content/schemas.ts';
 
 const at = (s: string) => parseLocal(s);
@@ -357,3 +357,22 @@ test('the corrections section lists each business once: the update stands, the n
 function notesFile(weekOf: string, changes: Array<Record<string, unknown>>) {
   return notes(weekOf, undefined, changes);
 }
+
+// ----------------------------------------------------------- our picks
+
+test('our picks this week: the notes’ picks and the featured listings within seven days, once each, and nothing chosen by a machine', () => {
+  const now = at('2026-11-06T09:00'); // a Friday
+  const files = [{ ...notes('2026-11-02'), data: { ...notes('2026-11-02').data, picks: ['/events/drum-circle/', 'https://insideberthoud.com/events/service-saturday/', '/places/not-an-event/'] } }];
+  const events = [
+    ev('Drum circle', '2026-11-06T18:45'),
+    ev('Service Saturday', '2026-11-07T09:00'),
+    ev('Featured show', '2026-11-10T19:00', undefined, { featured: true }),
+    ev('Featured too late', '2026-11-14T19:00', undefined, { featured: true }),
+    ev('Just a market', '2026-11-07T10:00'),
+    ev('Called off pick', '2026-11-08T10:00', undefined, { featured: true, status: 'canceled' }),
+  ];
+  assert.deepEqual(currentPicks(files, events, now).map((e) => e.data.title), ['Drum circle', 'Service Saturday', 'Featured show']);
+  assert.deepEqual(currentPicks([], events, now).map((e) => e.data.title), ['Featured show'], 'no notes: the featured alone');
+  assert.deepEqual(currentPicks([], [ev('Just a market', '2026-11-07T10:00')], now), [], 'nothing flagged, nothing picked');
+  assert.equal(pickSlug('/events/drum-circle/'), 'drum-circle', 'a path on this guide');
+});
