@@ -68,7 +68,7 @@ export const niwot: TownConfig = {
   school: { name: 'Niwot High School', mascot: 'Cougars', teamName: 'Niwot Cougars', primary: '#126637', secondary: '#FFFFFF' },
   families: {
     label: 'Niwot Families',
-    intro: 'Preschool, care, youth sports, school breaks, and storytimes nearby in Longmont.',
+    intro: 'What Niwot kids can join, what closes soon, and the St. Vrain school days off.',
     schools: [
       {
         district: 'St. Vrain Valley Schools',

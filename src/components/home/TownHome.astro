@@ -48,7 +48,7 @@ import WhatsHappening from './WhatsHappening.astro';
 import { editionFor, emailEditions, getNetworkHub, getTown } from '@/config';
 import { schoolsFor, teamPath, type SportsData } from '@/config/school-sports';
 import { getTownEntries } from '@/lib/content';
-import { occurrences, weeklyTest } from '@/lib/events';
+import { forGeneralReaders, occurrences, weeklyTest } from '@/lib/events';
 import { familyLines } from '@/lib/family-home';
 import { weekDays } from '@/lib/flagship-home';
 import { defaultTab, homeTabs, laterRows, TAB_LIMIT } from '@/lib/home-tabs';
@@ -81,10 +81,15 @@ const calendar = occurrences(allEvents, { now, horizonDays: 30 });
 const notes = await getTownEntries('weekly');
 const { thisWeek: pick } = currentPick(notes, calendar, now);
 const picked = new Set(pick ? [pick.event.slug] : []);
-const days = weekDays({ events: occurrences(allEvents, { now, horizonDays: 8 }), sports: data, teamHref, now, start: 'today', limit: 99, picked });
+// The home is for everyone who opens it: the standing children's programs
+// (the storytimes, the kids' clubs; src/lib/events.ts, standingFamilyTest)
+// stay on the Families page and the events page, and off the tabs, "Next in
+// <Town>" and the Families block here.
+const general = (horizonDays: number) => forGeneralReaders(occurrences(allEvents, { now, horizonDays }), allEvents);
+const days = weekDays({ events: general(8), sports: data, teamHref, now, start: 'today', limit: 99, picked });
 // What an empty tab offers next: the listings of the next two months, so a
 // quiet guide's next date three weeks out is still found.
-const later = laterRows(occurrences(allEvents, { now, horizonDays: 60 }), picked, weeklyTest(allEvents));
+const later = laterRows(general(60), picked, weeklyTest(allEvents));
 const tabs = homeTabs(days, now, TAB_LIMIT, later);
 const open = defaultTab(now);
 
@@ -103,7 +108,7 @@ const know = currentUpdates(await getTownEntries('updates'), now).slice(0, 2);
 
 // 5. For families: the hub's three timeliest lines, where the town has them on.
 const familyRows = town.families?.onHome
-  ? familyLines({ programs: await getTownEntries('programs'), breaks: town.families.breaks, events: occurrences(allEvents, { now, horizonDays: 10 }), now, isSeries: weeklyTest(allEvents) })
+  ? familyLines({ programs: await getTownEntries('programs'), breaks: town.families.breaks, events: general(10), now, isSeries: weeklyTest(allEvents) })
   : [];
 
 // 6. The places with a photograph, for the three tiles; a closed place is not a next stop.

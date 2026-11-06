@@ -7,7 +7,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseLocal } from '../src/lib/dates.ts';
-import { ageText, byAudience, byTopic, daysLeft, deadlinePassed, deadlineTitle, familyAgeGroups, familyGroupsOf, familySection, freePrograms, isDropIn, isFree, onePerProgram, familyGroupOf, filedUnder, isForFamilies, isWayIn, splitDeadlines, upcomingDeadlines } from '../src/lib/programs.ts';
+import { ageText, byAudience, byTopic, daysLeft, deadlinePassed, deadlineTitle, familyAgeGroups, familyGroupsOf, familySection, freePrograms, isDropIn, isFree, isStorytimeProgram, onePerProgram, familyGroupOf, filedUnder, isForFamilies, isWayIn, scheduleDays, splitDeadlines, upcomingDeadlines } from '../src/lib/programs.ts';
 import type { ProgramData } from '../src/content/schemas.ts';
 
 const at = (s: string) => parseLocal(s);
@@ -223,4 +223,21 @@ test('days left are whole Denver days, so a countdown does not lose a day after 
   assert.equal(daysLeft({ on: at('2026-11-02') }, at('2026-10-31T12:00')), 2);
   // A deadline stored as a UTC instant that is still the 4th in Denver.
   assert.equal(daysLeft({ on: new Date('2026-11-05T05:30:00Z') }, at('2026-11-04T20:00')), 0, '11:30 pm Denver on the 4th is the 4th');
+});
+
+test('a storytime program for the under-fives is said in one line: by its title and its audiences', () => {
+  assert.ok(isStorytimeProgram(program('Library storytimes and Musical Moments', { audience: ['babies', 'preschool', 'families'] })));
+  assert.ok(isStorytimeProgram(program('Story Time at the Firehouse', { audience: ['preschool'] })));
+  assert.ok(!isStorytimeProgram(program('Library programs for school-age children', { audience: ['elementary', 'families'] })), 'not a storytime');
+  assert.ok(!isStorytimeProgram(program('Colorado Railroad Museum: storybook tours and storytimes', { audience: ['preschool', 'elementary', 'families'] })), 'school-age children too: the full row');
+});
+
+test('the days of a schedule, without the hours', () => {
+  assert.equal(scheduleDays('Mon 4 pm; Tue, Wed and Fri 10:30 am'), 'Mondays, Tuesdays, Wednesdays and Fridays');
+  assert.equal(scheduleDays('Tuesdays and Fridays at 10:30'), 'Tuesdays and Fridays');
+  assert.equal(scheduleDays('Mon 9:30 am, 10:30 am and 1:15 pm; Tue 9:30 and 10:30 am; Wed 9:30 and 10:30 am; Thu 9:30 am and 4:15 pm; first Saturdays 9:30 and 10:30 am'), 'Mondays, Tuesdays, Wednesdays, Thursdays and Saturdays');
+  assert.equal(scheduleDays('Monday to Friday mornings'), 'weekdays', 'a range is every day in it');
+  assert.equal(scheduleDays('Mon–Thu 9:30 am; Sat 10 am'), 'Mondays, Tuesdays, Wednesdays, Thursdays and Saturdays');
+  assert.equal(scheduleDays('Weekday mornings'), undefined, 'no day named');
+  assert.equal(scheduleDays(undefined), undefined);
 });

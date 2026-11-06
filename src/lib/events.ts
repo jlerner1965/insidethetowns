@@ -711,6 +711,36 @@ export function oneOffs<T extends EventLike>(events: T[], all: readonly T[] = ev
 }
 
 /**
+ * A standing children's or family program: the library's storytime, a kids'
+ * LEGO or chess club, a parenting group, listed weekly or monthly under the
+ * family category (a weekly repeat, a note that it recurs, or a file per
+ * date on one weekday, the regular rule). It is for the parents who go
+ * looking, on the Families page and under "Every week in <Town>" on the
+ * events page, and not for the surfaces a general reader lands on: the home
+ * page's tabs and "Next in <Town>", This week, the Thursday email and the
+ * hub's front page (the owner, 6 November 2026: Inside Berthoud opened its
+ * weekend with "Terrific Toddler Storytime" above the playoff game, and a
+ * town guide whose front page lists where small children will be and when
+ * reads wrong, whatever the library publishes). A one-off family event (a
+ * trunk-or-treat, a holiday craft fair) is not a program and stays; nor is
+ * a seasonal run under the family category (the carriage rides, the Polar
+ * Express, a farm's fall festival), which is a run of days, not a program,
+ * so a run's sittings (`occurrences`, with the run's `schedule` on each),
+ * a show's performances and a multi-day listing are left alone.
+ */
+export function standingFamilyTest<T extends EventLike>(all: readonly T[]): (event: T) => boolean {
+  const isRegular = regularTest(all);
+  const isRun = (e: T) => isMultiDay(e) || !!e.data.schedule?.length || !!e.data.performances?.length || (!!e.data.except?.length && !e.data.repeat);
+  return (e) => e.data.category === 'family' && !isRun(e) && isRegular(e);
+}
+
+/** The listings for a general reader: everything but the standing children's and family programs (standingFamilyTest). */
+export function forGeneralReaders<T extends EventLike>(events: readonly T[], all: readonly T[] = events): T[] {
+  const standing = standingFamilyTest(all);
+  return events.filter((e) => !standing(e));
+}
+
+/**
  * The categories that make someone plan a day around a listing: festivals,
  * markets, concerts, races, shows. The rest (family, food, outdoors, other)
  * still qualify for a neighbour's block, after these.

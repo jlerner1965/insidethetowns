@@ -167,6 +167,10 @@ export function familyGroupOf(p: ProgramLike): FamilyAgeGroup | undefined {
 }
 
 /**
+ * (The Families page filed its children's programs by these groups until 6
+ * November 2026; it files them by subject now, `byTopic`, with each row's
+ * ages on the row. Kept for an age view.)
+ *
  * The age sections with their programs: each program once, under its own
  * group, and named again in `alsoHere` under every other group its ages
  * reach, so a parent of a teen finds the troop and the league whichever
@@ -223,6 +227,49 @@ export function filedUnder(p: ProgramLike, audiences: readonly ProgramAudience[]
 /** Programs grouped by topic, in schema order; empty topics left out. */
 export function byTopic<T extends ProgramLike>(list: readonly T[]): Array<{ topic: ProgramTopic; programs: T[] }> {
   return PROGRAM_TOPICS.map((topic) => ({ topic, programs: byName(list.filter((p) => p.data.topic === topic)) })).filter((g) => g.programs.length > 0);
+}
+
+/**
+ * A library's (or a firehouse's) storytime program for the under-fives, by
+ * its title and its audiences: babies, preschoolers and their families, and
+ * no older child. The Families page says it in one line, the days and the
+ * library's calendar, rather than the row every other program gets, whose
+ * summary and "Who" and "When" facts spelled out which session is for
+ * babies under two and which for toddlers, at what hour (the owner, 6
+ * November 2026: a timetable of where the smallest children will be is not
+ * what a town guide should print; the library's own calendar has it).
+ */
+export function isStorytimeProgram(p: ProgramLike): boolean {
+  const underFives: readonly ProgramAudience[] = ['babies', 'preschool', 'families'];
+  return /story\s*times?\b/i.test(p.data.title) && p.data.audience.every((a) => underFives.includes(a));
+}
+
+const WEEKDAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as const;
+const WEEKDAY_PLURALS: Record<(typeof WEEKDAYS)[number], string> = { Mon: 'Mondays', Tue: 'Tuesdays', Wed: 'Wednesdays', Thu: 'Thursdays', Fri: 'Fridays', Sat: 'Saturdays', Sun: 'Sundays' };
+
+/**
+ * The days a schedule names, without the hours: "Mon 4 pm; Tue, Wed and Fri
+ * 10:30 am" is "Mondays, Tuesdays, Wednesdays and Fridays", a range ("Monday
+ * to Friday", "Mon–Thu") is every day in it, and all five weekdays are
+ * "weekdays" ("weekdays and Saturdays"). Nothing where the schedule names
+ * no day. For the one-line storytime entry (isStorytimeProgram).
+ */
+export function scheduleDays(schedule: string | undefined): string | undefined {
+  if (!schedule) return undefined;
+  const DAY = /\b(Mon|Tue|Wed|Thu|Fri|Sat|Sun)[a-z]*\b/gi;
+  const index = (word: string) => WEEKDAYS.indexOf((word[0]!.toUpperCase() + word.slice(1, 3).toLowerCase()) as (typeof WEEKDAYS)[number]);
+  const found = new Set<number>();
+  for (const m of schedule.matchAll(new RegExp(`${DAY.source}\\s*(?:to|through|-|–)\\s*${DAY.source}`, 'gi'))) {
+    const [from, to] = [index(m[1]!), index(m[2]!)];
+    for (let d = from; d <= to; d++) found.add(d);
+  }
+  for (const m of schedule.matchAll(DAY)) found.add(index(m[1]!));
+  const days = WEEKDAYS.filter((_, i) => found.has(i));
+  if (days.length === 0) return undefined;
+  const weekdays = days.filter((d) => d !== 'Sat' && d !== 'Sun');
+  const weekend = days.filter((d) => d === 'Sat' || d === 'Sun').map((d) => WEEKDAY_PLURALS[d]);
+  const words = weekdays.length === 5 ? ['weekdays', ...weekend] : [...weekdays.map((d) => WEEKDAY_PLURALS[d]), ...weekend];
+  return words.length <= 2 ? words.join(' and ') : `${words.slice(0, -1).join(', ')} and ${words.at(-1)}`;
 }
 
 export interface Deadline<T extends ProgramLike = ProgramLike> {

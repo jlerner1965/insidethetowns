@@ -41,7 +41,7 @@ import {
   parseLocal,
   startOfDay,
 } from '../src/lib/dates.ts';
-import { groupByDay, highlights, isCanceled, isFlagged, occurrences, timeText, weekendSections, weekendWindow } from '../src/lib/events.ts';
+import { forGeneralReaders, groupByDay, highlights, isCanceled, isFlagged, occurrences, timeText, weekendSections, weekendWindow } from '../src/lib/events.ts';
 import { campaignLink, isNewlyClosed, isNewPlace, nextSendDay, openingDay } from '../src/lib/newsletter.ts';
 import { subTownList } from '../src/lib/sub-towns.ts';
 import { parseFrontmatter } from './lib/frontmatter.ts';
@@ -157,7 +157,10 @@ function readWeek(town: TownConfig): TownWeek {
   const rows = readCollection<EventData>(town.slug, 'events', eventSchema(plainImage)).filter(
     (r) => !isCanceled(r) && !isFlagged(r) && !eventExclusion(r.data, send) && eventConfidence(r.data as ConfidenceInput, send).level === 'confirmed',
   );
-  const listings = occurrences(rows as unknown as Listing[], { now: send, horizonDays: 14 });
+  // Nor a standing children's program (src/lib/events.ts, standingFamilyTest):
+  // the email is for everyone on the list, and a run of toddler storytimes
+  // led Berthoud's weekend (6 November 2026). The Families page has them.
+  const listings = forGeneralReaders(occurrences(rows as unknown as Listing[], { now: send, horizonDays: 14 }), rows as unknown as Listing[]);
   // `next` runs to the Thursday after the weekend: the days the following issue will not reach back to.
   const parts = weekendSections(listings, { now: send, horizonDays: 5 });
   const places = readCollection<PlaceData>(town.slug, 'places', placeSchema(plainImage));
