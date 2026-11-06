@@ -1,16 +1,22 @@
 ---
 /**
  * The family hub (/families/): what closes or opens in the next fortnight,
- * what a child can join by age, the parents' side (schools, passes,
+ * what a child can join by subject, the parents' side (schools, passes,
  * volunteering), the organizations a family can join, what there is on a
  * school day off, the free things, what is coming up later, and which
  * school, from content/<town>/programs/ and the district calendar in the
  * town's config (the redesign of 22 October 2026; the family audit the
- * same day). Three age sections, each child's activity once under the
- * group most of its ages fall in and named again under every other group
- * it reaches (src/lib/programs.ts, familyAgeGroups), every program with
- * its own anchor so the home page's cards land on it. A section with
- * nothing in it is not drawn. Every day count is a Denver calendar day.
+ * same day). The children's programs are filed by subject (sports, arts,
+ * the library; src/lib/programs.ts, byTopic), each with its ages on its
+ * row, and every program with its own anchor so the home page's cards land
+ * on it. They were three age sections, "Under 5", "Ages 5–11" and
+ * "Teens", until 6 November 2026: a page headed by children's ages read
+ * as a catalogue of where children of each age will be, and the owner
+ * asked for the parent's question instead. For the same reason a library
+ * storytime program is one line, the days and a link to the library's
+ * calendar (isStorytimeProgram), not a row spelling out which morning is
+ * for babies under two. A section with nothing in it is not drawn. Every
+ * day count is a Denver calendar day.
  * A program whose season has ended is kept out of the age sections and
  * the free list and named once under "Ended for now", and a full one sorts
  * after the ones a reader can still join (src/lib/programs.ts,
@@ -26,7 +32,8 @@ import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
 import { dayKey, daysBetween, formatDayRange, formatDayShort, formatShortDate, parseLocal } from '@/lib/dates';
-import { SOON_DAYS, ageText, byActionable, familyAgeGroups, familySection, freePrograms, isDropIn, isEnded, isForFamilies, programStatus, splitDeadlines } from '@/lib/programs';
+import { SOON_DAYS, byActionable, byTopic, familySection, freePrograms, isDropIn, isEnded, isForFamilies, isStorytimeProgram, programStatus, scheduleDays, splitDeadlines } from '@/lib/programs';
+import { PROGRAM_TOPIC_LABELS, type ProgramTopic } from '@/content/schemas';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -43,7 +50,13 @@ const eventFor = (slug?: string) => (slug ? events.find((e) => e.slug === slug) 
 const children = programs.filter((p) => familySection(p) === 'children');
 const parents = programs.filter((p) => familySection(p) === 'parents');
 const organizations = programs.filter((p) => familySection(p) === 'organizations');
-const groups = familyAgeGroups(children).map((g) => ({ ...g, programs: byActionable(g.programs, now) }));
+const groups = byTopic(children).map((g) => ({ ...g, programs: byActionable(g.programs, now) }));
+// The chips' short words for the subjects; the section heading is the label in full.
+const TOPIC_CHIP: Record<ProgramTopic, string> = { sports: 'Sports', arts: 'Arts', learning: 'Library', outdoors: 'Outdoors', community: 'Community', civic: 'Civic', history: 'History', faith: 'Faith', other: 'More' };
+// A heading the schema's label does not fit on a children's page: a youth council is civic, not a public meeting.
+const TOPIC_HEADING: Partial<Record<ProgramTopic, string>> = { civic: 'Civic', other: 'More to join' };
+/** A program's one-line entry: the days and the organizer's calendar, no hours (isStorytimeProgram). */
+const storytimeLine = (p: (typeof programs)[number]) => [scheduleDays(p.data.schedule), p.data.price && /^free\b/i.test(p.data.price) ? 'Free' : undefined].filter(Boolean).join(' · ');
 const free = freePrograms(programs);
 // School breaks still ahead, from the district calendar, in date order,
 // each with the program that says it keeps hours on it (openOn), if one
@@ -65,14 +78,14 @@ const breakSources = [...new Map(breaks.map((b) => [b.source, b])).values()];
 // Families. It was the newest one alone, which on Windsor showed Severance's
 // and hid Windsor's (flagship audit, 4 November 2026).
 const outings = (await getTownEntries('articles')).filter((a) => a.data.category === 'Families').sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-const description = `${families.label}: what a child can join in ${town.name}, Colorado, by age, with prices, registration deadlines and school-break dates, each from the organizer's own page.`;
+const description = `${families.label}: what a child can join in ${town.name}, Colorado, by subject, with ages, prices, registration deadlines and school-break dates, each from the organizer's own page.`;
 const chips = [
   ...(closingSoon.length > 0 ? [{ id: 'closing', label: 'Closing soon' }] : []),
   ...(openingSoon.length > 0 ? [{ id: 'opening', label: 'Opening soon' }] : []),
   // The school days off come before the ages: the Johnstown audit (26
   // October 2026) found the list useful and hard to find at the foot.
   ...(breaks.length > 0 ? [{ id: 'breaks', label: 'Days off' }] : []),
-  ...groups.map((g) => ({ id: `age-${g.group.id}`, label: g.group.label.replace('Ages ', '') })),
+  ...groups.map((g) => ({ id: `topic-${g.topic}`, label: TOPIC_CHIP[g.topic] })),
   ...(parents.length > 0 ? [{ id: 'parents', label: 'Parents' }] : []),
   ...(organizations.length > 0 ? [{ id: 'organizations', label: 'Organizations' }] : []),
   ...(free.length > 0 ? [{ id: 'free', label: 'Free' }] : []),
@@ -127,24 +140,28 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
     </section>
   )}
 
-  {groups.map(({ group, programs: list, alsoHere }) => (
-    <section id={`age-${group.id}`} class="mt-12 scroll-mt-20" aria-labelledby={`age-${group.id}-h`}>
-      <SectionHeader id={`age-${group.id}-h`} title={group.label} />
-      {list.length > 0 && (
+  {groups.map(({ topic, programs: list }) => (
+    <section id={`topic-${topic}`} class="mt-12 scroll-mt-20" aria-labelledby={`topic-${topic}-h`}>
+      <SectionHeader id={`topic-${topic}-h`} title={TOPIC_HEADING[topic] ?? PROGRAM_TOPIC_LABELS[topic]} />
+      {list.some((p) => !isStorytimeProgram(p)) && (
         <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-          {list.map((p) => <ProgramRow program={p} />)}
+          {list.filter((p) => !isStorytimeProgram(p)).map((p) => <ProgramRow program={p} />)}
         </div>
       )}
-      {/* A program whose ages reach into this group but is filed under the
-          one most of them fall in: named here with its real range, linked
-          to its row. */}
-      {alsoHere.length > 0 && (
-        <p class:list={['text-[0.9375rem] leading-relaxed text-ink-muted', list.length > 0 ? 'mt-3' : 'mt-0']}>
-          <span class="font-semibold text-ink">Also for this age:</span>{' '}
-          {alsoHere.map((p, i) => (
-            <Fragment>{i > 0 && '; '}<a href={`#program-${p.slug}`} class="text-primary underline">{p.data.title}</a>{ageText(p) && ` (${ageText(p)})`}</Fragment>
-          ))}.
-        </p>
+      {/* The storytimes in one line each: the organizer, the days, and the
+          organizer's own calendar for the sessions and their hours. */}
+      {list.some(isStorytimeProgram) && (
+        <ul class:list={['divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7', list.some((p) => !isStorytimeProgram(p)) && 'mt-3']}>
+          {list.filter(isStorytimeProgram).map((p) => (
+            <li id={`program-${p.slug}`} class="scroll-mt-20 py-3.5 text-[0.9375rem] leading-snug">
+              <span class="font-semibold">{p.data.title}</span>
+              <span class="block text-ink-muted">
+                {[p.data.organizer, storytimeLine(p)].filter(Boolean).join(' · ')}
+                {(p.data.url ?? p.data.organizerUrl) && <Fragment>{' · '}<a href={p.data.url ?? p.data.organizerUrl} rel="noopener" data-track="participation" class="font-semibold text-primary underline">every session and its hours →</a></Fragment>}
+              </span>
+            </li>
+          ))}
+        </ul>
       )}
     </section>
   ))}
@@ -210,7 +227,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
           <li>
             <a href={`#program-${p.slug}`} class={card}>
               <span class="font-semibold leading-snug">{p.data.title}</span>
-              <span class="mt-1 block text-[0.875rem] leading-snug text-ink-muted">{[howIn(p), p.data.schedule].filter(Boolean).join(' · ')}</span>
+              <span class="mt-1 block text-[0.875rem] leading-snug text-ink-muted">{[howIn(p), isStorytimeProgram(p) ? scheduleDays(p.data.schedule) : p.data.schedule].filter(Boolean).join(' · ')}</span>
             </a>
           </li>
         ))}

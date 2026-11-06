@@ -17,7 +17,7 @@ import FactStrip from '@/components/FactStrip.astro';
 import NetworkEventCard from '@/components/NetworkEventCard.astro';
 import { getNetworkEntries } from '@/lib/content';
 import { formatDayRange } from '@/lib/dates';
-import { highlights, occurrences, oneOffs, weekendSections, weekendWindow } from '@/lib/events';
+import { forGeneralReaders, highlights, occurrences, oneOffs, weekendSections, weekendWindow } from '@/lib/events';
 import { LIVE_TOWNS, countiesCovered, getHub } from '@/config';
 import { schoolsFor, schoolTeamName, sportsPath } from '@/config/school-sports';
 import { groupByRegion } from '@/lib/regions';
@@ -59,7 +59,10 @@ const NUMBER: Record<number, string> = { 2: 'two', 3: 'three', 4: 'four', 5: 'fi
  * nearly all there is do they fill the block.
  */
 const now = new Date();
-const network = occurrences(await getNetworkEntries('events'), { now, horizonDays: 30 });
+// The standing children's programs (standingFamilyTest) are off the
+// network's front page altogether, the fallback to regulars included.
+const networkEntries = await getNetworkEntries('events');
+const network = forGeneralReaders(occurrences(networkEntries, { now, horizonDays: 30 }), networkEntries);
 const sections = weekendSections(network, { now, horizonDays: 15 });
 const onThisWeekend = [...sections.now, ...sections.weekend];
 // Six picks from across the towns, at most two from one town while others

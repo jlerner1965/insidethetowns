@@ -52,7 +52,7 @@ resident hubs and a flagship home page, each switched on by the town's
 config and shared as routes and components with nothing town-specific in
 them:
 
-- `/families/` (`families` on the config): what a child can join, by age
+- `/families/` (`families` on the config): what a child can join, by subject, with the ages on each row
   (by the organizer's numbers, `ageFrom`/`ageTo`, where the file gives them;
   a program spanning ages is filed once and named under every other age it
   reaches), the parents' side and the organizations apart from the child

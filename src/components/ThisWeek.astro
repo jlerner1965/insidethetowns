@@ -45,7 +45,7 @@ import WeekEventRow from './WeekEventRow.astro';
 import { neighborsOf, type TownConfig } from '@/config';
 import { getNeighborEntries, getTownEntries } from '@/lib/content';
 import { dayKey, formatDate, formatDayLong, formatDayRange, toIsoLocal } from '@/lib/dates';
-import { highlights, isMultiDay, lastDay, listedUntil, nearbyPicks, occurrences, recommendationKeys, timeText, weekendWindow } from '@/lib/events';
+import { forGeneralReaders, highlights, isMultiDay, lastDay, listedUntil, nearbyPicks, occurrences, recommendationKeys, timeText, weekendWindow } from '@/lib/events';
 import { activeChanges, briefingUpdates, corrections, currentNotes, currentPick, isWeekend, weekEvents, weekWindow } from '@/lib/weekly';
 import { currentUpdates, isLateNotice } from '@/lib/updates';
 import { subTownLabel } from '@/lib/sub-towns';
@@ -74,7 +74,11 @@ const listingsLabel = onWeekend ? 'This weekend' : 'Rest of the week';
 const listingsRange = onWeekend ? formatDayRange(weekend.start, weekend.sunday) : formatDayRange(now, sunday);
 
 const notes = await getTownEntries('weekly');
-const calendar = occurrences(await getTownEntries('events'), { now, horizonDays: 30 });
+// Without the standing children's programs (standingFamilyTest): the week
+// a general reader plans, not the library's storytime timetable, which
+// the events page keeps under "Every week".
+const townEvents = await getTownEntries('events');
+const calendar = forGeneralReaders(occurrences(townEvents, { now, horizonDays: 30 }), townEvents);
 const { thisWeek: pick, comingUp } = currentPick(notes, calendar, now);
 const allChanges = activeChanges(notes, now);
 const current = currentNotes(notes, now)?.data;

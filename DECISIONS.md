@@ -8845,3 +8845,53 @@ applies: none of the six excluded brands came up.*
   vs Fruita Monument", "Niwot 28"), against the opponent's school name.
 - The `navLabel` override stays for a guide where neither word would do;
   no guide needs it.
+
+## The standing children's programs come off the front page, 6 November 2026
+
+- **The screen.** Inside Berthoud's home opened its weekend tab with
+  "Fri 10:30 am · Terrific Toddler Storytime · Berthoud Community Library ·
+  Free", above the state playoff game; the Thursday email listed three
+  storytimes in a row at one library; the Families page was headed "Under
+  5", "Ages 5–11" and "Teens", and its library row spelled out which morning
+  is for babies under two and which for toddlers. The owner's call: a town
+  guide for everyone that opens on where small children will be, and when,
+  reads wrong, whatever the library publishes. Nothing on the site was
+  private; the placement and the density were the problem.
+- **The rule.** A standing children's or family program (the family
+  category and a regular: a weekly repeat, a note that it recurs, or a file
+  per date on one weekday; `standingFamilyTest` in src/lib/events.ts) is
+  for the parents who go looking. It stays on the Families page and under
+  "Every week in <Town>" on the events page, and comes off the home page's
+  tabs, "Next in <Town>" and the Families block, This week, the Thursday
+  email and the hub's front page (`forGeneralReaders`). A one-off family
+  event (a trunk-or-treat, a craft fair) stays everywhere; so does a
+  seasonal run filed under family (the carriage rides, the Polar Express),
+  which is a run of days, not a program: a run's sittings, a show's
+  performances and a multi-day listing are left alone. The neighbour
+  blocks and the hub's picks already dropped the regulars.
+- **The Families page is by subject, not by age.** The children's programs
+  are filed under the schema's topics (Sports and recreation, Arts and
+  music, Learning and the library, History, Civic, More to join; `byTopic`),
+  each row with its ages on it. The age sections and their "Also for this
+  age" cross-links are gone from the page; `familyAgeGroups` stays in
+  src/lib/programs.ts, tested, for an age view. The description says "by
+  subject", the README too.
+- **A storytime program is one line.** A library's (or the firehouse's)
+  storytime program for the under-fives (`isStorytimeProgram`: the title
+  and no audience older than preschool) is its title, the organizer, the
+  days without the hours (`scheduleDays`: "Mondays, Tuesdays, Wednesdays
+  and Fridays", "weekdays and Saturdays") and "Free", with a link to the
+  organizer's own calendar for every session and its hours; the Free
+  section's card says the days the same way. The program file keeps its
+  full summary and schedule for the deadline cards and the search.
+- **Niwot's Families intro** led with "Preschool, care, youth sports,
+  school breaks, and storytimes nearby in Longmont"; it now reads as the
+  other nine do, what kids can join, what closes soon and the school days
+  off.
+- Checked on the built pages: Berthoud's and Erie's home and This week carry
+  no storytime or club; the events page's weekly block still lists them;
+  the Families page's headings are the subjects and the storytime line
+  reads "Library storytimes · Erie Community Library · Mondays, Tuesdays,
+  Wednesdays, Thursdays and Saturdays · Free · every session and its hours
+  →"; the hub's front page has none; a Berthoud newsletter draft to a
+  scratch folder names no storytime.
