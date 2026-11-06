@@ -608,6 +608,17 @@
       "permanent": true
     },
     {
+      "source": "/places/subway{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/eat-drink/",
+      "permanent": true
+    },
+    {
       "source": "/events/neon-nights-dodgeball-2026{/}?",
       "has": [
         {

@@ -53,7 +53,7 @@ This is the check James cares about most. He's fine with the number of towns; he
 
 ### Coverage
 - Compare this town's categories and page count against the other live towns. What does every other town have that this one is missing?
-- Look at the town itself: are there obvious places, events or services (library, rec center, farmers market, major employers, trailheads) with no page? Use `web_search` for "[town] colorado" basics to spot gaps, but only list a gap if you've confirmed the thing exists.
+- Look at the town itself: are there obvious places, events or services (library, rec center, farmers market, major employers, trailheads) with no page? Use `web_search` for "[town] colorado" basics to spot gaps, but only list a gap if you've confirmed the thing exists. Never list McDonald's, Burger King, Wendy's, Carl's Jr., Taco Bell or Subway as a gap; the guides do not carry them (other chains are fine).
 - Check that the Thursday newsletter signup form and the "This Week" strip are present on article pages.
 
 ## 4. Write the report
