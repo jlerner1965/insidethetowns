@@ -12,7 +12,7 @@ organizerUrl: "https://www.lafayetteco.gov/library"
 performers:
   - { name: "Kristin Koval", kind: person }
 source: "https://lafayettepubliclibrary.libcal.com/calendar/main/Koval2026"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"An Evening with \"Penitence\" Author Kristin Koval\" at 6:30 pm on 12 November on the Lafayette Public Library - LibCal calendar feed"
 ---
 

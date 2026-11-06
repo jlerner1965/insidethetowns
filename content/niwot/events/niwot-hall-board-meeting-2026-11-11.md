@@ -8,7 +8,8 @@ url: "https://niwothall.org/events/niwot-hall-meeting/"
 category: civic
 recurring: "second Wednesday of the month"
 source: "https://niwothall.org/events/"
-verified: "2026-11-03"
+verified: "2026-11-05"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Niwot Hall Meeting\" at 4:30 pm on 11 November on the Niwot Hall (Left Hand Grange) feed"
 ---
 
 Monthly business meeting for Niwot Hall, the community building formerly known as Left Hand Grange No. 9, covering bookings, the rebuilding project and hall operations. The November 11 date is on the hall's calendar.

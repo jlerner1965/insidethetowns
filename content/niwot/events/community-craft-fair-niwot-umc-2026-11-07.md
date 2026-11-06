@@ -9,7 +9,7 @@ category: market
 organizerUrl: "https://www.niwotumc.org/"
 organizer: "Niwot United Methodist Church"
 source: "https://niwot.com/events/community-craft-fair/?occurrence=2026-11-07"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Community Craft Fair\" at 12 pm on 7 November on the Niwot Business Association (niwot.com) feed"
 ---
 

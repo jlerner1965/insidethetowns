@@ -8,7 +8,7 @@ url: "https://johnstownmillikenpubliclibraries.us/event/paint-n-sip-3/"
 cost: "Free; full, with a waiting list; 21 and over"
 category: arts
 source: "https://johnstownmillikenpubliclibraries.us/event/paint-n-sip-3/"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Paint &#8216;n Sip\" at 6:30 pm on 6 November in the page's structured data"
 ---
 

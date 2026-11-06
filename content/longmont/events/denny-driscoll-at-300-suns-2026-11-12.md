@@ -9,7 +9,7 @@ category: music
 performers:
   - { name: "Denny Driscoll", kind: person }
 source: "https://300sunsbrewing.com/events/"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "recheck-events (the nightly re-check workflow): 12 November and 6 pm on the page"
 ---
 

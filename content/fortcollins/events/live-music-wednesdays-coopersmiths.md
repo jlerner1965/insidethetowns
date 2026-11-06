@@ -12,8 +12,8 @@ cost: "Free"
 category: "music"
 recurring: "Wednesdays, 7-9 p.m."
 source: "https://coopersmithspub.com/live-music/"
-verified: "2026-11-04"
-verifiedBy: "recheck-events (the nightly re-check workflow): 4 November and 7 pm on the page"
+verified: "2026-11-05"
+verifiedBy: "recheck-events (the nightly re-check workflow): 11 November and 7 pm on the page"
 ---
 
 Free solo acoustic sets in the brewpub's bar area, by the east bay windows on Mountain Avenue, every Wednesday from 7 to 9 p.m. The lineup posted for this stretch: Lid Dixon (Nov 4), Luke Hahn-Zollo and Michael Kirkpatrick (Nov 11 and Dec 9), Brian Kittrell (Nov 18 and Dec 16) and Matt Mahern (Dec 2). No music on November 25.

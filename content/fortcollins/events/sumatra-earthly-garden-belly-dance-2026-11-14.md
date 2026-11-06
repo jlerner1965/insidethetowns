@@ -8,7 +8,7 @@ url: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
 cost: "$20"
 category: "arts"
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 7 pm on the page"
 ---
 

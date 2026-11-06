@@ -10,8 +10,8 @@ organizer: "Carbon Valley Regional Library (High Plains Library District)"
 organizerUrl: "https://www.mylibrary.us/cvrl/"
 source: "https://highplains.libcal.com/event/17788899"
 sourceId: "highplains-libcal-com"
-verified: "2026-11-02"
-verifiedBy: "the Frederick build agent, read from the source on 2 November 2026"
+verified: "2026-11-05"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Create with Canva\" at 4 pm on 18 November on the Carbon Valley Regional Library (High Plains Library District), LibCal feed"
 ---
 
 An hour for adults on making a party invitation, a holiday letter or a meeting flyer in Canva, Wednesday, November 18 from 4 to 5 pm at the library. Bring an email address; the library's page says one is necessary. It does not say whether registration is required or name a room.

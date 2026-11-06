@@ -12,8 +12,8 @@ category: other
 organizer: "Odd13 Brewing with Folsom Skis"
 organizerUrl: "https://www.odd13brewing.com/"
 source: "https://www.odd13brewing.com/events"
-verified: "2026-11-02"
-verifiedBy: "the Lafayette build agent, read from the source on 2 November 2026"
+verified: "2026-11-05"
+verifiedBy: "recheck-events (the nightly re-check workflow): 18 November on the page"
 ---
 
 A pre-season hot wax for skis and snowboards with Folsom Skis in the Odd13 taproom on Wednesday, November 18, "100% free" in the brewery’s words: a quick base wax only, no edge work or repairs. Odd13’s listing runs it until 7 pm; the taproom opens at 2 on Wednesdays.

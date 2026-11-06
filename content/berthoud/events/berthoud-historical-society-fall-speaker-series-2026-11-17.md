@@ -9,7 +9,7 @@ cost: "Free"
 category: other
 recurring: "Monthly on a Tuesday, September through November"
 source: "https://berthoudhistoricalsociety.org/event/fall-speaker-series-historic-preservation-in-berthoud-with-the-town-of-berthoud-hpac/"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "recheck-events (the nightly re-check workflow): 17 November and 7 pm on the page"
 ---
 
