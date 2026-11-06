@@ -8711,3 +8711,34 @@ Google still listed them).*
 - **Left as they are:** titles of 61 to 70 characters (the 27 October
   limit stands); articles without a photograph (a photograph needs a
   licence or permission, section 6); the Niwot tagline.
+
+## Berthoud's missing errands added, the rest staged, 6 November 2026
+
+*The owner, on the 5 November gap report ("Inside Berthoud: businesses the
+guide is missing"): "add any of these you think and which need more info".
+Every page behind a published file was read again on the day; nothing
+publishes on the report's word alone.*
+
+- **Published (five places, one program).** Hays Market, Coyote Ridge
+  Veterinary Clinic, Berthoud Animal Hospital, SIX Barbershop and Forbici
+  Barber Werx, each from its own site; Berthoud Dance Company as a class on
+  /families/, from its schedule page. The animal hospital's "MON & FRI"
+  line is a typo: the same page's footer gives Mon–Fri 8–5:30. Forbici
+  posts no hours, so its listing gives none.
+- **Staged (six places).** Ace Hardware and The Taco Man: their pages
+  answer a Cloudflare check to every reader tried, the rule from the Lyons
+  pass. Osito's, Jessie's Pub and Berthoud Athletic Club: only Main
+  Street's directory, with their Facebook pages behind a login (Osito's
+  and Jessie's behind an 18+ one). Berthoud Drug: registries only, with
+  two addresses. Each reason says what settles it; Osito's and Jessie's
+  also settle La Casita and Glass of Art.
+- **Left out, for the owner.** Chains (Subway downtown and the
+  Grand Market Avenue fast food) until the guide decides whether it lists
+  them; Bank of Colorado (confirmed, but the guide lists no banks); the
+  Activity Hall (a hall for hire); salons, skin care, dog grooming,
+  printing, design, dentists, physical therapy, real estate, law and
+  energy consulting from Main Street's services page; the Surveyor, a
+  source rather than a listing; Footlight Musical Theater, a youth program
+  with only a Facebook page (programs have no staging folder); and the
+  aggregator-only leads (TPC Colorado's restaurants, County Line Vet, NoCo
+  Spay & Neuter, the clinic at 406 10th St).
