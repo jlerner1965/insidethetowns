@@ -8750,6 +8750,13 @@ publishes on the report's word alone.*
   7-Eleven (its page's store data failed to load) and Taco John's (only a
   2018 press release, inside the Love's at I-25 and Highway 56) wait in
   staging. Berthoud's Subway, McDonald's and Taco Bell are not listed.
+- **Two more from Main Street's services page, and one no.** The owner said
+  yes to Muddy Mutt (dog grooming by appointment) and Sirenhouse (hair
+  salon); both published from their own sites, read on the day. Muddy
+  Mutt's site gives (970) 518-7494, not the (720) number on Main Street's
+  directory; Sirenhouse posts no hours, so its listing gives none. TPC
+  Colorado's Waterfront Grill and Center Stage: not listed, the owner's
+  call, so a gap report need not raise them again.
 - **Left out, for the owner.** Bank of Colorado (confirmed, but the guide lists no banks); the
   Activity Hall (a hall for hire); salons, skin care, dog grooming,
   printing, design, dentists, physical therapy, real estate, law and
