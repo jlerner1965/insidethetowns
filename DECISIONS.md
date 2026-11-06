@@ -8738,7 +8738,9 @@ publishes on the report's word alone.*
   asked what a no-chains rule would cost the guides already published,
   with Buc-ee's as the exception: 9 national-chain listings and 12
   Colorado-chain listings across 11 guides, Johnstown the most (7 of 30).
-  No published listing has been changed while he decides which version.
+  His decision: no rule change and nothing removed. Keeping a chain does
+  no harm; removing one costs readers a listing and the guide a URL with
+  search traffic. The chain listings already published stay.
 - **Left out, for the owner.** Bank of Colorado (confirmed, but the guide lists no banks); the
   Activity Hall (a hall for hire); salons, skin care, dog grooming,
   printing, design, dentists, physical therapy, real estate, law and
