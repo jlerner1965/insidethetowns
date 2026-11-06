@@ -8738,9 +8738,18 @@ publishes on the report's word alone.*
   asked what a no-chains rule would cost the guides already published,
   with Buc-ee's as the exception: 9 national-chain listings and 12
   Colorado-chain listings across 11 guides, Johnstown the most (7 of 30).
-  His decision: no rule change and nothing removed. Keeping a chain does
-  no harm; removing one costs readers a listing and the guide a URL with
-  search traffic. The chain listings already published stay.
+  His decision, given the same afternoon: chains stay, and are listed like
+  any business, except six that no guide carries: McDonald's, Burger King,
+  Wendy's, Carl's Jr., Taco Bell and Subway. The editor and site-audit
+  skills carry the rule.
+- **What the rule changed.** Niwot's Subway, the only listing of the six on
+  any guide, was removed; its URL redirects to Niwot's /eat-drink/
+  (vercel.json), and its photo-contacts row went with it. From the
+  Berthoud report, O'Reilly Auto Parts and Domino's published from their
+  own store pages, read that day. Starbucks (locator loads by script),
+  7-Eleven (its page's store data failed to load) and Taco John's (only a
+  2018 press release, inside the Love's at I-25 and Highway 56) wait in
+  staging. Berthoud's Subway, McDonald's and Taco Bell are not listed.
 - **Left out, for the owner.** Bank of Colorado (confirmed, but the guide lists no banks); the
   Activity Hall (a hall for hire); salons, skin care, dog grooming,
   printing, design, dentists, physical therapy, real estate, law and
