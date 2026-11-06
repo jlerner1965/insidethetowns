@@ -9,8 +9,8 @@ source: "https://calendar.estesvalleylibrary.org/event/17835557"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17835557"
 sourceHash: "85d451775860"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the Estes Valley Library feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-06"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Tween/Teen Spice Metals\" at 2 pm on 19 November on the Estes Valley Library feed"
 ---
 
 Tween/Teen Spice Metals at Estes Valley Library, Thursday, November 19, 2 pm – 3 pm. Listed by Estes Valley Library; the organizer's page has the details and any registration.

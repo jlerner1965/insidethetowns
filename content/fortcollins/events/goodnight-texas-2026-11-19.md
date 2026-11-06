@@ -11,8 +11,8 @@ source: "https://bohemianlivemusic.org/event/goodnight-texas/"
 sourceId: "bohemianlivemusic-org"
 sourceUid: "53865"
 sourceHash: "9af2d5f4e2b7"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the bohemianlivemusic.org feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-06"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Goodnight, Texas\" at 7 pm on 19 November in the page's structured data"
 ---
 
 Goodnight, Texas at The Armory, Thursday, November 19, 7 pm – 7 pm. Listed by bohemianlivemusic.org; the organizer's page has the details and any registration.

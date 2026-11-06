@@ -11,7 +11,7 @@ category: other
 organizer: "Downtown Longmont (Longmont Downtown Development Authority)"
 organizerUrl: "https://www.downtownlongmont.com/"
 source: "https://www.downtownlongmont.com/do/winter-passport-launch"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): 7 November on the page"
 ---
 

@@ -8,8 +8,8 @@ cost: "Free"
 category: civic
 recurring: "Third Thursdays"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5350"
-verified: "2026-11-04"
-verifiedBy: "Claude Code, flagship audit: Nov 19, 6:30 pm, Town Hall Community Room, on the CivicClerk portal"
+verified: "2026-11-06"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Airport Economic Development Advisory Board Meeting - In Person\" at 6:30 pm on 19 November on the erieco.gov feed"
 ---
 
 Regular in-person meeting of the advisory board for Erie Municipal Airport economic development. Open to the public.

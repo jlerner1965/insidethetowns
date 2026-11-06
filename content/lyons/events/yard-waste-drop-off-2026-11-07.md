@@ -10,7 +10,7 @@ category: other
 source: "https://www.townoflyons.com/Calendar.aspx?EID=6737"
 sourceId: "townoflyons-com"
 sourceUid: "EID=6737"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Yard Waste Drop Off\" at 9 am on 7 November on the townoflyons.com feed"
 ---
 

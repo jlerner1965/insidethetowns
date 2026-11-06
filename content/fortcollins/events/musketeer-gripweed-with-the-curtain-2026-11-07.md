@@ -9,7 +9,7 @@ performers:
   - { name: "Musketeer Gripweed", kind: group }
   - { name: "The Curtain", kind: group }
 source: "https://www.z2ent.com/events/detail/musketeer-gripweed-2026-agg"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): 7 November and 8 pm on the page"
 ---
 

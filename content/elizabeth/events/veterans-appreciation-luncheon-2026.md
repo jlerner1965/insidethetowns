@@ -9,7 +9,7 @@ cost: "Free for veterans and their families; RSVP required"
 category: other
 featured: true
 source: "https://www.elizabethmainstreet.org/events/"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): 6 November and 11:30 am on the page"
 ---
 

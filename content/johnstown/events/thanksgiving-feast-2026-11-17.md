@@ -11,7 +11,7 @@ source: "https://johnstownmillikenpubliclibraries.us/event/thanksgiving-feast/"
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10539"
 sourceHash: "45f282f4b986"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Thanksgiving Feast\" at 6:30 pm on 17 November in the page's structured data"
 ---
 

@@ -10,7 +10,7 @@ url: "https://buffalorosegolden.com/events/crazy-diamonds/"
 category: music
 source: "https://buffalorosegolden.com/events/crazy-diamonds/"
 sourceId: "buffalorose-net"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Crazy Diamonds\" at 6 pm on 15 November in the page's structured data"
 ---
 

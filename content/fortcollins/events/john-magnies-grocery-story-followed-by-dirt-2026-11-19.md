@@ -11,8 +11,8 @@ performers:
   - { name: "John Magnie", kind: person }
   - { name: "Dirt", kind: group }
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against Avogadro's Number's events page, 1 November 2026: 2026-11-19, 18:00-20:00, $15"
+verified: "2026-11-06"
+verifiedBy: "recheck-events (the nightly re-check workflow): 19 November and 6 pm on the page"
 ---
 
 John Magnie of the subdudes plays his Grocery Story set at 6 p.m., followed by Dirt. At Avogadro's Number, 605 South Mason Street.

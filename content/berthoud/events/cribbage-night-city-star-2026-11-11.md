@@ -11,7 +11,7 @@ recurring: "Second and fourth Wednesdays"
 source: "https://citystarbrewing.com/event/cribbage-night-2-2/2026-11-11/"
 sourceId: "citystarbrewing-com"
 sourceUid: "10007794"
-verified: "2026-11-05"
+verified: "2026-11-06"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Cribbage Night\" at 6 pm on 11 November in the page's structured data"
 ---
 
