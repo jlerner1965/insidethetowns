@@ -471,7 +471,7 @@ test('every school is one entry with its own file, and its town’s menu carries
     assert.ok(sluggish === 0 ? schools.length === 1 : sluggish === schools.length, `${town}: either one school without a slug or several each with one`);
     const nav = townNav(findTown(town)!);
     assert.equal(nav[2]?.href, '/sports/', `${town}: the school is the third menu item`);
-    assert.equal(nav[2]?.label, schools.length === 1 ? (schools[0]!.navLabel ?? `${schools[0]!.maxprepsName} athletics`) : 'High school sports', `${town}: the label names the school`);
+    assert.equal(nav[2]?.label, schools.length === 1 ? (schools[0]!.navLabel ?? 'Athletics') : 'High school sports', `${town}: the label says athletics`);
     for (const s of schools) assert.ok(s.calendar || s.calendarNote, `${s.school}: a calendar to check against, or a note saying why not`);
   }
 });

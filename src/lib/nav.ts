@@ -5,7 +5,7 @@
  * mascot's name). The items follow from what the guide has, so a new school
  * or a new hub reaches the menu without anyone editing a list:
  *
- *   This week · Things to do · <School> athletics · Eat & drink · <hub> · <living> · Guides
+ *   This week · Things to do · Athletics · Eat & drink · <hub> · <living> · Guides
  *
  * - Things to do took the second slot from Events on 6 November 2026 (the
  *   owner's brief: parks, the rec center and the trails are what Search
@@ -14,11 +14,12 @@
  *   (src/integrations/town-routes.ts); where the hub slot would repeat it,
  *   a guide without the family hub, Events keeps that slot instead.
  *
- * - "<School> athletics" only where the guide follows a school
- *   (src/config/school-sports.ts, schoolAthletics: "Niwot athletics",
- *   "Roosevelt athletics", the school's name rather than the mascot's since
- *   6 November 2026); "High school sports" where it follows several; a
- *   school's `navLabel` where neither would do.
+ * - "Athletics" only where the guide follows a school (the owner, 6
+ *   November 2026: one word in the menu, the same on every guide; it was
+ *   "<School> athletics" that day and "<Mascot> sports" before, and the
+ *   school's name still heads the strip, the band and the share image,
+ *   src/config/school-sports.ts schoolAthletics); "High school sports"
+ *   where it follows several; a school's `navLabel` where neither would do.
  * - The hub: Families where the guide has the family hub, else Events (Things to do already being in the menu).
  * - Living here where the guide has that page, else Moving here.
  *
@@ -33,7 +34,7 @@
  * phone panel alike (design pass, 26 October 2026: the row was set in small
  * capitals, and the flagship home page ran a second menu of its own).
  */
-import { schoolAthletics, schoolsFor } from '../config/school-sports.ts';
+import { schoolsFor } from '../config/school-sports.ts';
 import type { NavItem, SiteConfig, TownConfig } from '../config/towns/types.ts';
 
 /** The menu's word for the sports page, or nothing where the guide follows no school. */
@@ -42,7 +43,7 @@ export function sportsNavLabel(town: string): string | undefined {
   if (schools.length === 0) return undefined;
   if (schools.length > 1) return 'High school sports';
   const [school] = schools;
-  return school!.navLabel ?? schoolAthletics(school!);
+  return school!.navLabel ?? 'Athletics';
 }
 
 export function townNav(town: Pick<TownConfig, 'slug' | 'families' | 'livingHere'>): NavItem[] {
