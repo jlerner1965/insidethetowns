@@ -8711,3 +8711,57 @@ Google still listed them).*
 - **Left as they are:** titles of 61 to 70 characters (the 27 October
   limit stands); articles without a photograph (a photograph needs a
   licence or permission, section 6); the Niwot tagline.
+
+## Berthoud's missing errands added, the rest staged, 6 November 2026
+
+*The owner, on the 5 November gap report ("Inside Berthoud: businesses the
+guide is missing"): "add any of these you think and which need more info".
+Every page behind a published file was read again on the day; nothing
+publishes on the report's word alone.*
+
+- **Published (five places, one program).** Hays Market, Coyote Ridge
+  Veterinary Clinic, Berthoud Animal Hospital, SIX Barbershop and Forbici
+  Barber Werx, each from its own site; Berthoud Dance Company as a class on
+  /families/, from its schedule page. The animal hospital's "MON & FRI"
+  line is a typo: the same page's footer gives Mon–Fri 8–5:30. Forbici
+  posts no hours, so its listing gives none.
+- **Staged (six places).** Ace Hardware and The Taco Man: their pages
+  answer a Cloudflare check to every reader tried, the rule from the Lyons
+  pass. Osito's, Jessie's Pub and Berthoud Athletic Club: only Main
+  Street's directory, with their Facebook pages behind a login (Osito's
+  and Jessie's behind an 18+ one). Berthoud Drug: registries only, with
+  two addresses. Each reason says what settles it; Osito's and Jessie's
+  also settle La Casita and Glass of Art.
+- **No chains added.** The owner's answer when asked: Subway downtown and
+  the Grand Market Avenue fast food (Starbucks, McDonald's, Taco Bell,
+  Domino's, Taco John's, the 7-Eleven, O'Reilly) are not added. He then
+  asked what a no-chains rule would cost the guides already published,
+  with Buc-ee's as the exception: 9 national-chain listings and 12
+  Colorado-chain listings across 11 guides, Johnstown the most (7 of 30).
+  His decision, given the same afternoon: chains stay, and are listed like
+  any business, except six that no guide carries: McDonald's, Burger King,
+  Wendy's, Carl's Jr., Taco Bell and Subway. The editor and site-audit
+  skills carry the rule.
+- **What the rule changed.** Niwot's Subway, the only listing of the six on
+  any guide, was removed; its URL redirects to Niwot's /eat-drink/
+  (vercel.json), and its photo-contacts row went with it. From the
+  Berthoud report, O'Reilly Auto Parts and Domino's published from their
+  own store pages, read that day. Starbucks (locator loads by script),
+  7-Eleven (its page's store data failed to load) and Taco John's (only a
+  2018 press release, inside the Love's at I-25 and Highway 56) wait in
+  staging. Berthoud's Subway, McDonald's and Taco Bell are not listed.
+- **Two more from Main Street's services page, and one no.** The owner said
+  yes to Muddy Mutt (dog grooming by appointment) and Sirenhouse (hair
+  salon); both published from their own sites, read on the day. Muddy
+  Mutt's site gives (970) 518-7494, not the (720) number on Main Street's
+  directory; Sirenhouse posts no hours, so its listing gives none. TPC
+  Colorado's Waterfront Grill and Center Stage: not listed, the owner's
+  call, so a gap report need not raise them again.
+- **Left out, for the owner.** Bank of Colorado (confirmed, but the guide lists no banks); the
+  Activity Hall (a hall for hire); salons, skin care, dog grooming,
+  printing, design, dentists, physical therapy, real estate, law and
+  energy consulting from Main Street's services page; the Surveyor, a
+  source rather than a listing; Footlight Musical Theater, a youth program
+  with only a Facebook page (programs have no staging folder); and the
+  aggregator-only leads (TPC Colorado's restaurants, County Line Vet, NoCo
+  Spay & Neuter, the clinic at 406 10th St).
