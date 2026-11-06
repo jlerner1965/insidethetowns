@@ -8782,6 +8782,10 @@ applies: none of the six excluded brands came up.*
   four nights), The Promenade Shops at Centerra, Santiago's, Taste
   Local, Blackjack Pizza & Salads, My Place Hotel and Microtel, the
   guide's first lodging. Staged: both King Soopers and Embassy Suites.
+  The Loveland Public Library followed the same day, written from the
+  page text the owner copied out of the library's site in a browser
+  (the Festival Park method; the site refuses automated reads); the
+  WiFi passwords on that page are left to the library's site.
 - **Windsor: 9 published.** Safeway, Twin Staves, Windsor Community
   Playhouse, Main Event (its page in a browser now shows the address
   and phone), Windsor Ace Hardware, PizzaVino, Esh's Grocery Market,
