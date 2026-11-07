@@ -19,7 +19,7 @@ import assert from 'node:assert/strict';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { towns } from '../src/config/towns/registry.ts';
-import { placeTypeRoutes } from '../src/integrations/town-routes.ts';
+import { hubRoutes, placeTypeRoutes } from '../src/integrations/town-routes.ts';
 
 const root = new URL('..', import.meta.url).pathname;
 
@@ -84,7 +84,10 @@ test('no redirect on a live guide hides a page that exists', () => {
   // behind for a deleted listing would hide the page if the slug came back,
   // and a rule for a kind of place the guide drops below the threshold for
   // (Berthoud's /trails/, 7 November 2026) would hide that page once the
-  // guide lists enough of them again. Remove the rule when the page returns.
+  // guide lists enough of them again, as a rule for a hub the guide no longer
+  // has (Elizabeth's /families/ and /living-here/, gone with its flagship
+  // status) would hide the hub if it came back. Remove the rule when the
+  // page returns.
   const hidden: string[] = [];
   for (const r of rules) {
     for (const h of r.has ?? []) {
@@ -93,7 +96,8 @@ test('no redirect on a live guide hides a page that exists', () => {
       const listing = r.source.match(/^\/(events|places|articles)\/([a-z0-9-]+)\{\/\}\?$/);
       if (listing && existsSync(join(root, 'content', town, listing[1]!, `${listing[2]}.md`))) hidden.push(`${h.value}${r.source}`);
       const section = r.source.match(/^(\/[a-z-]+)\{\/\}\?$/);
-      if (section && placeTypeRoutes(town).some(([pattern]) => pattern === section[1])) hidden.push(`${h.value}${r.source}`);
+      const config = live.find((t) => t.slug === town)!;
+      if (section && [...placeTypeRoutes(town), ...hubRoutes(config)].some(([pattern]) => pattern === section[1])) hidden.push(`${h.value}${r.source}`);
     }
   }
   assert.deepEqual(hidden, [], `redirects in vercel.json over pages the build makes:\n  ${hidden.join('\n  ')}`);

@@ -9123,3 +9123,16 @@ page. Was it fixed? It was not.*
   the guide has enough places for, since Vercel applies a redirect before
   the file and the rule would hide the page; remove the rule when the page
   comes back.
+- **The other guides, the same day.** Search Console since 1 August on
+  every live guide and the hub (1,515 pages): 67 more 404s, on Lyons (34),
+  Niwot (10), Erie (8), Elizabeth (7), Timnath (5), Johnstown (2) and
+  Golden (1), each re-checked on the live site. Past events go to the
+  guide's `/events/`, school games to `/sports/`, five cafés and
+  restaurants no longer listed to `/eat-drink/`, and Elizabeth's
+  `/families/` and `/living-here/`, gone with its flagship status, to
+  `/events/` and `/moving-here/`, the items its menu has in their place.
+  A repeating event goes to `/events/`, not to its next date, which will
+  be deleted in its turn. A crawl of every sitemap page on all nineteen
+  sites found no broken link between their own pages and no sitemap page
+  that is not a 200. The test's guard now covers the hubs too
+  (`hubRoutes`): a rule over a hub the guide has would hide it.

@@ -1090,6 +1090,743 @@
       ],
       "destination": "/events/",
       "permanent": true
+    },
+    {
+      "source": "/events/elbert-county-marketplace-2026-10-03{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/heritage-crew-2026-10-03{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/families{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/living-here{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "/moving-here/",
+      "permanent": true
+    },
+    {
+      "source": "/places/86-and-main{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "/eat-drink/",
+      "permanent": true
+    },
+    {
+      "source": "/places/coffee-house-on-main{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "/eat-drink/",
+      "permanent": true
+    },
+    {
+      "source": "/places/cowgirlz-coffee{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideelizabeth.com"
+        }
+      ],
+      "destination": "/eat-drink/",
+      "permanent": true
+    },
+    {
+      "source": "/events/business-connections-networking-group-2026-10-01{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideerie.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/cultural-arts-presents-shakespeare-in-the-parking-lot-2026-10-03{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideerie.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/poetry-is-for-everyone-2026-10-01{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideerie.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/ribbon-cutting-yogasix-nine-mile-2026-09-29{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideerie.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/safety-series-2026-10-07{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideerie.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/shadowbox-creation-2026-09-30{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideerie.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/town-manager-meet-and-greet-2026-09-28{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideerie.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/women-in-leadership-summit-2026-09-30{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideerie.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/yoga-with-a-ranger-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidegolden.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/paint-n-sip-2026-10-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidejohnstown.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/places/we-knead-donut{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidejohnstown.com"
+        }
+      ],
+      "destination": "/eat-drink/",
+      "permanent": true
+    },
+    {
+      "source": "/events/apple-pressing-community-orchard{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/art-4-art-trading-cards-2026-10-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/arts-and-humanities-commission-meeting-2026-10-13{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/board-of-trustees-2026-10-05{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/board-of-trustees-2026-10-19{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/colorado-annual-women-s-weekend-2026-10-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/comedy-third-fridays-spirit-hound-2026-09-18{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/comedy-third-fridays-spirit-hound-2026-10-16{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/creative-movement-with-dandelion-arts-collective-2026-10-08{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/declaration-book-club-library{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/dogs-enjoy-afternoon-reading-d-e-a-r-2026-10-15{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/economic-vitality-commission-2026-10-14{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/fifth-sunday-classics-2026-11-29{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/john-mckay-band-rock-garden-2026-10-03{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/karaoke-at-the-wayback-bar{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/lahc-quarterly-art-show{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/lvdy-sway-wild-wildflower{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/lyons-old-time-square-dance{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/makerspace-open-studio-library{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/nature-journaling-club-2026-10-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/old-time-jam-oskar-blues-2026-10-14{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/open-house-for-2nd-and-3rd-avenue-improvements-2026-10-07{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/pints-and-pages-mainstage-2026-10-14{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/quarterly-art-show-drop-off-and-pick-up-2026-10-16{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/sensory-play-and-family-meetup-2026-10-14{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/sustainable-futures-commission-2026-10-08{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/trivia-wayback-bar-2026-10-01{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/troubles-braids-rock-garden{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/tumbledown-shack-rock-garden{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/tween-book-to-movie-club-2026-10-20{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/ukulele-group-2026-10-13{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/water-tower-wildflower{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/women-s-pinball-tournament-2026-10-17{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/places/lyons-dairy-bar{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/eat-drink/",
+      "permanent": true
+    },
+    {
+      "source": "/events/artist-in-residence-open-house-gail-denton-2026-10-15{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/ballots-mailed-2026-10-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/childrens-park-turns-10{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/dancing-under-the-stars-season-finale{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/first-friday-art-walk-2026-10-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/niwot-business-association-monthly-meeting-2026-10-13{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/niwot-cougars-football-vs-fort-morgan-2026-10-23{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/sports/",
+      "permanent": true
+    },
+    {
+      "source": "/events/niwot-local-improvement-district-advisory-committee-meeting-2026-10-06{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/tree-sculptures-open-house-2026-10-04{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/wellness-lecture-2026-10-07{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/timnath-cubs-boys-soccer-vs-loveland-2026-09-29{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "/sports/",
+      "permanent": true
+    },
+    {
+      "source": "/events/timnath-cubs-boys-soccer-vs-northridge-2026-10-13{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "/sports/",
+      "permanent": true
+    },
+    {
+      "source": "/events/timnath-cubs-boys-soccer-vs-thompson-valley-2026-10-06{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "/sports/",
+      "permanent": true
+    },
+    {
+      "source": "/events/timnath-cubs-football-vs-mead-2026-10-15{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "/sports/",
+      "permanent": true
+    },
+    {
+      "source": "/events/timnath-reservoir-motorized-season-ends-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidetimnath.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
     }
   ]
 }
