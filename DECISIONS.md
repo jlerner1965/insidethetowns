@@ -9051,3 +9051,10 @@ before commit.*
   restores the button's markup after "Sending…", not its flattened text.
   Measured on Niwot: 424px to 182px on a desktop, 457px to 271px on a
   phone.
+- **Shops in the menu, after Eat & drink, where a guide lists ten open
+  shops or more** (src/lib/nav.ts, MIN_SHOPS_FOR_MENU): Niwot (11) and
+  Berthoud (14) today. /shops/ was built on both but linked from neither
+  the menu nor the footer, and Niwot's downtown is its shops. Counted from
+  the markdown, as the route that builds the page counts them, so a guide
+  gains or loses the item with its listings. Both rows fit on one line at
+  1280px, the row's narrowest width.

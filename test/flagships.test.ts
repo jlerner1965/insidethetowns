@@ -9,7 +9,9 @@
  * navigation names the hubs the config switches on.
  */
 import { schoolsFor } from '../src/config/school-sports.ts';
-import { townNav } from '../src/lib/nav.ts';
+import { MIN_SHOPS_FOR_MENU, townNav } from '../src/lib/nav.ts';
+import { MIN_PLACES_FOR_TYPE_PAGE } from '../src/lib/place-types.ts';
+import { openPlaceTypeCounts } from '../src/lib/raw-places.ts';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
@@ -46,7 +48,8 @@ test('every guide has the same menu, built from what it has: the week, events, i
     const proper = new Set(schoolsFor(t.slug).flatMap((s) => s.maxprepsName.split(' ')));
     for (const l of labels) assert.equal(l, l[0] + l.slice(1).replace(/\b[A-Z][a-z]+/g, (w) => (proper.has(w) ? w : w.toLowerCase())), `${t.slug}: "${l}" is in sentence case`);
   }
-  assert.deepEqual(townNav(by('berthoud')).map((n) => n.label), ['This week', 'Things to do', 'Athletics', 'Eat & drink', 'Families', 'Living here', 'Guides']);
+  // Berthoud lists ten open shops or more, so Shops follows Eat & drink (the owner, 7 November 2026).
+  assert.deepEqual(townNav(by('berthoud')).map((n) => n.label), ['This week', 'Things to do', 'Athletics', 'Eat & drink', 'Shops', 'Families', 'Living here', 'Guides']);
   assert.equal(townNav(by('lyons')).find((n) => n.href === '/sports/')?.label, 'Athletics');
   // One word on every guide (the owner, 6 November 2026): Johnstown's Roosevelt High and Frederick High alike.
   assert.equal(townNav(towns.find((t) => t.slug === 'johnstown')!).find((n) => n.href === '/sports/')?.label, 'Athletics');
@@ -55,6 +58,22 @@ test('every guide has the same menu, built from what it has: the week, events, i
   // Erie follows Erie High since 25 October 2026, so its menu carries Erie High in the third slot.
   assert.deepEqual(townNav(towns.find((t) => t.slug === 'erie')!).map((n) => n.label), ['This week', 'Things to do', 'Athletics', 'Eat & drink', 'Families', 'Living here', 'Guides']);
   assert.deepEqual(townNav(towns.find((t) => t.slug === 'longmont')!).map((n) => n.label), ['This week', 'Things to do', 'Eat & drink', 'Events', 'Moving here', 'Guides']);
+});
+
+test('Shops is in the menu only where the guide lists enough open shops, right after Eat & drink', () => {
+  const erie = by('erie');
+  const labels = (shop: number) => townNav(erie, { shop }).map((n) => n.label);
+  assert.ok(!labels(MIN_SHOPS_FOR_MENU - 1).includes('Shops'), 'one short of the threshold: no Shops');
+  const at = labels(MIN_SHOPS_FOR_MENU);
+  assert.equal(at[at.indexOf('Eat & drink') + 1], 'Shops', 'at the threshold: Shops, after Eat & drink');
+  assert.equal(townNav(erie, {}).some((n) => n.href === '/shops/'), false, 'no shops at all: no Shops');
+  // The item links to a page the build makes: /shops/ needs MIN_PLACES_FOR_TYPE_PAGE, far fewer.
+  assert.ok(MIN_SHOPS_FOR_MENU >= MIN_PLACES_FOR_TYPE_PAGE);
+  // Every guide the counts put over the line, from the markdown on disk.
+  for (const t of towns) {
+    const has = townNav(t).some((n) => n.href === '/shops/');
+    assert.equal(has, (openPlaceTypeCounts(t.slug).shop ?? 0) >= MIN_SHOPS_FOR_MENU, `${t.slug}: Shops follows the count`);
+  }
 });
 
 test('the short tagline is enduring: no dated civic topic in it or in the town’s one line', () => {
