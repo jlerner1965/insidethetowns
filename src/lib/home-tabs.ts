@@ -33,8 +33,8 @@
  * empty line stays (a quiet day is a fact about the guide); the page just
  * no longer stops there.
  */
-import { dayKey, formatDayShort, formatWeekday, startOfDay, TIME_ZONE } from './dates.ts';
-import { sortByStart, weekendWindow } from './events.ts';
+import { addDays, dayKey, formatDayShort, formatWeekday, startOfDay, TIME_ZONE } from './dates.ts';
+import { isPast, sortByStart, weekendWindow } from './events.ts';
 import { eventItem, type DayItem, type EventLike, type WeekDay } from './flagship-home.ts';
 import type { EventCategory } from '../content/schemas.ts';
 
@@ -178,4 +178,44 @@ export function homeTabs(days: readonly WeekDay[], now = new Date(), limit = TAB
     { key: 'tomorrow', label: 'Tomorrow', empty: 'Nothing listed for tomorrow.', href: `/events/#day-${days[1]?.key ?? ''}`, ...tomorrow, next: nextAfter(later, tomorrowKey) },
     { key: 'weekend', label: 'This weekend', empty: weekendEmpty, href: '/this-weekend/', ...weekend, next: nextAfter(later, sundayKey) },
   ];
+}
+
+/** How far ahead, in days, the "Don't miss" card looks for a featured listing. */
+export const DONT_MISS_DAYS = 21;
+
+/**
+ * The "Don't miss" card beside the tabs (the owner, 7 November 2026, after
+ * comparing the guide with niwot.com, whose front page gives its festivals
+ * photographs while ours set Enchanted Evening in the same row as a band
+ * night): the next listing the editor flagged `featured` that starts within
+ * DONT_MISS_DAYS of today, still on as listed and not over. A called-off or
+ * moved one is never offered as something not to miss; the tabs still carry
+ * it with its label. Nothing when none qualifies: the card is the
+ * `featured` flag's to earn, not a slot to fill.
+ */
+export function dontMiss<E extends EventLike>(events: readonly E[], now: Date, days = DONT_MISS_DAYS): E | undefined {
+  const until = addDays(startOfDay(now), days + 1).getTime();
+  return sortByStart([...events]).find(
+    (e) => e.data.featured === true && (e.data.status ?? 'scheduled') === 'scheduled' && !isPast(e, now) && e.data.start.getTime() < until,
+  );
+}
+
+/**
+ * A school game on the home page's tabs says whose game it is and where:
+ * "Niwot volleyball vs Fruita Monument" over "Home", where the list had
+ * "Volleyball vs Fruita Monument" and an empty venue column, the same line
+ * the school's strip had just shown above it (the owner, 7 November 2026).
+ * Only the tabs: the events page and the Thursday email set games under the
+ * school's own heading already, so their titles are left as they are.
+ */
+export function labelGames(days: readonly WeekDay[], school: string): WeekDay[] {
+  const named = (title: string) => `${school} ${title.charAt(0).toLowerCase()}${title.slice(1)}`;
+  return days.map((day) => ({
+    ...day,
+    items: day.items.map((item) =>
+      item.kind === 'game'
+        ? { ...item, title: named(item.title), fullTitle: named(item.fullTitle), where: [item.site, item.where].filter(Boolean).join(' · ') }
+        : item,
+    ),
+  }));
 }

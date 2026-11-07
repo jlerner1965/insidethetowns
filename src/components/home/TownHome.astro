@@ -15,8 +15,9 @@
  *    as tabs, five listings each, the games among them, then All events
  *    and Add an event.
  * 4. The Thursday email (NewsletterSignup, home): the heading, one line,
- *    the field and the button. The page's one form, where the email covers
- *    the town.
+ *    the field and the button, as one strip in a narrow band (the owner,
+ *    7 November 2026: the card took half a desktop screen and most of a
+ *    phone's). The page's one form, where the email covers the town.
  * 5. For families, where the config switches it on (`families.onHome`):
  *    up to three lines from the family hub, each with its date, ages and
  *    cost, and one link to /families/ (src/lib/family-home.ts).
@@ -44,7 +45,7 @@ import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import SportsStrip from '@/components/SportsStrip.astro';
 import NextStop from './NextStop.astro';
 import SportsBar from './SportsBar.astro';
-import WhatsHappening from './WhatsHappening.astro';
+import WhatsHappening, { type Feature } from './WhatsHappening.astro';
 import RecCenterToday from '@/components/RecCenterToday.astro';
 import { recCenterFor, type RecCenterData } from '@/lib/rec-center';
 import { editionFor, emailEditions, getNetworkHub, getTown } from '@/config';
@@ -52,8 +53,12 @@ import { schoolsFor, teamPath, type SportsData } from '@/config/school-sports';
 import { getTownEntries } from '@/lib/content';
 import { forGeneralReaders, occurrences, weeklyTest } from '@/lib/events';
 import { familyLines } from '@/lib/family-home';
-import { weekDays } from '@/lib/flagship-home';
-import { defaultTab, homeTabs, laterRows, TAB_LIMIT } from '@/lib/home-tabs';
+import { eventItem, weekDays } from '@/lib/flagship-home';
+import { defaultTab, DONT_MISS_DAYS, dontMiss, homeTabs, labelGames, laterRows, TAB_LIMIT } from '@/lib/home-tabs';
+import { dayKey, formatDayShort, formatTimeRange } from '@/lib/dates';
+import { resolveSiteImage } from '@/lib/images';
+import { firstSentence } from '@/lib/plain-text';
+import { eventDescription } from '@/lib/seo';
 import { isOpen } from '@/lib/places';
 import { hasData, sportsDataFor } from '@/lib/school-sports';
 import { currentUpdates } from '@/lib/updates';
@@ -92,7 +97,8 @@ const days = weekDays({ events: general(8), sports: data, teamHref, now, start: 
 // What an empty tab offers next: the listings of the next two months, so a
 // quiet guide's next date three weeks out is still found.
 const later = laterRows(general(60), picked, weeklyTest(allEvents));
-const tabs = homeTabs(days, now, TAB_LIMIT, later);
+// The school's games on the tabs say whose they are: "Niwot volleyball vs …".
+const tabs = homeTabs(school ? labelGames(days, school.maxprepsName) : days, now, TAB_LIMIT, later);
 const open = defaultTab(now);
 
 // 3a. "Today at the rec center" at the top of the Today tab, for a town with
@@ -122,6 +128,31 @@ const familyRows = town.families?.onHome
 
 // 6. The places with a photograph, for the three tiles; a closed place is not a next stop.
 const places = (await getTownEntries('places')).filter(isOpen);
+
+// 3b. Don't miss, beside the tabs: the next featured listing within three
+// weeks (src/lib/home-tabs.ts), with a photograph: its own, else its venue's
+// where the venue is a listed place with one ("Niwot Hall and Downtown
+// Niwot" finds Niwot Hall), else the town's own.
+const featured = dontMiss(general(DONT_MISS_DAYS + 1), now);
+let feature: Feature | undefined;
+if (featured) {
+  const row = eventItem(featured);
+  const { title, start, end, allDay, timeNote, venue, cost, image, imageAlt } = featured.data;
+  const spot = places
+    .filter((p) => p.data.image && venue.toLowerCase().includes(p.data.title.toLowerCase()))
+    .sort((a, b) => b.data.title.length - a.data.title.length)[0];
+  feature = {
+    title,
+    href: row.href,
+    when: `${formatDayShort(start)} · ${timeNote ?? formatTimeRange(start, end && dayKey(end) === dayKey(start) ? end : undefined, allDay)}`,
+    where: [venue, cost].filter(Boolean).join(' · '),
+    blurb: firstSentence(eventDescription(featured.body) ?? '') || undefined,
+    image: image ?? spot?.data.image ?? resolveSiteImage(town.slug, town.hero.image),
+    alt: image ? (imageAlt ?? '') : spot ? (spot.data.imageAlt ?? '') : town.hero.alt,
+    eventDay: row.eventDay,
+    end: row.end,
+  };
+}
 ---
 <Hero compact pick={!!pick} changes={know.length > 0} />
 
@@ -131,12 +162,12 @@ const places = (await getTownEntries('places')).filter(isOpen);
   </section>
 )}
 
-<WhatsHappening town={town} tabs={tabs} open={open}>
+<WhatsHappening town={town} tabs={tabs} open={open} feature={feature}>
   {rec && <RecCenterToday slot="today" data={rec} fallback href={`/places/${rec.place}/`} />}
 </WhatsHappening>
 
 {emailOn && !thin && (
-  <section class="band-compact band-paper">
+  <section class="band-paper py-4 md:py-6">
     <div class="container-page">
       <NewsletterSignup town={town} id="home" variant="home" anchor="signup" />
     </div>
@@ -164,7 +195,7 @@ const places = (await getTownEntries('places')).filter(isOpen);
 <NextStop town={town} places={places} />
 
 {emailOn && thin && (
-  <section class="band-compact band-paper">
+  <section class="band-paper py-4 md:py-6">
     <div class="container-page">
       <NewsletterSignup town={town} id="home" variant="home" anchor="signup" />
     </div>

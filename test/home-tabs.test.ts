@@ -5,7 +5,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { defaultTab, homeTabs, laterRows, NEXT_LIMIT, nextAfter, nextRank, pickRows, TAB_LIMIT } from '../src/lib/home-tabs.ts';
+import { defaultTab, DONT_MISS_DAYS, dontMiss, homeTabs, labelGames, laterRows, NEXT_LIMIT, nextAfter, nextRank, pickRows, TAB_LIMIT } from '../src/lib/home-tabs.ts';
 import { weekDays } from '../src/lib/flagship-home.ts';
 import { parseLocal } from '../src/lib/dates.ts';
 
@@ -175,4 +175,34 @@ test('a canceled listing keeps its line while there is room, gives up its slot o
   const room = pickRows([off, row('a', '09:00'), row('b', '10:00')]);
   assert.deepEqual(room.rows.map((r) => r.fullTitle), ['workshop', 'a', 'b'], 'with room, the cancellation is news worth a line, in clock order');
   assert.equal(room.more, 0);
+});
+
+test('"Don\'t miss" is the next featured listing within three weeks, still on and not over', () => {
+  const now = at('2026-11-07T09:00');
+  const evening = ev('enchanted-evening', '2026-11-27T18:00', { featured: true, end: at('2026-11-27T21:00') });
+  const parade = ev('holiday-parade', '2026-11-28T11:00', { featured: true });
+  const band = ev('band', '2026-11-08T19:00');
+  assert.equal(dontMiss([parade, band, evening], now)?.slug, 'enchanted-evening', 'the earliest featured one, not the earliest listing');
+  assert.equal(dontMiss([band], now), undefined, 'nothing featured: no card');
+  const later = ev('far-off', '2026-12-20T10:00', { featured: true });
+  assert.equal(dontMiss([later], now), undefined, `more than ${DONT_MISS_DAYS} days out: not yet`);
+  const called = ev('called-off', '2026-11-14T10:00', { featured: true, status: 'canceled' });
+  assert.equal(dontMiss([called, evening], now)?.slug, 'enchanted-evening', 'a canceled one is skipped');
+  assert.equal(dontMiss([evening], at('2026-11-27T21:00')), undefined, 'gone at its end');
+  assert.equal(dontMiss([evening], at('2026-11-27T20:00'))?.slug, 'enchanted-evening', 'still on an hour before its end');
+});
+
+test('a game on the tabs names the school and says home or away where no venue does', () => {
+  const now = at('2026-11-07T08:00');
+  const sports = {
+    generated: '2026-11-07',
+    sports: [{ key: 'volleyball', name: 'Volleyball', results: [], upcoming: [{ date: '2026-11-07', opponent: 'Fruita Monument', site: 'home', time: '10:00' }] }],
+  };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const days = weekDays({ events: [], sports: sports as any, teamHref: () => '/sports/volleyball/', now, start: 'today', limit: 99 });
+  const game = labelGames(days, 'Niwot').flatMap((d) => d.items).find((i) => i.kind === 'game')!;
+  assert.equal(game.title, 'Niwot volleyball vs Fruita Monument');
+  assert.equal(game.where, 'Home');
+  // The week the email and the events page read is not changed.
+  assert.equal(days.flatMap((d) => d.items).find((i) => i.kind === 'game')!.title, 'Volleyball vs Fruita Monument');
 });

@@ -97,8 +97,10 @@ const emailErrorId = `newsletter-email-error-${fieldKey}-${town?.slug ?? 'networ
 // environment: Astro's import.meta.env carries only the variables it knows
 // of, and a reference to this one would write its value into the build.
 const inline = inlineSignup(process.env);
-const field =
-  'mt-1.5 block h-12 w-full rounded-md border border-line bg-raised px-3 text-[1.0625rem] font-normal text-ink';
+const field = [
+  'block h-12 w-full rounded-md border border-line bg-raised px-3 text-[1.0625rem] font-normal text-ink',
+  !home && 'mt-1.5',
+];
 const muted = dark ? 'text-white/80' : 'text-ink-muted';
 const link = dark ? 'text-white underline' : 'text-primary underline';
 // Every row a full 44px to tap, the box itself 20px.
@@ -107,9 +109,17 @@ const box = 'size-5 shrink-0 rounded border-line';
 ---
 {/* One width and one alignment wherever it appears: it was centred at 630px
     on the home page, the full width of the events page with its right half
-    empty, and left at 715px on This Weekend. */}
+    empty, and left at 715px on This Weekend.
+
+    The short form (`home`) is a strip, not a card: the owner, 7 November
+    2026, on the live home page, where the card stood 424px tall on a
+    desktop and 457px on a phone, taller than the photographs under it. It
+    takes the width of the column it sits in, and where that column is
+    48rem or more the words sit on the left and the field and the button on
+    the right, on one row (a container query, so This week, Events and
+    Families, whose columns differ, each get the row only where it fits). */}
 {config && (!town || mine) && (
-  <section id={anchor} class:list={['max-w-3xl rounded-lg p-6 md:p-8', card && 'scroll-mt-6', dark ? 'on-dark bg-primary text-white' : ['bg-raised ring-1', compact ? 'ring-line-soft' : 'ring-primary-line']]}>
+  <section id={anchor} class:list={[home ? '@container rounded-lg px-4 py-4 sm:px-6 sm:py-5' : 'max-w-3xl rounded-lg p-6 md:p-8', card && 'scroll-mt-6', dark ? 'on-dark bg-primary text-white' : ['bg-raised ring-1', compact ? 'ring-line-soft' : 'ring-primary-line']]}>
     {/*
       A new tab keeps the reader on the page they were reading, and the
       browser opens it from target="_blank" itself (src/lib/signup.ts says
@@ -120,11 +130,13 @@ const box = 'size-5 shrink-0 rounded border-line';
       allowlist names, which validate-content.ts checks against the config
       on every build.
     */}
-    <form action={config.action} method="POST" target="_blank" class="max-w-xl" data-signup data-hub={town ? undefined : ''} data-inline={inline ? '' : undefined} data-send-day={day}>
+    <form action={config.action} method="POST" target="_blank" class:list={[home ? '@3xl:grid @3xl:grid-cols-[minmax(0,1fr)_minmax(0,29rem)] @3xl:items-center @3xl:gap-x-6' : 'max-w-xl']} data-signup data-hub={town ? undefined : ''} data-inline={inline ? '' : undefined} data-send-day={day}>
       {home ? (
         <Fragment>
-          <h2 class="display-md text-[1.75rem] leading-tight md:text-[2rem]">Your {day} local.</h2>
-          <p class="mt-2 text-[1.0625rem] leading-snug text-ink-muted">The week’s events{town?.school ? ', the scores' : ''} and what opened or closed in {town?.name}, every {day}.</p>
+          <div class="@3xl:row-span-3">
+            <h2 class="display-md text-[1.5rem] leading-tight @3xl:text-[1.75rem]">Your {day} local.</h2>
+            <p class="mt-1 text-[1rem] leading-snug text-balance text-ink-muted">The week’s events{town?.school ? ', the scores' : ''} and what opened or closed in {town?.name}, every {day}.</p>
+          </div>
           {town && mine && <input type="checkbox" name={tagField} value={town.slug} checked hidden data-towns={covers(mine)} />}
         </Fragment>
       ) : card ? (
@@ -182,9 +194,11 @@ const box = 'size-5 shrink-0 rounded border-line';
         </fieldset>
       )}
 
-      <div class="mt-5 sm:flex sm:items-end sm:gap-3">
-        <div class="sm:flex-1">
-          <label for={inputId} class:list={['block text-sm font-semibold', dark && 'eyebrow text-white']}>{dark ? 'Email' : 'Your email'}</label>
+      {/* The short form names the field for a screen reader only: the
+          placeholder and the button beside it say what it is for. */}
+      <div class:list={[home ? 'mt-3 flex items-end gap-2 sm:gap-3 @3xl:col-start-2 @3xl:mt-0' : 'mt-5 sm:flex sm:items-end sm:gap-3']}>
+        <div class:list={[home ? 'min-w-0 flex-1' : 'sm:flex-1']}>
+          <label for={inputId} class:list={[home ? 'sr-only' : 'block text-sm font-semibold', dark && 'eyebrow text-white']}>{dark ? 'Email' : 'Your email'}</label>
           <input
             id={inputId}
             type="email"
@@ -193,14 +207,19 @@ const box = 'size-5 shrink-0 rounded border-line';
             autocomplete="email"
             placeholder="you@example.com"
             aria-describedby={emailErrorId}
-            class={field}
+            class:list={field}
           />
         </div>
         {/* The same height as the field beside it: the pill was 40px against a
-            52px field, aligned at the bottom only. */}
-        <button type="submit" data-signup-button class:list={['btn mt-3 h-12 w-full justify-center px-6 sm:mt-0 sm:w-auto', dark ? 'bg-highlight text-ink hover:bg-highlight-ink' : 'btn-primary']}>Send me {dark || card ? `${day}’s` : `the ${day}`} email</button>
+            52px field, aligned at the bottom only. On the strip the button
+            stays beside the field on a phone too, so there it says "Sign up"
+            and the full words return from the sm width; the heading above
+            already says which email. */}
+        <button type="submit" data-signup-button class:list={[home ? 'btn h-12 shrink-0 justify-center px-4 sm:px-6' : 'btn mt-3 h-12 w-full justify-center px-6 sm:mt-0 sm:w-auto', dark ? 'bg-highlight text-ink hover:bg-highlight-ink' : 'btn-primary']}>{home ? (
+          <Fragment><span class="sm:hidden">Sign up</span><span class="hidden sm:inline">Send me {day}’s email</span></Fragment>
+        ) : <Fragment>Send me {dark || card ? `${day}’s` : `the ${day}`} email</Fragment>}</button>
       </div>
-      <p id={emailErrorId} data-email-error hidden aria-live="polite" class="mt-2 text-[0.9375rem] font-semibold">
+      <p id={emailErrorId} data-email-error hidden aria-live="polite" class:list={['mt-2 text-[0.9375rem] font-semibold', home && '@3xl:col-start-2']}>
         {SIGNUP_MESSAGES.invalid}
       </p>
 
@@ -244,7 +263,7 @@ const box = 'size-5 shrink-0 rounded border-line';
       )}
 
       {home ? (
-        <p class:list={['mt-3 text-[0.875rem] leading-relaxed', muted]}>
+        <p class:list={['mt-2 text-[0.875rem] leading-relaxed @3xl:col-start-2', muted]}>
           Free. Unsubscribe anytime. <a href={`https://${hub.domain}/privacy/`} class:list={['inline-block -my-3 py-3', link]}>Privacy</a>.
         </p>
       ) : (
@@ -351,7 +370,8 @@ const box = 'size-5 shrink-0 rounded border-line';
         // From the page: the form's own fields, and the page it was on for
         // Buttondown's referrer. No answer at all is `unavailable`.
         event.preventDefault();
-        const label = button?.textContent ?? '';
+        // The markup, not the text: the strip's button holds two labels, one per width.
+        const label = button?.innerHTML ?? '';
         if (button) {
           button.disabled = true;
           button.textContent = 'Sending…';
@@ -370,7 +390,7 @@ const box = 'size-5 shrink-0 rounded border-line';
         sending = false;
         if (button) {
           button.disabled = false;
-          button.textContent = label;
+          button.innerHTML = label;
         }
         report(answer);
         if (answer === 'invalid') {

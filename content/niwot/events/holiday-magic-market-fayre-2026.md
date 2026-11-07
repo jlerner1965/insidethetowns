@@ -6,6 +6,10 @@ venue: "Niwot Hall and Downtown Niwot"
 address: "195 Second Avenue"
 url: "https://niwot.com/upcoming-events/"
 category: market
+image: ../images/niwot-gateway-sculpture.jpg
+imageAlt: "The steel gateway sculpture at the highway edge of Niwot: an oval sign held inside two curving rails"
+imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
+featured: true
 source: "https://niwot.com/upcoming-events/annual-events-and-festivals/"
 verified: "2026-10-17"
 verifiedBy: "recheck-events (the nightly re-check workflow): 5 December and 10 am on the page"

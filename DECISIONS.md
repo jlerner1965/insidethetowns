@@ -9031,3 +9031,70 @@ items are content and data.
 - Bein Park's tags now lead with its soccer fields and dog park, and the
   Bike Park is filed as a park rather than a trail: it is the Town's bike
   park, and the trail title said nothing of the pump track.
+
+## The Thursday email as a strip, and Shops in the menu, 7 November 2026
+
+*The owner, after comparing the guide with niwot.com and measuring the live
+home page: the email card stood 424px tall on a desktop and 457px on a
+phone (about 70% of the screen), taller than "Find your next stop" under
+it. Mocked up from the real components on a local build and approved
+before commit.*
+
+- **The short form (`variant="home"`) is a strip** (NewsletterSignup):
+  the heading and one line on the left, the field and the button on the
+  right, on one row where its column is 48rem or more (a container query,
+  so the home page, This week and Events get the row and the narrower
+  Families column keeps the words above the field). The "Your email" label
+  is for screen readers only; the band around it on the home page is
+  narrower. On a phone the button stays beside the field and reads "Sign
+  up", the full "Send me Thursday’s email" from the sm width; the script
+  restores the button's markup after "Sending…", not its flattened text.
+  Measured on Niwot: 424px to 182px on a desktop, 457px to 271px on a
+  phone.
+- **Shops in the menu, after Eat & drink, where a guide lists ten open
+  shops or more** (src/lib/nav.ts, MIN_SHOPS_FOR_MENU): Niwot (11) and
+  Berthoud (14) today. /shops/ was built on both but linked from neither
+  the menu nor the footer, and Niwot's downtown is its shops. Counted from
+  the markdown, as the route that builds the page counts them, so a guide
+  gains or loses the item with its listings. Both rows fit on one line at
+  1280px, the row's narrowest width.
+
+## What's happening: "Don't miss", the venue beside the title, and whose game it is, 7 November 2026
+
+*The owner, after comparing the home page with niwot.com, whose front page
+gives its festivals photographs. Mocked up on Niwot (a card) and Berthoud
+(none) from a local build and approved before commit.*
+
+- **"Don't miss"** (src/lib/home-tabs.ts, `dontMiss`; WhatsHappening): the
+  next listing flagged `featured`, still on as listed, starting within 21
+  days, as a card with a photograph beside the tabs on a wide screen and a
+  short row above them on a phone. The photograph is the listing's own,
+  else its venue's where the venue names a listed place with one, else the
+  town's hero. It carries the listing's `data-end` and `data-event-day`, so
+  the browser's pruning takes it off when the listing ends, and the block
+  with it. No featured listing in the window, no card: the flag earns it.
+- **The venue follows the title** after a dot on a wide screen, and keeps
+  its own line on a phone; on a desktop it had sat 800px to the right of
+  the title. Without a card the list keeps a reading width (max-w-3xl).
+- **A game on the tabs names the school and the site** (`labelGames`):
+  "Niwot volleyball vs Fruita Monument · Home", where it read "Volleyball
+  vs Fruita Monument" with an empty venue column under the school's own
+  strip. The tabs only: the events page and the Thursday email set games
+  under the school's heading and keep their titles.
+- Measured on Niwot, 7 November: the section 638px to 737px on a desktop
+  and 725px to 943px on a phone, with the card; Berthoud, without one,
+  714px to 718px.
+
+## Photo credits under a picture at the hero's size, 7 November 2026
+
+*The owner: a credit "needs to be as small and invisible as possible".*
+
+Every credit printed under a photograph (events, places, articles, Moving
+here, people) is 8px, the size the owner set for the hero's credit on 28
+October, which that entry records as the floor: smaller and it stops
+reading as the credit a licence asks for. Muted, letter-spaced a little,
+4px under the picture. Where no credit is printed beside a photograph (the
+home page's tiles and its "Don't miss" card), /credits/ carries it from
+the ledger, linked from every page's footer. The validator still requires
+the credit on any entry whose photograph's licence asks for one; the
+Enchanted Evening listing, switched to the Niwot sign today, carries it.
