@@ -9098,3 +9098,28 @@ home page's tiles and its "Don't miss" card), /credits/ carries it from
 the ledger, linked from every page's footer. The validator still requires
 the credit on any entry whose photograph's licence asks for one; the
 Enchanted Evening listing, switched to the Niwot sign today, carries it.
+
+## A link a reader already has keeps working, 7 November 2026
+
+*The owner: Plausible counted 26 visits to Berthoud's "Page not found"
+page. Was it fixed? It was not.*
+
+- **What 404ed.** Sixteen event pages the 22 October Thursday email linked
+  (Berthoud's edition and the all-towns one: eight on Berthoud, five on
+  Lyons, two on Windsor, one on Erie), deleted once their dates passed,
+  though the rule of 4 November says a past event a sent email links stays;
+  five more linked from weekly notes on Niwot, Lyons and Berthoud; and the
+  Berthoud pages Search Console still shows: fifteen past events, `/trails/`
+  (two trails now, under the type page's three) and `/places/berthoud-inn/`.
+  36 addresses, every one a 404 on the live sites that afternoon.
+- **Redirected**, host-scoped in `vercel.json` as the four Berthoud events
+  already were: an event to the guide's `/events/`, the place to
+  `/directory/`, Berthoud's `/trails/` to `/things-to-do/`.
+- **Held by a test** (`test/sent-links.test.ts`): every event, place and
+  article a sent email or a weekly note links on a live guide has its file
+  or a redirect, so deleting a linked past event fails CI instead of
+  reaching a reader's inbox. And no host rule on a live guide sits over a
+  page the build makes: a listing whose file exists, or a place-type page
+  the guide has enough places for, since Vercel applies a redirect before
+  the file and the rule would hide the page; remove the rule when the page
+  comes back.
