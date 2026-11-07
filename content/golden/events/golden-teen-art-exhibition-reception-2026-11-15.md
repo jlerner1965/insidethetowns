@@ -10,7 +10,7 @@ organizer: "Jefferson County Public Library"
 organizerUrl: "https://jeffcolibrary.org/"
 source: "https://jeffcolibrary.bibliocommons.com/events/6abe73eec6cddb00459545bc"
 sourceId: "jeffcolibrary-bibliocommons-com"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Golden Teen Art Exhibition Reception\" at 12:30 pm on 15 November in the page's structured data"
 ---
 

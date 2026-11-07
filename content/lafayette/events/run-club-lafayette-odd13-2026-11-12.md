@@ -9,7 +9,7 @@ category: sports
 organizer: "Odd13 Brewing"
 organizerUrl: "https://www.odd13brewing.com/"
 source: "https://www.odd13brewing.com/events"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): 12 November and 6 pm on the page"
 ---
 

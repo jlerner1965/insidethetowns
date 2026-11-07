@@ -10,7 +10,7 @@ source: "https://longmontcolorado.gov/event/cultural-caravan-the-future-of-chamb
 sourceId: "longmontcolorado-gov-museum"
 sourceUid: "10008882-1795114800-1795122000@longmontcolorado.gov"
 sourceHash: "93dc51d5c484"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Cultural Caravan & the Future of Chamber Music: Can't Take My Soul\" at 7 pm on 19 November on the Longmont Museum (City of Longmont calendar) feed"
 ---
 

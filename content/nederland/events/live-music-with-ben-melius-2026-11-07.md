@@ -9,7 +9,7 @@ category: music
 performers:
   - { name: "Ben Melius", kind: person }
 source: "https://www.verynicebrewing.com/event-details/live-music-with-ben-melius"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Live Music with Ben Melius\" at 5 pm on 7 November in the page's structured data"
 ---
 

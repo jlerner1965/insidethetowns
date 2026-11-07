@@ -9,7 +9,7 @@ source: "https://calendar.estesvalleylibrary.org/event/17846920"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17846920"
 sourceHash: "bdd0b13bf60d"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Epic Worlds and Celestial Prophecies: Exploring the Between Earth and Sky Trilogy with Rebecca Roanhorse\" at 5 pm on 19 November on the Estes Valley Library feed"
 ---
 

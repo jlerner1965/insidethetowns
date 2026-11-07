@@ -16,8 +16,8 @@ source: "https://citystarbrewing.com/event/taproom-release-sweater-weather/"
 sourceId: "citystarbrewing-com"
 sourceUid: "11119"
 mergedUids: ["10010572"]
-verified: "2026-11-03"
-verifiedBy: "City Star Brewing's own event feed, read 2026-11-03: the release 3–10 pm and the band 6–8:30 pm as separate items, merged here"
+verified: "2026-11-07"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Beer Release: Sweater Weather\" at 3 pm on 20 November in the page's structured data"
 ---
 
 City Star releases Sweater Weather, a dunkel lager, on draft and in cans to go. Honky-tonk and Americana band Sugar Britches plays from 6 to 8:30 pm.
