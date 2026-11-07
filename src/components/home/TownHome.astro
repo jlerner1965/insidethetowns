@@ -15,8 +15,9 @@
  *    as tabs, five listings each, the games among them, then All events
  *    and Add an event.
  * 4. The Thursday email (NewsletterSignup, home): the heading, one line,
- *    the field and the button. The page's one form, where the email covers
- *    the town.
+ *    the field and the button, as one strip in a narrow band (the owner,
+ *    7 November 2026: the card took half a desktop screen and most of a
+ *    phone's). The page's one form, where the email covers the town.
  * 5. For families, where the config switches it on (`families.onHome`):
  *    up to three lines from the family hub, each with its date, ages and
  *    cost, and one link to /families/ (src/lib/family-home.ts).
@@ -136,7 +137,7 @@ const places = (await getTownEntries('places')).filter(isOpen);
 </WhatsHappening>
 
 {emailOn && !thin && (
-  <section class="band-compact band-paper">
+  <section class="band-paper py-4 md:py-6">
     <div class="container-page">
       <NewsletterSignup town={town} id="home" variant="home" anchor="signup" />
     </div>
@@ -164,7 +165,7 @@ const places = (await getTownEntries('places')).filter(isOpen);
 <NextStop town={town} places={places} />
 
 {emailOn && thin && (
-  <section class="band-compact band-paper">
+  <section class="band-paper py-4 md:py-6">
     <div class="container-page">
       <NewsletterSignup town={town} id="home" variant="home" anchor="signup" />
     </div>

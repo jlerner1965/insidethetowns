@@ -9031,3 +9031,23 @@ items are content and data.
 - Bein Park's tags now lead with its soccer fields and dog park, and the
   Bike Park is filed as a park rather than a trail: it is the Town's bike
   park, and the trail title said nothing of the pump track.
+
+## The Thursday email as a strip, and Shops in the menu, 7 November 2026
+
+*The owner, after comparing the guide with niwot.com and measuring the live
+home page: the email card stood 424px tall on a desktop and 457px on a
+phone (about 70% of the screen), taller than "Find your next stop" under
+it. Mocked up from the real components on a local build and approved
+before commit.*
+
+- **The short form (`variant="home"`) is a strip** (NewsletterSignup):
+  the heading and one line on the left, the field and the button on the
+  right, on one row where its column is 48rem or more (a container query,
+  so the home page, This week and Events get the row and the narrower
+  Families column keeps the words above the field). The "Your email" label
+  is for screen readers only; the band around it on the home page is
+  narrower. On a phone the button stays beside the field and reads "Sign
+  up", the full "Send me Thursday’s email" from the sm width; the script
+  restores the button's markup after "Sending…", not its flattened text.
+  Measured on Niwot: 424px to 182px on a desktop, 457px to 271px on a
+  phone.
