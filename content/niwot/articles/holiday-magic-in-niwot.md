@@ -36,7 +36,7 @@ The next morning at 11, the parade comes down Second Avenue from Murray Street t
 
 ## Friday, December 4: the first Stroll
 
-Shops on Second Avenue and Cottonwood Square stay open until 8 pm for holiday shopping, on the same evening as the First Friday Art Walk. 5 to 8 pm, free. [The listing](/events/niwot-stroll-2026-12-04/). The Stroll comes back on Thursday, December 10, Thursday, December 17 and Monday, December 21, 5 to 8 pm each evening.
+Shops on Second Avenue and Cottonwood Square stay open until 8 pm for holiday shopping, on the same evening as the First Friday Art Walk. 5 to 8 pm, free. [The listing](/events/niwot-stroll-2026-12-04/). The Stroll comes back on [Thursday, December 10](/events/niwot-stroll-2026-12-10/), [Thursday, December 17](/events/niwot-stroll-2026-12-17/) and [Monday, December 21](/events/niwot-stroll-2026-12-21/), 5 to 8 pm each evening.
 
 ## Saturday, December 5: the Market Fayre, and a concert
 
