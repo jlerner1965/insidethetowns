@@ -34,6 +34,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # test/retired-slugs.test.ts reads the history for deleted listings.
+          fetch-depth: 50
       - uses: actions/setup-node@v4
         with:
           node-version: 22

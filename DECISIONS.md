@@ -9136,3 +9136,44 @@ page. Was it fixed? It was not.*
   sites found no broken link between their own pages and no sitemap page
   that is not a 200. The test's guard now covers the hubs too
   (`hubRoutes`): a rule over a hub the guide has would hide it.
+
+## A listing that comes off keeps its URL: retired.json, 7 November 2026
+
+*The owner, after the day's 103 redirects: "a small but annoying problem,
+also could make people think the site is broken." Fix the cause.*
+
+- **The cause was the repo's own prompts.** `npm run weekly` listed past
+  events under "delete or update", `npm run validate -- --past` ended "or
+  delete the file", and the 27 October sweep deleted 96 files from that
+  list. Once a file is gone nothing can carry a `formerSlugs`, so the rule
+  of 4 November had no mechanism behind it ("the rest wait for a redirect
+  rule that does not yet exist"). Both prompts now say keep the file and
+  roll it forward; the weekly editor's brief says where a removed listing
+  goes.
+- **`content/<town>/retired.json`** (src/lib/former-slugs.ts,
+  `retiredSlugs`): `{ "events": { "<slug>": null }, "places": { ... } }`.
+  null sends the old URL to the kind's own list (`/events/`,
+  `/directory/`); a slug sends it to the listing that took its place. The
+  build reads it beside `formerSlugs` (a listing naming its own old slug
+  wins) and writes the same meta-refresh, noindex page at the old path;
+  the sitemap leaves them out. A retired slug that is still a live listing
+  is skipped with a warning, and the validator (`retiredLedgerIssues`)
+  fails the build on it, as on a target that is not live or a file that
+  does not parse. The host rules written earlier today stay in
+  `vercel.json`: Vercel applies them first, as 308s, for the addresses
+  with traffic; the ledger is the complete record.
+- **Backfilled from the whole history:** every event or place file a live
+  guide ever published and no longer has, 344 slugs on fifteen guides
+  (Lyons 122, Berthoud 60, Erie 34, Niwot 41, Timnath 22, Johnstown 18,
+  Elizabeth 14, Golden 8, Castle Rock 8, Windsor 6, Lafayette 4, Fort
+  Collins 3, Estes Park 2, Longmont 1, Frederick 1); twelve were renames
+  and go to the page that replaced them (a dated storytime to its series).
+  Retired guides are left out: their host rules send every path to the hub.
+  The Lyons build writes 122 redirect pages from it.
+- **Held by a test** (`test/retired-slugs.test.ts`): the ledger's rules,
+  the real ledgers' soundness, and, from git, that no listing file a live
+  guide published is gone without a file, a former slug, a ledger entry or
+  a host rule behind its URL, in the working tree (an editor sees it before
+  committing) and in the history. CI's validate job now fetches fifty
+  commits so the check sees a pull request's deletions; with no history it
+  says so and passes.
