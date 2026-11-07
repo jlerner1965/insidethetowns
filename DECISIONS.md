@@ -9058,3 +9058,29 @@ before commit.*
   the markdown, as the route that builds the page counts them, so a guide
   gains or loses the item with its listings. Both rows fit on one line at
   1280px, the row's narrowest width.
+
+## What's happening: "Don't miss", the venue beside the title, and whose game it is, 7 November 2026
+
+*The owner, after comparing the home page with niwot.com, whose front page
+gives its festivals photographs. Mocked up on Niwot (a card) and Berthoud
+(none) from a local build and approved before commit.*
+
+- **"Don't miss"** (src/lib/home-tabs.ts, `dontMiss`; WhatsHappening): the
+  next listing flagged `featured`, still on as listed, starting within 21
+  days, as a card with a photograph beside the tabs on a wide screen and a
+  short row above them on a phone. The photograph is the listing's own,
+  else its venue's where the venue names a listed place with one, else the
+  town's hero. It carries the listing's `data-end` and `data-event-day`, so
+  the browser's pruning takes it off when the listing ends, and the block
+  with it. No featured listing in the window, no card: the flag earns it.
+- **The venue follows the title** after a dot on a wide screen, and keeps
+  its own line on a phone; on a desktop it had sat 800px to the right of
+  the title. Without a card the list keeps a reading width (max-w-3xl).
+- **A game on the tabs names the school and the site** (`labelGames`):
+  "Niwot volleyball vs Fruita Monument · Home", where it read "Volleyball
+  vs Fruita Monument" with an empty venue column under the school's own
+  strip. The tabs only: the events page and the Thursday email set games
+  under the school's heading and keep their titles.
+- Measured on Niwot, 7 November: the section 638px to 737px on a desktop
+  and 725px to 943px on a phone, with the card; Berthoud, without one,
+  714px to 718px.
