@@ -694,6 +694,402 @@
       ],
       "destination": "/events/",
       "permanent": true
+    },
+    {
+      "source": "/events/berthoud-high-school-homecoming-football-game-2026-10-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/berthoud-high-school-homecoming-parade-2026-09-30{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/berthoud-historical-society-fall-speaker-series-2026-10-13{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/berthoud-literary-festival-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/blind-date-with-a-book-at-city-star-2026-10-25{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/chili-the-kid-release-with-justin-howl-2026-10-23{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/community-drum-circle-at-wildfire-arts-center-2026-10-02{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/cribbage-night-city-star-2026-10-14{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/hand-drumming-beginner-workshop-2026-10-15{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/library-just-write-teens-2026-10-22{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/library-knit-and-crochet-drop-in-2026-10-23{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/library-master-gardeners-composting-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/library-pressure-canning-2026-10-21{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/library-trick-or-read-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/mountain-duo-at-city-star-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/neon-nights-cosmic-pickleball-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/planning-commission-2026-10-08{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/planning-commission-2026-10-22{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/sourdough-breads-fermenting-and-pickling-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/sugar-britches-city-star-2026-10-03{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/the-soil-builders-masterclass-2026-10-10{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/town-board-2026-10-13{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/tree-advisory-committee-2026-10-19{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/places/berthoud-inn{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/directory/",
+      "permanent": true
+    },
+    {
+      "source": "/trails{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideberthoud.com"
+        }
+      ],
+      "destination": "/things-to-do/",
+      "permanent": true
+    },
+    {
+      "source": "/events/urban-renewal-authority-meeting-2026-10-27{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideerie.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/fear-the-reaper-pinball-tournament-2026-10-25{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/friends-of-the-library-book-sale-2026-10-23{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/friends-of-the-library-book-sale-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/halloween-spooktacular-2026{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/piano-benefit-concert-community-church{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/the-89s-rock-garden{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidelyons.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/artist-in-residence-open-house-gail-denton-2026-10-16{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/niwot-cemetery-talk-2026-10-21{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insideniwot.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/twilight-tour-of-lakeview-cemetery-2026-10-23{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidewindsorco.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/events/twilight-tour-of-lakeview-cemetery-2026-10-24{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidewindsorco.com"
+        }
+      ],
+      "destination": "/events/",
+      "permanent": true
     }
   ]
 }
