@@ -97,6 +97,10 @@ One wrong fact costs more than ten missing ones.
 - A listing re-filed or merged under a new slug names its old slugs in
   `formerSlugs`, and the build redirects each old URL to it. A published
   listing is never deleted because its date passed; the build hides it.
+  One that comes off for any other reason is named in
+  `content/<town>/retired.json`, and the build redirects its URL to the
+  events page or the directory, or to the listing that took its place; a
+  test fails when a published listing is gone with nothing behind its URL.
 
 ## 6. Photographs
 

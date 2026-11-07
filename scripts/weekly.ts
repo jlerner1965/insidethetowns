@@ -313,11 +313,11 @@ for (const r of reports) {
       (r.runwayDays < MIN_RUNWAY_DAYS ? `  ⚠ under ${MIN_RUNWAY_DAYS} days of runway` : ''),
   );
   if (r.expiring.length) {
-    line(`  Expiring within ${windowDays} days (add next dates or delete):`);
+    line(`  Expiring within ${windowDays} days (add the next dates where the organizer has them):`);
     for (const e of r.expiring) line(`    ${e.lastDate}  ${e.title}\n              ${e.file}`);
   }
   if (r.past.length) {
-    line(`  Already past (hidden on the site; delete or update):`);
+    line(`  Already past (hidden on the site; keep the file, and roll it forward if it recurs):`);
     for (const e of r.past) line(`    ${e.lastDate}  ${e.title}\n              ${e.file}`);
   }
   if (r.placesWithoutImage.length) {

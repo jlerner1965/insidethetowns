@@ -41,6 +41,7 @@ import { parseFrontmatter } from './lib/frontmatter.ts';
 import { hoursTextByDesign, parseHoursText } from '../src/lib/hours.ts';
 import { dayKey } from '../src/lib/dates.ts';
 import { licenseName, parseLedger, publicCredit, sourcePhoto, type LedgerRow } from '../src/lib/credits.ts';
+import { retiredLedgerIssues } from '../src/lib/former-slugs.ts';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'content');
@@ -572,6 +573,11 @@ if (!existsSync(contentDir)) {
   }
 }
 
+// The ledger of listings that came off (content/<town>/retired.json,
+// src/lib/former-slugs.ts): a slug still live, a target that is not, or a
+// file the build could not read would each make a redirect wrong or missing.
+for (const town of liveTowns()) for (const issue of retiredLedgerIssues(town.slug, contentDir)) errors.push(issue);
+
 for (const w of warnings) console.warn(`warn  ${w}`);
 /**
  * Past events, one line, not one warning each. They are already hidden,
@@ -580,7 +586,7 @@ for (const w of warnings) console.warn(`warn  ${w}`);
  * were not (search-visibility phase 2, 15 October 2026). `--past` lists them.
  */
 if (process.argv.includes('--past')) {
-  for (const w of pastEvents) console.warn(`past  ${w}. Already hidden, noindexed and out of the sitemap. Roll it forward if it recurs, or delete the file.`);
+  for (const w of pastEvents) console.warn(`past  ${w}. Already hidden, noindexed and out of the sitemap. Roll it forward if it recurs; keep the file either way, so the links readers hold keep working. A listing that must come off goes in content/<town>/retired.json.`);
 } else if (pastEvents.length > 0) {
   console.warn(`past  ${pastEvents.length} events are over and already hidden, noindexed and out of the sitemap (run with --past to list them; the weekly report lists them by town)`);
 }
