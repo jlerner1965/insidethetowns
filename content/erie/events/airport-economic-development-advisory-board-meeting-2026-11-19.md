@@ -8,7 +8,7 @@ cost: "Free"
 category: civic
 recurring: "Third Thursdays"
 source: "https://www.erieco.gov/Calendar.aspx?EID=5350"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Airport Economic Development Advisory Board Meeting - In Person\" at 6:30 pm on 19 November on the erieco.gov feed"
 ---
 

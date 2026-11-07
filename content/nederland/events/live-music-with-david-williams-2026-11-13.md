@@ -9,7 +9,7 @@ category: music
 performers:
   - { name: "David Williams", kind: person }
 source: "https://www.verynicebrewing.com/event-details/live-music-with-david-williams-7"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Live Music with David Williams\" at 5 pm on 13 November in the page's structured data"
 ---
 

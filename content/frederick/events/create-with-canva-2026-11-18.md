@@ -10,7 +10,7 @@ organizer: "Carbon Valley Regional Library (High Plains Library District)"
 organizerUrl: "https://www.mylibrary.us/cvrl/"
 source: "https://highplains.libcal.com/event/17788899"
 sourceId: "highplains-libcal-com"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Create with Canva\" at 4 pm on 18 November on the Carbon Valley Regional Library (High Plains Library District), LibCal feed"
 ---
 

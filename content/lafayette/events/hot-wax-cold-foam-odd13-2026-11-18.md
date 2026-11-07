@@ -12,7 +12,7 @@ category: other
 organizer: "Odd13 Brewing with Folsom Skis"
 organizerUrl: "https://www.odd13brewing.com/"
 source: "https://www.odd13brewing.com/events"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): 18 November on the page"
 ---
 

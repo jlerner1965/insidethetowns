@@ -10,7 +10,7 @@ source: "https://bouldercounty.gov/event/story-in-the-rocks-geologic-history-of-
 sourceId: "bouldercounty-gov"
 sourceUid: "10004401-1794333600-1794339000@bouldercounty.gov"
 sourceHash: "0987bc34ab48"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Story in the Rocks: Geologic History of Boulder County\" at 6 pm on 10 November on the Boulder County feed"
 ---
 

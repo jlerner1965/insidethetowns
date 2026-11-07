@@ -9,7 +9,7 @@ category: "music"
 performers:
   - { name: "Flock of Hummingbirds", kind: group }
 source: "https://www.theelizabethcolorado.com/the-hotel/events-calendar/"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): 19 November and 7 pm on the page"
 ---
 

@@ -9,8 +9,8 @@ category: "music"
 performers:
   - { name: "Groove Avenue", kind: group }
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against Avogadro's Number's events page, 1 November 2026: 2026-11-20, 20:00-22:00, no price posted"
+verified: "2026-11-07"
+verifiedBy: "recheck-events (the nightly re-check workflow): 20 November and 8 pm on the page"
 ---
 
 Groove Avenue, 8 to 10 p.m. No cover was posted. At Avogadro's Number, 605 South Mason Street.

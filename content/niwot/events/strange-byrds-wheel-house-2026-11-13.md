@@ -9,7 +9,7 @@ performers:
 url: "https://www.niwotwheelhouse.com/events/strange-byrds-5fjn9-yng4t"
 category: music
 source: "https://www.niwotwheelhouse.com/events/strange-byrds-5fjn9-yng4t"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): 13 November and 7 pm on the page"
 ---
 
