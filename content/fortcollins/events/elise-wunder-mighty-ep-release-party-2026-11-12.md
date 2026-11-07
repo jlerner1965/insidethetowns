@@ -12,7 +12,7 @@ performers:
   - { name: "Das Wunder", kind: group }
   - { name: "Erik Lunde", kind: person }
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): 12 November and 7 pm on the page"
 ---
 

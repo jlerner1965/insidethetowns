@@ -13,8 +13,8 @@ timeNote: "Fri and Sat 10 am–5 pm, Sun 10 am–4 pm"
 schedule:
   - { days: [fri, sat], start: "10:00", end: "17:00" }
   - { days: [sun], start: "10:00", end: "16:00" }
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-07"
+verifiedBy: "recheck-events (the nightly re-check workflow): 20 November and 10 am on the page"
 ---
 
 A three-day gem and mineral show at the Fairgrounds, where more than 30 mineral dealers from around the state set up booths of collector-quality minerals. The organizers are Dan Zellner and John Schmidt.
