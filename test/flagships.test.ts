@@ -38,7 +38,7 @@ test('every guide has the same menu, built from what it has: the week, events, i
     assert.ok(nav.some((n) => n.href === (t.families ? '/families/' : '/events/')), `${t.slug}: Families, or Events where there is no family hub`);
     const sports = nav.find((n) => n.href === '/sports/');
     assert.equal(!!sports, schoolsFor(t.slug).length > 0, `${t.slug}: a sports item exactly where there is a school`);
-    if (sports) assert.match(sports.label, /\b(athletics|sports)$/, `${t.slug}: "${sports.label}" says athletics or sports`);
+    if (sports) assert.match(sports.label, /^Athletics$|\bsports$/, `${t.slug}: "${sports.label}" is Athletics or says sports`);
     assert.ok(nav.some((n) => n.href === (t.families ? '/families/' : '/things-to-do/')), `${t.slug}: hub or things to do`);
     assert.ok(nav.some((n) => n.href === (t.livingHere ? '/living-here/' : '/moving-here/')), `${t.slug}: living or moving here`);
     assert.equal(nav.at(-1)?.href, '/guides/', `${t.slug}: Guides last (the reader pass, 1 November 2026)`);
@@ -46,15 +46,14 @@ test('every guide has the same menu, built from what it has: the week, events, i
     const proper = new Set(schoolsFor(t.slug).flatMap((s) => s.maxprepsName.split(' ')));
     for (const l of labels) assert.equal(l, l[0] + l.slice(1).replace(/\b[A-Z][a-z]+/g, (w) => (proper.has(w) ? w : w.toLowerCase())), `${t.slug}: "${l}" is in sentence case`);
   }
-  assert.deepEqual(townNav(by('berthoud')).map((n) => n.label), ['This week', 'Things to do', 'Berthoud athletics', 'Eat & drink', 'Families', 'Living here', 'Guides']);
-  assert.equal(townNav(by('lyons')).find((n) => n.href === '/sports/')?.label, 'Lyons athletics');
-  // The school's name, not the town's: Johnstown's guide follows Roosevelt High (6 November 2026; the menu said "Roughriders sports" before).
-  assert.equal(townNav(towns.find((t) => t.slug === 'johnstown')!).find((n) => n.href === '/sports/')?.label, 'Roosevelt athletics');
-  // Frederick High's Golden Eagles were "Frederick sports" on the four-town Carbon Valley guide; the school's name needs no special label on its own guide.
-  assert.equal(townNav(towns.find((t) => t.slug === 'frederick')!).find((n) => n.href === '/sports/')?.label, 'Frederick athletics');
+  assert.deepEqual(townNav(by('berthoud')).map((n) => n.label), ['This week', 'Things to do', 'Athletics', 'Eat & drink', 'Families', 'Living here', 'Guides']);
+  assert.equal(townNav(by('lyons')).find((n) => n.href === '/sports/')?.label, 'Athletics');
+  // One word on every guide (the owner, 6 November 2026): Johnstown's Roosevelt High and Frederick High alike.
+  assert.equal(townNav(towns.find((t) => t.slug === 'johnstown')!).find((n) => n.href === '/sports/')?.label, 'Athletics');
+  assert.equal(townNav(towns.find((t) => t.slug === 'frederick')!).find((n) => n.href === '/sports/')?.label, 'Athletics');
   assert.equal(townNav(towns.find((t) => t.slug === 'loveland')!).find((n) => n.href === '/sports/')?.label, 'High school sports');
   // Erie follows Erie High since 25 October 2026, so its menu carries Erie High in the third slot.
-  assert.deepEqual(townNav(towns.find((t) => t.slug === 'erie')!).map((n) => n.label), ['This week', 'Things to do', 'Erie athletics', 'Eat & drink', 'Families', 'Living here', 'Guides']);
+  assert.deepEqual(townNav(towns.find((t) => t.slug === 'erie')!).map((n) => n.label), ['This week', 'Things to do', 'Athletics', 'Eat & drink', 'Families', 'Living here', 'Guides']);
   assert.deepEqual(townNav(towns.find((t) => t.slug === 'longmont')!).map((n) => n.label), ['This week', 'Things to do', 'Eat & drink', 'Events', 'Moving here', 'Guides']);
 });
 

@@ -141,10 +141,12 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
   )}
 
   {/* The Thursday email, once, after the deadlines and before the long
-      part of the page (the owner's brief, 6 November 2026: the signup sat
-      at the foot of a page few reach the foot of); the foot keeps its own. */}
+      part of the page, in the home page's short form, the town pre-ticked
+      and no town picker (the owner's brief, 6 November 2026: the signup sat
+      at the foot of a page few reach the foot of); the foot keeps the full
+      form with the picker. */}
   <div class="mt-10">
-    <NewsletterSignup town={town} compact id="families-mid" />
+    <NewsletterSignup town={town} id="families-mid" variant="home" />
   </div>
 
   {groups.map(({ topic, programs: list }) => (
