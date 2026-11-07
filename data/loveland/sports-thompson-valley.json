@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-04T20:01:03.912Z",
+  "generated": "2026-11-07T18:34:45.051Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/football/",
-      "fetched": "2026-11-04T20:01:03.912Z",
-      "maxprepsUpdated": "2026-11-04T16:40:49",
+      "fetched": "2026-11-07T18:34:45.051Z",
+      "maxprepsUpdated": "2026-11-07T17:11:58",
       "overall": "3-7",
       "league": {
         "record": "3-3",
@@ -135,8 +135,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/soccer/",
-      "fetched": "2026-11-04T20:01:03.912Z",
-      "maxprepsUpdated": "2026-11-04T18:05:50",
+      "fetched": "2026-11-07T18:34:45.051Z",
+      "maxprepsUpdated": "2026-11-07T15:20:22",
       "overall": "0-14-1",
       "league": {
         "record": "0-10",
@@ -320,8 +320,8 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/volleyball/",
-      "fetched": "2026-11-04T20:01:03.912Z",
-      "maxprepsUpdated": "2026-11-04T19:43:29",
+      "fetched": "2026-11-07T18:34:45.051Z",
+      "maxprepsUpdated": "2026-11-07T17:29:41",
       "overall": "12-11",
       "league": {
         "record": "6-4",
@@ -619,8 +619,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/softball/fall/",
-      "fetched": "2026-11-04T20:01:03.912Z",
-      "maxprepsUpdated": "2026-11-04T17:31:34",
+      "fetched": "2026-11-07T18:34:45.051Z",
+      "maxprepsUpdated": "2026-11-07T16:02:29",
       "overall": "14-12",
       "league": {
         "record": "4-6",
@@ -950,8 +950,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/cross-country/",
-      "fetched": "2026-11-04T20:01:03.912Z",
-      "maxprepsUpdated": "2026-11-04T20:01:39",
+      "fetched": "2026-11-07T18:34:45.051Z",
+      "maxprepsUpdated": "2026-11-07T18:35:21",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -964,8 +964,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/cross-country/girls/",
-      "fetched": "2026-11-04T20:01:03.912Z",
-      "maxprepsUpdated": "2026-11-04T20:01:43",
+      "fetched": "2026-11-07T18:34:45.051Z",
+      "maxprepsUpdated": "2026-11-07T18:35:25",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -978,8 +978,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/basketball/",
-      "fetched": "2026-11-04T20:01:03.912Z",
-      "maxprepsUpdated": "2026-11-04T17:36:27",
+      "fetched": "2026-11-07T18:34:45.051Z",
+      "maxprepsUpdated": "2026-11-07T15:46:11",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1128,7 +1128,7 @@
           "opponent": "Loveland",
           "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/game/loveland-vs-thompson-valley-loveland/2-19-2027/?c=e4c2e95e-f70e-4653-a8bd-f0ddac187ff5",
-          "time": "19:30"
+          "time": "19:00"
         }
       ],
       "held": [],
@@ -1140,8 +1140,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/basketball/girls/",
-      "fetched": "2026-11-04T20:01:03.912Z",
-      "maxprepsUpdated": "2026-11-04T17:49:10",
+      "fetched": "2026-11-07T18:34:45.051Z",
+      "maxprepsUpdated": "2026-11-07T15:52:37",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1172,7 +1172,7 @@
           "opponent": "Resurrection Christian",
           "site": "home",
           "url": "https://www.maxpreps.com/co/basketball/girls/game/resurrection-christian-loveland-vs-thompson-valley-loveland/12-8-2026/?c=8d1c92f2-bbfa-4da1-9e47-d7f6d1aaedb6",
-          "time": "18:00"
+          "time": "19:00"
         },
         {
           "date": "2026-12-10",
@@ -1319,8 +1319,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/wrestling/",
-      "fetched": "2026-11-04T20:01:03.912Z",
-      "maxprepsUpdated": "2026-11-04T18:34:20",
+      "fetched": "2026-11-07T18:34:45.051Z",
+      "maxprepsUpdated": "2026-11-07T18:35:48",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1333,8 +1333,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/swimming/girls/",
-      "fetched": "2026-11-04T20:01:03.912Z",
-      "maxprepsUpdated": "2026-11-04T19:59:42",
+      "fetched": "2026-11-07T18:34:45.051Z",
+      "maxprepsUpdated": "2026-11-07T18:35:53",
       "results": [],
       "upcoming": [],
       "held": [],

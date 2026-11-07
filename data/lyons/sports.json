@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-04T20:07:12.952Z",
+  "generated": "2026-11-07T18:41:04.311Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/football/",
-      "fetched": "2026-11-04T20:07:12.952Z",
-      "maxprepsUpdated": "2026-11-04T19:23:29",
+      "fetched": "2026-11-07T18:41:04.311Z",
+      "maxprepsUpdated": "2026-11-07T17:35:36",
       "overall": "6-3",
       "league": {
         "record": "3-2",
@@ -124,15 +124,29 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/volleyball/",
-      "fetched": "2026-11-04T20:07:12.952Z",
-      "maxprepsUpdated": "2026-11-04T18:22:54",
-      "overall": "17-5",
+      "fetched": "2026-11-07T18:41:04.311Z",
+      "maxprepsUpdated": "2026-11-07T18:39:04",
+      "overall": "18-5",
       "league": {
         "record": "11-0",
         "name": "2A/1A Mile High",
         "place": "1st"
       },
       "results": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Sanford",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/lyons-vs-sanford/11-7-2026/?c=f96efd5f-1fe7-4b78-9dd1-f05032058d4e",
+          "stage": "Playoffs",
+          "neutral": true,
+          "venue": "2A Region 6",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-29",
           "opponent": "Estes Park",
@@ -386,16 +400,6 @@
       "upcoming": [
         {
           "date": "2026-11-07",
-          "opponent": "Sanford",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/lyons-vs-sanford/11-7-2026/?c=f96efd5f-1fe7-4b78-9dd1-f05032058d4e",
-          "stage": "Playoffs",
-          "neutral": true,
-          "venue": "2A Region 6",
-          "time": "10:00"
-        },
-        {
-          "date": "2026-11-07",
           "opponent": "Byers",
           "site": "neutral",
           "url": "https://www.maxpreps.com/co/volleyball/match/byers-vs-lyons/11-7-2026/?c=5a5448a3-6961-4e53-a80a-e9b348871fc5",
@@ -414,8 +418,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/softball/fall/",
-      "fetched": "2026-11-04T20:07:12.952Z",
-      "maxprepsUpdated": "2026-11-04T18:07:06",
+      "fetched": "2026-11-07T18:41:04.311Z",
+      "maxprepsUpdated": "2026-11-07T18:22:09",
       "overall": "22-6",
       "league": {
         "record": "4-5",
@@ -758,8 +762,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/cross-country/",
-      "fetched": "2026-11-04T20:07:12.952Z",
-      "maxprepsUpdated": "2026-11-04T20:07:39",
+      "fetched": "2026-11-07T18:41:04.311Z",
+      "maxprepsUpdated": "2026-11-07T18:41:31",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -772,8 +776,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/cross-country/girls/",
-      "fetched": "2026-11-04T20:07:12.952Z",
-      "maxprepsUpdated": "2026-11-04T20:07:44",
+      "fetched": "2026-11-07T18:41:04.311Z",
+      "maxprepsUpdated": "2026-11-07T18:41:35",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -786,8 +790,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/basketball/",
-      "fetched": "2026-11-04T20:07:12.952Z",
-      "maxprepsUpdated": "2026-11-04T17:20:20",
+      "fetched": "2026-11-07T18:41:04.311Z",
+      "maxprepsUpdated": "2026-11-07T17:27:28",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -941,8 +945,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/basketball/girls/",
-      "fetched": "2026-11-04T20:07:12.952Z",
-      "maxprepsUpdated": "2026-11-04T17:27:45",
+      "fetched": "2026-11-07T18:41:04.311Z",
+      "maxprepsUpdated": "2026-11-07T15:24:14",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1006,8 +1010,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/lyons/lyons-lions/wrestling/",
-      "fetched": "2026-11-04T20:07:12.952Z",
-      "maxprepsUpdated": "2026-11-04T20:08:06",
+      "fetched": "2026-11-07T18:41:04.311Z",
+      "maxprepsUpdated": "2026-11-07T18:41:59",
       "results": [],
       "upcoming": [],
       "held": [],
