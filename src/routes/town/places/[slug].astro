@@ -270,7 +270,7 @@ const description = placeDescription(
           <figure class:list={['mb-10', data.image.width < 800 && 'max-w-xl']}>
             <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
             {data.imageCredit && (
-              <figcaption class="mt-2 text-[0.875rem] text-ink-muted">Photo: {data.imageCredit}</figcaption>
+              <figcaption class="mt-1 text-[0.5rem] leading-tight tracking-wide text-ink-muted">Photo: {data.imageCredit}</figcaption>
             )}
           </figure>
         )}

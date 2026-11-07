@@ -9084,3 +9084,17 @@ gives its festivals photographs. Mocked up on Niwot (a card) and Berthoud
 - Measured on Niwot, 7 November: the section 638px to 737px on a desktop
   and 725px to 943px on a phone, with the card; Berthoud, without one,
   714px to 718px.
+
+## Photo credits under a picture at the hero's size, 7 November 2026
+
+*The owner: a credit "needs to be as small and invisible as possible".*
+
+Every credit printed under a photograph (events, places, articles, Moving
+here, people) is 8px, the size the owner set for the hero's credit on 28
+October, which that entry records as the floor: smaller and it stops
+reading as the credit a licence asks for. Muted, letter-spaced a little,
+4px under the picture. Where no credit is printed beside a photograph (the
+home page's tiles and its "Don't miss" card), /credits/ carries it from
+the ledger, linked from every page's footer. The validator still requires
+the credit on any entry whose photograph's licence asks for one; the
+Enchanted Evening listing, switched to the Niwot sign today, carries it.
