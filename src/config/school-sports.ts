@@ -53,6 +53,49 @@ export interface SportConfig {
    * playoff venues vary; MaxPreps's own venue is used where it gives one.
    */
   playoffVenue?: string;
+  /**
+   * CHSAA's state championships for the sport this season, where every
+   * class plays at one site on set days: any game of the team's on those
+   * days is a state game, played there, whatever MaxPreps files it as. The
+   * volleyball state openers of 12 November 2026 came through as "at
+   * Eaton" (Berthoud), "vs Mullen" and "vs Battle Mountain" (Golden,
+   * Windsor), home and away games, when all three are at the Denver
+   * Coliseum (audit of 8 November 2026). The page then names the venue and
+   * the stage, and never "Home" or "Away". Dated, so a past season's entry
+   * touches nothing; replace it each season from CHSAA's own page.
+   */
+  state?: StateChampionships;
+}
+
+/** CHSAA's state championships for one sport and season (SportConfig.state). */
+export interface StateChampionships {
+  /** The first and last day, Denver dates, inclusive: "2026-11-12", "2026-11-14". */
+  from: string;
+  to: string;
+  /** Where every class plays: "Denver Coliseum". */
+  venue: string;
+  /** The stage the page names, where MaxPreps gives none of its own: "State Championships". */
+  stage: string;
+  /** CHSAA's page that says so. */
+  source: string;
+}
+
+/**
+ * A day the school hosted a postseason round, as CHSAA's bracket says
+ * ("Hosted by Berthoud • Sat, Nov 7"): the team's games that day were at
+ * home, whichever way MaxPreps filed them. MaxPreps had Berthoud's two
+ * volleyball regional matches of 7 November 2026, both in Berthoud's gym,
+ * one at home and the other at a neutral site.
+ */
+export interface HostedRound {
+  /** The team's key: "volleyball". */
+  team: string;
+  /** The Denver day: "2026-11-07". */
+  date: string;
+  /** The stage the page names for each game that day: "Regionals". */
+  stage: string;
+  /** CHSAA's bracket page that names the host. */
+  source: string;
 }
 
 export interface SchoolSports {
@@ -106,13 +149,41 @@ export interface SchoolSports {
    * primary stays.
    */
   colors?: { primary: string };
+  /** The postseason rounds the school hosted (HostedRound). */
+  hosted?: HostedRound[];
   teams: SportConfig[];
 }
+
+/**
+ * League names MaxPreps and CHSAA spell more than one way for the same
+ * league, to the spelling the page uses. CHSAANow's standings pages, read
+ * 8 November 2026, have "4A/3A Patriots Peak" for volleyball and "4A/3A
+ * Patriot Peaks" for softball and both basketballs, the same schools
+ * (Berthoud and Resurrection Christian among them); the page said both.
+ */
+export const LEAGUE_SPELLINGS: Record<string, string> = {
+  '4A/3A Patriots Peak': '4A/3A Patriot Peaks',
+};
+
+/**
+ * The 2026 girls' volleyball state championships: the twelve region winners
+ * in each class, 5A to 1A, Thursday to Saturday, 12–14 November, at the
+ * Denver Coliseum (CHSAANow, "Girls Volleyball: Qualifiers Set For 2026
+ * State Championships", 7 November 2026; each class's state bracket names
+ * the Coliseum as its neutral site, read 8 November 2026).
+ */
+const VOLLEYBALL_STATE_2026: StateChampionships = {
+  from: '2026-11-12',
+  to: '2026-11-14',
+  venue: 'Denver Coliseum',
+  stage: 'State Championships',
+  source: 'https://chsaanow.com/news/2026/11/07/2026-girls-volleyball-state-qualifiers',
+};
 
 const FALL = (): SportConfig[] => [
   { key: 'football', season: 'fall', name: 'Football', maxpreps: 'football', calendar: { gender: 'Boys', sport: 'Football' } },
   { key: 'boys-soccer', season: 'fall', name: 'Boys soccer', maxpreps: 'soccer', calendar: { gender: 'Boys', sport: 'Soccer' } },
-  { key: 'volleyball', season: 'fall', name: 'Volleyball', maxpreps: 'volleyball', calendar: { gender: 'Girls', sport: 'Volleyball' } },
+  { key: 'volleyball', season: 'fall', name: 'Volleyball', maxpreps: 'volleyball', calendar: { gender: 'Girls', sport: 'Volleyball' }, state: VOLLEYBALL_STATE_2026 },
   // Softball is a fall sport in Colorado, which MaxPreps files under the
   // spring sport's name with the season after it (CHSAA's school pages list
   // it for both schools, 21 October 2026).
@@ -154,6 +225,19 @@ const WINTER = (): SportConfig[] => [
  */
 const ICE_HOCKEY: SportConfig = { key: 'ice-hockey', season: 'winter', name: 'Ice hockey', maxpreps: 'ice-hockey', calendar: { gender: 'Boys', sport: 'Ice Hockey' } };
 
+/**
+ * Girls' flag football, a CHSAA fall sport, followed where the school plays
+ * it and the guide has asked: Berthoud, in 4A (CHSAANow's school page, read
+ * 8 November 2026, lists Flag Football, 4A, and links MaxPreps's "girls,
+ * flag football" fall team; the Berthoud High calendar has "Girls Varsity
+ * Flag Football" games from 28 September to 10 October 2026). The path is
+ * MaxPreps's for Colorado's teams (".../flag-football/girls/fall", as
+ * Monarch's and Legacy's are); Berthoud's own page has not been read from
+ * the runner yet, and one that is not there keeps the team off the page and
+ * says so in the run's summary.
+ */
+const GIRLS_FLAG_FOOTBALL: SportConfig = { key: 'girls-flag-football', season: 'fall', name: 'Girls flag football', maxpreps: 'flag-football/girls/fall', calendar: { gender: 'Girls', sport: 'Flag Football' } };
+
 /** The fall list without one team, for a school that does not field it. */
 const FALL_WITHOUT = (...keys: string[]): SportConfig[] => FALL().filter((t) => !keys.includes(t.key));
 /** The winter list without one team, for a school whose MaxPreps page for it does not exist. */
@@ -181,7 +265,11 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     colors: { primary: '#572932' },
     // Thompson School District's Finalsite site; `?cal_date=YYYY-MM-01` shows a month.
     calendar: { kind: 'finalsite', url: 'https://bhs.tsd.org/family/calendar', label: 'the Berthoud High calendar' },
-    teams: TEAMS(),
+    hosted: [
+      // CHSAANow's 3A Region 9 bracket: "Hosted by Berthoud • Sat, Nov 7"; Berthoud beat Prospect Ridge Academy and Delta there and won the region.
+      { team: 'volleyball', date: '2026-11-07', stage: 'Regionals', source: 'https://chsaanow.com/brackets/girls-volleyball/2026/regional/3a/region-9' },
+    ],
+    teams: TEAMS([...FALL(), GIRLS_FLAG_FOOTBALL]),
   },
   {
     town: 'niwot',

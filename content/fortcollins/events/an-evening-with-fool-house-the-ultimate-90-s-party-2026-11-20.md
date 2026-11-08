@@ -11,7 +11,7 @@ source: "https://bohemianlivemusic.org/event/an-evening-with-fool-house-the-ulti
 sourceId: "bohemianlivemusic-org"
 sourceUid: "54013"
 sourceHash: "72aeedbe141c"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"An Evening with Fool House &#8211; The Ultimate 90&#8217;s Party\" at 8 pm on 20 November in the page's structured data"
 ---
 

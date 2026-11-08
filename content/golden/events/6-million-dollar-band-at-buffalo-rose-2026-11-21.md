@@ -10,8 +10,8 @@ url: "https://buffalorosegolden.com/events/6-million-dollar-band/"
 category: music
 source: "https://buffalorosegolden.com/events/6-million-dollar-band/"
 sourceId: "buffalorose-net"
-verified: "2026-10-28"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-08"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"6 Million Dollar Band\" at 8 pm on 21 November in the page's structured data"
 ---
 
 A Colorado party band playing dance-floor hits from the '70s to now. 18 and over, or under 18 with a parent or guardian.

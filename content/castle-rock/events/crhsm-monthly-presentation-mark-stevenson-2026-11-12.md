@@ -10,7 +10,7 @@ performers:
 organizer: "Castle Rock Historical Society and Museum"
 organizerUrl: "https://www.castlerockhistoricalsociety.org/"
 source: "https://www.castlerockhistoricalsociety.org/crhsm-monthly-presentation-cdr-mark-stevenson-us-navy-retired/"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): 12 November and 7 pm on the page"
 ---
 

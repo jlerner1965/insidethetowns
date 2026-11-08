@@ -36,6 +36,7 @@ import { dayKey } from '../src/lib/dates.ts';
 import { CRAWL_DELAY_MS, fetchMonth, parseMonth, type CalendarEvent } from './lib/finalsite-calendar.ts';
 import { applySchedule, fetchPage, parseSchedulePage, parseTeamPage, usable, visibleText, type TeamPage } from './lib/maxpreps.ts';
 import { crossCheck, emptyEntry, entryFrom, gamesToCome, keepPrevious } from './lib/sports-crosscheck.ts';
+import { correctedTeam } from '../src/lib/school-sports.ts';
 
 const MAXPREPS_PAUSE_MS = 4000;
 
@@ -235,7 +236,9 @@ async function runTown(school: SchoolSports): Promise<string> {
     const check = calendar
       ? crossCheck(sport, toCome, calendar)
       : { upcoming: toCome, held: [], notes: [school.calendar ? 'the school calendar was not read, so nothing was checked against it' : 'no school calendar to check against'] };
-    const entry = entryFrom(sport, page, check, now.toISOString());
+    // What CHSAA settles and MaxPreps does not (the state site, a round the
+    // school hosted, one spelling of the league): src/lib/school-sports.ts.
+    const entry = correctedTeam(entryFrom(sport, page, check, now.toISOString()), school);
     data.sports.push(entry);
     const last = entry.results[0];
     summary.push(

@@ -9,8 +9,8 @@ category: market
 organizer: "Boulder County Farmers Markets"
 source: "https://bouldercounty.gov/event/longmont-farmers-market-2/2026-11-21/"
 sourceId: "bouldercounty-gov-fairgrounds"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against the County's Fairgrounds page, 1 November 2026: Saturday 21 November, 8 am to 1 pm, north parking lot, 9595 Nelson Rd, the last Saturday of a season that ran from 4 April; no pets"
+verified: "2026-11-08"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Longmont Farmers Market\" at 8 am on 21 November on the Boulder County Fairgrounds feed"
 ---
 
 The last Saturday market of the year at the fairgrounds: the season runs April 4 to November 21, Saturdays 8 am to 1 pm, in the north parking lot off Nelson Road. Produce, meat, eggs, bread and prepared food from Boulder County growers and makers. No pets. The market manager is on 720-612-8185.

@@ -907,3 +907,71 @@ test('a team’s season is over once nothing is to come and the last result is m
   assert.equal(seasonOver({ ...soccer, upcoming: [{ date: '2026-11-10', opponent: 'Y', site: 'away' as const, url: '' }] }, '2026-11-06'), false, 'a game to come');
   assert.equal(seasonOver({ overall: undefined, results: [], upcoming: [] }, '2026-11-06'), false, 'no record, nothing to say');
 });
+
+test('what CHSAA settles is applied over MaxPreps: the volleyball state openers at the Denver Coliseum, Berthoud’s hosted regional at home, one spelling of the league (audit of 8 November 2026)', async () => {
+  const { correctedData, sportsDataFor } = await import('../src/lib/school-sports.ts');
+  const read = (town: string) => JSON.parse(readFileSync(`data/${town}/sports.json`, 'utf8')) as SportsData;
+  const files = { '/data/berthoud/sports.json': read('berthoud'), '/data/golden/sports.json': read('golden'), '/data/windsor/sports.json': read('windsor') };
+  const volleyball = (town: string) => sportsDataFor(schoolSportsFor(town)!, files)!.sports.find((t) => t.key === 'volleyball')!;
+
+  // MaxPreps had "at Eaton", "vs Mullen" and "vs Battle Mountain": all three are at the Coliseum.
+  for (const [town, opponent] of [['berthoud', 'Eaton'], ['golden', 'Mullen'], ['windsor', 'Battle Mountain']] as const) {
+    const game = volleyball(town).upcoming.find((g) => g.date === '2026-11-12')!;
+    assert.equal(game.opponent, opponent);
+    assert.equal(game.site, 'neutral', town);
+    assert.equal(game.neutral, true);
+    assert.equal(game.venue, 'Denver Coliseum');
+    assert.equal(game.stage, 'State Championships');
+    assert.equal(placeText(game), 'Denver Coliseum');
+  }
+
+  // Both of Berthoud's regional matches were in its own gym: home, and named as the regional.
+  const berthoud = volleyball('berthoud');
+  const regional = berthoud.results.filter((g) => g.date === '2026-11-07');
+  assert.deepEqual(regional.map((g) => [g.opponent, g.site, g.neutral, g.venue, g.stage]), [
+    ['Delta', 'home', undefined, undefined, 'Regionals'],
+    ['Prospect Ridge Academy', 'home', undefined, undefined, 'Regionals'],
+  ]);
+  // A game before the postseason is left alone.
+  assert.equal(berthoud.results.find((g) => g.date === '2026-10-06')!.site, 'home');
+  assert.equal(berthoud.results.find((g) => g.date === '2026-10-06')!.stage, undefined);
+
+  // The volleyball league reads as softball's and basketball's do.
+  assert.equal(berthoud.league?.name, '4A/3A Patriot Peaks');
+
+  // Twice is once; the file read as-is is untouched.
+  const once = correctedData(read('berthoud'), schoolSportsFor('berthoud')!);
+  assert.deepEqual(correctedData(once, schoolSportsFor('berthoud')!), once);
+  assert.equal(read('berthoud').sports.find((t) => t.key === 'volleyball')!.upcoming[0]!.site, 'away');
+
+  // A stage MaxPreps names for the state game is kept; its generic word is not.
+  const { correctedGame } = await import('../src/lib/school-sports.ts');
+  const state = schoolSportsFor('berthoud')!.teams.find((t) => t.key === 'volleyball')!;
+  const g = { date: '2026-11-13', opponent: 'University', site: 'home' as const, url: 'x' };
+  assert.equal(correctedGame({ ...g, stage: 'State Volleyball Championships' }, state, []).stage, 'State Volleyball Championships');
+  assert.equal(correctedGame({ ...g, stage: 'Playoffs' }, state, []).stage, 'State Championships');
+  // Outside the days, nothing changes.
+  assert.equal(correctedGame({ ...g, date: '2026-11-15' }, state, []).site, 'home');
+});
+
+test('Berthoud follows girls flag football, a fall team, on MaxPreps’s Colorado path', () => {
+  const flag = schoolSportsFor('berthoud')!.teams.find((t) => t.key === 'girls-flag-football')!;
+  assert.equal(flag.season, 'fall');
+  assert.equal(flag.maxpreps, 'flag-football/girls/fall');
+  assert.deepEqual(flag.calendar, { gender: 'Girls', sport: 'Flag Football' });
+  assert.equal(schoolSportsFor('niwot')!.teams.some((t) => t.key === 'girls-flag-football'), false);
+});
+
+test('the school page’s eyebrow is the school year while it lays out fall and winter teams together, the season otherwise', async () => {
+  const { pageSeasonLabel } = await import('../src/lib/school-sports.ts');
+  const teams = schoolSportsFor('berthoud')!.teams;
+  const data = JSON.parse(readFileSync('data/berthoud/sports.json', 'utf8')) as SportsData;
+  const now = new Date('2026-11-08T18:00:00Z');
+  // Volleyball's state game is next and basketball runs into February: one school year.
+  assert.equal(pageSeasonLabel(data, teams, now), '2026–27');
+  // The fall teams alone: the season.
+  const fallOnly = { ...data, sports: data.sports.filter((t) => teams.find((c) => c.key === t.key)?.season === 'fall') };
+  assert.equal(pageSeasonLabel(fallOnly, teams, now), 'Fall 2026');
+  const winterOnly = { ...data, sports: data.sports.filter((t) => teams.find((c) => c.key === t.key)?.season === 'winter') };
+  assert.equal(pageSeasonLabel(winterOnly, teams, now), 'Winter 2026–27');
+});

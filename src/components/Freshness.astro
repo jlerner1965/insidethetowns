@@ -25,6 +25,7 @@
 ---
 <script>
   import { pruneExpired } from '@/lib/expiry';
+  import { relabelDays } from '@/lib/relative-days';
 
   // The sites keep their dates as Denver wall-clock days, so ask for the date
   // in Denver rather than wherever the reader happens to be. The rule itself
@@ -32,4 +33,6 @@
   // src/lib/expiry.ts, where the clock cases are tested.
   const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Denver' });
   pruneExpired(document.body, Date.now(), today);
+  // "Today" and "Tomorrow" on the game labels, by the reader's date, not the build's (src/lib/relative-days.ts).
+  relabelDays(document.querySelectorAll<HTMLElement>('[data-relday]'), today);
 </script>

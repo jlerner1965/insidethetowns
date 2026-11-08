@@ -25,10 +25,10 @@ interface Props {
   complete: boolean;
   /** Where "The … season" button goes: the team's article on the school page, the season on its own. */
   seasonHref: (team: TeamGame['team']) => string;
-  today: string;
 }
 
-const { school, mascot, next, then, latest, complete, seasonHref, today } = Astro.props;
+// "Today" on a date is the reader's, not the build's: data-relday (src/lib/relative-days.ts).
+const { school, mascot, next, then, latest, complete, seasonHref } = Astro.props;
 ---
 {next ? (
   <section class="on-dark bg-primary text-white" aria-labelledby="next-up">
@@ -40,7 +40,7 @@ const { school, mascot, next, then, latest, complete, seasonHref, today } = Astr
         </h2>
         <p class="mt-5 text-xl leading-snug md:text-2xl">
           <time datetime={next.game.time ? `${next.game.date}T${next.game.time}` : next.game.date}>
-            {when(next.game)}{next.game.time && <Fragment> · {formatTime(day(next.game))}</Fragment>}
+            <span data-relday={next.game.date}>{when(next.game, undefined, false)}</span>{next.game.time && <Fragment> · {formatTime(day(next.game))}</Fragment>}
           </time>
           <span class="text-white/70"> · {placeText(next.game)}</span>
         </p>
@@ -59,7 +59,7 @@ const { school, mascot, next, then, latest, complete, seasonHref, today } = Astr
           <ol class="mt-3 divide-y divide-white/15 border-y border-white/15">
             {then.slice(0, 5).map(({ team, game }) => (
               <li class="flex items-baseline gap-4 py-3">
-                <time datetime={game.date} class="w-24 shrink-0 text-[0.9375rem] text-white/70">{game.date === today ? 'Today' : formatDayShort(day(game))}</time>
+                <time datetime={game.date} data-relday={game.date} data-relday-only="today" class="w-24 shrink-0 text-[0.9375rem] text-white/70">{formatDayShort(day(game))}</time>
                 <span class="min-w-0">
                   <span class="font-semibold">{team.name}</span> {where(game)} {game.opponent}
                   {game.time && <span class="text-white/70"> · {formatTime(day(game))}</span>}

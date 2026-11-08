@@ -7,7 +7,7 @@ address: "321 Mountain Ave, Berthoud, CO 80513"
 url: "https://citystarbrewing.com/event/pineapple-ipa-2/"
 category: food
 source: "https://citystarbrewing.com/event/pineapple-ipa-2/"
-verified: "2026-10-17"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Beer Release: Pineapple IPA\" at 12 pm on 26 December in the page's structured data"
 ---
 

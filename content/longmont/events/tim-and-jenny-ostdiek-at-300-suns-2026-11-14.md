@@ -9,7 +9,7 @@ category: music
 performers:
   - { name: "Tim and Jenny Ostdiek", kind: group }
 source: "https://300sunsbrewing.com/events/tim-jenny-ostdiek/"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 6 pm on the page"
 ---
 

@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/16141701"
 cost: "Free; registration required"
 category: family
 source: "https://highplains.libcal.com/event/16141701"
-verified: "2026-10-17"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"DIY Gifts 3rd-5th Grades\" at 4 pm on 15 December in the page's structured data"
 ---
 

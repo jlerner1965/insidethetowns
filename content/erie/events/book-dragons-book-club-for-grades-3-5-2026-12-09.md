@@ -9,7 +9,7 @@ cost: "Free; registration required"
 category: family
 recurring: "Monthly, second Wednesdays"
 source: "https://highplains.libcal.com/event/17380773"
-verified: "2026-10-17"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): 9 December and 4:15 pm on the page"
 ---
 

@@ -11,7 +11,7 @@ cost: "Free"
 category: festival
 featured: true
 source: "https://berthoudmainstreet.org/averymerryberthoud/"
-verified: "2026-10-17"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): 5 December on the page"
 ---
 

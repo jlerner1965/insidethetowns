@@ -9,7 +9,7 @@ url: "https://berthoudparadeoflights.com/"
 cost: "Free"
 category: festival
 source: "https://berthoudparadeoflights.com/"
-verified: "2026-10-17"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): 5 December and 5 pm on the page"
 ---
 

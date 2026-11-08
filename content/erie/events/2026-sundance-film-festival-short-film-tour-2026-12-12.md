@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/16923053"
 cost: "Free; registration required"
 category: arts
 source: "https://highplains.libcal.com/event/16923053"
-verified: "2026-10-17"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"2026 Sundance Film Festival Short Film Tour\" at 1 pm on 12 December in the page's structured data"
 ---
 

@@ -8,8 +8,8 @@ category: other
 recurring: "Second Wednesdays"
 url: "https://lyons.librarycalendar.com/event/pints-pages-book-club-mainstage-brewing-11083"
 source: "https://lyons.librarycalendar.com/event/pints-pages-book-club-mainstage-brewing-11083"
-verified: "2026-10-17"
-verifiedBy: "Claude Code for James Lerner, on the library's calendar feed (6:00–7:00 pm, registration open), 17 October 2026"
+verified: "2026-11-08"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Pints & Pages Book Club at MainStage Brewing\" at 6 pm on 9 December on the lyons.librarycalendar.com feed"
 ---
 
 Book club run jointly by the Lyons Regional Library and MainStage Brewing, with discussion and drink specials. The library asks people to register on its calendar.
