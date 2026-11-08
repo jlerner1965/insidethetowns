@@ -21,6 +21,22 @@
  * the free list and named once under "Ended for now", and a full one sorts
  * after the ones a reader can still join (src/lib/programs.ts,
  * programStatus; Lyons audit, 26 October 2026).
+ *
+ * The Berthoud analysis (8 November 2026) found the page 21 phone screens
+ * long, with the school days off it promises on the sixteenth, the chips in
+ * one order and the sections in another, a closed clinic still offering
+ * "Register", the high-school sports link under History, the schools under
+ * a heading that did not hold them, two signup forms, and on a desktop a
+ * column half the screen wide. Since then: a "Right now" box first (what is
+ * taking sign-ups, the next day off, what is free this week;
+ * src/lib/family-home.ts, familyGlance); the sections in the chips' order,
+ * the school days off before the subjects; a program whose sign-ups have
+ * closed as one line under its subject, not a full row; the school sports
+ * links in the sports section, for the schools the guide follows; the
+ * schools in the parents' section; one signup; and from the lg breakpoint
+ * the chips as a list in a column of their own beside the page, where they
+ * were a sticky bar two rows tall. The title says what parents search for:
+ * kids' activities, sports, swim lessons.
  */
 import Page from '@/layouts/Page.astro';
 import DeadlineCard from '@/components/DeadlineCard.astro';
@@ -31,7 +47,10 @@ import CheckedLine from '@/components/CheckedLine.astro';
 import SectionHeader from '@/components/SectionHeader.astro';
 import { getTown } from '@/config';
 import { getTownEntries } from '@/lib/content';
-import { dayKey, daysBetween, formatDayRange, formatDayShort, formatShortDate, parseLocal } from '@/lib/dates';
+import { schoolAthletics, schoolsFor, sportsPath } from '@/config/school-sports';
+import { familyGlance } from '@/lib/family-home';
+import { forGeneralReaders, occurrences, weeklyTest } from '@/lib/events';
+import { dayKey, formatDayRange, formatDayShort, formatShortDate, parseLocal } from '@/lib/dates';
 import { SOON_DAYS, byActionable, byTopic, familySection, freePrograms, isDropIn, isEnded, isForFamilies, isStorytimeProgram, programStatus, scheduleDays, splitDeadlines } from '@/lib/programs';
 import { PROGRAM_TOPIC_LABELS, type ProgramTopic } from '@/content/schemas';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
@@ -70,15 +89,34 @@ const breaks = [...families.breaks]
     ...b,
     open: programs.flatMap((p) => (p.data.openOn ?? []).filter((o) => o.from.getTime() <= b.toDate.getTime() && o.to.getTime() >= b.fromDate.getTime()).map((o) => ({ program: p, note: o.note })))[0],
   }));
-// The next day off, when it is within the fortnight, is said at the top
-// with a link to the list and what is open on it.
-const nextBreak = breaks[0] && daysBetween(now, breaks[0].fromDate) <= SOON_DAYS ? breaks[0] : undefined;
+// The first screen: what is taking sign-ups, the next day off and what is
+// free in the next seven days (familyGlance), each linked to its row.
+const nextBreak = breaks[0];
+const glance = familyGlance({ programs, events: forGeneralReaders(occurrences(events, { now, horizonDays: 8 }), events), now, isSeries: weeklyTest(events) });
+const glanceCells = [glance.signUp.length > 0 || later.length > 0, !!nextBreak, glance.free.length > 0 || free.length > 0].filter(Boolean).length;
+const glanceCols = ({ 1: '', 2: 'sm:grid-cols-2', 3: 'sm:grid-cols-3' } as Record<number, string>)[glanceCells] ?? '';
+// The schools the guide follows on its sports pages, linked from the sports section.
+const schools = schoolsFor(town.slug);
+// A program whose sign-ups have closed is one line under its subject, not a full row.
+const isClosed = (p: (typeof programs)[number]) => programStatus(p, now)?.state === 'closed';
 const breakSources = [...new Map(breaks.map((b) => [b.source, b])).values()];
 // The town's own outing guides, newest first: every article filed under
 // Families. It was the newest one alone, which on Windsor showed Severance's
 // and hid Windsor's (flagship audit, 4 November 2026).
 const outings = (await getTownEntries('articles')).filter((a) => a.data.category === 'Families').sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-const description = `${families.label}: what a child can join in ${town.name}, Colorado, by subject, with ages, prices, registration deadlines and school-break dates, each from the organizer's own page.`;
+// What parents type: "<town> kids activities", "<town> swim lessons",
+// "<town> youth sports". The page's part of the title is kept to 48
+// characters, so with " | Inside <Town>" the whole is about 65.
+const hooks = [
+  groups.some((g) => g.topic === 'sports') && 'sports',
+  programs.some((p) => /\bswim/i.test(p.data.title)) && 'swim lessons',
+  breaks.length > 0 && 'days off',
+].filter((h): h is string => !!h);
+const listOf = (words: string[]) => (words.length <= 1 ? words.join('') : `${words.slice(0, -1).join(', ')} & ${words.at(-1)}`);
+let titleHooks = hooks;
+while (titleHooks.length > 0 && `${town.name} kids’ activities: ${listOf(titleHooks)}`.length > 48) titleHooks = titleHooks.slice(0, -1);
+const seoTitle = titleHooks.length > 0 ? `${town.name} kids’ activities: ${listOf(titleHooks)}` : `Kids’ activities in ${town.name}, CO`;
+const description = `Kids’ activities in ${town.name}, Colorado: ${hooks.length > 0 ? `${listOf(hooks.map((h) => (h === 'days off' ? 'school days off' : h === 'sports' ? 'youth sports' : h))).replace(' & ', ' and ')}, ` : ''}clubs and the library, with ages, prices and sign-up deadlines, each from the organizer's own page.`;
 const chips = [
   ...(closingSoon.length > 0 ? [{ id: 'closing', label: 'Closing soon' }] : []),
   ...(openingSoon.length > 0 ? [{ id: 'opening', label: 'Opening soon' }] : []),
@@ -86,7 +124,7 @@ const chips = [
   // October 2026) found the list useful and hard to find at the foot.
   ...(breaks.length > 0 ? [{ id: 'breaks', label: 'Days off' }] : []),
   ...groups.map((g) => ({ id: `topic-${g.topic}`, label: TOPIC_CHIP[g.topic] })),
-  ...(parents.length > 0 ? [{ id: 'parents', label: 'Parents' }] : []),
+  ...(parents.length > 0 || families.schools.length > 0 ? [{ id: 'parents', label: 'Parents' }] : []),
   ...(organizations.length > 0 ? [{ id: 'organizations', label: 'Organizations' }] : []),
   ...(free.length > 0 ? [{ id: 'free', label: 'Free' }] : []),
   ...(later.length > 0 ? [{ id: 'later', label: 'Coming up' }] : []),
@@ -99,27 +137,70 @@ const structured = [
     { name: families.label, path: '/families/' },
   ]),
 ];
-const chip = 'inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full px-4 text-[0.9375rem] font-semibold no-underline ring-1 ring-line transition-colors hover:bg-raised';
+// A pill in the bar on a phone and a tablet; a plain line in the side column from lg.
+const chip = 'inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full px-4 text-[0.9375rem] font-semibold no-underline ring-1 ring-line transition-colors hover:bg-raised lg:min-h-0 lg:w-full lg:rounded-none lg:px-0 lg:py-1.5 lg:font-medium lg:text-ink lg:ring-0 lg:hover:bg-transparent lg:hover:text-primary lg:hover:underline';
 const card = 'flex h-full flex-col rounded-lg bg-raised p-4 no-underline ring-1 ring-line-soft hover:ring-primary-line';
 /** "Drop in", "Sign up", or nothing where the organizer's page did not say. */
 const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in' : isDropIn(p) === false ? 'Sign up' : undefined);
 ---
-<Page title={families.label} seoTitle={`${families.label}: what kids can join in ${town.name}, CO`} eyebrow="Kids, teens and school breaks" {description} intro={families.intro} jsonLd={structured} kind="Guide" narrow>
+<Page title={`Kids’ activities in ${town.name}`} {seoTitle} eyebrow={families.label} {description} intro={families.intro} jsonLd={structured} kind="Guide">
   <CheckedLine slot="after-header" perItem dates={[...programs.map((p) => p.data.verified), ...breaks.map((b) => b.verified)]} />
-  {/* The sections as chips, stuck under the top of the screen as the page
-      scrolls; one line that scrolls sideways on a phone. */}
-  <nav aria-label="On this page" class="sticky top-0 z-30 -mt-2 border-b border-line-soft bg-paper py-3">
-    <ul class="flex flex-wrap gap-2">
-      {chips.map((c) => <li><a href={`#${c.id}`} class={chip}>{c.label}</a></li>)}
-    </ul>
-  </nav>
+  {/* From lg, two columns: the page at reading width and, beside it, the
+      sections as a list that stays in view. Below lg the same list is a
+      one-line bar stuck under the top of the screen, scrolling sideways. */}
+  <div class="lg:grid lg:grid-cols-[minmax(0,44rem)_minmax(0,13rem)] lg:justify-between lg:gap-x-12">
+    <nav aria-label="On this page" class="sticky top-0 z-30 -mt-2 border-b border-line-soft bg-paper py-3 lg:top-6 lg:col-start-2 lg:row-start-1 lg:mt-0 lg:self-start lg:border-b-0 lg:border-l lg:bg-transparent lg:py-0 lg:pl-5">
+      <p class="eyebrow mb-2 hidden text-ink-muted lg:block">On this page</p>
+      {/* One line that scrolls sideways up to lg (.filter-pills, which
+          wraps from 40rem elsewhere; here it wrapped to two rows, 129px of
+          sticky bar), a plain list from lg. */}
+      <ul class="filter-pills sm:-my-1 sm:flex-nowrap sm:overflow-x-auto sm:py-1 lg:my-0 lg:block lg:overflow-visible lg:py-0">
+        {chips.map((c) => <li><a href={`#${c.id}`} class={chip}>{c.label}</a></li>)}
+      </ul>
+    </nav>
 
-  {nextBreak && (
-    <p class="mt-6 rounded-lg bg-highlight-soft px-5 py-4 text-[0.9375rem] leading-snug ring-1 ring-highlight">
-      <span class="font-semibold">Next day off:</span>{' '}
-      <time datetime={nextBreak.from}>{nextBreak.from === nextBreak.to ? formatDayShort(nextBreak.fromDate) : formatDayRange(nextBreak.fromDate, nextBreak.toDate)}</time>, {nextBreak.label}.{' '}
-      <a href="#breaks" class="font-semibold text-primary underline">{nextBreak.open ? `${nextBreak.open.note}; every day off this year` : 'Every day off this year'} →</a>
-    </p>
+    <div class="min-w-0 lg:col-start-1 lg:row-start-1">
+  {glanceCells > 0 && (
+    <section class="mt-6 rounded-lg bg-raised ring-1 ring-line-soft lg:mt-0" aria-labelledby="now-h">
+      <h2 id="now-h" class="eyebrow px-5 pt-4 text-ink-muted">Right now</h2>
+      <dl class:list={['divide-y divide-line-soft sm:grid sm:divide-y-0', glanceCols]}>
+        {(glance.signUp.length > 0 || later.length > 0) && (
+          <div class="px-5 pb-4 pt-3">
+            <dt class="font-semibold">Sign up now</dt>
+            <dd class="mt-1 space-y-2 text-[0.9375rem] leading-snug">
+              {glance.signUp.length > 0 ? glance.signUp.map((g) => (
+                <p><a href={g.href} class="font-semibold text-primary underline">{g.title}</a><span class="block text-ink-muted">{g.when}</span></p>
+              )) : (
+                <p class="text-ink-muted">Nothing is taking sign-ups this week. <a href="#later" class="font-semibold text-primary underline">What opens next →</a></p>
+              )}
+              {glance.signUpMore > 0 && <p class="text-ink-muted">and {glance.signUpMore} more below</p>}
+            </dd>
+          </div>
+        )}
+        {nextBreak && (
+          <div class="px-5 pb-4 pt-3">
+            <dt class="font-semibold">Next day off school</dt>
+            <dd class="mt-1 text-[0.9375rem] leading-snug">
+              <a href="#breaks" class="font-semibold text-primary underline"><time datetime={nextBreak.from}>{nextBreak.from === nextBreak.to ? formatDayShort(nextBreak.fromDate) : formatDayRange(nextBreak.fromDate, nextBreak.toDate)}</time></a>
+              <span class="block text-ink-muted">{nextBreak.label}{breakSources.length > 1 && !nextBreak.label.includes(nextBreak.district) ? ` (${nextBreak.district})` : ''}</span>
+              {nextBreak.open && <a href={`#program-${nextBreak.open.program.slug}`} class="mt-1 inline-block font-semibold text-primary underline">{nextBreak.open.note} →</a>}
+            </dd>
+          </div>
+        )}
+        {(glance.free.length > 0 || free.length > 0) && (
+          <div class="px-5 pb-4 pt-3">
+            <dt class="font-semibold">{glance.free.length > 0 ? 'Free this week' : 'Free'}</dt>
+            <dd class="mt-1 space-y-2 text-[0.9375rem] leading-snug">
+              {glance.free.length > 0 ? glance.free.map((g) => (
+                <p><a href={g.href} class="font-semibold text-primary underline">{g.title}</a><span class="block text-ink-muted">{g.when}</span></p>
+              )) : (
+                <p><a href="#free" class="font-semibold text-primary underline">{free.length} free {free.length === 1 ? 'program' : 'programs'} →</a><span class="block text-ink-muted">{free.slice(0, 2).map((p) => p.data.title).join('; ')}</span></p>
+              )}
+            </dd>
+          </div>
+        )}
+      </dl>
+    </section>
   )}
 
   {closingSoon.length > 0 && (
@@ -143,61 +224,16 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
   {/* The Thursday email, once, after the deadlines and before the long
       part of the page, in the home page's short form, the town pre-ticked
       and no town picker (the owner's brief, 6 November 2026: the signup sat
-      at the foot of a page few reach the foot of); the foot keeps the full
-      form with the picker. */}
+      at the foot of a page few reach the foot of). The full form at the
+      foot went on 8 November 2026: two forms on one page. */}
   <div class="mt-10">
     <NewsletterSignup town={town} id="families-mid" variant="home" />
   </div>
 
-  {groups.map(({ topic, programs: list }) => (
-    <section id={`topic-${topic}`} class="mt-12 scroll-mt-20" aria-labelledby={`topic-${topic}-h`}>
-      <SectionHeader id={`topic-${topic}-h`} title={TOPIC_HEADING[topic] ?? PROGRAM_TOPIC_LABELS[topic]} />
-      {list.some((p) => !isStorytimeProgram(p)) && (
-        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-          {list.filter((p) => !isStorytimeProgram(p)).map((p) => <ProgramRow program={p} />)}
-        </div>
-      )}
-      {/* The storytimes in one line each: the organizer, the days, and the
-          organizer's own calendar for the sessions and their hours. */}
-      {list.some(isStorytimeProgram) && (
-        <ul class:list={['divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7', list.some((p) => !isStorytimeProgram(p)) && 'mt-3']}>
-          {list.filter(isStorytimeProgram).map((p) => (
-            <li id={`program-${p.slug}`} class="scroll-mt-20 py-3.5 text-[0.9375rem] leading-snug">
-              <span class="font-semibold">{p.data.title}</span>
-              <span class="block text-ink-muted">
-                {[p.data.organizer, storytimeLine(p)].filter(Boolean).join(' · ')}
-                {(p.data.url ?? p.data.organizerUrl) && <Fragment>{' · '}<a href={p.data.url ?? p.data.organizerUrl} rel="noopener" data-track="participation" class="font-semibold text-primary underline">every session and its hours →</a></Fragment>}
-              </span>
-            </li>
-          ))}
-        </ul>
-      )}
-    </section>
-  ))}
-
-  <p class="mt-6">
-    <a href="/sports/" class="flex items-center justify-between rounded-lg bg-primary px-5 py-4 font-semibold text-white no-underline hover:bg-primary-hover">High-school sports: schedules and scores <span aria-hidden="true">→</span></a>
-  </p>
-
-  {parents.length > 0 && (
-    <section id="parents" class="mt-12 scroll-mt-20" aria-labelledby="parents-h">
-      <SectionHeader id="parents-h" title="For parents: schools, passes and volunteering" />
-      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-        {byActionable(parents, now).map((p) => <ProgramRow program={p} />)}
-      </div>
-    </section>
-  )}
-
-  {organizations.length > 0 && (
-    <section id="organizations" class="mt-12 scroll-mt-20" aria-labelledby="organizations-h">
-      <SectionHeader id="organizations-h" title="Organizations a family can join" />
-      <p class="-mt-4 mb-4 text-[0.9375rem] text-ink-muted">Memberships and their prices are the organization's; what a membership includes is on its row.</p>
-      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-        {byActionable(organizations, now).map((p) => <ProgramRow program={p} />)}
-      </div>
-    </section>
-  )}
-
+  {/* The school days off, where the chips put them: after the deadlines,
+      before the subjects (the Johnstown audit, 26 October 2026, and the
+      Berthoud analysis, 8 November 2026, which found them on the sixteenth
+      phone screen while the chip said third). */}
   {breaks.length > 0 && (
     <section id="breaks" class="mt-12 scroll-mt-20" aria-labelledby="breaks-h">
       <SectionHeader id="breaks-h" title="No-school days" />
@@ -211,7 +247,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
           <li class="flex items-center justify-between gap-4 py-3.5 text-[0.9375rem]">
             <span class="min-w-0">
               <span class="block font-semibold"><time datetime={b.from}>{b.from === b.to ? formatDayShort(b.fromDate) : formatDayRange(b.fromDate, b.toDate)}</time></span>
-              <span class="block text-ink-muted">{b.label}</span>
+              <span class="block text-ink-muted">{b.label}{breakSources.length > 1 && !b.label.includes(b.district) ? ` · ${b.district}` : ''}</span>
             </span>
             {/* The calendar cannot be filtered to a break's dates, so the
                 link says what it is: the family listings, not an answer
@@ -224,6 +260,106 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
           </li>
         ))}
       </ul>
+    </section>
+  )}
+
+  {groups.map(({ topic, programs: list }) => {
+    const full = list.filter((p) => !isStorytimeProgram(p) && !isClosed(p));
+    const stories = list.filter(isStorytimeProgram);
+    const closed = list.filter((p) => !isStorytimeProgram(p) && isClosed(p));
+    return (
+    <section id={`topic-${topic}`} class="mt-12 scroll-mt-20" aria-labelledby={`topic-${topic}-h`}>
+      <SectionHeader id={`topic-${topic}-h`} title={TOPIC_HEADING[topic] ?? PROGRAM_TOPIC_LABELS[topic]} />
+      {full.length > 0 && (
+        <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+          {full.map((p) => <ProgramRow program={p} />)}
+        </div>
+      )}
+      {/* The storytimes in one line each: the organizer, the days, and the
+          organizer's own calendar for the sessions and their hours. */}
+      {stories.length > 0 && (
+        <ul class:list={['divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7', full.length > 0 && 'mt-3']}>
+          {stories.map((p) => (
+            <li id={`program-${p.slug}`} class="scroll-mt-20 py-3.5 text-[0.9375rem] leading-snug">
+              <span class="font-semibold">{p.data.title}</span>
+              <span class="block text-ink-muted">
+                {[p.data.organizer, storytimeLine(p)].filter(Boolean).join(' · ')}
+                {(p.data.url ?? p.data.organizerUrl) && <Fragment>{' · '}<a href={p.data.url ?? p.data.organizerUrl} rel="noopener" data-track="participation" class="font-semibold text-primary underline">every session and its hours →</a></Fragment>}
+              </span>
+            </li>
+          ))}
+        </ul>
+      )}
+      {/* Sign-ups closed: one line each, with the organizer's page for a
+          late place or the next session, not a full row with "Register". */}
+      {closed.length > 0 && (
+        <div class:list={['rounded-lg px-5 ring-1 ring-line-soft sm:px-7', (full.length > 0 || stories.length > 0) && 'mt-3']}>
+          <p class="eyebrow pt-3.5 text-ink-muted">Sign-ups closed</p>
+          <ul class="divide-y divide-line-soft">
+            {closed.map((p) => (
+              <li id={`program-${p.slug}`} data-status="closed" class="scroll-mt-20 py-3.5 text-[0.9375rem] leading-snug">
+                {p.data.url ? <a href={p.data.url} rel="noopener" class="font-semibold text-primary underline">{p.data.title}</a> : <span class="font-semibold">{p.data.title}</span>}
+                <span class="block text-ink-muted">{[p.data.organizer, programStatus(p, now)?.detail, p.data.contact && `ask ${p.data.contact} about the next session`].filter(Boolean).join(' · ')}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {/* The high school's teams, under sports: they were a bar after the
+          last subject, which on Berthoud was History. */}
+      {topic === 'sports' && schools.length > 0 && (
+        <ul class="mt-3 space-y-3">
+          {schools.map((school) => (
+            <li><a href={sportsPath(school)} class="flex items-center justify-between rounded-lg bg-primary px-5 py-4 font-semibold text-white no-underline hover:bg-primary-hover">{schoolAthletics(school)}: high-school schedules and scores <span aria-hidden="true">→</span></a></li>
+          ))}
+        </ul>
+      )}
+    </section>
+    );
+  })}
+
+  {/* A town with no sports programs still gets its school's teams. */}
+  {!groups.some((g) => g.topic === 'sports') && schools.length > 0 && (
+    <ul class="mt-6 space-y-3">
+      {schools.map((school) => (
+        <li><a href={sportsPath(school)} class="flex items-center justify-between rounded-lg bg-primary px-5 py-4 font-semibold text-white no-underline hover:bg-primary-hover">{schoolAthletics(school)}: high-school schedules and scores <span aria-hidden="true">→</span></a></li>
+      ))}
+    </ul>
+  )}
+
+  {(parents.length > 0 || families.schools.length > 0) && (
+    <section id="parents" class="mt-12 scroll-mt-20" aria-labelledby="parents-h">
+      <SectionHeader id="parents-h" title={parents.length > 0 ? 'For parents: schools, passes and volunteering' : 'For parents: schools'} />
+      {/* Which school, first: the heading promised schools and the section
+          had none; they were a box at the foot of the page. */}
+      <div id="schools" class="scroll-mt-20 rounded-lg bg-accent-soft p-5 sm:p-6">
+        <h3 class="text-lg font-semibold leading-snug">Which school? It depends on the address.</h3>
+        {families.schools.some((s) => s.note) && (
+          <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">
+            {families.schools.map((s) => s.note && `${s.district}: ${s.note}.`).filter(Boolean).join(' ')}
+          </p>
+        )}
+        <div class="mt-4 flex flex-wrap gap-2">
+          {families.schools.map((s) => (
+            <a href={s.url} rel="noopener" data-track="service" class="btn btn-outline text-primary">{s.district}</a>
+          ))}
+        </div>
+      </div>
+      {parents.length > 0 && (
+        <div class="mt-3 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+          {byActionable(parents, now).map((p) => <ProgramRow program={p} />)}
+        </div>
+      )}
+    </section>
+  )}
+
+  {organizations.length > 0 && (
+    <section id="organizations" class="mt-12 scroll-mt-20" aria-labelledby="organizations-h">
+      <SectionHeader id="organizations-h" title="Organizations a family can join" />
+      <p class="-mt-4 mb-4 text-[0.9375rem] text-ink-muted">Memberships and their prices are the organization's; what a membership includes is on its row.</p>
+      <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+        {byActionable(organizations, now).map((p) => <ProgramRow program={p} />)}
+      </div>
     </section>
   )}
 
@@ -248,6 +384,12 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
             </a>
           </li>
         ))}
+        <li>
+          <a href="/events/?category=family" class={card}>
+            <span class="font-semibold leading-snug">Family listings on the calendar</span>
+            <span class="mt-1 block text-[0.875rem] leading-snug text-ink-muted">Each with its price, many free</span>
+          </a>
+        </li>
       </ul>
     </section>
   )}
@@ -286,27 +428,18 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
     </section>
   )}
 
-  <section id="schools" class="mt-12 scroll-mt-20 rounded-lg bg-accent-soft p-5 sm:p-6" aria-labelledby="schools-h">
-    <h2 id="schools-h" class="text-xl font-semibold leading-snug">Which school? It depends on the address.</h2>
-    {families.schools.some((s) => s.note) && (
-      <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">
-        {families.schools.map((s) => s.note && `${s.district}: ${s.note}.`).filter(Boolean).join(' ')}
-      </p>
-    )}
-    <div class="mt-4 flex flex-wrap gap-2">
-      {families.schools.map((s) => (
-        <a href={s.url} rel="noopener" data-track="service" class="btn btn-outline text-primary">{s.district}</a>
-      ))}
-    </div>
-  </section>
-
   <p class="mt-10 flex flex-wrap gap-x-4 gap-y-1 text-[0.9375rem]">
     <a href="/correct/" class="inline-block -my-1 py-1 font-semibold text-primary underline">Something wrong? Send a correction</a>
     <a href="/submit-event/" class="inline-block -my-1 py-1 font-semibold text-primary underline">Suggest a program</a>
     <a href="/events/?category=family" class="inline-block -my-1 py-1 font-semibold text-primary underline">Family listings on the calendar</a>
   </p>
-
-  <div class="mt-12">
-    <NewsletterSignup town={town} compact id="families" />
+    </div>
   </div>
 </Page>
+
+<script>
+  import { initScrollRows } from '@/lib/scroll-rows';
+
+  // The edge fades on the chip row while it scrolls sideways.
+  initScrollRows();
+</script>

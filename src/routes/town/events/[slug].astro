@@ -241,7 +241,7 @@ const facts: Fact[] = [
   title={data.title}
   seoTitle={
     annual
-      ? `${data.title} in ${town.name} — ${awaitingDate ? `held ${titleDate(when.start)}, next date to come` : titleDate(when.start)}`
+      ? `${data.title}${data.title.toLowerCase().includes(town.name.toLowerCase()) ? '' : ` in ${town.name}`} — ${awaitingDate ? `held ${titleDate(when.start)}, next date to come` : titleDate(when.start)}`
       : `${statusLabel ? `${statusLabel}: ` : ''}${data.title} — ${titleDate(when.start)}${sameDayTwin && !when.allDay ? `, ${formatTime(when.start)}` : ''}`
   }
   eyebrow={shownCategoryLabel(data.category)}

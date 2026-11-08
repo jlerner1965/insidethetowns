@@ -6,24 +6,26 @@ audience: [preschool, elementary, teens]
 organizer: "Berthoud Recreation"
 organizerUrl: "https://www.berthoud.org/1483/Berthoud-Recreation"
 url: "https://www.berthoud.org/1598/Activity-Guide"
-summary: "The Town's leagues by season: soccer, flag football, softball, volleyball and cross country in the fall; basketball and futsal over the winter; register through the activity guide, with early-bird pricing in the first month."
+summary: "The Town's winter youth programs: Junior Nuggets basketball for 3rd to 6th grade, Little Dribblers and Little Spikers for the youngest, youth pickleball, a free basketball skills challenge and 3rd–8th grade volleyball. Most close December 20."
 ageFrom: 4
-ageTo: 15
-ages: "4 to 15, by program: Little Strikers and Little Dribblers at 4–5, leagues from 5 or 6 up to 14, and a new 7th–8th grade girls' basketball league at 13–15"
-location: "Berthoud Recreation Center and Waggener Farm Fields; some games in other Northern Colorado towns"
-schedule: "Practices once or twice a week on weekday evenings; games on Saturdays (Friday nights for the girls' basketball league)"
-season: "Fall registration opened July 1 and closed in August; winter registration opened November 1 with early-bird pricing through November; spring opens February 1"
-price: "From $69 resident / $79 non-resident (Little Dribblers) to $169 / $179 (14U softball); basketball $91 / $101; futsal $60 / $70; $15 more after the early-bird month"
-registration: { required: true, how: "Online through the activity guide's links or Berthoud Recreation's portal, or at the front desk, 970-532-1600", url: "https://www.berthoud.org/1598/Activity-Guide", opens: "2026-11-01", note: "Winter Activity Guide registration opened November 1, 2026, with early-bird pricing through November; the fall guide's deadlines (basketball October 4, futsal November 1) have passed" }
-equipment: "Shin guards for soccer, knee pads for volleyball, a mouthguard for flag football, your own glove for softball; bats, helmets and jerseys provided"
+ageTo: 14
+ages: "4 to 14, by program: Little Dribblers 4–5, Little Spikers 6–8, Junior Nuggets basketball 8–10 and 10–12, youth pickleball 8–11, the skills challenge 6–13, volleyball 8–14 (3rd to 8th grade)"
+location: "Berthoud Recreation Center and Berthoud schools; some Saturday games at partner recreation departments in Northern Colorado"
+schedule: "Little Spikers Wednesdays 4–4:45 pm; Little Dribblers Fridays 4–4:45 pm; youth pickleball Mondays at 4 pm; basketball and volleyball practice twice a week (Mon/Wed or Tue/Thu) for an hour between 4 and 8 pm, with games on Saturdays"
+season: "Winter 2026–27: practices begin January 4 to 8, 2027; spring registration opens February 1"
+price: "Little Spikers $69 resident / $79 non-resident; Little Dribblers and youth pickleball $45 / $55; Junior Nuggets basketball $88 / $98; volleyball $91 / $101; skills challenge free; $15 more from November 15"
+registration: { required: true, how: "Online through the Town's DaySmart portal (the guide's register links or the DaySmart Recreation Member app), at the Recreation Center front desk, or by phone, 970-532-1600", url: "https://www.berthoud.org/1598/Activity-Guide", deadline: "2026-12-20", note: "Open now. Register by December 20 for Little Spikers, Little Dribblers and Junior Nuggets basketball, January 4 for youth pickleball, January 5 for the skills challenge and February 14 for volleyball. Early-bird prices November 1 to 15." }
+equipment: "Volleyball players bring their own knee pads; Junior Nuggets players get a jersey and a ticket to a Nuggets game"
 beginners: true
-contact: "Berthoud Recreation, 970-532-1600"
+contact: "Berthoud Recreation, 970-532-1600; sports: Jacquelyn, jcuba@berthoud.org"
 featured: true
-source: "https://www.berthoud.org/1598/Activity-Guide"
-verified: "2026-11-06"
-verifiedBy: "Claude Code, delegated by James Lerner: the Town's Activity Guide page read November 6, 2026 (winter guide linked, registration from November 1); the league details are the fall guide's"
+source: "https://www.berthoud.org/DocumentCenter/View/7956/Berthoud-Recreation-Winter-Activity-Guide-2026-27"
+verified: "2026-11-08"
+verifiedBy: "Claude Code, delegated by James Lerner: the Town's Winter Activity Guide 2026–27 (PDF, youth sports pages 16–17), its Activity Guide page and its Memberships/Admission page, all read November 8, 2026; Little Dribblers' ages from the Town's DaySmart registration portal (\"Little Dribblers Ages 4-5\", from January 8), read the same day"
 ---
 
-The Town runs its own recreational leagues, and the printed activity guide is the registration form: each program has a "more info / register" link into the Town's portal. **Fall** (registration from July 1): co-ed soccer 5 to 14 and Little Strikers at 4–5, boys' flag football 6 to 11 and a new girls' flag league 8 to 12, girls' softball 7 to 14, co-ed volleyball for 3rd to 8th grade, and CARA cross country 7 to 14. **Winter**: Little Dribblers at 4–5 and 1st/2nd-grade basketball (practices from October 19 and 28; both had an October 4 deadline), a new 7th–8th grade girls' basketball league with Friday-night games from January 17, and an eight-session **futsal clinic** for ages 8 to 12 (deadline November 1, now passed). Register based on the child's age on the first day of the season; the guide gives the date for each. Every league in the fall guide carried a $15 increase after its early-bird month, which the Town's Activity Guide page says applies to each season's first month.
+The Town runs its own youth leagues, and the seasonal activity guide is the registration form: each program has a register link into the Town's DaySmart portal. The **winter 2026–27** guide lists **Little Spikers** volleyball for ages 6 to 8 (Wednesdays 4 to 4:45 pm from January 6; $69 resident, $79 non-resident); **Little Dribblers** basketball for ages 4 to 5 (Fridays 4 to 4:45 pm from January 8; $45 / $55); **Junior Nuggets** basketball, run with Thompson River Parks and Recreation, with boys' and girls' teams for 3rd–4th grade (ages 8 to 10) and 5th–6th grade (10 to 12), two one-hour evening practices a week from January 4 or 6 and six weeks of Saturday games from January 16, in Berthoud or at Thompson River ($88 / $98, with a Junior Nuggets jersey and a ticket to a Nuggets game); and **youth pickleball** for ages 8 to 11, a six-week Monday 4 pm league that starts with the basics ($45 / $55). Little Spikers, Little Dribblers and Junior Nuggets take registrations until **December 20**, pickleball until January 4.
 
-The **winter activity guide** for 2026–27 went online November 1, and registration for its programs opened the same day, with early-bird pricing through November; the winter leagues above are as the fall guide previewed them, and the winter guide controls. Youth **Power Hour**, a Wednesday 7 am strength and agility class for young athletes, runs year-round from the fitness side.
+Two close later. The free **CARA Basketball Skills Challenge** for ages 6 to 13 is Saturday, January 9 (9 am for ages 6 to 9, 11 am for 10 to 13; register by January 5), and the top boy and girl in each age group go on to a sectional. **Youth volleyball** for 3rd to 8th grade (ages 8–10, 10–12 and 12–14), run with Carbon Valley, Thompson River and Mead Recreation, has two one-hour evening practices a week in Berthoud and seven Saturday games in Berthoud and partner towns ($91 / $101; register by February 14).
+
+Register by the child's age on January 6, 2027, the first day of the season. The guide's youth sports pages and the Town's Memberships/Admission page give the winter early-bird period as November 1 to 15, with the $15 increase starting November 15; the yearly calendar on the Town's Activity Guide page says winter early bird runs through November. A full team has a waitlist team to join. Scholarships are available through Berthoud's House of Neighborly Service, 970-532-0161. Youth **Power Hour**, a Wednesday 7 am strength and agility class for young athletes, runs from the fitness side, and the Town is looking for volunteer coaches for its spring and summer 2027 seasons.

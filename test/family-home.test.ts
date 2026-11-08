@@ -7,7 +7,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { agesFact, eventIsFree, familyLines, shortPrice } from '../src/lib/family-home.ts';
+import { agesFact, eventIsFree, familyGlance, familyLines, shortPrice } from '../src/lib/family-home.ts';
 import { parseLocal } from '../src/lib/dates.ts';
 import { listingOver } from '../src/lib/expiry.ts';
 
@@ -101,4 +101,45 @@ test('free means free, and a price is its first clause', () => {
   assert.equal(agesFact('6–14 on the day of camp'), 'Ages 6–14 on the day of camp');
   assert.equal(agesFact('Erie Middle School students'), 'Erie Middle School students', 'not "Ages Erie Middle School students"');
   assert.equal(agesFact('up to 5'), 'Ages up to 5');
+});
+
+/*
+ * The family hub's "Right now" box (familyGlance): what is taking sign-ups
+ * today and what is free in the next seven days.
+ */
+test('sign up now: a deadline still ahead, nearest first, then a registration opened lately with no deadline', () => {
+  const now = at('2026-11-08T09:00');
+  const leagues = program('youth-sports', { title: 'Youth sports', registration: { required: true, opens: at('2026-11-01') } });
+  const glance = familyGlance({ programs: [leagues, camp, athletics], events: [], now });
+  assert.deepEqual(glance.signUp.map((g) => g.title), ['Camp Erie school-break camps', 'Erie Middle School athletics']);
+  assert.equal(glance.signUp[0]!.when, 'Register by Fri, Nov 13');
+  assert.equal(glance.signUp[0]!.href, '#program-camp-erie-break-camps');
+  assert.equal(glance.signUpMore, 1, 'the leagues are the one more');
+  assert.equal(familyGlance({ programs: [leagues], events: [], now }).signUp[0]!.when, 'Open since Sun, Nov 1');
+});
+
+test('sign up now leaves out a closed, full, not-yet-open or long-open program, and one that needs no sign-up', () => {
+  const now = at('2026-11-08T09:00');
+  const closed = program('futsal', { registration: { required: true, deadline: at('2026-11-01') } });
+  const full = program('full-camp', { status: 'full', registration: { required: true, deadline: at('2026-11-20') } });
+  const later = program('spring', { registration: { required: true, opens: at('2027-02-01'), deadline: at('2027-03-01') } });
+  const stale = program('fall', { registration: { required: true, opens: at('2026-07-01') } });
+  const dropIn = program('storytime', { registration: { required: false, deadline: at('2026-11-20') } });
+  assert.deepEqual(familyGlance({ programs: [closed, full, later, stale, dropIn], events: [], now }).signUp, []);
+});
+
+test('free this week: a free family listing in the next seven days, one-offs before a series, each title once', () => {
+  const now = at('2026-11-08T09:00');
+  const events = [
+    event('lego-club-2026-11-10', '2026-11-10T16:00', { title: 'Lego club' }),
+    event('lego-club-2026-11-12', '2026-11-12T16:00', { title: 'Lego club' }),
+    event('craft-day', '2026-11-14T10:00', { title: 'Craft day' }),
+    event('paid-show', '2026-11-09T10:00', { title: 'Puppet show', cost: '$5' }),
+    event('next-month', '2026-11-20T10:00', { title: 'Too far' }),
+    event('called-off', '2026-11-09T11:00', { title: 'Called off', status: 'canceled' }),
+  ];
+  const glance = familyGlance({ programs: [], events, now, isSeries: (e) => (e as { data: { title: string } }).data.title === 'Lego club' });
+  assert.deepEqual(glance.free.map((g) => g.title), ['Craft day', 'Lego club']);
+  assert.equal(glance.free[0]!.when, 'Sat, Nov 14, 10 am');
+  assert.equal(glance.free[0]!.href, '/events/craft-day/');
 });

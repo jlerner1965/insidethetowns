@@ -9294,3 +9294,62 @@ components, so every guide takes them.*
 - **Left as the owner set them:** 8px photo credits (7 November); the email
   strip above the events list (6 November); the home page's shorter footer
   (27 October).
+
+## The family hub answers first, and Inside Berthoud re-checked, 8 November 2026
+
+*From the analysis of the live Families page and the whole of
+insideberthoud.com the same day. The page changes are in the shared
+template, so every guide with a family hub takes them.*
+
+- **"Right now" first** (families.astro; src/lib/family-home.ts,
+  `familyGlance`): what is taking sign-ups today, the next school day off
+  and what is free in the next seven days, each linked to its row. The
+  page ran 21 phone screens and the school days off its intro promises
+  sat on the sixteenth. A program counts as taking sign-ups while its
+  deadline is ahead, or for 45 days after registration opened when no
+  deadline is given; a closed, full, paused or ended one never does.
+- **The sections in the chips' order**: the school days off now come
+  after the deadlines, before the subjects, where the chip had always put
+  them.
+- **A closed program is one line** under its subject ("Sign-ups closed"),
+  with the organizer and whom to ask about the next session, not a full
+  row; and anywhere a program row is drawn (ProgramRow.astro) a closed,
+  full or ended one links "Organizer's page", not "Register", and an
+  opening day already passed reads "open since", not "opens".
+- **School sports under Sports**: a link per school the guide follows
+  (`schoolsFor`), in the sports section; it was a bar after the last
+  subject, under History on Berthoud, and linked /sports/ whether or not
+  the town had one.
+- **The schools in the parents' section**: "For parents: schools, passes
+  and volunteering" had no schools in it; the "Which school?" box was at
+  the foot of the page. It opens the section now, and keeps its #schools
+  anchor.
+- **One signup**: the short form after the deadlines stays; the full form
+  at the foot went.
+- **Desktop**: from lg the chips are a list in a column of their own,
+  sticky beside the page, where they had been a sticky bar two rows tall
+  (129px) over a column half the screen wide. Below lg they are one line
+  that scrolls sideways at every width. Local changes gets a side column
+  like Living here's; Living here's link lists run in two columns from md.
+- **The title says what parents search for**: H1 "Kids' activities in
+  <Town>", title "<Town> kids' activities: sports & swim lessons", the
+  hooks taken from what the page holds and cut to fit. Search Console had
+  the page at 104 impressions and no clicks since October 15, on
+  "rec center swim lessons" and "activity guide" queries.
+- **Annual event titles** (events/[slug].astro): no " in <Town>" where the
+  title already names it ("Berthoud Scarecrow Contest in Berthoud").
+- **Content re-checked on Inside Berthoud**: the Recreation rows from the
+  Winter 2026–27 Activity Guide (the youth sports and swim rows still
+  cited the fall guide; the guide and the Town's memberships page put the
+  early bird at November 1 to 15, the Activity Guide page's calendar says
+  through November, and the files say both); the program and place
+  listings past or near the 30-day re-check; new programs where the
+  organizer's own page confirms them; and events for the thin second week
+  of the calendar. Each change with a reader-facing fact has a correction
+  entry.
+- **Not done, and why**: photographs for the 48 of 55 open places without
+  one need a local photographer or the owner's permission (docs/PHOTOS.md:
+  the open-licence searches are exhausted, and no stock or generated
+  image is used). Titles: the site's rule is 70 characters
+  (`TITLE_LIMIT`), not the 65 the analysis measured against; one event
+  title is over it on its own words.

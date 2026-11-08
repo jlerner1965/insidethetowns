@@ -4,6 +4,10 @@
  * collection is content/<town>/updates/; which is which is
  * src/lib/updates.ts. An old notice is never recycled as news; it stays
  * here, dated, for the reader who wants to know when something changed.
+ * From lg, a side column as on Living here (the Berthoud analysis, 8
+ * November 2026: the list stood in half the screen with the rest empty):
+ * how the page works, the official site, and the guide's other "who to
+ * call" pages.
  */
 import Page from '@/layouts/Page.astro';
 import UpdateRow from '@/components/UpdateRow.astro';
@@ -28,8 +32,10 @@ const structured = [
   ]),
 ];
 ---
-<Page title="Local changes" seoTitle={`Local changes in ${town.name}, CO`} eyebrow={town.name} {description} intro={`What changed in ${town.name}, who it affects, and what to do.`} jsonLd={structured} kind="Guide" narrow>
+<Page title="Local changes" seoTitle={`Local changes in ${town.name}, CO`} eyebrow={town.name} {description} intro={`What changed in ${town.name}, who it affects, and what to do.`} jsonLd={structured} kind="Guide">
   <CheckedLine slot="after-header" perItem dates={current.map((u) => u.data.verified)} />
+  <div class="grid gap-12 lg:grid-cols-[minmax(0,44rem)_19rem] lg:justify-between lg:gap-16">
+  <div class="min-w-0">
   {current.length === 0 && archive.length === 0 ? (
     <p class="rounded-lg border border-dashed border-line px-6 py-10 text-center text-ink-muted">Nothing logged yet.</p>
   ) : (
@@ -49,4 +55,31 @@ const structured = [
     </Fragment>
   )}
   <p class="mt-10 text-[0.9375rem] text-ink-muted">Know of a change that should be here? <a href="/contact/" class="font-semibold text-primary underline">Send it with the source</a>.</p>
+  </div>
+  <aside class="space-y-8 lg:sticky lg:top-6 lg:self-start">
+    <div class="rounded-lg bg-raised p-6 ring-1 ring-line-soft">
+      <p class="eyebrow border-b border-line-soft pb-3">How this page works</p>
+      <ul class="mt-3 space-y-2 text-[0.9375rem] leading-snug text-ink-muted">
+        <li>Each change is from an official page: the Town, the county, the library or the district, linked on its row.</li>
+        <li>A change stays under Current until its end date, then moves to the archive with its date.</li>
+      </ul>
+    </div>
+    <div class="rounded-lg bg-raised p-6 ring-1 ring-line-soft">
+      <p class="eyebrow border-b border-line-soft pb-3">Official sources</p>
+      <ul class="mt-3 space-y-2 text-[0.9375rem]">
+        <li><a href={town.officialLinks.townSite} rel="noopener" class="font-semibold text-primary underline">{town.officialLinks.townSiteLabel ?? `The official ${town.name} site`} →</a></li>
+      </ul>
+      <p class="mt-4 text-[0.875rem] leading-relaxed text-ink-muted">{town.siteTitle} is an independent guide, not a government site. Where a page here and an official page differ, the official page controls.</p>
+    </div>
+    <div class="rounded-lg bg-raised p-6 ring-1 ring-line-soft">
+      <p class="eyebrow border-b border-line-soft pb-3">Also on this guide</p>
+      <ul class="mt-3 space-y-2 text-[0.9375rem]">
+        {town.livingHere && <li><a href="/living-here/" class="font-semibold text-primary underline">Living in {town.name}: who to call</a></li>}
+        {town.families && <li><a href="/families/" class="font-semibold text-primary underline">Kids’ activities and school days off</a></li>}
+        {town.participation && <li><a href="/get-involved/" class="font-semibold text-primary underline">{town.participation.label}</a></li>}
+        <li><a href="/events/" class="font-semibold text-primary underline">What’s on</a></li>
+      </ul>
+    </div>
+  </aside>
+  </div>
 </Page>
