@@ -337,50 +337,6 @@
       "has": [
         {
           "type": "host",
-          "value": "carbonvalleyguide.com"
-        }
-      ],
-      "destination": "https://insidethetowns.com/",
-      "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "carbonvalleyguide.com"
-        }
-      ],
-      "destination": "https://insidethetowns.com/",
-      "permanent": true
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidefirestone.com"
-        }
-      ],
-      "destination": "https://insidethetowns.com/",
-      "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "insidefirestone.com"
-        }
-      ],
-      "destination": "https://insidethetowns.com/",
-      "permanent": true
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
           "value": "insidefortlupton.com"
         }
       ],
@@ -1826,6 +1782,468 @@
         }
       ],
       "destination": "/events/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/",
+      "permanent": true
+    },
+    {
+      "source": "/frederick{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/",
+      "permanent": true
+    },
+    {
+      "source": "/events{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/events/",
+      "permanent": true
+    },
+    {
+      "source": "/eat-drink{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/eat-drink/",
+      "permanent": true
+    },
+    {
+      "source": "/things-to-do{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/things-to-do/",
+      "permanent": true
+    },
+    {
+      "source": "/directory{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/directory/",
+      "permanent": true
+    },
+    {
+      "source": "/moving-here{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/moving-here/",
+      "permanent": true
+    },
+    {
+      "source": "/this-weekend{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/this-weekend/",
+      "permanent": true
+    },
+    {
+      "source": "/this-week{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/this-week/",
+      "permanent": true
+    },
+    {
+      "source": "/guides{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/about{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/about/",
+      "permanent": true
+    },
+    {
+      "source": "/contact{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/submit-event{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/submit-event/",
+      "permanent": true
+    },
+    {
+      "source": "/families{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/families/",
+      "permanent": true
+    },
+    {
+      "source": "/get-involved{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/get-involved/",
+      "permanent": true
+    },
+    {
+      "source": "/living-here{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/living-here/",
+      "permanent": true
+    },
+    {
+      "source": "/updates{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/updates/",
+      "permanent": true
+    },
+    {
+      "source": "/sports{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/sports/",
+      "permanent": true
+    },
+    {
+      "source": "/events/calendar.ics",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/events/calendar.ics",
+      "permanent": true
+    },
+    {
+      "source": "/rss.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/rss.xml",
+      "permanent": true
+    },
+    {
+      "source": "/events.rss",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/events.rss",
+      "permanent": true
+    },
+    {
+      "source": "/events/adult-dungeons-and-dragons-one-shot-2026-11-28{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/events/adult-dungeons-and-dragons-one-shot-2026-11-28/",
+      "permanent": true
+    },
+    {
+      "source": "/events/bubble-tea-social-2026-11-16{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/events/bubble-tea-social-2026-11-16/",
+      "permanent": true
+    },
+    {
+      "source": "/events/create-with-canva-2026-11-18{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/events/create-with-canva-2026-11-18/",
+      "permanent": true
+    },
+    {
+      "source": "/events/harvest-and-holly-market-2026-11-15{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/events/harvest-and-holly-market-2026-11-15/",
+      "permanent": true
+    },
+    {
+      "source": "/events/medieval-garb-workshop-2026-11-07{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/events/medieval-garb-workshop-2026-11-07/",
+      "permanent": true
+    },
+    {
+      "source": "/events/teen-dungeons-and-dragons-2026-11-03{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/events/teen-dungeons-and-dragons-2026-11-03/",
+      "permanent": true
+    },
+    {
+      "source": "/events/teen-dungeons-and-dragons-2026-12-01{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/events/teen-dungeons-and-dragons-2026-12-01/",
+      "permanent": true
+    },
+    {
+      "source": "/places/bella-rosa-golf-course{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/places/bella-rosa-golf-course/",
+      "permanent": true
+    },
+    {
+      "source": "/places/bulrush-open-space{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/places/bulrush-open-space/",
+      "permanent": true
+    },
+    {
+      "source": "/places/carbon-valley-recreation-center{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/places/carbon-valley-recreation-center/",
+      "permanent": true
+    },
+    {
+      "source": "/places/carbon-valley-regional-library{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/places/carbon-valley-regional-library/",
+      "permanent": true
+    },
+    {
+      "source": "/places/centennial-park{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/places/centennial-park/",
+      "permanent": true
+    },
+    {
+      "source": "/places/crist-park{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/places/crist-park/",
+      "permanent": true
+    },
+    {
+      "source": "/places/frederick-recreation-area{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/places/frederick-recreation-area/",
+      "permanent": true
+    },
+    {
+      "source": "/places/gabes-cafe{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/places/gabes-cafe/",
+      "permanent": true
+    },
+    {
+      "source": "/places/georgia-boys-bbq-smokehouse{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/places/georgia-boys-bbq-smokehouse/",
+      "permanent": true
+    },
+    {
+      "source": "/places/miners-memorial-museum{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/places/miners-memorial-museum/",
+      "permanent": true
+    },
+    {
+      "source": "/places/st-vrain-state-park{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/places/st-vrain-state-park/",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "carbonvalleyguide.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefirestone.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidefirestone.com"
+        }
+      ],
+      "destination": "https://insidefrederickco.com/",
       "permanent": true
     }
   ]

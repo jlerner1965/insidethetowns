@@ -15,10 +15,12 @@ import type { TownConfig } from './types.ts';
  * and the Fifth Street hero moved there; the Firestone, Dacono and Fort
  * Lupton listings left this folder, and git history keeps them. Every path on
  * carbonvalleyguide.com, insidefirestone.com and insidefortlupton.com
- * redirects to the hub's home page (vercel.json): the old guide's slugs do
- * not all exist on the Frederick guide, and a Firestone or Dacono path has
- * no page anywhere. The config stays so the Vercel project keeps building,
- * and keeps serving those redirects.
+ * redirected to the hub's home page until 8 November 2026, and since then
+ * to Inside Frederick (vercel.json; `retired.successor`): the Frederick
+ * listings' paths are kept where the page exists there, and every other
+ * path, a Firestone or Dacono one among them, goes to Frederick's home
+ * page, the nearest guide. The config stays so the Vercel project keeps
+ * building, and keeps serving those redirects.
  *
  * Figures are the three towns' own, read 5 October 2026 from the Wikipedia
  * infobox (census and GNIS), and summed where the config wants one number;
@@ -32,6 +34,10 @@ export const carbonValley: TownConfig = {
   retired: {
     since: '2026-11-02',
     reason: 'The owner closed the four-town guide on 2 November 2026 and opened Inside Frederick in its place, leaving Firestone, Dacono and Fort Lupton out; a flagship is one town’s.',
+    // From 8 November 2026 the domain forwards to Inside Frederick, not the
+    // hub: the Frederick listings kept their slugs there, and for a
+    // Firestone or Dacono path Frederick's home page is the nearest guide.
+    successor: 'frederick',
   },
   variant: 'front-range',
   region: 'Carbon Valley & I-25',

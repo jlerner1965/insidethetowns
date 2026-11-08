@@ -33,7 +33,7 @@ Three land managers own the trails around Lyons, and each writes its own dog rul
 | [Heil Valley Ranch](/places/heil-valley-ranch/) | Boulder County | No | Sunrise to sunset | 25 at Picture Rock; 59 at Wapiti; 19 at Corral |
 | [Button Rock Preserve](/places/button-rock-preserve/) | City of Longmont | No | Lot open 1 hour before sunrise to 1 hour after sunset | 60 vehicles; closed when full |
 | [Rabbit Mountain](/places/rabbit-mountain/) | Boulder County | On a leash | Sunrise to sunset | 38 spaces |
-| Town parks and [river path](/places/st-vrain-river-path/) | Town of Lyons | Off leash only in the fenced dog park at Bohn Park | Dawn to dusk | Paid lots at LaVern M. Johnson and Bohn parks; free on 2nd Avenue |
+| Town parks and [river path](/places/st-vrain-river-path/) | Town of Lyons | Off leash only in the fenced dog park at Bohn Park | Dawn to dusk | Paid lots at LaVern M. Johnson and Bohn parks and at 199 2nd Avenue, every day of the year |
 
 ## No dogs: Hall Ranch
 
@@ -53,7 +53,7 @@ The Ron Stewart Preserve at Rabbit Mountain, north-east of town off Colorado 66,
 
 The County's leash rule applies wherever it allows dogs: on a leash and under the owner's physical control at all times, with the waste carried out. Parks and trailheads close at sunset, and vehicles left after dark are ticketed or towed. A ranger is reached at 303-441-4444.
 
-## In town: six parks and one dog park
+## In town: six Town parks, the dog park among them
 
 The Town of Lyons maintains six parks, open dawn to dusk daily: LaVern M. Johnson Park, Bohn Park, Sandstone Park, Lyons Valley River Park, Steamboat Park and the Dog Park. The [Dog Park](https://www.townoflyons.com/640/Dog-Park) is a fenced ten-acre area at the south end of [Bohn Park](/places/bohn-park/), reached by a short trail due south from the paid lot at 199 2nd Avenue, and the Town calls it the only designated off-leash area in Lyons. It is free, open dawn to dusk unless closed for maintenance, and Town ordinances are enforced inside it: dogs leashed through the first gate in and out, no aggressive, ill or in-heat dogs, three dogs a person. The Town scheduled a dog-waste composting pilot there for April through September 2026. It warns that online maps often send drivers to a private road off 5th Avenue; use 199 2nd Avenue.
 

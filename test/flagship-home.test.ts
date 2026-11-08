@@ -6,6 +6,7 @@
  * Friday, a school orange that white cannot be read on.
  */
 import { test } from 'node:test';
+import { existsSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { parseLocal } from '../src/lib/dates.ts';
 import { agendaTitle, clockKey, dashed, displayTitle, gameHeading, leadGame, nextGame, resultSentence, scoreboardResult, teamRows, weekDays } from '../src/lib/flagship-home.ts';
@@ -290,4 +291,14 @@ test('a long time note is said once on the agenda’s meta line, not before and 
   const club = day!.items.find((i) => i.fullTitle === 'book-club')!;
   assert.equal(club.meta, `${note} · Berthoud Community Library · Free`);
   assert.equal(club.where, `${note} · Berthoud Community Library · Free`, 'the renderers with a blank time column still get the note');
+});
+
+test('quick answers link only pages the guide builds', () => {
+  // src/components/home/QuickAnswers.astro derives its links; the one typed
+  // value, a rec center listing named on the config, must be a listing file.
+  for (const t of towns.filter((t) => t.quickAnswers)) {
+    assert.ok(t.status === 'live' && t.home, `${t.slug}: quick answers on a live home page`);
+    const rec = t.quickAnswers!.recCenter;
+    if (rec) assert.ok(existsSync(new URL(`../content/${t.slug}/places/${rec.place}.md`, import.meta.url)), `${t.slug}: ${rec.place} is a listing`);
+  }
 });

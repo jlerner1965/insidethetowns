@@ -250,7 +250,20 @@ export interface TownConfig {
    * holding page the old project still builds says it has closed. The
    * domain stays the owner's. Grand Lake, from 30 October 2026.
    */
-  retired?: { since: string; reason: string };
+  retired?: {
+    since: string;
+    reason: string;
+    /**
+     * The live guide that took the retired guide's ground, where one did:
+     * Carbon Valley's is Frederick, which kept the Frederick listings'
+     * slugs. Its domain then forwards there, path kept where the page
+     * exists and the home page otherwise, instead of to the hub (the
+     * search audit of 7 November 2026: carbonvalleyguide.com was still
+     * drawing 2,400 impressions a month, sent to a hub page that answered
+     * none of them). Without one the domain forwards to the hub.
+     */
+    successor?: string;
+  };
   /**
    * A live guide taken out of the weekly routine on the owner's word while
    * it is decided whether to keep it: the day it went quiet, the day to
@@ -378,6 +391,16 @@ export interface TownConfig {
    * moving here. The header and footer are the same on every guide.
    */
   home?: true;
+  /**
+   * Quick answers under What's happening (8 November 2026): the families
+   * hub, the rec center's listing and the local changes page, each one tap
+   * from the home page, where the guide has them
+   * (src/components/home/QuickAnswers.astro). `recCenter` names the
+   * listing and its line for a town whose rec center has no schedule file
+   * (Erie's community center); a town with data/<town>/rec-center.json
+   * needs nothing more.
+   */
+  quickAnswers?: { recCenter?: { label: string; place: string } };
   /** The high school the home page's scoreboard and the sports pages lead with: see SchoolConfig. */
   school?: SchoolConfig;
   livingHere?: LivingHereConfig;

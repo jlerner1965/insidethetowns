@@ -43,7 +43,10 @@ const structured = [
   ]),
 ];
 ---
-<Page title="Eat & drink" jsonLd={structured} seoTitle={`Where to eat & drink in ${town.name}, Colorado`} eyebrow={town.name} {description} intro={`${places.length + shops.length} places to eat, drink, browse and linger in ${town.name}. Listings are editorial; nobody pays to be here.`}>
+{/* The town's name in the heading (see /things-to-do/): "Eat & drink" alone
+    ranked on page three or worse for "restaurants in <town>" on every guide
+    but Johnstown (the search audit of 7 November 2026). */}
+<Page title={`Eat & drink in ${town.name}`} jsonLd={structured} seoTitle={`Where to eat & drink in ${town.name}, Colorado`} eyebrow={town.name} {description} intro={`${places.length + shops.length} places to eat, drink, browse and linger in ${town.name}. Listings are editorial; nobody pays to be here.`}>
   <SubTownLinks slot="after-header" class="mt-5" />
   {/* The shops are one more group of the same list, with its own heading,
      count and filter button. As a separate section under a small label they

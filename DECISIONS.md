@@ -9177,3 +9177,81 @@ also could make people think the site is broken." Fix the cause.*
   committing) and in the history. CI's validate job now fetches fifty
   commits so the check sees a pull request's deletions; with no history it
   says so and passes.
+
+## Annual events keep their page, and the category pages name the town, 8 November 2026
+
+*From the network search audit of 7 November 2026 (Search Console, every
+live property, the 28 days to 5 November): the eight pages that earned the
+most clicks in October were annual events, Golden's Trick or Treat Street
+first (208 clicks, position 4.4), and every one of them was `noindex` by
+the audit's date because its day had passed. The URLs carried the year or
+the date, so next year's page would have started from nothing.*
+
+- **`annual: true` on an event** (src/content/schemas.ts): the page is
+  permanent, at a slug with no year or date in it, and is the series' page
+  whatever the date (src/lib/series.ts, `pickCanonical`); it is never
+  "over" for the sitemap (`pastEventSlugs`) or the page's noindex. Over,
+  with nothing filed for next year, the page says the year's edition has
+  passed and the next date is to come, offers no calendar links and no
+  Event markup for a date that has gone; the <title> says "held Oct 30,
+  next date to come". When next year's dated listing is filed (the ingest
+  writes dated files as it always has), it is the repeat and the permanent
+  page shows its date, calendar links and markup. 44 listings on fifteen
+  guides were moved to permanent slugs, each naming its dated slug in
+  `formerSlugs` so the old URL redirects; the sent emails and weekly notes
+  that link the old slugs are covered by that (test/sent-links.test.ts
+  counts a former slug as a redirect from today).
+- **"Things to do in Golden", "Eat & drink in Golden"** as the H1 of the two
+  category pages, not "Things to do" and "Eat & drink": the pages ranked
+  around positions 30 to 60 for "things to do in <town>" and 20 to 40 for
+  "restaurants in <town>" on every guide (Johnstown's eat-drink at 10.6 the
+  exception). The filter's empty-state line is written by the script and
+  empty in the HTML. "Places to stay" is in the Things to do list heading
+  only where the guide lists lodging.
+- **`/places/` goes to `/directory/`** on every guide (astro.config.mjs): the
+  parent of every listing's URL answered 404.
+- **carbonvalleyguide.com and insidefirestone.com go to Inside Frederick**,
+  not the hub (`retired.successor` on the Carbon Valley config, vercel.json,
+  docs/REDIRECTS.md): the domain was still drawing about 2,400 impressions a
+  month in Search Console, every one sent to a hub home page that answered
+  none of them. The eighteen listings that moved to Frederick with their
+  slugs keep their path (the test checks each has a file); section pages
+  and feeds go to the same path; everything else to Frederick's home page.
+  The four retired mountain domains still go to the hub: there is no guide
+  to take them, and a region page on the hub is editorial work not done
+  here.
+- **Not done, deliberately:** the audit asked for a signup form on the
+  eight guides without one (Castle Rock, Elizabeth, Estes Park, Fort
+  Collins, Leadville, Longmont, Loveland, Nederland). Those are quiet or
+  visitor guides, and the rule that a guide with no weekly issue makes no
+  signup promise is the owner's (`quiet`, `visitorGuide` in types.ts;
+  test/subscribe.test.ts refuses a quiet guide's tag). A waitlist ("no
+  weekly Loveland email yet; leave your address for the first one") would
+  keep that promise honest, but it is the owner's call, as is restarting
+  the Loveland and Longmont editions, which the audit put first. Longmont's
+  title ("Longmont · Inside the Towns") is also left as it is: the audit
+  called it inconsistent, and it is, but a local magazine already publishes
+  as Inside Longmont.
+- **Lyons' dog-hikes article** said 2nd Avenue parking was free in its table
+  and charged in its text; the table now agrees with the Town's parking
+  page, the heading no longer counts the dog park twice, and the correction
+  is logged.
+
+## Quick answers under What's happening, 8 November 2026
+
+*The owner sent a mock-up of three links under the athletics bar: kids and
+family plans, rec center hours and swim, Spartans scores and schedules.*
+
+- **Added, below What's happening rather than above it** (the events are
+  what most visitors came for, and three rows above them cost a phone
+  screen), on Berthoud, Niwot and Erie (`quickAnswers` on the config;
+  src/components/home/QuickAnswers.astro). One row on a desktop, stacked
+  rows on a phone, each a full 44px to tap.
+- **The links are derived, not typed:** the families hub where the config
+  has one, the rec center's listing where the town has a schedule file (or,
+  on Erie, the community center the config names), and the local changes
+  page where the guide has any. Fewer than two and the strip is not drawn;
+  nothing can point at a page that does not build (test/flagship-home.test.ts).
+- **Scores and schedules left out:** the athletics bar directly above says
+  it. "What changed in town" took its place, the second-biggest click
+  earner on Berthoud in the search audit of 7 November.

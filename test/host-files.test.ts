@@ -60,7 +60,9 @@ test('a catch-all redirect also matches the trailing-slash URLs every page has',
   for (const r of real.redirects as Array<{ source: string }>) {
     assert.doesNotMatch(r.source, /:[A-Za-z_]\w*\*$/, `${r.source}: use "/(.*)" so a trailing slash still matches`);
   }
-  // Since 2 November 2026 the Carbon Valley guide is closed and Firestone's domain goes to the hub.
+  // Since 8 November 2026 Firestone's domain goes to Inside Frederick, the
+  // nearest live guide (the hub's home page from 2 November, when the Carbon
+  // Valley guide closed).
   const firestone = redirectsFor('insidefirestone.com', real);
-  assert.match(firestone, /^\/\* {2}https:\/\/insidethetowns\.com\/ {2}301$/m);
+  assert.match(firestone, /^\/\* {2}https:\/\/insidefrederickco\.com\/ {2}301$/m);
 });

@@ -279,6 +279,22 @@ export function eventSchema<I extends z.ZodType>(image: () => I) {
       imageCredit: z.string().optional(),
       /** Human note such as "Every Saturday through October". Display only; computed from repeat/until when absent. */
       recurring: z.string().optional(),
+      /**
+       * An event the town holds every year: a parade, a trick-or-treat
+       * afternoon, a turkey trot, a festival. Its page is permanent, at a
+       * slug with no date in it, and stays indexed and in the sitemap once
+       * the date has passed, where a one-off listing goes noindex (the
+       * search audit of 7 November 2026: the eight pages that earned the
+       * most clicks in October were all annual events, and every one of
+       * them was noindexed the day after it happened, so the next year's
+       * page would have started from nothing). While it is over and no
+       * later listing of the same title and venue exists, the page says the
+       * year's edition has passed and the next date is to come, and offers
+       * no calendar links. When next year's listing is filed as a dated
+       * file, it becomes a repeat of this series (src/lib/series.ts) and
+       * this page shows its date.
+       */
+      annual: z.boolean().optional(),
       /** The event happens every week on start's weekday, through `until` (inclusive). */
       repeat: z.enum(['weekly']).optional(),
       until: localDate.optional(),

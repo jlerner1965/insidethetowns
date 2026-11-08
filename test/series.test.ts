@@ -41,6 +41,37 @@ test('a series that is entirely over keeps its most recent page indexed', () => 
   assert.equal(pickCanonical(series, '2026-09-20').get('k'), 'b');
 });
 
+test('an annual event’s permanent page is the series’ page whatever the date, and is never over', () => {
+  // Golden's Trick or Treat Street: the page that earned the most clicks in
+  // October 2026 was noindexed the day after the event (the search audit of
+  // 7 November 2026). The permanent page stays the one to index after its
+  // date, and when next year's dated listing is filed that listing is the
+  // repeat, not the permanent page.
+  const series: Occurrence[] = [
+    { slug: 'trick-or-treat-street', key: 'T|Washington Ave', startDay: '2026-10-30', lastDay: '2026-10-30', annual: true },
+    { slug: 'trick-or-treat-street-2027-10-29', key: 'T|Washington Ave', startDay: '2027-10-29', lastDay: '2027-10-29' },
+  ];
+  assert.equal(pickCanonical(series, '2026-10-01').get('T|Washington Ave'), 'trick-or-treat-street');
+  assert.equal(pickCanonical(series, '2026-11-08').get('T|Washington Ave'), 'trick-or-treat-street');
+  assert.equal(pickCanonical(series, '2027-10-01').get('T|Washington Ave'), 'trick-or-treat-street');
+  assert.equal(pickCanonical([series[0]!], '2027-10-01').get('T|Washington Ave'), 'trick-or-treat-street');
+});
+
+test('an annual page is not a past event for the sitemap, and the real annual pages stay in it', () => {
+  const now = new Date('2026-11-08T18:00:00Z');
+  let seen = 0;
+  for (const town of TOWN_SLUGS) {
+    const past = pastEventSlugs(town, 'content', now);
+    for (const o of readOccurrences(town)) {
+      if (!o.annual) continue;
+      seen++;
+      assert.ok(!past.has(o.slug), `${town}/${o.slug}: an annual page is never over`);
+      assert.ok(!/\d{4}(-\d{2}-\d{2})?$/.test(o.slug), `${town}/${o.slug}: an annual page's slug carries no year or date`);
+    }
+  }
+  assert.ok(seen > 0, 'at least one annual page exists');
+});
+
 test('a one-off event is its own canonical page', () => {
   assert.equal(pickCanonical([o('solo', 'k', '2026-01-04')], '2026-09-20').get('k'), 'solo');
 });

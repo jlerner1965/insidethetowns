@@ -38,6 +38,12 @@ export interface Occurrence {
   lastDay: string;
   /** Called off or postponed: not the occurrence to send a searcher to. */
   canceled?: boolean;
+  /**
+   * The permanent page of an event held every year (`annual: true` in the
+   * front matter): the one to index for its series whatever the date, and
+   * never "over" for the sitemap's purposes.
+   */
+  annual?: boolean;
 }
 
 /**
@@ -49,7 +55,7 @@ export interface Occurrence {
 /** Only the fields the choice actually turns on, so callers that have
  *  parsed entries rather than raw markdown need not synthesise the rest.
  *  Without `lastDay`, a file is taken to be on for its start day alone. */
-type Candidate = Pick<Occurrence, 'slug' | 'key' | 'startDay'> & Partial<Pick<Occurrence, 'canceled' | 'lastDay'>>;
+type Candidate = Pick<Occurrence, 'slug' | 'key' | 'startDay'> & Partial<Pick<Occurrence, 'canceled' | 'lastDay' | 'annual'>>;
 
 export function pickCanonical(occurrences: Iterable<Candidate>, todayKey: string): Map<string, string> {
   const series = new Map<string, Candidate[]>();
@@ -69,6 +75,14 @@ export function pickCanonical(occurrences: Iterable<Candidate>, todayKey: string
     // one file through December 4 and another from December 11, and the
     // one running now was the repeat (fresh audit, 9 October 2026).
     const on = (o: Candidate) => (o.lastDay ?? o.startDay) >= todayKey;
+    // An annual event's permanent page is the series' page whatever the
+    // date: next year's dated listing, once filed, is a repeat of it, and
+    // the permanent page shows that listing's date (events/[slug].astro).
+    const permanent = list.filter((o) => o.annual).sort((a, b) => a.slug.localeCompare(b.slug));
+    if (permanent.length > 0) {
+      canonical.set(key, permanent[0]!.slug);
+      continue;
+    }
     const next = list.find((o) => on(o) && !o.canceled) ?? list.find(on);
     canonical.set(key, (next ?? list[list.length - 1]!).slug);
   }
@@ -170,6 +184,7 @@ export function readOccurrences(town: string, contentRoot = 'content'): Occurren
         performances: performanceStarts(fm[1]),
       }),
       canceled: status === 'canceled' || status === 'postponed',
+      annual: field(fm[1], 'annual') === 'true',
     });
   }
   return all;
@@ -198,9 +213,11 @@ export function repeatOccurrenceSlugs(town: string, contentRoot = 'content', now
  */
 export function pastEventSlugs(town: string, contentRoot = 'content', now = new Date()): Set<string> {
   const today = dayKey(now);
+  // An annual event's permanent page is never over: it stays indexed and in
+  // the sitemap between one year's date and the next (the page says which).
   return new Set(
     readOccurrences(town, contentRoot)
-      .filter((o) => o.lastDay < today)
+      .filter((o) => o.lastDay < today && !o.annual)
       .map((o) => o.slug),
   );
 }

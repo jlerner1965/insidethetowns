@@ -46,7 +46,10 @@ const indexable = (/** @type {string} */ url) => {
 
 // A listing re-filed under a new slug keeps its old URL as a redirect page
 // (src/lib/former-slugs.ts); a static build writes each as a meta-refresh page.
-const redirects = site.kind === 'town' ? formerSlugRedirects(site.slug) : {};
+// A guide's places index is /directory/; /places/ alone, the parent of every
+// listing's URL, answered 404 on every guide (the search audit of 7 November
+// 2026). Sent on, as a former slug is.
+const redirects = site.kind === 'town' ? { ...formerSlugRedirects(site.slug), '/places': '/directory/' } : {};
 
 export default defineConfig({
   site: `https://${site.domain}`,
