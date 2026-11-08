@@ -9,13 +9,14 @@ image: ../images/berthoud-town-park-playground.webp
 imageAlt: "Families enjoying the inclusive playground at Berthoud Town Park"
 imageCredit: "Town of Berthoud"
 featured: true
-summary: "The town's oldest park, redeveloped with a 12,000 sq ft inclusive playground, a stone water-play feature, two pavilions, and the Saturday market and Oktoberfest on its lawn."
+summary: "The town's oldest park, redeveloped with a 12,000 sq ft inclusive playground, a stone water-play feature, two pavilions, and the summer Saturday market and Oktoberfest on its lawn."
 source: "https://www.berthoud.org/1458/Berthoud-Town-Park"
-verified: "2026-10-12"
+verified: "2026-11-08"
+verifiedBy: "Claude Code, delegated by James Lerner: the Town's Berthoud Town Park and Parks pages, and Berthoud Main Street's Mural & Public Art Tour page for the market's day and hours, read 8 November 2026"
 added: "2026-09-17"
 ---
 
-Berthoud's oldest neighborhood park, at 7th and Mountain, rebuilt in the last few years around a 12,000-square-foot fully inclusive playground and a 6,000-square-foot natural-stone interactive water feature that runs in summer. Two rentable pavilions, mature shade trees, and the lawn that hosts the Saturday [Berthoud Market](/events/) and Oktoberfest.
+Berthoud's oldest neighborhood park, on North 7th Street downtown, rebuilt around a 12,000-square-foot fully inclusive playground and a 6,000-square-foot natural-stone water feature with 15 interactive spouts and a button-activated waterfall. The water feature runs in summer and closes for the season at Oktoberfest, on the first Saturday of October. Two rentable covered pavilions (one with a gas fire pit), a quiet Monument Garden, mature shade trees, and the lawn that hosts the [Berthoud Market](/events/) on summer Saturdays, 9 am to 1 pm, and Oktoberfest.
 
 ![Children playing in Berthoud Town Park's natural-stone water feature.](../images/berthoud-town-park-water-play.webp)
 
