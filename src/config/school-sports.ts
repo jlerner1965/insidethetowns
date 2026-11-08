@@ -562,8 +562,15 @@ export interface SportGame {
    * so none is written; what the page cannot read is left unset.
    */
   stage?: string;
-  /** The game's page on MaxPreps. */
+  /** The game's page on MaxPreps, or CHSAA's bracket for a game MaxPreps does not carry yet (`chsaa`). */
   url: string;
+  /**
+   * A postseason game whose site, time or stage, or the whole game, comes
+   * from CHSAA's bracket (src/config/postseason.ts), merged in when the
+   * pages read the file, never written to it: the bracket and the day it
+   * was read.
+   */
+  chsaa?: { url: string; read: string };
 }
 
 export interface SportData {

@@ -6,16 +6,19 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { schoolsFor, sportsDataFile, type SchoolSports, type SportsData } from '../../src/config/school-sports.ts';
-import { weekAhead, type WeekAhead } from '../../src/lib/school-sports.ts';
+import { weekAhead, withPostseason, type WeekAhead } from '../../src/lib/school-sports.ts';
 
-export function readSportsData(school: Pick<SchoolSports, 'town' | 'slug'>, root = process.cwd()): SportsData | undefined {
+export function readSportsData(school: Pick<SchoolSports, 'town' | 'slug'>, root = process.cwd(), now = new Date()): SportsData | undefined {
   const file = resolve(root, sportsDataFile(school));
   if (!existsSync(file)) return undefined;
+  let data: SportsData;
   try {
-    return JSON.parse(readFileSync(file, 'utf8')) as SportsData;
+    data = JSON.parse(readFileSync(file, 'utf8')) as SportsData;
   } catch {
     return undefined;
   }
+  // CHSAA's postseason games, as the pages merge them (src/config/postseason.ts).
+  return withPostseason(school, data, now);
 }
 
 export interface SchoolWeek {
@@ -30,7 +33,7 @@ export interface SchoolWeek {
  */
 export function townSportsWeek(town: string, now = new Date(), root = process.cwd(), days = 7): SchoolWeek[] {
   return schoolsFor(town).flatMap((school) => {
-    const data = readSportsData(school, root);
+    const data = readSportsData(school, root, now);
     return data ? [{ school, week: weekAhead(data, now, Infinity, days) }] : [];
   });
 }
