@@ -1,24 +1,21 @@
 ---
-title: "Writers Group and the knit and crochet drop-in"
+title: "Writers Group, Make & Mingle and the library book club"
 kind: club
 topic: arts
 audience: [adults, seniors]
 organizer: "Berthoud Community Library"
 organizerUrl: "https://www.berthoudcommunitylibrary.org/"
 url: "https://www.berthoudcommunitylibrary.org/events-classes"
-summary: "Two free, no-registration groups at the library: free-writing and critique for adult writers on Monday mornings, and a knit and crochet drop-in on a Friday afternoon."
+summary: "Groups for adults at the library: a Monday-morning Writers Group for all genres with no registration, a Make & Mingle afternoon for people working on creative projects, and a fall and winter book club."
 ages: "Adults"
 location: "Berthoud Community Library, 236 Welch Ave"
-schedule: "Writers Group Mondays 10:30–11:45 am; Knit & Crochet Drop-In Friday, October 23, 1–3 pm"
-price: "Free"
-equipment: "Pages to read, if you want them read; your own needles and yarn"
-registration: { required: false }
-beginners: true
-newcomers: true
+schedule: "Writers Group Mondays 10:30–11:45 am; Make & Mingle a Sunday afternoon, 1–4 pm, next November 15; book club December 9 and January 27"
+registration: { required: false, how: "No registration for the Writers Group; Make & Mingle needs it, by phone at 970-532-2757 or at the library" }
 nextEvent: writers-group-library
 contact: "970-532-2757"
 source: "https://www.berthoudcommunitylibrary.org/events-classes"
-verified: "2026-10-21"
+verified: "2026-11-08"
+verifiedBy: "Claude Code, delegated by James Lerner: the library's Events & Classes and Book Club pages and its October and November 2026 newsletters, read November 8, 2026"
 ---
 
-The [Writers Group](/events/writers-group-library/) meets Monday mornings through mid-December: free-writing and critique, bring pages if you want them read. The Knit & Crochet drop-in was on the October calendar for Friday the 23rd. The library's monthly **book club** meets in two sittings, 2:30 and 6:30 pm, with the next on October 28 reading *Kin*; the library's page gives the title.
+The [Writers Group](/events/writers-group-library/) meets Monday mornings, 10:30 to 11:45, to free-write, critique and hone the craft; all genres are welcome and no registration is needed. **Make & Mingle**, part accountability group and part studio space for anyone working on a creative project, was on the October calendar and is on November's for Sunday the 15th, 1 to 4 pm; spots are limited and registration is required. The library's fall and winter **book club** reads [*The Personal Librarian* for December 9](/events/library-book-club-the-personal-librarian-2026-12-09/) and *Lonesome Dove* for January 27; October's met in two sittings, at 2:30 and 6:30 pm.
