@@ -9255,6 +9255,11 @@ family plans, rec center hours and swim, Spartans scores and schedules.*
 - **Scores and schedules left out:** the athletics bar directly above says
   it. "What changed in town" took its place, the second-biggest click
   earner on Berthoud in the search audit of 7 November.
+- **Restyled the same day, after the owner saw it live:** as a full-width
+  paper band with the three links in one row on a desktop it read as a
+  stray stripe between two white sections. It is now a stacked list on the
+  white page, in the guide's colour, the width of What's happening and
+  close under All events, as the owner's mock-up had it.
 
 ## Design polish run on Inside Berthoud, 8 November 2026
 
