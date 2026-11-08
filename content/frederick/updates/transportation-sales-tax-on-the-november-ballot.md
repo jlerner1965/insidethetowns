@@ -8,7 +8,7 @@ action: "Nothing to do: neither the tax nor the bonds goes ahead. The count is u
 effective: "2026-11-03"
 effectiveNote: "Decided November 3, 2026; the count is unofficial until Weld County certifies it"
 published: "2026-11-04"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "Claude Code, delegated by James Lerner: Weld County's unofficial results, summary report of November 5, 2026, 12:51 pm, read that evening; the Town's Elections page, read the morning of November 4, 2026"
 source: "https://apps.weld.gov/clerkrecorder/elections/results/"
 sourceLabel: "Weld County: 2026 General Election unofficial results, summary report of November 5, 2026, 12:51 pm"

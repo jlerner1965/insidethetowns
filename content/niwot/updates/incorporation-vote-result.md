@@ -8,7 +8,7 @@ action: "Nothing to do. The county posts updated unofficial counts on November 6
 effective: "2026-11-03"
 effectiveNote: "Election Day; the count is unofficial until the canvass board certifies it on November 24"
 published: "2026-11-04"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "Claude Code, delegated by James Lerner: Boulder County's unofficial results, last updated November 5, 2026, 5:06 pm, read that evening; the Election Commission's FAQ, read November 4, 2026"
 source: "https://electionresults.bouldercounty.gov/"
 sourceLabel: "Boulder County Elections: unofficial results, last updated November 5, 2026 at 5:06 pm"

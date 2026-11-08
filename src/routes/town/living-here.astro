@@ -33,7 +33,11 @@ const structured = [
 ];
 ---
 <Page title={`Living in ${town.name}`} seoTitle={`Living in ${town.name}, CO: utilities, schools, who to call`} eyebrow="Living here" {description} intro={living.intro} jsonLd={structured} kind="Guide">
-  <CheckedLine slot="after-header" perItem dates={living.sections.map((s) => s.verified)} />
+  {/* Every dated thing on the page, the changes at the foot included: the
+      line said "every item here was read" on the sections' day while the
+      changes below carried later reads (Berthoud, Erie, Niwot; network
+      audit, 8 November 2026). */}
+  <CheckedLine slot="after-header" perItem dates={[...living.sections.map((s) => s.verified), ...updates.map((u) => u.data.verified)]} />
   <nav slot="after-header" aria-label="On this page" class="mt-6 flex flex-wrap gap-x-5 gap-y-1 text-[0.9375rem]">
     {living.sections.map((s) => <a href={`#${slug(s.title)}`} class="inline-block -my-1 py-1 font-semibold text-primary underline">{s.title}</a>)}
     {updates.length > 0 && <a href="#changes" class="inline-block -my-1 py-1 font-semibold text-primary underline">What changed</a>}
