@@ -98,7 +98,7 @@ const emailErrorId = `newsletter-email-error-${fieldKey}-${town?.slug ?? 'networ
 // of, and a reference to this one would write its value into the build.
 const inline = inlineSignup(process.env);
 const field = [
-  'block h-12 w-full rounded-md border border-line bg-raised px-3 text-[1.0625rem] font-normal text-ink',
+  'block h-12 w-full rounded-md border border-field-line bg-raised px-3 text-[1.0625rem] font-normal text-ink',
   !home && 'mt-1.5',
 ];
 const muted = dark ? 'text-white/80' : 'text-ink-muted';

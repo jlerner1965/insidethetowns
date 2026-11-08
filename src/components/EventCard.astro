@@ -100,9 +100,14 @@ const note =
 {/* Under a day heading on a phone the row is one column, the time a line
     above the title: beside a time column the titles had about 215px and ran
     to three lines. The date block (showDate) is narrow enough to keep. */}
+{/* The rule above a card goes only where a shown card sits before it: a
+    day's box starts with its weekly regulars, held hidden, so `first:`
+    left a stray rule over the first listing a reader sees (Berthoud
+    polish, 8 November 2026). The filter script hides and shows cards with
+    the same attribute, so the rule follows it. */}
 <article
   class:list={[
-    'group relative grid gap-x-4 border-t border-line-soft py-5 first:border-t-0 md:grid-cols-[4.5rem_1fr_auto] md:gap-x-7 md:py-6',
+    'group relative grid gap-x-4 border-line-soft py-5 [:not([hidden])~&]:border-t md:grid-cols-[4.5rem_1fr_auto] md:gap-x-7 md:py-6',
     showDate ? 'grid-cols-[4.25rem_1fr]' : 'grid-cols-1 sm:grid-cols-[4.25rem_1fr]',
   ]}
   data-filter-item

@@ -11,6 +11,8 @@ import type { TownEntry } from '@/lib/content';
 import { dayKey, monthDay, toIsoLocal } from '@/lib/dates';
 import { daysLeft, isFree, type Deadline } from '@/lib/programs';
 import { shorten } from '@/lib/text';
+import { firstSentence, markdownToText } from '@/lib/plain-text';
+import { formatShortDate } from '@/lib/dates';
 
 interface Props {
   deadline: Deadline<TownEntry<'programs'>>;
@@ -52,7 +54,11 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
       </p>
     </div>
   </div>
-  <p class="mt-3 text-[0.9375rem] leading-relaxed">{reg?.note && reg.note.length <= 140 ? reg.note : shorten(data.summary, 180)}</p>
+  {/* The deadline's own listing says what is due, where there is one: the
+      program's summary is about the whole program, and Berthoud's card for
+      the holiday card contest opened on the museum's admission prices
+      (Berthoud polish, 8 November 2026). */}
+  <p class="mt-3 text-[0.9375rem] leading-relaxed">{reg?.note && reg.note.length <= 140 ? reg.note : listing ? shorten(firstSentence(markdownToText(listing.body ?? '')) || data.summary, 180) : shorten(data.summary, 180)}</p>
   <div class="mt-4 flex flex-wrap gap-2">
     {reg?.url && <a href={reg.url} rel="noopener" data-track={track} class="btn btn-primary">{how}</a>}
     {listing?.data.url && <a href={listing.data.url} rel="noopener" class="btn btn-outline text-primary">Details on {host(listing.data.url)}</a>}
@@ -60,7 +66,9 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
   </div>
   {data.source && (
     <p class="mt-4 text-[0.875rem] text-ink-muted">
-      <a href={data.source} rel="noopener" class="underline">{host(data.source)}</a>
+      {/* Said as the check it is: a bare domain under a button to the same
+          site read as a second, unexplained link. */}
+      {data.verified ? <Fragment>Checked {formatShortDate(data.verified)} against </Fragment> : 'Source: '}<a href={data.source} rel="noopener" class="underline">{host(data.source)}</a>
     </p>
   )}
 </article>

@@ -29,7 +29,7 @@ import { PRIVACY_LINE } from '@/lib/privacy';
 const town = getTown();
 const action = town.formspreeId ? `https://formspree.io/f/${town.formspreeId}` : undefined;
 const mailto = eventEmailHref(town.social.email, `Event submission — ${town.siteTitle}`);
-const field = 'mt-1.5 block w-full rounded-md border border-line bg-raised px-3 py-2.5 text-[1.0625rem] font-normal';
+const field = 'mt-1.5 block w-full rounded-md border border-field-line bg-raised px-3 py-2.5 text-[1.0625rem] font-normal';
 const label = 'block text-sm font-semibold';
 // The legend floats inside the card's padding: on a ring (not a border) it
 // had no notch to sit in and straddled the card's top edge, indented past the

@@ -67,15 +67,15 @@ const formAction = site.formspreeId ? `https://formspree.io/f/${site.formspreeId
         <h2 class="mt-0">Or send a message</h2>
         <label class="block text-sm font-medium">
           Your email
-          <input type="email" name="email" required class="mt-1.5 block w-full rounded-md border border-line bg-paper px-3 py-2.5 font-normal" />
+          <input type="email" name="email" required class="mt-1.5 block w-full rounded-md border border-field-line bg-paper px-3 py-2.5 font-normal" />
         </label>
         <label class="block text-sm font-medium">
           Subject
-          <input type="text" name="_subject" value={`Message — ${site.siteTitle}`} class="mt-1.5 block w-full rounded-md border border-line bg-paper px-3 py-2.5 font-normal" />
+          <input type="text" name="_subject" value={`Message — ${site.siteTitle}`} class="mt-1.5 block w-full rounded-md border border-field-line bg-paper px-3 py-2.5 font-normal" />
         </label>
         <label class="block text-sm font-medium">
           Message
-          <textarea name="message" rows="6" required class="mt-1.5 block w-full rounded-md border border-line bg-paper px-3 py-2.5 font-normal"></textarea>
+          <textarea name="message" rows="6" required class="mt-1.5 block w-full rounded-md border border-field-line bg-paper px-3 py-2.5 font-normal"></textarea>
         </label>
         <button type="submit" class="btn btn-primary">Send</button>
       </form>

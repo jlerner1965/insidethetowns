@@ -15,7 +15,7 @@
  */
 import RecCenterWeek from './RecCenterWeek.astro';
 import { exceptionLabel, upcomingExceptions, type RecCenterData } from '@/lib/rec-center';
-import { formatDate, parseLocal } from '@/lib/dates';
+import { formatDate, formatMonthDay, parseLocal } from '@/lib/dates';
 
 interface Props {
   data: RecCenterData;
@@ -43,7 +43,9 @@ const season = `${formatDate(parseLocal(data.season.from))} to ${formatDate(pars
       <ul class="mt-2 divide-y divide-line-soft text-[0.9375rem] leading-snug">
         {coming.map((e) => (
           <li class="grid grid-cols-[7.5rem_minmax(0,1fr)] gap-x-3 py-2" data-event-day={e.date}>
-            <span class="font-semibold tabular-nums">{formatDate(parseLocal(e.date))}</span>
+            {/* Month and day: the season above gives the year, and with it
+                every date wrapped to two lines (Berthoud polish, 8 November 2026). */}
+            <span class="font-semibold tabular-nums">{formatMonthDay(parseLocal(e.date))}</span>
             <span>{exceptionLabel(e)} <span class="text-ink-muted">· {e.note}</span></span>
           </li>
         ))}
