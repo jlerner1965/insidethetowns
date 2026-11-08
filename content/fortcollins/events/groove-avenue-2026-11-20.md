@@ -9,7 +9,7 @@ category: "music"
 performers:
   - { name: "Groove Avenue", kind: group }
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): 20 November and 8 pm on the page"
 ---
 

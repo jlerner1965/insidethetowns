@@ -11,6 +11,8 @@ organizerUrl: "https://www.goldenhistory.org/"
 source: "https://www.goldenhistory.org/learn-do/events/"
 verified: "2026-11-01"
 verifiedBy: "Claude Code for James Lerner, against Golden History Museum & Park's events calendar, 1 November 2026: Saturday, November 21, 2026, 9 am to noon at Golden History Park; no price stated"
+changeFlag: true
+changeNote: "recheck 2026-11-08: not on the Golden History Museum & Park feed on 21 November; it has \"Blacksmithing in the Park, November\" on 28 November, 19 December"
 ---
 
 A volunteer blacksmith works the coal-fired forge in Golden History Park's recreated blacksmith shop on the third Saturday of the month, Saturday, November 21 from 9 am to noon, for anyone who wants to watch and ask questions. The museum's calendar gives no price.

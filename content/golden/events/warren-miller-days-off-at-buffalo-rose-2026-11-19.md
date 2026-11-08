@@ -8,7 +8,7 @@ url: "https://buffalorosegolden.com/events/warren-miller/"
 category: arts
 source: "https://buffalorosegolden.com/events/warren-miller/"
 sourceId: "buffalorose-net"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"WARREN MILLER’s &quot;DAYS OFF&quot;\" at 7:30 pm on 19 November in the page's structured data"
 ---
 

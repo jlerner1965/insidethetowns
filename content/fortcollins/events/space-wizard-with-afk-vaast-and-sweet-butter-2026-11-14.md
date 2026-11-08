@@ -11,7 +11,7 @@ performers:
   - { name: "Vaast", kind: person }
   - { name: "Sweet Butter", kind: person }
 source: "https://www.z2ent.com/events/detail/space-wizard-2026-agg"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 8 pm on the page"
 ---
 

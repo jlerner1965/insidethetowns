@@ -10,7 +10,7 @@ source: "https://music.colostate.edu/events/jazz-ensembles-i-ii-concert-paul-mck
 sourceId: "music-colostate-edu"
 sourceUid: "17-19482@music.colostate.edu"
 sourceHash: "0bada32fc198"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Jazz Ensembles I & II Concert: Paul McKee Memorial Concert\" at 7:30 pm on 19 November on the music.colostate.edu feed"
 ---
 

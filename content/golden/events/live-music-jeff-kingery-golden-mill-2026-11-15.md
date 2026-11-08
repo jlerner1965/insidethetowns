@@ -9,7 +9,7 @@ category: music
 performers:
   - { name: "Jeff Kingery", kind: person }
 source: "https://www.thegoldenmill.com/events/live-music-with-jeff-kingery-2"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Live Music with Jeff Kingery\" at 3 pm on 15 November in the page's structured data"
 ---
 

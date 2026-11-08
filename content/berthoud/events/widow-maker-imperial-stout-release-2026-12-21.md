@@ -7,7 +7,7 @@ address: "321 Mountain Ave, Berthoud, CO 80513"
 url: "https://citystarbrewing.com/event/widow-maker-imperial-stout/"
 category: food
 source: "https://citystarbrewing.com/event/widow-maker-imperial-stout/"
-verified: "2026-10-17"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Beer Release: Widow Maker Imperial Stout\" at 3 pm on 21 December in the page's structured data"
 ---
 

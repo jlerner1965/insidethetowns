@@ -9,7 +9,7 @@ performers:
 url: "https://www.niwotwheelhouse.com/events/red-sax-jazz-trio-7kann-s32mt"
 category: music
 source: "https://www.niwotwheelhouse.com/events/red-sax-jazz-trio-7kann-s32mt"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Red Sax Jazz Band — The Wheel House\" at 7 pm on 20 November in the page's structured data"
 ---
 

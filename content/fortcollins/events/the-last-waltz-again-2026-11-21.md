@@ -11,8 +11,8 @@ source: "https://bohemianlivemusic.org/event/the-last-waltz-again/"
 sourceId: "bohemianlivemusic-org"
 sourceUid: "54634"
 sourceHash: "a78f245dd951"
-verified: "2026-11-01"
-verifiedBy: "auto-review from the bohemianlivemusic.org feed read 2026-11-01, the weekly ingest workflow"
+verified: "2026-11-08"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"The Last Waltz Again\" at 7 pm on 21 November in the page's structured data"
 ---
 
 The Last Waltz Again at Washington&#8217;s, Saturday, November 21, 7 pm – 7 pm. Listed by bohemianlivemusic.org; the organizer's page has the details and any registration.

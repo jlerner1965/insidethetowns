@@ -8,7 +8,7 @@ url: "https://buffalorosegolden.com/events/2025-fly-fishing-film-tour/"
 category: arts
 source: "https://buffalorosegolden.com/events/2025-fly-fishing-film-tour/"
 sourceId: "buffalorose-net"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): 10 November and 7 pm on the page"
 ---
 

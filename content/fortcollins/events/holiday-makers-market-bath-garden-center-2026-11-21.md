@@ -7,7 +7,7 @@ address: "2000 E Prospect Rd, Fort Collins, CO 80525"
 url: "https://www.bathgardencenter.com/event-details/holiday-makers-market-2026"
 category: market
 source: "https://www.bathgardencenter.com/event-details/holiday-makers-market-2026"
-verified: "2026-10-23"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Holiday Makers Market 2026\" at 9 am on 21 November in the page's structured data"
 ---
 
