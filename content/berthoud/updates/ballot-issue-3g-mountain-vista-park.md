@@ -7,7 +7,7 @@ affects: "Registered voters in the Town of Berthoud; anyone who uses the Town's 
 effective: "2026-11-03"
 effectiveNote: "Election Day; the count is unofficial until the county clerks certify it"
 published: "2026-11-03"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "Claude Code, delegated by James Lerner: Larimer County's fifth posting of unofficial results, November 5, 2026, 2:09 pm, and Weld County's summary report of November 5, 2026, 12:51 pm, both read that evening"
 source: "https://results.enr.clarityelections.com/CO/Larimer/127443/"
 sourceLabel: "Larimer County election results, November 3, 2026 (unofficial), fifth posting, November 5, 2:09 pm"

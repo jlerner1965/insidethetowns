@@ -9,7 +9,7 @@ summary: "Retro arcade at the east end of Mountain Avenue: pinball, classic cabi
 source: "https://berthoudmainstreet.org/dine-drink-berthoud/"
 verified: "2026-09-18"
 changeFlag: true
-changeNote: "26 October 2026: Berthoud Main Street's Dine & Drink page, this listing's only source, no longer lists B-Rad's Arcade; no site of the business's own is on file. Not evidence it has closed: call or walk past before the listing's check runs out, then re-source it or mark it closed. 8 November 2026: still not on any Main Street page (Dine & Drink, Shop & Antiques, Services, Organizations, Things To Do), and berthoudarcadeandaxe.com, the site directories give for the arcade, now serves an unrelated online casino; nothing primary confirms it is open or closed."
+changeNote: "26 October 2026: Berthoud Main Street's Dine & Drink page, this listing's only source, no longer lists B-Rad's Arcade; no site of the business's own is on file. 8 November 2026: the domain directory listings give for it, berthoudarcadeandaxe.com, now serves an Australian online-casino page, so it is not linked; the phone (970-581-9468) and weekly hours are on aggregator listings only. Not evidence it has closed: call or walk past before the listing's check runs out, then re-source it or mark it closed. Also on 8 November 2026: not on any Main Street page (Dine & Drink, Shop & Antiques, Services, Organizations, Things To Do), and nothing primary confirms it is open or closed."
 added: "2026-09-17"
 ---
 

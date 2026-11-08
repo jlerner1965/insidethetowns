@@ -3,7 +3,7 @@
  * game, the games to come, and the words for a game. Shared by /sports/
  * and the home page so both lead with the same game.
  */
-import { schoolTeamName, sportsDataFile, type SchoolSports, type SportConfig, type SportData, type SportGame, type SportsData } from '../config/school-sports.ts';
+import { LEAGUE_SPELLINGS, schoolsFor, schoolTeamName, sportsDataFile, type HostedRound, type SchoolSports, type SportConfig, type SportData, type SportGame, type SportsData } from '../config/school-sports.ts';
 import { primaryHover } from '../config/palette.ts';
 import { dayKey, formatDayLong, formatTime, fromWallClock, TIME_ZONE } from './dates.ts';
 import { addFirstFitting } from './plain-text.ts';
@@ -264,7 +264,57 @@ export function resultText({ team, game }: TeamGame): string {
  */
 export function sportsDataFor(school: Pick<SchoolSports, 'town' | 'slug'>, files: Record<string, SportsData>): SportsData | undefined {
   const file = `/${sportsDataFile(school)}`;
-  return files[Object.keys(files).find((k) => k.endsWith(file)) ?? ''];
+  const data = files[Object.keys(files).find((k) => k.endsWith(file)) ?? ''];
+  const cfg = schoolsFor(school.town).find((s) => s.slug === school.slug);
+  return data && cfg ? correctedData(data, cfg) : data;
+}
+
+/** The stages a game carries when MaxPreps names no tournament, only the kind of game: a state stage replaces them. */
+const GENERIC_STAGES = new Set(['Playoffs', 'Tournament']);
+
+/**
+ * One game with what CHSAA's own pages settle and MaxPreps does not: a game
+ * on the sport's state championship days is at the state site, with the
+ * stage MaxPreps gives or the championships' own; a game on a day the school
+ * hosted a round is at home, with that round's stage.
+ */
+export function correctedGame(g: SportGame, sport: Pick<SportConfig, 'state'> | undefined, hosted: HostedRound[]): SportGame {
+  const state = sport?.state;
+  if (state && g.date >= state.from && g.date <= state.to) {
+    return { ...g, site: 'neutral', neutral: true, venue: state.venue, stage: g.stage && !GENERIC_STAGES.has(g.stage) ? g.stage : state.stage };
+  }
+  const host = hosted.find((h) => h.date === g.date);
+  if (host) {
+    const { neutral: _neutral, venue: _venue, ...rest } = g;
+    return { ...rest, site: 'home', stage: host.stage };
+  }
+  return g;
+}
+
+/**
+ * A team's entry with CHSAA's settled facts applied (correctedGame) and its
+ * league under the one spelling the page uses (LEAGUE_SPELLINGS). The run
+ * writes the file this way and the pages read it this way, so an entry
+ * written before a fact was known reads right without waiting for the next
+ * run. Applying it twice changes nothing.
+ */
+export function correctedTeam(team: SportData, school: Pick<SchoolSports, 'teams' | 'hosted'>): SportData {
+  const sport = school.teams.find((t) => t.key === team.key);
+  const hosted = (school.hosted ?? []).filter((h) => h.team === team.key);
+  const fix = (g: SportGame) => correctedGame(g, sport, hosted);
+  const spelled = team.league && LEAGUE_SPELLINGS[team.league.name];
+  return {
+    ...team,
+    ...(team.league && spelled ? { league: { ...team.league, name: spelled } } : {}),
+    results: team.results.map(fix),
+    upcoming: team.upcoming.map(fix),
+    held: team.held.map((h) => ({ ...h, game: fix(h.game) })),
+  };
+}
+
+/** Every team in a school's file, corrected (correctedTeam). */
+export function correctedData(data: SportsData, school: Pick<SchoolSports, 'teams' | 'hosted'>): SportsData {
+  return { ...data, sports: data.sports.map((t) => correctedTeam(t, school)) };
 }
 
 /** Every result across the teams, newest first: the scoreboard. */
@@ -331,6 +381,20 @@ export function seasonOf(data: SportsData, teams: Array<Pick<SportConfig, 'key' 
   const year = season === 'Winter' && m < 8 ? y - 1 : y;
   const years = season === 'Winter' ? `${year}–${String(year + 1).slice(-2)}` : String(year);
   return { season, year, years, label: `${season} ${years}` };
+}
+
+/**
+ * The school page's eyebrow: the season of the next game (seasonOf), or the
+ * school year, "2026–27", where the page lays out teams of both seasons. A
+ * page headed "Fall 2026" listed basketball games into February (audit of
+ * 8 November 2026); CHSAA files the fall and the winter under one school
+ * year ("2026–27 postseason").
+ */
+export function pageSeasonLabel(data: SportsData, teams: Array<Pick<SportConfig, 'key' | 'season'>>, now = new Date()): string {
+  const s = seasonOf(data, teams, now);
+  const seasons = new Set(teamsWithData(data).map((t) => teams.find((c) => c.key === t.key)?.season ?? 'fall'));
+  if (seasons.size < 2) return s.label;
+  return s.season === 'Winter' ? s.years : `${s.year}–${String(s.year + 1).slice(-2)}`;
 }
 
 /** "Boys soccer" as a title writes it: "Boys Soccer". */

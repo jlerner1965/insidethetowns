@@ -6,16 +6,20 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { schoolsFor, sportsDataFile, type SchoolSports, type SportsData } from '../../src/config/school-sports.ts';
-import { weekAhead, type WeekAhead } from '../../src/lib/school-sports.ts';
+import { correctedData, weekAhead, type WeekAhead } from '../../src/lib/school-sports.ts';
 
 export function readSportsData(school: Pick<SchoolSports, 'town' | 'slug'>, root = process.cwd()): SportsData | undefined {
   const file = resolve(root, sportsDataFile(school));
   if (!existsSync(file)) return undefined;
+  let data: SportsData;
   try {
-    return JSON.parse(readFileSync(file, 'utf8')) as SportsData;
+    data = JSON.parse(readFileSync(file, 'utf8')) as SportsData;
   } catch {
     return undefined;
   }
+  // As the pages read it (sportsDataFor): what CHSAA settles applied.
+  const cfg = schoolsFor(school.town).find((s) => s.slug === school.slug);
+  return cfg ? correctedData(data, cfg) : data;
 }
 
 export interface SchoolWeek {

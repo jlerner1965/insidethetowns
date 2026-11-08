@@ -55,7 +55,7 @@ const stageWord = (g: SportGame) => (g.stage ? ` · ${g.stage}` : '');
             {single.games.map(({ team, game }) => (
               <li class="text-[0.9375rem] leading-snug">
                 <span class="font-semibold">{team.name}</span> {where(game)} {game.opponent}
-                <span class="block text-ink-muted">{when(game, now)}{game.time && ` · ${formatGameTime(game)}`}{stageWord(game)}{placeWord(game)}</span>
+                <span class="block text-ink-muted"><span data-relday={game.date}>{when(game, now, false)}</span>{game.time && ` · ${formatGameTime(game)}`}{stageWord(game)}{placeWord(game)}</span>
               </li>
             ))}
           </ul>
@@ -78,7 +78,7 @@ const stageWord = (g: SportGame) => (g.stage ? ` · ${g.stage}` : '');
               <li class="py-3 text-[0.9375rem] leading-snug">
                 <a href={sportsPath(school)} class="font-semibold text-primary underline">{schoolTeamName(school)}</a>
                 {next ? (
-                  <span class="block text-ink-muted">{next.team.name} {where(next.game)} {next.game.opponent} · {when(next.game, now)}{next.game.time && ` · ${formatGameTime(next.game)}`}{stageWord(next.game)}{placeWord(next.game)}</span>
+                  <span class="block text-ink-muted">{next.team.name} {where(next.game)} {next.game.opponent} · <span data-relday={next.game.date}>{when(next.game, now, false)}</span>{next.game.time && ` · ${formatGameTime(next.game)}`}{stageWord(next.game)}{placeWord(next.game)}</span>
                 ) : last?.game.result ? (
                   <span class="block text-ink-muted">Last out: {last.team.name.toLowerCase()} {RESULT_WORD[last.game.result].toLowerCase()} {outcome(last.game)}</span>
                 ) : (

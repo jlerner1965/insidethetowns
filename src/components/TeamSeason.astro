@@ -16,7 +16,7 @@ import { dedupeResults, gameDay as day, leaguePlace, outcome, RESULT_WORD, seaso
 
 interface Props {
   team: SportData;
-  /** Today's day key, for "Today" and for which games are still to come. */
+  /** Today's day key, for which games are still to come. */
   today: string;
   /** The heading: its level under the page's own, its words, and the team page it links to where there is one. */
   heading: { level: 'h2' | 'h3'; text: string; href?: string };
@@ -89,7 +89,6 @@ const over = seasonOver(s, today);
   {lead.length > 0 && (
     <SeasonTable
       games={lead}
-      {today}
       caption={ahead.length > 0 ? (ahead.length === 1 ? 'Next game' : `Next ${lead.length} games`) : 'Latest results'}
       next={ahead[0]?.url}
       last={ahead.length > 0 ? 'Time' : 'Result'}
@@ -102,7 +101,7 @@ const over = seasonOver(s, today);
         <span class="hidden group-open:inline">Hide the season</span>
       </summary>
       <div class="mt-2">
-        <SeasonTable games={games} {today} caption={`${s.name}, every game this season, oldest first`} hideCaption next={ahead[0]?.url} />
+        <SeasonTable games={games} caption={`${s.name}, every game this season, oldest first`} hideCaption next={ahead[0]?.url} />
       </div>
     </details>
   )}
