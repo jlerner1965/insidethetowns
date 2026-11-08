@@ -20,6 +20,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { towns } from '../src/config/towns/registry.ts';
 import { hubRoutes, placeTypeRoutes } from '../src/integrations/town-routes.ts';
+import { formerSlugs } from '../src/lib/former-slugs.ts';
 
 const root = new URL('..', import.meta.url).pathname;
 
@@ -29,8 +30,17 @@ const rules = (JSON.parse(readFileSync(join(root, 'vercel.json'), 'utf8')) as { 
 const live = towns.filter((t) => t.status === 'live');
 const byDomain = new Map(live.map((t) => [t.domain, t.slug]));
 
-/** A rule for exactly this page, on this host or on every host. */
-function redirected(domain: string, collection: string, slug: string): boolean {
+/** The slugs each live guide's listings declare as former, built as redirect pages (src/lib/former-slugs.ts). */
+const former = new Map(live.map((t) => [t.slug, new Set(formerSlugs(t.slug).map((f) => `${f.kind}/${f.from}`))]));
+
+/**
+ * A rule for exactly this page, on this host or on every host, or a former
+ * slug a live listing declares: an annual event's permanent page names the
+ * dated slug it was filed under (8 November 2026), and the old URL is built
+ * as a redirect to it.
+ */
+function redirected(domain: string, town: string, collection: string, slug: string): boolean {
+  if (former.get(town)?.has(`${collection}/${slug}`)) return true;
   const sources = new Set([`/${collection}/${slug}{/}?`, `/${collection}/${slug}/`, `/${collection}/${slug}`]);
   return rules.some(
     (r) => sources.has(r.source) && (!r.has || r.has.some((h) => h.type === 'host' && h.value.replace(/^www\./, '') === domain)),
@@ -68,14 +78,14 @@ test('the sent emails and the weekly notes link something to check', () => {
 
 test('every event, place and article a sent email or a weekly note links is still there, or redirected', () => {
   const broken = links.filter(
-    (l) => !existsSync(join(root, 'content', l.town, l.collection, `${l.slug}.md`)) && !redirected(l.domain, l.collection, l.slug),
+    (l) => !existsSync(join(root, 'content', l.town, l.collection, `${l.slug}.md`)) && !redirected(l.domain, l.town, l.collection, l.slug),
   );
   const lines = [...new Set(broken.map((l) => `https://${l.domain}/${l.collection}/${l.slug}/  (${l.file})`))];
   assert.equal(
     lines.length,
     0,
     `${lines.length} link(s) to a page that no longer exists. Keep the file (a past event is still served, noindexed) ` +
-      `or add a host-scoped redirect to vercel.json:\n  ${lines.join('\n  ')}`,
+      `or add a host-scoped redirect to vercel.json, or name the old slug in formerSlugs on the listing that took its place:\n  ${lines.join('\n  ')}`,
   );
 });
 

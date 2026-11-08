@@ -1,0 +1,20 @@
+---
+title: "Halloween Costume Parade"
+annual: true
+formerSlugs: [halloween-costume-parade-2026-10-31]
+start: "2026-10-31T09:30"
+end: "2026-10-31T11:30"
+venue: "Roosevelt Park"
+address: "700 Longs Peak Ave., Longmont, CO, 80501"
+url: "https://longmontcolorado.gov/event/halloween-costume-parade/"
+category: festival
+cost: "Free"
+source: "https://longmontcolorado.gov/event/halloween-costume-parade/"
+sourceId: "longmontcolorado-gov-recreation"
+sourceUid: "10009011-1793439000-1793446200@longmontcolorado.gov"
+sourceHash: "954b3822cbf6"
+verified: "2026-10-31"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Halloween Costume Parade\" at 9:30 am on 31 October on the Longmont Recreation Services (City of Longmont calendar) feed"
+---
+
+Longmont's annual costume parade on foot down Main Street, for children and adults, followed by trick-or-treating at participating downtown businesses. Free and no registration; strollers and wagons welcome, dogs on a leash, no motorized vehicles.

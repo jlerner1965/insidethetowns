@@ -250,7 +250,20 @@ export interface TownConfig {
    * holding page the old project still builds says it has closed. The
    * domain stays the owner's. Grand Lake, from 30 October 2026.
    */
-  retired?: { since: string; reason: string };
+  retired?: {
+    since: string;
+    reason: string;
+    /**
+     * The live guide that took the retired guide's ground, where one did:
+     * Carbon Valley's is Frederick, which kept the Frederick listings'
+     * slugs. Its domain then forwards there, path kept where the page
+     * exists and the home page otherwise, instead of to the hub (the
+     * search audit of 7 November 2026: carbonvalleyguide.com was still
+     * drawing 2,400 impressions a month, sent to a hub page that answered
+     * none of them). Without one the domain forwards to the hub.
+     */
+    successor?: string;
+  };
   /**
    * A live guide taken out of the weekly routine on the owner's word while
    * it is decided whether to keep it: the day it went quiet, the day to

@@ -17,7 +17,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { emailTowns, LIVE_TOWNS } from '../src/config/index.ts';
+import { emailTowns, findTown, LIVE_TOWNS } from '../src/config/index.ts';
 import { towns } from '../src/config/towns/registry.ts';
 import { hub } from '../src/config/towns/hub.ts';
 
@@ -78,13 +78,32 @@ test("a retired guide's content has left its folder", () => {
   }
 });
 
-test("every path on a retired guide's domain redirects to the hub's home page", () => {
+test("every path on a retired guide's domain redirects to the hub's home page, or into the guide that took its ground", () => {
   for (const t of retired) {
     const rules = rulesFor(t.domain);
-    const home = `https://${hub.domain}/`;
+    const successor = t.retired!.successor ? findTown(t.retired!.successor) : undefined;
+    if (t.retired!.successor) assert.ok(successor && LIVE_TOWNS.includes(successor.slug), `${t.slug}: the successor ${t.retired!.successor} is a live guide`);
+    const home = successor ? `https://${successor.domain}/` : `https://${hub.domain}/`;
     assert.ok(rules.length > 0, `${t.domain}: no rules`);
-    assert.ok(rules.every((r) => r.permanent === true && r.destination === home), `${t.domain}: permanent, to ${home}`);
-    assert.ok(rules.some((r) => r.source === '/'), `${t.domain}: the home page`);
+    if (successor) {
+      // Path kept where the page exists on the successor, the home page otherwise.
+      assert.ok(rules.every((r) => r.permanent === true && r.destination.startsWith(home)), `${t.domain}: permanent, into ${successor.domain}`);
+      for (const r of rules) {
+        const m = r.destination.match(/^https:\/\/[^/]+\/(events|places|articles)\/([a-z0-9-]+)\/$/);
+        if (m) assert.ok(existsSync(new URL(`../content/${successor.slug}/${m[1]}/${m[2]}.md`, import.meta.url)), `${t.domain}: ${r.source} goes to ${r.destination}, which has no file`);
+      }
+    } else {
+      assert.ok(rules.every((r) => r.permanent === true && r.destination === home), `${t.domain}: permanent, to ${home}`);
+    }
+    assert.equal(rules.find((r) => r.source === '/')?.destination, home, `${t.domain}: the home page`);
     assert.equal(rules.at(-1)?.source, '/(.*)', `${t.domain}: the catch-all last`);
+    assert.equal(rules.at(-1)?.destination, home, `${t.domain}: the catch-all goes home`);
   }
+});
+
+test('Carbon Valley forwards to Frederick, and Firestone with it', () => {
+  const frederick = findTown('frederick')!;
+  assert.equal(findTown('carbon-valley')!.retired!.successor, 'frederick');
+  const firestone = rulesFor('insidefirestone.com');
+  assert.ok(firestone.length > 0 && firestone.every((r) => r.permanent === true && r.destination === `https://${frederick.domain}/`), 'insidefirestone.com goes to Frederick’s home page');
 });

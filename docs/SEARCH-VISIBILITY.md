@@ -121,6 +121,20 @@ listings beyond the fortnight, so the Holiday Parade and the Fourth of July
 have a permanent way in). No dated weekly URL is generated for search; the
 weekly email links these pages with campaign tags instead.
 
+## Annual events: one permanent page each (8 November 2026)
+
+An event the town holds every year (`annual: true`) has one page at a slug
+with no date in it, `/events/trick-or-treat-street/`, which stays indexed
+and in the sitemap after the date passes. Between dates it says the year's
+edition has passed and the next date is to come; once next year's dated
+listing is filed it shows that date. A one-off event still goes noindex
+when it is over. The dated slug an annual listing was first filed under is
+in its `formerSlugs`, so the old URL, which Google may still hold, redirects
+to the permanent page. The Search Console check: in the Pages report the
+permanent URLs should keep their impressions through the winter rather than
+dropping to nothing the week after the event, and next year's query ("golden
+trick or treat street 2027") should land on the same URL.
+
 ## Weekly measurement
 
 One row per flagship per week. Every cell is filled from the named source or

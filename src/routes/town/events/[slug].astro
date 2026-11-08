@@ -30,10 +30,22 @@ export async function getStaticPaths() {
    * The same rule decides the sitemap, from src/lib/series.ts, so the page's
    * noindex and its absence from the sitemap cannot drift apart.
    */
+  const today = dayKey(new Date());
+  const keyOf = (e: (typeof events)[number]) => `${e.data.title}|${e.data.venue}`;
   const canonical = pickCanonical(
-    events.map((e) => ({ slug: e.slug, key: `${e.data.title}|${e.data.venue}`, startDay: dayKey(e.data.start), lastDay: finalDay(e), canceled: isCanceled(e) })),
-    dayKey(new Date()),
+    events.map((e) => ({ slug: e.slug, key: keyOf(e), startDay: dayKey(e.data.start), lastDay: finalDay(e), canceled: isCanceled(e), annual: !!e.data.annual })),
+    today,
   );
+  /**
+   * An annual event's permanent page (`annual: true`) shows the next dated
+   * listing of the same title and venue once one is filed: the soonest
+   * still to come, so the page carries next year's date as soon as the
+   * organizer posts it and the guide lists it.
+   */
+  const nextListingFor = (e: (typeof events)[number]) =>
+    events
+      .filter((o) => o.slug !== e.slug && keyOf(o) === keyOf(e) && !isCanceled(o) && finalDay(o) >= today)
+      .sort((a, b) => dayKey(a.data.start).localeCompare(dayKey(b.data.start)) || a.slug.localeCompare(b.slug))[0];
   // A matinee and an evening show are two listings with one title on one
   // day, and so two pages with one <title> (pre-launch audit, 8 October
   // 2026: four pairs in Fort Collins, one in Loveland). Such a pair gets its
@@ -47,8 +59,9 @@ export async function getStaticPaths() {
     params: { slug: event.slug },
     props: {
       event,
-      canonicalOccurrence: canonical.get(`${event.data.title}|${event.data.venue}`) === event.slug,
+      canonicalOccurrence: canonical.get(keyOf(event)) === event.slug,
       sameDayTwin: (perDay.get(`${event.data.title}|${dayKey(event.data.start)}`) ?? 0) > 1,
+      nextListing: event.data.annual ? nextListingFor(event) : undefined,
     },
   }));
 }
@@ -58,13 +71,27 @@ interface Props {
   canonicalOccurrence: boolean;
   /** Another listing with this title falls on the same day, so the title carries the time. */
   sameDayTwin: boolean;
+  /** On an annual event's permanent page: next year's dated listing, once it is filed and still to come. */
+  nextListing?: TownEntry<'events'>;
 }
 
 const town = getTown();
-const { event, canonicalOccurrence, sameDayTwin } = Astro.props;
+const { event, canonicalOccurrence, sameDayTwin, nextListing } = Astro.props;
 const { data } = event;
 const { Content } = await render(event);
-const next = nextOccurrence(event);
+/**
+ * An annual event's permanent page (`annual` in the schema). Over, with
+ * next year's listing filed, it carries that listing's date, calendar links
+ * and structured data under its own URL; over with nothing filed yet, it
+ * says the year's edition has passed and the next date is to come, offers
+ * no calendar links and no Event markup for a date that has gone, and stays
+ * indexed, which a one-off listing does not.
+ */
+const annual = !!data.annual;
+const over = isOver(event);
+const shown = annual && over && nextListing ? nextListing : event;
+const awaitingDate = annual && over && !nextListing;
+const next = nextOccurrence(shown);
 const when = next.data;
 // Called off or postponed: said in the eyebrow, the title tag and a notice
 // above the body, so the page cannot be skimmed as an invitation.
@@ -76,7 +103,7 @@ const statusLabel = data.status !== 'scheduled' ? EVENT_STATUS_LABELS[data.statu
  * every show once the run is over, so the page still says what it was; the
  * calendar list goes, row by row in a stale build as each show passes.
  */
-const allShows = data.performances ? occurrences([event], { horizonDays: 400 }) : [];
+const allShows = shown.data.performances ? occurrences([shown], { horizonDays: 400 }) : [];
 const showsLeft = upcoming(allShows);
 const shows = showsLeft.length > 0 ? showsLeft : allShows;
 /**
@@ -124,7 +151,9 @@ const dayText = isMultiDay(next)
  * what a searcher needs, then the body's first sentence as plain text, cut
  * to fit beside them (eventPageDescription, src/lib/seo.ts).
  */
-const particulars = `${statusLabel ? `${statusLabel}. ` : ''}${dayText}, ${timeText} at ${data.venue}, ${town.name}.`;
+const particulars = awaitingDate
+  ? `Held ${dayText}, ${timeText} at ${data.venue}, ${town.name}; the next date is to be announced.`
+  : `${statusLabel ? `${statusLabel}. ` : ''}${dayText}, ${timeText} at ${data.venue}, ${town.name}.`;
 const firstSentence = firstSentenceOf(markdownToText(event.body));
 /**
  * Two ways into a reader's own calendar, neither needing a script: the
@@ -144,7 +173,7 @@ const googleUrl = googleFor(next);
 // Called off or postponed: the date is struck through, the calendar links go
 // (nobody should add a meeting that is not happening), and the organizer's
 // page is offered as a check rather than as the next step.
-const offList = isCanceled(event);
+const offList = isCanceled(event) || awaitingDate;
 /**
  * The main button: the organizer's page for the session a reader can still
  * attend. A listing of several sessions often keeps the first session's page
@@ -190,7 +219,10 @@ interface Fact {
   href?: string;
 }
 const facts: Fact[] = [
-  { label: repeatNote ? 'Next' : 'When', value: [dayText, timeText, repeatNote].filter(Boolean) },
+  {
+    label: awaitingDate ? 'Last held' : repeatNote || shown !== event ? 'Next' : 'When',
+    value: [dayText, timeText, awaitingDate ? 'Next date to be announced' : repeatNote].filter(Boolean),
+  },
   { label: 'Where', value: [data.venue, data.address].filter(Boolean) },
   ...(directions ? [{ label: 'Directions', value: ['Open in Google Maps'], href: directions }] : []),
   // Only when the listing records it. "See organizer" below is a pointer to
@@ -202,7 +234,11 @@ const facts: Fact[] = [
 <Page
   kind="Event"
   title={data.title}
-  seoTitle={`${statusLabel ? `${statusLabel}: ` : ''}${data.title} — ${titleDate(when.start)}${sameDayTwin && !when.allDay ? `, ${formatTime(when.start)}` : ''}`}
+  seoTitle={
+    annual
+      ? `${data.title} in ${town.name} — ${awaitingDate ? `held ${titleDate(when.start)}, next date to come` : titleDate(when.start)}`
+      : `${statusLabel ? `${statusLabel}: ` : ''}${data.title} — ${titleDate(when.start)}${sameDayTwin && !when.allDay ? `, ${formatTime(when.start)}` : ''}`
+  }
   eyebrow={shownCategoryLabel(data.category)}
   status={statusLabel}
   description={description}
@@ -213,13 +249,14 @@ const facts: Fact[] = [
      attend. It stays reachable, because a URL that was live should not start
      404ing, but it is kept out of search and out of the sitemap. "Over" is
      every date it has, by the Denver day: the sitemap asks the same. */}
-  noindex={!canonicalOccurrence || isOver(event)}
+  noindex={!canonicalOccurrence || (over && !annual)}
   jsonLd={[
     // A production is an Event per show, as Google asks of separately
-    // ticketed performances; anything else is its next occurrence.
-    ...(shows.length > 0 ? shows : [next]).map((e) =>
+    // ticketed performances; anything else is its next occurrence. An
+    // annual page between dates has no Event to mark up.
+    ...(awaitingDate ? [] : (shows.length > 0 ? shows : [next]).map((e) =>
       eventJsonLd(town, e, url, structuredImage && new URL(structuredImage, Astro.site).toString(), listedOrganizerUrl),
-    ),
+    )),
     breadcrumbJsonLd(town, [
       { name: town.name, path: '/' },
       { name: 'Events', path: '/events/' },
@@ -231,8 +268,17 @@ const facts: Fact[] = [
      October 2026): the day, the time and the venue. Struck through when the
      event is off, with the status pill in the masthead above saying why. */}
   <p slot="after-header" class="page-lede">
-    <span class:list={['font-semibold', offList && 'text-ink-muted line-through decoration-ink-muted']}><time datetime={toIsoLocal(when.start)}>{dayText}</time> · {timeText}</span>
-    <span class="text-ink-muted"> · {data.venue}</span>
+    {awaitingDate ? (
+      <Fragment>
+        <span class="font-semibold">Every year · {data.venue}</span>
+        <span class="text-ink-muted"> · last held <time datetime={toIsoLocal(when.start)}>{dayText}</time>; the next date is to be announced</span>
+      </Fragment>
+    ) : (
+      <Fragment>
+        <span class:list={['font-semibold', offList && 'text-ink-muted line-through decoration-ink-muted']}><time datetime={toIsoLocal(when.start)}>{dayText}</time> · {timeText}</span>
+        <span class="text-ink-muted"> · {data.venue}</span>
+      </Fragment>
+    )}
   </p>
   {/*
     Two columns on a wide screen, one on a phone. The source order is the
@@ -247,8 +293,21 @@ const facts: Fact[] = [
     top, beside the notice and the description, as before.
   */}
   <div class="flex flex-col gap-10 lg:grid lg:grid-cols-[1fr_20rem] lg:items-start lg:gap-x-16 lg:gap-y-0">
+    {awaitingDate && (
+      <div class="max-w-[40rem] rounded-r-lg border-l-4 border-accent bg-raised p-5 ring-1 ring-line-soft lg:col-start-1 lg:row-start-1 lg:mb-10" role="note">
+        <p class="eyebrow text-ink">This year’s edition has passed</p>
+        <p class="mt-2 leading-relaxed">
+          {data.title} was held on {formatDayLong(data.start)}. {town.name} holds it every year; the next date has not been announced, and this page is updated when the organizer posts it.
+          {organizerHref && (
+            <Fragment>
+              {' '}<a href={organizerHref} rel="noopener" class="text-primary underline">Organizer’s page →</a>
+            </Fragment>
+          )}
+        </p>
+      </div>
+    )}
     {statusLabel && (
-      <div class="max-w-[40rem] rounded-r-lg border-l-4 border-highlight bg-highlight-soft p-5 lg:col-start-1 lg:row-start-1 lg:mb-10" role="note">
+      <div class:list={['max-w-[40rem] rounded-r-lg border-l-4 border-highlight bg-highlight-soft p-5 lg:col-start-1 lg:mb-10', awaitingDate ? 'lg:row-start-2' : 'lg:row-start-1']} role="note">
         <p class="eyebrow text-ink">{statusLabel}</p>
         <p class="mt-2 leading-relaxed">
           {data.statusNote}
@@ -260,7 +319,7 @@ const facts: Fact[] = [
         </p>
       </div>
     )}
-    <div class="flex flex-col gap-10 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:block lg:pt-1">
+    <div class="flex flex-col gap-10 lg:col-start-2 lg:row-start-1 lg:row-span-3 lg:block lg:pt-1">
       <aside>
         <dl class="facts border-t border-line-soft pt-4">
           {facts.map((f) => (
@@ -298,7 +357,7 @@ const facts: Fact[] = [
                   <li class="py-3" data-event-day={lastDay(show)} data-end={toIsoLocal(listedUntil(show))}>
                     <time datetime={toIsoLocal(show.data.start)} class="block leading-snug">{label}</time>
                     <div class="mt-2 flex flex-wrap gap-2">
-                      <a href={`/events/${event.slug}/${showKey(show.data.start)}.ics`} class="btn btn-outline min-h-11 text-primary" aria-label={`${label}: add to Apple or Outlook`}>Apple, Outlook</a>
+                      <a href={`/events/${shown.slug}/${showKey(show.data.start)}.ics`} class="btn btn-outline min-h-11 text-primary" aria-label={`${label}: add to Apple or Outlook`}>Apple, Outlook</a>
                       <a href={googleFor(show)} rel="noopener" class="btn btn-outline min-h-11 text-primary" aria-label={`${label}: add to Google Calendar`}>Google</a>
                     </div>
                   </li>
@@ -307,11 +366,11 @@ const facts: Fact[] = [
             </ul>
           </div>
         )}
-        {!offList && !data.performances && (
+        {!offList && !shown.data.performances && (
           <div class="mt-6">
             <p class="eyebrow">Add to calendar</p>
             <div class="mt-2 flex flex-wrap gap-2">
-              <a href={`/events/${event.slug}.ics`} class="btn btn-outline min-h-11 text-primary">Apple, Outlook</a>
+              <a href={`/events/${shown.slug}.ics`} class="btn btn-outline min-h-11 text-primary">Apple, Outlook</a>
               <a href={googleUrl} rel="noopener" class="btn btn-outline min-h-11 text-primary">Google</a>
             </div>
           </div>
@@ -328,7 +387,7 @@ const facts: Fact[] = [
         />
       </div>
     </div>
-    <div class:list={['lg:col-start-1', statusLabel ? 'lg:row-start-2' : 'lg:row-start-1']}>
+    <div class:list={['lg:col-start-1', awaitingDate && statusLabel ? 'lg:row-start-3' : awaitingDate || statusLabel ? 'lg:row-start-2' : 'lg:row-start-1']}>
       {data.image && (
         <figure class="mb-10">
           <Image src={data.image} alt={data.imageAlt ?? ''} width={1200} height={800} class="rounded-lg" />
