@@ -20,7 +20,7 @@ Berthoud is in the [Thompson School District R2-J](https://www.tsd.org/), based 
 
 ## Getting around
 
-US 287 skirts the west side of town since the 2007 bypass, which is why downtown is quiet and why it is fifteen minutes to Loveland or Longmont on the highway. I-25 is ten minutes east on Colorado 56, then about fifty minutes to Denver and an hour to Denver International Airport; Fort Collins is 25 minutes north. For transit, the [FLEX](https://www.ridetransfort.com/) regional bus runs between Fort Collins, Loveland, Berthoud, Longmont and Boulder, and the Town's [Berthoud Area Transportation Service](https://www.berthoud.org/) (BATS) gives door-to-door rides in town and to Loveland and Longmont. Downtown is walkable; the rest of town is a car or a bike.
+US 287 has skirted the west side of town since the 2006 bypass, which is why downtown is quiet and why it is fifteen minutes to Loveland or Longmont on the highway. I-25 is ten minutes east on Colorado 56, then about fifty minutes to Denver and an hour to Denver International Airport; Fort Collins is 25 minutes north. For transit, the [FLEX](https://www.ridetransfort.com/) regional bus runs between Fort Collins, Loveland, Berthoud, Longmont and Boulder, and the Town's [Berthoud Area Transportation Service](https://www.berthoud.org/) (BATS) gives door-to-door rides in town and to Loveland and Longmont. Downtown is walkable; the rest of town is a car or a bike.
 
 ## Utilities, trash, fire, police
 

@@ -9353,3 +9353,31 @@ template, so every guide with a family hub takes them.*
   image is used). Titles: the site's rule is 70 characters
   (`TITLE_LIMIT`), not the 65 the analysis measured against; one event
   title is over it on its own words.
+
+## Four open calls on Inside Berthoud, settled for the fewest contradictions, 8 November 2026
+
+*The owner: "make decision whatever makes less contradictory or confusing".*
+
+- **The winter early bird is "register by November 14".** The winter guide
+  and the memberships page say November 1 to 15 with the increase from
+  November 15; the Activity Guide page's year calendar says "through
+  November". The listings no longer show the conflict: they give the one
+  date that is right on every reading of the guide (youth sports, the
+  winter-guide update, both corrections).
+- **The US 287 bypass opened in summer 2006**, from BizWest's "now open"
+  of 4 August 2006 and its February 2007 follow-up, over a 2018 planning
+  inventory's 2007. The Moving here page now says 2006 too.
+- **Library programs say "Free"**, as the guide's calendar listings for the
+  same sessions already did. The library's pages state no price either
+  way, and list no fee, ticket or payment for any program anywhere
+  (Events & Classes, the November newsletter, the classes and events
+  policy). The verifiedBy lines say so. The Families page's Free section
+  now reads "What costs nothing to take part in, by the organizer's
+  pages".
+- **B-Rad's Arcade is off the guide, not marked closed.** Nothing primary
+  says it is open, Main Street dropped it, and the domain directories give
+  for it serves a casino page. The file is in staging with the history in
+  its review note; `retired.json` sends /places/b-rads-arcade/ to
+  /directory/; the kids' guide no longer sends families there. To bring
+  it back: confirm it is open, re-source it, and take the slug out of the
+  ledger.
