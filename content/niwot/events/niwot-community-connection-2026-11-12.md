@@ -8,7 +8,7 @@ url: "https://niwothall.org/events/niwot-community-connection-downstairs/?occurr
 cost: "Free"
 category: other
 source: "https://niwothall.org/events/niwot-community-connection-downstairs/?occurrence=2026-11-12"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Niwot Community Connection (Downstairs)\" at 9 am on 12 November on the Niwot Hall (Left Hand Grange) feed"
 ---
 

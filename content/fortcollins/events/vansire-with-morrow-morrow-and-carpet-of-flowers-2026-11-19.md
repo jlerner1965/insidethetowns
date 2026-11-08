@@ -10,7 +10,7 @@ performers:
   - { name: "Morrow Morrow", kind: group }
   - { name: "Carpet of Flowers", kind: group }
 source: "https://www.z2ent.com/events/detail/vansire-2026-agg"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): 19 November and 8 pm on the page"
 ---
 

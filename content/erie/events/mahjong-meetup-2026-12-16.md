@@ -9,7 +9,7 @@ cost: "Free; registration required"
 category: other
 recurring: "Monthly, third Wednesdays"
 source: "https://highplains.libcal.com/event/16776754"
-verified: "2026-10-17"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Mahjong Meetup\" at 1 pm on 16 December in the page's structured data"
 ---
 

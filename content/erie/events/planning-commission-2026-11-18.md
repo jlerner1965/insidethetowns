@@ -8,7 +8,7 @@ cost: "Free"
 category: civic
 recurring: "First and third Wednesdays"
 source: "https://www.erieco.gov/338/Planning-Commission"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Planning Commission Meeting\" at 6:30 pm on 18 November on the erieco.gov feed"
 ---
 

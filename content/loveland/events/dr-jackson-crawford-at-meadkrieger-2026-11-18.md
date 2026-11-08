@@ -7,7 +7,7 @@ url: "https://www.meadkrieger.com/"
 cost: "$20"
 category: arts
 source: "https://www.meadkrieger.com/"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): 18 November and 6:30 pm on the page"
 ---
 

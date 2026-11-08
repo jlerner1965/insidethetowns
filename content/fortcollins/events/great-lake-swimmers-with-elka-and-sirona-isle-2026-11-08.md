@@ -10,7 +10,7 @@ performers:
   - { name: "Elka", kind: group }
   - { name: "Sirona Isle", kind: group }
 source: "https://www.z2ent.com/events/detail/great-lake-swimmers-2026-agg"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): 8 November and 8 pm on the page"
 ---
 

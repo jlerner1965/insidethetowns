@@ -11,7 +11,7 @@ cost: "Free; $3 post-run beer"
 category: sports
 recurring: "Thursdays at 6"
 source: "https://citystarbrewing.com/events/"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): 12 November and 6 pm on the page"
 ---
 

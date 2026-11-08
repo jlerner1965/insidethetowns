@@ -11,7 +11,7 @@ source: "https://bohemianlivemusic.org/event/goodnight-texas/"
 sourceId: "bohemianlivemusic-org"
 sourceUid: "53865"
 sourceHash: "9af2d5f4e2b7"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Goodnight, Texas\" at 7 pm on 19 November in the page's structured data"
 ---
 

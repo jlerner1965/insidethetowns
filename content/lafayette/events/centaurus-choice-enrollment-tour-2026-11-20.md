@@ -10,7 +10,7 @@ category: family
 organizer: "Centaurus High School"
 organizerUrl: "https://ceh.bvsd.org/"
 source: "https://ceh.bvsd.org/"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): 20 November and 8:45 am on the page"
 ---
 

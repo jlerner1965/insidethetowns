@@ -14,8 +14,8 @@ imageAlt: "The steel gateway sculpture at the highway edge of Niwot: an oval sig
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
 featured: true
 source: "https://niwot.com/upcoming-events/annual-events-and-festivals/"
-verified: "2026-10-17"
-verifiedBy: "recheck-events (the nightly re-check workflow): 27 November and 6 pm on the page"
+verified: "2026-11-08"
+verifiedBy: "recheck-events (the nightly re-check workflow): \"Enchanted Evening\" at 6 pm on 27 November on the Niwot Business Association (niwot.com) feed"
 ---
 
 Niwot opens the holiday season on the evening after Thanksgiving: the community tree is lit, Santa arrives by horse-drawn sleigh, there are carols and live music, and the shops through Old Town and Cottonwood Square stay open. The Business Association’s dated listing gives 6 to 9 pm; the same page’s general description mentions a 5 pm start, so check it before you go.

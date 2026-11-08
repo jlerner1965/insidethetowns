@@ -10,7 +10,7 @@ category: other
 organizer: "Rebuilding Seminars"
 organizerUrl: "https://rebuildingseminars.com/"
 source: "https://go.rebuildingseminars.com/boulder-workshop"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): 12 November and 6:30 pm on the page"
 ---
 

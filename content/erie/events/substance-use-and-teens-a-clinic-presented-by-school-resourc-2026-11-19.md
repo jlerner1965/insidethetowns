@@ -8,7 +8,7 @@ url: "https://www.erieco.gov/Calendar.aspx?EID=5465"
 cost: "Free; RSVP required"
 category: civic
 source: "https://www.erieco.gov/Calendar.aspx?EID=5465"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Substance Use and Teens: A Clinic Presented by SROs\" at 5:30 pm on 19 November on the erieco.gov feed"
 ---
 
