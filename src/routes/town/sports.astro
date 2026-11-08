@@ -39,7 +39,7 @@ import TeamSeason from '@/components/TeamSeason.astro';
 import { getTown } from '@/config';
 import { schoolAthletics, schoolSportsFor, schoolsFor, shareImagePath, sportsPath, teamPath, type SportData, type SportsData } from '@/config/school-sports';
 import { dayKey, formatDayShort, formatShortDate } from '@/lib/dates';
-import { bigGame, coming, gameDay as day, latestResult, recentResults, RESULT_WORD, leaguePlace, placeText, schoolCssVars, schoolPageTitle, seasonComplete, sportsFullTitle, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
+import { bigGame, coming, gameDay as day, latestResult, recentResults, RESULT_WORD, leaguePlace, pageSeasonLabel, placeText, schoolCssVars, schoolPageTitle, seasonComplete, sportsFullTitle, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -63,8 +63,10 @@ const followed = [...new Set(sports.filter((t) => t.fetched && !t.empty).map((t)
 const teamList = followed.length > 1 ? `${followed.slice(0, -1).join(', ')} and ${followed.at(-1)}` : followed[0] ?? 'every team';
 const now = new Date();
 const today = dayKey(now);
-// "Fall 2026", "Winter 2026": the season of the next game listed, from the data (seasonOf).
-const { season: seasonName, label: seasonLabel } = seasonOf(data, cfg.teams, now);
+// "Fall 2026", "Winter 2026–27": the season of the next game listed, from the data (seasonOf);
+// the eyebrow says the school year, "2026–27", while the page shows teams of both (pageSeasonLabel).
+const { season: seasonName } = seasonOf(data, cfg.teams, now);
+const seasonLabel = pageSeasonLabel(data, cfg.teams, now);
 const seasonWord = seasonName.toLowerCase();
 const description = `${school} ${mascot} scores, schedules and records this ${seasonWord}: ${teamList}, from MaxPreps${calendar ? ', checked against the school calendar' : ''}.`;
 // One guide, one colour: a guide that follows one school wears it; a guide
@@ -197,7 +199,7 @@ const jsonLd = [
   {/* The one thing most readers came for: the next game, big, in the
       school's colour, with the rest of the week beside it; off season, the
       last result (NextUp). */}
-  <NextUp school={cfg.maxprepsName} {mascot} {next} {then} {latest} complete={seasonComplete(data, now)} seasonHref={(t) => `#${t.key}`} {today} />
+  <NextUp school={cfg.maxprepsName} {mascot} {next} {then} {latest} complete={seasonComplete(data, now)} seasonHref={(t) => `#${t.key}`} />
 
   {/* The scoreboard: the latest scores across the teams, each as the two
       lines a scores ticker shows, the winner in the heavier ink. */}

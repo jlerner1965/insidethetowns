@@ -10,7 +10,7 @@ import Page from '@/layouts/Page.astro';
 import { getTown } from '@/config';
 import { schoolsFor, sportsPath, type SportsData } from '@/config/school-sports';
 import { formatDayShort, formatShortDate } from '@/lib/dates';
-import { bigGame, formatGameTime, gameDay, latestResult, outcome, RESULT_WORD, seasonOf, sportsDataFor, where } from '@/lib/school-sports';
+import { bigGame, formatGameTime, gameDay, latestResult, outcome, RESULT_WORD, pageSeasonLabel, seasonOf, sportsDataFor, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -25,7 +25,9 @@ const rows = schools.map((school) => {
   return { school, teams, next: bigGame(data, now), last: latestResult(data), read: fetched.length ? new Date(fetched.sort().at(-1)!) : undefined };
 });
 // The season, from the first school's data (seasonOf): the four share a calendar.
-const { label: seasonLabel, season } = seasonOf(sportsDataFor(schools[0]!, files) ?? { generated: '', sports: [] }, schools[0]!.teams, now);
+const firstData = sportsDataFor(schools[0]!, files) ?? { generated: '', sports: [] };
+const { season } = seasonOf(firstData, schools[0]!.teams, now);
+const seasonLabel = pageSeasonLabel(firstData, schools[0]!.teams, now);
 const seasonWord = season.toLowerCase();
 // The newest run among the schools' files: the page's dateModified and its sitemap lastmod.
 const stamps = schools.map((school) => Date.parse(sportsDataFor(school, files)?.generated ?? '')).filter((t) => !Number.isNaN(t));

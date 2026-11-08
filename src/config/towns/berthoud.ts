@@ -104,7 +104,8 @@ export const berthoud: TownConfig = {
         note: 'Water and sewer are the Town’s. Electricity is Xcel Energy in most of town and Poudre Valley REA on parts of the edges; the provider depends on the address.',
         verified: '2026-11-06',
         items: [
-          { label: 'Town of Berthoud utility billing (water and sewer)', url: 'https://www.berthoud.org/', note: 'Town Hall, 807 Mountain Avenue, 970-532-2643' },
+          // The Town's Utility Billing page, read 8 November 2026; the link was the Town's home page until then (audit of 8 November 2026).
+          { label: 'Town of Berthoud utility billing (water and sewer)', url: 'https://www.berthoud.org/193/Utility-Billing', note: 'Town Hall, 807 Mountain Avenue, 970-532-2643 (option 1); water and sewer emergencies, any hour, 970-556-6184' },
           { label: 'Trash and utility providers, as the Town lists them', url: 'https://www.berthoud.org/1387/Trash-and-Utility-Providers', note: 'Haulers must be licensed by the Town; some HOAs and metro districts limit you to one' },
           { label: 'Poudre Valley REA: service territory', url: 'https://pvrea.coop/the-co-op/about-pvrea/service-territory/', note: 'The co-op’s map; member services 1-800-432-1012' },
           { label: 'Xcel Energy', url: 'https://www.xcelenergy.com/', note: 'Electricity in most of town, and natural gas' },

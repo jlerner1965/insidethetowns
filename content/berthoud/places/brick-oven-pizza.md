@@ -3,12 +3,12 @@ title: "Brick Oven Pizza"
 type: restaurant
 address: "269 Mountain Ave"
 area: "Downtown, Mountain Avenue"
-priceRange: "$$"
-tags: [pizza, italian, takeout]
-summary: "Pizza and pasta from a brick oven at the east end of downtown, with pies by the slice at lunch."
+phone: "(970) 532-4747"
+tags: [pizza]
+summary: "Handmade pizza on Mountain Avenue downtown, with the dough, bread and marinara made in house."
 source: "https://berthoudmainstreet.org/dine-drink-berthoud/"
-verified: "2026-09-18"
+verified: "2026-11-08"
 added: "2026-09-17"
 ---
 
-Pizza and Italian dishes from a brick oven on Mountain Avenue: by the slice at lunch, whole pies and calzones at dinner, takeout for the ball fields.
+Pizza made to order at 269 Mountain Avenue, downtown, with the dough, bread and marinara sauce made in house.
