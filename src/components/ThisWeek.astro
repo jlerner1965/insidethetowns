@@ -251,7 +251,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
                   {team.overall && <span class="ml-2 text-[0.9375rem] font-normal text-ink-muted">{team.overall}</span>}
                 </p>
                 <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">
-                  <time datetime={game.time ? `${game.date}T${game.time}` : game.date}>{gameWhen(game, now)}{game.time && ` · ${formatGameTime(game)}`}</time>
+                  <time datetime={game.time ? `${game.date}T${game.time}` : game.date}><span data-relday={game.date}>{gameWhen(game, now, false)}</span>{game.time && ` · ${formatGameTime(game)}`}</time>
                   {game.stage && ` · ${game.stage}`}
                   {game.venue ? ` · ${game.venue}` : game.site === 'home' ? ' · Home' : game.site === 'away' ? ' · Away' : ''}
                 </p>
@@ -413,7 +413,7 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
                   {team.overall && <span class="ml-2 text-[0.9375rem] font-normal text-ink-muted">{team.overall}</span>}
                 </p>
                 <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">
-                  <time datetime={game.time ? `${game.date}T${game.time}` : game.date}>{gameWhen(game, now)}{game.time && ` · ${formatGameTime(game)}`}</time>
+                  <time datetime={game.time ? `${game.date}T${game.time}` : game.date}><span data-relday={game.date}>{gameWhen(game, now, false)}</span>{game.time && ` · ${formatGameTime(game)}`}</time>
                   {game.stage && ` · ${game.stage}`}
                   {game.venue ? ` · ${game.venue}` : game.site === 'home' ? ' · Home' : game.site === 'away' ? ' · Away' : ''}
                 </p>
