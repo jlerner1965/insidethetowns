@@ -624,6 +624,14 @@ export function weeklyTest<T extends EventLike>(all: readonly T[]): (event: T) =
   const noon = (day: string) => Date.parse(`${day}T12:00:00Z`);
   const weeklyKeys = new Set<string>();
   for (const [key, byDow] of daysByKey) {
+    // A run of shows on three weekdays or more is a production, not a
+    // regular: OpenStage's Dracula, a file per show Friday to Sunday, has
+    // its Sundays a week apart, and stood in Fort Collins's "Every week" as
+    // a Sunday regular with no end, and POTUS as a Saturday one two months
+    // before it opens (network audit, 8 November 2026). Its shows are listed
+    // by date. A regular two weekdays a week (a storytime on Tuesdays and
+    // Thursdays) is still one.
+    if (byDow.size >= 3) continue;
     for (const files of byDow.values()) {
       const sorted = [...new Set(files.values())].sort();
       const weekApart = sorted.filter((d, i) => i > 0 && noon(d) - noon(sorted[i - 1]!) === WEEK).length;
