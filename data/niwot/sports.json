@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-07T18:27:17.173Z",
+  "generated": "2026-11-08T18:39:27.565Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/football/",
-      "fetched": "2026-11-07T18:27:17.173Z",
-      "maxprepsUpdated": "2026-11-07T17:50:15",
+      "fetched": "2026-11-08T18:39:27.565Z",
+      "maxprepsUpdated": "2026-11-08T16:18:18",
       "overall": "3-7",
       "league": {
         "record": "1-5",
@@ -135,8 +135,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/soccer/",
-      "fetched": "2026-11-07T18:27:17.173Z",
-      "maxprepsUpdated": "2026-11-07T15:01:30",
+      "fetched": "2026-11-08T18:39:27.565Z",
+      "maxprepsUpdated": "2026-11-08T17:11:00",
       "overall": "2-7-6",
       "league": {
         "record": "0-5-2",
@@ -320,15 +320,37 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/volleyball/",
-      "fetched": "2026-11-07T18:27:17.173Z",
-      "maxprepsUpdated": "2026-11-07T17:26:05",
-      "overall": "16-7",
+      "fetched": "2026-11-08T18:39:27.565Z",
+      "maxprepsUpdated": "2026-11-08T16:21:55",
+      "overall": "18-7",
       "league": {
         "record": "12-2",
         "name": "5A/4A/3A Granite Peaks",
         "place": "2nd"
       },
       "results": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Fruita Monument",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/fruita-monument-vs-niwot/11-7-2026/?c=f920a539-db22-4be6-a77e-fa0c00c11ad2",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 1
+          }
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Conifer",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/conifer-vs-niwot/11-7-2026/?c=6d123202-0e75-4a36-a151-1e45121d750d",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-31",
           "opponent": "Lutheran",
@@ -601,22 +623,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Fruita Monument",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/fruita-monument-vs-niwot/11-7-2026/?c=f920a539-db22-4be6-a77e-fa0c00c11ad2",
-          "time": "10:00"
-        },
-        {
-          "date": "2026-11-07",
-          "opponent": "Conifer",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/conifer-vs-niwot/11-7-2026/?c=6d123202-0e75-4a36-a151-1e45121d750d",
-          "time": "13:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -626,8 +633,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/softball/fall/",
-      "fetched": "2026-11-07T18:27:17.173Z",
-      "maxprepsUpdated": "2026-11-07T16:33:53",
+      "fetched": "2026-11-08T18:39:27.565Z",
+      "maxprepsUpdated": "2026-11-08T17:08:37",
       "overall": "15-11",
       "league": {
         "record": "9-5",
@@ -959,8 +966,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/cross-country/",
-      "fetched": "2026-11-07T18:27:17.173Z",
-      "maxprepsUpdated": "2026-11-07T18:27:52",
+      "fetched": "2026-11-08T18:39:27.565Z",
+      "maxprepsUpdated": "2026-11-08T18:40:03",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -973,8 +980,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/cross-country/girls/",
-      "fetched": "2026-11-07T18:27:17.173Z",
-      "maxprepsUpdated": "2026-11-07T18:27:57",
+      "fetched": "2026-11-08T18:39:27.565Z",
+      "maxprepsUpdated": "2026-11-08T18:40:07",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -987,8 +994,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/basketball/",
-      "fetched": "2026-11-07T18:27:17.173Z",
-      "maxprepsUpdated": "2026-11-07T18:28:02",
+      "fetched": "2026-11-08T18:39:27.565Z",
+      "maxprepsUpdated": "2026-11-08T16:54:44",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1147,8 +1154,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/basketball/girls/",
-      "fetched": "2026-11-07T18:27:17.173Z",
-      "maxprepsUpdated": "2026-11-07T14:53:17",
+      "fetched": "2026-11-08T18:39:27.565Z",
+      "maxprepsUpdated": "2026-11-08T16:53:13",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1307,8 +1314,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/wrestling/",
-      "fetched": "2026-11-07T18:27:17.173Z",
-      "maxprepsUpdated": "2026-11-07T18:28:21",
+      "fetched": "2026-11-08T18:39:27.565Z",
+      "maxprepsUpdated": "2026-11-08T18:40:31",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1321,8 +1328,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/niwot/niwot-cougars/swimming/girls/",
-      "fetched": "2026-11-07T18:27:17.173Z",
-      "maxprepsUpdated": "2026-11-07T15:39:24",
+      "fetched": "2026-11-08T18:39:27.565Z",
+      "maxprepsUpdated": "2026-11-08T18:40:36",
       "results": [],
       "upcoming": [],
       "held": [],

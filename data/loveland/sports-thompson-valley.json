@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-07T18:34:45.051Z",
+  "generated": "2026-11-08T18:46:57.539Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/football/",
-      "fetched": "2026-11-07T18:34:45.051Z",
-      "maxprepsUpdated": "2026-11-07T17:11:58",
+      "fetched": "2026-11-08T18:46:57.539Z",
+      "maxprepsUpdated": "2026-11-08T16:25:10",
       "overall": "3-7",
       "league": {
         "record": "3-3",
@@ -135,8 +135,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/soccer/",
-      "fetched": "2026-11-07T18:34:45.051Z",
-      "maxprepsUpdated": "2026-11-07T15:20:22",
+      "fetched": "2026-11-08T18:46:57.539Z",
+      "maxprepsUpdated": "2026-11-08T18:47:06",
       "overall": "0-14-1",
       "league": {
         "record": "0-10",
@@ -320,15 +320,37 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/volleyball/",
-      "fetched": "2026-11-07T18:34:45.051Z",
-      "maxprepsUpdated": "2026-11-07T17:29:41",
-      "overall": "12-11",
+      "fetched": "2026-11-08T18:46:57.539Z",
+      "maxprepsUpdated": "2026-11-08T16:21:58",
+      "overall": "13-12",
       "league": {
         "record": "6-4",
         "name": "4A/3A Northern",
         "place": "4th"
       },
       "results": [
+        {
+          "date": "2026-11-07",
+          "opponent": "George Washington",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/george-washington-denver-vs-thompson-valley-loveland/11-7-2026/?c=f0b44258-96e6-40ea-8c21-135d9ba6ac29",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Rampart",
+          "site": "away",
+          "url": "https://www.maxpreps.com/co/volleyball/match/rampart-colorado-springs-vs-thompson-valley-loveland/11-7-2026/?c=ddfe8287-e262-4090-ad9c-18c051b7a5be",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
         {
           "date": "2026-10-31",
           "opponent": "Longmont",
@@ -594,22 +616,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-11-07",
-          "opponent": "George Washington",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/george-washington-denver-vs-thompson-valley-loveland/11-7-2026/?c=f0b44258-96e6-40ea-8c21-135d9ba6ac29",
-          "time": "11:30"
-        },
-        {
-          "date": "2026-11-07",
-          "opponent": "Rampart",
-          "site": "away",
-          "url": "https://www.maxpreps.com/co/volleyball/match/rampart-colorado-springs-vs-thompson-valley-loveland/11-7-2026/?c=ddfe8287-e262-4090-ad9c-18c051b7a5be",
-          "time": "13:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -619,8 +626,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/softball/fall/",
-      "fetched": "2026-11-07T18:34:45.051Z",
-      "maxprepsUpdated": "2026-11-07T16:02:29",
+      "fetched": "2026-11-08T18:46:57.539Z",
+      "maxprepsUpdated": "2026-11-08T17:16:15",
       "overall": "14-12",
       "league": {
         "record": "4-6",
@@ -950,8 +957,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/cross-country/",
-      "fetched": "2026-11-07T18:34:45.051Z",
-      "maxprepsUpdated": "2026-11-07T18:35:21",
+      "fetched": "2026-11-08T18:46:57.539Z",
+      "maxprepsUpdated": "2026-11-08T18:47:33",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -964,8 +971,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/cross-country/girls/",
-      "fetched": "2026-11-07T18:34:45.051Z",
-      "maxprepsUpdated": "2026-11-07T18:35:25",
+      "fetched": "2026-11-08T18:46:57.539Z",
+      "maxprepsUpdated": "2026-11-08T18:47:38",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -978,8 +985,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/basketball/",
-      "fetched": "2026-11-07T18:34:45.051Z",
-      "maxprepsUpdated": "2026-11-07T15:46:11",
+      "fetched": "2026-11-08T18:46:57.539Z",
+      "maxprepsUpdated": "2026-11-08T16:24:20",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1140,8 +1147,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/basketball/girls/",
-      "fetched": "2026-11-07T18:34:45.051Z",
-      "maxprepsUpdated": "2026-11-07T15:52:37",
+      "fetched": "2026-11-08T18:46:57.539Z",
+      "maxprepsUpdated": "2026-11-08T17:34:21",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1319,8 +1326,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/wrestling/",
-      "fetched": "2026-11-07T18:34:45.051Z",
-      "maxprepsUpdated": "2026-11-07T18:35:48",
+      "fetched": "2026-11-08T18:46:57.539Z",
+      "maxprepsUpdated": "2026-11-08T18:48:00",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1333,8 +1340,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/thompson-valley-eagles/swimming/girls/",
-      "fetched": "2026-11-07T18:34:45.051Z",
-      "maxprepsUpdated": "2026-11-07T18:35:53",
+      "fetched": "2026-11-08T18:46:57.539Z",
+      "maxprepsUpdated": "2026-11-08T18:48:05",
       "results": [],
       "upcoming": [],
       "held": [],

@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-07T18:35:57.964Z",
+  "generated": "2026-11-08T18:48:09.678Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/football/",
-      "fetched": "2026-11-07T18:35:57.964Z",
-      "maxprepsUpdated": "2026-11-07T16:59:47",
+      "fetched": "2026-11-08T18:48:09.678Z",
+      "maxprepsUpdated": "2026-11-08T16:17:49",
       "overall": "0-10",
       "league": {
         "record": "0-6",
@@ -133,8 +133,8 @@
       "key": "boys-soccer",
       "name": "Boys soccer",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/soccer/",
-      "fetched": "2026-11-07T18:35:57.964Z",
-      "maxprepsUpdated": "2026-11-07T16:52:27",
+      "fetched": "2026-11-08T18:48:09.678Z",
+      "maxprepsUpdated": "2026-11-08T16:22:15",
       "overall": "6-7-2",
       "league": {
         "record": "2-6-2",
@@ -316,15 +316,43 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/volleyball/",
-      "fetched": "2026-11-07T18:35:57.964Z",
-      "maxprepsUpdated": "2026-11-07T17:23:51",
-      "overall": "14-9",
+      "fetched": "2026-11-08T18:48:09.678Z",
+      "maxprepsUpdated": "2026-11-08T17:21:36",
+      "overall": "15-10",
       "league": {
         "record": "5-5",
         "name": "4A/3A Northern",
         "place": "6th"
       },
       "results": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Thomas Jefferson",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-thomas-jefferson-denver/11-7-2026/?c=1d0dac41-9773-4d8d-a0eb-42e5059f7748",
+          "stage": "Playoffs",
+          "neutral": true,
+          "venue": "Regional Tournament",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Palisade",
+          "site": "neutral",
+          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-palisade/11-7-2026/?c=183a72c1-2f50-4de0-9b7e-bcab0827cc1c",
+          "stage": "Playoffs",
+          "neutral": true,
+          "venue": "Regional Tournament",
+          "result": "L",
+          "score": {
+            "us": 0,
+            "them": 3
+          }
+        },
         {
           "date": "2026-10-29",
           "opponent": "Silver Creek",
@@ -599,40 +627,16 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Thomas Jefferson",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-thomas-jefferson-denver/11-7-2026/?c=1d0dac41-9773-4d8d-a0eb-42e5059f7748",
-          "stage": "Playoffs",
-          "neutral": true,
-          "venue": "Regional Tournament",
-          "time": "12:00"
-        },
-        {
-          "date": "2026-11-07",
-          "opponent": "Palisade",
-          "site": "neutral",
-          "url": "https://www.maxpreps.com/co/volleyball/match/mountain-view-loveland-vs-palisade/11-7-2026/?c=183a72c1-2f50-4de0-9b7e-bcab0827cc1c",
-          "stage": "Playoffs",
-          "neutral": true,
-          "venue": "Regional Tournament",
-          "time": "14:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
-      "notes": [
-        "2026-11-07 at Thomas Jefferson is not on the school calendar (published on MaxPreps's word alone)",
-        "2026-11-07 at Palisade is not on the school calendar (published on MaxPreps's word alone)"
-      ]
+      "notes": []
     },
     {
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/softball/fall/",
-      "fetched": "2026-11-07T18:35:57.964Z",
-      "maxprepsUpdated": "2026-11-07T16:33:45",
+      "fetched": "2026-11-08T18:48:09.678Z",
+      "maxprepsUpdated": "2026-11-08T17:22:16",
       "overall": "8-15-1",
       "league": {
         "record": "2-8",
@@ -935,8 +939,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/cross-country/",
-      "fetched": "2026-11-07T18:35:57.964Z",
-      "maxprepsUpdated": "2026-11-07T18:36:49",
+      "fetched": "2026-11-08T18:48:09.678Z",
+      "maxprepsUpdated": "2026-11-08T18:49:01",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -949,8 +953,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/cross-country/girls/",
-      "fetched": "2026-11-07T18:35:57.964Z",
-      "maxprepsUpdated": "2026-11-07T18:36:54",
+      "fetched": "2026-11-08T18:48:09.678Z",
+      "maxprepsUpdated": "2026-11-08T18:49:06",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -963,8 +967,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/basketball/",
-      "fetched": "2026-11-07T18:35:57.964Z",
-      "maxprepsUpdated": "2026-11-07T18:09:15",
+      "fetched": "2026-11-08T18:48:09.678Z",
+      "maxprepsUpdated": "2026-11-08T16:54:24",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1182,8 +1186,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/basketball/girls/",
-      "fetched": "2026-11-07T18:35:57.964Z",
-      "maxprepsUpdated": "2026-11-07T15:09:26",
+      "fetched": "2026-11-08T18:48:09.678Z",
+      "maxprepsUpdated": "2026-11-08T17:18:06",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1345,8 +1349,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/wrestling/",
-      "fetched": "2026-11-07T18:35:57.964Z",
-      "maxprepsUpdated": "2026-11-07T18:37:18",
+      "fetched": "2026-11-08T18:48:09.678Z",
+      "maxprepsUpdated": "2026-11-08T18:49:31",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1359,8 +1363,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/mountain-view-mountain-lions/swimming/girls/",
-      "fetched": "2026-11-07T18:35:57.964Z",
-      "maxprepsUpdated": "2026-11-07T18:37:22",
+      "fetched": "2026-11-08T18:48:09.678Z",
+      "maxprepsUpdated": "2026-11-08T18:03:34",
       "results": [],
       "upcoming": [],
       "held": [],

@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-07T18:37:27.210Z",
+  "generated": "2026-11-08T18:49:42.051Z",
   "sports": [
     {
       "key": "football",
       "name": "Football",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/football/",
-      "fetched": "2026-11-07T18:37:27.210Z",
-      "maxprepsUpdated": "2026-11-07T16:46:43",
+      "fetched": "2026-11-08T18:49:42.051Z",
+      "maxprepsUpdated": "2026-11-08T16:20:05",
       "overall": "2-8",
       "league": {
         "record": "2-3",
@@ -137,15 +137,37 @@
       "key": "volleyball",
       "name": "Volleyball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/volleyball/",
-      "fetched": "2026-11-07T18:37:27.210Z",
-      "maxprepsUpdated": "2026-11-07T17:17:43",
-      "overall": "19-4",
+      "fetched": "2026-11-08T18:49:42.051Z",
+      "maxprepsUpdated": "2026-11-08T16:37:30",
+      "overall": "21-4",
       "league": {
         "record": "6-1",
         "name": "4A/3A Patriots Peak",
         "place": "2nd"
       },
       "results": [
+        {
+          "date": "2026-11-07",
+          "opponent": "Manitou Springs",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/manitou-springs-vs-resurrection-christian-loveland/11-7-2026/?c=5186cfa1-dcbd-4247-8f25-69083b0fd252",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
+        {
+          "date": "2026-11-07",
+          "opponent": "Gunnison",
+          "site": "home",
+          "url": "https://www.maxpreps.com/co/volleyball/match/gunnison-vs-resurrection-christian-loveland/11-7-2026/?c=5814b2d2-aaf1-44a1-bb8b-961c7b1ed6a4",
+          "result": "W",
+          "score": {
+            "us": 3,
+            "them": 0
+          }
+        },
         {
           "date": "2026-10-31",
           "opponent": "Windsor",
@@ -406,22 +428,7 @@
           }
         }
       ],
-      "upcoming": [
-        {
-          "date": "2026-11-07",
-          "opponent": "Manitou Springs",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/manitou-springs-vs-resurrection-christian-loveland/11-7-2026/?c=5186cfa1-dcbd-4247-8f25-69083b0fd252",
-          "time": "10:00"
-        },
-        {
-          "date": "2026-11-07",
-          "opponent": "Gunnison",
-          "site": "home",
-          "url": "https://www.maxpreps.com/co/volleyball/match/gunnison-vs-resurrection-christian-loveland/11-7-2026/?c=5814b2d2-aaf1-44a1-bb8b-961c7b1ed6a4",
-          "time": "13:00"
-        }
-      ],
+      "upcoming": [],
       "held": [],
       "notes": [
         "no school calendar to check against"
@@ -431,8 +438,8 @@
       "key": "softball",
       "name": "Softball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/softball/fall/",
-      "fetched": "2026-11-07T18:37:27.210Z",
-      "maxprepsUpdated": "2026-11-07T14:48:50",
+      "fetched": "2026-11-08T18:49:42.051Z",
+      "maxprepsUpdated": "2026-11-08T18:35:19",
       "overall": "13-12",
       "league": {
         "record": "0-5",
@@ -720,8 +727,8 @@
       "key": "boys-cross-country",
       "name": "Boys cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/cross-country/",
-      "fetched": "2026-11-07T18:37:27.210Z",
-      "maxprepsUpdated": "2026-11-07T18:37:55",
+      "fetched": "2026-11-08T18:49:42.051Z",
+      "maxprepsUpdated": "2026-11-08T18:50:10",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -734,8 +741,8 @@
       "key": "girls-cross-country",
       "name": "Girls cross country",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/cross-country/girls/",
-      "fetched": "2026-11-07T18:37:27.210Z",
-      "maxprepsUpdated": "2026-11-07T18:37:59",
+      "fetched": "2026-11-08T18:49:42.051Z",
+      "maxprepsUpdated": "2026-11-08T18:50:14",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -748,8 +755,8 @@
       "key": "boys-basketball",
       "name": "Boys basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/basketball/",
-      "fetched": "2026-11-07T18:37:27.210Z",
-      "maxprepsUpdated": "2026-11-07T16:37:59",
+      "fetched": "2026-11-08T18:49:42.051Z",
+      "maxprepsUpdated": "2026-11-08T16:34:45",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -914,8 +921,8 @@
       "key": "girls-basketball",
       "name": "Girls basketball",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/basketball/girls/",
-      "fetched": "2026-11-07T18:37:27.210Z",
-      "maxprepsUpdated": "2026-11-07T15:59:20",
+      "fetched": "2026-11-08T18:49:42.051Z",
+      "maxprepsUpdated": "2026-11-08T17:41:35",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1074,8 +1081,8 @@
       "key": "wrestling",
       "name": "Wrestling",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/wrestling/",
-      "fetched": "2026-11-07T18:37:27.210Z",
-      "maxprepsUpdated": "2026-11-07T18:38:22",
+      "fetched": "2026-11-08T18:49:42.051Z",
+      "maxprepsUpdated": "2026-11-08T18:50:37",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1088,8 +1095,8 @@
       "key": "girls-swimming",
       "name": "Girls swimming",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/swimming/girls/",
-      "fetched": "2026-11-07T18:37:27.210Z",
-      "maxprepsUpdated": "2026-11-07T18:38:26",
+      "fetched": "2026-11-08T18:49:42.051Z",
+      "maxprepsUpdated": "2026-11-08T18:50:42",
       "results": [],
       "upcoming": [],
       "held": [],
@@ -1102,8 +1109,8 @@
       "key": "ice-hockey",
       "name": "Ice hockey",
       "maxprepsUrl": "https://www.maxpreps.com/co/loveland/resurrection-christian-cougars/ice-hockey/",
-      "fetched": "2026-11-07T18:37:27.210Z",
-      "maxprepsUpdated": "2026-11-07T18:21:20",
+      "fetched": "2026-11-08T18:49:42.051Z",
+      "maxprepsUpdated": "2026-11-08T16:34:17",
       "overall": "0-0",
       "league": {
         "record": "0-0",
@@ -1184,9 +1191,9 @@
         },
         {
           "date": "2027-01-09",
-          "opponent": "Woodland Park",
+          "opponent": "Pueblo County",
           "site": "away",
-          "url": "https://www.maxpreps.com/co/ice-hockey/game/resurrection-christian-loveland-vs-woodland-park/1-9-2027/?c=675afa40-b3e0-42a5-9c69-7c672639d0d3",
+          "url": "https://www.maxpreps.com/co/ice-hockey/game/pueblo-county-vs-resurrection-christian-loveland/1-9-2027/?c=675afa40-b3e0-42a5-9c69-7c672639d0d3",
           "time": "18:45"
         },
         {
