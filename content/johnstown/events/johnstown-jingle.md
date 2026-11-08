@@ -12,7 +12,7 @@ category: festival
 timeNote: "2 to 5 pm; tree lighting 5:30"
 featured: true
 source: "https://www.visitdowntownjohnstown.com/johnstownjingle"
-verified: "2026-10-17"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): 6 December and 2 pm on the page"
 ---
 

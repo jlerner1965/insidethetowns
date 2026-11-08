@@ -10,7 +10,7 @@ organizer: "Carbon Valley Regional Library (High Plains Library District)"
 organizerUrl: "https://www.mylibrary.us/cvrl/"
 source: "https://highplains.libcal.com/event/15736252"
 sourceId: "highplains-libcal-com"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Bubble Tea Social\" at 4 pm on 16 November on the Carbon Valley Regional Library (High Plains Library District), LibCal feed"
 ---
 

@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/16877806"
 cost: "Free; registration required"
 category: arts
 source: "https://highplains.libcal.com/event/16877806"
-verified: "2026-10-17"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Teens Needle Felting a Bird\" at 2 pm on 29 December in the page's structured data"
 ---
 

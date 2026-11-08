@@ -10,7 +10,7 @@ source: "https://johnstownmillikenpubliclibraries.us/event/drink-charms-napkin-r
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10577"
 sourceHash: "f416bfb516e0"
-verified: "2026-11-06"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Drink Charms &#038; Napkin Rings\" at 9:30 am on 21 November in the page's structured data"
 ---
 

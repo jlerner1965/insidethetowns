@@ -7,7 +7,7 @@ address: "900 Washington Ave., Golden, CO 80401"
 url: "https://www.mountaintoadbrewing.com/events/2025/9/26/drag-bingo-7bb7s"
 category: other
 source: "https://www.mountaintoadbrewing.com/events"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): 14 November and 7:30 pm on the page"
 ---
 

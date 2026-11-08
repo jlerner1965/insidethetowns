@@ -9,8 +9,8 @@ category: food
 organizer: "Odd13 Brewing"
 organizerUrl: "https://www.odd13brewing.com/"
 source: "https://www.odd13brewing.com/events"
-verified: "2026-11-02"
-verifiedBy: "the Lafayette build agent, read from the source on 2 November 2026"
+verified: "2026-11-08"
+verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 4 pm on the page"
 ---
 
 A pop-up selling handcrafted sweet treats ahead of Thanksgiving, in the Odd13 taproom on Saturday, November 21, from 4 to 7:30 pm. The brewery’s listing does not name the baker.

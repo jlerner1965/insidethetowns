@@ -7,7 +7,7 @@ address: "26 CO-119, Nederland, CO 80466"
 url: "https://www.verynicebrewing.com/event-details/trivia-night-both-tap-rooms-6"
 category: other
 source: "https://www.verynicebrewing.com/event-details/trivia-night-both-tap-rooms-6"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Trivia Night - Both Tap Rooms!\" at 7 pm on 20 November in the page's structured data"
 ---
 

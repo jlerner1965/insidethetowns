@@ -9,7 +9,7 @@ cost: "Free"
 category: other
 recurring: "First Thursdays"
 source: "https://highplains.libcal.com/event/15619289"
-verified: "2026-10-17"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Adult Social Chess Club\" at 6:15 pm on 3 December in the page's structured data"
 ---
 

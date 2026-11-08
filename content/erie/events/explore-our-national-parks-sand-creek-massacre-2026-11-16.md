@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/16376026"
 cost: "Free; registration required"
 category: other
 source: "https://highplains.libcal.com/event/16376026"
-verified: "2026-11-07"
+verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Explore our National Parks: Sand Creek Massacre\" at 6 pm on 16 November in the page's structured data"
 ---
 

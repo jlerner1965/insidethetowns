@@ -9,8 +9,8 @@ category: "music"
 performers:
   - { name: "Tumbledown Shack", kind: group }
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-01"
-verifiedBy: "Claude Code for James Lerner, against Avogadro's Number's events page, 1 November 2026: 2026-11-21, 20:00-22:00, no price posted"
+verified: "2026-11-08"
+verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 8 pm on the page"
 ---
 
 A Mishawaka Presents standing-room show with Tumbledown Shack, 8 p.m. Tickets through etix; price not shown on Avo's page. At Avogadro's Number, 605 South Mason Street.
