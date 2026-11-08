@@ -11,7 +11,7 @@ source: "https://bohemianlivemusic.org/event/s-g-goodman-with-a-j-fullerton/"
 sourceId: "bohemianlivemusic-org"
 sourceUid: "54455"
 sourceHash: "faa988d5b52e"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"S.G. Goodman With A.J. Fullerton\" at 7 pm on 10 November in the page's structured data"
 ---
 

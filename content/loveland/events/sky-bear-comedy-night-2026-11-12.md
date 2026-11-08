@@ -9,7 +9,7 @@ address: "272 E 5th St, Loveland, CO 80537"
 url: "https://www.skybearbrewery.com/events"
 category: arts
 source: "https://www.skybearbrewery.com/events"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): 12 November on the page"
 ---
 

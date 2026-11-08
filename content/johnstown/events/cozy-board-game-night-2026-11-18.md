@@ -10,7 +10,7 @@ source: "https://johnstownmillikenpubliclibraries.us/event/cozy-board-game-night
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10620"
 sourceHash: "b66af309d8ec"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Cozy Board Game Night\" at 4:30 pm on 18 November in the page's structured data"
 ---
 

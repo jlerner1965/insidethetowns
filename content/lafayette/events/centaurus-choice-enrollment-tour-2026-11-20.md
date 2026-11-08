@@ -10,8 +10,8 @@ category: family
 organizer: "Centaurus High School"
 organizerUrl: "https://ceh.bvsd.org/"
 source: "https://ceh.bvsd.org/"
-verified: "2026-11-02"
-verifiedBy: "the Lafayette build agent, read from the source on 2 November 2026"
+verified: "2026-11-07"
+verifiedBy: "recheck-events (the nightly re-check workflow): 20 November and 8:45 am on the page"
 ---
 
 A morning tour for families considering Centaurus for 2027–28, Friday, November 20, 8:45 to 10:15 am, with no reservation needed; the school repeats it on December 4 and December 11 at the same hours. Boulder Valley’s on-time choice-enrollment window closes December 18.

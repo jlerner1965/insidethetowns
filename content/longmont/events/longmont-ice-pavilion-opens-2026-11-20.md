@@ -11,7 +11,7 @@ source: "https://longmontcolorado.gov/event/longmont-ice-pavilion-opens-2/"
 sourceId: "longmontcolorado-gov-recreation"
 sourceUid: "10009590-1795179600-1795197600@longmontcolorado.gov"
 sourceHash: "ab80a04d3142"
-verified: "2026-10-27"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Longmont Ice Pavilion Opens\" at 1 pm on 20 November on the Longmont Recreation Services (City of Longmont calendar) feed"
 ---
 

@@ -9,7 +9,7 @@ category: civic
 organizer: "BGOLDN"
 organizerUrl: "https://newterrainbrewing.com/event/bgoldn-artisan-auction/"
 source: "https://newterrainbrewing.com/event/bgoldn-artisan-auction/"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"BGOLDN Artisan Auction\" at 5:30 pm on 17 November in the page's structured data"
 ---
 

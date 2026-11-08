@@ -10,7 +10,7 @@ category: outdoors
 organizer: "Lafayette Public Library with Boulder County Parks & Open Space volunteer naturalists"
 organizerUrl: "https://www.lafayetteco.gov/library"
 source: "https://lafayettepubliclibrary.libcal.com/calendar/main/TINJUNE-NOV2026"
-verified: "2026-11-06"
+verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Tune into Nature: Pint-Size Predators and Perky Little Pollinators\" at 6 pm on 17 November on the Lafayette Public Library - LibCal calendar feed"
 ---
 
