@@ -29,11 +29,9 @@ On the north side, [Waggener Farm Park](/places/waggener-farm-park/) has a farm-
 
 The [Berthoud Bike Park](/places/berthoud-bike-park/) on Meadowlark Drive opened in late summer 2023: twenty acres with two jump and flow lines, a dual-slalom track, a mile of cross-country trail, a bicycle playground for small riders and a 20,000-square-foot pump track. Dawn to dusk, free. The [Trailhead Cafe](/places/trailhead-cafe/) next door does breakfast and sandwiches afterwards.
 
-## A rainy day: the rec center, the arcade, the library
+## A rainy day: the rec center and the library
 
 The [Berthoud Recreation Center](/places/berthoud-recreation-center/) at Waggener Farm Park opened in November 2021 with a three-lane lap pool, a two-storey water slide, a gym and a climbing wall. Day passes for anyone; weekdays from 5 am, Saturday from 7, Sunday from 11.
-
-[B-Rad's Arcade](/places/b-rads-arcade/) at the east end of Mountain Avenue has pinball, classic cabinets, air hockey and snacks, and is the accepted rainy-afternoon plan.
 
 The [Berthoud Community Library](/places/berthoud-community-library/) on Welch Avenue runs storytimes on Tuesday, Wednesday and Friday mornings, with a baby storytime, a toddler storytime and a pre-K one on the calendar, plus kids' art and science programs. Open until 8 on Wednesday and Thursday, until 6 the other weekdays, Saturday to 4; closed Sunday. The [events page](/events/?category=family) has this week's.
 

@@ -49,9 +49,12 @@ const structured = [
           <SectionHeader id={`${slug(s.title)}-h`} title={s.title} />
           {s.note && <p class="-mt-4 mb-2 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-muted">{s.note}</p>}
           <p class:list={['mb-2 text-[0.8125rem] text-ink-muted', !s.note && '-mt-4']}>Links read <time datetime={s.verified}>{formatShortDate(parseLocal(s.verified))}</time></p>
-          <ul class="divide-y divide-line-soft">
+          {/* Two columns of links from md: one column of one-line rows
+              left half the main column empty (Berthoud analysis, 8 November
+              2026). */}
+          <ul class="divide-y divide-line-soft md:grid md:grid-cols-2 md:gap-x-10 md:divide-y-0">
             {s.items.map((item) => (
-              <li class="py-3 text-[0.9375rem] leading-snug">
+              <li class="py-3 text-[0.9375rem] leading-snug md:border-t md:border-line-soft">
                 <a href={item.url} rel={/^https?:/.test(item.url) ? 'noopener' : undefined} data-track={item.track ?? 'service'} class="inline-block -my-1 py-1 font-semibold text-primary underline">{item.label} →</a>
                 {item.note && <span class="block text-ink-muted">{item.note}</span>}
               </li>

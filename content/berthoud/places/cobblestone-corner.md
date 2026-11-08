@@ -7,10 +7,11 @@ url: "https://www.cobblestonecorner.org/"
 phone: "(970) 290-2098"
 hours: "Mon 12–5, Tue–Sat 10–5; closed Sun"
 tags: [antiques, vintage]
-summary: "Vendor-booth antique mall on Massachusetts Avenue, a block south of the main drag, and the biggest of the antique stops downtown."
+summary: "Vendor-booth antique and vintage market on Massachusetts Avenue, a block south of the main drag: handmade items, antiques, collectibles and jewelry."
 source: "https://www.cobblestonecorner.org/about"
-verified: "2026-10-03"
+verified: "2026-11-08"
+verifiedBy: "Claude Code, delegated by James Lerner: the shop's own site (home and About pages, Location & Hours block) read 8 November 2026, and Berthoud Main Street's Shop & Antiques page the same day"
 added: "2026-09-17"
 ---
 
-An antique mall of vendor booths on Massachusetts Avenue, one block south of Mountain Avenue: furniture, glassware, tools, vintage clothes and the odd treasure. The largest of the antique stops the downtown association promotes.
+A vintage marketplace of vendor booths on Massachusetts Avenue, one block south of Mountain Avenue: handmade items, antiques, collectibles, jewelry and more. Two co-owners run it, and Cindy Kittinger's "Sami" mural, painted on the building, the historic Masonic Lodge, is a stop on Main Street's public art tour.

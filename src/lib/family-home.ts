@@ -164,3 +164,85 @@ export function familyLines<P extends ProgramLike, E extends EventLike>({
   }
   return lines;
 }
+
+/** One answer in the family hub's "Right now" box: a thing, its date or deadline, and where on the page or site it is. */
+export interface GlanceItem {
+  title: string;
+  href: string;
+  /** "Register by Fri, Nov 13", "Open since Sun, Nov 1", "Wed, Nov 11", "Sat, Nov 14, 10 am". */
+  when: string;
+}
+
+export interface FamilyGlance {
+  /** Programs taking sign-ups today, the nearest deadline first; at most two. */
+  signUp: GlanceItem[];
+  /** How many more are taking sign-ups than `signUp` names. */
+  signUpMore: number;
+  /** Free family listings in the next seven days, one-offs first; at most two. */
+  free: GlanceItem[];
+}
+
+/** How long after registration opens, with no deadline given, a program still reads as "open since". */
+export const OPEN_SINCE_DAYS = 45;
+
+/**
+ * The family hub's first screen (the Berthoud analysis, 8 November 2026:
+ * the page ran 21 phone screens and the school days off it promises sat on
+ * the sixteenth): what is taking sign-ups and what is free this week, each
+ * a link to the row that says more; the page adds the next day off from
+ * its own list of breaks. A program is taking sign-ups when its deadline is today or
+ * ahead and nothing says it is full, paused or ended, or when registration
+ * opened in the last `OPEN_SINCE_DAYS` days and no deadline is given; a
+ * closed one is never offered. The free listings are the home page's rule
+ * (family, free, not called off), over seven days instead of the weekend.
+ */
+export function familyGlance<P extends ProgramLike, E extends EventLike>({
+  programs,
+  events,
+  now = new Date(),
+  isSeries = () => false,
+}: {
+  programs: readonly P[];
+  /** Occurrences, one entry a date (`occurrences`), over at least the next seven days. */
+  events: readonly E[];
+  now?: Date;
+  isSeries?: (e: E) => boolean;
+}): FamilyGlance {
+  const today = dayKey(now);
+  const open = programs
+    .flatMap((p) => {
+      const state = programStatus(p, now)?.state;
+      if (state && !['open', 'upcoming'].includes(state)) return [];
+      const r = p.data.registration;
+      if (!r?.required) return [];
+      if (r.deadline && dayKey(r.deadline) >= today && (!r.opens || dayKey(r.opens) <= today)) {
+        return [{ p, sort: r.deadline.getTime(), when: `${deadlineAction(p)} ${formatDayShort(r.deadline)}` }];
+      }
+      if (!r.deadline && r.opens && dayKey(r.opens) <= today && daysBetween(r.opens, now) <= OPEN_SINCE_DAYS) {
+        return [{ p, sort: Number.MAX_SAFE_INTEGER - r.opens.getTime(), when: `Open since ${formatDayShort(r.opens)}` }];
+      }
+      return [];
+    })
+    .sort((a, b) => a.sort - b.sort || a.p.data.title.localeCompare(b.p.data.title));
+
+  const weekEnd = new Date(now.getTime() + 7 * 86_400_000);
+  const free = events
+    .filter((e) => {
+      const d = e.data;
+      return d.start < weekEnd && listedUntil(e) > now && d.category === 'family' && d.status !== 'canceled' && d.status !== 'postponed' && eventIsFree(d.cost);
+    })
+    .sort((a, b) => Number(isSeries(a)) - Number(isSeries(b)) || a.data.start.getTime() - b.data.start.getTime())
+    .filter((e, i, all) => all.findIndex((x) => x.data.title === e.data.title) === i)
+    .slice(0, 2)
+    .map((e) => ({
+      title: e.data.title,
+      href: `/events/${e.slug ?? e.id ?? ''}/`,
+      when: `${formatDayShort(e.data.start)}${e.data.allDay ? '' : `, ${formatTime(e.data.start)}`}`,
+    }));
+
+  return {
+    signUp: open.slice(0, 2).map(({ p, when }) => ({ title: p.data.title, href: `#program-${p.slug ?? p.id ?? ''}`, when })),
+    signUpMore: Math.max(0, open.length - 2),
+    free,
+  };
+}

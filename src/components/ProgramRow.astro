@@ -10,9 +10,13 @@
  * file says nothing about gets no pill rather than a guessed "open". The
  * row's own check date sits with its source, so a page's "Checked" line
  * never has to speak for every row (Lyons audit, 26 October 2026).
+ * A program whose sign-ups have closed, that is full or that has ended
+ * links "Organizer's page", not "Register": a closed futsal clinic offered
+ * "Register →" under its "Registration closed" pill (Berthoud analysis,
+ * 8 November 2026).
  */
 import type { TownEntry } from '@/lib/content';
-import { formatDate, formatDayShort, formatShortDate, toIsoLocal } from '@/lib/dates';
+import { dayKey, formatDate, formatDayShort, formatShortDate, toIsoLocal } from '@/lib/dates';
 import { ageText, breakAhead, deadlinePassed, programStatus } from '@/lib/programs';
 import { PROGRAM_ACCESS_LABELS, PROGRAM_KIND_LABELS } from '@/content/schemas';
 import { getTownEntries } from '@/lib/content';
@@ -58,6 +62,10 @@ const facts: Array<[string, string | undefined]> = [
 const shown = facts.filter((f): f is [string, string] => !!f[1]);
 const reg = data.registration;
 const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
+const canRegister = !['closed', 'full', 'ended'].includes(status?.state ?? '');
+// An opening day already behind reads "open since", not "opens": "opens
+// November 1" on November 8 read as still to come (Berthoud analysis).
+const opened = !!data.registration?.opens && dayKey(data.registration.opens) <= dayKey(now);
 const track = data.kind === 'league' || data.kind === 'class' || data.kind === 'program' ? 'registration' : 'participation';
 ---
 <article id={`program-${program.slug}`} data-status={status?.state} class="min-w-0 scroll-mt-20 border-t border-line-soft py-5 first:border-t-0 md:py-6 [overflow-wrap:anywhere]">
@@ -92,7 +100,7 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
       <li class:list={[passed && 'text-ink-muted']}>
         {reg.required ? 'Registration required' : 'No registration'}{reg.deadline && (
           <Fragment>{' · '}<time datetime={toIsoLocal(reg.deadline)}>{passed ? `deadline was ${formatDate(reg.deadline)}` : `by ${formatDate(reg.deadline)}`}</time></Fragment>
-        )}{reg.opens && !reg.deadline && <Fragment>{' · opens '}<time datetime={toIsoLocal(reg.opens)}>{formatDate(reg.opens)}</time></Fragment>}
+        )}{reg.opens && !reg.deadline && <Fragment>{opened ? ' · open since ' : ' · opens '}<time datetime={toIsoLocal(reg.opens)}>{formatDate(reg.opens)}</time></Fragment>}
         {reg.how && <span class="block text-ink-muted">{reg.how}</span>}
         {reg.note && <span class="block text-ink-muted">{reg.note}</span>}
       </li>
@@ -108,7 +116,7 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
     </p>
   )}
   <p class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-[0.875rem] text-ink-muted">
-    {reg?.url && <a href={reg.url} rel="noopener" data-track={track} class="inline-block -my-2 py-2 font-semibold text-primary underline">Register →</a>}
+    {reg?.url && <a href={reg.url} rel="noopener" data-track={track} class="inline-block -my-2 py-2 font-semibold text-primary underline">{canRegister ? 'Register →' : 'Organizer’s page →'}</a>}
     {data.contact && <span>Contact: {data.contact}</span>}
     {data.source && (
       <span>

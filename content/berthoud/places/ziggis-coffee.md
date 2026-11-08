@@ -10,9 +10,8 @@ priceRange: "$"
 tags: [coffee, drive-through, early]
 summary: "Drive-through Ziggi's at the west end of Mountain Avenue, on the way out to US 287."
 source: "https://ziggiscoffee.com/locations/1011-mountain-avenue-berthoud-co/"
-verified: "2026-10-03"
-changeFlag: true
-changeNote: "3 November 2026: the location page no longer shows hours, and Ziggi's store locator holds none for this store (every day blank). The 6 am–6 pm here is the page as read 3 October. Call (303) 802-4663 to confirm, then re-verify or take the hours off."
+verified: "2026-11-08"
+verifiedBy: "Claude Code, delegated by James Lerner: Ziggi's location page for 1011 Mountain Avenue, read 8 November 2026 in a browser that runs the page's scripts: Weekly Hours, every day Sunday to Saturday 6:00 am to 6:00 pm, 303-802-4663, drive-thru (the hours load by script; a plain fetch of the page shows none)"
 added: "2026-09-17"
 ---
 
