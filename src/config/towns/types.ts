@@ -391,6 +391,16 @@ export interface TownConfig {
    * moving here. The header and footer are the same on every guide.
    */
   home?: true;
+  /**
+   * Quick answers under What's happening (8 November 2026): the families
+   * hub, the rec center's listing and the local changes page, each one tap
+   * from the home page, where the guide has them
+   * (src/components/home/QuickAnswers.astro). `recCenter` names the
+   * listing and its line for a town whose rec center has no schedule file
+   * (Erie's community center); a town with data/<town>/rec-center.json
+   * needs nothing more.
+   */
+  quickAnswers?: { recCenter?: { label: string; place: string } };
   /** The high school the home page's scoreboard and the sports pages lead with: see SchoolConfig. */
   school?: SchoolConfig;
   livingHere?: LivingHereConfig;

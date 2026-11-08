@@ -1,0 +1,50 @@
+---
+/**
+ * Quick answers (the owner, 8 November 2026): the two or three practical
+ * questions a resident asks the guide every week, each one tap from the
+ * home page, right under What's happening and before the email strip.
+ *
+ * The links are derived, never typed: the families hub where the config
+ * has one, the rec center's listing where the town has a schedule file
+ * (src/lib/rec-center.ts) or names a listing on the config, and the local
+ * changes page where the guide has any. A guide with fewer than two of
+ * these shows nothing; a link never points at a page that does not build.
+ * Scores and schedules are not here: the athletics bar above already says
+ * it. Switched on by `quickAnswers` on the config (Berthoud, Niwot and
+ * Erie first; the search audit of 7 November 2026 found Berthoud's local
+ * changes page its second-biggest click earner, and the rec center among
+ * its most-asked queries).
+ */
+import type { TownConfig } from '@/config';
+
+interface Props {
+  town: TownConfig;
+  /** The rec center listing's slug from the schedule file, where the town has one. */
+  recPlace?: string;
+  /** The guide has at least one local change filed. */
+  hasUpdates: boolean;
+}
+
+const { town, recPlace, hasUpdates } = Astro.props;
+const config = town.quickAnswers;
+const rec = config?.recCenter ?? (recPlace ? { label: 'Rec center hours & swim', place: recPlace } : undefined);
+const links: Array<{ label: string; href: string; track: string }> = [];
+if (config && town.families) links.push({ label: 'Kids & family plans', href: '/families/', track: 'families' });
+if (config && rec) links.push({ label: rec.label, href: `/places/${rec.place}/`, track: 'rec-center' });
+if (config && hasUpdates) links.push({ label: 'What changed in town', href: '/updates/', track: 'updates' });
+---
+{links.length >= 2 && (
+  <section class="band-paper py-2 md:py-3" aria-label="Quick answers">
+    <div class="container-page">
+      <ul class="flex flex-col divide-y divide-line-soft md:flex-row md:flex-wrap md:gap-x-10 md:divide-y-0">
+        {links.map((l) => (
+          <li>
+            <a href={l.href} class="inline-flex min-h-11 items-center py-2 text-[1.0625rem] font-semibold text-ink no-underline hover:text-primary hover:underline" data-track={`quick-${l.track}`}>
+              {l.label} →
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}

@@ -53,6 +53,8 @@ export const berthoud: TownConfig = {
   },
   // A resident guide (TownConfig.home), since 21 October 2026.
   home: true,
+  // Quick answers under What's happening (the owner, 8 November 2026).
+  quickAnswers: {},
   /**
    * Berthoud High's colours, read from its own site 25 October 2026
    * (bhs.tsd.org): the theme's `--primary-color` is #572932, the maroon

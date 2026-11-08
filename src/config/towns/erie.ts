@@ -63,6 +63,8 @@ export const erie: TownConfig = {
   },
   // A resident guide (TownConfig.home), since 22 October 2026.
   home: true,
+  // Quick answers under What's happening (the owner, 8 November 2026).
+  quickAnswers: { recCenter: { label: 'Community center hours & swim', place: 'erie-community-center' } },
   /**
    * Erie High's colours, read from its own site 25 October 2026
    * (ehs.svvsd.org): the theme's `--color-primary` is #F26B21, the Tiger

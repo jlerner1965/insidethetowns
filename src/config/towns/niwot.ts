@@ -51,6 +51,8 @@ export const niwot: TownConfig = {
   },
   // A resident guide (TownConfig.home), since 21 October 2026.
   home: true,
+  // Quick answers under What's happening (the owner, 8 November 2026).
+  quickAnswers: {},
   participation: {
     label: 'Get involved',
     intro: 'The associations, clubs and groups that run Niwot, and how to join each.',

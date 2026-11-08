@@ -9236,3 +9236,22 @@ the date, so next year's page would have started from nothing.*
   and charged in its text; the table now agrees with the Town's parking
   page, the heading no longer counts the dog park twice, and the correction
   is logged.
+
+## Quick answers under What's happening, 8 November 2026
+
+*The owner sent a mock-up of three links under the athletics bar: kids and
+family plans, rec center hours and swim, Spartans scores and schedules.*
+
+- **Added, below What's happening rather than above it** (the events are
+  what most visitors came for, and three rows above them cost a phone
+  screen), on Berthoud, Niwot and Erie (`quickAnswers` on the config;
+  src/components/home/QuickAnswers.astro). One row on a desktop, stacked
+  rows on a phone, each a full 44px to tap.
+- **The links are derived, not typed:** the families hub where the config
+  has one, the rec center's listing where the town has a schedule file (or,
+  on Erie, the community center the config names), and the local changes
+  page where the guide has any. Fewer than two and the strip is not drawn;
+  nothing can point at a page that does not build (test/flagship-home.test.ts).
+- **Scores and schedules left out:** the athletics bar directly above says
+  it. "What changed in town" took its place, the second-biggest click
+  earner on Berthoud in the search audit of 7 November.

@@ -44,6 +44,7 @@ import Hero from '@/components/Hero.astro';
 import NewsletterSignup from '@/components/NewsletterSignup.astro';
 import SportsStrip from '@/components/SportsStrip.astro';
 import NextStop from './NextStop.astro';
+import QuickAnswers from './QuickAnswers.astro';
 import SportsBar from './SportsBar.astro';
 import WhatsHappening, { type Feature } from './WhatsHappening.astro';
 import RecCenterToday from '@/components/RecCenterToday.astro';
@@ -119,7 +120,8 @@ const thin = (tabs.find((t) => t.key === open)?.rows.length ?? 0) < THIN;
 // order: a featured change first, then the newest. A re-sort by published
 // alone sat here and put two routine notices above Berthoud's featured
 // election result (flagship audit, 4 November 2026).
-const know = currentUpdates(await getTownEntries('updates'), now).slice(0, 2);
+const updates = await getTownEntries('updates');
+const know = currentUpdates(updates, now).slice(0, 2);
 
 // 5. For families: the hub's three timeliest lines, where the town has them on.
 const familyRows = town.families?.onHome
@@ -165,6 +167,8 @@ if (featured) {
 <WhatsHappening town={town} tabs={tabs} open={open} feature={feature}>
   {rec && <RecCenterToday slot="today" data={rec} fallback href={`/places/${rec.place}/`} />}
 </WhatsHappening>
+
+<QuickAnswers town={town} recPlace={rec?.place} hasUpdates={updates.length > 0} />
 
 {emailOn && !thin && (
   <section class="band-paper py-4 md:py-6">
