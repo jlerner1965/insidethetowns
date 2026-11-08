@@ -8,7 +8,7 @@ action: "Nothing to do. The counts are unofficial: Boulder County posts updates 
 effective: "2026-11-03"
 effectiveNote: "Election Day; the counts are unofficial until the counties certify them"
 published: "2026-11-04"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "Claude Code, delegated by James Lerner: Boulder County's unofficial results, last updated November 5, 2026, 5:06 pm, and Weld County's summary report of November 5, 2026, 12:51 pm, both read that evening"
 source: "https://electionresults.bouldercounty.gov/"
 sourceLabel: "Boulder County Elections: 2026 General Election unofficial results, last updated November 5, 2026, 5:06 pm"

@@ -49,7 +49,7 @@ const { school, mascot, next, then, latest, complete, seasonHref } = Astro.props
           {next.team.results[0] && <span>Last time out: {RESULT_WORD[next.team.results[0].result ?? 'T']} {outcome(next.team.results[0])}.</span>}
         </p>
         <div class="mt-7 flex flex-wrap gap-3">
-          <a href={next.game.url} rel="noopener" class="btn btn-light">The game on MaxPreps</a>
+          <a href={next.game.url} rel="noopener" class="btn btn-light">{next.game.chsaa && !next.game.url.includes('maxpreps.com') ? 'The bracket on CHSAANow' : 'The game on MaxPreps'}</a>
           <a href={seasonHref(next.team)} class="btn btn-outline text-white">The {next.team.name.toLowerCase()} season</a>
         </div>
       </div>

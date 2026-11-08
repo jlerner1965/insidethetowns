@@ -6,7 +6,7 @@ changes and the old wording goes; the history of why lives in
 other document disagree, this file wins. Where this file and a test
 disagree, fix one of them the same day.
 
-Last revised: 5 November 2026.
+Last revised: 8 November 2026.
 
 ## 1. What this is
 
@@ -206,6 +206,13 @@ community guide; the other town guides are community and visitor guides.
 - Content is Markdown with YAML front matter under `content/<town>/`;
   sports data under `data/<town>/`; the config under
   `src/config/towns/<slug>.ts`; the home under `src/components/home/`.
+- Postseason games MaxPreps has not got, or files at the wrong site (a
+  state tournament played at one arena, a bye week's playoff game), are
+  entered by hand from CHSAA's brackets in `src/config/postseason.ts`,
+  each with its bracket and the day it was read. The pages and the
+  Thursday email merge them in as they read the data; the MaxPreps file is
+  never written with them, and a row whose day has passed is ignored
+  (8 November 2026).
 
 Scheduled jobs (Denver time), all in `.github/workflows/`:
 

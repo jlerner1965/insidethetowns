@@ -6,9 +6,9 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { schoolsFor, sportsDataFile, type SchoolSports, type SportsData } from '../../src/config/school-sports.ts';
-import { correctedData, weekAhead, type WeekAhead } from '../../src/lib/school-sports.ts';
+import { correctedData, weekAhead, withPostseason, type WeekAhead } from '../../src/lib/school-sports.ts';
 
-export function readSportsData(school: Pick<SchoolSports, 'town' | 'slug'>, root = process.cwd()): SportsData | undefined {
+export function readSportsData(school: Pick<SchoolSports, 'town' | 'slug'>, root = process.cwd(), now = new Date()): SportsData | undefined {
   const file = resolve(root, sportsDataFile(school));
   if (!existsSync(file)) return undefined;
   let data: SportsData;
@@ -17,9 +17,10 @@ export function readSportsData(school: Pick<SchoolSports, 'town' | 'slug'>, root
   } catch {
     return undefined;
   }
-  // As the pages read it (sportsDataFor): what CHSAA settles applied.
+  // As the pages read it (sportsDataFor): what CHSAA settles applied, then
+  // CHSAA's postseason games merged in (src/config/postseason.ts).
   const cfg = schoolsFor(school.town).find((s) => s.slug === school.slug);
-  return cfg ? correctedData(data, cfg) : data;
+  return withPostseason(school, cfg ? correctedData(data, cfg) : data, now);
 }
 
 export interface SchoolWeek {
@@ -34,7 +35,7 @@ export interface SchoolWeek {
  */
 export function townSportsWeek(town: string, now = new Date(), root = process.cwd(), days = 7): SchoolWeek[] {
   return schoolsFor(town).flatMap((school) => {
-    const data = readSportsData(school, root);
+    const data = readSportsData(school, root, now);
     return data ? [{ school, week: weekAhead(data, now, Infinity, days) }] : [];
   });
 }

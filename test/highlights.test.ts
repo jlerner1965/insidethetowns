@@ -237,3 +237,19 @@ test('a weekly regular is a repeat or three dates on one weekday a week apart; a
   assert.deepEqual(new Set(titles(regulars)), new Set(['Trivia', 'Storytime']));
   assert.equal(regulars.find((e) => e.data.title === 'Trivia')!.data.start.toISOString(), parseLocal('2026-10-06T18:00').toISOString(), 'the next Tuesday');
 });
+
+test('a play filed a show at a time, Friday to Sunday, is a run by date, not a Sunday regular; a two-day-a-week regular still is one', () => {
+  // OpenStage's Dracula in Fort Collins (network audit, 8 November 2026):
+  // its Sundays are a week apart, and it stood under "Every week" with no end.
+  const shows = ['2026-11-06T19:30', '2026-11-07T19:30', '2026-11-08T14:00', '2026-11-13T19:30', '2026-11-14T19:30', '2026-11-15T14:00', '2026-11-20T19:30', '2026-11-21T19:30', '2026-11-22T14:00'].map((start, i) =>
+    ev('Dracula', start, { category: 'arts', slug: `dracula-${i}`, venue: 'Magnolia Theatre' }),
+  );
+  const storytime = ['2026-11-03T10:30', '2026-11-05T10:30', '2026-11-10T10:30', '2026-11-12T10:30', '2026-11-17T10:30', '2026-11-19T10:30'].map((start, i) =>
+    ev('Storytime', start, { slug: `storytime-${i}`, venue: 'Library' }),
+  );
+  const list = [...shows, ...storytime];
+  const isWeekly = weeklyTest(list);
+  assert.ok(shows.every((e) => !isWeekly(e)), 'every show is listed on its date');
+  assert.ok(storytime.every(isWeekly), 'Tuesdays and Thursdays are still every week');
+  assert.deepEqual(titles(weeklyRegulars(list, parseLocal('2026-11-01T12:00'))), ['Storytime']);
+});

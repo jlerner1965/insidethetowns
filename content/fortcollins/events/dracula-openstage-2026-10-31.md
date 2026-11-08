@@ -27,6 +27,9 @@ organizerUrl: "https://openstage.com/"
 source: "https://www.lctix.com/shows-tickets/dracula-2/"
 sourceId: "lctix-com"
 sourceUid: "showare:5599"
+# The Lincoln Center's ticketing feed lists each show under an id of its own; those ids were
+# a second listing of every show here until 8 November 2026 (network audit). They are this listing.
+mergedUids: ["showare:5593", "showare:5603", "showare:5604", "showare:5605", "showare:5606", "showare:5607", "showare:5608", "showare:5609", "showare:5610", "showare:5611", "showare:5612"]
 verified: "2026-11-08"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Dracula\" at 2 pm on 8 November in the page's structured data"
 ---

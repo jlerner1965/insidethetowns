@@ -4,6 +4,7 @@
  * and the home page so both lead with the same game.
  */
 import { LEAGUE_SPELLINGS, schoolsFor, schoolTeamName, sportsDataFile, type HostedRound, type SchoolSports, type SportConfig, type SportData, type SportGame, type SportsData } from '../config/school-sports.ts';
+import { POSTSEASON, type PostseasonGame } from '../config/postseason.ts';
 import { primaryHover } from '../config/palette.ts';
 import { dayKey, formatDayLong, formatTime, fromWallClock, TIME_ZONE } from './dates.ts';
 import { addFirstFitting } from './plain-text.ts';
@@ -262,11 +263,66 @@ export function resultText({ team, game }: TeamGame): string {
  * pages glob the data folder for every sports JSON file). Vite reads the
  * glob at build time, so a school without a file simply has no entry.
  */
-export function sportsDataFor(school: Pick<SchoolSports, 'town' | 'slug'>, files: Record<string, SportsData>): SportsData | undefined {
+export function sportsDataFor(school: Pick<SchoolSports, 'town' | 'slug'>, files: Record<string, SportsData>, now = new Date()): SportsData | undefined {
   const file = `/${sportsDataFile(school)}`;
   const data = files[Object.keys(files).find((k) => k.endsWith(file)) ?? ''];
+  if (!data) return undefined;
+  // CHSAA's settled facts on MaxPreps's games first (correctedData), then the
+  // bracket games MaxPreps does not carry yet (withPostseason).
   const cfg = schoolsFor(school.town).find((s) => s.slug === school.slug);
-  return data && cfg ? correctedData(data, cfg) : data;
+  return withPostseason(school, cfg ? correctedData(data, cfg) : data, now);
+}
+
+/** "Platte Valley" and "platte valley." are one opponent. */
+const opponentKey = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+
+/**
+ * The school's data with CHSAA's postseason games merged in
+ * (src/config/postseason.ts): a game MaxPreps carries on the same day
+ * against the same opponent takes the bracket's neutral site, venue, stage
+ * and time, and keeps MaxPreps's page; one MaxPreps does not carry yet, and
+ * has no result for, is added to the games to come, linked to the bracket.
+ * Rows whose day has passed are skipped. The file's objects are shared by
+ * every page of the build, so nothing is changed in place.
+ */
+export function withPostseason(school: Pick<SchoolSports, 'town' | 'slug'>, data: SportsData, now = new Date(), games: readonly PostseasonGame[] = POSTSEASON): SportsData {
+  const today = dayKey(now);
+  const mine = games.filter((g) => g.town === school.town && (g.slug ?? '') === (school.slug ?? '') && g.date >= today);
+  if (!mine.length) return data;
+  const sports = data.sports.map((team) => {
+    const rows = mine.filter((g) => g.team === team.key);
+    if (!rows.length) return team;
+    const upcoming = [...team.upcoming];
+    for (const row of rows) {
+      const names = row.opponent.split(/\s+or\s+/).map(opponentKey);
+      const same = (g: SportGame) => g.date === row.date && names.includes(opponentKey(g.opponent));
+      if (team.results.some(same)) continue;
+      const at = upcoming.findIndex(same);
+      const was = at >= 0 ? upcoming[at]! : undefined;
+      const game: SportGame = {
+        // An added game links to the bracket, made unique per game: the sports
+        // page tells its games apart by link.
+        ...(was ?? { opponent: row.opponent, url: `${row.source}#${row.team}-${row.date}` }),
+        date: row.date,
+        site: 'neutral',
+        neutral: true,
+        stage: row.stage,
+        chsaa: { url: row.source, read: row.read },
+        ...(row.venue ? { venue: row.venue } : {}),
+        ...(row.time ? { time: row.time } : {}),
+      };
+      if (was) upcoming[at] = game;
+      else upcoming.push(game);
+    }
+    upcoming.sort((a, b) => a.date.localeCompare(b.date) || (a.time ?? '99:99').localeCompare(b.time ?? '99:99'));
+    return { ...team, upcoming };
+  });
+  return { ...data, sports };
+}
+
+/** CHSAA's bracket and the day it was read, where any game to come of `teams` came from one: the page's source line. */
+export function postseasonSource(teams: readonly Pick<SportData, 'upcoming'>[]): { url: string; read: string } | undefined {
+  return teams.flatMap((t) => t.upcoming).find((g) => g.chsaa)?.chsaa;
 }
 
 /** The stages a game carries when MaxPreps names no tournament, only the kind of game: a state stage replaces them. */

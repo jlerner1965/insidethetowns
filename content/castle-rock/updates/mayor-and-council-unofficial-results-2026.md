@@ -8,7 +8,7 @@ action: "Check the county's results page for the count as it stands; the county 
 effective: "2026-11-03"
 effectiveNote: "Election Day; the count here is the county's update of 5:16 pm on November 5"
 published: "2026-11-04"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "Claude Code, delegated by James Lerner: Douglas County's unofficial results, last updated November 5, 2026, 5:16 pm, reached from the county's Elections page and read that evening"
 source: "https://results.enr.clarityelections.com/CO/Douglas/127427/"
 sourceLabel: "Douglas County: 2026 General Election unofficial results, last updated November 5, 2026, 5:16 pm"

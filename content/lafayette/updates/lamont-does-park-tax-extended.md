@@ -8,7 +8,7 @@ action: "Nothing to do: the measure extends a tax already on the bill rather tha
 effective: "2026-11-03"
 effectiveNote: "Decided November 3, 2026; the tax, due to expire in December 2026, now runs through December 31, 2046"
 published: "2026-11-04"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "Claude Code, delegated by James Lerner: Boulder County's unofficial results, last updated November 5, 2026, 5:06 pm, read that evening"
 source: "https://electionresults.bouldercounty.gov/"
 sourceLabel: "Boulder County Elections: 2026 General Election unofficial results, last updated November 5, 2026, 5:06 pm"

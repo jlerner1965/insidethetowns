@@ -8,7 +8,7 @@ action: "Nothing to do. The two counties finish counting and the Canvass Board a
 effective: "2026-11-03"
 effectiveNote: "Election Day, November 3, 2026; unofficial results posted that night, official after the canvass in late November"
 published: "2026-11-04"
-verified: "2026-11-04"
+verified: "2026-11-05"
 verifiedBy: "Claude Code, delegated by James Lerner: Boulder County's results, last updated November 5, 2026, 5:06 pm, and Weld County's summary report of November 5, 2026, 12:51 pm, both read that evening; the Town's results page, read the same evening"
 source: "https://electionresults.bouldercounty.gov/"
 sourceLabel: "Boulder County Elections: 2026 General Election unofficial results, last updated November 5, 2026, 5:06 pm"

@@ -38,8 +38,8 @@ import SectionHeader from '@/components/SectionHeader.astro';
 import TeamSeason from '@/components/TeamSeason.astro';
 import { getTown } from '@/config';
 import { schoolAthletics, schoolSportsFor, schoolsFor, shareImagePath, sportsPath, teamPath, type SportData, type SportsData } from '@/config/school-sports';
-import { dayKey, formatDayShort, formatShortDate } from '@/lib/dates';
-import { bigGame, coming, gameDay as day, latestResult, recentResults, RESULT_WORD, leaguePlace, pageSeasonLabel, placeText, schoolCssVars, schoolPageTitle, seasonComplete, sportsFullTitle, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
+import { dayKey, formatDayShort, formatShortDate, parseLocal } from '@/lib/dates';
+import { bigGame, coming, gameDay as day, latestResult, pageSeasonLabel, postseasonSource, recentResults, RESULT_WORD, leaguePlace, placeText, schoolCssVars, schoolPageTitle, seasonComplete, sportsFullTitle, seasonOf, sportsDataFor, teamsWithData, where } from '@/lib/school-sports';
 import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 
 const town = getTown();
@@ -77,6 +77,8 @@ const next = bigGame(data, now);
 const then = coming(data).filter((c) => c.game.date >= today && c.game.url !== next?.game.url);
 const latest = latestResult(data);
 const board = recentResults(data, 6);
+// A postseason game from CHSAA's bracket rather than MaxPreps (src/config/postseason.ts) names its source too.
+const bracket = postseasonSource(sports);
 
 // The teams with a season to show and the ones whose page has never been
 // read. A team MaxPreps has nothing for yet (cross country in the fall) is
@@ -184,7 +186,7 @@ const jsonLd = [
       )}
       {/* The page's one source line. */}
       <p class="mt-5 text-[0.9375rem] text-ink-muted">
-        {calendar ? 'Scores from ' : 'Scores and schedules from '}<a href={MAXPREPS_SCHOOL} rel="noopener" class="font-semibold text-primary underline">MaxPreps</a>{newest && `, read ${formatShortDate(newest)}`}{calendar && <Fragment>; dates checked against the <a href={calendar.url} rel="noopener" class="font-semibold text-primary underline">school calendar</a></Fragment>}.
+        {calendar ? 'Scores from ' : 'Scores and schedules from '}<a href={MAXPREPS_SCHOOL} rel="noopener" class="font-semibold text-primary underline">MaxPreps</a>{newest && `, read ${formatShortDate(newest)}`}{calendar && <Fragment>; dates checked against the <a href={calendar.url} rel="noopener" class="font-semibold text-primary underline">school calendar</a></Fragment>}{bracket && <Fragment>; postseason games from <a href={bracket.url} rel="noopener" class="font-semibold text-primary underline">CHSAA’s bracket</a>, read {formatShortDate(parseLocal(bracket.read))}</Fragment>}.
       </p>
       {sisters.length > 0 && (
         <p class="mt-2 text-[0.9375rem] text-ink-muted">
