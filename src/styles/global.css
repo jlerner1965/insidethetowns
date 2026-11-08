@@ -44,6 +44,11 @@
   --color-ink-muted: #46545B;
   --color-line: var(--t-line);
   --color-line-soft: var(--t-line-soft);
+  /* A text field's edge, the one line that says "type here": 3.55:1 on
+     white and 3.26:1 on paper, over WCAG 1.4.11's 3:1 for a control's
+     boundary, where --color-line is 1.95:1 (Berthoud polish, 8 November
+     2026). Rules and card edges keep the lighter lines. */
+  --color-field-line: var(--t-field-line);
 
   --font-heading: "Fraunces Variable", Georgia, "Times New Roman", serif;
   --font-body: "Instrument Sans Variable", ui-sans-serif, system-ui, sans-serif;
@@ -55,6 +60,7 @@
 :root {
   --t-line: color-mix(in srgb, var(--town-paper) 70%, #243137 30%);
   --t-line-soft: color-mix(in srgb, var(--town-paper) 88%, #243137 12%);
+  --t-field-line: color-mix(in srgb, var(--town-paper) 45%, #243137 55%);
   --t-primary-line: color-mix(in srgb, var(--town-primary) 25%, #ffffff);
   --t-accent-soft: color-mix(in srgb, var(--town-accent) 16%, #ffffff);
 }

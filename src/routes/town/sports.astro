@@ -158,7 +158,10 @@ const jsonLd = [
               <li class="sm:flex-1">
                 <a href={`#${s.key}`} class="group flex items-baseline justify-between gap-4 py-3 no-underline sm:block sm:py-4 sm:pr-6 sm:pl-5 sm:first:pl-0">
                   <span class="min-w-0">
-                    <span class="eyebrow block">{s.name}</span>
+                    {/* Two lines kept from 40rem, used or not: "Boys basketball"
+                        wraps in a six-team row, and its record sat a line below
+                        the others (Berthoud polish, 8 November 2026). */}
+                    <span class="eyebrow block sm:min-h-[2lh]">{s.name}</span>
                     {s.league && (
                       <span class="mt-0.5 block text-[0.875rem] leading-snug text-ink-muted sm:hidden">
                         {leaguePlace(s) ? `${leaguePlace(s)} in the ` : ''}{s.league.name}

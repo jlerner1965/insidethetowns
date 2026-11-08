@@ -33,14 +33,21 @@ if (config && town.families) links.push({ label: 'Kids & family plans', href: '/
 if (config && rec) links.push({ label: rec.label, href: `/places/${rec.place}/`, track: 'rec-center' });
 if (config && hasUpdates) links.push({ label: 'What changed in town', href: '/updates/', track: 'updates' });
 ---
+{/* On the page, not in a band of its own: a stacked list on white, in the
+    guide's colour, the width of What's happening above it, as the owner's
+    mock-up had it. A full-width paper stripe with the links in one row read
+    as a stray band between two white sections (the owner, 8 November 2026,
+    on the live page). It sits close under All events (the negative margin
+    takes back most of What's happening's closing padding) and leaves the
+    space below to the next band's own. */}
 {links.length >= 2 && (
-  <section class="band-paper py-2 md:py-3" aria-label="Quick answers">
+  <section class="band-white -mt-8 md:-mt-14" aria-label="Quick answers">
     <div class="container-page">
-      <ul class="flex flex-col divide-y divide-line-soft md:flex-row md:flex-wrap md:gap-x-10 md:divide-y-0">
+      <ul class="max-w-3xl divide-y divide-line-soft border-y border-line-soft">
         {links.map((l) => (
           <li>
-            <a href={l.href} class="inline-flex min-h-11 items-center py-2 text-[1.0625rem] font-semibold text-ink no-underline hover:text-primary hover:underline" data-track={`quick-${l.track}`}>
-              {l.label} →
+            <a href={l.href} class="flex min-h-12 items-center py-2.5 text-[1.0625rem] font-semibold text-primary no-underline hover:underline" data-track={`quick-${l.track}`}>
+              {l.label}&nbsp;→
             </a>
           </li>
         ))}

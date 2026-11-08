@@ -9255,3 +9255,42 @@ family plans, rec center hours and swim, Spartans scores and schedules.*
 - **Scores and schedules left out:** the athletics bar directly above says
   it. "What changed in town" took its place, the second-biggest click
   earner on Berthoud in the search audit of 7 November.
+- **Restyled the same day, after the owner saw it live:** as a full-width
+  paper band with the three links in one row on a desktop it read as a
+  stray stripe between two white sections. It is now a stacked list on the
+  white page, in the guide's colour, the width of What's happening and
+  close under All events, as the owner's mock-up had it.
+
+## Design polish run on Inside Berthoud, 8 November 2026
+
+*The owner asked for a polish run "the same way" as the Love Lyons design
+audit of 17 October: numbered findings, each naming the file and the fix.
+This time the pages were rendered: fifteen Berthoud pages at 390px (iPhone
+13) and 1366px, measured in the browser for contrast, type size, tap
+targets, heading order, overflow and images. All seven fixes are in shared
+components, so every guide takes them.*
+
+- **A stray rule over the first event of a day** (EventCard.astro): a day's
+  box opens with its weekly regulars, held hidden, so `first:border-t-0`
+  never matched the first card a reader sees. The rule now goes only where
+  a shown card sits before it.
+- **"Also coming up" in date order** (events/[slug].astro): the same venue's
+  listings are still chosen first, then the three are shown by date.
+- **Local changes' source line** (UpdateRow.astro): a long source label as
+  an inline-block pushed ", read Nov 4" onto a line of its own; the link is
+  inline now, and "Link" says "Link to this change".
+- **The sports records line up** (sports.astro): a team name that wraps
+  ("Boys basketball") no longer drops its record a line below the others.
+- **The deadline card says what is due** (DeadlineCard.astro): the
+  deadline's own listing gives the line, not the program's summary, and the
+  source reads "Checked Oct 22, 2026 against …" rather than a bare domain
+  under a button to the same site.
+- **Text fields' edges at 3:1** (global.css, `--color-field-line`): the
+  email, search, contact and submission fields had a 1.95:1 border on
+  white, under WCAG 1.4.11; the new token is 3.55:1 on white, 3.26:1 on
+  paper. Rules and card edges keep the lighter lines.
+- **Holiday dates without the year** (RecCenterSchedule.astro): the season
+  line gives it, and every date wrapped to two lines.
+- **Left as the owner set them:** 8px photo credits (7 November); the email
+  strip above the events list (6 November); the home page's shorter footer
+  (27 October).

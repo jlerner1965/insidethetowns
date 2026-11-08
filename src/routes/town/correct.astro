@@ -26,7 +26,7 @@ const hub = getNetworkHub();
 const action = town.formspreeId ? `https://formspree.io/f/${town.formspreeId}` : undefined;
 const subject = `[Correction] ${town.name}`;
 const mailto = hub.correctionsEmail ? `mailto:${hub.correctionsEmail}?subject=${encodeURIComponent(subject)}` : undefined;
-const field = 'mt-1.5 block w-full rounded-md border border-line bg-raised px-3 py-2.5 text-[1.0625rem] font-normal';
+const field = 'mt-1.5 block w-full rounded-md border border-field-line bg-raised px-3 py-2.5 text-[1.0625rem] font-normal';
 const label = 'block text-sm font-semibold';
 ---
 <Page

@@ -204,7 +204,12 @@ const sameProgram = (other: TownEntry<'events'>) => {
 const soon = uniqueByEvent(upcoming(occurrences(await getTownEntries('events'), { horizonDays: 30 }))).filter(
   (e) => e.slug !== event.slug && e.data.title !== data.title && !sameProgram(e) && !isCanceled(e),
 );
-const alsoOn = [...soon.filter((e) => e.data.venue === data.venue), ...soon.filter((e) => e.data.venue !== data.venue)].slice(0, 3);
+// The same venue's first in the choosing, then the three shown in date
+// order: "Sat Nov 28" above "Sun Nov 8" read as a sorting mistake (Berthoud
+// polish, 8 November 2026).
+const alsoOn = [...soon.filter((e) => e.data.venue === data.venue), ...soon.filter((e) => e.data.venue !== data.venue)]
+  .slice(0, 3)
+  .sort((a, b) => a.data.start.getTime() - b.data.start.getTime());
 // Directions as the place page gives them (src/lib/places.ts, directionsUrl):
 // a visitor from a search wants the way there from the event itself (the
 // reader pass, 1 November 2026).
