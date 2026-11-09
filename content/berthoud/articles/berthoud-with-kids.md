@@ -2,11 +2,14 @@
 title: "Berthoud with kids: the inclusive playground, the bike park, three storytimes a week"
 seoTitle: "Berthoud with kids: playground, bike park, storytimes"
 date: "2026-09-27"
-updated: "2026-10-08"
+updated: "2026-11-09"
 excerpt: "Where to take children in Berthoud, by the kind of day it is: a hot one, a rainy one, a winter one, and a Saturday downtown."
 category: "Families"
+image: ../images/berthoud-town-park-water-play.webp
+imageAlt: "Children playing in the natural-stone water feature at Berthoud Town Park on a summer day, parents watching from the boulders"
+imageCredit: "Town of Berthoud"
 tags: [families, kids, playgrounds, guide]
-verified: "2026-10-08"
+verified: "2026-11-09"
 sources:
   - { label: "Town of Berthoud: Parks", url: "https://www.berthoud.org/219/Parks" }
   - { label: "Town of Berthoud: Berthoud Bike Park", url: "https://www.berthoud.org/1465/Berthoud-Bike-Park" }

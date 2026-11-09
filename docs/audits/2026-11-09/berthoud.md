@@ -1,3 +1,11 @@
+> **Applied the same day, on branch `claude/intelligent-edison-vd0kbl`.** All ten Fix-now items; the dated lines that could be fixed before their day (banners, the 12 November links, the election note, past school days, Election Day's `featured`, the scarecrow tense); every Fix-soon accuracy item except the rec-center pool hours, which need a call; American spelling; nine more no-school dates and the in-town clinic on Living here; the Bells of Berthoud, Danny Shafer and Snowlympics. Photographs: two articles, a venue's photograph on its events (`imageListingOnly` opts a place out), the Recreation Center anniversary as the home's Don't miss card, and `docs/BERTHOUD-PHOTO-PLAN.md` (shot list, agreement, six draft emails). Design: photo credits at 11 px, the home tiles' phone images at half the width, larger footer and contents links, the history article's second source list removed.
+>
+> **Withdrawn, on reading the code:** the long lines on This week and Events (the text already sits in a reading-width column; the measurement read the card, not the text), the cut filter chips (the row already fades at a scrolled edge), and the 41 long titles (`src/lib/titles.ts` fits them to its own limit by design).
+>
+> **Left as the owner set them:** the Families row layout (9 November), where the signup box sits on Events and the home (6 November), and "See organizer" on the cost row. The audit's notes on them stand as opinion, not as changes.
+>
+> **Still open:** the rec-center pool hours for 31 December, 2 and 3 January and 21–23 and 28–30 December (call 970-532-1600); the Development Code outcome after 10 November; early-bird prices after 14 November; the library's three unlisted programs and the blood drive, whose times were not confirmed on a second read; a map on place pages (the site's security policy allows no embedded maps); and every item under Decisions for James.
+
 # Inside Berthoud — full audit, 9 November 2026
 
 Read Monday 9 November 2026 (that day's 23:02 UTC build). Every file under
