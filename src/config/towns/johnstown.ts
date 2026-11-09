@@ -171,6 +171,40 @@ export const johnstown: TownConfig = {
         ],
       },
       {
+        title: 'Health care',
+        verified: '2026-11-09',
+        items: [
+          { label: 'UCHealth Urgent Care – Johnstown, 4846 Larimer Pkwy', url: 'https://www.uchealth.org/locations/uchealth-urgent-care-johnstown/', note: 'Near Eisenhower Boulevard and Larimer Parkway; walk-ins welcome, or reserve a spot online. Monday to Friday 8 am to 8 pm, weekends 8 am to 6 pm; 970-624-2834' },
+          { label: 'UCHealth Medical Center of the Rockies, 2500 Rocky Mountain Ave, Loveland', url: 'https://www.uchealth.org/locations/uchealth-medical-center-of-the-rockies/', note: 'Emergency care around the clock, at a Level I trauma center; 970-624-2500. In an emergency call 911' },
+        ],
+      },
+      {
+        title: 'Motor vehicles',
+        note: 'Register and renew with the county you live in: Weld for most of town, Larimer for the north-west.',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Weld County motor vehicle offices', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Motor-Vehicle-Department/Contact-Us', note: 'Greeley, 1250 H St, 970-304-6520, and Southwest Weld (Del Camino), 4209 County Road 24.5, 720-652-4201; both Monday to Friday 8 am to 5 pm' },
+          { label: 'Larimer County Vehicle Licensing', url: 'https://larimer.gov/vehiclelicensing', note: 'The Loveland office, 200 Peridot Ave, first floor, Monday to Friday 8 am to 5 pm except holidays, 970-619-4521; appointments, self-service kiosks and online renewal are on the same page' },
+        ],
+      },
+      {
+        title: 'Pets, permits and the post office',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Animal control: Johnstown Police', url: 'https://www.nocohumane.org/animal-control/other-northern-colorado-communities/', note: 'Animal problems go to the Johnstown Police Department, 970-587-5555, which may send NOCO Humane to respond' },
+          { label: 'Building permits: the Town’s Building Department', url: 'https://johnstownco.gov/210/Building-Department', note: 'Permit and contractor-license applications go through the Town’s eTRAKiT portal; SafeBuilt does plan review and inspections for the Town, 970-305-3161. Call 811 at least three days before you dig' },
+          { label: 'Johnstown Post Office, 121 Castle Pines Ave', url: 'https://tools.usps.com/locations/details/1368496', note: 'Counter Monday to Friday 8:30 am to 1 pm and 2 to 4:30 pm, Saturday 9:30 am to noon; passport appointments and photos; 970-587-4246' },
+        ],
+      },
+      {
+        title: 'Metro districts',
+        note: 'Metropolitan districts are common in Colorado’s residential neighborhoods: a district can levy its own property tax and issue bonds for streets, parks and other services.',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Special districts: the state’s guide for residents', url: 'https://dlg.colorado.gov/special-districts-brief-review-for-residents', note: 'The Weld or Larimer County assessor has the name of every district that levies property tax at an address; the state’s Local Government Information System has each district’s budget, service plan, elections and contacts' },
+        ],
+      },
+      {
         title: 'Town meetings and participation',
         verified: '2026-10-22',
         items: [
