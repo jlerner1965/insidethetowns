@@ -9,7 +9,7 @@ category: market
 organizer: "Boulder County Farmers Markets"
 source: "https://bouldercounty.gov/event/longmont-farmers-market-2/2026-11-21/"
 sourceId: "bouldercounty-gov-fairgrounds"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Longmont Farmers Market\" at 8 am on 21 November on the Boulder County Fairgrounds feed"
 ---
 

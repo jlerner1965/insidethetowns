@@ -9,7 +9,7 @@ performers:
 url: "https://citystarbrewing.com/event/something-to-say/"
 category: music
 source: "https://citystarbrewing.com/event/something-to-say/"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Something to Say\" at 6 pm on 21 November in the page's structured data"
 ---
 

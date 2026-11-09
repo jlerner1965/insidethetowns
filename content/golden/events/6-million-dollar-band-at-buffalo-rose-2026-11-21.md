@@ -10,7 +10,7 @@ url: "https://buffalorosegolden.com/events/6-million-dollar-band/"
 category: music
 source: "https://buffalorosegolden.com/events/6-million-dollar-band/"
 sourceId: "buffalorose-net"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"6 Million Dollar Band\" at 8 pm on 21 November in the page's structured data"
 ---
 

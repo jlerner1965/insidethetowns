@@ -10,7 +10,7 @@ organizer: "Carbon Valley Regional Library (High Plains Library District)"
 organizerUrl: "https://www.mylibrary.us/cvrl/"
 source: "https://highplains.libcal.com/event/15854553"
 sourceId: "highplains-libcal-com"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Wiggle Worms: Yoga Storytime\" at 6:30 pm on 10 November on the Carbon Valley Regional Library (High Plains Library District), LibCal feed"
 ---
 

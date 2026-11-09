@@ -9,7 +9,7 @@ category: music
 performers:
   - { name: "American Peasants", kind: group }
 source: "https://grimmbrothersbrewing.com/event/pint-a-performance-american-peasants-music/"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): 19 November and 6 pm on the page"
 ---
 

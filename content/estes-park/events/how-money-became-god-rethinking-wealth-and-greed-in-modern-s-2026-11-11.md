@@ -9,7 +9,7 @@ source: "https://calendar.estesvalleylibrary.org/event/17846845"
 sourceId: "estesvalleylibrary-org"
 sourceUid: "LibCal-19315-17846845"
 sourceHash: "a7a37e7c4217"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"How Money Became God: Rethinking Wealth and Greed in Modern Society with Paul Vigna\" at 12 pm on 11 November on the Estes Valley Library feed"
 ---
 

@@ -14,7 +14,7 @@ sourceHash: "a6770f8f2cc1"
 verified: "2026-11-07"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Puzzle Exchange\" at 11:30 am on 14 November on the Estes Valley Library feed"
 changeFlag: true
-changeNote: "recheck 2026-11-08: the Estes Valley Library feed lists \"Puzzle Exchange\" 11:30 am–5 pm on 14 November; the listing ends 1 pm"
+changeNote: "recheck 2026-11-09: the Estes Valley Library feed lists \"Puzzle Exchange\" 11:30 am–5 pm on 14 November; the listing ends 1 pm"
 ---
 
 The library's annual jigsaw swap in the Hondius Community Room: bring puzzles you have finished (complete ones only) and trade them for others. Take up to three free puzzles, plus one for every puzzle you bring to swap. Drop in any time from 11:30 am to 1 pm, and bring a bag.

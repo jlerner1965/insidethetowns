@@ -11,7 +11,7 @@ recurring: "first Tuesday of the month"
 source: "https://bouldercounty.gov/series/niwot-local-improvement-district-advisory-committee-nlidac-meeting/"
 verified: "2026-09-18"
 changeFlag: true
-changeNote: "recheck 2026-11-08: not on the bouldercounty.gov feed on 1 December; it has \"Nederland EcoPass Public Improvement District Advisory Committee (NEPPIDAC) Public Meeting\" on 11 November"
+changeNote: "recheck 2026-11-09: not on the bouldercounty.gov feed on 1 December; it has \"Nederland EcoPass Public Improvement District Advisory Committee (NEPPIDAC) Public Meeting\" on 11 November"
 ---
 
 Monthly meeting of the advisory committee for the Niwot Local Improvement District. The public is invited to attend; check the Commissioners' two-week advance agenda to confirm the meeting is on.

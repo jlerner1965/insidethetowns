@@ -13,8 +13,8 @@ cost: "$150 for all five"
 recurring: "Five Sundays: Nov 8, 22, 29, Dec 6 and 13"
 source: "https://creativegroundslyons.com/classes"
 sourceId: "creativegroundslyons-com"
-verified: "2026-11-08"
-verifiedBy: "recheck-events (the nightly re-check workflow): 8 November and 2:30 pm on the page"
+verified: "2026-11-09"
+verifiedBy: "recheck-events (the nightly re-check workflow): 15 November and 2:30 pm on the page"
 ---
 
 A five-week wheel-throwing course for anyone 14 and up: centering, throwing, trimming and glazing. It meets Sundays 2:30 to 5 pm on November 8, 22 and 29 and December 6 and 13, with no class on November 15.

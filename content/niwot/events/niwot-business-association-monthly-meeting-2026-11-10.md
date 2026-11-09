@@ -8,7 +8,7 @@ url: "https://niwothall.org/events/"
 category: civic
 recurring: "second Tuesday of the month"
 source: "https://niwothall.org/events/"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"NBA Monthly Meeting\" at 8:30 am on 10 November on the Niwot Hall (Left Hand Grange) feed"
 ---
 

@@ -10,7 +10,7 @@ source: "https://music.colostate.edu/events/virtuoso-series-concert-faculty-cham
 sourceId: "music-colostate-edu"
 sourceUid: "17-19473@music.colostate.edu"
 sourceHash: "10d7fa2cbb88"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Virtuoso Series Concert: Faculty Chamber Music\" at 7:30 pm on 9 November on the music.colostate.edu feed"
 ---
 

@@ -8,7 +8,7 @@ url: "https://highplains.libcal.com/event/15973072"
 cost: "Free"
 category: family
 source: "https://highplains.libcal.com/event/15973072"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Baby Open Play (BOP)\" at 1:15 pm on 19 November in the page's structured data"
 ---
 

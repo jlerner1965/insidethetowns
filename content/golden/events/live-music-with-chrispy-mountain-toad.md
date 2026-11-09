@@ -12,7 +12,7 @@ category: music
 performers:
   - { name: "Chrispy", kind: person }
 source: "https://www.mountaintoadbrewing.com/events"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): 11 November and 6 pm on the page"
 ---
 

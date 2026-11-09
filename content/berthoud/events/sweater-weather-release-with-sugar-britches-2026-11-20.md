@@ -16,7 +16,7 @@ source: "https://citystarbrewing.com/event/taproom-release-sweater-weather/"
 sourceId: "citystarbrewing-com"
 sourceUid: "11119"
 mergedUids: ["10010572"]
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Beer Release: Sweater Weather\" at 3 pm on 20 November in the page's structured data"
 ---
 
