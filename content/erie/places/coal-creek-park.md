@@ -12,8 +12,10 @@ tags: [playground, splash pad, ice rink, events]
 featured: true
 summary: "The downtown park on Kattell Street: Maddie's butterfly playground, a splash pad in summer, an ice rink in winter, and the site of Brewfest and the Parade of Lights."
 source: "https://www.erieco.gov/2274/Coal-Creek-Park"
-verified: "2026-10-03"
+verified: "2026-11-09"
 added: "2026-09-17"
 ---
 
-The 6.5-acre park a block off Briggs Street, with the custom butterfly-shaped Maddie's Playground, a splash pad from Memorial Day to mid-September, an ice rink from early December to late February, two shelters, the Monarch Community Room, a summer cafe, a memorial brick garden and a multi-purpose field. Brewfest and the pre-parade skating happen here.
+The 6.5-acre park a block off Briggs Street, with the custom butterfly-shaped Maddie's Playground, a splash pad from Memorial Day to mid-September, a seasonal ice rink, two shelters, the Monarch Community Room, a summer cafe, a memorial brick garden and a multi-purpose field. Brewfest and the pre-parade skating happen here.
+
+The Town's [Erie Ice Rink](https://www.erieco.gov/icerink) is open from November 27, 2026, to February 15, 2027. Public skate is $10 for adults and $8 for children 12 and under, card only, with skates and skate trainers included; no reservation. Public skate runs Tuesday and Thursday to Sunday until December 20, every day but Friday from December 21 to January 2, and Thursday to Sunday from January 3; the rink is closed December 25 and January 1, and the weather line is 303-926-2550, option 4. Skating lessons for ages 4 to adult run January 3 to February 7, with registration opening to residents on November 18 and to everyone on November 25, at 7 am. The Monday and Wednesday hockey leagues start November 30 and December 2, $500 a team, with registration open on Amilia.
