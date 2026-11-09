@@ -1,14 +1,13 @@
 ---
 title: "Fall yard waste pickup runs November 2 to 6, on your trash day"
 kind: notice
-stage: underway
+stage: complete
 summary: "The City's fall Yard Waste Collection Days are November 2 to 6: a separate truck collects leaves, branches, grass and other yard waste on your regular trash day, for households in the Pay-As-You-Throw program. Have it out by 7 am in the organics cart, bundled, or in certified compostable bags, up to 3 cubic yards a household."
 affects: "Golden households on the City's Pay-As-You-Throw trash program with 5280 Waste Solutions"
-action: "Put it where your trash is collected by 7 am on your trash day this week: branches under 4 feet long, bundled without twine or bagged; no plastic bags, dirt, stumps or construction material, or it stays at the curb."
 effective: "2026-11-02"
 effectiveEnd: "2026-11-06"
 published: "2026-11-04"
-verified: "2026-11-03"
+verified: "2026-11-09"
 source: "https://www.cityofgolden.gov/services/trash_recycling_compost/yard_waste_collection_days.php"
 sourceLabel: "City of Golden: Yard Waste Collection Days"
 item: "/living-here/"

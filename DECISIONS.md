@@ -9421,3 +9421,21 @@ Saturday or Wednesday MaxPreps run to write `data/fortcollins/sports-*.json`;
 Fort Collins High's second-round game, 13 November at 7 pm at French Field
 against Northfield, is in `src/config/postseason.ts` from CHSAA's bracket.
 Nothing else about the guide's quiet status changes.
+
+## Golden follows boys' tennis, baseball and lacrosse, 9 November 2026
+
+*The owner: "Add the sports teams", on the Golden gap report's finding that
+MaxPreps carries baseball, boys' tennis and lacrosse with no page on the
+guide.*
+
+- **Golden alone, four teams.** Boys' tennis is a fall sport in Colorado
+  (MaxPreps's "tennis/fall"); baseball, boys' lacrosse and girls' lacrosse
+  play in spring. No other school's list changes.
+- **Spring is a season the sports pages know.** A spring game's season
+  reads "Spring 2027", and a page with spring and winter teams together is
+  headed by the school year. Spring teams come after the winter list.
+- **A spring team waits for its season.** Out of season MaxPreps can still
+  show last spring's games; while every game it reports is from before
+  August 1 of the current school year, the Saturday and Wednesday run
+  writes the team as empty and the page leaves it off, so last May's
+  scores never read as this season's.
