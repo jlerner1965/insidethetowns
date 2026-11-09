@@ -21,6 +21,7 @@ import { ageText, breakAhead, deadlinePassed, programStatus } from '@/lib/progra
 import { PROGRAM_ACCESS_LABELS, PROGRAM_KIND_LABELS } from '@/content/schemas';
 import { getTownEntries } from '@/lib/content';
 import { occurrences, upcoming } from '@/lib/events';
+import { whenMarks } from '@/lib/when-marks';
 
 interface Props {
   program: TownEntry<'programs'>;
@@ -51,13 +52,15 @@ const pill = {
 const next = data.nextEvent ? (await getTownEntries('events')).find((e) => e.slug === data.nextEvent) : undefined;
 const nextWhen = next ? upcoming(occurrences([next], { now, horizonDays: 400 }), { now, limit: 1 })[0] : undefined;
 // A cost the organizer did not publish is said to be missing, not left
-// blank: a blank reads as free (family audit, 22 October 2026).
+// blank: a blank reads as free (family audit, 22 October 2026). It is set
+// in the supporting ink so it does not read as an answer.
+const NOT_STATED = 'Not stated on the organizer’s page';
 const facts: Array<[string, string | undefined]> = [
   ['Who', ageText(program)],
   ['When', data.schedule],
   ['Season', data.season],
   ['Where', data.location],
-  ['Cost', data.price ?? 'Not stated on the organizer’s page'],
+  ['Cost', data.price ?? NOT_STATED],
   ['Bring', data.equipment],
   ['Access', data.access !== 'public' ? PROGRAM_ACCESS_LABELS[data.access] : undefined],
 ];
@@ -92,7 +95,10 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
       {shown.map(([k, v]) => (
         <Fragment>
           <dt class="eyebrow text-ink-muted sm:pt-0.5">{k}</dt>
-          <dd class="mb-1 sm:mb-0">{v}</dd>
+          {/* The days and hours in the When line in bold, what a parent
+              scans the row for (src/lib/when-marks.ts; the owner, 9
+              November 2026). */}
+          <dd class:list={['mb-1 sm:mb-0', v === NOT_STATED && 'text-ink-muted']}>{k === 'When' ? whenMarks(v).map((s) => (s.mark ? <strong class="font-semibold text-title">{s.text}</strong> : s.text)) : v}</dd>
         </Fragment>
       ))}
     </dl>
@@ -101,7 +107,7 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
     {reg && (
       <li class:list={[passed && 'text-ink-muted']}>
         {reg.required ? 'Registration required' : 'No registration'}{reg.deadline && (
-          <Fragment>{' · '}<time datetime={toIsoLocal(reg.deadline)}>{passed ? `deadline was ${formatDate(reg.deadline)}` : `by ${formatDate(reg.deadline)}`}</time></Fragment>
+          <Fragment>{' · '}<time datetime={toIsoLocal(reg.deadline)} class:list={[!passed && 'font-semibold text-title']}>{passed ? `deadline was ${formatDate(reg.deadline)}` : `by ${formatDate(reg.deadline)}`}</time></Fragment>
         )}{reg.opens && !reg.deadline && <Fragment>{opened ? ' · open since ' : ' · opens '}<time datetime={toIsoLocal(reg.opens)}>{formatDate(reg.opens)}</time></Fragment>}
         {reg.how && <span class="block text-ink-muted">{reg.how}</span>}
         {reg.note && <span class="block text-ink-muted">{reg.note}</span>}
