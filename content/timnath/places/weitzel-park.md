@@ -5,7 +5,7 @@ address: "4580 Weitzel St"
 area: "Weitzel Street, by the river"
 url: "https://timnath.org/weitzel-park/"
 hours: "Open daily, dawn to dusk; gate-controlled"
-tags: [fishing, trailhead]
+tags: [fishing, trailhead, playground]
 summary: "A 4.5-acre park by the Poudre River, with a fishing pond, climbing structures, picnic areas and a trailhead onto the Poudre River Trail."
 source: "https://timnath.org/weitzel-park/"
 verified: "2026-11-09"
