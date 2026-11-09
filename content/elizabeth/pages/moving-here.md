@@ -4,7 +4,7 @@ description: "What it is like to move to a sawmill town of 1,675 at the 2020 cen
 image: ../images/town-hall.jpg
 imageAlt: "Elizabeth Town Hall, a low brick building on South Banner Street"
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY 4.0"
-updated: "2026-10-02"
+updated: "2026-11-09"
 ---
 
 ## What you are moving to
@@ -50,9 +50,15 @@ Inside town everything on Main Street is walkable, and the sidewalks and crossin
 - **Fire and emergency medical** response is the Elizabeth Fire Protection District, Station 271 at 155 W Kiowa Ave, a district that covers far more prairie than town.
 - **Library.** The [Elizabeth branch of Pines & Plains Libraries](/places/elizabeth-library/) is at 651 W Beverly St, open Monday to Thursday until 8, Friday to 5 and Saturday 10 to 5.
 
+## Groceries, car plates and voting
+
+- **Groceries and prescriptions.** [Safeway](https://local.safeway.com/safeway/co/elizabeth/220-s-elizabeth-st.html) is at 220 S Elizabeth St; the store is 303-646-0336 and its [pharmacy](https://local.pharmacy.safeway.com/safeway/co/elizabeth/220-s-elizabeth-st.html) 303-646-0656.
+- **Registering a car.** [Elbert County Motor Vehicle](https://www.elbertcounty-co.gov/225/Motor-Vehicle) is in Kiowa, at 440 Comanche St; 303-621-3123. The lobby is open Monday to Thursday 7:30 am to 5 pm, and the drive-thru, for renewals only, Monday to Thursday 8 am to 4:30 pm. A plate renewal can also be done [online with the state](https://dmv.colorado.gov/vehicles), or at the county's [self-service kiosk](https://www.elbertcounty-co.gov/620/Motor-Vehicle-Kiosk) inside the Elizabeth Safeway during store hours, for a $4.50 service fee on top of the renewal.
+- **Voting.** Elbert County's [Elections office](https://www.elbertcounty-co.gov/290/Elections) is at 440 Comanche St in Kiowa, Monday to Thursday 7:30 am to 5 pm; 303-621-3127. The Town's four Board of Trustees seats were on the county's November 2026 ballot. Register or update a registration at [GoVoteColorado](https://govotecolorado.gov). The county's Elections page lists the drop boxes and voter service centers for each election; in November 2026 Town Hall, 151 S Banner St, had a drop box and an Election Day voter service center.
+
 ## Water, wind and fire
 
-Three practical things that surprise people from the Front Range corridor. Water on the Palmer Divide comes from deep Denver Basin aquifer wells, and both the Town and the county think hard about supply; ask any developer or seller where the water comes from and for how long it is decreed. Wind is constant and the winter storms come up the divide from the southeast, so a snow that misses Denver entirely can close Highway 86. And this is wildland-urban interface: defensible space around the house, a metal or Class A roof, and knowing your evacuation route are not paranoia here, they are ordinary maintenance.
+Three practical things that surprise people from the Front Range corridor. Water on the Palmer Divide comes from deep Denver Basin aquifer wells, and both the Town and the county think hard about supply; ask any developer or seller where the water comes from and for how long it is decreed. Wind is constant and the winter storms come up the divide from the southeast, so a snow that misses Denver entirely can close Highway 86. And this is wildland-urban interface: defensible space around the house, a metal or Class A roof, and knowing your evacuation route are not paranoia here, they are ordinary maintenance. Fire restrictions in the unincorporated county are Elbert County's, and its [Burn Restriction Information](https://www.elbertcounty-co.gov/176/Burn-Restriction-Information) page has them.
 
 ## Government
 
