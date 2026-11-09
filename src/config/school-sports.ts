@@ -238,6 +238,19 @@ const ICE_HOCKEY: SportConfig = { key: 'ice-hockey', season: 'winter', name: 'Ic
  */
 const GIRLS_FLAG_FOOTBALL: SportConfig = { key: 'girls-flag-football', season: 'fall', name: 'Girls flag football', maxpreps: 'flag-football/girls/fall', calendar: { gender: 'Girls', sport: 'Flag Football' } };
 
+/**
+ * Boys' golf and boys' tennis, CHSAA fall sports, followed where the guide
+ * has asked: Windsor High, both 4A (CHSAANow's school page, read 9 November
+ * 2026, at the owner's word on the Windsor gap report). The paths are
+ * MaxPreps's Colorado ones (Severance's page links ".../golf/" and
+ * ".../tennis/fall/", 9 November 2026); Windsor's own pages refused this
+ * reader that day, and one that is not there keeps the team off the page
+ * and says so in the run's summary. Both seasons ended in October, so the
+ * first run reads a finished season.
+ */
+const BOYS_GOLF: SportConfig = { key: 'boys-golf', season: 'fall', name: 'Boys golf', maxpreps: 'golf', calendar: { gender: 'Boys', sport: 'Golf' } };
+const BOYS_TENNIS: SportConfig = { key: 'boys-tennis', season: 'fall', name: 'Boys tennis', maxpreps: 'tennis/fall', calendar: { gender: 'Boys', sport: 'Tennis' } };
+
 /** The fall list without one team, for a school that does not field it. */
 const FALL_WITHOUT = (...keys: string[]): SportConfig[] => FALL().filter((t) => !keys.includes(t.key));
 /** The winter list without one team, for a school whose MaxPreps page for it does not exist. */
@@ -360,7 +373,11 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // Windsor High posts each team's schedule on its own site
     // (whs.weldre4.org, one page per sport), not in a calendar this reader reads.
     calendarNote: 'Windsor High posts its schedules team by team on its own site, in a form this site does not read yet, so games to come are published on MaxPreps’s word alone.',
-    teams: TEAMS(),
+    // Boys' golf and tennis from 9 November 2026 (the owner). Its flag
+    // football and ice hockey are co-ops with Poudre School District, not
+    // teams of its own (CHSAANow), and its spring teams (girls' soccer,
+    // baseball, lacrosse and the rest) wait for a spring season here.
+    teams: TEAMS([...FALL(), BOYS_GOLF, BOYS_TENNIS]),
   },
   {
     // Severance High, the Windsor guide's second school (9 November 2026,

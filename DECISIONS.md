@@ -9403,3 +9403,11 @@ template, so every guide with a family hub takes them.*
   next MaxPreps run writes `data/windsor/sports-severance-high.json`. Its
   second-round game (vs Pueblo East, 13 November, 7 pm, Dutch Clark) is in
   `src/config/postseason.ts` and joins the page with that file.
+- **More Windsor High teams** (the owner: "And add more Windsor sports"):
+  boys' golf and boys' tennis, the fall teams CHSAANow lists for Windsor
+  High that the guide did not follow. Its flag football and ice hockey are
+  co-ops with Poudre School District, not its own teams. Its spring teams
+  (baseball, girls' soccer, boys' lacrosse, girls' golf and tennis, track,
+  boys' swimming) wait: the sports pages know a fall and a winter season
+  only, and following spring teams is a change to the season code for
+  every guide.
