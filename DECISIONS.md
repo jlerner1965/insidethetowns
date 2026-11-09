@@ -9394,8 +9394,11 @@ template, so every guide with a family hub takes them.*
   is not on MaxPreps.
 - **A /services/ page for Niwot.** Yes. It was put to the owner as a new
   page type for after 20 January; it is not one. The category page builds
-  itself once three `service` places are listed, so it is content work
-  (TODO.md).
+  itself once three `service` places are listed, so it is content work.
+  Started the same day at the owner's word: Niles Family Dentistry,
+  Blessings Day Spa and Niwot Veterinary Clinic, each from its own site.
+  The clinic is listed although it leaves for Broomfield on March 15 (the
+  owner's yes); Niwot Barber Shop and Niwot Dental are staged.
 - **Thanksgiving on BOLT.** Yes: a line in the Niwot notes for the week of
   23 November, added once the Wednesday editor has opened that week's
   notes on 18 November, so the research draft is not lost.
