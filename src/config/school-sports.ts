@@ -24,12 +24,14 @@
  * calendar titles the varsity team's events ("Boys Varsity Football vs …").
  * The winter list is configured (25 October 2026) and its teams take
  * their place on the pages as MaxPreps fills their schedules in: a team
- * with nothing on MaxPreps is an `empty` entry the page leaves off. A
- * spring team is followed where a guide asks for it (Golden's baseball and
- * lacrosse, 9 November 2026); out of season, while MaxPreps still shows
- * only last spring's games, the run writes it as `empty` too
- * (scripts/lib/sports-crosscheck.ts, beforeSpringSeason), so it joins the
- * page with its first game.
+ * with nothing on MaxPreps is an `empty` entry the page leaves off. Spring
+ * teams are followed where the owner has asked (Lyons's baseball and track,
+ * Golden's baseball and lacrosse, 9 November 2026); until MaxPreps opens
+ * the school year's spring season the run writes them as having nothing
+ * yet, whether the page is still last school year's (scripts/lib/maxpreps.ts,
+ * staleSeason) or lists no game of this one (scripts/lib/sports-crosscheck.ts,
+ * beforeSpringSeason), so last spring's record never shows as this one's
+ * and the team joins the page with its first game.
  *
  * The school, its mascot, its classification and its league are checked
  * against CHSAANow's member-school profiles and its 2026–28 classification
@@ -243,20 +245,36 @@ const ICE_HOCKEY: SportConfig = { key: 'ice-hockey', season: 'winter', name: 'Ic
 const GIRLS_FLAG_FOOTBALL: SportConfig = { key: 'girls-flag-football', season: 'fall', name: 'Girls flag football', maxpreps: 'flag-football/girls/fall', calendar: { gender: 'Girls', sport: 'Flag Football' } };
 
 /**
+ * Spring teams, followed where a guide has asked: Lyons, on the owner's word
+ * of 9 November 2026 (baseball and track, both on the school's athletics
+ * list). The paths are MaxPreps's spring defaults ("baseball",
+ * "track-field", "track-field/girls"); MaxPreps refuses the cloud address
+ * this was written from, so the first Saturday or Wednesday run from the
+ * runner is the check, and a path that is not there keeps the team off the
+ * page and says so in the run's summary. Track is meets, not games: the
+ * reader finds nothing on the cross-country pages, which are meets too, so
+ * track may show nothing until the reader learns to read a meet.
+ */
+const SPRING_BASEBALL: SportConfig = { key: 'baseball', season: 'spring', name: 'Baseball', maxpreps: 'baseball', calendar: { gender: 'Boys', sport: 'Baseball' } };
+const SPRING_TRACK: SportConfig[] = [
+  { key: 'boys-track', season: 'spring', name: 'Boys track and field', maxpreps: 'track-field', calendar: { gender: 'Boys', sport: 'Track & Field' } },
+  { key: 'girls-track', season: 'spring', name: 'Girls track and field', maxpreps: 'track-field/girls', calendar: { gender: 'Girls', sport: 'Track & Field' } },
+];
+
+/**
  * Golden High's other teams, at the owner's word (9 November 2026), after
  * the Golden gap report of 8 November found baseball, boys' tennis and
  * lacrosse on MaxPreps with no page on the guide. In Colorado boys' tennis
  * is a fall sport, and MaxPreps files it under the season ("tennis/fall",
- * as Golden's 2023–24 schedule page is); baseball and both lacrosse teams
- * play in spring. The paths are MaxPreps's own for Golden ("baseball",
- * "lacrosse", "lacrosse/girls"), as search results list them on 9
- * November 2026; MaxPreps refuses the cloud address this was written from,
- * so the first run from the GitHub runner is the first read, and a path
- * that is not there keeps the team off the page and says so in the run's
- * summary.
+ * as Golden's 2023–24 schedule page is); baseball (SPRING_BASEBALL above,
+ * as Lyons's) and both lacrosse teams play in spring. The paths are
+ * MaxPreps's own for Golden ("baseball", "lacrosse", "lacrosse/girls"), as
+ * search results list them on 9 November 2026; MaxPreps refuses the cloud
+ * address this was written from, so the first run from the GitHub runner
+ * is the first read, and a path that is not there keeps the team off the
+ * page and says so in the run's summary.
  */
 const BOYS_TENNIS: SportConfig = { key: 'boys-tennis', season: 'fall', name: 'Boys tennis', maxpreps: 'tennis/fall', calendar: { gender: 'Boys', sport: 'Tennis' } };
-const BASEBALL: SportConfig = { key: 'baseball', season: 'spring', name: 'Baseball', maxpreps: 'baseball', calendar: { gender: 'Boys', sport: 'Baseball' } };
 const BOYS_LACROSSE: SportConfig = { key: 'boys-lacrosse', season: 'spring', name: 'Boys lacrosse', maxpreps: 'lacrosse', calendar: { gender: 'Boys', sport: 'Lacrosse' } };
 const GIRLS_LACROSSE: SportConfig = { key: 'girls-lacrosse', season: 'spring', name: 'Girls lacrosse', maxpreps: 'lacrosse/girls', calendar: { gender: 'Girls', sport: 'Lacrosse' } };
 
@@ -503,8 +521,9 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     calendarNote: 'Lyons posts its schedules as spreadsheets on the school site, which the cross-check does not read, so games to come are published on MaxPreps’s word alone.',
     // The fall list at the school site, 22 October 2026: cross country,
     // football, softball, volleyball (and cheer). No boys soccer. No girls'
-    // swimming page on MaxPreps (HTTP 404, 25 October 2026).
-    teams: TEAMS(FALL_WITHOUT('boys-soccer'), WINTER_WITHOUT('girls-swimming')),
+    // swimming page on MaxPreps (HTTP 404, 25 October 2026). Baseball and
+    // track in the spring, on the owner's word (9 November 2026).
+    teams: TEAMS(FALL_WITHOUT('boys-soccer'), WINTER_WITHOUT('girls-swimming'), [SPRING_BASEBALL, ...SPRING_TRACK]),
   },
   {
     town: 'golden',
@@ -527,7 +546,7 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // both basketball, wrestling, girls' swimming). A team MaxPreps has
     // nothing for is left off the page by the run. Boys' tennis, baseball
     // and both lacrosse teams from 9 November 2026 (BOYS_TENNIS above).
-    teams: TEAMS([...FALL(), BOYS_TENNIS], WINTER(), [BASEBALL, BOYS_LACROSSE, GIRLS_LACROSSE]),
+    teams: TEAMS([...FALL(), BOYS_TENNIS], WINTER(), [SPRING_BASEBALL, BOYS_LACROSSE, GIRLS_LACROSSE]),
   },
   {
     town: 'lafayette',
@@ -558,6 +577,72 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // (girls' wrestling and gymnastics are Broomfield co-ops, not followed).
     // No data file yet: the first Saturday or Wednesday run writes
     // data/lafayette/sports.json, and the page waits for it.
+    teams: TEAMS(),
+  },
+  // Longmont's three high schools, on the owner's word of 9 November 2026
+  // (the Longmont gap report of 8 November). A city guide follows several
+  // schools, as Loveland does: /sports/ lists them and each has its own
+  // page and file (data/longmont/sports-<slug>.json). MaxPreps's school
+  // paths are as its Skyline football page links them (read 9 November
+  // 2026); the run on the runner reads each team's page, and a team
+  // MaxPreps has nothing for is left off by the run. No data files yet:
+  // the first run after this lands writes them, and the pages wait.
+  {
+    town: 'longmont',
+    slug: 'longmont-high',
+    // CHSAANow: Longmont High School, St Vrain Valley RE1J, Granite Peaks;
+    // football 4A, basketball 5A (2026–28, read 9 November 2026).
+    school: 'Longmont High School',
+    mascot: 'Trojans',
+    maxpreps: 'https://www.maxpreps.com/co/longmont/longmont-trojans/',
+    maxprepsName: 'Longmont',
+    // Trojan blue, from Longmont High's own stylesheet (lhs.svvsd.org,
+    // theme `--color-primary: #00417f`, read 9 November 2026).
+    colors: { primary: '#00417F' },
+    // The school's Sports Schedules page (lhs.svvsd.org/activities-arts-
+    // athletics/athletics/sports-schedules/, 9 November 2026) posts each
+    // team's schedule as a Google Sheet or Doc, which the cross-check does
+    // not read, as Lyons's.
+    calendarNote: 'Longmont High posts its schedules as spreadsheets on the school site, which the cross-check does not read, so games to come are published on MaxPreps’s word alone.',
+    // CHSAANow lists every fall and winter team the default lists follow.
+    teams: TEAMS(),
+  },
+  {
+    town: 'longmont',
+    slug: 'skyline',
+    // CHSAANow: Skyline High School, St Vrain Valley RE1J; football 3A,
+    // basketball 5A (2026–28, read 9 November 2026).
+    school: 'Skyline High School',
+    mascot: 'Falcons',
+    maxpreps: 'https://www.maxpreps.com/co/longmont/skyline-falcons/',
+    maxprepsName: 'Skyline',
+    // Falcon red, from Skyline High's own stylesheet (shs.svvsd.org, theme
+    // `--color-primary: #a01c29`, read 9 November 2026); MaxPreps's CC0022
+    // is Loveland High's and Elizabeth's too.
+    colors: { primary: '#A01C29' },
+    // The school's athletics page links ArbiterLive
+    // (arbiterlive.com/Teams?entityId=21096), whose robots.txt disallows
+    // every automated reader, as Niwot's, Erie's and Frederick's.
+    calendarNote: 'Skyline’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
+    // No softball: CHSAANow's alignment lists none for the school.
+    teams: TEAMS(FALL_WITHOUT('softball')),
+  },
+  {
+    town: 'longmont',
+    slug: 'silver-creek',
+    // CHSAANow: Silver Creek High School, St Vrain Valley RE1J, Granite
+    // Peaks; football 3A, basketball 5A (2026–28, read 9 November 2026).
+    school: 'Silver Creek High School',
+    mascot: 'Raptors',
+    maxpreps: 'https://www.maxpreps.com/co/longmont/silver-creek-raptors/',
+    maxprepsName: 'Silver Creek',
+    // Raptor maroon, from Silver Creek High's own stylesheet (schs.svvsd.org,
+    // theme `--color-primary: #6c0633`, read 9 November 2026).
+    colors: { primary: '#6C0633' },
+    // The school's athletics page (schs.svvsd.org/activities-arts-athletics/
+    // athletics/, 9 November 2026) links no calendar of games.
+    calendarNote: 'Silver Creek’s schedules are not yet checked against a school calendar, so games to come are published on MaxPreps’s word alone.',
+    // CHSAANow lists every fall and winter team the default lists follow.
     teams: TEAMS(),
   },
 ];

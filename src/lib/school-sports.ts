@@ -423,17 +423,15 @@ export function seasonComplete(data: SportsData, now = new Date()): boolean {
  * The season the page is in, from the data: the season (SportConfig.season)
  * of the team with the next game to come, else of the team with the latest
  * result, and that game's year. "Fall 2026" while football has a game left;
- * "Winter 2026–27" once the next game listed is basketball's. Nothing to go
- * on (no games at all): the fall of the build's year, which is what the
- * eyebrow said before the winter list existed. A spring team's season is
- * "Spring 2027", named for the year its games are in.
+ * "Winter 2026–27" once the next game listed is basketball's; "Spring 2027"
+ * once it is baseball's. Nothing to go on (no games at all): the fall of the
+ * build's year, which is what the eyebrow said before the winter list existed.
  */
-const SEASON_NAMES = { fall: 'Fall', winter: 'Winter', spring: 'Spring' } as const;
-
 export function seasonOf(data: SportsData, teams: Array<Pick<SportConfig, 'key' | 'season'>>, now = new Date()): { season: 'Fall' | 'Winter' | 'Spring'; year: number; years: string; label: string } {
   const seasonOfTeam = (key: string) => teams.find((t) => t.key === key)?.season ?? 'fall';
   const game = bigGame(data, now) ?? latestResult(data);
-  const season = game ? SEASON_NAMES[seasonOfTeam(game.team.key)] : 'Fall';
+  const of = game ? seasonOfTeam(game.team.key) : 'fall';
+  const season = of === 'winter' ? 'Winter' : of === 'spring' ? 'Spring' : 'Fall';
   const [y, m] = (game ? game.game.date : dayKey(now)).split('-').map(Number) as [number, number];
   // A winter season runs across the new year and is named for the school
   // year it belongs to: a January game is "Winter 2026–27", not 2027's.
@@ -454,8 +452,9 @@ export function pageSeasonLabel(data: SportsData, teams: Array<Pick<SportConfig,
   const seasons = new Set(teamsWithData(data).map((t) => teams.find((c) => c.key === t.key)?.season ?? 'fall'));
   if (seasons.size < 2) return s.label;
   if (s.season === 'Winter') return s.years;
-  // A spring belongs to the school year that began the summer before.
-  return s.season === 'Spring' ? `${s.year - 1}–${String(s.year).slice(-2)}` : `${s.year}–${String(s.year + 1).slice(-2)}`;
+  // A spring belongs to the school year that began the August before it.
+  const start = s.season === 'Spring' ? s.year - 1 : s.year;
+  return `${start}–${String(start + 1).slice(-2)}`;
 }
 
 /** "Boys soccer" as a title writes it: "Boys Soccer". */

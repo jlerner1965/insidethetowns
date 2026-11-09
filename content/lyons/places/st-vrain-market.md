@@ -10,7 +10,7 @@ tags: [grocery, deli, picnic]
 featured: true
 summary: "Deli, bakery and grocery: sandwiches and picnic supplies before the trail, staples after."
 source: "https://www.stvrainmarket.com/"
-verified: "2026-11-03"
+verified: "2026-11-09"
 added: "2026-09-17"
 ---
 

@@ -57,7 +57,8 @@ test('every guide has the same menu, built from what it has: the week, events, i
   assert.equal(townNav(towns.find((t) => t.slug === 'loveland')!).find((n) => n.href === '/sports/')?.label, 'High school sports');
   // Erie follows Erie High since 25 October 2026, so its menu carries Erie High in the third slot.
   assert.deepEqual(townNav(towns.find((t) => t.slug === 'erie')!).map((n) => n.label), ['This week', 'Things to do', 'Athletics', 'Eat & drink', 'Families', 'Living here', 'Guides']);
-  assert.deepEqual(townNav(towns.find((t) => t.slug === 'longmont')!).map((n) => n.label), ['This week', 'Things to do', 'Eat & drink', 'Events', 'Moving here', 'Guides']);
+  // Longmont follows its three high schools since 9 November 2026 (the owner's word), so its menu carries them in the third slot, as Loveland's.
+  assert.deepEqual(townNav(towns.find((t) => t.slug === 'longmont')!).map((n) => n.label), ['This week', 'Things to do', 'High school sports', 'Eat & drink', 'Events', 'Moving here', 'Guides']);
 });
 
 test('Shops is in the menu only where the guide lists enough open shops, right after Eat & drink', () => {

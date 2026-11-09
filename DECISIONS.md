@@ -9382,6 +9382,32 @@ template, so every guide with a family hub takes them.*
   it back: confirm it is open, re-source it, and take the slug out of the
   ledger.
 
+## Leadville: the 8 November gap report, three calls, 9 November 2026
+
+*The owner's answers on the gap-fix pull request (#337): "Yes to 1 2 12".*
+
+- **The Delaware Hotel publishes without the call** its 10 October
+  staging note asked for. Its rewritten site dates itself ("Welcoming
+  travelers for 140 years", since 1886) and Visit Leadville Twin Lakes
+  lists it under Where To Stay: the README's dated-page and
+  second-source routes, both met.
+- **Inside Leadville keeps /updates/.** CDOT's seasonal closure of
+  Independence Pass is the guide's first local change, and the route is
+  built for any guide with an updates folder, as on Elizabeth and Castle
+  Rock: no code or flag changed. Worth knowing shows on its home with it.
+- **Mineral 1886 is open, and publishes.** It was staged on 10 October
+  for two sets of hours on its own page. Re-read on 9 November, the page
+  gives one: coffee cafe 7 am to noon daily, bar 5:30 to 10 pm nightly,
+  kitchen until 9; Visit Leadville's listing gives the same. The
+  Delaware's "former restaurant" is its private dining room, not the
+  bar. Same owner as the hotel (700 Harrison Ave LLC), so the hotel's
+  site is not the second source; Visit Leadville is.
+- **Still waiting on the owner:** the Lake County High sports page, the
+  resident items for Moving here, the This Week template items and
+  Nearby guides (all held by the 90-day test), and the calls that would
+  settle Treeline Kitchen, Buchi, Golden Burro, Columbine Inn & Suites and
+  Rodeway Inn in staging.
+
 ## Golden follows boys' tennis, baseball and lacrosse, 9 November 2026
 
 *The owner: "Add the sports teams", on the Golden gap report's finding that
