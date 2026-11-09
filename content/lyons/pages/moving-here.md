@@ -4,7 +4,7 @@ description: "What it is like to live in a stone town of 2,200 at the 2020 censu
 image: ../images/post-office.jpg
 imageAlt: "The Lyons post office, a one-story brick building behind its red sandstone United States Post Office sign, with the foothills beyond, July 2013"
 imageCredit: "Shannon McGee, Flickr, CC BY-SA 2.0"
-updated: "2026-10-02"
+updated: "2026-11-09"
 ---
 
 ## What you are moving to
@@ -21,7 +21,7 @@ Lyons is in the [St. Vrain Valley School District](https://www.svvsd.org/). Both
 
 ## Getting around
 
-US 36 is Main Street, and it is the road to Estes Park, so summer weekend afternoons are slow in both directions. About twenty minutes to Boulder on US 36, fifteen to Longmont on Colorado 66, an hour to Denver either way, and about an hour and a quarter to Denver International Airport by E-470 or I-25. There is one bus: the free [Lyons Flyer](https://bouldercounty.gov/transportation/multimodal/lyons-flyer/), run by Boulder County with the Town, RTD and Via, makes four weekday trips each way between Fourth Avenue and Broadway and Boulder along US 36, no fare or pass needed; RTD's own routes start at Boulder and Longmont, and the Estes Park shuttle does not stop here. Within town, most of it is walkable, and the [river path](/places/st-vrain-river-path/) links the parks without crossing the highway.
+US 36 is Main Street, and it is the road to Estes Park, so summer weekend afternoons are slow in both directions. About twenty minutes to Boulder on US 36, fifteen to Longmont on Colorado 66, an hour to Denver either way, and about an hour and a quarter to Denver International Airport by E-470 or I-25. The year-round bus is the free [Lyons Flyer](https://bouldercounty.gov/transportation/multimodal/lyons-flyer/), run by Boulder County with the Town, RTD and Via, which makes four weekday trips each way between Fourth Avenue and Broadway and Boulder along US 36, no fare or pass needed; RTD's own routes start at Boulder and Longmont. In summer, CDOT's [Bustang to Estes](https://ridebustang.com/routes/bustang-to-estes/) runs on Saturdays, Sundays and holidays between Denver Union Station and Estes Park and Rocky Mountain National Park, and stops at the Lyons Park-n-Ride, US 36 and Park Street. Within town, most of it is walkable, and the [river path](/places/st-vrain-river-path/) links the parks without crossing the highway.
 
 ## Utilities, trash, fire, police
 
@@ -33,6 +33,8 @@ Unlike the unincorporated towns nearby, Lyons runs its own services from [Town H
 - **Police** is the [Boulder County Sheriff](https://bouldercounty.gov/safety/sheriff/), under contract, from a substation in the Depot at 430 5th Avenue.
 - **Emergency alerts** for flood, fire and evacuation come through Boulder County's alert system. Register every phone in the household; the town was cut off for days in 2013.
 - **Building permits, planning and zoning** are Town departments; the Planning & Community Development Commission reviews applications before the Board.
+- **Property tax** is Boulder County's: the [Assessor](https://bouldercounty.gov/departments/assessor/) sets each property's value every two years, and the [Treasurer](https://bouldercounty.gov/property-and-land/treasurer/) sends the tax bills and collects them (303-441-3520).
+- **Groceries** in town come from [St. Vrain Market](/places/st-vrain-market/) at 455 Main Street, a locally owned grocery with a deli and a scratch bakery, closed Mondays.
 
 ## Government
 
@@ -42,7 +44,7 @@ Unlike the unincorporated towns nearby, Lyons runs its own services from [Town H
 
 Summer is [tubing through the whitewater park](/places/tubing-the-st-vrain/) when the gauge drops, free concerts in [Sandstone Park](/places/sandstone-park/), RockyGrass in late July and the Folks Festival in August at [Planet Bluegrass](/places/planet-bluegrass/), when every bed in town is booked months ahead. Fall is the best walking weather, the artisan market, the Halloween Spooktacular on Main Street and elk down in the meadows at [Hall Ranch](/places/hall-ranch/). Winter is the Parade of Lights, the ice rink at [LaVern M. Johnson Park](/places/lavern-m-johnson-park/) when a cold snap holds, the Polar Plunge and the Old Man Winter bike rally in February. Year-round there is live music most nights of the week in the taprooms.
 
-The quickest way in is a volunteer group: [LEAF](https://leaflyons.org/), the town's mutual-aid fund with the Wednesday food pantry; the [Lyons Community Foundation](https://lyonscf.org/); the [Historical Society](https://www.lyonsredstonemuseum.com/); or the Chamber. The [Lyons Recorder](https://lyonsrecorder.org/) is the community news site and carries the fullest local calendar.
+The quickest way in is a volunteer group: [LEAF](https://leaflyons.org/), the town's mutual-aid fund, which runs the Lyons Community Pantry on Wednesdays, 3:30 to 6 pm, at 304 2nd Avenue; the [Lyons Community Foundation](https://lyonscf.org/); the [Historical Society](https://www.lyonsredstonemuseum.com/); or the Chamber. The [Lyons Recorder](https://lyonsrecorder.org/) is the community news site and carries the fullest local calendar.
 
 ## Before you decide
 
