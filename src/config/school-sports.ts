@@ -25,8 +25,11 @@
  * The winter list is configured (25 October 2026) and its teams take
  * their place on the pages as MaxPreps fills their schedules in: a team
  * with nothing on MaxPreps is an `empty` entry the page leaves off. Spring
- * teams are followed where the owner has asked (SPRING, below); the same
- * rule keeps each one off the page until MaxPreps has its schedule.
+ * teams are followed where the owner has asked (SPRING, below). Out of
+ * season MaxPreps shows a spring team's last season (on 9 November 2026,
+ * Roosevelt baseball's 25-26 record, 22-3, beside games of March 2027), so
+ * the run writes a spring team as `empty`, off the page, until its page
+ * names the current school year (offSeason, scripts/lib/sports-crosscheck.ts).
  *
  * The school, its mascot, its classification and its league are checked
  * against CHSAANow's member-school profiles and its 2026–28 classification

@@ -9397,3 +9397,11 @@ here).*
   schedule, which the Wednesday run picks up.
 - An exception to the 90-day test's "no new features", made by the owner;
   the rule itself stands.
+- Last season's record is never shown as this season's. Out of season,
+  MaxPreps shows a spring team's last season: on 9 November Roosevelt's
+  baseball page carried its 25-26 record, 22-3, beside games of March
+  2027, and girls' soccer its 4-7-4 beside one of May 2027, so "until
+  MaxPreps has its schedule" would not keep them off. The run writes a
+  spring team as `empty` until its page names the current school year
+  (`offSeason`, scripts/lib/sports-crosscheck.ts); fall and winter teams
+  are untouched.

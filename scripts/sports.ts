@@ -35,7 +35,7 @@ import { SCHOOL_SPORTS, schoolsFor, sportsDataFile, type SchoolSports, type Spor
 import { dayKey } from '../src/lib/dates.ts';
 import { CRAWL_DELAY_MS, fetchMonth, parseMonth, type CalendarEvent } from './lib/finalsite-calendar.ts';
 import { applySchedule, fetchPage, parseSchedulePage, parseTeamPage, usable, visibleText, type TeamPage } from './lib/maxpreps.ts';
-import { crossCheck, emptyEntry, entryFrom, gamesToCome, keepPrevious } from './lib/sports-crosscheck.ts';
+import { crossCheck, emptyEntry, entryFrom, gamesToCome, keepPrevious, offSeason } from './lib/sports-crosscheck.ts';
 import { correctedTeam } from '../src/lib/school-sports.ts';
 
 const MAXPREPS_PAUSE_MS = 4000;
@@ -215,6 +215,16 @@ async function runTown(school: SchoolSports): Promise<string> {
       summary.push(`| ${sport.name} | — | — | — | — | — |`);
       flags.push(`${sport.name}: MaxPreps lists no schedule or results for this team; the card says so.`);
       console.log(`${sport.name}: MaxPreps has nothing for this team.`);
+      continue;
+    }
+    // A spring team out of season: MaxPreps still has last year's record up.
+    // Left off the page (an `empty` entry) until its page names this school year.
+    const waiting = offSeason(sport, page, today);
+    if (waiting) {
+      data.sports.push({ ...emptyEntry(sport, page, now.toISOString()), notes: [waiting], empty: `${waiting}; the team goes on the page once MaxPreps moves it to this season.` });
+      summary.push(`| ${sport.name} | — | — | — | — | — |`);
+      flags.push(`${sport.name}: ${waiting}; left off the page until MaxPreps moves the team to this season.`);
+      console.log(`${sport.name}: out of season on MaxPreps (${page.year ?? 'no year'}); left off.`);
       continue;
     }
     if (!usable(page)) {

@@ -7,7 +7,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { applySchedule, parseSchedulePage, parseTeamPage } from '../scripts/lib/maxpreps.ts';
 import { parseMonth, parseTitle } from '../scripts/lib/finalsite-calendar.ts';
-import { crossCheck, dedupeToCome, gamesToCome, keepPrevious, sameSchool } from '../scripts/lib/sports-crosscheck.ts';
+import { crossCheck, dedupeToCome, gamesToCome, keepPrevious, offSeason, sameSchool, schoolYear } from '../scripts/lib/sports-crosscheck.ts';
 import { SCHOOL_SPORTS, schoolSportsFor, schoolsFor, schoolTeamName, shareImageName, shareImagePath, sportsDataFile, sportsPath, teamPath, type SportsData } from '../src/config/school-sports.ts';
 import { readFileSync } from 'node:fs';
 import { sportsRoutes } from '../src/integrations/town-routes.ts';
@@ -1000,4 +1000,22 @@ test('the school page’s eyebrow is the school year while it lays out fall and 
   assert.equal(pageSeasonLabel(fallOnly, teams, now), 'Fall 2026');
   const winterOnly = { ...data, sports: data.sports.filter((t) => teams.find((c) => c.key === t.key)?.season === 'winter') };
   assert.equal(pageSeasonLabel(winterOnly, teams, now), 'Winter 2026–27');
+});
+
+test('a spring team is left off while MaxPreps still shows last season, and read once its page names this school year', () => {
+  assert.equal(schoolYear('2026-11-09'), '26-27');
+  assert.equal(schoolYear('2027-03-15'), '26-27');
+  assert.equal(schoolYear('2026-07-31'), '25-26');
+  assert.equal(schoolYear('2026-08-01'), '26-27');
+  const spring = { season: 'spring' as const };
+  // Baseball on 9 November 2026: the 25-26 record (22-3) beside games of March 2027.
+  assert.match(offSeason(spring, { year: '25-26' }, '2026-11-09')!, /still shows the 25-26 season, not 26-27/);
+  assert.match(offSeason(spring, {}, '2026-11-09')!, /names no season/);
+  assert.equal(offSeason(spring, { year: '26-27' }, '2027-03-01'), undefined);
+  // Fall and winter teams are untouched, whatever the page says.
+  assert.equal(offSeason({ season: 'winter' }, { year: '25-26' }, '2026-11-09'), undefined);
+  assert.equal(offSeason({ season: 'fall' }, {}, '2026-11-09'), undefined);
+  // The reader keeps the year the page names.
+  const named = parseTeamPage(realPage.replace('"teamContext":{', '"teamContext":{"data":{"year":"25-26"},'), TEAM);
+  assert.equal(named.year, '25-26');
 });
