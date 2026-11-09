@@ -85,12 +85,18 @@ export const berthoud: TownConfig = {
       },
     ],
     breaks: [
-      { district: 'Thompson', label: 'Staff professional day (no students)', from: '2026-11-02', to: '2026-11-02', source: 'https://www.tsd.org/fs/pages/9769', verified: '2026-10-21' },
-      { district: 'Thompson', label: 'No K–5 students', from: '2026-11-03', to: '2026-11-03', source: 'https://www.tsd.org/fs/pages/9769', verified: '2026-10-21' },
       { district: 'Thompson', label: 'Thanksgiving break', from: '2026-11-23', to: '2026-11-27', source: 'https://www.tsd.org/fs/pages/9769', verified: '2026-10-21' },
       { district: 'Thompson', label: 'Winter break', from: '2026-12-21', to: '2027-01-04', source: 'https://www.tsd.org/fs/pages/9769', verified: '2026-10-21' },
       { district: 'Thompson', label: 'Staff professional day (no students)', from: '2027-01-05', to: '2027-01-05', source: 'https://www.tsd.org/fs/pages/9769', verified: '2026-10-21' },
+      { district: 'Thompson', label: 'Martin Luther King Jr. Day (district closed)', from: '2027-01-18', to: '2027-01-18', source: 'https://www.tsd.org/fs/pages/9769', verified: '2026-11-09' },
+      { district: 'Thompson', label: 'No K–5 students', from: '2027-01-19', to: '2027-01-19', source: 'https://www.tsd.org/fs/pages/9769', verified: '2026-11-09' },
+      { district: 'Thompson', label: 'Staff professional day (no students)', from: '2027-02-12', to: '2027-02-12', source: 'https://www.tsd.org/fs/pages/9769', verified: '2026-11-09' },
+      { district: 'Thompson', label: 'Presidents Day (district closed)', from: '2027-02-15', to: '2027-02-15', source: 'https://www.tsd.org/fs/pages/9769', verified: '2026-11-09' },
+      { district: 'Thompson', label: 'No school for students', from: '2027-03-04', to: '2027-03-04', source: 'https://www.tsd.org/fs/pages/9769', verified: '2026-11-09' },
+      { district: 'Thompson', label: 'Conferences (no students)', from: '2027-03-05', to: '2027-03-05', source: 'https://www.tsd.org/fs/pages/9769', verified: '2026-11-09' },
       { district: 'Thompson', label: 'Spring break', from: '2027-03-15', to: '2027-03-19', source: 'https://www.tsd.org/fs/pages/9769', verified: '2026-10-21' },
+      { district: 'Thompson', label: 'Teacher work day (no students)', from: '2027-04-30', to: '2027-04-30', source: 'https://www.tsd.org/fs/pages/9769', verified: '2026-11-09' },
+      { district: 'Thompson', label: 'No K–5 students', from: '2027-05-03', to: '2027-05-03', source: 'https://www.tsd.org/fs/pages/9769', verified: '2026-11-09' },
     ],
   },
   participation: {
@@ -128,7 +134,7 @@ export const berthoud: TownConfig = {
         items: [
           { label: 'BATS: Berthoud Area Transportation Service', url: 'https://berthoud.org/159/Berthoud-Area-Transportation-Service-BAT', note: 'Door-to-door rides in town daily 8–4 and to Loveland on weekday mornings (Thursday afternoons too); free over 60, $1 in town, $4 to Loveland; book by 4 pm the business day before, 970-532-3049' },
           { label: 'Transfort FLEX regional bus', url: 'https://www.berthoud.org/162/Transfort-FLEX', note: 'Fort Collins to Loveland, Berthoud, Longmont and Boulder; two stops downtown' },
-          { label: 'RAFT (Rural Alternative for Transportation)', url: 'https://berthoudraft.org/', note: 'Door-to-door rides to Berthoud, Loveland and Longmont for riders 60 and over and adults with a disability; 970-532-0808' },
+          { label: 'RAFT (Rural Alternative for Transportation)', url: 'https://berthoudraft.org/', note: 'Door-to-door rides to Berthoud, Loveland and Longmont for riders 60 and over and adults with a disability who live in the Berthoud Fire Protection District; no set fare, donations; 970-532-0808' },
           { label: 'CDOT road conditions', url: 'https://www.cotrip.org/', note: 'US 287, CO 56 and I-25' },
         ],
       },
@@ -138,7 +144,7 @@ export const berthoud: TownConfig = {
         items: [
           { label: 'Berthoud Recreation: registration', url: 'https://apps.daysmartrecreation.com/dash/x/berthoud/', note: 'Leagues, classes, swim lessons and passes; the activity guide links into it', track: 'registration' },
           { label: 'Recreation Center facility schedules', url: 'https://www.berthoud.org/1521/Facility-Schedules', note: 'Pool, gym and holiday hours' },
-          { label: 'Activity guides and registration dates', url: 'https://www.berthoud.org/1598/Activity-Guide', note: 'Winter opened November 1 (early bird through November); spring opens February 1, summer April 1, fall July 1', track: 'registration' },
+          { label: 'Activity guides and registration dates', url: 'https://www.berthoud.org/1598/Activity-Guide', note: 'Winter opened November 1 (early-bird prices for registrations by November 14); spring opens February 1, summer April 1, fall July 1', track: 'registration' },
           { label: 'Town parks', url: 'https://www.berthoud.org/219/Parks', note: 'Town Park’s rentable pavilions and the Town’s park pages' },
         ],
       },
@@ -173,6 +179,7 @@ export const berthoud: TownConfig = {
         note: 'In an emergency call 911.',
         verified: '2026-11-09',
         items: [
+          { label: 'UCHealth Primary Care – Berthoud', url: 'https://www.uchealth.org/locations/uchealth-primary-care-berthoud/', note: 'The clinic in town, 1335 Grand Market Avenue, Suite 110; Monday to Friday 8 am to 5 pm; 970-674-4920' },
           { label: 'UCHealth Medical Center of the Rockies', url: 'https://www.uchealth.org/locations/uchealth-medical-center-of-the-rockies/', note: 'Emergency department and a Level I trauma center, 2500 Rocky Mountain Ave, Loveland; 970-624-2500' },
           { label: 'UCHealth Longs Peak Hospital', url: 'https://www.uchealth.org/locations/uchealth-longs-peak-hospital/', note: 'Emergency department, 1750 E. Ken Pratt Blvd, Longmont; 720-718-7000' },
           { label: 'UCHealth Urgent Care – Johnstown', url: 'https://www.uchealth.org/locations/uchealth-urgent-care-johnstown/', note: '4846 Larimer Parkway, Johnstown; Monday to Friday 8 am to 8 pm, weekends 8 am to 6 pm; 970-624-2834' },
@@ -224,9 +231,9 @@ export const berthoud: TownConfig = {
         items: [
           { label: 'How to participate', url: 'https://www.berthoud.org/258/How-to-Participate', note: 'Board of Trustees 2nd and 4th Tuesdays, 6:30 pm; three minutes for any resident', track: 'participation' },
           { label: 'Agendas and minutes', url: 'https://berthoudco.portal.civicclerk.com/' },
-          { label: 'Advisory committee application', url: 'https://www.berthoud.org/FormCenter/General-Forms-4/Advisory-Committee-Application-95', note: 'Parks and trails, planning, trees, historic preservation, public art, the Local Licensing Authority and the Youth Advisory Committee', track: 'participation' },
+          { label: 'Advisory committee application', url: 'https://www.berthoud.org/FormCenter/General-Forms-4/Advisory-Committee-Application-95', note: 'Parks and trails, planning, trees, historic preservation, public art, the Local Licensing Authority and the Youth Advisory Commission', track: 'participation' },
           { label: 'Engage Berthoud: projects open to comment', url: 'https://engage.berthoud.org/', note: 'The stormwater master plan, the water efficiency plan and Jaskowski open space; Mountain Vista Park is listed as in development and closed to feedback', track: 'participation' },
-          { label: 'Larimer County elections', url: 'https://www.larimer.gov/clerk/elections/current-elections/2026', note: 'The November 3 election: sample ballot, the signature-cure deadline of November 12, final results posted by November 25' },
+          { label: 'Larimer County elections', url: 'https://www.larimer.gov/clerk/elections/current-elections/2026', note: 'The November 3 election: unofficial results; signatures can be cured until November 12, final unofficial results are expected November 13 and final results by November 25' },
         ],
       },
     ],

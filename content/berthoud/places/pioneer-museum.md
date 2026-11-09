@@ -3,7 +3,7 @@ title: "Little Thompson Valley Pioneer Museum"
 type: venue
 address: "224 Mountain Ave"
 area: "East Mountain Avenue"
-url: "https://www.berthoudhistoricalsociety.org/"
+url: "https://berthoudhistoricalsociety.org/ltv-pioneer-museum/"
 phone: "(970) 532-2147"
 hours: "Wed–Sat 1–4 pm"
 image: ../images/bimson-blacksmith-shop.jpg
@@ -12,7 +12,7 @@ imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 3.0"
 tags: [museum, history, kids]
 featured: true
 summary: "The Berthoud Historical Society's museum on Mountain Avenue, in and around the 1893 Bimson Blacksmith Shop: farm, railroad and family history. Wed–Sat 1–4, $5."
-source: "https://www.berthoudhistoricalsociety.org/"
+source: "https://berthoudhistoricalsociety.org/ltv-pioneer-museum/"
 verified: "2026-11-03"
 added: "2026-09-17"
 ---

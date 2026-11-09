@@ -14,4 +14,4 @@ verified: "2026-11-03"
 added: "2026-09-17"
 ---
 
-A family-owned brewery on 8th Street near Town Park, committed to traditional styles, with a taproom, a sprawling covered patio where the food trucks park, dogs welcome, and beer to go. One of the pourers at Oktoberfest in Town Park; it also has a taproom in west Loveland.
+A family-owned brewery on 8th Street near Town Park, committed to traditional styles, with a taproom, a sprawling covered patio where the food trucks park, dogs welcome, and beer to go. It also has a taproom in west Loveland.

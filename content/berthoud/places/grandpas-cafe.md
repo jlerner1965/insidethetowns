@@ -13,4 +13,4 @@ verified: "2026-11-03"
 added: "2026-09-17"
 ---
 
-A home-cooking cafe at the west end of Mountain Avenue, a block from Town Hall: big breakfasts, daily specials, dinner until 8 and a full bar, and a regular crowd that has been coming for years. The same kitchen runs a second menu, Colorado Curry, from 2 to 8:30 pm Wednesday to Monday: butter chicken, korma, vindaloo, biryani and momo, which makes this the one place in town for Indian food.
+A home-cooking cafe at the west end of Mountain Avenue, a block from Town Hall: big breakfasts, daily specials, dinner until 8 and a full bar. The same kitchen runs a second menu, Colorado Curry, from 2 to 8:30 pm Wednesday to Monday: butter chicken, korma, vindaloo, biryani and momo.

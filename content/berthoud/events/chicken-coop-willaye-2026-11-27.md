@@ -3,6 +3,7 @@ title: "Chicken Coop Willaye"
 start: "2026-11-27T18:00"
 end: "2026-11-27T20:30"
 venue: "City Star Brewing"
+address: "321 Mountain Ave, Berthoud, CO 80513"
 url: "https://citystarbrewing.com/event/chicken-coop-willaye/"
 category: music
 source: "https://citystarbrewing.com/event/chicken-coop-willaye/"

@@ -3,7 +3,7 @@ title: "City Star Brewing"
 type: bar
 address: "321 Mountain Ave"
 area: "Downtown, Mountain Avenue"
-url: "https://www.citystarbrewing.com/"
+url: "https://citystarbrewing.com/"
 phone: "(970) 532-7827"
 hours: "Mon 3–8, Tue–Thu 3–9, Fri 3–10, Sat 12–10, Sun 12–8"
 tags: [brewery, beer garden, live music, trivia]

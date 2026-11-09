@@ -13,4 +13,4 @@ verified: "2026-11-03"
 added: "2026-09-17"
 ---
 
-A drive-thru coffee window on Meadowlark Drive beside the Kwik Korner, woman-owned and family-run since 1996: espresso, lattes and tea without leaving the car. It does not post its hours online, so ring ahead if you are making a special trip.
+A drive-thru coffee window on Meadowlark Drive beside the Kwik Korner, woman-owned and family-run since 1996: espresso, lattes and tea without leaving the car. It does not post its hours online, so call ahead if you are making a special trip.

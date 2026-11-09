@@ -13,4 +13,4 @@ verified: "2026-11-03"
 added: "2026-09-17"
 ---
 
-An independent pet store on Turner Avenue with food, treats, toys and supplies for dogs, cats and the rest, and staff who know the local vets and trainers.
+An independent pet store on Turner Avenue with food, treats, toys and supplies for dogs, cats and the rest.

@@ -5,12 +5,13 @@ formerSlugs: [winter-craft-fair-2026]
 start: "2026-12-05T09:00"
 end: "2026-12-05T15:00"
 venue: "Berthoud Recreation Center"
-address: "1000 N Berthoud Pkwy"
-url: "https://www.berthoud.org/1530/Upcoming-Events"
-cost: "Free admission"
+address: "1000 N Berthoud Pkwy, Berthoud, CO 80513"
+url: "https://www.berthoud.org/1649/Winter-Craft-Fair"
+cost: "Free"
 category: market
-source: "https://www.berthoud.org/1530/Upcoming-Events"
-verified: "2026-11-03"
+source: "https://www.berthoud.org/1649/Winter-Craft-Fair"
+verified: "2026-11-09"
+verifiedBy: "Claude Code, delegated by James Lerner: the Town's Winter Craft Fair page, read 9 November 2026 (Saturday, December 5, 2026, 9:00 AM–3:00 PM, Berthoud Recreation Center, the three food trucks)"
 ---
 
-The fifth annual Winter Craft Fair fills the Recreation Center with more than 50 Colorado artists and makers from the Front Range: jewelry, home decor, fine art, candles, woodwork, sewn and knitted goods. Free to browse, indoors, and the same day as A Very Merry Berthoud downtown.
+The Winter Craft Fair brings local vendors to the Recreation Center with handmade crafts, gifts and seasonal items, 9 am to 3 pm. Travelin' Tom's Coffee, Southern Twist Food and Crepes On Wheels are the food trucks. Free to browse, indoors, and the same day as A Very Merry Berthoud downtown.

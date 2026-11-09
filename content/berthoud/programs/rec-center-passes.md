@@ -9,11 +9,10 @@ url: "https://www.berthoud.org/1521/Facility-Schedules"
 summary: "Day passes from $3, a family membership at $65 a month, and extended open-swim hours on school days off: noon to 8 on November 23, 24 and 25, closed Thanksgiving Day, noon to 5 on the 27th."
 ages: "All ages; child watch included with family, adult and senior memberships"
 location: "Berthoud Recreation Center, 1000 N Berthoud Pkwy"
-schedule: "Mon–Fri 5 am–9 pm, Sat 7–8, Sun 11–8"
+schedule: "Mon–Fri 5 am–9 pm, Sat 7 am–8 pm, Sun 11 am–8 pm"
 price: "Day pass: $3 under 6, $5.50 youth 6–15, $7 adult, $5.50 age 60 and over; 20-visit punch pass $126; family membership $65 a month, adult $45, senior and youth $27; $60 family / $30 individual application fee on a new membership"
 registration: { required: false, how: "Buy a pass at the desk, 970-532-1600" }
 openOn:
-  - { from: "2026-11-02", to: "2026-11-02", note: "Pool open noon–8" }
   - { from: "2026-11-23", to: "2026-11-27", note: "Extended swim, closed Thanksgiving" }
 contact: "970-532-1600"
 source: "https://www.berthoud.org/244/Memberships-Admission"

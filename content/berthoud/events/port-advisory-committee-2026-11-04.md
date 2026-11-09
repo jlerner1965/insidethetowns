@@ -12,4 +12,4 @@ verified: "2026-11-04"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"PORT Advisory Committee Meeting\" at 6 pm on 4 November on the berthoud.org feed"
 ---
 
-Meeting of the Town's PORT Advisory Committee at Town Hall, 6 to 8 pm, as listed on the Town's calendar.
+Meeting of the Town's PORT (Parks, Open Space, Recreation and Trails) Advisory Committee at Town Hall, 6 to 8 pm, as listed on the Town's calendar.

@@ -7,7 +7,6 @@ address: "1000 N Berthoud Pkwy, Berthoud, CO 80513"
 url: "https://www.larimer.gov/clerk/elections/where-to-vote"
 cost: "Free"
 category: civic
-featured: true
 source: "https://www.larimer.gov/clerk/elections/where-to-vote"
 verified: "2026-11-01"
 verifiedBy: "Claude Code for James Lerner, against Larimer County’s where-to-vote page and its 2026 general election notice, 1 November 2026"

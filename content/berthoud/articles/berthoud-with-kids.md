@@ -17,21 +17,21 @@ sources:
   - { label: "Larimer County: Carter Lake", url: "https://www.larimer.gov/naturalresources/parks/carter-lake" }
 ---
 
-Berthoud has rebuilt most of its parks in the last few years, and the result is a town where a family can fill a day without leaving the grid. This is what there is, sorted by the day you are having.
+Berthoud has rebuilt Town Park and added a bike park and a recreation center since 2021, and the result is a town where a family can fill a day without leaving the grid. This is what there is, sorted by the day you are having.
 
 ## A warm day: Town Park and the water feature
 
-[Berthoud Town Park](/places/berthoud-town-park/), at 7th and Mountain, is the oldest park in town and the newest playground: 12,000 square feet, fully inclusive, beside a 6,000-square-foot natural-stone water-play feature that runs in the warm months. Two pavilions for the picnic, and on Saturdays the market is on the lawn.
+[Berthoud Town Park](/places/berthoud-town-park/), at 200 N. 7th Street, is the oldest park in town with a rebuilt playground: 12,000 square feet, fully inclusive, beside a 6,000-square-foot natural-stone water-play feature that runs in the warm months. Two pavilions for the picnic, and on Saturdays the market is on the lawn.
 
 On the north side, [Waggener Farm Park](/places/waggener-farm-park/) has a farm-themed playground with a tractor and a playhouse, a wavy scooter path, a full basketball court, a skate park and fields. [Pioneer Park](/places/pioneer-park/) on Indiana Avenue has a playground, a roller-hockey rink and bocce courts. [Bein Park](/places/bein-park/), beside the high school, has a log-cabin-themed playground, a fitness trail, and the fenced town dog park, with small-dog and large-dog sections, if the dog came too.
 
 ## Bikes: the bike park
 
-The [Berthoud Bike Park](/places/berthoud-bike-park/) on Meadowlark Drive opened in late summer 2023: twenty acres with two jump and flow lines, a dual-slalom track, a mile of cross-country trail, a bicycle playground for small riders and a 20,000-square-foot pump track. Dawn to dusk, free. The [Trailhead Cafe](/places/trailhead-cafe/) next door does breakfast and sandwiches afterwards.
+The [Berthoud Bike Park](/places/berthoud-bike-park/) on Meadowlark Drive opened in late summer 2023: twenty acres with two jump and flow lines, a dual-slalom track, a mile of cross-country trail, a bicycle playground for small riders and a 20,000-square-foot pump track. Dawn to dusk, free. The [Trailhead Cafe](/places/trailhead-cafe/), about a mile down Meadowlark Drive, does breakfast and lunch until 2 pm.
 
 ## A rainy day: the rec center and the library
 
-The [Berthoud Recreation Center](/places/berthoud-recreation-center/) at Waggener Farm Park opened in November 2021 with a three-lane lap pool, a two-storey water slide, a gym and a climbing wall. Day passes for anyone; weekdays from 5 am, Saturday from 7, Sunday from 11.
+The [Berthoud Recreation Center](/places/berthoud-recreation-center/) at Waggener Farm Park opened in November 2021 with a three-lane lap pool, a two-story water slide, a gym and a climbing wall. Day passes for anyone; weekdays from 5 am, Saturday from 7, Sunday from 11.
 
 The [Berthoud Community Library](/places/berthoud-community-library/) on Welch Avenue runs storytimes on Tuesday, Wednesday and Friday mornings, with a baby storytime, a toddler storytime and a pre-K one on the calendar, plus kids' art and science programs. Open until 8 on Wednesday and Thursday, until 6 the other weekdays, Saturday to 4; closed Sunday. The [events page](/events/?category=family) has this week's.
 
@@ -49,4 +49,4 @@ Pioneer Park's roller-hockey rink is outdoors all year, and the rec center's poo
 
 ## Further out: the water
 
-[Berthoud Reservoir](/places/berthoud-reservoir-loop/) has a flat 1.2-mile loop with fishing and paddle-craft access, free, dogs on leash. [Carter Lake](/places/carter-lake/), ten minutes north-west, has a swim beach from Memorial Day, camping and boat ramps; Larimer County charges an entrance permit. In August 2026, Colorado Parks and Wildlife confirmed New Zealand mudsnails in the lake, so clean, drain and dry boats, paddleboards and fishing gear, and expect a boat leaving the lake to need inspection before it goes into other water.
+[Berthoud Reservoir](/places/berthoud-reservoir-loop/) has a flat 1.2-mile loop with fishing and paddle-craft access, free, dogs on leash. [Carter Lake](/places/carter-lake/), ten minutes northwest, has a swim beach from Memorial Day, camping and boat ramps; Larimer County charges an entrance permit. In August 2026, Colorado Parks and Wildlife confirmed New Zealand mudsnails in the lake, so clean, drain and dry boats, paddleboards and fishing gear, and expect a boat leaving the lake to need inspection before it goes into other water.

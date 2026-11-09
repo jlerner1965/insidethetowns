@@ -1,6 +1,7 @@
 ---
 title: "The Learning Experience"
 type: service
+area: "Lake Avenue"
 address: "1144 Lake Ave"
 url: "https://thelearningexperience.com/centers/berthoud-co/"
 phone: "(970) 746-7138"

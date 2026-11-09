@@ -3,6 +3,7 @@ title: "Kelly Aspen and Branden Sipes"
 start: "2026-12-19T18:00"
 end: "2026-12-19T20:30"
 venue: "City Star Brewing"
+address: "321 Mountain Ave, Berthoud, CO 80513"
 url: "https://citystarbrewing.com/event/kelly-aspen-and-branden-sipes/"
 category: music
 source: "https://citystarbrewing.com/event/kelly-aspen-and-branden-sipes/"
