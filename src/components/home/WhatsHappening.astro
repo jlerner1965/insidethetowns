@@ -34,6 +34,11 @@
  * the block with it. Without one the list keeps a reading width rather than
  * the page's: the venue sits under the title at every width now, where on a
  * desktop it had been 800px to the right of it.
+ *
+ * A listing's title is a link and reads as one: the guide's link colour
+ * (the primary), not underlined, as Worth knowing's headlines are (the
+ * owner, 9 November 2026; they were ink until hovered). A called-off
+ * listing keeps the muted ink beside its Canceled or Postponed label.
  */
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
@@ -125,7 +130,7 @@ const where = "block text-[0.9375rem] text-ink-muted sm:inline sm:before:mx-2 sm
               <li class="grid grid-cols-[5.75rem_minmax(0,1fr)] gap-x-3 py-3 sm:grid-cols-[7rem_minmax(0,1fr)] sm:items-baseline sm:gap-x-4" data-event-day={row.eventDay} data-end={row.end}>
                 <span class="text-[0.875rem] font-semibold leading-snug tabular-nums text-ink">{row.dayWord && `${row.dayWord} `}{row.when}</span>
                 <p class="min-w-0 text-[1.0625rem] leading-snug">
-                  <a href={row.href} class:list={['font-medium no-underline hover:text-primary hover:underline', row.status && 'text-ink-muted']}>{row.title}</a>
+                  <a href={row.href} class:list={['font-medium no-underline hover:underline', row.status ? 'text-ink-muted hover:text-primary' : 'text-primary']}>{row.title}</a>
                   {row.status && <span class="ml-2 inline-block rounded-sm border border-line px-1.5 py-px align-[0.1em] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink">{label(row.status)}</span>}
                   {row.pick && !row.status && <span class="ml-2 inline-block rounded-sm bg-highlight-soft px-1.5 py-px align-[0.1em] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink ring-1 ring-highlight">Our pick</span>}
                   {row.where && <span class={where}>{row.where}</span>}
@@ -147,7 +152,7 @@ const where = "block text-[0.9375rem] text-ink-muted sm:inline sm:before:mx-2 sm
                 <li class="grid grid-cols-[5.75rem_minmax(0,1fr)] gap-x-3 py-3 sm:grid-cols-[7rem_minmax(0,1fr)] sm:items-baseline sm:gap-x-4" data-event-day={row.eventDay} data-end={row.end}>
                   <span class="text-[0.875rem] font-semibold leading-snug tabular-nums text-ink"><span class="block">{row.dayWord}</span>{row.when}</span>
                   <p class="min-w-0 text-[1.0625rem] leading-snug">
-                    <a href={row.href} class="font-medium no-underline hover:text-primary hover:underline">{row.title}</a>
+                    <a href={row.href} class="font-medium text-primary no-underline hover:underline">{row.title}</a>
                     {row.pick && <span class="ml-2 inline-block rounded-sm bg-highlight-soft px-1.5 py-px align-[0.1em] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink ring-1 ring-highlight">Our pick</span>}
                     {row.where && <span class={where}>{row.where}</span>}
                   </p>

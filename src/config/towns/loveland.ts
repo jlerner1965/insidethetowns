@@ -60,6 +60,9 @@ export const loveland: TownConfig = {
     accent: '#BA8C57',
     paper: 'warm',
   },
+  // The line under each Find your next stop tile (TownConfig.nextStop), from what
+  // the three pages list, 9 November 2026.
+  nextStop: { eatDrink: 'Restaurants, breweries, shops', thingsToDo: 'Sculpture parks, Boyd Lake, trails', living: 'Housing, schools, getting around' },
   hero: {
     // Bought from Adobe Stock on 28 October 2026 (docs/HERO-PHOTOS.md), in
     // place of the lake at sunset: the hero is the town itself. A standard

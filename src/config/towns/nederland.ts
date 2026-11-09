@@ -91,6 +91,9 @@ export const nederland: TownConfig = {
     accent: '#7A8F5D',
     paper: 'cool',
   },
+  // The line under each Find your next stop tile (TownConfig.nextStop), from what
+  // the three pages list, 9 November 2026.
+  nextStop: { eatDrink: 'Restaurants, shops, a brewery', thingsToDo: 'Trailheads, Eldora, the carousel', living: 'Housing, schools, getting around' },
   hero: {
     image: 'hero.jpg',
     alt: 'Mountain People’s Co-op and the Rustic Moose on East First Street in Nederland, under a grey mountain sky',

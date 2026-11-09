@@ -64,6 +64,9 @@ export const lafayette: TownConfig = {
     accent: '#B8863B',
     paper: 'warm',
   },
+  // The line under each Find your next stop tile (TownConfig.nextStop), from what
+  // the three pages list, 9 November 2026.
+  nextStop: { eatDrink: 'Restaurants, breweries, coffee', thingsToDo: 'Waneka Lake, trails, museums', living: 'Utilities, schools, who to call' },
   hero: {
     // Old Town under snow, from Wikimedia Commons (File:Lafayette, CO.jpg,
     // Jared Winkler, February 2018, "Looking East on E Simpson Street toward

@@ -50,6 +50,9 @@ export const fortcollins: TownConfig = {
     accent: '#D0A34B',
     paper: 'warm',
   },
+  // The line under each Find your next stop tile (TownConfig.nextStop), from what
+  // the three pages list, 9 November 2026.
+  nextStop: { eatDrink: 'Breweries, coffee, restaurants', thingsToDo: 'Natural areas, museums, Horsetooth', living: 'Neighborhoods, housing, schools' },
   hero: {
     // Bought from Adobe Stock on 30 October 2026 (docs/HERO-PHOTOS.md), in
     // place of the Northern Hotel, one building: the square downtown is

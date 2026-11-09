@@ -31,7 +31,15 @@ const school = schools.length === 1 ? schools[0] : undefined;
 const files = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
 const data = school ? sportsDataFor(school, files) : undefined;
 const theme = town.school ? schoolTheme(town.school) : undefined;
-const vars = [`--board:${theme?.band ?? town.colors.primary}`, `--board-mark:${theme?.mark ?? '#ffffff'}`, `--board-eyebrow:${theme?.eyebrow ?? '#ffffff'}`].join(';');
+const band = theme?.band ?? town.colors.primary;
+// The dot by the school's name is the school's own colour from the sports
+// config (SchoolSports.colors), filled and with no ring: the white circle in
+// a white ring that stood there read as an empty radio button (the owner, 9
+// November 2026). A school with no colour set has no dot, and nor has one
+// whose colour is the band's own, where a dot of it could not be seen.
+const dot = school?.colors?.primary;
+const showDot = !!dot && dot.toLowerCase() !== band.toLowerCase();
+const vars = [`--board:${band}`, ...(showDot ? [`--board-dot:${dot}`] : []), `--board-eyebrow:${theme?.eyebrow ?? '#ffffff'}`].join(';');
 // "Niwot athletics": the school's name, not the mascot's, since 6 November 2026 (schoolAthletics).
 const label = school ? schoolAthletics(school) : undefined;
 
@@ -65,7 +73,7 @@ const phoneNext = !!next && (nextSoon || !!next.game.stage);
     <div class="bg-[var(--board)]">
       <div class="container-page flex flex-wrap items-center gap-x-4 gap-y-1 py-2.5 text-[0.9375rem] leading-snug md:gap-x-6">
         <span class="inline-flex items-center gap-2">
-          <span class="inline-block size-3 shrink-0 rounded-full bg-[var(--board-mark)] ring-2 ring-white/60" aria-hidden="true"></span>
+          {showDot && <span class="inline-block size-3 shrink-0 rounded-full bg-[var(--board-dot)]" aria-hidden="true"></span>}
           <span class="eyebrow text-[var(--board-eyebrow)]">{label}</span>
         </span>
         {resultLine && result && (

@@ -71,6 +71,9 @@ export const longmont: TownConfig = {
     accent: '#B75A3F',
     paper: 'cool',
   },
+  // The line under each Find your next stop tile (TownConfig.nextStop), from what
+  // the three pages list, 9 November 2026.
+  nextStop: { eatDrink: 'Breweries, coffee, restaurants', thingsToDo: 'Parks, nature areas, the Greenway', living: 'Housing, schools, getting around' },
   hero: {
     // Main Street at Third Avenue, from 2 November 2026, in place of
     // McIntosh Lake, which showed cattails and Longs Peak and no town (the

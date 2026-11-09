@@ -48,6 +48,9 @@ export const erie: TownConfig = {
     accent: '#6498B2',
     paper: 'warm',
   },
+  // The line under each Find your next stop tile (TownConfig.nextStop), from what
+  // the three pages list, 9 November 2026.
+  nextStop: { eatDrink: 'Coffee, breweries, restaurants', thingsToDo: 'Parks, trails, open space', living: 'Utilities, schools, who to call' },
   hero: {
     // Bought from Adobe Stock on 30 October 2026 (docs/HERO-PHOTOS.md), in
     // place of Town Hall: Old Town's main street rather than one building.
