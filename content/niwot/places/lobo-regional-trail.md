@@ -9,12 +9,13 @@ image: ../images/front-range-sunset-trail.jpg
 imageAlt: "A gravel trail at the edge of the grassland east of Niwot, looking west toward the foothills at sunset"
 tags: [walking, cycling, regional]
 featured: true
-summary: "The twelve-mile Longmont-to-Boulder trail runs through Niwot and joins the local trail network. The eastern fields at sunset are the reason to come."
+summary: "The twelve-mile Longmont-to-Boulder regional trail, through Gunbarrel and Niwot."
 source: "https://bouldercounty.gov/open-space/parks-and-trails/lobo-trail/"
-verified: "2026-10-03"
+verified: "2026-11-09"
+verifiedBy: "Claude Code, delegated by James Lerner: Boulder County Parks & Open Space's LoBo Trail page and its trail map brochure (PDF), read 9 November 2026: a 12-mile trail system through Gunbarrel, Niwot and open space between Boulder and Longmont; regional trails open to commuters 24 hours a day, trailheads closed at sunset with no parking from sunset to sunrise"
 added: "2026-09-17"
 ---
 
-The Longmont-to-Boulder (LoBo) Regional Trail covers about twelve miles between the two cities through Gunbarrel and Niwot, mostly on crushed gravel, and connects to the local loops around town. From Old Town it is a short walk to the open-space edge, and the stretch through the eastern fields is the one to save for late afternoon, with the Indian Peaks the whole way west.
+The Longmont-to-Boulder (LoBo) Regional Trail covers about twelve miles between the two cities through Gunbarrel and Niwot.
 
-Trail surfaces, closures and dog rules are set by Boulder County Parks & Open Space, since Niwot is unincorporated; check the county’s trail closures page before a long ride. The County keeps its regional trails and connectors, this one included, open to commuters 24 hours a day, but the trailheads along it close at sunset and parking at them is not allowed between sunset and sunrise, so a night ride starts and ends somewhere else.
+Check Boulder County Parks & Open Space’s trail closures page before a long ride. The County keeps its regional trails and connectors, this one included, open to commuters 24 hours a day, but the trailheads along it close at sunset and parking at them is not allowed between sunset and sunrise, so a night ride starts and ends somewhere else.
