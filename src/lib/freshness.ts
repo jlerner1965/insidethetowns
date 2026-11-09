@@ -138,12 +138,6 @@ export function daysUntilAccessStale(access: { verified: Date } | undefined, now
   return FRESHNESS.accessDays - ageDays(access.verified, now);
 }
 
-/** Due for the rotation: not re-checked in `recheckDays`. */
-export function dueForRecheck(data: Provenanced, now: Date = new Date()): boolean {
-  if (!data.verified) return true;
-  return ageDays(data.verified, now) > FRESHNESS.recheckDays;
-}
-
 const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
 /**

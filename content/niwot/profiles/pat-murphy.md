@@ -2,7 +2,7 @@
 name: "Pat Murphy"
 role: volunteer
 affiliation: "Organizer of the Great Pumpkin Party; co-founder, Niwot Community Connection"
-item: "/events/great-pumpkin-party-2026/"
+item: "/events/great-pumpkin-party/"
 summary: "The realtor who organizes Niwot's Halloween party for the Business Association and, with two others, founded the free over-50s group that now has several hundred members, by the Left Hand Valley Courier's accounts."
 status: draft
 needs:

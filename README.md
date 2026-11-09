@@ -9,6 +9,8 @@ TOWN=hub   npm run build      # insidethetowns.com
 npm run validate              # check every town's content (--hours lists hours lines it cannot read; --build is what a build runs)
 npm run check-links           # ask the live web whether our outbound links still work
 npm run check-colors          # prove the palette passes WCAG AA on every site
+npm run check-site            # read the built site as a crawler would: links, canonicals, sitemap, schema, redirects (a build ends with it)
+npm run check-network         # the links between the sites, once every one is built (-- --build builds them first)
 npm run new-town lyons "Lyons"
 npm run weekly                # the weekly content report (see below)
 npm run newsletter            # draft Thursday's email from the listings (see below)
@@ -311,6 +313,24 @@ run. `--dry-run` decides and writes nothing; `--report=<file>` writes the same
 report as Markdown (the Monday pull request's body); `--by` names the run.
 
 ## Link rot
+
+`npm run build` ends by checking what it built (`scripts/check-site.ts`,
+the rules in `scripts/lib/site-check.ts`), and stops on any of these: an
+internal link, image or script that was not built, or that goes through a
+redirect or lacks its trailing slash; a link to `#an-id` the page does not
+have; a link to a guide that has closed; an indexable page whose canonical
+or `og:url` is not its own URL, or with no title, description, single `h1`
+or share card; a noindex page with a canonical; a sitemap that lists a
+noindex, redirected or missing page, leaves an indexable one out, or carries
+a missing or future `lastmod`; a `robots.txt` that blocks what the sitemap
+offers; structured data that does not parse, lacks what its type requires,
+or names a URL that is not built; a `vercel.json` redirect on that host
+that hides a built page, lands on a missing one, chains, or is written
+twice. On Vercel the same report is printed and the deploy goes ahead, as
+with `validate --build`; CI is where it fails. Each build also leaves the
+site's manifest in `.cache/manifests/`, and `npm run check-network` (the
+last CI job) reads them all for the links and redirects that cross from one
+site to another. Neither touches the network.
 
 `npm run check-links` asks every outbound link in the content whether it is still
 there, and prints the file and line of any that are not. A café redesigns, a town

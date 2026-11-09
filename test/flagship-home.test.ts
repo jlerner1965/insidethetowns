@@ -1,7 +1,7 @@
 /**
  * The home page (the homepage brief, 25 October 2026; the design pass, 26
  * October 2026): which final the scoreboard shows, what is next, the week
- * as seven days, the school's rows, the school's colours and the route. Every case is one a parent
+ * as seven days, the school's colours and the route. Every case is one a parent
  * would notice: last week's score on the board, Friday's game missing from
  * Friday, a school orange that white cannot be read on.
  */
@@ -9,7 +9,7 @@ import { test } from 'node:test';
 import { existsSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { parseLocal } from '../src/lib/dates.ts';
-import { agendaTitle, clockKey, dashed, displayTitle, gameHeading, leadGame, nextGame, resultSentence, scoreboardResult, teamRows, weekDays } from '../src/lib/flagship-home.ts';
+import { agendaTitle, clockKey, dashed, displayTitle, nextGame, scoreboardResult, weekDays } from '../src/lib/flagship-home.ts';
 import { contrast, schoolTheme } from '../src/config/school-colors.ts';
 import { towns } from '../src/config/towns/registry.ts';
 import { schoolsFor, schoolSportsFor, schoolTeamName, type SportGame, type SportsData } from '../src/config/school-sports.ts';
@@ -71,25 +71,17 @@ test('a forfeit or a meet’s placing has no score to put on a board, so it is p
   assert.equal(scoreboardResult(d, SUNDAY)?.team.key, 'volleyball');
 });
 
-test('with no final, the left column has the week’s football game, and Next up is the game after it', () => {
+test('Next up is the soonest game, leaving out one the page already shows', () => {
   const d = data([
     { key: 'football', upcoming: [game('2026-10-30', 'Severance', { time: '19:00', site: 'away' })] },
     { key: 'volleyball', upcoming: [game('2026-10-26', 'University', { time: '18:30' })] },
   ]);
-  const lead = leadGame(d, SUNDAY)!;
-  assert.equal(lead.team.key, 'football');
-  assert.equal(nextGame(d, SUNDAY, lead)?.game.opponent, 'University');
-  assert.equal(nextGame(d, SUNDAY)?.game.opponent, 'University', 'without a lead, the soonest game');
+  assert.equal(nextGame(d, SUNDAY)?.game.opponent, 'University');
+  const shown = nextGame(d, SUNDAY)!;
+  assert.equal(nextGame(d, SUNDAY, shown)?.game.opponent, 'Severance');
 });
 
-test('the next game is named by its weekday and time, never "Today", and the time does not break from its "pm"', () => {
-  assert.equal(gameHeading(game('2026-10-26', 'University', { time: '18:30' })), 'Monday, 6:30 pm');
-  assert.equal(gameHeading(game('2026-10-25', 'Anyone')), 'Sunday');
-});
-
-test('a result reads as a sentence with its dash and its date; a record takes an en dash', () => {
-  assert.equal(resultSentence(won('2026-10-23', 'Mountain View', 50, 0, 'away')), 'Won 50–0 at Mountain View, Friday, October 23.');
-  assert.equal(resultSentence(won('2026-10-09', 'Windsor', 0, 46, 'away')), 'Lost 0–46 at Windsor, Friday, October 9.');
+test('a record takes an en dash', () => {
   assert.equal(dashed('7-2'), '7–2');
   assert.equal(dashed('5-8-2'), '5–8–2');
 });
@@ -227,20 +219,6 @@ test('a game to come shows its time and where; one played shows the result', () 
 });
 
 // ------------------------------------------------------- the school's rows
-
-test('football has a row while its season is on; every other team only with a game in the next seven days', () => {
-  const d = data([
-    { key: 'football', name: 'Football', overall: '7-2', results: [won('2026-10-23', 'Mountain View', 50, 0, 'away')], upcoming: [game('2026-10-30', 'Severance', { site: 'away' })] },
-    { key: 'volleyball', name: 'Volleyball', upcoming: [game('2026-10-26', 'University'), game('2026-10-27', 'Windsor Charter Academy', { site: 'away' })] },
-    { key: 'boys-soccer', name: 'Boys soccer', results: [won('2026-10-22', 'Sterling', 9, 0)] },
-    { key: 'boys-basketball', name: 'Boys basketball', upcoming: [game('2026-11-30', 'Mountain View')] },
-  ]);
-  const rows = teamRows(d, SUNDAY);
-  assert.deepEqual(rows.map((r) => r.team.key), ['football', 'volleyball']);
-  assert.equal(rows[0]!.football?.record, '7–2');
-  assert.equal(rows[1]!.games.length, 2);
-  assert.deepEqual(teamRows(d, at('2026-12-20T12:00')).map((r) => r.team.key), [], 'December: football is over and nothing is in the week');
-});
 
 // ------------------------------------------------------- the school's colours
 

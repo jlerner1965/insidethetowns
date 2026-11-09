@@ -10,9 +10,21 @@ name: CI
 on:
   push:
   pull_request:
+  # And once a day with no push at all, an hour after the morning rebuild
+  # (scheduled-rebuild.yml, 11:10 UTC). What a page shows turns on the date:
+  # an event ends and its page goes noindex, a tab empties, a listing's
+  # check goes stale. A build that passed yesterday can fail the site check
+  # today, and Vercel prints that report and deploys all the same
+  # (scripts/run.ts). This run is where it turns red, and it opens an
+  # automation-failure issue as the other scheduled jobs do.
+  schedule:
+    - cron: '10 12 * * *'
+  workflow_dispatch:
 
 concurrency:
-  group: ci-${{ github.ref }}
+  # The daily run has a group of its own, so a push to main does not cancel
+  # it and it does not cancel a push's run.
+  group: ci-${{ github.ref }}-${{ github.event_name == 'schedule' && 'daily' || 'push' }}
   cancel-in-progress: true
 
 jobs:
@@ -67,8 +79,59 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # The build ends by reading what it built the way a crawler would
+      # (scripts/check-site.ts): a broken internal link, a canonical that
+      # names another page, a sitemap out of step with the noindex flags,
+      # structured data that does not parse, a redirect over a real page.
+      # Any of them fails this job.
       - run: npm run build
         env:
           TOWN: ${{ matrix.town }}
       - name: Page count
         run: find dist -name index.html | wc -l
+      # What this site serves and where it links on the other sites, for the
+      # job below.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: manifest-${{ matrix.town }}
+          path: .cache/manifests/*.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 3
+
+  # The links between the sites, and the redirects in vercel.json that cross
+  # from one domain to another, can only be checked once every site is
+  # built: the hub links every guide, every guide links its neighbours, and
+  # a retired domain forwards to pages on a live one.
+  network:
+    name: Links between the sites
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: manifest-*
+          path: .cache/manifests
+          merge-multiple: true
+      - run: node scripts/check-network.ts
+
+  # Only the daily run: a failed push or pull request is already red where
+  # its author is looking.
+  alert:
+    name: Say the daily check failed
+    needs: [validate, build, network]
+    if: failure() && github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/alert-failure
+        with:
+          meaning: Main no longer passes its own checks, with nothing pushed. Something that turns on the date broke a test, the validator, or the check of a built site (a link, a canonical, the sitemap, structured data, a redirect). The live sites were rebuilt this morning from the same commit, so whatever the log names is probably live.
+          remedy: Open the failed job and read the report at the end of its log; it names the page and the rule. Reproduce it with "TOWN=<slug> npm run build", fix the content or the template, and push. The check runs again on the push and tomorrow morning.

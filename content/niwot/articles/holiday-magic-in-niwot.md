@@ -28,11 +28,11 @@ Holiday Magic is the Niwot Business Association's name for the town's holiday se
 
 ## Friday, November 27: Enchanted Evening
 
-The night after Thanksgiving, every year. The community tree is lit, Santa arrives by horse-drawn sleigh at 6 pm and sits at [Niwot Hall](/places/niwot-hall/) from 6:30 to 8, and there are carols and live music through Old Town and Cottonwood Square while the shops open late. 6 to 9 pm. [The listing](/events/enchanted-evening-2026/).
+The night after Thanksgiving, every year. The community tree is lit, Santa arrives by horse-drawn sleigh at 6 pm and sits at [Niwot Hall](/places/niwot-hall/) from 6:30 to 8, and there are carols and live music through Old Town and Cottonwood Square while the shops open late. 6 to 9 pm. [The listing](/events/enchanted-evening/).
 
 ## Saturday, November 28: the Holiday Parade
 
-The next morning at 11, the parade comes down Second Avenue from Murray Street to Niwot Road with Santa in it. Afterwards he is at Niwot Hall until 1 pm to take children's wish lists. [The listing](/events/holiday-parade-2026/).
+The next morning at 11, the parade comes down Second Avenue from Murray Street to Niwot Road with Santa in it. Afterwards he is at Niwot Hall until 1 pm to take children's wish lists. [The listing](/events/holiday-parade/).
 
 ## Friday, December 4: the first Stroll
 
@@ -40,7 +40,7 @@ Shops on Second Avenue and Cottonwood Square stay open until 8 pm for holiday sh
 
 ## Saturday, December 5: the Market Fayre, and a concert
 
-From 10 to 4, holiday pop-up vendors fill Niwot Hall and businesses around town, and the hall becomes a food hall: mulled wine, hot chocolate and cider, Christmas cookies, roast chestnuts and glögg. Santa and Mrs. Claus are there from 1 to 3, with horse and carriage rides, carolers, harpists and a brass band around Old Town. The Business Association and the Local Improvement District sponsor it. [The listing](/events/holiday-magic-market-fayre-2026/).
+From 10 to 4, holiday pop-up vendors fill Niwot Hall and businesses around town, and the hall becomes a food hall: mulled wine, hot chocolate and cider, Christmas cookies, roast chestnuts and glögg. Santa and Mrs. Claus are there from 1 to 3, with horse and carriage rides, carolers, harpists and a brass band around Old Town. The Business Association and the Local Improvement District sponsor it. [The listing](/events/holiday-magic-market-fayre/).
 
 That evening, the Rebecca Folsom Trio plays a holiday concert at Niwot Hall, 7 to 9 pm. [The listing](/events/holiday-magic-concert-rebecca-folsom-2026-12-05/).
 

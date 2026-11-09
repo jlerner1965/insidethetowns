@@ -35,7 +35,7 @@ Because there is no town, each of these comes from a different body, and it pays
 
 ## Living here
 
-Summer is Rock & Rails on Thursday evenings beside the caboose at [Whistle Stop Park](/places/whistle-stop-park/), Friday dancing in Cottonwood Square, and the [Fourth of July parade](/events/fourth-of-july-2027/). Fall is the Great Pumpkin Party and the Niwot Trot. The evening after Thanksgiving is [Enchanted Evening](/events/enchanted-evening-2026/), when the tree is lit and Santa arrives by sleigh; the [Holiday Parade](/events/holiday-parade-2026/) is the next morning. None of it is run by a government. The [Business Association](https://niwot.com/), the [Cultural Arts Association](https://niwotarts.org/) and the [Community Association](https://niwot.org/) organize it, and the quickest way to meet people is to volunteer for one of them. [What’s on this week](/events/).
+Summer is Rock & Rails on Thursday evenings beside the caboose at [Whistle Stop Park](/places/whistle-stop-park/), Friday dancing in Cottonwood Square, and the [Fourth of July parade](/events/fourth-of-july-2027/). Fall is the Great Pumpkin Party and the Niwot Trot. The evening after Thanksgiving is [Enchanted Evening](/events/enchanted-evening/), when the tree is lit and Santa arrives by sleigh; the [Holiday Parade](/events/holiday-parade/) is the next morning. None of it is run by a government. The [Business Association](https://niwot.com/), the [Cultural Arts Association](https://niwotarts.org/) and the [Community Association](https://niwot.org/) organize it, and the quickest way to meet people is to volunteer for one of them. [What’s on this week](/events/).
 
 ## Before you decide
 

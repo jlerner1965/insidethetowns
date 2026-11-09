@@ -1,8 +1,7 @@
 /**
  * The home page's readings of the data (the homepage brief, 25 October
  * 2026; the design pass, 26 October 2026): which result the scoreboard
- * shows, what is next up, the week as seven days, and which of the
- * school's teams get a row. Pure functions over the sports file, the
+ * shows, what is next up, and the week as seven days. Pure functions over the sports file, the
  * calendar and the clock, so the rules can be tested without Astro. Every
  * line they produce comes from the data; where there is nothing, they
  * return nothing and the page says so.
@@ -11,9 +10,9 @@ import type { CollectionEntry } from 'astro:content';
 import { HIGHLIGHT } from '../config/palette.ts';
 import type { SportGame, SportsData } from '../config/school-sports.ts';
 import type { EventCategory } from '../content/schemas.ts';
-import { addDays, dayKey, formatDayLong, formatTime, formatTimeRange, startOfDay, toIsoLocal } from './dates.ts';
+import { addDays, dayKey, formatTime, formatTimeRange, startOfDay, toIsoLocal } from './dates.ts';
 import { displayTitle as titleLessVenue, lastDay, listedUntil, sortByStart } from './events.ts';
-import { FLAGSHIP_TEAM, RESULT_WORD, bigGame, dedupeResults, gameDay, stripGames, weekGames, where, type TeamGame } from './school-sports.ts';
+import { FLAGSHIP_TEAM, RESULT_WORD, dedupeResults, gameDay, where, type TeamGame } from './school-sports.ts';
 import { weekWindow } from './weekly.ts';
 
 export type EventLike = { data: CollectionEntry<'events'>['data']; slug?: string; id?: string };
@@ -46,15 +45,6 @@ export function scoreboardResult(data: SportsData, now = new Date(), days = RESU
   return [...finals].sort((a, b) => b.game.date.localeCompare(a.game.date))[0];
 }
 
-/**
- * The game the masthead's left column shows large when there is no final
- * to show: the week's football game, else the week's first game (the
- * strip's own choice), else the next game whenever it is.
- */
-export function leadGame(data: SportsData, now = new Date()): TeamGame | undefined {
-  return stripGames(data, now, 1)[0] ?? bigGame(data, now);
-}
-
 /** The next game from today, any team, leaving out one the page already shows. */
 export function nextGame(data: SportsData, now = new Date(), except?: TeamGame): TeamGame | undefined {
   const today = dayKey(now);
@@ -67,19 +57,6 @@ export function nextGame(data: SportsData, now = new Date(), except?: TeamGame):
 /** "6:30 pm" kept on one line: a heading that broke before "pm" left it alone on the next. */
 export function clock(d: Date): string {
   return formatTime(d).replace(/ (am|pm)$/, '\u00a0$1');
-}
-
-/** "Friday", "Monday, 6:30 pm": the next game's heading. Never "Today": a page can be older than the day it was built. */
-export function gameHeading(g: SportGame): string {
-  const weekday = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Denver', weekday: 'long' }).format(gameDay(g));
-  return g.time ? `${weekday}, ${clock(gameDay(g))}` : weekday;
-}
-
-/** "Won 50–0 at Mountain View, Friday, October 23." */
-export function resultSentence(g: SportGame): string {
-  const word = g.result ? RESULT_WORD[g.result] : 'Played';
-  const score = g.score ? ` ${g.score.us}–${g.score.them}` : g.forfeit ? ' by forfeit' : g.place ? `, ${g.place},` : '';
-  return `${word}${score} ${where(g)} ${g.opponent}, ${formatDayLong(gameDay(g))}.`;
 }
 
 /** "Home", "Away", "Neutral site": the pill's word. */
@@ -334,40 +311,5 @@ export function weekDays<E extends EventLike>({ events, sports, teamHref = () =>
       items: kept,
       more: unique.length - kept.length,
     };
-  });
-}
-
-// ------------------------------------------------------- the school's rows
-
-export interface TeamRow {
-  team: SportsData['sports'][number];
-  /** Football: its season so far. */
-  football?: { record?: string; last?: SportGame; next?: SportGame };
-  /** Every other team: its games in the next seven days. */
-  games: SportGame[];
-}
-
-/**
- * The school's sports in season, one row each, in the config's order:
- * football while it has a result in the last two weeks or a game in the
- * next two, every other team while it has a game in the next seven days
- * (weekGames, the same week the strip and the Thursday email list).
- */
-export function teamRows(data: SportsData, now = new Date()): TeamRow[] {
-  const today = dayKey(now);
-  const before = dayKey(addDays(startOfDay(now), -14));
-  const after = dayKey(addDays(startOfDay(now), 14));
-  const week = weekGames(data, now);
-  return data.sports.flatMap((team): TeamRow[] => {
-    if (team.key === FLAGSHIP_TEAM) {
-      const results = dedupeResults(team.results);
-      const recent = results.some((g) => g.date >= before && g.date <= today);
-      const soon = team.upcoming.some((g) => g.date >= today && g.date <= after);
-      if (!recent && !soon) return [];
-      const next = team.upcoming.find((g) => g.date >= today);
-      return [{ team, football: { record: team.overall ? dashed(team.overall) : undefined, last: results.find((g) => g.result || g.place), next }, games: [] }];
-    }
-    const games = week.filter((c) => c.team === team).map((c) => c.game);
-    return games.length > 0 ? [{ team, games }] : [];
   });
 }

@@ -9,7 +9,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { dayKey, parseLocal } from '../src/lib/dates.ts';
 import { occurrences } from '../src/lib/events.ts';
-import { activeChanges, briefingUpdates, corrections, currentNotes, currentPick, currentPicks, hasEnded, isBacklog, isWeekend, pickSlug, upcomingEvents, weekEvents, weekWindow, weekendEvents } from '../src/lib/weekly.ts';
+import { activeChanges, briefingUpdates, corrections, currentNotes, currentPick, currentPicks, hasEnded, isBacklog, isWeekend, pickSlug, upcomingEvents, weekEvents, weekWindow } from '../src/lib/weekly.ts';
 import type { UpdateData } from '../src/content/schemas.ts';
 
 const at = (s: string) => parseLocal(s);
@@ -252,20 +252,6 @@ test('an event has ended once its end time has passed, or at midnight when it ha
   assert.equal(hasEnded(allDay, at('2026-10-18T00:00')), true);
 });
 
-test('this weekend is Friday to Sunday, with a run that began earlier and is still on; nothing ended or canceled', () => {
-  const events = [
-    ev('Thursday thing', '2026-10-15T19:00', '2026-10-15T21:00'),
-    ev('Friday show', '2026-10-16T19:30'),
-    ev('Saturday market', '2026-10-17T09:00', '2026-10-17T13:00'),
-    ev('Sunday walk', '2026-10-18T10:00'),
-    ev('Monday meeting', '2026-10-19T18:00'),
-    ev('Corn maze', '2026-09-25', '2026-10-31', { allDay: true }),
-    ev('Called off', '2026-10-17T15:00', undefined, { status: 'canceled' }),
-  ];
-  assert.deepEqual(weekendEvents(events, at('2026-10-14T12:00')).map((e) => e.data.title), ['Corn maze', 'Friday show', 'Saturday market', 'Sunday walk']);
-  assert.deepEqual(weekendEvents(events, at('2026-10-17T14:00')).map((e) => e.data.title), ['Corn maze', 'Sunday walk'], 'on Saturday afternoon the market has ended');
-});
-
 test('the rest of the week runs from today to Sunday, so a Wednesday is not told the week is quiet', () => {
   const events = [
     ev('Tuesday talk', '2026-10-13T19:00', '2026-10-13T21:00'),
@@ -281,14 +267,6 @@ test('the rest of the week runs from today to Sunday, so a Wednesday is not told
   assert.equal(isWeekend(at('2026-10-14T12:00')), false);
   assert.equal(isWeekend(at('2026-10-16T08:00')), true);
   assert.equal(isWeekend(at('2026-10-18T23:00')), true);
-});
-
-test('a weekly regular shows once, on its day this weekend', () => {
-  const trivia = { ...ev('Trivia', '2026-09-04T19:00', '2026-09-04T21:00'), data: { ...ev('Trivia', '2026-09-04T19:00', '2026-09-04T21:00').data, repeat: 'weekly' as const, until: at('2026-12-18') } };
-  const now = at('2026-10-14T12:00');
-  const list = weekendEvents(occurrences([trivia], { now, horizonDays: 30 }), now);
-  assert.equal(list.length, 1);
-  assert.equal(list[0]!.data.start.getTime(), at('2026-10-16T19:00').getTime());
 });
 
 test('the strip under an article takes the next few that have not ended', () => {

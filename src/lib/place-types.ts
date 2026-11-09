@@ -12,7 +12,7 @@
  * disk (src/lib/raw-places.ts), the page from the parsed entries, and the
  * directory headings link only to pages that exist. All three read this.
  */
-import { EAT_DRINK_TYPES, PLACE_TYPES, THINGS_TO_DO_TYPES, type PlaceType } from '../content/schemas.ts';
+import { PLACE_TYPES, type PlaceType } from '../content/schemas.ts';
 
 /**
  * Fewer than this of a kind and the kind gets no page: a page listing two
@@ -139,9 +139,3 @@ export function siblingTypePages(type: PlaceType, built: readonly PlaceType[]): 
   return built.filter((t) => t !== type && PLACE_TYPE_PAGES[t].parent.path === parent);
 }
 
-/** Whether a kind is listed on /eat-drink/ (else /things-to-do/ or the directory). */
-export function sectionOf(type: PlaceType): 'eat-drink' | 'things-to-do' | 'directory' {
-  if (EAT_DRINK_TYPES.includes(type) || type === 'shop') return 'eat-drink';
-  if (THINGS_TO_DO_TYPES.includes(type) || type === 'lodging') return 'things-to-do';
-  return 'directory';
-}
