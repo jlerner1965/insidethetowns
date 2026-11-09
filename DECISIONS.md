@@ -9381,3 +9381,24 @@ template, so every guide with a family hub takes them.*
   /directory/; the kids' guide no longer sends families there. To bring
   it back: confirm it is open, re-source it, and take the slug out of the
   ledger.
+
+## Niwot gap report: the owner's calls, 9 November 2026
+
+*The owner: "Yes to 1 2 4."*
+
+- **More Niwot High teams.** Girls' gymnastics (the 4A team champion of
+  2024 and 2025), boys' golf and boys' tennis join Niwot's list in
+  `src/config/school-sports.ts`, on MaxPreps's own paths for the school.
+  Their cards appear once the Saturday or Wednesday run reads them. The
+  spring teams wait for a spring season in `SportConfig` (TODO.md); cheer
+  is not on MaxPreps.
+- **A /services/ page for Niwot.** Yes. It was put to the owner as a new
+  page type for after 20 January; it is not one. The category page builds
+  itself once three `service` places are listed, so it is content work
+  (TODO.md).
+- **Thanksgiving on BOLT.** Yes: a line in the Niwot notes for the week of
+  23 November, added once the Wednesday editor has opened that week's
+  notes on 18 November, so the research draft is not lost.
+- **Not taken up:** the manual reads of Boulder Community Health, King
+  Soopers Gunbarrel, the Niwot Post Office and Gunbarrel Library's
+  storytimes, which block automated readers.

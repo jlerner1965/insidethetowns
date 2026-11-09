@@ -962,6 +962,19 @@ test('Berthoud follows girls flag football, a fall team, on MaxPreps’s Colorad
   assert.equal(schoolSportsFor('niwot')!.teams.some((t) => t.key === 'girls-flag-football'), false);
 });
 
+test('Niwot follows girls gymnastics, boys golf and boys tennis, fall teams, on MaxPreps’s own paths for the school', () => {
+  const teams = schoolSportsFor('niwot')!.teams;
+  const path = (key: string) => teams.find((t) => t.key === key);
+  assert.equal(path('girls-gymnastics')?.maxpreps, 'gymnastics/fall');
+  assert.equal(path('boys-golf')?.maxpreps, 'golf');
+  assert.equal(path('boys-tennis')?.maxpreps, 'tennis/fall');
+  for (const key of ['girls-gymnastics', 'boys-golf', 'boys-tennis']) assert.equal(path(key)?.season, 'fall');
+  // The other schools' lists are untouched.
+  assert.equal(schoolSportsFor('berthoud')!.teams.some((t) => t.key === 'girls-gymnastics'), false);
+  // Keys are unique within the school.
+  assert.equal(new Set(teams.map((t) => t.key)).size, teams.length);
+});
+
 test('the school page’s eyebrow is the school year while it lays out fall and winter teams together, the season otherwise', async () => {
   const { pageSeasonLabel } = await import('../src/lib/school-sports.ts');
   const teams = schoolSportsFor('berthoud')!.teams;
