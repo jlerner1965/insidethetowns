@@ -285,6 +285,25 @@ const BOYS_GOLF: SportConfig = { key: 'boys-golf', season: 'fall', name: 'Boys g
 const BOYS_TENNIS: SportConfig = { key: 'boys-tennis', season: 'fall', name: 'Boys tennis', maxpreps: 'tennis/fall', calendar: { gender: 'Boys', sport: 'Tennis' } };
 
 /**
+ * Three more of Niwot High's fall teams, followed at the owner's word of
+ * 9 November 2026 (the Niwot gap report's finding that the guide carried 6
+ * of the school's 20 sports): girls' gymnastics, the 4A team champion of
+ * 2024 and 2025 (CHSAANow), boys' golf and boys' tennis, all CHSAA fall
+ * sports. Each path is MaxPreps's own team URL for Niwot, as search
+ * engines index it on 9 November 2026: ".../gymnastics/fall/" ("Girls
+ * Varsity Gymnastics"), ".../golf/" ("Boys Golf", the 2026–27 fall season)
+ * and ".../tennis/fall/" ("Boys Tennis"). MaxPreps refuses the cloud
+ * address this was written from, so the run reads each page first from the
+ * GitHub runner; one that is not there keeps the team off the page and
+ * says so in the run's summary. Cheer is not on MaxPreps, and the spring
+ * teams wait for their MaxPreps paths (TODO.md); SportConfig has had a
+ * spring season since Lyons's baseball and track (above).
+ */
+const NIWOT_GYMNASTICS: SportConfig = { key: 'girls-gymnastics', season: 'fall', name: 'Girls gymnastics', maxpreps: 'gymnastics/fall', calendar: { gender: 'Girls', sport: 'Gymnastics' } };
+const NIWOT_BOYS_GOLF: SportConfig = { key: 'boys-golf', season: 'fall', name: 'Boys golf', maxpreps: 'golf', calendar: { gender: 'Boys', sport: 'Golf' } };
+const NIWOT_BOYS_TENNIS: SportConfig = { key: 'boys-tennis', season: 'fall', name: 'Boys tennis', maxpreps: 'tennis/fall', calendar: { gender: 'Boys', sport: 'Tennis' } };
+
+/**
  * Golden High's other teams, at the owner's word (9 November 2026), after
  * the Golden gap report of 8 November found baseball, boys' tennis and
  * lacrosse on MaxPreps with no page on the guide. In Colorado boys' tennis
@@ -373,7 +392,7 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // (arbiterlive.com/School/Calendar/16031), whose robots.txt disallows
     // every automated reader, so there is nothing to check against.
     calendarNote: 'Niwot’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
-    teams: TEAMS(),
+    teams: TEAMS([...FALL(), NIWOT_GYMNASTICS, NIWOT_BOYS_GOLF, NIWOT_BOYS_TENNIS]),
   },
   // The six guides of 22 October 2026, the Berthoud pattern as it stands.
   // Each school's colour is MaxPreps's first school colour, read by the

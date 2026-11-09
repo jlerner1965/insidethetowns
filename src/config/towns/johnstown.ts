@@ -175,6 +175,14 @@ export const johnstown: TownConfig = {
         ],
       },
       {
+        title: 'Groceries and pharmacy',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Hays Market, 201 Johnstown Center Dr', url: 'https://haysmarket.com/', note: 'The family-run grocery store, daily 6 am–9 pm; closed Thanksgiving, Christmas Day and Easter; 970-587-4658' },
+          { label: 'Good Day Pharmacy, in Hays Market', url: 'https://www.gooddaypharmacy.com/pharmacy-in-johnstown-co', note: 'Mon–Fri 9 am–7 pm, Sat 9 am–1 pm, closed Sunday; 970-587-1128' },
+        ],
+      },
+      {
         title: 'Reporting a problem',
         note: 'Two fire districts serve Johnstown, split roughly at the county line, so check the address.',
         verified: '2026-10-22',

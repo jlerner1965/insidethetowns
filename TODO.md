@@ -29,6 +29,9 @@ Last revised: 9 November 2026.
 | Lyons | 2 November: delete `content/lyons/staging/events/lyons-veterinary-clinic-open-house-2026-11-01.md` unless the owner confirmed it | The clinic is open Monday to Friday, so no call could reach it before the Sunday open house; the file says to delete it after 1 November if no call is made. It was never on the site | Assistant |
 | Lyons | Confirm The Rock Garden as a source (`npm run sources -- confirm lyons rockgardenlyons-com`) before spring | Nothing waits on it now: its season's last show was 24 October | Owner |
 | Niwot | Call Belle Terre Floral, (303) 652-0419, and The Nook: hours | On no page of their own since 12 October | Owner |
+| Niwot | For /services/, two staged places (`npm run review -- --town=niwot`): Niwot Barber Shop: call 303-652-9088 to confirm the Courier's 2021 hours (Tue, Wed, Fri, Sat 11–4); it has no page of its own. Niwot Dental: open niwotdental.com in your own browser, or call (303) 652-3500, for the suite and hours at 6800 N 79th St (it refuses this machine, even in a browser). The post office, 150 Murray St in the gap report: USPS's locator sends this machine to its outage page, so read it yourself | /services/ went up on 9 November with three listings: Niles Family Dentistry, Blessings Day Spa and Niwot Veterinary Clinic | Owner |
+| Niwot | After March 15, 2027: Niwot Veterinary Clinic moves to its Rock Creek hospital in Broomfield. Once its site says it has gone, mark the listing `status: closed` with the note | The clinic's own page gives "up until March 15th" and no year | Assistant |
+| Niwot | Wednesday 18 November, once the editor's pull request is open: add to the Niwot notes for the week of 23 November a `new-hours` change, RTD's BOLT on its Sunday/holiday schedule on Thanksgiving, Thursday 26 November, sourced to the BOLT schedule (schedule-pdfs.rtd-denver.com, BOLT, 27 September 2026 to 2 January 2027) | The owner said yes on 9 November (Niwot gap report, finding 6). The editor publishes a week's notes only where no file for that week exists yet, so the line cannot go in earlier without losing the week's draft; a reminder is set for the 18th | Assistant |
 | All three | Fill the 90-day scorecard for the week of 2 November (`docs/90-DAY-TEST.md`) on Tuesday 10 November, and the search columns of the week of 26 October once Search Console can be read | The scheduled session does it every Tuesday at 11:17; Search Console settles a Sunday about two days later | Assistant (scheduled) |
 | Golden | 20 November: Foothills Art Center's galleries reopen for the Holiday Art Market; once its home page says so, take `status: temporarily-closed` (and `closed`, `statusNote`, `statusSource`) off `content/golden/places/foothills-art-center.md` | Marked closed on 28 October; nothing reopens a listing on its own | Assistant |
 | Castle Rock | Live and quiet from 31 October: add insidecastlerockco.com as a site in Plausible; resubmit its Search Console sitemap as `/sitemap-index.xml` (it was submitted as `/site.xml`); switch on Web Analytics in the `insidecastlerockco` Vercel project if it is off | The guide counts readers only once these are on (`DECISIONS.md`, "Castle Rock live, quiet") | Owner |
@@ -170,3 +173,13 @@ House of Neighborly Service and the Food Bank's Loveland site. On a
 resident guide those pages come with `home: true`, so this follows the
 verdict and Loveland being kept at its decide-by (29 November). Owner
 decides, assistant builds.
+
+Agreed for the three towns, to be done after the test or when the owner says:
+
+- **Niwot High's spring teams on the sports pages.** The owner said yes on
+  9 November 2026 (finding 5): baseball, boys' volleyball, girls' golf,
+  girls' soccer, girls' tennis and track. `SportConfig.season` has had
+  spring since 9 November (Lyons's baseball and track), so what is left
+  comes before the spring season: each team's MaxPreps path, read from
+  MaxPreps. Cheer is not on MaxPreps and is not followed. Gymnastics,
+  boys' golf and boys' tennis were added on 9 November. Assistant.
