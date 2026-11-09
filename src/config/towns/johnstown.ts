@@ -134,6 +134,16 @@ export const johnstown: TownConfig = {
         ],
       },
       {
+        title: 'Cars and mail',
+        note: 'A car is registered in the county you live in, so check the address.',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Weld County motor vehicle offices', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Motor-Vehicle-Department/Contact-Us', note: 'For Weld County addresses: Greeley, 1250 H St, 970-304-6520, or Southwest Weld (Del Camino), 4209 County Road 24.5, 720-652-4201; both Mon–Fri 8–5' },
+          { label: 'Larimer County vehicle licensing', url: 'https://www.larimer.gov/clerk/contact', note: 'For Larimer County addresses: the Loveland office, 200 Peridot Ave, first floor, Mon–Fri 8–5 except holidays, 970-619-4521' },
+          { label: 'Johnstown Post Office', url: 'https://tools.usps.com/find-location.htm?locationID=1368496', note: '121 Castle Pines Ave, 970-587-4246; the counter is open Mon–Fri 8:30–1 and 2–4:30, Sat 9:30–noon, and the lobby around the clock; passports by appointment' },
+        ],
+      },
+      {
         title: 'Parks and recreation',
         verified: '2026-10-22',
         items: [
@@ -157,6 +167,14 @@ export const johnstown: TownConfig = {
         ],
       },
       {
+        title: 'Health care',
+        verified: '2026-11-09',
+        items: [
+          { label: 'UCHealth Urgent Care – Johnstown', url: 'https://www.uchealth.org/locations/uchealth-urgent-care-johnstown/', note: '4846 Larimer Pkwy, 970-624-2834; Mon–Fri 8 am–8 pm, Sat and Sun 8 am–6 pm' },
+          { label: 'Emergency room: UCHealth Medical Center of the Rockies', url: 'https://www.uchealth.org/locations/emergency-department-at-medical-center-of-the-rockies/', note: '2500 Rocky Mountain Ave, Loveland, 970-624-1600; open around the clock, a Level I trauma center' },
+        ],
+      },
+      {
         title: 'Reporting a problem',
         note: 'Two fire districts serve Johnstown, split roughly at the county line, so check the address.',
         verified: '2026-10-22',
@@ -168,6 +186,15 @@ export const johnstown: TownConfig = {
           { label: 'Power outages and street lights', url: 'https://johnstownco.gov/660/Report-a-Concern-To-Electric-Company', note: 'Not the Town’s: report to Xcel, United Power or Poudre Valley REA, whichever is on your bill or the pole' },
           { label: 'Code enforcement', url: 'https://johnstownco.gov/231/Code-Enforcement', note: 'Weeds, property upkeep and nuisances go to the police department’s community service officers, CSO@JohnstownCO.gov' },
           { label: 'Emergency alerts', url: 'https://johnstownco.gov/234/Emergency-Notifications', note: 'Sign up by county: CodeRED for Weld, LETA 911 for Larimer', track: 'registration' },
+        ],
+      },
+      {
+        title: 'Homes, permits and animals',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Building permits', url: 'https://johnstownco.gov/210/Building-Department', note: 'A deck, porch or pergola, a new water heater, furnace or air conditioner, and plumbing or electrical work need a permit; apply on the Town’s eTRAKiT portal. Permit office 970-578-9608, BuildingPermits@johnstownco.gov, Mon–Fri 8–5' },
+          { label: 'Metro districts: the state’s special districts map', url: 'https://dlg.colorado.gov/special-districts-map', note: 'The Colorado Division of Local Government’s statewide map of special districts, metro districts among them' },
+          { label: 'Animal problems', url: 'https://www.nocohumane.org/animal-control/other-northern-colorado-communities/', note: 'Call Johnstown Police, 970-587-5555, who may send NOCO Humane' },
         ],
       },
       {

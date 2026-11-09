@@ -26,9 +26,10 @@
  * their place on the pages as MaxPreps fills their schedules in: a team
  * with nothing on MaxPreps is an `empty` entry the page leaves off. Spring
  * teams are followed where the owner has asked (Lyons's baseball and track,
- * Golden's baseball and lacrosse, 9 November 2026); until MaxPreps opens
- * the school year's spring season the run writes them as having nothing
- * yet, whether the page is still last school year's (scripts/lib/maxpreps.ts,
+ * Golden's baseball and lacrosse, Roosevelt's baseball and girls' soccer,
+ * 9 November 2026); until MaxPreps opens the school year's spring season
+ * the run writes them as having nothing yet, whether the page is still
+ * last school year's (scripts/lib/maxpreps.ts,
  * staleSeason) or lists no game of this one (scripts/lib/sports-crosscheck.ts,
  * beforeSpringSeason), so last spring's record never shows as this one's
  * and the team joins the page with its first game.
@@ -256,6 +257,15 @@ const GIRLS_FLAG_FOOTBALL: SportConfig = { key: 'girls-flag-football', season: '
  * track may show nothing until the reader learns to read a meet.
  */
 const SPRING_BASEBALL: SportConfig = { key: 'baseball', season: 'spring', name: 'Baseball', maxpreps: 'baseball', calendar: { gender: 'Boys', sport: 'Baseball' } };
+/**
+ * Girls' soccer, a spring sport in Colorado, followed for Roosevelt on the
+ * owner's word of 9 November 2026 (the Johnstown gap report found it on
+ * MaxPreps with no page here). MaxPreps files Colorado's girls' soccer under
+ * its spring season, so the path carries it, as fall softball's does:
+ * Roosevelt's `soccer/girls/spring` page answered with its 2026–27 team
+ * page on 9 November 2026. Baseball's plain `baseball` answered the same day.
+ */
+const SPRING_GIRLS_SOCCER: SportConfig = { key: 'girls-soccer', season: 'spring', name: 'Girls soccer', maxpreps: 'soccer/girls/spring', calendar: { gender: 'Girls', sport: 'Soccer' } };
 const SPRING_TRACK: SportConfig[] = [
   { key: 'boys-track', season: 'spring', name: 'Boys track and field', maxpreps: 'track-field', calendar: { gender: 'Boys', sport: 'Track & Field' } },
   { key: 'girls-track', season: 'spring', name: 'Girls track and field', maxpreps: 'track-field/girls', calendar: { gender: 'Girls', sport: 'Track & Field' } },
@@ -417,7 +427,12 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     colors: { primary: '#C41230' },
     // Weld RE-5J's Finalsite site; `?cal_date=YYYY-MM-01` shows a month.
     calendar: { kind: 'finalsite', url: 'https://rhs.weldre5j.org/calendar', label: 'the Roosevelt High calendar' },
-    teams: TEAMS(),
+    hosted: [
+      // CHSAANow's game page for the 4A second round, read 9 November 2026: "Montbello at Roosevelt", Roosevelt the home team, Fri, Nov 13, 7 pm. MaxPreps filed it as a neutral site.
+      { team: 'football', date: '2026-11-13', stage: 'State Football Playoffs', source: 'https://chsaanow.com/sports/football/games/2026/11/13/montbello-at-roosevelt' },
+    ],
+    // Baseball and girls' soccer in the spring, on the owner's word (9 November 2026).
+    teams: TEAMS(FALL(), WINTER(), [SPRING_BASEBALL, SPRING_GIRLS_SOCCER]),
   },
   {
     town: 'windsor',
