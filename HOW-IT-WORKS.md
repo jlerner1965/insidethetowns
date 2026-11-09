@@ -6,7 +6,7 @@ changes and the old wording goes; the history of why lives in
 other document disagree, this file wins. Where this file and a test
 disagree, fix one of them the same day.
 
-Last revised: 8 November 2026.
+Last revised: 9 November 2026.
 
 ## 1. What this is
 
@@ -47,10 +47,12 @@ The config flag decides what a guide is; nothing is per-town in code.
 | Kind | Flag | Towns | What it means |
 |---|---|---|---|
 | Resident guide | `home: true` | Berthoud, Erie, Frederick, Golden, Johnstown, Lafayette, Lyons, Niwot, Windsor | Follows a school; has Families, Living here and Updates; gets the Thursday email |
-| Plain guide | none | Timnath, Carbon Valley, Idaho Springs (Clear Creek) | In the email and the weekly rotation |
-| Visitor guide | `visitorGuide` | Estes Park, Evergreen, Manitou Springs | Checked on the 60-day cycle; no email, no signup box |
+| Plain guide | none | Timnath | In the email and the weekly rotation |
+| Visitor guide | `visitorGuide` | Estes Park | Checked on the 60-day cycle; no email, no signup box |
 | Quiet guide | `quiet` | Castle Rock, Elizabeth, Fort Collins, Leadville, Longmont, Loveland, Nederland | Pages up and indexed; listings checked as the rotation reaches them; no email, no signup, no Thursday draft. Each has a decide-by date in its config |
-| Folded | redirect | Severance (into Windsor), Fort Lupton (into a neighbour), Georgetown and Black Hawk (into Clear Creek); Grand Lake retired, to the hub | A holding page or a redirect; the content lives on the neighbour's guide |
+| Folded or retired | `status: 'redirect'` | Severance (into Windsor); Carbon Valley (to Frederick); Black Hawk, Clear Creek (Idaho Springs), Evergreen, Fort Lupton, Georgetown, Grand Lake and Manitou Springs (to the hub) | No guide: every path on the domain redirects (`vercel.json`, `docs/REDIRECTS.md`) |
+
+`test/how-it-works.test.ts` holds this table to the configs.
 
 The hub lists every live guide A to Z and carries the network pages:
 newsletter, advertise, privacy, about.
@@ -203,6 +205,11 @@ community guide; the other town guides are community and visitor guides.
 - `npm test`, `npm run validate`, `npm run check-colors` and `astro check`
   pass before anything is pushed, and CI builds every live site on every
   pull request. The tests are the rules that cannot drift.
+- A build ends by reading what it built as a crawler would
+  (`npm run check-site`): links, canonicals, the sitemap, structured data
+  and that host's redirects. CI fails on any problem, then checks the links
+  between the sites (`npm run check-network`). The rules are listed in the
+  README (9 November 2026).
 - Content is Markdown with YAML front matter under `content/<town>/`;
   sports data under `data/<town>/`; the config under
   `src/config/towns/<slug>.ts`; the home under `src/components/home/`.
@@ -219,6 +226,7 @@ Scheduled jobs (Denver time), all in `.github/workflows/`:
 | When | Job | Writes |
 |---|---|---|
 | Daily 05:10 | Rebuild every site; restart a dropped ingest or re-check | nothing; Vercel redeploys |
+| Daily 06:10 | Run CI on main with nothing pushed: the tests, the validator, a build of every site and the check of what was built | nothing; a failure opens an issue |
 | Daily 05:40 | Re-check the next 14 days of events against their sources; list what waits for a person before its date; re-read each town's development map and list every row that moved | stamps and flags, and `data/<town>/development.json`, as a pull request |
 | Monday 07:10 | Ingest the confirmed feeds; auto-review the safe ones | staged and published events, as a pull request |
 | Wednesday 06:20 | The research agent: one week's findings per live town, and up to two local changes per resident guide from official pages | drafts in `docs/agent/`; the weekly editor publishes a local change only when it can read its source |
