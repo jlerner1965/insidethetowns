@@ -9,7 +9,7 @@ hours: "Mon 10–5, Tue–Fri 10–6, Sat 10–5; closed Sun"
 tags: [jewelry, gifts]
 summary: "Jewelry and gifts in the 300 block building on Second Avenue, open Monday to Saturday."
 source: "https://niwotjewelry.com/"
-verified: "2026-10-03"
+verified: "2026-11-09"
 added: "2026-09-17"
 ---
 
