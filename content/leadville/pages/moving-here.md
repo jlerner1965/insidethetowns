@@ -4,7 +4,7 @@ description: "Leadville relocation basics: city and county responsibilities, Lak
 image: ../images/harrison-avenue-at-fourth-street.jpg
 imageAlt: "Harrison Avenue at Fourth Street in Leadville, brick and stone storefronts on either side of the wide street, September 2022"
 imageCredit: "Famartin, Wikimedia Commons, CC BY-SA 4.0"
-updated: "2026-10-11"
+updated: "2026-11-09"
 ---
 
 Leadville's historic center, outdoor access and mountain setting are part of the draw. Housing, services and daily travel depend on the address and the season.
@@ -35,4 +35,4 @@ The [Leadville out-of-season guide](/articles/leadville-out-of-season/) and the 
 
 ## Make one ordinary-day visit
 
-Check groceries, school and work travel, parking and the services you use regularly. For remote work, ask providers about the specific address and test the connection in the building. The [history](/articles/leadville-history/) and [family](/articles/leadville-with-kids/) guides cover the rest of town.
+Check groceries, school and work travel, parking and the services you use regularly. The town's supermarket and pharmacy is [Safeway](/places/safeway/) on North Poplar Way; [St. Vincent Health](/places/st-vincent-health/) on West 4th Street has the emergency room, open around the clock, and the family health center next door. For remote work, ask providers about the specific address and test the connection in the building. The [history](/articles/leadville-history/) and [family](/articles/leadville-with-kids/) guides cover the rest of town.
