@@ -16,7 +16,7 @@
  * at all, which is the data's doing and not a flag's.
  */
 import RecCenterWeek from './RecCenterWeek.astro';
-import type { RecCenterData } from '@/lib/rec-center';
+import { operatorName, type RecCenterData } from '@/lib/rec-center';
 
 interface Props {
   data: RecCenterData;
@@ -31,6 +31,7 @@ const { data, fallback = false, href, class: cls } = Astro.props;
 // Only what the day needs, so the home page does not carry the prices and the sources twice.
 const payload = JSON.stringify({
   shortName: data.shortName,
+  operator: data.operator,
   season: data.season,
   facility: data.facility,
   openSwim: data.openSwim,
@@ -51,7 +52,7 @@ const payload = JSON.stringify({
       <p class="text-[0.9375rem] font-semibold text-ink">This week at the rec center</p>
       <RecCenterWeek data={data} class="mt-2" />
       <p class="mt-2 text-[0.9375rem]">
-        <a href={data.scheduleUrl} rel="noopener" class="text-primary underline">The Town’s schedule page</a>
+        <a href={data.scheduleUrl} rel="noopener" class="text-primary underline">{operatorName(data, { possessive: true, capital: true })} schedule page</a>
         {href && <Fragment>{' · '}<a href={href} class="text-primary underline">Schedule &amp; passes</a></Fragment>}
       </p>
     </div>
@@ -59,7 +60,7 @@ const payload = JSON.stringify({
 </div>
 
 <script>
-  import { recCenterToday, todayLine, type RecCenterData } from '@/lib/rec-center';
+  import { operatorName, recCenterToday, todayLine, type RecCenterData } from '@/lib/rec-center';
 
   for (const el of document.querySelectorAll<HTMLElement>('[data-rec-center]')) {
     let data: RecCenterData;
@@ -76,7 +77,7 @@ const payload = JSON.stringify({
     text.textContent = todayLine(status, data);
     // "Check today’s hours on the Town’s page →": the link is the sentence's end.
     if (townLink) {
-      townLink.textContent = status.kind === 'check' ? 'on the Town’s page →' : status.kind === 'closed' ? 'Holiday hours →' : 'Full schedule →';
+      townLink.textContent = status.kind === 'check' ? `on ${operatorName(data, { possessive: true })} page →` : status.kind === 'closed' ? 'Holiday hours →' : 'Full schedule →';
       if (status.kind !== 'open') townLink.closest<HTMLElement>('[data-rec-town]')?.removeAttribute('hidden');
     }
     el.dataset.recKind = status.kind;

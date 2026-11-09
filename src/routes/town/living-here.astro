@@ -39,8 +39,8 @@ const structured = [
       audit, 8 November 2026). */}
   <CheckedLine slot="after-header" perItem dates={[...living.sections.map((s) => s.verified), ...updates.map((u) => u.data.verified)]} />
   <nav slot="after-header" aria-label="On this page" class="mt-6 flex flex-wrap gap-x-5 gap-y-1 text-[0.9375rem]">
-    {living.sections.map((s) => <a href={`#${slug(s.title)}`} class="inline-block -my-1 py-1 font-semibold text-primary underline">{s.title}</a>)}
-    {updates.length > 0 && <a href="#changes" class="inline-block -my-1 py-1 font-semibold text-primary underline">What changed</a>}
+    {living.sections.map((s) => <a href={`#${slug(s.title)}`} class="inline-block -my-3 py-3 font-semibold text-primary underline">{s.title}</a>)}
+    {updates.length > 0 && <a href="#changes" class="inline-block -my-3 py-3 font-semibold text-primary underline">What changed</a>}
   </nav>
   <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
     <div class="min-w-0">
@@ -55,7 +55,7 @@ const structured = [
           <ul class="divide-y divide-line-soft md:grid md:grid-cols-2 md:gap-x-10 md:divide-y-0">
             {s.items.map((item) => (
               <li class="py-3 text-[0.9375rem] leading-snug md:border-t md:border-line-soft">
-                <a href={item.url} rel={/^https?:/.test(item.url) ? 'noopener' : undefined} data-track={item.track ?? 'service'} class="inline-block -my-1 py-1 font-semibold text-primary underline">{item.label} →</a>
+                <a href={item.url} rel={/^https?:/.test(item.url) ? 'noopener' : undefined} data-track={item.track ?? 'service'} class="inline-block -my-3 py-3 font-semibold text-primary underline">{item.label} →</a>
                 {item.note && <span class="block text-ink-muted">{item.note}</span>}
               </li>
             ))}

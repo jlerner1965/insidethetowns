@@ -141,7 +141,7 @@ const where = "block text-[0.9375rem] text-ink-muted sm:inline sm:before:mx-2 sm
         )}
         <p data-events-empty hidden={t.rows.length > 0} class="py-3 text-[1.0625rem] text-ink-muted">{t.empty}</p>
         {t.more > 0 && (
-          <p class="mt-1 text-[0.9375rem]"><a href={t.href} class="inline-block -my-2 py-2 font-semibold text-primary underline">{t.more} more {t.key === 'weekend' ? 'this weekend' : t.key === 'today' ? 'today' : 'tomorrow'} →</a></p>
+          <p class="mt-1 text-[0.9375rem]"><a href={t.href} class="inline-block -my-3 py-3 font-semibold text-primary underline">{t.more} more {t.key === 'weekend' ? 'this weekend' : t.key === 'today' ? 'today' : 'tomorrow'} →</a></p>
         )}
         </div>
         {t.next.length > 0 && (
@@ -164,8 +164,8 @@ const where = "block text-[0.9375rem] text-ink-muted sm:inline sm:before:mx-2 sm
       </div>
     ))}
     <p class="mt-5 flex flex-wrap items-baseline gap-x-6 gap-y-1 border-t border-line-soft pt-4 text-[1.0625rem]">
-      <a href="/events/" class="inline-block -my-2 py-2 font-semibold text-primary underline">All events →</a>
-      <a href="/submit-event/" class="inline-block -my-2 py-2 text-primary underline">Add an event</a>
+      <a href="/events/" class="inline-block -my-3 py-3 font-semibold text-primary underline">All events →</a>
+      <a href="/submit-event/" class="inline-block -my-3 py-3 text-primary underline">Add an event</a>
     </p>
     </div>
     </div>

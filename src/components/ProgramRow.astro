@@ -84,7 +84,7 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
     <p class="eyebrow text-ink-muted">{PROGRAM_KIND_LABELS[data.kind]} · {data.organizer}</p>
   )}
   <h3 class:list={['mt-1 text-xl leading-tight md:text-[1.375rem]', titleClass ?? 'font-medium', status?.state === 'ended' && 'text-ink-muted']}>
-    {data.url ? <a href={data.url} rel="noopener" data-track={track} class="no-underline hover:text-primary hover:underline">{data.title}</a> : data.title}
+    {data.url ? <a href={data.url} rel="noopener" data-track={track} class="-my-3 inline-block py-3 no-underline hover:text-primary hover:underline">{data.title}</a> : data.title}
   </h3>
   {status && (
     <p class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.9375rem]">
@@ -142,7 +142,7 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
     {data.contact && <span>Contact: {data.contact}</span>}
     {data.source && (
       <span>
-        <a href={data.source} rel="noopener" class="inline-block -my-2 py-2 underline">Source: {host(data.source)}</a>{data.verified && (
+        <a href={data.source} rel="noopener" class="inline-block -my-3 py-3 underline">Source: {host(data.source)}</a>{data.verified && (
           <Fragment>, read <time datetime={toIsoLocal(data.verified).slice(0, 10)}>{formatShortDate(data.verified)}</time></Fragment>
         )}
       </span>

@@ -199,7 +199,7 @@ export const niwot: TownConfig = {
         ],
       },
       {
-        title: 'Registering a car',
+        title: 'Motor vehicles',
         verified: '2026-11-09',
         items: [
           { label: 'Boulder County Motor Vehicle', url: 'https://bouldercounty.gov/records/motor-vehicle/', note: 'Offices at 529 Coffman St, Longmont; 1750 33rd St, Boulder; and 1755 S. Public Road, Lafayette. Monday to Thursday 7:30 am to 5 pm, closed Fridays, by appointment only; renewals online, by mail, at a 24-hour drop box or at a kiosk, not in person; 303-413-7710' },
@@ -207,7 +207,7 @@ export const niwot: TownConfig = {
       },
       {
         title: 'Civic developments and official information',
-        note: 'Niwot is unincorporated. Whether it becomes a town is on the November 3, 2026 ballot for electors inside the proposed boundary; this guide reports the question and, after the count, the result.',
+        note: 'Niwot is unincorporated. Whether it becomes a town was on the November 3, 2026 ballot for electors inside the proposed boundary; the count is Boulder County’s to publish and the Election Commission’s to report to the court.',
         verified: '2026-10-21',
         items: [
           { label: 'Boulder County Elections', url: 'https://bouldercounty.gov/elections/', note: 'Registration, drop boxes, vote centers and results' },

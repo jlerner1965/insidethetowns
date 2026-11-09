@@ -287,7 +287,7 @@ const description = placeDescription(
           </p>
         )}
       </div>
-      <p class="order-5 text-[0.9375rem] lg:mt-12"><a href={back.href} class="inline-block -my-1 py-1 font-semibold text-primary underline">← {back.label}</a></p>
+      <p class="order-5 text-[0.9375rem] lg:mt-12"><a href={back.href} class="inline-block -my-3 py-3 font-semibold text-primary underline">← {back.label}</a></p>
     </div>
     <div class="contents lg:block lg:pt-1">
       <aside class="order-2" data-pagefind-meta={`name:${data.title}`}>
@@ -297,7 +297,7 @@ const description = placeDescription(
               <dt>{f.label}</dt>
               <dd data-hours={f.hours}>
                 {f.href ? (
-                  <a href={f.href} rel={f.href.startsWith('http') ? 'noopener' : undefined} class="inline-block -my-1 py-1">{f.value}</a>
+                  <a href={f.href} rel={f.href.startsWith('http') ? 'noopener' : undefined} class="inline-block -my-3 py-3">{f.value}</a>
                 ) : f.lines ? (
                   <span class="lines">{f.lines.map((line) => <span>{line}</span>)}</span>
                 ) : (
@@ -379,7 +379,7 @@ const description = placeDescription(
       <ul class="divide-y divide-line-soft border-y border-line-soft">
         {inGuides.map((a) => (
           <li class="py-3">
-            <a href={`/articles/${a.slug}/`} class="inline-block -my-1 py-1 font-semibold text-primary underline">{a.data.title}</a>
+            <a href={`/articles/${a.slug}/`} class="inline-block -my-3 py-3 font-semibold text-primary underline">{a.data.title}</a>
             <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{a.data.excerpt}</p>
           </li>
         ))}

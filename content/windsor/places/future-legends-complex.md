@@ -4,7 +4,6 @@ subTown: windsor
 type: venue
 address: "950 Owlz Way"
 area: "Diamond Valley"
-url: "https://futurelegendscomplex.com/"
 source: "https://www.kunc.org/news/2026-08-17/future-legends-lender-alleges-delay-tactics-with-bankruptcy-filing"
 verified: "2026-10-07"
 added: "2026-10-01"

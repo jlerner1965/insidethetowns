@@ -67,7 +67,7 @@ const label = 'text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-whi
             <details open data-sisters>
               {/* From `sm` up the list cannot be closed, so the disclosure
                   triangle, which promised it could, is not shown there. */}
-              <summary class:list={[label, 'cursor-pointer py-2 sm:pointer-events-none sm:list-none sm:py-0 sm:[&::-webkit-details-marker]:hidden']}>
+              <summary class:list={[label, 'cursor-pointer py-3 sm:pointer-events-none sm:list-none sm:py-0 sm:[&::-webkit-details-marker]:hidden']}>
                 Nearby guides<span class="sm:hidden"> ({sisters.length})</span>
               </summary>
               {/* The neighbours in a row, each a white link, and the hub's

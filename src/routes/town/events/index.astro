@@ -150,7 +150,7 @@ const structured = [
           {big.map((event) => (
             <li class="flex flex-wrap items-baseline gap-x-4 gap-y-1 py-3">
               <time datetime={toIsoLocal(event.data.start)} class="w-44 shrink-0 text-[0.9375rem] text-ink-muted">{formatDayLong(event.data.start)}</time>
-              <a href={`/events/${event.slug}/`} class="inline-block -my-1 py-1 font-semibold text-primary underline">{event.data.title}</a>
+              <a href={`/events/${event.slug}/`} class="inline-block -my-3 py-3 font-semibold text-primary underline">{event.data.title}</a>
               <span class="text-[0.9375rem] text-ink-muted">{event.data.venue}</span>
             </li>
           ))}

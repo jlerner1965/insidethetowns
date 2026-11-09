@@ -68,6 +68,15 @@ export const windsor: TownConfig = {
   },
   // A resident guide (TownConfig.home), since 22 October 2026.
   home: true,
+  // Quick answers (parity with Berthoud, 9 November 2026). The Town's recreation site
+  // refused this session's reader, so there is no schedule file and the link names the
+  // listing, as Erie's does.
+  quickAnswers: { recCenter: { label: 'Rec center hours & swim', place: 'community-recreation-center' } },
+  // The participation hub, as on Berthoud (9 November 2026); its entries are the ways-in in content/<town>/programs/.
+  participation: {
+    label: 'Get involved',
+    intro: 'Boards, volunteering, clubs and groups in Windsor and Severance, and how to join each.',
+  },
   /**
    * Windsor High's colours, read from its own site 25 October 2026
    * (whs.weldre4.org), which names them "Maroon and Gold": the page's
@@ -241,8 +250,10 @@ export const windsor: TownConfig = {
           { label: 'Severance Town Council', url: 'https://www.townofseverance.org/161/Mayor-Town-Council', note: 'Second and fourth Tuesdays: work session at 5 pm, regular meeting by 6 pm, Town Hall, 3 S Timber Ridge Pkwy', track: 'participation' },
           { label: 'Severance agendas and minutes', url: 'https://www.townofseverance.org/129/Agendas-Minutes' },
           { label: 'Severance Youth Council', url: 'https://www.townofseverance.org/413/Youth-Council', note: 'Teens advising the Town Council; first Mondays at 5 pm at Town Hall', track: 'participation' },
-          { label: 'Weld County elections', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Elections-Department', note: 'The November 3 general election; voting centers and drop boxes on the county’s map; 970-304-6525' },
-          { label: 'Larimer County elections', url: 'https://www.larimer.gov/clerk/elections/current-elections/2026', note: 'For Windsor addresses in Larimer County; ballot boxes open until 7 pm on November 3' },
+          // Reworded after the election, from the page as read 9 November 2026 (cleanup pass).
+          { label: 'Weld County elections', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Elections-Department', note: 'The page links the unofficial results of the November 3 general election; 970-304-6525' },
+          // Reworded after the election, from the page as read 9 November 2026 (cleanup pass).
+          { label: 'Larimer County elections', url: 'https://www.larimer.gov/clerk/elections/current-elections/2026', note: 'For Windsor addresses in Larimer County; after the November 3 election, signature cures are due November 12 and final results are posted by November 25' },
         ],
       },
     ],

@@ -1,0 +1,382 @@
+{
+  "place": "carbon-valley-recreation-center",
+  "name": "Carbon Valley Recreation Center",
+  "shortName": "Rec center",
+  "operator": "the district",
+  "scheduleLabel": "pool schedule page",
+  "scheduleUrl": "https://www.cvprd.com/pool-schedule",
+  "checked": "2026-11-09",
+  "sources": [
+    {
+      "label": "Carbon Valley Parks and Recreation District: Hours of Operation",
+      "url": "https://www.cvprd.com/hours-of-operation"
+    },
+    {
+      "label": "Carbon Valley Parks and Recreation District: Pool Schedule, Fall/Winter (August 17, 2026 to January 3, 2027)",
+      "url": "https://www.cvprd.com/pool-schedule"
+    },
+    {
+      "label": "Pool Schedule Fall/Winter 2026 (PDF), August 17 to January 3",
+      "url": "https://www.cvprd.com/files/66681f176/Pool+Schedule+Fall-Winter+2026.pdf"
+    },
+    {
+      "label": "Carbon Valley Parks and Recreation District: Rates & Pass Information",
+      "url": "https://www.cvprd.com/rates-pass-information"
+    }
+  ],
+  "season": {
+    "label": "Fall/Winter 2026",
+    "from": "2026-08-17",
+    "to": "2027-01-03"
+  },
+  "facility": {
+    "mon": [
+      "05:30",
+      "21:00"
+    ],
+    "tue": [
+      "05:30",
+      "21:00"
+    ],
+    "wed": [
+      "05:30",
+      "21:00"
+    ],
+    "thu": [
+      "05:30",
+      "21:00"
+    ],
+    "fri": [
+      "05:30",
+      "21:00"
+    ],
+    "sat": [
+      "07:30",
+      "17:00"
+    ],
+    "sun": [
+      "10:00",
+      "17:00"
+    ]
+  },
+  "openSwim": {
+    "mon": [
+      [
+        "13:00",
+        "20:30"
+      ]
+    ],
+    "tue": [
+      [
+        "13:00",
+        "16:15"
+      ]
+    ],
+    "wed": [
+      [
+        "13:00",
+        "20:30"
+      ]
+    ],
+    "thu": [
+      [
+        "13:00",
+        "16:15"
+      ]
+    ],
+    "fri": [
+      [
+        "13:00",
+        "20:30"
+      ]
+    ],
+    "sat": [
+      [
+        "11:00",
+        "16:30"
+      ]
+    ],
+    "sun": [
+      [
+        "10:00",
+        "16:30"
+      ]
+    ]
+  },
+  "lapSwim": {
+    "mon": [
+      [
+        "05:30",
+        "13:00"
+      ],
+      [
+        "16:00",
+        "20:30"
+      ]
+    ],
+    "tue": [
+      [
+        "05:30",
+        "16:30"
+      ],
+      [
+        "19:00",
+        "20:30"
+      ]
+    ],
+    "wed": [
+      [
+        "05:30",
+        "13:00"
+      ],
+      [
+        "16:00",
+        "20:30"
+      ]
+    ],
+    "thu": [
+      [
+        "05:30",
+        "16:30"
+      ],
+      [
+        "19:00",
+        "20:30"
+      ]
+    ],
+    "fri": [
+      [
+        "05:30",
+        "13:00"
+      ],
+      [
+        "16:00",
+        "20:30"
+      ]
+    ],
+    "sat": [
+      [
+        "07:30",
+        "08:30"
+      ],
+      [
+        "11:00",
+        "16:30"
+      ]
+    ],
+    "sun": [
+      [
+        "10:00",
+        "16:30"
+      ]
+    ]
+  },
+  "notes": [
+    "The pool closes 30 minutes before the building. The pool and heated amenities are adults only Monday to Friday, 5:30 am–1 pm.",
+    "Monday, Wednesday and Friday open swim is in the activity pool only from 1 to 4 pm. Sunday’s first hour, 10–11 am, is Sensory Swim: no water features and no music.",
+    "Lap swim is for ages 16 and over, and lanes are shared. There is no open swim during swim lessons (Tuesday and Thursday 4:30–7 pm, Saturday 8:30–11 am); in weeks without lessons the district extends Tuesday and Thursday open swim to 7 pm.",
+    "On no-school days open swim starts at 11 am and the slide opens at 1 pm. The district says the schedule is subject to change without notice."
+  ],
+  "exceptions": [
+    {
+      "date": "2026-11-10",
+      "note": "No swim lessons this week; open swim extended to 7 pm",
+      "openSwim": [
+        [
+          "13:00",
+          "19:00"
+        ]
+      ]
+    },
+    {
+      "date": "2026-11-12",
+      "note": "No swim lessons this week; open swim extended to 7 pm",
+      "openSwim": [
+        [
+          "13:00",
+          "19:00"
+        ]
+      ]
+    },
+    {
+      "date": "2026-11-23",
+      "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
+      "source": "https://www.cvprd.com/pool-schedule"
+    },
+    {
+      "date": "2026-11-24",
+      "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
+      "source": "https://www.cvprd.com/pool-schedule"
+    },
+    {
+      "date": "2026-11-25",
+      "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
+      "source": "https://www.cvprd.com/pool-schedule"
+    },
+    {
+      "date": "2026-11-26",
+      "note": "Thanksgiving",
+      "closed": true,
+      "source": "https://www.cvprd.com/hours-of-operation"
+    },
+    {
+      "date": "2026-11-27",
+      "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm; day after Thanksgiving, regular building hours",
+      "source": "https://www.cvprd.com/pool-schedule"
+    },
+    {
+      "date": "2026-12-15",
+      "note": "No swim lessons this week; open swim extended to 7 pm",
+      "openSwim": [
+        [
+          "13:00",
+          "19:00"
+        ]
+      ]
+    },
+    {
+      "date": "2026-12-17",
+      "note": "No swim lessons this week; open swim extended to 7 pm",
+      "openSwim": [
+        [
+          "13:00",
+          "19:00"
+        ]
+      ]
+    },
+    {
+      "date": "2026-12-21",
+      "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
+      "source": "https://www.cvprd.com/pool-schedule"
+    },
+    {
+      "date": "2026-12-22",
+      "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
+      "source": "https://www.cvprd.com/pool-schedule"
+    },
+    {
+      "date": "2026-12-23",
+      "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
+      "source": "https://www.cvprd.com/pool-schedule"
+    },
+    {
+      "date": "2026-12-24",
+      "note": "Christmas Eve",
+      "facility": [
+        "06:00",
+        "13:00"
+      ],
+      "source": "https://www.cvprd.com/hours-of-operation"
+    },
+    {
+      "date": "2026-12-25",
+      "note": "Christmas Day",
+      "closed": true,
+      "source": "https://www.cvprd.com/hours-of-operation"
+    },
+    {
+      "date": "2026-12-28",
+      "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
+      "source": "https://www.cvprd.com/pool-schedule"
+    },
+    {
+      "date": "2026-12-29",
+      "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
+      "source": "https://www.cvprd.com/pool-schedule"
+    },
+    {
+      "date": "2026-12-30",
+      "note": "No-school day: open swim starts at 11 am, the slide opens at 1 pm",
+      "source": "https://www.cvprd.com/pool-schedule"
+    },
+    {
+      "date": "2026-12-31",
+      "note": "New Year’s Eve",
+      "facility": [
+        "06:00",
+        "13:00"
+      ],
+      "source": "https://www.cvprd.com/hours-of-operation"
+    },
+    {
+      "date": "2027-01-01",
+      "note": "New Year’s Day",
+      "closed": true,
+      "source": "https://www.cvprd.com/hours-of-operation"
+    }
+  ],
+  "prices": {
+    "source": "https://www.cvprd.com/rates-pass-information",
+    "checked": "2026-11-09",
+    "dayPass": [
+      {
+        "label": "Adult (18 to 54), district resident",
+        "price": "$5.50"
+      },
+      {
+        "label": "Adult (18 to 54), non-district",
+        "price": "$8"
+      },
+      {
+        "label": "Youth (5 to 17), district resident",
+        "price": "$4"
+      },
+      {
+        "label": "Youth (5 to 17), non-district",
+        "price": "$6"
+      },
+      {
+        "label": "Senior (55+) / military, district resident",
+        "price": "$4.50"
+      },
+      {
+        "label": "Senior (55+) / military, non-district",
+        "price": "$7"
+      },
+      {
+        "label": "10-visit punch pass, adult, district resident",
+        "price": "$48.25"
+      },
+      {
+        "label": "10-visit punch pass, adult, non-district",
+        "price": "$72.25"
+      }
+    ],
+    "memberships": [
+      {
+        "label": "Annual, adult (18 to 54), district resident",
+        "price": "$405"
+      },
+      {
+        "label": "Annual, adult (18 to 54), non-district",
+        "price": "$568"
+      },
+      {
+        "label": "Annual, family, district resident",
+        "price": "$751"
+      },
+      {
+        "label": "Annual, family, non-district",
+        "price": "$982"
+      },
+      {
+        "label": "Annual, senior (55+) / military, district resident",
+        "price": "$300"
+      },
+      {
+        "label": "Annual, senior (55+) / military, non-district",
+        "price": "$411"
+      },
+      {
+        "label": "Annual, youth (5 to 17), district resident",
+        "price": "$231"
+      },
+      {
+        "label": "Annual, youth (5 to 17), non-district",
+        "price": "$386"
+      }
+    ],
+    "note": "Children 4 and under are admitted free. The district rate is for residents who pay taxes to the Carbon Valley Parks and Recreation District. A family pass is two adults and children 19 and under in the same household. Annual passes can be billed monthly at no extra charge; quarterly passes, couple passes and 20-visit punch passes are on the district’s page. Active and retired military receive 15% off drop-in admission and passes.",
+    "sourceLabel": "rates and passes page"
+  }
+}

@@ -14,7 +14,7 @@
  * say so (the h1 says "Recreation Center", which is not what people type).
  */
 import RecCenterWeek from './RecCenterWeek.astro';
-import { exceptionLabel, upcomingExceptions, type RecCenterData } from '@/lib/rec-center';
+import { exceptionLabel, operatorName, upcomingExceptions, type RecCenterData } from '@/lib/rec-center';
 import { formatDate, formatMonthDay, parseLocal } from '@/lib/dates';
 
 interface Props {
@@ -29,7 +29,7 @@ const season = `${formatDate(parseLocal(data.season.from))} to ${formatDate(pars
 <section class:list={['border-t border-line-soft pt-8', cls]} aria-labelledby="pool-schedule" data-pagefind-weight="7">
   <h2 id="pool-schedule" class="display-md text-[1.5rem] md:text-[1.75rem]">Pool schedule and rec center hours</h2>
   <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">
-    The rec center’s hours, open swim and lap swim by day for the {data.season.label.toLowerCase()} ({season}), as the Town posts them. Family swim, water walking, the spa and open gym are on the Town’s page.
+    The rec center’s hours, open swim and lap swim by day for the {data.season.label.toLowerCase()} ({season}), as {operatorName(data)} posts them.{data.alsoListed && ` ${data.alsoListed} are on ${operatorName(data, { possessive: true })} page.`}
   </p>
   <RecCenterWeek data={data} class="mt-4" />
   {data.notes && data.notes.length > 0 && (
@@ -77,7 +77,7 @@ const season = `${formatDate(parseLocal(data.season.from))} to ${formatDate(pars
       </div>
       {data.prices.note && <p class="mt-3 text-[0.875rem] leading-relaxed text-ink-muted">{data.prices.note}</p>}
       <p class="mt-2 text-[0.875rem] leading-relaxed text-ink-muted">
-        Prices from <a href={data.prices.source} rel="noopener" class="underline">the Town’s memberships page</a>, checked {formatDate(parseLocal(data.prices.checked))}.
+        Prices from <a href={data.prices.source} rel="noopener" class="underline">{operatorName(data, { possessive: true })} {data.prices.sourceLabel ?? 'memberships page'}</a>, checked {formatDate(parseLocal(data.prices.checked))}.
       </p>
     </div>
   )}
@@ -85,6 +85,6 @@ const season = `${formatDate(parseLocal(data.season.from))} to ${formatDate(pars
     Schedule checked {formatDate(parseLocal(data.checked))} against
     {data.sources.map((s, i) => (
       <Fragment>{i > 0 && (i === data.sources.length - 1 ? ' and ' : ', ')}<a href={s.url} rel="noopener" class="underline">{s.label}</a></Fragment>
-    ))}. The Town’s <a href={data.scheduleUrl} rel="noopener" class="underline">facility schedules page</a> is the record for any day.
+    ))}. {operatorName(data, { possessive: true, capital: true })} <a href={data.scheduleUrl} rel="noopener" class="underline">{data.scheduleLabel ?? 'facility schedules page'}</a> is the record for any day.
   </p>
 </section>

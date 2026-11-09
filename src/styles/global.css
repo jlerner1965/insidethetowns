@@ -585,6 +585,8 @@
     align-items: center;
     gap: 0.5rem;
     border-radius: 9999px;
+    /* 44px, the minimum tap target (it was 39 to 42px; cleanup pass, 9 November 2026). */
+    min-height: 2.75rem;
     padding: 0.7rem 1.25rem;
     font-size: 0.9375rem;
     font-weight: 600;

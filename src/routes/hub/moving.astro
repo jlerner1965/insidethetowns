@@ -70,7 +70,7 @@ const SUITS: Record<string, string> = {
   "johnstown": "Suits northern Colorado commuters. The US 34 interchange is on the west edge, which puts Loveland at ten minutes, Greeley at fifteen, Fort Collins at twenty-five and Denver at fifty. Johnstown spans two school districts, as Erie does. Most of town is in Weld RE-5J; the northwest corner is in Thompson, so check the address. The trade is that the shopping has moved out to the interstate and Parish Avenue is quiet.",
   "berthoud": "Suits people who want a Main Street that is genuinely a main street, and the lakes. Fifteen minutes to Loveland or Longmont, twenty-five to Fort Collins, and the FLEX bus runs through it between Fort Collins, Loveland, Longmont and Boulder, so a commute without a car is possible if the timetable fits. It doubled in a decade, so a good deal of it is new.",
   "timnath": "Suits people who want to be minutes from Fort Collins in a town built almost entirely this century. It went from 625 people at the 2010 census to 6,487 at the 2020 census, which is the largest proportional change of any town here by a wide margin, and it shows: Old Town Main Street is a couple of blocks and everything else was built this decade around the Harmony Road retail. Come for the reservoir and the river trail, not for an old town center.",
-  "niwot": "Suits people who want small and mean it. It is unincorporated — no town council, no municipal tax, county services, and an incorporation question on the November 3, 2026 ballot whose outcome is worth checking before you buy. Seven percent growth in a decade, which in this company is a rounding error. Twenty minutes to Boulder or Longmont on the Diagonal, and the BOLT bus stops at Niwot Road.",
+  "niwot": "Suits people who want small and mean it. It is unincorporated — no town council, no municipal tax, county services, and it voted against incorporating on November 3, 2026, in the county’s unofficial count. Seven percent growth in a decade, which in this company is a rounding error. Twenty minutes to Boulder or Longmont on the Diagonal, and the BOLT bus stops at Niwot Road.",
   "lyons": "Suits people who want the mountains to start at the end of the street. It is the canyon mouth: sandstone, the St. Vrain, Planet Bluegrass, and a town that rebuilt itself after the 2013 flood and talks about it. Twenty minutes to Boulder and an hour to Denver, and one bus: the free Lyons Flyer, four trips each way to Boulder on weekdays. It has barely grown, so what is for sale at any moment is a handful of listings, and the river is both the reason to live there and the thing to ask a surveyor about.",
   "elizabeth": "Suits people who want acreage and sky and will trade an hour of driving for it. It is a Palmer Divide community at 6,477 feet, with the weather that implies. Inside town you get water and sewer; outside it you own a well and a septic system, and you should have both inspected and the well's yield documented before you buy. Forty-five minutes to the Tech Center, and Denver is not really the point.",
   "windsor": "Suits people who work anywhere in northern Colorado and want to be in the middle of it: Fort Collins, Loveland and Greeley are each about twenty minutes, and Harmony Road puts I-25 at ten. It went from 18,644 people at the 2010 census to 32,716 at the 2020 census and most of the housing is new, in metro districts east and south of the old sugar-beet town; the lake, Boardwalk Park and Main Street are the old center and the reason to live near it. Two counties and three school districts inside the town limits — Weld RE-4 for most of it, Poudre or Thompson on the Larimer County side — so check the address, not the town.",
@@ -155,7 +155,7 @@ const structured = collectionPageJsonLd(hub, {
                shows its link only. */}
             {SUITS[t.slug] && <p class="max-w-[62ch] leading-relaxed text-ink-muted">{SUITS[t.slug]}</p>}
             <p class:list={['text-[0.9375rem]', SUITS[t.slug] && 'mt-3']}>
-              <a href={`https://${t.domain}/moving-here/`} class="inline-block -my-1 py-1 font-semibold text-primary underline">
+              <a href={`https://${t.domain}/moving-here/`} class="inline-block -my-3 py-3 font-semibold text-primary underline">
                 Moving to {t.name} →
               </a>
             </p>
@@ -204,8 +204,7 @@ const structured = collectionPageJsonLd(hub, {
     <h2>How they are governed</h2>
     <p>
       Niwot is unincorporated. It is a census-designated place under Boulder
-      County, which means county services, no town council and no municipal tax — and an incorporation question that
-      is <a href="https://insideniwot.com/articles/2026-incorporation-election/">on the November 3, 2026 ballot</a>. Windsor's
+      County, which means county services, no town council and no municipal tax. Its electors <a href="https://insideniwot.com/updates/#incorporation-vote-result">voted against incorporating</a> on November 3, 2026, 2,047 to 697 in the county’s unofficial count. Windsor's
       figures are Windsor's alone, though its guide covers Severance too
       (<a href="https://insidewindsorco.com/articles/moving-to-severance/">Moving to Severance</a>). If you are
       comparing towns on how they are governed, those are the differences on this page.

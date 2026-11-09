@@ -22,9 +22,9 @@ const site = getSite();
 const hub = getNetworkHub();
 const year = new Date().getFullYear();
 const home = site.kind === 'town' && Astro.url.pathname === '/';
-// A phone gets a taller line to tap: the links were 19px high, under the 24px
-// minimum, a few pixels apart.
-const linkClass = 'inline-block py-1 no-underline text-white hover:underline sm:py-0';
+// A phone gets a 44px line to tap (cleanup pass, 9 November 2026; it was 34px):
+// the padding is the target and the negative margin keeps the rows where they were.
+const linkClass = 'inline-block -my-1.5 py-2.5 no-underline text-white hover:underline sm:my-0 sm:py-0';
 // Every section of the guide the menu leaves out (src/lib/nav.ts), so each
 // is one click from any page and none is reachable only from an aside.
 const inMenu = new Set(siteNav(site).map((n) => n.href));

@@ -157,10 +157,13 @@ const jsonLd = [
         <nav class="mt-8" aria-label="Teams and records">
           {/* One row per team on a phone, the record at the right edge; from
               40rem the teams sit side by side as columns. */}
+          {/* Each column has min-w-0 and a league line that may wrap: six teams with
+              "2nd in the 5A/4A/3A Granite Peaks" under each ran the row 63px past a 1280px
+              page (Niwot, Frederick and Lafayette; cleanup pass, 9 November 2026). */}
           <ul class="divide-y divide-line-soft border-y border-line-soft sm:flex sm:divide-x sm:divide-y-0">
             {teams.map((s) => (
-              <li class="sm:flex-1">
-                <a href={`#${s.key}`} class="group flex items-baseline justify-between gap-4 py-3 no-underline sm:block sm:py-4 sm:pr-6 sm:pl-5 sm:first:pl-0">
+              <li class="sm:min-w-0 sm:flex-1">
+                <a href={`#${s.key}`} class="group flex items-baseline justify-between gap-4 py-3 no-underline sm:block sm:py-4 sm:pr-6 sm:pl-5 sm:[li:first-child>&]:pl-0">
                   <span class="min-w-0">
                     {/* Two lines kept from 40rem, used or not: "Boys basketball"
                         wraps in a six-team row, and its record sat a line below
@@ -174,7 +177,7 @@ const jsonLd = [
                   </span>
                   <span class="display-md shrink-0 whitespace-nowrap text-[2.25rem] text-primary group-hover:underline sm:mt-1 sm:block md:text-5xl">{s.overall ?? '—'}</span>
                   {s.league && (
-                    <span class="mt-1 hidden whitespace-nowrap text-[0.875rem] text-ink-muted sm:block">
+                    <span class="mt-1 hidden text-[0.875rem] leading-snug text-ink-muted sm:block">
                       {leaguePlace(s) ? `${leaguePlace(s)} in the ` : ''}{s.league.name}
                     </span>
                   )}
@@ -236,7 +239,7 @@ const jsonLd = [
                 )}
                 <p class="mt-4 flex items-center gap-2 text-[0.9375rem]">
                   {game.result && <span class:list={['inline-flex h-6 w-6 items-center justify-center rounded-full text-[0.75rem] font-bold', PILL[game.result]]} aria-hidden="true">{game.result}</span>}
-                  <a href={game.url} rel="noopener" class="font-semibold text-primary underline">{game.result ? RESULT_WORD[game.result] : 'The meet'} on MaxPreps</a>
+                  <a href={game.url} rel="noopener" class="-my-3 inline-block py-3 font-semibold text-primary underline">{game.result ? RESULT_WORD[game.result] : 'The meet'} on MaxPreps</a>
                 </p>
               </li>
             );

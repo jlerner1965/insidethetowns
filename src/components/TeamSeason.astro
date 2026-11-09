@@ -50,7 +50,7 @@ const over = seasonOver(s, today);
   <header class="grid gap-5 border-b-2 border-accent pb-5 md:grid-cols-[1fr_auto] md:items-end">
     <div>
       <Heading id={`${s.key}-title`} class="display-md text-3xl md:text-4xl">
-        {heading.href ? <a href={heading.href} class="no-underline hover:text-primary hover:underline">{heading.text}</a> : heading.text}
+        {heading.href ? <a href={heading.href} class="-my-1 inline-block py-1 no-underline hover:text-primary hover:underline">{heading.text}</a> : heading.text}
       </Heading>
       <p class="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <span class="display-md whitespace-nowrap text-[2.75rem] text-primary md:text-5xl">{s.overall ?? '—'}</span>
@@ -70,7 +70,7 @@ const over = seasonOver(s, today);
               <a
                 href={g.url}
                 rel="noopener"
-                class:list={['inline-flex h-7 w-7 items-center justify-center rounded-sm text-[0.75rem] font-bold no-underline', g.result ? PILL[g.result] : 'bg-accent-soft text-ink']}
+                class:list={['inline-flex h-11 w-11 items-center justify-center rounded-sm text-[0.875rem] font-bold no-underline sm:h-7 sm:w-7 sm:text-[0.75rem]', g.result ? PILL[g.result] : 'bg-accent-soft text-ink']}
                 title={`${formatDayShort(day(g))}: ${g.result ? `${RESULT_WORD[g.result]} ` : ''}${outcome(g)}`}
               >
                 <span aria-hidden="true">{g.result ?? '·'}</span>

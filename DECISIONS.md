@@ -9554,3 +9554,32 @@ here).*
   Lafayette and Frederick) a dot of it could not be seen, and the white
   ring around it read as the empty radio button the brief named, so those
   strips have no dot: the owner's to overrule.
+
+## Resident guides are for towns; Timnath becomes one, 9 November 2026
+
+*The owner's brief, "Bring Timnath and the existing resident guides up to Inside Berthoud's setup".*
+
+- **The rule.** Resident guides are for towns. Windsor, about 33,000
+  people, is the largest. Cities over 70,000 stay quiet guides, and their
+  decide-by dates are unchanged.
+- **Timnath** is the tenth resident guide: `home: true`, with its school
+  (Timnath Middle-High, the Cubs), Families, Living here, Get involved,
+  and quick answers, each fact read on 9 November from the Town's,
+  Poudre School District's, Larimer County's or the provider's own page.
+  Its palette is unchanged. The scoreboard band is the navy of the school's
+  own logo, because white does not reach 7:1 on either of its blues.
+  Sections with no official page for Timnath were left out, not filled:
+  food help and a library.
+- **The flag is the whole switch.** `home: true` alone puts Timnath into
+  the Wednesday local-changes drafts (`agent/agent.mjs` skips a town
+  without it and nothing else is listed anywhere).
+- **Parity.** Erie, Johnstown and Windsor have Get involved; Frederick,
+  Golden, Johnstown, Lafayette, Lyons and Windsor have quick answers. Only
+  Frederick got a schedule file (Carbon Valley Recreation Center, from
+  cvprd.com). Johnstown's, Lafayette's and Windsor's links name the
+  listing, as Erie's does: the Y publishes a week-at-a-time calendar with
+  no season, and Lafayette's and Windsor's sites refused the reader.
+  Golden and Lyons have no rec center link: the guide has no Golden
+  Community Center listing, and Lyons has no recreation center.
+- **The schedule component names who runs the place** (`operator` in the
+  data file, "the Town" unless set), since Carbon Valley's is a district's.

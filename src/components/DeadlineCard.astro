@@ -48,7 +48,7 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
       <span class="mt-0.5 text-[0.9375rem] font-bold">{badge.day}</span>
     </time>
     <div class="min-w-0">
-      <h3 class="text-lg font-semibold leading-snug"><a href={`#program-${program.slug}`} class="no-underline hover:text-primary hover:underline">{listing ? listing.data.title.replace(/\s*[:·-]\s*(?:\w+\s+)?due\s*$/i, '') : data.title}</a></h3>
+      <h3 class="text-lg font-semibold leading-snug"><a href={`#program-${program.slug}`} class="-my-3 inline-block py-3 no-underline hover:text-primary hover:underline">{listing ? listing.data.title.replace(/\s*[:·-]\s*(?:\w+\s+)?due\s*$/i, '') : data.title}</a></h3>
       <p class="mt-0.5 text-[0.875rem] leading-snug text-ink-muted">
         {[data.organizer, free, leftText].filter(Boolean).join(' · ')}
       </p>

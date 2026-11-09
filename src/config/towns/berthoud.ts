@@ -133,7 +133,7 @@ export const berthoud: TownConfig = {
         ],
       },
       {
-        title: 'Recreation',
+        title: 'Parks and recreation',
         verified: '2026-11-06',
         items: [
           { label: 'Berthoud Recreation: registration', url: 'https://apps.daysmartrecreation.com/dash/x/berthoud/', note: 'Leagues, classes, swim lessons and passes; the activity guide links into it', track: 'registration' },

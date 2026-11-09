@@ -91,6 +91,9 @@ export const frederick: TownConfig = {
   },
   // A resident guide (TownConfig.home), from the start.
   home: true,
+  // Quick answers under What's happening (parity with Berthoud, 9 November 2026).
+  // The rec center link comes from data/frederick/rec-center.json (Carbon Valley Recreation Center).
+  quickAnswers: {},
   /**
    * Frederick High School's colours as the school's own site sets them
    * (fhs.svvsd.org stylesheet, read 2 November 2026 from this container with
@@ -242,7 +245,7 @@ export const frederick: TownConfig = {
         ],
       },
       {
-        title: 'Recreation',
+        title: 'Parks and recreation',
         note: 'The Carbon Valley Parks and Recreation District runs the rec center, the gymnastics center, the leagues and the classes for the three towns; the Town runs the parks, the trails and Bella Rosa Golf Course.',
         verified: '2026-11-02',
         items: [
@@ -333,7 +336,8 @@ export const frederick: TownConfig = {
           { label: 'Serve on a board, commission or committee', url: 'https://www.frederickco.gov/281/Boards-Commissions', note: 'Residents apply online; the Board considers applications in May and October after panel interviews; two parks-commission seats and one historic-preservation seat were open on November 2', track: 'participation' },
           { label: 'Frederick Youth Commission', url: 'https://www.frederickco.gov/1001/Frederick-Youth-Commission', note: 'Grades 8 to 12; ten seats open; apply online with the release form; 720-382-5553', track: 'participation' },
           { label: 'Volunteer with the Town', url: 'https://www.frederickco.gov/345/Volunteer-Opportunities', note: 'Event shifts through the Frederick Volunteer Portal, a volunteer newsletter, beer-garden shifts for TIPS-trained adults 21 and over, and one-time service projects; volunteers 14 and up on their own', track: 'participation' },
-          { label: 'Weld County Elections', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Elections-Department', note: 'General election November 3, 2026, ballots received by 7 pm; the Carbon Valley Recreation Center, 701 5th St, is a vote center on November 2 and 3 and a 24-hour drop box; 970-304-6525' },
+          // Reworded after the election, from the page as read 9 November 2026 (cleanup pass).
+          { label: 'Weld County Elections', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Elections-Department', note: 'The county’s page links the unofficial results of the November 3, 2026 general election; 970-304-6525' },
         ],
       },
     ],

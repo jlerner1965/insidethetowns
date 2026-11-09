@@ -68,6 +68,11 @@ export const erie: TownConfig = {
   home: true,
   // Quick answers under What's happening (the owner, 8 November 2026).
   quickAnswers: { recCenter: { label: 'Community center hours & swim', place: 'erie-community-center' } },
+  // The participation hub, as on Berthoud (9 November 2026); its entries are the ways-in in content/<town>/programs/.
+  participation: {
+    label: 'Get involved',
+    intro: 'Boards, volunteering, clubs and groups in Erie, and how to join each.',
+  },
   /**
    * Erie High's colours, read from its own site 25 October 2026
    * (ehs.svvsd.org): the theme's `--color-primary` is #F26B21, the Tiger
@@ -226,7 +231,8 @@ export const erie: TownConfig = {
         items: [
           { label: 'Town Council', url: 'https://www.erieco.gov/318/Town-Council', note: '2nd and 4th Tuesdays at 6:30 pm, Council Chambers, Town Hall, 645 Holbrook St; comment in person, on Zoom or in writing to the Town Clerk; sign up to speak online or at the kiosk', track: 'participation' },
           { label: 'Agendas, minutes and recordings', url: 'https://erieco.portal.civicclerk.com/', note: 'Agendas posted at least 24 hours ahead' },
-          { label: '2026 Town election', url: 'https://www.erieco.gov/1345/2026-Election', note: 'November 3: Council seats in Districts 1, 2 and 3' },
+          // Reworded after the election, from the page as read 9 November 2026 (cleanup pass).
+          { label: '2026 Town election', url: 'https://www.erieco.gov/1345/2026-Election', note: 'The November 3 election filled the Council seats in Districts 1, 2 and 3; the page links the unofficial results, and members are sworn in on January 12, 2027' },
           { label: 'Boulder County Elections', url: 'https://bouldercounty.gov/elections/', note: 'For addresses west of County Line Road; 303-413-7740' },
           { label: 'Weld County Elections', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Elections-Department', note: 'For addresses east of County Line Road; 970-304-6525' },
         ],
