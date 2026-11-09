@@ -339,6 +339,10 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     colors: { primary: '#C41230' },
     // Weld RE-5J's Finalsite site; `?cal_date=YYYY-MM-01` shows a month.
     calendar: { kind: 'finalsite', url: 'https://rhs.weldre5j.org/calendar', label: 'the Roosevelt High calendar' },
+    hosted: [
+      // CHSAANow's game page for the 4A second round, read 9 November 2026: "Montbello at Roosevelt", Roosevelt the home team, Fri, Nov 13, 7 pm. MaxPreps filed it as a neutral site.
+      { team: 'football', date: '2026-11-13', stage: 'State Football Playoffs', source: 'https://chsaanow.com/sports/football/games/2026/11/13/montbello-at-roosevelt' },
+    ],
     teams: TEAMS(),
   },
   {
