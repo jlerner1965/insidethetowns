@@ -6,7 +6,7 @@ address: "650 Audubon Boulevard, Severance, CO"
 area: "Audubon Boulevard"
 url: "https://www.townofseverance.org/209/Parks-Recreation"
 source: "https://www.townofseverance.org/209/Parks-Recreation"
-verified: "2026-10-06"
+verified: "2026-11-09"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 tags: [community events, concerts]

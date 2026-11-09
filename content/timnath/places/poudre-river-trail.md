@@ -11,7 +11,7 @@ tags: [paved, cycling, regional trail]
 featured: true
 summary: "The 45-mile paved trail from Bellvue to Greeley runs through Timnath along the Cache la Poudre; the last gap, a bridge south of town, closed in 2026."
 source: "https://www.larimer.gov/naturalresources/parks/regional-paved-trails/poudre-river-trail"
-verified: "2026-10-02"
+verified: "2026-11-09"
 added: "2026-09-17"
 ---
 

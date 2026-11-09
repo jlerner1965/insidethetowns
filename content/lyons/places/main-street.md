@@ -1,15 +1,15 @@
 ---
 title: "Main Street and the stone town"
 type: venue
-address: "Main Street (US 36), between the two highway junctions"
+address: "Main Street"
 area: "Downtown"
 url: "https://www.lyonscolorado.com/"
 tags: [historic, walk, architecture]
 featured: true
-summary: "Six blocks of locally quarried red sandstone buildings from the 1870s to 1917, fifteen of them on the National Register, and most still in everyday use."
+summary: "Several of the buildings on Main Street date back to the late 1800s."
 source: "https://www.lyonscolorado.com/771/History-and-Heritage"
-verified: "2026-10-03"
+verified: "2026-11-09"
 added: "2026-09-17"
 ---
 
-Main Street is US 36 for six blocks, with the hogback closing the view at the west end. The buildings are the point: fifteen structures of locally quarried Lyons sandstone are listed together on the National Register of Historic Places, and most are still shops, kitchens and offices. Walk it end to end in twenty minutes; High Street, a block north, has the coffee, the wine bar and the museum. Pick up the walking-tour leaflet at the visitor center.
+Several of the buildings on Main Street date back to the late 1800s, and the museum is on High Street. For the history of the buildings, take the Town’s self-guided Historic District Walking Tour.

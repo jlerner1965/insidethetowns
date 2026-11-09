@@ -9,10 +9,10 @@ imageAlt: "The Niwot Tribune false-front building on Second Avenue with a grand 
 imageCredit: "Jeffrey Beall, Wikimedia Commons, CC BY-SA 4.0"
 tags: [historic, shops, walk]
 featured: true
-summary: "The brick and false-front commercial block from the railroad period, walkable end to end in about ten minutes, and still where the community gathers."
-source: "https://niwothistoricalsociety.org/history/"
-verified: "2026-10-03"
+summary: "Niwot’s business district since the early 1900s: the shops of Second Avenue, from Murray Street to Niwot Road."
+source: "https://niwot.com/niwot-history/"
+verified: "2026-11-09"
 added: "2026-09-17"
 ---
 
-The two blocks of Second Avenue are the reason Niwot feels like a town rather than a subdivision. The brick and false-front buildings went up to serve the farms and the trains in the late 1800s and were kept rather than replaced; the Niwot Tribune building is the survivor that anchors the block. Sidewalks are continuous and the cross streets short. Park once, anywhere along the avenue, and walk.
+Niwot’s business district moved to Second Avenue after the turn of the 20th century and has stayed there. The first commercial building on the avenue went up in 1905, and most of the shops in the first block were finished by 1915.

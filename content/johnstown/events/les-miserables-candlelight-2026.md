@@ -17,4 +17,4 @@ verified: "2026-11-03"
 verifiedBy: "Flagship audit, 3 November 2026, against coloradocandlelight.com"
 ---
 
-Colorado's largest professional dinner theater stages Les Misérables through November 15, with dinner served before the show in the 350-seat house at 2534. Performance days, times and dinner-and-show pricing on the box office site.
+Colorado's largest professional dinner theater stages Les Misérables through November 15, with dinner served before the show in the 350-seat house at 4747 Marketplace Drive. Performance days, times and dinner-and-show pricing on the box office site.

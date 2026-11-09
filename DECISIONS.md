@@ -9422,6 +9422,41 @@ Fort Collins High's second-round game, 13 November at 7 pm at French Field
 against Northfield, is in `src/config/postseason.ts` from CHSAA's bracket.
 Nothing else about the guide's quiet status changes.
 
+## Golden follows boys' tennis, baseball and lacrosse, 9 November 2026
+
+*The owner: "Add the sports teams", on the Golden gap report's finding that
+MaxPreps carries baseball, boys' tennis and lacrosse with no page on the
+guide.*
+
+- **Golden alone, four teams.** Boys' tennis is a fall sport in Colorado
+  (MaxPreps's "tennis/fall"); baseball, boys' lacrosse and girls' lacrosse
+  play in spring. No other school's list changes.
+- **Spring is a season the sports pages know.** A spring game's season
+  reads "Spring 2027", and a page with spring and winter teams together is
+  headed by the school year. Spring teams come after the winter list.
+- **A spring team waits for its season.** Out of season MaxPreps can still
+  show last spring's games; while every game it reports is from before
+  August 1 of the current school year, the Saturday and Wednesday run
+  writes the team as empty and the page leaves it off, so last May's
+  scores never read as this season's.
+
+## Roosevelt's spring teams followed, 9 November 2026
+
+*The owner: "yes to spring sports", on the Johnstown gap report of 8
+November (H2: Roosevelt baseball and girls soccer on MaxPreps, no page
+here).*
+
+- Roosevelt follows baseball and girls' soccer (`SPRING_BASEBALL` and
+  `SPRING_GIRLS_SOCCER` in `src/config/school-sports.ts`), on the spring
+  season Lyons's teams brought in the same day; no code changed for it.
+  Girls' soccer is on MaxPreps's `soccer/girls/spring` path, which
+  answered with Roosevelt's 2026–27 team page on 9 November.
+- Last season's record stays off the page by the run's `staleSeason` rule:
+  on 9 November Roosevelt's baseball page still carried its 25-26 record,
+  22-3, beside games of March 2027, and girls' soccer its 4-7-4.
+- An exception to the 90-day test's "no new features", made by the owner;
+  the rule itself stands.
+
 ## Niwot gap report: the owner's calls, 9 November 2026
 
 *The owner: "Yes to 1 2 4."*

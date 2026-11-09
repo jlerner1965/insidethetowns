@@ -159,7 +159,10 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
       </ul>
     </nav>
 
-    <div class="min-w-0 lg:col-start-1 lg:row-start-1">
+    {/* family-titles: every heading in the page in black, apart from the
+        body ink (global.css; the owner, 9 November 2026). The titles that
+        are not headings carry text-title themselves. */}
+    <div class="family-titles min-w-0 lg:col-start-1 lg:row-start-1">
   {glanceCells > 0 && (
     <section class="mt-6 rounded-lg bg-raised ring-1 ring-line-soft lg:mt-0" aria-labelledby="now-h">
       <h2 id="now-h" class="eyebrow px-5 pt-4 text-ink-muted">Right now</h2>
@@ -246,7 +249,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
         {breaks.map((b) => (
           <li class="flex items-center justify-between gap-4 py-3.5 text-[0.9375rem]">
             <span class="min-w-0">
-              <span class="block font-semibold"><time datetime={b.from}>{b.from === b.to ? formatDayShort(b.fromDate) : formatDayRange(b.fromDate, b.toDate)}</time></span>
+              <span class="block font-semibold text-title"><time datetime={b.from}>{b.from === b.to ? formatDayShort(b.fromDate) : formatDayRange(b.fromDate, b.toDate)}</time></span>
               <span class="block text-ink-muted">{b.label}{breakSources.length > 1 && !b.label.includes(b.district) ? ` · ${b.district}` : ''}</span>
             </span>
             {/* The calendar cannot be filtered to a break's dates, so the
@@ -272,7 +275,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
       <SectionHeader id={`topic-${topic}-h`} title={TOPIC_HEADING[topic] ?? PROGRAM_TOPIC_LABELS[topic]} />
       {full.length > 0 && (
         <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-          {full.map((p) => <ProgramRow program={p} />)}
+          {full.map((p) => <ProgramRow program={p} titleClass="font-semibold" />)}
         </div>
       )}
       {/* The storytimes in one line each: the organizer, the days, and the
@@ -281,7 +284,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
         <ul class:list={['divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7', full.length > 0 && 'mt-3']}>
           {stories.map((p) => (
             <li id={`program-${p.slug}`} class="scroll-mt-20 py-3.5 text-[0.9375rem] leading-snug">
-              <span class="font-semibold">{p.data.title}</span>
+              <span class="font-semibold text-title">{p.data.title}</span>
               <span class="block text-ink-muted">
                 {[p.data.organizer, storytimeLine(p)].filter(Boolean).join(' · ')}
                 {(p.data.url ?? p.data.organizerUrl) && <Fragment>{' · '}<a href={p.data.url ?? p.data.organizerUrl} rel="noopener" data-track="participation" class="font-semibold text-primary underline">every session and its hours →</a></Fragment>}
@@ -298,7 +301,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
           <ul class="divide-y divide-line-soft">
             {closed.map((p) => (
               <li id={`program-${p.slug}`} data-status="closed" class="scroll-mt-20 py-3.5 text-[0.9375rem] leading-snug">
-                {p.data.url ? <a href={p.data.url} rel="noopener" class="font-semibold text-primary underline">{p.data.title}</a> : <span class="font-semibold">{p.data.title}</span>}
+                {p.data.url ? <a href={p.data.url} rel="noopener" class="font-semibold text-primary underline">{p.data.title}</a> : <span class="font-semibold text-title">{p.data.title}</span>}
                 <span class="block text-ink-muted">{[p.data.organizer, programStatus(p, now)?.detail, p.data.contact && `ask ${p.data.contact} about the next session`].filter(Boolean).join(' · ')}</span>
               </li>
             ))}
@@ -347,7 +350,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
       </div>
       {parents.length > 0 && (
         <div class="mt-3 rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-          {byActionable(parents, now).map((p) => <ProgramRow program={p} />)}
+          {byActionable(parents, now).map((p) => <ProgramRow program={p} titleClass="font-semibold" />)}
         </div>
       )}
     </section>
@@ -358,7 +361,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
       <SectionHeader id="organizations-h" title="Organizations a family can join" />
       <p class="-mt-4 mb-4 text-[0.9375rem] text-ink-muted">Memberships and their prices are the organization's; what a membership includes is on its row.</p>
       <div class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
-        {byActionable(organizations, now).map((p) => <ProgramRow program={p} />)}
+        {byActionable(organizations, now).map((p) => <ProgramRow program={p} titleClass="font-semibold" />)}
       </div>
     </section>
   )}
@@ -371,7 +374,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
         {free.map((p) => (
           <li>
             <a href={`#program-${p.slug}`} class={card}>
-              <span class="font-semibold leading-snug">{p.data.title}</span>
+              <span class="font-semibold leading-snug text-title">{p.data.title}</span>
               <span class="mt-1 block text-[0.875rem] leading-snug text-ink-muted">{[howIn(p), isStorytimeProgram(p) ? scheduleDays(p.data.schedule) : p.data.schedule].filter(Boolean).join(' · ')}</span>
             </a>
           </li>
@@ -379,14 +382,14 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
         {outings.map((outing) => (
           <li>
             <a href={`/articles/${outing.slug}/`} class={card}>
-              <span class="font-semibold leading-snug">{outing.data.title}</span>
+              <span class="font-semibold leading-snug text-title">{outing.data.title}</span>
               <span class="mt-1 block text-[0.875rem] leading-snug text-ink-muted">The guide: parks, playgrounds and trails</span>
             </a>
           </li>
         ))}
         <li>
           <a href="/events/?category=family" class={card}>
-            <span class="font-semibold leading-snug">Family listings on the calendar</span>
+            <span class="font-semibold leading-snug text-title">Family listings on the calendar</span>
             <span class="mt-1 block text-[0.875rem] leading-snug text-ink-muted">Each with its price, many free</span>
           </a>
         </li>
@@ -399,7 +402,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
   {free.length === 0 && outings.length > 0 && (
     <div class="mt-6 space-y-3">
       {outings.map((outing) => (
-        <a href={`/articles/${outing.slug}/`} class="flex items-center justify-between rounded-lg bg-raised px-5 py-4 font-semibold no-underline ring-1 ring-line-soft hover:ring-primary-line">
+        <a href={`/articles/${outing.slug}/`} class="flex items-center justify-between rounded-lg bg-raised px-5 py-4 font-semibold text-title no-underline ring-1 ring-line-soft hover:ring-primary-line">
           <span>{outing.data.title} <span class="block text-[0.875rem] font-normal text-ink-muted">The guide: parks, playgrounds and trails</span></span>
           <span aria-hidden="true" class="text-primary">→</span>
         </a>
@@ -410,7 +413,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
   {later.length > 0 && (
     <section id="later" class="mt-12 scroll-mt-20" aria-labelledby="later-h">
       <SectionHeader id="later-h" title="Coming up" eyebrow={`Later than ${SOON_DAYS} days out`} />
-      <DeadlineList items={later} limit={later.length} class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" />
+      <DeadlineList items={later} limit={later.length} titleClass="font-semibold text-title" class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7" />
     </section>
   )}
 
@@ -420,7 +423,7 @@ const howIn = (p: (typeof programs)[number]) => (isDropIn(p) === true ? 'Drop in
       <ul class="divide-y divide-line-soft rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
         {ended.map((p) => (
           <li id={`program-${p.slug}`} class="scroll-mt-20 py-3.5 text-[0.9375rem] leading-snug">
-            {p.data.url ? <a href={p.data.url} rel="noopener" class="font-semibold text-primary underline">{p.data.title}</a> : <span class="font-semibold">{p.data.title}</span>}
+            {p.data.url ? <a href={p.data.url} rel="noopener" class="font-semibold text-primary underline">{p.data.title}</a> : <span class="font-semibold text-title">{p.data.title}</span>}
             <span class="block text-ink-muted">{[p.data.organizer, programStatus(p, now)?.detail].filter(Boolean).join(' · ')}</span>
           </li>
         ))}

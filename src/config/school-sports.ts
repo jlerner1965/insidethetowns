@@ -25,10 +25,14 @@
  * The winter list is configured (25 October 2026) and its teams take
  * their place on the pages as MaxPreps fills their schedules in: a team
  * with nothing on MaxPreps is an `empty` entry the page leaves off. Spring
- * teams are followed where the owner has asked (Lyons, 9 November 2026);
- * until MaxPreps opens the school year's spring season the run writes them
- * as having nothing yet (scripts/lib/maxpreps.ts, staleSeason), so last
- * spring's record never shows as this one's.
+ * teams are followed where the owner has asked (Lyons's baseball and track,
+ * Golden's baseball and lacrosse, Roosevelt's baseball and girls' soccer,
+ * 9 November 2026); until MaxPreps opens the school year's spring season
+ * the run writes them as having nothing yet, whether the page is still
+ * last school year's (scripts/lib/maxpreps.ts,
+ * staleSeason) or lists no game of this one (scripts/lib/sports-crosscheck.ts,
+ * beforeSpringSeason), so last spring's record never shows as this one's
+ * and the team joins the page with its first game.
  *
  * The school, its mascot, its classification and its league are checked
  * against CHSAANow's member-school profiles and its 2026–28 classification
@@ -253,6 +257,15 @@ const GIRLS_FLAG_FOOTBALL: SportConfig = { key: 'girls-flag-football', season: '
  * track may show nothing until the reader learns to read a meet.
  */
 const SPRING_BASEBALL: SportConfig = { key: 'baseball', season: 'spring', name: 'Baseball', maxpreps: 'baseball', calendar: { gender: 'Boys', sport: 'Baseball' } };
+/**
+ * Girls' soccer, a spring sport in Colorado, followed for Roosevelt on the
+ * owner's word of 9 November 2026 (the Johnstown gap report found it on
+ * MaxPreps with no page here). MaxPreps files Colorado's girls' soccer under
+ * its spring season, so the path carries it, as fall softball's does:
+ * Roosevelt's `soccer/girls/spring` page answered with its 2026–27 team
+ * page on 9 November 2026. Baseball's plain `baseball` answered the same day.
+ */
+const SPRING_GIRLS_SOCCER: SportConfig = { key: 'girls-soccer', season: 'spring', name: 'Girls soccer', maxpreps: 'soccer/girls/spring', calendar: { gender: 'Girls', sport: 'Soccer' } };
 const SPRING_TRACK: SportConfig[] = [
   { key: 'boys-track', season: 'spring', name: 'Boys track and field', maxpreps: 'track-field', calendar: { gender: 'Boys', sport: 'Track & Field' } },
   { key: 'girls-track', season: 'spring', name: 'Girls track and field', maxpreps: 'track-field/girls', calendar: { gender: 'Girls', sport: 'Track & Field' } },
@@ -276,6 +289,23 @@ const SPRING_TRACK: SportConfig[] = [
 const NIWOT_GYMNASTICS: SportConfig = { key: 'girls-gymnastics', season: 'fall', name: 'Girls gymnastics', maxpreps: 'gymnastics/fall', calendar: { gender: 'Girls', sport: 'Gymnastics' } };
 const NIWOT_BOYS_GOLF: SportConfig = { key: 'boys-golf', season: 'fall', name: 'Boys golf', maxpreps: 'golf', calendar: { gender: 'Boys', sport: 'Golf' } };
 const NIWOT_BOYS_TENNIS: SportConfig = { key: 'boys-tennis', season: 'fall', name: 'Boys tennis', maxpreps: 'tennis/fall', calendar: { gender: 'Boys', sport: 'Tennis' } };
+
+/**
+ * Golden High's other teams, at the owner's word (9 November 2026), after
+ * the Golden gap report of 8 November found baseball, boys' tennis and
+ * lacrosse on MaxPreps with no page on the guide. In Colorado boys' tennis
+ * is a fall sport, and MaxPreps files it under the season ("tennis/fall",
+ * as Golden's 2023–24 schedule page is); baseball (SPRING_BASEBALL above,
+ * as Lyons's) and both lacrosse teams play in spring. The paths are
+ * MaxPreps's own for Golden ("baseball", "lacrosse", "lacrosse/girls"), as
+ * search results list them on 9 November 2026; MaxPreps refuses the cloud
+ * address this was written from, so the first run from the GitHub runner
+ * is the first read, and a path that is not there keeps the team off the
+ * page and says so in the run's summary.
+ */
+const BOYS_TENNIS: SportConfig = { key: 'boys-tennis', season: 'fall', name: 'Boys tennis', maxpreps: 'tennis/fall', calendar: { gender: 'Boys', sport: 'Tennis' } };
+const BOYS_LACROSSE: SportConfig = { key: 'boys-lacrosse', season: 'spring', name: 'Boys lacrosse', maxpreps: 'lacrosse', calendar: { gender: 'Boys', sport: 'Lacrosse' } };
+const GIRLS_LACROSSE: SportConfig = { key: 'girls-lacrosse', season: 'spring', name: 'Girls lacrosse', maxpreps: 'lacrosse/girls', calendar: { gender: 'Girls', sport: 'Lacrosse' } };
 
 /** The fall list without one team, for a school that does not field it. */
 const FALL_WITHOUT = (...keys: string[]): SportConfig[] => FALL().filter((t) => !keys.includes(t.key));
@@ -403,7 +433,12 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     colors: { primary: '#C41230' },
     // Weld RE-5J's Finalsite site; `?cal_date=YYYY-MM-01` shows a month.
     calendar: { kind: 'finalsite', url: 'https://rhs.weldre5j.org/calendar', label: 'the Roosevelt High calendar' },
-    teams: TEAMS(),
+    hosted: [
+      // CHSAANow's game page for the 4A second round, read 9 November 2026: "Montbello at Roosevelt", Roosevelt the home team, Fri, Nov 13, 7 pm. MaxPreps filed it as a neutral site.
+      { team: 'football', date: '2026-11-13', stage: 'State Football Playoffs', source: 'https://chsaanow.com/sports/football/games/2026/11/13/montbello-at-roosevelt' },
+    ],
+    // Baseball and girls' soccer in the spring, on the owner's word (9 November 2026).
+    teams: TEAMS(FALL(), WINTER(), [SPRING_BASEBALL, SPRING_GIRLS_SOCCER]),
   },
   {
     town: 'windsor',
@@ -568,8 +603,9 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // CHSAANow lists every fall and winter team the default lists follow
     // (football, boys soccer, volleyball, softball, both cross country;
     // both basketball, wrestling, girls' swimming). A team MaxPreps has
-    // nothing for is left off the page by the run.
-    teams: TEAMS(),
+    // nothing for is left off the page by the run. Boys' tennis, baseball
+    // and both lacrosse teams from 9 November 2026 (BOYS_TENNIS above).
+    teams: TEAMS([...FALL(), BOYS_TENNIS], WINTER(), [SPRING_BASEBALL, BOYS_LACROSSE, GIRLS_LACROSSE]),
   },
   {
     town: 'lafayette',
