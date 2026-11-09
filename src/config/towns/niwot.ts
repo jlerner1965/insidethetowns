@@ -107,6 +107,13 @@ export const niwot: TownConfig = {
         ],
       },
       {
+        title: 'Getting around',
+        verified: '2026-11-09',
+        items: [
+          { label: 'RTD BOLT: Boulder to Longmont', url: 'https://app.rtd-denver.com/en-US/route/BOLT/schedule', note: 'Stops at CO 119 and Niwot Road both ways, between Downtown Boulder Station and 23rd and Main in Longmont; on New Year’s Day, Memorial Day, Independence Day, Labor Day, Thanksgiving and Christmas, RTD runs its Sunday/holiday schedule' },
+        ],
+      },
+      {
         title: 'Water, sewer, trash',
         note: 'Sewer depends on the address: inside the Niwot Sanitation District’s lines it is the district, elsewhere septic.',
         verified: '2026-10-21',
@@ -114,6 +121,17 @@ export const niwot: TownConfig = {
           { label: 'Left Hand Water District', url: 'https://lefthandwater.gov/', note: 'Drinking water, rates and meters' },
           { label: 'Niwot Sanitation District', url: 'https://niwotsd.colorado.gov/', note: 'Sewer, where its lines run; check the address' },
           { label: 'Trash and recycling', url: 'https://bouldercounty.gov/environment/recycle/recycling-center/', note: 'Arranged household by household with a private hauler; the county’s page lists the recycling centers' },
+        ],
+      },
+      {
+        title: 'Recycling, yard waste and hazardous waste',
+        note: 'The county runs no pickup of its own; it licenses the companies that collect in unincorporated Boulder County.',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Niwot Drop-off Center', url: 'https://bouldercounty.gov/environment/recycle/drop-off-centers/', note: 'North of Highway 52 on North 79th Street; single-stream recycling, open dawn to dusk; 720-564-2757' },
+          { label: 'Hazardous Materials Management Facility', url: 'https://bouldercounty.gov/environment/hazardous-waste/management-facility/', note: '1901 63rd St, Boulder, behind the county recycling center; household hazardous waste Wednesday to Saturday, 8:30 am to 4 pm; 720-564-2251' },
+          { label: 'Yard waste and wood: Western Disposal', url: 'https://bouldercounty.gov/environment/recycle/drop-off-centers/', note: '2051 63rd St, Boulder, Monday to Saturday 7 am to 5 pm; Boulder County residents get 40% off its yard and wood waste drop-off prices; 303-444-5794' },
+          { label: 'Haulers licensed by the county', url: 'https://bouldercounty.gov/environment/trash/hauler-license/', note: 'The list of companies licensed to collect trash, recycling and compost in unincorporated Boulder County, with each one’s phone' },
         ],
       },
       {
@@ -127,6 +145,23 @@ export const niwot: TownConfig = {
         ],
       },
       {
+        title: 'Alerts, fire restrictions and animals',
+        verified: '2026-11-09',
+        items: [
+          { label: 'BOCO Alert: emergency alerts', url: 'https://boulderodm.gov/preparedness/emergency-alerts/', note: 'Disaster alerts for unincorporated Boulder County; they reach only people who sign up, at bocoalert.org' },
+          { label: 'Boulder County fire restrictions', url: 'https://bouldercounty.gov/safety/fire/fire-restrictions/', note: 'Whether seasonal restrictions are on in unincorporated Boulder County; open burning is not allowed under a Red Flag Warning or in high winds' },
+          { label: 'Boulder County Animal Protection', url: 'https://bouldercounty.gov/safety/animals/animal-protection/', note: 'Serves unincorporated Boulder County: injured or sick animals, bites and complaints, through Boulder County Communications, 303-441-4444' },
+        ],
+      },
+      {
+        title: 'Health care',
+        verified: '2026-11-09',
+        items: [
+          { label: 'UCHealth Longs Peak Hospital: emergency care', url: 'https://www.uchealth.org/locations/uchealth-longs-peak-hospital/', note: '1750 E. Ken Pratt Boulevard, Longmont; open around the clock; 720-718-7000' },
+          { label: 'UCHealth Urgent Care – Main Street', url: 'https://www.uchealth.org/locations/uchealth-urgent-care-longmont/', note: '2101 Main Street, Longmont; walk in or reserve a spot online; Monday to Friday 8 am to 8 pm, weekends 8 am to 6 pm; 720-745-8030' },
+        ],
+      },
+      {
         title: 'Schools',
         verified: '2026-10-21',
         items: [
@@ -134,6 +169,13 @@ export const niwot: TownConfig = {
           { label: 'St. Vrain: enrollment and open enrollment', url: 'https://www.svvsd.org/schools/enrollment/', note: 'Open enrollment December 1–15 for 2027–28', track: 'registration' },
           { label: 'St. Vrain: 2026–27 calendar', url: 'https://www.svvsd.org/schools/school-calendar/' },
           { label: 'Niwot High School', url: 'https://nhs.svvsd.org/', note: '8989 East Niwot Road, 303-652-2550' },
+        ],
+      },
+      {
+        title: 'Library',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Gunbarrel Library, Boulder Public Library', url: 'https://boulderlibrary.org/locations/gunbarrel/', note: '6500 Lookout Road, Boulder; Monday to Thursday 9 am to 7 pm, Friday 9 to 5, Saturday 10 to 5, Sunday noon to 5; free parking; 303-441-3100' },
         ],
       },
       {
@@ -151,6 +193,13 @@ export const niwot: TownConfig = {
           { label: 'Get involved in Niwot', url: '/get-involved/', note: 'The associations, the Grange, the Rotary, the Historical Society and the arts group, with how to join each', track: 'participation' },
           { label: 'Niwot Community Association', url: 'https://niwot.org/', note: 'The residents’ voice to the county', track: 'participation' },
           { label: 'Niwot Business Association', url: 'https://niwot.com/', note: 'The merchants, and the downtown events calendar' },
+        ],
+      },
+      {
+        title: 'Registering a car',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Boulder County Motor Vehicle', url: 'https://bouldercounty.gov/records/motor-vehicle/', note: 'Offices at 529 Coffman St, Longmont; 1750 33rd St, Boulder; and 1755 S. Public Road, Lafayette. Monday to Thursday 7:30 am to 5 pm, closed Fridays, by appointment only; renewals online, by mail, at a 24-hour drop box or at a kiosk, not in person; 303-413-7710' },
         ],
       },
       {
