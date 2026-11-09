@@ -66,7 +66,7 @@ export const POSTSEASON: PostseasonGame[] = [
   { town: 'timnath', team: 'volleyball', date: '2026-11-12', time: '08:00', opponent: 'Falcon', venue: COLISEUM, stage: VOLLEYBALL_STAGE, source: VB('4a'), read: '2026-11-08' },
   { town: 'golden', team: 'volleyball', date: '2026-11-12', time: '09:30', opponent: 'Mullen', venue: COLISEUM, stage: VOLLEYBALL_STAGE, source: VB('4a'), read: '2026-11-08' },
   { town: 'niwot', team: 'volleyball', date: '2026-11-12', time: '11:00', opponent: 'Mead', venue: COLISEUM, stage: VOLLEYBALL_STAGE, source: VB('4a'), read: '2026-11-08' },
-  { town: 'windsor', team: 'volleyball', date: '2026-11-12', time: '12:30', opponent: 'Battle Mountain', venue: COLISEUM, stage: VOLLEYBALL_STAGE, source: VB('4a'), read: '2026-11-08' },
+  { town: 'windsor', slug: 'windsor-high', team: 'volleyball', date: '2026-11-12', time: '12:30', opponent: 'Battle Mountain', venue: COLISEUM, stage: VOLLEYBALL_STAGE, source: VB('4a'), read: '2026-11-08' },
   { town: 'lyons', team: 'volleyball', date: '2026-11-12', time: '11:00', opponent: 'Holyoke', venue: COLISEUM, stage: VOLLEYBALL_STAGE, source: VB('2a'), read: '2026-11-08' },
 
   // Football's second round, for the teams that had a first-round bye and
@@ -77,4 +77,10 @@ export const POSTSEASON: PostseasonGame[] = [
   // November for the time and the stadium).
   { town: 'timnath', team: 'football', date: '2026-11-13', opponent: 'Eagle Valley', stage: FOOTBALL_STAGE, source: FB('3a'), read: '2026-11-08' },
   { town: 'loveland', slug: 'loveland-high', team: 'football', date: '2026-11-13', time: '19:00', opponent: 'Columbine', venue: 'Ray Patterson Stadium', stage: FOOTBALL_STAGE, source: FB('4a'), read: '2026-11-08' },
+  // Severance (3A, No. 11) beat No. 22 Lewis-Palmer 47-14 on 6 November and
+  // plays No. 6 Pueblo East on 13 November at 7 pm at Dutch Clark (CHSAA's
+  // 3A bracket, game 24, read 9 November). Windsor's Severance High file
+  // does not exist until the first run after the school was added, so the
+  // row waits for it.
+  { town: 'windsor', slug: 'severance-high', team: 'football', date: '2026-11-13', time: '19:00', opponent: 'Pueblo East', venue: 'Dutch Clark', stage: FOOTBALL_STAGE, source: FB('3a'), read: '2026-11-09' },
 ];

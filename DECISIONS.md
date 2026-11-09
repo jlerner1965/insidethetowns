@@ -9381,3 +9381,25 @@ template, so every guide with a family hub takes them.*
   /directory/; the kids' guide no longer sends families there. To bring
   it back: confirm it is open, re-source it, and take the slug out of the
   ledger.
+
+## Inside Windsor follows Severance High as a second school, 9 November 2026
+
+*The owner, on the Windsor gap report of 8 November: "Yes to sports add severance".*
+
+- **Why**: the guide covers Windsor and Severance, but its sports pages
+  covered Windsor High alone, and Severance High was in the 3A football
+  playoffs with nothing on the guide.
+- **How**: Loveland's several-school pattern, config only.
+  `src/config/school-sports.ts` gives Windsor High the slug `windsor-high`
+  and adds Severance High (`severance-high`; Silver Knights; CHSAANow and
+  MaxPreps read 9 November; navy from the school's own site; no girls'
+  swimming, which CHSAA does not list for it). Windsor High's page moved
+  from /sports/ to /sports/windsor-high/, its file to
+  `data/windsor/sports-windsor-high.json`, and vercel.json sends its six
+  old team pages on. /sports/ now lists both schools, the menu reads "High
+  school sports", and the home page shows the shared strip, one line a
+  school, in place of the Wizards' band.
+- **Until the first run**: Severance's page says no scores yet until the
+  next MaxPreps run writes `data/windsor/sports-severance-high.json`. Its
+  second-round game (vs Pueblo East, 13 November, 7 pm, Dutch Clark) is in
+  `src/config/postseason.ts` and joins the page with that file.

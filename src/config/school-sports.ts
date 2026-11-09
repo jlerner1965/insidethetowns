@@ -343,6 +343,12 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
   },
   {
     town: 'windsor',
+    // One of Windsor's two schools since 9 November 2026, when the owner
+    // added Severance High on the Windsor gap report: the guide covers both
+    // towns. Its page moved from /sports/ to /sports/windsor-high/ and its
+    // file from sports.json to sports-windsor-high.json; vercel.json sends
+    // the old team pages on.
+    slug: 'windsor-high',
     // CHSAANow: Windsor High School, Weld RE-4; football 3A, Cache la Poudre (2026–28).
     school: 'Windsor High School',
     mascot: 'Wizards',
@@ -355,6 +361,31 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // (whs.weldre4.org, one page per sport), not in a calendar this reader reads.
     calendarNote: 'Windsor High posts its schedules team by team on its own site, in a form this site does not read yet, so games to come are published on MaxPreps’s word alone.',
     teams: TEAMS(),
+  },
+  {
+    // Severance High, the Windsor guide's second school (9 November 2026,
+    // the owner, on the Windsor gap report of 8 November). The first
+    // Saturday or Wednesday run writes data/windsor/sports-severance-high.json,
+    // and the page waits for it.
+    town: 'windsor',
+    slug: 'severance-high',
+    // CHSAANow: Severance High School, Weld RE-4, Northern Conference;
+    // football 3A, the rest of its fall and winter teams 4A (read 9 November 2026).
+    school: 'Severance High School',
+    note: 'The Silver Knights play for Severance, which this guide covers with Windsor.',
+    mascot: 'Silver Knights',
+    maxpreps: 'https://www.maxpreps.com/co/severance/severance-silver-knights/',
+    maxprepsName: 'Severance',
+    // Silver Knight navy, the theme colour of Severance High's own site
+    // (shs.weldre4.org, read 9 November 2026); MaxPreps's 022C66 is Lyons'
+    // and Frederick's too.
+    colors: { primary: '#1C3C6D' },
+    // Severance High's athletics page links each season's sports pages and
+    // ArbiterSports, and keeps no calendar of games this reader reads.
+    calendarNote: 'Severance High’s own site has no calendar of games this site can read, so games to come are published on MaxPreps’s word alone.',
+    // No girls' swimming: CHSAANow lists none for the school, and MaxPreps
+    // has no page for it (9 November 2026).
+    teams: TEAMS(FALL(), WINTER_WITHOUT('girls-swimming')),
   },
   {
     town: 'loveland',
