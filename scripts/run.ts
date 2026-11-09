@@ -7,7 +7,7 @@
  *   TOWN=lyons npm run dev
  *
  * `build` validates content first so a bad frontmatter field fails the build
- * before Astro starts.
+ * before Astro starts, and checks the built site last (scripts/check-site.ts).
  */
 import { spawnSync } from 'node:child_process';
 import { buildSearchIndex } from './lib/search-index.ts';
@@ -49,6 +49,20 @@ if (command === 'build') {
   } catch (error) {
     console.error(error instanceof Error ? error.message : error);
     process.exit(1);
+  }
+}
+
+// What was built, read the way a crawler reads it: links, canonicals, the
+// sitemap, structured data, redirects (scripts/check-site.ts). A problem
+// fails the build everywhere but on Vercel, for the reason given above for
+// `--build`: CI has already refused the change, and a failed deploy there
+// only leaves yesterday's listings serving. The report is in the build log
+// either way.
+if (command === 'build') {
+  const checked = spawnSync(process.execPath, ['scripts/check-site.ts'], { stdio: 'inherit', env });
+  if (checked.status !== 0) {
+    if (!process.env.VERCEL) process.exit(checked.status ?? 1);
+    console.error('check-site: problems found; deploying anyway, because this is Vercel (scripts/run.ts).');
   }
 }
 process.exit(0);
