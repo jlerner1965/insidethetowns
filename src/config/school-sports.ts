@@ -272,6 +272,19 @@ const SPRING_TRACK: SportConfig[] = [
 ];
 
 /**
+ * Boys' golf and boys' tennis, CHSAA fall sports, followed where the guide
+ * has asked: Windsor High, both 4A (CHSAANow's school page, read 9 November
+ * 2026, at the owner's word on the Windsor gap report). The paths are
+ * MaxPreps's Colorado ones (Severance's page links ".../golf/" and
+ * ".../tennis/fall/", 9 November 2026); Windsor's own pages refused this
+ * reader that day, and one that is not there keeps the team off the page
+ * and says so in the run's summary. Both seasons ended in October, so the
+ * first run reads a finished season.
+ */
+const BOYS_GOLF: SportConfig = { key: 'boys-golf', season: 'fall', name: 'Boys golf', maxpreps: 'golf', calendar: { gender: 'Boys', sport: 'Golf' } };
+const BOYS_TENNIS: SportConfig = { key: 'boys-tennis', season: 'fall', name: 'Boys tennis', maxpreps: 'tennis/fall', calendar: { gender: 'Boys', sport: 'Tennis' } };
+
+/**
  * Three more of Niwot High's fall teams, followed at the owner's word of
  * 9 November 2026 (the Niwot gap report's finding that the guide carried 6
  * of the school's 20 sports): girls' gymnastics, the 4A team champion of
@@ -295,15 +308,15 @@ const NIWOT_BOYS_TENNIS: SportConfig = { key: 'boys-tennis', season: 'fall', nam
  * the Golden gap report of 8 November found baseball, boys' tennis and
  * lacrosse on MaxPreps with no page on the guide. In Colorado boys' tennis
  * is a fall sport, and MaxPreps files it under the season ("tennis/fall",
- * as Golden's 2023–24 schedule page is); baseball (SPRING_BASEBALL above,
- * as Lyons's) and both lacrosse teams play in spring. The paths are
+ * as Golden's 2023–24 schedule page is; BOYS_TENNIS above, shared with
+ * Windsor High); baseball (SPRING_BASEBALL above, as Lyons's) and both
+ * lacrosse teams play in spring. The paths are
  * MaxPreps's own for Golden ("baseball", "lacrosse", "lacrosse/girls"), as
  * search results list them on 9 November 2026; MaxPreps refuses the cloud
  * address this was written from, so the first run from the GitHub runner
  * is the first read, and a path that is not there keeps the team off the
  * page and says so in the run's summary.
  */
-const BOYS_TENNIS: SportConfig = { key: 'boys-tennis', season: 'fall', name: 'Boys tennis', maxpreps: 'tennis/fall', calendar: { gender: 'Boys', sport: 'Tennis' } };
 const BOYS_LACROSSE: SportConfig = { key: 'boys-lacrosse', season: 'spring', name: 'Boys lacrosse', maxpreps: 'lacrosse', calendar: { gender: 'Boys', sport: 'Lacrosse' } };
 const GIRLS_LACROSSE: SportConfig = { key: 'girls-lacrosse', season: 'spring', name: 'Girls lacrosse', maxpreps: 'lacrosse/girls', calendar: { gender: 'Girls', sport: 'Lacrosse' } };
 
@@ -442,6 +455,12 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
   },
   {
     town: 'windsor',
+    // One of Windsor's two schools since 9 November 2026, when the owner
+    // added Severance High on the Windsor gap report: the guide covers both
+    // towns. Its page moved from /sports/ to /sports/windsor-high/ and its
+    // file from sports.json to sports-windsor-high.json; vercel.json sends
+    // the old team pages on.
+    slug: 'windsor-high',
     // CHSAANow: Windsor High School, Weld RE-4; football 3A, Cache la Poudre (2026–28).
     school: 'Windsor High School',
     mascot: 'Wizards',
@@ -453,7 +472,36 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // Windsor High posts each team's schedule on its own site
     // (whs.weldre4.org, one page per sport), not in a calendar this reader reads.
     calendarNote: 'Windsor High posts its schedules team by team on its own site, in a form this site does not read yet, so games to come are published on MaxPreps’s word alone.',
-    teams: TEAMS(),
+    // Boys' golf and tennis from 9 November 2026 (the owner). Its flag
+    // football and ice hockey are co-ops with Poudre School District, not
+    // teams of its own (CHSAANow), and its spring teams (girls' soccer,
+    // baseball, lacrosse and the rest) wait for a spring season here.
+    teams: TEAMS([...FALL(), BOYS_GOLF, BOYS_TENNIS]),
+  },
+  {
+    // Severance High, the Windsor guide's second school (9 November 2026,
+    // the owner, on the Windsor gap report of 8 November). The first
+    // Saturday or Wednesday run writes data/windsor/sports-severance-high.json,
+    // and the page waits for it.
+    town: 'windsor',
+    slug: 'severance-high',
+    // CHSAANow: Severance High School, Weld RE-4, Northern Conference;
+    // football 3A, the rest of its fall and winter teams 4A (read 9 November 2026).
+    school: 'Severance High School',
+    note: 'The Silver Knights play for Severance, which this guide covers with Windsor.',
+    mascot: 'Silver Knights',
+    maxpreps: 'https://www.maxpreps.com/co/severance/severance-silver-knights/',
+    maxprepsName: 'Severance',
+    // Silver Knight navy, the theme colour of Severance High's own site
+    // (shs.weldre4.org, read 9 November 2026); MaxPreps's 022C66 is Lyons'
+    // and Frederick's too.
+    colors: { primary: '#1C3C6D' },
+    // Severance High's athletics page links each season's sports pages and
+    // ArbiterSports, and keeps no calendar of games this reader reads.
+    calendarNote: 'Severance High’s own site has no calendar of games this site can read, so games to come are published on MaxPreps’s word alone.',
+    // No girls' swimming: CHSAANow lists none for the school, and MaxPreps
+    // has no page for it (9 November 2026).
+    teams: TEAMS(FALL(), WINTER_WITHOUT('girls-swimming')),
   },
   {
     town: 'loveland',

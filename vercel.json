@@ -1048,6 +1048,72 @@
       "permanent": true
     },
     {
+      "source": "/sports/football{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidewindsorco.com"
+        }
+      ],
+      "destination": "/sports/windsor-high/football/",
+      "permanent": true
+    },
+    {
+      "source": "/sports/boys-soccer{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidewindsorco.com"
+        }
+      ],
+      "destination": "/sports/windsor-high/boys-soccer/",
+      "permanent": true
+    },
+    {
+      "source": "/sports/volleyball{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidewindsorco.com"
+        }
+      ],
+      "destination": "/sports/windsor-high/volleyball/",
+      "permanent": true
+    },
+    {
+      "source": "/sports/softball{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidewindsorco.com"
+        }
+      ],
+      "destination": "/sports/windsor-high/softball/",
+      "permanent": true
+    },
+    {
+      "source": "/sports/boys-basketball{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidewindsorco.com"
+        }
+      ],
+      "destination": "/sports/windsor-high/boys-basketball/",
+      "permanent": true
+    },
+    {
+      "source": "/sports/girls-basketball{/}?",
+      "has": [
+        {
+          "type": "host",
+          "value": "insidewindsorco.com"
+        }
+      ],
+      "destination": "/sports/windsor-high/girls-basketball/",
+      "permanent": true
+    },
+    {
       "source": "/events/elbert-county-marketplace-2026-10-03{/}?",
       "has": [
         {

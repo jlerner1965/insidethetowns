@@ -12,7 +12,7 @@ import { parseLocal } from '../src/lib/dates.ts';
 import { agendaTitle, clockKey, dashed, displayTitle, gameHeading, leadGame, nextGame, resultSentence, scoreboardResult, teamRows, weekDays } from '../src/lib/flagship-home.ts';
 import { contrast, schoolTheme } from '../src/config/school-colors.ts';
 import { towns } from '../src/config/towns/registry.ts';
-import { schoolSportsFor, schoolTeamName, type SportGame, type SportsData } from '../src/config/school-sports.ts';
+import { schoolsFor, schoolSportsFor, schoolTeamName, type SportGame, type SportsData } from '../src/config/school-sports.ts';
 import { townNav } from '../src/lib/nav.ts';
 import { homeRoute } from '../src/integrations/town-routes.ts';
 
@@ -246,7 +246,9 @@ test('football has a row while its season is on; every other team only with a ga
 test('every flagship names its school as the sports pages do, and its band clears 7:1 under white', () => {
   for (const t of towns.filter((t) => t.home)) {
     assert.ok(t.school, `${t.slug}: a flagship with a school in the sports coverage has its colours`);
-    const sports = schoolSportsFor(t.slug)!;
+    // The town's only school, or, where it follows several (Windsor and Severance's two), the one its colours are.
+    const sports = schoolSportsFor(t.slug) ?? schoolsFor(t.slug).find((s) => s.school === t.school!.name)!;
+    assert.ok(sports, `${t.slug}: the flagship's school is one it follows`);
     assert.equal(t.school!.name, sports.school, t.slug);
     assert.equal(t.school!.mascot, sports.mascot, t.slug);
     assert.equal(t.school!.teamName, schoolTeamName(sports), t.slug);

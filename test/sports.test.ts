@@ -650,8 +650,8 @@ test('every school carries the winter list after its fall list, any spring teams
     // Spring teams only where a guide has asked: Lyons's baseball and track, Golden's baseball and lacrosse, Roosevelt's baseball and girls' soccer (the owner, 9 November 2026).
     assert.equal(school.teams.some((t) => t.season === 'spring'), ['lyons', 'golden', 'johnstown'].includes(school.town), `${school.school}: spring teams only at Lyons, Golden and Roosevelt`);
     assert.equal(keys.includes('ice-hockey'), school.school === 'Resurrection Christian School', `${school.school}: ice hockey only where CHSAA lists the school`);
-    // MaxPreps has no girls' swimming page for Elizabeth or Lyons (25 October 2026).
-    assert.equal(keys.includes('girls-swimming'), !['Elizabeth High School', 'Lyons Middle/Senior High School'].includes(school.school), `${school.school}: girls swimming`);
+    // MaxPreps has no girls' swimming page for Elizabeth or Lyons (25 October 2026), nor for Severance, which CHSAANow lists none for (9 November 2026).
+    assert.equal(keys.includes('girls-swimming'), !['Elizabeth High School', 'Lyons Middle/Senior High School', 'Severance High School'].includes(school.school), `${school.school}: girls swimming`);
   }
   const teams = schoolSportsFor('berthoud')!.teams;
   const game = (date: string, opponent: string) => ({ date, opponent, site: 'home' as const, url: `u-${date}` });
@@ -710,10 +710,10 @@ test('Golden follows boys tennis in the fall and baseball and both lacrosse team
     ['spring', 'lacrosse/girls'],
   ]);
   // Only Golden asked for lacrosse (Lyons follows baseball and track in spring, not these); boys'
-  // tennis is Golden's, Frederick's and Niwot's, which the owner added the same day
-  // (FREDERICK_FALL_EXTRAS; NIWOT_BOYS_TENNIS).
+  // tennis is Golden's, Frederick's, Niwot's and Windsor High's, which the owner added the same day
+  // (FREDERICK_FALL_EXTRAS; NIWOT_BOYS_TENNIS; BOYS_TENNIS for Windsor High).
   for (const s of SCHOOL_SPORTS.filter((x) => x.town !== 'golden')) assert.equal(s.teams.some((t) => ['boys-lacrosse', 'girls-lacrosse'].includes(t.key)), false, s.school);
-  assert.deepEqual(SCHOOL_SPORTS.filter((s) => s.teams.some((t) => t.key === 'boys-tennis')).map((s) => s.town).sort(), ['frederick', 'golden', 'niwot']);
+  assert.deepEqual(SCHOOL_SPORTS.filter((s) => s.teams.some((t) => t.key === 'boys-tennis')).map((s) => s.town).sort(), ['frederick', 'golden', 'niwot', 'windsor']);
 });
 
 test('a spring team before its season is written empty, not with last spring’s games', () => {
@@ -774,7 +774,7 @@ test('titles and descriptions come from the data: the school, the mascot, the sp
   const state = team('Softball', '27-0', [{ date: '2026-10-31', time: '10:00', opponent: 'Fruita Monument', site: 'neutral', neutral: true, venue: 'Aurora Sports Park', stage: 'State Softball Tournaments', url: 'u' }]);
   // A playoff game's stage runs long: the shorter closing line, so the whole stays inside 155 rather than
   // being clamped back to the game (it ran to 168, and the page's description lost its last sentence).
-  assert.equal(teamDescription(schoolSportsFor('windsor')!, state, 'fall', now), 'Windsor High softball is 27-0 this fall. Next: vs Fruita Monument, Saturday Oct 31, 10 am, State Softball Tournaments. Scores and schedule from MaxPreps.');
+  assert.equal(teamDescription(schoolSportsFor('windsor', 'windsor-high')!, state, 'fall', now), 'Windsor High softball is 27-0 this fall. Next: vs Fruita Monument, Saturday Oct 31, 10 am, State Softball Tournaments. Scores and schedule from MaxPreps.');
   for (const t of [football, softball, state]) assert.ok(teamDescription(berthoud, t, 'fall', now).length <= 155);
   assert.equal(shortWhen({ date: '2026-11-07', opponent: 'x', site: 'home', url: 'u' }), 'Saturday Nov 7', 'no time, no comma');
   // The school's title names the school, not every sport: each has its own page (audit, 26 October 2026).
@@ -878,17 +878,17 @@ test('the email’s games carry their day in full, and a shared edition gives th
   const quiet = { generated: '', sports: [team('football', 'Football', '3-6', [])] } as SportsData;
   const week = (school: ReturnType<typeof schoolSportsFor>, data: SportsData) => ({ school: school!, week: weekAhead(data, send) });
 
-  const lines = schoolWeekLines(week(schoolSportsFor('windsor'), windsor), 'S');
+  const lines = schoolWeekLines(week(schoolSportsFor('windsor', 'windsor-high'), windsor), 'S');
   assert.equal(lines[0], '- **Thursday, October 29 · 7 pm · Away** [Football at Greeley Central](u-Greeley Central) · 4-5 this season', 'football first, its day in full');
   assert.equal(lines[1], '- **Thursday, October 29 · 6 pm · Boys Soccer State Championships** [Boys soccer vs Rampart](u-Rampart) · 10-1-4 this season');
   assert.equal(lines[2], '- **Friday, October 30 · 8 am · Away** [Volleyball at Legend](u-Legend) · 13-6 this season');
   assert.ok(lines.includes('Last week: football won 56-14 at Thompson Valley, 4-5 this season.'));
   assert.doesNotMatch(lines.join('\n'), /Today|Tomorrow/, 'merged on the Friday, or read in the archive, "Today" would be wrong');
-  assert.equal(townGames([week(schoolSportsFor('windsor'), windsor)], 'S')[0], '## Windsor Wizards this week');
+  assert.equal(townGames([week(schoolSportsFor('windsor', 'windsor-high'), windsor)], 'S')[0], '## Windsor Wizards this week');
 
   // Windsor, Severance and Timnath: the games are their own section, split by town like the edition's others.
   const shared = sharedGames([
-    { heading: 'Windsor and Severance', sports: [week(schoolSportsFor('windsor'), windsor)], scores: 'W' },
+    { heading: 'Windsor and Severance', sports: [week(schoolSportsFor('windsor', 'windsor-high'), windsor)], scores: 'W' },
     { heading: 'Timnath', sports: [week(schoolSportsFor('timnath'), timnath)], scores: 'T' },
   ]);
   assert.deepEqual(shared.filter((l) => l.startsWith('#')), ['## Windsor Wizards and Timnath Cubs this week', '### Windsor and Severance', '### Timnath'], 'not under "This weekend"');
@@ -903,7 +903,7 @@ test('the email’s games carry their day in full, and a shared edition gives th
   assert.deepEqual(townGames([week(schoolSportsFor('niwot'), quiet)], 'S'), []);
   assert.deepEqual(sharedGames([{ heading: 'Timnath', sports: [week(schoolSportsFor('timnath'), quiet)], scores: 'T' }]), []);
   const one = sharedGames([
-    { heading: 'Windsor and Severance', sports: [week(schoolSportsFor('windsor'), quiet)], scores: 'W' },
+    { heading: 'Windsor and Severance', sports: [week(schoolSportsFor('windsor', 'windsor-high'), quiet)], scores: 'W' },
     { heading: 'Timnath', sports: [week(schoolSportsFor('timnath'), timnath)], scores: 'T' },
   ]);
   assert.deepEqual(one.filter((l) => l.startsWith('#')), ['## Timnath Cubs this week', '### Timnath']);
@@ -982,9 +982,12 @@ test('a team’s season is over once nothing is to come and the last result is m
 
 test('what CHSAA settles is applied over MaxPreps: the volleyball state openers at the Denver Coliseum, Berthoud’s hosted regional at home, one spelling of the league (audit of 8 November 2026)', async () => {
   const { correctedData, sportsDataFor } = await import('../src/lib/school-sports.ts');
-  const read = (town: string) => JSON.parse(readFileSync(`data/${town}/sports.json`, 'utf8')) as SportsData;
-  const files = { '/data/berthoud/sports.json': read('berthoud'), '/data/golden/sports.json': read('golden'), '/data/windsor/sports.json': read('windsor') };
-  const volleyball = (town: string) => sportsDataFor(schoolSportsFor(town)!, files)!.sports.find((t) => t.key === 'volleyball')!;
+  // Windsor follows two schools since 9 November 2026; Windsor High's file is sports-windsor-high.json.
+  const fileOf = (town: string) => (town === 'windsor' ? 'data/windsor/sports-windsor-high.json' : `data/${town}/sports.json`);
+  const schoolOf = (town: string) => schoolSportsFor(town, town === 'windsor' ? 'windsor-high' : undefined)!;
+  const read = (town: string) => JSON.parse(readFileSync(fileOf(town), 'utf8')) as SportsData;
+  const files = Object.fromEntries(['berthoud', 'golden', 'windsor'].map((town) => [`/${fileOf(town)}`, read(town)]));
+  const volleyball = (town: string) => sportsDataFor(schoolOf(town), files)!.sports.find((t) => t.key === 'volleyball')!;
 
   // MaxPreps had "at Eaton", "vs Mullen" and "vs Battle Mountain": all three are at the Coliseum.
   for (const [town, opponent] of [['berthoud', 'Eaton'], ['golden', 'Mullen'], ['windsor', 'Battle Mountain']] as const) {

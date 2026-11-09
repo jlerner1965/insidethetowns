@@ -9480,3 +9480,33 @@ here).*
 - **Not taken up:** the manual reads of Boulder Community Health, King
   Soopers Gunbarrel, the Niwot Post Office and Gunbarrel Library's
   storytimes, which block automated readers.
+
+## Inside Windsor follows Severance High as a second school, 9 November 2026
+
+*The owner, on the Windsor gap report of 8 November: "Yes to sports add severance".*
+
+- **Why**: the guide covers Windsor and Severance, but its sports pages
+  covered Windsor High alone, and Severance High was in the 3A football
+  playoffs with nothing on the guide.
+- **How**: Loveland's several-school pattern, config only.
+  `src/config/school-sports.ts` gives Windsor High the slug `windsor-high`
+  and adds Severance High (`severance-high`; Silver Knights; CHSAANow and
+  MaxPreps read 9 November; navy from the school's own site; no girls'
+  swimming, which CHSAA does not list for it). Windsor High's page moved
+  from /sports/ to /sports/windsor-high/, its file to
+  `data/windsor/sports-windsor-high.json`, and vercel.json sends its six
+  old team pages on. /sports/ now lists both schools, the menu reads "High
+  school sports", and the home page shows the shared strip, one line a
+  school, in place of the Wizards' band.
+- **Until the first run**: Severance's page says no scores yet until the
+  next MaxPreps run writes `data/windsor/sports-severance-high.json`. Its
+  second-round game (vs Pueblo East, 13 November, 7 pm, Dutch Clark) is in
+  `src/config/postseason.ts` and joins the page with that file.
+- **More Windsor High teams** (the owner: "And add more Windsor sports"):
+  boys' golf and boys' tennis, the fall teams CHSAANow lists for Windsor
+  High that the guide did not follow. Its flag football and ice hockey are
+  co-ops with Poudre School District, not its own teams. Its spring teams
+  (baseball, girls' soccer, boys' lacrosse, girls' golf and tennis, track,
+  boys' swimming) wait: the sports pages know a fall and a winter season
+  only, and following spring teams is a change to the season code for
+  every guide.
