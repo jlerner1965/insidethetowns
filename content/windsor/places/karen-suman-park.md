@@ -6,7 +6,7 @@ address: "1108 Pinon Pine Drive, Severance, CO 80546"
 area: "Timber Ridge"
 url: "https://www.townofseverance.org/Facilities/Facility/Details/Karen-Suman-Park-3"
 source: "https://www.townofseverance.org/Facilities/Facility/Details/Karen-Suman-Park-3"
-verified: "2026-10-10"
+verified: "2026-11-09"
 added: "2026-10-10"
 verifiedBy: "Claude Code, delegated by James Lerner"
 tags: [playground, picnic shelters, picnic tables]

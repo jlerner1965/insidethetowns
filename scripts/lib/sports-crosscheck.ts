@@ -150,6 +150,35 @@ export function emptyEntry(sport: SportConfig, page: TeamPage, now: string): Spo
   };
 }
 
+/** The first day of the school year a Denver day ("2026-11-09") falls in: August 1. */
+export function schoolYearStart(today: string): string {
+  const [y, m] = today.split('-').map(Number) as [number, number];
+  return `${m >= 8 ? y : y - 1}-08-01`;
+}
+
+/**
+ * A spring team before its season: every game its MaxPreps page reports,
+ * played or listed, is from before this school year began. Out of season
+ * the page can still carry last spring's games (Golden baseball's showed
+ * May 2026's in November), and a card of them would read as this season's.
+ * The run writes the team as `empty` instead (offSeasonEntry), and it
+ * joins the page with its first game of the new school year.
+ */
+export function beforeSpringSeason(sport: Pick<SportConfig, 'season'>, page: Pick<TeamPage, 'results' | 'glance'>, today: string): boolean {
+  if (sport.season !== 'spring') return false;
+  const start = schoolYearStart(today);
+  return ![...page.results, ...page.glance].some((g) => g.date >= start);
+}
+
+/** The entry for a spring team before its season (beforeSpringSeason): empty, saying why. */
+export function offSeasonEntry(sport: SportConfig, page: TeamPage, now: string): SportData {
+  return {
+    ...emptyEntry(sport, page, now),
+    notes: ['a spring team: MaxPreps has no game of this school year for it yet'],
+    empty: 'A spring team; MaxPreps has no game of this school year for it yet.',
+  };
+}
+
 /** The previous run's entry, kept as it was, when this run could not replace it. */
 export function keepPrevious(sport: SportConfig, previous: SportsData | undefined, maxprepsRoot: string): SportData {
   const old = previous?.sports.find((s) => s.key === sport.key);
