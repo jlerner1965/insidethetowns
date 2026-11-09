@@ -25,7 +25,8 @@
  * The winter list is configured (25 October 2026) and its teams take
  * their place on the pages as MaxPreps fills their schedules in: a team
  * with nothing on MaxPreps is an `empty` entry the page leaves off. Spring
- * teams wait until their season.
+ * teams are followed where the owner has asked (SPRING, below); the same
+ * rule keeps each one off the page until MaxPreps has its schedule.
  *
  * The school, its mascot, its classification and its league are checked
  * against CHSAANow's member-school profiles and its 2026–28 classification
@@ -38,7 +39,7 @@ export interface SportConfig {
   /** The key in the data file and the card's anchor: "football". */
   key: string;
   /** The CHSAA season the team plays in; the page's eyebrow says which season its next game is in. */
-  season: 'fall' | 'winter';
+  season: 'fall' | 'winter' | 'spring';
   /** As the card names it: "Football", "Boys soccer". */
   name: string;
   /** The team's path under the school's MaxPreps URL: "football", "soccer", "cross-country/girls". */
@@ -238,6 +239,22 @@ const ICE_HOCKEY: SportConfig = { key: 'ice-hockey', season: 'winter', name: 'Ic
  */
 const GIRLS_FLAG_FOOTBALL: SportConfig = { key: 'girls-flag-football', season: 'fall', name: 'Girls flag football', maxpreps: 'flag-football/girls/fall', calendar: { gender: 'Girls', sport: 'Flag Football' } };
 
+/**
+ * The spring teams, CHSAA's season (March to May): baseball and girls'
+ * soccer, followed for Roosevelt at the owner's call (9 November 2026; the
+ * Johnstown gap report of 8 November found both on MaxPreps with no page
+ * here). MaxPreps files Colorado's girls' soccer as a spring team, so its
+ * path carries the season, as fall softball's does: `soccer/girls/spring`;
+ * baseball is plain `baseball`. Both paths answered with a 2026–27 team
+ * page on 9 November 2026. The calendar words are the Finalsite pattern's
+ * ("Girls Varsity Soccer vs …"), unverified until the season; a mismatch
+ * only notes a game as not on the school calendar.
+ */
+const SPRING = (): SportConfig[] => [
+  { key: 'baseball', season: 'spring', name: 'Baseball', maxpreps: 'baseball', calendar: { gender: 'Boys', sport: 'Baseball' } },
+  { key: 'girls-soccer', season: 'spring', name: 'Girls soccer', maxpreps: 'soccer/girls/spring', calendar: { gender: 'Girls', sport: 'Soccer' } },
+];
+
 /** The fall list without one team, for a school that does not field it. */
 const FALL_WITHOUT = (...keys: string[]): SportConfig[] => FALL().filter((t) => !keys.includes(t.key));
 /** The winter list without one team, for a school whose MaxPreps page for it does not exist. */
@@ -343,7 +360,8 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
       // CHSAANow's game page for the 4A second round, read 9 November 2026: "Montbello at Roosevelt", Roosevelt the home team, Fri, Nov 13, 7 pm. MaxPreps filed it as a neutral site.
       { team: 'football', date: '2026-11-13', stage: 'State Football Playoffs', source: 'https://chsaanow.com/sports/football/games/2026/11/13/montbello-at-roosevelt' },
     ],
-    teams: TEAMS(),
+    // The fall and winter lists, then the spring teams (SPRING).
+    teams: [...TEAMS(), ...SPRING()],
   },
   {
     town: 'windsor',

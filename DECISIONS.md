@@ -9381,3 +9381,19 @@ template, so every guide with a family hub takes them.*
   /directory/; the kids' guide no longer sends families there. To bring
   it back: confirm it is open, re-source it, and take the slug out of the
   ledger.
+
+## Roosevelt's spring teams followed, 9 November 2026
+
+*The owner: "yes to spring sports", on the Johnstown gap report of 8
+November (H2: Roosevelt baseball and girls soccer on MaxPreps, no page
+here).*
+
+- A team's season can now be spring as well as fall or winter
+  (`SportConfig.season`). A spring game's season reads "Spring 2027", and a
+  page laying it out beside the winter reads the school year, "2026–27".
+- Roosevelt alone follows baseball and girls' soccer (`SPRING` in
+  `src/config/school-sports.ts`); no other school's list changed. Like the
+  winter list, each team stays off the page until MaxPreps has its
+  schedule, which the Wednesday run picks up.
+- An exception to the 90-day test's "no new features", made by the owner;
+  the rule itself stands.
