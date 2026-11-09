@@ -9564,7 +9564,7 @@ here).*
   decide-by dates are unchanged.
 - **Timnath** is the tenth resident guide: `home: true`, with its school
   (Timnath Middle-High, the Cubs), Families, Living here, Get involved,
-  quick answers and About, each fact read on 9 November from the Town's,
+  and quick answers, each fact read on 9 November from the Town's,
   Poudre School District's, Larimer County's or the provider's own page.
   Its palette is unchanged. The scoreboard band is the navy of the school's
   own logo, because white does not reach 7:1 on either of its blues.

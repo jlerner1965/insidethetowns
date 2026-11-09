@@ -212,11 +212,6 @@ export const timnath: TownConfig = {
       },
     ],
   },
-  about: {
-    who: [
-      'Inside Timnath is published by Lerner Works, the small studio James Lerner runs. James grew up in Niwot, in Boulder County, and edits this guide from the sources every listing names: the Town’s own pages, the school district, the county, and the businesses’ and organizers’ sites, checked on the dates shown. He is not a Timnath resident and has no standing with the Town, the chamber or any organization listed here; nothing on the guide is endorsed by any of them.',
-    ],
-  },
   movingHere: {
     listingsLinks: [
       { label: 'Homes for sale on Zillow', url: 'https://www.zillow.com/homes/Timnath,-CO_rb/' },
