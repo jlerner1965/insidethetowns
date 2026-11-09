@@ -147,6 +147,7 @@ export const windsor: TownConfig = {
           { label: 'Windsor: trash haulers, as the Town lists them', url: 'https://www.windsorco.gov/998/Services-by-other-Agencies', note: 'Bunting Disposal, Gallegos Sanitation, Ram Waste Systems and Waste Management; the Town endorses none' },
           { label: 'Windsor: Leaf & Branch Drop and the yard-waste rebate', url: 'https://www.windsorco.gov/1306/Yard-Waste-Rebate-Program', note: 'Fridays to Sundays 8 am–3 pm at 922 N 15th St through November 15 this fall, $10 a carload, residents only, card only; Windsor water customers can claim up to $10 a year for recycling yard waste elsewhere' },
           { label: 'Severance: trash and recycling', url: 'https://www.townofseverance.org/266/Trash-and-Recycling', note: 'Independent companies; some subdivisions include service in their HOA or metro district dues' },
+          { label: 'Windsor’s solid waste study', url: 'https://windsorprojectconnect.com/TrashHauling', note: 'At least five companies serve Windsor neighborhoods, and the Town has hired Burns & McDonnell to weigh a Town-run service and a single contracted hauler against the open market of today; the resident survey closed in March 2026' },
         ],
       },
       {
@@ -170,6 +171,7 @@ export const windsor: TownConfig = {
           { label: 'Reduced Fee Program and Severance youth scholarships', url: 'https://www.recreationliveshere.com/172/Reduced-Fee-Program', note: 'Reduced rates for Windsor residents who qualify by income; up to $100 toward youth sports for Severance residents under 18, while funds last', track: 'registration' },
           { label: 'Windsor parks and shelter reservations', url: 'https://www.recreationliveshere.com/27/Parks', note: 'Only shelters can be reserved; 970-674-3500' },
           { label: 'Severance: parks and park reservations', url: 'https://www.townofseverance.org/209/Parks-Recreation', note: 'The Town’s twelve parks and its reservation request form; 970-686-1218' },
+          { label: 'Active Adults, 55 and over', url: 'https://www.recreationliveshere.com/163/Active-Adults', note: 'At the Community Recreation Center: day trips, bingo, cards and mahjong, the Active Adult Lounge, drop-in basketball and indoor pickleball ($2 for members, $4 for others), and the Friendly Fork Café, a weekday lunch from 11 to 11:30, dine-in or curbside, $5 suggested for ages 60 and over; reserve by 9 am the business day before at 970-674-3500' },
         ],
       },
       {
@@ -195,6 +197,34 @@ export const windsor: TownConfig = {
           { label: 'Severance Police Department', url: 'https://www.townofseverance.org/200/Police', note: '209 1st St, 970-685-9708, weekdays 8–5; after hours, Weld County non-emergency dispatch 970-350-9600' },
           { label: 'Windsor Severance Fire Rescue', url: 'https://wsfr.specialdistrict.org/contact-us', note: 'The fire district for both towns, about 100 square miles; non-emergency 970-686-2626, Monday to Thursday 7–5; no open burning inside either town' },
           { label: 'NOCO Alert emergency notifications', url: 'https://www.nocoalert.org/', note: 'The Town of Windsor sends alerts through NOCO Alert (Larimer County) and CodeRED (Weld County)' },
+        ],
+      },
+      {
+        title: 'Health care, groceries and pharmacies',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Banner Health walk-in clinic, 1683 Main St', url: 'https://www.bannerhealth.com/services/primary-care/village-medical-colorado-now-banner-health', note: 'Walk-in care, and primary care by appointment, in the former Village Medical clinic, which Banner took over in 2025; 970-400-7618' },
+          { label: 'Banner Health Clinic, 1300 Main St', url: 'https://www.bannerhealth.com/locations/windsor/banner-health-clinic-obgyn-family-and-sports-medicine-main', note: 'Family medicine and pediatrics at Main and 13th St: Monday to Thursday 7:30 am to 5:15 pm (Wednesday to 5:30), Friday 7:30 to 5, Saturday 8 to noon, closed Sunday; 970-686-5646' },
+          { label: 'Emergency rooms, open 24 hours', url: 'https://www.bannerhealth.com/locations/greeley/north-colorado-medical-center', note: 'Banner’s North Colorado Medical Center, 1801 16th St, Greeley, 970-810-4121; Banner Fort Collins Medical Center, 4700 Lady Moon Dr, 970-821-4000; and UCHealth Greeley Hospital, 6767 W 29th St, Greeley, 970-652-2000, whose emergency entrance is open around the clock. In an emergency, call 911' },
+          { label: 'Walgreens, 1480 Main St', url: 'https://www.walgreens.com/locator/walgreens-1480+main+st-windsor-co-80550/id=7417', note: 'At County Road 15 and Highway 392; store 7 am to 11 pm weekdays, 7 to 10 weekends; pharmacy Monday to Friday 8 to 8, Saturday 9 to 6, Sunday 10 to 6, closed 1:30 to 2; 970-686-0838' },
+          { label: 'Safeway, 1535 Main St', url: 'https://local.safeway.com/safeway/co/windsor/1535-main-st.html', note: 'Store daily 6 am to 11 pm; pharmacy weekdays 9 to 8, Saturday 9 to 5, Sunday 10 to 5, closed 1:30 to 2 each day; 970-674-1177' },
+        ],
+      },
+      {
+        title: 'Motor vehicles',
+        note: 'Your county’s office registers your car: Weld County for Severance and most of Windsor, Larimer County for the part of Windsor west of the county line.',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Weld County Motor Vehicle', url: 'https://www.weld.gov/Government/Departments/Clerk-and-Recorder/Motor-Vehicle-Department/Contact-Us', note: 'The Greeley office, 1250 H St, Monday to Friday 8 am to 5 pm, 970-304-6520; Weld also has offices in Longmont and Fort Lupton' },
+          { label: 'Larimer County Vehicle Licensing', url: 'https://larimer.gov/vehiclelicensing', note: 'Fort Collins, 200 W Oak St, 970-498-7878, and Loveland, 200 Peridot Ave, 970-619-4521; both Monday to Friday 8 am to 5 pm, except holidays' },
+        ],
+      },
+      {
+        title: 'Permits and the post office',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Severance: building permits', url: 'https://www.townofseverance.org/FAQ.aspx', note: 'Required for houses, buildings, decks, roofs and re-roofing, some fences, fireplaces, sprinkler systems, remodeling, basement finishes, garages, sheds and heating or air systems; ask Town Hall, 970-686-1218' },
+          { label: 'Severance Post Office', url: 'https://www.townofseverance.org/FAQ.aspx', note: '970-686-2697' },
         ],
       },
       {
