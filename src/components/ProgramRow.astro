@@ -26,9 +26,11 @@ interface Props {
   program: TownEntry<'programs'>;
   /** Show the organizer and the kind over the title (off under a heading that already says). */
   showKind?: boolean;
+  /** The title's weight in place of font-medium: the family hub sets its program names semibold (and black, global.css .family-titles) to stand apart from the facts. */
+  titleClass?: string;
 }
 
-const { program, showKind = true } = Astro.props;
+const { program, showKind = true, titleClass } = Astro.props;
 const { data } = program;
 const now = new Date();
 const passed = deadlinePassed(program, now);
@@ -72,7 +74,7 @@ const track = data.kind === 'league' || data.kind === 'class' || data.kind === '
   {showKind && (
     <p class="eyebrow text-ink-muted">{PROGRAM_KIND_LABELS[data.kind]} · {data.organizer}</p>
   )}
-  <h3 class:list={['mt-1 text-xl font-medium leading-tight md:text-[1.375rem]', status?.state === 'ended' && 'text-ink-muted']}>
+  <h3 class:list={['mt-1 text-xl leading-tight md:text-[1.375rem]', titleClass ?? 'font-medium', status?.state === 'ended' && 'text-ink-muted']}>
     {data.url ? <a href={data.url} rel="noopener" data-track={track} class="no-underline hover:text-primary hover:underline">{data.title}</a> : data.title}
   </h3>
   {status && (

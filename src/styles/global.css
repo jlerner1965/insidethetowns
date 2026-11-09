@@ -42,6 +42,9 @@
   /* Body text, and supporting text: the only two inks. */
   --color-ink: #243137;
   --color-ink-muted: #46545B;
+  /* Black, for titles on the family hub, so they stand apart from the body
+     ink under them (palette.ts, TITLE_INK). Never body text. */
+  --color-title: #000000;
   --color-line: var(--t-line);
   --color-line-soft: var(--t-line-soft);
   /* A text field's edge, the one line that says "type here": 3.55:1 on
@@ -214,6 +217,12 @@
  * from being clipped by the scroller.
  */
 @layer components {
+  /* The family hub's titles in black (--color-title): every section
+     heading, program name, card title and the "Right now" box's labels, on
+     every town's /families/. In the components layer so a colour class on
+     the element still wins: an ended program's greyed name, the eyebrow
+     labels, the "Who"/"When" terms in a program's facts. */
+  .family-titles :is(h2, h3, dt) { color: var(--color-title); }
   .filter-row {
     display: grid;
     grid-template-columns: 4.5rem minmax(0, 1fr);

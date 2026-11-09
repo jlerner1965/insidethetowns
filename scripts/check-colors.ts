@@ -27,7 +27,7 @@
 import { allSites } from '../src/config/index.ts';
 import { SCHOOL_SPORTS } from '../src/config/school-sports.ts';
 import { schoolTheme } from '../src/config/school-colors.ts';
-import { CATEGORY_COLORS, HIGHLIGHT, INK, INK_MUTED, PAPERS, PLACE_TYPE_COLORS, primaryHover } from '../src/config/palette.ts';
+import { CATEGORY_COLORS, HIGHLIGHT, INK, INK_MUTED, PAPERS, PLACE_TYPE_COLORS, TITLE_INK, primaryHover } from '../src/config/palette.ts';
 
 const WHITE = '#ffffff';
 const HIGHLIGHT_SOFT = '#fdf0d8';
@@ -160,7 +160,7 @@ for (const site of allSites) {
   seen.set(key, site.slug);
 }
 
-for (const [name, ink] of [['ink', INK], ['ink-muted', INK_MUTED]] as const) {
+for (const [name, ink] of [['ink', INK], ['ink-muted', INK_MUTED], ['title', TITLE_INK]] as const) {
   want(`${name} on white`, ratio(ink, WHITE), 4.5);
   want(`${name} on the highlight wash`, ratio(ink, HIGHLIGHT_SOFT), 4.5);
   for (const [paper, hex] of papers) want(`${name} on ${paper} paper`, ratio(ink, hex), 4.5);
