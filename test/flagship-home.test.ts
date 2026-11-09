@@ -15,6 +15,7 @@ import { towns } from '../src/config/towns/registry.ts';
 import { schoolsFor, schoolSportsFor, schoolTeamName, type SportGame, type SportsData } from '../src/config/school-sports.ts';
 import { townNav } from '../src/lib/nav.ts';
 import { homeRoute } from '../src/integrations/town-routes.ts';
+import { quickAnswerLinks } from '../src/lib/quick-answers.ts';
 
 const at = (s: string) => parseLocal(s);
 // Sunday 25 October 2026, late morning in Denver: the day the brief was written.
@@ -303,4 +304,45 @@ test('quick answers link only pages the guide builds', () => {
     const rec = t.quickAnswers!.recCenter;
     if (rec) assert.ok(existsSync(new URL(`../content/${t.slug}/places/${rec.place}.md`, import.meta.url)), `${t.slug}: ${rec.place} is a listing`);
   }
+});
+
+test('quick answers never repeat a link the home page has; the guides, then the directory, take its place', () => {
+  const berthoud = towns.find((t) => t.slug === 'berthoud')!;
+  const base = { town: berthoud, recPlace: 'berthoud-recreation-center', hasUpdates: true, hasGuides: true, hasPlaces: true };
+  const show = (links: ReturnType<typeof quickAnswerLinks>) => links.map((l) => `${l.label} ${l.href}`);
+  // Berthoud's home: the rec line links the rec center and Worth knowing the updates page (the owner, 9 November 2026).
+  assert.deepEqual(show(quickAnswerLinks({ ...base, linked: new Set(['/places/berthoud-recreation-center/', '/updates/']) })), [
+    'Kids & family plans /families/',
+    'Berthoud guides /guides/',
+    'Every place, A to Z /directory/',
+  ]);
+  // Nothing linked elsewhere: the three as asked.
+  assert.deepEqual(show(quickAnswerLinks({ ...base, linked: new Set() })), [
+    'Kids & family plans /families/',
+    'Rec center hours & swim /places/berthoud-recreation-center/',
+    'What changed in town /updates/',
+  ]);
+  // A guide with no articles has no guides link to give; the directory comes next, and nothing after it.
+  assert.deepEqual(show(quickAnswerLinks({ ...base, hasGuides: false, linked: new Set(['/places/berthoud-recreation-center/', '/updates/']) })), [
+    'Kids & family plans /families/',
+    'Every place, A to Z /directory/',
+  ]);
+  assert.deepEqual(show(quickAnswerLinks({ ...base, hasGuides: false, hasPlaces: false, linked: new Set(['/places/berthoud-recreation-center/', '/updates/']) })), ['Kids & family plans /families/']);
+  // A guide without the switch has none.
+  assert.deepEqual(quickAnswerLinks({ ...base, town: { ...berthoud, quickAnswers: undefined }, linked: new Set() }), []);
+});
+
+test('every live guide says what its three photo tiles hold, in a line that fits a phone', () => {
+  for (const t of towns.filter((t) => t.kind === 'town' && t.status === 'live')) {
+    assert.ok(t.nextStop, `${t.slug}: nextStop lines`);
+    for (const [key, line] of Object.entries(t.nextStop!)) {
+      // 36 characters at 14px fit one line of a 390px phone's row with room to spare.
+      assert.ok(line.length > 0 && line.length <= 36, `${t.slug}.${key}: "${line}" is ${line.length} characters`);
+    }
+  }
+  assert.deepEqual(towns.find((t) => t.slug === 'berthoud')!.nextStop, {
+    eatDrink: 'Coffee, restaurants, breweries',
+    thingsToDo: 'Parks, trails, Carter Lake',
+    living: 'Utilities, schools, who to call',
+  });
 });

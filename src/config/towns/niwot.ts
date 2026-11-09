@@ -41,6 +41,9 @@ export const niwot: TownConfig = {
     accent: '#A26449',
     paper: 'warm',
   },
+  // The line under each Find your next stop tile (TownConfig.nextStop), from what
+  // the three pages list, 9 November 2026.
+  nextStop: { eatDrink: 'Coffee, restaurants, shops', thingsToDo: 'Parks, trails, Old Town', living: 'Water, trash, schools, snow' },
   hero: {
     image: 'second-avenue-street.jpg',
     alt: 'Second Avenue in Old Town Niwot on a summer morning: the Niwot Tribune storefront with its porch and hanging baskets, the brick blocks beyond it, and cars parked along the street',

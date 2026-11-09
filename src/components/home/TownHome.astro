@@ -22,10 +22,12 @@
  *    up to three lines from the family hub, each with its date, ages and
  *    cost, and one link to /families/ (src/lib/family-home.ts).
  * 6. Find your next stop (NextStop): Eat & drink, Things to do and Living
- *    here (or Moving here) as three photographs.
+ *    here (or Moving here) as three photographs, each with a line of what
+ *    its page lists; full-width rows on a phone.
  * 7. Worth knowing: the two newest local changes as links, and the rest on
  *    the updates page. Hidden where there are none.
- * 8. The footer, one block on this page (Footer).
+ * 8. The footer every page has (Footer; one block of its own here from 27
+ *    October to 9 November 2026).
  *
  * The seven-day agenda, the scoreboard, the changes' summaries and sources,
  * the place cards and the list of eight, the articles, the neighbours'
@@ -131,6 +133,16 @@ const familyRows = town.families?.onHome
 // 6. The places with a photograph, for the three tiles; a closed place is not a next stop.
 const places = (await getTownEntries('places')).filter(isOpen);
 
+// 3c. The quick answers under the tabs never repeat a link the page has
+// (src/components/home/QuickAnswers.astro): the pages linked from the rec
+// line, the families block and Worth knowing, where each is on the page.
+const linked = new Set<string>([
+  ...(rec ? [`/places/${rec.place}/`] : []),
+  ...(familyRows.length > 0 ? ['/families/'] : []),
+  ...(know.length > 0 ? ['/updates/'] : []),
+]);
+const hasGuides = (await getTownEntries('articles')).length > 0;
+
 // 3b. Don't miss, beside the tabs: the next featured listing within three
 // weeks (src/lib/home-tabs.ts), with a photograph: its own, else its venue's
 // where the venue is a listed place with one ("Niwot Hall and Downtown
@@ -168,7 +180,7 @@ if (featured) {
   {rec && <RecCenterToday slot="today" data={rec} fallback href={`/places/${rec.place}/`} />}
 </WhatsHappening>
 
-<QuickAnswers town={town} recPlace={rec?.place} hasUpdates={updates.length > 0} />
+<QuickAnswers town={town} recPlace={rec?.place} hasUpdates={updates.length > 0} {hasGuides} hasPlaces={places.length > 0} {linked} />
 
 {emailOn && !thin && (
   <section class="band-paper py-4 md:py-6">
@@ -212,7 +224,7 @@ if (featured) {
       <h2 id="know" class="display-md text-[2rem] md:text-[2.5rem]">Worth knowing</h2>
       <ul class="mt-3 divide-y divide-line-soft">
         {know.map((u) => (
-          <li class="py-3 text-[1.0625rem] leading-snug"><a href={`/updates/#${u.slug}`} class="font-medium no-underline hover:text-primary hover:underline">{u.data.title}</a></li>
+          <li class="py-3 text-[1.0625rem] leading-snug"><a href={`/updates/#${u.slug}`} class="font-medium text-primary no-underline hover:underline">{u.data.title}</a></li>
         ))}
       </ul>
       <p class="mt-3 text-[1.0625rem]"><a href="/updates/" class="inline-block -my-2 py-2 font-semibold text-primary underline">Every local change →</a></p>

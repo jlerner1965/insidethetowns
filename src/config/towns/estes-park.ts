@@ -84,6 +84,9 @@ export const estesPark: TownConfig = {
     accent: '#4D6955',
     paper: 'cool',
   },
+  // The line under each Find your next stop tile (TownConfig.nextStop), from what
+  // the three pages list, 9 November 2026.
+  nextStop: { eatDrink: 'Restaurants, breweries, shops', thingsToDo: 'Trailheads, lodging, the tramway', living: 'Housing, schools, getting around' },
   hero: {
     // Bought from Adobe Stock on 30 October 2026 (docs/HERO-PHOTOS.md), in
     // place of the town seen from the Gem Lake trail: Elkhorn Avenue itself.

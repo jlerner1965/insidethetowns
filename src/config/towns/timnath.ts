@@ -33,6 +33,9 @@ export const timnath: TownConfig = {
     accent: '#C8880A',
     paper: 'warm',
   },
+  // The line under each Find your next stop tile (TownConfig.nextStop), from what
+  // the three pages list, 9 November 2026.
+  nextStop: { eatDrink: 'Coffee, restaurants, a brewery', thingsToDo: 'Parks, the Poudre River Trail', living: 'Housing, schools, getting around' },
   hero: {
     image: 'sunrise.jpg',
     alt: 'Sunrise through bare cottonwoods over a frozen pond in Timnath',

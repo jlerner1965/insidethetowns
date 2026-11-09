@@ -32,6 +32,9 @@ export const lyons: TownConfig = {
     accent: '#A3482D',
     paper: 'warm',
   },
+  // The line under each Find your next stop tile (TownConfig.nextStop), from what
+  // the three pages list, 9 November 2026.
+  nextStop: { eatDrink: 'Coffee, restaurants, bars, shops', thingsToDo: 'Trails, parks, Planet Bluegrass', living: 'Utilities, schools, who to call' },
   hero: {
     // Main Street again, from 2 November 2026: the Adobe Stock foothills
     // bought on 28 October (docs/HERO-PHOTOS.md, still licensed, in the

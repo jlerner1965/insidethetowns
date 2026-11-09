@@ -9510,3 +9510,40 @@ here).*
   boys' swimming) wait: the sports pages know a fall and a winter season
   only, and following spring teams is a change to the season code for
   every guide.
+
+## The home page's link list, tappable titles, tiles, footer and school dot, 9 November 2026
+
+*The owner's brief, "Home page link + mobile polish (shared town template)", with Inside Berthoud as the reference. The shared home, so every guide.*
+
+- **No link twice.** A quick answer under the tabs that goes where the page
+  already links gives its place to "<Town> guides" (/guides/), then "Every
+  place, A to Z" (/directory/), each only where the guide has an article or
+  a place to list (`src/lib/quick-answers.ts`). Berthoud's "Rec center
+  hours & swim" repeated the rec line's "Schedule & passes" and became
+  "Berthoud guides"; "What changed in town" repeated Worth knowing's
+  "Every local change" and became "Every place, A to Z". "On the page"
+  means the page's own content: the menu and the footer link /guides/ and
+  /directory/ on every page, and the brief's own replacements are those.
+- **Titles read as links.** The listings' titles on the tabs (and under
+  "Next in <Town>") and Worth knowing's headlines are in the primary, the
+  guide's link colour, without an underline. The brief called it "the town
+  accent"; the accent is never text (rule 1, and gold on white does not
+  read), so it is the primary every other link already uses. A canceled or
+  postponed listing keeps its muted ink beside the label.
+- **The tiles say what is behind them.** Each carries one line, the town's
+  own (`TownConfig.nextStop`), written from what its Eat & drink, Things to
+  do and Living here or Moving here pages list; a guide without one gets a
+  generic line naming no place. Under 640px the three are full-width rows
+  44px tall, the minimum tap target, with the gradient run from the left
+  under the words; three rows of two lines could not be the third of the
+  old 110px tile the brief asked for, so the three take 141px where the one
+  row took 110 on a 390px phone. Three across, at the old height, from 640px.
+- **One footer.** The home page has the inner pages' footer, headings and
+  network strip included; only the space above it differs. It is longer on
+  a phone than the home's one block was.
+- **The school's dot.** Filled with the school's colour from the sports
+  config, with no ring; none where the school has no colour. Where that
+  colour is the strip's own band (Berthoud, Timnath, Elizabeth, Golden,
+  Lafayette and Frederick) a dot of it could not be seen, and the white
+  ring around it read as the empty radio button the brief named, so those
+  strips have no dot: the owner's to overrule.

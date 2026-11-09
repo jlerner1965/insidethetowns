@@ -6,7 +6,7 @@ changes and the old wording goes; the history of why lives in
 other document disagree, this file wins. Where this file and a test
 disagree, fix one of them the same day.
 
-Last revised: 8 November 2026.
+Last revised: 9 November 2026.
 
 ## 1. What this is
 
@@ -144,10 +144,15 @@ source · refreshed <date>"); the tab that opens is Today, the weekend from
 Friday, and Tomorrow from five on the Sunday afternoon; an empty tab offers
 "Next in <Town>": the pick, then the one-off outings by date, the civic
 calendar and the regulars last, the last slot kept for the next festival,
-market or music; the Thursday signup; three photo tiles (Eat & drink, Things to
-do, Living here or Moving here), the tiles before the signup on a thin day
-(the tab that opens has fewer than three rows at the build); Worth knowing,
-two links; the footer as one block. Sections with no data hide. On a phone
+market or music; under the tabs, the quick answers where the config has them,
+none repeating a link the page has (src/lib/quick-answers.ts); the Thursday
+signup; three photo tiles (Eat & drink, Things to do, Living here or Moving
+here), each with one line of what its page lists (`nextStop` on the config),
+three across and full-width rows on a phone, the tiles before the signup on a
+thin day (the tab that opens has fewer than three rows at the build); Worth
+knowing, two links; the footer every page has. A listing's title and a Worth
+knowing headline are links in the primary, not underlined. Sections with no
+data hide. On a phone
 the sports strip shows the latest result only, except when the next game is
 within three days or a postseason game, when it shows that instead; nothing
 else on the home is hidden on a phone. The menu on every page is This week,

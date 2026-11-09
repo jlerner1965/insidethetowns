@@ -74,6 +74,9 @@ export const frederick: TownConfig = {
     accent: '#C48B54',
     paper: 'cool',
   },
+  // The line under each Find your next stop tile (TownConfig.nextStop), from what
+  // the three pages list, 9 November 2026.
+  nextStop: { eatDrink: 'Coffee, restaurants, a brewery', thingsToDo: 'Parks, Milavec Lake, golf', living: 'Utilities, schools, who to call' },
   hero: {
     // Old-town Frederick, the Carbon Valley guide's hero from 28 October 2026
     // (docs/HERO-PHOTOS.md), moved here with the town on 2 November. Also the

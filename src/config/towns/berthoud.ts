@@ -40,6 +40,8 @@ export const berthoud: TownConfig = {
     accent: '#C39B50',
     paper: 'warm',
   },
+  // The line under each Find your next stop tile (TownConfig.nextStop), the owner’s, 9 November 2026.
+  nextStop: { eatDrink: 'Coffee, restaurants, breweries', thingsToDo: 'Parks, trails, Carter Lake', living: 'Utilities, schools, who to call' },
   hero: {
     // Bought from iStock on 28 October 2026 (docs/HERO-PHOTOS.md). Its
     // editorial licence wants this credit beside the photograph, so the
