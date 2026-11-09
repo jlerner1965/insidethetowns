@@ -5,11 +5,11 @@ address: "1700 Colorado Peaks Drive, Estes Park, CO 80517"
 area: "Lake Estes"
 url: "https://emberestespark.com/"
 source: "https://emberestespark.com/"
-verified: "2026-10-13"
+verified: "2026-11-09"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 phone: "970-586-6409"
-hours: "Sun–Thu 7 am–9 pm; Fri–Sat 7 am–10 pm"
+hours: "Sun–Thu 7 am–8 pm; Fri–Sat 7 am–9 pm"
 tags: [american, breakfast, dinner, bar, lake-estes, events]
 summary: "Modern American restaurant, bar and event venue at The Estes Park Resort on Lake Estes, serving breakfast, lunch and dinner from 7 am daily."
 ---
