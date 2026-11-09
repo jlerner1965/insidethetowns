@@ -440,8 +440,9 @@ test('a town with one school keeps /sports/ and sports.json; Loveland’s four e
   );
   assert.ok(berthoudRoutes.some(([p]) => p === '/sports/football'), 'football has a page');
   assert.deepEqual(sportsRoutes('berthoud', '/nowhere'), [['/sports', 'sports.astro'], ['/sports/share/[image].png', 'sports-share.png.ts']], 'no data file, no team pages');
-  assert.deepEqual(sportsRoutes('fortcollins'), [], 'a town without a school has no page');
+  assert.deepEqual(sportsRoutes('black-hawk'), [], 'a town without a school has no page');
   assert.deepEqual(schoolsFor('longmont').map((s) => s.slug), ['longmont-high', 'skyline', 'silver-creek'], 'Longmont follows its three high schools (9 November 2026)');
+  assert.deepEqual(schoolsFor('fortcollins').map((s) => s.slug), ['fort-collins-high', 'fossil-ridge', 'poudre', 'rocky-mountain'], 'Fort Collins follows its four high schools (9 November 2026)');
   assert.equal(sportsRoutes('erie')[0]![0], '/sports', 'Erie follows Erie High (25 October 2026)');
   assert.equal(teamPath(berthoud, 'football'), '/sports/football/');
 
