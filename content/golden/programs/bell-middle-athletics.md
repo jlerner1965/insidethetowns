@@ -14,8 +14,11 @@ season: "Volleyball October 19–December 17; basketball January 6–March 18; s
 price: "Not stated on the school's flyer; Skyhawks handles financial assistance"
 registration: { required: true, how: "Online with Skyhawks Sports at skyhawks.fun/Bell-MSSP; space is limited, with a wait list once a sport is full", url: "https://bell.jeffcopublicschools.org/student-life/athletics", opens: "2026-11-20", note: "Basketball registration opens November 20, soccer and track February 12; each closes two weeks before its season starts unless places remain" }
 contact: "Skyhawks Sports, askcolorado@skyhawks.com, 303-222-8039"
+status: open
+statusUntil: "2026-12-17"
+statusNote: "Volleyball is under way to December 17; basketball sign-ups open November 20"
 source: "https://bell.jeffcopublicschools.org/student-life/athletics"
-verified: "2026-10-28"
+verified: "2026-11-09"
 ---
 
 Bell's sports are part of the Middle School Sports Program, a recreational after-school league that teaches the rules of each game and sportsmanship and plays other Jeffco middle schools; Skyhawks Sports runs it with the school and handles registration. The school's [sports flyer](https://docs.google.com/document/d/11rNd4LNKKUj22PuRTq_HytpAQWinY3Mr/edit) gives the seasons: **volleyball** now, to December 17; **basketball** from January 6 to March 18, girls on Monday and Wednesday and boys on Tuesday and Thursday, with registration opening November 20; **soccer** (March 31 to May 24) and **track and field** (March 30 to May 25), both opening for registration on February 12. Places fill quickly; a full sport keeps a wait list, decided by the first week of practice. Questions about schedules go to the coaches once they are assigned. The school's athletics page also links information on Golden-area youth football.

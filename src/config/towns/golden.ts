@@ -201,11 +201,11 @@ export const golden: TownConfig = {
       {
         title: 'Trash and recycling',
         note: 'The City contracts one hauler, 5280 Waste Solutions, for its Pay-As-You-Throw program: you pay by trash-cart size, and recycling and compost carts come with it.',
-        verified: '2026-10-28',
+        verified: '2026-11-09',
         items: [
           { label: 'Trash, recycling and compost: the City’s program', url: 'https://www.cityofgolden.gov/services/trash_recycling_compost/index.php', note: '5280 Waste Solutions, 303-277-8727; $9.24 a month for a 32-gallon trash cart, $18.16 for 64 gallons, $30.06 for 96; carts out by 7 am; one free large-item pickup a year' },
           { label: 'When is trash day?', url: 'https://www.cityofgolden.gov/services/trash_recycling_compost/when_is_trash_day_.php', note: 'Collection-day maps by neighborhood and the 2026 calendar; a holiday moves pickup back one day' },
-          { label: 'Yard Waste Collection Days', url: 'https://www.cityofgolden.gov/services/trash_recycling_compost/yard_waste_collection_days.php', note: 'Spring and fall; this fall November 2–6, on your trash day by 7 am, up to 3 cubic yards in the organics cart, bundled or in compostable bags' },
+          { label: 'Yard Waste Collection Days', url: 'https://www.cityofgolden.gov/services/trash_recycling_compost/yard_waste_collection_days.php', note: 'Twice a year, in spring and fall, on your trash day by 7 am: up to 3 cubic yards in the organics cart, bundled or in compostable bags. This fall’s collection was November 2–6' },
           { label: 'Hard-to-recycle items guide', url: 'https://www.cityofgolden.gov/community/sustainable_golden/waste_diversion/hard_to_recycle_items_guide.php', note: 'Where appliances, batteries, electronics and paint go; household chemicals to the Rooney Road Recycling Center, by appointment, fees may apply' },
         ],
       },
@@ -251,6 +251,42 @@ export const golden: TownConfig = {
           { label: 'Golden Fire Department', url: 'https://www.cityofgolden.gov/services/fire_department/index.php', note: 'A City department of staff and volunteers; administration 303-384-8094, weekdays 8–5; after hours and weekends 303-980-7300' },
           { label: 'Water or sewer emergency', url: 'https://www.cityofgolden.gov/services/water_service.php', note: '303-384-8158, answered around the clock' },
           { label: 'LookoutAlert emergency notifications', url: 'https://www.cityofgolden.gov/community/health_safety/emergency_preparedness.php', note: 'Jefferson County’s alerts by text, email or voice for wildfire, evacuation and other emergencies; sign up from the City’s page' },
+        ],
+      },
+      {
+        title: 'Health care, groceries and pharmacies',
+        verified: '2026-11-09',
+        items: [
+          { label: 'CommonSpirit Emergency & Urgent Care Golden, 760 Warner Dr', url: 'https://www.mountain.commonspirit.org/location/commonspirit-emergency-urgent-care-golden', note: 'A freestanding emergency room open around the clock, with urgent care every day from 7 am to 9 pm, when non-emergency visits are billed at urgent-care rates; 303-925-4360. In an emergency, call 911' },
+          { label: 'NextCare Urgent Care, 17121 S Golden Rd, Suite C150', url: 'https://nextcare.com/locations/co/golden/', note: 'On South Golden Road south of 16th Avenue; Monday to Friday 8 am to 8 pm, Saturday and Sunday 9 am to 4 pm; 720-506-1332' },
+          { label: 'Safeway, 1701 Jackson St', url: 'https://local.safeway.com/safeway/co/golden/1701-jackson-st.html', note: 'Store daily 6 am to 11 pm, 303-278-1861. Pharmacy Monday to Friday 9 am to 8 pm, Saturday 9 to 5, Sunday 10 to 5, closed 1:30 to 2 for lunch; 303-278-2284' },
+        ],
+      },
+      {
+        title: 'Motor vehicles',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Jefferson County Motor Vehicle: Golden office', url: 'https://www.jeffco.us/4714/Golden', note: '100 Jefferson County Parkway, Unit 2540; Monday to Thursday 7:30 am to 5 pm, closed Fridays, by appointment only; 303-271-8100. Every motor vehicle service but driver’s licences, which are the state’s' },
+        ],
+      },
+      {
+        title: 'City Hall, permits and road work',
+        verified: '2026-11-09',
+        items: [
+          { label: 'City Hall, 911 10th St', url: 'https://www.cityofgolden.gov/services/contact_us.php', note: 'Monday to Friday 8 am to 4:30 pm; main switchboard 303-384-8000. The City’s contact page lists every department’s number' },
+          { label: 'Building permits', url: 'https://www.cityofgolden.gov/business/building_construction/building_permit.php', note: 'Needed before you build, enlarge, repair, demolish or change the use of a building, or work on its electrical, gas, mechanical or plumbing systems; apply, and request inspections, on the City’s online permitting portal. Building Department, 1445 10th St, 303-384-8151' },
+          { label: 'Other City permits and licences', url: 'https://www.cityofgolden.gov/services/permits_licenses/index.php', note: 'Block parties (apply at least 21 days ahead); a right-of-way permit for work in the street, a dumpster or a storage pod (three working days ahead); short-term rentals; fences and sheds; chickens, bees and other small animals' },
+          { label: 'Public road closures map', url: 'https://www.cityofgolden.gov/community/getting_around/drive.php', note: 'The City’s map of active and planned closures for construction, repairs and events, linked from its Drive page; state highways are on COtrip' },
+          { label: 'Heart of Golden: the new police and municipal building', url: 'https://www.guidinggolden.com/heart-of-golden-moving-forward', note: 'One building for City offices and the police, under construction east of Washington Avenue on 10th Street; the City posts progress reports on the project page' },
+        ],
+      },
+      {
+        title: 'Pets',
+        verified: '2026-11-09',
+        items: [
+          { label: 'Dog licences: Foothills Animal Shelter', url: 'https://foothillsanimalshelter.org/pet-license/', note: 'Golden requires a licence for every dog; cats and other pets can be licensed voluntarily. The shelter, 580 McIntyre St, is open daily 10 to 5; 303-278-7575' },
+          { label: 'Animal control', url: 'https://www.cityofgolden.gov/services/contact_us.php', note: 'Through non-emergency dispatch, 303-980-7300, or codeenforcement@cityofgolden.gov' },
+          { label: 'Off-leash dog parks', url: 'https://www.cityofgolden.gov/community/parks_trails/index.php', note: 'At Tony Grampsas Sports Complex, 4471 Salvia St, and Ulysses Sports Complex, 1205 Ulysses St; in every other City park and on the trails, dogs stay on a leash' },
         ],
       },
       {

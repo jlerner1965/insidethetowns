@@ -8,10 +8,10 @@ phone: "(720) 600-1386"
 hours: "Mon–Thu 3–8, Fri–Sat 12–9, Sun 12–8"
 priceRange: "$"
 tags: [ice cream, kids]
-summary: "Small-town ice cream shop next to the Old Mine, scooping Little Man and Glacier ice cream since 2015."
+summary: "Small-town ice cream shop scooping Little Man and Glacier ice cream."
 source: "https://www.sweetsicecream.com/"
-verified: "2026-10-03"
+verified: "2026-11-09"
 added: "2026-09-17"
 ---
 
-The ice cream counter next door to the Old Mine, scooping Colorado-made Little Man and Glacier ice cream since 2015, with coffee and a few outdoor tables. Summer hours run to 9:30 nightly.
+The ice cream counter on Briggs Street scooping Colorado-made Little Man and Glacier ice cream.

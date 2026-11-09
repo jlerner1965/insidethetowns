@@ -8,9 +8,9 @@ phone: "(970) 823-8142"
 hours: "Sun–Thu 11–9, Fri–Sat 11–10"
 priceRange: "$$"
 tags: [barbecue, bar, ice cream, takeout]
-summary: "Championship hickory-smoked barbecue with a full bar and an ice-cream counter on Cima Vista Drive, with a drive-through pickup window."
+summary: "Championship hickory-smoked barbecue with a full bar and an ice-cream counter on Cima Vista Drive, with a pickup window for online orders."
 source: "https://gquebbq.com/locations/timnath/"
-verified: "2026-10-03"
+verified: "2026-11-09"
 added: "2026-09-17"
 ---
 

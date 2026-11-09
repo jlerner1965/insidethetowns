@@ -1,17 +1,17 @@
 ---
 title: "Historic downtown walking tour"
 type: venue
-address: "Briggs St, Cheesman St to Moffat Ave"
+address: "Briggs St"
 area: "Historic downtown, Briggs Street"
 url: "https://www.downtownerie.biz/"
 image: ../images/old-city-hall.jpg
-imageAlt: "The 1930 Erie City Hall, a small brick building with a bell tower, now a downtown storefront"
+imageAlt: "The old Erie City Hall, a small brick building with a bell tower"
 imageCredit: "Erie Bard, Wikimedia Commons, CC BY-SA 4.0"
-tags: [walk, history, free]
-summary: "Self-guided walk past more than a dozen historic sites in the old coal-town downtown: the 1889 Davis building, the 1930 City Hall, the Lincoln School and the miners' memorial."
+tags: [walk, history]
+summary: "Self-guided walk past more than a dozen historic sites in the old coal-town downtown."
 source: "https://www.downtownerie.biz/"
-verified: "2026-10-03"
+verified: "2026-11-09"
 added: "2026-09-17"
 ---
 
-Historic downtown Erie is the compact grid along Briggs Street between Cheesman and Moffat, west to Holbrook: brick storefronts from the coal years, the 1889 Davis building that now holds the Old Mine, the 1930 City Hall with its bell tower, and the Lincoln School. Downtown Erie's self-guided tour on the PocketSights app covers more than a dozen sites; start at the miners' memorial at Town Hall.
+Historic downtown Erie runs along Briggs Street, where many of the brick buildings have stood for more than a century, from the original Town Hall to early shops and saloons. Downtown Erie's self-guided tour covers more than a dozen historic sites.
