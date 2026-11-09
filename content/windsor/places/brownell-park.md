@@ -6,7 +6,7 @@ address: "336 1st St, Severance, CO 80546"
 area: "Old Town, 1st Street"
 url: "https://www.townofseverance.org/Facilities/Facility/Details/Brownell-Park-2"
 source: "https://www.townofseverance.org/Facilities/Facility/Details/Brownell-Park-2"
-verified: "2026-10-06"
+verified: "2026-11-09"
 added: "2026-10-06"
 verifiedBy: "Claude Code, delegated by James Lerner"
 tags: [shade, picnic tables, old town]
