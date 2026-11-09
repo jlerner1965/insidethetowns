@@ -8,7 +8,7 @@ url: "https://marketspread.com/market/21488/elbert-county-marketplace/"
 category: market
 recurring: "Every other Saturday, April to December, and every Saturday in November"
 source: "https://marketspread.com/market/21488/elbert-county-marketplace/"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 9 am on the page"
 ---
 

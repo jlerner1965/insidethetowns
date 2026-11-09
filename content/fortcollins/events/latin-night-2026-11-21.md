@@ -6,7 +6,7 @@ address: "204 S College Ave, Fort Collins, CO 80524"
 url: "https://www.z2ent.com/events/detail/latin-night-2026-aggie"
 category: "music"
 source: "https://www.z2ent.com/events/detail/latin-night-2026-aggie"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 9 pm on the page"
 ---
 

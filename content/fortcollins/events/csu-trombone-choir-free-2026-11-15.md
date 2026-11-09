@@ -10,7 +10,7 @@ source: "https://music.colostate.edu/events/csu-trombone-choir-free/"
 sourceId: "music-colostate-edu"
 sourceUid: "17-19477@music.colostate.edu"
 sourceHash: "ef21d768a979"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"CSU Trombone Choir / FREE\" at 7:30 pm on 15 November on the music.colostate.edu feed"
 ---
 

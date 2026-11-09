@@ -13,7 +13,7 @@ organizer: "Outlets at Castle Rock"
 organizerUrl: "https://www.outletsatcastlerock.com/"
 source: "https://www.outletsatcastlerock.com/event/44699-tree-lighting-celebration"
 sourceId: "outletsatcastlerock-com"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Tree Lighting Celebration\" at 4 pm on 14 November in the page's structured data"
 ---
 

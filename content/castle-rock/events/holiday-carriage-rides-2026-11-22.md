@@ -16,8 +16,8 @@ schedule:
   - { days: [wed, thu, fri], start: "16:30", end: "20:30" }
   - { days: [sat, sun], start: "17:00", end: "20:00" }
 except: ["2026-11-26", "2026-12-24", "2026-12-25", "2026-12-31"]
-verified: "2026-10-31"
-verifiedBy: "Claude Code, delegated by James Lerner"
+verified: "2026-11-09"
+verifiedBy: "recheck-events (the nightly re-check workflow): 22 November and 5 pm on the page"
 ---
 
 Horse-drawn carriage rides of about ten minutes around the holiday lights downtown, picking up by the big tree in Festival Park. One $59 ticket books the whole open carriage, and every ride must be booked ahead: 75 tickets go on sale in person at 4 pm on Thursday, October 29, outside Event Hall A at the Philip & Jerry Miller Library (numbers to the first 75 in line at 3:30, 18 and over with ID), and the rest online at noon on Wednesday, November 18. Rides run in rain or snow, so dress for the cold.

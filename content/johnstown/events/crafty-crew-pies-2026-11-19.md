@@ -10,7 +10,7 @@ source: "https://johnstownmillikenpubliclibraries.us/event/crafty-crew-pies/"
 sourceId: "johnstownmillikenpubliclibraries-us"
 sourceUid: "10472"
 sourceHash: "bfd2188c5ba3"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Crafty Crew: Pies\" at 5 pm on 19 November in the page's structured data"
 ---
 

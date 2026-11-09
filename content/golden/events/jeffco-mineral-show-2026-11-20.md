@@ -13,7 +13,7 @@ timeNote: "Fri and Sat 10 am–5 pm, Sun 10 am–4 pm"
 schedule:
   - { days: [fri, sat], start: "10:00", end: "17:00" }
   - { days: [sun], start: "10:00", end: "16:00" }
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): 20 November and 10 am on the page"
 ---
 

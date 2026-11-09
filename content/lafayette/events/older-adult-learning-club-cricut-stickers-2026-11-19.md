@@ -10,7 +10,7 @@ category: arts
 organizer: "Lafayette Public Library and Lafayette Senior Services"
 organizerUrl: "https://www.lafayetteco.gov/265/Senior-Services"
 source: "https://lafayettepubliclibrary.libcal.com/calendar/main/SLC2026"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Older Adult Learning Club: Cricut Stickers - Register\" at 1 pm on 19 November on the Lafayette Public Library - LibCal calendar feed"
 ---
 

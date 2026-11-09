@@ -9,7 +9,7 @@ category: "music"
 performers:
   - { name: "Tumbledown Shack", kind: group }
 source: "https://www.avogadros.com/fort-collins-avogadro-s-number-events"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): 21 November and 8 pm on the page"
 ---
 

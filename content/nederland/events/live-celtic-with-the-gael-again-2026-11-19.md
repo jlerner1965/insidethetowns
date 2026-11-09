@@ -9,7 +9,7 @@ category: music
 performers:
   - { name: "The Gael Again", kind: group }
 source: "https://www.verynicebrewing.com/event-details/live-celtic-with-the-gael-again-19"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): \"Live Celtic with The Gael Again\" at 6 pm on 19 November in the page's structured data"
 ---
 

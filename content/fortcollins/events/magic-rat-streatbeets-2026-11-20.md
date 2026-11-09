@@ -9,7 +9,7 @@ category: "music"
 performers:
   - { name: "StreatBeets", kind: group }
 source: "https://www.theelizabethcolorado.com/the-hotel/events-calendar/"
-verified: "2026-11-08"
+verified: "2026-11-09"
 verifiedBy: "recheck-events (the nightly re-check workflow): 20 November and 8 pm on the page"
 ---
 
