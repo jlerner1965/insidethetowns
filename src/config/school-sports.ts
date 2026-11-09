@@ -537,6 +537,72 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // data/lafayette/sports.json, and the page waits for it.
     teams: TEAMS(),
   },
+  // Longmont's three high schools, on the owner's word of 9 November 2026
+  // (the Longmont gap report of 8 November). A city guide follows several
+  // schools, as Loveland does: /sports/ lists them and each has its own
+  // page and file (data/longmont/sports-<slug>.json). MaxPreps's school
+  // paths are as its Skyline football page links them (read 9 November
+  // 2026); the run on the runner reads each team's page, and a team
+  // MaxPreps has nothing for is left off by the run. No data files yet:
+  // the first run after this lands writes them, and the pages wait.
+  {
+    town: 'longmont',
+    slug: 'longmont-high',
+    // CHSAANow: Longmont High School, St Vrain Valley RE1J, Granite Peaks;
+    // football 4A, basketball 5A (2026–28, read 9 November 2026).
+    school: 'Longmont High School',
+    mascot: 'Trojans',
+    maxpreps: 'https://www.maxpreps.com/co/longmont/longmont-trojans/',
+    maxprepsName: 'Longmont',
+    // Trojan blue, from Longmont High's own stylesheet (lhs.svvsd.org,
+    // theme `--color-primary: #00417f`, read 9 November 2026).
+    colors: { primary: '#00417F' },
+    // The school's Sports Schedules page (lhs.svvsd.org/activities-arts-
+    // athletics/athletics/sports-schedules/, 9 November 2026) posts each
+    // team's schedule as a Google Sheet or Doc, which the cross-check does
+    // not read, as Lyons's.
+    calendarNote: 'Longmont High posts its schedules as spreadsheets on the school site, which the cross-check does not read, so games to come are published on MaxPreps’s word alone.',
+    // CHSAANow lists every fall and winter team the default lists follow.
+    teams: TEAMS(),
+  },
+  {
+    town: 'longmont',
+    slug: 'skyline',
+    // CHSAANow: Skyline High School, St Vrain Valley RE1J; football 3A,
+    // basketball 5A (2026–28, read 9 November 2026).
+    school: 'Skyline High School',
+    mascot: 'Falcons',
+    maxpreps: 'https://www.maxpreps.com/co/longmont/skyline-falcons/',
+    maxprepsName: 'Skyline',
+    // Falcon red, from Skyline High's own stylesheet (shs.svvsd.org, theme
+    // `--color-primary: #a01c29`, read 9 November 2026); MaxPreps's CC0022
+    // is Loveland High's and Elizabeth's too.
+    colors: { primary: '#A01C29' },
+    // The school's athletics page links ArbiterLive
+    // (arbiterlive.com/Teams?entityId=21096), whose robots.txt disallows
+    // every automated reader, as Niwot's, Erie's and Frederick's.
+    calendarNote: 'Skyline’s schedules live on ArbiterLive, which asks automated readers to stay out, so games to come are published on MaxPreps’s word alone.',
+    // No softball: CHSAANow's alignment lists none for the school.
+    teams: TEAMS(FALL_WITHOUT('softball')),
+  },
+  {
+    town: 'longmont',
+    slug: 'silver-creek',
+    // CHSAANow: Silver Creek High School, St Vrain Valley RE1J, Granite
+    // Peaks; football 3A, basketball 5A (2026–28, read 9 November 2026).
+    school: 'Silver Creek High School',
+    mascot: 'Raptors',
+    maxpreps: 'https://www.maxpreps.com/co/longmont/silver-creek-raptors/',
+    maxprepsName: 'Silver Creek',
+    // Raptor maroon, from Silver Creek High's own stylesheet (schs.svvsd.org,
+    // theme `--color-primary: #6c0633`, read 9 November 2026).
+    colors: { primary: '#6C0633' },
+    // The school's athletics page (schs.svvsd.org/activities-arts-athletics/
+    // athletics/, 9 November 2026) links no calendar of games.
+    calendarNote: 'Silver Creek’s schedules are not yet checked against a school calendar, so games to come are published on MaxPreps’s word alone.',
+    // CHSAANow lists every fall and winter team the default lists follow.
+    teams: TEAMS(),
+  },
 ];
 
 /** Every school a town follows, in the config's order. */
