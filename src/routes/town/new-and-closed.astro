@@ -1,0 +1,74 @@
+---
+/**
+ * New and closed (/new-and-closed/), on a resident guide: what opened,
+ * closed, moved or changed its hours in the last 90 days, each with its
+ * source, then the places the guide added in the last 30, labelled as
+ * additions to the guide and never as openings. The records are the guide's
+ * own (src/lib/new-and-closed.ts); /this-week/ shows the newest of them for
+ * a fortnight, and this page keeps them for the season.
+ */
+import Page from '@/layouts/Page.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import { getTown } from '@/config';
+import { getTownEntries } from '@/lib/content';
+import { formatDate } from '@/lib/dates';
+import { ADDED_DAYS, NEW_AND_CLOSED_DAYS, addedToGuide, townChanges } from '@/lib/new-and-closed';
+import { PLACE_TYPE_LABELS } from '@/content/schemas';
+import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
+
+const town = getTown();
+const now = new Date();
+const [notes, updates, places] = await Promise.all([getTownEntries('weekly'), getTownEntries('updates'), getTownEntries('places')]);
+const changes = townChanges({ notes, updates, places }, now);
+const added = addedToGuide(places, now);
+const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
+// Local changes has a page only where the guide has an updates folder (src/integrations/town-routes.ts).
+const hasUpdates = updates.length > 0;
+const description = `What opened, closed, moved or changed its hours in ${town.name}, Colorado, in the last ${NEW_AND_CLOSED_DAYS} days, each from the owner’s or an official notice, and the places this guide added lately.`;
+const structured = [
+  collectionPageJsonLd(town, { name: `New and closed in ${town.name}, Colorado`, description, path: '/new-and-closed/' }),
+  breadcrumbJsonLd(town, [
+    { name: town.name, path: '/' },
+    { name: 'New and closed', path: '/new-and-closed/' },
+  ]),
+];
+---
+<Page title="New and closed" seoTitle={`New and closed in ${town.name}, CO`} eyebrow={town.name} {description} intro={`What opened and closed in ${town.name}, and what this guide added.`} jsonLd={structured} kind="Guide">
+  <div class="max-w-3xl">
+    <section aria-labelledby="changes-h">
+      <SectionHeader id="changes-h" title={`Opened and closed, the last ${NEW_AND_CLOSED_DAYS} days`} />
+      {changes.length === 0 ? (
+        <p class="text-ink-muted">No opening or closing in the last {NEW_AND_CLOSED_DAYS} days has an owner’s or official notice behind it on this guide.</p>
+      ) : (
+        <ul class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+          {changes.map((c) => (
+            <li class="border-t border-line-soft py-4 first:border-t-0">
+              <p class="eyebrow">{c.label}<span class="ml-2 font-medium normal-case tracking-normal text-ink-muted">{formatDate(c.date)}</span></p>
+              <p class="mt-1 text-xl font-medium leading-tight">{c.href ? <a href={c.href} class="text-primary underline">{c.name}</a> : c.name}</p>
+              {c.detail && <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{c.detail}</p>}
+              {c.source && <p class="mt-1 text-sm"><a href={c.source} rel="noopener" class="inline-block -my-3 py-3 text-primary underline [overflow-wrap:anywhere]">Source: {host(c.source)}</a></p>}
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+
+    {added.length > 0 && (
+      <section class="mt-14" aria-labelledby="added-h">
+        <SectionHeader id="added-h" title="New on the guide" />
+        <p class="-mt-4 mb-4 text-[0.9375rem] text-ink-muted">Places this guide added in the last {ADDED_DAYS} days. An addition to the guide, not news that the place opened.</p>
+        <ul class="rounded-lg bg-raised px-5 ring-1 ring-line-soft sm:px-7">
+          {added.map((p) => (
+            <li class="border-t border-line-soft py-4 first:border-t-0">
+              <p class="eyebrow">{PLACE_TYPE_LABELS[p.data.type]}<span class="ml-2 font-medium normal-case tracking-normal text-ink-muted">added {formatDate(p.data.added!)}</span></p>
+              <p class="mt-1 text-lg font-medium leading-tight"><a href={`/places/${p.slug}/`} class="text-primary underline">{p.data.title}</a></p>
+              <p class="mt-1 text-[0.9375rem] leading-snug text-ink-muted">{p.data.summary}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <p class="mt-10 text-[0.9375rem] text-ink-muted">Know of an opening or a closing? <a href="/contact/" class="font-semibold text-primary underline">Send it with the owner’s or an official notice</a>. The week’s newest are on <a href="/this-week/" class="font-semibold text-primary underline">This week</a>{hasUpdates && <Fragment>, and road, park and civic changes on <a href="/updates/" class="font-semibold text-primary underline">Local changes</a></Fragment>}.</p>
+  </div>
+</Page>

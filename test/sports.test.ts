@@ -8,7 +8,7 @@ import assert from 'node:assert/strict';
 import { applySchedule, parseSchedulePage, parseTeamPage } from '../scripts/lib/maxpreps.ts';
 import { parseMonth, parseTitle } from '../scripts/lib/finalsite-calendar.ts';
 import { crossCheck, dedupeToCome, gamesToCome, keepPrevious, sameSchool } from '../scripts/lib/sports-crosscheck.ts';
-import { SCHOOL_SPORTS, schoolSportsFor, schoolsFor, schoolTeamName, shareImageName, shareImagePath, sportsDataFile, sportsPath, teamPath, type SportsData } from '../src/config/school-sports.ts';
+import { SCHOOL_SPORTS, schoolSportsFor, schoolsFor, schoolTeamName, schoolYear, shareImageName, shareImagePath, sportsDataFile, sportsPath, teamPath, teamSource, type SportsData } from '../src/config/school-sports.ts';
 import { readFileSync } from 'node:fs';
 import { sportsRoutes } from '../src/integrations/town-routes.ts';
 import { findTown } from '../src/config/index.ts';
@@ -462,16 +462,71 @@ test('a town with one school keeps /sports/ and sports.json; Loveland’s four e
   assert.equal(teamPath(loveland[2]!, 'football'), '/sports/mountain-view/football/');
 });
 
+test('a town’s own school beside another keeps /sports/, sports.json and the home strip; the other has its slug (Lafayette, 9 November 2026)', () => {
+  const [centaurus, p2p] = schoolsFor('lafayette');
+  assert.equal(centaurus!.slug, undefined);
+  assert.equal(p2p!.slug, 'peak-to-peak');
+  assert.equal(schoolSportsFor('lafayette')?.school, 'Centaurus High School', 'the home strip and the menu are Centaurus’s');
+  assert.equal(schoolSportsFor('lafayette', 'peak-to-peak')?.mascot, 'Pumas');
+  assert.equal(sportsPath(centaurus!), '/sports/');
+  assert.equal(sportsDataFile(centaurus!), 'data/lafayette/sports.json');
+  assert.equal(sportsPath(p2p!), '/sports/peak-to-peak/');
+  assert.equal(sportsDataFile(p2p!), 'data/lafayette/sports-peak-to-peak.json');
+  assert.equal(teamPath(p2p!, 'boys-basketball'), '/sports/peak-to-peak/boys-basketball/');
+  assert.deepEqual(sportsRoutes('lafayette', '/nowhere'), [
+    ['/sports', 'sports.astro'],
+    ['/sports/peak-to-peak', 'sports.astro'],
+    ['/sports/share/[image].png', 'sports-share.png.ts'],
+  ]);
+  const routes = sportsRoutes('lafayette');
+  assert.ok(routes.some(([p]) => p === '/sports/football'), 'Centaurus’s team pages keep their URLs');
+  assert.ok(!routes.some(([p, f]) => p === '/sports' && f === 'sports-index.astro'), 'no list of schools: /sports/ is Centaurus’s page');
+  assert.equal(townNav(findTown('lafayette')!)[2]?.label, 'Athletics');
+  assert.equal(schoolSportsFor('loveland'), undefined, 'Loveland, every school with a slug, still has none of its own');
+});
+
+test('a co-op team is read on the host’s MaxPreps page and told apart by the host’s name; the school’s own teams on its own', () => {
+  const centaurus = schoolSportsFor('lafayette')!;
+  const hockey = centaurus.teams.find((t) => t.key === 'ice-hockey')!;
+  assert.deepEqual(teamSource(centaurus, hockey), { url: 'https://www.maxpreps.com/co/louisville/monarch-coyotes/ice-hockey/', root: 'https://www.maxpreps.com/co/louisville/monarch-coyotes/', schoolName: 'Monarch' });
+  assert.match(hockey.name, /\(co-op\)$/, 'the card says it is a co-op');
+  assert.equal(hockey.coop?.school, 'Monarch', 'the team page names the host');
+  const football = centaurus.teams.find((t) => t.key === 'football')!;
+  assert.deepEqual(teamSource(centaurus, football), { url: 'https://www.maxpreps.com/co/lafayette/centaurus-warriors/football/', root: 'https://www.maxpreps.com/co/lafayette/centaurus-warriors/', schoolName: 'Centaurus' });
+  // Every spring team waits for its day: a spring page read in November is last spring's.
+  for (const t of schoolsFor('lafayette').flatMap((s) => s.teams).filter((t) => t.season === 'spring')) assert.ok(t.from && t.from >= '2027-02-22', `${t.name} has its start day`);
+});
+
+test('the school year a day falls in, as MaxPreps names it', () => {
+  assert.equal(schoolYear('2026-11-09'), '26-27');
+  assert.equal(schoolYear('2027-03-01'), '26-27');
+  assert.equal(schoolYear('2027-07-31'), '26-27');
+  assert.equal(schoolYear('2027-08-01'), '27-28');
+});
+
+test('a spring season is named for its year, and the school year it closes', async () => {
+  const { seasonOf, pageSeasonLabel } = await import('../src/lib/school-sports.ts');
+  const team = (key: string, name: string, date: string) => ({ key, name, maxprepsUrl: '', fetched: '2027-03-20T12:00:00Z', overall: '1-0', results: [{ date, opponent: 'Monarch', site: 'home' as const, result: 'W' as const, score: { us: 3, them: 1 }, url: `https://x/${key}` }], upcoming: [], held: [], notes: [] });
+  const teams = [{ key: 'baseball', season: 'spring' as const }, { key: 'boys-basketball', season: 'winter' as const }];
+  const spring = { generated: '2027-03-20T12:00:00Z', sports: [team('baseball', 'Baseball', '2027-03-18')] };
+  assert.equal(seasonOf(spring, teams, new Date('2027-03-20T18:00:00Z')).label, 'Spring 2027');
+  const both = { generated: '2027-03-20T12:00:00Z', sports: [team('baseball', 'Baseball', '2027-03-18'), team('boys-basketball', 'Boys basketball', '2027-02-20')] };
+  assert.equal(pageSeasonLabel(both, teams, new Date('2027-03-20T18:00:00Z')), '2026–27');
+});
+
 test('every school is one entry with its own file, and its town’s menu carries it in the third slot', () => {
   const files = SCHOOL_SPORTS.map(sportsDataFile);
   assert.equal(new Set(files).size, files.length, 'no two schools share a file');
   for (const town of new Set(SCHOOL_SPORTS.map((s) => s.town))) {
     const schools = schoolsFor(town);
-    const sluggish = schools.filter((s) => s.slug).length;
-    assert.ok(sluggish === 0 ? schools.length === 1 : sluggish === schools.length, `${town}: either one school without a slug or several each with one`);
+    const own = schools.filter((s) => !s.slug);
+    assert.ok(own.length <= 1, `${town}: at most one school without a slug, the town's own`);
+    assert.ok(schools.length === 1 ? own.length === 1 : true, `${town}: a town's only school has no slug`);
     const nav = townNav(findTown(town)!);
     assert.equal(nav[2]?.href, '/sports/', `${town}: the school is the third menu item`);
-    assert.equal(nav[2]?.label, schools.length === 1 ? (schools[0]!.navLabel ?? 'Athletics') : 'High school sports', `${town}: the label says athletics`);
+    assert.equal(nav[2]?.label, own[0] ? (own[0].navLabel ?? 'Athletics') : 'High school sports', `${town}: the label says athletics`);
+    for (const s of schools) for (const t of s.teams) assert.ok(!t.from || /^\d{4}-\d{2}-\d{2}$/.test(t.from), `${s.school} ${t.name}: from is a Denver day`);
+    for (const s of schools) assert.equal(new Set(s.teams.map((t) => t.key)).size, s.teams.length, `${s.school}: each team key once`);
     for (const s of schools) assert.ok(s.calendar || s.calendarNote, `${s.school}: a calendar to check against, or a note saying why not`);
   }
 });
@@ -640,14 +695,20 @@ test('every school carries the winter list after its fall list, ice hockey only 
   for (const school of SCHOOL_SPORTS) {
     const keys = school.teams.map((t) => t.key);
     assert.equal(new Set(keys).size, keys.length, `${school.school}: no team twice`);
-    for (const t of school.teams) assert.ok(t.season === 'fall' || t.season === 'winter', `${school.school} ${t.key}: a season`);
-    assert.ok(keys.includes('boys-basketball') && keys.includes('girls-basketball') && keys.includes('wrestling'), `${school.school}: the winter list`);
-    const fall = school.teams.findIndex((t) => t.season === 'fall');
-    const winter = school.teams.findIndex((t) => t.season === 'winter');
-    assert.ok(fall < winter, `${school.school}: fall before winter`);
-    assert.equal(keys.includes('ice-hockey'), school.school === 'Resurrection Christian School', `${school.school}: ice hockey only where CHSAA lists the school`);
+    for (const t of school.teams) assert.ok(t.season === 'fall' || t.season === 'winter' || t.season === 'spring', `${school.school} ${t.key}: a season`);
+    // Peak to Peak's athletics page lists no wrestling or swimming (9 November 2026).
+    const noMat = school.school === 'Peak to Peak Charter School';
+    assert.ok(keys.includes('boys-basketball') && keys.includes('girls-basketball') && keys.includes('wrestling') !== noMat, `${school.school}: the winter list`);
+    const first = (season: string) => school.teams.findIndex((t) => t.season === season);
+    const last = (season: string) => school.teams.map((t) => t.season).lastIndexOf(season as 'fall');
+    assert.ok(last('fall') < first('winter'), `${school.school}: fall before winter`);
+    assert.ok(first('spring') === -1 || last('winter') < first('spring'), `${school.school}: winter before spring`);
+    // Ice hockey where CHSAA lists the school, or as a co-op the school names (Centaurus's at Monarch).
+    const hockey = school.teams.find((t) => t.key === 'ice-hockey');
+    assert.equal(!!hockey, school.school === 'Resurrection Christian School' || school.school === 'Centaurus High School', `${school.school}: ice hockey only where CHSAA lists the school or the school names a co-op`);
+    if (school.school === 'Centaurus High School') assert.equal(hockey?.coop?.school, 'Monarch');
     // MaxPreps has no girls' swimming page for Elizabeth or Lyons (25 October 2026).
-    assert.equal(keys.includes('girls-swimming'), !['Elizabeth High School', 'Lyons Middle/Senior High School'].includes(school.school), `${school.school}: girls swimming`);
+    assert.equal(keys.includes('girls-swimming'), !['Elizabeth High School', 'Lyons Middle/Senior High School'].includes(school.school) && !noMat, `${school.school}: girls swimming`);
   }
   const teams = schoolSportsFor('berthoud')!.teams;
   const game = (date: string, opponent: string) => ({ date, opponent, site: 'home' as const, url: `u-${date}` });

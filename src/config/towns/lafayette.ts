@@ -79,6 +79,8 @@ export const lafayette: TownConfig = {
   },
   // A resident guide (TownConfig.home), from the start.
   home: true,
+  // /new-and-closed/ (TownConfig.newAndClosed), the owner's word, 9 November 2026.
+  newAndClosed: true,
   /**
    * Centaurus High's colours as the school's own Finalsite theme stylesheet
    * carries them (ceh.bvsd.org/uploaded/themes/madison/css/centaurus-high-school.css,
@@ -179,6 +181,22 @@ export const lafayette: TownConfig = {
       { district: 'Boulder Valley School District', label: 'Conference exchange day and professional development day (no students)', from: '2027-02-16', to: '2027-02-17', source: 'https://www.bvsd.org/calendar', verified: '2026-11-02' },
       { district: 'Boulder Valley School District', label: 'Spring break', from: '2027-03-15', to: '2027-03-19', source: 'https://www.bvsd.org/calendar', verified: '2026-11-02' },
     ],
+    // Child care and preschool (FamiliesConfig.childcare), the owner's word, 9
+    // November 2026: the state's Colorado Shines search
+    // (coloradoshines.com/families), BVSD's preschool page
+    // (ece.bvsd.org/welcometopreschool) and the City's Bob's Child Watch page
+    // (lafayetteco.gov/2679), each read 9 November 2026. The state Department
+    // of Early Childhood's own pages answered 403, so Universal Preschool is
+    // not here until one of them can be read.
+    childcare: {
+      note: 'Where to look, not a list of providers: the state’s search shows each licensed program’s record.',
+      verified: '2026-11-09',
+      items: [
+        { label: 'Colorado Shines: the state’s search for licensed child care', url: 'https://www.coloradoshines.com/search', note: 'Free, from the Colorado Department of Early Childhood: each program’s quality rating, licensing history and monitoring reports; referral line 877-338-2273; help paying for care through the Colorado Child Care Assistance Program' },
+        { label: 'BVSD preschool', url: 'https://ece.bvsd.org/welcometopreschool', note: 'For children who turn 3 or 4 by October 1 of the year they start; Alicia Sanchez, Escuela Bilingüe Pioneer, Ryan and Lafayette elementaries are among its preschool sites; Preschool Enrichment extends the day to full time; apply in SchoolMint, with tuition and payment options for every family', track: 'registration' },
+        { label: 'Bob’s Child Watch at the recreation center', url: 'https://www.lafayetteco.gov/2679/Bobs-Child-Watch', note: 'Drop-in care while a parent is in the building, six months to nine years, one hour minimum and two hours maximum a day; Monday to Friday 8 am–1:30 pm, Saturday 8 to noon; $3.50 a child an hour or $35 for ten hours, included with a $220 annual youth pass; 303-665-0469' },
+      ],
+    },
   },
   participation: {
     label: 'Get involved',

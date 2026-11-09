@@ -77,6 +77,7 @@ const structured = [
         {town.livingHere && <li><a href="/living-here/" class="font-semibold text-primary underline">Living in {town.name}: who to call</a></li>}
         {town.families && <li><a href="/families/" class="font-semibold text-primary underline">Kids’ activities and school days off</a></li>}
         {town.participation && <li><a href="/get-involved/" class="font-semibold text-primary underline">{town.participation.label}</a></li>}
+        {town.newAndClosed && <li><a href="/new-and-closed/" class="font-semibold text-primary underline">New and closed in {town.name}</a></li>}
         <li><a href="/events/" class="font-semibold text-primary underline">What’s on</a></li>
       </ul>
     </div>

@@ -182,6 +182,16 @@ export interface FamiliesConfig {
   /** Published break dates, from the district calendar. */
   breaks: ReadonlyArray<{ district: string; label: string; from: string; to: string; source: string; verified: string }>;
   /**
+   * Where a parent looks for child care and preschool: the state's search
+   * for licensed care, the district's preschool, the town's drop-in care.
+   * Links to the official pages, the way Living here's are, never a list of
+   * providers or a review of one; each line from the page it links, read
+   * on `verified`. Its own section on /families/, "Child care and
+   * preschool" (Lafayette gap report, 8 November 2026; the owner's word,
+   * 9 November). Off unless set.
+   */
+  childcare?: { note?: string; items: readonly ResourceLink[]; verified: string };
+  /**
    * Up to three lines from the hub on the home page, above Find your next
    * stop: the next school break with a camp on it, a deadline within the
    * fortnight, a free family listing this weekend (src/lib/family-home.ts).
@@ -401,6 +411,14 @@ export interface TownConfig {
    * needs nothing more.
    */
   quickAnswers?: { recCenter?: { label: string; place: string } };
+  /**
+   * /new-and-closed/: what opened, closed, moved or changed its hours in the
+   * last 90 days and what the guide added in the last 30, from the records
+   * the guide already keeps (src/lib/new-and-closed.ts). Lafayette first, the
+   * owner's word, 9 November 2026 (the gap report's readers' question 16);
+   * any resident guide can switch it on.
+   */
+  newAndClosed?: true;
   /** The high school the home page's scoreboard and the sports pages lead with: see SchoolConfig. */
   school?: SchoolConfig;
   livingHere?: LivingHereConfig;

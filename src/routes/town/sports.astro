@@ -69,9 +69,10 @@ const { season: seasonName } = seasonOf(data, cfg.teams, now);
 const seasonLabel = pageSeasonLabel(data, cfg.teams, now);
 const seasonWord = seasonName.toLowerCase();
 const description = `${school} ${mascot} scores, schedules and records this ${seasonWord}: ${teamList}, from MaxPreps${calendar ? ', checked against the school calendar' : ''}.`;
-// One guide, one colour: a guide that follows one school wears it; a guide
-// that follows several (Loveland) keeps its own on every school's page.
-const schoolStyle = schools.length === 1 ? schoolCssVars(cfg) : undefined;
+// One guide, one colour: the town's own school (its only one, or the one
+// without a slug, Lafayette's Centaurus) wears it; a school with a slug
+// (Loveland's four, Peak to Peak) keeps the guide's own.
+const schoolStyle = !cfg.slug ? schoolCssVars(cfg) : undefined;
 
 const next = bigGame(data, now);
 const then = coming(data).filter((c) => c.game.date >= today && c.game.url !== next?.game.url);
@@ -193,6 +194,12 @@ const jsonLd = [
           Also in {town.name}: {sisters.map((s, i) => (
             <Fragment>{i > 0 && (i === sisters.length - 1 ? ' and ' : ', ')}<a href={sportsPath(s)} class="font-semibold text-primary underline">{shortName(s)} {s.mascot}</a></Fragment>
           ))}.
+        </p>
+      )}
+      {/* The town's middle school: a line and a link, since MaxPreps keeps no middle-school scores (SchoolSports.middleSchool). */}
+      {cfg.middleSchool && (
+        <p class="mt-2 text-[0.9375rem] text-ink-muted">
+          Middle school: <a href={cfg.middleSchool.url} rel="noopener" class="font-semibold text-primary underline">{cfg.middleSchool.name}</a>. {cfg.middleSchool.note}. From its athletics page, checked {formatShortDate(parseLocal(cfg.middleSchool.verified))}.
         </p>
       )}
     </div>

@@ -50,7 +50,7 @@ import WhatsHappening, { type Feature } from './WhatsHappening.astro';
 import RecCenterToday from '@/components/RecCenterToday.astro';
 import { recCenterFor, type RecCenterData } from '@/lib/rec-center';
 import { editionFor, emailEditions, getNetworkHub, getTown } from '@/config';
-import { schoolsFor, teamPath, type SportsData } from '@/config/school-sports';
+import { schoolSportsFor, schoolsFor, teamPath, type SportsData } from '@/config/school-sports';
 import { getTownEntries } from '@/lib/content';
 import { forGeneralReaders, occurrences, weeklyTest } from '@/lib/events';
 import { familyLines } from '@/lib/family-home';
@@ -69,10 +69,10 @@ const town = getTown();
 const now = new Date();
 const hub = getNetworkHub();
 
-// 2. The school. One school: its strip. Several: the shared one.
+// 2. The school. The town's own (its only one, or the one without a slug): its strip. Several and none its own: the shared one.
 const schools = schoolsFor(town.slug);
 const files = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
-const school = schools.length === 1 ? schools[0] : undefined;
+const school = schoolSportsFor(town.slug);
 const data = school ? sportsDataFor(school, files) : undefined;
 const teamHref = (key: string) => {
   const team = data?.sports.find((t) => t.key === key);

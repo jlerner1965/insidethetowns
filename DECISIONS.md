@@ -9381,3 +9381,39 @@ template, so every guide with a family hub takes them.*
   /directory/; the kids' guide no longer sends families there. To bring
   it back: confirm it is open, re-source it, and take the slug out of the
   ledger.
+
+## Lafayette's gap-report features, an exception to the 90-day test, 9 November 2026
+
+*The owner, on the Lafayette gap report of 8 November: "Yes to feature
+decisions do both and add any staged that can qualify now".*
+
+The 90-day test holds new features until 20 January 2027; the owner made
+these an exception, for Lafayette first.
+
+- **A town's own school beside a second one.** Lafayette follows Peak to
+  Peak Charter School (`/sports/peak-to-peak/`, `sports-peak-to-peak.json`)
+  beside Centaurus. Centaurus is the town's own: no slug, so it keeps
+  `/sports/`, its team pages' URLs, `sports.json`, the home page's strip and
+  the menu's "Athletics", and its page names Peak to Peak under "Also in
+  Lafayette". Loveland, whose four schools all have slugs, is unchanged.
+- **Spring and co-op teams.** A team can be a spring one, read only from
+  its `from` day (in November MaxPreps still shows last spring on a spring
+  team's page), and a co-op, read on the host school's MaxPreps page
+  (Centaurus's ice hockey at Monarch, girls' wrestling and gymnastics at
+  Broomfield, skiing at Nederland, the lacrosse and boys' swimming teams at
+  Monarch and Fairview). Field hockey, flag football, cheer and dance have
+  no MaxPreps page under Centaurus and are not followed.
+- **Middle-school athletics** are a line and a link on the school's sports
+  page (`SchoolSports.middleSchool`): MaxPreps keeps no middle-school scores.
+- **Child care and preschool** is a section on Families
+  (`FamiliesConfig.childcare`): the official searches and programs, never a
+  list of providers.
+- **/coffee/, /shops/ and /trails/** were never a feature: a guide gets each
+  at three open places of the kind. Lafayette reached three of each with
+  sourced listings.
+- **/new-and-closed/** (`TownConfig.newAndClosed`), Lafayette only for now:
+  openings, closings, moves and new hours of the last 90 days from the
+  weekly notes, the local changes and the closed places, each with its
+  source, and the places the guide added in the last 30 days, apart and
+  never called openings. The listings a guide opened with are not "new on
+  the guide".

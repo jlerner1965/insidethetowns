@@ -50,9 +50,11 @@ import type { NavItem, SiteConfig, TownConfig } from '../config/towns/types.ts';
 export function sportsNavLabel(town: string): string | undefined {
   const schools = schoolsFor(town);
   if (schools.length === 0) return undefined;
-  if (schools.length > 1) return 'High school sports';
-  const [school] = schools;
-  return school!.navLabel ?? 'Athletics';
+  // The town's own school, where it has one (its only one, or the one
+  // without a slug beside others): /sports/ is that school's page.
+  const own = schools.find((s) => !s.slug);
+  if (!own) return 'High school sports';
+  return own.navLabel ?? 'Athletics';
 }
 
 /** How many open shops a guide lists before Shops has a place in its menu. */

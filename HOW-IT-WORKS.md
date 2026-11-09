@@ -6,7 +6,7 @@ changes and the old wording goes; the history of why lives in
 other document disagree, this file wins. Where this file and a test
 disagree, fix one of them the same day.
 
-Last revised: 8 November 2026.
+Last revised: 9 November 2026.
 
 ## 1. What this is
 
@@ -25,7 +25,11 @@ the email and on the site, three months minimum.
 
 **The 90-day test** (20 October 2026 to 20 January 2027): three towns get
 the work; everything else runs on automation. No new towns, no new
-features, no search-engine projects until the test ends. The targets and
+features, no search-engine projects until the test ends. The one
+exception is the owner's of 9 November 2026: the features Lafayette's gap
+report asked for (a second school beside the town's own, spring and
+co-op teams, child care on Families, the New and closed page;
+`DECISIONS.md`). The targets and
 the weekly scorecard are in `docs/90-DAY-TEST.md`; the scorecard is filled
 every Tuesday, once Search Console has settled the Sunday.
 
@@ -157,7 +161,11 @@ here or Moving here, and Guides (src/lib/nav.ts).
 **Every other page** keeps its full content: `/this-week/` the whole week,
 `/events/` everything, `/sports/` the full scoreboard with the "checked"
 line, `/updates/` every change with its sources, `/guides/` the articles,
-`/directory/` every place. Each section page also lists the articles of
+`/directory/` every place, and, on a guide that switches it on,
+`/new-and-closed/` the openings and closings of the last 90 days with
+their sources and the places added in the last 30, labelled as additions
+to the guide. A town that follows a second school keeps its own school at
+`/sports/` and on the home page; the other is `/sports/<slug>/`. Each section page also lists the articles of
 its kind under its directory, newest first: Outdoors under Things to do,
 Food & drink under Eat & drink, History, Civic, Moving here and Community
 under Moving here, every Families article on Families; an article is

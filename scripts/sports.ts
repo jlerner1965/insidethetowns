@@ -31,7 +31,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { setTimeout as sleep } from 'node:timers/promises';
-import { SCHOOL_SPORTS, schoolsFor, sportsDataFile, type SchoolSports, type SportsData } from '../src/config/school-sports.ts';
+import { SCHOOL_SPORTS, schoolsFor, schoolYear, sportsDataFile, teamSource, type SchoolSports, type SportsData } from '../src/config/school-sports.ts';
 import { dayKey } from '../src/lib/dates.ts';
 import { CRAWL_DELAY_MS, fetchMonth, parseMonth, type CalendarEvent } from './lib/finalsite-calendar.ts';
 import { applySchedule, fetchPage, parseSchedulePage, parseTeamPage, usable, visibleText, type TeamPage } from './lib/maxpreps.ts';
@@ -60,7 +60,9 @@ function describe(page: TeamPage): string {
 
 /** One team's page, read and printed: the probe, for checking a path or a saved page. */
 async function probe(school: SchoolSports, sport: string): Promise<number> {
-  const url = `${school.maxpreps}${sport}/`;
+  // A configured co-op team is probed where the run reads it, on the host's page.
+  const configured = school.teams.find((t) => t.maxpreps === sport);
+  const { url, schoolName } = teamSource(school, configured ?? { maxpreps: sport });
   let html: string;
   if (args.has('html')) {
     html = readFileSync(args.get('html')!, 'utf8');
@@ -77,7 +79,7 @@ async function probe(school: SchoolSports, sport: string): Promise<number> {
     console.log(`HTTP 200, ${html.length} bytes`);
     if (args.has('save')) writeFileSync(args.get('save')!, html);
   }
-  const page = parseTeamPage(html, { url, schoolName: school.maxprepsName });
+  const page = parseTeamPage(html, { url, schoolName });
   console.log(describe(page));
   if (!usable(page) && !page.noSchedule) {
     // What the page carries instead, for working out what to read.
@@ -120,8 +122,7 @@ async function probe(school: SchoolSports, sport: string): Promise<number> {
     const sched = await fetchPage(`${url}schedule/`);
     if (!sched.ok) console.log(`Schedule page: fetch failed (${sched.reason})`);
     else {
-      const team = school.teams.find((t) => t.maxpreps === sport);
-      const schedule = parseSchedulePage(sched.html, { url, schoolName: school.maxprepsName, playoffVenue: team?.playoffVenue });
+      const schedule = parseSchedulePage(sched.html, { url, schoolName, playoffVenue: configured?.playoffVenue });
       console.log(`Schedule page: ${schedule.games.length} games, ${schedule.skipped} skipped, ${schedule.warnings.length} warnings`);
       for (const w of schedule.warnings) console.log(`  ${w}`);
       // The postseason as MaxPreps labels it, game by game, so a run shows the stage field where there is one.
@@ -196,11 +197,20 @@ async function runTown(school: SchoolSports): Promise<string> {
   if (calendar) console.log(`School calendar: ${calendar.length} events read for ${monthsToRead(today).map((m) => m.slice(0, 7)).join(' and ')}.`);
 
   const data: SportsData = { generated: now.toISOString(), sports: [] };
-  for (const [i, sport] of school.teams.entries()) {
-    if (i > 0) await sleep(MAXPREPS_PAUSE_MS);
-    const url = `${school.maxpreps}${sport.maxpreps}/`;
+  let reads = 0;
+  for (const sport of school.teams) {
+    // A team whose season has not started is not read and has no entry
+    // (SportConfig.from): a spring team's page still shows last spring.
+    if (sport.from && today < sport.from) {
+      console.log(`${sport.name}: not read until ${sport.from}.`);
+      continue;
+    }
+    if (reads++ > 0) await sleep(MAXPREPS_PAUSE_MS);
+    // A co-op team is read on the host school's page (SportConfig.coop).
+    const source = teamSource(school, sport);
+    const url = source.url;
     const res = await fetchPage(url);
-    const old = keepPrevious(sport, previous, school.maxpreps);
+    const old = keepPrevious(sport, previous, source.root);
     const was = old.fetched ? `the entry from ${old.fetched.slice(0, 10)} stays` : 'there is no earlier entry, so the page shows nothing for it';
     if (!res.ok) {
       flags.push(`**${sport.name}**: MaxPreps could not be read (${res.reason}); ${was}.`);
@@ -208,8 +218,17 @@ async function runTown(school: SchoolSports): Promise<string> {
       console.log(`${sport.name}: fetch failed (${res.reason}); kept previous.`);
       continue;
     }
-    const page = parseTeamPage(res.html, { url, schoolName: school.maxprepsName });
-    const team = { url, schoolName: school.maxprepsName, playoffVenue: sport.playoffVenue };
+    const page = parseTeamPage(res.html, { url, schoolName: source.schoolName });
+    const team = { url, schoolName: source.schoolName, playoffVenue: sport.playoffVenue };
+    // A spring team's page still on last school year once its day has come
+    // ("25-26" in March 2027) has nothing for this season yet.
+    if (sport.season === 'spring' && page.season && page.season !== schoolYear(today)) {
+      data.sports.push(emptyEntry(sport, { ...page, noSchedule: true }, now.toISOString()));
+      summary.push(`| ${sport.name} | — | — | — | — | — |`);
+      flags.push(`${sport.name}: MaxPreps still shows the ${page.season} season; the team waits for this one.`);
+      console.log(`${sport.name}: MaxPreps still shows ${page.season}; entered as empty.`);
+      continue;
+    }
     if (page.noSchedule) {
       data.sports.push(emptyEntry(sport, page, now.toISOString()));
       summary.push(`| ${sport.name} | — | — | — | — | — |`);
@@ -282,6 +301,9 @@ async function main(): Promise<number> {
     console.error(`No school is configured for "${townArg ?? ''}${schoolArg ? ` / ${schoolArg}` : ''}" (src/config/school-sports.ts).`);
     return 1;
   }
+  // A probe with no --school on a town with its own school beside others (Lafayette) reads that one.
+  const own = schools.find((s) => !s.slug);
+  if ((args.has('sport') || args.has('calendar')) && schools.length > 1 && own && !schoolArg) schools = [own];
   if ((args.has('sport') || args.has('calendar')) && schools.length > 1) {
     console.error(`A probe reads one school: name it (--town=${townArg ?? '<town>'}${schools[0]?.slug ? ` --school=${schools.map((s) => s.slug).join('|')}` : ''}).`);
     return 1;

@@ -14,7 +14,7 @@
  * (src/config/school-colors.ts, proven by `npm run check-colors`).
  */
 import type { TownConfig } from '@/config';
-import { schoolAthletics, schoolsFor, sportsPath, type SportsData } from '@/config/school-sports';
+import { schoolAthletics, schoolSportsFor, sportsPath, type SportsData } from '@/config/school-sports';
 import { schoolTheme } from '@/config/school-colors';
 import { clock, dashed, nextGame, scoreboardResult } from '@/lib/flagship-home';
 import { gameDay, latestResult, RESULT_WORD, sportsDataFor, where } from '@/lib/school-sports';
@@ -26,8 +26,8 @@ interface Props {
 
 const { town } = Astro.props;
 const now = new Date();
-const schools = schoolsFor(town.slug);
-const school = schools.length === 1 ? schools[0] : undefined;
+// The town's own school: its only one, or the one without a slug (schoolSportsFor).
+const school = schoolSportsFor(town.slug);
 const files = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
 const data = school ? sportsDataFor(school, files) : undefined;
 const theme = town.school ? schoolTheme(town.school) : undefined;

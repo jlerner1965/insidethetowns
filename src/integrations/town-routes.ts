@@ -93,6 +93,17 @@ export function sportsRoutes(town: string, root = '.'): Array<[pattern: string, 
   // The share cards, one per school and per team with data, for the pages' og:image.
   const share: [string, string] = ['/sports/share/[image].png', 'sports-share.png.ts'];
   if (schools.length === 1) return [['/sports', 'sports.astro'], ...teams(schools[0]!), share];
+  // A town's own school beside others (Lafayette's Centaurus and Peak to
+  // Peak): its page keeps /sports/ and lists the others, each at its slug.
+  const own = schools.find((s) => !s.slug);
+  if (own) {
+    return [
+      ['/sports', 'sports.astro'],
+      ...teams(own),
+      ...schools.filter((s) => s !== own).flatMap((s): Array<[string, string]> => [[sportsPath(s).replace(/\/$/, ''), 'sports.astro'], ...teams(s)]),
+      share,
+    ];
+  }
   return [
     ['/sports', 'sports-index.astro'],
     ...schools.flatMap((s): Array<[string, string]> => [[sportsPath(s).replace(/\/$/, ''), 'sports.astro'], ...teams(s)]),
@@ -129,6 +140,7 @@ export function hubRoutes(site: TownConfig, contentRoot = 'content'): Array<[pat
   if (site.families) routes.push(['/families', 'families.astro']);
   if (site.participation) routes.push(['/get-involved', 'get-involved.astro']);
   if (site.livingHere) routes.push(['/living-here', 'living-here.astro']);
+  if (site.newAndClosed) routes.push(['/new-and-closed', 'new-and-closed.astro']);
   if (hasFiles(join(contentRoot, site.slug, 'updates'))) routes.push(['/updates', 'updates.astro']);
   if (hasPublishedProfile(join(contentRoot, site.slug, 'profiles'))) {
     routes.push(['/people', 'people/index.astro'], ['/people/[slug]', 'people/[slug].astro']);

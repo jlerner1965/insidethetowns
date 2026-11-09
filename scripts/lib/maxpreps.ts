@@ -43,6 +43,8 @@ export interface TeamPage {
   warnings: string[];
   /** The page says "No Schedule": MaxPreps has the team and nothing for it. */
   noSchedule?: boolean;
+  /** The school year the page shows, as MaxPreps names it ("26-27"), where it does. */
+  season?: string;
 }
 
 export type Fetched = { ok: true; html: string } | { ok: false; reason: string; html?: string };
@@ -245,6 +247,7 @@ export function parseTeamPage(html: string, us: Team): TeamPage {
   // results from February. A post from another year is not this season's
   // and is left out; with nothing to name the season, nothing is filtered.
   const seasonYear: string | undefined = (typeof ctx?.data?.year === 'string' && ctx.data.year) || glance.find((c) => c.year)?.year;
+  if (seasonYear) page.season = seasonYear;
   const posts: MpPost[] = pp?.wallPosts ?? [];
   const seen = new Set<string>();
   for (const p of posts) {

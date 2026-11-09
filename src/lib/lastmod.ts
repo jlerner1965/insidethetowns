@@ -61,7 +61,8 @@ function sportsDates(town: string, repoRoot: string, out: Map<string, string>): 
     for (const team of teamsWithData(data)) out.set(teamPath(school, team.key), iso);
     if (!newest || iso > newest) newest = iso;
   }
-  if (schools.length > 1 && newest) out.set('/sports/', newest);
+  // /sports/ is the list of schools only where none is the town's own (Loveland's four).
+  if (schools.length > 1 && schools.every((s) => s.slug) && newest) out.set('/sports/', newest);
 }
 
 /** Path ("/events/x/") to the ISO instant that page last changed, for the pages that carry a date. */

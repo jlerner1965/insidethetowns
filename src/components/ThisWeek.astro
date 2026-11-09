@@ -50,6 +50,7 @@ import { activeChanges, briefingUpdates, corrections, currentNotes, currentPick,
 import { currentUpdates, isLateNotice } from '@/lib/updates';
 import { subTownLabel } from '@/lib/sub-towns';
 import { UPDATE_KIND_LABELS } from '@/content/schemas';
+import { NEW_AND_CLOSED_DAYS } from '@/lib/new-and-closed';
 import { schoolsFor, schoolTeamName, sportsPath, type SportsData } from '@/config/school-sports';
 import { formatGameTime, resultText, sportsDataFor, weekAhead, when as gameWhen, where } from '@/lib/school-sports';
 
@@ -320,6 +321,14 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
           </a>
         </p>
       )}
+      {/* The season's record, where the guide has the page (TownConfig.newAndClosed). */}
+      {!compact && town.newAndClosed && (
+        <p class="mt-4 text-[0.9375rem]">
+          <a href="/new-and-closed/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">
+            New and closed over the last {NEW_AND_CLOSED_DAYS} days →
+          </a>
+        </p>
+      )}
     </section>
   )}
   {signup && (
@@ -484,6 +493,14 @@ const hubHref = town.families ? '/families/' : town.participation ? '/get-involv
         <p class="mt-4 text-[0.9375rem]">
           <a href="/this-week/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">
             All {fresh.length} new &amp; closed →
+          </a>
+        </p>
+      )}
+      {/* The season's record, where the guide has the page (TownConfig.newAndClosed). */}
+      {!compact && town.newAndClosed && (
+        <p class="mt-4 text-[0.9375rem]">
+          <a href="/new-and-closed/" class="inline-block -my-2.5 py-2.5 font-semibold text-primary underline">
+            New and closed over the last {NEW_AND_CLOSED_DAYS} days →
           </a>
         </p>
       )}

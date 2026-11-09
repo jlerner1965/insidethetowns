@@ -24,8 +24,9 @@
  * calendar titles the varsity team's events ("Boys Varsity Football vs …").
  * The winter list is configured (25 October 2026) and its teams take
  * their place on the pages as MaxPreps fills their schedules in: a team
- * with nothing on MaxPreps is an `empty` entry the page leaves off. Spring
- * teams wait until their season.
+ * with nothing on MaxPreps is an `empty` entry the page leaves off. A
+ * spring team carries the day its season starts (`from`) and is not read
+ * before it (Lafayette's, 9 November 2026).
  *
  * The school, its mascot, its classification and its league are checked
  * against CHSAANow's member-school profiles and its 2026–28 classification
@@ -38,7 +39,28 @@ export interface SportConfig {
   /** The key in the data file and the card's anchor: "football". */
   key: string;
   /** The CHSAA season the team plays in; the page's eyebrow says which season its next game is in. */
-  season: 'fall' | 'winter';
+  season: 'fall' | 'winter' | 'spring';
+  /**
+   * The first Denver day the run reads the team, "2027-02-22". Before it the
+   * team is not read and has no entry in the data file, so no page lists it.
+   * For the spring teams: in November MaxPreps still shows last spring's
+   * season on a spring team's page (Centaurus baseball, read 9 November
+   * 2026: the 2025–26 season, its last game on 16 May 2026), and read then
+   * it would be shown as this year's. Set to the season's first official
+   * practice day as the school gives it. A spring team read later than this
+   * whose page is still last school year's is entered as having nothing yet
+   * (scripts/sports.ts).
+   */
+  from?: string;
+  /**
+   * A co-op: the school's students play on another school's team, and
+   * MaxPreps keeps the team under that school (Centaurus's ice hockey at
+   * Monarch, its girls' wrestling at Broomfield). The run reads
+   * `maxpreps` + the team's path and tells our side by `maxprepsName`, as
+   * for a team of the school's own. The name ends "(co-op)" and the team
+   * page names the host; the host's name in the title ran past 75.
+   */
+  coop?: { /** The host, as the school's own page names it: "Monarch"; the team page says whose team it is. */ school: string; maxpreps: string; maxprepsName: string };
   /** As the card names it: "Football", "Boys soccer". */
   name: string;
   /** The team's path under the school's MaxPreps URL: "football", "soccer", "cross-country/girls". */
@@ -106,6 +128,10 @@ export interface SchoolSports {
    * (Loveland's four): its page is then /sports/<slug>/ and its file
    * data/<town>/sports-<slug>.json, and /sports/ lists the schools. A
    * town's only school has no slug, and keeps /sports/ and sports.json.
+   * A town that follows several may leave one without a slug, its own
+   * school (Lafayette's Centaurus, 9 November 2026): that one keeps
+   * /sports/, sports.json, the home page's strip and the menu's word, and
+   * its page names the others under "Also in <town>".
    */
   slug?: string;
   /** "Berthoud High School". */
@@ -151,6 +177,13 @@ export interface SchoolSports {
   colors?: { primary: string };
   /** The postseason rounds the school hosted (HostedRound). */
   hosted?: HostedRound[];
+  /**
+   * The town's middle school's teams, one line under the school's teams on
+   * its sports page, from the middle school's own athletics page: MaxPreps
+   * keeps no middle-school scores, so it is a line and a link, not a
+   * scoreboard. Its own `source` and `verified`, like every fact here.
+   */
+  middleSchool?: { name: string; url: string; note: string; source: string; verified: string };
   teams: SportConfig[];
 }
 
@@ -237,6 +270,70 @@ const ICE_HOCKEY: SportConfig = { key: 'ice-hockey', season: 'winter', name: 'Ic
  * says so in the run's summary.
  */
 const GIRLS_FLAG_FOOTBALL: SportConfig = { key: 'girls-flag-football', season: 'fall', name: 'Girls flag football', maxpreps: 'flag-football/girls/fall', calendar: { gender: 'Girls', sport: 'Flag Football' } };
+
+/** The school year a Denver day falls in, as MaxPreps names it: "26-27" from August 2026 to July 2027. */
+export function schoolYear(day: string): string {
+  const [y, m] = day.split('-').map(Number) as [number, number];
+  const start = m >= 8 ? y : y - 1;
+  return `${String(start).slice(-2)}-${String(start + 1).slice(-2)}`;
+}
+
+/** Where the run reads a team, and how MaxPreps names our side there: the school's own page, or the co-op's (SportConfig.coop). */
+export function teamSource(school: Pick<SchoolSports, 'maxpreps' | 'maxprepsName'>, sport: Pick<SportConfig, 'maxpreps' | 'coop'>): { url: string; root: string; schoolName: string } {
+  const root = sport.coop?.maxpreps ?? school.maxpreps;
+  return { url: `${root}${sport.maxpreps}/`, root, schoolName: sport.coop?.maxprepsName ?? school.maxprepsName };
+}
+
+/**
+ * The spring teams both Lafayette schools field, each with its MaxPreps
+ * path as both schools' pages give it (read 9 November 2026), and the day
+ * the run starts reading them (SportConfig.from).
+ */
+const SPRING_TEAMS = (from: string): SportConfig[] => [
+  { key: 'baseball', season: 'spring', name: 'Baseball', maxpreps: 'baseball', calendar: { gender: 'Boys', sport: 'Baseball' }, from },
+  { key: 'girls-golf', season: 'spring', name: 'Girls golf', maxpreps: 'golf/girls/spring', calendar: { gender: 'Girls', sport: 'Golf' }, from },
+  { key: 'girls-soccer', season: 'spring', name: 'Girls soccer', maxpreps: 'soccer/girls/spring', calendar: { gender: 'Girls', sport: 'Soccer' }, from },
+  { key: 'girls-tennis', season: 'spring', name: 'Girls tennis', maxpreps: 'tennis/girls/spring', calendar: { gender: 'Girls', sport: 'Tennis' }, from },
+  { key: 'boys-track', season: 'spring', name: 'Boys track and field', maxpreps: 'track-field', calendar: { gender: 'Boys', sport: 'Track and Field' }, from },
+  { key: 'girls-track', season: 'spring', name: 'Girls track and field', maxpreps: 'track-field/girls', calendar: { gender: 'Girls', sport: 'Track and Field' }, from },
+];
+
+/** The co-op schools' MaxPreps pages, as each school's own page links its teams (read 9 November 2026). */
+const MONARCH = { school: 'Monarch', maxpreps: 'https://www.maxpreps.com/co/louisville/monarch-coyotes/', maxprepsName: 'Monarch' };
+const BROOMFIELD = { school: 'Broomfield', maxpreps: 'https://www.maxpreps.com/co/broomfield/broomfield-bald-eagle/', maxprepsName: 'Broomfield' };
+const FAIRVIEW = { school: 'Fairview', maxpreps: 'https://www.maxpreps.com/co/boulder/fairview-knights/', maxprepsName: 'Fairview' };
+const NEDERLAND = { school: 'Nederland', maxpreps: 'https://www.maxpreps.com/co/nederland/nederland-panthers/', maxprepsName: 'Nederland' };
+
+/**
+ * Centaurus's teams beyond the default lists, from the school's athletics
+ * page (ceh.bvsd.org/athletics, read 9 November 2026), which names each
+ * co-op and its host ("Centaurus students compete on the Broomfield
+ * Gymnastics Team"; "The BVSD hockey program is housed at Monarch High
+ * School"). Paths are the MaxPreps pages of Centaurus and of each host, read
+ * the same day. Not followed, with no page for Centaurus on MaxPreps: girls'
+ * field hockey, girls' flag football, cheer, and dance and poms. The spring
+ * teams start on the days the athletics page gives, Monday 22 February 2027
+ * for lacrosse, boys' volleyball and boys' swimming, and Monday 1 March for
+ * the rest (girls' golf, which it does not date, with them).
+ */
+const CENTAURUS_FALL: SportConfig[] = [
+  { key: 'boys-golf', season: 'fall', name: 'Boys golf', maxpreps: 'golf', calendar: { gender: 'Boys', sport: 'Golf' } },
+  { key: 'boys-tennis', season: 'fall', name: 'Boys tennis', maxpreps: 'tennis/fall', calendar: { gender: 'Boys', sport: 'Tennis' } },
+  { key: 'gymnastics', season: 'fall', name: 'Gymnastics (co-op)', maxpreps: 'gymnastics/fall', calendar: { gender: 'Girls', sport: 'Gymnastics' }, coop: BROOMFIELD },
+];
+const CENTAURUS_WINTER: SportConfig[] = [
+  { key: 'ice-hockey', season: 'winter', name: 'Ice hockey (co-op)', maxpreps: 'ice-hockey', calendar: { gender: 'Boys', sport: 'Ice Hockey' }, coop: MONARCH },
+  { key: 'girls-wrestling', season: 'winter', name: 'Girls wrestling (co-op)', maxpreps: 'wrestling/girls', calendar: { gender: 'Girls', sport: 'Wrestling' }, coop: BROOMFIELD },
+  { key: 'boys-skiing', season: 'winter', name: 'Boys skiing (co-op)', maxpreps: 'ski-snowboard', calendar: { gender: 'Boys', sport: 'Ski' }, coop: NEDERLAND },
+  { key: 'girls-skiing', season: 'winter', name: 'Girls skiing (co-op)', maxpreps: 'ski-snowboard/girls', calendar: { gender: 'Girls', sport: 'Ski' }, coop: NEDERLAND },
+];
+const CENTAURUS_SPRING: SportConfig[] = [
+  ...SPRING_TEAMS('2027-03-01'),
+  { key: 'boys-volleyball', season: 'spring', name: 'Boys volleyball', maxpreps: 'volleyball/boys', calendar: { gender: 'Boys', sport: 'Volleyball' }, from: '2027-02-22' },
+  { key: 'boys-lacrosse', season: 'spring', name: 'Boys lacrosse (co-op)', maxpreps: 'lacrosse', calendar: { gender: 'Boys', sport: 'Lacrosse' }, coop: MONARCH, from: '2027-02-22' },
+  { key: 'girls-lacrosse', season: 'spring', name: 'Girls lacrosse (co-op)', maxpreps: 'lacrosse/girls', calendar: { gender: 'Girls', sport: 'Lacrosse' }, coop: FAIRVIEW, from: '2027-02-22' },
+  { key: 'boys-swimming', season: 'spring', name: 'Boys swimming (co-op)', maxpreps: 'swimming', calendar: { gender: 'Boys', sport: 'Swimming' }, coop: MONARCH, from: '2027-02-22' },
+];
 
 /** The fall list without one team, for a school that does not field it. */
 const FALL_WITHOUT = (...keys: string[]): SportConfig[] => FALL().filter((t) => !keys.includes(t.key));
@@ -531,11 +628,49 @@ export const SCHOOL_SPORTS: SchoolSports[] = [
     // placeholder times and an out-of-state address, which the check treats
     // as not on the calendar.
     calendar: { kind: 'finalsite', url: 'https://ceh.bvsd.org/about/calendar', label: 'the Centaurus calendar' },
-    // CHSAANow lists every fall and winter team the default lists follow
-    // (girls' wrestling and gymnastics are Broomfield co-ops, not followed).
-    // No data file yet: the first Saturday or Wednesday run writes
-    // data/lafayette/sports.json, and the page waits for it.
-    teams: TEAMS(),
+    // Every team Centaurus fields (ceh.bvsd.org/athletics, read 9 November
+    // 2026) that MaxPreps keeps a page for, the owner's word that day: the
+    // default fall and winter lists, then the rest, each path from the
+    // school's MaxPreps page as read the same day (CENTAURUS_* below).
+    teams: [...FALL(), ...CENTAURUS_FALL, ...WINTER(), ...CENTAURUS_WINTER, ...CENTAURUS_SPRING],
+    // Angevine's own athletics page (anm.bvsd.org/activities/athletics, the
+    // teams and seasons) and its activities page (anm.bvsd.org/activities,
+    // the fee, the physical and Arbiter), both read 9 November 2026.
+    middleSchool: {
+      name: 'Angevine Middle School',
+      url: 'https://anm.bvsd.org/activities/athletics',
+      note: 'Interscholastic teams for eighth-grade girls’ volleyball, co-ed flag football and boys’ and girls’ basketball, and cross country, wrestling and track for grades 6 to 8. Every athlete needs a current physical and the $125 fee, and families register through Arbiter',
+      source: 'https://anm.bvsd.org/activities/athletics',
+      verified: '2026-11-09',
+    },
+  },
+  {
+    town: 'lafayette',
+    // Lafayette's second school, the owner's word, 9 November 2026: Peak to
+    // Peak Charter School, the K–12 BVSD charter at 800 Merlin Drive. Its
+    // high-school teams are its own athletics page's
+    // (peaktopeak.org/athletics-activities/athletics/high-school-athletic-teams,
+    // read 9 November 2026); the mascot and every path are its MaxPreps
+    // page's, read the same day ("Peak to Peak Pumas"; the page gives no
+    // colours, so the guide's own stay). Its girls' flag football is a
+    // district team ("Girls Flag Football (BVSD)") with no page under the
+    // school on MaxPreps, and is not followed. Centaurus is the town's own
+    // school and keeps /sports/; this one is /sports/peak-to-peak/.
+    slug: 'peak-to-peak',
+    school: 'Peak to Peak Charter School',
+    mascot: 'Pumas',
+    maxpreps: 'https://www.maxpreps.com/co/lafayette/peak-to-peak-pumas/',
+    maxprepsName: 'Peak to Peak',
+    calendarNote: 'Peak to Peak’s games are not checked against a school calendar, so games to come are published on MaxPreps’s word alone.',
+    teams: [
+      ...FALL_WITHOUT('football'),
+      { key: 'boys-golf', season: 'fall', name: 'Boys golf', maxpreps: 'golf', calendar: { gender: 'Boys', sport: 'Golf' } },
+      { key: 'boys-tennis', season: 'fall', name: 'Boys tennis', maxpreps: 'tennis/fall', calendar: { gender: 'Boys', sport: 'Tennis' } },
+      ...WINTER_WITHOUT('wrestling', 'girls-swimming'),
+      // Peak to Peak's page gives no start dates; these are Centaurus's for
+      // the same sports, CHSAA's first practice day of 1 March 2027.
+      ...SPRING_TEAMS('2027-03-01'),
+    ],
   },
 ];
 
@@ -545,15 +680,17 @@ export function schoolsFor(town: string): SchoolSports[] {
 }
 
 /**
- * The school a page is about: the one with the slug, or the town's only
- * school. A town that follows several has no single school, so the home
- * page's strip and the guide's one-line sports entry, which name one, show
- * nothing there; /sports/ lists the schools instead.
+ * The school a page is about: the one with the slug, or the town's own
+ * school, the one without a slug (a town's only school, or Lafayette's
+ * Centaurus beside Peak to Peak). A town whose several schools all have
+ * slugs (Loveland's four) has no single school, so the home page's strip
+ * and the guide's one-line sports entry, which name one, show nothing
+ * there; /sports/ lists the schools instead.
  */
 export function schoolSportsFor(town: string, slug?: string): SchoolSports | undefined {
   const schools = schoolsFor(town);
   if (slug) return schools.find((s) => s.slug === slug);
-  return schools.length === 1 ? schools[0] : undefined;
+  return schools.find((s) => !s.slug);
 }
 
 /**

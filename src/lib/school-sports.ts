@@ -427,10 +427,12 @@ export function seasonComplete(data: SportsData, now = new Date()): boolean {
  * on (no games at all): the fall of the build's year, which is what the
  * eyebrow said before the winter list existed.
  */
-export function seasonOf(data: SportsData, teams: Array<Pick<SportConfig, 'key' | 'season'>>, now = new Date()): { season: 'Fall' | 'Winter'; year: number; years: string; label: string } {
+export function seasonOf(data: SportsData, teams: Array<Pick<SportConfig, 'key' | 'season'>>, now = new Date()): { season: 'Fall' | 'Winter' | 'Spring'; year: number; years: string; label: string } {
   const seasonOfTeam = (key: string) => teams.find((t) => t.key === key)?.season ?? 'fall';
   const game = bigGame(data, now) ?? latestResult(data);
-  const season = game && seasonOfTeam(game.team.key) === 'winter' ? 'Winter' : 'Fall';
+  const kind = game ? seasonOfTeam(game.team.key) : 'fall';
+  // "Spring 2027": the spring season is named for its calendar year, like the fall.
+  const season = kind === 'winter' ? 'Winter' : kind === 'spring' ? 'Spring' : 'Fall';
   const [y, m] = (game ? game.game.date : dayKey(now)).split('-').map(Number) as [number, number];
   // A winter season runs across the new year and is named for the school
   // year it belongs to: a January game is "Winter 2026–27", not 2027's.
@@ -450,7 +452,10 @@ export function pageSeasonLabel(data: SportsData, teams: Array<Pick<SportConfig,
   const s = seasonOf(data, teams, now);
   const seasons = new Set(teamsWithData(data).map((t) => teams.find((c) => c.key === t.key)?.season ?? 'fall'));
   if (seasons.size < 2) return s.label;
-  return s.season === 'Winter' ? s.years : `${s.year}–${String(s.year + 1).slice(-2)}`;
+  // The school year: a winter's own span, a spring's the year before it to its own, a fall's to the year after.
+  if (s.season === 'Winter') return s.years;
+  if (s.season === 'Spring') return `${s.year - 1}–${String(s.year).slice(-2)}`;
+  return `${s.year}–${String(s.year + 1).slice(-2)}`;
 }
 
 /** "Boys soccer" as a title writes it: "Boys Soccer". */

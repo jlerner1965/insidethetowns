@@ -21,12 +21,12 @@ import { breadcrumbJsonLd, collectionPageJsonLd } from '@/lib/seo';
 const town = getTown();
 const files = import.meta.glob<SportsData>('../../../data/*/sports*.json', { eager: true, import: 'default' });
 const schools = schoolsFor(town.slug);
-// /sports/football/ on a town with one school; /sports/<slug>/football/ with several.
+// /sports/football/ for a town's own school; /sports/<slug>/football/ for one with a slug.
 const m = Astro.url.pathname.match(/^\/sports\/(?:([^/]+)\/)?([^/]+)\/?$/);
-const slug = schools.length > 1 ? m?.[1] : undefined;
+const slug = m?.[1] && schools.some((s) => s.slug === m[1]) ? m[1] : undefined;
 const key = m?.[2];
 const cfg = schoolSportsFor(town.slug, slug);
-if (!cfg || !key || (schools.length > 1 && !slug)) throw new Error(`No school is configured for ${Astro.url.pathname} on ${town.slug} (src/config/school-sports.ts)`);
+if (!cfg || !key || (m?.[1] && !slug)) throw new Error(`No school is configured for ${Astro.url.pathname} on ${town.slug} (src/config/school-sports.ts)`);
 const data = sportsDataFor(cfg, files) ?? { generated: '', sports: [] };
 const team = data.sports.find((s) => s.key === key);
 if (!team || !hasData(team)) throw new Error(`${Astro.url.pathname}: ${key} has no data on ${cfg.school}; the route should not have been injected (src/integrations/town-routes.ts)`);
@@ -36,7 +36,11 @@ const shortSchool = cfg.maxprepsName;
 const path = teamPath(cfg, key);
 const schoolPath = sportsPath(cfg);
 const sisters = teamsWithData(data).filter((s) => s.key !== key);
-const schoolStyle = schools.length === 1 ? schoolCssVars(cfg) : undefined;
+// A co-op plays as its host's team (SportConfig.coop): the page says whose, and its games are the host's.
+const coop = cfg.teams.find((t) => t.key === key)?.coop;
+const side = coop?.maxprepsName ?? cfg.maxprepsName;
+// The town's own school wears its colour; a school with a slug keeps the guide's.
+const schoolStyle = !cfg.slug ? schoolCssVars(cfg) : undefined;
 
 const now = new Date();
 const today = dayKey(now);
@@ -91,7 +95,8 @@ const jsonLd = [
         <p class="eyebrow mb-3">{seasonLabel}</p>
         <h1 class="display-md text-[2.25rem] sm:text-5xl md:text-6xl">{title}</h1>
         <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted md:text-xl">
-          {team.overall ? <Fragment>The {mascot} are <strong class="font-semibold text-ink">{team.overall}</strong>{team.league ? `, ${team.league.record} in the ${team.league.name}${leaguePlace(team) ? ` (${leaguePlace(team)})` : ''}` : ''}. </Fragment> : null}
+          {coop && <Fragment>{shortSchool} students play on {coop.school}’s team, which MaxPreps keeps under {coop.school}. </Fragment>}
+          {team.overall ? <Fragment>{coop ? `The ${coop.school} team is` : `The ${mascot} are`} <strong class="font-semibold text-ink">{team.overall}</strong>{team.league ? `, ${team.league.record} in the ${team.league.name}${leaguePlace(team) ? ` (${leaguePlace(team)})` : ''}` : ''}. </Fragment> : null}
           Every score and the full schedule this {seasonWord}.
         </p>
       </div>
@@ -108,7 +113,7 @@ const jsonLd = [
     </div>
   </header>
 
-  <NextUp school={cfg.maxprepsName} {mascot} {next} {then} {latest} complete={seasonComplete(own, now)} seasonHref={() => '#season'} />
+  <NextUp school={side} mascot={coop ? `${coop.school} co-op players` : mascot} {next} {then} {latest} complete={seasonComplete(own, now)} seasonHref={() => '#season'} />
 
   <section class="band band-paper" id="season">
     <div class="container-page">
