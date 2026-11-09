@@ -19,9 +19,11 @@ interface Props {
   /** Where the rest are. */
   moreHref?: string;
   class?: string;
+  /** Each program name's weight and colour in place of font-medium: the family hub sets its titles semibold and black (text-title). */
+  titleClass?: string;
 }
 
-const { programs = [], items, limit = 5, days = 45, moreHref, class: className } = Astro.props;
+const { programs = [], items, limit = 5, days = 45, moreHref, class: className, titleClass } = Astro.props;
 const list = items ?? upcomingDeadlines(programs, { days });
 ---
 {list.length > 0 && (
@@ -29,7 +31,7 @@ const list = items ?? upcomingDeadlines(programs, { days });
     {list.slice(0, limit).map(({ program, on, what }) => (
       <li class="py-3 text-[0.9375rem] leading-snug">
         <time datetime={toIsoLocal(on)} class="eyebrow text-ink-muted">{formatDayShort(on)} · registration {what}</time>
-        <span class="mt-0.5 block font-medium">
+        <span class:list={['mt-0.5 block', titleClass ?? 'font-medium']}>
           {program.data.registration?.url ? (
             <a href={program.data.registration.url} rel="noopener" data-track="registration" class="no-underline hover:text-primary hover:underline">{program.data.title}</a>
           ) : program.data.title}

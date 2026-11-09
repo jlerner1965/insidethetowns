@@ -48,6 +48,15 @@ export const INK = '#243137';
 export const INK_MUTED = '#46545B';
 
 /**
+ * Black, for the titles on the family hub (/families/): the section
+ * headings, each program's name, the deadline cards and the free cards. Set
+ * in the body ink they were the same dark slate as the facts under them and
+ * did not stand apart from the text (the owner, 9 November 2026). Titles
+ * only: body text stays INK.
+ */
+export const TITLE_INK = '#000000';
+
+/**
  * A primary's hover and pressed fill: the primary darkened by 12%, as the
  * guide asks, by mixing in 12% black in sRGB. The same arithmetic as CSS
  * `color-mix(in srgb, <primary> 88%, #000)`, done here so the page carries an
